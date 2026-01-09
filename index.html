@@ -1,40 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sufi Shrines Map</title>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MapTiler Dataset Viewer</title>
+
+    <!-- MapTiler SDK CSS (via jsDelivr) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@maptiler/sdk@3.9.0/dist/maptiler-sdk.css"
+    />
+    <!-- The dist files (maptiler-sdk.mjs + CSS) are published on jsDelivr -->
+    <!-- See listing: dist/maptiler-sdk.mjs and dist/maptiler-sdk.css -->
+    <!-- :contentReference[oaicite:1]{index=1} -->
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100vh;
-        }
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      .hint {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        left: 12px;
+        background: rgba(255,255,255,0.92);
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-size: 13px;
+        max-width: 360px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      }
+      .hint code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <div id="map"></div>
-    
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-    <script>
-        mapboxgl.accessToken = 'YOUR_MAPTILER_API_KEY_HERE';
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'https://api.maptiler.com/maps/streets/style.json?key=YOUR_MAPTILER_API_KEY_HERE',
-            center: [0, 20],
-            zoom: 3
+    <div class="hint">
+      If the map is blank on GitHub Pages, open DevTools Console and check for API key restrictions or CORS.
+    </div>
+
+    <script type="module">
+      import * as maptilersdk from "https://cdn.jsdelivr.net/npm/@maptiler/sdk@3.9.0/dist/maptiler-sdk.mjs";
+
+      // 1) Put your MapTiler key here (do not commit real keys to public repos)
+      maptilersdk.config.apiKey = "WDmTVcrwlj7v2t6K2h5d";
+
+      // 2) Your dataset id from the URL you shared
+      const dataId = "019ba207-5621-7b3b-aa94-636b670ca78b";
+
+      // 3) Create the map
+      const map = new maptilersdk.Map({
+        container: "map",
+        style: maptilersdk.MapStyle.STREETS,
+        center: [0, 0],
+        zoom: 2
+      });
+
+      map.addControl(new maptilersdk.NavigationControl(), "top-right");
+
+      // Small helper to compute bbox for fitBounds
+      function bboxFromGeoJSON(geojson) {
+        let minLng = Infinity, minLat = Infinity, maxLng = -Infinity, maxLat = -Infinity;
+
+        const consider = (lng, lat) => {
+          if (typeof lng !== "number" || typeof lat !== "number") return;
+          if (lng < minLng) minLng = lng;
+          if (lat < minLat) minLat = lat;
+          if (lng > maxLng) maxLng = lng;
+          if (lat > maxLat) maxLat = lat;
+        };
+
+        const walkCoords = (coords) => {
+          if (!Array.isArray(coords)) return;
+          // coord pair
+          if (typeof coords[0] === "number" && typeof coords[1] === "number") {
+            consider(coords[0], coords[1]);
+            return;
+          }
+          // nested
+          for (const c of coords) walkCoords(c);
+        };
+
+        if (geojson?.type === "FeatureCollection") {
+          for (const f of geojson.features || []) {
+            if (f?.geometry?.coordinates) walkCoords(f.geometry.coordinates);
+          }
+        } else if (geojson?.type === "Feature" && geojson?.geometry?.coordinates) {
+          walkCoords(geojson.geometry.coordinates);
+        } else if (geojson?.coordinates) {
+          walkCoords(geojson.coordinates);
+        }
+
+        if (!isFinite(minLng) || !isFinite(minLat) || !isFinite(maxLng) || !isFinite(maxLat)) {
+          return null;
+        }
+        return [[minLng, minLat], [maxLng, maxLat]];
+      }
+
+      map.on("load", async () => {
+        // Fetch GeoJSON from MapTiler dataset using the SDK helper
+        // This matches MapTiler’s GeoJSON overlay examples. :contentReference[oaicite:2]{index=2}
+        const geojson = await maptilersdk.data.get(dataId);
+
+        // Add GeoJSON as a source
+        map.addSource("dataset", {
+          type: "geojson",
+          data: geojson
         });
+
+        // Add polygon fill (only polygons)
+        map.addLayer({
+          id: "dataset-fill",
+          type: "fill",
+          source: "dataset",
+          filter: ["==", ["geometry-type"], "Polygon"],
+          paint: {
+            "fill-color": "#3b82f6",
+            "fill-opacity": 0.35
+          }
+        });
+
+        // Polygon outlines
+        map.addLayer({
+          id: "dataset-outline",
+          type: "line",
+          source: "dataset",
+          filter: ["==", ["geometry-type"], "Polygon"],
+          paint: {
+            "line-color": "#1f2937",
+            "line-width": 2
+          }
+        });
+
+        // Lines (LineString)
+        map.addLayer({
+          id: "dataset-lines",
+          type: "line",
+          source: "dataset",
+          filter: ["==", ["geometry-type"], "LineString"],
+          paint: {
+            "line-color": "#ef4444",
+            "line-width": 3
+          }
+        });
+
+        // Points
+        map.addLayer({
+          id: "dataset-points",
+          type: "circle",
+          source: "dataset",
+          filter: ["==", ["geometry-type"], "Point"],
+          paint: {
+            "circle-radius": 6,
+            "circle-color": "#10b981",
+            "circle-stroke-color": "#064e3b",
+            "circle-stroke-width": 1.5
+          }
+        });
+
+        // Zoom to dataset
+        const bounds = bboxFromGeoJSON(geojson);
+        if (bounds) {
+          map.fitBounds(bounds, { padding: 40, maxZoom: 16, duration: 0 });
+        }
+
+        // Optional: click popup showing properties
+        map.on("click", (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["dataset-fill", "dataset-lines", "dataset-points"]
+          });
+          if (!features.length) return;
+
+          const f = features[0];
+          const props = f.properties || {};
+          const html = `<div style="font-family:system-ui;font-size:13px;max-width:280px">
+            <div style="font-weight:600;margin-bottom:6px">Feature</div>
+            <pre style="white-space:pre-wrap;margin:0">${JSON.stringify(props, null, 2)}</pre>
+          </div>`;
+
+          new maptilersdk.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(html)
+            .addTo(map);
+        });
+
+        map.getCanvas().style.cursor = "pointer";
+      });
     </script>
-</body>
+  </body>
 </html>
