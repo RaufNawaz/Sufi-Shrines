@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shrines Click Info</title>
 
+  <!-- MapTiler SDK (UMD) -->
   <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.umd.min.js"></script>
   <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css" rel="stylesheet" />
 
@@ -97,13 +98,17 @@
   <div id="status">Loading…</div>
 
   <script>
+    // --- YOUR SETTINGS ---
     const API_KEY = "WDmTVcrwlj7v2t6K2h5d";
     const STYLE_URL =
       "https://api.maptiler.com/maps/019ba17c-0c46-7e35-90ec-d45eb3bd7973/style.json?key=" +
       encodeURIComponent(API_KEY);
 
-    // IMPORTANT: Your layer id has a trailing space:
+    // IMPORTANT: your layer id includes a trailing space
     const SHRINES_LAYER_ID = "Shrines ";
+
+    // Lahore start view
+    const LAHORE_CENTER = [74.3587, 31.5204];
 
     maptilersdk.config.apiKey = API_KEY;
 
@@ -113,7 +118,7 @@
     const map = new maptilersdk.Map({
       container: "map",
       style: STYLE_URL,
-      center: [74.3587, 31.5204], // Lahore
+      center: LAHORE_CENTER,
       zoom: 12
     });
 
@@ -155,35 +160,88 @@
       }[c]));
     }
 
+    // --- SIDEBAR RENDERER (with Image property rendered at the top) ---
     function showFeaturePropertiesInSidebar(feature) {
-      const props = feature && feature.properties ? feature.properties : {};
-      const title = props.name || props.title || props.Name || props.NAME || "Shrine";
+      const props = feature?.properties || {};
+      const title =
+        props.name || props.title || props.Name || props.NAME || "Place";
 
-      const rows = Object.keys(props).map((k) => {
+      // Grab image link from Image/image fields (any URL allowed)
+      let imageUrl =
+        props.Image ??
+        props.image ??
+        props.image_url ??
+        props.photo_url ??
+        props.photo ??
+        null;
+
+      // Normalize and validate URL
+      if (typeof imageUrl === "string") {
+        imageUrl = imageUrl.trim();
+
+        // allow protocol-relative URLs
+        if (imageUrl.startsWith("//")) imageUrl = "https:" + imageUrl;
+
+        // if missing protocol, add https://
+        if (!/^https?:\/\//i.test(imageUrl)) {
+          imageUrl = "https://" + imageUrl.replace(/^\/+/, "");
+        }
+      } else {
+        imageUrl = null;
+      }
+
+      const parts = [];
+
+      // Render image at top if present
+      if (imageUrl) {
+        parts.push(`
+          <img
+            src="${escapeHtml(imageUrl)}"
+            alt="${escapeHtml(title)}"
+            style="width:100%; max-height:240px; object-fit:cover; border-radius:10px; margin:0 0 12px 0; display:block;"
+            onerror="this.style.display='none';"
+          />
+        `);
+      }
+
+      parts.push(`<h1>${escapeHtml(title)}</h1>`);
+
+      // Render all properties except the image field so it doesn't show twice
+      const imageKeys = new Set(["image", "Image", "image_url", "photo_url", "photo"]);
+      const rows = [];
+
+      for (const k of Object.keys(props)) {
+        if (imageKeys.has(k)) continue;
+
         const v = props[k];
-        return `<div><label>${escapeHtml(k)}:</label> ${escapeHtml(v)}</div>`;
-      });
+        const sv = String(v);
 
-      const html = [
-        `<h1>${escapeHtml(title)}</h1>`,
-        rows.length
-          ? `<div class="details-info">${rows.join("")}</div>`
-          : `<div class="muted">No properties found.</div>`
-      ].join("");
+        // If it looks like a URL, render as a link
+        if (/^https?:\/\//i.test(sv) || sv.startsWith("www.")) {
+          const href = sv.startsWith("www.") ? "https://" + sv : sv;
+          rows.push(
+            `<div><label>${escapeHtml(k)}:</label> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`
+          );
+        } else {
+          rows.push(`<div><label>${escapeHtml(k)}:</label> ${escapeHtml(sv)}</div>`);
+        }
+      }
 
-      document.querySelector(".sidebar-content-info").innerHTML = html;
+      if (rows.length) parts.push(`<div class="details-info">${rows.join("")}</div>`);
+
+      document.querySelector(".sidebar-content-info").innerHTML = parts.join("");
       showSidebar("left");
     }
 
     document.querySelector(".sidebar-toggle").addEventListener("click", () => toggleSidebar("left"));
 
     map.on("load", () => {
-      // Verify the layer exists (this is the most important check)
+      // Verify the layer exists (must match EXACTLY, including the trailing space)
       const layer = map.getLayer(SHRINES_LAYER_ID);
       if (!layer) {
         setStatus(
           "Layer not found: [" + SHRINES_LAYER_ID + "]\n" +
-          "Tip: your layer id might have spaces. Printing all layer ids to console."
+          "Printing all layer ids to the console."
         );
         console.log("All layer ids:", map.getStyle().layers.map(l => "[" + l.id + "]"));
         return;
@@ -192,13 +250,13 @@
       setStatus("Map loaded. Click a shrine point.");
       setTimeout(() => { statusEl.style.display = "none"; }, 2000);
 
-      // Make points clickable
+      // Click handler for your Shrines dataset layer
       map.on("click", SHRINES_LAYER_ID, (e) => {
         if (!e.features || !e.features.length) return;
         showFeaturePropertiesInSidebar(e.features[0]);
       });
 
-      // Cursor pointer on hover
+      // Pointer cursor
       map.on("mouseenter", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = "pointer"; });
       map.on("mouseleave", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = ""; });
 
