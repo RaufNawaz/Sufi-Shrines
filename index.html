@@ -3,223 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sufi Shrines Map</title>
+  <title>Sufi Shrines Map (Leaflet)</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- PapaParse for CSV parsing -->
+  <!-- PapaParse (CSV parser) -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-  <style>
-    html, body { height: 100%; margin: 0; }
-    #wrap { height: 100%; display: flex; }
-
-    #sidebar {
-      width: 360px;
-      border-right: 1px solid #e5e7eb;
-      padding: 14px;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      overflow-y: auto;
-      background: #fff;
-    }
-
-    #map { flex: 1; }
-
-    h1 { margin: 0 0 10px; font-size: 20px; }
-    .muted { color: #6b7280; font-size: 13px; }
-    .row { margin: 6px 0; font-size: 13px; line-height: 1.4; }
-    .row b { color: #374151; margin-right: 6px; }
-    img.preview {
-      width: 100%;
-      max-height: 240px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 0 0 12px;
-      display: block;
-    }
-    #status {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #6b7280;
-      white-space: pre-wrap;
-    }
-  </style>
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="./styles.css" />
 </head>
-
 <body>
   <div id="wrap">
-    <div id="sidebar">
+    <aside id="sidebar">
       <h1>Sufi Shrines</h1>
-      <div class="muted">Click a marker to view its properties.</div>
-      <div id="status"></div>
-    </div>
-    <div id="map"></div>
+      <p class="muted">Click a marker to view its properties.</p>
+      <div id="status" class="status"></div>
+      <div id="details" class="details">
+        <p class="muted">No shrine selected yet.</p>
+      </div>
+    </aside>
+
+    <main id="map" aria-label="Map"></main>
   </div>
 
-  <script>
-    const statusEl = document.getElementById("status");
-    function setStatus(msg) { statusEl.textContent = msg || ""; }
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, (c) => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-      }[c]));
-    }
-
-    function normalizeUrl(u) {
-      if (!u) return null;
-      u = String(u).trim();
-      if (!u) return null;
-
-      // Allow protocol-relative
-      if (u.startsWith("//")) u = "https:" + u;
-
-      // If missing protocol, add https://
-      if (!/^https?:\/\//i.test(u)) u = "https://" + u.replace(/^\/+/, "");
-
-      return u;
-    }
-
-    function trimRowKeysAndValues(row) {
-      // Your CSV headers include trailing spaces. This normalizes both keys and string values.
-      const out = {};
-      for (const [k, v] of Object.entries(row)) {
-        const key = String(k).trim();
-        if (v === null || v === undefined) {
-          out[key] = v;
-        } else if (typeof v === "string") {
-          out[key] = v.trim();
-        } else {
-          out[key] = v;
-        }
-      }
-      return out;
-    }
-
-    function showInSidebar(rawRow) {
-      const row = trimRowKeysAndValues(rawRow);
-
-      // Match your column names after trimming
-      const title = row["Name"] || row["name"] || "Shrine";
-      const imgUrl = normalizeUrl(row["Image Link"] || row["Image"] || row["image"]);
-
-      const parts = [];
-
-      if (imgUrl) {
-        parts.push(
-          `<img class="preview" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(title)}" onerror="this.style.display='none';" />`
-        );
-      }
-
-      parts.push(`<h1>${escapeHtml(title)}</h1>`);
-
-      // Render all properties except lat/lng and image link (so it does not show twice)
-      const skipKeys = new Set([
-        "Latitude", "Longitude", "lat", "lng", "lon", "latitude", "longitude",
-        "Image Link", "Image", "image", "image_url", "photo", "photo_url"
-      ]);
-
-      for (const [k, v] of Object.entries(row)) {
-        if (skipKeys.has(k)) continue;
-        if (v === null || v === undefined || String(v).trim() === "") continue;
-
-        const sv = String(v);
-
-        // Render URLs as links
-        if (/^https?:\/\//i.test(sv) || sv.startsWith("www.")) {
-          const href = sv.startsWith("www.") ? "https://" + sv : sv;
-          parts.push(
-            `<div class="row"><b>${escapeHtml(k)}:</b> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`
-          );
-        } else {
-          parts.push(`<div class="row"><b>${escapeHtml(k)}:</b> ${escapeHtml(sv)}</div>`);
-        }
-      }
-
-      document.getElementById("sidebar").innerHTML = `
-        <h1>Sufi Shrines</h1>
-        <div class="muted">Click a marker to view its properties.</div>
-        <div style="height:10px;"></div>
-        ${parts.join("")}
-        <div id="status"></div>
-      `;
-
-      // Restore status element reference after sidebar rewrite
-      const newStatus = document.getElementById("status");
-      if (newStatus) newStatus.textContent = "";
-    }
-
-    // Leaflet map centered on Lahore
-    const map = L.map("map").setView([31.5204, 74.3587], 12);
-
-    // Basemap tiles (OpenStreetMap)
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: "&copy; OpenStreetMap contributors"
-    }).addTo(map);
-
-    const markers = [];
-
-    function addMarkerForRow(rawRow) {
-      const row = trimRowKeysAndValues(rawRow);
-
-      // Your column names (trimmed)
-      const lat = parseFloat(row["Latitude"]);
-      const lng = parseFloat(row["Longitude"]);
-
-      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
-
-      const title = row["Name"] || "Shrine";
-
-      const m = L.marker([lat, lng]).addTo(map);
-      m.bindTooltip(title, { direction: "top", offset: [0, -8] });
-
-      m.on("click", () => {
-        map.setView([lat, lng], Math.max(map.getZoom(), 14));
-        showInSidebar(row);
-      });
-
-      markers.push(m);
-    }
-
-    // Load your Excel-exported CSV
-    // Put your file in the repo root and name it: data.csv
-    setStatus("Loading data.csv…");
-
-    Papa.parse("data.csv", {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: (results) => {
-        const rows = results.data || [];
-        if (!rows.length) {
-          setStatus("No rows found in data.csv.");
-          return;
-        }
-
-        rows.forEach(addMarkerForRow);
-
-        if (!markers.length) {
-          setStatus("No valid points found. Check Latitude and Longitude columns.");
-          return;
-        }
-
-        // Fit map to all points
-        const fg = L.featureGroup(markers);
-        map.fitBounds(fg.getBounds().pad(0.15));
-
-        setStatus("");
-
-        // Show first row in sidebar as a starting view
-        showInSidebar(rows[0]);
-      },
-      error: (err) => {
-        setStatus("Failed to load data.csv.\n" + String(err));
-      }
-    });
-  </script>
+  <!-- Your JS -->
+  <script src="./app.js"></script>
 </body>
 </html>
