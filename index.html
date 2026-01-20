@@ -1,158 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sufi Shrines</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sufi Shrines Map</title>
 
-  <!-- MapTiler SDK (UMD) -->
-  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.umd.min.js"></script>
-  <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css" rel="stylesheet" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- PapaParse for CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
   <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; inset: 0; }
+    html, body { height: 100%; margin: 0; }
+    #wrap { height: 100%; display: flex; }
 
-    .rounded-rect { background: white; border-radius: 10px; box-shadow: 0 0 50px -25px black; }
-    .flex-center { position: absolute; display: flex; justify-content: center; align-items: center; }
-    .flex-center.left { left: 0px; }
-
-    .sidebar {
-      transition: transform 1s;
-      z-index: 2;
-      width: 320px;
-      height: 100%;
-      top: 0;
-    }
-    .left.collapsed { transform: translateX(-315px); }
-
-    .sidebar-content { position: absolute; width: 95%; height: 95%; font-family: Arial, Helvetica, sans-serif; }
-    .sidebar-content-info {
-      position: absolute;
-      inset: 0;
-      padding: 16px;
+    #sidebar {
+      width: 360px;
+      border-right: 1px solid #e5e7eb;
+      padding: 14px;
       box-sizing: border-box;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       overflow-y: auto;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      word-break: break-word;
+      background: #fff;
     }
-    .sidebar-content-info h1 { margin: 0 0 10px 0; font-size: 20px; }
-    .sidebar-content-info label { margin-right: 8px; color: #6B7C92; font-weight: 600; }
-    .details-info { font-size: 13px; line-height: 1.4em; }
-    .muted { color: #6B7C92; font-size: 13px; }
 
-    .sidebar-toggle {
-      position: absolute;
-      width: 1.3em;
-      height: 1.3em;
-      right: -1.5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .icon { display: inline-block; width: 70%; height: 70%; background-size: cover; }
+    #map { flex: 1; }
 
-    .sidebar.left .sidebar-toggle .icon {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M15.422 16.594l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
-    .sidebar.left.collapsed .sidebar-toggle .icon {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M8.578 16.594l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
-    .sidebar-toggle:hover { cursor: pointer; }
-
-    #status {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      z-index: 3;
-      background: rgba(255,255,255,0.95);
-      padding: 8px 10px;
+    h1 { margin: 0 0 10px; font-size: 20px; }
+    .muted { color: #6b7280; font-size: 13px; }
+    .row { margin: 6px 0; font-size: 13px; line-height: 1.4; }
+    .row b { color: #374151; margin-right: 6px; }
+    img.preview {
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
       border-radius: 10px;
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 0 12px;
+      display: block;
+    }
+    #status {
+      margin-top: 10px;
       font-size: 12px;
-      max-width: 520px;
+      color: #6b7280;
       white-space: pre-wrap;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
   </style>
 </head>
 
 <body>
-  <div id="map"></div>
-
-  <div id="left" class="sidebar flex-center left collapsed">
-    <div class="sidebar-content rounded-rect flex-center" style="inset:0;">
-      <div class="sidebar-content-info">
-        <h1>Shrines</h1>
-        <div class="muted">Click a shrine point to see its details.</div>
-      </div>
-      <div class="sidebar-toggle rounded-rect">
-        <span class="icon"></span>
-      </div>
+  <div id="wrap">
+    <div id="sidebar">
+      <h1>Sufi Shrines</h1>
+      <div class="muted">Click a marker to view its properties.</div>
+      <div id="status"></div>
     </div>
+    <div id="map"></div>
   </div>
 
-  <div id="status">Loading…</div>
-
   <script>
-    // --- YOUR SETTINGS ---
-    const API_KEY = "WDmTVcrwlj7v2t6K2h5d";
-    const STYLE_URL =
-      "https://api.maptiler.com/maps/019ba17c-0c46-7e35-90ec-d45eb3bd7973/style.json?key=" +
-      encodeURIComponent(API_KEY);
-
-    // IMPORTANT: your layer id includes a trailing space
-    const SHRINES_LAYER_ID = "Shrines ";
-
-    // Lahore start view
-    const LAHORE_CENTER = [74.3587, 31.5204];
-
-    maptilersdk.config.apiKey = API_KEY;
-
     const statusEl = document.getElementById("status");
-    const setStatus = (msg) => { statusEl.textContent = msg; };
-
-    const map = new maptilersdk.Map({
-      container: "map",
-      style: STYLE_URL,
-      center: LAHORE_CENTER,
-      zoom: 12
-    });
-
-    map.addControl(new maptilersdk.NavigationControl(), "top-right");
-
-    function toggleSidebar(id) {
-      const elem = document.getElementById(id);
-      const classes = elem.className.split(" ");
-      const collapsed = classes.indexOf("collapsed") !== -1;
-
-      const padding = {};
-      if (collapsed) {
-        classes.splice(classes.indexOf("collapsed"), 1);
-        padding[id] = 320;
-        map.easeTo({ padding, duration: 1000 });
-      } else {
-        padding[id] = 0;
-        classes.push("collapsed");
-        map.easeTo({ padding, duration: 1000 });
-      }
-      elem.className = classes.join(" ");
-    }
-
-    function showSidebar(id) {
-      const elem = document.getElementById(id);
-      const classes = elem.className.split(" ");
-      if (classes.indexOf("collapsed") === -1) return;
-
-      classes.splice(classes.indexOf("collapsed"), 1);
-      const padding = {};
-      padding[id] = 320;
-      map.easeTo({ padding, duration: 1000 });
-      elem.className = classes.join(" ");
-    }
+    function setStatus(msg) { statusEl.textContent = msg || ""; }
 
     function escapeHtml(s) {
       return String(s).replace(/[&<>"']/g, (c) => ({
@@ -160,115 +69,156 @@
       }[c]));
     }
 
-    // --- SIDEBAR RENDERER (with Image property rendered at the top) ---
-    function showFeaturePropertiesInSidebar(feature) {
-      const props = feature?.properties || {};
-      const title =
-        props.name || props.title || props.Name || props.NAME || "Place";
+    function normalizeUrl(u) {
+      if (!u) return null;
+      u = String(u).trim();
+      if (!u) return null;
 
-      // Grab image link from Image/image fields (any URL allowed)
-      let imageUrl =
-        props.Image ??
-        props.image ??
-        props.image_url ??
-        props.photo_url ??
-        props.photo ??
-        null;
+      // Allow protocol-relative
+      if (u.startsWith("//")) u = "https:" + u;
 
-      // Normalize and validate URL
-      if (typeof imageUrl === "string") {
-        imageUrl = imageUrl.trim();
+      // If missing protocol, add https://
+      if (!/^https?:\/\//i.test(u)) u = "https://" + u.replace(/^\/+/, "");
 
-        // allow protocol-relative URLs
-        if (imageUrl.startsWith("//")) imageUrl = "https:" + imageUrl;
+      return u;
+    }
 
-        // if missing protocol, add https://
-        if (!/^https?:\/\//i.test(imageUrl)) {
-          imageUrl = "https://" + imageUrl.replace(/^\/+/, "");
+    function trimRowKeysAndValues(row) {
+      // Your CSV headers include trailing spaces. This normalizes both keys and string values.
+      const out = {};
+      for (const [k, v] of Object.entries(row)) {
+        const key = String(k).trim();
+        if (v === null || v === undefined) {
+          out[key] = v;
+        } else if (typeof v === "string") {
+          out[key] = v.trim();
+        } else {
+          out[key] = v;
         }
-      } else {
-        imageUrl = null;
       }
+      return out;
+    }
+
+    function showInSidebar(rawRow) {
+      const row = trimRowKeysAndValues(rawRow);
+
+      // Match your column names after trimming
+      const title = row["Name"] || row["name"] || "Shrine";
+      const imgUrl = normalizeUrl(row["Image Link"] || row["Image"] || row["image"]);
 
       const parts = [];
 
-      // Render image at top if present
-      if (imageUrl) {
-        parts.push(`
-          <img
-            src="${escapeHtml(imageUrl)}"
-            alt="${escapeHtml(title)}"
-            style="width:100%; max-height:240px; object-fit:cover; border-radius:10px; margin:0 0 12px 0; display:block;"
-            onerror="this.style.display='none';"
-          />
-        `);
+      if (imgUrl) {
+        parts.push(
+          `<img class="preview" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(title)}" onerror="this.style.display='none';" />`
+        );
       }
 
       parts.push(`<h1>${escapeHtml(title)}</h1>`);
 
-      // Render all properties except the image field so it doesn't show twice
-      const imageKeys = new Set(["image", "Image", "image_url", "photo_url", "photo"]);
-      const rows = [];
+      // Render all properties except lat/lng and image link (so it does not show twice)
+      const skipKeys = new Set([
+        "Latitude", "Longitude", "lat", "lng", "lon", "latitude", "longitude",
+        "Image Link", "Image", "image", "image_url", "photo", "photo_url"
+      ]);
 
-      for (const k of Object.keys(props)) {
-        if (imageKeys.has(k)) continue;
+      for (const [k, v] of Object.entries(row)) {
+        if (skipKeys.has(k)) continue;
+        if (v === null || v === undefined || String(v).trim() === "") continue;
 
-        const v = props[k];
         const sv = String(v);
 
-        // If it looks like a URL, render as a link
+        // Render URLs as links
         if (/^https?:\/\//i.test(sv) || sv.startsWith("www.")) {
           const href = sv.startsWith("www.") ? "https://" + sv : sv;
-          rows.push(
-            `<div><label>${escapeHtml(k)}:</label> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`
+          parts.push(
+            `<div class="row"><b>${escapeHtml(k)}:</b> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`
           );
         } else {
-          rows.push(`<div><label>${escapeHtml(k)}:</label> ${escapeHtml(sv)}</div>`);
+          parts.push(`<div class="row"><b>${escapeHtml(k)}:</b> ${escapeHtml(sv)}</div>`);
         }
       }
 
-      if (rows.length) parts.push(`<div class="details-info">${rows.join("")}</div>`);
+      document.getElementById("sidebar").innerHTML = `
+        <h1>Sufi Shrines</h1>
+        <div class="muted">Click a marker to view its properties.</div>
+        <div style="height:10px;"></div>
+        ${parts.join("")}
+        <div id="status"></div>
+      `;
 
-      document.querySelector(".sidebar-content-info").innerHTML = parts.join("");
-      showSidebar("left");
+      // Restore status element reference after sidebar rewrite
+      const newStatus = document.getElementById("status");
+      if (newStatus) newStatus.textContent = "";
     }
 
-    document.querySelector(".sidebar-toggle").addEventListener("click", () => toggleSidebar("left"));
+    // Leaflet map centered on Lahore
+    const map = L.map("map").setView([31.5204, 74.3587], 12);
 
-    map.on("load", () => {
-      // Verify the layer exists (must match EXACTLY, including the trailing space)
-      const layer = map.getLayer(SHRINES_LAYER_ID);
-      if (!layer) {
-        setStatus(
-          "Layer not found: [" + SHRINES_LAYER_ID + "]\n" +
-          "Printing all layer ids to the console."
-        );
-        console.log("All layer ids:", map.getStyle().layers.map(l => "[" + l.id + "]"));
-        return;
-      }
+    // Basemap tiles (OpenStreetMap)
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
 
-      setStatus("Map loaded. Click a shrine point.");
-      setTimeout(() => { statusEl.style.display = "none"; }, 2000);
+    const markers = [];
 
-      // Click handler for your Shrines dataset layer
-      map.on("click", SHRINES_LAYER_ID, (e) => {
-        if (!e.features || !e.features.length) return;
-        showFeaturePropertiesInSidebar(e.features[0]);
+    function addMarkerForRow(rawRow) {
+      const row = trimRowKeysAndValues(rawRow);
+
+      // Your column names (trimmed)
+      const lat = parseFloat(row["Latitude"]);
+      const lng = parseFloat(row["Longitude"]);
+
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+
+      const title = row["Name"] || "Shrine";
+
+      const m = L.marker([lat, lng]).addTo(map);
+      m.bindTooltip(title, { direction: "top", offset: [0, -8] });
+
+      m.on("click", () => {
+        map.setView([lat, lng], Math.max(map.getZoom(), 14));
+        showInSidebar(row);
       });
 
-      // Pointer cursor
-      map.on("mouseenter", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = "pointer"; });
-      map.on("mouseleave", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = ""; });
+      markers.push(m);
+    }
 
-      // Open sidebar by default
-      showSidebar("left");
-    });
+    // Load your Excel-exported CSV
+    // Put your file in the repo root and name it: data.csv
+    setStatus("Loading data.csv…");
 
-    map.on("error", (e) => {
-      const msg = e && e.error && e.error.message ? e.error.message : JSON.stringify(e);
-      statusEl.style.display = "block";
-      setStatus("Map error:\n" + msg);
-      console.log("Map error:", e);
+    Papa.parse("data.csv", {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: (results) => {
+        const rows = results.data || [];
+        if (!rows.length) {
+          setStatus("No rows found in data.csv.");
+          return;
+        }
+
+        rows.forEach(addMarkerForRow);
+
+        if (!markers.length) {
+          setStatus("No valid points found. Check Latitude and Longitude columns.");
+          return;
+        }
+
+        // Fit map to all points
+        const fg = L.featureGroup(markers);
+        map.fitBounds(fg.getBounds().pad(0.15));
+
+        setStatus("");
+
+        // Show first row in sidebar as a starting view
+        showInSidebar(rows[0]);
+      },
+      error: (err) => {
+        setStatus("Failed to load data.csv.\n" + String(err));
+      }
     });
   </script>
 </body>
