@@ -232,12 +232,12 @@ a:hover {
   display: inline-block;
 }
 
-/* Dropdown panel directly under the button (NO GAP) */
+/* Dropdown panel directly under the button */
 .shrine-drop {
   width: 260px;
   max-width: calc(100vw - 32px);
 
-  margin-top: 8px; /* tight spacing */
+  margin-top: 8px;
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
@@ -276,4 +276,47 @@ a:hover {
 
 .shrine-drop .panel-item:hover {
   background: #f9fafb;
+}
+
+/* ---------- Google-like dot markers + hover ---------- */
+.shrine-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.shrine-dot.hover {
+  transform: scale(1.25);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.shrine-dot.selected {
+  background: #ef4444;
+}
+
+/* Tooltip polish */
+.leaflet-tooltip {
+  border-radius: 10px !important;
+  padding: 6px 10px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  font:
+    600 12px system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif !important;
+}
+
+.leaflet-tooltip-top:before {
+  border-top-color: #ffffff !important;
 }

@@ -1,10 +1,11 @@
 /* global L, Papa */
 
-// Your Google Sheets published CSV link (already included)
+// Google Sheets published CSV link
 const CSV_FILE =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv";
 
-const DEFAULT_CENTER = [31.5204, 74.3587]; // Lahore
+// Lahore wide view
+const DEFAULT_CENTER = [31.5204, 74.3587];
 const DEFAULT_ZOOM = 6;
 
 const statusEl = document.getElementById("status");
@@ -130,7 +131,7 @@ function renderDetails(rowRaw) {
 const map = L.map("map").setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 setTimeout(() => map.invalidateSize(), 0);
 
-// Basemap
+// MapTiler Streets v2 basemap
 L.tileLayer(
   "https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
   {
@@ -145,14 +146,45 @@ L.tileLayer(
 const markers = [];
 const rowsStore = [];
 
-// Table dropdown element (inside the button control)
+// Dropdown panel element (inside the button control)
 let tablePanelEl = null;
+
+// Selected marker index
+let selectedIdx = null;
+
+// Dot icon for markers
+function makeDotIcon({ selected = false, hover = false } = {}) {
+  const classes = ["shrine-dot"];
+  if (selected) classes.push("selected");
+  if (hover) classes.push("hover");
+
+  return L.divIcon({
+    className: "",
+    html: `<div class="${classes.join(" ")}"></div>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+  });
+}
+
+function setSelected(idx) {
+  // unselect previous
+  if (selectedIdx !== null && markers[selectedIdx]) {
+    markers[selectedIdx].setIcon(
+      makeDotIcon({ selected: false, hover: false }),
+    );
+  }
+  selectedIdx = idx;
+  if (selectedIdx !== null && markers[selectedIdx]) {
+    markers[selectedIdx].setIcon(makeDotIcon({ selected: true, hover: false }));
+  }
+}
 
 // Clicking map clears everything
 map.on("click", () => {
   clearDetails();
   collapseSidebar();
   hideTablePanel();
+  setSelected(null);
 });
 
 // ---------- Table of Shrines control (single control, no gap) ----------
@@ -174,7 +206,7 @@ function buildTableControls() {
         <span>Table of Shrines</span>
       `;
 
-      // Dropdown panel lives INSIDE this same container => no Leaflet gap
+      // Dropdown panel lives INSIDE this same container
       const panel = L.DomUtil.create("div", "shrine-drop hidden", container);
       panel.innerHTML = `<div class="panel-list" id="shrinePanelList"></div>`;
       tablePanelEl = panel;
@@ -224,6 +256,7 @@ function renderTableList() {
       const ll = parseLatLng(row);
       if (!ll || !markers[idx]) return;
 
+      setSelected(idx);
       map.flyTo([ll.lat, ll.lng], Math.max(map.getZoom(), 13), {
         duration: 0.8,
       });
@@ -236,7 +269,7 @@ function renderTableList() {
   });
 }
 
-// ---------- Markers ----------
+// ---------- Markers with hover preview ----------
 function addMarker(rowRaw, idx) {
   const row = trimRowKeysAndValues(rowRaw);
   const ll = parseLatLng(row);
@@ -244,12 +277,40 @@ function addMarker(rowRaw, idx) {
 
   const title = row.Name || `Shrine ${idx + 1}`;
 
-  const m = L.marker([ll.lat, ll.lng]).addTo(map);
-  m.bindTooltip(title, { direction: "top", offset: [0, -8] });
+  const m = L.marker([ll.lat, ll.lng], { icon: makeDotIcon() }).addTo(map);
 
+  // Tooltip appears on hover (and tap will also show tooltip)
+  m.bindTooltip(title, {
+    direction: "top",
+    offset: [0, -10],
+    opacity: 1,
+    sticky: true,
+  });
+
+  // Hover preview: enlarge dot + open tooltip
+  m.on("mouseover", () => {
+    if (selectedIdx === idx) {
+      m.setIcon(makeDotIcon({ selected: true, hover: true }));
+    } else {
+      m.setIcon(makeDotIcon({ selected: false, hover: true }));
+    }
+    m.openTooltip();
+  });
+
+  m.on("mouseout", () => {
+    if (selectedIdx === idx) {
+      m.setIcon(makeDotIcon({ selected: true, hover: false }));
+    } else {
+      m.setIcon(makeDotIcon({ selected: false, hover: false }));
+    }
+    m.closeTooltip();
+  });
+
+  // Click: select and open sidebar
   m.on("click", (e) => {
     if (e && e.originalEvent) e.originalEvent.stopPropagation();
 
+    setSelected(idx);
     map.setView([ll.lat, ll.lng], Math.max(map.getZoom(), 13));
     renderDetails(row);
     openSidebar();
@@ -300,7 +361,6 @@ function loadCsv() {
       collapseSidebar();
 
       buildTableControls();
-      // Wait a tick so the control DOM exists before rendering list
       setTimeout(renderTableList, 0);
     },
     error: (err) => {
