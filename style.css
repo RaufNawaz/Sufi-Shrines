@@ -10,6 +10,7 @@ html, body {
 
 #sidebar {
   width: 360px;
+  flex: 0 0 360px;
   border-right: 1px solid #e5e7eb;
   padding: 14px;
   box-sizing: border-box;
@@ -19,7 +20,14 @@ html, body {
 }
 
 #map {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Leaflet needs an explicit height on the map so tiles render */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
 }
 
 h1 {

@@ -4,7 +4,7 @@ const CSV_FILE = "data.csv";
 
 // Lahore start view
 const DEFAULT_CENTER = [31.5204, 74.3587];
-const DEFAULT_ZOOM = 12;
+const DEFAULT_ZOOM = 10;
 
 const statusEl = document.getElementById("status");
 const detailsEl = document.getElementById("details");
@@ -155,9 +155,14 @@ function loadCsv() {
         return;
       }
 
-      fitToMarkers();
+      // Zoom to all markers, but keep it a bit zoomed out
+      const fg = L.featureGroup(markers);
+      map.fitBounds(fg.getBounds().pad(0.30)); // increase padding to zoom out more
+
       setStatus("");
-      renderDetails(rows[0]);
+
+      // Do NOT auto-select anything
+      detailsEl.innerHTML = `<p class="muted">No shrine selected yet. Click a marker to view details.</p>`;
     },
     error: (err) => {
       console.error("CSV load error:", err);
