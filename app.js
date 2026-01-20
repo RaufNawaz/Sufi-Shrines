@@ -132,7 +132,7 @@ setTimeout(() => map.invalidateSize(), 0);
 
 // Basemap
 L.tileLayer(
-  "https://api.maptiler.com/maps/bright-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
+  "https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
   {
     tileSize: 512,
     zoomOffset: -1,
