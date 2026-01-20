@@ -1,35 +1,53 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sufi Shrines Map (Leaflet)</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sufi Shrines Map</title>
 
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- PapaParse (CSV parser) -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <!-- PapaParse -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <div id="wrap">
-    <aside id="sidebar">
-      <h1>Sufi Shrines</h1>
-      <p class="muted">Click a marker to view its properties.</p>
-      <div id="status" class="status"></div>
-      <div id="details" class="details">
-        <p class="muted">No shrine selected yet.</p>
-      </div>
-    </aside>
+    <!-- Your CSS (your file is style.css) -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-    <main id="map" aria-label="Map"></main>
-  </div>
+  <body>
+    <div id="wrap">
+      <div id="map" aria-label="Map"></div>
 
-  <!-- Your JS -->
-  <script src="./app.js"></script>
-</body>
+      <!-- Collapsible sidebar (starts collapsed) -->
+      <aside id="sidebar" class="collapsed">
+        <button
+          id="sidebarToggle"
+          class="sidebar-toggle"
+          type="button"
+          aria-label="Toggle sidebar"
+        >
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="sidebar-inner">
+          <h1>Sufi Shrines</h1>
+
+          <div id="status" class="status">Loading…</div>
+
+          <div id="details" class="details">
+            <p class="muted">
+              No shrine selected yet. Click a marker to view details.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
