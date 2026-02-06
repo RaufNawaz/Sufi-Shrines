@@ -4,8 +4,7 @@
 const CSV_FILE =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv";
 
-// Lahore wide view
-const DEFAULT_CENTER = [31.5204, 74.3587];
+const DEFAULT_CENTER = [31.5204, 74.3587]; // Lahore
 const DEFAULT_ZOOM = 6;
 
 const statusEl = document.getElementById("status");
@@ -145,14 +144,11 @@ L.tileLayer(
 // Store rows + markers
 const markers = [];
 const rowsStore = [];
-
-// Dropdown panel element (inside the button control)
 let tablePanelEl = null;
 
 // Selected marker index
 let selectedIdx = null;
 
-// Dot icon for markers
 function makeDotIcon({ selected = false, hover = false } = {}) {
   const classes = ["shrine-dot"];
   if (selected) classes.push("selected");
@@ -167,13 +163,14 @@ function makeDotIcon({ selected = false, hover = false } = {}) {
 }
 
 function setSelected(idx) {
-  // unselect previous
   if (selectedIdx !== null && markers[selectedIdx]) {
     markers[selectedIdx].setIcon(
       makeDotIcon({ selected: false, hover: false }),
     );
   }
+
   selectedIdx = idx;
+
   if (selectedIdx !== null && markers[selectedIdx]) {
     markers[selectedIdx].setIcon(makeDotIcon({ selected: true, hover: false }));
   }
@@ -187,7 +184,7 @@ map.on("click", () => {
   setSelected(null);
 });
 
-// ---------- Table of Shrines control (single control, no gap) ----------
+// ---------- Table of Shrines (button + dropdown in same control) ----------
 function buildTableControls() {
   const BtnControl = L.Control.extend({
     options: { position: "topleft" },
@@ -206,18 +203,41 @@ function buildTableControls() {
         <span>Table of Shrines</span>
       `;
 
-      // Dropdown panel lives INSIDE this same container
+      // Dropdown panel with SEARCH + LIST
       const panel = L.DomUtil.create("div", "shrine-drop hidden", container);
-      panel.innerHTML = `<div class="panel-list" id="shrinePanelList"></div>`;
+      panel.innerHTML = `
+        <div class="panel-search">
+          <input id="shrineSearch" type="text" placeholder="Search shrines…" autocomplete="off" />
+        </div>
+        <div class="panel-list" id="shrinePanelList"></div>
+      `;
       tablePanelEl = panel;
 
       L.DomEvent.disableClickPropagation(container);
       L.DomEvent.disableScrollPropagation(container);
 
+      // Toggle dropdown
       L.DomEvent.on(btn, "click", (e) => {
         L.DomEvent.stop(e);
         toggleTablePanel();
+
+        // focus input when opening
+        if (tablePanelEl && !tablePanelEl.classList.contains("hidden")) {
+          setTimeout(() => {
+            const inp = document.getElementById("shrineSearch");
+            if (inp) inp.focus();
+          }, 0);
+        }
       });
+
+      // Search filter
+      setTimeout(() => {
+        const inp = document.getElementById("shrineSearch");
+        if (!inp) return;
+        inp.addEventListener("input", () => {
+          renderTableList(inp.value);
+        });
+      }, 0);
 
       return container;
     },
@@ -236,14 +256,22 @@ function hideTablePanel() {
   tablePanelEl.classList.add("hidden");
 }
 
-function renderTableList() {
+function renderTableList(searchTerm = "") {
   const list = document.getElementById("shrinePanelList");
   if (!list) return;
 
+  const q = String(searchTerm || "")
+    .trim()
+    .toLowerCase();
   list.innerHTML = "";
+
+  let shown = 0;
 
   rowsStore.forEach((row, idx) => {
     const title = (row.Name || `Shrine ${idx + 1}`).trim();
+    const hay = title.toLowerCase();
+
+    if (q && !hay.includes(q)) return;
 
     const item = document.createElement("button");
     item.className = "panel-item";
@@ -263,10 +291,25 @@ function renderTableList() {
       renderDetails(row);
       openSidebar();
       hideTablePanel();
+
+      const inp = document.getElementById("shrineSearch");
+      if (inp) inp.value = "";
+      renderTableList("");
     });
 
     list.appendChild(item);
+    shown += 1;
   });
+
+  if (shown === 0) {
+    const empty = document.createElement("div");
+    empty.style.padding = "10px 12px";
+    empty.style.font =
+      "600 13px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+    empty.style.color = "#6b7280";
+    empty.textContent = "No matches.";
+    list.appendChild(empty);
+  }
 }
 
 // ---------- Markers with hover preview ----------
@@ -279,7 +322,6 @@ function addMarker(rowRaw, idx) {
 
   const m = L.marker([ll.lat, ll.lng], { icon: makeDotIcon() }).addTo(map);
 
-  // Tooltip appears on hover (and tap will also show tooltip)
   m.bindTooltip(title, {
     direction: "top",
     offset: [0, -10],
@@ -287,7 +329,6 @@ function addMarker(rowRaw, idx) {
     sticky: true,
   });
 
-  // Hover preview: enlarge dot + open tooltip
   m.on("mouseover", () => {
     if (selectedIdx === idx) {
       m.setIcon(makeDotIcon({ selected: true, hover: true }));
@@ -306,7 +347,6 @@ function addMarker(rowRaw, idx) {
     m.closeTooltip();
   });
 
-  // Click: select and open sidebar
   m.on("click", (e) => {
     if (e && e.originalEvent) e.originalEvent.stopPropagation();
 
@@ -352,7 +392,6 @@ function loadCsv() {
         return;
       }
 
-      // Fit all shrines but do not zoom in beyond DEFAULT_ZOOM
       const fg = L.featureGroup(validMarkers);
       map.fitBounds(fg.getBounds().pad(0.3), { maxZoom: DEFAULT_ZOOM });
 
@@ -361,7 +400,11 @@ function loadCsv() {
       collapseSidebar();
 
       buildTableControls();
-      setTimeout(renderTableList, 0);
+
+      // Ensure the dropdown exists before rendering list
+      setTimeout(() => {
+        renderTableList("");
+      }, 0);
     },
     error: (err) => {
       console.error("CSV load error:", err);

@@ -320,3 +320,33 @@ a:hover {
 .leaflet-tooltip-top:before {
   border-top-color: #ffffff !important;
 }
+/* Search box inside the Table of Shrines dropdown */
+.shrine-drop .panel-search {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  background: #ffffff;
+}
+
+.shrine-drop .panel-search input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+
+  font:
+    600 13px system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: #111827;
+  outline: none;
+}
+
+.shrine-drop .panel-search input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.35);
+}
