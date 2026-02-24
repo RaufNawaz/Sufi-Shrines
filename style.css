@@ -415,55 +415,133 @@ a:hover {
 }
 
 /* ---------- Shrine details page ---------- */
+.shrine-body {
+  background:
+    radial-gradient(circle at 20% -20%, #335a69 0%, #1d2d37 42%, #131f28 100%);
+  min-height: 100vh;
+}
+
 .shrine-page {
-  max-width: 980px;
-  margin: 20px auto;
-  padding: 22px;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 28px;
   box-sizing: border-box;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: linear-gradient(180deg, var(--panel), var(--panel-strong));
-  box-shadow: var(--shadow);
   color: var(--text);
   line-height: 1.62;
 }
 
+.shrine-hero {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  height: min(62vh, 560px);
+  overflow: hidden;
+}
+
+.shrine-hero .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+.hero-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #e5e7eb;
+  font-weight: 600;
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 26px clamp(16px, 3vw, 42px);
+  color: #f8fafc;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 15%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
 .shrine-page h1 {
-  margin: 8px 0 14px;
+  margin: 0;
   font-family: "Merriweather", Georgia, "Times New Roman", serif;
-  font-size: 34px;
+  font-size: clamp(30px, 4.4vw, 52px);
+  line-height: 1.05;
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 .back-link {
   display: inline-block;
+  width: fit-content;
   margin-bottom: 4px;
   font-weight: 700;
+  color: #dbeafe;
 }
 
-.hero-image {
-  width: 100%;
-  max-height: 560px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin: 0 0 18px;
+.shrine-content {
+  max-width: 980px;
+  margin: -34px auto 0;
+  padding: 22px 24px 16px;
+  background: linear-gradient(180deg, #fffdf7, #f7f2e8);
   border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
 }
 
 .hero-paragraph {
-  max-width: 74ch;
+  max-width: 78ch;
   font-size: 18px;
   color: #2a3646;
   margin: 0 0 16px;
+  white-space: pre-line;
+}
+
+.hero-paragraph-placeholder {
+  color: #4b5563;
+  background: #ecfdf5;
+  border: 1px solid #99f6e4;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.detail-grid .row {
+  margin: 0;
+  padding: 12px 4px;
+  border-bottom: 1px solid #e8decb;
+}
+
+.detail-grid .row:last-child {
+  border-bottom: 0;
 }
 
 @media (max-width: 700px) {
-  .shrine-page {
-    margin: 10px;
-    padding: 16px;
+  .shrine-hero {
+    min-height: 290px;
+    height: 46vh;
   }
 
-  .shrine-page h1 {
-    font-size: 27px;
+  .shrine-content {
+    margin: -20px 10px 0;
+    padding: 16px;
+    border-radius: 14px;
   }
 
   .hero-paragraph {

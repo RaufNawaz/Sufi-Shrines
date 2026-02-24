@@ -87,18 +87,32 @@ function renderShrine(rawRow) {
   }
 
   const parts = [];
-  parts.push('<a class="back-link" href="./index.html">&larr; Back to map</a>');
-  parts.push(`<h1>${escapeHtml(title)}</h1>`);
-
+  parts.push('<header class="shrine-hero">');
   if (imageUrl) {
     parts.push(
-      `<img class="hero-image" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" onerror="this.style.display='none';" />`,
+      `<img class="hero-image" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" onerror="this.outerHTML='<div class=&quot;hero-image-placeholder&quot;>Image failed to load. Check Image Link in your sheet.</div>';" />`,
+    );
+  } else {
+    parts.push(
+      '<div class="hero-image-placeholder">No image found. Add an "Image Link" value in your sheet.</div>',
     );
   }
+  parts.push('<div class="hero-overlay">');
+  parts.push('<a class="back-link" href="./index.html">&larr; Back to map</a>');
+  parts.push(`<h1>${escapeHtml(title)}</h1>`);
+  parts.push("</div>");
+  parts.push("</header>");
+  parts.push('<section class="shrine-content">');
 
   if (leadParagraph) {
     parts.push(`<p class="hero-paragraph">${escapeHtml(leadParagraph)}</p>`);
+  } else {
+    parts.push(
+      '<p class="hero-paragraph hero-paragraph-placeholder">Add a long description in your sheet under a "Description" column for this shrine.</p>',
+    );
   }
+
+  parts.push('<section class="detail-grid">');
 
   for (const [key, value] of Object.entries(row)) {
     if (
@@ -116,6 +130,8 @@ function renderShrine(rawRow) {
 
     parts.push(buildDetailRow(key, textValue));
   }
+  parts.push("</section>");
+  parts.push("</section>");
 
   pageEl.innerHTML = parts.join("");
 }
