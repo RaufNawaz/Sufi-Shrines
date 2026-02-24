@@ -139,9 +139,16 @@ function getShrinePageUrl(idx) {
   return `./shrine.html?id=${encodeURIComponent(idx)}`;
 }
 
-function renderDetails(rawRow) {
+function renderDetails(rawRow, rowIdx = null) {
   const row = normalizeSheetRow(rawRow);
   const title = row.Name || "Shrine";
+  const resolvedIdx = Number.isInteger(rowIdx) ? rowIdx : rowsStore.indexOf(rawRow);
+  const detailsLink =
+    resolvedIdx >= 0
+      ? `<a class="details-title-link" href="${escapeHtml(
+          getShrinePageUrl(resolvedIdx),
+        )}">${escapeHtml(title)}</a>`
+      : escapeHtml(title);
   const imageUrl = normalizeUrl(
     row["Image Link"] || row.Image || row.image || row.image_url,
   );
@@ -153,7 +160,7 @@ function renderDetails(rawRow) {
     );
   }
 
-  parts.push(`<h2 class="details-title">${escapeHtml(title)}</h2>`);
+  parts.push(`<h2 class="details-title">${detailsLink}</h2>`);
 
   for (const [key, value] of Object.entries(row)) {
     if (NON_DETAIL_KEYS.has(key) || value === null || value === undefined) {
@@ -287,7 +294,7 @@ function renderTableList(searchTerm = "") {
         map.flyTo([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
           duration: 0.8,
         });
-        renderDetails(row);
+        renderDetails(row, idx);
         openSidebar();
         hideTablePanel();
 
@@ -407,7 +414,7 @@ function addMarker(rawRow, idx) {
 
     setSelected(idx);
     map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13));
-    renderDetails(row);
+    renderDetails(row, idx);
     openSidebar();
     hideTablePanel();
     marker.openPopup();
