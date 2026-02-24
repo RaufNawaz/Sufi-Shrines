@@ -5,25 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Sufi Shrines Map</title>
 
-    <!-- Leaflet -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <!-- PapaParse -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
-    <!-- Your CSS (your file is style.css) -->
     <link rel="stylesheet" href="./style.css" />
   </head>
-
   <body>
     <div id="wrap">
       <div id="map" aria-label="Map"></div>
 
-      <!-- Collapsible sidebar (starts collapsed) -->
       <aside id="sidebar" class="collapsed">
         <button
           id="sidebarToggle"
@@ -36,9 +29,7 @@
 
         <div class="sidebar-inner">
           <h1>Sufi Shrines</h1>
-
-          <div id="status" class="status">Loading…</div>
-
+          <div id="status" class="status">Loading...</div>
           <div id="details" class="details">
             <p class="muted">
               No shrine selected yet. Click a marker to view details.

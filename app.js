@@ -1,136 +1,37 @@
 /* global L, Papa */
 
-// Google Sheets published CSV link
 const CSV_FILE =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv";
 
-const DEFAULT_CENTER = [31.5204, 74.3587]; // Lahore
+const DEFAULT_CENTER = [31.5204, 74.3587];
 const DEFAULT_ZOOM = 6;
+const SIDEBAR_RESIZE_DELAY_MS = 220;
+const NO_SELECTION_MESSAGE =
+  '<p class="muted">No shrine selected yet. Click a marker to view details.</p>';
+const IMAGE_KEYS = new Set([
+  "Image Link",
+  "Image",
+  "image",
+  "image_url",
+  "photo",
+  "photo_url",
+]);
+const NON_DETAIL_KEYS = new Set(["Latitude", "Longitude", ...IMAGE_KEYS]);
 
 const statusEl = document.getElementById("status");
 const detailsEl = document.getElementById("details");
 const sidebarEl = document.getElementById("sidebar");
 const sidebarToggleBtn = document.getElementById("sidebarToggle");
 
-function setStatus(msg) {
-  statusEl.textContent = msg || "";
-}
-
-function escapeHtml(s) {
-  return String(s).replace(
-    /[&<>"']/g,
-    (c) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-      })[c],
-  );
-}
-
-function normalizeUrl(u) {
-  if (!u) return null;
-  u = String(u).trim();
-  if (!u) return null;
-  if (u.startsWith("//")) u = "https:" + u;
-  if (!/^https?:\/\//i.test(u)) u = "https://" + u.replace(/^\/+/, "");
-  return u;
-}
-
-function trimRowKeysAndValues(row) {
-  const out = {};
-  for (const [k, v] of Object.entries(row)) {
-    const key = String(k).trim();
-    out[key] = typeof v === "string" ? v.trim() : v;
-  }
-  return out;
-}
-
-function parseLatLng(row) {
-  const lat = parseFloat(row.Latitude);
-  const lng = parseFloat(row.Longitude);
-  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-  return { lat, lng };
-}
-
-function clearDetails() {
-  detailsEl.innerHTML = `<p class="muted">No shrine selected yet. Click a marker to view details.</p>`;
-}
-
-function openSidebar() {
-  sidebarEl.classList.remove("collapsed");
-  setTimeout(() => map.invalidateSize(), 220);
-}
-
-function collapseSidebar() {
-  sidebarEl.classList.add("collapsed");
-  setTimeout(() => map.invalidateSize(), 220);
-}
-
-function toggleSidebar() {
-  sidebarEl.classList.toggle("collapsed");
-  setTimeout(() => map.invalidateSize(), 220);
-}
-
-sidebarToggleBtn.addEventListener("click", toggleSidebar);
-
-function renderDetails(rowRaw) {
-  const row = trimRowKeysAndValues(rowRaw);
-  const title = row.Name || "Shrine";
-  const imgUrl = normalizeUrl(row["Image Link"] || row.Image || row.image);
-
-  const parts = [];
-
-  if (imgUrl) {
-    parts.push(
-      `<img class="preview" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(title)}" onerror="this.style.display='none';" />`,
-    );
-  }
-
-  parts.push(
-    `<h2 style="margin:0 0 10px; font-size:16px;">${escapeHtml(title)}</h2>`,
-  );
-
-  const skipKeys = new Set([
-    "Latitude",
-    "Longitude",
-    "Image Link",
-    "Image",
-    "image",
-    "image_url",
-    "photo",
-    "photo_url",
-  ]);
-
-  for (const [k, v] of Object.entries(row)) {
-    if (skipKeys.has(k)) continue;
-    if (v === null || v === undefined) continue;
-
-    const sv = String(v).trim();
-    if (!sv) continue;
-
-    if (/^https?:\/\//i.test(sv) || sv.startsWith("www.")) {
-      const href = sv.startsWith("www.") ? "https://" + sv : sv;
-      parts.push(
-        `<div class="row"><b>${escapeHtml(k)}:</b> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`,
-      );
-    } else {
-      parts.push(
-        `<div class="row"><b>${escapeHtml(k)}:</b> ${escapeHtml(sv)}</div>`,
-      );
-    }
-  }
-
-  detailsEl.innerHTML = parts.join("");
-}
-
-// Map
 const map = L.map("map").setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+const markers = [];
+const rowsStore = [];
+
+let tablePanelEl = null;
+let selectedIdx = null;
+
 setTimeout(() => map.invalidateSize(), 0);
 
-// MapTiler Streets v2 basemap
 L.tileLayer(
   "https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
   {
@@ -141,13 +42,128 @@ L.tileLayer(
   },
 ).addTo(map);
 
-// Store rows + markers
-const markers = [];
-const rowsStore = [];
-let tablePanelEl = null;
+function setStatus(message) {
+  statusEl.textContent = message || "";
+}
 
-// Selected marker index
-let selectedIdx = null;
+function escapeHtml(value) {
+  return String(value).replace(
+    /[&<>"']/g,
+    (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[char],
+  );
+}
+
+function normalizeUrl(rawUrl) {
+  if (!rawUrl) return null;
+
+  let url = String(rawUrl).trim();
+  if (!url) return null;
+
+  if (url.startsWith("//")) url = `https:${url}`;
+  if (!/^https?:\/\//i.test(url)) url = `https://${url.replace(/^\/+/, "")}`;
+
+  return url;
+}
+
+function isLikelyUrl(value) {
+  return /^https?:\/\//i.test(value) || value.startsWith("www.");
+}
+
+function normalizeSheetRow(row) {
+  const normalized = {};
+
+  for (const [key, value] of Object.entries(row)) {
+    const normalizedKey = String(key).trim();
+    normalized[normalizedKey] = typeof value === "string" ? value.trim() : value;
+  }
+
+  return normalized;
+}
+
+function parseLatLng(row) {
+  const lat = Number.parseFloat(row.Latitude);
+  const lng = Number.parseFloat(row.Longitude);
+
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+  return { lat, lng };
+}
+
+function clearDetails() {
+  detailsEl.innerHTML = NO_SELECTION_MESSAGE;
+}
+
+function refreshMapAfterLayoutChange() {
+  setTimeout(() => map.invalidateSize(), SIDEBAR_RESIZE_DELAY_MS);
+}
+
+function setSidebarCollapsed(collapsed) {
+  sidebarEl.classList.toggle("collapsed", collapsed);
+  refreshMapAfterLayoutChange();
+}
+
+function openSidebar() {
+  setSidebarCollapsed(false);
+}
+
+function collapseSidebar() {
+  setSidebarCollapsed(true);
+}
+
+function toggleSidebar() {
+  setSidebarCollapsed(!sidebarEl.classList.contains("collapsed"));
+}
+
+sidebarToggleBtn.addEventListener("click", toggleSidebar);
+
+function buildDetailRow(label, value) {
+  if (isLikelyUrl(value)) {
+    const href = value.startsWith("www.") ? `https://${value}` : value;
+    return `<div class="row"><b>${escapeHtml(label)}:</b> <a href="${escapeHtml(
+      href,
+    )}" target="_blank" rel="noopener">${escapeHtml(value)}</a></div>`;
+  }
+
+  return `<div class="row"><b>${escapeHtml(label)}:</b> ${escapeHtml(
+    value,
+  )}</div>`;
+}
+
+function renderDetails(rawRow) {
+  const row = normalizeSheetRow(rawRow);
+  const title = row.Name || "Shrine";
+  const imageUrl = normalizeUrl(
+    row["Image Link"] || row.Image || row.image || row.image_url,
+  );
+  const parts = [];
+
+  if (imageUrl) {
+    parts.push(
+      `<img class="preview" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}" onerror="this.style.display='none';" />`,
+    );
+  }
+
+  parts.push(`<h2 class="details-title">${escapeHtml(title)}</h2>`);
+
+  for (const [key, value] of Object.entries(row)) {
+    if (NON_DETAIL_KEYS.has(key) || value === null || value === undefined) {
+      continue;
+    }
+
+    const textValue = String(value).trim();
+    if (!textValue) continue;
+
+    parts.push(buildDetailRow(key, textValue));
+  }
+
+  detailsEl.innerHTML = parts.join("");
+}
 
 function makeDotIcon({ selected = false, hover = false } = {}) {
   const classes = ["shrine-dot"];
@@ -164,19 +180,16 @@ function makeDotIcon({ selected = false, hover = false } = {}) {
 
 function setSelected(idx) {
   if (selectedIdx !== null && markers[selectedIdx]) {
-    markers[selectedIdx].setIcon(
-      makeDotIcon({ selected: false, hover: false }),
-    );
+    markers[selectedIdx].setIcon(makeDotIcon());
   }
 
   selectedIdx = idx;
 
   if (selectedIdx !== null && markers[selectedIdx]) {
-    markers[selectedIdx].setIcon(makeDotIcon({ selected: true, hover: false }));
+    markers[selectedIdx].setIcon(makeDotIcon({ selected: true }));
   }
 }
 
-// Clicking map clears everything
 map.on("click", () => {
   clearDetails();
   collapseSidebar();
@@ -184,58 +197,164 @@ map.on("click", () => {
   setSelected(null);
 });
 
-// ---------- Table of Shrines (button + dropdown in same control) ----------
+function toggleTablePanel() {
+  if (tablePanelEl) tablePanelEl.classList.toggle("hidden");
+}
+
+function hideTablePanel() {
+  if (tablePanelEl) tablePanelEl.classList.add("hidden");
+}
+
+function groupRowsByCategory(rows) {
+  const groups = new Map();
+
+  rows.forEach((row, idx) => {
+    const category = (row.Category || "Uncategorized").trim() || "Uncategorized";
+    if (!groups.has(category)) groups.set(category, []);
+    groups.get(category).push({ row, idx });
+  });
+
+  const categories = [...groups.keys()].sort((a, b) => a.localeCompare(b));
+  const hasUncategorized = categories.includes("Uncategorized");
+  const orderedCats = hasUncategorized
+    ? categories.filter((cat) => cat !== "Uncategorized").concat("Uncategorized")
+    : categories;
+
+  return { groups, orderedCats };
+}
+
+function renderTableList(searchTerm = "") {
+  const list = document.getElementById("shrinePanelList");
+  if (!list) return;
+
+  const query = String(searchTerm || "")
+    .trim()
+    .toLowerCase();
+  list.innerHTML = "";
+
+  const { groups, orderedCats } = groupRowsByCategory(rowsStore);
+  let totalShown = 0;
+
+  orderedCats.forEach((cat) => {
+    const items = groups.get(cat) || [];
+    const filtered = query
+      ? items.filter(({ row }) => (row.Name || "").toLowerCase().includes(query))
+      : items;
+
+    if (!filtered.length) return;
+
+    const groupEl = document.createElement("div");
+    groupEl.className = "group collapsed";
+
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "group-header";
+    header.innerHTML = `
+      <span>${escapeHtml(cat)}</span>
+      <span class="group-meta">
+        <span class="count">${filtered.length}</span>
+        <span class="group-chevron"></span>
+      </span>
+    `;
+
+    const itemsWrap = document.createElement("div");
+    itemsWrap.className = "group-items";
+
+    header.addEventListener("click", (event) => {
+      event.stopPropagation();
+      groupEl.classList.toggle("collapsed");
+    });
+
+    filtered.forEach(({ row, idx }) => {
+      const title = (row.Name || `Shrine ${idx + 1}`).trim();
+
+      const item = document.createElement("button");
+      item.className = "panel-item";
+      item.type = "button";
+      item.textContent = title;
+
+      item.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        const latLng = parseLatLng(row);
+        if (!latLng || !markers[idx]) return;
+
+        setSelected(idx);
+        map.flyTo([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
+          duration: 0.8,
+        });
+        renderDetails(row);
+        openSidebar();
+        hideTablePanel();
+
+        const searchInput = document.getElementById("shrineSearch");
+        if (searchInput) searchInput.value = "";
+        renderTableList("");
+      });
+
+      itemsWrap.appendChild(item);
+      totalShown += 1;
+    });
+
+    groupEl.appendChild(header);
+    groupEl.appendChild(itemsWrap);
+    list.appendChild(groupEl);
+  });
+
+  if (totalShown === 0) {
+    const empty = document.createElement("div");
+    empty.className = "panel-empty";
+    empty.textContent = "No matches.";
+    list.appendChild(empty);
+  }
+}
+
 function buildTableControls() {
-  const BtnControl = L.Control.extend({
+  const TableControl = L.Control.extend({
     options: { position: "topleft" },
-    onAdd: function () {
+    onAdd: () => {
       const container = L.DomUtil.create(
         "div",
         "leaflet-control shrine-table-btn",
       );
 
-      const btn = L.DomUtil.create("button", "", container);
-      btn.type = "button";
-      btn.innerHTML = `
+      const button = L.DomUtil.create("button", "", container);
+      button.type = "button";
+      button.innerHTML = `
         <svg class="shrine-table-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#111827" d="M12 2 1 7l11 5 11-5-11-5Zm0 8L1 5v3l11 5 11-5V5l-11 5Zm0 6L1 11v3l11 5 11-5v-3l-11 5Z"/>
         </svg>
         <span>Table of Shrines</span>
       `;
 
-      // Dropdown panel with SEARCH + LIST
-      const panel = L.DomUtil.create("div", "shrine-drop hidden", container);
-      panel.innerHTML = `
+      tablePanelEl = L.DomUtil.create("div", "shrine-drop hidden", container);
+      tablePanelEl.innerHTML = `
         <div class="panel-search">
-          <input id="shrineSearch" type="text" placeholder="Search shrines…" autocomplete="off" />
+          <input id="shrineSearch" type="text" placeholder="Search shrines..." autocomplete="off" />
         </div>
         <div class="panel-list" id="shrinePanelList"></div>
       `;
-      tablePanelEl = panel;
 
       L.DomEvent.disableClickPropagation(container);
       L.DomEvent.disableScrollPropagation(container);
 
-      // Toggle dropdown
-      L.DomEvent.on(btn, "click", (e) => {
-        L.DomEvent.stop(e);
+      L.DomEvent.on(button, "click", (event) => {
+        L.DomEvent.stop(event);
         toggleTablePanel();
 
-        // focus input when opening
         if (tablePanelEl && !tablePanelEl.classList.contains("hidden")) {
           setTimeout(() => {
-            const inp = document.getElementById("shrineSearch");
-            if (inp) inp.focus();
+            const searchInput = document.getElementById("shrineSearch");
+            if (searchInput) searchInput.focus();
           }, 0);
         }
       });
 
-      // Search filter
       setTimeout(() => {
-        const inp = document.getElementById("shrineSearch");
-        if (!inp) return;
-        inp.addEventListener("input", () => {
-          renderTableList(inp.value);
+        const searchInput = document.getElementById("shrineSearch");
+        if (!searchInput) return;
+        searchInput.addEventListener("input", () => {
+          renderTableList(searchInput.value);
         });
       }, 0);
 
@@ -243,133 +362,58 @@ function buildTableControls() {
     },
   });
 
-  map.addControl(new BtnControl());
+  map.addControl(new TableControl());
 }
 
-function toggleTablePanel() {
-  if (!tablePanelEl) return;
-  tablePanelEl.classList.toggle("hidden");
-}
-
-function hideTablePanel() {
-  if (!tablePanelEl) return;
-  tablePanelEl.classList.add("hidden");
-}
-
-function renderTableList(searchTerm = "") {
-  const list = document.getElementById("shrinePanelList");
-  if (!list) return;
-
-  const q = String(searchTerm || "")
-    .trim()
-    .toLowerCase();
-  list.innerHTML = "";
-
-  let shown = 0;
-
-  rowsStore.forEach((row, idx) => {
-    const title = (row.Name || `Shrine ${idx + 1}`).trim();
-    const hay = title.toLowerCase();
-
-    if (q && !hay.includes(q)) return;
-
-    const item = document.createElement("button");
-    item.className = "panel-item";
-    item.type = "button";
-    item.textContent = title;
-
-    item.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      const ll = parseLatLng(row);
-      if (!ll || !markers[idx]) return;
-
-      setSelected(idx);
-      map.flyTo([ll.lat, ll.lng], Math.max(map.getZoom(), 13), {
-        duration: 0.8,
-      });
-      renderDetails(row);
-      openSidebar();
-      hideTablePanel();
-
-      const inp = document.getElementById("shrineSearch");
-      if (inp) inp.value = "";
-      renderTableList("");
-    });
-
-    list.appendChild(item);
-    shown += 1;
-  });
-
-  if (shown === 0) {
-    const empty = document.createElement("div");
-    empty.style.padding = "10px 12px";
-    empty.style.font =
-      "600 13px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
-    empty.style.color = "#6b7280";
-    empty.textContent = "No matches.";
-    list.appendChild(empty);
-  }
-}
-
-// ---------- Markers with hover preview ----------
-function addMarker(rowRaw, idx) {
-  const row = trimRowKeysAndValues(rowRaw);
-  const ll = parseLatLng(row);
-  if (!ll) return;
+function addMarker(rawRow, idx) {
+  const row = normalizeSheetRow(rawRow);
+  const latLng = parseLatLng(row);
+  if (!latLng) return;
 
   const title = row.Name || `Shrine ${idx + 1}`;
+  const marker = L.marker([latLng.lat, latLng.lng], {
+    icon: makeDotIcon(),
+  }).addTo(map);
 
-  const m = L.marker([ll.lat, ll.lng], { icon: makeDotIcon() }).addTo(map);
-
-  m.bindTooltip(title, {
+  marker.bindTooltip(title, {
     direction: "top",
     offset: [0, -10],
     opacity: 1,
     sticky: true,
   });
 
-  m.on("mouseover", () => {
-    if (selectedIdx === idx) {
-      m.setIcon(makeDotIcon({ selected: true, hover: true }));
-    } else {
-      m.setIcon(makeDotIcon({ selected: false, hover: true }));
-    }
-    m.openTooltip();
+  marker.on("mouseover", () => {
+    marker.setIcon(makeDotIcon({ selected: selectedIdx === idx, hover: true }));
+    marker.openTooltip();
   });
 
-  m.on("mouseout", () => {
-    if (selectedIdx === idx) {
-      m.setIcon(makeDotIcon({ selected: true, hover: false }));
-    } else {
-      m.setIcon(makeDotIcon({ selected: false, hover: false }));
-    }
-    m.closeTooltip();
+  marker.on("mouseout", () => {
+    marker.setIcon(makeDotIcon({ selected: selectedIdx === idx }));
+    marker.closeTooltip();
   });
 
-  m.on("click", (e) => {
-    if (e && e.originalEvent) e.originalEvent.stopPropagation();
+  marker.on("click", (event) => {
+    if (event?.originalEvent) event.originalEvent.stopPropagation();
 
     setSelected(idx);
-    map.setView([ll.lat, ll.lng], Math.max(map.getZoom(), 13));
+    map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13));
     renderDetails(row);
     openSidebar();
     hideTablePanel();
   });
 
-  markers[idx] = m;
+  markers[idx] = marker;
 }
 
-// ---------- Load CSV ----------
 function loadCsv() {
-  setStatus("Loading data…");
+  setStatus("Loading data...");
 
   Papa.parse(CSV_FILE, {
     download: true,
     header: true,
     skipEmptyLines: true,
     complete: (results) => {
-      const rows = (results.data || []).map(trimRowKeysAndValues);
+      const rows = (results.data || []).map(normalizeSheetRow);
       rowsStore.length = 0;
       rowsStore.push(...rows);
 
@@ -380,35 +424,30 @@ function loadCsv() {
         return;
       }
 
-      rowsStore.forEach((r, idx) => addMarker(r, idx));
-
+      rowsStore.forEach((row, idx) => addMarker(row, idx));
       const validMarkers = markers.filter(Boolean);
+
       if (!validMarkers.length) {
-        setStatus(
-          "No valid points found. Check Latitude and Longitude columns.",
-        );
+        setStatus("No valid points found. Check Latitude and Longitude columns.");
         clearDetails();
         collapseSidebar();
         return;
       }
 
-      const fg = L.featureGroup(validMarkers);
-      map.fitBounds(fg.getBounds().pad(0.3), { maxZoom: DEFAULT_ZOOM });
+      const featureGroup = L.featureGroup(validMarkers);
+      map.fitBounds(featureGroup.getBounds().pad(0.3), {
+        maxZoom: DEFAULT_ZOOM,
+      });
 
       setStatus("");
       clearDetails();
       collapseSidebar();
-
       buildTableControls();
-
-      // Ensure the dropdown exists before rendering list
-      setTimeout(() => {
-        renderTableList("");
-      }, 0);
+      setTimeout(() => renderTableList(""), 0);
     },
-    error: (err) => {
-      console.error("CSV load error:", err);
-      setStatus(`Failed to load CSV.\n${err?.message || String(err)}`);
+    error: (error) => {
+      console.error("CSV load error:", error);
+      setStatus(`Failed to load CSV.\n${error?.message || String(error)}`);
       clearDetails();
       collapseSidebar();
     },
