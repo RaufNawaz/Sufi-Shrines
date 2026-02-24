@@ -181,6 +181,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.popup-shrine-link {
+  font-weight: 700;
+}
+
 @media (max-width: 520px) {
   #sidebar {
     width: 320px;
@@ -438,4 +442,43 @@ a:hover {
     Arial,
     sans-serif;
   color: #6b7280;
+}
+
+/* ---------- Shrine details page ---------- */
+.shrine-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: #111827;
+  line-height: 1.55;
+}
+
+.shrine-page h1 {
+  margin: 8px 0 14px;
+}
+
+.back-link {
+  font-weight: 600;
+}
+
+.hero-image {
+  width: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 0 0 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.hero-paragraph {
+  font-size: 16px;
+  margin: 0 0 14px;
 }

@@ -135,6 +135,10 @@ function buildDetailRow(label, value) {
   )}</div>`;
 }
 
+function getShrinePageUrl(idx) {
+  return `./shrine.html?id=${encodeURIComponent(idx)}`;
+}
+
 function renderDetails(rawRow) {
   const row = normalizeSheetRow(rawRow);
   const title = row.Name || "Shrine";
@@ -375,6 +379,12 @@ function addMarker(rawRow, idx) {
     icon: makeDotIcon(),
   }).addTo(map);
 
+  marker.bindPopup(
+    `<a class="popup-shrine-link" href="${escapeHtml(
+      getShrinePageUrl(idx),
+    )}">${escapeHtml(title)}</a>`,
+  );
+
   marker.bindTooltip(title, {
     direction: "top",
     offset: [0, -10],
@@ -400,6 +410,7 @@ function addMarker(rawRow, idx) {
     renderDetails(row);
     openSidebar();
     hideTablePanel();
+    marker.openPopup();
   });
 
   markers[idx] = marker;
