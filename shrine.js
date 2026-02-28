@@ -108,7 +108,7 @@ function renderShrine(rawRow) {
     parts.push(`<p class="hero-paragraph">${escapeHtml(leadParagraph)}</p>`);
   } else {
     parts.push(
-      '<p class="hero-paragraph hero-paragraph-placeholder">Add a long description in your sheet under a "Description" column for this shrine.</p>',
+      '<p class="hero-paragraph hero-paragraph-placeholder">Description not available.</p>',
     );
   }
 

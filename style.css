@@ -23,7 +23,7 @@ body {
 body {
   color: var(--text);
   background: radial-gradient(circle at 10% 10%, #fbf8f1, var(--bg) 40%);
-  font-family: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 #wrap {
@@ -240,7 +240,7 @@ a:hover {
   background: linear-gradient(180deg, var(--panel), var(--panel-strong));
   cursor: pointer;
   box-shadow: var(--shadow);
-  font: 700 13px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 700 13px "Segoe UI", Roboto, Arial, sans-serif;
   color: #111827;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -284,7 +284,7 @@ a:hover {
   border-bottom: 1px solid #efe7d9;
   background: var(--panel);
   cursor: pointer;
-  font: 600 13px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 600 13px "Segoe UI", Roboto, Arial, sans-serif;
   color: #111827;
 }
 
@@ -321,7 +321,7 @@ a:hover {
   box-shadow: 0 10px 18px rgba(58, 44, 20, 0.16) !important;
   background: var(--panel) !important;
   color: #111827 !important;
-  font: 600 12px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif !important;
+  font: 600 12px "Segoe UI", Roboto, Arial, sans-serif !important;
 }
 
 .leaflet-tooltip-top:before {
@@ -341,7 +341,7 @@ a:hover {
   border-radius: 12px;
   border: 1px solid var(--border);
   background: #fffdf9;
-  font: 600 13px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 600 13px "Segoe UI", Roboto, Arial, sans-serif;
   color: #111827;
   outline: none;
 }
@@ -365,7 +365,7 @@ a:hover {
   background: var(--panel);
   border: 0;
   cursor: pointer;
-  font: 800 13px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 800 13px "Segoe UI", Roboto, Arial, sans-serif;
   color: #111827;
 }
 
@@ -374,7 +374,7 @@ a:hover {
 }
 
 .group-header .count {
-  font: 700 12px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 700 12px "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--muted);
 }
 
@@ -410,7 +410,7 @@ a:hover {
 
 .panel-empty {
   padding: 10px 12px;
-  font: 600 13px "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  font: 600 13px "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--muted);
 }
 
