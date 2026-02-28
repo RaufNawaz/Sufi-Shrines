@@ -32,7 +32,7 @@ let selectedIdx = null;
 
 setTimeout(() => map.invalidateSize(), 0);
 
-L.tileLayer(
+const streetsLayer = L.tileLayer(
   "https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
   {
     tileSize: 512,
@@ -40,7 +40,58 @@ L.tileLayer(
     maxZoom: 20,
     attribution: "&copy; MapTiler &copy; OpenStreetMap contributors",
   },
-).addTo(map);
+);
+
+const topoLayer = L.tileLayer(
+  "https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=WDmTVcrwlj7v2t6K2h5d",
+  {
+    tileSize: 512,
+    zoomOffset: -1,
+    maxZoom: 20,
+    attribution: "&copy; MapTiler &copy; OpenStreetMap contributors",
+  },
+);
+
+const voyagerLayer = L.tileLayer(
+  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+  {
+    subdomains: "abcd",
+    maxZoom: 20,
+    attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
+  },
+);
+
+const esriStreetsLayer = L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+  {
+    maxZoom: 19,
+    attribution: "Tiles &copy; Esri",
+  },
+);
+
+const satelliteLayer = L.tileLayer(
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  {
+    maxZoom: 19,
+    attribution: "Tiles &copy; Esri",
+  },
+);
+
+streetsLayer.addTo(map);
+
+L.control
+  .layers(
+    {
+      "Streets (MapTiler)": streetsLayer,
+      "Topo (MapTiler)": topoLayer,
+      "Voyager (CARTO)": voyagerLayer,
+      "Streets (Esri)": esriStreetsLayer,
+      "Satellite (Esri)": satelliteLayer,
+    },
+    null,
+    { position: "bottomleft" },
+  )
+  .addTo(map);
 
 function setStatus(message) {
   statusEl.textContent = message || "";
