@@ -6,8 +6,8 @@ const CSV_FILE =
 const DEFAULT_CENTER = [31.5204, 74.3587];
 const DEFAULT_ZOOM = 6;
 const SIDEBAR_RESIZE_DELAY_MS = 220;
-const NO_SELECTION_MESSAGE =
-  '<p class="muted">No shrine selected yet. Click a marker to view details.</p>';
+const LANGUAGE_STORAGE_KEY = "shrines_language";
+const TRANSLATION_CACHE_STORAGE_KEY = "shrines_translation_cache_v2";
 const IMAGE_KEYS = new Set([
   "Image Link",
   "Image",
@@ -17,11 +17,162 @@ const IMAGE_KEYS = new Set([
   "photo_url",
 ]);
 const NON_DETAIL_KEYS = new Set(["Latitude", "Longitude", ...IMAGE_KEYS]);
+const LEAD_PARAGRAPH_KEYS = ["Description", "About", "Paragraph", "Summary"];
+const UI_TEXT = {
+  en: {
+    title: "Sufi Shrines",
+    loading: "Loading data...",
+    noSelection: "No shrine selected yet. Click a marker to view details.",
+    tableButton: "Table of Shrines",
+    searchPlaceholder: "Search shrines...",
+    noMatches: "No matches.",
+    uncategorized: "Uncategorized",
+  },
+  ur: {
+    title: "صوفی مزارات",
+    loading: "ڈیٹا لوڈ ہو رہا ہے...",
+    noSelection: "ابھی کوئی مزار منتخب نہیں ہوا۔ تفصیل کے لیے مارکر پر کلک کریں۔",
+    tableButton: "مزارات کی فہرست",
+    searchPlaceholder: "مزار تلاش کریں...",
+    noMatches: "کوئی نتیجہ نہیں ملا۔",
+    uncategorized: "غیر زمرہ بند",
+  },
+};
+const SPECIAL_URDU_PHRASES = {
+  "Muslim Shrine": "مسلم مزار",
+  "Sikh Gurdwara": "سکھ گردوارہ",
+  "Hindu Temple": "ہندو مندر",
+  "Annual urs": "سالانہ عرس",
+  "No events scheduled right now": "فی الحال کوئی تقریب طے نہیں",
+  "Qawwali on Thursdays between Zuhr and Asr":
+    "جمعرات کو ظہر اور عصر کے درمیان قوالی",
+};
+const WORD_URDU_MAP = {
+  active: "فعال",
+  and: "اور",
+  annual: "سالانہ",
+  around: "تقریباً",
+  asr: "عصر",
+  associated: "منسوب",
+  balochistan: "بلوچستان",
+  between: "کے درمیان",
+  capital: "دارالحکومت",
+  ce: "عیسوی",
+  century: "صدی",
+  city: "شہر",
+  completed: "مکمل",
+  complex: "کمپلیکس",
+  constructed: "تعمیر شدہ",
+  commissioned: "تعمیر کروایا گیا",
+  district: "ضلع",
+  dargah: "درگاہ",
+  early: "اوائل",
+  eidgah: "عیدگاہ",
+  events: "تقریبات",
+  founded: "تاسیس",
+  ghazi: "غازی",
+  gurdwara: "گردوارہ",
+  hindu: "ہندو",
+  islamabad: "اسلام آباد",
+  island: "جزیرہ",
+  karachi: "کراچی",
+  kashmir: "کشمیر",
+  khyber: "خیبر",
+  lahore: "لاہور",
+  likely: "غالباً",
+  location: "مقام",
+  mausoleum: "مقبرہ",
+  month: "مہینہ",
+  mosque: "مسجد",
+  multan: "ملتان",
+  muslim: "مسلم",
+  name: "نام",
+  national: "قومی",
+  near: "قریب",
+  no: "نہیں",
+  now: "اب",
+  of: "کا",
+  on: "کو",
+  onwards: "سے آگے",
+  opened: "افتتاح",
+  pakhtunkhwa: "پختونخوا",
+  pakistan: "پاکستان",
+  paragraph: "پیراگراف",
+  park: "پارک",
+  peshawar: "پشاور",
+  punjab: "پنجاب",
+  qawwali: "قوالی",
+  right: "فی الحال",
+  road: "روڈ",
+  saint: "بزرگ",
+  scheduled: "طے شدہ",
+  sharif: "شریف",
+  shrine: "مزار",
+  sikh: "سکھ",
+  sindh: "سندھ",
+  site: "جگہ",
+  sufi: "صوفی",
+  temple: "مندر",
+  territory: "علاقہ",
+  thursdays: "جمعرات",
+  tomb: "مقبرہ",
+  urs: "عرس",
+  valley: "وادی",
+  with: "کے ساتھ",
+  zuhr: "ظہر",
+};
+const DIGRAPH_URDU_MAP = {
+  aa: "ا",
+  ae: "ی",
+  ai: "ے",
+  ay: "ے",
+  bh: "بھ",
+  ch: "چ",
+  dh: "دھ",
+  gh: "غ",
+  kh: "خ",
+  oo: "و",
+  ou: "او",
+  ow: "اؤ",
+  ph: "ف",
+  sh: "ش",
+  th: "تھ",
+  zh: "ژ",
+};
+const CHAR_URDU_MAP = {
+  a: "ا",
+  b: "ب",
+  c: "ک",
+  d: "د",
+  e: "ے",
+  f: "ف",
+  g: "گ",
+  h: "ہ",
+  i: "ی",
+  j: "ج",
+  k: "ک",
+  l: "ل",
+  m: "م",
+  n: "ن",
+  o: "و",
+  p: "پ",
+  q: "ق",
+  r: "ر",
+  s: "س",
+  t: "ت",
+  u: "و",
+  v: "و",
+  w: "و",
+  x: "کس",
+  y: "ی",
+  z: "ز",
+};
 
 const statusEl = document.getElementById("status");
 const detailsEl = document.getElementById("details");
 const sidebarEl = document.getElementById("sidebar");
 const sidebarToggleBtn = document.getElementById("sidebarToggle");
+const mapTitleEl = document.getElementById("mapTitle");
 
 const map = L.map("map").setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 const markers = [];
@@ -29,6 +180,51 @@ const rowsStore = [];
 
 let tablePanelEl = null;
 let selectedIdx = null;
+let detailsRenderToken = 0;
+const langParam = new URLSearchParams(window.location.search).get("lang");
+const initialLang =
+  langParam === "en" || langParam === "ur"
+    ? langParam
+    : localStorage.getItem(LANGUAGE_STORAGE_KEY) ||
+      (navigator.language && navigator.language.toLowerCase().startsWith("ur")
+        ? "ur"
+        : "en");
+const currentLang = initialLang === "ur" ? "ur" : "en";
+const seedTranslations =
+  typeof window !== "undefined" &&
+  window.SHRINE_TRANSLATIONS &&
+  typeof window.SHRINE_TRANSLATIONS === "object"
+    ? window.SHRINE_TRANSLATIONS
+    : {};
+
+function loadPersistedTranslationMap() {
+  try {
+    const raw = localStorage.getItem(TRANSLATION_CACHE_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+const translationCache = new Map(
+  Object.entries({
+    ...loadPersistedTranslationMap(),
+    ...seedTranslations,
+  }),
+);
+
+function persistTranslationCache() {
+  try {
+    localStorage.setItem(
+      TRANSLATION_CACHE_STORAGE_KEY,
+      JSON.stringify(Object.fromEntries(translationCache)),
+    );
+  } catch {
+    // Ignore storage failures (private mode / quota).
+  }
+}
 
 setTimeout(() => map.invalidateSize(), 0);
 
@@ -93,6 +289,222 @@ L.control
   )
   .addTo(map);
 
+function t(key) {
+  return UI_TEXT[currentLang]?.[key] || UI_TEXT.en[key] || "";
+}
+
+function setMapPanelTitle(title) {
+  if (!mapTitleEl) return;
+  const text = String(title || "").trim();
+  mapTitleEl.textContent = text || t("title");
+}
+
+function resetMapPanelTitle() {
+  setMapPanelTitle(t("title"));
+}
+
+function initLanguageToggle() {
+  resetMapPanelTitle();
+
+  const languageToggleEl = document.getElementById("languageToggle");
+  if (!languageToggleEl) return;
+
+  languageToggleEl.textContent = currentLang === "ur" ? "English" : "اردو";
+  languageToggleEl.setAttribute(
+    "aria-label",
+    currentLang === "ur" ? "Switch language to English" : "زبان اردو میں تبدیل کریں",
+  );
+
+  languageToggleEl.addEventListener("click", () => {
+    const nextLang = currentLang === "ur" ? "en" : "ur";
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLang);
+    const params = new URLSearchParams(window.location.search);
+    params.set("lang", nextLang);
+    window.location.search = params.toString();
+  });
+}
+
+function getFieldValue(row, baseKey) {
+  const value = row?.[baseKey];
+  if (value !== null && value !== undefined && String(value).trim()) return value;
+  return "";
+}
+
+function getUrduFieldValue(row, baseKey) {
+  const urduCandidates = [
+    `${baseKey} Urdu`,
+    `${baseKey}_ur`,
+    `${baseKey} (Urdu)`,
+    `${baseKey} UR`,
+    `Urdu ${baseKey}`,
+  ];
+
+  if (baseKey === "Name") {
+    urduCandidates.unshift("Urdu Name", "Name (Urdu)", "NameUrdu");
+  }
+
+  for (const key of urduCandidates) {
+    const value = getFieldValue(row, key);
+    if (value) return value;
+  }
+
+  return "";
+}
+
+function getLocalizedFieldValue(row, baseKey) {
+  if (currentLang !== "ur") return getFieldValue(row, baseKey);
+  const urduValue = getUrduFieldValue(row, baseKey);
+  if (urduValue) return urduValue;
+  return translateCachedTextToUrdu(getFieldValue(row, baseKey));
+}
+
+function isUrduVariantKey(key) {
+  return /urdu|_ur|\(urdu\)|\bur\b/i.test(String(key || ""));
+}
+
+function findCachedTranslation(text) {
+  const raw = String(text ?? "").trim();
+  if (!raw) return "";
+
+  const exact = translationCache.get(raw);
+  if (exact) return exact;
+
+  const lowered = raw.toLowerCase();
+  for (const [key, value] of translationCache.entries()) {
+    if (String(key).toLowerCase() === lowered) return value;
+  }
+
+  return "";
+}
+
+function transliterateWordToUrdu(word) {
+  const source = String(word || "");
+  if (!source) return "";
+
+  const lower = source.toLowerCase();
+  let i = 0;
+  let result = "";
+  while (i < lower.length) {
+    const digraph = lower.slice(i, i + 2);
+    if (DIGRAPH_URDU_MAP[digraph]) {
+      result += DIGRAPH_URDU_MAP[digraph];
+      i += 2;
+      continue;
+    }
+
+    const char = lower[i];
+    result += CHAR_URDU_MAP[char] || source[i] || "";
+    i += 1;
+  }
+
+  return result;
+}
+
+function buildUrduFallback(rawText) {
+  const raw = String(rawText ?? "").trim();
+  if (!raw) return "";
+  if (!/[A-Za-z]/.test(raw)) return raw;
+
+  const special = SPECIAL_URDU_PHRASES[raw];
+  if (special) return special;
+
+  const centuryMatch = raw.match(/^(\d+)(st|nd|rd|th)\s+century$/i);
+  if (centuryMatch) return `${centuryMatch[1]}ویں صدی`;
+
+  const tokens = raw.match(/[A-Za-z]+|\d+|[^A-Za-z\d]+/g) || [];
+  const translated = tokens
+    .map((token) => {
+      if (!/[A-Za-z]/.test(token)) {
+        return token.replace(/,/g, "،");
+      }
+
+      const lower = token.toLowerCase();
+      const known = WORD_URDU_MAP[lower];
+      if (known) return known;
+
+      return transliterateWordToUrdu(token);
+    })
+    .join("")
+    .replace(/\s+/g, " ")
+    .replace(/\s+،/g, "،")
+    .trim();
+
+  return translated || raw;
+}
+
+function maybeCacheGeneratedTranslation(raw) {
+  const source = String(raw ?? "").trim();
+  if (!source || !/[A-Za-z]/.test(source) || isLikelyUrl(source)) return false;
+  const existing = findCachedTranslation(source);
+  if (existing && !/[A-Za-z]/.test(existing)) return false;
+
+  const generated = buildUrduFallback(source);
+  if (!generated || generated === source) return false;
+  if (existing && existing === generated) return false;
+
+  translationCache.set(source, generated);
+  return true;
+}
+
+function primeTranslationCache(rows) {
+  if (currentLang !== "ur") return;
+
+  let changed = false;
+  for (const row of rows || []) {
+    for (const [key, value] of Object.entries(row || {})) {
+      if (maybeCacheGeneratedTranslation(key)) changed = true;
+
+      const textValue = String(value ?? "").trim();
+      if (!textValue || isLikelyUrl(textValue)) continue;
+      if (maybeCacheGeneratedTranslation(textValue)) changed = true;
+    }
+  }
+
+  if (changed) persistTranslationCache();
+}
+
+function translateCachedTextToUrdu(text) {
+  const raw = String(text ?? "").trim();
+  if (!raw) return "";
+  if (currentLang !== "ur") return raw;
+  if (isLikelyUrl(raw)) return raw;
+  if (!/[A-Za-z]/.test(raw)) return raw;
+
+  const cached = findCachedTranslation(raw);
+  if (cached && !/[A-Za-z]/.test(cached)) return cached;
+
+  const generated = buildUrduFallback(raw);
+  if (generated && generated !== raw) {
+    translationCache.set(raw, generated);
+    persistTranslationCache();
+    return generated;
+  }
+
+  return raw;
+}
+
+async function translateTextToUrdu(text) {
+  return translateCachedTextToUrdu(text);
+}
+
+async function getAutoLocalizedFieldValue(row, baseKey) {
+  const urduValue = getUrduFieldValue(row, baseKey);
+  if (urduValue) return urduValue;
+  const baseValue = getFieldValue(row, baseKey);
+  if (currentLang !== "ur") return baseValue;
+  return translateCachedTextToUrdu(baseValue);
+}
+
+function getNoSelectionMessage() {
+  return `<p class="muted">${escapeHtml(t("noSelection"))}</p>`;
+}
+
+function getLocalizedCategoryTitle(row) {
+  const localizedCategory = getLocalizedFieldValue(row, "Category");
+  const fallbackCategory = row?.Category;
+  return String(localizedCategory || fallbackCategory || t("title")).trim() || t("title");
+}
+
 function setStatus(message) {
   statusEl.textContent = message || "";
 }
@@ -147,7 +559,8 @@ function parseLatLng(row) {
 }
 
 function clearDetails() {
-  detailsEl.innerHTML = NO_SELECTION_MESSAGE;
+  detailsEl.innerHTML = getNoSelectionMessage();
+  resetMapPanelTitle();
 }
 
 function refreshMapAfterLayoutChange() {
@@ -187,12 +600,20 @@ function buildDetailRow(label, value) {
 }
 
 function getShrinePageUrl(idx) {
-  return `./shrine.html?id=${encodeURIComponent(idx)}`;
+  return `./shrine.html?id=${encodeURIComponent(idx)}&lang=${encodeURIComponent(
+    currentLang,
+  )}`;
 }
 
-function renderDetails(rawRow, rowIdx = null) {
+async function renderDetails(rawRow, rowIdx = null) {
+  const renderToken = ++detailsRenderToken;
   const row = normalizeSheetRow(rawRow);
-  const title = row.Name || "Shrine";
+  setMapPanelTitle(getLocalizedCategoryTitle(row));
+  const title =
+    (await getAutoLocalizedFieldValue(row, "Name")) ||
+    getLocalizedFieldValue(row, "Name") ||
+    row.Name ||
+    "Shrine";
   const resolvedIdx = Number.isInteger(rowIdx) ? rowIdx : rowsStore.indexOf(rawRow);
   const detailsLink =
     resolvedIdx >= 0
@@ -213,16 +634,28 @@ function renderDetails(rawRow, rowIdx = null) {
 
   parts.push(`<h2 class="details-title">${detailsLink}</h2>`);
 
-  for (const [key, value] of Object.entries(row)) {
+  const visibleEntries = Object.entries(row).filter(([key, value]) => {
     if (NON_DETAIL_KEYS.has(key) || value === null || value === undefined) {
-      continue;
+      return false;
     }
+    if (currentLang === "en" && isUrduVariantKey(key)) return false;
+    return true;
+  });
 
-    const textValue = String(value).trim();
-    if (!textValue) continue;
+  const detailRows = await Promise.all(
+    visibleEntries.map(async ([key, value]) => {
+      const textValue = String(value).trim();
+      if (!textValue) return "";
 
-    parts.push(buildDetailRow(key, textValue));
-  }
+      const localizedKey = currentLang === "ur" ? await translateTextToUrdu(key) : key;
+      const localizedValue =
+        currentLang === "ur" ? await translateTextToUrdu(textValue) : textValue;
+      return buildDetailRow(localizedKey, localizedValue);
+    }),
+  );
+
+  if (renderToken !== detailsRenderToken) return;
+  parts.push(...detailRows.filter(Boolean));
 
   detailsEl.innerHTML = parts.join("");
 }
@@ -271,15 +704,19 @@ function groupRowsByCategory(rows) {
   const groups = new Map();
 
   rows.forEach((row, idx) => {
-    const category = (row.Category || "Uncategorized").trim() || "Uncategorized";
+    const rawCategory =
+      getLocalizedFieldValue(row, "Category") || row.Category || t("uncategorized");
+    const category = (rawCategory || t("uncategorized")).trim() || t("uncategorized");
     if (!groups.has(category)) groups.set(category, []);
     groups.get(category).push({ row, idx });
   });
 
   const categories = [...groups.keys()].sort((a, b) => a.localeCompare(b));
-  const hasUncategorized = categories.includes("Uncategorized");
+  const hasUncategorized = categories.includes(t("uncategorized"));
   const orderedCats = hasUncategorized
-    ? categories.filter((cat) => cat !== "Uncategorized").concat("Uncategorized")
+    ? categories
+        .filter((cat) => cat !== t("uncategorized"))
+        .concat(t("uncategorized"))
     : categories;
 
   return { groups, orderedCats };
@@ -300,7 +737,11 @@ function renderTableList(searchTerm = "") {
   orderedCats.forEach((cat) => {
     const items = groups.get(cat) || [];
     const filtered = query
-      ? items.filter(({ row }) => (row.Name || "").toLowerCase().includes(query))
+      ? items.filter(({ row }) =>
+          (getLocalizedFieldValue(row, "Name") || row.Name || "")
+            .toLowerCase()
+            .includes(query),
+        )
       : items;
 
     if (!filtered.length) return;
@@ -329,11 +770,16 @@ function renderTableList(searchTerm = "") {
 
     filtered.forEach(({ row, idx }) => {
       const title = (row.Name || `Shrine ${idx + 1}`).trim();
+      const localizedTitle = (
+        getLocalizedFieldValue(row, "Name") ||
+        row.Name ||
+        `Shrine ${idx + 1}`
+      ).trim();
 
       const item = document.createElement("button");
       item.className = "panel-item";
       item.type = "button";
-      item.textContent = title;
+      item.textContent = localizedTitle;
 
       item.addEventListener("click", (event) => {
         event.stopPropagation();
@@ -366,7 +812,7 @@ function renderTableList(searchTerm = "") {
   if (totalShown === 0) {
     const empty = document.createElement("div");
     empty.className = "panel-empty";
-    empty.textContent = "No matches.";
+    empty.textContent = t("noMatches");
     list.appendChild(empty);
   }
 }
@@ -386,13 +832,15 @@ function buildTableControls() {
         <svg class="shrine-table-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#111827" d="M12 2 1 7l11 5 11-5-11-5Zm0 8L1 5v3l11 5 11-5V5l-11 5Zm0 6L1 11v3l11 5 11-5v-3l-11 5Z"/>
         </svg>
-        <span>Table of Shrines</span>
+        <span>${escapeHtml(t("tableButton"))}</span>
       `;
 
       tablePanelEl = L.DomUtil.create("div", "shrine-drop hidden", container);
       tablePanelEl.innerHTML = `
         <div class="panel-search">
-          <input id="shrineSearch" type="text" placeholder="Search shrines..." autocomplete="off" />
+          <input id="shrineSearch" type="text" placeholder="${escapeHtml(
+            t("searchPlaceholder"),
+          )}" autocomplete="off" />
         </div>
         <div class="panel-list" id="shrinePanelList"></div>
       `;
@@ -432,7 +880,7 @@ function addMarker(rawRow, idx) {
   const latLng = parseLatLng(row);
   if (!latLng) return;
 
-  const title = row.Name || `Shrine ${idx + 1}`;
+  const title = getLocalizedFieldValue(row, "Name") || row.Name || `Shrine ${idx + 1}`;
   const marker = L.marker([latLng.lat, latLng.lng], {
     icon: makeDotIcon(),
   }).addTo(map);
@@ -475,7 +923,7 @@ function addMarker(rawRow, idx) {
 }
 
 function loadCsv() {
-  setStatus("Loading data...");
+  setStatus(t("loading"));
 
   Papa.parse(CSV_FILE, {
     download: true,
@@ -485,6 +933,7 @@ function loadCsv() {
       const rows = (results.data || []).map(normalizeSheetRow);
       rowsStore.length = 0;
       rowsStore.push(...rows);
+      primeTranslationCache(rowsStore);
 
       if (!rowsStore.length) {
         setStatus("Loaded CSV but found no rows.");
@@ -523,4 +972,7 @@ function loadCsv() {
   });
 }
 
+localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+persistTranslationCache();
+initLanguageToggle();
 loadCsv();
