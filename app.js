@@ -186,6 +186,7 @@ let tablePanelEl = null;
 let selectedIdx = null;
 let detailsRenderToken = 0;
 let suppressMapClickUntil = 0;
+let lastMarkerInteractionAt = 0;
 const langParam = new URLSearchParams(window.location.search).get("lang");
 const initialLang =
   langParam === "en" || langParam === "ur"
@@ -691,6 +692,12 @@ function isMarkerDomTarget(target) {
   );
 }
 
+function markMarkerInteraction(durationMs = 1800) {
+  const now = Date.now();
+  lastMarkerInteractionAt = now;
+  suppressMapClickUntil = Math.max(suppressMapClickUntil, now + durationMs);
+}
+
 function setSelected(idx) {
   if (selectedIdx !== null && markers[selectedIdx]) {
     markers[selectedIdx].setIcon(makeDotIcon());
@@ -706,6 +713,7 @@ function setSelected(idx) {
 map.on("click", (event) => {
   if (Date.now() < suppressMapClickUntil) return;
   if (isMarkerDomTarget(event?.originalEvent?.target)) return;
+  if (IS_COARSE_POINTER && Date.now() - lastMarkerInteractionAt < 2200) return;
   clearDetails();
   collapseSidebar();
   hideTablePanel();
@@ -934,7 +942,7 @@ function addMarker(rawRow, idx) {
     if (now - lastActivationAt < 280) return;
     lastActivationAt = now;
 
-    suppressMapClickUntil = Date.now() + 750;
+    markMarkerInteraction(2200);
     if (event?.originalEvent) L.DomEvent.stop(event.originalEvent);
 
     setSelected(idx);
@@ -947,10 +955,13 @@ function addMarker(rawRow, idx) {
     marker.openPopup();
   };
 
-  marker.on("touchstart", (event) => {
-    suppressMapClickUntil = Date.now() + 750;
+  const preActivateMarker = (event) => {
+    markMarkerInteraction(2200);
     if (event?.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
-  });
+  };
+  marker.on("touchstart", preActivateMarker);
+  marker.on("pointerdown", preActivateMarker);
+  marker.on("mousedown", preActivateMarker);
   marker.on("click", handleMarkerActivate);
   marker.on("touchend", handleMarkerActivate);
 
