@@ -181,6 +181,7 @@ const rowsStore = [];
 let tablePanelEl = null;
 let selectedIdx = null;
 let detailsRenderToken = 0;
+let suppressMapClickUntil = 0;
 const langParam = new URLSearchParams(window.location.search).get("lang");
 const initialLang =
   langParam === "en" || langParam === "ur"
@@ -686,6 +687,7 @@ function setSelected(idx) {
 }
 
 map.on("click", () => {
+  if (Date.now() < suppressMapClickUntil) return;
   clearDetails();
   collapseSidebar();
   hideTablePanel();
@@ -908,16 +910,27 @@ function addMarker(rawRow, idx) {
     marker.closeTooltip();
   });
 
-  marker.on("click", (event) => {
-    if (event?.originalEvent) event.originalEvent.stopPropagation();
+  let lastActivationAt = 0;
+  const handleMarkerActivate = (event) => {
+    const now = Date.now();
+    if (now - lastActivationAt < 280) return;
+    lastActivationAt = now;
+
+    suppressMapClickUntil = Date.now() + 450;
+    if (event?.originalEvent) L.DomEvent.stop(event.originalEvent);
 
     setSelected(idx);
-    map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13));
+    map.flyTo([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
+      duration: 0.55,
+    });
     renderDetails(row, idx);
     openSidebar();
     hideTablePanel();
     marker.openPopup();
-  });
+  };
+
+  marker.on("click", handleMarkerActivate);
+  marker.on("touchend", handleMarkerActivate);
 
   markers[idx] = marker;
 }
