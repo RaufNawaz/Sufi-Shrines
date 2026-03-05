@@ -173,6 +173,10 @@ const detailsEl = document.getElementById("details");
 const sidebarEl = document.getElementById("sidebar");
 const sidebarToggleBtn = document.getElementById("sidebarToggle");
 const mapTitleEl = document.getElementById("mapTitle");
+const IS_COARSE_POINTER =
+  typeof window !== "undefined" &&
+  typeof window.matchMedia === "function" &&
+  window.matchMedia("(pointer: coarse)").matches;
 
 const map = L.map("map").setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 const markers = [];
@@ -665,13 +669,26 @@ function makeDotIcon({ selected = false, hover = false } = {}) {
   const classes = ["shrine-dot"];
   if (selected) classes.push("selected");
   if (hover) classes.push("hover");
+  const hitSize = IS_COARSE_POINTER ? 34 : 26;
+  const anchor = Math.round(hitSize / 2);
 
   return L.divIcon({
-    className: "",
-    html: `<div class="${classes.join(" ")}"></div>`,
-    iconSize: [16, 16],
-    iconAnchor: [8, 8],
+    className: "shrine-marker-hit",
+    html: `<div class="shrine-dot-hit"><div class="${classes.join(
+      " ",
+    )}"></div></div>`,
+    iconSize: [hitSize, hitSize],
+    iconAnchor: [anchor, anchor],
   });
+}
+
+function isMarkerDomTarget(target) {
+  if (!target || typeof target.closest !== "function") return false;
+  return Boolean(
+    target.closest(
+      ".shrine-dot, .shrine-dot-hit, .shrine-marker-hit, .leaflet-marker-icon",
+    ),
+  );
 }
 
 function setSelected(idx) {
@@ -686,8 +703,9 @@ function setSelected(idx) {
   }
 }
 
-map.on("click", () => {
+map.on("click", (event) => {
   if (Date.now() < suppressMapClickUntil) return;
+  if (isMarkerDomTarget(event?.originalEvent?.target)) return;
   clearDetails();
   collapseSidebar();
   hideTablePanel();
@@ -916,12 +934,12 @@ function addMarker(rawRow, idx) {
     if (now - lastActivationAt < 280) return;
     lastActivationAt = now;
 
-    suppressMapClickUntil = Date.now() + 450;
+    suppressMapClickUntil = Date.now() + 750;
     if (event?.originalEvent) L.DomEvent.stop(event.originalEvent);
 
     setSelected(idx);
-    map.flyTo([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
-      duration: 0.55,
+    map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
+      animate: true,
     });
     renderDetails(row, idx);
     openSidebar();
@@ -929,6 +947,10 @@ function addMarker(rawRow, idx) {
     marker.openPopup();
   };
 
+  marker.on("touchstart", (event) => {
+    suppressMapClickUntil = Date.now() + 750;
+    if (event?.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+  });
   marker.on("click", handleMarkerActivate);
   marker.on("touchend", handleMarkerActivate);
 

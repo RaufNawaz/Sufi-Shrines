@@ -336,6 +336,27 @@ a:hover {
   background: #d97706;
 }
 
+.shrine-marker-hit {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.shrine-dot-hit {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+@media (pointer: coarse) {
+  .shrine-dot-hit {
+    width: 34px;
+    height: 34px;
+  }
+}
+
 .leaflet-tooltip {
   border-radius: 10px !important;
   padding: 6px 10px !important;
