@@ -1,4 +1,4 @@
-/* global L, Papa */
+/* global L, ShrineDataSource */
 
 const CSV_FILE =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv";
@@ -7,7 +7,7 @@ const DEFAULT_CENTER = [31.5204, 74.3587];
 const DEFAULT_ZOOM = 6;
 const SIDEBAR_RESIZE_DELAY_MS = 220;
 const LANGUAGE_STORAGE_KEY = "shrines_language";
-const TRANSLATION_CACHE_STORAGE_KEY = "shrines_translation_cache_v2";
+const TRANSLATION_CACHE_STORAGE_KEY = "shrines_translation_cache_v3";
 const IMAGE_KEYS = new Set([
   "Image Link",
   "Image",
@@ -18,6 +18,33 @@ const IMAGE_KEYS = new Set([
 ]);
 const NON_DETAIL_KEYS = new Set(["Latitude", "Longitude", ...IMAGE_KEYS]);
 const LEAD_PARAGRAPH_KEYS = ["Description", "About", "Paragraph", "Summary"];
+const STRUCTURED_DESCRIPTION_HEADING_ALIASES = [
+  "History",
+  "Architecture",
+  "Rituals",
+  "Saint Biography",
+  "Biography",
+  "Events & Urs",
+  "Events and Urs",
+  "Events",
+  "Urs",
+  "Visiting Info",
+  "Visiting Information",
+  "Visit Info",
+  "Sources",
+  "References",
+  "Citations",
+  "\u062a\u0627\u0631\u06cc\u062e",
+  "\u0645\u0639\u0645\u0627\u0631\u06cc",
+  "\u0631\u0633\u0648\u0645\u0627\u062a",
+  "\u0633\u0648\u0627\u0646\u062d \u062d\u06cc\u0627\u062a",
+  "\u062a\u0642\u0631\u06cc\u0628\u0627\u062a \u0627\u0648\u0631 \u0639\u0631\u0633",
+  "\u062a\u0642\u0631\u06cc\u0628\u0627\u062a",
+  "\u0639\u0631\u0633",
+  "\u0632\u06cc\u0627\u0631\u062a \u06a9\u06cc \u0645\u0639\u0644\u0648\u0645\u0627\u062a",
+  "\u062d\u0648\u0627\u0644\u06c1 \u062c\u0627\u062a",
+  "\u062d\u0648\u0627\u0644\u06d2",
+];
 const UI_TEXT = {
   en: {
     title: "Sufi Shrines",
@@ -27,8 +54,10 @@ const UI_TEXT = {
     searchPlaceholder: "Search shrines...",
     noMatches: "No matches.",
     uncategorized: "Uncategorized",
+    descriptionMore: "More",
   },
   ur: {
+    descriptionMore: "\u0645\u0632\u06cc\u062f",
     title: "صوفی مزارات",
     loading: "ڈیٹا لوڈ ہو رہا ہے...",
     noSelection: "ابھی کوئی مزار منتخب نہیں ہوا۔ تفصیل کے لیے مارکر پر کلک کریں۔",
@@ -186,7 +215,6 @@ let tablePanelEl = null;
 let selectedIdx = null;
 let detailsRenderToken = 0;
 let suppressMapClickUntil = 0;
-let lastMarkerInteractionAt = 0;
 const langParam = new URLSearchParams(window.location.search).get("lang");
 const initialLang =
   langParam === "en" || langParam === "ur"
@@ -299,6 +327,12 @@ function t(key) {
   return UI_TEXT[currentLang]?.[key] || UI_TEXT.en[key] || "";
 }
 
+function applyLanguageLayout() {
+  const isRtl = currentLang === "ur";
+  document.body.classList.toggle("lang-rtl", isRtl);
+  document.body.setAttribute("dir", isRtl ? "rtl" : "ltr");
+}
+
 function setMapPanelTitle(title) {
   if (!mapTitleEl) return;
   const text = String(title || "").trim();
@@ -310,6 +344,7 @@ function resetMapPanelTitle() {
 }
 
 function initLanguageToggle() {
+  applyLanguageLayout();
   resetMapPanelTitle();
 
   const languageToggleEl = document.getElementById("languageToggle");
@@ -565,6 +600,7 @@ function parseLatLng(row) {
 }
 
 function clearDetails() {
+  detailsRenderToken += 1;
   detailsEl.innerHTML = getNoSelectionMessage();
   resetMapPanelTitle();
 }
@@ -605,6 +641,190 @@ function buildDetailRow(label, value) {
   )}</div>`;
 }
 
+function buildDescriptionPreviewRow(label, value, href) {
+  return `<div class="row row-description"><b>${escapeHtml(
+    label,
+  )}:</b><div class="row-description-body"><p class="row-description-preview">${escapeHtml(
+    value,
+  )}</p>${
+    href
+      ? `<div class="row-description-actions"><span class="row-more-ellipsis" aria-hidden="true">...</span><a class="row-more-link" href="${escapeHtml(
+          href,
+        )}">${escapeHtml(t("descriptionMore"))}</a></div>`
+      : ""
+  }</div></div>`;
+}
+
+function getNumberedImageIndexFromKey(key) {
+  const normalized = String(key || "").trim();
+  const galleryMatch = normalized.match(
+    /^Gallery\s*(\d+)\s*(Image|Photo|Link|Url|Caption|Title)$/i,
+  );
+  if (galleryMatch) return Number.parseInt(galleryMatch[1], 10);
+
+  const imageMatch = normalized.match(/^(Image|Photo)\s*(\d+)(?:\s*(Caption|Title))?$/i);
+  if (imageMatch) return Number.parseInt(imageMatch[2], 10);
+
+  const captionMatch = normalized.match(/^Caption\s*(\d+)$/i);
+  if (captionMatch) return Number.parseInt(captionMatch[1], 10);
+
+  return null;
+}
+
+function isStructuredImageFieldKey(key) {
+  return Number.isInteger(getNumberedImageIndexFromKey(key));
+}
+
+function getNumberedImageFieldCandidates(index) {
+  return [
+    `Image ${index}`,
+    `Photo ${index}`,
+    `Gallery ${index} Image`,
+    `Gallery ${index} Photo`,
+    `Gallery ${index} Link`,
+    `Gallery ${index} Url`,
+  ];
+}
+
+function getSidebarPreviewImageUrl(row) {
+  const directImageUrl = normalizeUrl(
+    getFieldValue(row, "Image Link") ||
+      getFieldValue(row, "Image") ||
+      getFieldValue(row, "image") ||
+      getFieldValue(row, "image_url") ||
+      getFieldValue(row, "photo") ||
+      getFieldValue(row, "photo_url"),
+  );
+  if (directImageUrl) return directImageUrl;
+
+  const numberedIndexes = Array.from(
+    new Set(
+      Object.keys(row || {})
+        .map((key) => getNumberedImageIndexFromKey(key))
+        .filter((value) => Number.isInteger(value) && value > 0),
+    ),
+  ).sort((a, b) => a - b);
+
+  for (const index of numberedIndexes) {
+    const imageUrl = normalizeUrl(
+      getNumberedImageFieldCandidates(index)
+        .map((candidate) => getFieldValue(row, candidate))
+        .find(Boolean),
+    );
+    if (imageUrl) return imageUrl;
+  }
+
+  return null;
+}
+
+function escapeRegExp(value) {
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function stripDescriptionHeadingMarkup(text) {
+  return String(text || "")
+    .trim()
+    .replace(/^#{1,6}\s*/, "")
+    .replace(/^=+\s*(.*?)\s*=+$/, "$1")
+    .replace(/^\*\*(.*?)\*\*$/, "$1")
+    .replace(/^__(.*?)__$/, "$1")
+    .trim();
+}
+
+function normalizeDescriptionHeading(text) {
+  return stripDescriptionHeadingMarkup(text)
+    .replace(/\s+/g, " ")
+    .replace(/\s*&\s*/g, " and ")
+    .replace(/[：:]+$/u, "")
+    .replace(/\s*[-–—]+\s*$/u, "")
+    .trim()
+    .toLowerCase();
+}
+
+function isExplicitStructuredHeadingLine(line) {
+  const rawLine = String(line || "").trim();
+  if (!rawLine) return false;
+
+  return /^#{1,6}\s+\S/u.test(rawLine) || /^=+\s*\S.*\s*=+\s*$/u.test(rawLine);
+}
+
+function detectStructuredDescriptionHeading(line) {
+  const rawLine = String(line || "").trim();
+  const cleanedLine = stripDescriptionHeadingMarkup(rawLine);
+  const normalizedLine = normalizeDescriptionHeading(cleanedLine);
+  if (!normalizedLine) return null;
+
+  for (const alias of STRUCTURED_DESCRIPTION_HEADING_ALIASES) {
+    const normalizedAlias = normalizeDescriptionHeading(alias);
+    if (!normalizedAlias) continue;
+
+    if (normalizedLine === normalizedAlias) {
+      return { matched: true, inlineContent: "" };
+    }
+
+    const inlineMatch = cleanedLine.match(
+      new RegExp(`^${escapeRegExp(alias)}\\s*[:\\-–—]\\s*(.+)$`, "i"),
+    );
+    if (inlineMatch) {
+      return {
+        matched: true,
+        inlineContent: String(inlineMatch[1] || "").trim(),
+      };
+    }
+  }
+
+  if (isExplicitStructuredHeadingLine(rawLine)) {
+    return { matched: true, inlineContent: "" };
+  }
+
+  return null;
+}
+
+function extractLeadPreviewText(text) {
+  const blocks = String(text || "")
+    .split(/\n\s*\n+/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+  if (!blocks.length) return "";
+
+  const leadBlocks = [];
+  let firstSectionContent = "";
+  let foundHeading = false;
+  let insideSection = false;
+
+  blocks.forEach((block) => {
+    const lines = String(block || "")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+    if (!lines.length) return;
+
+    const headingMatch = detectStructuredDescriptionHeading(lines[0]);
+    if (headingMatch?.matched) {
+      foundHeading = true;
+      insideSection = true;
+      const remainder = [headingMatch.inlineContent, ...lines.slice(1)]
+        .filter(Boolean)
+        .join("\n")
+        .trim();
+      if (!firstSectionContent && remainder) {
+        firstSectionContent = remainder;
+      }
+      return;
+    }
+
+    if (insideSection) {
+      if (!firstSectionContent) firstSectionContent = block;
+      return;
+    }
+
+    leadBlocks.push(block);
+  });
+
+  if (!foundHeading) return blocks.join("\n\n");
+  return leadBlocks.join("\n\n").trim() || firstSectionContent;
+}
+
 function getShrinePageUrl(idx) {
   return `./shrine.html?id=${encodeURIComponent(idx)}&lang=${encodeURIComponent(
     currentLang,
@@ -627,9 +847,19 @@ async function renderDetails(rawRow, rowIdx = null) {
           getShrinePageUrl(resolvedIdx),
         )}">${escapeHtml(title)}</a>`
       : escapeHtml(title);
-  const imageUrl = normalizeUrl(
-    row["Image Link"] || row.Image || row.image || row.image_url,
-  );
+  const detailPageUrl = resolvedIdx >= 0 ? getShrinePageUrl(resolvedIdx) : "";
+  const imageUrl = getSidebarPreviewImageUrl(row);
+  let leadParagraphKey = "";
+  let leadParagraphValue = "";
+
+  for (const key of LEAD_PARAGRAPH_KEYS) {
+    const value = (await getAutoLocalizedFieldValue(row, key)) || row[key];
+    if (value && String(value).trim()) {
+      leadParagraphKey = key;
+      leadParagraphValue = extractLeadPreviewText(String(value).trim());
+      break;
+    }
+  }
   const parts = [];
 
   if (imageUrl) {
@@ -641,21 +871,35 @@ async function renderDetails(rawRow, rowIdx = null) {
   parts.push(`<h2 class="details-title">${detailsLink}</h2>`);
 
   const visibleEntries = Object.entries(row).filter(([key, value]) => {
-    if (NON_DETAIL_KEYS.has(key) || value === null || value === undefined) {
+    if (
+      String(key || "").startsWith("_") ||
+      NON_DETAIL_KEYS.has(key) ||
+      isStructuredImageFieldKey(key) ||
+      value === null ||
+      value === undefined
+    ) {
       return false;
     }
+    if (LEAD_PARAGRAPH_KEYS.includes(key) && key !== leadParagraphKey) return false;
     if (currentLang === "en" && isUrduVariantKey(key)) return false;
     return true;
   });
 
   const detailRows = await Promise.all(
     visibleEntries.map(async ([key, value]) => {
-      const textValue = String(value).trim();
+      const textValue =
+        key === leadParagraphKey && leadParagraphValue
+          ? leadParagraphValue
+          : String(value).trim();
       if (!textValue) return "";
 
       const localizedKey = currentLang === "ur" ? await translateTextToUrdu(key) : key;
       const localizedValue =
-        currentLang === "ur" ? await translateTextToUrdu(textValue) : textValue;
+        (currentLang === "ur" ? await getAutoLocalizedFieldValue(row, key) : textValue) ||
+        textValue;
+      if (key === leadParagraphKey) {
+        return buildDescriptionPreviewRow(localizedKey, localizedValue, detailPageUrl);
+      }
       return buildDetailRow(localizedKey, localizedValue);
     }),
   );
@@ -692,9 +936,8 @@ function isMarkerDomTarget(target) {
   );
 }
 
-function markMarkerInteraction(durationMs = 1800) {
+function markMarkerInteraction(durationMs = 650) {
   const now = Date.now();
-  lastMarkerInteractionAt = now;
   suppressMapClickUntil = Math.max(suppressMapClickUntil, now + durationMs);
 }
 
@@ -710,10 +953,34 @@ function setSelected(idx) {
   }
 }
 
+function showMarkerDetails(row, idx, latLng, marker, options = {}) {
+  const {
+    animateMap = true,
+    openPopup = true,
+    suppressDurationMs = IS_COARSE_POINTER ? 1100 : 700,
+  } = options;
+
+  markMarkerInteraction(suppressDurationMs);
+  setSelected(idx);
+
+  if (latLng) {
+    map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
+      animate: animateMap,
+    });
+  }
+
+  renderDetails(row, idx);
+  openSidebar();
+  hideTablePanel();
+
+  if (openPopup && marker && typeof marker.isPopupOpen === "function" && !marker.isPopupOpen()) {
+    marker.openPopup();
+  }
+}
+
 map.on("click", (event) => {
   if (Date.now() < suppressMapClickUntil) return;
   if (isMarkerDomTarget(event?.originalEvent?.target)) return;
-  if (IS_COARSE_POINTER && Date.now() - lastMarkerInteractionAt < 2200) return;
   clearDetails();
   collapseSidebar();
   hideTablePanel();
@@ -775,7 +1042,8 @@ function renderTableList(searchTerm = "") {
     if (!filtered.length) return;
 
     const groupEl = document.createElement("div");
-    groupEl.className = "group collapsed";
+    const shouldStartExpanded = Boolean(query);
+    groupEl.className = shouldStartExpanded ? "group" : "group collapsed";
 
     const header = document.createElement("button");
     header.type = "button";
@@ -942,83 +1210,81 @@ function addMarker(rawRow, idx) {
     if (now - lastActivationAt < 280) return;
     lastActivationAt = now;
 
-    markMarkerInteraction(2200);
     if (event?.originalEvent) L.DomEvent.stop(event.originalEvent);
-
-    setSelected(idx);
-    map.setView([latLng.lat, latLng.lng], Math.max(map.getZoom(), 13), {
-      animate: true,
+    showMarkerDetails(row, idx, latLng, marker, {
+      animateMap: true,
+      openPopup: true,
     });
-    renderDetails(row, idx);
-    openSidebar();
-    hideTablePanel();
-    marker.openPopup();
   };
 
   const preActivateMarker = (event) => {
-    markMarkerInteraction(2200);
+    markMarkerInteraction(IS_COARSE_POINTER ? 1100 : 700);
     if (event?.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
   };
+  marker.on("popupopen", () => {
+    showMarkerDetails(row, idx, latLng, marker, {
+      animateMap: false,
+      openPopup: false,
+      suppressDurationMs: IS_COARSE_POINTER ? 1200 : 700,
+    });
+  });
   marker.on("touchstart", preActivateMarker);
   marker.on("pointerdown", preActivateMarker);
   marker.on("mousedown", preActivateMarker);
   marker.on("click", handleMarkerActivate);
-  marker.on("touchend", handleMarkerActivate);
 
   markers[idx] = marker;
 }
 
-function loadCsv() {
+async function loadShrines() {
   setStatus(t("loading"));
 
-  Papa.parse(CSV_FILE, {
-    download: true,
-    header: true,
-    skipEmptyLines: true,
-    complete: (results) => {
-      const rows = (results.data || []).map(normalizeSheetRow);
-      rowsStore.length = 0;
-      rowsStore.push(...rows);
-      primeTranslationCache(rowsStore);
+  try {
+    const result = typeof ShrineDataSource !== "undefined"
+      ? await ShrineDataSource.fetchRows()
+      : { rows: [], source: "unknown" };
+    const rows = (result.rows || []).map(normalizeSheetRow);
 
-      if (!rowsStore.length) {
-        setStatus("Loaded CSV but found no rows.");
-        clearDetails();
-        collapseSidebar();
-        return;
-      }
+    rowsStore.length = 0;
+    rowsStore.push(...rows);
+    primeTranslationCache(rowsStore);
 
-      rowsStore.forEach((row, idx) => addMarker(row, idx));
-      const validMarkers = markers.filter(Boolean);
-
-      if (!validMarkers.length) {
-        setStatus("No valid points found. Check Latitude and Longitude columns.");
-        clearDetails();
-        collapseSidebar();
-        return;
-      }
-
-      const featureGroup = L.featureGroup(validMarkers);
-      map.fitBounds(featureGroup.getBounds().pad(0.3), {
-        maxZoom: DEFAULT_ZOOM,
-      });
-
-      setStatus("");
+    if (!rowsStore.length) {
+      setStatus("Loaded shrine data but found no rows.");
       clearDetails();
       collapseSidebar();
-      buildTableControls();
-      setTimeout(() => renderTableList(""), 0);
-    },
-    error: (error) => {
-      console.error("CSV load error:", error);
-      setStatus(`Failed to load CSV.\n${error?.message || String(error)}`);
+      return;
+    }
+
+    rowsStore.forEach((row, idx) => addMarker(row, idx));
+    const validMarkers = markers.filter(Boolean);
+
+    if (!validMarkers.length) {
+      setStatus("No valid points found. Check Latitude and Longitude columns.");
       clearDetails();
       collapseSidebar();
-    },
-  });
+      return;
+    }
+
+    const featureGroup = L.featureGroup(validMarkers);
+    map.fitBounds(featureGroup.getBounds().pad(0.3), {
+      maxZoom: DEFAULT_ZOOM,
+    });
+
+    setStatus("");
+    clearDetails();
+    collapseSidebar();
+    buildTableControls();
+    setTimeout(() => renderTableList(""), 0);
+  } catch (error) {
+    console.error("Shrine data load error:", error);
+    setStatus(`Failed to load shrine data.\n${error?.message || String(error)}`);
+    clearDetails();
+    collapseSidebar();
+  }
 }
 
 localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
 persistTranslationCache();
 initLanguageToggle();
-loadCsv();
+loadShrines();
