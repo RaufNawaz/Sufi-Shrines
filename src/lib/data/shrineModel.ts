@@ -42,7 +42,7 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
     category: getFieldValue(row, 'Category'),
     location,
     region: extractRegion(location),
-    founded: getFieldValue(row, 'Founded'),
+    founded: getFieldValue(row, 'Founded/Opened') || getFieldValue(row, 'Founded'),
     sufiSaint: getFieldValue(row, 'Sufi Saint'),
     imageUrl: getPrimaryImageUrl(row),
     gallery: parseGallery(row),

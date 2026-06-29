@@ -9,6 +9,8 @@ import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSearch } from '../../lib/search/useSearch';
+import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
+import { TimeSlider } from './TimeSlider';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -64,6 +66,9 @@ interface Props {
   onRegionChange: (region: string) => void;
   activeSaint: string;
   onSaintChange: (saint: string) => void;
+  eraMin: number;
+  eraMax: number;
+  onEraChange: (range: [number, number]) => void;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -90,6 +95,9 @@ export function MapSidebar({
   onRegionChange,
   activeSaint,
   onSaintChange,
+  eraMin,
+  eraMax,
+  onEraChange,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -98,7 +106,8 @@ export function MapSidebar({
   const searchRef = useRef<HTMLInputElement>(null);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
-  const hasActiveFilter = Boolean(activeCategory || activeRegion || activeSaint);
+  const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
+  const hasActiveFilter = Boolean(activeCategory || activeRegion || activeSaint || hasEraFilter);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -154,6 +163,14 @@ export function MapSidebar({
     if (activeCategory) result = result.filter((s) => s.category === activeCategory);
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
+    if (hasEraFilter) {
+      result = result.filter((s) => {
+        if (!s.founded) return false;
+        const era = parseEra(s.founded);
+        if (!era) return false;
+        return era.maxCentury >= eraMin && era.minCentury <= eraMax;
+      });
+    }
     if (search.trim()) {
       if (searchIds !== null) {
         // Worker results available — use them (ranked, fuzzy)
@@ -173,7 +190,7 @@ export function MapSidebar({
       }
     }
     return result;
-  }, [shrines, activeCategory, activeRegion, activeSaint, search, searchIds, localizeName]);
+  }, [shrines, activeCategory, activeRegion, activeSaint, search, searchIds, localizeName, hasEraFilter, eraMin, eraMax]);
 
   const grouped = useMemo(() => {
     const groups = new Map<string, Shrine[]>();
@@ -196,7 +213,8 @@ export function MapSidebar({
     onCategoryChange('');
     onRegionChange('');
     onSaintChange('');
-  }, [onCategoryChange, onRegionChange, onSaintChange]);
+    onEraChange([ERA_MIN, ERA_MAX]);
+  }, [onCategoryChange, onRegionChange, onSaintChange, onEraChange]);
 
   return (
     <aside
@@ -393,6 +411,13 @@ export function MapSidebar({
               </div>
             </div>
           )}
+
+          {/* Time-slider by founding era */}
+          <TimeSlider
+            value={[eraMin, eraMax]}
+            onChange={onEraChange}
+            lang={lang}
+          />
 
           {/* Result count */}
           <div className="shrine-list-status" aria-live="polite" aria-atomic="true">

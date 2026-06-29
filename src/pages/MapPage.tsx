@@ -6,6 +6,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import 'leaflet/dist/leaflet.css';
+import { ERA_MIN, ERA_MAX } from '../lib/data/era';
 
 /** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
@@ -31,6 +32,8 @@ interface FilterState {
   category: string;
   region: string;
   saint: string;
+  eraMin: number;
+  eraMax: number;
 }
 
 function getFiltersFromURL(): FilterState {
@@ -39,6 +42,8 @@ function getFiltersFromURL(): FilterState {
     category: p.get('category') || '',
     region: p.get('region') || '',
     saint: p.get('saint') || '',
+    eraMin: parseInt(p.get('eraMin') || '', 10) || ERA_MIN,
+    eraMax: parseInt(p.get('eraMax') || '', 10) || ERA_MAX,
   };
 }
 
@@ -47,6 +52,8 @@ function setFiltersInURL(filters: FilterState): void {
   if (filters.category) p.set('category', filters.category); else p.delete('category');
   if (filters.region) p.set('region', filters.region); else p.delete('region');
   if (filters.saint) p.set('saint', filters.saint); else p.delete('saint');
+  if (filters.eraMin !== ERA_MIN) p.set('eraMin', String(filters.eraMin)); else p.delete('eraMin');
+  if (filters.eraMax !== ERA_MAX) p.set('eraMax', String(filters.eraMax)); else p.delete('eraMax');
   window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
 }
 
@@ -162,6 +169,10 @@ export default function MapPage() {
     setFilters((f) => ({ ...f, saint }));
   }, []);
 
+  const handleEraChange = useCallback((range: [number, number]) => {
+    setFilters((f) => ({ ...f, eraMin: range[0], eraMax: range[1] }));
+  }, []);
+
   return (
     <div className="map-root">
       {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
@@ -194,6 +205,9 @@ export default function MapPage() {
         onRegionChange={handleRegionChange}
         activeSaint={filters.saint}
         onSaintChange={handleSaintChange}
+        eraMin={filters.eraMin}
+        eraMax={filters.eraMax}
+        onEraChange={handleEraChange}
       />
 
       <main
