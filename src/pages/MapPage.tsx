@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -7,6 +7,7 @@ import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import 'leaflet/dist/leaflet.css';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
+import { TOURS } from '../lib/tours/tours';
 
 /** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
@@ -64,6 +65,8 @@ export default function MapPage() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
+  const [activeTourId, setActiveTourId] = useState<string | null>(null);
+  const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
 
@@ -173,6 +176,46 @@ export default function MapPage() {
     setFilters((f) => ({ ...f, eraMin: range[0], eraMax: range[1] }));
   }, []);
 
+  const activeTour = useMemo(
+    () => (activeTourId ? TOURS.find((t) => t.id === activeTourId) ?? null : null),
+    [activeTourId],
+  );
+
+  const activeTourShrine = useMemo(() => {
+    if (!activeTour) return null;
+    const stop = activeTour.stops[tourStopIdx];
+    return stop ? shrines.find((s) => s.slug === stop.shrineSlug) ?? null : null;
+  }, [activeTour, tourStopIdx, shrines]);
+
+  // Advance map selection when tour stop changes
+  useEffect(() => {
+    if (activeTourShrine) setSelectedId(activeTourShrine.id);
+  }, [activeTourShrine]);
+
+  const handleStartTour = useCallback((tourId: string) => {
+    setActiveTourId(tourId);
+    setTourStopIdx(0);
+    setSidebarOpen(true);
+  }, []);
+
+  const handleTourNext = useCallback(() => {
+    if (!activeTour) return;
+    if (tourStopIdx < activeTour.stops.length - 1) {
+      setTourStopIdx((i) => i + 1);
+    } else {
+      setActiveTourId(null);
+    }
+  }, [activeTour, tourStopIdx]);
+
+  const handleTourPrev = useCallback(() => {
+    if (tourStopIdx > 0) setTourStopIdx((i) => i - 1);
+  }, [tourStopIdx]);
+
+  const handleTourExit = useCallback(() => {
+    setActiveTourId(null);
+    setTourStopIdx(0);
+  }, []);
+
   return (
     <div className="map-root">
       {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
@@ -208,6 +251,13 @@ export default function MapPage() {
         eraMin={filters.eraMin}
         eraMax={filters.eraMax}
         onEraChange={handleEraChange}
+        activeTour={activeTour}
+        activeTourStop={tourStopIdx}
+        activeTourShrine={activeTourShrine}
+        onStartTour={handleStartTour}
+        onTourNext={handleTourNext}
+        onTourPrev={handleTourPrev}
+        onTourExit={handleTourExit}
       />
 
       <main

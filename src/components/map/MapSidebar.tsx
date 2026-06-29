@@ -11,6 +11,8 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
+import type { Tour } from '../../lib/tours/tours';
+import { TourPanel, TourList } from './TourPanel';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -69,6 +71,13 @@ interface Props {
   eraMin: number;
   eraMax: number;
   onEraChange: (range: [number, number]) => void;
+  activeTour: Tour | null;
+  activeTourStop: number;
+  activeTourShrine: Shrine | null;
+  onStartTour: (tourId: string) => void;
+  onTourNext: () => void;
+  onTourPrev: () => void;
+  onTourExit: () => void;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -98,6 +107,13 @@ export function MapSidebar({
   eraMin,
   eraMax,
   onEraChange,
+  activeTour,
+  activeTourStop,
+  activeTourShrine,
+  onStartTour,
+  onTourNext,
+  onTourPrev,
+  onTourExit,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -513,10 +529,23 @@ export function MapSidebar({
       ) : (
         /* Detail view */
         <div className="sidebar-detail" id="main-content">
-          {selectedShrine ? (
+          {activeTour ? (
+            <TourPanel
+              tour={activeTour}
+              stopIdx={activeTourStop}
+              shrine={activeTourShrine}
+              lang={lang}
+              onNext={onTourNext}
+              onPrev={onTourPrev}
+              onExit={onTourExit}
+            />
+          ) : selectedShrine ? (
             <ShrinePreview shrine={selectedShrine} lang={lang} localizeField={localizeField} />
           ) : (
-            <WelcomeCard lang={lang} t={t} />
+            <>
+              <WelcomeCard lang={lang} t={t} />
+              <TourList lang={lang} onStart={onStartTour} />
+            </>
           )}
         </div>
       )}
