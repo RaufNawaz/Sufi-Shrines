@@ -71,6 +71,6 @@ export interface ShrineDataState {
   shrines: Shrine[];
   loading: boolean;
   error: string | null;
-  source: 'csv' | 'cache' | null;
+  source: 'csv' | 'cache' | 'snapshot' | null;
   refresh: () => void;
 }

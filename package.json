@@ -10,7 +10,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "data:snapshot": "node scripts/snapshot-data.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

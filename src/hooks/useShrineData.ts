@@ -4,6 +4,7 @@ import type { Shrine, ShrineDataState, ShrineRow } from '../types/shrine';
 import { CSV_URL } from '../lib/data/constants';
 import { normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
+import snapshotData from '../data/shrines-fallback.json';
 
 const CACHE_KEY = 'shrines_csv_cache_v2';
 const CACHE_MAX_AGE_MS = 1000 * 60 * 60; // 1 hour
@@ -38,6 +39,11 @@ function isFresh(entry: CacheEntry): boolean {
   return Date.now() - entry.timestamp < CACHE_MAX_AGE_MS;
 }
 
+function loadSnapshot(): Shrine[] {
+  const rows = (snapshotData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
+  return buildShrines(rows);
+}
+
 async function fetchShrines(): Promise<Shrine[]> {
   return new Promise((resolve, reject) => {
     Papa.parse(CSV_URL, {
@@ -57,7 +63,7 @@ export function useShrineData(): ShrineDataState {
   const [shrines, setShrines] = useState<Shrine[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [source, setSource] = useState<'csv' | 'cache' | null>(null);
+  const [source, setSource] = useState<'csv' | 'cache' | 'snapshot' | null>(null);
   const refreshRef = useRef(0);
 
   const load = useCallback(async (force = false) => {
@@ -99,7 +105,13 @@ export function useShrineData(): ShrineDataState {
         setShrines(cached.shrines);
         setSource('cache');
       } else {
-        setError(err instanceof Error ? err.message : 'Failed to load shrine data.');
+        const fallback = loadSnapshot();
+        if (fallback.length > 0) {
+          setShrines(fallback);
+          setSource('snapshot');
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load shrine data.');
+        }
       }
     } finally {
       if (token === refreshRef.current) setLoading(false);

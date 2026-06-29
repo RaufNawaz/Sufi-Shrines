@@ -13,7 +13,13 @@ export function parseLatLng(row: ShrineRow): LatLng | null {
 
 export function buildShrine(row: ShrineRow, id: number): Shrine | null {
   const latLng = parseLatLng(row);
-  if (!latLng) return null;
+  if (!latLng) {
+    if (import.meta.env.DEV) {
+      const name = row?.Name || `(row ${id})`;
+      console.warn(`[shrines] Skipped "${name}" — missing or non-numeric Latitude/Longitude`);
+    }
+    return null;
+  }
 
   const name = getFieldValue(row, 'Name') || `Shrine ${id}`;
   const explicitSlug = getFieldValue(row, 'Slug');
