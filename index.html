@@ -1,58 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Sufi Shrines Map</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap"
-      rel="stylesheet"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a5c4e" />
+    <meta
+      name="description"
+      content="An interactive map of Sufi shrines across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu."
     />
+    <meta property="og:title" content="Sufi Shrines of Pakistan" />
+    <meta
+      property="og:description"
+      content="Explore Sufi shrine histories, architecture, rituals, and visitor information across Pakistan in English and Urdu."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <!-- iOS PWA home-screen support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sufi Shrines" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Sufi Shrines of Pakistan</title>
   </head>
   <body>
-    <div id="wrap">
-      <div id="map" aria-label="Map"></div>
-
-      <aside id="sidebar" class="collapsed">
-        <button
-          id="sidebarToggle"
-          class="sidebar-toggle"
-          type="button"
-          aria-label="Toggle sidebar"
-        >
-          <span class="icon" aria-hidden="true"></span>
-        </button>
-
-        <div class="sidebar-inner">
-          <div class="sidebar-header">
-            <h1 id="mapTitle">Sufi Shrines</h1>
-            <button id="languageToggle" class="language-toggle" type="button">
-              اردو
-            </button>
-          </div>
-          <div id="status" class="status">Loading...</div>
-          <div id="details" class="details">
-            <p class="muted">
-              No shrine selected yet. Click a marker to view details.
-            </p>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <script src="./editor-config.js"></script>
-    <script src="./data-source.js"></script>
-    <script src="./translations.js"></script>
-    <script src="./app.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Never go below 16px — prevents iOS auto-zoom on focus */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent iOS momentum scrolling issues on fixed sidebars */
+  overflow-x: hidden;
+}
+
+/* iOS tap highlight */
+a,
+button,
+[role='button'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent FOUT on dark theme */
+html[data-theme='dark'] body {
+  background-color: var(--color-bg);
+}
+
+/* RTL body */
+body.lang-rtl,
+[dir='rtl'] {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+  font-size: 1.05rem;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: var(--safe-top);
+  left: var(--safe-left);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) 0;
+  z-index: var(--z-modal);
+  transform: translateY(-100%);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-urdu {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+  direction: rtl;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+}
+
+.leaflet-control-attribution {
+  font-size: var(--text-xs);
+  background: var(--color-bg-overlay) !important;
+  color: var(--color-text-secondary) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary-pale);
+  color: var(--color-primary-dark);
+}
+
+/* Print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

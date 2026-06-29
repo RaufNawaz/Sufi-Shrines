@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+dist-ssr/
+build/
+
+# Environment variables (never commit real keys)
+.env
+.env.local
+.env.*.local
+
+# Large research assets (use Git LFS or external storage instead)
+*.pdf
+urd.traineddata
+tessdata/
+__pycache__/
+*.pyc
+
+# Editor / OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+
+# Vite
+*.local
