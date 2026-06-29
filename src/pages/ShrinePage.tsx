@@ -10,6 +10,7 @@ import { ShrineArticle } from '../components/shrine/ShrineArticle';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
+import { ShrineImage } from '../components/ui/ShrineImage';
 import { getUrduFieldValue, getFieldValue } from '../lib/data/fieldAliasing';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import type { Shrine } from '../types/shrine';
@@ -134,27 +135,15 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
       </div>
 
       {/* Hero — always rendered (image or branded placeholder) */}
-      <div className={`shrine-hero${shrine.imageUrl ? '' : ' shrine-hero--placeholder'}`}>
-        {shrine.imageUrl ? (
-          <img
-            src={shrine.imageUrl}
-            alt={name}
-            className="shrine-hero-img"
-            loading="eager"
-            onError={(e) => {
-              const hero = (e.target as HTMLImageElement).closest('.shrine-hero');
-              if (hero) {
-                hero.classList.add('shrine-hero--placeholder');
-                (e.target as HTMLImageElement).remove();
-                hero.innerHTML = `<svg class="shrine-hero-dome-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z"/></svg>`;
-              }
-            }}
-          />
-        ) : (
-          <svg className="shrine-hero-dome-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-            <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
-          </svg>
-        )}
+      <div className="shrine-hero">
+        <ShrineImage
+          src={shrine.imageUrl}
+          alt={name}
+          category={shrine.category}
+          className="shrine-hero-img"
+          placeholderClassName="shrine-hero-placeholder"
+          loading="eager"
+        />
       </div>
 
       {/* Share toast */}

@@ -152,7 +152,7 @@ export function ShrineArticle({ shrine }: Props) {
         </section>
       )}
 
-      <ShrineGallery items={shrine.gallery} />
+      <ShrineGallery items={shrine.gallery} category={shrine.category} />
     </div>
   );
 }

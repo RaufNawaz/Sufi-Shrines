@@ -1070,3 +1070,12 @@
   height: 32px;
   opacity: 0.35;
 }
+
+.shrine-img-placeholder.shrine-hero-placeholder {
+  height: 220px;
+}
+
+.shrine-img-placeholder.related-card-img-placeholder {
+  height: auto;
+  aspect-ratio: 16/9;
+}

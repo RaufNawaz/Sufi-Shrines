@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { GalleryItem } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { ShrineImage } from '../ui/ShrineImage';
 
 interface Props {
   items: GalleryItem[];
+  category?: string;
 }
 
 interface LightboxProps {
@@ -94,7 +96,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   );
 }
 
-export function ShrineGallery({ items }: Props) {
+export function ShrineGallery({ items, category = '' }: Props) {
   const { t } = useLang();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
@@ -114,12 +116,12 @@ export function ShrineGallery({ items }: Props) {
             onClick={() => setLightboxIdx(i)}
             aria-label={item.caption || `${t('gallery')} image ${i + 1}: ${t('imageExpand')}`}
           >
-            <img
+            <ShrineImage
               src={item.imageUrl}
               alt={item.caption || ''}
+              category={category}
               className="gallery-img"
               loading="lazy"
-              onError={(e) => { (e.target as HTMLImageElement).parentElement?.remove(); }}
             />
             {item.caption && <p className="gallery-caption">{item.caption}</p>}
           </button>
