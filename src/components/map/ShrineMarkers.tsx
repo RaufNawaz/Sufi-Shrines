@@ -83,7 +83,8 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
         className: 'shrine-tooltip',
       });
 
-      marker.on('click', () => {
+      marker.on('click', (e: L.LeafletMouseEvent) => {
+        L.DomEvent.stopPropagation(e);
         onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
       });
 

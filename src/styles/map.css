@@ -7,6 +7,26 @@
   position: relative;
 }
 
+/* Desktop: float the sidebar and map as cards with gap from viewport edges */
+@media (min-width: 769px) {
+  .map-root {
+    padding: 10px;
+    gap: 10px;
+    background: var(--color-bg);
+  }
+
+  .sidebar {
+    border-radius: var(--radius-xl);
+    border-inline-end: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .map-container {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+}
+
 /* Sidebar — desktop: docked column; mobile: bottom sheet */
 .sidebar {
   display: flex;

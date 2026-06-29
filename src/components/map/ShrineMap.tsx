@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MapContainer, ZoomControl, LayersControl, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, ZoomControl, LayersControl, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { Shrine } from '../../types/shrine';
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../lib/data/constants';
@@ -67,8 +67,16 @@ function ThemeAwareTileLayer({ isDark }: { isDark: boolean }) {
   return null;
 }
 
+// Deselects the active shrine when clicking empty map space.
+function MapClickDeselect({ onSelect }: { onSelect: (s: Shrine | null) => void }) {
+  useMapEvents({
+    click: () => onSelect(null),
+  });
+  return null;
+}
+
 // Reset-view Leaflet control (bottom-right, above zoom)
-function ResetViewControl() {
+function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }) {
   const map = useMap();
 
   useEffect(() => {
@@ -88,6 +96,7 @@ function ResetViewControl() {
         L.DomEvent.on(btn, 'click', (e: Event) => {
           L.DomEvent.stopPropagation(e);
           L.DomEvent.preventDefault(e);
+          onSelect(null);
           const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           if (reduced) {
             map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
@@ -103,7 +112,7 @@ function ResetViewControl() {
     const ctrl = new ResetCtrl();
     ctrl.addTo(map);
     return () => ctrl.remove();
-  }, [map]);
+  }, [map, onSelect]);
 
   return null;
 }
@@ -183,7 +192,8 @@ export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }:
         isRTL={isRTL}
       />
       <ZoomControl position="bottomright" />
-      <ResetViewControl />
+      <ResetViewControl onSelect={onSelect} />
+      <MapClickDeselect onSelect={onSelect} />
 
       <LayersControl position="bottomleft">
         <LayersControl.BaseLayer name="Voyager (CARTO)">
