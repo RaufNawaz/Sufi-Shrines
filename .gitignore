@@ -19,6 +19,13 @@ urd.traineddata
 tessdata/
 __pycache__/
 *.pyc
+book_test_output/
+
+# Working/planning files — local only, not part of the product
+REDESIGN_FOLLOWUP.md
+PHASE2_RESEARCH_PROMPT.md
+CLAUDE_CODE_PROMPT.md
+archive/old-prompts/
 
 # Editor / OS
 .DS_Store
