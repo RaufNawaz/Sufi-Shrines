@@ -1,10 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes, Navigate, useSearchParams } from 'react-router-dom';
+
 import { LanguageProvider } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
 
 const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
   const [params] = useSearchParams();
@@ -49,7 +51,7 @@ export default function App() {
               <Route path="/shrine/:slug" element={<ShrinePage />} />
               {/* Legacy shrine.html?id=N redirect */}
               <Route path="/shrine.html" element={<LegacyRedirect />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

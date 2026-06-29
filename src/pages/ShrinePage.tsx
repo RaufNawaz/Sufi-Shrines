@@ -214,7 +214,7 @@ export default function ShrinePage() {
   }
 
   return (
-    <div style={{ minHeight: 'var(--page-min-height, 100vh)', background: 'var(--color-bg)' }}>
+    <div className="page-enter" style={{ minHeight: 'var(--page-min-height, 100vh)', background: 'var(--color-bg)' }}>
       <ReadingProgressBar />
       {/* Sticky header */}
       <header className="shrine-page-header no-print">

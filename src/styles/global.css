@@ -190,3 +190,19 @@ body.lang-rtl,
     display: none !important;
   }
 }
+
+/* Page mount animation */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: page-fade-in var(--duration-base) var(--easing) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
