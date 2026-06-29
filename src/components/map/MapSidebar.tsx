@@ -280,6 +280,7 @@ export function MapSidebar({
               <button
                 className={`filter-chip${!activeCategory ? ' active' : ''}`}
                 onClick={() => setActiveCategory('')}
+                aria-pressed={!activeCategory}
               >
                 {t('filterAll')}
               </button>
@@ -288,6 +289,7 @@ export function MapSidebar({
                   key={cat}
                   className={`filter-chip${activeCategory === cat ? ' active' : ''}`}
                   onClick={() => setActiveCategory(activeCategory === cat ? '' : cat)}
+                  aria-pressed={activeCategory === cat}
                 >
                   {localizeField(shrines.find((s) => s.category === cat)!.raw, 'Category') || cat}
                 </button>
@@ -304,7 +306,7 @@ export function MapSidebar({
           {loading && shrines.length === 0 ? (
             <ShrineListSkeleton />
           ) : (
-            <div className="shrine-list-panel" role="list" aria-label="Shrine list" id="main-content">
+            <div className="shrine-list-panel" role="list" aria-label="Shrine list">
               {filtered.length === 0 && !loading && (
                 <div className="shrine-list-empty-state">
                   <svg className="shrine-list-empty-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

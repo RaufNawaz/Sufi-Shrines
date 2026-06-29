@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes, Navigate, useSearchParams } from 'react-router-dom';
+import React, { lazy, Suspense, useEffect, useRef } from 'react';
+import { BrowserRouter, Route, Routes, Navigate, useSearchParams, useLocation } from 'react-router-dom';
 
 import { LanguageProvider } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
@@ -37,6 +37,22 @@ function PageFallback() {
   );
 }
 
+function RouteAnnouncer() {
+  const location = useLocation();
+  const isFirst = useRef(true);
+
+  useEffect(() => {
+    if (isFirst.current) { isFirst.current = false; return; }
+    // Shift focus to main content on navigation so screen readers pick up the new page
+    const el = document.getElementById('main-content') as HTMLElement | null;
+    if (!el) return;
+    if (!el.getAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  }, [location.pathname]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <ThemeProvider>
@@ -45,6 +61,7 @@ export default function App() {
           <a href="#main-content" className="skip-link">
             Skip to content
           </a>
+          <RouteAnnouncer />
           <Suspense fallback={<PageFallback />}>
             <Routes>
               <Route path="/" element={<MapPage />} />

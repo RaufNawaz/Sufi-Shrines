@@ -3,17 +3,29 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 
 export function LanguageToggle({ className }: { className?: string }) {
   const { lang, setLang } = useLang();
-  const isUrdu = lang === 'ur';
 
   return (
-    <button
-      className={`icon-btn ${className || ''}`}
-      style={{ width: 'auto', padding: '0 12px', fontWeight: 600, fontSize: '0.875rem' }}
-      onClick={() => setLang(isUrdu ? 'en' : 'ur')}
-      aria-label={isUrdu ? 'Switch language to English' : 'زبان اردو میں تبدیل کریں'}
-      title={isUrdu ? 'Switch to English' : 'اردو میں تبدیل کریں'}
+    <div
+      className={`lang-toggle-segment${className ? ` ${className}` : ''}`}
+      role="group"
+      aria-label="Select language"
     >
-      {isUrdu ? 'English' : 'اردو'}
-    </button>
+      <button
+        className={`lang-seg${lang === 'en' ? ' active' : ''}`}
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+        lang="en"
+      >
+        EN
+      </button>
+      <button
+        className={`lang-seg${lang === 'ur' ? ' active' : ''}`}
+        onClick={() => setLang('ur')}
+        aria-pressed={lang === 'ur'}
+        lang="ur"
+      >
+        اردو
+      </button>
+    </div>
   );
 }
