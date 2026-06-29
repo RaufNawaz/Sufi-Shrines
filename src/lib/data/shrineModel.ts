@@ -2,7 +2,7 @@ import type { LatLng, Shrine, ShrineRow } from '../../types/shrine';
 import { buildArticleSections, parsedArticleFromRow } from './articleParsing';
 import { getFieldValue } from './fieldAliasing';
 import { getPrimaryImageUrl, parseGallery } from './galleryParsing';
-import { buildSlug } from './slugify';
+import { buildStableSlug, slugify } from './slugify';
 
 export function parseLatLng(row: ShrineRow): LatLng | null {
   const lat = parseFloat(row?.Latitude || '');
@@ -22,8 +22,10 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
   }
 
   const name = getFieldValue(row, 'Name') || `Shrine ${id}`;
+  // Slug is resolved after the full-set collision pass in buildShrines;
+  // store a placeholder here and replace it below.
   const explicitSlug = getFieldValue(row, 'Slug');
-  const slug = explicitSlug ? explicitSlug : buildSlug(name, id);
+  const slug = explicitSlug || buildStableSlug(name);
 
   return {
     id,
@@ -43,9 +45,45 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
 }
 
 export function buildShrines(rows: ShrineRow[]): Shrine[] {
-  return rows
+  const shrines = rows
     .map((row, i) => buildShrine(row, i))
     .filter((s): s is Shrine => s !== null);
+
+  // Resolve slug collisions: disambiguate with location, then saint, then index.
+  // Shrines that already have an explicit Slug column value are never changed.
+  const seen = new Map<string, number>(); // slug → count of uses so far
+  for (const shrine of shrines) {
+    const hasExplicit = Boolean(getFieldValue(shrine.raw, 'Slug'));
+    if (hasExplicit) {
+      seen.set(shrine.slug, (seen.get(shrine.slug) ?? 0) + 1);
+      continue;
+    }
+
+    const base = buildStableSlug(shrine.name);
+    const withLoc = base && shrine.location ? `${base}-${slugify(shrine.location)}` : base;
+    const withSaint = withLoc && shrine.sufiSaint ? `${withLoc}-${slugify(shrine.sufiSaint)}` : withLoc;
+
+    // Pick the shortest candidate that is not yet taken
+    let chosen = base || `shrine-${shrine.id}`;
+    for (const candidate of [base, withLoc, withSaint]) {
+      if (candidate && !seen.has(candidate)) {
+        chosen = candidate;
+        break;
+      }
+    }
+
+    // Last resort: append numeric suffix (stable within a given data snapshot)
+    if (seen.has(chosen)) {
+      let n = 2;
+      while (seen.has(`${chosen}-${n}`)) n++;
+      chosen = `${chosen}-${n}`;
+    }
+
+    shrine.slug = chosen;
+    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
+  }
+
+  return shrines;
 }
 
 export function haversineKm(from: LatLng, to: LatLng): number {
