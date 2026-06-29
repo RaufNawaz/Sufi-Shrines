@@ -508,6 +508,21 @@
   flex-wrap: wrap;
 }
 
+.location-coords {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.mini-marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-marker-default, #1a5c4e);
+  border: 2.5px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
 /* Related shrines */
 .related-shrines {
   margin-bottom: var(--space-8);
@@ -597,6 +612,27 @@
     padding: var(--space-3) var(--space-4);
     padding-top: calc(var(--space-3) + var(--safe-top));
   }
+}
+
+.shrine-page-wrapper {
+  min-height: var(--page-min-height, 100vh);
+  background: var(--color-bg);
+}
+
+.shrine-page-header-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+[dir='rtl'] .back-link svg {
+  transform: scaleX(-1);
+}
+
+.shrine-page-error {
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  color: var(--color-error);
 }
 
 .site-footer {
@@ -701,6 +737,9 @@
 .skeleton-text:last-child {
   width: 55%;
 }
+
+.skeleton-text--90 { width: 90%; }
+.skeleton-text--80 { width: 80%; }
 
 /* ── B3: Shrine detail page improvements ──────────────────────────────────── */
 

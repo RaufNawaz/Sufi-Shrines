@@ -98,6 +98,27 @@ body.lang-rtl,
   background: var(--color-bg);
 }
 
+.map-container .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* App-level Suspense fallback */
+.page-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.spinner--lg {
+  width: 24px;
+  height: 24px;
+}
+
 .leaflet-control-attribution {
   font-size: var(--text-xs);
   background: var(--color-bg-overlay) !important;

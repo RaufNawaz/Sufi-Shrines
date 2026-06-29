@@ -19,8 +19,8 @@ function SkeletonPage() {
     <div className="shrine-loading">
       <div className="skeleton skeleton-hero" />
       <div className="skeleton skeleton-title" />
-      <div className="skeleton skeleton-text" style={{ width: '90%' }} />
-      <div className="skeleton skeleton-text" style={{ width: '80%' }} />
+      <div className="skeleton skeleton-text skeleton-text--90" />
+      <div className="skeleton skeleton-text skeleton-text--80" />
       <div className="skeleton skeleton-text" />
     </div>
   );
@@ -195,7 +195,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
   const { shrines, loading, error } = useShrineData();
-  const { t, isRTL } = useLang();
+  const { t } = useLang();
 
   const shrine = useMemo(() => {
     if (!slug || !shrines.length) return null;
@@ -214,17 +214,17 @@ export default function ShrinePage() {
   }
 
   return (
-    <div className="page-enter" style={{ minHeight: 'var(--page-min-height, 100vh)', background: 'var(--color-bg)' }}>
+    <div className="page-enter shrine-page-wrapper">
       <ReadingProgressBar />
       {/* Sticky header */}
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ transform: isRTL ? 'scaleX(-1)' : undefined }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
         </Link>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="shrine-page-header-actions">
           <DarkModeToggle />
           <LanguageToggle />
         </div>
@@ -233,7 +233,7 @@ export default function ShrinePage() {
       {loading && !shrine && <SkeletonPage />}
 
       {error && !shrine && (
-        <div style={{ padding: '48px 24px', textAlign: 'center', color: 'var(--color-error)' }}>
+        <div className="shrine-page-error">
           {t('errorLoadingData')}
         </div>
       )}

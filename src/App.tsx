@@ -21,18 +21,8 @@ function LegacyRedirect() {
 
 function PageFallback() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        background: 'var(--color-bg)',
-        color: 'var(--color-text-muted)',
-        fontSize: '0.875rem',
-      }}
-    >
-      <span className="spinner" style={{ width: 24, height: 24, border: '2px solid var(--color-border)', borderTopColor: 'var(--color-primary)' }} />
+    <div className="page-fallback">
+      <span className="spinner spinner--lg" />
     </div>
   );
 }

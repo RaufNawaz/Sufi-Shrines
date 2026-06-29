@@ -5,18 +5,18 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 
 export default function NotFoundPage() {
-  const { lang, t, isRTL } = useLang();
+  const { lang, t } = useLang();
 
   return (
     <div className="not-found-page page-enter">
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ transform: isRTL ? 'scaleX(-1)' : undefined }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
         </Link>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="shrine-page-header-actions">
           <DarkModeToggle />
           <LanguageToggle />
         </div>

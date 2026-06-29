@@ -13,7 +13,7 @@ interface Props {
 // Custom marker matching the shrine-dot style; CSS vars work in DOM innerHTML
 const miniMarkerIcon = L.divIcon({
   className: '',
-  html: `<div style="width:14px;height:14px;border-radius:50%;background:var(--color-marker-default,#1a5c4e);border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>`,
+  html: `<div class="mini-marker-dot"></div>`,
   iconSize: [14, 14],
   iconAnchor: [7, 7],
 });
@@ -138,7 +138,7 @@ export function LocationMap({ latLng, name }: Props) {
         )}
       </div>
 
-      <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)', marginTop: '8px' }}>
+      <p className="location-coords">
         {t('coordinatesLabel')}: {coords}
       </p>
     </section>

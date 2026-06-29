@@ -174,7 +174,6 @@ export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }:
       center={DEFAULT_CENTER}
       zoom={DEFAULT_ZOOM}
       zoomControl={false}
-      style={{ width: '100%', height: '100%' }}
     >
       <ThemeAwareTileLayer isDark={isDark} />
       <MapController
