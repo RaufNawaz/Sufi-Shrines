@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Set SITE_URL to your deployed domain to populate canonical URLs and the sitemap.
+  # e.g. SITE_URL = "https://your-site.netlify.app"
+
+# Redirect all unmatched routes to index.html for SPA client-side routing.
+# NOTE: pre-rendered shrine pages (dist/shrine/<slug>/index.html) are served
+# first — Netlify resolves specific files before this wildcard rewrite.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+  targetPort = 5173
