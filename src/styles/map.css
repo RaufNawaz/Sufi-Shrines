@@ -912,6 +912,49 @@ body.lang-rtl .sidebar-toggle {
   text-decoration: none !important;
 }
 
+/* ── B1: Branded marker cluster bubbles ───────────────────────────────────── */
+.shrine-cluster-bubble {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  border: 2.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--easing-spring),
+    background var(--duration-fast);
+}
+
+.shrine-cluster-bubble:hover {
+  transform: scale(1.1);
+  background: var(--color-primary-dark);
+}
+
+.shrine-cluster-count {
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Leaflet MarkerCluster base positioning override */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background: transparent !important;
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  display: none !important;
+}
+
 /* ── B6: Segmented language toggle ────────────────────────────────────────── */
 .lang-toggle-segment {
   display: inline-flex;
