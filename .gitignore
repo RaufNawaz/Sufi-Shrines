@@ -50,3 +50,6 @@ test-results/
 
 # Vite
 *.local
+
+*storybook.log
+storybook-static
