@@ -21,7 +21,8 @@ function setSelectedSlug(slug: string | null, push: boolean): void {
   } else {
     params.delete('selected');
   }
-  const url = `${window.location.pathname}?${params.toString()}`;
+  const qs = params.toString();
+  const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
   if (push) {
     window.history.pushState(null, '', url);
   } else {
@@ -55,7 +56,8 @@ function setFiltersInURL(filters: FilterState): void {
   if (filters.saint) p.set('saint', filters.saint); else p.delete('saint');
   if (filters.eraMin !== ERA_MIN) p.set('eraMin', String(filters.eraMin)); else p.delete('eraMin');
   if (filters.eraMax !== ERA_MAX) p.set('eraMax', String(filters.eraMax)); else p.delete('eraMax');
-  window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
+  const qs = p.toString();
+  window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
 }
 
 export default function MapPage() {
