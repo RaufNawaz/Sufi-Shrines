@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
@@ -48,6 +48,11 @@ export function MapSidebar({
   const [showList, setShowList] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
+
+  // Collapse list whenever a shrine is selected (from map marker or any other source)
+  useEffect(() => {
+    if (selectedId !== null) setShowList(false);
+  }, [selectedId]);
 
   const localizeName = useCallback(
     (shrine: Shrine) => {
@@ -265,7 +270,7 @@ export function MapSidebar({
                       role="listitem"
                       onClick={() => {
                         onSelect(shrine);
-                        if (isMobile) setShowList(false);
+                        setShowList(false);
                       }}
                       aria-pressed={shrine.id === selectedId}
                     >

@@ -33,17 +33,17 @@
     inset-inline-start: 0;
     top: 0;
     bottom: 0;
-    width: min(400px, 92vw);
+    width: min(380px, 85vw); /* 15% of map always visible */
     transform: translateX(0);
     box-shadow: var(--shadow-xl);
   }
 
   .sidebar.collapsed {
-    width: min(400px, 92vw);
+    width: min(380px, 85vw);
     transform: translateX(-100%);
   }
 
-  body.lang-rtl .sidebar.collapsed {
+  [dir='rtl'] .sidebar.collapsed {
     transform: translateX(100%);
   }
 }
@@ -224,7 +224,11 @@ body.lang-rtl .sidebar-toggle {
 
 .search-input {
   width: 100%;
-  padding: var(--space-2) var(--space-10) var(--space-2) var(--space-9);
+  height: 40px;
+  /* 2.25rem (36px) inline padding accommodates 16px icon at 12px offset + 8px gap */
+  padding-block: 0;
+  padding-inline-start: 2.25rem;
+  padding-inline-end: 2rem;
   font-size: var(--text-base); /* 16px — prevents iOS auto-zoom */
   border: 1.5px solid var(--color-border-light);
   border-radius: var(--radius-full);
@@ -246,27 +250,21 @@ body.lang-rtl .sidebar-toggle {
   box-shadow: 0 0 0 3px var(--color-primary-pale), var(--shadow-sm);
 }
 
-[dir='rtl'] .search-input {
-  padding-right: var(--space-9);
-  padding-left: var(--space-10);
-}
-
 .search-icon {
   position: absolute;
-  left: var(--space-3);
+  inset-inline-start: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--color-text-muted);
   pointer-events: none;
   flex-shrink: 0;
 }
 
-[dir='rtl'] .search-icon {
-  left: auto;
-  right: var(--space-3);
-}
-
 .search-clear {
   position: absolute;
-  right: var(--space-2);
+  inset-inline-end: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--color-text-muted);
@@ -275,11 +273,12 @@ body.lang-rtl .sidebar-toggle {
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
+  transition: color var(--duration-fast), background var(--duration-fast);
 }
 
-[dir='rtl'] .search-clear {
-  right: auto;
-  left: var(--space-2);
+.search-clear:hover {
+  color: var(--color-text);
+  background: var(--color-bg-alt);
 }
 
 .filter-chips {
