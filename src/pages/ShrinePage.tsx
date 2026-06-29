@@ -31,6 +31,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const { lang, t, localizeField } = useLang();
   const [toastVisible, setToastVisible] = useState(false);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   const name =
     lang === 'ur'
@@ -41,6 +42,14 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
   const founded = shrine.founded;
+
+  // Move focus to the heading so screen readers announce the shrine name on navigation
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  }, []);
 
   useEffect(() => {
     document.title = `${name} — ${t('siteTitle')}`;
@@ -85,7 +94,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
       )}
 
       {/* Title */}
-      <h1 className="shrine-title">{name}</h1>
+      <h1 ref={headingRef} className="shrine-title">{name}</h1>
 
       {/* Summary meta */}
       <div className="shrine-summary-meta">

@@ -52,7 +52,7 @@ function setFiltersInURL(filters: FilterState): void {
 
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
-  const { t, isRTL } = useLang();
+  const { lang, t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
@@ -122,17 +122,16 @@ export default function MapPage() {
     return () => window.removeEventListener('popstate', handler);
   }, [shrines, isMobile]);
 
-  // Escape collapses the sheet on mobile, hides it on desktop
+  // Escape: collapse sidebar + deselect shrine
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && sidebarOpen) {
-        setSidebarOpen(false);
-        if (!isMobile) setSelectedId(null);
-      }
+      if (e.key !== 'Escape') return;
+      if (sidebarOpen) setSidebarOpen(false);
+      setSelectedId(null);
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [sidebarOpen, isMobile]);
+  }, [sidebarOpen]);
 
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {
@@ -165,6 +164,21 @@ export default function MapPage() {
 
   return (
     <div className="map-root">
+      {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
+      <nav
+        id="shrine-directory"
+        className="sr-only"
+        aria-label={lang === 'ur' ? 'مزارات کی فہرست' : 'Shrine directory'}
+      >
+        <ol>
+          {shrines.map((s) => (
+            <li key={s.id}>
+              <a href={`/shrine/${s.slug}`}>{s.name}{s.location ? ` — ${s.location}` : ''}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
       <MapSidebar
         shrines={shrines}
         selectedId={selectedId}

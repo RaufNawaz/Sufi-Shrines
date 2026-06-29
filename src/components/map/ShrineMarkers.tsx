@@ -26,7 +26,7 @@ function buildDivIcon(selected: boolean, category: string): L.DivIcon {
   const catKey = categoryKey(category);
   return L.divIcon({
     className: '',
-    html: `<div class="shrine-dot shrine-dot--${catKey}${selected ? ' selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}"></div>`,
+    html: `<div class="shrine-dot shrine-dot--${catKey}${selected ? ' selected' : ''}"></div>`,
     iconSize: [12, 12],
     iconAnchor: [6, 6],
     popupAnchor: [0, -10],

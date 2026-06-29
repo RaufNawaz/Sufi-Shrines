@@ -49,9 +49,8 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <BrowserRouter>
-          <a href="#main-content" className="skip-link">
-            Skip to content
-          </a>
+          <a href="#main-content" className="skip-link">Skip to content</a>
+          <a href="#shrine-directory" className="skip-link">Skip to shrine list</a>
           <RouteAnnouncer />
           <Suspense fallback={<PageFallback />}>
             <Routes>
