@@ -1,5 +1,4 @@
 window.SHRINES_EDITOR_CONFIG = {
-  enabled: true,
-  password: "shrines2026",
+  enabled: false,
   localOnlyNotice: "Edits are stored only in this browser on this device.",
 };

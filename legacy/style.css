@@ -1813,3 +1813,288 @@ body.lang-rtl .wiki-prose-list {
     transform: translateY(0);
   }
 }
+
+/* ---------- Sidebar brand header ---------- */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.brand-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+  opacity: 0.88;
+}
+
+/* ---------- Welcome card (no-selection empty state) ---------- */
+.welcome-card {
+  margin-top: 6px;
+  padding: 22px 14px 24px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.5), rgba(244, 239, 231, 0.38));
+  text-align: center;
+  display: grid;
+  gap: 11px;
+  animation: rise-in 340ms ease;
+}
+
+.welcome-card-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto;
+  color: var(--accent);
+  opacity: 0.75;
+}
+
+.welcome-card-title {
+  margin: 0;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.welcome-card-text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.welcome-card-hint {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  opacity: 0.78;
+}
+
+/* ---------- Error card ---------- */
+.error-card {
+  margin-top: 8px;
+  padding: 16px 14px;
+  border: 1px solid #fcd5d5;
+  border-radius: 14px;
+  background: rgba(254, 242, 242, 0.8);
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}
+
+.error-card-message {
+  margin: 0;
+  font-size: 14px;
+  color: #7f1d1d;
+  line-height: 1.55;
+}
+
+.error-card-retry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 16px;
+  border: 1px solid #fca5a5;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #991b1b;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.error-card-retry:hover {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #f87171;
+}
+
+/* ---------- Selected marker pulse animation ---------- */
+.shrine-dot {
+  position: relative;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.shrine-dot.selected::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: rgba(217, 119, 6, 0.42);
+  animation: pulse-ring 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- Shrine detail page: site footer ---------- */
+.site-footer {
+  margin-top: 30px;
+  padding: 18px 24px 22px;
+  border-top: 1px solid rgba(149, 138, 122, 0.18);
+  text-align: center;
+  color: var(--wiki-muted);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+.site-footer p:last-child {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--wiki-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.site-footer a:hover {
+  color: var(--wiki-link-hover);
+}
+
+.footer-divider {
+  display: inline-block;
+  margin: 0 7px;
+  opacity: 0.38;
+}
+
+/* ---------- Scroll-to-top floating button ---------- */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--wiki-border);
+  background: rgba(252, 251, 248, 0.94);
+  color: var(--wiki-text);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-to-top-btn:hover {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+  transform: translateY(-2px);
+}
+
+.scroll-to-top-btn:focus-visible {
+  outline: 2px solid rgba(21, 93, 114, 0.6);
+  outline-offset: 2px;
+}
+
+/* ---------- Shrine detail: kicker with decorative rule ---------- */
+.wiki-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wiki-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: var(--wiki-accent-strong);
+  border-radius: 2px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+body.lang-rtl .wiki-kicker {
+  flex-direction: row-reverse;
+}
+
+body.lang-rtl .wiki-kicker::before {
+  content: none;
+}
+
+/* ---------- Shrine detail: infobox title accent ---------- */
+.infobox-title {
+  position: relative;
+}
+
+.infobox-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6d6357, #275b7a);
+  border-radius: 18px 18px 0 0;
+}
+
+/* ---------- Map loading state ---------- */
+.status:not(:empty) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status:not(:empty)::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 999px;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Remove spinner if status message indicates an error */
+.status[data-error="true"]::before {
+  content: none;
+}
+
+/* ---------- RTL overrides for new elements ---------- */
+body.lang-rtl .sidebar-brand {
+  flex-direction: row-reverse;
+}
+
+body.lang-rtl .scroll-to-top-btn {
+  right: auto;
+  left: 28px;
+}
+
+body.lang-rtl .site-footer {
+  direction: rtl;
+}

@@ -126,7 +126,7 @@
   async function fetchRows() {
     const rows = await fetchRowsFromCsv();
     return {
-      rows: applyOverrides(rows),
+      rows: isEditorEnabled() ? applyOverrides(rows) : rows,
       source: "csv",
     };
   }

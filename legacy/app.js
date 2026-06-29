@@ -537,7 +537,18 @@ async function getAutoLocalizedFieldValue(row, baseKey) {
 }
 
 function getNoSelectionMessage() {
-  return `<p class="muted">${escapeHtml(t("noSelection"))}</p>`;
+  const mosaqueIcon = `<svg class="welcome-card-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z"/>
+  </svg>`;
+  const hintText = currentLang === "ur"
+    ? "مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔"
+    : `Use the "Table of Shrines" button above to browse all shrines.`;
+  return `<div class="welcome-card">
+    ${mosaqueIcon}
+    <h2 class="welcome-card-title">${escapeHtml(currentLang === "ur" ? "مزارات دریافت کریں" : "Explore Sufi Shrines")}</h2>
+    <p class="welcome-card-text">${escapeHtml(t("noSelection"))}</p>
+    <p class="welcome-card-hint">${escapeHtml(hintText)}</p>
+  </div>`;
 }
 
 function getLocalizedCategoryTitle(row) {
@@ -548,6 +559,7 @@ function getLocalizedCategoryTitle(row) {
 
 function setStatus(message) {
   statusEl.textContent = message || "";
+  if (!message) statusEl.removeAttribute("data-error");
 }
 
 function escapeHtml(value) {
@@ -627,6 +639,13 @@ function toggleSidebar() {
 }
 
 sidebarToggleBtn.addEventListener("click", toggleSidebar);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !sidebarEl.classList.contains("collapsed")) {
+    collapseSidebar();
+    setSelected(null);
+  }
+});
 
 function buildDetailRow(label, value) {
   if (isLikelyUrl(value)) {
@@ -1278,9 +1297,13 @@ async function loadShrines() {
     setTimeout(() => renderTableList(""), 0);
   } catch (error) {
     console.error("Shrine data load error:", error);
-    setStatus(`Failed to load shrine data.\n${error?.message || String(error)}`);
-    clearDetails();
-    collapseSidebar();
+    statusEl.setAttribute("data-error", "true");
+    setStatus("Could not load shrine data.");
+    detailsEl.innerHTML = `<div class="error-card">
+      <p class="error-card-message">Failed to connect to the shrine database.<br><small style="opacity:0.7">${escapeHtml(error?.message || String(error))}</small></p>
+      <button class="error-card-retry" onclick="window.location.reload()">Try Again</button>
+    </div>`;
+    openSidebar();
   }
 }
 

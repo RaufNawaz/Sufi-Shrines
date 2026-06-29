@@ -492,22 +492,14 @@ function buildDirectionsUrl(lat, lng) {
 }
 
 function buildMiniMapEmbedUrl(lat, lng) {
-  const latPad = 0.03;
-  const lngPad = 0.045;
-  const minLat = lat - latPad;
-  const maxLat = lat + latPad;
-  const minLng = lng - lngPad;
-  const maxLng = lng + lngPad;
-  return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
-    `${minLng},${minLat},${maxLng},${maxLat}`,
-  )}&layer=mapnik&marker=${encodeURIComponent(`${lat},${lng}`)}`;
+  return `https://www.google.com/maps?q=${encodeURIComponent(
+    `${lat},${lng}`,
+  )}&z=15&output=embed`;
 }
 
-function buildOpenStreetMapUrl(lat, lng) {
-  return `https://www.openstreetmap.org/?mlat=${encodeURIComponent(
-    lat,
-  )}&mlon=${encodeURIComponent(lng)}#map=13/${encodeURIComponent(lat)}/${encodeURIComponent(
-    lng,
+function buildGoogleMapUrl(lat, lng) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${lat},${lng}`,
   )}`;
 }
 
@@ -1989,7 +1981,7 @@ async function renderShrine(rawRow, rowIdx = -1, allRows = []) {
   const explicitImageUrl = getPrimaryImageUrl(row);
   const latLng = parseLatLng(row);
   const coordinateText = formatCoordinatePair(latLng);
-  const fullMapUrl = latLng ? buildOpenStreetMapUrl(latLng.lat, latLng.lng) : "";
+  const fullMapUrl = latLng ? buildGoogleMapUrl(latLng.lat, latLng.lng) : "";
   const relatedShrines = getRelatedShrines(allRows, rowIdx, row, 4);
   const editableExtraText = getEditableExtraText(row);
   const allGalleryItems = await getGalleryItems(row, title);
@@ -2053,7 +2045,7 @@ async function renderShrine(rawRow, rowIdx = -1, allRows = []) {
   }
   const contentsNav = buildContentsNav(sections);
 
-  document.title = `${title} | Shrine Details`;
+  document.title = `${title} — Sufi Shrines of Pakistan`;
 
   const parts = [];
   parts.push('<div class="shrine-shell">');
@@ -2288,6 +2280,13 @@ async function renderShrine(rawRow, rowIdx = -1, allRows = []) {
 
   parts.push("</div>");
   parts.push("</article>");
+
+  const footerMapLink = `<a href="${escapeHtml(getMapPageUrl())}">${escapeHtml(currentLang === "ur" ? "مکمل نقشہ" : "Interactive Map")}</a>`;
+  parts.push(`<footer class="site-footer">
+    <p>${footerMapLink}<span class="footer-divider">·</span>${escapeHtml(currentLang === "ur" ? "صوفی مزارات پروجیکٹ — کھلا مصدر ثقافتی ورثہ" : "Sufi Shrines Project — Open-source cultural heritage documentation")}</p>
+    <p>${escapeHtml(currentLang === "ur" ? "ڈیٹا تاریخی ریکارڈ اور مقامی علم پر مبنی ہے۔" : "Data drawn from historical records, academic sources, and community knowledge.")}</p>
+  </footer>`);
+
   if (imageUrl || galleryItems.length) {
     parts.push(
       `<div class="wiki-lightbox hidden" id="shrineImageLightbox" aria-hidden="true"><div class="wiki-lightbox-backdrop" data-lightbox-close="true"></div><div class="wiki-lightbox-dialog" role="dialog" aria-modal="true" aria-label="${escapeHtml(
@@ -2299,6 +2298,10 @@ async function renderShrine(rawRow, rowIdx = -1, allRows = []) {
   }
   parts.push("</div>");
 
+  parts.push(
+    `<button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="${escapeHtml(currentLang === "ur" ? "سب سے اوپر جائیں" : "Back to top")}" title="${escapeHtml(currentLang === "ur" ? "سب سے اوپر جائیں" : "Back to top")}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>`,
+  );
+
   pageEl.innerHTML = parts.join("");
   initLanguageToggle();
   initShareButton();
@@ -2306,6 +2309,22 @@ async function renderShrine(rawRow, rowIdx = -1, allRows = []) {
   initContentsSpy();
   initImageLightbox();
   initEditorControls(row, rowIdx);
+  initScrollToTop();
+}
+
+function initScrollToTop() {
+  const btn = document.getElementById("scrollToTopBtn");
+  if (!btn) return;
+
+  const onScroll = () => {
+    btn.classList.toggle("visible", window.scrollY > 380);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 function renderError(message) {
   pageEl.innerHTML = `
