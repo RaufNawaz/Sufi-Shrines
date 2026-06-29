@@ -647,11 +647,16 @@
 
 .site-footer a {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .site-footer a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.infobox-list {
+  margin: 0;
+  padding: 0;
 }
 
 /* Scroll to top */

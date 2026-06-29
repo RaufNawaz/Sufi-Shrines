@@ -74,25 +74,27 @@ export function ShrineInfobox({ shrine }: Props) {
         </div>
       )}
       <h2 className="infobox-title">{t('shrineFacts')}</h2>
-      {rows.map(([key, value]) => {
-        const localKey = localizeField(shrine.raw, key) !== value
-          ? localizeField(shrine.raw, key)
-          : key;
-        return (
-          <div className="infobox-row" key={key}>
-            <dt className="infobox-label">{localKey || key}</dt>
-            <dd className="infobox-value">
-              {isLikelyUrl(value) ? (
-                <a href={value} target="_blank" rel="noopener noreferrer">
-                  {value.replace(/^https?:\/\//, '')}
-                </a>
-              ) : (
-                value
-              )}
-            </dd>
-          </div>
-        );
-      })}
+      <dl className="infobox-list">
+        {rows.map(([key, value]) => {
+          const localKey = localizeField(shrine.raw, key) !== value
+            ? localizeField(shrine.raw, key)
+            : key;
+          return (
+            <div className="infobox-row" key={key}>
+              <dt className="infobox-label">{localKey || key}</dt>
+              <dd className="infobox-value">
+                {isLikelyUrl(value) ? (
+                  <a href={value} target="_blank" rel="noopener noreferrer">
+                    {value.replace(/^https?:\/\//, '')}
+                  </a>
+                ) : (
+                  value
+                )}
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
       <div className="infobox-actions">
         <a
           href={`https://www.google.com/maps/dir/?api=1&destination=${shrine.latLng.lat},${shrine.latLng.lng}`}
