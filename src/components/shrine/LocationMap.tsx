@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import type { LatLng } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 
@@ -9,14 +6,6 @@ interface Props {
   latLng: LatLng;
   name: string;
 }
-
-// Custom marker matching the shrine-dot style; CSS vars work in DOM innerHTML
-const miniMarkerIcon = L.divIcon({
-  className: '',
-  html: `<div class="mini-marker-dot"></div>`,
-  iconSize: [14, 14],
-  iconAnchor: [7, 7],
-});
 
 function buildDirectionsUrl(lat: number, lng: number): string {
   if (/iPhone|iPad|Mac/i.test(navigator.userAgent)) {
@@ -34,6 +23,7 @@ export function LocationMap({ latLng, name }: Props) {
   const [copied, setCopied] = useState(false);
 
   const coords = `${latLng.lat.toFixed(5)}, ${latLng.lng.toFixed(5)}`;
+  const embedSrc = `https://maps.google.com/maps?q=${latLng.lat},${latLng.lng}&z=15&output=embed`;
 
   async function copyCoords() {
     try {
@@ -79,29 +69,14 @@ export function LocationMap({ latLng, name }: Props) {
         {t('locationMap')}
       </h2>
 
-      {/* Leaflet mini-map: non-interactive-but-zoomable, CARTO Voyager */}
-      <MapContainer
-        center={[latLng.lat, latLng.lng]}
-        zoom={14}
+      <iframe
+        src={embedSrc}
         className="location-map-embed"
-        scrollWheelZoom={false}
-        dragging={false}
-        doubleClickZoom={false}
-        touchZoom={false}
-        boxZoom={false}
-        keyboard={false}
-        zoomControl={true}
-        attributionControl={true}
-        aria-label={`Map showing location of ${name}`}
-      >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-          subdomains="abcd"
-          maxZoom={20}
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-        />
-        <Marker position={[latLng.lat, latLng.lng]} icon={miniMarkerIcon} title={name} />
-      </MapContainer>
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title={`Map showing location of ${name}`}
+        aria-label={`Google Maps showing location of ${name}`}
+      />
 
       <div className="location-actions">
         <a

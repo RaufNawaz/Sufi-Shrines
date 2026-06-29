@@ -499,7 +499,7 @@
   display: block;
   margin-bottom: var(--space-3);
   background: var(--color-bg-alt);
-  overflow: hidden; /* clips Leaflet tiles to rounded corners */
+  overflow: hidden;
 }
 
 .location-actions {

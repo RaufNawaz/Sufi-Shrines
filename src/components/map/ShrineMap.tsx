@@ -4,7 +4,6 @@ import L from 'leaflet';
 import type { Shrine } from '../../types/shrine';
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../lib/data/constants';
 import { ShrineMarkers } from './ShrineMarkers';
-import { PoiLayer } from './PoiLayer';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
@@ -23,8 +22,6 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
   sidebarOpen: boolean;
   isRTL: boolean;
-  selectedShrine: Shrine | null;
-  enabledPoiCategories: Set<string>;
 }
 
 // Manages the default tile layer and switches it when dark mode changes.
@@ -168,7 +165,7 @@ function MapController({
   return null;
 }
 
-export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL, selectedShrine, enabledPoiCategories }: Props) {
+export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }: Props) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -258,7 +255,6 @@ export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL, s
       </LayersControl>
 
       <ShrineMarkers shrines={shrines} selectedId={selectedId} onSelect={onSelect} />
-      <PoiLayer shrine={selectedShrine} enabledCategories={enabledPoiCategories} />
     </MapContainer>
   );
 }
