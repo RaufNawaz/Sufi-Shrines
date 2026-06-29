@@ -60,6 +60,40 @@ describe('buildShrines', () => {
     expect(shrines[0].id).toBe(0);
     expect(shrines[1].id).toBe(1);
   });
+
+  it('generates stable slug without row-index suffix', () => {
+    const rows = [baseRow, { ...baseRow, Name: 'Bari Imam', Latitude: '33.7', Longitude: '73.0' }];
+    const shrines = buildShrines(rows);
+    // Stable slug: just the name, no trailing "-0" or "-1"
+    expect(shrines[0].slug).toBe('data-darbar');
+    expect(shrines[1].slug).toBe('bari-imam');
+  });
+
+  it('disambiguates duplicate names with location', () => {
+    const row1: ShrineRow = { ...baseRow, Name: 'Shah Hussain', Location: 'Lahore', Latitude: '31.5', Longitude: '74.3' };
+    const row2: ShrineRow = { ...baseRow, Name: 'Shah Hussain', Location: 'Multan', Latitude: '30.2', Longitude: '71.4' };
+    const shrines = buildShrines([row1, row2]);
+    expect(shrines[0].slug).toBe('shah-hussain');
+    expect(shrines[1].slug).toBe('shah-hussain-multan');
+  });
+
+  it('slug does not change when row order changes', () => {
+    const row1: ShrineRow = { ...baseRow, Name: 'Bari Imam', Latitude: '33.7', Longitude: '73.0' };
+    const row2: ShrineRow = { ...baseRow, Name: 'Data Darbar', Latitude: '31.6', Longitude: '74.3' };
+    // Order: bari-imam first
+    const s1 = buildShrines([row1, row2]);
+    // Order: data-darbar first
+    const s2 = buildShrines([row2, row1]);
+    // Slugs are name-derived — should be identical regardless of order
+    expect(s1.find(s => s.name === 'Bari Imam')!.slug).toBe(s2.find(s => s.name === 'Bari Imam')!.slug);
+    expect(s1.find(s => s.name === 'Data Darbar')!.slug).toBe(s2.find(s => s.name === 'Data Darbar')!.slug);
+  });
+
+  it('explicit Slug column overrides generated slug', () => {
+    const rows = [{ ...baseRow, Slug: 'my-canonical-slug' }];
+    const shrines = buildShrines(rows);
+    expect(shrines[0].slug).toBe('my-canonical-slug');
+  });
 });
 
 describe('haversineKm', () => {

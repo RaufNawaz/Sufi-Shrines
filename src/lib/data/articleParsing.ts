@@ -139,6 +139,23 @@ export function parseInlineSections(rawText: string): InlineSection[] {
   return sections;
 }
 
+/**
+ * Returns the lead text for the article view.
+ * Unlike extractLeadPreviewText, this returns ONLY prose that appears BEFORE
+ * the first heading — never the content of a section.  This prevents the
+ * lead block and the first inline section from showing the same text twice.
+ */
+export function getArticleLeadText(text: string): string {
+  const lines = String(text || '').split(/\r?\n/);
+  const leadLines: string[] = [];
+  for (const line of lines) {
+    const h = detectHeading(line);
+    if (h?.matched) break;
+    leadLines.push(line);
+  }
+  return leadLines.join('\n').trim();
+}
+
 export function getLeadText(row: ShrineRow, lang: string): string {
   for (const key of LEAD_PARAGRAPH_KEYS) {
     let value = '';
@@ -147,7 +164,7 @@ export function getLeadText(row: ShrineRow, lang: string): string {
     } else {
       value = getFieldValue(row, key);
     }
-    if (value.trim()) return extractLeadPreviewText(value.trim());
+    if (value.trim()) return getArticleLeadText(value.trim());
   }
   return '';
 }
