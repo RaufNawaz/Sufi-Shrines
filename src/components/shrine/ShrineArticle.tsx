@@ -3,7 +3,6 @@ import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { buildArticleSections } from '../../lib/data/articleParsing';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { ShrineGallery } from './ShrineGallery';
 import { ContentsNav } from './ContentsNav';
 

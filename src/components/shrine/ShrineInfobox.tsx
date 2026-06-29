@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function ShrineInfobox({ shrine }: Props) {
-  const { lang, t, localizeField } = useLang();
+  const { t, localizeField } = useLang();
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {
@@ -32,7 +32,7 @@ export function ShrineInfobox({ shrine }: Props) {
     }
   }
 
-  for (const [key, value] of allEntries) {
+  for (const [key] of allEntries) {
     if (INFOBOX_PRIORITY_KEYS.includes(key)) continue;
     // Skip section keys — they go in article
     if (

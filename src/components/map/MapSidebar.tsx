@@ -41,7 +41,7 @@ export function MapSidebar({
   isOpen,
   onClose,
 }: Props) {
-  const { lang, isRTL, t, tCount, localizeField } = useLang();
+  const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
   const [activeCategory, setActiveCategory] = useState('');
@@ -58,11 +58,6 @@ export function MapSidebar({
       );
     },
     [lang],
-  );
-
-  const localizeCategory = useCallback(
-    (shrine: Shrine) => localizeField(shrine.raw, 'Category') || shrine.category,
-    [localizeField],
   );
 
   const categories = useMemo(() => {

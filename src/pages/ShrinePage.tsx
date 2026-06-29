@@ -164,7 +164,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
   const { shrines, loading, error } = useShrineData();
-  const { lang, t, isRTL } = useLang();
+  const { t, isRTL } = useLang();
 
   const shrine = useMemo(() => {
     if (!slug || !shrines.length) return null;
