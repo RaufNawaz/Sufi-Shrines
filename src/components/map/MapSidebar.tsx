@@ -8,6 +8,7 @@ import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { useSearch } from '../../lib/search/useSearch';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -122,28 +123,32 @@ export function MapSidebar({
     return Array.from(cats).sort();
   }, [shrines]);
 
+  // Worker-based fuzzy search — falls back to "show all" until the index is ready
+  const { ids: searchIds } = useSearch(shrines, search);
+
   const filtered = useMemo(() => {
     let result = shrines;
     if (activeCategory) result = result.filter((s) => s.category === activeCategory);
     if (search.trim()) {
-      const q = search.trim().toLowerCase();
-      result = result.filter((s) => {
-        const name = localizeName(s).toLowerCase();
-        const location = (s.location || '').toLowerCase();
-        const saint = (s.sufiSaint || '').toLowerCase();
-        const cat = (s.category || '').toLowerCase();
-        const desc = getFieldValue(s.raw, 'Description').toLowerCase();
-        return (
-          name.includes(q) ||
-          location.includes(q) ||
-          saint.includes(q) ||
-          cat.includes(q) ||
-          desc.includes(q)
-        );
-      });
+      if (searchIds !== null) {
+        // Worker results available — use them (ranked, fuzzy)
+        result = result.filter((s) => searchIds.has(s.id));
+      } else {
+        // Worker not ready yet — fall back to instant substring match
+        const q = search.trim().toLowerCase();
+        result = result.filter((s) => {
+          const name = localizeName(s).toLowerCase();
+          return (
+            name.includes(q) ||
+            (s.location || '').toLowerCase().includes(q) ||
+            (s.sufiSaint || '').toLowerCase().includes(q) ||
+            (s.category || '').toLowerCase().includes(q)
+          );
+        });
+      }
     }
     return result;
-  }, [shrines, activeCategory, search, localizeName]);
+  }, [shrines, activeCategory, search, searchIds, localizeName]);
 
   const grouped = useMemo(() => {
     const groups = new Map<string, Shrine[]>();
