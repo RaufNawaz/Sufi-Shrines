@@ -113,7 +113,6 @@ export function ShrineGallery({ items }: Props) {
             role="listitem"
             onClick={() => setLightboxIdx(i)}
             aria-label={item.caption || `${t('gallery')} image ${i + 1}: ${t('imageExpand')}`}
-            style={{ all: 'unset', display: 'block', cursor: 'pointer', position: 'relative', borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '4/3', background: 'var(--color-bg-alt)' }}
           >
             <img
               src={item.imageUrl}

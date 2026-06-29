@@ -243,6 +243,21 @@
   padding: var(--space-4);
   margin-bottom: var(--space-6);
   background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 640px) {
+  .contents-nav {
+    position: sticky;
+    top: 16px;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 639px) {
+  .contents-nav {
+    display: none;
+  }
 }
 
 .contents-nav-title {
@@ -330,6 +345,8 @@
 }
 
 .gallery-item {
+  all: unset;
+  display: block;
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
