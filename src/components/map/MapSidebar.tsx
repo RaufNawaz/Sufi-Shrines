@@ -11,6 +11,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
+import { POI_CATEGORIES } from '../../lib/poi/overpass';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -69,6 +70,8 @@ interface Props {
   eraMin: number;
   eraMax: number;
   onEraChange: (range: [number, number]) => void;
+  enabledPoiCategories: Set<string>;
+  onPoiToggle: (key: string) => void;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -98,6 +101,8 @@ export function MapSidebar({
   eraMin,
   eraMax,
   onEraChange,
+  enabledPoiCategories,
+  onPoiToggle,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -517,6 +522,31 @@ export function MapSidebar({
             <ShrinePreview shrine={selectedShrine} lang={lang} localizeField={localizeField} />
           ) : (
             <WelcomeCard lang={lang} t={t} />
+          )}
+          {selectedShrine && (
+            <div className="poi-toggles">
+              <div className="poi-toggles-label">
+                {lang === 'ur' ? 'قریبی مقامات' : 'Nearby places'}
+              </div>
+              <div className="poi-toggles-chips" role="group" aria-label={lang === 'ur' ? 'قریبی مقامات کی اقسام' : 'Nearby place types'}>
+                {POI_CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.key}
+                    className={`poi-toggle-chip poi-toggle-chip--${cat.key}${enabledPoiCategories.has(cat.key) ? ' active' : ''}`}
+                    onClick={() => onPoiToggle(cat.key)}
+                    aria-pressed={enabledPoiCategories.has(cat.key)}
+                  >
+                    <span aria-hidden="true">{cat.icon}</span>
+                    {lang === 'ur' ? cat.labelUr : cat.label}
+                  </button>
+                ))}
+              </div>
+              <p className="poi-attribution">
+                <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
+                  © OpenStreetMap
+                </a>{lang === 'ur' ? ' (ODbL)' : ' contributors (ODbL)'}
+              </p>
+            </div>
           )}
         </div>
       )}

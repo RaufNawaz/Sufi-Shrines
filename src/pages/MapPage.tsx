@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -64,6 +64,7 @@ export default function MapPage() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
+  const [enabledPoiCategories, setEnabledPoiCategories] = useState<Set<string>>(() => new Set());
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
 
@@ -173,6 +174,19 @@ export default function MapPage() {
     setFilters((f) => ({ ...f, eraMin: range[0], eraMax: range[1] }));
   }, []);
 
+  const handlePoiToggle = useCallback((catKey: string) => {
+    setEnabledPoiCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(catKey)) next.delete(catKey); else next.add(catKey);
+      return next;
+    });
+  }, []);
+
+  const selectedShrine = useMemo(
+    () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) ?? null : null),
+    [selectedId, shrines],
+  );
+
   return (
     <div className="map-root">
       {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
@@ -208,6 +222,8 @@ export default function MapPage() {
         eraMin={filters.eraMin}
         eraMax={filters.eraMax}
         onEraChange={handleEraChange}
+        enabledPoiCategories={enabledPoiCategories}
+        onPoiToggle={handlePoiToggle}
       />
 
       <main
@@ -222,6 +238,8 @@ export default function MapPage() {
           onSelect={handleSelect}
           sidebarOpen={sidebarOpen}
           isRTL={isRTL}
+          selectedShrine={selectedShrine}
+          enabledPoiCategories={enabledPoiCategories}
         />
       </main>
 

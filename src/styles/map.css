@@ -1215,3 +1215,105 @@ body.lang-rtl .sidebar-toggle {
   color: var(--color-text-muted);
   margin-top: var(--space-1);
 }
+
+/* ── POI layer ────────────────────────────────────────────────────────────── */
+.poi-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.poi-dot--restaurant { background: #f97316; }
+.poi-dot--hotel      { background: #3b82f6; }
+.poi-dot--transport  { background: #14b8a6; }
+.poi-dot--atm        { background: #22c55e; }
+.poi-dot--pharmacy   { background: #ef4444; }
+
+.poi-loading-badge {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.poi-popup-container .leaflet-popup-content-wrapper {
+  border-radius: var(--radius-sm) !important;
+}
+.poi-popup {
+  padding: 6px 10px;
+  min-width: 100px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+.poi-popup-cat {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* POI toggle chips — shown in the sidebar detail view */
+.poi-toggles {
+  padding: var(--space-3) var(--space-4) var(--space-2);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.poi-toggles-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.poi-toggles-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.poi-toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.poi-toggle-chip:hover {
+  background: var(--color-bg-alt);
+}
+
+.poi-toggle-chip.active {
+  border-color: transparent;
+  color: #fff;
+}
+.poi-toggle-chip--restaurant.active { background: #f97316; }
+.poi-toggle-chip--hotel.active      { background: #3b82f6; }
+.poi-toggle-chip--transport.active  { background: #14b8a6; }
+.poi-toggle-chip--atm.active        { background: #22c55e; }
+.poi-toggle-chip--pharmacy.active   { background: #ef4444; }
+
+.poi-attribution {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.poi-attribution a {
+  color: var(--color-primary);
+}
