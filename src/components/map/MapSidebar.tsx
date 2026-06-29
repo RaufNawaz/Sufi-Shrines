@@ -7,6 +7,7 @@ import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -41,6 +42,7 @@ export function MapSidebar({
   onClose,
 }: Props) {
   const { lang, isRTL, t, tCount, localizeField } = useLang();
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
   const [activeCategory, setActiveCategory] = useState('');
   const [showList, setShowList] = useState(false);
@@ -126,17 +128,18 @@ export function MapSidebar({
         <div className="sidebar-actions">
           <DarkModeToggle />
           <LanguageToggle />
-          <button
-            className="icon-btn"
-            onClick={onClose}
-            aria-label="Close sidebar"
-            style={{ display: window.innerWidth <= 768 ? undefined : 'none' }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+          {isMobile && (
+            <button
+              className="icon-btn"
+              onClick={onClose}
+              aria-label="Close sidebar"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
 
@@ -159,24 +162,9 @@ export function MapSidebar({
 
       {/* Table-of-shrines toggle */}
       {!error && (
-        <div style={{ padding: '8px 16px', borderBottom: '1px solid var(--color-border-light)', flexShrink: 0 }}>
+        <div className="list-toggle-bar">
           <button
-            style={{
-              width: '100%',
-              padding: '8px 12px',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--color-border)',
-              background: showList ? 'var(--color-primary)' : 'transparent',
-              color: showList ? 'white' : 'var(--color-text-secondary)',
-              fontSize: 'var(--text-sm)',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all var(--duration-fast)',
-              textAlign: isRTL ? 'right' : 'left',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
+            className={`list-toggle-btn${showList ? ' active' : ''}`}
             onClick={() => setShowList((v) => !v)}
             aria-expanded={showList}
           >
@@ -263,9 +251,7 @@ export function MapSidebar({
           {/* Grouped list */}
           <div className="shrine-list-panel" role="list" aria-label="Shrine list" id="main-content">
             {filtered.length === 0 && (
-              <p style={{ padding: '24px 16px', color: 'var(--color-text-muted)', fontSize: 'var(--text-sm)', margin: 0 }}>
-                {t('noMatches')}
-              </p>
+              <p className="shrine-list-empty">{t('noMatches')}</p>
             )}
             {grouped.map(([cat, items]) => (
               <div key={cat}>
@@ -284,19 +270,29 @@ export function MapSidebar({
                       role="listitem"
                       onClick={() => {
                         onSelect(shrine);
-                        if (window.innerWidth <= 768) setShowList(false);
+                        if (isMobile) setShowList(false);
                       }}
                       aria-pressed={shrine.id === selectedId}
                     >
-                      {shrine.imageUrl && (
-                        <img
-                          className="shrine-list-thumb"
-                          src={shrine.imageUrl}
-                          alt=""
-                          loading="lazy"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                        />
-                      )}
+                      <div className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ' shrine-list-thumb-slot--empty'}`}>
+                        {shrine.imageUrl ? (
+                          <img
+                            className="shrine-list-thumb-img"
+                            src={shrine.imageUrl}
+                            alt=""
+                            loading="lazy"
+                            onError={(e) => {
+                              const slot = (e.target as HTMLImageElement).parentElement;
+                              if (slot) slot.classList.add('shrine-list-thumb-slot--empty');
+                              (e.target as HTMLImageElement).style.display = 'none';
+                            }}
+                          />
+                        ) : (
+                          <svg className="shrine-list-thumb-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
+                          </svg>
+                        )}
+                      </div>
                       <div className="shrine-list-info">
                         <div className="shrine-list-name">{name}</div>
                         {location && (
@@ -367,13 +363,20 @@ function ShrinePreview({
 
   return (
     <div className="preview-card">
-      {shrine.imageUrl && (
+      {shrine.imageUrl ? (
         <img
           src={shrine.imageUrl}
           alt={name}
+          className="preview-card-hero"
           loading="lazy"
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
+      ) : (
+        <div className="preview-card-hero-placeholder" aria-hidden="true">
+          <svg className="preview-card-hero-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
+          </svg>
+        </div>
       )}
       <h2 className="preview-title">
         <Link to={`/shrine/${shrine.slug}`} lang={lang === 'ur' ? 'ur' : undefined}>

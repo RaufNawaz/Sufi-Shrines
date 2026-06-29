@@ -8,8 +8,7 @@ import './styles/shrine.css';
 
 // Prevent FOUC by setting data-theme before paint
 const stored = localStorage.getItem('shrines_theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const theme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+const theme = stored === 'dark' || stored === 'light' ? stored : 'light';
 document.documentElement.setAttribute('data-theme', theme);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

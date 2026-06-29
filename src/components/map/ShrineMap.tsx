@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, ZoomControl, LayersControl } from 'react-leaflet';
-import type { Map as LeafletMap } from 'leaflet';
+import React, { useEffect } from 'react';
+import { MapContainer, TileLayer, ZoomControl, LayersControl, useMap } from 'react-leaflet';
 import type { Shrine } from '../../types/shrine';
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../lib/data/constants';
 import { ShrineMarkers } from './ShrineMarkers';
@@ -13,29 +12,54 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
 }
 
-export function ShrineMap({ shrines, selectedId, onSelect }: Props) {
-  const mapRef = useRef<LeafletMap | null>(null);
+// Bug 2+3: MapController handles flyTo-on-select and invalidateSize via ResizeObserver
+function MapController({ shrines, selectedId }: { shrines: Shrine[]; selectedId: number | null }) {
+  const map = useMap();
 
-  // When selectedId changes, pan to that shrine
+  // Fix gray tiles: invalidateSize on mount + whenever container resizes
   useEffect(() => {
-    if (selectedId === null || !mapRef.current) return;
+    const frame = requestAnimationFrame(() => map.invalidateSize());
+    const observer = new ResizeObserver(() => map.invalidateSize());
+    observer.observe(map.getContainer());
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [map]);
+
+  // Fix no-zoom on select: flyTo with zoom ≥ 13; respect prefers-reduced-motion
+  useEffect(() => {
+    if (selectedId === null) return;
     const shrine = shrines.find((s) => s.id === selectedId);
     if (!shrine) return;
-    mapRef.current.panTo([shrine.latLng.lat, shrine.latLng.lng], { animate: true });
-  }, [selectedId, shrines]);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targetZoom = Math.max(map.getZoom(), 13);
+    if (reducedMotion) {
+      map.setView([shrine.latLng.lat, shrine.latLng.lng], targetZoom);
+    } else {
+      map.flyTo([shrine.latLng.lat, shrine.latLng.lng], targetZoom, {
+        duration: 0.9,
+        easeLinearity: 0.25,
+      });
+    }
+  }, [selectedId, shrines, map]);
 
+  return null;
+}
+
+export function ShrineMap({ shrines, selectedId, onSelect }: Props) {
   return (
     <MapContainer
       center={DEFAULT_CENTER}
       zoom={DEFAULT_ZOOM}
       zoomControl={false}
       style={{ width: '100%', height: '100%' }}
-      ref={mapRef}
     >
+      <MapController shrines={shrines} selectedId={selectedId} />
       <ZoomControl position="bottomright" />
 
       <LayersControl position="bottomleft">
-        {/* Default layer: CARTO Voyager — free, no key, ODbL */}
+        {/* Default: CARTO Voyager — free, no key, ODbL */}
         <LayersControl.BaseLayer checked name="Voyager (CARTO)">
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
@@ -70,7 +94,6 @@ export function ShrineMap({ shrines, selectedId, onSelect }: Props) {
           />
         </LayersControl.BaseLayer>
 
-        {/* MapTiler layers — only shown if key is provided */}
         {MAPTILER_KEY && (
           <LayersControl.BaseLayer name="Streets (MapTiler)">
             <TileLayer

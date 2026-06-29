@@ -476,6 +476,7 @@
   display: block;
   margin-bottom: var(--space-3);
   background: var(--color-bg-alt);
+  overflow: hidden; /* clips Leaflet tiles to rounded corners */
 }
 
 .location-actions {
@@ -517,6 +518,22 @@
   object-fit: cover;
   background: var(--color-bg-alt);
   display: block;
+}
+
+.related-card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--color-primary-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.related-card-img-placeholder-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+  opacity: 0.35;
 }
 
 .related-card-body {

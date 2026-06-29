@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import type { LatLng } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 
@@ -6,6 +9,14 @@ interface Props {
   latLng: LatLng;
   name: string;
 }
+
+// Custom marker matching the shrine-dot style; CSS vars work in DOM innerHTML
+const miniMarkerIcon = L.divIcon({
+  className: '',
+  html: `<div style="width:14px;height:14px;border-radius:50%;background:var(--color-marker-default,#1a5c4e);border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>`,
+  iconSize: [14, 14],
+  iconAnchor: [7, 7],
+});
 
 function buildDirectionsUrl(lat: number, lng: number): string {
   if (/iPhone|iPad|Mac/i.test(navigator.userAgent)) {
@@ -18,14 +29,9 @@ function buildMapsUrl(lat: number, lng: number): string {
   return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
-function buildEmbedUrl(lat: number, lng: number): string {
-  return `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
-}
-
 export function LocationMap({ latLng, name }: Props) {
   const { t } = useLang();
   const [copied, setCopied] = useState(false);
-  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   const coords = `${latLng.lat.toFixed(5)}, ${latLng.lng.toFixed(5)}`;
 
@@ -73,25 +79,29 @@ export function LocationMap({ latLng, name }: Props) {
         {t('locationMap')}
       </h2>
 
-      {/* Lazy-load iframe only when visible */}
-      <div style={{ position: 'relative' }}>
-        {!iframeLoaded && (
-          <div className="location-map-embed skeleton" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-muted)', fontSize: 'var(--text-sm)' }}>
-            Loading map…
-          </div>
-        )}
-        <iframe
-          src={buildEmbedUrl(latLng.lat, latLng.lng)}
-          className="location-map-embed"
-          loading="lazy"
-          title={`Map showing location of ${name}`}
-          allowFullScreen
-          referrerPolicy="no-referrer-when-downgrade"
-          sandbox="allow-scripts allow-same-origin allow-popups"
-          onLoad={() => setIframeLoaded(true)}
-          style={{ display: iframeLoaded ? 'block' : 'none' }}
+      {/* Leaflet mini-map: non-interactive-but-zoomable, CARTO Voyager */}
+      <MapContainer
+        center={[latLng.lat, latLng.lng]}
+        zoom={14}
+        className="location-map-embed"
+        scrollWheelZoom={false}
+        dragging={false}
+        doubleClickZoom={false}
+        touchZoom={false}
+        boxZoom={false}
+        keyboard={false}
+        zoomControl={true}
+        attributionControl={true}
+        aria-label={`Map showing location of ${name}`}
+      >
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          subdomains="abcd"
+          maxZoom={20}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
         />
-      </div>
+        <Marker position={[latLng.lat, latLng.lng]} icon={miniMarkerIcon} title={name} />
+      </MapContainer>
 
       <div className="location-actions">
         <a
