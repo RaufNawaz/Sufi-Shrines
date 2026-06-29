@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -7,17 +7,91 @@ import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import 'leaflet/dist/leaflet.css';
 
+/** Read/write `?selected=<slug>` without triggering a react-router re-render. */
+function getSelectedSlug(): string | null {
+  return new URLSearchParams(window.location.search).get('selected');
+}
+
+function setSelectedSlug(slug: string | null, push: boolean): void {
+  const params = new URLSearchParams(window.location.search);
+  if (slug) {
+    params.set('selected', slug);
+  } else {
+    params.delete('selected');
+  }
+  const url = `${window.location.pathname}?${params.toString()}`;
+  if (push) {
+    window.history.pushState(null, '', url);
+  } else {
+    window.history.replaceState(null, '', url);
+  }
+}
+
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
   const { t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  // Desktop: open = sidebar docked. Mobile: open = sheet expanded; closed = sheet peeking.
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
+  const initializedRef = useRef(false);
+  const selectedIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     document.title = t('siteTitle');
   }, [t]);
+
+  // Restore `?selected=<slug>` once shrine data has loaded (runs once)
+  useEffect(() => {
+    if (initializedRef.current || !shrines.length) return;
+    initializedRef.current = true;
+    const slug = getSelectedSlug();
+    if (slug) {
+      const shrine = shrines.find((s) => s.slug === slug);
+      if (shrine) {
+        setSelectedId(shrine.id);
+        if (isMobile) setSidebarOpen(true);
+      } else {
+        // Slug no longer valid — clean it from the URL silently
+        setSelectedSlug(null, false);
+      }
+    }
+  }, [shrines, isMobile]);
+
+  // Keep `?selected=` in sync when selectedId changes
+  useEffect(() => {
+    if (!initializedRef.current) return; // don't touch URL during restore phase
+    if (selectedId === selectedIdRef.current) return;
+    selectedIdRef.current = selectedId;
+
+    const shrine = selectedId !== null ? shrines.find((s) => s.id === selectedId) : null;
+    const prev = getSelectedSlug();
+    const next = shrine?.slug ?? null;
+
+    if (prev !== next) {
+      // pushState for selection changes so back/forward works as expected
+      setSelectedSlug(next, true);
+    }
+  }, [selectedId, shrines]);
+
+  // Handle back/forward browser navigation — re-apply selected state from URL
+  useEffect(() => {
+    const handler = () => {
+      const slug = getSelectedSlug();
+      if (!slug) {
+        setSelectedId(null);
+        selectedIdRef.current = null;
+        return;
+      }
+      const shrine = shrines.find((s) => s.slug === slug);
+      if (shrine && shrine.id !== selectedIdRef.current) {
+        setSelectedId(shrine.id);
+        selectedIdRef.current = shrine.id;
+        if (isMobile) setSidebarOpen(true);
+      }
+    };
+    window.addEventListener('popstate', handler);
+    return () => window.removeEventListener('popstate', handler);
+  }, [shrines, isMobile]);
 
   // Escape collapses the sheet on mobile, hides it on desktop
   useEffect(() => {
@@ -34,7 +108,6 @@ export default function MapPage() {
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {
       setSelectedId(shrine?.id ?? null);
-      // Expand the sheet on mobile when a marker is tapped
       if (shrine && isMobile) setSidebarOpen(true);
     },
     [isMobile],
