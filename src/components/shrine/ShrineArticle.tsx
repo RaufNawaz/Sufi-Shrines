@@ -112,7 +112,7 @@ export function ShrineArticle({ shrine }: Props) {
       <ContentsNav items={navItems} />
 
       {leadText && (
-        <section className="article-section" id="overview" aria-labelledby="overview-heading">
+        <section className="article-section article-lead" id="overview" aria-labelledby="overview-heading">
           <div className="article-prose">
             {leadText.split(/\n\n+/).filter(Boolean).map((p, i) => (
               <p key={i}>{p.trim()}</p>

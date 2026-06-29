@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -9,6 +9,7 @@ import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
+import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { getUrduFieldValue, getFieldValue } from '../lib/data/fieldAliasing';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import type { Shrine } from '../types/shrine';
@@ -27,6 +28,8 @@ function SkeletonPage() {
 
 function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
   const { lang, t, localizeField } = useLang();
+  const [toastVisible, setToastVisible] = useState(false);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const name =
     lang === 'ur'
@@ -38,35 +41,41 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
   const founded = shrine.founded;
 
-  // Update document title and meta
   useEffect(() => {
     document.title = `${name} — ${t('siteTitle')}`;
     const meta = document.querySelector('meta[name="description"]');
     const desc = getFieldValue(shrine.raw, 'Description');
-    if (meta && desc) {
-      meta.setAttribute('content', desc.slice(0, 160));
-    }
+    if (meta && desc) meta.setAttribute('content', desc.slice(0, 160));
   }, [name, shrine.raw, t]);
+
+  useEffect(() => () => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+  }, []);
 
   async function shareShrine() {
     const url = window.location.href;
     if (navigator.share) {
-      try {
-        await navigator.share({ title: name, url });
-        return;
-      } catch {
-        // fall through
-      }
+      try { await navigator.share({ title: name, url }); return; } catch { /* fall through */ }
     }
     try {
       await navigator.clipboard.writeText(url);
-    } catch {
-      // silently ignore
-    }
+      setToastVisible(true);
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+      toastTimerRef.current = setTimeout(() => setToastVisible(false), 2500);
+    } catch { /* ignore */ }
   }
 
   return (
     <article className="shrine-page" id="main-content" lang={lang === 'ur' ? 'ur' : undefined}>
+      {/* Breadcrumb */}
+      <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><Link to="/">{lang === 'ur' ? 'نقشہ' : 'Map'}</Link></li>
+          {category && <li>{category}</li>}
+          <li className="shrine-breadcrumb-current" aria-current="page">{name}</li>
+        </ol>
+      </nav>
+
       {/* Category kicker */}
       {category && (
         <p className="shrine-category-kicker" aria-label={`Category: ${category}`}>
@@ -124,20 +133,42 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         </button>
       </div>
 
-      {/* Hero image */}
-      {shrine.imageUrl && (
-        <div className="shrine-hero">
+      {/* Hero — always rendered (image or branded placeholder) */}
+      <div className={`shrine-hero${shrine.imageUrl ? '' : ' shrine-hero--placeholder'}`}>
+        {shrine.imageUrl ? (
           <img
             src={shrine.imageUrl}
             alt={name}
             className="shrine-hero-img"
             loading="eager"
             onError={(e) => {
-              (e.target as HTMLImageElement).closest('.shrine-hero')?.remove();
+              const hero = (e.target as HTMLImageElement).closest('.shrine-hero');
+              if (hero) {
+                hero.classList.add('shrine-hero--placeholder');
+                (e.target as HTMLImageElement).remove();
+                hero.innerHTML = `<svg class="shrine-hero-dome-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z"/></svg>`;
+              }
             }}
           />
-        </div>
-      )}
+        ) : (
+          <svg className="shrine-hero-dome-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+            <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
+          </svg>
+        )}
+      </div>
+
+      {/* Share toast */}
+      <div
+        className={`share-toast${toastVisible ? ' share-toast--visible' : ''}`}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        {t('copied')}
+      </div>
 
       {/* Article layout: prose + infobox */}
       <div className="shrine-article-layout">
@@ -184,6 +215,7 @@ export default function ShrinePage() {
 
   return (
     <div style={{ minHeight: 'var(--page-min-height, 100vh)', background: 'var(--color-bg)' }}>
+      <ReadingProgressBar />
       {/* Sticky header */}
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>

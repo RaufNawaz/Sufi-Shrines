@@ -4,12 +4,22 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { INFOBOX_PRIORITY_KEYS, MAX_INFOBOX_ROWS, NON_DETAIL_KEYS } from '../../lib/data/constants';
 import { isLikelyUrl, isUrduVariantKey } from '../../lib/data/fieldAliasing';
 
+function categoryKey(cat: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
+  const c = (cat || '').toLowerCase();
+  if (c.includes('muslim')) return 'muslim';
+  if (c.includes('hindu')) return 'hindu';
+  if (c.includes('sikh')) return 'sikh';
+  return 'default';
+}
+
 interface Props {
   shrine: Shrine;
 }
 
 export function ShrineInfobox({ shrine }: Props) {
   const { t, localizeField } = useLang();
+  const catKey = categoryKey(shrine.category);
+  const categoryLabel = localizeField(shrine.raw, 'Category') || shrine.category;
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {
@@ -58,6 +68,11 @@ export function ShrineInfobox({ shrine }: Props) {
 
   return (
     <aside className="shrine-infobox" aria-label={t('shrineFacts')}>
+      {categoryLabel && (
+        <div className={`infobox-category-badge infobox-category-badge--${catKey}`}>
+          {categoryLabel}
+        </div>
+      )}
       <h2 className="infobox-title">{t('shrineFacts')}</h2>
       {rows.map(([key, value]) => {
         const localKey = localizeField(shrine.raw, key) !== value
@@ -78,6 +93,19 @@ export function ShrineInfobox({ shrine }: Props) {
           </div>
         );
       })}
+      <div className="infobox-actions">
+        <a
+          href={`https://www.google.com/maps/dir/?api=1&destination=${shrine.latLng.lat},${shrine.latLng.lng}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="infobox-action-btn"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polygon points="3 11 22 2 13 21 11 13 3 11" />
+          </svg>
+          {t('getDirections')}
+        </a>
+      </div>
     </aside>
   );
 }
