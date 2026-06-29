@@ -806,6 +806,60 @@ body.lang-rtl .sidebar-toggle {
   color: var(--color-text) !important;
 }
 
+/* ── B2: Sidebar / search / list improvements ──────────────────────────────── */
+
+/* Category-tinted thumbnail placeholders */
+.shrine-list-thumb-slot--muslim { background: var(--color-cat-muslim-pale); }
+.shrine-list-thumb-slot--hindu  { background: var(--color-cat-hindu-pale); }
+.shrine-list-thumb-slot--sikh   { background: var(--color-cat-sikh-pale); }
+
+.shrine-list-thumb-slot--muslim .shrine-list-thumb-icon { color: var(--color-cat-muslim); }
+.shrine-list-thumb-slot--hindu  .shrine-list-thumb-icon { color: var(--color-cat-hindu); }
+.shrine-list-thumb-slot--sikh   .shrine-list-thumb-icon { color: var(--color-cat-sikh); }
+.shrine-list-thumb-slot--default .shrine-list-thumb-icon { color: var(--color-text-muted); }
+
+/* Larger, fixed thumbnail size per B2 */
+.shrine-list-thumb-slot {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+}
+
+/* Search match highlighting */
+.search-match {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 2px;
+}
+
+/* Skeleton list rows */
+.shrine-list-item--skeleton {
+  pointer-events: none;
+  cursor: default;
+}
+
+.shrine-list-item--skeleton .shrine-list-thumb-slot {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+}
+
+.skeleton-list-name {
+  height: 0.875rem;
+  width: 70%;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-list-meta {
+  height: 0.75rem;
+  width: 45%;
+  border-radius: var(--radius-sm);
+}
+
 /* Reset view button */
 .reset-view-btn {
   display: flex !important;

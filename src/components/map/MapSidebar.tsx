@@ -11,6 +11,43 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
+function categoryKey(category: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
+  const c = (category || '').toLowerCase();
+  if (c.includes('muslim')) return 'muslim';
+  if (c.includes('hindu')) return 'hindu';
+  if (c.includes('sikh')) return 'sikh';
+  return 'default';
+}
+
+function highlightMatch(text: string, query: string): React.ReactNode {
+  if (!query.trim()) return text;
+  const idx = text.toLowerCase().indexOf(query.trim().toLowerCase());
+  if (idx === -1) return text;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="search-match">{text.slice(idx, idx + query.trim().length)}</mark>
+      {text.slice(idx + query.trim().length)}
+    </>
+  );
+}
+
+function ShrineListSkeleton() {
+  return (
+    <div className="shrine-list-panel" aria-hidden="true" aria-busy="true">
+      {Array.from({ length: 7 }).map((_, i) => (
+        <div key={i} className="shrine-list-item shrine-list-item--skeleton">
+          <div className="shrine-list-thumb-slot skeleton" />
+          <div className="shrine-list-info">
+            <div className="skeleton skeleton-list-name" />
+            <div className="skeleton skeleton-list-meta" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 interface Props {
   shrines: Shrine[];
   selectedId: number | null;
@@ -53,6 +90,21 @@ export function MapSidebar({
   useEffect(() => {
     if (selectedId !== null) setShowList(false);
   }, [selectedId]);
+
+  // `/` key opens the list and focuses the search field
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key !== '/') return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      e.preventDefault();
+      setShowList(true);
+      setTimeout(() => searchRef.current?.focus(), 0);
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, []);
 
   const localizeName = useCallback(
     (shrine: Shrine) => {
@@ -248,63 +300,71 @@ export function MapSidebar({
             {tCount(filtered.length)}
           </div>
 
-          {/* Grouped list */}
-          <div className="shrine-list-panel" role="list" aria-label="Shrine list" id="main-content">
-            {filtered.length === 0 && (
-              <p className="shrine-list-empty">{t('noMatches')}</p>
-            )}
-            {grouped.map(([cat, items]) => (
-              <div key={cat}>
-                {grouped.length > 1 && (
-                  <div className="shrine-list-group-heading" aria-label={`Category: ${cat}`}>
-                    {localizeField(items[0].raw, 'Category') || cat}
-                  </div>
-                )}
-                {items.map((shrine) => {
-                  const name = localizeName(shrine);
-                  const location = localizeField(shrine.raw, 'Location') || shrine.location;
-                  return (
-                    <button
-                      key={shrine.id}
-                      className={`shrine-list-item${shrine.id === selectedId ? ' selected' : ''}`}
-                      role="listitem"
-                      onClick={() => {
-                        onSelect(shrine);
-                        setShowList(false);
-                      }}
-                      aria-pressed={shrine.id === selectedId}
-                    >
-                      <div className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ' shrine-list-thumb-slot--empty'}`}>
-                        {shrine.imageUrl ? (
-                          <img
-                            className="shrine-list-thumb-img"
-                            src={shrine.imageUrl}
-                            alt=""
-                            loading="lazy"
-                            onError={(e) => {
-                              const slot = (e.target as HTMLImageElement).parentElement;
-                              if (slot) slot.classList.add('shrine-list-thumb-slot--empty');
-                              (e.target as HTMLImageElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <svg className="shrine-list-thumb-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
-                          </svg>
-                        )}
-                      </div>
-                      <div className="shrine-list-info">
-                        <div className="shrine-list-name">{name}</div>
-                        {location && (
-                          <div className="shrine-list-meta">{location}</div>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
-          </div>
+          {/* Grouped list or skeleton while first load */}
+          {loading && shrines.length === 0 ? (
+            <ShrineListSkeleton />
+          ) : (
+            <div className="shrine-list-panel" role="list" aria-label="Shrine list" id="main-content">
+              {filtered.length === 0 && !loading && (
+                <p className="shrine-list-empty">{t('noMatches')}</p>
+              )}
+              {grouped.map(([cat, items]) => (
+                <div key={cat}>
+                  {grouped.length > 1 && (
+                    <div className="shrine-list-group-heading" aria-label={`Category: ${cat}`}>
+                      {localizeField(items[0].raw, 'Category') || cat}
+                    </div>
+                  )}
+                  {items.map((shrine) => {
+                    const name = localizeName(shrine);
+                    const location = localizeField(shrine.raw, 'Location') || shrine.location;
+                    const catKey = categoryKey(shrine.category);
+                    return (
+                      <button
+                        key={shrine.id}
+                        className={`shrine-list-item${shrine.id === selectedId ? ' selected' : ''}`}
+                        role="listitem"
+                        onClick={() => {
+                          onSelect(shrine);
+                          setShowList(false);
+                        }}
+                        aria-pressed={shrine.id === selectedId}
+                      >
+                        <div className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ` shrine-list-thumb-slot--empty shrine-list-thumb-slot--${catKey}`}`}>
+                          {shrine.imageUrl ? (
+                            <img
+                              className="shrine-list-thumb-img"
+                              src={shrine.imageUrl}
+                              alt=""
+                              loading="lazy"
+                              onError={(e) => {
+                                const slot = (e.target as HTMLImageElement).parentElement;
+                                if (slot) {
+                                  slot.classList.add('shrine-list-thumb-slot--empty');
+                                  slot.classList.add(`shrine-list-thumb-slot--${catKey}`);
+                                }
+                                (e.target as HTMLImageElement).style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <svg className="shrine-list-thumb-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
+                            </svg>
+                          )}
+                        </div>
+                        <div className="shrine-list-info">
+                          <div className="shrine-list-name">{highlightMatch(name, search)}</div>
+                          {location && (
+                            <div className="shrine-list-meta">{location}</div>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          )}
         </>
       ) : (
         /* Detail view */

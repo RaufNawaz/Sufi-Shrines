@@ -36,6 +36,9 @@
   --color-cat-muslim: #1a5c4e;
   --color-cat-hindu: #b45309;
   --color-cat-sikh: #7c3aed;
+  --color-cat-muslim-pale: #e6f2ef;
+  --color-cat-hindu-pale: #fef3c7;
+  --color-cat-sikh-pale: #ede9fe;
 
   /* Typography */
   --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
@@ -145,6 +148,9 @@
   --color-cat-muslim: #4db39a;
   --color-cat-hindu: #f59e0b;
   --color-cat-sikh: #a78bfa;
+  --color-cat-muslim-pale: #1a3530;
+  --color-cat-hindu-pale: #2a1a00;
+  --color-cat-sikh-pale: #1e1035;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
