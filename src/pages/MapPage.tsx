@@ -9,7 +9,7 @@ import 'leaflet/dist/leaflet.css';
 
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
-  const { t } = useLang();
+  const { t, isRTL } = useLang();
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -78,6 +78,8 @@ export default function MapPage() {
           shrines={shrines}
           selectedId={selectedId}
           onSelect={handleSelect}
+          sidebarOpen={sidebarOpen}
+          isRTL={isRTL}
         />
       </main>
 

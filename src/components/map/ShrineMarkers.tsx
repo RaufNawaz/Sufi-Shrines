@@ -12,10 +12,19 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
 }
 
-function buildDivIcon(selected: boolean): L.DivIcon {
+function categoryKey(category: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
+  const c = (category || '').toLowerCase();
+  if (c.includes('muslim')) return 'muslim';
+  if (c.includes('hindu')) return 'hindu';
+  if (c.includes('sikh')) return 'sikh';
+  return 'default';
+}
+
+function buildDivIcon(selected: boolean, category: string): L.DivIcon {
+  const catKey = categoryKey(category);
   return L.divIcon({
     className: '',
-    html: `<div class="shrine-dot${selected ? ' selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}"></div>`,
+    html: `<div class="shrine-dot shrine-dot--${catKey}${selected ? ' selected' : ''}" role="button" tabindex="0" aria-pressed="${selected}"></div>`,
     iconSize: [12, 12],
     iconAnchor: [6, 6],
     popupAnchor: [0, -10],
@@ -39,7 +48,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
 
     for (const shrine of shrines) {
       const isSelected = shrine.id === selectedId;
-      const icon = buildDivIcon(isSelected);
+      const icon = buildDivIcon(isSelected, shrine.category);
       const localName =
         lang === 'ur'
           ? getUrduFieldValue(shrine.raw, 'Name') ||
@@ -52,9 +61,15 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
         alt: localName,
       });
 
+      marker.bindTooltip(localName, {
+        direction: 'top',
+        offset: [0, -8],
+        opacity: 1,
+        className: 'shrine-tooltip',
+      });
+
       marker.on('click', () => handleClick(shrine));
 
-      // Keyboard support
       marker.on('add', () => {
         const el = marker.getElement();
         if (!el) return;

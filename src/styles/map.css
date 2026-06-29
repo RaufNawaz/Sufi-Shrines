@@ -181,6 +181,10 @@ body.lang-rtl .sidebar-toggle {
   position: relative;
 }
 
+.shrine-dot--muslim  { background: var(--color-cat-muslim); }
+.shrine-dot--hindu   { background: var(--color-cat-hindu); }
+.shrine-dot--sikh    { background: var(--color-cat-sikh); }
+
 .shrine-dot:hover {
   transform: scale(1.4);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(0, 0, 0, 0.12);
@@ -715,4 +719,100 @@ body.lang-rtl .sidebar-toggle {
   height: 32px;
   color: var(--color-primary);
   opacity: 0.35;
+}
+
+/* ── Shrine name tooltip ───────────────────────────────────────────────────── */
+.shrine-tooltip {
+  background: var(--color-bg-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-xs) !important;
+  font-weight: 600 !important;
+  padding: 3px 8px !important;
+  box-shadow: var(--shadow-md) !important;
+  white-space: nowrap !important;
+  max-width: 220px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.shrine-tooltip.leaflet-tooltip-top::before {
+  border-top-color: var(--color-border) !important;
+}
+
+/* ── Leaflet controls — rounded, soft shadow, theme-aware ──────────────────── */
+.leaflet-bar {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-md) !important;
+  overflow: hidden !important;
+}
+
+.leaflet-bar a {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  font-size: var(--text-lg) !important;
+  background: var(--color-bg-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border-light) !important;
+  transition: background var(--duration-fast), color var(--duration-fast) !important;
+}
+
+.leaflet-bar a:last-child {
+  border-bottom: none !important;
+}
+
+.leaflet-bar a:hover {
+  background: var(--color-primary-bg) !important;
+  color: var(--color-primary) !important;
+}
+
+.leaflet-bar a.leaflet-disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+}
+
+/* Layers control panel */
+.leaflet-control-layers {
+  background: var(--color-bg-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--text-sm) !important;
+}
+
+.leaflet-control-layers-toggle {
+  width: 34px !important;
+  height: 34px !important;
+  background-color: var(--color-bg-surface) !important;
+}
+
+.leaflet-control-layers-expanded {
+  padding: var(--space-3) var(--space-4) !important;
+  min-width: 160px !important;
+}
+
+.leaflet-control-layers label {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-2) !important;
+  padding: 2px 0 !important;
+  cursor: pointer !important;
+  color: var(--color-text) !important;
+}
+
+/* Reset view button */
+.reset-view-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  color: var(--color-text) !important;
+  text-decoration: none !important;
 }
