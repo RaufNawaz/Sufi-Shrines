@@ -433,6 +433,9 @@ function ShrinePreview({
   lang: string;
   localizeField: (row: typeof shrine.raw, field: string) => string;
 }) {
+  const [copied, setCopied] = useState(false);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const name =
     lang === 'ur'
       ? getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(shrine.name)
@@ -449,6 +452,17 @@ function ShrinePreview({
         getFieldValue(shrine.raw, 'Description')
       : getFieldValue(shrine.raw, 'Description');
   const leadText = descRaw ? extractLeadPreviewText(descRaw) : '';
+
+  const handleCopyLink = useCallback(() => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setCopied(true);
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
+    });
+  }, []);
+
+  // Clear timer on unmount
+  useEffect(() => () => { if (copyTimerRef.current) clearTimeout(copyTimerRef.current); }, []);
 
   return (
     <div className="preview-card">
@@ -483,12 +497,32 @@ function ShrinePreview({
         </div>
       )}
       {leadText && <p className="preview-description">{leadText}</p>}
-      <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
-        {lang === 'ur' ? 'مکمل تفصیل دیکھیں' : 'View full details'}
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </Link>
+      <div className="preview-actions">
+        <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
+          {lang === 'ur' ? 'مکمل تفصیل دیکھیں' : 'View full details'}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </Link>
+        <button
+          className={`preview-copy-link${copied ? ' copied' : ''}`}
+          onClick={handleCopyLink}
+          aria-label={copied ? (lang === 'ur' ? 'لنک کاپی ہو گیا' : 'Link copied') : (lang === 'ur' ? 'لنک کاپی کریں' : 'Copy link')}
+          title={lang === 'ur' ? 'لنک کاپی کریں' : 'Copy link'}
+        >
+          {copied ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
+          )}
+          <span>{copied ? (lang === 'ur' ? 'کاپی ہو گیا' : 'Copied!') : (lang === 'ur' ? 'لنک' : 'Share')}</span>
+        </button>
+      </div>
     </div>
   );
 }

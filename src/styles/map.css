@@ -636,11 +636,18 @@ body.lang-rtl .sidebar-toggle {
   overflow: hidden;
 }
 
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
 .preview-view-link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-2);
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-primary);
@@ -650,6 +657,38 @@ body.lang-rtl .sidebar-toggle {
 
 .preview-view-link:hover {
   color: var(--color-primary-dark);
+}
+
+.preview-copy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--duration-fast), border-color var(--duration-fast), background var(--duration-fast);
+  flex-shrink: 0;
+}
+
+.preview-copy-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.preview-copy-link.copied {
+  color: var(--color-success, #2d7a3a);
+  border-color: var(--color-success, #2d7a3a);
+  background: color-mix(in srgb, var(--color-success, #2d7a3a) 8%, transparent);
+}
+
+.preview-copy-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* Desktop sidebar backdrop — not used on mobile (bottom sheet) */
