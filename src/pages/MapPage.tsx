@@ -10,29 +10,31 @@ import 'leaflet/dist/leaflet.css';
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
   const { t, isRTL } = useLang();
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  // Desktop: open = sidebar docked. Mobile: open = sheet expanded; closed = sheet peeking.
+  const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
 
   useEffect(() => {
     document.title = t('siteTitle');
   }, [t]);
 
-  // Close sidebar with Escape
+  // Escape collapses the sheet on mobile, hides it on desktop
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && sidebarOpen) {
         setSidebarOpen(false);
-        setSelectedId(null);
+        if (!isMobile) setSelectedId(null);
       }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [sidebarOpen]);
+  }, [sidebarOpen, isMobile]);
 
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {
       setSelectedId(shrine?.id ?? null);
+      // Expand the sheet on mobile when a marker is tapped
       if (shrine && isMobile) setSidebarOpen(true);
     },
     [isMobile],
@@ -40,28 +42,15 @@ export default function MapPage() {
 
   const handleSidebarClose = useCallback(() => {
     setSidebarOpen(false);
-    setSelectedId(null);
+    if (!isMobile) setSelectedId(null);
+  }, [isMobile]);
+
+  const handleSidebarToggle = useCallback(() => {
+    setSidebarOpen((v) => !v);
   }, []);
 
   return (
     <div className="map-root">
-      {/* Mobile sidebar toggle — only rendered on mobile */}
-      {isMobile && (
-        <button
-          className="sidebar-toggle no-print"
-          onClick={() => setSidebarOpen((v) => !v)}
-          aria-label={sidebarOpen ? 'Close sidebar' : 'Open sidebar'}
-          aria-expanded={sidebarOpen}
-          aria-controls="sidebar"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-      )}
-
       <MapSidebar
         shrines={shrines}
         selectedId={selectedId}
@@ -70,10 +59,15 @@ export default function MapPage() {
         onSelect={handleSelect}
         onRetry={refresh}
         isOpen={sidebarOpen}
-        onClose={handleSidebarClose}
+        onToggle={handleSidebarToggle}
       />
 
-      <main className="map-container" id="main-content" aria-label="Interactive shrine map">
+      <main
+        className="map-container"
+        id="main-content"
+        aria-label="Interactive shrine map"
+        onClick={isMobile && sidebarOpen ? handleSidebarClose : undefined}
+      >
         <ShrineMap
           shrines={shrines}
           selectedId={selectedId}
@@ -83,13 +77,21 @@ export default function MapPage() {
         />
       </main>
 
-      {/* Mobile backdrop overlay */}
-      {sidebarOpen && isMobile && (
-        <div
-          className="sidebar-backdrop"
-          onClick={handleSidebarClose}
-          aria-hidden="true"
-        />
+      {/* Desktop sidebar toggle when sidebar is collapsed */}
+      {!isMobile && !sidebarOpen && (
+        <button
+          className="sidebar-toggle no-print"
+          onClick={handleSidebarToggle}
+          aria-label="Open sidebar"
+          aria-expanded={false}
+          aria-controls="sidebar"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
       )}
     </div>
   );

@@ -7,7 +7,7 @@
   position: relative;
 }
 
-/* Sidebar */
+/* Sidebar — desktop: docked column; mobile: bottom sheet */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
   border-inline-end: 1px solid var(--color-border);
   z-index: var(--z-sidebar);
   transition: width var(--duration-base) var(--easing),
+    height var(--duration-base) var(--easing),
     transform var(--duration-base) var(--easing);
   overflow: hidden;
   flex-shrink: 0;
@@ -26,26 +27,76 @@
   width: 0;
 }
 
-/* On mobile, sidebar slides over the map */
+/* Mobile: bottom sheet that snaps between peek (handle+header) and expanded */
 @media (max-width: 768px) {
   .sidebar {
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0;
+    position: fixed;
     bottom: 0;
-    width: min(380px, 85vw); /* 15% of map always visible */
-    transform: translateX(0);
-    box-shadow: var(--shadow-xl);
+    left: 0;
+    right: 0;
+    top: auto !important;
+    inset-inline-start: auto !important;
+    width: auto !important;
+    height: var(--sheet-peek-height, 108px);
+    max-height: calc(80dvh - var(--safe-top));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-inline-end: none;
+    border-top: 1px solid var(--color-border-light);
+    box-shadow: 0 -4px 24px rgba(26, 12, 8, 0.14), 0 -1px 0 var(--color-border-light);
+    transform: none !important;
+    transition: height var(--duration-base) var(--easing);
+    padding-bottom: var(--safe-bottom);
+    overflow: hidden;
   }
 
+  /* Expanded state (sidebar without .collapsed class) */
+  .sidebar:not(.collapsed) {
+    height: min(76dvh, calc(100dvh - 80px));
+  }
+
+  /* Peek = collapsed on mobile (shows handle + header) */
   .sidebar.collapsed {
-    width: min(380px, 85vw);
-    transform: translateX(-100%);
+    width: auto !important;
+    transform: none !important;
+    height: var(--sheet-peek-height, 108px);
   }
 
   [dir='rtl'] .sidebar.collapsed {
-    transform: translateX(100%);
+    transform: none !important;
   }
+}
+
+/* Drag handle */
+.sidebar-sheet-handle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar-sheet-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--space-2) 0 var(--space-1);
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.sheet-handle-pill {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  transition: background var(--duration-fast);
+}
+
+.sidebar-sheet-handle:hover .sheet-handle-pill {
+  background: var(--color-text-muted);
 }
 
 .sidebar-header {
@@ -149,11 +200,7 @@ body.lang-rtl .sidebar-toggle {
   box-shadow: var(--shadow-lg);
 }
 
-@media (min-width: 769px) {
-  .sidebar-toggle {
-    display: none; /* Hidden on desktop — sidebar always visible */
-  }
-}
+/* sidebar-toggle is conditionally rendered in JSX — no @media override needed */
 
 /* Map container */
 .map-container {
@@ -605,14 +652,12 @@ body.lang-rtl .sidebar-toggle {
   color: var(--color-primary-dark);
 }
 
-/* Mobile sidebar backdrop overlay */
+/* Desktop sidebar backdrop — not used on mobile (bottom sheet) */
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.25);
   z-index: calc(var(--z-sidebar) - 1);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
 }
 
 /* List-of-shrines toggle bar + button */

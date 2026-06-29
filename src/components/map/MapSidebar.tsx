@@ -56,7 +56,7 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
   onRetry: () => void;
   isOpen: boolean;
-  onClose: () => void;
+  onToggle?: () => void;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -76,7 +76,7 @@ export function MapSidebar({
   onSelect,
   onRetry,
   isOpen,
-  onClose,
+  onToggle,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -167,6 +167,19 @@ export function MapSidebar({
       id="sidebar"
       aria-label="Shrine browser"
     >
+      {/* Mobile drag handle — tap to toggle peek/full */}
+      {isMobile && (
+        <button
+          className="sidebar-sheet-handle"
+          onClick={onToggle}
+          aria-label={isOpen ? 'Collapse sheet' : 'Expand sheet'}
+          aria-expanded={isOpen}
+          aria-controls="sidebar"
+        >
+          <div className="sheet-handle-pill" aria-hidden="true" />
+        </button>
+      )}
+
       {/* Header */}
       <div className="sidebar-header">
         <div className="sidebar-brand">
@@ -180,18 +193,6 @@ export function MapSidebar({
         <div className="sidebar-actions">
           <DarkModeToggle />
           <LanguageToggle />
-          {isMobile && (
-            <button
-              className="icon-btn"
-              onClick={onClose}
-              aria-label="Close sidebar"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          )}
         </div>
       </div>
 
