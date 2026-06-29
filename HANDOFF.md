@@ -28,13 +28,15 @@ npm run dev        # Dev server at http://localhost:5173
 | Command | What it does |
 |---|---|
 | `npm run dev` | Vite dev server with HMR |
-| `npm run build` | TypeScript type-check + Vite production build → `dist/` |
+| `npm run build` | TypeScript type-check + Vite production build → `dist/` + SSG prerender |
 | `npm run preview` | Serve the `dist/` build locally |
 | `npm run typecheck` | TypeScript check only (no emit) |
 | `npm run lint` | ESLint with `--max-warnings 0` |
 | `npm run test` | Vitest (runs once) |
 | `npm run test:watch` | Vitest in watch mode |
+| `npm run e2e` | Playwright E2E tests (requires a built `dist/`) |
 | `npm run data:snapshot` | Fetch live CSV → write `src/data/shrines-fallback.json` |
+| `npm run data:validate` | Validate the snapshot against schema rules |
 
 ---
 
@@ -42,16 +44,21 @@ npm run dev        # Dev server at http://localhost:5173
 
 | Layer | Technology | Notes |
 |---|---|---|
-| Build | Vite 5 | TypeScript compile + bundle |
+| Build | Vite 5 | TypeScript compile + bundle + SSG prerender |
 | Framework | React 18 | Functional components + hooks throughout |
 | Routing | React Router v6 | `/` = map, `/shrine/:slug` = detail, `/shrine.html` = legacy redirect |
-| Map | Leaflet 1.9 / react-leaflet 4 | CARTO Voyager tiles (free, no key), Esri fallback |
-| Data | Google Sheets CSV | Published CSV; no authentication |
+| Map | Leaflet 1.9 / react-leaflet 4 | CARTO Voyager tiles (free, no key); MarkerCluster for density |
+| Data | Google Sheets CSV | Published CSV; no authentication needed |
 | CSV parsing | PapaParse 5 | Runs in the browser |
+| Search | MiniSearch 7 Web Worker | Fuzzy full-text search in background thread |
 | i18n | Custom context + hook | English/Urdu, RTL layout, no runtime API calls |
 | Fonts | Google Fonts | Merriweather, Source Sans 3, Noto Nastaliq Urdu |
-| PWA | vite-plugin-pwa | Service worker, offline shell, app icons |
-| Testing | Vitest | Unit tests in `src/**/*.test.ts` |
+| PWA | vite-plugin-pwa | Service worker, offline fallback (`public/offline.html`), update toast |
+| Telemetry | web-vitals | CWV reported in dev console; beaconed via `VITE_BEACON_URL` in prod |
+| Unit tests | Vitest 35 | `src/**/*.test.ts`, `npm run test` |
+| E2E tests | Playwright 17 | `e2e/`, requires `dist/` from `npm run build` |
+| A11y | axe-core / Lighthouse CI | 0 critical violations; budgets in `.lighthouserc.cjs` |
+| CI | GitHub Actions | `.github/workflows/ci.yml` — typecheck + lint + test + build + e2e |
 | Hosting | Static `dist/` | Deploy to Netlify, Vercel, GitHub Pages, or any CDN |
 
 ### Data flow
@@ -187,8 +194,9 @@ Deploy `dist/` to any static host:
 | Variable | Default | Purpose |
 |---|---|---|
 | `VITE_CSV_URL` | Hardcoded Google Sheets URL | Override data source (e.g. staging sheet) |
+| `VITE_BEACON_URL` | *(unset)* | Endpoint for web-vitals and error beacons; omit to disable telemetry |
 
-Variables prefixed `VITE_` are inlined at build time. Never put secrets in `VITE_*` variables.
+Variables prefixed `VITE_` are inlined at build time. Never put secrets in `VITE_*` variables — they are publicly visible in the bundle.
 
 ---
 
@@ -221,12 +229,32 @@ Full setup: `BOOK_OCR_WORKFLOW.md` and `LOCAL_OCR_QUICKSTART.md`.
 
 ---
 
+## Testing
+
+```powershell
+npm run typecheck   # TypeScript — zero errors
+npm run lint        # ESLint — max-warnings 0
+npm run test        # Vitest unit tests — 35/35
+npm run build       # Produces dist/ (required for e2e)
+npm run e2e         # Playwright — 17/17 (map flow, shrine detail, a11y, persistence)
+```
+
+CI runs all of the above on every push to `main`, `feat/**`, and `fix/**` branches via `.github/workflows/ci.yml`.
+
+---
+
 ## Known Issues / Future Work
 
 See `REDESIGN_FOLLOWUP.md` for the next UX improvements backlog.
 
-- `AFADA-E-KABIR.pdf` (258 MB) and `tessdata/` are git-ignored but may be in earlier history — consider Git LFS or external storage if the repo history is trimmed.
-- Stale branches `1.1` and `1.2` can be deleted once `chore/p0-stabilize` is merged to `main`.
+**Upcoming:**
+- T6.4: Full keyboard map navigation + AAA contrast audit in dark mode.
+- T1.5: Time-slider filter by founding era.
+- T4.2: Storybook component catalogue.
+
+**Maintenance:**
+- `AFADA-E-KABIR.pdf` (258 MB) and `tessdata/` are git-ignored — consider Git LFS or external storage if the repo history is trimmed.
+- `npm audit` reports vulnerabilities in dev dependencies (testing tools). These are not in the production bundle and are acceptable at current risk level.
 
 ---
 

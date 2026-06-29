@@ -6,7 +6,7 @@ import { normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
 import snapshotData from '../data/shrines-fallback.json';
 
-const CACHE_KEY = 'shrines_csv_cache_v2';
+const CACHE_KEY = 'shrines_csv_cache_v3';
 const CACHE_MAX_AGE_MS = 1000 * 60 * 60; // 1 hour
 
 interface CacheEntry {

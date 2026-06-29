@@ -11,6 +11,12 @@ export function parseLatLng(row: ShrineRow): LatLng | null {
   return { lat, lng };
 }
 
+function extractRegion(location: string): string {
+  if (!location) return '';
+  const parts = location.split(',').map((s) => s.trim()).filter(Boolean);
+  return parts.length >= 2 ? parts[parts.length - 1] : '';
+}
+
 export function buildShrine(row: ShrineRow, id: number): Shrine | null {
   const latLng = parseLatLng(row);
   if (!latLng) {
@@ -27,13 +33,15 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
   const explicitSlug = getFieldValue(row, 'Slug');
   const slug = explicitSlug || buildStableSlug(name);
 
+  const location = getFieldValue(row, 'Location');
   return {
     id,
     slug,
     name,
     latLng,
     category: getFieldValue(row, 'Category'),
-    location: getFieldValue(row, 'Location'),
+    location,
+    region: extractRegion(location),
     founded: getFieldValue(row, 'Founded'),
     sufiSaint: getFieldValue(row, 'Sufi Saint'),
     imageUrl: getPrimaryImageUrl(row),

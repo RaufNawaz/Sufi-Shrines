@@ -54,6 +54,7 @@ export interface Shrine {
   latLng: LatLng;
   category: string;
   location: string;
+  region: string;
   founded: string;
   sufiSaint: string;
   imageUrl: string | null;

@@ -332,13 +332,37 @@ body.lang-rtl .sidebar-toggle {
   background: var(--color-bg-alt);
 }
 
+/* Filter section: wraps label + chips row for region/saint filters */
+.filter-section {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.filter-section-label {
+  display: block;
+  padding: var(--space-1) var(--space-4) 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* Filter active indicator on list-toggle button */
+.filter-active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
 .filter-chips {
   display: flex;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   overflow-x: auto;
   flex-shrink: 0;
-  border-bottom: 1px solid var(--color-border-light);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   /* Fade edges so horizontal scroll looks intentional */

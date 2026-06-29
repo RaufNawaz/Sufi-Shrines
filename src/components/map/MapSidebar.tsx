@@ -58,6 +58,12 @@ interface Props {
   onRetry: () => void;
   isOpen: boolean;
   onToggle?: () => void;
+  activeCategory: string;
+  onCategoryChange: (category: string) => void;
+  activeRegion: string;
+  onRegionChange: (region: string) => void;
+  activeSaint: string;
+  onSaintChange: (saint: string) => void;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -78,14 +84,21 @@ export function MapSidebar({
   onRetry,
   isOpen,
   onToggle,
+  activeCategory,
+  onCategoryChange,
+  activeRegion,
+  onRegionChange,
+  activeSaint,
+  onSaintChange,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
-  const [activeCategory, setActiveCategory] = useState('');
   const [showList, setShowList] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
+
+  const hasActiveFilter = Boolean(activeCategory || activeRegion || activeSaint);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -123,12 +136,24 @@ export function MapSidebar({
     return Array.from(cats).sort();
   }, [shrines]);
 
+  const regions = useMemo(() => {
+    const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
+    return Array.from(regs).sort();
+  }, [shrines]);
+
+  const saints = useMemo(() => {
+    const saintSet = new Set(shrines.map((s) => s.sufiSaint).filter(Boolean));
+    return Array.from(saintSet).sort();
+  }, [shrines]);
+
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
 
   const filtered = useMemo(() => {
     let result = shrines;
     if (activeCategory) result = result.filter((s) => s.category === activeCategory);
+    if (activeRegion) result = result.filter((s) => s.region === activeRegion);
+    if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (search.trim()) {
       if (searchIds !== null) {
         // Worker results available — use them (ranked, fuzzy)
@@ -148,7 +173,7 @@ export function MapSidebar({
       }
     }
     return result;
-  }, [shrines, activeCategory, search, searchIds, localizeName]);
+  }, [shrines, activeCategory, activeRegion, activeSaint, search, searchIds, localizeName]);
 
   const grouped = useMemo(() => {
     const groups = new Map<string, Shrine[]>();
@@ -165,6 +190,13 @@ export function MapSidebar({
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
     [selectedId, shrines],
   );
+
+  const clearAllFilters = useCallback(() => {
+    setSearchRaw('');
+    onCategoryChange('');
+    onRegionChange('');
+    onSaintChange('');
+  }, [onCategoryChange, onRegionChange, onSaintChange]);
 
   return (
     <aside
@@ -235,6 +267,7 @@ export function MapSidebar({
               <line x1="3" y1="18" x2="3.01" y2="18" />
             </svg>
             {t('tableButton')}
+            {hasActiveFilter && <span className="filter-active-dot" aria-label="filters active" />}
           </button>
         </div>
       )}
@@ -282,24 +315,82 @@ export function MapSidebar({
 
           {/* Category chips */}
           {categories.length > 1 && (
-            <div className="filter-chips" role="group" aria-label="Filter by category">
-              <button
-                className={`filter-chip${!activeCategory ? ' active' : ''}`}
-                onClick={() => setActiveCategory('')}
-                aria-pressed={!activeCategory}
-              >
-                {t('filterAll')}
-              </button>
-              {categories.map((cat) => (
+            <div className="filter-section">
+              <div className="filter-chips" role="group" aria-label="Filter by category">
                 <button
-                  key={cat}
-                  className={`filter-chip${activeCategory === cat ? ' active' : ''}`}
-                  onClick={() => setActiveCategory(activeCategory === cat ? '' : cat)}
-                  aria-pressed={activeCategory === cat}
+                  className={`filter-chip${!activeCategory ? ' active' : ''}`}
+                  onClick={() => onCategoryChange('')}
+                  aria-pressed={!activeCategory}
                 >
-                  {localizeField(shrines.find((s) => s.category === cat)!.raw, 'Category') || cat}
+                  {lang === 'ur' ? 'سب' : 'All'}
                 </button>
-              ))}
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    className={`filter-chip${activeCategory === cat ? ' active' : ''}`}
+                    onClick={() => onCategoryChange(activeCategory === cat ? '' : cat)}
+                    aria-pressed={activeCategory === cat}
+                  >
+                    {localizeField(shrines.find((s) => s.category === cat)!.raw, 'Category') || cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Region chips */}
+          {regions.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">
+                {lang === 'ur' ? 'صوبہ' : 'Region'}
+              </span>
+              <div className="filter-chips" role="group" aria-label="Filter by region">
+                <button
+                  className={`filter-chip${!activeRegion ? ' active' : ''}`}
+                  onClick={() => onRegionChange('')}
+                  aria-pressed={!activeRegion}
+                >
+                  {lang === 'ur' ? 'سب' : 'All'}
+                </button>
+                {regions.map((reg) => (
+                  <button
+                    key={reg}
+                    className={`filter-chip${activeRegion === reg ? ' active' : ''}`}
+                    onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
+                    aria-pressed={activeRegion === reg}
+                  >
+                    {reg}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Saint chips */}
+          {saints.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">
+                {lang === 'ur' ? 'ولی' : 'Saint'}
+              </span>
+              <div className="filter-chips" role="group" aria-label="Filter by Sufi saint">
+                <button
+                  className={`filter-chip${!activeSaint ? ' active' : ''}`}
+                  onClick={() => onSaintChange('')}
+                  aria-pressed={!activeSaint}
+                >
+                  {lang === 'ur' ? 'سب' : 'All'}
+                </button>
+                {saints.map((saint) => (
+                  <button
+                    key={saint}
+                    className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
+                    onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
+                    aria-pressed={activeSaint === saint}
+                  >
+                    {saint}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
 
@@ -325,10 +416,10 @@ export function MapSidebar({
                   {search && (
                     <p className="shrine-list-empty-query">"{search}"</p>
                   )}
-                  {(search || activeCategory) && (
+                  {(search || hasActiveFilter) && (
                     <button
                       className="shrine-list-empty-clear"
-                      onClick={() => { setSearchRaw(''); setActiveCategory(''); }}
+                      onClick={clearAllFilters}
                     >
                       {lang === 'ur' ? 'فلٹر ہٹائیں' : 'Clear filters'}
                     </button>
@@ -364,6 +455,7 @@ export function MapSidebar({
                               src={shrine.imageUrl}
                               alt=""
                               loading="lazy"
+                              decoding="async"
                               onError={(e) => {
                                 const slot = (e.target as HTMLImageElement).parentElement;
                                 if (slot) {
@@ -472,6 +564,7 @@ function ShrinePreview({
           alt={name}
           className="preview-card-hero"
           loading="lazy"
+          decoding="async"
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
       ) : (

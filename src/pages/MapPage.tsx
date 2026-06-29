@@ -7,7 +7,7 @@ import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import 'leaflet/dist/leaflet.css';
 
-/** Read/write `?selected=<slug>` without triggering a react-router re-render. */
+/** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
   return new URLSearchParams(window.location.search).get('selected');
 }
@@ -27,18 +27,47 @@ function setSelectedSlug(slug: string | null, push: boolean): void {
   }
 }
 
+interface FilterState {
+  category: string;
+  region: string;
+  saint: string;
+}
+
+function getFiltersFromURL(): FilterState {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    category: p.get('category') || '',
+    region: p.get('region') || '',
+    saint: p.get('saint') || '',
+  };
+}
+
+function setFiltersInURL(filters: FilterState): void {
+  const p = new URLSearchParams(window.location.search);
+  if (filters.category) p.set('category', filters.category); else p.delete('category');
+  if (filters.region) p.set('region', filters.region); else p.delete('region');
+  if (filters.saint) p.set('saint', filters.saint); else p.delete('saint');
+  window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
+}
+
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
   const { t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
+  const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
 
   useEffect(() => {
     document.title = t('siteTitle');
   }, [t]);
+
+  // Sync filter state to URL (replaceState — no back-button churn for filters)
+  useEffect(() => {
+    setFiltersInURL(filters);
+  }, [filters]);
 
   // Restore `?selected=<slug>` once shrine data has loaded (runs once)
   useEffect(() => {
@@ -122,6 +151,18 @@ export default function MapPage() {
     setSidebarOpen((v) => !v);
   }, []);
 
+  const handleCategoryChange = useCallback((category: string) => {
+    setFilters((f) => ({ ...f, category }));
+  }, []);
+
+  const handleRegionChange = useCallback((region: string) => {
+    setFilters((f) => ({ ...f, region }));
+  }, []);
+
+  const handleSaintChange = useCallback((saint: string) => {
+    setFilters((f) => ({ ...f, saint }));
+  }, []);
+
   return (
     <div className="map-root">
       <MapSidebar
@@ -133,6 +174,12 @@ export default function MapPage() {
         onRetry={refresh}
         isOpen={sidebarOpen}
         onToggle={handleSidebarToggle}
+        activeCategory={filters.category}
+        onCategoryChange={handleCategoryChange}
+        activeRegion={filters.region}
+        onRegionChange={handleRegionChange}
+        activeSaint={filters.saint}
+        onSaintChange={handleSaintChange}
       />
 
       <main

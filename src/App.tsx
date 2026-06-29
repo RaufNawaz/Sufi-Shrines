@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate, useSearchParams, useLocation } 
 
 import { LanguageProvider } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
+import { UpdateToast } from './components/ui/UpdateToast';
 
 const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
@@ -61,6 +62,7 @@ export default function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
+          <UpdateToast />
         </BrowserRouter>
       </LanguageProvider>
     </ThemeProvider>

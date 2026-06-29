@@ -1044,3 +1044,29 @@
   background: var(--color-primary-dark);
   transform: translateY(-1px);
 }
+
+/* ── ShrineImage: lazy-loaded image with category-gradient fallback ─────────── */
+.shrine-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-pale);
+}
+
+.shrine-img-placeholder--muslim { background: var(--color-cat-muslim-pale); }
+.shrine-img-placeholder--hindu  { background: var(--color-cat-hindu-pale); }
+.shrine-img-placeholder--sikh   { background: var(--color-cat-sikh-pale); }
+.shrine-img-placeholder--default { background: var(--color-primary-pale); }
+
+.shrine-img-placeholder--muslim .shrine-img-icon { color: var(--color-cat-muslim); }
+.shrine-img-placeholder--hindu  .shrine-img-icon { color: var(--color-cat-hindu); }
+.shrine-img-placeholder--sikh   .shrine-img-icon { color: var(--color-cat-sikh); }
+.shrine-img-placeholder--default .shrine-img-icon { color: var(--color-primary); }
+
+.shrine-img-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.35;
+}
