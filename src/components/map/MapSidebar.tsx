@@ -323,9 +323,11 @@ export function MapSidebar({
 function WelcomeCard({ lang, t }: { lang: string; t: (k: Parameters<ReturnType<typeof useLang>['t']>[0]) => string }) {
   return (
     <div className="welcome-card">
-      <svg className="welcome-card-icon" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-        <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
-      </svg>
+      <div className="welcome-card-icon-wrap" aria-hidden="true">
+        <svg className="welcome-card-icon" viewBox="0 0 64 64" fill="currentColor">
+          <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
+        </svg>
+      </div>
       <h2 className="welcome-card-title">
         {lang === 'ur' ? 'مزارات دریافت کریں' : 'Explore Sufi Shrines'}
       </h2>
