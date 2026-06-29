@@ -32,5 +32,8 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: Validate data snapshot
+        run: npm run data:validate
+
       - name: Build
         run: npm run build
