@@ -14,6 +14,7 @@ import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { getUrduFieldValue, getFieldValue } from '../lib/data/fieldAliasing';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
+import { getSaintsForShrine } from '../lib/kg';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -38,6 +39,8 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
     lang === 'ur'
       ? getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(shrine.name)
       : shrine.name;
+
+  const primaryKgSaint = useMemo(() => getSaintsForShrine(shrine.slug)[0], [shrine.slug]);
 
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
@@ -125,7 +128,11 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            {saint}
+            {primaryKgSaint ? (
+              <Link to={`/saint/${primaryKgSaint.slug}`} className="meta-entity-link">
+                {saint}
+              </Link>
+            ) : saint}
           </span>
         )}
       </div>

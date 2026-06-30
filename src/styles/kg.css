@@ -1,0 +1,516 @@
+/* ── Entity page (saint / order) ─────────────────────────────────────────── */
+
+.entity-page-wrapper {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.entity-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-16);
+}
+
+/* ── Entity type kicker ──────────────────────────────────────────────────── */
+
+.entity-type-kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.entity-type-kicker::before {
+  content: '';
+  display: inline-block;
+  width: var(--space-8);
+  height: 2px;
+  background-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ── Entity title ────────────────────────────────────────────────────────── */
+
+.entity-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  margin: 0 0 var(--space-4);
+}
+
+/* ── Entity meta row ─────────────────────────────────────────────────────── */
+
+.entity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.entity-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ── Two-column layout ───────────────────────────────────────────────────── */
+
+.entity-article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 640px) {
+  .entity-article-layout {
+    grid-template-columns: 1fr 220px;
+  }
+}
+
+/* ── KG section ──────────────────────────────────────────────────────────── */
+
+.kg-section {
+  margin-top: var(--space-8);
+}
+
+.kg-section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+  margin: 0 0 var(--space-4);
+}
+
+/* ── Order badge ─────────────────────────────────────────────────────────── */
+
+.order-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--easing);
+}
+
+.order-badge:hover,
+.order-badge:focus {
+  opacity: 0.85;
+}
+
+/* ── Shrine list (in saint page) ─────────────────────────────────────────── */
+
+.entity-shrine-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.entity-shrine-list-item a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  border: 1px solid var(--color-border);
+  transition: background-color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.entity-shrine-list-item a:hover,
+.entity-shrine-list-item a:focus {
+  background-color: var(--color-primary-bg);
+  border-color: var(--color-primary);
+}
+
+/* ── Saint list (in order page) ──────────────────────────────────────────── */
+
+.entity-saint-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.entity-saint-item {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+}
+
+.entity-saint-item-name a {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.entity-saint-item-name a:hover,
+.entity-saint-item-name a:focus {
+  text-decoration: underline;
+}
+
+.entity-saint-item-shrines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.entity-saint-shrine-tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-alt);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.entity-saint-shrine-tag:hover,
+.entity-saint-shrine-tag:focus {
+  color: var(--color-primary);
+}
+
+/* ── Entity infobox ──────────────────────────────────────────────────────── */
+
+.entity-infobox {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+  height: fit-content;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  font-size: var(--text-sm);
+}
+
+.entity-infobox-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.entity-infobox-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+}
+
+.entity-infobox-body {
+  padding: var(--space-3) var(--space-4);
+}
+
+.entity-infobox-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.entity-infobox-row + .entity-infobox-row {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.entity-infobox-label {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.entity-infobox-value {
+  color: var(--color-text);
+}
+
+/* ── Lineage view ─────────────────────────────────────────────────────────── */
+
+.lineage-view {
+  font-size: var(--text-sm);
+}
+
+.lineage-root {
+  margin-bottom: var(--space-3);
+}
+
+.lineage-node {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: opacity var(--duration-fast) var(--easing);
+}
+
+.lineage-node:hover,
+.lineage-node:focus {
+  opacity: 0.85;
+}
+
+.lineage-node--current {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.lineage-node-alt {
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: var(--text-xs);
+}
+
+.lineage-members {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--space-6);
+  border-left: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lineage-member {
+  position: relative;
+  padding: var(--space-1) 0;
+}
+
+.lineage-member::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-6));
+  top: 50%;
+  width: var(--space-5);
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.lineage-member a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast), color var(--duration-fast);
+}
+
+.lineage-member a:hover,
+.lineage-member a:focus {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+}
+
+.lineage-member--current > a {
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-bg);
+}
+
+.lineage-member--current > a::after {
+  content: '◀';
+  font-size: 0.65em;
+  opacity: 0.6;
+  margin-left: var(--space-1);
+}
+
+.lineage-member-alt {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Network graph ──────────────────────────────────────────────────────── */
+
+.network-graph {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.network-graph-svg {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  display: block;
+}
+
+.network-edge {
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+.network-node {
+  fill: var(--color-bg-surface);
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+.network-node--saint {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+}
+
+.network-node--order {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+.network-node--shrine {
+  fill: var(--color-bg-alt);
+  stroke: var(--color-border);
+}
+
+.network-node--current {
+  stroke-width: 3;
+  stroke: var(--color-accent);
+}
+
+.network-label {
+  fill: var(--color-text);
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.network-label--center {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.network-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.network-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.network-link::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.network-link--saint::before { background-color: var(--color-accent); }
+.network-link--order::before { background-color: var(--color-primary); }
+.network-link--shrine::before { background-color: var(--color-border); }
+
+.network-link a {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.network-link a:hover,
+.network-link a:focus {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ── Meta entity link (shrine page saint cross-link) ─────────────────────── */
+
+.meta-entity-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.meta-entity-link:hover,
+.meta-entity-link:focus {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ── Screen reader only ──────────────────────────────────────────────────── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── RTL overrides ───────────────────────────────────────────────────────── */
+
+[dir='rtl'] .entity-page {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] .entity-type-kicker::before {
+  order: 1;
+}
+
+[dir='rtl'] .lineage-members {
+  padding: 0 var(--space-6) 0 0;
+  border-left: none;
+  border-right: 2px solid var(--color-border);
+}
+
+[dir='rtl'] .lineage-member::before {
+  left: auto;
+  right: calc(-1 * var(--space-6));
+}
+
+[dir='rtl'] .lineage-member--current > a::after {
+  content: '▶';
+  margin-left: 0;
+  margin-right: var(--space-1);
+}
+
+[dir='rtl'] .entity-infobox-title::before {
+  left: auto;
+  right: 0;
+}

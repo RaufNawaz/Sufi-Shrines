@@ -5,6 +5,7 @@ import './styles/tokens.css';
 import './styles/global.css';
 import './styles/map.css';
 import './styles/shrine.css';
+import './styles/kg.css';
 import { initTelemetry } from './lib/telemetry';
 
 // Prevent FOUC by setting data-theme before paint

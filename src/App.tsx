@@ -7,6 +7,8 @@ import { UpdateToast } from './components/ui/UpdateToast';
 
 const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
+const SaintPage = lazy(() => import('./pages/SaintPage'));
+const OrderPage = lazy(() => import('./pages/OrderPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -56,6 +58,8 @@ export default function App() {
             <Routes>
               <Route path="/" element={<MapPage />} />
               <Route path="/shrine/:slug" element={<ShrinePage />} />
+              <Route path="/saint/:slug" element={<SaintPage />} />
+              <Route path="/order/:slug" element={<OrderPage />} />
               {/* Legacy shrine.html?id=N redirect */}
               <Route path="/shrine.html" element={<LegacyRedirect />} />
               <Route path="*" element={<NotFoundPage />} />
