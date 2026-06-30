@@ -138,6 +138,61 @@ rows.forEach((row, i) => {
   }
 });
 
+// ── provenance validation ─────────────────────────────────────────────────
+
+const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');
+const VALID_METHODS = new Set(['human', 'ocr', 'mt', 'llm']);
+const slugSet = new Set(slugs);
+
+if (existsSync(PROVENANCE_JSON)) {
+  let prov;
+  try {
+    prov = JSON.parse(readFileSync(PROVENANCE_JSON, 'utf8'));
+  } catch (err) {
+    rowErrors.push(`provenance.json: cannot parse — ${err.message}`);
+  }
+
+  if (prov) {
+    if (!prov.schema_version) {
+      rowErrors.push('provenance.json: missing schema_version');
+    }
+    const shrines = prov.shrines ?? [];
+    shrines.forEach((entry, i) => {
+      const label = `provenance.json shrines[${i}]`;
+      if (!entry.shrineSlug || typeof entry.shrineSlug !== 'string') {
+        rowErrors.push(`${label}: missing or non-string shrineSlug`);
+        return;
+      }
+      if (!slugSet.has(entry.shrineSlug)) {
+        rowWarnings.push(
+          `${label}: shrineSlug "${entry.shrineSlug}" does not match any shrine in data/shrines.json`,
+        );
+      }
+      const fields = entry.fields ?? {};
+      Object.entries(fields).forEach(([field, fp]) => {
+        const flabel = `${label}.fields["${field}"]`;
+        if (!fp.source || typeof fp.source !== 'string') {
+          rowErrors.push(`${flabel}: missing or non-string source`);
+        }
+        if (!VALID_METHODS.has(fp.method)) {
+          rowErrors.push(
+            `${flabel}: method "${fp.method}" must be one of: ${[...VALID_METHODS].join(', ')}`,
+          );
+        }
+        if (fp.confidence !== undefined) {
+          const c = Number(fp.confidence);
+          if (!isFinite(c) || c < 0 || c > 1) {
+            rowErrors.push(`${flabel}: confidence must be a number in [0, 1]`);
+          }
+        }
+      });
+    });
+    if (!rowErrors.some((e) => e.includes('provenance.json'))) {
+      console.log(`[validate] ✓ provenance.json — ${shrines.length} shrine entrie(s) valid`);
+    }
+  }
+}
+
 // ── report ────────────────────────────────────────────────────────────────
 
 const allErrors = [...topErrors, ...rowErrors];

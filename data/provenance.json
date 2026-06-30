@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "updated": "2026-06-30",
+  "shrines": [
+    {
+      "shrineSlug": "data-darbar",
+      "fields": {
+        "Image 1": {
+          "source": "Wikimedia Commons — CC BY-SA 3.0, photo by Usman Ghani",
+          "method": "human",
+          "confidence": 1.0,
+          "notes": "URL encodes filename; verify license on Wikimedia before reuse."
+        },
+        "Latitude": {
+          "source": "Google Maps coordinate lookup, cross-checked against OpenStreetMap",
+          "method": "human",
+          "confidence": 0.98
+        },
+        "Longitude": {
+          "source": "Google Maps coordinate lookup, cross-checked against OpenStreetMap",
+          "method": "human",
+          "confidence": 0.98
+        }
+      }
+    },
+    {
+      "shrineSlug": "allo-mahar",
+      "fields": {
+        "Image 1": {
+          "source": "Wikimedia Commons",
+          "method": "human",
+          "confidence": 1.0
+        },
+        "Description": {
+          "source": "UTRNet OCR from source PDF — human review pending",
+          "method": "ocr",
+          "confidence": 0.72,
+          "notes": "Placeholder: OCR text awaiting human translation and summary. Run: python tools/process_books.py --test-pdf <PDF> to regenerate."
+        }
+      }
+    }
+  ]
+}

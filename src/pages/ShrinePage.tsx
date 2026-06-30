@@ -9,6 +9,7 @@ import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
+import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { getUrduFieldValue, getFieldValue } from '../lib/data/fieldAliasing';
@@ -174,6 +175,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <ShrineArticle shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
+          <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
         </div>
         <aside>
           <ShrineInfobox shrine={shrine} />

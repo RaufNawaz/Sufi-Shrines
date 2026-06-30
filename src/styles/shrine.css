@@ -1079,3 +1079,129 @@
   height: auto;
   aspect-ratio: 16/9;
 }
+
+/* ── P2-A3: Sources & Provenance panel ─────────────────────────────────────── */
+.provenance-section {
+  margin-bottom: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.provenance-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-4);
+}
+
+.provenance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.provenance-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  font-size: var(--text-sm);
+}
+
+.provenance-field-name {
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 8ch;
+}
+
+/* Method badges */
+.provenance-method {
+  display: inline-block;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.provenance-method--human {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.provenance-method--ocr,
+.provenance-method--mt {
+  background: var(--color-accent-pale);
+  color: var(--color-accent);
+}
+
+.provenance-method--llm {
+  background: var(--color-primary-pale);
+  color: var(--color-primary);
+}
+
+/* Unreviewed warning badge */
+.provenance-unreviewed {
+  display: inline-block;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid var(--color-error-border);
+}
+
+.provenance-source {
+  color: var(--color-text-secondary);
+  flex: 1 0 auto;
+}
+
+.provenance-confidence {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.provenance-reviewer {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-style: italic;
+}
+
+.provenance-notes {
+  width: 100%;
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-style: italic;
+  line-height: var(--leading-snug);
+}
+
+/* Dark mode */
+[data-theme='dark'] .provenance-item {
+  background: var(--color-bg-alt);
+}
+
+[data-theme='dark'] .provenance-method--human {
+  background: rgba(21, 128, 61, 0.15);
+}
+
+[data-theme='dark'] .provenance-method--ocr,
+[data-theme='dark'] .provenance-method--mt {
+  background: rgba(200, 137, 10, 0.15);
+}
+
+[data-theme='dark'] .provenance-unreviewed {
+  background: rgba(185, 28, 28, 0.15);
+  border-color: rgba(185, 28, 28, 0.4);
+}
