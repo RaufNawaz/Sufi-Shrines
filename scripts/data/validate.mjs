@@ -1,0 +1,159 @@
+#!/usr/bin/env node
+/**
+ * validate.mjs — Schema validation for the canonical shrine dataset.
+ *
+ * Reads data/shrines.json, validates every row against the Zod schema
+ * (required fields, coordinate ranges, controlled vocabularies, URL shapes),
+ * and checks cross-row invariants (unique generated slugs).
+ * Exits non-zero with a per-row error report on any violation.
+ *
+ * Usage:  node scripts/data/validate.mjs
+ * Or:     npm run data:validate
+ */
+
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { validateRow } from './schema.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '../..');
+const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
+
+// ── slug generation (mirrors slugify.ts + buildShrines collision logic) ───
+
+const SLUG_SUBS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
+function slugify(text) {
+  if (!text) return '';
+  return text
+    .toLowerCase()
+    .replace(/[&@%+]/g, (c) => ` ${SLUG_SUBS[c] ?? c} `)
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .trim();
+}
+
+function computeSlug(row, index) {
+  const explicit = String(row['Slug'] ?? '').trim();
+  if (explicit) return explicit;
+  const name = String(row['Name'] ?? '').trim();
+  const location = String(row['Location'] ?? '').trim();
+  const saint = String(row['Sufi Saint'] ?? '').trim();
+  const base = slugify(name) || `shrine-${index}`;
+  const withLoc = base && location ? `${base}-${slugify(location)}` : base;
+  const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
+  return base || `shrine-${index}`;
+  void withLoc; void withSaint; // computed for context, used in dedup
+}
+
+function buildSlugs(rows) {
+  const seen = new Map();
+  return rows.map((row, i) => {
+    const explicit = String(row['Slug'] ?? '').trim();
+    if (explicit) {
+      seen.set(explicit, (seen.get(explicit) ?? 0) + 1);
+      return explicit;
+    }
+    const name = String(row['Name'] ?? '').trim();
+    const location = String(row['Location'] ?? '').trim();
+    const saint = String(row['Sufi Saint'] ?? '').trim();
+    const base = slugify(name) || `shrine-${i}`;
+    const withLoc = base && location ? `${base}-${slugify(location)}` : base;
+    const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
+
+    let chosen = base;
+    for (const candidate of [base, withLoc, withSaint]) {
+      if (candidate && !seen.has(candidate)) { chosen = candidate; break; }
+    }
+    if (seen.has(chosen)) {
+      let n = 2;
+      while (seen.has(`${chosen}-${n}`)) n++;
+      chosen = `${chosen}-${n}`;
+    }
+    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
+    return chosen;
+  });
+}
+
+// ── load ──────────────────────────────────────────────────────────────────
+
+if (!existsSync(SHRINES_JSON)) {
+  console.error(`[validate] data/shrines.json not found. Run: npm run data:build`);
+  process.exit(1);
+}
+
+let canonical;
+try {
+  canonical = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
+} catch (err) {
+  console.error(`[validate] Cannot parse data/shrines.json: ${err.message}`);
+  process.exit(1);
+}
+
+const rows = canonical.rows ?? [];
+
+// ── validate count consistency ────────────────────────────────────────────
+
+const topErrors = [];
+if (typeof canonical.count !== 'number' || canonical.count !== rows.length) {
+  topErrors.push(`count field (${canonical.count}) does not match rows.length (${rows.length})`);
+}
+if (!canonical.schema_version) {
+  topErrors.push('missing schema_version field');
+}
+
+// ── per-row validation ────────────────────────────────────────────────────
+
+const rowErrors = [];
+const rowWarnings = [];
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  const result = validateRow(row);
+  if (!result.success) {
+    result.errors.forEach((msg) => rowErrors.push(`  ${label}: ${msg}`));
+  }
+});
+
+// ── slug uniqueness (cross-row) ───────────────────────────────────────────
+
+const slugs = buildSlugs(rows);
+const slugCount = new Map();
+slugs.forEach((s, i) => slugCount.set(s, [...(slugCount.get(s) ?? []), i]));
+slugCount.forEach((indices, slug) => {
+  if (indices.length > 1) {
+    const names = indices.map((i) => String(rows[i]?.['Name'] ?? `row ${i}`)).join(', ');
+    rowErrors.push(`  Slug "${slug}" collides across rows: ${names}`);
+  }
+});
+
+// ── warnings for empty optional high-value fields ─────────────────────────
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  if (!String(row['Description'] ?? '').trim() && !String(row['Events'] ?? '').trim()) {
+    rowWarnings.push(`  ${label}: no Description or Events text`);
+  }
+});
+
+// ── report ────────────────────────────────────────────────────────────────
+
+const allErrors = [...topErrors, ...rowErrors];
+
+if (rowWarnings.length) {
+  console.warn(`[validate] Warnings (${rowWarnings.length}):`);
+  rowWarnings.slice(0, 10).forEach((w) => console.warn(`  ⚠  ${w}`));
+  if (rowWarnings.length > 10) console.warn(`  … and ${rowWarnings.length - 10} more`);
+}
+
+if (allErrors.length) {
+  console.error(`\n[validate] Errors (${allErrors.length}) — fix in data/shrines.json or re-run npm run data:build:`);
+  allErrors.forEach((e) => console.error(`  ✗  ${e}`));
+  process.exit(1);
+}
+
+console.log(
+  `[validate] ✓ ${rows.length} rows valid${rowWarnings.length ? ` (${rowWarnings.length} warning(s))` : ''}`,
+);

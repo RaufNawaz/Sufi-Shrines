@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/raufnawaz/sufi-shrines/blob/main/data/shrine-schema.json",
+  "title": "ShrineRow",
+  "description": "A single shrine record as stored in the canonical dataset (data/shrines.json).",
+  "type": "object",
+  "required": ["Name", "Latitude", "Longitude"],
+  "additionalProperties": true,
+  "properties": {
+    "Name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Primary English name of the shrine or sacred site."
+    },
+    "Location": {
+      "type": "string",
+      "description": "Human-readable location string (city, district, province)."
+    },
+    "Category": {
+      "type": "string",
+      "enum": ["Muslim Shrine", "Hindu Temple", "Sikh Gurdwara", "Christian Church", "Other", ""],
+      "description": "Faith tradition of the site."
+    },
+    "Latitude": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Decimal latitude (20–42 for Pakistan region)."
+    },
+    "Longitude": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Decimal longitude (55–82 for Pakistan region)."
+    },
+    "Founded/Opened": {
+      "type": "string",
+      "description": "Year or century of founding, free-text (e.g. '1898', '16th century CE')."
+    },
+    "Sufi Saint": {
+      "type": "string",
+      "description": "Name of the saint buried at or associated with the shrine."
+    },
+    "Image 1": {
+      "type": "string",
+      "description": "Primary image URL (must be http/https or empty)."
+    },
+    "Image 2": {
+      "type": "string",
+      "description": "Secondary image URL (must be http/https or empty)."
+    },
+    "Events": {
+      "type": "string",
+      "description": "Description of annual events, urs celebrations, etc."
+    },
+    "Description": {
+      "type": "string",
+      "description": "Main prose description of the shrine."
+    }
+  }
+}

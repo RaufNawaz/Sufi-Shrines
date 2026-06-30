@@ -15,8 +15,9 @@
     "e2e:report": "playwright show-report",
     "lighthouse": "lhci autorun",
     "data:build": "node scripts/data/build-dataset.mjs",
+    "data:validate": "node scripts/data/validate.mjs",
     "data:snapshot": "node scripts/snapshot-data.mjs",
-    "data:validate": "node scripts/validate-data.mjs",
+    "data:validate:legacy": "node scripts/validate-data.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -68,6 +69,7 @@
     "typescript": "^5.4.2",
     "vite": "^5.2.0",
     "vite-plugin-pwa": "^0.19.8",
-    "vitest": "^1.4.0"
+    "vitest": "^1.4.0",
+    "zod": "^4.4.3"
   }
 }
