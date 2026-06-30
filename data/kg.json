@@ -1,0 +1,3483 @@
+{
+  "schema_version": "1.0.0",
+  "generated": "2026-06-30T00:42:38.706Z",
+  "saints": [
+    {
+      "id": "saint:pir-syed-muhammad-channan-shah-nuri",
+      "type": "saint",
+      "slug": "pir-syed-muhammad-channan-shah-nuri",
+      "name": "Pir Syed Muhammad Channan Shah Nuri",
+      "altNames": [],
+      "shrines": [
+        "allo-mahar"
+      ]
+    },
+    {
+      "id": "saint:bari-imam",
+      "type": "saint",
+      "slug": "bari-imam",
+      "name": "Bari Imam",
+      "altNames": [
+        "Shah Abdul Latif Kazmi"
+      ],
+      "shrines": [
+        "bari-imam"
+      ]
+    },
+    {
+      "id": "saint:shah-abdul-latif-bhittai",
+      "type": "saint",
+      "slug": "shah-abdul-latif-bhittai",
+      "name": "Shah Abdul Latif Bhittai",
+      "altNames": [],
+      "shrines": [
+        "bhit-bhit-shah"
+      ]
+    },
+    {
+      "id": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
+      "type": "saint",
+      "slug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+      "name": "Khawaja Shah Muhammad Sulaiman Taunsvi",
+      "altNames": [],
+      "shrines": [
+        "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
+      ]
+    },
+    {
+      "id": "saint:syed-sakhi-shah-chan-charagh",
+      "type": "saint",
+      "slug": "syed-sakhi-shah-chan-charagh",
+      "name": "Syed Sakhi Shah Chan Charagh",
+      "altNames": [],
+      "shrines": [
+        "darbar-sakhi-shah-chan-charagh"
+      ]
+    },
+    {
+      "id": "saint:sufi-shah-inayat-shaheed",
+      "type": "saint",
+      "slug": "sufi-shah-inayat-shaheed",
+      "name": "Sufi Shah Inayat Shaheed",
+      "altNames": [],
+      "shrines": [
+        "dargah-roza-sufi-shah-inayat-shaheed"
+      ]
+    },
+    {
+      "id": "saint:syed-rakhyal-shah-sufi-al-qadri",
+      "type": "saint",
+      "slug": "syed-rakhyal-shah-sufi-al-qadri",
+      "name": "Syed Rakhyal Shah Sufi Al Qadri",
+      "altNames": [],
+      "shrines": [
+        "dargah-fateh-pur-sharif"
+      ]
+    },
+    {
+      "id": "saint:data-ganj-bakhsh",
+      "type": "saint",
+      "slug": "data-ganj-bakhsh",
+      "name": "Data Ganj Bakhsh",
+      "altNames": [
+        "Ali Hujwiri"
+      ],
+      "shrines": [
+        "data-darbar"
+      ]
+    },
+    {
+      "id": "saint:pir-abdul-ul-karim",
+      "type": "saint",
+      "slug": "pir-abdul-ul-karim",
+      "name": "Pir Abdul-ul-karim",
+      "altNames": [],
+      "shrines": [
+        "eidgah-sharif"
+      ]
+    },
+    {
+      "id": "saint:sultan-bahoo",
+      "type": "saint",
+      "slug": "sultan-bahoo",
+      "name": "Sultan Bahoo",
+      "altNames": [],
+      "shrines": [
+        "garh-maharaja-shorkot"
+      ]
+    },
+    {
+      "id": "saint:pir-meher-ali-shah",
+      "type": "saint",
+      "slug": "pir-meher-ali-shah",
+      "name": "Pir Meher Ali Shah",
+      "altNames": [],
+      "shrines": [
+        "golra-sharif"
+      ]
+    },
+    {
+      "id": "saint:bhai-joga-singh",
+      "type": "saint",
+      "slug": "bhai-joga-singh",
+      "name": "Bhai Joga Singh",
+      "altNames": [],
+      "shrines": [
+        "gurdwara-bhai-joga-singh"
+      ]
+    },
+    {
+      "id": "saint:guru-nanak",
+      "type": "saint",
+      "slug": "guru-nanak",
+      "name": "Guru Nanak",
+      "altNames": [],
+      "shrines": [
+        "gurdwara-darbar-sahib-kartarpur",
+        "gurdwara-panja-sahib",
+        "gurdwara-rori-sahib",
+        "gurdwara-sri-kiara-sahib",
+        "gurudwara-janam-asthan-nankana-sahib"
+      ],
+      "wikidataQid": "Q309430"
+    },
+    {
+      "id": "saint:guru-arjan-dev",
+      "type": "saint",
+      "slug": "guru-arjan-dev",
+      "name": "Guru Arjan Dev",
+      "altNames": [],
+      "shrines": [
+        "gurdwara-dera-sahib"
+      ]
+    },
+    {
+      "id": "saint:bhai-taru",
+      "type": "saint",
+      "slug": "bhai-taru",
+      "name": "Bhai Taru",
+      "altNames": [],
+      "shrines": [
+        "gurdwara-shaheed-bhai-taru-singh"
+      ]
+    },
+    {
+      "id": "saint:laki-shah-saddar",
+      "type": "saint",
+      "slug": "laki-shah-saddar",
+      "name": "Laki Shah Saddar",
+      "altNames": [
+        "Syed Shah Sadaruddin Lakyari"
+      ],
+      "shrines": [
+        "jamshoro-district"
+      ]
+    },
+    {
+      "id": "saint:lal-shahbaz-qalandar",
+      "type": "saint",
+      "slug": "lal-shahbaz-qalandar",
+      "name": "Lal Shahbaz Qalandar",
+      "altNames": [
+        "Syed Muhammad Usman"
+      ],
+      "shrines": [
+        "lal-shahbaz-qalandar",
+        "sehwan-sharif"
+      ]
+    },
+    {
+      "id": "saint:makhdoom-burhan-ud-din",
+      "type": "saint",
+      "slug": "makhdoom-burhan-ud-din",
+      "name": "Makhdoom Burhan-ud-din",
+      "altNames": [],
+      "shrines": [
+        "langer-makhdoom"
+      ]
+    },
+    {
+      "id": "saint:waris-shah",
+      "type": "saint",
+      "slug": "waris-shah",
+      "name": "Waris Shah",
+      "altNames": [],
+      "shrines": [
+        "mausoleum-of-waris-shah"
+      ]
+    },
+    {
+      "id": "saint:bulleh-shah",
+      "type": "saint",
+      "slug": "bulleh-shah",
+      "name": "Bulleh Shah",
+      "altNames": [
+        "Abdullah Shah Qadri"
+      ],
+      "shrines": [
+        "mazar-of-bulleh-shah"
+      ]
+    },
+    {
+      "id": "saint:khwaja-ghulam-farid",
+      "type": "saint",
+      "slug": "khwaja-ghulam-farid",
+      "name": "Khwaja Ghulam Farid",
+      "altNames": [],
+      "shrines": [
+        "mithankot-kot-mithan"
+      ]
+    },
+    {
+      "id": "saint:smadhi-of-dya-ram",
+      "type": "saint",
+      "slug": "smadhi-of-dya-ram",
+      "name": "Smadhi of Dya Ram",
+      "altNames": [],
+      "shrines": [
+        "parnami-mandir"
+      ]
+    },
+    {
+      "id": "saint:shah-sulaimn-nri",
+      "type": "saint",
+      "slug": "shah-sulaimn-nri",
+      "name": "Shah Sulaimān Nūri",
+      "altNames": [],
+      "shrines": [
+        "purana-bhalwal"
+      ]
+    },
+    {
+      "id": "saint:rahman-baba",
+      "type": "saint",
+      "slug": "rahman-baba",
+      "name": "Rahman Baba",
+      "altNames": [
+        "Abdur Rahman Mohmand"
+      ],
+      "shrines": [
+        "rahman-baba-mausoleum-rehman-baba-shrine"
+      ]
+    },
+    {
+      "id": "saint:syed-muhammad-noushah-qadiri",
+      "type": "saint",
+      "slug": "syed-muhammad-noushah-qadiri",
+      "name": "Syed Muhammad Noushah Qadiri",
+      "altNames": [],
+      "shrines": [
+        "ranmal-sharif"
+      ]
+    },
+    {
+      "id": "saint:sultan-sakhi-sarwar",
+      "type": "saint",
+      "slug": "sultan-sakhi-sarwar",
+      "name": "Sultan Sakhi Sarwar",
+      "altNames": [],
+      "shrines": [
+        "sakhi-sarwar"
+      ]
+    },
+    {
+      "id": "saint:syed-bilawal-shah-noorani",
+      "type": "saint",
+      "slug": "syed-bilawal-shah-noorani",
+      "name": "Syed Bilawal Shah Noorani",
+      "altNames": [],
+      "shrines": [
+        "shah-noorani-shrine-syed-bilawal-shah-noorani"
+      ]
+    },
+    {
+      "id": "saint:shah-yousuf",
+      "type": "saint",
+      "slug": "shah-yousuf",
+      "name": "Shah Yousuf",
+      "altNames": [],
+      "shrines": [
+        "shah-yousuf"
+      ]
+    },
+    {
+      "id": "saint:hinglaj-mata",
+      "type": "saint",
+      "slug": "hinglaj-mata",
+      "name": "Hinglaj Mata",
+      "altNames": [],
+      "shrines": [
+        "shaktipeeth-shri-hinglaj-mata-mandir"
+      ]
+    },
+    {
+      "id": "saint:shams-ali-qalandar",
+      "type": "saint",
+      "slug": "shams-ali-qalandar",
+      "name": "Shams Ali Qalandar",
+      "altNames": [],
+      "shrines": [
+        "shamsabad"
+      ]
+    },
+    {
+      "id": "saint:daud-bandagi-kirmani",
+      "type": "saint",
+      "slug": "daud-bandagi-kirmani",
+      "name": "Daud Bandagi Kirmani",
+      "altNames": [],
+      "shrines": [
+        "shergarh"
+      ]
+    },
+    {
+      "id": "saint:sheikh-tahir",
+      "type": "saint",
+      "slug": "sheikh-tahir",
+      "name": "Sheikh Tahir",
+      "altNames": [
+        "also revered as Udero Lal/Jhulelal"
+      ],
+      "shrines": [
+        "shrine-at-odero-lal-udero-lal-teerath-asthan"
+      ]
+    },
+    {
+      "id": "saint:abdullah-shah-ghazi",
+      "type": "saint",
+      "slug": "abdullah-shah-ghazi",
+      "name": "Abdullah Shah Ghazi",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-abdullah-shah-ghazi"
+      ]
+    },
+    {
+      "id": "saint:abul-faiz-qalander-ali-suharwardi",
+      "type": "saint",
+      "slug": "abul-faiz-qalander-ali-suharwardi",
+      "name": "Abul Faiz Qalander Ali Suharwardi",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-abul-faiz-qalander-ali-suharwardi"
+      ]
+    },
+    {
+      "id": "saint:bahauddin-zakariya",
+      "type": "saint",
+      "slug": "bahauddin-zakariya",
+      "name": "Bahauddin Zakariya",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-bahauddin-zakariya"
+      ]
+    },
+    {
+      "id": "saint:bibi-pak-daman",
+      "type": "saint",
+      "slug": "bibi-pak-daman",
+      "name": "Bibi Pak Daman",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-bibi-pak-daman",
+        "shrine-of-bibi-pak-daman-multan-punjab"
+      ]
+    },
+    {
+      "id": "saint:fariduddin-ganjshakar",
+      "type": "saint",
+      "slug": "fariduddin-ganjshakar",
+      "name": "Fariduddin Ganjshakar",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-fariduddin-ganjshakar"
+      ]
+    },
+    {
+      "id": "saint:ganj-e-inayat-sarkar",
+      "type": "saint",
+      "slug": "ganj-e-inayat-sarkar",
+      "name": "Ganj e Inayat Sarkar",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-ganj-e-inayat-sarkar"
+      ]
+    },
+    {
+      "id": "saint:shah-hussain",
+      "type": "saint",
+      "slug": "shah-hussain",
+      "name": "Shah Hussain",
+      "altNames": [
+        "Madho Lal Hussain"
+      ],
+      "shrines": [
+        "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar"
+      ]
+    },
+    {
+      "id": "saint:shah-daula-daryai",
+      "type": "saint",
+      "slug": "shah-daula-daryai",
+      "name": "Shah Daula Daryai",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-hazrat-shah-daula-daryai"
+      ]
+    },
+    {
+      "id": "saint:imam-ali-ul-haq",
+      "type": "saint",
+      "slug": "imam-ali-ul-haq",
+      "name": "Imam Ali-ul-Haq",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-imam-ali-ul-haq"
+      ]
+    },
+    {
+      "id": "saint:jalaluddin-surkh-posh-bukhari",
+      "type": "saint",
+      "slug": "jalaluddin-surkh-posh-bukhari",
+      "name": "Jalaluddin Surkh-Posh Bukhari",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "tomb-of-javindi-bibi"
+      ]
+    },
+    {
+      "id": "saint:jahaniyan-jahangasht",
+      "type": "saint",
+      "slug": "jahaniyan-jahangasht",
+      "name": "Jahaniyan Jahangasht",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-makhdoom-jahaniyan-jahangasht"
+      ]
+    },
+    {
+      "id": "saint:mian-mir",
+      "type": "saint",
+      "slug": "mian-mir",
+      "name": "Mian Mir",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-mian-mir"
+      ]
+    },
+    {
+      "id": "saint:pir-mangho",
+      "type": "saint",
+      "slug": "pir-mangho",
+      "name": "Pir Mangho",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-pir-mangho"
+      ]
+    },
+    {
+      "id": "saint:pir-sher-muhammad",
+      "type": "saint",
+      "slug": "pir-sher-muhammad",
+      "name": "Pir Sher Muhammad",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-pir-sher-muhammad"
+      ]
+    },
+    {
+      "id": "saint:qalandar-baba-auliya",
+      "type": "saint",
+      "slug": "qalandar-baba-auliya",
+      "name": "Qalandar Baba Auliya",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-qalandar-baba-auliya"
+      ]
+    },
+    {
+      "id": "saint:sachal-sarmast",
+      "type": "saint",
+      "slug": "sachal-sarmast",
+      "name": "Sachal Sarmast",
+      "altNames": [
+        "Abdul Wahab Faruqi"
+      ],
+      "shrines": [
+        "shrine-of-sachal-sarmast"
+      ]
+    },
+    {
+      "id": "saint:shah-rukn-e-alam",
+      "type": "saint",
+      "slug": "shah-rukn-e-alam",
+      "name": "Shah Rukn-e-Alam",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-shah-rukn-e-alam"
+      ]
+    },
+    {
+      "id": "saint:shah-shams-ud-din-sabzwari",
+      "type": "saint",
+      "slug": "shah-shams-ud-din-sabzwari",
+      "name": "Shah Shams-ud-Din Sabzwari",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-shah-shams-ud-din-sabzwari"
+      ]
+    },
+    {
+      "id": "saint:shah-yusaf-gardez",
+      "type": "saint",
+      "slug": "shah-yusaf-gardez",
+      "name": "Shah Yusaf Gardez",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-shah-yusaf-gardez"
+      ]
+    },
+    {
+      "id": "saint:syed-musa-pak",
+      "type": "saint",
+      "slug": "syed-musa-pak",
+      "name": "Syed Musa Pak",
+      "altNames": [],
+      "shrines": [
+        "shrine-of-syed-musa-pak"
+      ]
+    },
+    {
+      "id": "saint:muhammad-shamsuddin-sialvi",
+      "type": "saint",
+      "slug": "muhammad-shamsuddin-sialvi",
+      "name": "Muhammad Shamsuddin Sialvi",
+      "altNames": [],
+      "shrines": [
+        "sial-sharif"
+      ]
+    },
+    {
+      "id": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
+      "type": "saint",
+      "slug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+      "name": "Ghazi Syed Shah Fateh Muhammad Bukhari",
+      "altNames": [],
+      "shrines": [
+        "wadpagga-sharif"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "order:chishtiyya",
+      "type": "order",
+      "slug": "chishtiyya",
+      "name": "Chishtiyya",
+      "arabicName": "چشتیہ",
+      "founded": "c. 1000",
+      "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama)."
+    },
+    {
+      "id": "order:suhrawardiyya",
+      "type": "order",
+      "slug": "suhrawardiyya",
+      "name": "Suhrawardiyya",
+      "arabicName": "سہروردیہ",
+      "founded": "c. 1100",
+      "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya."
+    },
+    {
+      "id": "order:qadiriyya",
+      "type": "order",
+      "slug": "qadiriyya",
+      "name": "Qadiriyya",
+      "arabicName": "قادریہ",
+      "founded": "c. 1165",
+      "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab."
+    },
+    {
+      "id": "order:qalandariyya",
+      "type": "order",
+      "slug": "qalandariyya",
+      "name": "Qalandariyya",
+      "arabicName": "قلندریہ",
+      "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance."
+    },
+    {
+      "id": "order:naqshbandiyya",
+      "type": "order",
+      "slug": "naqshbandiyya",
+      "name": "Naqshbandiyya",
+      "arabicName": "نقشبندیہ",
+      "founded": "c. 1389",
+      "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a."
+    }
+  ],
+  "places": [
+    {
+      "id": "place:sialkot",
+      "type": "place",
+      "slug": "sialkot",
+      "name": "Sialkot",
+      "city": "Allo Mahar",
+      "district": "Sialkot",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:khushab-district",
+      "type": "place",
+      "slug": "khushab-district",
+      "name": "Khushab District",
+      "city": "Sakesar Mountain (Soon Valley)",
+      "district": "Khushab District",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:islamabad",
+      "type": "place",
+      "slug": "islamabad",
+      "name": "Islamabad",
+      "city": "Bari Imam",
+      "district": "Islamabad",
+      "province": "Islamabad Capital Territory",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:karachi",
+      "type": "place",
+      "slug": "karachi",
+      "name": "Karachi",
+      "city": "Embankment Road",
+      "district": "Karachi",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:mehar",
+      "type": "place",
+      "slug": "mehar",
+      "name": "Mehar",
+      "city": "Old Shahi Bazar",
+      "district": "Mehar",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:bhit",
+      "type": "place",
+      "slug": "bhit",
+      "name": "Bhit",
+      "city": "Bhit (Bhit Shah)",
+      "district": "Bhit",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:nagarparkar",
+      "type": "place",
+      "slug": "nagarparkar",
+      "name": "Nagarparkar",
+      "city": "Churrio Hill",
+      "district": "Nagarparkar",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:taunsa-sharif",
+      "type": "place",
+      "slug": "taunsa-sharif",
+      "name": "Taunsa Sharif",
+      "city": "Taunsa",
+      "district": "Taunsa Sharif",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:punjab",
+      "type": "place",
+      "slug": "punjab",
+      "name": "Punjab",
+      "city": "Rawalpindi District",
+      "district": "Punjab",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sindh",
+      "type": "place",
+      "slug": "sindh",
+      "name": "Sindh",
+      "city": "Jhok Sharif (Jhok)",
+      "district": "Sindh",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:gandawah-jhal-magsi-district",
+      "type": "place",
+      "slug": "gandawah-jhal-magsi-district",
+      "name": "Gandawah (Jhal Magsi District)",
+      "city": "Dargah Fateh Pur Sharif",
+      "district": "Gandawah (Jhal Magsi District)",
+      "province": "Balochistan",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:peshawar",
+      "type": "place",
+      "slug": "peshawar",
+      "name": "Peshawar",
+      "city": "Jhanda Bazar",
+      "district": "Peshawar",
+      "province": "Khyber Pakhtunkhwa",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:saddar-town",
+      "type": "place",
+      "slug": "saddar-town",
+      "name": "Saddar Town",
+      "city": "Near Custom House",
+      "district": "Saddar Town",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sanghar-duthro-sharif",
+      "type": "place",
+      "slug": "sanghar-duthro-sharif",
+      "name": "Sanghar (Duthro Sharif)",
+      "city": "Eidgah Sharif",
+      "district": "Sanghar (Duthro Sharif)",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:jhang",
+      "type": "place",
+      "slug": "jhang",
+      "name": "Jhang",
+      "city": "Garh Maharaja (Shorkot)",
+      "district": "Jhang",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:tehsil-mehar",
+      "type": "place",
+      "slug": "tehsil-mehar",
+      "name": "Tehsil Mehar",
+      "city": "Radhan Town",
+      "district": "Tehsil Mehar",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:khyber-pakhtunkhwa",
+      "type": "place",
+      "slug": "khyber-pakhtunkhwa",
+      "name": "Khyber Pakhtunkhwa",
+      "city": "Peshawar",
+      "district": "Khyber Pakhtunkhwa",
+      "province": "Khyber Pakhtunkhwa",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:kpk",
+      "type": "place",
+      "slug": "kpk",
+      "name": "KPK",
+      "city": "Peshawar",
+      "district": "KPK",
+      "province": "KPK",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:shakargarh-tehsil",
+      "type": "place",
+      "slug": "shakargarh-tehsil",
+      "name": "Shakargarh Tehsil",
+      "city": "Kartarpur",
+      "district": "Shakargarh Tehsil",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:balochistan",
+      "type": "place",
+      "slug": "balochistan",
+      "name": "Balochistan",
+      "city": "Quetta",
+      "district": "Balochistan",
+      "province": "Balochistan",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:nankana-sahib",
+      "type": "place",
+      "slug": "nankana-sahib",
+      "name": "Nankana Sahib",
+      "district": "Nankana Sahib",
+      "province": "Nankana Sahib",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:hyderabad",
+      "type": "place",
+      "slug": "hyderabad",
+      "name": "Hyderabad",
+      "city": "DB-80 Sirey Ghat",
+      "district": "Hyderabad",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:jamshoro",
+      "type": "place",
+      "slug": "jamshoro",
+      "name": "Jamshoro",
+      "city": "Jamshoro District",
+      "district": "Jamshoro",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sukkur-district",
+      "type": "place",
+      "slug": "sukkur-district",
+      "name": "Sukkur District",
+      "city": "Aror",
+      "district": "Sukkur District",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:chakwal-district",
+      "type": "place",
+      "slug": "chakwal-district",
+      "name": "Chakwal District",
+      "city": "Choa Saidanshah",
+      "district": "Chakwal District",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:rawalpindi",
+      "type": "place",
+      "slug": "rawalpindi",
+      "name": "Rawalpindi",
+      "city": "Kabari Bazar",
+      "district": "Rawalpindi",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:lahore",
+      "type": "place",
+      "slug": "lahore",
+      "name": "Lahore",
+      "city": "Ravi Road",
+      "district": "Lahore",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:chiniot",
+      "type": "place",
+      "slug": "chiniot",
+      "name": "Chiniot",
+      "city": "Langer Makhdoom",
+      "district": "Chiniot",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sheikhupura-district",
+      "type": "place",
+      "slug": "sheikhupura-district",
+      "name": "Sheikhupura District",
+      "city": "Jandiala Sher Khan",
+      "district": "Sheikhupura District",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:kasur",
+      "type": "place",
+      "slug": "kasur",
+      "name": "Kasur",
+      "city": "Mazar of Bulleh Shah",
+      "district": "Kasur",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:rajanpur",
+      "type": "place",
+      "slug": "rajanpur",
+      "name": "Rajanpur",
+      "city": "Mithankot (Kot Mithan)",
+      "district": "Rajanpur",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:multan",
+      "type": "place",
+      "slug": "multan",
+      "name": "Multan",
+      "city": "Fort of Multan (near Shrine of Bahauddin Zakariya)",
+      "district": "Multan",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:bhalwal",
+      "type": "place",
+      "slug": "bhalwal",
+      "name": "Bhalwal",
+      "city": "Purana Bhalwal",
+      "district": "Bhalwal",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:tando-allahyar-district",
+      "type": "place",
+      "slug": "tando-allahyar-district",
+      "name": "Tando Allahyar District",
+      "city": "Tando Allahyar",
+      "district": "Tando Allahyar District",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:phalia",
+      "type": "place",
+      "slug": "phalia",
+      "name": "Phalia",
+      "city": "Ranmal Sharif",
+      "district": "Phalia",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:near-sukkurrohri",
+      "type": "place",
+      "slug": "near-sukkurrohri",
+      "name": "near Sukkur/Rohri",
+      "city": "Sadh Belo Island",
+      "district": "near Sukkur/Rohri",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:dera-ghazi-khan",
+      "type": "place",
+      "slug": "dera-ghazi-khan",
+      "name": "Dera Ghazi Khan",
+      "city": "Sakhi Sarwar",
+      "district": "Dera Ghazi Khan",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:dadu",
+      "type": "place",
+      "slug": "dadu",
+      "name": "Dadu",
+      "city": "Shahi Bazar",
+      "district": "Dadu",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sehwan-sharif",
+      "type": "place",
+      "slug": "sehwan-sharif",
+      "name": "Sehwan Sharif",
+      "district": "Sehwan Sharif",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:khuzdar-district",
+      "type": "place",
+      "slug": "khuzdar-district",
+      "name": "Khuzdar District",
+      "city": "Lahoot Lamakan valley",
+      "district": "Khuzdar District",
+      "province": "Balochistan",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:shahpur",
+      "type": "place",
+      "slug": "shahpur",
+      "name": "Shahpur",
+      "city": "Shah Yousuf",
+      "district": "Shahpur",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:road-asha-pura",
+      "type": "place",
+      "slug": "road-asha-pura",
+      "name": "Road، Asha Pura",
+      "city": "Hingol Balochistan National Park",
+      "district": "Road، Asha Pura",
+      "province": "Road، Asha Pura",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:okara",
+      "type": "place",
+      "slug": "okara",
+      "name": "Okara",
+      "city": "Shamsabad",
+      "district": "Okara",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:neelum-valley-azad-kashmir",
+      "type": "place",
+      "slug": "neelum-valley-azad-kashmir",
+      "name": "Neelum Valley (Azad Kashmir)",
+      "city": "Sharda",
+      "district": "Neelum Valley (Azad Kashmir)",
+      "province": "Neelum Valley (Azad Kashmir)",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:mansehra-district",
+      "type": "place",
+      "slug": "mansehra-district",
+      "name": "Mansehra District",
+      "city": "Ghandian",
+      "district": "Mansehra District",
+      "province": "Khyber Pakhtunkhwa",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:karachi-east",
+      "type": "place",
+      "slug": "karachi-east",
+      "name": "Karachi East",
+      "city": "Soldier Bazaar",
+      "district": "Karachi East",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:matiari-district",
+      "type": "place",
+      "slug": "matiari-district",
+      "name": "Matiari District",
+      "city": "Odero Lal Village (near Tando Adam)",
+      "district": "Matiari District",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:pakpattan",
+      "type": "place",
+      "slug": "pakpattan",
+      "name": "Pakpattan",
+      "district": "Pakpattan",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:bahawalpur-district",
+      "type": "place",
+      "slug": "bahawalpur-district",
+      "name": "Bahawalpur District",
+      "city": "Uch Sharif",
+      "district": "Bahawalpur District",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sharaqpur",
+      "type": "place",
+      "slug": "sharaqpur",
+      "name": "Sharaqpur",
+      "district": "Sharaqpur",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:khairpur",
+      "type": "place",
+      "slug": "khairpur",
+      "name": "Khairpur",
+      "city": "Daraza",
+      "district": "Khairpur",
+      "province": "Sindh",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:sial-sharif-sargodha-district",
+      "type": "place",
+      "slug": "sial-sharif-sargodha-district",
+      "name": "Sial Sharif (Sargodha District)",
+      "city": "Sial Sharif",
+      "district": "Sial Sharif (Sargodha District)",
+      "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:uch-sharif",
+      "type": "place",
+      "slug": "uch-sharif",
+      "name": "Uch Sharif",
+      "city": "Mohalla Bukhari",
+      "district": "Uch Sharif",
+      "province": "Punjab",
+      "country": "Pakistan"
+    }
+  ],
+  "events": [
+    {
+      "id": "event:urs-allo-mahar",
+      "type": "event",
+      "slug": "urs-allo-mahar",
+      "name": "Urs of Pir Syed Muhammad Channan Shah Nuri at Allo Mahar",
+      "eventType": "urs",
+      "shrineSlug": "allo-mahar",
+      "saintSlug": "pir-syed-muhammad-channan-shah-nuri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-bari-imam",
+      "type": "event",
+      "slug": "urs-bari-imam",
+      "name": "Urs of Bari Imam at Bari Imam",
+      "eventType": "urs",
+      "shrineSlug": "bari-imam",
+      "saintSlug": "bari-imam",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-bhit-bhit-shah",
+      "type": "event",
+      "slug": "urs-bhit-bhit-shah",
+      "name": "Urs of Shah Abdul Latif Bhittai at Bhit (Bhit Shah)",
+      "eventType": "urs",
+      "shrineSlug": "bhit-bhit-shah",
+      "saintSlug": "shah-abdul-latif-bhittai",
+      "date": "Safar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "type": "event",
+      "slug": "urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "name": "Urs of Khawaja Shah Muhammad Sulaiman Taunsvi at Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)",
+      "eventType": "urs",
+      "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-dargah-fateh-pur-sharif",
+      "type": "event",
+      "slug": "urs-dargah-fateh-pur-sharif",
+      "name": "Urs of Syed Rakhyal Shah Sufi Al Qadri at Dargah Fateh Pur Sharif",
+      "eventType": "urs",
+      "shrineSlug": "dargah-fateh-pur-sharif",
+      "saintSlug": "syed-rakhyal-shah-sufi-al-qadri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-data-darbar",
+      "type": "event",
+      "slug": "urs-data-darbar",
+      "name": "Urs of Data Ganj Bakhsh at Data Darbar",
+      "eventType": "urs",
+      "shrineSlug": "data-darbar",
+      "saintSlug": "data-ganj-bakhsh",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-eidgah-sharif",
+      "type": "event",
+      "slug": "urs-eidgah-sharif",
+      "name": "Urs of Pir Abdul-ul-karim at Eidgah Sharif",
+      "eventType": "urs",
+      "shrineSlug": "eidgah-sharif",
+      "saintSlug": "pir-abdul-ul-karim",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-garh-maharaja-shorkot",
+      "type": "event",
+      "slug": "urs-garh-maharaja-shorkot",
+      "name": "Urs of Sultan Bahoo at Garh Maharaja (Shorkot)",
+      "eventType": "urs",
+      "shrineSlug": "garh-maharaja-shorkot",
+      "saintSlug": "sultan-bahoo",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-golra-sharif",
+      "type": "event",
+      "slug": "urs-golra-sharif",
+      "name": "Urs of Pir Meher Ali Shah at Golra Sharif",
+      "eventType": "urs",
+      "shrineSlug": "golra-sharif",
+      "saintSlug": "pir-meher-ali-shah",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-jamshoro-district",
+      "type": "event",
+      "slug": "urs-jamshoro-district",
+      "name": "Urs of Laki Shah Saddar at Jamshoro District",
+      "eventType": "urs",
+      "shrineSlug": "jamshoro-district",
+      "saintSlug": "laki-shah-saddar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-lal-shahbaz-qalandar",
+      "type": "event",
+      "slug": "urs-lal-shahbaz-qalandar",
+      "name": "Urs of Lal Shahbaz Qalandar at Lal Shahbaz Qalandar",
+      "eventType": "urs",
+      "shrineSlug": "lal-shahbaz-qalandar",
+      "saintSlug": "lal-shahbaz-qalandar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-langer-makhdoom",
+      "type": "event",
+      "slug": "urs-langer-makhdoom",
+      "name": "Urs of Makhdoom Burhan-ud-din at Langer Makhdoom",
+      "eventType": "urs",
+      "shrineSlug": "langer-makhdoom",
+      "saintSlug": "makhdoom-burhan-ud-din",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-mazar-of-bulleh-shah",
+      "type": "event",
+      "slug": "urs-mazar-of-bulleh-shah",
+      "name": "Urs of Bulleh Shah at Mazar of Bulleh Shah",
+      "eventType": "urs",
+      "shrineSlug": "mazar-of-bulleh-shah",
+      "saintSlug": "bulleh-shah",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-mithankot-kot-mithan",
+      "type": "event",
+      "slug": "urs-mithankot-kot-mithan",
+      "name": "Urs of Khwaja Ghulam Farid at Mithankot (Kot Mithan)",
+      "eventType": "urs",
+      "shrineSlug": "mithankot-kot-mithan",
+      "saintSlug": "khwaja-ghulam-farid",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-purana-bhalwal",
+      "type": "event",
+      "slug": "urs-purana-bhalwal",
+      "name": "Urs of Shah Sulaimān Nūri at Purana Bhalwal",
+      "eventType": "urs",
+      "shrineSlug": "purana-bhalwal",
+      "saintSlug": "shah-sulaimn-nri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-ranmal-sharif",
+      "type": "event",
+      "slug": "urs-ranmal-sharif",
+      "name": "Urs of Syed Muhammad Noushah Qadiri at Ranmal Sharif",
+      "eventType": "urs",
+      "shrineSlug": "ranmal-sharif",
+      "saintSlug": "syed-muhammad-noushah-qadiri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-sakhi-sarwar",
+      "type": "event",
+      "slug": "urs-sakhi-sarwar",
+      "name": "Urs of Sultan Sakhi Sarwar at Sakhi Sarwar",
+      "eventType": "urs",
+      "shrineSlug": "sakhi-sarwar",
+      "saintSlug": "sultan-sakhi-sarwar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-sehwan-sharif",
+      "type": "event",
+      "slug": "urs-sehwan-sharif",
+      "name": "Urs of Lal Shahbaz Qalandar at Sehwan Sharif",
+      "eventType": "urs",
+      "shrineSlug": "sehwan-sharif",
+      "saintSlug": "lal-shahbaz-qalandar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shah-yousuf",
+      "type": "event",
+      "slug": "urs-shah-yousuf",
+      "name": "Urs of Shah Yousuf at Shah Yousuf",
+      "eventType": "urs",
+      "shrineSlug": "shah-yousuf",
+      "saintSlug": "shah-yousuf",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shamsabad",
+      "type": "event",
+      "slug": "urs-shamsabad",
+      "name": "Urs of Shams Ali Qalandar at Shamsabad",
+      "eventType": "urs",
+      "shrineSlug": "shamsabad",
+      "saintSlug": "shams-ali-qalandar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shergarh",
+      "type": "event",
+      "slug": "urs-shergarh",
+      "name": "Urs of Daud Bandagi Kirmani at Shergarh",
+      "eventType": "urs",
+      "shrineSlug": "shergarh",
+      "saintSlug": "daud-bandagi-kirmani",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-abdullah-shah-ghazi",
+      "type": "event",
+      "slug": "urs-shrine-of-abdullah-shah-ghazi",
+      "name": "Urs of Abdullah Shah Ghazi at Shrine of Abdullah Shah Ghazi",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-abdullah-shah-ghazi",
+      "saintSlug": "abdullah-shah-ghazi",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "type": "event",
+      "slug": "urs-shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "name": "Urs of Abul Faiz Qalander Ali Suharwardi at Shrine of Abul Faiz Qalander Ali Suharwardi",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-bahauddin-zakariya",
+      "type": "event",
+      "slug": "urs-shrine-of-bahauddin-zakariya",
+      "name": "Urs of Bahauddin Zakariya at Shrine of Bahauddin Zakariya",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-bahauddin-zakariya",
+      "saintSlug": "bahauddin-zakariya",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-bibi-pak-daman",
+      "type": "event",
+      "slug": "urs-shrine-of-bibi-pak-daman",
+      "name": "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-bibi-pak-daman",
+      "saintSlug": "bibi-pak-daman",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-bibi-pak-daman-multan-punjab",
+      "type": "event",
+      "slug": "urs-shrine-of-bibi-pak-daman-multan-punjab",
+      "name": "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-bibi-pak-daman-multan-punjab",
+      "saintSlug": "bibi-pak-daman",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-fariduddin-ganjshakar",
+      "type": "event",
+      "slug": "urs-shrine-of-fariduddin-ganjshakar",
+      "name": "Urs of Fariduddin Ganjshakar at Shrine of Fariduddin Ganjshakar",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-fariduddin-ganjshakar",
+      "saintSlug": "fariduddin-ganjshakar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-ganj-e-inayat-sarkar",
+      "type": "event",
+      "slug": "urs-shrine-of-ganj-e-inayat-sarkar",
+      "name": "Urs of Ganj e Inayat Sarkar at Shrine of Ganj e Inayat Sarkar",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
+      "saintSlug": "ganj-e-inayat-sarkar",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-imam-ali-ul-haq",
+      "type": "event",
+      "slug": "urs-shrine-of-imam-ali-ul-haq",
+      "name": "Urs of Imam Ali-ul-Haq at Shrine of Imam Ali-ul-Haq",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-imam-ali-ul-haq",
+      "saintSlug": "imam-ali-ul-haq",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-pir-mangho",
+      "type": "event",
+      "slug": "urs-shrine-of-pir-mangho",
+      "name": "Urs of Pir Mangho at Shrine of Pir Mangho",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-pir-mangho",
+      "saintSlug": "pir-mangho",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-pir-sher-muhammad",
+      "type": "event",
+      "slug": "urs-shrine-of-pir-sher-muhammad",
+      "name": "Urs of Pir Sher Muhammad at Shrine of Pir Sher Muhammad",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-pir-sher-muhammad",
+      "saintSlug": "pir-sher-muhammad",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-qalandar-baba-auliya",
+      "type": "event",
+      "slug": "urs-shrine-of-qalandar-baba-auliya",
+      "name": "Urs of Qalandar Baba Auliya at Shrine of Qalandar Baba Auliya",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-qalandar-baba-auliya",
+      "saintSlug": "qalandar-baba-auliya",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-sachal-sarmast",
+      "type": "event",
+      "slug": "urs-shrine-of-sachal-sarmast",
+      "name": "Urs of Sachal Sarmast at Shrine of Sachal Sarmast",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-sachal-sarmast",
+      "saintSlug": "sachal-sarmast",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-shah-rukn-e-alam",
+      "type": "event",
+      "slug": "urs-shrine-of-shah-rukn-e-alam",
+      "name": "Urs of Shah Rukn-e-Alam at Shrine of Shah Rukn-e-Alam",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-shah-rukn-e-alam",
+      "saintSlug": "shah-rukn-e-alam",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-shah-shams-ud-din-sabzwari",
+      "type": "event",
+      "slug": "urs-shrine-of-shah-shams-ud-din-sabzwari",
+      "name": "Urs of Shah Shams-ud-Din Sabzwari at Shrine of Shah Shams-ud-Din Sabzwari",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-shah-shams-ud-din-sabzwari",
+      "saintSlug": "shah-shams-ud-din-sabzwari",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-shah-yusaf-gardez",
+      "type": "event",
+      "slug": "urs-shrine-of-shah-yusaf-gardez",
+      "name": "Urs of Shah Yusaf Gardez at Shrine of Shah Yusaf Gardez",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-shah-yusaf-gardez",
+      "saintSlug": "shah-yusaf-gardez",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-syed-musa-pak",
+      "type": "event",
+      "slug": "urs-shrine-of-syed-musa-pak",
+      "name": "Urs of Syed Musa Pak at Shrine of Syed Musa Pak",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-syed-musa-pak",
+      "saintSlug": "syed-musa-pak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-sial-sharif",
+      "type": "event",
+      "slug": "urs-sial-sharif",
+      "name": "Urs of Muhammad Shamsuddin Sialvi at Sial Sharif",
+      "eventType": "urs",
+      "shrineSlug": "sial-sharif",
+      "saintSlug": "muhammad-shamsuddin-sialvi",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-tomb-of-javindi-bibi",
+      "type": "event",
+      "slug": "urs-tomb-of-javindi-bibi",
+      "name": "Urs of Jalaluddin Surkh-Posh Bukhari at Tomb of Javindi Bibi",
+      "eventType": "urs",
+      "shrineSlug": "tomb-of-javindi-bibi",
+      "saintSlug": "jalaluddin-surkh-posh-bukhari",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-wadpagga-sharif",
+      "type": "event",
+      "slug": "urs-wadpagga-sharif",
+      "name": "Urs of Ghazi Syed Shah Fateh Muhammad Bukhari at Wadpagga Sharif",
+      "eventType": "urs",
+      "shrineSlug": "wadpagga-sharif",
+      "saintSlug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+      "frequency": "annual"
+    }
+  ],
+  "sources": [],
+  "relations": [
+    {
+      "id": "buried_at:saint:pir-syed-muhammad-channan-shah-nuri:allo-mahar",
+      "type": "buried_at",
+      "subject": "saint:pir-syed-muhammad-channan-shah-nuri",
+      "object": "allo-mahar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bari-imam:bari-imam",
+      "type": "buried_at",
+      "subject": "saint:bari-imam",
+      "object": "bari-imam",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-abdul-latif-bhittai:bhit-bhit-shah",
+      "type": "buried_at",
+      "subject": "saint:shah-abdul-latif-bhittai",
+      "object": "bhit-bhit-shah",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:khawaja-shah-muhammad-sulaiman-taunsvi:darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "type": "buried_at",
+      "subject": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
+      "object": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:syed-sakhi-shah-chan-charagh:darbar-sakhi-shah-chan-charagh",
+      "type": "buried_at",
+      "subject": "saint:syed-sakhi-shah-chan-charagh",
+      "object": "darbar-sakhi-shah-chan-charagh",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:sufi-shah-inayat-shaheed:dargah-roza-sufi-shah-inayat-shaheed",
+      "type": "buried_at",
+      "subject": "saint:sufi-shah-inayat-shaheed",
+      "object": "dargah-roza-sufi-shah-inayat-shaheed",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:syed-rakhyal-shah-sufi-al-qadri:dargah-fateh-pur-sharif",
+      "type": "buried_at",
+      "subject": "saint:syed-rakhyal-shah-sufi-al-qadri",
+      "object": "dargah-fateh-pur-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:data-ganj-bakhsh:data-darbar",
+      "type": "buried_at",
+      "subject": "saint:data-ganj-bakhsh",
+      "object": "data-darbar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:pir-abdul-ul-karim:eidgah-sharif",
+      "type": "buried_at",
+      "subject": "saint:pir-abdul-ul-karim",
+      "object": "eidgah-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:sultan-bahoo:garh-maharaja-shorkot",
+      "type": "buried_at",
+      "subject": "saint:sultan-bahoo",
+      "object": "garh-maharaja-shorkot",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:pir-meher-ali-shah:golra-sharif",
+      "type": "buried_at",
+      "subject": "saint:pir-meher-ali-shah",
+      "object": "golra-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bhai-joga-singh:gurdwara-bhai-joga-singh",
+      "type": "buried_at",
+      "subject": "saint:bhai-joga-singh",
+      "object": "gurdwara-bhai-joga-singh",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurdwara-darbar-sahib-kartarpur",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-darbar-sahib-kartarpur",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurdwara-panja-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-panja-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurdwara-rori-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-rori-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurdwara-sri-kiara-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-sri-kiara-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurudwara-janam-asthan-nankana-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurudwara-janam-asthan-nankana-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-arjan-dev:gurdwara-dera-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-arjan-dev",
+      "object": "gurdwara-dera-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bhai-taru:gurdwara-shaheed-bhai-taru-singh",
+      "type": "buried_at",
+      "subject": "saint:bhai-taru",
+      "object": "gurdwara-shaheed-bhai-taru-singh",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:laki-shah-saddar:jamshoro-district",
+      "type": "buried_at",
+      "subject": "saint:laki-shah-saddar",
+      "object": "jamshoro-district",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:lal-shahbaz-qalandar:lal-shahbaz-qalandar",
+      "type": "buried_at",
+      "subject": "saint:lal-shahbaz-qalandar",
+      "object": "lal-shahbaz-qalandar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:lal-shahbaz-qalandar:sehwan-sharif",
+      "type": "buried_at",
+      "subject": "saint:lal-shahbaz-qalandar",
+      "object": "sehwan-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:makhdoom-burhan-ud-din:langer-makhdoom",
+      "type": "buried_at",
+      "subject": "saint:makhdoom-burhan-ud-din",
+      "object": "langer-makhdoom",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:waris-shah:mausoleum-of-waris-shah",
+      "type": "buried_at",
+      "subject": "saint:waris-shah",
+      "object": "mausoleum-of-waris-shah",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bulleh-shah:mazar-of-bulleh-shah",
+      "type": "buried_at",
+      "subject": "saint:bulleh-shah",
+      "object": "mazar-of-bulleh-shah",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:khwaja-ghulam-farid:mithankot-kot-mithan",
+      "type": "buried_at",
+      "subject": "saint:khwaja-ghulam-farid",
+      "object": "mithankot-kot-mithan",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:smadhi-of-dya-ram:parnami-mandir",
+      "type": "buried_at",
+      "subject": "saint:smadhi-of-dya-ram",
+      "object": "parnami-mandir",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-sulaimn-nri:purana-bhalwal",
+      "type": "buried_at",
+      "subject": "saint:shah-sulaimn-nri",
+      "object": "purana-bhalwal",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:rahman-baba:rahman-baba-mausoleum-rehman-baba-shrine",
+      "type": "buried_at",
+      "subject": "saint:rahman-baba",
+      "object": "rahman-baba-mausoleum-rehman-baba-shrine",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:syed-muhammad-noushah-qadiri:ranmal-sharif",
+      "type": "buried_at",
+      "subject": "saint:syed-muhammad-noushah-qadiri",
+      "object": "ranmal-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:sultan-sakhi-sarwar:sakhi-sarwar",
+      "type": "buried_at",
+      "subject": "saint:sultan-sakhi-sarwar",
+      "object": "sakhi-sarwar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:syed-bilawal-shah-noorani:shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "type": "buried_at",
+      "subject": "saint:syed-bilawal-shah-noorani",
+      "object": "shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-yousuf:shah-yousuf",
+      "type": "buried_at",
+      "subject": "saint:shah-yousuf",
+      "object": "shah-yousuf",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:hinglaj-mata:shaktipeeth-shri-hinglaj-mata-mandir",
+      "type": "buried_at",
+      "subject": "saint:hinglaj-mata",
+      "object": "shaktipeeth-shri-hinglaj-mata-mandir",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shams-ali-qalandar:shamsabad",
+      "type": "buried_at",
+      "subject": "saint:shams-ali-qalandar",
+      "object": "shamsabad",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:daud-bandagi-kirmani:shergarh",
+      "type": "buried_at",
+      "subject": "saint:daud-bandagi-kirmani",
+      "object": "shergarh",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:sheikh-tahir:shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "type": "buried_at",
+      "subject": "saint:sheikh-tahir",
+      "object": "shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:abdullah-shah-ghazi:shrine-of-abdullah-shah-ghazi",
+      "type": "buried_at",
+      "subject": "saint:abdullah-shah-ghazi",
+      "object": "shrine-of-abdullah-shah-ghazi",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:abul-faiz-qalander-ali-suharwardi:shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "type": "buried_at",
+      "subject": "saint:abul-faiz-qalander-ali-suharwardi",
+      "object": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bahauddin-zakariya:shrine-of-bahauddin-zakariya",
+      "type": "buried_at",
+      "subject": "saint:bahauddin-zakariya",
+      "object": "shrine-of-bahauddin-zakariya",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bibi-pak-daman:shrine-of-bibi-pak-daman",
+      "type": "buried_at",
+      "subject": "saint:bibi-pak-daman",
+      "object": "shrine-of-bibi-pak-daman",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bibi-pak-daman:shrine-of-bibi-pak-daman-multan-punjab",
+      "type": "buried_at",
+      "subject": "saint:bibi-pak-daman",
+      "object": "shrine-of-bibi-pak-daman-multan-punjab",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:fariduddin-ganjshakar:shrine-of-fariduddin-ganjshakar",
+      "type": "buried_at",
+      "subject": "saint:fariduddin-ganjshakar",
+      "object": "shrine-of-fariduddin-ganjshakar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:ganj-e-inayat-sarkar:shrine-of-ganj-e-inayat-sarkar",
+      "type": "buried_at",
+      "subject": "saint:ganj-e-inayat-sarkar",
+      "object": "shrine-of-ganj-e-inayat-sarkar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-hussain:shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "type": "buried_at",
+      "subject": "saint:shah-hussain",
+      "object": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-daula-daryai:shrine-of-hazrat-shah-daula-daryai",
+      "type": "buried_at",
+      "subject": "saint:shah-daula-daryai",
+      "object": "shrine-of-hazrat-shah-daula-daryai",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:imam-ali-ul-haq:shrine-of-imam-ali-ul-haq",
+      "type": "buried_at",
+      "subject": "saint:imam-ali-ul-haq",
+      "object": "shrine-of-imam-ali-ul-haq",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:jalaluddin-surkh-posh-bukhari:shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "type": "buried_at",
+      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "object": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:jalaluddin-surkh-posh-bukhari:tomb-of-javindi-bibi",
+      "type": "buried_at",
+      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "object": "tomb-of-javindi-bibi",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:jahaniyan-jahangasht:shrine-of-makhdoom-jahaniyan-jahangasht",
+      "type": "buried_at",
+      "subject": "saint:jahaniyan-jahangasht",
+      "object": "shrine-of-makhdoom-jahaniyan-jahangasht",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:mian-mir:shrine-of-mian-mir",
+      "type": "buried_at",
+      "subject": "saint:mian-mir",
+      "object": "shrine-of-mian-mir",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:pir-mangho:shrine-of-pir-mangho",
+      "type": "buried_at",
+      "subject": "saint:pir-mangho",
+      "object": "shrine-of-pir-mangho",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:pir-sher-muhammad:shrine-of-pir-sher-muhammad",
+      "type": "buried_at",
+      "subject": "saint:pir-sher-muhammad",
+      "object": "shrine-of-pir-sher-muhammad",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:qalandar-baba-auliya:shrine-of-qalandar-baba-auliya",
+      "type": "buried_at",
+      "subject": "saint:qalandar-baba-auliya",
+      "object": "shrine-of-qalandar-baba-auliya",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:sachal-sarmast:shrine-of-sachal-sarmast",
+      "type": "buried_at",
+      "subject": "saint:sachal-sarmast",
+      "object": "shrine-of-sachal-sarmast",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-rukn-e-alam:shrine-of-shah-rukn-e-alam",
+      "type": "buried_at",
+      "subject": "saint:shah-rukn-e-alam",
+      "object": "shrine-of-shah-rukn-e-alam",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-shams-ud-din-sabzwari:shrine-of-shah-shams-ud-din-sabzwari",
+      "type": "buried_at",
+      "subject": "saint:shah-shams-ud-din-sabzwari",
+      "object": "shrine-of-shah-shams-ud-din-sabzwari",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:shah-yusaf-gardez:shrine-of-shah-yusaf-gardez",
+      "type": "buried_at",
+      "subject": "saint:shah-yusaf-gardez",
+      "object": "shrine-of-shah-yusaf-gardez",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:syed-musa-pak:shrine-of-syed-musa-pak",
+      "type": "buried_at",
+      "subject": "saint:syed-musa-pak",
+      "object": "shrine-of-syed-musa-pak",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:muhammad-shamsuddin-sialvi:sial-sharif",
+      "type": "buried_at",
+      "subject": "saint:muhammad-shamsuddin-sialvi",
+      "object": "sial-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:ghazi-syed-shah-fateh-muhammad-bukhari:wadpagga-sharif",
+      "type": "buried_at",
+      "subject": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
+      "object": "wadpagga-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:allo-mahar:place:sialkot",
+      "type": "located_in",
+      "subject": "allo-mahar",
+      "object": "place:sialkot",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:amb-temples-amb-sharif:place:khushab-district",
+      "type": "located_in",
+      "subject": "amb-temples-amb-sharif",
+      "object": "place:khushab-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:bari-imam:place:islamabad",
+      "type": "located_in",
+      "subject": "bari-imam",
+      "object": "place:islamabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:bhagnari-mandir:place:karachi",
+      "type": "located_in",
+      "subject": "bhagnari-mandir",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:bhai-sant-thawan-das-mandir:place:mehar",
+      "type": "located_in",
+      "subject": "bhai-sant-thawan-das-mandir",
+      "object": "place:mehar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:bhit-bhit-shah:place:bhit",
+      "type": "located_in",
+      "subject": "bhit-bhit-shah",
+      "object": "place:bhit",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:churrio-jabal-durga-mata-temple:place:nagarparkar",
+      "type": "located_in",
+      "subject": "churrio-jabal-durga-mata-temple",
+      "object": "place:nagarparkar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra:place:taunsa-sharif",
+      "type": "located_in",
+      "subject": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "object": "place:taunsa-sharif",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-sakhi-shah-chan-charagh:place:punjab",
+      "type": "located_in",
+      "subject": "darbar-sakhi-shah-chan-charagh",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:dargah-roza-sufi-shah-inayat-shaheed:place:sindh",
+      "type": "located_in",
+      "subject": "dargah-roza-sufi-shah-inayat-shaheed",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:dargah-fateh-pur-sharif:place:gandawah-jhal-magsi-district",
+      "type": "located_in",
+      "subject": "dargah-fateh-pur-sharif",
+      "object": "place:gandawah-jhal-magsi-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:dargah-pir-ratan-nath-jee:place:peshawar",
+      "type": "located_in",
+      "subject": "dargah-pir-ratan-nath-jee",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darya-lal-mandir-darya-lal-sankat-mochan-mandir:place:saddar-town",
+      "type": "located_in",
+      "subject": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "object": "place:saddar-town",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:data-darbar:place:punjab",
+      "type": "located_in",
+      "subject": "data-darbar",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:eidgah-sharif:place:sanghar-duthro-sharif",
+      "type": "located_in",
+      "subject": "eidgah-sharif",
+      "object": "place:sanghar-duthro-sharif",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:garh-maharaja-shorkot:place:jhang",
+      "type": "located_in",
+      "subject": "garh-maharaja-shorkot",
+      "object": "place:jhang",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:golra-sharif:place:islamabad",
+      "type": "located_in",
+      "subject": "golra-sharif",
+      "object": "place:islamabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gorakhnath-goraknath-temple:place:peshawar",
+      "type": "located_in",
+      "subject": "gorakhnath-goraknath-temple",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdas-ram-mandir:place:tehsil-mehar",
+      "type": "located_in",
+      "subject": "gurdas-ram-mandir",
+      "object": "place:tehsil-mehar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-babay-de-ber:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-babay-de-ber",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-babay-nanki:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-babay-nanki",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-balila-sahib-bal-lila-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-balila-sahib-bal-lila-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-bhai-beba-singh:place:khyber-pakhtunkhwa",
+      "type": "located_in",
+      "subject": "gurdwara-bhai-beba-singh",
+      "object": "place:khyber-pakhtunkhwa",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-bhai-joga-singh:place:kpk",
+      "type": "located_in",
+      "subject": "gurdwara-bhai-joga-singh",
+      "object": "place:kpk",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-darbar-sahib-kartarpur:place:shakargarh-tehsil",
+      "type": "located_in",
+      "subject": "gurdwara-darbar-sahib-kartarpur",
+      "object": "place:shakargarh-tehsil",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-dash-mesh-pita:place:sindh",
+      "type": "located_in",
+      "subject": "gurdwara-dash-mesh-pita",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-dera-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-dera-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-guru-ram-das-ji:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-guru-ram-das-ji",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-malji-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-malji-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-panja-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-panja-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-panjvi-chati-patshahi:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-panjvi-chati-patshahi",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-patti-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-patti-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-rori-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-rori-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-sach-khand-sahib:place:sindh",
+      "type": "located_in",
+      "subject": "gurdwara-sach-khand-sahib",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-sacha-sauda:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-sacha-sauda",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-shaheed-bhai-taru-singh:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-shaheed-bhai-taru-singh",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-shaheed-ganj-singh-singhnian:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-shaheed-ganj-singh-singhnian",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-singh-sabha:place:balochistan",
+      "type": "located_in",
+      "subject": "gurdwara-singh-sabha",
+      "object": "place:balochistan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-sri-kiara-sahib:place:nankana-sahib",
+      "type": "located_in",
+      "subject": "gurdwara-sri-kiara-sahib",
+      "object": "place:nankana-sahib",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurdwara-tambo-sahib:place:punjab",
+      "type": "located_in",
+      "subject": "gurdwara-tambo-sahib",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:guru-gurpat-mandir-db-80-sirey-ghat:place:hyderabad",
+      "type": "located_in",
+      "subject": "guru-gurpat-mandir-db-80-sirey-ghat",
+      "object": "place:hyderabad",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:gurudwara-janam-asthan-nankana-sahib:place:nankana-sahib",
+      "type": "located_in",
+      "subject": "gurudwara-janam-asthan-nankana-sahib",
+      "object": "place:nankana-sahib",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:jagannath-temple-sialkot:place:punjab",
+      "type": "located_in",
+      "subject": "jagannath-temple-sialkot",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:jamshoro-district:place:jamshoro",
+      "type": "located_in",
+      "subject": "jamshoro-district",
+      "object": "place:jamshoro",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:jhollay-lal-mandir:place:sindh",
+      "type": "located_in",
+      "subject": "jhollay-lal-mandir",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:kali-bari-mandir:place:khyber-pakhtunkhwa",
+      "type": "located_in",
+      "subject": "kali-bari-mandir",
+      "object": "place:khyber-pakhtunkhwa",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:kalka-cave-temple-asthan-of-kalka-devi:place:sukkur-district",
+      "type": "located_in",
+      "subject": "kalka-cave-temple-asthan-of-kalka-devi",
+      "object": "place:sukkur-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:katas-raj-temples:place:chakwal-district",
+      "type": "located_in",
+      "subject": "katas-raj-temples",
+      "object": "place:chakwal-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:krishna-mandir-kabari-bazar:place:rawalpindi",
+      "type": "located_in",
+      "subject": "krishna-mandir-kabari-bazar",
+      "object": "place:rawalpindi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:krishna-mandir-ravi-road:place:lahore",
+      "type": "located_in",
+      "subject": "krishna-mandir-ravi-road",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:lal-shahbaz-qalandar:place:sindh",
+      "type": "located_in",
+      "subject": "lal-shahbaz-qalandar",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:langer-makhdoom:place:chiniot",
+      "type": "located_in",
+      "subject": "langer-makhdoom",
+      "object": "place:chiniot",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:mausoleum-of-waris-shah:place:sheikhupura-district",
+      "type": "located_in",
+      "subject": "mausoleum-of-waris-shah",
+      "object": "place:sheikhupura-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:mazar-of-bulleh-shah:place:kasur",
+      "type": "located_in",
+      "subject": "mazar-of-bulleh-shah",
+      "object": "place:kasur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:mithankot-kot-mithan:place:rajanpur",
+      "type": "located_in",
+      "subject": "mithankot-kot-mithan",
+      "object": "place:rajanpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:nagarparkar-jain-temples-nagarparkar-cultural-landscape:place:nagarparkar",
+      "type": "located_in",
+      "subject": "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "object": "place:nagarparkar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:panj-tirath:place:peshawar",
+      "type": "located_in",
+      "subject": "panj-tirath",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:parnami-mandir:place:punjab",
+      "type": "located_in",
+      "subject": "parnami-mandir",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:prahladpuri-temple:place:multan",
+      "type": "located_in",
+      "subject": "prahladpuri-temple",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:purana-bhalwal:place:bhalwal",
+      "type": "located_in",
+      "subject": "purana-bhalwal",
+      "object": "place:bhalwal",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:rahman-baba-mausoleum-rehman-baba-shrine:place:peshawar",
+      "type": "located_in",
+      "subject": "rahman-baba-mausoleum-rehman-baba-shrine",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:ramapir-temple-tando-allahyar:place:tando-allahyar-district",
+      "type": "located_in",
+      "subject": "ramapir-temple-tando-allahyar",
+      "object": "place:tando-allahyar-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:ranmal-sharif:place:phalia",
+      "type": "located_in",
+      "subject": "ranmal-sharif",
+      "object": "place:phalia",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sadh-belo-sadh-belo-island-temple:place:near-sukkurrohri",
+      "type": "located_in",
+      "subject": "sadh-belo-sadh-belo-island-temple",
+      "object": "place:near-sukkurrohri",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sakhi-sarwar:place:dera-ghazi-khan",
+      "type": "located_in",
+      "subject": "sakhi-sarwar",
+      "object": "place:dera-ghazi-khan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sant-baba-bhagat-ram-darbar-mandir:place:dadu",
+      "type": "located_in",
+      "subject": "sant-baba-bhagat-ram-darbar-mandir",
+      "object": "place:dadu",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sehwan-sharif:place:sehwan-sharif",
+      "type": "located_in",
+      "subject": "sehwan-sharif",
+      "object": "place:sehwan-sharif",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shah-noorani-shrine-syed-bilawal-shah-noorani:place:khuzdar-district",
+      "type": "located_in",
+      "subject": "shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "object": "place:khuzdar-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shah-yousuf:place:shahpur",
+      "type": "located_in",
+      "subject": "shah-yousuf",
+      "object": "place:shahpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shahwala-teja-singh-mandir:place:sialkot",
+      "type": "located_in",
+      "subject": "shahwala-teja-singh-mandir",
+      "object": "place:sialkot",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shaktipeeth-shri-hinglaj-mata-mandir:place:road-asha-pura",
+      "type": "located_in",
+      "subject": "shaktipeeth-shri-hinglaj-mata-mandir",
+      "object": "place:road-asha-pura",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shamsabad:place:okara",
+      "type": "located_in",
+      "subject": "shamsabad",
+      "object": "place:okara",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sharada-peeth:place:neelum-valley-azad-kashmir",
+      "type": "located_in",
+      "subject": "sharada-peeth",
+      "object": "place:neelum-valley-azad-kashmir",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shergarh:place:okara",
+      "type": "located_in",
+      "subject": "shergarh",
+      "object": "place:okara",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shiv-mandir-chiti-ghati:place:mansehra-district",
+      "type": "located_in",
+      "subject": "shiv-mandir-chiti-ghati",
+      "object": "place:mansehra-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shree-ratneshwar-mahadev-temple-karachi:place:karachi",
+      "type": "located_in",
+      "subject": "shree-ratneshwar-mahadev-temple-karachi",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shri-laxmi-narayan-mandir-native-jetty-bridge:place:karachi",
+      "type": "located_in",
+      "subject": "shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shri-panchmukhi-hanuman-mandir-karachi:place:karachi-east",
+      "type": "located_in",
+      "subject": "shri-panchmukhi-hanuman-mandir-karachi",
+      "object": "place:karachi-east",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shri-swaminarayan-mandir-karachi:place:karachi",
+      "type": "located_in",
+      "subject": "shri-swaminarayan-mandir-karachi",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shri-varun-dev-mandir:place:karachi",
+      "type": "located_in",
+      "subject": "shri-varun-dev-mandir",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-at-odero-lal-udero-lal-teerath-asthan:place:matiari-district",
+      "type": "located_in",
+      "subject": "shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "object": "place:matiari-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-abdullah-shah-ghazi:place:karachi",
+      "type": "located_in",
+      "subject": "shrine-of-abdullah-shah-ghazi",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-abul-faiz-qalander-ali-suharwardi:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-bahauddin-zakariya:place:multan",
+      "type": "located_in",
+      "subject": "shrine-of-bahauddin-zakariya",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-bibi-pak-daman:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-bibi-pak-daman",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-bibi-pak-daman-multan-punjab:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-bibi-pak-daman-multan-punjab",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-fariduddin-ganjshakar:place:pakpattan",
+      "type": "located_in",
+      "subject": "shrine-of-fariduddin-ganjshakar",
+      "object": "place:pakpattan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-ganj-e-inayat-sarkar:place:lahore",
+      "type": "located_in",
+      "subject": "shrine-of-ganj-e-inayat-sarkar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar:place:lahore",
+      "type": "located_in",
+      "subject": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-hazrat-shah-daula-daryai:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-hazrat-shah-daula-daryai",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-imam-ali-ul-haq:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-imam-ali-ul-haq",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari:place:bahawalpur-district",
+      "type": "located_in",
+      "subject": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "object": "place:bahawalpur-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-makhdoom-jahaniyan-jahangasht:place:bahawalpur-district",
+      "type": "located_in",
+      "subject": "shrine-of-makhdoom-jahaniyan-jahangasht",
+      "object": "place:bahawalpur-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-mian-mir:place:lahore",
+      "type": "located_in",
+      "subject": "shrine-of-mian-mir",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-pir-mangho:place:karachi",
+      "type": "located_in",
+      "subject": "shrine-of-pir-mangho",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-pir-sher-muhammad:place:sharaqpur",
+      "type": "located_in",
+      "subject": "shrine-of-pir-sher-muhammad",
+      "object": "place:sharaqpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-qalandar-baba-auliya:place:karachi",
+      "type": "located_in",
+      "subject": "shrine-of-qalandar-baba-auliya",
+      "object": "place:karachi",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-sachal-sarmast:place:khairpur",
+      "type": "located_in",
+      "subject": "shrine-of-sachal-sarmast",
+      "object": "place:khairpur",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-shah-rukn-e-alam:place:multan",
+      "type": "located_in",
+      "subject": "shrine-of-shah-rukn-e-alam",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-shah-shams-ud-din-sabzwari:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-shah-shams-ud-din-sabzwari",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-shah-yusaf-gardez:place:punjab",
+      "type": "located_in",
+      "subject": "shrine-of-shah-yusaf-gardez",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:shrine-of-syed-musa-pak:place:multan",
+      "type": "located_in",
+      "subject": "shrine-of-syed-musa-pak",
+      "object": "place:multan",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:sial-sharif:place:sial-sharif-sargodha-district",
+      "type": "located_in",
+      "subject": "sial-sharif",
+      "object": "place:sial-sharif-sargodha-district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:tilla-jogian:place:punjab",
+      "type": "located_in",
+      "subject": "tilla-jogian",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:tomb-of-allama-iqbal-mazar-e-iqbal:place:punjab",
+      "type": "located_in",
+      "subject": "tomb-of-allama-iqbal-mazar-e-iqbal",
+      "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:tomb-of-javindi-bibi:place:uch-sharif",
+      "type": "located_in",
+      "subject": "tomb-of-javindi-bibi",
+      "object": "place:uch-sharif",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:umarkot-amarkot-shiv-mandir:place:sindh",
+      "type": "located_in",
+      "subject": "umarkot-amarkot-shiv-mandir",
+      "object": "place:sindh",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:valmik-mandir-naqi-road:place:lahore",
+      "type": "located_in",
+      "subject": "valmik-mandir-naqi-road",
+      "object": "place:lahore",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:wadpagga-sharif:place:peshawar",
+      "type": "located_in",
+      "subject": "wadpagga-sharif",
+      "object": "place:peshawar",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "belongs_to_order:saint:fariduddin-ganjshakar:order:chishtiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:fariduddin-ganjshakar",
+      "object": "order:chishtiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:khwaja-ghulam-farid:order:chishtiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:khwaja-ghulam-farid",
+      "object": "order:chishtiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:daud-bandagi-kirmani:order:chishtiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:daud-bandagi-kirmani",
+      "object": "order:chishtiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:rahman-baba:order:chishtiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:rahman-baba",
+      "object": "order:chishtiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:bahauddin-zakariya:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:bahauddin-zakariya",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:shah-rukn-e-alam:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:shah-rukn-e-alam",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:jalaluddin-surkh-posh-bukhari:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:jahaniyan-jahangasht:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:jahaniyan-jahangasht",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:makhdoom-burhan-ud-din:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:makhdoom-burhan-ud-din",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:bulleh-shah:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:bulleh-shah",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:sultan-bahoo:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:sultan-bahoo",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:mian-mir:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:mian-mir",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:waris-shah:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:waris-shah",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:sufi-shah-inayat-shaheed:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:sufi-shah-inayat-shaheed",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:sachal-sarmast:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:sachal-sarmast",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:syed-muhammad-noushah-qadiri:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:syed-muhammad-noushah-qadiri",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:syed-rakhyal-shah-sufi-al-qadri:order:qadiriyya",
+      "type": "belongs_to_order",
+      "subject": "saint:syed-rakhyal-shah-sufi-al-qadri",
+      "object": "order:qadiriyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:lal-shahbaz-qalandar:order:qalandariyya",
+      "type": "belongs_to_order",
+      "subject": "saint:lal-shahbaz-qalandar",
+      "object": "order:qalandariyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:shams-ali-qalandar:order:qalandariyya",
+      "type": "belongs_to_order",
+      "subject": "saint:shams-ali-qalandar",
+      "object": "order:qalandariyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:qalandar-baba-auliya:order:qalandariyya",
+      "type": "belongs_to_order",
+      "subject": "saint:qalandar-baba-auliya",
+      "object": "order:qalandariyya",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "commemorated_by:saint:pir-syed-muhammad-channan-shah-nuri:event:urs-allo-mahar",
+      "type": "commemorated_by",
+      "subject": "saint:pir-syed-muhammad-channan-shah-nuri",
+      "object": "event:urs-allo-mahar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bari-imam:event:urs-bari-imam",
+      "type": "commemorated_by",
+      "subject": "saint:bari-imam",
+      "object": "event:urs-bari-imam",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-abdul-latif-bhittai:event:urs-bhit-bhit-shah",
+      "type": "commemorated_by",
+      "subject": "saint:shah-abdul-latif-bhittai",
+      "object": "event:urs-bhit-bhit-shah",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:khawaja-shah-muhammad-sulaiman-taunsvi:event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "type": "commemorated_by",
+      "subject": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
+      "object": "event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:syed-rakhyal-shah-sufi-al-qadri:event:urs-dargah-fateh-pur-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:syed-rakhyal-shah-sufi-al-qadri",
+      "object": "event:urs-dargah-fateh-pur-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:data-ganj-bakhsh:event:urs-data-darbar",
+      "type": "commemorated_by",
+      "subject": "saint:data-ganj-bakhsh",
+      "object": "event:urs-data-darbar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:pir-abdul-ul-karim:event:urs-eidgah-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:pir-abdul-ul-karim",
+      "object": "event:urs-eidgah-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sultan-bahoo:event:urs-garh-maharaja-shorkot",
+      "type": "commemorated_by",
+      "subject": "saint:sultan-bahoo",
+      "object": "event:urs-garh-maharaja-shorkot",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:pir-meher-ali-shah:event:urs-golra-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:pir-meher-ali-shah",
+      "object": "event:urs-golra-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:laki-shah-saddar:event:urs-jamshoro-district",
+      "type": "commemorated_by",
+      "subject": "saint:laki-shah-saddar",
+      "object": "event:urs-jamshoro-district",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lal-shahbaz-qalandar:event:urs-lal-shahbaz-qalandar",
+      "type": "commemorated_by",
+      "subject": "saint:lal-shahbaz-qalandar",
+      "object": "event:urs-lal-shahbaz-qalandar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:makhdoom-burhan-ud-din:event:urs-langer-makhdoom",
+      "type": "commemorated_by",
+      "subject": "saint:makhdoom-burhan-ud-din",
+      "object": "event:urs-langer-makhdoom",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bulleh-shah:event:urs-mazar-of-bulleh-shah",
+      "type": "commemorated_by",
+      "subject": "saint:bulleh-shah",
+      "object": "event:urs-mazar-of-bulleh-shah",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:khwaja-ghulam-farid:event:urs-mithankot-kot-mithan",
+      "type": "commemorated_by",
+      "subject": "saint:khwaja-ghulam-farid",
+      "object": "event:urs-mithankot-kot-mithan",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-sulaimn-nri:event:urs-purana-bhalwal",
+      "type": "commemorated_by",
+      "subject": "saint:shah-sulaimn-nri",
+      "object": "event:urs-purana-bhalwal",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:syed-muhammad-noushah-qadiri:event:urs-ranmal-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:syed-muhammad-noushah-qadiri",
+      "object": "event:urs-ranmal-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sultan-sakhi-sarwar:event:urs-sakhi-sarwar",
+      "type": "commemorated_by",
+      "subject": "saint:sultan-sakhi-sarwar",
+      "object": "event:urs-sakhi-sarwar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lal-shahbaz-qalandar:event:urs-sehwan-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:lal-shahbaz-qalandar",
+      "object": "event:urs-sehwan-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-yousuf:event:urs-shah-yousuf",
+      "type": "commemorated_by",
+      "subject": "saint:shah-yousuf",
+      "object": "event:urs-shah-yousuf",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shams-ali-qalandar:event:urs-shamsabad",
+      "type": "commemorated_by",
+      "subject": "saint:shams-ali-qalandar",
+      "object": "event:urs-shamsabad",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:daud-bandagi-kirmani:event:urs-shergarh",
+      "type": "commemorated_by",
+      "subject": "saint:daud-bandagi-kirmani",
+      "object": "event:urs-shergarh",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:abdullah-shah-ghazi:event:urs-shrine-of-abdullah-shah-ghazi",
+      "type": "commemorated_by",
+      "subject": "saint:abdullah-shah-ghazi",
+      "object": "event:urs-shrine-of-abdullah-shah-ghazi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:abul-faiz-qalander-ali-suharwardi:event:urs-shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "type": "commemorated_by",
+      "subject": "saint:abul-faiz-qalander-ali-suharwardi",
+      "object": "event:urs-shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bahauddin-zakariya:event:urs-shrine-of-bahauddin-zakariya",
+      "type": "commemorated_by",
+      "subject": "saint:bahauddin-zakariya",
+      "object": "event:urs-shrine-of-bahauddin-zakariya",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bibi-pak-daman:event:urs-shrine-of-bibi-pak-daman",
+      "type": "commemorated_by",
+      "subject": "saint:bibi-pak-daman",
+      "object": "event:urs-shrine-of-bibi-pak-daman",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bibi-pak-daman:event:urs-shrine-of-bibi-pak-daman-multan-punjab",
+      "type": "commemorated_by",
+      "subject": "saint:bibi-pak-daman",
+      "object": "event:urs-shrine-of-bibi-pak-daman-multan-punjab",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:fariduddin-ganjshakar:event:urs-shrine-of-fariduddin-ganjshakar",
+      "type": "commemorated_by",
+      "subject": "saint:fariduddin-ganjshakar",
+      "object": "event:urs-shrine-of-fariduddin-ganjshakar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:ganj-e-inayat-sarkar:event:urs-shrine-of-ganj-e-inayat-sarkar",
+      "type": "commemorated_by",
+      "subject": "saint:ganj-e-inayat-sarkar",
+      "object": "event:urs-shrine-of-ganj-e-inayat-sarkar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:imam-ali-ul-haq:event:urs-shrine-of-imam-ali-ul-haq",
+      "type": "commemorated_by",
+      "subject": "saint:imam-ali-ul-haq",
+      "object": "event:urs-shrine-of-imam-ali-ul-haq",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:pir-mangho:event:urs-shrine-of-pir-mangho",
+      "type": "commemorated_by",
+      "subject": "saint:pir-mangho",
+      "object": "event:urs-shrine-of-pir-mangho",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:pir-sher-muhammad:event:urs-shrine-of-pir-sher-muhammad",
+      "type": "commemorated_by",
+      "subject": "saint:pir-sher-muhammad",
+      "object": "event:urs-shrine-of-pir-sher-muhammad",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:qalandar-baba-auliya:event:urs-shrine-of-qalandar-baba-auliya",
+      "type": "commemorated_by",
+      "subject": "saint:qalandar-baba-auliya",
+      "object": "event:urs-shrine-of-qalandar-baba-auliya",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sachal-sarmast:event:urs-shrine-of-sachal-sarmast",
+      "type": "commemorated_by",
+      "subject": "saint:sachal-sarmast",
+      "object": "event:urs-shrine-of-sachal-sarmast",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-rukn-e-alam:event:urs-shrine-of-shah-rukn-e-alam",
+      "type": "commemorated_by",
+      "subject": "saint:shah-rukn-e-alam",
+      "object": "event:urs-shrine-of-shah-rukn-e-alam",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-shams-ud-din-sabzwari:event:urs-shrine-of-shah-shams-ud-din-sabzwari",
+      "type": "commemorated_by",
+      "subject": "saint:shah-shams-ud-din-sabzwari",
+      "object": "event:urs-shrine-of-shah-shams-ud-din-sabzwari",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shah-yusaf-gardez:event:urs-shrine-of-shah-yusaf-gardez",
+      "type": "commemorated_by",
+      "subject": "saint:shah-yusaf-gardez",
+      "object": "event:urs-shrine-of-shah-yusaf-gardez",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:syed-musa-pak:event:urs-shrine-of-syed-musa-pak",
+      "type": "commemorated_by",
+      "subject": "saint:syed-musa-pak",
+      "object": "event:urs-shrine-of-syed-musa-pak",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:muhammad-shamsuddin-sialvi:event:urs-sial-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:muhammad-shamsuddin-sialvi",
+      "object": "event:urs-sial-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:jalaluddin-surkh-posh-bukhari:event:urs-tomb-of-javindi-bibi",
+      "type": "commemorated_by",
+      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "object": "event:urs-tomb-of-javindi-bibi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:ghazi-syed-shah-fateh-muhammad-bukhari:event:urs-wadpagga-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
+      "object": "event:urs-wadpagga-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    }
+  ],
+  "stats": {
+    "saints": 54,
+    "orders": 5,
+    "places": 53,
+    "events": 40,
+    "sources": 0,
+    "relations": 230,
+    "ambiguousMerges": 12
+  },
+  "reviewNeeded": [
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bari-imam",
+      "details": "\"Bari Imam (Shah Abdul Latif Kazmi)\" merged into canonical \"Bari Imam\" (slug: bari-imam). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:data-ganj-bakhsh",
+      "details": "\"Hazrat Data Ganj Bakhsh (Ali Hujwiri)\" merged into canonical \"Data Ganj Bakhsh\" (slug: data-ganj-bakhsh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak and Bhai Mardana\" merged into canonical \"Guru Nanak\" (slug: guru-nanak). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:laki-shah-saddar",
+      "details": "\"Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)\" merged into canonical \"Laki Shah Saddar\" (slug: laki-shah-saddar). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bulleh-shah",
+      "details": "\"Bulleh Shah (Abdullah Shah Qadri)\" merged into canonical \"Bulleh Shah\" (slug: bulleh-shah). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:rahman-baba",
+      "details": "\"Rahman Baba (Abdur Rahman Mohmand)\" merged into canonical \"Rahman Baba\" (slug: rahman-baba). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:lal-shahbaz-qalandar",
+      "details": "\"Lal Shahbaz Qalandar (Syed Muhammad Usman)\" merged into canonical \"Lal Shahbaz Qalandar\" (slug: lal-shahbaz-qalandar). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-yousuf",
+      "details": "\"Hazrat Shah Yousuf\" merged into canonical \"Shah Yousuf\" (slug: shah-yousuf). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sheikh-tahir",
+      "details": "\"Sheikh Tahir (also revered as Udero Lal/Jhulelal)\" merged into canonical \"Sheikh Tahir\" (slug: sheikh-tahir). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-hussain",
+      "details": "\"Shah Hussain (Madho Lal Hussain)\" merged into canonical \"Shah Hussain\" (slug: shah-hussain). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-daula-daryai",
+      "details": "\"Hazrat Shah Daula Daryai\" merged into canonical \"Shah Daula Daryai\" (slug: shah-daula-daryai). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sachal-sarmast",
+      "details": "\"Sachal Sarmast (Abdul Wahab Faruqi)\" merged into canonical \"Sachal Sarmast\" (slug: sachal-sarmast). Verify the merge is correct."
+    },
+    {
+      "issue": "seed-note",
+      "details": "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment."
+    },
+    {
+      "issue": "seed-note",
+      "details": "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "sultan-sakhi-sarwar: Order affiliation debated in scholarship (Chishti vs. independent 'Sultani' path) — needs review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "bibi-pak-daman: Appears at two shrines with identical names and identical saint fields — possible duplicate row in the source Sheet; flag for maintainer review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "guru-nanak-and-bhai-mardana: CSV entry references two figures; merged to Guru Nanak as primary; Bhai Mardana not modelled as a separate saint entity yet."
+    }
+  ]
+}

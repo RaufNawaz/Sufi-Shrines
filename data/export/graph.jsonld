@@ -1,0 +1,4374 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "sufi": "https://github.com/raufnawaz/sufi-shrines/vocab#",
+      "SufiOrder": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/vocab#SufiOrder"
+      },
+      "UrsEvent": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/vocab#UrsEvent"
+      },
+      "silsila": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/vocab#silsila"
+      },
+      "commemorates": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/vocab#commemorates",
+        "@type": "@id"
+      },
+      "buriedAt": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/vocab#buriedAt",
+        "@type": "@id"
+      }
+    }
+  ],
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya",
+      "name": "Chishtiyya",
+      "alternateName": "چشتیہ",
+      "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama).",
+      "foundingDate": "c. 1000"
+    },
+    {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya",
+      "name": "Suhrawardiyya",
+      "alternateName": "سہروردیہ",
+      "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya.",
+      "foundingDate": "c. 1100"
+    },
+    {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya",
+      "name": "Qadiriyya",
+      "alternateName": "قادریہ",
+      "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab.",
+      "foundingDate": "c. 1165"
+    },
+    {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya",
+      "name": "Qalandariyya",
+      "alternateName": "قلندریہ",
+      "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance."
+    },
+    {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya",
+      "name": "Naqshbandiyya",
+      "alternateName": "نقشبندیہ",
+      "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
+      "foundingDate": "c. 1389"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-channan-shah-nuri",
+      "name": "Pir Syed Muhammad Channan Shah Nuri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bari-imam",
+      "name": "Bari Imam",
+      "alternateName": [
+        "Shah Abdul Latif Kazmi"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-latif-bhittai",
+      "name": "Shah Abdul Latif Bhittai"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi",
+      "name": "Khawaja Shah Muhammad Sulaiman Taunsvi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh",
+      "name": "Syed Sakhi Shah Chan Charagh"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sufi-shah-inayat-shaheed",
+      "name": "Sufi Shah Inayat Shaheed",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rakhyal-shah-sufi-al-qadri",
+      "name": "Syed Rakhyal Shah Sufi Al Qadri",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/data-ganj-bakhsh",
+      "name": "Data Ganj Bakhsh",
+      "alternateName": [
+        "Ali Hujwiri"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim",
+      "name": "Pir Abdul-ul-karim"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-bahoo",
+      "name": "Sultan Bahoo",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah",
+      "name": "Pir Meher Ali Shah"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-joga-singh",
+      "name": "Bhai Joga Singh"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak",
+      "name": "Guru Nanak",
+      "sameAs": "https://www.wikidata.org/entity/Q309430"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev",
+      "name": "Guru Arjan Dev"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-taru",
+      "name": "Bhai Taru"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/laki-shah-saddar",
+      "name": "Laki Shah Saddar",
+      "alternateName": [
+        "Syed Shah Sadaruddin Lakyari"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar",
+      "name": "Lal Shahbaz Qalandar",
+      "alternateName": [
+        "Syed Muhammad Usman"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-burhan-ud-din",
+      "name": "Makhdoom Burhan-ud-din",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/waris-shah",
+      "name": "Waris Shah",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bulleh-shah",
+      "name": "Bulleh Shah",
+      "alternateName": [
+        "Abdullah Shah Qadri"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-ghulam-farid",
+      "name": "Khwaja Ghulam Farid",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/smadhi-of-dya-ram",
+      "name": "Smadhi of Dya Ram"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-sulaimn-nri",
+      "name": "Shah Sulaimān Nūri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rahman-baba",
+      "name": "Rahman Baba",
+      "alternateName": [
+        "Abdur Rahman Mohmand"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-muhammad-noushah-qadiri",
+      "name": "Syed Muhammad Noushah Qadiri",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-sakhi-sarwar",
+      "name": "Sultan Sakhi Sarwar"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-bilawal-shah-noorani",
+      "name": "Syed Bilawal Shah Noorani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yousuf",
+      "name": "Shah Yousuf"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hinglaj-mata",
+      "name": "Hinglaj Mata"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shams-ali-qalandar",
+      "name": "Shams Ali Qalandar",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani",
+      "name": "Daud Bandagi Kirmani",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-tahir",
+      "name": "Sheikh Tahir",
+      "alternateName": [
+        "also revered as Udero Lal/Jhulelal"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-shah-ghazi",
+      "name": "Abdullah Shah Ghazi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi",
+      "name": "Abul Faiz Qalander Ali Suharwardi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya",
+      "name": "Bahauddin Zakariya",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman",
+      "name": "Bibi Pak Daman"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fariduddin-ganjshakar",
+      "name": "Fariduddin Ganjshakar",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ganj-e-inayat-sarkar",
+      "name": "Ganj e Inayat Sarkar"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-hussain",
+      "name": "Shah Hussain",
+      "alternateName": [
+        "Madho Lal Hussain"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-daula-daryai",
+      "name": "Shah Daula Daryai"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/imam-ali-ul-haq",
+      "name": "Imam Ali-ul-Haq"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari",
+      "name": "Jalaluddin Surkh-Posh Bukhari",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jahaniyan-jahangasht",
+      "name": "Jahaniyan Jahangasht",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-mir",
+      "name": "Mian Mir",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-mangho",
+      "name": "Pir Mangho"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad",
+      "name": "Pir Sher Muhammad"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya",
+      "name": "Qalandar Baba Auliya",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sachal-sarmast",
+      "name": "Sachal Sarmast",
+      "alternateName": [
+        "Abdul Wahab Faruqi"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-rukn-e-alam",
+      "name": "Shah Rukn-e-Alam",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-shams-ud-din-sabzwari",
+      "name": "Shah Shams-ud-Din Sabzwari"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yusaf-gardez",
+      "name": "Shah Yusaf Gardez"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-musa-pak",
+      "name": "Syed Musa Pak"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi",
+      "name": "Muhammad Shamsuddin Sialvi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ghazi-syed-shah-fateh-muhammad-bukhari",
+      "name": "Ghazi Syed Shah Fateh Muhammad Bukhari"
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sialkot",
+      "name": "Sialkot",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sialkot",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khushab-district",
+      "name": "Khushab District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khushab District",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/islamabad",
+      "name": "Islamabad",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Islamabad",
+        "addressRegion": "Islamabad Capital Territory",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi",
+      "name": "Karachi",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Karachi",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/mehar",
+      "name": "Mehar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mehar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bhit",
+      "name": "Bhit",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhit",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nagarparkar",
+      "name": "Nagarparkar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nagarparkar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/taunsa-sharif",
+      "name": "Taunsa Sharif",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Taunsa Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab",
+      "name": "Punjab",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Punjab",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh",
+      "name": "Sindh",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sindh",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/gandawah-jhal-magsi-district",
+      "name": "Gandawah (Jhal Magsi District)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gandawah (Jhal Magsi District)",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar",
+      "name": "Peshawar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Peshawar",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/saddar-town",
+      "name": "Saddar Town",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Saddar Town",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sanghar-duthro-sharif",
+      "name": "Sanghar (Duthro Sharif)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sanghar (Duthro Sharif)",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/jhang",
+      "name": "Jhang",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jhang",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/tehsil-mehar",
+      "name": "Tehsil Mehar",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tehsil Mehar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khyber-pakhtunkhwa",
+      "name": "Khyber Pakhtunkhwa",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khyber Pakhtunkhwa",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/kpk",
+      "name": "KPK",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "KPK",
+        "addressRegion": "KPK",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/shakargarh-tehsil",
+      "name": "Shakargarh Tehsil",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shakargarh Tehsil",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/balochistan",
+      "name": "Balochistan",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Balochistan",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nankana-sahib",
+      "name": "Nankana Sahib",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Nankana Sahib",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/hyderabad",
+      "name": "Hyderabad",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/jamshoro",
+      "name": "Jamshoro",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jamshoro",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sukkur-district",
+      "name": "Sukkur District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sukkur District",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/chakwal-district",
+      "name": "Chakwal District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chakwal District",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/rawalpindi",
+      "name": "Rawalpindi",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rawalpindi",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore",
+      "name": "Lahore",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/chiniot",
+      "name": "Chiniot",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chiniot",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sheikhupura-district",
+      "name": "Sheikhupura District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sheikhupura District",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/kasur",
+      "name": "Kasur",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kasur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/rajanpur",
+      "name": "Rajanpur",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rajanpur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/multan",
+      "name": "Multan",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bhalwal",
+      "name": "Bhalwal",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhalwal",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/tando-allahyar-district",
+      "name": "Tando Allahyar District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tando Allahyar District",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/phalia",
+      "name": "Phalia",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phalia",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/near-sukkurrohri",
+      "name": "near Sukkur/Rohri",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "near Sukkur/Rohri",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/dera-ghazi-khan",
+      "name": "Dera Ghazi Khan",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dera Ghazi Khan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/dadu",
+      "name": "Dadu",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dadu",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sehwan-sharif",
+      "name": "Sehwan Sharif",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sehwan Sharif",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khuzdar-district",
+      "name": "Khuzdar District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khuzdar District",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/shahpur",
+      "name": "Shahpur",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shahpur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/road-asha-pura",
+      "name": "Road، Asha Pura",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Road، Asha Pura",
+        "addressRegion": "Road، Asha Pura",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/okara",
+      "name": "Okara",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Okara",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/neelum-valley-azad-kashmir",
+      "name": "Neelum Valley (Azad Kashmir)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Neelum Valley (Azad Kashmir)",
+        "addressRegion": "Neelum Valley (Azad Kashmir)",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/mansehra-district",
+      "name": "Mansehra District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mansehra District",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi-east",
+      "name": "Karachi East",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Karachi East",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/matiari-district",
+      "name": "Matiari District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Matiari District",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/pakpattan",
+      "name": "Pakpattan",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pakpattan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bahawalpur-district",
+      "name": "Bahawalpur District",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bahawalpur District",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sharaqpur",
+      "name": "Sharaqpur",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sharaqpur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khairpur",
+      "name": "Khairpur",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khairpur",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sial-sharif-sargodha-district",
+      "name": "Sial Sharif (Sargodha District)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sial Sharif (Sargodha District)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/uch-sharif",
+      "name": "Uch Sharif",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Uch Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-allo-mahar",
+      "name": "Urs of Pir Syed Muhammad Channan Shah Nuri at Allo Mahar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/allo-mahar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-channan-shah-nuri"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bari-imam",
+      "name": "Urs of Bari Imam at Bari Imam",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bari-imam"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bari-imam"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bhit-bhit-shah",
+      "name": "Urs of Shah Abdul Latif Bhittai at Bhit (Bhit Shah)",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhit-bhit-shah"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-latif-bhittai"
+      },
+      "description": "Takes place in Safar",
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "name": "Urs of Khawaja Shah Muhammad Sulaiman Taunsvi at Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-dargah-fateh-pur-sharif",
+      "name": "Urs of Syed Rakhyal Shah Sufi Al Qadri at Dargah Fateh Pur Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/dargah-fateh-pur-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rakhyal-shah-sufi-al-qadri"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-data-darbar",
+      "name": "Urs of Data Ganj Bakhsh at Data Darbar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/data-darbar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/data-ganj-bakhsh"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-eidgah-sharif",
+      "name": "Urs of Pir Abdul-ul-karim at Eidgah Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/eidgah-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-garh-maharaja-shorkot",
+      "name": "Urs of Sultan Bahoo at Garh Maharaja (Shorkot)",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/garh-maharaja-shorkot"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-bahoo"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-golra-sharif",
+      "name": "Urs of Pir Meher Ali Shah at Golra Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/golra-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-jamshoro-district",
+      "name": "Urs of Laki Shah Saddar at Jamshoro District",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jamshoro-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/laki-shah-saddar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-lal-shahbaz-qalandar",
+      "name": "Urs of Lal Shahbaz Qalandar at Lal Shahbaz Qalandar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/lal-shahbaz-qalandar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-langer-makhdoom",
+      "name": "Urs of Makhdoom Burhan-ud-din at Langer Makhdoom",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/langer-makhdoom"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-burhan-ud-din"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-mazar-of-bulleh-shah",
+      "name": "Urs of Bulleh Shah at Mazar of Bulleh Shah",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/mazar-of-bulleh-shah"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bulleh-shah"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-mithankot-kot-mithan",
+      "name": "Urs of Khwaja Ghulam Farid at Mithankot (Kot Mithan)",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/mithankot-kot-mithan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-ghulam-farid"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-purana-bhalwal",
+      "name": "Urs of Shah Sulaimān Nūri at Purana Bhalwal",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/purana-bhalwal"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-sulaimn-nri"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-ranmal-sharif",
+      "name": "Urs of Syed Muhammad Noushah Qadiri at Ranmal Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/ranmal-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-muhammad-noushah-qadiri"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sakhi-sarwar",
+      "name": "Urs of Sultan Sakhi Sarwar at Sakhi Sarwar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sakhi-sarwar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-sakhi-sarwar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sehwan-sharif",
+      "name": "Urs of Lal Shahbaz Qalandar at Sehwan Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sehwan-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shah-yousuf",
+      "name": "Urs of Shah Yousuf at Shah Yousuf",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shah-yousuf"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yousuf"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shamsabad",
+      "name": "Urs of Shams Ali Qalandar at Shamsabad",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shamsabad"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shams-ali-qalandar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shergarh",
+      "name": "Urs of Daud Bandagi Kirmani at Shergarh",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shergarh"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-abdullah-shah-ghazi",
+      "name": "Urs of Abdullah Shah Ghazi at Shrine of Abdullah Shah Ghazi",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-abdullah-shah-ghazi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-shah-ghazi"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "name": "Urs of Abul Faiz Qalander Ali Suharwardi at Shrine of Abul Faiz Qalander Ali Suharwardi",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-abul-faiz-qalander-ali-suharwardi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-bahauddin-zakariya",
+      "name": "Urs of Bahauddin Zakariya at Shrine of Bahauddin Zakariya",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bahauddin-zakariya"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-bibi-pak-daman",
+      "name": "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bibi-pak-daman"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-bibi-pak-daman-multan-punjab",
+      "name": "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bibi-pak-daman-multan-punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-fariduddin-ganjshakar",
+      "name": "Urs of Fariduddin Ganjshakar at Shrine of Fariduddin Ganjshakar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-fariduddin-ganjshakar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fariduddin-ganjshakar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-ganj-e-inayat-sarkar",
+      "name": "Urs of Ganj e Inayat Sarkar at Shrine of Ganj e Inayat Sarkar",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-ganj-e-inayat-sarkar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ganj-e-inayat-sarkar"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-imam-ali-ul-haq",
+      "name": "Urs of Imam Ali-ul-Haq at Shrine of Imam Ali-ul-Haq",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-imam-ali-ul-haq"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/imam-ali-ul-haq"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-pir-mangho",
+      "name": "Urs of Pir Mangho at Shrine of Pir Mangho",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-pir-mangho"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-mangho"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-pir-sher-muhammad",
+      "name": "Urs of Pir Sher Muhammad at Shrine of Pir Sher Muhammad",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-pir-sher-muhammad"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-qalandar-baba-auliya",
+      "name": "Urs of Qalandar Baba Auliya at Shrine of Qalandar Baba Auliya",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-qalandar-baba-auliya"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-sachal-sarmast",
+      "name": "Urs of Sachal Sarmast at Shrine of Sachal Sarmast",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-sachal-sarmast"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sachal-sarmast"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-shah-rukn-e-alam",
+      "name": "Urs of Shah Rukn-e-Alam at Shrine of Shah Rukn-e-Alam",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-rukn-e-alam"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-rukn-e-alam"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-shah-shams-ud-din-sabzwari",
+      "name": "Urs of Shah Shams-ud-Din Sabzwari at Shrine of Shah Shams-ud-Din Sabzwari",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-shams-ud-din-sabzwari"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-shams-ud-din-sabzwari"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-shah-yusaf-gardez",
+      "name": "Urs of Shah Yusaf Gardez at Shrine of Shah Yusaf Gardez",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-yusaf-gardez"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yusaf-gardez"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-syed-musa-pak",
+      "name": "Urs of Syed Musa Pak at Shrine of Syed Musa Pak",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-syed-musa-pak"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-musa-pak"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sial-sharif",
+      "name": "Urs of Muhammad Shamsuddin Sialvi at Sial Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sial-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-tomb-of-javindi-bibi",
+      "name": "Urs of Jalaluddin Surkh-Posh Bukhari at Tomb of Javindi Bibi",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-javindi-bibi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "Event",
+        "UrsEvent"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-wadpagga-sharif",
+      "name": "Urs of Ghazi Syed Shah Fateh Muhammad Bukhari at Wadpagga Sharif",
+      "location": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/wadpagga-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ghazi-syed-shah-fateh-muhammad-bukhari"
+      },
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1Y"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/allo-mahar",
+      "name": "Allo Mahar",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Shrine_Of_Allo_Mahar_sharif.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.391866,
+        "longitude": 74.42243
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Allo Mahar",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sialkot"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-channan-shah-nuri"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/amb-temples-amb-sharif",
+      "name": "Amb Temples (Amb Sharif)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.508402,
+        "longitude": 71.936538
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sakesar Mountain (Soon Valley)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khushab-district"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bari-imam",
+      "name": "Bari Imam",
+      "image": "https://aalequtub.com/wp-content/uploads/2021/11/853px-pakistan-bari_imam_tomb-islamabad-40ibnezhar_sep_2016_2.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.74499,
+        "longitude": 73.110982
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bari Imam",
+        "addressRegion": "Islamabad Capital Territory",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/islamabad"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bari-imam"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhagnari-mandir",
+      "name": "Bhagnari Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.8571,
+        "longitude": 66.9997
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Embankment Road",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhai-sant-thawan-das-mandir",
+      "name": "Bhai Sant Thawan Das Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.1781,
+        "longitude": 67.8225
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Old Shahi Bazar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/mehar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhit-bhit-shah",
+      "name": "Bhit (Bhit Shah)",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Dargah_Hazrat_Shah_Abdul_Latif_Bhittai_ra.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.48322,
+        "longitude": 68.29142
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhit (Bhit Shah)",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bhit"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-latif-bhittai"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/churrio-jabal-durga-mata-temple",
+      "name": "Churrio Jabal Durga Mata Temple",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.399917,
+        "longitude": 71.064944
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Churrio Hill",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nagarparkar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "name": "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)",
+      "image": "https://en.wikipedia.org/wiki/Pir_Pathan",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.70826,
+        "longitude": 70.6517
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Taunsa",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/taunsa-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darbar-sakhi-shah-chan-charagh",
+      "name": "Darbar Sakhi Shah Chan Charagh",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.6153,
+        "longitude": 73.0574
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rawalpindi District",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/dargah-roza-sufi-shah-inayat-shaheed",
+      "name": "Dargah / Roza Sufi Shah Inayat Shaheed",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.814839,
+        "longitude": 68.314803
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jhok Sharif (Jhok)",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sufi-shah-inayat-shaheed"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/dargah-fateh-pur-sharif",
+      "name": "Dargah Fateh Pur Sharif",
+      "image": "https://i.tribune.com.pk/media/images/1523631-fat-1507264034/1523631-fat-1507264034.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.56978,
+        "longitude": 67.49652
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dargah Fateh Pur Sharif",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/gandawah-jhal-magsi-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rakhyal-shah-sufi-al-qadri"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/dargah-pir-ratan-nath-jee",
+      "name": "Dargah Pir Ratan Nath Jee",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.011583,
+        "longitude": 71.578861
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jhanda Bazar",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "name": "Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.84889,
+        "longitude": 66.99111
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Near Custom House",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/saddar-town"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/data-darbar",
+      "name": "Data Darbar",
+      "description": "## Overview\n\nData Darbar, located in Lahore, is far more than a shrine. It is one of the city’s most powerful spiritual and cultural centers, a place where devotion, memory, charity, and music come together in everyday life. Built around the tomb of the 11th-century Sufi saint Hazrat Ali ibn Usman al-Hujwiri, more commonly known as Data Ganj Bakhsh, the shrine has for centuries drawn pilgrims, seekers, and ordinary visitors in search of prayer, comfort, blessing, and a sense of closeness to God. For many in Lahore and beyond, Data Darbar is inseparable from the religious identity of the city itself.\n\n## Historical Background\n\nAli Hujwiri occupies a foundational place in the history of Islam in South Asia. A scholar, mystic, and teacher, he traveled widely before settling in Lahore, where his teachings helped shape the development of Sufi thought in the region. He is especially remembered for writing Kashf al-Mahjub, one of the earliest and most influential Persian works on Sufism. Through both his writing and his example, he came to be revered not only as a saintly figure but also as a major intellectual presence whose influence extended far beyond his own lifetime.\n\nOver time, the saint’s burial place became one of the most important shrines in Pakistan. Data Darbar grew into a vast devotional complex and emerged as a major center of pilgrimage, visited by people from every social background.\n\n## Religious Importance\n\nThe religious importance of Data Darbar lies not only in the historical stature of Data Ganj Bakhsh, but also in the kind of Islamic life the shrine represents. It embodies a devotional tradition centered on remembrance of God, reverence for saints, compassion for others, and the belief that holiness must be lived through service. For many devotees, the saint is not simply a figure of the past. His presence is still felt as spiritually alive, and the shrine is approached as a place where divine mercy and blessing can still be encountered.\n\nOne of the most striking features of Data Darbar is its culture of public care. Like many major Sufi shrines, it is associated with langar, the free distribution of food to visitors and the needy. This practice reflects a core Sufi ethic: that love of God must be expressed through generosity and service to humanity. As a result, the shrine functions not only as a sacred site but also as a social refuge, a place where people come not just to worship, but also to find dignity, relief, and belonging.\n\nThe atmosphere of Data Darbar is also shaped by ritual and sound. Prayer, recitation, qawwali, and festival gatherings all contribute to the shrine’s distinct spiritual energy. On Thursdays and especially during the annual Urs, which commemorates the death of the saint as a union with the divine, the shrine becomes a site of extraordinary devotion and emotion. Crowds gather for prayer, music, remembrance, and celebration, transforming the space into a vivid expression of living Sufi culture.\n\n## Modern Challenges\n\nThe history of Data Darbar also reflects the tensions of modern Pakistan. The shrine has been the target of extremist violence, most notably in the devastating 2010 bombing that killed and injured many worshippers. That attack was not just an assault on a physical site, but on the plural, popular, and devotional religious world that shrines like Data Darbar represent. Yet the shrine endured, and pilgrims continued to return. Its continued vitality stands as a testament to the resilience of Sufi devotion and to the refusal of ordinary people to let fear erase sacred community.\n\nToday, Data Darbar remains one of the most prominent and heavily visited shrines in Pakistan. It is both a historic monument and a living center of faith, charity, and public culture. Administratively prominent and socially central, it continues to attract vast numbers of devotees each year. Its present standing reflects both its deep historical roots and its continuing relevance in contemporary religious life.\n\nWhat makes Data Darbar so powerful is that it brings together many dimensions of human experience in one place. It is solemn yet alive, ancient yet immediate, deeply personal yet profoundly communal. People come there to pray for healing, to give thanks, to seek intercession, to hear qawwali, to feed others, or simply to sit in the presence of something larger than themselves. In that sense, Data Darbar is not only the resting place of a great saint. It is one of the clearest expressions of Lahore’s spiritual heart.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Data_Durbar_as_more_then_one_decade_before_by_Usman_Ghani.jpg/500px-Data_Durbar_as_more_then_one_decade_before_by_Usman_Ghani.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.57803,
+        "longitude": 74.307
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/data-ganj-bakhsh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/eidgah-sharif",
+      "name": "Eidgah Sharif",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Eid_gah_shrine.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.628145,
+        "longitude": 73.055823
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Eidgah Sharif",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sanghar-duthro-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/garh-maharaja-shorkot",
+      "name": "Garh Maharaja (Shorkot)",
+      "image": "https://sultan-bahoo.com/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-14-at-5.20.38-PM.jpeg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.8169,
+        "longitude": 71.8651
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Garh Maharaja (Shorkot)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/jhang"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-bahoo"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/golra-sharif",
+      "name": "Golra Sharif",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mausoleum_of_Meher_Ali_Shah_by_Balochlens.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.691377,
+        "longitude": 72.97507
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Golra Sharif",
+        "addressRegion": "Islamabad Capital Territory",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/islamabad"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gorakhnath-goraknath-temple",
+      "name": "Gorakhnath (Goraknath) Temple",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.008194,
+        "longitude": 71.580639
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gor Khatri area",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdas-ram-mandir",
+      "name": "Gurdas Ram Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.1742,
+        "longitude": 67.9511
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Radhan Town",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/tehsil-mehar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-babay-de-ber",
+      "name": "Gurdwara Babay De Ber",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.4811,
+        "longitude": 74.5487
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sialkot",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-babay-nanki",
+      "name": "Gurdwara Babay Nanki",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4438,
+        "longitude": 74.472
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-balila-sahib-bal-lila-sahib",
+      "name": "Gurdwara Balila Sahib (Bal Lila Sahib)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4439,
+        "longitude": 73.6986
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-bhai-beba-singh",
+      "name": "Gurdwara Bhai Beba Singh",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.0124,
+        "longitude": 71.5784
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Peshawar",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khyber-pakhtunkhwa"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-bhai-joga-singh",
+      "name": "Gurdwara Bhai Joga Singh",
+      "image": "https://www.sikhiwiki.org/images/f/f0/Jogasingh_aw.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.001941,
+        "longitude": 71.563077
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Peshawar",
+        "addressRegion": "KPK",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/kpk"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-joga-singh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-darbar-sahib-kartarpur",
+      "name": "Gurdwara Darbar Sahib Kartarpur",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.08735,
+        "longitude": 75.01658
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kartarpur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/shakargarh-tehsil"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-dash-mesh-pita",
+      "name": "Gurdwara Dash Mesh Pita",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.697778,
+        "longitude": 68.860833
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sukkur",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-dera-sahib",
+      "name": "Gurdwara Dera Sahib",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Gurdwara_Dera_Sahib_Lahore.jpg/330px-Gurdwara_Dera_Sahib_Lahore.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.3523,
+        "longitude": 74
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-guru-ram-das-ji",
+      "name": "Gurdwara Guru Ram Das Ji",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.585,
+        "longitude": 74.321
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-malji-sahib",
+      "name": "Gurdwara Malji Sahib",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4564,
+        "longitude": 73.7139
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-panja-sahib",
+      "name": "Gurdwara Panja Sahib",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PanjaSahibHasanAbdal.jpg/330px-PanjaSahibHasanAbdal.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.4915,
+        "longitude": 72.4123
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hasan Abdal",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-panjvi-chati-patshahi",
+      "name": "Gurdwara Panjvi Chati Patshahi",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4507,
+        "longitude": 73.6985
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-patti-sahib",
+      "name": "Gurdwara Patti Sahib",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4507,
+        "longitude": 73.6985
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-rori-sahib",
+      "name": "Gurdwara Rori Sahib",
+      "image": "https://dvncorestorageprod.blob.core.windows.net/files/page/166/Image/Rori%20Sahib_20240830070623556.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.047458,
+        "longitude": 74.248917
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Eminabad",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sach-khand-sahib",
+      "name": "Gurdwara Sach Khand Sahib",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.9573,
+        "longitude": 68.6347
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shikarpur",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sacha-sauda",
+      "name": "Gurdwara Sacha Sauda",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.74913889,
+        "longitude": 73.79673333
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Farooqabad (formerly Chuharkana)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-shaheed-bhai-taru-singh",
+      "name": "Gurdwara Shaheed Bhai Taru Singh",
+      "image": "https://www.discoversikhism.com/images/gurdwara/gurdwara_sri_shaheed_ganj_bhai_taru/gurdwara_sri_shaheed_ganj_bhai_taru1.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.578684,
+        "longitude": 74.331944
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-taru"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-shaheed-ganj-singh-singhnian",
+      "name": "Gurdwara Shaheed Ganj Singh Singhnian",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.5783,
+        "longitude": 74.3319
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-singh-sabha",
+      "name": "Gurdwara Singh Sabha",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.192778,
+        "longitude": 67.013611
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Quetta",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/balochistan"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sri-kiara-sahib",
+      "name": "Gurdwara Sri Kiara Sahib",
+      "image": "https://www.discoversikhism.com/images/gurdwara/gurdwara_sri_kiara_sahib/gurdwara_sri_kiara_sahib1.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.456373,
+        "longitude": 73.713888
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Nankana Sahib",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nankana-sahib"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-tambo-sahib",
+      "name": "Gurdwara Tambo Sahib",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.4483,
+        "longitude": 73.6844
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/guru-gurpat-mandir-db-80-sirey-ghat",
+      "name": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.3984,
+        "longitude": 68.3571
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "DB-80 Sirey Ghat",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/hyderabad"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurudwara-janam-asthan-nankana-sahib",
+      "name": "Gurudwara Janam Asthan Nankana Sahib",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/Gurdwara_Janam_Asthan_%28151717%29.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.445763,
+        "longitude": 73.695697
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nankana Sahib",
+        "addressRegion": "Nankana Sahib",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nankana-sahib"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jagannath-temple-sialkot",
+      "name": "Jagannath Temple, Sialkot",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.495833,
+        "longitude": 74.535
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sialkot",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jamshoro-district",
+      "name": "Jamshoro District",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Shrine_of_Lucky_Shah_Sadar.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.267225,
+        "longitude": 67.902592
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jamshoro District",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/jamshoro"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/laki-shah-saddar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jhollay-lal-mandir",
+      "name": "Jhollay Lal Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.8547,
+        "longitude": 67.0011
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Karachi",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/kali-bari-mandir",
+      "name": "Kali Bari Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.9986,
+        "longitude": 71.5414
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Peshawar",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khyber-pakhtunkhwa"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/kalka-cave-temple-asthan-of-kalka-devi",
+      "name": "Kalka Cave Temple (Asthan of Kalka Devi)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.626056,
+        "longitude": 68.930917
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Aror",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sukkur-district"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/katas-raj-temples",
+      "name": "Katas Raj Temples",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.724,
+        "longitude": 72.951639
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Choa Saidanshah",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/chakwal-district"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/krishna-mandir-kabari-bazar",
+      "name": "Krishna Mandir (Kabari Bazar)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.6017,
+        "longitude": 73.0525
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kabari Bazar",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/rawalpindi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/krishna-mandir-ravi-road",
+      "name": "Krishna Mandir (Ravi Road)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.5995,
+        "longitude": 74.2975
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ravi Road",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/lal-shahbaz-qalandar",
+      "name": "Lal Shahbaz Qalandar",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg/500px-Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.42669,
+        "longitude": 67.87132
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jamshoro",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/langer-makhdoom",
+      "name": "Langer Makhdoom",
+      "image": "https://live.staticflickr.com/8098/8422587223_6782e83476_z.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.92275,
+        "longitude": 73.07259
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Langer Makhdoom",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/chiniot"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-burhan-ud-din"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/mausoleum-of-waris-shah",
+      "name": "Mausoleum of Waris Shah",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.817313,
+        "longitude": 73.916507
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jandiala Sher Khan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sheikhupura-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/waris-shah"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/mazar-of-bulleh-shah",
+      "name": "Mazar of Bulleh Shah",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Shrine_Hazrat_Baba_Bulleh_Shah.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.121329,
+        "longitude": 74.448182
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mazar of Bulleh Shah",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/kasur"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bulleh-shah"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/mithankot-kot-mithan",
+      "name": "Mithankot (Kot Mithan)",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Tomb_of_Khwaja_Ghulam_Farid.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.959118,
+        "longitude": 70.368832
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mithankot (Kot Mithan)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/rajanpur"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-ghulam-farid"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "name": "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.35583,
+        "longitude": 70.75444
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Karoonjhar Mountains region",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/nagarparkar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/panj-tirath",
+      "name": "Panj Tirath",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.013444,
+        "longitude": 71.579028
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hashtnagri",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/parnami-mandir",
+      "name": "Parnami Mandir",
+      "image": "https://maariawaseem.wordpress.com/wp-content/uploads/2021/02/img_2918.jpg?w=1440&h=1200&crop=1",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.42414,
+        "longitude": 73.274121
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Malka Hans",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/smadhi-of-dya-ram"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/prahladpuri-temple",
+      "name": "Prahladpuri Temple",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.200361,
+        "longitude": 71.476833
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fort of Multan (near Shrine of Bahauddin Zakariya)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/multan"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/purana-bhalwal",
+      "name": "Purana Bhalwal",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.26583,
+        "longitude": 72.874731
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Purana Bhalwal",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bhalwal"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-sulaimn-nri"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/rahman-baba-mausoleum-rehman-baba-shrine",
+      "name": "Rahman Baba Mausoleum (Rehman Baba Shrine)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.99333333,
+        "longitude": 71.59
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hazarkhwani (Ring Road)",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rahman-baba"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/ramapir-temple-tando-allahyar",
+      "name": "Ramapir Temple, Tando Allahyar",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.457722,
+        "longitude": 68.721778
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tando Allahyar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/tando-allahyar-district"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/ranmal-sharif",
+      "name": "Ranmal Sharif",
+      "image": "https://mbdin.com/wp-content/uploads/2020/05/village-ranmal.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.43472,
+        "longitude": 73.732328
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ranmal Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/phalia"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-muhammad-noushah-qadiri"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sadh-belo-sadh-belo-island-temple",
+      "name": "Sadh Belo (Sadh Belo Island Temple)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.693778,
+        "longitude": 68.87875
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sadh Belo Island",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/near-sukkurrohri"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sakhi-sarwar",
+      "name": "Sakhi Sarwar",
+      "image": "https://i.dawn.com/large/2014/04/534cf2d7bc3ab.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.986519,
+        "longitude": 70.302609
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sakhi Sarwar",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/dera-ghazi-khan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-sakhi-sarwar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sant-baba-bhagat-ram-darbar-mandir",
+      "name": "Sant Baba Bhagat Ram Darbar Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.7354,
+        "longitude": 67.7792
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shahi Bazar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/dadu"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sehwan-sharif",
+      "name": "Sehwan Sharif",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 26.4184,
+        "longitude": 67.8603
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sehwan Sharif",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sehwan-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "name": "Shah Noorani Shrine (Syed Bilawal Shah Noorani)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.77296,
+        "longitude": 67.01538
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahoot Lamakan valley",
+        "addressRegion": "Balochistan",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khuzdar-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-bilawal-shah-noorani"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shah-yousuf",
+      "name": "Shah Yousuf",
+      "image": "https://api.salampakistan.gov.pk/photo-1626121387010.jpeg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.19864,
+        "longitude": 72.38978
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shah Yousuf",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/shahpur"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yousuf"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shahwala-teja-singh-mandir",
+      "name": "Shahwala Teja Singh Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.4908,
+        "longitude": 74.5449
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mohallah Dharowal",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sialkot"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shaktipeeth-shri-hinglaj-mata-mandir",
+      "name": "Shaktipeeth Shri Hinglaj Mata Mandir",
+      "image": "https://static.toiimg.com/thumb/msid-109525095,width-1280,height-720,imgsize-210290,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.514672,
+        "longitude": 65.518726
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hingol Balochistan National Park",
+        "addressRegion": "Road، Asha Pura",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/road-asha-pura"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hinglaj-mata"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shamsabad",
+      "name": "Shamsabad",
+      "image": "https://miro.medium.com/1*eyT2zQwnT7gT4J6YiR_xIQ.jpeg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.80917,
+        "longitude": 73.45361
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shamsabad",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/okara"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shams-ali-qalandar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sharada-peeth",
+      "name": "Sharada Peeth",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.79194,
+        "longitude": 74.19
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sharda",
+        "addressRegion": "Neelum Valley (Azad Kashmir)",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/neelum-valley-azad-kashmir"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shergarh",
+      "name": "Shergarh",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqCSqLOfY4b3GWljdX3Pd6G8q5Hi06Dvh4PBflpT6jQQHnl67K5bGoGv6TXuGu0vO-ehaXvsTu5fX0YbcZrjO_mnbZySI4Y1AUocy-ykeYK1-zQrNjP7ZL80JzTv1cSaX3eDnq4bYI8NQ/w1200-h630-p-k-no-nu/DSC_8686.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.82922,
+        "longitude": 73.73882
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shergarh",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/okara"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shiv-mandir-chiti-ghati",
+      "name": "Shiv Mandir Chiti Ghati",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.3944,
+        "longitude": 73.2153
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ghandian",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/mansehra-district"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shree-ratneshwar-mahadev-temple-karachi",
+      "name": "Shree Ratneshwar Mahadev Temple, Karachi",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.81275,
+        "longitude": 67.026667
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Near Clifton Beach / Jehangir Kothari Parade area",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "name": "Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.844444,
+        "longitude": 66.991167
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Under Native Jetty Bridge",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-panchmukhi-hanuman-mandir-karachi",
+      "name": "Shri Panchmukhi Hanuman Mandir (Karachi)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.860611,
+        "longitude": 67.020583
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Soldier Bazaar",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi-east"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-swaminarayan-mandir-karachi",
+      "name": "Shri Swaminarayan Mandir, Karachi",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.854361,
+        "longitude": 67.007972
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "M. A. Jinnah Road",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-varun-dev-mandir",
+      "name": "Shri Varun Dev Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.797583,
+        "longitude": 66.970806
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Manora Island (Manora Beach)",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "name": "Shrine at Odero Lal (Udero Lal Teerath Asthan)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.7013347,
+        "longitude": 68.5614382
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Odero Lal Village (near Tando Adam)",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/matiari-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-tahir"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-abdullah-shah-ghazi",
+      "name": "Shrine of Abdullah Shah Ghazi",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Abdullah_Shah_Ghazi_Mausoleum_%28Pic2%29.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.8107,
+        "longitude": 67.03023
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clifton",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-shah-ghazi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "name": "Shrine of Abul Faiz Qalander Ali Suharwardi",
+      "image": "https://scontent-lga3-1.xx.fbcdn.net/v/t39.30808-6/471303445_1045595177580675_8379150524206898602_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=2a1932&_nc_ohc=N-Q3Gyx_l58Q7kNvwFTf60z&_nc_oc=AdkyOuPG_UJ_UOce0krBuDC3Twe5LMf4hiTEZNf9Nq_KvFXm_-x5g_kRP6-u1mt1Rko&_nc_zt=23&_nc_ht=scontent-lga3-1.xx&_nc_gid=7yQeAJp2P76XLqdm7M7FSg&_nc_ss=8&oh=00_AfudsYT9iFMz01-wm_htjMxV6rSMmdHreJC4KWVHvDnMyg&oe=69A91287",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.54972,
+        "longitude": 74.34361
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bahauddin-zakariya",
+      "name": "Shrine of Bahauddin Zakariya",
+      "image": "https://i.tribune.com.pk/media/images/1298511-bahauddinzakariyacopy-1484676791/1298511-bahauddinzakariyacopy-1484676791.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.20061,
+        "longitude": 71.47652
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan City",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/multan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bibi-pak-daman",
+      "name": "Shrine of Bibi Pak Daman",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/B_Bi_Pak_Daman_June5_2004_%286%29.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.564283,
+        "longitude": 74.339948
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-bibi-pak-daman-multan-punjab",
+      "name": "Shrine of Bibi Pak Daman",
+      "image": "https://walledcitylahore.gop.pk/wp-content/uploads/2024/06/Shrine-of-Bibi-Pak-Daman-3.jpeg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.178686,
+        "longitude": 71.464039
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-fariduddin-ganjshakar",
+      "name": "Shrine of Fariduddin Ganjshakar",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Darbar_Hazrat_Baba_Farid_ud_Deen_Ganj_Shakar_Rahmatullah_Alaih_-_panoramio.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.3412,
+        "longitude": 73.38775
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pakpattan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/pakpattan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fariduddin-ganjshakar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-ganj-e-inayat-sarkar",
+      "name": "Shrine of Ganj e Inayat Sarkar",
+      "image": "https://www.facebook.com/DarbarHazoorGanjeInayatSarkar/",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.53172,
+        "longitude": 74.35803
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gulberg 3",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ganj-e-inayat-sarkar"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "name": "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.58565362,
+        "longitude": 74.3747974
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baghbanpura (near Shalimar Gardens)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-hussain"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-hazrat-shah-daula-daryai",
+      "name": "Shrine of Hazrat Shah Daula Daryai",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.5718299,
+        "longitude": 74.0843839
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gujrat",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-daula-daryai"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-imam-ali-ul-haq",
+      "name": "Shrine of Imam Ali-ul-Haq",
+      "image": "https://www.thpsc.com/wp-content/uploads/2015/03/Imam-Ali-ul-Haq-shrine.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.29178,
+        "longitude": 74.32166
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sialkot",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/imam-ali-ul-haq"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "name": "Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.240139,
+        "longitude": 71.052861
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Uch Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bahawalpur-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-makhdoom-jahaniyan-jahangasht",
+      "name": "Shrine of Makhdoom Jahaniyan Jahangasht",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.242889,
+        "longitude": 71.055361
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Uch Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/bahawalpur-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jahaniyan-jahangasht"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-mian-mir",
+      "name": "Shrine of Mian Mir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.548375,
+        "longitude": 74.3600306
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alam Ganj (Dharampura)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-mir"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-pir-mangho",
+      "name": "Shrine of Pir Mangho",
+      "image": "https://images.squarespace-cdn.com/content/v1/605a3b99f28979644c432614/93b93408-3d24-4fc4-840e-f9b4c5b887b3/Mangho+Pir%2C+Karachi+Ecology+%282%29.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.980369,
+        "longitude": 67.034959
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gadap Town",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-mangho"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-pir-sher-muhammad",
+      "name": "Shrine of Pir Sher Muhammad",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWWjg1tPCTJXuWHb0KlZ7wWNHp45BlMnGvywm4uMIJCRCKh24H5yDkwi3ZeHezZmE0O-8uB9Qt3EiOs3fXQvoA6M93NWrsO2pxqaJwzOgrhWtdzoNabsUrV7FpJ3hrCyCwisARl1s-xbU/s1600/sher.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.45717,
+        "longitude": 74.0925
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sharaqpur",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sharaqpur"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-qalandar-baba-auliya",
+      "name": "Shrine of Qalandar Baba Auliya",
+      "image": "https://i.tribune.com.pk/media/images/5-1525427764/5-1525427764.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.95986,
+        "longitude": 67.056731
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shadman Town",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/karachi"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-sachal-sarmast",
+      "name": "Shrine of Sachal Sarmast",
+      "image": "https://heritageofpakistan.org/wp-content/uploads/2025/03/Sachal-Sarmast-Shrine-43-of-89.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 27.305874,
+        "longitude": 68.512516
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Daraza",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/khairpur"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sachal-sarmast"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-rukn-e-alam",
+      "name": "Shrine of Shah Rukn-e-Alam",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Tomb_of_Shah_Rukn-e-Alam_2014-07-31.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.19913,
+        "longitude": 71.47181
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan City",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/multan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-rukn-e-alam"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-shams-ud-din-sabzwari",
+      "name": "Shrine of Shah Shams-ud-Din Sabzwari",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Shrine_of_Hazrat_Shah_Shams_ud_din_Sabzwari.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.200818,
+        "longitude": 71.484105
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-shams-ud-din-sabzwari"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-shah-yusaf-gardez",
+      "name": "Shrine of Shah Yusaf Gardez",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Tomb_of_Shah_Yousuf_Gardezi_Multan.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.19479,
+        "longitude": 71.46649
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yusaf-gardez"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-syed-musa-pak",
+      "name": "Shrine of Syed Musa Pak",
+      "image": "https://www.thenews.com.pk/assets/uploads/akhbar/2024-11-21/l_1253233_045343_updates.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.19025,
+        "longitude": 71.47156
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Multan",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/multan"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-musa-pak"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sial-sharif",
+      "name": "Sial Sharif",
+      "image": "https://merasargodha.com/wp-content/uploads/SialSharif.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.54235,
+        "longitude": 72.17474
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sial Sharif",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sial-sharif-sargodha-district"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tilla-jogian",
+      "name": "Tilla Jogian",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 32.86058256,
+        "longitude": 73.44034256
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Salt Range (near Dina/Jhelum)",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-allama-iqbal-mazar-e-iqbal",
+      "name": "Tomb of Allama Iqbal (Mazar-e-Iqbal)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.5879,
+        "longitude": 74.3113
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/punjab"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-javindi-bibi",
+      "name": "Tomb of Javindi Bibi",
+      "image": "https://live.staticflickr.com/2264/2536748069_c33904a715_b.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.14,
+        "longitude": 71.04
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mohalla Bukhari",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/uch-sharif"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/umarkot-amarkot-shiv-mandir",
+      "name": "Umarkot (Amarkot) Shiv Mandir",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.416306,
+        "longitude": 69.77625
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Umerkot District",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/sindh"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/valmik-mandir-naqi-road",
+      "name": "Valmik Mandir (Naqi Road)",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.5683,
+        "longitude": 74.3111
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Naqi Road",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/lahore"
+      }
+    },
+    {
+      "@type": [
+        "LandmarksOrHistoricalBuildings",
+        "PlaceOfWorship"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/wadpagga-sharif",
+      "name": "Wadpagga Sharif",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Shrine_of_Jalaluddin_Bukhari_-_exterior_of_mosque.jpg",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.038945,
+        "longitude": 71.654326
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wadpagga Sharif",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "containedInPlace": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/peshawar"
+      },
+      "about": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ghazi-syed-shah-fateh-muhammad-bukhari"
+      }
+    }
+  ]
+}

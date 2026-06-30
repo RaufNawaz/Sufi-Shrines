@@ -1,0 +1,59 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Sufi Shrines of Pakistan",
+  "version": "2.0.0",
+  "description": "A bilingual (English/Urdu) interactive web map and open dataset of Sufi shrines and multi-faith sacred sites across Pakistan. Covers Muslim shrines (dargahs, mazars), Hindu temples (mandirs), and Sikh gurdwaras. Built with Vite 5, React 18, and TypeScript; data licensed ODbL-1.0; code licensed MIT.",
+  "abstract": "This project combines a schema-validated Frictionless Data Package (109+ sites; coordinates, descriptions, provenance) with a static-site web application featuring bilingual EN/Urdu support, RTL layout, dark mode, and an interactive Leaflet map. Designed for Harvard computational humanities research and Zenodo/Dataverse deposit.",
+  "codeRepository": "https://github.com/raufnawaz/sufi-shrines",
+  "url": "https://github.com/raufnawaz/sufi-shrines",
+  "issueTracker": "https://github.com/raufnawaz/sufi-shrines/issues",
+  "license": [
+    "https://opensource.org/licenses/MIT",
+    "https://opendatacommons.org/licenses/odbl/1-0/"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Rauf",
+      "familyName": "Nawaz",
+      "email": "raufnawaz@college.harvard.edu",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Harvard University"
+      }
+    }
+  ],
+  "datePublished": "2026-06-29",
+  "programmingLanguage": [
+    {
+      "@type": "ComputerLanguage",
+      "name": "TypeScript"
+    },
+    {
+      "@type": "ComputerLanguage",
+      "name": "JavaScript"
+    },
+    {
+      "@type": "ComputerLanguage",
+      "name": "Python"
+    }
+  ],
+  "runtimePlatform": "Node.js",
+  "developmentStatus": "active",
+  "keywords": [
+    "sufi-shrines",
+    "pakistan",
+    "sacred-sites",
+    "south-asia",
+    "urdu",
+    "bilingual",
+    "computational-humanities",
+    "frictionless-data",
+    "open-data",
+    "react",
+    "leaflet"
+  ],
+  "softwareRequirements": "Node.js >= 18",
+  "readme": "https://github.com/raufnawaz/sufi-shrines/blob/main/README.md"
+}

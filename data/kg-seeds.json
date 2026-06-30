@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "_comment": "Human-curated seed data for the knowledge graph. Edit here, then re-run npm run data:kg.",
+
+  "orders": [
+    {
+      "slug": "chishtiyya",
+      "name": "Chishtiyya",
+      "arabicName": "چشتیہ",
+      "founded": "c. 1000",
+      "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama).",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "suhrawardiyya",
+      "name": "Suhrawardiyya",
+      "arabicName": "سہروردیہ",
+      "founded": "c. 1100",
+      "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "qadiriyya",
+      "name": "Qadiriyya",
+      "arabicName": "قادریہ",
+      "founded": "c. 1165",
+      "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "qalandariyya",
+      "name": "Qalandariyya",
+      "arabicName": "قلندریہ",
+      "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "naqshbandiyya",
+      "name": "Naqshbandiyya",
+      "arabicName": "نقشبندیہ",
+      "founded": "c. 1389",
+      "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    }
+  ],
+
+  "saintOrders": {
+    "comment": "Keys must match the slug generated from the canonical saint name after merge variants are applied.",
+    "fariduddin-ganjshakar": "chishtiyya",
+    "khwaja-ghulam-farid": "chishtiyya",
+    "daud-bandagi-kirmani": "chishtiyya",
+    "rahman-baba": "chishtiyya",
+    "bahauddin-zakariya": "suhrawardiyya",
+    "shah-rukn-e-alam": "suhrawardiyya",
+    "jalaluddin-surkh-posh-bukhari": "suhrawardiyya",
+    "jahaniyan-jahangasht": "suhrawardiyya",
+    "makhdoom-burhan-ud-din": "suhrawardiyya",
+    "bulleh-shah": "qadiriyya",
+    "sultan-bahoo": "qadiriyya",
+    "mian-mir": "qadiriyya",
+    "waris-shah": "qadiriyya",
+    "sufi-shah-inayat-shaheed": "qadiriyya",
+    "sachal-sarmast": "qadiriyya",
+    "syed-muhammad-noushah-qadiri": "qadiriyya",
+    "syed-rakhyal-shah-sufi-al-qadri": "qadiriyya",
+    "lal-shahbaz-qalandar": "qalandariyya",
+    "shams-ali-qalandar": "qalandariyya",
+    "qalandar-baba-auliya": "qalandariyya"
+  },
+
+  "saintMergeVariants": {
+    "comment": "Maps a raw CSV value to its canonical saint name. Applied before slug generation. Add entries when the same saint appears under multiple name forms.",
+    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar",
+    "Bari Imam (Shah Abdul Latif Kazmi)": "Bari Imam",
+    "Bulleh Shah (Abdullah Shah Qadri)": "Bulleh Shah",
+    "Hazrat Data Ganj Bakhsh (Ali Hujwiri)": "Data Ganj Bakhsh",
+    "Hazrat Shah Daula Daryai": "Shah Daula Daryai",
+    "Hazrat Shah Yousuf": "Shah Yousuf",
+    "Rahman Baba (Abdur Rahman Mohmand)": "Rahman Baba",
+    "Sachal Sarmast (Abdul Wahab Faruqi)": "Sachal Sarmast",
+    "Shah Hussain (Madho Lal Hussain)": "Shah Hussain",
+    "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)": "Laki Shah Saddar",
+    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir",
+    "Guru Nanak and Bhai Mardana": "Guru Nanak",
+    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar"
+  },
+
+  "saintWikidataQids": {
+    "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
+    "guru-nanak": {
+      "qid": "Q309430",
+      "confirmed": true,
+      "note": "Founder of Sikhism; high-confidence match"
+    },
+    "guru-arjan-dev": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "lal-shahbaz-qalandar": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "fariduddin-ganjshakar": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "bahauddin-zakariya": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "shah-abdul-latif-bhittai": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "data-ganj-bakhsh": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation; also known as Ali Hujwiri"
+    },
+    "bulleh-shah": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    },
+    "sultan-bahoo": {
+      "qid": null,
+      "confirmed": false,
+      "note": "Requires human confirmation"
+    }
+  },
+
+  "reviewNeededNotes": [
+    "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment.",
+    "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review.",
+    "sultan-sakhi-sarwar: Order affiliation debated in scholarship (Chishti vs. independent 'Sultani' path) — needs review.",
+    "bibi-pak-daman: Appears at two shrines with identical names and identical saint fields — possible duplicate row in the source Sheet; flag for maintainer review.",
+    "guru-nanak-and-bhai-mardana: CSV entry references two figures; merged to Guru Nanak as primary; Bhai Mardana not modelled as a separate saint entity yet."
+  ]
+}

@@ -1,0 +1,413 @@
+#!/usr/bin/env node
+/**
+ * build-kg.mjs — Build the knowledge graph from the canonical shrine dataset.
+ *
+ * Reads data/shrines.json + data/kg-seeds.json and promotes free-text entity
+ * references (saints, Sufi orders, places, events) into first-class typed
+ * entities with stable IDs, stable slugs, and referential-integrity checks.
+ *
+ * Outputs data/kg.json — the canonical KG file consumed by the app and by
+ * the JSON-LD / RDF export scripts (B2).
+ *
+ * Decisions logged to reviewNeeded in the output for human follow-up.
+ *
+ * Usage:  node scripts/data/build-kg.mjs
+ * Or:     npm run data:kg    (chains data:validate first)
+ */
+
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '../..');
+
+// ── slug helpers (mirrors validate.mjs / slugify.ts) ─────────────────────────
+
+const SLUG_SUBS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
+
+function slugify(text) {
+  if (!text) return '';
+  return text
+    .toLowerCase()
+    .replace(/[&@%+]/g, (c) => ` ${SLUG_SUBS[c] ?? c} `)
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .trim();
+}
+
+function buildSlugs(rows) {
+  const seen = new Map();
+  return rows.map((row, i) => {
+    const explicit = String(row['Slug'] ?? '').trim();
+    if (explicit) {
+      seen.set(explicit, (seen.get(explicit) ?? 0) + 1);
+      return explicit;
+    }
+    const name = String(row['Name'] ?? '').trim();
+    const location = String(row['Location'] ?? '').trim();
+    const saint = String(row['Sufi Saint'] ?? '').trim();
+    const base = slugify(name) || `shrine-${i}`;
+    const withLoc = base && location ? `${base}-${slugify(location)}` : base;
+    const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
+
+    let chosen = base;
+    for (const candidate of [base, withLoc, withSaint]) {
+      if (candidate && !seen.has(candidate)) { chosen = candidate; break; }
+    }
+    if (seen.has(chosen)) {
+      let n = 2;
+      while (seen.has(`${chosen}-${n}`)) n++;
+      chosen = `${chosen}-${n}`;
+    }
+    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
+    return chosen;
+  });
+}
+
+// ── saint name normalisation ──────────────────────────────────────────────────
+
+function applySaintMerge(raw, mergeVariants) {
+  return mergeVariants[raw] ?? raw;
+}
+
+function canonicalizeSaintName(raw, mergeVariants) {
+  const merged = applySaintMerge(raw, mergeVariants);
+  return merged.replace(/\s*\([^)]*\)/g, '').trim();
+}
+
+function extractParenthetical(raw) {
+  const match = raw.match(/\(([^)]+)\)/);
+  return match ? match[1] : null;
+}
+
+// ── location parsing ──────────────────────────────────────────────────────────
+
+function parseLocation(location) {
+  if (!location) return null;
+  const parts = location.split(',').map((s) => s.trim()).filter(Boolean);
+  if (!parts.length) return null;
+
+  let country = 'Pakistan';
+  if (parts[parts.length - 1] === 'Pakistan') {
+    parts.pop();
+  }
+
+  if (!parts.length) return null;
+
+  const province = parts[parts.length - 1];
+  const city = parts[0];
+  const district = parts.length >= 2 ? parts[1] : city;
+
+  return { city, district, province, country };
+}
+
+// ── event type detection ──────────────────────────────────────────────────────
+
+const ISLAMIC_MONTHS = [
+  'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
+  'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', "Sha'ban",
+  'Ramadan', 'Shawwal', 'Dhu al-Qidah', 'Dhu al-Hijjah',
+];
+
+function parseEvent(evText) {
+  if (!evText?.trim()) return null;
+  const lower = evText.toLowerCase();
+  const frequency = lower.includes('annual') ? 'annual' :
+                    lower.includes('monthly') ? 'monthly' :
+                    lower.includes('biannual') ? 'biannual' : 'annual';
+  const monthMatch = evText.match(new RegExp(`\\b(${ISLAMIC_MONTHS.join('|')})\\b`, 'i'));
+  const date = monthMatch ? monthMatch[1] : undefined;
+  return { frequency, date };
+}
+
+// ── load inputs ───────────────────────────────────────────────────────────────
+
+const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
+const SEEDS_JSON = join(ROOT, 'data', 'kg-seeds.json');
+
+if (!existsSync(SHRINES_JSON)) {
+  console.error('[kg] data/shrines.json not found. Run: npm run data:build');
+  process.exit(1);
+}
+if (!existsSync(SEEDS_JSON)) {
+  console.error('[kg] data/kg-seeds.json not found.');
+  process.exit(1);
+}
+
+const { rows } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
+const seeds = JSON.parse(readFileSync(SEEDS_JSON, 'utf8'));
+
+const mergeVariants = seeds.saintMergeVariants ?? {};
+const seedOrders = seeds.orders ?? [];
+const saintOrders = seeds.saintOrders ?? {};
+delete saintOrders.comment;
+const qidMap = seeds.saintWikidataQids ?? {};
+
+// ── generate shrine slugs (same logic as the app) ────────────────────────────
+
+const shrineSlugs = buildSlugs(rows);
+const shrinesWithSlugs = rows.map((row, i) => ({ row, slug: shrineSlugs[i] }));
+
+// ── extract: orders (from seeds) ─────────────────────────────────────────────
+
+const orders = seedOrders.map((o) => ({
+  id: `order:${o.slug}`,
+  type: 'order',
+  slug: o.slug,
+  name: o.name,
+  arabicName: o.arabicName,
+  founded: o.founded,
+  description: o.description,
+  ...(o.wikidataQid ? { wikidataQid: o.wikidataQid } : {}),
+}));
+
+const orderBySlug = new Map(orders.map((o) => [o.slug, o]));
+
+// ── extract: saints ───────────────────────────────────────────────────────────
+
+const saintMap = new Map(); // slug → KGSaint (partial, shrines[] grows)
+const reviewNeeded = [];
+
+for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
+  const rawSaint = String(row['Sufi Saint'] ?? '').trim();
+  if (!rawSaint) continue;
+
+  const canonical = canonicalizeSaintName(rawSaint, mergeVariants);
+  const saintSlug = slugify(canonical);
+  if (!saintSlug) continue;
+
+  const altFromParen = extractParenthetical(rawSaint);
+  // alt from the pre-merge raw value (e.g. "Syed Muhammad Usman")
+  const altFromMerge = mergeVariants[rawSaint] ? extractParenthetical(rawSaint) : null;
+  const altName = altFromParen && altFromParen !== canonical ? altFromParen : null;
+
+  if (!saintMap.has(saintSlug)) {
+    const qidEntry = qidMap[saintSlug];
+    saintMap.set(saintSlug, {
+      id: `saint:${saintSlug}`,
+      type: 'saint',
+      slug: saintSlug,
+      name: canonical,
+      altNames: altName ? [altName] : [],
+      shrines: [],
+      ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
+    });
+  }
+
+  const entity = saintMap.get(saintSlug);
+
+  if (!entity.shrines.includes(shrineSlug)) {
+    entity.shrines.push(shrineSlug);
+  }
+
+  if (altName && !entity.altNames.includes(altName)) {
+    entity.altNames.push(altName);
+  }
+
+  // Log the merge decision for review
+  if (rawSaint !== canonical) {
+    const alreadyLogged = reviewNeeded.some(
+      (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'name-merge',
+    );
+    if (!alreadyLogged) {
+      reviewNeeded.push({
+        issue: 'name-merge',
+        entityId: `saint:${saintSlug}`,
+        details: `"${rawSaint}" merged into canonical "${canonical}" (slug: ${saintSlug}). Verify the merge is correct.`,
+      });
+    }
+  }
+}
+
+const saints = [...saintMap.values()];
+
+// Apply any order associations from seeds
+const saintBySlug = new Map(saints.map((s) => [s.slug, s]));
+
+// ── extract: places ───────────────────────────────────────────────────────────
+
+const placeMap = new Map(); // district-slug → KGPlace
+
+for (const { row } of shrinesWithSlugs) {
+  const location = String(row['Location'] ?? '').trim();
+  const parsed = parseLocation(location);
+  if (!parsed) continue;
+
+  const districtSlug = slugify(parsed.district) || slugify(parsed.city);
+  if (!districtSlug) continue;
+
+  if (!placeMap.has(districtSlug)) {
+    placeMap.set(districtSlug, {
+      id: `place:${districtSlug}`,
+      type: 'place',
+      slug: districtSlug,
+      name: parsed.district || parsed.city,
+      city: parsed.city !== parsed.district ? parsed.city : undefined,
+      district: parsed.district,
+      province: parsed.province,
+      country: parsed.country,
+    });
+  }
+}
+
+const places = [...placeMap.values()];
+const placeByDistrictSlug = new Map(places.map((p) => [p.slug, p]));
+
+// ── extract: events ───────────────────────────────────────────────────────────
+
+const events = [];
+
+for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
+  const evText = String(row['Events'] ?? '').trim();
+  const parsed = parseEvent(evText);
+  if (!parsed) continue;
+
+  const rawSaint = String(row['Sufi Saint'] ?? '').trim();
+  const canonical = rawSaint ? canonicalizeSaintName(rawSaint, mergeVariants) : '';
+  const saintSlug = canonical ? slugify(canonical) : undefined;
+
+  const shrine = row['Name'] || '';
+  const evSlug = `urs-${shrineSlug}`;
+
+  events.push({
+    id: `event:${evSlug}`,
+    type: 'event',
+    slug: evSlug,
+    name: `Urs${saintSlug ? ' of ' + (saintBySlug.get(saintSlug)?.name ?? canonical) : ''}${shrine ? ' at ' + shrine : ''}`,
+    eventType: 'urs',
+    shrineSlug,
+    saintSlug,
+    date: parsed.date,
+    frequency: parsed.frequency,
+  });
+}
+
+// ── build: relations ──────────────────────────────────────────────────────────
+
+const relations = [];
+
+// saint → buried_at → shrine
+for (const saint of saints) {
+  for (const shrineSlug of saint.shrines) {
+    relations.push({
+      id: `buried_at:${saint.id}:${shrineSlug}`,
+      type: 'buried_at',
+      subject: saint.id,
+      object: shrineSlug,
+      confidence: 1.0,
+      method: 'rule',
+    });
+  }
+}
+
+// shrine → located_in → place
+for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
+  const location = String(row['Location'] ?? '').trim();
+  const parsed = parseLocation(location);
+  if (!parsed) continue;
+  const districtSlug = slugify(parsed.district) || slugify(parsed.city);
+  const place = placeByDistrictSlug.get(districtSlug);
+  if (!place) continue;
+
+  const relId = `located_in:${shrineSlug}:${place.id}`;
+  if (!relations.some((r) => r.id === relId)) {
+    relations.push({
+      id: relId,
+      type: 'located_in',
+      subject: shrineSlug,
+      object: place.id,
+      confidence: 0.95,
+      method: 'rule',
+    });
+  }
+}
+
+// saint → belongs_to_order → order (from seeds)
+for (const [saintSlug, orderSlug] of Object.entries(saintOrders)) {
+  if (!saintBySlug.has(saintSlug)) {
+    reviewNeeded.push({
+      issue: 'seed-saint-not-found',
+      entityId: `saint:${saintSlug}`,
+      details: `saintOrders entry for "${saintSlug}" has no matching saint entity in the dataset.`,
+    });
+    continue;
+  }
+  if (!orderBySlug.has(orderSlug)) {
+    reviewNeeded.push({
+      issue: 'seed-order-not-found',
+      entityId: `order:${orderSlug}`,
+      details: `saintOrders maps "${saintSlug}" to order "${orderSlug}" but that order slug is not in kg-seeds.json.`,
+    });
+    continue;
+  }
+  relations.push({
+    id: `belongs_to_order:saint:${saintSlug}:order:${orderSlug}`,
+    type: 'belongs_to_order',
+    subject: `saint:${saintSlug}`,
+    object: `order:${orderSlug}`,
+    confidence: 0.9,
+    method: 'human',
+  });
+}
+
+// saint → commemorated_by → event
+for (const event of events) {
+  if (!event.saintSlug) continue;
+  const saintId = `saint:${event.saintSlug}`;
+  if (!saintBySlug.has(event.saintSlug)) continue;
+  relations.push({
+    id: `commemorated_by:${saintId}:${event.id}`,
+    type: 'commemorated_by',
+    subject: saintId,
+    object: event.id,
+    confidence: 0.9,
+    method: 'rule',
+  });
+}
+
+// ── add seed review notes ─────────────────────────────────────────────────────
+
+for (const note of seeds.reviewNeededNotes ?? []) {
+  reviewNeeded.push({ issue: 'seed-note', details: note });
+}
+
+// ── build: stats ──────────────────────────────────────────────────────────────
+
+const stats = {
+  saints: saints.length,
+  orders: orders.length,
+  places: places.length,
+  events: events.length,
+  sources: 0,
+  relations: relations.length,
+  ambiguousMerges: reviewNeeded.filter((r) => r.issue === 'name-merge').length,
+};
+
+// ── write output ──────────────────────────────────────────────────────────────
+
+const kg = {
+  schema_version: '1.0.0',
+  generated: new Date().toISOString(),
+  saints,
+  orders,
+  places,
+  events,
+  sources: [],
+  relations,
+  stats,
+  reviewNeeded,
+};
+
+writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
+
+// ── summary ───────────────────────────────────────────────────────────────────
+
+console.log(`[kg] ✓ saints: ${stats.saints}  orders: ${stats.orders}  places: ${stats.places}  events: ${stats.events}`);
+console.log(`[kg] ✓ relations: ${stats.relations}  (${stats.ambiguousMerges} merge(s) logged for review)`);
+if (reviewNeeded.length > 0) {
+  console.log(`[kg] ⚠  ${reviewNeeded.length} item(s) need review → see data/kg.json reviewNeeded`);
+}
+console.log('[kg] ✓ data/kg.json written');

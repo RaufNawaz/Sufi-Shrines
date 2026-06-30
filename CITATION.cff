@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: >-
+  If you use this dataset or software, please cite it using the
+  metadata in this file.
+type: dataset
+title: "Sufi Shrines of Pakistan"
+abstract: >-
+  A bilingual (English/Urdu), schema-validated, open dataset of Sufi shrines
+  and multi-faith sacred sites across Pakistan. Covers Muslim shrines (dargahs,
+  mazars), Hindu temples (mandirs), and Sikh gurdwaras, with structured
+  provenance tracking, a Frictionless Data Package descriptor, and a companion
+  interactive web map. Built for Harvard computational humanities research.
+authors:
+  - family-names: "Nawaz"
+    given-names: "Rauf"
+    email: "raufnawaz@college.harvard.edu"
+    affiliation: "Harvard University"
+contact:
+  - family-names: "Nawaz"
+    given-names: "Rauf"
+    email: "raufnawaz@college.harvard.edu"
+    affiliation: "Harvard University"
+version: "1.0.0"
+date-released: "2026-06-29"
+license: "ODbL-1.0"
+license-url: "https://opendatacommons.org/licenses/odbl/1-0/"
+url: "https://github.com/raufnawaz/sufi-shrines"
+repository-code: "https://github.com/raufnawaz/sufi-shrines"
+keywords:
+  - "sufi-shrines"
+  - "pakistan"
+  - "sacred-sites"
+  - "south-asia"
+  - "urdu"
+  - "bilingual-dataset"
+  - "computational-humanities"
+  - "frictionless-data"
+  - "open-data"
+  - "cultural-heritage"

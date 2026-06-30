@@ -1,6 +1,7 @@
 {
   "name": "sufi-shrines",
   "version": "2.0.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,6 +18,9 @@
     "data:build": "node scripts/data/build-dataset.mjs",
     "data:validate": "node scripts/data/validate.mjs",
     "data:snapshot": "node scripts/snapshot-data.mjs",
+    "data:kg": "npm run data:validate && node scripts/data/build-kg.mjs",
+    "data:export": "npm run data:kg && node scripts/data/export-jsonld.mjs && node scripts/data/export-rdf.mjs",
+    "data:release": "npm run data:validate && node scripts/data/release.mjs",
     "data:validate:legacy": "node scripts/validate-data.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
