@@ -1,7 +1,7 @@
 # Local OCR Quickstart
 
-Use these commands when you want to run the local GPU UTRNet OCR model and
-translate the OCR text.
+Run UTRNet OCR on a local PDF and save the Urdu transcription. Translation and
+Google Sheets write-back are optional — see the flags at the end.
 
 ## 1. Open The Project Folder
 
@@ -9,29 +9,7 @@ translate the OCR text.
 cd "D:\Harvard\Shrines Project"
 ```
 
-## 2. Start LibreTranslate
-
-First open Docker Desktop and wait until it says Docker is running.
-
-Then run:
-
-```powershell
-docker start libretranslate
-```
-
-If Docker says the container does not exist, create it once:
-
-```powershell
-docker run -d --name libretranslate -p 127.0.0.1:5000:5000 -e LT_LOAD_ONLY=en,ur libretranslate/libretranslate
-```
-
-Check that translation is ready:
-
-```powershell
-Invoke-RestMethod -Uri "http://127.0.0.1:5000/languages" -Method Get
-```
-
-## 3. Start The Local UTRNet Model
+## 2. Start The Local UTRNet Model
 
 Open a second PowerShell window:
 
@@ -54,7 +32,7 @@ Optional GPU check:
 python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'NO CUDA')"
 ```
 
-## 4. Run OCR And Translation On Any PDF In This Folder
+## 3. Run OCR On Any PDF In This Folder
 
 Open a third PowerShell window:
 
@@ -68,34 +46,28 @@ List the PDFs in the folder:
 Get-ChildItem *.pdf
 ```
 
-Run OCR and translation by replacing the PDF name:
+Run OCR (transcription only, no translation):
 
 ```powershell
-py -3 process_books.py `
+py -3 tools\process_books.py `
   --test-pdf "YOUR-PDF-NAME.pdf" `
   --first-page 1 `
   --max-pages 10 `
   --utrnet-url "http://127.0.0.1:7860" `
-  --dpi 200 `
-  --translation-chars 10000 `
-  --translation-delay 0
+  --dpi 200
 ```
 
-The script prints timing lines for PDF rendering, each OCR page, total OCR, and
-translation chunks. Use those lines to see whether OCR or translation is the
-slow part.
+The script prints timing lines for PDF rendering and each OCR page.
 
 Example:
 
 ```powershell
-py -3 process_books.py `
+py -3 tools\process_books.py `
   --test-pdf "AFADA-E-KABIR.pdf" `
   --first-page 4 `
   --max-pages 2 `
   --utrnet-url "http://127.0.0.1:7860" `
-  --dpi 200 `
-  --translation-chars 10000 `
-  --translation-delay 0
+  --dpi 200
 ```
 
 If the PDF filename has spaces, keep the quotes:
@@ -113,28 +85,72 @@ If the PDF is in a subfolder, use the relative path:
 To process the whole PDF, remove `--max-pages 10`:
 
 ```powershell
-py -3 process_books.py `
+py -3 tools\process_books.py `
   --test-pdf "YOUR-PDF-NAME.pdf" `
   --first-page 1 `
   --utrnet-url "http://127.0.0.1:7860" `
+  --dpi 200
+```
+
+## 4. Find The Output
+
+The transcribed Urdu text is saved under:
+
+```text
+out\ocr\<book-name>\
+```
+
+For example:
+
+```text
+out\ocr\AFADA-E-KABIR\p004-p005_20260629_120000_transcribed.txt
+```
+
+The `out\` directory is in `.gitignore` — files there are never committed.
+
+## 5. Optional: Also Produce An English Draft
+
+Add `--translate` to request a LibreTranslate machine-translation pass.
+You must start LibreTranslate first (see step 5a below).
+
+```powershell
+py -3 tools\process_books.py `
+  --test-pdf "AFADA-E-KABIR.pdf" `
+  --first-page 4 `
+  --max-pages 2 `
+  --utrnet-url "http://127.0.0.1:7860" `
   --dpi 200 `
+  --translate `
   --translation-chars 10000 `
   --translation-delay 0
 ```
 
-## 5. Find The Output
-
-The output files are saved in:
+This writes a second file:
 
 ```text
-book_test_output
+out\ocr\AFADA-E-KABIR\p004-p005_20260629_120000_translated.txt
 ```
 
-You should get one transcribed file and one translated file:
+Machine translation is a rough draft. Always review it before publication.
 
-```text
-BOOKNAME_p001-p010_TIMESTAMP_transcribed.txt
-BOOKNAME_p001-p010_TIMESTAMP_translated.txt
+### 5a. Start LibreTranslate
+
+Open Docker Desktop and wait until it says Docker is running, then:
+
+```powershell
+docker start libretranslate
+```
+
+If the container does not exist, create it once:
+
+```powershell
+docker run -d --name libretranslate -p 127.0.0.1:5000:5000 -e LT_LOAD_ONLY=en,ur libretranslate/libretranslate
+```
+
+Check that translation is ready:
+
+```powershell
+Invoke-RestMethod -Uri "http://127.0.0.1:5000/languages" -Method Get
 ```
 
 ## 6. Stop Everything
@@ -151,7 +167,7 @@ Stop the local UTRNet model in the `python app.py` window:
 Ctrl+C
 ```
 
-Stop LibreTranslate:
+Stop LibreTranslate (only if you started it):
 
 ```powershell
 docker stop libretranslate

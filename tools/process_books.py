@@ -688,7 +688,7 @@ def process_row(
     existing_transcribed = collect_chunked_column(row, args.transcribed_column)
     existing_translated = collect_chunked_column(row, args.translated_column)
     needs_ocr = args.force or not existing_transcribed
-    needs_translation = args.force or not existing_translated
+    needs_translation = args.translate and (args.force or not existing_translated)
 
     if not needs_ocr and not needs_translation:
         return False
@@ -839,10 +839,11 @@ def build_standalone_output_paths(
     book_name = get_test_book_name(args)
     page_range = get_page_range_label(args.first_page, args.max_pages)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename_base = f"{book_name}_{page_range}_{timestamp}"
+    filename_base = f"{page_range}_{timestamp}"
+    book_dir = output_dir / book_name
     return (
-        output_dir / f"{filename_base}_transcribed.txt",
-        output_dir / f"{filename_base}_translated.txt",
+        book_dir / f"{filename_base}_transcribed.txt",
+        book_dir / f"{filename_base}_translated.txt",
     )
 
 
@@ -852,8 +853,8 @@ def process_standalone_test(
     tesseract: str | None,
 ) -> None:
     output_dir = Path(args.test_output_dir).expanduser().resolve()
-    output_dir.mkdir(parents=True, exist_ok=True)
     transcribed_path, translated_path = build_standalone_output_paths(args, output_dir)
+    transcribed_path.parent.mkdir(parents=True, exist_ok=True)
 
     with tempfile.TemporaryDirectory(prefix="shrine-book-test-") as temp_dir:
         work_dir = Path(temp_dir)
@@ -861,10 +862,10 @@ def process_standalone_test(
 
         if args.test_pdf:
             source_path = Path(args.test_pdf).expanduser().resolve()
-            print(f"Using local test PDF: {source_path}")
+            print(f"Using local PDF: {source_path}")
             copy_local_pdf(source_path, pdf_path)
         else:
-            print("Downloading test PDF")
+            print("Downloading PDF")
             download_book_pdf(args.test_book_url, pdf_path, args.timeout)
 
         print("Running Urdu OCR")
@@ -885,7 +886,11 @@ def process_standalone_test(
         transcribed_path.write_text(transcribed_text, encoding="utf-8", newline="\n")
         print(f"Wrote OCR text: {transcribed_path}")
 
-        print("Translating Urdu OCR to English")
+        if not args.translate:
+            print("Translation skipped. Pass --translate to also produce an English draft.")
+            return
+
+        print("Translating Urdu OCR to English (draft — requires human review before publication)")
         translated_text = translate_text(
             transcribed_text,
             args.libre_url,
@@ -899,16 +904,30 @@ def process_standalone_test(
         )
 
         translated_path.write_text(translated_text, encoding="utf-8", newline="\n")
-        print(f"Wrote translated text: {translated_path}")
+        print(f"Wrote translation draft: {translated_path}")
+        print("  Note: machine translation requires human review before publication.")
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Download shrine book PDFs, OCR Urdu text with UTRNet, translate it "
-            "with a LibreTranslate-compatible endpoint, and save results back to "
-            "the Google Sheet through the existing Apps Script web app."
-        )
+            "OCR Urdu book PDFs with UTRNet and write the transcribed text to local "
+            "files under out/ocr/.  Translation (LibreTranslate) and Google Sheet "
+            "write-back are both OFF by default; enable them with --translate and "
+            "--write-sheet respectively."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Examples:\n"
+            "  # OCR a local PDF (default — no Sheet, no translation):\n"
+            "  py -3 tools/process_books.py --test-pdf BOOK.pdf\n\n"
+            "  # OCR + produce an English translation draft:\n"
+            "  py -3 tools/process_books.py --test-pdf BOOK.pdf --translate\n\n"
+            "  # Process books from the Google Sheet and write OCR back (no translation):\n"
+            "  py -3 tools/process_books.py --write-sheet\n\n"
+            "  # Full pipeline — Sheet, OCR, translate, write back:\n"
+            "  py -3 tools/process_books.py --write-sheet --translate\n"
+        ),
     )
     parser.add_argument("--csv-url", default=os.getenv("SHRINES_CSV_URL", DEFAULT_CSV_URL))
     parser.add_argument("--apps-script-url", default=os.getenv("SHRINES_APPS_SCRIPT_URL", ""))
@@ -919,7 +938,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--translated-column", default="Translated")
     parser.add_argument("--test-pdf", default="", help="OCR/translate one local PDF without using the sheet.")
     parser.add_argument("--test-book-url", default="", help="OCR/translate one PDF/Drive URL without using the sheet.")
-    parser.add_argument("--test-output-dir", default="book_test_output")
+    parser.add_argument("--test-output-dir", default="out/ocr")
     parser.add_argument("--limit", type=int, default=0, help="Process at most this many rows.")
     parser.add_argument("--force", action="store_true", help="Reprocess rows even when output exists.")
     parser.add_argument("--dry-run", action="store_true", help="Run OCR/translation without saving.")
@@ -964,6 +983,27 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Do not save Transcribed before starting translation.",
     )
     parser.set_defaults(save_ocr_first=True)
+    parser.add_argument(
+        "--translate",
+        action="store_true",
+        default=False,
+        help=(
+            "Run LibreTranslate after OCR to produce an English translation draft. "
+            "Off by default — requires a running LibreTranslate instance. "
+            "Any machine-translated output must be reviewed by a human before "
+            "publication and is never the source of record."
+        ),
+    )
+    parser.add_argument(
+        "--write-sheet",
+        action="store_true",
+        default=False,
+        help=(
+            "Read book links from the Google Sheet (--csv-url) and write OCR results "
+            "back via the Apps Script endpoint. Requires SHRINES_APPS_SCRIPT_URL or "
+            "--apps-script-url to be set. Off by default."
+        ),
+    )
 
     args = parser.parse_args(argv)
     args.libre_url = normalize_translate_endpoint(args.libre_url)
@@ -992,8 +1032,16 @@ def main(argv: list[str]) -> int:
         )
         if args.test_pdf or args.test_book_url:
             process_standalone_test(args, pdftoppm, tesseract)
-            print("Done. Standalone test completed without using Google Sheets.")
+            print("Done. OCR output written to", args.test_output_dir)
             return 0
+
+        if not args.write_sheet:
+            print(
+                "Nothing to do. To run OCR on a PDF use --test-pdf or --test-book-url.\n"
+                "To sync with Google Sheets pass --write-sheet.",
+                file=sys.stderr,
+            )
+            return 1
 
         if not args.dry_run and not args.apps_script_url:
             raise PipelineError(

@@ -1,15 +1,25 @@
 # Book OCR and Translation Workflow
 
-This guide explains how to run the Urdu book OCR pipeline whenever you want,
-how to test it without Google Sheets, and how to switch to the Google Sheets
-write-back version.
+This guide explains how to run the Urdu book OCR pipeline: transcribe a PDF
+locally, and optionally produce a machine-translation draft or write results
+back to the Google Sheet.
+
+**Default behaviour (no extra flags):** OCR only — renders pages, runs UTRNet,
+writes Urdu transcription to `out/ocr/<book>/`. Requires no API keys.
+
+**Optional flags:**
+
+| Flag | Effect | Requires |
+|---|---|---|
+| `--translate` | LibreTranslate MT pass (draft) | Running LibreTranslate container |
+| `--write-sheet` | Read links from sheet, write OCR back | Apps Script deployment + env vars |
 
 The pipeline is:
 
 1. Render selected PDF pages with Poppler / `pdftoppm`.
 2. OCR Urdu text with UTRNet.
-3. Translate Urdu text to English with LibreTranslate.
-4. Either write local test files or save results back to the Google Sheet.
+3. *(Optional, `--translate`)* Translate Urdu to English draft with LibreTranslate.
+4. *(Optional, `--write-sheet`)* Write results back to the Google Sheet.
 
 ## Main Project Folder
 
@@ -94,7 +104,10 @@ Then restart WSL:
 wsl --shutdown
 ```
 
-### 4. Create LibreTranslate
+### 4. Create LibreTranslate (Optional)
+
+Skip this step if you only need OCR transcription. Only required when you plan
+to run `--translate`.
 
 Open WSL or a terminal where `docker` works:
 
@@ -125,10 +138,10 @@ py -3 -m pip install gradio_client
 Test pages 4 and 5 of the local sample book:
 
 ```powershell
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2
 ```
 
-If that produces good files in `book_test_output`, the HF path is working.
+If that produces a file under `out/ocr/AFADA-E-KABIR/`, the HF path is working.
 
 ### 6. Optional: Set Up Local UTRNet
 
@@ -180,10 +193,10 @@ Leave it running. In a second PowerShell window:
 
 ```powershell
 cd "D:\Harvard\Shrines Project"
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --utrnet-url "http://127.0.0.1:7860"
 ```
 
-### 7. Deploy Apps Script
+### 7. Deploy Apps Script (required only for `--write-sheet`)
 
 Deploy this local file:
 
@@ -215,7 +228,7 @@ Who has access: Anyone
 9. Authorize the app.
 10. Copy the web app URL.
 
-### 8. First Google Sheets Test
+### 8. First Google Sheets Test (requires `--write-sheet`)
 
 In the sheet, add:
 
@@ -237,36 +250,33 @@ $env:SHRINES_APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYME
 $env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Code.gs"
 ```
 
-Small HF test:
+Small HF test (OCR only to sheet):
 
 ```powershell
-py -3 process_books.py --limit 1 --max-pages 10
+py -3 tools\process_books.py --write-sheet --limit 1 --max-pages 10
 ```
 
 Small local UTRNet test:
 
 ```powershell
-py -3 process_books.py --limit 1 --max-pages 10 --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --limit 1 --max-pages 10 --utrnet-url "http://127.0.0.1:7860"
 ```
 
 After the sheet output looks good, process the full same book:
 
 ```powershell
-py -3 process_books.py --limit 1 --force
+py -3 tools\process_books.py --write-sheet --limit 1 --force
 ```
 
 or with local UTRNet:
 
 ```powershell
-py -3 process_books.py --limit 1 --force --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --limit 1 --force --utrnet-url "http://127.0.0.1:7860"
 ```
 
 ## Every-Time Startup Checklist
 
-Use this section after restarting your computer and adding a new Google Drive
-book link to the sheet.
-
-### 0. Add The Book Link
+### 0. Add The Book Link (only for `--write-sheet` mode)
 
 1. Upload the PDF to Google Drive.
 2. Set sharing to:
@@ -278,7 +288,9 @@ Anyone with the link can view
 3. Paste the link into the shrine row's `Book` column.
 4. Leave `Transcribed` and `Translated` empty for a first run.
 
-### 1. Start LibreTranslate
+### 1. Start LibreTranslate (only if using `--translate`)
+
+Skip this step entirely if you are doing OCR-only runs.
 
 Open Ubuntu/WSL or PowerShell where Docker works.
 
@@ -368,7 +380,7 @@ cd "D:\Harvard\End-To-End-Urdu-OCR-WebApp"
 .\.venv\Scripts\python.exe app.py
 ```
 
-### 3. Run The Sheet Worker
+### 3. Run The Sheet Worker (requires `--write-sheet`)
 
 Open a second PowerShell window:
 
@@ -388,37 +400,38 @@ $env:SHRINES_SHEET_NAME = "Your Sheet Tab Name"
 Small first run for the first unfinished book:
 
 ```powershell
-py -3 process_books.py --limit 1 --max-pages 10 --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --limit 1 --max-pages 10 --utrnet-url "http://127.0.0.1:7860"
 ```
 
 Check the sheet. If the first 10 pages look good, process the whole same book:
 
 ```powershell
-py -3 process_books.py --limit 1 --force --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --limit 1 --force --utrnet-url "http://127.0.0.1:7860"
 ```
 
 Use `--force` here because the 10-page test already filled the row. For the
 next new row with empty `Transcribed` and `Translated`, you do not need `--force`.
 
-## Test Without Google Sheets
+## OCR Local Files (Default Mode)
 
-This mode does not read or write the spreadsheet. It writes local files only.
+This mode does not read or write the spreadsheet. It writes local files to
+`out/ocr/<book>/`. No API keys required.
 
-### Test Pages 4 and 5 With Hugging Face UTRNet
-
-```powershell
-cd "D:\Harvard\Shrines Project"
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2
-```
-
-### Test The First 10 Pages With Hugging Face UTRNet
+### OCR Pages 4 and 5 With Hugging Face UTRNet
 
 ```powershell
 cd "D:\Harvard\Shrines Project"
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 1 --max-pages 10
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2
 ```
 
-### Test Pages 4 and 5 With Local UTRNet
+### OCR The First 10 Pages With Hugging Face UTRNet
+
+```powershell
+cd "D:\Harvard\Shrines Project"
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 1 --max-pages 10
+```
+
+### OCR Pages 4 and 5 With Local UTRNet
 
 Start local UTRNet first:
 
@@ -432,24 +445,34 @@ Then in a second PowerShell window:
 
 ```powershell
 cd "D:\Harvard\Shrines Project"
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --utrnet-url "http://127.0.0.1:7860"
 ```
 
-### Test Output Files
+### OCR + Translation Draft (add `--translate`)
 
-After either test, inspect:
+Start LibreTranslate first (see Every-Time Startup Checklist → Step 1), then:
+
+```powershell
+py -3 tools\process_books.py `
+  --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 `
+  --utrnet-url "http://127.0.0.1:7860" --translate
+```
+
+### Output Files
+
+Transcription only:
 
 ```text
-book_test_output\BOOKNAME_p004-p005_YYYYMMDD_HHMMSS_transcribed.txt
-book_test_output\BOOKNAME_p004-p005_YYYYMMDD_HHMMSS_translated.txt
+out\ocr\AFADA-E-KABIR\p004-p005_YYYYMMDD_HHMMSS_transcribed.txt
 ```
 
-For example:
+With `--translate`:
 
 ```text
-book_test_output\AFADA-E-KABIR_p004-p005_20260608_183012_transcribed.txt
-book_test_output\AFADA-E-KABIR_p004-p005_20260608_183012_translated.txt
+out\ocr\AFADA-E-KABIR\p004-p005_YYYYMMDD_HHMMSS_translated.txt
 ```
+
+The `out/` directory is git-ignored — files there are never committed.
 
 ## Full Local UTRNet Setup
 
@@ -621,25 +644,25 @@ $env:SHRINES_SHEET_NAME = "Your Sheet Tab Name"
 Using Hugging Face UTRNet:
 
 ```powershell
-py -3 process_books.py --limit 1
+py -3 tools\process_books.py --write-sheet --limit 1
 ```
 
 Using local UTRNet:
 
 ```powershell
-py -3 process_books.py --limit 1 --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --limit 1 --utrnet-url "http://127.0.0.1:7860"
 ```
 
 Small first test, only first 5 pages of the first unfinished book:
 
 ```powershell
-py -3 process_books.py --limit 1 --max-pages 5
+py -3 tools\process_books.py --write-sheet --limit 1 --max-pages 5
 ```
 
 Specific pages, for example pages 4 and 5:
 
 ```powershell
-py -3 process_books.py --limit 1 --first-page 4 --max-pages 2
+py -3 tools\process_books.py --write-sheet --limit 1 --first-page 4 --max-pages 2
 ```
 
 ### 5. Process The Rest
@@ -647,45 +670,45 @@ py -3 process_books.py --limit 1 --first-page 4 --max-pages 2
 Using Hugging Face UTRNet:
 
 ```powershell
-py -3 process_books.py
+py -3 tools\process_books.py --write-sheet
 ```
 
 Using local UTRNet:
 
 ```powershell
-py -3 process_books.py --utrnet-url "http://127.0.0.1:7860"
+py -3 tools\process_books.py --write-sheet --utrnet-url "http://127.0.0.1:7860"
 ```
 
 ## Useful Options
 
-Dry run OCR/translation without saving to Google Sheets:
+Dry run OCR without saving to Google Sheets (requires `--write-sheet`):
 
 ```powershell
-py -3 process_books.py --limit 1 --dry-run
+py -3 tools\process_books.py --write-sheet --limit 1 --dry-run
 ```
 
-Reprocess a row even if output columns already exist:
+Reprocess a sheet row even if output columns already exist:
 
 ```powershell
-py -3 process_books.py --limit 1 --force
+py -3 tools\process_books.py --write-sheet --limit 1 --force
 ```
 
 Keep temporary rendered page images for debugging:
 
 ```powershell
-py -3 process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --keep-workdir
+py -3 tools\process_books.py --test-pdf "AFADA-E-KABIR.pdf" --first-page 4 --max-pages 2 --keep-workdir
 ```
 
 Use a custom Poppler path:
 
 ```powershell
-py -3 process_books.py --pdftoppm "C:\path\to\poppler\Library\bin\pdftoppm.exe" --limit 1
+py -3 tools\process_books.py --pdftoppm "C:\path\to\poppler\Library\bin\pdftoppm.exe" --test-pdf "AFADA-E-KABIR.pdf"
 ```
 
 Use Tesseract fallback instead of UTRNet:
 
 ```powershell
-py -3 process_books.py --ocr-engine tesseract --tesseract "C:\Program Files\Tesseract-OCR\tesseract.exe" --tessdata-dir ".\tessdata" --limit 1
+py -3 tools\process_books.py --ocr-engine tesseract --tesseract "C:\Program Files\Tesseract-OCR\tesseract.exe" --tessdata-dir ".\tessdata" --test-pdf "AFADA-E-KABIR.pdf"
 ```
 
 ## Stop Services

@@ -21,6 +21,7 @@ tessdata/
 __pycache__/
 *.pyc
 book_test_output/
+out/
 
 # Working/planning files — local only, not part of the product
 REDESIGN_FOLLOWUP.md
