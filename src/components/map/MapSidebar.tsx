@@ -522,6 +522,7 @@ export function MapSidebar({
               tour={activeTour}
               stopIdx={activeTourStop}
               shrine={activeTourShrine}
+              shrines={shrines}
               lang={lang}
               onNext={onTourNext}
               onPrev={onTourPrev}
@@ -537,6 +538,7 @@ export function MapSidebar({
                 enabled={toursEnabled}
                 onToggle={onToursToggle}
                 onStart={onStartTour}
+                shrines={shrines}
               />
             </>
           )}
