@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+/* Fonts are loaded via <link> in index.html — a remote @import here would
+   delay the font CSS until after the bundled stylesheet downloads. */
 
 *,
 *::before,

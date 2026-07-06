@@ -22,9 +22,19 @@
     <meta name="apple-mobile-web-app-title" content="Sufi Shrines" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Font preconnect — improves load time for Google Fonts (CSS @import in global.css) -->
+    <!-- Fonts: linked here (not @import) so the fetch starts before the app CSS arrives -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+    />
+
+    <!-- Map tiles: warm the CDN connection before Leaflet's first request -->
+    <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Sufi Shrines of Pakistan</title>
