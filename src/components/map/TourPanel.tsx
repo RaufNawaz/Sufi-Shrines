@@ -4,13 +4,19 @@ import { TOURS } from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm, totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
 import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
+import { useTourAudio } from '../../lib/tours/useTourAudio';
+import { useAutoplay } from '../../lib/tours/useAutoplay';
 import { getFieldValue, getUrduFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
 import { t } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { useShareLink } from '../../hooks/useShareLink';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
+
+/** How long each stop gets in autoplay before advancing to the next. */
+const AUTOPLAY_STOP_DURATION_MS = 12000;
 
 const VISITING_INFO_TITLE = ARTICLE_SECTION_DEFINITIONS.find((d) => d.id === 'visiting')!.title;
 
@@ -59,6 +65,21 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
   const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang) : '';
   const { share, copied } = useShareLink();
   const tourTitle = lang === 'ur' ? tour.titleUr : tour.title;
+  const narrativeText = lang === 'ur' ? stop.narrativeUr : stop.narrative;
+
+  const audio = useTourAudio({ tourId: tour.id, stopIndex: stopIdx, text: narrativeText, lang });
+
+  const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const [autoplayOn, setAutoplayOn] = useState(false);
+  const [autoplayPaused, setAutoplayPaused] = useState(false);
+  const autoplayActive = autoplayOn && !autoplayPaused && !isLast && !reducedMotion;
+  const { remainingMs } = useAutoplay({
+    enabled: autoplayActive,
+    durationMs: AUTOPLAY_STOP_DURATION_MS,
+    resetKey: stopIdx,
+    onComplete: onNext,
+  });
+  const autoplaySecondsLeft = Math.ceil(remainingMs / 1000);
 
   return (
     <div className="tour-panel" aria-label={lang === 'ur' ? 'رہنما دورہ' : 'Guided tour'}>
@@ -107,8 +128,35 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
       <h3 className="tour-stop-name" lang={lang === 'ur' ? 'ur' : undefined}>{shrineName}</h3>
 
       <p className="tour-narrative" lang={lang === 'ur' ? 'ur' : undefined}>
-        {lang === 'ur' ? stop.narrativeUr : stop.narrative}
+        {narrativeText}
       </p>
+
+      <div className="tour-audio">
+        {audio.state === 'playing' ? (
+          <button className="tour-audio-btn" onClick={audio.pause} aria-label={t(lang, 'audioPause')} title={t(lang, 'audioPause')}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" />
+            </svg>
+          </button>
+        ) : (
+          <button className="tour-audio-btn" onClick={audio.play} aria-label={t(lang, 'audioPlay')} title={t(lang, 'audioPlay')}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="6 4 20 12 6 20 6 4" />
+            </svg>
+          </button>
+        )}
+        {audio.state !== 'idle' && (
+          <button className="tour-audio-btn" onClick={audio.stop} aria-label={t(lang, 'audioStop')} title={t(lang, 'audioStop')}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <rect x="5" y="5" width="14" height="14" />
+            </svg>
+          </button>
+        )}
+        <span className="sr-only" aria-live="polite" aria-atomic="true">
+          {audio.state === 'playing' && t(lang, 'audioStatusPlaying')}
+          {audio.state === 'paused' && t(lang, 'audioStatusPaused')}
+        </span>
+      </div>
 
       {visitingInfo && (
         <p className="tour-visiting-info" lang={lang === 'ur' ? 'ur' : undefined}>
@@ -132,6 +180,47 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
           />
         ))}
       </div>
+
+      {!reducedMotion && !isLast && (
+        <div className="tour-autoplay">
+          <span className="tour-autoplay-label">{t(lang, 'autoplayLabel')}</span>
+          <button
+            type="button"
+            className="tour-toggle"
+            role="switch"
+            aria-checked={autoplayOn}
+            aria-label={t(lang, 'autoplayLabel')}
+            onClick={() => {
+              setAutoplayOn((v) => !v);
+              setAutoplayPaused(false);
+            }}
+          >
+            <span className="tour-toggle-knob" aria-hidden="true" />
+          </button>
+          {autoplayOn && (
+            <button
+              type="button"
+              className="tour-autoplay-pause"
+              onClick={() => setAutoplayPaused((v) => !v)}
+              aria-label={autoplayPaused ? t(lang, 'autoplayResume') : t(lang, 'autoplayPause')}
+              title={autoplayPaused ? t(lang, 'autoplayResume') : t(lang, 'autoplayPause')}
+            >
+              {autoplayPaused ? (
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" />
+                </svg>
+              ) : (
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" />
+                </svg>
+              )}
+              <span aria-live="polite" aria-atomic="true">
+                {!autoplayPaused && (lang === 'ur' ? `اگلا مقام ${autoplaySecondsLeft} سیکنڈ میں` : `Next in ${autoplaySecondsLeft}s`)}
+              </span>
+            </button>
+          )}
+        </div>
+      )}
 
       <div className="tour-nav">
         <button

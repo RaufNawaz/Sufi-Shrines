@@ -72,6 +72,28 @@ export default defineConfig({
               expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },
+          {
+            // Shrine photos (tour stops included) come from many external
+            // hosts (Wikimedia, news sites, etc.) rather than one CDN —
+            // match by file extension instead of origin.
+            urlPattern: /\.(?:png|jpe?g|webp|avif)(?:\?.*)?$/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'shrine-images',
+              expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 30 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
+            // Static per-stop narration assets (see tourAudioAssetPath) —
+            // none ship yet, but this precaches any added later on first play.
+            urlPattern: /\/audio\/tours\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'tour-audio',
+              expiration: { maxEntries: 200, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            },
+          },
         ],
       },
     }),
