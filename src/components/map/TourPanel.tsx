@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
-import type { Tour } from '../../lib/tours/tours';
-import { TOURS } from '../../lib/tours/tours';
+import React, { useCallback, useMemo, useState } from 'react';
+import type { Tour, TourTradition } from '../../lib/tours/tours';
+import { TOURS, TRADITION_LABELS } from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm, totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
 import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
@@ -8,6 +8,7 @@ import { useTourAudio } from '../../lib/tours/useTourAudio';
 import { useAutoplay } from '../../lib/tours/useAutoplay';
 import { getFieldValue, getUrduFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { haversineKm } from '../../lib/data/shrineModel';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
 import { t } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
@@ -102,6 +103,16 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
                 <line x1="8.6" y1="10.6" x2="15.4" y2="6.4" /><line x1="8.6" y1="13.4" x2="15.4" y2="17.6" />
               </svg>
             )}
+          </button>
+          <button
+            className="tour-share-btn no-print"
+            onClick={() => window.print()}
+            aria-label={t(lang, 'printItinerary')}
+            title={t(lang, 'printItinerary')}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" />
+            </svg>
           </button>
           <button
             className="tour-exit-btn"
@@ -222,6 +233,21 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
         </div>
       )}
 
+      <div className="tour-print-itinerary">
+        <h1>{tourTitle}</h1>
+        <p>{lang === 'ur' ? tour.descriptionUr : tour.description}</p>
+        <ol>
+          {points.map((p) => (
+            <li key={p.shrine.id}>
+              <h2 lang={lang === 'ur' ? 'ur' : undefined}>{localizeShrineName(p.shrine, lang)}</h2>
+              <p lang={lang === 'ur' ? 'ur' : undefined}>
+                {lang === 'ur' ? tour.stops[p.stopIndex].narrativeUr : tour.stops[p.stopIndex].narrative}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <div className="tour-nav">
         <button
           className="tour-nav-btn"
@@ -261,12 +287,19 @@ interface TourPreviewProps {
   shrines: Shrine[];
   onStart: () => void;
   onBack: () => void;
+  onPreviewTour: (tourId: string) => void;
 }
 
-function TourPreview({ tour, lang, shrines, onStart, onBack }: TourPreviewProps) {
+function TourPreview({ tour, lang, shrines, onStart, onBack, onPreviewTour }: TourPreviewProps) {
   const points = useMemo(() => resolveTourStops(tour, shrines), [tour, shrines]);
   const km = useMemo(() => totalDistanceKm(points.map((p) => p.shrine.latLng)), [points]);
   const hasDistance = points.length > 1;
+
+  const relatedTours = useMemo(() => {
+    const others = TOURS.filter((tr) => tr.id !== tour.id);
+    const sameTradition = others.filter((tr) => tr.tradition === tour.tradition);
+    return (sameTradition.length > 0 ? sameTradition : others).slice(0, 2);
+  }, [tour]);
 
   return (
     <div className="tour-preview">
@@ -318,6 +351,25 @@ function TourPreview({ tour, lang, shrines, onStart, onBack }: TourPreviewProps)
       <button className="tour-nav-btn tour-nav-btn--next tour-start-btn" onClick={onStart}>
         {t(lang, 'tourStartButton')}
       </button>
+
+      {relatedTours.length > 0 && (
+        <div className="tour-related">
+          <h4 className="tour-related-heading">{t(lang, 'relatedToursHeading')}</h4>
+          <div className="tour-related-cards">
+            {relatedTours.map((related) => (
+              <button
+                key={related.id}
+                className="tour-related-card"
+                onClick={() => onPreviewTour(related.id)}
+              >
+                <span lang={lang === 'ur' ? 'ur' : undefined}>
+                  {lang === 'ur' ? related.titleUr : related.title}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -338,6 +390,14 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
   // an active tour, so this always reflects the latest recorded progress.
   const [progress, setProgress] = useState(getTourProgressState);
 
+  const [traditionFilter, setTraditionFilter] = useState('');
+  const [regionFilter, setRegionFilter] = useState('');
+  const [themeFilter, setThemeFilter] = useState('');
+  const [eraFilter, setEraFilter] = useState('');
+
+  const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+  const [nearest, setNearest] = useState<{ tourId: string; km: number } | null>(null);
+
   const tourDistances = useMemo(() => {
     const map = new Map<string, number>();
     for (const tour of TOURS) {
@@ -345,6 +405,47 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
       if (points.length > 1) map.set(tour.id, totalDistanceKm(points.map((p) => p.shrine.latLng)));
     }
     return map;
+  }, [shrines]);
+
+  const traditions = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.tradition))), []);
+  const regions = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.region))), []);
+  const themes = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.theme))), []);
+  const eras = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.era))), []);
+
+  const filteredTours = useMemo(
+    () =>
+      TOURS.filter(
+        (tr) =>
+          (!traditionFilter || tr.tradition === traditionFilter) &&
+          (!regionFilter || tr.region === regionFilter) &&
+          (!themeFilter || tr.theme === themeFilter) &&
+          (!eraFilter || tr.era === eraFilter),
+      ),
+    [traditionFilter, regionFilter, themeFilter, eraFilter],
+  );
+
+  const handleNearMe = useCallback(() => {
+    if (!navigator.geolocation) {
+      setGeoStatus('error');
+      return;
+    }
+    setGeoStatus('loading');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const userLoc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        let best: { tourId: string; km: number } | null = null;
+        for (const tour of TOURS) {
+          for (const point of resolveTourStops(tour, shrines)) {
+            const km = haversineKm(userLoc, point.shrine.latLng);
+            if (!best || km < best.km) best = { tourId: tour.id, km };
+          }
+        }
+        setNearest(best);
+        setGeoStatus('idle');
+      },
+      () => setGeoStatus('error'),
+      { timeout: 10000 },
+    );
   }, [shrines]);
 
   const toggleLabel = enabled
@@ -366,6 +467,7 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
           setPreviewId(null);
         }}
         onBack={() => setPreviewId(null)}
+        onPreviewTour={setPreviewId}
       />
     );
   }
@@ -426,14 +528,105 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
               ? 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں'
               : 'Follow a curated route through related shrines'}
           </p>
+
+          <button type="button" className="tour-near-me-btn" onClick={handleNearMe} disabled={geoStatus === 'loading'}>
+            {t(lang, 'nearMe')}
+          </button>
+          {geoStatus === 'error' && <p className="tour-geo-error">{t(lang, 'locationUnavailable')}</p>}
+
+          {traditions.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">{t(lang, 'filterByTradition')}</span>
+              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByTradition')}>
+                <button className={`filter-chip${!traditionFilter ? ' active' : ''}`} onClick={() => setTraditionFilter('')} aria-pressed={!traditionFilter}>
+                  {t(lang, 'filterAll')}
+                </button>
+                {traditions.map((tr) => (
+                  <button
+                    key={tr}
+                    className={`filter-chip${traditionFilter === tr ? ' active' : ''}`}
+                    onClick={() => setTraditionFilter(traditionFilter === tr ? '' : tr)}
+                    aria-pressed={traditionFilter === tr}
+                  >
+                    {TRADITION_LABELS[tr as TourTradition][lang]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {regions.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">{t(lang, 'filterByRegion')}</span>
+              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByRegion')}>
+                <button className={`filter-chip${!regionFilter ? ' active' : ''}`} onClick={() => setRegionFilter('')} aria-pressed={!regionFilter}>
+                  {t(lang, 'filterAll')}
+                </button>
+                {regions.map((r) => (
+                  <button
+                    key={r}
+                    className={`filter-chip${regionFilter === r ? ' active' : ''}`}
+                    onClick={() => setRegionFilter(regionFilter === r ? '' : r)}
+                    aria-pressed={regionFilter === r}
+                  >
+                    {r}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {themes.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">{t(lang, 'filterByTheme')}</span>
+              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByTheme')}>
+                <button className={`filter-chip${!themeFilter ? ' active' : ''}`} onClick={() => setThemeFilter('')} aria-pressed={!themeFilter}>
+                  {t(lang, 'filterAll')}
+                </button>
+                {themes.map((th) => (
+                  <button
+                    key={th}
+                    className={`filter-chip${themeFilter === th ? ' active' : ''}`}
+                    onClick={() => setThemeFilter(themeFilter === th ? '' : th)}
+                    aria-pressed={themeFilter === th}
+                  >
+                    {th}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {eras.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">{t(lang, 'filterByEra')}</span>
+              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByEra')}>
+                <button className={`filter-chip${!eraFilter ? ' active' : ''}`} onClick={() => setEraFilter('')} aria-pressed={!eraFilter}>
+                  {t(lang, 'filterAll')}
+                </button>
+                {eras.map((e) => (
+                  <button
+                    key={e}
+                    className={`filter-chip${eraFilter === e ? ' active' : ''}`}
+                    onClick={() => setEraFilter(eraFilter === e ? '' : e)}
+                    aria-pressed={eraFilter === e}
+                  >
+                    {e}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="tour-list-cards">
-            {TOURS.map((tour) => {
+            {filteredTours.map((tour) => {
               const km = tourDistances.get(tour.id);
               const tourProgress = progress.tours[tour.id];
+              const isNearest = nearest?.tourId === tour.id;
               return (
                 <button
                   key={tour.id}
-                  className="tour-card"
+                  className={`tour-card${isNearest ? ' tour-card--nearest' : ''}`}
                   onClick={() => setPreviewId(tour.id)}
                 >
                   <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>
@@ -449,6 +642,14 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
                           {tourProgress.status === 'completed'
                             ? t(lang, 'tourCompletedBadge')
                             : `${t(lang, 'tourInProgressBadge')} ${tourProgress.stopIdx + 1}/${tour.stops.length}`}
+                        </span>
+                      </>
+                    )}
+                    {isNearest && (
+                      <>
+                        {' · '}
+                        <span className="tour-card-nearest-badge">
+                          {t(lang, 'nearestToYou')} ({Math.round(nearest!.km)} {t(lang, 'kmUnit')})
                         </span>
                       </>
                     )}

@@ -1,3 +1,7 @@
+import toursData from '../../data/tours.json';
+
+export type TourTradition = 'sufi' | 'sikh' | 'hindu-jain';
+
 export interface TourStop {
   shrineSlug: string;
   narrative: string;
@@ -10,167 +14,56 @@ export interface Tour {
   titleUr: string;
   description: string;
   descriptionUr: string;
+  tradition: TourTradition;
+  region: string;
+  theme: string;
+  era: string;
   stops: TourStop[];
 }
 
-export const TOURS: Tour[] = [
-  {
-    id: "sufi-indus-valley",
-    title: "Sufi Saints of the Indus Valley",
-    titleUr: "وادئ سندھ کے صوفی اولیاء",
-    description:
-      "A journey through the shrines of Sufi masters who shaped the spiritual life of Sindh and Punjab, following the ancient route of the Indus River from the Arabian Sea to the heart of Lahore.",
-    descriptionUr:
-      "یہ سفر سندھ اور پنجاب کے صوفی بزرگوں کے مزارات کی طرف لے جاتا ہے، جو دریائے سندھ کے قدیم راستے پر بحیرہ عرب سے لاہور تک پھیلے ہوئے ہیں۔",
-    stops: [
-      {
-        shrineSlug: "shrine-of-abdullah-shah-ghazi",
-        narrative:
-          "The clifftop shrine of the 8th-century saint Abdullah Shah Ghazi overlooks the Arabian Sea in Karachi's Clifton neighbourhood. Revered as the patron saint of Karachi, his dargah draws millions of visitors who seek protection and spiritual intercession.",
-        narrativeUr:
-          "آٹھویں صدی کے ولی عبداللہ شاہ غازی کا مزار کراچی کے کلفٹن میں بحیرہ عرب کے اوپر پہاڑی پر واقع ہے۔ انہیں کراچی کا سرپرست ولی مانا جاتا ہے اور ان کے دربار پر لاکھوں زائرین آتے ہیں۔",
-      },
-      {
-        shrineSlug: "lal-shahbaz-qalandar",
-        narrative:
-          "The 13th-century mystic Usman Marwandi — known as Lal Shahbaz Qalandar (Red Royal Falcon) — is among Pakistan's most beloved saints. His shrine in Sehwan is famous for its Thursday-night dhamaal, where thousands of devotees perform ecstatic devotional dance.",
-        narrativeUr:
-          "تیرہویں صدی کے صوفی عثمان مروندی، جو لعل شہباز قلندر کے نام سے مشہور ہیں، پاکستان کے محبوب ترین اولیاء میں سے ہیں۔ سیہون میں ان کا مزار جمعرات کی رات کے دھمال کی وجہ سے خاص طور پر مشہور ہے۔",
-      },
-      {
-        shrineSlug: "bhit-bhit-shah",
-        narrative:
-          "Shah Abdul Latif Bhittai (1689-1752) is the poet-saint of Sindh, revered for his mystical Sufi verse collected in the Shah Jo Risalo. At his shrine in Bhit, professional musicians (manganiyar) perform his poetry day and night, preserving centuries of devotional music.",
-        narrativeUr:
-          "شاہ عبداللطیف بھٹائی (1689–1752) سندھ کے شاعر صوفی ہیں جن کی تصنیف شاہ جو رسالو صدیوں سے محبت کی علامت ہے۔ بھٹ میں ان کے مزار پر موسیقار دن رات ان کی شاعری گاتے ہیں۔",
-      },
-      {
-        shrineSlug: "shrine-of-sachal-sarmast",
-        narrative:
-          "The 18th-century poet Sachal Sarmast was renowned for his bold mystical verse that challenged religious orthodoxy. His dargah at Daraza in Khairpur remains a living centre of qawwali devotion, and his poetry is sung across Sindh and southern Punjab to this day.",
-        narrativeUr:
-          "اٹھارہویں صدی کے شاعر سچل سرمست اپنے جرأتمند صوفیانہ کلام کے لیے مشہور تھے۔ خیرپور کے قریب دراضہ میں ان کا دربار قوالی اور بھکتی کا مرکز ہے۔",
-      },
-      {
-        shrineSlug: "shrine-of-bahauddin-zakariya",
-        narrative:
-          "Bahauddin Zakariya (1170-1267) founded the Suhrawardi Sufi order in the Indian subcontinent from Multan. His imposing domed shrine, over 750 years old, stands at the heart of the ancient city and is one of the most visited dargahs in Pakistan.",
-        narrativeUr:
-          "بہاؤالدین زکریا (1170–1267) نے برصغیر میں سہروردی سلسلے کی بنیاد ملتان سے رکھی۔ ان کا گنبد دار مزار، جو 750 سال سے زیادہ پرانا ہے، پاکستان کے مقبول ترین دربار میں شامل ہے۔",
-      },
-      {
-        shrineSlug: "shrine-of-shah-rukn-e-alam",
-        narrative:
-          "Built between 1320 and 1324, the Tomb of Rukn-e-Alam is considered the finest example of Tughluq-era Islamic architecture. Its grand octagonal chamber, decorated with glazed tiles and intricate brickwork, rises above Multan's skyline as one of Pakistan's most iconic monuments.",
-        narrativeUr:
-          "شاہ رکن عالم کا مقبرہ (1320–1324) تغلق دور کے اسلامی فن تعمیر کا شاہکار مانا جاتا ہے۔ اس کا عظیم ثمانیہ ہال رنگین ٹائلوں اور پیچیدہ اینٹ کاری سے مزین ہے اور ملتان کی سب سے پہچانی علامت ہے۔",
-      },
-      {
-        shrineSlug: "mazar-of-bulleh-shah",
-        narrative:
-          "The 18th-century Sufi poet Bulleh Shah wrote in Punjabi, exploring themes of divine love and social equality that challenged the hierarchies of caste and religion. His tomb in Kasur has become one of the most beloved pilgrimage sites in Punjab.",
-        narrativeUr:
-          "اٹھارہویں صدی کے صوفی شاعر بلھے شاہ نے پنجابی میں الٰہی محبت اور سماجی مساوات کے موضوعات پر لکھا جس نے ذات پات کے نظام کو للکارا۔ قصور میں ان کا مزار پنجاب کا محبوب ترین درگاہ ہے۔",
-      },
-      {
-        shrineSlug: "data-darbar",
-        narrative:
-          "Data Darbar — the shrine of Ali Hujwiri (Hazrat Data Ganj Bakhsh) — is the oldest Sufi shrine on the subcontinent. Hujwiri arrived in Lahore from Afghanistan around 1050 CE and wrote the Kashf al-Mahjub, the first Sufi treatise in Persian. The dargah is open around the clock and receives hundreds of thousands of visitors each week.",
-        narrativeUr:
-          "داتا دربار — حضرت علی ہجویری (داتا گنج بخش) کا مزار — برصغیر کا قدیم ترین صوفی مزار ہے۔ وہ 1050 عیسوی کے قریب افغانستان سے لاہور آئے اور کشف المحجوب لکھی جو فارسی میں پہلی صوفی تصنیف ہے۔ یہ دربار چوبیس گھنٹے کھلا رہتا ہے۔",
-      },
-    ],
-  },
-  {
-    id: "sikh-heritage-circuit",
-    title: "Sikh Heritage Circuit",
-    titleUr: "سکھ ورثے کا سفر",
-    description:
-      "Visit the five most sacred Sikh pilgrimage sites in Pakistan, from the birthplace of Guru Nanak in Nankana Sahib to the martyrdom site of Guru Arjan Dev in Lahore.",
-    descriptionUr:
-      "پاکستان میں سکھ مذہب کے پانچ مقدس ترین مقامات کا سفر، نانک جی کی جائے پیدائش ننکانہ صاحب سے لے کر لاہور میں گرو ارجن دیو جی کی شہادت کی جگہ تک۔",
-    stops: [
-      {
-        shrineSlug: "gurudwara-janam-asthan-nankana-sahib",
-        narrative:
-          "Nankana Sahib is the birthplace of Guru Nanak Dev Ji (1469-1539), the founder of Sikhism. The Gurdwara Janam Asthan was built by Maharaja Ranjit Singh on the site of Nanak's birth home and is the spiritual centre of Sikh pilgrimage in Pakistan.",
-        narrativeUr:
-          "ننکانہ صاحب سکھ مذہب کے بانی گرو نانک دیو جی (1469–1539) کا جائے پیدائش ہے۔ گردوارہ جنم استھان مہاراجہ رنجیت سنگھ نے نانک جی کے آبائی گھر کی جگہ تعمیر کروایا۔",
-      },
-      {
-        shrineSlug: "gurdwara-darbar-sahib-kartarpur",
-        narrative:
-          "Kartarpur is where Guru Nanak spent the final 18 years of his life, established the first Sikh community (sangat), and passed away in 1539. The Kartarpur Corridor, opened in 2019, allows Sikh pilgrims from India to visit without a visa — a landmark moment in cross-border religious heritage.",
-        narrativeUr:
-          "کرتارپور وہ جگہ ہے جہاں گرو نانک نے اپنی زندگی کے آخری 18 سال گزارے اور 1539 میں انتقال فرمایا۔ 2019 میں کھلا کرتارپور راہداری بھارتی سکھ زائرین کو بغیر ویزہ کے یہاں آنے کی سہولت دیتا ہے۔",
-      },
-      {
-        shrineSlug: "gurdwara-panja-sahib",
-        narrative:
-          "At Hasan Abdal, a large rock impression believed to be the handprint of Guru Nanak (panja sahib) is preserved in a sacred pool. The gurdwara marks the site where Nanak is said to have stopped a boulder hurled by the local saint Wali Qandhari, leaving his palm print in the stone.",
-        narrativeUr:
-          "حسن ابدال میں گرو نانک کی ہتھیلی کا نشان (پنجہ صاحب) ایک مقدس تالاب میں محفوظ پتھر پر موجود ہے۔ روایت کے مطابق یہ نشان اس وقت بنا جب نانک جی نے ولی قندہاری کی پھینکی ہوئی چٹان کو روکا۔",
-      },
-      {
-        shrineSlug: "gurdwara-dera-sahib",
-        narrative:
-          "Gurdwara Dera Sahib in Lahore marks the site where the fifth Sikh Guru, Arjan Dev Ji, attained martyrdom in 1606 after being tortured by the Mughal Emperor Jahangir. It stands beside the Ravi River and is one of the most historically significant Sikh shrines in Pakistan.",
-        narrativeUr:
-          "لاہور میں گردوارہ دیرہ صاحب اس جگہ پر قائم ہے جہاں پانچویں سکھ گرو، گرو ارجن دیو جی، نے مغل بادشاہ جہانگیر کے ہاتھوں تشدد کے بعد 1606 میں شہادت پائی۔",
-      },
-      {
-        shrineSlug: "gurdwara-rori-sahib",
-        narrative:
-          "In 1521, when Babur's army swept through the subcontinent, Guru Nanak was briefly taken captive at Eminabad. Gurdwara Rori Sahib commemorates this event. Nanak's eyewitness poems describing the suffering of the civilian population during Babur's invasion remain among Sikhism's most powerful historical texts.",
-        narrativeUr:
-          "1521 میں جب بابر کی فوج نے برصغیر کو روندا تو گرو نانک کو ایمن آباد میں گرفتار کر لیا گیا۔ گردوارہ روری صاحب اس واقعے کی یاد میں قائم ہے۔ نانک کی شاہد ہستی کی حیثیت سے لکھی گئی نظمیں سکھ ادب میں خاص اہمیت رکھتی ہیں۔",
-      },
-    ],
-  },
-  {
-    id: "ancient-sacred-temples",
-    title: "Ancient Sacred Temples",
-    titleUr: "قدیم مقدس معابد",
-    description:
-      "Explore five ancient Hindu and Jain temple sites across Pakistan, spanning from the salt-range plateau to the coast of Balochistan — living centres of pilgrimage and remarkable examples of subcontinental sacred architecture.",
-    descriptionUr:
-      "پاکستان میں قدیم ہندو اور جین معابد کا سفر — نمک کے پہاڑوں سے بلوچستان کے ساحل تک — جو زندہ زیارت گاہیں اور برصغیر کی مقدس تعمیر کے شاندار نمونے ہیں۔",
-    stops: [
-      {
-        shrineSlug: "katas-raj-temples",
-        narrative:
-          "The Katas Raj temple complex in Chakwal preserves temples dating from the 7th to 9th centuries CE around a sacred lake (kund). Hindu tradition holds that the kund formed from the tears shed by Lord Shiva after his consort Sati's death. The site is one of the four holiest places in Hinduism.",
-        narrativeUr:
-          "چکوال میں کٹاس راج مندر مجموعہ ساتویں سے نویں صدی کے مندروں کو ایک مقدس تالاب کے گرد محفوظ رکھتا ہے۔ ہندو روایت کے مطابق یہ تالاب شیو جی کے آنسوؤں سے بنا۔ یہ ہندو مذہب کے چار مقدس ترین مقامات میں سے ایک ہے۔",
-      },
-      {
-        shrineSlug: "tilla-jogian",
-        narrative:
-          "Tilla Jogian is a mountain ridge in the Salt Range associated with the Nath Yogi tradition and the legendary ascetic Guru Gorakshanath. The hilltop site is mentioned in the poetry of both Bulleh Shah and Waris Shah, and the annual mela (fair) draws pilgrims from across the subcontinent.",
-        narrativeUr:
-          "تلہ جوگیاں نمک کی پہاڑیوں میں ناتھ یوگی روایت اور افسانوی سادھو گرو گورکشناتھ سے منسوب پہاڑی سلسلہ ہے۔ یہ مقام بلھے شاہ اور وارث شاہ دونوں کی شاعری میں ملتا ہے۔",
-      },
-      {
-        shrineSlug: "shaktipeeth-shri-hinglaj-mata-mandir",
-        narrative:
-          "Hinglaj Mata Mandir in Balochistan is the largest Hindu pilgrimage site in Pakistan and one of the 51 Shakti Peethas. Each spring, hundreds of thousands of pilgrims undertake a four-day trek through the Makran coastal mountains to reach the cave shrine.",
-        narrativeUr:
-          "بلوچستان میں ہنگلاج ماتا مندر پاکستان کی سب سے بڑی ہندو زیارت گاہ اور 51 شکتی پیٹھوں میں سے ایک ہے۔ ہر موسم بہار میں لاکھوں زائرین مکران کے پہاڑی راستے سے چار روزہ سفر کر کے اس غار مندر تک پہنچتے ہیں۔",
-      },
-      {
-        shrineSlug: "sadh-belo-sadh-belo-island-temple",
-        narrative:
-          "Sadh Belo is a remarkable temple island rising from the Indus River near Sukkur. Established by the Udasi Sikh tradition in the 19th century, it has been a place of pilgrimage for Hindus and Sikhs alike. Accessible only by boat, it presents a serene sanctuary in the middle of the great river.",
-        narrativeUr:
-          "سادھ بیلو سکھر کے قریب دریائے سندھ کے بیچ ایک منفرد مندر جزیرہ ہے۔ یہ کمپلیکس 19ویں صدی میں اودسی سکھ روایت نے قائم کیا اور ہندو اور سکھ دونوں کے لیے زیارت گاہ ہے۔ صرف کشتی سے قابل رسائی یہ جگہ دریا کے وسط میں ایک پُرسکون پناہ گاہ ہے۔",
-      },
-      {
-        shrineSlug: "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-        narrative:
-          "The Nagarparkar cultural landscape in the Thar Desert preserves several medieval Jain temples built from local Karoonjhar granite during the 14th and 15th centuries. Set against dramatic granite hills, these isolated temples are considered masterpieces of Jain sacred architecture and among Pakistan's most spectacular heritage sites.",
-        narrativeUr:
-          "تھر میں ناگر پارکر کی ثقافتی زمین چودہویں اور پندرہویں صدی کے کئی قرون وسطی جین مندروں کو محفوظ رکھتی ہے۔ کارونجھر کے گلابی اور سفید گرینائٹ پہاڑوں کے پس منظر میں یہ مندر جین مقدس تعمیر کے شاہکار ہیں۔",
-      },
-    ],
-  },
-];
+const TRADITIONS: TourTradition[] = ['sufi', 'sikh', 'hindu-jain'];
+
+export const TRADITION_LABELS: Record<TourTradition, { en: string; ur: string }> = {
+  sufi: { en: 'Sufi', ur: 'صوفی' },
+  sikh: { en: 'Sikh', ur: 'سکھ' },
+  'hindu-jain': { en: 'Hindu & Jain', ur: 'ہندو اور جین' },
+};
+
+function isValidStop(value: unknown): value is TourStop {
+  const s = value as Partial<TourStop> | null;
+  return (
+    typeof s?.shrineSlug === 'string' && s.shrineSlug.length > 0 &&
+    typeof s?.narrative === 'string' && s.narrative.length > 0 &&
+    typeof s?.narrativeUr === 'string' && s.narrativeUr.length > 0
+  );
+}
+
+function isValidTour(value: unknown): value is Tour {
+  const t = value as Partial<Tour> | null;
+  return (
+    typeof t?.id === 'string' && t.id.length > 0 &&
+    typeof t?.title === 'string' && t.title.length > 0 &&
+    typeof t?.titleUr === 'string' && t.titleUr.length > 0 &&
+    typeof t?.description === 'string' && t.description.length > 0 &&
+    typeof t?.descriptionUr === 'string' && t.descriptionUr.length > 0 &&
+    typeof t?.tradition === 'string' && TRADITIONS.includes(t.tradition as TourTradition) &&
+    typeof t?.region === 'string' && t.region.length > 0 &&
+    typeof t?.theme === 'string' && t.theme.length > 0 &&
+    typeof t?.era === 'string' && t.era.length > 0 &&
+    Array.isArray(t?.stops) && t.stops.length >= 2 && t.stops.every(isValidStop)
+  );
+}
+
+/**
+ * Defensive runtime check: a malformed tour (bad data, failed migration)
+ * should never crash the map — drop it and keep the rest working. Authoring
+ * mistakes are caught earlier by `npm run data:validate` (see
+ * scripts/data/validate-tours.mjs), which reports them with detail; this is
+ * the last line of defense in the shipped bundle.
+ */
+export function loadTours(raw: unknown): Tour[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.filter(isValidTour);
+}
+
+export const TOURS: Tour[] = loadTours(toursData);

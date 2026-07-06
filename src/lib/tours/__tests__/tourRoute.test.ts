@@ -16,6 +16,10 @@ const tour: Tour = {
   titleUr: 'ٹیسٹ ٹور',
   description: '',
   descriptionUr: '',
+  tradition: 'sufi',
+  region: 'Test Region',
+  theme: 'Test Theme',
+  era: 'Test Era',
   stops: [
     { shrineSlug: 'data-darbar', narrative: '', narrativeUr: '' },
     { shrineSlug: 'missing-shrine', narrative: '', narrativeUr: '' },

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import type { Shrine } from '../../types/shrine';
+import type { Shrine, Lang } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
@@ -14,7 +14,9 @@ import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
 import type { Tour } from '../../lib/tours/tours';
+import { TOURS } from '../../lib/tours/tours';
 import { TourPanel, TourList } from './TourPanel';
+import { t as translate } from '../../lib/i18n/uiStrings';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -536,7 +538,13 @@ export function MapSidebar({
               onExit={onTourExit}
             />
           ) : selectedShrine ? (
-            <ShrinePreview shrine={selectedShrine} lang={lang} localizeField={localizeField} />
+            <ShrinePreview
+              shrine={selectedShrine}
+              lang={lang}
+              localizeField={localizeField}
+              toursEnabled={toursEnabled}
+              onStartTour={onStartTour}
+            />
           ) : (
             <>
               <WelcomeCard lang={lang} t={t} embed={embed} />
@@ -586,13 +594,21 @@ function ShrinePreview({
   shrine,
   lang,
   localizeField,
+  toursEnabled,
+  onStartTour,
 }: {
   shrine: Shrine;
   lang: string;
   localizeField: (row: typeof shrine.raw, field: string) => string;
+  toursEnabled: boolean;
+  onStartTour: (tourId: string) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const relatedTour = toursEnabled
+    ? TOURS.find((tr) => tr.stops.some((s) => s.shrineSlug === shrine.slug)) ?? null
+    : null;
 
   const name = localizeShrineName(shrine, lang);
 
@@ -651,6 +667,16 @@ function ShrinePreview({
         </div>
       )}
       {leadText && <p className="preview-description">{leadText}</p>}
+      {relatedTour && (
+        <div className="preview-related-tour">
+          <span>
+            {translate(lang as Lang, 'partOfTour')}: {lang === 'ur' ? relatedTour.titleUr : relatedTour.title}
+          </span>
+          <button className="preview-related-tour-btn" onClick={() => onStartTour(relatedTour.id)}>
+            {translate(lang as Lang, 'viewTour')}
+          </button>
+        </div>
+      )}
       <div className="preview-actions">
         <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
           {lang === 'ur' ? 'مکمل تفصیل دیکھیں' : 'View full details'}
