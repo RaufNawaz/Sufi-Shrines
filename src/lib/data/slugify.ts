@@ -17,12 +17,6 @@ export function slugify(text: string): string {
     .trim();
 }
 
-/** Legacy: generates a name+id slug. Only kept for redirect generation. */
-export function buildSlug(name: string, id: number): string {
-  const base = slugify(name);
-  return base ? `${base}-${id}` : `shrine-${id}`;
-}
-
 /**
  * Stable slug from name alone. Does NOT include a row-index suffix so it
  * survives sheet reorders. Collision resolution (appending location) is done

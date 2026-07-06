@@ -7,13 +7,15 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
+import { ContentsNav } from '../components/shrine/ContentsNav';
+import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
-import { getUrduFieldValue, getFieldValue } from '../lib/data/fieldAliasing';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+import { getFieldValue } from '../lib/data/fieldAliasing';
+import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { getSaintsForShrine } from '../lib/kg';
 import type { Shrine } from '../types/shrine';
 
@@ -31,14 +33,12 @@ function SkeletonPage() {
 
 function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
   const { lang, t, localizeField } = useLang();
+  const { navItems } = useArticleContent(shrine);
   const [toastVisible, setToastVisible] = useState(false);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
-  const name =
-    lang === 'ur'
-      ? getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(shrine.name)
-      : shrine.name;
+  const name = localizeShrineName(shrine, lang);
 
   const primaryKgSaint = useMemo(() => getSaintsForShrine(shrine.slug)[0], [shrine.slug]);
 
@@ -176,8 +176,13 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         {t('copied')}
       </div>
 
-      {/* Article layout: prose + infobox */}
+      {/* Article layout: contents rail + prose + infobox */}
       <div className="shrine-article-layout">
+        {navItems.length >= 2 && (
+          <div className="contents-nav-rail">
+            <ContentsNav items={navItems} />
+          </div>
+        )}
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />

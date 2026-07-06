@@ -145,26 +145,66 @@
   background: var(--color-primary-bg);
 }
 
-/* Article layout: infobox + prose side by side on desktop */
+/* Article layout: contents rail + prose + infobox side by side on desktop */
 .shrine-article-layout {
   display: grid;
   grid-template-columns: 1fr;
+  /* Infobox comes first on mobile */
+  grid-template-areas:
+    'infobox'
+    'main';
   gap: var(--space-6);
+}
+
+.shrine-article-main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.shrine-article-layout > aside {
+  grid-area: infobox;
+  min-width: 0;
+}
+
+.contents-nav-rail {
+  display: none;
 }
 
 @media (min-width: 640px) {
   .shrine-article-layout {
     grid-template-columns: minmax(0, 1fr) 220px;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'toc infobox'
+      'main infobox';
+  }
+
+  .contents-nav-rail {
+    display: block;
+    grid-area: toc;
   }
 }
 
-@media (max-width: 639px) {
+/* Wide screens: contents nav moves into the empty margin beside the article */
+@media (min-width: 1340px) {
   .shrine-article-layout {
-    grid-template-columns: 1fr;
+    position: relative;
+    grid-template-rows: none;
+    grid-template-areas: 'main infobox';
   }
-  /* Infobox comes first on mobile */
-  .shrine-infobox {
-    order: -1;
+
+  .contents-nav-rail {
+    grid-area: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: calc(-220px - var(--space-6));
+    width: 220px;
+  }
+
+  .contents-nav {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-4));
   }
 }
 
@@ -236,28 +276,13 @@
   text-decoration: underline;
 }
 
-/* Contents nav */
+/* Contents nav — top-of-article card on tablets, sticky left rail on wide screens */
 .contents-nav {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
-  margin-bottom: var(--space-6);
   background: var(--color-bg-surface);
   box-shadow: var(--shadow-sm);
-}
-
-@media (min-width: 640px) {
-  .contents-nav {
-    position: sticky;
-    top: 16px;
-    z-index: 2;
-  }
-}
-
-@media (max-width: 639px) {
-  .contents-nav {
-    display: none;
-  }
 }
 
 .contents-nav-title {

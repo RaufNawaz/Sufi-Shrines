@@ -40,8 +40,6 @@ export const ARTICLE_SECTION_DEFINITIONS = [
   { id: 'sources', field: 'Sources', title: { en: 'Sources', ur: 'حوالہ جات' } },
 ] as const;
 
-export const ARTICLE_SECTION_KEYS = ARTICLE_SECTION_DEFINITIONS.map((d) => d.field);
-
 export const INFOBOX_PRIORITY_KEYS = [
   'Category',
   'Type',
@@ -84,5 +82,3 @@ export const STRUCTURED_DESCRIPTION_HEADING_ALIASES = [
   'حوالہ جات',
   'حوالے',
 ];
-
-export const GALLERY_SECTION_TITLE = { en: 'Gallery', ur: 'گیلری' };
