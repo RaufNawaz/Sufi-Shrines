@@ -2,6 +2,8 @@
 node_modules/
 .pnp
 .pnp.js
+.venv/
+venv/
 
 # Build output
 dist/
@@ -20,14 +22,18 @@ urd.traineddata
 tessdata/
 __pycache__/
 *.pyc
-book_test_output/
 out/
+books/
+
+# Research pipeline outputs — regenerable from books/ + out/, kept local
+chunks/
+summaries/
 
 # Working/planning files — local only, not part of the product
 REDESIGN_FOLLOWUP.md
 PHASE2_RESEARCH_PROMPT.md
 CLAUDE_CODE_PROMPT.md
-archive/old-prompts/
+archive/
 
 # Editor / OS
 .DS_Store

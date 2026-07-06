@@ -47,7 +47,7 @@ npm run dev        # Dev server at http://localhost:5173
 | Build | Vite 5 | TypeScript compile + bundle + SSG prerender |
 | Framework | React 18 | Functional components + hooks throughout |
 | Routing | React Router v6 | `/` = map, `/shrine/:slug` = detail, `/shrine.html` = legacy redirect |
-| Map | Leaflet 1.9 / react-leaflet 4 | CARTO Voyager tiles (free, no key); MarkerCluster for density |
+| Map | Leaflet 1.9 / react-leaflet 4 | CARTO Voyager tiles (free, no key); individual styled markers |
 | Data | Google Sheets CSV | Published CSV; no authentication needed |
 | CSV parsing | PapaParse 5 | Runs in the browser |
 | Search | MiniSearch 7 Web Worker | Fuzzy full-text search in background thread |
@@ -206,18 +206,19 @@ For processing Urdu PDF books:
 
 ```powershell
 # Install Python dependencies
-py -3 -m pip install gradio_client
+py -3 -m pip install -r requirements.txt
 
 # Test with a local PDF
-py -3 process_books.py --test-pdf "path/to/book.pdf" --max-pages 5
+py -3 tools/process_books.py --test-pdf "path/to/book.pdf" --max-pages 5
 
 # Process all unfinished books in the sheet
 $env:SHRINES_APPS_SCRIPT_URL = "https://script.google.com/macros/s/DEPLOYMENT_ID/exec"
 $env:SHRINES_APPS_SCRIPT_API_KEY = "your-api-key"
-py -3 process_books.py
+py -3 tools/process_books.py
 ```
 
-Full setup: `BOOK_OCR_WORKFLOW.md` and `LOCAL_OCR_QUICKSTART.md`.
+Full setup: `BOOK_OCR_WORKFLOW.md` and `LOCAL_OCR_QUICKSTART.md` (Windows).
+On macOS, use `BOOK_OCR_WORKFLOW_MAC.md` and `LOCAL_OCR_QUICKSTART_MAC.md` instead.
 
 ---
 

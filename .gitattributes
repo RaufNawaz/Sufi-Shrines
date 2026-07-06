@@ -1,0 +1,16 @@
+# Normalize line endings: LF in the repo, native in the working tree.
+# Silences "LF will be replaced by CRLF" churn on Windows.
+* text=auto
+
+# Binary assets — never diff or normalize
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
+*.zip binary
+*.traineddata binary
+*.pth binary

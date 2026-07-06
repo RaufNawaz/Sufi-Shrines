@@ -48,7 +48,25 @@ npm run data:snapshot
 git add src/data/shrines-fallback.json && git commit -m "chore: refresh data snapshot"
 ```
 
-See `HANDOFF.md` for full documentation including column reference, deploy instructions, and the OCR pipeline for Urdu book processing.
+See `docs/HANDOFF.md` for full documentation including column reference, deploy instructions, and the OCR pipeline for Urdu book processing.
+
+---
+
+## Repository Layout
+
+| Path | Purpose |
+|---|---|
+| `src/` | React app (pages, components, lib, styles) |
+| `public/` | Static assets served as-is (PWA icons, redirects) |
+| `data/` | Canonical research dataset: KG, schema, provenance, exports |
+| `scripts/` | Node build/data scripts (`data:*` npm commands, prerender, icons) |
+| `tools/` | Python research pipeline: OCR, post-correction, MT, extraction, summarization |
+| `eval/` | Evaluation harnesses (OCR CER/WER) |
+| `docs/` | Handoff, data dictionary, OCR workflow guides |
+| `e2e/` | Playwright tests + visual snapshots |
+| `google-apps-script/` | Sheets-side script for the book-processing pipeline |
+| `legacy/` | Pre-rewrite vanilla-JS site, kept for reference (not built) |
+| `books/`, `out/`, `chunks/`, `summaries/` | Local research data (gitignored): source PDFs, OCR output, pipeline artifacts |
 
 ---
 
