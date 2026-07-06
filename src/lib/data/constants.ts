@@ -5,6 +5,10 @@ export const CSV_URL =
 export const DEFAULT_CENTER: [number, number] = [31.5204, 74.3587];
 export const DEFAULT_ZOOM = 6;
 
+/** Desktop sidebar width in px — used to keep the map's point of interest
+ * clear of the sidebar when flying/fitting the view. */
+export const SIDEBAR_WIDTH = 380;
+
 export const IMAGE_KEYS = new Set([
   'Image Link',
   'Image',

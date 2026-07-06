@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { MapContainer, ZoomControl, LayersControl, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { Shrine } from '../../types/shrine';
-import { DEFAULT_CENTER, DEFAULT_ZOOM } from '../../lib/data/constants';
+import type { Tour } from '../../lib/tours/tours';
+import { DEFAULT_CENTER, DEFAULT_ZOOM, SIDEBAR_WIDTH } from '../../lib/data/constants';
 import { ShrineMarkers } from './ShrineMarkers';
+import { TourRoute } from './TourRoute';
+import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
-const SIDEBAR_WIDTH = 380;
 
 const CARTO_VOYAGER =
   'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
@@ -22,6 +24,8 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
   sidebarOpen: boolean;
   isRTL: boolean;
+  activeTour: Tour | null;
+  activeTourStop: number;
 }
 
 // Manages the default tile layer and switches it when dark mode changes.
@@ -123,11 +127,13 @@ function MapController({
   selectedId,
   sidebarOpen,
   isRTL,
+  tourActive,
 }: {
   shrines: Shrine[];
   selectedId: number | null;
   sidebarOpen: boolean;
   isRTL: boolean;
+  tourActive: boolean;
 }) {
   const map = useMap();
 
@@ -142,13 +148,15 @@ function MapController({
     };
   }, [map]);
 
-  // flyTo on selection, offset so selected marker isn't hidden behind sidebar on desktop
+  // flyTo on selection, offset so selected marker isn't hidden behind sidebar on desktop.
+  // Skipped while a tour is active — TourRoute owns the camera then (fitBounds on
+  // start, flyTo per stop), so this and TourRoute don't fight over the viewport.
   useEffect(() => {
+    if (tourActive) return;
     if (selectedId === null) return;
     const shrine = shrines.find((s) => s.id === selectedId);
     if (!shrine) return;
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const targetZoom = Math.max(map.getZoom(), 13);
     const isDesktop = window.innerWidth > 768;
 
@@ -164,19 +172,28 @@ function MapController({
       flyTarget = map.unproject(adjustedPt, targetZoom);
     }
 
-    if (reduced) {
-      map.setView(flyTarget, targetZoom);
-    } else {
-      map.flyTo(flyTarget, targetZoom, { duration: 0.9, easeLinearity: 0.25 });
-    }
-  }, [selectedId, shrines, map, sidebarOpen, isRTL]);
+    flyToOrSetView(map, flyTarget, targetZoom);
+  }, [selectedId, shrines, map, sidebarOpen, isRTL, tourActive]);
 
   return null;
 }
 
-export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }: Props) {
+export function ShrineMap({
+  shrines,
+  selectedId,
+  onSelect,
+  sidebarOpen,
+  isRTL,
+  activeTour,
+  activeTourStop,
+}: Props) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+
+  const tourStopSlugs = useMemo(
+    () => (activeTour ? activeTour.stops.map((s) => s.shrineSlug) : null),
+    [activeTour],
+  );
 
   return (
     <MapContainer
@@ -190,6 +207,7 @@ export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }:
         selectedId={selectedId}
         sidebarOpen={sidebarOpen}
         isRTL={isRTL}
+        tourActive={activeTour !== null}
       />
       <ZoomControl position="bottomright" />
       <ResetViewControl onSelect={onSelect} />
@@ -264,7 +282,23 @@ export function ShrineMap({ shrines, selectedId, onSelect, sidebarOpen, isRTL }:
         )}
       </LayersControl>
 
-      <ShrineMarkers shrines={shrines} selectedId={selectedId} onSelect={onSelect} />
+      <ShrineMarkers
+        shrines={shrines}
+        selectedId={selectedId}
+        onSelect={onSelect}
+        tourStopSlugs={tourStopSlugs}
+      />
+
+      {activeTour && (
+        <TourRoute
+          key={activeTour.id}
+          tour={activeTour}
+          stopIdx={activeTourStop}
+          shrines={shrines}
+          sidebarOpen={sidebarOpen}
+          isRTL={isRTL}
+        />
+      )}
     </MapContainer>
   );
 }

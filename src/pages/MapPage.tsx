@@ -290,6 +290,8 @@ export default function MapPage() {
           onSelect={handleSelect}
           sidebarOpen={sidebarOpen}
           isRTL={isRTL}
+          activeTour={activeTour}
+          activeTourStop={tourStopIdx}
         />
       </main>
 

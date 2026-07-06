@@ -33,6 +33,15 @@
   --color-marker-default: #1a5c4e;
   --color-marker-selected: #c8890a;
 
+  /* Guided tour route + stop markers on the map */
+  --color-tour-route: var(--color-accent);
+  --color-tour-marker-bg: var(--color-bg-surface);
+  --color-tour-marker-border: var(--color-accent);
+  --color-tour-marker-text: var(--color-accent);
+  --color-tour-marker-active-bg: var(--color-accent);
+  --color-tour-marker-active-text: var(--color-text-inverse);
+  --opacity-tour-dim: 0.35;
+
   --color-cat-muslim: #1a5c4e;
   --color-cat-hindu: #b45309;
   --color-cat-sikh: #7c3aed;
