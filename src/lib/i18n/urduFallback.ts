@@ -64,7 +64,6 @@ const WORD_URDU_MAP: Record<string, string> = {
   peshawar: 'پشاور',
   punjab: 'پنجاب',
   qawwali: 'قوالی',
-  right: 'فی الحال',
   road: 'روڈ',
   saint: 'بزرگ',
   scheduled: 'طے شدہ',

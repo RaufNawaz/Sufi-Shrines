@@ -14,7 +14,7 @@ const METHOD_LABEL: Record<ProvenanceMethod, { en: string; ur: string }> = {
   human: { en: 'human-authored', ur: 'انسان تحریر شدہ' },
   ocr:   { en: 'OCR', ur: 'او سی آر' },
   mt:    { en: 'machine translated', ur: 'مشین ترجمہ' },
-  llm:   { en: 'AI-assisted', ur: 'اے آئی' },
+  llm:   { en: 'AI-assisted', ur: 'اے آئی کی معاونت سے' },
 };
 
 function isUnreviewed(prov: FieldProvenance): boolean {

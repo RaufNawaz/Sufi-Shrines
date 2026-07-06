@@ -51,7 +51,7 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
   const stop = tour.stops[stopIdx];
   const isFirst = stopIdx === 0;
   const isLast = stopIdx === tour.stops.length - 1;
-  const shrineName = shrine?.name ?? stop.shrineSlug;
+  const shrineName = shrine ? localizeShrineName(shrine, lang) : stop.shrineSlug;
 
   const label = lang === 'ur'
     ? `${stopIdx + 1} / ${tour.stops.length}`
@@ -450,7 +450,7 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
 
   const toggleLabel = enabled
     ? (lang === 'ur' ? 'رہنما دورے بند کریں' : 'Turn off guided tours')
-    : (lang === 'ur' ? 'رہنما دورے آن کریں' : 'Turn on guided tours');
+    : (lang === 'ur' ? 'رہنما دورے چالو کریں' : 'Turn on guided tours');
 
   const resumableTour = progress.lastActive
     ? TOURS.find((tr) => tr.id === progress.lastActive!.tourId) ?? null
