@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { haversineKm, findRelatedShrines } from '../../lib/data/shrineModel';
-import { getUrduFieldValue } from '../../lib/data/fieldAliasing';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
+import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ShrineImage } from '../ui/ShrineImage';
 
 interface Props {
@@ -25,10 +24,7 @@ export function RelatedShrines({ shrine, all }: Props) {
       </h2>
       <div className="related-grid">
         {related.map((s) => {
-          const name =
-            lang === 'ur'
-              ? getUrduFieldValue(s.raw, 'Name') || translateToUrdu(s.name)
-              : s.name;
+          const name = localizeShrineName(s, lang);
           const location = localizeField(s.raw, 'Location') || s.location;
           const dist = haversineKm(shrine.latLng, s.latLng);
 

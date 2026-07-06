@@ -236,48 +236,58 @@ body.lang-rtl .sidebar-toggle {
 
 /* Shrine dot markers */
 .shrine-dot {
-  width: 11px;
-  height: 11px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--color-marker-default);
+  background-color: var(--color-marker-default);
+  /* soft top-left highlight gives the dot a gem-like depth */
+  background-image: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 60%);
   border: 2px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: transform var(--duration-fast) var(--easing-spring),
-    background var(--duration-fast);
+    background-color var(--duration-fast),
+    box-shadow var(--duration-fast) var(--easing);
   position: relative;
 }
 
-.shrine-dot--muslim  { background: var(--color-cat-muslim); }
-.shrine-dot--hindu   { background: var(--color-cat-hindu); }
-.shrine-dot--sikh    { background: var(--color-cat-sikh); }
+.shrine-dot--muslim  { background-color: var(--color-cat-muslim); }
+.shrine-dot--hindu   { background-color: var(--color-cat-hindu); }
+.shrine-dot--sikh    { background-color: var(--color-cat-sikh); }
 
 .shrine-dot:hover {
-  transform: scale(1.4);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(0, 0, 0, 0.12);
+  transform: scale(1.35);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.12);
+}
+
+/* Keyboard focus — round ring (outline would render square) */
+.leaflet-marker-icon:focus-visible .shrine-dot {
+  box-shadow: 0 0 0 2px var(--color-bg-surface), 0 0 0 4px var(--color-primary),
+    0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .shrine-dot.selected {
-  background: var(--color-marker-selected);
-  transform: scale(1.5);
-  box-shadow: 0 2px 8px rgba(200, 137, 10, 0.4), 0 0 0 1px rgba(200, 137, 10, 0.2);
+  background-color: var(--color-marker-selected);
+  transform: scale(1.55);
+  box-shadow: 0 3px 12px rgba(200, 137, 10, 0.45), 0 0 0 1px rgba(200, 137, 10, 0.25);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .shrine-dot.selected::after {
     content: '';
     position: absolute;
-    inset: -5px;
+    inset: -6px;
     border-radius: 50%;
     border: 2px solid var(--color-marker-selected);
-    opacity: 0.6;
-    animation: pulse-ring 1.8s ease-out infinite;
+    opacity: 0.55;
+    animation: pulse-ring 2s var(--easing) infinite;
   }
 }
 
 @keyframes pulse-ring {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 0; transform: scale(2.6); }
+  0%   { opacity: 0.55; transform: scale(0.9); }
+  70%  { opacity: 0; transform: scale(2.2); }
+  100% { opacity: 0; transform: scale(2.2); }
 }
 
 /* Search + filters */
@@ -1040,49 +1050,6 @@ body.lang-rtl .sidebar-toggle {
   text-decoration: none !important;
 }
 
-/* ── B1: Branded marker cluster bubbles ───────────────────────────────────── */
-.shrine-cluster-bubble {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
-  border: 2.5px solid rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform var(--duration-fast) var(--easing-spring),
-    background var(--duration-fast);
-}
-
-.shrine-cluster-bubble:hover {
-  transform: scale(1.1);
-  background: var(--color-primary-dark);
-}
-
-.shrine-cluster-count {
-  color: white;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-/* Leaflet MarkerCluster base positioning override */
-.marker-cluster-small,
-.marker-cluster-medium,
-.marker-cluster-large {
-  background: transparent !important;
-}
-
-.marker-cluster-small div,
-.marker-cluster-medium div,
-.marker-cluster-large div {
-  display: none !important;
-}
-
 /* ── B6: Segmented language toggle ────────────────────────────────────────── */
 .lang-toggle-segment {
   display: inline-flex;
@@ -1244,11 +1211,62 @@ body.lang-rtl .sidebar-toggle {
   border-top: 1px solid var(--color-border-light);
 }
 
+.tour-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
 .tour-list-heading {
   font-size: var(--text-sm);
   font-weight: 700;
   color: var(--color-text-secondary);
-  margin: 0 0 var(--space-1);
+  margin: 0;
+}
+
+/* On/off switch for the guided-tours section */
+.tour-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--easing);
+}
+
+.tour-toggle[aria-checked='true'] {
+  background: var(--color-primary);
+}
+
+.tour-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.tour-toggle-knob {
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.tour-toggle[aria-checked='true'] .tour-toggle-knob {
+  transform: translateX(16px);
+}
+
+[dir='rtl'] .tour-toggle[aria-checked='true'] .tour-toggle-knob {
+  transform: translateX(-16px);
 }
 
 .tour-list-hint {

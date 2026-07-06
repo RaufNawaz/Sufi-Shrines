@@ -1,12 +1,10 @@
 import React, { useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet.markercluster';
-import 'leaflet.markercluster/dist/MarkerCluster.css';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
-import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
+import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { categoryKey } from '../../lib/data/categoryKey';
 
 interface Props {
   shrines: Shrine[];
@@ -14,12 +12,11 @@ interface Props {
   onSelect: (shrine: Shrine | null) => void;
 }
 
-function categoryKey(category: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
-  const c = (category || '').toLowerCase();
-  if (c.includes('muslim')) return 'muslim';
-  if (c.includes('hindu')) return 'hindu';
-  if (c.includes('sikh')) return 'sikh';
-  return 'default';
+/** Leaflet tooltip content is injected as HTML — escape sheet-sourced text. */
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string,
+  );
 }
 
 function buildDivIcon(selected: boolean, category: string): L.DivIcon {
@@ -27,8 +24,8 @@ function buildDivIcon(selected: boolean, category: string): L.DivIcon {
   return L.divIcon({
     className: '',
     html: `<div class="shrine-dot shrine-dot--${catKey}${selected ? ' selected' : ''}"></div>`,
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
+    iconSize: [14, 14],
+    iconAnchor: [7, 7],
     popupAnchor: [0, -10],
   });
 }
@@ -38,49 +35,46 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
   const { lang } = useLang();
 
   // Stable refs so the selectedId effect never needs to rebuild all markers
-  const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
+  const groupRef = useRef<L.LayerGroup | null>(null);
   const markerMapRef = useRef<Map<number, L.Marker>>(new Map());
   const selectedIdRef = useRef<number | null>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
 
-  // Build cluster group + all markers once when shrines/lang changes
+  // Build layer group + all markers once when shrines/lang changes
   React.useEffect(() => {
-    if (clusterRef.current) map.removeLayer(clusterRef.current);
+    if (groupRef.current) map.removeLayer(groupRef.current);
 
-    const cluster = (L as unknown as { markerClusterGroup: (opts: object) => L.MarkerClusterGroup }).markerClusterGroup({
-      showCoverageOnHover: false,
-      maxClusterRadius: 40,
-      animate: true,
-      zoomToBoundsOnClick: true,
-      iconCreateFunction: (c: L.MarkerCluster) => L.divIcon({
-        className: '',
-        html: `<div class="shrine-cluster-bubble"><span class="shrine-cluster-count">${c.getChildCount()}</span></div>`,
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-      }),
-    });
-
+    const group = L.layerGroup();
     const newMap = new Map<number, L.Marker>();
 
     for (const shrine of shrines) {
       const isSelected = shrine.id === selectedIdRef.current;
-      const localName =
-        lang === 'ur'
-          ? getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(getFieldValue(shrine.raw, 'Name'))
-          : shrine.name;
+      const localName = localizeShrineName(shrine, lang);
 
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
         icon: buildDivIcon(isSelected, shrine.category),
         title: localName,
         alt: localName,
+        zIndexOffset: isSelected ? 1000 : 0,
       });
 
-      marker.bindTooltip(localName, {
+      marker.bindTooltip(escapeHtml(localName), {
         direction: 'top',
         offset: [0, -8],
         opacity: 1,
         className: 'shrine-tooltip',
+      });
+
+      // Raise the hovered marker above its neighbors via CSS z-index only —
+      // NOT `riseOnHover` (which reorders the DOM node). Reordering a node
+      // under the pointer triggers a spurious mouseout/mouseover loop and
+      // breaks click delivery in Safari.
+      marker.on('mouseover', () => {
+        if (shrine.id !== selectedIdRef.current) marker.setZIndexOffset(500);
+      });
+      marker.on('mouseout', () => {
+        if (shrine.id !== selectedIdRef.current) marker.setZIndexOffset(0);
       });
 
       marker.on('click', (e: L.LeafletMouseEvent) => {
@@ -103,17 +97,17 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
         });
       });
 
-      cluster.addLayer(marker);
+      group.addLayer(marker);
       newMap.set(shrine.id, marker);
     }
 
-    map.addLayer(cluster);
-    clusterRef.current = cluster;
+    map.addLayer(group);
+    groupRef.current = group;
     markerMapRef.current = newMap;
 
     return () => {
-      map.removeLayer(cluster);
-      clusterRef.current = null;
+      map.removeLayer(group);
+      groupRef.current = null;
     };
   }, [shrines, map, lang]); // selectedId intentionally excluded — handled separately below
 
@@ -127,6 +121,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
       const shrine = shrines.find((s) => s.id === prevId);
       if (marker && shrine) {
         marker.setIcon(buildDivIcon(false, shrine.category));
+        marker.setZIndexOffset(0);
         marker.getElement()?.setAttribute('aria-pressed', 'false');
       }
     }
@@ -136,6 +131,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect }: Props) {
       const shrine = shrines.find((s) => s.id === selectedId);
       if (marker && shrine) {
         marker.setIcon(buildDivIcon(true, shrine.category));
+        marker.setZIndexOffset(1000);
         marker.getElement()?.setAttribute('aria-pressed', 'true');
       }
     }

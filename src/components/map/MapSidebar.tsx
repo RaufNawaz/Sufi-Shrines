@@ -5,7 +5,9 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
+import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { categoryKey } from '../../lib/data/categoryKey';
+import { ShrineGlyph } from '../ui/ShrineGlyph';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useSearch } from '../../lib/search/useSearch';
@@ -15,14 +17,6 @@ import type { Tour } from '../../lib/tours/tours';
 import { TourPanel, TourList } from './TourPanel';
 
 const SEARCH_DEBOUNCE_MS = 200;
-
-function categoryKey(category: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
-  const c = (category || '').toLowerCase();
-  if (c.includes('muslim')) return 'muslim';
-  if (c.includes('hindu')) return 'hindu';
-  if (c.includes('sikh')) return 'sikh';
-  return 'default';
-}
 
 function highlightMatch(text: string, query: string): React.ReactNode {
   if (!query.trim()) return text;
@@ -71,6 +65,8 @@ interface Props {
   eraMin: number;
   eraMax: number;
   onEraChange: (range: [number, number]) => void;
+  toursEnabled: boolean;
+  onToursToggle: (enabled: boolean) => void;
   activeTour: Tour | null;
   activeTourStop: number;
   activeTourShrine: Shrine | null;
@@ -107,6 +103,8 @@ export function MapSidebar({
   eraMin,
   eraMax,
   onEraChange,
+  toursEnabled,
+  onToursToggle,
   activeTour,
   activeTourStop,
   activeTourShrine,
@@ -146,13 +144,7 @@ export function MapSidebar({
   }, []);
 
   const localizeName = useCallback(
-    (shrine: Shrine) => {
-      if (lang !== 'ur') return shrine.name;
-      return (
-        getUrduFieldValue(shrine.raw, 'Name') ||
-        translateToUrdu(shrine.name)
-      );
-    },
+    (shrine: Shrine) => localizeShrineName(shrine, lang),
     [lang],
   );
 
@@ -254,9 +246,7 @@ export function MapSidebar({
       {/* Header */}
       <div className="sidebar-header">
         <div className="sidebar-brand">
-          <svg className="brand-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
-          </svg>
+          <ShrineGlyph className="brand-icon" />
           <h1 className="sidebar-title">
             {lang === 'ur' ? 'صوفی مزارات' : 'Sufi Shrines'}
           </h1>
@@ -507,9 +497,7 @@ export function MapSidebar({
                               }}
                             />
                           ) : (
-                            <svg className="shrine-list-thumb-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                              <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
-                            </svg>
+                            <ShrineGlyph className="shrine-list-thumb-icon" />
                           )}
                         </div>
                         <div className="shrine-list-info">
@@ -544,7 +532,12 @@ export function MapSidebar({
           ) : (
             <>
               <WelcomeCard lang={lang} t={t} />
-              <TourList lang={lang} onStart={onStartTour} />
+              <TourList
+                lang={lang}
+                enabled={toursEnabled}
+                onToggle={onToursToggle}
+                onStart={onStartTour}
+              />
             </>
           )}
         </div>
@@ -582,10 +575,7 @@ function ShrinePreview({
   const [copied, setCopied] = useState(false);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const name =
-    lang === 'ur'
-      ? getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(shrine.name)
-      : shrine.name;
+  const name = localizeShrineName(shrine, lang);
 
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
@@ -623,9 +613,7 @@ function ShrinePreview({
         />
       ) : (
         <div className="preview-card-hero-placeholder" aria-hidden="true">
-          <svg className="preview-card-hero-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 1.5l-1.5 3H8a.5.5 0 0 0 0 1h.5v2.3C6.3 8.5 5 10.4 5 12.5h14c0-2.1-1.3-4-3.5-4.7V5.5H16a.5.5 0 0 0 0-1h-2.5L12 1.5zM5.5 14v7h13v-7h-13zm4 2.5h5v2.5h-5V16.5z" />
-          </svg>
+          <ShrineGlyph className="preview-card-hero-icon" />
         </div>
       )}
       <h2 className="preview-title">

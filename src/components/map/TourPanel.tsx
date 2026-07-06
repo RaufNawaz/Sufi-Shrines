@@ -90,36 +90,59 @@ export function TourPanel({ tour, stopIdx, shrine, lang, onNext, onPrev, onExit 
 
 interface TourListProps {
   lang: string;
+  enabled: boolean;
+  onToggle: (enabled: boolean) => void;
   onStart: (tourId: string) => void;
 }
 
-export function TourList({ lang, onStart }: TourListProps) {
+export function TourList({ lang, enabled, onToggle, onStart }: TourListProps) {
+  const toggleLabel = enabled
+    ? (lang === 'ur' ? 'رہنما دورے بند کریں' : 'Turn off guided tours')
+    : (lang === 'ur' ? 'رہنما دورے آن کریں' : 'Turn on guided tours');
+
   return (
     <div className="tour-list">
-      <h3 className="tour-list-heading">
-        {lang === 'ur' ? 'رہنما دورے' : 'Guided Tours'}
-      </h3>
-      <p className="tour-list-hint">
-        {lang === 'ur'
-          ? 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں'
-          : 'Follow a curated route through related shrines'}
-      </p>
-      <div className="tour-list-cards">
-        {TOURS.map((tour) => (
-          <button
-            key={tour.id}
-            className="tour-card"
-            onClick={() => onStart(tour.id)}
-          >
-            <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>
-              {lang === 'ur' ? tour.titleUr : tour.title}
-            </span>
-            <span className="tour-card-meta">
-              {lang === 'ur' ? `${tour.stops.length} مقامات` : `${tour.stops.length} stops`}
-            </span>
-          </button>
-        ))}
+      <div className="tour-list-header">
+        <h3 className="tour-list-heading">
+          {lang === 'ur' ? 'رہنما دورے' : 'Guided Tours'}
+        </h3>
+        <button
+          type="button"
+          className="tour-toggle"
+          role="switch"
+          aria-checked={enabled}
+          onClick={() => onToggle(!enabled)}
+          aria-label={toggleLabel}
+          title={toggleLabel}
+        >
+          <span className="tour-toggle-knob" aria-hidden="true" />
+        </button>
       </div>
+      {enabled && (
+        <>
+          <p className="tour-list-hint">
+            {lang === 'ur'
+              ? 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں'
+              : 'Follow a curated route through related shrines'}
+          </p>
+          <div className="tour-list-cards">
+            {TOURS.map((tour) => (
+              <button
+                key={tour.id}
+                className="tour-card"
+                onClick={() => onStart(tour.id)}
+              >
+                <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>
+                  {lang === 'ur' ? tour.titleUr : tour.title}
+                </span>
+                <span className="tour-card-meta">
+                  {lang === 'ur' ? `${tour.stops.length} مقامات` : `${tour.stops.length} stops`}
+                </span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

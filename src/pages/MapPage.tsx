@@ -9,6 +9,9 @@ import 'leaflet/dist/leaflet.css';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
 import { TOURS } from '../lib/tours/tours';
 
+/** Guided tours are opt-in: hidden unless the user flips the toggle on. */
+const TOURS_STORAGE_KEY = 'shrines_tours';
+
 /** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
   return new URLSearchParams(window.location.search).get('selected');
@@ -67,6 +70,7 @@ export default function MapPage() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
+  const [toursEnabled, setToursEnabled] = useState(() => localStorage.getItem(TOURS_STORAGE_KEY) === 'on');
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
@@ -194,11 +198,21 @@ export default function MapPage() {
     if (activeTourShrine) setSelectedId(activeTourShrine.id);
   }, [activeTourShrine]);
 
+  const handleToursToggle = useCallback((enabled: boolean) => {
+    setToursEnabled(enabled);
+    localStorage.setItem(TOURS_STORAGE_KEY, enabled ? 'on' : 'off');
+    if (!enabled) {
+      setActiveTourId(null);
+      setTourStopIdx(0);
+    }
+  }, []);
+
   const handleStartTour = useCallback((tourId: string) => {
+    if (!toursEnabled) return;
     setActiveTourId(tourId);
     setTourStopIdx(0);
     setSidebarOpen(true);
-  }, []);
+  }, [toursEnabled]);
 
   const handleTourNext = useCallback(() => {
     if (!activeTour) return;
@@ -253,6 +267,8 @@ export default function MapPage() {
         eraMin={filters.eraMin}
         eraMax={filters.eraMax}
         onEraChange={handleEraChange}
+        toursEnabled={toursEnabled}
+        onToursToggle={handleToursToggle}
         activeTour={activeTour}
         activeTourStop={tourStopIdx}
         activeTourShrine={activeTourShrine}

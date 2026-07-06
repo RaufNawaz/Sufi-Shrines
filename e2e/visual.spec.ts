@@ -11,6 +11,7 @@ test.beforeEach(async ({ page }) => {
   await page.evaluate(() => {
     localStorage.removeItem('shrines_theme');
     localStorage.removeItem('shrines_language');
+    localStorage.removeItem('shrines_tours');
   });
   await page.reload({ waitUntil: 'domcontentloaded' });
 });

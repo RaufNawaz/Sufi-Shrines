@@ -2,15 +2,8 @@ import React from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { INFOBOX_PRIORITY_KEYS, MAX_INFOBOX_ROWS, NON_DETAIL_KEYS } from '../../lib/data/constants';
-import { isLikelyUrl, isUrduVariantKey } from '../../lib/data/fieldAliasing';
-
-function categoryKey(cat: string): 'muslim' | 'hindu' | 'sikh' | 'default' {
-  const c = (cat || '').toLowerCase();
-  if (c.includes('muslim')) return 'muslim';
-  if (c.includes('hindu')) return 'hindu';
-  if (c.includes('sikh')) return 'sikh';
-  return 'default';
-}
+import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
+import { categoryKey } from '../../lib/data/categoryKey';
 
 interface Props {
   shrine: Shrine;
@@ -84,7 +77,7 @@ export function ShrineInfobox({ shrine }: Props) {
               <dt className="infobox-label">{localKey || key}</dt>
               <dd className="infobox-value">
                 {isLikelyUrl(value) ? (
-                  <a href={value} target="_blank" rel="noopener noreferrer">
+                  <a href={normalizeUrl(value) ?? value} target="_blank" rel="noopener noreferrer">
                     {value.replace(/^https?:\/\//, '')}
                   </a>
                 ) : (
