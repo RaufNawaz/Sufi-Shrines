@@ -71,9 +71,12 @@ interface Props {
   activeTourStop: number;
   activeTourShrine: Shrine | null;
   onStartTour: (tourId: string) => void;
+  onResumeTour: (tourId: string, stopIdx: number) => void;
   onTourNext: () => void;
   onTourPrev: () => void;
   onTourExit: () => void;
+  /** `?embed=1` — hides the header, search, and browse chrome for iframes. */
+  embed?: boolean;
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -109,9 +112,11 @@ export function MapSidebar({
   activeTourStop,
   activeTourShrine,
   onStartTour,
+  onResumeTour,
   onTourNext,
   onTourPrev,
   onTourExit,
+  embed = false,
 }: Props) {
   const { lang, t, tCount, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -243,19 +248,21 @@ export function MapSidebar({
         </button>
       )}
 
-      {/* Header */}
-      <div className="sidebar-header">
-        <div className="sidebar-brand">
-          <ShrineGlyph className="brand-icon" />
-          <h1 className="sidebar-title">
-            {lang === 'ur' ? 'صوفی مزارات' : 'Sufi Shrines'}
-          </h1>
+      {/* Header — hidden in embed mode for minimal iframe chrome */}
+      {!embed && (
+        <div className="sidebar-header">
+          <div className="sidebar-brand">
+            <ShrineGlyph className="brand-icon" />
+            <h1 className="sidebar-title">
+              {lang === 'ur' ? 'صوفی مزارات' : 'Sufi Shrines'}
+            </h1>
+          </div>
+          <div className="sidebar-actions">
+            <DarkModeToggle />
+            <LanguageToggle />
+          </div>
         </div>
-        <div className="sidebar-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </div>
+      )}
 
       {/* Status bar */}
       {loading && (
@@ -274,8 +281,8 @@ export function MapSidebar({
         </div>
       )}
 
-      {/* Table-of-shrines toggle */}
-      {!error && (
+      {/* Table-of-shrines toggle — hidden in embed mode */}
+      {!error && !embed && (
         <div className="list-toggle-bar">
           <button
             className={`list-toggle-btn${showList ? ' active' : ''}`}
@@ -532,12 +539,13 @@ export function MapSidebar({
             <ShrinePreview shrine={selectedShrine} lang={lang} localizeField={localizeField} />
           ) : (
             <>
-              <WelcomeCard lang={lang} t={t} />
+              <WelcomeCard lang={lang} t={t} embed={embed} />
               <TourList
                 lang={lang}
                 enabled={toursEnabled}
                 onToggle={onToursToggle}
                 onStart={onStartTour}
+                onResume={onResumeTour}
                 shrines={shrines}
               />
             </>
@@ -548,7 +556,15 @@ export function MapSidebar({
   );
 }
 
-function WelcomeCard({ lang, t }: { lang: string; t: (k: Parameters<ReturnType<typeof useLang>['t']>[0]) => string }) {
+function WelcomeCard({
+  lang,
+  t,
+  embed = false,
+}: {
+  lang: string;
+  t: (k: Parameters<ReturnType<typeof useLang>['t']>[0]) => string;
+  embed?: boolean;
+}) {
   return (
     <div className="welcome-card">
       <div className="welcome-card-icon-wrap" aria-hidden="true">
@@ -560,7 +576,8 @@ function WelcomeCard({ lang, t }: { lang: string; t: (k: Parameters<ReturnType<t
         {lang === 'ur' ? 'مزارات دریافت کریں' : 'Explore Sufi Shrines'}
       </h2>
       <p className="welcome-card-text">{t('noSelection')}</p>
-      <p className="welcome-card-hint">{t('exploreHint')}</p>
+      {/* The "list button above" this hint refers to is hidden in embed mode */}
+      {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
     </div>
   );
 }

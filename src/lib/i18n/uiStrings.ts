@@ -74,6 +74,11 @@ export const UI_TEXT = {
     tourBackButton: 'Back',
     hoursAbbrev: 'h',
     minutesAbbrev: 'm',
+    resumeTourPrompt: 'Continue where you left off',
+    resumeButton: 'Resume',
+    dismiss: 'Dismiss',
+    tourCompletedBadge: 'Completed',
+    tourInProgressBadge: 'In progress',
   },
   ur: {
     title: 'صوفی مزارات',
@@ -148,6 +153,11 @@ export const UI_TEXT = {
     tourBackButton: 'واپس',
     hoursAbbrev: 'گھ',
     minutesAbbrev: 'م',
+    resumeTourPrompt: 'جہاں چھوڑا تھا وہاں سے جاری رکھیں',
+    resumeButton: 'جاری رکھیں',
+    dismiss: 'نظر انداز کریں',
+    tourCompletedBadge: 'مکمل',
+    tourInProgressBadge: 'جاری',
   },
 } as const;
 

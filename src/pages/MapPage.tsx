@@ -8,6 +8,7 @@ import { MapSidebar } from '../components/map/MapSidebar';
 import 'leaflet/dist/leaflet.css';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
 import { TOURS } from '../lib/tours/tours';
+import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
 
 /** Guided tours are opt-in: hidden unless the user flips the toggle on. */
 const TOURS_STORAGE_KEY = 'shrines_tours';
@@ -31,6 +32,36 @@ function setSelectedSlug(slug: string | null, push: boolean): void {
   } else {
     window.history.replaceState(null, '', url);
   }
+}
+
+/** Read/write `?tour=<id>&stop=<n>` the same way as `?selected=`. */
+function getTourParams(): { tourId: string | null; stopIdx: number } {
+  const p = new URLSearchParams(window.location.search);
+  const stopRaw = parseInt(p.get('stop') || '0', 10);
+  return { tourId: p.get('tour'), stopIdx: Number.isFinite(stopRaw) && stopRaw >= 0 ? stopRaw : 0 };
+}
+
+function setTourParams(tourId: string | null, stopIdx: number, push: boolean): void {
+  const params = new URLSearchParams(window.location.search);
+  if (tourId) {
+    params.set('tour', tourId);
+    params.set('stop', String(stopIdx));
+  } else {
+    params.delete('tour');
+    params.delete('stop');
+  }
+  const qs = params.toString();
+  const url = `${window.location.pathname}${qs ? `?${qs}` : ''}`;
+  if (push) {
+    window.history.pushState(null, '', url);
+  } else {
+    window.history.replaceState(null, '', url);
+  }
+}
+
+/** `?embed=1` renders the tour with minimal chrome, suitable for an iframe. */
+function isEmbedMode(): boolean {
+  return new URLSearchParams(window.location.search).get('embed') === '1';
 }
 
 interface FilterState {
@@ -67,14 +98,19 @@ export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
   const { lang, t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const [isEmbed] = useState(isEmbedMode);
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(() => !window.matchMedia('(max-width: 768px)').matches);
+  const [sidebarOpen, setSidebarOpen] = useState(
+    () => isEmbedMode() || !window.matchMedia('(max-width: 768px)').matches,
+  );
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
   const [toursEnabled, setToursEnabled] = useState(() => localStorage.getItem(TOURS_STORAGE_KEY) === 'on');
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
+  const activeTourIdRef = useRef<string | null>(null);
+  const tourStopIdxRef = useRef(0);
 
   useEffect(() => {
     document.title = t('siteTitle');
@@ -85,10 +121,30 @@ export default function MapPage() {
     setFiltersInURL(filters);
   }, [filters]);
 
-  // Restore `?selected=<slug>` once shrine data has loaded (runs once)
+  // Restore `?tour=<id>&stop=<n>` or `?selected=<slug>` once shrine data has
+  // loaded (runs once). A tour deep link takes precedence over `?selected=`.
   useEffect(() => {
     if (initializedRef.current || !shrines.length) return;
     initializedRef.current = true;
+
+    const { tourId, stopIdx } = getTourParams();
+    if (tourId) {
+      const tour = TOURS.find((tr) => tr.id === tourId);
+      if (tour) {
+        const clampedStop = Math.min(Math.max(stopIdx, 0), tour.stops.length - 1);
+        setToursEnabled(true);
+        localStorage.setItem(TOURS_STORAGE_KEY, 'on');
+        activeTourIdRef.current = tourId;
+        tourStopIdxRef.current = clampedStop;
+        setActiveTourId(tourId);
+        setTourStopIdx(clampedStop);
+        setSidebarOpen(true);
+        return;
+      }
+      // Unknown tour id — clean it from the URL silently
+      setTourParams(null, 0, false);
+    }
+
     const slug = getSelectedSlug();
     if (slug) {
       const shrine = shrines.find((s) => s.slug === slug);
@@ -102,25 +158,55 @@ export default function MapPage() {
     }
   }, [shrines, isMobile]);
 
-  // Keep `?selected=` in sync when selectedId changes
+  // Keep the URL in sync with selection/tour state in a single pushState per
+  // change — a tour owns `?tour=`/`?stop=` and clears `?selected=` while
+  // active; ending a tour falls back to reflecting the last-viewed shrine.
   useEffect(() => {
-    if (!initializedRef.current) return; // don't touch URL during restore phase
-    if (selectedId === selectedIdRef.current) return;
+    if (!initializedRef.current) return;
+    const tourChanged = activeTourId !== activeTourIdRef.current || tourStopIdx !== tourStopIdxRef.current;
+    const selectedChanged = selectedId !== selectedIdRef.current;
+    if (!tourChanged && !selectedChanged) return;
+
+    activeTourIdRef.current = activeTourId;
+    tourStopIdxRef.current = tourStopIdx;
     selectedIdRef.current = selectedId;
 
-    const shrine = selectedId !== null ? shrines.find((s) => s.id === selectedId) : null;
-    const prev = getSelectedSlug();
-    const next = shrine?.slug ?? null;
-
-    if (prev !== next) {
-      // pushState for selection changes so back/forward works as expected
-      setSelectedSlug(next, true);
+    const params = new URLSearchParams(window.location.search);
+    if (activeTourId) {
+      params.set('tour', activeTourId);
+      params.set('stop', String(tourStopIdx));
+      params.delete('selected');
+    } else {
+      params.delete('tour');
+      params.delete('stop');
+      const shrine = selectedId !== null ? shrines.find((s) => s.id === selectedId) : null;
+      if (shrine) params.set('selected', shrine.slug); else params.delete('selected');
     }
-  }, [selectedId, shrines]);
+    const qs = params.toString();
+    window.history.pushState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
 
-  // Handle back/forward browser navigation — re-apply selected state from URL
+    if (activeTourId) recordTourStop(activeTourId, tourStopIdx);
+  }, [activeTourId, tourStopIdx, selectedId, shrines]);
+
+  // Handle back/forward browser navigation — re-apply tour/selected state from URL
   useEffect(() => {
     const handler = () => {
+      const { tourId, stopIdx } = getTourParams();
+      if (tourId) {
+        const tour = TOURS.find((tr) => tr.id === tourId);
+        if (tour) {
+          const clampedStop = Math.min(Math.max(stopIdx, 0), tour.stops.length - 1);
+          activeTourIdRef.current = tourId;
+          tourStopIdxRef.current = clampedStop;
+          setActiveTourId(tourId);
+          setTourStopIdx(clampedStop);
+          return;
+        }
+      }
+      activeTourIdRef.current = null;
+      setActiveTourId(null);
+      setTourStopIdx(0);
+
       const slug = getSelectedSlug();
       if (!slug) {
         setSelectedId(null);
@@ -214,12 +300,20 @@ export default function MapPage() {
     setSidebarOpen(true);
   }, [toursEnabled]);
 
+  const handleResumeTour = useCallback((tourId: string, stopIdx: number) => {
+    setActiveTourId(tourId);
+    setTourStopIdx(stopIdx);
+    setSidebarOpen(true);
+  }, []);
+
   const handleTourNext = useCallback(() => {
     if (!activeTour) return;
     if (tourStopIdx < activeTour.stops.length - 1) {
       setTourStopIdx((i) => i + 1);
     } else {
+      recordTourCompleted(activeTour.id);
       setActiveTourId(null);
+      setTourStopIdx(0);
     }
   }, [activeTour, tourStopIdx]);
 
@@ -230,6 +324,9 @@ export default function MapPage() {
   const handleTourExit = useCallback(() => {
     setActiveTourId(null);
     setTourStopIdx(0);
+    // Return to the neutral list view (not the last stop's shrine preview)
+    // so an in-progress tour's "Resume" offer is actually visible.
+    setSelectedId(null);
   }, []);
 
   return (
@@ -273,9 +370,11 @@ export default function MapPage() {
         activeTourStop={tourStopIdx}
         activeTourShrine={activeTourShrine}
         onStartTour={handleStartTour}
+        onResumeTour={handleResumeTour}
         onTourNext={handleTourNext}
         onTourPrev={handleTourPrev}
         onTourExit={handleTourExit}
+        embed={isEmbed}
       />
 
       <main
@@ -296,7 +395,7 @@ export default function MapPage() {
       </main>
 
       {/* Desktop sidebar toggle when sidebar is collapsed */}
-      {!isMobile && !sidebarOpen && (
+      {!isMobile && !sidebarOpen && !isEmbed && (
         <button
           className="sidebar-toggle no-print"
           onClick={handleSidebarToggle}

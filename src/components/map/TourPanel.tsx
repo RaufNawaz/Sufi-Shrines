@@ -3,11 +3,13 @@ import type { Tour } from '../../lib/tours/tours';
 import { TOURS } from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm, totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
+import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
 import { getFieldValue, getUrduFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
 import { t } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
+import { useShareLink } from '../../hooks/useShareLink';
 import type { Shrine, Lang } from '../../types/shrine';
 
 const VISITING_INFO_TITLE = ARTICLE_SECTION_DEFINITIONS.find((d) => d.id === 'visiting')!.title;
@@ -55,21 +57,42 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
     activePointIdx >= 0 && activePointIdx < points.length - 1 ? legsKm[activePointIdx + 1] : null;
 
   const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang) : '';
+  const { share, copied } = useShareLink();
+  const tourTitle = lang === 'ur' ? tour.titleUr : tour.title;
 
   return (
     <div className="tour-panel" aria-label={lang === 'ur' ? 'رہنما دورہ' : 'Guided tour'}>
       <div className="tour-panel-header">
         <span className="tour-step-badge" aria-live="polite" aria-atomic="true">{label}</span>
-        <button
-          className="tour-exit-btn"
-          onClick={onExit}
-          aria-label={lang === 'ur' ? 'دورہ ختم کریں' : 'End tour'}
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-          {lang === 'ur' ? 'ختم کریں' : 'End tour'}
-        </button>
+        <div className="tour-panel-header-actions">
+          <button
+            className={`tour-share-btn${copied ? ' copied' : ''}`}
+            onClick={() => share(window.location.href, tourTitle)}
+            aria-label={copied ? t(lang, 'copied') : t(lang, 'share')}
+            title={copied ? t(lang, 'copied') : t(lang, 'share')}
+          >
+            {copied ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+                <line x1="8.6" y1="10.6" x2="15.4" y2="6.4" /><line x1="8.6" y1="13.4" x2="15.4" y2="17.6" />
+              </svg>
+            )}
+          </button>
+          <button
+            className="tour-exit-btn"
+            onClick={onExit}
+            aria-label={lang === 'ur' ? 'دورہ ختم کریں' : 'End tour'}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            {lang === 'ur' ? 'ختم کریں' : 'End tour'}
+          </button>
+        </div>
       </div>
 
       <ShrineImage
@@ -215,12 +238,16 @@ interface TourListProps {
   enabled: boolean;
   onToggle: (enabled: boolean) => void;
   onStart: (tourId: string) => void;
+  onResume: (tourId: string, stopIdx: number) => void;
   shrines: Shrine[];
 }
 
-export function TourList({ lang, enabled, onToggle, onStart, shrines }: TourListProps) {
+export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }: TourListProps) {
   const [previewId, setPreviewId] = useState<string | null>(null);
   const previewTour = previewId ? TOURS.find((tr) => tr.id === previewId) ?? null : null;
+  // Read fresh on every render — TourList remounts whenever the user leaves
+  // an active tour, so this always reflects the latest recorded progress.
+  const [progress, setProgress] = useState(getTourProgressState);
 
   const tourDistances = useMemo(() => {
     const map = new Map<string, number>();
@@ -234,6 +261,10 @@ export function TourList({ lang, enabled, onToggle, onStart, shrines }: TourList
   const toggleLabel = enabled
     ? (lang === 'ur' ? 'رہنما دورے بند کریں' : 'Turn off guided tours')
     : (lang === 'ur' ? 'رہنما دورے آن کریں' : 'Turn on guided tours');
+
+  const resumableTour = progress.lastActive
+    ? TOURS.find((tr) => tr.id === progress.lastActive!.tourId) ?? null
+    : null;
 
   if (previewTour) {
     return (
@@ -268,6 +299,37 @@ export function TourList({ lang, enabled, onToggle, onStart, shrines }: TourList
           <span className="tour-toggle-knob" aria-hidden="true" />
         </button>
       </div>
+      {enabled && resumableTour && progress.lastActive && (
+        <div className="tour-resume-banner">
+          <div className="tour-resume-text">
+            <strong lang={lang === 'ur' ? 'ur' : undefined}>
+              {lang === 'ur' ? resumableTour.titleUr : resumableTour.title}
+            </strong>
+            <span>{t(lang, 'resumeTourPrompt')}</span>
+          </div>
+          <div className="tour-resume-actions">
+            <button
+              className="tour-resume-btn"
+              onClick={() => onResume(resumableTour.id, progress.lastActive!.stopIdx)}
+            >
+              {t(lang, 'resumeButton')}
+            </button>
+            <button
+              className="tour-resume-dismiss"
+              onClick={() => {
+                clearLastActive();
+                setProgress(getTourProgressState());
+              }}
+              aria-label={t(lang, 'dismiss')}
+              title={t(lang, 'dismiss')}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
       {enabled && (
         <>
           <p className="tour-list-hint">
@@ -278,6 +340,7 @@ export function TourList({ lang, enabled, onToggle, onStart, shrines }: TourList
           <div className="tour-list-cards">
             {TOURS.map((tour) => {
               const km = tourDistances.get(tour.id);
+              const tourProgress = progress.tours[tour.id];
               return (
                 <button
                   key={tour.id}
@@ -290,6 +353,16 @@ export function TourList({ lang, enabled, onToggle, onStart, shrines }: TourList
                   <span className="tour-card-meta">
                     {lang === 'ur' ? `${tour.stops.length} مقامات` : `${tour.stops.length} stops`}
                     {km !== undefined && ` · ${Math.round(km)} ${t(lang, 'kmUnit')}`}
+                    {tourProgress && (
+                      <>
+                        {' · '}
+                        <span className={`tour-card-status tour-card-status--${tourProgress.status}`}>
+                          {tourProgress.status === 'completed'
+                            ? t(lang, 'tourCompletedBadge')
+                            : `${t(lang, 'tourInProgressBadge')} ${tourProgress.stopIdx + 1}/${tour.stops.length}`}
+                        </span>
+                      </>
+                    )}
                   </span>
                 </button>
               );
