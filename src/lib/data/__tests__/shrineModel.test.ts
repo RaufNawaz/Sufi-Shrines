@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { describe, it, expect } from 'vitest';
 import { buildShrine, buildShrines, haversineKm } from '../shrineModel';
 import type { ShrineRow } from '../../../types/shrine';

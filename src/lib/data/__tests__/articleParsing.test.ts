@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { describe, it, expect } from 'vitest';
 import { extractLeadPreviewText, parseInlineSections, buildArticleSections } from '../articleParsing';
 import type { ShrineRow } from '../../../types/shrine';

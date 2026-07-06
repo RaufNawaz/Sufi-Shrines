@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { parseEra, ERA_MIN, ERA_MAX } from '../era';
 

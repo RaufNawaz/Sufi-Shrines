@@ -18,17 +18,20 @@ if (typeof ResizeObserver === 'undefined') {
   } as unknown as typeof ResizeObserver;
 }
 
-// jsdom localStorage/sessionStorage exist but matchMedia does not
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: (query: string) => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: () => {},
-    removeListener: () => {},
-    addEventListener: () => {},
-    removeEventListener: () => {},
-    dispatchEvent: () => false,
-  }),
-});
+// jsdom localStorage/sessionStorage exist but matchMedia does not.
+// Guarded so pure-logic tests can run in the node environment (no window).
+if (typeof window !== 'undefined') {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    }),
+  });
+}
