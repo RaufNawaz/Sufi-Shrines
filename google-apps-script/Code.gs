@@ -1,5 +1,13 @@
 var DEFAULT_SHEET_NAME = "";
-var SCRIPT_API_KEY = "replace-this-with-a-long-secret";
+
+// The shared secret lives in Script Properties, NOT in this tracked file:
+// Apps Script editor > Project Settings > Script properties > add
+// SCRIPT_API_KEY with a long random value. Requests must send the same
+// value as payload.apiKey (SHRINES_APPS_SCRIPT_API_KEY on the client side).
+function getScriptApiKey_() {
+  var stored = PropertiesService.getScriptProperties().getProperty("SCRIPT_API_KEY");
+  return trim_(stored || "");
+}
 
 var KEY_FIELDS = ["Name", "Location", "Latitude", "Longitude", "Category"];
 var ID_FIELDS = ["ID", "Id", "id", "Row ID", "RowID", "Slug", "slug"];
@@ -41,8 +49,11 @@ function parsePayload_(e) {
 }
 
 function validateApiKey_(providedApiKey) {
-  var expectedApiKey = trim_(SCRIPT_API_KEY);
-  if (!expectedApiKey) return;
+  var expectedApiKey = getScriptApiKey_();
+  // Fail closed: an unset key must reject writes, not disable auth.
+  if (!expectedApiKey) {
+    throw new Error("SCRIPT_API_KEY script property is not set.");
+  }
 
   if (trim_(providedApiKey) !== expectedApiKey) {
     throw new Error("Invalid API key.");

@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+# CI only needs to read the repo; artifact upload/download uses its own token.
+permissions:
+  contents: read
+
 jobs:
   # ── Unit / integration checks ──────────────────────────────────────────────
   build:
