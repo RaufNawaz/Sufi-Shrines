@@ -190,6 +190,18 @@
   transform: scale(0.9);
 }
 
+/* Numerals toggle (۱۲۳/123) — wider than a square icon button and sized to
+   a 44px touch target since it's tapped on mobile far more than it's read. */
+.numerals-toggle {
+  width: auto;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-family: var(--font-sans);
+}
+
 /* Sidebar toggle button (shown on map) */
 .sidebar-toggle {
   position: absolute;

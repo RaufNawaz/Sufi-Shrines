@@ -120,7 +120,7 @@ export function MapSidebar({
   onTourExit,
   embed = false,
 }: Props) {
-  const { lang, t, tCount, localizeField } = useLang();
+  const { lang, t, tCount, localizeField, numerals, setNumerals, fmtNum } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
   const [showList, setShowList] = useState(false);
@@ -260,6 +260,17 @@ export function MapSidebar({
             </h1>
           </div>
           <div className="sidebar-actions">
+            {lang === 'ur' && (
+              <button
+                type="button"
+                className="icon-btn numerals-toggle"
+                onClick={() => setNumerals(numerals === 'eastern' ? 'western' : 'eastern')}
+                aria-label={numerals === 'eastern' ? 'Switch to Western numerals' : 'مشرقی ہندسوں پر جائیں'}
+                title={numerals === 'eastern' ? 'Switch to Western numerals' : 'مشرقی ہندسوں پر جائیں'}
+              >
+                {numerals === 'eastern' ? '۱۲۳' : '123'}
+              </button>
+            )}
             <DarkModeToggle />
             <LanguageToggle />
           </div>
@@ -432,6 +443,7 @@ export function MapSidebar({
             value={[eraMin, eraMax]}
             onChange={onEraChange}
             lang={lang}
+            fmtNum={fmtNum}
           />
 
           {/* Result count */}
@@ -533,6 +545,7 @@ export function MapSidebar({
               shrine={activeTourShrine}
               shrines={shrines}
               lang={lang}
+              fmtNum={fmtNum}
               onNext={onTourNext}
               onPrev={onTourPrev}
               onExit={onTourExit}
@@ -550,6 +563,7 @@ export function MapSidebar({
               <WelcomeCard lang={lang} t={t} embed={embed} />
               <TourList
                 lang={lang}
+                fmtNum={fmtNum}
                 enabled={toursEnabled}
                 onToggle={onToursToggle}
                 onStart={onStartTour}

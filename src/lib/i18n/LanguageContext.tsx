@@ -11,9 +11,18 @@ import type { Lang } from '../../types/shrine';
 import { t, tFn, UI_TEXT } from './uiStrings';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import { translateToUrdu } from './urduFallback';
+import { localizeDigits } from './numerals';
 import type { ShrineRow } from '../../types/shrine';
 
 const STORAGE_KEY = 'shrines_language';
+const NUMERALS_STORAGE_KEY = 'shrines_numerals';
+
+export type Numerals = 'eastern' | 'western';
+
+function detectInitialNumerals(): Numerals {
+  const stored = localStorage.getItem(NUMERALS_STORAGE_KEY);
+  return stored === 'western' ? 'western' : 'eastern';
+}
 
 function detectInitialLang(): Lang {
   const param = new URLSearchParams(window.location.search).get('lang');
@@ -31,12 +40,26 @@ interface LangContextValue {
   t: (key: keyof (typeof UI_TEXT)['en']) => string;
   tCount: (n: number) => string;
   localizeField: (row: ShrineRow, field: string) => string;
+  numerals: Numerals;
+  setNumerals: (numerals: Numerals) => void;
+  fmtNum: (n: number | string) => string;
 }
 
 const LangContext = createContext<LangContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectInitialLang);
+  const [numerals, setNumeralsState] = useState<Numerals>(detectInitialNumerals);
+
+  const setNumerals = useCallback((next: Numerals) => {
+    setNumeralsState(next);
+    localStorage.setItem(NUMERALS_STORAGE_KEY, next);
+  }, []);
+
+  const fmtNum = useCallback(
+    (n: number | string) => localizeDigits(String(n), lang, numerals === 'eastern'),
+    [lang, numerals],
+  );
 
   const setLang = useCallback((next: Lang) => {
     setLangState(next);
@@ -71,10 +94,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       isRTL: lang === 'ur',
       setLang,
       t: (key) => t(lang, key),
-      tCount: (n) => tFn(lang, 'resultCount', n),
+      tCount: (n) => fmtNum(tFn(lang, 'resultCount', n)),
       localizeField,
+      numerals,
+      setNumerals,
+      fmtNum,
     }),
-    [lang, setLang, localizeField],
+    [lang, setLang, localizeField, numerals, setNumerals, fmtNum],
   );
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;

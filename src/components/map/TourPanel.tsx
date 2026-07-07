@@ -28,11 +28,11 @@ function localizedVisitingInfo(shrine: Shrine, lang: Lang): string {
   return getFieldValue(shrine.raw, 'Visiting Info');
 }
 
-function formatDriveTime(km: number, lang: Lang): string {
+function formatDriveTime(km: number, lang: Lang, fmtNum: (n: number | string) => string): string {
   const { hours, minutes } = estimateDriveTime(km);
   const parts: string[] = [];
-  if (hours > 0) parts.push(`${hours}${t(lang, 'hoursAbbrev')}`);
-  parts.push(`${minutes}${t(lang, 'minutesAbbrev')}`);
+  if (hours > 0) parts.push(`${fmtNum(hours)}${t(lang, 'hoursAbbrev')}`);
+  parts.push(`${fmtNum(minutes)}${t(lang, 'minutesAbbrev')}`);
   return parts.join(' ');
 }
 
@@ -42,19 +42,30 @@ interface Props {
   shrine: Shrine | null;
   shrines: Shrine[];
   lang: Lang;
+  fmtNum?: (n: number | string) => string;
   onNext: () => void;
   onPrev: () => void;
   onExit: () => void;
 }
 
-export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev, onExit }: Props) {
+export function TourPanel({
+  tour,
+  stopIdx,
+  shrine,
+  shrines,
+  lang,
+  fmtNum = (n) => String(n),
+  onNext,
+  onPrev,
+  onExit,
+}: Props) {
   const stop = tour.stops[stopIdx];
   const isFirst = stopIdx === 0;
   const isLast = stopIdx === tour.stops.length - 1;
   const shrineName = shrine ? localizeShrineName(shrine, lang) : stop.shrineSlug;
 
   const label = lang === 'ur'
-    ? `${stopIdx + 1} / ${tour.stops.length}`
+    ? `${fmtNum(stopIdx + 1)} / ${fmtNum(tour.stops.length)}`
     : `Stop ${stopIdx + 1} of ${tour.stops.length}`;
 
   const points = useMemo(() => resolveTourStops(tour, shrines), [tour, shrines]);
@@ -178,7 +189,7 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
 
       {nextLegKm !== null && (
         <p className="tour-next-distance">
-          {Math.round(nextLegKm)} {t(lang, 'kmUnit')} {t(lang, 'tourNextStopDistance')}
+          {fmtNum(Math.round(nextLegKm))} {t(lang, 'kmUnit')} {t(lang, 'tourNextStopDistance')}
         </p>
       )}
 
@@ -226,7 +237,7 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
                 </svg>
               )}
               <span aria-live="polite" aria-atomic="true">
-                {!autoplayPaused && (lang === 'ur' ? `اگلا مقام ${autoplaySecondsLeft} سیکنڈ میں` : `Next in ${autoplaySecondsLeft}s`)}
+                {!autoplayPaused && (lang === 'ur' ? `اگلا مقام ${fmtNum(autoplaySecondsLeft)} سیکنڈ میں` : `Next in ${autoplaySecondsLeft}s`)}
               </span>
             </button>
           )}
@@ -284,13 +295,14 @@ export function TourPanel({ tour, stopIdx, shrine, shrines, lang, onNext, onPrev
 interface TourPreviewProps {
   tour: Tour;
   lang: Lang;
+  fmtNum: (n: number | string) => string;
   shrines: Shrine[];
   onStart: () => void;
   onBack: () => void;
   onPreviewTour: (tourId: string) => void;
 }
 
-function TourPreview({ tour, lang, shrines, onStart, onBack, onPreviewTour }: TourPreviewProps) {
+function TourPreview({ tour, lang, fmtNum, shrines, onStart, onBack, onPreviewTour }: TourPreviewProps) {
   const points = useMemo(() => resolveTourStops(tour, shrines), [tour, shrines]);
   const km = useMemo(() => totalDistanceKm(points.map((p) => p.shrine.latLng)), [points]);
   const hasDistance = points.length > 1;
@@ -324,17 +336,17 @@ function TourPreview({ tour, lang, shrines, onStart, onBack, onPreviewTour }: To
       <dl className="tour-preview-stats">
         <div className="tour-preview-stat">
           <dt>{lang === 'ur' ? 'مقامات' : 'Stops'}</dt>
-          <dd>{tour.stops.length}</dd>
+          <dd>{fmtNum(tour.stops.length)}</dd>
         </div>
         {hasDistance && (
           <>
             <div className="tour-preview-stat">
               <dt>{t(lang, 'tourTotalDistance')}</dt>
-              <dd>{Math.round(km)} {t(lang, 'kmUnit')}</dd>
+              <dd>{fmtNum(Math.round(km))} {t(lang, 'kmUnit')}</dd>
             </div>
             <div className="tour-preview-stat">
               <dt>{t(lang, 'tourEstDriveTime')}</dt>
-              <dd>{formatDriveTime(km, lang)}</dd>
+              <dd>{formatDriveTime(km, lang, fmtNum)}</dd>
             </div>
           </>
         )}
@@ -343,7 +355,7 @@ function TourPreview({ tour, lang, shrines, onStart, onBack, onPreviewTour }: To
       <ol className="tour-preview-stops">
         {points.map((p, i) => (
           <li key={p.shrine.id} lang={lang === 'ur' ? 'ur' : undefined}>
-            {i + 1}. {localizeShrineName(p.shrine, lang)}
+            {fmtNum(i + 1)}. {localizeShrineName(p.shrine, lang)}
           </li>
         ))}
       </ol>
@@ -376,6 +388,7 @@ function TourPreview({ tour, lang, shrines, onStart, onBack, onPreviewTour }: To
 
 interface TourListProps {
   lang: Lang;
+  fmtNum?: (n: number | string) => string;
   enabled: boolean;
   onToggle: (enabled: boolean) => void;
   onStart: (tourId: string) => void;
@@ -383,7 +396,15 @@ interface TourListProps {
   shrines: Shrine[];
 }
 
-export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }: TourListProps) {
+export function TourList({
+  lang,
+  fmtNum = (n) => String(n),
+  enabled,
+  onToggle,
+  onStart,
+  onResume,
+  shrines,
+}: TourListProps) {
   const [previewId, setPreviewId] = useState<string | null>(null);
   const previewTour = previewId ? TOURS.find((tr) => tr.id === previewId) ?? null : null;
   // Read fresh on every render — TourList remounts whenever the user leaves
@@ -461,6 +482,7 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
       <TourPreview
         tour={previewTour}
         lang={lang}
+        fmtNum={fmtNum}
         shrines={shrines}
         onStart={() => {
           onStart(previewTour.id);
@@ -633,15 +655,15 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
                     {lang === 'ur' ? tour.titleUr : tour.title}
                   </span>
                   <span className="tour-card-meta">
-                    {lang === 'ur' ? `${tour.stops.length} مقامات` : `${tour.stops.length} stops`}
-                    {km !== undefined && ` · ${Math.round(km)} ${t(lang, 'kmUnit')}`}
+                    {lang === 'ur' ? `${fmtNum(tour.stops.length)} مقامات` : `${tour.stops.length} stops`}
+                    {km !== undefined && ` · ${fmtNum(Math.round(km))} ${t(lang, 'kmUnit')}`}
                     {tourProgress && (
                       <>
                         {' · '}
                         <span className={`tour-card-status tour-card-status--${tourProgress.status}`}>
                           {tourProgress.status === 'completed'
                             ? t(lang, 'tourCompletedBadge')
-                            : `${t(lang, 'tourInProgressBadge')} ${tourProgress.stopIdx + 1}/${tour.stops.length}`}
+                            : `${t(lang, 'tourInProgressBadge')} ${fmtNum(tourProgress.stopIdx + 1)}/${fmtNum(tour.stops.length)}`}
                         </span>
                       </>
                     )}
@@ -649,7 +671,7 @@ export function TourList({ lang, enabled, onToggle, onStart, onResume, shrines }
                       <>
                         {' · '}
                         <span className="tour-card-nearest-badge">
-                          {t(lang, 'nearestToYou')} ({Math.round(nearest!.km)} {t(lang, 'kmUnit')})
+                          {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))} {t(lang, 'kmUnit')})
                         </span>
                       </>
                     )}

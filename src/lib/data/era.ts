@@ -80,3 +80,10 @@ const CENTURY_LABELS: Record<number, string> = {
 export function formatCentury(century: number): string {
   return `${CENTURY_LABELS[century] ?? `${century}th`} c.`;
 }
+
+/** e.g. formatCenturyUr(8) → "8ویں صدی". Digits stay Western here — the
+ * render-time numeral toggle (fmtNum) converts them, keeping the toggle
+ * reversible for stored/formatted text alike. */
+export function formatCenturyUr(century: number): string {
+  return `${century}ویں صدی`;
+}

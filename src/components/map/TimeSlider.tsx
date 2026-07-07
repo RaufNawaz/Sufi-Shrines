@@ -1,16 +1,21 @@
 import React, { useCallback, useId } from 'react';
-import { ERA_MIN, ERA_MAX, formatCentury } from '../../lib/data/era';
+import { ERA_MIN, ERA_MAX, formatCentury, formatCenturyUr } from '../../lib/data/era';
 
 interface Props {
   value: [number, number];
   onChange: (range: [number, number]) => void;
   lang?: string;
+  fmtNum?: (n: number | string) => string;
 }
 
-export function TimeSlider({ value, onChange, lang = 'en' }: Props) {
+export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => String(n) }: Props) {
   const minId = useId();
   const maxId = useId();
   const [selMin, selMax] = value;
+  const century = useCallback(
+    (c: number) => fmtNum(lang === 'ur' ? formatCenturyUr(c) : formatCentury(c)),
+    [lang, fmtNum],
+  );
 
   const handleMin = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +55,7 @@ export function TimeSlider({ value, onChange, lang = 'en' }: Props) {
       <div className="time-slider-range-label" aria-live="polite">
         {isDefault
           ? (lang === 'ur' ? 'تمام ادوار' : 'All eras')
-          : `${formatCentury(selMin)} – ${formatCentury(selMax)}`}
+          : `${century(selMin)} – ${century(selMax)}`}
       </div>
 
       <div className="time-slider-inputs">
@@ -65,7 +70,7 @@ export function TimeSlider({ value, onChange, lang = 'en' }: Props) {
           max={ERA_MAX}
           value={selMin}
           onChange={handleMin}
-          aria-valuetext={formatCentury(selMin)}
+          aria-valuetext={century(selMin)}
         />
 
         <label htmlFor={maxId} className="sr-only">
@@ -79,13 +84,13 @@ export function TimeSlider({ value, onChange, lang = 'en' }: Props) {
           max={ERA_MAX}
           value={selMax}
           onChange={handleMax}
-          aria-valuetext={formatCentury(selMax)}
+          aria-valuetext={century(selMax)}
         />
       </div>
 
       <div className="time-slider-ticks" aria-hidden="true">
-        <span>{formatCentury(ERA_MIN)}</span>
-        <span>{formatCentury(ERA_MAX)}</span>
+        <span>{century(ERA_MIN)}</span>
+        <span>{century(ERA_MAX)}</span>
       </div>
     </div>
   );
