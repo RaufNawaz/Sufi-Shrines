@@ -1,4 +1,5 @@
 import { isLikelyUrl } from '../data/fieldAliasing';
+import urduSeed from '../../data/urdu-seed.json';
 
 const SPECIAL_URDU_PHRASES: Record<string, string> = {
   'Muslim Shrine': 'مسلم مزار',
@@ -83,72 +84,13 @@ const WORD_URDU_MAP: Record<string, string> = {
   zuhr: 'ظہر',
 };
 
-const DIGRAPH_URDU_MAP: Record<string, string> = {
-  aa: 'ا',
-  ae: 'ی',
-  ai: 'ے',
-  ay: 'ے',
-  bh: 'بھ',
-  ch: 'چ',
-  dh: 'دھ',
-  gh: 'غ',
-  kh: 'خ',
-  oo: 'و',
-  ou: 'او',
-  ow: 'اؤ',
-  ph: 'ف',
-  sh: 'ش',
-  th: 'تھ',
-  zh: 'ژ',
-};
-
-const CHAR_URDU_MAP: Record<string, string> = {
-  a: 'ا',
-  b: 'ب',
-  c: 'ک',
-  d: 'د',
-  e: 'ے',
-  f: 'ف',
-  g: 'گ',
-  h: 'ہ',
-  i: 'ی',
-  j: 'ج',
-  k: 'ک',
-  l: 'ل',
-  m: 'م',
-  n: 'ن',
-  o: 'و',
-  p: 'پ',
-  q: 'ق',
-  r: 'ر',
-  s: 'س',
-  t: 'ت',
-  u: 'و',
-  v: 'و',
-  w: 'و',
-  x: 'کس',
-  y: 'ی',
-  z: 'ز',
-};
-
-function transliterateWord(word: string): string {
-  if (!word) return '';
-  const lower = word.toLowerCase();
-  let i = 0;
-  let result = '';
-  while (i < lower.length) {
-    const digraph = lower.slice(i, i + 2);
-    if (DIGRAPH_URDU_MAP[digraph]) {
-      result += DIGRAPH_URDU_MAP[digraph];
-      i += 2;
-    } else {
-      result += CHAR_URDU_MAP[lower[i]] || word[i] || '';
-      i += 1;
-    }
-  }
-  return result;
-}
-
+/**
+ * Best-effort word-level substitution for short structured strings (e.g.
+ * "8th century", "Founded 1210 CE"). Never falls back to character-by-
+ * character transliteration — an unmapped word stays in Latin script, which
+ * signals to translateToUrdu() that the result is incomplete and the raw
+ * original should be shown instead (see 3.2 of URDU_IMPLEMENTATION_PLAN.md).
+ */
 export function buildUrduFallback(rawText: string): string {
   const raw = String(rawText ?? '').trim();
   if (!raw) return '';
@@ -165,7 +107,7 @@ export function buildUrduFallback(rawText: string): string {
     .map((token) => {
       if (!/[A-Za-z]/.test(token)) return token.replace(/,/g, '،');
       const lower = token.toLowerCase();
-      return WORD_URDU_MAP[lower] ?? transliterateWord(token);
+      return WORD_URDU_MAP[lower] ?? token;
     })
     .join('')
     .replace(/\s+/g, ' ')
@@ -173,11 +115,11 @@ export function buildUrduFallback(rawText: string): string {
     .trim() || raw;
 }
 
-const TRANSLATION_CACHE_KEY = 'shrines_translation_cache_v3';
+const TRANSLATION_CACHE_KEY = 'shrines_translation_cache_v4';
 
 function loadSeedTranslations(): Map<string, string> {
   const w = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>) : {};
-  const seed =
+  const win =
     w.SHRINE_TRANSLATIONS && typeof w.SHRINE_TRANSLATIONS === 'object'
       ? (w.SHRINE_TRANSLATIONS as Record<string, string>)
       : {};
@@ -193,7 +135,10 @@ function loadSeedTranslations(): Map<string, string> {
     // ignore
   }
 
-  return new Map(Object.entries({ ...persisted, ...seed }));
+  // Seed file wins over stale persisted cache; window can still override in dev.
+  return new Map(
+    Object.entries({ ...persisted, ...(urduSeed as Record<string, string>), ...win }),
+  );
 }
 
 let _cache: Map<string, string> | null = null;
@@ -227,11 +172,14 @@ export function translateToUrdu(text: string): string {
   }
 
   const generated = buildUrduFallback(raw);
-  if (generated && generated !== raw) {
+  if (generated && generated !== raw && !/[A-Za-z]/.test(generated)) {
     cache.set(raw, generated);
     persistCache();
     return generated;
   }
 
+  // Never emit transliterated letter-soup — an unmapped string stays in its
+  // original (readable) script rather than becoming character-level gibberish.
+  if (import.meta.env.DEV) console.warn('[urdu] missing translation:', raw);
   return raw;
 }
