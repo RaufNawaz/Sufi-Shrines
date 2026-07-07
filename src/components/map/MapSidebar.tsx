@@ -6,6 +6,7 @@ import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
@@ -215,8 +216,8 @@ export function MapSidebar({
       group.push(shrine);
       groups.set(cat, group);
     }
-    return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b));
-  }, [filtered, t]);
+    return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b, lang === 'ur' ? 'ur' : 'en'));
+  }, [filtered, t, lang]);
 
   const selectedShrine = useMemo(
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
@@ -386,7 +387,7 @@ export function MapSidebar({
           {regions.length > 1 && (
             <div className="filter-section">
               <span className="filter-section-label" aria-hidden="true">
-                {lang === 'ur' ? 'صوبہ' : 'Region'}
+                {t('filterByRegion')}
               </span>
               <div className="filter-chips" role="group" aria-label="Filter by region">
                 <button
@@ -394,7 +395,7 @@ export function MapSidebar({
                   onClick={() => onRegionChange('')}
                   aria-pressed={!activeRegion}
                 >
-                  {lang === 'ur' ? 'سب' : 'All'}
+                  {t('filterAll')}
                 </button>
                 {regions.map((reg) => (
                   <button
@@ -403,7 +404,7 @@ export function MapSidebar({
                     onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
                     aria-pressed={activeRegion === reg}
                   >
-                    {reg}
+                    {lang === 'ur' ? translateToUrdu(reg) : reg}
                   </button>
                 ))}
               </div>
@@ -414,7 +415,7 @@ export function MapSidebar({
           {saints.length > 1 && (
             <div className="filter-section">
               <span className="filter-section-label" aria-hidden="true">
-                {lang === 'ur' ? 'ولی' : 'Saint'}
+                {t('saintLabel')}
               </span>
               <div className="filter-chips" role="group" aria-label="Filter by Sufi saint">
                 <button
@@ -422,7 +423,7 @@ export function MapSidebar({
                   onClick={() => onSaintChange('')}
                   aria-pressed={!activeSaint}
                 >
-                  {lang === 'ur' ? 'سب' : 'All'}
+                  {t('filterAll')}
                 </button>
                 {saints.map((saint) => (
                   <button
@@ -431,7 +432,7 @@ export function MapSidebar({
                     onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
                     aria-pressed={activeSaint === saint}
                   >
-                    {saint}
+                    {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') || saint}
                   </button>
                 ))}
               </div>

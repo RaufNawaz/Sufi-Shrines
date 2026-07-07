@@ -97,6 +97,7 @@ export const UI_TEXT = {
     filterByRegion: 'Region',
     filterByTheme: 'Theme',
     filterByEra: 'Era',
+    saintLabel: 'Saint',
   },
   ur: {
     title: 'صوفی مزارات',
@@ -194,6 +195,7 @@ export const UI_TEXT = {
     filterByRegion: 'علاقہ',
     filterByTheme: 'موضوع',
     filterByEra: 'دور',
+    saintLabel: 'ولی',
   },
 } as const;
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import type { Tour, TourTradition } from '../../lib/tours/tours';
-import { TOURS, TRADITION_LABELS } from '../../lib/tours/tours';
+import { TOURS, TRADITION_LABELS, REGION_LABELS, THEME_LABELS, ERA_LABELS } from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm, totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
 import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
@@ -591,7 +591,7 @@ export function TourList({
                     onClick={() => setRegionFilter(regionFilter === r ? '' : r)}
                     aria-pressed={regionFilter === r}
                   >
-                    {r}
+                    {REGION_LABELS[r]?.[lang] ?? r}
                   </button>
                 ))}
               </div>
@@ -612,7 +612,7 @@ export function TourList({
                     onClick={() => setThemeFilter(themeFilter === th ? '' : th)}
                     aria-pressed={themeFilter === th}
                   >
-                    {th}
+                    {THEME_LABELS[th]?.[lang] ?? th}
                   </button>
                 ))}
               </div>
@@ -633,7 +633,7 @@ export function TourList({
                     onClick={() => setEraFilter(eraFilter === e ? '' : e)}
                     aria-pressed={eraFilter === e}
                   >
-                    {e}
+                    {fmtNum(ERA_LABELS[e]?.[lang] ?? e)}
                   </button>
                 ))}
               </div>

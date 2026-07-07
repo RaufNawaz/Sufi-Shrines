@@ -29,6 +29,26 @@ export const TRADITION_LABELS: Record<TourTradition, { en: string; ur: string }>
   'hindu-jain': { en: 'Hindu & Jain', ur: 'ہندو اور جین' },
 };
 
+/** English value → { en, ur } label. Sourced from urdu-i18n/urdu-dictionary.json
+ * (tourRegions/tourThemes/tourEras sections) — keep these two in sync. */
+export const REGION_LABELS: Record<string, { en: string; ur: string }> = {
+  'Sindh & Punjab': { en: 'Sindh & Punjab', ur: 'سندھ اور پنجاب' },
+  Punjab: { en: 'Punjab', ur: 'پنجاب' },
+  'Punjab, Sindh & Balochistan': { en: 'Punjab, Sindh & Balochistan', ur: 'پنجاب، سندھ اور بلوچستان' },
+};
+
+export const THEME_LABELS: Record<string, { en: string; ur: string }> = {
+  'Pilgrimage route': { en: 'Pilgrimage route', ur: 'زیارت کا راستہ' },
+  'Founding history': { en: 'Founding history', ur: 'تاریخِ بنیاد' },
+  'Ancient architecture': { en: 'Ancient architecture', ur: 'قدیم فنِ تعمیر' },
+};
+
+export const ERA_LABELS: Record<string, { en: string; ur: string }> = {
+  '8th–20th century': { en: '8th–20th century', ur: '8ویں–20ویں صدی' },
+  '15th–20th century': { en: '15th–20th century', ur: '15ویں–20ویں صدی' },
+  '7th–15th century': { en: '7th–15th century', ur: '7ویں–15ویں صدی' },
+};
+
 function isValidStop(value: unknown): value is TourStop {
   const s = value as Partial<TourStop> | null;
   return (
