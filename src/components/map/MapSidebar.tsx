@@ -331,6 +331,7 @@ export function MapSidebar({
                 ref={searchRef}
                 type="search"
                 className="search-input"
+                dir={lang === 'ur' ? 'rtl' : undefined}
                 placeholder={t('searchPlaceholder')}
                 value={searchRaw}
                 onChange={(e) => setSearchRaw(e.target.value)}

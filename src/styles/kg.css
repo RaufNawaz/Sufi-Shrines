@@ -10,6 +10,7 @@
   max-width: 860px;
   margin: 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-16);
+  text-align: start;
 }
 
 /* ── Entity type kicker ──────────────────────────────────────────────────── */
@@ -223,7 +224,7 @@
 .entity-infobox-title::before {
   content: '';
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   bottom: 0;
   width: 3px;
@@ -298,8 +299,8 @@
 .lineage-members {
   list-style: none;
   margin: 0;
-  padding: 0 0 0 var(--space-6);
-  border-left: 2px solid var(--color-border);
+  padding-inline-start: var(--space-6);
+  border-inline-start: 2px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
@@ -313,7 +314,7 @@
 .lineage-member::before {
   content: '';
   position: absolute;
-  left: calc(-1 * var(--space-6));
+  inset-inline-start: calc(-1 * var(--space-6));
   top: 50%;
   width: var(--space-5);
   height: 1px;
@@ -347,7 +348,7 @@
   content: '◀';
   font-size: 0.65em;
   opacity: 0.6;
-  margin-left: var(--space-1);
+  margin-inline-start: var(--space-1);
 }
 
 .lineage-member-alt {
@@ -484,33 +485,13 @@
 
 /* ── RTL overrides ───────────────────────────────────────────────────────── */
 
-[dir='rtl'] .entity-page {
-  direction: rtl;
-  text-align: right;
-}
-
 [dir='rtl'] .entity-type-kicker::before {
   order: 1;
 }
 
-[dir='rtl'] .lineage-members {
-  padding: 0 var(--space-6) 0 0;
-  border-left: none;
-  border-right: 2px solid var(--color-border);
-}
-
-[dir='rtl'] .lineage-member::before {
-  left: auto;
-  right: calc(-1 * var(--space-6));
-}
-
 [dir='rtl'] .lineage-member--current > a::after {
+  /* Arrow glyph itself must flip — logical properties mirror position but
+     not glyph direction. Margin already uses margin-inline-start in the
+     base rule, so no positional override is needed here. */
   content: '▶';
-  margin-left: 0;
-  margin-right: var(--space-1);
-}
-
-[dir='rtl'] .entity-infobox-title::before {
-  left: auto;
-  right: 0;
 }

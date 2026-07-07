@@ -114,7 +114,7 @@ export function LocationMap({ latLng, name }: Props) {
       </div>
 
       <p className="location-coords">
-        {t('coordinatesLabel')}: {coords}
+        {t('coordinatesLabel')}: <bdi className="coords">{coords}</bdi>
       </p>
     </section>
   );

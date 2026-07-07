@@ -240,7 +240,8 @@
   bottom: 0;
   width: 3px;
   background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
-  border-radius: 0 2px 2px 0;
+  border-start-end-radius: 2px;
+  border-end-end-radius: 2px;
 }
 
 .infobox-row {
@@ -440,7 +441,7 @@
 .lightbox-close {
   position: absolute;
   top: calc(var(--space-4) + var(--safe-top));
-  right: calc(var(--space-4) + var(--safe-right));
+  inset-inline-end: calc(var(--space-4) + var(--safe-right));
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
@@ -494,21 +495,15 @@
 }
 
 .lightbox-nav-btn.prev {
-  left: calc(var(--space-4) + var(--safe-left));
+  inset-inline-start: calc(var(--space-4) + var(--safe-left));
 }
 
 .lightbox-nav-btn.next {
-  right: calc(var(--space-4) + var(--safe-right));
+  inset-inline-end: calc(var(--space-4) + var(--safe-right));
 }
 
-[dir='rtl'] .lightbox-nav-btn.prev {
-  left: auto;
-  right: calc(var(--space-4) + var(--safe-right));
-}
-
-[dir='rtl'] .lightbox-nav-btn.next {
-  left: calc(var(--space-4) + var(--safe-left));
-  right: auto;
+[dir='rtl'] .lightbox-nav-btn svg {
+  transform: scaleX(-1);
 }
 
 /* Location section */
@@ -688,7 +683,7 @@
 .scroll-to-top {
   position: fixed;
   bottom: calc(var(--space-6) + var(--safe-bottom));
-  right: calc(var(--space-6) + var(--safe-right));
+  inset-inline-end: calc(var(--space-6) + var(--safe-right));
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
@@ -711,11 +706,6 @@
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-[dir='rtl'] .scroll-to-top {
-  right: auto;
-  left: calc(var(--space-6) + var(--safe-left));
 }
 
 /* Skeleton loading states */

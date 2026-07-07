@@ -87,13 +87,13 @@ body.lang-rtl,
 .skip-link {
   position: absolute;
   top: var(--safe-top);
-  left: var(--safe-left);
+  inset-inline-start: var(--safe-left);
   padding: var(--space-3) var(--space-4);
   background: var(--color-primary);
   color: var(--color-text-inverse);
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0 0 var(--radius-md) 0;
+  border-end-end-radius: var(--radius-md);
   z-index: var(--z-modal);
   transform: translateY(-100%);
   transition: transform var(--duration-fast) var(--easing);
@@ -298,6 +298,10 @@ body.lang-rtl,
 @media print {
   .no-print {
     display: none !important;
+  }
+
+  [dir='rtl'] {
+    direction: rtl;
   }
 }
 
