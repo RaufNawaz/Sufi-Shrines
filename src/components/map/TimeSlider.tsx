@@ -1,10 +1,12 @@
 import React, { useCallback, useId } from 'react';
 import { ERA_MIN, ERA_MAX, formatCentury, formatCenturyUr } from '../../lib/data/era';
+import { t } from '../../lib/i18n/uiStrings';
+import type { Lang } from '../../types/shrine';
 
 interface Props {
   value: [number, number];
   onChange: (range: [number, number]) => void;
-  lang?: string;
+  lang?: Lang;
   fmtNum?: (n: number | string) => string;
 }
 
@@ -39,28 +41,26 @@ export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => Strin
     <div className="time-slider">
       <div className="time-slider-header">
         <span className="filter-section-label" aria-hidden="true">
-          {lang === 'ur' ? 'دور' : 'Era'}
+          {t(lang, 'era')}
         </span>
         {!isDefault && (
           <button
             className="time-slider-reset"
             onClick={() => onChange([ERA_MIN, ERA_MAX])}
-            aria-label={lang === 'ur' ? 'دور فلٹر ہٹائیں' : 'Reset era filter'}
+            aria-label={t(lang, 'resetEraFilterAriaLabel')}
           >
-            {lang === 'ur' ? 'ہٹائیں' : 'Reset'}
+            {t(lang, 'resetButton')}
           </button>
         )}
       </div>
 
       <div className="time-slider-range-label" aria-live="polite">
-        {isDefault
-          ? (lang === 'ur' ? 'تمام ادوار' : 'All eras')
-          : `${century(selMin)} – ${century(selMax)}`}
+        {isDefault ? t(lang, 'allErasLabel') : `${century(selMin)} – ${century(selMax)}`}
       </div>
 
       <div className="time-slider-inputs">
         <label htmlFor={minId} className="sr-only">
-          {lang === 'ur' ? 'شروع کی صدی' : 'Earliest century'}
+          {t(lang, 'earliestCenturyLabel')}
         </label>
         <input
           id={minId}
@@ -74,7 +74,7 @@ export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => Strin
         />
 
         <label htmlFor={maxId} className="sr-only">
-          {lang === 'ur' ? 'آخری صدی' : 'Latest century'}
+          {t(lang, 'latestCenturyLabel')}
         </label>
         <input
           id={maxId}

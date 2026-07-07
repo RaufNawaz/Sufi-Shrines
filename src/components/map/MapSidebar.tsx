@@ -15,7 +15,7 @@ import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
 import type { Tour } from '../../lib/tours/tours';
-import { TOURS } from '../../lib/tours/tours';
+import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
 import { TourPanel, TourList } from './TourPanel';
 import { t as translate } from '../../lib/i18n/uiStrings';
 
@@ -257,7 +257,7 @@ export function MapSidebar({
           <div className="sidebar-brand">
             <ShrineGlyph className="brand-icon" />
             <h1 className="sidebar-title">
-              {lang === 'ur' ? 'صوفی مزارات' : 'Sufi Shrines'}
+              {t('title')}
             </h1>
           </div>
           <div className="sidebar-actions">
@@ -266,8 +266,8 @@ export function MapSidebar({
                 type="button"
                 className="icon-btn numerals-toggle"
                 onClick={() => setNumerals(numerals === 'eastern' ? 'western' : 'eastern')}
-                aria-label={numerals === 'eastern' ? 'Switch to Western numerals' : 'مشرقی ہندسوں پر جائیں'}
-                title={numerals === 'eastern' ? 'Switch to Western numerals' : 'مشرقی ہندسوں پر جائیں'}
+                aria-label={numerals === 'eastern' ? t('switchToWesternNumerals') : t('switchToEasternNumerals')}
+                title={numerals === 'eastern' ? t('switchToWesternNumerals') : t('switchToEasternNumerals')}
               >
                 {numerals === 'eastern' ? '۱۲۳' : '123'}
               </button>
@@ -367,7 +367,7 @@ export function MapSidebar({
                   onClick={() => onCategoryChange('')}
                   aria-pressed={!activeCategory}
                 >
-                  {lang === 'ur' ? 'سب' : 'All'}
+                  {t('filterAll')}
                 </button>
                 {categories.map((cat) => (
                   <button
@@ -474,7 +474,7 @@ export function MapSidebar({
                       className="shrine-list-empty-clear"
                       onClick={clearAllFilters}
                     >
-                      {lang === 'ur' ? 'فلٹر ہٹائیں' : 'Clear filters'}
+                      {t('clearFilters')}
                     </button>
                   )}
                 </div>
@@ -561,7 +561,7 @@ export function MapSidebar({
             />
           ) : (
             <>
-              <WelcomeCard lang={lang} t={t} embed={embed} />
+              <WelcomeCard t={t} embed={embed} />
               <TourList
                 lang={lang}
                 fmtNum={fmtNum}
@@ -580,11 +580,9 @@ export function MapSidebar({
 }
 
 function WelcomeCard({
-  lang,
   t,
   embed = false,
 }: {
-  lang: string;
   t: (k: Parameters<ReturnType<typeof useLang>['t']>[0]) => string;
   embed?: boolean;
 }) {
@@ -596,7 +594,7 @@ function WelcomeCard({
         </svg>
       </div>
       <h2 className="welcome-card-title">
-        {lang === 'ur' ? 'مزارات دریافت کریں' : 'Explore Sufi Shrines'}
+        {t('exploreTitle')}
       </h2>
       <p className="welcome-card-text">{t('noSelection')}</p>
       {/* The "list button above" this hint refers to is hidden in embed mode */}
@@ -685,7 +683,7 @@ function ShrinePreview({
       {relatedTour && (
         <div className="preview-related-tour">
           <span>
-            {translate(lang as Lang, 'partOfTour')}: {lang === 'ur' ? relatedTour.titleUr : relatedTour.title}
+            {translate(lang as Lang, 'partOfTour')}: {localizeTourTitle(relatedTour, lang as Lang)}
           </span>
           <button className="preview-related-tour-btn" onClick={() => onStartTour(relatedTour.id)}>
             {translate(lang as Lang, 'viewTour')}
@@ -694,7 +692,7 @@ function ShrinePreview({
       )}
       <div className="preview-actions">
         <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
-          {lang === 'ur' ? 'مکمل تفصیل دیکھیں' : 'View full details'}
+          {translate(lang as Lang, 'viewFullDetails')}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="9 18 15 12 9 6" />
           </svg>
@@ -702,8 +700,8 @@ function ShrinePreview({
         <button
           className={`preview-copy-link${copied ? ' copied' : ''}`}
           onClick={handleCopyLink}
-          aria-label={copied ? (lang === 'ur' ? 'لنک کاپی ہو گیا' : 'Link copied') : (lang === 'ur' ? 'لنک کاپی کریں' : 'Copy link')}
-          title={lang === 'ur' ? 'لنک کاپی کریں' : 'Copy link'}
+          aria-label={copied ? translate(lang as Lang, 'linkCopied') : translate(lang as Lang, 'copyLink')}
+          title={translate(lang as Lang, 'copyLink')}
         >
           {copied ? (
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -715,7 +713,7 @@ function ShrinePreview({
               <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
             </svg>
           )}
-          <span>{copied ? (lang === 'ur' ? 'کاپی ہو گیا' : 'Copied!') : (lang === 'ur' ? 'شیئر' : 'Share')}</span>
+          <span>{copied ? translate(lang as Lang, 'copied') : translate(lang as Lang, 'share')}</span>
         </button>
       </div>
     </div>

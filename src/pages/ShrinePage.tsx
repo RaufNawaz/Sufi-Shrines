@@ -84,7 +84,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
       {/* Breadcrumb */}
       <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
         <ol>
-          <li><Link to="/">{lang === 'ur' ? 'نقشہ' : 'Map'}</Link></li>
+          <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
           {category && <li>{category}</li>}
           <li className="shrine-breadcrumb-current" aria-current="page">{name}</li>
         </ol>

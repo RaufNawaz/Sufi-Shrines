@@ -1,6 +1,15 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import type { Tour, TourTradition } from '../../lib/tours/tours';
-import { TOURS, TRADITION_LABELS, REGION_LABELS, THEME_LABELS, ERA_LABELS } from '../../lib/tours/tours';
+import {
+  TOURS,
+  TRADITION_LABELS,
+  REGION_LABELS,
+  THEME_LABELS,
+  ERA_LABELS,
+  localizeTourTitle,
+  localizeTourDescription,
+  localizeStopNarrative,
+} from '../../lib/tours/tours';
 import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { legDistancesKm, totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
 import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
@@ -10,7 +19,7 @@ import { getFieldValue, getUrduFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { haversineKm } from '../../lib/data/shrineModel';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
-import { t } from '../../lib/i18n/uiStrings';
+import { t, tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
@@ -64,9 +73,7 @@ export function TourPanel({
   const isLast = stopIdx === tour.stops.length - 1;
   const shrineName = shrine ? localizeShrineName(shrine, lang) : stop.shrineSlug;
 
-  const label = lang === 'ur'
-    ? `${fmtNum(stopIdx + 1)} / ${fmtNum(tour.stops.length)}`
-    : `Stop ${stopIdx + 1} of ${tour.stops.length}`;
+  const label = fmtNum(tFn(lang, 'stopOf', stopIdx + 1, tour.stops.length));
 
   const points = useMemo(() => resolveTourStops(tour, shrines), [tour, shrines]);
   const legsKm = useMemo(() => legDistancesKm(points.map((p) => p.shrine.latLng)), [points]);
@@ -76,8 +83,8 @@ export function TourPanel({
 
   const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang) : '';
   const { share, copied } = useShareLink();
-  const tourTitle = lang === 'ur' ? tour.titleUr : tour.title;
-  const narrativeText = lang === 'ur' ? stop.narrativeUr : stop.narrative;
+  const tourTitle = localizeTourTitle(tour, lang);
+  const narrativeText = localizeStopNarrative(stop, lang);
 
   const audio = useTourAudio({ tourId: tour.id, stopIndex: stopIdx, text: narrativeText, lang });
 
@@ -94,7 +101,7 @@ export function TourPanel({
   const autoplaySecondsLeft = Math.ceil(remainingMs / 1000);
 
   return (
-    <div className="tour-panel" aria-label={lang === 'ur' ? 'رہنما دورہ' : 'Guided tour'}>
+    <div className="tour-panel" aria-label={t(lang, 'guidedTourAriaLabel')}>
       <div className="tour-panel-header">
         <span className="tour-step-badge" aria-live="polite" aria-atomic="true">{label}</span>
         <div className="tour-panel-header-actions">
@@ -128,12 +135,12 @@ export function TourPanel({
           <button
             className="tour-exit-btn"
             onClick={onExit}
-            aria-label={lang === 'ur' ? 'دورہ ختم کریں' : 'End tour'}
+            aria-label={t(lang, 'endTourAriaLabel')}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
-            {lang === 'ur' ? 'ختم کریں' : 'End tour'}
+            {t(lang, 'endTour')}
           </button>
         </div>
       </div>
@@ -237,7 +244,7 @@ export function TourPanel({
                 </svg>
               )}
               <span aria-live="polite" aria-atomic="true">
-                {!autoplayPaused && (lang === 'ur' ? `اگلا مقام ${fmtNum(autoplaySecondsLeft)} سیکنڈ میں` : `Next in ${autoplaySecondsLeft}s`)}
+                {!autoplayPaused && fmtNum(tFn(lang, 'nextIn', autoplaySecondsLeft))}
               </span>
             </button>
           )}
@@ -246,13 +253,13 @@ export function TourPanel({
 
       <div className="tour-print-itinerary">
         <h1>{tourTitle}</h1>
-        <p>{lang === 'ur' ? tour.descriptionUr : tour.description}</p>
+        <p>{localizeTourDescription(tour, lang)}</p>
         <ol>
           {points.map((p) => (
             <li key={p.shrine.id}>
               <h2 lang={lang === 'ur' ? 'ur' : undefined}>{localizeShrineName(p.shrine, lang)}</h2>
               <p lang={lang === 'ur' ? 'ur' : undefined}>
-                {lang === 'ur' ? tour.stops[p.stopIndex].narrativeUr : tour.stops[p.stopIndex].narrative}
+                {localizeStopNarrative(tour.stops[p.stopIndex], lang)}
               </p>
             </li>
           ))}
@@ -264,23 +271,19 @@ export function TourPanel({
           className="tour-nav-btn"
           onClick={onPrev}
           disabled={isFirst}
-          aria-label={lang === 'ur' ? 'پچھلا مقام' : 'Previous stop'}
+          aria-label={t(lang, 'previousStopAriaLabel')}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          {lang === 'ur' ? 'پچھلا' : 'Previous'}
+          {t(lang, 'previousButton')}
         </button>
         <button
           className="tour-nav-btn tour-nav-btn--next"
           onClick={onNext}
-          aria-label={isLast
-            ? (lang === 'ur' ? 'دورہ مکمل کریں' : 'Finish tour')
-            : (lang === 'ur' ? 'اگلا مقام' : 'Next stop')}
+          aria-label={isLast ? t(lang, 'finishTourAriaLabel') : t(lang, 'nextStopAriaLabel')}
         >
-          {isLast
-            ? (lang === 'ur' ? 'مکمل ✓' : 'Finish ✓')
-            : (lang === 'ur' ? 'اگلا' : 'Next')}
+          {isLast ? t(lang, 'finishButton') : t(lang, 'nextButton')}
           {!isLast && (
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <polyline points="9 18 15 12 9 6" />
@@ -327,15 +330,15 @@ function TourPreview({ tour, lang, fmtNum, shrines, onStart, onBack, onPreviewTo
       </button>
 
       <h3 className="tour-preview-title" lang={lang === 'ur' ? 'ur' : undefined}>
-        {lang === 'ur' ? tour.titleUr : tour.title}
+        {localizeTourTitle(tour, lang)}
       </h3>
       <p className="tour-preview-description" lang={lang === 'ur' ? 'ur' : undefined}>
-        {lang === 'ur' ? tour.descriptionUr : tour.description}
+        {localizeTourDescription(tour, lang)}
       </p>
 
       <dl className="tour-preview-stats">
         <div className="tour-preview-stat">
-          <dt>{lang === 'ur' ? 'مقامات' : 'Stops'}</dt>
+          <dt>{t(lang, 'stopsLabel')}</dt>
           <dd>{fmtNum(tour.stops.length)}</dd>
         </div>
         {hasDistance && (
@@ -375,7 +378,7 @@ function TourPreview({ tour, lang, fmtNum, shrines, onStart, onBack, onPreviewTo
                 onClick={() => onPreviewTour(related.id)}
               >
                 <span lang={lang === 'ur' ? 'ur' : undefined}>
-                  {lang === 'ur' ? related.titleUr : related.title}
+                  {localizeTourTitle(related, lang)}
                 </span>
               </button>
             ))}
@@ -469,9 +472,7 @@ export function TourList({
     );
   }, [shrines]);
 
-  const toggleLabel = enabled
-    ? (lang === 'ur' ? 'رہنما دورے بند کریں' : 'Turn off guided tours')
-    : (lang === 'ur' ? 'رہنما دورے چالو کریں' : 'Turn on guided tours');
+  const toggleLabel = enabled ? t(lang, 'turnOffTours') : t(lang, 'turnOnTours');
 
   const resumableTour = progress.lastActive
     ? TOURS.find((tr) => tr.id === progress.lastActive!.tourId) ?? null
@@ -498,7 +499,7 @@ export function TourList({
     <div className="tour-list">
       <div className="tour-list-header">
         <h3 className="tour-list-heading">
-          {lang === 'ur' ? 'رہنما دورے' : 'Guided Tours'}
+          {t(lang, 'guidedTours')}
         </h3>
         <button
           type="button"
@@ -516,7 +517,7 @@ export function TourList({
         <div className="tour-resume-banner">
           <div className="tour-resume-text">
             <strong lang={lang === 'ur' ? 'ur' : undefined}>
-              {lang === 'ur' ? resumableTour.titleUr : resumableTour.title}
+              {localizeTourTitle(resumableTour, lang)}
             </strong>
             <span>{t(lang, 'resumeTourPrompt')}</span>
           </div>
@@ -546,9 +547,7 @@ export function TourList({
       {enabled && (
         <>
           <p className="tour-list-hint">
-            {lang === 'ur'
-              ? 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں'
-              : 'Follow a curated route through related shrines'}
+            {t(lang, 'guidedToursHint')}
           </p>
 
           <button type="button" className="tour-near-me-btn" onClick={handleNearMe} disabled={geoStatus === 'loading'}>
@@ -652,10 +651,10 @@ export function TourList({
                   onClick={() => setPreviewId(tour.id)}
                 >
                   <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>
-                    {lang === 'ur' ? tour.titleUr : tour.title}
+                    {localizeTourTitle(tour, lang)}
                   </span>
                   <span className="tour-card-meta">
-                    {lang === 'ur' ? `${fmtNum(tour.stops.length)} مقامات` : `${tour.stops.length} stops`}
+                    {fmtNum(tour.stops.length)} {t(lang, 'stopsLabel')}
                     {km !== undefined && ` · ${fmtNum(Math.round(km))} ${t(lang, 'kmUnit')}`}
                     {tourProgress && (
                       <>

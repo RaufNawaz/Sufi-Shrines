@@ -98,6 +98,41 @@ export const UI_TEXT = {
     filterByTheme: 'Theme',
     filterByEra: 'Era',
     saintLabel: 'Saint',
+    sourcesHeading: 'Sources & Provenance',
+    unreviewedLabel: 'Unreviewed',
+    confidenceLabel: 'confidence',
+    reviewedByLabel: 'reviewed by',
+    pageNotFoundTitle: 'Page not found',
+    pageNotFoundMessage: 'The page you’re looking for doesn’t exist or has been moved.',
+    shrineDirectoryLabel: 'Shrine directory',
+    mapBreadcrumb: 'Map',
+    guidedTourAriaLabel: 'Guided tour',
+    guidedTours: 'Guided Tours',
+    guidedToursHint: 'Follow a curated route through related shrines',
+    turnOnTours: 'Turn on guided tours',
+    turnOffTours: 'Turn off guided tours',
+    endTourAriaLabel: 'End tour',
+    endTour: 'End tour',
+    previousStopAriaLabel: 'Previous stop',
+    previousButton: 'Previous',
+    nextStopAriaLabel: 'Next stop',
+    finishTourAriaLabel: 'Finish tour',
+    nextButton: 'Next',
+    finishButton: 'Finish ✓',
+    stopsLabel: 'Stops',
+    clearFilters: 'Clear filters',
+    viewFullDetails: 'View full details',
+    copyLink: 'Copy link',
+    linkCopied: 'Link copied',
+    switchToWesternNumerals: 'Switch to Western numerals',
+    switchToEasternNumerals: 'Switch to Eastern numerals',
+    resetEraFilterAriaLabel: 'Reset era filter',
+    resetButton: 'Reset',
+    allErasLabel: 'All eras',
+    earliestCenturyLabel: 'Earliest century',
+    latestCenturyLabel: 'Latest century',
+    stopOf: (current: number, total: number) => `Stop ${current} of ${total}`,
+    nextIn: (seconds: number) => `Next in ${seconds}s`,
   },
   ur: {
     title: 'صوفی مزارات',
@@ -196,6 +231,41 @@ export const UI_TEXT = {
     filterByTheme: 'موضوع',
     filterByEra: 'دور',
     saintLabel: 'ولی',
+    sourcesHeading: 'مصادر اور ماخذ',
+    unreviewedLabel: 'غیر جانچا گیا',
+    confidenceLabel: 'اعتماد',
+    reviewedByLabel: 'جانچا',
+    pageNotFoundTitle: 'صفحہ نہیں ملا',
+    pageNotFoundMessage: 'آپ جو صفحہ ڈھونڈ رہے ہیں وہ دستیاب نہیں ہے۔',
+    shrineDirectoryLabel: 'مزارات کی فہرست',
+    mapBreadcrumb: 'نقشہ',
+    guidedTourAriaLabel: 'رہنما دورہ',
+    guidedTours: 'رہنما دورے',
+    guidedToursHint: 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں',
+    turnOnTours: 'رہنما دورے چالو کریں',
+    turnOffTours: 'رہنما دورے بند کریں',
+    endTourAriaLabel: 'دورہ ختم کریں',
+    endTour: 'ختم کریں',
+    previousStopAriaLabel: 'پچھلا مقام',
+    previousButton: 'پچھلا',
+    nextStopAriaLabel: 'اگلا مقام',
+    finishTourAriaLabel: 'دورہ مکمل کریں',
+    nextButton: 'اگلا',
+    finishButton: 'مکمل ✓',
+    stopsLabel: 'مقامات',
+    clearFilters: 'فلٹر ہٹائیں',
+    viewFullDetails: 'مکمل تفصیل دیکھیں',
+    copyLink: 'لنک کاپی کریں',
+    linkCopied: 'لنک کاپی ہو گیا',
+    switchToWesternNumerals: 'مغربی ہندسوں پر جائیں',
+    switchToEasternNumerals: 'مشرقی ہندسوں پر جائیں',
+    resetEraFilterAriaLabel: 'دور فلٹر ہٹائیں',
+    resetButton: 'ہٹائیں',
+    allErasLabel: 'تمام ادوار',
+    earliestCenturyLabel: 'شروع کی صدی',
+    latestCenturyLabel: 'آخری صدی',
+    stopOf: (current: number, total: number) => `${current} / ${total}`,
+    nextIn: (seconds: number) => `اگلا مقام ${seconds} سیکنڈ میں`,
   },
 } as const;
 
@@ -205,12 +275,11 @@ export function t(lang: Lang, key: keyof (typeof UI_TEXT)['en']): string {
   return String(text ?? '');
 }
 
-export function tFn(
-  lang: Lang,
-  key: 'resultCount',
-  ...args: Parameters<(typeof UI_TEXT)['en']['resultCount']>
-): string {
+export function tFn(lang: Lang, key: 'resultCount', n: number): string;
+export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): string;
+export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
+export function tFn(lang: Lang, key: 'resultCount' | 'stopOf' | 'nextIn', ...args: number[]): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
-  if (typeof fn === 'function') return fn(...args);
+  if (typeof fn === 'function') return (fn as (...a: number[]) => string)(...args);
   return String(fn ?? '');
 }

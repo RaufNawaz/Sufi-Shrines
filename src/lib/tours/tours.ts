@@ -1,4 +1,5 @@
 import toursData from '../../data/tours.json';
+import type { Lang } from '../../types/shrine';
 
 export type TourTradition = 'sufi' | 'sikh' | 'hindu-jain';
 
@@ -87,3 +88,18 @@ export function loadTours(raw: unknown): Tour[] {
 }
 
 export const TOURS: Tour[] = loadTours(toursData);
+
+/** Language-appropriate tour title/description/stop-narrative — the single
+ * place that picks between a tour's English and hand-authored Urdu fields,
+ * so components don't repeat `lang === 'ur' ? x.titleUr : x.title` inline. */
+export function localizeTourTitle(tour: Tour, lang: Lang): string {
+  return lang === 'ur' ? tour.titleUr : tour.title;
+}
+
+export function localizeTourDescription(tour: Tour, lang: Lang): string {
+  return lang === 'ur' ? tour.descriptionUr : tour.description;
+}
+
+export function localizeStopNarrative(stop: TourStop, lang: Lang): string {
+  return lang === 'ur' ? stop.narrativeUr : stop.narrative;
+}

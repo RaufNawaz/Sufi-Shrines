@@ -2,6 +2,7 @@ import React from 'react';
 import type { Lang } from '../../types/shrine';
 import type { ProvenanceStore, FieldProvenance, ProvenanceMethod } from '../../types/provenance';
 import rawProvenance from '../../../data/provenance.json';
+import { t } from '../../lib/i18n/uiStrings';
 
 const provenanceStore = rawProvenance as unknown as ProvenanceStore;
 
@@ -32,7 +33,7 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
   const fieldEntries = Object.entries(entry.fields);
   if (!fieldEntries.length) return null;
 
-  const heading = lang === 'ur' ? 'مصادر اور ماخذ' : 'Sources & Provenance';
+  const heading = t(lang, 'sourcesHeading');
 
   return (
     <section
@@ -58,7 +59,7 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
 
               {unreviewed && (
                 <span className="provenance-unreviewed" role="img" aria-label="Unreviewed">
-                  {lang === 'ur' ? 'غیر جانچا گیا' : 'Unreviewed'}
+                  {t(lang, 'unreviewedLabel')}
                 </span>
               )}
 
@@ -70,13 +71,13 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
               {prov.confidence !== undefined && (
                 <span className="provenance-confidence">
                   {Math.round(prov.confidence * 100)}{'%'}{' '}
-                  {lang === 'ur' ? 'اعتماد' : 'confidence'}
+                  {t(lang, 'confidenceLabel')}
                 </span>
               )}
 
               {prov.reviewedBy && (
                 <span className="provenance-reviewer">
-                  {lang === 'ur' ? 'جانچا' : 'reviewed by'}: {prov.reviewedBy}
+                  {t(lang, 'reviewedByLabel')}: {prov.reviewedBy}
                 </span>
               )}
 

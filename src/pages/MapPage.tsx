@@ -96,7 +96,7 @@ function setFiltersInURL(filters: FilterState): void {
 
 export default function MapPage() {
   const { shrines, loading, error, refresh } = useShrineData();
-  const { lang, t, isRTL } = useLang();
+  const { t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [isEmbed] = useState(isEmbedMode);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -335,7 +335,7 @@ export default function MapPage() {
       <nav
         id="shrine-directory"
         className="sr-only"
-        aria-label={lang === 'ur' ? 'مزارات کی فہرست' : 'Shrine directory'}
+        aria-label={t('shrineDirectoryLabel')}
       >
         <ol>
           {shrines.map((s) => (
