@@ -76,6 +76,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     document.body.classList.toggle('lang-rtl', isRTL);
     document.body.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+
+    // Site-wide meta description/OG tags and the PWA install title — page
+    // components (ShrinePage, SaintPage, …) own document.title themselves.
+    const description = t(lang, 'siteMetaDescription');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t(lang, 'siteTitle'));
+    document.querySelector('meta[name="apple-mobile-web-app-title"]')?.setAttribute('content', t(lang, 'title'));
   }, [lang]);
 
   const localizeField = useCallback(

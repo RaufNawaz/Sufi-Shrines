@@ -16,6 +16,13 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- Language variants — same URL, content swaps client-side via ?lang=;
+         prerender.mjs rewrites these to absolute URLs (with SITE_URL) on
+         every generated page, including this file, during `npm run build`. -->
+    <link rel="alternate" hreflang="en" href="/" />
+    <link rel="alternate" hreflang="ur" href="/?lang=ur" />
+    <link rel="alternate" hreflang="x-default" href="/" />
+
     <!-- iOS PWA home-screen support -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

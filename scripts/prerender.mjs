@@ -113,6 +113,28 @@ function escHtml(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+/**
+ * Replaces the homepage's relative hreflang stubs (copied in from
+ * index.html, since every generated page starts from that template) with
+ * this page's own absolute en/ur/x-default alternates. The ?lang=ur variant
+ * isn't a separately-servable static file (language is a client-side query
+ * param, not a route) — this hreflang pair still lets crawlers associate the
+ * two variants of the same URL, which is standard practice for JS-rendered
+ * language toggles and degrades gracefully to "one indexed URL" if ignored.
+ */
+function replaceHreflang(html, canonicalUrl) {
+  if (!canonicalUrl) {
+    return html
+      .replace(/<link\s+rel="alternate"\s+hreflang="en"[^>]*>\s*/i, '')
+      .replace(/<link\s+rel="alternate"\s+hreflang="ur"[^>]*>\s*/i, '')
+      .replace(/<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>\s*/i, '');
+  }
+  return html
+    .replace(/<link\s+rel="alternate"\s+hreflang="en"[^>]*>/i, `<link rel="alternate" hreflang="en" href="${escHtml(canonicalUrl)}" />`)
+    .replace(/<link\s+rel="alternate"\s+hreflang="ur"[^>]*>/i, `<link rel="alternate" hreflang="ur" href="${escHtml(canonicalUrl)}?lang=ur" />`)
+    .replace(/<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${escHtml(canonicalUrl)}" />`);
+}
+
 function buildShrineHead(shrine, baseHtml) {
   const { row, slug, lat, lng } = shrine;
   const name = escHtml(field(row, 'Name'));
@@ -202,6 +224,8 @@ function buildShrineHead(shrine, baseHtml) {
     .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${escHtml(desc)}" />`)
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
     .replace(/<meta\s+name="twitter:card"[^>]*>/i, `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`);
+
+  html = replaceHreflang(html, canonicalUrl);
 
   // Inject OG URL, canonical, image, and JSON-LD before </head>
   const extras = [
@@ -299,6 +323,7 @@ if (kgData) {
       .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${escHtml(saint.name)} — Sufi Shrines" />`)
       .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${desc}" />`)
       .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="profile" />`);
+    html = replaceHreflang(html, canonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
@@ -347,6 +372,7 @@ if (kgData) {
       .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${escHtml(order.name)} — Sufi Shrines" />`)
       .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${desc}" />`)
       .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="profile" />`);
+    html = replaceHreflang(html, canonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
@@ -381,6 +407,14 @@ if (SITE_URL) {
 }
 sitemapLines.push('</urlset>');
 writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
+
+// ── homepage: upgrade the relative hreflang stubs to absolute URLs ─────────
+if (SITE_URL) {
+  const homeHtml = replaceHreflang(baseHtml, `${SITE_URL}/`)
+    .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+    .replace('</head>', `  <link rel="canonical" href="${escHtml(SITE_URL)}/" />\n  <meta property="og:url" content="${escHtml(SITE_URL)}/" />\n</head>`);
+  writeFileSync(distIndexPath, homeHtml, 'utf8');
+}
 
 console.log(`[prerender] ✓ ${written} shrine pages + sitemap.xml`);
 if (!SITE_URL) {

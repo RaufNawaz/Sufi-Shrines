@@ -4,6 +4,8 @@ export const UI_TEXT = {
   en: {
     title: 'Sufi Shrines',
     siteTitle: 'Sufi Shrines of Pakistan',
+    siteMetaDescription:
+      'An interactive map of Sufi shrines across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu.',
     loading: 'Loading data...',
     loadingShrine: 'Loading shrine details...',
     noSelection: 'No shrine selected yet. Click a marker to view details.',
@@ -137,6 +139,8 @@ export const UI_TEXT = {
   ur: {
     title: 'صوفی مزارات',
     siteTitle: 'پاکستان کے صوفی مزارات',
+    siteMetaDescription:
+      'پاکستان بھر کے صوفی مزارات کا انٹرایکٹو نقشہ۔ تاریخ، طرزِ تعمیر، رسومات، اور زائرین کی معلومات اردو اور انگریزی میں دیکھیں۔',
     loading: 'ڈیٹا لوڈ ہو رہا ہے...',
     loadingShrine: 'مزار کی تفصیلات لوڈ ہو رہی ہیں...',
     noSelection: 'ابھی کوئی مزار منتخب نہیں ہوا۔ تفصیل کے لیے مارکر پر کلک کریں۔',
