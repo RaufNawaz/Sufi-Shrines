@@ -4,13 +4,14 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { INFOBOX_PRIORITY_KEYS, MAX_INFOBOX_ROWS, NON_DETAIL_KEYS } from '../../lib/data/constants';
 import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
 import { categoryKey } from '../../lib/data/categoryKey';
+import { localizeFieldName } from '../../lib/data/fieldLabels';
 
 interface Props {
   shrine: Shrine;
 }
 
 export function ShrineInfobox({ shrine }: Props) {
-  const { t, localizeField } = useLang();
+  const { t, lang, localizeField } = useLang();
   const catKey = categoryKey(shrine.category);
   const categoryLabel = localizeField(shrine.raw, 'Category') || shrine.category;
 
@@ -69,9 +70,7 @@ export function ShrineInfobox({ shrine }: Props) {
       <h2 className="infobox-title">{t('shrineFacts')}</h2>
       <dl className="infobox-list">
         {rows.map(([key, value]) => {
-          const localKey = localizeField(shrine.raw, key) !== value
-            ? localizeField(shrine.raw, key)
-            : key;
+          const localKey = localizeFieldName(key, lang);
           return (
             <div className="infobox-row" key={key}>
               <dt className="infobox-label">{localKey || key}</dt>

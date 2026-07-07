@@ -6,6 +6,7 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { getOrderBySlug, getSaintsInOrder } from '../lib/kg';
+import { translateToUrdu } from '../lib/i18n/urduFallback';
 
 function slugToLabel(slug: string): string {
   return slug
@@ -16,7 +17,7 @@ function slugToLabel(slug: string): string {
 
 export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { lang, t } = useLang();
+  const { lang, t, fmtNum } = useLang();
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const order = useMemo(() => (slug ? getOrderBySlug(slug) : undefined), [slug]);
@@ -40,6 +41,7 @@ export default function OrderPage() {
   if (!order) return <Navigate to="/" replace />;
 
   const isRtl = lang === 'ur';
+  const founded = isRtl && order.founded ? translateToUrdu(order.founded) : order.founded;
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -65,7 +67,7 @@ export default function OrderPage() {
         {/* Breadcrumb */}
         <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
           <ol>
-            <li><Link to="/">{isRtl ? 'نقشہ' : 'Map'}</Link></li>
+            <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
             <li className="shrine-breadcrumb-current" aria-current="page">{order.name}</li>
           </ol>
         </nav>
@@ -85,14 +87,14 @@ export default function OrderPage() {
         </h1>
 
         <div className="entity-meta">
-          {order.founded && (
+          {founded && (
             <span className="entity-meta-item">
-              {t('founded')}: {order.founded}
+              {t('founded')}: {founded}
             </span>
           )}
           {members.length > 0 && (
             <span className="entity-meta-item">
-              {members.length} {isRtl ? 'ولی' : `saint${members.length !== 1 ? 's' : ''}`}
+              {fmtNum(members.length)} {isRtl ? t('saintLabel') : `saint${members.length !== 1 ? 's' : ''}`}
             </span>
           )}
         </div>
@@ -168,16 +170,16 @@ export default function OrderPage() {
                   <span className="entity-infobox-value" lang="ar">{order.arabicName}</span>
                 </div>
               )}
-              {order.founded && (
+              {founded && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('founded')}</span>
-                  <span className="entity-infobox-value">{order.founded}</span>
+                  <span className="entity-infobox-value">{founded}</span>
                 </div>
               )}
               {members.length > 0 && (
                 <div className="entity-infobox-row">
-                  <span className="entity-infobox-label">{isRtl ? 'ولی' : 'Saints'}</span>
-                  <span className="entity-infobox-value">{members.length}</span>
+                  <span className="entity-infobox-label">{t('saintLabel')}</span>
+                  <span className="entity-infobox-value">{fmtNum(members.length)}</span>
                 </div>
               )}
               {order.wikidataQid && (
@@ -202,7 +204,7 @@ export default function OrderPage() {
         <footer className="site-footer">
           <Link to="/">{t('backToMap')}</Link>
           {' · '}
-          <span>Sufi Shrines of Pakistan · Harvard Research Project</span>
+          <span>{t('footerCredit')}</span>
         </footer>
       </article>
 

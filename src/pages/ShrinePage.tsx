@@ -45,7 +45,10 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded = shrine.founded;
+  const founded =
+    localizeField(shrine.raw, 'Founded/Opened') ||
+    localizeField(shrine.raw, 'Founded') ||
+    shrine.founded;
 
   // Move focus to the heading so screen readers announce the shrine name on navigation
   useEffect(() => {
@@ -198,7 +201,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
       <footer className="site-footer">
         <Link to="/">{t('backToMap')}</Link>
         {' · '}
-        <span>Sufi Shrines of Pakistan · Harvard Research Project</span>
+        <span>{t('footerCredit')}</span>
       </footer>
     </article>
   );

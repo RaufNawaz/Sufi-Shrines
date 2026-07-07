@@ -13,6 +13,7 @@ import {
   getOrderForSaint,
   getSaintsInOrder,
 } from '../lib/kg';
+import { translateToUrdu } from '../lib/i18n/urduFallback';
 
 function slugToLabel(slug: string): string {
   return slug
@@ -78,6 +79,9 @@ export default function SaintPage() {
 
   const displayName = lang === 'ur' && saint.nameUr ? saint.nameUr : saint.name;
   const isRtl = lang === 'ur';
+  const born = isRtl && saint.born ? translateToUrdu(saint.born) : saint.born;
+  const died = isRtl && saint.died ? translateToUrdu(saint.died) : saint.died;
+  const era = isRtl && saint.era ? translateToUrdu(saint.era) : saint.era;
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -103,32 +107,32 @@ export default function SaintPage() {
         {/* Breadcrumb */}
         <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
           <ol>
-            <li><Link to="/">{isRtl ? 'نقشہ' : 'Map'}</Link></li>
+            <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
             <li className="shrine-breadcrumb-current" aria-current="page">{displayName}</li>
           </ol>
         </nav>
 
         <p className="entity-type-kicker" aria-label={t('sufiOrder')}>
-          {isRtl ? 'ولی' : 'Saint'}
+          {t('saintLabel')}
         </p>
 
         <h1 ref={headingRef} className="entity-title">{displayName}</h1>
 
         {/* Meta row */}
         <div className="entity-meta">
-          {saint.born && (
+          {born && (
             <span className="entity-meta-item">
-              <span aria-label={t('born')}>{t('born')}:</span> {saint.born}
+              <span aria-label={t('born')}>{t('born')}:</span> {born}
             </span>
           )}
-          {saint.died && (
+          {died && (
             <span className="entity-meta-item">
-              <span aria-label={t('died')}>{t('died')}:</span> {saint.died}
+              <span aria-label={t('died')}>{t('died')}:</span> {died}
             </span>
           )}
-          {saint.era && (
+          {era && (
             <span className="entity-meta-item">
-              <span aria-label={t('era')}>{t('era')}:</span> {saint.era}
+              <span aria-label={t('era')}>{t('era')}:</span> {era}
             </span>
           )}
           {order && (
@@ -228,16 +232,16 @@ export default function SaintPage() {
                   <span className="entity-infobox-value">{saint.altNames[0]}</span>
                 </div>
               )}
-              {saint.born && (
+              {born && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('born')}</span>
-                  <span className="entity-infobox-value">{saint.born}</span>
+                  <span className="entity-infobox-value">{born}</span>
                 </div>
               )}
-              {saint.died && (
+              {died && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('died')}</span>
-                  <span className="entity-infobox-value">{saint.died}</span>
+                  <span className="entity-infobox-value">{died}</span>
                 </div>
               )}
               {saint.era && (
@@ -284,7 +288,7 @@ export default function SaintPage() {
         <footer className="site-footer">
           <Link to="/">{t('backToMap')}</Link>
           {' · '}
-          <span>Sufi Shrines of Pakistan · Harvard Research Project</span>
+          <span>{t('footerCredit')}</span>
         </footer>
       </article>
 

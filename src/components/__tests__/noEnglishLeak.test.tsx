@@ -6,6 +6,8 @@ import { LanguageProvider } from '../../lib/i18n/LanguageContext';
 import { ThemeProvider } from '../../lib/i18n/ThemeContext';
 import { MapSidebar } from '../map/MapSidebar';
 import { ShrineArticle } from '../shrine/ShrineArticle';
+import { ShrineInfobox } from '../shrine/ShrineInfobox';
+import { SourcesProvenance } from '../shrine/SourcesProvenance';
 import { buildShrine } from '../../lib/data/shrineModel';
 import shrinesFixture from '../../data/shrines-fallback.json';
 import type { ShrineRow } from '../../types/shrine';
@@ -61,6 +63,22 @@ describe('no English leaks in ?lang=ur', () => {
 
     const leaks = findLatinLeaks(container);
     expect(leaks, `Latin text leaked into the Urdu article: ${JSON.stringify(leaks)}`).toEqual([]);
+  });
+
+  it('shrine infobox: field labels (Category/Location/Founded/…) render in Urdu, not raw column names', () => {
+    const row = (shrinesFixture.rows as ShrineRow[]).find((r) => r.Name === 'Data Darbar')!;
+    const shrine = buildShrine(row, 0)!;
+    const { container } = renderInUrdu(<ShrineInfobox shrine={shrine} />);
+
+    const leaks = findLatinLeaks(container);
+    expect(leaks, `Latin text leaked into the Urdu infobox: ${JSON.stringify(leaks)}`).toEqual([]);
+  });
+
+  it('sources & provenance: field names render in Urdu, not raw column names', () => {
+    const { container } = renderInUrdu(<SourcesProvenance shrineSlug="data-darbar" lang="ur" />);
+
+    const leaks = findLatinLeaks(container);
+    expect(leaks, `Latin text leaked into the Urdu provenance panel: ${JSON.stringify(leaks)}`).toEqual([]);
   });
 
   it('sidebar: default view (welcome card + guided tours) renders fully in Urdu', () => {

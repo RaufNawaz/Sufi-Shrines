@@ -3,6 +3,7 @@ import type { Lang } from '../../types/shrine';
 import type { ProvenanceStore, FieldProvenance, ProvenanceMethod } from '../../types/provenance';
 import rawProvenance from '../../../data/provenance.json';
 import { t } from '../../lib/i18n/uiStrings';
+import { localizeFieldName } from '../../lib/data/fieldLabels';
 
 const provenanceStore = rawProvenance as unknown as ProvenanceStore;
 
@@ -51,7 +52,7 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
 
           return (
             <li key={field} className="provenance-item">
-              <span className="provenance-field-name">{field}</span>
+              <span className="provenance-field-name">{localizeFieldName(field, lang)}</span>
 
               <span className={`provenance-method provenance-method--${prov.method}`}>
                 {methodLabel}
@@ -64,8 +65,13 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
               )}
 
               <span className="provenance-source">
-                {prov.source}
-                {prov.page ? formatPageRef(prov.page) : null}
+                {/* Source citations (Wikimedia, Google Maps, book titles, license
+                    names) are external technical metadata, not shrine content —
+                    isolate rather than mistranslate a legal/attribution string. */}
+                <bdi>
+                  {prov.source}
+                  {prov.page ? formatPageRef(prov.page) : null}
+                </bdi>
               </span>
 
               {prov.confidence !== undefined && (
@@ -82,7 +88,8 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
               )}
 
               {prov.notes && (
-                <span className="provenance-notes">{prov.notes}</span>
+                // Internal audit notes — same rationale as the source citation above.
+                <span className="provenance-notes"><bdi>{prov.notes}</bdi></span>
               )}
             </li>
           );

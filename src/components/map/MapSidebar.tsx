@@ -629,7 +629,10 @@ function ShrinePreview({
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded = shrine.founded;
+  const founded =
+    localizeField(shrine.raw, 'Founded/Opened') ||
+    localizeField(shrine.raw, 'Founded') ||
+    shrine.founded;
 
   const descRaw =
     lang === 'ur'
