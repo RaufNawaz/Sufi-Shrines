@@ -69,7 +69,8 @@
   --leading-normal: 1.6;
   --leading-relaxed: 1.75;
   --leading-loose: 2;
-  --leading-urdu: 2.2;
+  --leading-urdu: 2.1;
+  --font-scale-urdu: 1.06;
 
   /* Spacing */
   --space-1: 0.25rem;

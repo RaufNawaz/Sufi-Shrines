@@ -45,6 +45,35 @@ body.lang-rtl,
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu);
   font-size: 1.05rem;
+  letter-spacing: normal;
+  word-spacing: 0.05em;
+}
+
+/* Nastaliq sits taller and needs more visual weight than Latin scripts to
+   read as comfortably — bump headings/body via --font-scale-urdu rather
+   than hand-tuning every heading's font-size. */
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4,
+[dir='rtl'] p,
+[dir='rtl'] li,
+[dir='rtl'] dd,
+[dir='rtl'] dt {
+  font-size: calc(1em * var(--font-scale-urdu));
+}
+
+/* Form controls don't inherit font-family by default in most browsers'
+   UA stylesheets — without this every chip, button, and input renders
+   Urdu in a fallback Naskh/serif instead of Nastaliq. */
+[dir='rtl'] button,
+[dir='rtl'] input,
+[dir='rtl'] select,
+[dir='rtl'] textarea,
+[dir='rtl'] .filter-chip,
+[dir='rtl'] .search-input {
+  font-family: var(--font-urdu);
+  font-size: 1.1rem;
 }
 
 /* Focus styles */
