@@ -16,7 +16,7 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-pressed={lang === 'en'}
         lang="en"
       >
-        EN
+        <bdi data-latin>EN</bdi>
       </button>
       <button
         className={`lang-seg${lang === 'ur' ? ' active' : ''}`}
