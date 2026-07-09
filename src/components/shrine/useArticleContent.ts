@@ -7,16 +7,25 @@ import {
   parseInlineSections,
 } from '../../lib/data/articleParsing';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
+import { localizeHeading } from '../../lib/data/headingLabels';
 
 /** Heading → in-page anchor id. Distinct from lib/data/slugify (URL slugs). */
 export function anchorSlug(text: string): string {
-  return text
+  const base = text
     .toLowerCase()
     .replace(/[؀-ۿ\s]+/g, (m) => (m.trim() ? '-' : ''))
     .replace(/[^a-z0-9-]/g, '')
     .replace(/--+/g, '-')
-    .replace(/^-|-$/g, '')
-    || 'section';
+    .replace(/^-|-$/g, '');
+  if (base) return base;
+
+  // Arabic-script (and other non-Latin) headings strip to '' above — every
+  // one would otherwise collide on the same "section" id, breaking
+  // ContentsNav's scroll-to-anchor for any article with more than one Urdu
+  // heading. Fall back to a stable per-heading hash instead.
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+  return `section-${hash.toString(36)}`;
 }
 
 export interface ArticleNavItem {
@@ -80,7 +89,7 @@ export function useArticleContent(shrine: Shrine) {
     const items: ArticleNavItem[] = [];
     if (leadText) items.push({ id: 'overview', label: t('overview') });
     for (const s of inlineSections) {
-      items.push({ id: anchorSlug(s.heading), label: s.heading });
+      items.push({ id: anchorSlug(s.heading), label: localizeHeading(s.heading, lang) });
     }
     for (const s of uniqueColumnSections) {
       items.push({ id: s.id, label: s.title[lang as 'en' | 'ur'] || s.title.en });

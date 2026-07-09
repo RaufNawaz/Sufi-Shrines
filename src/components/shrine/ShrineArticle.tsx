@@ -3,6 +3,7 @@ import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { ShrineGallery } from './ShrineGallery';
 import { anchorSlug, useArticleContent } from './useArticleContent';
+import { localizeHeading } from '../../lib/data/headingLabels';
 
 function ArticleSection({
   id,
@@ -54,7 +55,7 @@ export function ShrineArticle({ shrine }: Props) {
           <ArticleSection
             key={id}
             id={id}
-            heading={section.heading}
+            heading={localizeHeading(section.heading, lang)}
             content={section.content}
           />
         );
