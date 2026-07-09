@@ -4,6 +4,7 @@ import type { Shrine, ShrineDataState, ShrineRow } from '../types/shrine';
 import { CSV_URL } from '../lib/data/constants';
 import { normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
+import { applyUrduContentOverrides } from '../lib/data/urduContentOverride';
 import snapshotData from '../data/shrines-fallback.json';
 
 const CACHE_KEY = 'shrines_csv_cache_v3';
@@ -41,7 +42,7 @@ function isFresh(entry: CacheEntry): boolean {
 
 function loadSnapshot(): Shrine[] {
   const rows = (snapshotData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
-  return buildShrines(rows);
+  return buildShrines(applyUrduContentOverrides(rows));
 }
 
 async function fetchShrines(): Promise<Shrine[]> {
@@ -52,7 +53,7 @@ async function fetchShrines(): Promise<Shrine[]> {
       skipEmptyLines: true,
       complete: (results) => {
         const rows = (results.data as Record<string, unknown>[]).map(normalizeRow) as ShrineRow[];
-        resolve(buildShrines(rows));
+        resolve(buildShrines(applyUrduContentOverrides(rows)));
       },
       error: reject,
     });
