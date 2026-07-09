@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function ShrineInfobox({ shrine }: Props) {
-  const { t, lang, localizeField } = useLang();
+  const { t, lang, localizeField, fmtNum } = useLang();
   const catKey = categoryKey(shrine.category);
   const categoryLabel = localizeField(shrine.raw, 'Category') || shrine.category;
 
@@ -80,7 +80,7 @@ export function ShrineInfobox({ shrine }: Props) {
                     {value.replace(/^https?:\/\//, '')}
                   </a>
                 ) : (
-                  value
+                  fmtNum(value)
                 )}
               </dd>
             </div>

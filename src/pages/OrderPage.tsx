@@ -89,7 +89,7 @@ export default function OrderPage() {
         <div className="entity-meta">
           {founded && (
             <span className="entity-meta-item">
-              {t('founded')}: {founded}
+              {t('founded')}: {fmtNum(founded)}
             </span>
           )}
           {members.length > 0 && (
@@ -173,7 +173,7 @@ export default function OrderPage() {
               {founded && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('founded')}</span>
-                  <span className="entity-infobox-value">{founded}</span>
+                  <span className="entity-infobox-value">{fmtNum(founded)}</span>
                 </div>
               )}
               {members.length > 0 && (

@@ -32,7 +32,7 @@ function SkeletonPage() {
 }
 
 function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
-  const { lang, t, localizeField } = useLang();
+  const { lang, t, localizeField, fmtNum } = useLang();
   const { navItems } = useArticleContent(shrine);
   const [toastVisible, setToastVisible] = useState(false);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -122,7 +122,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            {founded}
+            {fmtNum(founded)}
           </span>
         )}
         {saint && (

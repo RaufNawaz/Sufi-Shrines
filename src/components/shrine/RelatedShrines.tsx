@@ -12,7 +12,7 @@ interface Props {
 }
 
 export function RelatedShrines({ shrine, all }: Props) {
-  const { lang, t, localizeField } = useLang();
+  const { lang, t, localizeField, fmtNum } = useLang();
 
   const related = findRelatedShrines(shrine, all);
   if (related.length === 0) return null;
@@ -42,7 +42,7 @@ export function RelatedShrines({ shrine, all }: Props) {
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
                   {location && <span>{location} · </span>}
-                  <span>{dist < 1 ? '< 1' : Math.round(dist)} {t('distanceKm')}</span>
+                  <span>{dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}</span>
                 </div>
               </div>
             </Link>

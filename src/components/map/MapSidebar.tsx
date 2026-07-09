@@ -617,6 +617,7 @@ function ShrinePreview({
   toursEnabled: boolean;
   onStartTour: (tourId: string) => void;
 }) {
+  const { fmtNum } = useLang();
   const [copied, setCopied] = useState(false);
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -676,7 +677,7 @@ function ShrinePreview({
       <div className="preview-meta-row">
         {category && <span>{category}</span>}
         {location && <span>· {location}</span>}
-        {founded && <span>· {founded}</span>}
+        {founded && <span>· {fmtNum(founded)}</span>}
       </div>
       {saint && (
         <div className="preview-meta-row">

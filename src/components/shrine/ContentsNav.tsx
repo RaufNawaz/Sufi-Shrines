@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function ContentsNav({ items }: Props) {
-  const { t } = useLang();
+  const { t, fmtNum } = useLang();
   const [activeId, setActiveId] = useState(items[0]?.id || '');
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function ContentsNav({ items }: Props) {
                 setActiveId(item.id);
               }}
             >
-              {i + 1}. {item.label}
+              {fmtNum(i + 1)}. {item.label}
             </a>
           </li>
         ))}

@@ -24,7 +24,7 @@ function slugToLabel(slug: string): string {
 
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { lang, t } = useLang();
+  const { lang, t, fmtNum } = useLang();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const { shrines } = useShrineData();
 
@@ -122,17 +122,17 @@ export default function SaintPage() {
         <div className="entity-meta">
           {born && (
             <span className="entity-meta-item">
-              <span aria-label={t('born')}>{t('born')}:</span> {born}
+              <span aria-label={t('born')}>{t('born')}:</span> {fmtNum(born)}
             </span>
           )}
           {died && (
             <span className="entity-meta-item">
-              <span aria-label={t('died')}>{t('died')}:</span> {died}
+              <span aria-label={t('died')}>{t('died')}:</span> {fmtNum(died)}
             </span>
           )}
           {era && (
             <span className="entity-meta-item">
-              <span aria-label={t('era')}>{t('era')}:</span> {era}
+              <span aria-label={t('era')}>{t('era')}:</span> {fmtNum(era)}
             </span>
           )}
           {order && (
@@ -235,19 +235,19 @@ export default function SaintPage() {
               {born && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('born')}</span>
-                  <span className="entity-infobox-value">{born}</span>
+                  <span className="entity-infobox-value">{fmtNum(born)}</span>
                 </div>
               )}
               {died && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('died')}</span>
-                  <span className="entity-infobox-value">{died}</span>
+                  <span className="entity-infobox-value">{fmtNum(died)}</span>
                 </div>
               )}
-              {saint.era && (
+              {era && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('era')}</span>
-                  <span className="entity-infobox-value">{saint.era}</span>
+                  <span className="entity-infobox-value">{fmtNum(era)}</span>
                 </div>
               )}
               {order && (
