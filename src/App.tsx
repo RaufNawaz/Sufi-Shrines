@@ -51,7 +51,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <a href="#main-content" className="skip-link">Skip to content</a>
           <a href="#shrine-directory" className="skip-link">Skip to shrine list</a>
           <RouteAnnouncer />

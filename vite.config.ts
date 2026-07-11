@@ -2,7 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // GitHub Pages project sites are served at /<repo-name>/, not the domain
+  // root — only the production build needs the prefix; dev/test stay at '/'
+  // so localhost keeps working without it. Override with VITE_BASE_PATH for
+  // a custom-domain deploy (which serves from '/').
+  base: command === 'build' ? (process.env.VITE_BASE_PATH ?? '/Sufi-Shrines/') : '/',
   test: {
     environment: 'jsdom',
     globals: true,
@@ -114,4 +119,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

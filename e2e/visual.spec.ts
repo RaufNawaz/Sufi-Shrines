@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+// No baseline snapshots are committed — Playwright screenshots are pixel-
+// sensitive to OS font rendering, so a baseline generated on one platform
+// never matches another. CI runs on ubuntu-latest; generate real baselines
+// by running `npx playwright test e2e/visual.spec.ts --update-snapshots` in
+// that same environment (e.g. a one-off CI job) and commit the result.
 const TEST_SLUG = 'data-darbar';
 
 // Stable viewport for all visual tests
