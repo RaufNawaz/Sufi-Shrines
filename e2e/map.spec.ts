@@ -40,12 +40,27 @@ test.describe('Map page', () => {
 
   test('clear search button removes filter', async ({ page }) => {
     await page.getByRole('button', { name: 'Table of Shrines' }).click();
+    // The list renders progressively, so wait for it to settle on the full
+    // (large) directory before using its count as a baseline.
+    const list = page.locator('.shrine-list-item');
+    await expect(async () => {
+      const n = await list.count();
+      expect(n).toBeGreaterThan(50);
+    }).toPass();
+    const fullCount = await list.count();
+
+    // "Data Darbar" also appears in another shrine's Location text (Peer
+    // Makki, "near Data Darbar"), so don't assume an exact match count —
+    // just assert the search narrows the list before checking clear restores it.
     await page.getByPlaceholder('Search shrines…').fill('Data Darbar');
-    await expect(page.locator('.shrine-list-item')).toHaveCount(1);
+    await expect(list).not.toHaveCount(fullCount);
+    const filteredCount = await list.count();
+    expect(filteredCount).toBeGreaterThan(0);
+    expect(filteredCount).toBeLessThan(fullCount);
 
     await page.locator('.search-clear').click();
 
-    // Debounce clears (200ms) then all shrines return — wait for >1 item
-    await expect(page.locator('.shrine-list-item')).not.toHaveCount(1);
+    // Debounce clears (200ms) then all shrines return.
+    await expect(list).toHaveCount(fullCount);
   });
 });
