@@ -1,0 +1,10 @@
+# Core deps for the book OCR pipeline (tools/download_books.py, tools/process_books.py,
+# tools/ocr_all_books.py, tools/finalize_books.py, tools/ocr_status.py, tools/extract.py).
+# Install: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+#
+# Optional local NLLB-200 machine-translation assist (tools/translate.py --engine nllb)
+# needs an extra, much heavier set of packages — see requirements-translate.txt.
+
+pillow==12.2.0
+gdown==6.1.0
+gradio_client==2.5.0

@@ -33,7 +33,16 @@ summaries/
 REDESIGN_FOLLOWUP.md
 PHASE2_RESEARCH_PROMPT.md
 CLAUDE_CODE_PROMPT.md
+TOURS_CLAUDE_CODE_PROMPT.md
+NEXT_STEPS.md
 archive/
+
+# Research working files — private research data, not for public distribution
+Shrines_with_Descriptions.xlsx
+Shrines_with_Descriptions_BACKUP_*.xlsx
+FULL_SHEET_REPLACEMENT.tsv
+MISSING_SHRINES_FOR_SHEET.tsv
+STALE_ROWS_TO_UPDATE_IN_SHEET.tsv
 
 # Editor / OS
 .DS_Store
