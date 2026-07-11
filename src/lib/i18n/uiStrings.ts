@@ -67,6 +67,11 @@ export const UI_TEXT = {
     viewOrder: 'View spiritual order',
     networkConnections: 'Network connections',
     description: 'Description',
+    graphExplorerTitle: 'Saints & Orders Explorer',
+    graphExplorerIntro:
+      'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
+    graphExplorerOrders: 'Sufi orders',
+    graphExplorerAllSaints: 'All saints',
     kmUnit: 'km',
     tourTotalDistance: 'Total distance',
     tourEstDriveTime: 'Est. drive time',
@@ -213,6 +218,11 @@ export const UI_TEXT = {
     viewOrder: 'روحانی سلسلہ دیکھیں',
     networkConnections: 'نیٹ ورک روابط',
     description: 'توضیح',
+    graphExplorerTitle: 'اولیاء اور سلسلے',
+    graphExplorerIntro:
+      'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
+    graphExplorerOrders: 'صوفی سلسلے',
+    graphExplorerAllSaints: 'تمام اولیاء',
     kmUnit: 'کلومیٹر',
     tourTotalDistance: 'کل فاصلہ',
     tourEstDriveTime: 'ڈرائیو کا تخمینی وقت',

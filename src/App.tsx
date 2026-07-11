@@ -9,6 +9,7 @@ const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
 const SaintPage = lazy(() => import('./pages/SaintPage'));
 const OrderPage = lazy(() => import('./pages/OrderPage'));
+const GraphPage = lazy(() => import('./pages/GraphPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -60,6 +61,7 @@ export default function App() {
               <Route path="/shrine/:slug" element={<ShrinePage />} />
               <Route path="/saint/:slug" element={<SaintPage />} />
               <Route path="/order/:slug" element={<OrderPage />} />
+              <Route path="/graph" element={<GraphPage />} />
               {/* Legacy shrine.html?id=N redirect */}
               <Route path="/shrine.html" element={<LegacyRedirect />} />
               <Route path="*" element={<NotFoundPage />} />
