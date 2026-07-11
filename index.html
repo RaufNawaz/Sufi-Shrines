@@ -29,13 +29,16 @@
     <meta name="apple-mobile-web-app-title" content="Sufi Shrines" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Fonts: linked here (not @import) so the fetch starts before the app CSS arrives -->
+    <!-- Fonts: linked here (not @import) so the fetch starts before the app CSS arrives.
+         Noto Nastaliq Urdu is self-hosted (see src/styles/global.css) — the
+         primary Urdu reading face doesn't depend on this CDN being reachable. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
     />
+    <link rel="preload" href="/fonts/NotoNastaliqUrdu-400.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Map tiles: warm the CDN connection before Leaflet's first request -->
     <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
