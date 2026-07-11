@@ -9,8 +9,15 @@ import { ShrineArticle } from '../shrine/ShrineArticle';
 import { ShrineInfobox } from '../shrine/ShrineInfobox';
 import { SourcesProvenance } from '../shrine/SourcesProvenance';
 import { buildShrine } from '../../lib/data/shrineModel';
+import { applyUrduContentOverrides } from '../../lib/data/urduContentOverride';
 import shrinesFixture from '../../data/shrines-fallback.json';
 import type { ShrineRow } from '../../types/shrine';
+
+// Mirror the real data-load pipeline (useShrineData applies this over the
+// raw CSV/fallback rows) so this test exercises actual production behavior
+// instead of depending on the fixture carrying a hand-seeded "Description
+// Urdu" column — the live sheet has no Urdu columns at all (see CLAUDE.md).
+const fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
 
 // The search worker isn't available in jsdom; "no query yet" (ids: null)
 // is exactly its real behavior before the worker has indexed anything.
@@ -54,7 +61,7 @@ beforeEach(() => {
 
 describe('no English leaks in ?lang=ur', () => {
   it('shrine article: Data Darbar renders fully in Urdu', () => {
-    const row = (shrinesFixture.rows as ShrineRow[]).find((r) => r.Name === 'Data Darbar')!;
+    const row = fixtureRows.find((r) => r.Name === 'Data Darbar')!;
     expect(row).toBeDefined();
     expect(row['Description Urdu']).toBeTruthy(); // sanity: fixture actually has Urdu content to test
 
@@ -66,7 +73,7 @@ describe('no English leaks in ?lang=ur', () => {
   });
 
   it('shrine infobox: field labels (Category/Location/Founded/…) render in Urdu, not raw column names', () => {
-    const row = (shrinesFixture.rows as ShrineRow[]).find((r) => r.Name === 'Data Darbar')!;
+    const row = fixtureRows.find((r) => r.Name === 'Data Darbar')!;
     const shrine = buildShrine(row, 0)!;
     const { container } = renderInUrdu(<ShrineInfobox shrine={shrine} />);
 
@@ -82,7 +89,7 @@ describe('no English leaks in ?lang=ur', () => {
   });
 
   it('sidebar: default view (welcome card + guided tours) renders fully in Urdu', () => {
-    const row = (shrinesFixture.rows as ShrineRow[]).find((r) => r.Name === 'Data Darbar')!;
+    const row = fixtureRows.find((r) => r.Name === 'Data Darbar')!;
     const shrine = buildShrine(row, 0)!;
     const noop = () => {};
 
