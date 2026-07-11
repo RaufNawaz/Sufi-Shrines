@@ -132,7 +132,7 @@ This is enough for the quick/free Hugging Face OCR path:
 
 ```powershell
 cd "D:\Harvard\Shrines Project"
-py -3 -m pip install gradio_client
+py -3 -m pip install -r requirements.txt
 ```
 
 Test pages 4 and 5 of the local sample book:
@@ -210,12 +210,8 @@ In the Google Sheet:
 2. Go to `Extensions > Apps Script`.
 3. Delete any starter code.
 4. Paste the full contents of `google-apps-script/Code.gs`.
-5. Set:
-
-```javascript
-var SCRIPT_API_KEY = "make-a-long-secret-here";
-```
-
+5. Set the secret in `Project Settings > Script properties` (never in the code):
+   add property `SCRIPT_API_KEY` with a long random value.
 6. Save.
 7. Go to `Deploy > New deployment > Web app`.
 8. Use:
@@ -247,7 +243,7 @@ In PowerShell:
 cd "D:\Harvard\Shrines Project"
 
 $env:SHRINES_APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
-$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Code.gs"
+$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Script-properties"
 ```
 
 Small HF test (OCR only to sheet):
@@ -342,7 +338,7 @@ Use Hugging Face for quick tests:
 
 ```powershell
 cd "D:\Harvard\Shrines Project"
-py -3 -m pip install gradio_client
+py -3 -m pip install -r requirements.txt
 ```
 
 No UTRNet server is needed for this. The script uses:
@@ -388,7 +384,7 @@ Open a second PowerShell window:
 cd "D:\Harvard\Shrines Project"
 
 $env:SHRINES_APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
-$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Code.gs"
+$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Script-properties"
 ```
 
 Optional, if your data is not on the first sheet tab:
@@ -588,12 +584,8 @@ Extensions > Apps Script
 D:\Harvard\Shrines Project\google-apps-script\Code.gs
 ```
 
-5. At the top of the Apps Script file, set a long secret:
-
-```javascript
-var SCRIPT_API_KEY = "make-a-long-secret-here";
-```
-
+5. Set the secret in `Project Settings > Script properties` (never in the code):
+   add property `SCRIPT_API_KEY` with a long random value.
 6. Save the Apps Script project.
 7. Deploy:
 
@@ -630,7 +622,7 @@ In Windows PowerShell:
 cd "D:\Harvard\Shrines Project"
 
 $env:SHRINES_APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
-$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Code.gs"
+$env:SHRINES_APPS_SCRIPT_API_KEY = "the-same-secret-from-Script-properties"
 ```
 
 If your data is not on the first sheet, also set:
@@ -747,7 +739,7 @@ with `--pdftoppm`.
 If `gradio_client` is missing:
 
 ```powershell
-py -3 -m pip install gradio_client
+py -3 -m pip install -r requirements.txt
 ```
 
 If local UTRNet fails with this error:

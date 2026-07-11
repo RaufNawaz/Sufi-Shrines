@@ -344,13 +344,66 @@ def render_pdf_pages(
     command.extend([str(pdf_path), str(output_prefix)])
 
     started_at = time.perf_counter()
-    run_command(command, "pdftoppm", timeout)
+    # Rendering a whole 500+ page book legitimately takes far longer than the
+    # per-command timeout meant for page-level OCR calls — floor it at 2 hours.
+    run_command(command, "pdftoppm", max(timeout, 7200))
     pages = sorted(output_dir.glob("page-*.png"), key=page_sort_key)
     if not pages:
         raise PipelineError("PDF rendering produced no page images.")
     elapsed = time.perf_counter() - started_at
     print(f"    rendered {len(pages)} page image(s) in {format_duration(elapsed)}")
     return pages
+
+
+def find_spread_seam(image) -> int | None:
+    """Return the gutter column of a two-page-spread image, or None.
+
+    A page image is treated as a spread when it is clearly landscape. The
+    gutter is located as the darkest column band (fold shadow) within the
+    central 30% of the width; when no distinct shadow exists, fall back to
+    the middle.
+    """
+    width, height = image.size
+    if width <= height * 1.15:
+        return None
+
+    gray = image.convert("L")
+    band_left = int(width * 0.35)
+    band_right = int(width * 0.65)
+    band = gray.crop((band_left, 0, band_right, height)).resize((band_right - band_left, 64))
+    pixels = list(band.getdata())
+    cols = band_right - band_left
+    col_means = [sum(pixels[col::cols]) / 64.0 for col in range(cols)]
+    darkest = min(range(cols), key=lambda col: col_means[col])
+    median = sorted(col_means)[cols // 2]
+    if median - col_means[darkest] < 12:
+        return width // 2
+    return band_left + darkest
+
+
+def split_spread_pages(pages: list[Path]) -> list[Path]:
+    """Split spread images into right/left halves (right first — RTL books)."""
+    try:
+        from PIL import Image
+    except ImportError as exc:
+        raise PipelineError(
+            "--split-spreads requires Pillow. Install it with: py -3 -m pip install pillow"
+        ) from exc
+
+    result: list[Path] = []
+    for page in pages:
+        with Image.open(page) as image:
+            seam = find_spread_seam(image)
+            if seam is None:
+                result.append(page)
+                continue
+            width, height = image.size
+            right_path = page.with_name(page.stem + "-right.png")
+            left_path = page.with_name(page.stem + "-left.png")
+            image.crop((seam, 0, width, height)).save(right_path)
+            image.crop((0, 0, seam, height)).save(left_path)
+        result.extend([right_path, left_path])
+    return result
 
 
 def extract_text_from_gradio_result(result: object) -> str:
@@ -402,12 +455,12 @@ def utrnet_ocr_image(image_path: Path, args: argparse.Namespace) -> str:
                 result = client.predict(image_input, api_name=api_name)
             else:
                 result = client.predict(image_input)
-            text = extract_text_from_gradio_result(result)
-            if text:
-                return text
-            last_error = PipelineError(f"UTRNet returned no recognized text: {result!r}")
         except Exception as exc:
             last_error = exc
+            continue
+        # A successful prediction with no text is a blank/imageless page,
+        # not an error — the caller logs a per-page warning and moves on.
+        return extract_text_from_gradio_result(result)
 
     raise PipelineError(f"UTRNet OCR failed for {image_path}: {last_error}")
 
@@ -454,6 +507,11 @@ def ocr_pdf(
         command_timeout,
     )
 
+    if getattr(args, "split_spreads", False):
+        split_count = len(pages)
+        pages = split_spread_pages(pages)
+        print(f"    split spreads: {split_count} render(s) -> {len(pages)} page image(s)")
+
     page_texts: list[str] = []
     ocr_started_at = time.perf_counter()
     for index, page_path in enumerate(pages, start=1):
@@ -477,6 +535,8 @@ def ocr_pdf(
         cleaned = clean_text(text)
         if cleaned:
             page_texts.append(cleaned)
+        else:
+            print(f"    WARNING: page {first_page + index - 1} produced no text")
         elapsed = time.perf_counter() - page_started_at
         print(f"    OCR page {index}/{len(pages)} finished in {format_duration(elapsed)}")
 
@@ -962,6 +1022,17 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--tessdata-dir", default=os.getenv("TESSDATA_DIR", ""))
     parser.add_argument("--ocr-lang", default=os.getenv("TESSERACT_LANG", "urd"))
     parser.add_argument("--psm", default="6")
+    parser.add_argument(
+        "--split-spreads",
+        action="store_true",
+        default=False,
+        help=(
+            "Split landscape page renders (two-page book spreads) vertically at "
+            "the detected gutter and OCR right half before left (RTL page order). "
+            "Portrait pages pass through untouched. Requires Pillow. Note: the "
+            "per-page WARNING numbering counts half-pages when splitting occurs."
+        ),
+    )
     parser.add_argument("--dpi", type=int, default=300)
     parser.add_argument("--first-page", type=int, default=1)
     parser.add_argument("--max-pages", type=int, default=0)
