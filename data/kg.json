@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-07-12T18:03:58.138Z",
+  "generated": "2026-07-12T18:16:44.920Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -6146,6 +6146,70 @@
       "method": "human"
     },
     {
+      "id": "disciple_of:saint:bulleh-shah:saint:shah-inayat-qadiri",
+      "type": "disciple_of",
+      "subject": "saint:bulleh-shah",
+      "object": "saint:shah-inayat-qadiri",
+      "confidence": 0.95,
+      "method": "human",
+      "source": "shrine_entries/Bulleh Shah (Kasur).md",
+      "quote": "became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line"
+    },
+    {
+      "id": "disciple_of:saint:pir-meher-ali-shah:saint:muhammad-shamsuddin-sialvi",
+      "type": "disciple_of",
+      "subject": "saint:pir-meher-ali-shah",
+      "object": "saint:muhammad-shamsuddin-sialvi",
+      "confidence": 0.95,
+      "method": "human",
+      "source": "shrine_entries/Golra Sharif (Pir Meher Ali Shah).md",
+      "quote": "he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
+      "notes": "Corroborated independently in shrine_entries/Sial Sharif (Shamsuddin Sialvi).md."
+    },
+    {
+      "id": "disciple_of:saint:abul-faiz-qalander-ali-suharwardi:saint:pir-sher-muhammad",
+      "type": "disciple_of",
+      "subject": "saint:abul-faiz-qalander-ali-suharwardi",
+      "object": "saint:pir-sher-muhammad",
+      "confidence": 0.7,
+      "method": "human",
+      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "quote": "He also received knowledge from Pir Mian Sher Muhammad of Sharaqpur",
+      "notes": "Corroborated independently in shrine_entries/Sharaqpur (Pir Sher Muhammad).md. Confidence lowered — worded as receiving \"knowledge from\" rather than a formal bai'at."
+    },
+    {
+      "id": "disciple_of:saint:abul-faiz-qalander-ali-suharwardi:saint:pir-meher-ali-shah",
+      "type": "disciple_of",
+      "subject": "saint:abul-faiz-qalander-ali-suharwardi",
+      "object": "saint:pir-meher-ali-shah",
+      "confidence": 0.7,
+      "method": "human",
+      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "quote": "and drew great light from Hazrat Pir Meher Ali Shah of Golra Sharif",
+      "notes": "Confidence lowered — figurative \"drew great light from\" phrasing rather than a stated formal discipleship."
+    },
+    {
+      "id": "successor_of:saint:shah-rukn-e-alam:saint:bahauddin-zakariya",
+      "type": "successor_of",
+      "subject": "saint:shah-rukn-e-alam",
+      "object": "saint:bahauddin-zakariya",
+      "confidence": 0.95,
+      "method": "human",
+      "source": "shrine_entries/Shah Rukn-e-Alam (Multan).md",
+      "quote": "was the grandson and spiritual heir of Bahauddin Zakariya"
+    },
+    {
+      "id": "disciple_of:saint:muhammad-shamsuddin-sialvi:saint:khawaja-shah-muhammad-sulaiman-taunsvi",
+      "type": "disciple_of",
+      "subject": "saint:muhammad-shamsuddin-sialvi",
+      "object": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
+      "confidence": 0.7,
+      "method": "human",
+      "source": "shrine_entries/Sial Sharif (Shamsuddin Sialvi).md",
+      "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age",
+      "notes": "Confidence lowered — states initiation \"within the line of\" rather than a direct personal teacher-disciple claim."
+    },
+    {
       "id": "commemorated_by:saint:pir-syed-muhammad-channan-shah-nuri:event:urs-allo-mahar",
       "type": "commemorated_by",
       "subject": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -6912,7 +6976,7 @@
     "places": 90,
     "events": 95,
     "sources": 0,
-    "relations": 441,
+    "relations": 447,
     "ambiguousMerges": 67
   },
   "reviewNeeded": [

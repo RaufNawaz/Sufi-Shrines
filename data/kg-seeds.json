@@ -139,6 +139,62 @@
     }
   },
 
+  "_comment_lineageRelations": "Teacher-disciple/successor claims between two saints who both already have a KG entity, hand-extracted from shrine_entries/*.md. Only pairs where both people appear in this dataset's own saint list are modeled here — many shrine_entries mention teachers/successors (e.g. Nizamuddin Auliya, Khwaja Qutbuddin Bakhtiar Kaki, Mullah Shah Badakhshi) who don't have their own shrine among these 163 sites and so aren't yet KG entities; see docs/KG_VOCABULARY.md.",
+  "lineageRelations": [
+    {
+      "subjectSlug": "bulleh-shah",
+      "relation": "disciple_of",
+      "objectSlug": "shah-inayat-qadiri",
+      "confidence": 0.95,
+      "source": "shrine_entries/Bulleh Shah (Kasur).md",
+      "quote": "became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line"
+    },
+    {
+      "subjectSlug": "pir-meher-ali-shah",
+      "relation": "disciple_of",
+      "objectSlug": "muhammad-shamsuddin-sialvi",
+      "confidence": 0.95,
+      "source": "shrine_entries/Golra Sharif (Pir Meher Ali Shah).md",
+      "quote": "he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
+      "notes": "Corroborated independently in shrine_entries/Sial Sharif (Shamsuddin Sialvi).md."
+    },
+    {
+      "subjectSlug": "abul-faiz-qalander-ali-suharwardi",
+      "relation": "disciple_of",
+      "objectSlug": "pir-sher-muhammad",
+      "confidence": 0.7,
+      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "quote": "He also received knowledge from Pir Mian Sher Muhammad of Sharaqpur",
+      "notes": "Corroborated independently in shrine_entries/Sharaqpur (Pir Sher Muhammad).md. Confidence lowered — worded as receiving \"knowledge from\" rather than a formal bai'at."
+    },
+    {
+      "subjectSlug": "abul-faiz-qalander-ali-suharwardi",
+      "relation": "disciple_of",
+      "objectSlug": "pir-meher-ali-shah",
+      "confidence": 0.7,
+      "source": "shrine_entries/Abul Faiz Qalandari.md",
+      "quote": "and drew great light from Hazrat Pir Meher Ali Shah of Golra Sharif",
+      "notes": "Confidence lowered — figurative \"drew great light from\" phrasing rather than a stated formal discipleship."
+    },
+    {
+      "subjectSlug": "shah-rukn-e-alam",
+      "relation": "successor_of",
+      "objectSlug": "bahauddin-zakariya",
+      "confidence": 0.95,
+      "source": "shrine_entries/Shah Rukn-e-Alam (Multan).md",
+      "quote": "was the grandson and spiritual heir of Bahauddin Zakariya"
+    },
+    {
+      "subjectSlug": "muhammad-shamsuddin-sialvi",
+      "relation": "disciple_of",
+      "objectSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+      "confidence": 0.7,
+      "source": "shrine_entries/Sial Sharif (Shamsuddin Sialvi).md",
+      "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age",
+      "notes": "Confidence lowered — states initiation \"within the line of\" rather than a direct personal teacher-disciple claim."
+    }
+  ],
+
   "reviewNeededNotes": [
     "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment.",
     "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review.",

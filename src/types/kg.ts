@@ -2,7 +2,8 @@ export type KGEntityType = 'saint' | 'order' | 'place' | 'event' | 'source';
 
 export type KGRelationType =
   | 'buried_at' // saint → shrine slug
-  | 'disciple_of' // saint → saint
+  | 'disciple_of' // saint → saint (teacher)
+  | 'successor_of' // saint → saint (predecessor)
   | 'belongs_to_order' // saint → order
   | 'located_in' // shrine slug → place
   | 'commemorated_by' // saint → event
@@ -67,6 +68,8 @@ export interface KGRelation {
   object: string; // entity id or shrine slug
   confidence: number; // 0–1
   method: 'human' | 'rule' | 'ml';
+  source?: string; // citation, e.g. a shrine_entries/*.md file
+  quote?: string; // verbatim supporting text from source
   notes?: string;
 }
 

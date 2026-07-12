@@ -129,6 +129,8 @@ emit('# ── Saints ───────────────────�
 for (const s of kg.saints) {
   const orderRel  = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
   const orderSlug = orderRel ? orderRel.object.replace(/^order:/, '') : null;
+  const discipleOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'disciple_of');
+  const successorOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'successor_of');
 
   emit(`saint:${s.slug}`);
   emit(`  a schema:Person ;`);
@@ -139,6 +141,12 @@ for (const s of kg.saints) {
   if (s.born)       emit(`  schema:birthDate ${lit(s.born, '')} ;`);
   if (s.died)       emit(`  schema:deathDate ${lit(s.died, '')} ;`);
   if (orderSlug)    emit(`  schema:memberOf order_:${orderSlug} ;`);
+  for (const r of discipleOfRels) {
+    emit(`  sufi:discipleOf saint:${r.object.replace(/^saint:/, '')} ;`);
+  }
+  for (const r of successorOfRels) {
+    emit(`  sufi:successorOf saint:${r.object.replace(/^saint:/, '')} ;`);
+  }
   if (s.wikidataQid) emit(`  schema:sameAs ${wdIri(s.wikidataQid)} ;`);
   emit('  .');
   emit();

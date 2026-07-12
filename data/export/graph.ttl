@@ -170,6 +170,7 @@ saint:sultan-bahoo
 saint:pir-meher-ali-shah
   a schema:Person ;
   schema:name "Pir Meher Ali Shah"@en ;
+  sufi:discipleOf saint:muhammad-shamsuddin-sialvi ;
   .
 
 saint:guru-gorakhnath
@@ -353,6 +354,7 @@ saint:bulleh-shah
   schema:name "Bulleh Shah"@en ;
   schema:alternateName "Abdullah Shah Qadri"@en ;
   schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:shah-inayat-qadiri ;
   .
 
 saint:khwaja-ghulam-farid
@@ -534,6 +536,8 @@ saint:abdullah-shah-ghazi
 saint:abul-faiz-qalander-ali-suharwardi
   a schema:Person ;
   schema:name "Abul Faiz Qalander Ali Suharwardi"@en ;
+  sufi:discipleOf saint:pir-sher-muhammad ;
+  sufi:discipleOf saint:pir-meher-ali-shah ;
   .
 
 saint:akhund-darweza-baba
@@ -733,6 +737,7 @@ saint:shah-rukn-e-alam
   a schema:Person ;
   schema:name "Shah Rukn-e-Alam"@en ;
   schema:memberOf order_:suhrawardiyya ;
+  sufi:successorOf saint:bahauddin-zakariya ;
   .
 
 saint:shah-shams-ud-din-sabzwari
@@ -753,6 +758,7 @@ saint:syed-musa-pak
 saint:muhammad-shamsuddin-sialvi
   a schema:Person ;
   schema:name "Muhammad Shamsuddin Sialvi"@en ;
+  sufi:discipleOf saint:khawaja-shah-muhammad-sulaiman-taunsvi ;
   .
 
 saint:swami-dharmdas

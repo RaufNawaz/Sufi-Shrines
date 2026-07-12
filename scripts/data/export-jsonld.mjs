@@ -99,6 +99,8 @@ for (const o of kg.orders) {
 for (const s of kg.saints) {
   const orderRel = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
   const orderSlug = orderRel ? orderRel.object.replace(/^order:/, '') : null;
+  const discipleOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'disciple_of');
+  const successorOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'successor_of');
 
   graph.push({
     '@type': 'Person',
@@ -109,6 +111,12 @@ for (const s of kg.saints) {
     ...(s.born         ? { 'birthDate': s.born } : {}),
     ...(s.died         ? { 'deathDate': s.died } : {}),
     ...(orderSlug      ? { 'memberOf': { '@id': iri('order', orderSlug) } } : {}),
+    ...(discipleOfRels.length
+      ? { 'sufi:discipleOf': discipleOfRels.map((r) => ({ '@id': iri('saint', r.object.replace(/^saint:/, '')) })) }
+      : {}),
+    ...(successorOfRels.length
+      ? { 'sufi:successorOf': successorOfRels.map((r) => ({ '@id': iri('saint', r.object.replace(/^saint:/, '')) })) }
+      : {}),
     ...(s.wikidataQid  ? { 'sameAs': wdIri(s.wikidataQid) } : {}),
   });
 }

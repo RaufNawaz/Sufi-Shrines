@@ -212,7 +212,12 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah",
-      "name": "Pir Meher Ali Shah"
+      "name": "Pir Meher Ali Shah",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -443,7 +448,12 @@
       ],
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-inayat-qadiri"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -664,7 +674,15 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi",
-      "name": "Abul Faiz Qalander Ali Suharwardi"
+      "name": "Abul Faiz Qalander Ali Suharwardi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -911,7 +929,12 @@
       "name": "Shah Rukn-e-Alam",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
-      }
+      },
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -931,7 +954,12 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi",
-      "name": "Muhammad Shamsuddin Sialvi"
+      "name": "Muhammad Shamsuddin Sialvi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi"
+        }
+      ]
     },
     {
       "@type": "Person",

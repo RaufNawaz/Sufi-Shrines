@@ -25,6 +25,8 @@ graph exports (`data/export/graph.jsonld`, `data/export/graph.ttl`).
 | `sufi:silsila`      | `…vocab#silsila`      | `sufi:SufiOrder` | `xsd:string`    | The spiritual chain/lineage name (Arabic/Urdu)                                     |
 | `sufi:buriedAt`     | `…vocab#buriedAt`     | `schema:Person`  | `schema:Place`  | Sub-property of `schema:location`; the dargah or mazar where the saint is interred |
 | `sufi:commemorates` | `…vocab#commemorates` | `sufi:UrsEvent`  | `schema:Person` | Sub-property of `schema:about`; the person commemorated by the urs                 |
+| `sufi:discipleOf`   | `…vocab#discipleOf`   | `schema:Person`  | `schema:Person` | Hand-extracted from `shrine_entries/*.md`; see `data/kg-seeds.json#lineageRelations` for source quotes and confidence |
+| `sufi:successorOf`  | `…vocab#successorOf`  | `schema:Person`  | `schema:Person` | Spiritual/institutional succession (e.g. head of a shrine or order), same source as above |
 
 ## Standard properties reused
 

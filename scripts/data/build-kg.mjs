@@ -118,6 +118,7 @@ const seedOrders = seeds.orders ?? [];
 const saintOrders = seeds.saintOrders ?? {};
 delete saintOrders.comment;
 const qidMap = seeds.saintWikidataQids ?? {};
+const lineageRelations = seeds.lineageRelations ?? [];
 
 // ── generate shrine slugs (same logic as the app) ────────────────────────────
 
@@ -322,6 +323,40 @@ for (const [saintSlug, orderSlug] of Object.entries(saintOrders)) {
     object: `order:${orderSlug}`,
     confidence: 0.9,
     method: 'human',
+  });
+}
+
+// saint → disciple_of|successor_of → saint (from seeds, hand-extracted from shrine_entries)
+for (const rel of lineageRelations) {
+  const { subjectSlug, relation, objectSlug, confidence, source, quote, notes } = rel;
+  if (!subjectSlug || !relation || !objectSlug) continue; // skip stray comment-only entries
+
+  if (!saintBySlug.has(subjectSlug)) {
+    reviewNeeded.push({
+      issue: 'seed-saint-not-found',
+      entityId: `saint:${subjectSlug}`,
+      details: `lineageRelations entry has no matching saint entity for subjectSlug "${subjectSlug}".`,
+    });
+    continue;
+  }
+  if (!saintBySlug.has(objectSlug)) {
+    reviewNeeded.push({
+      issue: 'seed-saint-not-found',
+      entityId: `saint:${objectSlug}`,
+      details: `lineageRelations entry has no matching saint entity for objectSlug "${objectSlug}".`,
+    });
+    continue;
+  }
+  relations.push({
+    id: `${relation}:saint:${subjectSlug}:saint:${objectSlug}`,
+    type: relation,
+    subject: `saint:${subjectSlug}`,
+    object: `saint:${objectSlug}`,
+    confidence: confidence ?? 0.8,
+    method: 'human',
+    source,
+    quote,
+    ...(notes ? { notes } : {}),
   });
 }
 
