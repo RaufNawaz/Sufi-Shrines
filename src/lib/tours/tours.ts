@@ -35,43 +35,70 @@ export const TRADITION_LABELS: Record<TourTradition, { en: string; ur: string }>
 export const REGION_LABELS: Record<string, { en: string; ur: string }> = {
   'Sindh & Punjab': { en: 'Sindh & Punjab', ur: 'سندھ اور پنجاب' },
   Punjab: { en: 'Punjab', ur: 'پنجاب' },
-  'Punjab, Sindh & Balochistan': { en: 'Punjab, Sindh & Balochistan', ur: 'پنجاب، سندھ اور بلوچستان' },
+  'Punjab, Sindh & Balochistan': {
+    en: 'Punjab, Sindh & Balochistan',
+    ur: 'پنجاب، سندھ اور بلوچستان',
+  },
+  Sindh: { en: 'Sindh', ur: 'سندھ' },
+  'Khyber Pakhtunkhwa': { en: 'Khyber Pakhtunkhwa', ur: 'خیبر پختونخوا' },
 };
 
 export const THEME_LABELS: Record<string, { en: string; ur: string }> = {
   'Pilgrimage route': { en: 'Pilgrimage route', ur: 'زیارت کا راستہ' },
   'Founding history': { en: 'Founding history', ur: 'تاریخِ بنیاد' },
   'Ancient architecture': { en: 'Ancient architecture', ur: 'قدیم فنِ تعمیر' },
+  'Sacred city': { en: 'Sacred city', ur: 'مقدس شہر' },
+  "Guru's childhood": { en: "Guru's childhood", ur: 'گرو کا بچپن' },
+  'Frontier Sufism': { en: 'Frontier Sufism', ur: 'سرحدی تصوف' },
+  'Urban pilgrimage': { en: 'Urban pilgrimage', ur: 'شہری زیارت' },
 };
 
 export const ERA_LABELS: Record<string, { en: string; ur: string }> = {
   '8th–20th century': { en: '8th–20th century', ur: '8ویں–20ویں صدی' },
   '15th–20th century': { en: '15th–20th century', ur: '15ویں–20ویں صدی' },
   '7th–15th century': { en: '7th–15th century', ur: '7ویں–15ویں صدی' },
+  '12th–19th century': { en: '12th–19th century', ur: '12ویں–19ویں صدی' },
+  '13th–15th century': { en: '13th–15th century', ur: '13ویں–15ویں صدی' },
+  '16th–20th century': { en: '16th–20th century', ur: '16ویں–20ویں صدی' },
+  '18th–20th century': { en: '18th–20th century', ur: '18ویں–20ویں صدی' },
 };
 
 function isValidStop(value: unknown): value is TourStop {
   const s = value as Partial<TourStop> | null;
   return (
-    typeof s?.shrineSlug === 'string' && s.shrineSlug.length > 0 &&
-    typeof s?.narrative === 'string' && s.narrative.length > 0 &&
-    typeof s?.narrativeUr === 'string' && s.narrativeUr.length > 0
+    typeof s?.shrineSlug === 'string' &&
+    s.shrineSlug.length > 0 &&
+    typeof s?.narrative === 'string' &&
+    s.narrative.length > 0 &&
+    typeof s?.narrativeUr === 'string' &&
+    s.narrativeUr.length > 0
   );
 }
 
 function isValidTour(value: unknown): value is Tour {
   const t = value as Partial<Tour> | null;
   return (
-    typeof t?.id === 'string' && t.id.length > 0 &&
-    typeof t?.title === 'string' && t.title.length > 0 &&
-    typeof t?.titleUr === 'string' && t.titleUr.length > 0 &&
-    typeof t?.description === 'string' && t.description.length > 0 &&
-    typeof t?.descriptionUr === 'string' && t.descriptionUr.length > 0 &&
-    typeof t?.tradition === 'string' && TRADITIONS.includes(t.tradition as TourTradition) &&
-    typeof t?.region === 'string' && t.region.length > 0 &&
-    typeof t?.theme === 'string' && t.theme.length > 0 &&
-    typeof t?.era === 'string' && t.era.length > 0 &&
-    Array.isArray(t?.stops) && t.stops.length >= 2 && t.stops.every(isValidStop)
+    typeof t?.id === 'string' &&
+    t.id.length > 0 &&
+    typeof t?.title === 'string' &&
+    t.title.length > 0 &&
+    typeof t?.titleUr === 'string' &&
+    t.titleUr.length > 0 &&
+    typeof t?.description === 'string' &&
+    t.description.length > 0 &&
+    typeof t?.descriptionUr === 'string' &&
+    t.descriptionUr.length > 0 &&
+    typeof t?.tradition === 'string' &&
+    TRADITIONS.includes(t.tradition as TourTradition) &&
+    typeof t?.region === 'string' &&
+    t.region.length > 0 &&
+    typeof t?.theme === 'string' &&
+    t.theme.length > 0 &&
+    typeof t?.era === 'string' &&
+    t.era.length > 0 &&
+    Array.isArray(t?.stops) &&
+    t.stops.length >= 2 &&
+    t.stops.every(isValidStop)
   );
 }
 

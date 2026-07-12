@@ -8,11 +8,21 @@ Author (human-quality) Urdu is defined below. The script:
      window.SHRINE_TRANSLATIONS.
   3. Emits a structured, human-readable urdu-dictionary.json.
   4. Validates coverage + flags any value still containing Latin letters.
+
+Modes:
+  python3 urdu-i18n/build_dictionary.py          write + validate (default)
+  python3 urdu-i18n/build_dictionary.py --check  validate + compare the regenerated
+      outputs against the files on disk WITHOUT writing anything; exits non-zero
+      when they are stale or validation fails (used by `npm run data:validate`).
 """
-import json, re, os, sys
+import argparse, json, re, os, sys
 
 OUT = os.path.dirname(os.path.abspath(__file__))
-ROWS = json.load(open(os.path.join(OUT, "_shrine_rows.json"), encoding="utf-8"))
+
+
+def load_rows():
+    with open(os.path.join(OUT, "_shrine_rows.json"), encoding="utf-8") as f:
+        return json.load(f)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. CATEGORIES / TRADITIONS / TOUR FACETS
@@ -27,16 +37,26 @@ TOUR_REGIONS = {
     "Sindh & Punjab": "سندھ اور پنجاب",
     "Punjab": "پنجاب",
     "Punjab, Sindh & Balochistan": "پنجاب، سندھ اور بلوچستان",
+    "Sindh": "سندھ",
+    "Khyber Pakhtunkhwa": "خیبر پختونخوا",
 }
 TOUR_THEMES = {
     "Pilgrimage route": "زیارت کا راستہ",
     "Founding history": "تاریخِ بنیاد",
     "Ancient architecture": "قدیم فنِ تعمیر",
+    "Sacred city": "مقدس شہر",
+    "Guru's childhood": "گرو کا بچپن",
+    "Frontier Sufism": "سرحدی تصوف",
+    "Urban pilgrimage": "شہری زیارت",
 }
 TOUR_ERAS = {
     "8th–20th century": "8ویں–20ویں صدی",
     "15th–20th century": "15ویں–20ویں صدی",
     "7th–15th century": "7ویں–15ویں صدی",
+    "12th–19th century": "12ویں–19ویں صدی",
+    "13th–15th century": "13ویں–15ویں صدی",
+    "16th–20th century": "16ویں–20ویں صدی",
+    "18th–20th century": "18ویں–20ویں صدی",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -763,88 +783,99 @@ def translate_location(loc):
 # 7. SUFI GLOSSARY (reused from data/glossary.csv, en/translit -> ur)
 # ─────────────────────────────────────────────────────────────────────────────
 import csv
-GLOSSARY = {}
-# urdu-i18n/ sits at the repo root, so the glossary is at ../data/glossary.csv
-for cand in [os.path.normpath(os.path.join(OUT, "..", "data", "glossary.csv"))]:
-    if os.path.exists(cand):
-        with open(cand, encoding="utf-8") as f:
-            for r in csv.DictReader(f):
-                en = (r.get("english") or "").strip()
-                ur = (r.get("urdu") or "").strip()
-                if en and ur:
-                    GLOSSARY[en] = ur
-        break
+
+
+def load_glossary():
+    glossary = {}
+    # urdu-i18n/ sits at the repo root, so the glossary is at ../data/glossary.csv
+    cand = os.path.normpath(os.path.join(OUT, "..", "data", "glossary.csv"))
+    if not os.path.exists(cand):
+        print(f"NOTE: glossary file not found at {cand} — building without the Sufi glossary.",
+              file=sys.stderr)
+        return glossary
+    with open(cand, encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            en = (r.get("english") or "").strip()
+            ur = (r.get("urdu") or "").strip()
+            if en and ur:
+                glossary[en] = ur
+    return glossary
 
 # ─────────────────────────────────────────────────────────────────────────────
 # BUILD
 # ─────────────────────────────────────────────────────────────────────────────
-assert len(NAME_LIST) == len(ROWS), f"name count {len(NAME_LIST)} != rows {len(ROWS)}"
-names_map = {ROWS[i]["name"]: NAME_LIST[i] for i in range(len(ROWS))}
+def build(rows, glossary):
+    """Compose the structured dictionary and flat runtime seed from the data above."""
+    assert len(NAME_LIST) == len(rows), f"name count {len(NAME_LIST)} != rows {len(rows)}"
+    names_map = {rows[i]["name"]: NAME_LIST[i] for i in range(len(rows))}
 
-# locations
-loc_unique = sorted({r["location"] for r in ROWS if r["location"]})
-locations_map, loc_unknowns = {}, {}
-for loc in loc_unique:
-    ur, unk = translate_location(loc)
-    locations_map[loc] = ur
-    if unk:
-        loc_unknowns[loc] = unk
+    # locations
+    loc_unique = sorted({r["location"] for r in rows if r["location"]})
+    locations_map, loc_unknowns = {}, {}
+    for loc in loc_unique:
+        ur, unk = translate_location(loc)
+        locations_map[loc] = ur
+        if unk:
+            loc_unknowns[loc] = unk
 
-# flat runtime seed (en -> ur), everything the app looks up by full string
-seed = {}
-seed.update(CATEGORIES)
-seed.update(TRADITIONS)
-seed.update(TOUR_REGIONS)
-seed.update(TOUR_THEMES)
-seed.update(TOUR_ERAS)
-seed.update(names_map)
-seed.update(SAINTS)
-seed.update(FOUNDED)
-seed.update(locations_map)
-seed.update(GLOSSARY)
+    # flat runtime seed (en -> ur), everything the app looks up by full string
+    seed = {}
+    seed.update(CATEGORIES)
+    seed.update(TRADITIONS)
+    seed.update(TOUR_REGIONS)
+    seed.update(TOUR_THEMES)
+    seed.update(TOUR_ERAS)
+    seed.update(names_map)
+    seed.update(SAINTS)
+    seed.update(FOUNDED)
+    seed.update(locations_map)
+    seed.update(glossary)
 
-# structured dictionary (human-readable source of truth)
-structured = {
-    "_meta": {
-        "project": "Sufi Shrines of Pakistan",
-        "purpose": "Authoritative English->Urdu dictionary for UI data localization.",
-        "note": "Numbers are kept in Western digits; convert to Eastern (۰-۹) "
-                "at render time via the numeral toggle. Do not bake Eastern digits here.",
-        "counts": {},
-    },
-    "categories": CATEGORIES,
-    "traditions": TRADITIONS,
-    "tourRegions": TOUR_REGIONS,
-    "tourThemes": TOUR_THEMES,
-    "tourEras": TOUR_ERAS,
-    "placeTokens": PLACE_TOKENS,
-    "shrineNames": names_map,
-    "saints": SAINTS,
-    "foundedPhrases": FOUNDED,
-    "locations": locations_map,
-    "sufiGlossary": GLOSSARY,
-}
-structured["_meta"]["counts"] = {
-    "categories": len(CATEGORIES), "traditions": len(TRADITIONS),
-    "tourRegions": len(TOUR_REGIONS), "tourThemes": len(TOUR_THEMES),
-    "tourEras": len(TOUR_ERAS), "placeTokens": len(PLACE_TOKENS),
-    "shrineNames": len(names_map), "saints": len(SAINTS),
-    "foundedPhrases": len(FOUNDED), "locations": len(locations_map),
-    "sufiGlossary": len(GLOSSARY), "flatSeedEntries": len(seed),
-}
+    # structured dictionary (human-readable source of truth)
+    structured = {
+        "_meta": {
+            "project": "Sufi Shrines of Pakistan",
+            "purpose": "Authoritative English->Urdu dictionary for UI data localization.",
+            "note": "Numbers are kept in Western digits; convert to Eastern (۰-۹) "
+                    "at render time via the numeral toggle. Do not bake Eastern digits here.",
+            "counts": {},
+        },
+        "categories": CATEGORIES,
+        "traditions": TRADITIONS,
+        "tourRegions": TOUR_REGIONS,
+        "tourThemes": TOUR_THEMES,
+        "tourEras": TOUR_ERAS,
+        "placeTokens": PLACE_TOKENS,
+        "shrineNames": names_map,
+        "saints": SAINTS,
+        "foundedPhrases": FOUNDED,
+        "locations": locations_map,
+        "sufiGlossary": glossary,
+    }
+    structured["_meta"]["counts"] = {
+        "categories": len(CATEGORIES), "traditions": len(TRADITIONS),
+        "tourRegions": len(TOUR_REGIONS), "tourThemes": len(TOUR_THEMES),
+        "tourEras": len(TOUR_ERAS), "placeTokens": len(PLACE_TOKENS),
+        "shrineNames": len(names_map), "saints": len(SAINTS),
+        "foundedPhrases": len(FOUNDED), "locations": len(locations_map),
+        "sufiGlossary": len(glossary), "flatSeedEntries": len(seed),
+    }
+    return structured, seed, names_map, loc_unknowns
 
-json.dump(structured, open(os.path.join(OUT, "urdu-dictionary.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2)
-json.dump(seed, open(os.path.join(OUT, "shrine-translations.seed.json"), "w", encoding="utf-8"),
-          ensure_ascii=False, indent=2, sort_keys=True)
 
-# JS module for the runtime hook
-js = ("// AUTO-GENERATED from urdu-dictionary.json — do not edit by hand.\n"
-      "// Assign to window.SHRINE_TRANSLATIONS before the app boots, OR import\n"
-      "// and merge into the translation cache. See URDU_IMPLEMENTATION_PLAN.md.\n"
-      "window.SHRINE_TRANSLATIONS = Object.assign(window.SHRINE_TRANSLATIONS || {}, "
-      + json.dumps(seed, ensure_ascii=False, sort_keys=True) + ");\n")
-open(os.path.join(OUT, "shrine-translations.seed.js"), "w", encoding="utf-8").write(js)
+def render_outputs(structured, seed):
+    """Serialised file contents keyed by filename.
+
+    The generated JSON embeds no timestamps, so --check can compare these
+    strings byte-for-byte against the files on disk.
+    """
+    return {
+        "urdu-dictionary.json":
+            json.dumps(structured, ensure_ascii=False, indent=2),
+        "shrine-translations.seed.json":
+            json.dumps(seed, ensure_ascii=False, indent=2, sort_keys=True),
+    }
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # VALIDATE
@@ -853,51 +884,110 @@ LATIN = re.compile(r"[A-Za-z]")
 def leaks(m):
     return {k: v for k, v in m.items() if LATIN.search(v)}
 
-print("=== COVERAGE ===")
-for k, v in structured["_meta"]["counts"].items():
-    print(f"  {k:18} {v}")
 
-failed = False
+def validate(rows, structured, names_map, loc_unknowns):
+    """Print the coverage + Latin-leak report. Returns True when validation FAILED."""
+    print("=== COVERAGE ===")
+    for k, v in structured["_meta"]["counts"].items():
+        print(f"  {k:18} {v}")
 
-print("\n=== LATIN-LEAK CHECK (values still containing A-Z) ===")
-for label, m in [("names", names_map), ("saints", SAINTS), ("founded", FOUNDED),
-                 ("categories", CATEGORIES), ("tourFacets",
-                  {**TOUR_REGIONS, **TOUR_THEMES, **TOUR_ERAS})]:
-    lk = leaks(m)
-    print(f"  {label:12} leaks: {len(lk)}")
-    if lk:
+    failed = False
+
+    print("\n=== LATIN-LEAK CHECK (values still containing A-Z) ===")
+    for label, m in [("names", names_map), ("saints", SAINTS), ("founded", FOUNDED),
+                     ("categories", CATEGORIES), ("tourFacets",
+                      {**TOUR_REGIONS, **TOUR_THEMES, **TOUR_ERAS})]:
+        lk = leaks(m)
+        print(f"  {label:12} leaks: {len(lk)}")
+        if lk:
+            failed = True
+        for k, v in list(lk.items())[:10]:
+            print(f"      - {k!r} -> {v!r}")
+
+    print(f"\n  locations with unknown tokens: {len(loc_unknowns)}")
+    if loc_unknowns:
         failed = True
-    for k, v in list(lk.items())[:10]:
-        print(f"      - {k!r} -> {v!r}")
+    for loc, unk in list(loc_unknowns.items())[:40]:
+        print(f"      - {unk}  (in: {loc})")
 
-print(f"\n  locations with unknown tokens: {len(loc_unknowns)}")
-if loc_unknowns:
-    failed = True
-for loc, unk in list(loc_unknowns.items())[:40]:
-    print(f"      - {unk}  (in: {loc})")
+    # saints coverage vs data
+    data_saints = sorted({r["saint"] for r in rows if r["saint"]})
+    missing_saints = [s for s in data_saints if s not in SAINTS]
+    print(f"\n  saint strings in data: {len(data_saints)} | missing from dict: {len(missing_saints)}")
+    if missing_saints:
+        failed = True
+    for s in missing_saints[:40]:
+        print(f"      MISSING SAINT: {s!r}")
 
-# saints coverage vs data
-data_saints = sorted({r["saint"] for r in ROWS if r["saint"]})
-missing_saints = [s for s in data_saints if s not in SAINTS]
-print(f"\n  saint strings in data: {len(data_saints)} | missing from dict: {len(missing_saints)}")
-if missing_saints:
-    failed = True
-for s in missing_saints[:40]:
-    print(f"      MISSING SAINT: {s!r}")
+    # founded coverage vs data (only alphabetic)
+    data_founded_alpha = sorted({r["founded"] for r in rows if r["founded"] and LATIN.search(r["founded"])})
+    missing_founded = [s for s in data_founded_alpha if s not in FOUNDED]
+    print(f"\n  alphabetic founded in data: {len(data_founded_alpha)} | missing: {len(missing_founded)}")
+    if missing_founded:
+        failed = True
+    for s in missing_founded[:60]:
+        print(f"      MISSING FOUNDED: {s!r}")
 
-# founded coverage vs data (only alphabetic)
-data_founded_alpha = sorted({r["founded"] for r in ROWS if r["founded"] and LATIN.search(r["founded"])})
-missing_founded = [s for s in data_founded_alpha if s not in FOUNDED]
-print(f"\n  alphabetic founded in data: {len(data_founded_alpha)} | missing: {len(missing_founded)}")
-if missing_founded:
-    failed = True
-for s in missing_founded[:60]:
-    print(f"      MISSING FOUNDED: {s!r}")
+    return failed
 
-print("\nWROTE: urdu-dictionary.json, shrine-translations.seed.json, shrine-translations.seed.js")
 
-if failed:
-    print("\n[build_dictionary] FAILED — Latin leakage or missing Urdu coverage detected (see above).")
-    sys.exit(1)
-else:
+# ─────────────────────────────────────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────────────────────────────────────
+def main(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Build (default) or verify (--check) the Urdu data dictionary.")
+    ap.add_argument(
+        "--check", action="store_true",
+        help="Run all validation and compare the regenerated outputs against the "
+             "files on disk without writing anything; exit non-zero on any "
+             "mismatch or validation failure.")
+    args = ap.parse_args(argv)
+
+    rows = load_rows()
+    glossary = load_glossary()
+    structured, seed, names_map, loc_unknowns = build(rows, glossary)
+    outputs = render_outputs(structured, seed)
+
+    if not args.check:
+        for filename, text in outputs.items():
+            with open(os.path.join(OUT, filename), "w", encoding="utf-8") as f:
+                f.write(text)
+
+    failed = validate(rows, structured, names_map, loc_unknowns)
+
+    if args.check:
+        stale = []
+        for filename, text in outputs.items():
+            try:
+                with open(os.path.join(OUT, filename), encoding="utf-8") as f:
+                    on_disk = f.read()
+            except OSError:
+                on_disk = None
+            if on_disk != text:
+                stale.append(filename)
+        for filename in stale:
+            print(f"\n[build_dictionary --check] STALE: urdu-i18n/{filename} does not "
+                  "match the regenerated output.")
+        if stale:
+            print("Regenerate with `npm run data:build:urdu` (or `npm run urdu:build`) "
+                  "and commit the result.")
+        if failed:
+            print("\n[build_dictionary --check] FAILED — Latin leakage or missing Urdu "
+                  "coverage detected (see above).")
+        if failed or stale:
+            return 1
+        print("\n[build_dictionary --check] OK — outputs up to date, 100% coverage, "
+              "zero Latin-script leaks.")
+        return 0
+
+    print("\nWROTE: urdu-dictionary.json, shrine-translations.seed.json")
+    if failed:
+        print("\n[build_dictionary] FAILED — Latin leakage or missing Urdu coverage detected (see above).")
+        return 1
     print("\n[build_dictionary] OK — 100% coverage, zero Latin-script leaks.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

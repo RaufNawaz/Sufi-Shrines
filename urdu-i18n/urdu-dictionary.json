@@ -6,16 +6,16 @@
     "counts": {
       "categories": 3,
       "traditions": 3,
-      "tourRegions": 3,
-      "tourThemes": 3,
-      "tourEras": 3,
+      "tourRegions": 5,
+      "tourThemes": 7,
+      "tourEras": 7,
       "placeTokens": 243,
       "shrineNames": 143,
       "saints": 123,
       "foundedPhrases": 86,
       "locations": 123,
       "sufiGlossary": 49,
-      "flatSeedEntries": 538
+      "flatSeedEntries": 548
     }
   },
   "categories": {
@@ -31,17 +31,27 @@
   "tourRegions": {
     "Sindh & Punjab": "سندھ اور پنجاب",
     "Punjab": "پنجاب",
-    "Punjab, Sindh & Balochistan": "پنجاب، سندھ اور بلوچستان"
+    "Punjab, Sindh & Balochistan": "پنجاب، سندھ اور بلوچستان",
+    "Sindh": "سندھ",
+    "Khyber Pakhtunkhwa": "خیبر پختونخوا"
   },
   "tourThemes": {
     "Pilgrimage route": "زیارت کا راستہ",
     "Founding history": "تاریخِ بنیاد",
-    "Ancient architecture": "قدیم فنِ تعمیر"
+    "Ancient architecture": "قدیم فنِ تعمیر",
+    "Sacred city": "مقدس شہر",
+    "Guru's childhood": "گرو کا بچپن",
+    "Frontier Sufism": "سرحدی تصوف",
+    "Urban pilgrimage": "شہری زیارت"
   },
   "tourEras": {
     "8th–20th century": "8ویں–20ویں صدی",
     "15th–20th century": "15ویں–20ویں صدی",
-    "7th–15th century": "7ویں–15ویں صدی"
+    "7th–15th century": "7ویں–15ویں صدی",
+    "12th–19th century": "12ویں–19ویں صدی",
+    "13th–15th century": "13ویں–15ویں صدی",
+    "16th–20th century": "16ویں–20ویں صدی",
+    "18th–20th century": "18ویں–20ویں صدی"
   },
   "placeTokens": {
     "Punjab": "پنجاب",

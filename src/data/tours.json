@@ -127,5 +127,210 @@
         "narrativeUr": "تھر میں ناگر پارکر کی ثقافتی زمین چودہویں اور پندرہویں صدی کے کئی قرون وسطی جین مندروں کو محفوظ رکھتی ہے۔ کارونجھر کے گلابی اور سفید گرینائٹ پہاڑوں کے پس منظر میں یہ مندر جین مقدس تعمیر کے شاہکار ہیں اور پاکستان کے شاندار ترین ثقافتی ورثے میں شمار ہوتے ہیں۔"
       }
     ]
+  },
+  {
+    "id": "multan-city-of-saints",
+    "title": "Multan: City of Saints",
+    "titleUr": "ملتان: اولیاء کا شہر",
+    "description": "Multan has been called the City of Saints for eight centuries — walk through its old quarters to meet six generations of Sufi masters, from the Suhrawardi founders of the thirteenth century to a Chishti poet of the nineteenth, whose tombs still anchor the life of the city.",
+    "descriptionUr": "ملتان کو آٹھ صدیوں سے اولیاء کا شہر کہا جاتا ہے۔ اس شہر کے پرانے محلوں میں چھ نسلوں کے صوفی بزرگوں کی درگاہیں موجود ہیں — تیرہویں صدی کے سہروردی بانیوں سے لے کر انیسویں صدی کے چشتی شاعر تک — جو آج بھی شہر کی روحانی زندگی کا مرکز ہیں۔",
+    "tradition": "sufi",
+    "region": "Punjab",
+    "theme": "Sacred city",
+    "era": "12th–19th century",
+    "stops": [
+      {
+        "shrineSlug": "shrine-of-shah-yusaf-gardez",
+        "narrative": "Hazrat Shah Yusuf Gardez came to Multan from Gardez in the early twelfth century, among the first Sufis to settle in the city and found the line of the Gardezi sayyids. His low tomb, famed for its exquisite blue tilework, is one of the oldest and most distinctive shrines of the City of Saints.",
+        "narrativeUr": "حضرت شاہ یوسف گردیز بارہویں صدی کے اوائل میں گردیز سے ملتان آئے اور شہر میں آباد ہونے والے ابتدائی صوفیاء میں شمار ہوتے ہیں؛ انہوں نے گردیزی سادات کے سلسلے کی بنیاد رکھی۔ ان کا نشیب دار مزار، جو اپنی نفیس نیلی ٹائلوں کے لیے مشہور ہے، اولیاء کے شہر کے قدیم ترین اور منفرد ترین مزارات میں شمار ہوتا ہے۔"
+      },
+      {
+        "shrineSlug": "shrine-of-shah-shams-ud-din-sabzwari",
+        "narrative": "Shah Shams-ud-Din Sabzwari — known as Shah Shams, \"the Sun\" — arrived from Persia in the thirteenth century as a preacher of extraordinary reputation. His shrine, among the oldest and most storied in Multan, is remembered in legend for miracles bound up with the fierce heat for which the city is famous.",
+        "narrativeUr": "شاہ شمس الدین سبزواری، جنہیں شاہ شمس یعنی \"سورج\" کہا جاتا ہے، تیرہویں صدی میں فارس سے آئے اور غیر معمولی شہرت کے حامل مبلغ کے طور پر جانے گئے۔ ان کا مزار، جو ملتان کے قدیم ترین اور پُر اسرار مزارات میں شمار ہوتا ہے، شہر کی شدید گرمی سے جڑی کرامات کے لیے مشہور ہے۔"
+      },
+      {
+        "shrineSlug": "shrine-of-bahauddin-zakariya",
+        "narrative": "A generation after Shah Yusuf and Shah Shams, Bahauddin Zakariya (1170-1267) planted the Suhrawardi order at Multan and made the city one of the first great centres of Islamic mysticism in South Asia. His domed shrine — a friend and contemporary of Baba Farid of Pakpattan — still stands at the heart of the old city, over 750 years after his death.",
+        "narrativeUr": "شاہ یوسف اور شاہ شمس کے ایک نسل بعد، بہاؤالدین زکریا (1170–1267) نے ملتان میں سہروردی سلسلے کی بنیاد رکھی اور شہر کو برصغیر میں اسلامی تصوف کے پہلے عظیم مراکز میں شامل کر دیا۔ بابا فرید پاکپتن کے ہم عصر اور دوست، ان کا گنبد دار مزار آج بھی، ان کی وفات کے 750 سال بعد بھی، پرانے شہر کے قلب میں قائم ہے۔"
+      },
+      {
+        "shrineSlug": "shrine-of-shah-rukn-e-alam",
+        "narrative": "Shah Rukn-e-Alam (1251-1335), grandson and spiritual heir of Bahauddin Zakariya, carried the Suhrawardi order to its height in Multan. His tomb, built 1320-1324, is considered the finest example of Tughluq-era Islamic architecture — a great octagonal chamber of glazed tile and brickwork rising above the city's skyline.",
+        "narrativeUr": "شاہ رکن عالم (1251–1335)، بہاؤالدین زکریا کے پوتے اور روحانی جانشین، نے ملتان میں سہروردی سلسلے کو عروج بخشا۔ ان کا مقبرہ (1320–1324) تغلق دور کے اسلامی فنِ تعمیر کا شاہکار مانا جاتا ہے — رنگین ٹائلوں اور اینٹ کاری سے مزین ایک عظیم ثمانیہ ہال جو شہر کی فضا میں بلند ہے۔"
+      },
+      {
+        "shrineSlug": "shrine-of-syed-musa-pak",
+        "narrative": "Two centuries later, Syed Musa Pak Shaheed brought a different lineage to Multan — the Qadiri order of Baghdad's Abd al-Qadir Jilani. Honoured as \"the pure\" and \"the martyr,\" he founded the Gilani sayyid line that remained influential in the city for generations after him.",
+        "narrativeUr": "دو صدیوں بعد، حضرت سید موسیٰ پاک شہید ملتان میں ایک الگ سلسلہ لے کر آئے — بغداد کے شیخ عبدالقادر جیلانی کا قادری سلسلہ۔ \"پاک\" اور \"شہید\" کے القاب سے نوازے گئے، انہوں نے گیلانی سادات کے سلسلے کی بنیاد رکھی جو نسلوں تک شہر میں بااثر رہا۔"
+      },
+      {
+        "shrineSlug": "shrine-of-hafiz-muhammad-jamal-multani",
+        "narrative": "The last of Multan's great Sufi lines to arrive was the Chishti order, carried by Hafiz Muhammad Jamal Multani (1747-1811), a poet who composed in Arabic, Persian, and Siraiki. His tomb near the Daulat Gate preserves rare original Mughal-era wall paintings, a fitting final chapter in the City of Saints' eight centuries of devotion.",
+        "narrativeUr": "ملتان کے عظیم صوفی سلسلوں میں سب سے آخر میں چشتی سلسلہ آیا، جسے حافظ محمد جمال ملتانی (1747–1811) نے آگے بڑھایا — ایک شاعر جنہوں نے عربی، فارسی اور سرائیکی میں کلام لکھا۔ دولت گیٹ کے قریب ان کا مزار مغل دور کی نایاب اصل دیوار نگاری کو محفوظ رکھے ہوئے ہے، جو اولیاء کے شہر کی آٹھ صدیوں کی عقیدت کا ایک مناسب اختتامی باب ہے۔"
+      }
+    ]
+  },
+  {
+    "id": "uch-sharif-saints",
+    "title": "Uch Sharif: Saints of the River Confluence",
+    "titleUr": "اُچ شریف: سنگم کے اولیاء",
+    "description": "Near where the Chenab and Sutlej rivers meet in southern Punjab, the ancient town of Uch Sharif holds a cluster of medieval tombs raised by four generations of one Bukhari Sufi family — an ensemble so remarkable that Pakistan placed it on UNESCO's World Heritage tentative list.",
+    "descriptionUr": "جنوبی پنجاب میں دریائے چناب اور ستلج کے سنگم کے قریب، قدیم شہر اُچ شریف میں ایک ہی بخاری صوفی خاندان کی چار نسلوں کے تعمیر کردہ قرون وسطیٰ کے مقبروں کا مجموعہ موجود ہے — ایک ایسا حسین مجموعہ جسے پاکستان نے یونیسکو کی عالمی ثقافتی ورثے کی عارضی فہرست میں شامل کیا ہے۔",
+    "tradition": "sufi",
+    "region": "Punjab",
+    "theme": "Sacred city",
+    "era": "13th–15th century",
+    "stops": [
+      {
+        "shrineSlug": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+        "narrative": "Sayyid Jalaluddin Surkh-Posh Bukhari (1192-1291) — \"the Red-Robed\" — came from Bukhara to Uch and planted the Suhrawardi order there, founding the celebrated Bukhari sayyid dynasty. His shrine anchors the remarkable cluster of tombs that made Uch Sharif one of the subcontinent's great centres of Sufism.",
+        "narrativeUr": "سید جلال الدین سرخ پوش بخاری (1192–1291) — \"سرخ پوش\" — بخارا سے اُچ آئے اور یہاں سہروردی سلسلے کی بنیاد رکھی، اور بخاری سادات کے مشہور خاندان کی ابتدا کی۔ ان کا مزار اُچ شریف کے مقبروں کے اس نمایاں مجموعے کا مرکز ہے جس نے اسے برصغیر کے عظیم صوفی مراکز میں شامل کیا۔"
+      },
+      {
+        "shrineSlug": "shrine-of-makhdoom-jahaniyan-jahangasht",
+        "narrative": "His grandson, Jalaluddin Bukhari (1308-1384) — known as Makhdoom-i-Jahaniyan, \"Master of the World,\" and Jahangasht, \"the World-Traveller\" — became one of the most learned and widely revered Suhrawardi saints of fourteenth-century India, his authority sought by sultans and commoners alike.",
+        "narrativeUr": "ان کے پوتے، جلال الدین بخاری (1308–1384) — جنہیں \"مخدوم جہانیاں\" یعنی \"عالم کے سردار\" اور \"جہاں گشت\" یعنی \"عالم کی سیر کرنے والا\" کہا جاتا ہے — چودہویں صدی کے سب سے علم دوست اور محترم سہروردی بزرگوں میں شمار ہوئے، جن کی عزت بادشاہوں اور عوام دونوں میں یکساں تھی۔"
+      },
+      {
+        "shrineSlug": "tomb-of-bahaal-halim-uch-sharif",
+        "narrative": "Baha'al-Halim is remembered as a revered spiritual guide of Uch, his tomb traditionally said to have been raised in his honour by Makhdoom Jahaniyan himself. Its octagonal, three-tiered form of glazed brick is one of the four monuments that make up Uch's UNESCO-listed funerary ensemble.",
+        "narrativeUr": "بہاءالحلیم کو اُچ کے ایک محترم روحانی رہنما کے طور پر یاد کیا جاتا ہے، اور روایت کے مطابق ان کا مقبرہ خود مخدوم جہانیاں نے ان کے اعزاز میں تعمیر کروایا۔ رنگین اینٹوں سے بنا یہ ثمانیہ اور سہ منزلہ مقبرہ اُچ کے یونیسکو کی فہرست میں شامل چار یادگاروں میں سے ایک ہے۔"
+      },
+      {
+        "shrineSlug": "tomb-of-javindi-bibi",
+        "narrative": "Bibi Jawindi, a great-granddaughter of Makhdoom Jahaniyan, was a saintly woman of the Bukhari line whose ornate tomb — raised around 1493, tradition says by an Iranian prince in her honour — is a jewel of blue-and-white glazed tilework, half-ruined by the flooding of the river and the very emblem of Uch's medieval glory.",
+        "narrativeUr": "بی بی جیوندی، مخدوم جہانیاں کی پڑپوتی، بخاری خاندان کی ایک نیک خاتون تھیں جن کا نفیس مقبرہ — روایت کے مطابق 1493 کے قریب ایک ایرانی شہزادے نے ان کے اعزاز میں تعمیر کروایا — نیلی اور سفید ٹائلوں کا شاہکار ہے۔ دریا کے سیلاب سے جزوی طور پر تباہ شدہ یہ مقبرہ اُچ کی قرون وسطیٰ کی شان کی سب سے بڑی علامت ہے۔"
+      },
+      {
+        "shrineSlug": "tomb-of-ustad-nuriya",
+        "narrative": "The smallest and plainest of the cluster belongs not to a saint but to a craftsman: tradition holds it honours Ustad Nuriya, the master-builder credited with designing Bibi Jawindi's exquisite tomb. Fittingly, his own rests quietly beside the masterpiece he built.",
+        "narrativeUr": "اس مجموعے کا سب سے چھوٹا اور سادہ مقبرہ کسی ولی کا نہیں بلکہ ایک کاریگر کا ہے: روایت کے مطابق یہ استاد نوریا کا مقبرہ ہے، وہ معمار جنہیں بی بی جیوندی کے نفیس مقبرے کے ڈیزائن کا سہرا جاتا ہے۔ یوں ان کا اپنا مقبرہ خاموشی سے اسی شاہکار کے پہلو میں آرام کر رہا ہے جو انہوں نے خود تعمیر کیا۔"
+      }
+    ]
+  },
+  {
+    "id": "nankana-sahib-childhood",
+    "title": "Nankana Sahib: The Guru's Childhood",
+    "titleUr": "ننکانہ صاحب: گرو کا بچپن",
+    "description": "Beyond the birthplace shrine itself, the fields and lanes of Nankana Sahib preserve, site by site, the sakhis of Guru Nanak's boyhood — a sleeping child shaded by a cobra, a village school astonished by his wisdom, a tent-tree, a miracle in the fields — six gurdwaras that together tell the story of a childhood remembered as sacred.",
+    "descriptionUr": "ننکانہ صاحب کے کھیت اور گلیاں، جائے پیدائش کے مزار کے علاوہ، گرو نانک کے بچپن کی ساکھیوں کو جگہ بہ جگہ محفوظ رکھتی ہیں — ایک سوتا ہوا بچہ جسے ناگ نے سایہ دیا، ایک گاؤں کا مکتب جو ان کی حکمت سے حیران رہ گیا، ایک خیمہ نما درخت، کھیتوں میں ایک معجزہ — چھ گردوارے جو مل کر ایک ایسے بچپن کی کہانی سناتے ہیں جسے مقدس مانا جاتا ہے۔",
+    "tradition": "sikh",
+    "region": "Punjab",
+    "theme": "Guru's childhood",
+    "era": "15th–20th century",
+    "stops": [
+      {
+        "shrineSlug": "gurdwara-malji-sahib",
+        "narrative": "Gurdwara Malji Sahib marks the shady tree beneath which the young Nanak, tending his father's cattle, once lay asleep in the midday heat. According to the sakhi, the landlord Rai Bular came upon the sleeping child and saw a cobra had spread its hood over his face to shade him from the sun — a wonder remembered ever since.",
+        "narrativeUr": "گردوارہ مالجی صاحب اس سایہ دار درخت کی یاد میں قائم ہے جس کے نیچے بچپن میں نانک، اپنے والد کے مویشی چراتے ہوئے، دوپہر کی گرمی میں سو گئے تھے۔ ساکھی کے مطابق زمیندار رائے بلار نے سوتے ہوئے بچے کو دیکھا تو ایک ناگ نے اپنا پھن پھیلا کر ان کے چہرے پر سایہ کر رکھا تھا — ایک ایسا معجزہ جو تب سے یاد رکھا جاتا ہے۔"
+      },
+      {
+        "shrineSlug": "gurdwara-sri-kiara-sahib",
+        "narrative": "Set among the fields east of town, Gurdwara Sri Kiara Sahib preserves one of the best-loved miracles of the Guru's boyhood, remembered to have taken place in the very kiara (cultivated plot) where the gurdwara now stands — part of the intimate landscape of sites that surround Nankana Sahib.",
+        "narrativeUr": "شہر کے مشرق میں کھیتوں کے درمیان واقع گردوارہ سری کیارہ صاحب گرو کے بچپن کے ایک محبوب ترین معجزے کی یاد کو محفوظ رکھتا ہے، جو روایت کے مطابق اسی \"کیارے\" (کھیت کے قطعے) میں پیش آیا جہاں آج گردوارہ کھڑا ہے — ننکانہ صاحب کے گرد پھیلے ان قریبی مقامات میں سے ایک۔"
+      },
+      {
+        "shrineSlug": "gurdwara-patti-sahib",
+        "narrative": "Gurdwara Patti Sahib commemorates the village school where the child Nanak was sent to learn his letters — and where, the sakhis say, he astonished his teacher with the depth of his understanding. Its name comes from the patti, the wooden writing-tablet once used by Punjab's schoolchildren.",
+        "narrativeUr": "گردوارہ پٹی صاحب اس گاؤں کے مکتب کی یاد میں قائم ہے جہاں بچپن میں نانک کو تعلیم کے لیے بھیجا گیا تھا — اور جہاں، ساکھیوں کے مطابق، انہوں نے اپنے استاد کو اپنی گہری سمجھ بوجھ سے حیران کر دیا۔ اس کا نام \"پٹی\" سے لیا گیا ہے، وہ لکڑی کی تختی جس پر پنجاب کے بچے کبھی حروف لکھنا سیکھتے تھے۔"
+      },
+      {
+        "shrineSlug": "gurdwara-balila-sahib-bal-lila-sahib",
+        "narrative": "Gurdwara Bal Lila Sahib — \"the play of childhood\" — marks the open field where young Nanak gathered his companions and passed the days of his boyhood. It preserves not a miracle or a martyrdom but something gentler: the ordinary, luminous childhood of the faith's founder.",
+        "narrativeUr": "گردوارہ بال لیلا صاحب — یعنی \"بچپن کا کھیل\" — اس کھلے میدان کی یاد میں قائم ہے جہاں بچپن میں نانک اپنے ساتھیوں کے ساتھ کھیلا کرتے تھے۔ یہ کسی معجزے یا شہادت کی نہیں بلکہ ایک نرم و لطیف بات کی یاد دلاتا ہے: مذہب کے بانی کا سادہ اور روشن بچپن۔"
+      },
+      {
+        "shrineSlug": "gurdwara-tambo-sahib",
+        "narrative": "Gurdwara Tambo Sahib grew up around a great van tree whose low, spreading branches formed a natural canopy — a living tent — beneath which young Nanak is remembered to have sheltered while tending cattle, in the sakhi of the true bargain that first revealed his spiritual calling.",
+        "narrativeUr": "گردوارہ تنبو صاحب ایک بڑے \"وَن\" درخت کے گرد قائم ہوا جس کی نیچی اور پھیلی ہوئی شاخیں ایک قدرتی سائبان — ایک زندہ خیمہ — بناتی تھیں، جس کے نیچے بچپن میں نانک، مویشی چراتے ہوئے، پناہ لیا کرتے تھے۔ یہیں \"سچے سودے\" کی ساکھی پیش آئی جس نے پہلی بار ان کی روحانی پکار کو ظاہر کیا۔"
+      },
+      {
+        "shrineSlug": "gurdwara-panjvi-chati-patshahi",
+        "narrative": "Unlike the other shrines of Nankana Sahib, which recall the Guru's own boyhood, Gurdwara Panjvi Chati Patshahi honours two of his successors — the fifth Guru, Arjan Dev, and the sixth, Hargobind — whose pilgrimages to Nanak's birthplace remind us that the town drew not only later devotees but the living Gurus themselves.",
+        "narrativeUr": "ننکانہ صاحب کے دیگر مزارات کے برعکس، جو گرو کے اپنے بچپن کی یاد دلاتے ہیں، گردوارہ پنجویں چھٹی پاتشاہی ان کے دو جانشینوں — پانچویں گرو ارجن دیو اور چھٹے گرو ہرگوبند — کے اعزاز میں قائم ہے، جن کی نانک کی جائے پیدائش کی زیارتیں یاد دلاتی ہیں کہ یہ شہر نہ صرف بعد کے عقیدت مندوں بلکہ خود زندہ گروؤں کو بھی کھینچ لایا۔"
+      }
+    ]
+  },
+  {
+    "id": "pashtun-frontier-sufis",
+    "title": "Sufis of the Pashtun Frontier",
+    "titleUr": "پشتون سرحد کے صوفی بزرگ",
+    "description": "From a sixteenth-century saint of Buner to a Naqshbandi order founded in the hills near Kohat in 1952, this route follows four centuries of Sufi mystics, poets, and scholars who shaped the spiritual life of the Pashtun lands around Peshawar.",
+    "descriptionUr": "بونیر کے سولہویں صدی کے ولی سے لے کر 1952 میں کوہاٹ کے قریب پہاڑیوں میں قائم ہونے والے نقشبندی سلسلے تک، یہ سفر پشاور کے اردگرد پشتون علاقوں کی روحانی زندگی کو تشکیل دینے والے چار صدیوں کے صوفی بزرگوں، شاعروں اور علماء کا احاطہ کرتا ہے۔",
+    "tradition": "sufi",
+    "region": "Khyber Pakhtunkhwa",
+    "theme": "Frontier Sufism",
+    "era": "16th–20th century",
+    "stops": [
+      {
+        "shrineSlug": "shrine-of-pir-baba-syed-ali-tirmizi",
+        "narrative": "Syed Ali Tirmizi (c. 1502-1583) — universally known as Pir Baba — came from Tirmiz in Central Asia and settled at Pacha in Buner, becoming one of the most revered Sufi teachers of the Pashtun lands. His shrine in the mountains of Buner remains a major centre of pilgrimage and the wellspring of a teaching lineage that shaped the region for generations.",
+        "narrativeUr": "سید علی ترمذی (تقریباً 1502–1583) — جو \"پیر بابا\" کے نام سے مشہور ہیں — وسط ایشیا کے شہر ترمذ سے آئے اور بونیر کے علاقے پچہ میں آباد ہوئے، اور پشتون علاقوں کے محترم ترین صوفی اساتذہ میں شمار ہوئے۔ بونیر کے پہاڑوں میں ان کا مزار آج بھی زیارت کا بڑا مرکز ہے اور ان کا تعلیمی سلسلہ نسلوں تک اس خطے کو متاثر کرتا رہا۔"
+      },
+      {
+        "shrineSlug": "shrine-of-akhund-darweza-baba",
+        "narrative": "Akhund Darweza (traditionally 1533-1638), a disciple of Pir Baba, became one of the most influential scholars and poets of the Pashtun country in the age of the Mughals, writing in both Pashto and Persian. He was buried in the historic Hazarkhwani graveyard on the edge of Peshawar, where his shrine still stands.",
+        "narrativeUr": "آخوند درویزہ (روایتی طور پر 1533–1638)، پیر بابا کے شاگرد، مغل دور میں پشتون علاقے کے سب سے بااثر علماء اور شاعروں میں شمار ہوئے، اور پشتو اور فارسی دونوں زبانوں میں لکھا۔ انہیں پشاور کے کنارے واقع تاریخی ہزارخوانی قبرستان میں دفن کیا گیا، جہاں آج بھی ان کا مزار موجود ہے۔"
+      },
+      {
+        "shrineSlug": "ziarat-kaka-sahib",
+        "narrative": "Born in 1576, Syed Kasteer Gul — remembered as Kaka Sahib and Sheikh Rahmkar — was schooled by his Sufi father and the scholars of his generation, practising the disciplines of all four great Sufi orders. His shrine lies among rugged hills south of Nowshera, a contemporary of Darweza Baba in the same flowering of frontier Sufism.",
+        "narrativeUr": "1576 میں پیدا ہونے والے سید کثیر گل — جنہیں \"کاکا صاحب\" اور \"شیخ رحمکار\" کہا جاتا ہے — نے اپنے صوفی والد اور اپنے دور کے علماء سے تعلیم حاصل کی، اور چاروں بڑے صوفی سلسلوں کی ریاضتیں کیں۔ ان کا مزار نوشہرہ کے جنوب میں پہاڑی علاقے میں واقع ہے، اور وہ آخوند درویزہ بابا کے ہم عصر تھے، سرحدی تصوف کے اسی عروج کے دور میں۔"
+      },
+      {
+        "shrineSlug": "shrine-of-akhund-panju-baba",
+        "narrative": "Hazrat Syed Abdul Wahab — Akhund Panju Baba — taught Islam in the Peshawar valley during the reign of the Mughal emperor Akbar, his circle of disciples numbering among the most notable saints of his generation. His shrine at Akbarpura in Nowshera District preserves the memory of this teaching lineage of the frontier.",
+        "narrativeUr": "حضرت سید عبدالوہاب — آخوند پنجو بابا — نے مغل بادشاہ اکبر کے دور میں وادئ پشاور میں اسلام کی تعلیم دی، اور ان کے حلقہ ارادت میں اس دور کے چند نمایاں ترین اولیاء شامل تھے۔ نوشہرہ ضلع کے اکبرپورہ میں ان کا مزار سرحد کے اس تعلیمی سلسلے کی یاد کو محفوظ رکھے ہوئے ہے۔"
+      },
+      {
+        "shrineSlug": "shrine-of-mian-umar-baba-chamkani",
+        "narrative": "A century later, Mian Muhammad Umar Baba (1671-1776) carried the Naqshbandi order into the same frontier tradition — a scholar, poet, and social reformer counted, together with Akhund Darweza and the warrior-poet Khushal Khan Khattak, among the great literary figures of the Mughal-era Pashtun lands. His shrine stands at Chamkani, on Peshawar's eastern edge.",
+        "narrativeUr": "ایک صدی بعد، میاں محمد عمر بابا (1671–1776) نے اسی سرحدی روایت میں نقشبندی سلسلے کو آگے بڑھایا — ایک عالم، شاعر اور سماجی مصلح جنہیں آخوند درویزہ اور جنگجو شاعر خوشحال خان خٹک کے ساتھ مغل دور کے پشتون علاقے کی عظیم ادبی شخصیات میں شمار کیا جاتا ہے۔ ان کا مزار پشاور کے مشرقی کنارے پر چمکنی میں واقع ہے۔"
+      },
+      {
+        "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
+        "narrative": "This four-century lineage of frontier Sufism reaches into living memory at Darbar-e-Aliya Ghamkol Sharif, founded in 1952 by Khwaja Muhammad Qasim — revered as Zinda Pir — in a secluded valley near Kohat. Today it remains among the most important centres of the Naqshbandi order in modern Pakistan.",
+        "narrativeUr": "سرحدی تصوف کا یہ چار صدیوں پر محیط سلسلہ زندہ یادداشت تک پہنچتا ہے دربارِ عالیہ غمکول شریف میں، جو 1952 میں خواجہ محمد قاسم — جنہیں \"زندہ پیر\" کہا جاتا ہے — نے کوہاٹ کے قریب ایک دور افتادہ وادی میں قائم کیا۔ آج بھی یہ جدید پاکستان میں نقشبندی سلسلے کے اہم ترین مراکز میں شمار ہوتا ہے۔"
+      }
+    ]
+  },
+  {
+    "id": "karachi-living-temples",
+    "title": "Karachi's Living Temples",
+    "titleUr": "کراچی کے زندہ مندر",
+    "description": "From a cave shrine of Shiva to a temple perched over the tidal waters of the harbour, Karachi's Hindu temples form a living network scattered through the city's oldest quarters — a journey from an ancient inland sanctuary out to the sea god's temple at the mouth of the port.",
+    "descriptionUr": "شیو جی کے ایک غار مندر سے لے کر بندرگاہ کے جوار بھاٹا پانی پر واقع مندر تک، کراچی کے ہندو مندر شہر کے قدیم ترین محلوں میں پھیلا ایک زندہ نیٹ ورک تشکیل دیتے ہیں — ایک قدیم اندرونی حرم سے بندرگاہ کے دہانے پر واقع سمندری دیوتا کے مندر تک کا سفر۔",
+    "tradition": "hindu-jain",
+    "region": "Sindh",
+    "theme": "Urban pilgrimage",
+    "era": "18th–20th century",
+    "stops": [
+      {
+        "shrineSlug": "shri-panchmukhi-hanuman-mandir-karachi",
+        "narrative": "In Karachi's Soldier Bazaar quarter stands one of Pakistan's most remarkable Hindu temples — home to an extraordinary panchmukhi (\"five-faced\") image of Hanuman that devotees hold to be svayambhu, self-manifested rather than made by human hands, and believed by tradition to be many centuries old.",
+        "narrativeUr": "کراچی کے سولجر بازار علاقے میں پاکستان کے سب سے نمایاں ہندو مندروں میں سے ایک واقع ہے — جہاں ہنومان جی کی غیر معمولی \"پنچمکھی\" (پانچ چہروں والی) مورتی موجود ہے، جسے عقیدت مند \"سوایمبھو\" یعنی خود ظاہر ہونے والی مانتے ہیں نہ کہ انسانی ہاتھوں کی تخلیق، اور روایت کے مطابق صدیوں پرانی سمجھی جاتی ہے۔"
+      },
+      {
+        "shrineSlug": "shree-ratneshwar-mahadev-temple-karachi",
+        "narrative": "Near Clifton Beach, the Shree Ratneshwar Mahadev Temple is a historic cave shrine of Shiva, said to be more than three centuries old and celebrated as one of the oldest and most atmospheric Hindu sites in the city, set beside the promenade known as Jehangir Kothari Parade.",
+        "narrativeUr": "کلفٹن ساحل کے قریب، شری رتنیشور مہادیو مندر شیو جی کا ایک تاریخی غار مندر ہے، جو تین سو سال سے زیادہ پرانا بتایا جاتا ہے اور شہر کے قدیم ترین اور پُر تاثیر ہندو مقامات میں شمار ہوتا ہے، جو جہانگیر کوٹھاری پریڈ کے کنارے واقع ہے۔"
+      },
+      {
+        "shrineSlug": "shri-swaminarayan-mandir-karachi",
+        "narrative": "Rising behind its long frontage on M. A. Jinnah Road, the Shri Swaminarayan Mandir, built in 1788, is the principal Hindu temple of Pakistan's largest city and the only surviving temple of the Swaminarayan Sampradaya — the devotional tradition founded in nineteenth-century Gujarat — in the country.",
+        "narrativeUr": "ایم اے جناح روڈ پر اپنی طویل عمارت کے پیچھے بلند، شری سوامی نارائن مندر، جو 1788 میں تعمیر ہوا، پاکستان کے سب سے بڑے شہر کا اصل ہندو مندر ہے اور ملک میں \"سوامی نارائن سمپردائے\" — انیسویں صدی کے گجرات میں قائم ہونے والی روایت — کا واحد باقی رہ جانے والا مندر ہے۔"
+      },
+      {
+        "shrineSlug": "shri-laxmi-narayan-mandir-native-jetty-bridge",
+        "narrative": "The Shri Laxmi Narayan Mandir is remarkable for its situation: standing beneath the Native Jetty Bridge on the banks of the Chinna Creek, it is the only temple in Karachi set directly upon the tidal waters that open onto the Arabian Sea, reputed to be some two hundred years old.",
+        "narrativeUr": "شری لکشمی نارائن مندر اپنے محل وقوع کے باعث نمایاں ہے: نیٹو جیٹی پل کے نیچے، چنا کریک کے کنارے واقع، یہ کراچی کا واحد مندر ہے جو براہِ راست ان جوار بھاٹا کے پانیوں پر قائم ہے جو بحیرہ عرب میں کھلتے ہیں، اور اسے تقریباً دو سو سال پرانا مانا جاتا ہے۔"
+      },
+      {
+        "shrineSlug": "shri-varun-dev-mandir",
+        "narrative": "The journey ends at the mouth of Karachi's harbour, on the wind-scoured island of Manora, where the Shri Varun Dev Mandir honours Varuna, the ancient Vedic lord of the waters — believed to be the only temple to Varuna in Pakistan, its weathered stonework standing almost within reach of the waves.",
+        "narrativeUr": "یہ سفر کراچی بندرگاہ کے دہانے پر، ہوا زدہ جزیرے منورا پر، اپنے اختتام کو پہنچتا ہے، جہاں شری ورون دیو مندر وید دیوتا ورون — پانیوں کے قدیم دیوتا — کے اعزاز میں قائم ہے۔ یہ پاکستان کا واحد ورون مندر مانا جاتا ہے، جس کی مرجھائی ہوئی پتھر کی دیواریں لہروں کی زد میں کھڑی ہیں۔"
+      }
+    ]
   }
 ]
