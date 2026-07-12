@@ -2,13 +2,13 @@
 
 _Feature roadmap for expanding the guided-tours experience. Drafted 2026-07-06._
 
-The tours have drawn strong positive feedback, so this plan is about deepening the **experience** (not adding more tour content — the shrine dataset is growing separately). Everything below is scoped to the current stack: Vite + React 18 + TypeScript + react-leaflet, static Netlify hosting, bilingual EN/Urdu with RTL, no paid runtime APIs, and design driven entirely from `tokens.css`.
+The tours have drawn strong positive feedback, so this plan is about deepening the **experience** (not adding more tour content — the shrine dataset is growing separately). Everything below is scoped to the current stack: Vite + React 18 + TypeScript + react-leaflet, static GitHub Pages hosting, bilingual EN/Urdu with RTL, no paid runtime APIs, and design driven entirely from `tokens.css`.
 
 ---
 
 ## 1. Where the tours are today
 
-Three curated, bilingual tours live in `src/lib/tours/tours.ts` — *Sufi Saints of the Indus Valley* (8 stops), *Sikh Heritage Circuit* (5), and *Ancient Sacred Temples* (5). The data model is a `Tour` (id, title, description, stops) where each `TourStop` holds a `shrineSlug` plus an EN and Urdu narrative.
+Three curated, bilingual tours live in `src/lib/tours/tours.ts` — _Sufi Saints of the Indus Valley_ (8 stops), _Sikh Heritage Circuit_ (5), and _Ancient Sacred Temples_ (5). The data model is a `Tour` (id, title, description, stops) where each `TourStop` holds a `shrineSlug` plus an EN and Urdu narrative.
 
 The UI is two components in `src/components/map/TourPanel.tsx`: `TourList` (an opt-in toggle plus a card per tour) and `TourPanel` (stop-by-stop narrative with Previous / Next / End, progress dots, and a "Stop N of M" badge). State lives in `MapPage.tsx` and tours are opt-in via a `localStorage` flag.
 
@@ -63,7 +63,7 @@ Phases are ordered by value-per-effort and by dependency. Phase 1 is the single 
 - Show the **shrine's image on each stop** in the panel (reuse `shrine.imageUrl`, already rendered elsewhere).
 - Surface **visiting info per stop** (how to get there, timings) — the data column already exists in the sheet.
 - Compute and display **distance and estimated duration** for the tour and between consecutive stops (haversine on `latLng`, done client-side).
-- A **tour preview**: a mini route summary with total stops and distance shown *before* you commit to starting.
+- A **tour preview**: a mini route summary with total stops and distance shown _before_ you commit to starting.
 
 **Why it matters** — Media makes stops vivid (StoryMaps' core principle); distance/preview sets expectations the way walking-tour apps do.
 
@@ -127,13 +127,13 @@ Bilingual EN/Urdu with full RTL parity; keyboard-navigable with screen-reader li
 
 ## 6. Quick reference
 
-| Phase | Headline feature | Effort | New deps |
-|------|------------------|--------|----------|
-| 1 | Route line + animated camera + numbered markers | Medium | None |
-| 2 | Stop images, visiting info, distance/duration, preview | Low–Med | None |
-| 3 | Deep links, resume, progress, share, embed | Medium | None |
-| 4 | Audio narration, autoplay, offline caching | Med–High | None (SpeechSynthesis / static audio) |
-| 5 | Browse/filter, "near me", related, data-driven, print | Med–High | None |
+| Phase | Headline feature                                       | Effort   | New deps                              |
+| ----- | ------------------------------------------------------ | -------- | ------------------------------------- |
+| 1     | Route line + animated camera + numbered markers        | Medium   | None                                  |
+| 2     | Stop images, visiting info, distance/duration, preview | Low–Med  | None                                  |
+| 3     | Deep links, resume, progress, share, embed             | Medium   | None                                  |
+| 4     | Audio narration, autoplay, offline caching             | Med–High | None (SpeechSynthesis / static audio) |
+| 5     | Browse/filter, "near me", related, data-driven, print  | Med–High | None                                  |
 
 **Suggested first ship:** Phase 1 alone is a dramatic, self-contained upgrade with no new dependencies — a natural first PR.
 

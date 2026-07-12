@@ -31,13 +31,13 @@ Track 0 of `PROJECT_VISION.md`: Urdu article content wiring, generic heading map
 at the infobox/ToC/related/era sites, and the no‑English‑leak guard.
 
 - Owner: CC. Depends on: nothing.
-- **Acceptance:** a shrine page in `?lang=ur` is fully Urdu *except* body prose still
+- **Acceptance:** a shrine page in `?lang=ur` is fully Urdu _except_ body prose still
   pending M3; numerals Eastern everywhere but coordinates; `npm run verify` + `e2e` green;
   no‑leak guard active.
 
 ---
 
-## M1 — Dataset integrity pass  ⟵ blocks M2/M3  — **RESOLVED 2026-07-10 (xlsx side)**
+## M1 — Dataset integrity pass ⟵ blocks M2/M3 — **RESOLVED 2026-07-10 (xlsx side)**
 
 Resolve the known data‑quality issues before writing or translating anything new
 (`TODO.md` §1).
@@ -66,7 +66,7 @@ Resolve the known data‑quality issues before writing or translating anything n
 
 ---
 
-## M2 — English content completeness  ⟵ depends on M1
+## M2 — English content completeness ⟵ depends on M1
 
 Bring every row to full English content so parity is even possible (`TODO.md` §2–§4).
 
@@ -87,7 +87,7 @@ Bring every row to full English content so parity is even possible (`TODO.md` §
 
 ---
 
-## M3 — Urdu content parity  ⟵ depends on M1 + M2
+## M3 — Urdu content parity ⟵ depends on M1 + M2
 
 Author the Urdu long‑form content that M0 wired up (`src/data/urdu-content.json`).
 
@@ -98,12 +98,12 @@ Author the Urdu long‑form content that M0 wired up (`src/data/urdu-content.jso
 - Extend the same treatment to `Events`, `Visiting Info`, and any facet still surfacing
   English.
 - Owner: Author (reviewed). Depends on: M1 (correct rows) + M2 (final English to translate).
-- **Acceptance:** the no‑English‑leak guard passes on **all 143** shrine pages in
+- **Acceptance:** the no‑English‑leak guard passes on **all** shrine pages (163 today) in
   `?lang=ur`; every ToC/heading/body is Urdu; batches flagged for human review until signed off.
 
 ---
 
-## M4 — Trust, provenance & knowledge graph  (Vision Tracks 6 + 2)
+## M4 — Trust, provenance & knowledge graph (Vision Tracks 6 + 2)
 
 Deepen the scholarly core once the dataset is clean and bilingual.
 
@@ -117,7 +117,7 @@ Deepen the scholarly core once the dataset is clean and bilingual.
 
 ---
 
-## M5 — Primary‑source library + grounded AI  (Vision Tracks 1 + 5)
+## M5 — Primary‑source library + grounded AI (Vision Tracks 1 + 5)
 
 - `SourcesPage` + full‑text corpus search over `out/ocr/**` with page anchors.
 - Semantic search in the map sidebar; "ask the archive" RAG that **cites the corpus or
@@ -128,7 +128,7 @@ Deepen the scholarly core once the dataset is clean and bilingual.
 
 ---
 
-## M6 — Immersive pilgrimage + heritage‑at‑risk  (Vision Tracks 3 + 7)
+## M6 — Immersive pilgrimage + heritage‑at‑risk (Vision Tracks 3 + 7)
 
 - Offline region packs (PWA), curated Urdu audio + transcripts, on‑site geofenced mode.
 - Condition/threat status field + map layer + filter (many sites are damaged/lost).
@@ -137,7 +137,7 @@ Deepen the scholarly core once the dataset is clean and bilingual.
 
 ---
 
-## M7 — More languages + reach  (Vision Tracks 4 + 8)
+## M7 — More languages + reach (Vision Tracks 4 + 8)
 
 - N‑language refactor of `LanguageContext`/`uiStrings`; add Sindhi (RTL) as the proof,
   then Punjabi (Shahmukhi)/Persian.

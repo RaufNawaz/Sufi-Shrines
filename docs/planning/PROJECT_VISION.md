@@ -1,4 +1,4 @@
-# Project Vision — *Sufi Shrines of Pakistan*
+# Project Vision — _Sufi Shrines of Pakistan_
 
 A blue‑sky roadmap for what this project can become, with concrete, detailed next steps
 Claude Code can execute. Read alongside `CLAUDE.md` (conventions) and
@@ -48,7 +48,7 @@ there is no Urdu description content. Steps:
   `ARTICLE_SECTION_DEFINITIONS`), numbers left Western in stored text (the toggle handles
   digits). Batch order: the ~18 tour‑featured shrines → highest‑traffic saints → the rest.
 - Add a **generic heading‑label map** (`Overview→خلاصہ`, `Significance/Significance
-  Today→اہمیت`, `Bibliography/References→کتابیات`, `Legacy→ورثہ`, `The Shrine→مزار`, …) so
+Today→اہمیت`, `Bibliography/References→کتابیات`, `Legacy→ورثہ`, `The Shrine→مزار`, …) so
   even not‑yet‑translated inline headings localize; wire it into
   `useArticleContent.navItems` and `ShrineArticle`.
 
@@ -86,7 +86,8 @@ Next steps:
 - "How do we know this?" affordance on article claims (hoverable footnotes).
 
 First Claude Code task: design the source/citation schema in `docs/`, then a `SourcesPage`
-+ corpus search index built from `out/ocr/**` with page anchors.
+
+- corpus search index built from `out/ocr/**` with page anchors.
 
 ---
 
@@ -180,7 +181,7 @@ Next steps:
 - An **editorial pipeline:** contributions/corrections → review queue → provenance update;
   extend `npm run data:validate` (schema, coordinates, dates, image reachability, Urdu
   parity) and block releases on failure.
-- **Versioned data releases** with changelog + DOI; snapshot diffs (`scripts/snapshot-data.mjs`).
+- **Versioned data releases** with changelog + DOI; snapshot diffs (`scripts/data/build-dataset.mjs`).
 
 First Claude Code task: a provenance/confidence display component + expanded
 `data:validate` gate (including the Urdu‑leak and image‑reachability checks).

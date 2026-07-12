@@ -1,8 +1,13 @@
-# Urdu Parity Implementation Plan — *Sufi Shrines of Pakistan*
+# Urdu Parity Implementation Plan — _Sufi Shrines of Pakistan_
 
 **Goal:** make the Urdu experience (`?lang=ur`) as polished, complete, and native‑feeling as the English one.
 
-**Status of this doc:** written to be pasted into Claude Code as a working brief. Each phase lists the exact files, concrete edits, code, and acceptance criteria. A ready‑to‑use Urdu dictionary ships alongside it in `urdu-i18n/`.
+**Status of this doc:** IMPLEMENTED (all phases landed; parity reached — kept for
+history). Counts and "current state" descriptions below (143 shrines, 11 columns, no
+Urdu content) reflect the repo at the time of writing; the dataset is now 163 sites with
+`Description Urdu` coverage. Originally written to be pasted into Claude Code as a
+working brief: each phase lists the exact files, concrete edits, code, and acceptance
+criteria. The Urdu dictionary ships alongside it in `urdu-i18n/`.
 
 ---
 
@@ -70,13 +75,12 @@ A reader who lands on `?lang=ur` should get an experience that feels **authored 
 
 Folder: **`urdu-i18n/`**
 
-| File | What it is |
-|---|---|
-| `urdu-dictionary.json` | **Source of truth.** Structured, human‑readable sections: `categories`, `traditions`, `tourRegions`, `tourThemes`, `tourEras`, `placeTokens` (243), `shrineNames` (143), `saints` (123), `foundedPhrases` (86), `locations` (123 full strings), `sufiGlossary` (49). |
-| `shrine-translations.seed.json` | **Flat `en → ur` map (538 entries)** for runtime lookup — every full field value the app resolves. |
-| `shrine-translations.seed.js` | Same map as a drop‑in `window.SHRINE_TRANSLATIONS = …` script. |
-| `build_dictionary.py` | Regenerates all of the above from the source dict + `_shrine_rows.json`. Run it after adding shrines; it validates coverage and fails loudly on any value that still contains Latin letters. |
-| `_shrine_rows.json` | Snapshot of the 143 rows used to build/validate. |
+| File                            | What it is                                                                                                                                                                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `urdu-dictionary.json`          | **Source of truth.** Structured, human‑readable sections: `categories`, `traditions`, `tourRegions`, `tourThemes`, `tourEras`, `placeTokens` (243), `shrineNames` (143), `saints` (123), `foundedPhrases` (86), `locations` (123 full strings), `sufiGlossary` (49). |
+| `shrine-translations.seed.json` | **Flat `en → ur` map (538 entries at time of writing)** for runtime lookup — every full field value the app resolves.                                                                                                                                                |
+| `build_dictionary.py`           | Regenerates all of the above from the source dict + `_shrine_rows.json`. Run it after adding shrines; it validates coverage and fails loudly on any value that still contains Latin letters.                                                                         |
+| `_shrine_rows.json`             | Snapshot of the 143 rows used to build/validate.                                                                                                                                                                                                                     |
 
 Coverage is **100% of current structured data** with **zero Latin‑script leakage**. Numbers inside values are deliberately kept Western so the Phase‑2 numeral toggle can switch them at render time.
 
@@ -96,17 +100,20 @@ Then in `src/lib/i18n/urduFallback.ts`, seed the cache from the import instead o
 import urduSeed from '../../data/urdu-seed.json';
 
 function loadSeedTranslations(): Map<string, string> {
-  const w = typeof window !== 'undefined'
-    ? (window as unknown as Record<string, unknown>) : {};
-  const win = (w.SHRINE_TRANSLATIONS && typeof w.SHRINE_TRANSLATIONS === 'object')
-    ? (w.SHRINE_TRANSLATIONS as Record<string, string>) : {};
+  const w = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>) : {};
+  const win =
+    w.SHRINE_TRANSLATIONS && typeof w.SHRINE_TRANSLATIONS === 'object'
+      ? (w.SHRINE_TRANSLATIONS as Record<string, string>)
+      : {};
   let persisted: Record<string, string> = {};
   try {
     const raw = localStorage.getItem(TRANSLATION_CACHE_KEY);
     if (raw) persisted = JSON.parse(raw) || {};
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
   // seed file wins over stale persisted cache; window can still override in dev
-  return new Map(Object.entries({ ...persisted, ...(urduSeed as Record<string,string>), ...win }));
+  return new Map(Object.entries({ ...persisted, ...(urduSeed as Record<string, string>), ...win }));
 }
 ```
 
@@ -117,9 +124,11 @@ Also bump `TRANSLATION_CACHE_KEY` to `…_v4` so old transliterated junk in visi
 In `urduFallback.ts`, the char‑by‑char path must never render. Change `translateToUrdu()` so an unknown Latin string returns **the original** (readable) instead of transliterating, and warns in dev:
 
 ```ts
-const generated = buildUrduFallback(raw);          // keeps WORD_URDU_MAP + "Nth century"
+const generated = buildUrduFallback(raw); // keeps WORD_URDU_MAP + "Nth century"
 if (generated && generated !== raw && !/[A-Za-z]/.test(generated)) {
-  cache.set(raw, generated); persistCache(); return generated;
+  cache.set(raw, generated);
+  persistCache();
+  return generated;
 }
 if (import.meta.env.DEV) console.warn('[urdu] missing translation:', raw);
 return raw; // never emit transliterated letter-soup
@@ -168,9 +177,9 @@ Fold the dictionary into the data build so each row carries real Urdu columns (`
 
 ```ts
 import type { Lang } from '../../types/shrine';
-const EASTERN = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+const EASTERN = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 export const toEasternDigits = (s: string | number): string =>
-  String(s).replace(/[0-9]/g, d => EASTERN[+d]);
+  String(s).replace(/[0-9]/g, (d) => EASTERN[+d]);
 export function localizeDigits(text: string, lang: Lang, eastern: boolean): string {
   return lang === 'ur' && eastern ? toEasternDigits(text) : text;
 }
@@ -216,10 +225,13 @@ Add typed label maps sourced from the dictionary (or read `urdu-dictionary.json`
 **A. Enum label maps** in `src/lib/tours/tours.ts` (mirrors the existing `TRADITION_LABELS`):
 
 ```ts
-export const REGION_LABELS: Record<string,{en:string;ur:string}> = {
-  'Sindh & Punjab': { en:'Sindh & Punjab', ur:'سندھ اور پنجاب' },
-  'Punjab': { en:'Punjab', ur:'پنجاب' },
-  'Punjab, Sindh & Balochistan': { en:'Punjab, Sindh & Balochistan', ur:'پنجاب، سندھ اور بلوچستان' },
+export const REGION_LABELS: Record<string, { en: string; ur: string }> = {
+  'Sindh & Punjab': { en: 'Sindh & Punjab', ur: 'سندھ اور پنجاب' },
+  Punjab: { en: 'Punjab', ur: 'پنجاب' },
+  'Punjab, Sindh & Balochistan': {
+    en: 'Punjab, Sindh & Balochistan',
+    ur: 'پنجاب، سندھ اور بلوچستان',
+  },
 };
 // THEME_LABELS, ERA_LABELS similarly (values in urdu-dictionary.json → tourThemes / tourEras)
 ```
@@ -335,16 +347,19 @@ Do it file‑by‑file, highest count first: `TourPanel.tsx` (38) → `MapSideba
 ## 7. Appendix
 
 ### 7.1 Eastern digit map
-`0123456789` → `۰۱۲۳۴۵۶۷۸۹`  (Urdu also uses `٫` decimal and `٬` thousands separators if you localize those later.)
+
+`0123456789` → `۰۱۲۳۴۵۶۷۸۹` (Urdu also uses `٫` decimal and `٬` thousands separators if you localize those later.)
 
 ### 7.2 Terminology decisions (baked into the dictionary)
-- Category: *Muslim Shrine* → **مسلم مزار**, *Hindu Temple* → **ہندو مندر**, *Sikh Gurdwara* → **سکھ گوردوارہ**
+
+- Category: _Muslim Shrine_ → **مسلم مزار**, _Hindu Temple_ → **ہندو مندر**, _Sikh Gurdwara_ → **سکھ گوردوارہ**
 - "Shrine of X" → **مزارِ X**; "Tomb/Mausoleum of X" → **مقبرہ X**; "Dargah" → **درگاہ**; "Gurdwara" → **گوردوارہ**; "Mandir/Temple" → **مندر**
 - Honorifics kept per `data/glossary.csv`: حضرت, پیر, خواجہ, سید, شاہ, بابا (not translated, transliterated in Urdu script)
 - Region label unified to **علاقہ**
 - Locations composed from `placeTokens` with Urdu class‑word order (**ضلع** X, X **کے قریب**) and the Urdu comma **،**
 
 ### 7.3 Regeneration
+
 After editing `urdu-i18n/build_dictionary.py` (e.g. new shrines), run:
 
 ```

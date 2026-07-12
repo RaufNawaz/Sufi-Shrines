@@ -37,7 +37,7 @@ All 158 rows now have a Description. The last 5 gaps (75, 77, 79, 86, 87 — the
 - [ ] Row 138 — Baha'al-Halim (Uch): confirm it's Baha'al-Halim's tomb, **not the adjacent Bibi Jawindi tomb**.
 - [ ] Rows 101, 120, 122, 123, 132, 137 — confirm each photo matches its site.
 
-**Fill missing Image 1 (51 rows).** Most sit inside Commons *category* pages whose file lists need a rendered browser. Best closed in one **Claude-in-Chrome image pass** (the browser would not connect in recent runs — see §5). Known high-confidence browser leads:
+**Fill missing Image 1 (51 rows).** Most sit inside Commons _category_ pages whose file lists need a rendered browser. Best closed in one **Claude-in-Chrome image pass** (the browser would not connect in recent runs — see §5). Known high-confidence browser leads:
 
 - [ ] Row 141 — Tomb of Ustad Nuriya → Commons category "Shrine of Nuriya, Uch Sharif".
 - [ ] Row 118 — Baba Shah Kamal (Lahore) → "Category:Shrine of Hazrat Shah Kamal, Lahore" (avoid the Kasur files).
@@ -57,10 +57,10 @@ All 158 rows now have a Description. The last 5 gaps (75, 77, 79, 86, 87 — the
 
 ## 5. Web app & pipeline
 
-- [ ] After any sheet edits, refresh the committed data snapshot: `npm run data:snapshot`, then commit `src/data/shrines-fallback.json`.
-- [ ] Run `npm run test` / `npm run lint` / `npm run typecheck` and deploy (Netlify / GitHub Pages) — see `README.md`.
+- [ ] After any sheet edits, refresh the committed dataset + snapshot: `npm run data:build`, then commit `data/` and `src/data/shrines-fallback.json`.
+- [ ] Run `npm run verify` and deploy (GitHub Pages via `.github/workflows/deploy-pages.yml`) — see the root `README.md`.
 - [ ] Verify new rows 141–144 render correctly on the map (coordinates, category filters, detail pages).
-- [x] **Guided tours feature** — see `TOURS_FUTURE_PLAN.md` and `TOURS_CLAUDE_CODE_PROMPT.md` for the plan. All 5 phases implemented and committed (route-on-map, richer stops, share/resume/embed, audio/autoplay, discovery/filter/near-me/print). 2026-07-10: audited against the plan, fixed a stale `e2e/tours.spec.ts` (only covered Phase 1 and was broken by Phase 2's preview step) with full Playwright coverage for all 5 phases (16 tests, all passing), plus a brittle `map.spec.ts` search-count assertion the growing dataset had broken. `npm run verify` + full e2e suite (38 tests) green.
+- [x] **Guided tours feature** — see `TOURS_FUTURE_PLAN.md` for the plan. All 5 phases implemented and committed (route-on-map, richer stops, share/resume/embed, audio/autoplay, discovery/filter/near-me/print). 2026-07-10: audited against the plan, fixed a stale `e2e/tours.spec.ts` (only covered Phase 1 and was broken by Phase 2's preview step) with full Playwright coverage for all 5 phases (16 tests, all passing), plus a brittle `map.spec.ts` search-count assertion the growing dataset had broken. `npm run verify` + full e2e suite (38 tests) green.
 - [ ] Reconnect **Claude-in-Chrome** so image passes can visually verify and pull Commons files (blocked in recent runs).
 
 ## 6. Housekeeping
