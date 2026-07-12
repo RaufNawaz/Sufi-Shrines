@@ -12,6 +12,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
+    "verbatimModuleSyntax": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
@@ -20,6 +23,5 @@
     },
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }

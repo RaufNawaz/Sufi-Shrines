@@ -5,8 +5,8 @@ the Sufi Shrines of Pakistan dataset.
 
 ## Prerequisites
 
-- Node.js ≥ 18
-- `npm install --legacy-peer-deps` completed
+- Node.js ≥ 20 (`.nvmrc`)
+- `npm ci` completed
 - Google Sheets CSV accessible (or `data/shrines.json` already present)
 
 ## 1. Build and validate the dataset
@@ -75,7 +75,7 @@ Harvard affiliates can also deposit on the Harvard Dataverse
 
 1. Log in with your Harvard Key.
 2. Create a new dataset under an appropriate dataverse
-   (e.g., *Harvard Computational Social Science*).
+   (e.g., _Harvard Computational Social Science_).
 3. Upload the `dist-data/` files.
 4. Set the license to **ODbL-1.0** (listed as "Open Database License").
 5. Publish to receive a Handle/DOI from Harvard.
@@ -86,7 +86,7 @@ Once you have a DOI:
 
 ```yaml
 # CITATION.cff — add these fields
-doi: "10.5281/zenodo.<record-id>"     # or Harvard Dataverse DOI
+doi: '10.5281/zenodo.<record-id>' # or Harvard Dataverse DOI
 ```
 
 ```sh
@@ -98,12 +98,12 @@ git push && git push --tags
 
 ## Versioning policy
 
-| Event | Version bump |
-|-------|-------------|
-| New shrines added or corrections | bump `dataset_version` in `VERSION.json`, re-run `data:release` |
+| Event                               | Version bump                                                                                     |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------ |
+| New shrines added or corrections    | bump `dataset_version` in `VERSION.json`, re-run `data:release`                                  |
 | Schema changes (new/removed fields) | bump `schema_version` in `data/shrines.json`, update `shrine-schema.json` and `datapackage.json` |
-| New Zenodo deposit required | version changes that add/remove rows or fields |
-| Provenance updates only | no version bump required unless depositing to Zenodo |
+| New Zenodo deposit required         | version changes that add/remove rows or fields                                                   |
+| Provenance updates only             | no version bump required unless depositing to Zenodo                                             |
 
 ## Validation tool
 
@@ -121,7 +121,7 @@ Or paste `CITATION.cff` into the online validator at
 
 Any public redistribution or derived database must include:
 
-> Nawaz, Rauf. *Sufi Shrines of Pakistan* (v1.0.0). Harvard University, 2025.
+> Nawaz, Rauf. _Sufi Shrines of Pakistan_ (v1.0.0). Harvard University, 2026.
 > <https://github.com/raufnawaz/sufi-shrines>
 
 See `LICENSE-data.md` for the full ODbL terms.

@@ -3,8 +3,8 @@
   "@type": "SoftwareSourceCode",
   "name": "Sufi Shrines of Pakistan",
   "version": "2.0.0",
-  "description": "A bilingual (English/Urdu) interactive web map and open dataset of Sufi shrines and multi-faith sacred sites across Pakistan. Covers Muslim shrines (dargahs, mazars), Hindu temples (mandirs), and Sikh gurdwaras. Built with Vite 5, React 18, and TypeScript; data licensed ODbL-1.0; code licensed MIT.",
-  "abstract": "This project combines a schema-validated Frictionless Data Package (109+ sites; coordinates, descriptions, provenance) with a static-site web application featuring bilingual EN/Urdu support, RTL layout, dark mode, and an interactive Leaflet map. Designed for Harvard computational humanities research and Zenodo/Dataverse deposit.",
+  "description": "Bilingual (English/Urdu) interactive map and scholarly archive of 163 sacred sites across Pakistan — Sufi shrines, Hindu temples, and Sikh gurdwaras — with provenance-tracked sources. Built with Vite 5, React 18, and TypeScript; data licensed ODbL-1.0; code licensed MIT.",
+  "abstract": "This project combines a schema-validated Frictionless Data Package (163 sites; coordinates, descriptions, provenance) with a static-site web application featuring bilingual EN/Urdu support, RTL layout, dark mode, and an interactive Leaflet map. Designed for Harvard computational humanities research and Zenodo/Dataverse deposit.",
   "codeRepository": "https://github.com/raufnawaz/sufi-shrines",
   "url": "https://github.com/raufnawaz/sufi-shrines",
   "issueTracker": "https://github.com/raufnawaz/sufi-shrines/issues",
@@ -25,6 +25,7 @@
     }
   ],
   "datePublished": "2026-06-29",
+  "copyrightYear": 2026,
   "programmingLanguage": [
     {
       "@type": "ComputerLanguage",
@@ -54,6 +55,6 @@
     "react",
     "leaflet"
   ],
-  "softwareRequirements": "Node.js >= 18",
+  "softwareRequirements": "Node.js >= 20",
   "readme": "https://github.com/raufnawaz/sufi-shrines/blob/main/README.md"
 }

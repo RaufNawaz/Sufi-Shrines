@@ -1,120 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Offline — Sufi Shrines of Pakistan</title>
-  <style>
-    :root {
-      --bg: #f9f6f0;
-      --surface: #ffffff;
-      --primary: #1a5c4e;
-      --primary-pale: #e6f2ef;
-      --text: #1a1208;
-      --text-muted: #6b5e4b;
-      --border: #d6cfc0;
-      --radius: 12px;
-    }
-    [data-theme="dark"] {
-      --bg: #0f1a17;
-      --surface: #1e2f2a;
-      --primary: #4db39a;
-      --primary-pale: #1a3530;
-      --text: #f0ebe0;
-      --text-muted: #8a9e97;
-      --border: #2a3d36;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 3rem 2.5rem;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(26,12,8,.1);
-    }
-    .icon-wrap {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: var(--primary-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-    .icon-wrap svg { color: var(--primary); }
-    h1 {
-      font-family: 'Merriweather', Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    p {
-      font-size: 0.9375rem;
-      line-height: 1.65;
-      color: var(--text-muted);
-      margin: 0 0 1.5rem;
-    }
-    .retry-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1.5rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 9999px;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity .15s;
-    }
-    .retry-btn:hover { opacity: .88; }
-  </style>
-</head>
-<body>
-  <script>
-    const s = localStorage.getItem('shrines_theme');
-    if (s === 'dark' || s === 'light') document.documentElement.setAttribute('data-theme', s);
-  </script>
-  <div class="card">
-    <div class="icon-wrap">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line x1="1" y1="1" x2="23" y2="23"/>
-        <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
-        <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
-        <path d="M10.71 5.05A16 16 0 0 1 22.56 9"/>
-        <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
-        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
-        <line x1="12" y1="20" x2="12.01" y2="20"/>
-      </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline — Sufi Shrines of Pakistan</title>
+    <style>
+      :root {
+        --bg: #f9f6f0;
+        --surface: #ffffff;
+        --primary: #1a5c4e;
+        --primary-pale: #e6f2ef;
+        --text: #1a1208;
+        --text-muted: #6b5e4b;
+        --border: #d6cfc0;
+        --radius: 12px;
+      }
+      [data-theme='dark'] {
+        --bg: #0f1a17;
+        --surface: #1e2f2a;
+        --primary: #4db39a;
+        --primary-pale: #1a3530;
+        --text: #f0ebe0;
+        --text-muted: #8a9e97;
+        --border: #2a3d36;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          'Source Sans 3',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 3rem 2.5rem;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 24px rgba(26, 12, 8, 0.1);
+      }
+      .icon-wrap {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--primary-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+      .icon-wrap svg {
+        color: var(--primary);
+      }
+      h1 {
+        font-family: 'Merriweather', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+      p {
+        font-size: 0.9375rem;
+        line-height: 1.65;
+        color: var(--text-muted);
+        margin: 0 0 1.5rem;
+      }
+      .retry-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.5rem;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 9999px;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .retry-btn:hover {
+        opacity: 0.88;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const s = localStorage.getItem('shrines_theme');
+      if (s === 'dark' || s === 'light') document.documentElement.setAttribute('data-theme', s);
+    </script>
+    <div class="card">
+      <div class="icon-wrap">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="1" y1="1" x2="23" y2="23" />
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
+          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
+          <path d="M10.71 5.05A16 16 0 0 1 22.56 9" />
+          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" />
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+          <line x1="12" y1="20" x2="12.01" y2="20" />
+        </svg>
+      </div>
+      <h1>You're Offline</h1>
+      <p>
+        No internet connection could be found. Check your network and try again — previously visited
+        shrines may still be available.
+      </p>
+      <a href="/" class="retry-btn">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="23 4 23 10 17 10" />
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+        </svg>
+        Try Again
+      </a>
     </div>
-    <h1>You're Offline</h1>
-    <p>No internet connection could be found. Check your network and try again — previously visited shrines may still be available.</p>
-    <a href="/" class="retry-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="23 4 23 10 17 10"/>
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
-      </svg>
-      Try Again
-    </a>
-  </div>
-</body>
+  </body>
 </html>

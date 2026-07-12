@@ -9,17 +9,17 @@ writes Urdu transcription to `out/ocr/<book>/`. Requires no API keys.
 
 **Optional flags:**
 
-| Flag | Effect | Requires |
-|---|---|---|
-| `--translate` | LibreTranslate MT pass (draft) | Running LibreTranslate container |
+| Flag            | Effect                                | Requires                          |
+| --------------- | ------------------------------------- | --------------------------------- |
+| `--translate`   | LibreTranslate MT pass (draft)        | Running LibreTranslate container  |
 | `--write-sheet` | Read links from sheet, write OCR back | Apps Script deployment + env vars |
 
 The pipeline is:
 
 1. Render selected PDF pages with Poppler / `pdftoppm`.
 2. OCR Urdu text with UTRNet.
-3. *(Optional, `--translate`)* Translate Urdu to English draft with LibreTranslate.
-4. *(Optional, `--write-sheet`)* Write results back to the Google Sheet.
+3. _(Optional, `--translate`)_ Translate Urdu to English draft with LibreTranslate.
+4. _(Optional, `--write-sheet`)_ Write results back to the Google Sheet.
 
 ## Main Project Folder
 

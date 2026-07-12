@@ -15,7 +15,7 @@ SPDX identifier: `ODbL-1.0`
 When you use this dataset, you must credit the source. The following attribution
 satisfies the ODbL's Attribution requirement:
 
-> Nawaz, Rauf. *Sufi Shrines of Pakistan* (v1.0.0). Harvard University, 2025.
+> Nawaz, Rauf. _Sufi Shrines of Pakistan_ (v1.0.0). Harvard University, 2026.
 > <https://github.com/raufnawaz/sufi-shrines>
 
 For academic citations use the `CITATION.cff` file at the repository root.
@@ -25,11 +25,13 @@ For academic citations use the `CITATION.cff` file at the repository root.
 ## Key rights and obligations under ODbL
 
 **You are free to:**
+
 - **Share** — copy, distribute, and use the database.
 - **Create** — produce works from the database.
 - **Adapt** — modify, transform, and build upon the database.
 
 **As long as you:**
+
 - **Attribute** — You must attribute any public use of the database, or works
   produced from the database, in the manner specified in the Attribution Notice
   above.
@@ -45,7 +47,7 @@ For academic citations use the `CITATION.cff` file at the repository root.
 ## Secondary-source attributions
 
 Image URLs in the dataset link to externally-hosted images, primarily from
-**Wikimedia Commons**. These images are *not* covered by the ODbL — each is
+**Wikimedia Commons**. These images are _not_ covered by the ODbL — each is
 subject to its own license (commonly CC-BY-SA or CC0). Before reusing any
 image, consult the relevant Wikimedia Commons page for the applicable terms.
 

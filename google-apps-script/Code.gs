@@ -1,24 +1,24 @@
-var DEFAULT_SHEET_NAME = "";
+var DEFAULT_SHEET_NAME = '';
 
 // The shared secret lives in Script Properties, NOT in this tracked file:
 // Apps Script editor > Project Settings > Script properties > add
 // SCRIPT_API_KEY with a long random value. Requests must send the same
 // value as payload.apiKey (SHRINES_APPS_SCRIPT_API_KEY on the client side).
 function getScriptApiKey_() {
-  var stored = PropertiesService.getScriptProperties().getProperty("SCRIPT_API_KEY");
-  return trim_(stored || "");
+  var stored = PropertiesService.getScriptProperties().getProperty('SCRIPT_API_KEY');
+  return trim_(stored || '');
 }
 
-var KEY_FIELDS = ["Name", "Location", "Latitude", "Longitude", "Category"];
-var ID_FIELDS = ["ID", "Id", "id", "Row ID", "RowID", "Slug", "slug"];
+var KEY_FIELDS = ['Name', 'Location', 'Latitude', 'Longitude', 'Category'];
+var ID_FIELDS = ['ID', 'Id', 'id', 'Row ID', 'RowID', 'Slug', 'slug'];
 
 function doPost(e) {
   try {
     var payload = parsePayload_(e);
     validateApiKey_(payload.apiKey);
 
-    if (String(payload.action || "").trim() !== "save_shrine") {
-      throw new Error("Unsupported action.");
+    if (String(payload.action || '').trim() !== 'save_shrine') {
+      throw new Error('Unsupported action.');
     }
 
     var result = saveShrine_(payload);
@@ -37,12 +37,12 @@ function doPost(e) {
 
 function parsePayload_(e) {
   if (!e || !e.postData || !e.postData.contents) {
-    throw new Error("Missing request body.");
+    throw new Error('Missing request body.');
   }
 
   var parsed = JSON.parse(e.postData.contents);
-  if (!parsed || typeof parsed !== "object") {
-    throw new Error("Invalid request payload.");
+  if (!parsed || typeof parsed !== 'object') {
+    throw new Error('Invalid request payload.');
   }
 
   return parsed;
@@ -52,11 +52,11 @@ function validateApiKey_(providedApiKey) {
   var expectedApiKey = getScriptApiKey_();
   // Fail closed: an unset key must reject writes, not disable auth.
   if (!expectedApiKey) {
-    throw new Error("SCRIPT_API_KEY script property is not set.");
+    throw new Error('SCRIPT_API_KEY script property is not set.');
   }
 
   if (trim_(providedApiKey) !== expectedApiKey) {
-    throw new Error("Invalid API key.");
+    throw new Error('Invalid API key.');
   }
 }
 
@@ -66,7 +66,7 @@ function saveShrine_(payload) {
   var updatedRow = normalizeRow_(payload.updatedRow);
 
   if (!updatedRow.Name) {
-    throw new Error("Updated row must include Name.");
+    throw new Error('Updated row must include Name.');
   }
 
   var lastColumn = Math.max(sheet.getLastColumn(), 1);
@@ -82,7 +82,7 @@ function saveShrine_(payload) {
   }
 
   if (!headers.length) {
-    throw new Error("The sheet must have a header row.");
+    throw new Error('The sheet must have a header row.');
   }
 
   var addedColumns = [];
@@ -110,13 +110,11 @@ function saveShrine_(payload) {
   );
 
   if (!rowNumber) {
-    throw new Error("Could not match the shrine row in the sheet.");
+    throw new Error('Could not match the shrine row in the sheet.');
   }
 
   var rowValues = headers.map(function (header) {
-    return Object.prototype.hasOwnProperty.call(updatedRow, header)
-      ? updatedRow[header]
-      : "";
+    return Object.prototype.hasOwnProperty.call(updatedRow, header) ? updatedRow[header] : '';
   });
 
   sheet.getRange(rowNumber, 1, 1, headers.length).setValues([rowValues]);
@@ -136,7 +134,7 @@ function getTargetSheet_(payload) {
     : spreadsheet.getSheets()[0];
 
   if (!sheet) {
-    throw new Error("Could not find the target sheet.");
+    throw new Error('Could not find the target sheet.');
   }
 
   return sheet;
@@ -192,9 +190,10 @@ function mapRow_(headers, rowValues) {
     var key = trim_(headers[index]);
     if (!key) continue;
 
-    mapped[key] = rowValues[index] === null || rowValues[index] === undefined
-      ? ""
-      : String(rowValues[index]).trim();
+    mapped[key] =
+      rowValues[index] === null || rowValues[index] === undefined
+        ? ''
+        : String(rowValues[index]).trim();
   }
 
   return mapped;
@@ -205,11 +204,10 @@ function normalizeRow_(row) {
 
   Object.keys(row || {}).forEach(function (key) {
     var cleanedKey = trim_(key);
-    if (!cleanedKey || cleanedKey.charAt(0) === "_") return;
+    if (!cleanedKey || cleanedKey.charAt(0) === '_') return;
 
     var value = row[key];
-    normalized[cleanedKey] =
-      value === null || value === undefined ? "" : String(value).trim();
+    normalized[cleanedKey] = value === null || value === undefined ? '' : String(value).trim();
   });
 
   return normalized;
@@ -218,8 +216,8 @@ function normalizeRow_(row) {
 function buildRowKey_(row) {
   var normalized = normalizeRow_(row);
   return KEY_FIELDS.map(function (field) {
-    return normalized[field] || "";
-  }).join("||");
+    return normalized[field] || '';
+  }).join('||');
 }
 
 function getExplicitId_(row) {
@@ -230,11 +228,11 @@ function getExplicitId_(row) {
     if (value) return value;
   }
 
-  return "";
+  return '';
 }
 
 function trim_(value) {
-  return String(value === null || value === undefined ? "" : value).trim();
+  return String(value === null || value === undefined ? '' : value).trim();
 }
 
 function jsonResponse_(payload) {

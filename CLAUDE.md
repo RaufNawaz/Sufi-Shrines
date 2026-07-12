@@ -4,7 +4,7 @@ Guidance for Claude Code (and any AI agent) working in this repo. Read this firs
 
 ## What this is
 
-An interactive, bilingual (English/Urdu) map and digital archive of **143 shrines,
+An interactive, bilingual (English/Urdu) map and digital archive of **163 shrines,
 temples, and gurdwaras across Pakistan** — Muslim Sufi shrines, Hindu temples, and Sikh
 gurdwaras — with histories, architecture, rituals, visiting info, guided pilgrimage
 tours, a saints/orders knowledge graph, and provenance‑tracked sources drawn from OCR'd
@@ -29,19 +29,23 @@ npm run dev            # local dev server
 npm run build          # tsc + vite build + scripts/prerender.mjs
 npm run verify         # typecheck + lint + unit tests  ← run before every commit
 npm run test           # vitest run
-npm run e2e            # playwright
+npm run e2e            # playwright (build first with npm run build:e2e — root base path)
 npm run lint / typecheck
-npm run data:build     # build dataset from source
-npm run data:validate  # validate dataset + tours   ← extend with the Urdu-parity check
+npm run format         # prettier --write (format:check in CI)
+npm run data:build     # fetch sheet CSV → data/shrines.json + csv + app snapshot
+npm run data:build:urdu # regenerate Urdu seed files (build_dictionary.py)
+npm run data:validate  # dataset + tours + Urdu-parity (--check) + no-leak gates
 npm run data:export    # KG + JSON-LD + RDF
+npm run urdu:build     # full Urdu pipeline (urdu-i18n/build-all.sh, 4 steps)
 npm run storybook
 ```
 
 ## Architecture (where things live)
 
 - `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `NotFoundPage`.
-- `src/components/map/` — `ShrineMap`, `MapSidebar` (browser + filters), `ShrineMarkers`,
-  `TimeSlider` (era filter), `TourPanel`/`TourList`/`TourRoute` (guided tours).
+- `src/components/map/` — `ShrineMap`, `MapSidebar` (browser + filters, with
+  `WelcomeCard`/`ShrinePreview`), `ShrineMarkers`, `TimeSlider` (era filter),
+  `TourPanel`/`TourList`/`TourPreview`/`TourRoute` (guided tours).
 - `src/components/shrine/` — `ShrineArticle`, `ShrineInfobox`, `ContentsNav` (ToC),
   `RelatedShrines`, `ShrineGallery`, `LocationMap`, `SourcesProvenance`, `useArticleContent`.
 - `src/components/kg/` — `LineageView`, `NetworkGraph` (saints/orders graph).
@@ -50,17 +54,21 @@ npm run storybook
 - `src/lib/data/` — `articleParsing`, `fieldAliasing`, `era`, `categoryKey`, `constants`,
   `shrineModel`, `slugify`, `fieldLabels`.
 - `src/lib/tours/` — tour model, geo/distance, progress, audio (TTS), autoplay.
-- `src/data/` — `tours.json`, `urdu-seed.json` (from `urdu-i18n/`), fallback shrine data.
-- `urdu-i18n/` — **Urdu dictionary source of truth** (see below).
-- `scripts/` — data build/validate/export, prerender, snapshot.
-- `docs/` — data dictionary, KG vocabulary, OCR workflow, data release.
+- `src/data/` — `tours.json` (8 tours), `urdu-seed.json` + `urdu-content.json` (from
+  `urdu-i18n/`), fallback shrine data.
+- `urdu-i18n/` — **Urdu dictionary + article content source of truth** (see below).
+- `scripts/` — data build/validate/export, prerender, icons.
+- `docs/` — index at `docs/README.md`; data dictionary, KG vocabulary, OCR workflow,
+  data release, handoff; planning docs under `docs/planning/`.
 
 ## Data model & source of truth
 
-- Live shrine data is fetched at runtime from a **Google Sheets CSV** (`CSV_URL` in
-  `src/lib/data/constants.ts`); a local JSON acts as offline fallback. Columns today:
+- Live shrine data is fetched at runtime from a **Google Sheets CSV** (URL defined once
+  in `data/csv-source.json`; `CSV_URL` in `src/lib/data/constants.ts` for the app); a
+  local JSON acts as offline fallback. Columns today:
   `Name, Location, Category, Latitude, Longitude, Founded/Opened, Sufi Saint, Image 1,
-  Image 2, Events, Description` (11 columns, **no Urdu columns** — see i18n rules).
+Image 1 Credit, Image 2, Image 2 Credit, Events, Description, Description Urdu`
+  (the credit and Urdu columns are optional — see `scripts/data/schema.mjs`).
 - Category is one of: `Muslim Shrine`, `Hindu Temple`, `Sikh Gurdwara`.
 - Article sections can be authored **inline** inside `Description` (markdown‑ish headings)
   or in **dedicated columns** (`History`, `Architecture`, `Rituals`, `Saint Biography`,
@@ -73,7 +81,7 @@ npm run storybook
 ## Internationalization — READ BEFORE TOUCHING URDU
 
 The Urdu experience must be **as complete and native‑feeling as English**. The full plan
-is in `URDU_IMPLEMENTATION_PLAN.md`; the current push is tracked in `PROJECT_VISION.md`
+is in `docs/planning/URDU_IMPLEMENTATION_PLAN.md`; the current push is tracked in `docs/planning/PROJECT_VISION.md`
 (Track 0). Hard rules:
 
 1. **UI strings** live in `src/lib/i18n/uiStrings.ts` (`UI_TEXT.en`/`.ur`, `t()`,
@@ -81,7 +89,9 @@ is in `URDU_IMPLEMENTATION_PLAN.md`; the current push is tracked in `PROJECT_VIS
    (An ESLint rule should block new ones.)
 2. **Data translations** (names, saints, places, categories, facets, dates) live in
    `urdu-i18n/` and are wired via `src/data/urdu-seed.json` → the cache in
-   `src/lib/i18n/urduFallback.ts`. Regenerate with `python3 urdu-i18n/build_dictionary.py`.
+   `src/lib/i18n/urduFallback.ts`. Regenerate with `npm run data:build:urdu` (or the full
+   pipeline `npm run urdu:build`); `npm run data:validate` runs the same script in
+   `--check` mode (no writes).
 3. **Never render character‑by‑character transliteration.** Unknown Latin input returns
    the original string (+ a DEV warning). The old `CHAR_URDU_MAP` path must stay removed.
 4. **Nastaliq everywhere.** `--font-urdu` must apply to all elements including
@@ -93,16 +103,9 @@ is in `URDU_IMPLEMENTATION_PLAN.md`; the current push is tracked in `PROJECT_VIS
    `text-align: start`), `<bdi>` around mixed Latin/number runs, locale‑aware
    `localeCompare(…, 'ur')`.
 
-### Known Urdu gaps (as of the latest screenshots)
-
-- **Article body + section headings + Table of Contents are still English** because there
-  is no `Description Urdu` (and per‑section `*_ur`) content, so `useArticleContent`
-  (`src/components/shrine/useArticleContent.ts`) falls back to English and inline headings
-  render raw. Only the app‑generated "گیلری" (Gallery) is localized. → Add Urdu
-  description/section content (with Urdu headings) and a generic heading‑label map.
-- **`fmtNum()` not applied** in `ShrineInfobox.tsx` (founded year `1539`),
-  `ContentsNav.tsx` (`{i + 1}.` numbering), `RelatedShrines`/`TourPanel` distances
-  (`71 کلومیٹر`), and `era.ts` century labels → Eastern digits don't reach these sites.
+Urdu parity has been reached: all 163 descriptions have Urdu text (AI‑translated, pending
+human review), `fmtNum()` is applied at every number site, and a generic heading‑label map
+covers inline headings — see `docs/planning/URDU_IMPLEMENTATION_PLAN.md` for the history.
 
 ## Coding conventions
 
@@ -113,9 +116,9 @@ is in `URDU_IMPLEMENTATION_PLAN.md`; the current push is tracked in `PROJECT_VIS
   correct `lang`/`dir`, focus states.
 - Respect provenance and the three traditions in copy, imagery, and terminology
   (honorifics per `data/glossary.csv`).
-- Tests: unit for logic (`src/**/__tests__`), Playwright for journeys. Add a
-  **"no‑English‑leak"** guard for `?lang=ur` (fail on `[A-Za-z]` under `[dir='rtl']`
-  except URLs/coordinates/`<bdi>`).
+- Tests: unit for logic (`src/**/__tests__`), Playwright for journeys. The
+  **"no‑English‑leak"** guard for `?lang=ur` (`e2e/urdu.spec.ts` — fails on `[A-Za-z]`
+  under `[dir='rtl']` except URLs/coordinates/`<bdi>`) must stay green.
 
 ## Definition of done (for any Urdu/i18n change)
 
@@ -125,7 +128,7 @@ or transliteration in the Urdu view outside URLs/coordinates.
 
 ## Pointers
 
-- `URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.
+- `docs/README.md` — index of all reference and planning docs.
+- `docs/planning/URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.
 - `urdu-i18n/README.md` — dictionary files, coverage, regeneration.
-- `PROJECT_VISION.md` — blue‑sky roadmap (Track 0 = finish Urdu; Tracks 1–8 = the future).
-- `CLAUDE_CODE_PROMPT.md` — ready‑to‑run kickoff prompt.
+- `docs/planning/PROJECT_VISION.md` — blue‑sky roadmap (Track 0 = finish Urdu; Tracks 1–8 = the future).

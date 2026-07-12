@@ -6,10 +6,7 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run preview',
       startServerReadyPattern: 'Local:',
-      url: [
-        'http://localhost:4173/',
-        'http://localhost:4173/shrine/data-darbar',
-      ],
+      url: ['http://localhost:4173/', 'http://localhost:4173/shrine/data-darbar'],
       numberOfRuns: 1,
     },
     assert: {
@@ -29,7 +26,7 @@ module.exports = {
         // a11y specifics (error = CI fails)
         'color-contrast': 'error',
         'image-alt': 'error',
-        'label': 'error',
+        label: 'error',
         'link-name': 'error',
         'button-name': 'error',
         'html-has-lang': 'error',
