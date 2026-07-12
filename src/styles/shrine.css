@@ -1128,6 +1128,69 @@
   line-height: var(--leading-snug);
 }
 
+/* Content-tier badge — see docs/planning/DATA_QUALITY_PLAN.md §3.1 */
+.provenance-tier {
+  display: inline-block;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.provenance-tier--tier1-ocr,
+.provenance-tier--tier2-compendium {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.provenance-tier--ai-researched {
+  background: var(--color-accent-pale);
+  color: var(--color-accent);
+}
+
+.provenance-tier--sheet-original,
+.provenance-tier--unknown {
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+/* Citations list */
+.provenance-citations {
+  width: 100%;
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+}
+
+.provenance-citations-label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.provenance-citation-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-1) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.provenance-citation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.provenance-citation a {
+  color: var(--color-primary);
+}
+
+.provenance-citation-type {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 /* Dark mode */
 [data-theme='dark'] .provenance-item {
   background: var(--color-bg-alt);
@@ -1145,4 +1208,13 @@
 [data-theme='dark'] .provenance-unreviewed {
   background: color-mix(in srgb, var(--color-error) 15%, transparent);
   border-color: color-mix(in srgb, var(--color-error) 40%, transparent);
+}
+
+[data-theme='dark'] .provenance-tier--tier1-ocr,
+[data-theme='dark'] .provenance-tier--tier2-compendium {
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+}
+
+[data-theme='dark'] .provenance-tier--ai-researched {
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
