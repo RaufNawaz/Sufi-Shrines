@@ -65,6 +65,30 @@ Only QIDs with `confirmed: true` in `data/kg-seeds.json` are emitted as
 `schema:sameAs` links. All others require human verification before being
 added to a citable release — see `docs/DATA_RELEASE.md`.
 
+## `reviewNeeded` review status
+
+`build-kg.mjs` logs every saint-name merge (raw "Sufi Saint" value → canonical
+entity) to `reviewNeeded` for human follow-up — this is a mechanical, always-
+regenerated audit trail, not evidence of a likely error. As of 2026-07-12, all
+72 current entries were reviewed:
+
+- **67 `name-merge` entries**: every one merges a parenthetical/annotated
+  variant (an honorific, epithet, role, date range, or "also known/revered
+  as" alias) into the same real person or entity — no case merges two
+  distinct figures. Several parentheticals are descriptive text rather than
+  a clean alternate name (e.g. "founder of the Rashidi order", a birth–death
+  range) and land in `altNames` verbatim; cleaning that up properly needs
+  per-entry classification of "alias vs. description," which is future work,
+  not a correctness issue.
+- **5 `seed-note` entries**: `data-ganj-bakhsh`, `shah-abdul-latif-bhittai`,
+  and `sultan-sakhi-sarwar` are confirmed to have **zero** `belongs_to_order`
+  relations — correctly left unaffiliated pending real scholarly consensus,
+  not an oversight. `bibi-pak-daman`'s flagged possible duplicate row no
+  longer exists in the current dataset. `guru-nanak-and-bhai-mardana` is a
+  known, deliberate modeling gap — Bhai Mardana isn't a separate saint entity
+  yet — tracked as future lineage-modeling work (see `PROJECT_VISION.md`
+  Track 2), not a bug.
+
 ## Files
 
 | File                       | Description                                                                |

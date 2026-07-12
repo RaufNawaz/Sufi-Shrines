@@ -34,9 +34,26 @@ function canonicalizeSaintName(raw, mergeVariants) {
   return merged.replace(/\s*\([^)]*\)/g, '').trim();
 }
 
+/**
+ * Pull the parenthetical off a raw "Sufi Saint" value as an altName candidate.
+ * Most parentheticals are just one descriptive aside (a role, a date, an
+ * epithet) and are kept verbatim, as before. The one case worth special-
+ * casing is an explicit "also known/revered as A/B" list — splitting *only*
+ * that pattern avoids mangling unrelated slashes elsewhere (e.g. "assoc. w/
+ * Guru Nanak") while still turning e.g. "Sheikh Tahir (also revered as Udero
+ * Lal/Jhulelal)" into two clean names instead of one run-on fragment.
+ */
 function extractParenthetical(raw) {
   const match = raw.match(/\(([^)]+)\)/);
-  return match ? match[1] : null;
+  if (!match) return [];
+  const knownAs = match[1].match(/^\s*(?:also\s+)?(?:known|revered)\s+as\s+(.+)$/i);
+  if (knownAs) {
+    return knownAs[1]
+      .split(/\s*\/\s*/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  return [match[1]];
 }
 
 // ── location parsing ──────────────────────────────────────────────────────────
@@ -135,10 +152,7 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const saintSlug = slugify(canonical);
   if (!saintSlug) continue;
 
-  const altFromParen = extractParenthetical(rawSaint);
-  // alt from the pre-merge raw value (e.g. "Syed Muhammad Usman")
-  const altFromMerge = mergeVariants[rawSaint] ? extractParenthetical(rawSaint) : null;
-  const altName = altFromParen && altFromParen !== canonical ? altFromParen : null;
+  const altNames = extractParenthetical(rawSaint).filter((n) => n !== canonical);
 
   if (!saintMap.has(saintSlug)) {
     const qidEntry = qidMap[saintSlug];
@@ -147,7 +161,7 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
       type: 'saint',
       slug: saintSlug,
       name: canonical,
-      altNames: altName ? [altName] : [],
+      altNames: [...altNames],
       shrines: [],
       ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
     });
@@ -159,8 +173,10 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
     entity.shrines.push(shrineSlug);
   }
 
-  if (altName && !entity.altNames.includes(altName)) {
-    entity.altNames.push(altName);
+  for (const altName of altNames) {
+    if (!entity.altNames.includes(altName)) {
+      entity.altNames.push(altName);
+    }
   }
 
   // Log the merge decision for review
