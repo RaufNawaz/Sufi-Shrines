@@ -172,7 +172,9 @@ First Claude Code task: a retrieval index over the corpus + a cited answer endpo
 
 ## Track 6 — Trust, provenance & data quality
 
-Make trustworthiness visible and enforced.
+Make trustworthiness visible and enforced. Detailed plan:
+[`docs/planning/DATA_QUALITY_PLAN.md`](DATA_QUALITY_PLAN.md) (shrine-description
+content provenance, citations, fact-verification).
 
 Next steps:
 

@@ -34,6 +34,7 @@ Roadmaps and runbooks; some are kept for history after implementation.
 | [`planning/URDU_IMPLEMENTATION_PLAN.md`](planning/URDU_IMPLEMENTATION_PLAN.md) | Phased Urdu-parity plan (implemented — historical reference)                      |
 | [`planning/ENRICHMENT_RUNBOOK.md`](planning/ENRICHMENT_RUNBOOK.md)             | Per-run procedure for enriching the shrines workbook (descriptions, rows, images) |
 | [`planning/TOURS_FUTURE_PLAN.md`](planning/TOURS_FUTURE_PLAN.md)               | Guided-tours experience roadmap (phases 1–5 implemented)                          |
+| [`planning/DATA_QUALITY_PLAN.md`](planning/DATA_QUALITY_PLAN.md)               | Detailed plan: description content provenance, citations, fact-verification (Track 6) |
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu
 dictionary + content pipeline) and [`../data/`](../data/) (canonical dataset, schema,
