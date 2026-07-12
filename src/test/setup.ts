@@ -41,7 +41,10 @@ if (typeof window !== 'undefined') {
     Object.defineProperty(window, 'localStorage', { value: createMemoryStorage(), writable: true });
   }
   if (!window.sessionStorage) {
-    Object.defineProperty(window, 'sessionStorage', { value: createMemoryStorage(), writable: true });
+    Object.defineProperty(window, 'sessionStorage', {
+      value: createMemoryStorage(),
+      writable: true,
+    });
   }
 
   Object.defineProperty(window, 'matchMedia', {

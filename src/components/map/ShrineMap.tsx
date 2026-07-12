@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import { MapContainer, ZoomControl, LayersControl, TileLayer, useMap, useMapEvents } from 'react-leaflet';
+import {
+  MapContainer,
+  ZoomControl,
+  LayersControl,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from 'react-leaflet';
 import L from 'leaflet';
 import type { Shrine } from '../../types/shrine';
 import type { Tour } from '../../lib/tours/tours';
@@ -11,10 +18,8 @@ import { useTheme } from '../../lib/i18n/ThemeContext';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
 
-const CARTO_VOYAGER =
-  'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-const CARTO_DARK =
-  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+const CARTO_VOYAGER = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
+const CARTO_DARK = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
 const CARTO_ATTR =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>';
 
@@ -84,7 +89,7 @@ function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }
   const map = useMap();
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- @types/leaflet doesn't type Control.extend()
     const ResetCtrl = (L.Control as any).extend({
       options: { position: 'bottomright' },
       onAdd() {
@@ -196,11 +201,7 @@ export function ShrineMap({
   );
 
   return (
-    <MapContainer
-      center={DEFAULT_CENTER}
-      zoom={DEFAULT_ZOOM}
-      zoomControl={false}
-    >
+    <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} zoomControl={false}>
       <ThemeAwareTileLayer isDark={isDark} />
       <MapController
         shrines={shrines}
@@ -215,21 +216,11 @@ export function ShrineMap({
 
       <LayersControl position="bottomleft">
         <LayersControl.BaseLayer name="Voyager (CARTO)">
-          <TileLayer
-            url={CARTO_VOYAGER}
-            subdomains="abcd"
-            maxZoom={20}
-            attribution={CARTO_ATTR}
-          />
+          <TileLayer url={CARTO_VOYAGER} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Dark (CARTO)">
-          <TileLayer
-            url={CARTO_DARK}
-            subdomains="abcd"
-            maxZoom={20}
-            attribution={CARTO_ATTR}
-          />
+          <TileLayer url={CARTO_DARK} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Streets (Esri)">
@@ -276,7 +267,7 @@ export function ShrineMap({
               tileSize={512}
               zoomOffset={-1}
               maxZoom={20}
-              attribution='&copy; MapTiler &copy; OpenStreetMap contributors'
+              attribution="&copy; MapTiler &copy; OpenStreetMap contributors"
             />
           </LayersControl.BaseLayer>
         )}

@@ -20,8 +20,9 @@ interface Props {
 
 /** Leaflet tooltip content is injected as HTML — escape sheet-sourced text. */
 function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string,
+  return s.replace(
+    /[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string,
   );
 }
 
@@ -32,7 +33,9 @@ function buildDivIcon(selected: boolean, category: string, dimmed: boolean): L.D
     `shrine-dot--${catKey}`,
     selected ? 'selected' : '',
     dimmed ? 'shrine-dot--dimmed' : '',
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
   return L.divIcon({
     className: '',
     html: `<div class="${classes}"></div>`,

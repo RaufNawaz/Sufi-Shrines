@@ -1,54 +1,25 @@
-import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import type { Shrine, Lang } from '../../types/shrine';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
-import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
-import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { useDebounce } from '../../hooks/useDebounce';
 import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
 import type { Tour } from '../../lib/tours/tours';
-import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
-import { TourPanel, TourList } from './TourPanel';
-import { t as translate } from '../../lib/i18n/uiStrings';
+import { TourPanel } from './TourPanel';
+import { TourList } from './TourList';
+import { WelcomeCard } from './WelcomeCard';
+import { ShrinePreview } from './ShrinePreview';
+import { highlightMatch, ShrineListSkeleton } from './mapSidebarHelpers';
 
 const SEARCH_DEBOUNCE_MS = 200;
-
-function highlightMatch(text: string, query: string): React.ReactNode {
-  if (!query.trim()) return text;
-  const idx = text.toLowerCase().indexOf(query.trim().toLowerCase());
-  if (idx === -1) return text;
-  return (
-    <>
-      {text.slice(0, idx)}
-      <mark className="search-match">{text.slice(idx, idx + query.trim().length)}</mark>
-      {text.slice(idx + query.trim().length)}
-    </>
-  );
-}
-
-function ShrineListSkeleton() {
-  return (
-    <div className="shrine-list-panel" aria-hidden="true" aria-busy="true">
-      {Array.from({ length: 7 }).map((_, i) => (
-        <div key={i} className="shrine-list-item shrine-list-item--skeleton">
-          <div className="shrine-list-thumb-slot skeleton" />
-          <div className="shrine-list-info">
-            <div className="skeleton skeleton-list-name" />
-            <div className="skeleton skeleton-list-meta" />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 interface Props {
   shrines: Shrine[];
@@ -80,15 +51,6 @@ interface Props {
   onTourExit: () => void;
   /** `?embed=1` — hides the header, search, and browse chrome for iframes. */
   embed?: boolean;
-}
-
-function useDebounce<T>(value: T, delay: number): T {
-  const [debounced, setDebounced] = useState(value);
-  React.useEffect(() => {
-    const t = setTimeout(() => setDebounced(value), delay);
-    return () => clearTimeout(t);
-  }, [value, delay]);
-  return debounced;
 }
 
 export function MapSidebar({
@@ -151,10 +113,7 @@ export function MapSidebar({
     return () => document.removeEventListener('keydown', handler);
   }, []);
 
-  const localizeName = useCallback(
-    (shrine: Shrine) => localizeShrineName(shrine, lang),
-    [lang],
-  );
+  const localizeName = useCallback((shrine: Shrine) => localizeShrineName(shrine, lang), [lang]);
 
   const categories = useMemo(() => {
     const cats = new Set(shrines.map((s) => s.category).filter(Boolean));
@@ -206,7 +165,18 @@ export function MapSidebar({
       }
     }
     return result;
-  }, [shrines, activeCategory, activeRegion, activeSaint, search, searchIds, localizeName, hasEraFilter, eraMin, eraMax]);
+  }, [
+    shrines,
+    activeCategory,
+    activeRegion,
+    activeSaint,
+    search,
+    searchIds,
+    localizeName,
+    hasEraFilter,
+    eraMin,
+    eraMax,
+  ]);
 
   const grouped = useMemo(() => {
     const groups = new Map<string, Shrine[]>();
@@ -216,7 +186,9 @@ export function MapSidebar({
       group.push(shrine);
       groups.set(cat, group);
     }
-    return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b, lang === 'ur' ? 'ur' : 'en'));
+    return Array.from(groups.entries()).sort(([a], [b]) =>
+      a.localeCompare(b, lang === 'ur' ? 'ur' : 'en'),
+    );
   }, [filtered, t, lang]);
 
   const selectedShrine = useMemo(
@@ -256,9 +228,7 @@ export function MapSidebar({
         <div className="sidebar-header">
           <div className="sidebar-brand">
             <ShrineGlyph className="brand-icon" />
-            <h1 className="sidebar-title">
-              {t('title')}
-            </h1>
+            <h1 className="sidebar-title">{t('title')}</h1>
           </div>
           <div className="sidebar-actions">
             {lang === 'ur' && (
@@ -266,8 +236,16 @@ export function MapSidebar({
                 type="button"
                 className="icon-btn numerals-toggle"
                 onClick={() => setNumerals(numerals === 'eastern' ? 'western' : 'eastern')}
-                aria-label={numerals === 'eastern' ? t('switchToWesternNumerals') : t('switchToEasternNumerals')}
-                title={numerals === 'eastern' ? t('switchToWesternNumerals') : t('switchToEasternNumerals')}
+                aria-label={
+                  numerals === 'eastern'
+                    ? t('switchToWesternNumerals')
+                    : t('switchToEasternNumerals')
+                }
+                title={
+                  numerals === 'eastern'
+                    ? t('switchToWesternNumerals')
+                    : t('switchToEasternNumerals')
+                }
               >
                 {numerals === 'eastern' ? '۱۲۳' : '123'}
               </button>
@@ -303,7 +281,15 @@ export function MapSidebar({
             onClick={() => setShowList((v) => !v)}
             aria-expanded={showList}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
               <line x1="8" y1="6" x2="21" y2="6" />
               <line x1="8" y1="12" x2="21" y2="12" />
               <line x1="8" y1="18" x2="21" y2="18" />
@@ -323,7 +309,18 @@ export function MapSidebar({
           {/* Search */}
           <div className="search-bar">
             <div className="search-input-wrap">
-              <svg className="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                className="search-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -350,7 +347,16 @@ export function MapSidebar({
                   }}
                   aria-label="Clear search"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    aria-hidden="true"
+                  >
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
@@ -433,7 +439,8 @@ export function MapSidebar({
                     onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
                     aria-pressed={activeSaint === saint}
                   >
-                    {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') || saint}
+                    {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
+                      saint}
                   </button>
                 ))}
               </div>
@@ -441,12 +448,7 @@ export function MapSidebar({
           )}
 
           {/* Time-slider by founding era */}
-          <TimeSlider
-            value={[eraMin, eraMax]}
-            onChange={onEraChange}
-            lang={lang}
-            fmtNum={fmtNum}
-          />
+          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
 
           {/* Result count */}
           <div className="shrine-list-status" aria-live="polite" aria-atomic="true">
@@ -460,21 +462,27 @@ export function MapSidebar({
             <div className="shrine-list-panel" role="list" aria-label="Shrine list">
               {filtered.length === 0 && !loading && (
                 <div className="shrine-list-empty-state">
-                  <svg className="shrine-list-empty-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg
+                    className="shrine-list-empty-icon"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     <line x1="11" y1="8" x2="11" y2="14" />
                     <line x1="8" y1="11" x2="14" y2="11" />
                   </svg>
                   <p className="shrine-list-empty-title">{t('noMatches')}</p>
-                  {search && (
-                    <p className="shrine-list-empty-query">"{search}"</p>
-                  )}
+                  {search && <p className="shrine-list-empty-query">"{search}"</p>}
                   {(search || hasActiveFilter) && (
-                    <button
-                      className="shrine-list-empty-clear"
-                      onClick={clearAllFilters}
-                    >
+                    <button className="shrine-list-empty-clear" onClick={clearAllFilters}>
                       {t('clearFilters')}
                     </button>
                   )}
@@ -502,7 +510,9 @@ export function MapSidebar({
                         }}
                         aria-pressed={shrine.id === selectedId}
                       >
-                        <div className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ` shrine-list-thumb-slot--empty shrine-list-thumb-slot--${catKey}`}`}>
+                        <div
+                          className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ` shrine-list-thumb-slot--empty shrine-list-thumb-slot--${catKey}`}`}
+                        >
                           {shrine.imageUrl ? (
                             <img
                               className="shrine-list-thumb-img"
@@ -525,9 +535,7 @@ export function MapSidebar({
                         </div>
                         <div className="shrine-list-info">
                           <div className="shrine-list-name">{highlightMatch(name, search)}</div>
-                          {location && (
-                            <div className="shrine-list-meta">{location}</div>
-                          )}
+                          {location && <div className="shrine-list-meta">{location}</div>}
                         </div>
                       </button>
                     );
@@ -539,7 +547,7 @@ export function MapSidebar({
         </>
       ) : (
         /* Detail view */
-        <div className="sidebar-detail" id="main-content">
+        <div className="sidebar-detail">
           {activeTour ? (
             <TourPanel
               tour={activeTour}
@@ -577,150 +585,5 @@ export function MapSidebar({
         </div>
       )}
     </aside>
-  );
-}
-
-function WelcomeCard({
-  t,
-  embed = false,
-}: {
-  t: (k: Parameters<ReturnType<typeof useLang>['t']>[0]) => string;
-  embed?: boolean;
-}) {
-  return (
-    <div className="welcome-card">
-      <div className="welcome-card-icon-wrap" aria-hidden="true">
-        <svg className="welcome-card-icon" viewBox="0 0 64 64" fill="currentColor">
-          <path d="M32 6l-3 6H22v3h2v4.6C18.2 21.4 15 25.5 15 30.5h34c0-5-3.2-9.1-9-11V15h2v-3H35l-3-6zm-14 27v26h28V33H18zm8 8h12v10H26V41z" />
-        </svg>
-      </div>
-      <h2 className="welcome-card-title">
-        {t('exploreTitle')}
-      </h2>
-      <p className="welcome-card-text">{t('noSelection')}</p>
-      {/* The "list button above" this hint refers to is hidden in embed mode */}
-      {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
-    </div>
-  );
-}
-
-function ShrinePreview({
-  shrine,
-  lang,
-  localizeField,
-  toursEnabled,
-  onStartTour,
-}: {
-  shrine: Shrine;
-  lang: string;
-  localizeField: (row: typeof shrine.raw, field: string) => string;
-  toursEnabled: boolean;
-  onStartTour: (tourId: string) => void;
-}) {
-  const { fmtNum } = useLang();
-  const [copied, setCopied] = useState(false);
-  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const relatedTour = toursEnabled
-    ? TOURS.find((tr) => tr.stops.some((s) => s.shrineSlug === shrine.slug)) ?? null
-    : null;
-
-  const name = localizeShrineName(shrine, lang);
-
-  const location = localizeField(shrine.raw, 'Location') || shrine.location;
-  const category = localizeField(shrine.raw, 'Category') || shrine.category;
-  const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded =
-    localizeField(shrine.raw, 'Founded/Opened') ||
-    localizeField(shrine.raw, 'Founded') ||
-    shrine.founded;
-
-  const descRaw =
-    lang === 'ur'
-      ? getUrduFieldValue(shrine.raw, 'Description') ||
-        getFieldValue(shrine.raw, 'Description')
-      : getFieldValue(shrine.raw, 'Description');
-  const leadText = descRaw ? extractLeadPreviewText(descRaw) : '';
-
-  const handleCopyLink = useCallback(() => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
-      copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
-    });
-  }, []);
-
-  // Clear timer on unmount
-  useEffect(() => () => { if (copyTimerRef.current) clearTimeout(copyTimerRef.current); }, []);
-
-  return (
-    <div className="preview-card">
-      {shrine.imageUrl ? (
-        <img
-          src={shrine.imageUrl}
-          alt={name}
-          className="preview-card-hero"
-          loading="lazy"
-          decoding="async"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-        />
-      ) : (
-        <div className="preview-card-hero-placeholder" aria-hidden="true">
-          <ShrineGlyph className="preview-card-hero-icon" />
-        </div>
-      )}
-      <h2 className="preview-title">
-        <Link to={`/shrine/${shrine.slug}`} lang={lang === 'ur' ? 'ur' : undefined}>
-          {name}
-        </Link>
-      </h2>
-      <div className="preview-meta-row">
-        {category && <span>{category}</span>}
-        {location && <span>· {location}</span>}
-        {founded && <span>· {fmtNum(founded)}</span>}
-      </div>
-      {saint && (
-        <div className="preview-meta-row">
-          <span>🕌 {saint}</span>
-        </div>
-      )}
-      {leadText && <p className="preview-description">{leadText}</p>}
-      {relatedTour && (
-        <div className="preview-related-tour">
-          <span>
-            {translate(lang as Lang, 'partOfTour')}: {localizeTourTitle(relatedTour, lang as Lang)}
-          </span>
-          <button className="preview-related-tour-btn" onClick={() => onStartTour(relatedTour.id)}>
-            {translate(lang as Lang, 'viewTour')}
-          </button>
-        </div>
-      )}
-      <div className="preview-actions">
-        <Link to={`/shrine/${shrine.slug}`} className="preview-view-link">
-          {translate(lang as Lang, 'viewFullDetails')}
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </Link>
-        <button
-          className={`preview-copy-link${copied ? ' copied' : ''}`}
-          onClick={handleCopyLink}
-          aria-label={copied ? translate(lang as Lang, 'linkCopied') : translate(lang as Lang, 'copyLink')}
-          title={translate(lang as Lang, 'copyLink')}
-        >
-          {copied ? (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          ) : (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-            </svg>
-          )}
-          <span>{copied ? translate(lang as Lang, 'copied') : translate(lang as Lang, 'share')}</span>
-        </button>
-      </div>
-    </div>
   );
 }
