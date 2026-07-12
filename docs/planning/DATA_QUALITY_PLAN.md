@@ -422,3 +422,35 @@ Phase B is closed. Remaining content-quality risk is concentrated entirely in th
 102 `ai-researched` + 24 `sheet-original` shrines (Phase C's scope), which have no
 "was this merged correctly" question to ask — the open question for them is
 fact-verification, not reconciliation.
+
+### Appendix — Phase C results, wave 1 (run 2026-07-12)
+
+Fact-verified the 22 tour-featured `ai-researched` shrines (intersection of the 44
+tour-stop shrines and the 102 `ai-researched` shrines from Phase A) via independent
+web-research passes, each checking core claims against real sources. Full write-up:
+`archive/_description_verification.md`; exact live-Sheet find/replace text for
+maintainers: `archive/_phaseC_sheet_corrections.md`.
+
+**Result: 13 verified clean, 5 needed a hedge, 4 had a real factual error —
+corrected.** All 22 now carry 2–4 real citations, a re-assessed confidence score,
+and a verification note in `data/provenance.json`. Corrections were applied to
+`data/shrines.json`, `data/shrines.csv`, and `src/data/shrines-fallback.json`
+(committed — the offline fallback path is fixed) but **not** to the live Google
+Sheet, which this project has no write access to.
+
+Representative finds: a founder's name conflated with his own teacher's (both
+named "Muhammad Qasim," Darbar Ghamkol Sharif); two different miracle/parable
+legends misattributed between neighboring Nankana Sahib gurdwaras (Rori Sahib,
+Tambo Sahib); a `Founded/Opened` date that was chronologically impossible given
+the movement founder's own birth year (Shri Swaminarayan Mandir, "1788" → "c.
+1849"); a mausoleum dated before its own occupant's death (Ziarat Kaka Sahib,
+"early 17th century" → "c. 1661," since the saint died in 1653); and an
+architectural detail borrowed from the wrong neighboring monument (Tomb of Ustad
+Nuriya).
+
+**~41% of this spot-checked sample had at least a minor issue** — a useful
+calibration for how much scrutiny the remaining 80 unchecked `ai-researched`
+shrines likely warrant. Continuing that backlog (prioritized next by highest
+saint/place traffic, per Phase C's plan) is the clear next step; it was not
+attempted in this pass to keep the wave reviewable and the corrections carefully
+checked rather than rushed.

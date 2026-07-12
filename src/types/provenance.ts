@@ -20,6 +20,22 @@ export type ContentTier =
   | 'sheet-original'
   | 'unknown';
 
+/** A single reference backing a field value — see docs/planning/DATA_QUALITY_PLAN.md §3.2. */
+export interface Citation {
+  /** Title of the source (page title, book title, article headline). */
+  title: string;
+  /** Author or publishing body, when known. */
+  author?: string;
+  /** Kind of source. */
+  type: 'website' | 'academic' | 'gazetteer' | 'book' | 'oral';
+  /** Link to the source, when it has one. */
+  url?: string;
+  /** Page/section within the source, when applicable. */
+  page?: string;
+  /** Confidence 0–1 in this specific citation supporting the claim. */
+  confidence?: number;
+}
+
 /** Provenance record for a single field on a single shrine. */
 export interface FieldProvenance {
   /** Source reference — book title + page, URL, institution, or "maintainer". */
@@ -30,6 +46,8 @@ export interface FieldProvenance {
   method: ProvenanceMethod;
   /** Which content pipeline this came from — populated for the Description field. */
   contentTier?: ContentTier;
+  /** Multiple supporting references, when a field has been fact-verified against more than one source. */
+  citations?: Citation[];
   /** Confidence 0–1; absent means not assessed. */
   confidence?: number;
   /** Reviewer name or initials; absent means the value has not been reviewed. */

@@ -183,8 +183,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.65,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — description conflated the founder ('Zinda Pir') with his own teacher, who shares the same name 'Muhammad Qasim' (Baba Ji Qasim of Mohra Sharif). Removed the founder's disputed personal name; kept it only for the separate teacher figure. All other facts (1952 founding, 1912 birth, 1942 khilafat, 1999 death, Birmingham connection) corroborated across multiple sources.",
+          "citations": [
+            {
+              "title": "Our Roots",
+              "author": "Central Jamia Mosque Ghamkol Sharif (Birmingham)",
+              "type": "website",
+              "url": "https://gsmosque.org/our-roots/",
+              "confidence": 0.8
+            },
+            {
+              "title": "Ghamkol Shariff Masjid",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Ghamkol_Shariff_Masjid",
+              "confidence": 0.7
+            },
+            {
+              "title": "Zinda Pir Of Ghamkol Sharif",
+              "author": "Journey of a Seeker of Sacred Knowledge",
+              "type": "website",
+              "url": "https://seekerofthesacredknowledge.wordpress.com/biographies-of-awliya-allah/zinda-pir-of-ghamkol-sharif/",
+              "confidence": 0.6
+            },
+            {
+              "title": "Khulfas of Baba Ji Sahib (Mohra Sharif)",
+              "author": "mohrasharif.com",
+              "type": "website",
+              "url": "https://mohrasharif.com/index.php?catid=7%3Aabout&id=10%3Akhulfas-babajisahib&option=com_content&view=article",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -521,8 +551,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.82,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Gurdwara Sri Bal Lila Sahib",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "http://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_bal_lila_sahib.html",
+              "confidence": 0.75
+            },
+            {
+              "title": "Nankana Sahib",
+              "author": "Gateway to Sikhism",
+              "type": "website",
+              "url": "https://www.allaboutsikhs.com/sikh-literature/sikhism-articles/nankana-sahib/",
+              "confidence": 0.7
+            },
+            {
+              "title": "Gurdwara Bal Lila",
+              "author": "SikhiWiki",
+              "type": "website",
+              "url": "https://www.sikhiwiki.org/index.php/Gurdwara_Bal_Lila",
+              "confidence": 0.65
+            },
+            {
+              "title": "Kaura Mal",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Kaura_Mal",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -823,8 +883,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.8,
+          "notes": "Fact-checked 2026-07-12 (Phase C): description text verified; softened the Founded/Opened metadata field, which overstated a dated visit by Guru Arjan Dev not supported by any source found.",
+          "citations": [
+            {
+              "title": "Gurudwara Panjvin and Chhevin Patshahi, Nankana Sahib",
+              "author": "Gateway to Sikhism",
+              "type": "website",
+              "url": "https://www.allaboutsikhs.com/gurudwara-panjvin-and-chhevin-patshahi-nankana-sahib/",
+              "confidence": 0.75
+            },
+            {
+              "title": "Gurdwara Sri Guru Arjan Ate Guru Hargobind Sahib Nankana",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "https://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_guru_arjan_ate_guru_hargobind_sahib_nankana.html",
+              "confidence": 0.75
+            },
+            {
+              "title": "Gurudwara Panjvin and Chhevin Patshahi, Nankana Sahib",
+              "author": "Sikh Places",
+              "type": "website",
+              "url": "https://sikhplaces.com/gurudwara-panjvin-and-chhevin-patshahi-nankana-sahib/",
+              "confidence": 0.7
+            },
+            {
+              "title": "Gurudwara Panjvin and Chhevin Patshahi",
+              "author": "SikhiWiki",
+              "type": "website",
+              "url": "https://www.sikhiwiki.org/index.php/Gurudwara_Panjvin_and_Chhevin_Patshahi",
+              "confidence": 0.55
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -859,8 +950,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.8,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Gurdwara Sri Patti Sahib",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "https://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_patti_sahib.html",
+              "confidence": 0.75
+            },
+            {
+              "title": "Gurdwara Patti Sahib",
+              "author": "SikhiWiki",
+              "type": "website",
+              "url": "https://www.sikhiwiki.org/index.php/Gurdwara_Patti_Sahib",
+              "confidence": 0.65
+            },
+            {
+              "title": "Gurudwara Patti Sahib: Where Guru Nanak Learned Wisdom",
+              "author": "All About Sikhs",
+              "type": "website",
+              "url": "https://www.allaboutsikhs.com/gurudwara-patti-sahib/",
+              "confidence": 0.7
+            },
+            {
+              "title": "The Guru Granth Sahib in English (Patti Likhi, Rag Asa, pp. 432-434)",
+              "type": "website",
+              "url": "https://gurugranthsahib.io/bani/introduction/85/Introduction",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -895,8 +1016,35 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.65,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED (hedged) — the milk-and-blood/Bhai Lalo parable is most specifically tied by local tradition to the neighboring Gurdwara Khuhi Bhai Lalo, not Rori Sahib; description reworded to reflect this rather than stating it as this shrine's own founding story. Rori/pebble etymology, Babur's sack of Saidpur, and Ranjit Singh-era construction all corroborated.",
+          "citations": [
+            {
+              "title": "Gurdwara Rori Sahib, Eminabad",
+              "type": "website",
+              "url": "https://sikhheritagetours.ca/gurdwara-rori-sahib-eminabad/",
+              "confidence": 0.75
+            },
+            {
+              "title": "Gurdwara Rori Sahib Eminabad – Sikh Pilgrimage in Pakistan",
+              "type": "website",
+              "url": "https://sikhpakistanyatra.com/destination/gurdwara-rori-sahib-eminabad/",
+              "confidence": 0.7
+            },
+            {
+              "title": "118. Gurdwara Chakki Sahib & Gurdwara Khuhi Bhai Lalo (Eminabad)",
+              "type": "website",
+              "url": "https://pakgeotagging.com/2019/11/118-gurdwara-chakki-sahib-gurdwara/",
+              "confidence": 0.65
+            },
+            {
+              "title": "Guru Nanak's Babar Vani: Hymns of Compassion and Protest",
+              "type": "website",
+              "url": "https://www.thesikhencyclopedia.com/babar-vani/",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1021,8 +1169,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Gurdwara Kiara Sahib",
+              "author": "SikhiWiki",
+              "type": "website",
+              "url": "https://www.sikhiwiki.org/index.php/Gurdwara_Kiara_Sahib",
+              "confidence": 0.8
+            },
+            {
+              "title": "Gurdwara Sri Kiara Sahib",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "https://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_kiara_sahib.html",
+              "confidence": 0.85
+            },
+            {
+              "title": "Gurmukh Singh's Legacy of Kar Seva: Sikh Shrine Revival",
+              "type": "website",
+              "url": "https://allaboutsikhs.com/1900/gurmukh-singh-sevavale-sant",
+              "confidence": 0.7
+            },
+            {
+              "title": "Gurudwara Kiara Sahib",
+              "author": "World Gurudwaras",
+              "type": "website",
+              "url": "https://www.worldgurudwaras.com/historical-gurudwaras/historical-gurudwaras-in-pakistan/punjab/nankana-sahib/gurudwara-kiara-sahib",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1057,8 +1235,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.75,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — the 'shadow stood still' miracle belongs to the separate, nearby Gurdwara Mal Ji Sahib legend (young Nanak's herd/field episode), not to Tambu Sahib's own sacha-sauda tradition; description fixed to remove the conflation. Tent-tree name, sacha-sauda story, and mid-19th-century founding all corroborated.",
+          "citations": [
+            {
+              "title": "Gurdwara Sri Tambu Sahib Nankana",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "https://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_tambu_sahib_nankana.html",
+              "confidence": 0.7
+            },
+            {
+              "title": "Gurdwara Sri Mal Ji Sahib Nankana",
+              "author": "Discover Sikhism",
+              "type": "website",
+              "url": "https://www.discoversikhism.com/sikh_gurdwaras/gurdwara_sri_mal_ji_sahib_nankana.html",
+              "confidence": 0.7
+            },
+            {
+              "title": "Gurudwara Tambu Sahib, Nankana Sahib",
+              "author": "Pak Yatra",
+              "type": "website",
+              "url": "https://pakyatra.ca/gurudwara-tambu-sahib-nankana-sahib/",
+              "confidence": 0.65
+            },
+            {
+              "title": "Gurdwara Sri Tambu Sahib Jee",
+              "author": "Sikh Heritage Tours",
+              "type": "website",
+              "url": "https://sikhheritagetours.ca/gurdwara-sri-tambu-sahib-jee/",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1431,8 +1640,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Nagarparkar Jain temples",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Nagarparkar_Jain_temples",
+              "confidence": 0.75
+            },
+            {
+              "title": "Gori Temple, Nagarparkar",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Gori_Temple,_Nagarparkar",
+              "confidence": 0.75
+            },
+            {
+              "title": "Nagarparkar Cultural Landscape",
+              "author": "Directorate General of Antiquities & Archaeology, Govt. of Pakistan",
+              "type": "gazetteer",
+              "url": "https://doam.gov.pk/public/heritage-sites/803",
+              "confidence": 0.8
+            },
+            {
+              "title": "Nagarparkar Cultural Landscape (Tentative List)",
+              "author": "UNESCO World Heritage Centre",
+              "type": "gazetteer",
+              "url": "https://whc.unesco.org/en/tentativelists/6111/",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1895,8 +2135,36 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.8,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed. Note for future drafts: the name 'Ratneshwar Mahadev' is shared with an unrelated, more famous leaning temple in Varanasi, India — no conflation occurred here, but worth flagging for anyone drafting further content.",
+          "citations": [
+            {
+              "title": "Shree Ratneshwar Mahadev Temple, Karachi",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shree_Ratneshwar_Mahadev_Temple,_Karachi",
+              "confidence": 0.75
+            },
+            {
+              "title": "Shree Ratneswar Mahadev Temple",
+              "author": "Habib University Ethnography Lab",
+              "type": "academic",
+              "url": "https://habib.edu.pk/ethnographylab/undergraduates/shree-ratneswar-mahadev-temple.php",
+              "confidence": 0.7
+            },
+            {
+              "title": "Jehangir Kothari Parade",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Jehangir_Kothari_Parade",
+              "confidence": 0.8
+            },
+            {
+              "title": "Contempt notice issued to KMC chief in Clifton temple case",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1141199",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1913,8 +2181,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Shri Laxmi Narayan Mandir",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shri_Laxmi_Narayan_Mandir",
+              "confidence": 0.75
+            },
+            {
+              "title": "City Faith – Shri Lakshmi Narayan Temple",
+              "author": "The Karachi Walla",
+              "type": "website",
+              "url": "https://thekarachiwalla.com/2017/10/15/city-faith-shri-lakshmi-narayan-temple/",
+              "confidence": 0.8
+            },
+            {
+              "title": "Sri Laxmi Narayan Temple, Karachi",
+              "author": "Heritage of Sindh",
+              "type": "gazetteer",
+              "url": "http://heritage.eftsindh.com/site/577/karachi/sri-laxmi-narayan-temple",
+              "confidence": 0.75
+            },
+            {
+              "title": "Pak court orders not to demolish Hindu temple",
+              "author": "Oneindia News",
+              "type": "website",
+              "url": "https://www.oneindia.com/2012/09/17/pak-court-orders-not-to-demolish-hindu-temple-1072139.html",
+              "confidence": 0.75
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1931,8 +2230,35 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed. The 500 AD/1500-year age claim is itself acknowledged by officials as unverified tradition, which the description already hedges correctly.",
+          "citations": [
+            {
+              "title": "Idols, artefacts found at Hindu temple in Karachi",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1503239",
+              "confidence": 0.85
+            },
+            {
+              "title": "Centuries-old statues discovered at ancient Hindu temple in Karachi",
+              "type": "website",
+              "url": "https://www.arabnews.com/node/1549156/pakistan",
+              "confidence": 0.8
+            },
+            {
+              "title": "Panchmukhi Hanuman Temple",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Panchmukhi_Hanuman_Temple",
+              "confidence": 0.7
+            },
+            {
+              "title": "1500 Year Old Panchmukhi Hanuman Mandir in Karachi, Pakistan",
+              "type": "website",
+              "url": "https://www.booksfact.com/archeology/1500-year-old-panchmukhi-hanuman-mandir-karachi-pakistan.html",
+              "confidence": 0.5
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1949,8 +2275,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.82,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — the recorded Founded/Opened value '1788' was impossible (Swaminarayan was born 1781; the Sampradaya didn't exist until c.1800) and traced to a self-contradicting Wikipedia infobox error; changed to 'c. 1849 (mid-19th century)', consistent with the description's own prose and the temple's 150th-anniversary record (c. 2004). Description text itself required no changes.",
+          "citations": [
+            {
+              "title": "Shri Swaminarayan Mandir, Karachi",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shri_Swaminarayan_Mandir,_Karachi",
+              "confidence": 0.6
+            },
+            {
+              "title": "Swaminarayan Temple, Karachi: Past and Present",
+              "author": "BAGICHA blog",
+              "type": "website",
+              "url": "https://bagichablog.com/2020/09/04/swaminarayan-temple-karachi-past-and-present/",
+              "confidence": 0.65
+            },
+            {
+              "title": "Karachi Temple",
+              "author": "Shree Swaminarayan Mandir, Bhuj",
+              "type": "website",
+              "url": "https://www.swaminarayan.faith/temples/karachi-temple",
+              "confidence": 0.7
+            },
+            {
+              "title": "Swaminarayan",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Swaminarayan",
+              "confidence": 0.75
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -1967,8 +2324,37 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.72,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — sources describe founding figure Bhojomal Nenshi Bhatia as a 'wealthy sailor', not 'wealthy Hindu merchant'; description fixed. All other claims (Varuna identity, Jhulelal association, c.1917-18 structure, 1937-40 tilework) corroborated, though one source gives an alternative 1886 founding date worth noting as a spread rather than a settled figure.",
+          "citations": [
+            {
+              "title": "Shri Varun Dev Mandir",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shri_Varun_Dev_Mandir",
+              "confidence": 0.6
+            },
+            {
+              "title": "Restoration of Hindu temple at Manora celebrated",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1385292",
+              "confidence": 0.75
+            },
+            {
+              "title": "Varun Dev Temple at Manora Island, Karachi",
+              "author": "Mahnaz Shujrah, Youlin Magazine",
+              "type": "website",
+              "url": "https://www.youlinmagazine.com/story/varun-dev-temple-at-manora-island-karachi/MjE3MQ==",
+              "confidence": 0.7
+            },
+            {
+              "title": "Conservation of the Early 20th-Century Varun Dev Temple on Manora Island",
+              "type": "website",
+              "url": "https://cultureincrisis.org/projects/conservation-of-the-early-20th-century-varun-dev-temple-shri-varun-dev-mandir-on-manora-island",
+              "confidence": 0.7
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2039,8 +2425,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Akhund Darweza",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Akhund_Darweza",
+              "confidence": 0.75
+            },
+            {
+              "title": "Pir Baba",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Pir_Baba",
+              "confidence": 0.7
+            },
+            {
+              "title": "Syed Ali Tarmizi and Akhun Darwaiza: Mughal Agents or Popular Saints",
+              "author": "Al-Idah journal",
+              "type": "academic",
+              "url": "https://journals.asianindexing.com/article.php?id=1682060034497_242",
+              "confidence": 0.75
+            },
+            {
+              "title": "Akhund Darweza",
+              "author": "historyofpashtuns blog",
+              "type": "website",
+              "url": "https://historyofpashtuns.blogspot.com/2016/01/akhund-darweza_19.html",
+              "confidence": 0.5
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2057,8 +2474,37 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.82,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed — including the disciple list naming Bahadur Baba (Kaka Sahib's father, not Kaka Sahib himself) as this saint's disciple, which cross-checks correctly against the Ziarat Kaka Sahib entry's own correction.",
+          "citations": [
+            {
+              "title": "Akhund Panju Baba Mosque",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Akhund_Panju_Baba_Mosque",
+              "confidence": 0.7
+            },
+            {
+              "title": "Akhund Panju Baba and His Tomb at Akbarpura",
+              "author": "Ibrahim Shah, Journal of the Pakistan Historical Society, Vol. 47, Iss. 1, 1999, p. 71",
+              "type": "academic",
+              "url": "https://www.proquest.com/openview/e0788c0459a6503ca77e1158ccbad585/1",
+              "confidence": 0.75
+            },
+            {
+              "title": "'Sinking' Mughal-era mosque attracts visitors!",
+              "type": "website",
+              "url": "https://www.islamicfinder.org/news/sinking-mughal-era-mosque-attracts-visitors/",
+              "confidence": 0.6
+            },
+            {
+              "title": "Nowshera's 'sinking mosque' goes down 1cm every year",
+              "type": "website",
+              "url": "https://dailytimes.com.pk/343709/nowsheras-sinking-mosque-goes-down-1cm-every-year/",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2181,8 +2627,37 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed. Note: 'late-Mughal' is stylistically fine but Multan was under Durrani-Afghan rule by the saint's death (1811), not Mughal political authority — a minor terminology nuance, not treated as an error.",
+          "citations": [
+            {
+              "title": "Hafiz Jamal Multani Tomb, Multan, Pakistan",
+              "type": "website",
+              "url": "https://www.orientalarchitecture.com/sid/1415/pakistan/multan/hafiz-jamal-multani-tomb",
+              "confidence": 0.85
+            },
+            {
+              "title": "Mausoleums of Multan",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Mausoleums_of_Multan",
+              "confidence": 0.8
+            },
+            {
+              "title": "Hafiz Jamal Multani: Another pearl of city of Saints",
+              "author": "Minute Mirror",
+              "type": "website",
+              "url": "https://minutemirror.com.pk/hafiz-jamal-multani-another-pearl-of-city-of-saints-96982/",
+              "confidence": 0.75
+            },
+            {
+              "title": "Introduction and Analysis of Hafiz Jamalullah Multani's Thoughts: A Special Study of his Lyric 'Si Harfi'",
+              "type": "academic",
+              "url": "https://ojs.mrj.com.pk/index.php/MRJ/article/view/239",
+              "confidence": 0.75
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2412,8 +2887,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.8,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed, including the Ahmad Shah Durrani devotion story (independently corroborated by a peer-reviewed 2022 JESHO article).",
+          "citations": [
+            {
+              "title": "Shrine of Mian Umar a place of spiritual solace",
+              "author": "Dawn.com",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1435834",
+              "confidence": 0.75
+            },
+            {
+              "title": "A 'Good Qaṣba:' Chamkanī and the Confluence of Politics, Economy and Religion in Durrānī Peshawar, 1747–1834",
+              "author": "Journal of the Economic and Social History of the Orient, Vol. 65, Iss. 4, 2022",
+              "type": "academic",
+              "url": "https://brill.com/view/journals/jesh/65/4/article-p618_3.xml",
+              "confidence": 0.8
+            },
+            {
+              "title": "Militants bomb Sufi saint's shrine",
+              "type": "website",
+              "url": "https://tribune.com.pk/story/22910/militants-bomb-sufi-saints-shrine",
+              "confidence": 0.7
+            },
+            {
+              "title": "Militants bomb Sufi shrine in Peshawar",
+              "author": "Deccan Herald",
+              "type": "website",
+              "url": "https://www.deccanherald.com/content/290165/militants-bomb-sufi-shrine-peshawar.html",
+              "confidence": 0.55
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2464,8 +2969,37 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.65,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — (1) birthplace hedged, since sources split between Tirmiz and Fergana; (2) the 2008 event was militants attacking the shrine and destroying religious inscriptions/hoardings, not a foiled demolition attempt — description corrected. Core biography, 1938-1965 mosque, 24-26 Rajab urs, and 2009 Taliban closure all corroborated.",
+          "citations": [
+            {
+              "title": "Three saints from sleepy Buner",
+              "author": "The News on Sunday",
+              "type": "website",
+              "url": "https://www.thenews.com.pk/tns/detail/558764-three-saints-from-sleepy-buner",
+              "confidence": 0.7
+            },
+            {
+              "title": "Cracks deepen in Pir Baba mosque",
+              "author": "Dawn.com",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1269999",
+              "confidence": 0.75
+            },
+            {
+              "title": "Pir Baba",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Pir_Baba",
+              "confidence": 0.6
+            },
+            {
+              "title": "Sayyids of Kunar (citing Kakar & Noelle)",
+              "type": "website",
+              "url": "https://historyofpashtuns.blogspot.com/2018/07/sayyids-of-kunar.html",
+              "confidence": 0.55
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2750,8 +3284,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.7,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — (1) '975 metres above the plains' was actually elevation above sea level, not relief above the plains; fixed. (2) The Founded/Opened field's flat '9th century CE' conflicted with the description's own '~2,000 years' framing and with scholarly dating of Gorakhnath (usually 11th-12th c. CE); both the field and the description text were hedged to present this as legend, not settled history. Guru Nanak's 40-day meditation and the Heer-Ranjha/Waris Shah association are well corroborated.",
+          "citations": [
+            {
+              "title": "Tilla Jogian",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Tilla_Jogian",
+              "confidence": 0.6
+            },
+            {
+              "title": "Tilla Jogian risks being lost forever without urgent help",
+              "author": "Dawn.com",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1890882",
+              "confidence": 0.7
+            },
+            {
+              "title": "Tilla Jogian",
+              "author": "Jhelum district government",
+              "type": "gazetteer",
+              "url": "https://jhelum.punjab.gov.pk/tilla_jogian",
+              "confidence": 0.6
+            },
+            {
+              "title": "Guru Nanak & Tilla Jogian",
+              "author": "SikhNet",
+              "type": "website",
+              "url": "https://www.sikhnet.com/news/guru-nanak-tilla-jogian",
+              "confidence": 0.55
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2786,8 +3351,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.85,
+          "notes": "Fact-checked 2026-07-12 (Phase C): all claims verified, no corrections needed.",
+          "citations": [
+            {
+              "title": "Tomb of Bibi Jawindi, Baha'al-Halim, Ustad Nuriya and the Tomb and Mosque of Jalaluddin Bukhari (Tentative List)",
+              "author": "UNESCO World Heritage Centre",
+              "type": "gazetteer",
+              "url": "https://whc.unesco.org/en/tentativelists/1883/",
+              "confidence": 0.9
+            },
+            {
+              "title": "Tomb of Baha ul Halim",
+              "author": "Naqoosh-e-Javidan",
+              "type": "website",
+              "url": "https://pakheritage.org/tomb-of-baha-ul-halim/",
+              "confidence": 0.75
+            },
+            {
+              "title": "Baha al-Halim Tomb, Uch, Pakistan",
+              "author": "ArchNet",
+              "type": "academic",
+              "url": "https://www.archnet.org/sites/2826",
+              "confidence": 0.75
+            },
+            {
+              "title": "Shrine of Baha'al-Halim",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shrine_of_Baha%27al-Halim",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2839,8 +3435,39 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.75,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — Jalaluddin Surkh-Posh Bukhari's tomb is actually a flat-roofed, rectangular brick building on wooden pillars (Central Asian timber-roof style), not 'octagonal, blue-tiled' like Bibi Jawindi's and Baha'al-Halim's; description fixed. Ustad Nuriya's own details (smallest/plainest, rectangular, undecorated, 1817 flood damage) all corroborated as local tradition.",
+          "citations": [
+            {
+              "title": "Tomb of Bibi Jawindi",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Tomb_of_Bibi_Jawindi",
+              "confidence": 0.7
+            },
+            {
+              "title": "Shrine of Jalaluddin Bukhari",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Shrine_of_Jalaluddin_Bukhari",
+              "confidence": 0.7
+            },
+            {
+              "title": "Uch Sharif (monuments write-up)",
+              "author": "Solivagant, worldheritagesite.org",
+              "type": "website",
+              "url": "https://www.worldheritagesite.org/community/els-slots/uch-sharif-monuments/",
+              "confidence": 0.65
+            },
+            {
+              "title": "Ustad Nuriya Tomb",
+              "author": "Boris Kester",
+              "type": "website",
+              "url": "http://www.traveladventures.org/continents/asia/uch-sharif-tombs14.html",
+              "confidence": 0.6
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     },
@@ -2929,8 +3556,38 @@
           "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md",
           "method": "llm",
           "contentTier": "ai-researched",
-          "confidence": 0.6,
-          "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+          "confidence": 0.75,
+          "notes": "Fact-checked 2026-07-12 (Phase C): CORRECTED — (1) Akhund Panju Baba was not Kaka Sahib's own teacher (per Wikipedia and a peer-reviewed source, Panju Baba's disciple was Kaka Sahib's father Bahadur Baba, or Panju Baba was simply a contemporary Kaka Sahib respected); real teachers named and Panju Baba reframed as a contemporary. (2) Mausoleum date corrected from 'early 17th century' to 'c. 1661', since the saint himself died in 1653 and the tomb was built by his son afterward — the old date was internally impossible. (3) Birth year hedged (1575, sometimes given 1576). (4) The 'practised all four Sufi orders' claim softened to reflect that this is attributed to his forefathers' affiliations (per the academic source), not a personal claim, and that Kaka Sahib himself named no living pir (Uwaisi tradition). Founded/Opened field updated to match.",
+          "citations": [
+            {
+              "title": "The Life and Times of Hazrat Sheikh Rahamkar Kaka Sahib R.A: An Overview",
+              "author": "Syed Umar Hayat & Altaf Ullah",
+              "type": "academic",
+              "url": "https://pscpesh.org.pk/PDFs/PJ/Volume_54/10-%20Life%20and%20times%20of%20Sheikh%20Rahamkar%20Hazrat%20Kaka%20Sahib%20(Dr.%20Syed%20Umar%20Hayat%20&%20Dr.%20Altaf%20Ullah)%2018%20July%202018.pdf",
+              "confidence": 0.85
+            },
+            {
+              "title": "Akhund Panju Baba Mosque",
+              "author": "Wikipedia",
+              "type": "website",
+              "url": "https://en.wikipedia.org/wiki/Akhund_Panju_Baba_Mosque",
+              "confidence": 0.55
+            },
+            {
+              "title": "Kaka Sahib shrine – a place of spiritual satisfaction for many",
+              "author": "Dawn.com",
+              "type": "website",
+              "url": "https://www.dawn.com/news/1196455",
+              "confidence": 0.6
+            },
+            {
+              "title": "Mian Kastir Gul Sahib (Kaka Sahib) Shrine",
+              "type": "website",
+              "url": "https://paktourismportal.com/mian-kastir-gul-kaka-sahib-shrine/",
+              "confidence": 0.5
+            }
+          ],
+          "date": "2026-07-12"
         }
       }
     }
