@@ -1,0 +1,4 @@
+{
+  "comment": "Single source of truth for the published Google Sheets CSV URL. Consumed by src/lib/data/constants.ts, scripts/data/build-dataset.mjs, scripts/backfill-slugs.mjs, and tools/process_books.py. Override at runtime with the VITE_CSV_URL env var.",
+  "csvUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv"
+}

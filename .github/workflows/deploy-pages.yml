@@ -7,10 +7,10 @@ on:
     branches: [1.6]
   workflow_dispatch:
 
+# Building only needs to read the repo; the deploy job requests its own
+# pages/id-token write permissions below.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -25,11 +25,18 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
+
+      # Gate the deploy on the same checks CI runs — a red push to the
+      # version branch must not reach production. data:validate invokes
+      # `python3 urdu-i18n/build_dictionary.py --check` (stdlib-only Python,
+      # so the runner's system python3 suffices).
+      - name: Verify (typecheck · lint · test · data)
+        run: npm run typecheck && npm run lint && npm run test && npm run data:validate
 
       - name: Build
         run: npm run build
@@ -47,6 +54,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

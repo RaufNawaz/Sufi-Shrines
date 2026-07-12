@@ -1,0 +1,9 @@
+# Keep GitHub Actions pinned versions fresh. npm deps are updated manually
+# for now — the app pins few deps and updates are reviewed with the data
+# pipeline in mind.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
