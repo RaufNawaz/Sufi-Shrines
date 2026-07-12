@@ -377,3 +377,29 @@ Extend `SourcesProvenance.tsx` (small diff on an already-working component):
 | Shrines with any `citations[]` entry | 0 / 163 (field doesn't exist yet) |
 | `Description Urdu` entries reviewed (`reviewedBy` populated) | 0 / 163 |
 | Known content-provenance contradictions found | 1 (Allo Mahar — see §1.1) |
+
+### Appendix — Phase A results (run 2026-07-12, `scripts/data/build-content-provenance.mjs`)
+
+`contentTier` coverage, 163/163 shrines tagged (zero left as silent `unknown`):
+
+| Tier | Count | Meaning |
+| --- | --- | --- |
+| `tier1-ocr` | 7 | Matches a Tier 1 `shrine_entries/*.md` file (all 7 matched) |
+| `tier2-compendium` | 30 | Matches a Tier 2 `shrine_entries/*.md` file (all 30 matched) |
+| `ai-researched` | 102 | Matched a "Descriptions filled"/"New rows added" entry in `archive/_ENRICHMENT_LOG.md` — written by the automated Claude-assisted research pipeline, no citations yet |
+| `sheet-original` | 24 | Not found in either tracked pipeline — pre-existing content, origin inferred by elimination |
+| `unknown` | 0 | — |
+
+`archive/_ENRICHMENT_LOG.md` parsed cleanly: 103 row-entries extracted, 102 matched a
+current shrine (1 didn't — expected churn from the dedup/rename fixes already
+resolved in `EXECUTION_PLAN.md` M1, not an error). All 37 `shrine_entries/*.md` files
+matched their expected shrine on the first hand-verified pass — no fuzzy-matching
+ambiguity. **1 discrepancy flagged for Phase B**: `allo-mahar` already has a
+hand-curated `Description` provenance entry claiming `method: "ocr"` with a note
+"Placeholder: OCR text awaiting human translation" — but the enrichment log shows
+its Description was actually written by the AI-research pipeline on 2026-07-06. Left
+untouched (Phase A is additive-only) for Phase B to resolve.
+
+**Headline finding**: 102/163 shrines (63%) — the largest single bucket — are
+`ai-researched` with zero citations. This is the concrete scope of Phase C's
+fact-verification backlog.

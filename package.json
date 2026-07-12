@@ -30,6 +30,7 @@
     "data:build": "node scripts/data/build-dataset.mjs",
     "data:build:urdu": "python3 urdu-i18n/build_dictionary.py",
     "data:build:provenance": "node scripts/data/build-provenance.mjs",
+    "data:build:content-provenance": "node scripts/data/build-content-provenance.mjs",
     "data:validate": "node scripts/data/validate.mjs && node scripts/data/validate-tours.mjs && python3 urdu-i18n/build_dictionary.py --check && node scripts/data/validate-urdu-leak.mjs",
     "data:validate:tours": "node scripts/data/validate-tours.mjs",
     "data:validate:urdu-leak": "node scripts/data/validate-urdu-leak.mjs",
