@@ -1,14 +1,223 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-06-30",
+  "updated": "2026-07-12",
   "shrines": [
+    {
+      "shrineSlug": "allo-mahar",
+      "fields": {
+        "Image 1": {
+          "source": "Wikimedia Commons",
+          "method": "human",
+          "confidence": 1
+        },
+        "Description": {
+          "source": "UTRNet OCR from source PDF — human review pending",
+          "method": "ocr",
+          "confidence": 0.72,
+          "notes": "Placeholder: OCR text awaiting human translation and summary. Run: python tools/process_books.py --test-pdf <PDF> to regenerate."
+        },
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "amb-temples-amb-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bari-imam",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bhagnari-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bhai-sant-thawan-das-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bhai-waliram-darbar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "bhit-bhit-shah",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "chandragup-baba-chandragup",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "churrio-jabal-durga-mata-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-sakhi-shah-chan-charagh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dargah-fateh-pur-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dargah-pir-ratan-nath-jee",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "dargah-roza-sufi-shah-inayat-shaheed",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
     {
       "shrineSlug": "data-darbar",
       "fields": {
         "Image 1": {
           "source": "Wikimedia Commons — CC BY-SA 3.0, photo by Usman Ghani",
           "method": "human",
-          "confidence": 1.0,
+          "confidence": 1,
           "notes": "URL encodes filename; verify license on Wikimedia before reuse."
         },
         "Latitude": {
@@ -20,22 +229,1596 @@
           "source": "Google Maps coordinate lookup, cross-checked against OpenStreetMap",
           "method": "human",
           "confidence": 0.98
+        },
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         }
       }
     },
     {
-      "shrineSlug": "allo-mahar",
+      "shrineSlug": "eidgah-sharif",
       "fields": {
-        "Image 1": {
-          "source": "Wikimedia Commons",
-          "method": "human",
-          "confidence": 1.0
-        },
-        "Description": {
-          "source": "UTRNet OCR from source PDF — human review pending",
-          "method": "ocr",
-          "confidence": 0.72,
-          "notes": "Placeholder: OCR text awaiting human translation and summary. Run: python tools/process_books.py --test-pdf <PDF> to regenerate."
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "garh-maharaja-shorkot",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "golra-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gorakhnath-goraknath-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gori-temple-gori-jo-mandar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdas-ram-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-babay-de-ber",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-babay-nanki",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-balila-sahib-bal-lila-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-bhai-beba-singh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-bhai-joga-singh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-chakki-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-chhevin-patshahi-chitti-gatti",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-chhevin-patshahi-mozang",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-choa-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-chowmala-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-darbar-sahib-kartarpur",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-dash-mesh-pita",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-dera-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-guru-ram-das-ji",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-malji-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-panja-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-panjvi-chati-patshahi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-patshahi-chhevin-hadiara-lahore",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-patti-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-rori-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-sach-khand-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-sacha-sauda",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-shaheed-bhai-taru-singh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-shaheed-ganj-singh-singhnian",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-singh-sabha",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-sri-kiara-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-sri-tilganji-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurdwara-tambo-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "gurudwara-janam-asthan-nankana-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "jagannath-temple-sialkot",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "jain-mandir-lahore",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "jhollay-lal-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "kalat-kali-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "kali-bari-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "katas-raj-temples",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "khatwari-darbar-shikarpur",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "krishna-mandir-kabari-bazar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "krishna-mandir-ravi-road",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "lal-shahbaz-qalandar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "langer-makhdoom",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "loh-temple-lava-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mausoleum-of-waris-shah",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mazar-of-bulleh-shah",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mithankot-kot-mithan",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "mohra-sharif-khanqah",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "panj-tirath",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "parnami-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "prahladpuri-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "purana-bhalwal",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "rahman-baba-mausoleum-rehman-baba-shrine",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "ram-mandir-saidpur-ram-kund-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "ramapir-temple-tando-allahyar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "ranmal-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sadh-belo-sadh-belo-island-temple",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sain-vali-vilayat-rai-darbar-kambar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sakhi-sarwar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "samadhi-of-maharaja-ranjit-singh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sant-baba-asudaram-darbar-panno-aqil",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sant-baba-bhagat-ram-darbar-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sant-bhagat-kanwar-ram-temple-chak",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shah-yousuf",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shahwala-teja-singh-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shaktipeeth-shri-hinglaj-mata-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shamsabad",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sharada-peeth",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shergarh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shiv-mandir-chiti-ghati",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shree-ratneshwar-mahadev-temple-karachi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shri-panchmukhi-hanuman-mandir-karachi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shri-swaminarayan-mandir-karachi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shri-varun-dev-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-abdullah-shah-ghazi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-akhund-darweza-baba",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-akhund-panju-baba",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-baba-shah-chiragh",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-baba-shah-kamal",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-bahauddin-zakariya",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-bibi-pak-daman",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-fariduddin-ganjshakar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-hafiz-muhammad-jamal-multani",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-hazrat-shah-daula-daryai",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-imam-ali-ul-haq",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-lakhi-shah-saddar",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-makhdoom-abdul-rahim-girhori",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-makhdoom-jahaniyan-jahangasht",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-makhdoom-nooh-hala",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-mauj-darya-bukhari",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-mian-mir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-mian-umar-baba-chamkani",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-peer-makki",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-pir-baba-syed-ali-tirmizi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-pir-chhatal-shah-noorani",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-pir-mangho",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-pir-sher-muhammad",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-qalandar-baba-auliya",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-sachal-sarmast",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-abdul-karim-bulri",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-inayat-qadiri",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-jamal",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-rukn-e-alam",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-shams-ud-din-sabzwari",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-shah-yusaf-gardez",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "shrine-of-syed-musa-pak",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "sial-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "swami-dharmdas-darbar-larkana-kennedy-market",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tilla-jogian",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-allama-iqbal-mazar-e-iqbal",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-bahaal-halim-uch-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-javindi-bibi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-qutbuddin-aibak",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "tomb-of-ustad-nuriya",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "umarkot-amarkot-shiv-mandir",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "valmik-mandir-naqi-road",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "wadpagga-sharif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "ziarat-kaka-sahib",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         }
       }
     }

@@ -23,6 +23,7 @@ const FIELD_LABEL_KEYS: Record<string, keyof (typeof UI_TEXT)['en']> = {
   Events: 'eventsLabel',
   'Events & Urs': 'eventsLabel',
   Description: 'descriptionSection',
+  'Description Urdu': 'descriptionUrduLabel',
   Latitude: 'latitudeLabel',
   Longitude: 'longitudeLabel',
 };

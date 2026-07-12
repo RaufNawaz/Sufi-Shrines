@@ -131,8 +131,26 @@ if (existsSync(PROVENANCE_JSON)) {
         }
       });
     });
+    // Completeness: every shrine should have at least a baseline provenance
+    // entry (run `npm run data:build:provenance` to backfill). This is a hard
+    // gate so coverage can't silently regress as new shrines are added.
+    const coveredSlugs = new Set(
+      shrines.filter((entry) => Object.keys(entry.fields ?? {}).length > 0).map((entry) => entry.shrineSlug),
+    );
+    const uncovered = slugs.filter((slug) => !coveredSlugs.has(slug));
+    if (uncovered.length) {
+      rowErrors.push(
+        `provenance.json: ${uncovered.length} shrine(s) have no provenance entry at all ` +
+          `(run \`npm run data:build:provenance\`): ${uncovered.slice(0, 10).join(', ')}` +
+          (uncovered.length > 10 ? ', …' : ''),
+      );
+    }
+
     if (!rowErrors.some((e) => e.includes('provenance.json'))) {
-      console.log(`[validate] ✓ provenance.json — ${shrines.length} shrine entrie(s) valid`);
+      console.log(
+        `[validate] ✓ provenance.json — ${shrines.length} shrine entrie(s), ` +
+          `${coveredSlugs.size}/${slugs.length} shrines covered`,
+      );
     }
   }
 }
