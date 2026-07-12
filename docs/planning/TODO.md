@@ -1,6 +1,6 @@
 # Shrines Project — To-Do List
 
-_Last updated: 2026-07-10. Snapshot: **158 data rows**, **0 missing descriptions**, **48 missing Image 1** (exhaustively searched — see `_image_unverified.md`; these 48 have no discoverable, appropriately-licensed Commons photo)._
+_Last updated: 2026-07-12. Snapshot: **163 data rows**, **0 missing descriptions**, **51 missing Image 1** (exhaustively searched — see `_image_unverified.md`; these have no discoverable, appropriately-licensed Commons photo). Note: the enriched `Shrines_with_Descriptions.xlsx` (Founded/Events/Images/Description Urdu) has **not yet been synced to the live Google Sheet** the app actually reads from — `data/shrines.json` still reflects the pre-enrichment Sheet state (e.g. only 6/163 rows have an Image 2). Syncing the Sheet is the highest-priority open item; see the root project plan._
 
 This is a working checklist for the shrines research dataset (`Shrines_with_Descriptions.xlsx`) and the map web app. Items are ordered by priority within each section. Enrichment mechanics live in `ENRICHMENT_RUNBOOK.md`; run `python3 tools/shrines_enrich.py --status` any time for live counts.
 
@@ -36,6 +36,8 @@ All 158 rows now have a Description. The last 5 gaps (75, 77, 79, 86, 87 — the
 - [ ] Row 133 — Pir Muhammad Rashid (Roze Dhani): image shows the **entrance gate**, not the tomb. Verify.
 - [ ] Row 138 — Baha'al-Halim (Uch): confirm it's Baha'al-Halim's tomb, **not the adjacent Bibi Jawindi tomb**.
 - [ ] Rows 101, 120, 122, 123, 132, 137 — confirm each photo matches its site.
+
+_2026-07-11 spot-check run (see `_ENRICHMENT_LOG.md`) re-verified 36 candidates by fetching each source page's caption: 35 confirmed correct, 1 cleared (row 124 Gurdwara Choa Sahib's photo was actually Rohtas Fort — cleared, no replacement found). Row 29 (Wadpagga Sharif)'s Image 1 was separately confirmed mislabeled (depicted Uch Sharif's Jalaluddin Bukhari shrine) and cleared. The rows above are not yet part of that verified set — still open._
 
 **Fill missing Image 1 (51 rows).** Most sit inside Commons _category_ pages whose file lists need a rendered browser. Best closed in one **Claude-in-Chrome image pass** (the browser would not connect in recent runs — see §5). Known high-confidence browser leads:
 

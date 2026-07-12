@@ -1,5 +1,12 @@
 # Guided Tours — Future Plan
 
+**Status: IMPLEMENTED (all 5 phases landed; kept for history).** §1 below describes the
+pre-Phase-1 starting point (3 tours, no route/audio/sharing) — that's no longer current.
+The app now has 8 tours with routes, richer stops, share/resume/embed, audio + autoplay,
+and discovery/near-me/print (see `CHANGELOG.md`). Two open design questions from §7
+(curated audio recordings vs. TTS; JSON-authored vs. KG-generated tours) remain
+genuinely unresolved — see `PROJECT_VISION.md` Track 3.
+
 _Feature roadmap for expanding the guided-tours experience. Drafted 2026-07-06._
 
 The tours have drawn strong positive feedback, so this plan is about deepening the **experience** (not adding more tour content — the shrine dataset is growing separately). Everything below is scoped to the current stack: Vite + React 18 + TypeScript + react-leaflet, static GitHub Pages hosting, bilingual EN/Urdu with RTL, no paid runtime APIs, and design driven entirely from `tokens.css`.
