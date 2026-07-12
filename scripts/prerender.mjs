@@ -2,12 +2,12 @@
 /**
  * prerender.mjs — Post-build static pre-render for shrine pages.
  *
- * Runs after `vite build`. Reads the committed snapshot and emits one
- * dist/shrine/<slug>/index.html per shrine with shrine-specific <head> tags
- * (title, meta description, OG tags, JSON-LD) baked in.  Netlify serves the
- * specific file before falling through to the `/* /index.html 200` rewrite,
- * so link previews and search crawlers get real metadata without any runtime
- * JavaScript requirement.
+ * Runs after `vite build`. Reads the committed snapshot
+ * (src/data/shrines-fallback.json) and emits one dist/shrine/<slug>/index.html
+ * per shrine with shrine-specific <head> tags (title, meta description, OG
+ * tags, JSON-LD) baked in. Static hosts serve the specific file before
+ * falling back to the SPA rewrite, so link previews and search crawlers get
+ * real metadata without any runtime JavaScript requirement.
  *
  * Usage:  node scripts/prerender.mjs
  * Run automatically via:  npm run build
@@ -16,25 +16,13 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildSlugs } from './data/lib/slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const SITE_URL = (process.env.SITE_URL || process.env.URL || '').replace(/\/$/, '');
-const KG_BASE  = 'https://github.com/raufnawaz/sufi-shrines/data/';
+const KG_BASE = 'https://github.com/raufnawaz/sufi-shrines/data/';
 const KG_VOCAB = 'https://github.com/raufnawaz/sufi-shrines/vocab#';
-
-// ── minimal slugify (mirrors src/lib/data/slugify.ts) ──────────────────────
-const SLUG_REPLACEMENTS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
-function slugify(text) {
-  if (!text) return '';
-  return text.toLowerCase()
-    .replace(/[&@%+]/g, (c) => ` ${SLUG_REPLACEMENTS[c] || c} `)
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .trim();
-}
 
 // ── field helpers ──────────────────────────────────────────────────────────
 function field(row, ...keys) {
@@ -48,7 +36,10 @@ function field(row, ...keys) {
 function primaryImage(row) {
   for (const k of Object.keys(row)) {
     const lk = k.toLowerCase();
-    if ((lk.includes('image') || lk.includes('photo') || lk.includes('picture')) && !lk.includes('urdu')) {
+    if (
+      (lk.includes('image') || lk.includes('photo') || lk.includes('picture')) &&
+      !lk.includes('urdu')
+    ) {
       const v = row[k];
       if (v && /^https?:\/\//i.test(String(v).trim())) return String(v).trim();
     }
@@ -69,48 +60,30 @@ function leadText(row) {
   return stripped.length > 200 ? `${stripped.slice(0, 197)}…` : stripped;
 }
 
-// ── slug generation (mirrors buildShrines collision logic) ─────────────────
-function buildSlugs(rows) {
-  const seen = new Map();
-  const result = [];
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    const lat = parseFloat(field(row, 'Latitude', 'latitude') || '');
-    const lng = parseFloat(field(row, 'Longitude', 'longitude') || '');
-    if (!isFinite(lat) || !isFinite(lng)) continue;
-
-    const explicit = field(row, 'Slug');
-    if (explicit) {
-      seen.set(explicit, (seen.get(explicit) ?? 0) + 1);
-      result.push({ row, slug: explicit, lat, lng });
-      continue;
-    }
-
-    const name = field(row, 'Name') || `Shrine ${i}`;
-    const location = field(row, 'Location');
-    const saint = field(row, 'Sufi Saint');
-    const base = slugify(name);
-    const withLoc = base && location ? `${base}-${slugify(location)}` : base;
-    const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
-
-    let chosen = base || `shrine-${i}`;
-    for (const candidate of [base, withLoc, withSaint]) {
-      if (candidate && !seen.has(candidate)) { chosen = candidate; break; }
-    }
-    if (seen.has(chosen)) {
-      let n = 2;
-      while (seen.has(`${chosen}-${n}`)) n++;
-      chosen = `${chosen}-${n}`;
-    }
-    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
-    result.push({ row, slug: chosen, lat, lng });
-  }
-  return result;
+// ── shrine records: shared slug logic + coord extraction ───────────────────
+// Slugs come from scripts/data/lib/slugs.mjs (the same logic the app and all
+// data scripts use); rows without a mappable lat/lng are dropped, matching
+// what the app renders. The snapshot is already coord-filtered upstream by
+// build-dataset.mjs, so the filter here is defensive.
+function buildShrineRecords(rows) {
+  const slugs = buildSlugs(rows);
+  return rows
+    .map((row, i) => ({
+      row,
+      slug: slugs[i],
+      lat: parseFloat(field(row, 'Latitude', 'latitude') || ''),
+      lng: parseFloat(field(row, 'Longitude', 'longitude') || ''),
+    }))
+    .filter(({ lat, lng }) => isFinite(lat) && isFinite(lng));
 }
 
 // ── HTML injection helpers ─────────────────────────────────────────────────
 function escHtml(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 /**
@@ -130,9 +103,18 @@ function replaceHreflang(html, canonicalUrl) {
       .replace(/<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>\s*/i, '');
   }
   return html
-    .replace(/<link\s+rel="alternate"\s+hreflang="en"[^>]*>/i, `<link rel="alternate" hreflang="en" href="${escHtml(canonicalUrl)}" />`)
-    .replace(/<link\s+rel="alternate"\s+hreflang="ur"[^>]*>/i, `<link rel="alternate" hreflang="ur" href="${escHtml(canonicalUrl)}?lang=ur" />`)
-    .replace(/<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>/i, `<link rel="alternate" hreflang="x-default" href="${escHtml(canonicalUrl)}" />`);
+    .replace(
+      /<link\s+rel="alternate"\s+hreflang="en"[^>]*>/i,
+      `<link rel="alternate" hreflang="en" href="${escHtml(canonicalUrl)}" />`,
+    )
+    .replace(
+      /<link\s+rel="alternate"\s+hreflang="ur"[^>]*>/i,
+      `<link rel="alternate" hreflang="ur" href="${escHtml(canonicalUrl)}?lang=ur" />`,
+    )
+    .replace(
+      /<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>/i,
+      `<link rel="alternate" hreflang="x-default" href="${escHtml(canonicalUrl)}" />`,
+    );
 }
 
 function buildShrineHead(shrine, baseHtml) {
@@ -143,7 +125,9 @@ function buildShrineHead(shrine, baseHtml) {
   const saint = field(row, 'Sufi Saint');
   const founded = field(row, 'Founded', 'Founded/Opened');
   const imgUrl = primaryImage(row);
-  const desc = leadText(row) || `${name}${location ? ` in ${location}` : ''}${saint ? `, associated with ${saint}` : ''}.`;
+  const desc =
+    leadText(row) ||
+    `${name}${location ? ` in ${location}` : ''}${saint ? `, associated with ${saint}` : ''}.`;
   const canonicalUrl = SITE_URL ? `${SITE_URL}/shrine/${slug}` : '';
 
   const metaBlock = [
@@ -159,7 +143,9 @@ function buildShrineHead(shrine, baseHtml) {
     `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
     `<meta name="twitter:title" content="${name} — Sufi Shrines" />`,
     `<meta name="twitter:description" content="${escHtml(desc)}" />`,
-  ].filter(Boolean).join('\n    ');
+  ]
+    .filter(Boolean)
+    .join('\n    ');
 
   // Build KG-enriched About node for the saint (falls back to plain name if KG absent)
   const kgEntry = kgByShrineSlug.get(slug);
@@ -169,26 +155,30 @@ function buildShrineHead(shrine, baseHtml) {
     aboutNode = {
       '@type': 'Person',
       '@id': `${KG_BASE}saint/${s.slug}`,
-      'name': s.name,
-      ...(s.altNames?.length ? { 'alternateName': s.altNames[0] } : {}),
-      ...(s.wikidataQid ? { 'sameAs': `https://www.wikidata.org/entity/${s.wikidataQid}` } : {}),
-      ...(kgEntry.order ? {
-        'memberOf': {
-          '@type': ['Organization', 'SufiOrder'],
-          '@id': `${KG_BASE}order/${kgEntry.order.slug}`,
-          'name': kgEntry.order.name,
-        },
-      } : {}),
+      name: s.name,
+      ...(s.altNames?.length ? { alternateName: s.altNames[0] } : {}),
+      ...(s.wikidataQid ? { sameAs: `https://www.wikidata.org/entity/${s.wikidataQid}` } : {}),
+      ...(kgEntry.order
+        ? {
+            memberOf: {
+              '@type': ['Organization', 'SufiOrder'],
+              '@id': `${KG_BASE}order/${kgEntry.order.slug}`,
+              name: kgEntry.order.name,
+            },
+          }
+        : {}),
     };
   } else if (saint) {
-    aboutNode = { '@type': 'Person', 'name': saint };
+    aboutNode = { '@type': 'Person', name: saint };
   }
 
   const eventNodes = (kgEntry?.events ?? []).map((e) => ({
     '@type': 'Event',
     '@id': `${KG_BASE}event/${e.id.replace(/^event:/, '')}`,
-    'name': e.name,
-    ...(e.frequency === 'annual' ? { 'eventSchedule': { '@type': 'Schedule', 'repeatFrequency': 'P1Y' } } : {}),
+    name: e.name,
+    ...(e.frequency === 'annual'
+      ? { eventSchedule: { '@type': 'Schedule', repeatFrequency: 'P1Y' } }
+      : {}),
   }));
 
   const shrineId = canonicalUrl || `${KG_BASE}shrine/${slug}`;
@@ -196,34 +186,46 @@ function buildShrineHead(shrine, baseHtml) {
   const jsonLd = JSON.stringify({
     '@context': [
       'https://schema.org',
-      { 'sufi': KG_VOCAB, 'SufiOrder': { '@id': `${KG_VOCAB}SufiOrder` } },
+      { sufi: KG_VOCAB, SufiOrder: { '@id': `${KG_VOCAB}SufiOrder` } },
     ],
     '@type': 'LandmarksOrHistoricalBuildings',
     '@id': shrineId,
-    'name': field(row, 'Name'),
-    'description': leadText(row),
-    'geo': { '@type': 'GeoCoordinates', 'latitude': lat, 'longitude': lng },
-    'address': {
+    name: field(row, 'Name'),
+    description: leadText(row),
+    geo: { '@type': 'GeoCoordinates', latitude: lat, longitude: lng },
+    address: {
       '@type': 'PostalAddress',
-      'addressLocality': location,
-      'addressCountry': 'PK',
+      addressLocality: location,
+      addressCountry: 'PK',
     },
-    ...(category ? { 'additionalType': category } : {}),
-    ...(aboutNode ? { 'about': aboutNode } : {}),
-    ...(eventNodes.length ? { 'event': eventNodes } : {}),
-    ...(founded ? { 'foundingDate': founded } : {}),
-    ...(imgUrl ? { 'image': imgUrl } : {}),
-    ...(canonicalUrl ? { 'url': canonicalUrl } : {}),
+    ...(category ? { additionalType: category } : {}),
+    ...(aboutNode ? { about: aboutNode } : {}),
+    ...(eventNodes.length ? { event: eventNodes } : {}),
+    ...(founded ? { foundingDate: founded } : {}),
+    ...(imgUrl ? { image: imgUrl } : {}),
+    ...(canonicalUrl ? { url: canonicalUrl } : {}),
   });
 
   // Replace title and existing meta og:title/og:description/twitter:card blocks
   let html = baseHtml
     .replace(/<title>[^<]*<\/title>/, `<title>${name} — Sufi Shrines</title>`)
-    .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${escHtml(desc)}" />`)
-    .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${name} — Sufi Shrines" />`)
-    .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${escHtml(desc)}" />`)
+    .replace(
+      /<meta\s+name="description"[^>]*>/i,
+      `<meta name="description" content="${escHtml(desc)}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:title"[^>]*>/i,
+      `<meta property="og:title" content="${name} — Sufi Shrines" />`,
+    )
+    .replace(
+      /<meta\s+property="og:description"[^>]*>/i,
+      `<meta property="og:description" content="${escHtml(desc)}" />`,
+    )
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
-    .replace(/<meta\s+name="twitter:card"[^>]*>/i, `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`);
+    .replace(
+      /<meta\s+name="twitter:card"[^>]*>/i,
+      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+    );
 
   html = replaceHreflang(html, canonicalUrl);
 
@@ -234,7 +236,9 @@ function buildShrineHead(shrine, baseHtml) {
     imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
     imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
     `  <script type="application/ld+json">${jsonLd}</script>`,
-  ].filter(Boolean).join('\n');
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   html = html.replace('</head>', `${extras}\n</head>`);
   return html;
@@ -285,7 +289,7 @@ if (existsSync(kgPath)) {
   }
 }
 
-const shrines = buildSlugs(snapshot.rows || []);
+const shrines = buildShrineRecords(snapshot.rows || []);
 let written = 0;
 
 for (const shrine of shrines) {
@@ -311,24 +315,37 @@ if (kgData) {
       '@context': 'https://schema.org',
       '@type': 'Person',
       '@id': `${KG_BASE}saint/${saint.slug}`,
-      'name': saint.name,
-      ...(saint.altNames?.length ? { 'alternateName': saint.altNames[0] } : {}),
-      ...(saint.born ? { 'birthDate': saint.born } : {}),
-      ...(saint.died ? { 'deathDate': saint.died } : {}),
-      ...(saint.wikidataQid ? { 'sameAs': `https://www.wikidata.org/entity/${saint.wikidataQid}` } : {}),
+      name: saint.name,
+      ...(saint.altNames?.length ? { alternateName: saint.altNames[0] } : {}),
+      ...(saint.born ? { birthDate: saint.born } : {}),
+      ...(saint.died ? { deathDate: saint.died } : {}),
+      ...(saint.wikidataQid
+        ? { sameAs: `https://www.wikidata.org/entity/${saint.wikidataQid}` }
+        : {}),
     });
     let html = baseHtml
       .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(saint.name)} — Sufi Shrines</title>`)
       .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${desc}" />`)
-      .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${escHtml(saint.name)} — Sufi Shrines" />`)
-      .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${desc}" />`)
-      .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="profile" />`);
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${escHtml(saint.name)} — Sufi Shrines" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${desc}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:type"[^>]*>/i,
+        `<meta property="og:type" content="profile" />`,
+      );
     html = replaceHreflang(html, canonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
       `  <script type="application/ld+json">${saintJsonLd}</script>`,
-    ].filter(Boolean).join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
     html = html.replace('</head>', `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     saintSlugs.push(`/saint/${saint.slug}`);
@@ -358,26 +375,40 @@ if (kgData) {
       `${order.name}${order.arabicName ? ` (${order.arabicName})` : ''} — Sufi spiritual order with ${memberCount} saint${memberCount === 1 ? '' : 's'} commemorated in Pakistan.`,
     );
     const orderJsonLd = JSON.stringify({
-      '@context': ['https://schema.org', { 'sufi': KG_VOCAB, 'SufiOrder': { '@id': `${KG_VOCAB}SufiOrder` } }],
+      '@context': [
+        'https://schema.org',
+        { sufi: KG_VOCAB, SufiOrder: { '@id': `${KG_VOCAB}SufiOrder` } },
+      ],
       '@type': ['Organization', 'SufiOrder'],
       '@id': `${KG_BASE}order/${order.slug}`,
-      'name': order.name,
-      ...(order.arabicName ? { 'alternateName': order.arabicName } : {}),
-      ...(order.description ? { 'description': order.description } : {}),
-      ...(order.founded ? { 'foundingDate': order.founded } : {}),
+      name: order.name,
+      ...(order.arabicName ? { alternateName: order.arabicName } : {}),
+      ...(order.description ? { description: order.description } : {}),
+      ...(order.founded ? { foundingDate: order.founded } : {}),
     });
     let html = baseHtml
       .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(order.name)} — Sufi Shrines</title>`)
       .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${desc}" />`)
-      .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${escHtml(order.name)} — Sufi Shrines" />`)
-      .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${desc}" />`)
-      .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="profile" />`);
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${escHtml(order.name)} — Sufi Shrines" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${desc}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:type"[^>]*>/i,
+        `<meta property="og:type" content="profile" />`,
+      );
     html = replaceHreflang(html, canonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
       `  <script type="application/ld+json">${orderJsonLd}</script>`,
-    ].filter(Boolean).join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
     html = html.replace('</head>', `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     orderSlugs.push(`/order/${order.slug}`);
@@ -394,14 +425,17 @@ const sitemapLines = [
 if (SITE_URL) {
   sitemapLines.push(
     `  <url><loc>${SITE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
-    ...shrines.map(({ slug }) =>
-      `  <url><loc>${SITE_URL}/shrine/${slug}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+    ...shrines.map(
+      ({ slug }) =>
+        `  <url><loc>${SITE_URL}/shrine/${slug}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`,
     ),
-    ...saintSlugs.map((p) =>
-      `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+    ...saintSlugs.map(
+      (p) =>
+        `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
     ),
-    ...orderSlugs.map((p) =>
-      `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+    ...orderSlugs.map(
+      (p) =>
+        `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
     ),
   );
 }
@@ -412,7 +446,10 @@ writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
 if (SITE_URL) {
   const homeHtml = replaceHreflang(baseHtml, `${SITE_URL}/`)
     .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
-    .replace('</head>', `  <link rel="canonical" href="${escHtml(SITE_URL)}/" />\n  <meta property="og:url" content="${escHtml(SITE_URL)}/" />\n</head>`);
+    .replace(
+      '</head>',
+      `  <link rel="canonical" href="${escHtml(SITE_URL)}/" />\n  <meta property="og:url" content="${escHtml(SITE_URL)}/" />\n</head>`,
+    );
   writeFileSync(distIndexPath, homeHtml, 'utf8');
 }
 

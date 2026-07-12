@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * validate-urdu-leak.mjs — asserts src/data/urdu-content.json has zero
- * Latin-script leaks. Part of M4's release gate (EXECUTION_PLAN.md): the
+ * Latin-script leaks. Part of M4's release gate (docs/planning/EXECUTION_PLAN.md): the
  * long-form Urdu translation content shouldn't ship with raw English hiding
  * in it. Stricter than urdu-i18n/build_urdu_content.py's own check (which
  * tolerates English inside a Bibliography heading) — this project's

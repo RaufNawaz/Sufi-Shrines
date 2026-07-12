@@ -15,67 +15,11 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateRow } from './schema.mjs';
+import { buildSlugs } from './lib/slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
 const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
-
-// ── slug generation (mirrors slugify.ts + buildShrines collision logic) ───
-
-const SLUG_SUBS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
-function slugify(text) {
-  if (!text) return '';
-  return text
-    .toLowerCase()
-    .replace(/[&@%+]/g, (c) => ` ${SLUG_SUBS[c] ?? c} `)
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .trim();
-}
-
-function computeSlug(row, index) {
-  const explicit = String(row['Slug'] ?? '').trim();
-  if (explicit) return explicit;
-  const name = String(row['Name'] ?? '').trim();
-  const location = String(row['Location'] ?? '').trim();
-  const saint = String(row['Sufi Saint'] ?? '').trim();
-  const base = slugify(name) || `shrine-${index}`;
-  const withLoc = base && location ? `${base}-${slugify(location)}` : base;
-  const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
-  return base || `shrine-${index}`;
-  void withLoc; void withSaint; // computed for context, used in dedup
-}
-
-function buildSlugs(rows) {
-  const seen = new Map();
-  return rows.map((row, i) => {
-    const explicit = String(row['Slug'] ?? '').trim();
-    if (explicit) {
-      seen.set(explicit, (seen.get(explicit) ?? 0) + 1);
-      return explicit;
-    }
-    const name = String(row['Name'] ?? '').trim();
-    const location = String(row['Location'] ?? '').trim();
-    const saint = String(row['Sufi Saint'] ?? '').trim();
-    const base = slugify(name) || `shrine-${i}`;
-    const withLoc = base && location ? `${base}-${slugify(location)}` : base;
-    const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
-
-    let chosen = base;
-    for (const candidate of [base, withLoc, withSaint]) {
-      if (candidate && !seen.has(candidate)) { chosen = candidate; break; }
-    }
-    if (seen.has(chosen)) {
-      let n = 2;
-      while (seen.has(`${chosen}-${n}`)) n++;
-      chosen = `${chosen}-${n}`;
-    }
-    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
-    return chosen;
-  });
-}
 
 // ── load ──────────────────────────────────────────────────────────────────
 

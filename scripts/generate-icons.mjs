@@ -1,7 +1,10 @@
 /**
- * Generates PWA icons from the brand shrine icon.
- * Produces: public/pwa-192x192.png, public/pwa-512x512.png, public/apple-touch-icon.png
- * Run via: node scripts/generate-icons.mjs
+ * generate-icons.mjs — Generate the PWA icons from the brand shrine icon.
+ *
+ * Produces public/pwa-192x192.png, public/pwa-512x512.png, and
+ * public/apple-touch-icon.png.
+ *
+ * Usage:  node scripts/generate-icons.mjs
  */
 import sharp from 'sharp';
 import { join, dirname } from 'node:path';

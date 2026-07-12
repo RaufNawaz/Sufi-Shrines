@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildSlugs } from './lib/slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -39,32 +40,6 @@ const CONTEXT = [
     buriedAt:     { '@id': `${VOCAB}buriedAt`,     '@type': '@id' },
   },
 ];
-
-// ── slug helpers (mirrors validate.mjs) ──────────────────────────────────────
-
-const SLUG_SUBS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
-function slugify(text) {
-  if (!text) return '';
-  return text.toLowerCase()
-    .replace(/[&@%+]/g, (c) => ` ${SLUG_SUBS[c] ?? c} `)
-    .replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-')
-    .replace(/-+/g, '-').replace(/^-+|-+$/g, '').trim();
-}
-function buildSlugs(rows) {
-  const seen = new Map();
-  return rows.map((row, i) => {
-    const e = String(row['Slug'] ?? '').trim();
-    if (e) { seen.set(e, (seen.get(e) ?? 0) + 1); return e; }
-    const base = slugify(row['Name'] || '') || `shrine-${i}`;
-    const withLoc = base && row['Location'] ? `${base}-${slugify(row['Location'])}` : base;
-    const withSaint = withLoc && row['Sufi Saint'] ? `${withLoc}-${slugify(row['Sufi Saint'])}` : withLoc;
-    let chosen = base;
-    for (const c of [base, withLoc, withSaint]) { if (c && !seen.has(c)) { chosen = c; break; } }
-    if (seen.has(chosen)) { let n = 2; while (seen.has(`${chosen}-${n}`)) n++; chosen = `${chosen}-${n}`; }
-    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
-    return chosen;
-  });
-}
 
 function getImageUrl(row) {
   for (const k of Object.keys(row)) {

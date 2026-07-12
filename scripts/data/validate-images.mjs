@@ -2,7 +2,7 @@
 /**
  * validate-images.mjs — HTTP-reachability gate for every "Image 1"/"Image 2"
  * URL in the canonical dataset (data/shrines.json). Part of M4's release
- * gate (EXECUTION_PLAN.md): a broken image link shouldn't ship silently.
+ * gate (docs/planning/EXECUTION_PLAN.md): a broken image link shouldn't ship silently.
  *
  * Network-dependent and rate-limit-aware (small concurrency, retry once,
  * spaced requests — Wikimedia Commons throttles aggressively). Skippable

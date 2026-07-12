@@ -18,54 +18,10 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { slugify, buildSlugs } from './lib/slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
-
-// ── slug helpers (mirrors validate.mjs / slugify.ts) ─────────────────────────
-
-const SLUG_SUBS = { '&': 'and', '@': 'at', '%': 'percent', '+': 'plus' };
-
-function slugify(text) {
-  if (!text) return '';
-  return text
-    .toLowerCase()
-    .replace(/[&@%+]/g, (c) => ` ${SLUG_SUBS[c] ?? c} `)
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_]+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .trim();
-}
-
-function buildSlugs(rows) {
-  const seen = new Map();
-  return rows.map((row, i) => {
-    const explicit = String(row['Slug'] ?? '').trim();
-    if (explicit) {
-      seen.set(explicit, (seen.get(explicit) ?? 0) + 1);
-      return explicit;
-    }
-    const name = String(row['Name'] ?? '').trim();
-    const location = String(row['Location'] ?? '').trim();
-    const saint = String(row['Sufi Saint'] ?? '').trim();
-    const base = slugify(name) || `shrine-${i}`;
-    const withLoc = base && location ? `${base}-${slugify(location)}` : base;
-    const withSaint = withLoc && saint ? `${withLoc}-${slugify(saint)}` : withLoc;
-
-    let chosen = base;
-    for (const candidate of [base, withLoc, withSaint]) {
-      if (candidate && !seen.has(candidate)) { chosen = candidate; break; }
-    }
-    if (seen.has(chosen)) {
-      let n = 2;
-      while (seen.has(`${chosen}-${n}`)) n++;
-      chosen = `${chosen}-${n}`;
-    }
-    seen.set(chosen, (seen.get(chosen) ?? 0) + 1);
-    return chosen;
-  });
-}
 
 // ── saint name normalisation ──────────────────────────────────────────────────
 

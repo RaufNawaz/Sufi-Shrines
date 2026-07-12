@@ -67,6 +67,12 @@ export const ShrineRowSchema = z.object({
     .refine((v) => !v || /^https?:\/\//i.test(v), {
       message: 'Image 2 must be empty or a valid http(s) URL',
     }),
+  // Optional photo credit/source line shown under an image that isn't from
+  // Wikimedia Commons (e.g. "Dawn.com") — see src/lib/data/galleryParsing.ts.
+  // These columns may not exist at all in older sheet snapshots, hence
+  // .optional() rather than optionalString (which still requires the key).
+  'Image 1 Credit': z.string().optional(),
+  'Image 2 Credit': z.string().optional(),
   Events: optionalString,
   Description: optionalString,
 });

@@ -17,6 +17,7 @@
  *
  * Environment:
  *   VITE_CSV_URL  — override the Google Sheets CSV URL
+ *                   (default: csvUrl in data/csv-source.json)
  */
 
 import { createRequire } from 'node:module';
@@ -39,7 +40,7 @@ const SCHEMA_VERSION = '1.0.0';
 
 const CSV_URL =
   process.env.VITE_CSV_URL ||
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/pub?gid=0&single=true&output=csv';
+  JSON.parse(readFileSync(join(ROOT, 'data', 'csv-source.json'), 'utf8')).csvUrl;
 
 // ── helpers ───────────────────────────────────────────────────────────────
 
