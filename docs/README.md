@@ -12,6 +12,7 @@ Reference documentation for the Sufi Shrines project. Start with the root
 | [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) | Dataset field reference, controlled vocabularies, validation rules              |
 | [`DATA_RELEASE.md`](DATA_RELEASE.md)       | Producing a citable data release and minting a DOI (Zenodo / Harvard Dataverse) |
 | [`KG_VOCABULARY.md`](KG_VOCABULARY.md)     | Custom `sufi:` vocabulary used in the knowledge-graph exports (JSON-LD / RDF)   |
+| [`CORRECTIONS_WORKFLOW.md`](CORRECTIONS_WORKFLOW.md) | How to report and process a factual correction to shrine content     |
 
 ## OCR guides (Urdu book pipeline)
 

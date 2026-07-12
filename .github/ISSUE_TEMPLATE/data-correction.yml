@@ -1,0 +1,40 @@
+name: Data correction
+description: Report a factual error, missing citation, or sourcing concern in a shrine's content.
+title: "[correction] "
+labels: ["data-quality"]
+body:
+  - type: input
+    id: shrine
+    attributes:
+      label: Shrine name or slug
+      description: The exact Name (or URL slug) of the affected shrine, e.g. "Ziarat Kaka Sahib" or ziarat-kaka-sahib.
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Affected field
+      options:
+        - Description (English)
+        - Description Urdu
+        - Founded/Opened
+        - Sufi Saint
+        - Location / coordinates
+        - Image
+        - Other (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's wrong
+      description: Quote the specific sentence/claim you believe is incorrect, outdated, or unsourced.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction (with a source)
+      description: What should it say instead? Include a link or citation if you have one — this project treats provenance seriously (see docs/planning/DATA_QUALITY_PLAN.md).
+    validations:
+      required: false

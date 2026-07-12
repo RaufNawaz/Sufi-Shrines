@@ -328,12 +328,13 @@ Extend `SourcesProvenance.tsx` (small diff on an already-working component):
 
 ### Phase G — Editorial pipeline (ongoing maintenance, prevents regression)
 
-- Document a lightweight "how to propose a correction" convention (a short doc + a
-  GitHub issue template is enough — no new infrastructure needed) so future edits
-  don't quietly bypass the provenance model this plan builds.
-  data:release chain (`scripts/data/release.mjs`) already requires `data:validate` to
-  pass — once Phase D's gates are promoted to hard, releases (and the eventual Zenodo
-  DOI mint) are automatically protected from regressing this work.
+**Implemented 2026-07-12.** Documented the correction-intake convention in
+`docs/CORRECTIONS_WORKFLOW.md` (indexed in `docs/README.md`) plus a GitHub issue
+form at `.github/ISSUE_TEMPLATE/data-correction.yml`. No new validation plumbing
+was needed: `npm run data:release` already runs `npm run data:validate` first
+(see `package.json`), so Phase D's content-quality gates are automatically part
+of the release gate — once those gates are promoted from warnings to hard
+errors, releases (and the eventual Zenodo DOI mint) are protected for free.
 
 ---
 
