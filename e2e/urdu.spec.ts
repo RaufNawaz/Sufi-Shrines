@@ -1,24 +1,25 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
+import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+import { LANGUAGE_STORAGE_KEY } from '../src/lib/storageKeys';
 
 /**
  * ?lang=ur end-to-end journey per URDU_IMPLEMENTATION_PLAN.md §9:
  * switch language, open the list, open a shrine, start a tour — asserting
  * Nastaliq is applied, chips are Urdu, numerals are Eastern, and dir=rtl.
  *
- * Assertions are written against mechanisms that hold regardless of
- * whether the browser's live Google Sheets fetch or the bundled fallback
- * snapshot supplies shrine data (both route every value through the same
- * Urdu dictionary/translateToUrdu path) — nothing here depends on a
- * specific shrine's hand-translated description.
+ * Shrine data comes from the deterministic CSV fixture (see fixtures.ts);
+ * every value still routes through the same Urdu dictionary/translateToUrdu
+ * path as production — nothing here depends on a specific shrine's
+ * hand-translated description.
  */
 test.describe('Urdu (?lang=ur) journey', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.evaluate(() => localStorage.removeItem('shrines_language'));
+    await page.evaluate((key) => localStorage.removeItem(key), LANGUAGE_STORAGE_KEY);
   });
 
   test('switching to Urdu sets dir=rtl and renders controls in Nastaliq', async ({ page }) => {
-    await page.getByRole('button', { name: 'اردو' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.switchToUrdu }).first().click();
 
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
@@ -36,7 +37,8 @@ test.describe('Urdu (?lang=ur) journey', () => {
     await expect(chips.first()).toBeVisible();
 
     const chipTexts = await chips.allTextContents();
-    // "All" must read "سب"; no chip should contain a Latin letter (the
+    // 'سب' is deliberately literal: the test's point is the exact rendered
+    // Urdu copy of the "All" chip. No chip may contain a Latin letter (the
     // categories are Muslim Shrine / Hindu Temple / Sikh Gurdwara, all of
     // which the seed dictionary covers with zero Latin leakage).
     expect(chipTexts[0]).toBe('سب');
@@ -58,14 +60,14 @@ test.describe('Urdu (?lang=ur) journey', () => {
 
   test('starting a tour shows Urdu chrome with Eastern-numeral stop counts', async ({ page }) => {
     await page.goto('/?lang=ur');
-    await page.getByRole('switch', { name: /رہنما دورے/ }).click();
+    await page.getByRole('switch', { name: UI_TEXT.ur.turnOnTours }).click();
 
     const firstCard = page.locator('.tour-card').first();
     await expect(firstCard).toBeVisible();
     await firstCard.click();
 
-    await expect(page.getByRole('button', { name: 'دورہ شروع کریں' })).toBeVisible();
-    await page.getByRole('button', { name: 'دورہ شروع کریں' }).click();
+    await expect(page.getByRole('button', { name: UI_TEXT.ur.tourStartButton })).toBeVisible();
+    await page.getByRole('button', { name: UI_TEXT.ur.tourStartButton }).click();
 
     const stepBadge = page.locator('.tour-step-badge');
     await expect(stepBadge).toBeVisible();
@@ -75,11 +77,13 @@ test.describe('Urdu (?lang=ur) journey', () => {
     expect(badgeText).not.toMatch(/[0-9]/);
   });
 
-  test('the ۱۲۳/123 numerals toggle switches a tour stop badge between digit systems', async ({ page }) => {
+  test('the ۱۲۳/123 numerals toggle switches a tour stop badge between digit systems', async ({
+    page,
+  }) => {
     await page.goto('/?lang=ur');
-    await page.getByRole('switch', { name: /رہنما دورے/ }).click();
+    await page.getByRole('switch', { name: UI_TEXT.ur.turnOnTours }).click();
     await page.locator('.tour-card').first().click();
-    await page.getByRole('button', { name: 'دورہ شروع کریں' }).click();
+    await page.getByRole('button', { name: UI_TEXT.ur.tourStartButton }).click();
 
     const stepBadge = page.locator('.tour-step-badge');
     await expect(stepBadge).toContainText(/[۰-۹]/);

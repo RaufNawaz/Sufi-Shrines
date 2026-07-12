@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
+import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 const TEST_SLUG = 'data-darbar';
 const TEST_NAME = 'Data Darbar';
@@ -22,7 +23,7 @@ test.describe('Shrine detail page', () => {
   test('back-to-map link returns to map', async ({ page }) => {
     await page.goto(`/shrine/${TEST_SLUG}`);
 
-    await page.getByRole('link', { name: /back to map/i }).first().click();
+    await page.getByRole('link', { name: UI_TEXT.en.backToMap }).first().click();
 
     await expect(page).toHaveURL('/');
   });
@@ -31,7 +32,7 @@ test.describe('Shrine detail page', () => {
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto(`/shrine/${TEST_SLUG}`);
 
-    await page.getByRole('button', { name: /share/i }).click();
+    await page.getByRole('button', { name: UI_TEXT.en.share }).click();
 
     // Toast appears briefly
     await expect(page.locator('.share-toast--visible')).toBeVisible();

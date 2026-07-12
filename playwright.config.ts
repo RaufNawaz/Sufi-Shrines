@@ -10,6 +10,11 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:4173',
     trace: 'on-first-retry',
+    // The PWA service worker registers a StaleWhileRevalidate route for the
+    // Google Sheets CSV; SW-issued fetches bypass Playwright's request
+    // interception, so block SW registration to keep e2e/fixtures.ts's CSV
+    // intercept (and therefore the whole suite) hermetic.
+    serviceWorkers: 'block',
   },
   projects: [
     {

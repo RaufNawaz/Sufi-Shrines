@@ -1,13 +1,18 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
+import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+import { LANGUAGE_STORAGE_KEY, THEME_STORAGE_KEY } from '../src/lib/storageKeys';
 
 test.describe('Preference persistence', () => {
   test.beforeEach(async ({ page }) => {
     // Clear storage so tests start clean
     await page.goto('/');
-    await page.evaluate(() => {
-      localStorage.removeItem('shrines_theme');
-      localStorage.removeItem('shrines_language');
-    });
+    await page.evaluate(
+      ([themeKey, languageKey]) => {
+        localStorage.removeItem(themeKey);
+        localStorage.removeItem(languageKey);
+      },
+      [THEME_STORAGE_KEY, LANGUAGE_STORAGE_KEY],
+    );
     await page.reload();
   });
 
@@ -16,7 +21,7 @@ test.describe('Preference persistence', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 
     // Toggle dark mode in the sidebar header
-    await page.getByRole('button', { name: 'Dark mode' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.darkMode }).first().click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 
     // Reload: main.tsx reads localStorage before React mounts
@@ -25,10 +30,10 @@ test.describe('Preference persistence', () => {
   });
 
   test('light mode restored after toggling back', async ({ page }) => {
-    await page.getByRole('button', { name: 'Dark mode' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.darkMode }).first().click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
 
-    await page.getByRole('button', { name: 'Light mode' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.lightMode }).first().click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 
     await page.reload();
@@ -40,7 +45,7 @@ test.describe('Preference persistence', () => {
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
 
     // Switch to Urdu
-    await page.getByRole('button', { name: 'اردو' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.switchToUrdu }).first().click();
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
 
@@ -50,9 +55,11 @@ test.describe('Preference persistence', () => {
   });
 
   test('English language restored after switching back', async ({ page }) => {
-    await page.getByRole('button', { name: 'اردو' }).first().click();
+    await page.getByRole('button', { name: UI_TEXT.en.switchToUrdu }).first().click();
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
 
+    // 'EN' is hardcoded in LanguageToggle.tsx (not a uiStrings entry) — the
+    // literal is the rendered copy under test.
     await page.getByRole('button', { name: 'EN' }).first().click();
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
 
