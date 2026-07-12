@@ -11,10 +11,12 @@
           "confidence": 1
         },
         "Description": {
-          "source": "UTRNet OCR from source PDF — human review pending",
-          "method": "ocr",
-          "confidence": 0.72,
-          "notes": "Placeholder: OCR text awaiting human translation and summary. Run: python tools/process_books.py --test-pdf <PDF> to regenerate."
+          "source": "Automated enrichment pipeline (tools/shrines_enrich.py, Claude-assisted web research) — see archive/_ENRICHMENT_LOG.md, run 2026-07-06 10:34:43",
+          "method": "llm",
+          "contentTier": "ai-researched",
+          "confidence": 0.6,
+          "date": "2026-07-12",
+          "notes": "Corrected during Phase B reconciliation (docs/planning/DATA_QUALITY_PLAN.md): this entry previously claimed method=\"ocr\" with a note describing an OCR placeholder awaiting human translation. That was stale — archive/_ENRICHMENT_LOG.md confirms the live Description (4,724 chars, exact match) was written by the automated research pipeline on 2026-07-06, not OCR. Allo Mahar has no shrine_entries/*.md file (shrine_entries/_INDEX.md lists it among the 11 shrines the manual pipeline deliberately declined to write, to avoid inventing biography) — this AI-researched content was added independently afterwards and is not yet fact-verified against a primary source; see Phase C."
         },
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",

@@ -403,3 +403,22 @@ untouched (Phase A is additive-only) for Phase B to resolve.
 **Headline finding**: 102/163 shrines (63%) — the largest single bucket — are
 `ai-researched` with zero citations. This is the concrete scope of Phase C's
 fact-verification backlog.
+
+### Appendix — Phase B results (run 2026-07-12)
+
+Compared all 37 `shrine_entries/*.md` files against their live `Description` text
+(similarity ratio via `difflib.SequenceMatcher`). **Result: all 37 confirmed cleanly
+merged** (0.98–0.996 similarity — effectively identical modulo whitespace). The
+"two pipelines out of sync" risk from §1.3 did not materialize at scale for the
+Tier 1/2 set. Full write-up: `archive/_description_reconciliation.md`.
+
+One fix applied: `allo-mahar`'s stale `Description` provenance entry (flagged by
+Phase A) was corrected — cross-referencing `archive/_ENRICHMENT_LOG.md` confirmed
+by exact character-count match (4,724 chars) that its content was written by the
+`ai-researched` pipeline on 2026-07-06, not OCR as the old entry claimed. Now
+correctly tagged `contentTier: "ai-researched"`, `method: "llm"`.
+
+Phase B is closed. Remaining content-quality risk is concentrated entirely in the
+102 `ai-researched` + 24 `sheet-original` shrines (Phase C's scope), which have no
+"was this merged correctly" question to ask — the open question for them is
+fact-verification, not reconciliation.
