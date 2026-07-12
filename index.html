@@ -1,275 +1,62 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shrines Click Info</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a5c4e" />
+    <meta
+      name="description"
+      content="An interactive map of Sufi shrines across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu."
+    />
+    <meta property="og:title" content="Sufi Shrines of Pakistan" />
+    <meta
+      property="og:description"
+      content="Explore Sufi shrine histories, architecture, rituals, and visitor information across Pakistan in English and Urdu."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- MapTiler SDK (UMD) -->
-  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.umd.min.js"></script>
-  <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css" rel="stylesheet" />
+    <!-- Language variants — same URL, content swaps client-side via ?lang=;
+         prerender.mjs rewrites these to absolute URLs (with SITE_URL) on
+         every generated page, including this file, during `npm run build`. -->
+    <link rel="alternate" hreflang="en" href="/" />
+    <link rel="alternate" hreflang="ur" href="/?lang=ur" />
+    <link rel="alternate" hreflang="x-default" href="/" />
 
-  <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; inset: 0; }
+    <!-- iOS PWA home-screen support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sufi Shrines" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    .rounded-rect { background: white; border-radius: 10px; box-shadow: 0 0 50px -25px black; }
-    .flex-center { position: absolute; display: flex; justify-content: center; align-items: center; }
-    .flex-center.left { left: 0px; }
+    <!-- Fonts: linked here (not @import) so the fetch starts before the app CSS arrives.
+         Noto Nastaliq Urdu is self-hosted (see src/styles/global.css) — the
+         primary Urdu reading face doesn't depend on this CDN being reachable. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+    />
+    <link
+      rel="preload"
+      href="/fonts/NotoNastaliqUrdu-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-    .sidebar {
-      transition: transform 1s;
-      z-index: 2;
-      width: 320px;
-      height: 100%;
-      top: 0;
-    }
-    .left.collapsed { transform: translateX(-315px); }
+    <!-- Map tiles: warm the CDN connection before Leaflet's first request -->
+    <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://b.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://c.basemaps.cartocdn.com" />
+    <link rel="dns-prefetch" href="https://d.basemaps.cartocdn.com" />
 
-    .sidebar-content { position: absolute; width: 95%; height: 95%; font-family: Arial, Helvetica, sans-serif; }
-    .sidebar-content-info {
-      position: absolute;
-      inset: 0;
-      padding: 16px;
-      box-sizing: border-box;
-      overflow-y: auto;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      word-break: break-word;
-    }
-    .sidebar-content-info h1 { margin: 0 0 10px 0; font-size: 20px; }
-    .sidebar-content-info label { margin-right: 8px; color: #6B7C92; font-weight: 600; }
-    .details-info { font-size: 13px; line-height: 1.4em; }
-    .muted { color: #6B7C92; font-size: 13px; }
-
-    .sidebar-toggle {
-      position: absolute;
-      width: 1.3em;
-      height: 1.3em;
-      right: -1.5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .icon { display: inline-block; width: 70%; height: 70%; background-size: cover; }
-
-    .sidebar.left .sidebar-toggle .icon {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M15.422 16.594l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
-    .sidebar.left.collapsed .sidebar-toggle .icon {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M8.578 16.594l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
-    .sidebar-toggle:hover { cursor: pointer; }
-
-    #status {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      z-index: 3;
-      background: rgba(255,255,255,0.95);
-      padding: 8px 10px;
-      border-radius: 10px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      max-width: 520px;
-      white-space: pre-wrap;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-  </style>
-</head>
-
-<body>
-  <div id="map"></div>
-
-  <div id="left" class="sidebar flex-center left collapsed">
-    <div class="sidebar-content rounded-rect flex-center" style="inset:0;">
-      <div class="sidebar-content-info">
-        <h1>Shrines</h1>
-        <div class="muted">Click a shrine point to see its properties here.</div>
-      </div>
-      <div class="sidebar-toggle rounded-rect">
-        <span class="icon"></span>
-      </div>
-    </div>
-  </div>
-
-  <div id="status">Loading…</div>
-
-  <script>
-    // --- YOUR SETTINGS ---
-    const API_KEY = "WDmTVcrwlj7v2t6K2h5d";
-    const STYLE_URL =
-      "https://api.maptiler.com/maps/019ba17c-0c46-7e35-90ec-d45eb3bd7973/style.json?key=" +
-      encodeURIComponent(API_KEY);
-
-    // IMPORTANT: your layer id includes a trailing space
-    const SHRINES_LAYER_ID = "Shrines ";
-
-    // Lahore start view
-    const LAHORE_CENTER = [74.3587, 31.5204];
-
-    maptilersdk.config.apiKey = API_KEY;
-
-    const statusEl = document.getElementById("status");
-    const setStatus = (msg) => { statusEl.textContent = msg; };
-
-    const map = new maptilersdk.Map({
-      container: "map",
-      style: STYLE_URL,
-      center: LAHORE_CENTER,
-      zoom: 12
-    });
-
-    map.addControl(new maptilersdk.NavigationControl(), "top-right");
-
-    function toggleSidebar(id) {
-      const elem = document.getElementById(id);
-      const classes = elem.className.split(" ");
-      const collapsed = classes.indexOf("collapsed") !== -1;
-
-      const padding = {};
-      if (collapsed) {
-        classes.splice(classes.indexOf("collapsed"), 1);
-        padding[id] = 320;
-        map.easeTo({ padding, duration: 1000 });
-      } else {
-        padding[id] = 0;
-        classes.push("collapsed");
-        map.easeTo({ padding, duration: 1000 });
-      }
-      elem.className = classes.join(" ");
-    }
-
-    function showSidebar(id) {
-      const elem = document.getElementById(id);
-      const classes = elem.className.split(" ");
-      if (classes.indexOf("collapsed") === -1) return;
-
-      classes.splice(classes.indexOf("collapsed"), 1);
-      const padding = {};
-      padding[id] = 320;
-      map.easeTo({ padding, duration: 1000 });
-      elem.className = classes.join(" ");
-    }
-
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, (c) => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-      }[c]));
-    }
-
-    // --- SIDEBAR RENDERER (with Image property rendered at the top) ---
-    function showFeaturePropertiesInSidebar(feature) {
-      const props = feature?.properties || {};
-      const title =
-        props.name || props.title || props.Name || props.NAME || "Place";
-
-      // Grab image link from Image/image fields (any URL allowed)
-      let imageUrl =
-        props.Image ??
-        props.image ??
-        props.image_url ??
-        props.photo_url ??
-        props.photo ??
-        null;
-
-      // Normalize and validate URL
-      if (typeof imageUrl === "string") {
-        imageUrl = imageUrl.trim();
-
-        // allow protocol-relative URLs
-        if (imageUrl.startsWith("//")) imageUrl = "https:" + imageUrl;
-
-        // if missing protocol, add https://
-        if (!/^https?:\/\//i.test(imageUrl)) {
-          imageUrl = "https://" + imageUrl.replace(/^\/+/, "");
-        }
-      } else {
-        imageUrl = null;
-      }
-
-      const parts = [];
-
-      // Render image at top if present
-      if (imageUrl) {
-        parts.push(`
-          <img
-            src="${escapeHtml(imageUrl)}"
-            alt="${escapeHtml(title)}"
-            style="width:100%; max-height:240px; object-fit:cover; border-radius:10px; margin:0 0 12px 0; display:block;"
-            onerror="this.style.display='none';"
-          />
-        `);
-      }
-
-      parts.push(`<h1>${escapeHtml(title)}</h1>`);
-
-      // Render all properties except the image field so it doesn't show twice
-      const imageKeys = new Set(["image", "Image", "image_url", "photo_url", "photo"]);
-      const rows = [];
-
-      for (const k of Object.keys(props)) {
-        if (imageKeys.has(k)) continue;
-
-        const v = props[k];
-        const sv = String(v);
-
-        // If it looks like a URL, render as a link
-        if (/^https?:\/\//i.test(sv) || sv.startsWith("www.")) {
-          const href = sv.startsWith("www.") ? "https://" + sv : sv;
-          rows.push(
-            `<div><label>${escapeHtml(k)}:</label> <a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(sv)}</a></div>`
-          );
-        } else {
-          rows.push(`<div><label>${escapeHtml(k)}:</label> ${escapeHtml(sv)}</div>`);
-        }
-      }
-
-      if (rows.length) parts.push(`<div class="details-info">${rows.join("")}</div>`);
-
-      document.querySelector(".sidebar-content-info").innerHTML = parts.join("");
-      showSidebar("left");
-    }
-
-    document.querySelector(".sidebar-toggle").addEventListener("click", () => toggleSidebar("left"));
-
-    map.on("load", () => {
-      // Verify the layer exists (must match EXACTLY, including the trailing space)
-      const layer = map.getLayer(SHRINES_LAYER_ID);
-      if (!layer) {
-        setStatus(
-          "Layer not found: [" + SHRINES_LAYER_ID + "]\n" +
-          "Printing all layer ids to the console."
-        );
-        console.log("All layer ids:", map.getStyle().layers.map(l => "[" + l.id + "]"));
-        return;
-      }
-
-      setStatus("Map loaded. Click a shrine point.");
-      setTimeout(() => { statusEl.style.display = "none"; }, 2000);
-
-      // Click handler for your Shrines dataset layer
-      map.on("click", SHRINES_LAYER_ID, (e) => {
-        if (!e.features || !e.features.length) return;
-        showFeaturePropertiesInSidebar(e.features[0]);
-      });
-
-      // Pointer cursor
-      map.on("mouseenter", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = "pointer"; });
-      map.on("mouseleave", SHRINES_LAYER_ID, () => { map.getCanvas().style.cursor = ""; });
-
-      // Open sidebar by default
-      showSidebar("left");
-    });
-
-    map.on("error", (e) => {
-      const msg = e && e.error && e.error.message ? e.error.message : JSON.stringify(e);
-      statusEl.style.display = "block";
-      setStatus("Map error:\n" + msg);
-      console.log("Map error:", e);
-    });
-  </script>
-</body>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Sufi Shrines of Pakistan</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

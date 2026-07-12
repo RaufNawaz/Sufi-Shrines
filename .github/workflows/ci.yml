@@ -1,0 +1,173 @@
+name: CI
+
+on:
+  push:
+    # main plus version branches (e.g. 1.6) that deploy-pages.yml deploys.
+    # Feature branches are covered by the pull_request trigger — listing them
+    # here too would run every push twice.
+    branches: [main, '[0-9]*.[0-9]*']
+  pull_request:
+    branches: [main]
+
+# CI only needs to read the repo; artifact upload/download uses its own token.
+permissions:
+  contents: read
+
+# One run per ref — a newer push cancels the in-flight run for the same branch/PR.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Unit / integration checks ──────────────────────────────────────────────
+  build:
+    name: Typecheck · Lint · Test · Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      # data:validate includes `python3 urdu-i18n/build_dictionary.py --check`,
+      # which regenerates the Urdu dictionary in memory and fails on any
+      # mismatch with the committed files. build_dictionary.py is stdlib-only
+      # Python, so the runner's system python3 suffices — no setup-python step.
+      - name: Validate data snapshot
+        run: npm run data:validate
+
+      # Belt-and-suspenders drift guard: nothing above may write to the
+      # committed Urdu dictionary, and the seed shipped to the app
+      # (src/data/urdu-seed.json) must be byte-identical to its source of
+      # truth in urdu-i18n/.
+      - name: Urdu dictionary drift guard
+        run: |
+          git diff --exit-code -- urdu-i18n
+          cmp urdu-i18n/shrine-translations.seed.json src/data/urdu-seed.json
+
+      # VITE_BASE_PATH=/ keeps asset URLs rooted at '/' to match how
+      # `vite preview` serves this artifact in the e2e and Lighthouse jobs —
+      # vite.config.ts otherwise defaults the base to /Sufi-Shrines/ for the
+      # GitHub Pages deploy (deploy-pages.yml builds its own artifact with
+      # that real base). Locally, `npm run build:e2e` does the same thing.
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BASE_PATH: '/'
+
+      # Compile the Storybook stories (incl. the a11y addon) so story
+      # regressions fail CI. Output (storybook-static/) is discarded.
+      - name: Build Storybook
+        run: npm run build-storybook -- --quiet
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+      - name: Check formatting
+        run: npm run format:check
+
+  # ── Playwright E2E + axe-core a11y ─────────────────────────────────────────
+  e2e:
+    name: E2E · a11y
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resolve Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('./package-lock.json').packages['node_modules/@playwright/test'].version")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      # OS-level dependencies are not covered by the browser cache.
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Run Playwright tests
+        run: npm run e2e
+        env:
+          CI: true
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ── Lighthouse CI performance + a11y budgets ───────────────────────────────
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Run Lighthouse CI
+        run: npx lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

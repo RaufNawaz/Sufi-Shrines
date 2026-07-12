@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.venv/
+venv/
+
+# Build output
+dist/
+dist-ssr/
+dist-data/
+build/
+
+# Environment variables (never commit real keys)
+.env
+.env.local
+.env.*.local
+
+# Large research assets (use Git LFS or external storage instead)
+*.pdf
+urd.traineddata
+tessdata/
+__pycache__/
+*.pyc
+out/
+books/
+
+# Research pipeline outputs — regenerable from books/ + out/, kept local
+chunks/
+summaries/
+
+# Working/planning files — local only, not part of the product
+REDESIGN_FOLLOWUP.md
+PHASE2_RESEARCH_PROMPT.md
+CLAUDE_CODE_PROMPT.md
+TOURS_CLAUDE_CODE_PROMPT.md
+NEXT_STEPS.md
+archive/
+
+# Research working files — private research data, not for public distribution
+Shrines_with_Descriptions.xlsx
+Shrines_with_Descriptions_BACKUP_*.xlsx
+FULL_SHEET_REPLACEMENT.tsv
+MISSING_SHRINES_FOR_SHEET.tsv
+STALE_ROWS_TO_UPDATE_IN_SHEET.tsv
+
+# Editor / OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Vite
+*.local
+
+*storybook.log
+storybook-static

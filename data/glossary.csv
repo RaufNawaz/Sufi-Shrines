@@ -1,0 +1,50 @@
+urdu,english,transliteration,category,notes
+حضرت,Hazrat,Hazrat,honorific,Reverential title for saints and scholars — do not translate
+مولانا,Mawlana,Mawlana,honorific,Title for an Islamic religious scholar
+شاہ,Shah,Shah,honorific,Kingly/saintly title; keep as Shah in names
+خواجہ,Khwaja,Khwaja,honorific,Master/lord; common title for Sufi saints in South Asia
+صاحب,Sahib,Sahib,honorific,Companion/master; appended to names as an honorific
+سیّد,Sayyid,Sayyid,honorific,Descendant of the Prophet Muhammad; also سید
+پیر,Pir,Pir,honorific,Sufi spiritual guide/master — do not translate as "elder"
+مرشد,Murshid,Murshid,honorific,Spiritual guide/master; the teacher in a Sufi relationship
+شیخ,Shaykh,Shaykh,honorific,Elder/master/teacher; also transliterated Sheikh
+قطب,Qutb,Qutb,honorific,Axis or pole of the saints; highest spiritual station
+غوث,Ghawth,Ghawth,honorific,Helper/intercessor; very high spiritual rank
+صاحبزادہ,Sahibzada,Sahibzada,honorific,Son of a saint or nobleman
+حافظ,Hafiz,Hafiz,honorific,One who has memorized the entire Quran
+سلسلہ,silsila,silsila,sufi_term,Sufi spiritual lineage or chain of transmission; not "sequence"
+مزار,mazar,mazar,shrine_type,Sacred tomb/shrine of a saint; avoid "mausoleum" alone
+درگاہ,dargah,dargah,shrine_type,Sufi shrine complex; door/threshold of a saint; avoid "court"
+خانقاہ,khanqah,khanqah,sufi_term,Sufi lodge or hospice where disciples gather
+تکیہ,takiya,takiya,sufi_term,Sufi lodge/resting place; also written tekke
+آستانہ,astana,astana,shrine_type,Sacred threshold/shrine; the dwelling of a saint
+قوالی,qawwali,qawwali,ritual,Sufi devotional music; not just "devotional song"
+سماع,sama,sama,ritual,Spiritual listening/audition; Sufi music session
+ذکر,dhikr,dhikr,ritual,Remembrance of God; Sufi repetitive recitation
+فقر,faqr,faqr,sufi_term,Spiritual poverty; the Sufi virtue of detachment from worldly things
+فقیر,faqir,faqir,sufi_term,Mystic/poor one; wandering Sufi; do not render only as "beggar"
+ولی,wali,wali,sufi_term,Friend of God/saint; plural اولیاء (awliya)
+اولیاء,awliya,awliya,sufi_term,Saints; plural of wali (friend of God)
+کرامت,karamat,karamat,sufi_term,Miraculous deed/spiritual gift of a saint; not "honor"
+بیعت,bay'a,bay'a,ritual,Oath of allegiance; initiation into a Sufi order by pledging to the pir
+مرید,murid,murid,sufi_term,Sufi disciple; one who has taken bay'a with a pir
+عرس,urs,urs,ritual,Annual commemoration of a saint's death anniversary; "wedding" with God
+لنگر,langar,langar,ritual,Communal free kitchen at a shrine; not just "anchor"
+چلہ,chilla,chilla,ritual,40-day spiritual retreat in seclusion
+نقشبندیہ,Naqshbandiyya,Naqshbandiyya,sufi_order,Major Sufi order founded by Baha-ud-Din Naqshband
+قادریہ,Qadiriyya,Qadiriyya,sufi_order,Sufi order founded by Abd al-Qadir Gilani
+چشتیہ,Chishtiyya,Chishtiyya,sufi_order,Sufi order prominent in South Asia; founded by Moinuddin Chishti
+سہروردیہ,Suhrawardiyya,Suhrawardiyya,sufi_order,Sufi order founded by Shihab al-Din Suhrawardi
+کبرویہ,Kubrāwiyya,Kubrawiyya,sufi_order,Sufi order founded by Najm al-Din Kubra
+رفاعیہ,Rifa'iyya,Rifa'iyya,sufi_order,Sufi order founded by Ahmad ibn Idris al-Rifa'i
+توکل,tawakkul,tawakkul,sufi_term,Complete trust/reliance on God; a key Sufi virtue
+زہد,zuhd,zuhd,sufi_term,Asceticism/renunciation of the world
+محبت,mahabbat,mahabbat,sufi_term,Divine love; a central Sufi concept
+وحدت الوجود,wahdat al-wujud,wahdat al-wujud,sufi_term,Unity of being; Ibn Arabi's metaphysical doctrine
+فنا,fana,fana,sufi_term,Annihilation of the self in God; a Sufi spiritual state
+بقا,baqa,baqa,sufi_term,Subsistence in God; the state after fana
+حال,hal,hal,sufi_term,Spiritual state; a transient condition granted by God
+مقام,maqam,maqam,sufi_term,Spiritual station; a permanent degree attained by effort
+مجذوب,majzub,majzub,sufi_term,One spiritually intoxicated; absorbed in divine love
+رحمة الله عليه,Rahmatullahi Alayhi,Rahmatullahi Alayhi,arabic_phrase,May God's mercy be upon him (after naming a deceased scholar)
+رضی الله عنه,Radi Allahu Anhu,Radi Allahu Anhu,arabic_phrase,May God be pleased with him (used for Companions of the Prophet)

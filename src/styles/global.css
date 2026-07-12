@@ -1,0 +1,286 @@
+/* Latin fonts (Merriweather, Source Sans 3, Noto Naskh Arabic) are loaded
+   via <link> in index.html — a remote @import here would delay the font CSS
+   until after the bundled stylesheet downloads. Noto Nastaliq Urdu is
+   self-hosted below (URDU_IMPLEMENTATION_PLAN.md Phase 1): it's the primary
+   reading face for the whole Urdu experience, so it doesn't depend on a
+   third-party CDN being reachable. Arabic-script subset only — this file
+   set has no Latin glyphs. */
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/NotoNastaliqUrdu-400.woff2') format('woff2');
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/NotoNastaliqUrdu-600.woff2') format('woff2');
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/NotoNastaliqUrdu-700.woff2') format('woff2');
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Never go below 16px — prevents iOS auto-zoom on focus */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent iOS momentum scrolling issues on fixed sidebars */
+  overflow-x: hidden;
+}
+
+/* iOS tap highlight */
+a,
+button,
+[role='button'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent FOUT on dark theme */
+html[data-theme='dark'] body {
+  background-color: var(--color-bg);
+}
+
+/* RTL body */
+body.lang-rtl,
+[dir='rtl'] {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+  font-size: 1.05rem;
+  letter-spacing: normal;
+  word-spacing: 0.05em;
+}
+
+/* Nastaliq sits taller and needs more visual weight than Latin scripts to
+   read as comfortably — bump headings/body via --font-scale-urdu rather
+   than hand-tuning every heading's font-size. */
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4,
+[dir='rtl'] p,
+[dir='rtl'] li,
+[dir='rtl'] dd,
+[dir='rtl'] dt {
+  font-size: calc(1em * var(--font-scale-urdu));
+}
+
+/* Form controls don't inherit font-family by default in most browsers'
+   UA stylesheets — without this every chip, button, and input renders
+   Urdu in a fallback Naskh/serif instead of Nastaliq. */
+[dir='rtl'] button,
+[dir='rtl'] input,
+[dir='rtl'] select,
+[dir='rtl'] textarea,
+[dir='rtl'] .filter-chip,
+[dir='rtl'] .search-input {
+  font-family: var(--font-urdu);
+  font-size: 1.1rem;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: var(--safe-top);
+  inset-inline-start: var(--safe-left);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  text-decoration: none;
+  border-end-end-radius: var(--radius-md);
+  z-index: var(--z-modal);
+  transform: translateY(-100%);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Leaflet chrome theming lives in map.css (single consolidated section). */
+
+/* App-level Suspense fallback */
+.page-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.spinner--lg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary-pale);
+  color: var(--color-primary-dark);
+}
+
+/* SW update toast */
+.sw-update-toast {
+  position: fixed;
+  bottom: calc(var(--space-6) + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-xl);
+  white-space: nowrap;
+  animation: page-fade-in var(--duration-base) var(--easing) both;
+}
+
+.sw-update-msg {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.sw-update-reload {
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--duration-fast);
+  font-family: inherit;
+}
+
+.sw-update-reload:hover {
+  background: var(--color-primary-dark);
+}
+
+.sw-update-dismiss {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-full);
+  transition:
+    color var(--duration-fast),
+    background var(--duration-fast);
+}
+
+.sw-update-dismiss:hover {
+  color: var(--color-text);
+  background: var(--color-bg-alt);
+}
+
+/* Print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  [dir='rtl'] {
+    direction: rtl;
+  }
+}
+
+/* Page mount animation */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-fade-in var(--duration-base) var(--easing) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}

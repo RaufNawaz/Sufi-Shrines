@@ -1,0 +1,13 @@
+# Optional: local NLLB-200 machine-translation assist (tools/translate.py --engine nllb,
+# the default engine for that script). Not needed for the OCR-only pipeline — see
+# requirements.txt. Downloads ~1.2GB model from HuggingFace Hub on first use.
+#
+# Install: pip install -r requirements.txt -r requirements-translate.txt
+#
+# On Windows/Linux, torch's default PyPI wheel pulls a CUDA build; add
+# `--index-url https://download.pytorch.org/whl/cpu` if you don't have a GPU.
+# On macOS the default PyPI wheel is already CPU/MPS-only, no extra index needed.
+
+transformers>=4.40
+sentencepiece>=0.2.0
+torch>=2.2

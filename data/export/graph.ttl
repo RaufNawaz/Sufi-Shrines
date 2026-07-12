@@ -1,0 +1,3375 @@
+@prefix schema:  <https://schema.org/> .
+@prefix sufi:    <https://github.com/raufnawaz/sufi-shrines/vocab#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd:      <https://www.wikidata.org/entity/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix shrine:  <https://github.com/raufnawaz/sufi-shrines/data/shrine/> .
+@prefix saint:   <https://github.com/raufnawaz/sufi-shrines/data/saint/> .
+@prefix order_:  <https://github.com/raufnawaz/sufi-shrines/data/order/> .
+@prefix place:   <https://github.com/raufnawaz/sufi-shrines/data/place/> .
+@prefix event_:  <https://github.com/raufnawaz/sufi-shrines/data/event/> .
+
+# ── Vocabulary ────────────────────────────────────────────────────────────
+sufi:SufiOrder rdfs:subClassOf schema:Organization .
+sufi:UrsEvent  rdfs:subClassOf schema:Event .
+sufi:buriedAt      rdfs:subPropertyOf schema:location ;
+                   rdfs:label "buried at"@en .
+sufi:commemorates  rdfs:subPropertyOf schema:about ;
+                   rdfs:label "commemorates"@en .
+sufi:silsila       rdfs:label "spiritual lineage (silsila)"@en .
+
+# ── Sufi Orders ───────────────────────────────────────────────────────────
+order_:chishtiyya
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Chishtiyya"@en ;
+  schema:alternateName "چشتیہ"@ar ;
+  schema:description """One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama)."""@en ;
+  schema:foundingDate "c. 1000" ;
+  .
+
+order_:suhrawardiyya
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Suhrawardiyya"@en ;
+  schema:alternateName "سہروردیہ"@ar ;
+  schema:description """Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya."""@en ;
+  schema:foundingDate "c. 1100" ;
+  .
+
+order_:qadiriyya
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Qadiriyya"@en ;
+  schema:alternateName "قادریہ"@ar ;
+  schema:description """Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab."""@en ;
+  schema:foundingDate "c. 1165" ;
+  .
+
+order_:qalandariyya
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Qalandariyya"@en ;
+  schema:alternateName "قلندریہ"@ar ;
+  schema:description """Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance."""@en ;
+  .
+
+order_:naqshbandiyya
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Naqshbandiyya"@en ;
+  schema:alternateName "نقشبندیہ"@ar ;
+  schema:description """Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a."""@en ;
+  schema:foundingDate "c. 1389" ;
+  .
+
+# ── Saints ────────────────────────────────────────────────────────────────
+saint:pir-syed-muhammad-channan-shah-nuri
+  a schema:Person ;
+  schema:name "Pir Syed Muhammad Channan Shah Nuri"@en ;
+  .
+
+saint:bari-imam
+  a schema:Person ;
+  schema:name "Bari Imam"@en ;
+  schema:alternateName "Shah Abdul Latif Kazmi"@en ;
+  .
+
+saint:shah-abdul-latif-bhittai
+  a schema:Person ;
+  schema:name "Shah Abdul Latif Bhittai"@en ;
+  .
+
+saint:khawaja-shah-muhammad-sulaiman-taunsvi
+  a schema:Person ;
+  schema:name "Khawaja Shah Muhammad Sulaiman Taunsvi"@en ;
+  .
+
+saint:syed-sakhi-shah-chan-charagh
+  a schema:Person ;
+  schema:name "Syed Sakhi Shah Chan Charagh"@en ;
+  .
+
+saint:sufi-shah-inayat-shaheed
+  a schema:Person ;
+  schema:name "Sufi Shah Inayat Shaheed"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:syed-rakhyal-shah-sufi-al-qadri
+  a schema:Person ;
+  schema:name "Syed Rakhyal Shah Sufi Al Qadri"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:data-ganj-bakhsh
+  a schema:Person ;
+  schema:name "Data Ganj Bakhsh"@en ;
+  schema:alternateName "Ali Hujwiri"@en ;
+  .
+
+saint:pir-abdul-ul-karim
+  a schema:Person ;
+  schema:name "Pir Abdul-ul-karim"@en ;
+  .
+
+saint:sultan-bahoo
+  a schema:Person ;
+  schema:name "Sultan Bahoo"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:pir-meher-ali-shah
+  a schema:Person ;
+  schema:name "Pir Meher Ali Shah"@en ;
+  .
+
+saint:bhai-joga-singh
+  a schema:Person ;
+  schema:name "Bhai Joga Singh"@en ;
+  .
+
+saint:guru-nanak
+  a schema:Person ;
+  schema:name "Guru Nanak"@en ;
+  schema:sameAs <https://www.wikidata.org/entity/Q309430> ;
+  .
+
+saint:guru-arjan-dev
+  a schema:Person ;
+  schema:name "Guru Arjan Dev"@en ;
+  .
+
+saint:bhai-taru
+  a schema:Person ;
+  schema:name "Bhai Taru"@en ;
+  .
+
+saint:laki-shah-saddar
+  a schema:Person ;
+  schema:name "Laki Shah Saddar"@en ;
+  schema:alternateName "Syed Shah Sadaruddin Lakyari"@en ;
+  .
+
+saint:lal-shahbaz-qalandar
+  a schema:Person ;
+  schema:name "Lal Shahbaz Qalandar"@en ;
+  schema:alternateName "Syed Muhammad Usman"@en ;
+  schema:memberOf order_:qalandariyya ;
+  .
+
+saint:makhdoom-burhan-ud-din
+  a schema:Person ;
+  schema:name "Makhdoom Burhan-ud-din"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  .
+
+saint:waris-shah
+  a schema:Person ;
+  schema:name "Waris Shah"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:bulleh-shah
+  a schema:Person ;
+  schema:name "Bulleh Shah"@en ;
+  schema:alternateName "Abdullah Shah Qadri"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:khwaja-ghulam-farid
+  a schema:Person ;
+  schema:name "Khwaja Ghulam Farid"@en ;
+  schema:memberOf order_:chishtiyya ;
+  .
+
+saint:smadhi-of-dya-ram
+  a schema:Person ;
+  schema:name "Smadhi of Dya Ram"@en ;
+  .
+
+saint:shah-sulaimn-nri
+  a schema:Person ;
+  schema:name "Shah Sulaimān Nūri"@en ;
+  .
+
+saint:rahman-baba
+  a schema:Person ;
+  schema:name "Rahman Baba"@en ;
+  schema:alternateName "Abdur Rahman Mohmand"@en ;
+  schema:memberOf order_:chishtiyya ;
+  .
+
+saint:syed-muhammad-noushah-qadiri
+  a schema:Person ;
+  schema:name "Syed Muhammad Noushah Qadiri"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:sultan-sakhi-sarwar
+  a schema:Person ;
+  schema:name "Sultan Sakhi Sarwar"@en ;
+  .
+
+saint:syed-bilawal-shah-noorani
+  a schema:Person ;
+  schema:name "Syed Bilawal Shah Noorani"@en ;
+  .
+
+saint:shah-yousuf
+  a schema:Person ;
+  schema:name "Shah Yousuf"@en ;
+  .
+
+saint:hinglaj-mata
+  a schema:Person ;
+  schema:name "Hinglaj Mata"@en ;
+  .
+
+saint:shams-ali-qalandar
+  a schema:Person ;
+  schema:name "Shams Ali Qalandar"@en ;
+  schema:memberOf order_:qalandariyya ;
+  .
+
+saint:daud-bandagi-kirmani
+  a schema:Person ;
+  schema:name "Daud Bandagi Kirmani"@en ;
+  schema:memberOf order_:chishtiyya ;
+  .
+
+saint:sheikh-tahir
+  a schema:Person ;
+  schema:name "Sheikh Tahir"@en ;
+  schema:alternateName "also revered as Udero Lal/Jhulelal"@en ;
+  .
+
+saint:abdullah-shah-ghazi
+  a schema:Person ;
+  schema:name "Abdullah Shah Ghazi"@en ;
+  .
+
+saint:abul-faiz-qalander-ali-suharwardi
+  a schema:Person ;
+  schema:name "Abul Faiz Qalander Ali Suharwardi"@en ;
+  .
+
+saint:bahauddin-zakariya
+  a schema:Person ;
+  schema:name "Bahauddin Zakariya"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  .
+
+saint:bibi-pak-daman
+  a schema:Person ;
+  schema:name "Bibi Pak Daman"@en ;
+  .
+
+saint:fariduddin-ganjshakar
+  a schema:Person ;
+  schema:name "Fariduddin Ganjshakar"@en ;
+  schema:memberOf order_:chishtiyya ;
+  .
+
+saint:ganj-e-inayat-sarkar
+  a schema:Person ;
+  schema:name "Ganj e Inayat Sarkar"@en ;
+  .
+
+saint:shah-hussain
+  a schema:Person ;
+  schema:name "Shah Hussain"@en ;
+  schema:alternateName "Madho Lal Hussain"@en ;
+  .
+
+saint:shah-daula-daryai
+  a schema:Person ;
+  schema:name "Shah Daula Daryai"@en ;
+  .
+
+saint:imam-ali-ul-haq
+  a schema:Person ;
+  schema:name "Imam Ali-ul-Haq"@en ;
+  .
+
+saint:jalaluddin-surkh-posh-bukhari
+  a schema:Person ;
+  schema:name "Jalaluddin Surkh-Posh Bukhari"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  .
+
+saint:jahaniyan-jahangasht
+  a schema:Person ;
+  schema:name "Jahaniyan Jahangasht"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  .
+
+saint:mian-mir
+  a schema:Person ;
+  schema:name "Mian Mir"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:pir-mangho
+  a schema:Person ;
+  schema:name "Pir Mangho"@en ;
+  .
+
+saint:pir-sher-muhammad
+  a schema:Person ;
+  schema:name "Pir Sher Muhammad"@en ;
+  .
+
+saint:qalandar-baba-auliya
+  a schema:Person ;
+  schema:name "Qalandar Baba Auliya"@en ;
+  schema:memberOf order_:qalandariyya ;
+  .
+
+saint:sachal-sarmast
+  a schema:Person ;
+  schema:name "Sachal Sarmast"@en ;
+  schema:alternateName "Abdul Wahab Faruqi"@en ;
+  schema:memberOf order_:qadiriyya ;
+  .
+
+saint:shah-rukn-e-alam
+  a schema:Person ;
+  schema:name "Shah Rukn-e-Alam"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  .
+
+saint:shah-shams-ud-din-sabzwari
+  a schema:Person ;
+  schema:name "Shah Shams-ud-Din Sabzwari"@en ;
+  .
+
+saint:shah-yusaf-gardez
+  a schema:Person ;
+  schema:name "Shah Yusaf Gardez"@en ;
+  .
+
+saint:syed-musa-pak
+  a schema:Person ;
+  schema:name "Syed Musa Pak"@en ;
+  .
+
+saint:muhammad-shamsuddin-sialvi
+  a schema:Person ;
+  schema:name "Muhammad Shamsuddin Sialvi"@en ;
+  .
+
+saint:ghazi-syed-shah-fateh-muhammad-bukhari
+  a schema:Person ;
+  schema:name "Ghazi Syed Shah Fateh Muhammad Bukhari"@en ;
+  .
+
+# ── Places ────────────────────────────────────────────────────────────────
+place:sialkot
+  a schema:Place ;
+  schema:name "Sialkot"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sialkot"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:khushab-district
+  a schema:Place ;
+  schema:name "Khushab District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Khushab District"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:islamabad
+  a schema:Place ;
+  schema:name "Islamabad"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Islamabad"@en ;
+    schema:addressRegion   "Islamabad Capital Territory"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:karachi
+  a schema:Place ;
+  schema:name "Karachi"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Karachi"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:mehar
+  a schema:Place ;
+  schema:name "Mehar"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mehar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:bhit
+  a schema:Place ;
+  schema:name "Bhit"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Bhit"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:nagarparkar
+  a schema:Place ;
+  schema:name "Nagarparkar"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nagarparkar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:taunsa-sharif
+  a schema:Place ;
+  schema:name "Taunsa Sharif"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Taunsa Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:punjab
+  a schema:Place ;
+  schema:name "Punjab"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Punjab"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sindh
+  a schema:Place ;
+  schema:name "Sindh"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sindh"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:gandawah-jhal-magsi-district
+  a schema:Place ;
+  schema:name "Gandawah (Jhal Magsi District)"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Gandawah (Jhal Magsi District)"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:peshawar
+  a schema:Place ;
+  schema:name "Peshawar"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Peshawar"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:saddar-town
+  a schema:Place ;
+  schema:name "Saddar Town"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Saddar Town"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sanghar-duthro-sharif
+  a schema:Place ;
+  schema:name "Sanghar (Duthro Sharif)"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sanghar (Duthro Sharif)"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:jhang
+  a schema:Place ;
+  schema:name "Jhang"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jhang"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:tehsil-mehar
+  a schema:Place ;
+  schema:name "Tehsil Mehar"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Tehsil Mehar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:khyber-pakhtunkhwa
+  a schema:Place ;
+  schema:name "Khyber Pakhtunkhwa"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Khyber Pakhtunkhwa"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:kpk
+  a schema:Place ;
+  schema:name "KPK"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "KPK"@en ;
+    schema:addressRegion   "KPK"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:shakargarh-tehsil
+  a schema:Place ;
+  schema:name "Shakargarh Tehsil"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shakargarh Tehsil"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:balochistan
+  a schema:Place ;
+  schema:name "Balochistan"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Balochistan"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:nankana-sahib
+  a schema:Place ;
+  schema:name "Nankana Sahib"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Nankana Sahib"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:hyderabad
+  a schema:Place ;
+  schema:name "Hyderabad"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Hyderabad"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:jamshoro
+  a schema:Place ;
+  schema:name "Jamshoro"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jamshoro"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sukkur-district
+  a schema:Place ;
+  schema:name "Sukkur District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sukkur District"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:chakwal-district
+  a schema:Place ;
+  schema:name "Chakwal District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Chakwal District"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:rawalpindi
+  a schema:Place ;
+  schema:name "Rawalpindi"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Rawalpindi"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:lahore
+  a schema:Place ;
+  schema:name "Lahore"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:chiniot
+  a schema:Place ;
+  schema:name "Chiniot"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Chiniot"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sheikhupura-district
+  a schema:Place ;
+  schema:name "Sheikhupura District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sheikhupura District"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:kasur
+  a schema:Place ;
+  schema:name "Kasur"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Kasur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:rajanpur
+  a schema:Place ;
+  schema:name "Rajanpur"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Rajanpur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:multan
+  a schema:Place ;
+  schema:name "Multan"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:bhalwal
+  a schema:Place ;
+  schema:name "Bhalwal"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Bhalwal"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:tando-allahyar-district
+  a schema:Place ;
+  schema:name "Tando Allahyar District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Tando Allahyar District"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:phalia
+  a schema:Place ;
+  schema:name "Phalia"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Phalia"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:near-sukkurrohri
+  a schema:Place ;
+  schema:name "near Sukkur/Rohri"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "near Sukkur/Rohri"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:dera-ghazi-khan
+  a schema:Place ;
+  schema:name "Dera Ghazi Khan"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Dera Ghazi Khan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:dadu
+  a schema:Place ;
+  schema:name "Dadu"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Dadu"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sehwan-sharif
+  a schema:Place ;
+  schema:name "Sehwan Sharif"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sehwan Sharif"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:khuzdar-district
+  a schema:Place ;
+  schema:name "Khuzdar District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Khuzdar District"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:shahpur
+  a schema:Place ;
+  schema:name "Shahpur"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shahpur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:road-asha-pura
+  a schema:Place ;
+  schema:name "Road، Asha Pura"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Road، Asha Pura"@en ;
+    schema:addressRegion   "Road، Asha Pura"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:okara
+  a schema:Place ;
+  schema:name "Okara"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Okara"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:neelum-valley-azad-kashmir
+  a schema:Place ;
+  schema:name "Neelum Valley (Azad Kashmir)"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Neelum Valley (Azad Kashmir)"@en ;
+    schema:addressRegion   "Neelum Valley (Azad Kashmir)"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:mansehra-district
+  a schema:Place ;
+  schema:name "Mansehra District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mansehra District"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:karachi-east
+  a schema:Place ;
+  schema:name "Karachi East"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Karachi East"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:matiari-district
+  a schema:Place ;
+  schema:name "Matiari District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Matiari District"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:pakpattan
+  a schema:Place ;
+  schema:name "Pakpattan"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Pakpattan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:bahawalpur-district
+  a schema:Place ;
+  schema:name "Bahawalpur District"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Bahawalpur District"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sharaqpur
+  a schema:Place ;
+  schema:name "Sharaqpur"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sharaqpur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:khairpur
+  a schema:Place ;
+  schema:name "Khairpur"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Khairpur"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:sial-sharif-sargodha-district
+  a schema:Place ;
+  schema:name "Sial Sharif (Sargodha District)"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sial Sharif (Sargodha District)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+place:uch-sharif
+  a schema:Place ;
+  schema:name "Uch Sharif"@en ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Uch Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry  "PK"^^xsd:string
+  ] ;
+  .
+
+# ── Urs Events ────────────────────────────────────────────────────────────
+event_:urs-allo-mahar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Pir Syed Muhammad Channan Shah Nuri at Allo Mahar"@en ;
+  schema:location shrine:allo-mahar ;
+  schema:about saint:pir-syed-muhammad-channan-shah-nuri ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-bari-imam
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Bari Imam at Bari Imam"@en ;
+  schema:location shrine:bari-imam ;
+  schema:about saint:bari-imam ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-bhit-bhit-shah
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Abdul Latif Bhittai at Bhit (Bhit Shah)"@en ;
+  schema:location shrine:bhit-bhit-shah ;
+  schema:about saint:shah-abdul-latif-bhittai ;
+  schema:description "Takes place in Safar"@en ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Khawaja Shah Muhammad Sulaiman Taunsvi at Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)"@en ;
+  schema:location shrine:darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra ;
+  schema:about saint:khawaja-shah-muhammad-sulaiman-taunsvi ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-dargah-fateh-pur-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Syed Rakhyal Shah Sufi Al Qadri at Dargah Fateh Pur Sharif"@en ;
+  schema:location shrine:dargah-fateh-pur-sharif ;
+  schema:about saint:syed-rakhyal-shah-sufi-al-qadri ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-data-darbar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Data Ganj Bakhsh at Data Darbar"@en ;
+  schema:location shrine:data-darbar ;
+  schema:about saint:data-ganj-bakhsh ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-eidgah-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Pir Abdul-ul-karim at Eidgah Sharif"@en ;
+  schema:location shrine:eidgah-sharif ;
+  schema:about saint:pir-abdul-ul-karim ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-garh-maharaja-shorkot
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Sultan Bahoo at Garh Maharaja (Shorkot)"@en ;
+  schema:location shrine:garh-maharaja-shorkot ;
+  schema:about saint:sultan-bahoo ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-golra-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Pir Meher Ali Shah at Golra Sharif"@en ;
+  schema:location shrine:golra-sharif ;
+  schema:about saint:pir-meher-ali-shah ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-jamshoro-district
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Laki Shah Saddar at Jamshoro District"@en ;
+  schema:location shrine:jamshoro-district ;
+  schema:about saint:laki-shah-saddar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-lal-shahbaz-qalandar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Lal Shahbaz Qalandar at Lal Shahbaz Qalandar"@en ;
+  schema:location shrine:lal-shahbaz-qalandar ;
+  schema:about saint:lal-shahbaz-qalandar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-langer-makhdoom
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Makhdoom Burhan-ud-din at Langer Makhdoom"@en ;
+  schema:location shrine:langer-makhdoom ;
+  schema:about saint:makhdoom-burhan-ud-din ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-mazar-of-bulleh-shah
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Bulleh Shah at Mazar of Bulleh Shah"@en ;
+  schema:location shrine:mazar-of-bulleh-shah ;
+  schema:about saint:bulleh-shah ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-mithankot-kot-mithan
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Khwaja Ghulam Farid at Mithankot (Kot Mithan)"@en ;
+  schema:location shrine:mithankot-kot-mithan ;
+  schema:about saint:khwaja-ghulam-farid ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-purana-bhalwal
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Sulaimān Nūri at Purana Bhalwal"@en ;
+  schema:location shrine:purana-bhalwal ;
+  schema:about saint:shah-sulaimn-nri ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-ranmal-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Syed Muhammad Noushah Qadiri at Ranmal Sharif"@en ;
+  schema:location shrine:ranmal-sharif ;
+  schema:about saint:syed-muhammad-noushah-qadiri ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-sakhi-sarwar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Sultan Sakhi Sarwar at Sakhi Sarwar"@en ;
+  schema:location shrine:sakhi-sarwar ;
+  schema:about saint:sultan-sakhi-sarwar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-sehwan-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Lal Shahbaz Qalandar at Sehwan Sharif"@en ;
+  schema:location shrine:sehwan-sharif ;
+  schema:about saint:lal-shahbaz-qalandar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shah-yousuf
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Yousuf at Shah Yousuf"@en ;
+  schema:location shrine:shah-yousuf ;
+  schema:about saint:shah-yousuf ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shamsabad
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shams Ali Qalandar at Shamsabad"@en ;
+  schema:location shrine:shamsabad ;
+  schema:about saint:shams-ali-qalandar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shergarh
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Daud Bandagi Kirmani at Shergarh"@en ;
+  schema:location shrine:shergarh ;
+  schema:about saint:daud-bandagi-kirmani ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-abdullah-shah-ghazi
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Abdullah Shah Ghazi at Shrine of Abdullah Shah Ghazi"@en ;
+  schema:location shrine:shrine-of-abdullah-shah-ghazi ;
+  schema:about saint:abdullah-shah-ghazi ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-abul-faiz-qalander-ali-suharwardi
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Abul Faiz Qalander Ali Suharwardi at Shrine of Abul Faiz Qalander Ali Suharwardi"@en ;
+  schema:location shrine:shrine-of-abul-faiz-qalander-ali-suharwardi ;
+  schema:about saint:abul-faiz-qalander-ali-suharwardi ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-bahauddin-zakariya
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Bahauddin Zakariya at Shrine of Bahauddin Zakariya"@en ;
+  schema:location shrine:shrine-of-bahauddin-zakariya ;
+  schema:about saint:bahauddin-zakariya ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-bibi-pak-daman
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman"@en ;
+  schema:location shrine:shrine-of-bibi-pak-daman ;
+  schema:about saint:bibi-pak-daman ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-bibi-pak-daman-multan-punjab
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Bibi Pak Daman at Shrine of Bibi Pak Daman"@en ;
+  schema:location shrine:shrine-of-bibi-pak-daman-multan-punjab ;
+  schema:about saint:bibi-pak-daman ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-fariduddin-ganjshakar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Fariduddin Ganjshakar at Shrine of Fariduddin Ganjshakar"@en ;
+  schema:location shrine:shrine-of-fariduddin-ganjshakar ;
+  schema:about saint:fariduddin-ganjshakar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-ganj-e-inayat-sarkar
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Ganj e Inayat Sarkar at Shrine of Ganj e Inayat Sarkar"@en ;
+  schema:location shrine:shrine-of-ganj-e-inayat-sarkar ;
+  schema:about saint:ganj-e-inayat-sarkar ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-imam-ali-ul-haq
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Imam Ali-ul-Haq at Shrine of Imam Ali-ul-Haq"@en ;
+  schema:location shrine:shrine-of-imam-ali-ul-haq ;
+  schema:about saint:imam-ali-ul-haq ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-pir-mangho
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Pir Mangho at Shrine of Pir Mangho"@en ;
+  schema:location shrine:shrine-of-pir-mangho ;
+  schema:about saint:pir-mangho ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-pir-sher-muhammad
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Pir Sher Muhammad at Shrine of Pir Sher Muhammad"@en ;
+  schema:location shrine:shrine-of-pir-sher-muhammad ;
+  schema:about saint:pir-sher-muhammad ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-qalandar-baba-auliya
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Qalandar Baba Auliya at Shrine of Qalandar Baba Auliya"@en ;
+  schema:location shrine:shrine-of-qalandar-baba-auliya ;
+  schema:about saint:qalandar-baba-auliya ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-sachal-sarmast
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Sachal Sarmast at Shrine of Sachal Sarmast"@en ;
+  schema:location shrine:shrine-of-sachal-sarmast ;
+  schema:about saint:sachal-sarmast ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-shah-rukn-e-alam
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Rukn-e-Alam at Shrine of Shah Rukn-e-Alam"@en ;
+  schema:location shrine:shrine-of-shah-rukn-e-alam ;
+  schema:about saint:shah-rukn-e-alam ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-shah-shams-ud-din-sabzwari
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Shams-ud-Din Sabzwari at Shrine of Shah Shams-ud-Din Sabzwari"@en ;
+  schema:location shrine:shrine-of-shah-shams-ud-din-sabzwari ;
+  schema:about saint:shah-shams-ud-din-sabzwari ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-shah-yusaf-gardez
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Shah Yusaf Gardez at Shrine of Shah Yusaf Gardez"@en ;
+  schema:location shrine:shrine-of-shah-yusaf-gardez ;
+  schema:about saint:shah-yusaf-gardez ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-shrine-of-syed-musa-pak
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Syed Musa Pak at Shrine of Syed Musa Pak"@en ;
+  schema:location shrine:shrine-of-syed-musa-pak ;
+  schema:about saint:syed-musa-pak ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-sial-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Muhammad Shamsuddin Sialvi at Sial Sharif"@en ;
+  schema:location shrine:sial-sharif ;
+  schema:about saint:muhammad-shamsuddin-sialvi ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-tomb-of-javindi-bibi
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Jalaluddin Surkh-Posh Bukhari at Tomb of Javindi Bibi"@en ;
+  schema:location shrine:tomb-of-javindi-bibi ;
+  schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+event_:urs-wadpagga-sharif
+  a schema:Event, sufi:UrsEvent ;
+  schema:name "Urs of Ghazi Syed Shah Fateh Muhammad Bukhari at Wadpagga Sharif"@en ;
+  schema:location shrine:wadpagga-sharif ;
+  schema:about saint:ghazi-syed-shah-fateh-muhammad-bukhari ;
+  schema:eventSchedule [
+    a schema:Schedule ;
+    schema:repeatFrequency "P1Y"^^xsd:string
+  ] ;
+  .
+
+# ── Shrines ───────────────────────────────────────────────────────────────
+shrine:allo-mahar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Allo Mahar"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/f/f2/Shrine_Of_Allo_Mahar_sharif.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.391866"^^xsd:decimal ;
+    schema:longitude "74.42243"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Allo Mahar"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sialkot ;
+  schema:about saint:pir-syed-muhammad-channan-shah-nuri ;
+  .
+
+shrine:amb-temples-amb-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Amb Temples (Amb Sharif)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.508402"^^xsd:decimal ;
+    schema:longitude "71.936538"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sakesar Mountain (Soon Valley)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:khushab-district ;
+  .
+
+shrine:bari-imam
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Bari Imam"@en ;
+  schema:image <https://aalequtub.com/wp-content/uploads/2021/11/853px-pakistan-bari_imam_tomb-islamabad-40ibnezhar_sep_2016_2.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.74499"^^xsd:decimal ;
+    schema:longitude "73.110982"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Bari Imam"@en ;
+    schema:addressRegion   "Islamabad Capital Territory"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:islamabad ;
+  schema:about saint:bari-imam ;
+  .
+
+shrine:bhagnari-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Bhagnari Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.8571"^^xsd:decimal ;
+    schema:longitude "66.9997"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Embankment Road"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  .
+
+shrine:bhai-sant-thawan-das-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Bhai Sant Thawan Das Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.1781"^^xsd:decimal ;
+    schema:longitude "67.8225"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Old Shahi Bazar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:mehar ;
+  .
+
+shrine:bhit-bhit-shah
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Bhit (Bhit Shah)"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/5/59/Dargah_Hazrat_Shah_Abdul_Latif_Bhittai_ra.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.48322"^^xsd:decimal ;
+    schema:longitude "68.29142"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Bhit (Bhit Shah)"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:bhit ;
+  schema:about saint:shah-abdul-latif-bhittai ;
+  .
+
+shrine:churrio-jabal-durga-mata-temple
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Churrio Jabal Durga Mata Temple"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.399917"^^xsd:decimal ;
+    schema:longitude "71.064944"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Churrio Hill"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:nagarparkar ;
+  .
+
+shrine:darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)"@en ;
+  schema:image <https://en.wikipedia.org/wiki/Pir_Pathan> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.70826"^^xsd:decimal ;
+    schema:longitude "70.6517"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Taunsa"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:taunsa-sharif ;
+  schema:about saint:khawaja-shah-muhammad-sulaiman-taunsvi ;
+  .
+
+shrine:darbar-sakhi-shah-chan-charagh
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Darbar Sakhi Shah Chan Charagh"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.6153"^^xsd:decimal ;
+    schema:longitude "73.0574"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Rawalpindi District"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:syed-sakhi-shah-chan-charagh ;
+  .
+
+shrine:dargah-roza-sufi-shah-inayat-shaheed
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Dargah / Roza Sufi Shah Inayat Shaheed"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.814839"^^xsd:decimal ;
+    schema:longitude "68.314803"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jhok Sharif (Jhok)"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  schema:about saint:sufi-shah-inayat-shaheed ;
+  .
+
+shrine:dargah-fateh-pur-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Dargah Fateh Pur Sharif"@en ;
+  schema:image <https://i.tribune.com.pk/media/images/1523631-fat-1507264034/1523631-fat-1507264034.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "28.56978"^^xsd:decimal ;
+    schema:longitude "67.49652"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Dargah Fateh Pur Sharif"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:gandawah-jhal-magsi-district ;
+  schema:about saint:syed-rakhyal-shah-sufi-al-qadri ;
+  .
+
+shrine:dargah-pir-ratan-nath-jee
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Dargah Pir Ratan Nath Jee"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.011583"^^xsd:decimal ;
+    schema:longitude "71.578861"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jhanda Bazar"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:peshawar ;
+  .
+
+shrine:darya-lal-mandir-darya-lal-sankat-mochan-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.84889"^^xsd:decimal ;
+    schema:longitude "66.99111"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Near Custom House"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:saddar-town ;
+  .
+
+shrine:data-darbar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Data Darbar"@en ;
+  schema:description """## Overview
+
+Data Darbar, located in Lahore, is far more than a shrine. It is one of the city’s most powerful spiritual and cultural centers, a place where devotion, memory, charity, and music come together in everyday life. Built around the tomb of the 11th-century Sufi saint Hazrat Ali ibn Usman al-Hujwiri, more commonly known as Data Ganj Bakhsh, the shrine has for centuries drawn pilgrims, seekers, and ordinary visitors in search of prayer, comfort, blessing, and a sense of closeness to God. For many in Lahore and beyond, Data Darbar is inseparable from the religious identity of the city itself.
+
+## Historical Background
+
+Ali Hujwiri occupies a foundational place in the history of Islam in South Asia. A scholar, mystic, and teacher, he traveled widely before settling in Lahore, where his teachings helped shape the development of Sufi thought in the region. He is especially remembered for writing Kashf al-Mahjub, one of the earliest and most influential Persian works on Sufism. Through both his writing and his example, he came to be revered not only as a saintly figure but also as a major intellectual presence whose influence extended far beyond his own lifetime.
+
+Over time, the saint’s burial place became one of the most important shrines in Pakistan. Data Darbar grew into a vast devotional complex and emerged as a major center of pilgrimage, visited by people from every social background.
+
+## Religious Importance
+
+The religious importance of Data Darbar lies not only in the historical stature of Data Ganj Bakhsh, but also in the kind of Islamic life the shrine represents. It embodies a devotional tradition centered on remembrance of God, reverence for saints, compassion for others, and the belief that holiness must be lived through service. For many devotees, the saint is not simply a figure of the past. His presence is still felt as spiritually alive, and the shrine is approached as a place where divine mercy and blessing can still be encountered.
+
+One of the most striking features of Data Darbar is its culture of public care. Like many major Sufi shrines, it is associated with langar, the free distribution of food to visitors and the needy. This practice reflects a core Sufi ethic: that love of God must be expressed through generosity and service to humanity. As a result, the shrine functions not only as a sacred site but also as a social refuge, a place where people come not just to worship, but also to find dignity, relief, and belonging.
+
+The atmosphere of Data Darbar is also shaped by ritual and sound. Prayer, recitation, qawwali, and festival gatherings all contribute to the shrine’s distinct spiritual energy. On Thursdays and especially during the annual Urs, which commemorates the death of the saint as a union with the divine, the shrine becomes a site of extraordinary devotion and emotion. Crowds gather for prayer, music, remembrance, and celebration, transforming the space into a vivid expression of living Sufi culture.
+
+## Modern Challenges
+
+The history of Data Darbar also reflects the tensions of modern Pakistan. The shrine has been the target of extremist violence, most notably in the devastating 2010 bombing that killed and injured many worshippers. That attack was not just an assault on a physical site, but on the plural, popular, and devotional religious world that shrines like Data Darbar represent. Yet the shrine endured, and pilgrims continued to return. Its continued vitality stands as a testament to the resilience of Sufi devotion and to the refusal of ordinary people to let fear erase sacred community.
+
+Today, Data Darbar remains one of the most prominent and heavily visited shrines in Pakistan. It is both a historic monument and a living center of faith, charity, and public culture. Administratively prominent and socially central, it continues to attract vast numbers of devotees each year. Its present standing reflects both its deep historical roots and its continuing relevance in contemporary religious life.
+
+What makes Data Darbar so powerful is that it brings together many dimensions of human experience in one place. It is solemn yet alive, ancient yet immediate, deeply personal yet profoundly communal. People come there to pray for healing, to give thanks, to seek intercession, to hear qawwali, to feed others, or simply to sit in the presence of something larger than themselves. In that sense, Data Darbar is not only the resting place of a great saint. It is one of the clearest expressions of Lahore’s spiritual heart."""@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Data_Durbar_as_more_then_one_decade_before_by_Usman_Ghani.jpg/500px-Data_Durbar_as_more_then_one_decade_before_by_Usman_Ghani.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.57803"^^xsd:decimal ;
+    schema:longitude "74.307"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:data-ganj-bakhsh ;
+  .
+
+shrine:eidgah-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Eidgah Sharif"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/4/49/Eid_gah_shrine.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.628145"^^xsd:decimal ;
+    schema:longitude "73.055823"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Eidgah Sharif"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sanghar-duthro-sharif ;
+  schema:about saint:pir-abdul-ul-karim ;
+  .
+
+shrine:garh-maharaja-shorkot
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Garh Maharaja (Shorkot)"@en ;
+  schema:image <https://sultan-bahoo.com/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-14-at-5.20.38-PM.jpeg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.8169"^^xsd:decimal ;
+    schema:longitude "71.8651"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Garh Maharaja (Shorkot)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:jhang ;
+  schema:about saint:sultan-bahoo ;
+  .
+
+shrine:golra-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Golra Sharif"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/0/0c/Mausoleum_of_Meher_Ali_Shah_by_Balochlens.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.691377"^^xsd:decimal ;
+    schema:longitude "72.97507"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Golra Sharif"@en ;
+    schema:addressRegion   "Islamabad Capital Territory"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:islamabad ;
+  schema:about saint:pir-meher-ali-shah ;
+  .
+
+shrine:gorakhnath-goraknath-temple
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gorakhnath (Goraknath) Temple"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.008194"^^xsd:decimal ;
+    schema:longitude "71.580639"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Gor Khatri area"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:peshawar ;
+  .
+
+shrine:gurdas-ram-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdas Ram Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.1742"^^xsd:decimal ;
+    schema:longitude "67.9511"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Radhan Town"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:tehsil-mehar ;
+  .
+
+shrine:gurdwara-babay-de-ber
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Babay De Ber"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.4811"^^xsd:decimal ;
+    schema:longitude "74.5487"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sialkot"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-babay-nanki
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Babay Nanki"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4438"^^xsd:decimal ;
+    schema:longitude "74.472"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-balila-sahib-bal-lila-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Balila Sahib (Bal Lila Sahib)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4439"^^xsd:decimal ;
+    schema:longitude "73.6986"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-bhai-beba-singh
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Bhai Beba Singh"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.0124"^^xsd:decimal ;
+    schema:longitude "71.5784"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Peshawar"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:khyber-pakhtunkhwa ;
+  .
+
+shrine:gurdwara-bhai-joga-singh
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Bhai Joga Singh"@en ;
+  schema:image <https://www.sikhiwiki.org/images/f/f0/Jogasingh_aw.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.001941"^^xsd:decimal ;
+    schema:longitude "71.563077"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Peshawar"@en ;
+    schema:addressRegion   "KPK"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:kpk ;
+  schema:about saint:bhai-joga-singh ;
+  .
+
+shrine:gurdwara-darbar-sahib-kartarpur
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Darbar Sahib Kartarpur"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/6/66/Gurdwara_Darbar_Sahib_Kartarpur_04.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.08735"^^xsd:decimal ;
+    schema:longitude "75.01658"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Kartarpur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:shakargarh-tehsil ;
+  schema:about saint:guru-nanak ;
+  .
+
+shrine:gurdwara-dash-mesh-pita
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Dash Mesh Pita"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.697778"^^xsd:decimal ;
+    schema:longitude "68.860833"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sukkur"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  .
+
+shrine:gurdwara-dera-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Dera Sahib"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Gurdwara_Dera_Sahib_Lahore.jpg/330px-Gurdwara_Dera_Sahib_Lahore.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.3523"^^xsd:decimal ;
+    schema:longitude "74"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:guru-arjan-dev ;
+  .
+
+shrine:gurdwara-guru-ram-das-ji
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Guru Ram Das Ji"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.585"^^xsd:decimal ;
+    schema:longitude "74.321"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-malji-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Malji Sahib"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4564"^^xsd:decimal ;
+    schema:longitude "73.7139"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-panja-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Panja Sahib"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/PanjaSahibHasanAbdal.jpg/330px-PanjaSahibHasanAbdal.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.4915"^^xsd:decimal ;
+    schema:longitude "72.4123"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Hasan Abdal"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:guru-nanak ;
+  .
+
+shrine:gurdwara-panjvi-chati-patshahi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Panjvi Chati Patshahi"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4507"^^xsd:decimal ;
+    schema:longitude "73.6985"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-patti-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Patti Sahib"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4507"^^xsd:decimal ;
+    schema:longitude "73.6985"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-rori-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Rori Sahib"@en ;
+  schema:image <https://dvncorestorageprod.blob.core.windows.net/files/page/166/Image/Rori%20Sahib_20240830070623556.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.047458"^^xsd:decimal ;
+    schema:longitude "74.248917"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Eminabad"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:guru-nanak ;
+  .
+
+shrine:gurdwara-sach-khand-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Sach Khand Sahib"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.9573"^^xsd:decimal ;
+    schema:longitude "68.6347"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shikarpur"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  .
+
+shrine:gurdwara-sacha-sauda
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Sacha Sauda"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.74913889"^^xsd:decimal ;
+    schema:longitude "73.79673333"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Farooqabad (formerly Chuharkana)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-shaheed-bhai-taru-singh
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Shaheed Bhai Taru Singh"@en ;
+  schema:image <https://www.discoversikhism.com/images/gurdwara/gurdwara_sri_shaheed_ganj_bhai_taru/gurdwara_sri_shaheed_ganj_bhai_taru1.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.578684"^^xsd:decimal ;
+    schema:longitude "74.331944"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:bhai-taru ;
+  .
+
+shrine:gurdwara-shaheed-ganj-singh-singhnian
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Shaheed Ganj Singh Singhnian"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.5783"^^xsd:decimal ;
+    schema:longitude "74.3319"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:gurdwara-singh-sabha
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Singh Sabha"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.192778"^^xsd:decimal ;
+    schema:longitude "67.013611"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Quetta"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:balochistan ;
+  .
+
+shrine:gurdwara-sri-kiara-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Sri Kiara Sahib"@en ;
+  schema:image <https://www.discoversikhism.com/images/gurdwara/gurdwara_sri_kiara_sahib/gurdwara_sri_kiara_sahib1.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.456373"^^xsd:decimal ;
+    schema:longitude "73.713888"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Nankana Sahib"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:nankana-sahib ;
+  schema:about saint:guru-nanak ;
+  .
+
+shrine:gurdwara-tambo-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurdwara Tambo Sahib"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.4483"^^xsd:decimal ;
+    schema:longitude "73.6844"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:guru-gurpat-mandir-db-80-sirey-ghat
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Guru Gurpat Mandir (DB-80 Sirey Ghat)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.3984"^^xsd:decimal ;
+    schema:longitude "68.3571"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "DB-80 Sirey Ghat"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:hyderabad ;
+  .
+
+shrine:gurudwara-janam-asthan-nankana-sahib
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Gurudwara Janam Asthan Nankana Sahib"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/8/85/Gurdwara_Janam_Asthan_%28151717%29.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.445763"^^xsd:decimal ;
+    schema:longitude "73.695697"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Nankana Sahib"@en ;
+    schema:addressRegion   "Nankana Sahib"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:nankana-sahib ;
+  schema:about saint:guru-nanak ;
+  .
+
+shrine:jagannath-temple-sialkot
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Jagannath Temple, Sialkot"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.495833"^^xsd:decimal ;
+    schema:longitude "74.535"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sialkot"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:jamshoro-district
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Jamshoro District"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/d/d5/Shrine_of_Lucky_Shah_Sadar.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "26.267225"^^xsd:decimal ;
+    schema:longitude "67.902592"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jamshoro District"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:jamshoro ;
+  schema:about saint:laki-shah-saddar ;
+  .
+
+shrine:jhollay-lal-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Jhollay Lal Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.8547"^^xsd:decimal ;
+    schema:longitude "67.0011"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Karachi"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  .
+
+shrine:kali-bari-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Kali Bari Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.9986"^^xsd:decimal ;
+    schema:longitude "71.5414"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Peshawar"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:khyber-pakhtunkhwa ;
+  .
+
+shrine:kalka-cave-temple-asthan-of-kalka-devi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Kalka Cave Temple (Asthan of Kalka Devi)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.626056"^^xsd:decimal ;
+    schema:longitude "68.930917"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Aror"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sukkur-district ;
+  .
+
+shrine:katas-raj-temples
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Katas Raj Temples"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.724"^^xsd:decimal ;
+    schema:longitude "72.951639"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Choa Saidanshah"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:chakwal-district ;
+  .
+
+shrine:krishna-mandir-kabari-bazar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Krishna Mandir (Kabari Bazar)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.6017"^^xsd:decimal ;
+    schema:longitude "73.0525"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Kabari Bazar"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:rawalpindi ;
+  .
+
+shrine:krishna-mandir-ravi-road
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Krishna Mandir (Ravi Road)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.5995"^^xsd:decimal ;
+    schema:longitude "74.2975"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Ravi Road"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore ;
+  .
+
+shrine:lal-shahbaz-qalandar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Lal Shahbaz Qalandar"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg/500px-Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "26.42669"^^xsd:decimal ;
+    schema:longitude "67.87132"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jamshoro"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  schema:about saint:lal-shahbaz-qalandar ;
+  .
+
+shrine:langer-makhdoom
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Langer Makhdoom"@en ;
+  schema:image <https://live.staticflickr.com/8098/8422587223_6782e83476_z.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.92275"^^xsd:decimal ;
+    schema:longitude "73.07259"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Langer Makhdoom"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:chiniot ;
+  schema:about saint:makhdoom-burhan-ud-din ;
+  .
+
+shrine:mausoleum-of-waris-shah
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Mausoleum of Waris Shah"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.817313"^^xsd:decimal ;
+    schema:longitude "73.916507"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Jandiala Sher Khan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sheikhupura-district ;
+  schema:about saint:waris-shah ;
+  .
+
+shrine:mazar-of-bulleh-shah
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Mazar of Bulleh Shah"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/f/f8/Shrine_Hazrat_Baba_Bulleh_Shah.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.121329"^^xsd:decimal ;
+    schema:longitude "74.448182"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mazar of Bulleh Shah"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:kasur ;
+  schema:about saint:bulleh-shah ;
+  .
+
+shrine:mithankot-kot-mithan
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Mithankot (Kot Mithan)"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/e/e7/Tomb_of_Khwaja_Ghulam_Farid.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "28.959118"^^xsd:decimal ;
+    schema:longitude "70.368832"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mithankot (Kot Mithan)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:rajanpur ;
+  schema:about saint:khwaja-ghulam-farid ;
+  .
+
+shrine:nagarparkar-jain-temples-nagarparkar-cultural-landscape
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.35583"^^xsd:decimal ;
+    schema:longitude "70.75444"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Karoonjhar Mountains region"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:nagarparkar ;
+  .
+
+shrine:panj-tirath
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Panj Tirath"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.013444"^^xsd:decimal ;
+    schema:longitude "71.579028"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Hashtnagri"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:peshawar ;
+  .
+
+shrine:parnami-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Parnami Mandir"@en ;
+  schema:image <https://maariawaseem.wordpress.com/wp-content/uploads/2021/02/img_2918.jpg?w=1440&h=1200&crop=1> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.42414"^^xsd:decimal ;
+    schema:longitude "73.274121"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Malka Hans"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:smadhi-of-dya-ram ;
+  .
+
+shrine:prahladpuri-temple
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Prahladpuri Temple"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.200361"^^xsd:decimal ;
+    schema:longitude "71.476833"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Fort of Multan (near Shrine of Bahauddin Zakariya)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:multan ;
+  .
+
+shrine:purana-bhalwal
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Purana Bhalwal"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.26583"^^xsd:decimal ;
+    schema:longitude "72.874731"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Purana Bhalwal"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:bhalwal ;
+  schema:about saint:shah-sulaimn-nri ;
+  .
+
+shrine:rahman-baba-mausoleum-rehman-baba-shrine
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Rahman Baba Mausoleum (Rehman Baba Shrine)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "33.99333333"^^xsd:decimal ;
+    schema:longitude "71.59"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Hazarkhwani (Ring Road)"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:peshawar ;
+  schema:about saint:rahman-baba ;
+  .
+
+shrine:ramapir-temple-tando-allahyar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Ramapir Temple, Tando Allahyar"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.457722"^^xsd:decimal ;
+    schema:longitude "68.721778"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Tando Allahyar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:tando-allahyar-district ;
+  .
+
+shrine:ranmal-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Ranmal Sharif"@en ;
+  schema:image <https://mbdin.com/wp-content/uploads/2020/05/village-ranmal.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.43472"^^xsd:decimal ;
+    schema:longitude "73.732328"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Ranmal Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:phalia ;
+  schema:about saint:syed-muhammad-noushah-qadiri ;
+  .
+
+shrine:sadh-belo-sadh-belo-island-temple
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sadh Belo (Sadh Belo Island Temple)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.693778"^^xsd:decimal ;
+    schema:longitude "68.87875"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sadh Belo Island"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:near-sukkurrohri ;
+  .
+
+shrine:sakhi-sarwar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sakhi Sarwar"@en ;
+  schema:image <https://i.dawn.com/large/2014/04/534cf2d7bc3ab.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "29.986519"^^xsd:decimal ;
+    schema:longitude "70.302609"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sakhi Sarwar"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:dera-ghazi-khan ;
+  schema:about saint:sultan-sakhi-sarwar ;
+  .
+
+shrine:sant-baba-bhagat-ram-darbar-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sant Baba Bhagat Ram Darbar Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "26.7354"^^xsd:decimal ;
+    schema:longitude "67.7792"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shahi Bazar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:dadu ;
+  .
+
+shrine:sehwan-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sehwan Sharif"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/a/ad/Shrine_Lal_Shahbaz_Qalandar%2C_Sehwan_Shareef%2C_Sindh%2C_Pakistan.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "26.4184"^^xsd:decimal ;
+    schema:longitude "67.8603"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sehwan Sharif"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sehwan-sharif ;
+  schema:about saint:lal-shahbaz-qalandar ;
+  .
+
+shrine:shah-noorani-shrine-syed-bilawal-shah-noorani
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shah Noorani Shrine (Syed Bilawal Shah Noorani)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.77296"^^xsd:decimal ;
+    schema:longitude "67.01538"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahoot Lamakan valley"@en ;
+    schema:addressRegion   "Balochistan"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:khuzdar-district ;
+  schema:about saint:syed-bilawal-shah-noorani ;
+  .
+
+shrine:shah-yousuf
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shah Yousuf"@en ;
+  schema:image <https://api.salampakistan.gov.pk/photo-1626121387010.jpeg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.19864"^^xsd:decimal ;
+    schema:longitude "72.38978"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shah Yousuf"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:shahpur ;
+  schema:about saint:shah-yousuf ;
+  .
+
+shrine:shahwala-teja-singh-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shahwala Teja Singh Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.4908"^^xsd:decimal ;
+    schema:longitude "74.5449"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mohallah Dharowal"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sialkot ;
+  .
+
+shrine:shaktipeeth-shri-hinglaj-mata-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shaktipeeth Shri Hinglaj Mata Mandir"@en ;
+  schema:image <https://static.toiimg.com/thumb/msid-109525095,width-1280,height-720,imgsize-210290,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.514672"^^xsd:decimal ;
+    schema:longitude "65.518726"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Hingol Balochistan National Park"@en ;
+    schema:addressRegion   "Road، Asha Pura"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:road-asha-pura ;
+  schema:about saint:hinglaj-mata ;
+  .
+
+shrine:shamsabad
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shamsabad"@en ;
+  schema:image <https://miro.medium.com/1*eyT2zQwnT7gT4J6YiR_xIQ.jpeg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.80917"^^xsd:decimal ;
+    schema:longitude "73.45361"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shamsabad"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:okara ;
+  schema:about saint:shams-ali-qalandar ;
+  .
+
+shrine:sharada-peeth
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sharada Peeth"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.79194"^^xsd:decimal ;
+    schema:longitude "74.19"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sharda"@en ;
+    schema:addressRegion   "Neelum Valley (Azad Kashmir)"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:neelum-valley-azad-kashmir ;
+  .
+
+shrine:shergarh
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shergarh"@en ;
+  schema:image <https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqCSqLOfY4b3GWljdX3Pd6G8q5Hi06Dvh4PBflpT6jQQHnl67K5bGoGv6TXuGu0vO-ehaXvsTu5fX0YbcZrjO_mnbZySI4Y1AUocy-ykeYK1-zQrNjP7ZL80JzTv1cSaX3eDnq4bYI8NQ/w1200-h630-p-k-no-nu/DSC_8686.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.82922"^^xsd:decimal ;
+    schema:longitude "73.73882"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shergarh"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:okara ;
+  schema:about saint:daud-bandagi-kirmani ;
+  .
+
+shrine:shiv-mandir-chiti-ghati
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shiv Mandir Chiti Ghati"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.3944"^^xsd:decimal ;
+    schema:longitude "73.2153"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Ghandian"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:mansehra-district ;
+  .
+
+shrine:shree-ratneshwar-mahadev-temple-karachi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shree Ratneshwar Mahadev Temple, Karachi"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.81275"^^xsd:decimal ;
+    schema:longitude "67.026667"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Near Clifton Beach / Jehangir Kothari Parade area"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  .
+
+shrine:shri-laxmi-narayan-mandir-native-jetty-bridge
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shri Laxmi Narayan Mandir (Native Jetty Bridge)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.844444"^^xsd:decimal ;
+    schema:longitude "66.991167"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Under Native Jetty Bridge"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  .
+
+shrine:shri-panchmukhi-hanuman-mandir-karachi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shri Panchmukhi Hanuman Mandir (Karachi)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.860611"^^xsd:decimal ;
+    schema:longitude "67.020583"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Soldier Bazaar"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi-east ;
+  .
+
+shrine:shri-swaminarayan-mandir-karachi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shri Swaminarayan Mandir, Karachi"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.854361"^^xsd:decimal ;
+    schema:longitude "67.007972"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "M. A. Jinnah Road"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  .
+
+shrine:shri-varun-dev-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shri Varun Dev Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.797583"^^xsd:decimal ;
+    schema:longitude "66.970806"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Manora Island (Manora Beach)"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  .
+
+shrine:shrine-at-odero-lal-udero-lal-teerath-asthan
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine at Odero Lal (Udero Lal Teerath Asthan)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.7013347"^^xsd:decimal ;
+    schema:longitude "68.5614382"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Odero Lal Village (near Tando Adam)"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:matiari-district ;
+  schema:about saint:sheikh-tahir ;
+  .
+
+shrine:shrine-of-abdullah-shah-ghazi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Abdullah Shah Ghazi"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/4/46/Abdullah_Shah_Ghazi_Mausoleum_%28Pic2%29.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.8107"^^xsd:decimal ;
+    schema:longitude "67.03023"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Clifton"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  schema:about saint:abdullah-shah-ghazi ;
+  .
+
+shrine:shrine-of-abul-faiz-qalander-ali-suharwardi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Abul Faiz Qalander Ali Suharwardi"@en ;
+  schema:image <https://scontent-lga3-1.xx.fbcdn.net/v/t39.30808-6/471303445_1045595177580675_8379150524206898602_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=2a1932&_nc_ohc=N-Q3Gyx_l58Q7kNvwFTf60z&_nc_oc=AdkyOuPG_UJ_UOce0krBuDC3Twe5LMf4hiTEZNf9Nq_KvFXm_-x5g_kRP6-u1mt1Rko&_nc_zt=23&_nc_ht=scontent-lga3-1.xx&_nc_gid=7yQeAJp2P76XLqdm7M7FSg&_nc_ss=8&oh=00_AfudsYT9iFMz01-wm_htjMxV6rSMmdHreJC4KWVHvDnMyg&oe=69A91287> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.54972"^^xsd:decimal ;
+    schema:longitude "74.34361"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:abul-faiz-qalander-ali-suharwardi ;
+  .
+
+shrine:shrine-of-bahauddin-zakariya
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Bahauddin Zakariya"@en ;
+  schema:image <https://i.tribune.com.pk/media/images/1298511-bahauddinzakariyacopy-1484676791/1298511-bahauddinzakariyacopy-1484676791.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.20061"^^xsd:decimal ;
+    schema:longitude "71.47652"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan City"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:multan ;
+  schema:about saint:bahauddin-zakariya ;
+  .
+
+shrine:shrine-of-bibi-pak-daman
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Bibi Pak Daman"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/5/59/B_Bi_Pak_Daman_June5_2004_%286%29.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.564283"^^xsd:decimal ;
+    schema:longitude "74.339948"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:bibi-pak-daman ;
+  .
+
+shrine:shrine-of-bibi-pak-daman-multan-punjab
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Bibi Pak Daman"@en ;
+  schema:image <https://walledcitylahore.gop.pk/wp-content/uploads/2024/06/Shrine-of-Bibi-Pak-Daman-3.jpeg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.178686"^^xsd:decimal ;
+    schema:longitude "71.464039"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:bibi-pak-daman ;
+  .
+
+shrine:shrine-of-fariduddin-ganjshakar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Fariduddin Ganjshakar"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/0/0c/Darbar_Hazrat_Baba_Farid_ud_Deen_Ganj_Shakar_Rahmatullah_Alaih_-_panoramio.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.3412"^^xsd:decimal ;
+    schema:longitude "73.38775"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Pakpattan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:pakpattan ;
+  schema:about saint:fariduddin-ganjshakar ;
+  .
+
+shrine:shrine-of-ganj-e-inayat-sarkar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Ganj e Inayat Sarkar"@en ;
+  schema:image <https://www.facebook.com/DarbarHazoorGanjeInayatSarkar/> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.53172"^^xsd:decimal ;
+    schema:longitude "74.35803"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Gulberg 3"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore ;
+  schema:about saint:ganj-e-inayat-sarkar ;
+  .
+
+shrine:shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.58565362"^^xsd:decimal ;
+    schema:longitude "74.3747974"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Baghbanpura (near Shalimar Gardens)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore ;
+  schema:about saint:shah-hussain ;
+  .
+
+shrine:shrine-of-hazrat-shah-daula-daryai
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Hazrat Shah Daula Daryai"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.5718299"^^xsd:decimal ;
+    schema:longitude "74.0843839"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Gujrat"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:shah-daula-daryai ;
+  .
+
+shrine:shrine-of-imam-ali-ul-haq
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Imam Ali-ul-Haq"@en ;
+  schema:image <https://www.thpsc.com/wp-content/uploads/2015/03/Imam-Ali-ul-Haq-shrine.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.29178"^^xsd:decimal ;
+    schema:longitude "74.32166"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sialkot"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:imam-ali-ul-haq ;
+  .
+
+shrine:shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "29.240139"^^xsd:decimal ;
+    schema:longitude "71.052861"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Uch Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:bahawalpur-district ;
+  schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  .
+
+shrine:shrine-of-makhdoom-jahaniyan-jahangasht
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Makhdoom Jahaniyan Jahangasht"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "29.242889"^^xsd:decimal ;
+    schema:longitude "71.055361"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Uch Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:bahawalpur-district ;
+  schema:about saint:jahaniyan-jahangasht ;
+  .
+
+shrine:shrine-of-mian-mir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Mian Mir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.548375"^^xsd:decimal ;
+    schema:longitude "74.3600306"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Alam Ganj (Dharampura)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore ;
+  schema:about saint:mian-mir ;
+  .
+
+shrine:shrine-of-pir-mangho
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Pir Mangho"@en ;
+  schema:image <https://images.squarespace-cdn.com/content/v1/605a3b99f28979644c432614/93b93408-3d24-4fc4-840e-f9b4c5b887b3/Mangho+Pir%2C+Karachi+Ecology+%282%29.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.980369"^^xsd:decimal ;
+    schema:longitude "67.034959"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Gadap Town"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  schema:about saint:pir-mangho ;
+  .
+
+shrine:shrine-of-pir-sher-muhammad
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Pir Sher Muhammad"@en ;
+  schema:image <https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWWjg1tPCTJXuWHb0KlZ7wWNHp45BlMnGvywm4uMIJCRCKh24H5yDkwi3ZeHezZmE0O-8uB9Qt3EiOs3fXQvoA6M93NWrsO2pxqaJwzOgrhWtdzoNabsUrV7FpJ3hrCyCwisARl1s-xbU/s1600/sher.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.45717"^^xsd:decimal ;
+    schema:longitude "74.0925"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sharaqpur"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sharaqpur ;
+  schema:about saint:pir-sher-muhammad ;
+  .
+
+shrine:shrine-of-qalandar-baba-auliya
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Qalandar Baba Auliya"@en ;
+  schema:image <https://i.tribune.com.pk/media/images/5-1525427764/5-1525427764.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "24.95986"^^xsd:decimal ;
+    schema:longitude "67.056731"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Shadman Town"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:karachi ;
+  schema:about saint:qalandar-baba-auliya ;
+  .
+
+shrine:shrine-of-sachal-sarmast
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Sachal Sarmast"@en ;
+  schema:image <https://heritageofpakistan.org/wp-content/uploads/2025/03/Sachal-Sarmast-Shrine-43-of-89.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "27.305874"^^xsd:decimal ;
+    schema:longitude "68.512516"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Daraza"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:khairpur ;
+  schema:about saint:sachal-sarmast ;
+  .
+
+shrine:shrine-of-shah-rukn-e-alam
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Shah Rukn-e-Alam"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/7/7c/Tomb_of_Shah_Rukn-e-Alam_2014-07-31.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.19913"^^xsd:decimal ;
+    schema:longitude "71.47181"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan City"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:multan ;
+  schema:about saint:shah-rukn-e-alam ;
+  .
+
+shrine:shrine-of-shah-shams-ud-din-sabzwari
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Shah Shams-ud-Din Sabzwari"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/d/d6/Shrine_of_Hazrat_Shah_Shams_ud_din_Sabzwari.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.200818"^^xsd:decimal ;
+    schema:longitude "71.484105"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:shah-shams-ud-din-sabzwari ;
+  .
+
+shrine:shrine-of-shah-yusaf-gardez
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Shah Yusaf Gardez"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/b/b7/Tomb_of_Shah_Yousuf_Gardezi_Multan.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.19479"^^xsd:decimal ;
+    schema:longitude "71.46649"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  schema:about saint:shah-yusaf-gardez ;
+  .
+
+shrine:shrine-of-syed-musa-pak
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Shrine of Syed Musa Pak"@en ;
+  schema:image <https://www.thenews.com.pk/assets/uploads/akhbar/2024-11-21/l_1253233_045343_updates.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "30.19025"^^xsd:decimal ;
+    schema:longitude "71.47156"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Multan"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:multan ;
+  schema:about saint:syed-musa-pak ;
+  .
+
+shrine:sial-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Sial Sharif"@en ;
+  schema:image <https://merasargodha.com/wp-content/uploads/SialSharif.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.54235"^^xsd:decimal ;
+    schema:longitude "72.17474"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Sial Sharif"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sial-sharif-sargodha-district ;
+  schema:about saint:muhammad-shamsuddin-sialvi ;
+  .
+
+shrine:tilla-jogian
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Tilla Jogian"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "32.86058256"^^xsd:decimal ;
+    schema:longitude "73.44034256"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Salt Range (near Dina/Jhelum)"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:tomb-of-allama-iqbal-mazar-e-iqbal
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Tomb of Allama Iqbal (Mazar-e-Iqbal)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.5879"^^xsd:decimal ;
+    schema:longitude "74.3113"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Lahore"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:punjab ;
+  .
+
+shrine:tomb-of-javindi-bibi
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Tomb of Javindi Bibi"@en ;
+  schema:image <https://live.staticflickr.com/2264/2536748069_c33904a715_b.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "29.14"^^xsd:decimal ;
+    schema:longitude "71.04"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Mohalla Bukhari"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:uch-sharif ;
+  schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  .
+
+shrine:umarkot-amarkot-shiv-mandir
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Umarkot (Amarkot) Shiv Mandir"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "25.416306"^^xsd:decimal ;
+    schema:longitude "69.77625"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Umerkot District"@en ;
+    schema:addressRegion   "Sindh"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:sindh ;
+  .
+
+shrine:valmik-mandir-naqi-road
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Valmik Mandir (Naqi Road)"@en ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "31.5683"^^xsd:decimal ;
+    schema:longitude "74.3111"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Naqi Road"@en ;
+    schema:addressRegion   "Punjab"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:lahore ;
+  .
+
+shrine:wadpagga-sharif
+  a schema:LandmarksOrHistoricalBuildings, schema:PlaceOfWorship ;
+  schema:name "Wadpagga Sharif"@en ;
+  schema:image <https://upload.wikimedia.org/wikipedia/commons/d/d7/Shrine_of_Jalaluddin_Bukhari_-_exterior_of_mosque.jpg> ;
+  schema:geo [
+    a schema:GeoCoordinates ;
+    schema:latitude  "34.038945"^^xsd:decimal ;
+    schema:longitude "71.654326"^^xsd:decimal
+  ] ;
+  schema:address [
+    a schema:PostalAddress ;
+    schema:addressLocality "Wadpagga Sharif"@en ;
+    schema:addressRegion   "Khyber Pakhtunkhwa"@en ;
+    schema:addressCountry "PK"^^xsd:string
+  ] ;
+  schema:containedInPlace place:peshawar ;
+  schema:about saint:ghazi-syed-shah-fateh-muhammad-bukhari ;
+  .

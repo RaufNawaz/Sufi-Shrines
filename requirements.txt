@@ -1,0 +1,20 @@
+# Deps for the Python data tooling in tools/:
+#   pillow        — tools/process_books.py (--split-spreads page splitting)
+#   gdown         — tools/download_books.py (Google Drive downloads)
+#   gradio_client — tools/process_books.py / tools/ocr_all_books.py (UTRNet OCR engine)
+#   openpyxl      — tools/shrines_enrich.py (spreadsheet enrichment engine)
+# Stdlib-only (no install needed): tools/extract.py, tools/finalize_books.py,
+# tools/ocr_status.py, tools/ocr_postcorrect.py, tools/summarize_books.py, and
+# tools/translate.py with --engine libretranslate.
+# Install: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+#
+# Optional local NLLB-200 machine-translation assist (tools/translate.py --engine nllb)
+# needs an extra, much heavier set of packages — see requirements-translate.txt.
+# Pinning policy: these light deps are pinned exactly for reproducibility;
+# requirements-translate.txt deliberately uses ranges because its heavy ML wheels
+# (torch/transformers) vary by platform and GPU.
+
+pillow==12.2.0
+gdown==6.1.0
+gradio_client==2.5.0
+openpyxl==3.1.5

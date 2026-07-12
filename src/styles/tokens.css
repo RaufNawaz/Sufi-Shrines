@@ -1,0 +1,186 @@
+/* ── Breakpoints (convention — media queries can't read custom properties) ──
+   ≤480px            extra-compact: gallery grid drops to 2 columns (shrine.css)
+   639.98px / 640px  compact boundary: compact page padding at ≤639.98px;
+                     two-column article/entity layout at ≥640px (shrine.css, kg.css)
+   768px / 769px     map sidebar: bottom sheet + ≥44px touch targets at ≤768px;
+                     docked floating desktop layout at ≥769px (map.css)
+   ≥1340px           wide: contents nav moves into the margin rail (shrine.css) */
+
+/* Design tokens — light mode defaults */
+:root {
+  /* Colors */
+  --color-bg: #f9f6f0;
+  --color-bg-alt: #f0ebe0;
+  --color-bg-surface: #ffffff;
+  --color-bg-overlay: rgba(249, 246, 240, 0.95);
+  --color-border: #d6cfc0;
+  --color-border-light: #e8e2d6;
+
+  --color-text: #1a1208;
+  --color-text-secondary: #5a4f3a;
+  --color-text-muted: #6b5e4b;
+  --color-text-inverse: #ffffff;
+
+  --color-primary: #1a5c4e;
+  --color-primary-dark: #124035;
+  --color-primary-light: #2a8068;
+  --color-primary-pale: #e6f2ef;
+  --color-primary-bg: #f0f8f6;
+
+  --color-accent: #c8890a;
+  --color-accent-light: #f5d78e;
+  --color-accent-pale: #fdf7e6;
+
+  --color-error: #b91c1c;
+  --color-error-bg: #fef2f2;
+  --color-error-border: #fca5a5;
+
+  --color-success: #15803d;
+  --color-success-bg: #f0fdf4;
+
+  --color-marker-default: #1a5c4e;
+  --color-marker-selected: #c8890a;
+
+  /* Guided tour route + stop markers on the map */
+  --color-tour-route: var(--color-accent);
+  --color-tour-marker-bg: var(--color-bg-surface);
+  --color-tour-marker-border: var(--color-accent);
+  --color-tour-marker-text: var(--color-accent);
+  --color-tour-marker-active-bg: var(--color-accent);
+  --color-tour-marker-active-text: var(--color-text-inverse);
+  --opacity-tour-dim: 0.35;
+
+  --color-cat-muslim: #1a5c4e;
+  --color-cat-hindu: #b45309;
+  --color-cat-sikh: #7c3aed;
+  --color-cat-muslim-pale: #e6f2ef;
+  --color-cat-hindu-pale: #fef3c7;
+  --color-cat-sikh-pale: #ede9fe;
+
+  /* Typography */
+  --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif;
+  --font-mono: 'Courier New', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+  --leading-urdu: 2.1;
+  --font-scale-urdu: 1.06;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(26, 12, 8, 0.08), 0 1px 2px rgba(26, 12, 8, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 12, 8, 0.1), 0 2px 4px rgba(26, 12, 8, 0.06);
+  --shadow-lg: 0 8px 24px rgba(26, 12, 8, 0.12), 0 4px 8px rgba(26, 12, 8, 0.08);
+  --shadow-xl: 0 16px 40px rgba(26, 12, 8, 0.15), 0 6px 12px rgba(26, 12, 8, 0.1);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --sidebar-width: 380px;
+  --header-height: 56px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* Z-index */
+  --z-map: 0;
+  --z-sidebar: 20;
+  --z-header: 30;
+  --z-toast: 40;
+  --z-modal: 50;
+  --z-lightbox: 60;
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --color-bg: #0f1a17;
+  --color-bg-alt: #172420;
+  --color-bg-surface: #1e2f2a;
+  --color-bg-overlay: rgba(15, 26, 23, 0.96);
+  --color-border: #2a3d36;
+  --color-border-light: #213028;
+
+  --color-text: #f0ebe0;
+  --color-text-secondary: #c8b89a;
+  --color-text-muted: #a0b4ad;
+  --color-text-inverse: #0f1a17;
+
+  --color-primary: #4db39a;
+  --color-primary-dark: #3a9a82;
+  --color-primary-light: #65c8af;
+  --color-primary-pale: #1a3530;
+  --color-primary-bg: #152820;
+
+  --color-accent: #e8a82a;
+  --color-accent-light: #f5d78e;
+  --color-accent-pale: #2a2010;
+
+  --color-error: #f87171;
+  --color-error-bg: #2a1515;
+  --color-error-border: #7f1d1d;
+
+  --color-success: #4ade80;
+  --color-success-bg: #052e16;
+
+  --color-marker-default: #4db39a;
+  --color-marker-selected: #e8a82a;
+
+  --color-cat-muslim: #4db39a;
+  --color-cat-hindu: #f59e0b;
+  --color-cat-sikh: #a78bfa;
+  --color-cat-muslim-pale: #1a3530;
+  --color-cat-hindu-pale: #2a1a00;
+  --color-cat-sikh-pale: #1e1035;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
