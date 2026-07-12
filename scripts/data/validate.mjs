@@ -4,8 +4,14 @@
  *
  * Reads data/shrines.json, validates every row against the Zod schema
  * (required fields, coordinate ranges, controlled vocabularies, URL shapes),
- * and checks cross-row invariants (unique generated slugs).
- * Exits non-zero with a per-row error report on any violation.
+ * and checks cross-row invariants (unique generated slugs). Also runs
+ * content-quality checks on Description prose (length outliers, near-duplicate
+ * text, leaked placeholder/internal-note strings) and cross-checks
+ * data/provenance.json (schema, completeness, contentTier coverage, and an
+ * ai-researched-with-zero-citations fabrication-risk flag) — see
+ * docs/planning/DATA_QUALITY_PLAN.md §4. These content-quality checks are
+ * warnings, not hard errors, until their respective backlogs are cleared.
+ * Exits non-zero with a per-row error report on any schema/structural violation.
  *
  * Usage:  node scripts/data/validate.mjs
  * Or:     npm run data:validate
@@ -87,6 +93,10 @@ rows.forEach((row, i) => {
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');
 const VALID_METHODS = new Set(['human', 'ocr', 'mt', 'llm']);
 const slugSet = new Set(slugs);
+// Slugs whose Description is known-good long-form (Tier 1/2 shrine_entries content,
+// verified in Phase B) — exempted from the max-length outlier check below, since
+// their length is a feature (rich, cited research), not a runaway-generation risk.
+const richContentSlugs = new Set();
 
 if (existsSync(PROVENANCE_JSON)) {
   let prov;
@@ -146,6 +156,38 @@ if (existsSync(PROVENANCE_JSON)) {
       );
     }
 
+    // Content-provenance completeness + fabrication-risk lint (Phase D): every
+    // shrine's Description should carry a contentTier (Phase A), and any
+    // ai-researched Description with zero citations is a flag for Phase C.
+    const bySlug = new Map(shrines.map((entry) => [entry.shrineSlug, entry]));
+    let untaggedCount = 0;
+    let uncitedAiResearchedCount = 0;
+    slugs.forEach((slug) => {
+      const descProv = bySlug.get(slug)?.fields?.['Description'];
+      if (!descProv?.contentTier) {
+        untaggedCount++;
+        return;
+      }
+      if (descProv.contentTier === 'tier1-ocr' || descProv.contentTier === 'tier2-compendium') {
+        richContentSlugs.add(slug);
+      }
+      if (descProv.contentTier === 'ai-researched' && !(descProv.citations?.length > 0)) {
+        uncitedAiResearchedCount++;
+      }
+    });
+    if (untaggedCount) {
+      rowWarnings.push(
+        `provenance.json: ${untaggedCount} shrine(s) have a Description with no contentTier ` +
+          `(run \`npm run data:build:content-provenance\`)`,
+      );
+    }
+    if (uncitedAiResearchedCount) {
+      rowWarnings.push(
+        `provenance.json: ${uncitedAiResearchedCount} shrine(s) are contentTier "ai-researched" with ` +
+          `zero citations — fact-verification backlog, see docs/planning/DATA_QUALITY_PLAN.md Phase C`,
+      );
+    }
+
     if (!rowErrors.some((e) => e.includes('provenance.json'))) {
       console.log(
         `[validate] ✓ provenance.json — ${shrines.length} shrine entrie(s), ` +
@@ -154,6 +196,87 @@ if (existsSync(PROVENANCE_JSON)) {
     }
   }
 }
+
+// ── content-quality checks (Phase D, docs/planning/DATA_QUALITY_PLAN.md §4) ──
+// Warnings only for now, per the plan's "non-blocking before blocking" principle —
+// promote individual checks to hard errors once their backlog is actually clear.
+
+const MIN_DESCRIPTION_LEN = 300;
+const MAX_DESCRIPTION_LEN = 8000;
+const LEAK_STRINGS = [
+  'Placeholder:',
+  'awaiting human translation',
+  'TODO',
+  'FIXME',
+  'Lorem ipsum',
+  '[NEEDS REVIEW]',
+  'NEEDS HUMAN REVIEW',
+];
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  const desc = String(row['Description'] ?? '').trim();
+  if (!desc) return; // already covered by the empty-content warning above
+
+  if (desc.length < MIN_DESCRIPTION_LEN) {
+    rowWarnings.push(`${label}: Description is only ${desc.length} chars (< ${MIN_DESCRIPTION_LEN}) — check it's substantive`);
+  } else if (desc.length > MAX_DESCRIPTION_LEN && !richContentSlugs.has(slugs[i])) {
+    rowWarnings.push(`${label}: Description is ${desc.length} chars (> ${MAX_DESCRIPTION_LEN}) — check for runaway/duplicated text`);
+  }
+
+  LEAK_STRINGS.forEach((needle) => {
+    if (desc.includes(needle)) {
+      rowWarnings.push(`${label}: Description contains internal marker text "${needle}" — likely leaked from a draft/placeholder`);
+    }
+  });
+});
+
+// Near-duplicate detection: 5-word shingle Jaccard similarity across all Descriptions.
+// Catches copy-paste-and-forgot-to-edit mistakes, not just exact duplicates.
+function shingles(text, n = 5) {
+  const words = text
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+  const set = new Set();
+  for (let i = 0; i + n <= words.length; i++) {
+    set.add(words.slice(i, i + n).join(' '));
+  }
+  return set;
+}
+
+function jaccard(a, b) {
+  if (!a.size || !b.size) return 0;
+  const [small, large] = a.size <= b.size ? [a, b] : [b, a];
+  let intersection = 0;
+  for (const s of small) if (large.has(s)) intersection++;
+  return intersection / (a.size + b.size - intersection);
+}
+
+const descShingles = rows.map((row) => {
+  const desc = String(row['Description'] ?? '').trim();
+  return desc.length >= MIN_DESCRIPTION_LEN ? shingles(desc) : null;
+});
+
+const DUPLICATE_THRESHOLD = 0.5;
+for (let i = 0; i < rows.length; i++) {
+  if (!descShingles[i]) continue;
+  for (let j = i + 1; j < rows.length; j++) {
+    if (!descShingles[j]) continue;
+    const sim = jaccard(descShingles[i], descShingles[j]);
+    if (sim >= DUPLICATE_THRESHOLD) {
+      const nameA = String(rows[i]['Name'] ?? `row ${i}`);
+      const nameB = String(rows[j]['Name'] ?? `row ${j}`);
+      rowWarnings.push(
+        `Near-duplicate Description text (${Math.round(sim * 100)}% shingle overlap): "${nameA}" and "${nameB}"`,
+      );
+    }
+  }
+}
+
+// Fabrication-risk lint + content-provenance completeness — needs provenance.json,
+// checked below once it's loaded.
 
 // ── report ────────────────────────────────────────────────────────────────
 

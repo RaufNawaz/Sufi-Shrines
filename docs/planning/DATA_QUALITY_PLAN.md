@@ -229,16 +229,20 @@ is the honest current state) so progress is visible release over release.
 
 ## 4. Content-quality validation gates (extending `npm run data:validate`)
 
-All land as **warnings** first (per Principle 6), in `scripts/data/validate.mjs`,
-alongside the existing provenance checks:
+**Implemented 2026-07-12** (Phase D) in `scripts/data/validate.mjs`. All land as
+**warnings** first (per Principle 6), alongside the existing provenance checks:
 
-| Check | What it catches | Threshold (initial) |
+| Check | What it catches | Threshold (as implemented) |
 | --- | --- | --- |
-| Length outliers | Suspiciously thin (nothing substantive to say, or truncated) or suspiciously long (runaway generation) `Description` text | warn <300 or >8,000 chars — informed by the observed 1,118–22,540 char range across current data, so real long-form entries like Mazar-e-Iqbal (22,540) don't false-positive |
-| Near-duplicate detection | Copy-paste-and-forgot-to-edit across rows (cheap shingling/n-gram similarity across all 163 `Description` fields) | warn >80% similarity between any two rows |
-| Placeholder/leak detector | Internal notes leaking into rendered content — the exact failure mode found in §1.1 (`"Placeholder:"`, `"awaiting human translation"`, `"TODO"`, `"Lorem ipsum"`, `"[NEEDS REVIEW]"` literal strings inside `Description`/`Description Urdu`) | any match = warn (hard-fail once clean) |
-| Fabrication-risk lint | A `Description` tagged `contentTier: ai-researched` (§3.1) with zero `citations` and no explicit "no sources found" note | warn until Phase C's citation backfill lands, then promote to hard gate |
-| Content-provenance completeness | Any shrine whose `Description` field has no `contentTier` at all | warn until Phase A completes for all 163, then hard gate (mirrors how the 2026-07-12 session promoted the Urdu-provenance-completeness check to a hard gate only after the backfill landed) |
+| Length outliers | Suspiciously thin (<300 chars) or suspiciously long (runaway/duplicated generation, >8,000 chars) `Description` text | Tier 1/2 shrines (contentTier `tier1-ocr`/`tier2-compendium`) are exempted from the upper bound — their length (up to 22,540 chars) is a feature of rich, cited research, not a bug; without this exemption all 7 Tier-1 shrines false-positived on first run |
+| Near-duplicate detection | Copy-paste-and-forgot-to-edit across rows (5-word shingle Jaccard similarity across all 163 `Description` fields) | warn ≥50% shingle overlap between any two rows — 0 hits on the current dataset |
+| Placeholder/leak detector | Internal notes leaking into rendered content — the exact failure mode found in §1.1 (`"Placeholder:"`, `"awaiting human translation"`, `"TODO"`, `"FIXME"`, `"Lorem ipsum"`, `"[NEEDS REVIEW]"`, `"NEEDS HUMAN REVIEW"` literal strings) | any match = warn — 0 hits (the Allo Mahar case was fixed in Phase B before this check landed) |
+| Fabrication-risk lint | A `Description` tagged `contentTier: ai-researched` (§3.1) with zero `citations` | warn — currently 80/163 (102 ai-researched minus the 22 fact-verified in Phase C wave 1) |
+| Content-provenance completeness | Any shrine whose `Description` field has no `contentTier` at all | warn — currently 0/163 (Phase A closed this to zero) |
+
+Runs in ~0.2s on the full 163-row dataset. All five checks are warnings, not hard
+gates, since the fabrication-risk and length-outlier backlogs aren't clear yet
+(promote once Phase C's remaining 80-shrine backlog closes).
 
 ---
 
