@@ -18,7 +18,11 @@ export function RelatedShrines({ shrine, all }: Props) {
   if (related.length === 0) return null;
 
   return (
-    <section className="related-shrines article-section" id="related" aria-labelledby="related-heading">
+    <section
+      className="related-shrines article-section"
+      id="related"
+      aria-labelledby="related-heading"
+    >
       <h2 className="article-section-heading" id="related-heading">
         {t('relatedShrines')}
       </h2>
@@ -42,7 +46,9 @@ export function RelatedShrines({ shrine, all }: Props) {
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
                   {location && <span>{location} · </span>}
-                  <span>{dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}</span>
+                  <span>
+                    {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
+                  </span>
                 </div>
               </div>
             </Link>

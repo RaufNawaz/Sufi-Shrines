@@ -45,7 +45,9 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   return (
     <div
       className="lightbox-overlay"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       role="dialog"
       aria-modal="true"
       aria-label={t('gallery')}
@@ -57,7 +59,17 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
           aria-label="Previous image"
           disabled={idx === 0}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
@@ -69,8 +81,15 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
         className="lightbox-img"
       />
 
-      {item.caption && (
-        <p className="lightbox-caption">{item.caption}</p>
+      {(item.caption || item.credit) && (
+        <div className="lightbox-caption">
+          {item.caption && <p>{item.caption}</p>}
+          {item.credit && (
+            <p className="lightbox-credit">
+              {t('photoCredit')}: <bdi>{item.credit}</bdi>
+            </p>
+          )}
+        </div>
       )}
 
       {items.length > 1 && (
@@ -80,14 +99,39 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
           aria-label="Next image"
           disabled={idx === items.length - 1}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="9 18 15 12 9 6" />
           </svg>
         </button>
       )}
 
-      <button ref={closeRef} className="lightbox-close" onClick={onClose} aria-label={t('closeImage')}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <button
+        ref={closeRef}
+        className="lightbox-close"
+        onClick={onClose}
+        aria-label={t('closeImage')}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
@@ -123,17 +167,22 @@ export function ShrineGallery({ items, category = '' }: Props) {
               className="gallery-img"
               loading="lazy"
             />
-            {item.caption && <p className="gallery-caption">{item.caption}</p>}
+            {(item.caption || item.credit) && (
+              <div className="gallery-caption">
+                {item.caption && <p>{item.caption}</p>}
+                {item.credit && (
+                  <p className="gallery-credit">
+                    {t('photoCredit')}: <bdi>{item.credit}</bdi>
+                  </p>
+                )}
+              </div>
+            )}
           </button>
         ))}
       </div>
 
       {lightboxIdx !== null && (
-        <Lightbox
-          items={items}
-          initialIndex={lightboxIdx}
-          onClose={() => setLightboxIdx(null)}
-        />
+        <Lightbox items={items} initialIndex={lightboxIdx} onClose={() => setLightboxIdx(null)} />
       )}
     </section>
   );

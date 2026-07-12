@@ -1,18 +1,18 @@
 export type KGEntityType = 'saint' | 'order' | 'place' | 'event' | 'source';
 
 export type KGRelationType =
-  | 'buried_at'         // saint → shrine slug
-  | 'disciple_of'       // saint → saint
-  | 'belongs_to_order'  // saint → order
-  | 'located_in'        // shrine slug → place
-  | 'commemorated_by'   // saint → event
-  | 'attested_in';      // entity/relation id → source
+  | 'buried_at' // saint → shrine slug
+  | 'disciple_of' // saint → saint
+  | 'belongs_to_order' // saint → order
+  | 'located_in' // shrine slug → place
+  | 'commemorated_by' // saint → event
+  | 'attested_in'; // entity/relation id → source
 
 export interface KGEntity {
-  id: string;          // "{type}:{slug}", e.g. "saint:lal-shahbaz-qalandar"
+  id: string; // "{type}:{slug}", e.g. "saint:lal-shahbaz-qalandar"
   type: KGEntityType;
   slug: string;
-  name: string;        // canonical English name
+  name: string; // canonical English name
   nameUr?: string;
   altNames?: string[];
   wikidataQid?: string;
@@ -24,13 +24,13 @@ export interface KGSaint extends KGEntity {
   born?: string;
   died?: string;
   era?: string;
-  shrines: string[];   // shrine slugs where this saint is commemorated
+  shrines: string[]; // shrine slugs where this saint is commemorated
 }
 
 export interface KGOrder extends KGEntity {
   type: 'order';
   arabicName?: string;
-  founder?: string;    // saint slug
+  founder?: string; // saint slug
   founded?: string;
   parentOrder?: string; // order slug (for sub-orders)
 }
@@ -61,11 +61,11 @@ export interface KGSource extends KGEntity {
 }
 
 export interface KGRelation {
-  id: string;          // stable ID, e.g. "buried_at:saint:foo:shrine-bar"
+  id: string; // stable ID, e.g. "buried_at:saint:foo:shrine-bar"
   type: KGRelationType;
-  subject: string;     // entity id or shrine slug (for shrine-as-subject relations)
-  object: string;      // entity id or shrine slug
-  confidence: number;  // 0–1
+  subject: string; // entity id or shrine slug (for shrine-as-subject relations)
+  object: string; // entity id or shrine slug
+  confidence: number; // 0–1
   method: 'human' | 'rule' | 'ml';
   notes?: string;
 }

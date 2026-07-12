@@ -1,21 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { Lang } from '../../types/shrine';
-import { t, tFn, UI_TEXT } from './uiStrings';
+import type { UI_TEXT } from './uiStrings';
+import { t, tFn } from './uiStrings';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import { translateToUrdu } from './urduFallback';
 import { localizeDigits } from './numerals';
+import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
 import type { ShrineRow } from '../../types/shrine';
-
-const STORAGE_KEY = 'shrines_language';
-const NUMERALS_STORAGE_KEY = 'shrines_numerals';
 
 export type Numerals = 'eastern' | 'western';
 
@@ -27,7 +19,7 @@ function detectInitialNumerals(): Numerals {
 function detectInitialLang(): Lang {
   const param = new URLSearchParams(window.location.search).get('lang');
   if (param === 'en' || param === 'ur') return param;
-  const stored = localStorage.getItem(STORAGE_KEY);
+  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
   if (stored === 'en' || stored === 'ur') return stored;
   if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';
   return 'en';
@@ -63,7 +55,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLang = useCallback((next: Lang) => {
     setLangState(next);
-    localStorage.setItem(STORAGE_KEY, next);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
     const params = new URLSearchParams(window.location.search);
     params.set('lang', next);
     const url = `${window.location.pathname}?${params.toString()}`;
@@ -82,8 +74,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const description = t(lang, 'siteMetaDescription');
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t(lang, 'siteTitle'));
-    document.querySelector('meta[name="apple-mobile-web-app-title"]')?.setAttribute('content', t(lang, 'title'));
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute('content', t(lang, 'siteTitle'));
+    document
+      .querySelector('meta[name="apple-mobile-web-app-title"]')
+      ?.setAttribute('content', t(lang, 'title'));
   }, [lang]);
 
   const localizeField = useCallback(

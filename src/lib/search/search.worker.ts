@@ -10,13 +10,9 @@ interface ShrineDoc {
   description: string;
 }
 
-type InMsg =
-  | { type: 'init'; docs: ShrineDoc[] }
-  | { type: 'search'; query: string; reqId: number };
+type InMsg = { type: 'init'; docs: ShrineDoc[] } | { type: 'search'; query: string; reqId: number };
 
-type OutMsg =
-  | { type: 'ready' }
-  | { type: 'results'; ids: number[]; reqId: number };
+type OutMsg = { type: 'ready' } | { type: 'results'; ids: number[]; reqId: number };
 
 let ms: MiniSearch<ShrineDoc> | null = null;
 
@@ -42,9 +38,11 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
 
   if (msg.type === 'search') {
     if (!ms) return;
-    const results = msg.query.trim()
-      ? ms.search(msg.query).map((r) => r.id as number)
-      : [];
-    (self as unknown as Worker).postMessage({ type: 'results', ids: results, reqId: msg.reqId } satisfies OutMsg);
+    const results = msg.query.trim() ? ms.search(msg.query).map((r) => r.id as number) : [];
+    (self as unknown as Worker).postMessage({
+      type: 'results',
+      ids: results,
+      reqId: msg.reqId,
+    } satisfies OutMsg);
   }
 };

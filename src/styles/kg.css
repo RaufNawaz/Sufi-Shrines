@@ -136,7 +136,9 @@
   text-decoration: none;
   font-size: var(--text-sm);
   border: 1px solid var(--color-border);
-  transition: background-color var(--duration-fast), border-color var(--duration-fast);
+  transition:
+    background-color var(--duration-fast),
+    border-color var(--duration-fast);
 }
 
 .entity-shrine-list-item a:hover,
@@ -329,7 +331,9 @@
   text-decoration: none;
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
-  transition: background-color var(--duration-fast), color var(--duration-fast);
+  transition:
+    background-color var(--duration-fast),
+    color var(--duration-fast);
 }
 
 .lineage-member a:hover,
@@ -439,9 +443,15 @@
   flex-shrink: 0;
 }
 
-.network-link--saint::before { background-color: var(--color-accent); }
-.network-link--order::before { background-color: var(--color-primary); }
-.network-link--shrine::before { background-color: var(--color-border); }
+.network-link--saint::before {
+  background-color: var(--color-accent);
+}
+.network-link--order::before {
+  background-color: var(--color-primary);
+}
+.network-link--shrine::before {
+  background-color: var(--color-border);
+}
 
 .network-link a {
   font-size: var(--text-sm);
@@ -467,20 +477,6 @@
 .meta-entity-link:focus {
   color: var(--color-primary);
   border-bottom-color: var(--color-primary);
-}
-
-/* ── Screen reader only ──────────────────────────────────────────────────── */
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }
 
 /* ── RTL overrides ───────────────────────────────────────────────────────── */

@@ -1,0 +1,103 @@
+/* ── Shared component primitives ──────────────────────────────────────────────
+   Cross-page building blocks used by the map sidebar, tour panel, related
+   cards, and the shrine page alike.
+
+   Import order (see main.tsx): AFTER map.css/tours.css and BEFORE shrine.css.
+   These rules historically lived in shrine.css (loaded after map.css), and
+   same-specificity ties depend on that position — e.g. .skeleton's shimmer
+   background must beat map.css's .shrine-list-thumb-slot background on
+   sidebar skeleton rows. Keep this file after map.css. */
+
+/* Skeleton loading shimmer */
+.skeleton {
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-alt) 25%,
+    var(--color-border-light) 50%,
+    var(--color-bg-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--color-bg-alt);
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ShrineImage: category-tinted placeholder shown for missing/failed images */
+.shrine-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-pale);
+}
+
+.shrine-img-placeholder--muslim {
+  background: var(--color-cat-muslim-pale);
+}
+.shrine-img-placeholder--hindu {
+  background: var(--color-cat-hindu-pale);
+}
+.shrine-img-placeholder--sikh {
+  background: var(--color-cat-sikh-pale);
+}
+.shrine-img-placeholder--default {
+  background: var(--color-primary-pale);
+}
+
+.shrine-img-placeholder--muslim .shrine-img-icon {
+  color: var(--color-cat-muslim);
+}
+.shrine-img-placeholder--hindu .shrine-img-icon {
+  color: var(--color-cat-hindu);
+}
+.shrine-img-placeholder--sikh .shrine-img-icon {
+  color: var(--color-cat-sikh);
+}
+.shrine-img-placeholder--default .shrine-img-icon {
+  color: var(--color-primary);
+}
+
+.shrine-img-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.35;
+}
+
+/* Related-card image — used by RelatedShrines and the tour panel stop image */
+.related-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: var(--color-bg-alt);
+  display: block;
+}
+
+.related-card-img-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--color-primary-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shrine-img-placeholder.related-card-img-placeholder {
+  height: auto;
+  aspect-ratio: 16/9;
+}

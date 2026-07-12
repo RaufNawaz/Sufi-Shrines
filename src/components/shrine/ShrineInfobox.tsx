@@ -48,7 +48,8 @@ export function ShrineInfobox({ shrine }: Props) {
       key === 'Events & Urs' ||
       key === 'Visiting Info' ||
       key === 'Sources'
-    ) continue;
+    )
+      continue;
     // Skip gallery keys
     if (/^Gallery\s*\d+|^Image\s*\d+|^Caption\s*\d+/i.test(key)) continue;
 
@@ -94,7 +95,17 @@ export function ShrineInfobox({ shrine }: Props) {
           rel="noopener noreferrer"
           className="infobox-action-btn"
         >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polygon points="3 11 22 2 13 21 11 13 3 11" />
           </svg>
           {t('getDirections')}

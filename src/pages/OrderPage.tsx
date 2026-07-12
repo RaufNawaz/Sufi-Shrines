@@ -1,42 +1,24 @@
-import React, { useMemo, useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
-import { getOrderBySlug, getSaintsInOrder } from '../lib/kg';
+import { getOrderBySlug, getSaintsInOrder, slugToLabel } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
-
-function slugToLabel(slug: string): string {
-  return slug
-    .split('-')
-    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
-    .join(' ');
-}
 
 export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useFocusHeadingOnMount();
 
   const order = useMemo(() => (slug ? getOrderBySlug(slug) : undefined), [slug]);
-  const members = useMemo(
-    () => (slug ? getSaintsInOrder(slug) : []),
-    [slug],
-  );
+  const members = useMemo(() => (slug ? getSaintsInOrder(slug) : []), [slug]);
 
-  useEffect(() => {
-    if (!order) return;
-    document.title = `${order.name} — ${t('siteTitle')}`;
-  }, [order, t]);
-
-  useEffect(() => {
-    const el = headingRef.current;
-    if (!el) return;
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
-    el.focus({ preventScroll: true });
-  }, []);
+  useDocumentTitle(order ? `${order.name} — ${t('siteTitle')}` : null);
 
   if (!order) return <Navigate to="/" replace />;
 
@@ -47,7 +29,17 @@ export default function OrderPage() {
     <div className="page-enter entity-page-wrapper">
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
@@ -67,8 +59,12 @@ export default function OrderPage() {
         {/* Breadcrumb */}
         <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
           <ol>
-            <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
-            <li className="shrine-breadcrumb-current" aria-current="page">{order.name}</li>
+            <li>
+              <Link to="/">{t('mapBreadcrumb')}</Link>
+            </li>
+            <li className="shrine-breadcrumb-current" aria-current="page">
+              {order.name}
+            </li>
           </ol>
         </nav>
 
@@ -94,7 +90,8 @@ export default function OrderPage() {
           )}
           {members.length > 0 && (
             <span className="entity-meta-item">
-              {fmtNum(members.length)} {isRtl ? t('saintLabel') : `saint${members.length !== 1 ? 's' : ''}`}
+              {fmtNum(members.length)}{' '}
+              {isRtl ? t('saintLabel') : `saint${members.length !== 1 ? 's' : ''}`}
             </span>
           )}
         </div>
@@ -167,7 +164,9 @@ export default function OrderPage() {
               {order.arabicName && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('arabicName')}</span>
-                  <span className="entity-infobox-value" lang="ar">{order.arabicName}</span>
+                  <span className="entity-infobox-value" lang="ar">
+                    {order.arabicName}
+                  </span>
                 </div>
               )}
               {founded && (

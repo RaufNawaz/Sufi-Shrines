@@ -4,7 +4,7 @@ import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 
 interface SearchState {
   ids: Set<number> | null; // null = "no query / show all"
-  query: string;           // the query that produced `ids`
+  query: string; // the query that produced `ids`
 }
 
 export function useSearch(shrines: Shrine[], query: string): SearchState {
@@ -12,7 +12,11 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
   const callIdRef = useRef(0);
   const pendingRef = useRef<Map<number, (ids: number[]) => void>>(new Map());
   const [state, setState] = useState<SearchState>({ ids: null, query: '' });
-  const readyRef = useRef(false);
+  // Readiness is state (not a ref) so a query typed before the index finished
+  // building is re-issued once it becomes ready; the generation counter does
+  // the same for queries that were active across a worker rebuild.
+  const [ready, setReady] = useState(false);
+  const [workerGen, setWorkerGen] = useState(0);
 
   // Spin up the worker and index once shrines are available
   useEffect(() => {
@@ -20,10 +24,12 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
 
     const worker = new Worker(new URL('./search.worker.ts', import.meta.url), { type: 'module' });
     workerRef.current = worker;
+    const pending = pendingRef.current;
 
     worker.onmessage = (e: MessageEvent) => {
       if (e.data.type === 'ready') {
-        readyRef.current = true;
+        setReady(true);
+        setWorkerGen((g) => g + 1);
       } else if (e.data.type === 'results') {
         const cb = pendingRef.current.get(e.data.reqId);
         if (cb) {
@@ -47,7 +53,9 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
     return () => {
       worker.terminate();
       workerRef.current = null;
-      readyRef.current = false;
+      setReady(false);
+      // Callbacks for the terminated worker can never resolve — drop them.
+      pending.clear();
     };
   }, [shrines]);
 
@@ -57,7 +65,7 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
       setState({ ids: null, query });
       return;
     }
-    if (!readyRef.current || !workerRef.current) return;
+    if (!ready || !workerRef.current) return;
 
     const id = ++callIdRef.current;
     const capturedId = id;
@@ -69,7 +77,7 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
       if (capturedId !== callIdRef.current) return;
       setState({ ids: new Set(ids), query });
     });
-  }, [query]);
+  }, [query, ready, workerGen]);
 
   return state;
 }

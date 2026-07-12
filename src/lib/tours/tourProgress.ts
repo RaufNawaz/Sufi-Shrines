@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'shrines_tour_progress';
+import { TOUR_PROGRESS_STORAGE_KEY } from '../storageKeys';
 
 export type TourStatus = 'in-progress' | 'completed';
 
@@ -22,7 +22,7 @@ function emptyState(): TourProgressState {
 
 function readState(): TourProgressState {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(TOUR_PROGRESS_STORAGE_KEY);
     if (!raw) return emptyState();
     const parsed = JSON.parse(raw);
     return {
@@ -35,7 +35,7 @@ function readState(): TourProgressState {
 }
 
 function writeState(state: TourProgressState): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  localStorage.setItem(TOUR_PROGRESS_STORAGE_KEY, JSON.stringify(state));
 }
 
 export function getTourProgressState(): TourProgressState {

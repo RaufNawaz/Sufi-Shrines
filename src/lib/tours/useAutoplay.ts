@@ -20,7 +20,12 @@ interface UseAutoplayResult {
 
 /** Ticking countdown that calls onComplete once, then waits for resetKey to
  * change (e.g. the caller advancing to the next stop) before running again. */
-export function useAutoplay({ enabled, durationMs, resetKey, onComplete }: UseAutoplayOptions): UseAutoplayResult {
+export function useAutoplay({
+  enabled,
+  durationMs,
+  resetKey,
+  onComplete,
+}: UseAutoplayOptions): UseAutoplayResult {
   const [remainingMs, setRemainingMs] = useState(durationMs);
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;

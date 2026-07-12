@@ -14,11 +14,7 @@ export function LineageView({ order, members, currentSlug }: Props) {
   const isOrderCurrent = order.slug === currentSlug;
 
   return (
-    <div
-      className="lineage-view"
-      role="tree"
-      aria-label={t('spiritualLineage')}
-    >
+    <div className="lineage-view" role="tree" aria-label={t('spiritualLineage')}>
       <div className="lineage-root" role="treeitem" aria-expanded="true">
         <Link
           to={`/order/${order.slug}`}
@@ -27,7 +23,9 @@ export function LineageView({ order, members, currentSlug }: Props) {
         >
           {order.name}
           {order.arabicName && (
-            <span className="lineage-node-alt" lang="ar">{order.arabicName}</span>
+            <span className="lineage-node-alt" lang="ar">
+              {order.arabicName}
+            </span>
           )}
         </Link>
       </div>

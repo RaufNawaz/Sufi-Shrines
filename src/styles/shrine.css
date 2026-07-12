@@ -7,7 +7,7 @@
   padding-bottom: calc(var(--space-16) + var(--safe-bottom));
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639.98px) {
   .shrine-page {
     padding: var(--space-4) var(--space-4);
     padding-top: calc(var(--space-4) + var(--safe-top));
@@ -49,6 +49,19 @@
   display: block;
 }
 
+.shrine-hero-credit {
+  position: absolute;
+  bottom: var(--space-2);
+  inset-inline-end: var(--space-2);
+  margin: 0;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm, 4px);
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
 .shrine-hero-placeholder {
   width: 100%;
   height: 220px;
@@ -58,11 +71,6 @@
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-bg-alt) 100%);
-}
-
-/* Article header */
-.shrine-article-header {
-  margin-bottom: var(--space-6);
 }
 
 .shrine-category-kicker {
@@ -378,7 +386,8 @@
   background: var(--color-bg-alt);
   aspect-ratio: 4/3;
   position: relative;
-  transition: transform var(--duration-fast) var(--easing-spring),
+  transition:
+    transform var(--duration-fast) var(--easing-spring),
     box-shadow var(--duration-fast);
 }
 
@@ -414,6 +423,16 @@
   line-height: var(--leading-snug);
 }
 
+.gallery-caption p {
+  margin: 0;
+}
+
+.gallery-caption .gallery-credit {
+  opacity: 0.75;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+
 /* Lightbox */
 .lightbox-overlay {
   position: fixed;
@@ -437,10 +456,10 @@
   display: block;
 }
 
-.lightbox-close {
+/* Close + prev/next share the frosted circular button treatment */
+.lightbox-close,
+.lightbox-nav-btn {
   position: absolute;
-  top: calc(var(--space-4) + var(--safe-top));
-  inset-inline-end: calc(var(--space-4) + var(--safe-right));
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
@@ -456,7 +475,13 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
-.lightbox-close:hover {
+.lightbox-close {
+  top: calc(var(--space-4) + var(--safe-top));
+  inset-inline-end: calc(var(--space-4) + var(--safe-right));
+}
+
+.lightbox-close:hover,
+.lightbox-nav-btn:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
@@ -470,27 +495,19 @@
   font-size: var(--text-sm);
 }
 
-.lightbox-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--duration-fast);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.lightbox-caption p {
+  margin: 0;
 }
 
-.lightbox-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+.lightbox-caption .lightbox-credit {
+  opacity: 0.7;
+  font-size: 0.85em;
+  margin-top: var(--space-1, 4px);
+}
+
+.lightbox-nav-btn {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .lightbox-nav-btn.prev {
@@ -533,15 +550,6 @@
   margin-top: var(--space-2);
 }
 
-.mini-marker-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--color-marker-default, #1a5c4e);
-  border: 2.5px solid white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
 /* Related shrines */
 .related-shrines {
   margin-bottom: var(--space-8);
@@ -561,7 +569,9 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: box-shadow var(--duration-fast), transform var(--duration-fast);
+  transition:
+    box-shadow var(--duration-fast),
+    transform var(--duration-fast);
 }
 
 .related-card:hover {
@@ -569,29 +579,8 @@
   transform: translateY(-2px);
 }
 
-.related-card-img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  background: var(--color-bg-alt);
-  display: block;
-}
-
-.related-card-img-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--color-primary-pale);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.related-card-img-placeholder-icon {
-  width: 28px;
-  height: 28px;
-  color: var(--color-primary);
-  opacity: 0.35;
-}
+/* .related-card-img / .related-card-img-placeholder live in components.css
+   (shared with the tour panel's stop image) */
 
 .related-card-body {
   padding: var(--space-3);
@@ -626,7 +615,7 @@
   background: var(--color-bg-overlay);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639.98px) {
   .shrine-page-header {
     padding: var(--space-3) var(--space-4);
     padding-top: calc(var(--space-3) + var(--safe-top));
@@ -697,7 +686,9 @@
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
-  transition: opacity var(--duration-base), transform var(--duration-base);
+  transition:
+    opacity var(--duration-base),
+    transform var(--duration-base);
   z-index: var(--z-toast);
 }
 
@@ -707,30 +698,8 @@
   pointer-events: auto;
 }
 
-/* Skeleton loading states */
-.skeleton {
-  border-radius: var(--radius-md);
-  background: linear-gradient(
-    90deg,
-    var(--color-bg-alt) 25%,
-    var(--color-border-light) 50%,
-    var(--color-bg-alt) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 1.5s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skeleton {
-    animation: none;
-    background: var(--color-bg-alt);
-  }
-}
-
-@keyframes skeleton-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+/* Skeleton base (.skeleton) lives in components.css — only the shrine-page
+   skeleton shapes are defined below. */
 
 /* Loading state for shrine page */
 .shrine-loading {
@@ -757,10 +726,14 @@
   width: 55%;
 }
 
-.skeleton-text--90 { width: 90%; }
-.skeleton-text--80 { width: 80%; }
+.skeleton-text--90 {
+  width: 90%;
+}
+.skeleton-text--80 {
+  width: 80%;
+}
 
-/* ── B3: Shrine detail page improvements ──────────────────────────────────── */
+/* ── Shrine detail page refinements ───────────────────────────────────────── */
 
 /* Reading progress bar */
 .reading-progress-bar {
@@ -827,11 +800,7 @@
   max-width: 24ch;
 }
 
-/* Hero: gradient scrim on images, branded placeholder when no image */
-.shrine-hero {
-  position: relative;
-}
-
+/* Hero: gradient scrim on images */
 .shrine-hero img ~ * {
   display: none;
 }
@@ -845,24 +814,6 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   pointer-events: none;
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-}
-
-.shrine-hero--placeholder {
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-}
-
-.shrine-hero--placeholder::after {
-  display: none;
-}
-
-.shrine-hero-dome-icon {
-  width: 72px;
-  height: 72px;
-  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Lead paragraph: larger, calmer, 70ch cap */
@@ -893,7 +844,9 @@
   gap: var(--space-2);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--duration-base), transform var(--duration-base) var(--easing);
+  transition:
+    opacity var(--duration-base),
+    transform var(--duration-base) var(--easing);
   white-space: nowrap;
 }
 
@@ -966,7 +919,9 @@
   font-size: var(--text-xs);
   font-weight: 600;
   text-decoration: none;
-  transition: background var(--duration-fast), color var(--duration-fast);
+  transition:
+    background var(--duration-fast),
+    color var(--duration-fast);
   white-space: nowrap;
 }
 
@@ -975,7 +930,7 @@
   color: white;
 }
 
-/* ── B5: 404 page ──────────────────────────────────────────────────────────── */
+/* ── 404 page ──────────────────────────────────────────────────────────────── */
 .not-found-page {
   min-height: 100vh;
   background: var(--color-bg);
@@ -1050,7 +1005,9 @@
   font-weight: 600;
   font-size: var(--text-sm);
   text-decoration: none;
-  transition: background var(--duration-fast), transform var(--duration-fast) var(--easing-spring);
+  transition:
+    background var(--duration-fast),
+    transform var(--duration-fast) var(--easing-spring);
   margin-top: var(--space-2);
 }
 
@@ -1059,42 +1016,12 @@
   transform: translateY(-1px);
 }
 
-/* ── ShrineImage: lazy-loaded image with category-gradient fallback ─────────── */
-.shrine-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-primary-pale);
-}
-
-.shrine-img-placeholder--muslim { background: var(--color-cat-muslim-pale); }
-.shrine-img-placeholder--hindu  { background: var(--color-cat-hindu-pale); }
-.shrine-img-placeholder--sikh   { background: var(--color-cat-sikh-pale); }
-.shrine-img-placeholder--default { background: var(--color-primary-pale); }
-
-.shrine-img-placeholder--muslim .shrine-img-icon { color: var(--color-cat-muslim); }
-.shrine-img-placeholder--hindu  .shrine-img-icon { color: var(--color-cat-hindu); }
-.shrine-img-placeholder--sikh   .shrine-img-icon { color: var(--color-cat-sikh); }
-.shrine-img-placeholder--default .shrine-img-icon { color: var(--color-primary); }
-
-.shrine-img-icon {
-  width: 32px;
-  height: 32px;
-  opacity: 0.35;
-}
-
+/* ── ShrineImage (base placeholder styles live in components.css) ───────────── */
 .shrine-img-placeholder.shrine-hero-placeholder {
   height: 220px;
 }
 
-.shrine-img-placeholder.related-card-img-placeholder {
-  height: auto;
-  aspect-ratio: 16/9;
-}
-
-/* ── P2-A3: Sources & Provenance panel ─────────────────────────────────────── */
+/* ── Sources & Provenance panel ────────────────────────────────────────────── */
 .provenance-section {
   margin-bottom: var(--space-8);
   padding-top: var(--space-6);
@@ -1207,15 +1134,15 @@
 }
 
 [data-theme='dark'] .provenance-method--human {
-  background: rgba(21, 128, 61, 0.15);
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
 }
 
 [data-theme='dark'] .provenance-method--ocr,
 [data-theme='dark'] .provenance-method--mt {
-  background: rgba(200, 137, 10, 0.15);
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
 
 [data-theme='dark'] .provenance-unreviewed {
-  background: rgba(185, 28, 28, 0.15);
-  border-color: rgba(185, 28, 28, 0.4);
+  background: color-mix(in srgb, var(--color-error) 15%, transparent);
+  border-color: color-mix(in srgb, var(--color-error) 40%, transparent);
 }

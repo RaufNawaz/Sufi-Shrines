@@ -49,17 +49,13 @@ export function useArticleContent(shrine: Shrine) {
   const inlineSections = useMemo(() => {
     const raw =
       lang === 'ur'
-        ? getUrduFieldValue(shrine.raw, 'Description') ||
-          getFieldValue(shrine.raw, 'Description')
+        ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
         : getFieldValue(shrine.raw, 'Description');
     return raw ? parseInlineSections(raw) : [];
   }, [shrine.raw, lang]);
 
   // Dedicated column sections (History, Architecture, …)
-  const columnSections = useMemo(
-    () => buildArticleSections(shrine.raw, lang),
-    [shrine.raw, lang],
-  );
+  const columnSections = useMemo(() => buildArticleSections(shrine.raw, lang), [shrine.raw, lang]);
 
   // Deduplicate: skip column sections already covered by inline sections
   const inlineHeadings = useMemo(
@@ -80,8 +76,7 @@ export function useArticleContent(shrine: Shrine) {
   const rawFallback = useMemo(() => {
     if (leadText || inlineSections.length || uniqueColumnSections.length) return '';
     return lang === 'ur'
-      ? getUrduFieldValue(shrine.raw, 'Description') ||
-          getFieldValue(shrine.raw, 'Description')
+      ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
       : getFieldValue(shrine.raw, 'Description');
   }, [leadText, inlineSections, uniqueColumnSections, shrine.raw, lang]);
 

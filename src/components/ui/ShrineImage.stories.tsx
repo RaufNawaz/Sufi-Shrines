@@ -80,26 +80,65 @@ export const BrokenUrl: Story = {
 
 export const CategoryMuslim: Story = {
   name: 'Category — Muslim',
-  args: { src: null, alt: 'Shrine', category: 'Muslim Shrine', placeholderClassName: 'shrine-hero-placeholder' },
-  decorators: [(Story) => <div style={{ width: 280 }}><Story /></div>],
+  args: {
+    src: null,
+    alt: 'Shrine',
+    category: 'Muslim Shrine',
+    placeholderClassName: 'shrine-hero-placeholder',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 280 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const CategoryHindu: Story = {
   name: 'Category — Hindu',
-  args: { src: null, alt: 'Shrine', category: 'Hindu Shrine', placeholderClassName: 'shrine-hero-placeholder' },
-  decorators: [(Story) => <div style={{ width: 280 }}><Story /></div>],
+  args: {
+    src: null,
+    alt: 'Shrine',
+    category: 'Hindu Shrine',
+    placeholderClassName: 'shrine-hero-placeholder',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 280 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const CategorySikh: Story = {
   name: 'Category — Sikh',
-  args: { src: null, alt: 'Shrine', category: 'Sikh Shrine', placeholderClassName: 'shrine-hero-placeholder' },
-  decorators: [(Story) => <div style={{ width: 280 }}><Story /></div>],
+  args: {
+    src: null,
+    alt: 'Shrine',
+    category: 'Sikh Shrine',
+    placeholderClassName: 'shrine-hero-placeholder',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 280 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const CategoryDefault: Story = {
   name: 'Category — Default',
   args: { src: null, alt: 'Shrine', category: '', placeholderClassName: 'shrine-hero-placeholder' },
-  decorators: [(Story) => <div style={{ width: 280 }}><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div style={{ width: 280 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const RelatedCardSize: Story = {
@@ -111,5 +150,11 @@ export const RelatedCardSize: Story = {
     className: 'related-card-img',
     placeholderClassName: 'related-card-img-placeholder',
   },
-  decorators: [(Story) => <div style={{ width: 200 }}><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div style={{ width: 200 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };

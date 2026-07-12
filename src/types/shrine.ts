@@ -27,6 +27,10 @@ export interface LatLng {
 export interface GalleryItem {
   imageUrl: string;
   caption: string;
+  /** Photo credit/source line for images not from the primary provenance chain
+   * (e.g. "Photo: Dawn.com") — shown under the image so non-Commons sources
+   * stay attributed. Empty for images that don't need one. */
+  credit: string;
   index: number;
 }
 
@@ -58,6 +62,7 @@ export interface Shrine {
   founded: string;
   sufiSaint: string;
   imageUrl: string | null;
+  imageCredit: string;
   gallery: GalleryItem[];
   parsedArticle: ParsedArticle;
   articleSections: ArticleSection[];

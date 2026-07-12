@@ -1,9 +1,5 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { LanguageProvider } from '../../lib/i18n/LanguageContext';
-import { ThemeProvider } from '../../lib/i18n/ThemeContext';
 import { MapSidebar } from '../map/MapSidebar';
 import { ShrineArticle } from '../shrine/ShrineArticle';
 import { ShrineInfobox } from '../shrine/ShrineInfobox';
@@ -11,6 +7,7 @@ import { SourcesProvenance } from '../shrine/SourcesProvenance';
 import { buildShrine } from '../../lib/data/shrineModel';
 import { applyUrduContentOverrides } from '../../lib/data/urduContentOverride';
 import shrinesFixture from '../../data/shrines-fallback.json';
+import { renderWithProviders, findLatinLeaks } from '../../test/utils';
 import type { ShrineRow } from '../../types/shrine';
 
 // Mirror the real data-load pipeline (useShrineData applies this over the
@@ -24,36 +21,9 @@ const fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]
 vi.mock('../../lib/search/useSearch', () => ({
   useSearch: () => ({ ids: null, query: '' }),
 }));
-vi.mock('../shrine/ShrineGallery', () => ({ ShrineGallery: () => null }));
-
-function renderInUrdu(children: React.ReactNode) {
-  localStorage.setItem('shrines_language', 'ur');
-  return render(
-    <ThemeProvider>
-      <LanguageProvider>{children}</LanguageProvider>
-    </ThemeProvider>,
-  );
-}
-
-/**
- * Walks every text node in `root` and flags any that contain a Latin letter,
- * skipping the sanctioned exceptions: coordinates, links, and explicitly
- * bidi-isolated Latin (<bdi>). Mirrors URDU_IMPLEMENTATION_PLAN.md §9's
- * "no English leaks" guard.
- */
-function findLatinLeaks(root: HTMLElement): string[] {
-  const leaks: string[] = [];
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-  let node: Node | null;
-  while ((node = walker.nextNode())) {
-    const text = (node.textContent || '').trim();
-    if (!text || !/[A-Za-z]/.test(text)) continue;
-    const el = node.parentElement;
-    if (el?.closest('.coords, a, bdi, [data-latin]')) continue;
-    leaks.push(text);
-  }
-  return leaks;
-}
+vi.mock('../shrine/ShrineGallery', async () =>
+  (await import('../../test/utils')).shrineGalleryMockFactory(),
+);
 
 beforeEach(() => {
   localStorage.clear();
@@ -66,7 +36,7 @@ describe('no English leaks in ?lang=ur', () => {
     expect(row['Description Urdu']).toBeTruthy(); // sanity: fixture actually has Urdu content to test
 
     const shrine = buildShrine(row, 0)!;
-    const { container } = renderInUrdu(<ShrineArticle shrine={shrine} />);
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />, { lang: 'ur' });
 
     const leaks = findLatinLeaks(container);
     expect(leaks, `Latin text leaked into the Urdu article: ${JSON.stringify(leaks)}`).toEqual([]);
@@ -75,17 +45,25 @@ describe('no English leaks in ?lang=ur', () => {
   it('shrine infobox: field labels (Category/Location/Founded/…) render in Urdu, not raw column names', () => {
     const row = fixtureRows.find((r) => r.Name === 'Data Darbar')!;
     const shrine = buildShrine(row, 0)!;
-    const { container } = renderInUrdu(<ShrineInfobox shrine={shrine} />);
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />, { lang: 'ur' });
 
     const leaks = findLatinLeaks(container);
     expect(leaks, `Latin text leaked into the Urdu infobox: ${JSON.stringify(leaks)}`).toEqual([]);
   });
 
   it('sources & provenance: field names render in Urdu, not raw column names', () => {
-    const { container } = renderInUrdu(<SourcesProvenance shrineSlug="data-darbar" lang="ur" />);
+    const { container } = renderWithProviders(
+      <SourcesProvenance shrineSlug="data-darbar" lang="ur" />,
+      {
+        lang: 'ur',
+      },
+    );
 
     const leaks = findLatinLeaks(container);
-    expect(leaks, `Latin text leaked into the Urdu provenance panel: ${JSON.stringify(leaks)}`).toEqual([]);
+    expect(
+      leaks,
+      `Latin text leaked into the Urdu provenance panel: ${JSON.stringify(leaks)}`,
+    ).toEqual([]);
   });
 
   it('sidebar: default view (welcome card + guided tours) renders fully in Urdu', () => {
@@ -93,37 +71,36 @@ describe('no English leaks in ?lang=ur', () => {
     const shrine = buildShrine(row, 0)!;
     const noop = () => {};
 
-    const { container } = renderInUrdu(
-      <MemoryRouter>
-        <MapSidebar
-          shrines={[shrine]}
-          selectedId={null}
-          loading={false}
-          error={null}
-          onSelect={noop}
-          onRetry={noop}
-          isOpen={true}
-          activeCategory=""
-          onCategoryChange={noop}
-          activeRegion=""
-          onRegionChange={noop}
-          activeSaint=""
-          onSaintChange={noop}
-          eraMin={5}
-          eraMax={21}
-          onEraChange={noop}
-          toursEnabled={true}
-          onToursToggle={noop}
-          activeTour={null}
-          activeTourStop={0}
-          activeTourShrine={null}
-          onStartTour={noop}
-          onResumeTour={noop}
-          onTourNext={noop}
-          onTourPrev={noop}
-          onTourExit={noop}
-        />
-      </MemoryRouter>,
+    const { container } = renderWithProviders(
+      <MapSidebar
+        shrines={[shrine]}
+        selectedId={null}
+        loading={false}
+        error={null}
+        onSelect={noop}
+        onRetry={noop}
+        isOpen={true}
+        activeCategory=""
+        onCategoryChange={noop}
+        activeRegion=""
+        onRegionChange={noop}
+        activeSaint=""
+        onSaintChange={noop}
+        eraMin={5}
+        eraMax={21}
+        onEraChange={noop}
+        toursEnabled={true}
+        onToursToggle={noop}
+        activeTour={null}
+        activeTourStop={0}
+        activeTourShrine={null}
+        onStartTour={noop}
+        onResumeTour={noop}
+        onTourNext={noop}
+        onTourPrev={noop}
+        onTourExit={noop}
+      />,
+      { lang: 'ur', route: '/' },
     );
 
     const leaks = findLatinLeaks(container);

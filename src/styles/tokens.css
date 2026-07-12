@@ -1,3 +1,11 @@
+/* ── Breakpoints (convention — media queries can't read custom properties) ──
+   ≤480px            extra-compact: gallery grid drops to 2 columns (shrine.css)
+   639.98px / 640px  compact boundary: compact page padding at ≤639.98px;
+                     two-column article/entity layout at ≥640px (shrine.css, kg.css)
+   768px / 769px     map sidebar: bottom sheet + ≥44px touch targets at ≤768px;
+                     docked floating desktop layout at ≥769px (map.css)
+   ≥1340px           wide: contents nav moves into the margin rail (shrine.css) */
+
 /* Design tokens — light mode defaults */
 :root {
   /* Colors */

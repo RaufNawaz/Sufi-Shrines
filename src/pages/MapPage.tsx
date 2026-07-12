@@ -3,15 +3,14 @@ import type { Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
-import 'leaflet/dist/leaflet.css';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
 import { TOURS } from '../lib/tours/tours';
 import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
-
-/** Guided tours are opt-in: hidden unless the user flips the toggle on. */
-const TOURS_STORAGE_KEY = 'shrines_tours';
+// Guided tours are opt-in: hidden unless the user flips the TOURS_STORAGE_KEY switch on.
+import { TOURS_STORAGE_KEY } from '../lib/storageKeys';
 
 /** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
@@ -85,11 +84,16 @@ function getFiltersFromURL(): FilterState {
 
 function setFiltersInURL(filters: FilterState): void {
   const p = new URLSearchParams(window.location.search);
-  if (filters.category) p.set('category', filters.category); else p.delete('category');
-  if (filters.region) p.set('region', filters.region); else p.delete('region');
-  if (filters.saint) p.set('saint', filters.saint); else p.delete('saint');
-  if (filters.eraMin !== ERA_MIN) p.set('eraMin', String(filters.eraMin)); else p.delete('eraMin');
-  if (filters.eraMax !== ERA_MAX) p.set('eraMax', String(filters.eraMax)); else p.delete('eraMax');
+  if (filters.category) p.set('category', filters.category);
+  else p.delete('category');
+  if (filters.region) p.set('region', filters.region);
+  else p.delete('region');
+  if (filters.saint) p.set('saint', filters.saint);
+  else p.delete('saint');
+  if (filters.eraMin !== ERA_MIN) p.set('eraMin', String(filters.eraMin));
+  else p.delete('eraMin');
+  if (filters.eraMax !== ERA_MAX) p.set('eraMax', String(filters.eraMax));
+  else p.delete('eraMax');
   const qs = p.toString();
   window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
 }
@@ -104,7 +108,9 @@ export default function MapPage() {
     () => isEmbedMode() || !window.matchMedia('(max-width: 768px)').matches,
   );
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
-  const [toursEnabled, setToursEnabled] = useState(() => localStorage.getItem(TOURS_STORAGE_KEY) === 'on');
+  const [toursEnabled, setToursEnabled] = useState(
+    () => localStorage.getItem(TOURS_STORAGE_KEY) === 'on',
+  );
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
@@ -112,9 +118,7 @@ export default function MapPage() {
   const activeTourIdRef = useRef<string | null>(null);
   const tourStopIdxRef = useRef(0);
 
-  useEffect(() => {
-    document.title = t('siteTitle');
-  }, [t]);
+  useDocumentTitle(t('siteTitle'));
 
   // Sync filter state to URL (replaceState — no back-button churn for filters)
   useEffect(() => {
@@ -163,7 +167,8 @@ export default function MapPage() {
   // active; ending a tour falls back to reflecting the last-viewed shrine.
   useEffect(() => {
     if (!initializedRef.current) return;
-    const tourChanged = activeTourId !== activeTourIdRef.current || tourStopIdx !== tourStopIdxRef.current;
+    const tourChanged =
+      activeTourId !== activeTourIdRef.current || tourStopIdx !== tourStopIdxRef.current;
     const selectedChanged = selectedId !== selectedIdRef.current;
     if (!tourChanged && !selectedChanged) return;
 
@@ -180,7 +185,8 @@ export default function MapPage() {
       params.delete('tour');
       params.delete('stop');
       const shrine = selectedId !== null ? shrines.find((s) => s.id === selectedId) : null;
-      if (shrine) params.set('selected', shrine.slug); else params.delete('selected');
+      if (shrine) params.set('selected', shrine.slug);
+      else params.delete('selected');
     }
     const qs = params.toString();
     window.history.pushState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
@@ -269,14 +275,14 @@ export default function MapPage() {
   }, []);
 
   const activeTour = useMemo(
-    () => (activeTourId ? TOURS.find((t) => t.id === activeTourId) ?? null : null),
+    () => (activeTourId ? (TOURS.find((t) => t.id === activeTourId) ?? null) : null),
     [activeTourId],
   );
 
   const activeTourShrine = useMemo(() => {
     if (!activeTour) return null;
     const stop = activeTour.stops[tourStopIdx];
-    return stop ? shrines.find((s) => s.slug === stop.shrineSlug) ?? null : null;
+    return stop ? (shrines.find((s) => s.slug === stop.shrineSlug) ?? null) : null;
   }, [activeTour, tourStopIdx, shrines]);
 
   // Advance map selection when tour stop changes
@@ -293,12 +299,15 @@ export default function MapPage() {
     }
   }, []);
 
-  const handleStartTour = useCallback((tourId: string) => {
-    if (!toursEnabled) return;
-    setActiveTourId(tourId);
-    setTourStopIdx(0);
-    setSidebarOpen(true);
-  }, [toursEnabled]);
+  const handleStartTour = useCallback(
+    (tourId: string) => {
+      if (!toursEnabled) return;
+      setActiveTourId(tourId);
+      setTourStopIdx(0);
+      setSidebarOpen(true);
+    },
+    [toursEnabled],
+  );
 
   const handleResumeTour = useCallback((tourId: string, stopIdx: number) => {
     setActiveTourId(tourId);
@@ -332,15 +341,14 @@ export default function MapPage() {
   return (
     <div className="map-root">
       {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
-      <nav
-        id="shrine-directory"
-        className="sr-only"
-        aria-label={t('shrineDirectoryLabel')}
-      >
+      <nav id="shrine-directory" className="sr-only" aria-label={t('shrineDirectoryLabel')}>
         <ol>
           {shrines.map((s) => (
             <li key={s.id}>
-              <a href={`/shrine/${s.slug}`}>{s.name}{s.location ? ` — ${s.location}` : ''}</a>
+              <a href={`/shrine/${s.slug}`}>
+                {s.name}
+                {s.location ? ` — ${s.location}` : ''}
+              </a>
             </li>
           ))}
         </ol>
@@ -403,7 +411,17 @@ export default function MapPage() {
           aria-expanded={false}
           aria-controls="sidebar"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />

@@ -1,9 +1,17 @@
 import React, { lazy, Suspense, useEffect, useRef } from 'react';
-import { BrowserRouter, Route, Routes, Navigate, useSearchParams, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useSearchParams,
+  useLocation,
+} from 'react-router-dom';
 
 import { LanguageProvider } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
 import { UpdateToast } from './components/ui/UpdateToast';
+import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 
 const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
@@ -36,7 +44,10 @@ function RouteAnnouncer() {
   const isFirst = useRef(true);
 
   useEffect(() => {
-    if (isFirst.current) { isFirst.current = false; return; }
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
     // Shift focus to main content on navigation so screen readers pick up the new page
     const el = document.getElementById('main-content') as HTMLElement | null;
     if (!el) return;
@@ -52,21 +63,27 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <BrowserRouter basename={import.meta.env.BASE_URL}>
-          <a href="#main-content" className="skip-link">Skip to content</a>
-          <a href="#shrine-directory" className="skip-link">Skip to shrine list</a>
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          <a href="#shrine-directory" className="skip-link">
+            Skip to shrine list
+          </a>
           <RouteAnnouncer />
-          <Suspense fallback={<PageFallback />}>
-            <Routes>
-              <Route path="/" element={<MapPage />} />
-              <Route path="/shrine/:slug" element={<ShrinePage />} />
-              <Route path="/saint/:slug" element={<SaintPage />} />
-              <Route path="/order/:slug" element={<OrderPage />} />
-              <Route path="/graph" element={<GraphPage />} />
-              {/* Legacy shrine.html?id=N redirect */}
-              <Route path="/shrine.html" element={<LegacyRedirect />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </Suspense>
+          <AppErrorBoundary>
+            <Suspense fallback={<PageFallback />}>
+              <Routes>
+                <Route path="/" element={<MapPage />} />
+                <Route path="/shrine/:slug" element={<ShrinePage />} />
+                <Route path="/saint/:slug" element={<SaintPage />} />
+                <Route path="/order/:slug" element={<OrderPage />} />
+                <Route path="/graph" element={<GraphPage />} />
+                {/* Legacy shrine.html?id=N redirect */}
+                <Route path="/shrine.html" element={<LegacyRedirect />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </Suspense>
+          </AppErrorBoundary>
           <UpdateToast />
         </BrowserRouter>
       </LanguageProvider>

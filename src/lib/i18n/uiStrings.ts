@@ -26,6 +26,7 @@ export const UI_TEXT = {
     coordinatesLabel: 'Coordinates',
     imageExpand: 'Open image',
     closeImage: 'Close image',
+    photoCredit: 'Photo',
     contents: 'Contents',
     overview: 'Overview',
     descriptionSection: 'Description',
@@ -40,6 +41,8 @@ export const UI_TEXT = {
     notFound: 'Shrine not found.',
     errorLoadingData: 'Failed to load shrine data.',
     retry: 'Try Again',
+    appErrorMessage: 'Something went wrong. Please reload the page.',
+    appErrorReload: 'Reload',
     filterAll: 'All',
     resultCount: (n: number) => `${n} shrine${n === 1 ? '' : 's'}`,
     nearMe: 'Near Me',
@@ -177,6 +180,7 @@ export const UI_TEXT = {
     coordinatesLabel: 'کوآرڈینیٹس',
     imageExpand: 'تصویر کھولیں',
     closeImage: 'تصویر بند کریں',
+    photoCredit: 'تصویر',
     contents: 'مندرجات',
     overview: 'خلاصہ',
     descriptionSection: 'توضیح',
@@ -191,6 +195,8 @@ export const UI_TEXT = {
     notFound: 'مزار نہیں ملا۔',
     errorLoadingData: 'ڈیٹا لوڈ نہیں ہوا۔',
     retry: 'دوبارہ کوشش کریں',
+    appErrorMessage: 'کچھ غلط ہو گیا۔ براہ کرم صفحہ دوبارہ لوڈ کریں۔',
+    appErrorReload: 'دوبارہ لوڈ کریں',
     filterAll: 'سب',
     resultCount: (n: number) => `${n} مزار`,
     nearMe: 'میرے قریب',
@@ -314,7 +320,11 @@ export function t(lang: Lang, key: keyof (typeof UI_TEXT)['en']): string {
 export function tFn(lang: Lang, key: 'resultCount', n: number): string;
 export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
-export function tFn(lang: Lang, key: 'resultCount' | 'stopOf' | 'nextIn', ...args: number[]): string {
+export function tFn(
+  lang: Lang,
+  key: 'resultCount' | 'stopOf' | 'nextIn',
+  ...args: number[]
+): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
   if (typeof fn === 'function') return (fn as (...a: number[]) => string)(...args);
   return String(fn ?? '');

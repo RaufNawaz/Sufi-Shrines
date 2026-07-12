@@ -1,7 +1,7 @@
 import type { LatLng, Shrine, ShrineRow } from '../../types/shrine';
 import { buildArticleSections, parsedArticleFromRow } from './articleParsing';
 import { getFieldValue } from './fieldAliasing';
-import { getPrimaryImageUrl, parseGallery } from './galleryParsing';
+import { getPrimaryImageCredit, getPrimaryImageUrl, parseGallery } from './galleryParsing';
 import { buildStableSlug, slugify } from './slugify';
 
 export function parseLatLng(row: ShrineRow): LatLng | null {
@@ -45,6 +45,7 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
     founded: getFieldValue(row, 'Founded/Opened') || getFieldValue(row, 'Founded'),
     sufiSaint: getFieldValue(row, 'Sufi Saint'),
     imageUrl: getPrimaryImageUrl(row),
+    imageCredit: getPrimaryImageCredit(row),
     gallery: parseGallery(row),
     parsedArticle: parsedArticleFromRow(row),
     articleSections: buildArticleSections(row, 'en'),

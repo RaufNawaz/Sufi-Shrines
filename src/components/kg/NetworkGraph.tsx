@@ -60,28 +60,19 @@ export function NetworkGraph({ center, connected }: Props) {
 
         {/* Edges */}
         {positions.map(({ x, y }, i) => (
-          <line
-            key={i}
-            x1={CX} y1={CY}
-            x2={x} y2={y}
-            className="network-edge"
-          />
+          <line key={i} x1={CX} y1={CY} x2={x} y2={y} className="network-edge" />
         ))}
 
         {/* Connected nodes */}
         {positions.map(({ node, x, y }) => (
           <g key={node.id}>
             <circle
-              cx={x} cy={y}
+              cx={x}
+              cy={y}
               r={NODE_R}
               className={`network-node network-node--${node.type}`}
             />
-            <text
-              x={x}
-              y={y + NODE_R + LABEL_Y}
-              textAnchor="middle"
-              className="network-label"
-            >
+            <text x={x} y={y + NODE_R + LABEL_Y} textAnchor="middle" className="network-label">
               {clamp(node.label)}
             </text>
           </g>
@@ -90,7 +81,8 @@ export function NetworkGraph({ center, connected }: Props) {
         {/* Center node */}
         <g>
           <circle
-            cx={CX} cy={CY}
+            cx={CX}
+            cy={CY}
             r={CENTER_R}
             className={`network-node network-node--${center.type} network-node--current`}
           />

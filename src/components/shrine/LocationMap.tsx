@@ -1,70 +1,36 @@
-import React, { useState } from 'react';
 import type { LatLng } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { useShareLink } from '../../hooks/useShareLink';
 
 interface Props {
   latLng: LatLng;
   name: string;
 }
 
-function buildDirectionsUrl(lat: number, lng: number): string {
-  if (/iPhone|iPad|Mac/i.test(navigator.userAgent)) {
+/** Maps URL for a coordinate — `directions` picks the directions endpoint
+ * (Apple Maps on Apple platforms) over the plain Google Maps search. */
+function buildMapsUrl(lat: number, lng: number, directions = false): string {
+  if (directions && /iPhone|iPad|Mac/i.test(navigator.userAgent)) {
     return `maps://maps.apple.com/?daddr=${lat},${lng}`;
   }
-  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-}
-
-function buildMapsUrl(lat: number, lng: number): string {
-  return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  return directions
+    ? `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
+    : `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
 export function LocationMap({ latLng, name }: Props) {
   const { t } = useLang();
-  const [copied, setCopied] = useState(false);
+  const { share, copy, copied } = useShareLink({ copiedMs: 2000 });
 
   const coords = `${latLng.lat.toFixed(5)}, ${latLng.lng.toFixed(5)}`;
   const embedSrc = `https://maps.google.com/maps?q=${latLng.lat},${latLng.lng}&z=15&output=embed`;
 
-  async function copyCoords() {
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(coords);
-      } else {
-        const ta = document.createElement('textarea');
-        ta.value = coords;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-      }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Silently fail
-    }
-  }
-
-  async function shareLocation() {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: name,
-          text: `${name} — ${coords}`,
-          url: buildMapsUrl(latLng.lat, latLng.lng),
-        });
-        return;
-      } catch {
-        // fall through to clipboard copy
-      }
-    }
-    copyCoords();
-  }
-
   return (
-    <section className="location-section article-section" id="location" aria-labelledby="location-heading">
+    <section
+      className="location-section article-section"
+      id="location"
+      aria-labelledby="location-heading"
+    >
       <h2 className="article-section-heading" id="location-heading">
         {t('locationMap')}
       </h2>
@@ -80,19 +46,39 @@ export function LocationMap({ latLng, name }: Props) {
 
       <div className="location-actions">
         <a
-          href={buildDirectionsUrl(latLng.lat, latLng.lng)}
+          href={buildMapsUrl(latLng.lat, latLng.lng, true)}
           target="_blank"
           rel="noopener noreferrer"
           className="action-btn"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polygon points="3 11 22 2 13 21 11 13 3 11" />
           </svg>
           {t('getDirections')}
         </a>
 
-        <button className="action-btn" onClick={copyCoords} aria-live="polite">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <button className="action-btn" onClick={() => copy(coords)} aria-live="polite">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
           </svg>
@@ -100,8 +86,26 @@ export function LocationMap({ latLng, name }: Props) {
         </button>
 
         {typeof navigator.share === 'function' && (
-          <button className="action-btn" onClick={shareLocation}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <button
+            className="action-btn"
+            onClick={() =>
+              share(buildMapsUrl(latLng.lat, latLng.lng), name, {
+                text: `${name} — ${coords}`,
+                clipboardText: coords,
+              })
+            }
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
               <circle cx="18" cy="5" r="3" />
               <circle cx="6" cy="12" r="3" />
               <circle cx="18" cy="19" r="3" />

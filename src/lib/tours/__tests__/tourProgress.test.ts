@@ -5,6 +5,7 @@ import {
   recordTourCompleted,
   clearLastActive,
 } from '../tourProgress';
+import { TOUR_PROGRESS_STORAGE_KEY } from '../../storageKeys';
 
 beforeEach(() => {
   localStorage.clear();
@@ -16,7 +17,7 @@ describe('getTourProgressState', () => {
   });
 
   it('returns an empty state for corrupted JSON rather than throwing', () => {
-    localStorage.setItem('shrines_tour_progress', '{not json');
+    localStorage.setItem(TOUR_PROGRESS_STORAGE_KEY, '{not json');
     expect(getTourProgressState()).toEqual({ lastActive: null, tours: {} });
   });
 });

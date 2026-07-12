@@ -37,6 +37,15 @@ function getCaptionCandidates(index: number): string[] {
   ];
 }
 
+function getCreditCandidates(index: number): string[] {
+  return [
+    `Image ${index} Credit`,
+    `Gallery ${index} Credit`,
+    `Photo ${index} Credit`,
+    `Credit ${index}`,
+  ];
+}
+
 export function parseGallery(row: ShrineRow): GalleryItem[] {
   const indexes = Array.from(
     new Set(
@@ -59,7 +68,11 @@ export function parseGallery(row: ShrineRow): GalleryItem[] {
       .map((key) => getFieldValue(row, key))
       .find(Boolean) || '';
 
-    items.push({ imageUrl, caption, index });
+    const credit = getCreditCandidates(index)
+      .map((key) => getFieldValue(row, key))
+      .find(Boolean) || '';
+
+    items.push({ imageUrl, caption, credit, index });
   }
 
   return items;
@@ -78,4 +91,12 @@ export function getPrimaryImageUrl(row: ShrineRow): string | null {
 
   const gallery = parseGallery(row);
   return gallery[0]?.imageUrl ?? null;
+}
+
+/** Photo credit for the primary/hero image — mirrors getPrimaryImageUrl's
+ * fallback to the first gallery item, since the hero image is usually
+ * "Image 1" under the hood. */
+export function getPrimaryImageCredit(row: ShrineRow): string {
+  const gallery = parseGallery(row);
+  return gallery[0]?.credit ?? '';
 }

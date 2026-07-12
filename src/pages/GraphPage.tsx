@@ -1,6 +1,8 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -18,22 +20,11 @@ import { translateToUrdu } from '../lib/i18n/urduFallback';
 export default function GraphPage() {
   const { lang, t } = useLang();
   const isRtl = lang === 'ur';
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
-  const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(
-    kg.orders[0]?.slug ?? null,
-  );
+  const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
 
-  useEffect(() => {
-    document.title = `${t('graphExplorerTitle')} — ${t('siteTitle')}`;
-  }, [t]);
-
-  useEffect(() => {
-    const el = headingRef.current;
-    if (!el) return;
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
-    el.focus({ preventScroll: true });
-  }, []);
+  useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
 
   const activeOrder = kg.orders.find((o) => o.slug === activeOrderSlug) ?? null;
   const orderSaints = useMemo(
@@ -42,7 +33,12 @@ export default function GraphPage() {
   );
 
   const centerNode: GraphNode | null = activeOrder
-    ? { id: activeOrder.id, label: activeOrder.name, type: 'order', href: `/order/${activeOrder.slug}` }
+    ? {
+        id: activeOrder.id,
+        label: activeOrder.name,
+        type: 'order',
+        href: `/order/${activeOrder.slug}`,
+      }
     : null;
   const connectedNodes: GraphNode[] = orderSaints.map((s) => ({
     id: s.id,
@@ -53,10 +49,22 @@ export default function GraphPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">{t('skipToContent')}</a>
+      <a href="#main-content" className="skip-link">
+        {t('skipToContent')}
+      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
@@ -76,7 +84,9 @@ export default function GraphPage() {
         <ScrollToTop />
         <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
           <ol>
-            <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
+            <li>
+              <Link to="/">{t('mapBreadcrumb')}</Link>
+            </li>
             <li aria-current="page">{t('graphExplorerTitle')}</li>
           </ol>
         </nav>
@@ -86,7 +96,11 @@ export default function GraphPage() {
         </h1>
         <p className="graph-page-intro">{t('graphExplorerIntro')}</p>
 
-        <div className="filter-chips graph-order-chips" role="group" aria-label={t('graphExplorerOrders')}>
+        <div
+          className="filter-chips graph-order-chips"
+          role="group"
+          aria-label={t('graphExplorerOrders')}
+        >
           {kg.orders.map((order) => (
             <button
               key={order.slug}

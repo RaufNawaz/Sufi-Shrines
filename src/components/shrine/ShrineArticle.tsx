@@ -40,11 +40,18 @@ export function ShrineArticle({ shrine }: Props) {
   return (
     <div>
       {leadText && (
-        <section className="article-section article-lead" id="overview" aria-labelledby="overview-heading">
+        <section
+          className="article-section article-lead"
+          id="overview"
+          aria-labelledby="overview-heading"
+        >
           <div className="article-prose">
-            {leadText.split(/\n\n+/).filter(Boolean).map((p, i) => (
-              <p key={i}>{p.trim()}</p>
-            ))}
+            {leadText
+              .split(/\n\n+/)
+              .filter(Boolean)
+              .map((p, i) => (
+                <p key={i}>{p.trim()}</p>
+              ))}
           </div>
         </section>
       )}
@@ -73,9 +80,12 @@ export function ShrineArticle({ shrine }: Props) {
       {rawFallback && (
         <section className="article-section" id="description" aria-labelledby="description-heading">
           <div className="article-prose">
-            {rawFallback.split(/\n\n+/).filter(Boolean).map((p, i) => (
-              <p key={i}>{p.trim()}</p>
-            ))}
+            {rawFallback
+              .split(/\n\n+/)
+              .filter(Boolean)
+              .map((p, i) => (
+                <p key={i}>{p.trim()}</p>
+              ))}
           </div>
         </section>
       )}

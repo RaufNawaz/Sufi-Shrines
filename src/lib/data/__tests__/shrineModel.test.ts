@@ -1,20 +1,17 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
 import { buildShrine, buildShrines, haversineKm } from '../shrineModel';
+import { makeShrineRow } from '../../../test/utils';
 import type { ShrineRow } from '../../../types/shrine';
 
-const baseRow: ShrineRow = {
-  Name: 'Data Darbar',
-  Latitude: '31.5564',
-  Longitude: '74.3093',
-  Category: 'Muslim Shrine',
+const baseRow: ShrineRow = makeShrineRow({
   Location: 'Lahore',
   Founded: '11th century',
   'Sufi Saint': 'Data Ganj Bakhsh',
   Description: 'A famous Sufi shrine.\n\n## History\nBuilt in the 11th century.',
   History: 'Built in the 11th century CE.',
   'Image Link': 'https://example.com/data-darbar.jpg',
-};
+});
 
 describe('buildShrine', () => {
   it('builds a shrine from valid row', () => {

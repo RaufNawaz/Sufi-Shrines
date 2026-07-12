@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
 import { extractLeadPreviewText, parseInlineSections, buildArticleSections } from '../articleParsing';
-import type { ShrineRow } from '../../../types/shrine';
+import { makeShrineRow } from '../../../test/utils';
 
 describe('extractLeadPreviewText', () => {
   it('returns full text when no headings present', () => {
@@ -51,31 +51,31 @@ describe('parseInlineSections', () => {
 
 describe('buildArticleSections', () => {
   it('builds sections from explicit column values', () => {
-    const row: ShrineRow = {
+    const row = makeShrineRow({
       Name: 'Test',
       Latitude: '30',
       Longitude: '70',
       History: 'Built in the 11th century.',
       Architecture: 'The complex features a large dome.',
-    };
+    });
     const sections = buildArticleSections(row, 'en');
     expect(sections.find((s) => s.id === 'history')?.content).toBe('Built in the 11th century.');
     expect(sections.find((s) => s.id === 'architecture')?.content).toBe('The complex features a large dome.');
   });
 
   it('returns empty array when no section data', () => {
-    const row: ShrineRow = { Name: 'Test', Latitude: '30', Longitude: '70' };
+    const row = makeShrineRow({ Name: 'Test', Latitude: '30', Longitude: '70' });
     expect(buildArticleSections(row, 'en')).toHaveLength(0);
   });
 
   it('prefers Urdu columns in Urdu mode', () => {
-    const row: ShrineRow = {
+    const row = makeShrineRow({
       Name: 'Test',
       Latitude: '30',
       Longitude: '70',
       History: 'English history',
       'History Urdu': 'اردو تاریخ',
-    };
+    });
     const enSections = buildArticleSections(row, 'en');
     const urSections = buildArticleSections(row, 'ur');
     expect(enSections.find((s) => s.id === 'history')?.content).toBe('English history');

@@ -1,6 +1,11 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
-import { legDistancesKm, totalDistanceKm, estimateDriveTime, AVERAGE_DRIVE_SPEED_KMH } from '../tourGeo';
+import {
+  legDistancesKm,
+  totalDistanceKm,
+  estimateDriveTime,
+  AVERAGE_DRIVE_SPEED_KMH,
+} from '../tourGeo';
 
 // Two points ~1 degree of latitude apart ≈ 111.19 km (haversineKm's own math).
 const A = { lat: 24.0, lng: 67.0 };

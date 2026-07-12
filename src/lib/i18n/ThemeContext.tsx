@@ -2,11 +2,10 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import type { Theme } from '../../types/shrine';
-
-const STORAGE_KEY = 'shrines_theme';
+import { THEME_STORAGE_KEY } from '../storageKeys';
 
 function detectInitialTheme(): Theme {
-  const stored = localStorage.getItem(STORAGE_KEY);
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
   if (stored === 'dark' || stored === 'light') return stored;
   return 'light';
 }
@@ -24,7 +23,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = useCallback(() => {
     setTheme((t) => {
       const next = t === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(STORAGE_KEY, next);
+      localStorage.setItem(THEME_STORAGE_KEY, next);
       return next;
     });
   }, []);
@@ -32,7 +31,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
-
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 

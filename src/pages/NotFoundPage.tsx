@@ -11,7 +11,17 @@ export default function NotFoundPage() {
     <div className="not-found-page page-enter">
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
@@ -30,14 +40,20 @@ export default function NotFoundPage() {
         </div>
 
         <p className="not-found-code">404</p>
-        <h1 className="not-found-title">
-          {t('pageNotFoundTitle')}
-        </h1>
-        <p className="not-found-message">
-          {t('pageNotFoundMessage')}
-        </p>
+        <h1 className="not-found-title">{t('pageNotFoundTitle')}</h1>
+        <p className="not-found-message">{t('pageNotFoundMessage')}</p>
         <Link to="/" className="not-found-action">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>

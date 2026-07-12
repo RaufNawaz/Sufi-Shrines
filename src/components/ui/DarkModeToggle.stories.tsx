@@ -8,7 +8,8 @@ const meta: Meta<typeof DarkModeToggle> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Icon button that cycles between light and dark theme. Persists to localStorage.',
+        component:
+          'Icon button that cycles between light and dark theme. Persists to localStorage.',
       },
     },
   },

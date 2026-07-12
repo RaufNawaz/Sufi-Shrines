@@ -8,7 +8,13 @@ function sendMetric(metric: Metric): void {
   if (url) {
     navigator.sendBeacon(
       url,
-      JSON.stringify({ type: 'cwv', name: metric.name, value: metric.value, rating: metric.rating, id: metric.id }),
+      JSON.stringify({
+        type: 'cwv',
+        name: metric.name,
+        value: metric.value,
+        rating: metric.rating,
+        id: metric.id,
+      }),
     );
   }
 }
@@ -27,7 +33,12 @@ export function initTelemetry(): void {
     if (url) {
       navigator.sendBeacon(
         url,
-        JSON.stringify({ type: 'error', message: e.message, filename: e.filename, lineno: e.lineno }),
+        JSON.stringify({
+          type: 'error',
+          message: e.message,
+          filename: e.filename,
+          lineno: e.lineno,
+        }),
       );
     }
   });

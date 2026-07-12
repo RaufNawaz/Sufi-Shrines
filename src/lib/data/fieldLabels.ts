@@ -1,5 +1,6 @@
 import type { Lang } from '../../types/shrine';
-import { t, UI_TEXT } from '../i18n/uiStrings';
+import type { UI_TEXT } from '../i18n/uiStrings';
+import { t } from '../i18n/uiStrings';
 
 /** Sheet column name → uiStrings key for its display label. A column
  * missing here falls back to the raw name (English on both sides — there's

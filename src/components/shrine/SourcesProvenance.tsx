@@ -14,9 +14,9 @@ interface Props {
 
 const METHOD_LABEL: Record<ProvenanceMethod, { en: string; ur: string }> = {
   human: { en: 'human-authored', ur: 'انسان تحریر شدہ' },
-  ocr:   { en: 'OCR', ur: 'او سی آر' },
-  mt:    { en: 'machine translated', ur: 'مشین ترجمہ' },
-  llm:   { en: 'AI-assisted', ur: 'اے آئی کی معاونت سے' },
+  ocr: { en: 'OCR', ur: 'او سی آر' },
+  mt: { en: 'machine translated', ur: 'مشین ترجمہ' },
+  llm: { en: 'AI-assisted', ur: 'اے آئی کی معاونت سے' },
 };
 
 function isUnreviewed(prov: FieldProvenance): boolean {
@@ -37,10 +37,7 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
   const heading = t(lang, 'sourcesHeading');
 
   return (
-    <section
-      className="provenance-section"
-      aria-labelledby="provenance-heading"
-    >
+    <section className="provenance-section" aria-labelledby="provenance-heading">
       <h2 className="provenance-heading" id="provenance-heading">
         {heading}
       </h2>
@@ -76,8 +73,8 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
 
               {prov.confidence !== undefined && (
                 <span className="provenance-confidence">
-                  {Math.round(prov.confidence * 100)}{'%'}{' '}
-                  {t(lang, 'confidenceLabel')}
+                  {Math.round(prov.confidence * 100)}
+                  {'%'} {t(lang, 'confidenceLabel')}
                 </span>
               )}
 
@@ -89,7 +86,9 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
 
               {prov.notes && (
                 // Internal audit notes — same rationale as the source citation above.
-                <span className="provenance-notes"><bdi>{prov.notes}</bdi></span>
+                <span className="provenance-notes">
+                  <bdi>{prov.notes}</bdi>
+                </span>
               )}
             </li>
           );

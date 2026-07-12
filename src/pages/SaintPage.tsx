@@ -1,42 +1,27 @@
-import React, { useMemo, useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import {
-  getSaintBySlug,
-  getOrderForSaint,
-  getSaintsInOrder,
-} from '../lib/kg';
+import { getSaintBySlug, getOrderForSaint, getSaintsInOrder, slugToLabel } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
-
-function slugToLabel(slug: string): string {
-  return slug
-    .split('-')
-    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
-    .join(' ');
-}
 
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useFocusHeadingOnMount();
   const { shrines } = useShrineData();
 
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
-  const order = useMemo(
-    () => (slug ? getOrderForSaint(slug) : undefined),
-    [slug],
-  );
-  const orderMembers = useMemo(
-    () => (order ? getSaintsInOrder(order.slug) : []),
-    [order],
-  );
+  const order = useMemo(() => (slug ? getOrderForSaint(slug) : undefined), [slug]);
+  const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
 
   const shrineMap = useMemo(() => {
     const m = new Map<string, string>();
@@ -44,17 +29,7 @@ export default function SaintPage() {
     return m;
   }, [shrines]);
 
-  useEffect(() => {
-    if (!saint) return;
-    document.title = `${saint.name} — ${t('siteTitle')}`;
-  }, [saint, t]);
-
-  useEffect(() => {
-    const el = headingRef.current;
-    if (!el) return;
-    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
-    el.focus({ preventScroll: true });
-  }, []);
+  useDocumentTitle(saint ? `${saint.name} — ${t('siteTitle')}` : null);
 
   if (!saint) return <Navigate to="/" replace />;
 
@@ -67,7 +42,14 @@ export default function SaintPage() {
 
   const networkConnected: GraphNode[] = [
     ...(order
-      ? [{ id: order.slug, label: order.name, type: 'order' as const, href: `/order/${order.slug}` }]
+      ? [
+          {
+            id: order.slug,
+            label: order.name,
+            type: 'order' as const,
+            href: `/order/${order.slug}`,
+          },
+        ]
       : []),
     ...saint.shrines.map((s) => ({
       id: s,
@@ -87,7 +69,17 @@ export default function SaintPage() {
     <div className="page-enter entity-page-wrapper">
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <polyline points="15 18 9 12 15 6" />
           </svg>
           {t('backToMap')}
@@ -107,8 +99,12 @@ export default function SaintPage() {
         {/* Breadcrumb */}
         <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
           <ol>
-            <li><Link to="/">{t('mapBreadcrumb')}</Link></li>
-            <li className="shrine-breadcrumb-current" aria-current="page">{displayName}</li>
+            <li>
+              <Link to="/">{t('mapBreadcrumb')}</Link>
+            </li>
+            <li className="shrine-breadcrumb-current" aria-current="page">
+              {displayName}
+            </li>
           </ol>
         </nav>
 
@@ -116,7 +112,9 @@ export default function SaintPage() {
           {t('saintLabel')}
         </p>
 
-        <h1 ref={headingRef} className="entity-title">{displayName}</h1>
+        <h1 ref={headingRef} className="entity-title">
+          {displayName}
+        </h1>
 
         {/* Meta row */}
         <div className="entity-meta">
@@ -171,7 +169,10 @@ export default function SaintPage() {
                   <Link to={`/order/${order.slug}`} className="order-badge">
                     {order.name}
                     {order.arabicName && (
-                      <> · <span lang="ar">{order.arabicName}</span></>
+                      <>
+                        {' '}
+                        · <span lang="ar">{order.arabicName}</span>
+                      </>
                     )}
                   </Link>
                 </p>
@@ -189,7 +190,17 @@ export default function SaintPage() {
                   {saint.shrines.map((shrineSlug) => (
                     <li key={shrineSlug} className="entity-shrine-list-item">
                       <Link to={`/shrine/${shrineSlug}`}>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                           <circle cx="12" cy="10" r="3" />
                         </svg>
@@ -205,11 +216,7 @@ export default function SaintPage() {
             {order && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('spiritualLineage')}</h2>
-                <LineageView
-                  order={order}
-                  members={orderMembers}
-                  currentSlug={saint.slug}
-                />
+                <LineageView order={order} members={orderMembers} currentSlug={saint.slug} />
               </section>
             )}
 
