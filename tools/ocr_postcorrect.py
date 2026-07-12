@@ -20,9 +20,10 @@ Evaluate against gold samples with:
   py -3 eval/ocr/run_cer.py --help
 """
 
+from __future__ import annotations
+
 import argparse
 import difflib
-import io
 import json
 import re
 import sys
@@ -30,12 +31,13 @@ import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
-if hasattr(sys.stdout, "buffer"):
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "buffer"):
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+# Shared helpers (sibling module — importable when run as python3 tools/ocr_postcorrect.py).
+from _lib import REPO_ROOT, utf8_stdio
 
-DEFAULT_OUTPUT_DIR = Path("out/ocr_corrected")
+utf8_stdio()
+
+# Anchored to the repo root so the default works from any cwd (--output-dir overrides).
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "out" / "ocr_corrected"
 DEFAULT_MIN_CONFIDENCE = 0.70
 DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 DEFAULT_OLLAMA_MODEL = "aya:8b"

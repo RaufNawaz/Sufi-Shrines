@@ -20,7 +20,6 @@ prints the full status table.
 from __future__ import annotations
 
 import argparse
-import io
 import json
 import re
 import shutil
@@ -28,11 +27,11 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+# Shared helpers (sibling module — importable when run as python3 tools/finalize_books.py).
+from _lib import OCR_ROOT, REPO_ROOT, WINDOWS_UNSAFE, utf8_stdio
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-OCR_ROOT = REPO_ROOT / "out" / "ocr"
+utf8_stdio()
+
 FINAL_DIR = OCR_ROOT / "Final"
 LOGS_DIR = OCR_ROOT / "logs"
 RENAMES_PATH = REPO_ROOT / "books" / "renames.json"
@@ -43,7 +42,6 @@ MIN_SCRIPT_FRACTION = 0.60
 UPLOADER_SUFFIX = re.compile(r"\s*-\s*saifullah\s+imtiaz\s*$", re.IGNORECASE)
 ARABIC_CHARS = re.compile(r"[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]")
 LATIN_CHARS = re.compile(r"[A-Za-z]")
-WINDOWS_BAD = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 
 # Page counts and language per book (from pdfinfo + the visual audit of
 # rendered pages, 2026-07-01). Language means the dominant BODY script:
@@ -91,7 +89,7 @@ def human_title(stem: str, renames: dict[str, str]) -> str:
             title = title[:-4]
     else:
         title = re.sub(r"^\d+_", "", stem)
-    title = WINDOWS_BAD.sub("-", title).strip(" .-") or stem
+    title = WINDOWS_UNSAFE.sub("-", title).strip(" .-") or stem
     return title[:120]
 
 

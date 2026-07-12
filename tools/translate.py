@@ -37,31 +37,42 @@ All output files are in out/ which is git-ignored.
 
 import argparse
 import csv
-import io
 import json
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Windows terminal defaults to cp1252; Arabic/Unicode chars in print() would fail.
-if hasattr(sys.stdout, "buffer"):
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "buffer"):
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+# Shared helpers live in _lib (sibling module — importable without sys.path
+# tweaks when invoked as `python3 tools/translate.py`).
+from _lib import (
+    DEFAULT_LIBRETRANSLATE_URL,
+    REPO_ROOT,
+    PipelineError,
+    libre_translate_chunk,
+    split_text,
+    utf8_stdio,
+)
 
-DEFAULT_GLOSSARY = Path("data/glossary.csv")
-DEFAULT_OUTPUT_DIR = Path("out/translations")
+utf8_stdio()
+
+DEFAULT_GLOSSARY = REPO_ROOT / "data" / "glossary.csv"
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "out" / "translations"
 DEFAULT_NLLB_MODEL = "facebook/nllb-200-distilled-600M"
-DEFAULT_LIBRE_URL = "http://127.0.0.1:5000/translate"
+DEFAULT_LIBRE_URL = DEFAULT_LIBRETRANSLATE_URL
 DEFAULT_CHUNK_CHARS = 3000
 DEFAULT_TIMEOUT = 60
+DEFAULT_LIBRE_RETRIES = 2
 
 
 # ── Glossary helpers ──────────────────────────────────────────────────────────
 
 def load_glossary(path: Path) -> list[dict]:
     if not path.exists():
+        print(
+            f"NOTE: glossary file not found at {path} — continuing without term hints.",
+            file=sys.stderr,
+        )
         return []
     with path.open(encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
@@ -107,23 +118,8 @@ def format_glossary_hints(hits: list[dict]) -> str:
 
 # ── Text chunking ─────────────────────────────────────────────────────────────
 
-def chunk_text(text: str, max_chars: int) -> list[str]:
-    """Split on paragraph boundaries, keeping each chunk under max_chars."""
-    paragraphs = re.split(r"\n{2,}", text)
-    chunks: list[str] = []
-    current: list[str] = []
-    current_len = 0
-    for para in paragraphs:
-        para_len = len(para) + 2
-        if current and current_len + para_len > max_chars:
-            chunks.append("\n\n".join(current))
-            current = []
-            current_len = 0
-        current.append(para)
-        current_len += para_len
-    if current:
-        chunks.append("\n\n".join(current))
-    return chunks or [text]
+# The paragraph-boundary chunker is shared with process_books.py via _lib.
+chunk_text = split_text
 
 
 # ── NLLB engine ───────────────────────────────────────────────────────────────
@@ -196,32 +192,28 @@ def translate_libretranslate(
     timeout: int,
     chunk_chars: int,
 ) -> tuple[str, str]:
-    """Translate with LibreTranslate.  Returns (translated_text, 'LibreTranslate')."""
-    import urllib.error
-    import urllib.parse
-    import urllib.request
+    """Translate with LibreTranslate.  Returns (translated_text, 'LibreTranslate').
 
+    Uses the shared JSON + retry client from _lib (same one process_books.py uses).
+    """
     chunks = chunk_text(text, chunk_chars)
     out_chunks: list[str] = []
     for i, chunk in enumerate(chunks, 1):
         if len(chunks) > 1:
             print(f"  Chunk {i}/{len(chunks)} ({len(chunk)} chars)")
-        payload: dict = {"q": chunk, "source": src_lang, "target": tgt_lang, "format": "text"}
-        if api_key:
-            payload["api_key"] = api_key
-        data = urllib.parse.urlencode(payload).encode()
-        req = urllib.request.Request(endpoint, data=data, method="POST")
-        req.add_header("Content-Type", "application/x-www-form-urlencoded")
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                result = json.loads(resp.read())
-        except urllib.error.URLError as exc:
+            out_chunks.append(
+                libre_translate_chunk(
+                    chunk, endpoint, src_lang, tgt_lang, api_key, timeout,
+                    retries=DEFAULT_LIBRE_RETRIES,
+                )
+            )
+        except PipelineError as exc:
             raise SystemExit(
                 f"LibreTranslate request failed: {exc}\n"
                 "Is the container running?  Try:  docker start libretranslate\n"
                 "See docs/BOOK_OCR_WORKFLOW.md for setup."
             ) from exc
-        out_chunks.append(result.get("translatedText", ""))
 
     return "\n\n".join(out_chunks), "LibreTranslate"
 
@@ -508,8 +500,6 @@ def main(argv: list[str]) -> int:
     glossary = load_glossary(Path(args.glossary))
     if glossary:
         print(f"Loaded {len(glossary)} glossary entries from {args.glossary}")
-    else:
-        print(f"Note: glossary not found at {args.glossary} — running without term hints.")
 
     if input_path.is_dir():
         files = sorted(input_path.rglob("*_transcribed.txt"))

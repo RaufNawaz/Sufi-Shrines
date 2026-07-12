@@ -17,22 +17,29 @@ from datetime import datetime, timezone
 from http.cookiejar import CookieJar
 from pathlib import Path
 
-
-DEFAULT_CSV_URL = (
-    "https://docs.google.com/spreadsheets/d/e/"
-    "2PACX-1vSmsEsQclqJuEioIHxQa6ZaTf1SmSuKhM-B3RcfEQyK8Ewqy4-c_xe7DOgBWdhMUyvtrzThIVl9Y9df/"
-    "pub?gid=0&single=true&output=csv"
+# Shared helpers live in _lib (sibling module — importable without sys.path
+# tweaks when invoked as `python3 tools/process_books.py`).
+from _lib import (
+    DEFAULT_LIBRETRANSLATE_URL,
+    REPO_ROOT,
+    USER_AGENT,
+    PipelineError,
+    StringValue,
+    clean_text,
+    libre_translate_chunk,
+    load_csv_url,
+    normalize_translate_endpoint,
+    safe_filename_part,
+    split_text,
+    utf8_stdio,
 )
-DEFAULT_LIBRETRANSLATE_URL = "http://127.0.0.1:5000/translate"
+
+utf8_stdio()
+
 DEFAULT_UTRNET_URL = "abdur75648/UrduOCR-UTRNet"
 DEFAULT_SHEET_CELL_CHARS = 45000
 DEFAULT_TRANSLATION_CHARS = 4500
 KEY_FIELDS = ["Name", "Location", "Latitude", "Longitude", "Category"]
-USER_AGENT = "ShrineBookProcessor/1.0"
-
-
-class PipelineError(RuntimeError):
-    pass
 
 
 def format_duration(seconds: float) -> str:
@@ -40,18 +47,6 @@ def format_duration(seconds: float) -> str:
         return f"{seconds:.1f}s"
     minutes, remainder = divmod(seconds, 60)
     return f"{int(minutes)}m {remainder:.1f}s"
-
-
-def clean_text(value: str) -> str:
-    text = StringValue(value)
-    text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\f", "\n")
-    text = re.sub(r"[ \t]+\n", "\n", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
-
-
-def StringValue(value: object) -> str:
-    return "" if value is None else str(value)
 
 
 def is_blank(value: object) -> bool:
@@ -113,57 +108,6 @@ def collect_chunked_column(row: dict[str, str], base_column: str) -> str:
     return clean_text("\n\n".join(part for part in parts if part))
 
 
-def split_text(text: str, max_chars: int) -> list[str]:
-    value = clean_text(text)
-    if not value:
-        return []
-    if max_chars <= 0 or len(value) <= max_chars:
-        return [value]
-
-    chunks: list[str] = []
-    current = ""
-
-    def flush_current() -> None:
-        nonlocal current
-        if current.strip():
-            chunks.append(current.strip())
-        current = ""
-
-    def split_oversized(piece: str) -> list[str]:
-        remaining = piece.strip()
-        pieces: list[str] = []
-        while len(remaining) > max_chars:
-            cut = remaining.rfind(" ", 0, max_chars)
-            if cut < int(max_chars * 0.65):
-                cut = max_chars
-            pieces.append(remaining[:cut].strip())
-            remaining = remaining[cut:].strip()
-        if remaining:
-            pieces.append(remaining)
-        return pieces
-
-    paragraphs = re.split(r"\n\s*\n", value)
-    for paragraph in paragraphs:
-        paragraph = paragraph.strip()
-        if not paragraph:
-            continue
-
-        if len(paragraph) > max_chars:
-            flush_current()
-            chunks.extend(split_oversized(paragraph))
-            continue
-
-        candidate = paragraph if not current else f"{current}\n\n{paragraph}"
-        if len(candidate) <= max_chars:
-            current = candidate
-        else:
-            flush_current()
-            current = paragraph
-
-    flush_current()
-    return chunks
-
-
 def apply_chunked_column(
     row: dict[str, str],
     base_column: str,
@@ -178,64 +122,6 @@ def apply_chunked_column(
         key = base_column if index == 1 else f"{base_column} {index}"
         row[key] = chunk
     return [base_column if index == 1 else f"{base_column} {index}" for index in range(1, len(chunks) + 1)]
-
-
-def normalize_translate_endpoint(url: str) -> str:
-    cleaned = StringValue(url).strip().rstrip("/")
-    if not cleaned:
-        return DEFAULT_LIBRETRANSLATE_URL
-    if cleaned.endswith("/translate"):
-        return cleaned
-    return f"{cleaned}/translate"
-
-
-def libre_translate_chunk(
-    text: str,
-    endpoint: str,
-    source: str,
-    target: str,
-    api_key: str,
-    timeout: int,
-    retries: int,
-) -> str:
-    payload = {
-        "q": text,
-        "source": source,
-        "target": target,
-        "format": "text",
-    }
-    if api_key:
-        payload["api_key"] = api_key
-
-    data = json.dumps(payload).encode("utf-8")
-    last_error: Exception | None = None
-
-    for attempt in range(retries + 1):
-        request = urllib.request.Request(
-            endpoint,
-            data=data,
-            headers={
-                "Content-Type": "application/json",
-                "User-Agent": USER_AGENT,
-            },
-            method="POST",
-        )
-        try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                raw = response.read().decode("utf-8")
-            parsed = json.loads(raw)
-            translated = StringValue(parsed.get("translatedText", "")).strip()
-            return translated or text
-        except urllib.error.HTTPError as exc:
-            body = exc.read().decode("utf-8", errors="replace")
-            last_error = PipelineError(f"LibreTranslate HTTP {exc.code}: {body[:500]}")
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-            last_error = exc
-
-        if attempt < retries:
-            time.sleep(min(2 ** attempt, 8))
-
-    raise PipelineError(f"Translation failed: {last_error}")
 
 
 def translate_text(
@@ -865,12 +751,6 @@ def copy_local_pdf(source_path: Path, output_path: Path) -> None:
     assert_pdf_file(output_path)
 
 
-def safe_filename_part(value: str, fallback: str = "book") -> str:
-    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", StringValue(value).strip())
-    cleaned = re.sub(r"-{2,}", "-", cleaned).strip("-._")
-    return cleaned or fallback
-
-
 def get_test_book_name(args: argparse.Namespace) -> str:
     if args.test_pdf:
         return safe_filename_part(Path(args.test_pdf).stem)
@@ -989,7 +869,15 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
             "  py -3 tools/process_books.py --write-sheet --translate\n"
         ),
     )
-    parser.add_argument("--csv-url", default=os.getenv("SHRINES_CSV_URL", DEFAULT_CSV_URL))
+    parser.add_argument(
+        "--csv-url",
+        default=load_csv_url(),
+        help=(
+            "Published Google Sheets CSV URL. Defaults to data/csv-source.json "
+            "(csvUrl), overridable via the VITE_CSV_URL env var (SHRINES_CSV_URL "
+            "is still accepted but deprecated)."
+        ),
+    )
     parser.add_argument("--apps-script-url", default=os.getenv("SHRINES_APPS_SCRIPT_URL", ""))
     parser.add_argument("--api-key", default=os.getenv("SHRINES_APPS_SCRIPT_API_KEY", ""))
     parser.add_argument("--sheet-name", default=os.getenv("SHRINES_SHEET_NAME", ""))
@@ -998,7 +886,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--translated-column", default="Translated")
     parser.add_argument("--test-pdf", default="", help="OCR/translate one local PDF without using the sheet.")
     parser.add_argument("--test-book-url", default="", help="OCR/translate one PDF/Drive URL without using the sheet.")
-    parser.add_argument("--test-output-dir", default="out/ocr")
+    parser.add_argument("--test-output-dir", default=str(REPO_ROOT / "out" / "ocr"))
     parser.add_argument("--limit", type=int, default=0, help="Process at most this many rows.")
     parser.add_argument("--force", action="store_true", help="Reprocess rows even when output exists.")
     parser.add_argument("--dry-run", action="store_true", help="Run OCR/translation without saving.")
@@ -1117,6 +1005,12 @@ def main(argv: list[str]) -> int:
         if not args.dry_run and not args.apps_script_url:
             raise PipelineError(
                 "Missing Apps Script URL. Set SHRINES_APPS_SCRIPT_URL or pass --apps-script-url."
+            )
+
+        if not args.csv_url:
+            raise PipelineError(
+                "No CSV URL configured. Add data/csv-source.json (csvUrl), set "
+                "VITE_CSV_URL, or pass --csv-url."
             )
 
         print("Fetching published Google Sheet CSV")

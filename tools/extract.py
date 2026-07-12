@@ -17,8 +17,9 @@ IMPORTANT — human-in-the-loop gate:
   Review each item, then add accepted entities/relations/QIDs manually.
 """
 
+from __future__ import annotations
+
 import argparse
-import io
 import json
 import re
 import sys
@@ -31,15 +32,17 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 
-if hasattr(sys.stdout, "buffer"):
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "buffer"):
-    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+# Shared helpers (sibling module — importable when run as python3 tools/extract.py).
+from _lib import REPO_ROOT, utf8_stdio
 
-DEFAULT_KG_PATH = Path("data/kg.json")
-DEFAULT_STAGING_PATH = Path("data/kg-staging.json")
-DEFAULT_WIKIDATA_PATH = Path("data/wikidata-pending.json")
-DEFAULT_GLOSSARY_PATH = Path("data/glossary.csv")
+utf8_stdio()
+
+# Defaults are anchored to the repo root so the script works from any cwd;
+# CLI flags may still pass any (absolute or cwd-relative) path.
+DEFAULT_KG_PATH = REPO_ROOT / "data" / "kg.json"
+DEFAULT_STAGING_PATH = REPO_ROOT / "data" / "kg-staging.json"
+DEFAULT_WIKIDATA_PATH = REPO_ROOT / "data" / "wikidata-pending.json"
+DEFAULT_GLOSSARY_PATH = REPO_ROOT / "data" / "glossary.csv"
 CANONICALIZE_THRESHOLD = 0.70
 WIKIDATA_AUTO_ACCEPT = 0.88
 WIKIDATA_API = "https://www.wikidata.org/w/api.php"

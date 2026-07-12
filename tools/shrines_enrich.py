@@ -3,17 +3,17 @@
 shrines_enrich.py — incremental enrichment engine for Shrines_with_Descriptions.xlsx
 
 This is the SAFE, DETERMINISTIC half of the enrichment workflow. The research +
-writing half is done by Claude following ENRICHMENT_RUNBOOK.md. This script:
+writing half is done by Claude following docs/planning/ENRICHMENT_RUNBOOK.md. This script:
 
   --status            Show current gaps (missing descriptions / images) and the
-                      next candidate sites from _enrichment_queue.md.
+                      next candidate sites from archive/_enrichment_queue.md.
   --write BATCH.md    Parse a staging batch file (same delimited format the
                       runbook produces), BACK UP the workbook, then:
                         * fill Description cells for <<<ENTRY>>> blocks
                           (only if empty; verifies the row's Name still matches),
                         * append new rows for <<<SHRINE add=YES>>> blocks
                           (skips duplicates; copies cell styles; adds separator),
-                      then append a record to _ENRICHMENT_LOG.md.
+                      then append a record to archive/_ENRICHMENT_LOG.md.
 
 Never overwrites an existing description. Never edits without a fresh backup.
 
@@ -21,17 +21,20 @@ Usage:
   python3 tools/shrines_enrich.py --status [--limit 15]
   python3 tools/shrines_enrich.py --write _enrichment_batch.md
 """
-import argparse, re, shutil, sys, io, datetime
+import argparse, re, shutil, sys, datetime
 from pathlib import Path
 import openpyxl
 from copy import copy
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# Shared helpers (sibling module — importable when run as python3 tools/shrines_enrich.py).
+from _lib import REPO_ROOT, utf8_stdio
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent
+utf8_stdio()
+
+PROJECT_DIR = REPO_ROOT
 XLSX   = PROJECT_DIR / "Shrines_with_Descriptions.xlsx"
-QUEUE  = PROJECT_DIR / "_enrichment_queue.md"
-LOG    = PROJECT_DIR / "_ENRICHMENT_LOG.md"
+QUEUE  = PROJECT_DIR / "archive" / "_enrichment_queue.md"
+LOG    = PROJECT_DIR / "archive" / "_ENRICHMENT_LOG.md"
 BACKUP_DIR = PROJECT_DIR / "archive" / "xlsx_backups"
 SEP = "\n\n" + "=" * 85
 COLS = ["Name","Location","Category","Latitude","Longitude",

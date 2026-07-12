@@ -24,7 +24,6 @@ Examples:
 from __future__ import annotations
 
 import argparse
-import io
 import json
 import os
 import re
@@ -38,13 +37,12 @@ from collections import deque
 from datetime import datetime
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+# Sibling modules are importable as-is when run as `python3 tools/ocr_all_books.py`.
+from _lib import OCR_ROOT, REPO_ROOT, safe_filename_part, utf8_stdio
+from process_books import get_page_range_label
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from process_books import get_page_range_label, safe_filename_part  # noqa: E402
+utf8_stdio()
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_LOCAL_UTRNET = "http://127.0.0.1:7860"
 HEARTBEAT_SECONDS = 60
 
@@ -263,7 +261,7 @@ def main(argv: list[str]) -> int:
     conflicts: list[str] = []
     jobs: list[Job] = []
     page_range = get_page_range_label(args.first_page, args.max_pages)
-    out_root = REPO_ROOT / "out" / "ocr"
+    out_root = OCR_ROOT
     logs_dir = out_root / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
 

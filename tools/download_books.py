@@ -20,7 +20,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import io
 import json
 import os
 import re
@@ -33,10 +32,11 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+# Shared helpers (sibling module — importable when run as python3 tools/download_books.py).
+from _lib import REPO_ROOT, safe_filename_part, utf8_stdio
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+utf8_stdio()
+
 USER_AGENT = "Mozilla/5.0 (ShrineBookDownloader/1.0)"
 
 MAGIC_KINDS = [
@@ -93,13 +93,6 @@ def probe_access(file_id: str, timeout: int = 30) -> tuple[str, str]:
     if "download" in body.lower():
         return ("public", "large-file confirm page")
     return ("error", "unrecognised HTML response")
-
-
-def ascii_slug(value: str, fallback: str) -> str:
-    slug = re.sub(r"[^A-Za-z0-9._-]+", "-", value)
-    slug = re.sub(r"-{2,}", "-", slug).strip("-._")
-    slug = slug[:40].rstrip("-._")
-    return slug if len(slug) >= 3 else fallback
 
 
 def sniff_kind(path: Path) -> tuple[str, str]:
@@ -260,7 +253,7 @@ def main(argv: list[str]) -> int:
                     ext = ".pdf"
                 elif not ext and kind_ext:
                     ext = kind_ext
-                slug = ascii_slug(downloaded.stem, fallback=fid[:10])
+                slug = safe_filename_part(downloaded.stem, fallback=fid[:10], max_len=40, min_len=3)
                 saved_as = f"{index:02d}_{slug}{ext}"
                 target = books_dir / saved_as
                 shutil.move(str(downloaded), target)

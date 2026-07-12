@@ -7,23 +7,20 @@ is always complete when read.
 """
 from __future__ import annotations
 
-import io
 import json
 import re
 import shutil
-import sys
 import tempfile
 import time
 from datetime import datetime
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
+# Sibling modules are importable as-is when run as `python3 tools/ocr_status.py`.
+from _lib import OCR_ROOT, REPO_ROOT, utf8_stdio
+from finalize_books import BOOKS_INFO, newest_transcription
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from finalize_books import BOOKS_INFO, newest_transcription  # noqa: E402
+utf8_stdio()
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-OCR_ROOT = REPO_ROOT / "out" / "ocr"
 LOGS_DIR = OCR_ROOT / "logs"
 STATUS_PATH = OCR_ROOT / "STATUS.md"
 RUNNING_WINDOW_SECONDS = 90
@@ -98,6 +95,22 @@ def active_renders() -> list[str]:
     return lines
 
 
+def disk_free_line() -> str:
+    """Free-space summary that works on the Windows OCR box and on POSIX.
+
+    Reports C:/D: when those drives exist (the original dual-drive setup);
+    otherwise falls back to the filesystem holding the repo.
+    """
+    parts = []
+    for label in ("C:", "D:"):
+        root = Path(f"{label}\\")
+        if root.exists():
+            parts.append(f"{label} {shutil.disk_usage(root).free / 1e9:.1f} GB")
+    if not parts:
+        parts.append(f"{shutil.disk_usage(REPO_ROOT).free / 1e9:.1f} GB")
+    return "Disk free: " + " · ".join(parts)
+
+
 def main() -> int:
     final_state: dict[str, dict] = {}
     final_path = OCR_ROOT / "Final" / "finalized.json"
@@ -131,8 +144,7 @@ def main() -> int:
         f"{len(queued)} queued · {len(stalled)} stalled · "
         f"rough ETA for the rest: ~{eta_minutes} min ({remaining_pages} pages left)",
         "",
-        f"Disk free: C: {shutil.disk_usage('C:').free / 1e9:.1f} GB · "
-        f"D: {shutil.disk_usage('D:').free / 1e9:.1f} GB",
+        disk_free_line(),
         *(
             [""] + [f"**Live renders:** {' · '.join(render_lines)}"]
             if (render_lines := active_renders())
@@ -182,7 +194,9 @@ def main() -> int:
     ]
 
     tmp = STATUS_PATH.with_suffix(".md.tmp")
-    tmp.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+    # open() instead of Path.write_text(newline=...): the latter needs Python 3.10+.
+    with tmp.open("w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(lines) + "\n")
     tmp.replace(STATUS_PATH)
     return 0
 

@@ -46,15 +46,18 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+# Shared helpers (sibling module — importable when run as python3 tools/summarize_books.py).
+from _lib import OCR_ROOT, REPO_ROOT, WINDOWS_UNSAFE, utf8_stdio
+
+utf8_stdio()
+
 # --------------------------------------------------------------------------- #
 #  CONFIG                                                                      #
 # --------------------------------------------------------------------------- #
-PROJECT_DIR = Path(__file__).resolve().parent.parent
-
 # The OCR'd Urdu text lives here (NOT ./books/, which holds the source PDFs).
-INPUT_DIR      = PROJECT_DIR / "out" / "ocr" / "Final"
-CHUNKS_DIR     = PROJECT_DIR / "chunks"
-SUMMARIES_DIR  = PROJECT_DIR / "summaries"
+INPUT_DIR      = OCR_ROOT / "Final"
+CHUNKS_DIR     = REPO_ROOT / "chunks"
+SUMMARIES_DIR  = REPO_ROOT / "summaries"
 
 MODEL                = "claude-sonnet-5"
 WORDS_PER_CHUNK      = 5000     # target size of each chunk
@@ -104,15 +107,14 @@ deduplicated set of key takeaways in English for the shrine's information page.
 #  TEXT / CHUNKING HELPERS                                                     #
 # --------------------------------------------------------------------------- #
 _TIMESTAMP_RE = re.compile(r"__\d{4}-\d{2}-\d{2}_\d{4}$")
-# Windows-illegal filename characters (ASCII). Note: Urdu '?' is U+061F, allowed.
-_ILLEGAL_RE = re.compile(r'[<>:"/\\|?*\x00-\x1f]')
 
 
 def clean_book_name(filename: str) -> str:
     """'Kashf-ul-Mahjoob__2026-07-02_0249.txt' -> 'Kashf-ul-Mahjoob'."""
     stem = filename[:-4] if filename.lower().endswith(".txt") else filename
     stem = _TIMESTAMP_RE.sub("", stem).strip()
-    stem = _ILLEGAL_RE.sub("", stem).strip()
+    # Strip Windows-illegal filename chars (shared regex; Urdu '؟' U+061F is allowed).
+    stem = WINDOWS_UNSAFE.sub("", stem).strip()
     return stem or "book"
 
 
