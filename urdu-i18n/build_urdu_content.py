@@ -17,31 +17,40 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 CONTENT_DIR = os.path.join(OUT, "content")
 DEST = os.path.normpath(os.path.join(OUT, "..", "src", "data", "urdu-content.json"))
 
-content = {}
-for path in sorted(glob.glob(os.path.join(CONTENT_DIR, "*.md"))):
-    slug = os.path.splitext(os.path.basename(path))[0]
-    body = open(path, encoding="utf-8").read().strip()
-    if body:
-        content[slug] = {"descriptionUr": body}
-
-os.makedirs(os.path.dirname(DEST), exist_ok=True)
-json.dump(content, open(DEST, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-
-# ── validate ─────────────────────────────────────────────────────────────────
 LATIN = re.compile(r"[A-Za-z]")
 BIBLIO_HEADINGS = ("## کتابیات", "## حوالہ جات", "## حوالے")
-leaks_total = 0
-for slug, v in content.items():
-    body = v["descriptionUr"]
-    before = body
-    for h in BIBLIO_HEADINGS:
-        before = before.split(h)[0]
-    leaks = sorted(set(re.findall(r"[A-Za-z][A-Za-z.]+", before)))
-    if leaks:
-        leaks_total += 1
-        print(f"  ⚠ {slug}: non-biblio Latin: {leaks}")
 
-print(f"[build_urdu_content] wrote {len(content)} shrines → {DEST}")
-if leaks_total:
-    raise SystemExit(f"FAIL: {leaks_total} file(s) have Latin-script leaks outside citations.")
-print("[build_urdu_content] OK — zero Latin-script leaks outside citations.")
+
+def main():
+    content = {}
+    for path in sorted(glob.glob(os.path.join(CONTENT_DIR, "*.md"))):
+        slug = os.path.splitext(os.path.basename(path))[0]
+        with open(path, encoding="utf-8") as f:
+            body = f.read().strip()
+        if body:
+            content[slug] = {"descriptionUr": body}
+
+    os.makedirs(os.path.dirname(DEST), exist_ok=True)
+    with open(DEST, "w", encoding="utf-8") as f:
+        json.dump(content, f, ensure_ascii=False, indent=2)
+
+    # ── validate ─────────────────────────────────────────────────────────────
+    leaks_total = 0
+    for slug, v in content.items():
+        body = v["descriptionUr"]
+        before = body
+        for h in BIBLIO_HEADINGS:
+            before = before.split(h)[0]
+        leaks = sorted(set(re.findall(r"[A-Za-z][A-Za-z.]+", before)))
+        if leaks:
+            leaks_total += 1
+            print(f"  ⚠ {slug}: non-biblio Latin: {leaks}")
+
+    print(f"[build_urdu_content] wrote {len(content)} shrines → {DEST}")
+    if leaks_total:
+        raise SystemExit(f"FAIL: {leaks_total} file(s) have Latin-script leaks outside citations.")
+    print("[build_urdu_content] OK — zero Latin-script leaks outside citations.")
+
+
+if __name__ == "__main__":
+    main()
