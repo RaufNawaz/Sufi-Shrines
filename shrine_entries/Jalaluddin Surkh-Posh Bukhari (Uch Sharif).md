@@ -26,12 +26,13 @@ Jalaluddin Surkh-Posh Bukhari holds a foundational place in the spiritual histor
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Suhrawardi order and of Uch Sharif.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~500-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "13th century (d. 1291)"; Sufi Saint "Jalaluddin Surkh-Posh Bukhari"; Events "Annual urs; qawwali & langar".
 Poetry: not primarily a poet; none quoted. Verify dates (1192–1291) and the Bukhara→Bhakkar→Uch migration.

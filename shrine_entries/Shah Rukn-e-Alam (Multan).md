@@ -18,16 +18,17 @@ The tomb of Shah Rukn-e-Alam, raised in the early fourteenth century, is one of 
 
 ## Devotion and Legacy
 
-Shah Rukn-e-Alam’s shrine is a centre of continuous devotion, thronged by pilgrims who come to recite the Fatiha, seek intercession, and honour a saint whose blessing (*baraka*) is felt to guard the city. The daily prayers, qawwali, and the free kitchen are kept there, and the annual urs draws great crowds from across southern Punjab. As the heir of Bahauddin Zakariya and the most celebrated of the Multan Suhrawardis, Rukn-e-Alam carried the order to its zenith, and through his tomb — at once a place of pilgrimage and a wonder of architecture — the sanctity of the “City of Saints” finds its most visible expression.
+Shah Rukn-e-Alam’s shrine is a centre of continuous devotion, thronged by pilgrims who come to recite the Fatiha, seek intercession, and honour a saint whose blessing (_baraka_) is felt to guard the city. The daily prayers, qawwali, and the free kitchen are kept there, and the annual urs draws great crowds from across southern Punjab. As the heir of Bahauddin Zakariya and the most celebrated of the Multan Suhrawardis, Rukn-e-Alam carried the order to its zenith, and through his tomb — at once a place of pilgrimage and a wonder of architecture — the sanctity of the “City of Saints” finds its most visible expression.
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan, including Shah Rukn-e-Alam.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan, including Shah Rukn-e-Alam.
 - General established histories of the Suhrawardi order and studies of the architecture of Multan.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~560-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "Tomb early 14th century (saint d. 1335)"; Sufi Saint "Shah Rukn-e-Alam"; Events "Annual urs; qawwali & langar".
 Poetry: not primarily a poet; none quoted. Verify dates (1251–1335) and the Ghiyath-ud-Din Tughluq tomb tradition.

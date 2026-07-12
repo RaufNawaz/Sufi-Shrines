@@ -12,7 +12,7 @@ In the heart of old Lahore, a short way from Empress Road and the old Qila Gujja
 
 Two great traditions about the identity of the six women endure side by side, and the shrine holds meaning in both. The older and by far the more popular tradition — the one held by most pilgrims, and reflected in the shrine’s traditional founding in the first century of Islam — identifies the chief of the six as Sayyida Ruqayya bint Ali, a daughter of Hazrat Ali and sister of Hazrat Abbas the standard-bearer, and the wife of Muslim ibn Aqeel. With her, this tradition holds, were kinswomen and companions of the House of the Prophet (the Ahl al-Bayt) — among them women remembered as Bibi Hoor and Bibi Noor of the line of Abi Talib — six in all, together with a faithful camel-driver named Basheer. By this account the women were survivors of the tragedy of Karbala who made their way across the length of the Muslim world to Lahore, and the shrine is a memorial to the family of the Prophet. Because of this the darbar is a place of especially intense devotion for Shia Muslims and for all who love the Ahl al-Bayt, and its whole atmosphere turns toward the remembrance of Karbala.
 
-A second tradition — advanced by the shrine’s own custodial family and by a line of scholars including Mufti Ghulam Sarwar (author of *Khazinat al-Asfiya* and *Hadiqat al-Auliya*), Pir Ghulam Dastgir Nami, and Hafeez Ullah Manzar — holds that the six were the daughters of the great saint Sayyid Ahmad Tokhta Tirmidhi, “Murshid-e-Punjab,” and that they lived and died in Lahore in the early thirteenth century, at the time of the Mongol invasions. What the two traditions share is, in the end, greater than what divides them: reverence for six women of extraordinary holiness, the memory of their choice of death over dishonour, and the miracle by which the earth itself is said to have received them. Both, too, agree on the names by which the six are known — Bibi Haj, Bibi Taj, Bibi Noor, Bibi Hoor, Bibi Gauhar, and Bibi Shahbaz (or Shahnaz).
+A second tradition — advanced by the shrine’s own custodial family and by a line of scholars including Mufti Ghulam Sarwar (author of _Khazinat al-Asfiya_ and _Hadiqat al-Auliya_), Pir Ghulam Dastgir Nami, and Hafeez Ullah Manzar — holds that the six were the daughters of the great saint Sayyid Ahmad Tokhta Tirmidhi, “Murshid-e-Punjab,” and that they lived and died in Lahore in the early thirteenth century, at the time of the Mongol invasions. What the two traditions share is, in the end, greater than what divides them: reverence for six women of extraordinary holiness, the memory of their choice of death over dishonour, and the miracle by which the earth itself is said to have received them. Both, too, agree on the names by which the six are known — Bibi Haj, Bibi Taj, Bibi Noor, Bibi Hoor, Bibi Gauhar, and Bibi Shahbaz (or Shahnaz).
 
 ## The Journey from Karbala
 
@@ -48,7 +48,7 @@ The graves lie within enclosed courtyards in the heart of the old city. Traditio
 
 ## Data Ganj Bakhsh and the Antiquity of the Shrine
 
-One tradition above all is cited by devotees as proof of the shrine’s great antiquity. It is said that when Data Ganj Bakhsh — the eleventh-century saint Ali Hujwiri, author of *Kashf al-Mahjub* and the patron saint of Lahore — first came to the city, he would go every Thursday night to the graves of the Bibis Pak Daman and sit in attentive reverence at a respectful distance, out of *adab* (courtesy) before their sanctity. That so great a saint should honour the shrine in this way is taken to show that the Bibis’ graves were already ancient and holy in his day, and it binds the darbar to Data Darbar, the two shrines standing together at the head of Lahore’s sacred geography. A gentler tale from the same devotional tradition tells of an astrologer who boasted that he could read the hidden and the unseen; the elder Bibi had food prepared for the poor and for travellers and sent him a dish in which fine food lay concealed beneath a plain covering of dry khichri. When the astrologer scorned the humble rice, and then learned what lay beneath it, he was humbled — for a man who claimed knowledge of the unseen had not seen the feast under the khichri — and he became a disciple. Such stories express what the shrine has always meant to ordinary people: a place of hospitality, of humility, and of quiet wonder.
+One tradition above all is cited by devotees as proof of the shrine’s great antiquity. It is said that when Data Ganj Bakhsh — the eleventh-century saint Ali Hujwiri, author of _Kashf al-Mahjub_ and the patron saint of Lahore — first came to the city, he would go every Thursday night to the graves of the Bibis Pak Daman and sit in attentive reverence at a respectful distance, out of _adab_ (courtesy) before their sanctity. That so great a saint should honour the shrine in this way is taken to show that the Bibis’ graves were already ancient and holy in his day, and it binds the darbar to Data Darbar, the two shrines standing together at the head of Lahore’s sacred geography. A gentler tale from the same devotional tradition tells of an astrologer who boasted that he could read the hidden and the unseen; the elder Bibi had food prepared for the poor and for travellers and sent him a dish in which fine food lay concealed beneath a plain covering of dry khichri. When the astrologer scorned the humble rice, and then learned what lay beneath it, he was humbled — for a man who claimed knowledge of the unseen had not seen the feast under the khichri — and he became a disciple. Such stories express what the shrine has always meant to ordinary people: a place of hospitality, of humility, and of quiet wonder.
 
 ## Custodianship and the Sectarian Question
 
@@ -68,12 +68,12 @@ Whether one honours the six Bibis as women of the Prophet’s household who carr
 
 ## Bibliography
 
-- Pir Ghulam Dastgir Nami, *Bibian-e-Pak Daman* (Lahore: Idara Ma‘arif Nomania; first published 1372 AH / 1953).
-- Muhammad Ilyas Aadil, *Bibiyan Pakdamanan / Darbar Bibi Pak Daman* (Lahore).
-- Hafeez Ullah Manzar, *Hazrat Bibi Pak Damanan Lahore ki Tareekh*.
-- Maulvi Muhammad Bakhsh Shah Qureshi, *Tareekh-e-Bibiyan Pakdaman*.
-- Hafeez Ullah Khan Manzar, *Hazrat Bibi Pakdaman: Kaun Hain aur Kahan se Aain?* (Lahore: Idara Ziya-e-Adab).
-- Earlier works cited within the above: Mufti Ghulam Sarwar Lahori, *Hadiqat al-Auliya* and *Khazinat al-Asfiya*; *Tazkira-e-Hamidiya*; *Tuhfat al-Wasilin*; Rai Bahadur Kanhaiya Lal, *Tareekh-e-Lahore*; *Nuqoosh: Lahore Number*.
+- Pir Ghulam Dastgir Nami, _Bibian-e-Pak Daman_ (Lahore: Idara Ma‘arif Nomania; first published 1372 AH / 1953).
+- Muhammad Ilyas Aadil, _Bibiyan Pakdamanan / Darbar Bibi Pak Daman_ (Lahore).
+- Hafeez Ullah Manzar, _Hazrat Bibi Pak Damanan Lahore ki Tareekh_.
+- Maulvi Muhammad Bakhsh Shah Qureshi, _Tareekh-e-Bibiyan Pakdaman_.
+- Hafeez Ullah Khan Manzar, _Hazrat Bibi Pakdaman: Kaun Hain aur Kahan se Aain?_ (Lahore: Idara Ziya-e-Adab).
+- Earlier works cited within the above: Mufti Ghulam Sarwar Lahori, _Hadiqat al-Auliya_ and _Khazinat al-Asfiya_; _Tazkira-e-Hamidiya_; _Tuhfat al-Wasilin_; Rai Bahadur Kanhaiya Lal, _Tareekh-e-Lahore_; _Nuqoosh: Lahore Number_.
 - Shrines Project field survey, Bibi Pak Daman responses (surveyor: Saifullah Imtiaz), 2026.
 
 =====================================================================================
@@ -83,17 +83,20 @@ REFERENCE ONLY — NOT FOR THE SHEET
 Length: ~3,300-word Description (toward your ~5,000 target).
 
 Poetry included (original + English translation in brackets):
+
 - "خوشا آنان کہ در خاک و خون غلطیدند" [Blessed are those who rolled in dust and blood] — a Persian devotional line from the frontispiece of the Karbala-tradition history (book 4 below). Given in canonical form; confirm orthography before publishing.
 - "سیّد احمد، شہِ برنا و پیر ٭ پیرِ ہادی، میرِ عالی جاہ" [Sayyid Ahmad — king of young and old; a guiding master, a lord of lofty station] — one couplet of a Persian chronogram for Sayyid Ahmad Tokhta Tirmidhi, from Nami's book. RECONSTRUCTED from a noisy OCR scan — have a Persian/Urdu reader verify the wording before publishing.
-(The Bibi Pak Daman tradition is largely prose and oral; these are the two verses that appear in the source books.)
+  (The Bibi Pak Daman tradition is largely prose and oral; these are the two verses that appear in the source books.)
 
 Suggested values for the other columns of this row:
+
 - Founded/Opened: 681 — reflects the popular tradition (migration ~63 AH ≈ 682–3 CE). The rival tradition places the women in the 13th century. You may prefer "681 (traditional)".
 - Sufi Saint: Bibi Pak Daman (the six Bibis).
 - Events: sheet says "Annual urs" — the surveys show the main gathering is the MUHARRAM pilgrimage plus weekly Thursday-night langar/qawwali/dhamal. Suggest: "Peak pilgrimage in Muharram; Thursday-night langar, qawwali & dhamal."
 - Category / Location / coordinates already filled and look correct.
 
 Sources consolidated:
+
 1. Bibian-e-Pak Daman — Pir Ghulam Dastgir Nami (custodial-family account; Tokhta Tirmidhi tradition, lineage, the chronogram).
 2. Darbar Bibi Pak Daman — Muhammad Ilyas Aadil (devotional; Bibi Tanoori, associated saints, the astrologer/khichri tale, Data Ganj Bakhsh's Thursday visits).
 3. Hazrat Bibi Pak Damanan Lahore ki Tareekh — Hafeez Ullah Manzar (historical critique; the debate).
@@ -102,6 +105,7 @@ Sources consolidated:
 6. Your Google-Sheet field survey (rows for "Darbar Bibi Pak Daman"): visitor numbers; Muharram pilgrimage; Thursday langar/qawwali/dhamal; Auqaf + Punjab Police; 2024 renovation; the named figures (Mahabrand Bhatti, Kumar Bikrama Sahay, Abdullah Shah Khaki, Basheer).
 
 Verify before publishing:
+
 - The description presents BOTH identity traditions; tell me if you'd rather commit fully to the popular (Karbala) tradition.
 - Dates (61/63 AH; 602 AH) and visitor figures are traditional/estimated — treat as approximate.
 - Transliterated names — verify spellings: "Mahabrand Bhatti", "Kumar Bikrama Sahay", "Abdullah Shah Khaki / Shaikh Jamal", "Basheer", "Bibi Tanoori", "Ali Rangrez", "Alif Shah", "Sultan Hamiduddin Hakim".

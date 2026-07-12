@@ -10,7 +10,7 @@ In Karachi lies the shrine of Hazrat Qalandar Baba Auliya — Sayyid Muhammad Az
 
 ## The Life of the Saint
 
-Muhammad Azeem was born in 1898 at Khurja, in the United Provinces of British India, into a Sayyid family, and is known by the spiritual title *Qalandar Baba Auliya*. After the creation of Pakistan he settled in Karachi. He is remembered as a saint of deep contemplative attainment who devoted himself to expounding the inner realities of the Sufi path — the science of the soul, of thought, and of the unseen — and to guiding disciples. His best-known work, *Loh-o-Qalam* (“The Tablet and the Pen”), sets out his teaching on metaphysics and the workings of the mind and spirit, and is studied as a foundational text by his followers. He died in 1979 and was buried in Karachi, where his shrine arose.
+Muhammad Azeem was born in 1898 at Khurja, in the United Provinces of British India, into a Sayyid family, and is known by the spiritual title _Qalandar Baba Auliya_. After the creation of Pakistan he settled in Karachi. He is remembered as a saint of deep contemplative attainment who devoted himself to expounding the inner realities of the Sufi path — the science of the soul, of thought, and of the unseen — and to guiding disciples. His best-known work, _Loh-o-Qalam_ (“The Tablet and the Pen”), sets out his teaching on metaphysics and the workings of the mind and spirit, and is studied as a foundational text by his followers. He died in 1979 and was buried in Karachi, where his shrine arose.
 
 ## The Azeemia Order
 
@@ -22,13 +22,14 @@ Qalandar Baba Auliya represents the continuation of the Sufi tradition into the 
 
 ## Bibliography
 
-- Qalandar Baba Auliya, *Loh-o-Qalam* — the saint's principal work.
+- Qalandar Baba Auliya, _Loh-o-Qalam_ — the saint's principal work.
 - Established histories of the Azeemia Sufi order (and the writings of Khwaja Shamsuddin Azeemi).
 - (This saint post-dates the Tazkirah Awliya-e-Pakistan compendium; entry based on established modern accounts.)
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~400-word Description (knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "1979 (saint's death; shrine thereafter)" — matches sheet; Sufi Saint "Qalandar Baba Auliya (Syed Muhammad Azeem Barkhiya)"; Events "Annual urs".
 Poetry: none quoted. VERIFY birth year/place (1898, Khurja) and the biographical details against Azeemia sources.

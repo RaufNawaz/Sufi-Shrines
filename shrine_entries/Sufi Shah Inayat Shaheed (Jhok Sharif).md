@@ -11,7 +11,7 @@ At Jhok Sharif, in the Sujawal region of Sindh, lies the shrine of Sufi Shah Ina
 
 ## The Life of the Saint
 
-Shah Inayat belonged to the tradition of *wahdat al-wujud*, the mysticism of the unity of being, and was schooled in the Sufi currents of his age, travelling in his search for knowledge before returning to his native Jhok in lower Sindh. There, in the early eighteenth century, he established a *khanqah* whose community held and cultivated land collectively, sharing its produce — a way of life summed up in the Sindhi maxim *jeko kheré, so khaé*, “whoever sows, eats.” The gathering of the poor and the landless around him, and the implicit challenge his commune posed to the great landholders (*zamindars*) and to the Mughal-appointed authorities of the region, provoked their hostility. His settlement was besieged; after a long resistance he was taken by treachery and put to death in 1718. He is remembered ever after as *Shaheed*, the martyr of Jhok.
+Shah Inayat belonged to the tradition of _wahdat al-wujud_, the mysticism of the unity of being, and was schooled in the Sufi currents of his age, travelling in his search for knowledge before returning to his native Jhok in lower Sindh. There, in the early eighteenth century, he established a _khanqah_ whose community held and cultivated land collectively, sharing its produce — a way of life summed up in the Sindhi maxim _jeko kheré, so khaé_, “whoever sows, eats.” The gathering of the poor and the landless around him, and the implicit challenge his commune posed to the great landholders (_zamindars_) and to the Mughal-appointed authorities of the region, provoked their hostility. His settlement was besieged; after a long resistance he was taken by treachery and put to death in 1718. He is remembered ever after as _Shaheed_, the martyr of Jhok.
 
 ## The Shrine and its Memory
 
@@ -23,12 +23,13 @@ Sufi Shah Inayat Shaheed holds a singular place among the saints of Sindh — a 
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of Sufism in Sindh and of the Jhok movement.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~430-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "early 18th century (martyred 1718)"; Sufi Saint "Sufi Shah Inayat Shaheed"; Events "Annual urs".
 Poetry: none quoted. Verify the 1718 martyrdom and the commune ("jeko kheré so khaé") account.

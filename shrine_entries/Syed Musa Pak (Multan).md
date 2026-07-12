@@ -6,11 +6,11 @@ Copy the block from "## Overview" to the end of "## Legacy" into the sheet's "De
 
 ## Overview
 
-In Multan stands the shrine of Hazrat Syed Musa Pak Shaheed — a revered Qadiri saint of the sixteenth century and the ancestor of the Gilani (Musa Pak) sayyids, one of Multan’s most eminent religious families. Honoured with the titles *Pak* (“the pure”) and *Shaheed* (“the martyr”), Musa Pak carried the Qadiri order of Abd al-Qadir Jilani in Multan and founded a spiritual line that remained influential in the city for centuries. His darbar is among the notable shrines of the “City of Saints.”
+In Multan stands the shrine of Hazrat Syed Musa Pak Shaheed — a revered Qadiri saint of the sixteenth century and the ancestor of the Gilani (Musa Pak) sayyids, one of Multan’s most eminent religious families. Honoured with the titles _Pak_ (“the pure”) and _Shaheed_ (“the martyr”), Musa Pak carried the Qadiri order of Abd al-Qadir Jilani in Multan and founded a spiritual line that remained influential in the city for centuries. His darbar is among the notable shrines of the “City of Saints.”
 
 ## The Life of the Saint
 
-Syed Musa, called Musa Pak Shaheed, was a Sayyid of the Gilani line — descendants of the great Baghdad saint Shaikh Abd al-Qadir Jilani — who flourished in Multan in the sixteenth century. Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples, and he is remembered for a life of piety and for the sanctity that earned him the epithet *Pak*, “the pure.” Tradition honours him as a *shaheed*, a martyr. Through him and his descendants the Qadiri-Gilani presence was firmly established in Multan, and the Musa Pak Gilani family became one of the leading religious and landed houses of the region. He was buried in Multan, where his shrine arose.
+Syed Musa, called Musa Pak Shaheed, was a Sayyid of the Gilani line — descendants of the great Baghdad saint Shaikh Abd al-Qadir Jilani — who flourished in Multan in the sixteenth century. Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples, and he is remembered for a life of piety and for the sanctity that earned him the epithet _Pak_, “the pure.” Tradition honours him as a _shaheed_, a martyr. Through him and his descendants the Qadiri-Gilani presence was firmly established in Multan, and the Musa Pak Gilani family became one of the leading religious and landed houses of the region. He was buried in Multan, where his shrine arose.
 
 ## The Shrine and its Devotion
 
@@ -22,12 +22,13 @@ Syed Musa Pak Shaheed is remembered as a chief bearer of the Qadiri order in Mul
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Qadiri-Gilani sayyids of Multan.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~360-word Description (compendium/knowledge-based; no dedicated OCR book or field survey — thinner sourcing).
 Suggested columns: Founded/Opened "16th century"; Sufi Saint "Syed Musa Pak Shaheed"; Events "Annual urs".
 Poetry: none quoted. VERIFY dates and the martyrdom/lineage details against a dedicated Multan/Gilani source.

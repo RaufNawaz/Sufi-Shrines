@@ -10,11 +10,11 @@ At Sial Sharif, in the Sargodha district of the Punjab, stands the shrine of Haz
 
 ## The Life of the Saint
 
-Khwaja Muhammad Shamsuddin was born in 1799 at Sial Sharif into a devout family, and from his youth pursued the religious sciences and the Sufi path. He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age. From his khanqah at Sial Sharif he taught, guided disciples, and kept a great *langar*, and his spiritual authority drew seekers from across the Punjab. Among those who took his guidance was Pir Sayyid Meher Ali Shah of Golra Sharif, through whom the Sial Sharif line reached into the next generation of Punjabi Sufism. He died in 1883 and was buried at Sial Sharif.
+Khwaja Muhammad Shamsuddin was born in 1799 at Sial Sharif into a devout family, and from his youth pursued the religious sciences and the Sufi path. He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age. From his khanqah at Sial Sharif he taught, guided disciples, and kept a great _langar_, and his spiritual authority drew seekers from across the Punjab. Among those who took his guidance was Pir Sayyid Meher Ali Shah of Golra Sharif, through whom the Sial Sharif line reached into the next generation of Punjabi Sufism. He died in 1883 and was buried at Sial Sharif.
 
 ## The Shrine and its Devotion
 
-The shrine of Shamsuddin Sialvi at Sial Sharif is a large complex kept by his successors, who have continued as its sajjada-nashins and as prominent religious figures. It maintains the daily prayers, gatherings of *naat* and qawwali, and the free kitchen, and its annual urs gathers great crowds of devotees. The town of Sial Sharif takes its identity from the darbar, a continuing seat of Chishti teaching and devotion.
+The shrine of Shamsuddin Sialvi at Sial Sharif is a large complex kept by his successors, who have continued as its sajjada-nashins and as prominent religious figures. It maintains the daily prayers, gatherings of _naat_ and qawwali, and the free kitchen, and its annual urs gathers great crowds of devotees. The town of Sial Sharif takes its identity from the darbar, a continuing seat of Chishti teaching and devotion.
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Khwaja Shamsuddin Sialvi holds an important place in the Chishti revival of nine
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Chishti revival in nineteenth-century Punjab.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~410-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "19th century (d. 1883)"; Sufi Saint "Khwaja Muhammad Shamsuddin Sialvi"; Events "Annual urs; qawwali & langar".
 Poetry: none quoted. VERIFY dates (1799–1883) and the Taunsvi→Sialvi→Golra Chishti chain against a dedicated source.

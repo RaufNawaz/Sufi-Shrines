@@ -10,11 +10,11 @@ In Multan, the ancient “City of Saints,” stands the shrine of Shah Shams-ud-
 
 ## The Life and Legend of the Saint
 
-Shah Shams is said to have come to the Indian subcontinent from Sabzwar, in the Persian lands, in the thirteenth century, as a preacher and missionary of extraordinary spiritual power. His life, more legend than chronicle, is famous above all for the miracle from which his name (*Shams*, “the sun”) is popularly explained: it is told that, having no fire to cook a fish, the saint commanded the sun itself to descend and roast it — and that the sun drew so near that Multan has been scorched by an intense heat ever since. Such tales made him one of the great wonder-working saints of the popular imagination. In the histories he is connected with the Ismaili mission in Sindh and Multan, part of the complex religious currents of the medieval Indus valley, though he is venerated broadly across communities today. He died in Multan in the thirteenth century.
+Shah Shams is said to have come to the Indian subcontinent from Sabzwar, in the Persian lands, in the thirteenth century, as a preacher and missionary of extraordinary spiritual power. His life, more legend than chronicle, is famous above all for the miracle from which his name (_Shams_, “the sun”) is popularly explained: it is told that, having no fire to cook a fish, the saint commanded the sun itself to descend and roast it — and that the sun drew so near that Multan has been scorched by an intense heat ever since. Such tales made him one of the great wonder-working saints of the popular imagination. In the histories he is connected with the Ismaili mission in Sindh and Multan, part of the complex religious currents of the medieval Indus valley, though he is venerated broadly across communities today. He died in Multan in the thirteenth century.
 
 ## The Shrine and its Devotion
 
-Shah Shams Sabzwari’s shrine in Multan — a domed tomb by the old bank of the river — is among the oldest darbars of the city and a continuous centre of pilgrimage. Devotees come to seek the blessing of a saint famed for miraculous power, to recite the Fatiha, and to fulfil vows, and the annual urs draws crowds in the customary manner of Multan’s shrines, with qawwali and *langar*. The shrine forms part of the dense sacred landscape that has made Multan the “City of Saints.”
+Shah Shams Sabzwari’s shrine in Multan — a domed tomb by the old bank of the river — is among the oldest darbars of the city and a continuous centre of pilgrimage. Devotees come to seek the blessing of a saint famed for miraculous power, to recite the Fatiha, and to fulfil vows, and the annual urs draws crowds in the customary manner of Multan’s shrines, with qawwali and _langar_. The shrine forms part of the dense sacred landscape that has made Multan the “City of Saints.”
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Shah Shams Sabzwari endures in memory as one of the great wonder-working saints 
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories and legends of the saints of Multan.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~420-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "13th century"; Sufi Saint "Shah Shams-ud-Din Sabzwari"; Events "Annual urs; qawwali & langar".
 Poetry: none quoted. His story is largely legendary and his Ismaili connection is historically debated — flag both; verify the 13th-century dating.

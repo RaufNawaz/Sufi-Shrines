@@ -10,7 +10,7 @@ The Tomb of Bibi Jawindi at Uch Sharif is among the most beautiful — and most 
 
 ## Bibi Jawindi and her Tomb
 
-Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness. Her tomb was built around 1493, tradition holds, by an Iranian prince, Dilshad, in her honour. It is an octagonal, tiered structure crowned by a dome, its surfaces sheathed in the exquisite cobalt-blue, turquoise, and white *kashi* tilework for which Uch and Multan are famed, and adorned with corner turrets — a masterpiece of the regional style that flourished around the tombs of the Suhrawardi saints. Over the centuries the changing course of the river undermined the structure, and a great part of it collapsed (by tradition in a flood in the nineteenth century), leaving the ravishing half-tomb that visitors see today — a fragment whose surviving beauty only sharpens the sense of what has been lost.
+Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness. Her tomb was built around 1493, tradition holds, by an Iranian prince, Dilshad, in her honour. It is an octagonal, tiered structure crowned by a dome, its surfaces sheathed in the exquisite cobalt-blue, turquoise, and white _kashi_ tilework for which Uch and Multan are famed, and adorned with corner turrets — a masterpiece of the regional style that flourished around the tombs of the Suhrawardi saints. Over the centuries the changing course of the river undermined the structure, and a great part of it collapsed (by tradition in a flood in the nineteenth century), leaving the ravishing half-tomb that visitors see today — a fragment whose surviving beauty only sharpens the sense of what has been lost.
 
 ## The Monuments of Uch Sharif
 
@@ -22,12 +22,13 @@ As the resting place of a holy woman of the revered Bukhari line, Bibi Jawindi�
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan (Bukhari line of Uch).
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan (Bukhari line of Uch).
 - General established histories and heritage/conservation studies of the monuments of Uch Sharif.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~470-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 NOTE: your sheet lists the saint for this row as "Jalaluddin Surkh-Posh Bukhari" — Bibi Jawindi was a descendant of that line; the tomb itself is hers. Consider setting Sufi Saint to "Bibi Jawindi (Bukhari sayyid line)".
 Suggested columns: Founded/Opened "Tomb c. 1493"; Events "visited as part of the Uch Sharif shrines / heritage site".

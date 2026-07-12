@@ -10,11 +10,11 @@ At Ranmal Sharif, near Phalia in the Mandi Bahauddin region of the Punjab, stand
 
 ## The Life of the Saint
 
-Muhammad Noushah — honoured as *Ganj Bakhsh*, “the bestower of treasure,” and *Noushah*, “the bridegroom” — was born in 1552. He took the Sufi path in the Qadiri order and, attaining a high spiritual station, founded his own branch, the *Naushahia*, which he propagated with great energy across the Punjab. He lived through a full century of the Mughal age, guiding a vast body of disciples and establishing a network of successors, and he is remembered both as a saint of powerful blessing and as an organiser of an enduring order. He died in 1654, full of years, and was buried at Ranmal Sharif, which became the seat of his line.
+Muhammad Noushah — honoured as _Ganj Bakhsh_, “the bestower of treasure,” and _Noushah_, “the bridegroom” — was born in 1552. He took the Sufi path in the Qadiri order and, attaining a high spiritual station, founded his own branch, the _Naushahia_, which he propagated with great energy across the Punjab. He lived through a full century of the Mughal age, guiding a vast body of disciples and establishing a network of successors, and he is remembered both as a saint of powerful blessing and as an organiser of an enduring order. He died in 1654, full of years, and was buried at Ranmal Sharif, which became the seat of his line.
 
 ## The Shrine and the Naushahia Order
 
-The shrine of Noushah Ganj Bakhsh at Ranmal Sharif is the mother-shrine of the Naushahia Qadiri order, kept by his descendants and successors, and a busy centre of pilgrimage. It maintains the customary devotions — prayer, qawwali and *naat*, and the free kitchen — and its annual urs draws great crowds of the order’s followers and of the wider devout. The Naushahia order he founded remains active across the Punjab and among the Punjabi diaspora, so that his shrine is the head of a living and widespread spiritual family.
+The shrine of Noushah Ganj Bakhsh at Ranmal Sharif is the mother-shrine of the Naushahia Qadiri order, kept by his descendants and successors, and a busy centre of pilgrimage. It maintains the customary devotions — prayer, qawwali and _naat_, and the free kitchen — and its annual urs draws great crowds of the order’s followers and of the wider devout. The Naushahia order he founded remains active across the Punjab and among the Punjabi diaspora, so that his shrine is the head of a living and widespread spiritual family.
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Syed Muhammad Noushah Ganj Bakhsh is remembered as the founder of the Naushahia 
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Qadiri/Naushahia order in the Punjab.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~370-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "16th–17th century (d. 1654)"; Sufi Saint "Syed Muhammad Noushah Qadiri (Noushah Ganj Bakhsh)"; Events "Annual urs; qawwali & langar".
 Poetry: none quoted (he is credited with Punjabi verse; add if you obtain a clean text). VERIFY dates (1552–1654).

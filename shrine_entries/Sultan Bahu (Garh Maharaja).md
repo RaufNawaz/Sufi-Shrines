@@ -6,7 +6,7 @@ Copy the block from "## Overview" to the end of "## Legacy" into the sheet's "De
 
 ## Overview
 
-The shrine of Hazrat Sultan Bahu (1630–1691) at Garh Maharaja, in the Jhang region of the Punjab, honours one of the greatest of the Punjabi Sufi poet-saints and the founder of the Sarwari Qadiri order. Sultan Bahu wrote prolifically in Persian, but he is loved above all for his Punjabi *abyat* — quatrains that end each line with the long, sighing exhalation of the divine name, “Hoo” — which are sung across the Punjab in a soaring traditional style. His shrine, twice moved and rebuilt as the river Chenab shifted its course, is a major centre of pilgrimage in central Punjab.
+The shrine of Hazrat Sultan Bahu (1630–1691) at Garh Maharaja, in the Jhang region of the Punjab, honours one of the greatest of the Punjabi Sufi poet-saints and the founder of the Sarwari Qadiri order. Sultan Bahu wrote prolifically in Persian, but he is loved above all for his Punjabi _abyat_ — quatrains that end each line with the long, sighing exhalation of the divine name, “Hoo” — which are sung across the Punjab in a soaring traditional style. His shrine, twice moved and rebuilt as the river Chenab shifted its course, is a major centre of pilgrimage in central Punjab.
 
 ## The Life of the Saint
 
@@ -14,7 +14,7 @@ Bahu was born in 1630 in the Shorkot region of Jhang, into an Awan family; his f
 
 ## The Abyat and His Teaching
 
-Sultan Bahu’s Punjabi poetry takes the form of *si-harfi* and, most famously, the *abyat* — quatrains in which every line closes on the ecstatic syllable *Hoo* (ھُو), the sound of the breath and of the divine name, so that the poems are literally sung on the rhythm of remembrance (*dhikr*). Their theme is the burning of divine love (*ishq*), the primacy of the inward reality over outward form, and the indispensable role of the spiritual guide (*murshid*). The most famous of all begins:
+Sultan Bahu’s Punjabi poetry takes the form of _si-harfi_ and, most famously, the _abyat_ — quatrains in which every line closes on the ecstatic syllable _Hoo_ (ھُو), the sound of the breath and of the divine name, so that the poems are literally sung on the rhythm of remembrance (_dhikr_). Their theme is the burning of divine love (_ishq_), the primacy of the inward reality over outward form, and the indispensable role of the spiritual guide (_murshid_). The most famous of all begins:
 
 اَلف اللہ چنبے دی بُوٹی، مُرشد مَن وِچ لائی ھُو
 
@@ -32,13 +32,14 @@ Sultan Bahu ranks with Shah Hussain, Bulleh Shah, and Waris Shah among the immor
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
-- Sultan Bahu, *Abyat-e-Bahu* (his Punjabi quatrains; verse quoted in standard published wording).
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
+- Sultan Bahu, _Abyat-e-Bahu_ (his Punjabi quatrains; verse quoted in standard published wording).
 - General established histories of the Qadiri order and Punjabi Sufi poetry.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~640-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "17th century (d. 1691)"; Sufi Saint "Sultan Bahu"; Events "Annual urs (spring); abyat-singing, qawwali & langar".
 Poetry: the abyat opening given in standard wording — confirm Shahmukhi orthography. Verify dates (1630–1691) and the river-shift shrine history.

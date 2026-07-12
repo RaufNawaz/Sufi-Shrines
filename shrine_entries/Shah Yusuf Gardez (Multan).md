@@ -14,7 +14,7 @@ Sayyid Yusuf, called Shah Yusuf Gardez, is remembered as having come from Gardez
 
 ## The Shrine and its Devotion
 
-The shrine of Shah Yusuf Gardez is celebrated for its architecture as much as its sanctity: a low, rectangular tomb sheathed in the brilliant blue-and-white glazed *kashi* tilework of Multan, it is one of the loveliest of the city’s many shrines. Kept by the Gardezi family, it is a continuous place of pilgrimage, where devotees recite the Fatiha and seek the blessing of one of Multan’s founding saints, and its annual urs gathers the faithful in the customary manner. It stands among the oldest sacred monuments of the city.
+The shrine of Shah Yusuf Gardez is celebrated for its architecture as much as its sanctity: a low, rectangular tomb sheathed in the brilliant blue-and-white glazed _kashi_ tilework of Multan, it is one of the loveliest of the city’s many shrines. Kept by the Gardezi family, it is a continuous place of pilgrimage, where devotees recite the Fatiha and seek the blessing of one of Multan’s founding saints, and its annual urs gathers the faithful in the customary manner. It stands among the oldest sacred monuments of the city.
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Shah Yusuf Gardez holds an honoured place as one of the earliest saints of Multa
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of Multan and its saints.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~390-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "early 12th century"; Sufi Saint "Shah Yusuf Gardez"; Events "Annual urs".
 Poetry: none quoted. VERIFY the dates (arrival c.1088; d. early 12th c.) — these are traditional and vary by source.

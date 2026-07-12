@@ -10,11 +10,11 @@ On the northern outskirts of Karachi lies Mangho Pir — one of the most unusual
 
 ## The Saint, the Crocodiles, and the Springs
 
-The saint of Mangho Pir is remembered as a holy man of the medieval centuries who settled at this spot in the hills above Karachi. Around his memory has gathered a cluster of wonders that give the shrine its unique character. Below the tomb lies a pond inhabited by crocodiles, held sacred and cared for by the shrine’s attendants; the eldest and largest is honoured with the title *Mor Sahib*, and pilgrims make offerings of meat, for the crocodiles are believed to be under the saint’s protection and their favour a sign of blessing. Nearby, hot sulphur springs rise from the earth, and bathing in their waters is believed to cure skin ailments and other diseases — so that the shrine is a place of healing as much as of prayer. Tradition weaves the crocodiles and the springs into the miracles of the saint himself.
+The saint of Mangho Pir is remembered as a holy man of the medieval centuries who settled at this spot in the hills above Karachi. Around his memory has gathered a cluster of wonders that give the shrine its unique character. Below the tomb lies a pond inhabited by crocodiles, held sacred and cared for by the shrine’s attendants; the eldest and largest is honoured with the title _Mor Sahib_, and pilgrims make offerings of meat, for the crocodiles are believed to be under the saint’s protection and their favour a sign of blessing. Nearby, hot sulphur springs rise from the earth, and bathing in their waters is believed to cure skin ailments and other diseases — so that the shrine is a place of healing as much as of prayer. Tradition weaves the crocodiles and the springs into the miracles of the saint himself.
 
 ## The Sheedi Community and the Mela
 
-Mangho Pir holds a special place for the Sheedi community of Karachi, the descendants of Africans brought to the subcontinent over the centuries, who regard the saint as their own and the shrine as a spiritual home. Their annual *Sheedi Mela* at Mangho Pir — with its drumming, dance, and offerings to the sacred crocodiles — is a vivid survival of African-rooted culture in Pakistan and one of the most striking festivals of Karachi, binding the shrine to a living community and its heritage.
+Mangho Pir holds a special place for the Sheedi community of Karachi, the descendants of Africans brought to the subcontinent over the centuries, who regard the saint as their own and the shrine as a spiritual home. Their annual _Sheedi Mela_ at Mangho Pir — with its drumming, dance, and offerings to the sacred crocodiles — is a vivid survival of African-rooted culture in Pakistan and one of the most striking festivals of Karachi, binding the shrine to a living community and its heritage.
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Pir Mangho is unlike any other shrine in Pakistan — a place where Sufi devotio
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established accounts of Mangho Pir, its crocodiles and springs, and the Sheedi community.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~430-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Sufi Saint "Pir Mangho (Haji Syed Sakhi Sultan)"; Events "Annual Sheedi Mela; urs".
 Poetry: none quoted. VERIFY the saint's name/identity and dates (the saint's history is obscure/traditional; the crocodiles, springs, and Sheedi Mela are well attested).

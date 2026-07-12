@@ -10,7 +10,7 @@ At Shergarh, in the Okara district of the Punjab, stands the shrine of Hazrat Da
 
 ## The Life of the Saint
 
-Daud, honoured with the title *Bandagi* (“servitude,” marking his devotion) and the epithet *Kirmani* for his family’s origins, was born in 1513. He gave himself to religious learning and the Sufi path, and became a shaykh of the Qadiri order — the line of Shaikh Abd al-Qadir Jilani of Baghdad — at a time when that order was taking firm root in the subcontinent. From his base at Shergarh he taught, guided disciples, and spread the Qadiri way across the Punjab, living through the turbulent early Mughal decades. He was among the notable saints of the generation of Shah Hussain of Lahore, part of the flowering of Punjabi Sufism in the sixteenth century. He died in 1575 and was buried at Shergarh.
+Daud, honoured with the title _Bandagi_ (“servitude,” marking his devotion) and the epithet _Kirmani_ for his family’s origins, was born in 1513. He gave himself to religious learning and the Sufi path, and became a shaykh of the Qadiri order — the line of Shaikh Abd al-Qadir Jilani of Baghdad — at a time when that order was taking firm root in the subcontinent. From his base at Shergarh he taught, guided disciples, and spread the Qadiri way across the Punjab, living through the turbulent early Mughal decades. He was among the notable saints of the generation of Shah Hussain of Lahore, part of the flowering of Punjabi Sufism in the sixteenth century. He died in 1575 and was buried at Shergarh.
 
 ## The Shrine and its Devotion
 
@@ -22,12 +22,13 @@ Daud Bandagi Kirmani is remembered as one of the saints who firmly planted the Q
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Qadiri order in the Punjab.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~360-word Description (compendium/knowledge-based; no dedicated OCR book or field survey — thinner sourcing).
 Suggested columns: Founded/Opened "16th century (d. 1575)"; Sufi Saint "Daud Bandagi Kirmani"; Events "Annual urs".
 Poetry: none quoted. VERIFY dates (1513–1575) and biographical specifics against a dedicated source.

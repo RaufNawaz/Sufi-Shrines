@@ -6,15 +6,15 @@ Copy the block from "## Overview" to the end of "## Legacy" into the sheet's "De
 
 ## Overview
 
-At Kasur, south of Lahore, lies the shrine of Hazrat Bulleh Shah (Sayyid Abdullah Shah Qadri, c. 1680–1757), the towering Punjabi Sufi poet whose *kafis* are among the best-loved verses ever composed in the language. Heir to the tradition of Shah Hussain and forerunner of Waris Shah, Bulleh Shah gave Punjabi mysticism some of its most piercing and rebellious poetry — verse that scorned the hypocrisy of the learned, dissolved the boundaries of caste and creed, and sang of a love for God that overturns the self. His tomb at Kasur is a place of pilgrimage and, still more, his poetry a living presence, sung by qawwals and folk-singers and, in our own day, by pop musicians across South Asia.
+At Kasur, south of Lahore, lies the shrine of Hazrat Bulleh Shah (Sayyid Abdullah Shah Qadri, c. 1680–1757), the towering Punjabi Sufi poet whose _kafis_ are among the best-loved verses ever composed in the language. Heir to the tradition of Shah Hussain and forerunner of Waris Shah, Bulleh Shah gave Punjabi mysticism some of its most piercing and rebellious poetry — verse that scorned the hypocrisy of the learned, dissolved the boundaries of caste and creed, and sang of a love for God that overturns the self. His tomb at Kasur is a place of pilgrimage and, still more, his poetry a living presence, sung by qawwals and folk-singers and, in our own day, by pop musicians across South Asia.
 
 ## The Life of the Saint
 
-Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher, and the family settled in the Kasur region of the Punjab. Well educated in Arabic and Persian and in the religious sciences, Bulleh Shah might have become a scholar of the orthodox kind — but he was drawn instead to the burning inward path, and became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line, who was by trade an *arain* (a gardener-cultivator) rather than a high-born sayyid. That a proud Sayyid should bow to a master of humble caste scandalised his relations, and the tension became one of the great themes of his verse: Bulleh Shah defiantly proclaimed that love, not lineage, was the only nobility. He lived through the turbulent decades of the Mughal decline and the invasions of the eighteenth century, and died at Kasur around 1757 — where, tradition holds, the orthodox at first refused him burial in the common graveyard, so fierce had been his attacks on their hypocrisy.
+Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher, and the family settled in the Kasur region of the Punjab. Well educated in Arabic and Persian and in the religious sciences, Bulleh Shah might have become a scholar of the orthodox kind — but he was drawn instead to the burning inward path, and became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line, who was by trade an _arain_ (a gardener-cultivator) rather than a high-born sayyid. That a proud Sayyid should bow to a master of humble caste scandalised his relations, and the tension became one of the great themes of his verse: Bulleh Shah defiantly proclaimed that love, not lineage, was the only nobility. He lived through the turbulent decades of the Mughal decline and the invasions of the eighteenth century, and died at Kasur around 1757 — where, tradition holds, the orthodox at first refused him burial in the common graveyard, so fierce had been his attacks on their hypocrisy.
 
 ## The Poetry
 
-Bulleh Shah’s fame rests wholly on his *kafis* — short, sung Punjabi lyrics of astonishing directness and power. In them he mocks the empty learning of the mullah and the pandit, tramples the divisions of Hindu and Muslim, high and low, and insists that the seeker must lose the self entirely in the Beloved. His most famous kafi asks the question at the heart of all mysticism — who am I? — and answers by refusing every label of religion and identity:
+Bulleh Shah’s fame rests wholly on his _kafis_ — short, sung Punjabi lyrics of astonishing directness and power. In them he mocks the empty learning of the mullah and the pandit, tramples the divisions of Hindu and Muslim, high and low, and insists that the seeker must lose the self entirely in the Beloved. His most famous kafi asks the question at the heart of all mysticism — who am I? — and answers by refusing every label of religion and identity:
 
 بُلھیا! کی جاݨاں میں کوݨ
 
@@ -40,13 +40,14 @@ Bulleh Shah is, with Shah Hussain, Sultan Bahu, and Waris Shah, one of the pilla
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
-- Bulleh Shah, *Kafian* (his collected Punjabi kafis; verses quoted in standard published wording).
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
+- Bulleh Shah, _Kafian_ (his collected Punjabi kafis; verses quoted in standard published wording).
 - General established histories of Punjabi Sufi poetry.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~740-word Description (compendium/knowledge-based; no dedicated OCR book or field survey).
 Suggested columns: Founded/Opened "18th century (d. c. 1757)"; Sufi Saint "Bulleh Shah (Abdullah Shah Qadri)"; Events "Annual urs; qawwali".
 Poetry: kafi lines given in standard wording — confirm Shahmukhi orthography before publishing. Verify dates (c.1680–1757) and the burial-refusal tradition.

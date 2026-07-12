@@ -14,7 +14,7 @@ Mian Sher Muhammad was born in 1865 at Sharaqpur into a devout family, and from 
 
 ## The Shrine and its Devotion
 
-The shrine of Pir Sher Muhammad at Sharaqpur Sharif is a large complex kept by his successors, and a busy centre of pilgrimage. It maintains the five daily prayers, gatherings of *naat* and qawwali, and the free kitchen, and its annual urs draws great crowds of devotees who come to honour the saint and seek his blessing. The town of Sharaqpur Sharif takes its very identity from the darbar, and the saint’s line has continued as its custodians and as respected religious figures.
+The shrine of Pir Sher Muhammad at Sharaqpur Sharif is a large complex kept by his successors, and a busy centre of pilgrimage. It maintains the five daily prayers, gatherings of _naat_ and qawwali, and the free kitchen, and its annual urs draws great crowds of devotees who come to honour the saint and seek his blessing. The town of Sharaqpur Sharif takes its very identity from the darbar, and the saint’s line has continued as its custodians and as respected religious figures.
 
 ## Legacy
 
@@ -22,12 +22,13 @@ Pir Sher Muhammad Sharaqpuri is remembered as one of the influential Sufi master
 
 ## Bibliography
 
-- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- Alam Faqri, _Tazkirah Awliya-e-Pakistan_ (Lahore) — compendium of the saints of Pakistan.
 - General established histories of the Qadiri-Chishti tradition in modern Punjab.
 
 =====================================================================================
 REFERENCE ONLY — NOT FOR THE SHEET
 =====================================================================================
+
 Length: ~420-word Description (compendium/knowledge-based; no dedicated OCR book or field survey — thinner sourcing).
 Suggested columns: Founded/Opened "late 19th–early 20th century (d. 1928)"; Sufi Saint "Pir Sher Muhammad Sharaqpuri"; Events "Annual urs; naat & qawwali".
 Poetry: none quoted. VERIFY dates (c.1865–1928) and biographical specifics against a dedicated Sharaqpur source before publishing — my details here are general.
