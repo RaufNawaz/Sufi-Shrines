@@ -10,7 +10,14 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import { getSaintBySlug, getOrderForSaint, getSaintsInOrder, slugToLabel } from '../lib/kg';
+import {
+  getSaintBySlug,
+  getOrderForSaint,
+  getSaintsInOrder,
+  getTeachersOf,
+  getDisciplesOf,
+  slugToLabel,
+} from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 
 export default function SaintPage() {
@@ -22,6 +29,8 @@ export default function SaintPage() {
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
   const order = useMemo(() => (slug ? getOrderForSaint(slug) : undefined), [slug]);
   const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
+  const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
+  const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
 
   const shrineMap = useMemo(() => {
     const m = new Map<string, string>();
@@ -213,10 +222,16 @@ export default function SaintPage() {
             )}
 
             {/* Spiritual lineage */}
-            {order && (
+            {(order || teachers.length > 0 || disciples.length > 0) && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('spiritualLineage')}</h2>
-                <LineageView order={order} members={orderMembers} currentSlug={saint.slug} />
+                <LineageView
+                  order={order}
+                  members={orderMembers}
+                  currentSlug={saint.slug}
+                  teachers={teachers}
+                  disciples={disciples}
+                />
               </section>
             )}
 

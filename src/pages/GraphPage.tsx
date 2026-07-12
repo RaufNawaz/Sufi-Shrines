@@ -8,7 +8,7 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import { getKGStore, getSaintsInOrder } from '../lib/kg';
+import { getKGStore, getSaintsInOrder, getAllLineageEdges } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 
 /**
@@ -46,6 +46,8 @@ export default function GraphPage() {
     type: 'saint',
     href: `/saint/${s.slug}`,
   }));
+
+  const lineageEdges = useMemo(() => getAllLineageEdges(), []);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -121,6 +123,27 @@ export default function GraphPage() {
               </p>
             )}
             <NetworkGraph center={centerNode} connected={connectedNodes} />
+          </section>
+        )}
+
+        {lineageEdges.length > 0 && (
+          <section className="graph-page-section">
+            <h2>{t('graphLineageHeading')}</h2>
+            <ul className="graph-lineage-list">
+              {lineageEdges.map((edge) => (
+                <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
+                  <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
+                    {edge.subject.name}
+                  </Link>
+                  <span className="graph-lineage-relation">
+                    {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
+                  </span>
+                  <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
+                    {edge.object.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 

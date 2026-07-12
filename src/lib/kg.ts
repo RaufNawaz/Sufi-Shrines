@@ -94,6 +94,68 @@ export function getSaintsInOrder(orderSlug: string): KGSaint[] {
     .filter((s): s is KGSaint => s !== undefined);
 }
 
+export type LineageRelationType = 'disciple_of' | 'successor_of';
+
+export interface LineageLink {
+  saint: KGSaint;
+  relation: LineageRelationType;
+  quote?: string;
+  source?: string;
+}
+
+const LINEAGE_TYPES: LineageRelationType[] = ['disciple_of', 'successor_of'];
+
+function toLineageLink(r: KGRelation, saint: KGSaint | undefined): LineageLink | null {
+  if (!saint) return null;
+  return {
+    saint,
+    relation: r.type as LineageRelationType,
+    ...(r.quote ? { quote: r.quote } : {}),
+    ...(r.source ? { source: r.source } : {}),
+  };
+}
+
+/** This saint's recorded teacher(s)/predecessor(s) — the object side of its
+ * disciple_of/successor_of relations. Hand-extracted from shrine_entries/,
+ * see data/kg-seeds.json#lineageRelations. */
+export function getTeachersOf(saintSlug: string): LineageLink[] {
+  return LINEAGE_TYPES.flatMap((type) =>
+    getRelations({ subject: `saint:${saintSlug}`, type }).map((r) =>
+      toLineageLink(r, getSaintBySlug(r.object.replace(/^saint:/, ''))),
+    ),
+  ).filter((link): link is LineageLink => link !== null);
+}
+
+/** Saints recorded as this saint's disciple/successor — the reverse of
+ * getTeachersOf. */
+export function getDisciplesOf(saintSlug: string): LineageLink[] {
+  return LINEAGE_TYPES.flatMap((type) =>
+    getRelations({ object: `saint:${saintSlug}`, type }).map((r) =>
+      toLineageLink(r, getSaintBySlug(r.subject.replace(/^saint:/, ''))),
+    ),
+  ).filter((link): link is LineageLink => link !== null);
+}
+
+export interface LineageEdge {
+  subject: KGSaint;
+  relation: LineageRelationType;
+  object: KGSaint;
+}
+
+/** Every recorded disciple_of/successor_of edge, resolved to saint records —
+ * for a graph-wide lineage overview (e.g. GraphPage). */
+export function getAllLineageEdges(): LineageEdge[] {
+  return kg.relations
+    .filter((r) => LINEAGE_TYPES.includes(r.type as LineageRelationType))
+    .map((r) => {
+      const subject = getSaintBySlug(r.subject.replace(/^saint:/, ''));
+      const object = getSaintBySlug(r.object.replace(/^saint:/, ''));
+      if (!subject || !object) return null;
+      return { subject, relation: r.type as LineageRelationType, object };
+    })
+    .filter((e): e is LineageEdge => e !== null);
+}
+
 /** Raw store for advanced queries (read-only). */
 export function getKGStore(): Readonly<KGStore> {
   return kg;
