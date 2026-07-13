@@ -114,6 +114,14 @@ Deepen the scholarly core once the dataset is clean and bilingual.
 - Owner: CC + Author (KG facts). Depends on: M1–M3.
 - **Acceptance:** provenance visible on claims; release gate blocks on validation failure;
   citable dataset published.
+- **2026-07-12: description-content trust work done under a dedicated plan** —
+  see `docs/planning/DATA_QUALITY_PLAN.md`. Content-tier provenance backfilled
+  for all 163 shrines, `shrine_entries/` reconciled against live data, 22
+  tour-featured `ai-researched` descriptions fact-verified and corrected,
+  `data:validate` gained content-quality gates, `SourcesProvenance` now shows
+  tier + citations, and a correction-intake workflow is documented. Still open:
+  80 more `ai-researched` shrines to fact-verify, and the DOI mint itself (see
+  `docs/DATA_RELEASE.md`) still needs the maintainer's own account/login.
 
 ---
 

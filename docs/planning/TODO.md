@@ -6,6 +6,20 @@ This is a working checklist for the shrines research dataset (`Shrines_with_Desc
 
 ---
 
+## 0. Description data-quality follow-ups (2026-07-12 — see `DATA_QUALITY_PLAN.md`)
+
+- [ ] **Push 9 fact-check corrections to the live Google Sheet.** Fixed locally in
+  `data/shrines.json`/`.csv`/`shrines-fallback.json`; exact find/replace text is in
+  `archive/_phaseC_sheet_corrections.md`, and a full-dataset TSV ready to paste
+  over the whole sheet is at `archive/_sheet_full_export.tsv`.
+- [ ] **Get a native Urdu speaker to review `Description Urdu`.** All 163 entries
+  are AI-translated and unreviewed (`reviewedBy` empty in `data/provenance.json`
+  for every one). Batch order: tour-featured shrines first, then highest-traffic
+  saints, then the rest.
+- [ ] **Fact-verify the remaining 80 `ai-researched` shrines.** Only the 22
+  tour-featured ones have been checked so far (13 clean, 5 hedged, 4 corrected —
+  see `archive/_description_verification.md`). Continue by saint/place traffic.
+
 ## 1. Data-quality fixes — RESOLVED 2026-07-10 (M1 pass)
 
 All five standing data-quality flags are now resolved (see `_ENRICHMENT_LOG.md`, run 2026-07-10):
