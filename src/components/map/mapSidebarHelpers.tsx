@@ -1,6 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
 import type { ReactNode } from 'react';
 
+/**
+ * Re-orders `items` to match the rank of `rankedIds` (best match first,
+ * per MiniSearch's own ordering) — items whose id isn't in `rankedIds`
+ * sort last, after everything that is. Does not mutate `items`.
+ */
+export function sortByRank<T extends { id: number }>(items: T[], rankedIds: number[]): T[] {
+  const rank = new Map<number, number>();
+  rankedIds.forEach((id, i) => rank.set(id, i));
+  return [...items].sort((a, b) => (rank.get(a.id) ?? Infinity) - (rank.get(b.id) ?? Infinity));
+}
+
 export function highlightMatch(text: string, query: string): ReactNode {
   if (!query.trim()) return text;
   const idx = text.toLowerCase().indexOf(query.trim().toLowerCase());

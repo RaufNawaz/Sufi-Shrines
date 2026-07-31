@@ -3,7 +3,7 @@ import type { Shrine } from '../../types/shrine';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 
 interface SearchState {
-  ids: Set<number> | null; // null = "no query / show all"
+  ids: number[] | null; // null = "no query / show all"; otherwise ranked best-match-first
   query: string; // the query that produced `ids`
 }
 
@@ -75,7 +75,7 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
     pendingRef.current.set(id, (ids) => {
       // Ignore stale responses from previous queries
       if (capturedId !== callIdRef.current) return;
-      setState({ ids: new Set(ids), query });
+      setState({ ids, query });
     });
   }, [query, ready, workerGen]);
 

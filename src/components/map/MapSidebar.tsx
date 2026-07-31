@@ -17,7 +17,7 @@ import { TourPanel } from './TourPanel';
 import { TourList } from './TourList';
 import { WelcomeCard } from './WelcomeCard';
 import { ShrinePreview } from './ShrinePreview';
-import { highlightMatch, ShrineListSkeleton } from './mapSidebarHelpers';
+import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -150,8 +150,14 @@ export function MapSidebar({
     }
     if (search.trim()) {
       if (searchIds !== null) {
-        // Worker results available — use them (ranked, fuzzy)
-        result = result.filter((s) => searchIds.has(s.id));
+        // Worker results available (ranked, fuzzy) — filter to matches, then
+        // sort by that rank so the best match shows first instead of falling
+        // back to the list's original order.
+        const idSet = new Set(searchIds);
+        result = sortByRank(
+          result.filter((s) => idSet.has(s.id)),
+          searchIds,
+        );
       } else {
         // Worker not ready yet — fall back to instant substring match
         const q = search.trim().toLowerCase();
