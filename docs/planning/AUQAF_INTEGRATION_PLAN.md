@@ -28,6 +28,19 @@
   (Image 1–7) with Image 8–16 cleared. Verified again end-to-end:
   197/197 tests, build, prerender (og:image = the new hero URL).
 
+**Batch photo update (2026-07-31, late):** the same self-hosting treatment was
+applied to every surveyed shrine. 55 more photos (downloaded from Drive,
+EXIF-corrected, resized to ≤1600px) now live under `public/photos/` for:
+Mazar-e-Iqbal (10), Shah Jamal (10), Peer Makki (10), Abul Faiz Qalander Ali
+Suharwardi (9), Madho Lal Hussain (8, two unusable frames dropped),
+Ganj e Inayat Sarkar (8), Data Darbar (1 — appended after its Wikimedia hero;
+its flaky Dawn hotlink dropped). Mauj Darya Bukhari's survey photos were
+deleted from Drive and Mian Mir's uploads were all PDF books, so both rows were
+restored to their original Wikimedia images in `shrines_updated.tsv`. The five
+PDF-book links mistakenly merged into image columns were cleared everywhere.
+Every photo was visually reviewed via contact sheets; heroes hand-picked.
+All data files updated; 197/197 tests, build, prerender re-verified.
+
 **Left for you (in order):**
 
 1. In this repo: review the diff, run `npm run verify && npm run e2e` on your
