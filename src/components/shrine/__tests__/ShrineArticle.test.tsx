@@ -77,4 +77,36 @@ describe('ShrineArticle', () => {
     renderWithProviders(<ShrineArticle shrine={shrine} />);
     // Should render without throwing — just empty article
   });
+
+  it('renders **bold** markdown as <strong>, not literal asterisks', () => {
+    const shrine = makeShrine({
+      Description: 'Lead text.\n\n## History\n\nSee **The Great Book** for details.',
+    });
+    renderWithProviders(<ShrineArticle shrine={shrine} />);
+    const strong = screen.getByText('The Great Book');
+    expect(strong.tagName).toBe('STRONG');
+    expect(screen.queryByText(/\*\*/)).not.toBeInTheDocument();
+  });
+
+  it('renders the Sources section as a bulleted list, one <li> per line', () => {
+    const shrine = makeShrine({
+      Description: '',
+      Sources: '**Book One**, Author A, 1990\n**Book Two**, Author B, 2001',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    const items = container.querySelectorAll('#sources li');
+    expect(items).toHaveLength(2);
+    expect(items[0].querySelector('strong')?.textContent).toBe('Book One');
+    expect(items[1].querySelector('strong')?.textContent).toBe('Book Two');
+  });
+
+  it('keeps non-sources sections rendered as paragraphs, not lists', () => {
+    const shrine = makeShrine({
+      Description: '',
+      History: 'Line one of the history.\nLine two of the history.',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    expect(container.querySelector('#history ul')).not.toBeInTheDocument();
+    expect(container.querySelector('#history p')).toBeInTheDocument();
+  });
 });

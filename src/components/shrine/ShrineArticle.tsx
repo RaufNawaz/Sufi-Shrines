@@ -4,6 +4,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { ShrineGallery } from './ShrineGallery';
 import { anchorSlug, useArticleContent } from './useArticleContent';
 import { localizeHeading } from '../../lib/data/headingLabels';
+import { renderInlineBold } from './inlineFormat';
 
 function ArticleSection({
   id,
@@ -14,17 +15,30 @@ function ArticleSection({
   heading: string;
   content: string;
 }) {
-  const paragraphs = content.split(/\n\n+/).filter(Boolean);
+  const isSources = id === 'sources';
   return (
     <section className="article-section" id={id} aria-labelledby={`${id}-heading`}>
       <h2 className="article-section-heading" id={`${id}-heading`}>
         {heading}
       </h2>
-      <div className="article-prose">
-        {paragraphs.map((p, i) => (
-          <p key={i}>{p.trim()}</p>
-        ))}
-      </div>
+      {isSources ? (
+        <ul className="article-prose article-sources-list">
+          {content
+            .split('\n')
+            .map((line) => line.trim())
+            .filter(Boolean)
+            .map((line, i) => <li key={i}>{renderInlineBold(line)}</li>)}
+        </ul>
+      ) : (
+        <div className="article-prose">
+          {content
+            .split(/\n\n+/)
+            .filter(Boolean)
+            .map((p, i) => (
+              <p key={i}>{renderInlineBold(p.trim())}</p>
+            ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -50,7 +64,7 @@ export function ShrineArticle({ shrine }: Props) {
               .split(/\n\n+/)
               .filter(Boolean)
               .map((p, i) => (
-                <p key={i}>{p.trim()}</p>
+                <p key={i}>{renderInlineBold(p.trim())}</p>
               ))}
           </div>
         </section>
@@ -84,7 +98,7 @@ export function ShrineArticle({ shrine }: Props) {
               .split(/\n\n+/)
               .filter(Boolean)
               .map((p, i) => (
-                <p key={i}>{p.trim()}</p>
+                <p key={i}>{renderInlineBold(p.trim())}</p>
               ))}
           </div>
         </section>

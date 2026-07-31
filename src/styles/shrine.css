@@ -370,6 +370,21 @@
   margin-bottom: 0;
 }
 
+/* Sources section: one bullet per citation line */
+.article-sources-list {
+  margin: 0;
+  padding-inline-start: var(--space-5);
+  list-style: disc;
+}
+
+.article-sources-list li {
+  margin-bottom: var(--space-2);
+}
+
+.article-sources-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* Gallery */
 .gallery-grid {
   display: grid;

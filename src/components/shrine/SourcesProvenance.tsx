@@ -10,6 +10,7 @@ import type {
 import rawProvenance from '../../../data/provenance.json';
 import { t } from '../../lib/i18n/uiStrings';
 import { localizeFieldName } from '../../lib/data/fieldLabels';
+import { renderInlineBold, stripInlineBoldMarkup } from './inlineFormat';
 
 const provenanceStore = rawProvenance as unknown as ProvenanceStore;
 
@@ -116,7 +117,7 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
               {prov.notes && (
                 // Internal audit notes — same rationale as the source citation above.
                 <span className="provenance-notes">
-                  <bdi>{prov.notes}</bdi>
+                  <bdi>{renderInlineBold(prov.notes)}</bdi>
                 </span>
               )}
 
@@ -132,12 +133,12 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
                               href={citation.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label={`${t(lang, 'viewSourceLabel')}: ${citation.title}`}
+                              aria-label={`${t(lang, 'viewSourceLabel')}: ${stripInlineBoldMarkup(citation.title)}`}
                             >
-                              {citation.title}
+                              {renderInlineBold(citation.title)}
                             </a>
                           ) : (
-                            citation.title
+                            renderInlineBold(citation.title)
                           )}
                           {citation.author ? ` — ${citation.author}` : null}
                         </bdi>
