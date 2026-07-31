@@ -44,6 +44,33 @@ export function normalizeUrl(rawUrl: string | undefined | null): string | null {
   return url;
 }
 
+const FOUNDED_QUALIFIER_WORDS = [
+  'completed/consecrated',
+  'completed',
+  'consecrated',
+  'constructed',
+  'established',
+  'founded',
+  'opened',
+  'built',
+];
+
+const FOUNDED_QUALIFIER_PREFIX = new RegExp(
+  `^(?:${FOUNDED_QUALIFIER_WORDS.map((w) => w.replace('/', '\\/')).join('|')})\\b\\s*(?:in\\s+)?[:\\-]?\\s*`,
+  'i',
+);
+
+/**
+ * Strips a leading qualifier word ("Completed/consecrated 1640" -> "1640")
+ * from a Founded/Opened display value. Values that are already clean
+ * (a bare year, "17th century", etc.) pass through unchanged.
+ */
+export function normalizeFoundedDate(value: string): string {
+  const trimmed = (value || '').trim();
+  if (!trimmed) return trimmed;
+  return trimmed.replace(FOUNDED_QUALIFIER_PREFIX, '').trim();
+}
+
 export function normalizeRow(row: Record<string, unknown>): ShrineRow {
   const normalized: ShrineRow = {};
   for (const [key, value] of Object.entries(row)) {
