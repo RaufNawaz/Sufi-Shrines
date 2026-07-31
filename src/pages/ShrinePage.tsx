@@ -179,23 +179,6 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         </button>
       </div>
 
-      {/* Hero — always rendered (image or branded placeholder) */}
-      <div className="shrine-hero">
-        <ShrineImage
-          src={shrine.imageUrl}
-          alt={name}
-          category={shrine.category}
-          className="shrine-hero-img"
-          placeholderClassName="shrine-hero-placeholder"
-          loading="eager"
-        />
-        {shrine.imageUrl && shrine.imageCredit && (
-          <p className="shrine-hero-credit">
-            {t('photoCredit')}: <bdi>{shrine.imageCredit}</bdi>
-          </p>
-        )}
-      </div>
-
       {/* Share toast */}
       <div
         className={`share-toast${copied ? ' share-toast--visible' : ''}`}
@@ -219,8 +202,26 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         {t('copied')}
       </div>
 
-      {/* Article layout: contents rail + prose + infobox */}
+      {/* Article layout: hero + contents rail + prose + infobox.
+          The hero lives inside the grid so the contents nav and infobox are
+          visible beside the photo as soon as the page opens. */}
       <div className="shrine-article-layout">
+        {/* Hero — always rendered (image or branded placeholder) */}
+        <div className="shrine-hero">
+          <ShrineImage
+            src={shrine.imageUrl}
+            alt={name}
+            category={shrine.category}
+            className="shrine-hero-img"
+            placeholderClassName="shrine-hero-placeholder"
+            loading="eager"
+          />
+          {shrine.imageUrl && shrine.imageCredit && (
+            <p className="shrine-hero-credit">
+              {t('photoCredit')}: <bdi>{shrine.imageCredit}</bdi>
+            </p>
+          )}
+        </div>
         {navItems.length >= 2 && (
           <div className="contents-nav-rail">
             <ContentsNav items={navItems} />

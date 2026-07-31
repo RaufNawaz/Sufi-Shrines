@@ -153,15 +153,25 @@
   background: var(--color-primary-bg);
 }
 
-/* Article layout: contents rail + prose + infobox side by side on desktop */
+/* Article layout: hero + contents rail + prose + infobox side by side on
+   desktop. The hero sits inside the grid so the contents nav and infobox are
+   visible next to the photo without scrolling. */
 .shrine-article-layout {
   display: grid;
   grid-template-columns: 1fr;
-  /* Infobox comes first on mobile */
+  /* Photo first on mobile, then the infobox card, then the article */
   grid-template-areas:
+    'hero'
     'infobox'
     'main';
   gap: var(--space-6);
+}
+
+.shrine-article-layout > .shrine-hero {
+  grid-area: hero;
+  min-width: 0;
+  /* The grid gap provides the spacing */
+  margin-bottom: 0;
 }
 
 .shrine-article-main {
@@ -181,8 +191,9 @@
 @media (min-width: 640px) {
   .shrine-article-layout {
     grid-template-columns: minmax(0, 1fr) 220px;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
+      'hero infobox'
       'toc infobox'
       'main infobox';
   }
@@ -197,8 +208,10 @@
 @media (min-width: 1340px) {
   .shrine-article-layout {
     position: relative;
-    grid-template-rows: none;
-    grid-template-areas: 'main infobox';
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'hero infobox'
+      'main infobox';
   }
 
   .contents-nav-rail {
@@ -821,8 +834,9 @@
   max-width: 24ch;
 }
 
-/* Hero: gradient scrim on images */
-.shrine-hero img ~ * {
+/* Hero: hide decorative siblings once a real image renders — but never the
+   photo credit, which is designed to overlay the scrim */
+.shrine-hero img ~ :not(.shrine-hero-credit) {
   display: none;
 }
 
