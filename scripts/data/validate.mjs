@@ -88,6 +88,21 @@ rows.forEach((row, i) => {
   }
 });
 
+// ── "Sind" vs "Sindh" typo guard ──────────────────────────────────────────
+// A confirmed recurring typo: the standalone word "Sind" where "Sindh" (or
+// "Sindhi") was meant. Word-boundary regex, so "Sindh"/"Sindhi" don't match.
+// Warning only — fixing existing occurrences is a manual Google Sheet edit,
+// outside this repo; this just stops it quietly creeping back in.
+const SIND_TYPO_RE = /\bSind\b/i;
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  Object.entries(row).forEach(([field, value]) => {
+    if (typeof value !== 'string' || !SIND_TYPO_RE.test(value)) return;
+    rowWarnings.push(`  ${label}: field "${field}" contains standalone "Sind" — did you mean "Sindh"?`);
+  });
+});
+
 // ── provenance validation ─────────────────────────────────────────────────
 
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');
