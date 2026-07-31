@@ -5,17 +5,19 @@ import { ShrineGallery } from './ShrineGallery';
 import { anchorSlug, useArticleContent } from './useArticleContent';
 import { localizeHeading } from '../../lib/data/headingLabels';
 import { renderInlineBold } from './inlineFormat';
+import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
 
 function ArticleSection({
   id,
   heading,
   content,
+  isSources = false,
 }: {
   id: string;
   heading: string;
   content: string;
+  isSources?: boolean;
 }) {
-  const isSources = id === 'sources';
   return (
     <section className="article-section" id={id} aria-labelledby={`${id}-heading`}>
       <h2 className="article-section-heading" id={`${id}-heading`}>
@@ -78,6 +80,7 @@ export function ShrineArticle({ shrine }: Props) {
             id={id}
             heading={localizeHeading(section.heading, lang)}
             content={section.content}
+            isSources={SOURCES_HEADING_ALIASES.has(section.heading.trim().toLowerCase())}
           />
         );
       })}
@@ -88,6 +91,7 @@ export function ShrineArticle({ shrine }: Props) {
           id={section.id}
           heading={section.title[lang as 'en' | 'ur'] || section.title.en}
           content={section.content}
+          isSources={section.id === 'sources'}
         />
       ))}
 

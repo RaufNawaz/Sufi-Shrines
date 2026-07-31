@@ -100,6 +100,20 @@ describe('ShrineArticle', () => {
     expect(items[1].querySelector('strong')?.textContent).toBe('Book Two');
   });
 
+  it('renders an inline "## Bibliography" heading as a bulleted list too', () => {
+    // This is the shape real shrine prose actually uses today (no dedicated
+    // Sources column exists yet) — confirmed against the live sheet, which
+    // has ~111 "## Bibliography" headings and zero "## Sources" ones.
+    const shrine = makeShrine({
+      Description:
+        'Lead text.\n\n## Bibliography\n\n**Book One**, Author A, 1990\n**Book Two**, Author B, 2001',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    const items = container.querySelectorAll('#bibliography li');
+    expect(items).toHaveLength(2);
+    expect(items[0].querySelector('strong')?.textContent).toBe('Book One');
+  });
+
   it('keeps non-sources sections rendered as paragraphs, not lists', () => {
     const shrine = makeShrine({
       Description: '',

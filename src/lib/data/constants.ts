@@ -60,6 +60,17 @@ export const INFOBOX_PRIORITY_KEYS = [
 
 export const MAX_INFOBOX_ROWS = 8;
 
+/** Inline "## Heading" names that should render as a bulleted source list
+ * (bold-title parsing + one <li> per line), same treatment as the dedicated
+ * Sources column — shrine prose today cites sources under "## Bibliography"
+ * far more often than "## Sources" (no dedicated Sources column exists yet
+ * in the live sheet), so both need to land on the same rendering. */
+export const SOURCES_HEADING_ALIASES = new Set(
+  ['Sources', 'Bibliography', 'References', 'Citations', 'Works Cited', 'حوالہ جات', 'کتابیات', 'حوالے'].map(
+    (h) => h.toLowerCase(),
+  ),
+);
+
 export const STRUCTURED_DESCRIPTION_HEADING_ALIASES = [
   'History',
   'Architecture',
