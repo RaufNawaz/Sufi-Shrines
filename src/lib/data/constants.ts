@@ -55,6 +55,7 @@ export const INFOBOX_PRIORITY_KEYS = [
   'Founded',
   'Sufi Saint',
   'Saint',
+  'Events',
 ];
 
 export const MAX_INFOBOX_ROWS = 8;
