@@ -187,6 +187,15 @@ export function MapSidebar({
   ]);
 
   const grouped = useMemo(() => {
+    // While actively searching, keep `filtered`'s rank order intact as one
+    // flat list — bucketing by category and sorting the buckets
+    // alphabetically would bury the single best match under an unrelated
+    // category's weak matches (e.g. a strong "Muslim Shrine" match sorting
+    // after every "Hindu Temple" match, however weak, just because "H" comes
+    // before "M"). Grouping is a browse-mode affordance, not a search one.
+    if (search.trim()) {
+      return filtered.length > 0 ? ([['__search__', filtered]] as [string, Shrine[]][]) : [];
+    }
     const groups = new Map<string, Shrine[]>();
     for (const shrine of filtered) {
       const cat = shrine.category || t('uncategorized');
@@ -197,7 +206,7 @@ export function MapSidebar({
     return Array.from(groups.entries()).sort(([a], [b]) =>
       a.localeCompare(b, lang === 'ur' ? 'ur' : 'en'),
     );
-  }, [filtered, t, lang]);
+  }, [filtered, t, lang, search]);
 
   const selectedShrine = useMemo(
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
