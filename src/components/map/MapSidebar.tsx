@@ -87,11 +87,13 @@ export function MapSidebar({
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
   const [showList, setShowList] = useState(false);
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
   const hasActiveFilter = Boolean(activeCategory || activeRegion || activeSaint || hasEraFilter);
+  const hasSaintOrEraFilter = Boolean(activeSaint || hasEraFilter);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -418,37 +420,71 @@ export function MapSidebar({
             </div>
           )}
 
-          {/* Saint chips */}
-          {saints.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t('saintLabel')}
-              </span>
-              <div className="filter-chips" role="group" aria-label="Filter by Sufi saint">
-                <button
-                  className={`filter-chip${!activeSaint ? ' active' : ''}`}
-                  onClick={() => onSaintChange('')}
-                  aria-pressed={!activeSaint}
-                >
-                  {t('filterAll')}
-                </button>
-                {saints.map((saint) => (
-                  <button
-                    key={saint}
-                    className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
-                    onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
-                    aria-pressed={activeSaint === saint}
-                  >
-                    {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
-                      saint}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* More filters disclosure: saint + era, collapsed by default so
+              category chips and the shrine list get more default room. */}
+          <div className="filter-section">
+            <button
+              type="button"
+              className={`more-filters-toggle${filtersExpanded ? ' active' : ''}`}
+              onClick={() => setFiltersExpanded((v) => !v)}
+              aria-expanded={filtersExpanded}
+            >
+              <svg
+                className="more-filters-chevron"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              {t('moreFiltersLabel')}
+              {hasSaintOrEraFilter && (
+                <span className="filter-active-dot" aria-label="filters active" />
+              )}
+            </button>
+          </div>
 
-          {/* Time-slider by founding era */}
-          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+          {filtersExpanded && (
+            <>
+              {/* Saint chips */}
+              {saints.length > 1 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t('saintLabel')}
+                  </span>
+                  <div className="filter-chips" role="group" aria-label="Filter by Sufi saint">
+                    <button
+                      className={`filter-chip${!activeSaint ? ' active' : ''}`}
+                      onClick={() => onSaintChange('')}
+                      aria-pressed={!activeSaint}
+                    >
+                      {t('filterAll')}
+                    </button>
+                    {saints.map((saint) => (
+                      <button
+                        key={saint}
+                        className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
+                        onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
+                        aria-pressed={activeSaint === saint}
+                      >
+                        {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
+                          saint}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Time-slider by founding era */}
+              <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+            </>
+          )}
 
           {/* Result count */}
           <div className="shrine-list-status" aria-live="polite" aria-atomic="true">

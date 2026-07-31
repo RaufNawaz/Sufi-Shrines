@@ -437,6 +437,38 @@
   flex-shrink: 0;
 }
 
+/* "More filters" disclosure toggle (saint + era) */
+.more-filters-toggle {
+  width: 100%;
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--duration-fast);
+  text-align: start;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: inherit;
+}
+
+.more-filters-toggle:hover,
+.more-filters-toggle.active {
+  color: var(--color-primary);
+}
+
+.more-filters-chevron {
+  transition: transform var(--duration-fast);
+  flex-shrink: 0;
+}
+
+.more-filters-toggle.active .more-filters-chevron {
+  transform: rotate(90deg);
+}
+
 .filter-chips {
   display: flex;
   gap: var(--space-2);
