@@ -48,6 +48,9 @@ function RouteAnnouncer() {
       isFirst.current = false;
       return;
     }
+    // Real page changes only — this effect is keyed on pathname, so in-page
+    // anchor navigation (e.g. ContentsNav's scrollIntoView) never triggers it.
+    window.scrollTo(0, 0);
     // Shift focus to main content on navigation so screen readers pick up the new page
     const el = document.getElementById('main-content') as HTMLElement | null;
     if (!el) return;

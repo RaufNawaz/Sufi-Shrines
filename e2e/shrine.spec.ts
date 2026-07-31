@@ -42,4 +42,20 @@ test.describe('Shrine detail page', () => {
     await page.goto('/shrine/this-shrine-does-not-exist-xyz123');
     await expect(page).toHaveURL('/');
   });
+
+  test('clicking a related shrine card lands at the top of the new page', async ({ page }) => {
+    await page.goto(`/shrine/${TEST_SLUG}`);
+
+    // Scroll deep into the page first — this is what previously left the
+    // next page rendered mid-scroll instead of at the top.
+    const relatedCard = page.locator('.related-card').first();
+    await relatedCard.scrollIntoViewIfNeeded();
+    const scrollYBeforeClick = await page.evaluate(() => window.scrollY);
+    expect(scrollYBeforeClick).toBeGreaterThan(0);
+
+    await relatedCard.click();
+    await expect(page.locator('h1.shrine-title')).toBeVisible();
+
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  });
 });
