@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { GalleryItem } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
+
+const SWIPE_THRESHOLD_PX = 50;
 
 interface Props {
   items: GalleryItem[];
@@ -15,9 +18,13 @@ interface LightboxProps {
 }
 
 function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
-  const { t, isRTL } = useLang();
+  const { t, lang, isRTL, fmtNum } = useLang();
   const [idx, setIdx] = useState(initialIndex);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const goPrev = () => setIdx((i) => Math.max(0, i - 1));
+  const goNext = () => setIdx((i) => Math.min(items.length - 1, i + 1));
 
   // Focus trap
   useEffect(() => {
@@ -40,6 +47,30 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
     return () => document.removeEventListener('keydown', handler);
   }, [items.length, onClose, isRTL]);
 
+  // Warm the browser cache for adjacent images so prev/next feels instant.
+  useEffect(() => {
+    [idx - 1, idx + 1]
+      .filter((i) => i >= 0 && i < items.length)
+      .forEach((i) => {
+        const preload = new window.Image();
+        preload.src = items[i].imageUrl;
+      });
+  }, [idx, items]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return;
+    const swipedToNext = isRTL ? delta > 0 : delta < 0;
+    if (swipedToNext) goNext();
+    else goPrev();
+  };
+
   const item = items[idx];
 
   return (
@@ -48,14 +79,27 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       role="dialog"
       aria-modal="true"
       aria-label={t('gallery')}
     >
       {items.length > 1 && (
+        <div className="lightbox-counter">
+          <span aria-hidden="true">
+            {fmtNum(idx + 1)} / {fmtNum(items.length)}
+          </span>
+          <span className="sr-only" aria-live="polite" aria-atomic="true">
+            {tFn(lang, 'photoOf', idx + 1, items.length)}
+          </span>
+        </div>
+      )}
+
+      {items.length > 1 && (
         <button
           className="lightbox-nav-btn prev"
-          onClick={() => setIdx((i) => Math.max(0, i - 1))}
+          onClick={goPrev}
           aria-label="Previous image"
           disabled={idx === 0}
         >
@@ -76,6 +120,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       )}
 
       <img
+        key={item.index}
         src={item.imageUrl}
         alt={item.caption || `Gallery image ${idx + 1}`}
         className="lightbox-img"
@@ -95,7 +140,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       {items.length > 1 && (
         <button
           className="lightbox-nav-btn next"
-          onClick={() => setIdx((i) => Math.min(items.length - 1, i + 1))}
+          onClick={goNext}
           aria-label="Next image"
           disabled={idx === items.length - 1}
         >

@@ -488,6 +488,44 @@
   object-fit: contain;
   border-radius: var(--radius-md);
   display: block;
+  animation: lightbox-img-in 220ms ease-out;
+}
+
+@keyframes lightbox-img-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-img {
+    animation: none;
+  }
+}
+
+.lightbox-counter {
+  position: absolute;
+  top: calc(var(--space-4) + var(--safe-top));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  /* Darker + more opaque than the close/nav buttons on purpose: this pill can
+     sit directly over a tall portrait photo (not just the black scrim), and
+     needs to stay legible against a bright sky just as much as a dark one. */
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
 /* Close + prev/next share the frosted circular button treatment */

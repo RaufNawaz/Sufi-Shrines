@@ -163,6 +163,7 @@ export const UI_TEXT = {
     moreFiltersLabel: 'More filters',
     stopOf: (current: number, total: number) => `Stop ${current} of ${total}`,
     nextIn: (seconds: number) => `Next in ${seconds}s`,
+    photoOf: (current: number, total: number) => `Photo ${current} of ${total}`,
   },
   ur: {
     title: 'صوفی مزارات',
@@ -326,6 +327,7 @@ export const UI_TEXT = {
     moreFiltersLabel: 'مزید فلٹرز',
     stopOf: (current: number, total: number) => `${current} / ${total}`,
     nextIn: (seconds: number) => `اگلا مقام ${seconds} سیکنڈ میں`,
+    photoOf: (current: number, total: number) => `تصویر ${current} از ${total}`,
   },
 } as const;
 
@@ -338,9 +340,10 @@ export function t(lang: Lang, key: keyof (typeof UI_TEXT)['en']): string {
 export function tFn(lang: Lang, key: 'resultCount', n: number): string;
 export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
+export function tFn(lang: Lang, key: 'photoOf', current: number, total: number): string;
 export function tFn(
   lang: Lang,
-  key: 'resultCount' | 'stopOf' | 'nextIn',
+  key: 'resultCount' | 'stopOf' | 'nextIn' | 'photoOf',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

@@ -276,7 +276,11 @@ body.lang-rtl,
 }
 
 .page-enter {
-  animation: page-fade-in var(--duration-base) var(--easing) both;
+  /* backwards (not both): a lingering `transform` from a forwards-filled
+     animation makes this element a containing block for any
+     position:fixed descendant (e.g. the gallery lightbox), anchoring it
+     to the page instead of the viewport once scrolled. */
+  animation: page-fade-in var(--duration-base) var(--easing) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
