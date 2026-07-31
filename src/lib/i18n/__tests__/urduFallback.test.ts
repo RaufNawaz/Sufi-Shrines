@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
-import { buildUrduFallback, translateToUrdu } from '../urduFallback';
+import { buildUrduFallback, resolveFoundedDate, translateToUrdu } from '../urduFallback';
 
 describe('buildUrduFallback', () => {
   it('returns empty string for empty input', () => {
@@ -61,5 +61,42 @@ describe('translateToUrdu', () => {
 
   it('passes pure Urdu text through unchanged', () => {
     expect(translateToUrdu('مزار')).toBe('مزار');
+  });
+});
+
+describe('resolveFoundedDate', () => {
+  // Regression coverage: the seed dictionary caches whole-string
+  // translations of raw sheet values, so translating "Completed/consecrated
+  // 1640" as a whole would yield a fluent but still qualifier-laden Urdu
+  // phrase that normalizeFoundedDate (Latin-only) could never clean up
+  // afterwards — the qualifier must be stripped before translation, not after.
+  it('strips the qualifier before formatting, in English', () => {
+    const row = { 'Founded/Opened': 'Completed/consecrated 1640' };
+    expect(resolveFoundedDate(row, 'en')).toBe('1640');
+  });
+
+  it('strips the qualifier before translation, in Urdu — not a translated qualifier phrase', () => {
+    const row = { 'Founded/Opened': 'Completed/consecrated 1640' };
+    const result = resolveFoundedDate(row, 'ur');
+    expect(result).toBe('1640');
+    expect(result).not.toMatch(/[A-Za-z]/);
+  });
+
+  it('uses a dedicated Founded/Opened Urdu column when present', () => {
+    const row = {
+      'Founded/Opened': 'Completed/consecrated 1640',
+      'Founded/Opened Urdu': 'Consecrated 1640', // pretend hand-authored Urdu column with its own stray qualifier
+    };
+    expect(resolveFoundedDate(row, 'ur')).toBe('1640');
+  });
+
+  it('returns an empty string when there is no Founded/Opened value', () => {
+    expect(resolveFoundedDate({}, 'en')).toBe('');
+    expect(resolveFoundedDate({}, 'ur')).toBe('');
+  });
+
+  it('falls back to the plain "Founded" column when "Founded/Opened" is absent', () => {
+    const row = { Founded: 'Built 1889' };
+    expect(resolveFoundedDate(row, 'en')).toBe('1889');
   });
 });

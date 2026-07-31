@@ -17,8 +17,9 @@ import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
-import { getFieldValue, normalizeFoundedDate } from '../lib/data/fieldAliasing';
+import { getFieldValue } from '../lib/data/fieldAliasing';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
 import type { Shrine } from '../types/shrine';
 
@@ -48,11 +49,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded = normalizeFoundedDate(
-    localizeField(shrine.raw, 'Founded/Opened') ||
-      localizeField(shrine.raw, 'Founded') ||
-      shrine.founded,
-  );
+  const founded = resolveFoundedDate(shrine.raw, lang);
 
   useDocumentTitle(`${name} — ${t('siteTitle')}`);
 

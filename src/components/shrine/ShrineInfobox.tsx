@@ -2,14 +2,14 @@ import React from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { INFOBOX_PRIORITY_KEYS, MAX_INFOBOX_ROWS, NON_DETAIL_KEYS } from '../../lib/data/constants';
-import {
-  isLikelyUrl,
-  isUrduVariantKey,
-  normalizeFoundedDate,
-  normalizeUrl,
-} from '../../lib/data/fieldAliasing';
+import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { localizeFieldName } from '../../lib/data/fieldLabels';
+import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
+
+function isFoundedKey(key: string): boolean {
+  return key === 'Founded' || key === 'Founded/Opened';
+}
 
 interface Props {
   shrine: Shrine;
@@ -36,7 +36,9 @@ export function ShrineInfobox({ shrine }: Props) {
   for (const key of INFOBOX_PRIORITY_KEYS) {
     const entry = allEntries.find(([k]) => k === key);
     if (entry) {
-      const localValue = localizeField(shrine.raw, entry[0]);
+      const localValue = isFoundedKey(entry[0])
+        ? resolveFoundedDate(shrine.raw, lang)
+        : localizeField(shrine.raw, entry[0]);
       if (localValue) priorityRows.push([entry[0], localValue]);
     }
   }
@@ -58,7 +60,7 @@ export function ShrineInfobox({ shrine }: Props) {
     // Skip gallery keys
     if (/^Gallery\s*\d+|^Image\s*\d+|^Caption\s*\d+/i.test(key)) continue;
 
-    const localValue = localizeField(shrine.raw, key);
+    const localValue = isFoundedKey(key) ? resolveFoundedDate(shrine.raw, lang) : localizeField(shrine.raw, key);
     if (localValue) remainingRows.push([key, localValue]);
   }
 
@@ -85,8 +87,6 @@ export function ShrineInfobox({ shrine }: Props) {
                   <a href={normalizeUrl(value) ?? value} target="_blank" rel="noopener noreferrer">
                     {value.replace(/^https?:\/\//, '')}
                   </a>
-                ) : key === 'Founded' || key === 'Founded/Opened' ? (
-                  fmtNum(normalizeFoundedDate(value))
                 ) : (
                   fmtNum(value)
                 )}

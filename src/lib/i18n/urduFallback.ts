@@ -1,5 +1,6 @@
-import { isLikelyUrl } from '../data/fieldAliasing';
+import { getFieldValue, getUrduFieldValue, isLikelyUrl, normalizeFoundedDate } from '../data/fieldAliasing';
 import urduSeed from '../../data/urdu-seed.json';
+import type { Lang, ShrineRow } from '../../types/shrine';
 
 const SPECIAL_URDU_PHRASES: Record<string, string> = {
   'Muslim Shrine': 'مسلم مزار',
@@ -286,4 +287,25 @@ export function translateToUrdu(text: string): string {
   _misses.add(raw);
   if (import.meta.env.DEV) console.warn('[urdu] missing translation:', raw);
   return raw;
+}
+
+/**
+ * Resolves the Founded/Opened display value with the qualifier prefix
+ * ("Completed/consecrated 1640" -> "1640") stripped BEFORE Urdu translation
+ * — not after. The seed dictionary caches whole-string translations of raw
+ * sheet values, so translating first would return an already-fluent but
+ * still qualifier-laden Urdu phrase (e.g. "تکمیل/تقدیس ١٦٤٠ء") that this
+ * function's own normalizer — which only recognizes Latin qualifier words
+ * — could never clean up afterwards.
+ */
+export function resolveFoundedDate(row: ShrineRow, lang: Lang): string {
+  const cleanEnglish =
+    normalizeFoundedDate(getFieldValue(row, 'Founded/Opened')) ||
+    normalizeFoundedDate(getFieldValue(row, 'Founded'));
+  if (lang !== 'ur') return cleanEnglish;
+
+  const urduValue =
+    getUrduFieldValue(row, 'Founded/Opened') || getUrduFieldValue(row, 'Founded');
+  if (urduValue) return normalizeFoundedDate(urduValue);
+  return cleanEnglish ? translateToUrdu(cleanEnglish) : '';
 }

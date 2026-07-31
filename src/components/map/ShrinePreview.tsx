@@ -2,8 +2,9 @@ import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { Shrine, Lang } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
-import { getUrduFieldValue, getFieldValue, normalizeFoundedDate } from '../../lib/data/fieldAliasing';
+import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
 import { t as translate } from '../../lib/i18n/uiStrings';
@@ -37,11 +38,7 @@ export function ShrinePreview({
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const category = localizeField(shrine.raw, 'Category') || shrine.category;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const founded = normalizeFoundedDate(
-    localizeField(shrine.raw, 'Founded/Opened') ||
-      localizeField(shrine.raw, 'Founded') ||
-      shrine.founded,
-  );
+  const founded = resolveFoundedDate(shrine.raw, lang as Lang);
 
   const descRaw =
     lang === 'ur'
