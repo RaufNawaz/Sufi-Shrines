@@ -7,6 +7,12 @@ import { localizeHeading } from '../../lib/data/headingLabels';
 import { renderInlineBold } from './inlineFormat';
 import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
 
+/** Source lines are often hand-authored with their own "- " / "* " marker —
+ * strip it so the real <li> bullet doesn't double up with a literal one. */
+function stripLeadingListMarker(line: string): string {
+  return line.replace(/^[-*•]\s+/, '');
+}
+
 function ArticleSection({
   id,
   heading,
@@ -27,7 +33,7 @@ function ArticleSection({
         <ul className="article-prose article-sources-list">
           {content
             .split('\n')
-            .map((line) => line.trim())
+            .map((line) => stripLeadingListMarker(line.trim()))
             .filter(Boolean)
             .map((line, i) => <li key={i}>{renderInlineBold(line)}</li>)}
         </ul>

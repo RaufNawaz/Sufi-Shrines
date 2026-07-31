@@ -100,6 +100,18 @@ describe('ShrineArticle', () => {
     expect(items[1].querySelector('strong')?.textContent).toBe('Book Two');
   });
 
+  it('strips a hand-authored leading "- " marker from Sources lines', () => {
+    // Real shrine prose often already types its own "- " per line — without
+    // stripping it, the browser's real <li> bullet doubles up with it.
+    const shrine = makeShrine({
+      Description: '',
+      Sources: '- **Book One**, Author A, 1990\n- Book Two, Author B, 2001',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    const items = [...container.querySelectorAll('#sources li')].map((li) => li.textContent);
+    expect(items).toEqual(['Book One, Author A, 1990', 'Book Two, Author B, 2001']);
+  });
+
   it('renders an inline "## Bibliography" heading as a bulleted list too', () => {
     // This is the shape real shrine prose actually uses today (no dedicated
     // Sources column exists yet) — confirmed against the live sheet, which
