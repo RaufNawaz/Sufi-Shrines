@@ -17,11 +17,36 @@ import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
+// Custom MapTiler style (Map Designer > Settings > Worldview > Language = English) — avoids
+// OpenStreetMap's inconsistent Urdu/English place-name tagging in Pakistan that made the
+// default CARTO labels look mixed-language when zoomed out. See docs/planning/PROJECT_HEAD_FEEDBACK_PLAN.md item 1.
+const MAPTILER_STYLE_ID = import.meta.env.VITE_MAPTILER_STYLE_ID;
 
 const CARTO_VOYAGER = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 const CARTO_DARK = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
 const CARTO_ATTR =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>';
+const MAPTILER_ATTR =
+  '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; OpenStreetMap contributors';
+
+function maptilerRasterUrl(styleId: string, key: string): string {
+  return `https://api.maptiler.com/maps/${styleId}/{z}/{x}/{y}.png?key=${key}`;
+}
+
+/** MapTiler's raster tiles are 512px (zoomOffset -1); CARTO's are 256px — recreate the
+ * layer rather than `setUrl` when switching between them so tile size stays correct. */
+function getDefaultLayerConfig(isDark: boolean): { url: string; options: L.TileLayerOptions } {
+  if (!isDark && MAPTILER_KEY && MAPTILER_STYLE_ID) {
+    return {
+      url: maptilerRasterUrl(MAPTILER_STYLE_ID, MAPTILER_KEY),
+      options: { tileSize: 512, zoomOffset: -1, maxZoom: 20, attribution: MAPTILER_ATTR },
+    };
+  }
+  return {
+    url: isDark ? CARTO_DARK : CARTO_VOYAGER,
+    options: { subdomains: 'abcd', maxZoom: 20, attribution: CARTO_ATTR },
+  };
+}
 
 interface Props {
   shrines: Shrine[];
@@ -37,19 +62,18 @@ interface Props {
 // Backs off (keeps current layer) once user manually picks from LayersControl.
 function ThemeAwareTileLayer({ isDark }: { isDark: boolean }) {
   const map = useMap();
-  const stateRef = useRef<{ layer: L.TileLayer | null; userPicked: boolean }>({
+  const stateRef = useRef<{ layer: L.TileLayer | null; userPicked: boolean; url: string | null }>({
     layer: null,
     userPicked: false,
+    url: null,
   });
 
   // Create the initial tile layer on mount
   useEffect(() => {
     const state = stateRef.current;
-    state.layer = L.tileLayer(isDark ? CARTO_DARK : CARTO_VOYAGER, {
-      subdomains: 'abcd',
-      maxZoom: 20,
-      attribution: CARTO_ATTR,
-    }).addTo(map);
+    const { url, options } = getDefaultLayerConfig(isDark);
+    state.url = url;
+    state.layer = L.tileLayer(url, options).addTo(map);
 
     const onBaseLayerChange = () => {
       // User picked a layer from LayersControl — stop managing the tile
@@ -66,12 +90,18 @@ function ThemeAwareTileLayer({ isDark }: { isDark: boolean }) {
     };
   }, [map]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Swap URL when dark mode changes (only while we still own the layer)
+  // Swap layer when dark mode changes (only while we still own it). Recreated rather than
+  // setUrl'd because the light-mode MapTiler layer and the CARTO layers use different tile
+  // sizes/zoom offsets — setUrl alone would leave a mismatched layer.
   useEffect(() => {
     const state = stateRef.current;
     if (!state.layer || state.userPicked) return;
-    state.layer.setUrl(isDark ? CARTO_DARK : CARTO_VOYAGER);
-  }, [isDark]);
+    const { url, options } = getDefaultLayerConfig(isDark);
+    if (url === state.url) return;
+    state.url = url;
+    state.layer.remove();
+    state.layer = L.tileLayer(url, options).addTo(map);
+  }, [isDark]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 }
@@ -215,6 +245,18 @@ export function ShrineMap({
       <MapClickDeselect onSelect={onSelect} />
 
       <LayersControl position="bottomleft">
+        {MAPTILER_KEY && MAPTILER_STYLE_ID && (
+          <LayersControl.BaseLayer name="Streets — English labels (MapTiler)">
+            <TileLayer
+              url={maptilerRasterUrl(MAPTILER_STYLE_ID, MAPTILER_KEY)}
+              tileSize={512}
+              zoomOffset={-1}
+              maxZoom={20}
+              attribution={MAPTILER_ATTR}
+            />
+          </LayersControl.BaseLayer>
+        )}
+
         <LayersControl.BaseLayer name="Voyager (CARTO)">
           <TileLayer url={CARTO_VOYAGER} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>

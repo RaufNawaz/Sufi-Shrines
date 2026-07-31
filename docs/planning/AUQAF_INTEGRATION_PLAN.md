@@ -232,7 +232,7 @@ imams will open `mosque.html` during the presentation.
 | 5 | Paste `shrines_updated.tsv` into the live shrines sheet | **rauf** |
 | 6 | `npm run data:build && npm run data:validate`, commit fallback snapshots | Claude |
 | 7 | Review Awqaf diff → push/merge to `1.1` (= production deploy) | **rauf** |
-| 8 | Shrines: push → Pages deploy | **rauf** |
+| 8 | Shrines: push `main`, then fast-forward the deploy branch — `git push origin main:1.6` (Pages deploys from `1.6`, NOT `main`) | **rauf** |
 | 9 | Dry-run the demo script below on desktop + iPhone | both |
 
 ## Demo script (for the presentation)
