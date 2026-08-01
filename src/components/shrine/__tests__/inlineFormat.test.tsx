@@ -30,6 +30,35 @@ describe('renderInlineBold', () => {
     expect(container.querySelector('strong')).toBeNull();
     expect(container.textContent).not.toContain('**');
   });
+
+  it('renders *text* as <em>', () => {
+    const { container } = render(<p>{renderInlineBold('If any single image belongs to Iqbal, it is the *shaheen* — the eagle')}</p>);
+    const em = container.querySelector('em');
+    expect(em?.textContent).toBe('shaheen');
+    expect(container.textContent).not.toContain('*');
+  });
+
+  it('renders multi-word *italic spans* including parentheses', () => {
+    const { container } = render(
+      <p>{renderInlineBold('Muhammad Iqbal, *The Reconstruction of Religious Thought in Islam* (English lectures)')}</p>
+    );
+    const em = container.querySelector('em');
+    expect(em?.textContent).toBe('The Reconstruction of Religious Thought in Islam');
+    expect(container.textContent).toBe(
+      'Muhammad Iqbal, The Reconstruction of Religious Thought in Islam (English lectures)'
+    );
+  });
+
+  it('handles a bold heading and italic titles in the same string without cross-matching', () => {
+    const { container } = render(
+      <p>{renderInlineBold('**Kulliyat-e-Iqbal** — including *Bang-e-Dara* (1924) and *Bal-e-Jibril* (1935)')}</p>
+    );
+    expect(container.querySelector('strong')?.textContent).toBe('Kulliyat-e-Iqbal');
+    const ems = container.querySelectorAll('em');
+    expect(ems).toHaveLength(2);
+    expect(ems[0].textContent).toBe('Bang-e-Dara');
+    expect(ems[1].textContent).toBe('Bal-e-Jibril');
+  });
 });
 
 describe('stripInlineBoldMarkup', () => {
@@ -43,5 +72,9 @@ describe('stripInlineBoldMarkup', () => {
 
   it('strips an unpaired stray **', () => {
     expect(stripInlineBoldMarkup('A stray ** marker')).not.toContain('**');
+  });
+
+  it('removes single * wrapping but keeps the inner text', () => {
+    expect(stripInlineBoldMarkup('the *shaheen* — the eagle')).toBe('the shaheen — the eagle');
   });
 });
