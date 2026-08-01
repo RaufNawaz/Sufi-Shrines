@@ -42,6 +42,12 @@ jobs:
         run: npm run build
         env:
           SITE_URL: https://raufnawaz.github.io/Sufi-Shrines
+          # Optional — omit the repo secrets below and the build silently
+          # falls back to the free CARTO Voyager basemap (no signup needed).
+          # Set both to switch the default basemap to the English-labels-forced
+          # MapTiler style (see .env.example for how these are obtained).
+          VITE_MAPTILER_KEY: ${{ secrets.VITE_MAPTILER_KEY }}
+          VITE_MAPTILER_STYLE_ID: ${{ secrets.VITE_MAPTILER_STYLE_ID }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
