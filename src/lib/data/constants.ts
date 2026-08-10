@@ -18,7 +18,47 @@ export const IMAGE_KEYS = new Set([
   'photo_url',
 ]);
 
-export const NON_DETAIL_KEYS = new Set(['Latitude', 'Longitude', ...IMAGE_KEYS]);
+/** Internal pipeline/QA columns — never meant for a visitor to see, on any
+ * shrine page, regardless of schema migration state. Distinct from
+ * STRUCTURED_FACET_KEYS below, whose columns DO get dedicated UI elsewhere. */
+export const INTERNAL_ONLY_KEYS = new Set(['id', 'flags', 'needs_review', 'qa_note']);
+
+export const NON_DETAIL_KEYS = new Set([
+  'Latitude',
+  'Longitude',
+  ...IMAGE_KEYS,
+  ...INTERNAL_ONLY_KEYS,
+]);
+
+/** Contact address for the "we would like to hear from you" prompt on
+ * low-information shrine pages. */
+export const CONTACT_EMAIL = 'raufnawaz@college.harvard.edu';
+
+/** New structured sheet columns (2026 schema). `category`, `info_level` and
+ * `status` get dedicated UI (chips, badges, status notes); the rest have no
+ * display treatment yet. All are excluded from the infobox's generic
+ * row-iteration so they don't render as raw snake_case rows. The legacy
+ * `Category` / `Founded/Opened` / `Sufi Saint` columns are untouched and
+ * keep rendering until they are retired in a later change. */
+export const STRUCTURED_FACET_KEYS = new Set([
+  'category',
+  'site_type',
+  'site_type_note',
+  'status',
+  'status_note',
+  'info_level',
+  'support_level',
+  'principal_figure',
+  'figure_type',
+  'silsila',
+  'year_built',
+  'year_built_precision',
+  'year_built_note',
+  'figure_born',
+  'figure_died',
+  'event_year',
+  'event_note',
+]);
 
 export const LEAD_PARAGRAPH_KEYS = ['Description', 'About', 'Paragraph', 'Summary'];
 

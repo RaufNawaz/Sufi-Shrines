@@ -5,8 +5,17 @@ import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { translateToUrdu } from '../../lib/i18n/urduFallback';
-import { categoryKey } from '../../lib/data/categoryKey';
+import {
+  categoryKey,
+  categoryDisplayLabel,
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+} from '../../lib/data/categoryKey';
+import type { CategoryKey } from '../../lib/data/categoryKey';
+import { supportLevelKey } from '../../lib/data/supportLevel';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
+import { InfoLevelBadge } from '../ui/InfoLevelBadge';
+import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useSearch } from '../../lib/search/useSearch';
@@ -30,8 +39,12 @@ interface Props {
   onRetry: () => void;
   isOpen: boolean;
   onToggle?: () => void;
-  activeCategory: string;
-  onCategoryChange: (category: string) => void;
+  /** Additive category selection (CategoryKey values); empty = all shown. */
+  activeCategories: CategoryKey[];
+  onCategoriesChange: (categories: CategoryKey[]) => void;
+  /** Show only info_level = Full ("Field-verified") sites. */
+  verifiedOnly: boolean;
+  onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
   activeRegion: string;
   onRegionChange: (region: string) => void;
   activeSaint: string;
@@ -62,8 +75,10 @@ export function MapSidebar({
   onRetry,
   isOpen,
   onToggle,
-  activeCategory,
-  onCategoryChange,
+  activeCategories,
+  onCategoriesChange,
+  verifiedOnly,
+  onVerifiedOnlyChange,
   activeRegion,
   onRegionChange,
   activeSaint,
@@ -92,8 +107,10 @@ export function MapSidebar({
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
-  const hasActiveFilter = Boolean(activeCategory || activeRegion || activeSaint || hasEraFilter);
-  const hasSaintOrEraFilter = Boolean(activeSaint || hasEraFilter);
+  const hasActiveFilter = Boolean(
+    activeCategories.length || activeRegion || activeSaint || hasEraFilter || verifiedOnly,
+  );
+  const hasMoreFiltersActive = Boolean(activeSaint || hasEraFilter || verifiedOnly);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -117,10 +134,25 @@ export function MapSidebar({
 
   const localizeName = useCallback((shrine: Shrine) => localizeShrineName(shrine, lang), [lang]);
 
+  // Category chips are driven by the `category` column: every known category
+  // key present in the data, in canonical order.
   const categories = useMemo(() => {
-    const cats = new Set(shrines.map((s) => s.category).filter(Boolean));
-    return Array.from(cats).sort();
+    const present = new Set(shrines.map((s) => categoryKey(s.category)));
+    return CATEGORY_ORDER.filter((key) => present.has(key));
   }, [shrines]);
+
+  // Additive toggle — selecting chips accumulates categories (kept in
+  // canonical order); an empty selection means all categories are shown.
+  const toggleCategory = useCallback(
+    (key: CategoryKey) => {
+      onCategoriesChange(
+        activeCategories.includes(key)
+          ? activeCategories.filter((k) => k !== key)
+          : CATEGORY_ORDER.filter((k) => k === key || activeCategories.includes(k)),
+      );
+    },
+    [activeCategories, onCategoriesChange],
+  );
 
   const regions = useMemo(() => {
     const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
@@ -137,7 +169,10 @@ export function MapSidebar({
 
   const filtered = useMemo(() => {
     let result = shrines;
-    if (activeCategory) result = result.filter((s) => s.category === activeCategory);
+    if (activeCategories.length)
+      result = result.filter((s) => activeCategories.includes(categoryKey(s.category)));
+    if (verifiedOnly)
+      result = result.filter((s) => supportLevelKey(s.supportLevel) === 'field-verified');
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
@@ -175,7 +210,8 @@ export function MapSidebar({
     return result;
   }, [
     shrines,
-    activeCategory,
+    activeCategories,
+    verifiedOnly,
     activeRegion,
     activeSaint,
     search,
@@ -215,11 +251,12 @@ export function MapSidebar({
 
   const clearAllFilters = useCallback(() => {
     setSearchRaw('');
-    onCategoryChange('');
+    onCategoriesChange([]);
+    onVerifiedOnlyChange(false);
     onRegionChange('');
     onSaintChange('');
     onEraChange([ERA_MIN, ERA_MAX]);
-  }, [onCategoryChange, onRegionChange, onSaintChange, onEraChange]);
+  }, [onCategoriesChange, onVerifiedOnlyChange, onRegionChange, onSaintChange, onEraChange]);
 
   return (
     <aside
@@ -382,25 +419,26 @@ export function MapSidebar({
             </div>
           </div>
 
-          {/* Category chips */}
+          {/* Category chips — additive: each chip toggles its category into
+              the selection; no selection = all categories shown. */}
           {categories.length > 1 && (
             <div className="filter-section">
               <div className="filter-chips" role="group" aria-label="Filter by category">
                 <button
-                  className={`filter-chip${!activeCategory ? ' active' : ''}`}
-                  onClick={() => onCategoryChange('')}
-                  aria-pressed={!activeCategory}
+                  className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
+                  onClick={() => onCategoriesChange([])}
+                  aria-pressed={activeCategories.length === 0}
                 >
                   {t('filterAll')}
                 </button>
-                {categories.map((cat) => (
+                {categories.map((key) => (
                   <button
-                    key={cat}
-                    className={`filter-chip${activeCategory === cat ? ' active' : ''}`}
-                    onClick={() => onCategoryChange(activeCategory === cat ? '' : cat)}
-                    aria-pressed={activeCategory === cat}
+                    key={key}
+                    className={`filter-chip${activeCategories.includes(key) ? ' active' : ''}`}
+                    onClick={() => toggleCategory(key)}
+                    aria-pressed={activeCategories.includes(key)}
                   >
-                    {localizeField(shrines.find((s) => s.category === cat)!.raw, 'Category') || cat}
+                    {CATEGORY_LABELS[key][lang]}
                   </button>
                 ))}
               </div>
@@ -459,7 +497,7 @@ export function MapSidebar({
                 <polyline points="9 18 15 12 9 6" />
               </svg>
               {t('moreFiltersLabel')}
-              {hasSaintOrEraFilter && (
+              {hasMoreFiltersActive && (
                 <span className="filter-active-dot" aria-label="filters active" />
               )}
             </button>
@@ -488,8 +526,10 @@ export function MapSidebar({
                         onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
                         aria-pressed={activeSaint === saint}
                       >
-                        {localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
-                          saint}
+                        {localizeField(
+                          shrines.find((s) => s.sufiSaint === saint)!.raw,
+                          'Sufi Saint',
+                        ) || saint}
                       </button>
                     ))}
                   </div>
@@ -497,7 +537,30 @@ export function MapSidebar({
               )}
 
               {/* Time-slider by founding era */}
-              <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+              <TimeSlider
+                value={[eraMin, eraMax]}
+                onChange={onEraChange}
+                lang={lang}
+                fmtNum={fmtNum}
+              />
+
+              {/* Provenance (support_level) — show only field-verified sites.
+                  Describes how the info was gathered, never a site's importance. */}
+              <div className="filter-section">
+                <span className="filter-section-label" aria-hidden="true">
+                  {t('provenanceFilterLabel')}
+                </span>
+                <div className="filter-chips" role="group" aria-label="Filter by provenance">
+                  <button
+                    className={`filter-chip${verifiedOnly ? ' active' : ''}`}
+                    onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
+                    aria-pressed={verifiedOnly}
+                    title={t('supportLevelTooltip')}
+                  >
+                    {t('verifiedOnlyFilter')}
+                  </button>
+                </div>
+              </div>
             </>
           )}
 
@@ -543,7 +606,8 @@ export function MapSidebar({
                 <div key={cat}>
                   {grouped.length > 1 && (
                     <div className="shrine-list-group-heading" aria-label={`Category: ${cat}`}>
-                      {localizeField(items[0].raw, 'Category') || cat}
+                      {categoryDisplayLabel(items[0].category, lang) ??
+                        (localizeField(items[0].raw, 'Category') || cat)}
                     </div>
                   )}
                   {items.map((shrine) => {
@@ -587,6 +651,10 @@ export function MapSidebar({
                         <div className="shrine-list-info">
                           <div className="shrine-list-name">{highlightMatch(name, search)}</div>
                           {location && <div className="shrine-list-meta">{location}</div>}
+                          <div className="shrine-list-badges">
+                            <InfoLevelBadge level={shrine.infoLevel} className="shrine-list-badge" />
+                            <SupportLevelBadge level={shrine.supportLevel} className="shrine-list-badge" />
+                          </div>
                         </div>
                       </button>
                     );

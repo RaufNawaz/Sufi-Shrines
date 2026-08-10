@@ -80,8 +80,10 @@ describe('no English leaks in ?lang=ur', () => {
         onSelect={noop}
         onRetry={noop}
         isOpen={true}
-        activeCategory=""
-        onCategoryChange={noop}
+        activeCategories={[]}
+        onCategoriesChange={noop}
+        verifiedOnly={false}
+        onVerifiedOnlyChange={noop}
         activeRegion=""
         onRegionChange={noop}
         activeSaint=""

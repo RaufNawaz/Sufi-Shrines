@@ -57,9 +57,29 @@ export interface Shrine {
   name: string;
   latLng: LatLng;
   category: string;
+  /** Raw `info_level` sheet value (Full | Moderate | Low), '' when absent. */
+  infoLevel: string;
+  /** Raw `support_level` sheet value (Field-verified | Source-documented |
+   * Source-seeded | Web-compiled), '' when absent. */
+  supportLevel: string;
+  /** Raw `status` sheet value (Active | Occasional | …), '' when absent. */
+  status: string;
+  /** Prose explaining a non-vocabulary `status` detail, moved off the
+   * controlled-vocabulary column during schema hygiene (e.g. "deteriorating
+   * fabric", "reconstructed 2022"). '' when absent. */
+  statusNote: string;
   location: string;
   region: string;
   founded: string;
+  /** Split date fields (2026 schema) — take precedence over `founded` when
+   * present; '' when the sheet doesn't have them yet for a row. */
+  yearBuilt: string;
+  yearBuiltPrecision: string;
+  yearBuiltNote: string;
+  figureBorn: string;
+  figureDied: string;
+  eventYear: string;
+  eventNote: string;
   sufiSaint: string;
   imageUrl: string | null;
   imageCredit: string;

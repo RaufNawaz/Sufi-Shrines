@@ -56,6 +56,15 @@
 .shrine-img-placeholder--sikh {
   background: var(--color-cat-sikh-pale);
 }
+.shrine-img-placeholder--nanakpanthi {
+  background: var(--color-cat-nanakpanthi-pale);
+}
+.shrine-img-placeholder--jain {
+  background: var(--color-cat-jain-pale);
+}
+.shrine-img-placeholder--secular {
+  background: var(--color-cat-secular-pale);
+}
 .shrine-img-placeholder--default {
   background: var(--color-primary-pale);
 }
@@ -69,6 +78,79 @@
 .shrine-img-placeholder--sikh .shrine-img-icon {
   color: var(--color-cat-sikh);
 }
+.shrine-img-placeholder--nanakpanthi .shrine-img-icon {
+  color: var(--color-cat-nanakpanthi);
+}
+.shrine-img-placeholder--jain .shrine-img-icon {
+  color: var(--color-cat-jain);
+}
+.shrine-img-placeholder--secular .shrine-img-icon {
+  color: var(--color-cat-secular);
+}
+/* Information-level badge — states the evidence level of OUR documentation
+   (see InfoLevelBadge), never the site's importance. Wraps instead of
+   overflowing so it stays inside narrow cards on mobile. */
+.info-level-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: help;
+}
+
+.info-level-badge--full {
+  background: var(--color-info-full-bg);
+  color: var(--color-info-full);
+}
+.info-level-badge--moderate {
+  background: var(--color-info-moderate-bg);
+  color: var(--color-info-moderate);
+}
+.info-level-badge--low {
+  background: var(--color-info-low-bg);
+  color: var(--color-info-low);
+}
+
+/* Support-level (provenance) badge — how this entry's info was gathered
+   (see SupportLevelBadge), never the site's importance. Shares the pill
+   shape with info-level-badge but its own color set. */
+.support-level-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: help;
+}
+
+.support-level-badge--field-verified {
+  background: var(--color-info-full-bg);
+  color: var(--color-info-full);
+}
+.support-level-badge--source-documented {
+  background: var(--color-support-documented-bg);
+  color: var(--color-support-documented);
+}
+.support-level-badge--source-seeded {
+  background: var(--color-info-moderate-bg);
+  color: var(--color-info-moderate);
+}
+.support-level-badge--web-compiled {
+  background: var(--color-info-low-bg);
+  color: var(--color-info-low);
+}
+
 .shrine-img-placeholder--default .shrine-img-icon {
   color: var(--color-primary);
 }

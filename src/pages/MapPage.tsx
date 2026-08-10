@@ -7,6 +7,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
+import { CATEGORY_ORDER, categoryKey } from '../lib/data/categoryKey';
+import type { CategoryKey } from '../lib/data/categoryKey';
 import { TOURS } from '../lib/tours/tours';
 import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
 // Guided tours are opt-in: hidden unless the user flips the TOURS_STORAGE_KEY switch on.
@@ -64,17 +66,37 @@ function isEmbedMode(): boolean {
 }
 
 interface FilterState {
-  category: string;
+  /** Selected category keys (CategoryKey values). Empty = all categories
+   * shown — the additive all-on default. */
+  categories: CategoryKey[];
+  /** Show only support_level = Field-verified sites. */
+  verifiedOnly: boolean;
   region: string;
   saint: string;
   eraMin: number;
   eraMax: number;
 }
 
+/** Parse `?category=` into category keys. Accepts a comma-separated list of
+ * keys, plus legacy single-value links that hold a raw sheet value
+ * ("Muslim Shrine") — those normalize through categoryKey(). */
+function parseCategoryParam(raw: string | null): CategoryKey[] {
+  if (!raw) return [];
+  const keys = new Set<CategoryKey>();
+  for (const part of raw.split(',')) {
+    const value = part.trim();
+    if (!value) continue;
+    if ((CATEGORY_ORDER as string[]).includes(value)) keys.add(value as CategoryKey);
+    else if (categoryKey(value) !== 'default') keys.add(categoryKey(value));
+  }
+  return CATEGORY_ORDER.filter((k) => keys.has(k));
+}
+
 function getFiltersFromURL(): FilterState {
   const p = new URLSearchParams(window.location.search);
   return {
-    category: p.get('category') || '',
+    categories: parseCategoryParam(p.get('category')),
+    verifiedOnly: p.get('info') === 'verified',
     region: p.get('region') || '',
     saint: p.get('saint') || '',
     eraMin: parseInt(p.get('eraMin') || '', 10) || ERA_MIN,
@@ -84,8 +106,10 @@ function getFiltersFromURL(): FilterState {
 
 function setFiltersInURL(filters: FilterState): void {
   const p = new URLSearchParams(window.location.search);
-  if (filters.category) p.set('category', filters.category);
+  if (filters.categories.length) p.set('category', filters.categories.join(','));
   else p.delete('category');
+  if (filters.verifiedOnly) p.set('info', 'verified');
+  else p.delete('info');
   if (filters.region) p.set('region', filters.region);
   else p.delete('region');
   if (filters.saint) p.set('saint', filters.saint);
@@ -258,8 +282,12 @@ export default function MapPage() {
     setSidebarOpen((v) => !v);
   }, []);
 
-  const handleCategoryChange = useCallback((category: string) => {
-    setFilters((f) => ({ ...f, category }));
+  const handleCategoriesChange = useCallback((categories: CategoryKey[]) => {
+    setFilters((f) => ({ ...f, categories }));
+  }, []);
+
+  const handleVerifiedOnlyChange = useCallback((verifiedOnly: boolean) => {
+    setFilters((f) => ({ ...f, verifiedOnly }));
   }, []);
 
   const handleRegionChange = useCallback((region: string) => {
@@ -363,8 +391,10 @@ export default function MapPage() {
         onRetry={refresh}
         isOpen={sidebarOpen}
         onToggle={handleSidebarToggle}
-        activeCategory={filters.category}
-        onCategoryChange={handleCategoryChange}
+        activeCategories={filters.categories}
+        onCategoriesChange={handleCategoriesChange}
+        verifiedOnly={filters.verifiedOnly}
+        onVerifiedOnlyChange={handleVerifiedOnlyChange}
         activeRegion={filters.region}
         onRegionChange={handleRegionChange}
         activeSaint={filters.saint}

@@ -36,8 +36,10 @@ function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar
       onSelect={noop}
       onRetry={noop}
       isOpen={true}
-      activeCategory=""
-      onCategoryChange={noop}
+      activeCategories={[]}
+      onCategoriesChange={noop}
+      verifiedOnly={false}
+      onVerifiedOnlyChange={noop}
       activeRegion=""
       onRegionChange={noop}
       activeSaint=""
@@ -91,6 +93,162 @@ describe('MapSidebar — More filters disclosure', () => {
 
     const toggle = document.querySelector('.more-filters-toggle')!;
     expect(toggle.querySelector('.filter-active-dot')).not.toBeInTheDocument();
+  });
+});
+
+describe('MapSidebar — six-category filters', () => {
+  const SIX_CATEGORIES = [
+    'Muslim Shrine',
+    'Hindu Temple',
+    'Sikh Gurdwara',
+    'Nanakpanthi / Udasi Darbar',
+    'Jain Temple',
+    'Secular / Memorial',
+  ];
+
+  // One shrine per new-column `category` value; the legacy `Category` column
+  // stays present (makeShrineRow default) to prove the new column drives.
+  function makeSixCategoryShrines(): Shrine[] {
+    return SIX_CATEGORIES.map((category, i) =>
+      buildShrine(makeShrineRow({ Name: `Shrine ${i}`, category }), i)!,
+    );
+  }
+
+  function chipButtons(): HTMLButtonElement[] {
+    return [
+      ...document.querySelectorAll<HTMLButtonElement>(
+        '[aria-label="Filter by category"] .filter-chip',
+      ),
+    ];
+  }
+
+  it('renders a chip for each of the six categories, driven by the `category` column', () => {
+    renderSidebar({ shrines: makeSixCategoryShrines() });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const labels = chipButtons().map((b) => b.textContent);
+    expect(labels).toEqual([
+      'All',
+      'Muslim Shrine',
+      'Hindu Temple',
+      'Sikh Gurdwara',
+      'Nanakpanthi (Hindu–Sikh)',
+      'Jain Temple',
+      'Secular / Memorial',
+    ]);
+  });
+
+  it('toggles categories additively, keeping canonical order', () => {
+    const onCategoriesChange = vi.fn();
+    renderSidebar({
+      shrines: makeSixCategoryShrines(),
+      activeCategories: ['jain'],
+      onCategoriesChange,
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    // Adding Muslim to an existing Jain selection accumulates both.
+    fireEvent.click(chipButtons().find((b) => b.textContent === 'Muslim Shrine')!);
+    expect(onCategoriesChange).toHaveBeenLastCalledWith(['muslim', 'jain']);
+
+    // Clicking an already-active chip removes only that category.
+    fireEvent.click(chipButtons().find((b) => b.textContent === 'Jain Temple')!);
+    expect(onCategoriesChange).toHaveBeenLastCalledWith([]);
+  });
+
+  it('defaults to all-on: with no selection every category is listed and "All" is active', () => {
+    renderSidebar({ shrines: makeSixCategoryShrines() });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const allChip = chipButtons().find((b) => b.textContent === 'All')!;
+    expect(allChip.getAttribute('aria-pressed')).toBe('true');
+    expect(document.querySelectorAll('.shrine-list-item')).toHaveLength(6);
+  });
+
+  it('filters the list to the selected categories only', () => {
+    renderSidebar({
+      shrines: makeSixCategoryShrines(),
+      activeCategories: ['nanakpanthi', 'secular'],
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    expect(document.querySelectorAll('.shrine-list-item')).toHaveLength(2);
+  });
+
+  it('renders a row whose new columns are all blank without badges or "undefined"', () => {
+    // Legacy-only row: no `category`, `info_level`, or `status` columns.
+    renderSidebar({ shrines: [buildShrine(makeShrineRow({ Name: 'Legacy Row' }), 0)!] });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const item = document.querySelector('.shrine-list-item')!;
+    expect(item.textContent).toContain('Legacy Row');
+    expect(item.textContent).not.toContain('undefined');
+    expect(document.querySelector('.info-level-badge')).not.toBeInTheDocument();
+  });
+
+  it('shows the info-level badge on list rows when info_level is set', () => {
+    renderSidebar({
+      shrines: [buildShrine(makeShrineRow({ Name: 'Verified Row', info_level: 'Full' }), 0)!],
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const badge = document.querySelector('.info-level-badge--full')!;
+    expect(badge).toBeInTheDocument();
+    expect(badge.textContent).toBe('Fully documented');
+    expect(badge.getAttribute('title')).toBeTruthy();
+  });
+
+  it('shows the support-level badge on list rows when support_level is set', () => {
+    renderSidebar({
+      shrines: [
+        buildShrine(makeShrineRow({ Name: 'Verified Row', support_level: 'Field-verified' }), 0)!,
+      ],
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const badge = document.querySelector('.support-level-badge--field-verified')!;
+    expect(badge).toBeInTheDocument();
+    expect(badge.textContent).toBe('Field-verified');
+    expect(badge.getAttribute('title')).toBeTruthy();
+  });
+});
+
+describe('MapSidebar — provenance (support-level) filter (More filters)', () => {
+  it('keeps the verified-only toggle inside the More filters disclosure and filters to Field-verified', () => {
+    const onVerifiedOnlyChange = vi.fn();
+    renderSidebar({
+      shrines: [
+        buildShrine(makeShrineRow({ Name: 'Documented', support_level: 'Field-verified' }), 0)!,
+        buildShrine(makeShrineRow({ Name: 'Sparse' }), 1)!,
+      ],
+      onVerifiedOnlyChange,
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    // Collapsed by default — no top-level clutter.
+    expect(document.querySelector('[aria-label="Filter by provenance"]')).not.toBeInTheDocument();
+
+    fireEvent.click(document.querySelector('.more-filters-toggle')!);
+    const toggle = document.querySelector<HTMLButtonElement>(
+      '[aria-label="Filter by provenance"] .filter-chip',
+    )!;
+    expect(toggle.textContent).toBe('Field-verified only');
+    fireEvent.click(toggle);
+    expect(onVerifiedOnlyChange).toHaveBeenCalledWith(true);
+  });
+
+  it('shows only field-verified sites when active (blank support_level is excluded)', () => {
+    renderSidebar({
+      shrines: [
+        buildShrine(makeShrineRow({ Name: 'Documented', support_level: 'Field-verified' }), 0)!,
+        buildShrine(makeShrineRow({ Name: 'Sparse', info_level: 'Full' }), 1)!,
+      ],
+      verifiedOnly: true,
+    });
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    const names = [...document.querySelectorAll('.shrine-list-name')].map((el) => el.textContent);
+    expect(names).toEqual(['Documented']);
   });
 });
 

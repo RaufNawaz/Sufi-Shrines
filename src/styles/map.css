@@ -282,6 +282,15 @@
 .shrine-dot--sikh {
   background-color: var(--color-cat-sikh);
 }
+.shrine-dot--nanakpanthi {
+  background-color: var(--color-cat-nanakpanthi);
+}
+.shrine-dot--jain {
+  background-color: var(--color-cat-jain);
+}
+.shrine-dot--secular {
+  background-color: var(--color-cat-secular);
+}
 
 .shrine-dot:hover {
   transform: scale(1.35);
@@ -634,6 +643,17 @@
   text-overflow: ellipsis;
 }
 
+.shrine-list-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.shrine-list-badge {
+  margin-top: 0;
+}
+
 /* Sidebar detail area */
 .sidebar-detail {
   flex: 1;
@@ -780,6 +800,18 @@
   color: var(--color-text-muted);
   margin-bottom: var(--space-2);
   flex-wrap: wrap;
+}
+
+/* Non-Active site status ("Festival-only", "Ruin", …) — plain wording so a
+   visitor doesn't travel expecting a functioning site. */
+.preview-status-note {
+  margin: var(--space-2) 0;
+  padding: var(--space-2) var(--space-3);
+  border-inline-start: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-pale);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
 }
 
 .preview-description {
@@ -1164,6 +1196,15 @@
 .shrine-list-thumb-slot--sikh {
   background: var(--color-cat-sikh-pale);
 }
+.shrine-list-thumb-slot--nanakpanthi {
+  background: var(--color-cat-nanakpanthi-pale);
+}
+.shrine-list-thumb-slot--jain {
+  background: var(--color-cat-jain-pale);
+}
+.shrine-list-thumb-slot--secular {
+  background: var(--color-cat-secular-pale);
+}
 
 .shrine-list-thumb-slot--muslim .shrine-list-thumb-icon {
   color: var(--color-cat-muslim);
@@ -1173,6 +1214,15 @@
 }
 .shrine-list-thumb-slot--sikh .shrine-list-thumb-icon {
   color: var(--color-cat-sikh);
+}
+.shrine-list-thumb-slot--nanakpanthi .shrine-list-thumb-icon {
+  color: var(--color-cat-nanakpanthi);
+}
+.shrine-list-thumb-slot--jain .shrine-list-thumb-icon {
+  color: var(--color-cat-jain);
+}
+.shrine-list-thumb-slot--secular .shrine-list-thumb-icon {
+  color: var(--color-cat-secular);
 }
 .shrine-list-thumb-slot--default .shrine-list-thumb-icon {
   color: var(--color-text-muted);

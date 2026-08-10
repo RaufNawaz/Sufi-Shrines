@@ -38,7 +38,9 @@
   --color-success: #15803d;
   --color-success-bg: #f0fdf4;
 
-  --color-marker-default: #1a5c4e;
+  /* Unknown/empty category marker — must read as neutral, not as any one
+     tradition's color (it previously duplicated --color-cat-muslim). */
+  --color-marker-default: #8a8171;
   --color-marker-selected: #c8890a;
 
   /* Guided tour route + stop markers on the map */
@@ -53,9 +55,31 @@
   --color-cat-muslim: #1a5c4e;
   --color-cat-hindu: #b45309;
   --color-cat-sikh: #7c3aed;
+  --color-cat-nanakpanthi: #be185d;
+  --color-cat-jain: #1d4ed8;
+  --color-cat-secular: #475569;
   --color-cat-muslim-pale: #e6f2ef;
   --color-cat-hindu-pale: #fef3c7;
   --color-cat-sikh-pale: #ede9fe;
+  --color-cat-nanakpanthi-pale: #fce7f3;
+  --color-cat-jain-pale: #dbeafe;
+  --color-cat-secular-pale: #e2e8f0;
+
+  /* Information-level badges (evidence level of OUR documentation, never the
+     site's importance): Full = green, Moderate = amber, Low = grey */
+  --color-info-full: #15803d;
+  --color-info-full-bg: #f0fdf4;
+  --color-info-moderate: #92400e;
+  --color-info-moderate-bg: #fef3c7;
+  --color-info-low: #57534e;
+  --color-info-low-bg: #eceae6;
+
+  /* Provenance/support-level badges (how the info was gathered, never the
+     site's importance): Field-verified reuses info-full's green,
+     Source-documented gets its own teal, Source-seeded reuses info-moderate's
+     amber, Web-compiled reuses info-low's grey. */
+  --color-support-documented: #0e7490;
+  --color-support-documented-bg: #ecfeff;
 
   /* Typography */
   --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
@@ -160,15 +184,31 @@
   --color-success: #4ade80;
   --color-success-bg: #052e16;
 
-  --color-marker-default: #4db39a;
+  --color-marker-default: #9c9284;
   --color-marker-selected: #e8a82a;
 
   --color-cat-muslim: #4db39a;
   --color-cat-hindu: #f59e0b;
   --color-cat-sikh: #a78bfa;
+  --color-cat-nanakpanthi: #f472b6;
+  --color-cat-jain: #60a5fa;
+  --color-cat-secular: #94a3b8;
   --color-cat-muslim-pale: #1a3530;
   --color-cat-hindu-pale: #2a1a00;
   --color-cat-sikh-pale: #1e1035;
+  --color-cat-nanakpanthi-pale: #38112a;
+  --color-cat-jain-pale: #10203d;
+  --color-cat-secular-pale: #242c35;
+
+  --color-info-full: #4ade80;
+  --color-info-full-bg: #0c2a18;
+  --color-info-moderate: #fbbf24;
+  --color-info-moderate-bg: #2a2010;
+  --color-info-low: #a8a29e;
+  --color-info-low-bg: #26292c;
+
+  --color-support-documented: #22d3ee;
+  --color-support-documented-bg: #0d2b31;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);

@@ -18,6 +18,12 @@ import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { getFieldValue } from '../lib/data/fieldAliasing';
+import { categoryDisplayLabel } from '../lib/data/categoryKey';
+import { infoLevelKey } from '../lib/data/infoLevel';
+import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../lib/data/siteStatus';
+import { CONTACT_EMAIL } from '../lib/data/constants';
+import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
+import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
@@ -46,10 +52,17 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
   const primaryKgSaint = useMemo(() => getSaintsForShrine(shrine.slug)[0], [shrine.slug]);
 
-  const category = localizeField(shrine.raw, 'Category') || shrine.category;
+  const category =
+    categoryDisplayLabel(shrine.category, lang) ??
+    (localizeField(shrine.raw, 'Category') || shrine.category);
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
   const founded = resolveFoundedDate(shrine.raw, lang);
+
+  const statusKey = siteStatusKey(shrine.status);
+  const statusLabel =
+    statusKey && statusKey !== 'active' ? t(SITE_STATUS_LABEL_KEYS[statusKey]) : '';
+  const isLowInfo = infoLevelKey(shrine.infoLevel) === 'low';
 
   useDocumentTitle(`${name} — ${t('siteTitle')}`);
 
@@ -153,7 +166,20 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
             )}
           </span>
         )}
+        <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
+        <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
       </div>
+
+      {/* Non-Active site status — plain wording so a visitor doesn't travel
+          expecting a functioning site. statusNote (e.g. "reconstructed 2022")
+          is shown regardless of status, including for Active sites. */}
+      {(statusLabel || shrine.statusNote) && (
+        <p className="shrine-status-note">
+          {statusLabel}
+          {statusLabel && shrine.statusNote && ' — '}
+          {shrine.statusNote && <bdi>{shrine.statusNote}</bdi>}
+        </p>
+      )}
 
       {/* Actions */}
       <div className="shrine-actions">
@@ -232,6 +258,18 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
+          {/* Quiet contribution prompt — only on pages we know little about */}
+          {isLowInfo && (
+            <aside className="contribute-note">
+              <p>{t('contributePrompt')}</p>
+              <a
+                className="contribute-note-link"
+                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Information about ${shrine.name}`)}`}
+              >
+                {t('contributeAction')}
+              </a>
+            </aside>
+          )}
         </div>
         <aside>
           <ShrineInfobox shrine={shrine} />

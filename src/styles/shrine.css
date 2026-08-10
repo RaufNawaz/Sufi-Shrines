@@ -123,6 +123,45 @@
   gap: var(--space-2);
 }
 
+.shrine-summary-badge {
+  align-self: center;
+}
+
+/* Non-Active site status ("Festival-only", "Heritage site — worship
+   discontinued", …) — plain, visible wording near the title so nobody
+   travels expecting a functioning site. */
+.shrine-status-note {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  max-width: fit-content;
+  border-inline-start: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-pale);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Quiet contribution prompt on low-information pages — a footnote, not a
+   banner. */
+.contribute-note {
+  margin-top: var(--space-8);
+  padding: var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.contribute-note p {
+  margin: 0 0 var(--space-2);
+}
+
+.contribute-note-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 /* Share + nav actions */
 .shrine-actions {
   display: flex;
@@ -301,6 +340,22 @@
 
 .infobox-value a:hover {
   text-decoration: underline;
+}
+
+/* Split date fields (year_built/figure_born/figure_died/event_year) — a
+   second list below the generic facts, so a long note never gets pushed out
+   by MAX_INFOBOX_ROWS truncation. */
+.infobox-dates {
+  border-top: 1px solid var(--color-border);
+}
+
+/* The source's own explanatory note for a contradictory/uncertain date —
+   deliberately kept visible rather than hidden in a tooltip. */
+.infobox-note {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-style: italic;
 }
 
 /* Contents nav — top-of-article card on tablets, sticky left rail on wide screens */
@@ -973,6 +1028,21 @@
 .infobox-category-badge--sikh {
   background: var(--color-cat-sikh-pale);
   color: var(--color-cat-sikh);
+}
+
+.infobox-category-badge--nanakpanthi {
+  background: var(--color-cat-nanakpanthi-pale);
+  color: var(--color-cat-nanakpanthi);
+}
+
+.infobox-category-badge--jain {
+  background: var(--color-cat-jain-pale);
+  color: var(--color-cat-jain);
+}
+
+.infobox-category-badge--secular {
+  background: var(--color-cat-secular-pale);
+  color: var(--color-cat-secular);
 }
 
 /* Infobox Get Directions action */

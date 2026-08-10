@@ -6,9 +6,15 @@ import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
+import { categoryDisplayLabel } from '../../lib/data/categoryKey';
+import { infoLevelKey } from '../../lib/data/infoLevel';
+import { supportLevelKey } from '../../lib/data/supportLevel';
+import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../../lib/data/siteStatus';
 import { TOURS, localizeTourTitle } from '../../lib/tours/tours';
 import { t as translate } from '../../lib/i18n/uiStrings';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
+import { InfoLevelBadge } from '../ui/InfoLevelBadge';
+import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
 
 interface ShrinePreviewProps {
@@ -36,9 +42,17 @@ export function ShrinePreview({
   const name = localizeShrineName(shrine, lang);
 
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
-  const category = localizeField(shrine.raw, 'Category') || shrine.category;
+  const category =
+    categoryDisplayLabel(shrine.category, lang as Lang) ??
+    (localizeField(shrine.raw, 'Category') || shrine.category);
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
   const founded = resolveFoundedDate(shrine.raw, lang as Lang);
+
+  const statusKey = siteStatusKey(shrine.status);
+  const statusLabel =
+    statusKey && statusKey !== 'active'
+      ? translate(lang as Lang, SITE_STATUS_LABEL_KEYS[statusKey])
+      : '';
 
   const descRaw =
     lang === 'ur'
@@ -81,6 +95,19 @@ export function ShrinePreview({
       {saint && (
         <div className="preview-meta-row">
           <span>🕌 {saint}</span>
+        </div>
+      )}
+      {(infoLevelKey(shrine.infoLevel) || supportLevelKey(shrine.supportLevel)) && (
+        <div className="preview-meta-row">
+          <InfoLevelBadge level={shrine.infoLevel} />
+          <SupportLevelBadge level={shrine.supportLevel} />
+        </div>
+      )}
+      {(statusLabel || shrine.statusNote) && (
+        <div className="preview-status-note">
+          {statusLabel}
+          {statusLabel && shrine.statusNote && ' — '}
+          {shrine.statusNote && <bdi>{shrine.statusNote}</bdi>}
         </div>
       )}
       {leadText && <p className="preview-description">{leadText}</p>}
