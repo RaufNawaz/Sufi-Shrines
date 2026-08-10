@@ -1,0 +1,284 @@
+{
+  "_deprecated": {
+    "photos": [],
+    "note": "DEPRECATED 2026-08-10. This manifest described a Drive download batch that is now superseded: all field photos live in media/photos/ (gitignored) and are published under public/photos/. Two slugs here are wrong (shah-abul-muali-qadri -> abul-muali-qadri, malik-ayaz -> malik-ahmad-ayaz; trust media/photos dir names and photo_manifest.tsv), and every mauj-darya-bukhari Drive ID returns not-found - those photos are gone and the shrine needs re-shooting. Do not fetch from this file."
+  },
+  "shah-gohar-peer": {
+    "photos": [
+      {
+        "drive_id": "1sj6gFjSEi3pCltBqpvikhvEYP01pgggY",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-01.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-01.jpg"
+      },
+      {
+        "drive_id": "1oWuJlKoisN49ICVICGU9w7dGteCJiwor",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-02.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-02.jpg"
+      },
+      {
+        "drive_id": "1yKDyOl6KqSRwMg85F05YfQJVjlOoDay8",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-03.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-03.jpg"
+      },
+      {
+        "drive_id": "1NBeYAk93hoKpp72Rdg5beLibG_ZNVzc_",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-04.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-04.jpg"
+      },
+      {
+        "drive_id": "1Q2s6WfnMzqyh5poIeP7uDpZyJJODKTIo",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-05.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-05.jpg"
+      },
+      {
+        "drive_id": "1-19Be_jOOJKiAooKh5jk163qS22iM9ir",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-06.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-06.jpg"
+      },
+      {
+        "drive_id": "1Q-yyKZX__S3KAm9v0A61BU9EWOOpjgVr",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-07.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-07.jpg"
+      },
+      {
+        "drive_id": "1DOaHzknk0C30l-4tM_NJRgh2LnskIXo9",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-08.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-08.jpg"
+      },
+      {
+        "drive_id": "1ODMCkHKOgHrHxhTAzcdyftbRMOL1rjtO",
+        "target": "public/photos/shah-gohar-peer/shah-gohar-peer-09.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-gohar-peer/shah-gohar-peer-09.jpg"
+      }
+    ],
+    "media": [
+      "1hrL4V2bFyzmiG2M-Kuv-U1pQms9FEWZ6",
+      "1DxGBAPRJ5ljwFq2eRx4kk-E4agDCNuq7",
+      "1q7mro7GTg8WTp78fgNSKywVLrSmTJMBD"
+    ]
+  },
+  "mian-qurban-ali-shah": {
+    "photos": [
+      {
+        "drive_id": "14lRENB4RRq3J1pwp5rU3Qi65MKafTl4-",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-01.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-01.jpg"
+      },
+      {
+        "drive_id": "12bK8K-aY1sNUUuIp04xfJ0AOizLBv3j-",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-02.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-02.jpg"
+      },
+      {
+        "drive_id": "1AK0jextU6psZEuGZhtaeHPkPmOqlLdDK",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-03.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-03.jpg"
+      },
+      {
+        "drive_id": "18MbwFHeYWQQZs8Ce2uQXIJfq9c9rMhOL",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-04.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-04.jpg"
+      },
+      {
+        "drive_id": "13UK_kOSgKK-59rEUqC9I2w8VLjUs-4dE",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-05.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-05.jpg"
+      },
+      {
+        "drive_id": "1GV3PcxfGwLZGiw4oeJjlN1jnpIAuPPPi",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-06.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-06.jpg"
+      },
+      {
+        "drive_id": "1ma_jPDRuro2qgtgPJM9UmBZ_fiyBzEKS",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-07.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-07.jpg"
+      },
+      {
+        "drive_id": "1M_Zd74Phrh11V1c3VBCDDJTPejCnscbC",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-08.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-08.jpg"
+      },
+      {
+        "drive_id": "19FGK7vF5oi7SEhMW-I3Vlfi9GpstIP7x",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-09.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-09.jpg"
+      },
+      {
+        "drive_id": "1Vohhp711_DQ6N34ZgOLT3GRgDNNxlY-D",
+        "target": "public/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-10.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mian-qurban-ali-shah/mian-qurban-ali-shah-10.jpg"
+      }
+    ],
+    "media": [
+      "1JRSz6f25ChpSA-NT_59Kn7OKcajy0jQ1"
+    ]
+  },
+  "shah-abul-muali-qadri": {
+    "photos": [
+      {
+        "drive_id": "1UYleUn3I3jI3nnHaTrsCK4t7TqOtmAS7",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-01.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-01.jpg"
+      },
+      {
+        "drive_id": "1SRZ38xfMQjeKbUgKsoYYbUaVLTJjotcd",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-02.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-02.jpg"
+      },
+      {
+        "drive_id": "1rfYffBGSdvb9VqwdmZ1ZYcgDuMf6Q-po",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-03.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-03.jpg"
+      },
+      {
+        "drive_id": "1nAynlaz4SEnq5x9958pwO7hCAuumvH5e",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-04.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-04.jpg"
+      },
+      {
+        "drive_id": "188oQBXrgNcUNrrwhm6HeGHXhQUtQn2f9",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-05.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-05.jpg"
+      },
+      {
+        "drive_id": "1tVAog2XxfyCfOAvIlzXkYqmky_3IBbVJ",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-06.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-06.jpg"
+      },
+      {
+        "drive_id": "1lb89Sc2ljrMOdKl4_diJqINJ_ZMfnTSM",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-07.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-07.jpg"
+      },
+      {
+        "drive_id": "10Xdyq91o5bIJ6Zuq1Q-dlS0QA6O-wCM4",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-08.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-08.jpg"
+      },
+      {
+        "drive_id": "1rDHrTLg7bxBMfNidrNQhjeH99lr9gvob",
+        "target": "public/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-09.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/shah-abul-muali-qadri/shah-abul-muali-qadri-09.jpg"
+      }
+    ],
+    "media": [
+      "1SGeAx6iybjwHT6QBeEQqT7I6hGtYG7hS"
+    ]
+  },
+  "malik-ayaz": {
+    "photos": [
+      {
+        "drive_id": "1Sk7wDtpo4RlpXFX6Wuu6iTiTkF9nHAke",
+        "target": "public/photos/malik-ayaz/malik-ayaz-01.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-01.jpg"
+      },
+      {
+        "drive_id": "1CtHCJ69sc-cXXfPNNuxpASBbTis9xei0",
+        "target": "public/photos/malik-ayaz/malik-ayaz-02.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-02.jpg"
+      },
+      {
+        "drive_id": "1hGlBw4w_p4ikhi4BRaU6T_sTr9yMIos9",
+        "target": "public/photos/malik-ayaz/malik-ayaz-03.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-03.jpg"
+      },
+      {
+        "drive_id": "1kJuT0bXVSm0TV_skrh065j9wKvmjfe7c",
+        "target": "public/photos/malik-ayaz/malik-ayaz-04.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-04.jpg"
+      },
+      {
+        "drive_id": "1-9AQuefwPYPTiOJ28cUiSzzaTEFWRVDJ",
+        "target": "public/photos/malik-ayaz/malik-ayaz-05.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-05.jpg"
+      },
+      {
+        "drive_id": "14zPiv560KSSfh6lca5anee03l_vaqHYz",
+        "target": "public/photos/malik-ayaz/malik-ayaz-06.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-06.jpg"
+      },
+      {
+        "drive_id": "1muLtMfn_NggoRa7hNEf1vBKSmtzG1JYh",
+        "target": "public/photos/malik-ayaz/malik-ayaz-07.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-07.jpg"
+      },
+      {
+        "drive_id": "1BF_bVPIzt6w4LuRb3rzW0Ke-YyFAOLxy",
+        "target": "public/photos/malik-ayaz/malik-ayaz-08.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-08.jpg"
+      },
+      {
+        "drive_id": "1PPK4alk1xrj6_B5L2aGUhSpbeKmWz-PT",
+        "target": "public/photos/malik-ayaz/malik-ayaz-09.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-09.jpg"
+      },
+      {
+        "drive_id": "1Q6AkAkzdZFVtq0FRBATo1-jErRkeaSPG",
+        "target": "public/photos/malik-ayaz/malik-ayaz-10.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/malik-ayaz/malik-ayaz-10.jpg"
+      }
+    ],
+    "media": [
+      "1MasVOPQng1TI_Ns6MPLCnPyMBPCvPO3i"
+    ]
+  },
+  "mauj-darya-bukhari": {
+    "photos": [
+      {
+        "drive_id": "1JGKdTJ94wIzJjS4MHlx0NGwSByqtzk8D",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-01.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-01.jpg"
+      },
+      {
+        "drive_id": "1LjLR3AtlHw3lfSynFRbnuLxjE_sZhur9",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-02.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-02.jpg"
+      },
+      {
+        "drive_id": "16wGSbAgcqXnSf0040OK-MMfh-vCqTPYU",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-03.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-03.jpg"
+      },
+      {
+        "drive_id": "1HtlrmHGTurGQOez8yv0vGtJuAPsbKmOq",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-04.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-04.jpg"
+      },
+      {
+        "drive_id": "1MstCKkO68Eu1m5zT1-TYYZRScHgx1P7z",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-05.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-05.jpg"
+      },
+      {
+        "drive_id": "1uEqHoFua3zTZ3fVaSRkeHyqnfMz4ItTB",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-06.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-06.jpg"
+      },
+      {
+        "drive_id": "1WUw90h_G-v5sF6DryDSNmWL96K9puNh5",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-07.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-07.jpg"
+      },
+      {
+        "drive_id": "1RYF2nc3DC3mLrlqc5PNnv36S9QspJTh_",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-08.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-08.jpg"
+      },
+      {
+        "drive_id": "1EBg894JyqiduPZggFmBKf50vIrss0iSz",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-09.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-09.jpg"
+      },
+      {
+        "drive_id": "1dZEi7-OFr4nztUIwTk8RiFSsIMkUqr4v",
+        "target": "public/photos/mauj-darya-bukhari/mauj-darya-bukhari-10.jpg",
+        "url": "https://raufnawaz.github.io/Sufi-Shrines/photos/mauj-darya-bukhari/mauj-darya-bukhari-10.jpg"
+      }
+    ],
+    "media": [
+      "1cKTtnkfDjHz0jkgumIhaXcg7eh3_zHGK",
+      "1H1ozu7KNPcmTRyp-HP5xq4JhrkZeaYVl"
+    ]
+  }
+}
