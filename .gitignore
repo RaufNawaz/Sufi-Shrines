@@ -36,6 +36,9 @@ CLAUDE_CODE_PROMPT.md
 TOURS_CLAUDE_CODE_PROMPT.md
 NEXT_STEPS.md
 archive/
+MEDIA_NOTES.md
+media_changes.md
+image_urls.tsv
 
 # Research working files — private research data, not for public distribution
 Shrines_with_Descriptions.xlsx
@@ -73,3 +76,12 @@ test-results/
 
 *storybook.log
 storybook-static
+media/
+photo_manifest.tsv
+media-source/
+data/*.csv
+!data/schema_patch.csv
+docs/prompts/PROMPT_post_import.md
+PROMPT_post_import.md
+*.bak
+vite.config.ts.timestamp-*.mjs

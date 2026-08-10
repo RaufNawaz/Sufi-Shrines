@@ -1,0 +1,72 @@
+rows: 163   distinct sources: 319   shrine-source links: 368
+
+SUPPORT LEVEL
+  Source-documented   70
+  Web-compiled        56
+  Source-seeded       30
+  Field-verified      7
+
+INFO LEVEL (visitor-facing badge)
+  Moderate            100
+  Low                 56
+  Full                7
+
+SOURCE TYPE
+  book                68
+  unclassified        54
+  monograph           41
+  press               39
+  encyclopaedia       32
+  primary text        26
+  register            25
+  gazetteer           14
+  tazkira             13
+  field survey        7
+
+MOST REUSED SOURCES  (the anthology strategy, measured)
+   26x  [tazkira]  Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan
+    3x  [encyclopaedia]  Singh, Harbans (ed.). *The Encyclopaedia of Sikhism*. Patiala: Punjabi University.
+    3x  [monograph]  Max Arthur Macauliffe, *The Sikh Religion: Its Gurus, Sacred Writings and Authors* (Oxfo
+    3x  [monograph]  Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998
+    3x  [monograph]  Singh, Khushwant. *A History of the Sikhs*, Vol. 1. Oxford University Press.
+    3x  [register]  Evacuee Trust Property Board (Pakistan), Functional Mandirs register.
+    2x  [book]  Patwant Singh, *The Sikhs* (Knopf/Doubleday).
+    2x  [book]  Cousens, Henry. *The Antiquities of Sindh, with Historical Outline*. Archaeological Surv
+    2x  [encyclopaedia]  Harbans Singh (ed.), *The Encyclopaedia of Sikhism* (Punjabi University, Patiala).
+    2x  [monograph]  W. H. McLeod, *Guru Nanak and the Sikh Religion* (Oxford University Press, 1968).
+    2x  [monograph]  Macauliffe, Max Arthur. *The Sikh Religion: Its Gurus, Sacred Writings and Authors*. Oxf
+    2x  [monograph]  Jürgen Wasim Frembgen, *Journey to God: Sufis and Dervishes in Islam* (Oxford University
+
+HIGHEST EXPANSION RATIO  (words of prose per specific source cited)
+      982 w/src  2 src   1964 words   Shrine of Ganj e Inayat Sarkar
+      968 w/src  4 src   3871 words   Tomb of Allama Iqbal (Mazar-e-Iqbal)
+      820 w/src  4 src   3280 words   Shrine of Mian Mir
+      771 w/src  3 src   2314 words   Shrine of Abul Faiz Qalander Ali Suharwardi
+      719 w/src  4 src   2875 words   Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)
+      676 w/src  0 src    676 words   Shrine of Mauj Darya Bukhari
+      655 w/src  1 src    655 words   Bhagnari Mandir
+      649 w/src  1 src    649 words   Shrine of Bahauddin Zakariya
+      630 w/src  1 src    630 words   Amb Temples (Amb Sharif)
+      623 w/src  0 src    623 words   Shrine of Shah Jamal
+      575 w/src  1 src    575 words   Shrine at Odero Lal (Udero Lal Teerath Asthan)
+      546 w/src  1 src    546 words   Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukh
+      527 w/src  6 src   3163 words   Shrine of Bibi Pak Daman
+      526 w/src  1 src    526 words   Gurdwara Bhai Joga Singh
+      515 w/src  0 src    515 words   Shrine of Peer Makki
+
+GENERIC / PLACEHOLDER BIBLIOGRAPHY LINES  (43 occurrences)
+    2x  General established histories of the Chishti revival in nineteenth-century Punja
+    2x  General established histories of the Suhrawardi order and of Uch Sharif.
+    1x  Pending. Prior source attribution for this entry has been withdrawn as unreliabl
+    1x  "Amb Temples," in reference encyclopaedias, for the complex's dating, architectu
+    1x  Comparative literature on the Katas Raj and Tilla Jogian sites of the Salt Range
+    1x  General established histories and traditions of Bari Imam and Nurpur Shahan.
+    1x  General literature on the Hindu communities of Sindh and eastern Balochistan and
+    1x  General established histories of Sindhi literature and Sufism.
+    1x  "Churrio Jabal Durga Mata Temple," in reference encyclopaedias, for the site, it
+    1x  General studies of Sufi shrine culture and Muharram devotion in the Pothohar reg
+    1x  General established histories of Sufism in Sindh and of the Jhok movement.
+    1x  General established histories of the Qadiri order and Punjabi Sufi poetry.
+    1x  General established histories of the Chishti order in modern Punjab.
+    1x  General accounts of the Jagiasi/Udasi Nanakpanthi tradition in Sindh.
+    1x  General accounts of Sindhi Hindu Cheti Chand observance and the Jhulelal/Udero L

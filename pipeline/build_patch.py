@@ -1,0 +1,236 @@
+#!/usr/bin/env python3
+# Shrines DB — field patch generator.
+# Emits shrines_field_patch.tsv, keyed by `name`, for merging into the site database.
+# Does NOT touch the description column (see apply_description_fixes.py for that).
+
+import csv, re, unicodedata
+
+# name ~ category ~ site_type ~ status ~ principal_figure ~ figure_type ~ silsila ~
+# year_built ~ precision ~ year_note ~ born ~ died ~ event_year ~ event_note ~ events ~ flags
+ROWS = r"""
+Allo Mahar~Muslim Shrine~Dargah/Mazar~Active~Pir Syed Muhammad Channan Shah Nuri~Sufi saint~Naqshbandi~1898~circa~~~~~~Annual urs~FIGURE_MISMATCH;DESC_REWRITE
+Amb Temples (Amb Sharif)~Hindu Temple~Temple~Ruin~Shiva (Mahadev)~Deity~~950~century~9th-10th c. CE, Hindu Shahi~~~~~None - abandoned; heritage visitation~DATE_SPLIT
+Bari Imam~Muslim Shrine~Dargah/Mazar~Active~Sayyid Abdul Latif Kazmi (Bari Imam)~Sufi saint~Qadiri~1705~circa~Complex much enlarged in modern era~1617~1705~~~Annual urs (spring); daily langar~DATE_SPLIT
+Bhagnari Mandir~Hindu Temple~Temple~Active~Shiva (Mahadev)~Deity~~1940~unknown~Colonial era, pre-1947~~~~~Community worship; no fixed public festival documented~EVENTS_FILLED
+Bhai Sant Thawan Das Mandir~Nanakpanthi / Udasi Darbar~Temple~Active~Sant Thawan Das~Sant~~~unknown~Undocumented~~~~~Not documented~CAT_CHANGED
+Bhai Waliram Darbar~Nanakpanthi / Udasi Darbar~Temple~Active~Bhai Waliram~Sant~~~unknown~Undocumented~~~~~Not documented~CAT_CHANGED
+Bhit (Bhit Shah)~Muslim Shrine~Dargah/Mazar~Active~Shah Abdul Latif Bhittai~Sufi saint~~1772~exact~Tomb built after the saint's death~1689~1752~~~Annual urs (Safar); nightly Shah jo Raag; daily langar~DATE_SPLIT
+Chandragup (Baba Chandragup)~Hindu Temple~Natural sacred site~Active~Shiva (associated)~Deity~~~unknown~Natural feature; veneration of unrecorded antiquity~~~~~Hinglaj Yatra halt (April, four days)~SITE_TYPE
+Churrio Jabal Durga Mata Temple~Hindu Temple~Temple~Active~Durga (Mata)~Deity~~~unknown~Ancient; construction date undocumented~~~~~Maha Shivratri (spring); ash-immersion rites year-round~EVENTS_FILLED
+Darbar Ghamkol Sharif (Zinda Pir)~Muslim Shrine~Khanqah~Active~Khwaja Muhammad Qasim (Zinda Pir)~Sufi saint~Naqshbandi~1952~exact~~1912~1999~~~Annual urs; large annual gathering~DATE_SPLIT
+Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)~Muslim Shrine~Khanqah~Active~Khwaja Muhammad Sulaiman Taunsvi~Sufi saint~Chishti-Nizami~1850~circa~Shrine developed after the saint's death~1770~1850~~~Annual urs; qawwali and naat; daily langar~DATE_SPLIT
+Darbar Sakhi Shah Chan Charagh~Muslim Shrine~Dargah/Mazar~Active~Syed Sakhi Shah Chan Charagh (Shah Zaman)~Sufi saint~~1750~century~18th c.; datings vary~~~~~Annual urs; Muharram tazia procession (9 Muharram); commemorative mach bonfire~EVENTS_FILLED
+Dargah / Roza Sufi Shah Inayat Shaheed~Muslim Shrine~Dargah/Mazar~Active~Sufi Shah Inayat Shaheed~Sufi saint~~1718~circa~Burial c. 1718~~1718~~~Annual urs; Sufi music and remembrance~EVENTS_FILLED;DATE_SPLIT
+Dargah Fateh Pur Sharif~Muslim Shrine~Dargah/Mazar~Active~Syed Rakhyal Shah~Sufi saint~Qadiri~1940~circa~Built after the saint's death; sheet value 1359 was unsupported~1842~1940~~~Annual urs~DATE_CORRECTED
+Dargah of Khwaja Muhammad Zaman (Luari Sharif)~Muslim Shrine~Khanqah~Active~Khwaja Muhammad Zaman (Sultan al-Aulia)~Sufi saint~Naqshbandi~1737~exact~Khanqah founded 1737~1713~1775~~~Annual urs~DATE_SPLIT;NOTE_STRIPPED
+Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth~Muslim Shrine~Dargah/Mazar~Active~Pir Syed Muhammad Rashid Shah (Roze Dhani)~Sufi saint~Rashidi~1818~circa~~1757~1818~~~Hur gatherings on 27 Rajab and at fixed times; no public urs observed~DATE_SPLIT
+Dargah Pir Ratan Nath Jee~Hindu Temple~Temple~Active~Baba Pir Ratan Nath~Sant~~1850~century~British colonial period, 19th c.~~~~~Maha Shivratri~EVENTS_FILLED
+Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)~Hindu Temple~Temple~Active~Jhulelal / Daryalal~Deity~~1725~circa~Reputedly c. 300 years old; renovated 2015~~~~~Cheti Chand (spring)~EVENTS_FILLED
+Data Darbar~Muslim Shrine~Complex~Active~Hazrat Ali ibn Usman al-Hujwiri (Data Ganj Bakhsh)~Sufi saint~~1072~century~Grew from the saint's grave; major expansion 1980s~1009~1072~~~Annual urs (18-20 Safar); Thursday-evening qawwali and dhamal; daily langar~EVENTS_FIXED;DATE_SPLIT
+Eidgah Sharif~Muslim Shrine~Khanqah~Active~Hazrat Hafiz Muhammad Abdul Karim (Baba Ji)~Sufi saint~Chishti-Nizami~1900~century~Founder settled early 20th c.; sheet value 18th c. unsupported~~~~~Annual urs; Eid Milad-un-Nabi (principal gathering); langar~DATE_CORRECTED
+Garh Maharaja (Shorkot)~Muslim Shrine~Dargah/Mazar~Active~Sultan Bahoo~Sufi saint~Sarwari Qadiri~1691~circa~Tomb moved and rebuilt as the Chenab shifted~1630~1691~~~Annual urs (spring); abyat singing; qawwali; langar~DATE_SPLIT
+Golra Sharif~Muslim Shrine~Khanqah~Active~Pir Sayyid Meher Ali Shah~Sufi saint~Chishti~1937~exact~~1859~1937~~~Annual urs; naat and qawwali; daily langar~DATE_SPLIT
+Gorakhnath (Goraknath) Temple~Hindu Temple~Temple~Occasional~Guru Gorakhnath~Deity~~1851~circa~Reopened for worship 2011 by court order~~~~~Diwali (principal annual opening)~EVENTS_FILLED
+Gori Temple (Gori jo Mandar)~Jain Temple~Temple~Heritage~Parshvanatha (23rd Tirthankara)~Deity~~1375~exact~1375-1376 CE~~~~~Heritage site; occasional Jain/Hindu pilgrimage~CAT_CHANGED
+Gurdas Ram Mandir~Nanakpanthi / Udasi Darbar~Temple~Active~Sant Gurdas Ram~Sant~~~unknown~Undocumented~~~~~Not documented~CAT_CHANGED
+Gurdwara Babay De Ber~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1850~century~19th c., built by Natha Singh; reopened after renovation~~~~~Sikh pilgrimage; Guru Nanak Gurpurab~EVENTS_FILLED
+Gurdwara Babay Nanki~Sikh Gurdwara~Gurdwara~Occasional~Bebe Nanaki~Historical person~~~unknown~Commemorates Bebe Nanaki~1464~1518~~~Occasional pilgrimage; Bebe Nanaki commemoration~DATE_SPLIT
+Gurdwara Balila Sahib (Bal Lila Sahib)~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1748~exact~Built by Diwan Kaura Mal; renovated under Ranjit Singh~~~~~Guru Nanak Gurpurab (November)~EVENTS_FILLED
+Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore~Sikh Gurdwara~Gurdwara~Occasional~Guru Arjan Dev~Sikh Guru~~1834~exact~Baoli commissioned 1599; present building 1834~~~1599~Guru Arjan Dev's visit and the sinking of the baoli~Sikh anniversaries; martyrdom commemoration of Guru Arjan Dev~DATE_SPLIT
+Gurdwara Bhai Beba Singh~Sikh Gurdwara~Gurdwara~Active~Bhai Biba (Beba) Singh~Historical person~~1825~century~Sikh Empire era; reopened 2016~~~~~Daily prakash; major Sikh anniversaries~EVENTS_FILLED
+Gurdwara Bhai Joga Singh~Sikh Gurdwara~Gurdwara~Active~Bhai Joga Singh~Historical person~~1825~century~Founded by Hari Singh Nalwa; reopened 1980~~~~~Daily prakash; morning and evening worship~EVENTS_FILLED
+Gurdwara Chakki Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~~unknown~Gurdwara built later than the commemorated event~~~1520~Guru Nanak's imprisonment during Babur's invasion~Sikh pilgrimage, especially Guru Nanak's Gurpurab~DATE_SPLIT
+Gurdwara Chhevin Patshahi, Chitti Gatti~Sikh Gurdwara~Gurdwara~Heritage~Guru Hargobind~Sikh Guru~~~unknown~Commemorates Guru Hargobind (r. 1606-1644)~~~~~Historically a Vaisakhi fair; not currently observed~NOTE_STRIPPED
+Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)~Sikh Gurdwara~Gurdwara~Heritage~Guru Hargobind~Sikh Guru~~1875~century~Present structure colonial-era~~~1610~Visit of Guru Hargobind, early 17th c.~Historically an annual fair; not in regular worship~DATE_SPLIT
+Gurdwara Chhevin Patshahi, Mozang~Sikh Gurdwara~Gurdwara~Heritage~Guru Hargobind~Sikh Guru~~1926~exact~Original under Ranjit Singh; rebuilt 1926 by Sardar Mehar Singh~~~1619~Visit of Guru Hargobind~Annual Akhand Path around Guru Hargobind's Gurpurb (historic)~DATE_SPLIT
+Gurdwara Choa Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1834~exact~Commissioned by Maharaja Ranjit Singh; restored from 2020~~~~~Reopened for pilgrims; Guru Nanak anniversaries~
+Gurdwara Chowmala Sahib~Sikh Gurdwara~Gurdwara~Heritage~Guru Hargobind~Sikh Guru~~1915~exact~Hall enlarged 1915; original structure may not survive~~~1620~Guru Hargobind's visit; Bhai Jiwan's house converted~Historically an annual fair at Basant Panchami; continuation uncertain~DATE_SPLIT
+Gurdwara Darbar Sahib Kartarpur~Sikh Gurdwara~Complex~Active~Guru Nanak~Sikh Guru~~1925~circa~Present building early 20th c.; greatly enlarged 2019~1469~1539~1539~Death of Guru Nanak at Kartarpur~Guru Nanak anniversaries; daily visa-free pilgrimage via the Kartarpur Corridor~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Dash Mesh Pita~Sikh Gurdwara~Gurdwara~Active~Guru Gobind Singh~Sikh Guru~~~unknown~Undocumented~~~~~Not documented~
+Gurdwara Dera Sahib~Sikh Gurdwara~Gurdwara~Active~Guru Arjan Dev~Sikh Guru~~1825~century~Present form under Maharaja Ranjit Singh~1563~1606~1606~Martyrdom of Guru Arjan Dev~Martyrdom anniversary of Guru Arjan Dev (Jeth, May-June)~COORD_FIXED;DATE_SPLIT;EVENTS_FILLED
+Gurdwara Guru Ram Das Ji~Sikh Gurdwara~Gurdwara~Occasional~Guru Ram Das~Sikh Guru~~1801~exact~Built under Maharaja Ranjit Singh~1534~1581~~~Guru Ram Das birth anniversary~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak; Bhai Lalo~Sikh Guru~~~unknown~Gurdwara built later than the commemorated stay~~~1515~Guru Nanak's stay with Bhai Lalo~Sikh pilgrimage, especially Guru Nanak's Gurpurab~COORD_FIXED;DATE_SPLIT
+Gurdwara Malji Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1745~circa~Built by Diwan Kaura Mal; renovated under Ranjit Singh~~~~~Sikh pilgrimage, especially Guru Nanak's Gurpurab~
+Gurdwara Panja Sahib~Sikh Gurdwara~Complex~Active~Guru Nanak~Sikh Guru~~1825~century~First gurdwara attributed to Hari Singh Nalwa~~~1521~Guru Nanak and Wali Kandhari; the panja imprint~Vaisakhi (principal jatha pilgrimage); Saka Panja Sahib commemoration~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Panjvi Chati Patshahi~Sikh Gurdwara~Gurdwara~Occasional~Guru Arjan Dev; Guru Hargobind~Sikh Guru~~~unknown~~~~1613~Guru Hargobind's visit returning from Kashmir~Occasional pilgrimage; historically a Gur Mela~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Patshahi Chhevin (Hadiara), Lahore~Sikh Gurdwara~Gurdwara~Heritage~Guru Hargobind~Sikh Guru~~~unknown~Present structure later than the visit~~~1620~Visit of Guru Hargobind~Historically an annual Maghi fair~DATE_SPLIT
+Gurdwara Patti Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1935~circa~Present building 1930s-1940s~~~~~Guru Nanak Gurpurab~EVENTS_FILLED
+Gurdwara Pehli Patshahi (Jind Pir), Sukkur~Nanakpanthi / Udasi Darbar~Gurdwara~Active~Guru Nanak~Sikh Guru~~~unknown~Traditionally linked to Guru Nanak's third udasi~~~1515~Guru Nanak's passage through Sindh~Gurpurabs; daily prakash of the Guru Granth Sahib~CAT_CHANGED;DATE_SPLIT
+Gurdwara Rori Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak; Bhai Mardana~Sikh Guru~~1820~century~Built under Maharaja Ranjit Singh~~~1521~Guru Nanak's rest at Eminabad~Guru Nanak Gurpurab; jatha pilgrimage~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Sach Khand Sahib~Sikh Gurdwara~Gurdwara~Active~Guru Nanak~Sikh Guru~~2015~circa~Recent build replacing an unlocated pre-Partition gurdwara~~~~~Daily prakash; continuous langar~EVENTS_FILLED
+Gurdwara Sacha Sauda~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1830~century~Sikh Empire era; renovated 1993-94~~~1487~The sacha sauda ("true bargain")~Guru Nanak anniversaries; organised jatha pilgrimage~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)~Sikh Gurdwara~Gurdwara~Heritage~Guru Nanak~Sikh Guru~~1910~century~Early 20th c.; closed mid-2000s~~~~~Preserved as a heritage site; no regular events~
+Gurdwara Shaheed Bhai Taru Singh~Sikh Gurdwara~Gurdwara~Active~Bhai Taru Singh~Historical person~~~unknown~Site of the 1745 martyrdom~1720~1745~1745~Martyrdom of Bhai Taru Singh~Martyrdom commemoration (1 July)~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Shaheed Ganj Singh Singhnian~Sikh Gurdwara~Gurdwara~Active~Sikh women and children martyrs~Collective~~1765~century~Raised after the mid-18th c. persecutions~~~1750~Martyrdoms under Mir Mannu~Martyrdom commemoration; pilgrim visits~DATE_SPLIT;EVENTS_FILLED
+Gurdwara Singh Sabha~Sikh Gurdwara~Gurdwara~Active~Sikh community (Singh Sabha)~Collective~~1825~century~Said to be c. 200 years old; restored to the sangat 2020~~~~~Daily worship; Sikh anniversaries~EVENTS_FILLED
+Gurdwara Sri Kiara Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1935~circa~Rebuilt by Sant Gurmukh Singh before 1947~~~~~Guru Nanak Gurpurab~EVENTS_FILLED
+Gurdwara Sri Tilganji Sahib~Sikh Gurdwara~Gurdwara~Active~Guru Nanak~Sikh Guru~~1940~circa~Rebuilt after the 1935 Quetta earthquake~~~1515~Guru Nanak's distribution of til as parshad~Daily worship; Sikh anniversaries~EVENTS_FIXED;NOTE_STRIPPED
+Gurdwara Tambo Sahib~Sikh Gurdwara~Gurdwara~Occasional~Guru Nanak~Sikh Guru~~1855~century~Mid-19th c.~~~~~Guru Nanak Gurpurab~EVENTS_FILLED
+Guru Gurpat Mandir (DB-80 Sirey Ghat)~Nanakpanthi / Udasi Darbar~Temple~Active~Baba Gurpat Sahib~Sant~~1931~exact~Vikram Samvat 1988~1807~1877~~~Community worship; langar-adjacent hospitality~CAT_CHANGED;EVENTS_FILLED
+Gurudwara Janam Asthan Nankana Sahib~Sikh Gurdwara~Complex~Active~Guru Nanak~Sikh Guru~~1819~circa~Rebuilt under Maharaja Ranjit Singh 1819-20~1469~1539~1469~Birth of Guru Nanak~Guru Nanak Gurpurab (principal Sikh pilgrimage in Pakistan)~DATE_SPLIT;EVENTS_FILLED
+Jagannath Temple, Sialkot~Hindu Temple~Temple~Active~Lord Jagannath~Deity~~2007~exact~Renovated 2017~~~~~Community worship; no fixed festival documented~EVENTS_FILLED
+Jain Mandir, Lahore~Jain Temple~Temple~Active~Jain Tirthankaras~Deity~~1940~circa~Restored and reopened June 2022~~~~~Reopened for active worship 2022; no fixed public festival calendar~CAT_CHANGED
+Jhollay Lal Mandir~Hindu Temple~Temple~Active~Jhulelal (Uderolal)~Deity~~~unknown~Founding date undocumented~~~~~Cheti Chand~EVENTS_FILLED
+Kalat Kali Temple~Hindu Temple~Temple~Active~Kali~Deity~~~unknown~Traditionally c. 1,500 years; unverified~~~~~Annual three-day Kali festival (January)~
+Kali Bari Mandir~Hindu Temple~Temple~Active~Kali~Deity~~1900~century~Colonial/pre-Partition era; renovated from 2017~~~~~Durga Puja; daily worship~EVENTS_FILLED
+Kalka Cave Temple (Asthan of Kalka Devi)~Hindu Temple~Cave shrine~Active~Kalka Devi (Kali)~Deity~~1925~circa~Present complex 1920s; site far older~~~~~First Monday of each month; major goddess festivals~EVENTS_FILLED
+Katas Raj Temples~Hindu Temple~Complex~Occasional~Shiva (Mahadev)~Deity~~700~century~7th c. onwards; restored 2005~~~~~Maha Shivratri; periodic cross-border pilgrimage~EVENTS_FILLED
+Khatwari Darbar, Shikarpur~Nanakpanthi / Udasi Darbar~Complex~Active~Bhai Gurdas Singh (Kanhiya Lal)~Sant~~1737~circa~Second quarter of the 18th c.~~~~~Sikh and Nanakpanthi festivals~CAT_CHANGED
+Krishna Mandir (Kabari Bazar)~Hindu Temple~Temple~Active~Krishna~Deity~~1897~exact~Built by Kanji Mal and Ujagar Mal Ram Rachpal~~~~~Holi; Diwali; Janmashtami~EVENTS_FILLED
+Krishna Mandir (Ravi Road)~Hindu Temple~Temple~Active~Krishna~Deity~~1900~unknown~Colonial-era; rebuilt after 1992~~~~~Janmashtami; Holi; Diwali~EVENTS_FILLED
+Lal Kurti Temple (Balmiki Mandir), Rawalpindi~Hindu Temple~Temple~Active~Valmiki (Bhagwan Valmik)~Deity~~1905~exact~~~~~~Diwali; Holi; Raksha Bandhan; daily worship~
+Lal Shahbaz Qalandar~Muslim Shrine~Complex~Active~Lal Shahbaz Qalandar (Usman Marwandi)~Sufi saint~Qalandari~1356~circa~Golden dome and mirrored interior of later date~1177~1274~~~Annual urs (Sha'ban); Thursday-evening dhamal and qawwali; daily langar~EVENTS_FIXED;DATE_SPLIT
+Langer Makhdoom~Muslim Shrine~Dargah/Mazar~Active~Makhdoom Burhan-ud-din~Sufi saint~~~unknown~Traditional dating only~~1245~~~Annual urs (16-18 March); Friday gatherings at the tomb~DATE_SPLIT;EVENTS_FILLED
+Loh Temple (Lava Temple)~Hindu Temple~Temple~Heritage~Lava (Luv)~Deity~~1805~circa~Early 19th c.; restored and reopened 27 January 2026~~~~~Recently restored and reopened to visitors; no congregational worship~
+Mausoleum of Waris Shah~Muslim Shrine~Mausoleum/Memorial~Active~Waris Shah~Sufi saint~Chishti~1978~exact~Complex completed 1978~1722~1798~~~Annual urs; Heer recitation and qawwali~DATE_SPLIT;EVENTS_FILLED
+Mazar of Bulleh Shah~Muslim Shrine~Dargah/Mazar~Active~Bulleh Shah (Abdullah Shah Qadri)~Sufi saint~Qadiri~~unknown~Shrine developed after the saint's death~1680~1757~~~Annual urs; kafi singing through the night~DATE_SPLIT
+Mithankot (Kot Mithan)~Muslim Shrine~Dargah/Mazar~Active~Khwaja Ghulam Farid~Sufi saint~Chishti~~unknown~Shrine developed after the saint's death~1845~1901~~~Annual urs; kafi singing; qawwali; langar~DATE_SPLIT
+Mohra Sharif (Khanqah)~Muslim Shrine~Khanqah~Active~Khwaja Muhammad Qasim Sadiq~Sufi saint~Naqshbandi-Mujaddidi~1890~century~Late 19th c.~1846~~~~Annual urs~DATE_SPLIT
+Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)~Jain Temple~Complex~Ruin~Jain Tirthankaras~Deity~~1300~range~12th-15th c. CE~~~~~None - abandoned; heritage visitation~CAT_CHANGED
+Panj Tirath~Hindu Temple~Complex~Heritage~King Pandu (Mahabharata)~Historical person~~1834~exact~Rebuilt 1834; protected heritage site 2019~~~~~Historically Kartik bathing; not currently observed~EVENTS_FILLED
+Parnami Mandir~Hindu Temple~Temple~Ruin~Dya Ram (samadhi)~Sant~~1700~century~17th c. tradition; datings vary widely~~~~~Historically an annual mela in Chaitra; not currently observed~EVENTS_FILLED
+Prahladpuri Temple~Hindu Temple~Temple~Destroyed~Narasimha~Deity~~1810~exact~Raised 1810; destroyed December 1992~~~~~None - destroyed 1992~EVENTS_FILLED
+Purana Bhalwal~Muslim Shrine~Dargah/Mazar~Active~Hazrat Shah Sulaiman Nuri (Sakhi Badshah)~Sufi saint~Qadiri~~unknown~Shrine developed after the saint's death~1510~1604~~~Annual urs; qawwali; langar~DATE_SPLIT
+Rahman Baba Mausoleum (Rehman Baba Shrine)~Muslim Shrine~Mausoleum/Memorial~Active~Rahman Baba (Abdur Rahman Mohmand)~Sufi saint~~1954~exact~Rebuilt after the 2009 bombing~1653~1711~~~Annual urs with mushaira (poetic assembly); rabab recitals~DATE_SPLIT;EVENTS_FILLED;NO_VERSE
+Ram Mandir, Saidpur (Ram Kund Mandir)~Hindu Temple~Temple~Heritage~Rama~Deity~~1550~century~Traditionally attributed to Raja Man Singh I~~~~~Heritage/tourist site; regular worship discontinued~
+Ramapir Temple, Tando Allahyar~Hindu Temple~Temple~Active~Ramdev Pir (Ramapir)~Sant~~1861~exact~Some accounts give 1859~~~~~Ramapir Mela (1 Bhadva, three days)~EVENTS_FILLED
+Ranmal Sharif~Muslim Shrine~Dargah/Mazar~Active~Syed Muhammad Noushah Ganj Bakhsh~Sufi saint~Naushahia Qadiri~~unknown~Mother-shrine of the Naushahia order~1552~1654~~~Annual urs; qawwali and naat; langar~DATE_SPLIT
+Sadh Belo (Sadh Belo Island Temple)~Nanakpanthi / Udasi Darbar~Complex~Active~Baba Bankhandi Maharaj~Sant~~1899~exact~Site settled 1823; main temple 1899~~~~~Annual festival (boat pilgrimage to the island)~CAT_CHANGED;DATE_SPLIT;EVENTS_FILLED
+Sain Vali Vilayat Rai Darbar, Kambar~Nanakpanthi / Udasi Darbar~Temple~Active~Sain Vali Vilayat Rai~Sant~~1875~century~Mid-late 19th c.~1825~~~~Commemoration of Sain Vali Vilayat Rai; Nanakpanthi worship~CAT_CHANGED;DATE_SPLIT
+Sakhi Sarwar~Muslim Shrine~Complex~Active~Sultan Sakhi Sarwar (Lakhdata)~Sufi saint~~1200~century~12th-13th c.~~~~~Annual urs and pilgrimage; seasonal banner processions~
+Samadhi of Maharaja Ranjit Singh~Secular / Memorial~Mausoleum/Memorial~Active~Maharaja Ranjit Singh~Historical person~~1848~exact~Begun 1839; completed 1848~1780~1839~~~Death anniversary commemoration (27 June); Vaisakhi pilgrimage season~CAT_CHANGED;DATE_SPLIT
+Sant Baba Asudaram Darbar (Panno Aqil)~Nanakpanthi / Udasi Darbar~Temple~Active~Sant Baba Asudaram (Sakhi Baba)~Sant~~1940~exact~Darbar Sahib established 1940~1895~1960~~~Annual death anniversary (Anant Chaturdashi); continuous sadavrat~CAT_CHANGED;DATE_SPLIT
+Sant Baba Bhagat Ram Darbar Mandir~Nanakpanthi / Udasi Darbar~Temple~Active~Sant Baba Bhagat Ram~Sant~~~unknown~Undocumented~~~~~Not documented~CAT_CHANGED
+Sant Bhagat Kanwar Ram Temple (Chak)~Nanakpanthi / Udasi Darbar~Temple~Active~Bhagat Kanwar Ram~Sant~~2006~exact~Raised after 1939; rebuilt 2006~1885~1939~~~Annual commemoration (2 November)~CAT_CHANGED;DATE_SPLIT
+Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)~Nanakpanthi / Udasi Darbar~Complex~Active~Satguru Swami Sai Satramdas Sahib~Sant~~1910~century~Late 19th-early 20th c.~1866~1910~~~Annual birth-anniversary celebrations (October)~CAT_CHANGED;DATE_SPLIT
+Sevapanthi Darbar (Bhai Gurdas), Gandava~Nanakpanthi / Udasi Darbar~Temple~Heritage~Bhai Gurdas (Sevapanthi)~Sant~~1800~range~18th-19th c.; exact date uncertain~~~~~No regular events documented~CAT_CHANGED;COORD_DUPLICATE
+Shah Noorani Shrine (Syed Bilawal Shah Noorani)~Muslim Shrine~Dargah/Mazar~Active~Syed Bilawal Shah Noorani~Sufi saint~~1450~century~15th c.; saint active c. 1449~~~~~Annual urs; evening dhamal; qawwali and langar~EVENTS_FILLED
+Shah Yousuf~Muslim Shrine~Dargah/Mazar~Active~Hazrat Shah Yousuf~Sufi saint~~~unknown~15th c. date provisional; uncorroborated~~~~~Annual urs~
+Shahwala Teja Singh Mandir~Hindu Temple~Temple~Active~Shiva (Mahadev)~Deity~~~unknown~Heritage accounts claim 900-1,000 years; unverified. Reopened 2019~~~~~Maha Shivratri~EVENTS_FILLED
+Shamsabad~Muslim Shrine~Dargah/Mazar~Active~Shams Ali Qalandar~Sufi saint~Qadiri~~unknown~Shrine raised after the saint's death~1873~1966~~~Two annual urs observances (15 March and 6 September)~DATE_SPLIT;EVENTS_FILLED
+Sharada Peeth~Hindu Temple~Complex~Ruin~Sharada (Saraswati)~Deity~~742~circa~Likely commissioned c. 724-760 CE~~~~~None - ruin; access restricted near the Line of Control~EVENTS_FILLED
+Shergarh~Muslim Shrine~Dargah/Mazar~Active~Daud Bandagi Kirmani~Sufi saint~Qadiri~~unknown~Shrine developed after the saint's death~1513~1575~~~Annual urs; qawwali; langar~DATE_SPLIT
+Shiv Mandir Chiti Ghati~Hindu Temple~Temple~Active~Shiva (Mahadev)~Deity~~1835~circa~Present structure 1830s; lingam far older. Reopened after c. 60 years~~~~~Maha Shivratri (late winter)~EVENTS_FILLED
+Shree Ratneshwar Mahadev Temple, Karachi~Hindu Temple~Cave shrine~Active~Shiva (Mahadev)~Deity~~1725~century~Reputedly 300+ years old~~~~~Maha Shivratri (principal festival)~EVENTS_FILLED
+Shri Laxmi Narayan Mandir (Native Jetty Bridge)~Hindu Temple~Temple~Active~Lakshmi-Narayan~Deity~~1825~circa~Reputedly c. 200 years old~~~~~Ganesh Chaturthi; Holi; Raksha Bandhan; asthi visarjan rites~EVENTS_FILLED
+Shri Panchmukhi Hanuman Mandir (Karachi)~Hindu Temple~Temple~Active~Hanuman (Panchmukhi)~Deity~~~unknown~Traditional claim of c. 1,500 years; unverified. Renovated 2012~~~~~Hanuman Jayanti; Holi; Diwali~EVENTS_FILLED
+Shri Swaminarayan Mandir, Karachi~Hindu Temple~Complex~Active~Bhagwan Swaminarayan~Deity~~1849~circa~Mid-19th c.~~~~~Janmashtami; Holi; Diwali~EVENTS_FILLED
+Shri Varun Dev Mandir~Hindu Temple~Temple~Ruin~Varuna (Varun Dev)~Deity~~1917~circa~Current structure c. 1917-18; tilework c. 1937-40~~~~~None - derelict; conservation appeals ongoing~EVENTS_FILLED
+Shrine at Odero Lal (Udero Lal Teerath Asthan)~Hindu Temple~Complex~Active~Sheikh Tahir / Udero Lal (Jhulelal)~Deity~~1684~exact~Shared Hindu-Muslim sanctuary~~~~~Cheti Chand; shared Hindu and Muslim observance year-round~EVENTS_FILLED
+Shrine of Abdullah Shah Ghazi~Muslim Shrine~Dargah/Mazar~Active~Abdullah Shah Ghazi~Sufi saint~~773~circa~Green dome rebuilt after the 2010 bombing~~773~~~Annual urs; Thursday-evening qawwali and dhamal~DATE_SPLIT
+Shrine of Abul Faiz Qalander Ali Suharwardi~Muslim Shrine~Complex~Active~Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi~Sufi saint~Suhrawardi~1958~exact~Shrine raised at burial; family-held, not Auqaf~1885~1958~~~Annual urs (11-12 Rabi al-Awwal); weekly Sunday milad; daily langar~NAME_SPELLING;DATE_SPLIT;EVENTS_FILLED
+Shrine of Akhund Darweza Baba~Muslim Shrine~Dargah/Mazar~Active~Akhund Darweza (Syed Muhammad)~Sufi saint~~~unknown~Buried in the Hazarkhwani graveyard~1533~1638~~~Pilgrimage to the tomb; visited year-round~DATE_SPLIT
+Shrine of Akhund Panju Baba~Muslim Shrine~Complex~Active~Hazrat Syed Abdul Wahab (Akhund Panju Baba)~Sufi saint~~1600~century~Mughal-era mosque, c. 400 years old~~~~~Annual urs; large gatherings of devotees~
+Shrine of Baba Shah Chiragh~Muslim Shrine~Mausoleum/Memorial~Active~Syed Abdul Razzaq (Shah Chiragh)~Sufi saint~Qadiri~1660~circa~Built by order of Aurangzeb; mosque added 1716~~1657~~~No confirmed annual urs date documented~DATE_SPLIT
+Shrine of Baba Shah Kamal~Muslim Shrine~Dargah/Mazar~Active~Hazrat Baba Shah Kamal~Sufi saint~Qadiri~1650~century~17th c.~~~~~Annual urs; weekly Thursday devotional gathering~
+Shrine of Bahauddin Zakariya~Muslim Shrine~Mausoleum/Memorial~Active~Bahauddin Zakariya~Sufi saint~Suhrawardi~1267~circa~Built 13th c.; sheet value 1167 preceded the saint's birth~1170~1267~~~Annual urs; qawwali; daily langar~DATE_CORRECTED
+Shrine of Bibi Pak Daman~Muslim Shrine~Complex~Active~The six Bibis (Bibi Pak Daman)~Collective~~~unknown~Rebuilt many times; most recent renovation 2024~~~~~Annual urs; Thursday-night gathering; Muharram observances (peak attendance)~EVENTS_FILLED
+Shrine of Fariduddin Ganjshakar~Muslim Shrine~Complex~Active~Baba Fariduddin Mas'ud Ganjshakar~Sufi saint~Chishti~1280~circa~~1173~1266~~~Annual urs (Muharram) with the opening of the Bahishti Darwaza; qawwali; langar~DATE_SPLIT;EVENTS_FILLED
+Shrine of Ganj e Inayat Sarkar~Muslim Shrine~Complex~Active~Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi~Sufi saint~Naqshbandi-Mujaddidi~2011~exact~Shrine founded at burial; mosque built 1969~1937~2011~~~Annual urs (27-28 Sha'ban); weekly Saturday gathering; langar~DATE_SPLIT;EVENTS_FILLED
+Shrine of Hafiz Muhammad Jamal Multani~Muslim Shrine~Mausoleum/Memorial~Active~Hafiz Muhammad Jamal Multani~Sufi saint~Chishti~1811~circa~Preserves original Mughal-era wall paintings~1747~1811~~~Annual urs~DATE_SPLIT
+Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)~Muslim Shrine~Complex~Active~Shah Hussain (Madho Lal Hussain)~Sufi saint~Malamati~2011~exact~Most recent reconstruction 2011 by Punjab Auqaf~1538~1599~~~Mela Chiraghan / annual urs (9-11 Shawwal); Thursday-evening lamp-lighting, dhamal and qawwali~EVENTS_FILLED;DATE_SPLIT
+Shrine of Hazrat Muhammad Ayub Shah Bukhari~Muslim Shrine~Dargah/Mazar~Active~Hazrat Muhammad Ayub Shah Bukhari~Sufi saint~Suhrawardi~~unknown~Dates uncertain~~~~~Annual urs~COORD_DUPLICATE
+Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)~Muslim Shrine~Mausoleum/Memorial~Active~Hazrat Shah Ali Akbar Shamsi~Sufi saint~~1585~exact~993 AH; took c. 15 years to complete~~~~~Annual urs~
+Shrine of Hazrat Shah Daula Daryai~Muslim Shrine~Complex~Active~Hazrat Shah Daula Daryai~Sufi saint~Suhrawardi~1650~century~17th c.; substantially rebuilt 1898~1581~1675~~~Annual three-day urs (Auqaf-administered); langar~DATE_SPLIT;EVENTS_FILLED
+Shrine of Imam Ali-ul-Haq~Muslim Shrine~Complex~Active~Hazrat Imam Ali-ul-Haq (Imam Sahib)~Sufi saint~~1300~century~Dating disputed by 3-4 centuries across sources~~~~~Annual urs; devotional music and langar~
+Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)~Muslim Shrine~Complex~Active~Sayyid Jalaluddin Surkh-Posh Bukhari~Sufi saint~Suhrawardi~1670~exact~Rebuilt 1670~1192~1291~~~Annual urs; qawwali; langar~DATE_SPLIT;EVENTS_FILLED
+Shrine of Lakhi Shah Saddar~Muslim Shrine~Dargah/Mazar~Active~Syed Shah Sadaruddin Lakyari (Lakhi Shah Saddar)~Sufi saint~~~unknown~Dates not securely established~~~~~Annual urs; ritual bathing in the Laki hot springs~
+Shrine of Makhdoom Abdul Rahim Girhori~Muslim Shrine~Khanqah~Active~Makhdoom Abdul Rahim Girhori~Sufi saint~Naqshbandi~~unknown~Khanqah established at Girhor~1739~1778~~~Annual urs; visited by both Muslims and Hindus~DATE_SPLIT
+Shrine of Makhdoom Jahaniyan Jahangasht~Muslim Shrine~Complex~Active~Sayyid Jalaluddin (Makhdoom Jahaniyan Jahangasht)~Sufi saint~Suhrawardi~~unknown~Shrine developed after the saint's death~1308~1384~~~Annual urs; qawwali; langar~DATE_SPLIT;EVENTS_FILLED
+Shrine of Makhdoom Nooh (Hala)~Muslim Shrine~Dargah/Mazar~Active~Makhdoom Nooh (Makhdoom Lutufullah)~Sufi saint~Suhrawardi~1777~exact~Remains relocated twice by the shifting Indus; present site 1777~1500~1590~~~Annual urs~DATE_SPLIT
+Shrine of Mauj Darya Bukhari~Muslim Shrine~Mausoleum/Memorial~Active~Hazrat Meeran Muhammad Shah Bukhari (Mauj Darya)~Sufi saint~Suhrawardi~1604~exact~Octagonal plan; mosque and langar khana demolished 2018 for the Orange Line~1533~1604~~~Annual urs (17-19 Rabi al-Awwal); weekly Thursday milad; Mela Chiraagha~DATE_SPLIT
+Shrine of Mian Mir~Muslim Shrine~Complex~Active~Mian Mir (Mir Mohammad of Sind)~Sufi saint~Qadiri~1640~circa~Mausoleum raised after the saint's death, during Dara Shikoh's lifetime~1550~1635~~~Annual urs (7 February); Thursday-evening qawwali; daily langar~DATE_SPLIT;EVENTS_FILLED;FIELD_PHOTOS_MISSING
+Shrine of Mian Umar Baba (Chamkani)~Muslim Shrine~Khanqah~Active~Mian Muhammad Umar Chamkani~Sufi saint~Naqshbandi~~unknown~Tomb and khanqah at Chamkani~1671~1776~~~Annual urs (first Wednesday and Thursday of Rajab); langar~DATE_SPLIT
+Shrine of Miran Hussain Zanjani (Zanjani Sahib)~Muslim Shrine~Dargah/Mazar~Active~Syed Miran Hussain Zanjani~Sufi saint~~~unknown~Raised platform, no dome~958~1042~~~Annual urs (autumn)~DATE_SPLIT
+Shrine of Peer Makki~Muslim Shrine~Complex~Active~Hazrat Syed Azizuddin al-Hassani wal-Hussaini (Peer Makki)~Sufi saint~~~unknown~Shrine complex includes the Hazrat Pir Makki Masjid~1132~1215~~~Annual urs (9-11 Rabi al-Awwal); Thursday-night gatherings; dhamal and qawwali~DATE_SPLIT;EVENTS_FIXED
+Shrine of Pir Baba (Syed Ali Tirmizi)~Muslim Shrine~Complex~Active~Syed Ali Tirmizi (Pir Baba)~Sufi saint~~1600~century~Shrine developed after 1583; mosque c. 1938-1965~1502~1583~~~Annual urs (24-26 Rajab)~DATE_SPLIT
+Shrine of Pir Chhatal Shah Noorani~Muslim Shrine~Dargah/Mazar~Active~Pir Chhatal Shah Noorani~Sufi saint~~~unknown~Recorded as a domed gumbaz in 1831; dome since collapsed~~~~~Visited year-round by Muslim and Hindu pilgrims; no fixed urs recorded~
+Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi~Muslim Shrine~Dargah/Mazar~Active~Pir Lakha~Sufi saint~~~unknown~Undocumented~~~~~Year-round pilgrimage; ritual bathing in the hot springs~
+Shrine of Pir Mangho~Muslim Shrine~Complex~Active~Pir Mangho (Haji Syed Sakhi Sultan)~Sufi saint~~773~circa~Sacred crocodile pool and sulphur springs~~~~~Annual urs; Sheedi Mela (drumming, dance, offerings to the crocodiles)~
+Shrine of Pir Sher Muhammad~Muslim Shrine~Khanqah~Active~Mian Pir Sher Muhammad Sharaqpuri~Sufi saint~Qadiri~1928~exact~~1865~1928~~~Annual urs; naat and qawwali; daily langar~DATE_SPLIT
+Shrine of Qalandar Baba Auliya~Muslim Shrine~Dargah/Mazar~Active~Sayyid Muhammad Azeem Barkhiya (Qalandar Baba Auliya)~Sufi saint~Azeemia~1979~exact~Centre of the Azeemia order~1898~1979~~~Annual urs~DATE_SPLIT
+Shrine of Sachal Sarmast~Muslim Shrine~Complex~Active~Sachal Sarmast (Abdul Wahab Faruqi)~Sufi saint~~1829~exact~Blue kashi tilework~1739~1827~~~Annual urs; poetry, music and dhamal~DATE_SPLIT;NO_VERSE
+Shrine of Shah Abdul Karim Bulri~Muslim Shrine~Complex~Active~Shah Abdul Karim Bulri~Sufi saint~~1741~exact~1154 AH; three-domed mosque~1536~1623~~~Annual urs~DATE_SPLIT
+Shrine of Shah Inayat Qadiri~Muslim Shrine~Complex~Active~Shah Inayat Qadiri~Sufi saint~Qadiri~~unknown~Murshid of Bulleh Shah; buried with two sons~1643~1728~~~Annual urs (25-27 Jamadi al-Thani); zikr, qawwali and langar~DATE_SPLIT
+Shrine of Shah Jamal~Muslim Shrine~Complex~Active~Syed Shah Jamal Uddin Naqvi Bukhari~Sufi saint~Suhrawardi~~unknown~Tomb enclosed within a modern single-domed mosque~1587~1671~~~Annual urs (3-5 Rabi al-Thani); weekly Thursday-night dhamal~DATE_SPLIT
+Shrine of Shah Rukn-e-Alam~Muslim Shrine~Mausoleum/Memorial~Active~Shah Rukn-e-Alam (Rukn-ud-Din Abul Fath)~Sufi saint~Suhrawardi~1330~circa~Early 14th c. Tughluq style; sheet value 1235 unsupported~1251~1335~~~Annual urs; qawwali; daily langar~DATE_CORRECTED
+Shrine of Shah Shams-ud-Din Sabzwari~Muslim Shrine~Dargah/Mazar~Active~Shah Shams-ud-Din Sabzwari~Sufi saint~~1779~exact~Rebuilt 1779~~1276~~~Annual urs; qawwali and langar~DATE_SPLIT
+Shrine of Shah Yusaf Gardez~Muslim Shrine~Dargah/Mazar~Active~Shah Yusuf Gardez~Sufi saint~~1152~circa~Blue-and-white kashi tilework~~1150~~~Annual urs~DATE_SPLIT
+Shrine of Syed Musa Pak~Muslim Shrine~Dargah/Mazar~Active~Syed Musa Pak Shaheed~Sufi saint~Qadiri~1592~circa~Seat of the Musa Pak Gilani sayyids~~~~~Annual urs; qawwali; langar~
+Sial Sharif~Muslim Shrine~Khanqah~Active~Khwaja Muhammad Shamsuddin Sialvi~Sufi saint~Chishti~1883~exact~~1799~1883~~~Annual urs; naat and qawwali; daily langar~DATE_SPLIT
+Swami Dharmdas Darbar, Larkana (Kennedy Market)~Nanakpanthi / Udasi Darbar~Temple~Active~Swami Dharmdas~Sant~~1900~century~Late 19th-early 20th c.; uncertain~~~~~No events documented~CAT_CHANGED
+Tilla Jogian~Hindu Temple~Complex~Ruin~Guru Gorakhnath (Nath yogis)~Sant~~~unknown~Founding legendary; abandoned 1947~~~~~None - abandoned since 1947~EVENTS_FILLED
+Tomb of Allama Iqbal (Mazar-e-Iqbal)~Muslim Shrine~Mausoleum/Memorial~Active~Allama Muhammad Iqbal~Historical person~~1951~exact~Completed c. 1951~1877~1938~~~Iqbal Day (9 November); death anniversary (21 April); daily changing of the guard~DATE_SPLIT;EVENTS_FILLED
+Tomb of Baha'al-Halim (Uch Sharif)~Muslim Shrine~Mausoleum/Memorial~Active~Hazrat Baha'al-Halim~Sufi saint~Suhrawardi~1400~century~14th c., traditionally~~~~~Annual urs~
+Tomb of Javindi Bibi~Muslim Shrine~Mausoleum/Memorial~Heritage~Bibi Jawindi~Historical person~Suhrawardi~1493~circa~Built c. 1493; largely collapsed in a 19th-c. flood. Sheet gave 1291 and named the wrong figure~~~~~Annual urs~FIGURE_MISMATCH;COORD_FIXED;DATE_CORRECTED
+Tomb of Qutbuddin Aibak~Secular / Memorial~Mausoleum/Memorial~Heritage~Sultan Qutb ud-Din Aibak~Historical person~~1975~circa~Original 1210; present structure a 1970s reconstruction~1150~1210~~~None - heritage site, no devotional programme~CAT_CHANGED;EVENTS_FIXED;DATE_SPLIT
+Tomb of Ustad Nuriya~Secular / Memorial~Mausoleum/Memorial~Ruin~Ustad Nuriya~Historical person~~1493~circa~Attributed to the builder of Bibi Jawindi's tomb~~~~~None - heritage site, no devotional programme~CAT_CHANGED;EVENTS_FIXED;NOTE_STRIPPED
+Umarkot (Amarkot) Shiv Mandir~Hindu Temple~Temple~Active~Shiva (Mahadev)~Deity~~1905~circa~Present structure c. early 1900s; site far older~~~~~Maha Shivratri (three-day festival)~EVENTS_FILLED
+Valmik Mandir (Naqi Road)~Hindu Temple~Temple~Active~Valmiki (Bhagwan Valmik)~Deity~~~unknown~Heritage claims of great antiquity; unverified~~~~~Holi; Diwali; Valmiki Jayanti~EVENTS_FILLED
+Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi~Hindu Temple~Temple~Active~Valmiki (Bhagwan Valmik)~Deity~~1935~exact~~~~~~Diwali; Holi~
+Wadpagga Sharif~Muslim Shrine~Dargah/Mazar~Active~Ghazi Syed Shah Fateh Muhammad Bukhari~Sufi saint~Suhrawardi~1550~century~16th c.~~~~~Annual urs~
+Ziarat Kaka Sahib~Muslim Shrine~Mausoleum/Memorial~Active~Syed Kasteer Gul (Kaka Sahib)~Sufi saint~Naqshbandi~1661~circa~Built by his son Sheikh Abdul Haleem~1575~1653~~~Annual urs; regular pilgrimage~DATE_SPLIT
+"""
+
+HEADER = ["name","id","category","site_type","status","principal_figure","figure_type",
+          "silsila","year_built","year_built_precision","year_built_note","figure_born",
+          "figure_died","event_year","event_note","events","flags"]
+
+# Slugs already baked into live photo URLs (raufnawaz.github.io/Sufi-Shrines/photos/<slug>/).
+# These MUST be preserved or the 8 field-surveyed shrines lose their images.
+SLUG_OVERRIDE = {
+    "Data Darbar": "data-darbar",
+    "Shrine of Abul Faiz Qalander Ali Suharwardi": "abul-faiz-qalander-ali-suharwardi",
+    "Shrine of Bibi Pak Daman": "bibi-pak-daman",
+    "Shrine of Ganj e Inayat Sarkar": "ganj-e-inayat-sarkar",
+    "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)": "madho-lal-hussain",
+    "Tomb of Allama Iqbal (Mazar-e-Iqbal)": "mazar-e-iqbal",
+    "Shrine of Peer Makki": "peer-makki",
+    "Shrine of Shah Jamal": "shah-jamal",
+}
+
+def slug(s):
+    s = unicodedata.normalize("NFKD", s).encode("ascii","ignore").decode()
+    s = re.sub(r"[^A-Za-z0-9]+", "-", s).strip("-").lower()
+    return re.sub(r"-+", "-", s)
+
+out, seen = [], set()
+for line in ROWS.strip().splitlines():
+    f = [c.strip() for c in line.split("~")]
+    assert len(f) == 16, f"{len(f)} fields: {f[0]}"
+    name = f[0]
+    sid = SLUG_OVERRIDE.get(name) or slug(name)
+    assert sid not in seen, f"duplicate id: {sid}"
+    seen.add(sid)
+    out.append([name, sid] + f[1:])
+
+with open("shrines_field_patch.tsv","w",newline="",encoding="utf-8") as fh:
+    w = csv.writer(fh, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
+    w.writerow(HEADER)
+    w.writerows(out)
+
+# ---- integrity report ----
+from collections import Counter
+cat = Counter(r[2] for r in out)
+sta = Counter(r[4] for r in out)
+flg = Counter(t for r in out for t in r[16].split(";") if t)
+
+print(f"rows: {len(out)}\n")
+print("category:");   [print(f"  {k:<32}{v}") for k,v in cat.most_common()]
+print("\nstatus:");   [print(f"  {k:<32}{v}") for k,v in sta.most_common()]
+print("\nflags:");    [print(f"  {k:<32}{v}") for k,v in flg.most_common()]
+
+# coherence checks
+print("\ncoherence checks:")
+bad = 0
+for r in out:
+    n, yb, born, died = r[0], r[8], r[11], r[12]
+    if yb and born and int(yb) < int(born):
+        print(f"  ! {n}: year_built {yb} precedes birth {born}"); bad += 1
+    if born and died and int(died) <= int(born):
+        print(f"  ! {n}: died {died} <= born {born}"); bad += 1
+    if not r[15]:
+        print(f"  ! {n}: empty events"); bad += 1
+    if r[15].lower().startswith("no events scheduled"):
+        print(f"  ! {n}: placeholder events survived"); bad += 1
+print(f"  {bad} issue(s)")

@@ -1,0 +1,356 @@
+# TERMBASE v1.0 — controlled vocabulary and romanisation authority for a public archive of religious shrines in Pakistan.
+# ROMANISATION CONVENTION (LIGHT): long vowels marked with macrons only (a i u -> ā ī ū). ʿayn = ʿ (U+02BF). hamza = ʾ (U+02BE). NO under-dots and NO over-dots: write h s t d z n r s (not ḥ ṣ ṭ ḍ ẓ ṇ ṛ ś). Digraphs kh gh ch sh zh th dh ph. Sanskrit/Prakrit c -> ch (āchārya, chhatri), ś/ṣ -> sh, ṛ -> ri (garbhagriha), ṅ/ṃ -> n/m. Arabic definite article always "al-" and hyphenated (Rabīʿ al-Awwal), never "ul-" or "us-". Izāfat rendered "-e-" (Ahl-e-Sunnat, Shab-e-Barāt). Final silent -h dropped (fātiha not fātihah; khānqāh keeps -h because it is pronounced). Proper nouns capitalised and NOT italicised.
+# COLUMNS: canonical <TAB> script <TAB> variants (semicolon-delimited, normalise TO canonical) <TAB> category <TAB> gloss <TAB> translate
+# TRANSLATE VALUES: NO = keep the romanised term, italicised, with the gloss on first use in an entry. YES = do not use the foreign term in running prose, use the English gloss instead. NAME = proper noun, use as written, capitalised, roman (not italic), never translated.
+# EMPTY script CELL = the compiler was not confident of the script rendering. Do not fill it by guessing.
+# CATEGORIES: SUFI_ORDER OFFICE_TITLE RITUAL ARCHITECTURE CALENDAR PLACE TRADITION INSTITUTION
+canonical	script	variants	category	gloss	translate
+silsila	سلسلہ	silsilah;silsilla;silsile;sisila;silsala	SUFI_ORDER	initiatic lineage of a Sufi order, transmitted master to disciple	NO
+tarīqa	طریقہ	tariqa;tariqah;tareeqa;tariqat;tareeqat;tariqua	SUFI_ORDER	Sufi path or order; also the second of the four stages of the Sufi way	NO
+shajra	شجرہ	shajrah;shijra;shajra-e-nasab;shajra sharif	SUFI_ORDER	written spiritual genealogy linking a pīr back through the silsila	NO
+khānwāda	خانوادہ	khanwada;khandan;khanwadah;khanwara	SUFI_ORDER	house or family branch of a Sufi order	NO
+nisbat	نسبت	nisbah;nisbet	SUFI_ORDER	spiritual affiliation or connection to a master or order	NO
+tasawwuf	تصوف	tasawuf;tassawuf;tasawwof	SUFI_ORDER	Sufism; the discipline of Islamic mysticism	NO
+Chishti	چشتی	Chisti;Chishty;Chishtia;Chishtiya;Chishtiyya;Chestee;Cheshti	SUFI_ORDER	Sufi order founded in Chisht, dominant in South Asia	NAME
+Chishti-Nizami	چشتی نظامی	Chishtia Nizamia;Chishti Nizamiya;Nizami Chishti;Chisti Nizami;Nizamia	SUFI_ORDER	branch of the Chishti order descending from Nizamuddin Auliya	NAME
+Chishti-Sabiri	چشتی صابری	Chishtia Sabria;Sabri Chishti;Chishti Sabiriya;Chisti Sabri;Sabria	SUFI_ORDER	branch of the Chishti order descending from Alauddin Ali Ahmad Sabir of Kaliyar	NAME
+Suhrawardi	سہروردی	Suharwardi;Sohrawardi;Suhrwardi;Suhurwardi;Shurawardi;Suhrawardiyya;Suhrawardia;Sahrwardi	SUFI_ORDER	Sufi order established in Multan by Bahauddin Zakariya	NAME
+Qadiri	قادری	Qadri;Kadri;Qaderi;Qadiriyya;Qadiria;Qadriya;Quadri	SUFI_ORDER	Sufi order tracing to Abdul Qadir Jilani of Baghdad	NAME
+Naqshbandi	نقشبندی	Naqshbandia;Naqshbandiyya;Naqshbandiya;Nakshbandi;Naqshabandi;Naqshbendi	SUFI_ORDER	Sufi order tracing to Bahauddin Naqshband of Bukhara, known for silent dhikr	NAME
+Naqshbandi-Mujaddidi	نقشبندی مجددی	Naqshbandia Mujaddidia;Mujaddadi;Mujadidi;Mujaddidiya;Naqshbandi Mujadadi	SUFI_ORDER	Naqshbandi branch renewed by Ahmad Sirhindi, the Mujaddid-e-Alf-e-Sani	NAME
+Qalandari	قلندری	Qalandaria;Kalandari;Qalanderi;Qalandariyya;Kalandri	SUFI_ORDER	antinomian Sufi tendency of wandering ascetics	NAME
+Malāmati	ملامتی	Malamati;Malamatia;Malaamati;Mulamati;Malamatiyya	SUFI_ORDER	Sufi tendency that courts public blame to destroy the ego	NAME
+Sarwari Qadiri	سروری قادری	Sarwari Qadri;Sarwary Qadiri;Sarwari Qadriya;Sarwari-Qadri	SUFI_ORDER	Qadiri branch associated with Sultan Bahu of Jhang	NAME
+Naushahia	نوشاہیہ	Naushahi;Nowshahi;Naushahiya;Nowshahia;Noshahi;Naushahia Qadiria	SUFI_ORDER	Qadiri branch founded by Sultan Sakhi Sarwar Naushah Ganj Bakhsh of Ranmal Sharif	NAME
+Rashidi	راشدی	Rashdi;Rashidia;Rashidiyya;Raashidi	SUFI_ORDER	Sindhi Sufi branch descending from Pir Muhammad Rashid Rozey Dhani of Pir jo Goth	NAME
+Shattari	شطاری	Shatari;Shuttari;Shattariyya;Shattaria	SUFI_ORDER	Sufi order noted for rapid ascetic methods, active in Mughal India	NAME
+Azeemia	عظیمیہ	Azimia;Azeemiya;Azimiyya;Azeemi;Azeemiyah	SUFI_ORDER	twentieth-century Pakistani Sufi order founded by Qalandar Baba Auliya	NAME
+Owaisi	اویسی	Uwaisi;Uwaysi;Owaysi;Awaisi;Ovaisi;Uwaisiyya	SUFI_ORDER	transmission received spiritually rather than from a living master	NAME
+Jalāli	جلالی	Jalali;Jalalia;Jalaliya;Jelali	SUFI_ORDER	branch associated with Jalaluddin Surkh-Posh Bukhari of Uch; also a Qalandari sub-current	NAME
+Madāri	مداری	Madari;Madaria;Madariyya;Maddari	SUFI_ORDER	order of Badiuddin Shah Madar, associated with wandering faqīrs	NAME
+Rifāʿi	رفاعی	Rifai;Rifaai;Rufai;Rifaiyya;Rafai	SUFI_ORDER	Sufi order founded by Ahmad al-Rifaʿi, known for ecstatic practices	NAME
+Kubrawi	کبروی	Kubravi;Kubrawiyya;Kubrawia;Kubrevi	SUFI_ORDER	order of Najmuddin Kubra, historically present in Kashmir and the north	NAME
+Nurbakhshi	نوربخشی	Noorbakhshi;Nurbakhshia;Noorbakshi;Nurbaksh	SUFI_ORDER	Sufi-derived tradition of Baltistan and Gilgit-Baltistan	NAME
+sharīʿat	شریعت	shariat;sharia;shariah;shareeat;shari'at	SUFI_ORDER	revealed law; first of the four stages of the Sufi way	NO
+haqīqat	حقیقت	haqiqat;haqiqah;haqeeqat;hakikat	SUFI_ORDER	inner reality; third of the four stages of the Sufi way	NO
+maʿrifat	معرفت	marifat;marifah;maarifat;ma'rifat;maerifat	SUFI_ORDER	gnosis, experiential knowledge of God; fourth stage of the Sufi way	NO
+sajjāda nashīn	سجادہ نشین	sajjada nasheen;sajjadanashin;sajada nashin;sajjada-nashin;sajjadah nashin;sajjada nishin;sajada nasheen;sajjada nashin	OFFICE_TITLE	hereditary custodian of a shrine and spiritual successor of its saint	NO
+gaddi nashīn	گدی نشین	gaddi nasheen;gadi nashin;gaddinashin;gadhi nashin;gaddi nashin	OFFICE_TITLE	occupant of the seat; custodian of a shrine or spiritual lineage	NO
+khādim	خادم	khadim;khadam;khaadim;khadem;khuddam	OFFICE_TITLE	attendant who serves at a shrine (plural khuddām)	NO
+mujāwir	مجاور	mujawir;mujawar;mujavir;mojawar;mujaver	OFFICE_TITLE	resident caretaker who tends a tomb and receives visitors	NO
+mutawalli	متولی	mutwalli;mutawali;mutawwali	OFFICE_TITLE	trustee or manager of an endowed religious property	NO
+pīr	پیر	pir;peer;peer sahib;pirr	OFFICE_TITLE	Sufi master and guide who initiates disciples	NO
+murshid	مرشد	murshad;murshed;murshid-e-kamil	OFFICE_TITLE	spiritual guide, effectively synonymous with pīr	NO
+murīd	مرید	murid;mureed;moureed;mureeds	OFFICE_TITLE	initiated disciple of a pīr	NO
+khalīfa	خلیفہ	khalifa;khaleefa;khalifah;kalifa;khalifas	OFFICE_TITLE	deputy authorised by a pīr to initiate disciples in his name	NO
+makhdūm	مخدوم	makhdoom;makdoom;makhdum;makhdum sahib	OFFICE_TITLE	honorific for a revered master, common in Sindh and Multan	NO
+ghaus	غوث	ghous;ghawth;ghawz;gauth;ghouse;ghaus-e-azam	OFFICE_TITLE	succour; rank at the summit of the hierarchy of saints	NO
+qutb	قطب	qutub;kutub;qutab;kutb;qutb-e-alam	OFFICE_TITLE	axis or pole; a saint at the centre of the spiritual hierarchy of an age	NO
+wali	ولی	walee;vali;awliya;auliya	OFFICE_TITLE	friend of God, a saint (plural awliyāʾ)	NO
+wilāyat	ولایت	wilayat;vilayat;wilaya;walayat	OFFICE_TITLE	sainthood; the spiritual jurisdiction of a saint	NO
+faqīr	فقیر	faqir;fakir;faqeer;fakeer;fuqir;fuqara	OFFICE_TITLE	one poor before God; a Sufi mendicant or shrine devotee	NO
+darwīsh	درویش	darwesh;darvesh;dervish;darvish;darweesh;darwish	OFFICE_TITLE	Sufi ascetic	NO
+malang	ملنگ	mallang;malangs;mulang	OFFICE_TITLE	unaffiliated ecstatic devotee, typically of a Qalandari cast	NO
+majzūb	مجذوب	majzoob;majzub;mazzoob;majdhub	OFFICE_TITLE	one so absorbed in God as to be beyond ordinary social norms	NO
+qalandar	قلندر	kalandar;qalander;kalander	OFFICE_TITLE	wandering antinomian Sufi; also a title borne by particular saints	NO
+hāfiz	حافظ	hafiz;haafiz;hafez;hafiz sahib	OFFICE_TITLE	one who has memorised the Qurʾan	NO
+khatīb	خطیب	khatib;khateeb;khateb	OFFICE_TITLE	preacher who delivers the Friday sermon	NO
+imām	امام	imam;emam;imaam	OFFICE_TITLE	prayer leader; in Shia usage one of the divinely appointed leaders	NO
+muʾadhdhin	مؤذن	muazzin;moazzin;muezzin;muazin;moazin;muadhdhin	OFFICE_TITLE	one who calls the prayer	NO
+qawwāl	قوال	qawwal;qawal;kawwal;qawaal;qawwals	OFFICE_TITLE	performer of qawwālī, usually working in a hereditary party	NO
+naʿt khwān	نعت خواں	naat khwan;naat khuwan;natkhwan;naat-khawan;nat khwan	OFFICE_TITLE	singer of devotional poetry in praise of the Prophet	NO
+pīrzāda	پیرزادہ	pirzada;peerzada;pirzade;pirzadgan	OFFICE_TITLE	descendant of a pīr, often holding a hereditary role at the shrine	NO
+sāhibzāda	صاحبزادہ	sahibzada;sahebzada;sahibzadah	OFFICE_TITLE	son of a pīr or notable religious figure	NO
+sayyid	سید	syed;saiyid;sayed;saiyad;sayyad;syyed;sayid	OFFICE_TITLE	descendant of the Prophet through Fatima and Ali	NO
+shaykh	شیخ	sheikh;shaikh;shekh;sheik	OFFICE_TITLE	elder or master; also a caste designation in Punjab and Sindh	NO
+Hazrat	حضرت	Hadrat;Hazrath;Hazarat	OFFICE_TITLE	honorific prefixed to the name of a revered figure	NAME
+Shah	شاہ	Shaah;Shahji	OFFICE_TITLE	honorific borne by sayyids and saints in Sindh and Punjab	NAME
+Sain	سائیں	Saeen;Sayeen;Saien;Saeein	OFFICE_TITLE	Sindhi and Punjabi honorific of respect for a holy man or elder	NAME
+Baba	بابا	Babaji;Baaba	OFFICE_TITLE	father; affectionate honorific for a saint or elder, also used in Sikh usage	NAME
+Bībī	بی بی	Bibi;Beebi;Bee Bee	OFFICE_TITLE	honorific for a revered woman	NAME
+Māi	مائی	Mai;Mayi;Maai;Mae	OFFICE_TITLE	honorific for an elderly or saintly woman in Punjabi and Sindhi usage	NAME
+diwān	دیوان	dewan;diwan;dewaan;deewan;diwan sahib	OFFICE_TITLE	minister or administrator; hereditary title at some shrines and Sindhi families	NO
+Rai	رائے	Rae;Ray	OFFICE_TITLE	title of a chief or notable, common in Sindhi and Punjabi Hindu usage	NAME
+granthī	ਗ੍ਰੰਥੀ	granthi;grunthi;granthee;granthis	OFFICE_TITLE	custodian and reader of the Guru Granth Sahib at a gurdwara	NO
+sevādār	ਸੇਵਾਦਾਰ	sevadar;sewadar;sewadaar;sevadaar;sewadars	OFFICE_TITLE	volunteer who performs service at a gurdwara or shrine	NO
+sardār	ਸਰਦਾਰ	sardar;sirdar;surdar;sardaar	OFFICE_TITLE	chief or headman; also a general term of address for Sikh men	NO
+sant	ਸੰਤ	santh;santji;sants	OFFICE_TITLE	holy man in the Sikh and North Indian devotional traditions	NO
+bhagat	ਭਗਤ	bhagath;bhagatji	OFFICE_TITLE	devotee; also the non-Sikh saints whose hymns appear in the Guru Granth Sahib	NO
+mahant	ਮਹੰਤ	mahunt;mohant;mahanth	OFFICE_TITLE	hereditary head of a temple, dera, or Udasi establishment	NO
+swāmi	स्वामी	swami;svami;swamy;shwami;swamiji	OFFICE_TITLE	master; title of a Hindu ascetic or teacher	NO
+sādhu	साधु	sadhu;saadhu;sadh;sadhus	OFFICE_TITLE	Hindu renunciant	NO
+pujāri	पुजारी	pujari;poojari;pujaree;pujarees	OFFICE_TITLE	priest who performs worship at a Hindu temple	NO
+pandit	पंडित	pundit;pandat;panditji	OFFICE_TITLE	learned Brahmin, often serving as a temple or domestic priest	NO
+Brahmin	ब्राह्मण	Brahman;Brahmun;Brahmins;Braman	OFFICE_TITLE	member of the priestly varna	NAME
+āchārya	आचार्य	acharya;acharaya;acharyaji;achariya	OFFICE_TITLE	preceptor; in Jain usage the head of a monastic order	NO
+muni	मुनि	munis;muniji	OFFICE_TITLE	Jain monk	NO
+jogī	جوگی	jogi;yogi;jogis;joghi	OFFICE_TITLE	yogic ascetic, in Pakistan often of the Nath tradition	NO
+ʿurs	عرس	urs;uroos;ars;urs mubarak;ors	RITUAL	death anniversary of a saint, celebrated as his wedding with the Divine	NO
+dhamāl	دھمال	dhamal;dhamaal;dhammal;damal;dammal	RITUAL	ecstatic drum-driven dance performed at shrines, above all at Sehwan Sharif	NO
+qawwālī	قوالی	qawwali;qawali;kawali;qavvali;qawaali;quwwali	RITUAL	devotional assembly music of the Chishti tradition	NO
+samāʿ	سماع	sama;samaa;sema;sama';samaa'	RITUAL	spiritual audition; listening to music as a devotional discipline	NO
+mehfil-e-samāʿ	محفل سماع	mehfil-e-sama;mehfil e sama;mahfil-i sama;mehfil sama	RITUAL	formal gathering for samāʿ	NO
+dhikr	ذکر	zikr;zikar;zekr;zikir;dhikar	RITUAL	remembrance of God through repeated formulae, aloud or silently	NO
+langar	لنگر	langer;lunger;lungar	RITUAL	free communal meal provided at a shrine or gurdwara	NO
+chādar	چادر	chadar;chaddar;chaddur;chader;chaadar	RITUAL	ceremonial cloth laid over a tomb as an offering	NO
+ziyārat	زیارت	ziarat;ziyarah;ziyara;zearat;ziyarat;ziarah	RITUAL	pilgrimage visit to a tomb or holy site	NO
+fātiha	فاتحہ	fateha;fatiha;fatehah;fatiah;fatihah	RITUAL	recitation of the opening chapter of the Qurʾan for the dead	NO
+mannat	منت	manat;munnat;manaat	RITUAL	vow or petition made at a shrine, redeemed when the request is granted	NO
+bayʿat	بیعت	baiat;bayat;baet;bai'at;biyat;bayah	RITUAL	oath of allegiance by which a disciple binds himself to a pīr	NO
+chilla	چلہ	chila;chillah;chhilla;chilla kashi	RITUAL	forty-day retreat of seclusion and austerity	NO
+khatam	ختم	khatm;khattam;khatam sharif;khatm-e-Quran	RITUAL	completion recitation, usually of the Qurʾan, dedicated to the dead	NO
+mīlād	میلاد	milad;milaad;maulid;mawlid;maulood;maulud;milaad-un-nabi	RITUAL	gathering celebrating the birth of the Prophet	NO
+naʿt	نعت	naat;nat;na't;naath;naat sharif	RITUAL	devotional poem in praise of the Prophet	NO
+manqabat	منقبت	manqbat;manqabats	RITUAL	devotional poem in praise of a saint or of Ali	NO
+kāfi	کافی	kafi;kaafi;kafis	RITUAL	Sindhi and Punjabi Sufi lyric form sung at shrines	NO
+nazrāna	نذرانہ	nazrana;nazarana;nizrana;nazranah	RITUAL	cash or gift offered to a shrine or to its custodian	NO
+niyāz	نیاز	niaz;niyaz;neaz;niyaaz	RITUAL	food consecrated in a saint's name and distributed	NO
+degh	دیگ	deg;deig;degs	RITUAL	large cauldron in which consecrated food is cooked and distributed	NO
+ghusl	غسل	ghusal;gusl;ghussal	RITUAL	ritual washing; at a shrine, the ceremonial washing of the tomb at the ʿurs	NO
+sandal	صندل	chandan rasm;rasm-e-sandal;sandal sharif	RITUAL	sandalwood-paste anointing of a tomb that opens the ʿurs	NO
+hāzri	حاضری	hazri;haziri;hazari;haazri	RITUAL	presenting oneself at a shrine; attendance before the saint	NO
+duʿā	دعا	dua;duaa;dua'a;duaas	RITUAL	supplicatory prayer, distinct from the obligatory namāz	NO
+barakat	برکت	baraka;barkat;barakah	RITUAL	blessing-power believed to inhere in a saint, tomb, or relic	NO
+karāmat	کرامت	karamat;karamah;karaamat;keramat;karamaat	RITUAL	miracle worked by a saint	NO
+faiz	فیض	faid;fayz;faiz-e-batini	RITUAL	spiritual grace flowing from a saint to devotees	NO
+taʿziya	تعزیہ	taziya;tazia;taazia;tazzia;taziyah	RITUAL	replica of the tomb of Husayn carried in Muharram processions	NO
+matam	ماتم	maatam;matham;matami	RITUAL	rhythmic breast-beating mourning for the martyrs of Karbala	NO
+majlis	مجلس	majalis;majlis-e-aza	RITUAL	Shia mourning assembly with sermon and elegy	NO
+ʿalam	علم	alam;alum;alam-e-abbas;alams	RITUAL	metal standard carried in Muharram, representing the battle standard of Karbala	NO
+prakāsh	ਪ੍ਰਕਾਸ਼	parkash;prakash;parkash karna;prakash seva	RITUAL	ceremonial opening and installation of the Guru Granth Sahib for the day	NO
+sukhāsan	ਸੁਖਆਸਨ	sukhasan;sukh asan;sukhaasan	RITUAL	evening ceremony of retiring the Guru Granth Sahib to its resting room	NO
+akhand pāth	ਅਖੰਡ ਪਾਠ	akhand path;akhandpath;akand path;akhand paath	RITUAL	unbroken forty-eight-hour reading of the entire Guru Granth Sahib	NO
+sahaj pāth	ਸਹਿਜ ਪਾਠ	sahaj path;sehaj path;sahaj paath	RITUAL	unhurried reading of the Guru Granth Sahib completed over days or weeks	NO
+kīrtan	ਕੀਰਤਨ	kirtan;keertan;kirtain;kirtans	RITUAL	congregational singing of scriptural hymns	NO
+ardās	ਅਰਦਾਸ	ardas;ardaas;ardass	RITUAL	formal Sikh congregational prayer	NO
+hukamnāmā	ਹੁਕਮਨਾਮਾ	hukamnama;hukumnama;hukam nama;hukamnamah	RITUAL	the day's randomly opened reading from the Guru Granth Sahib; also a historic edict	NO
+sevā	ਸੇਵਾ	seva;sewa;sevaa	RITUAL	voluntary service performed as worship	NO
+karāh prashād	ਕੜਾਹ ਪ੍ਰਸ਼ਾਦ	karah prashad;kara prasad;karah parshad;kadah prashad	RITUAL	sanctified semolina pudding distributed at a gurdwara	NO
+prashād	ਪ੍ਰਸ਼ਾਦ	prasad;prashad;parshad;prasaad;parsad	RITUAL	food offered to a deity or Guru and returned to devotees as blessing	NO
+amrit sanchār	ਅੰਮ੍ਰਿਤ ਸੰਚਾਰ	amrit sanchar;amrit sanskar;khande di pahul;amrit chhakna	RITUAL	Khalsa initiation ceremony	NO
+kathā	ਕਥਾ	katha;kathaa;kathas	RITUAL	discursive exposition of scripture	NO
+pūjā	पूजा	puja;pooja;poojah;puja paath	RITUAL	Hindu worship of a deity image	NO
+āratī	आरती	arti;aarti;aarati;arati;aarthi	RITUAL	waving of lamps before a deity, accompanied by song	NO
+bhajan	भजन	bhajjan;bhajans	RITUAL	Hindu devotional song	NO
+darshan	दर्शन	darshana;darsan;darshun;darshanam	RITUAL	auspicious beholding of a deity image or of a holy person	NO
+havan	हवन	hawan;homa;hom	RITUAL	fire offering	NO
+abhishek	अभिषेक	abhisheka;abhishekam	RITUAL	ritual bathing of a deity image or lingam	NO
+parikramā	परिक्रमा	parikrama;parkarma;pardakshina;parikarma	RITUAL	circumambulation of a shrine, tank, or sacred object	NO
+yātrā	यात्रा	yatra;yaatra;jatra;yatras	RITUAL	pilgrimage journey	NO
+melā	میلہ	mela;maila;mella;melas	RITUAL	fair held at a shrine on the saint's or deity's day	NO
+samādhi	समाधि	samadhi;samaadhi;smadhi	RITUAL	meditative absorption; the yogic death of an accomplished ascetic	NO
+mazār	مزار	mazar;mazaar;mizar;mazaars;mazars	ARCHITECTURE	tomb of a saint, the built focus of a shrine	NO
+dargāh	درگاہ	dargah;durgah;dargaah;darga;dergah	ARCHITECTURE	shrine complex around a saint's tomb	NO
+darbār	دربار	darbar;durbar;darbaar;darbar sharif	ARCHITECTURE	court; the precinct of a major shrine, as at Data Darbar	NO
+khānqāh	خانقاہ	khanqah;khanqa;khankah;khangah;khanaqah;khanqahs	ARCHITECTURE	Sufi lodge providing residence, teaching, and hospitality	NO
+āstāna	آستانہ	astana;aastana;asthana;astan;astana alia	ARCHITECTURE	threshold; the seat or shrine of a living or deceased pīr	NO
+chilla-gāh	چلہ گاہ	chillagah;chila gah;chillah gah;chilagah;chilla-gah	ARCHITECTURE	site where a saint performed a forty-day retreat, often venerated separately	NO
+qadamgāh	قدم گاہ	qadamgah;kadamgah;qadam gah;qadam rasul;qadam rasool	ARCHITECTURE	shrine housing an impression venerated as a footprint	NO
+rauza	روضہ	rawza;rouza;roza;raudah	ARCHITECTURE	garden mausoleum; note that "roza" also means a fast and must be disambiguated	NO
+maqbara	مقبرہ	makbara;maqbarah;maqbra	ARCHITECTURE	mausoleum	NO
+hujra	حجرہ	hujrah;hujara;hujras	ARCHITECTURE	cell or chamber for retreat, study, or guests	NO
+sahn	صحن	sahan;sehan;sehn	ARCHITECTURE	courtyard of a mosque or shrine	YES
+jālī	جالی	jali;jaali;jalli;jalis	ARCHITECTURE	perforated stone or plaster lattice screen	NO
+gumbad	گنبد	gumbaz;gunbad;gumbat;gombad	ARCHITECTURE	dome	YES
+mihrāb	محراب	mihrab;mehrab;meharab;mihraab	ARCHITECTURE	niche marking the direction of prayer	NO
+mimbar	منبر	minbar;mambar;mimber	ARCHITECTURE	pulpit	YES
+minār	مینار	minar;meenar;minara;minaret	ARCHITECTURE	tower or minaret	YES
+qibla	قبلہ	kibla;qiblah	ARCHITECTURE	direction of prayer toward Mecca	NO
+masjid	مسجد	musjid;masjed;mosque	ARCHITECTURE	mosque	YES
+eidgāh	عیدگاہ	eidgah;idgah;eid gah;idgaah;eidgaah	ARCHITECTURE	open enclosure for the congregational Eid prayer	NO
+imāmbārgāh	امام بارگاہ	imambargah;imam bargah;imambara;imambarah;imam barga	ARCHITECTURE	Shia hall for Muharram assemblies and the housing of ʿalams and taʿziyas	NO
+chhatri	چھتری	chatri;chhattri;chatree;chhatris	ARCHITECTURE	domed pillared kiosk, often a cenotaph	NO
+jharoka	جھروکا	jharokha;jharoca;jharokas	ARCHITECTURE	projecting enclosed balcony	NO
+deorhi	ڈیوڑھی	deodhi;deori;dyorhi	ARCHITECTURE	gateway vestibule of a shrine or haveli	NO
+dālān	دالان	dalan;dallan;daalan	ARCHITECTURE	pillared hall or open verandah	NO
+chahār bāgh	چہارباغ	charbagh;chaharbagh;char bagh;chahar bagh	ARCHITECTURE	quadripartite garden, the standard Mughal tomb setting	NO
+muqarnas	مقرنس	moqarnas;muqarna;mukarnas	ARCHITECTURE	stalactite or honeycomb vaulting	NO
+kāshi	کاشی	kashi;kashi kari;kashikari;kashi tile;kashi work	ARCHITECTURE	glazed blue-and-white tilework of Multan, Hala, and Sindh	NO
+baolī	باولی	baoli;bawli;baori;bavdi;baodi	ARCHITECTURE	stepwell	NO
+haveli	حویلی	havelli;havili;hawaili;havelis	ARCHITECTURE	courtyard mansion	NO
+sarai	سرائے	serai;saray;sarae;caravanserai	ARCHITECTURE	walled rest house for travellers	NO
+langar khāna	لنگر خانہ	langar khana;langarkhana;langar khanna	ARCHITECTURE	kitchen and hall where the langar is cooked and served	NO
+musāfir khāna	مسافر خانہ	musafir khana;musafirkhana;musafar khana	ARCHITECTURE	pilgrims' lodging at a shrine	NO
+gaddi	گدی	gadi;gadhi;guddi	ARCHITECTURE	the cushioned seat of a shrine custodian, and by extension the office itself	NO
+takht	ਤਖ਼ਤ	takhat;taqt;takhth	ARCHITECTURE	throne; one of the five seats of temporal authority in Sikhism	NO
+gurdwārā	ਗੁਰਦੁਆਰਾ	gurdwara;gurudwara;gurdawara;gurduara;guruduara;gurdawara sahib	ARCHITECTURE	Sikh place of worship housing the Guru Granth Sahib	NO
+sarovar	ਸਰੋਵਰ	sarowar;sarover;sarovar sahib	ARCHITECTURE	sacred bathing tank attached to a gurdwara	NO
+nishān Sāhib	ਨਿਸ਼ਾਨ ਸਾਹਿਬ	nishan sahib;nishaan sahib;nishan-e-sahib	ARCHITECTURE	saffron flag and pole marking a gurdwara	NO
+palki Sāhib	ਪਾਲਕੀ ਸਾਹਿਬ	palki sahib;palki;palaki sahib	ARCHITECTURE	canopied palanquin in which the Guru Granth Sahib is installed	NO
+manji Sāhib	ਮੰਜੀ ਸਾਹਿਬ	manji sahib;manji;manjee sahib	ARCHITECTURE	small platform for the Guru Granth Sahib; historically a preaching seat	NO
+samādh	ਸਮਾਧ	samadh;samadhs;smadh;samaadh	ARCHITECTURE	memorial structure raised over the cremation site of a saint or mahant	NO
+dharamshāla	ਧਰਮਸ਼ਾਲਾ	dharamsala;dharmshala;dharamshalla;dharamshala	ARCHITECTURE	pilgrim rest house; in early Sikh usage a place of congregation	NO
+tikāna		tikana;thikana;tikano;thikano;takana;tikanas	ARCHITECTURE	Nanakpanthi or Udasi centre in Sindh, housing scripture and a resident custodian	NO
+derā	ڈیرہ	dera;deera;derah;deras	ARCHITECTURE	establishment of a living saint or ascetic lineage	NO
+mandir	मंदिर	mander;mandar;mandirs	ARCHITECTURE	Hindu temple	NO
+shikhara	शिखर	shikhar;sikhara;sikhar;shikara	ARCHITECTURE	curvilinear spire over a temple sanctum	NO
+mandapa	मंडप	mandap;mandapam;manddap	ARCHITECTURE	pillared hall fronting a temple sanctum	NO
+garbhagriha	गर्भगृह	garbha griha;garbhgrih;garbha-griha;garbhagrha	ARCHITECTURE	innermost sanctum housing the deity	NO
+lingam	लिंग	linga;shivling;shiv ling;shiva linga	ARCHITECTURE	aniconic form of Shiva enshrined in the sanctum	NO
+kalash	कलश	kalasha;kalas;kalasam	ARCHITECTURE	pot-shaped finial crowning a temple spire	NO
+torana	तोरण	toran;thoran	ARCHITECTURE	ornamental gateway or arch, prominent in Jain temple architecture	NO
+derāsar	देरासर	derasar;derasara;dehra;deri;derasars	ARCHITECTURE	Jain temple, the usual term in western Indian and Bhabra usage	NO
+tīrtha	तीर्थ	tirth;tirtha;teerth;tirath	ARCHITECTURE	crossing place; a pilgrimage site	NO
+āshram	आश्रम	ashram;asram;aashram;ashrams	ARCHITECTURE	hermitage or residential religious establishment	NO
+Muharram	محرم	Moharram;Muharam;Moharrum;Muharram-ul-Haram;Moharam	CALENDAR	first month of the Islamic year; period of Shia mourning for Karbala	NAME
+Safar	صفر	Saffar;Sufar;Safar-ul-Muzaffar	CALENDAR	second month of the Islamic year	NAME
+Rabīʿ al-Awwal	ربیع الاول	Rabi-ul-Awal;Rabi ul Awwal;Rabiul Awwal;Rabi al-Awal;Rabbi ul Awal;Rabee ul Awal;Rabi I;Rabi al-Awwal	CALENDAR	third month; contains the Prophet's birth and death anniversary	NAME
+Rabīʿ al-Thāni	ربیع الثانی	Rabi-us-Sani;Rabi al-Thani;Rabi ul Akhir;Rabi-ul-Sani;Rabi II;Rabi ul Sani	CALENDAR	fourth month; the eleventh is the Giyārhwīn of Abdul Qadir Jilani	NAME
+Jumāda al-Ūla	جمادی الاولیٰ	Jamadi-ul-Awwal;Jumada al-Awwal;Jamadi ul Awal;Jamada al-Ula;Jumada I;Jumada al-Ula	CALENDAR	fifth month of the Islamic year	NAME
+Jumāda al-Ākhira	جمادی الآخرہ	Jamadi al-Thani;Jamadi-us-Sani;Jumada al-Thani;Jamadi ul Akhir;Jumada II;Jumada al-Akhira	CALENDAR	sixth month of the Islamic year	NAME
+Rajab	رجب	Rajjab;Rajab-ul-Murajjab	CALENDAR	seventh month; contains Shab-e-Miʿrāj	NAME
+Shaʿbān	شعبان	Shaban;Shabaan;Sha'ban	CALENDAR	eighth month; contains Shab-e-Barāt	NAME
+Ramadān	رمضان	Ramzan;Ramadan;Ramzaan;Ramadhan;Ramazan;Ramzān	CALENDAR	ninth month, the month of fasting	NAME
+Shawwāl	شوال	Shawal;Shawwal;Shaw'wal;Shawaal	CALENDAR	tenth month; opens with ʿĪd al-Fitr	NAME
+Dhū al-Qaʿda	ذوالقعدہ	Zil Qad;Zilqad;Zul Qadah;Dhul Qadah;Zi Qadah;Zilqada;Dhu al-Qada	CALENDAR	eleventh month of the Islamic year	NAME
+Dhū al-Hijja	ذوالحجہ	Zilhaj;Zil Hajj;Dhul Hijjah;Zulhijja;Zil-Hajj;Zilhijja;Dhu al-Hijja	CALENDAR	twelfth month; the month of Hajj and ʿĪd al-Adhā	NAME
+Hijri	ہجری	Hijrah;Hegira;AH	CALENDAR	the Islamic lunar era, counted from the migration to Medina	NAME
+ʿĪd al-Fitr	عید الفطر	Eid ul Fitr;Eid-ul-Fitr;Eid al Fitr;Choti Eid;Eidul Fitr;Id al-Fitr	CALENDAR	festival ending the fast of Ramadān	NAME
+ʿĪd al-Adha	عید الاضحیٰ	Eid ul Azha;Eid-ul-Adha;Eid al Adha;Bakra Eid;Bari Eid;Eidul Azha;Id al-Adha	CALENDAR	festival of sacrifice during Dhū al-Hijja	NAME
+Mīlād al-Nabi	میلاد النبی	Eid Milad-un-Nabi;Eid Milad un Nabi;Mawlid al-Nabi;Milad un Nabi;Barah Wafat;12 Rabi ul Awwal;Milad al-Nabi	CALENDAR	commemoration of the Prophet's birth on 12 Rabīʿ al-Awwal	NAME
+Shab-e-Barāt	شب برات	Shab e Barat;Shab-e-Baraat;Shabbarat;Shab Barat;Laylat al-Baraat;Shab-e-Barat	CALENDAR	night of 15 Shaʿbān, widely observed at shrines and graveyards	NAME
+Shab-e-Miʿrāj	شب معراج	Shab e Miraj;Shab-e-Meraj;Shab Meraj;Lailatul Miraj;Shab-e-Miraj	CALENDAR	night of the Prophet's ascension, 27 Rajab	NAME
+Shab-e-Qadr	شب قدر	Shab e Qadr;Laylat al-Qadr;Lailatul Qadr;Shab-e-Qadar	CALENDAR	Night of Power in the last ten days of Ramadān	NAME
+ʿĀshūra	عاشورہ	Ashura;Ashoora;Aashura;Youm-e-Ashura;10 Muharram	CALENDAR	tenth of Muharram, the martyrdom of Husayn at Karbala	NAME
+Chehlum	چہلم	Chelum;Arbaeen;Arba'in;Chalisvan	CALENDAR	fortieth day after ʿĀshūra	NAME
+Giyārhwīn Sharīf	گیارہویں شریف	Gyarvi Sharif;Giyarvin;Gyarhvin;Gyarhwin Sharif;Giarvin Sharif;Giyarhwin Sharif	CALENDAR	eleventh of each lunar month, kept by Qadiris for Abdul Qadir Jilani	NAME
+Bikrami	ਬਿਕਰਮੀ	Vikrami;Bikram Samvat;Vikram Samvat;Samvat	CALENDAR	lunisolar era used in Punjabi and Sikh dating, 57 years ahead of CE	NAME
+Nanakshahi	ਨਾਨਕਸ਼ਾਹੀ	Nanak Shahi;Nanakshahi calendar	CALENDAR	Sikh solar calendar adopted in 2003, counted from the birth of Guru Nanak	NAME
+Chet	ਚੇਤ	Chaitra;Chait;Chetra	CALENDAR	first month of the Punjabi and Nanakshahi year, roughly March-April	NAME
+Vaisākh	ਵੈਸਾਖ	Vaisakh;Baisakh;Visakh;Vaisakha	CALENDAR	second Punjabi month, roughly April-May	NAME
+Jeth	ਜੇਠ	Jyeshtha;Jaith	CALENDAR	third Punjabi month, roughly May-June	NAME
+Harh	ਹਾੜ	Har;Asadh;Aashadh;Haarh	CALENDAR	fourth Punjabi month, roughly June-July	NAME
+Sāwan	ਸਾਵਣ	Sawan;Savan;Shravan;Shraavan;Saawan	CALENDAR	fifth Punjabi month, roughly July-August; a major month for melas	NAME
+Bhādon	ਭਾਦੋਂ	Bhadon;Bhadra;Bhadrapad;Bhado	CALENDAR	sixth Punjabi month, roughly August-September	NAME
+Assū	ਅੱਸੂ	Assu;Asu;Ashwin;Asauj	CALENDAR	seventh Punjabi month, roughly September-October	NAME
+Katak	ਕੱਤਕ	Kartik;Kattak;Kartika	CALENDAR	eighth Punjabi month, roughly October-November; month of Guru Nanak's Gurpurab	NAME
+Maghar	ਮੱਘਰ	Magghar;Margashirsha;Manghar	CALENDAR	ninth Punjabi month, roughly November-December	NAME
+Poh	ਪੋਹ	Pausha;Pooh;Pos	CALENDAR	tenth Punjabi month, roughly December-January	NAME
+Māgh	ਮਾਘ	Magh;Maagh;Maghi	CALENDAR	eleventh Punjabi month, roughly January-February	NAME
+Phagan	ਫੱਗਣ	Phagun;Phalgun;Fagan;Phaggan	CALENDAR	twelfth Punjabi month, roughly February-March	NAME
+sangrānd	ਸੰਗਰਾਂਦ	sangrand;sangraand;sankranti;sankrant	CALENDAR	first day of a solar month, marked by readings at gurdwaras and temples	NO
+amāvasya	अमावस्या	amavasya;amavas;masya;massya;mavas	CALENDAR	new-moon day, a common date for shrine melas	NO
+pūrnima	पूर्णिमा	purnima;poornima;pooranmashi;puranmashi;punya	CALENDAR	full-moon day, a common date for shrine melas	NO
+Mahā Shivrātri	महाशिवरात्रि	Maha Shivratri;Shivratri;Shivaratri;Maha Shivaratri;Shiv Ratri	CALENDAR	night of Shiva in Phagan; the principal festival at Katas Raj and Umarkot	NAME
+Dīwāli	दिवाली	Diwali;Divali;Deepavali;Dipawali;Dewali	CALENDAR	autumn festival of lights	NAME
+Bandi Chhor Divas	ਬੰਦੀ ਛੋੜ ਦਿਵਸ	Bandi Chor Divas;Bandi Chhorh Divas;Bandi Shor Divas	CALENDAR	Sikh observance coinciding with Diwali, marking Guru Hargobind's release	NAME
+Holī	होली	Holi;Hooli;Holli;Holika	CALENDAR	spring festival of colours	NAME
+Janmāshtami	जन्माष्टमी	Janmashtami;Janamashtami;Krishna Janmashtami;Gokulashtami	CALENDAR	birth anniversary of Krishna in Bhādon	NAME
+Rām Navami	राम नवमी	Ram Navami;Rama Navami;Ramnavami;Ram Naumi	CALENDAR	birth anniversary of Rama in Chet	NAME
+Navrātri	नवरात्रि	Navratri;Navaratri;Navratra;Naurata	CALENDAR	nine nights of the Goddess, twice yearly	NAME
+Durgā Pūja	दुर्गा पूजा	Durga Puja;Durga Pooja;Durgapuja	CALENDAR	autumn worship of Durga within Navrātri	NAME
+Hanumān Jayanti	हनुमान जयंती	Hanuman Jayanti;Hanuman Jayanthi;Hanuman Jyanti	CALENDAR	birth anniversary of Hanuman	NAME
+Basant Panchami	बसंत पंचमी	Vasant Panchami;Basant Panchmi;Basant	CALENDAR	spring festival in Māgh, also marked at Punjabi shrines with kite-flying	NAME
+Rakshā Bandhan	रक्षाबंधन	Raksha Bandhan;Rakshabandhan;Rakhi;Rakhri	CALENDAR	full moon of Sāwan; sisters tie protective threads	NAME
+Anant Chaturdashi	अनंत चतुर्दशी	Ananta Chaturdashi;Anant Chaudas	CALENDAR	fourteenth day of bright Bhādon; closes Paryushan for Jains	NAME
+Mahāvīr Jayanti	महावीर जयंती	Mahavir Jayanti;Mahaveer Jayanti;Mahavira Jayanti	CALENDAR	birth anniversary of Mahavira, the twenty-fourth Tirthankara	NAME
+Paryushan	पर्युषण	Paryushana;Paryushana Parva;Parushan	CALENDAR	Jain period of fasting, confession, and forgiveness in Bhādon	NAME
+Chetī Chand	चेटी चंड	Cheti Chand;Chetichand;Cheti Chandh;Jhulelal Jayanti;Cheti Chand Sahib	CALENDAR	Sindhi Hindu new year and birth anniversary of Jhulelal, in Chet	NAME
+Chāliho Sāhib	चालीहो साहिब	Chaliho Sahib;Chalio Sahib;Chaliha Sahib;Chaliho	CALENDAR	forty-day Sindhi Hindu observance of austerity in honour of Jhulelal	NAME
+Vaisākhi	ਵੈਸਾਖੀ	Baisakhi;Vaisakhi;Visakhi;Besakhi;Baisakhee	CALENDAR	first of Vaisākh; harvest festival and anniversary of the founding of the Khalsa	NAME
+Gurpurab	ਗੁਰਪੁਰਬ	Gurpurb;Gurpurav;Gurparb;Guru Purab;Gurpurbs	CALENDAR	anniversary connected with a Sikh Guru	NAME
+Prakāsh Purab	ਪ੍ਰਕਾਸ਼ ਪੁਰਬ	Prakash Purab;Parkash Purab;Prakash Utsav;Guru Nanak Jayanti	CALENDAR	birth anniversary of a Sikh Guru, above all Guru Nanak in Katak	NAME
+Shahīdi Gurpurab	ਸ਼ਹੀਦੀ ਗੁਰਪੁਰਬ	Shahidi Gurpurab;Shaheedi Gurpurab;Shahidi Purab	CALENDAR	martyrdom anniversary of a Sikh Guru	NAME
+Sindh	سندھ	Sind;Scinde;Sindh Province	PLACE	province of southern Pakistan; always spell Sindh, never Sind	NAME
+Punjab	پنجاب	Panjab;Punjaab;the Punjab	PLACE	province of eastern Pakistan	NAME
+Khyber Pakhtunkhwa	خیبر پختونخوا	KPK;Khyber Pukhtunkhwa;NWFP;North-West Frontier Province;Pakhtunkhwa;Khyber-Pakhtunkhwa	PLACE	north-western province, renamed from NWFP in 2010; abbreviate as KP	NAME
+Balochistan	بلوچستان	Baluchistan;Balochistaan;Baluchestan;Balochestan	PLACE	south-western province; always Balochistan, never Baluchistan	NAME
+Gilgit-Baltistan	گلگت بلتستان	Gilgit Baltistan;GB;Northern Areas	PLACE	northern administrative territory	NAME
+Pothohar	پوٹھوہار	Potohar;Potwar;Pothwar;Pothohar Plateau;Potohar Plateau;Pothuhar	PLACE	plateau region of northern Punjab between the Jhelum and the Indus	NAME
+Cholistan	چولستان	Cholistaan;Cholistan Desert;Rohi	PLACE	desert region of southern Punjab; known locally as Rohi	NAME
+Tharparkar	تھرپارکر	Thar Parkar;Thurparkar;Tharparker;Tharparkar District	PLACE	desert district of south-eastern Sindh with a large Hindu population	NAME
+Thar	تھر	Thar Desert;Thurr	PLACE	the desert itself, spanning Tharparkar and Umarkot	NAME
+Nagarparkar	ننگرپارکر	Nagar Parkar;Nangarparkar;Nagarparker;Nagar Parker	PLACE	town in Tharparkar, site of Jain temples and the Karoonjhar hills	NAME
+Umarkot	عمرکوٹ	Umar Kot;Amarkot;Umerkot;Umarkote	PLACE	district town of Sindh; Shiv Mandir and the birthplace of Akbar	NAME
+Uch Sharif	اوچ شریف	Uchch Sharif;Uchh Sharif;Ooch Sharif;Uch-e-Sharif;Uch	PLACE	Suhrawardi shrine town near Bahawalpur	NAME
+Pakpattan	پاکپتن	Pak Pattan;Pakpatan;Pakpattan Sharif;Ajodhan	PLACE	shrine town of Baba Farid; historically Ajodhan	NAME
+Sehwan Sharif	سیہون شریف	Sehwan;Sewhan;Sehvan;Sehwan Shareef;Sehwan Sharief	PLACE	shrine town of Lal Shahbaz Qalandar in Jamshoro district	NAME
+Multan	ملتان	Mooltan;Multaan;Multan City	PLACE	Suhrawardi shrine city of southern Punjab	NAME
+Bahawalpur	بہاولپور	Bahawal Pur;Bhawalpur;Bahawulpur;Bahawalpore	PLACE	former princely state and district of southern Punjab	NAME
+Lahore	لاہور	Lahor;Lahoor;Lahore City	PLACE	capital of Punjab; site of Data Darbar and Gurdwara Dera Sahib	NAME
+Karachi	کراچی	Karanchi;Karachee;Kurachee	PLACE	capital of Sindh; site of Abdullah Shah Ghazi's shrine	NAME
+Hyderabad	حیدرآباد	Hyderabad Sindh;Haiderabad;Hyderabad, Sindh	PLACE	city of Sindh; disambiguate from Hyderabad, India	NAME
+Thatta	ٹھٹھہ	Thata;Tatta;Thattah;Thatto	PLACE	historic town of lower Sindh, near the Makli necropolis	NAME
+Makli	مکلی	Makli Hill;Makli Necropolis;Makli Hills;Maqli	PLACE	vast necropolis at Thatta, a World Heritage Site	NAME
+Bhit Shah	بھٹ شاہ	Bhitshah;Bhit	PLACE	shrine town of Shah Abdul Latif in Matiari district	NAME
+Hala	ہالا	Halla;Hala Naka;Hala New	PLACE	Sindhi town of the Makhdum lineage, known for kāshi tilework and ajrak	NAME
+Sukkur	سکھر	Sukkar;Sakhar;Sukhur;Sukkur City	PLACE	city on the Indus in upper Sindh	NAME
+Rohri	روہڑی	Rohari;Rori;Rohrii;Rohri Sharif	PLACE	town opposite Sukkur, site of the War Mubarak shrine	NAME
+Larkana	لاڑکانہ	Larkano;Larkhana;Larkana District;Larkanah	PLACE	district of upper Sindh, near Mohenjo-daro	NAME
+Shikarpur	شکارپور	Shikarpoor;Shikar Pur;Sikarpur;Shikarpur Sindh	PLACE	historic merchant town of upper Sindh with many Hindu and Nanakpanthi sites	NAME
+Khairpur	خیرپور	Khair Pur;Kairpur;Khairpur Mirs;Khairpur Mir's	PLACE	former princely state and district of upper Sindh	NAME
+Dadu	دادو	Daadu;Dado;Dadu District	PLACE	district of western Sindh	NAME
+Ghotki	گھوٹکی	Gotki;Ghotky;Ghotki District	PLACE	northernmost district of Sindh	NAME
+Jamshoro	جامشورو	Jam Shoro;Jamshoroo;Jamshoro District	PLACE	district of Sindh containing Sehwan Sharif	NAME
+Mirpurkhas	میرپورخاص	Mirpur Khas;Mir Pur Khas	PLACE	district town of south-eastern Sindh	NAME
+Badin	بدین	Badeen;Badin District	PLACE	coastal district of south-eastern Sindh	NAME
+Lasbela	لسبیلہ	Las Bela;Lasbella;Lasbela District;Lasbelah	PLACE	coastal district of Balochistan; site of Hinglaj	NAME
+Hinglaj	ہنگلاج	Hinglaj Mata;Hingula;Hinglaj Devi;Nani Mandir	PLACE	Shakti Pītha in the Hingol valley, Lasbela district	NAME
+Kohat	کوہاٹ	Kohaat;Kuhat;Kohat District	PLACE	district of southern Khyber Pakhtunkhwa	NAME
+Nowshera	نوشہرہ	Naushera;Nowshehra;Nau Shehra;Naushahra;Nowshera District	PLACE	district of Khyber Pakhtunkhwa; disambiguate from Nowshera Virkan in Punjab	NAME
+Mansehra	مانسہرہ	Manshera;Mansera;Mansehra District;Mansehrah	PLACE	district of Hazara division	NAME
+Buner	بونیر	Bunair;Booner;Buner District	PLACE	district of Khyber Pakhtunkhwa	NAME
+Peshawar	پشاور	Peshawer;Pashawar;Pekhawar;Peshwar	PLACE	capital of Khyber Pakhtunkhwa; Pekhawar is the Pashto form	NAME
+Rawalpindi	راولپنڈی	Pindi;Rawal Pindi;Rawalpindee;Rawalpindi District	PLACE	city of northern Punjab	NAME
+Sialkot	سیالکوٹ	Sialkote;Syalkot;Sialkot District	PLACE	city of north-eastern Punjab	NAME
+Gujranwala	گوجرانوالہ	Gujaranwala;Gujranwalla;Gujrawala;Gujranwala District	PLACE	city of central Punjab; disambiguate from Gujrat and Gujarat	NAME
+Khushab	خوشاب	Khushaab;Khushab District;Kushab	PLACE	district of western Punjab	NAME
+Jhelum	جہلم	Jehlum;Jhelam;Jehlam;Jhelum District	PLACE	district and river of northern Punjab	NAME
+Chakwal	چکوال	Chakwaal;Chakwal District;Chukwal	PLACE	district of the Pothohar plateau; contains Katas Raj	NAME
+Katas Raj	کٹاس راج	Ketas;Katasraj;Qatas Raj;Katas	PLACE	temple complex around a sacred pool in Chakwal district	NAME
+Nankana Sahib	ننکانہ صاحب	Nankana;Nankana Saheb;Nankana Sahib District;Nanakana Sahib	PLACE	birthplace of Guru Nanak in Punjab	NAME
+Hasan Abdal	حسن ابدال	Hassan Abdal;Hasanabdal;Panja Sahib	PLACE	town in Attock district, site of Gurdwara Panja Sahib	NAME
+Kartarpur	کرتارپور	Kartar Pur;Kartarpur Sahib;Kartarpur Narowal	PLACE	site of Guru Nanak's last years in Narowal district; disambiguate from Kartarpur, India	NAME
+Narowal	نارووال	Naroval;Narowaal;Narowal District	PLACE	district of north-eastern Punjab containing Kartarpur	NAME
+Chiniot	چنیوٹ	Chinniot;Chiniote;Chiniot District	PLACE	Punjabi town known for woodwork and Sheikh mercantile families	NAME
+Jhang	جھنگ	Jhung;Jhang District;Jhang Sadar	PLACE	district of central Punjab, associated with Sultan Bahu and Heer Ranjha	NAME
+Sargodha	سرگودھا	Sargodha District;Sargoda;Sargodah	PLACE	district of central Punjab	NAME
+Kasur	قصور	Kasoor;Qasur;Kasur District	PLACE	district of Punjab, site of the shrine of Bulleh Shah	NAME
+Attock	اٹک	Atock;Attok;Attock District;Campbellpur	PLACE	district of northern Punjab on the Indus	NAME
+Ahl-e-Sunnat	اہل سنت	Ahle Sunnat;Ahl-i Sunnat;Ahl e Sunnat;Ahlesunnat;Ahl-e-Sunnat wal Jamaat	TRADITION	self-designation of Sunnis, in Pakistan often specifically of the Barelvi tendency	NAME
+Barelvi	بریلوی	Braelvi;Barelwi;Bareilvi;Brelvi;Barelvis;Bareilly school	TRADITION	Sunni tendency of South Asia affirming intercession and shrine devotion	NAME
+Deobandi	دیوبندی	Deobandhi;Devbandi;Diobandi;Deobandis	TRADITION	Sunni reformist tendency of South Asia, generally critical of shrine practices	NAME
+Ahl-e-Hadith	اہل حدیث	Ahle Hadees;Ahl-i Hadith;Ahle Hadith;Ahl-e-Hadees	TRADITION	scripturalist Sunni tendency rejecting shrine intercession	NAME
+Sunni	سنی	Sunnie;Sunnis;Sunny	TRADITION	majority branch of Islam	NAME
+Shia	شیعہ	Shi'a;Shiite;Shi'ite;Shiah;Shi'i;Shias	TRADITION	branch of Islam holding to the imamate of Ali and his descendants	NAME
+Ismaili	اسماعیلی	Ismailia;Isma'ili;Ismailis;Aga Khani	TRADITION	Shia branch; in Sindh historically associated with the Satpanth	NAME
+Satpanth	ستپنتھ	Sat Panth;Satpanthi	TRADITION	Ismaili devotional tradition of Sindh and Gujarat expressed in ginan hymns	NAME
+Zikri	ذکری	Zigri;Dhikri;Zikris	TRADITION	Balochistan community centred on dhikr and the Koh-e-Murad pilgrimage	NAME
+Nanakpanthi	ਨਾਨਕਪੰਥੀ	Nanak Panthi;Nanakpanthis;Nanak-panthi;Nanakpanthi Hindus	TRADITION	followers of Guru Nanak in Sindh and Punjab who are not initiated Khalsa Sikhs	NAME
+Udāsi	ਉਦਾਸੀ	Udasi;Udassi;Udaasi;Udasin;Udasee;Udasia	TRADITION	ascetic order traced to Baba Sri Chand, custodians of many Sindhi darbars	NAME
+Sevāpanthi	ਸੇਵਾਪੰਥੀ	Sewapanthi;Seva Panthi;Sevapanthis;Sewa Panthi;Sevapanthi	TRADITION	Sikh order of service traced to Bhai Kanhaiya	NAME
+Addanshahi	ਅੱਡਣਸ਼ਾਹੀ	Adan Shahi;Addan Shahi;Addanshahis	TRADITION	branch of the Sevapanthis named for Bhai Addan Shah	NAME
+Sehajdhāri	ਸਹਿਜਧਾਰੀ	Sahajdhari;Sehjdhari;Sahijdhari;Sahajdharis;Sehajdhari	TRADITION	Sikh who has not taken Khalsa initiation and does not keep the five articles	NAME
+Keshdhāri	ਕੇਸਧਾਰੀ	Keshdhari;Kesdhari;Keshdharis	TRADITION	Sikh who keeps uncut hair	NAME
+Amritdhāri	ਅੰਮ੍ਰਿਤਧਾਰੀ	Amritdhari;Amrithdhari;Amritdharis	TRADITION	initiated Khalsa Sikh	NAME
+Khalsa	ਖ਼ਾਲਸਾ	Khalsa Panth;Khaalsa	TRADITION	the initiated Sikh order founded in 1699	NAME
+Nihang	ਨਿਹੰਗ	Nihung;Akali Nihang;Nihangs	TRADITION	armed Sikh order distinguished by blue dress and tall turbans	NAME
+Nāth	नाथ	Nath;Naths;Nath Panthi;Nath Yogi;Nath Sampradaya	TRADITION	yogic order of Gorakhnath, historically strong in the Salt Range and Sindh	NAME
+Kānphata	कानफटा	Kanphata;Kanphat;Kanphata Jogi;Kanphatta;Kanphara	TRADITION	split-eared Nath yogis, named for their heavy ear-rings	NAME
+Shaiva	शैव	Shaivite;Shaiv;Saiva	TRADITION	devotee or tradition centred on Shiva	NAME
+Vaishnav	वैष्णव	Vaishnava;Vishnavite;Vaishnavite	TRADITION	devotee or tradition centred on Vishnu	NAME
+bhakti	भक्ति	bhagti;bhakthi	TRADITION	devotional love of a personal deity	NO
+Shakti Pītha	शक्तिपीठ	Shakti Peeth;Shakti Peetha;Shaktipith;Shakti Pith;Shaktipeeth;Shakti Pitha	TRADITION	one of the sites where a part of Sati's body is said to have fallen	NAME
+Shvetāmbara	श्वेताम्बर	Svetambara;Shvetambar;Swetambar;Shwetambar;Shvetambara	TRADITION	white-clad branch of Jainism	NAME
+Digambara	दिगंबर	Digambar;Digamber	TRADITION	sky-clad branch of Jainism	NAME
+Tirthankara	तीर्थंकर	Tirthankar;Teerthankar;Tirthankaras;Jina	TRADITION	one of the twenty-four ford-makers of Jainism	NAME
+Bhābra	بھابھڑا	Bhabra;Bhabhra;Bhabhda;Bhabras;Bhabra Jain	TRADITION	Punjabi Jain merchant community, builders of the Jain temples of Punjab	NAME
+Lāsi	لاسی	Lasi;Laasi;Lasis	TRADITION	community of Lasbela in coastal Balochistan	NAME
+Bhāgnāri	بھاگناڑی	Bhagnari;Bhagnaris;Bagnari;Bhagnari Hindus	TRADITION	Hindu trading community originating in Bhag, Balochistan	NAME
+Sheedi	شیدی	Sidi;Siddi;Shidi;Sheedis;Sheedee;Shidee	TRADITION	Afro-Pakistani community of Sindh and Balochistan, central to the Manghopir festival	NAME
+Saraiki	سرائیکی	Siraiki;Seraiki;Saraeki;Siraeki	TRADITION	language and identity of southern Punjab	NAME
+Sindhi	سندھی	Sindi;Sindhis	TRADITION	language and people of Sindh	NAME
+Hindko	ہندکو	Hindku;Hindkowan	TRADITION	Indo-Aryan language of Hazara, Peshawar, and Attock	NAME
+Brahui	براہوی	Brohi;Brahvi;Brahuis	TRADITION	Dravidian language and people of Balochistan	NAME
+Marwari	مارواڑی	Marvari;Marwadi;Marwaris	TRADITION	language and community of Rajasthani origin present in Sindh	NAME
+Dhatki	ڈھاٹکی	Dhati;Dhatti;Thari	TRADITION	Rajasthani language of Tharparkar	NAME
+Meghwar	میگھواڑ	Meghwal;Meghwad;Meghwars	TRADITION	scheduled-caste Hindu community of Sindh	NAME
+Kolhi	کولھی	Kohli;Kolhis;Koli	TRADITION	Hindu community of Tharparkar and lower Sindh	NAME
+Bhil	بھیل	Bheel;Bhils;Bheels	TRADITION	Adivasi-descended community of Tharparkar and southern Punjab	NAME
+Parkari Kohli	پارکری کولھی	Parkari Koli;Parkari Kolhi;Parkari	TRADITION	Kolhi sub-group of Nagarparkar with its own language	NAME
+waqf	وقف	wakf;wakaf	INSTITUTION	inalienable religious endowment supporting a shrine or mosque	NO
+Auqāf	اوقاف	Auqaf;Awqaf;Auqaf Department;Department of Auqaf;Auqaf and Religious Affairs	INSTITUTION	provincial department that administers shrines taken into state management	NAME
+Evacuee Trust Property Board	متروکہ وقف املاک بورڈ	ETPB;Evacuee Trust;Auqaf Board	INSTITUTION	federal body managing Hindu and Sikh properties left after Partition	NAME
+Pakistan Sikh Gurdwara Parbandhak Committee		PSGPC;Pakistan Sikh Gurdwara Prabandhak Committee;Sikh Gurdwara Parbandhak Committee	INSTITUTION	body administering gurdwaras in Pakistan under the Evacuee Trust Property Board	NAME
+Department of Archaeology and Museums		DOAM;Department of Archaeology;Archaeology Department	INSTITUTION	federal and provincial bodies responsible for protected monuments	NAME
+Antiquities Act		Antiquities Act 1975;Antiquities Act, 1975;Antiquity Act	INSTITUTION	principal heritage protection legislation, devolved to the provinces in 2010	NAME
