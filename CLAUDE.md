@@ -26,6 +26,7 @@ That applies to all of the following:
 | Kind of thing | Where it goes |
 |---|---|
 | Decisions, plans, roadmaps, proposals | `docs/` |
+| Engineering notes (how a subsystem works, orientation for the next session) | `docs/` |
 | Handover / status / runbooks | `docs/` |
 | Prompts written for Claude Code or other agents | `docs/prompts/` |
 | Pipeline scripts, termbase, manifests | `pipeline/` |
