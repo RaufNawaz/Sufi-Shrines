@@ -20,6 +20,8 @@ const SPECIAL_URDU_PHRASES: Record<string, string> = {
   'Annual three-day Kali festival held each January, drawing Hindu pilgrims from across Pakistan and from India':
     'ہر جنوری میں منعقد ہونے والا سالانہ تین روزہ کالی میلہ، جو پاکستان بھر اور بھارت سے ہندو زائرین کو کھینچتا ہے',
   'Annual three-day urs; weekly Thursday milad': 'سالانہ تین روزہ عرس؛ ہفتہ وار جمعرات کو میلاد',
+  'Annual urs (18-20 Safar); Thursday-evening qawwali and dhamal; daily langar':
+    'سالانہ عرس (18 سے 20 صفر)؛ جمعرات کی شام قوالی اور دھمال؛ روزانہ لنگر',
   'Annual urs (24–26 Rajab)': 'سالانہ عرس (24 سے 26 رجب)',
   'Annual urs (25th–27th Jamadi al-Thani); zikr, qawwali and langar':
     'سالانہ عرس (25 سے 27 جمادی الثانی)؛ ذکر، قوالی اور لنگر',
