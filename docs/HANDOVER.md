@@ -367,9 +367,11 @@ and the natural next comparison before retiring `tools/translate.py`.
 **New pending CSV patches, all per RULE 3 (human import required):**
 `data/patch_new_field_survey_shrines.csv` (4 new rows), `data/patch_shah_inayat_merge.csv`
 (1-row merge/upgrade), `data/patch_field_survey_coordinates.csv` (coordinate + content fix for
-the 4 already-published-but-invisible rows) — plus whatever the tazkira enrichment batch
-produces (see the session's working notes for the final row count if this line hasn't been
-updated).
+the 4 already-published-but-invisible rows), `data/patch_tazkira_enrichment.csv` (16 rows,
+the tazkira enrichment pass). **Import order matters where two patches touch the same row**:
+`patch_shah_inayat_merge.csv` and `patch_tazkira_enrichment.csv` don't overlap with each other
+or with the other two, so all four can be imported in any order, but each should be reviewed
+as its own pass rather than merged into one giant sheet edit.
 
 **Loose end**: two other interactive Claude Code sessions (`abshaar-c6`,
 `copilot-repo-starter-e5`) were active on this same repo concurrently with this session,
