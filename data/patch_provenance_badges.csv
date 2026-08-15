@@ -1,0 +1,168 @@
+id,Name,support_level,info_level
+allo-mahar,Allo Mahar,Web-compiled,Low
+amb-temples-amb-sharif,Amb Temples (Amb Sharif),Source-seeded,Moderate
+bari-imam,Bari Imam,Source-seeded,Moderate
+bhagnari-mandir,Bhagnari Mandir,Source-seeded,Moderate
+bhai-sant-thawan-das-mandir,Bhai Sant Thawan Das Mandir,Source-seeded,Moderate
+bhai-waliram-darbar,Bhai Waliram Darbar,Web-compiled,Low
+bhit-bhit-shah,Bhit (Bhit Shah),Source-documented,Moderate
+chandragup-baba-chandragup,Chandragup (Baba Chandragup),Web-compiled,Low
+churrio-jabal-durga-mata-temple,Churrio Jabal Durga Mata Temple,Source-documented,Moderate
+darbar-abul-muali-qadri,Darbar Abul Muali Qadri,Web-compiled,Low
+darbar-ghamkol-sharif-zinda-pir,Darbar Ghamkol Sharif (Zinda Pir),Web-compiled,Low
+darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a,Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A),Source-seeded,Moderate
+darbar-hazrat-shah-gohar-peer,Darbar Hazrat Shah Gohar Peer,Web-compiled,Low
+darbar-malik-ahmad-ayaz,Darbar Malik Ahmad Ayaz,Web-compiled,Low
+darbar-mian-qurban-ali-shah,Darbar Mian Qurban Ali Shah,Web-compiled,Low
+darbar-sakhi-shah-chan-charagh,Darbar Sakhi Shah Chan Charagh,Source-documented,Moderate
+dargah-roza-sufi-shah-inayat-shaheed,Dargah / Roza Sufi Shah Inayat Shaheed,Source-seeded,Moderate
+dargah-fateh-pur-sharif,Dargah Fateh Pur Sharif,Source-documented,Moderate
+dargah-pir-ratan-nath-jee,Dargah Pir Ratan Nath Jee,Source-documented,Moderate
+dargah-of-khwaja-muhammad-zaman-luari-sharif,Dargah of Khwaja Muhammad Zaman (Luari Sharif),Web-compiled,Low
+dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth,"Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth",Web-compiled,Low
+darya-lal-mandir-darya-lal-sankat-mochan-mandir,Darya Lal Mandir (Darya Lal Sankat Mochan Mandir),Source-documented,Moderate
+data-darbar,Data Darbar,Field-verified,Full
+eidgah-sharif,Eidgah Sharif,Source-documented,Moderate
+garh-maharaja-shorkot,Garh Maharaja (Shorkot),Source-documented,Moderate
+golra-sharif,Golra Sharif,Source-documented,Moderate
+gorakhnath-goraknath-temple,Gorakhnath (Goraknath) Temple,Source-documented,Moderate
+gori-temple-gori-jo-mandar,Gori Temple (Gori jo Mandar),Web-compiled,Low
+gurdas-ram-mandir,Gurdas Ram Mandir,Source-seeded,Moderate
+gurdwara-babay-de-ber,Gurdwara Babay De Ber,Source-documented,Moderate
+gurdwara-babay-nanki,Gurdwara Babay Nanki,Source-documented,Moderate
+gurdwara-balila-sahib-bal-lila-sahib,Gurdwara Balila Sahib (Bal Lila Sahib),Source-documented,Moderate
+gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore,"Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",Web-compiled,Low
+gurdwara-bhai-beba-singh,Gurdwara Bhai Beba Singh,Source-documented,Moderate
+gurdwara-bhai-joga-singh,Gurdwara Bhai Joga Singh,Source-seeded,Moderate
+gurdwara-chakki-sahib,Gurdwara Chakki Sahib,Web-compiled,Low
+gurdwara-chhevin-patshahi-chitti-gatti,"Gurdwara Chhevin Patshahi, Chitti Gatti",Web-compiled,Low
+gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan,"Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",Web-compiled,Low
+gurdwara-chhevin-patshahi-mozang,"Gurdwara Chhevin Patshahi, Mozang",Source-documented,Moderate
+gurdwara-choa-sahib,Gurdwara Choa Sahib,Web-compiled,Low
+gurdwara-chowmala-sahib,Gurdwara Chowmala Sahib,Source-seeded,Moderate
+gurdwara-darbar-sahib-kartarpur,Gurdwara Darbar Sahib Kartarpur,Source-documented,Moderate
+gurdwara-dash-mesh-pita,Gurdwara Dash Mesh Pita,Source-seeded,Moderate
+gurdwara-dera-sahib,Gurdwara Dera Sahib,Source-documented,Moderate
+gurdwara-guru-ram-das-ji,Gurdwara Guru Ram Das Ji,Source-documented,Moderate
+gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi,Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi),Web-compiled,Low
+gurdwara-malji-sahib,Gurdwara Malji Sahib,Web-compiled,Low
+gurdwara-panja-sahib,Gurdwara Panja Sahib,Source-documented,Moderate
+gurdwara-panjvi-chati-patshahi,Gurdwara Panjvi Chati Patshahi,Source-seeded,Moderate
+gurdwara-patshahi-chhevin-hadiara-lahore,"Gurdwara Patshahi Chhevin (Hadiara), Lahore",Web-compiled,Low
+gurdwara-patti-sahib,Gurdwara Patti Sahib,Source-documented,Moderate
+gurdwara-pehli-patshahi-jind-pir-sukkur,"Gurdwara Pehli Patshahi (Jind Pir), Sukkur",Web-compiled,Low
+gurdwara-rori-sahib,Gurdwara Rori Sahib,Source-documented,Moderate
+gurdwara-sach-khand-sahib,Gurdwara Sach Khand Sahib,Source-documented,Moderate
+gurdwara-sacha-sauda,Gurdwara Sacha Sauda,Source-documented,Moderate
+gurdwara-sahib-saidpur-guru-nanak-dev-ji,Gurdwara Sahib Saidpur (Guru Nanak Dev Ji),Web-compiled,Low
+gurdwara-shaheed-bhai-taru-singh,Gurdwara Shaheed Bhai Taru Singh,Source-documented,Moderate
+gurdwara-shaheed-ganj-singh-singhnian,Gurdwara Shaheed Ganj Singh Singhnian,Source-documented,Moderate
+gurdwara-singh-sabha,Gurdwara Singh Sabha,Source-documented,Moderate
+gurdwara-sri-kiara-sahib,Gurdwara Sri Kiara Sahib,Source-documented,Moderate
+gurdwara-sri-tilganji-sahib,Gurdwara Sri Tilganji Sahib,Web-compiled,Low
+gurdwara-tambo-sahib,Gurdwara Tambo Sahib,Source-documented,Moderate
+guru-gurpat-mandir-db-80-sirey-ghat,Guru Gurpat Mandir (DB-80 Sirey Ghat),Source-documented,Moderate
+gurudwara-janam-asthan-nankana-sahib,Gurudwara Janam Asthan Nankana Sahib,Source-documented,Moderate
+jagannath-temple-sialkot,"Jagannath Temple, Sialkot",Source-documented,Moderate
+jain-mandir-lahore,"Jain Mandir, Lahore",Web-compiled,Low
+jhollay-lal-mandir,Jhollay Lal Mandir,Source-seeded,Moderate
+kalat-kali-temple,Kalat Kali Temple,Web-compiled,Low
+kali-bari-mandir,Kali Bari Mandir,Source-documented,Moderate
+kalka-cave-temple-asthan-of-kalka-devi,Kalka Cave Temple (Asthan of Kalka Devi),Source-documented,Moderate
+katas-raj-temples,Katas Raj Temples,Source-documented,Moderate
+khatwari-darbar-shikarpur,"Khatwari Darbar, Shikarpur",Web-compiled,Low
+krishna-mandir-kabari-bazar,Krishna Mandir (Kabari Bazar),Source-documented,Moderate
+krishna-mandir-ravi-road,Krishna Mandir (Ravi Road),Source-documented,Moderate
+lal-kurti-temple-balmiki-mandir-rawalpindi,"Lal Kurti Temple (Balmiki Mandir), Rawalpindi",Web-compiled,Low
+lal-shahbaz-qalandar,Lal Shahbaz Qalandar,Source-documented,Moderate
+langer-makhdoom,Langer Makhdoom,Source-documented,Moderate
+loh-temple-lava-temple,Loh Temple (Lava Temple),Web-compiled,Low
+mausoleum-of-waris-shah,Mausoleum of Waris Shah,Source-documented,Moderate
+mazar-of-bulleh-shah,Mazar of Bulleh Shah,Source-documented,Moderate
+mithankot-kot-mithan,Mithankot (Kot Mithan),Source-documented,Moderate
+mohra-sharif-khanqah,Mohra Sharif (Khanqah),Web-compiled,Low
+nagarparkar-jain-temples-nagarparkar-cultural-landscape,Nagarparkar Jain Temples (Nagarparkar Cultural Landscape),Source-documented,Moderate
+panj-tirath,Panj Tirath,Source-documented,Moderate
+parnami-mandir,Parnami Mandir,Source-documented,Moderate
+prahladpuri-temple,Prahladpuri Temple,Source-documented,Moderate
+purana-bhalwal,Purana Bhalwal,Source-documented,Moderate
+rahman-baba-mausoleum-rehman-baba-shrine,Rahman Baba Mausoleum (Rehman Baba Shrine),Source-documented,Moderate
+ram-mandir-saidpur-ram-kund-mandir,"Ram Mandir, Saidpur (Ram Kund Mandir)",Web-compiled,Low
+ramapir-temple-tando-allahyar,"Ramapir Temple, Tando Allahyar",Source-documented,Moderate
+ranmal-sharif,Ranmal Sharif,Source-seeded,Moderate
+sadh-belo-sadh-belo-island-temple,Sadh Belo (Sadh Belo Island Temple),Source-documented,Moderate
+sain-vali-vilayat-rai-darbar-kambar,"Sain Vali Vilayat Rai Darbar, Kambar",Web-compiled,Low
+sakhi-sarwar,Sakhi Sarwar,Source-seeded,Moderate
+samadhi-of-maharaja-ranjit-singh,Samadhi of Maharaja Ranjit Singh,Web-compiled,Low
+sant-baba-asudaram-darbar-panno-aqil,Sant Baba Asudaram Darbar (Panno Aqil),Web-compiled,Low
+sant-baba-bhagat-ram-darbar-mandir,Sant Baba Bhagat Ram Darbar Mandir,Source-documented,Moderate
+sant-bhagat-kanwar-ram-temple-chak,Sant Bhagat Kanwar Ram Temple (Chak),Web-compiled,Low
+sant-satram-dham-raharki-sacho-satram-devri-sahib,"Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",Web-compiled,Low
+sevapanthi-darbar-bhai-gurdas-gandava,"Sevapanthi Darbar (Bhai Gurdas), Gandava",Web-compiled,Low
+shah-noorani-shrine-syed-bilawal-shah-noorani,Shah Noorani Shrine (Syed Bilawal Shah Noorani),Source-seeded,Moderate
+shah-yousuf,Shah Yousuf,Source-seeded,Moderate
+shahwala-teja-singh-mandir,Shahwala Teja Singh Mandir,Source-documented,Moderate
+,Shaktipeeth Shri Hinglaj Mata Mandir,Source-documented,Moderate
+shamsabad,Shamsabad,Source-documented,Moderate
+sharada-peeth,Sharada Peeth,Source-documented,Moderate
+shergarh,Shergarh,Source-seeded,Moderate
+shiv-mandir-chiti-ghati,Shiv Mandir Chiti Ghati,Source-documented,Moderate
+shree-ratneshwar-mahadev-temple-karachi,"Shree Ratneshwar Mahadev Temple, Karachi",Source-documented,Moderate
+shri-laxmi-narayan-mandir-native-jetty-bridge,Shri Laxmi Narayan Mandir (Native Jetty Bridge),Source-documented,Moderate
+shri-panchmukhi-hanuman-mandir-karachi,Shri Panchmukhi Hanuman Mandir (Karachi),Source-documented,Moderate
+shri-swaminarayan-mandir-karachi,"Shri Swaminarayan Mandir, Karachi",Source-documented,Moderate
+shri-varun-dev-mandir,Shri Varun Dev Mandir,Source-documented,Moderate
+shrine-at-odero-lal-udero-lal-teerath-asthan,Shrine at Odero Lal (Udero Lal Teerath Asthan),Source-seeded,Moderate
+shrine-of-abdullah-shah-ghazi,Shrine of Abdullah Shah Ghazi,Source-seeded,Moderate
+abul-faiz-qalander-ali-suharwardi,Shrine of Abul Faiz Qalander Ali Suharwardi,Field-verified,Full
+shrine-of-akhund-darweza-baba,Shrine of Akhund Darweza Baba,Web-compiled,Low
+shrine-of-akhund-panju-baba,Shrine of Akhund Panju Baba,Web-compiled,Low
+shrine-of-baba-shah-chiragh,Shrine of Baba Shah Chiragh,Web-compiled,Low
+shrine-of-baba-shah-kamal,Shrine of Baba Shah Kamal,Web-compiled,Low
+shrine-of-bahauddin-zakariya,Shrine of Bahauddin Zakariya,Source-seeded,Moderate
+bibi-pak-daman,Shrine of Bibi Pak Daman,Field-verified,Full
+shrine-of-fariduddin-ganjshakar,Shrine of Fariduddin Ganjshakar,Source-documented,Moderate
+ganj-e-inayat-sarkar,Shrine of Ganj e Inayat Sarkar,Field-verified,Full
+shrine-of-hafiz-muhammad-jamal-multani,Shrine of Hafiz Muhammad Jamal Multani,Web-compiled,Low
+madho-lal-hussain,Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar),Field-verified,Full
+shrine-of-hazrat-muhammad-ayub-shah-bukhari,Shrine of Hazrat Muhammad Ayub Shah Bukhari,Web-compiled,Low
+shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi),Web-compiled,Low
+shrine-of-hazrat-shah-daula-daryai,Shrine of Hazrat Shah Daula Daryai,Source-documented,Moderate
+shrine-of-imam-ali-ul-haq,Shrine of Imam Ali-ul-Haq,Source-documented,Moderate
+shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari),Source-seeded,Moderate
+shrine-of-lakhi-shah-saddar,Shrine of Lakhi Shah Saddar,Source-documented,Moderate
+shrine-of-makhdoom-abdul-rahim-girhori,Shrine of Makhdoom Abdul Rahim Girhori,Web-compiled,Low
+shrine-of-makhdoom-jahaniyan-jahangasht,Shrine of Makhdoom Jahaniyan Jahangasht,Source-seeded,Moderate
+shrine-of-makhdoom-nooh-hala,Shrine of Makhdoom Nooh (Hala),Web-compiled,Low
+shrine-of-mauj-darya-bukhari,Shrine of Mauj Darya Bukhari,Web-compiled,Low
+shrine-of-mian-mir,Shrine of Mian Mir,Field-verified,Full
+shrine-of-mian-umar-baba-chamkani,Shrine of Mian Umar Baba (Chamkani),Web-compiled,Low
+shrine-of-miran-hussain-zanjani-zanjani-sahib,Shrine of Miran Hussain Zanjani (Zanjani Sahib),Web-compiled,Low
+peer-makki,Shrine of Peer Makki,Web-compiled,Low
+shrine-of-pir-baba-syed-ali-tirmizi,Shrine of Pir Baba (Syed Ali Tirmizi),Web-compiled,Low
+shrine-of-pir-chhatal-shah-noorani,Shrine of Pir Chhatal Shah Noorani,Web-compiled,Low
+shrine-of-pir-lakha-aab-e-shifa-jhal-magsi,"Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",Web-compiled,Low
+shrine-of-pir-mangho,Shrine of Pir Mangho,Source-seeded,Moderate
+shrine-of-pir-sher-muhammad,Shrine of Pir Sher Muhammad,Source-seeded,Moderate
+shrine-of-qalandar-baba-auliya,Shrine of Qalandar Baba Auliya,Source-documented,Moderate
+shrine-of-sachal-sarmast,Shrine of Sachal Sarmast,Source-documented,Moderate
+shrine-of-shah-abdul-karim-bulri,Shrine of Shah Abdul Karim Bulri,Web-compiled,Low
+shrine-of-shah-inayat-qadiri,Shrine of Shah Inayat Qadiri,Web-compiled,Low
+shah-jamal,Shrine of Shah Jamal,Web-compiled,Low
+shrine-of-shah-rukn-e-alam,Shrine of Shah Rukn-e-Alam,Source-seeded,Moderate
+shrine-of-shah-shams-ud-din-sabzwari,Shrine of Shah Shams-ud-Din Sabzwari,Source-seeded,Moderate
+shrine-of-shah-yusaf-gardez,Shrine of Shah Yusaf Gardez,Source-seeded,Moderate
+shrine-of-syed-musa-pak,Shrine of Syed Musa Pak,Source-seeded,Moderate
+sial-sharif,Sial Sharif,Source-seeded,Moderate
+swami-dharmdas-darbar-larkana-kennedy-market,"Swami Dharmdas Darbar, Larkana (Kennedy Market)",Web-compiled,Low
+tilla-jogian,Tilla Jogian,Source-documented,Moderate
+mazar-e-iqbal,Tomb of Allama Iqbal (Mazar-e-Iqbal),Field-verified,Full
+tomb-of-baha-al-halim-uch-sharif,Tomb of Baha'al-Halim (Uch Sharif),Web-compiled,Low
+tomb-of-javindi-bibi,Tomb of Javindi Bibi,Source-seeded,Moderate
+tomb-of-qutbuddin-aibak,Tomb of Qutbuddin Aibak,Web-compiled,Low
+tomb-of-ustad-nuriya,Tomb of Ustad Nuriya,Web-compiled,Low
+umarkot-amarkot-shiv-mandir,Umarkot (Amarkot) Shiv Mandir,Source-documented,Moderate
+valmik-mandir-naqi-road,Valmik Mandir (Naqi Road),Source-documented,Moderate
+valmiki-swamiji-mandir-gracy-lines-rawalpindi,"Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",Web-compiled,Low
+wadpagga-sharif,Wadpagga Sharif,Source-documented,Moderate
+ziarat-kaka-sahib,Ziarat Kaka Sahib,Web-compiled,Low

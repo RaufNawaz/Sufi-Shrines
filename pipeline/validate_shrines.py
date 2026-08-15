@@ -27,6 +27,9 @@ CHECKS
   WARN    termbase_violation          a non-canonical spelling the termbase can fix
   WARN    no_bibliography             description has no Bibliography section
   WARN    expansion_ratio             long entry resting on a single generic source
+  WARN    sheet_missing_column        support_level column absent from the sheet entirely
+  WARN    badge_not_populated         bibliography supports a real info_level but the
+                                      sheet's info_level cell is blank — badge is dark live
   INFO    coord_precision             fewer than 3 or more than 6 decimal places
   INFO    duplicate_coord             exact coordinate shared with another site
 """
@@ -151,6 +154,12 @@ def main():
     def add(sev, name, check, detail):
         issues.append((name, sev, check, detail))
 
+    header = [k.strip().lower() for k in rows[0].keys() if k]
+    if "support_level" not in header:
+        add("WARN", "(sheet)", "sheet_missing_column",
+            "no support_level column at all — pipeline/support_levels.tsv is computed "
+            "but was never imported, so no shrine can show a support-level badge live")
+
     coords, byplace = {}, defaultdict(list)
 
     for r in rows:
@@ -266,6 +275,13 @@ def main():
             if len(desc.split()) > 350 and n_specific <= 1:
                 add("WARN", name, "expansion_ratio",
                     f"{len(desc.split())} words on {n_specific} specific source(s)")
+
+            has_field_survey = "shrines project field survey" in desc.lower()
+            if (n_specific >= 1 or has_field_survey) and not col(r, "info_level"):
+                add("WARN", name, "badge_not_populated",
+                    f"{n_specific} specific source(s)"
+                    + (", field survey cited" if has_field_survey else "")
+                    + " but info_level is blank in the sheet — badge won't render live")
 
         # --- termbase --------------------------------------------------------------
         seen = set()

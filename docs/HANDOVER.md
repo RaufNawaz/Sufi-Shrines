@@ -189,6 +189,12 @@ These are measured, with numbers. They are findings to report, not bugs to fix q
    deleted, and is a small reminder that the intake folder is not access-controlled.
 6. **14 field visits**, not the 9 previously reported. The undercount came from counting
    shrines with self-hosted photos rather than surveys returned.
+7. **The provenance badge system shipped with no live data behind it.** The six-category-
+   schema commit (10 Aug) added `SupportLevelBadge`/info-level rendering, but the sheet has
+   no `support_level` column at all and `info_level` is blank for 162 of 167 rows — including
+   Bibi Pak Daman, which `build_sources_registry.py` correctly computes as `Field-verified` /
+   `Full` and has since 9 August. The computation was never imported. See
+   `docs/GOLD_STANDARD.md` and `data/patch_provenance_badges.csv`.
 
 ---
 
@@ -272,6 +278,30 @@ recorded on the tape itself, in the speaker's own language, stating explicitly t
 recording will be *published freely on the internet* — not merely "used for research". Nothing
 without clear recorded consent gets uploaded. A refused interview costs an hour; a betrayed one
 costs the project its standing at every shrine in the district.
+
+---
+
+## 8a. Update — 15 August 2026: Bibi Pak Daman reviewed, gold standard written down
+
+Reviewed the Bibi Pak Daman entry in full against the live sheet (fetched fresh, not from a
+stale local snapshot). It holds up: six specific named sources plus the field survey cited as
+a source in its own right, both traditions on the Bibis' identity presented with named
+proponents and never artificially resolved, uncertainty stated in prose at the point it
+matters. Full analysis and a checklist for applying the same standard elsewhere is now in
+`docs/GOLD_STANDARD.md` — read that before touching another entry's sourcing.
+
+The review surfaced finding #7 above (provenance badges dark for 162/167 rows) — bigger than
+anything wrong with Bibi Pak Daman itself. Concrete outputs from this session, all pending
+human import into the sheet per RULE 3:
+
+- `data/patch_provenance_badges.csv` — 167 rows, adds `support_level` + `info_level` from a
+  freshly-regenerated `pipeline/support_levels.tsv`/`sources.tsv`/`shrine_sources.tsv`.
+- `data/patch_bibi_pak_daman_dates.csv` — one row, fills `year_built`/`year_built_precision`/
+  `year_built_note` from content already in the entry's own Description (the founding-date
+  dispute between the two traditions), using the `"uncertain / referent disputed"` precision
+  value already established by Darbar Mian Qurban Ali Shah.
+- `pipeline/validate_shrines.py` — two new WARN checks, `sheet_missing_column` and
+  `badge_not_populated`, so this class of gap fails loudly instead of sitting invisible again.
 
 ---
 

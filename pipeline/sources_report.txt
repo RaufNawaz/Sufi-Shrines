@@ -1,19 +1,19 @@
-rows: 163   distinct sources: 319   shrine-source links: 368
+rows: 167   distinct sources: 321   shrine-source links: 370
 
 SUPPORT LEVEL
   Source-documented   70
-  Web-compiled        56
+  Web-compiled        60
   Source-seeded       30
   Field-verified      7
 
 INFO LEVEL (visitor-facing badge)
   Moderate            100
-  Low                 56
+  Low                 60
   Full                7
 
 SOURCE TYPE
   book                68
-  unclassified        54
+  unclassified        56
   monograph           41
   press               39
   encyclopaedia       32
@@ -38,8 +38,12 @@ MOST REUSED SOURCES  (the anthology strategy, measured)
     2x  [monograph]  Jürgen Wasim Frembgen, *Journey to God: Sufis and Dervishes in Islam* (Oxford University
 
 HIGHEST EXPANSION RATIO  (words of prose per specific source cited)
+     1471 w/src  0 src   1471 words   Darbar Abul Muali Qadri
+     1189 w/src  0 src   1189 words   Darbar Malik Ahmad Ayaz
       982 w/src  2 src   1964 words   Shrine of Ganj e Inayat Sarkar
       968 w/src  4 src   3871 words   Tomb of Allama Iqbal (Mazar-e-Iqbal)
+      899 w/src  0 src    899 words   Darbar Hazrat Shah Gohar Peer
+      888 w/src  0 src    888 words   Darbar Mian Qurban Ali Shah
       820 w/src  4 src   3280 words   Shrine of Mian Mir
       771 w/src  3 src   2314 words   Shrine of Abul Faiz Qalander Ali Suharwardi
       719 w/src  4 src   2875 words   Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)
@@ -49,10 +53,6 @@ HIGHEST EXPANSION RATIO  (words of prose per specific source cited)
       630 w/src  1 src    630 words   Amb Temples (Amb Sharif)
       623 w/src  0 src    623 words   Shrine of Shah Jamal
       575 w/src  1 src    575 words   Shrine at Odero Lal (Udero Lal Teerath Asthan)
-      546 w/src  1 src    546 words   Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukh
-      527 w/src  6 src   3163 words   Shrine of Bibi Pak Daman
-      526 w/src  1 src    526 words   Gurdwara Bhai Joga Singh
-      515 w/src  0 src    515 words   Shrine of Peer Makki
 
 GENERIC / PLACEHOLDER BIBLIOGRAPHY LINES  (43 occurrences)
     2x  General established histories of the Chishti revival in nineteenth-century Punja
