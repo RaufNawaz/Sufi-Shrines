@@ -304,6 +304,84 @@ human import into the sheet per RULE 3:
 
 ---
 
+## 8b. Update — 15 August 2026 (same day, continued): field-survey reconciliation,
+## enrichment, five frontend fixes
+
+A second Google Form was linked this session: not the shrines database, but the raw Urdu
+survey-response form the surveyors fill in per visit. Cross-referencing its 28 rows against
+the live 167-row sheet found duplicates, the four already-published field-survey shrines from
+10 August, and **4 genuinely new entries**, each with real narrative content (already in
+English — the surveyor answers directly in English; only the form's own questions are Urdu)
+and real Drive photo/video links: Wasif Ali Wasif, Khawaja Feroz-ud-Din Gharib Nawaz Chishti
+Nizami, Shah Tahir Bandagi Qadri, Ghazi Ilm Din Shaheed. A fifth candidate — "Shah Anayat
+Qadri Shartari" — turned out to be a second survey of an **already-published** shrine (Shah
+Inayat Qadiri, Bulleh Shah's murshid) under a spelling variant; that became a merge/upgrade
+patch instead of a sixth new row.
+
+**Bug found in passing, bigger than it sounds**: the four field-survey shrines added on 10
+August have no Latitude/Longitude in the sheet. `buildShrine()` silently drops any row without
+parseable coordinates — so all four have been **completely absent from the live site and the
+built data** since publication, despite being believed live. `src/data/shrines-fallback.json`
+had 163 rows, not 167, exactly this gap. Fixed for all 9 affected rows (4 old + 4 new + the
+Shah Inayat merge) by geocoding the landmark each survey names (Miani Sahib Graveyard, Mochi
+Gate, Mozang Chungi, or Data Darbar's own coordinate when a survey explicitly places a shrine
+next to it) — labelled explicitly as an approximate landmark pin, not the shrine's exact
+position, with a note asking Saifullah for a precise one where possible. Two rows (Shah Gohar
+Peer; Mian Qurban Ali Shah's "Mint Stop," which didn't resolve to one confident location) are
+left honestly blank and flagged rather than guessed.
+
+**Enrichment.** All 30 books in `out/ocr/` are monographs about the archive's existing flagship
+shrines — a targeted search across the one general compendium, Alam Faqri's *Tazkirah
+Awliya-e-Pakistan* (already cited 26 times elsewhere), found real, specific, verbatim-quotable
+mentions for 16 of the 60 `Web-compiled` entries (out of 32 checked — Sikh/Hindu names were
+correctly not checked against a Muslim hagiographical compendium). Each hit was folded into its
+existing entry as a citation-backed addition, not a rewrite, several with real cross-references
+between entries (Akhund Darweza Baba ↔ Pir Baba as teacher/khalifa; Baba Shah Chiragh ↔ Mauj
+Darya Bukhari sharing a mausoleum complex) and at least two flagged, unresolved conflicts
+between the tazkira and existing sourcing (a location dispute for Akhund Panju Baba; a ~70-year
+death-date discrepancy for Mian Umar Baba/Chamkani) reported rather than silently picked.
+
+This enrichment work doubled as the requested "OCR → Claude directly, skip LibreTranslate"
+pipeline experiment — see `docs/CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md`. Recommendation: skip
+the translate stage for future targeted-extraction work; whole-book translation is untested
+and the natural next comparison before retiring `tools/translate.py`.
+
+**Frontend, five items, all verified in-browser (Playwright) and against the full test suite:**
+
+- Embedded Arabic-script couplets quoted inside English-mode prose (`data-darbar`,
+  `mazar-e-iqbal`, `lal-shahbaz-qalandar`, others) now isolate in the Nastaliq font via a new
+  `.inline-script` `<bdi lang="ur">` wrapper in `inlineFormat.tsx`, instead of silently falling
+  back to a mismatched system font.
+- The shrine-facts sidebar showed "Category" twice (badge + a plain fact row underneath,
+  same value) — the redundant row is gone.
+- Guided Tours: the filter-chip row's scroll-with-edge-fade read as a cut-off label
+  ("Hindu & Jai...") rather than "scroll for more" — chips now wrap onto multiple lines
+  instead. Tour cards restructured from one long "·"-joined string into a title + wrapping
+  meta row with real pill badges.
+- Map markers: shrines with a real photo now render as a 30px thumbnail pin (category-colored
+  ring) instead of a plain dot; shrines without one keep the dot.
+- The provenance/sources section is now gated behind a soft `?team=1` flag
+  (`src/lib/projectAccess.ts`), persisted via localStorage — explicitly documented as a
+  visibility convenience, not security, since the underlying sheet CSV is unavoidably public.
+
+**New pending CSV patches, all per RULE 3 (human import required):**
+`data/patch_new_field_survey_shrines.csv` (4 new rows), `data/patch_shah_inayat_merge.csv`
+(1-row merge/upgrade), `data/patch_field_survey_coordinates.csv` (coordinate + content fix for
+the 4 already-published-but-invisible rows) — plus whatever the tazkira enrichment batch
+produces (see the session's working notes for the final row count if this line hasn't been
+updated).
+
+**Loose end**: two other interactive Claude Code sessions (`abshaar-c6`,
+`copilot-repo-starter-e5`) were active on this same repo concurrently with this session,
+confirmed via a peer-session check mid-session. Some of the work above (the coordinate+content
+patch for the 4 pre-existing shrines, the `?team=1` access gate, part of the map-marker CSS,
+the OCR-extraction-experiment doc) may have originated there rather than from this session's
+own subagents — it was all reviewed (typechecked, tested, spot-checked against real source
+data) before being built on or committed, but if two sessions' commits collide, check
+`git log` carefully before assuming either side's history is authoritative.
+
+---
+
 ## 9. Trust calibration — read before relying on earlier notes
 
 Prior sessions produced confident diagnoses that were wrong. A successor should know which, so

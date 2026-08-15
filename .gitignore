@@ -82,8 +82,7 @@ photo_manifest.tsv
 media-source/
 data/*.csv
 !data/schema_patch.csv
-!data/patch_provenance_badges.csv
-!data/patch_bibi_pak_daman_dates.csv
+!data/patch_*.csv
 docs/prompts/PROMPT_post_import.md
 PROMPT_post_import.md
 *.bak
