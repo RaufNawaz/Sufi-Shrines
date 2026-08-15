@@ -27,6 +27,7 @@ import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
+import { hasProjectAccess } from '../lib/projectAccess';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -257,7 +258,9 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <ShrineArticle shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
-          <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />
+          {/* Provenance/sources detail is project-team-only visibility (not
+              security — see src/lib/projectAccess.ts for why). */}
+          {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}
           {/* Quiet contribution prompt — only on pages we know little about */}
           {isLowInfo && (
             <aside className="contribute-note">

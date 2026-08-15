@@ -12,6 +12,9 @@ import { LanguageProvider } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
 import { UpdateToast } from './components/ui/UpdateToast';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
+import { persistAccessParamIfPresent } from './lib/projectAccess';
+
+persistAccessParamIfPresent();
 
 const MapPage = lazy(() => import('./pages/MapPage'));
 const ShrinePage = lazy(() => import('./pages/ShrinePage'));
