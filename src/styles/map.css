@@ -292,6 +292,42 @@
   background-color: var(--color-cat-secular);
 }
 
+/* A shrine with a real photo gets a larger thumbnail pin instead of a plain
+   dot (see buildDivIcon in ShrineMarkers.tsx, which sets iconSize to 30 and
+   the photo URL as an inline background-image) — the category color moves
+   to the ring since the fill is now the photo; the plain colored dot above
+   stays the no-photo fallback, so identity is still legible either way. */
+.shrine-dot--photo {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-width: 2.5px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 0 0 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.shrine-dot--photo.shrine-dot--muslim {
+  border-color: var(--color-cat-muslim);
+}
+.shrine-dot--photo.shrine-dot--hindu {
+  border-color: var(--color-cat-hindu);
+}
+.shrine-dot--photo.shrine-dot--sikh {
+  border-color: var(--color-cat-sikh);
+}
+.shrine-dot--photo.shrine-dot--nanakpanthi {
+  border-color: var(--color-cat-nanakpanthi);
+}
+.shrine-dot--photo.shrine-dot--jain {
+  border-color: var(--color-cat-jain);
+}
+.shrine-dot--photo.shrine-dot--secular {
+  border-color: var(--color-cat-secular);
+}
+
 .shrine-dot:hover {
   transform: scale(1.35);
   box-shadow:

@@ -26,22 +26,37 @@ function escapeHtml(s: string): string {
   );
 }
 
-function buildDivIcon(selected: boolean, category: string, dimmed: boolean): L.DivIcon {
+/** Escapes a string for safe use inside a double-quoted HTML attribute AND
+ * a single-quoted CSS url() within it (marker HTML is injected directly via
+ * Leaflet's divIcon, not through React, so this can't rely on JSX escaping). */
+function escapeAttr(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '%27');
+}
+
+function buildDivIcon(
+  selected: boolean,
+  category: string,
+  dimmed: boolean,
+  imageUrl?: string | null,
+): L.DivIcon {
   const catKey = categoryKey(category);
   const classes = [
     'shrine-dot',
     `shrine-dot--${catKey}`,
+    imageUrl ? 'shrine-dot--photo' : '',
     selected ? 'selected' : '',
     dimmed ? 'shrine-dot--dimmed' : '',
   ]
     .filter(Boolean)
     .join(' ');
+  const style = imageUrl ? ` style="background-image: url('${escapeAttr(imageUrl)}')"` : '';
+  const size = imageUrl ? 30 : 14;
   return L.divIcon({
     className: '',
-    html: `<div class="${classes}"></div>`,
-    iconSize: [14, 14],
-    iconAnchor: [7, 7],
-    popupAnchor: [0, -10],
+    html: `<div class="${classes}"${style}></div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor: [0, -size / 2 - 3],
   });
 }
 
@@ -77,7 +92,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const localName = localizeShrineName(shrine, lang);
 
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
-        icon: buildDivIcon(isSelected, shrine.category, tourStopSlugSet !== null),
+        icon: buildDivIcon(isSelected, shrine.category, tourStopSlugSet !== null, shrine.imageUrl),
         title: localName,
         alt: localName,
         zIndexOffset: isSelected ? 1000 : 0,
@@ -145,7 +160,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const marker = markerMapRef.current.get(prevId);
       const shrine = shrines.find((s) => s.id === prevId);
       if (marker && shrine) {
-        marker.setIcon(buildDivIcon(false, shrine.category, dimmed));
+        marker.setIcon(buildDivIcon(false, shrine.category, dimmed, shrine.imageUrl));
         marker.setZIndexOffset(0);
         marker.getElement()?.setAttribute('aria-pressed', 'false');
       }
@@ -155,7 +170,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const marker = markerMapRef.current.get(selectedId);
       const shrine = shrines.find((s) => s.id === selectedId);
       if (marker && shrine) {
-        marker.setIcon(buildDivIcon(true, shrine.category, dimmed));
+        marker.setIcon(buildDivIcon(true, shrine.category, dimmed, shrine.imageUrl));
         marker.setZIndexOffset(1000);
         marker.getElement()?.setAttribute('aria-pressed', 'true');
       }
