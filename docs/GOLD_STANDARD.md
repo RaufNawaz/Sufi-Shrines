@@ -118,6 +118,16 @@ of leverage:
    49-entries-no-bibliography finding already on record. Some of these are the Gurdwara/Mandir
    entries no enumerator has visited — for those, the honest fix is not more prose, it's either
    a real citation or leaving the `Low` badge to stand.
+
+   **Update, 15 August 2026**: did exactly this for the Muslim-shrine subset. All 30 books in
+   `out/ocr/` turned out to be monographs about shrines this archive already documents well —
+   a targeted search across the one general compendium (Alam Faqri's *Tazkirah
+   Awliya-e-Pakistan*, already cited 26 times elsewhere) found real, verbatim-quotable material
+   for 16 of the 60. See `data/patch_tazkira_enrichment.csv` (pending sheet import) and
+   `docs/HANDOVER.md` §8b. The remaining ~44 (mostly Gurdwaras/Mandirs, which a Muslim
+   hagiographical tazkira would never cover) are a genuine dead end for *this* book corpus —
+   the honest next move for those is new field visits or a different source library entirely,
+   not more searching here.
 3. **Use this checklist, not vibes,** when the field survey program produces new entries
    (Mauj Darya Bukhari re-shoot, any future oral histories) — build them to this standard from
    the first draft rather than upgrading them later.
