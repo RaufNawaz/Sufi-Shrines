@@ -35,6 +35,10 @@ export function ShrineInfobox({ shrine }: Props) {
     // New structured columns get dedicated UI (badge/status/filters) — never
     // a generic snake_case row.
     if (STRUCTURED_FACET_KEYS.has(key)) return false;
+    // The category badge above always shows this (falling back to legacy
+    // `Category` itself when the new column is blank) — a plain fact row
+    // repeating the same value right underneath it is pure redundancy.
+    if (key === 'Category') return false;
     // The dedicated dates block below owns Founded once year_built is
     // present — otherwise this legacy row is still the only source for it.
     if (shrine.yearBuilt && isFoundedKey(key)) return false;
@@ -49,14 +53,9 @@ export function ShrineInfobox({ shrine }: Props) {
   for (const key of INFOBOX_PRIORITY_KEYS) {
     const entry = allEntries.find(([k]) => k === key);
     if (entry) {
-      // The Category row shows the effective category (new `category` column
-      // when present) so it never contradicts the badge above.
-      const localValue =
-        entry[0] === 'Category'
-          ? (categoryDisplayLabel(shrine.category, lang) ?? localizeField(shrine.raw, entry[0]))
-          : isFoundedKey(entry[0])
-            ? resolveFoundedDate(shrine.raw, lang)
-            : localizeField(shrine.raw, entry[0]);
+      const localValue = isFoundedKey(entry[0])
+        ? resolveFoundedDate(shrine.raw, lang)
+        : localizeField(shrine.raw, entry[0]);
       if (localValue) priorityRows.push([entry[0], localValue]);
     }
   }

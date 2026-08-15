@@ -85,7 +85,6 @@ export const ARTICLE_SECTION_DEFINITIONS = [
 ] as const;
 
 export const INFOBOX_PRIORITY_KEYS = [
-  'Category',
   'Type',
   'Location',
   'District',

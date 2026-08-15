@@ -438,6 +438,17 @@
   margin-bottom: 0;
 }
 
+/* A verse/couplet quoted in its original Arabic/Urdu/Persian script, embedded
+   inside otherwise-Latin prose — isolated so it renders in the Nastaliq font
+   and RTL direction regardless of the surrounding page's own language mode
+   (--font-urdu is normally scoped to [dir='rtl'] only; see global.css). */
+.inline-script {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  unicode-bidi: isolate;
+  line-height: var(--leading-urdu);
+}
+
 /* Sources section: one bullet per citation line */
 .article-sources-list {
   margin: 0;
