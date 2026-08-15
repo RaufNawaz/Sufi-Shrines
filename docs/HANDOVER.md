@@ -253,15 +253,14 @@ MapTiler's localhost origin, then three separate commits.
 
 **Editorial — the one that matters**
 
-- **The Bibi Pak Daman gold-standard entry.** Still untouched. It is the only item that
-  actually answers Adil's original question about content quality: one entry done properly,
-  fully cited, at the standard the other 166 should be held to. Everything else is
-  infrastructure for this.
+- **The Bibi Pak Daman gold-standard entry.** Reviewed 15 August 2026 — it holds up; see
+  `docs/GOLD_STANDARD.md`. Everything else is infrastructure for holding the other 166 to the
+  same standard.
 
-**External asks (route through Adil)**
+**External asks — not pursuing (per user, 15 August 2026)**
 
-- Auqaf records request — their register is ~3× our coverage
-- An access letter for Saifullah, so he is not negotiating entry shrine by shrine
+- ~~Auqaf records request~~
+- ~~An access letter for Saifullah~~
 
 **To Saifullah, one message**
 
