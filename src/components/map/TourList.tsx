@@ -318,28 +318,21 @@ export function TourList({
                     {localizeTourTitle(tour, lang)}
                   </span>
                   <span className="tour-card-meta">
-                    {fmtNum(tour.stops.length)} {t(lang, 'stopsLabel')}
-                    {km !== undefined && ` · ${fmtNum(Math.round(km))} ${t(lang, 'kmUnit')}`}
+                    <span className="tour-card-meta-text">
+                      {fmtNum(tour.stops.length)} {t(lang, 'stopsLabel')}
+                      {km !== undefined && ` · ${fmtNum(Math.round(km))} ${t(lang, 'kmUnit')}`}
+                    </span>
                     {tourProgress && (
-                      <>
-                        {' · '}
-                        <span
-                          className={`tour-card-status tour-card-status--${tourProgress.status}`}
-                        >
-                          {tourProgress.status === 'completed'
-                            ? t(lang, 'tourCompletedBadge')
-                            : `${t(lang, 'tourInProgressBadge')} ${fmtNum(tourProgress.stopIdx + 1)}/${fmtNum(tour.stops.length)}`}
-                        </span>
-                      </>
+                      <span className={`tour-card-status tour-card-status--${tourProgress.status}`}>
+                        {tourProgress.status === 'completed'
+                          ? t(lang, 'tourCompletedBadge')
+                          : `${t(lang, 'tourInProgressBadge')} ${fmtNum(tourProgress.stopIdx + 1)}/${fmtNum(tour.stops.length)}`}
+                      </span>
                     )}
                     {isNearest && (
-                      <>
-                        {' · '}
-                        <span className="tour-card-nearest-badge">
-                          {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))}{' '}
-                          {t(lang, 'kmUnit')})
-                        </span>
-                      </>
+                      <span className="tour-card-nearest-badge">
+                        {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))} {t(lang, 'kmUnit')})
+                      </span>
                     )}
                   </span>
                 </button>

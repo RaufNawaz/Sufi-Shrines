@@ -479,49 +479,14 @@
 }
 
 .filter-chips {
+  /* These are short, fixed option sets (a handful of pills per group) — wrap
+     them rather than hiding the overflow behind a scroll+fade, which read as
+     a cut-off label ("Hindu & Jai...") rather than "scroll for more". */
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  overflow-x: auto;
   flex-shrink: 0;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  /* Fade edges so horizontal scroll looks intentional */
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 10px,
-    black calc(100% - 10px),
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 10px,
-    black calc(100% - 10px),
-    transparent
-  );
-}
-
-[dir='rtl'] .filter-chips {
-  mask-image: linear-gradient(
-    to left,
-    transparent 0,
-    black 10px,
-    black calc(100% - 10px),
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to left,
-    transparent 0,
-    black 10px,
-    black calc(100% - 10px),
-    transparent
-  );
-}
-
-.filter-chips::-webkit-scrollbar {
-  display: none;
 }
 
 .filter-chip {
