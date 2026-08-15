@@ -117,6 +117,13 @@ def load_termbase(path):
             f = line.rstrip("\n").split("\t")
             if len(f) < 3 or f[0].strip().lower() == "canonical":
                 continue
+            # translate=YES means the canonical column is the foreign term to AVOID —
+            # prose should use the English gloss instead (e.g. "mosque", not "masjid").
+            # The gloss word is itself listed as a "variant" for join purposes elsewhere,
+            # so without this guard the check tells editors to rewrite correct English
+            # prose into the foreign term it was told not to use — backwards.
+            if len(f) > 5 and f[5].strip().upper() == "YES":
+                continue
             canon = f[0].strip()
             for v in (f[2] or "").split(";"):
                 v = v.strip()
@@ -233,6 +240,12 @@ def main():
         # --- dates -------------------------------------------------------------
         def yr(*names):
             v = col(r, *names)
+            # Prefer a year explicitly marked CE/AD over a bare or AH-marked one, so a
+            # mixed "8 Muharram 1040 AH / 8 August 1630 CE" string compares on the same
+            # calendar as a plain "1576" elsewhere, instead of grabbing the first digits.
+            ce = re.search(r"\b(\d{3,4})\s*(?:CE|AD)\b", v)
+            if ce:
+                return int(ce.group(1))
             m = re.search(r"\b(\d{3,4})\b", v)
             return int(m.group(1)) if m else None
         built, born, died = yr("year_built", "founded/opened", "founded"), yr("figure_born"), yr("figure_died")
