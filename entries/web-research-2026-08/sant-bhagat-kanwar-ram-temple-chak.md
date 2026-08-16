@@ -46,6 +46,8 @@ sant-bhagat-kanwar-ram-temple-chak / researched 16 August 2026 / batch F
 
 ## Acquisition leads
 
+**Checked 16 August 2026:** *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (1919, archive.org `in.ernet.dli.2015.34603`) was fetched in full and searched for "Kanwar"/"Kunwar"/"Bhagat"/"Jarwar"/"Ruk" — zero hits. "Chak" itself appears once, purely administrative (p.40). Consistent with Kanwar Ram being born 1885/killed 1939 — decades after this 1919 book's cutoff.
+
 - *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (J. W. Smyth, 1919; archive.org `in.ernet.dli.2015.34603`) — Ruk/Mirpur Mathelo/Jarwar fall within the historical Sukkur District; not checked for Kanwar Ram content in this pass.
 - Naseem Mughal, *Shikarpur Heritage* (Sindh Archives Department, Government of Sindh, 2012), full text on archive.org, identifier `shikarpurheritage` — Chak falls within Shikarpur district; a natural companion to the Chak-temples article above.
 - Zulfiqar Ali Kalhoro, *Saints, Sufis and Shrines: The Mystical Landscape of Sindh* (EFT Sindh, 2022) — same author as finding 1 and 3 above; likely covers Chak given his TFT essay series, though not independently confirmed.

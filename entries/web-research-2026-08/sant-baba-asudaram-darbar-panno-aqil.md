@@ -30,6 +30,8 @@ None found (no verified findings to conflict).
 
 ## Acquisition leads
 
+**Checked 16 August 2026:** *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (1919, archive.org `in.ernet.dli.2015.34603`) was fetched in full and searched for "Asudaram"/"Asu Ram"/"Asuram" — zero hits anywhere in the text. "Pano Akil" appears 7 times, always administrative (taluka status, road distances, population tables) — no saint or darbar content near any mention. A clean negative, not a scope issue (Panno Aqil genuinely was in Sukkur District in 1919).
+
 - *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (J. W. Smyth, 1919; Panno Aqil/Pano Akil is a tehsil of Sukkur District) — full text on archive.org, identifier `in.ernet.dli.2015.34603`; not checked for Asudaram content in this pass.
 - Encyclopedia Sindhiana (انسائيڪلوپيڊيا سنڌيانا) — a 13-volume published Sindhi-language encyclopedia; a proper subject search (rather than the article-title URL that failed here) may surface a citable entry on Asudaram or Panno Aqil.
 - Zulfiqar Ali Kalhoro, *Saints, Sufis and Shrines: The Mystical Landscape of Sindh* (Endowment Fund Trust for Preservation of the Heritage of Sindh, 2022) — ~55 essays on Sindh's shrines by the same author whose other essays (checked above) do not mention this site; worth a direct check since it may cover ground his shorter press pieces did not.

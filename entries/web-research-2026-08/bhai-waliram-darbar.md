@@ -23,6 +23,8 @@ None found (only one citable source located).
 
 ## Acquisition leads
 
+**Checked 16 August 2026:** *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (1919, archive.org `in.ernet.dli.2015.34603`) was fetched in full and searched for "Waliram"/"Wali Ram"/"Digano"/"Miro Khan" — zero hits. This is a scope miss, not a content gap: the book's own administrative history (p.40) states that in 1901 the Larkana, Ratodero, Kambar, Labdarya, Mehar, Warah and Kakar talukas — including Miro Khan taluka, where this darbar is placed — were separated from Sukkur/Shikarpur territory to form the new Larkana district, 18 years before this volume was compiled. The Larkana "B" volume gazetteer (already on the acquisition list below) is the correct target, not this one.
+
 - *Gazetteer of the Province of Sind, B volume — Larkana district* (Miro Khan taluka was historically in Larkana district) — HathiTrust catalog record: https://catalog.hathitrust.org/Record/012154441
 - *Gazetteer of the province of Sind vol. IV*, 1927 — archive.org identifier `in.gov.ignca.30452` (full text downloadable; metadata does not name the district — confirm on download whether this is the Larkana B volume)
 - *A Gazetteer of the Province of Sind*, 2nd ed., 1876 — archive.org identifier `wbsl.16342`

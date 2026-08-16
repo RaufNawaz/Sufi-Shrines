@@ -1,0 +1,8 @@
+id: gurdwara-malji-sahib
+name: Gurdwara Malji Sahib
+
+--- CURRENT Description ---
+Gurdwara Sri Mal Ji Sahib stands in Nankana Sahib, near the railway station and close to Gurdwara Kiara Sahib, and commemorates one of the miracles of *Guru Nanak Dev Ji's* childhood. Its name comes from the *mal* — a shady tree, also called *van* or *jal* — beneath which the young Nanak, tending his father's cattle, once lay asleep in the heat of the day. According to the *sakhi*, the local landlord *Rai Bular*, riding through his fields with his attendants, came upon the sleeping child and saw that a great cobra had spread its hood over Nanak's face to shade him from the sun, withdrawing quietly as the men approached. This wonder — remembered together with the miracle of the untouched crop at nearby Kiara Sahib — is said to have convinced Rai Bular of the boy's spiritual greatness, so that he became a devoted follower of Guru Nanak and later granted him half of his estate. A gurdwara was first built on the spot by *Diwan Kaura Mall* and later renovated in the time of *Maharaja Ranjit Singh*; larger and more ornate than Kiara Sahib, it is crowned by a central dome with domed kiosks at the corners and porches along the hall, and its interior is faced with old ceramic tiles, each some four inches square and each depicting a cobra in memory of the miracle. Since Partition the shrine has been maintained as part of Pakistan's Sikh heritage and is visited by pilgrims on the great anniversaries, forming, with Kiara Sahib, the eastern cluster of the Nankana Sahib shrines.
+
+--- CURRENT qa_note ---
+

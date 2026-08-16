@@ -46,6 +46,8 @@ None found among the fetched, citable sources. (A search-engine-only, non-fetche
 
 ## Acquisition leads
 
+**Checked 16 August 2026:** *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (1919, archive.org `in.ernet.dli.2015.34603`) was fetched in full and searched for "Satram"/"Satramdas"/"Raharki"/"Reharki"/"Bharchundi" — zero hits anywhere, no near-miss variants either. A clean negative.
+
 - *Gazetteer of the Province of Sind, "B" Volume III — Sukkur District* (J. W. Smyth, 1919; Ghotki/Raharki fell within the historical, larger Sukkur District before Ghotki District was carved out) — archive.org identifier `in.ernet.dli.2015.34603`; not checked for Raharki content in this pass.
 - Zulfiqar Ali Kalhoro, *Saints, Sufis and Shrines: The Mystical Landscape of Sindh* (EFT Sindh, 2022) — same author as finding 3–4 above; a natural next source to check directly for a dedicated Raharki chapter.
 

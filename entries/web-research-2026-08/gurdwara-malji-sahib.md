@@ -5,7 +5,26 @@ Sheet location on file: Nankana Sahib, Punjab, Pakistan (31.456, 73.7125).
 
 ## Verified findings
 
-None found for the site at the sheet's recorded location (Nankana Sahib). See Conflicts below for why this matters and what was found instead.
+*Updated 16 August 2026 — a targeted follow-up check found a genuine source for the sheet's
+actual Nankana Sahib site, after the original pass below had concluded nothing citable existed.*
+
+1. "22. GURDWARA MAL JI SAHIB: (Pl. No. 20). While herding the cattle Guru Nanak used to take
+   rest under the shade of a tree. Once Rai Buller happened to pass that way and observed that
+   the protecting shadow of the tree had remained stationary over the Guru and did not change
+   like the shadows of other trees with the sun's progress. On another occasion he found a
+   cobra protecting the saint with its hood. The tree which is known as Mal Ji Sahib is held
+   sacred by the Sikhs. A gurdwara was built after its name with a view to enclose the sacred
+   tree. The tree under which the Guru stayed in Kanganpur, Tahsil Chuniyan, is also called Mal
+   Ji Sahib." — Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (Department of
+   Archaeology, Government of Pakistan, 1962), entry 22 (Plate No. 20), full text at
+   https://archive.org/details/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal,
+   accessed 16 August 2026. Reliability class: official government publication (citable).
+   Located in the book's Nankana Sahib cluster (both the table of contents — listed as item 20,
+   "Gurdwara Malji Sahib at Nankana Sahib," grouped with Bal Lila, Janam Asthan, Kiara Sahib,
+   Maulvi Patti, Tambo Sahib — and the body-text ordering, sitting between entries for Kiara
+   Sahib and Maulvi Patti, both at Nankana Sahib), not the book's separate Kanganpur material.
+   The entry itself explicitly distinguishes the two trees of the same name, matching this
+   file's own original Conflicts analysis below.
 
 For a same-named but geographically distinct gurdwara at Kanganpur, Kasur District (NOT the sheet's target — see Conflicts):
 
@@ -36,4 +55,9 @@ For a same-named but geographically distinct gurdwara at Kanganpur, Kasur Distri
 
 ## Verdict
 
-NOTHING RELIABLE FOUND for the site at the sheet's recorded coordinates (Nankana Sahib). A strong, citable source exists for a same-named gurdwara at Kanganpur, Kasur District, but the evidence indicates this is very likely a different physical site and has not been used to support any claim about the sheet's entry.
+PARTIAL (updated 16 August 2026, was NOTHING RELIABLE FOUND). A single independent, official
+source (the 1962 Department of Archaeology register) now confirms the sheet's Nankana Sahib
+site as a real, distinct place with its own foundation legend, separate from the Kanganpur
+gurdwara of the same name. Not yet corroborated by a second independent source — the
+buffalo/cattle-grazing legend already circulating in non-citable web sources now matches a
+citable one, but no second citable source has confirmed it independently.
