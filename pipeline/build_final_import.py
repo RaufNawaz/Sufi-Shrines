@@ -131,7 +131,10 @@ def main():
 
     # ---- 3. this session's web-research patch ------------------------------
     webr = load(os.path.join(DATA, "patch_web_research.csv"))
-    assert len(webr) == 37, f"expected 37 web-research rows, got {len(webr)}"
+    # 37 from the original synthesis pass + 1 (gurdwara-malji-sahib) added after a
+    # follow-up check of the 1962 Dept. of Archaeology register upgraded it from
+    # "nothing reliable found" to PARTIAL -- see ACQUISITION_LIST.md.
+    assert len(webr) == 38, f"expected 38 web-research rows, got {len(webr)}"
     for w in webr:
         if w["id"] not in by_id:
             die(f"patch_web_research.csv: id {w['id']!r} not in raw sheet")

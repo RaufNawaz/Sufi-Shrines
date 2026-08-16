@@ -1,15 +1,15 @@
-rows: 171   distinct sources: 418   shrine-source links: 491
+rows: 171   distinct sources: 419   shrine-source links: 492
 
 SUPPORT LEVEL
   Source-documented   100
-  Source-seeded       52
+  Source-seeded       53
   Field-verified      16
-  Web-compiled        3
+  Web-compiled        2
 
 INFO LEVEL (visitor-facing badge)
-  Moderate            152
+  Moderate            153
   Full                16
-  Low                 3
+  Low                 2
 
 SOURCE TYPE
   press               83
@@ -17,7 +17,7 @@ SOURCE TYPE
   book                67
   unclassified        58
   encyclopaedia       34
-  register            31
+  register            32
   primary text        27
   field survey        16
   tazkira             15
