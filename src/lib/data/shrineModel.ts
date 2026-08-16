@@ -133,3 +133,17 @@ export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 5): Sh
     .slice(0, limit)
     .map((r) => r.shrine);
 }
+
+/** Purely geographic nearest-shrines, unlike findRelatedShrines() above
+ * (which weights category/location similarity ahead of distance) — for a
+ * pilgrim asking "what else is nearby", not "what else is like this". Every
+ * `Shrine` already has valid coordinates (buildShrines() drops coordinate-
+ * less rows before this point), so no filtering for that is needed here. */
+export function findNearbyShrines(shrine: Shrine, all: Shrine[], limit = 5): Shrine[] {
+  return all
+    .filter((s) => s.id !== shrine.id)
+    .map((s) => ({ shrine: s, distanceKm: haversineKm(shrine.latLng, s.latLng) }))
+    .sort((a, b) => a.distanceKm - b.distanceKm)
+    .slice(0, limit)
+    .map((r) => r.shrine);
+}

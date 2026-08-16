@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
-import { buildShrine, buildShrines, haversineKm } from '../shrineModel';
+import { buildShrine, buildShrines, haversineKm, findNearbyShrines } from '../shrineModel';
 import { makeShrineRow } from '../../../test/utils';
 import type { ShrineRow } from '../../../types/shrine';
 
@@ -107,5 +107,36 @@ describe('haversineKm', () => {
     // ~1030 km expected (haversine great-circle)
     expect(dist).toBeGreaterThan(950);
     expect(dist).toBeLessThan(1100);
+  });
+});
+
+describe('findNearbyShrines', () => {
+  // Lahore-area anchor plus three candidates at increasing distance, and one
+  // Karachi-area shrine sharing the anchor's category — findNearbyShrines
+  // must rank by distance alone and ignore that shared category, unlike
+  // findRelatedShrines' weighted score.
+  const rows: ShrineRow[] = [
+    { ...baseRow, Name: 'Anchor', Latitude: '31.52', Longitude: '74.36', Category: 'Muslim Shrine' },
+    { ...baseRow, Name: 'Nearest', Latitude: '31.53', Longitude: '74.37', Category: 'Hindu Temple' },
+    { ...baseRow, Name: 'Middle', Latitude: '31.60', Longitude: '74.40', Category: 'Hindu Temple' },
+    { ...baseRow, Name: 'Farthest same-category', Latitude: '24.86', Longitude: '67.00', Category: 'Muslim Shrine' },
+  ];
+  const shrines = buildShrines(rows);
+  const anchor = shrines.find((s) => s.name === 'Anchor')!;
+
+  it('excludes the shrine itself', () => {
+    const nearby = findNearbyShrines(anchor, shrines);
+    expect(nearby.find((s) => s.id === anchor.id)).toBeUndefined();
+  });
+
+  it('orders strictly by distance, not category match', () => {
+    const nearby = findNearbyShrines(anchor, shrines);
+    expect(nearby.map((s) => s.name)).toEqual(['Nearest', 'Middle', 'Farthest same-category']);
+  });
+
+  it('respects the limit', () => {
+    const nearby = findNearbyShrines(anchor, shrines, 1);
+    expect(nearby).toHaveLength(1);
+    expect(nearby[0].name).toBe('Nearest');
   });
 });

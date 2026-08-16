@@ -14,6 +14,7 @@ import { ContentsNav } from '../components/shrine/ContentsNav';
 import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
+import { NearbyShrines } from '../components/shrine/NearbyShrines';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
@@ -258,6 +259,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <ShrineArticle shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
+          <NearbyShrines shrine={shrine} all={allShrines} />
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
           {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}
