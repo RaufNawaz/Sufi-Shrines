@@ -288,3 +288,42 @@ follow-up.
 Each batch = one PR-sized unit; run the full verification (contract §9) once per batch and
 per task. Report every no-op verification result explicitly — a task that turns out already
 done is a finding, not a failure.
+
+---
+
+## Execution log
+
+### Batch 1 — done (16 Aug 2026, same day as this plan)
+
+- **A1** — done. `ShrineInfobox.tsx` now tags the fallback `<bdi>` `lang="en"` when
+  `localizeField()` returns Latin content (the only way that happens in the Urdu view);
+  `shrine.css` mutes it. Commit `2b911cf`.
+- **A5** — **no-op, already implemented.** `document.title` already flips via
+  `useDocumentTitle(t('siteTitle'))` on every page (`MapPage.tsx:145` and per-entity
+  composites in `ShrinePage`/`SaintPage`/`OrderPage`/`GraphPage`), and both `siteTitle` and
+  `siteMetaDescription` already have `ur` translations; `LanguageContext`'s effect already
+  updates the meta description/OG tags on language change. Nothing to do.
+- **A7** — done. `aria-pressed` added to the numerals toggle; `LanguageToggle`'s group
+  `aria-label` now reads from a new `selectLanguage` uiStrings key instead of a hardcoded
+  English string. Focus rings (global `:focus-visible`) and mobile 44px targets already
+  existed and were left as-is (they follow the existing app-wide convention of 44px only
+  under the `max-width: 768px` media query, same as `.filter-chip`). Commit `da481d2`.
+- **B2** — done. Persistent `.filter-summary-bar` (active-filter count + "clear all") added
+  above the category chips, wired to the existing `clearAllFilters` callback. The prior
+  empty-results clear button is untouched. Commit `da481d2`.
+- **B3** — done. Public "Report a correction" link in the shrine-page footer
+  (`correctionIssueUrl()` in `constants.ts`), prefilling the `shrine` field and title via
+  GitHub's issue-forms query-param convention. Commit `da481d2`.
+- **B7** — done. New `data-quality` job in `.github/workflows/ci.yml`: `npm run data:build`
+  → `pipeline/validate_shrines.py --fail-on NONE` → uploads `validation_issues.tsv`.
+  Commit `0018b17`.
+
+Full batch verified: `npm run verify` (235 tests) and `npm run e2e` (39/39, after ruling out
+worker-contention flakiness in `a11y.spec.ts`/`map.spec.ts` by rerunning at `--workers=2`)
+both green.
+
+### Batch 3 note found while working Batch 1
+
+- **B8 (Lighthouse budget wiring) is already fully done** — `.lighthouserc.cjs` exists with
+  real category/CWV/a11y assertions and is wired into `ci.yml`'s `lighthouse` job. Batch 3
+  can skip it; noted here so it isn't re-attempted.
