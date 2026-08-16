@@ -327,3 +327,30 @@ both green.
 - **B8 (Lighthouse budget wiring) is already fully done** — `.lighthouserc.cjs` exists with
   real category/CWV/a11y assertions and is wired into `ci.yml`'s `lighthouse` job. Batch 3
   can skip it; noted here so it isn't re-attempted.
+
+### Batch 2 — done (16 Aug 2026)
+
+- **A2** — done. Audited every named suspect plus a full grep sweep of `letter-spacing`/
+  `text-transform: uppercase`/`font-style: italic` across all four stylesheets, checked each
+  against the actual rendered JSX (tag + whether the content is translated) rather than
+  guessing. Fixed 10 real cases where translated text landed on a `<p>`/`<span>`/`<div>` the
+  global `h1-h4` remap never reaches: `.shrine-category-kicker`, `.infobox-category-badge`,
+  `.infobox-note`, `.provenance-method`, `.provenance-reviewer`, `.provenance-citation-type`,
+  `.entity-type-kicker`, `.filter-section-label`, `.shrine-list-group-heading`,
+  `.shrine-list-empty-query`. Confirmed-fine and left alone: anything already on an h1-h4
+  (the global remap's selector specificity already wins), digit-only badges (tracking is
+  harmless on numerals), `.provenance-notes` (always-English bdi-wrapped prose), breadcrumbs.
+  Added `e2e/nastaliq-metrics.spec.ts` as a permanent regression guard — spot-verified by
+  reverting one fix and confirming the test catches it. Commit `017ab37`.
+- **A4** — done. `search.worker.ts` now has a shared `processTerm` (Arabic harakat/ZWNJ/ZWJ
+  stripped, ي/ك/ة/ه/أ/إ/آ/ئ folded to ی/ک/ہ/ا) applied at both index and search time.
+  Verified with a MiniSearch-backed test using real shrine names. Commit `a307ce6`.
+- **B1** — done. `RelatedShrines` already existed but weights category/location similarity
+  ahead of distance — not a true "nearby" list. Added `findNearbyShrines()` (pure haversine,
+  unit-tested) and a `NearbyShrines` component. Commit `71cc1a3`.
+- **B6** — done. `useShrineData()`'s solid cache/snapshot fallback chain was never surfaced
+  to the UI. Added `sourceTimestamp` + an `offline` flag (true only once a live fetch has
+  actually failed, not during the normal instant-cache-then-background-refresh path every
+  healthy load goes through) and an `OfflineDataBanner` on `MapPage`. Commit `2e1e28e`.
+
+Full batch verified: `npm run verify` (251 tests) and full `npm run e2e` (42/42) green.
