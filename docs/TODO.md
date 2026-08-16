@@ -15,10 +15,11 @@ version of this list missed. They don't overlap with each other, so any order is
 review each as its own pass:
 
 - [ ] `data/patch_new_field_survey_shrines.csv` — 4 new shrine rows. **Note:** the Darbar
-      Ghazi Ilm Din Shaheed row has deliberately blank coordinates (the survey locates it only
-      as "Lahore" — see §2 below). `buildShrine()` drops rows without coordinates, so after
-      import this row will exist in the sheet but not appear anywhere on the live site until a
-      coordinate arrives. That is safe but easy to misread as a failed import.
+      Ghazi Ilm Din Shaheed row originally had blank coordinates (the survey locates it only as
+      "Lahore"); on 16 August, per direction, it was given the shared Miani Sahib Graveyard
+      landmark pin, sourced to a named press account (Parvez Mahmood, *The Friday Times*,
+      20 May 2022 — verified directly, and added to the entry's Bibliography). The pin is
+      explicitly approximate; a precise one is still on Saifullah's list (§2).
 - [ ] `data/patch_shah_inayat_merge.csv` — 1-row merge/upgrade to the existing "Shrine of Shah
       Inayat Qadiri" entry (adds a field-survey citation, corrects nothing, only adds).
 - [ ] `data/patch_field_survey_coordinates.csv` — coordinates + content fix for the 4
@@ -42,21 +43,19 @@ numbers, dates and formulas" **OFF**.
 
 ## 2. Needs you — Saifullah
 
-- [ ] **Precise coordinates for three shrines** — the field survey gave no usable landmark for
-      any of them, so they're left blank rather than guessed:
+- [ ] **Precise coordinates for two shrines** — the field survey gave no usable landmark for
+      either, so they're left blank rather than guessed:
   - Darbar Hazrat Shah Gohar Peer — no landmark at all in the survey.
   - Darbar Mian Qurban Ali Shah — survey says "Mint Stop, Lahore," which didn't resolve to one
     confident location (a "Pakistan Mint" railway/metro stop and a separate "Akhri Mint" bus
     stop are both real, different places). Ask which he meant, or for a pin.
-  - Darbar Ghazi Ilm Din Shaheed (in `data/patch_new_field_survey_shrines.csv`, flagged in its
-    own `qa_note`) — the survey says only "Lahore"; its one location detail ("Railway Auqaf
-    land") refers to the funeral prayer, not necessarily the burial site. Until a coordinate
-    arrives this row cannot render on the site at all. Ask Saifullah where the shrine actually
-    is — do not pin it from general knowledge.
-- [ ] **Precise coordinates, lower priority** — the 7 other geocoded rows use an approximate
+  - (Darbar Ghazi Ilm Din Shaheed was a third such row until 16 August; it now carries the
+    approximate Miani Sahib landmark pin, sourced to a verified press account per direction —
+    see §1. It joins the approximate-pin list below.)
+- [ ] **Precise coordinates, lower priority** — 8 other geocoded rows use an approximate
       landmark pin (Miani Sahib Graveyard, Mochi Gate, Mozang Chungi, or Data Darbar's own
       coordinate), explicitly labelled as approximate in each row's Location field. A real pin
-      from Saifullah would improve all 7.
+      from Saifullah would improve all 8 (the 8th being Ghazi Ilm Din Shaheed, added 16 Aug).
 - [ ] Still outstanding from before this session (see `docs/HANDOVER.md` §5, §8): Mauj Darya
       Bukhari needs re-shooting (all 12 original media files verified 404); Data Darbar and
       Bibi Pak Daman photos are WhatsApp-compressed and need re-shooting, sent as files not

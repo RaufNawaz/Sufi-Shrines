@@ -328,12 +328,15 @@ Gate, Mozang Chungi, or Data Darbar's own coordinate when a survey explicitly pl
 next to it) — labelled explicitly as an approximate landmark pin, not the shrine's exact
 position, with a note asking Saifullah for a precise one where possible. Two rows (Shah Gohar
 Peer; Mian Qurban Ali Shah's "Mint Stop," which didn't resolve to one confident location) are
-left honestly blank and flagged rather than guessed. (*Correction, 16 August:* there is a
-third deliberately-blank row — Darbar Ghazi Ilm Din Shaheed in
-`data/patch_new_field_survey_shrines.csv`, whose survey locates it only as "Lahore"; its own
-`qa_note` flags it for Saifullah. After import it will sit in the sheet but not render
-anywhere until a coordinate arrives, because of the same `buildShrine()` drop described
-above — expected, not a failed import.)
+left honestly blank and flagged rather than guessed. (*Correction, 16 August:* a third row —
+Darbar Ghazi Ilm Din Shaheed in `data/patch_new_field_survey_shrines.csv` — was also blank,
+because its survey locates it only as "Lahore." Per direction that day it now carries the
+shared Miani Sahib landmark pin, sourced not from the survey but from a verified press
+account (Parvez Mahmood, "Miani Sahib: Resting Place of Heroes," *The Friday Times*, 20 May
+2022, naming Ilam Din Shaheed's resting place there alongside Wasif Ali Wasif and Tahir
+Bandagi — which also independently corroborates those two rows' placement). The citation is
+in the entry's Bibliography, the approximation disclosed in its Location field and `qa_note`,
+and a precise pin still on Saifullah's ask list.)
 
 **Enrichment.** All 30 books in `out/ocr/` are monographs about the archive's existing flagship
 shrines — a targeted search across the one general compendium, Alam Faqri's *Tazkirah
