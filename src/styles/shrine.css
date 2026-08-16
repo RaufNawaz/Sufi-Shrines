@@ -342,6 +342,14 @@
   text-decoration: underline;
 }
 
+/* An untranslated Latin fallback value inside the Nastaliq infobox reads as
+   a glitch at full size — mark it visually secondary instead of hiding it
+   (RULE 2: report the gap, don't disguise it). */
+[dir='rtl'] .infobox-value bdi[lang='en'] {
+  font-size: 0.85em;
+  color: var(--color-text-secondary);
+}
+
 /* Split date fields (year_built/figure_born/figure_died/event_year) — a
    second list below the generic facts, so a long note never gets pushed out
    by MAX_INFOBOX_ROWS truncation. */

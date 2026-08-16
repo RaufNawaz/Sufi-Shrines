@@ -17,6 +17,13 @@ function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
 }
 
+/** localizeField() only ever returns Latin text in the Urdu view when
+ * translateToUrdu() fell through to the raw original — Latin content is
+ * itself the "untranslated" signal (see urduFallback.ts). */
+function isUntranslatedInUrdu(lang: string, value: string): boolean {
+  return lang === 'ur' && /[A-Za-z]/.test(value);
+}
+
 interface Props {
   shrine: Shrine;
 }
@@ -113,8 +120,11 @@ export function ShrineInfobox({ shrine }: Props) {
                 ) : (
                   // <bdi> so an untranslated Latin fallback value can't
                   // garble the surrounding RTL layout (same treatment as
-                  // the source notes below).
-                  <bdi>{fmtNum(value)}</bdi>
+                  // the source notes below). lang="en" flags it as
+                  // secondary content in the Urdu view (see shrine.css).
+                  <bdi lang={isUntranslatedInUrdu(lang, value) ? 'en' : undefined}>
+                    {fmtNum(value)}
+                  </bdi>
                 )}
               </dd>
             </div>
