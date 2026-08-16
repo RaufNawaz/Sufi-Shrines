@@ -84,6 +84,17 @@ body.lang-rtl,
   word-spacing: 0.05em;
 }
 
+/* The Urdu view is native, not a translated skin: remap the Latin display
+   faces wholesale so every component that says var(--font-serif) or
+   var(--font-sans) — article headings, infobox, tour cards, buttons —
+   renders Nastaliq without opting in (CLAUDE.md i18n rule 4). Embedded
+   Latin runs (<bdi> notes, URLs, coordinates) still resolve down the
+   --font-urdu fallback stack. */
+[dir='rtl'] {
+  --font-serif: var(--font-urdu);
+  --font-sans: var(--font-urdu);
+}
+
 /* Nastaliq sits taller and needs more visual weight than Latin scripts to
    read as comfortably — bump headings/body via --font-scale-urdu rather
    than hand-tuning every heading's font-size. */
@@ -96,6 +107,18 @@ body.lang-rtl,
 [dir='rtl'] dd,
 [dir='rtl'] dt {
   font-size: calc(1em * var(--font-scale-urdu));
+}
+
+/* Latin display metrics don't fit Nastaliq: negative tracking breaks the
+   connected script, and tight Latin heading leading clips the ascender and
+   diacritic stacks (the serif faces set both; the remap above keeps their
+   metrics unless reset here). */
+[dir='rtl'] h1,
+[dir='rtl'] h2,
+[dir='rtl'] h3,
+[dir='rtl'] h4 {
+  letter-spacing: 0;
+  line-height: var(--leading-urdu);
 }
 
 /* Form controls don't inherit font-family by default in most browsers'

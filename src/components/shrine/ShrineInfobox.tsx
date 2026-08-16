@@ -10,6 +10,7 @@ import {
 import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
 import { categoryKey, categoryDisplayLabel } from '../../lib/data/categoryKey';
 import { localizeFieldName } from '../../lib/data/fieldLabels';
+import { yearPrecisionKey, YEAR_PRECISION_LABEL_KEYS } from '../../lib/data/yearPrecision';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 
 function isFoundedKey(key: string): boolean {
@@ -110,7 +111,10 @@ export function ShrineInfobox({ shrine }: Props) {
                     {value.replace(/^https?:\/\//, '')}
                   </a>
                 ) : (
-                  fmtNum(value)
+                  // <bdi> so an untranslated Latin fallback value can't
+                  // garble the surrounding RTL layout (same treatment as
+                  // the source notes below).
+                  <bdi>{fmtNum(value)}</bdi>
                 )}
               </dd>
             </div>
@@ -129,7 +133,13 @@ export function ShrineInfobox({ shrine }: Props) {
               <dd className="infobox-value">
                 <bdi>
                   {fmtNum(shrine.yearBuilt)}
-                  {shrine.yearBuiltPrecision ? ` (${shrine.yearBuiltPrecision})` : ''}
+                  {(() => {
+                    if (!shrine.yearBuiltPrecision) return '';
+                    // Known precision vocabulary localizes; free-form
+                    // qualifiers render verbatim, like the source notes.
+                    const pk = yearPrecisionKey(shrine.yearBuiltPrecision);
+                    return ` (${pk ? t(YEAR_PRECISION_LABEL_KEYS[pk]) : shrine.yearBuiltPrecision})`;
+                  })()}
                 </bdi>
                 {shrine.yearBuiltNote && (
                   <p className="infobox-note">

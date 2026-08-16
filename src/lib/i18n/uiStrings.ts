@@ -180,6 +180,11 @@ export const UI_TEXT = {
     statusRuin: 'Ruin',
     statusDestroyed: 'Destroyed',
     sourceNoteLabel: 'Note',
+    precisionExact: 'exact',
+    precisionCirca: 'circa',
+    precisionCentury: 'century',
+    precisionRange: 'range',
+    precisionUnknown: 'unknown',
     eventYearLabel: 'Event year',
     contributePrompt:
       'We know little about this site. If you know it, we would like to hear from you.',
@@ -367,6 +372,11 @@ export const UI_TEXT = {
     statusRuin: 'کھنڈر',
     statusDestroyed: 'منہدم',
     sourceNoteLabel: 'نوٹ',
+    precisionExact: 'متعین',
+    precisionCirca: 'تقریباً',
+    precisionCentury: 'صدی',
+    precisionRange: 'حدود',
+    precisionUnknown: 'نامعلوم',
     eventYearLabel: 'تقریب کا سال',
     contributePrompt:
       'ہم اس مقام کے بارے میں بہت کم جانتے ہیں۔ اگر آپ اسے جانتے ہیں تو ہم آپ سے سننا چاہیں گے۔',
