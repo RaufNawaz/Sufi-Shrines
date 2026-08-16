@@ -45,6 +45,33 @@
       type="font/woff2"
       crossorigin
     />
+    <script>
+      // Headings render at font-weight 700 (.shrine-title, h1-h4, etc.) — on
+      // a cold Urdu load, only preloading the 400 weight above means the 700
+      // face arrives late (synthetic-bold flash, then a swap). Preloading it
+      // unconditionally would cost every English-first visitor ~154KB they
+      // don't need, so only do it when this same-priority-order check (see
+      // detectInitialLang() in LanguageContext.tsx) resolves to Urdu.
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get('lang');
+        if (lang !== 'en' && lang !== 'ur') {
+          lang = localStorage.getItem('shrines_language');
+        }
+        if (lang !== 'en' && lang !== 'ur') {
+          lang = navigator.language && navigator.language.toLowerCase().indexOf('ur') === 0 ? 'ur' : 'en';
+        }
+        if (lang === 'ur') {
+          var link = document.createElement('link');
+          link.rel = 'preload';
+          link.href = '/fonts/NotoNastaliqUrdu-700.woff2';
+          link.as = 'font';
+          link.type = 'font/woff2';
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        }
+      })();
+    </script>
 
     <!-- Map tiles: warm the CDN connection before Leaflet's first request -->
     <link rel="preconnect" href="https://a.basemaps.cartocdn.com" />
