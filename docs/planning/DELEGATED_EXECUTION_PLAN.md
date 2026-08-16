@@ -354,3 +354,60 @@ both green.
   healthy load goes through) and an `OfflineDataBanner` on `MapPage`. Commit `2e1e28e`.
 
 Full batch verified: `npm run verify` (251 tests) and full `npm run e2e` (42/42) green.
+
+### Batch 3 — done (16 Aug 2026), except B8 (already done, see above)
+
+- **A3** — done. Added a small inline script in `index.html` that preloads the 700-weight
+  Nastaliq face only when the same lang-detection order as `detectInitialLang()` resolves to
+  Urdu (unconditional preload would cost every English-first visitor ~154KB they don't need).
+  Verified: `font-display: swap` was already set on all three weights; all three woff2 files
+  were already under the 200KB subsetting threshold (157–165KB, with a unicode-range already
+  restricting them to Arabic-script blocks) — no subsetting needed. Commit `3a92ea8`.
+- **A6** — **no-op, verified via Playwright screenshots at 1280px/390px plus a computed-style
+  probe** (the task's own prescribed method): the sidebar/map correctly mirror in RTL via
+  plain flexbox (no `row-reverse` needed — `dir="rtl"` already reverses `flex-direction: row`
+  visually), Leaflet's zoom/reset/layers controls stay in their coded map-relative corners
+  without colliding with the sidebar at either width, and the app has **no native Leaflet
+  `<Popup>` anywhere** — marker clicks open the sidebar preview card instead, which was
+  already correctly Nastaliq/RTL-styled. Nothing to fix.
+- **B4** — done, `[review]`. Found the existing hreflang was pointing `ur` at `?lang=ur`,
+  which serves identical English content on a static host — a real bug, not just missing
+  polish. Added genuine prerendered `/ur/*` pages (shrine/saint/order/home) with real Urdu
+  title/description, `<html lang="ur" dir="rtl">`, self-referencing canonical, and correct
+  bidirectional hreflang + sitemap entries. `/ur/*` is crawler-discovery only — never linked
+  to internally; a real browser normalizes back to the existing path + `?lang=ur` scheme
+  within one paint (no flash, no change to `setLang`/persistence/the rest of the e2e suite).
+  Commit `22bca4c`. **Human should verify the routing choice before this ships** (per the
+  task's own review gate) — verified locally: `npm run verify` (259 tests), full `npm run e2e`
+  (47/47), and a production-flag build (`SITE_URL` set) all green.
+- **B5** — **no-op, already correct given actual policy.** `primaryImage()` in `prerender.mjs`
+  already uses whichever image is in the sheet (Wikimedia or first-party), which is exactly
+  what's wanted: never drop an existing image, but prioritize a Saifullah field photo over a
+  Wikimedia one when both exist for the same shrine. That exact scenario (Shah Inayat Qadiri)
+  is already handled correctly in `data/patch_shah_inayat_merge.csv`, pending sheet import —
+  the only such overlap the field-survey work found. Nothing to change in code.
+
+Full batch verified: `npm run verify` (259 tests, +8 for `urlLangPrefix`) and full
+`npm run e2e` (47/47, +3 `ur-prefix.spec.ts` +3 `nastaliq-metrics.spec.ts` +2
+`font-preload.spec.ts` beyond Batch 1/2's baseline) green, plus a `SITE_URL`-set production
+build to confirm `/ur/*` files are actually emitted.
+
+### Batch 4 (A8) — not started, correctly gated
+
+A8 is explicitly hard-gated on the consolidated CSV being imported into the live Google
+Sheet first (a human step this plan cannot perform — RULE 3) and requires human sign-off on
+the translated Urdu prose before merge regardless. Confirmed still blocked: the sheet import
+hadn't happened as of this session. Left untouched, as intended.
+
+### Photo/Drive-link investigation (16 Aug 2026, off-plan but related)
+
+Investigated a request to download any shrine photos still sitting as raw Google Drive links.
+Checked `pipeline/photo_manifest.tsv` (194 rows) and the live "Shrine Information Form
+(Responses)" sheet directly (28 rows, read via Drive): every shrine with a real, non-deleted
+Drive photo submission already has its images downloaded and published under
+`public/photos/<slug>/`. The only two exceptions are already accounted for — Mian Mir's one
+photo-bearing submission is flagged `Delete` by the sheet's own maintainers, and Mauj Darya
+Bukhari's 10 Drive IDs are confirmed gone (`id_not_in_drive` in the manifest; independently
+re-verified live — each returns "entity not found"). 44 manifest rows are Drive files with no
+attributable shrine name (`in_drive_not_in_survey`) — left alone per RULE 2, since assigning
+them a slug would mean guessing which shrine they belong to.
