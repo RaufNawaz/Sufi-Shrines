@@ -47,10 +47,10 @@ function primaryImage(row) {
   return '';
 }
 
-function leadText(row) {
-  const desc = field(row, 'Description', 'About', 'Summary', 'Paragraph');
+// Strip markdown headings/inline markup from a description, then truncate —
+// shared by the English and Urdu lead-text builders below.
+function stripMarkdownLead(desc) {
   if (!desc) return '';
-  // Strip markdown headings and inline markup, then truncate
   const stripped = desc
     .replace(/^#{1,6}\s+.*/gm, '')
     .replace(/[*_`~]/g, '')
@@ -58,6 +58,53 @@ function leadText(row) {
     .replace(/\n+/g, ' ')
     .trim();
   return stripped.length > 200 ? `${stripped.slice(0, 197)}…` : stripped;
+}
+
+function leadText(row) {
+  return stripMarkdownLead(field(row, 'Description', 'About', 'Summary', 'Paragraph'));
+}
+
+// ── Urdu variant helpers (see LanguageContext.tsx / urduFallback.ts for the
+// runtime equivalents this mirrors — same seed dictionary, same "leave
+// untranslated content in its original script rather than guess" rule) ────
+const SITE_TITLE_UR = 'پاکستان کے صوفی مزارات';
+let urduSeed = {};
+let urduContentBySlug = {};
+try {
+  urduSeed = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'urdu-seed.json'), 'utf8'));
+} catch {
+  // No seed dictionary — Urdu variants fall back to English names/text below.
+}
+try {
+  urduContentBySlug = JSON.parse(
+    readFileSync(join(ROOT, 'src', 'data', 'urdu-content.json'), 'utf8'),
+  );
+} catch {
+  // No per-shrine Urdu content override — falls back to English lead text.
+}
+
+// Exact-string dictionary lookup only (no word-by-word reconstruction, unlike
+// urduFallback.ts's buildUrduFallback) — good enough for meta/title text,
+// and never fabricates a translation the dictionary doesn't already have.
+function translateWordsUr(text) {
+  const raw = String(text ?? '').trim();
+  if (!raw || /^https?:\/\//i.test(raw) || !/[A-Za-z]/.test(raw)) return raw;
+  const hit = urduSeed[raw];
+  return hit && !/[A-Za-z]/.test(hit) ? hit : raw;
+}
+
+function urduNameFor(row) {
+  const direct = field(row, 'Name Urdu', 'Urdu Name', 'Name (Urdu)');
+  return direct || translateWordsUr(field(row, 'Name'));
+}
+
+// Prefers the real per-shrine Urdu article content over a word-translated
+// English lead — only degrades to the latter for the rare shrine with no
+// descriptionUr yet.
+function leadTextUr(slug, row) {
+  const descriptionUr = urduContentBySlug[slug]?.descriptionUr;
+  if (descriptionUr) return stripMarkdownLead(descriptionUr);
+  return translateWordsUr(leadText(row));
 }
 
 // ── shrine records: shared slug logic + coord extraction ───────────────────
@@ -89,14 +136,14 @@ function escHtml(s) {
 /**
  * Replaces the homepage's relative hreflang stubs (copied in from
  * index.html, since every generated page starts from that template) with
- * this page's own absolute en/ur/x-default alternates. The ?lang=ur variant
- * isn't a separately-servable static file (language is a client-side query
- * param, not a route) — this hreflang pair still lets crawlers associate the
- * two variants of the same URL, which is standard practice for JS-rendered
- * language toggles and degrades gracefully to "one indexed URL" if ignored.
+ * this page's own absolute en/ur/x-default alternates. `urUrl` is a real,
+ * separately-prerendered /ur/... file (see buildShrineHeadUr() etc.) — not
+ * a ?lang=ur query string, which can't select a different static file on a
+ * static host, so a crawler following it would previously have landed on
+ * English content mislabeled as the Urdu variant.
  */
-function replaceHreflang(html, canonicalUrl) {
-  if (!canonicalUrl) {
+function replaceHreflang(html, enUrl, urUrl) {
+  if (!enUrl) {
     return html
       .replace(/<link\s+rel="alternate"\s+hreflang="en"[^>]*>\s*/i, '')
       .replace(/<link\s+rel="alternate"\s+hreflang="ur"[^>]*>\s*/i, '')
@@ -105,15 +152,15 @@ function replaceHreflang(html, canonicalUrl) {
   return html
     .replace(
       /<link\s+rel="alternate"\s+hreflang="en"[^>]*>/i,
-      `<link rel="alternate" hreflang="en" href="${escHtml(canonicalUrl)}" />`,
+      `<link rel="alternate" hreflang="en" href="${escHtml(enUrl)}" />`,
     )
     .replace(
       /<link\s+rel="alternate"\s+hreflang="ur"[^>]*>/i,
-      `<link rel="alternate" hreflang="ur" href="${escHtml(canonicalUrl)}?lang=ur" />`,
+      `<link rel="alternate" hreflang="ur" href="${escHtml(urUrl || enUrl)}" />`,
     )
     .replace(
       /<link\s+rel="alternate"\s+hreflang="x-default"[^>]*>/i,
-      `<link rel="alternate" hreflang="x-default" href="${escHtml(canonicalUrl)}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${escHtml(enUrl)}" />`,
     );
 }
 
@@ -227,7 +274,8 @@ function buildShrineHead(shrine, baseHtml) {
       `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
     );
 
-  html = replaceHreflang(html, canonicalUrl);
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/shrine/${slug}` : '';
+  html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
 
   // Inject OG URL, canonical, image, and JSON-LD before </head>
   const extras = [
@@ -242,6 +290,81 @@ function buildShrineHead(shrine, baseHtml) {
 
   html = html.replace('</head>', `${extras}\n</head>`);
   return html;
+}
+
+/**
+ * Urdu mirror of buildShrineHead() — a genuinely distinct static file at
+ * /ur/shrine/<slug>/ (not a ?lang=ur query string, which can't be a
+ * separate file on a static host). Only <head> is translated, matching how
+ * the English prerender already only prerenders <head> and leaves <body>
+ * (the SPA's #root) for client-side hydration — no new gap introduced.
+ */
+function buildShrineHeadUr(shrine, baseHtml) {
+  const { row, slug, lat, lng } = shrine;
+  const name = escHtml(urduNameFor(row));
+  const category = field(row, 'Category');
+  const location = field(row, 'Location');
+  const saint = field(row, 'Sufi Saint');
+  const founded = field(row, 'Founded', 'Founded/Opened');
+  const imgUrl = primaryImage(row);
+  const desc =
+    leadTextUr(slug, row) || `${name}${location ? ` — ${translateWordsUr(location)}` : ''}`;
+  const canonicalUrl = SITE_URL ? `${SITE_URL}/shrine/${slug}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/shrine/${slug}` : '';
+
+  const jsonLd = JSON.stringify({
+    '@context': [
+      'https://schema.org',
+      { sufi: KG_VOCAB, SufiOrder: { '@id': `${KG_VOCAB}SufiOrder` } },
+    ],
+    '@type': 'LandmarksOrHistoricalBuildings',
+    '@id': urCanonicalUrl || `${KG_BASE}shrine/${slug}`,
+    name: urduNameFor(row),
+    description: leadTextUr(slug, row),
+    inLanguage: 'ur',
+    geo: { '@type': 'GeoCoordinates', latitude: lat, longitude: lng },
+    address: { '@type': 'PostalAddress', addressLocality: location, addressCountry: 'PK' },
+    ...(category ? { additionalType: category } : {}),
+    ...(saint ? { about: { '@type': 'Person', name: saint } } : {}),
+    ...(founded ? { foundingDate: founded } : {}),
+    ...(imgUrl ? { image: imgUrl } : {}),
+    ...(urCanonicalUrl ? { url: urCanonicalUrl } : {}),
+  });
+
+  let html = baseHtml
+    .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${name} — ${SITE_TITLE_UR}</title>`)
+    .replace(
+      /<meta\s+name="description"[^>]*>/i,
+      `<meta name="description" content="${escHtml(desc)}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:title"[^>]*>/i,
+      `<meta property="og:title" content="${name} — ${SITE_TITLE_UR}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:description"[^>]*>/i,
+      `<meta property="og:description" content="${escHtml(desc)}" />`,
+    )
+    .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
+    .replace(
+      /<meta\s+name="twitter:card"[^>]*>/i,
+      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+    );
+
+  html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
+
+  const extras = [
+    urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
+    urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
+    imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
+    imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
+    `  <script type="application/ld+json">${jsonLd}</script>`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  return html.replace('</head>', `${extras}\n</head>`);
 }
 
 // ── main ──────────────────────────────────────────────────────────────────
@@ -297,6 +420,11 @@ for (const shrine of shrines) {
   mkdirSync(outDir, { recursive: true });
   const html = buildShrineHead(shrine, baseHtml);
   writeFileSync(join(outDir, 'index.html'), html, 'utf8');
+
+  const urOutDir = join(distDir, 'ur', 'shrine', shrine.slug);
+  mkdirSync(urOutDir, { recursive: true });
+  writeFileSync(join(urOutDir, 'index.html'), buildShrineHeadUr(shrine, baseHtml), 'utf8');
+
   written++;
 }
 
@@ -338,7 +466,8 @@ if (kgData) {
         /<meta\s+property="og:type"[^>]*>/i,
         `<meta property="og:type" content="profile" />`,
       );
-    html = replaceHreflang(html, canonicalUrl);
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/saint/${saint.slug}` : '';
+    html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
@@ -349,6 +478,44 @@ if (kgData) {
     html = html.replace('</head>', `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     saintSlugs.push(`/saint/${saint.slug}`);
+
+    // ── Urdu mirror (/ur/saint/<slug>) ──
+    const nameUr = escHtml(translateWordsUr(saint.name));
+    const descUr = escHtml(
+      `${translateWordsUr(saint.name)}${saint.died ? ` (وفات ${saint.died})` : ''} — پاکستان میں ${saint.shrines.length} مزار سے منسلک صوفی بزرگ۔`,
+    );
+    let htmlUr = baseHtml
+      .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
+      .replace(/<title>[^<]*<\/title>/, `<title>${nameUr} — ${SITE_TITLE_UR}</title>`)
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${descUr}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${nameUr} — ${SITE_TITLE_UR}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${descUr}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:type"[^>]*>/i,
+        `<meta property="og:type" content="profile" />`,
+      );
+    htmlUr = replaceHreflang(htmlUr, canonicalUrl, urCanonicalUrl);
+    const extrasUr = [
+      urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
+      urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
+      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(saintJsonLd), '@id': urCanonicalUrl || `${KG_BASE}saint/${saint.slug}`, name: translateWordsUr(saint.name), inLanguage: 'ur' })}</script>`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    htmlUr = htmlUr.replace('</head>', `${extrasUr}\n</head>`);
+    const urOutDir = join(distDir, 'ur', 'saint', saint.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(join(urOutDir, 'index.html'), htmlUr, 'utf8');
+
     saintCount++;
   }
   console.log(`[prerender] ✓ ${saintCount} saint pages`);
@@ -401,7 +568,8 @@ if (kgData) {
         /<meta\s+property="og:type"[^>]*>/i,
         `<meta property="og:type" content="profile" />`,
       );
-    html = replaceHreflang(html, canonicalUrl);
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/order/${order.slug}` : '';
+    html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
     const extras = [
       canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
       canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
@@ -412,9 +580,65 @@ if (kgData) {
     html = html.replace('</head>', `${extras}\n</head>`);
     writeFileSync(join(outDir, 'index.html'), html, 'utf8');
     orderSlugs.push(`/order/${order.slug}`);
+
+    // ── Urdu mirror (/ur/order/<slug>) ──
+    const nameUr = escHtml(translateWordsUr(order.name));
+    const descUr = escHtml(
+      `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
+    );
+    let htmlUr = baseHtml
+      .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
+      .replace(/<title>[^<]*<\/title>/, `<title>${nameUr} — ${SITE_TITLE_UR}</title>`)
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${descUr}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${nameUr} — ${SITE_TITLE_UR}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${descUr}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:type"[^>]*>/i,
+        `<meta property="og:type" content="profile" />`,
+      );
+    htmlUr = replaceHreflang(htmlUr, canonicalUrl, urCanonicalUrl);
+    const extrasUr = [
+      urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
+      urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
+      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(orderJsonLd), '@id': urCanonicalUrl || `${KG_BASE}order/${order.slug}`, name: translateWordsUr(order.name), inLanguage: 'ur' })}</script>`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    htmlUr = htmlUr.replace('</head>', `${extrasUr}\n</head>`);
+    const urOutDir = join(distDir, 'ur', 'order', order.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(join(urOutDir, 'index.html'), htmlUr, 'utf8');
+
     orderCount++;
   }
   console.log(`[prerender] ✓ ${orderCount} order pages`);
+}
+
+// Emits both the English and Urdu <url> entries for a page, each annotated
+// with hreflang alternates pointing at both — the standard bidirectional
+// sitemap+hreflang pattern (see https://developers.google.com/search/docs
+// /specialty/international/localized-versions#sitemap).
+function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
+  const altLinks = [
+    `    <xhtml:link rel="alternate" hreflang="en" href="${enLoc}" />`,
+    `    <xhtml:link rel="alternate" hreflang="ur" href="${urLoc}" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${enLoc}" />`,
+  ].join('\n');
+  return [enLoc, urLoc]
+    .map(
+      (loc) =>
+        `  <url>\n    <loc>${loc}</loc>\n${altLinks}\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+    )
+    .join('\n');
 }
 
 // Also emit a sitemap
@@ -424,18 +648,20 @@ const sitemapLines = [
 ];
 if (SITE_URL) {
   sitemapLines.push(
-    `  <url><loc>${SITE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
-    ...shrines.map(
-      ({ slug }) =>
-        `  <url><loc>${SITE_URL}/shrine/${slug}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`,
+    sitemapUrlPair(`${SITE_URL}/`, `${SITE_URL}/ur`, 'weekly', '1.0'),
+    ...shrines.map(({ slug }) =>
+      sitemapUrlPair(
+        `${SITE_URL}/shrine/${slug}`,
+        `${SITE_URL}/ur/shrine/${slug}`,
+        'monthly',
+        '0.8',
+      ),
     ),
-    ...saintSlugs.map(
-      (p) =>
-        `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
+    ...saintSlugs.map((p) =>
+      sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
     ),
-    ...orderSlugs.map(
-      (p) =>
-        `  <url><loc>${SITE_URL}${p}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
+    ...orderSlugs.map((p) =>
+      sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
     ),
   );
 }
@@ -444,13 +670,37 @@ writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
 
 // ── homepage: upgrade the relative hreflang stubs to absolute URLs ─────────
 if (SITE_URL) {
-  const homeHtml = replaceHreflang(baseHtml, `${SITE_URL}/`)
+  const homeHtml = replaceHreflang(baseHtml, `${SITE_URL}/`, `${SITE_URL}/ur`)
     .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
     .replace(
       '</head>',
       `  <link rel="canonical" href="${escHtml(SITE_URL)}/" />\n  <meta property="og:url" content="${escHtml(SITE_URL)}/" />\n</head>`,
     );
   writeFileSync(distIndexPath, homeHtml, 'utf8');
+}
+
+// ── /ur homepage mirror ─────────────────────────────────────────────────────
+{
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur` : '';
+  let homeHtmlUr = baseHtml
+    .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${SITE_TITLE_UR}</title>`)
+    .replace(
+      /<meta\s+property="og:title"[^>]*>/i,
+      `<meta property="og:title" content="${escHtml(SITE_TITLE_UR)}" />`,
+    );
+  homeHtmlUr = replaceHreflang(homeHtmlUr, SITE_URL ? `${SITE_URL}/` : '', urCanonicalUrl);
+  if (urCanonicalUrl) {
+    homeHtmlUr = homeHtmlUr
+      .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+      .replace(
+        '</head>',
+        `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />\n  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />\n</head>`,
+      );
+  }
+  const urHomeOutDir = join(distDir, 'ur');
+  mkdirSync(urHomeOutDir, { recursive: true });
+  writeFileSync(join(urHomeOutDir, 'index.html'), homeHtmlUr, 'utf8');
 }
 
 console.log(`[prerender] ✓ ${written} shrine pages + sitemap.xml`);

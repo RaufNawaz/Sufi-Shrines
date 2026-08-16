@@ -7,6 +7,7 @@ import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import { translateToUrdu } from './urduFallback';
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
+import { isUrPrefixedPath } from './urlLangPrefix';
 import type { ShrineRow } from '../../types/shrine';
 
 export type Numerals = 'eastern' | 'western';
@@ -19,6 +20,10 @@ function detectInitialNumerals(): Numerals {
 function detectInitialLang(): Lang {
   const param = new URLSearchParams(window.location.search).get('lang');
   if (param === 'en' || param === 'ur') return param;
+  // A /ur/* prerendered route (see urlLangPrefix.ts) is as explicit a signal
+  // as ?lang=ur — checked before localStorage so a shared /ur/shrine/<slug>
+  // link never flashes the wrong language before App.tsx's normalizer runs.
+  if (isUrPrefixedPath(window.location.pathname)) return 'ur';
   const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
   if (stored === 'en' || stored === 'ur') return stored;
   if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';

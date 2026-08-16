@@ -55,11 +55,19 @@
       (function () {
         var params = new URLSearchParams(window.location.search);
         var lang = params.get('lang');
+        // A /ur/* prerendered route (urlLangPrefix.ts) is as explicit a
+        // signal as ?lang=ur — same priority tier in detectInitialLang().
+        if (lang !== 'en' && lang !== 'ur' && /(^|\/)ur(\/|$)/.test(window.location.pathname)) {
+          lang = 'ur';
+        }
         if (lang !== 'en' && lang !== 'ur') {
           lang = localStorage.getItem('shrines_language');
         }
         if (lang !== 'en' && lang !== 'ur') {
-          lang = navigator.language && navigator.language.toLowerCase().indexOf('ur') === 0 ? 'ur' : 'en';
+          lang =
+            navigator.language && navigator.language.toLowerCase().indexOf('ur') === 0
+              ? 'ur'
+              : 'en';
         }
         if (lang === 'ur') {
           var link = document.createElement('link');
