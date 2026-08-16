@@ -328,7 +328,12 @@ Gate, Mozang Chungi, or Data Darbar's own coordinate when a survey explicitly pl
 next to it) — labelled explicitly as an approximate landmark pin, not the shrine's exact
 position, with a note asking Saifullah for a precise one where possible. Two rows (Shah Gohar
 Peer; Mian Qurban Ali Shah's "Mint Stop," which didn't resolve to one confident location) are
-left honestly blank and flagged rather than guessed.
+left honestly blank and flagged rather than guessed. (*Correction, 16 August:* there is a
+third deliberately-blank row — Darbar Ghazi Ilm Din Shaheed in
+`data/patch_new_field_survey_shrines.csv`, whose survey locates it only as "Lahore"; its own
+`qa_note` flags it for Saifullah. After import it will sit in the sheet but not render
+anywhere until a coordinate arrives, because of the same `buildShrine()` drop described
+above — expected, not a failed import.)
 
 **Enrichment.** All 30 books in `out/ocr/` are monographs about the archive's existing flagship
 shrines — a targeted search across the one general compendium, Alam Faqri's *Tazkirah
@@ -380,7 +385,10 @@ patch for the 4 pre-existing shrines, the `?team=1` access gate, part of the map
 the OCR-extraction-experiment doc) may have originated there rather than from this session's
 own subagents — it was all reviewed (typechecked, tested, spot-checked against real source
 data) before being built on or committed, but if two sessions' commits collide, check
-`git log` carefully before assuming either side's history is authoritative.
+`git log` carefully before assuming either side's history is authoritative. (*Resolved, 16
+August:* both peer sessions were asked directly — they belong to unrelated projects (the
+Abshaar/Bulleh Shah corpus; the Ethos Copilot app), confirmed no commits here, and
+`git log --all` plus reflog show no foreign commits. Nothing to reconcile.)
 
 ---
 

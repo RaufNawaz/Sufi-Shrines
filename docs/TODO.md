@@ -1,17 +1,24 @@
-# To-do — as of 15 August 2026
+# To-do — as of 16 August 2026
 
-Written at the close of the session covered in `docs/HANDOVER.md` §8b. Grouped by who needs to
-act. Nothing here duplicates HANDOVER's own outstanding lists (§8's Technical/Editorial items,
-§9, §10) — check those too.
+Written at the close of the session covered in `docs/HANDOVER.md` §8b; updated 16 August
+(patch count corrected to six, all six re-validated, peer sessions confirmed harmless).
+Grouped by who needs to act. Nothing here duplicates HANDOVER's own outstanding lists
+(§8's Technical/Editorial items, §9, §10) — check those too.
 
 ---
 
 ## 1. Needs you — sheet imports (per RULE 3, agents don't write the sheet)
 
-Four CSV patches are sitting in `data/`, none imported yet. They don't overlap with each other,
-so any order is fine, but review each as its own pass:
+**Six** CSV patches are sitting in `data/`, none imported yet — the four from the 15 August
+session plus two from the same day's gold-standard session (HANDOVER §8a) that the first
+version of this list missed. They don't overlap with each other, so any order is fine, but
+review each as its own pass:
 
-- [ ] `data/patch_new_field_survey_shrines.csv` — 4 new shrine rows.
+- [ ] `data/patch_new_field_survey_shrines.csv` — 4 new shrine rows. **Note:** the Darbar
+      Ghazi Ilm Din Shaheed row has deliberately blank coordinates (the survey locates it only
+      as "Lahore" — see §2 below). `buildShrine()` drops rows without coordinates, so after
+      import this row will exist in the sheet but not appear anywhere on the live site until a
+      coordinate arrives. That is safe but easy to misread as a failed import.
 - [ ] `data/patch_shah_inayat_merge.csv` — 1-row merge/upgrade to the existing "Shrine of Shah
       Inayat Qadiri" entry (adds a field-survey citation, corrects nothing, only adds).
 - [ ] `data/patch_field_survey_coordinates.csv` — coordinates + content fix for the 4
@@ -19,18 +26,33 @@ so any order is fine, but review each as its own pass:
       (see below).
 - [ ] `data/patch_tazkira_enrichment.csv` — 16 rows, adds a citation to already-published
       entries.
+- [ ] `data/patch_provenance_badges.csv` — 167 rows, adds `support_level` + `info_level`
+      (HANDOVER §8a).
+- [ ] `data/patch_bibi_pak_daman_dates.csv` — one row, fills the `year_built*` fields
+      (HANDOVER §8a).
+
+All six re-validated with `pipeline/validate_shrines.py` on 16 August. Remaining issues are
+expected artefacts, not blockers: `coord_missing` fires on the partial-column patches (they
+simply don't carry Latitude/Longitude columns) and on the three deliberately-blank rows named
+in §2; `sheet_missing_column`/`badge_not_populated`/`no_image` fire because patches aren't
+full sheet exports. Nothing new was found beyond the Ghazi Ilm Din note above.
 
 Import settings per CLAUDE.md RULE 3: Replace current sheet, comma separator, "Convert text to
 numbers, dates and formulas" **OFF**.
 
 ## 2. Needs you — Saifullah
 
-- [ ] **Precise coordinates for two shrines** — the field survey gave no usable landmark for
-      either, so they're left blank rather than guessed:
+- [ ] **Precise coordinates for three shrines** — the field survey gave no usable landmark for
+      any of them, so they're left blank rather than guessed:
   - Darbar Hazrat Shah Gohar Peer — no landmark at all in the survey.
   - Darbar Mian Qurban Ali Shah — survey says "Mint Stop, Lahore," which didn't resolve to one
     confident location (a "Pakistan Mint" railway/metro stop and a separate "Akhri Mint" bus
     stop are both real, different places). Ask which he meant, or for a pin.
+  - Darbar Ghazi Ilm Din Shaheed (in `data/patch_new_field_survey_shrines.csv`, flagged in its
+    own `qa_note`) — the survey says only "Lahore"; its one location detail ("Railway Auqaf
+    land") refers to the funeral prayer, not necessarily the burial site. Until a coordinate
+    arrives this row cannot render on the site at all. Ask Saifullah where the shrine actually
+    is — do not pin it from general knowledge.
 - [ ] **Precise coordinates, lower priority** — the 7 other geocoded rows use an approximate
       landmark pin (Miani Sahib Graveyard, Mochi Gate, Mozang Chungi, or Data Darbar's own
       coordinate), explicitly labelled as approximate in each row's Location field. A real pin
@@ -75,9 +97,12 @@ say more than "both accounts are reported here."
       book corpus available (`out/ocr/`) is exhausted for this purpose; it's all monographs
       about shrines this archive already documents well. Real progress on these needs either
       new field visits or a different source library, not more searching in the current one.
-- [ ] **Two peer Claude Code sessions** (`abshaar-c6`, `copilot-repo-starter-e5`) were active on
-      this repo during this session — confirm what they were, whether they're still running,
-      and whether their commits (if any) need reconciling with this session's.
+- [x] **Two peer Claude Code sessions** — resolved 16 August by asking them directly. Both are
+      unrelated to this repo: `abshaar-*` works in `~/Desktop/.../Harvard/Abshaar` (the
+      Bulleh Shah corpus project) and `copilot-repo-starter-*` in
+      `~/Desktop/copilot-repo-starter` (Ethos Copilot app). Both confirmed they have made and
+      will make no commits here, and `git log --all` + reflog show no foreign commits. Nothing
+      to reconcile.
 
 ## 5. Smaller/deferred
 
@@ -87,3 +112,9 @@ say more than "both accounts are reported here."
 - [ ] Consider whether `data/patch_tazkira_enrichment.csv`'s citation additions should also
       trigger a `pipeline/build_sources_registry.py` re-run once imported, to move some of
       those 16 shrines off `Web-compiled` in `pipeline/support_levels.tsv`.
+- [ ] An untracked, extensionless `shrines` file sits at the repo root again (653,929 bytes,
+      dated 9 August). Verified byte-identical (`cmp`) to the already-committed
+      `pipeline/legacy-exports/shrines_flat_export.tsv` — the 15 August session archived a copy
+      rather than moving it, or iCloud restored it. Safe to `rm shrines`; nothing is lost.
+      (An agent attempted the delete on 16 August; the permission layer blocked it, so it's
+      left for a human.)
