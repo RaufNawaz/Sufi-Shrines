@@ -171,3 +171,37 @@ jobs:
         run: npx lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # ── Data-quality gate (warn-only) ──────────────────────────────────────────
+  # Surfaces pipeline/validate_shrines.py's findings on every push/PR without
+  # blocking the build — --fail-on NONE always exits 0, so this job cannot go
+  # red; it's here so the issues are visible instead of only caught when
+  # someone remembers to run the script by hand.
+  data-quality:
+    name: Data quality (warn-only)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build dataset snapshot
+        run: npm run data:build
+
+      - name: Validate shrine data (stdlib python3, warn-only)
+        run: python3 pipeline/validate_shrines.py data/shrines.csv --termbase pipeline/termbase.tsv --fail-on NONE
+
+      - name: Upload validation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation_issues
+          path: validation_issues.tsv
+          retention-days: 14
