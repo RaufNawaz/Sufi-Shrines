@@ -23,15 +23,16 @@ numbers, dates and formulas" **OFF**.
 
 **What's in it, beyond the six patches already known about:**
 - The web-research pass (§4 below, now done) is folded in as `data/patch_web_research.csv` —
-  37 of the 40 targeted `Web-compiled` entries gained a citation-backed addition; the other 3
-  ("nothing reliable found") are untouched.
+  38 of the 40 targeted `Web-compiled` entries gained a citation-backed addition (37 from the
+  original pass, plus Gurdwara Malji Sahib after a same-day follow-up check — see §4); the
+  other 2 ("nothing reliable found") are untouched.
 - `support_level`/`info_level` are **not** taken from `data/patch_provenance_badges.csv` — that
   patch was computed on 15 August, before the coordinate/content fix, the tazkira enrichment,
   and this pass all added new Bibliography citations to rows it had already scored. Applying it
   now would have **regressed** the 4 field-survey rows from their current, correct
   `info_level=Full` down to a stale `Low`. The script recomputes fresh instead — full tally:
-  `Web-compiled`/`Low` 60→3, `Field-verified`/`Full` unchanged at 16 but now includes the 4
-  field-survey rows correctly, `Source-documented`+`Source-seeded`/`Moderate` 152.
+  `Web-compiled`/`Low` 60→2, `Field-verified`/`Full` unchanged at 16 but now includes the 4
+  field-survey rows correctly, `Source-documented`+`Source-seeded`/`Moderate` 153.
 - One tazkira-patch row was silently dropped, not silently applied: **Darbar Abul Muali
   Qadri**'s row in `patch_tazkira_enrichment.csv` has an empty `qa_note` column with its entire
   9-item qa_note dumped into the *Description* field as a literal ```` ```qa_note ```` fenced
@@ -111,11 +112,23 @@ say more than "both accounts are reported here."
 - [x] **The ~44 remaining `Web-compiled` entries** (60 minus the 16 tazkira-enriched) — done
       16 August via a directed web-research pass (not the book corpus, which was exhausted; per
       direction, online sources only to the reliability bar in
-      `entries/web-research-2026-08/README.md`). 40 targets researched: 23 STRONG, 14 PARTIAL,
-      3 nothing reliable found (`entries/web-research-2026-08/SUMMARY.md`). 37 folded into
-      `data/patch_web_research.csv` and the final import CSV (§1); the 3 with nothing found
-      (Allo Mahar, Gurdwara Malji Sahib, Sant Baba Asudaram Darbar) are untouched and remain
-      genuinely `Web-compiled` — still real candidates for Saifullah's incoming books.
+      `entries/web-research-2026-08/README.md`). 40 targets researched: 23 STRONG, 15 PARTIAL,
+      2 nothing reliable found (`entries/web-research-2026-08/SUMMARY.md`). 38 folded into
+      `data/patch_web_research.csv` and the final import CSV (§1); the 2 with nothing found
+      (Allo Mahar, Sant Baba Asudaram Darbar) are untouched and remain genuinely `Web-compiled`
+      — real candidates for Saifullah's incoming books.
+- [x] **`entries/web-research-2026-08/ACQUISITION_LIST.md`** — every book/gazetteer named in
+      any of the 40 research files' own "Acquisition leads" sections, consolidated once and
+      deduplicated, split into what's already free online (13 sources, several covering
+      multiple entries at once — top of the list: Iqbal Qaiser's 1998 book and a 1962
+      government register, between them covering most of the 10 gurdwara targets) versus what
+      needs Saifullah specifically (13 more, led by Zulfiqar Ali Kalhoro's 2022 Sindh book,
+      confirmed not freely available anywhere online). Two of the highest-value shared leads
+      were actually chased this session, not just listed: the 1962 register turned up a real,
+      distinct entry for Gurdwara Malji Sahib's Nankana Sahib site (upgraded above), and a 1919
+      Sukkur District gazetteer came back a clean negative for 5 Sindh sites, with a structural
+      reason for 2 of them (their talukas left Sukkur District for the new Larkana district in
+      1901) that correctly redirects future effort to the Larkana gazetteer instead.
 - [x] **Two peer Claude Code sessions** — resolved 16 August by asking them directly. Both are
       unrelated to this repo: `abshaar-*` works in `~/Desktop/.../Harvard/Abshaar` (the
       Bulleh Shah corpus project) and `copilot-repo-starter-*` in
@@ -133,14 +146,16 @@ say more than "both accounts are reported here."
       those 16 shrines off `Web-compiled` in `pipeline/support_levels.tsv`. Done 16 August —
       `pipeline/build_final_import.py` does exactly this (and for the coords/web-research
       patches too) as its last step; `pipeline/{support_levels,sources,shrine_sources}.tsv`
-      and `sources_report.txt` are updated to the fresh computation. New tally: only 3 entries
+      and `sources_report.txt` are updated to the fresh computation. New tally: only 2 entries
       are `Web-compiled`/`Low` archive-wide (was 60); 16 are `Field-verified`/`Full`.
 - [ ] **Confirmed, not just suspected: all 49 of the "49 uncited entries" have a literally
       newline-free Description** — checked directly against the live published sheet (not a
-      stale local file). 47 of the 49 gained structure this session (37 web-research + tazkira's
-      15, minus the 1 excluded/superseded row = the coords patch's 1); 2 remain exactly as
-      they were (Gurdwara Malji Sahib, Sant Baba Asudaram Darbar — the "nothing reliable found"
-      pair; the third, Allo Mahar, already had a placeholder Bibliography line so didn't trip
+      stale local file). 48 of the 49 gained structure this session (38 web-research —
+      including Gurdwara Malji Sahib, upgraded from nothing-found after a same-day follow-up
+      check found a real 1962 register entry — plus tazkira's 15, minus the 1 excluded/
+      superseded row = the coords patch's 1); only 1 remains exactly as it was (Sant Baba
+      Asudaram Darbar — genuinely searched twice this session, nothing citable found either
+      time; the other, Allo Mahar, already had a placeholder Bibliography line so didn't trip
       the `no_bibliography` check either way). Not a formatting artefact to "fix" — per
       CLAUDE.md's own standing finding, these are genuinely single-paragraph, uncited prose;
       the newline count just makes that mechanically verifiable now instead of a description.

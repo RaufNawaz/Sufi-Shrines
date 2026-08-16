@@ -411,7 +411,8 @@ books/press/official bodies only, Wikipedia as a pointer never a citation, every
 verbatim quote from a page actually fetched) and a rules-of-evidence contract, then 8 parallel
 agents × 5 sites each. Result: 23 STRONG (≥2 independent verified sources), 14 PARTIAL, 3
 nothing reliable found (Allo Mahar, Gurdwara Malji Sahib, Sant Baba Asudaram Darbar — genuinely
-searched, genuinely absent from citable sources). Standout catches: a shared 1962 government
+searched, genuinely absent from citable sources at the time; a same-day follow-up below
+upgraded Malji Sahib, leaving 2). Standout catches: a shared 1962 government
 memoir (*Sikh Shrines in West Pakistan*, Dept. of Archaeology) independently covering 4+
 gurdwara targets, on top of Iqbal Qaiser's 1998 book — both now the top acquisition-list
 candidates; two wrong-assumption traps avoided (Gurdwara Sri Tilganji Sahib is Quetta, not
@@ -477,15 +478,47 @@ live sheet says at that moment. `pipeline/validate_shrines.py` on the output: 3 
 expected (2 are the still-blank Shah Gohar Peer/Mian Qurban Ali Shah coordinates; the third,
 Amb Temples' `figure_not_in_description`, is confirmed byte-identical to the live sheet and
 predates everything in this session). `pipeline/{support_levels,sources,shrine_sources}.tsv`
-and `sources_report.txt` were regenerated from this final content and committed — new tally is
-`Web-compiled`/`Low` down from 60 to 3, `Field-verified`/`Full` at 16 (correctly including the
-4 field-survey rows this time).
+and `sources_report.txt` were regenerated from this final content and committed — tally at
+that point was `Web-compiled`/`Low` down from 60 to 3, `Field-verified`/`Full` at 16 (correctly
+including the 4 field-survey rows this time).
 
 **Confirmed mechanically, not just asserted**: all 49 of the "49 uncited entries" standing
 finding have a literally newline-free Description in the actual live published sheet (fetched
 directly, not a stale local file) — not a formatting artefact, genuinely single-paragraph
-uncited prose. 47 of the 49 gained real structure this session; 2 remain as they were (the
-nothing-reliable-found pair).
+uncited prose.
+
+**Same-day follow-up: the acquisition list, and one upgrade.** The research README promised a
+consolidated book list for Saifullah but the original pass never assembled one — every file's
+own "Acquisition leads" section stayed scattered. Built
+`entries/web-research-2026-08/ACQUISITION_LIST.md`: every source named across all 40 files,
+deduplicated, split into 13 already-free-online (several covering multiple entries — Qaiser's
+1998 book and the 1962 register between them cover most of the 10 gurdwara targets) versus 13
+needing Saifullah specifically (led by Zulfiqar Ali Kalhoro's 2022 Sindh book — confirmed, by
+actually checking EFT Sindh's own site, Open Library, archive.org, and South Asia Commons, to
+be genuinely unavailable online anywhere, not just unsearched). Two of the highest-value shared
+leads were chased rather than just listed:
+- The 1962 register (already known to cover several gurdwaras) was checked specifically for
+  Nankana Sahib's Gurdwara Malji Sahib — the one entry the original pass had to conclude
+  "nothing reliable found" for, since the only strong source located (Qaiser's book) turned out
+  to describe a different, same-named gurdwara at Kanganpur, Kasur District. The register has
+  a genuine, distinct entry (no. 22, Plate 20) — full text quoted, in the book's own Nankana
+  Sahib section, and it explicitly distinguishes itself from the Kanganpur tree of the same
+  name. Verdict upgraded to PARTIAL, folded into `patch_web_research.csv` as a 38th row, and
+  the final import CSV rebuilt (still 171 rows — Malji Sahib already existed, this only changed
+  its content). `Web-compiled`/`Low` is now 2, not 3.
+- A 1919 Sukkur District gazetteer, flagged as unchecked by five different Sindh research
+  files, was fetched and searched for all five — a clean negative for all of them, but with a
+  useful structural finding for two: Bhai Waliram Darbar and Sain Vali Vilayat Rai Darbar's
+  talukas (Miro Khan, Kambar) were administratively severed from Sukkur/Shikarpur territory in
+  1901 to form the new Larkana district, 18 years before this 1919 volume was compiled — it was
+  never going to cover them regardless of content. Correctly redirects future effort to the
+  Larkana "B" volume gazetteer (already on the acquisition list) instead of re-checking a book
+  that structurally cannot help. Recorded in each affected file rather than left as a dead end.
+
+Net effect on the standing finding: 48 of the 49 newline-free entries now have real structure;
+only Sant Baba Asudaram Darbar remains untouched — genuinely searched twice this session
+(general web research, then the Sukkur gazetteer specifically), nothing citable found either
+time.
 
 ---
 
@@ -527,10 +560,11 @@ check. Prefer those over careful intentions.
    than a backlog entry.
 5. **49 uncited entries are publicly live** and read authoritatively. That is the reputational
    exposure, and it is the argument for prioritising the gold-standard entry over more
-   coverage. (*Update, 16 August:* 47 of the 49 now have a citation-backed addition, drafted
+   coverage. (*Update, 16 August:* 48 of the 49 now have a citation-backed addition, drafted
    and validated but **not yet imported** — see `data/shrines_final_import_2026-08-16.csv`
    and TODO §1. Until that import happens, the live site is unchanged and this risk stands
-   exactly as written. The other 2 were genuinely searched and nothing citable was found.)
+   exactly as written. The last one, Sant Baba Asudaram Darbar, was genuinely searched twice
+   and nothing citable was found either time.)
 
 ---
 
