@@ -1,0 +1,8 @@
+id: gurdwara-patshahi-chhevin-hadiara-lahore
+name: Gurdwara Patshahi Chhevin (Hadiara), Lahore
+
+--- CURRENT Description ---
+Gurdwara Patshahi Chhevin at Hadiara, a village of the Lahore District lying off the Lahore–Ghawindi (formerly Lahore–Patti) road near the Bambawali–Ravi–Bedian (BRB) canal, commemorates a visit by Guru Hargobind, the sixth Guru (*Chhevin Patshahi*). By tradition the Guru — *Miri–Piri da Malik*, "master of the temporal and the spiritual" — came to Hadiara with a body of Sikhs around 1620 and stayed overnight to bless the local *sangat*. Before Partition the gurdwara held a large annual fair at *Maghi*, and in the days of the Sikh Empire it is said to have been endowed with some hundred acres of land; it was administered by the Shiromani Gurdwara Parbandhak Committee until 1947. After Partition the shrine fell empty and was for a time occupied by refugees; during the 1965 war soldiers of the Indian Army's Sikh Regiment, reaching the border village, are reported to have repaired its shell-damaged dome and raised a *Nishan Sahib* upon it. The building, the tallest in Hadiara, survives with notable interior murals depicting episodes of Sikh history, including the Battle of Kartarpur of 1635. It should not be confused with the Gurdwara Chhevin Patshahi at Chitti Gatti near Mansehra (a separate entry in this dataset), which commemorates the same Guru at a different place.
+
+--- CURRENT qa_note ---
+

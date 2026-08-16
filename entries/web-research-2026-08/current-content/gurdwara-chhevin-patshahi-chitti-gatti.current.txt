@@ -1,0 +1,8 @@
+id: gurdwara-chhevin-patshahi-chitti-gatti
+name: Gurdwara Chhevin Patshahi, Chitti Gatti
+
+--- CURRENT Description ---
+Gurdwara Chhevin Patshahi stands in the small village of Chitti Gatti, in a garden by the roadside about eight kilometres from Mansehra in the Hazara hills of Khyber Pakhtunkhwa. Its name — Chhevin Patshahi, the "Sixth Sovereignty" — commemorates Guru Hargobind, the sixth Guru of the Sikhs (Guru from 1606 to 1644), who by tradition is said to have visited the site during his travels through the region. The gurdwara is a handsomely built, domed structure, and it is remembered above all for an unusual arrangement of shared sacred use: a stone Shiv Ling was worshipped on the upper floor of the building while the prakash of the Guru Granth Sahib was installed on the floor below, with Hindu priests officiating — an arrangement that reflects the closely intertwined Hindu and Sikh devotion of the frontier, where the Guru was honoured by Hindus and Sikhs alike. A fair was traditionally held here at Vaisakhi, enthusiastically attended by the communities of the surrounding hills. The building stands beside the Shiv Mandir of Chitti Gatti (recorded separately in this dataset), the two shrines together forming a single sacred spot. Following the Partition of 1947 the Sikh and Hindu populations of the area departed and regular worship ceased, though the structure survives as a monument to the region's plural religious past.
+
+--- CURRENT qa_note ---
+coordinates are adjacent to the Shiv Mandir Chiti Ghati (row 69) and are approximate; the two sites are co-located at Chitti Gatti. Distinct from the Gurdwara Chhevin Patshahi at Hadiara in Lahore district.

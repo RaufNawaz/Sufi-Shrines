@@ -1,0 +1,8 @@
+id: gurdwara-chakki-sahib
+name: Gurdwara Chakki Sahib
+
+--- CURRENT Description ---
+Gurdwara Chakki Sahib stands within the old town of Eminabad in Gujranwala District — the settlement known in Guru Nanak's day as Saidpur — and marks the place where a great millstone (*chakki*) associated with the Guru was kept. It commemorates one of the most dramatic episodes of Guru Nanak's life: his imprisonment during the invasion of the Punjab by the Mughal *Babur*, traditionally dated to around 1520-21, when Eminabad was sacked and its people carried off. According to Sikh tradition the captives, Guru Nanak among them, were set to grinding corn with hand-mills to feed the conquering army; and it is remembered that the Guru's millstone turned of its own accord while he, pouring in the grain, sang the praises of the One God — the hymns lamenting the horrors visited upon the land that are preserved in Sikh scripture as the *Babar-vani*, the "utterances concerning Babur." The marvel is said to have astonished his guards and, when reported to Babur, to have brought the emperor himself to the Guru; moved by his words, Babur is remembered to have sought his blessing and, at the Guru's urging, to have freed many prisoners. The present shrine, a simple flat-roofed building within a brick-paved compound, preserves the memory of the millstone and of the Guru's witness against the cruelty of war. Since Partition it has stood without a resident congregation, cared for as part of Pakistan's Sikh heritage and visited by pilgrims on the great anniversaries, often together with the neighbouring Eminabad shrines of Rori Sahib and Bhai Lalo's well.
+
+--- CURRENT qa_note ---
+

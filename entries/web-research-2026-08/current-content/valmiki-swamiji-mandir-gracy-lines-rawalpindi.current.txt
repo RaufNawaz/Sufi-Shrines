@@ -1,0 +1,8 @@
+id: valmiki-swamiji-mandir-gracy-lines-rawalpindi
+name: Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi
+
+--- CURRENT Description ---
+The Valmik Swamiji Mandir — also called the Valmiki Mandir or *Balaknash* Temple — lies in the Gracy Lines neighbourhood of Chaklala Cantonment, in the south-eastern part of Rawalpindi. Reported to have been built in 1935, it has served since the pre-Partition era as one of the principal places of worship for the city's Hindu residents, and is counted among the three main Hindu temples of Rawalpindi district alongside the Krishna Mandir of Saddar and the Lal Kurti (Balmiki) Temple. Like the Lalkurti shrine it is dedicated to the sage-poet *Valmik* (Valmiki), author of the *Ramayana*, particularly venerated by the Balmiki community, and it remains active, celebrating festivals such as *Diwali* and *Holi*. In August 2014 the temple drew national and international attention when cantonment authorities issued notices for residents of Block 141, Gracy Lines, to vacate the area for a development scheme, raising fears that the temple and adjoining Hindu homes might be demolished. Members of the community petitioned the courts and obtained a stay against immediate demolition; authorities reportedly indicated that a replacement temple would be provided if relocation went ahead, and residents were said to have been offered alternative accommodation. In the event the temple was not demolished and continues in worship — a reminder of the precarious position of the small Hindu community's heritage in the twin cities of Rawalpindi and Islamabad.
+
+--- CURRENT qa_note ---
+

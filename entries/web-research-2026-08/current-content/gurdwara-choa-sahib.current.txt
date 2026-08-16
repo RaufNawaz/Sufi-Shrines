@@ -1,0 +1,8 @@
+id: gurdwara-choa-sahib
+name: Gurdwara Choa Sahib
+
+--- CURRENT Description ---
+Gurdwara Choa Sahib — its name meaning the "gurdwara of the exalted spring" — stands at the northern edge of the great sixteenth-century *Rohtas Fort*, a UNESCO World Heritage Site near Jhelum, close to the fort's Talaqi gate. It commemorates a tradition of *Guru Nanak* (1469–1539): Sikhs hold that the Guru, travelling with his companion *Bhai Mardana* during the fourth of his great journeys (*udasis*) and having spent forty days at the nearby *Tilla Jogian*, came to this waterless tract in the heat of summer. When Bhai Mardana lamented his thirst, the Guru is said to have struck the ground with his staff and moved a stone, causing a natural spring to well up — the *choa* that gives the shrine its name. A further Sikh legend relates that Sher Shah Suri, builder of Rohtas Fort, thrice attempted to divert the spring uphill to supply his stronghold, and thrice his engineers failed. The first commemorative structure, with a *sarovar* (sacred tank) and a place for the recitation of the *Guru Granth Sahib*, is attributed to Charat Singh; the present building dates from 1834 and was commissioned by *Maharaja Ranjit Singh*. Long neglected after the Partition of 1947, the gurdwara was reopened to pilgrims around the time of Guru Nanak's 550th birth anniversary in 2019, and from 2020 a diaspora Sikh organisation undertook its rehabilitation and restoration.
+
+--- CURRENT qa_note ---
+

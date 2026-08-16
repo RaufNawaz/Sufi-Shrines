@@ -1,0 +1,8 @@
+id: gurdwara-sahib-saidpur-guru-nanak-dev-ji
+name: Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)
+
+--- CURRENT Description ---
+The Sikh gurdwara at Saidpur Village stands at the foot of the Margalla Hills on the northern edge of Islamabad, within the historic multi-faith village that also preserves a Hindu temple complex (the Ram Kund mandirs). Saidpur is an old settlement — traditionally traced to the early sixteenth century and named after Sultan Said Khan, a chief of the Pothohar region — that served in Mughal times as a garden resort watered by its perennial springs, and that long sheltered a mingled population of Hindus, Sikhs, and Muslims. The gurdwara was built by the Sikh community in the early twentieth century and is remembered as having housed a school dedicated to the teachings of Guru Nanak, the founder of the Sikh faith. It remained active until the Partition of 1947, after which, the Sikh congregation having departed, the building was repurposed — for a time as a girls' school — before being closed in the mid-2000s when Saidpur was developed as a cultural-heritage and tourist village by the Capital Development Authority. Standing beside the temples and close to an old mosque, the disused gurdwara is today valued chiefly as a monument to the religious plurality of pre-Partition Saidpur, a small but eloquent survival of the shared life of the Pothohar.
+
+--- CURRENT qa_note ---
+

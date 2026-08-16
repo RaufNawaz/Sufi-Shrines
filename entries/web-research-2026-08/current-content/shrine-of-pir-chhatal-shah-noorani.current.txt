@@ -1,0 +1,8 @@
+id: shrine-of-pir-chhatal-shah-noorani
+name: Shrine of Pir Chhatal Shah Noorani
+
+--- CURRENT Description ---
+The shrine of *Pir* Chhatal Shah Noorani stands at a spring-fed oasis near the mouth of the Moola gorge, where the Moola River shears clear across the Kirthar range to reach the Kachhi plain at Gandava, in the Jhal Magsi district of Balochistan. The point where the river debouches from the hills is known as *Naulung* ("Nine Fords") or, among the highland Baloch, *Punjmunh* ("Five Mouths"); for thousands of years this was the most convenient passage between the Indus valley and the Kalat uplands. The site is celebrated for a small, clear pond, fed by a copious spring bursting from the rock, that teems with large *mahseer* fish. By long tradition the fish were the saint's pets and no one has ever eaten them; local lore holds that any fish caught and cooked would emerge again alive, a taboo that has in effect made the pond one of the oldest fish-conservation sanctuaries in the region. Chhatal Shah Noorani is remembered as a granter of wishes to whom Hindus and Muslims alike came to have their hearts' desires fulfilled. The tomb sits on a low knoll: in 1831 the traveller Charles Masson (James Lewis) recorded it as a conspicuous *gumbaz*, or domed building, that served as the usual halting-place for caravans crossing between Kalat and Kachhi, though the dome has since collapsed and the grave now stands within plain modern walls. In recent years improved access has turned the once-remote spot into a popular picnic destination.
+
+--- CURRENT qa_note ---
+

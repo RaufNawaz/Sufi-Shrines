@@ -1,0 +1,8 @@
+id: ram-mandir-saidpur-ram-kund-mandir
+name: Ram Mandir, Saidpur (Ram Kund Mandir)
+
+--- CURRENT Description ---
+The Ram Mandir at Saidpur — also known as the Ram Kund Mandir — stands in the historic village of Saidpur, set in a fold of the Margalla Hills on the northern edge of Islamabad. A Hindu temple dedicated to *Lord Rama*, it is traditionally dated to the sixteenth century and attributed by some accounts to Raja Man Singh I, the Rajput general of the Mughal emperor Akbar. The site's sanctity is bound to the belief that Rama, with Sita and Lakshmana, passed through this country during the years of exile recounted in the *Ramayana*: the natural springs of the village, fed by the hill streams, were revered as sacred pools, and four of them are traditionally named for Rama, Sita, Lakshmana, and Hanuman. Before Partition, Saidpur was a place of notable interfaith coexistence, home to Muslims, Hindus, and Sikhs together, its skyline holding a mosque, this Hindu temple, and — from the early twentieth century — a Sikh *gurdwara*. After 1947 the temple ceased to function as a place of worship; it was used for a time as a girls' school, and in the 2000s the Capital Development Authority restored Saidpur as a heritage and arts village, conserving the temple's fabric while its idols were removed and its images painted over. The building survives as a protected monument and a popular destination for visitors to Islamabad, though the local Hindu community has not been permitted to resume regular rituals there — a source of continuing appeal by Hindu representatives.
+
+--- CURRENT qa_note ---
+

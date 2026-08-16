@@ -1,0 +1,8 @@
+id: gurdwara-sri-tilganji-sahib
+name: Gurdwara Sri Tilganji Sahib
+
+--- CURRENT Description ---
+Gurdwara Sri Tilganji Sahib stands on Masjid Road in the heart of Quetta, the capital of Balochistan. By Sikh tradition the site marks a visit by Guru Nanak, the first Guru, during one of his great journeys, or udasis: it is said that the Guru honoured the assembled sangat by distributing til — sesame seeds — as parshad, the sanctified offering, and that from this the shrine took its name, Tilganji deriving from til (sesame) and ganj (treasury or store). The gurdwara is a substantial domed building whose main gateway is said to resemble that of a mosque; within its precincts, in a pattern common to many gurdwaras in Pakistan after 1947, a government school — the Government Sandeman School — has long functioned, occupying land belonging to the shrine. Quetta was almost entirely destroyed in the catastrophic earthquake of 1935, so that the present fabric of the building, like much of the city, is unlikely to be of great antiquity, even if the sanctity of the site is older. The gurdwara is one of the principal Sikh shrines of the city and is to be distinguished from the Gurdwara Singh Sabha of Quetta, recorded separately in this dataset.
+
+--- CURRENT qa_note ---
+coordinates approximate (central Quetta, Masjid Road area); distinct from row 88 Gurdwara Singh Sabha. Founding predates the 1935 earthquake; structural age hedged accordingly.

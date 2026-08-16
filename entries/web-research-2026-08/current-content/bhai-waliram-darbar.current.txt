@@ -1,0 +1,18 @@
+id: bhai-waliram-darbar
+name: Bhai Waliram Darbar
+
+--- CURRENT Description ---
+## Overview
+
+In Digano Mahesar, a small village in Miro Khan taluka of Qambar–Shahdadkot District in upper Sindh, stands the darbar of Bhai Waliram, a Nanakpanthi sant remembered locally as a contemporary of the better-documented Vali Vilayat Rai of Kambar and Swami Dharmdas of Larkana. As with much of this cluster of small Sindhi Nanakpanthi shrines, next to nothing has been preserved in published sources about Bhai Waliram's own dates, teachings, or the founding of his darbar.
+
+## Present State
+
+The site is recorded chiefly in Zulfiqar Ali Kalhoro's surveys of Sindh's Nanakpanthi saints, which place Bhai Waliram among a wider constellation of nineteenth- and early-twentieth-century Nanakpanthi teachers of the Larkana country, without further biographical detail. Its precise founding date, architecture, and present congregation remain undocumented pending a dedicated local or gazetteer source, and this entry should be read as a provisional, lightly-sourced record rather than an established history.
+
+## Bibliography
+
+- Zulfiqar Ali Kalhoro, published surveys of Nanakpanthi saints and shrines of Sindh.
+
+--- CURRENT qa_note ---
+

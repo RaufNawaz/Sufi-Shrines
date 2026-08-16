@@ -1,0 +1,8 @@
+id: shrine-of-makhdoom-abdul-rahim-girhori
+name: Shrine of Makhdoom Abdul Rahim Girhori
+
+--- CURRENT Description ---
+The shrine of Makhdoom Abdul Rahim Girhori stands at Girhor Sharif, a village some eight kilometres west of Pithoro in Umarkot district, in the semi-desert borderlands of eastern Sindh. It honours a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe and came to be known as *Girhori* after he settled at Girhor and established his *khanqah* there. He was among the foremost *khalifas* (deputies) of Khwaja Muhammad Zaman of Luari Sharif (also recorded in this dataset), the celebrated *Sultan al-Aulia* of the Sindhi Naqshbandis, under whom he was trained. A learned man, Abdul Rahim Girhori is remembered for his religious scholarship and ascetic life and is said to have composed works in Sindhi, Arabic and Persian. He is venerated as a *shaheed* (martyr): according to traditional accounts he was killed late in his life in a confrontation, and his tomb is honoured as that of a martyr-saint. Today the shrine complex is a place of pilgrimage that local sources note is frequented by both Muslims and Hindus, and an annual *urs* commemorates him. His memory forms part of the wider Naqshbandi devotional network that the disciples of Khwaja Muhammad Zaman spread across Sindh in the eighteenth century.
+
+--- CURRENT qa_note ---
+

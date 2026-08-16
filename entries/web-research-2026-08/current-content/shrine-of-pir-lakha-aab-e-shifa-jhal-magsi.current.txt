@@ -1,0 +1,8 @@
+id: shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+name: Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi
+
+--- CURRENT Description ---
+The shrine of Pir Lakha lies in the north-western uplands of the Jhal Magsi District of Balochistan, in the broken country near Kotra where the Moola river descends through its gorge — the same tract that holds the shrine of Pir Chhatal Shah Noorani (a separate entry in this dataset). District heritage listings count Pir Lakha among the principal shrines of Jhal Magsi, alongside the *dargahs* of Rakhyal Shah at Fatehpur and Muhammad Ayub Shah Bukhari at Gandava. Its particular fame rests less on a documented saintly biography — of which little is recorded — than on the hot springs beside it, known as *Aab-e-Shifa*, "the water of healing." Pilgrims travel from far-flung parts of Balochistan and Sindh to bathe in these thermal waters, which are believed to cure skin ailments and other afflictions, so that the site functions at once as a shrine and as a place of folk therapeutics. Like several shrines of the Kachhi–Gandava plain, it draws Muslim and Hindu visitors alike. Because the life of the eponymous *pir* is essentially undocumented in accessible sources, only the shrine's living role as a pilgrimage-and-healing centre can be stated with confidence.
+
+--- CURRENT qa_note ---
+

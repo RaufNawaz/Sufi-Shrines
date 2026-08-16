@@ -1,0 +1,8 @@
+id: darbar-ghamkol-sharif-zinda-pir
+name: Darbar Ghamkol Sharif (Zinda Pir)
+
+--- CURRENT Description ---
+Darbar-e-Aliya Naqshbandia Ghamkol Sharif lies in a secluded valley a few miles outside the town of Kohat in Khyber Pakhtunkhwa, and is among the most important centres of the *Naqshbandi* Sufi order in modern Pakistan. It was founded in 1952 by the Naqshbandi master universally known as *Zinda Pir* (1912–1999), who was born in the nearby village of Jungle Khail. He had received spiritual authority (*khilafat*) around 1942 from his own guide, Baba Ji Muhammad Qasim of Mohra Sharif, who directed him to establish an independent centre; obedient to that instruction, Zinda Pir withdrew to the then-barren Ghamkol valley and there built, over the following decades, a great complex of mosque, seminary, and lodgings that grew into a thriving spiritual township. His following spread far beyond Pakistan, and the darbar developed an especially strong connection with the Pakistani community of Birmingham in the United Kingdom, where an associated mosque bears its name. Zinda Pir died on 21 March 1999 and is buried at the darbar, his tomb becoming a place of pilgrimage in its turn; his spiritual seat passed to his son, Pir Sayyid Badshah. Each year vast crowds of devotees gather at Ghamkol Sharif for the commemorative observances, making it one of the great living Sufi centres of the north-west.
+
+--- CURRENT qa_note ---
+

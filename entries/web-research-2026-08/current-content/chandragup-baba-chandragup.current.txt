@@ -1,0 +1,23 @@
+id: chandragup-baba-chandragup
+name: Chandragup (Baba Chandragup)
+
+--- CURRENT Description ---
+## Overview
+
+Chandragup, a mud volcano rising from the arid coastal hills of Hingol National Park in Lasbela District, is one of the most sacred halting-points on the annual Hinglaj Yatra, the pilgrimage that draws Hindu devotees across the Kirthar and Makran hills to the shrine of Hinglaj Mata. Known devotionally as Baba Chandragup, the cone is venerated as an abode associated with Shiva, and its periodic eruptions of cold, sulphurous mud are read by pilgrims as auspicious signs.
+
+## The Hinglaj Yatra
+
+During the annual four-day Hinglaj Yatra, held each April, pilgrims halt at Chandragup to fast, keep vigil through the night, and make offerings — coconuts, sweets, flags and coins pressed into the soft mud — before resuming their journey onward to the Hinglaj Mata Temple itself, the yatra's principal destination. The mountain's veneration is of unrecorded antiquity, attested only in the living pilgrimage tradition rather than in any dated textual source.
+
+## A Natural Site Within a Devotional Landscape
+
+Unlike most entries in this collection, Chandragup is not a constructed temple but a natural geological feature — one of several mud volcanoes in the Hingol region — whose sanctity derives entirely from its place within the Hinglaj pilgrimage route. It is filed here under "Hindu Temple" for consistency with the dataset's schema, though it is best understood as a sacred halting-place rather than a built shrine.
+
+## Bibliography
+
+- Wikipedia, "Chandragup" and "Hinglaj Yatra."
+- Published accounts and photo-documentation of the annual Hinglaj pilgrimage.
+
+--- CURRENT qa_note ---
+

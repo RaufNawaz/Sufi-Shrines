@@ -1,0 +1,8 @@
+id: shrine-of-hazrat-muhammad-ayub-shah-bukhari
+name: Shrine of Hazrat Muhammad Ayub Shah Bukhari
+
+--- CURRENT Description ---
+The shrine of Hazrat Muhammad Ayub Shah Bukhari is one of the principal Sufi dargahs of the Jhal Magsi district of Balochistan, situated at Gandawah (Gandava), the historic administrative town of the Kachhi plain. Its saint bore the *Bukhari* lineage, marking descent from the influential family of Sayyids who traced their origins to Bukhara and whose forebears — most famously Jalaluddin Surkh-Posh Bukhari of Uch Sharif — spread the *Suhrawardi* devotional tradition across Sindh and the southern Punjab. The tomb is locally admired as one of the finest examples of shrine architecture in the district, and it stands among a cluster of Sufi graves in the Gandawah area that together form an important sacred landscape for the surrounding Baloch and Brahui communities. Devotees from across the district and beyond visit to seek blessing and intercession, and the saint's *urs* is observed as the chief event of the devotional year, drawing pilgrims, *qawwali* and the distribution of food. As with many shrines of interior Balochistan, the documented history of the saint is thin and his dates uncertain, so his biography is best treated as living tradition rather than established record; the *Bukhari* attribution and the shrine's standing as a regional pilgrimage centre are, however, well attested locally. It should not be confused with the separate and larger Dargah of Fateh Pur Sharif (Pir Rakhail Shah), also in the Jhal Magsi district.
+
+--- CURRENT qa_note ---
+

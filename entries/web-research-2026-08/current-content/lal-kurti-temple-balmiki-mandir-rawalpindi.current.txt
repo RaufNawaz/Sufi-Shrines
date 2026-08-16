@@ -1,0 +1,8 @@
+id: lal-kurti-temple-balmiki-mandir-rawalpindi
+name: Lal Kurti Temple (Balmiki Mandir), Rawalpindi
+
+--- CURRENT Description ---
+The Lal Kurti Temple — also called the *Balmiki* (Valmiki) Mandir — stands in the historic Lalkurti quarter of Rawalpindi Cantonment, a bazaar district whose name ("red shirt") recalls the red tunics of the British Indian Army soldiers who once shopped there and gave the old British Infantry Bazaar its popular name. Completed in 1905 in a Mughal-influenced idiom, the temple is dedicated to the sage-poet *Valmik* (Valmiki), revered as author of the *Ramayana* and venerated especially by the Balmiki community. It remained a focal point for local Hindus both before and after the Partition of 1947; while most of the quarter's Hindus left in 1947, a small community stayed on and kept the temple in worship, and its first post-Partition custodian, Kheera Lal, is buried within a side portion of the complex. As of 2025 it is reported to be the only Hindu place of worship still functioning in Lalkurti — a neighbourhood that once held shrines of several faiths — and it is counted as one of the three principal Hindu temples of Rawalpindi district, alongside the Krishna Mandir of Saddar and the Valmiki Swamiji Mandir of Gracy Lines. The temple hosts daily worship and the major festivals of *Diwali*, *Holi* and *Raksha Bandhan*, and its upkeep has been associated with the Pakistan Hindu Balmik Welfare Society and with the few dozen local families who continue to maintain it.
+
+--- CURRENT qa_note ---
+

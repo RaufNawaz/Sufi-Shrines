@@ -1,0 +1,8 @@
+id: khatwari-darbar-shikarpur
+name: Khatwari Darbar, Shikarpur
+
+--- CURRENT Description ---
+The Khatwari Darbar is among the most celebrated of the historic Sikh and Nanakpanthi shrines of Shikarpur, the north-Sindh town once known as the "Paris of Sindh" for the wealth of its merchant houses. It is traditionally held to have been founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh who, after the Guru's death in 1708, is said to have travelled to Sindh and preached the Sikh teaching at Shikarpur. He is remembered as delivering his sermons seated upon a *khat* (a rope cot), from which the darbar took its name, "Khatwari". The building most likely dates to the second quarter of the eighteenth century and is one of the finest structures in the town: a two-storey *haveli*-style darbar noted for its fresco paintings and intricate woodwork, decoration rarely matched elsewhere in upper Sindh. Images of the ten Sikh Gurus adorn its walls, and three doorways open onto the main hall, where the *Guru Granth Sahib* is installed. The darbar belongs to the shared Nanakpanthi and *Udasi* devotional world of Sindh, in which Sindhi Hindus and Sikhs venerated the Gurus together. There are in fact three Khatwari Darbars in Shikarpur — the principal one, or Khatwari Dharamshala, in Thekrati Bazar — and the tradition of Bhai Gurdas is also remembered at Shahdadkot and at Gandava in Jhal Magsi.
+
+--- CURRENT qa_note ---
+

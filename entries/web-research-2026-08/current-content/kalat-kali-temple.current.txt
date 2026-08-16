@@ -1,0 +1,23 @@
+id: kalat-kali-temple
+name: Kalat Kali Temple
+
+--- CURRENT Description ---
+## Overview
+
+In the Shahi Bazaar of Kalat — the ancient hill-town of central Balochistan that was for centuries the seat of the Khanate of Kalat — stands a Hindu temple dedicated to the goddess Kali. Local tradition holds the shrine to be of great antiquity, with some accounts tracing its origins to the pre-Islamic Sewa dynasty period and claiming an age of some 1,500 years; no dated inscription or independent historical record has been located to confirm so early a founding, and the claim is best treated as devotional tradition rather than settled fact.
+
+## A Living Shrine in a Historic Bazaar
+
+The temple's presence within the working fabric of Kalat's old bazaar reflects a resident Hindu trading community that has occupied the town's commercial life alongside its Baloch and Brahui neighbours, a pattern of minority presence in Balochistan's interior towns that predates the modern state and has persisted, in much reduced form, into the present.
+
+## Festival and Pilgrimage
+
+The temple's clearest claim to wider recognition is its annual three-day Kali festival, held each January, which draws Hindu pilgrims from across Pakistan and, on occasion, from India — a notable instance of cross-border devotional travel to a small provincial shrine.
+
+## Bibliography
+
+- Wikipedia, "Kali Temple, Kalat."
+- Local and regional press coverage of the annual Kalat Kali festival.
+
+--- CURRENT qa_note ---
+

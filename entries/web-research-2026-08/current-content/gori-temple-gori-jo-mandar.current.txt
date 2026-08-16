@@ -1,0 +1,8 @@
+id: gori-temple-gori-jo-mandar
+name: Gori Temple (Gori jo Mandar)
+
+--- CURRENT Description ---
+The Gori Temple — *Gori jo Mandar*, the "temple of Gori" — is a marble *Śvetāmbara Jain* temple standing amid the desert near the village of Gori, between Islamkot and Nagarparkar in Tharparkar District, some fourteen miles north-west of the Viravah ruins. Built in 1375-1376 CE and dedicated to *Parshvanatha*, the twenty-third *Tirthankara* of the Jain faith, it is one of the most important surviving Jain monuments of the subcontinent's north-west. The temple, raised on a high stepped platform and built of marble, measures roughly 125 by 60 feet and is distinguished by its three *mandapas* (halls) and its remarkable array of some fifty-two domes, whose form blends Gujarati temple design with the regional architecture of the age. Its greatest treasure is its painting: the frescoes within the main dome — depicting princely processions, palanquins and coaches, riders, and elegantly robed figures in flowing Rajasthani dress — are reckoned to be the oldest surviving Jain frescoes in the northern regions of the subcontinent, a survival of extraordinary rarity. Long abandoned as a place of worship, the temple stands today as a monument of the once-flourishing Jain and Hindu culture of the Thar. It forms part of the group of Nagarparkar temples inscribed in 2016 on the UNESCO tentative list as the "Nagarparkar Cultural Landscape," and it remains a site of pilgrimage interest for Jains and Hindus and of growing concern for heritage conservation.
+
+--- CURRENT qa_note ---
+

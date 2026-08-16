@@ -1,0 +1,8 @@
+id: tomb-of-baha-al-halim-uch-sharif
+name: Tomb of Baha'al-Halim (Uch Sharif)
+
+--- CURRENT Description ---
+The Tomb of Baha'al-Halim is one of the celebrated cluster of medieval shrines at the south-western edge of Uch Sharif, the ancient town in Bahawalpur district that was for centuries a great centre of the Suhrawardi order and of the Bukhari Sayyids. Together with the neighbouring tombs of Bibi Jawindi and Ustad Nuriya and the tomb and mosque of Jalaluddin Bukhari, the shrine forms the ensemble that Pakistan placed on the UNESCO World Heritage tentative list in 2004 as an outstanding example of Islamic funerary architecture. Baha'al-Halim is remembered as a revered spiritual guide of Uch, and his tomb is traditionally said to have been raised in his honour by the great saint Makhdoom Jahaniyan Jahangasht; the exact dates of his life are not securely recorded and are best treated with caution. The mausoleum is an octagonal, three-tiered structure of glazed brick, crowned by a dome and adorned with the brilliant blue, turquoise and white tilework for which Uch and Multan are famous — a fusion of Central Asian, Persian and local Multani decorative traditions. Though damaged over the centuries, it remains among the most admired monuments of the town and, like its companion shrines, is honoured with an annual *urs*.
+
+--- CURRENT qa_note ---
+

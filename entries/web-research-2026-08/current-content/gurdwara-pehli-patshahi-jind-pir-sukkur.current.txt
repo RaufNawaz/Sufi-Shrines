@@ -1,0 +1,8 @@
+id: gurdwara-pehli-patshahi-jind-pir-sukkur
+name: Gurdwara Pehli Patshahi (Jind Pir), Sukkur
+
+--- CURRENT Description ---
+Gurdwara Pehli Patshahi, popularly called Jind Pir, stands on the Sukkur side of the great bridge that carries the Lahore–Karachi railway across the Indus between Sukkur and Rohri. By tradition it marks a spot graced by Guru Nanak, the first Guru (*Pehli Patshahi*), during his third journey (*udasi*) through Sindh; it was from here, the tradition holds, that he crossed to the river islet later famous as Sadh Belo (a separate entry in this dataset). Its first custodian is said to have been an Udasi *sadhu* of the Jhulelal devotion, and the shrine passed into the keeping of the Nanakpanthi community of Sindh — Hindus and Sikhs together — who honour Guru Nanak without a firm confessional boundary. Within, the *Guru Granth Sahib* is installed and its *prakash* performed, while images are also venerated, and a lamp said to have been kindled by the Guru himself is kept burning day and night, before which pilgrims bow. The gurdwara is thus a characteristic monument of Sindh's syncretic Nanakpanthi tradition, distinct both from the island temple of Sadh Belo and from the other Sikh sites of the Sukkur–Rohri conurbation. Much of its detailed history survives only in oral and community tradition.
+
+--- CURRENT qa_note ---
+

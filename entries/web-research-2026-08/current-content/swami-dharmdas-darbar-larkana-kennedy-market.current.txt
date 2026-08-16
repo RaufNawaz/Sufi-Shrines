@@ -1,0 +1,8 @@
+id: swami-dharmdas-darbar-larkana-kennedy-market
+name: Swami Dharmdas Darbar, Larkana (Kennedy Market)
+
+--- CURRENT Description ---
+The darbar of Swami Dharmdas at Larkana is one of the *Nanakpanthi* shrines of the Larkana country of upper Sindh, recorded by the anthropologist Zulfiqar Ali Kalhoro in his survey of the region's Hindu–Sikh saints. Swami Dharamdas is remembered as a disciple of Sant Bhai Wasan Shah of Rohri; according to Kalhoro he first established a darbar at the village of Mena and afterwards founded the shrine at Larkana with which his name is chiefly associated, said to lie in the Kennedy Market quarter of the town. He was a contemporary of Sain Vali Vilayat Rai of Kambar (a separate entry in this dataset), one of a group of nineteenth- and early-twentieth-century *sants* who spread a message of love, harmony and tolerance among the Hindu, Muslim and Sikh communities of Sindh. In the Nanakpanthi manner, such darbars house a copy of the *Guru Granth Sahib* alongside images of Hindu deities, and honour Baba Guru Nanak without a firm confessional boundary. The saint's dates and the darbar's detailed history are only thinly documented in accessible sources, and — as with most Sindhi Hindu shrines — the size and present condition of the site are uncertain; the entry is offered on the authority of Kalhoro's fieldwork and should be treated as provisional.
+
+--- CURRENT qa_note ---
+

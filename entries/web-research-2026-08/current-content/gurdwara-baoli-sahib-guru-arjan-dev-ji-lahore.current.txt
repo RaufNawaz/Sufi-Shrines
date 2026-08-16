@@ -1,0 +1,8 @@
+id: gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore
+name: Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore
+
+--- CURRENT Description ---
+Gurdwara Baoli Sahib stands in the crowded Dabbi Bazaar at the very heart of the walled city of Lahore, where its precinct once adjoined the Loha, Kesera and Guru bazaars. It commemorates a visit of *Guru Arjan Dev*, the fifth Sikh Guru, to Lahore in 1599. In the tradition preserved by the community, a devotee named *Bhai Chhajju Bhagat*, together with a Pathan merchant, laid a purse of gold *mohars* at the Guru's feet and asked that it be spent for religious purposes; the Guru had a *baoli* — a roofed stepwell — sunk at this spot to provide water for the people of the quarter. The stepwell later suffered in the turbulence of the eighteenth century: it is said to have been filled in and built over during the governorship of Nawab Yahya Khan, at the instigation of Diwan Jaspat Rai. It was rediscovered and restored during the reign of *Maharaja Ranjit Singh*, who in 1834 had a new building raised and a *sarovar* (sacred tank) dug, and the gurdwara passed under the management of the Shiromani Gurdwara Parbandhak Committee in 1927. Today the site is also known as Baoli Bagh, its surroundings laid out as a garden. As a shrine tied to Guru Arjan — the compiler of the *Adi Granth* and the first martyr of the Sikh faith, whose principal Lahore memorial is the Gurdwara Dera Sahib by the Fort — Baoli Sahib is a significant station on the map of Sikh Lahore.
+
+--- CURRENT qa_note ---
+

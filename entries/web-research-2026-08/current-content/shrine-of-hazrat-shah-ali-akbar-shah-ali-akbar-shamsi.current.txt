@@ -1,0 +1,8 @@
+id: shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi
+name: Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)
+
+--- CURRENT Description ---
+The Shrine of Hazrat Shah Ali Akbar Shamsi stands in the historic neighbourhood of Suraj Miani in Multan, the celebrated "city of saints", and is counted among the oldest and most beautiful mausoleums of the city. Shah Ali Akbar is remembered as a descendant — by tradition of the eighth generation — of the great Sufi Shah Shams Sabzwari of Multan, and it is said that after the death of his father he settled permanently in the city. His tomb, built of brick in the octagonal, tiered form so characteristic of Multan, is often likened to a smaller version of the famous shrine of Shah Rukn-e-Alam, and it belongs to the classic tradition of Multani funerary architecture with its glazed tilework and tapering silhouette. According to inscriptions and local tradition, construction of the mausoleum began in 993 AH (about 1585 CE) and took some fifteen years to complete; it is said to have been raised by the saint's grandson, who is himself buried within the complex, and the work is attributed to the builders Ibrahim and Rajab, sons of the noted architect Musa Lahori. Despite its remarkable beauty and its importance to the architectural history of Multan, the shrine has often been described as one of the city's more neglected monuments. It remains a place of *ziyarat* and hosts an annual *urs* in the saint's honour.
+
+--- CURRENT qa_note ---
+
