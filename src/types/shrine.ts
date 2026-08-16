@@ -98,5 +98,13 @@ export interface ShrineDataState {
   loading: boolean;
   error: string | null;
   source: 'csv' | 'cache' | 'snapshot' | null;
+  /** When source is 'cache' or 'snapshot', when that data was captured (ms
+   * since epoch) — drives the "showing cached data from …" banner. Null for
+   * a live 'csv' load. */
+  sourceTimestamp: number | null;
+  /** True once a live CSV fetch has actually failed (vs. the normal
+   * instant-cache-then-background-refresh fast path) — gates the "showing
+   * cached data" banner so it doesn't flash on every healthy online load. */
+  offline: boolean;
   refresh: () => void;
 }

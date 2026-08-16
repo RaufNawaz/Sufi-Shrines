@@ -6,6 +6,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
 import { CATEGORY_ORDER, categoryKey } from '../lib/data/categoryKey';
 import type { CategoryKey } from '../lib/data/categoryKey';
@@ -123,7 +124,7 @@ function setFiltersInURL(filters: FilterState): void {
 }
 
 export default function MapPage() {
-  const { shrines, loading, error, refresh } = useShrineData();
+  const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData();
   const { t, isRTL } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [isEmbed] = useState(isEmbedMode);
@@ -381,6 +382,8 @@ export default function MapPage() {
           ))}
         </ol>
       </nav>
+
+      <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
       <MapSidebar
         shrines={shrines}
