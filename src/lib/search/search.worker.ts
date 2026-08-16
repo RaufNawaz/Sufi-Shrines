@@ -14,6 +14,38 @@ type InMsg = { type: 'init'; docs: ShrineDoc[] } | { type: 'search'; query: stri
 
 type OutMsg = { type: 'ready' } | { type: 'results'; ids: number[]; reqId: number };
 
+// Arabic diacritics (harakat, U+064B-U+0652) and the superscript alef
+// (U+0670) — carry no lexical distinction for search and would otherwise
+// defeat prefix/fuzzy matching. Written as explicit code points because a
+// literal range of combining marks is unreliable to type/read.
+const HARAKAT_RE = /[ً-ْٰ]/g;
+// Zero-width (non-)joiners (U+200C/U+200D) — invisible, but present in some source text.
+const ZERO_WIDTH_RE = /[‌‍]/g;
+// Arabic-keyboard letter variants folded to their Urdu-keyboard equivalents,
+// so a name typed either way still matches (e.g. "علي" -> "علی").
+const LETTER_FOLD: Record<string, string> = {
+  'ي': 'ی', // ي (Arabic yeh) -> ی (Urdu yeh)
+  'ك': 'ک', // ك (Arabic kaf) -> ک (Urdu kaf)
+  'ة': 'ہ', // ة (teh marbuta) -> ہ (Urdu heh)
+  'ه': 'ہ', // ه (Arabic heh) -> ہ (Urdu heh)
+  'أ': 'ا', // أ -> ا
+  'إ': 'ا', // إ -> ا
+  'آ': 'ا', // آ -> ا
+  'ئ': 'ی', // ئ -> ی
+};
+const LETTER_FOLD_RE = /[يكةهأإآئ]/g;
+
+/** Applied at both index and search time (MiniSearch's single `processTerm`
+ * config governs both) so a name indexed with one spelling variant still
+ * matches a query typed with another. Exported for direct unit testing. */
+export function processTerm(term: string): string {
+  return term
+    .replace(HARAKAT_RE, '')
+    .replace(ZERO_WIDTH_RE, '')
+    .replace(LETTER_FOLD_RE, (ch) => LETTER_FOLD[ch] ?? ch)
+    .toLowerCase();
+}
+
 let ms: MiniSearch<ShrineDoc> | null = null;
 
 self.onmessage = (e: MessageEvent<InMsg>) => {
@@ -24,6 +56,7 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
       idField: 'id',
       fields: ['name', 'urduName', 'location', 'saint', 'category', 'description'],
       storeFields: [],
+      processTerm,
       searchOptions: {
         fuzzy: 0.2,
         prefix: true,
