@@ -534,6 +534,12 @@
   order: 1;
 }
 
+/* Renders the (translated) "Sufi Order"/"Sufi Saint" kicker — a plain div,
+   so it gets none of the global h1-h4 remap's letter-spacing reset. */
+[dir='rtl'] .entity-type-kicker {
+  letter-spacing: normal;
+}
+
 [dir='rtl'] .lineage-member--current > a::after {
   /* Arrow glyph itself must flip — logical properties mirror position but
      not glyph direction. Margin already uses margin-inline-start in the

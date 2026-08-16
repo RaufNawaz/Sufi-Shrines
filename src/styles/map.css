@@ -473,6 +473,13 @@
   color: var(--color-text-muted);
 }
 
+/* Renders a translated filter-section label (region/saint/provenance) — a
+   plain span, so it gets none of the global h1-h4 remap's letter-spacing
+   reset. text-transform is inert on Arabic script either way. */
+[dir='rtl'] .filter-section-label {
+  letter-spacing: normal;
+}
+
 /* Filter active indicator on list-toggle button */
 .filter-active-dot {
   width: 6px;
@@ -625,6 +632,12 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+/* Renders the (translated) category group heading — a plain div, so it gets
+   none of the global h1-h4 remap's letter-spacing reset. */
+[dir='rtl'] .shrine-list-group-heading {
+  letter-spacing: normal;
 }
 
 .shrine-list-item {
@@ -1052,6 +1065,12 @@
   font-style: italic;
   color: var(--color-text-muted);
   margin: 0;
+}
+
+/* Echoes the user's own (possibly Urdu-script) search query — Nastaliq has
+   no italic form. */
+[dir='rtl'] .shrine-list-empty-query {
+  font-style: normal;
 }
 
 .shrine-list-empty-clear {
