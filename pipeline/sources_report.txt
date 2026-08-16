@@ -1,58 +1,58 @@
-rows: 167   distinct sources: 321   shrine-source links: 370
+rows: 171   distinct sources: 418   shrine-source links: 491
 
 SUPPORT LEVEL
-  Source-documented   70
-  Web-compiled        60
-  Source-seeded       30
-  Field-verified      7
+  Source-documented   100
+  Source-seeded       52
+  Field-verified      16
+  Web-compiled        3
 
 INFO LEVEL (visitor-facing badge)
-  Moderate            100
-  Low                 60
-  Full                7
+  Moderate            152
+  Full                16
+  Low                 3
 
 SOURCE TYPE
-  book                68
-  unclassified        56
-  monograph           41
-  press               39
-  encyclopaedia       32
-  primary text        26
-  register            25
+  press               83
+  monograph           73
+  book                67
+  unclassified        58
+  encyclopaedia       34
+  register            31
+  primary text        27
+  field survey        16
+  tazkira             15
   gazetteer           14
-  tazkira             13
-  field survey        7
 
 MOST REUSED SOURCES  (the anthology strategy, measured)
    26x  [tazkira]  Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan
+   11x  [tazkira]  Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of 
+    5x  [tazkira]  Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of 
     3x  [encyclopaedia]  Singh, Harbans (ed.). *The Encyclopaedia of Sikhism*. Patiala: Punjabi University.
     3x  [monograph]  Max Arthur Macauliffe, *The Sikh Religion: Its Gurus, Sacred Writings and Authors* (Oxfo
     3x  [monograph]  Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998
     3x  [monograph]  Singh, Khushwant. *A History of the Sikhs*, Vol. 1. Oxford University Press.
+    3x  [press]  Zulfiqar Ali Kalhoro, "Nanakpanthi Saints of Sindh," *The Friday Times*, 13 April 2018.
     3x  [register]  Evacuee Trust Property Board (Pakistan), Functional Mandirs register.
     2x  [book]  Patwant Singh, *The Sikhs* (Knopf/Doubleday).
     2x  [book]  Cousens, Henry. *The Antiquities of Sindh, with Historical Outline*. Archaeological Surv
     2x  [encyclopaedia]  Harbans Singh (ed.), *The Encyclopaedia of Sikhism* (Punjabi University, Patiala).
-    2x  [monograph]  W. H. McLeod, *Guru Nanak and the Sikh Religion* (Oxford University Press, 1968).
-    2x  [monograph]  Macauliffe, Max Arthur. *The Sikh Religion: Its Gurus, Sacred Writings and Authors*. Oxf
-    2x  [monograph]  Jürgen Wasim Frembgen, *Journey to God: Sufis and Dervishes in Islam* (Oxford University
 
 HIGHEST EXPANSION RATIO  (words of prose per specific source cited)
-     1471 w/src  0 src   1471 words   Darbar Abul Muali Qadri
+     1589 w/src  1 src   1589 words   Darbar Abul Muali Qadri
      1189 w/src  0 src   1189 words   Darbar Malik Ahmad Ayaz
       982 w/src  2 src   1964 words   Shrine of Ganj e Inayat Sarkar
+      975 w/src  0 src    975 words   Darbar Hazrat Tahir Bandagi Qadri
       968 w/src  4 src   3871 words   Tomb of Allama Iqbal (Mazar-e-Iqbal)
+      937 w/src  0 src    937 words   Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti 
       899 w/src  0 src    899 words   Darbar Hazrat Shah Gohar Peer
+      897 w/src  0 src    897 words   Darbar Wasif Ali Wasif
       888 w/src  0 src    888 words   Darbar Mian Qurban Ali Shah
+      834 w/src  1 src    834 words   Darbar Ghazi Ilm Din Shaheed
       820 w/src  4 src   3280 words   Shrine of Mian Mir
       771 w/src  3 src   2314 words   Shrine of Abul Faiz Qalander Ali Suharwardi
+      744 w/src  1 src    744 words   Shrine of Mauj Darya Bukhari
       719 w/src  4 src   2875 words   Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)
-      676 w/src  0 src    676 words   Shrine of Mauj Darya Bukhari
-      655 w/src  1 src    655 words   Bhagnari Mandir
-      649 w/src  1 src    649 words   Shrine of Bahauddin Zakariya
-      630 w/src  1 src    630 words   Amb Temples (Amb Sharif)
-      623 w/src  0 src    623 words   Shrine of Shah Jamal
-      575 w/src  1 src    575 words   Shrine at Odero Lal (Udero Lal Teerath Asthan)
+      667 w/src  1 src    667 words   Shrine of Shah Jamal
 
 GENERIC / PLACEHOLDER BIBLIOGRAPHY LINES  (43 occurrences)
     2x  General established histories of the Chishti revival in nineteenth-century Punja
