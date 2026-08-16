@@ -30,6 +30,7 @@ Roadmaps and runbooks; some are kept for history after implementation.
 | Doc                                                                            | Purpose                                                                           |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
 | [`planning/TODO.md`](planning/TODO.md)                                         | Live working checklist for the dataset and app                                    |
+| [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |
 | [`planning/PROJECT_VISION.md`](planning/PROJECT_VISION.md)                     | Blue-sky roadmap (Track 0 = Urdu parity; Tracks 1–8 = the future)                 |
 | [`planning/URDU_IMPLEMENTATION_PLAN.md`](planning/URDU_IMPLEMENTATION_PLAN.md) | Phased Urdu-parity plan (implemented — historical reference)                      |
