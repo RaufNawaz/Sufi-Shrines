@@ -673,8 +673,14 @@ export function MapSidebar({
                           <div className="shrine-list-name">{highlightMatch(name, search)}</div>
                           {location && <div className="shrine-list-meta">{location}</div>}
                           <div className="shrine-list-badges">
-                            <InfoLevelBadge level={shrine.infoLevel} className="shrine-list-badge" />
-                            <SupportLevelBadge level={shrine.supportLevel} className="shrine-list-badge" />
+                            <InfoLevelBadge
+                              level={shrine.infoLevel}
+                              className="shrine-list-badge"
+                            />
+                            <SupportLevelBadge
+                              level={shrine.supportLevel}
+                              className="shrine-list-badge"
+                            />
                           </div>
                         </div>
                       </button>

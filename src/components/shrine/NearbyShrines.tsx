@@ -18,7 +18,11 @@ export function NearbyShrines({ shrine, all }: Props) {
   if (nearby.length === 0) return null;
 
   return (
-    <section className="related-shrines article-section" id="nearby" aria-labelledby="nearby-heading">
+    <section
+      className="related-shrines article-section"
+      id="nearby"
+      aria-labelledby="nearby-heading"
+    >
       <h2 className="article-section-heading" id="nearby-heading">
         {t('nearbyShrines')}
       </h2>

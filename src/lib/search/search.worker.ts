@@ -24,14 +24,14 @@ const ZERO_WIDTH_RE = /[‌‍]/g;
 // Arabic-keyboard letter variants folded to their Urdu-keyboard equivalents,
 // so a name typed either way still matches (e.g. "علي" -> "علی").
 const LETTER_FOLD: Record<string, string> = {
-  'ي': 'ی', // ي (Arabic yeh) -> ی (Urdu yeh)
-  'ك': 'ک', // ك (Arabic kaf) -> ک (Urdu kaf)
-  'ة': 'ہ', // ة (teh marbuta) -> ہ (Urdu heh)
-  'ه': 'ہ', // ه (Arabic heh) -> ہ (Urdu heh)
-  'أ': 'ا', // أ -> ا
-  'إ': 'ا', // إ -> ا
-  'آ': 'ا', // آ -> ا
-  'ئ': 'ی', // ئ -> ی
+  ي: 'ی', // ي (Arabic yeh) -> ی (Urdu yeh)
+  ك: 'ک', // ك (Arabic kaf) -> ک (Urdu kaf)
+  ة: 'ہ', // ة (teh marbuta) -> ہ (Urdu heh)
+  ه: 'ہ', // ه (Arabic heh) -> ہ (Urdu heh)
+  أ: 'ا', // أ -> ا
+  إ: 'ا', // إ -> ا
+  آ: 'ا', // آ -> ا
+  ئ: 'ی', // ئ -> ی
 };
 const LETTER_FOLD_RE = /[يكةهأإآئ]/g;
 

@@ -26,7 +26,7 @@ picks bounded items from `PROJECT_VISION.md` Tracks 0/6/8. It does not replace e
 6. **Latin runs inside the Urdu view** must be wrapped in `<bdi>`; the no-leak e2e
    (`e2e/urdu.spec.ts`) fails on bare `[A-Za-z]` in chips/titles.
 7. **CSS**: logical properties only (`inset-inline-*`, `margin-inline-*`, `text-align:
-   start`). Never a hard `left/right` that breaks RTL.
+start`). Never a hard `left/right` that breaks RTL.
 8. **Do not rename these slugs** (published photo URLs): data-darbar,
    abul-faiz-qalander-ali-suharwardi, bibi-pak-daman, ganj-e-inayat-sarkar, madho-lal-hussain,
    mazar-e-iqbal, peer-makki, shah-jamal.
