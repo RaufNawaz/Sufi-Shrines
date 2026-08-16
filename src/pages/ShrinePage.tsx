@@ -21,7 +21,7 @@ import { getFieldValue } from '../lib/data/fieldAliasing';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { infoLevelKey } from '../lib/data/infoLevel';
 import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../lib/data/siteStatus';
-import { CONTACT_EMAIL } from '../lib/data/constants';
+import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
@@ -284,6 +284,10 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <Link to="/">{t('backToMap')}</Link>
         {' · '}
         <span>{t('footerCredit')}</span>
+        {' · '}
+        <a href={correctionIssueUrl(shrine.slug)} target="_blank" rel="noopener noreferrer">
+          {t('reportCorrection')}
+        </a>
       </footer>
     </article>
   );

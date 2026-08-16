@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
@@ -111,6 +112,12 @@ export function MapSidebar({
     activeCategories.length || activeRegion || activeSaint || hasEraFilter || verifiedOnly,
   );
   const hasMoreFiltersActive = Boolean(activeSaint || hasEraFilter || verifiedOnly);
+  const activeFilterCount =
+    activeCategories.length +
+    (activeRegion ? 1 : 0) +
+    (activeSaint ? 1 : 0) +
+    (hasEraFilter ? 1 : 0) +
+    (verifiedOnly ? 1 : 0);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -290,6 +297,7 @@ export function MapSidebar({
                 type="button"
                 className="icon-btn numerals-toggle"
                 onClick={() => setNumerals(numerals === 'eastern' ? 'western' : 'eastern')}
+                aria-pressed={numerals === 'eastern'}
                 aria-label={
                   numerals === 'eastern'
                     ? t('switchToWesternNumerals')
@@ -418,6 +426,19 @@ export function MapSidebar({
               )}
             </div>
           </div>
+
+          {/* Active-filter summary — persistent count + one-click reset,
+              independent of the empty-results clear button below. */}
+          {hasActiveFilter && (
+            <div className="filter-summary-bar">
+              <span className="filter-summary-count">
+                {fmtNum(tFn(lang, 'activeFiltersCount', activeFilterCount))}
+              </span>
+              <button className="filter-summary-clear" onClick={clearAllFilters}>
+                {t('clearFilters')}
+              </button>
+            </div>
+          )}
 
           {/* Category chips — additive: each chip toggles its category into
               the selection; no selection = all categories shown. */}

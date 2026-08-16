@@ -2,13 +2,13 @@ import React from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
 
 export function LanguageToggle({ className }: { className?: string }) {
-  const { lang, setLang } = useLang();
+  const { lang, setLang, t } = useLang();
 
   return (
     <div
       className={`lang-toggle-segment${className ? ` ${className}` : ''}`}
       role="group"
-      aria-label="Select language"
+      aria-label={t('selectLanguage')}
     >
       <button
         className={`lang-seg${lang === 'en' ? ' active' : ''}`}

@@ -46,6 +46,7 @@ export const UI_TEXT = {
     appErrorReload: 'Reload',
     filterAll: 'All',
     resultCount: (n: number) => `${n} shrine${n === 1 ? '' : 's'}`,
+    activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
     nearMe: 'Near Me',
     switchToUrdu: 'اردو',
     switchToEnglish: 'English',
@@ -125,6 +126,7 @@ export const UI_TEXT = {
     longitudeLabel: 'Longitude',
     imageLabel: 'Image',
     footerCredit: 'Sufi Shrines of Pakistan · Harvard Research Project',
+    reportCorrection: 'Report a correction',
     sourcesHeading: 'Sources & Provenance',
     unreviewedLabel: 'Unreviewed',
     confidenceLabel: 'confidence',
@@ -155,6 +157,7 @@ export const UI_TEXT = {
     linkCopied: 'Link copied',
     switchToWesternNumerals: 'Switch to Western numerals',
     switchToEasternNumerals: 'Switch to Eastern numerals',
+    selectLanguage: 'Select language',
     resetEraFilterAriaLabel: 'Reset era filter',
     resetButton: 'Reset',
     allErasLabel: 'All eras',
@@ -238,6 +241,7 @@ export const UI_TEXT = {
     appErrorReload: 'دوبارہ لوڈ کریں',
     filterAll: 'سب',
     resultCount: (n: number) => `${n} مزار`,
+    activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
     nearMe: 'میرے قریب',
     switchToUrdu: 'اردو',
     switchToEnglish: 'English',
@@ -317,6 +321,7 @@ export const UI_TEXT = {
     longitudeLabel: 'طول بلد',
     imageLabel: 'تصویر',
     footerCredit: 'پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ',
+    reportCorrection: 'غلطی کی نشاندہی کریں',
     sourcesHeading: 'مصادر اور ماخذ',
     unreviewedLabel: 'غیر جانچا گیا',
     confidenceLabel: 'اعتماد',
@@ -347,6 +352,7 @@ export const UI_TEXT = {
     linkCopied: 'لنک کاپی ہو گیا',
     switchToWesternNumerals: 'مغربی ہندسوں پر جائیں',
     switchToEasternNumerals: 'مشرقی ہندسوں پر جائیں',
+    selectLanguage: 'زبان منتخب کریں',
     resetEraFilterAriaLabel: 'دور فلٹر ہٹائیں',
     resetButton: 'ہٹائیں',
     allErasLabel: 'تمام ادوار',
@@ -397,9 +403,10 @@ export function tFn(lang: Lang, key: 'resultCount', n: number): string;
 export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
 export function tFn(lang: Lang, key: 'photoOf', current: number, total: number): string;
+export function tFn(lang: Lang, key: 'activeFiltersCount', n: number): string;
 export function tFn(
   lang: Lang,
-  key: 'resultCount' | 'stopOf' | 'nextIn' | 'photoOf',
+  key: 'resultCount' | 'stopOf' | 'nextIn' | 'photoOf' | 'activeFiltersCount',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

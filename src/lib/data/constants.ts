@@ -34,6 +34,21 @@ export const NON_DETAIL_KEYS = new Set([
  * low-information shrine pages. */
 export const CONTACT_EMAIL = 'raufnawaz@college.harvard.edu';
 
+/** Public GitHub repo — used to build the "Report a correction" link (see
+ * .github/ISSUE_TEMPLATE/data-correction.yml, docs/CORRECTIONS_WORKFLOW.md). */
+export const GITHUB_REPO_URL = 'https://github.com/RaufNawaz/Sufi-Shrines';
+
+/** Prefills the data-correction issue form's `shrine` field and title via
+ * GitHub's issue-forms query-param convention (param name = field id). */
+export function correctionIssueUrl(shrineSlug: string): string {
+  const params = new URLSearchParams({
+    template: 'data-correction.yml',
+    title: `[correction] ${shrineSlug}`,
+    shrine: shrineSlug,
+  });
+  return `${GITHUB_REPO_URL}/issues/new?${params.toString()}`;
+}
+
 /** New structured sheet columns (2026 schema). `category`, `info_level` and
  * `status` get dedicated UI (chips, badges, status notes); the rest have no
  * display treatment yet. All are excluded from the infobox's generic
