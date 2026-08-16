@@ -1,45 +1,60 @@
 # To-do — as of 16 August 2026
 
-Written at the close of the session covered in `docs/HANDOVER.md` §8b; updated 16 August
-(patch count corrected to six, all six re-validated, peer sessions confirmed harmless).
-Grouped by who needs to act. Nothing here duplicates HANDOVER's own outstanding lists
-(§8's Technical/Editorial items, §9, §10) — check those too.
+Written at the close of the session covered in `docs/HANDOVER.md` §8b; updated through the
+end of 16 August, which added a 37-entry web-research enrichment pass and merged everything
+pending into one importable CSV. Grouped by who needs to act. Nothing here duplicates
+HANDOVER's own outstanding lists (§8's Technical/Editorial items, §9, §10) — check those too.
 
 ---
 
-## 1. Needs you — sheet imports (per RULE 3, agents don't write the sheet)
+## 1. Needs you — one sheet import (per RULE 3, agents don't write the sheet)
 
-**Six** CSV patches are sitting in `data/`, none imported yet — the four from the 15 August
-session plus two from the same day's gold-standard session (HANDOVER §8a) that the first
-version of this list missed. They don't overlap with each other, so any order is fine, but
-review each as its own pass:
-
-- [ ] `data/patch_new_field_survey_shrines.csv` — 4 new shrine rows. **Note:** the Darbar
-      Ghazi Ilm Din Shaheed row originally had blank coordinates (the survey locates it only as
-      "Lahore"); on 16 August, per direction, it was given the shared Miani Sahib Graveyard
-      landmark pin, sourced to a named press account (Parvez Mahmood, *The Friday Times*,
-      20 May 2022 — verified directly, and added to the entry's Bibliography). The pin is
-      explicitly approximate; a precise one is still on Saifullah's list (§2).
-- [ ] `data/patch_shah_inayat_merge.csv` — 1-row merge/upgrade to the existing "Shrine of Shah
-      Inayat Qadiri" entry (adds a field-survey citation, corrects nothing, only adds).
-- [ ] `data/patch_field_survey_coordinates.csv` — coordinates + content fix for the 4
-      already-published shrines that have been invisible on the live site since 10 August
-      (see below).
-- [ ] `data/patch_tazkira_enrichment.csv` — 16 rows, adds a citation to already-published
-      entries.
-- [ ] `data/patch_provenance_badges.csv` — 167 rows, adds `support_level` + `info_level`
-      (HANDOVER §8a).
-- [ ] `data/patch_bibi_pak_daman_dates.csv` — one row, fills the `year_built*` fields
-      (HANDOVER §8a).
-
-All six re-validated with `pipeline/validate_shrines.py` on 16 August. Remaining issues are
-expected artefacts, not blockers: `coord_missing` fires on the partial-column patches (they
-simply don't carry Latitude/Longitude columns) and on the three deliberately-blank rows named
-in §2; `sheet_missing_column`/`badge_not_populated`/`no_image` fire because patches aren't
-full sheet exports. Nothing new was found beyond the Ghazi Ilm Din note above.
+**Recommended: one consolidated import**, not the seven separate patches below.
+`pipeline/build_final_import.py` fetches the live sheet fresh and applies every pending patch
+in the correct order (with invariant checks at each step — see the script's own docstring for
+exactly what it does and why), then re-runs `pipeline/build_sources_registry.py` fresh against
+the final merged content to compute `support_level`/`info_level` for all 171 rows. Run it
+yourself with `python3 pipeline/build_final_import.py`; it writes
+**`data/shrines_final_import_2026-08-16.csv`** (171 rows, 44 columns — gitignored like other
+full-sheet CSV snapshots, so it stays local; re-run the script any time to regenerate it fresh).
 
 Import settings per CLAUDE.md RULE 3: Replace current sheet, comma separator, "Convert text to
 numbers, dates and formulas" **OFF**.
+
+**What's in it, beyond the six patches already known about:**
+- The web-research pass (§4 below, now done) is folded in as `data/patch_web_research.csv` —
+  37 of the 40 targeted `Web-compiled` entries gained a citation-backed addition; the other 3
+  ("nothing reliable found") are untouched.
+- `support_level`/`info_level` are **not** taken from `data/patch_provenance_badges.csv` — that
+  patch was computed on 15 August, before the coordinate/content fix, the tazkira enrichment,
+  and this pass all added new Bibliography citations to rows it had already scored. Applying it
+  now would have **regressed** the 4 field-survey rows from their current, correct
+  `info_level=Full` down to a stale `Low`. The script recomputes fresh instead — full tally:
+  `Web-compiled`/`Low` 60→3, `Field-verified`/`Full` unchanged at 16 but now includes the 4
+  field-survey rows correctly, `Source-documented`+`Source-seeded`/`Moderate` 152.
+- One tazkira-patch row was silently dropped, not silently applied: **Darbar Abul Muali
+  Qadri**'s row in `patch_tazkira_enrichment.csv` has an empty `qa_note` column with its entire
+  9-item qa_note dumped into the *Description* field as a literal ```` ```qa_note ```` fenced
+  code block — a formatting defect that would have rendered a giant code block into the public
+  page. `patch_field_survey_coordinates.csv` already has a clean, later, more complete version
+  of the same row (its own item #10 shows it had already incorporated the tazkira
+  cross-reference correctly) — that version is what the final CSV uses instead. Nothing was
+  lost; the tazkira patch's superseded row is simply not applied.
+- `patch_shah_inayat_merge.csv` blanks its own `Category` cell. Applying that patch's non-key
+  columns unconditionally would have silently wiped the existing "Muslim Shrine" value even
+  though HANDOVER/TODO describe this patch as "corrects nothing, only adds." The script only
+  overwrites a column when the patch's own value for it is non-empty; 21 columns did have real
+  values and were applied (Description, qa_note, Images 1-10, dates, silsila, flags, etc.).
+- Reused the actual raw published sheet (fetched directly, not `data/shrines.csv`) as the base,
+  because the app's own build step drops any row with unparseable coordinates — exactly the 4
+  field-survey rows this session's coordinate patch fixes. `data/shrines.csv` only has 163 rows
+  for this reason; the real sheet already has 167, and the final CSV adds the 4 brand-new rows
+  for 171.
+
+The six individual patch files are **still in `data/`** for reference/review (each still
+independently re-validates clean — `coord_missing` on `sheet_missing_column`-shaped partial
+patches and on the 2 still-blank coordinate rows is expected, not a blocker), but importing
+them one by one is no longer necessary if you use the consolidated CSV.
 
 ## 2. Needs you — Saifullah
 
@@ -70,7 +85,8 @@ Worth a read before/while importing:
 - **Darbar Abul Muali Qadri** — 9 numbered items, including sensitive content (a conversion
   claim, a "war against the Sikhs" claim, a property-origin claim about Dyal Singh College)
   that the survey states as fact but which has no independent citation. See the entry's own
-  embedded `qa_note` block in `data/patch_field_survey_coordinates.csv`.
+  embedded `qa_note` block in `data/patch_field_survey_coordinates.csv` — the version that
+  actually lands in the final CSV (§1's tazkira/coords conflict note applies to this same row).
 - **Darbar Malik Ahmad Ayaz** — 14 numbered items in the same file, including cross-tradition
   vocabulary ("diyas and prasad" at a Muslim shrine — genuine syncretism or loose surveyor
   wording?) and an unresolved Hijri-vs-Gregorian date question for "8 August 1041."
@@ -92,10 +108,14 @@ say more than "both accounts are reported here."
       concrete to fix without a specific pain point — if something in the Urdu view actually
       looks wrong to you, a screenshot the way you gave one for Tours would let me fix the
       right thing instead of guessing.
-- [ ] **The ~44 remaining `Web-compiled` entries** (60 minus the 16 just enriched) — the one
-      book corpus available (`out/ocr/`) is exhausted for this purpose; it's all monographs
-      about shrines this archive already documents well. Real progress on these needs either
-      new field visits or a different source library, not more searching in the current one.
+- [x] **The ~44 remaining `Web-compiled` entries** (60 minus the 16 tazkira-enriched) — done
+      16 August via a directed web-research pass (not the book corpus, which was exhausted; per
+      direction, online sources only to the reliability bar in
+      `entries/web-research-2026-08/README.md`). 40 targets researched: 23 STRONG, 14 PARTIAL,
+      3 nothing reliable found (`entries/web-research-2026-08/SUMMARY.md`). 37 folded into
+      `data/patch_web_research.csv` and the final import CSV (§1); the 3 with nothing found
+      (Allo Mahar, Gurdwara Malji Sahib, Sant Baba Asudaram Darbar) are untouched and remain
+      genuinely `Web-compiled` — still real candidates for Saifullah's incoming books.
 - [x] **Two peer Claude Code sessions** — resolved 16 August by asking them directly. Both are
       unrelated to this repo: `abshaar-*` works in `~/Desktop/.../Harvard/Abshaar` (the
       Bulleh Shah corpus project) and `copilot-repo-starter-*` in
@@ -108,9 +128,27 @@ say more than "both accounts are reported here."
 - [ ] `pipeline/build_sources_registry.py`'s classify() has known cosmetic termbase gaps not
       worth blocking on this session (e.g. `Qadri`→`Qadiri` romanization inconsistently applied
       across new/enriched entries) — low priority, see individual commit messages.
-- [ ] Consider whether `data/patch_tazkira_enrichment.csv`'s citation additions should also
+- [x] Consider whether `data/patch_tazkira_enrichment.csv`'s citation additions should also
       trigger a `pipeline/build_sources_registry.py` re-run once imported, to move some of
-      those 16 shrines off `Web-compiled` in `pipeline/support_levels.tsv`.
+      those 16 shrines off `Web-compiled` in `pipeline/support_levels.tsv`. Done 16 August —
+      `pipeline/build_final_import.py` does exactly this (and for the coords/web-research
+      patches too) as its last step; `pipeline/{support_levels,sources,shrine_sources}.tsv`
+      and `sources_report.txt` are updated to the fresh computation. New tally: only 3 entries
+      are `Web-compiled`/`Low` archive-wide (was 60); 16 are `Field-verified`/`Full`.
+- [ ] **Confirmed, not just suspected: all 49 of the "49 uncited entries" have a literally
+      newline-free Description** — checked directly against the live published sheet (not a
+      stale local file). 47 of the 49 gained structure this session (37 web-research + tazkira's
+      15, minus the 1 excluded/superseded row = the coords patch's 1); 2 remain exactly as
+      they were (Gurdwara Malji Sahib, Sant Baba Asudaram Darbar — the "nothing reliable found"
+      pair; the third, Allo Mahar, already had a placeholder Bibliography line so didn't trip
+      the `no_bibliography` check either way). Not a formatting artefact to "fix" — per
+      CLAUDE.md's own standing finding, these are genuinely single-paragraph, uncited prose;
+      the newline count just makes that mechanically verifiable now instead of a description.
+- [ ] `pipeline/validate_shrines.py` flags one pre-existing, unrelated issue on the final CSV
+      untouched by anything this session did: **Amb Temples (Amb Sharif)** —
+      `figure_not_in_description`, "'Shiva (Mahadev)' — no distinctive token appears in the
+      description." Confirmed byte-identical to the live sheet's current Description; not
+      caused by any patch, just noted in passing.
 - [ ] An untracked, extensionless `shrines` file sits at the repo root again (653,929 bytes,
       dated 9 August). Verified byte-identical (`cmp`) to the already-committed
       `pipeline/legacy-exports/shrines_flat_export.tsv` — the 15 August session archived a copy

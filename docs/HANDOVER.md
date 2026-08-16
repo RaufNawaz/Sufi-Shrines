@@ -395,6 +395,100 @@ Abshaar/Bulleh Shah corpus; the Ethos Copilot app), confirmed no commits here, a
 
 ---
 
+## 8c. Update — 16 August 2026: 40-entry web-research pass, one consolidated import CSV
+
+Direction this session: fix the Urdu font mismatch a screenshot flagged (see the commit —
+`--font-serif`/`--font-sans` weren't remapped to `--font-urdu` under `[dir='rtl']`, only
+`--font-scale-urdu` bumped size; also localized `year_built_precision` and isolated the
+infobox's generic value in `<bdi>`); then, per direction, get Darbar Ghazi Ilm Din Shaheed a
+sourced coordinate without softening its survey-voiced content (Miani Sahib landmark pin,
+cited to Parvez Mahmood, *The Friday Times*, 20 May 2022 — verified directly); then research
+the 40 remaining `Web-compiled` entries online "only to the extent reliable and accurate,"
+then build the resulting patch, then produce one final importable CSV.
+
+**Research.** `entries/web-research-2026-08/` — a README fixing the reliability bar (published
+books/press/official bodies only, Wikipedia as a pointer never a citation, every fact needs a
+verbatim quote from a page actually fetched) and a rules-of-evidence contract, then 8 parallel
+agents × 5 sites each. Result: 23 STRONG (≥2 independent verified sources), 14 PARTIAL, 3
+nothing reliable found (Allo Mahar, Gurdwara Malji Sahib, Sant Baba Asudaram Darbar — genuinely
+searched, genuinely absent from citable sources). Standout catches: a shared 1962 government
+memoir (*Sikh Shrines in West Pakistan*, Dept. of Archaeology) independently covering 4+
+gurdwara targets, on top of Iqbal Qaiser's 1998 book — both now the top acquisition-list
+candidates; two wrong-assumption traps avoided (Gurdwara Sri Tilganji Sahib is Quetta, not
+Lahore; Tomb of Ustad Nuriya is Uch Sharif, not Lahore — agents checked the sheet's actual
+coordinates before researching); three same-name-different-site conflations caught and
+explicitly NOT merged (a different Gurdwara Malji Sahib in Kanganpur/Kasur; a 2026 gurdwara
+reopening story that's actually about Amar Sidhu, not this session's Hadiara entry; a Karachi
+Ayub Shah Bukhari namesake tied to a 2014 killing, unrelated to the Gandava shrine in the
+dataset). Full detail per site in each `<slug>.md`; roll-up in `SUMMARY.md`.
+
+**Synthesis.** 37 STRONG/PARTIAL findings folded into `data/patch_web_research.csv` via 8
+parallel agents, each given the research file and the entry's *current* live Description
+(snapshotted to `entries/web-research-2026-08/current-content/`) with an explicit rule:
+preserve the original text completely, append 1-4 new sentences plus a Bibliography, put every
+conflict/single-source caveat in `qa_note`, never touch the "Unverified leads"/"Acquisition
+leads" sections as if they were facts. Two things worth knowing about this batch specifically:
+a few agents caught that my own hand-typed verdict labels in their task briefing didn't match
+what the research file itself said, and correctly followed the file (source of truth) instead
+— a good sign, not a problem. A handful of agents shared a scratch-script filename collision
+mid-run; each one detected it, verified the other's output was legitimate rather than
+corrupted, and redid its own work under a unique name — no data was lost, confirmed by
+validating all 37 files afterward (parseable JSON, balanced asterisks, valid ids, no
+duplicates, and — critically — that the *original* Description text survives intact in every
+file even where the automated `startswith()` check false-positived because a paragraph was
+correctly spliced in before an existing Bibliography section rather than appended after it).
+
+**The final merge — `pipeline/build_final_import.py`.** Building "one CSV ready to import" out
+of seven pending patches (six from before this session plus the new web-research one) surfaced
+three real, non-obvious problems, each caught by an invariant check before it could do
+damage rather than by inspection:
+
+1. **A self-inflicted flattening bug, caught on the first run.** The script's own raw-sheet
+   fetch called `raw.splitlines()` before handing the text to `csv.DictReader` — which breaks
+   a CSV file into lines *before* the csv module's quote-aware parser can see that a quoted
+   multi-paragraph field contains embedded newlines, silently flattening every Description in
+   the file. The very asterisk/newline invariant check this project already believes in caught
+   it on the first row it looked at. Fixed with `io.StringIO`.
+2. **`data/patch_provenance_badges.csv` is stale, not just imprecise.** It was computed on
+   15 August, before the coordinate/content fix, the tazkira enrichment, and this session's
+   web-research patch all added new Bibliography citations to rows it had already scored.
+   Applying it as-is would have *regressed* the 4 field-survey rows from their current, correct
+   `info_level=Full` down to a stale `Low` — exactly the "report it rather than adjusting the
+   badge" trap this file's own standing findings warn about, except here the badge doing the
+   flagging was itself the stale one. The fix: don't apply that patch at all; re-run
+   `pipeline/build_sources_registry.py` fresh against the fully-merged final content instead.
+   `classify()`'s own field-survey regex was never the problem — confirmed by reading it.
+3. **One tazkira-patch row silently conflicts with the coords patch, and the tazkira version
+   is the broken one.** `darbar-abul-muali-qadri` appears in both `patch_tazkira_enrichment.csv`
+   and `patch_field_survey_coordinates.csv` (contrary to §8b's claim that these "don't overlap
+   with each other or with the other two" — that claim was wrong for this one row). The
+   tazkira version has an *empty* `qa_note` column with its entire 9-item qa_note dumped into
+   the Description field as a literal ```` ```qa_note ```` fenced code block — which would have
+   rendered a giant code block into the public page. The coords-patch version is clean, later,
+   and already contains the same tazkira cross-reference properly placed. The merge script
+   explicitly excludes the tazkira version for this one id and documents why, rather than
+   silently letting whichever ran last win.
+
+Output: `data/shrines_final_import_2026-08-16.csv` — 171 rows (167 current + 4 new), 44 columns
+(the original 43 plus `support_level`). Gitignored like every other full-sheet CSV snapshot
+(`data/*.csv` except `patch_*.csv`/`schema_patch.csv`), so it is not committed — re-run
+`python3 pipeline/build_final_import.py` any time to regenerate it fresh against whatever the
+live sheet says at that moment. `pipeline/validate_shrines.py` on the output: 3 errors, all
+expected (2 are the still-blank Shah Gohar Peer/Mian Qurban Ali Shah coordinates; the third,
+Amb Temples' `figure_not_in_description`, is confirmed byte-identical to the live sheet and
+predates everything in this session). `pipeline/{support_levels,sources,shrine_sources}.tsv`
+and `sources_report.txt` were regenerated from this final content and committed — new tally is
+`Web-compiled`/`Low` down from 60 to 3, `Field-verified`/`Full` at 16 (correctly including the
+4 field-survey rows this time).
+
+**Confirmed mechanically, not just asserted**: all 49 of the "49 uncited entries" standing
+finding have a literally newline-free Description in the actual live published sheet (fetched
+directly, not a stale local file) — not a formatting artefact, genuinely single-paragraph
+uncited prose. 47 of the 49 gained real structure this session; 2 remain as they were (the
+nothing-reliable-found pair).
+
+---
+
 ## 9. Trust calibration — read before relying on earlier notes
 
 Prior sessions produced confident diagnoses that were wrong. A successor should know which, so
@@ -433,7 +527,10 @@ check. Prefer those over careful intentions.
    than a backlog entry.
 5. **49 uncited entries are publicly live** and read authoritatively. That is the reputational
    exposure, and it is the argument for prioritising the gold-standard entry over more
-   coverage.
+   coverage. (*Update, 16 August:* 47 of the 49 now have a citation-backed addition, drafted
+   and validated but **not yet imported** — see `data/shrines_final_import_2026-08-16.csv`
+   and TODO §1. Until that import happens, the live site is unchanged and this risk stands
+   exactly as written. The other 2 were genuinely searched and nothing citable was found.)
 
 ---
 
