@@ -1,0 +1,337 @@
+name	severity	check	detail
+Amb Temples (Amb Sharif)	ERROR	figure_not_in_description	'Shiva (Mahadev)' — no distinctive token appears in the description
+Garh Maharaja (Shorkot)	ERROR	figure_not_in_description	'Sultan Bahoo' — no distinctive token appears in the description
+Dargah of Khwaja Muhammad Zaman (Luari Sharif)	ERROR	internal_artefact	...ovince. He was also a poet of note: a body of mystical verse in Sindhi is attributed to hi...
+Gori Temple (Gori jo Mandar)	WARN	coord_far_from_place	34 km from Nagarparkar
+Gurdwara Dera Sahib	WARN	coord_far_from_place	39 km from Lahore
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	coord_far_from_place	24 km from Eminabad
+Gurdwara Panja Sahib	WARN	coord_far_from_place	45 km from Hasan Abdal
+Shah Noorani Shrine (Syed Bilawal Shah Noorani)	WARN	coord_far_from_place	230 km from Khuzdar
+Shrine of Imam Ali-ul-Haq	WARN	coord_far_from_place	29 km from Sialkot
+Tilla Jogian	WARN	coord_far_from_place	28 km from Jhelum
+Allo Mahar	WARN	coord_off_cluster	14.5 km from the Sialkot cluster centre
+Churrio Jabal Durga Mata Temple	WARN	coord_off_cluster	31.4 km from the Nagarparkar cluster centre
+Dargah Fateh Pur Sharif	WARN	coord_off_cluster	5.4 km from the Jhal Magsi cluster centre
+Golra Sharif	WARN	coord_off_cluster	10.3 km from the Islamabad cluster centre
+Gori Temple (Gori jo Mandar)	WARN	coord_off_cluster	29.8 km from the Nagarparkar cluster centre
+Gurdwara Babay Nanki	WARN	coord_off_cluster	20.2 km from the Lahore cluster centre
+Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)	WARN	coord_off_cluster	25.6 km from the Lahore cluster centre
+Gurdwara Dera Sahib	WARN	coord_off_cluster	38.3 km from the Lahore cluster centre
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	coord_off_cluster	23.4 km from the Eminabad cluster centre
+Gurdwara Patshahi Chhevin (Hadiara), Lahore	WARN	coord_off_cluster	27.3 km from the Lahore cluster centre
+Kalka Cave Temple (Asthan of Kalka Devi)	WARN	coord_off_cluster	9.1 km from the Sukkur cluster centre
+Mohra Sharif (Khanqah)	WARN	coord_off_cluster	57.1 km from the Rawalpindi cluster centre
+Sant Baba Asudaram Darbar (Panno Aqil)	WARN	coord_off_cluster	29.1 km from the Sukkur cluster centre
+Sant Bhagat Kanwar Ram Temple (Chak)	WARN	coord_off_cluster	22.0 km from the Shikarpur cluster centre
+Shri Varun Dev Mandir	WARN	coord_off_cluster	7.3 km from the Karachi cluster centre
+Shrine of Abdullah Shah Ghazi	WARN	coord_off_cluster	5.3 km from the Karachi cluster centre
+Shrine of Baba Shah Kamal	WARN	coord_off_cluster	5.0 km from the Lahore cluster centre
+Shrine of Ganj e Inayat Sarkar	WARN	coord_off_cluster	5.7 km from the Lahore cluster centre
+Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)	WARN	coord_off_cluster	5.9 km from the Lahore cluster centre
+Shrine of Imam Ali-ul-Haq	WARN	coord_off_cluster	29.0 km from the Sialkot cluster centre
+Shrine of Pir Chhatal Shah Noorani	WARN	coord_off_cluster	13.8 km from the Jhal Magsi cluster centre
+Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi	WARN	coord_off_cluster	11.1 km from the Jhal Magsi cluster centre
+Shrine of Pir Mangho	WARN	coord_off_cluster	14.2 km from the Karachi cluster centre
+Shrine of Qalandar Baba Auliya	WARN	coord_off_cluster	12.7 km from the Karachi cluster centre
+Tomb of Javindi Bibi	WARN	coord_off_cluster	11.0 km from the Uch Sharif cluster centre
+Wadpagga Sharif	WARN	coord_off_cluster	7.4 km from the Peshawar cluster centre
+Gurdwara Dera Sahib	WARN	coord_suspicious	truncated value: 31.3523, 74
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	coord_suspicious	truncated value: 32.0415, 74
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	events_empty	description mentions 'Yatra' but Events is blank
+Bari Imam	WARN	expansion_ratio	445 words on 1 specific source(s)
+Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)	WARN	expansion_ratio	407 words on 1 specific source(s)
+Dargah / Roza Sufi Shah Inayat Shaheed	WARN	expansion_ratio	472 words on 1 specific source(s)
+Ranmal Sharif	WARN	expansion_ratio	380 words on 1 specific source(s)
+Sakhi Sarwar	WARN	expansion_ratio	450 words on 1 specific source(s)
+Shah Noorani Shrine (Syed Bilawal Shah Noorani)	WARN	expansion_ratio	421 words on 1 specific source(s)
+Shergarh	WARN	expansion_ratio	376 words on 1 specific source(s)
+Shrine of Abdullah Shah Ghazi	WARN	expansion_ratio	480 words on 1 specific source(s)
+Shrine of Bahauddin Zakariya	WARN	expansion_ratio	678 words on 1 specific source(s)
+Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)	WARN	expansion_ratio	573 words on 1 specific source(s)
+Shrine of Makhdoom Jahaniyan Jahangasht	WARN	expansion_ratio	506 words on 1 specific source(s)
+Shrine of Mauj Darya Bukhari	WARN	expansion_ratio	676 words on 0 specific source(s)
+Shrine of Peer Makki	WARN	expansion_ratio	515 words on 0 specific source(s)
+Shrine of Pir Mangho	WARN	expansion_ratio	442 words on 1 specific source(s)
+Shrine of Pir Sher Muhammad	WARN	expansion_ratio	396 words on 1 specific source(s)
+Shrine of Shah Jamal	WARN	expansion_ratio	623 words on 0 specific source(s)
+Shrine of Shah Rukn-e-Alam	WARN	expansion_ratio	518 words on 1 specific source(s)
+Shrine of Shah Shams-ud-Din Sabzwari	WARN	expansion_ratio	443 words on 1 specific source(s)
+Shrine of Shah Yusaf Gardez	WARN	expansion_ratio	408 words on 1 specific source(s)
+Shrine of Syed Musa Pak	WARN	expansion_ratio	377 words on 1 specific source(s)
+Sial Sharif	WARN	expansion_ratio	383 words on 1 specific source(s)
+Tomb of Javindi Bibi	WARN	expansion_ratio	495 words on 1 specific source(s)
+Bari Imam	WARN	hotlinked_image	aalequtub.com
+Dargah Fateh Pur Sharif	WARN	hotlinked_image	i.tribune.com.pk
+Garh Maharaja (Shorkot)	WARN	hotlinked_image	sultan-bahoo.com
+Gurdwara Bhai Joga Singh	WARN	hotlinked_image	sikhiwiki.org
+Gurdwara Rori Sahib	WARN	hotlinked_image	dvncorestorageprod.blob.core.windows.net
+Gurdwara Shaheed Bhai Taru Singh	WARN	hotlinked_image	discoversikhism.com
+Gurdwara Sri Kiara Sahib	WARN	hotlinked_image	discoversikhism.com
+Langer Makhdoom	WARN	hotlinked_image	live.staticflickr.com
+Parnami Mandir	WARN	hotlinked_image	maariawaseem.wordpress.com
+Ranmal Sharif	WARN	hotlinked_image	mbdin.com
+Sakhi Sarwar	WARN	hotlinked_image	i.dawn.com
+Shah Yousuf	WARN	hotlinked_image	api.salampakistan.gov.pk
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	hotlinked_image	static.toiimg.com
+Shamsabad	WARN	hotlinked_image	miro.medium.com
+Shergarh	WARN	hotlinked_image	blogger.googleusercontent.com
+Shrine of Bahauddin Zakariya	WARN	hotlinked_image	i.tribune.com.pk
+Shrine of Imam Ali-ul-Haq	WARN	hotlinked_image	thpsc.com
+Shrine of Pir Mangho	WARN	hotlinked_image	images.squarespace-cdn.com
+Shrine of Pir Sher Muhammad	WARN	hotlinked_image	blogger.googleusercontent.com
+Shrine of Qalandar Baba Auliya	WARN	hotlinked_image	i.tribune.com.pk
+Shrine of Sachal Sarmast	WARN	hotlinked_image	heritageofpakistan.org
+Shrine of Syed Musa Pak	WARN	hotlinked_image	thenews.com.pk
+Sial Sharif	WARN	hotlinked_image	merasargodha.com
+Tomb of Javindi Bibi	WARN	hotlinked_image	live.staticflickr.com
+Darbar Ghamkol Sharif (Zinda Pir)	WARN	no_bibliography	no Bibliography section
+Dargah of Khwaja Muhammad Zaman (Luari Sharif)	WARN	no_bibliography	no Bibliography section
+Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth	WARN	no_bibliography	no Bibliography section
+Gori Temple (Gori jo Mandar)	WARN	no_bibliography	no Bibliography section
+Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore	WARN	no_bibliography	no Bibliography section
+Gurdwara Chakki Sahib	WARN	no_bibliography	no Bibliography section
+Gurdwara Chhevin Patshahi, Chitti Gatti	WARN	no_bibliography	no Bibliography section
+Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)	WARN	no_bibliography	no Bibliography section
+Gurdwara Choa Sahib	WARN	no_bibliography	no Bibliography section
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	no_bibliography	no Bibliography section
+Gurdwara Malji Sahib	WARN	no_bibliography	no Bibliography section
+Gurdwara Patshahi Chhevin (Hadiara), Lahore	WARN	no_bibliography	no Bibliography section
+Gurdwara Pehli Patshahi (Jind Pir), Sukkur	WARN	no_bibliography	no Bibliography section
+Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)	WARN	no_bibliography	no Bibliography section
+Gurdwara Sri Tilganji Sahib	WARN	no_bibliography	no Bibliography section
+Jain Mandir, Lahore	WARN	no_bibliography	no Bibliography section
+Khatwari Darbar, Shikarpur	WARN	no_bibliography	no Bibliography section
+Lal Kurti Temple (Balmiki Mandir), Rawalpindi	WARN	no_bibliography	no Bibliography section
+Loh Temple (Lava Temple)	WARN	no_bibliography	no Bibliography section
+Mohra Sharif (Khanqah)	WARN	no_bibliography	no Bibliography section
+Ram Mandir, Saidpur (Ram Kund Mandir)	WARN	no_bibliography	no Bibliography section
+Sain Vali Vilayat Rai Darbar, Kambar	WARN	no_bibliography	no Bibliography section
+Samadhi of Maharaja Ranjit Singh	WARN	no_bibliography	no Bibliography section
+Sant Baba Asudaram Darbar (Panno Aqil)	WARN	no_bibliography	no Bibliography section
+Sant Bhagat Kanwar Ram Temple (Chak)	WARN	no_bibliography	no Bibliography section
+Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)	WARN	no_bibliography	no Bibliography section
+Sevapanthi Darbar (Bhai Gurdas), Gandava	WARN	no_bibliography	no Bibliography section
+Shrine of Akhund Darweza Baba	WARN	no_bibliography	no Bibliography section
+Shrine of Akhund Panju Baba	WARN	no_bibliography	no Bibliography section
+Shrine of Baba Shah Chiragh	WARN	no_bibliography	no Bibliography section
+Shrine of Baba Shah Kamal	WARN	no_bibliography	no Bibliography section
+Shrine of Hafiz Muhammad Jamal Multani	WARN	no_bibliography	no Bibliography section
+Shrine of Hazrat Muhammad Ayub Shah Bukhari	WARN	no_bibliography	no Bibliography section
+Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)	WARN	no_bibliography	no Bibliography section
+Shrine of Makhdoom Abdul Rahim Girhori	WARN	no_bibliography	no Bibliography section
+Shrine of Makhdoom Nooh (Hala)	WARN	no_bibliography	no Bibliography section
+Shrine of Mauj Darya Bukhari	WARN	no_bibliography	no Bibliography section
+Shrine of Mian Umar Baba (Chamkani)	WARN	no_bibliography	no Bibliography section
+Shrine of Miran Hussain Zanjani (Zanjani Sahib)	WARN	no_bibliography	no Bibliography section
+Shrine of Peer Makki	WARN	no_bibliography	no Bibliography section
+Shrine of Pir Baba (Syed Ali Tirmizi)	WARN	no_bibliography	no Bibliography section
+Shrine of Pir Chhatal Shah Noorani	WARN	no_bibliography	no Bibliography section
+Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi	WARN	no_bibliography	no Bibliography section
+Shrine of Shah Abdul Karim Bulri	WARN	no_bibliography	no Bibliography section
+Shrine of Shah Inayat Qadiri	WARN	no_bibliography	no Bibliography section
+Shrine of Shah Jamal	WARN	no_bibliography	no Bibliography section
+Swami Dharmdas Darbar, Larkana (Kennedy Market)	WARN	no_bibliography	no Bibliography section
+Tomb of Baha'al-Halim (Uch Sharif)	WARN	no_bibliography	no Bibliography section
+Tomb of Qutbuddin Aibak	WARN	no_bibliography	no Bibliography section
+Tomb of Ustad Nuriya	WARN	no_bibliography	no Bibliography section
+Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi	WARN	no_bibliography	no Bibliography section
+Ziarat Kaka Sahib	WARN	no_bibliography	no Bibliography section
+Bhagnari Mandir	WARN	no_image	no image URL in any image column
+Bhai Sant Thawan Das Mandir	WARN	no_image	no image URL in any image column
+Bhai Waliram Darbar	WARN	no_image	no image URL in any image column
+Gurdas Ram Mandir	WARN	no_image	no image URL in any image column
+Gurdwara Babay Nanki	WARN	no_image	no image URL in any image column
+Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore	WARN	no_image	no image URL in any image column
+Gurdwara Bhai Beba Singh	WARN	no_image	no image URL in any image column
+Gurdwara Chhevin Patshahi, Chitti Gatti	WARN	no_image	no image URL in any image column
+Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)	WARN	no_image	no image URL in any image column
+Gurdwara Chhevin Patshahi, Mozang	WARN	no_image	no image URL in any image column
+Gurdwara Choa Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Chowmala Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Dash Mesh Pita	WARN	no_image	no image URL in any image column
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	no_image	no image URL in any image column
+Gurdwara Malji Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Panjvi Chati Patshahi	WARN	no_image	no image URL in any image column
+Gurdwara Patti Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Pehli Patshahi (Jind Pir), Sukkur	WARN	no_image	no image URL in any image column
+Gurdwara Sach Khand Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Shaheed Ganj Singh Singhnian	WARN	no_image	no image URL in any image column
+Gurdwara Singh Sabha	WARN	no_image	no image URL in any image column
+Gurdwara Sri Tilganji Sahib	WARN	no_image	no image URL in any image column
+Gurdwara Tambo Sahib	WARN	no_image	no image URL in any image column
+Guru Gurpat Mandir (DB-80 Sirey Ghat)	WARN	no_image	no image URL in any image column
+Jagannath Temple, Sialkot	WARN	no_image	no image URL in any image column
+Jain Mandir, Lahore	WARN	no_image	no image URL in any image column
+Jhollay Lal Mandir	WARN	no_image	no image URL in any image column
+Kali Bari Mandir	WARN	no_image	no image URL in any image column
+Lal Kurti Temple (Balmiki Mandir), Rawalpindi	WARN	no_image	no image URL in any image column
+Panj Tirath	WARN	no_image	no image URL in any image column
+Purana Bhalwal	WARN	no_image	no image URL in any image column
+Rahman Baba Mausoleum (Rehman Baba Shrine)	WARN	no_image	no image URL in any image column
+Sain Vali Vilayat Rai Darbar, Kambar	WARN	no_image	no image URL in any image column
+Sant Baba Asudaram Darbar (Panno Aqil)	WARN	no_image	no image URL in any image column
+Sant Baba Bhagat Ram Darbar Mandir	WARN	no_image	no image URL in any image column
+Sant Bhagat Kanwar Ram Temple (Chak)	WARN	no_image	no image URL in any image column
+Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)	WARN	no_image	no image URL in any image column
+Sevapanthi Darbar (Bhai Gurdas), Gandava	WARN	no_image	no image URL in any image column
+Shrine of Akhund Darweza Baba	WARN	no_image	no image URL in any image column
+Shrine of Akhund Panju Baba	WARN	no_image	no image URL in any image column
+Shrine of Baba Shah Kamal	WARN	no_image	no image URL in any image column
+Shrine of Hazrat Muhammad Ayub Shah Bukhari	WARN	no_image	no image URL in any image column
+Shrine of Hazrat Shah Daula Daryai	WARN	no_image	no image URL in any image column
+Shrine of Makhdoom Abdul Rahim Girhori	WARN	no_image	no image URL in any image column
+Shrine of Makhdoom Nooh (Hala)	WARN	no_image	no image URL in any image column
+Shrine of Pir Chhatal Shah Noorani	WARN	no_image	no image URL in any image column
+Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi	WARN	no_image	no image URL in any image column
+Swami Dharmdas Darbar, Larkana (Kennedy Market)	WARN	no_image	no image URL in any image column
+Valmik Mandir (Naqi Road)	WARN	no_image	no image URL in any image column
+Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi	WARN	no_image	no image URL in any image column
+Ziarat Kaka Sahib	WARN	no_image	no image URL in any image column
+Bhai Sant Thawan Das Mandir	WARN	placeholder_text	Events = 'Not documented'
+Bhai Waliram Darbar	WARN	placeholder_text	Events = 'Not documented'
+Gurdas Ram Mandir	WARN	placeholder_text	Events = 'Not documented'
+Gurdwara Dash Mesh Pita	WARN	placeholder_text	Events = 'Not documented'
+Sant Baba Bhagat Ram Darbar Mandir	WARN	placeholder_text	Events = 'Not documented'
+Allo Mahar	WARN	termbase_violation	'khatm' -> 'khatam'
+Bhai Sant Thawan Das Mandir	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Darbar Ghamkol Sharif (Zinda Pir)	WARN	termbase_violation	'mosque' -> 'masjid'
+Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)	WARN	termbase_violation	'naat' -> 'naʿt'
+Darbar Sakhi Shah Chan Charagh	WARN	termbase_violation	'dervish' -> 'darwīsh'
+Darbar Sakhi Shah Chan Charagh	WARN	termbase_violation	'tazia' -> 'taʿziya'
+Dargah Fateh Pur Sharif	WARN	termbase_violation	'Saeen' -> 'Sain'
+Dargah Fateh Pur Sharif	WARN	termbase_violation	'dhamaal' -> 'dhamāl'
+Dargah Pir Ratan Nath Jee	WARN	termbase_violation	'yogi' -> 'jogī'
+Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth	WARN	termbase_violation	'mureeds' -> 'murīd'
+Data Darbar	WARN	termbase_violation	'Hadrat' -> 'Hazrat'
+Data Darbar	WARN	termbase_violation	'mosque' -> 'masjid'
+Data Darbar	WARN	termbase_violation	'Eid Milad-un-Nabi' -> 'Mīlād al-Nabi'
+Eidgah Sharif	WARN	termbase_violation	'mawlid' -> 'mīlād'
+Eidgah Sharif	WARN	termbase_violation	'mosque' -> 'masjid'
+Eidgah Sharif	WARN	termbase_violation	'Eid Milad-un-Nabi' -> 'Mīlād al-Nabi'
+Golra Sharif	WARN	termbase_violation	'naat' -> 'naʿt'
+Gorakhnath (Goraknath) Temple	WARN	termbase_violation	'yogi' -> 'jogī'
+Gorakhnath (Goraknath) Temple	WARN	termbase_violation	'mosque' -> 'masjid'
+Gorakhnath (Goraknath) Temple	WARN	termbase_violation	'caravanserai' -> 'sarai'
+Gurdas Ram Mandir	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurdwara Bhai Beba Singh	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurdwara Chakki Sahib	WARN	termbase_violation	'Rori' -> 'Rohri'
+Gurdwara Chhevin Patshahi, Mozang	WARN	termbase_violation	'Gurpurb' -> 'Gurpurab'
+Gurdwara Darbar Sahib Kartarpur	WARN	termbase_violation	'Prakash Utsav' -> 'Prakāsh Purab'
+Gurdwara Dera Sahib	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurdwara Guru Ram Das Ji	WARN	termbase_violation	'mosque' -> 'masjid'
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	termbase_violation	'dharamsala' -> 'dharamshāla'
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	WARN	termbase_violation	'Rori' -> 'Rohri'
+Gurdwara Panja Sahib	WARN	termbase_violation	'Baisakhi' -> 'Vaisākhi'
+Gurdwara Panja Sahib	WARN	termbase_violation	'Panja Sahib' -> 'Hasan Abdal'
+Gurdwara Panja Sahib	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurdwara Panja Sahib	WARN	termbase_violation	'Pakistan Sikh Gurdwara Prabandhak Committee' -> 'Pakistan Sikh Gurdwara Parbandhak Committee'
+Gurdwara Panjvi Chati Patshahi	WARN	termbase_violation	'Samvat' -> 'Bikrami'
+Gurdwara Rori Sahib	WARN	termbase_violation	'Rori' -> 'Rohri'
+Gurdwara Sach Khand Sahib	WARN	termbase_violation	'sewadar' -> 'sevādār'
+Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)	WARN	termbase_violation	'mosque' -> 'masjid'
+Gurdwara Singh Sabha	WARN	termbase_violation	'Baluchistan' -> 'Balochistan'
+Gurdwara Sri Tilganji Sahib	WARN	termbase_violation	'parshad' -> 'prashād'
+Gurdwara Sri Tilganji Sahib	WARN	termbase_violation	'mosque' -> 'masjid'
+Guru Gurpat Mandir (DB-80 Sirey Ghat)	WARN	termbase_violation	'Vikram Samvat' -> 'Bikrami'
+Guru Gurpat Mandir (DB-80 Sirey Ghat)	WARN	termbase_violation	'Samvat' -> 'Bikrami'
+Guru Gurpat Mandir (DB-80 Sirey Ghat)	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurudwara Janam Asthan Nankana Sahib	WARN	termbase_violation	'Kartik' -> 'Katak'
+Gurudwara Janam Asthan Nankana Sahib	WARN	termbase_violation	'Prakash Utsav' -> 'Prakāsh Purab'
+Gurudwara Janam Asthan Nankana Sahib	WARN	termbase_violation	'ETPB' -> 'Evacuee Trust Property Board'
+Gurudwara Janam Asthan Nankana Sahib	WARN	termbase_violation	'Pakistan Sikh Gurdwara Prabandhak Committee' -> 'Pakistan Sikh Gurdwara Parbandhak Committee'
+Kalka Cave Temple (Asthan of Kalka Devi)	WARN	termbase_violation	'Brahman' -> 'Brahmin'
+Kalka Cave Temple (Asthan of Kalka Devi)	WARN	termbase_violation	'Shakti Peetha' -> 'Shakti Pītha'
+Katas Raj Temples	WARN	termbase_violation	'Potohar' -> 'Pothohar'
+Katas Raj Temples	WARN	termbase_violation	'Potohar Plateau' -> 'Pothohar'
+Langer Makhdoom	WARN	termbase_violation	'mosque' -> 'masjid'
+Mausoleum of Waris Shah	WARN	termbase_violation	'mosque' -> 'masjid'
+Mazar of Bulleh Shah	WARN	termbase_violation	'mosque' -> 'masjid'
+Mithankot (Kot Mithan)	WARN	termbase_violation	'Rohi' -> 'Cholistan'
+Mithankot (Kot Mithan)	WARN	termbase_violation	'Seraiki' -> 'Saraiki'
+Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)	WARN	termbase_violation	'mosque' -> 'masjid'
+Panj Tirath	WARN	termbase_violation	'Kartik' -> 'Katak'
+Parnami Mandir	WARN	termbase_violation	'mosque' -> 'masjid'
+Parnami Mandir	WARN	termbase_violation	'Chaitra' -> 'Chet'
+Rahman Baba Mausoleum (Rehman Baba Shrine)	WARN	termbase_violation	'dervish' -> 'darwīsh'
+Ram Mandir, Saidpur (Ram Kund Mandir)	WARN	termbase_violation	'mosque' -> 'masjid'
+Ramapir Temple, Tando Allahyar	WARN	termbase_violation	'aarti' -> 'āratī'
+Ranmal Sharif	WARN	termbase_violation	'naat' -> 'naʿt'
+Sakhi Sarwar	WARN	termbase_violation	'mosque' -> 'masjid'
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	termbase_violation	'yogi' -> 'jogī'
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	termbase_violation	'Hingula' -> 'Hinglaj'
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	termbase_violation	'Nani Mandir' -> 'Hinglaj'
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	termbase_violation	'Shakti Peetha' -> 'Shakti Pītha'
+Shaktipeeth Shri Hinglaj Mata Mandir	WARN	termbase_violation	'Shaktipeeth' -> 'Shakti Pītha'
+Shamsabad	WARN	termbase_violation	'Noshahi' -> 'Naushahia'
+Sharada Peeth	WARN	termbase_violation	'Shakti Peetha' -> 'Shakti Pītha'
+Shrine at Odero Lal (Udero Lal Teerath Asthan)	WARN	termbase_violation	'aarti' -> 'āratī'
+Shrine of Abul Faiz Qalander Ali Suharwardi	WARN	termbase_violation	'Suharwardi' -> 'Suhrawardi'
+Shrine of Abul Faiz Qalander Ali Suharwardi	WARN	termbase_violation	'naat' -> 'naʿt'
+Shrine of Abul Faiz Qalander Ali Suharwardi	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Akhund Panju Baba	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Baba Shah Chiragh	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Bibi Pak Daman	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Fariduddin Ganjshakar	WARN	termbase_violation	'Ajodhan' -> 'Pakpattan'
+Shrine of Ganj e Inayat Sarkar	WARN	termbase_violation	'naat' -> 'naʿt'
+Shrine of Ganj e Inayat Sarkar	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Hafiz Muhammad Jamal Multani	WARN	termbase_violation	'Siraiki' -> 'Saraiki'
+Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Hazrat Shah Daula Daryai	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Imam Ali-ul-Haq	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Makhdoom Nooh (Hala)	WARN	termbase_violation	'Uwaisi' -> 'Owaisi'
+Shrine of Mauj Darya Bukhari	WARN	termbase_violation	'gaddi nasheen' -> 'gaddi nashīn'
+Shrine of Mauj Darya Bukhari	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Mauj Darya Bukhari	WARN	termbase_violation	'Rabi-ul-Awal' -> 'Rabīʿ al-Awwal'
+Shrine of Mian Mir	WARN	termbase_violation	'dervish' -> 'darwīsh'
+Shrine of Mian Mir	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Peer Makki	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Peer Makki	WARN	termbase_violation	'Rabi-ul-Awal' -> 'Rabīʿ al-Awwal'
+Shrine of Pir Baba (Syed Ali Tirmizi)	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Pir Chhatal Shah Noorani	WARN	termbase_violation	'gumbaz' -> 'gumbad'
+Shrine of Pir Sher Muhammad	WARN	termbase_violation	'naat' -> 'naʿt'
+Shrine of Sachal Sarmast	WARN	termbase_violation	'Seraiki' -> 'Saraiki'
+Shrine of Shah Abdul Karim Bulri	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Shah Inayat Qadiri	WARN	termbase_violation	'zikr' -> 'dhikr'
+Shrine of Shah Inayat Qadiri	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Shah Jamal	WARN	termbase_violation	'mosque' -> 'masjid'
+Shrine of Shah Jamal	WARN	termbase_violation	'Rabi-ul-Sani' -> 'Rabīʿ al-Thāni'
+Sial Sharif	WARN	termbase_violation	'naat' -> 'naʿt'
+Tilla Jogian	WARN	termbase_violation	'yogi' -> 'jogī'
+Tomb of Allama Iqbal (Mazar-e-Iqbal)	WARN	termbase_violation	'Brahman' -> 'Brahmin'
+Tomb of Allama Iqbal (Mazar-e-Iqbal)	WARN	termbase_violation	'mosque' -> 'masjid'
+Tomb of Allama Iqbal (Mazar-e-Iqbal)	WARN	termbase_violation	'Baluchistan' -> 'Balochistan'
+Tomb of Baha'al-Halim (Uch Sharif)	WARN	termbase_violation	'mosque' -> 'masjid'
+Tomb of Ustad Nuriya	WARN	termbase_violation	'mosque' -> 'masjid'
+Umarkot (Amarkot) Shiv Mandir	WARN	termbase_violation	'Shivaratri' -> 'Mahā Shivrātri'
+Umarkot (Amarkot) Shiv Mandir	WARN	termbase_violation	'Maha Shivaratri' -> 'Mahā Shivrātri'
+Umarkot (Amarkot) Shiv Mandir	WARN	termbase_violation	'Thurr' -> 'Thar'
+Umarkot (Amarkot) Shiv Mandir	WARN	termbase_violation	'Amarkot' -> 'Umarkot'
+Ziarat Kaka Sahib	WARN	termbase_violation	'Uwaisi' -> 'Owaisi'
+Ziarat Kaka Sahib	WARN	termbase_violation	'Ramazan' -> 'Ramadān'
+Gurdwara Chakki Sahib	INFO	coord_precision	32.0422, 74.26
+Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)	INFO	coord_precision	31.46, 74.555
+Gurdwara Dera Sahib	INFO	coord_precision	31.3523, 74
+Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)	INFO	coord_precision	32.0415, 74
+Gurdwara Sacha Sauda	INFO	coord_precision	31.74913889, 73.79673333
+Kalat Kali Temple	INFO	coord_precision	29.03, 66.588889
+Mohra Sharif (Khanqah)	INFO	coord_precision	33.9833, 73.5
+Rahman Baba Mausoleum (Rehman Baba Shrine)	INFO	coord_precision	33.99333333, 71.59
+Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)	INFO	coord_precision	28.3, 69.39
+Sharada Peeth	INFO	coord_precision	34.79194, 74.19
+Shrine at Odero Lal (Udero Lal Teerath Asthan)	INFO	coord_precision	25.7013347, 68.5614382
+Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)	INFO	coord_precision	31.58565362, 74.3747974
+Shrine of Hazrat Shah Daula Daryai	INFO	coord_precision	32.5718299, 74.0843839
+Shrine of Makhdoom Abdul Rahim Girhori	INFO	coord_precision	25.51, 69.29
+Shrine of Mauj Darya Bukhari	INFO	coord_precision	31.565, 74.31
+Shrine of Mian Mir	INFO	coord_precision	31.548375, 74.3600306
+Shrine of Mian Umar Baba (Chamkani)	INFO	coord_precision	34.03, 71.628
+Shrine of Pir Chhatal Shah Noorani	INFO	coord_precision	28.66, 67.35
+Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi	INFO	coord_precision	28.63, 67.37
+Tilla Jogian	INFO	coord_precision	32.86058256, 73.44034256
+Tomb of Javindi Bibi	INFO	coord_precision	29.14, 71.04
+Shrine of Hazrat Muhammad Ayub Shah Bukhari	INFO	duplicate_coord	identical to Sevapanthi Darbar (Bhai Gurdas), Gandava
+Eidgah Sharif	INFO	termbase_violation	'sajjada-nashin' -> 'sajjāda nashīn'
+Eidgah Sharif	INFO	termbase_violation	'na't' -> 'naʿt'
+Guru Gurpat Mandir (DB-80 Sirey Ghat)	INFO	termbase_violation	'Nanak Shahi' -> 'Nanakshahi'
+Sant Baba Bhagat Ram Darbar Mandir	INFO	termbase_violation	'Nanak-panthi' -> 'Nanakpanthi'
+Shrine of Ganj e Inayat Sarkar	INFO	termbase_violation	'sajjada-nashin' -> 'sajjāda nashīn'

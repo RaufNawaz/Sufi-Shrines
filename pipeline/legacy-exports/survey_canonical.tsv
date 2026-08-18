@@ -1,0 +1,15 @@
+shrine_name_as_written	timestamp	row_n	n_photos	n_media	n_books	supersedes	status_note
+Data Darbar	15/06/2026 16:37:56	3	1	0	10	16/03/2026 15:13:08	Status blank. FLAG: 10 Drive uploads sit in the book/pamphlet column while the photo column holds only 1 file - book count may actually be misfiled photos. Supersedes one Delete-marked row.
+Shrine of Hazrat Mian Mir R.A	15/06/2026 16:53:03	4	0	0	4	18/03/2026 05:56:53	Status blank. FLAG: photo and video columns both empty; the only 4 uploads sit in the book/pamphlet column. Superseded row had 1 photo.
+Darbar Modho Laal Hussain	29/06/2026 08:59:57	12	10	2	4	15/06/2026 17:22:24;20/06/2026 04:32:09	Status blank. Supersedes two Delete-marked rows.
+Darbar Bibi Pak Daman	29/06/2026 11:37:38	13	7	0	5	17/06/2026 16:17:08;20/06/2026 04:39:24	Status blank. Supersedes two Delete-marked rows.
+Darbar Hazrat Gunj Anayat Sarkar	29/06/2026 11:45:02	14	9	1	1	18/06/2026 16:27:52;20/06/2026 04:45:10	Status blank. Supersedes two Delete-marked rows.
+Darbar Abul Faiz Qalandari Gilani Soharwardi	29/06/2026 11:54:05	15	10	2	4		Status blank. Only submission for this shrine.
+Mazar-e-Iqbal	29/06/2026 12:02:05	16	10	1	3	22/06/2026 17:34:57	Status blank. Supersedes one Delete-marked row.
+Darbar Hazrat Shah Gohar Peer	14/07/2026 17:58:05	17	9	3	0		Status blank; Column 1 = "No book available" (consistent with empty book column). Only submission.
+Darbar Mian Qurban Ali Shah	14/07/2026 18:23:32	18	10	1	0		Status blank; Column 1 = "No book available" (consistent with empty book column). Only submission.
+Darbar Shah Jamaal	14/07/2026 18:32:32	19	10	1	0		Status blank; Column 1 = "Book uploaded" but the book/pamphlet column is EMPTY - contradiction, FLAGGED. Only submission.
+Darbar Sufi Aziz ul Deen Peer Makki Sarkar	23/07/2026 07:54:57	20	10	1	0		Status blank, Column 1 blank. Only submission.
+Darbar Abul Muali Qadri	23/07/2026 08:44:33	21	9	1	0		Status blank, Column 1 blank. Only submission.
+Darbar Malik Ahmad Ayaz	29/07/2026 17:49:31	22	10	1	0		Status blank, Column 1 blank. Only submission.
+Darbar Meera Mouj Darya Bhukari	29/07/2026 17:58:08	23	10	2	0		Status blank, Column 1 blank. Only submission.

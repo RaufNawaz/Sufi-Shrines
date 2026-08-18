@@ -87,3 +87,10 @@ docs/prompts/PROMPT_post_import.md
 PROMPT_post_import.md
 *.bak
 vite.config.ts.timestamp-*.mjs
+
+# validate_shrines.py run report — regenerated per run, uploaded by CI as an artifact
+validation_issues.tsv
+pipeline/validation_issues.tsv
+
+# historical run log rescued from the unversioned ~/shrines (see pipeline/legacy-exports/README.md)
+!pipeline/legacy-exports/fixes_applied.log
