@@ -1,4 +1,50 @@
-# To-do — as of 16 August 2026
+# To-do — as of 18 August 2026
+
+> **18 August: the sheet import is DONE.** The live published sheet now serves 171 rows /
+> 44 columns with `support_level` populated; §1 below is closed and kept only for the record.
+> Verified against `data/shrines_final_import_2026-08-16.csv`: 0 descriptions differ, 0
+> ``` fences leaked into any Description, 49 newline-free descriptions → 1. See §0 for what
+> the 18 August session did and what is next.
+
+---
+
+## 0. Session log — 18 August 2026
+
+**Done and committed:**
+
+- **Import verified** (`1c69e7e`..`3619e30` range). Note for anyone who fetches the CSV
+  right after an import: Google's publish-to-web endpoint serves **both** the old and new
+  version for a while. Nine consecutive fetches returned 171 rows eight times and 167 once.
+  It settles on its own — do not re-import on the strength of one stale fetch.
+- **`~/shrines` rescued** (`b64b0aa`). A SHA-256 sweep found **11 files with no
+  byte-identical copy anywhere in the repo**; all 11 are now in `pipeline/`. Everything else
+  there is already safe, verified rather than assumed — including all 104 media files, which
+  are already in `media-source/photos` (152 files, a strict superset). HANDOVER risk #1 is
+  substantially reduced. Details in `pipeline/legacy-exports/README.md`.
+- **Housekeeping** (`b64b0aa`). Stray root `shrines` file deleted (cmp-verified duplicate);
+  `validation_issues.tsv` gitignored.
+- **Three decision briefs written** (`5569482`) — see §3, §6, §7 below.
+- **A8 scope measured** (`3619e30`) — `pipeline/a8_urdu_delta.py` +
+  `urdu-i18n/a8-scope.json` + `docs/planning/A8_URDU_DELTA_SCOPE.md`.
+
+**Next, in order:**
+
+1. **A8 translation itself — not started.** Scope is measured and sequenced; step (2) of the
+   task (drafting the Urdu) is the resume point. Start with the 5 full translations that carry
+   no editorial questions. Read `docs/planning/A8_URDU_DELTA_SCOPE.md` first — it corrects
+   three things A8's own description got wrong.
+2. **Tier 1 of `entries/web-research-2026-08/ACQUISITION_LIST.md`** — 13 sources already free
+   online, needing nobody. Not started this session.
+3. **The three decisions** in §3, §6, §7 — each now has a brief; each needs one answer.
+4. **Send the Saifullah message** — draft ready at `docs/message_to_saifullah_2026-08-16.md`.
+   Explicitly excluded from the 18 August session at your request.
+
+**Still blocked on you, unchanged:** the Urdu aesthetic pass (§4) needs a specific pain point
+or a screenshot — re-checked, nothing concrete to fix without one.
+
+---
+
+# To-do — as of 16 August 2026 (superseded above; kept for the record)
 
 Written at the close of the session covered in `docs/HANDOVER.md` §8b; updated through the
 end of 16 August, which added a 37-entry web-research enrichment pass and merged everything
@@ -7,7 +53,7 @@ HANDOVER's own outstanding lists (§8's Technical/Editorial items, §9, §10) �
 
 ---
 
-## 1. Needs you — one sheet import (per RULE 3, agents don't write the sheet)
+## 1. ~~Needs you — one sheet import~~ — **DONE 18 August 2026**
 
 **Recommended: one consolidated import**, not the seven separate patches below.
 `pipeline/build_final_import.py` fetches the live sheet fresh and applies every pending patch
@@ -77,7 +123,14 @@ them one by one is no longer necessary if you use the consolidated CSV.
       Bibi Pak Daman photos are WhatsApp-compressed and need re-shooting, sent as files not
       chat images; delete the stray database backup from the shared photo folder.
 
-## 3. Needs a human editorial call (flagged, not resolved, by design)
+## 3. Needs a human editorial call — **briefed 18 August**
+
+> Full analysis, with a recommendation per item, is now in
+> `docs/EDITORIAL_DECISIONS_PENDING.md`. Corrections to what this section says below: the
+> real count is **52 entries carrying qa_notes**, not 4; only **2** explicitly ask for a
+> decision (Abul Muali Qadri, Malik Ahmad Ayaz) and those same two carry the sensitive
+> material; **Mian Qurban Ali Shah's 13-item note resolves every item itself and asks for
+> nothing.** The original text follows.
 
 Several new/enriched entries carry a `qa_note` or embedded `qa_note` block listing specific
 contradictions in the source material — per RULE 2 these were reported, not silently resolved.
@@ -136,6 +189,17 @@ say more than "both accounts are reported here."
       will make no commits here, and `git log --all` + reflog show no foreign commits. Nothing
       to reconcile.
 
+## 6. The `/ur/*` routing review gate — **briefed 18 August**
+
+The only open `[review]` gate across Batches 1-3 of the delegated plan (commit `22bca4c`).
+One decision, with the alternative laid out: `docs/REVIEW_ur_prefix_routing.md`.
+
+## 7. Oral histories — **forcing document written 18 August**
+
+HANDOVER risk #4. The tooling has been ready for months; the blocker is a scope decision.
+Three options, a recommendation, and a pre-agreed fallback date:
+`docs/DECISION_oral_histories.md`.
+
 ## 5. Smaller/deferred
 
 - [ ] `pipeline/build_sources_registry.py`'s classify() has known cosmetic termbase gaps not
@@ -164,9 +228,9 @@ say more than "both accounts are reported here."
       `figure_not_in_description`, "'Shiva (Mahadev)' — no distinctive token appears in the
       description." Confirmed byte-identical to the live sheet's current Description; not
       caused by any patch, just noted in passing.
-- [ ] An untracked, extensionless `shrines` file sits at the repo root again (653,929 bytes,
+- [x] **Done 18 August.** An untracked, extensionless `shrines` file sat at the repo root (653,929 bytes,
       dated 9 August). Verified byte-identical (`cmp`) to the already-committed
       `pipeline/legacy-exports/shrines_flat_export.tsv` — the 15 August session archived a copy
       rather than moving it, or iCloud restored it. Safe to `rm shrines`; nothing is lost.
-      (An agent attempted the delete on 16 August; the permission layer blocked it, so it's
-      left for a human.)
+      (An agent attempted the delete on 16 August; the permission layer blocked it. Deleted
+      18 August after re-running `cmp` to confirm the duplicate.)

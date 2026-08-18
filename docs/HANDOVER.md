@@ -538,6 +538,41 @@ as not to inherit them:
 - **The `re.I` on `ARTEFACT`** caused legitimate prose to be edited to satisfy a broken linter.
   The linter was wrong. Do not edit content to satisfy a check.
 
+### Added 18 August 2026 — same pattern, six more
+
+All six are cases where a prior note stated a scope or a risk confidently, and one cheap
+measurement changed the answer. Recorded here so the *notes themselves* are read with the same
+calibration this section applies to everything else.
+
+- **"A8 is the Urdu delta for the 16 August enrichment."** The right baseline is not the
+  import — it is `urdu-i18n/_english_descriptions.json`, the **12 July** snapshot the existing
+  `content/*.md` were actually translated from. English moved on twice since. Diffing the
+  import alone misses 23 entries whose Urdu was already stale before the 16 August work began.
+- **"~110 entries' Urdu is stale."** 87 of them differ from the July baseline *only* by removal
+  of the `=====` separator artefact. Their Urdu is fine. Normalising for one artefact cut the
+  apparent size of A8 by roughly two-thirds. (The Urdu files never carried the artefact — 0/163.)
+- **"Four entries have no Urdu content."** Eight do: the 4 new 16 August shrines *and* the 4
+  field-survey shrines added on 10 August, which never got `content/*.md` files. 163 files
+  against 171 rows.
+- **"The media in `~/shrines` is unbacked-up."** It isn't. All 104 files in
+  `~/shrines/media/photos` are already byte-identical in `media-source/photos` (152 files, a
+  strict superset). The directory *was* a real risk — but for 11 documents, not for the photos.
+  Risk #1 was correct about the location and wrong about the contents.
+- **"The published CSV reflects an import immediately."** It does not. For a while after an
+  import Google's publish-to-web endpoint serves **both** versions — nine consecutive fetches
+  on 18 August returned the new 171-row file eight times and the old 167-row file once, with
+  cache-busting query params making no difference. It settles by itself. **Do not re-import on
+  the strength of one stale fetch**, and do not conclude an import failed from a single read.
+- **"Four entries need an editorial call" (TODO §3).** 52 entries carry a `qa_note`. Only 2 of
+  them explicitly ask for a decision, and those same 2 carry the sensitive material. One of the
+  four originally listed — Mian Qurban Ali Shah — resolves all 13 of its own items and asks for
+  nothing. See `docs/EDITORIAL_DECISIONS_PENDING.md`.
+
+A seventh, which is a design finding rather than a correction: **`mergeUrduContent()` replaces
+an entry's whole `Description Urdu`.** There is no per-paragraph merge, so an Urdu "delta" means
+rewriting the whole `content/<slug>.md`, not appending a fragment. Anyone planning A8 as
+"translate the new paragraphs and append them" is planning the wrong operation.
+
 The pattern in most of these: a plausible cause asserted before the cheap verification was run.
 The mitigation that has actually worked is encoding invariants that fail loudly — the
 unbalanced-asterisk check, the no-newlines-in-Description guard, the marker-count-vs-row-count
@@ -550,6 +585,13 @@ check. Prefer those over careful intentions.
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
    pipeline script live there. One disk failure erases months of mapping work that cannot be
    reconstructed from the sheet.
+   *(Update, 18 August 2026: substantially reduced, and measured rather than assumed. A
+   SHA-256 sweep of every file there against the whole repo found 11 with no byte-identical
+   copy anywhere; all 11 are now committed under `pipeline/`. Every `.py` already had a copy
+   or a newer version in `pipeline/`; the `.csv`/`.tsv` snapshots are superseded by `data/`;
+   and all 104 media files were already in `media-source/photos`. What remains in `~/shrines`
+   is duplicated elsewhere — see `pipeline/legacy-exports/README.md` for the file-by-file
+   accounting. The directory can now be deleted without loss, though nobody has.)*
 2. **The sheet is production.** No review, no history discipline, no backup schedule. Any bad
    edit or bad import is live immediately.
 3. **Bus factor of one.** Nobody else can currently run the pipeline. §2 and §7 exist to fix
