@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { useLang } from '../../lib/i18n/LanguageContext';
 
 interface WelcomeCardProps {
@@ -17,6 +18,17 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
       <p className="welcome-card-text">{t('noSelection')}</p>
       {/* The "list button above" this hint refers to is hidden in embed mode */}
       {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
+
+      {/* Both of these routes existed with no link anywhere in the app — the
+          graph explorer has been reachable only by typing /graph. Embeds stay
+          link-free so an embedded map can't navigate its host away. */}
+      {!embed && (
+        <nav className="welcome-card-links" aria-label={t('welcomeExploreMore')}>
+          <p className="welcome-card-links-heading">{t('welcomeExploreMore')}</p>
+          <Link to="/almanac">{t('almanacTitle')}</Link>
+          <Link to="/graph">{t('graphExplorerTitle')}</Link>
+        </nav>
+      )}
     </div>
   );
 }

@@ -1,0 +1,87 @@
+import type { Lang } from '../../types/shrine';
+import {
+  GREGORIAN_MONTH_NAMES_EN,
+  GREGORIAN_MONTH_NAMES_UR,
+  HIJRI_MONTH_NAMES_EN,
+  HIJRI_MONTH_NAMES_UR,
+} from '../data/ursDates';
+import type { DateWindow } from '../data/hijriCalendar';
+
+/** Gregorian month name in the reader's language. */
+export function gregorianMonthName(month: number, lang: Lang): string {
+  const names = lang === 'ur' ? GREGORIAN_MONTH_NAMES_UR : GREGORIAN_MONTH_NAMES_EN;
+  return names[month - 1] ?? '';
+}
+
+/** Hijri month name in the reader's language. */
+export function hijriMonthName(month: number, lang: Lang): string {
+  const names = lang === 'ur' ? HIJRI_MONTH_NAMES_UR : HIJRI_MONTH_NAMES_EN;
+  return names[month - 1] ?? '';
+}
+
+/**
+ * A projected window as a human date string.
+ *
+ * `fmtNum` is passed in rather than imported so every digit goes through the
+ * reader's numeral setting (i18n rule 5) — Eastern by default in Urdu, with
+ * the persisted toggle respected.
+ *
+ * Ranges collapse the repeated month: "6–8 August 2026", not "6 August 2026 –
+ * 8 August 2026". A range crossing a month boundary keeps both months.
+ */
+export function formatDateWindow(
+  window: DateWindow,
+  lang: Lang,
+  fmtNum: (n: number | string) => string,
+  options: { monthOnly?: boolean } = {},
+): string {
+  const { start, end } = window;
+  const startMonth = gregorianMonthName(start.getUTCMonth() + 1, lang);
+  const endMonth = gregorianMonthName(end.getUTCMonth() + 1, lang);
+  const startYear = fmtNum(start.getUTCFullYear());
+  const endYear = fmtNum(end.getUTCFullYear());
+
+  if (options.monthOnly) {
+    if (start.getUTCMonth() === end.getUTCMonth() && start.getUTCFullYear() === end.getUTCFullYear()) {
+      return `${startMonth} ${startYear}`;
+    }
+    return `${startMonth} – ${endMonth} ${endYear}`;
+  }
+
+  const startDay = fmtNum(start.getUTCDate());
+  const endDay = fmtNum(end.getUTCDate());
+
+  if (start.getTime() === end.getTime()) return `${startDay} ${startMonth} ${startYear}`;
+
+  if (start.getUTCFullYear() !== end.getUTCFullYear()) {
+    return `${startDay} ${startMonth} ${startYear} – ${endDay} ${endMonth} ${endYear}`;
+  }
+  if (start.getUTCMonth() !== end.getUTCMonth()) {
+    return `${startDay} ${startMonth} – ${endDay} ${endMonth} ${endYear}`;
+  }
+  return `${startDay}–${endDay} ${startMonth} ${startYear}`;
+}
+
+/** The source date as the archive recorded it: "18–20 Safar", "7 February". */
+export function formatSourceDate(
+  calendar: 'hijri' | 'gregorian',
+  month: number | null,
+  monthEnd: number | null,
+  dayStart: number | null,
+  dayEnd: number | null,
+  lang: Lang,
+  fmtNum: (n: number | string) => string,
+): string {
+  if (month === null) return '';
+  const name = calendar === 'hijri' ? hijriMonthName(month, lang) : gregorianMonthName(month, lang);
+  if (dayStart === null) {
+    if (monthEnd !== null && monthEnd !== month) {
+      const endName =
+        calendar === 'hijri' ? hijriMonthName(monthEnd, lang) : gregorianMonthName(monthEnd, lang);
+      return `${name} – ${endName}`;
+    }
+    return name;
+  }
+  const days = dayEnd !== null ? `${fmtNum(dayStart)}–${fmtNum(dayEnd)}` : fmtNum(dayStart);
+  return `${days} ${name}`;
+}

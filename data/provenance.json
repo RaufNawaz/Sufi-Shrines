@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-07-12",
+  "updated": "2026-08-18",
   "shrines": [
     {
       "shrineSlug": "allo-mahar",
@@ -219,6 +219,28 @@
       }
     },
     {
+      "shrineSlug": "darbar-ghazi-ilm-din-shaheed",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
       "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "fields": {
         "Description Urdu": {
@@ -237,6 +259,17 @@
       }
     },
     {
+      "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        }
+      }
+    },
+    {
       "shrineSlug": "darbar-sakhi-shah-chan-charagh",
       "fields": {
         "Description Urdu": {
@@ -251,6 +284,17 @@
           "contentTier": "ai-researched",
           "confidence": 0.6,
           "notes": "Not yet fact-verified against a primary/cited source — see docs/planning/DATA_QUALITY_PLAN.md Phase C."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-wasif-ali-wasif",
+      "fields": {
+        "Description Urdu": {
+          "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
+          "method": "llm",
+          "date": "2026-07-11",
+          "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         }
       }
     },

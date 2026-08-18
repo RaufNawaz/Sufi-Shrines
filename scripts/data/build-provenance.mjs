@@ -72,7 +72,15 @@ slugs.forEach((slug) => {
 });
 
 provenance.shrines.sort((a, b) => a.shrineSlug.localeCompare(b.shrineSlug));
-provenance.updated = '2026-07-12';
+
+// The `updated` stamp was hardcoded to 2026-07-12, so the file asserted that
+// date no matter when it last ran — and it went on asserting it while the
+// dataset grew past it. Stamp it only when something actually changed, which
+// keeps both the honesty and the idempotence (a re-run over an unchanged
+// dataset still produces no git diff).
+if (created > 0 || added > 0) {
+  provenance.updated = new Date().toISOString().slice(0, 10);
+}
 
 writeFileSync(PROVENANCE_JSON, JSON.stringify(provenance, null, 2) + '\n');
 

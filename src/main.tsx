@@ -11,6 +11,7 @@ import './styles/tours.css';
 import './styles/components.css';
 import './styles/shrine.css';
 import './styles/kg.css';
+import './styles/almanac.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 
