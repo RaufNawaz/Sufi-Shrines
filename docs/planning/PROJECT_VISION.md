@@ -4,6 +4,10 @@ A blue‑sky roadmap for what this project can become, with concrete, detailed n
 Claude Code can execute. Read alongside `CLAUDE.md` (conventions) and
 `URDU_IMPLEMENTATION_PLAN.md` (the Urdu plan).
 
+> **18 Aug 2026:** [`DESIGN_VISION.md`](DESIGN_VISION.md) now carries the aesthetic
+> direction this doc never had, ten new feature ideas (F1–F10), and a status audit of the
+> tracks below — Track 0 is done; 2/3/6/7/8 are partial. Read it alongside this.
+
 ---
 
 ## North star
