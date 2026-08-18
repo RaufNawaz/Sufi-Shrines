@@ -21,15 +21,48 @@
   --color-text-muted: #6b5e4b;
   --color-text-inverse: #ffffff;
 
-  --color-primary: #1a5c4e;
-  --color-primary-dark: #124035;
-  --color-primary-light: #2a8068;
-  --color-primary-pale: #e6f2ef;
-  --color-primary-bg: #f0f8f6;
+  /* ── Chrome belongs to no tradition ───────────────────────────────────
+     --color-primary was byte-identical to --color-cat-muslim (#1a5c4e), so
+     every link, button and focus ring on a Hindu temple, Sikh gurdwara or
+     Jain temple page was painted in the Muslim-shrine category color. The
+     chrome is now kashi-kari — the cobalt and turquoise glaze on Shah
+     Rukn-e-Alam, the Uch Sharif tombs and Sehwan — which reads as the Indus
+     region's craft rather than any one faith's. Category colors below are
+     now *only* category colors. See docs/planning/DESIGN_VISION.md Part 2.
+
+     Do not re-point --color-primary at a category token. tokenSplit.test.ts
+     fails the build if chrome and any tradition color converge again. */
+  --color-kashi-cobalt: #2a4d9b;
+  --color-kashi-firozi: #0f7d78;
+
+  --color-primary: var(--color-kashi-cobalt);
+  --color-primary-dark: #1e3872;
+  --color-primary-light: #4a6fc4;
+  --color-primary-pale: #e7ecf8;
+  --color-primary-bg: #f2f5fc;
+
+  --color-secondary: var(--color-kashi-firozi);
+  --color-secondary-dark: #0b5f5b;
+  --color-secondary-pale: #e4f2f1;
 
   --color-accent: #c8890a;
   --color-accent-light: #f5d78e;
   --color-accent-pale: #fdf7e6;
+  /* The gilding gold is a fill/stroke color, not a text color: #c8890a is
+     2.79:1 on --color-accent-pale, which fails AA for the 12px badge labels
+     that were using it (provenance method chips, tour status chips). Text
+     that wants to read as gold uses this darker cut instead — 5.3:1 on the
+     pale ground. In dark mode the two are the same value, because the lamp
+     gold already clears AA against a near-black ground. */
+  --color-accent-text: #8a5e00;
+
+  /* Rubric — the archive talking about its own text: qa_note contradictions,
+     disputed dates, "both accounts reported". Deliberately a DIFFERENT token
+     from --color-error: rubric means "we checked and it is genuinely
+     uncertain", not "something broke". Never use it for failures. */
+  --color-rubric: #8f2d1f;
+  --color-rubric-pale: #fbeeeb;
+  --color-rubric-border: #d9a99f;
 
   --color-error: #b91c1c;
   --color-error-bg: #fef2f2;
@@ -52,6 +85,8 @@
   --color-tour-marker-active-text: var(--color-text-inverse);
   --opacity-tour-dim: 0.35;
 
+  /* Category colors — used for markers, chips and legends ONLY. None of
+     these may be aliased into the chrome tokens above. */
   --color-cat-muslim: #1a5c4e;
   --color-cat-hindu: #b45309;
   --color-cat-sikh: #7c3aed;
@@ -153,29 +188,46 @@
   --z-lightbox: 60;
 }
 
-/* Dark mode */
+/* Dark mode — "Thursday night", not "the same site with the lights off".
+   The ground is a warm near-black (lamp-lit brick, not a teal-dark UI
+   chrome), the gold accent does more work because that is what a shrine
+   courtyard looks like after dark, and the kashi blues desaturate to the
+   value glaze takes under lamplight. All pairs below are >= 4.5:1 against
+   the ground; see the contrast assertions in tokenSplit.test.ts. */
 [data-theme='dark'] {
-  --color-bg: #0f1a17;
-  --color-bg-alt: #172420;
-  --color-bg-surface: #1e2f2a;
-  --color-bg-overlay: rgba(15, 26, 23, 0.96);
-  --color-border: #2a3d36;
-  --color-border-light: #213028;
+  --color-bg: #171310;
+  --color-bg-alt: #211b16;
+  --color-bg-surface: #2a221c;
+  --color-bg-overlay: rgba(23, 19, 16, 0.96);
+  --color-border: #3a2f26;
+  --color-border-light: #2e251e;
 
   --color-text: #f0ebe0;
   --color-text-secondary: #c8b89a;
-  --color-text-muted: #a0b4ad;
-  --color-text-inverse: #0f1a17;
+  --color-text-muted: #b0a08a;
+  --color-text-inverse: #171310;
 
-  --color-primary: #4db39a;
-  --color-primary-dark: #3a9a82;
-  --color-primary-light: #65c8af;
-  --color-primary-pale: #1a3530;
-  --color-primary-bg: #152820;
+  --color-kashi-cobalt: #8aa8e8;
+  --color-kashi-firozi: #4fc9c2;
+
+  --color-primary: var(--color-kashi-cobalt);
+  --color-primary-dark: #6d8fd8;
+  --color-primary-light: #a8c0f0;
+  --color-primary-pale: #1e2436;
+  --color-primary-bg: #1a1f2e;
+
+  --color-secondary: var(--color-kashi-firozi);
+  --color-secondary-dark: #35a9a3;
+  --color-secondary-pale: #14282a;
 
   --color-accent: #e8a82a;
   --color-accent-light: #f5d78e;
   --color-accent-pale: #2a2010;
+  --color-accent-text: var(--color-accent);
+
+  --color-rubric: #e8907f;
+  --color-rubric-pale: #2c1a16;
+  --color-rubric-border: #6b3a30;
 
   --color-error: #f87171;
   --color-error-bg: #2a1515;

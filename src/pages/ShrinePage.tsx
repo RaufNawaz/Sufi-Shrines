@@ -10,6 +10,7 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
+import { ShrineMasthead } from '../components/shrine/ShrineMasthead';
 import { ContentsNav } from '../components/shrine/ContentsNav';
 import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
@@ -96,10 +97,9 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         </p>
       )}
 
-      {/* Title */}
-      <h1 ref={headingRef} className="shrine-title">
-        {name}
-      </h1>
+      {/* Title — the Nastaliq name rides above the Latin one in the English
+          view and *is* the heading in the Urdu view. See ShrineMasthead. */}
+      <ShrineMasthead shrine={shrine} lang={lang} latinName={name} headingRef={headingRef} />
 
       {/* Summary meta */}
       <div className="shrine-summary-meta">

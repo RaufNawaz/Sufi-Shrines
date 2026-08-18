@@ -115,6 +115,40 @@
   margin: 0 0 var(--space-4);
 }
 
+/* ── Bilingual masthead ──────────────────────────────────────────────────
+   The shrine's Nastaliq name, set as a calligraphic superscription above the
+   Latin heading in the English view. Nastaliq descends a long way below the
+   baseline, so this needs generous line-height and its own bottom margin
+   rather than the Latin heading's tight -0.025em/1.15 metrics. */
+.shrine-masthead-nastaliq {
+  font-family: var(--font-urdu);
+  font-size: clamp(var(--text-xl), 3.2vw, var(--text-3xl));
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: normal;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-1);
+  /* The name is one unbreakable calligraphic unit; wrapping mid-name reads
+     as a rendering fault rather than a line break. */
+  text-wrap: balance;
+}
+
+.shrine-masthead-nastaliq bdi {
+  /* An RTL island inside an LTR page: isolate so the surrounding English
+     breadcrumb/kicker cannot reorder around it. */
+  unicode-bidi: isolate;
+}
+
+/* In the Urdu view the heading already IS the Nastaliq name, so it takes the
+   masthead's metrics directly instead of the Latin serif's. */
+.shrine-title--nastaliq {
+  font-family: var(--font-urdu);
+  font-weight: 400;
+  line-height: var(--leading-urdu);
+  letter-spacing: normal;
+  padding-block-end: 0.12em;
+}
+
 .shrine-summary-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1272,7 +1306,7 @@
 .provenance-method--ocr,
 .provenance-method--mt {
   background: var(--color-accent-pale);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .provenance-method--llm {
@@ -1341,7 +1375,7 @@
 
 .provenance-tier--ai-researched {
   background: var(--color-accent-pale);
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .provenance-tier--sheet-original,

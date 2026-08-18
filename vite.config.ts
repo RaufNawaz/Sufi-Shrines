@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => {
           short_name: 'Sufi Shrines',
           description:
             'An interactive map of Sufi shrines across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu.',
-          theme_color: '#1a5c4e',
+          theme_color: '#2a4d9b',
           background_color: '#f9f6f0',
           display: 'standalone',
           orientation: 'any',
