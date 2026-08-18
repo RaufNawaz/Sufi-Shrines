@@ -533,7 +533,9 @@ as not to inherit them:
 - **"Audio recordings exist."** Then "none exist." Then "video only." Final answer: 18 video
   files, zero audio.
 - **"The front end is vanilla self-contained JS."** It is React + TypeScript + Vite.
-- **"MapTiler is out of credits / missing `.env`."** Neither — it is an origin restriction.
+- **"MapTiler is out of credits / missing `.env`."** Neither. And the replacement diagnosis
+  ("it is an origin restriction, on localhost only") was *also* wrong — see the 18 August entry
+  below. Two wrong answers in a row on the same symptom, both asserted without an HTTP probe.
 - **A coordinate given for Bibi Jawindi** was Baha'al-Halim's exact point, creating a duplicate.
 - **The `re.I` on `ARTEFACT`** caused legitimate prose to be edited to satisfy a broken linter.
   The linter was wrong. Do not edit content to satisfy a check.
@@ -572,6 +574,69 @@ A seventh, which is a design finding rather than a correction: **`mergeUrduConte
 an entry's whole `Description Urdu`.** There is no per-paragraph merge, so an Urdu "delta" means
 rewriting the whole `content/<slug>.md`, not appending a fragment. Anyone planning A8 as
 "translate the new paragraphs and append them" is planning the wrong operation.
+
+### Added 18 August 2026 (second session) — five more, found while drafting Urdu
+
+Found in the course of task A8 (Urdu translations), not by looking for them. Each is a case
+where the thing that reports status was itself wrong.
+
+1. **`urdu-i18n/update_log.py` reported "163/163 done (100%)" while 8 live rows had no Urdu
+   at all.** It derived its universe from `_english_descriptions.json` — a 12 July snapshot of
+   163 rows — so it was structurally incapable of counting any shrine added after that date.
+   The documented "resumable source of truth" was the least trustworthy file in the folder.
+   Fixed: the universe is now the live row set (171), and an **orphan check exits non-zero**
+   if a `content/<slug>.md` has no matching live row (that is the dangerous case — slug drift
+   silently stops Urdu reaching the site; a *missing* translation is normal and tracked).
+   Real coverage is now reported as 168/171.
+
+2. **`pipeline/a8_urdu_delta.py` counted a finished translation as unfinished work.** Because
+   the 12 July baseline has no entry for the newly-added shrines, translating one moved it from
+   `full_translation` to `delta` with `added_chars` equal to the whole article — so completing
+   five translations made the reported remaining work *grow* (74 → 79 deltas, 61,635 → 89,751
+   chars). Fixed by recording the English those five were translated from into
+   `_english_descriptions.json` (163 → 168 entries), which both zeroes their delta and makes
+   future English drift on them detectable. Scope now reads 3 / 74 / 94 = 171.
+
+3. **Three rows carry a `category` outside the six-value schema** — `'Islam'` ×2 and
+   `'Sufi shrine (Islam)'` ×1. This is not cosmetic: `categoryKey()` maps them to `'default'`,
+   and `MapSidebar` filters with `activeCategories.includes(categoryKey(s.category))` where
+   `activeCategories` only ever holds the six canonical keys — so such a row is excluded from
+   **every** category-chip selection and draws with the default marker colour. Of the three,
+   only `darbar-abul-muali-qadri` currently reaches the site; the other two have no coordinates
+   yet and the dataset build drops them, so for them the bug is latent until a pin arrives.
+   A fourth row (Hinglaj) has an *empty* `category` but resolves correctly through the legacy
+   `Category` fallback in `shrineModel.ts` — **not** broken, and worth stating because the
+   first read of this was that all four were. Patch: `data/patch_schema_and_truncation.csv`.
+   Invariant: `category_not_in_schema` (ERROR) in `pipeline/validate_shrines.py`.
+
+4. **Six cells on `Darbar Hazrat Shah Gohar Peer` are truncated mid-sentence in production.**
+   `principal_figure` ends `…(Syed Ali Gohar), known as`; `silsila` ends `…reads "Ahl e Sunnat`.
+   Cause, confirmed exactly: `entries/entry_shah_gohar_peer.md` records its field values as a
+   **hard-wrapped** markdown bullet list, and whatever converted those bullets to sheet columns
+   kept only each bullet's **first physical line**. It is the only row in the sheet whose
+   *Description* is hard-wrapped — same authoring style, same origin. Restored by re-parsing the
+   entry file (`pipeline/fix_wrapped_field_truncation.py`) rather than retyping, with a guard
+   that refuses to "restore" anything that is not a strict extension of the current cell. That
+   guard immediately earned itself: it caught `Location`, where the sheet value is *longer*
+   because a later patch enriched it — restoring would have reverted real work. Invariant:
+   `description_hard_wrapped` (WARN) flags the marker for the next such row.
+
+5. **`data/provenance.json` is stale at 163 rows and contains none of the 8 new shrines**, so
+   `SourcesProvenance` renders no citations for them. This mattered directly: the enforced Urdu
+   convention is to omit Bibliography sections from Urdu content (`validate-urdu-leak.mjs`
+   allows zero Latin anywhere, which is stricter than `build_urdu_content.py`'s "Latin allowed
+   after `## کتابیات`"). Omitting them here would have left Urdu readers with *no* provenance
+   while English readers got a Bibliography — so the five new Urdu articles carry a fully
+   Urdu-script bibliography instead, matching the one existing precedent
+   (`shrine-of-shah-rukn-e-alam.md`). Regenerating `provenance.json` for the 8 new rows is
+   still outstanding.
+
+Also worth knowing, though not a wrong diagnosis: the `## کتابیات` convention has **no way to
+carry a Latin-script citation**. Ghazi Ilm Din's entry cites an English press article, and the
+gate forbids Latin, so the title is rendered in Urdu with a note that the original is in
+English. That loses the exact search string, and it will recur for any Urdu entry citing an
+English source. A `<bdi>`-style exemption in `validate-urdu-leak.mjs` is the obvious fix if
+this becomes common.
 
 The pattern in most of these: a plausible cause asserted before the cheap verification was run.
 The mitigation that has actually worked is encoding invariants that fail loudly — the

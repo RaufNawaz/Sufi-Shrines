@@ -1,8 +1,19 @@
 # A8 — Urdu content delta: measured scope and resume point
 
 **Written 18 August 2026**, after the consolidated CSV was imported into the live sheet
-(which un-gated A8). Scope was computed, not estimated. **No translation has been drafted
-yet** — this is the analysis A8 step (1) asks for, and the resume point for steps (2)–(4).
+(which un-gated A8). Scope was computed, not estimated.
+
+> **Progress, 18 August 2026 (later the same day): step 1 of the sequencing below is DONE.**
+> All five full translations that carry no editorial questions are written and committed —
+> `darbar-hazrat-tahir-bandagi-qadri`, `darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami`,
+> `darbar-wasif-ali-wasif`, `darbar-ghazi-ilm-din-shaheed`, `darbar-hazrat-shah-gohar-peer`.
+> Heading structure verified 1:1 against each English original; zero Latin leaks; both Urdu
+> gates green; `npm run verify` green (259 tests). All five are **`reviewed=false`** — a human
+> still has to read the Urdu prose (RULE 2).
+> Scope now reads **3 full / 74 delta / 94 no-action**. The remaining 3 are the
+> editorial-decision-blocked ones (step 3). **Next: step 2, the 74 deltas, largest first.**
+> Two measurement bugs found and fixed while doing this — see the tables' note below and
+> `docs/HANDOVER.md` §9.
 
 Regenerate any time: `python3 pipeline/a8_urdu_delta.py` (add `--check` to assert the
 committed scope still matches the live sheet; it exits non-zero if not).
@@ -14,10 +25,18 @@ Machine-readable per-entry lists: **`urdu-i18n/a8-scope.json`**.
 
 | Bucket | Entries | English text involved |
 |---|---:|---:|
-| **Full translation** — live row with no `content/<slug>.md` at all | **8** | 49,759 chars |
+| **Full translation** — live row with no `content/<slug>.md` at all | **8** → **3** | 49,759 → 21,643 chars |
 | **Delta** — Urdu exists, English has moved on | **74** | 61,635 added chars |
-| **No action** — English unchanged, or differs only by the `=====` artefact | **89** | — |
+| **No action** — English unchanged, or differs only by the `=====` artefact | **89** → **94** | — |
 | | **171** | |
+
+The second figure in each row is after the five translations landed. Note that getting the
+"no action" column to move required a fix: because the 12 July baseline has no entry for a
+newly-added shrine, translating one moved it into **`delta`** with `added_chars` equal to the
+entire article — so finishing five translations made the reported remaining work *grow*
+(74 → 79 deltas, 61,635 → 89,751 chars) until `_english_descriptions.json` was extended with
+the English those five were translated from (163 → 168 entries). That also means future English
+drift on them is now detectable, which it would not otherwise have been.
 
 ## Three things the task description got wrong
 
@@ -78,9 +97,26 @@ decided — otherwise the Urdu prose has to be redone when the English framing c
 - `mergeUrduContent()` (`src/lib/data/urduContentOverride.ts`) overrides the **whole**
   `Description Urdu` per slug, and only when the sheet doesn't already supply one. There is no
   per-paragraph merge — a delta means editing the whole file, not appending a fragment.
-- **Bibliography stays untranslated.** `build_urdu_content.py` permits Latin script only after
-  `## کتابیات` / `## حوالہ جات` / `## حوالے`, and **fails the build** on Latin anywhere before it.
-  That is the existing convention A8 told us to verify; it is enforced mechanically.
+- **Bibliography: this doc had it wrong.** It said "Bibliography stays untranslated", because
+  `build_urdu_content.py` permits Latin after `## کتابیات` / `## حوالہ جات` / `## حوالے`. But
+  that builder is not the binding gate. `npm run data:validate` also runs
+  `scripts/data/validate-urdu-leak.mjs`, which allows **zero Latin letters anywhere** in
+  `urdu-content.json` — and its own docstring states the real convention: *"this project's
+  convention is to omit Bibliography sections from Urdu content entirely."* An untranslated
+  bibliography fails `data:validate` even though `build_urdu_content.py` passes it. Measured
+  18 Aug 2026 by hitting exactly that failure.
+  What the five new files do instead, and why: `data/provenance.json` is stale at 163 rows and
+  has **no entry for any of the 8 new shrines**, so `SourcesProvenance` shows them no citations.
+  Omitting the bibliography would therefore have left the Urdu reader with no provenance at all
+  while the English reader gets one — a real parity loss, not a cosmetic one. So they carry a
+  **fully Urdu-script** bibliography: zero Latin, passes both gates, and matches the one
+  existing precedent, `urdu-i18n/content/shrine-of-shah-rukn-e-alam.md`.
+  Caveat this creates: a Latin-titled source cannot be cited verbatim. Ghazi Ilm Din's entry
+  cites an English press article; its title is rendered in Urdu with a note that the original is
+  English, which loses the exact search string. Same for any verbatim English quotation — the
+  Wasif Ali Wasif entry's "note on the source wording" section describes the ungrammatical
+  survey answer in Urdu and points to the English entry for the exact words, because the string
+  itself cannot appear.
 - Numbers stay Western in stored text — the Eastern-numeral toggle converts at render.
 - Honorifics per `data/glossary.csv`; naming conventions in `urdu-i18n/README.md`.
 

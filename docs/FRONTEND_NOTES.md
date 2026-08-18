@@ -93,3 +93,59 @@ info_level / …). File references are to the state of the code at the time of w
   ternaries in components (ESLint blocks them).
 - The Urdu no-leak guard (`e2e/urdu.spec.ts`, `findLatinLeaks` in `src/test/utils.tsx`)
   means every new visible string needs a real Urdu label (URLs/`<a>`/`<bdi>` exempt).
+
+## 6. The map basemap, and the "Invalid key" wallpaper (18 August 2026)
+
+**Symptom:** the map tiles itself with a repeating grey graphic reading "Invalid key —
+Get a valid key at www.maptiler.com" behind the shrine markers.
+
+**CLAUDE.md's standing note on this was wrong**, and the wrong diagnosis was the reason
+it stayed unfixed: it said this is an *origin restriction* that bites only on localhost,
+fixable by adding the dev origin in the MapTiler dashboard. Measured, it is neither
+localhost-only nor an origin problem.
+
+What is actually true, measured 18 August 2026 against the key in `.env`:
+
+| request | result |
+|---|---|
+| `…/maps/<custom-style-id>/{z}/{x}/{y}.png?key=…` | **403** (body is a 10,260-byte PNG of the error text) |
+| same, with `Referer: http://localhost:5173/` | **403** |
+| same, with `Referer: https://raufnawaz.github.io` | **403** |
+| `…/maps/<custom-style-id>/style.json?key=…` | 200 |
+| `…/maps/<custom-style-id>/tiles.json?key=…` | 200 — and it *advertises the raster URL that 403s* |
+| `…/maps/streets-v2/{z}/{x}/{y}.png?key=…` | 200 |
+| `…/maps/streets-v2/{z}/{x}/{y}.png?key=…&language=en` | 200 |
+| `…/style.json?key=BOGUS` | 403 `Invalid key` |
+| `…/style.json` (no key) | 403 `Missing key` |
+
+So: **the key is valid, and the origin is irrelevant. What 403s is raster tiles of a
+*custom Map Designer style* on this account** — every format (`.png`, `.webp`, `.jpg`,
+`@2x`, `256/`). Production was affected identically; this was never localhost-only.
+
+Two things made it hard to see:
+
+1. MapTiler returns the failure as **HTTP 403 with an `image/png` body**. Leaflet has no
+   reason to treat that differently from a tile, so it renders it — the map looks
+   "configured wrong" rather than "erroring".
+2. The custom style's own `tiles.json` still advertises the raster URL that 403s, so
+   every piece of MapTiler's own metadata says the URL should work.
+
+**The fix.** The custom style existed only to force English place-name labels
+(Map Designer > Worldview > Language = English), because OSM's Pakistan tagging is mixed
+Urdu/English — `docs/planning/PROJECT_HEAD_FEEDBACK_PLAN.md` item 1. The built-in styles
+accept a **`language=en` query parameter** that produces the same thing *and* serve
+raster tiles. So `ShrineMap.tsx` now defaults to `streets-v2` + `language=en`, and the
+custom style is used only if `VITE_MAPTILER_CUSTOM_STYLE_RASTER=1` opts in explicitly.
+
+**The durable part (RULE 4).** Fixing the URL alone would leave the same failure mode
+waiting for the next key/quota/plan change. `ThemeAwareTileLayer` now counts `tileerror`
+events on a MapTiler layer and, after `MAPTILER_ERROR_BUDGET` (4) of them, swaps to the
+keyless CARTO basemap for the rest of the session and warns in DEV. Four, not one,
+because a single 404 at the edge of coverage is normal — a rejected key fails *every*
+tile. The result: a basemap outage degrades to a working map instead of wallpapering
+Pakistan in an error message.
+
+**If it recurs:** probe before theorising. `curl -o /dev/null -w '%{http_code}'` the tile
+URL, then the same style's `style.json`. Tile 403 + style.json 200 is this bug (plan
+doesn't serve that style's raster); both 403 with `Invalid key` is a genuinely bad key;
+both 403 with `Missing key` means the env var never reached the bundle.

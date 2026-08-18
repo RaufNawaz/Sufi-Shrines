@@ -162,9 +162,14 @@ data-darbar · abul-faiz-qalander-ali-suharwardi · bibi-pak-daman · ganj-e-ina
 madho-lal-hussain · mazar-e-iqbal · peer-makki · shah-jamal
 ```
 
-**MapTiler on localhost** fails with "Invalid key" because of an origin restriction on the key —
-not a missing `.env`, not exhausted credits. Add the dev origin in the MapTiler dashboard. Never
-commit a key.
+**MapTiler "Invalid key" tiles** are *not* an origin restriction, and not localhost-only —
+that was this file's standing diagnosis until 18 August 2026, when it was actually measured.
+The key is valid from every origin; what returns 403 is **raster tiles of a custom Map Designer
+style** on this account, production included. MapTiler serves that 403 with an `image/png` body,
+so Leaflet renders the error text as a basemap. The default is now the built-in `streets-v2`
+style plus `language=en` (same English labels the custom style existed for, and it does serve
+raster), and `ThemeAwareTileLayer` falls back to keyless CARTO after 4 `tileerror`s. Full
+measurements and the "if it recurs" probe in `docs/FRONTEND_NOTES.md` §6. Never commit a key.
 
 ---
 

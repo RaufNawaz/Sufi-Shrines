@@ -27,6 +27,51 @@
 - **A8 scope measured** (`3619e30`) — `pipeline/a8_urdu_delta.py` +
   `urdu-i18n/a8-scope.json` + `docs/planning/A8_URDU_DELTA_SCOPE.md`.
 
+---
+
+## 0b. Session log — 18 August 2026, second session
+
+**A8 step 1 is done: the 5 no-editorial-question Urdu translations are written.**
+`darbar-hazrat-tahir-bandagi-qadri`, `darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami`,
+`darbar-wasif-ali-wasif`, `darbar-ghazi-ilm-din-shaheed`, `darbar-hazrat-shah-gohar-peer`.
+Heading structure checked 1:1 against each English original (9/7/8/9/6 headings, all match),
+zero Latin leaks, `data:validate` + `verify` green (259 tests). All are **`reviewed=false`** —
+**a human still has to read the Urdu prose before this counts as done** (RULE 2). Scope is now
+3 full / 74 delta / 94 no-action.
+
+**Next on A8: step 2, the 74 deltas, largest first** — `urdu-i18n/a8-scope.json` is pre-sorted.
+Step 3 (the last 3 full translations) stays blocked on §3's editorial decisions.
+
+**Found and fixed while doing it** (full detail in `docs/HANDOVER.md` §9):
+
+- The Urdu progress log claimed **100% coverage while 8 rows had no Urdu** — it counted against
+  a 12 July snapshot. Now counts live rows, and fails loudly on orphaned content files.
+- `a8_urdu_delta.py` **counted finished translations as unfinished**, so completing five made
+  the remaining work appear to grow. Fixed by recording the English they were translated from.
+- **A live basemap bug you reported mid-session:** the "Invalid key" tiles are *not* an origin
+  restriction and were never localhost-only — MapTiler 403s **raster tiles of a custom Map
+  Designer style** on this account, production included, and serves that 403 as a PNG of the
+  error text. Default basemap switched to built-in `streets-v2` + `language=en` (same English
+  labels the custom style existed for), plus automatic fallback to keyless CARTO after 4 tile
+  errors. `CLAUDE.md`'s note on this was wrong and is corrected; measurements in
+  `docs/FRONTEND_NOTES.md` §6.
+
+**Needs you — one small sheet import.** `data/patch_schema_and_truncation.csv` (4 rows), from
+`python3 pipeline/fix_wrapped_field_truncation.py`. Import per RULE 3 (replace sheet, comma,
+conversion OFF). It fixes:
+
+- **3 rows whose `category` is outside the six-value schema** (`'Islam'` ×2,
+  `'Sufi shrine (Islam)'`). These are excluded from **every** category-chip selection live and
+  draw with the default marker colour. Only `darbar-abul-muali-qadri` currently reaches the
+  site; the other two are dropped for missing coordinates, so their bug is latent until a pin
+  arrives. (Hinglaj's *empty* category is fine — the legacy `Category` fallback covers it.)
+- **6 cells on `Darbar Hazrat Shah Gohar Peer` truncated mid-sentence in production** — caused
+  by a hard-wrapped entry file whose bullets were converted keeping only the first line each.
+  Restored by re-parsing the entry file, not retyping.
+
+**Also outstanding, newly identified:** `data/provenance.json` is stale at 163 rows and has no
+entry for any of the 8 new shrines, so `SourcesProvenance` shows them no citations at all.
+
 **Next, in order:**
 
 1. **A8 translation itself — not started.** Scope is measured and sequenced; step (2) of the
