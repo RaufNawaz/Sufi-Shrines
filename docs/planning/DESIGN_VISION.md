@@ -5,9 +5,39 @@ strong on features and silent on design. This doc supplies the missing half — 
 aesthetic direction — plus feature ideas that have emerged since the vision's eight tracks
 were written, plus a status audit of those tracks so sequencing reflects reality.
 
-Nothing here is implemented. Every proposal is written to be independently shippable in
-small, verifiable steps (token-level changes, one surface at a time), never a big-bang
-redesign of a live site.
+Every proposal is written to be independently shippable in small, verifiable steps
+(token-level changes, one surface at a time), never a big-bang redesign of a live site.
+
+> **Implementation status — 18 August 2026 (was: "nothing here is implemented").**
+>
+> | Item | Status |
+> |---|---|
+> | Migration 1 — chrome/tradition token split (kashi cobalt) | **Shipped** `e6052f8` |
+> | Migration 2 — bilingual Nastaliq masthead | **Shipped** `e6052f8` |
+> | Migration 3 — dark mode as lamp-light | **Shipped** `e6052f8` |
+> | Migration 4 — marginalia rail | **Blocked** on the `qa_note` editorial ruling (`../EDITORIAL_DECISIONS_PENDING.md` §1) |
+> | Migration 5 — kashi tile markers / empty-state tiles | Not started |
+> | Migration 6 — type trials (Spectral, Gulzar) | Not started; needs eyes on real pages, not a decision from a doc |
+> | Visual-regression screenshots in Playwright | **Not done** — see the note below |
+> | F1 — Urs Almanac | **Shipped** `26ed561`, at 19% coverage (see below) |
+> | F7 prerequisite — `provenance.json` staleness | **Fixed** `26ed561` / `0da15d3`, 163 → 167 → 169 entries |
+> | F2–F6, F8–F10 | Not started |
+>
+> **The token split's invariant shipped instead of the visual-regression suite.**
+> `src/styles/__tests__/tokenSplit.test.ts` (41 assertions) fails the build if chrome and any
+> tradition colour converge again, if `--color-rubric` collapses into `--color-error`, or if
+> any palette pair drops below WCAG AA in either theme. That covers the specific regression
+> this document argued was a correctness problem. It does **not** cover layout, and screenshot
+> regression is still the missing guardrail.
+>
+> **F1 was built on less data than this document assumed.** Part 3 says the almanac's data
+> "already exists in `Events` and `event_year/event_note`". Measured: `event_year` is a
+> *historical* year (1469 is Guru Nanak's birth, not an observance date), and `Events` is free
+> prose. Of 169 shipped rows, **22 carry a day, 10 a month, 6 only a season, 79 name an
+> observance with no date at all, and 52 record nothing** — 19% at month precision or better.
+> The feature was therefore built around the gap rather than around a full calendar: the
+> undated shrines are listed by name on the page. Full measurements and the abstention rules
+> in `src/lib/data/ursDates.ts`.
 
 ---
 

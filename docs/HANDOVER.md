@@ -645,6 +645,62 @@ check. Prefer those over careful intentions.
 
 ---
 
+### Added 18 August 2026 (third session) — the deploy branch, and the real cost of the map
+
+Found while implementing `docs/planning/DESIGN_VISION.md`. The first two are the expensive
+kind: both were *silent*, and both had been true for weeks.
+
+1. **`main` was never deployed. The live site builds from branch `1.6`.**
+   `.github/workflows/deploy-pages.yml` triggers on `push: branches: [1.6]`. Ten commits had
+   accumulated on `main` — including the MapTiler 403 fix (`e961a28`) that this document
+   already described as shipped. It was not shipped; it was merged to a branch nothing
+   deployed from. The visible symptom was the one a reader would report as "you didn't fix
+   it": "Invalid key" tiles still wallpapering the live map. `1.6` was a strict ancestor of
+   `main`, so the repair was `git push origin main:1.6`.
+   **Check before believing anything is live:** `gh run list --workflow=deploy-pages.yml -L 1`
+   and look at the *branch* column, not just the status.
+
+2. **`npm run verify` was a strict subset of the deploy gate.** CLAUDE.md tells you to run
+   `verify` before every commit; the deploy ran `typecheck && lint && test && data:validate`.
+   So a green local run said nothing about the data gates, and the first deploy of this
+   session failed on one (`provenance.json: 2 shrine(s) have no provenance entry`) after a
+   local verify had passed. `verify` now includes `data:validate`.
+
+3. **The map's slowness was images, not JavaScript.** A cold load transferred **41 MB across
+   141 requests**. The largest single resource was a **12.6 MB** Wikimedia photograph, fetched
+   at full resolution to be painted as a **30-pixel marker**; seven more multi-megabyte
+   originals followed. The JS bundle — which the build warns about, and which is where anyone
+   would look first — was under 250 KB over the wire. Images were ~99% of the payload.
+   Requesting display-sized renditions took it to **1,199 KB**. See `src/lib/images/thumbnail.ts`.
+
+4. **Hand-built Wikimedia thumbnail URLs do not work, and fail closed.** Constructing
+   `/thumb/f/f2/Name.jpg/320px-Name.jpg` looks right and returns **HTTP 400** unless that exact
+   rendition has already been generated. Of widths 96/120/320/400/640/800 tried against one
+   real file, only 120 worked — and only because an earlier request had created it.
+   `Special:FilePath/Name.jpg?width=N` is the supported entry point: it triggers generation and
+   redirects to the bucket the file actually has. Do not "optimise away" the redirect hop.
+
+5. **`data/provenance.json` stamped a hardcoded `updated: 2026-07-12`** on every run, so it
+   asserted that date while the dataset grew past it — the file that records provenance was
+   itself unprovenanced. It now stamps only when content changes, preserving idempotence.
+
+6. **Two live rows never reach the site at all.** `Darbar Hazrat Shah Gohar Peer` and
+   `Darbar Mian Qurban Ali Shah` have **empty Latitude/Longitude**, so `build-dataset` drops
+   them: the sheet has 171 rows and the app ships 169. Shah Gohar Peer is not a small loss —
+   it carries a day-precise urs (19–21 Ramzan), one of only ~23 in the whole archive, and it
+   is one of the five entries whose Urdu article was drafted last session. Both also carry
+   out-of-schema `category` values (`Islam`, `Sufi shrine (Islam)`). **Needs coordinates from
+   a human — do not invent them (RULE 2).**
+
+7. **`--color-accent` (#c8890a) fails WCAG AA as text** at 2.79:1 on its own pale background,
+   and was in use as a text colour at six sites (provenance method chips, tour status chips,
+   the map notice bar). Pre-existing, not introduced by the palette work. Fixed by adding
+   `--color-accent-text` (#8a5e00, 5.3:1) and leaving `--color-accent` as the fill/stroke
+   gilding. Dark mode already passed.
+
+8. **`/graph` had no inbound link from anywhere in the UI** — reachable only by typing the
+   URL. The welcome card now links to it and to `/almanac`.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
