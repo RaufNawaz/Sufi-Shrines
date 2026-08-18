@@ -149,3 +149,43 @@ Pakistan in an error message.
 URL, then the same style's `style.json`. Tile 403 + style.json 200 is this bug (plan
 doesn't serve that style's raster); both 403 with `Invalid key` is a genuinely bad key;
 both 403 with `Missing key` means the env var never reached the bundle.
+
+---
+
+## 6a. MapTiler raster ignores `language` — corrected 18 August 2026
+
+§6 above concluded that switching to a built-in style plus `?language=en` gave English labels.
+**It does not.** The style serves raster (that part was right), but the raster endpoint ignores
+the parameter completely.
+
+Measured on `streets-v2`, tile `12/2889/1667` (Sheikhupura):
+
+| request | result |
+|---|---|
+| `?language=en` | MD5 `001057e5fb038dc2c34330c7613c2b0e` |
+| `?language=latin` | identical |
+| `?language=local` | identical |
+| `?language=ur` | identical |
+| no parameter | identical |
+
+Byte-identical output for every value, including one that should have produced Urdu. Nothing
+was localising anything — the map was rendering OpenStreetMap's raw tagging, which in Punjab
+means Latin for the places carrying a `name:en` and Urdu for everything else. That is exactly
+the mixed map a reader reported.
+
+The style JSON says the same thing: of its 32 label layers, **12 use a bare `"{name}"`** and
+only 7 use `name:en` with a fallback.
+
+**Fix: the basemap is now vector.** `src/components/map/MapLibreBasemap.tsx` loads
+`style.json` and `src/lib/map/localizeStyle.ts` rewrites each `text-field` to a per-language
+preference chain — `name:en → name:latin → name` for English, `name:ur → name → name:latin`
+for Urdu. Vector tiles carry all of these (verified: `name:latin`, `name:nonlatin`, `name_int`
+and ~50 `name:xx` fields are present in `tiles/v3`). 25 of 32 layers are rewritten; the 7 left
+alone are `{ref}` road shields, `{housenumber}` and `{iata}` — rewriting those would replace
+the M-2 motorway shields with words.
+
+Raster survives only as the fallback path, and its URL no longer sends `language`, which
+implied a localisation that never happened.
+
+**Still true from §6:** raster tiles of a *custom* Map Designer style still 403 on this
+account (re-verified 18 Aug 2026). Do not re-enable `VITE_MAPTILER_CUSTOM_STYLE_RASTER`.

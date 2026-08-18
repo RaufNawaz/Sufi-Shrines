@@ -15,6 +15,9 @@ import { ShrineMarkers } from './ShrineMarkers';
 import { TourRoute } from './TourRoute';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
+import { useLang } from '../../lib/i18n/LanguageContext';
+import { MapLibreBasemap } from './MapLibreBasemap';
+import type { Lang } from '../../types/shrine';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
 
@@ -28,17 +31,26 @@ const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
  * style.json and tiles.json return 200 — its tiles.json even advertises the very
  * raster URL that 403s. Measured 18 Aug 2026; see docs/FRONTEND_NOTES.md.
  *
- * The built-in styles take a `language` parameter that produces the same English
- * labels and DOES serve raster tiles, so that is the default now. The custom
- * style is only used if VITE_MAPTILER_CUSTOM_STYLE_RASTER=1 explicitly opts in
- * (i.e. after someone confirms the plan serves it), and even then a tile error
- * falls back automatically. */
+ * The replacement was a built-in style plus `?language=en` on the raster URL.
+ * That was also wrong, and stayed wrong in a way nobody could see from the
+ * code: **MapTiler's raster endpoint ignores `language` entirely.** Measured
+ * 18 Aug 2026 on streets-v2 at 12/2889/1667, `language=en`, `latin`, `local`,
+ * `ur` and no parameter at all returned byte-identical PNGs (MD5 001057e5…).
+ * The map was rendering OpenStreetMap's raw tagging the whole time — Latin
+ * for places carrying a name:en, Urdu for the rest.
+ *
+ * The basemap is therefore **vector** now (MapLibreBasemap), where the label
+ * language is a client-side decision over the name:xx fields the tiles
+ * already carry. Raster survives only as the fallback path below.
+ *
+ * The custom style is still only used if VITE_MAPTILER_CUSTOM_STYLE_RASTER=1
+ * explicitly opts in, and a tile error still falls back automatically. */
 const MAPTILER_STYLE_ID = import.meta.env.VITE_MAPTILER_STYLE_ID;
 const MAPTILER_CUSTOM_RASTER_ENABLED = import.meta.env.VITE_MAPTILER_CUSTOM_STYLE_RASTER === '1';
 
-/** Built-in style that replaces the custom one, plus the label language it needs. */
+/** Built-in style used for the raster *fallback* path only. The default
+ * basemap is vector (MapLibreBasemap) — see the note above. */
 const MAPTILER_DEFAULT_STYLE = 'streets-v2';
-const MAPTILER_LABEL_LANG = 'en';
 
 const CARTO_VOYAGER = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 const CARTO_DARK = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
@@ -47,11 +59,11 @@ const CARTO_ATTR =
 const MAPTILER_ATTR =
   '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; OpenStreetMap contributors';
 
-/** `language` pins label script to English on the built-in styles — the reason the
- * custom style existed. It is ignored by styles that don't support it, so it is
- * safe to send unconditionally. */
+/** Raster tile URL. No `language` parameter: the endpoint ignores it (see the
+ * measurement above), and sending it implied a localisation that never
+ * happened. Label language is handled by the vector basemap instead. */
 function maptilerRasterUrl(styleId: string, key: string): string {
-  return `https://api.maptiler.com/maps/${styleId}/{z}/{x}/{y}.png?key=${key}&language=${MAPTILER_LABEL_LANG}`;
+  return `https://api.maptiler.com/maps/${styleId}/{z}/{x}/{y}.png?key=${key}`;
 }
 
 /** The MapTiler style the default light basemap should use: the custom style only
@@ -107,7 +119,23 @@ interface TileState {
   maptilerDead: boolean;
 }
 
-// Manages the default tile layer and switches it when dark mode changes.
+/**
+ * The default basemap: vector when MapTiler is reachable, keyless raster
+ * otherwise.
+ *
+ * `vectorFailed` latches for the session. A basemap that has already failed
+ * should not be retried on every theme toggle, and the reader should not
+ * watch the map flicker between two providers.
+ */
+function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
+  const [vectorFailed, setVectorFailed] = React.useState(false);
+  const onFailure = React.useCallback(() => setVectorFailed(true), []);
+
+  if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} />;
+  return <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />;
+}
+
+// Manages the raster fallback tile layer and switches it when dark mode changes.
 // Backs off (keeps current layer) once user manually picks from LayersControl.
 function ThemeAwareTileLayer({ isDark }: { isDark: boolean }) {
   const map = useMap();
@@ -311,6 +339,7 @@ export function ShrineMap({
   activeTourStop,
 }: Props) {
   const { theme } = useTheme();
+  const { lang } = useLang();
   const isDark = theme === 'dark';
 
   const tourStopSlugs = useMemo(
@@ -320,7 +349,7 @@ export function ShrineMap({
 
   return (
     <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} zoomControl={false}>
-      <ThemeAwareTileLayer isDark={isDark} />
+      <DefaultBasemap isDark={isDark} lang={lang} />
       <MapController
         shrines={shrines}
         selectedId={selectedId}
