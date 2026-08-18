@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-08-18",
+  "updated": "2026-07-12",
   "shrines": [
     {
       "shrineSlug": "allo-mahar",
@@ -171,6 +171,17 @@
       }
     },
     {
+      "shrineSlug": "darbar-abul-muali-qadri",
+      "fields": {
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
       "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
       "fields": {
         "Description Urdu": {
@@ -226,6 +237,12 @@
           "method": "llm",
           "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        },
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
         }
       }
     },
@@ -237,6 +254,12 @@
           "method": "llm",
           "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        },
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
         }
       }
     },
@@ -266,6 +289,23 @@
           "method": "llm",
           "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        },
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
+        }
+      }
+    },
+    {
+      "shrineSlug": "darbar-malik-ahmad-ayaz",
+      "fields": {
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
         }
       }
     },
@@ -295,6 +335,12 @@
           "method": "llm",
           "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
+        },
+        "Description": {
+          "source": "Pre-existing sheet content — not found in shrine_entries/_INDEX.md or archive/_ENRICHMENT_LOG.md",
+          "method": "human",
+          "contentTier": "sheet-original",
+          "notes": "Origin inferred by elimination (absent from both tracked content pipelines), not independently confirmed. See docs/planning/DATA_QUALITY_PLAN.md §1.1."
         }
       }
     },
