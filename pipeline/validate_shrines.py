@@ -18,6 +18,13 @@ CHECKS
   ERROR   died_before_born            death year <= birth year
   ERROR   date_in_future              any year after the current year
   ERROR   internal_artefact           NOTE: / row-refs / ==== leaking into public prose
+  ERROR   category_not_in_schema      `category` holds a value outside the six allowed ones,
+                                      so categoryKey() maps it to 'default' and the row is
+                                      excluded from EVERY category-chip selection live
+  WARN    category_missing            neither `category` nor legacy `Category` is set
+  WARN    description_hard_wrapped    Description authored with hard line breaks — the marker
+                                      of a row converted from a wrapped entry file, whose
+                                      single-line fields are then likely cut at their 1st line
   WARN    coord_off_cluster           >5 km from other sites sharing its location  [catches Javindi Bibi]
   WARN    coord_suspicious            longitude or latitude truncated to .0000
   WARN    placeholder_text            "No events scheduled right now" and similar
@@ -39,6 +46,17 @@ from collections import defaultdict, Counter
 from datetime import date
 
 PK_BBOX = (23.4, 37.2, 60.7, 77.9)          # lat_min, lat_max, lon_min, lon_max
+
+# The six values CLAUDE.md's schema allows in `category`. These are join keys, not
+# labels: categoryKey() in src/lib/data/categoryKey.ts normalises them to design
+# tokens, and MapSidebar filters with `activeCategories.includes(categoryKey(...))`
+# where activeCategories only ever holds those six keys. So a seventh value does not
+# degrade gracefully — it drops the row out of every category filter. Found live on
+# 18 Aug 2026: 'Islam' x2 and 'Sufi shrine (Islam)' x1.
+VALID_CATEGORIES = {
+ "Muslim Shrine", "Hindu Temple", "Sikh Gurdwara",
+ "Nanakpanthi / Udasi Darbar", "Jain Temple", "Secular / Memorial",
+}
 THIS_YEAR = date.today().year
 
 # Reference points for gross-error detection. Not authoritative gazetteer data —
@@ -177,6 +195,39 @@ def main():
         ev   = col(r, "events", "event")
         lat_s, lon_s = col(r, "latitude", "lat"), col(r, "longitude", "lon", "lng")
         blob = f"{name} {desc}"
+
+        # --- category is one of the six schema values ---------------------------
+        # Read the new column and the legacy one the front end falls back to
+        # (shrineModel.ts: `category` || `Category`), so a row that resolves
+        # correctly through the fallback is not reported.
+        cat_new = (r.get("category") or "").strip()
+        cat_old = (r.get("Category") or "").strip()
+        cat_eff = cat_new or cat_old
+        if not cat_eff:
+            add("WARN", name, "category_missing",
+                "neither `category` nor legacy `Category` is set — the row cannot be "
+                "coloured or filtered by tradition")
+        elif cat_eff not in VALID_CATEGORIES:
+            add("ERROR", name, "category_not_in_schema",
+                f"{cat_eff!r} is not one of the six allowed values, so categoryKey() "
+                f"returns 'default': the row draws with the default marker colour and is "
+                f"excluded from every category-chip selection. Allowed: "
+                f"{', '.join(sorted(VALID_CATEGORIES))}")
+
+        # --- Description authored hard-wrapped ----------------------------------
+        # Not a defect in itself, but the one reliable marker of a row converted
+        # from a hard-wrapped entry file. Such a conversion has truncated
+        # single-line field values at their first physical line (18 Aug 2026:
+        # Darbar Hazrat Shah Gohar Peer, 6 cells — see
+        # pipeline/fix_wrapped_field_truncation.py). Re-check this row's short
+        # fields for values that stop mid-sentence.
+        if desc:
+            dlines = [l for l in desc.split("\n") if l.strip()]
+            if len(dlines) >= 8 and max(len(l) for l in dlines) < 95:
+                add("WARN", name, "description_hard_wrapped",
+                    f"Description is hard-wrapped ({len(dlines)} lines, longest "
+                    f"{max(len(l) for l in dlines)} chars) — check this row's single-line "
+                    f"fields for values cut off at their first line")
 
         # --- figure appears in its own description -----------------------------
         if fig and desc:
