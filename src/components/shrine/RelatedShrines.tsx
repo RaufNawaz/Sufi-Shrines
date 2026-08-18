@@ -5,6 +5,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { haversineKm, findRelatedShrines } from '../../lib/data/shrineModel';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ShrineImage } from '../ui/ShrineImage';
+import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 
 interface Props {
   shrine: Shrine;
@@ -41,6 +42,7 @@ export function RelatedShrines({ shrine, all }: Props) {
                 className="related-card-img"
                 placeholderClassName="related-card-img-placeholder"
                 loading="lazy"
+                width={IMAGE_WIDTH.preview}
               />
               <div className="related-card-body">
                 <div className="related-card-name">{name}</div>

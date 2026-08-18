@@ -1,24 +1,40 @@
 import { test, expect } from './fixtures';
 
 /**
- * A3 (Delegated Execution Plan): headings render at font-weight 700, but
- * index.html only <link rel="preload">s the 400 weight statically — on a
- * cold Urdu load the 700 face arrived late (synthetic-bold flash, then a
- * swap). Preloading it unconditionally would cost every English-first
- * visitor ~154KB they don't need, so a small inline script in index.html
- * injects the preload only when the same lang-detection order as
- * detectInitialLang() (LanguageContext.tsx) resolves to Urdu.
+ * Nastaliq is preloaded only for readers who will actually see it.
+ *
+ * A3 (Delegated Execution Plan) gated the 700 weight this way, because
+ * preloading it unconditionally "would cost every English-first visitor
+ * ~154KB they don't need". The 400 weight was still preloaded statically for
+ * everyone — the same 156KB cost, on the same critical path, exempted from
+ * the same argument. Both weights are now injected by the inline script in
+ * index.html, which follows the same lang-detection order as
+ * detectInitialLang() (LanguageContext.tsx).
+ *
+ * The @font-face rules carry a unicode-range, so an English reader who never
+ * paints an Arabic-script glyph now fetches neither face.
  */
-test.describe('Urdu heading-weight font preload', () => {
-  test('preloads the 700 weight when Urdu is the initial language', async ({ page }) => {
-    await page.goto('/?lang=ur');
-    const link = page.locator('link[rel="preload"][href*="NotoNastaliqUrdu-700"]');
-    await expect(link).toHaveCount(1);
-  });
+test.describe('Urdu font preload', () => {
+  for (const weight of ['400', '700'] as const) {
+    test(`preloads the ${weight} weight when Urdu is the initial language`, async ({ page }) => {
+      await page.goto('/?lang=ur');
+      const link = page.locator(`link[rel="preload"][href*="NotoNastaliqUrdu-${weight}"]`);
+      await expect(link).toHaveCount(1);
+    });
 
-  test('does not preload the 700 weight for a default English load', async ({ page }) => {
-    await page.goto('/');
-    const link = page.locator('link[rel="preload"][href*="NotoNastaliqUrdu-700"]');
-    await expect(link).toHaveCount(0);
+    test(`does not preload the ${weight} weight for a default English load`, async ({ page }) => {
+      await page.goto('/');
+      const link = page.locator(`link[rel="preload"][href*="NotoNastaliqUrdu-${weight}"]`);
+      await expect(link).toHaveCount(0);
+    });
+  }
+
+  test('an Urdu page still renders in Nastaliq, not a fallback face', async ({ page }) => {
+    // The preload is an optimisation; the @font-face is what must hold.
+    await page.goto('/?lang=ur');
+    const heading = page.locator('h1, .shrine-title').first();
+    await expect(heading).toBeVisible();
+    const family = await heading.evaluate((el) => getComputedStyle(el).fontFamily);
+    expect(family).toMatch(/Nastaliq/i);
   });
 });

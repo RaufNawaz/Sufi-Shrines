@@ -14,6 +14,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ARTICLE_SECTION_DEFINITIONS } from '../../lib/data/constants';
 import { t, tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
+import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
@@ -235,6 +236,7 @@ export function TourPanel({
         className="related-card-img tour-stop-image"
         placeholderClassName="related-card-img-placeholder tour-stop-image"
         loading="eager"
+        width={IMAGE_WIDTH.preview}
       />
 
       <h3 className="tour-stop-name" lang={lang === 'ur' ? 'ur' : undefined}>

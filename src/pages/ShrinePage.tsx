@@ -19,6 +19,7 @@ import { NearbyShrines } from '../components/shrine/NearbyShrines';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
+import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { getFieldValue } from '../lib/data/fieldAliasing';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { infoLevelKey } from '../lib/data/infoLevel';
@@ -243,6 +244,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
             className="shrine-hero-img"
             placeholderClassName="shrine-hero-placeholder"
             loading="eager"
+            width={IMAGE_WIDTH.hero}
           />
           {shrine.imageUrl && shrine.imageCredit && (
             <p className="shrine-hero-credit">

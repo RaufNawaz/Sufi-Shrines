@@ -1,6 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
+import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
@@ -49,7 +50,10 @@ function buildDivIcon(
   ]
     .filter(Boolean)
     .join(' ');
-  const style = imageUrl ? ` style="background-image: url('${escapeAttr(imageUrl)}')"` : '';
+  // The dot is 30px. Asking for the original here was the single biggest
+  // cost on the map (see lib/images/thumbnail.ts).
+  const thumb = imageUrl ? thumbnailUrl(imageUrl, IMAGE_WIDTH.marker) : '';
+  const style = thumb ? ` style="background-image: url('${escapeAttr(thumb)}')"` : '';
   const size = imageUrl ? 30 : 14;
   return L.divIcon({
     className: '',

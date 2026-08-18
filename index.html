@@ -38,20 +38,23 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
     />
-    <link
-      rel="preload"
-      href="/fonts/NotoNastaliqUrdu-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <script>
-      // Headings render at font-weight 700 (.shrine-title, h1-h4, etc.) — on
-      // a cold Urdu load, only preloading the 400 weight above means the 700
-      // face arrives late (synthetic-bold flash, then a swap). Preloading it
-      // unconditionally would cost every English-first visitor ~154KB they
-      // don't need, so only do it when this same-priority-order check (see
-      // detectInitialLang() in LanguageContext.tsx) resolves to Urdu.
+      // Nastaliq is preloaded only for readers who will actually see it.
+      //
+      // The 700 weight was already gated this way, with the reasoning that
+      // preloading it unconditionally "would cost every English-first visitor
+      // ~154KB they don't need". That is equally true of the 400 weight,
+      // which was nonetheless preloaded for everyone — 156KB on the critical
+      // path of an English load, on top of the 154KB the argument was written
+      // about. Both are gated now.
+      //
+      // The @font-face declarations carry a unicode-range, so a browser only
+      // fetches these faces when Arabic-script glyphs are actually painted;
+      // `rel=preload` is what overrode that. Removing the unconditional
+      // preload restores the browser's own judgement for English readers and
+      // changes nothing for Urdu ones, who still get both weights early.
+      //
+      // Priority order mirrors detectInitialLang() in LanguageContext.tsx.
       (function () {
         var params = new URLSearchParams(window.location.search);
         var lang = params.get('lang');
@@ -70,13 +73,17 @@
               : 'en';
         }
         if (lang === 'ur') {
-          var link = document.createElement('link');
-          link.rel = 'preload';
-          link.href = '/fonts/NotoNastaliqUrdu-700.woff2';
-          link.as = 'font';
-          link.type = 'font/woff2';
-          link.crossOrigin = 'anonymous';
-          document.head.appendChild(link);
+          ['/fonts/NotoNastaliqUrdu-400.woff2', '/fonts/NotoNastaliqUrdu-700.woff2'].forEach(
+            function (href) {
+              var link = document.createElement('link');
+              link.rel = 'preload';
+              link.href = href;
+              link.as = 'font';
+              link.type = 'font/woff2';
+              link.crossOrigin = 'anonymous';
+              document.head.appendChild(link);
+            },
+          );
         }
       })();
     </script>

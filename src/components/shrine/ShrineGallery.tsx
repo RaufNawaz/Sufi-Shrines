@@ -3,6 +3,7 @@ import type { GalleryItem } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
+import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 
 const SWIPE_THRESHOLD_PX = 50;
 
@@ -53,7 +54,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       .filter((i) => i >= 0 && i < items.length)
       .forEach((i) => {
         const preload = new window.Image();
-        preload.src = items[i].imageUrl;
+        preload.src = thumbnailUrl(items[i].imageUrl, IMAGE_WIDTH.hero);
       });
   }, [idx, items]);
 
@@ -121,7 +122,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
 
       <img
         key={item.index}
-        src={item.imageUrl}
+        src={thumbnailUrl(item.imageUrl, IMAGE_WIDTH.hero)}
         alt={item.caption || `Gallery image ${idx + 1}`}
         className="lightbox-img"
       />
@@ -211,6 +212,7 @@ export function ShrineGallery({ items, category = '' }: Props) {
               category={category}
               className="gallery-img"
               loading="lazy"
+              width={IMAGE_WIDTH.gallery}
             />
             {(item.caption || item.credit) && (
               <div className="gallery-caption">

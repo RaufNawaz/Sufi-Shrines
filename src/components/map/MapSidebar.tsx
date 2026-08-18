@@ -6,6 +6,7 @@ import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { translateToUrdu } from '../../lib/i18n/urduFallback';
+import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import {
   categoryKey,
   categoryDisplayLabel,
@@ -652,7 +653,7 @@ export function MapSidebar({
                           {shrine.imageUrl ? (
                             <img
                               className="shrine-list-thumb-img"
-                              src={shrine.imageUrl}
+                              src={thumbnailUrl(shrine.imageUrl, IMAGE_WIDTH.marker)}
                               alt=""
                               loading="lazy"
                               decoding="async"

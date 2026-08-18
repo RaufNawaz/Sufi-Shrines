@@ -7,6 +7,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { categoryDisplayLabel } from '../../lib/data/categoryKey';
+import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { infoLevelKey } from '../../lib/data/infoLevel';
 import { supportLevelKey } from '../../lib/data/supportLevel';
 import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../../lib/data/siteStatus';
@@ -68,7 +69,7 @@ export function ShrinePreview({
     <div className="preview-card">
       {shrine.imageUrl ? (
         <img
-          src={shrine.imageUrl}
+          src={thumbnailUrl(shrine.imageUrl, IMAGE_WIDTH.preview)}
           alt={name}
           className="preview-card-hero"
           loading="lazy"
