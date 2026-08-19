@@ -14,6 +14,56 @@ function stripLeadingListMarker(line: string): string {
   return line.replace(/^[-*•]\s+/, '');
 }
 
+const ARABIC_SCRIPT_CHAR = /[\u0600-\u06FF\u0750-\u077F]/;
+
+/** A couplet quoted in the prose: a paragraph whose single newlines separate
+ * hemistichs, every line Arabic-script verse (never a list/heading marker).
+ * Measured over the whole dataset (docs/FRONTEND_NOTES.md §8a): every
+ * multi-line paragraph that isn't a list or a "## " heading is one of these,
+ * so the rule has no false positives to guard against today. */
+function isVerseParagraph(paragraph: string): boolean {
+  const lines = paragraph
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (lines.length < 2) return false;
+  return lines.every((l) => ARABIC_SCRIPT_CHAR.test(l) && !/^[-*•#]/.test(l));
+}
+
+/** Shared paragraph renderer for the lead, sections and the raw fallback:
+ * plain paragraphs as <p>, couplets as a centred verse block with one line
+ * per hemistich — previously the single newlines collapsed and verse ran on
+ * as prose. */
+function ProseParagraphs({ text, localize }: { text: string; localize: (t: string) => string }) {
+  return (
+    <>
+      {text
+        .split(/\n\n+/)
+        .map((paragraph) => paragraph.trim())
+        .filter(Boolean)
+        .map((paragraph, i) =>
+          isVerseParagraph(paragraph) ? (
+            // lang/dir make the couplet an isolated RTL island even when the
+            // surrounding article is the English view.
+            <blockquote className="article-verse" key={i} lang="ur" dir="rtl">
+              {paragraph
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean)
+                .map((line, j) => (
+                  <span className="article-verse-line" key={j}>
+                    {renderInlineBold(localize(line))}
+                  </span>
+                ))}
+            </blockquote>
+          ) : (
+            <p key={i}>{renderInlineBold(localize(paragraph))}</p>
+          ),
+        )}
+    </>
+  );
+}
+
 function ArticleSection({
   id,
   heading,
@@ -48,12 +98,7 @@ function ArticleSection({
         </ul>
       ) : (
         <div className="article-prose">
-          {content
-            .split(/\n\n+/)
-            .filter(Boolean)
-            .map((p, i) => (
-              <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
-            ))}
+          <ProseParagraphs text={content} localize={localize} />
         </div>
       )}
     </section>
@@ -81,12 +126,7 @@ export function ShrineArticle({ shrine }: Props) {
           aria-labelledby="overview-heading"
         >
           <div className="article-prose">
-            {leadText
-              .split(/\n\n+/)
-              .filter(Boolean)
-              .map((p, i) => (
-                <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
-              ))}
+            <ProseParagraphs text={leadText} localize={localize} />
           </div>
         </section>
       )}
@@ -117,12 +157,7 @@ export function ShrineArticle({ shrine }: Props) {
       {rawFallback && (
         <section className="article-section" id="description" aria-labelledby="description-heading">
           <div className="article-prose">
-            {rawFallback
-              .split(/\n\n+/)
-              .filter(Boolean)
-              .map((p, i) => (
-                <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
-              ))}
+            <ProseParagraphs text={rawFallback} localize={localize} />
           </div>
         </section>
       )}

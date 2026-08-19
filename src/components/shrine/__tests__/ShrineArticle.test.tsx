@@ -26,6 +26,32 @@ function makeShrine(overrides: Partial<ShrineRow> = {}): Shrine {
 }
 
 describe('ShrineArticle', () => {
+  it('sets a quoted couplet as a verse block, one line per hemistich', () => {
+    const shrine = makeShrine({
+      Description:
+        'Lead prose about the saint.\n\n' +
+        'کاگا سب تن کھائیو، چُن چُن کھائیو ماس\nدوے نیناں مت کھائیو، مینوں پِیا ملن دی آس\n\n' +
+        'More prose after the verse.',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    const verse = container.querySelector('blockquote.article-verse');
+    expect(verse).not.toBeNull();
+    // Each hemistich is its own line — the failure mode was both collapsing
+    // into one run-on prose line.
+    expect(verse!.querySelectorAll('.article-verse-line')).toHaveLength(2);
+    expect(verse).toHaveAttribute('dir', 'rtl');
+    // The prose around it stays ordinary paragraphs.
+    expect(screen.getByText('More prose after the verse.').tagName).toBe('P');
+  });
+
+  it('never mistakes a multi-line list or Latin paragraph for verse', () => {
+    const shrine = makeShrine({
+      Description: 'Lead.\n\n- point one\n- point two\n\nPlain line one\nPlain line two.',
+    });
+    const { container } = renderWithProviders(<ShrineArticle shrine={shrine} />);
+    expect(container.querySelector('blockquote.article-verse')).toBeNull();
+  });
+
   it('renders lead text when Description starts with prose', () => {
     const shrine = makeShrine({
       Description: 'This is the overview paragraph.\n\n## History\n\nOld stuff.',

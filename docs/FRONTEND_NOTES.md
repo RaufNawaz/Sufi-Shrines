@@ -303,3 +303,38 @@ languages, |en−ur| scale shape < 0.3, Urdu infobox < 1.3× English — measure
 2.25 / 2.25 / 0.00 / 1.20 after the change) and
 `e2e/nastaliq-metrics.spec.ts` (kicker must exist and have zero tracking —
 this is why the kicker survived the de-duplication instead of the band).
+
+## 8a. Follow-ups to the Urdu pass (19 August 2026, same day)
+
+Four user-reported items after §8 shipped:
+
+- **Masthead overflow.** `--leading-urdu-heading` (1.45) fits single-line
+  section headings but not the masthead: Noto Nastaliq's ink box is ~2.57em,
+  so at display size wrapped title lines interpenetrated and swash ascenders
+  (the lam of لنگر) struck through the kicker above. `.shrine-title--nastaliq`
+  now carries its own metrics: `line-height: 1.8` + `padding-block-start:
+  0.2em` (padding absorbs ascender ink that paints above the line box at any
+  leading) + `text-wrap: balance`. Do not "fix" this by raising the shared
+  heading token — the section headings are correct at 1.45.
+- **Events translations.** The infobox تقریبات row was showing English for
+  116 of 134 distinct `Events` values: the phrase map only covered the
+  pre-18-August sheet wording. All 116 are now in `SPECIAL_URDU_PHRASES`
+  (`src/lib/i18n/urduFallback.ts`) — that in-source map **is** the home of
+  Events phrase translations (they are not in `urdu-i18n/`). If the sheet's
+  Events wording changes again, the same leak returns: diff distinct sheet
+  values against the map's keys (the check script pattern is in this
+  session's git history, commit message below) and top it up. Conventions:
+  Western digits in the map (fmtNum localizes at render), ؛/، punctuation,
+  keep markdown `*…*` pairs balanced, drop an English parenthetical only when
+  it is a transliteration gloss of the Urdu word itself.
+- **Verse as verse.** Couplets in `Description` are authored as paragraphs
+  with a single `\n` between hemistichs. The renderer collapsed those into
+  run-on prose (HTML whitespace). Measured across the whole dataset: every
+  multi-line paragraph that is not a list/heading is such a couplet — all
+  lines Arabic-script. `ShrineArticle`'s `ProseParagraphs` now renders those
+  as `<blockquote class="article-verse">`, centred with one line per
+  hemistich (Urdu print sets poetry centred; no Latin left-bar). Unit tests
+  guard both the rendering and the not-a-verse cases (lists, Latin lines).
+- **Trust badges in the masthead.** `.shrine-summary-badge` unfills the
+  info/support pills into dot + colored label on the shrine page only; list
+  cards keep the filled pill.

@@ -89,6 +89,174 @@ const SPECIAL_URDU_PHRASES: Record<string, string> = {
     'مسلم اور ہندو زائرین سال بھر آتے ہیں (کوئی مقررہ عرس درج نہیں)',
   'Year-round pilgrimage; ritual bathing in the hot springs':
     'سال بھر زیارت؛ گرم چشموں میں رسمی غسل',
+  // ── Events wording from the 18 Aug 2026 sheet import ──────────────────
+  '*ʿurs* 15–17 Rabi ul Awal (Chadar Poshi, Mela Chiraghan, *mehfil* of *naʿt*, dhol and dhamal, *qawwālī*, Ghusal, *langar*); weekly Thursday observance (drums, gatherings, lamp-lighting, *niyāz*); daily *naʿt* gathering and *langar*; five daily prayers':
+    '*عرس* 15 سے 17 ربیع الاول (چادر پوشی، میلہ چراغاں، *نعت* کی *محفل*، ڈھول اور دھمال، *قوالی*، غسل، *لنگر*)؛ ہفتہ وار جمعرات کا معمول (ڈھول، اجتماعات، چراغاں، *نیاز*)؛ روزانہ *نعت* کی محفل اور *لنگر*؛ پانچ وقت کی نماز',
+  '*ʿurs*, annually on 12, 13 and 14 Zil Hajj (lamps lit, sheets changed, bathing, food eaten). Daily: five daily prayers at the adjacent mosque; daily offering of *diyas* and *prasād*.':
+    '*عرس*، ہر سال 12، 13 اور 14 ذی الحج کو (چراغ روشن کیے جاتے ہیں، چادریں بدلی جاتی ہیں، غسل ہوتا ہے، کھانا کھایا جاتا ہے)۔ روزانہ: ملحقہ مسجد میں پانچ وقت کی نماز؛ روزانہ *دیوں* اور *پرشاد* کا نذرانہ۔',
+  "Annual Akhand Path around Guru Hargobind's Gurpurb (historic)":
+    'گرو ہرگوبند کے گرپورب کے آس پاس سالانہ اکھنڈ پاٹھ (تاریخی)',
+  'Annual Urs (12-14 January): chadar tabdeeli, ghusl, chiraghan, Mehfil-e-Naat Shareef, Mehfil-e-Mushaira':
+    'سالانہ عرس (12 سے 14 جنوری): چادر تبدیلی، غسل، چراغاں، محفلِ نعت شریف، محفلِ مشاعرہ',
+  "Annual Urs (7th-9th Muharram): Mehfil-e-Naat and langar, deliberately without dhol or dhamal per the current custodians' account of the saint's own wishes. Weekly Mehfil-e-Naat and langar on Thursday nights and Fridays.":
+    'سالانہ عرس (7 سے 9 محرم): محفلِ نعت اور لنگر، موجودہ متولیوں کے بیان کے مطابق بزرگ کی اپنی خواہش پر دانستہ ڈھول اور دھمال کے بغیر۔ ہفتہ وار محفلِ نعت اور لنگر جمعرات کی رات اور جمعہ کو۔',
+  'Annual death anniversary (Anant Chaturdashi); continuous sadavrat':
+    'سالانہ برسی (اننت چترتھی)؛ مسلسل سدا ورت',
+  'Annual festival (boat pilgrimage to the island)': 'سالانہ میلہ (جزیرے تک کشتی سے زیارت)',
+  'Annual three-day Kali festival (January)': 'سالانہ تین روزہ کالی میلہ (جنوری)',
+  'Annual three-day urs (Auqaf-administered); langar':
+    'سالانہ تین روزہ عرس (محکمہ اوقاف کے زیرِ انتظام)؛ لنگر',
+  'Annual urs (11-12 Rabi al-Awwal); weekly Sunday milad; daily langar':
+    'سالانہ عرس (11 سے 12 ربیع الاول)؛ ہفتہ وار اتوار کو میلاد؛ روزانہ لنگر',
+  'Annual urs (16-18 March); Friday gatherings at the tomb':
+    'سالانہ عرس (16 سے 18 مارچ)؛ جمعہ کو مزار پر اجتماعات',
+  'Annual urs (17-19 Rabi al-Awwal); weekly Thursday milad; Mela Chiraagha':
+    'سالانہ عرس (17 سے 19 ربیع الاول)؛ ہفتہ وار جمعرات کو میلاد؛ میلہ چراغاں',
+  'Annual urs (24-26 Rajab)': 'سالانہ عرس (24 سے 26 رجب)',
+  'Annual urs (25-27 Jamadi al-Thani / Jumāda al-Ākhira): zikr, qawwali and langar':
+    'سالانہ عرس (25 سے 27 جمادی الثانی): ذکر، قوالی اور لنگر',
+  "Annual urs (27-28 Sha'ban); weekly Saturday gathering; langar":
+    'سالانہ عرس (27 سے 28 شعبان)؛ ہر ہفتے بروز ہفتہ محفل؛ لنگر',
+  'Annual urs (3-5 Rabi al-Thani); weekly Thursday-night dhamal':
+    'سالانہ عرس (3 سے 5 ربیع الثانی)؛ ہفتہ وار جمعرات کی رات دھمال',
+  'Annual urs (31 October: chadar-changing, gusal, Mehfil-e-Naat, langar, collective prayer); Thursday-night Mehfil; daily lamp-lighting and vow-making':
+    'سالانہ عرس (31 اکتوبر: چادر تبدیلی، غسل، محفلِ نعت، لنگر، اجتماعی دعا)؛ جمعرات کی رات محفل؛ روزانہ چراغاں اور منتیں',
+  'Annual urs (7 February); Thursday-evening qawwali; daily langar':
+    'سالانہ عرس (7 فروری)؛ جمعرات کی شام قوالی؛ روزانہ لنگر',
+  'Annual urs (9-11 Rabi al-Awwal); Thursday-night gatherings; dhamal and qawwali':
+    'سالانہ عرس (9 سے 11 ربیع الاول)؛ جمعرات کی رات اجتماعات؛ دھمال اور قوالی',
+  'Annual urs (Muharram) with the opening of the Bahishti Darwaza; qawwali; langar':
+    'سالانہ عرس (محرم) بہشتی دروازہ کھلنے کے ساتھ؛ قوالی؛ لنگر',
+  'Annual urs (Safar); nightly Shah jo Raag; daily langar':
+    'سالانہ عرس (صفر)؛ ہر رات شاہ جو راگ؛ روزانہ لنگر',
+  "Annual urs (Sha'ban); Thursday-evening dhamal and qawwali; daily langar":
+    'سالانہ عرس (شعبان)؛ جمعرات کی شام دھمال اور قوالی؛ روزانہ لنگر',
+  'Annual urs (date not stated in the survey); recurring mehfil (zikr-e-Ilahi and Naat-e-Rasool) every few days; Thursday lamp-lighting (diyas) and vow-making (manatein)':
+    'سالانہ عرس (سروے میں تاریخ درج نہیں)؛ ہر چند دن بعد محفل (ذکرِ الٰہی اور نعتِ رسول)؛ جمعرات کو چراغاں (دیے) اور منتیں',
+  'Annual urs (first Wednesday and Thursday of Rajab); langar':
+    'سالانہ عرس (رجب کے پہلے بدھ اور جمعرات)؛ لنگر',
+  'Annual urs (spring); abyat singing; qawwali; langar':
+    'سالانہ عرس (بہار)؛ ابیات خوانی؛ قوالی؛ لنگر',
+  'Annual urs (spring); daily langar': 'سالانہ عرس (بہار)؛ روزانہ لنگر',
+  'Annual urs and pilgrimage; seasonal banner processions':
+    'سالانہ عرس اور زیارت؛ موسمی علم بردار جلوس',
+  'Annual urs with mushaira (poetic assembly); rabab recitals': 'سالانہ عرس مع مشاعرہ؛ رباب نوازی',
+  'Annual urs; Eid Milad-un-Nabi (principal gathering); langar':
+    'سالانہ عرس؛ عید میلاد النبی (سب سے بڑا اجتماع)؛ لنگر',
+  'Annual urs; Heer recitation and qawwali': 'سالانہ عرس؛ ہیر خوانی اور قوالی',
+  'Annual urs; Muharram tazia procession (9 Muharram); commemorative mach bonfire':
+    'سالانہ عرس؛ محرم کا تعزیہ جلوس (9 محرم)؛ یادگاری مچ (الاؤ)',
+  'Annual urs; Sheedi Mela (drumming, dance, offerings to the crocodiles)':
+    'سالانہ عرس؛ شیدی میلہ (ڈھول، رقص، مگرمچھوں کو نذرانے)',
+  'Annual urs; Sufi music and remembrance': 'سالانہ عرس؛ صوفیانہ موسیقی اور ذکر',
+  'Annual urs; Thursday-evening qawwali and dhamal': 'سالانہ عرس؛ جمعرات کی شام قوالی اور دھمال',
+  'Annual urs; Thursday-night gathering; Muharram observances (peak attendance)':
+    'سالانہ عرس؛ جمعرات کی رات محفل؛ محرم کے معمولات (سب سے زیادہ حاضری)',
+  'Annual urs; devotional music and langar': 'سالانہ عرس؛ عقیدت مندانہ موسیقی اور لنگر',
+  'Annual urs; evening dhamal; qawwali and langar': 'سالانہ عرس؛ شام کو دھمال؛ قوالی اور لنگر',
+  'Annual urs; kafi singing through the night': 'سالانہ عرس؛ رات بھر کافی خوانی',
+  'Annual urs; kafi singing; qawwali; langar': 'سالانہ عرس؛ کافی خوانی؛ قوالی؛ لنگر',
+  'Annual urs; large annual gathering': 'سالانہ عرس؛ بڑا سالانہ اجتماع',
+  'Annual urs; naat and qawwali; daily langar': 'سالانہ عرس؛ نعت اور قوالی؛ روزانہ لنگر',
+  'Annual urs; poetry, music and dhamal': 'سالانہ عرس؛ شاعری، موسیقی اور دھمال',
+  'Annual urs; qawwali and langar': 'سالانہ عرس؛ قوالی اور لنگر',
+  'Annual urs; qawwali and naat; daily langar': 'سالانہ عرس؛ قوالی اور نعت؛ روزانہ لنگر',
+  'Annual urs; qawwali and naat; langar': 'سالانہ عرس؛ قوالی اور نعت؛ لنگر',
+  'Annual urs; qawwali; daily langar': 'سالانہ عرس؛ قوالی؛ روزانہ لنگر',
+  'Annual urs; qawwali; langar': 'سالانہ عرس؛ قوالی؛ لنگر',
+  'Annual urs; ritual bathing in the Laki hot springs': 'سالانہ عرس؛ لکی کے گرم چشموں میں رسمی غسل',
+  'Annual urs; visited by both Muslims and Hindus':
+    'سالانہ عرس؛ مسلمان اور ہندو دونوں زیارت کرتے ہیں',
+  'Cheti Chand': 'چیٹی چند',
+  'Cheti Chand (spring)': 'چیٹی چند (بہار)',
+  'Cheti Chand; shared Hindu and Muslim observance year-round':
+    'چیٹی چند؛ سال بھر ہندو اور مسلم مشترکہ عقیدت',
+  'Community worship; langar-adjacent hospitality': 'اجتماعی عبادت؛ لنگر جیسی مہمان نوازی',
+  'Community worship; no fixed festival documented': 'اجتماعی عبادت؛ کوئی مقررہ تہوار دستاویز نہیں',
+  'Community worship; no fixed public festival documented':
+    'اجتماعی عبادت؛ کوئی مقررہ عوامی تہوار دستاویز نہیں',
+  'Daily prakash; continuous langar': 'روزانہ پرکاش؛ مسلسل لنگر',
+  'Daily prakash; major Sikh anniversaries': 'روزانہ پرکاش؛ بڑی سکھ برسیاں',
+  'Daily prakash; morning and evening worship': 'روزانہ پرکاش؛ صبح اور شام عبادت',
+  'Daily worship; Sikh anniversaries': 'روزانہ عبادت؛ سکھ برسیاں',
+  'Diwali (principal annual opening)': 'دیوالی (سالانہ کھلنے کا بنیادی موقع)',
+  'Diwali; Holi': 'دیوالی؛ ہولی',
+  'Diwali; Holi; Raksha Bandhan; daily worship': 'دیوالی؛ ہولی؛ رکشا بندھن؛ روزانہ عبادت',
+  'Durga Puja; daily worship': 'درگا پوجا؛ روزانہ عبادت',
+  'First Monday of each month; major goddess festivals': 'ہر مہینے کا پہلا پیر؛ دیوی کے بڑے تہوار',
+  'Ganesh Chaturthi; Holi; Raksha Bandhan; asthi visarjan rites':
+    'گنیش چترتھی؛ ہولی؛ رکشا بندھن؛ استھی وسرجن کی رسومات',
+  'Guru Nanak Gurpurab': 'گرو نانک گرپورب',
+  'Guru Nanak Gurpurab (November)': 'گرو نانک گرپورب (نومبر)',
+  'Guru Nanak Gurpurab (principal Sikh pilgrimage in Pakistan)':
+    'گرو نانک گرپورب (پاکستان میں سکھوں کی سب سے بڑی زیارت)',
+  'Guru Nanak Gurpurab; jatha pilgrimage': 'گرو نانک گرپورب؛ جتھوں کی زیارت',
+  'Guru Nanak anniversaries; daily visa-free pilgrimage via the Kartarpur Corridor':
+    'گرو نانک کی برسیاں؛ کرتارپور راہداری کے ذریعے روزانہ بغیر ویزا زیارت',
+  'Guru Nanak anniversaries; organised jatha pilgrimage': 'گرو نانک کی برسیاں؛ منظم جتھوں کی زیارت',
+  'Guru Ram Das birth anniversary': 'گرو رام داس کا یومِ پیدائش',
+  'Hanuman Jayanti; Holi; Diwali': 'ہنومان جینتی؛ ہولی؛ دیوالی',
+  'Heritage/tourist site; regular worship discontinued': 'ورثہ/سیاحتی مقام؛ باقاعدہ عبادت منقطع',
+  'Hinglaj Yatra halt (April, four days)': 'ہنگلاج یاترا کا پڑاؤ (اپریل، چار دن)',
+  'Historically Kartik bathing; not currently observed': 'تاریخی طور پر کارتک کا غسل؛ اب رائج نہیں',
+  'Historically a Vaisakhi fair; not currently observed':
+    'تاریخی طور پر بیساکھی میلہ؛ اب رائج نہیں',
+  'Historically an annual Maghi fair': 'تاریخی طور پر سالانہ ماگھی میلہ',
+  'Historically an annual fair at Basant Panchami; continuation uncertain':
+    'تاریخی طور پر بسنت پنچمی پر سالانہ میلہ؛ تسلسل غیر یقینی',
+  'Historically an annual fair; not in regular worship':
+    'تاریخی طور پر سالانہ میلہ؛ باقاعدہ عبادت میں نہیں',
+  'Historically an annual mela in Chaitra; not currently observed':
+    'تاریخی طور پر چیت میں سالانہ میلہ؛ اب رائج نہیں',
+  'Holi; Diwali; Janmashtami': 'ہولی؛ دیوالی؛ جنم اشٹمی',
+  'Holi; Diwali; Valmiki Jayanti': 'ہولی؛ دیوالی؛ والمیکی جینتی',
+  'Hur gatherings on 27 Rajab and at fixed times; no public urs observed':
+    '27 رجب اور مقررہ اوقات پر حر معتقدین کے اجتماعات؛ کوئی عوامی عرس نہیں منایا جاتا',
+  'Iqbal Day (9 November); death anniversary (21 April); daily changing of the guard':
+    'یومِ اقبال (9 نومبر)؛ برسی (21 اپریل)؛ روزانہ گارڈ کی تبدیلی',
+  'Janmashtami; Holi; Diwali': 'جنم اشٹمی؛ ہولی؛ دیوالی',
+  'Maha Shivratri': 'مہا شیو راتری',
+  'Maha Shivratri (late winter)': 'مہا شیو راتری (اواخر سرما)',
+  'Maha Shivratri (principal festival)': 'مہا شیو راتری (سب سے بڑا تہوار)',
+  'Maha Shivratri (spring); ash-immersion rites year-round':
+    'مہا شیو راتری (بہار)؛ سال بھر راکھ وسرجن کی رسومات',
+  'Maha Shivratri (three-day festival)': 'مہا شیو راتری (تین روزہ تہوار)',
+  'Maha Shivratri; periodic cross-border pilgrimage':
+    'مہا شیو راتری؛ وقتاً فوقتاً سرحد پار سے زیارت',
+  'Martyrdom anniversary of Guru Arjan Dev (Jeth, May-June)':
+    'گرو ارجن دیو کی شہادت کی برسی (جیٹھ، مئی-جون)',
+  'Martyrdom commemoration (1 July)': 'شہادت کی یاد میں تقریب (1 جولائی)',
+  'Martyrdom commemoration; pilgrim visits': 'شہادت کی یاد میں تقریب؛ زائرین کی آمد',
+  'Mela Chiraghan / annual urs (9-11 Shawwal); Thursday-evening lamp-lighting, dhamal and qawwali':
+    'میلہ چراغاں / سالانہ عرس (9 سے 11 شوال)؛ جمعرات کی شام چراغاں، دھمال اور قوالی',
+  'No confirmed annual urs date documented': 'سالانہ عرس کی کوئی تصدیق شدہ تاریخ دستاویز نہیں',
+  'None - abandoned since 1947': 'کوئی نہیں — 1947 سے متروک',
+  'None - abandoned; heritage visitation': 'کوئی نہیں — متروک؛ ورثے کے طور پر آمد',
+  'None - derelict; conservation appeals ongoing': 'کوئی نہیں — خستہ حال؛ تحفظ کی اپیلیں جاری',
+  'None - destroyed 1992': 'کوئی نہیں — 1992 میں منہدم',
+  'None - heritage site, no devotional programme':
+    'کوئی نہیں — ورثہ کا مقام، کوئی عبادتی پروگرام نہیں',
+  'None - ruin; access restricted near the Line of Control':
+    'کوئی نہیں — کھنڈر؛ لائن آف کنٹرول کے قریب رسائی محدود',
+  'Not documented': 'دستاویز نہیں',
+  'Occasional pilgrimage; Bebe Nanaki commemoration':
+    'کبھی کبھار زیارت؛ بے بے نانکی کی یادگاری تقریب',
+  'Occasional pilgrimage; historically a Gur Mela': 'کبھی کبھار زیارت؛ تاریخی طور پر گر میلہ',
+  'Pilgrimage to the tomb; visited year-round': 'مقبرے کی زیارت؛ سال بھر آمد',
+  'Preserved as a heritage site; no regular events':
+    'ورثہ کے مقام کے طور پر محفوظ؛ کوئی باقاعدہ تقریب نہیں',
+  'Ramapir Mela (1 Bhadva, three days)': 'رام پیر میلہ (1 بھادوا، تین دن)',
+  'Recently restored and reopened to visitors; no congregational worship':
+    'حال ہی میں بحال کر کے زائرین کے لیے دوبارہ کھولا گیا؛ اجتماعی عبادت نہیں',
+  'Reopened for active worship 2022; no fixed public festival calendar':
+    '2022 میں فعال عبادت کے لیے دوبارہ کھولا گیا؛ کوئی مقررہ عوامی تہواری تقویم نہیں',
+  "Sikh pilgrimage, especially Guru Nanak's Gurpurab": 'سکھ زیارت، خاص طور پر گرو نانک کا گرپورب',
+  'Sikh pilgrimage; Guru Nanak Gurpurab': 'سکھ زیارت؛ گرو نانک گرپورب',
+  'Two annual urs observances (15 March and 6 September)': 'سال میں دو عرس (15 مارچ اور 6 ستمبر)',
+  'Vaisakhi (principal jatha pilgrimage); Saka Panja Sahib commemoration':
+    'بیساکھی (جتھوں کی سب سے بڑی زیارت)؛ ساکا پنجہ صاحب کی یادگاری تقریب',
+  'Visited year-round by Muslim and Hindu pilgrims; no fixed urs recorded':
+    'مسلم اور ہندو زائرین سال بھر آتے ہیں؛ کوئی مقررہ عرس درج نہیں',
 };
 
 const WORD_URDU_MAP: Record<string, string> = {

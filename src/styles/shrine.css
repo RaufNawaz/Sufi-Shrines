@@ -157,9 +157,18 @@
      drawn bold, not a synthesised one. At 400 the Urdu title carried less
      weight than the section headings below it. */
   font-weight: 700;
-  line-height: var(--leading-urdu-heading);
+  /* NOT --leading-urdu-heading (1.45): that fits single-line section
+     headings, but at masthead size Noto Nastaliq's ink box is ~2.57em, so
+     1.45 made wrapped title lines interpenetrate and sent swash ascenders
+     (the lam in لنگر) striking through the kicker above. 1.8 keeps wrapped
+     lines legible; the start padding absorbs the remaining ascender ink,
+     which paints above the line box no matter the leading. */
+  line-height: 1.8;
+  padding-block-start: 0.2em;
   letter-spacing: normal;
   padding-block-end: 0.12em;
+  /* The name is one calligraphic unit — avoid a stranded last word. */
+  text-wrap: balance;
 }
 
 .shrine-summary-meta {
@@ -179,6 +188,28 @@
 
 .shrine-summary-badge {
   align-self: center;
+}
+
+/* In the masthead's meta row the trust badges sit in running text, and the
+   filled pill was the last widget-looking element in the header. Same badge,
+   same semantic colors, but set as a dot + label — the fill only survives in
+   list cards, where it has to read at a glance against a busy background. */
+.shrine-summary-badge.info-level-badge,
+.shrine-summary-badge.support-level-badge {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  gap: var(--space-2);
+}
+
+.shrine-summary-badge.info-level-badge::before,
+.shrine-summary-badge.support-level-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
 }
 
 /* Non-Active site status ("Festival-only", "Heritage site — worship
@@ -521,6 +552,28 @@
 
 .article-prose p:last-child {
   margin-bottom: 0;
+}
+
+/* A quoted couplet set as verse: centred with one line per hemistich, the
+   way Urdu print sets poetry — not a Latin left-bar blockquote. The ample
+   vertical margin is what separates it from the prose; no border, no fill. */
+.article-verse {
+  margin: var(--space-6) auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: center;
+  font-family: var(--font-urdu);
+  font-size: 1.06em;
+  line-height: var(--leading-urdu);
+  color: var(--color-text);
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+.article-verse-line {
+  display: block;
 }
 
 /* A verse/couplet quoted in its original Arabic/Urdu/Persian script, embedded
