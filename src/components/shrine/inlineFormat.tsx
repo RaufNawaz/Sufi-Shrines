@@ -21,7 +21,7 @@ function wrapArabicScript(text: string, keyPrefix: string): React.ReactNode[] {
       out.push(
         <bdi key={`${keyPrefix}-${i}`} lang="ur" className="inline-script">
           {matches[i]}
-        </bdi>
+        </bdi>,
       );
     }
   });

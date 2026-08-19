@@ -42,7 +42,10 @@ export function formatDateWindow(
   const endYear = fmtNum(end.getUTCFullYear());
 
   if (options.monthOnly) {
-    if (start.getUTCMonth() === end.getUTCMonth() && start.getUTCFullYear() === end.getUTCFullYear()) {
+    if (
+      start.getUTCMonth() === end.getUTCMonth() &&
+      start.getUTCFullYear() === end.getUTCFullYear()
+    ) {
       return `${startMonth} ${startYear}`;
     }
     return `${startMonth} – ${endMonth} ${endYear}`;

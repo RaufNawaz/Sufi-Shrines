@@ -14,11 +14,7 @@ export type ProvenanceMethod = 'human' | 'ocr' | 'mt' | 'llm';
  * - unknown: could not be determined — an honest gap, not a guess.
  */
 export type ContentTier =
-  | 'tier1-ocr'
-  | 'tier2-compendium'
-  | 'ai-researched'
-  | 'sheet-original'
-  | 'unknown';
+  'tier1-ocr' | 'tier2-compendium' | 'ai-researched' | 'sheet-original' | 'unknown';
 
 /** A single reference backing a field value — see docs/planning/DATA_QUALITY_PLAN.md §3.2. */
 export interface Citation {

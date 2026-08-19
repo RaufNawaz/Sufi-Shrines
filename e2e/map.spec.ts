@@ -48,14 +48,21 @@ test.describe('Map page', () => {
     await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
     // The list renders progressively; with the deterministic CSV fixture it
     // settles on exactly one item per fixture row.
+    //
+    // The generous timeout is the point: 169 rows arrive in batches, and under
+    // a parallel run on a loaded machine that regularly took longer than the
+    // 5s default. This failed in roughly half of full-suite runs while passing
+    // every time in isolation — a flake, not a product bug, but one that
+    // reddens CI at random.
     const list = page.locator('.shrine-list-item');
-    await expect(list).toHaveCount(SHRINE_COUNT);
+    const settled = { timeout: 20_000 };
+    await expect(list).toHaveCount(SHRINE_COUNT, settled);
 
     // "Data Darbar" also matches another shrine's Location text (Peer Makki,
     // "near Data Darbar"), so don't pin the exact match count — assert the
     // search narrows the list before checking that clear restores it.
     await page.getByPlaceholder(UI_TEXT.en.searchPlaceholder).fill('Data Darbar');
-    await expect(list).not.toHaveCount(SHRINE_COUNT);
+    await expect(list).not.toHaveCount(SHRINE_COUNT, settled);
     const filteredCount = await list.count();
     expect(filteredCount).toBeGreaterThan(0);
     expect(filteredCount).toBeLessThan(SHRINE_COUNT);
@@ -63,6 +70,6 @@ test.describe('Map page', () => {
     await page.locator('.search-clear').click();
 
     // Debounce clears (200ms) then all shrines return.
-    await expect(list).toHaveCount(SHRINE_COUNT);
+    await expect(list).toHaveCount(SHRINE_COUNT, settled);
   });
 });

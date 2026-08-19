@@ -272,9 +272,11 @@ Front-end source layout, for orientation:
 ```bash
 npm run dev              # local dev server — then check the console for errors
 npm run build            # tsc + vite build + scripts/prerender.mjs — must pass before any commit
-npm run verify           # typecheck + lint + unit tests + data gates  ← run before every commit
-                         # (data:validate is included because CI's deploy gate runs it —
-                         #  a local verify that omitted it shipped a red deploy on 18 Aug)
+npm run verify           # typecheck + lint + format + unit tests + data gates  ← before every commit
+                         # Deliberately a superset of what CI runs. Every gate that was
+                         # left out of it eventually shipped red: data:validate broke a
+                         # deploy on 18 Aug, and format:check had been failing on every
+                         # CI run in the repo's visible history (19 Aug).
 npm run test             # vitest run
 npm run e2e              # playwright (build first with npm run build:e2e — root base path)
 npm run lint / typecheck

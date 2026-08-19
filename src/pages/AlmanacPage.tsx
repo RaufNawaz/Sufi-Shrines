@@ -10,7 +10,11 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
-import { formatDateWindow, formatSourceDate, gregorianMonthName } from '../lib/i18n/formatDateWindow';
+import {
+  formatDateWindow,
+  formatSourceDate,
+  gregorianMonthName,
+} from '../lib/i18n/formatDateWindow';
 import type { Season } from '../lib/data/ursDates';
 import type { Lang } from '../types/shrine';
 
@@ -37,7 +41,10 @@ function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
           {formatDateWindow(window, lang, fmtNum, { monthOnly })}
         </span>
         {approximate ? (
-          <span className="almanac-flag almanac-flag--approximate" title={t('almanacApproximateFull')}>
+          <span
+            className="almanac-flag almanac-flag--approximate"
+            title={t('almanacApproximateFull')}
+          >
             {t('almanacApproximate')}
           </span>
         ) : null}
@@ -216,11 +223,7 @@ export default function AlmanacPage() {
                 </h2>
                 <ul className="almanac-list almanac-list--upcoming">
                   {upcoming.map((entry, i) => (
-                    <ObservanceCard
-                      key={`${entry.shrine.slug}-${i}`}
-                      entry={entry}
-                      lang={lang}
-                    />
+                    <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} />
                   ))}
                 </ul>
               </section>

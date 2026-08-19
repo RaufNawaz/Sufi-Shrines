@@ -18,7 +18,9 @@ interface Props {
 function LineageLinkItem({ link }: { link: LineageLink }) {
   const { lang, t } = useLang();
   const saint = link.saint;
-  const relationLabel = t(link.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel');
+  const relationLabel = t(
+    link.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel',
+  );
 
   return (
     <li className="lineage-relation-item">

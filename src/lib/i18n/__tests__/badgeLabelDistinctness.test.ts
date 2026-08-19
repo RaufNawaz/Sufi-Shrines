@@ -37,7 +37,9 @@ describe.each(['en', 'ur'] as const)('badge labels are distinguishable (%s)', (l
   });
 
   it('labels within each set are distinct', () => {
-    for (const keys of [INFO_KEYS, SUPPORT_KEYS] as ReadonlyArray<ReadonlyArray<keyof typeof text>>) {
+    for (const keys of [INFO_KEYS, SUPPORT_KEYS] as ReadonlyArray<
+      ReadonlyArray<keyof typeof text>
+    >) {
       const labels: string[] = keys.map((k) => String(text[k]));
       expect(new Set(labels).size, `duplicate within ${labels.join(' / ')}`).toBe(labels.length);
     }

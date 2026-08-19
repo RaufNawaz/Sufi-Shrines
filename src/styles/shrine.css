@@ -1466,3 +1466,24 @@
 [data-theme='dark'] .provenance-tier--ai-researched {
   background: color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
+
+/* ── Touch targets ≥44px on mobile ─────────────────────────────────────────
+   The project's stated minimum (CLAUDE.md, Coding conventions). Measured at
+   390px before this: Share 34px, Get Directions 40px, Copy coordinates 40px,
+   the infobox's Get Directions 37px, and the back link 22px.
+
+   Inline links inside prose are deliberately not included — WCAG's target-size
+   criterion exempts links in a sentence, and padding them to 44px would break
+   the line rhythm of the article. */
+@media (max-width: 768px) {
+  .action-btn,
+  .infobox-action-btn {
+    min-height: 44px;
+  }
+
+  .back-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

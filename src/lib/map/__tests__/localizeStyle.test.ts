@@ -24,7 +24,13 @@ describe('referencesName', () => {
 
   it('recognises a legacy zoom-stop function', () => {
     expect(
-      referencesName({ stops: [[8, ' '], [9, '{iata}'], [12, '{name:en}']] }),
+      referencesName({
+        stops: [
+          [8, ' '],
+          [9, '{iata}'],
+          [12, '{name:en}'],
+        ],
+      }),
     ).toBe(true);
   });
 

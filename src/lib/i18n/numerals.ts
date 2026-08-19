@@ -21,7 +21,8 @@ export function localizeDigits(text: string, lang: Lang, eastern: boolean): stri
  * bare domains, DOIs, and ISBN-like identifiers. Converting a digit inside
  * any of these breaks the thing it identifies.
  */
-const WESTERN_LOCKED = /(https?:\/\/\S+|www\.\S+|\b(?:doi|DOI):\s*\S+|\b(?:ISBN|isbn)[\s:-]*[\d-]+X?\b|\S+@\S+\.\S+)/g;
+const WESTERN_LOCKED =
+  /(https?:\/\/\S+|www\.\S+|\b(?:doi|DOI):\s*\S+|\b(?:ISBN|isbn)[\s:-]*[\d-]+X?\b|\S+@\S+\.\S+)/g;
 
 /**
  * Eastern numerals for running Urdu prose.

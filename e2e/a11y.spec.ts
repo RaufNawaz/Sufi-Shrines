@@ -62,3 +62,96 @@ function formatViolations(violations: { id: string; description: string; nodes: 
     .map((v) => `[${v.id}] ${v.description} (${(v.nodes as unknown[]).length} node(s))`)
     .join('\n');
 }
+
+/**
+ * Touch targets on a phone.
+ *
+ * CLAUDE.md sets 44px as this project's minimum, and most of the archive's
+ * readers are on a phone. Measured at 390px before this guard existed: the
+ * language toggle 34px, Share 34px, Get Directions 40px, Copy coordinates
+ * 40px, the infobox's Get Directions 37px, the back link 22px, Leaflet's zoom
+ * and reset controls 34px, the bottom-sheet handle 16px, and the guided-tours
+ * switch 20px.
+ *
+ * Only *standalone* controls are asserted. Links inside a sentence — the
+ * breadcrumb, a saint's name in the meta line, the footer links — are exempt
+ * under WCAG's inline exception, and padding them to 44px would wreck the
+ * line rhythm of the article.
+ */
+test.describe('Touch targets (390px)', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  const MIN = 44;
+
+  test('map controls are all tappable', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#sidebar').waitFor();
+
+    const undersized = await page.evaluate((min) => {
+      const selectors = [
+        '.leaflet-control-zoom-in',
+        '.leaflet-control-zoom-out',
+        '.reset-view-btn',
+        '.leaflet-control-layers-toggle',
+        '.lang-seg',
+        '.list-toggle-btn',
+        '.sidebar-sheet-handle',
+        '.tour-toggle',
+      ];
+      const bad: string[] = [];
+      for (const sel of selectors) {
+        for (const el of document.querySelectorAll(sel)) {
+          const r = el.getBoundingClientRect();
+          if (r.width === 0 && r.height === 0) continue; // not rendered
+          if (r.height < min || r.width < min) {
+            bad.push(`${sel} ${Math.round(r.width)}x${Math.round(r.height)}`);
+          }
+        }
+      }
+      return bad;
+    }, MIN);
+
+    expect(undersized, 'controls smaller than the 44px minimum').toEqual([]);
+  });
+
+  test('shrine page actions are all tappable', async ({ page }) => {
+    await page.goto('/shrine/shamsabad');
+    await page.locator('h1.shrine-title').waitFor();
+
+    const undersized = await page.evaluate((min) => {
+      const bad: string[] = [];
+      for (const sel of ['.action-btn', '.infobox-action-btn', '.back-link', '.lang-seg']) {
+        for (const el of document.querySelectorAll(sel)) {
+          const r = el.getBoundingClientRect();
+          if (r.width === 0 && r.height === 0) continue;
+          if (r.height < min) bad.push(`${sel} ${Math.round(r.width)}x${Math.round(r.height)}`);
+        }
+      }
+      return bad;
+    }, MIN);
+
+    expect(undersized, 'controls shorter than the 44px minimum').toEqual([]);
+  });
+
+  test('the guided-tours switch keeps its slim pill while growing its hit area', async ({
+    page,
+  }) => {
+    // The fix must not fatten the control itself — padding grows the border
+    // box while background-clip keeps the track on the 36x20 content box.
+    await page.goto('/');
+    await page.locator('.tour-toggle').waitFor();
+    const geometry = await page.evaluate(() => {
+      const el = document.querySelector('.tour-toggle')!;
+      const cs = getComputedStyle(el);
+      const pad = (s: 'paddingLeft' | 'paddingRight' | 'paddingTop' | 'paddingBottom') =>
+        parseFloat(cs[s]) || 0;
+      const r = el.getBoundingClientRect();
+      return {
+        contentWidth: Math.round(r.width - pad('paddingLeft') - pad('paddingRight')),
+        contentHeight: Math.round(r.height - pad('paddingTop') - pad('paddingBottom')),
+        clip: cs.backgroundClip,
+      };
+    });
+    expect(geometry).toEqual({ contentWidth: 36, contentHeight: 20, clip: 'content-box' });
+  });
+});

@@ -44,7 +44,9 @@ const CITATION_TYPE_LABEL: Record<Citation['type'], { en: string; ur: string }> 
 };
 
 function isUnreviewed(prov: FieldProvenance): boolean {
-  return (prov.method === 'ocr' || prov.method === 'mt' || prov.method === 'llm') && !prov.reviewedBy;
+  return (
+    (prov.method === 'ocr' || prov.method === 'mt' || prov.method === 'llm') && !prov.reviewedBy
+  );
 }
 
 function formatPageRef(page: string): string {

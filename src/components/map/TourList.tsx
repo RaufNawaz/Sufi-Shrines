@@ -331,7 +331,8 @@ export function TourList({
                     )}
                     {isNearest && (
                       <span className="tour-card-nearest-badge">
-                        {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))} {t(lang, 'kmUnit')})
+                        {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))}{' '}
+                        {t(lang, 'kmUnit')})
                       </span>
                     )}
                   </span>

@@ -35,3 +35,26 @@ urdu-i18n/TRANSLATION_LOG.md
 # Out of cleanup scope: quarantined pre-React reference app + one-off eval outputs
 legacy/
 eval/
+
+# Hand-authored prose — content, not code.
+#
+# `format:check` has failed on every CI run in this repository's visible
+# history, which made the whole gate worthless: a real formatting error in
+# src/ could never be seen against 147 pre-existing warnings. Nearly all of
+# them are markdown that a person wrote and a person edits.
+#
+# These stay out because reformatting them is an editorial act, not a
+# mechanical one. `entries/` holds drafted shrine entries and field-survey
+# transcriptions whose qualifying notes are the most careful writing in the
+# archive (RULE 2); `docs/` holds the plans and the handover; the pipeline
+# reports are generated audit trails. Prettier reflowing any of them would
+# produce a large, meaningless diff over text nobody asked it to touch.
+entries/
+docs/
+pipeline/reports/
+pipeline/legacy-exports/
+CLAUDE.md
+
+# Separate project that happens to sit in this folder — CLAUDE.md RULE 1:
+# "Do not touch anything under Awqaf/". Untracked by git, too.
+Awqaf/

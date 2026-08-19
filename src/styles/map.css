@@ -1424,12 +1424,16 @@
     height: 44px;
   }
 
+  /* Was pinned to 36px, which is under this project's stated 44px minimum
+     (CLAUDE.md, Coding conventions) for one of the two controls every Urdu
+     reader has to hit first. */
   .lang-toggle-segment {
-    height: 36px;
+    height: 44px;
   }
 
   .lang-seg {
     padding: 0 var(--space-4);
+    min-height: 44px;
   }
 
   .filter-chip {
@@ -1453,6 +1457,27 @@
   .list-toggle-btn {
     min-height: 44px;
     padding-block: var(--space-3);
+  }
+
+  /* Leaflet's own controls. The desktop rules above deliberately shrink these
+     to 34px for a tidier chrome; the vendor's .leaflet-touch default is 44px
+     precisely because they are the primary way to move the map on a phone.
+
+     Selector matches `.leaflet-bar a` rather than the individual control
+     classes: that rule is (0,1,1) and also !important, so a (0,1,0) selector
+     loses to it however late it appears. */
+  .leaflet-bar a,
+  .leaflet-control-layers-toggle,
+  a.reset-view-btn {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+  }
+
+  /* The drag handle is the only way to expand the bottom sheet; the pill
+     inside it stays visually slim. Measured 16px high before this. */
+  .sidebar-sheet-handle {
+    min-height: 44px;
   }
 }
 

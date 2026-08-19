@@ -1,4 +1,9 @@
-import { getFieldValue, getUrduFieldValue, isLikelyUrl, normalizeFoundedDate } from '../data/fieldAliasing';
+import {
+  getFieldValue,
+  getUrduFieldValue,
+  isLikelyUrl,
+  normalizeFoundedDate,
+} from '../data/fieldAliasing';
 import urduSeed from '../../data/urdu-seed.json';
 import type { Lang, ShrineRow } from '../../types/shrine';
 
@@ -306,8 +311,7 @@ export function resolveFoundedDate(row: ShrineRow, lang: Lang): string {
     normalizeFoundedDate(getFieldValue(row, 'Founded'));
   if (lang !== 'ur') return cleanEnglish;
 
-  const urduValue =
-    getUrduFieldValue(row, 'Founded/Opened') || getUrduFieldValue(row, 'Founded');
+  const urduValue = getUrduFieldValue(row, 'Founded/Opened') || getUrduFieldValue(row, 'Founded');
   if (urduValue) return normalizeFoundedDate(urduValue);
   return cleanEnglish ? translateToUrdu(cleanEnglish) : '';
 }

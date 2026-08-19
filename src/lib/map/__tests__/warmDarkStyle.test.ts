@@ -44,7 +44,15 @@ describe('warmDarkStyle', () => {
         id: 'Road',
         type: 'line',
         paint: {
-          'line-color': ['interpolate', ['linear'], ['zoom'], 6, 'hsl(216, 30%, 30%)', 14, 'hsl(0, 0%, 40%)'],
+          'line-color': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            6,
+            'hsl(216, 30%, 30%)',
+            14,
+            'hsl(0, 0%, 40%)',
+          ],
         },
       },
       { id: 'Label', type: 'symbol', layout: { 'text-field': '{name}' } },

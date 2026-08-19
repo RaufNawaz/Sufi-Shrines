@@ -42,9 +42,9 @@ describe('thumbnailUrl — Wikimedia', () => {
   });
 
   it('handles wikipedia projects other than commons', () => {
-    expect(
-      thumbnailUrl('https://upload.wikimedia.org/wikipedia/en/a/ab/Example.jpg', 800),
-    ).toBe('https://commons.wikimedia.org/wiki/Special:FilePath/Example.jpg?width=800');
+    expect(thumbnailUrl('https://upload.wikimedia.org/wikipedia/en/a/ab/Example.jpg', 800)).toBe(
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Example.jpg?width=800',
+    );
   });
 });
 

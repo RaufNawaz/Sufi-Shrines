@@ -725,3 +725,28 @@
     text-align: start;
   }
 }
+
+/* ── Touch target ≥44px on mobile ──────────────────────────────────────────
+   The switch is drawn 36x20 and should stay that size — a chunky toggle would
+   look wrong beside its label — so the *hit area* grows instead of the pill.
+
+   Padding plus `box-sizing: content-box` keeps 36x20 as the content box and
+   pushes the border box out to 44x44, while `background-clip: content-box`
+   keeps the track painted only on the pill. The knob is absolutely positioned
+   against the padding box, so its offsets absorb the padding.
+
+   A transparent `::after` overlay was tried first and does not work here:
+   verified by tapping 11px above the pill on a real touch viewport, the
+   switch did not flip. Measured 20px high before this. */
+@media (max-width: 768px) {
+  .tour-toggle {
+    box-sizing: content-box;
+    padding: 12px 4px;
+    background-clip: content-box;
+  }
+
+  .tour-toggle-knob {
+    top: 15px; /* 12px padding + the 3px inset the desktop rule uses */
+    inset-inline-start: 7px; /* 4px padding + 3px */
+  }
+}

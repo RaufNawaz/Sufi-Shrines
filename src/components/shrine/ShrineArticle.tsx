@@ -42,7 +42,9 @@ function ArticleSection({
             .split('\n')
             .map((line) => stripLeadingListMarker(line.trim()))
             .filter(Boolean)
-            .map((line, i) => <li key={i}>{renderInlineBold(localize(line))}</li>)}
+            .map((line, i) => (
+              <li key={i}>{renderInlineBold(localize(line))}</li>
+            ))}
         </ul>
       ) : (
         <div className="article-prose">
