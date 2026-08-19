@@ -18,12 +18,22 @@ Every proposal is written to be independently shippable in small, verifiable ste
 > | Migration 4 — marginalia rail | **Blocked** on the `qa_note` editorial ruling (`../EDITORIAL_DECISIONS_PENDING.md` §1) |
 > | Migration 5 — kashi tile markers / empty-state tiles | Not started |
 > | Migration 6 — type trials (Spectral, Gulzar) | Not started; needs eyes on real pages, not a decision from a doc |
-> | Visual-regression screenshots in Playwright | **Not done** — see the note below |
+> | Visual-regression guard in Playwright | **Shipped** `e2e/typography.spec.ts` — as layout/type invariants rather than pixel diffs, see below |
 > | F1 — Urs Almanac | **Shipped** `26ed561`, at 19% coverage (see below) |
 > | F7 prerequisite — `provenance.json` staleness | **Fixed** `26ed561` / `0da15d3`, 163 → 167 → 169 entries |
 > | F2–F6, F8–F10 | Not started |
 >
-> **The token split's invariant shipped instead of the visual-regression suite.**
+> **The visual guard asserts relationships, not pixels.** `e2e/typography.spec.ts`
+> checks that h1 outranks h2 outranks body in both languages, that the two
+> languages keep the same scale *shape*, that the Urdu infobox stays within 30%
+> of the English one, and that the shrine list has room to be a list at
+> 1280x720. Verified to fail — reintroducing the old `calc(1em * scale)` rule
+> breaks two of them with the exact numbers in the message. Pixel diffs were
+> rejected: the pages carry remote photographs and live map tiles, so a
+> screenshot suite would have needed so much masking that what remained would
+> be roughly these assertions anyway, with added flakiness.
+>
+> **The token split's invariant shipped alongside it.**
 > `src/styles/__tests__/tokenSplit.test.ts` (41 assertions) fails the build if chrome and any
 > tradition colour converge again, if `--color-rubric` collapses into `--color-error`, or if
 > any palette pair drops below WCAG AA in either theme. That covers the specific regression
