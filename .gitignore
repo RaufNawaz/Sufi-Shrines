@@ -94,3 +94,6 @@ pipeline/validation_issues.tsv
 
 # historical run log rescued from the unversioned ~/shrines (see pipeline/legacy-exports/README.md)
 !pipeline/legacy-exports/fixes_applied.log
+# Throwaway probe scripts (need this repo's node_modules to resolve
+# playwright, so they cannot live in a system temp dir)
+.scratch/

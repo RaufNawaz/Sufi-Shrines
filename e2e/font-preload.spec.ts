@@ -29,6 +29,27 @@ test.describe('Urdu font preload', () => {
     });
   }
 
+  test('the preloaded font URLs actually resolve', async ({ page, request }) => {
+    // A preload that 404s is worse than no preload: it costs a request, logs
+    // an error, and warms nothing. Both of these pointed at /fonts/... on the
+    // production deploy, which is served from /Sufi-Shrines/ — Vite rewrites
+    // href attributes in index.html but not string literals inside a script,
+    // so the injected preloads silently missed while the CSS @font-face (which
+    // Vite does rewrite) kept working. The bug was invisible in the app.
+    await page.goto('/?lang=ur');
+    const hrefs = await page
+      .locator('link[rel="preload"][href*="NotoNastaliqUrdu"]')
+      .evaluateAll((links) => links.map((l) => (l as HTMLLinkElement).getAttribute('href') ?? ''));
+    expect(hrefs.length, 'expected both Nastaliq weights to be preloaded').toBe(2);
+
+    const base = await page.evaluate(() => document.baseURI);
+    for (const href of hrefs) {
+      const url = new URL(href, base).toString();
+      const response = await request.get(url);
+      expect(response.status(), `preloaded font 404s: ${url}`).toBe(200);
+    }
+  });
+
   test('an Urdu page still renders in Nastaliq, not a fallback face', async ({ page }) => {
     // The preload is an optimisation; the @font-face is what must hold.
     await page.goto('/?lang=ur');

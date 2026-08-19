@@ -15,6 +15,10 @@ export default defineConfig({
     // interception, so block SW registration to keep e2e/fixtures.ts's CSV
     // intercept (and therefore the whole suite) hermetic.
     serviceWorkers: 'block',
+    // The tour specs exercise narration and autoplay, which drive real speech
+    // synthesis — a test run would play audio out of the developer's speakers
+    // with no warning. A test suite should never make noise.
+    launchOptions: { args: ['--mute-audio'] },
   },
   projects: [
     {

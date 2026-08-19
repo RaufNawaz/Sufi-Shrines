@@ -73,17 +73,24 @@
               : 'en';
         }
         if (lang === 'ur') {
-          ['/fonts/NotoNastaliqUrdu-400.woff2', '/fonts/NotoNastaliqUrdu-700.woff2'].forEach(
-            function (href) {
-              var link = document.createElement('link');
-              link.rel = 'preload';
-              link.href = href;
-              link.as = 'font';
-              link.type = 'font/woff2';
-              link.crossOrigin = 'anonymous';
-              document.head.appendChild(link);
-            },
-          );
+          // %BASE_URL% is substituted by Vite at build time. A literal
+          // '/fonts/...' here resolves to the domain root and 404s on the
+          // GitHub Pages project deploy, which is served from /Sufi-Shrines/.
+          // Vite rewrites href attributes in this file but not string literals
+          // inside a script, so the static <link> these replaced worked while
+          // the script-injected one silently did not.
+          [
+            '%BASE_URL%fonts/NotoNastaliqUrdu-400.woff2',
+            '%BASE_URL%fonts/NotoNastaliqUrdu-700.woff2',
+          ].forEach(function (href) {
+            var link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = href;
+            link.as = 'font';
+            link.type = 'font/woff2';
+            link.crossOrigin = 'anonymous';
+            document.head.appendChild(link);
+          });
         }
       })();
     </script>

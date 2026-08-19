@@ -218,3 +218,32 @@ tiles. After, CARTO loads and the attribution updates.
 weight went 1,199 KB → 1,489 KB, still 96% below the 41 MB this all started at, and FCP
 measured *faster* (440 ms vs 644 ms) because vector tiles replace dozens of raster requests.
 
+---
+
+## 7. Vite rewrites `href` attributes in index.html, not strings inside `<script>`
+
+Both Nastaliq preloads were 404ing on the production deploy, and nothing showed
+it: the *font itself* loads fine, because the `@font-face` rule lives in CSS
+and Vite rewrites `url()` there (`/Sufi-Shrines/fonts/...`, 200). Only the
+preload hints missed, so Urdu rendered correctly while paying for two failed
+requests and logging two console errors on every page load.
+
+The cause is a rule that is easy to forget: **Vite rewrites `href`/`src`
+attributes in `index.html` against `base`, but not string literals inside an
+inline `<script>`.** The 700-weight preload had been injected from script since
+the A3 work and was broken from the start; moving the 400-weight preload into
+the same script (19 Aug, to gate it on language) broke the one that worked.
+
+Use `%BASE_URL%` in script strings — Vite substitutes it at build time:
+
+```js
+link.href = '%BASE_URL%fonts/NotoNastaliqUrdu-400.woff2';
+```
+
+`e2e/font-preload.spec.ts` now fetches every preloaded URL and asserts 200, so
+a preload that points nowhere fails the suite instead of hiding behind a
+working stylesheet.
+
+**Related trap, same shape:** the e2e build uses `VITE_BASE_PATH=/`, so a
+base-path bug is invisible there. Checking `dist/index.html` after a plain
+`npm run build` is what surfaces it.

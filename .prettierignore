@@ -58,3 +58,5 @@ CLAUDE.md
 # Separate project that happens to sit in this folder — CLAUDE.md RULE 1:
 # "Do not touch anything under Awqaf/". Untracked by git, too.
 Awqaf/
+# Throwaway probe scripts — see .gitignore
+.scratch/
