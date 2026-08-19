@@ -131,19 +131,23 @@ function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
   const [vectorFailed, setVectorFailed] = React.useState(false);
   const onFailure = React.useCallback(() => setVectorFailed(true), []);
 
-  if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} />;
+  // `keyless` matters: if the vector basemap could not load, MapTiler itself
+  // is unusable (bad key, quota, outage), so falling back to MapTiler *raster*
+  // just fails a second time and leaves the reader with a blank map. Go
+  // straight to the keyless provider.
+  if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} keyless />;
   return <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />;
 }
 
 // Manages the raster fallback tile layer and switches it when dark mode changes.
 // Backs off (keeps current layer) once user manually picks from LayersControl.
-function ThemeAwareTileLayer({ isDark }: { isDark: boolean }) {
+function ThemeAwareTileLayer({ isDark, keyless = false }: { isDark: boolean; keyless?: boolean }) {
   const map = useMap();
   const stateRef = useRef<TileState>({
     layer: null,
     userPicked: false,
     url: null,
-    maptilerDead: false,
+    maptilerDead: keyless,
   });
 
   // Build the managed layer, wiring up the MapTiler failure fallback.

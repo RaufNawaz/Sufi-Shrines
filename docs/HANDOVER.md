@@ -701,6 +701,26 @@ kind: both were *silent*, and both had been true for weeks.
 8. **`/graph` had no inbound link from anywhere in the UI** — reachable only by typing the
    URL. The welcome card now links to it and to `/almanac`.
 
+### Added 19 August 2026 — the shrine list was invisible on a laptop
+
+Found while running the e2e suite after the dataset refresh, not by looking for it.
+
+9. **`.shrine-list-panel` collapsed to zero height on any viewport under ~800px.** The three
+   `.filter-section` blocks above it are `flex-shrink: 0`, and their combined height grows with
+   the data — new `site_type`/`status` values add chips. At 169 rows they totalled 534px, which
+   with the header and search bar left the list exactly **0px** at 1280×720. The list was still
+   in the DOM and still announced "169 shrines" to screen readers, so nothing looked broken;
+   there was simply no list. Fixed by giving the panel a `min-height` and letting the filter
+   sections shrink and scroll. **This is the shape of bug to watch for here:** the sidebar's
+   fixed-height regions grow silently with the dataset.
+
+10. **The e2e fixture is generated and drifts.** `e2e/fixtures/shrines.csv` is built from
+    `src/data/shrines-fallback.json` by `node e2e/fixtures/generate-shrines-csv.mjs`, while
+    `SHRINE_COUNT` reads the snapshot directly. Refreshing the dataset 163 → 169 updated one and
+    not the other, and nothing noticed until e2e ran — after the commit and after a deploy.
+    `e2eFixtureSync.test.ts` now fails in `npm run verify` within seconds. Regenerate, never
+    hand-edit.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

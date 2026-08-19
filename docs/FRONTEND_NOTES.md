@@ -189,3 +189,32 @@ implied a localisation that never happened.
 
 **Still true from §6:** raster tiles of a *custom* Map Designer style still 403 on this
 account (re-verified 18 Aug 2026). Do not re-enable `VITE_MAPTILER_CUSTOM_STYLE_RASTER`.
+
+### 6b. Verified 19 August 2026 — what the vector switch actually needed
+
+Rendering it revealed three things the plan did not anticipate.
+
+**maplibre-gl 6.4.1 does not work here; pinned to v5.** On v6 the basemap renders as a blank
+background. Everything looks healthy — style.json, sprite and TileJSON all 200,
+`transformRequest` fires with correct `.pbf` URLs, the worker spawns, the render loop runs and
+`render` events fire — but **not one tile request ever leaves the browser**. Verified over CDP,
+which sees worker traffic that Playwright's page-level listeners miss. Reproduced in dev and in
+a production build, on SwiftShader and on a real M4 GPU via Metal, and with a plain style URL
+and no Leaflet involved at all. v5.24.0 fetches tiles and renders first try. **Do not bump the
+major without re-running that check** — the failure is silent and looks like a config problem.
+
+**Do not pass `attributionControl: false` to the layer.** The plugin already forces it off for
+the inner GL map; setting it in the layer options makes its `getAttribution()` return nothing,
+silently dropping the MapTiler and OpenStreetMap credits. Attribution is passed explicitly as
+`attributionControl: { customAttribution }` — left to the plugin it concatenates every source's
+attribution, and this style has two sources carrying the same credit, so it renders twice.
+
+**The raster fallback must go straight to keyless.** If the vector basemap fails, MapTiler
+itself is unusable, so falling back to MapTiler *raster* fails again and leaves a blank map.
+Measured with a deliberately broken key: before the fix, 8 MapTiler 4xx and **zero** CARTO
+tiles. After, CARTO loads and the attribution updates.
+
+**Cost.** maplibre-gl adds ~285 KB gzip, split into its own `vendor-maplibre` chunk. Page
+weight went 1,199 KB → 1,489 KB, still 96% below the 41 MB this all started at, and FCP
+measured *faster* (440 ms vs 644 ms) because vector tiles replace dozens of raster requests.
+

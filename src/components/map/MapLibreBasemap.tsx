@@ -24,12 +24,34 @@ import type { Lang } from '../../types/shrine';
  * The plugin draws a MapLibre canvas *underneath* the existing Leaflet panes,
  * so every marker, tour route and control keeps working unchanged — this
  * replaces the basemap, not the map.
+ *
+ * ## Two constraints that are easy to undo by accident
+ *
+ * **maplibre-gl is pinned to v5.** On 6.4.1 the basemap renders as a blank
+ * background: the style, sprite and TileJSON all load, `transformRequest`
+ * fires with correct `.pbf` URLs, the worker spawns and the render loop
+ * runs — but not one tile request ever leaves the browser (verified over
+ * CDP, which sees worker traffic that page-level listeners miss). Same
+ * result in dev and in a production build, on SwiftShader and on a real M4
+ * GPU via Metal, and with a plain style URL and no Leaflet involved at all.
+ * v5.24.0 fetches its tiles and renders on the first try. Do not bump the
+ * major without re-running that check.
+ *
+ * **No `attributionControl: false` on the layer options.** The plugin already
+ * forces it off for the inner GL map; setting it here instead makes its
+ * `getAttribution()` return nothing, which silently drops the MapTiler and
+ * OpenStreetMap credits from Leaflet's attribution control. That is a
+ * licensing requirement, not a cosmetic detail.
  */
 
 // The Leaflet plugin reads maplibregl off the global rather than importing it.
 (window as unknown as { maplibregl: typeof maplibregl }).maplibregl = maplibregl;
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
+
+const MAPTILER_ATTRIBUTION =
+  '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noreferrer">&copy; MapTiler</a> ' +
+  '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">&copy; OpenStreetMap contributors</a>';
 
 /** Built-in styles that serve vector tiles on this account. */
 export const MAPTILER_VECTOR_STYLE = {
@@ -85,12 +107,26 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- the plugin augments L at runtime
       const layer = (L as any).maplibreGL({
         style: localized,
-        // Leaflet already renders its own attribution control.
-        attributionControl: false,
+        // Stated once, explicitly. Left to the plugin, it concatenates the
+        // attribution of every source in the style — and this style has two
+        // (maptiler_planet and an attribution-only pseudo-source) carrying
+        // the same credit, so the control renders it twice.
+        attributionControl: { customAttribution: MAPTILER_ATTRIBUTION },
       }) as GlLayer;
 
       layer.addTo(map);
       layerRef.current = layer;
+      // A DEV-only handle on the layer. Diagnosing a blank basemap means
+      // asking the GL map whether its style and source actually loaded, and
+      // there is no other way to reach it from a test harness.
+      if (import.meta.env.DEV) {
+        const w = window as unknown as { __glLayer?: unknown; __glErrors?: string[] };
+        w.__glLayer = layer;
+        w.__glErrors = [];
+        layer.getMaplibreMap()?.on('error', (e: { error?: { message?: string } }) => {
+          w.__glErrors!.push(String(e?.error?.message ?? e));
+        });
+      }
 
       // A style that fetches but cannot render (bad tiles, WebGL refused)
       // must degrade the same way a 403 does.

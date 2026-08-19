@@ -622,11 +622,29 @@
 }
 
 /* Shrine list panel */
+/* The shrine list must always have room to be a list.
+   The filter sections above it are `flex-shrink: 0` and their combined
+   height grows with the data — new site_type/status values add chips. Once
+   they totalled more than the viewport (534px of filters at 169 rows), the
+   list collapsed to *zero height* on any window shorter than ~800px, which
+   is most laptops. It was still in the DOM and still announced its row
+   count, so nothing looked broken; the list was simply not there.
+   `min-height` here, plus shrinkable filter sections below, makes flexbox
+   take the space back from the filters instead of from the content. */
 .shrine-list-panel {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 12rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+}
+
+/* Yield space to the list when the sidebar is short, scrolling internally
+   rather than pushing the list off the bottom. */
+.filter-section {
+  flex-shrink: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .shrine-list-status {

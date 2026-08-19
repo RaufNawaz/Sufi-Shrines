@@ -130,6 +130,9 @@ export default defineConfig(({ command }) => {
             'vendor-react': ['react', 'react-dom', 'react-router-dom'],
             'vendor-leaflet': ['leaflet', 'react-leaflet'],
             'vendor-papa': ['papaparse'],
+            // Split out so the basemap engine caches independently of app
+            // code: it is the largest dependency here and changes rarely.
+            'vendor-maplibre': ['maplibre-gl', '@maplibre/maplibre-gl-leaflet'],
           },
         },
       },
