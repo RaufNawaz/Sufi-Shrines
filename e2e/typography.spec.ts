@@ -1,4 +1,5 @@
 import { test, expect } from './fixtures';
+import type { Page } from '@playwright/test';
 
 /**
  * Layout and type invariants that no unit test can see, guarding the failure
@@ -20,7 +21,7 @@ import { test, expect } from './fixtures';
 
 const px = (value: string) => Number.parseFloat(value);
 
-async function typeScale(page: import('@playwright/test').Page) {
+async function typeScale(page: Page) {
   return page.evaluate(() => {
     const size = (sel: string) => {
       const el = document.querySelector(sel);
