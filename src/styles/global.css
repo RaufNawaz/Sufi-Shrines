@@ -95,18 +95,36 @@ body.lang-rtl,
   --font-sans: var(--font-urdu);
 }
 
-/* Nastaliq sits taller and needs more visual weight than Latin scripts to
-   read as comfortably — bump headings/body via --font-scale-urdu rather
-   than hand-tuning every heading's font-size. */
-[dir='rtl'] h1,
-[dir='rtl'] h2,
-[dir='rtl'] h3,
-[dir='rtl'] h4,
-[dir='rtl'] p,
-[dir='rtl'] li,
-[dir='rtl'] dd,
-[dir='rtl'] dt {
-  font-size: calc(1em * var(--font-scale-urdu));
+/* Nastaliq needs more size than a Latin face to read as comfortably, so the
+   whole type scale is bumped — at the token level, deliberately.
+
+   This previously read:
+
+     [dir='rtl'] h1, h2, h3, h4, p, li, dd, dt {
+       font-size: calc(1em * var(--font-scale-urdu));
+     }
+
+   which did the opposite of what it says. `1em` resolves against the
+   *parent*, not the element, so it did not scale a heading — it replaced the
+   heading's size with the body size. And at (0,1,1) it outranked every
+   single-class rule that set one, so `.shrine-title` lost. Measured on a
+   shrine page: English ran h1 36px / h2 20px / body 16px, while Urdu ran h1
+   18.7px / h2 18.7px / body 17.8px. The Urdu page had no heading hierarchy
+   at all — the title was the same size as the section headings and barely
+   larger than its own body text, which is most of why it read as unfinished
+   beside the English.
+
+   Scaling the tokens instead keeps every component's proportions intact and
+   never competes on specificity with the rules that set a size. */
+[dir='rtl'] {
+  --text-xs: calc(0.75rem * var(--font-scale-urdu));
+  --text-sm: calc(0.875rem * var(--font-scale-urdu));
+  --text-base: calc(1rem * var(--font-scale-urdu));
+  --text-lg: calc(1.125rem * var(--font-scale-urdu));
+  --text-xl: calc(1.25rem * var(--font-scale-urdu));
+  --text-2xl: calc(1.5rem * var(--font-scale-urdu));
+  --text-3xl: calc(1.875rem * var(--font-scale-urdu));
+  --text-4xl: calc(2.25rem * var(--font-scale-urdu));
 }
 
 /* Latin display metrics don't fit Nastaliq: negative tracking breaks the
@@ -118,7 +136,7 @@ body.lang-rtl,
 [dir='rtl'] h3,
 [dir='rtl'] h4 {
   letter-spacing: 0;
-  line-height: var(--leading-urdu);
+  line-height: var(--leading-urdu-heading);
 }
 
 /* Form controls don't inherit font-family by default in most browsers'

@@ -6,6 +6,7 @@ import { anchorSlug, useArticleContent } from './useArticleContent';
 import { localizeHeading } from '../../lib/data/headingLabels';
 import { renderInlineBold } from './inlineFormat';
 import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
+import { localizeProseDigits } from '../../lib/i18n/numerals';
 
 /** Source lines are often hand-authored with their own "- " / "* " marker —
  * strip it so the real <li> bullet doesn't double up with a literal one. */
@@ -24,6 +25,12 @@ function ArticleSection({
   content: string;
   isSources?: boolean;
 }) {
+  const { lang, numerals } = useLang();
+  // Dates inside translated article text were the one place Eastern numerals
+  // never reached, so Urdu prose read "1873–1966" mid-Nastaliq. URLs, DOIs
+  // and ISBNs keep their Western digits — see localizeProseDigits.
+  const localize = (text: string) => localizeProseDigits(text, lang, numerals === 'eastern');
+
   return (
     <section className="article-section" id={id} aria-labelledby={`${id}-heading`}>
       <h2 className="article-section-heading" id={`${id}-heading`}>
@@ -35,7 +42,7 @@ function ArticleSection({
             .split('\n')
             .map((line) => stripLeadingListMarker(line.trim()))
             .filter(Boolean)
-            .map((line, i) => <li key={i}>{renderInlineBold(line)}</li>)}
+            .map((line, i) => <li key={i}>{renderInlineBold(localize(line))}</li>)}
         </ul>
       ) : (
         <div className="article-prose">
@@ -43,7 +50,7 @@ function ArticleSection({
             .split(/\n\n+/)
             .filter(Boolean)
             .map((p, i) => (
-              <p key={i}>{renderInlineBold(p.trim())}</p>
+              <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
             ))}
         </div>
       )}

@@ -450,7 +450,7 @@ export const UI_TEXT = {
     latestCenturyLabel: 'آخری صدی',
     moreFiltersLabel: 'مزید فلٹرز',
     infoLevelFull: 'مکمل طور پر دستاویز شدہ',
-    infoLevelModerate: 'ماخذات سے دستاویز شدہ',
+    infoLevelModerate: 'جزوی طور پر دستاویز شدہ',
     infoLevelLow: 'محدود معلومات',
     infoLevelTooltip:
       'یہ نشان بتاتا ہے کہ ہم نے اس مقام کو اب تک کس حد تک دستاویز کیا ہے۔ اس کا تعلق صرف ہمارے ریکارڈ سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',

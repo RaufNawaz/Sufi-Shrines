@@ -143,8 +143,12 @@
    masthead's metrics directly instead of the Latin serif's. */
 .shrine-title--nastaliq {
   font-family: var(--font-urdu);
-  font-weight: 400;
-  line-height: var(--leading-urdu);
+  /* 700 to match the English title's weight — the archive ships a real
+     NotoNastaliqUrdu-700 face (preloaded for Urdu readers), so this is a
+     drawn bold, not a synthesised one. At 400 the Urdu title carried less
+     weight than the section headings below it. */
+  font-weight: 700;
+  line-height: var(--leading-urdu-heading);
   letter-spacing: normal;
   padding-block-end: 0.12em;
 }
@@ -381,6 +385,15 @@
 
 .infobox-value a:hover {
   text-decoration: underline;
+}
+
+/* Facts are a compact list, not running prose: the body's Nastaliq leading
+   made every row 34px tall against the English 22px, and the panel 837px
+   against 615px for exactly the same content. */
+[dir='rtl'] .infobox-row,
+[dir='rtl'] .infobox-label,
+[dir='rtl'] .infobox-value {
+  line-height: var(--leading-urdu-ui);
 }
 
 /* An untranslated Latin fallback value inside the Nastaliq infobox reads as

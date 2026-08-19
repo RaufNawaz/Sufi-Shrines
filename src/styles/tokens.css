@@ -119,7 +119,14 @@
   /* Typography */
   --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
   --font-serif: 'Merriweather', Georgia, serif;
-  --font-urdu: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif;
+  /* 'Source Sans 3' sits between the two Arabic faces on purpose. Font
+     fallback is per-glyph: Arabic-script characters are found in Nastaliq
+     (first) and never reach it, while Latin characters — an untranslated
+     source note, a URL, a Gregorian month — are absent from Nastaliq and
+     would otherwise be drawn by Noto Naskh Arabic's generic Latin, which
+     looks like nothing else on the site. This routes them to the same face
+     the English view uses. */
+  --font-urdu: 'Noto Nastaliq Urdu', 'Source Sans 3', 'Noto Naskh Arabic', serif;
   --font-mono: 'Courier New', monospace;
 
   --text-xs: 0.75rem;
@@ -136,8 +143,18 @@
   --leading-normal: 1.6;
   --leading-relaxed: 1.75;
   --leading-loose: 2;
+  /* Nastaliq stacks diacritics above and hangs descenders well below the
+     baseline, so running text needs more leading than a Latin face at the
+     same size. Headings do not: at display sizes the glyphs already have the
+     room, and 2.1 leaves a title floating unmoored in white space. Two
+     tokens, because one number cannot serve both. */
   --leading-urdu: 2.1;
-  --font-scale-urdu: 1.06;
+  --leading-urdu-heading: 1.45;
+  /* Compact UI/data rows: infobox facts, chips, badges. Body leading (2.1)
+     is for running prose; applied to a label/value pair it made the Urdu
+     infobox 36% taller than the English one for identical content. */
+  --leading-urdu-ui: 1.7;
+  --font-scale-urdu: 1.11;
 
   /* Spacing */
   --space-1: 0.25rem;
