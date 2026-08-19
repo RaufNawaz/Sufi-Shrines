@@ -5,6 +5,7 @@ import * as maplibregl from 'maplibre-gl';
 import '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { localizeStyle, maptilerStyleUrl, type MapStyle } from '../../lib/map/localizeStyle';
+import { warmDarkStyle } from '../../lib/map/warmDarkStyle';
 import type { Lang } from '../../types/shrine';
 
 /**
@@ -102,7 +103,11 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
       }
       if (cancelled || generation !== generationRef.current) return;
 
-      const localized = localizeStyle(style, lang);
+      // Dark mode is lamp-light, not a cool UI dark; the built-in dark style
+      // is navy and clashes with the warm page ground. See warmDarkStyle.
+      const localized = isDark
+        ? warmDarkStyle(localizeStyle(style, lang))
+        : localizeStyle(style, lang);
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- the plugin augments L at runtime
       const layer = (L as any).maplibreGL({

@@ -230,12 +230,17 @@
   --color-primary: var(--color-kashi-cobalt);
   --color-primary-dark: #6d8fd8;
   --color-primary-light: #a8c0f0;
-  --color-primary-pale: #1e2436;
-  --color-primary-bg: #1a1f2e;
+  /* Tinted *surfaces* stay in the warm family even though the chrome they
+     are named after is cobalt. In lamp-light these read as a lit wall, not
+     as a blue panel — a navy card sitting on the warm sidebar and beside the
+     warmed basemap was the one thing still announcing "generic UI dark".
+     The cobalt itself stays cobalt for links, borders and focus rings. */
+  --color-primary-pale: #26201a;
+  --color-primary-bg: #221b15;
 
   --color-secondary: var(--color-kashi-firozi);
   --color-secondary-dark: #35a9a3;
-  --color-secondary-pale: #14282a;
+  --color-secondary-pale: #23201a;
 
   --color-accent: #e8a82a;
   --color-accent-light: #f5d78e;

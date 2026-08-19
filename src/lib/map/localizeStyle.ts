@@ -48,11 +48,14 @@ export function labelExpression(lang: Lang): unknown[] {
   return ['coalesce', ...LABEL_PREFERENCE[lang].map((field) => ['get', field])];
 }
 
-/** Minimal shape of the bits of a style spec this module touches. */
-interface StyleLayer {
+/** Minimal shape of the bits of a style spec this module and warmDarkStyle
+ *  touch. Deliberately loose: the full MapLibre style spec is enormous and
+ *  neither module needs to know all of it. */
+export interface StyleLayer {
   id: string;
   type?: string;
   layout?: Record<string, unknown>;
+  paint?: Record<string, unknown>;
 }
 export interface MapStyle {
   layers?: StyleLayer[];
