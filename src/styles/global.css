@@ -81,7 +81,9 @@ body.lang-rtl,
   line-height: var(--leading-urdu);
   font-size: 1.05rem;
   letter-spacing: normal;
-  word-spacing: 0.05em;
+  /* No word-spacing bump: Nastaliq's connected words already carry their own
+     rhythm, and extra space between them reads as sprawl, not clarity. */
+  word-spacing: normal;
 }
 
 /* The Urdu view is native, not a translated skin: remap the Latin display

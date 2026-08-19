@@ -8,7 +8,6 @@ import {
   STRUCTURED_FACET_KEYS,
 } from '../../lib/data/constants';
 import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fieldAliasing';
-import { categoryKey, categoryDisplayLabel } from '../../lib/data/categoryKey';
 import { localizeFieldName } from '../../lib/data/fieldLabels';
 import { yearPrecisionKey, YEAR_PRECISION_LABEL_KEYS } from '../../lib/data/yearPrecision';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
@@ -30,10 +29,6 @@ interface Props {
 
 export function ShrineInfobox({ shrine }: Props) {
   const { t, lang, localizeField, fmtNum } = useLang();
-  const catKey = categoryKey(shrine.category);
-  const categoryLabel =
-    categoryDisplayLabel(shrine.category, lang) ??
-    (localizeField(shrine.raw, 'Category') || shrine.category);
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {
@@ -100,11 +95,9 @@ export function ShrineInfobox({ shrine }: Props) {
 
   return (
     <aside className="shrine-infobox" aria-label={t('shrineFacts')}>
-      {categoryLabel && (
-        <div className={`infobox-category-badge infobox-category-badge--${catKey}`}>
-          {categoryLabel}
-        </div>
-      )}
+      {/* No category band here: the kicker above the masthead and the
+          breadcrumb already name the category — a third, tinted repetition
+          was the loudest element in the panel. */}
       <h2 className="infobox-title">{t('shrineFacts')}</h2>
       <dl className="infobox-list">
         {rows.map(([key, value]) => {

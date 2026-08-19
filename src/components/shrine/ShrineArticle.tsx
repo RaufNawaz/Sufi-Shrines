@@ -65,8 +65,12 @@ interface Props {
 }
 
 export function ShrineArticle({ shrine }: Props) {
-  const { lang } = useLang();
+  const { lang, numerals } = useLang();
   const { leadText, inlineSections, uniqueColumnSections, rawFallback } = useArticleContent(shrine);
+  // The lead and the raw-Description fallback bypass ArticleSection, so they
+  // were the two remaining prose paths where Urdu still showed Western
+  // digits (rule 5: fmtNum/localized digits at every number render site).
+  const localize = (text: string) => localizeProseDigits(text, lang, numerals === 'eastern');
 
   return (
     <div>
@@ -81,7 +85,7 @@ export function ShrineArticle({ shrine }: Props) {
               .split(/\n\n+/)
               .filter(Boolean)
               .map((p, i) => (
-                <p key={i}>{renderInlineBold(p.trim())}</p>
+                <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
               ))}
           </div>
         </section>
@@ -117,7 +121,7 @@ export function ShrineArticle({ shrine }: Props) {
               .split(/\n\n+/)
               .filter(Boolean)
               .map((p, i) => (
-                <p key={i}>{renderInlineBold(p.trim())}</p>
+                <p key={i}>{renderInlineBold(localize(p.trim()))}</p>
               ))}
           </div>
         </section>

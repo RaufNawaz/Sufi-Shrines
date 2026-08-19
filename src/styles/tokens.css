@@ -145,10 +145,13 @@
   --leading-loose: 2;
   /* Nastaliq stacks diacritics above and hangs descenders well below the
      baseline, so running text needs more leading than a Latin face at the
-     same size. Headings do not: at display sizes the glyphs already have the
-     room, and 2.1 leaves a title floating unmoored in white space. Two
-     tokens, because one number cannot serve both. */
-  --leading-urdu: 2.1;
+     same size — but not much more. 2.1 read as a sprawling diary rather
+     than set prose (Urdu print sets Nastaliq dense); 1.9 keeps the diacritic
+     room while giving paragraphs real texture. Headings need even less: at
+     display sizes the glyphs already have the room, and loose leading leaves
+     a title floating unmoored in white space. Two tokens, because one number
+     cannot serve both. */
+  --leading-urdu: 1.9;
   --leading-urdu-heading: 1.45;
   /* Compact UI/data rows: infobox facts, chips, badges. Body leading (2.1)
      is for running prose; applied to a label/value pair it made the Urdu

@@ -39,7 +39,7 @@
   overflow: hidden;
   margin-bottom: var(--space-8);
   background: var(--color-bg-alt);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .shrine-hero-img {
@@ -113,6 +113,15 @@
   letter-spacing: -0.025em;
   color: var(--color-text);
   margin: 0 0 var(--space-4);
+}
+
+/* The page focuses this h1 after route changes so screen readers announce
+   the new page — a visible ring on a non-interactive heading reads as a
+   text input, not as calligraphy. The heading is tabindex="-1", so no
+   keyboard-reachable affordance is lost. */
+.shrine-title:focus,
+.shrine-title:focus-visible {
+  outline: none;
 }
 
 /* ── Bilingual masthead ──────────────────────────────────────────────────
@@ -219,22 +228,23 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-surface);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: all var(--duration-fast);
+  transition:
+    color var(--duration-fast),
+    background var(--duration-fast);
 }
 
 .action-btn:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-bg);
+  color: var(--color-text);
+  background: var(--color-bg-alt);
 }
 
 /* Article layout: hero + contents rail + prose + infobox side by side on
@@ -319,34 +329,28 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-surface);
-  box-shadow: var(--shadow-md);
   height: fit-content;
   position: sticky;
   top: calc(var(--header-height) + var(--space-4));
 }
 
 .infobox-title {
-  font-family: var(--font-serif);
-  font-size: var(--text-base);
+  font-size: var(--text-xs);
   font-weight: 700;
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-border);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-3) var(--space-4) var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
   margin: 0;
-  color: var(--color-text);
-  position: relative;
+  color: var(--color-text-muted);
 }
 
-.infobox-title::before {
-  content: '';
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
-  border-start-end-radius: 2px;
-  border-end-end-radius: 2px;
+/* Latin tracking/case are inert or harmful on Nastaliq; give the label a
+   step more size than the Latin version, which reads fine at 12px where
+   Nastaliq does not. */
+[dir='rtl'] .infobox-title {
+  font-size: var(--text-sm);
+  letter-spacing: normal;
 }
 
 .infobox-row {
@@ -364,9 +368,14 @@
 }
 
 .infobox-label {
+  font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   text-align: start;
+}
+
+[dir='rtl'] .infobox-label {
+  font-size: var(--text-sm);
 }
 
 .infobox-value {
@@ -408,7 +417,7 @@
    second list below the generic facts, so a long note never gets pushed out
    by MAX_INFOBOX_ROWS truncation. */
 .infobox-dates {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-light);
 }
 
 /* The source's own explanatory note for a contradictory/uncertain date —
@@ -427,23 +436,31 @@
   font-style: normal;
 }
 
-/* Contents nav — top-of-article card on tablets, sticky left rail on wide screens */
+/* An untranslated Latin note woven into the same line as the Urdu label
+   produces a bidi zigzag; on its own line both scripts read straight. */
+[dir='rtl'] .infobox-note bdi {
+  display: block;
+  margin-block-start: 2px;
+}
+
+/* Contents nav — quiet rail beside the article, not a boxed widget: the
+   text and its one active hairline are the whole component. */
 .contents-nav {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  background: var(--color-bg-surface);
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-2) 0;
 }
 
 .contents-nav-title {
   font-weight: 700;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   margin: 0 0 var(--space-3);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: var(--text-xs);
+}
+
+[dir='rtl'] .contents-nav-title {
+  font-size: var(--text-sm);
+  letter-spacing: normal;
 }
 
 .contents-nav-list {
@@ -457,24 +474,23 @@
 
 .contents-nav-item a {
   display: block;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: all var(--duration-fast);
+  transition:
+    color var(--duration-fast),
+    border-color var(--duration-fast);
   border-inline-start: 2px solid transparent;
 }
 
 .contents-nav-item a:hover {
-  color: var(--color-primary);
-  background: var(--color-primary-bg);
+  color: var(--color-text);
 }
 
 .contents-nav-item a.active {
   color: var(--color-primary);
   border-inline-start-color: var(--color-primary);
-  background: var(--color-primary-pale);
 }
 
 /* Article sections */
@@ -489,7 +505,7 @@
   color: var(--color-text);
   margin: 0 0 var(--space-4);
   padding-bottom: var(--space-3);
-  border-bottom: 2px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
   letter-spacing: -0.015em;
 }
 
@@ -1032,6 +1048,14 @@
   line-height: var(--leading-loose);
 }
 
+/* Nastaliq's thin strokes need full ink at reading sizes — the Latin lead's
+   muted grey reads washed-out in Urdu — and the loose Latin lead leading
+   compounds Nastaliq's own tall line box into sprawl. */
+[dir='rtl'] .article-lead .article-prose {
+  color: var(--color-text);
+  line-height: var(--leading-urdu);
+}
+
 /* Share toast */
 .share-toast {
   position: fixed;
@@ -1082,56 +1106,6 @@
   left: 50%;
 }
 
-/* Infobox category badge */
-.infobox-category-badge {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--color-border-light);
-  background: var(--color-primary-pale);
-  color: var(--color-primary);
-  text-align: start;
-}
-
-/* Renders the (translated) category label — a plain div, so it gets none of
-   the global h1-h4 remap's letter-spacing reset. text-transform is inert on
-   Arabic script either way. */
-[dir='rtl'] .infobox-category-badge {
-  letter-spacing: normal;
-}
-
-.infobox-category-badge--muslim {
-  background: var(--color-cat-muslim-pale);
-  color: var(--color-cat-muslim);
-}
-
-.infobox-category-badge--hindu {
-  background: var(--color-cat-hindu-pale);
-  color: var(--color-cat-hindu);
-}
-
-.infobox-category-badge--sikh {
-  background: var(--color-cat-sikh-pale);
-  color: var(--color-cat-sikh);
-}
-
-.infobox-category-badge--nanakpanthi {
-  background: var(--color-cat-nanakpanthi-pale);
-  color: var(--color-cat-nanakpanthi);
-}
-
-.infobox-category-badge--jain {
-  background: var(--color-cat-jain-pale);
-  color: var(--color-cat-jain);
-}
-
-.infobox-category-badge--secular {
-  background: var(--color-cat-secular-pale);
-  color: var(--color-cat-secular);
-}
-
 /* Infobox Get Directions action */
 .infobox-actions {
   padding: var(--space-3) var(--space-4);
@@ -1139,26 +1113,26 @@
 }
 
 .infobox-action-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
+  width: 100%;
+  min-height: 36px;
   padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-primary);
-  background: var(--color-primary-pale);
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
   color: var(--color-primary);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none;
-  transition:
-    background var(--duration-fast),
-    color var(--duration-fast);
+  transition: background var(--duration-fast);
   white-space: nowrap;
 }
 
 .infobox-action-btn:hover {
-  background: var(--color-primary);
-  color: white;
+  background: var(--color-primary-pale);
 }
 
 /* ── 404 page ──────────────────────────────────────────────────────────────── */

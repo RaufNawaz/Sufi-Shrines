@@ -247,3 +247,59 @@ working stylesheet.
 **Related trap, same shape:** the e2e build uses `VITE_BASE_PATH=/`, so a
 base-path bug is invisible there. Checking `dist/index.html` after a plain
 `npm run build` is what surfaces it.
+
+## 8. The Urdu reading surface — type metrics and de-carded chrome (19 August 2026)
+
+A full aesthetic pass on the Urdu view ("clean, professional, minimalist,
+flows like part of the OS" was the brief). The direction: Urdu print sets
+Nastaliq dense on unadorned paper — ornament lives in the script, not in
+boxes — so the work was removing the widget layer, not adding a theme.
+
+**Type metrics (`tokens.css`, `global.css`):**
+
+- `--leading-urdu` is **1.9**, down from 2.1. Noto Nastaliq's own line box is
+  already tall (its `normal` computes ≈ 2.5); stacking 2.1 on top of that
+  read as a sprawling diary rather than set prose. 1.9 still clears the
+  diacritic stacks in running text. Headings keep `--leading-urdu-heading`
+  (1.45) and data rows keep `--leading-urdu-ui` (1.7) — three tokens, three
+  jobs.
+- The RTL `word-spacing: 0.05em` bump is gone. Nastaliq words carry their own
+  rhythm; extra word gaps read as sprawl.
+- The Urdu **lead paragraph** now uses full ink (`--color-text`) and body
+  leading. The Latin lead's muted-grey/loose treatment washed out Nastaliq's
+  thin strokes at large sizes.
+
+**Digits:** the lead and the raw-Description fallback in `ShrineArticle.tsx`
+bypassed `localizeProseDigits`, so Urdu leads showed Western digits
+("993 ہجری (تقریباً 1585 عیسوی)") while section prose was already Eastern.
+Both paths now localize. If a new prose path is ever added to the article, it
+must call `localize()` — the pattern is at the top of `ShrineArticle`.
+
+**Chrome (`shrine.css`):**
+
+- The h1 gets `outline: none` on focus: the router focuses it after
+  navigation for screen readers, and the visible ring made the Nastaliq
+  masthead look like a text input (it's `tabindex="-1"`, nothing keyboard-
+  reachable is lost).
+- Contents nav is a quiet rail, not a card — no border/shadow/fill; the
+  active item is cobalt text plus a 2px inline-start hairline.
+- Infobox is a hairline fact sheet — no shadow, no gradient accent bar, no
+  tinted category band. The category band was the *third* rendering of the
+  category above the fold (breadcrumb, kicker, band), so it was removed
+  outright (`ShrineInfobox.tsx`); the e2e check on `.infobox-category-badge`
+  is conditional, so it passes vacuously. Labels are now xs/muted in English;
+  in Urdu they stay `--text-sm` because Nastaliq is unreadable at 12px —
+  the same reason `[dir='rtl'] .infobox-title` and `.contents-nav-title`
+  get a size step up over their Latin versions.
+- An untranslated Latin source note in the RTL infobox renders on its own
+  block line (`[dir='rtl'] .infobox-note bdi { display: block }`) — inline it
+  interleaved with the Urdu "نوٹ:" label into a bidi zigzag.
+- Buttons are quiet: Share is a borderless toolbar button, Get Directions is
+  a full-width cobalt text button. Cobalt is reserved for interactive states.
+
+**Guardrails that constrained this work** (all still green, checked against
+the dev server): `e2e/typography.spec.ts` ratios (h1/body > 1.8 both
+languages, |en−ur| scale shape < 0.3, Urdu infobox < 1.3× English — measured
+2.25 / 2.25 / 0.00 / 1.20 after the change) and
+`e2e/nastaliq-metrics.spec.ts` (kicker must exist and have zero tracking —
+this is why the kicker survived the de-duplication instead of the band).
