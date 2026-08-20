@@ -8,6 +8,36 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (seventh: navigating the almanac, and a scroll nobody had guarded)
+
+**The Urs Almanac listed thirteen month sections with no way to jump between them** — reaching
+next spring meant scrolling past four hundred entries. There is a pill row now, one per month
+with its entry count. Anchor links rather than a scripted scroller: they work without
+JavaScript, they are focusable and announced as links, and the motion comes free from
+`scroll-behavior` — which the browser suppresses natively for a reader who has asked it to.
+
+Building it exposed an ambiguity worth keeping in mind for any twelve-month window: **its first
+and last group share a month name.** Two pills both read "August". The year is shown only on
+the names that actually repeat, so it disambiguates without cluttering the other eleven.
+
+**And it found a real accessibility gap nobody had guarded.** `scroll-behavior: smooth` was set
+globally on `<html>` and never switched off under `prefers-reduced-motion: reduce`. Scroll
+animation is the *most* likely kind to trigger vestibular symptoms — a whole viewport of content
+sliding past, not one small element fading — and every anchor jump on the site did it: the
+article contents nav, every skip link, and now the almanac's month row. It is `auto` under
+reduce, and `motion.test.ts` grew a case for it, because the `@keyframes` check structurally
+cannot see this: there is no keyframe involved.
+
+**The sidebar preview now acknowledges a selection.** Clicking a second marker used to swap the
+card's content in place with no sign anything had happened. It carries the shared entrance
+animation, keyed on the shrine id — without the `key` React reuses the DOM node, so the CSS
+animation runs once for the first shrine and never again.
+
+Both new guards were confirmed to fail before being trusted: the scroll one by deleting the
+`scroll-behavior: auto` escape and watching the test name the file.
+
+---
+
 ## 0. Session log — 20 August 2026 (sixth: finding a figure among 136)
 
 **The explorer listed 136 figures under seven headings with no way to find one.** There is a

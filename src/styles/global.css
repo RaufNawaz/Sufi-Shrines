@@ -330,4 +330,13 @@ body.lang-rtl,
   .page-enter {
     animation: none;
   }
+
+  /* Smooth scrolling is motion too, and the kind most likely to trigger
+     vestibular symptoms — a whole viewport of content sliding past. It was
+     switched on globally and never switched off here. Anchor jumps (the
+     almanac's month nav, the shrine article's contents nav, every skip link)
+     now land instantly for a reader who asked for that. */
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -152,6 +152,29 @@ describe('motion accessibility', () => {
     expect(bad, 'reduced motion should disable an animation, not re-time it').toEqual([]);
   });
 
+  it('smooth scrolling is switched off under reduced motion', () => {
+    /*
+     * Scroll animation is motion too, and the kind most likely to trigger
+     * vestibular symptoms — a whole viewport of content sliding past rather
+     * than one small element fading in. `scroll-behavior: smooth` was set
+     * globally on <html> and never switched off, so every anchor jump (the
+     * almanac's month nav, the article contents nav, every skip link) animated
+     * for a reader who had asked for no animation. The keyframes check above
+     * cannot see this: there is no `@keyframes` involved.
+     */
+    const declaring = SHEETS.filter(({ css }) => /scroll-behavior\s*:\s*smooth/.test(strip(css)));
+    expect(declaring.length, 'nothing declares smooth scrolling any more').toBeGreaterThan(0);
+
+    for (const { file, css } of declaring) {
+      const reduced = reduceBlocks(strip(css));
+      expect(
+        /scroll-behavior\s*:\s*auto/.test(reduced),
+        `${file} turns on smooth scrolling but never turns it off under ` +
+          'prefers-reduced-motion: reduce',
+      ).toBe(true);
+    }
+  });
+
   it('the motion layer defines the stagger contract it documents', () => {
     const motion = SHEETS.find((s) => s.file === 'motion.css');
     expect(motion, 'src/styles/motion.css is missing').toBeDefined();

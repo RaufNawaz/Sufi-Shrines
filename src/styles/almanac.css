@@ -376,3 +376,94 @@
 [dir='rtl'] .almanac-contribute {
   line-height: var(--leading-urdu);
 }
+
+/* ── Month jump navigation ───────────────────────────────────────────────── */
+
+/* Twelve month sections is a long scroll to reach next spring. Anchor links, so
+   they work without JavaScript and are announced as links; the motion comes
+   from `scroll-behavior: smooth` on <html>, which the browser suppresses
+   natively under prefers-reduced-motion. */
+.almanac-month-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  margin-block: var(--space-3) var(--space-5);
+  padding-block-end: var(--space-3);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.almanac-month-nav-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.almanac-month-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.almanac-month-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  /* 44px tall including padding — a real touch target, not a text link. */
+  min-height: 44px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing);
+}
+
+.almanac-month-nav-list a:hover,
+.almanac-month-nav-list a:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.almanac-month-nav-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* So a jumped-to month heading is not tucked under the page header. */
+.almanac-month {
+  scroll-margin-block-start: var(--space-5);
+}
+
+[dir='rtl'] .almanac-month-nav-label,
+[dir='rtl'] .almanac-month-nav-list a,
+[dir='rtl'] .almanac-month-nav-count {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .almanac-month-nav-label {
+  letter-spacing: normal;
+}
+
+/* Shown only on month names that repeat across the window (its first and last
+   group share a name), so the year appears where it disambiguates and nowhere
+   else. */
+.almanac-month-nav-year {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .almanac-month-nav-year {
+  font-family: var(--font-urdu);
+}

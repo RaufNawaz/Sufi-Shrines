@@ -149,6 +149,14 @@ export default function AlmanacPage() {
   const months = useMemo(() => groupByMonth(almanac.dated), [almanac.dated]);
   const upcoming = almanac.dated.slice(0, UPCOMING_COUNT);
 
+  /* Month numbers appearing more than once across the window — the twelve-month
+     span wraps, so its first and last group share a name. */
+  const repeatedMonthNames = useMemo(() => {
+    const counts = new Map<number, number>();
+    for (const group of months) counts.set(group.month, (counts.get(group.month) ?? 0) + 1);
+    return new Set([...counts].filter(([, n]) => n > 1).map(([month]) => month));
+  }, [months]);
+
   const downloadIcs = () => {
     const ics = buildIcs(almanac.dated, {
       baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
@@ -286,11 +294,46 @@ export default function AlmanacPage() {
               </div>
               <p className="almanac-hint">{t('almanacDownloadIcsHint')}</p>
 
+              {/* Twelve month sections is a long scroll to reach next spring.
+                  Anchor links rather than a scripted scroller: they work
+                  without JavaScript, they are focusable and announced as links,
+                  and `scroll-behavior: smooth` on the container gives the
+                  motion — which `prefers-reduced-motion` then removes for free,
+                  because the browser honours it for scrolling natively. */}
+              {months.length > 1 && (
+                <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
+                  <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
+                  <ul className="almanac-month-nav-list">
+                    {months.map((group) => (
+                      <li key={`nav-${group.year}-${group.month}`}>
+                        <a href={`#almanac-${group.year}-${group.month}`}>
+                          {gregorianMonthName(group.month, lang)}
+                          {/* A twelve-month window starts and ends in the same
+                              month, so two pills read "August" — the year is
+                              what tells them apart, and is shown only on the
+                              names that actually repeat. */}
+                          {repeatedMonthNames.has(group.month) && (
+                            <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
+                          )}
+                          <span className="almanac-month-nav-count">
+                            {fmtNum(group.entries.length)}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+
               {months.length === 0 ? (
                 <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
               ) : (
                 months.map((group) => (
-                  <div key={`${group.year}-${group.month}`} className="almanac-month">
+                  <div
+                    key={`${group.year}-${group.month}`}
+                    id={`almanac-${group.year}-${group.month}`}
+                    className="almanac-month"
+                  >
                     <h3 className="almanac-month-heading">
                       {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
                     </h3>

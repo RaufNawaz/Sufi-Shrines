@@ -66,7 +66,7 @@ export function ShrinePreview({
   }, [copy]);
 
   return (
-    <div className="preview-card">
+    <div className="preview-card reveal-rise">
       {shrine.imageUrl ? (
         <img
           src={thumbnailUrl(shrine.imageUrl, IMAGE_WIDTH.preview)}

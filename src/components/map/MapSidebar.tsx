@@ -708,7 +708,13 @@ export function MapSidebar({
               onExit={onTourExit}
             />
           ) : selectedShrine ? (
+            /* `key` on the shrine id remounts the card when the selection
+               changes. Without it React reuses the same DOM node, a CSS
+               entrance animation runs once for the first shrine and never
+               again, and every subsequent selection swaps content in place with
+               no acknowledgement that anything happened. */
             <ShrinePreview
+              key={selectedShrine.id}
               shrine={selectedShrine}
               lang={lang}
               localizeField={localizeField}
