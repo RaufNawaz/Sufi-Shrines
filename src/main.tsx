@@ -5,6 +5,7 @@ import App from './App';
 import 'leaflet/dist/leaflet.css';
 import './styles/tokens.css';
 import './styles/global.css';
+import './styles/motion.css';
 import './styles/map.css';
 import './styles/tours.css';
 // Shared primitives load after map/tours and before shrine.css — see components.css header.

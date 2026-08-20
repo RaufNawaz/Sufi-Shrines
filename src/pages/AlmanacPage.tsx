@@ -29,7 +29,16 @@ const SEASON_KEYS = {
 /** How many entries the "Coming up" rail shows before the month listing. */
 const UPCOMING_COUNT = 5;
 
-function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
+function ObservanceCard({
+  entry,
+  lang,
+  index = 0,
+}: {
+  entry: AlmanacEntry;
+  lang: Lang;
+  /** Position in its list, for the entrance stagger. */
+  index?: number;
+}) {
   const { t, fmtNum, localizeField } = useLang();
   const { shrine, observance, window, approximate } = entry;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
@@ -44,7 +53,10 @@ function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
   const figureSlug = primaryFigureSlug(shrine.slug);
 
   return (
-    <li className="almanac-entry">
+    <li
+      className="almanac-entry reveal-rise"
+      style={{ '--stagger-index': index } as React.CSSProperties}
+    >
       <div className="almanac-entry-date">
         <span className="almanac-entry-date-main">
           {formatDateWindow(window, lang, fmtNum, { monthOnly })}
@@ -250,7 +262,12 @@ export default function AlmanacPage() {
                 </h2>
                 <ul className="almanac-list almanac-list--upcoming">
                   {upcoming.map((entry, i) => (
-                    <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} />
+                    <ObservanceCard
+                      key={`${entry.shrine.slug}-${i}`}
+                      entry={entry}
+                      lang={lang}
+                      index={i}
+                    />
                   ))}
                 </ul>
               </section>
@@ -283,6 +300,7 @@ export default function AlmanacPage() {
                           key={`${entry.shrine.slug}-${i}`}
                           entry={entry}
                           lang={lang}
+                          index={i}
                         />
                       ))}
                     </ul>

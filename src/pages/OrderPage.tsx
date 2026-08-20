@@ -222,8 +222,12 @@ export default function OrderPage() {
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('orderMembers')}</h2>
                 <ul className="entity-saint-list">
-                  {members.map(({ saint, membership, alsoIn }) => (
-                    <li key={saint.slug} className="entity-saint-item">
+                  {members.map(({ saint, membership, alsoIn }, i) => (
+                    <li
+                      key={saint.slug}
+                      className="entity-saint-item reveal-rise"
+                      style={{ '--stagger-index': i } as React.CSSProperties}
+                    >
                       <div className="entity-saint-item-name">
                         {/* fmtNum because a few recorded names carry a
                             lifespan in parentheses — Eastern numerals reach

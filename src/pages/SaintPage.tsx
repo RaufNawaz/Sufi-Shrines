@@ -61,7 +61,37 @@ export default function SaintPage() {
     href: `/saint/${saint.slug}`,
   };
 
+  /*
+   * The figure's whole recorded neighbourhood, not just half of it.
+   *
+   * This diagram used to plot the order and the shrines and stop there, while
+   * the page below it listed teachers and disciples the graph knew about the
+   * whole time — so the one picture of a figure's place in a silsila left out
+   * the silsila. Teachers and disciples are the lineage; they belong on the
+   * ring. Ordered teachers → order → disciples → shrines so the edges trace
+   * outward in something like the order a reader would follow them.
+   */
+  /* One person is one node. `getTeachersOf` returns a link per *relation*, so a
+     figure recorded as both `disciple_of` and `successor_of` the same master
+     came back twice and the ring drew them at two positions with two labels.
+     The relation list below keeps both — two recorded relations are two facts —
+     but the diagram plots people, so it dedupes by slug. */
+  const uniqueBySlug = (links: typeof teachers) => {
+    const seen = new Set<string>();
+    return links.filter((link) => {
+      if (seen.has(link.saint.slug)) return false;
+      seen.add(link.saint.slug);
+      return true;
+    });
+  };
+
   const networkConnected: GraphNode[] = [
+    ...uniqueBySlug(teachers).map((link) => ({
+      id: `teacher:${link.saint.slug}`,
+      label: localizeFigureName(link.saint, lang),
+      type: 'teacher' as const,
+      href: `/saint/${link.saint.slug}`,
+    })),
     ...(order
       ? [
           {
@@ -72,12 +102,29 @@ export default function SaintPage() {
           },
         ]
       : []),
+    ...uniqueBySlug(disciples).map((link) => ({
+      id: `disciple:${link.saint.slug}`,
+      label: localizeFigureName(link.saint, lang),
+      type: 'disciple' as const,
+      href: `/saint/${link.saint.slug}`,
+    })),
     ...saint.shrines.map((s) => ({
       id: s,
       label: shrineLabel(s),
       type: 'shrine' as const,
       href: `/shrine/${s}`,
     })),
+  ];
+
+  /* Only the kinds actually on the ring — a legend row for something absent
+     is noise, and with one kind the colours need no explaining. */
+  const networkLegend = [
+    ...(teachers.length > 0 ? [{ type: 'teacher' as const, label: t('teachersHeading') }] : []),
+    ...(order ? [{ type: 'order' as const, label: t('sufiOrder') }] : []),
+    ...(disciples.length > 0 ? [{ type: 'disciple' as const, label: t('disciplesHeading') }] : []),
+    ...(saint.shrines.length > 0
+      ? [{ type: 'shrine' as const, label: t('shrinesAssociated') }]
+      : []),
   ];
 
   // fmtNum because a recorded name can carry a lifespan in parentheses —
@@ -303,7 +350,11 @@ export default function SaintPage() {
             {networkConnected.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('networkConnections')}</h2>
-                <NetworkGraph center={networkCenter} connected={networkConnected} />
+                <NetworkGraph
+                  center={networkCenter}
+                  connected={networkConnected}
+                  legend={networkLegend}
+                />
               </section>
             )}
           </div>

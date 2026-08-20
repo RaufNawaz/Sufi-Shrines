@@ -1036,6 +1036,49 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     of total JS once combined with §9.27. Slugs only, deliberately: add a name field and it
     stops being cheaper than the graph.
 
+32. **`text-anchor` is logical, not physical — and that broke every Urdu label on the network
+    graph.** Under `direction: rtl`, `text-anchor: start` means the *right* edge.
+    `labelPlacement` in `NetworkGraph.tsx` reasons physically — "this label sits left of its
+    node, so it must extend leftwards" — so in the Urdu view every Arabic-script label extended
+    back across its own node and printed on top of it: the order's name rendered inside the
+    order's square. Labels now carry an explicit `direction` and the anchor is flipped for
+    Arabic script. Latin names get `direction="ltr"` for the same reason in reverse: a truncated
+    Latin label inside the RTL page rendered its ellipsis on the *left*, reading as though the
+    beginning of the name had been cut off.
+
+    Worth generalising: **SVG has no `<bdi>`.** Every bidi trick this codebase relies on in HTML
+    is unavailable inside `<svg>`, so mixed-script SVG text needs `direction` set explicitly and
+    any logical property re-derived by hand.
+
+33. **The lineage graph left out the lineage, and filling it exposed three faults sparsity had
+    hidden.** `/saint/<slug>`'s diagram plotted the order and the shrines while the page below
+    it listed teachers and disciples the graph had all along. With them on the ring:
+    a figure recorded as both `disciple_of` and `successor_of` the same master drew as **two
+    people** (`getTeachersOf` returns one link per relation — correct for a relation list,
+    wrong for an ego network, so the diagram dedupes by slug); the legend claimed to
+    distinguish teachers from the order while both rendered as filled `--color-primary` (the
+    order is a rounded square now — an institution, not a person, and shape survives
+    greyscale, colour-blindness and print); and `LABEL_GUTTER` at 132px clipped the first
+    letter off a full-length 9-o'clock label. Same lesson as §9.26, restated: **a layout that
+    works on sparse data is untested, not correct.**
+
+34. **The reduced-motion contract is now measured, and writing the check taught more than the
+    check does.** `src/styles/motion.css` consolidates what were five one-off `@keyframes`
+    across four stylesheets. Two guards enforce it: `src/styles/__tests__/motion.test.ts`
+    (static — every `@keyframes` must have an escape) and `e2e/motion.spec.ts` (dynamic —
+    `document.getAnimations()` must be **empty** under `prefers-reduced-motion: reduce`;
+    measured 5 animations by default, 0 reduced).
+
+    The first draft of the static check flagged three existing animations, and **all three were
+    the check's fault, not the code's** — precisely the situation CLAUDE.md RULE 4 warns about
+    ("do not edit content to satisfy a failing check"). The three legitimate escapes are now
+    named in the test: timed by a `--duration-*` token (tokens.css zeroes them under reduce),
+    declared inside `@media (prefers-reduced-motion: no-preference)` (the strongest form — it
+    cannot be un-done by a later override), or explicitly exempt because the motion carries the
+    information. There is exactly one exemption — a loading spinner, which frozen mid-turn reads
+    as a hung page — and the test asserts that list stays at most one entry long, because a
+    growing pile of "this one is special" is how an accessibility contract rots.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

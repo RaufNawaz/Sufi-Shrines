@@ -223,8 +223,12 @@ export default function GraphPage() {
                 <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
               </h3>
               <ul className="graph-saints-list">
-                {figures.map((saint) => (
-                  <li key={saint.slug}>
+                {figures.map((saint, i) => (
+                  <li
+                    key={saint.slug}
+                    className="reveal-rise"
+                    style={{ '--stagger-index': i } as React.CSSProperties}
+                  >
                     <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
                       {fmtNum(localizeFigureName(saint, lang))}
                     </Link>

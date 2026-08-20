@@ -1,0 +1,121 @@
+/*
+ * Motion layer — shared entrance animations.
+ *
+ * Why a layer rather than per-component keyframes: before this file there were
+ * five one-off `@keyframes` scattered across four stylesheets, each with its own
+ * timing and its own (or missing) reduced-motion handling. A shared vocabulary
+ * keeps the site's motion coherent and, more importantly, keeps the
+ * accessibility contract in one auditable place.
+ *
+ * The contract, which `src/styles/__tests__/motion.test.ts` enforces:
+ * every `@keyframes` name declared here must be switched off under
+ * `prefers-reduced-motion: reduce`. Zeroing `--duration-*` in tokens.css is not
+ * enough on its own — an animation with a hardcoded duration, or one whose
+ * transform is the point rather than its timing, still moves.
+ *
+ * Staggering is driven by a `--stagger-index` custom property set inline by the
+ * component (React knows the index; CSS cannot count siblings past
+ * `:nth-child`). Delay is capped so a 30-item list does not take three seconds
+ * to finish arriving.
+ */
+
+:root {
+  /* One step of stagger, and the ceiling on the accumulated delay. */
+  --stagger-step: 40ms;
+  --stagger-max: 320ms;
+}
+
+/* ── Entrance: a short rise and fade ─────────────────────────────────────── */
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * Applied to list items that arrive together — order members, figure lists,
+ * almanac entries. `backwards` fill matters: without it the element paints at
+ * full opacity for one frame before the animation starts, which reads as a
+ * flicker rather than an entrance.
+ */
+.reveal-rise {
+  animation: reveal-rise var(--duration-base) var(--easing) backwards;
+  animation-delay: min(calc(var(--stagger-index, 0) * var(--stagger-step)), var(--stagger-max));
+}
+
+/* ── Knowledge-graph network: the silsila traces itself ──────────────────── */
+
+/*
+ * The one piece of motion here that is about meaning rather than polish. A
+ * silsila is a *chain* — the archive's own word for it — and drawing each edge
+ * outward from the hub says that better than a static star does. `pathLength`
+ * is set to 1 on the element so one dash length covers any edge regardless of
+ * its real geometry, which is what lets a single keyframe serve every spoke.
+ */
+@keyframes edge-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.network-edge--animated {
+  stroke-dasharray: 1;
+  animation: edge-draw var(--duration-slow) var(--easing) backwards;
+  animation-delay: min(calc(var(--stagger-index, 0) * var(--stagger-step)), var(--stagger-max));
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*
+ * Nodes land just after their edge reaches them. `transform-box: fill-box` plus
+ * a centred origin makes the scale happen about the node itself; the SVG
+ * default origin is the viewport corner, which flings the circle across the
+ * diagram instead.
+ */
+.network-node--animated {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pop var(--duration-base) var(--easing-spring) backwards;
+  animation-delay: calc(
+    min(calc(var(--stagger-index, 0) * var(--stagger-step)), var(--stagger-max)) +
+      var(--duration-slow) * 0.55
+  );
+}
+
+/* ── The accessibility contract ──────────────────────────────────────────── */
+
+/*
+ * Everything above, off. Not slower — off. A reader who asks for reduced motion
+ * is not asking for a gentler animation.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-rise,
+  .network-edge--animated,
+  .network-node--animated {
+    animation: none;
+  }
+
+  /* The dash pattern is only there to be animated; left behind under reduced
+     motion it would render every edge as a dotted line. */
+  .network-edge--animated {
+    stroke-dasharray: none;
+  }
+}

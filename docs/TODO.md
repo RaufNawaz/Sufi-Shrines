@@ -8,6 +8,67 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (fifth: motion, and the graph that left out the lineage)
+
+**The lineage graph left out the lineage.** `/saint/<slug>`'s network diagram plotted the
+figure's order and shrines and stopped there — while the page directly below it listed
+teachers and disciples the knowledge graph had known about all along. So the one picture of a
+figure's place in a silsila omitted the silsila. Teachers and disciples are on the ring now,
+ordered teachers → order → disciples → shrines so the edges trace outward roughly the way a
+reader follows them. Ganj-e-Inayat Sarkar went from 2 nodes to 7.
+
+Feeding it real data immediately exposed three faults that a sparse graph had hidden — the
+same lesson as §9.26, that *a layout which works on sparse data is untested, not correct*:
+
+- **A duplicated person.** `getTeachersOf` returns one link per *relation*, so a figure
+  recorded as both `disciple_of` and `successor_of` the same master came back twice and the
+  ring drew them at two positions. The relation list keeps both (two recorded relations are
+  two facts); the diagram plots people, so it dedupes by slug.
+- **A legend claiming a distinction the diagram did not make.** Teachers and the order were
+  both filled `--color-primary`. The order is now a rounded square — it is an institution, not
+  a person — which survives greyscale, colour-blindness and print in a way hue does not.
+- **A clipped label.** `LABEL_GUTTER` was 132px; the widest label `clamp` can emit needs ~156,
+  so a full-length name at 9 o'clock lost its first letter.
+
+**And a bidi bug that only an RTL reader would ever have seen.** `text-anchor` is *logical*:
+under `direction: rtl`, `start` means the right edge. The placement code reasons physically
+("this label is left of its node, so extend it leftwards"), so every Urdu label extended back
+across its own node and printed on top of it — the order's name sat inside the order's square.
+Labels now carry an explicit direction and the anchor is flipped for Arabic script. Latin names
+inside the Urdu page get `direction="ltr"` too, which fixes the truncation ellipsis rendering
+on the wrong side.
+
+**Motion.** `src/styles/motion.css` is a shared layer replacing five one-off `@keyframes`
+scattered across four stylesheets, each with its own timing and its own (or missing)
+reduced-motion handling. Two entrance animations: a staggered rise for lists that arrive
+together (order members, figure lists, almanac cards, the graph's link list), and — the one
+piece of motion here that is about meaning rather than polish — the graph's edges tracing
+outward from the hub one after another. A silsila is a *chain*; drawing it says so better than
+a static star does. Stagger is driven by a `--stagger-index` the component sets (CSS cannot
+count siblings) and capped at 320ms so a thirty-item list does not take three seconds to
+arrive.
+
+**Two guards, because "we'll remember to check reduced motion" is exactly the kind of
+intention RULE 4 exists to replace:**
+
+- `src/styles/__tests__/motion.test.ts` reads every stylesheet and asserts each `@keyframes`
+  has an escape. Writing it was instructive: the first draft flagged three existing animations
+  and *all three were the check's fault*, so the three legitimate escapes are now named in it —
+  timed by a `--duration-*` token (which reduce zeroes), declared inside
+  `@media (prefers-reduced-motion: no-preference)`, or explicitly exempt because the motion is
+  the message (one entry: a loading spinner frozen mid-turn reads as a hung page). The
+  exemption list is itself asserted to stay at most one entry long.
+- `e2e/motion.spec.ts` asks the browser instead of the stylesheet. A static check cannot see
+  whether anything is *actually animating*; `document.getAnimations()` can. Measured: the saint
+  page runs 5 animations by default and **0** under `prefers-reduced-motion: reduce`. Zero, not
+  fewer — for some readers vestibular motion causes nausea and migraine, so it is a medical
+  setting, not a preference.
+
+Both guards were confirmed to fail before being trusted: the CSS one by adding a deliberately
+unguarded shake keyframe, the whole scheme by measuring animation counts in both media states.
+
+---
+
 ## 0. Session log — 20 August 2026 (fourth: the explorer in Urdu, and the graph off the shrine route)
 
 **The Saints & Orders explorer was an English page with Urdu furniture around it.**

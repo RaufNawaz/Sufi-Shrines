@@ -565,6 +565,78 @@
   stroke: var(--color-border);
 }
 
+/* Teachers and disciples sit on the same ring as the order and the shrines, so
+   direction has to be legible at a glance: a teacher is filled (the figure
+   received from them), a disciple is hollow (the figure gave onward). Shape
+   rather than hue alone, because hue alone fails for a colour-blind reader and
+   in print. */
+.network-node--teacher {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+.network-node--disciple {
+  fill: var(--color-bg-surface);
+  stroke: var(--color-primary);
+  stroke-width: 2.5;
+  stroke-dasharray: 3 2;
+}
+
+/* ── Network legend ─────────────────────────────────────────────────────── */
+
+.network-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.network-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.network-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+}
+
+.network-legend-swatch--teacher {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Square, matching the diagram: an order is an institution, not a person. */
+.network-legend-swatch--order {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.network-legend-swatch--disciple {
+  background-color: var(--color-bg-surface);
+  border: 2px dashed var(--color-primary);
+}
+
+.network-legend-swatch--saint {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+[dir='rtl'] .network-legend {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
 .network-node--current {
   stroke-width: 3;
   stroke: var(--color-accent);
@@ -610,9 +682,18 @@
 }
 .network-link--order::before {
   background-color: var(--color-primary);
+  border-radius: 2px;
 }
 .network-link--shrine::before {
   background-color: var(--color-border);
+}
+/* Matches the diagram's own coding: teacher filled, disciple hollow. */
+.network-link--teacher::before {
+  background-color: var(--color-primary);
+}
+.network-link--disciple::before {
+  background-color: var(--color-bg-surface);
+  box-shadow: inset 0 0 0 2px var(--color-primary);
 }
 
 .network-link a {
