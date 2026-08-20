@@ -35,12 +35,6 @@
    "new_chars": 3027
   },
   {
-   "slug": "shrine-of-akhund-panju-baba",
-   "added_chars": 1030,
-   "old_chars": 1513,
-   "new_chars": 2458
-  },
-  {
    "slug": "ziarat-kaka-sahib",
    "added_chars": 966,
    "old_chars": 1509,
@@ -143,12 +137,6 @@
    "new_chars": 1841
   },
   {
-   "slug": "shrine-of-makhdoom-nooh-hala",
-   "added_chars": 601,
-   "old_chars": 1307,
-   "new_chars": 1822
-  },
-  {
    "slug": "shrine-of-mian-umar-baba-chamkani",
    "added_chars": 601,
    "old_chars": 1415,
@@ -213,12 +201,6 @@
    "added_chars": 437,
    "old_chars": 1422,
    "new_chars": 1641
-  },
-  {
-   "slug": "shrine-of-hafiz-muhammad-jamal-multani",
-   "added_chars": 431,
-   "old_chars": 1363,
-   "new_chars": 1709
   },
   {
    "slug": "shrine-of-bibi-pak-daman",
@@ -416,11 +398,14 @@
   "shri-swaminarayan-mandir-karachi",
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
+  "shrine-of-akhund-panju-baba",
   "shrine-of-baba-shah-chiragh",
   "shrine-of-fariduddin-ganjshakar",
+  "shrine-of-hafiz-muhammad-jamal-multani",
   "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
+  "shrine-of-makhdoom-nooh-hala",
   "shrine-of-mauj-darya-bukhari",
   "shrine-of-peer-makki",
   "shrine-of-pir-mangho",

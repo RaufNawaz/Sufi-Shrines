@@ -81,12 +81,12 @@ WORD = re.compile(r"[a-z]+")
 OVER_COVERAGE = 1.15   # ERROR: Urdu asserts more than the English does
 UNDER_COVERAGE = 0.70  # WARN:  Urdu has not caught up with the English
 
-# Ratchet. 31 entries are under-covered as of 20 Aug 2026. Note this is *not* the same as
+# Ratchet. 28 entries are under-covered as of 20 Aug 2026. Note this is *not* the same as
 # a8-scope.json's 74 deltas: an entry whose English grew by a paragraph is a delta but its
 # ratio can still clear 0.70, so this counts the gaps a reader would actually notice. The
 # number must never go up — a new translation that lands condensed is a bug, not a
 # milestone. When you finish deltas, lower it. a8-scope.json lists them, largest gap first.
-UNDER_COVERAGE_BUDGET = 31
+UNDER_COVERAGE_BUDGET = 28
 
 
 def slugify(text):
