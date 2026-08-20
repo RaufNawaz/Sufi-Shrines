@@ -17,36 +17,6 @@
  ],
  "delta": [
   {
-   "slug": "shrine-of-peer-makki",
-   "added_chars": 1998,
-   "old_chars": 1830,
-   "new_chars": 3724
-  },
-  {
-   "slug": "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-   "added_chars": 1996,
-   "old_chars": 1456,
-   "new_chars": 3367
-  },
-  {
-   "slug": "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-   "added_chars": 1658,
-   "old_chars": 1542,
-   "new_chars": 3115
-  },
-  {
-   "slug": "tomb-of-qutbuddin-aibak",
-   "added_chars": 1594,
-   "old_chars": 1766,
-   "new_chars": 3275
-  },
-  {
-   "slug": "khatwari-darbar-shikarpur",
-   "added_chars": 1550,
-   "old_chars": 1443,
-   "new_chars": 2908
-  },
-  {
    "slug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
    "added_chars": 1428,
    "old_chars": 1630,
@@ -462,6 +432,7 @@
   "gurdwara-babay-de-ber",
   "gurdwara-babay-nanki",
   "gurdwara-balila-sahib-bal-lila-sahib",
+  "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
   "gurdwara-bhai-beba-singh",
   "gurdwara-bhai-joga-singh",
   "gurdwara-chhevin-patshahi-mozang",
@@ -485,6 +456,7 @@
   "jhollay-lal-mandir",
   "kali-bari-mandir",
   "katas-raj-temples",
+  "khatwari-darbar-shikarpur",
   "krishna-mandir-kabari-bazar",
   "krishna-mandir-ravi-road",
   "lal-shahbaz-qalandar",
@@ -521,6 +493,7 @@
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
   "shrine-of-mauj-darya-bukhari",
+  "shrine-of-peer-makki",
   "shrine-of-pir-mangho",
   "shrine-of-pir-sher-muhammad",
   "shrine-of-qalandar-baba-auliya",
@@ -533,7 +506,9 @@
   "shrine-of-syed-musa-pak",
   "sial-sharif",
   "tomb-of-javindi-bibi",
+  "tomb-of-qutbuddin-aibak",
   "valmik-mandir-naqi-road",
+  "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
   "wadpagga-sharif"
  ]
 }
