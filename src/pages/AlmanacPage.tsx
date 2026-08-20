@@ -57,7 +57,12 @@ function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
           </Link>
         </h3>
         {location ? (
-          <p className="almanac-entry-location">
+          /* The CSS clamps this to two lines because several field-survey rows
+             carry a paragraph of qualification in the Location column rather
+             than a place name. `title` is what makes the clamped remainder
+             reachable — without it the qualification, which is the honest part,
+             was simply unreadable. */
+          <p className="almanac-entry-location" title={location}>
             <bdi>{location}</bdi>
           </p>
         ) : null}

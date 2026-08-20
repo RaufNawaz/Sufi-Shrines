@@ -8,6 +8,82 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (second half: mobile, citations, knowledge graph)
+
+**The reported bug: the sidebar was unreachable on a phone in portrait.** It was never
+missing — it was painted over. Leaflet numbers its internals in the hundreds while this
+app's z-index scale tops out at 60, and `.map-container` was `position: relative` with
+`z-index: auto`, which does *not* create a stacking context. So the tile pane and the
+markers drew on top of the fixed bottom sheet. `isolation: isolate` fixes it;
+`e2e/mobile-sheet.spec.ts` guards it with `elementFromPoint` (a visibility assertion could
+never have caught it — the element was visible and correctly sized the whole time). Two
+things surfaced alongside: Leaflet's zoom control was clipped by the sheet and the
+attribution was hidden behind it, which is a licence-terms problem; and the blank white
+square in the map corner was Leaflet's layer switcher, whose sprite an existing rule
+suppressed without putting anything in its place.
+
+**Decision taken: Latin citations are allowed; Urdu prose is not.** Resolves HANDOVER
+§9.14. Both gates now split at the first bibliography heading. `urdu_content_qa.py`'s
+length ratio moved to prose-only for the same reason — an Urdu bibliography's length says
+nothing about article coverage, and the old full-text ratio could have blocked a build for
+*adding* a source. **Follow-up available:** the ~25 bibliographies written earlier that day
+render their English titles in Urdu script; they can now carry the originals, which
+restores the exact search string. Not broken, just improvable.
+
+**The lineage / order / almanac features were unfed, not underbuilt.** 130 figures, 6
+lineage edges, 20 order memberships — and the graph held ZERO dates while the sheet has
+`figure_born` for 66 rows and `figure_died` for 71, and no `figure_type` while the sheet
+has it for 168. Three extraction agents over the archive's own English produced 235
+quote-carrying proposals. The graph now holds **86 lineage edges**, **64 order
+memberships** (13 with a named branch), **69 born / 75 died**, 93 figures with honorifics
+and 11 with a recorded date dispute. `data/kg.json` had also gone stale against the
+dataset — events 95 -> 168, which the Urs Almanac reads, so it had been showing barely half
+of them.
+
+**The explorer was calling Durga a saint.** 130 names under a heading reading "All saints",
+including Kali, Krishna, Guru Nanak and "Jain Tirthankaras". Now grouped by the dataset's
+own `figure_type`. Two rows answer that column with a sentence — one of them specifically
+to say the figure is *not* a Sufi pir — so those show as recorded under "Recorded
+differently" rather than being filed under a category they deny.
+
+**Verification, not trust.** `scripts/data/verify-kg-proposals.mjs` re-checks all 235
+against the sources they name and is wired into `data:validate`. Its sharpest rule came
+from one of the agents: every 3-4 digit year must occur *literally* in the quoted source,
+because a verbatim quote proves the sentence exists, not that the year beside it is the one
+in it. That plus a subject-mismatch rule caught two real defects the agents' own reports
+had not flagged as errors.
+
+### Needs a human — in priority order
+
+1. **Read the Urdu prose.** Unchanged and still the biggest item: 53 articles, all
+   `reviewed=false`.
+2. **80 of the 86 lineage edges and 44 of the 64 order memberships are unreviewed.** They
+   are quote-verified and labelled `unreviewed` in the UI with the sentence shown inline,
+   so nothing is passing itself off as checked. But a reader who knows these silsilas
+   would confirm or kill them fast, and the quote is right there.
+3. **Four hand-curated order memberships that the dataset contradicts** —
+   `daud-bandagi-kirmani`, `waris-shah`, `shams-ali-qalandar`, `qalandar-baba-auliya` — and
+   **four more no source verifies at all** (`rahman-baba`, `sachal-sarmast`,
+   `sufi-shah-inayat-shaheed`, `makhdoom-burhan-ud-din`). Untouched on purpose: overwriting
+   reviewed data with an extraction is the wrong direction of trust.
+   See `data/kg-order-proposals.json#disagreesWithExistingSeed`.
+4. **Six `subjectMismatch` rows** where the prose is partly about someone other than the
+   recorded figure — the `allo-mahar` pattern, found five more times. `eidgah-sharif` is
+   the sharpest: two precise birth dates, neither the principal figure's.
+   See `data/kg-saint-dates-proposals.json#subjectMismatch`.
+5. **31 rows where the structured date column hardened a hedge the prose never made** —
+   Data Ganj Bakhsh's column says `1072` where the prose says "between about 1072 and 1077
+   CE (465–469 AH)". The sheet is authoritative so nothing was changed, but the columns are
+   currently *less* honest than the prose they came from.
+6. **Duplicate figures fragmenting the graph.** Three separate Guru Nanak nodes, a
+   composite "Guru Arjan Dev & Guru Hargobind" node, duplicate Kali / Valmiki / Jhulelal.
+   And a trap: `khwaja-muhammad-qasim` (Zinda Pir, 1912–1999) and
+   `khwaja-muhammad-qasim-sadiq` (Mohra Sharif, b. c. 1846) are **different men in a
+   master–pupil relation** — a name-based merge would collapse that edge. Likewise
+   "Sarwari" names two branches under two different parents.
+
+---
+
 ## 0. Session log — 20 August 2026
 
 **The headline is not the backlog, it is a retraction that never crossed languages.**
