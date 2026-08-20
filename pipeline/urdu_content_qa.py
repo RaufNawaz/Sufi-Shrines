@@ -58,6 +58,25 @@ BIBLIO_HEADINGS = {
     "کتابیات", "حوالہ جات", "حوالے",
 }
 
+# English number-words, so "the sixteenth to the eighteenth of Rabi-ul-Awal" is recognised as
+# supplying 16 and 18 to a Urdu file that writes them as digits (numbers stay Western digits in
+# stored Urdu text — the Eastern-numeral toggle converts at render). Without this the
+# figure check fires on the convention rather than on a problem: it is exactly the two false
+# positives measured across all 169 rows on 20 Aug 2026, langer-makhdoom and shamsabad.
+NUMBER_WORDS = {
+    "one": 1, "first": 1, "two": 2, "second": 2, "three": 3, "third": 3, "four": 4,
+    "fourth": 4, "five": 5, "fifth": 5, "six": 6, "sixth": 6, "seven": 7, "seventh": 7,
+    "eight": 8, "eighth": 8, "nine": 9, "ninth": 9, "ten": 10, "tenth": 10,
+    "eleven": 11, "eleventh": 11, "twelve": 12, "twelfth": 12, "thirteen": 13,
+    "thirteenth": 13, "fourteen": 14, "fourteenth": 14, "fifteen": 15, "fifteenth": 15,
+    "sixteen": 16, "sixteenth": 16, "seventeen": 17, "seventeenth": 17, "eighteen": 18,
+    "eighteenth": 18, "nineteen": 19, "nineteenth": 19, "twenty": 20, "twentieth": 20,
+    "thirty": 30, "thirtieth": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
+    "eighty": 80, "ninety": 90, "hundred": 100, "thousand": 1000, "million": 1000000,
+}
+FIGURE = re.compile(r"\d[\d,.]*")
+WORD = re.compile(r"[a-z]+")
+
 # Ratio bounds on len(urdu) / len(english).
 OVER_COVERAGE = 1.15   # ERROR: Urdu asserts more than the English does
 UNDER_COVERAGE = 0.70  # WARN:  Urdu has not caught up with the English
@@ -80,6 +99,25 @@ def slugify(text):
     t = re.sub(r"[\s_]+", "-", t)
     t = re.sub(r"-+", "-", t)
     return t.strip("-").strip()
+
+
+def _figures(text):
+    """Bare numeric values in a text, comma- and trailing-period-stripped."""
+    out = set()
+    for m in FIGURE.findall(text):
+        m = m.rstrip(".").replace(",", "")
+        if m:
+            out.add(m)
+    return out
+
+
+def _english_figures(text):
+    """Figures the English supplies, counting spelled-out numbers as their digits."""
+    out = _figures(text)
+    for w in WORD.findall(text.lower()):
+        if w in NUMBER_WORDS:
+            out.add(str(NUMBER_WORDS[w]))
+    return out
 
 
 def _prose_headings(text):
@@ -132,6 +170,20 @@ def check_file(path, english):
         )
     elif ratio < UNDER_COVERAGE:
         warnings.append(f"under-coverage: {ratio:.2f}x ({len(body)} vs {len(en)} chars) — English has moved on")
+
+    # A figure present only in the Urdu is a claim from nowhere: these files were drafted
+    # *from* the English and are not independently sourced, so an Urdu-only date, year or
+    # visitor count cannot have a source behind it (RULE 2). Measured clean across all 169
+    # rows on 20 Aug 2026 — the only two candidates were the number-word convention above,
+    # which NUMBER_WORDS now absorbs. This is the enforcement RULE 2 previously lacked
+    # across the language boundary; a phrase-level invention like kalat-kali-temple's
+    # "far from Quetta" still slips through, so it is not a substitute for reading.
+    extra = sorted(_figures(body) - _english_figures(en), key=lambda v: (len(v), v))
+    if extra:
+        warnings.append(
+            f"figure(s) not present in the English: {', '.join(extra[:6])} — an Urdu-only "
+            "number has no source behind it; check against the English before keeping it"
+        )
 
     en_headings = _prose_headings(en)
     ur_headings = _prose_headings(body)
