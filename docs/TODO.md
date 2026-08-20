@@ -8,6 +8,48 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (ninth: the region filter was offering prose)
+
+**The map's region filter had six chips that were sentence fragments** — one of them reading
+"not the shrine's exact position) — ask Saifullah for a precise pin when possible." An internal
+note to a colleague was a filter option on the live site.
+
+`extractRegion` took the last comma-separated segment of Location. Six rows carry a *paragraph*
+there instead of an address, because a field survey that can only place a shrine as "Lahore"
+says so at length — the honesty RULE 2 asks for, and not something to edit. Their commas are
+sentence commas, so the last segment was the tail of a sentence.
+
+The same rule was breaking the filter for the other 124 rows too: their Location ends
+"…, Pakistan", so a filter meant to narrow by region had one option matching **73% of the
+archive**. Measured before and after:
+
+| | before | after |
+|---|---|---|
+| Punjab | 30 | **87** |
+| Sindh | 6 | **43** |
+| Khyber Pakhtunkhwa | 1 | **15** |
+| Balochistan | 1 | **10** |
+| Islamabad Capital Territory | 2 | **4** |
+| Pakistan (country only) | **124** | 5 |
+| unknown | 0 | 5 |
+| junk chips | **6** | **0** |
+
+The rule now scans from the end for a known Pakistani administrative unit, prefers a province
+over the country, and matches at the *head* of a segment — which recovers one province out of
+prose ("…, Punjab. The field survey places the shrine…"). Rows naming no unit return empty:
+unknown, not guessed.
+
+Guarded two ways: unit cases for the rule, and one invariant that runs `buildShrines` over the
+whole shipped snapshot and asserts every derived region is in a closed list of place names.
+Only the second would have caught the original — proved by reinstating the old rule and watching
+8 tests fail.
+
+**Worth carrying forward:** a derived field inherits every irregularity of its source. The prose
+Locations were already documented as correct; nobody had asked what a comma-splitting rule would
+do to them. Any future derivation off Location, Description or Events needs that question asked.
+
+---
+
 ## 0. Session log — 20 August 2026 (eighth: the almanac and the lineage now point at each other)
 
 **A figure's page now says when their ʿurs falls.** The almanac already linked each observance

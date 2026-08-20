@@ -1079,6 +1079,75 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     as a hung page — and the test asserts that list stays at most one entry long, because a
     growing pile of "this one is special" is how an accessibility contract rots.
 
+35. **`scroll-behavior: smooth` was on globally and never guarded.** Set on `<html>` in
+    `global.css`, with no `auto` override under `prefers-reduced-motion: reduce`. Every anchor
+    jump on the site animated for a reader who had asked for no animation: the article contents
+    nav, every skip link, the almanac's new month row. Scroll animation is the *most* likely
+    kind to provoke vestibular symptoms — a whole viewport of content sliding past, not one
+    small element fading in.
+
+    Worth generalising, because it is the reason this survived: **the `@keyframes` audit could
+    not have found it.** There is no keyframe involved, so a check built around animations was
+    structurally blind to it. `src/styles/__tests__/motion.test.ts` has a separate case for
+    scroll behaviour now. Any future "motion" that is neither an animation nor a transition —
+    `scroll-snap`, `view-transition`, autoplaying media — needs its own case for the same
+    reason.
+
+36. **A twelve-month window's first and last group share a month name.** The almanac's new month
+    navigation rendered thirteen pills for a year horizon, two of them reading "August" — 2026
+    and 2027. The section headings carried the year and the pills did not. Fixed by showing the
+    year only on names that actually repeat, so it disambiguates where needed and clutters
+    nothing else. Generalises to any wrapping period label: **thirteen groups over twelve months
+    is correct, and two identical labels is the tell.**
+
+37. **The almanac and the lineage views now point at each other.** Each almanac observance links
+    to the figure it commemorates, and each figure's page states when their next ʿurs falls.
+    Both directions run through the same `buildAlmanac`, so there is no second implementation of
+    Hijri projection to drift — a figure's page passes only that figure's own shrines, which is
+    a handful of rows.
+
+    One detail that matters editorially: the "approximate" flag appears on a Hijri-derived
+    projection and *not* on a recorded Gregorian date. Verified per figure — Shams Ali Qalandar
+    (6 September) carries no flag while Abul Faiz Qalander Ali Suharwardi (24–25 August) does.
+    That is `AlmanacEntry.approximate` doing the job it exists for: the difference between a
+    date and a forecast, which for an archive built on provenance is not a cosmetic distinction.
+
+38. **The map's region filter was offering sentence fragments as options, including an internal
+    note naming a colleague.** Live on the site until 20 August 2026. Chips read
+    "and no coordinates.", "not the grave's exact position.", "which it describes as one of the
+    largest graveyards in Asia.", and — worst — "not the shrine's exact position) — ask
+    Saifullah for a precise pin when possible."
+
+    `extractRegion` was "the last comma-separated segment of Location". Six rows carry a
+    *paragraph* in that column instead of an address, because a field survey that can only place
+    a shrine as "Lahore" says so at length — which is exactly the honesty RULE 2 asks for, and
+    must not be edited. Their commas are sentence commas, so the "last segment" was the tail of
+    a sentence.
+
+    The same rule was quietly breaking the filter for the other 124 rows too: their Location
+    *does* end in an address, and its last segment is "Pakistan". A filter meant to narrow by
+    region had one option matching **73% of the archive**.
+
+    Now: scan segments from the end for a known Pakistani administrative unit, preferring a
+    province over the country, matched at the *head* of a segment so a province followed by
+    prose is still found. Measured across the snapshot,
+    `{Pakistan: 124, Punjab: 30, Sindh: 6, …}` plus six fragments becomes
+    `{Punjab: 87, Sindh: 43, Khyber Pakhtunkhwa: 15, Balochistan: 10, Islamabad Capital
+    Territory: 4, Pakistan: 5}`, five rows honestly unknown, and the chip count drops from 20
+    to 14. Both spellings of Balochistan normalise to one value, because two chips for one
+    province is a filter bug and not a spelling debate.
+
+    Two lessons worth carrying:
+
+    - **A derived field inherits every irregularity of its source.** The prose Locations were
+      already documented as correct content; nobody asked what a comma-splitting rule would do
+      to them. Any future derivation off Location, Description or Events needs the same
+      question asked.
+    - **The invariant that catches this has to run over the real dataset.** Hand-written cases
+      encode the rule; only `buildShrines(shrines-fallback.json)` with a closed allow-list of
+      place names would have caught the original. Proved by reinstating the old rule and
+      watching 8 tests fail.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
