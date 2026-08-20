@@ -17,76 +17,16 @@
  ],
  "delta": [
   {
-   "slug": "shrine-of-baba-shah-kamal",
-   "added_chars": 938,
-   "old_chars": 1822,
-   "new_chars": 2676
-  },
-  {
-   "slug": "shrine-of-miran-hussain-zanjani-zanjani-sahib",
-   "added_chars": 834,
-   "old_chars": 1739,
-   "new_chars": 2488
-  },
-  {
-   "slug": "shrine-of-pir-chhatal-shah-noorani",
-   "added_chars": 805,
-   "old_chars": 1531,
-   "new_chars": 2251
-  },
-  {
-   "slug": "gurdwara-malji-sahib",
-   "added_chars": 760,
-   "old_chars": 1576,
-   "new_chars": 2251
-  },
-  {
-   "slug": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
-   "added_chars": 731,
-   "old_chars": 1665,
-   "new_chars": 2311
-  },
-  {
    "slug": "samadhi-of-maharaja-ranjit-singh",
    "added_chars": 674,
    "old_chars": 1900,
    "new_chars": 2489
   },
   {
-   "slug": "dargah-of-khwaja-muhammad-zaman-luari-sharif",
-   "added_chars": 599,
-   "old_chars": 1809,
-   "new_chars": 2250
-  },
-  {
-   "slug": "shrine-of-pir-baba-syed-ali-tirmizi",
-   "added_chars": 598,
-   "old_chars": 1556,
-   "new_chars": 2044
-  },
-  {
-   "slug": "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
-   "added_chars": 566,
-   "old_chars": 1535,
-   "new_chars": 2016
-  },
-  {
-   "slug": "gurdwara-patshahi-chhevin-hadiara-lahore",
-   "added_chars": 487,
-   "old_chars": 1373,
-   "new_chars": 1775
-  },
-  {
    "slug": "tomb-of-allama-iqbal-mazar-e-iqbal",
    "added_chars": 478,
    "old_chars": 22540,
    "new_chars": 22885
-  },
-  {
-   "slug": "shrine-of-shah-abdul-karim-bulri",
-   "added_chars": 469,
-   "old_chars": 1324,
-   "new_chars": 1708
   },
   {
    "slug": "data-darbar",
@@ -214,6 +154,7 @@
   "darbar-hazrat-tahir-bandagi-qadri",
   "darbar-sakhi-shah-chan-charagh",
   "darbar-wasif-ali-wasif",
+  "dargah-of-khwaja-muhammad-zaman-luari-sharif",
   "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
   "dargah-pir-ratan-nath-jee",
   "dargah-roza-sufi-shah-inayat-shaheed",
@@ -240,8 +181,11 @@
   "gurdwara-dash-mesh-pita",
   "gurdwara-dera-sahib",
   "gurdwara-guru-ram-das-ji",
+  "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+  "gurdwara-malji-sahib",
   "gurdwara-panja-sahib",
   "gurdwara-panjvi-chati-patshahi",
+  "gurdwara-patshahi-chhevin-hadiara-lahore",
   "gurdwara-patti-sahib",
   "gurdwara-pehli-patshahi-jind-pir-sukkur",
   "gurdwara-sach-khand-sahib",
@@ -304,8 +248,10 @@
   "shrine-of-akhund-darweza-baba",
   "shrine-of-akhund-panju-baba",
   "shrine-of-baba-shah-chiragh",
+  "shrine-of-baba-shah-kamal",
   "shrine-of-fariduddin-ganjshakar",
   "shrine-of-hafiz-muhammad-jamal-multani",
+  "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
   "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
@@ -313,12 +259,16 @@
   "shrine-of-makhdoom-nooh-hala",
   "shrine-of-mauj-darya-bukhari",
   "shrine-of-mian-umar-baba-chamkani",
+  "shrine-of-miran-hussain-zanjani-zanjani-sahib",
   "shrine-of-peer-makki",
+  "shrine-of-pir-baba-syed-ali-tirmizi",
+  "shrine-of-pir-chhatal-shah-noorani",
   "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
   "shrine-of-pir-mangho",
   "shrine-of-pir-sher-muhammad",
   "shrine-of-qalandar-baba-auliya",
   "shrine-of-sachal-sarmast",
+  "shrine-of-shah-abdul-karim-bulri",
   "shrine-of-shah-inayat-qadiri",
   "shrine-of-shah-jamal",
   "shrine-of-shah-rukn-e-alam",
