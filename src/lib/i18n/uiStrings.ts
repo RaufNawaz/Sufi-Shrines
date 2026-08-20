@@ -93,6 +93,11 @@ export const UI_TEXT = {
       'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
     graphExplorerOrders: 'Sufi orders',
     graphExplorerAllFigures: 'Figures in the archive',
+    graphFigureFilterLabel: 'Find a figure',
+    graphFigureFilterPlaceholder: 'Name, title or tradition…',
+    graphFigureFilterClear: 'Clear',
+    graphFigureFilterCount: (shown: number, total: number) => `${shown} of ${total}`,
+    graphFigureFilterEmpty: 'No figure matches that.',
     lineageUnreviewed: 'unreviewed',
     titlesLabel: 'Titles and honorifics',
     disputedDatesLabel: 'Sources disagree',
@@ -354,6 +359,11 @@ export const UI_TEXT = {
       'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
     graphExplorerOrders: 'صوفی سلسلے',
     graphExplorerAllFigures: 'آرکائیو کی شخصیات',
+    graphFigureFilterLabel: 'شخصیت تلاش کریں',
+    graphFigureFilterPlaceholder: 'نام، لقب یا روایت…',
+    graphFigureFilterClear: 'صاف کریں',
+    graphFigureFilterCount: (shown: number, total: number) => `${total} میں سے ${shown}`,
+    graphFigureFilterEmpty: 'اس سے مطابقت رکھنے والی کوئی شخصیت نہیں۔',
     lineageUnreviewed: 'غیر نظر ثانی شدہ',
     titlesLabel: 'القاب و خطابات',
     disputedDatesLabel: 'مآخذ متفق نہیں',
@@ -541,6 +551,12 @@ export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(
   lang: Lang,
+  key: 'graphFigureFilterCount',
+  shown: number,
+  total: number,
+): string;
+export function tFn(
+  lang: Lang,
   key:
     | 'resultCount'
     | 'stopOf'
@@ -549,7 +565,8 @@ export function tFn(
     | 'activeFiltersCount'
     | 'orderMemberCount'
     | 'orderBranchCount'
-    | 'orderMultiCount',
+    | 'orderMultiCount'
+    | 'graphFigureFilterCount',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

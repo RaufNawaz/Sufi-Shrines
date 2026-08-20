@@ -8,6 +8,37 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (sixth: finding a figure among 136)
+
+**The explorer listed 136 figures under seven headings with no way to find one.** There is a
+filter now, and it searches **both scripts regardless of the reader's language** — because
+someone reading in English may only know a figure by their Urdu name, and vice versa. Typing
+`قادری` in the *English* view returns six figures, Bulleh Shah among them, because his recorded
+Urdu name is بلھے شاہ (عبداللہ شاہ قادری); typing `qadri` in the Urdu view works the same way.
+The group label is in the haystack too, so `sikh guru` / `سکھ گرو` selects a whole tradition.
+Terms match in any order, so a half-remembered name still lands.
+
+Deliberately *not* MiniSearch, which the shrine list uses through a worker: 136 short strings
+already in memory beat a worker round-trip and a build step. The logic lives in
+`src/lib/data/figureSearch.ts` with 10 unit tests against the real graph rather than fixtures,
+since the property that matters — bilingual reach — only holds if the actual dictionary
+resolves the actual names.
+
+**One test taught something.** I first asserted the English and Urdu queries return identical
+sets. They do not, and should not: `سکھ گرو` also finds Bhai Biba Singh, whose recorded Urdu
+name reads "بھائی بیبا سنگھ (سکھ جنگجو؛ گوردوارہ گرو گوبند سنگھ کے دور سے)" — a Sikh warrior of
+Guru Gobind Singh's era. Two languages hold different text, so they pick up different incidental
+matches. The assertion is now the honest one: both queries must reach every figure in the group,
+not the same set exactly.
+
+**A side effect worth naming:** the filter makes the duplicate-figure problem impossible to
+miss. Type "guru" and you see *Guru Nanak*, *Guru Nanak Dev Ji* and *Guru Nanak Dev Ji;
+associated with Bhai Lalo* side by side, plus *Guru Arjan Dev* beside the composite *Guru Arjan
+Dev & Guru Hargobind*. That is the §0 item-3 duplicate problem, now visible to anyone who
+looks rather than only to whoever reads the graph JSON.
+
+---
+
 ## 0. Session log — 20 August 2026 (fifth: motion, and the graph that left out the lineage)
 
 **The lineage graph left out the lineage.** `/saint/<slug>`'s network diagram plotted the

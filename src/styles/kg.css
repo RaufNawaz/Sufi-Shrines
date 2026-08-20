@@ -995,3 +995,93 @@
 .entity-order-description {
   margin-block-start: var(--space-3);
 }
+
+/* ── Figure filter (explorer) ────────────────────────────────────────────── */
+
+/* 136 names under seven headings is a list you scroll past rather than find
+   anything in. The filter searches both scripts, so an Urdu reader types Urdu
+   and someone who only knows the Latin spelling still finds the figure. */
+.graph-figure-filter {
+  margin-block: var(--space-4) var(--space-5);
+}
+
+.graph-figure-filter-label {
+  display: block;
+  margin-block-end: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.graph-figure-filter-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+  max-width: 32rem;
+}
+
+.graph-figure-filter-input {
+  flex: 1;
+  min-width: 0;
+  /* 44px so it is a real touch target (CLAUDE.md: accessibility is a
+     requirement, not a nice-to-have). */
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-base);
+}
+
+.graph-figure-filter-input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.graph-figure-filter-clear {
+  min-height: 44px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.graph-figure-filter-clear:hover,
+.graph-figure-filter-clear:focus-visible {
+  color: var(--color-primary);
+}
+
+.graph-figure-filter-count {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.graph-figure-filter-empty {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Nastaliq on inputs and buttons too — i18n rule 4 is explicit that the Urdu
+   face must reach form controls, not just prose. */
+[dir='rtl'] .graph-figure-filter-label,
+[dir='rtl'] .graph-figure-filter-input,
+[dir='rtl'] .graph-figure-filter-clear,
+[dir='rtl'] .graph-figure-filter-count,
+[dir='rtl'] .graph-figure-filter-empty {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .graph-figure-filter-count,
+[dir='rtl'] .graph-figure-filter-empty {
+  font-size: var(--text-sm);
+}

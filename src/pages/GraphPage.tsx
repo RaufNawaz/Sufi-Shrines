@@ -18,6 +18,8 @@ import {
 import type { FigureGroup } from '../lib/data/figureType';
 import type { KGSaint } from '../types/kg';
 import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
+import { tFn } from '../lib/i18n/uiStrings';
+import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
@@ -31,6 +33,7 @@ export default function GraphPage() {
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
+  const [figureQuery, setFigureQuery] = useState('');
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
 
@@ -64,13 +67,21 @@ export default function GraphPage() {
      heading reading "All saints", Durga and Guru Nanak among them. Group by the
      dataset's own figure_type instead, which it fills for 168 of 169 rows.
      Sorted within a group by locale so the Urdu view collates as Urdu. */
+  /* getArchiveFigures(), not kg.saints: the graph also holds ~60 figures who
+     exist only as a link in someone else's lineage — teachers named in the
+     prose with no shrine in this archive. Counting them here would overstate
+     what the archive documents. */
+  const archiveFigures = useMemo(() => getArchiveFigures(), []);
+
+  const figureIndex = useMemo(() => buildFigureIndex(archiveFigures), [archiveFigures]);
+  const matchingFigures = useMemo(
+    () => matchFigures(archiveFigures, figureQuery, figureIndex),
+    [archiveFigures, figureIndex, figureQuery],
+  );
+
   const groupedFigures = useMemo(() => {
     const buckets = new Map<FigureGroup, KGSaint[]>();
-    /* getArchiveFigures(), not kg.saints: the graph also holds ~60 figures who
-       exist only as a link in someone else's lineage — teachers named in the
-       prose with no shrine in this archive. Counting them here would overstate
-       what the archive documents. */
-    for (const saint of getArchiveFigures()) {
+    for (const saint of matchingFigures) {
       const group = figureGroup(saint.figureType);
       const list = buckets.get(group);
       if (list) list.push(saint);
@@ -83,7 +94,7 @@ export default function GraphPage() {
         collator.compare(localizeFigureName(a, lang), localizeFigureName(b, lang)),
       ),
     }));
-  }, [lang]);
+  }, [lang, matchingFigures]);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -216,6 +227,47 @@ export default function GraphPage() {
         <section className="graph-page-section">
           <h2>{t('graphExplorerAllFigures')}</h2>
           <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
+
+          {/* 136 names under seven headings is a list you scroll past, not one
+              you find anything in. Client-side because the whole set is already
+              in memory — no worker, no debounce, no spinner. */}
+          <div className="graph-figure-filter">
+            <label className="graph-figure-filter-label" htmlFor="figure-filter">
+              {t('graphFigureFilterLabel')}
+            </label>
+            <div className="graph-figure-filter-row">
+              <input
+                id="figure-filter"
+                type="search"
+                className="graph-figure-filter-input"
+                value={figureQuery}
+                onChange={(e) => setFigureQuery(e.target.value)}
+                placeholder={t('graphFigureFilterPlaceholder')}
+                autoComplete="off"
+              />
+              {figureQuery && (
+                <button
+                  type="button"
+                  className="graph-figure-filter-clear"
+                  onClick={() => setFigureQuery('')}
+                >
+                  {t('graphFigureFilterClear')}
+                </button>
+              )}
+            </div>
+            {/* aria-live so a screen-reader user hears the result count change
+                without having to go looking for it. */}
+            <p className="graph-figure-filter-count" role="status" aria-live="polite">
+              {fmtNum(
+                tFn(lang, 'graphFigureFilterCount', matchingFigures.length, archiveFigures.length),
+              )}
+            </p>
+          </div>
+
+          {matchingFigures.length === 0 && (
+            <p className="graph-figure-filter-empty">{t('graphFigureFilterEmpty')}</p>
+          )}
+
           {groupedFigures.map(({ group, figures }) => (
             <div key={group} className="graph-figure-group">
               <h3 className="graph-figure-group-heading">
