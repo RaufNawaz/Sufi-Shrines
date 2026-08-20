@@ -17,42 +17,6 @@
  ],
  "delta": [
   {
-   "slug": "gori-temple-gori-jo-mandar",
-   "added_chars": 1359,
-   "old_chars": 1547,
-   "new_chars": 2821
-  },
-  {
-   "slug": "jain-mandir-lahore",
-   "added_chars": 1347,
-   "old_chars": 1840,
-   "new_chars": 3102
-  },
-  {
-   "slug": "chandragup-baba-chandragup",
-   "added_chars": 1339,
-   "old_chars": 1576,
-   "new_chars": 2915
-  },
-  {
-   "slug": "kalat-kali-temple",
-   "added_chars": 1338,
-   "old_chars": 1380,
-   "new_chars": 2718
-  },
-  {
-   "slug": "gurdwara-chakki-sahib",
-   "added_chars": 1306,
-   "old_chars": 1650,
-   "new_chars": 2871
-  },
-  {
-   "slug": "sant-bhagat-kanwar-ram-temple-chak",
-   "added_chars": 1279,
-   "old_chars": 1310,
-   "new_chars": 2504
-  },
-  {
    "slug": "gurdwara-choa-sahib",
    "added_chars": 1227,
    "old_chars": 1456,
@@ -390,6 +354,7 @@
   "bhagnari-mandir",
   "bhai-sant-thawan-das-mandir",
   "bhit-bhit-shah",
+  "chandragup-baba-chandragup",
   "churrio-jabal-durga-mata-temple",
   "darbar-ghamkol-sharif-zinda-pir",
   "darbar-ghazi-ilm-din-shaheed",
@@ -405,6 +370,7 @@
   "garh-maharaja-shorkot",
   "golra-sharif",
   "gorakhnath-goraknath-temple",
+  "gori-temple-gori-jo-mandar",
   "gurdas-ram-mandir",
   "gurdwara-babay-de-ber",
   "gurdwara-babay-nanki",
@@ -412,6 +378,7 @@
   "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
   "gurdwara-bhai-beba-singh",
   "gurdwara-bhai-joga-singh",
+  "gurdwara-chakki-sahib",
   "gurdwara-chhevin-patshahi-mozang",
   "gurdwara-chowmala-sahib",
   "gurdwara-darbar-sahib-kartarpur",
@@ -430,7 +397,9 @@
   "guru-gurpat-mandir-db-80-sirey-ghat",
   "gurudwara-janam-asthan-nankana-sahib",
   "jagannath-temple-sialkot",
+  "jain-mandir-lahore",
   "jhollay-lal-mandir",
+  "kalat-kali-temple",
   "kali-bari-mandir",
   "katas-raj-temples",
   "khatwari-darbar-shikarpur",
@@ -453,6 +422,7 @@
   "sakhi-sarwar",
   "sant-baba-asudaram-darbar-panno-aqil",
   "sant-baba-bhagat-ram-darbar-mandir",
+  "sant-bhagat-kanwar-ram-temple-chak",
   "sant-satram-dham-raharki-sacho-satram-devri-sahib",
   "shah-noorani-shrine-syed-bilawal-shah-noorani",
   "shah-yousuf",
