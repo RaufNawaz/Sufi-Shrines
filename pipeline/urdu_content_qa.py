@@ -23,10 +23,19 @@ So the sharp check here is over-coverage: Urdu that is substantially longer than
 English carries claims the English does not make. That is an ERROR. Under-coverage — the
 ordinary A8 delta — is a WARN against a ratchet, so the backlog can only shrink.
 
-Thresholds are measured, not guessed (20 Aug 2026, 169 live rows). Urdu/English character
-ratio for the 93 entries whose English had not moved: min 0.74, median 0.81, max 0.95.
-For the 74 known-stale ones: min 0.36, median 0.62. The two populations do not overlap,
-which is what makes 0.70 a real boundary rather than a taste.
+The ratio is computed on **prose only** — everything before the first bibliography
+heading, on both sides. Citations may legitimately carry Latin titles and URLs (the
+20 Aug 2026 decision; see scripts/data/validate-urdu-leak.mjs), which means an Urdu
+bibliography can be much shorter or much longer than its English counterpart for reasons
+that say nothing about article coverage. Including them would make this gate fire on
+citation practice and, worse, could block a build for *adding* a source.
+
+Thresholds are measured, not guessed. On full text (the first cut, 20 Aug 2026) up-to-date
+entries ran 0.74-0.95 against 0.36-0.62 for the 74 known-stale ones. On prose only, with
+all 167 now up to date, the distribution is much tighter: min 0.84, median 0.91, max 1.06.
+So 0.75 sits below the observed floor with headroom, and 1.20 above the ceiling — while
+the retraction that motivated this whole check (allo-mahar, see above) sits near 2.7 and
+still fails loudly.
 
     python3 pipeline/urdu_content_qa.py [--fail-on {NONE,WARN,ERROR}] [--verbose]
 
@@ -78,8 +87,8 @@ FIGURE = re.compile(r"\d[\d,.]*")
 WORD = re.compile(r"[a-z]+")
 
 # Ratio bounds on len(urdu) / len(english).
-OVER_COVERAGE = 1.15   # ERROR: Urdu asserts more than the English does
-UNDER_COVERAGE = 0.70  # WARN:  Urdu has not caught up with the English
+OVER_COVERAGE = 1.20   # ERROR: Urdu asserts more than the English does
+UNDER_COVERAGE = 0.75  # WARN:  Urdu has not caught up with the English
 
 # Ratchet, and it is now AT ZERO (20 Aug 2026): every Urdu article clears 0.70 of its
 # English. Note this was never the same count as a8-scope.json's deltas — an entry whose
@@ -122,6 +131,26 @@ def _english_figures(text):
     return out
 
 
+def _prose(text):
+    """The Urdu article body — everything before the first bibliography heading."""
+    cut = len(text)
+    for h in ("## کتابیات", "## حوالہ جات", "## حوالے"):
+        i = text.find(h)
+        if i != -1:
+            cut = min(cut, i)
+    return text[:cut]
+
+
+def _english_prose(text):
+    """The English article body, cut at its own bibliography heading."""
+    cut = len(text)
+    for h in ("## Bibliography", "## Sources", "## References", "## Citations", "## Works Cited"):
+        i = text.find(h)
+        if i != -1:
+            cut = min(cut, i)
+    return text[:cut]
+
+
 def _prose_headings(text):
     """`## ` headings excluding bibliography aliases — see BIBLIO_HEADINGS."""
     return [h.strip() for h in HEADING.findall(text) if h.strip().lower() not in BIBLIO_HEADINGS]
@@ -146,11 +175,14 @@ def check_file(path, english):
         errors.append("file is empty")
         return errors, warnings, None
 
-    leaks = sorted(set(LATIN.findall(body)))
+    # Latin in the *prose* is an untranslated sentence. Latin in a citation is a
+    # book title, a publisher or a URL, and is expected — see the 20 Aug 2026
+    # decision recorded in scripts/data/validate-urdu-leak.mjs. Checking prose only
+    # keeps this gate agreeing with that one; before the decision both required zero
+    # Latin anywhere, which meant a URL-titled source could not be cited at all.
+    leaks = sorted(set(LATIN.findall(_prose(body))))
     if leaks:
-        # Latin anywhere fails scripts/data/validate-urdu-leak.mjs too; caught here so it
-        # is attributed to a file rather than to the built JSON blob.
-        errors.append(f"Latin-script leak: {', '.join(leaks[:6])}")
+        errors.append(f"Latin-script leak in prose: {', '.join(leaks[:6])}")
 
     if body.count("*") % 2:
         errors.append(f"unbalanced asterisks ({body.count('*')}) — markdown italics/bold will bleed")
@@ -163,15 +195,23 @@ def check_file(path, english):
     if not en:
         return errors, warnings, None
 
-    ratio = len(body) / len(en)
+    # Prose only, both sides — see the module docstring on why citations are excluded.
+    ur_prose, en_prose = _prose(body), _english_prose(en)
+    if not en_prose:
+        return errors, warnings, None
+    ratio = len(ur_prose) / len(en_prose)
     if ratio > OVER_COVERAGE:
         errors.append(
-            f"over-coverage: Urdu is {ratio:.2f}x its English ({len(body)} vs {len(en)} chars). "
+            f"over-coverage: Urdu prose is {ratio:.2f}x its English "
+            f"({len(ur_prose)} vs {len(en_prose)} chars). "
             "The Urdu is asserting material the English does not — check whether the English "
             "was cut or retracted (see docs/allo_mahar_resolution.md for the precedent)."
         )
     elif ratio < UNDER_COVERAGE:
-        warnings.append(f"under-coverage: {ratio:.2f}x ({len(body)} vs {len(en)} chars) — English has moved on")
+        warnings.append(
+            f"under-coverage: {ratio:.2f}x ({len(ur_prose)} vs {len(en_prose)} prose chars) "
+            "— English has moved on"
+        )
 
     # A figure present only in the Urdu is a claim from nowhere: these files were drafted
     # *from* the English and are not independently sourced, so an Urdu-only date, year or
@@ -180,7 +220,7 @@ def check_file(path, english):
     # which NUMBER_WORDS now absorbs. This is the enforcement RULE 2 previously lacked
     # across the language boundary; a phrase-level invention like kalat-kali-temple's
     # "far from Quetta" still slips through, so it is not a substitute for reading.
-    extra = sorted(_figures(body) - _english_figures(en), key=lambda v: (len(v), v))
+    extra = sorted(_figures(_prose(body)) - _english_figures(_english_prose(en)), key=lambda v: (len(v), v))
     if extra:
         warnings.append(
             f"figure(s) not present in the English: {', '.join(extra[:6])} — an Urdu-only "

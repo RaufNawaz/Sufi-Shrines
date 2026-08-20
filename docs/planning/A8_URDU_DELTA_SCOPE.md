@@ -207,7 +207,23 @@ decided — otherwise the Urdu prose has to be redone when the English framing c
 - `mergeUrduContent()` (`src/lib/data/urduContentOverride.ts`) overrides the **whole**
   `Description Urdu` per slug, and only when the sheet doesn't already supply one. There is no
   per-paragraph merge — a delta means editing the whole file, not appending a fragment.
-- **Bibliography: this doc had it wrong.** It said "Bibliography stays untranslated", because
+- **Bibliography: SUPERSEDED 20 August 2026 — Latin citations are now allowed.** The project
+  head's decision: a Latin citation is fine; English prose is not. `validate-urdu-leak.mjs`
+  now checks the article body only and exempts everything from the first bibliography heading
+  onward, matching `build_urdu_content.py`, and `pipeline/urdu_content_qa.py` does the same.
+  So a source can be cited **verbatim** — its real title, its publisher, its URL — which is
+  what an archive whose distinguishing claim is provenance actually needs. `urdu_content_qa`'s
+  length ratio is also computed on prose only now, for the same reason: an Urdu bibliography
+  may legitimately be much shorter or longer than its English one, and the old full-text ratio
+  would have fired on citation practice — or blocked a build for *adding* a source.
+  **Consequence worth acting on:** the ~25 bibliographies written on 20 August render their
+  English titles in Urdu script with a note pointing at the English entry, which loses the
+  exact search string. Those can now carry the original titles. Nothing is broken as it
+  stands, so this is an improvement rather than a fix, but it is the single cheapest
+  provenance win left on the Urdu track.
+
+  *Historical, for context — the constraint that shaped those files:*
+  It said "Bibliography stays untranslated", because
   `build_urdu_content.py` permits Latin after `## کتابیات` / `## حوالہ جات` / `## حوالے`. But
   that builder is not the binding gate. `npm run data:validate` also runs
   `scripts/data/validate-urdu-leak.mjs`, which allows **zero Latin letters anywhere** in

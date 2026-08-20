@@ -198,10 +198,18 @@ rules:
    `text-align: start`), `<bdi>` around mixed Latin/number runs (e.g. an unreviewed English
    source note shown in the Urdu view), locale-aware `localeCompare(…, 'ur')`.
 
+7. **Citations may be Latin; prose may not.** (Decided 20 August 2026.) A bibliography entry
+   carries the source's real title, publisher and URL, because an archive whose distinguishing
+   claim is provenance must leave the reader an exact search string. Everything *before* the
+   first bibliography heading (`## کتابیات` / `## حوالہ جات` / `## حوالے`) must be Urdu:
+   Latin there is an untranslated sentence. `scripts/data/validate-urdu-leak.mjs` and
+   `pipeline/urdu_content_qa.py` both enforce exactly that split, and the latter's length
+   ratio is computed on prose only so citation practice can never fail a build.
+
 **Definition of done for any Urdu/i18n change:** `npm run verify` + `npm run e2e` green
 (including the no-leak guard); ESLint blocks new inline ternaries; Nastaliq on all controls;
 Eastern numerals reach every number site; no English or transliteration in the Urdu view
-outside URLs/coordinates/`<bdi>`.
+outside citations/URLs/coordinates/`<bdi>`.
 
 ---
 

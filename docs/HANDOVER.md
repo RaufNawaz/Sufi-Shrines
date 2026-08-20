@@ -754,7 +754,17 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     when the English has ≥2 prose sections, took it from 144 warnings to 4 real ones. RULE 4
     cuts both ways: the check was the thing that was wrong.
 
-14. **CLAUDE.md's i18n rule 6 and the leak gate disagree about URLs, and nobody had hit it.**
+14. **RESOLVED 20 August 2026 — Latin citations are allowed; English prose is not.** The
+    project head's call, after this was raised below. `scripts/data/validate-urdu-leak.mjs`
+    now scans the article body only and exempts everything from the first bibliography
+    heading onward (matching `urdu-i18n/build_urdu_content.py`, which always did);
+    `pipeline/urdu_content_qa.py` matches, and additionally computes its length ratio on
+    prose only, since an Urdu bibliography's length says nothing about article coverage and
+    the old full-text ratio could have blocked a build for adding a source. Re-measured on
+    that basis the ratio is much tighter — 0.84-1.06 across 167 entries, median 0.91 — so
+    the bounds moved to 0.75/1.20; the allo-mahar retraction still fails at 2.64x, and the
+    figure check independently flags its fabricated 22 February / 23 March / 1930s dates.
+    **The original problem, kept because it explains the existing files:**
     The rule says no English in the Urdu view "outside URLs/coordinates/`<bdi>`". The leak
     gate forbids every Latin letter in `urdu-content.json`, and a URL is nothing but Latin
     letters. So a citation that legitimately *is* a URL cannot be carried in Urdu article
