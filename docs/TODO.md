@@ -8,6 +8,22 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (eighth: the almanac and the lineage now point at each other)
+
+**A figure's page now says when their ʿurs falls.** The almanac already linked each observance
+to the figure it commemorates; this is the other direction, and it is the one a reader arriving
+from a lineage view actually wants — *when do people gather for this saint?* Built from only
+that figure's own shrines through the same `buildAlmanac` the almanac page uses, so there is no
+second implementation of Hijri projection to drift.
+
+Verified in a browser across three figures: Abul Faiz Qalander Ali Suharwardi reads "Next ʿurs:
+24–25 August 2026 · approximate", Shams Ali Qalandar "6 September 2026" with **no** flag
+(his date is Gregorian, not projected), Data Ganj Bakhsh "22–24 July 2027 · approximate". The
+flag appears exactly where the date is a forecast rather than a date, which is the distinction
+`AlmanacEntry.approximate` exists to carry. In Urdu: "اگلا عرس: ۲۴–۲۵ اگست ۲۰۲۶ تخمینی".
+
+---
+
 ## 0. Session log — 20 August 2026 (seventh: navigating the almanac, and a scroll nobody had guarded)
 
 **The Urs Almanac listed thirteen month sections with no way to jump between them** — reaching

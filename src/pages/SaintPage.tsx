@@ -25,6 +25,8 @@ import {
   localizeShrineSlug,
 } from '../lib/i18n/localizeKgName';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { buildAlmanac } from '../lib/data/almanac';
+import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 
 export default function SaintPage() {
@@ -49,6 +51,29 @@ export default function SaintPage() {
   }, [shrines, lang]);
 
   const shrineLabel = (slug: string) => shrineMap.get(slug) ?? localizeShrineSlug(slug, lang);
+
+  // Pinned to the day so the memo below does not rebuild on every render.
+  const today = useMemo(() => {
+    const now = new Date();
+    return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  }, []);
+
+  /*
+   * The next ʿurs kept for this figure.
+   *
+   * The almanac already links each observance to the figure it commemorates;
+   * this is the other direction, which is the one a reader arriving from a
+   * lineage view wants — "when do people gather for this saint?". Built from
+   * only this figure's own shrines, so it is a handful of rows through the same
+   * `buildAlmanac` the almanac page uses rather than a second implementation of
+   * Hijri projection.
+   */
+  const nextUrs = useMemo(() => {
+    if (!saint) return null;
+    const own = shrines.filter((shrine) => saint.shrines.includes(shrine.slug));
+    if (own.length === 0) return null;
+    return buildAlmanac(own, today).dated[0] ?? null;
+  }, [saint, shrines, today]);
 
   useDocumentTitle(saint ? `${localizeFigureName(saint, lang)} — ${t('siteTitle')}` : null);
 
@@ -229,6 +254,27 @@ export default function SaintPage() {
             <span className="entity-meta-item">
               <Link to={`/order/${order.slug}`} className="order-badge">
                 {localizeOrderName(order, lang)}
+              </Link>
+            </span>
+          )}
+          {nextUrs && (
+            <span className="entity-meta-item">
+              {t('saintNextUrs')}:{' '}
+              {formatDateWindow(nextUrs.window, lang, fmtNum, {
+                monthOnly: nextUrs.observance.precision === 'month',
+              })}
+              {/* A Hijri-derived date moves with the moon sighting. Saying so
+                  is the difference between a date and a forecast. */}
+              {nextUrs.approximate && (
+                <span
+                  className="almanac-flag almanac-flag--approximate entity-urs-flag"
+                  title={t('almanacApproximateFull')}
+                >
+                  {t('almanacApproximate')}
+                </span>
+              )}
+              <Link to="/almanac" className="entity-urs-link">
+                {t('saintNextUrsLink')}
               </Link>
             </span>
           )}

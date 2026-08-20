@@ -1085,3 +1085,28 @@
 [dir='rtl'] .graph-figure-filter-empty {
   font-size: var(--text-sm);
 }
+
+/* ── Next ʿurs on a figure's page ────────────────────────────────────────── */
+
+/* The almanac links each observance to the figure it commemorates; this is the
+   other direction, which is what a reader arriving from a lineage view wants. */
+.entity-urs-flag {
+  margin-inline-start: var(--space-2);
+}
+
+.entity-urs-link {
+  margin-inline-start: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.entity-urs-link:hover,
+.entity-urs-link:focus-visible {
+  text-decoration: underline;
+}
+
+[dir='rtl'] .entity-urs-link {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
