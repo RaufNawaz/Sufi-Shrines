@@ -2,7 +2,9 @@
  "_comment": "A8 (Urdu content delta) scope. Regenerate with pipeline/a8_urdu_delta.py. 'added_chars' counts inserted/replaced characters, not a diff of meaning.",
  "generated": "2026-08-18",
  "baseline": "urdu-i18n/_english_descriptions.json",
- "english_source": "data/shrines_final_import_2026-08-16.csv",
+ "english_source": "data/shrines.csv",
+ "rows": 169,
+ "partial": true,
  "full_translation": [
   {
    "slug": "darbar-abul-muali-qadri",
@@ -11,31 +13,9 @@
   {
    "slug": "darbar-malik-ahmad-ayaz",
    "english_chars": 6909
-  },
-  {
-   "slug": "darbar-mian-qurban-ali-shah",
-   "english_chars": 5374
   }
  ],
  "delta": [
-  {
-   "slug": "shrine-of-mauj-darya-bukhari",
-   "added_chars": 3001,
-   "old_chars": 1869,
-   "new_chars": 4639
-  },
-  {
-   "slug": "shrine-of-shah-jamal",
-   "added_chars": 2579,
-   "old_chars": 1764,
-   "new_chars": 4231
-  },
-  {
-   "slug": "shrine-of-shah-inayat-qadiri",
-   "added_chars": 2213,
-   "old_chars": 1787,
-   "new_chars": 3837
-  },
   {
    "slug": "shrine-of-peer-makki",
    "added_chars": 1998,
@@ -245,12 +225,6 @@
    "added_chars": 731,
    "old_chars": 1665,
    "new_chars": 2311
-  },
-  {
-   "slug": "allo-mahar",
-   "added_chars": 721,
-   "old_chars": 4724,
-   "new_chars": 1449
   },
   {
    "slug": "shrine-of-akhund-darweza-baba",
@@ -464,6 +438,7 @@
   }
  ],
  "no_action": [
+  "allo-mahar",
   "amb-temples-amb-sharif",
   "bari-imam",
   "bhagnari-mandir",
@@ -473,7 +448,6 @@
   "darbar-ghazi-ilm-din-shaheed",
   "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
   "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
-  "darbar-hazrat-shah-gohar-peer",
   "darbar-hazrat-tahir-bandagi-qadri",
   "darbar-sakhi-shah-chan-charagh",
   "darbar-wasif-ali-wasif",
@@ -546,10 +520,13 @@
   "shrine-of-fariduddin-ganjshakar",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
+  "shrine-of-mauj-darya-bukhari",
   "shrine-of-pir-mangho",
   "shrine-of-pir-sher-muhammad",
   "shrine-of-qalandar-baba-auliya",
   "shrine-of-sachal-sarmast",
+  "shrine-of-shah-inayat-qadiri",
+  "shrine-of-shah-jamal",
   "shrine-of-shah-rukn-e-alam",
   "shrine-of-shah-shams-ud-din-sabzwari",
   "shrine-of-shah-yusaf-gardez",

@@ -24,7 +24,19 @@ import json, os, glob, datetime, csv, io, re, sys, urllib.request
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(OUT, ".."))
-LOCAL_CSV = os.path.join(ROOT, "data", "shrines_final_import_2026-08-16.csv")
+# Offline row sources, in preference order. The 16 August import CSV is the full 171-row
+# universe but is gitignored (data/*.csv), so it is absent from a fresh clone — which made
+# `npm run urdu:build` crash at step 4/4 after steps 1–3 had already written their output.
+# data/shrines.csv is tracked; it is the built snapshot, so it lacks the rows dropped for
+# empty coordinates (docs/HANDOVER.md §9.6) and the coverage denominator is that much
+# smaller. The printed source line says which one was used — read it before quoting a
+# percentage.
+LOCAL_CSVS = (
+    os.path.join(ROOT, "data", "shrines_final_import_2026-08-16.csv"),
+    os.path.join(ROOT, "data", "shrines.csv"),
+)
+SHEET_ROWS = 171  # the live sheet's row count. A source with fewer rows is a partial
+                  # universe, and the orphan invariant below cannot be enforced against it.
 
 # shrines with NO English description yet (can't translate until sourced).
 # (2026-07-10: the 8 formerly listed here — Shah Yousuf, Guru Gurpat Mandir,
@@ -61,8 +73,15 @@ def load_live_rows(live):
         # io.StringIO, never raw.splitlines() — splitlines breaks quoted
         # multi-paragraph cells before the csv module sees them.
         return list(csv.DictReader(io.StringIO(raw))), "live published sheet"
-    with open(LOCAL_CSV, newline="", encoding="utf-8") as fh:
-        return list(csv.DictReader(fh)), os.path.relpath(LOCAL_CSV, ROOT)
+    for path in LOCAL_CSVS:
+        if os.path.exists(path):
+            with open(path, newline="", encoding="utf-8") as fh:
+                return list(csv.DictReader(fh)), os.path.relpath(path, ROOT)
+    raise SystemExit(
+        "FAIL: no local row source found — looked for "
+        + ", ".join(os.path.relpath(p, ROOT) for p in LOCAL_CSVS)
+        + ". Run `npm run data:build`, or pass --live to fetch the sheet."
+    )
 
 
 def load_tour_slugs():
@@ -111,7 +130,14 @@ def main():
 
     done_t = sorted(s for s in universe if s in done)
     remaining = [s for s in universe if s not in done]
-    orphans = sorted(done - set(universe))
+    # A content file with no row in *this* source is only provably an orphan when the
+    # source carries the whole universe. Against the built snapshot it is ambiguous:
+    # build-dataset drops rows with empty coordinates, so darbar-hazrat-shah-gohar-peer
+    # — a real live row with a real translation — reads as an orphan and failed the build.
+    # Report either way, but only exit non-zero when the answer is knowable.
+    unmatched = sorted(done - set(universe))
+    partial = len(universe) < SHEET_ROWS
+    orphans = [] if partial else unmatched
 
     remaining.sort(key=lambda s: (s not in tour_slugs, -len(universe[s]["desc"])))
 
@@ -126,6 +152,12 @@ def main():
     L.append(f"**Progress: {len(done_t)} / {total} shrine descriptions translated ({pct}%).** "
              f"{len(BLOCKED)} more are blocked (no English description yet).")
     L.append("")
+    if partial:
+        L.append(f"> **Denominator caveat:** this run used `{source}`, {total} rows against the "
+                 f"sheet's {SHEET_ROWS}. The percentage above is therefore counted against a "
+                 "partial universe — re-run `python3 urdu-i18n/update_log.py --live` for the "
+                 "true figure.")
+        L.append("")
     L.append(f"Shrine universe: **{source}** ({total} rows). Coverage is counted against the "
              "live rows, not against `_english_descriptions.json` — that file is a 12 July "
              "snapshot of 163 rows and using it as the denominator reported 100% while 8 live "
@@ -155,13 +187,21 @@ def main():
         star = "★ " if s in tour_slugs else ""
         L.append(f"| {i} | `{s}` | {star}{universe[s]['name']} | {universe[s]['category']} | {len(universe[s]['desc'])} |")
     L.append("")
-    if orphans:
-        L.append(f"## ⚠ Orphaned content files ({len(orphans)})")
+    if unmatched:
+        if partial:
+            L.append(f"## Content files not matched in this source ({len(unmatched)})")
+            L.append("")
+            L.append(f"`{source}` is a partial universe ({total} of {SHEET_ROWS} rows), so these "
+                     "cannot be classified: a file here is either a genuine orphan (slug drift) "
+                     "or a live row this source drops for empty coordinates. Re-run with "
+                     "`--live`, or against the full import CSV, to tell them apart.")
+        else:
+            L.append(f"## ⚠ Orphaned content files ({len(unmatched)})")
+            L.append("")
+            L.append("A `content/<slug>.md` with no matching live row — the slug drifted or the "
+                     "shrine was renamed, and this Urdu no longer reaches the site.")
         L.append("")
-        L.append("A `content/<slug>.md` with no matching live row — the slug drifted or the "
-                 "shrine was renamed, and this Urdu no longer reaches the site.")
-        L.append("")
-        for s in orphans:
+        for s in unmatched:
             L.append(f"- [ ] `{s}`")
         L.append("")
     L.append(f"## Done ({len(done_t)})")
@@ -186,6 +226,11 @@ def main():
         raise SystemExit(
             f"FAIL: {len(orphans)} orphaned content file(s) with no live row: {orphans}"
         )
+    if unmatched:
+        print(f"[update_log] {len(unmatched)} content file(s) unmatched in a partial source "
+              f"({total} of {SHEET_ROWS} rows) — cannot tell orphan from coordinate-dropped "
+              f"row: {unmatched}. Re-run with --live to classify.")
+        return
     print("[update_log] OK — no orphaned content files.")
 
 
