@@ -822,6 +822,68 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     prose. Worth a check if another instance turns up — the class is "a name silently
     re-transliterated in one file".
 
+### Added 20 August 2026 (later) — the knowledge graph was thin, and the thinness was hiding things
+
+20. **The lineage and order features had almost no data, and the reason was that nothing read
+    the dataset's own columns.** 130 figures, **6** lineage edges, **20** order memberships —
+    all 26 hand-listed in `data/kg-seeds.json`. Meanwhile `silsila` is filled for 52 of 169
+    rows and the prose states teacher-disciple links constantly. Three extraction agents over
+    the archive's own English (`data/shrines.json`, `shrine_entries/`, `entries/`) produced 130
+    quote-carrying proposals; after verification the graph holds **86 lineage edges** (6 human,
+    80 machine-extracted) and **64 order memberships** (20 human, 44 extracted), 13 of which
+    carry a named sub-order branch. `docs/allo_mahar_resolution.md` is the reason this was done
+    as *extraction with verbatim quotes* rather than research: an agent recalling saints from
+    training is precisely what produced the biography of the wrong man.
+
+21. **`scripts/data/verify-kg-proposals.mjs` re-checks every quote against the source it
+    names.** The extractors reported verifying their own quotes; that is not the same as them
+    being verified. All 130 passed — nothing fabricated. **What it proves is "not fabricated",
+    never "correct":** whether a quote *means* what the proposal says, whether two similar
+    names are one person, and which side of a contradiction is right all remain a human's job.
+    Every derived edge carries `method: 'machine-extracted'`, `reviewed: false`, its confidence
+    tier and its quote, and the UI labels them `unreviewed` with the quote shown inline so a
+    reader can judge for themselves.
+
+22. **Two checks I wrote were circular or stale, and both taught the same lesson.** The
+    `isNew` flag on a proposal is *derived* — it says whether a slug is already in the graph —
+    so (a) it went stale the moment a dataset refresh added six saints between extraction and
+    the next build, and (b) once `build-kg.mjs` started adding a node for every teacher the
+    proposals name, comparing against `kg.saints` found every `isNew: true` proposal "already
+    present" on the second run. Fixed by comparing against **archive figures only** (`!
+    lineageOnly`), which is what the flag actually asserts, plus a `--reconcile` mode that
+    rewrites only that derived flag. **Do not store a fact you can compute, and if you must,
+    do not check it against a set your own build mutates.**
+
+23. **60 of the graph's figures now have no shrine here, and must never be counted as if they
+    did.** A lineage stops dead at the first teacher without a shrine in Pakistan — Hujwiri's
+    al-Khuttali, Mian Mir's Shaikh Siyustani — so those are real nodes, flagged `lineageOnly`.
+    Use `getArchiveFigures()` for anything describing the archive's coverage; `kg.saints` is
+    196 and only 136 of those are archive entries.
+
+24. **Four of the twenty hand-curated order memberships are contradicted by the dataset, and
+    four more cannot be verified at all.** Contradicted: `daud-bandagi-kirmani` (seed says
+    Chishti; column and prose say Qadiri, five times), `waris-shah` (seed Qadiri; both say
+    Chishti), `shams-ali-qalandar` (seed Qalandari; sources say Owaisi Qadiriyya Noshahi and
+    frame qalandar as a style of asceticism, not the silsila), `qalandar-baba-auliya` (seed
+    Qalandari; sources make him the Azeemia's founder and "Qalandar Baba Auliya" a title).
+    Unverifiable — no order named anywhere in their rows or entries: `rahman-baba`,
+    `sachal-sarmast`, `sufi-shah-inayat-shaheed`, `makhdoom-burhan-ud-din`. **These are
+    untouched.** They are in `data/kg-order-proposals.json#disagreesWithExistingSeed` for a
+    human, because overwriting reviewed data with an extraction is the wrong direction of
+    trust.
+
+25. **"Sarwari" names two different branches under two different parents.** Sultan Bahu's
+    *Sarwari Qadiri* (Qadiriyya) and Makhdoom Nooh's Sindh *Sarwari* line (Suhrawardiyya).
+    Keying on the branch string alone would have merged them into one false edge. Any future
+    branch-level modelling must key on branch **plus** parent.
+
+26. **The explorer's network graph broke as soon as it had data.** Labels were anchored
+    `middle` directly beneath each node, which is fine for the four saints Chishtiyya used to
+    have and unreadable at fourteen — every label overlapped its neighbours and the hub. The
+    ring now grows with the node count and labels read radially outward, anchored by side.
+    Worth remembering as a class: **a layout that works on sparse data is untested, not
+    correct.**
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

@@ -62,6 +62,7 @@ order_:naqshbandiyya
 saint:pir-syed-muhammad-channan-shah-nuri
   a schema:Person ;
   schema:name "Pir Syed Muhammad Channan Shah Nuri"@en ;
+  schema:memberOf order_:naqshbandiyya ;
   .
 
 saint:shiva
@@ -75,6 +76,11 @@ saint:bari-imam
   a schema:Person ;
   schema:name "Bari Imam"@en ;
   schema:alternateName "Shah Abdul Latif Kazmi"@en ;
+  schema:alternateName "Sayyid Abdul Latif Kazmi"@en ;
+  schema:alternateName "Sayyid Abdul Latif Shah"@en ;
+  schema:birthDate "1617" ;
+  schema:deathDate "1705" ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:bhai-sant-thawan-das
@@ -90,6 +96,8 @@ saint:bhai-waliram
 saint:shah-abdul-latif-bhittai
   a schema:Person ;
   schema:name "Shah Abdul Latif Bhittai"@en ;
+  schema:birthDate "1689" ;
+  schema:deathDate "1752" ;
   .
 
 saint:goddess-durga
@@ -101,60 +109,99 @@ saint:goddess-durga
 saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri
   a schema:Person ;
   schema:name "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"@en ;
+  schema:birthDate "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)" ;
+  schema:deathDate "16 Rabi ul Awal 1024 AH (as related in the survey)" ;
   .
 
 saint:khwaja-muhammad-qasim
   a schema:Person ;
   schema:name "Khwaja Muhammad Qasim"@en ;
   schema:alternateName "\"Zinda Pir\""@en ;
+  schema:alternateName "Zinda Pir"@en ;
+  schema:birthDate "1912" ;
+  schema:deathDate "1999" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:khwaja-muhammad-qasim-sadiq ;
+  sufi:successorOf saint:khwaja-muhammad-qasim-sadiq ;
   .
 
 saint:ghazi-ilm-din-shaheed
   a schema:Person ;
   schema:name "Ghazi Ilm Din Shaheed"@en ;
+  schema:alternateName "Ilm Din"@en ;
+  schema:alternateName "Ghazi Ilam Din"@en ;
+  schema:birthDate "4 December 1908, Lahore" ;
+  schema:deathDate "31 October 1929 (executed at Mianwali Jail)" ;
   .
 
 saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami
   a schema:Person ;
   schema:name "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami"@en ;
+  schema:deathDate "November 27, 1981 (Friday)" ;
+  schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
+  sufi:successorOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
   .
 
 saint:khawaja-shah-muhammad-sulaiman-taunsvi
   a schema:Person ;
   schema:name "Khawaja Shah Muhammad Sulaiman Taunsvi"@en ;
+  schema:alternateName "Khwaja Muhammad Sulaiman Taunsvi"@en ;
+  schema:birthDate "1770" ;
+  schema:deathDate "1850" ;
+  schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:khwaja-noor-muhammad-maharvi ;
+  sufi:successorOf saint:khwaja-noor-muhammad-maharvi ;
   .
 
 saint:hazrat-tahir-bandagi-qadri
   a schema:Person ;
   schema:name "Hazrat Tahir Bandagi Qadri"@en ;
+  schema:birthDate "1576 CE, Lahore" ;
+  schema:deathDate "8 Muharram 1040 AH / 8 August 1630 CE" ;
+  schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:hazrat-shah-sikandar ;
   .
 
 saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore
   a schema:Person ;
   schema:name "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"@en ;
   schema:alternateName "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\""@en ;
+  schema:birthDate "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9)." ;
+  schema:deathDate "8 August 1041, as given in the account; calendar era unstated" ;
   .
 
 saint:syed-sakhi-shah-chan-charagh
   a schema:Person ;
   schema:name "Syed Sakhi Shah Chan Charagh"@en ;
+  schema:alternateName "Shah Zaman"@en ;
+  schema:alternateName "Sayyid Shah Zaman"@en ;
+  schema:alternateName "Sakhi Shah Chan Charagh"@en ;
+  sufi:discipleOf saint:sayyid-shah-inayat ;
   .
 
 saint:hazrat-wasif-ali-wasif-awan
   a schema:Person ;
   schema:name "Hazrat Wasif Ali Wasif Awan"@en ;
   schema:alternateName "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"@en ;
+  schema:birthDate "15 January 1929" ;
+  schema:deathDate "18 January 1993" ;
   .
 
 saint:sufi-shah-inayat-shaheed
   a schema:Person ;
   schema:name "Sufi Shah Inayat Shaheed"@en ;
+  schema:deathDate "1718" ;
   schema:memberOf order_:qadiriyya ;
   .
 
 saint:syed-rakhyal-shah-sufi-al-qadri
   a schema:Person ;
   schema:name "Syed Rakhyal Shah Sufi Al Qadri"@en ;
+  schema:alternateName "Syed Rakhyal Shah"@en ;
+  schema:alternateName "Pir Rakhail Shah"@en ;
+  schema:birthDate "1842" ;
+  schema:deathDate "1940" ;
   schema:memberOf order_:qadiriyya ;
   .
 
@@ -162,18 +209,30 @@ saint:khwaja-muhammad-zaman-sultan-al-aulia
   a schema:Person ;
   schema:name "Khwaja Muhammad Zaman \"Sultan al-Aulia\""@en ;
   schema:alternateName "1713–1775"@en ;
+  schema:alternateName "Makhdoom Muhammad Zaman Naqshbandi"@en ;
+  schema:alternateName "Khwaja Muhammad Zaman"@en ;
+  schema:birthDate "1713" ;
+  schema:deathDate "1775" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:khwaja-abul-masakin ;
+  sufi:discipleOf saint:shaikh-abdul-latif ;
   .
 
 saint:pir-syed-muhammad-rashid-shah-roze-dhani
   a schema:Person ;
   schema:name "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\""@en ;
   schema:alternateName "founder of the Rashidi order"@en ;
+  schema:alternateName "Pir Syed Muhammad Rashid Shah"@en ;
+  schema:birthDate "1757" ;
+  schema:deathDate "1818" ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:baba-pir-ratan-nath
   a schema:Person ;
   schema:name "Baba Pir Ratan Nath"@en ;
   schema:alternateName "Nath yogi"@en ;
+  schema:alternateName "Ratan Nath"@en ;
   .
 
 saint:jhulelal-daryalal
@@ -186,22 +245,38 @@ saint:data-ganj-bakhsh
   a schema:Person ;
   schema:name "Data Ganj Bakhsh"@en ;
   schema:alternateName "Ali Hujwiri"@en ;
+  schema:alternateName "Ali ibn Usman al-Hujwiri"@en ;
+  schema:alternateName "al-Jullabi"@en ;
+  schema:alternateName "al-Hujwiri"@en ;
+  schema:birthDate "1009" ;
+  schema:deathDate "1072" ;
+  sufi:discipleOf saint:abul-fadl-muhammad-al-khuttali ;
   .
 
 saint:pir-abdul-ul-karim
   a schema:Person ;
   schema:name "Pir Abdul-ul-karim"@en ;
+  schema:memberOf order_:chishtiyya ;
   .
 
 saint:sultan-bahoo
   a schema:Person ;
   schema:name "Sultan Bahoo"@en ;
+  schema:alternateName "Bahu (\"with Hoo\")"@en ;
+  schema:birthDate "1630" ;
+  schema:deathDate "1691" ;
   schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:sayyid-abdul-rahman-of-delhi ;
   .
 
 saint:pir-meher-ali-shah
   a schema:Person ;
   schema:name "Pir Meher Ali Shah"@en ;
+  schema:alternateName "Pir Sayyid Meher Ali Shah"@en ;
+  schema:alternateName "Pir Mehr Ali Shah"@en ;
+  schema:birthDate "1859" ;
+  schema:deathDate "1937" ;
+  schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:muhammad-shamsuddin-sialvi ;
   .
 
@@ -209,6 +284,9 @@ saint:guru-gorakhnath
   a schema:Person ;
   schema:name "Guru Gorakhnath"@en ;
   schema:alternateName "Nath yogis"@en ;
+  schema:alternateName "Gorakhnath"@en ;
+  schema:alternateName "Goraknath"@en ;
+  sufi:discipleOf saint:matsyendranath ;
   .
 
 saint:jain-temple-dedicated-to-parshvanatha
@@ -228,6 +306,10 @@ saint:guru-nanak
   schema:alternateName "First Guru / Pehli Patshahi"@en ;
   schema:alternateName "gurdwara-school dedicated to his teachings"@en ;
   schema:alternateName "First Guru"@en ;
+  schema:alternateName "Guru Nanak Dev Ji"@en ;
+  schema:alternateName "Nanak"@en ;
+  schema:birthDate "1469" ;
+  schema:deathDate "1539" ;
   schema:sameAs <https://www.wikidata.org/entity/Q309430> ;
   .
 
@@ -235,12 +317,18 @@ saint:bebe-nanaki
   a schema:Person ;
   schema:name "Bebe Nanaki"@en ;
   schema:alternateName "elder sister of Guru Nanak"@en ;
+  schema:alternateName "Bibi Nanaki"@en ;
+  schema:birthDate "1464" ;
+  schema:deathDate "1518" ;
   .
 
 saint:guru-arjan-dev
   a schema:Person ;
   schema:name "Guru Arjan Dev"@en ;
   schema:alternateName "fifth Sikh Guru"@en ;
+  schema:alternateName "Guru Arjan"@en ;
+  schema:birthDate "1563" ;
+  schema:deathDate "1606" ;
   .
 
 saint:bhai-biba-singh
@@ -264,18 +352,25 @@ saint:guru-hargobind
   schema:name "Guru Hargobind"@en ;
   schema:alternateName "Sixth Guru"@en ;
   schema:alternateName "Sixth Guru / Chhevin Patshahi"@en ;
+  sufi:successorOf saint:guru-arjan-dev ;
   .
 
 saint:guru-gobind-singh
   a schema:Person ;
   schema:name "Guru Gobind Singh"@en ;
   schema:alternateName "Dashmesh Pita"@en ;
+  schema:deathDate "1708" ;
   .
 
 saint:guru-ram-das
   a schema:Person ;
   schema:name "Guru Ram Das"@en ;
   schema:alternateName "4th"@en ;
+  schema:alternateName "Bhai Jetha"@en ;
+  schema:birthDate "1534" ;
+  schema:deathDate "1581" ;
+  sufi:discipleOf saint:guru-amar-das ;
+  sufi:successorOf saint:guru-amar-das ;
   .
 
 saint:guru-nanak-dev-ji-associated-with-bhai-lalo
@@ -292,6 +387,9 @@ saint:guru-arjan-dev-and-guru-hargobind
 saint:bhai-taru
   a schema:Person ;
   schema:name "Bhai Taru"@en ;
+  schema:alternateName "Bhai Taru Singh"@en ;
+  schema:birthDate "1720" ;
+  schema:deathDate "1745" ;
   .
 
 saint:sikh-women-and-children-martyrs
@@ -309,6 +407,9 @@ saint:guru-granth-sahib-sikh-community
 saint:guru-gurpat
   a schema:Person ;
   schema:name "Guru Gurpat"@en ;
+  schema:alternateName "Baba Gurpat Sahib"@en ;
+  schema:birthDate "1807" ;
+  schema:deathDate "1877" ;
   .
 
 saint:lord-jagannath
@@ -344,6 +445,9 @@ saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh
   a schema:Person ;
   schema:name "Bhai Gurdas Singh, disciple of Guru Gobind Singh"@en ;
   schema:alternateName "Kanhiya Lal"@en ;
+  schema:alternateName "Bhai Gurdas Singh"@en ;
+  schema:alternateName "Bhai Kanya Lal"@en ;
+  sufi:discipleOf saint:guru-gobind-singh ;
   .
 
 saint:lord-krishna
@@ -360,12 +464,19 @@ saint:valmiki
 saint:lal-shahbaz-qalandar
   a schema:Person ;
   schema:name "Lal Shahbaz Qalandar"@en ;
+  schema:alternateName "Sayyid Usman Marwandi"@en ;
+  schema:alternateName "Usman Marwandi"@en ;
+  schema:birthDate "1177" ;
+  schema:deathDate "1274" ;
   schema:memberOf order_:qalandariyya ;
   .
 
 saint:makhdoom-burhan-ud-din
   a schema:Person ;
   schema:name "Makhdoom Burhan-ud-din"@en ;
+  schema:alternateName "Hazrat Langar Makhdoom"@en ;
+  schema:alternateName "Langar Makhdoom"@en ;
+  schema:deathDate "1245" ;
   schema:memberOf order_:suhrawardiyya ;
   .
 
@@ -378,13 +489,19 @@ saint:lava-son-of-rama-and-sita
 saint:waris-shah
   a schema:Person ;
   schema:name "Waris Shah"@en ;
+  schema:birthDate "1722" ;
+  schema:deathDate "1798" ;
   schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:makhdoom-of-kasur ;
   .
 
 saint:bulleh-shah
   a schema:Person ;
   schema:name "Bulleh Shah"@en ;
   schema:alternateName "Abdullah Shah Qadri"@en ;
+  schema:alternateName "Sayyid Abdullah Shah Qadiri"@en ;
+  schema:birthDate "1680" ;
+  schema:deathDate "1757" ;
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:shah-inayat-qadiri ;
   .
@@ -392,12 +509,21 @@ saint:bulleh-shah
 saint:khwaja-ghulam-farid
   a schema:Person ;
   schema:name "Khwaja Ghulam Farid"@en ;
+  schema:birthDate "1845" ;
+  schema:deathDate "1901" ;
   schema:memberOf order_:chishtiyya ;
   .
 
 saint:khwaja-muhammad-qasim-sadiq
   a schema:Person ;
   schema:name "Khwaja Muhammad Qasim Sadiq"@en ;
+  schema:alternateName "Hazrat Khawaja Muhammad Qasim Sadiq"@en ;
+  schema:alternateName "Khawaja Muhammad Qasim Moharwi"@en ;
+  schema:alternateName "Muḥammad Qāthim Mohŕvī"@en ;
+  schema:birthDate "1846" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:khwaja-nizamuddin-aulia-of-kahiyan-sharif ;
+  sufi:successorOf saint:khwaja-nizamuddin-aulia-of-kahiyan-sharif ;
   .
 
 saint:king-pandu
@@ -420,12 +546,20 @@ saint:narasimha
 saint:shah-sulaimn-nri
   a schema:Person ;
   schema:name "Shah Sulaimān Nūri"@en ;
+  schema:alternateName "Hazrat Shah Sulaiman Nuri"@en ;
+  schema:birthDate "1510" ;
+  schema:deathDate "1604" ;
+  schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:shah-maroof-khushabi ;
   .
 
 saint:rahman-baba
   a schema:Person ;
   schema:name "Rahman Baba"@en ;
   schema:alternateName "Abdur Rahman Mohmand"@en ;
+  schema:alternateName "Abdur Rahman"@en ;
+  schema:birthDate "1653" ;
+  schema:deathDate "1711" ;
   schema:memberOf order_:chishtiyya ;
   .
 
@@ -438,11 +572,15 @@ saint:ramdev-pir
   a schema:Person ;
   schema:name "Ramdev Pir"@en ;
   schema:alternateName "Ramapir"@en ;
+  schema:alternateName "Baba Ramdev"@en ;
   .
 
 saint:syed-muhammad-noushah-qadiri
   a schema:Person ;
   schema:name "Syed Muhammad Noushah Qadiri"@en ;
+  schema:alternateName "Syed Muhammad Noushah Ganj Bakhsh"@en ;
+  schema:birthDate "1552" ;
+  schema:deathDate "1654" ;
   schema:memberOf order_:qadiriyya ;
   .
 
@@ -450,28 +588,39 @@ saint:baba-bankhandi-maharaj
   a schema:Person ;
   schema:name "Baba Bankhandi Maharaj"@en ;
   schema:alternateName "Udasi founder"@en ;
+  schema:alternateName "Balchand Sharma"@en ;
   .
 
 saint:sain-vali-vilayat-rai
   a schema:Person ;
   schema:name "Sain Vali Vilayat Rai"@en ;
   schema:alternateName "b. 1825"@en ;
+  schema:alternateName "Vali Vilayat Rai"@en ;
+  schema:birthDate "1825" ;
   .
 
 saint:sultan-sakhi-sarwar
   a schema:Person ;
   schema:name "Sultan Sakhi Sarwar"@en ;
+  schema:alternateName "Sayyid Ahmad Sultan"@en ;
   .
 
 saint:maharaja-ranjit-singh
   a schema:Person ;
   schema:name "Maharaja Ranjit Singh"@en ;
+  schema:alternateName "Ranjit Singh"@en ;
+  schema:birthDate "1780" ;
+  schema:deathDate "1839" ;
   .
 
 saint:sant-baba-asudaram-sakhi-baba
   a schema:Person ;
   schema:name "Sant Baba Asudaram \"Sakhi Baba\""@en ;
   schema:alternateName "1895–1960"@en ;
+  schema:alternateName "Sant Baba Asudaram"@en ;
+  schema:alternateName "Asudaram"@en ;
+  schema:birthDate "1895" ;
+  schema:deathDate "1960" ;
   .
 
 saint:sant-baba-bhagat-ram
@@ -483,28 +632,43 @@ saint:bhagat-kanwar-ram
   a schema:Person ;
   schema:name "Bhagat Kanwar Ram"@en ;
   schema:alternateName "1885–1939"@en ;
+  schema:alternateName "Kanwar Ram"@en ;
+  schema:birthDate "1885" ;
+  schema:deathDate "1939" ;
+  sufi:discipleOf saint:satguru-swami-sai-satramdas-sahib ;
   .
 
 saint:satguru-swami-sai-satramdas-sahib
   a schema:Person ;
   schema:name "Satguru Swami Sai Satramdas Sahib"@en ;
   schema:alternateName "1866–1910"@en ;
+  schema:alternateName "Sant Satram Das"@en ;
+  schema:alternateName "Sant Shiromani Satramdas"@en ;
+  schema:birthDate "1866" ;
+  schema:deathDate "1910" ;
   .
 
 saint:bhai-gurdas-veneration-of-guru-nanak
   a schema:Person ;
   schema:name "Bhai Gurdas; veneration of Guru Nanak"@en ;
   schema:alternateName "Sevapanthi tradition"@en ;
+  schema:alternateName "Bhai Kanya Lal"@en ;
+  schema:alternateName "Kanhiya Lal"@en ;
+  schema:alternateName "Bhai Gurdas Singh"@en ;
+  sufi:discipleOf saint:guru-gobind-singh ;
   .
 
 saint:syed-bilawal-shah-noorani
   a schema:Person ;
   schema:name "Syed Bilawal Shah Noorani"@en ;
+  schema:alternateName "Shah Noorani"@en ;
   .
 
 saint:shah-yousuf
   a schema:Person ;
   schema:name "Shah Yousuf"@en ;
+  schema:alternateName "Hazrat Shah Yousuf"@en ;
+  schema:alternateName "Shah Yousaf"@en ;
   .
 
 saint:hinglaj-mata
@@ -515,6 +679,9 @@ saint:hinglaj-mata
 saint:shams-ali-qalandar
   a schema:Person ;
   schema:name "Shams Ali Qalandar"@en ;
+  schema:alternateName "Hazrat Shams Ali Qalandar"@en ;
+  schema:birthDate "1873" ;
+  schema:deathDate "1966" ;
   schema:memberOf order_:qalandariyya ;
   .
 
@@ -527,6 +694,10 @@ saint:goddess-sharada
 saint:daud-bandagi-kirmani
   a schema:Person ;
   schema:name "Daud Bandagi Kirmani"@en ;
+  schema:alternateName "Sheikh Dawood Bandgi Kirmani"@en ;
+  schema:alternateName "Syed Dawood Bandgi Kirmani"@en ;
+  schema:birthDate "1513" ;
+  schema:deathDate "1575" ;
   schema:memberOf order_:chishtiyya ;
   .
 
@@ -545,6 +716,10 @@ saint:lord-hanuman
 saint:bhagwan-swaminarayan
   a schema:Person ;
   schema:name "Bhagwan Swaminarayan"@en ;
+  schema:alternateName "Sahajanand Swami"@en ;
+  schema:alternateName "Swaminarayan"@en ;
+  schema:birthDate "1781" ;
+  schema:deathDate "1830" ;
   .
 
 saint:varuna
@@ -558,24 +733,40 @@ saint:sheikh-tahir
   schema:name "Sheikh Tahir"@en ;
   schema:alternateName "Udero Lal"@en ;
   schema:alternateName "Jhulelal"@en ;
+  schema:alternateName "Odero Lal"@en ;
+  schema:alternateName "Khwaja Khizr (identified by some)"@en ;
   .
 
 saint:abdullah-shah-ghazi
   a schema:Person ;
   schema:name "Abdullah Shah Ghazi"@en ;
+  schema:deathDate "773" ;
   .
 
 saint:abul-faiz-qalander-ali-suharwardi
   a schema:Person ;
   schema:name "Abul Faiz Qalander Ali Suharwardi"@en ;
+  schema:alternateName "Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi"@en ;
+  schema:alternateName "Abul Faiz Qalandar"@en ;
+  schema:birthDate "1885" ;
+  schema:deathDate "1958" ;
+  schema:memberOf order_:suhrawardiyya ;
   sufi:discipleOf saint:pir-sher-muhammad ;
   sufi:discipleOf saint:pir-meher-ali-shah ;
+  sufi:discipleOf saint:ala-hazrat-ahmad-raza-khan ;
+  sufi:discipleOf saint:hazrat-ghulam-muhammad-suhrawardi ;
   .
 
 saint:akhund-darweza-baba
   a schema:Person ;
   schema:name "Akhund Darweza Baba"@en ;
   schema:alternateName "Syed Muhammad, d. 1638"@en ;
+  schema:alternateName "Akhund Darweza"@en ;
+  schema:alternateName "Syed Muhammad"@en ;
+  schema:birthDate "1533" ;
+  schema:deathDate "1638" ;
+  sufi:discipleOf saint:syed-ali-tirmizi ;
+  sufi:successorOf saint:syed-ali-tirmizi ;
   .
 
 saint:hazrat-syed-abdul-wahab
@@ -588,70 +779,127 @@ saint:syed-abdul-razzaq
   a schema:Person ;
   schema:name "Syed Abdul Razzaq"@en ;
   schema:alternateName "\"Shah Chiragh\""@en ;
+  schema:alternateName "Baba Shah Chiragh"@en ;
+  schema:deathDate "1657" ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:hazrat-baba-shah-kamal
   a schema:Person ;
   schema:name "Hazrat Baba Shah Kamal"@en ;
+  schema:alternateName "Shah Kamal"@en ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:bahauddin-zakariya
   a schema:Person ;
   schema:name "Bahauddin Zakariya"@en ;
+  schema:alternateName "Baha-ud-Din Zakariya"@en ;
+  schema:birthDate "1170" ;
+  schema:deathDate "1267" ;
   schema:memberOf order_:suhrawardiyya ;
+  sufi:discipleOf saint:shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi ;
+  sufi:successorOf saint:shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi ;
   .
 
 saint:bibi-pak-daman
   a schema:Person ;
   schema:name "Bibi Pak Daman"@en ;
+  schema:alternateName "Bibi Haj"@en ;
+  schema:alternateName "Bibi Taj"@en ;
+  schema:alternateName "Bibi Noor"@en ;
+  schema:alternateName "Bibi Hoor"@en ;
+  schema:alternateName "Bibi Gauhar"@en ;
+  schema:alternateName "Bibi Shahbaz (or Shahnaz)"@en ;
+  schema:alternateName "Sayyida Ruqayya bint Ali (in the Karbala tradition)"@en ;
   .
 
 saint:fariduddin-ganjshakar
   a schema:Person ;
   schema:name "Fariduddin Ganjshakar"@en ;
+  schema:alternateName "Baba Fariduddin Mas‘ud Ganjshakar"@en ;
+  schema:alternateName "Baba Farid"@en ;
+  schema:alternateName "Farid"@en ;
+  schema:birthDate "1173" ;
+  schema:deathDate "1266" ;
   schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:khwaja-qutbuddin-bakhtiar-kaki ;
+  sufi:successorOf saint:khwaja-qutbuddin-bakhtiar-kaki ;
   .
 
 saint:ganj-e-inayat-sarkar
   a schema:Person ;
   schema:name "Ganj e Inayat Sarkar"@en ;
+  schema:alternateName "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi"@en ;
+  schema:alternateName "Muhammad Inayat Ahmad"@en ;
+  schema:birthDate "1937" ;
+  schema:deathDate "2011" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:hazrat-pir-syed-ismail-shah-bukhari ;
+  sufi:discipleOf saint:hazrat-abu-al-barakat-syed-muhammad-ahmad ;
+  sufi:discipleOf saint:hazrat-syedna-tahir-alauddin-qadiri-gilani ;
+  sufi:discipleOf saint:maulana-ghulam-ali-okarvi ;
+  sufi:successorOf saint:hazrat-pir-syed-ismail-shah-bukhari ;
   .
 
 saint:hazrat-hafiz-muhammad-jamal-multani
   a schema:Person ;
   schema:name "Hazrat Hafiz Muhammad Jamal Multani"@en ;
   schema:alternateName "Chishti"@en ;
+  schema:alternateName "Hafiz Jamal"@en ;
+  schema:alternateName "Hafiz Muhammad Jamal Multani"@en ;
+  schema:birthDate "1747" ;
+  schema:deathDate "1811" ;
+  schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:khwaja-noor-muhammad-maharvi ;
   .
 
 saint:shah-hussain
   a schema:Person ;
   schema:name "Shah Hussain"@en ;
   schema:alternateName "Madho Lal Hussain"@en ;
+  schema:alternateName "Lal Hussain"@en ;
+  schema:birthDate "1538" ;
+  schema:deathDate "1599" ;
+  sufi:discipleOf saint:bahlol-daryai ;
   .
 
 saint:hazrat-muhammad-ayub-shah-bukhari
   a schema:Person ;
   schema:name "Hazrat Muhammad Ayub Shah Bukhari"@en ;
+  schema:alternateName "Ayub Shah Bukhari"@en ;
+  schema:memberOf order_:suhrawardiyya ;
   .
 
 saint:hazrat-shah-ali-akbar-shamsi
   a schema:Person ;
   schema:name "Hazrat Shah Ali Akbar Shamsi"@en ;
+  schema:alternateName "Shah Ali Akbar"@en ;
   .
 
 saint:shah-daula-daryai
   a schema:Person ;
   schema:name "Shah Daula Daryai"@en ;
+  schema:alternateName "Shah Daula"@en ;
+  schema:birthDate "1581" ;
+  schema:deathDate "1675" ;
+  schema:memberOf order_:suhrawardiyya ;
+  sufi:discipleOf saint:shah-saidan-sarmast ;
   .
 
 saint:imam-ali-ul-haq
   a schema:Person ;
   schema:name "Imam Ali-ul-Haq"@en ;
+  schema:alternateName "Imam Ali al-Haq"@en ;
   .
 
 saint:jalaluddin-surkh-posh-bukhari
   a schema:Person ;
   schema:name "Jalaluddin Surkh-Posh Bukhari"@en ;
+  schema:alternateName "Sayyid Jalaluddin Surkh-Posh Bukhari"@en ;
+  schema:alternateName "Jalaluddin Bukhari"@en ;
+  schema:birthDate "1192" ;
+  schema:deathDate "1291" ;
   schema:memberOf order_:suhrawardiyya ;
   .
 
@@ -659,65 +907,113 @@ saint:laki-shah-saddar
   a schema:Person ;
   schema:name "Laki Shah Saddar"@en ;
   schema:alternateName "Syed Shah Sadaruddin Lakyari"@en ;
+  schema:alternateName "Shah Sadaruddin"@en ;
+  schema:alternateName "Laki Shah Sadar"@en ;
+  schema:alternateName "Lakhi Shah Saddar"@en ;
   .
 
 saint:makhdoom-abdul-rahim-girhori
   a schema:Person ;
   schema:name "Makhdoom Abdul Rahim Girhori"@en ;
   schema:alternateName "1739–1778"@en ;
+  schema:alternateName "Abdul Rahim Girhori"@en ;
+  schema:birthDate "1739" ;
+  schema:deathDate "1778" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:khwaja-muhammad-zaman-sultan-al-aulia ;
+  sufi:successorOf saint:khwaja-muhammad-zaman-sultan-al-aulia ;
   .
 
 saint:jahaniyan-jahangasht
   a schema:Person ;
   schema:name "Jahaniyan Jahangasht"@en ;
+  schema:alternateName "Sayyid Jalaluddin Bukhari"@en ;
+  schema:alternateName "Makhdoom Jahaniyan Jahangasht"@en ;
+  schema:alternateName "Syed Jalal-ud-Din Jahaniyan Jahangasht"@en ;
+  schema:birthDate "1308" ;
+  schema:deathDate "1384" ;
   schema:memberOf order_:suhrawardiyya ;
+  sufi:discipleOf saint:hazrat-bahaal-halim ;
   .
 
 saint:makhdoom-nooh
   a schema:Person ;
   schema:name "Makhdoom Nooh"@en ;
   schema:alternateName "Makhdoom Lutufullah / Sarwar Nooh"@en ;
+  schema:alternateName "Makhdoom Lutufullah"@en ;
+  schema:alternateName "Lutfullah"@en ;
+  schema:birthDate "1500" ;
+  schema:deathDate "1590" ;
+  schema:memberOf order_:suhrawardiyya ;
   .
 
 saint:hazrat-meeran-muhammad-shah-bukhari
   a schema:Person ;
   schema:name "Hazrat Meeran Muhammad Shah Bukhari"@en ;
   schema:alternateName "\"Mauj Darya\""@en ;
+  schema:alternateName "Miran Muhammad Shah"@en ;
+  schema:alternateName "Mauj Darya"@en ;
+  schema:birthDate "1533" ;
+  schema:deathDate "1604" ;
+  schema:memberOf order_:suhrawardiyya ;
   .
 
 saint:mian-mir
   a schema:Person ;
   schema:name "Mian Mir"@en ;
+  schema:alternateName "Mir Mohammad"@en ;
+  schema:alternateName "Mir Mohammad of Sind"@en ;
+  schema:birthDate "1550" ;
+  schema:deathDate "1635" ;
   schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:shaikh-siyustani ;
+  sufi:successorOf saint:shaikh-siyustani ;
   .
 
 saint:mian-muhammad-umar-chamkani
   a schema:Person ;
   schema:name "Mian Muhammad Umar Chamkani"@en ;
   schema:alternateName "Naqshbandi Sufi"@en ;
+  schema:alternateName "Mian Umar Baba"@en ;
+  schema:alternateName "Mian Umar"@en ;
+  schema:birthDate "1671" ;
+  schema:deathDate "1776" ;
+  schema:memberOf order_:naqshbandiyya ;
   .
 
 saint:syed-miran-hussain-zanjani
   a schema:Person ;
   schema:name "Syed Miran Hussain Zanjani"@en ;
+  schema:alternateName "Shaikh Hussain Zanjani"@en ;
+  schema:alternateName "Hazrat Shaikh Hussain Zanjani"@en ;
+  schema:birthDate "958" ;
+  schema:deathDate "1042" ;
+  sufi:discipleOf saint:sheikh-abu-al-fazal-khatil ;
   .
 
 saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini
   a schema:Person ;
   schema:name "Hazrat Syed Azizuddin al-Hassani wal-Hussaini"@en ;
   schema:alternateName "Peer Makki"@en ;
+  schema:alternateName "Azizuddin"@en ;
+  schema:birthDate "1132" ;
+  schema:deathDate "1215" ;
   .
 
 saint:syed-ali-tirmizi
   a schema:Person ;
   schema:name "Syed Ali Tirmizi"@en ;
   schema:alternateName "Pir Baba"@en ;
+  schema:alternateName "Syed Ali Ghawwas Tirmizi"@en ;
+  schema:birthDate "1502" ;
+  schema:deathDate "1583" ;
   .
 
 saint:pir-chhatal-shah-noorani
   a schema:Person ;
   schema:name "Pir Chhatal Shah Noorani"@en ;
   schema:alternateName "Pir Chatta"@en ;
+  schema:alternateName "Chhatal Shah Noorani"@en ;
   .
 
 saint:pir-lakha
@@ -728,16 +1024,27 @@ saint:pir-lakha
 saint:pir-mangho
   a schema:Person ;
   schema:name "Pir Mangho"@en ;
+  schema:alternateName "Hazrat Haji Syed Sakhi Sultan"@en ;
+  schema:alternateName "Mangho Pir"@en ;
   .
 
 saint:pir-sher-muhammad
   a schema:Person ;
   schema:name "Pir Sher Muhammad"@en ;
+  schema:alternateName "Mian Pir Sher Muhammad Sharaqpuri"@en ;
+  schema:alternateName "Mian Sher Muhammad"@en ;
+  schema:birthDate "1865" ;
+  schema:deathDate "1928" ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:qalandar-baba-auliya
   a schema:Person ;
   schema:name "Qalandar Baba Auliya"@en ;
+  schema:alternateName "Sayyid Muhammad Azeem Barkhiya"@en ;
+  schema:alternateName "Muhammad Azeem"@en ;
+  schema:birthDate "1898" ;
+  schema:deathDate "1979" ;
   schema:memberOf order_:qalandariyya ;
   .
 
@@ -745,29 +1052,54 @@ saint:sachal-sarmast
   a schema:Person ;
   schema:name "Sachal Sarmast"@en ;
   schema:alternateName "Abdul Wahab Faruqi"@en ;
+  schema:alternateName "Abdul Wahab"@en ;
+  schema:birthDate "1739" ;
+  schema:deathDate "1827" ;
   schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:khwaja-abdul-haq ;
   .
 
 saint:shah-abdul-karim-bulri
   a schema:Person ;
   schema:name "Shah Abdul Karim Bulri"@en ;
+  schema:alternateName "Shah Abdul Karim"@en ;
+  schema:alternateName "Bulri Shah Karim"@en ;
+  schema:birthDate "1536" ;
+  schema:deathDate "1623" ;
+  sufi:discipleOf saint:makhdoom-nooh ;
   .
 
 saint:shah-inayat-qadiri
   a schema:Person ;
   schema:name "Shah Inayat Qadiri"@en ;
   schema:alternateName "murshid of Bulleh Shah"@en ;
+  schema:alternateName "Abul-Muarif Hanfi Qadri"@en ;
+  schema:alternateName "Shah Inayat"@en ;
+  schema:birthDate "c. 1643 (existing sourcing); a 2026 field survey separately gives 1056 AH (~1646 CE) -- the two are consistent within the normal margin of approximate Hijri/Gregorian conversion." ;
+  schema:deathDate "c. 1728" ;
+  schema:memberOf order_:qadiriyya ;
+  sufi:discipleOf saint:muhammad-ali-raza-shattari ;
+  sufi:discipleOf saint:hazrat-shah-raza-qadri-shattari ;
   .
 
 saint:syed-shah-jamal-uddin-naqvi-bukhari
   a schema:Person ;
   schema:name "Syed Shah Jamal Uddin Naqvi Bukhari"@en ;
   schema:alternateName "Baba Shah Jamal"@en ;
+  schema:alternateName "Syed Shah Jamal"@en ;
+  schema:birthDate "1587" ;
+  schema:deathDate "1671" ;
+  schema:memberOf order_:suhrawardiyya ;
+  sufi:discipleOf saint:sheikh-khokar-baig-suhrawardi ;
   .
 
 saint:shah-rukn-e-alam
   a schema:Person ;
   schema:name "Shah Rukn-e-Alam"@en ;
+  schema:alternateName "Rukn-ud-Din Abul Fath"@en ;
+  schema:alternateName "Rukn-ud-Din"@en ;
+  schema:birthDate "1251" ;
+  schema:deathDate "1335" ;
   schema:memberOf order_:suhrawardiyya ;
   sufi:successorOf saint:bahauddin-zakariya ;
   .
@@ -775,21 +1107,33 @@ saint:shah-rukn-e-alam
 saint:shah-shams-ud-din-sabzwari
   a schema:Person ;
   schema:name "Shah Shams-ud-Din Sabzwari"@en ;
+  schema:alternateName "Shah Shams Sabzwari"@en ;
+  schema:deathDate "1276" ;
   .
 
 saint:shah-yusaf-gardez
   a schema:Person ;
   schema:name "Shah Yusaf Gardez"@en ;
+  schema:alternateName "Sayyid Yusuf"@en ;
+  schema:alternateName "Shah Yusuf Gardez"@en ;
+  schema:deathDate "1150" ;
   .
 
 saint:syed-musa-pak
   a schema:Person ;
   schema:name "Syed Musa Pak"@en ;
+  schema:alternateName "Syed Musa"@en ;
+  schema:alternateName "Musa Pak Shaheed"@en ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:muhammad-shamsuddin-sialvi
   a schema:Person ;
   schema:name "Muhammad Shamsuddin Sialvi"@en ;
+  schema:alternateName "Khwaja Muhammad Shamsuddin Sialvi"@en ;
+  schema:birthDate "1799" ;
+  schema:deathDate "1883" ;
+  schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:khawaja-shah-muhammad-sulaiman-taunsvi ;
   .
 
@@ -797,28 +1141,42 @@ saint:swami-dharmdas
   a schema:Person ;
   schema:name "Swami Dharmdas"@en ;
   schema:alternateName "Nanakpanthi sant"@en ;
+  sufi:discipleOf saint:sant-bhai-wasan-shah-of-rohri ;
   .
 
 saint:allama-muhammad-iqbal
   a schema:Person ;
   schema:name "Allama Muhammad Iqbal"@en ;
+  schema:alternateName "Muhammad Iqbal"@en ;
+  schema:alternateName "Sir Muhammad Iqbal"@en ;
+  schema:birthDate "1877" ;
+  schema:deathDate "1938" ;
   .
 
 saint:hazrat-bahaal-halim
   a schema:Person ;
   schema:name "Hazrat Baha'al-Halim"@en ;
   schema:alternateName "Sayyid Baha al-Din Halim"@en ;
+  schema:alternateName "Baha'al-Halim"@en ;
+  schema:alternateName "Baha' al-Halim"@en ;
+  schema:alternateName "Bahaul Halim"@en ;
+  schema:memberOf order_:suhrawardiyya ;
   .
 
 saint:sultan-qutb-ud-din-aibak
   a schema:Person ;
   schema:name "Sultan Qutb ud-Din Aibak"@en ;
+  schema:alternateName "Qutb ud-Din Aibak"@en ;
+  schema:alternateName "Aibak"@en ;
+  schema:birthDate "1150" ;
+  schema:deathDate "1210" ;
   .
 
 saint:ustad-nuriya
   a schema:Person ;
   schema:name "Ustad Nuriya"@en ;
   schema:alternateName "master-builder"@en ;
+  schema:alternateName "Ustead"@en ;
   .
 
 saint:bhagwan-valmik
@@ -830,12 +1188,363 @@ saint:bhagwan-valmik
 saint:ghazi-syed-shah-fateh-muhammad-bukhari
   a schema:Person ;
   schema:name "Ghazi Syed Shah Fateh Muhammad Bukhari"@en ;
+  schema:alternateName "Ghazi Baba"@en ;
+  schema:memberOf order_:suhrawardiyya ;
   .
 
 saint:kaka-sahib
   a schema:Person ;
   schema:name "Kaka Sahib"@en ;
   schema:alternateName "Syed Kasteer Gul, \"Sheikh Rahmkar\""@en ;
+  schema:alternateName "Syed Kasteer Gul"@en ;
+  schema:alternateName "Sheikh Rahmkar"@en ;
+  schema:alternateName "Sheikh Rahm Kar"@en ;
+  schema:birthDate "1575" ;
+  schema:deathDate "1653" ;
+  schema:memberOf order_:naqshbandiyya ;
+  sufi:discipleOf saint:qazi-abul-aala ;
+  sufi:discipleOf saint:abdullah-ansari-sultanpuri ;
+  sufi:discipleOf saint:maulana-abdul-lateef-sultanpuri ;
+  sufi:discipleOf saint:sheikh-akhuddeen-seljuki ;
+  .
+
+saint:abul-fadl-muhammad-al-khuttali
+  a schema:Person ;
+  schema:name "Abu’l-Fadl Muhammad al-Khuttali"@en ;
+  .
+
+saint:sheikh-abu-al-fazal-khatil
+  a schema:Person ;
+  schema:name "Sheikh Abu al-Fazal Khatil"@en ;
+  .
+
+saint:bahlol-daryai
+  a schema:Person ;
+  schema:name "Bahlol (Bahlol Daryai)"@en ;
+  .
+
+saint:shaikh-siyustani
+  a schema:Person ;
+  schema:name "Shaikh Siyustani"@en ;
+  .
+
+saint:mullah-shah-badakhshi
+  a schema:Person ;
+  schema:name "Mullah Shah Badakhshi"@en ;
+  sufi:successorOf saint:mian-mir ;
+  .
+
+saint:dara-shikoh
+  a schema:Person ;
+  schema:name "Prince Dara Shikoh"@en ;
+  sufi:discipleOf saint:mullah-shah-badakhshi ;
+  .
+
+saint:princess-jahanara
+  a schema:Person ;
+  schema:name "the princess Jahanara"@en ;
+  sufi:discipleOf saint:mullah-shah-badakhshi ;
+  .
+
+saint:sheikh-khokar-baig-suhrawardi
+  a schema:Person ;
+  schema:name "Sheikh Khokar Baig Suhrawardi"@en ;
+  .
+
+saint:shah-abul-muali-qadri
+  a schema:Person ;
+  schema:name "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"@en ;
+  schema:alternateName "Hazrat Syed Muhammad Khair ul Deen"@en ;
+  schema:alternateName "Shah Khairuddin Muhammad"@en ;
+  schema:alternateName "Abul Ma’ali"@en ;
+  schema:birthDate "10 Zil Hajj 960 Hijri" ;
+  schema:deathDate "16 Rabi ul Awal 1024 Hijri" ;
+  sufi:discipleOf saint:daud-bandagi-kirmani ;
+  .
+
+saint:hazrat-shah-sikandar
+  a schema:Person ;
+  schema:name "Hazrat Shah Sikandar"@en ;
+  .
+
+saint:hazrat-wasif-ali-wasif
+  a schema:Person ;
+  schema:name "Hazrat Wasif Ali Wasif Awan"@en ;
+  schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:hazrat-shah-niyaz-ahmad-chisti-qadri ;
+  .
+
+saint:hazrat-shah-niyaz-ahmad-chisti-qadri
+  a schema:Person ;
+  schema:name "Hazrat Shah Niyaz Ahmad Chisti Qadri"@en ;
+  .
+
+saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami
+  a schema:Person ;
+  schema:name "Hazrat Khawaja Sheikh Muhammad Mustafa Chishti-Nizami"@en ;
+  .
+
+saint:muhammad-ali-raza-shattari
+  a schema:Person ;
+  schema:name "Muhammad Ali Raza Shattari"@en ;
+  .
+
+saint:hazrat-shah-raza-qadri-shattari
+  a schema:Person ;
+  schema:name "Hazrat Shah Raza Qadri Shattari"@en ;
+  .
+
+saint:makhdoom-of-kasur
+  a schema:Person ;
+  schema:name "Makhdoom of Kasur"@en ;
+  .
+
+saint:shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi
+  a schema:Person ;
+  schema:name "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi"@en ;
+  .
+
+saint:fakhr-ud-din-iraqi
+  a schema:Person ;
+  schema:name "Fakhr-ud-Din Iraqi"@en ;
+  sufi:discipleOf saint:bahauddin-zakariya ;
+  .
+
+saint:khwaja-qutbuddin-bakhtiar-kaki
+  a schema:Person ;
+  schema:name "Khwaja Qutbuddin Bakhtiar Kaki"@en ;
+  .
+
+saint:nizamuddin-auliya
+  a schema:Person ;
+  schema:name "Nizamuddin Auliya"@en ;
+  sufi:discipleOf saint:fariduddin-ganjshakar ;
+  .
+
+saint:khwaja-noor-muhammad-maharvi
+  a schema:Person ;
+  schema:name "Khwaja Noor Muhammad Maharvi"@en ;
+  .
+
+saint:sayyid-abdul-rahman-of-delhi
+  a schema:Person ;
+  schema:name "Sayyid Abdul Rahman of Delhi"@en ;
+  .
+
+saint:shah-maroof-khushabi
+  a schema:Person ;
+  schema:name "Shah Maroof Khushabi"@en ;
+  .
+
+saint:shah-saidan-sarmast
+  a schema:Person ;
+  schema:name "Shah Saidan Sarmast"@en ;
+  .
+
+saint:khwaja-abdul-haq
+  a schema:Person ;
+  schema:name "Khwaja Abdul Haq"@en ;
+  .
+
+saint:khwaja-abul-masakin
+  a schema:Person ;
+  schema:name "Khwaja Abul Masakin"@en ;
+  .
+
+saint:shaikh-abdul-latif
+  a schema:Person ;
+  schema:name "Shaikh Abdul Latif"@en ;
+  .
+
+saint:sayyid-shah-inayat
+  a schema:Person ;
+  schema:name "Sayyid Shah Inayat"@en ;
+  .
+
+saint:bahadur-baba
+  a schema:Person ;
+  schema:name "Bahadur Baba"@en ;
+  sufi:discipleOf saint:hazrat-syed-abdul-wahab ;
+  .
+
+saint:qazi-abul-aala
+  a schema:Person ;
+  schema:name "Qazi Abul Aala"@en ;
+  .
+
+saint:abdullah-ansari-sultanpuri
+  a schema:Person ;
+  schema:name "Abdullah Ansari Sultanpuri"@en ;
+  .
+
+saint:maulana-abdul-lateef-sultanpuri
+  a schema:Person ;
+  schema:name "Maulana Abdul Lateef Sultanpuri"@en ;
+  .
+
+saint:sheikh-akhuddeen-seljuki
+  a schema:Person ;
+  schema:name "Sheikh Akhuddeen Seljuki"@en ;
+  .
+
+saint:ala-hazrat-ahmad-raza-khan
+  a schema:Person ;
+  schema:name "Ala Hazrat Ahmad Raza Khan of Bareilly"@en ;
+  .
+
+saint:hazrat-ghulam-muhammad-suhrawardi
+  a schema:Person ;
+  schema:name "Hazrat Ghulam Muhammad Suhrawardi"@en ;
+  sufi:discipleOf saint:baba-jango-pir-shah-suhrawardi ;
+  .
+
+saint:baba-jango-pir-shah-suhrawardi
+  a schema:Person ;
+  schema:name "Baba Jango Pir Shah Suhrawardi"@en ;
+  .
+
+saint:miraj-ud-din-gilani-suhrawardi
+  a schema:Person ;
+  schema:name "Miraj-ud-Din Gilani Suhrawardi"@en ;
+  sufi:successorOf saint:abul-faiz-qalander-ali-suharwardi ;
+  .
+
+saint:rasool-shah-gilani-suhrawardi
+  a schema:Person ;
+  schema:name "Rasool Shah Gilani Suhrawardi"@en ;
+  sufi:successorOf saint:miraj-ud-din-gilani-suhrawardi ;
+  .
+
+saint:shahid-rasool-shah-gilani-suhrawardi
+  a schema:Person ;
+  schema:name "Shahid Rasool Shah Gilani Suhrawardi"@en ;
+  sufi:successorOf saint:rasool-shah-gilani-suhrawardi ;
+  .
+
+saint:hazrat-pir-syed-ismail-shah-bukhari
+  a schema:Person ;
+  schema:name "Hazrat Pir Syed Ismail Shah Bukhari (Karman Wali Sarkar)"@en ;
+  .
+
+saint:hazrat-abu-al-barakat-syed-muhammad-ahmad
+  a schema:Person ;
+  schema:name "Hazrat Abu al-Barakat Syed Muhammad Ahmad"@en ;
+  .
+
+saint:hazrat-syedna-tahir-alauddin-qadiri-gilani
+  a schema:Person ;
+  schema:name "Hazrat Syedna Tahir Alauddin Qadiri Gilani"@en ;
+  .
+
+saint:maulana-ghulam-ali-okarvi
+  a schema:Person ;
+  schema:name "Maulana Ghulam Ali Okarvi"@en ;
+  .
+
+saint:sahibzada-muhammad-umar-naqshbandi
+  a schema:Person ;
+  schema:name "Sahibzada Muhammad Umar Naqshbandi"@en ;
+  sufi:successorOf saint:ganj-e-inayat-sarkar ;
+  .
+
+saint:hazrat-hafiz-muhammad-abdur-rahman
+  a schema:Person ;
+  schema:name "Hazrat Hafiz Muhammad Abdur Rahman"@en ;
+  sufi:successorOf saint:pir-abdul-ul-karim ;
+  .
+
+saint:khwaja-nizamuddin-aulia-of-kahiyan-sharif
+  a schema:Person ;
+  schema:name "Khwaja Nizamuddin Aulia of Kahiyan Sharif"@en ;
+  .
+
+saint:khwaja-pir-muhammad-zahid-khan
+  a schema:Person ;
+  schema:name "Khwaja Pir Muhammad Zahid Khan"@en ;
+  sufi:successorOf saint:khwaja-muhammad-qasim-sadiq ;
+  .
+
+saint:pir-sayyid-badshah
+  a schema:Person ;
+  schema:name "Pir Sayyid Badshah"@en ;
+  sufi:successorOf saint:khwaja-muhammad-qasim ;
+  .
+
+saint:shah-gohar-peer
+  a schema:Person ;
+  schema:name "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer"@en ;
+  schema:alternateName "Syed Ali Gohar"@en ;
+  schema:alternateName "Hazrat Sufi Peer Syed Gohar Ali Shah"@en ;
+  schema:alternateName "Shah Gohar Peer"@en ;
+  schema:birthDate "11 Rabīʿ al-Sānī 729 AH" ;
+  schema:deathDate "21 Ramzan 825 AH" ;
+  sufi:discipleOf saint:syed-ul-hassan-kabeer ;
+  sufi:successorOf saint:syed-ul-hassan-kabeer ;
+  .
+
+saint:syed-ul-hassan-kabeer
+  a schema:Person ;
+  schema:name "Syed Ul Hassan Kabeer"@en ;
+  .
+
+saint:mian-qurban-ali-shah
+  a schema:Person ;
+  schema:name "Hazrat Mian Qurban Ali Shah Sarkar"@en ;
+  schema:alternateName "Qurban Ali"@en ;
+  schema:birthDate "1341 AH (c. 1922–23 CE by calendar conversion)" ;
+  schema:deathDate "25 Rabīʿ al-Thānī; year not stated in the survey" ;
+  sufi:discipleOf saint:hazrat-mian-fazal-deen ;
+  .
+
+saint:hazrat-mian-fazal-deen
+  a schema:Person ;
+  schema:name "Hazrat Mian Fazal Deen"@en ;
+  .
+
+saint:haji-tufail
+  a schema:Person ;
+  schema:name "Haji Tufail"@en ;
+  sufi:successorOf saint:mian-qurban-ali-shah ;
+  .
+
+saint:guru-amar-das
+  a schema:Person ;
+  schema:name "Guru Amar Das"@en ;
+  .
+
+saint:matsyendranath
+  a schema:Person ;
+  schema:name "Matsyendranath"@en ;
+  .
+
+saint:sant-bhai-wasan-shah-of-rohri
+  a schema:Person ;
+  schema:name "Sant Bhai Wasan Shah of Rohri"@en ;
+  .
+
+saint:sain-jiwat-singh
+  a schema:Person ;
+  schema:name "Sain Jiwat Singh"@en ;
+  sufi:successorOf saint:sain-vali-vilayat-rai ;
+  .
+
+saint:vishandas
+  a schema:Person ;
+  schema:name "Vishandas"@en ;
+  sufi:discipleOf saint:sain-jiwat-singh ;
+  sufi:successorOf saint:sain-jiwat-singh ;
+  .
+
+saint:sai-chanduram
+  a schema:Person ;
+  schema:name "Sai Chanduram"@en ;
+  sufi:successorOf saint:sant-baba-asudaram-sakhi-baba ;
+  .
+
+saint:khwaja-shamsuddin-azeemi
+  a schema:Person ;
+  schema:name "Khwaja Shamsuddin Azeemi"@en ;
+  sufi:discipleOf saint:qalandar-baba-auliya ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

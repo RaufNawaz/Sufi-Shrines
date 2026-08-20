@@ -134,6 +134,20 @@ export default function SaintPage() {
           <p className="entity-figure-as-recorded">{saint.figureType}</p>
         )}
 
+        {/* Honorifics, verbatim from the sources. These carry a lot of what a
+            figure means to the people who visit — "Data Ganj Bakhsh", "Sultan
+            al-Aulia", "Khatib-ul-Islam" — and the graph held none of them until
+            they were extracted. */}
+        {saint.titles && saint.titles.length > 0 && (
+          <ul className="entity-titles" aria-label={t('titlesLabel')}>
+            {saint.titles.map((title) => (
+              <li key={title} className="entity-title-chip">
+                {title}
+              </li>
+            ))}
+          </ul>
+        )}
+
         {/* Meta row */}
         <div className="entity-meta">
           {born && (
@@ -159,6 +173,34 @@ export default function SaintPage() {
             </span>
           )}
         </div>
+
+        {/* Dates the sources will not agree on, shown as a disagreement rather
+            than resolved into one number. This is the archive's editorial
+            standard applied to the graph: a reported contradiction is better
+            content than a clean value that hides one. */}
+        {saint.disputedDates && saint.disputedDates.length > 0 && (
+          <section className="entity-disputed" aria-label={t('disputedDatesLabel')}>
+            <h2 className="entity-disputed-heading">{t('disputedDatesLabel')}</h2>
+            {saint.disputedDates.map((d) => (
+              <div key={`${d.field}-${d.values.join('|')}`} className="entity-disputed-row">
+                <span className="entity-disputed-field">{d.field}</span>
+                <span className="entity-disputed-values">
+                  {d.values.map((v, i) => (
+                    <React.Fragment key={v}>
+                      {i > 0 && <span className="entity-disputed-vs">{t('disputedVersus')}</span>}
+                      <span className="entity-disputed-value">{fmtNum(v)}</span>
+                    </React.Fragment>
+                  ))}
+                </span>
+                {d.spreadYears != null && d.spreadYears > 0 && (
+                  <span className="entity-disputed-spread">
+                    {fmtNum(d.spreadYears)} {t('yearsApart')}
+                  </span>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
 
         <div className="entity-article-layout">
           {/* Main content */}

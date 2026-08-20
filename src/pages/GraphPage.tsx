@@ -8,7 +8,7 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import { getKGStore, getSaintsInOrder, getAllLineageEdges } from '../lib/kg';
+import { getKGStore, getSaintsInOrder, getAllLineageEdges, getArchiveFigures } from '../lib/kg';
 import {
   FIGURE_GROUP_ORDER,
   figureGroup,
@@ -64,7 +64,11 @@ export default function GraphPage() {
      Sorted within a group by locale so the Urdu view collates as Urdu. */
   const groupedFigures = useMemo(() => {
     const buckets = new Map<FigureGroup, KGSaint[]>();
-    for (const saint of kg.saints) {
+    /* getArchiveFigures(), not kg.saints: the graph also holds ~60 figures who
+       exist only as a link in someone else's lineage — teachers named in the
+       prose with no shrine in this archive. Counting them here would overstate
+       what the archive documents. */
+    for (const saint of getArchiveFigures()) {
       const group = figureGroup(saint.figureType);
       const list = buckets.get(group);
       if (list) list.push(saint);
@@ -75,7 +79,7 @@ export default function GraphPage() {
       group,
       figures: [...buckets.get(group)!].sort((a, b) => collator.compare(a.name, b.name)),
     }));
-  }, [kg.saints, isRtl]);
+  }, [isRtl]);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -157,18 +161,39 @@ export default function GraphPage() {
         {lineageEdges.length > 0 && (
           <section className="graph-page-section">
             <h2>{t('graphLineageHeading')}</h2>
+            <p className="graph-figures-note">
+              {t('graphLineageNote')} {fmtNum(lineageEdges.length)}
+              {' · '}
+              {fmtNum(lineageEdges.filter((e) => !e.reviewed).length)} {t('lineageUnreviewed')}
+            </p>
             <ul className="graph-lineage-list">
               {lineageEdges.map((edge) => (
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
-                  <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                    {edge.subject.name}
-                  </Link>
-                  <span className="graph-lineage-relation">
-                    {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
-                  </span>
-                  <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                    {edge.object.name}
-                  </Link>
+                  <div className="graph-lineage-edge">
+                    <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      {edge.subject.name}
+                    </Link>
+                    <span className="graph-lineage-relation">
+                      {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
+                    </span>
+                    <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      {edge.object.name}
+                    </Link>
+                    {/* An edge nobody has read yet says so. The archive's claim is
+                        honesty about provenance, so a lineage drawn from
+                        machine-extracted prose must not look like a reviewed one. */}
+                    {!edge.reviewed && (
+                      <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+                        {t('lineageUnreviewed')}
+                      </span>
+                    )}
+                  </div>
+                  {edge.quote && (
+                    <blockquote className="graph-lineage-quote">
+                      {edge.quote}
+                      {edge.source && <cite className="graph-lineage-cite">{edge.source}</cite>}
+                    </blockquote>
+                  )}
                 </li>
               ))}
             </ul>

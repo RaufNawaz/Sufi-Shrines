@@ -1,0 +1,1369 @@
+{
+ "_comment": "Machine-extracted order-membership proposals. UNREVIEWED. Every entry quotes its source. Not merged into data/kg-seeds.json until a human signs off.",
+ "_generated": "2026-08-20",
+ "_method": "Every one of the 169 rows in the shrine corpus was checked: all 52 rows with a silsila value, and every row whose description matched an order-name/silsila keyword sweep (plus a second sweep for less common orders, initiation vocabulary and sect labels). shrine_entries/ (39 files) and entries/ (10 files) were swept the same way. Nothing here comes from model knowledge of these saints or orders; each quote was verified as a verbatim substring of the source named.",
+ "_conventions": {
+  "parentOrder": "one of the five existing order slugs, or null when the source does not place the value under one of them",
+  "parentOrders": "set when the source names more than one order for the saint; parentOrder is then null unless one order is primary in the source",
+  "asRecorded": "the raw silsila cell, verbatim, including any caveat text",
+  "isProseNotValue": "true when the cell is a sentence rather than an order name; such cells get NO membership proposal",
+  "confidence": "0.95 = order named explicitly for this saint, unambiguous. 0.7 = hedged in the source, or stated of the shrine/place/lineage rather than the person, or the branch->parent split is an inference from a compound name.",
+  "evidence": "'silsila-column' or 'prose'. Where both exist and add different information, both are proposed; where they disagree, both are proposed and the disagreement is recorded in contradictions."
+ },
+ "proposals": [
+  {
+   "saintSlug": "pir-syed-muhammad-channan-shah-nuri",
+   "saintName": "Pir Syed Muhammad Channan Shah Nuri",
+   "saintIsNew": false,
+   "shrineSlug": "allo-mahar",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#allo-mahar",
+   "quote": "**Pir Syed Muhammad Channan Shah Nuri** is the figure recorded in our database for this site, in the Naqshbandi tradition.",
+   "notes": "Held at 0.7 deliberately: this row's principal figure is unresolved (see docs/allo_mahar_resolution.md; needs_review=figure_unresolved). The order is recorded for the named figure, but the description states the entry is awaiting a field visit to establish whose tomb the shrine is. Do not merge without that visit."
+  },
+  {
+   "saintSlug": "bari-imam",
+   "saintName": "Bari Imam",
+   "saintIsNew": false,
+   "shrineSlug": "bari-imam",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#bari-imam",
+   "quote": "Qadiri",
+   "notes": "Prose corroborates, with a mild hedge: \"he took the Sufi path — associated with the Qadiri tradition — and settled at last at the village now called Nurpur Shahan\"."
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim",
+   "saintName": "Khwaja Muhammad Qasim",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#darbar-ghamkol-sharif-zinda-pir",
+   "quote": "It was founded in 1952 by the Naqshbandi master universally known as *Zinda Pir* (1912–1999), who was born in the nearby village of Jungle Khail.",
+   "notes": null
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim",
+   "saintName": "Khwaja Muhammad Qasim",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "tariqa Naqshbandiyya Ghamkolia",
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#darbar-ghamkol-sharif-zinda-pir",
+   "quote": "the anthropologist Pnina Werbner, who identifies the tariqa's specific branch name as *tariqa Naqshbandiyya Ghamkolia*",
+   "notes": "Separate proposal from the column one because it carries the branch name, which the column does not. Branch name attributed in the corpus to Werbner's fieldwork."
+  },
+  {
+   "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "saintName": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "parentOrder": null,
+   "parentOrders": [
+    "chishtiyya",
+    "qadiriyya"
+   ],
+   "multiple": true,
+   "branch": "Chishti Nizamia Qadria",
+   "asRecorded": "Chishti Nizamia Qadria",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "quote": "a Chishti Nizami Qadria saint remembered above all for a generosity so unstinting that he was called *Sakhi Lajpal*",
+   "notes": "0.7: the corpus states one compound branch name, not two memberships. Splitting \"Chishti Nizamia Qadria\" into chishtiyya + qadiriyya is an inference from the name. The branch string must be kept whole. Orthography varies within the row itself (\"Chishti Nizamia Qadria\" in the column, \"Chishti Nizami Qadria\" and \"Chishti Qadria order\" in the prose); his master is named \"Hazrat Khawaja Sheikh Muhammad Mustafa Chishti-Nizami\". Not in existing-saints.json."
+  },
+  {
+   "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+   "saintName": "Khawaja Shah Muhammad Sulaiman Taunsvi",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Chishti-Nizami",
+   "asRecorded": "Chishti-Nizami",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+   "quote": "He was initiated in the Chishti-Nizami order and became the spiritual heir of his master Khwaja Nur Muhammad Maharvi’s line",
+   "notes": null
+  },
+  {
+   "saintSlug": "hazrat-tahir-bandagi-qadri",
+   "saintName": "Hazrat Tahir Bandagi Qadri",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+   "quote": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)",
+   "notes": "0.7 because the cell carries its own caveat. Keep the caveat clause in any display of asRecorded; it must not become part of an order label. Not in existing-saints.json."
+  },
+  {
+   "saintSlug": "hazrat-tahir-bandagi-qadri",
+   "saintName": "Hazrat Tahir Bandagi Qadri",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Naqshbandi Mujaddidi",
+   "asRecorded": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+   "quote": "- Shrines Project field survey, Darbar Hazrat Tahir Bandagi Qadri Naqshbandi Mujaddidi responses (surveyor: Saifullah), 2026.",
+   "notes": "This is the discrepancy the column points at: the survey's own title names him \"Qadri Naqshbandi Mujaddidi\", while the column records only Qadri. Proposed alongside the Qadiri reading rather than picking a winner. Evidence is a bibliography title string, not a biographical statement — hence 0.7."
+  },
+  {
+   "saintSlug": "hazrat-wasif-ali-wasif",
+   "saintName": "Hazrat Wasif Ali Wasif Awan",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-wasif-ali-wasif",
+   "parentOrder": null,
+   "parentOrders": [
+    "chishtiyya",
+    "qadiriyya"
+   ],
+   "multiple": true,
+   "branch": "Chishti Qadri",
+   "asRecorded": "Chishti Qadri — the survey states allegiance (bai'at) to \"Hazrat Shah Niyaz Ahmad Chisti Qadri\"; see note on the source wording below",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-wasif-ali-wasif",
+   "quote": "Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri.",
+   "notes": "0.7: \"Chishti Qadri\" appears in the source only as part of his murshid's name (bai'at to \"Hazrat Shah Niyaz Ahmad Chisti Qadri\"), and the entry itself says the survey wording \"is not fully grammatical and is reproduced here\". Allegiance to a Chishti Qadri master is the recorded fact; his own dual membership is an inference. \"Ahl e Sunnat\" is a sect, not an order. Not in existing-saints.json."
+  },
+  {
+   "saintSlug": "khwaja-muhammad-zaman-sultan-al-aulia",
+   "saintName": "Khwaja Muhammad Zaman \"Sultan al-Aulia\"",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif",
+   "quote": "the shrine of Khwaja Muhammad Zaman (1713–1775), one of the most revered Naqshbandi Sufis and Sindhi mystic poets of the eighteenth century",
+   "notes": null
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "saintName": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\"",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+   "parentOrder": null,
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Rashidi",
+   "asRecorded": "Rashidi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+   "quote": "known by his honorific Roze Dhani, \"master of the shrine,\" the founder of the Rashidi Sufi order and an ancestor of the line of Pir Pagara",
+   "notes": "parentOrder null: the corpus calls the Rashidi a Sufi order that he founded, not a branch of one of the five. See newOrdersNeeded."
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "saintName": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\"",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "naqshbandiyya"
+   ],
+   "multiple": true,
+   "branch": null,
+   "asRecorded": "Rashidi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+   "quote": "A Qadiri–Naqshbandi saint of great influence, his teaching is said to have spread through Sindh, the Punjab, Balochistan, Rajasthan, and beyond.",
+   "notes": "The prose places him in two of the five orders as well as founding the Rashidi. Both readings are proposed; neither is chosen over the other."
+  },
+  {
+   "saintSlug": "pir-abdul-ul-karim",
+   "saintName": "Pir Abdul-ul-karim",
+   "saintIsNew": false,
+   "shrineSlug": "eidgah-sharif",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Chishti-Nizami",
+   "asRecorded": "Chishti-Nizami",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#eidgah-sharif",
+   "quote": "He is counted within the Chishti order, the *silsila* most closely identified with Punjabi and Indian Sufism",
+   "notes": null
+  },
+  {
+   "saintSlug": "pir-meher-ali-shah",
+   "saintName": "Pir Meher Ali Shah",
+   "saintIsNew": false,
+   "shrineSlug": "golra-sharif",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Chishti",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#golra-sharif",
+   "quote": "in the Sufi path he was initiated in the Chishti order, taking spiritual allegiance in the line of Khwaja Shamsuddin Sialvi of Sial Sharif",
+   "notes": null
+  },
+  {
+   "saintSlug": "waris-shah",
+   "saintName": "Waris Shah",
+   "saintIsNew": false,
+   "shrineSlug": "mausoleum-of-waris-shah",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Chishti",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#mausoleum-of-waris-shah",
+   "quote": "belonged in spirit to the Chishti Sufi tradition, tracing his discipleship to the line of the saint Makhdoom of Kasur",
+   "notes": "Contradicts the existing seed (waris-shah -> qadiriyya). Both the column and the prose of this row say Chishti. See disagreesWithExistingSeed. Prose hedges with \"in spirit\"."
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "saintName": "Khwaja Muhammad Qasim Sadiq",
+   "saintIsNew": false,
+   "shrineSlug": "mohra-sharif-khanqah",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Naqshbandi-Mujaddidi",
+   "asRecorded": "Naqshbandi-Mujaddidi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#mohra-sharif-khanqah",
+   "quote": "The khanqah remains an active centre of Naqshbandi devotion, drawing pilgrims especially at its annual *urs*",
+   "notes": null
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "saintName": "Khwaja Muhammad Qasim Sadiq",
+   "saintIsNew": false,
+   "shrineSlug": "mohra-sharif-khanqah",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Naqshbandi Mujaddidi Qasimiya",
+   "asRecorded": "Naqshbandi-Mujaddidi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#mohra-sharif-khanqah",
+   "quote": "It is the home of the *Naqshbandi Mujaddidi Qasimiya* order, and takes its name (the \"holy village\") from its sanctity.",
+   "notes": "The prose names a narrower branch than the column's \"Naqshbandi-Mujaddidi\". Both recorded; the Qasimiya layer would be lost if flattened."
+  },
+  {
+   "saintSlug": "shah-sulaimn-nri",
+   "saintName": "Shah Sulaimān Nūri",
+   "saintIsNew": false,
+   "shrineSlug": "purana-bhalwal",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#purana-bhalwal",
+   "quote": "a sixteenth-century Sufi of the *Qadiriyya* order who is remembered locally with the affectionate title *Sakhi Badshah*",
+   "notes": null
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "saintName": "Shams Ali Qalandar",
+   "saintIsNew": false,
+   "shrineSlug": "shamsabad",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shamsabad",
+   "quote": "Qadiri",
+   "notes": "Contradicts the existing seed (shams-ali-qalandar -> qalandariyya). See disagreesWithExistingSeed."
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "saintName": "Shams Ali Qalandar",
+   "saintIsNew": false,
+   "shrineSlug": "shamsabad",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Owaisi Qadiriyya Noshahi",
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shamsabad",
+   "quote": "In the reckoning of his followers he belonged to the *Owaisi Qadiriyya Noshahi* lineage, a branch of the great *Qadiri* order",
+   "notes": "The corpus itself calls this a branch of the Qadiri order, so the parent mapping is stated, not inferred. \"Owaisi\" is glossed in the same sentence as a mode of initiation (received inwardly, no living master) — not a separate order."
+  },
+  {
+   "saintSlug": "daud-bandagi-kirmani",
+   "saintName": "Daud Bandagi Kirmani",
+   "saintIsNew": false,
+   "shrineSlug": "shergarh",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shergarh",
+   "quote": "a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab",
+   "notes": "Contradicts the existing seed (daud-bandagi-kirmani -> chishtiyya). Column and prose both say Qadiri, repeatedly. See disagreesWithExistingSeed."
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "saintName": "Abul Faiz Qalander Ali Suharwardi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "quote": "It was Meher Ali Shah, tradition says, who told him that his true portion lay in the Suhrawardi order, with Hazrat Ghulam Muhammad Suhrawardi, and bade him take allegiance there — which he did.",
+   "notes": null
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "saintName": "Abul Faiz Qalander Ali Suharwardi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Gilani-Suhrawardi",
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "quote": "Though he carried both the Gilani-Qadiri and the Suhrawardi inheritances, it was the Gilani-Suhrawardi path that he made his own.",
+   "notes": null
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "saintName": "Abul Faiz Qalander Ali Suharwardi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Gilani-Qadiri",
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "quote": "his family descent as a Gilani sayyid is traced, through some twenty-three links, to Shaikh Abd al-Qadir Jilani of Baghdad, and his Sufi allegiance, through some nineteen links",
+   "notes": "0.7 and kept separate from the Suhrawardi proposal because the corpus draws the distinction itself: the Qadiri tie is family descent (\"the blood and the blessing\"), the Suhrawardi tie is initiatic allegiance. Merging them would erase that distinction."
+  },
+  {
+   "saintSlug": "syed-abdul-razzaq",
+   "saintName": "Syed Abdul Razzaq",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-baba-shah-chiragh",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+   "quote": "the shrine of Baba Shah Chiragh commemorates Syed Abdul Razzaq, a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad",
+   "notes": null
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "saintName": "Hazrat Baba Shah Kamal",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-baba-shah-kamal",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+   "quote": "Qadiri",
+   "notes": null
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "saintName": "Hazrat Baba Shah Kamal",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-baba-shah-kamal",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "suhrawardiyya"
+   ],
+   "multiple": true,
+   "branch": "Qadiri Suhrawardi",
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#shrine-of-baba-shah-kamal",
+   "quote": "local devotional tradition attaches to him the composite title \"Qadiri Suhrawardi,\" suggesting an affiliation with the same overlapping Sufi orders associated with his brother's shrine nearby",
+   "notes": "0.7: the source hedges twice (\"local devotional tradition\", \"suggesting\"), and the corpus says little is independently documented about him. The composite title must stay composite."
+  },
+  {
+   "saintSlug": "ganj-e-inayat-sarkar",
+   "saintName": "Ganj e Inayat Sarkar",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Naqshbandi-Mujaddidi",
+   "asRecorded": "Naqshbandi-Mujaddidi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar",
+   "quote": "From this master he received his authorisation (khilafat) in the Naqshbandi-Mujaddidi order, becoming a *khalifa-e-mujaz* of Karman Wali Sharif.",
+   "notes": "The row also states the branch's own genealogy: \"the branch of the Naqshbandi way renewed by the great reformer Shaikh Ahmad Sirhindi (Mujaddid Alf-e-Sani)\" — i.e. the parent mapping is given in the source, not inferred."
+  },
+  {
+   "saintSlug": "hazrat-hafiz-muhammad-jamal-multani",
+   "saintName": "Hazrat Hafiz Muhammad Jamal Multani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hafiz-muhammad-jamal-multani",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Chishti",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani",
+   "quote": "marks the resting place of the man traditionally credited with establishing the *Chishti* order firmly in the city",
+   "notes": null
+  },
+  {
+   "saintSlug": "shah-hussain",
+   "saintName": "Shah Hussain",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+   "parentOrder": null,
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Malamati",
+   "asRecorded": "Malamati",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+   "quote": "Hussain belonged, in spirit, to the *Malamatiyya* — the Sufis of the “path of blame,” who deliberately drew the censure of respectable society upon themselves",
+   "notes": "parentOrder null: the Malamatiyya is not a branch of any of the five and the corpus does not place it under one. The overview calls him \"the great Malamati Sufi\" flatly; the History section hedges with \"in spirit\". See newOrdersNeeded."
+  },
+  {
+   "saintSlug": "hazrat-muhammad-ayub-shah-bukhari",
+   "saintName": "Hazrat Muhammad Ayub Shah Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-hazrat-muhammad-ayub-shah-bukhari",
+   "quote": "Suhrawardi",
+   "notes": "The column is a plain order name for this figure. Note that the prose supports it only at the level of lineage, not personal initiation: \"Its saint bore the *Bukhari* lineage ... whose forebears ... spread the *Suhrawardi* devotional tradition across Sindh and the southern Punjab.\""
+  },
+  {
+   "saintSlug": "shah-daula-daryai",
+   "saintName": "Shah Daula Daryai",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-shah-daula-daryai",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai",
+   "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast, serving at his master's *khanqah* with great devotion",
+   "notes": null
+  },
+  {
+   "saintSlug": "makhdoom-abdul-rahim-girhori",
+   "saintName": "Makhdoom Abdul Rahim Girhori",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-abdul-rahim-girhori",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+   "quote": "It honours a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe",
+   "notes": null
+  },
+  {
+   "saintSlug": "makhdoom-nooh",
+   "saintName": "Makhdoom Nooh",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-nooh-hala",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala",
+   "quote": "A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as the founder of the *Sarwari* branch of the order in Sindh",
+   "notes": null
+  },
+  {
+   "saintSlug": "makhdoom-nooh",
+   "saintName": "Makhdoom Nooh",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-nooh-hala",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Sarwari",
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala",
+   "quote": "he is remembered as the founder of the *Sarwari* branch of the order in Sindh",
+   "notes": "IMPORTANT COLLISION: this \"Sarwari\" is a branch of the SUHRAWARDI order in Sindh, founded by Makhdoom Nooh. It is not the same as Sultan Bahu's \"Sarwari Qadiri\" (a branch of the Qadiri order). Two distinct branches share a name; they must not be merged into one node."
+  },
+  {
+   "saintSlug": "hazrat-meeran-muhammad-shah-bukhari",
+   "saintName": "Hazrat Meeran Muhammad Shah Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-mauj-darya-bukhari",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari",
+   "quote": "an adherent of the Suhrawardi silsila founded by Bahauddin Zakariya of Multan",
+   "notes": null
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "saintName": "Mian Muhammad Umar Chamkani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-mian-umar-baba-chamkani",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-mian-umar-baba-chamkani",
+   "quote": "Mian Umar (traditionally 1671-1776) was a Sufi of the Naqshbandi order",
+   "notes": null
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "saintName": "Pir Sher Muhammad",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-sher-muhammad",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-pir-sher-muhammad",
+   "quote": "Qadiri",
+   "notes": "The column names only Qadiri; the prose of the same row names two orders. See the prose proposal and contradictions."
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "saintName": "Pir Sher Muhammad",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-sher-muhammad",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "chishtiyya"
+   ],
+   "multiple": true,
+   "branch": "Qadiri-Chishti",
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-pir-sher-muhammad",
+   "quote": "he became a spiritual guide of great reputation, uniting the Qadiri and Chishti lineages, and drew disciples from across the Punjab and beyond",
+   "notes": null
+  },
+  {
+   "saintSlug": "qalandar-baba-auliya",
+   "saintName": "Qalandar Baba Auliya",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-qalandar-baba-auliya",
+   "parentOrder": null,
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Azeemia",
+   "asRecorded": "Azeemia",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-qalandar-baba-auliya",
+   "quote": "a modern Sufi master and the founder of the Azeemia Sufi order",
+   "notes": "parentOrder null: the corpus presents the Azeemia as an order he founded in the twentieth century, with no parent among the five. Contradicts the existing seed (qalandar-baba-auliya -> qalandariyya); \"Qalandar Baba\" is given in the corpus as a spiritual title, not an order. See disagreesWithExistingSeed and newOrdersNeeded."
+  },
+  {
+   "saintSlug": "shah-inayat-qadiri",
+   "saintName": "Shah Inayat Qadiri",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-inayat-qadiri",
+   "parentOrder": "qadiriyya",
+   "parentOrders": [
+    "qadiriyya"
+   ],
+   "multiple": true,
+   "branch": "Qadri Shattari",
+   "asRecorded": "Qadri Shattari",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+   "quote": "He combined the Qadiri and Shattari silsilas in his own practice and authored several Persian works of mystical philosophy",
+   "notes": "multiple=true: the source names two silsilas. Only one of them (Qadiri) exists among the five; Shattari has no node, so parentOrders lists only qadiriyya and the Shattari half is carried by the branch string and newOrdersNeeded. Do not read the single parentOrder as the whole of his affiliation."
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "saintName": "Syed Shah Jamal Uddin Naqvi Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-jamal",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-shah-jamal",
+   "quote": "The shrine — of the Suhrawardi line and the Ahl-e-Sunnat tradition — has been in the care of the government's Auqaf Department since 1960",
+   "notes": "\"Ahl-e-Sunnat\" in the same sentence is a sect, not an order, and is not proposed as one. The column records only Suhrawardi; the prose records three orders — see the prose proposal and contradictions."
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "saintName": "Syed Shah Jamal Uddin Naqvi Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-jamal",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "suhrawardiyya",
+    "chishtiyya"
+   ],
+   "multiple": true,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-shah-jamal",
+   "quote": "He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi",
+   "notes": "The row also traces his Suhrawardi lineage specifically to Bahauddin Zakariya of Multan, on the authority of Alam Faqri's *Tazkirah Awliya-e-Pakistan*."
+  },
+  {
+   "saintSlug": "syed-musa-pak",
+   "saintName": "Syed Musa Pak",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-syed-musa-pak",
+   "parentOrder": "qadiriyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Qadiri",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-syed-musa-pak",
+   "quote": "Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples",
+   "notes": "The row also uses the compound \"Qadiri-Gilani\" for the family line in Multan (\"Through him and his descendants the Qadiri-Gilani presence was firmly established in Multan\")."
+  },
+  {
+   "saintSlug": "muhammad-shamsuddin-sialvi",
+   "saintName": "Muhammad Shamsuddin Sialvi",
+   "saintIsNew": false,
+   "shrineSlug": "sial-sharif",
+   "parentOrder": "chishtiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Chishti",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.95,
+   "source": "data/shrines.csv#sial-sharif",
+   "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi",
+   "notes": null
+  },
+  {
+   "saintSlug": "hazrat-bahaal-halim",
+   "saintName": "Hazrat Baha'al-Halim",
+   "saintIsNew": false,
+   "shrineSlug": "tomb-of-bahaal-halim-uch-sharif",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#tomb-of-bahaal-halim-uch-sharif",
+   "quote": "the ancient town in Bahawalpur district that was for centuries a great centre of the Suhrawardi order and of the Bukhari Sayyids",
+   "notes": "0.7: the column gives the order, but the only prose support states it of Uch Sharif as a place, not of this figure. Nothing in the row describes his own initiation or teachers."
+  },
+  {
+   "saintSlug": "bibi-jawindi",
+   "saintName": "Bibi Jawindi",
+   "saintIsNew": true,
+   "shrineSlug": "tomb-of-javindi-bibi",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#tomb-of-javindi-bibi",
+   "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness.",
+   "notes": "0.7: the prose places her in the \"Jalali Bukhari line\" (a descent group) and never names an order for her; the row's other Suhrawardi mention is about the tomb style of \"the Suhrawardi saints\". Also note a modelling clash: existing-saints.json attaches this shrine to jalaluddin-surkh-posh-bukhari, not to Bibi Jawindi, who has no saint node."
+  },
+  {
+   "saintSlug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+   "saintName": "Ghazi Syed Shah Fateh Muhammad Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "wadpagga-sharif",
+   "parentOrder": "suhrawardiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Suhrawardi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#wadpagga-sharif",
+   "quote": "the saint honoured at Wadpagga, Ghazi Baba, belonged to the *Bukhari sayyids*, that widely revered lineage which traces its descent through the great Suhrawardi saints of the medieval Punjab and Sindh",
+   "notes": "0.7: descent through Suhrawardi saints, not a stated initiation. The row's other order sentence lists \"Suhrawardi, Qadiri, Naqshbandi\" as the movements that took root around Peshawar generally — not as this saint's affiliations, and not proposed as such."
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "saintName": "Kaka Sahib",
+   "saintIsNew": false,
+   "shrineSlug": "ziarat-kaka-sahib",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": null,
+   "asRecorded": "Naqshbandi",
+   "isProseNotValue": false,
+   "evidence": "silsila-column",
+   "confidence": 0.7,
+   "source": "data/shrines.csv#ziarat-kaka-sahib",
+   "quote": "an inheritance tradition credits him with carrying forward, though he himself is remembered in the *Uwaisi* style of not naming a personal living guide",
+   "notes": "0.7: the column singles out Naqshbandi, but the prose attributes all four orders to his forefathers and marks him Uwaisi — explicitly without a personal living guide. The other three orders are NOT proposed, because the corpus attributes them to the forefathers collectively; and Uwaisi is described as a style, not an order. See contradictions."
+  },
+  {
+   "saintSlug": "hazrat-mian-qurban-ali-shah",
+   "saintName": "Hazrat Mian Qurban Ali Shah Sarkar",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-mian-qurban-ali-shah",
+   "parentOrder": "naqshbandiyya",
+   "parentOrders": null,
+   "multiple": false,
+   "branch": "Naqshbandī Mujaddidī",
+   "asRecorded": "Naqshbandī Mujaddidī (survey answer as written: \"Naqshbandi Majdadi - Ahl e Sunnat\"; \"Ahl e Sunnat\" is the sect answer, not a *silsila*)",
+   "isProseNotValue": false,
+   "evidence": "prose",
+   "confidence": 0.7,
+   "source": "entries/entry_mian_qurban_ali_shah.md",
+   "quote": "The survey records the site's affiliation as Naqshbandī Mujaddidī, within Ahl-e Sunnat",
+   "notes": "Not in the 169-row corpus and not in existing-saints.json — a drafted entry only, so the shrineSlug here is derived from the entry title and is NOT yet a dataset slug. 0.7 because the entry's own qa_note says \"SILSILA UNSUPPORTED BY THE BIOGRAPHY ... The silsila field therefore rests on the one-line Q5 answer alone.\""
+  }
+ ],
+ "branchesFound": [
+  {
+   "branch": "Chishti-Nizami",
+   "parentOrder": "chishtiyya",
+   "reasoning": "The corpus names it as an order in its own right and identifies it with the Chishti silsila of Mu'in al-Din Chishti and Nizam al-Din Awliya: \"He is counted within the Chishti order, the *silsila* most closely identified with Punjabi and Indian Sufism through its great early masters — Khwaja Mu'in al-Din Chishti of Ajmer and Khwaja Nizam al-Din Awliya of Delhi — and Eidgah Sharif accordingly stands in the Chishti-Nizami current of devotion\".",
+   "saints": [
+    "khawaja-shah-muhammad-sulaiman-taunsvi",
+    "pir-abdul-ul-karim"
+   ]
+  },
+  {
+   "branch": "Chishti Nizamia Qadria",
+   "parentOrder": null,
+   "parentOrders": [
+    "chishtiyya",
+    "qadiriyya"
+   ],
+   "reasoning": "A compound name recorded for one saint; the row also uses \"Chishti Nizami Qadria\" and \"Chishti Qadria order\" and names his master \"Chishti-Nizami\". The two parents are read off the name, not stated in the text, so parentOrder is left null and the compound kept whole.",
+   "saints": [
+    "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
+   ]
+  },
+  {
+   "branch": "Chishti Qadri",
+   "parentOrder": null,
+   "parentOrders": [
+    "chishtiyya",
+    "qadiriyya"
+   ],
+   "reasoning": "Appears only inside the name of the saint's murshid, \"Hazrat Shah Niyaz Ahmad Chisti Qadri\", in a survey answer the entry itself calls not fully grammatical. Kept as recorded; parents inferred from the name only.",
+   "saints": [
+    "hazrat-wasif-ali-wasif"
+   ]
+  },
+  {
+   "branch": "Naqshbandi-Mujaddidi",
+   "parentOrder": "naqshbandiyya",
+   "reasoning": "Stated in the corpus as a branch of the Naqshbandi order: \"the branch of the Naqshbandi way renewed by the great reformer Shaikh Ahmad Sirhindi (Mujaddid Alf-e-Sani)\".",
+   "saints": [
+    "khwaja-muhammad-qasim-sadiq",
+    "ganj-e-inayat-sarkar",
+    "hazrat-mian-qurban-ali-shah",
+    "hazrat-tahir-bandagi-qadri"
+   ]
+  },
+  {
+   "branch": "Naqshbandi Mujaddidi Qasimiya",
+   "parentOrder": "naqshbandiyya",
+   "reasoning": "Named as the order resident at Mohra Sharif: \"It is the home of the *Naqshbandi Mujaddidi Qasimiya* order\". A narrower layer than the column's \"Naqshbandi-Mujaddidi\"; recorded so it is not flattened away.",
+   "saints": [
+    "khwaja-muhammad-qasim-sadiq"
+   ]
+  },
+  {
+   "branch": "tariqa Naqshbandiyya Ghamkolia",
+   "parentOrder": "naqshbandiyya",
+   "reasoning": "The corpus attributes the branch name to Pnina Werbner's fieldwork, \"who identifies the tariqa's specific branch name as *tariqa Naqshbandiyya Ghamkolia*\", within a shrine it calls a centre of the Naqshbandi order.",
+   "saints": [
+    "khwaja-muhammad-qasim"
+   ]
+  },
+  {
+   "branch": "Sarwari Qadiri",
+   "parentOrder": "qadiriyya",
+   "reasoning": "Stated as a branch founded by Sultan Bahu after his own Qadiri initiation: \"Bahu received initiation in the Qadiri order at the hand of Sayyid Abdul Rahman of Delhi\" and \"He founded his own branch of the order, the Sarwari Qadiri, which spread widely after him.\" No membership proposal is made — sultan-bahoo -> qadiriyya is already in the seeds — but the branch is recorded here so it is not lost.",
+   "saints": [
+    "sultan-bahoo"
+   ]
+  },
+  {
+   "branch": "Sarwari",
+   "parentOrder": "suhrawardiyya",
+   "reasoning": "A DIFFERENT Sarwari from Sultan Bahu's: \"A Sufi of the *Suhrawardi* order ... he is remembered as the founder of the *Sarwari* branch of the order in Sindh\" — here \"the order\" is the Suhrawardi. Two branches share the name Sarwari under different parents; they must not be merged.",
+   "saints": [
+    "makhdoom-nooh"
+   ]
+  },
+  {
+   "branch": "Naushahia Qadiri",
+   "parentOrder": "qadiriyya",
+   "reasoning": "Stated as a branch of the Qadiri order founded by its saint: \"the founder of the Naushahia branch of the Qadiri Sufi order\" and \"He took the Sufi path in the Qadiri order and, attaining a high spiritual station, founded his own branch, the *Naushahia*\". No membership proposal — syed-muhammad-noushah-qadiri -> qadiriyya is already seeded.",
+   "saints": [
+    "syed-muhammad-noushah-qadiri"
+   ]
+  },
+  {
+   "branch": "Owaisi Qadiriyya Noshahi",
+   "parentOrder": "qadiriyya",
+   "reasoning": "Parent stated in the source: \"he belonged to the *Owaisi Qadiriyya Noshahi* lineage, a branch of the great *Qadiri* order (traced to the twelfth-century saint Abd al-Qadir Jilani of Baghdad) as transmitted through the Noshahi Sufis of the Punjab\". \"Owaisi\" is glossed there as inward initiation without a living master — a mode, not an order.",
+   "saints": [
+    "shams-ali-qalandar"
+   ]
+  },
+  {
+   "branch": "Qadri Shattari",
+   "parentOrder": "qadiriyya",
+   "reasoning": "\"He combined the Qadiri and Shattari silsilas in his own practice.\" Qadiri maps to the existing node; Shattari has none (see newOrdersNeeded), so the branch string carries the second half. The row also names his teacher variously \"Muhammad Ali Raza Shattari\" and \"Hazrat Shah Raza Qadri Shattari\" and declines to choose between them.",
+   "saints": [
+    "shah-inayat-qadiri"
+   ]
+  },
+  {
+   "branch": "Qadiri-Shattari",
+   "parentOrder": "qadiriyya",
+   "reasoning": "Same branch, different spelling, in another row: Bulleh Shah \"became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line\". Recorded because the two spellings refer to the same line and a build should not treat them as two branches by accident.",
+   "saints": [
+    "shah-inayat-qadiri"
+   ]
+  },
+  {
+   "branch": "Qadiri-Chishti",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "chishtiyya"
+   ],
+   "reasoning": "\"a widely revered Sufi master of the Qadiri-Chishti tradition\" and \"uniting the Qadiri and Chishti lineages\" — here the text does state two memberships, not merely a compound name.",
+   "saints": [
+    "pir-sher-muhammad"
+   ]
+  },
+  {
+   "branch": "Qadiri Suhrawardi",
+   "parentOrder": null,
+   "parentOrders": [
+    "qadiriyya",
+    "suhrawardiyya"
+   ],
+   "reasoning": "\"local devotional tradition attaches to him the composite title \\\"Qadiri Suhrawardi,\\\" suggesting an affiliation with the same overlapping Sufi orders\" — the corpus calls it a composite title and hedges the affiliation.",
+   "saints": [
+    "hazrat-baba-shah-kamal"
+   ]
+  },
+  {
+   "branch": "Gilani-Suhrawardi",
+   "parentOrder": "suhrawardiyya",
+   "reasoning": "\"it was the Gilani-Suhrawardi path that he made his own\" — his Gilani sayyid descent carried into the Suhrawardi allegiance he took at Meher Ali Shah's direction.",
+   "saints": [
+    "abul-faiz-qalander-ali-suharwardi"
+   ]
+  },
+  {
+   "branch": "Gilani-Qadiri",
+   "parentOrder": "qadiriyya",
+   "reasoning": "\"Though he carried both the Gilani-Qadiri and the Suhrawardi inheritances\" — in this row the Qadiri side is descent from Abd al-Qadir Jilani rather than initiation. The variant \"Qadiri-Gilani\" appears in the same row (\"an heir to the Qadiri-Gilani and Suhrawardi orders\") and in the Syed Musa Pak row (\"the Qadiri-Gilani presence was firmly established in Multan\").",
+   "saints": [
+    "abul-faiz-qalander-ali-suharwardi",
+    "syed-musa-pak"
+   ]
+  },
+  {
+   "branch": "Jalali Bukhari line",
+   "parentOrder": "suhrawardiyya",
+   "reasoning": "0.7-grade inference, recorded as a branch rather than a membership: the corpus says of Makhdoom Jahaniyan Jahangasht, a Suhrawardi saint, that \"his descendants and disciples spread the *Jalali* Bukhari line far and wide — a lineage of sayyids\", and describes Bibi Jawindi as \"a pious woman of the Jalali Bukhari line\". The text calls it a lineage of sayyids, so it may be a descent group rather than an initiatic branch; do not promote it to an order without better evidence.",
+   "saints": [
+    "jahaniyan-jahangasht",
+    "bibi-jawindi"
+   ]
+  },
+  {
+   "branch": "Rashidi",
+   "parentOrder": null,
+   "reasoning": "Named as an order founded by its saint (\"the founder of the Rashidi Sufi order\"), not as a branch of one of the five — although the same row separately calls him \"A Qadiri–Naqshbandi saint\". Both are proposed; neither is treated as parent of the other. See newOrdersNeeded.",
+   "saints": [
+    "pir-syed-muhammad-rashid-shah-roze-dhani"
+   ]
+  },
+  {
+   "branch": "Azeemia",
+   "parentOrder": null,
+   "reasoning": "\"the founder of the Azeemia Sufi order\", founded in the twentieth century and carried on by Khwaja Shamsuddin Azeemi. The corpus gives it no parent order. See newOrdersNeeded.",
+   "saints": [
+    "qalandar-baba-auliya"
+   ]
+  },
+  {
+   "branch": "Malamati",
+   "parentOrder": null,
+   "reasoning": "The corpus describes the Malamatiyya as a temper or way (\"the Sufis of the 'path of blame'\"), not as a branch of any of the five, and never attaches it to a parent. Recorded as its own node. See newOrdersNeeded.",
+   "saints": [
+    "shah-hussain"
+   ]
+  },
+  {
+   "branch": "Shattari",
+   "parentOrder": null,
+   "reasoning": "\"He combined the Qadiri and Shattari silsilas in his own practice\" — named as a silsila in its own right alongside the Qadiri, with no parent given.",
+   "saints": [
+    "shah-inayat-qadiri"
+   ]
+  }
+ ],
+ "proseValuedSilsila": [
+  {
+   "shrineSlug": "darbar-abul-muali-qadri",
+   "asRecorded": "Not stated as an order. Q5 answers the *silsila* question with descent and personal affiliation: \"Lineage of Hazrat Ali (R.A), Kirmani Sadaat, Affiliation with Syed Dawood Bandgi Kirmani.\" See qa_note 1.",
+   "whyNotATaxonomyNode": "The cell is a sentence that explicitly declines to name an order: the survey's silsila question was answered with descent and personal affiliation instead. NO membership is proposed for this shrine. The saint's own name ends \"Qadri\" and the row recounts his devotion to Sheikh Abdul Qadir Jilani, but the source states the silsila was not given as an order, so reading Qadiriyya off the name would be exactly the inference this cell was written to prevent. Display as recorded text only."
+  },
+  {
+   "shrineSlug": "darbar-malik-ahmad-ayaz",
+   "asRecorded": "As recorded: \"Ahl e Sunnat - Ghaznavi silsila\"",
+   "whyNotATaxonomyNode": "The cell is a quotation frame (\"As recorded: ...\") around a sect plus a dynastic label. entries/entry_malik_ahmad_ayaz.md rules on it directly: \"Ghaznavi is a dynastic rather than an initiatic designation, and the account describes political and military service, not spiritual affiliation\", and \"the account never calls him a saint or places him in a Sufi lineage of teachers\". NO membership proposed. Display as recorded text only."
+  },
+  {
+   "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+   "asRecorded": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)",
+   "whyNotATaxonomyNode": "Not a refusal case — an order name IS present — but the cell carries its own pointer to a discrepancy and must be displayed verbatim. The parenthetical must never become part of a node label, and the Qadiri reading must not be shown without the caveat. Two proposals (Qadiri, Naqshbandi Mujaddidi) are made at 0.7 rather than resolving it."
+  },
+  {
+   "shrineSlug": "darbar-wasif-ali-wasif",
+   "asRecorded": "Chishti Qadri — the survey states allegiance (bai'at) to \"Hazrat Shah Niyaz Ahmad Chisti Qadri\"; see note on the source wording below",
+   "whyNotATaxonomyNode": "Same shape: an order name followed by a caveat sentence about the source wording. \"Chishti Qadri\" here is part of the murshid's name, and the row states the survey answer \"is not fully grammatical and is reproduced here rather than\" tidied. Keep the whole string on display; the label must be the branch string alone."
+  }
+ ],
+ "contradictions": [
+  {
+   "saintSlug": "hazrat-tahir-bandagi-qadri",
+   "columnSays": "Qadri (with the column itself pointing at a discrepancy)",
+   "proseSays": "Qadri Naqshbandi Mujaddidi — in the survey's own title as cited in the bibliography",
+   "quotes": [
+    "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)",
+    "- Shrines Project field survey, Darbar Hazrat Tahir Bandagi Qadri Naqshbandi Mujaddidi responses (surveyor: Saifullah), 2026."
+   ]
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "columnSays": "Naqshbandi",
+   "proseSays": "all four great orders, attributed to his forefathers, with the saint himself Uwaisi — i.e. without a personal living guide",
+   "quotes": [
+    "Naqshbandi",
+    "his forefathers are remembered as affiliated with all four of the great Sufi orders — the *Naqshbandi*, *Suhrawardi*, *Chishti*, and *Qadiri* — an inheritance tradition credits him with carrying forward, though he himself is remembered in the *Uwaisi* style of not naming a personal living guide"
+   ]
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "columnSays": "Suhrawardi (one order)",
+   "proseSays": "three orders jointly — Qadiriyya, Suhrawardiyya, Chishtiyya",
+   "quotes": [
+    "Suhrawardi",
+    "He belonged jointly to the Qadiriyya, Suhrawardiyya and Chishtiyya orders — a special disciple, tradition holds, of Sheikh Khokar Baig Suhrawardi"
+   ]
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "columnSays": "Qadiri (one order)",
+   "proseSays": "Qadiri and Chishti together",
+   "quotes": [
+    "Qadiri",
+    "uniting the Qadiri and Chishti lineages"
+   ]
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "columnSays": "Suhrawardi (one order)",
+   "proseSays": "heir to two — Qadiri-Gilani by descent, Suhrawardi by allegiance; the row resolves it itself in favour of the Suhrawardi path",
+   "quotes": [
+    "an heir to the Qadiri-Gilani and Suhrawardi orders, and the guide of thousands of disciples in twentieth-century Punjab",
+    "Though he carried both the Gilani-Qadiri and the Suhrawardi inheritances, it was the Gilani-Suhrawardi path that he made his own."
+   ]
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "columnSays": "Qadiri",
+   "proseSays": "the composite title \"Qadiri Suhrawardi\", hedged as local devotional tradition",
+   "quotes": [
+    "Qadiri",
+    "local devotional tradition attaches to him the composite title \"Qadiri Suhrawardi,\" suggesting an affiliation with the same overlapping Sufi orders associated with his brother's shrine nearby"
+   ]
+  },
+  {
+   "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "columnSays": "Chishti Nizamia Qadria",
+   "proseSays": "\"Chishti Nizami Qadria\" for the saint, \"Chishti Qadria order\" for his father, \"Chishti-Nizami\" for his master — three spellings/scopes in one row",
+   "quotes": [
+    "a Chishti Nizami Qadria saint remembered above all for a generosity so unstinting that he was called *Sakhi Lajpal*",
+    "his father, Hassan Din, a poor and hardworking man already connected to the Chishti Qadria order"
+   ]
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "columnSays": "Qadiri",
+   "proseSays": "the branch \"Owaisi Qadiriyya Noshahi\" for his lineage, while separately placing him in the qalandar tradition",
+   "quotes": [
+    "In the reckoning of his followers he belonged to the *Owaisi Qadiriyya Noshahi* lineage, a branch of the great *Qadiri* order",
+    "Shams Ali Qalandar stood in the tradition of the *qalandars* — the wandering, often unconventional Sufi ascetics who, from medieval times, chose a path of renunciation and ecstatic devotion that set them apart from the more sober, respectable orders."
+   ]
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "columnSays": "Rashidi",
+   "proseSays": "founder of the Rashidi order AND \"A Qadiri–Naqshbandi saint\"",
+   "quotes": [
+    "the founder of the Rashidi Sufi order and an ancestor of the line of Pir Pagara",
+    "A Qadiri–Naqshbandi saint of great influence, his teaching is said to have spread through Sindh, the Punjab, Balochistan, Rajasthan, and beyond."
+   ]
+  }
+ ],
+ "disagreesWithExistingSeed": [
+  {
+   "saintSlug": "daud-bandagi-kirmani",
+   "seedSays": "chishtiyya",
+   "corpusSays": "Qadiri — in the silsila column and five times in the prose",
+   "quote": "a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab",
+   "shrineSlug": "shergarh"
+  },
+  {
+   "saintSlug": "waris-shah",
+   "seedSays": "qadiriyya",
+   "corpusSays": "Chishti — in the silsila column and the prose",
+   "quote": "belonged in spirit to the Chishti Sufi tradition, tracing his discipleship to the line of the saint Makhdoom of Kasur",
+   "shrineSlug": "mausoleum-of-waris-shah"
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "seedSays": "qalandariyya",
+   "corpusSays": "Qadiri in the column; \"Owaisi Qadiriyya Noshahi\", explicitly \"a branch of the great *Qadiri* order\", in the prose. The row does also place him in the qalandar tradition, which may be where the seed came from, but it frames that as a style of asceticism while naming Qadiri as the lineage.",
+   "quote": "In the reckoning of his followers he belonged to the *Owaisi Qadiriyya Noshahi* lineage, a branch of the great *Qadiri* order",
+   "shrineSlug": "shamsabad"
+  },
+  {
+   "saintSlug": "qalandar-baba-auliya",
+   "seedSays": "qalandariyya",
+   "corpusSays": "Azeemia — an order he founded; \"Qalandar Baba Auliya\" is given as his spiritual title, not an order",
+   "quote": "In Karachi lies the shrine of Hazrat Qalandar Baba Auliya — Sayyid Muhammad Azeem Barkhiya (1898–1979) — a modern Sufi master and the founder of the Azeemia Sufi order.",
+   "shrineSlug": "shrine-of-qalandar-baba-auliya"
+  }
+ ],
+ "newOrdersNeeded": [
+  {
+   "proposedSlug": "rashidi",
+   "name": "Rashidi",
+   "whyNotABranchOfTheFive": "The corpus calls it \"the Rashidi Sufi order\", founded by Pir Muhammad Rashid Shah himself, and gives it no parent. The same row separately calls him \"A Qadiri–Naqshbandi saint\", but does not say the Rashidi is a branch of either, so no parent is asserted here. Slug follows the source's own name; the existing five use an -iyya form, so a human should decide the convention (a code-side label question, not a sheet value).",
+   "saints": [
+    "pir-syed-muhammad-rashid-shah-roze-dhani"
+   ]
+  },
+  {
+   "proposedSlug": "azeemia",
+   "name": "Azeemia",
+   "whyNotABranchOfTheFive": "\"the founder of the Azeemia Sufi order\" — a twentieth-century foundation with no parent named anywhere in the row. Its transmission is given as Qalandar Baba Auliya to Khwaja Shamsuddin Azeemi.",
+   "saints": [
+    "qalandar-baba-auliya"
+   ]
+  },
+  {
+   "proposedSlug": "malamatiyya",
+   "name": "Malamatiyya",
+   "whyNotABranchOfTheFive": "The corpus treats the Malamatiyya as a distinct current, \"the Sufis of the 'path of blame'\", with no parent order. Note the source uses both \"Malamati\" (the silsila cell, and \"the great Malamati Sufi\") and \"Malamatiyya\" (the prose); the proposed name follows the prose form.",
+   "saints": [
+    "shah-hussain"
+   ]
+  },
+  {
+   "proposedSlug": "shattari",
+   "name": "Shattari",
+   "whyNotABranchOfTheFive": "Named as a silsila in its own right, on a par with the Qadiri, in the one sentence that describes Shah Inayat's practice: \"He combined the Qadiri and Shattari silsilas in his own practice.\" It is a parent-level order in the source, not a Qadiri sub-branch, even though the recorded value \"Qadri Shattari\" fuses the two.",
+   "saints": [
+    "shah-inayat-qadiri"
+   ]
+  }
+ ],
+ "rejected": [
+  {
+   "candidate": "chishtiyya for hazrat-ali-ibn-usman-al-hujwiri (Data Ganj Bakhsh), from data-darbar prose",
+   "reason": "The Chishti references in the row are about Khwaja Moinuddin Chishti, who kept a retreat at Hujwiri's tomb — \"before he founded his order at Ajmer\". Nothing places Hujwiri in the order; he is described as carrying \"the sober, learned Sufism of Baghdad into the Punjab\". Also rejected from the same row: qadiriyya (the Qadiri mention is Mian Mir's) and \"Barelvi\" (a devotional school, not a Sufi order).",
+   "source": "data/shrines.csv#data-darbar"
+  },
+  {
+   "candidate": "chishtiyya for makhdoom-burhan-ud-din, from langer-makhdoom prose",
+   "reason": "The only Chishti mention is dating context about someone else: \"the age of the great Chishti master Farid al-Din Ganj-i-Shakar of nearby Pakpattan\". No order is named for Makhdoom Burhan-ud-din anywhere in the row.",
+   "source": "data/shrines.csv#langer-makhdoom"
+  },
+  {
+   "candidate": "suhrawardiyya for makhdoom-burhan-ud-din (already in existing-saint-orders.json)",
+   "reason": "NOT a corpus contradiction, but flagged as unsupported: the langer-makhdoom row names no order for him at all, so the existing seed cannot be verified from these sources. Left in place; not re-proposed and not contradicted.",
+   "source": "data/shrines.csv#langer-makhdoom"
+  },
+  {
+   "candidate": "chishtiyya for rahman-baba (already in existing-saint-orders.json)",
+   "reason": "Unsupported by these sources: neither the rahman-baba-mausoleum-rehman-baba-shrine row nor shrine_entries/Rahman Baba (Peshawar).md contains any order name. Reported, not altered.",
+   "source": "data/shrines.csv#rahman-baba-mausoleum-rehman-baba-shrine"
+  },
+  {
+   "candidate": "qadiriyya for sachal-sarmast (already in existing-saint-orders.json)",
+   "reason": "Unsupported by these sources: the shrine-of-sachal-sarmast row contains no order name (his initiation is given as by his uncle Khwaja Abdul Haq), and shrine_entries/Sachal Sarmast (Daraza, Khairpur).md has none either. Reported, not altered.",
+   "source": "data/shrines.csv#shrine-of-sachal-sarmast"
+  },
+  {
+   "candidate": "qadiriyya for sufi-shah-inayat-shaheed (already in existing-saint-orders.json)",
+   "reason": "Unsupported by these sources: the dargah-roza-sufi-shah-inayat-shaheed row's only match for \"order\" is \"the entrenched order of landlords and rulers\". No Sufi order is named. Reported, not altered.",
+   "source": "data/shrines.csv#dargah-roza-sufi-shah-inayat-shaheed"
+  },
+  {
+   "candidate": "suhrawardiyya for shah-yusuf-gardez, from shrine-of-shah-yusaf-gardez prose",
+   "reason": "The text places him BEFORE the order: \"a preacher whose presence helped make the city a centre of the faith even before the coming of the great Suhrawardi masters\". The mention is evidence against the membership.",
+   "source": "data/shrines.csv#shrine-of-shah-yusaf-gardez"
+  },
+  {
+   "candidate": "suhrawardiyya for ustad-nuriya, from tomb-of-ustad-nuriya prose",
+   "reason": "The Suhrawardi references are to Uch Sharif as a place and to the funerary complex. The figure is not a Sufi at all: \"the master-builder, or ustad, credited with designing the exquisite tomb of Bibi Jawindi\", and \"Because it was raised for a craftsman rather than a saint, the tomb departs from the octagonal, tiered form of its neighbours\".",
+   "source": "data/shrines.csv#tomb-of-ustad-nuriya"
+  },
+  {
+   "candidate": "suhrawardiyya for the six Bibis, from shrine-of-bibi-pak-daman prose",
+   "reason": "The Suhrawardi line is described as DESCENDING from one of them: \"Through Bibi Haj, tradition traces a distinguished line of Suhrawardi saints\". Their father's line is named separately as \"Junaidiya\", not Suhrawardi.",
+   "source": "data/shrines.csv#shrine-of-bibi-pak-daman"
+  },
+  {
+   "candidate": "a \"Junaidiya\" order node, from shrine-of-bibi-pak-daman prose",
+   "reason": "Named once, of the Bibis' father rather than the shrine's principal figure: \"Sayyid Ahmad Tokhta Tirmidhi, a sayyid of the Junaidiya Sufi line whose spiritual descent is traced ... back to Imam Zain al-Abideen\". One passing mention of a third party's line is too thin to create an order, and no membership can be attached to a figure the archive does not model.",
+   "source": "data/shrines.csv#shrine-of-bibi-pak-daman"
+  },
+  {
+   "candidate": "qadiriyya for hazrat-syed-azizuddin-al-hassani-wal-hussaini (Peer Makki)",
+   "reason": "Abdul Qadir Jilani appears as a member of his family's scholarly milieu, not as his order: \"a Hasani-Hussaini family of religious scholars that counted Junaid Baghdadi, Imam Ahmad bin Hanbal and Sheikh Abdul Qadir Jilani among its\" number. The row states the affiliation it does have as \"its tradition is Syed and Ahl-e-Sunnat\" — a sect and a descent claim, not a silsila.",
+   "source": "data/shrines.csv#shrine-of-peer-makki"
+  },
+  {
+   "candidate": "qadiriyya for Shah Abul Muali Qadri, from the saint's name and the Jilani material in darbar-abul-muali-qadri",
+   "reason": "The silsila cell states outright that no order was given, and the entry's qa_note 1 says \"SILSILA ANSWER NOT A SILSILA\". The Jilani material is devotional (dreams, a turban) and \"He is said to have loved Sheikh Abdul Qadir Jilani and Mian Mir deeply\" — love, not initiation. Deriving the order from the nisba in his name is precisely the prior-driven inference this archive forbids.",
+   "source": "data/shrines.csv#darbar-abul-muali-qadri"
+  },
+  {
+   "candidate": "a \"Ghaznavi\" order node for malik-ahmad-ayaz",
+   "reason": "Dynastic, not initiatic. entries/entry_malik_ahmad_ayaz.md: \"Ghaznavi is a dynastic rather than an initiatic designation, and the account describes political and military service, not spiritual affiliation\", and the survey \"never calls him a saint or places him in a Sufi lineage of teachers\".",
+   "source": "entries/entry_malik_ahmad_ayaz.md"
+  },
+  {
+   "candidate": "an \"Ahl-e-Sunnat\" order node (recurs for shah-jamal, peer-makki, malik-ahmad-ayaz, wasif-ali-wasif, eidgah-sharif)",
+   "reason": "A sect, not a silsila, and the sources say so: entry_mian_qurban_ali_shah.md notes the survey answer \"mixes a silsila (Naqshbandi Mujaddidi) with a sect (Ahl-e Sunnat)\", and entry_malik_ahmad_ayaz.md treats it the same way.",
+   "source": "entries/entry_mian_qurban_ali_shah.md"
+  },
+  {
+   "candidate": "an \"Uwaisi\" order node (kaka-sahib, makhdoom-nooh, shams-ali-qalandar)",
+   "reason": "The corpus defines it as a mode of initiation, not an order: \"he himself is remembered in the *Uwaisi* style of not naming a personal living guide\", and \"the epithet *Owaisi* denotes, in Sufi usage, a spiritual initiation received inwardly rather than from a living master\". It belongs on a membership as a qualifier, never as a parent order.",
+   "source": "data/shrines.csv#ziarat-kaka-sahib"
+  },
+  {
+   "candidate": "qalandariyya for shrine-of-lakhi-shah-saddar",
+   "reason": "Both qalandar mentions are geographic — the pilgrim road to Lal Shahbaz Qalandar at Sehwan — not an affiliation of Syed Shah Sadaruddin Lakyari.",
+   "source": "data/shrines.csv#shrine-of-lakhi-shah-saddar"
+  },
+  {
+   "candidate": "qalandariyya for abul-faiz-qalander-ali-suharwardi",
+   "reason": "\"Qalandar\" is part of his name and a description of temperament — \"a man who joined the learning of the seminary to the ecstasy of the *qalandar*\" — while the row states his allegiance explicitly and only as Suhrawardi. Proposing qalandariyya would contradict the row's own resolution.",
+   "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi"
+  },
+  {
+   "candidate": "a \"Sarwari\" order for sultan-sakhi-sarwar (sakhi-sarwar)",
+   "reason": "\"Sarwarias\" in that row are his devotees, not an order: \"His devotees — the *Sultanias* or *Sarwarias* — carried his banners in seasonal pilgrimages\". No order is named for Sakhi Sarwar anywhere in the row.",
+   "source": "data/shrines.csv#sakhi-sarwar"
+  },
+  {
+   "candidate": "chishtiyya for allama-muhammad-iqbal (tomb-of-allama-iqbal-mazar-e-iqbal)",
+   "reason": "The keyword match is incidental prose in an anecdote, not an affiliation. Iqbal is a Secular / Memorial-category figure in this archive.",
+   "source": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal"
+  },
+  {
+   "candidate": "Nath / Kanphata / jogi \"orders\" as Sufi orders (gorakhnath-goraknath-temple, tilla-jogian, dargah-pir-ratan-nath-jee)",
+   "reason": "Real orders, but of yogis, not Sufis: \"the *Nath sampradaya*, the order of *kanphata* (\\\"split-eared\\\") yogis\". They belong to the Hindu/Nath side of the archive and must not be added to the Sufi order taxonomy.",
+   "source": "data/shrines.csv#gorakhnath-goraknath-temple"
+  },
+  {
+   "candidate": "a \"Sevapanthi\" Sufi order (sevapanthi-darbar-bhai-gurdas-gandava)",
+   "reason": "\"the order of devotees descended from Bhai Gurdas, the disciple of Guru Gobind Singh\" — a Sikh/Nanakpanthi tradition, not a silsila.",
+   "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava"
+  },
+  {
+   "candidate": "qalandariyya for Shah Gohar Peer (entries/)",
+   "reason": "The survey says he \"adopted a Qalandari appearance so that people would consider him ecstatic (mast) and not pay close attention\" — an appearance adopted for concealment. The entry states plainly: \"Not given as a Sufi order in the survey\", and \"no silsila has been inferred\".",
+   "source": "entries/entry_shah_gohar_peer.md"
+  },
+  {
+   "candidate": "suhrawardiyya, chishtiyya and qadiriyya for kaka-sahib (the other three of the four orders)",
+   "reason": "The row attributes all four orders to his forefathers collectively and marks him Uwaisi; only the column singles out Naqshbandi. Proposing the other three would turn an inheritance claim about ancestors into four personal memberships. Naqshbandi alone is proposed, at 0.7, with the contradiction recorded.",
+   "source": "data/shrines.csv#ziarat-kaka-sahib"
+  },
+  {
+   "candidate": "suhrawardiyya / qadiriyya / naqshbandiyya for ghazi-syed-shah-fateh-muhammad-bukhari beyond the column value",
+   "reason": "The row's list — \"the great movements of Islamic mysticism — Suhrawardi, Qadiri, Naqshbandi — took root through the settlement of *sayyid* and saintly families\" — is about the Peshawar countryside in general, not this saint. Only the column's Suhrawardi is proposed, at 0.7.",
+   "source": "data/shrines.csv#wadpagga-sharif"
+  }
+ ]
+}

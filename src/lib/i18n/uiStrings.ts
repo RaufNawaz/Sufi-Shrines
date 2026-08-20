@@ -83,6 +83,14 @@ export const UI_TEXT = {
       'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
     graphExplorerOrders: 'Sufi orders',
     graphExplorerAllFigures: 'Figures in the archive',
+    lineageUnreviewed: 'unreviewed',
+    titlesLabel: 'Titles and honorifics',
+    disputedDatesLabel: 'Sources disagree',
+    disputedVersus: 'vs',
+    yearsApart: 'years apart',
+    lineageUnreviewedHelp:
+      'Extracted from this archive\u2019s own sources and quote-checked, but not yet read by an editor.',
+    graphLineageNote: 'Recorded teacher\u2013disciple links:',
     graphExplorerFiguresNote:
       'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',
     graphLineageHeading: 'Teacher-disciple relationships',
@@ -325,6 +333,14 @@ export const UI_TEXT = {
       'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
     graphExplorerOrders: 'صوفی سلسلے',
     graphExplorerAllFigures: 'آرکائیو کی شخصیات',
+    lineageUnreviewed: 'غیر نظر ثانی شدہ',
+    titlesLabel: 'القاب و خطابات',
+    disputedDatesLabel: 'مآخذ متفق نہیں',
+    disputedVersus: 'بمقابلہ',
+    yearsApart: 'برس کا فرق',
+    lineageUnreviewedHelp:
+      'اِس آرکائیو کے اپنے مآخذ سے نکالا گیا اور اقتباس کی جانچ ہو چکی ہے، مگر ابھی کسی مدیر نے نہیں پڑھا۔',
+    graphLineageNote: 'درج شدہ استاد و مرید کے رشتے:',
     graphExplorerFiguresNote:
       'ہر شخصیت کو اُس کے مطابق درجہ بند کیا گیا ہے جو ریکارڈ اُس کے بارے میں کہتا ہے۔ یہ آرکائیو چھ روایات کا احاطہ کرتا ہے، اِس لیے یہاں ہر شخصیت صوفی ولی نہیں۔',
     graphLineageHeading: 'استاد و شاگرد کے تعلقات',

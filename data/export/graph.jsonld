@@ -80,7 +80,10 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-channan-shah-nuri",
-      "name": "Pir Syed Muhammad Channan Shah Nuri"
+      "name": "Pir Syed Muhammad Channan Shah Nuri",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      }
     },
     {
       "@type": "Person",
@@ -96,8 +99,15 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bari-imam",
       "name": "Bari Imam",
       "alternateName": [
-        "Shah Abdul Latif Kazmi"
-      ]
+        "Shah Abdul Latif Kazmi",
+        "Sayyid Abdul Latif Kazmi",
+        "Sayyid Abdul Latif Shah"
+      ],
+      "birthDate": "1617",
+      "deathDate": "1705",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
@@ -112,7 +122,9 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-latif-bhittai",
-      "name": "Shah Abdul Latif Bhittai"
+      "name": "Shah Abdul Latif Bhittai",
+      "birthDate": "1689",
+      "deathDate": "1752"
     },
     {
       "@type": "Person",
@@ -125,35 +137,101 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
-      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"
+      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "birthDate": "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)",
+      "deathDate": "16 Rabi ul Awal 1024 AH (as related in the survey)"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim",
       "name": "Khwaja Muhammad Qasim",
       "alternateName": [
-        "\"Zinda Pir\""
+        "\"Zinda Pir\"",
+        "Zinda Pir"
+      ],
+      "birthDate": "1912",
+      "deathDate": "1999",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim-sadiq"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim-sadiq"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ghazi-ilm-din-shaheed",
-      "name": "Ghazi Ilm Din Shaheed"
+      "name": "Ghazi Ilm Din Shaheed",
+      "alternateName": [
+        "Ilm Din",
+        "Ghazi Ilam Din"
+      ],
+      "birthDate": "4 December 1908, Lahore",
+      "deathDate": "31 October 1929 (executed at Mianwali Jail)"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
-      "name": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami"
+      "name": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+      "deathDate": "November 27, 1981 (Friday)",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi",
-      "name": "Khawaja Shah Muhammad Sulaiman Taunsvi"
+      "name": "Khawaja Shah Muhammad Sulaiman Taunsvi",
+      "alternateName": [
+        "Khwaja Muhammad Sulaiman Taunsvi"
+      ],
+      "birthDate": "1770",
+      "deathDate": "1850",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-noor-muhammad-maharvi"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-noor-muhammad-maharvi"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-tahir-bandagi-qadri",
-      "name": "Hazrat Tahir Bandagi Qadri"
+      "name": "Hazrat Tahir Bandagi Qadri",
+      "birthDate": "1576 CE, Lahore",
+      "deathDate": "8 Muharram 1040 AH / 8 August 1630 CE",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-sikandar"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -161,12 +239,24 @@
       "name": "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore",
       "alternateName": [
         "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\""
-      ]
+      ],
+      "birthDate": "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9).",
+      "deathDate": "8 August 1041, as given in the account; calendar era unstated"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh",
-      "name": "Syed Sakhi Shah Chan Charagh"
+      "name": "Syed Sakhi Shah Chan Charagh",
+      "alternateName": [
+        "Shah Zaman",
+        "Sayyid Shah Zaman",
+        "Sakhi Shah Chan Charagh"
+      ],
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-shah-inayat"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -174,12 +264,15 @@
       "name": "Hazrat Wasif Ali Wasif Awan",
       "alternateName": [
         "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"
-      ]
+      ],
+      "birthDate": "15 January 1929",
+      "deathDate": "18 January 1993"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sufi-shah-inayat-shaheed",
       "name": "Sufi Shah Inayat Shaheed",
+      "deathDate": "1718",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
       }
@@ -188,6 +281,12 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rakhyal-shah-sufi-al-qadri",
       "name": "Syed Rakhyal Shah Sufi Al Qadri",
+      "alternateName": [
+        "Syed Rakhyal Shah",
+        "Pir Rakhail Shah"
+      ],
+      "birthDate": "1842",
+      "deathDate": "1940",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
       }
@@ -197,7 +296,22 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-zaman-sultan-al-aulia",
       "name": "Khwaja Muhammad Zaman \"Sultan al-Aulia\"",
       "alternateName": [
-        "1713–1775"
+        "1713–1775",
+        "Makhdoom Muhammad Zaman Naqshbandi",
+        "Khwaja Muhammad Zaman"
+      ],
+      "birthDate": "1713",
+      "deathDate": "1775",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-abul-masakin"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-abdul-latif"
+        }
       ]
     },
     {
@@ -205,15 +319,22 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-rashid-shah-roze-dhani",
       "name": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\"",
       "alternateName": [
-        "founder of the Rashidi order"
-      ]
+        "founder of the Rashidi order",
+        "Pir Syed Muhammad Rashid Shah"
+      ],
+      "birthDate": "1757",
+      "deathDate": "1818",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-pir-ratan-nath",
       "name": "Baba Pir Ratan Nath",
       "alternateName": [
-        "Nath yogi"
+        "Nath yogi",
+        "Ratan Nath"
       ]
     },
     {
@@ -229,26 +350,58 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/data-ganj-bakhsh",
       "name": "Data Ganj Bakhsh",
       "alternateName": [
-        "Ali Hujwiri"
+        "Ali Hujwiri",
+        "Ali ibn Usman al-Hujwiri",
+        "al-Jullabi",
+        "al-Hujwiri"
+      ],
+      "birthDate": "1009",
+      "deathDate": "1072",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-fadl-muhammad-al-khuttali"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim",
-      "name": "Pir Abdul-ul-karim"
+      "name": "Pir Abdul-ul-karim",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-bahoo",
       "name": "Sultan Bahoo",
+      "alternateName": [
+        "Bahu (\"with Hoo\")"
+      ],
+      "birthDate": "1630",
+      "deathDate": "1691",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-abdul-rahman-of-delhi"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah",
       "name": "Pir Meher Ali Shah",
+      "alternateName": [
+        "Pir Sayyid Meher Ali Shah",
+        "Pir Mehr Ali Shah"
+      ],
+      "birthDate": "1859",
+      "deathDate": "1937",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi"
@@ -260,7 +413,14 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gorakhnath",
       "name": "Guru Gorakhnath",
       "alternateName": [
-        "Nath yogis"
+        "Nath yogis",
+        "Gorakhnath",
+        "Goraknath"
+      ],
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/matsyendranath"
+        }
       ]
     },
     {
@@ -283,8 +443,12 @@
       "alternateName": [
         "First Guru / Pehli Patshahi",
         "gurdwara-school dedicated to his teachings",
-        "First Guru"
+        "First Guru",
+        "Guru Nanak Dev Ji",
+        "Nanak"
       ],
+      "birthDate": "1469",
+      "deathDate": "1539",
       "sameAs": "https://www.wikidata.org/entity/Q309430"
     },
     {
@@ -292,16 +456,22 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bebe-nanaki",
       "name": "Bebe Nanaki",
       "alternateName": [
-        "elder sister of Guru Nanak"
-      ]
+        "elder sister of Guru Nanak",
+        "Bibi Nanaki"
+      ],
+      "birthDate": "1464",
+      "deathDate": "1518"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev",
       "name": "Guru Arjan Dev",
       "alternateName": [
-        "fifth Sikh Guru"
-      ]
+        "fifth Sikh Guru",
+        "Guru Arjan"
+      ],
+      "birthDate": "1563",
+      "deathDate": "1606"
     },
     {
       "@type": "Person",
@@ -328,6 +498,11 @@
       "alternateName": [
         "Sixth Guru",
         "Sixth Guru / Chhevin Patshahi"
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev"
+        }
       ]
     },
     {
@@ -336,14 +511,28 @@
       "name": "Guru Gobind Singh",
       "alternateName": [
         "Dashmesh Pita"
-      ]
+      ],
+      "deathDate": "1708"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-ram-das",
       "name": "Guru Ram Das",
       "alternateName": [
-        "4th"
+        "4th",
+        "Bhai Jetha"
+      ],
+      "birthDate": "1534",
+      "deathDate": "1581",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-amar-das"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-amar-das"
+        }
       ]
     },
     {
@@ -362,7 +551,12 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-taru",
-      "name": "Bhai Taru"
+      "name": "Bhai Taru",
+      "alternateName": [
+        "Bhai Taru Singh"
+      ],
+      "birthDate": "1720",
+      "deathDate": "1745"
     },
     {
       "@type": "Person",
@@ -383,7 +577,12 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gurpat",
-      "name": "Guru Gurpat"
+      "name": "Guru Gurpat",
+      "alternateName": [
+        "Baba Gurpat Sahib"
+      ],
+      "birthDate": "1807",
+      "deathDate": "1877"
     },
     {
       "@type": "Person",
@@ -427,7 +626,14 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-gurdas-singh-disciple-of-guru-gobind-singh",
       "name": "Bhai Gurdas Singh, disciple of Guru Gobind Singh",
       "alternateName": [
-        "Kanhiya Lal"
+        "Kanhiya Lal",
+        "Bhai Gurdas Singh",
+        "Bhai Kanya Lal"
+      ],
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gobind-singh"
+        }
       ]
     },
     {
@@ -447,6 +653,12 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lal-shahbaz-qalandar",
       "name": "Lal Shahbaz Qalandar",
+      "alternateName": [
+        "Sayyid Usman Marwandi",
+        "Usman Marwandi"
+      ],
+      "birthDate": "1177",
+      "deathDate": "1274",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
       }
@@ -455,6 +667,11 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-burhan-ud-din",
       "name": "Makhdoom Burhan-ud-din",
+      "alternateName": [
+        "Hazrat Langar Makhdoom",
+        "Langar Makhdoom"
+      ],
+      "deathDate": "1245",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
       }
@@ -471,17 +688,27 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/waris-shah",
       "name": "Waris Shah",
+      "birthDate": "1722",
+      "deathDate": "1798",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-of-kasur"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bulleh-shah",
       "name": "Bulleh Shah",
       "alternateName": [
-        "Abdullah Shah Qadri"
+        "Abdullah Shah Qadri",
+        "Sayyid Abdullah Shah Qadiri"
       ],
+      "birthDate": "1680",
+      "deathDate": "1757",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
       },
@@ -495,6 +722,8 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-ghulam-farid",
       "name": "Khwaja Ghulam Farid",
+      "birthDate": "1845",
+      "deathDate": "1901",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
       }
@@ -502,7 +731,26 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim-sadiq",
-      "name": "Khwaja Muhammad Qasim Sadiq"
+      "name": "Khwaja Muhammad Qasim Sadiq",
+      "alternateName": [
+        "Hazrat Khawaja Muhammad Qasim Sadiq",
+        "Khawaja Muhammad Qasim Moharwi",
+        "Muḥammad Qāthim Mohŕvī"
+      ],
+      "birthDate": "1846",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-nizamuddin-aulia-of-kahiyan-sharif"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-nizamuddin-aulia-of-kahiyan-sharif"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -528,15 +776,31 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-sulaimn-nri",
-      "name": "Shah Sulaimān Nūri"
+      "name": "Shah Sulaimān Nūri",
+      "alternateName": [
+        "Hazrat Shah Sulaiman Nuri"
+      ],
+      "birthDate": "1510",
+      "deathDate": "1604",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-maroof-khushabi"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rahman-baba",
       "name": "Rahman Baba",
       "alternateName": [
-        "Abdur Rahman Mohmand"
+        "Abdur Rahman Mohmand",
+        "Abdur Rahman"
       ],
+      "birthDate": "1653",
+      "deathDate": "1711",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
       }
@@ -551,13 +815,19 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ramdev-pir",
       "name": "Ramdev Pir",
       "alternateName": [
-        "Ramapir"
+        "Ramapir",
+        "Baba Ramdev"
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-muhammad-noushah-qadiri",
       "name": "Syed Muhammad Noushah Qadiri",
+      "alternateName": [
+        "Syed Muhammad Noushah Ganj Bakhsh"
+      ],
+      "birthDate": "1552",
+      "deathDate": "1654",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
       }
@@ -567,7 +837,8 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-bankhandi-maharaj",
       "name": "Baba Bankhandi Maharaj",
       "alternateName": [
-        "Udasi founder"
+        "Udasi founder",
+        "Balchand Sharma"
       ]
     },
     {
@@ -575,26 +846,40 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-vali-vilayat-rai",
       "name": "Sain Vali Vilayat Rai",
       "alternateName": [
-        "b. 1825"
-      ]
+        "b. 1825",
+        "Vali Vilayat Rai"
+      ],
+      "birthDate": "1825"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-sakhi-sarwar",
-      "name": "Sultan Sakhi Sarwar"
+      "name": "Sultan Sakhi Sarwar",
+      "alternateName": [
+        "Sayyid Ahmad Sultan"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh",
-      "name": "Maharaja Ranjit Singh"
+      "name": "Maharaja Ranjit Singh",
+      "alternateName": [
+        "Ranjit Singh"
+      ],
+      "birthDate": "1780",
+      "deathDate": "1839"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-baba-asudaram-sakhi-baba",
       "name": "Sant Baba Asudaram \"Sakhi Baba\"",
       "alternateName": [
-        "1895–1960"
-      ]
+        "1895–1960",
+        "Sant Baba Asudaram",
+        "Asudaram"
+      ],
+      "birthDate": "1895",
+      "deathDate": "1960"
     },
     {
       "@type": "Person",
@@ -606,7 +891,15 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhagat-kanwar-ram",
       "name": "Bhagat Kanwar Ram",
       "alternateName": [
-        "1885–1939"
+        "1885–1939",
+        "Kanwar Ram"
+      ],
+      "birthDate": "1885",
+      "deathDate": "1939",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/satguru-swami-sai-satramdas-sahib"
+        }
       ]
     },
     {
@@ -614,26 +907,45 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/satguru-swami-sai-satramdas-sahib",
       "name": "Satguru Swami Sai Satramdas Sahib",
       "alternateName": [
-        "1866–1910"
-      ]
+        "1866–1910",
+        "Sant Satram Das",
+        "Sant Shiromani Satramdas"
+      ],
+      "birthDate": "1866",
+      "deathDate": "1910"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-gurdas-veneration-of-guru-nanak",
       "name": "Bhai Gurdas; veneration of Guru Nanak",
       "alternateName": [
-        "Sevapanthi tradition"
+        "Sevapanthi tradition",
+        "Bhai Kanya Lal",
+        "Kanhiya Lal",
+        "Bhai Gurdas Singh"
+      ],
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gobind-singh"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-bilawal-shah-noorani",
-      "name": "Syed Bilawal Shah Noorani"
+      "name": "Syed Bilawal Shah Noorani",
+      "alternateName": [
+        "Shah Noorani"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yousuf",
-      "name": "Shah Yousuf"
+      "name": "Shah Yousuf",
+      "alternateName": [
+        "Hazrat Shah Yousuf",
+        "Shah Yousaf"
+      ]
     },
     {
       "@type": "Person",
@@ -644,6 +956,11 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shams-ali-qalandar",
       "name": "Shams Ali Qalandar",
+      "alternateName": [
+        "Hazrat Shams Ali Qalandar"
+      ],
+      "birthDate": "1873",
+      "deathDate": "1966",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
       }
@@ -660,6 +977,12 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani",
       "name": "Daud Bandagi Kirmani",
+      "alternateName": [
+        "Sheikh Dawood Bandgi Kirmani",
+        "Syed Dawood Bandgi Kirmani"
+      ],
+      "birthDate": "1513",
+      "deathDate": "1575",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
       }
@@ -683,7 +1006,13 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhagwan-swaminarayan",
-      "name": "Bhagwan Swaminarayan"
+      "name": "Bhagwan Swaminarayan",
+      "alternateName": [
+        "Sahajanand Swami",
+        "Swaminarayan"
+      ],
+      "birthDate": "1781",
+      "deathDate": "1830"
     },
     {
       "@type": "Person",
@@ -699,24 +1028,42 @@
       "name": "Sheikh Tahir",
       "alternateName": [
         "Udero Lal",
-        "Jhulelal"
+        "Jhulelal",
+        "Odero Lal",
+        "Khwaja Khizr (identified by some)"
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-shah-ghazi",
-      "name": "Abdullah Shah Ghazi"
+      "name": "Abdullah Shah Ghazi",
+      "deathDate": "773"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi",
       "name": "Abul Faiz Qalander Ali Suharwardi",
+      "alternateName": [
+        "Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi",
+        "Abul Faiz Qalandar"
+      ],
+      "birthDate": "1885",
+      "deathDate": "1958",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      },
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad"
         },
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-meher-ali-shah"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ala-hazrat-ahmad-raza-khan"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-ghulam-muhammad-suhrawardi"
         }
       ]
     },
@@ -725,7 +1072,21 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/akhund-darweza-baba",
       "name": "Akhund Darweza Baba",
       "alternateName": [
-        "Syed Muhammad, d. 1638"
+        "Syed Muhammad, d. 1638",
+        "Akhund Darweza",
+        "Syed Muhammad"
+      ],
+      "birthDate": "1533",
+      "deathDate": "1638",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ali-tirmizi"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ali-tirmizi"
+        }
       ]
     },
     {
@@ -741,46 +1102,138 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-abdul-razzaq",
       "name": "Syed Abdul Razzaq",
       "alternateName": [
-        "\"Shah Chiragh\""
-      ]
+        "\"Shah Chiragh\"",
+        "Baba Shah Chiragh"
+      ],
+      "deathDate": "1657",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-baba-shah-kamal",
-      "name": "Hazrat Baba Shah Kamal"
+      "name": "Hazrat Baba Shah Kamal",
+      "alternateName": [
+        "Shah Kamal"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya",
       "name": "Bahauddin Zakariya",
+      "alternateName": [
+        "Baha-ud-Din Zakariya"
+      ],
+      "birthDate": "1170",
+      "deathDate": "1267",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-pak-daman",
-      "name": "Bibi Pak Daman"
+      "name": "Bibi Pak Daman",
+      "alternateName": [
+        "Bibi Haj",
+        "Bibi Taj",
+        "Bibi Noor",
+        "Bibi Hoor",
+        "Bibi Gauhar",
+        "Bibi Shahbaz (or Shahnaz)",
+        "Sayyida Ruqayya bint Ali (in the Karbala tradition)"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fariduddin-ganjshakar",
       "name": "Fariduddin Ganjshakar",
+      "alternateName": [
+        "Baba Fariduddin Mas‘ud Ganjshakar",
+        "Baba Farid",
+        "Farid"
+      ],
+      "birthDate": "1173",
+      "deathDate": "1266",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-qutbuddin-bakhtiar-kaki"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-qutbuddin-bakhtiar-kaki"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ganj-e-inayat-sarkar",
-      "name": "Ganj e Inayat Sarkar"
+      "name": "Ganj e Inayat Sarkar",
+      "alternateName": [
+        "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi",
+        "Muhammad Inayat Ahmad"
+      ],
+      "birthDate": "1937",
+      "deathDate": "2011",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-pir-syed-ismail-shah-bukhari"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-abu-al-barakat-syed-muhammad-ahmad"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syedna-tahir-alauddin-qadiri-gilani"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maulana-ghulam-ali-okarvi"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-pir-syed-ismail-shah-bukhari"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-hafiz-muhammad-jamal-multani",
       "name": "Hazrat Hafiz Muhammad Jamal Multani",
       "alternateName": [
-        "Chishti"
+        "Chishti",
+        "Hafiz Jamal",
+        "Hafiz Muhammad Jamal Multani"
+      ],
+      "birthDate": "1747",
+      "deathDate": "1811",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-noor-muhammad-maharvi"
+        }
       ]
     },
     {
@@ -788,33 +1241,72 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-hussain",
       "name": "Shah Hussain",
       "alternateName": [
-        "Madho Lal Hussain"
+        "Madho Lal Hussain",
+        "Lal Hussain"
+      ],
+      "birthDate": "1538",
+      "deathDate": "1599",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahlol-daryai"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-muhammad-ayub-shah-bukhari",
-      "name": "Hazrat Muhammad Ayub Shah Bukhari"
+      "name": "Hazrat Muhammad Ayub Shah Bukhari",
+      "alternateName": [
+        "Ayub Shah Bukhari"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-ali-akbar-shamsi",
-      "name": "Hazrat Shah Ali Akbar Shamsi"
+      "name": "Hazrat Shah Ali Akbar Shamsi",
+      "alternateName": [
+        "Shah Ali Akbar"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-daula-daryai",
-      "name": "Shah Daula Daryai"
+      "name": "Shah Daula Daryai",
+      "alternateName": [
+        "Shah Daula"
+      ],
+      "birthDate": "1581",
+      "deathDate": "1675",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-saidan-sarmast"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/imam-ali-ul-haq",
-      "name": "Imam Ali-ul-Haq"
+      "name": "Imam Ali-ul-Haq",
+      "alternateName": [
+        "Imam Ali al-Haq"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari",
       "name": "Jalaluddin Surkh-Posh Bukhari",
+      "alternateName": [
+        "Sayyid Jalaluddin Surkh-Posh Bukhari",
+        "Jalaluddin Bukhari"
+      ],
+      "birthDate": "1192",
+      "deathDate": "1291",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
       }
@@ -824,7 +1316,10 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/laki-shah-saddar",
       "name": "Laki Shah Saddar",
       "alternateName": [
-        "Syed Shah Sadaruddin Lakyari"
+        "Syed Shah Sadaruddin Lakyari",
+        "Shah Sadaruddin",
+        "Laki Shah Sadar",
+        "Lakhi Shah Saddar"
       ]
     },
     {
@@ -832,76 +1327,159 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-abdul-rahim-girhori",
       "name": "Makhdoom Abdul Rahim Girhori",
       "alternateName": [
-        "1739–1778"
+        "1739–1778",
+        "Abdul Rahim Girhori"
+      ],
+      "birthDate": "1739",
+      "deathDate": "1778",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-zaman-sultan-al-aulia"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-zaman-sultan-al-aulia"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jahaniyan-jahangasht",
       "name": "Jahaniyan Jahangasht",
+      "alternateName": [
+        "Sayyid Jalaluddin Bukhari",
+        "Makhdoom Jahaniyan Jahangasht",
+        "Syed Jalal-ud-Din Jahaniyan Jahangasht"
+      ],
+      "birthDate": "1308",
+      "deathDate": "1384",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-bahaal-halim"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-nooh",
       "name": "Makhdoom Nooh",
       "alternateName": [
-        "Makhdoom Lutufullah / Sarwar Nooh"
-      ]
+        "Makhdoom Lutufullah / Sarwar Nooh",
+        "Makhdoom Lutufullah",
+        "Lutfullah"
+      ],
+      "birthDate": "1500",
+      "deathDate": "1590",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-meeran-muhammad-shah-bukhari",
       "name": "Hazrat Meeran Muhammad Shah Bukhari",
       "alternateName": [
-        "\"Mauj Darya\""
-      ]
+        "\"Mauj Darya\"",
+        "Miran Muhammad Shah",
+        "Mauj Darya"
+      ],
+      "birthDate": "1533",
+      "deathDate": "1604",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-mir",
       "name": "Mian Mir",
+      "alternateName": [
+        "Mir Mohammad",
+        "Mir Mohammad of Sind"
+      ],
+      "birthDate": "1550",
+      "deathDate": "1635",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-siyustani"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-siyustani"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-muhammad-umar-chamkani",
       "name": "Mian Muhammad Umar Chamkani",
       "alternateName": [
-        "Naqshbandi Sufi"
-      ]
+        "Naqshbandi Sufi",
+        "Mian Umar Baba",
+        "Mian Umar"
+      ],
+      "birthDate": "1671",
+      "deathDate": "1776",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-miran-hussain-zanjani",
-      "name": "Syed Miran Hussain Zanjani"
+      "name": "Syed Miran Hussain Zanjani",
+      "alternateName": [
+        "Shaikh Hussain Zanjani",
+        "Hazrat Shaikh Hussain Zanjani"
+      ],
+      "birthDate": "958",
+      "deathDate": "1042",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-abu-al-fazal-khatil"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syed-azizuddin-al-hassani-wal-hussaini",
       "name": "Hazrat Syed Azizuddin al-Hassani wal-Hussaini",
       "alternateName": [
-        "Peer Makki"
-      ]
+        "Peer Makki",
+        "Azizuddin"
+      ],
+      "birthDate": "1132",
+      "deathDate": "1215"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ali-tirmizi",
       "name": "Syed Ali Tirmizi",
       "alternateName": [
-        "Pir Baba"
-      ]
+        "Pir Baba",
+        "Syed Ali Ghawwas Tirmizi"
+      ],
+      "birthDate": "1502",
+      "deathDate": "1583"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-chhatal-shah-noorani",
       "name": "Pir Chhatal Shah Noorani",
       "alternateName": [
-        "Pir Chatta"
+        "Pir Chatta",
+        "Chhatal Shah Noorani"
       ]
     },
     {
@@ -912,17 +1490,36 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-mangho",
-      "name": "Pir Mangho"
+      "name": "Pir Mangho",
+      "alternateName": [
+        "Hazrat Haji Syed Sakhi Sultan",
+        "Mangho Pir"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sher-muhammad",
-      "name": "Pir Sher Muhammad"
+      "name": "Pir Sher Muhammad",
+      "alternateName": [
+        "Mian Pir Sher Muhammad Sharaqpuri",
+        "Mian Sher Muhammad"
+      ],
+      "birthDate": "1865",
+      "deathDate": "1928",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya",
       "name": "Qalandar Baba Auliya",
+      "alternateName": [
+        "Sayyid Muhammad Azeem Barkhiya",
+        "Muhammad Azeem"
+      ],
+      "birthDate": "1898",
+      "deathDate": "1979",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qalandariyya"
       }
@@ -932,23 +1529,57 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sachal-sarmast",
       "name": "Sachal Sarmast",
       "alternateName": [
-        "Abdul Wahab Faruqi"
+        "Abdul Wahab Faruqi",
+        "Abdul Wahab"
       ],
+      "birthDate": "1739",
+      "deathDate": "1827",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
-      }
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-abdul-haq"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-karim-bulri",
-      "name": "Shah Abdul Karim Bulri"
+      "name": "Shah Abdul Karim Bulri",
+      "alternateName": [
+        "Shah Abdul Karim",
+        "Bulri Shah Karim"
+      ],
+      "birthDate": "1536",
+      "deathDate": "1623",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-nooh"
+        }
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-inayat-qadiri",
       "name": "Shah Inayat Qadiri",
       "alternateName": [
-        "murshid of Bulleh Shah"
+        "murshid of Bulleh Shah",
+        "Abul-Muarif Hanfi Qadri",
+        "Shah Inayat"
+      ],
+      "birthDate": "c. 1643 (existing sourcing); a 2026 field survey separately gives 1056 AH (~1646 CE) -- the two are consistent within the normal margin of approximate Hijri/Gregorian conversion.",
+      "deathDate": "c. 1728",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-ali-raza-shattari"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-raza-qadri-shattari"
+        }
       ]
     },
     {
@@ -956,13 +1587,30 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-shah-jamal-uddin-naqvi-bukhari",
       "name": "Syed Shah Jamal Uddin Naqvi Bukhari",
       "alternateName": [
-        "Baba Shah Jamal"
+        "Baba Shah Jamal",
+        "Syed Shah Jamal"
+      ],
+      "birthDate": "1587",
+      "deathDate": "1671",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-khokar-baig-suhrawardi"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-rukn-e-alam",
       "name": "Shah Rukn-e-Alam",
+      "alternateName": [
+        "Rukn-ud-Din Abul Fath",
+        "Rukn-ud-Din"
+      ],
+      "birthDate": "1251",
+      "deathDate": "1335",
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
       },
@@ -975,22 +1623,46 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-shams-ud-din-sabzwari",
-      "name": "Shah Shams-ud-Din Sabzwari"
+      "name": "Shah Shams-ud-Din Sabzwari",
+      "alternateName": [
+        "Shah Shams Sabzwari"
+      ],
+      "deathDate": "1276"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-yusaf-gardez",
-      "name": "Shah Yusaf Gardez"
+      "name": "Shah Yusaf Gardez",
+      "alternateName": [
+        "Sayyid Yusuf",
+        "Shah Yusuf Gardez"
+      ],
+      "deathDate": "1150"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-musa-pak",
-      "name": "Syed Musa Pak"
+      "name": "Syed Musa Pak",
+      "alternateName": [
+        "Syed Musa",
+        "Musa Pak Shaheed"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/qadiriyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-shamsuddin-sialvi",
       "name": "Muhammad Shamsuddin Sialvi",
+      "alternateName": [
+        "Khwaja Muhammad Shamsuddin Sialvi"
+      ],
+      "birthDate": "1799",
+      "deathDate": "1883",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khawaja-shah-muhammad-sulaiman-taunsvi"
@@ -1003,32 +1675,56 @@
       "name": "Swami Dharmdas",
       "alternateName": [
         "Nanakpanthi sant"
+      ],
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-bhai-wasan-shah-of-rohri"
+        }
       ]
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/allama-muhammad-iqbal",
-      "name": "Allama Muhammad Iqbal"
+      "name": "Allama Muhammad Iqbal",
+      "alternateName": [
+        "Muhammad Iqbal",
+        "Sir Muhammad Iqbal"
+      ],
+      "birthDate": "1877",
+      "deathDate": "1938"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-bahaal-halim",
       "name": "Hazrat Baha'al-Halim",
       "alternateName": [
-        "Sayyid Baha al-Din Halim"
-      ]
+        "Sayyid Baha al-Din Halim",
+        "Baha'al-Halim",
+        "Baha' al-Halim",
+        "Bahaul Halim"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-qutb-ud-din-aibak",
-      "name": "Sultan Qutb ud-Din Aibak"
+      "name": "Sultan Qutb ud-Din Aibak",
+      "alternateName": [
+        "Qutb ud-Din Aibak",
+        "Aibak"
+      ],
+      "birthDate": "1150",
+      "deathDate": "1210"
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ustad-nuriya",
       "name": "Ustad Nuriya",
       "alternateName": [
-        "master-builder"
+        "master-builder",
+        "Ustead"
       ]
     },
     {
@@ -1042,14 +1738,489 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ghazi-syed-shah-fateh-muhammad-bukhari",
-      "name": "Ghazi Syed Shah Fateh Muhammad Bukhari"
+      "name": "Ghazi Syed Shah Fateh Muhammad Bukhari",
+      "alternateName": [
+        "Ghazi Baba"
+      ],
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/suhrawardiyya"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/kaka-sahib",
       "name": "Kaka Sahib",
       "alternateName": [
-        "Syed Kasteer Gul, \"Sheikh Rahmkar\""
+        "Syed Kasteer Gul, \"Sheikh Rahmkar\"",
+        "Syed Kasteer Gul",
+        "Sheikh Rahmkar",
+        "Sheikh Rahm Kar"
+      ],
+      "birthDate": "1575",
+      "deathDate": "1653",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/naqshbandiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qazi-abul-aala"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-ansari-sultanpuri"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maulana-abdul-lateef-sultanpuri"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-akhuddeen-seljuki"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-fadl-muhammad-al-khuttali",
+      "name": "Abu’l-Fadl Muhammad al-Khuttali"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-abu-al-fazal-khatil",
+      "name": "Sheikh Abu al-Fazal Khatil"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahlol-daryai",
+      "name": "Bahlol (Bahlol Daryai)"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-siyustani",
+      "name": "Shaikh Siyustani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mullah-shah-badakhshi",
+      "name": "Mullah Shah Badakhshi",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-mir"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/dara-shikoh",
+      "name": "Prince Dara Shikoh",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mullah-shah-badakhshi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/princess-jahanara",
+      "name": "the princess Jahanara",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mullah-shah-badakhshi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-khokar-baig-suhrawardi",
+      "name": "Sheikh Khokar Baig Suhrawardi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abul-muali-qadri",
+      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "alternateName": [
+        "Hazrat Syed Muhammad Khair ul Deen",
+        "Shah Khairuddin Muhammad",
+        "Abul Ma’ali"
+      ],
+      "birthDate": "10 Zil Hajj 960 Hijri",
+      "deathDate": "16 Rabi ul Awal 1024 Hijri",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-sikandar",
+      "name": "Hazrat Shah Sikandar"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-wasif-ali-wasif",
+      "name": "Hazrat Wasif Ali Wasif Awan",
+      "memberOf": {
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
+      },
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-niyaz-ahmad-chisti-qadri"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-niyaz-ahmad-chisti-qadri",
+      "name": "Hazrat Shah Niyaz Ahmad Chisti Qadri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami",
+      "name": "Hazrat Khawaja Sheikh Muhammad Mustafa Chishti-Nizami"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-ali-raza-shattari",
+      "name": "Muhammad Ali Raza Shattari"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-raza-qadri-shattari",
+      "name": "Hazrat Shah Raza Qadri Shattari"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-of-kasur",
+      "name": "Makhdoom of Kasur"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi",
+      "name": "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fakhr-ud-din-iraqi",
+      "name": "Fakhr-ud-Din Iraqi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahauddin-zakariya"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-qutbuddin-bakhtiar-kaki",
+      "name": "Khwaja Qutbuddin Bakhtiar Kaki"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/nizamuddin-auliya",
+      "name": "Nizamuddin Auliya",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/fariduddin-ganjshakar"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-noor-muhammad-maharvi",
+      "name": "Khwaja Noor Muhammad Maharvi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-abdul-rahman-of-delhi",
+      "name": "Sayyid Abdul Rahman of Delhi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-maroof-khushabi",
+      "name": "Shah Maroof Khushabi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-saidan-sarmast",
+      "name": "Shah Saidan Sarmast"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-abdul-haq",
+      "name": "Khwaja Abdul Haq"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-abul-masakin",
+      "name": "Khwaja Abul Masakin"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-abdul-latif",
+      "name": "Shaikh Abdul Latif"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-shah-inayat",
+      "name": "Sayyid Shah Inayat"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bahadur-baba",
+      "name": "Bahadur Baba",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syed-abdul-wahab"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qazi-abul-aala",
+      "name": "Qazi Abul Aala"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abdullah-ansari-sultanpuri",
+      "name": "Abdullah Ansari Sultanpuri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maulana-abdul-lateef-sultanpuri",
+      "name": "Maulana Abdul Lateef Sultanpuri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-akhuddeen-seljuki",
+      "name": "Sheikh Akhuddeen Seljuki"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ala-hazrat-ahmad-raza-khan",
+      "name": "Ala Hazrat Ahmad Raza Khan of Bareilly"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-ghulam-muhammad-suhrawardi",
+      "name": "Hazrat Ghulam Muhammad Suhrawardi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-jango-pir-shah-suhrawardi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-jango-pir-shah-suhrawardi",
+      "name": "Baba Jango Pir Shah Suhrawardi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/miraj-ud-din-gilani-suhrawardi",
+      "name": "Miraj-ud-Din Gilani Suhrawardi",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abul-faiz-qalander-ali-suharwardi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rasool-shah-gilani-suhrawardi",
+      "name": "Rasool Shah Gilani Suhrawardi",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/miraj-ud-din-gilani-suhrawardi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shahid-rasool-shah-gilani-suhrawardi",
+      "name": "Shahid Rasool Shah Gilani Suhrawardi",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rasool-shah-gilani-suhrawardi"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-pir-syed-ismail-shah-bukhari",
+      "name": "Hazrat Pir Syed Ismail Shah Bukhari (Karman Wali Sarkar)"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-abu-al-barakat-syed-muhammad-ahmad",
+      "name": "Hazrat Abu al-Barakat Syed Muhammad Ahmad"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syedna-tahir-alauddin-qadiri-gilani",
+      "name": "Hazrat Syedna Tahir Alauddin Qadiri Gilani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maulana-ghulam-ali-okarvi",
+      "name": "Maulana Ghulam Ali Okarvi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sahibzada-muhammad-umar-naqshbandi",
+      "name": "Sahibzada Muhammad Umar Naqshbandi",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ganj-e-inayat-sarkar"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-hafiz-muhammad-abdur-rahman",
+      "name": "Hazrat Hafiz Muhammad Abdur Rahman",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-nizamuddin-aulia-of-kahiyan-sharif",
+      "name": "Khwaja Nizamuddin Aulia of Kahiyan Sharif"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-pir-muhammad-zahid-khan",
+      "name": "Khwaja Pir Muhammad Zahid Khan",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim-sadiq"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-sayyid-badshah",
+      "name": "Pir Sayyid Badshah",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-gohar-peer",
+      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
+      "alternateName": [
+        "Syed Ali Gohar",
+        "Hazrat Sufi Peer Syed Gohar Ali Shah",
+        "Shah Gohar Peer"
+      ],
+      "birthDate": "11 Rabīʿ al-Sānī 729 AH",
+      "deathDate": "21 Ramzan 825 AH",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer",
+      "name": "Syed Ul Hassan Kabeer"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-qurban-ali-shah",
+      "name": "Hazrat Mian Qurban Ali Shah Sarkar",
+      "alternateName": [
+        "Qurban Ali"
+      ],
+      "birthDate": "1341 AH (c. 1922–23 CE by calendar conversion)",
+      "deathDate": "25 Rabīʿ al-Thānī; year not stated in the survey",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-mian-fazal-deen"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-mian-fazal-deen",
+      "name": "Hazrat Mian Fazal Deen"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/haji-tufail",
+      "name": "Haji Tufail",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-qurban-ali-shah"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-amar-das",
+      "name": "Guru Amar Das"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/matsyendranath",
+      "name": "Matsyendranath"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-bhai-wasan-shah-of-rohri",
+      "name": "Sant Bhai Wasan Shah of Rohri"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-jiwat-singh",
+      "name": "Sain Jiwat Singh",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-vali-vilayat-rai"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/vishandas",
+      "name": "Vishandas",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-jiwat-singh"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-jiwat-singh"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sai-chanduram",
+      "name": "Sai Chanduram",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-baba-asudaram-sakhi-baba"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-shamsuddin-azeemi",
+      "name": "Khwaja Shamsuddin Azeemi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya"
+        }
       ]
     },
     {
