@@ -1148,6 +1148,31 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
       place names would have caught the original. Proved by reinstating the old rule and
       watching 8 tests fail.
 
+39. **A filter chip 1163px wide inside a 380px sidebar.** `.filter-chip` had `white-space:
+    nowrap` and `flex-shrink: 0`, and its stylesheet comment described the contents as "short,
+    fixed option sets (a handful of pills per group)". That is true of categories and regions.
+    The **saint facet is 147 chips** read from the `Sufi Saint` column, and eleven of those
+    values are qualified names — "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and
+    \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor
+    of Lahore" at 150 characters. Measured: the saint row's `scrollWidth` was 1179 against a
+    `clientWidth` of 379.
+
+    Clamped with `max-width: 100%` + ellipsis rather than shortened at the source: the value is
+    the join key that matches rows (RULE 3), and the qualification in it is real content. The
+    whole string stays reachable in the chip's `title`, the same pattern the almanac's clamped
+    Location already uses.
+
+    **The more useful lesson is about the test.** My first guard clicked a list of plausible
+    disclosure selectors and swallowed the failures. None matched — the control is
+    `.more-filters-toggle` — so the saint facet never entered the DOM, the spec measured only
+    the seven category chips, and it **passed with the clamp deleted**. I only noticed because I
+    make a habit of watching a new guard fail before trusting it.
+
+    So: `e2e/filter-layout.spec.ts` now asserts the facet is present (>100 chips) before
+    measuring anything. **A test that can silently skip the thing it checks is worse than no
+    test — it reports a safety it never established.** Any spec that reveals UI behind a
+    disclosure needs an assertion that the disclosure actually opened, not a best-effort click.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

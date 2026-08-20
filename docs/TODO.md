@@ -8,6 +8,30 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (tenth: a chip three times wider than its sidebar)
+
+Following the region-filter finding, I checked the other facet built the same way. The **saint
+filter is 147 chips**, and eleven of its values are qualified names — the longest 150 characters.
+With `white-space: nowrap` and `flex-shrink: 0`, that produced a pill **1163px wide inside a
+380px sidebar**; the row's `scrollWidth` was 1179 against a `clientWidth` of 379.
+
+Clamped with `max-width` + ellipsis, full value in `title` — the same treatment the almanac's
+Location column already gets, and for the same reason: the value is the join key and the
+qualification is real content, so neither may be shortened at the source.
+
+**The instructive part was the test, not the CSS.** My first guard clicked a list of plausible
+disclosure selectors and swallowed the failures. None of them matched (the control is
+`.more-filters-toggle`), so the saint facet never entered the DOM, the spec measured seven
+category chips, and it **passed with the clamp deleted**. I only caught it because I check that a
+new guard fails before trusting it.
+
+`e2e/filter-layout.spec.ts` now asserts >100 chips are present before measuring. **A test that
+can silently skip the thing it checks is worse than no test: it reports a safety it never
+established.** Any spec that reveals UI behind a disclosure needs an assertion that the
+disclosure opened — not a best-effort click.
+
+---
+
 ## 0. Session log — 20 August 2026 (ninth: the region filter was offering prose)
 
 **The map's region filter had six chips that were sentence fragments** — one of them reading

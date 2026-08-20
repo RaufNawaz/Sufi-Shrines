@@ -541,19 +541,28 @@ export function MapSidebar({
                     >
                       {t('filterAll')}
                     </button>
-                    {saints.map((saint) => (
-                      <button
-                        key={saint}
-                        className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
-                        onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
-                        aria-pressed={activeSaint === saint}
-                      >
-                        {localizeField(
+                    {saints.map((saint) => {
+                      const label =
+                        localizeField(
                           shrines.find((s) => s.sufiSaint === saint)!.raw,
                           'Sufi Saint',
-                        ) || saint}
-                      </button>
-                    ))}
+                        ) || saint;
+                      return (
+                        <button
+                          key={saint}
+                          className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
+                          onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
+                          aria-pressed={activeSaint === saint}
+                          /* Several of these values are qualified names running
+                             past 100 characters — real content, and the join key
+                             that matches rows, so the chip clamps its display and
+                             keeps the whole string here instead. */
+                          title={label}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}

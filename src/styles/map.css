@@ -594,18 +594,34 @@
 }
 
 .filter-chips {
-  /* These are short, fixed option sets (a handful of pills per group) — wrap
-     them rather than hiding the overflow behind a scroll+fade, which read as
-     a cut-off label ("Hindu & Jai...") rather than "scroll for more". */
+  /* Wrap rather than hiding the overflow behind a scroll+fade, which reads as
+     a cut-off label ("Hindu & Jai...") rather than "scroll for more".
+     This comment used to say "short, fixed option sets (a handful of pills per
+     group)". True of categories and regions; the saint facet has 147 chips and
+     several are qualified names — hence the clamp below. */
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .filter-chip {
   flex-shrink: 0;
+  /* A chip can never be wider than the column it sits in. Measured before this
+     rule: the sidebar is 380px and the widest saint chip was 1163px — "Malik
+     Ahmad Ayaz (also given as "Malik Ayaz Ahmad" and "Malik Ayaz"), described in
+     the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore" —
+     so the saint row's scrollWidth was 1179 against a clientWidth of 379 and the
+     filter overflowed its own panel threefold.
+
+     Clamped rather than shortened at the source: the value is the join key that
+     matches rows (CLAUDE.md RULE 3), and the qualification in it is real
+     content. The full string stays reachable through the chip's `title`. */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: var(--space-1) var(--space-4);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-full);
