@@ -17,30 +17,6 @@
  ],
  "delta": [
   {
-   "slug": "gurdwara-choa-sahib",
-   "added_chars": 1227,
-   "old_chars": 1456,
-   "new_chars": 2598
-  },
-  {
-   "slug": "shrine-of-baba-shah-chiragh",
-   "added_chars": 1190,
-   "old_chars": 1898,
-   "new_chars": 3003
-  },
-  {
-   "slug": "loh-temple-lava-temple",
-   "added_chars": 1110,
-   "old_chars": 1964,
-   "new_chars": 2989
-  },
-  {
-   "slug": "tomb-of-bahaal-halim-uch-sharif",
-   "added_chars": 1100,
-   "old_chars": 1316,
-   "new_chars": 2331
-  },
-  {
    "slug": "sain-vali-vilayat-rai-darbar-kambar",
    "added_chars": 1086,
    "old_chars": 1754,
@@ -380,6 +356,7 @@
   "gurdwara-bhai-joga-singh",
   "gurdwara-chakki-sahib",
   "gurdwara-chhevin-patshahi-mozang",
+  "gurdwara-choa-sahib",
   "gurdwara-chowmala-sahib",
   "gurdwara-darbar-sahib-kartarpur",
   "gurdwara-dash-mesh-pita",
@@ -408,6 +385,7 @@
   "lal-kurti-temple-balmiki-mandir-rawalpindi",
   "lal-shahbaz-qalandar",
   "langer-makhdoom",
+  "loh-temple-lava-temple",
   "mausoleum-of-waris-shah",
   "mithankot-kot-mithan",
   "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
@@ -438,6 +416,7 @@
   "shri-swaminarayan-mandir-karachi",
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
+  "shrine-of-baba-shah-chiragh",
   "shrine-of-fariduddin-ganjshakar",
   "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
@@ -455,6 +434,7 @@
   "shrine-of-shah-yusaf-gardez",
   "shrine-of-syed-musa-pak",
   "sial-sharif",
+  "tomb-of-bahaal-halim-uch-sharif",
   "tomb-of-javindi-bibi",
   "tomb-of-qutbuddin-aibak",
   "valmik-mandir-naqi-road",
