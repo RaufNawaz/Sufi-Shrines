@@ -37,7 +37,7 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
 const BUDGETS_KB = {
   'index.html': 300, // shell alone — measured 274
   'src/pages/MapPage.tsx': 1720, // measured 1595 — maplibre (1035) + leaflet (151) dominate
-  'src/pages/ShrinePage.tsx': 840, // measured 774 — kg.json (310) dominates
+  'src/pages/ShrinePage.tsx': 520, // measured 475 — the graph is no longer on this route
   'src/pages/SaintPage.tsx': 680, // measured 628
   'src/pages/OrderPage.tsx': 640, // measured 592
   'src/pages/GraphPage.tsx': 640, // measured 593

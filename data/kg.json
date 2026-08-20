@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-20T18:55:18.197Z",
+  "generated": "2026-08-20T21:46:08.901Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3421,7 +3421,8 @@
       "name": "Chishtiyya",
       "arabicName": "چشتیہ",
       "founded": "c. 1000",
-      "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama)."
+      "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama).",
+      "descriptionUr": "برصغیر کے نمایاں ترین صوفی سلسلوں میں سے ایک، جس کی بنیاد خواجہ معین الدین چشتی نے رکھی۔ محبت، رواداری اور سماع پر زور دیتا ہے۔"
     },
     {
       "id": "order:suhrawardiyya",
@@ -3430,7 +3431,8 @@
       "name": "Suhrawardiyya",
       "arabicName": "سہروردیہ",
       "founded": "c. 1100",
-      "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya."
+      "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya.",
+      "descriptionUr": "یہ سلسلہ ضیاء الدین ابو النجیب سہروردی سے منسوب ہے؛ بہاؤالدین زکریا کے زمانے میں ملتان اور سندھ میں غالب رہا۔"
     },
     {
       "id": "order:qadiriyya",
@@ -3439,7 +3441,8 @@
       "name": "Qadiriyya",
       "arabicName": "قادریہ",
       "founded": "c. 1165",
-      "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab."
+      "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab.",
+      "descriptionUr": "یہ سلسلہ بغداد کے شیخ عبدالقادر جیلانی سے جا ملتا ہے؛ برصغیر میں کئی سندوں کے ذریعے پہنچا؛ پنجاب میں اس کی موجودگی مضبوط ہے۔"
     },
     {
       "id": "order:qalandariyya",
@@ -3447,7 +3450,8 @@
       "slug": "qalandariyya",
       "name": "Qalandariyya",
       "arabicName": "قلندریہ",
-      "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance."
+      "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance.",
+      "descriptionUr": "قلندروں سے منسوب ایک آزاد رَو صوفی روایت؛ اس کی پہچان سفر، عشقِ الٰہی کی سرمستی اور رسمی مذہبی پابندیوں سے بے نیازی ہے۔"
     },
     {
       "id": "order:naqshbandiyya",
@@ -3456,7 +3460,8 @@
       "name": "Naqshbandiyya",
       "arabicName": "نقشبندیہ",
       "founded": "c. 1389",
-      "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a."
+      "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
+      "descriptionUr": "یہ سلسلہ بہاؤالدین نقشبند بخاری سے جا ملتا ہے؛ ذکرِ خفی اور شریعت کی سخت پابندی پر زور دیتا ہے۔"
     }
   ],
   "places": [

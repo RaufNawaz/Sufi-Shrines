@@ -61,6 +61,16 @@ export const UI_TEXT = {
     sufiOrder: 'Sufi Order',
     spiritualLineage: 'Spiritual Lineage',
     orderMembers: 'Members of this order',
+    orderMemberCount: (n: number) => `${n} saint${n === 1 ? '' : 's'}`,
+    orderBranchCount: (n: number) => `${n} branch${n === 1 ? '' : 'es'}`,
+    orderBranchesLabel: 'Branches',
+    orderMembersLabel: 'Members',
+    orderAlsoIn: 'Also in',
+    orderMultiCount: (n: number) => `${n} figure${n === 1 ? '' : 's'} in more than one silsila`,
+    orderMultiHelp:
+      'A figure can hold allegiance in several silsilas at once. Each affiliation here is a separate edge with its own quoted source, not an inference from the others.',
+    orderBranchHelp:
+      'A branch (\u0634\u0627\u062e) is a sub-line within a silsila. The same branch name can belong to two different orders, so a branch is only meaningful together with its parent.',
     teachersHeading: 'Teachers',
     disciplesHeading: 'Disciples & successors',
     discipleOfLabel: 'Disciple',
@@ -315,6 +325,16 @@ export const UI_TEXT = {
     discipleOfLabel: 'شاگرد',
     successorOfLabel: 'جانشین',
     orderMembers: 'اس سلسلے کے ولی',
+    orderMemberCount: (n: number) => `${n} ولی`,
+    orderBranchCount: (n: number) => `${n} شاخ`,
+    orderBranchesLabel: 'شاخیں',
+    orderMembersLabel: 'ارکان',
+    orderAlsoIn: 'دیگر سلسلے',
+    orderMultiCount: (n: number) => `${n} شخصیات ایک سے زیادہ سلسلوں میں`,
+    orderMultiHelp:
+      'ایک ہی بزرگ بیک وقت کئی سلسلوں سے وابستہ ہو سکتے ہیں۔ یہاں ہر وابستگی اپنے الگ ماخذ اور اقتباس کے ساتھ درج ہے، کسی دوسری وابستگی سے نکالی گئی نہیں۔',
+    orderBranchHelp:
+      'شاخ کسی سلسلے کے اندر ایک ذیلی لڑی ہوتی ہے۔ ایک ہی نام کی شاخ دو مختلف سلسلوں میں ہو سکتی ہے، اس لیے شاخ کا مطلب اپنے سلسلے کے ساتھ ہی واضح ہوتا ہے۔',
     shrinesAssociated: 'متعلقہ مزارات',
     alsoKnownAs: 'دیگر نام',
     born: 'پیدائش',
@@ -514,9 +534,20 @@ export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): 
 export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
 export function tFn(lang: Lang, key: 'photoOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'activeFiltersCount', n: number): string;
+export function tFn(lang: Lang, key: 'orderMemberCount', n: number): string;
+export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
+export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(
   lang: Lang,
-  key: 'resultCount' | 'stopOf' | 'nextIn' | 'photoOf' | 'activeFiltersCount',
+  key:
+    | 'resultCount'
+    | 'stopOf'
+    | 'nextIn'
+    | 'photoOf'
+    | 'activeFiltersCount'
+    | 'orderMemberCount'
+    | 'orderBranchCount'
+    | 'orderMultiCount',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

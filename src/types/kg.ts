@@ -69,6 +69,8 @@ export interface KGSaint extends KGEntity {
 export interface KGOrder extends KGEntity {
   type: 'order';
   arabicName?: string;
+  /** `description` in Urdu, from data/kg-seeds.json. */
+  descriptionUr?: string;
   founder?: string; // saint slug
   founded?: string;
   parentOrder?: string; // order slug (for sub-orders)

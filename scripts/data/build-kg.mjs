@@ -160,6 +160,11 @@ const orders = seedOrders.map((o) => ({
   arabicName: o.arabicName,
   founded: o.founded,
   description: o.description,
+  // The same one-liner in Urdu. English prose in the Urdu view is an
+  // untranslated sentence, not a citation, so OrderPage/SaintPage drop the
+  // English rather than print it (i18n rule 7) — an order with no
+  // `descriptionUr` simply shows no summary in Urdu.
+  ...(o.descriptionUr ? { descriptionUr: o.descriptionUr } : {}),
   ...(o.wikidataQid ? { wikidataQid: o.wikidataQid } : {}),
 }));
 
@@ -644,6 +649,32 @@ const kg = {
 
 writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
 
+// ── slim lookup for the shrine route ─────────────────────────────────────────
+// ShrinePage renders exactly one thing out of the graph: a link from the
+// shrine's named figure to that figure's entity page. Importing src/lib/kg.ts
+// for it pulled the whole 317 KB graph chunk onto a hot route — measured on
+// 20 August 2026 as 40% of that route's eager JS, for one href. So the shrine
+// → figure edge ships as its own index instead. Keep it to slugs: the moment
+// this grows a second field it stops being cheaper than the graph.
+const shrineFigures = {};
+for (const relation of relations) {
+  if (relation.type !== 'buried_at') continue;
+  const saintSlug = relation.subject.replace(/^saint:/, '');
+  const shrineSlug = relation.object.replace(/^shrine:/, '');
+  if (!saints.some((s) => s.slug === saintSlug)) continue;
+  (shrineFigures[shrineSlug] ??= []).push(saintSlug);
+}
+const sortedShrineFigures = Object.fromEntries(
+  Object.keys(shrineFigures)
+    .sort()
+    .map((shrineSlug) => [shrineSlug, shrineFigures[shrineSlug]]),
+);
+writeFileSync(
+  join(ROOT, 'data', 'kg-shrine-figures.json'),
+  JSON.stringify(sortedShrineFigures, null, 2) + '\n',
+  'utf8',
+);
+
 // ── summary ───────────────────────────────────────────────────────────────────
 
 console.log(`[kg] ✓ saints: ${stats.saints}  orders: ${stats.orders}  places: ${stats.places}  events: ${stats.events}`);
@@ -651,4 +682,7 @@ console.log(`[kg] ✓ relations: ${stats.relations}  (${stats.ambiguousMerges} m
 if (reviewNeeded.length > 0) {
   console.log(`[kg] ⚠  ${reviewNeeded.length} item(s) need review → see data/kg.json reviewNeeded`);
 }
+console.log(
+  `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,
+);
 console.log('[kg] ✓ data/kg.json written');

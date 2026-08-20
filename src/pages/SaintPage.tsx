@@ -16,9 +16,15 @@ import {
   getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
-  slugToLabel,
 } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
+import {
+  localizeAltName,
+  localizeFigureName,
+  localizeOrderName,
+  localizeShrineSlug,
+} from '../lib/i18n/localizeKgName';
+import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 
 export default function SaintPage() {
@@ -34,19 +40,23 @@ export default function SaintPage() {
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
   const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
 
+  // Shrine names in the reader's language, from the live dataset. The slug
+  // fallback is for a shrine the graph knows but the sheet has dropped.
   const shrineMap = useMemo(() => {
     const m = new Map<string, string>();
-    for (const s of shrines) m.set(s.slug, s.name);
+    for (const s of shrines) m.set(s.slug, localizeShrineName(s, lang));
     return m;
-  }, [shrines]);
+  }, [shrines, lang]);
 
-  useDocumentTitle(saint ? `${saint.name} — ${t('siteTitle')}` : null);
+  const shrineLabel = (slug: string) => shrineMap.get(slug) ?? localizeShrineSlug(slug, lang);
+
+  useDocumentTitle(saint ? `${localizeFigureName(saint, lang)} — ${t('siteTitle')}` : null);
 
   if (!saint) return <Navigate to="/" replace />;
 
   const networkCenter: GraphNode = {
     id: saint.slug,
-    label: saint.name,
+    label: localizeFigureName(saint, lang),
     type: 'saint',
     href: `/saint/${saint.slug}`,
   };
@@ -56,7 +66,7 @@ export default function SaintPage() {
       ? [
           {
             id: order.slug,
-            label: order.name,
+            label: localizeOrderName(order, lang),
             type: 'order' as const,
             href: `/order/${order.slug}`,
           },
@@ -64,17 +74,18 @@ export default function SaintPage() {
       : []),
     ...saint.shrines.map((s) => ({
       id: s,
-      label: shrineMap.get(s) ?? slugToLabel(s),
+      label: shrineLabel(s),
       type: 'shrine' as const,
       href: `/shrine/${s}`,
     })),
   ];
 
-  const displayName = lang === 'ur' && saint.nameUr ? saint.nameUr : saint.name;
+  const displayName = localizeFigureName(saint, lang);
   const isRtl = lang === 'ur';
   const born = isRtl && saint.born ? translateToUrdu(saint.born) : saint.born;
   const died = isRtl && saint.died ? translateToUrdu(saint.died) : saint.died;
   const era = isRtl && saint.era ? translateToUrdu(saint.era) : saint.era;
+  const orderDescription = order && (isRtl ? order.descriptionUr : order.description);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -168,7 +179,7 @@ export default function SaintPage() {
           {order && (
             <span className="entity-meta-item">
               <Link to={`/order/${order.slug}`} className="order-badge">
-                {order.name}
+                {localizeOrderName(order, lang)}
               </Link>
             </span>
           )}
@@ -227,8 +238,10 @@ export default function SaintPage() {
                 <h2 className="kg-section-heading">{t('sufiOrder')}</h2>
                 <p>
                   <Link to={`/order/${order.slug}`} className="order-badge">
-                    {order.name}
-                    {order.arabicName && (
+                    {localizeOrderName(order, lang)}
+                    {/* In Urdu the badge already carries the Arabic-script
+                        name, so appending it would repeat the same word. */}
+                    {order.arabicName && !isRtl && (
                       <>
                         {' '}
                         · <span lang="ar">{order.arabicName}</span>
@@ -236,9 +249,7 @@ export default function SaintPage() {
                     )}
                   </Link>
                 </p>
-                {order.description && (
-                  <p style={{ marginTop: 'var(--space-3)' }}>{order.description}</p>
-                )}
+                {orderDescription && <p className="entity-order-description">{orderDescription}</p>}
               </section>
             )}
 
@@ -264,7 +275,7 @@ export default function SaintPage() {
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                           <circle cx="12" cy="10" r="3" />
                         </svg>
-                        {shrineMap.get(shrineSlug) ?? slugToLabel(shrineSlug)}
+                        {shrineLabel(shrineSlug)}
                       </Link>
                     </li>
                   ))}
@@ -297,12 +308,14 @@ export default function SaintPage() {
 
           {/* Infobox sidebar */}
           <aside className="entity-infobox">
-            <div className="entity-infobox-title">{saint.name}</div>
+            <div className="entity-infobox-title">{displayName}</div>
             <div className="entity-infobox-body">
               {saint.altNames?.[0] && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('alsoKnownAs')}</span>
-                  <span className="entity-infobox-value">{saint.altNames[0]}</span>
+                  <span className="entity-infobox-value">
+                    <bdi>{localizeAltName(saint.altNames[0], lang)}</bdi>
+                  </span>
                 </div>
               )}
               {born && (
@@ -328,7 +341,7 @@ export default function SaintPage() {
                   <span className="entity-infobox-label">{t('sufiOrder')}</span>
                   <span className="entity-infobox-value">
                     <Link to={`/order/${order.slug}`} className="meta-entity-link">
-                      {order.name}
+                      {localizeOrderName(order, lang)}
                     </Link>
                   </span>
                 </div>

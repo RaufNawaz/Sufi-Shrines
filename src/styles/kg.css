@@ -839,3 +839,78 @@
   border-radius: var(--radius-sm);
   padding: 1px var(--space-2);
 }
+
+/* ── Order membership detail (شاخ, cross-silsila) ─────────────────────────── */
+
+/* A branch is a sub-line inside a silsila — Sarwari Qadiri inside the
+   Qadiriyya. Only 13 of 64 memberships name one, so it rides on the member's
+   row as a chip and simply disappears when absent, rather than becoming a
+   heading that fragments the list. */
+.order-branch-chip {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  padding: 0.1em 0.5em;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .order-branch-chip {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The other silsilas the same figure holds. Each is its own quoted edge, so
+   these are links into the archive's own evidence, not a "see also". */
+.entity-saint-also-in {
+  margin-block-start: var(--space-1);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.entity-saint-also-in a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.entity-saint-also-in a:hover,
+.entity-saint-also-in a:focus {
+  text-decoration: underline;
+}
+
+[dir='rtl'] .entity-saint-also-in {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The Arabic form of the order's name, riding alongside the title. Was an
+   inline style object; the codebase keeps presentation in CSS. */
+.entity-title-arabic {
+  margin-inline-start: var(--space-3);
+  font-size: 0.7em;
+  opacity: 0.75;
+}
+
+.entity-saint-altname {
+  margin-inline-start: var(--space-2);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .entity-saint-altname {
+  font-family: var(--font-urdu);
+}
+
+/* The order's one-line summary under its badge on a figure's page. Was an
+   inline style; presentation belongs here. */
+.entity-order-description {
+  margin-block-start: var(--space-3);
+}

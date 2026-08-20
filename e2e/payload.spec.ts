@@ -84,3 +84,55 @@ test.describe('Urdu article payload is language-gated', () => {
     await expect.poll(() => longestUrduRun(page)).toBeGreaterThan(400);
   });
 });
+
+/**
+ * An order page in Urdu must actually be in Urdu.
+ *
+ * The no-English-leak guard in `urdu.spec.ts` only ever covered the map and a
+ * shrine page, and the knowledge-graph routes grew up outside it: as of the
+ * morning of 20 August 2026, `/order/qadiriyya?lang=ur` rendered its own
+ * title, its description, every figure's name and every shrine tag in Latin
+ * script — an English page with Urdu furniture around it. Everything needed to
+ * fix it was already in `urdu-seed.json`; it simply was not being asked.
+ *
+ * Same predicate as `findLatinLeaks` in src/test/utils.tsx, including its
+ * sanctioned exceptions: `.coords`, links, `<bdi>` and anything marked
+ * `data-latin` (a citation, or an untranslated proper name shown so the reader
+ * has a search string).
+ */
+test.describe('Urdu order pages carry no untranslated English', () => {
+  for (const slug of [
+    'qadiriyya',
+    'chishtiyya',
+    'suhrawardiyya',
+    'naqshbandiyya',
+    'qalandariyya',
+  ]) {
+    test(`/order/${slug}?lang=ur`, async ({ page }) => {
+      await page.goto(`/order/${slug}?lang=ur`);
+      await expect(page.locator('.entity-title')).toBeVisible();
+      // Member rows arrive with the shrine dataset; asserting before they land
+      // would pass on an empty list.
+      await expect(page.locator('.entity-saint-item').first()).toBeVisible();
+
+      const leaks = await page.evaluate(() => {
+        const allowed = '.coords, a, bdi, [data-latin]';
+        const found: string[] = [];
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node: Node | null;
+        while ((node = walker.nextNode())) {
+          const text = (node.textContent || '').trim();
+          if (!text || !/[A-Za-z]/.test(text)) continue;
+          if ((node.parentElement as Element | null)?.closest(allowed)) continue;
+          found.push(text.slice(0, 80));
+        }
+        return [...new Set(found)];
+      });
+
+      expect(
+        leaks,
+        'untranslated English in the Urdu order page — see src/lib/i18n/localizeKgName.ts',
+      ).toEqual([]);
+    });
+  }
+});

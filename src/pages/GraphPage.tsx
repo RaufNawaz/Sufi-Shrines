@@ -17,7 +17,7 @@ import {
 } from '../lib/data/figureType';
 import type { FigureGroup } from '../lib/data/figureType';
 import type { KGSaint } from '../types/kg';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
 
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
@@ -35,6 +35,8 @@ export default function GraphPage() {
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
 
   const activeOrder = kg.orders.find((o) => o.slug === activeOrderSlug) ?? null;
+  const orderDescription =
+    activeOrder && (lang === 'ur' ? activeOrder.descriptionUr : activeOrder.description);
   const orderSaints = useMemo(
     () => (activeOrder ? getSaintsInOrder(activeOrder.slug) : []),
     [activeOrder],
@@ -43,14 +45,14 @@ export default function GraphPage() {
   const centerNode: GraphNode | null = activeOrder
     ? {
         id: activeOrder.id,
-        label: activeOrder.name,
+        label: localizeOrderName(activeOrder, lang),
         type: 'order',
         href: `/order/${activeOrder.slug}`,
       }
     : null;
   const connectedNodes: GraphNode[] = orderSaints.map((s) => ({
     id: s.id,
-    label: s.name,
+    label: localizeFigureName(s, lang),
     type: 'saint',
     href: `/saint/${s.slug}`,
   }));
@@ -74,12 +76,14 @@ export default function GraphPage() {
       if (list) list.push(saint);
       else buckets.set(group, [saint]);
     }
-    const collator = new Intl.Collator(isRtl ? 'ur' : 'en');
+    const collator = new Intl.Collator(lang === 'ur' ? 'ur' : 'en');
     return FIGURE_GROUP_ORDER.filter((g) => buckets.has(g)).map((group) => ({
       group,
-      figures: [...buckets.get(group)!].sort((a, b) => collator.compare(a.name, b.name)),
+      figures: [...buckets.get(group)!].sort((a, b) =>
+        collator.compare(localizeFigureName(a, lang), localizeFigureName(b, lang)),
+      ),
     }));
-  }, [isRtl]);
+  }, [lang]);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -142,18 +146,19 @@ export default function GraphPage() {
               onClick={() => setActiveOrderSlug(order.slug)}
               aria-pressed={activeOrderSlug === order.slug}
             >
-              {isRtl ? translateToUrdu(order.name) : order.name}
+              {localizeOrderName(order, lang)}
             </button>
           ))}
         </div>
 
         {centerNode && (
           <section className="graph-page-section">
-            {activeOrder?.description && (
-              <p lang={isRtl ? 'ur' : undefined}>
-                {isRtl ? translateToUrdu(activeOrder.description) : activeOrder.description}
-              </p>
-            )}
+            {/* `translateToUrdu` used to be applied to this whole sentence,
+                which of course missed and returned the English — the dictionary
+                is keyed on names, not prose. The Urdu comes from
+                `descriptionUr` in data/kg-seeds.json, and an order without one
+                shows no summary rather than an English one. */}
+            {orderDescription && <p lang={isRtl ? 'ur' : undefined}>{orderDescription}</p>}
             <NetworkGraph center={centerNode} connected={connectedNodes} />
           </section>
         )}
@@ -171,13 +176,13 @@ export default function GraphPage() {
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
                   <div className="graph-lineage-edge">
                     <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {edge.subject.name}
+                      {localizeFigureName(edge.subject, lang)}
                     </Link>
                     <span className="graph-lineage-relation">
                       {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
                     </span>
                     <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {edge.object.name}
+                      {localizeFigureName(edge.object, lang)}
                     </Link>
                     {/* An edge nobody has read yet says so. The archive's claim is
                         honesty about provenance, so a lineage drawn from
@@ -189,7 +194,15 @@ export default function GraphPage() {
                     )}
                   </div>
                   {edge.quote && (
-                    <blockquote className="graph-lineage-quote">
+                    /* The source's own words and the file they came from. Latin
+                       on purpose in either language: this is the evidence for
+                       an unreviewed edge, and an archive whose claim is
+                       provenance must leave the reader an exact search string
+                       (CLAUDE.md i18n rule 7). `lang`/`dir` so an English
+                       sentence inside an RTL page keeps its punctuation, and
+                       `data-latin` so the no-leak guard reads it as
+                       deliberate rather than untranslated. */
+                    <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
                       {edge.quote}
                       {edge.source && <cite className="graph-lineage-cite">{edge.source}</cite>}
                     </blockquote>
@@ -213,7 +226,7 @@ export default function GraphPage() {
                 {figures.map((saint) => (
                   <li key={saint.slug}>
                     <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {saint.name}
+                      {localizeFigureName(saint, lang)}
                     </Link>
                     {/* A figure_type that is a sentence rather than a category is
                         content, not a defect (RULE 2) — show it as recorded

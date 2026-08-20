@@ -884,6 +884,116 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     Worth remembering as a class: **a layout that works on sparse data is untested, not
     correct.**
 
+27. **1.0 MB of Urdu prose was on the English critical path, and had been for the whole life
+    of the feature.** `src/lib/data/urduContentOverride.ts` imported
+    `src/data/urdu-content.json` statically. That file holds complete Urdu Descriptions for
+    168 shrines, and the static import put every byte of it into the same eager chunk as
+    `useShrineData` — so every visitor, English-only included, downloaded and parsed the
+    entire Urdu edition of the archive before the first map tile appeared. Measured with
+    Playwright against `vite preview` on 20 August 2026:
+
+    | route | eager JS before | after |
+    |---|---|---|
+    | `/` | 3506 KB | 2517 KB |
+    | `/shrine/data-darbar` | 2667 KB | 1678 KB |
+    | `/saint/data-ganj-bakhsh` | 2520 KB | 1532 KB |
+    | `/almanac` | 2214 KB | 1226 KB |
+
+    The fix is a language-gated dynamic import: `loadUrduContent()` fetches once, on demand;
+    `LanguageProvider` requests it whenever `lang === 'ur'`; `applyUrduContentOverrides()` is
+    a no-op until it lands; and `useShrineData` subscribes to `onUrduContentLoaded()` so a
+    reader who switches language mid-session gets the rows re-merged from the remembered raw
+    rows rather than a second sheet fetch. The merge does not change the fingerprint (name,
+    founded, English description length), so background-refresh no-op detection still works.
+
+    Two things about *how* this went unnoticed matter more than the number. First, nothing
+    was broken: no test failed, no console error, every Urdu assertion passed — the payload
+    was simply always present, which is the one state in which a lazy-loading bug is
+    invisible. Second, `vite build` had been printing "Some chunks are larger than 500 kB"
+    on every single build for other reasons long enough to be read as decoration.
+
+    So the invariant is `scripts/check-bundle-budget.mjs`, wired into `npm run build`: it
+    walks the real static import graph out of Vite's manifest (`build.manifest: true` now,
+    for exactly this) and fails the build when a route's eager JS exceeds a budget set at
+    the measured figure plus ~8%. It also names two chunks that must never re-enter a static
+    graph — `urdu-content-*` and `shrines-fallback-*` — because a budget overshoot from
+    those is a different bug (a lazy import turned static) than a chunk that merely grew.
+    Verified by reverting the static import and watching it fail on all eight routes.
+    Behaviour is guarded separately in `e2e/payload.spec.ts`, which a size budget cannot
+    see: English never requests the chunk, `?lang=ur` requests it and renders real Urdu
+    prose, and a mid-session switch does both.
+
+    **Budgets are measurements, not aspirations.** Raising one should be a line in a diff
+    with a reason beside it.
+
+28. **`src/hooks/useShrineData.ts` was invisible to `grep -r`.** It contained two literal
+    NUL bytes, used as field separators inside a template literal in
+    `fingerprintShrines()`. `file` reported it as `data`, and `grep -rn` printed "binary file
+    matches" instead of the line — so any search for a symbol used there silently missed the
+    hot data path. They are `\0` escapes now; identical behaviour, and the file is text.
+
+29. **The Saints & Orders explorer was an English page with Urdu furniture around it.** On
+    `/order/qadiriyya?lang=ur`, as of the morning of 20 August 2026: the `<h1>` read
+    "Qadiriyya", the description was an untranslated English sentence, every one of the
+    twenty-three figures was listed in Latin script, every shrine tag was a title-cased slug
+    ("Shrine Of Shah Rukn E Alam"), and the founding year read `c. ۱۱۶۵`. `/saint/*` and
+    `/graph` were the same.
+
+    The reason it survived is structural, and worth remembering as a class: **the
+    no-English-leak guard only ever covered the routes it was written for.** `e2e/urdu.spec.ts`
+    checks `/` and `/shrine/<slug>`; the knowledge-graph routes were added later and grew up
+    outside it. A guard scoped to a route list silently exempts every route added after it.
+
+    Almost nothing was missing. `urdu-seed.json` is keyed on the *English* string, so
+    `translateToUrdu` can resolve a KG name it was never told about — it simply was not being
+    asked. `src/lib/i18n/localizeKgName.ts` now asks, from OrderPage, SaintPage, GraphPage and
+    LineageView: 67 of 136 archive figures, 92 of 169 shrine labels and all 5 orders come back
+    in Urdu, and the rest fall through to English (i18n rule 3 — never transliterate).
+    `/order/*` is at **zero** leaks and guarded by `e2e/payload.spec.ts`. Three other fixes
+    fell out of it:
+
+    - `translateToUrdu('c. 1165')` always missed, because tokenising left the `c.` in Latin,
+      which failed the function's own no-Latin check and returned the input untouched. A
+      circa pattern rule in `buildUrduFallback` fixes it everywhere, not just on order pages.
+    - GraphPage was calling `translateToUrdu` on a whole English *sentence* — the dictionary
+      is keyed on names, so it always missed and printed the English. Orders now carry
+      `descriptionUr` in `data/kg-seeds.json`, and an order without one shows no summary in
+      Urdu rather than an English one.
+    - OrderPage's shrine tags were `slugToLabel(slug)`, which title-cases a slug and so can
+      never match a dictionary keyed on the real name ("Shrine of Shah Rukn-e-Alam"). It uses
+      the live dataset's names now, which also fixed the English view.
+
+    Because coverage cannot be 100% (the dictionary is generated from the sheet's columns and
+    the graph's canonical names often differ — "Data Ganj Bakhsh" vs "Hazrat Data Ganj Bakhsh
+    (Ali Hujwiri)"), the floor is a **ratchet** rather than an assertion:
+    `src/lib/i18n/__tests__/kgNameCoverage.test.ts` fails if coverage drops. Raising a floor
+    is a one-line diff; letting it fall silently is how the pages got this way.
+
+30. **Grouping the order pages by branch was the wrong idea, and the data said so.** The
+    obvious use for the newly-extracted `branch` field was branch headings under each silsila.
+    Only 13 of 64 memberships name a branch, and on Qadiriyya that is four groups of exactly
+    one member beside nineteen with none — HANDOVER §9.26 in reverse: a layout tuned to data
+    the archive does not have. The branch rides on the member's row instead. What *is*
+    well-supported is the opposite fact — 20 of 64 memberships are second or third
+    affiliations — so each member now links to the other silsilas they hold.
+
+    Also: **`asRecorded` must not be shown on an order page.** It is the row's `silsila` cell,
+    not a per-edge string, so a figure whose column reads "Suhrawardi" but whose prose also
+    places them in the Qadiriyya carries `asRecorded: "Suhrawardi"` on *both* edges. Printing
+    it under the Qadiriyya heading attributes the source's words to the wrong order. (I first
+    read the multi-order edges as a matching bug in `build-kg`. They are not — each is a
+    separate quoted proposal, and the corpus draws the distinction itself.)
+
+31. **ShrinePage imported the entire 426 KB knowledge graph to render one `href`.** The only
+    fact it took from `lib/kg.ts` was the slug of the shrine's named figure, for a link to
+    that figure's page — and that pulled the 317 KB graph chunk onto the archive's hottest
+    route, 40% of its eager JavaScript. `data/kg-shrine-figures.json` (11 KB) is that one edge
+    type, generated by `build-kg.mjs` and held to the graph by
+    `src/lib/__tests__/kgShrineFigures.test.ts`, which compares the two for every shrine
+    rather than a sample. `/shrine/<slug>` went 774 KB → 475 KB eager, and 2667 KB → 1379 KB
+    of total JS once combined with §9.27. Slugs only, deliberately: add a name field and it
+    stops being cheaper than the graph.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

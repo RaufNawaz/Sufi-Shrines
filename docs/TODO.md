@@ -8,6 +8,105 @@
 
 ---
 
+## 0. Session log — 20 August 2026 (fourth: the explorer in Urdu, and the graph off the shrine route)
+
+**The Saints & Orders explorer was an English page with Urdu furniture around it.**
+`/order/qadiriyya?lang=ur` rendered its own title, its description, all 23 figure names, every
+shrine tag and its founding year in Latin script. `/saint/*` and `/graph` the same. The cause
+is worth writing down: **the no-English-leak guard only covered the two routes it was written
+for**, and the knowledge-graph routes were added later, outside it.
+
+Almost nothing was missing — `urdu-seed.json` is keyed on the English string, so
+`translateToUrdu` could always resolve these names; nobody was asking it.
+`src/lib/i18n/localizeKgName.ts` now asks, from all four call sites. `/order/*` is at **zero**
+leaks, guarded in `e2e/payload.spec.ts`. Three fixes fell out:
+
+- `translateToUrdu('c. 1165')` had always missed (the `c.` stayed Latin, failing the
+  function's own no-Latin check), so every order page printed `c. ۱۱۶۵`. Fixed with a circa
+  rule in `buildUrduFallback` — applies everywhere, not just here.
+- GraphPage was passing a whole English sentence to a name dictionary. Orders now carry
+  `descriptionUr` in `data/kg-seeds.json` (5 short translations, written this session); an
+  order without one shows no summary in Urdu rather than an English one.
+- OrderPage's shrine tags were title-cased slugs, which can never match a dictionary keyed on
+  the real name. They use the live dataset now — which fixed the English view too
+  ("Shrine Of Shah Rukn E Alam" → "Shrine of Shah Rukn-e-Alam").
+
+Coverage cannot be 100% — the dictionary is generated from the sheet's columns and the graph's
+canonical names often differ — so the floor is a **ratchet**
+(`src/lib/i18n/__tests__/kgNameCoverage.test.ts`): 67/136 figures, 92/169 shrine labels, 5/5
+orders, and a drop fails.
+
+**Order pages now show what the graph actually knows.** Each member carries its branch (شاخ)
+when a source names one, an `unreviewed` chip when the edge has not been read by a human, and
+links to the *other* silsilas the same figure holds — 20 of 64 memberships are second or third
+affiliations. Two design calls, both driven by looking at the data first:
+
+- **No branch grouping.** Only 13 of 64 memberships name a branch; on Qadiriyya that would be
+  four headings of one member each beside nineteen with none.
+- **`asRecorded` is not shown here.** It is the row's `silsila` cell, not a per-edge string, so
+  a figure recorded "Suhrawardi" whose prose also places them in the Qadiriyya carries it on
+  *both* edges — printing it under Qadiriyya would attribute the source's words to the wrong
+  order.
+
+**ShrinePage was importing the whole 426 KB knowledge graph for one link.** It took exactly
+one fact from it — the slug of the shrine's named figure. `data/kg-shrine-figures.json` (11 KB)
+carries that edge type alone; `src/lib/__tests__/kgShrineFigures.test.ts` compares it against
+the graph for every shrine so it cannot drift. `/shrine/<slug>`: 774 → 475 KB eager, and
+2667 → 1379 KB of total JS with the Urdu-payload fix.
+
+**Needs a human (unchanged in kind, larger in number):** the 69 figures and 77 shrine labels
+with no Urdu name are a dictionary-coverage job for the `urdu-i18n/` pipeline, not a code fix —
+they are cases where the graph's canonical name differs from the sheet column the dictionary
+was built from. The five order descriptions I translated are machine-quality drafts by the
+project's own standard and want a fluent reader.
+
+---
+
+## 0. Session log — 20 August 2026 (third: the English critical path)
+
+**Every visitor was downloading the entire Urdu edition of the archive.**
+`src/data/urdu-content.json` — 1.0 MB, complete Urdu Descriptions for 168 shrines — was a
+static import in `src/lib/data/urduContentOverride.ts`, so it shared the eager chunk with
+`useShrineData`. An English-only reader parsed all of it before the first map tile appeared.
+Measured against `vite preview` with Playwright:
+
+| route | eager JS before | after | change |
+|---|---|---|---|
+| `/` (map) | 3506 KB | 2517 KB | −989 KB (−28%) |
+| `/shrine/data-darbar` | 2667 KB | 1678 KB | −989 KB (−37%) |
+| `/saint/data-ganj-bakhsh` | 2520 KB | 1532 KB | −988 KB (−39%) |
+| `/almanac` | 2214 KB | 1226 KB | −988 KB (−45%) |
+
+Now language-gated: `loadUrduContent()` fetches once on demand, `LanguageProvider` asks for
+it whenever the language is Urdu, and `useShrineData` re-merges the rows already on screen
+when it lands (from the remembered raw rows — no second sheet fetch), so switching language
+mid-session still fills the Urdu article body. Verified in a real browser: English never
+requests the chunk; `?lang=ur` requests it and renders the prose; the toggle does both.
+
+**Two invariants, because this class of bug is silent by construction** — nothing was broken,
+no test failed, the payload was just always there:
+
+- `scripts/check-bundle-budget.mjs` (wired into `npm run build`) walks the real static import
+  graph from Vite's manifest and fails the build when a route's eager JS passes a budget set
+  at the measured figure plus ~8%. It also names `urdu-content-*` and `shrines-fallback-*` as
+  chunks that must never re-enter a static graph. Proved by reverting the static import and
+  watching it fail on all eight routes.
+- `e2e/payload.spec.ts` guards the behaviour a size budget cannot see (English never fetches
+  it; Urdu does, on load and on toggle).
+
+Also: `src/hooks/useShrineData.ts` held two literal NUL bytes as separators in a template
+literal, so `file` called it `data` and `grep -rn` refused to print its lines. Now `\0`
+escapes. Anyone who ever grepped for a symbol in the hot data path and found nothing was
+looking at this.
+
+**Nothing here needs a human.** The one judgement call worth knowing about: the service
+worker's precache glob still includes the Urdu chunk, so a first-time visitor's *total*
+bytes are unchanged — only the critical path shrank. That matches how `shrines-fallback` is
+already treated (precached so offline works) and was left alone deliberately rather than
+traded for offline Urdu.
+
+---
+
 ## 0. Session log — 20 August 2026 (second half: mobile, citations, knowledge graph)
 
 **The reported bug: the sidebar was unreachable on a phone in portrait.** It was never

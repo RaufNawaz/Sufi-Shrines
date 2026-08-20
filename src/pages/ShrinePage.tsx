@@ -29,7 +29,7 @@ import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
-import { getSaintsForShrine } from '../lib/kg';
+import { primaryFigureSlug } from '../lib/kgShrineFigures';
 import { hasProjectAccess } from '../lib/projectAccess';
 import type { Shrine } from '../types/shrine';
 
@@ -54,7 +54,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
   const name = localizeShrineName(shrine, lang);
 
-  const primaryKgSaint = useMemo(() => getSaintsForShrine(shrine.slug)[0], [shrine.slug]);
+  const primaryFigure = primaryFigureSlug(shrine.slug);
 
   const category =
     categoryDisplayLabel(shrine.category, lang) ??
@@ -160,8 +160,8 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            {primaryKgSaint ? (
-              <Link to={`/saint/${primaryKgSaint.slug}`} className="meta-entity-link">
+            {primaryFigure ? (
+              <Link to={`/saint/${primaryFigure}`} className="meta-entity-link">
                 {saint}
               </Link>
             ) : (

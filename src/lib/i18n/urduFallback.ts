@@ -351,6 +351,15 @@ export function buildUrduFallback(rawText: string): string {
   const centuryMatch = raw.match(/^(\d+)(st|nd|rd|th)\s+century$/i);
   if (centuryMatch) return `${centuryMatch[1]}ویں صدی`;
 
+  // "c. 1165" — an approximate year, and the most common shape of a `founded`
+  // value in the knowledge graph's order records. Tokenising it leaves the "c."
+  // in Latin, which makes the whole string fail translateToUrdu's
+  // no-Latin check and come back untranslated: every order page printed
+  // "c. ۱۱۶۵". A pattern rule rather than a WORD_URDU_MAP entry because a bare
+  // "c" elsewhere is not necessarily circa.
+  const circaMatch = raw.match(/^c(?:a|irca)?\.?\s*(\d{3,4})\s*(?:CE|AD)?$/i);
+  if (circaMatch) return `تقریباً ${circaMatch[1]}`;
+
   const tokens = raw.match(/[A-Za-z]+|\d+|[^A-Za-z\d]+/g) || [];
   return (
     tokens
