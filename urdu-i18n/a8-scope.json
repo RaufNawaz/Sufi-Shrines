@@ -17,30 +17,6 @@
  ],
  "delta": [
   {
-   "slug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
-   "added_chars": 1428,
-   "old_chars": 1630,
-   "new_chars": 2973
-  },
-  {
-   "slug": "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
-   "added_chars": 1408,
-   "old_chars": 1413,
-   "new_chars": 2736
-  },
-  {
-   "slug": "darbar-ghamkol-sharif-zinda-pir",
-   "added_chars": 1382,
-   "old_chars": 1410,
-   "new_chars": 2659
-  },
-  {
-   "slug": "lal-kurti-temple-balmiki-mandir-rawalpindi",
-   "added_chars": 1378,
-   "old_chars": 1470,
-   "new_chars": 2763
-  },
-  {
    "slug": "gori-temple-gori-jo-mandar",
    "added_chars": 1359,
    "old_chars": 1547,
@@ -415,6 +391,7 @@
   "bhai-sant-thawan-das-mandir",
   "bhit-bhit-shah",
   "churrio-jabal-durga-mata-temple",
+  "darbar-ghamkol-sharif-zinda-pir",
   "darbar-ghazi-ilm-din-shaheed",
   "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
   "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
@@ -459,6 +436,7 @@
   "khatwari-darbar-shikarpur",
   "krishna-mandir-kabari-bazar",
   "krishna-mandir-ravi-road",
+  "lal-kurti-temple-balmiki-mandir-rawalpindi",
   "lal-shahbaz-qalandar",
   "langer-makhdoom",
   "mausoleum-of-waris-shah",
@@ -475,6 +453,7 @@
   "sakhi-sarwar",
   "sant-baba-asudaram-darbar-panno-aqil",
   "sant-baba-bhagat-ram-darbar-mandir",
+  "sant-satram-dham-raharki-sacho-satram-devri-sahib",
   "shah-noorani-shrine-syed-bilawal-shah-noorani",
   "shah-yousuf",
   "shahwala-teja-singh-mandir",
@@ -490,6 +469,7 @@
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
   "shrine-of-fariduddin-ganjshakar",
+  "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
   "shrine-of-mauj-darya-bukhari",
