@@ -7,7 +7,8 @@ import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import { translateToUrdu } from './urduFallback';
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
-import { isUrPrefixedPath } from './urlLangPrefix';
+import { detectInitialLang } from './detectLang';
+import { loadUrduContent } from '../data/urduContentOverride';
 import type { ShrineRow } from '../../types/shrine';
 
 export type Numerals = 'eastern' | 'western';
@@ -15,19 +16,6 @@ export type Numerals = 'eastern' | 'western';
 function detectInitialNumerals(): Numerals {
   const stored = localStorage.getItem(NUMERALS_STORAGE_KEY);
   return stored === 'western' ? 'western' : 'eastern';
-}
-
-function detectInitialLang(): Lang {
-  const param = new URLSearchParams(window.location.search).get('lang');
-  if (param === 'en' || param === 'ur') return param;
-  // A /ur/* prerendered route (see urlLangPrefix.ts) is as explicit a signal
-  // as ?lang=ur — checked before localStorage so a shared /ur/shrine/<slug>
-  // link never flashes the wrong language before App.tsx's normalizer runs.
-  if (isUrPrefixedPath(window.location.pathname)) return 'ur';
-  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-  if (stored === 'en' || stored === 'ur') return stored;
-  if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';
-  return 'en';
 }
 
 interface LangContextValue {
@@ -66,6 +54,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const url = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState(null, '', url);
   }, []);
+
+  // The Urdu article payload (~1 MB) is not in the eager bundle; an English
+  // reader never downloads it. Request it as soon as the language is Urdu —
+  // on first paint for a /ur/ or ?lang=ur visit, or the moment the reader
+  // switches. useShrineData re-merges the rows when it arrives.
+  useEffect(() => {
+    if (lang === 'ur') void loadUrduContent();
+  }, [lang]);
 
   useEffect(() => {
     const isRTL = lang === 'ur';

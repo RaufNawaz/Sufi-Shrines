@@ -124,6 +124,10 @@ export default defineConfig(({ command }) => {
       },
     },
     build: {
+      // Emitted so scripts/check-bundle-budget.mjs can walk the real static
+      // import graph. Guessing which chunks load eagerly is how 1 MB of Urdu
+      // prose sat on the English critical path unnoticed.
+      manifest: true,
       rollupOptions: {
         output: {
           manualChunks: {

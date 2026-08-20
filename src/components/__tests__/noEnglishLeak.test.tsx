@@ -1,11 +1,11 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeAll, beforeEach } from 'vitest';
 import { MapSidebar } from '../map/MapSidebar';
 import { ShrineArticle } from '../shrine/ShrineArticle';
 import { ShrineInfobox } from '../shrine/ShrineInfobox';
 import { SourcesProvenance } from '../shrine/SourcesProvenance';
 import { buildShrine } from '../../lib/data/shrineModel';
-import { applyUrduContentOverrides } from '../../lib/data/urduContentOverride';
+import { applyUrduContentOverrides, loadUrduContent } from '../../lib/data/urduContentOverride';
 import shrinesFixture from '../../data/shrines-fallback.json';
 import { renderWithProviders, findLatinLeaks } from '../../test/utils';
 import type { ShrineRow } from '../../types/shrine';
@@ -14,7 +14,9 @@ import type { ShrineRow } from '../../types/shrine';
 // raw CSV/fallback rows) so this test exercises actual production behavior
 // instead of depending on the fixture carrying a hand-seeded "Description
 // Urdu" column — the live sheet has no Urdu columns at all (see CLAUDE.md).
-const fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+// The payload is language-gated in production, so it has to be requested
+// first — exactly what LanguageProvider does for an Urdu reader.
+let fixtureRows: ShrineRow[] = [];
 
 // The search worker isn't available in jsdom; "no query yet" (ids: null)
 // is exactly its real behavior before the worker has indexed anything.
@@ -24,6 +26,11 @@ vi.mock('../../lib/search/useSearch', () => ({
 vi.mock('../shrine/ShrineGallery', async () =>
   (await import('../../test/utils')).shrineGalleryMockFactory(),
 );
+
+beforeAll(async () => {
+  await loadUrduContent();
+  fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+});
 
 beforeEach(() => {
   localStorage.clear();
