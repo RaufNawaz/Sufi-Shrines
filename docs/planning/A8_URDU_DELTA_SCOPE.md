@@ -15,7 +15,80 @@
 > Two measurement bugs found and fixed while doing this — see the tables' note below and
 > `docs/HANDOVER.md` §9.
 
-> **Progress, 20 August 2026: step 2 is under way. 11 deltas done, backlog 74 -> 61.**
+> # STEP 2 IS COMPLETE (20 August 2026). The delta backlog is **zero**.
+>
+> **74 -> 0 deltas; 61,635 -> 0 added English chars.** All 167 rows carrying an Urdu
+> article now match the English they were translated from; `pipeline/a8_urdu_delta.py`
+> reports 167 no-action. `pipeline/urdu_content_qa.py` is at 0 errors and 0 warnings across
+> all 168 content files, with its under-coverage ratchet set to 0.
+>
+> **What is left of A8 is step 3 only:** the 2 remaining full translations,
+> `darbar-abul-muali-qadri` and `darbar-malik-ahmad-ayaz`, plus
+> `darbar-mian-qurban-ali-shah` which is absent from the built snapshot for want of
+> coordinates. These stay blocked on `docs/EDITORIAL_DECISIONS_PENDING.md` — translating
+> them before the English framing is settled means redoing the Urdu prose.
+>
+> **The one thing that is NOT done: nobody has read any of it.** 53 articles were written
+> or corrected on 20 August and every entry in `urdu-i18n/TRANSLATION_LOG.md` is still
+> `reviewed=false`. Under RULE 2 this work is drafts. A native reader going through the
+> Urdu prose is now the single highest-value action available on the Urdu track — higher
+> than any remaining translation.
+>
+> ## What 53 entries of this work actually taught us
+>
+> Recorded because it changes how the next person should read the remaining Urdu, and
+> because the A8 framing ("the Urdu has fallen behind") turned out to describe only part of
+> the problem:
+>
+> **1. The delta was, almost without exception, the provenance.** What the English had
+> added and the Urdu lacked was the corroborating-source paragraph — Alam Faqri's
+> *Tazkirah*, Iqbal Qaiser, Majid Sheikh's *Dawn* columns, Kalhoro, Werbner, Schaflechner,
+> the Archaeology Department's own listings — together with the Bibliography and the
+> visitor figures. The Urdu reader was systematically getting the devotional tradition
+> **without the scholarship that tests it**, which is precisely the archive's stated
+> distinguishing claim. Not a word-count problem.
+>
+> **2. Four entries were not stale but *wrong*, and no gate could have seen it.** In rough
+> order of severity:
+> - `allo-mahar` still carried a ~700-word biography of the wrong man that the English had
+>   retracted (`docs/allo_mahar_resolution.md`).
+> - `ziarat-kaka-sahib` named Akhund Panju Baba among the saint's teachers; the English
+>   says in as many words that he was a contemporary and *not* a teacher.
+> - `shrine-of-pir-baba-syed-ali-tirmizi` said the 2008 attack on the shrine "was foiled";
+>   the English says militants attacked it and destroyed its inscriptions.
+> - `kalat-kali-temple` opened by placing the town "far from Quetta", a distance the
+>   English never claims.
+>
+> **The lesson:** these files were drafted *from* the English and are not independently
+> sourced, so anything in the Urdu that is not in the English has no source at all. Read
+> the Urdu against its English, not on its own.
+>
+> **3. Three proper nouns were mistranslated, each in exactly one file.** `peer-makki` had
+> دیوان گنج بخش ("Diwan" for "Data") where 14 other files have داتا; `loh-temple` had
+> واجد سٹی for "Walled City", which is not a word; `kalat-kali-temple` spelled the town two
+> ways. Nothing checks proper-noun consistency across `urdu-i18n/content/`. If a fourth
+> instance appears, build the check.
+>
+> ## Conventions settled by doing the work
+>
+> - **Bibliographies in Urdu script, with one note at the head of the section**, not per
+>   item: "these sources are in English; titles are translated here; see the English entry
+>   for the original." Per-item it adds ~300 characters of scaffolding and can push a
+>   correct file past the over-coverage threshold.
+> - **A finished article lands at 0.90-1.05 of its English length.** Under 0.70 means
+>   content is missing; over 1.15 fails the build. This is the fastest single check on a
+>   draft.
+> - **`--mark` after every article**, or the entry keeps counting as a delta.
+> - **URLs cannot appear** (the leak gate forbids all Latin). Name the source and point to
+>   the English entry. This contradicts CLAUDE.md i18n rule 6 and needs a decision — see
+>   `docs/HANDOVER.md` §9.14.
+> - **Where the English hedges, hedge.** Roughly a third of these entries contain an
+>   unreconciled contradiction the English deliberately refuses to resolve. Carrying those
+>   across intact is most of the job.
+
+---
+
+> **Historical: progress note from earlier the same day. 11 deltas done, backlog 74 -> 61.**
 > Added English chars outstanding: 61,635 -> 38,729. Done, largest-gap-first:
 > `shrine-of-mauj-darya-bukhari`, `shrine-of-shah-jamal`, `shrine-of-shah-inayat-qadiri`,
 > `shrine-of-peer-makki`, `gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore`,

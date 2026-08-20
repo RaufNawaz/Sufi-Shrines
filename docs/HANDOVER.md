@@ -783,6 +783,28 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     the source carries all 171 rows, and `a8-scope.json` records `partial: true` so `--check`
     refuses to bless a scope built from a snapshot.
 
+18. **Three Urdu articles asserted the reverse of their English, and one asserted a fact
+    the English never claimed.** Beyond the `allo-mahar` retraction in §9.11, found while
+    working through all 74 deltas: `ziarat-kaka-sahib` named Akhund Panju Baba among the
+    saint's *teachers*, where the English says in as many words that he was a contemporary
+    and not a teacher; `shrine-of-pir-baba-syed-ali-tirmizi` said the December 2008 attack
+    on the shrine "was foiled", where the English says militants attacked it and destroyed
+    its religious inscriptions; and `kalat-kali-temple` opened by placing the town "far
+    from Quetta", a distance found nowhere in the English. **The structural point:
+    `urdu-i18n/content/*.md` was drafted *from* the English and is not independently
+    sourced. Anything in the Urdu that is not in the English therefore has no source
+    behind it at all.** The figure check added to `pipeline/urdu_content_qa.py` catches the
+    numeric slice of this (and is measured clean across the corpus); phrase-level drift
+    like "far from Quetta" is only findable by reading the two side by side. Four instances
+    in 74 files is a rate worth assuming still holds in the parts nobody has re-read.
+
+19. **A8's own framing could not see the worst failures.** The task was scoped as "the
+    Urdu has fallen behind the English", and `a8_urdu_delta.py` measures exactly that. But
+    a retraction makes the Urdu *longer* than the English, and a mistranslation changes its
+    length not at all. Both were invisible to the scope tool, and both were more damaging
+    than any of the 74 gaps it did find. When a backlog tool tells you the size of a job,
+    ask what shape of problem it is structurally unable to count.
+
 17. **One Urdu file rendered "Data Ganj Bakhsh" as "Diwan".** `shrine-of-peer-makki.md` had
     دیوان گنج بخش and دیوان دربار; the other 14 files that name him have داتا. Nothing checks
     that a proper noun is rendered consistently across `urdu-i18n/content/`, and the

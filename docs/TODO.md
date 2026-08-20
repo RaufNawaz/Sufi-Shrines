@@ -20,10 +20,27 @@ per slug and nothing compares the two languages. Fixed, and now gated. Full acco
 
 **Done and committed:**
 
-- **12 Urdu articles brought up to date** — `allo-mahar` plus the 11 largest A8 deltas. A8
-  backlog **74 -> 61** entries, **61,635 -> 38,729** added English chars. All `reviewed=false`:
-  **a human still has to read the Urdu prose before any of this counts as done (RULE 2).**
-  Per-entry list and the pattern they share in `docs/planning/A8_URDU_DELTA_SCOPE.md`.
+- **A8 step 2 is COMPLETE. The Urdu delta backlog is zero.** 53 articles written or
+  corrected: `allo-mahar` plus every one of the 74 deltas. Backlog **74 -> 0** entries,
+  **61,635 -> 0** added English chars; all 167 rows with an Urdu article now match the
+  English they were translated from. `pipeline/urdu_content_qa.py` reports **0 errors, 0
+  warnings** across 168 files. What remains of A8 is step 3 — the 2 full translations,
+  still blocked on `docs/EDITORIAL_DECISIONS_PENDING.md`.
+
+  **Four of those 53 were corrections, not gaps** — entries whose Urdu asserted the
+  *reverse* of its English: `allo-mahar` (a retracted biography of the wrong man, still
+  live in Urdu), `ziarat-kaka-sahib` (named a contemporary as the saint's teacher, which
+  the English explicitly denies), `shrine-of-pir-baba-syed-ali-tirmizi` (called the 2008
+  attack on the shrine foiled, where the English says it destroyed the inscriptions), and
+  `kalat-kali-temple` (opened with a distance the English never claims). Three proper nouns
+  were also mistranslated, one file each. Full account, and the conventions the work
+  settled, in `docs/planning/A8_URDU_DELTA_SCOPE.md`.
+
+- **THE NEXT ACTION ON THE URDU TRACK IS A HUMAN READING IT.** Every entry in
+  `urdu-i18n/TRANSLATION_LOG.md` is `reviewed=false`. 53 articles were drafted or edited in
+  one day by a machine and none has been read by a native reader. Under RULE 2 this is all
+  drafts, and it is now the largest body of unreviewed prose the project has ever held.
+  More translation is *not* the highest-value next step; review is.
 - **New gate: `pipeline/urdu_content_qa.py`**, wired into `npm run data:validate` (so `verify`
   covers it). Latin leaks, asterisk balance, section-count sanity, and the Urdu/English length
   ratio. Over-coverage >1.15x is an ERROR — it is exactly the allo-mahar signature, and
