@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-07-12T18:16:44.920Z",
+  "generated": "2026-08-20T18:17:31.196Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -10,7 +10,8 @@
       "altNames": [],
       "shrines": [
         "allo-mahar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shiva",
@@ -30,7 +31,8 @@
         "shiv-mandir-chiti-ghati",
         "shree-ratneshwar-mahadev-temple-karachi",
         "umarkot-amarkot-shiv-mandir"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:bari-imam",
@@ -42,7 +44,8 @@
       ],
       "shrines": [
         "bari-imam"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:bhai-sant-thawan-das",
@@ -52,7 +55,8 @@
       "altNames": [],
       "shrines": [
         "bhai-sant-thawan-das-mandir"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:bhai-waliram",
@@ -62,7 +66,8 @@
       "altNames": [],
       "shrines": [
         "bhai-waliram-darbar"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:shah-abdul-latif-bhittai",
@@ -72,7 +77,8 @@
       "altNames": [],
       "shrines": [
         "bhit-bhit-shah"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:goddess-durga",
@@ -84,7 +90,19 @@
       ],
       "shrines": [
         "churrio-jabal-durga-mata-temple"
-      ]
+      ],
+      "figureType": "Deity"
+    },
+    {
+      "id": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "type": "saint",
+      "slug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "altNames": [],
+      "shrines": [
+        "darbar-abul-muali-qadri"
+      ],
+      "figureType": "Sufi saint / scholar (survey: *Wali Allah*, dervish, perfect scholar, Ahl al-Bayt, Kirmani Sadaat)"
     },
     {
       "id": "saint:khwaja-muhammad-qasim",
@@ -96,7 +114,30 @@
       ],
       "shrines": [
         "darbar-ghamkol-sharif-zinda-pir"
-      ]
+      ],
+      "figureType": "Sufi saint"
+    },
+    {
+      "id": "saint:ghazi-ilm-din-shaheed",
+      "type": "saint",
+      "slug": "ghazi-ilm-din-shaheed",
+      "name": "Ghazi Ilm Din Shaheed",
+      "altNames": [],
+      "shrines": [
+        "darbar-ghazi-ilm-din-shaheed"
+      ],
+      "figureType": "Martyr (Shaheed) -- not a Sufi pir or spiritual master; venerated for a single act, per the survey"
+    },
+    {
+      "id": "saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "type": "saint",
+      "slug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "name": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+      "altNames": [],
+      "shrines": [
+        "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
+      ],
+      "figureType": "Individual"
     },
     {
       "id": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
@@ -106,7 +147,32 @@
       "altNames": [],
       "shrines": [
         "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
-      ]
+      ],
+      "figureType": "Sufi saint"
+    },
+    {
+      "id": "saint:hazrat-tahir-bandagi-qadri",
+      "type": "saint",
+      "slug": "hazrat-tahir-bandagi-qadri",
+      "name": "Hazrat Tahir Bandagi Qadri",
+      "altNames": [],
+      "shrines": [
+        "darbar-hazrat-tahir-bandagi-qadri"
+      ],
+      "figureType": "Individual"
+    },
+    {
+      "id": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "type": "saint",
+      "slug": "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "name": "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore",
+      "altNames": [
+        "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\""
+      ],
+      "shrines": [
+        "darbar-malik-ahmad-ayaz"
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:syed-sakhi-shah-chan-charagh",
@@ -116,7 +182,21 @@
       "altNames": [],
       "shrines": [
         "darbar-sakhi-shah-chan-charagh"
-      ]
+      ],
+      "figureType": "Sufi saint"
+    },
+    {
+      "id": "saint:hazrat-wasif-ali-wasif-awan",
+      "type": "saint",
+      "slug": "hazrat-wasif-ali-wasif-awan",
+      "name": "Hazrat Wasif Ali Wasif Awan",
+      "altNames": [
+        "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"
+      ],
+      "shrines": [
+        "darbar-wasif-ali-wasif"
+      ],
+      "figureType": "Individual"
     },
     {
       "id": "saint:sufi-shah-inayat-shaheed",
@@ -126,7 +206,8 @@
       "altNames": [],
       "shrines": [
         "dargah-roza-sufi-shah-inayat-shaheed"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:syed-rakhyal-shah-sufi-al-qadri",
@@ -136,7 +217,8 @@
       "altNames": [],
       "shrines": [
         "dargah-fateh-pur-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:khwaja-muhammad-zaman-sultan-al-aulia",
@@ -148,7 +230,8 @@
       ],
       "shrines": [
         "dargah-of-khwaja-muhammad-zaman-luari-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
@@ -160,7 +243,8 @@
       ],
       "shrines": [
         "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:baba-pir-ratan-nath",
@@ -172,7 +256,8 @@
       ],
       "shrines": [
         "dargah-pir-ratan-nath-jee"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:jhulelal-daryalal",
@@ -184,7 +269,8 @@
       ],
       "shrines": [
         "darya-lal-mandir-darya-lal-sankat-mochan-mandir"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:data-ganj-bakhsh",
@@ -196,7 +282,8 @@
       ],
       "shrines": [
         "data-darbar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-abdul-ul-karim",
@@ -206,7 +293,8 @@
       "altNames": [],
       "shrines": [
         "eidgah-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:sultan-bahoo",
@@ -216,7 +304,8 @@
       "altNames": [],
       "shrines": [
         "garh-maharaja-shorkot"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-meher-ali-shah",
@@ -226,7 +315,8 @@
       "altNames": [],
       "shrines": [
         "golra-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:guru-gorakhnath",
@@ -239,7 +329,8 @@
       "shrines": [
         "gorakhnath-goraknath-temple",
         "tilla-jogian"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:jain-temple-dedicated-to-parshvanatha",
@@ -251,7 +342,8 @@
       ],
       "shrines": [
         "gori-temple-gori-jo-mandar"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:sant-gurdas-ram",
@@ -261,7 +353,8 @@
       "altNames": [],
       "shrines": [
         "gurdas-ram-mandir"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:guru-nanak",
@@ -291,6 +384,7 @@
         "gurdwara-tambo-sahib",
         "gurudwara-janam-asthan-nankana-sahib"
       ],
+      "figureType": "Sikh Guru",
       "wikidataQid": "Q309430"
     },
     {
@@ -303,7 +397,8 @@
       ],
       "shrines": [
         "gurdwara-babay-nanki"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:guru-arjan-dev",
@@ -316,7 +411,8 @@
       "shrines": [
         "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
         "gurdwara-dera-sahib"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:bhai-biba-singh",
@@ -328,7 +424,8 @@
       ],
       "shrines": [
         "gurdwara-bhai-beba-singh"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:bhai-joga-singh",
@@ -338,7 +435,8 @@
       "altNames": [],
       "shrines": [
         "gurdwara-bhai-joga-singh"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:guru-nanak-dev-ji",
@@ -348,7 +446,8 @@
       "altNames": [],
       "shrines": [
         "gurdwara-chakki-sahib"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:guru-hargobind",
@@ -365,7 +464,8 @@
         "gurdwara-chhevin-patshahi-mozang",
         "gurdwara-chowmala-sahib",
         "gurdwara-patshahi-chhevin-hadiara-lahore"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:guru-gobind-singh",
@@ -377,7 +477,8 @@
       ],
       "shrines": [
         "gurdwara-dash-mesh-pita"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:guru-ram-das",
@@ -389,7 +490,8 @@
       ],
       "shrines": [
         "gurdwara-guru-ram-das-ji"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
@@ -399,7 +501,8 @@
       "altNames": [],
       "shrines": [
         "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:guru-arjan-dev-and-guru-hargobind",
@@ -411,7 +514,8 @@
       ],
       "shrines": [
         "gurdwara-panjvi-chati-patshahi"
-      ]
+      ],
+      "figureType": "Sikh Guru"
     },
     {
       "id": "saint:bhai-taru",
@@ -421,7 +525,8 @@
       "altNames": [],
       "shrines": [
         "gurdwara-shaheed-bhai-taru-singh"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:sikh-women-and-children-martyrs",
@@ -433,7 +538,8 @@
       ],
       "shrines": [
         "gurdwara-shaheed-ganj-singh-singhnian"
-      ]
+      ],
+      "figureType": "Collective"
     },
     {
       "id": "saint:guru-granth-sahib-sikh-community",
@@ -445,7 +551,8 @@
       ],
       "shrines": [
         "gurdwara-singh-sabha"
-      ]
+      ],
+      "figureType": "Collective"
     },
     {
       "id": "saint:guru-gurpat",
@@ -455,7 +562,8 @@
       "altNames": [],
       "shrines": [
         "guru-gurpat-mandir-db-80-sirey-ghat"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:lord-jagannath",
@@ -467,7 +575,8 @@
       ],
       "shrines": [
         "jagannath-temple-sialkot"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:jain-tirthankaras",
@@ -478,7 +587,8 @@
       "shrines": [
         "jain-mandir-lahore",
         "nagarparkar-jain-temples-nagarparkar-cultural-landscape"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:jhulelal",
@@ -490,7 +600,8 @@
       ],
       "shrines": [
         "jhollay-lal-mandir"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:kali",
@@ -502,7 +613,8 @@
       ],
       "shrines": [
         "kalat-kali-temple"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:goddess-kali",
@@ -515,7 +627,8 @@
       "shrines": [
         "kali-bari-mandir",
         "kalka-cave-temple-asthan-of-kalka-devi"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
@@ -527,7 +640,8 @@
       ],
       "shrines": [
         "khatwari-darbar-shikarpur"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:lord-krishna",
@@ -538,7 +652,8 @@
       "shrines": [
         "krishna-mandir-kabari-bazar",
         "krishna-mandir-ravi-road"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:valmiki",
@@ -551,7 +666,8 @@
       "shrines": [
         "lal-kurti-temple-balmiki-mandir-rawalpindi",
         "valmiki-swamiji-mandir-gracy-lines-rawalpindi"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:lal-shahbaz-qalandar",
@@ -561,7 +677,8 @@
       "altNames": [],
       "shrines": [
         "lal-shahbaz-qalandar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:makhdoom-burhan-ud-din",
@@ -571,7 +688,8 @@
       "altNames": [],
       "shrines": [
         "langer-makhdoom"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:lava-son-of-rama-and-sita",
@@ -583,7 +701,8 @@
       ],
       "shrines": [
         "loh-temple-lava-temple"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:waris-shah",
@@ -593,7 +712,8 @@
       "altNames": [],
       "shrines": [
         "mausoleum-of-waris-shah"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:bulleh-shah",
@@ -605,7 +725,8 @@
       ],
       "shrines": [
         "mazar-of-bulleh-shah"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:khwaja-ghulam-farid",
@@ -615,7 +736,8 @@
       "altNames": [],
       "shrines": [
         "mithankot-kot-mithan"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:khwaja-muhammad-qasim-sadiq",
@@ -625,7 +747,8 @@
       "altNames": [],
       "shrines": [
         "mohra-sharif-khanqah"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:king-pandu",
@@ -637,7 +760,8 @@
       ],
       "shrines": [
         "panj-tirath"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:smadhi-of-dya-ram",
@@ -647,7 +771,8 @@
       "altNames": [],
       "shrines": [
         "parnami-mandir"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:narasimha",
@@ -659,7 +784,8 @@
       ],
       "shrines": [
         "prahladpuri-temple"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:shah-sulaimn-nri",
@@ -669,7 +795,8 @@
       "altNames": [],
       "shrines": [
         "purana-bhalwal"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:rahman-baba",
@@ -681,7 +808,8 @@
       ],
       "shrines": [
         "rahman-baba-mausoleum-rehman-baba-shrine"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:dedicated-to-lord-rama",
@@ -691,7 +819,8 @@
       "altNames": [],
       "shrines": [
         "ram-mandir-saidpur-ram-kund-mandir"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:ramdev-pir",
@@ -703,7 +832,8 @@
       ],
       "shrines": [
         "ramapir-temple-tando-allahyar"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:syed-muhammad-noushah-qadiri",
@@ -713,7 +843,8 @@
       "altNames": [],
       "shrines": [
         "ranmal-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:baba-bankhandi-maharaj",
@@ -725,7 +856,8 @@
       ],
       "shrines": [
         "sadh-belo-sadh-belo-island-temple"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:sain-vali-vilayat-rai",
@@ -737,7 +869,8 @@
       ],
       "shrines": [
         "sain-vali-vilayat-rai-darbar-kambar"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:sultan-sakhi-sarwar",
@@ -747,7 +880,8 @@
       "altNames": [],
       "shrines": [
         "sakhi-sarwar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:maharaja-ranjit-singh",
@@ -757,7 +891,8 @@
       "altNames": [],
       "shrines": [
         "samadhi-of-maharaja-ranjit-singh"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:sant-baba-asudaram-sakhi-baba",
@@ -769,7 +904,8 @@
       ],
       "shrines": [
         "sant-baba-asudaram-darbar-panno-aqil"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:sant-baba-bhagat-ram",
@@ -779,7 +915,8 @@
       "altNames": [],
       "shrines": [
         "sant-baba-bhagat-ram-darbar-mandir"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:bhagat-kanwar-ram",
@@ -791,7 +928,8 @@
       ],
       "shrines": [
         "sant-bhagat-kanwar-ram-temple-chak"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:satguru-swami-sai-satramdas-sahib",
@@ -803,7 +941,8 @@
       ],
       "shrines": [
         "sant-satram-dham-raharki-sacho-satram-devri-sahib"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:bhai-gurdas-veneration-of-guru-nanak",
@@ -815,7 +954,8 @@
       ],
       "shrines": [
         "sevapanthi-darbar-bhai-gurdas-gandava"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:syed-bilawal-shah-noorani",
@@ -825,7 +965,8 @@
       "altNames": [],
       "shrines": [
         "shah-noorani-shrine-syed-bilawal-shah-noorani"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-yousuf",
@@ -835,7 +976,8 @@
       "altNames": [],
       "shrines": [
         "shah-yousuf"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hinglaj-mata",
@@ -855,7 +997,8 @@
       "altNames": [],
       "shrines": [
         "shamsabad"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:goddess-sharada",
@@ -867,7 +1010,8 @@
       ],
       "shrines": [
         "sharada-peeth"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:daud-bandagi-kirmani",
@@ -877,7 +1021,8 @@
       "altNames": [],
       "shrines": [
         "shergarh"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:lakshmi-narayan",
@@ -889,7 +1034,8 @@
       ],
       "shrines": [
         "shri-laxmi-narayan-mandir-native-jetty-bridge"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:lord-hanuman",
@@ -901,7 +1047,8 @@
       ],
       "shrines": [
         "shri-panchmukhi-hanuman-mandir-karachi"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:bhagwan-swaminarayan",
@@ -911,7 +1058,8 @@
       "altNames": [],
       "shrines": [
         "shri-swaminarayan-mandir-karachi"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:varuna",
@@ -923,7 +1071,8 @@
       ],
       "shrines": [
         "shri-varun-dev-mandir"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:sheikh-tahir",
@@ -936,7 +1085,8 @@
       ],
       "shrines": [
         "shrine-at-odero-lal-udero-lal-teerath-asthan"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:abdullah-shah-ghazi",
@@ -946,7 +1096,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-abdullah-shah-ghazi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:abul-faiz-qalander-ali-suharwardi",
@@ -956,7 +1107,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-abul-faiz-qalander-ali-suharwardi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:akhund-darweza-baba",
@@ -968,7 +1120,8 @@
       ],
       "shrines": [
         "shrine-of-akhund-darweza-baba"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-syed-abdul-wahab",
@@ -980,7 +1133,8 @@
       ],
       "shrines": [
         "shrine-of-akhund-panju-baba"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:syed-abdul-razzaq",
@@ -992,7 +1146,8 @@
       ],
       "shrines": [
         "shrine-of-baba-shah-chiragh"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-baba-shah-kamal",
@@ -1002,7 +1157,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-baba-shah-kamal"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:bahauddin-zakariya",
@@ -1012,7 +1168,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-bahauddin-zakariya"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:bibi-pak-daman",
@@ -1022,7 +1179,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-bibi-pak-daman"
-      ]
+      ],
+      "figureType": "Collective"
     },
     {
       "id": "saint:fariduddin-ganjshakar",
@@ -1032,7 +1190,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-fariduddin-ganjshakar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:ganj-e-inayat-sarkar",
@@ -1042,7 +1201,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-ganj-e-inayat-sarkar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-hafiz-muhammad-jamal-multani",
@@ -1054,7 +1214,8 @@
       ],
       "shrines": [
         "shrine-of-hafiz-muhammad-jamal-multani"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-hussain",
@@ -1066,7 +1227,8 @@
       ],
       "shrines": [
         "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-muhammad-ayub-shah-bukhari",
@@ -1076,7 +1238,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-hazrat-muhammad-ayub-shah-bukhari"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-shah-ali-akbar-shamsi",
@@ -1086,7 +1249,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-daula-daryai",
@@ -1096,7 +1260,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-hazrat-shah-daula-daryai"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:imam-ali-ul-haq",
@@ -1106,7 +1271,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-imam-ali-ul-haq"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:jalaluddin-surkh-posh-bukhari",
@@ -1117,7 +1283,8 @@
       "shrines": [
         "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
         "tomb-of-javindi-bibi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:laki-shah-saddar",
@@ -1129,7 +1296,8 @@
       ],
       "shrines": [
         "shrine-of-lakhi-shah-saddar"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:makhdoom-abdul-rahim-girhori",
@@ -1141,7 +1309,8 @@
       ],
       "shrines": [
         "shrine-of-makhdoom-abdul-rahim-girhori"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:jahaniyan-jahangasht",
@@ -1151,7 +1320,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-makhdoom-jahaniyan-jahangasht"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:makhdoom-nooh",
@@ -1163,7 +1333,8 @@
       ],
       "shrines": [
         "shrine-of-makhdoom-nooh-hala"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-meeran-muhammad-shah-bukhari",
@@ -1175,7 +1346,8 @@
       ],
       "shrines": [
         "shrine-of-mauj-darya-bukhari"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:mian-mir",
@@ -1185,7 +1357,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-mian-mir"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:mian-muhammad-umar-chamkani",
@@ -1197,7 +1370,8 @@
       ],
       "shrines": [
         "shrine-of-mian-umar-baba-chamkani"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:syed-miran-hussain-zanjani",
@@ -1207,7 +1381,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-miran-hussain-zanjani-zanjani-sahib"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini",
@@ -1219,7 +1394,8 @@
       ],
       "shrines": [
         "shrine-of-peer-makki"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:syed-ali-tirmizi",
@@ -1231,7 +1407,8 @@
       ],
       "shrines": [
         "shrine-of-pir-baba-syed-ali-tirmizi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-chhatal-shah-noorani",
@@ -1243,7 +1420,8 @@
       ],
       "shrines": [
         "shrine-of-pir-chhatal-shah-noorani"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-lakha",
@@ -1253,7 +1431,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-mangho",
@@ -1263,7 +1442,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-pir-mangho"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:pir-sher-muhammad",
@@ -1273,7 +1453,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-pir-sher-muhammad"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:qalandar-baba-auliya",
@@ -1283,7 +1464,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-qalandar-baba-auliya"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:sachal-sarmast",
@@ -1295,7 +1477,8 @@
       ],
       "shrines": [
         "shrine-of-sachal-sarmast"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-abdul-karim-bulri",
@@ -1305,7 +1488,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-shah-abdul-karim-bulri"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-inayat-qadiri",
@@ -1317,7 +1501,8 @@
       ],
       "shrines": [
         "shrine-of-shah-inayat-qadiri"
-      ]
+      ],
+      "figureType": "Individual"
     },
     {
       "id": "saint:syed-shah-jamal-uddin-naqvi-bukhari",
@@ -1329,7 +1514,8 @@
       ],
       "shrines": [
         "shrine-of-shah-jamal"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-rukn-e-alam",
@@ -1339,7 +1525,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-shah-rukn-e-alam"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-shams-ud-din-sabzwari",
@@ -1349,7 +1536,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-shah-shams-ud-din-sabzwari"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:shah-yusaf-gardez",
@@ -1359,7 +1547,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-shah-yusaf-gardez"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:syed-musa-pak",
@@ -1369,7 +1558,8 @@
       "altNames": [],
       "shrines": [
         "shrine-of-syed-musa-pak"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:muhammad-shamsuddin-sialvi",
@@ -1379,7 +1569,8 @@
       "altNames": [],
       "shrines": [
         "sial-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:swami-dharmdas",
@@ -1391,7 +1582,8 @@
       ],
       "shrines": [
         "swami-dharmdas-darbar-larkana-kennedy-market"
-      ]
+      ],
+      "figureType": "Sant"
     },
     {
       "id": "saint:allama-muhammad-iqbal",
@@ -1401,7 +1593,8 @@
       "altNames": [],
       "shrines": [
         "tomb-of-allama-iqbal-mazar-e-iqbal"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:hazrat-bahaal-halim",
@@ -1413,7 +1606,8 @@
       ],
       "shrines": [
         "tomb-of-bahaal-halim-uch-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:sultan-qutb-ud-din-aibak",
@@ -1423,7 +1617,8 @@
       "altNames": [],
       "shrines": [
         "tomb-of-qutbuddin-aibak"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:ustad-nuriya",
@@ -1435,7 +1630,8 @@
       ],
       "shrines": [
         "tomb-of-ustad-nuriya"
-      ]
+      ],
+      "figureType": "Historical person"
     },
     {
       "id": "saint:bhagwan-valmik",
@@ -1447,7 +1643,8 @@
       ],
       "shrines": [
         "valmik-mandir-naqi-road"
-      ]
+      ],
+      "figureType": "Deity"
     },
     {
       "id": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
@@ -1457,7 +1654,8 @@
       "altNames": [],
       "shrines": [
         "wadpagga-sharif"
-      ]
+      ],
+      "figureType": "Sufi saint"
     },
     {
       "id": "saint:kaka-sahib",
@@ -1469,7 +1667,8 @@
       ],
       "shrines": [
         "ziarat-kaka-sahib"
-      ]
+      ],
+      "figureType": "Sufi saint"
     }
   ],
   "orders": [
@@ -1610,6 +1809,16 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:district",
+      "type": "place",
+      "slug": "district",
+      "name": "district",
+      "city": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province",
+      "district": "district",
+      "province": "not the shrine's exact position) — ask Saifullah for a precise pin when possible.",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:near-kohat",
       "type": "place",
       "slug": "near-kohat",
@@ -1617,6 +1826,26 @@
       "city": "Ghamkol valley",
       "district": "near Kohat",
       "province": "Khyber Pakhtunkhwa",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
+      "type": "place",
+      "slug": "lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
+      "name": "Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail",
+      "city": "Miani Sahib Graveyard",
+      "district": "Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail",
+      "province": "not the grave's exact position.",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:lahore",
+      "type": "place",
+      "slug": "lahore",
+      "name": "Lahore",
+      "city": "Miani Sahib Graveyard",
+      "district": "Lahore",
+      "province": "and no coordinates.",
       "country": "Pakistan"
     },
     {
@@ -1630,6 +1859,16 @@
       "country": "Pakistan"
     },
     {
+      "id": "place:lahore-per-the-field-survey",
+      "type": "place",
+      "slug": "lahore-per-the-field-survey",
+      "name": "Lahore. Per the field survey",
+      "city": "Miani Sahib Graveyard",
+      "district": "Lahore. Per the field survey",
+      "province": "and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
+      "country": "Pakistan"
+    },
+    {
       "id": "place:punjab",
       "type": "place",
       "slug": "punjab",
@@ -1637,6 +1876,16 @@
       "city": "Rawalpindi District",
       "district": "Punjab",
       "province": "Punjab",
+      "country": "Pakistan"
+    },
+    {
+      "id": "place:lahore-the-survey-gives-no-street-address",
+      "type": "place",
+      "slug": "lahore-the-survey-gives-no-street-address",
+      "name": "Lahore — the survey gives no street address",
+      "city": "Miani Sahib Graveyard",
+      "district": "Lahore — the survey gives no street address",
+      "province": "which it describes as one of the largest graveyards in Asia.",
       "country": "Pakistan"
     },
     {
@@ -1976,16 +2225,6 @@
       "city": "Thekrati Bazar",
       "district": "old city",
       "province": "Sindh",
-      "country": "Pakistan"
-    },
-    {
-      "id": "place:lahore",
-      "type": "place",
-      "slug": "lahore",
-      "name": "Lahore",
-      "city": "Ravi Road",
-      "district": "Lahore",
-      "province": "Punjab",
       "country": "Pakistan"
     },
     {
@@ -2429,6 +2668,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-amb-temples-amb-sharif",
+      "type": "event",
+      "slug": "urs-amb-temples-amb-sharif",
+      "name": "Urs of Shiva at Amb Temples (Amb Sharif)",
+      "eventType": "urs",
+      "shrineSlug": "amb-temples-amb-sharif",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-bari-imam",
       "type": "event",
       "slug": "urs-bari-imam",
@@ -2436,6 +2685,26 @@
       "eventType": "urs",
       "shrineSlug": "bari-imam",
       "saintSlug": "bari-imam",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-bhagnari-mandir",
+      "type": "event",
+      "slug": "urs-bhagnari-mandir",
+      "name": "Urs of Shiva at Bhagnari Mandir",
+      "eventType": "urs",
+      "shrineSlug": "bhagnari-mandir",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-bhai-sant-thawan-das-mandir",
+      "type": "event",
+      "slug": "urs-bhai-sant-thawan-das-mandir",
+      "name": "Urs of Bhai Sant Thawan Das at Bhai Sant Thawan Das Mandir",
+      "eventType": "urs",
+      "shrineSlug": "bhai-sant-thawan-das-mandir",
+      "saintSlug": "bhai-sant-thawan-das",
       "frequency": "annual"
     },
     {
@@ -2470,6 +2739,26 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-churrio-jabal-durga-mata-temple",
+      "type": "event",
+      "slug": "urs-churrio-jabal-durga-mata-temple",
+      "name": "Urs of Goddess Durga at Churrio Jabal Durga Mata Temple",
+      "eventType": "urs",
+      "shrineSlug": "churrio-jabal-durga-mata-temple",
+      "saintSlug": "goddess-durga",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-abul-muali-qadri",
+      "type": "event",
+      "slug": "urs-darbar-abul-muali-qadri",
+      "name": "Urs of Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri at Darbar Abul Muali Qadri",
+      "eventType": "urs",
+      "shrineSlug": "darbar-abul-muali-qadri",
+      "saintSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-darbar-ghamkol-sharif-zinda-pir",
       "type": "event",
       "slug": "urs-darbar-ghamkol-sharif-zinda-pir",
@@ -2480,6 +2769,26 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-darbar-ghazi-ilm-din-shaheed",
+      "type": "event",
+      "slug": "urs-darbar-ghazi-ilm-din-shaheed",
+      "name": "Urs of Ghazi Ilm Din Shaheed at Darbar Ghazi Ilm Din Shaheed",
+      "eventType": "urs",
+      "shrineSlug": "darbar-ghazi-ilm-din-shaheed",
+      "saintSlug": "ghazi-ilm-din-shaheed",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "type": "event",
+      "slug": "urs-darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "name": "Urs of Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami at Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+      "eventType": "urs",
+      "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "type": "event",
       "slug": "urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
@@ -2487,6 +2796,58 @@
       "eventType": "urs",
       "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-hazrat-tahir-bandagi-qadri",
+      "type": "event",
+      "slug": "urs-darbar-hazrat-tahir-bandagi-qadri",
+      "name": "Urs of Hazrat Tahir Bandagi Qadri at Darbar Hazrat Tahir Bandagi Qadri",
+      "eventType": "urs",
+      "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+      "saintSlug": "hazrat-tahir-bandagi-qadri",
+      "date": "Muharram",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-malik-ahmad-ayaz",
+      "type": "event",
+      "slug": "urs-darbar-malik-ahmad-ayaz",
+      "name": "Urs of Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore at Darbar Malik Ahmad Ayaz",
+      "eventType": "urs",
+      "shrineSlug": "darbar-malik-ahmad-ayaz",
+      "saintSlug": "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-sakhi-shah-chan-charagh",
+      "type": "event",
+      "slug": "urs-darbar-sakhi-shah-chan-charagh",
+      "name": "Urs of Syed Sakhi Shah Chan Charagh at Darbar Sakhi Shah Chan Charagh",
+      "eventType": "urs",
+      "shrineSlug": "darbar-sakhi-shah-chan-charagh",
+      "saintSlug": "syed-sakhi-shah-chan-charagh",
+      "date": "Muharram",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darbar-wasif-ali-wasif",
+      "type": "event",
+      "slug": "urs-darbar-wasif-ali-wasif",
+      "name": "Urs of Hazrat Wasif Ali Wasif Awan at Darbar Wasif Ali Wasif",
+      "eventType": "urs",
+      "shrineSlug": "darbar-wasif-ali-wasif",
+      "saintSlug": "hazrat-wasif-ali-wasif-awan",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-dargah-roza-sufi-shah-inayat-shaheed",
+      "type": "event",
+      "slug": "urs-dargah-roza-sufi-shah-inayat-shaheed",
+      "name": "Urs of Sufi Shah Inayat Shaheed at Dargah / Roza Sufi Shah Inayat Shaheed",
+      "eventType": "urs",
+      "shrineSlug": "dargah-roza-sufi-shah-inayat-shaheed",
+      "saintSlug": "sufi-shah-inayat-shaheed",
       "frequency": "annual"
     },
     {
@@ -2521,6 +2882,26 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-dargah-pir-ratan-nath-jee",
+      "type": "event",
+      "slug": "urs-dargah-pir-ratan-nath-jee",
+      "name": "Urs of Baba Pir Ratan Nath at Dargah Pir Ratan Nath Jee",
+      "eventType": "urs",
+      "shrineSlug": "dargah-pir-ratan-nath-jee",
+      "saintSlug": "baba-pir-ratan-nath",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "type": "event",
+      "slug": "urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "name": "Urs of Jhulelal / Daryalal at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
+      "eventType": "urs",
+      "shrineSlug": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "saintSlug": "jhulelal-daryalal",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-data-darbar",
       "type": "event",
       "slug": "urs-data-darbar",
@@ -2528,6 +2909,7 @@
       "eventType": "urs",
       "shrineSlug": "data-darbar",
       "saintSlug": "data-ganj-bakhsh",
+      "date": "Safar",
       "frequency": "annual"
     },
     {
@@ -2561,6 +2943,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gorakhnath-goraknath-temple",
+      "type": "event",
+      "slug": "urs-gorakhnath-goraknath-temple",
+      "name": "Urs of Guru Gorakhnath at Gorakhnath (Goraknath) Temple",
+      "eventType": "urs",
+      "shrineSlug": "gorakhnath-goraknath-temple",
+      "saintSlug": "guru-gorakhnath",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gori-temple-gori-jo-mandar",
       "type": "event",
       "slug": "urs-gori-temple-gori-jo-mandar",
@@ -2571,6 +2963,46 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gurdas-ram-mandir",
+      "type": "event",
+      "slug": "urs-gurdas-ram-mandir",
+      "name": "Urs of Sant Gurdas Ram at Gurdas Ram Mandir",
+      "eventType": "urs",
+      "shrineSlug": "gurdas-ram-mandir",
+      "saintSlug": "sant-gurdas-ram",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-babay-de-ber",
+      "type": "event",
+      "slug": "urs-gurdwara-babay-de-ber",
+      "name": "Urs of Guru Nanak at Gurdwara Babay De Ber",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-babay-de-ber",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-babay-nanki",
+      "type": "event",
+      "slug": "urs-gurdwara-babay-nanki",
+      "name": "Urs of Bebe Nanaki at Gurdwara Babay Nanki",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-babay-nanki",
+      "saintSlug": "bebe-nanaki",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Balila Sahib (Bal Lila Sahib)",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-balila-sahib-bal-lila-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "type": "event",
       "slug": "urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
@@ -2578,6 +3010,26 @@
       "eventType": "urs",
       "shrineSlug": "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "saintSlug": "guru-arjan-dev",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-bhai-beba-singh",
+      "type": "event",
+      "slug": "urs-gurdwara-bhai-beba-singh",
+      "name": "Urs of Bhai Biba Singh at Gurdwara Bhai Beba Singh",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-bhai-beba-singh",
+      "saintSlug": "bhai-biba-singh",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-bhai-joga-singh",
+      "type": "event",
+      "slug": "urs-gurdwara-bhai-joga-singh",
+      "name": "Urs of Bhai Joga Singh at Gurdwara Bhai Joga Singh",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-bhai-joga-singh",
+      "saintSlug": "bhai-joga-singh",
       "frequency": "annual"
     },
     {
@@ -2641,6 +3093,46 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gurdwara-darbar-sahib-kartarpur",
+      "type": "event",
+      "slug": "urs-gurdwara-darbar-sahib-kartarpur",
+      "name": "Urs of Guru Nanak at Gurdwara Darbar Sahib Kartarpur",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-darbar-sahib-kartarpur",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-dash-mesh-pita",
+      "type": "event",
+      "slug": "urs-gurdwara-dash-mesh-pita",
+      "name": "Urs of Guru Gobind Singh at Gurdwara Dash Mesh Pita",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-dash-mesh-pita",
+      "saintSlug": "guru-gobind-singh",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-dera-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-dera-sahib",
+      "name": "Urs of Guru Arjan Dev at Gurdwara Dera Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-dera-sahib",
+      "saintSlug": "guru-arjan-dev",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-guru-ram-das-ji",
+      "type": "event",
+      "slug": "urs-gurdwara-guru-ram-das-ji",
+      "name": "Urs of Guru Ram Das at Gurdwara Guru Ram Das Ji",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-guru-ram-das-ji",
+      "saintSlug": "guru-ram-das",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "event",
       "slug": "urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
@@ -2661,6 +3153,26 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gurdwara-panja-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-panja-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Panja Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-panja-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-panjvi-chati-patshahi",
+      "type": "event",
+      "slug": "urs-gurdwara-panjvi-chati-patshahi",
+      "name": "Urs of Guru Arjan Dev & Guru Hargobind at Gurdwara Panjvi Chati Patshahi",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-panjvi-chati-patshahi",
+      "saintSlug": "guru-arjan-dev-and-guru-hargobind",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
       "type": "event",
       "slug": "urs-gurdwara-patshahi-chhevin-hadiara-lahore",
@@ -2671,12 +3183,52 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gurdwara-patti-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-patti-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Patti Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-patti-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
       "type": "event",
       "slug": "urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
       "name": "Urs of Guru Nanak at Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
       "eventType": "urs",
       "shrineSlug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-rori-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-rori-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Rori Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-rori-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-sach-khand-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-sach-khand-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Sach Khand Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-sach-khand-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-sacha-sauda",
+      "type": "event",
+      "slug": "urs-gurdwara-sacha-sauda",
+      "name": "Urs of Guru Nanak at Gurdwara Sacha Sauda",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-sacha-sauda",
       "saintSlug": "guru-nanak",
       "frequency": "annual"
     },
@@ -2691,6 +3243,46 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-gurdwara-shaheed-bhai-taru-singh",
+      "type": "event",
+      "slug": "urs-gurdwara-shaheed-bhai-taru-singh",
+      "name": "Urs of Bhai Taru at Gurdwara Shaheed Bhai Taru Singh",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-shaheed-bhai-taru-singh",
+      "saintSlug": "bhai-taru",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "type": "event",
+      "slug": "urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "name": "Urs of Sikh women & children martyrs at Gurdwara Shaheed Ganj Singh Singhnian",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-shaheed-ganj-singh-singhnian",
+      "saintSlug": "sikh-women-and-children-martyrs",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-singh-sabha",
+      "type": "event",
+      "slug": "urs-gurdwara-singh-sabha",
+      "name": "Urs of Guru Granth Sahib / Sikh community at Gurdwara Singh Sabha",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-singh-sabha",
+      "saintSlug": "guru-granth-sahib-sikh-community",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-sri-kiara-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-sri-kiara-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Sri Kiara Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-sri-kiara-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-gurdwara-sri-tilganji-sahib",
       "type": "event",
       "slug": "urs-gurdwara-sri-tilganji-sahib",
@@ -2698,6 +3290,46 @@
       "eventType": "urs",
       "shrineSlug": "gurdwara-sri-tilganji-sahib",
       "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurdwara-tambo-sahib",
+      "type": "event",
+      "slug": "urs-gurdwara-tambo-sahib",
+      "name": "Urs of Guru Nanak at Gurdwara Tambo Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurdwara-tambo-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "type": "event",
+      "slug": "urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "name": "Urs of Guru Gurpat at Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "eventType": "urs",
+      "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
+      "saintSlug": "guru-gurpat",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "type": "event",
+      "slug": "urs-gurudwara-janam-asthan-nankana-sahib",
+      "name": "Urs of Guru Nanak at Gurudwara Janam Asthan Nankana Sahib",
+      "eventType": "urs",
+      "shrineSlug": "gurudwara-janam-asthan-nankana-sahib",
+      "saintSlug": "guru-nanak",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-jagannath-temple-sialkot",
+      "type": "event",
+      "slug": "urs-jagannath-temple-sialkot",
+      "name": "Urs of Lord Jagannath at Jagannath Temple, Sialkot",
+      "eventType": "urs",
+      "shrineSlug": "jagannath-temple-sialkot",
+      "saintSlug": "lord-jagannath",
       "frequency": "annual"
     },
     {
@@ -2711,6 +3343,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-jhollay-lal-mandir",
+      "type": "event",
+      "slug": "urs-jhollay-lal-mandir",
+      "name": "Urs of Jhulelal at Jhollay Lal Mandir",
+      "eventType": "urs",
+      "shrineSlug": "jhollay-lal-mandir",
+      "saintSlug": "jhulelal",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-kalat-kali-temple",
       "type": "event",
       "slug": "urs-kalat-kali-temple",
@@ -2721,6 +3363,36 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-kali-bari-mandir",
+      "type": "event",
+      "slug": "urs-kali-bari-mandir",
+      "name": "Urs of Goddess Kali at Kali Bari Mandir",
+      "eventType": "urs",
+      "shrineSlug": "kali-bari-mandir",
+      "saintSlug": "goddess-kali",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "type": "event",
+      "slug": "urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "name": "Urs of Goddess Kali at Kalka Cave Temple (Asthan of Kalka Devi)",
+      "eventType": "urs",
+      "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
+      "saintSlug": "goddess-kali",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-katas-raj-temples",
+      "type": "event",
+      "slug": "urs-katas-raj-temples",
+      "name": "Urs of Shiva at Katas Raj Temples",
+      "eventType": "urs",
+      "shrineSlug": "katas-raj-temples",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-khatwari-darbar-shikarpur",
       "type": "event",
       "slug": "urs-khatwari-darbar-shikarpur",
@@ -2728,6 +3400,26 @@
       "eventType": "urs",
       "shrineSlug": "khatwari-darbar-shikarpur",
       "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-krishna-mandir-kabari-bazar",
+      "type": "event",
+      "slug": "urs-krishna-mandir-kabari-bazar",
+      "name": "Urs of Lord Krishna at Krishna Mandir (Kabari Bazar)",
+      "eventType": "urs",
+      "shrineSlug": "krishna-mandir-kabari-bazar",
+      "saintSlug": "lord-krishna",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-krishna-mandir-ravi-road",
+      "type": "event",
+      "slug": "urs-krishna-mandir-ravi-road",
+      "name": "Urs of Lord Krishna at Krishna Mandir (Ravi Road)",
+      "eventType": "urs",
+      "shrineSlug": "krishna-mandir-ravi-road",
+      "saintSlug": "lord-krishna",
       "frequency": "annual"
     },
     {
@@ -2748,6 +3440,7 @@
       "eventType": "urs",
       "shrineSlug": "lal-shahbaz-qalandar",
       "saintSlug": "lal-shahbaz-qalandar",
+      "date": "Sha'ban",
       "frequency": "annual"
     },
     {
@@ -2768,6 +3461,16 @@
       "eventType": "urs",
       "shrineSlug": "loh-temple-lava-temple",
       "saintSlug": "lava-son-of-rama-and-sita",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-mausoleum-of-waris-shah",
+      "type": "event",
+      "slug": "urs-mausoleum-of-waris-shah",
+      "name": "Urs of Waris Shah at Mausoleum of Waris Shah",
+      "eventType": "urs",
+      "shrineSlug": "mausoleum-of-waris-shah",
+      "saintSlug": "waris-shah",
       "frequency": "annual"
     },
     {
@@ -2801,6 +3504,46 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "type": "event",
+      "slug": "urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "name": "Urs of Jain Tirthankaras at Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
+      "eventType": "urs",
+      "shrineSlug": "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "saintSlug": "jain-tirthankaras",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-panj-tirath",
+      "type": "event",
+      "slug": "urs-panj-tirath",
+      "name": "Urs of King Pandu at Panj Tirath",
+      "eventType": "urs",
+      "shrineSlug": "panj-tirath",
+      "saintSlug": "king-pandu",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-parnami-mandir",
+      "type": "event",
+      "slug": "urs-parnami-mandir",
+      "name": "Urs of Smadhi of Dya Ram at Parnami Mandir",
+      "eventType": "urs",
+      "shrineSlug": "parnami-mandir",
+      "saintSlug": "smadhi-of-dya-ram",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-prahladpuri-temple",
+      "type": "event",
+      "slug": "urs-prahladpuri-temple",
+      "name": "Urs of Narasimha at Prahladpuri Temple",
+      "eventType": "urs",
+      "shrineSlug": "prahladpuri-temple",
+      "saintSlug": "narasimha",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-purana-bhalwal",
       "type": "event",
       "slug": "urs-purana-bhalwal",
@@ -2808,6 +3551,16 @@
       "eventType": "urs",
       "shrineSlug": "purana-bhalwal",
       "saintSlug": "shah-sulaimn-nri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-rahman-baba-mausoleum-rehman-baba-shrine",
+      "type": "event",
+      "slug": "urs-rahman-baba-mausoleum-rehman-baba-shrine",
+      "name": "Urs of Rahman Baba at Rahman Baba Mausoleum (Rehman Baba Shrine)",
+      "eventType": "urs",
+      "shrineSlug": "rahman-baba-mausoleum-rehman-baba-shrine",
+      "saintSlug": "rahman-baba",
       "frequency": "annual"
     },
     {
@@ -2821,6 +3574,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-ramapir-temple-tando-allahyar",
+      "type": "event",
+      "slug": "urs-ramapir-temple-tando-allahyar",
+      "name": "Urs of Ramdev Pir at Ramapir Temple, Tando Allahyar",
+      "eventType": "urs",
+      "shrineSlug": "ramapir-temple-tando-allahyar",
+      "saintSlug": "ramdev-pir",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-ranmal-sharif",
       "type": "event",
       "slug": "urs-ranmal-sharif",
@@ -2828,6 +3591,16 @@
       "eventType": "urs",
       "shrineSlug": "ranmal-sharif",
       "saintSlug": "syed-muhammad-noushah-qadiri",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-sadh-belo-sadh-belo-island-temple",
+      "type": "event",
+      "slug": "urs-sadh-belo-sadh-belo-island-temple",
+      "name": "Urs of Baba Bankhandi Maharaj at Sadh Belo (Sadh Belo Island Temple)",
+      "eventType": "urs",
+      "shrineSlug": "sadh-belo-sadh-belo-island-temple",
+      "saintSlug": "baba-bankhandi-maharaj",
       "frequency": "annual"
     },
     {
@@ -2871,6 +3644,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-sant-baba-bhagat-ram-darbar-mandir",
+      "type": "event",
+      "slug": "urs-sant-baba-bhagat-ram-darbar-mandir",
+      "name": "Urs of Sant Baba Bhagat Ram at Sant Baba Bhagat Ram Darbar Mandir",
+      "eventType": "urs",
+      "shrineSlug": "sant-baba-bhagat-ram-darbar-mandir",
+      "saintSlug": "sant-baba-bhagat-ram",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-sant-bhagat-kanwar-ram-temple-chak",
       "type": "event",
       "slug": "urs-sant-bhagat-kanwar-ram-temple-chak",
@@ -2901,6 +3684,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "type": "event",
+      "slug": "urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "name": "Urs of Syed Bilawal Shah Noorani at Shah Noorani Shrine (Syed Bilawal Shah Noorani)",
+      "eventType": "urs",
+      "shrineSlug": "shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "saintSlug": "syed-bilawal-shah-noorani",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-shah-yousuf",
       "type": "event",
       "slug": "urs-shah-yousuf",
@@ -2908,6 +3701,16 @@
       "eventType": "urs",
       "shrineSlug": "shah-yousuf",
       "saintSlug": "shah-yousuf",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shahwala-teja-singh-mandir",
+      "type": "event",
+      "slug": "urs-shahwala-teja-singh-mandir",
+      "name": "Urs of Shiva at Shahwala Teja Singh Mandir",
+      "eventType": "urs",
+      "shrineSlug": "shahwala-teja-singh-mandir",
+      "saintSlug": "shiva",
       "frequency": "annual"
     },
     {
@@ -2921,6 +3724,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-sharada-peeth",
+      "type": "event",
+      "slug": "urs-sharada-peeth",
+      "name": "Urs of Goddess Sharada at Sharada Peeth",
+      "eventType": "urs",
+      "shrineSlug": "sharada-peeth",
+      "saintSlug": "goddess-sharada",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-shergarh",
       "type": "event",
       "slug": "urs-shergarh",
@@ -2928,6 +3741,76 @@
       "eventType": "urs",
       "shrineSlug": "shergarh",
       "saintSlug": "daud-bandagi-kirmani",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shiv-mandir-chiti-ghati",
+      "type": "event",
+      "slug": "urs-shiv-mandir-chiti-ghati",
+      "name": "Urs of Shiva at Shiv Mandir Chiti Ghati",
+      "eventType": "urs",
+      "shrineSlug": "shiv-mandir-chiti-ghati",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "type": "event",
+      "slug": "urs-shree-ratneshwar-mahadev-temple-karachi",
+      "name": "Urs of Shiva at Shree Ratneshwar Mahadev Temple, Karachi",
+      "eventType": "urs",
+      "shrineSlug": "shree-ratneshwar-mahadev-temple-karachi",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "type": "event",
+      "slug": "urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "name": "Urs of Lakshmi-Narayan at Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
+      "eventType": "urs",
+      "shrineSlug": "shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "saintSlug": "lakshmi-narayan",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "type": "event",
+      "slug": "urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "name": "Urs of Lord Hanuman at Shri Panchmukhi Hanuman Mandir (Karachi)",
+      "eventType": "urs",
+      "shrineSlug": "shri-panchmukhi-hanuman-mandir-karachi",
+      "saintSlug": "lord-hanuman",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shri-swaminarayan-mandir-karachi",
+      "type": "event",
+      "slug": "urs-shri-swaminarayan-mandir-karachi",
+      "name": "Urs of Bhagwan Swaminarayan at Shri Swaminarayan Mandir, Karachi",
+      "eventType": "urs",
+      "shrineSlug": "shri-swaminarayan-mandir-karachi",
+      "saintSlug": "bhagwan-swaminarayan",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shri-varun-dev-mandir",
+      "type": "event",
+      "slug": "urs-shri-varun-dev-mandir",
+      "name": "Urs of Varuna at Shri Varun Dev Mandir",
+      "eventType": "urs",
+      "shrineSlug": "shri-varun-dev-mandir",
+      "saintSlug": "varuna",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "type": "event",
+      "slug": "urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "name": "Urs of Sheikh Tahir at Shrine at Odero Lal (Udero Lal Teerath Asthan)",
+      "eventType": "urs",
+      "shrineSlug": "shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "saintSlug": "sheikh-tahir",
       "frequency": "annual"
     },
     {
@@ -2948,6 +3831,7 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
       "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+      "date": "Rabi al-Awwal",
       "frequency": "annual"
     },
     {
@@ -3008,6 +3892,7 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-bibi-pak-daman",
       "saintSlug": "bibi-pak-daman",
+      "date": "Muharram",
       "frequency": "annual"
     },
     {
@@ -3018,6 +3903,7 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-fariduddin-ganjshakar",
       "saintSlug": "fariduddin-ganjshakar",
+      "date": "Muharram",
       "frequency": "annual"
     },
     {
@@ -3028,6 +3914,7 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
       "saintSlug": "ganj-e-inayat-sarkar",
+      "date": "Sha'ban",
       "frequency": "annual"
     },
     {
@@ -3038,6 +3925,17 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-hafiz-muhammad-jamal-multani",
       "saintSlug": "hazrat-hafiz-muhammad-jamal-multani",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "type": "event",
+      "slug": "urs-shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "name": "Urs of Shah Hussain at Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "saintSlug": "shah-hussain",
+      "date": "Shawwal",
       "frequency": "annual"
     },
     {
@@ -3061,6 +3959,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-shrine-of-hazrat-shah-daula-daryai",
+      "type": "event",
+      "slug": "urs-shrine-of-hazrat-shah-daula-daryai",
+      "name": "Urs of Shah Daula Daryai at Shrine of Hazrat Shah Daula Daryai",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-hazrat-shah-daula-daryai",
+      "saintSlug": "shah-daula-daryai",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-shrine-of-imam-ali-ul-haq",
       "type": "event",
       "slug": "urs-shrine-of-imam-ali-ul-haq",
@@ -3068,6 +3976,16 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-imam-ali-ul-haq",
       "saintSlug": "imam-ali-ul-haq",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "type": "event",
+      "slug": "urs-shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "name": "Urs of Jalaluddin Surkh-Posh Bukhari at Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "saintSlug": "jalaluddin-surkh-posh-bukhari",
       "frequency": "annual"
     },
     {
@@ -3091,6 +4009,16 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-shrine-of-makhdoom-jahaniyan-jahangasht",
+      "type": "event",
+      "slug": "urs-shrine-of-makhdoom-jahaniyan-jahangasht",
+      "name": "Urs of Jahaniyan Jahangasht at Shrine of Makhdoom Jahaniyan Jahangasht",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-makhdoom-jahaniyan-jahangasht",
+      "saintSlug": "jahaniyan-jahangasht",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-shrine-of-makhdoom-nooh-hala",
       "type": "event",
       "slug": "urs-shrine-of-makhdoom-nooh-hala",
@@ -3108,6 +4036,17 @@
       "eventType": "urs",
       "shrineSlug": "shrine-of-mauj-darya-bukhari",
       "saintSlug": "hazrat-meeran-muhammad-shah-bukhari",
+      "date": "Rabi al-Awwal",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-shrine-of-mian-mir",
+      "type": "event",
+      "slug": "urs-shrine-of-mian-mir",
+      "name": "Urs of Mian Mir at Shrine of Mian Mir",
+      "eventType": "urs",
+      "shrineSlug": "shrine-of-mian-mir",
+      "saintSlug": "mian-mir",
       "frequency": "annual"
     },
     {
@@ -3305,6 +4244,26 @@
       "frequency": "annual"
     },
     {
+      "id": "event:urs-tilla-jogian",
+      "type": "event",
+      "slug": "urs-tilla-jogian",
+      "name": "Urs of Guru Gorakhnath at Tilla Jogian",
+      "eventType": "urs",
+      "shrineSlug": "tilla-jogian",
+      "saintSlug": "guru-gorakhnath",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "type": "event",
+      "slug": "urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "name": "Urs of Allama Muhammad Iqbal at Tomb of Allama Iqbal (Mazar-e-Iqbal)",
+      "eventType": "urs",
+      "shrineSlug": "tomb-of-allama-iqbal-mazar-e-iqbal",
+      "saintSlug": "allama-muhammad-iqbal",
+      "frequency": "annual"
+    },
+    {
       "id": "event:urs-tomb-of-bahaal-halim-uch-sharif",
       "type": "event",
       "slug": "urs-tomb-of-bahaal-halim-uch-sharif",
@@ -3342,6 +4301,26 @@
       "eventType": "urs",
       "shrineSlug": "tomb-of-ustad-nuriya",
       "saintSlug": "ustad-nuriya",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-umarkot-amarkot-shiv-mandir",
+      "type": "event",
+      "slug": "urs-umarkot-amarkot-shiv-mandir",
+      "name": "Urs of Shiva at Umarkot (Amarkot) Shiv Mandir",
+      "eventType": "urs",
+      "shrineSlug": "umarkot-amarkot-shiv-mandir",
+      "saintSlug": "shiva",
+      "frequency": "annual"
+    },
+    {
+      "id": "event:urs-valmik-mandir-naqi-road",
+      "type": "event",
+      "slug": "urs-valmik-mandir-naqi-road",
+      "name": "Urs of Bhagwan Valmik at Valmik Mandir (Naqi Road)",
+      "eventType": "urs",
+      "shrineSlug": "valmik-mandir-naqi-road",
+      "saintSlug": "bhagwan-valmik",
       "frequency": "annual"
     },
     {
@@ -3490,10 +4469,34 @@
       "method": "rule"
     },
     {
+      "id": "buried_at:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:darbar-abul-muali-qadri",
+      "type": "buried_at",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "object": "darbar-abul-muali-qadri",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
       "id": "buried_at:saint:khwaja-muhammad-qasim:darbar-ghamkol-sharif-zinda-pir",
       "type": "buried_at",
       "subject": "saint:khwaja-muhammad-qasim",
       "object": "darbar-ghamkol-sharif-zinda-pir",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:ghazi-ilm-din-shaheed:darbar-ghazi-ilm-din-shaheed",
+      "type": "buried_at",
+      "subject": "saint:ghazi-ilm-din-shaheed",
+      "object": "darbar-ghazi-ilm-din-shaheed",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami:darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "type": "buried_at",
+      "subject": "saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "object": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
       "confidence": 1,
       "method": "rule"
     },
@@ -3506,10 +4509,34 @@
       "method": "rule"
     },
     {
+      "id": "buried_at:saint:hazrat-tahir-bandagi-qadri:darbar-hazrat-tahir-bandagi-qadri",
+      "type": "buried_at",
+      "subject": "saint:hazrat-tahir-bandagi-qadri",
+      "object": "darbar-hazrat-tahir-bandagi-qadri",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore:darbar-malik-ahmad-ayaz",
+      "type": "buried_at",
+      "subject": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "object": "darbar-malik-ahmad-ayaz",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
       "id": "buried_at:saint:syed-sakhi-shah-chan-charagh:darbar-sakhi-shah-chan-charagh",
       "type": "buried_at",
       "subject": "saint:syed-sakhi-shah-chan-charagh",
       "object": "darbar-sakhi-shah-chan-charagh",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:hazrat-wasif-ali-wasif-awan:darbar-wasif-ali-wasif",
+      "type": "buried_at",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
+      "object": "darbar-wasif-ali-wasif",
       "confidence": 1,
       "method": "rule"
     },
@@ -4754,10 +5781,34 @@
       "method": "rule"
     },
     {
+      "id": "located_in:darbar-abul-muali-qadri:place:district",
+      "type": "located_in",
+      "subject": "darbar-abul-muali-qadri",
+      "object": "place:district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
       "id": "located_in:darbar-ghamkol-sharif-zinda-pir:place:near-kohat",
       "type": "located_in",
       "subject": "darbar-ghamkol-sharif-zinda-pir",
       "object": "place:near-kohat",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-ghazi-ilm-din-shaheed:place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
+      "type": "located_in",
+      "subject": "darbar-ghazi-ilm-din-shaheed",
+      "object": "place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami:place:lahore",
+      "type": "located_in",
+      "subject": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "object": "place:lahore",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -4770,10 +5821,34 @@
       "method": "rule"
     },
     {
+      "id": "located_in:darbar-hazrat-tahir-bandagi-qadri:place:lahore-per-the-field-survey",
+      "type": "located_in",
+      "subject": "darbar-hazrat-tahir-bandagi-qadri",
+      "object": "place:lahore-per-the-field-survey",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-malik-ahmad-ayaz:place:district",
+      "type": "located_in",
+      "subject": "darbar-malik-ahmad-ayaz",
+      "object": "place:district",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
       "id": "located_in:darbar-sakhi-shah-chan-charagh:place:punjab",
       "type": "located_in",
       "subject": "darbar-sakhi-shah-chan-charagh",
       "object": "place:punjab",
+      "confidence": 0.95,
+      "method": "rule"
+    },
+    {
+      "id": "located_in:darbar-wasif-ali-wasif:place:lahore-the-survey-gives-no-street-address",
+      "type": "located_in",
+      "subject": "darbar-wasif-ali-wasif",
+      "object": "place:lahore-the-survey-gives-no-street-address",
       "confidence": 0.95,
       "method": "rule"
     },
@@ -6218,10 +7293,34 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:shiva:event:urs-amb-temples-amb-sharif",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-amb-temples-amb-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:bari-imam:event:urs-bari-imam",
       "type": "commemorated_by",
       "subject": "saint:bari-imam",
       "object": "event:urs-bari-imam",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shiva:event:urs-bhagnari-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-bhagnari-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhai-sant-thawan-das:event:urs-bhai-sant-thawan-das-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:bhai-sant-thawan-das",
+      "object": "event:urs-bhai-sant-thawan-das-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6250,6 +7349,22 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:goddess-durga:event:urs-churrio-jabal-durga-mata-temple",
+      "type": "commemorated_by",
+      "subject": "saint:goddess-durga",
+      "object": "event:urs-churrio-jabal-durga-mata-temple",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:event:urs-darbar-abul-muali-qadri",
+      "type": "commemorated_by",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "object": "event:urs-darbar-abul-muali-qadri",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:khwaja-muhammad-qasim:event:urs-darbar-ghamkol-sharif-zinda-pir",
       "type": "commemorated_by",
       "subject": "saint:khwaja-muhammad-qasim",
@@ -6258,10 +7373,66 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:ghazi-ilm-din-shaheed:event:urs-darbar-ghazi-ilm-din-shaheed",
+      "type": "commemorated_by",
+      "subject": "saint:ghazi-ilm-din-shaheed",
+      "object": "event:urs-darbar-ghazi-ilm-din-shaheed",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami:event:urs-darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "type": "commemorated_by",
+      "subject": "saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "object": "event:urs-darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:khawaja-shah-muhammad-sulaiman-taunsvi:event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "type": "commemorated_by",
       "subject": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
       "object": "event:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:hazrat-tahir-bandagi-qadri:event:urs-darbar-hazrat-tahir-bandagi-qadri",
+      "type": "commemorated_by",
+      "subject": "saint:hazrat-tahir-bandagi-qadri",
+      "object": "event:urs-darbar-hazrat-tahir-bandagi-qadri",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore:event:urs-darbar-malik-ahmad-ayaz",
+      "type": "commemorated_by",
+      "subject": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "object": "event:urs-darbar-malik-ahmad-ayaz",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:syed-sakhi-shah-chan-charagh:event:urs-darbar-sakhi-shah-chan-charagh",
+      "type": "commemorated_by",
+      "subject": "saint:syed-sakhi-shah-chan-charagh",
+      "object": "event:urs-darbar-sakhi-shah-chan-charagh",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:hazrat-wasif-ali-wasif-awan:event:urs-darbar-wasif-ali-wasif",
+      "type": "commemorated_by",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
+      "object": "event:urs-darbar-wasif-ali-wasif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sufi-shah-inayat-shaheed:event:urs-dargah-roza-sufi-shah-inayat-shaheed",
+      "type": "commemorated_by",
+      "subject": "saint:sufi-shah-inayat-shaheed",
+      "object": "event:urs-dargah-roza-sufi-shah-inayat-shaheed",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6286,6 +7457,22 @@
       "type": "commemorated_by",
       "subject": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
       "object": "event:urs-dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:baba-pir-ratan-nath:event:urs-dargah-pir-ratan-nath-jee",
+      "type": "commemorated_by",
+      "subject": "saint:baba-pir-ratan-nath",
+      "object": "event:urs-dargah-pir-ratan-nath-jee",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:jhulelal-daryalal:event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:jhulelal-daryalal",
+      "object": "event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6322,6 +7509,14 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-gorakhnath:event:urs-gorakhnath-goraknath-temple",
+      "type": "commemorated_by",
+      "subject": "saint:guru-gorakhnath",
+      "object": "event:urs-gorakhnath-goraknath-temple",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:jain-temple-dedicated-to-parshvanatha:event:urs-gori-temple-gori-jo-mandar",
       "type": "commemorated_by",
       "subject": "saint:jain-temple-dedicated-to-parshvanatha",
@@ -6330,10 +7525,58 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:sant-gurdas-ram:event:urs-gurdas-ram-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:sant-gurdas-ram",
+      "object": "event:urs-gurdas-ram-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-babay-de-ber",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-babay-de-ber",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bebe-nanaki:event:urs-gurdwara-babay-nanki",
+      "type": "commemorated_by",
+      "subject": "saint:bebe-nanaki",
+      "object": "event:urs-gurdwara-babay-nanki",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:guru-arjan-dev:event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "type": "commemorated_by",
       "subject": "saint:guru-arjan-dev",
       "object": "event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhai-biba-singh:event:urs-gurdwara-bhai-beba-singh",
+      "type": "commemorated_by",
+      "subject": "saint:bhai-biba-singh",
+      "object": "event:urs-gurdwara-bhai-beba-singh",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhai-joga-singh:event:urs-gurdwara-bhai-joga-singh",
+      "type": "commemorated_by",
+      "subject": "saint:bhai-joga-singh",
+      "object": "event:urs-gurdwara-bhai-joga-singh",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6386,6 +7629,38 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-darbar-sahib-kartarpur",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-darbar-sahib-kartarpur",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-gobind-singh:event:urs-gurdwara-dash-mesh-pita",
+      "type": "commemorated_by",
+      "subject": "saint:guru-gobind-singh",
+      "object": "event:urs-gurdwara-dash-mesh-pita",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-arjan-dev:event:urs-gurdwara-dera-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-arjan-dev",
+      "object": "event:urs-gurdwara-dera-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-ram-das:event:urs-gurdwara-guru-ram-das-ji",
+      "type": "commemorated_by",
+      "subject": "saint:guru-ram-das",
+      "object": "event:urs-gurdwara-guru-ram-das-ji",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:guru-nanak-dev-ji-associated-with-bhai-lalo:event:urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
@@ -6402,10 +7677,34 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-panja-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-panja-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-arjan-dev-and-guru-hargobind:event:urs-gurdwara-panjvi-chati-patshahi",
+      "type": "commemorated_by",
+      "subject": "saint:guru-arjan-dev-and-guru-hargobind",
+      "object": "event:urs-gurdwara-panjvi-chati-patshahi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
       "type": "commemorated_by",
       "subject": "saint:guru-hargobind",
       "object": "event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-patti-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-patti-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6418,10 +7717,66 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-rori-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-rori-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sach-khand-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-sach-khand-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sacha-sauda",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-sacha-sauda",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
       "object": "event:urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhai-taru:event:urs-gurdwara-shaheed-bhai-taru-singh",
+      "type": "commemorated_by",
+      "subject": "saint:bhai-taru",
+      "object": "event:urs-gurdwara-shaheed-bhai-taru-singh",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sikh-women-and-children-martyrs:event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "type": "commemorated_by",
+      "subject": "saint:sikh-women-and-children-martyrs",
+      "object": "event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-granth-sahib-sikh-community:event:urs-gurdwara-singh-sabha",
+      "type": "commemorated_by",
+      "subject": "saint:guru-granth-sahib-sikh-community",
+      "object": "event:urs-gurdwara-singh-sabha",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sri-kiara-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-sri-kiara-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6434,10 +7789,50 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-tambo-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurdwara-tambo-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-gurpat:event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "type": "commemorated_by",
+      "subject": "saint:guru-gurpat",
+      "object": "event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-nanak",
+      "object": "event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lord-jagannath:event:urs-jagannath-temple-sialkot",
+      "type": "commemorated_by",
+      "subject": "saint:lord-jagannath",
+      "object": "event:urs-jagannath-temple-sialkot",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:jain-tirthankaras:event:urs-jain-mandir-lahore",
       "type": "commemorated_by",
       "subject": "saint:jain-tirthankaras",
       "object": "event:urs-jain-mandir-lahore",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:jhulelal:event:urs-jhollay-lal-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:jhulelal",
+      "object": "event:urs-jhollay-lal-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6450,10 +7845,50 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:goddess-kali:event:urs-kali-bari-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:goddess-kali",
+      "object": "event:urs-kali-bari-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:goddess-kali:event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "type": "commemorated_by",
+      "subject": "saint:goddess-kali",
+      "object": "event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shiva:event:urs-katas-raj-temples",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-katas-raj-temples",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:event:urs-khatwari-darbar-shikarpur",
       "type": "commemorated_by",
       "subject": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
       "object": "event:urs-khatwari-darbar-shikarpur",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lord-krishna:event:urs-krishna-mandir-kabari-bazar",
+      "type": "commemorated_by",
+      "subject": "saint:lord-krishna",
+      "object": "event:urs-krishna-mandir-kabari-bazar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lord-krishna:event:urs-krishna-mandir-ravi-road",
+      "type": "commemorated_by",
+      "subject": "saint:lord-krishna",
+      "object": "event:urs-krishna-mandir-ravi-road",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6490,6 +7925,14 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:waris-shah:event:urs-mausoleum-of-waris-shah",
+      "type": "commemorated_by",
+      "subject": "saint:waris-shah",
+      "object": "event:urs-mausoleum-of-waris-shah",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:bulleh-shah:event:urs-mazar-of-bulleh-shah",
       "type": "commemorated_by",
       "subject": "saint:bulleh-shah",
@@ -6514,10 +7957,50 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:jain-tirthankaras:event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "type": "commemorated_by",
+      "subject": "saint:jain-tirthankaras",
+      "object": "event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:king-pandu:event:urs-panj-tirath",
+      "type": "commemorated_by",
+      "subject": "saint:king-pandu",
+      "object": "event:urs-panj-tirath",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:smadhi-of-dya-ram:event:urs-parnami-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:smadhi-of-dya-ram",
+      "object": "event:urs-parnami-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:narasimha:event:urs-prahladpuri-temple",
+      "type": "commemorated_by",
+      "subject": "saint:narasimha",
+      "object": "event:urs-prahladpuri-temple",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:shah-sulaimn-nri:event:urs-purana-bhalwal",
       "type": "commemorated_by",
       "subject": "saint:shah-sulaimn-nri",
       "object": "event:urs-purana-bhalwal",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:rahman-baba:event:urs-rahman-baba-mausoleum-rehman-baba-shrine",
+      "type": "commemorated_by",
+      "subject": "saint:rahman-baba",
+      "object": "event:urs-rahman-baba-mausoleum-rehman-baba-shrine",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6530,10 +8013,26 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:ramdev-pir:event:urs-ramapir-temple-tando-allahyar",
+      "type": "commemorated_by",
+      "subject": "saint:ramdev-pir",
+      "object": "event:urs-ramapir-temple-tando-allahyar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:syed-muhammad-noushah-qadiri:event:urs-ranmal-sharif",
       "type": "commemorated_by",
       "subject": "saint:syed-muhammad-noushah-qadiri",
       "object": "event:urs-ranmal-sharif",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:baba-bankhandi-maharaj:event:urs-sadh-belo-sadh-belo-island-temple",
+      "type": "commemorated_by",
+      "subject": "saint:baba-bankhandi-maharaj",
+      "object": "event:urs-sadh-belo-sadh-belo-island-temple",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6570,6 +8069,14 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:sant-baba-bhagat-ram:event:urs-sant-baba-bhagat-ram-darbar-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:sant-baba-bhagat-ram",
+      "object": "event:urs-sant-baba-bhagat-ram-darbar-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:bhagat-kanwar-ram:event:urs-sant-bhagat-kanwar-ram-temple-chak",
       "type": "commemorated_by",
       "subject": "saint:bhagat-kanwar-ram",
@@ -6594,10 +8101,26 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:syed-bilawal-shah-noorani:event:urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "type": "commemorated_by",
+      "subject": "saint:syed-bilawal-shah-noorani",
+      "object": "event:urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:shah-yousuf:event:urs-shah-yousuf",
       "type": "commemorated_by",
       "subject": "saint:shah-yousuf",
       "object": "event:urs-shah-yousuf",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shiva:event:urs-shahwala-teja-singh-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-shahwala-teja-singh-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6610,10 +8133,74 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:goddess-sharada:event:urs-sharada-peeth",
+      "type": "commemorated_by",
+      "subject": "saint:goddess-sharada",
+      "object": "event:urs-sharada-peeth",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:daud-bandagi-kirmani:event:urs-shergarh",
       "type": "commemorated_by",
       "subject": "saint:daud-bandagi-kirmani",
       "object": "event:urs-shergarh",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shiva:event:urs-shiv-mandir-chiti-ghati",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-shiv-mandir-chiti-ghati",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:shiva:event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lakshmi-narayan:event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "type": "commemorated_by",
+      "subject": "saint:lakshmi-narayan",
+      "object": "event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:lord-hanuman:event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "type": "commemorated_by",
+      "subject": "saint:lord-hanuman",
+      "object": "event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhagwan-swaminarayan:event:urs-shri-swaminarayan-mandir-karachi",
+      "type": "commemorated_by",
+      "subject": "saint:bhagwan-swaminarayan",
+      "object": "event:urs-shri-swaminarayan-mandir-karachi",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:varuna:event:urs-shri-varun-dev-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:varuna",
+      "object": "event:urs-shri-varun-dev-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:sheikh-tahir:event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "type": "commemorated_by",
+      "subject": "saint:sheikh-tahir",
+      "object": "event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6706,6 +8293,14 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:shah-hussain:event:urs-shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "type": "commemorated_by",
+      "subject": "saint:shah-hussain",
+      "object": "event:urs-shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:hazrat-muhammad-ayub-shah-bukhari:event:urs-shrine-of-hazrat-muhammad-ayub-shah-bukhari",
       "type": "commemorated_by",
       "subject": "saint:hazrat-muhammad-ayub-shah-bukhari",
@@ -6722,10 +8317,26 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:shah-daula-daryai:event:urs-shrine-of-hazrat-shah-daula-daryai",
+      "type": "commemorated_by",
+      "subject": "saint:shah-daula-daryai",
+      "object": "event:urs-shrine-of-hazrat-shah-daula-daryai",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:imam-ali-ul-haq:event:urs-shrine-of-imam-ali-ul-haq",
       "type": "commemorated_by",
       "subject": "saint:imam-ali-ul-haq",
       "object": "event:urs-shrine-of-imam-ali-ul-haq",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:jalaluddin-surkh-posh-bukhari:event:urs-shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+      "type": "commemorated_by",
+      "subject": "saint:jalaluddin-surkh-posh-bukhari",
+      "object": "event:urs-shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6746,6 +8357,14 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:jahaniyan-jahangasht:event:urs-shrine-of-makhdoom-jahaniyan-jahangasht",
+      "type": "commemorated_by",
+      "subject": "saint:jahaniyan-jahangasht",
+      "object": "event:urs-shrine-of-makhdoom-jahaniyan-jahangasht",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:makhdoom-nooh:event:urs-shrine-of-makhdoom-nooh-hala",
       "type": "commemorated_by",
       "subject": "saint:makhdoom-nooh",
@@ -6758,6 +8377,14 @@
       "type": "commemorated_by",
       "subject": "saint:hazrat-meeran-muhammad-shah-bukhari",
       "object": "event:urs-shrine-of-mauj-darya-bukhari",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:mian-mir:event:urs-shrine-of-mian-mir",
+      "type": "commemorated_by",
+      "subject": "saint:mian-mir",
+      "object": "event:urs-shrine-of-mian-mir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -6914,6 +8541,22 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:guru-gorakhnath:event:urs-tilla-jogian",
+      "type": "commemorated_by",
+      "subject": "saint:guru-gorakhnath",
+      "object": "event:urs-tilla-jogian",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:allama-muhammad-iqbal:event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "type": "commemorated_by",
+      "subject": "saint:allama-muhammad-iqbal",
+      "object": "event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:hazrat-bahaal-halim:event:urs-tomb-of-bahaal-halim-uch-sharif",
       "type": "commemorated_by",
       "subject": "saint:hazrat-bahaal-halim",
@@ -6946,6 +8589,22 @@
       "method": "rule"
     },
     {
+      "id": "commemorated_by:saint:shiva:event:urs-umarkot-amarkot-shiv-mandir",
+      "type": "commemorated_by",
+      "subject": "saint:shiva",
+      "object": "event:urs-umarkot-amarkot-shiv-mandir",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:bhagwan-valmik:event:urs-valmik-mandir-naqi-road",
+      "type": "commemorated_by",
+      "subject": "saint:bhagwan-valmik",
+      "object": "event:urs-valmik-mandir-naqi-road",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
       "id": "commemorated_by:saint:valmiki:event:urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
       "type": "commemorated_by",
       "subject": "saint:valmiki",
@@ -6971,13 +8630,13 @@
     }
   ],
   "stats": {
-    "saints": 130,
+    "saints": 136,
     "orders": 5,
-    "places": 90,
-    "events": 95,
+    "places": 94,
+    "events": 168,
     "sources": 0,
-    "relations": 447,
-    "ambiguousMerges": 67
+    "relations": 532,
+    "ambiguousMerges": 69
   },
   "reviewNeeded": [
     {
@@ -6999,6 +8658,16 @@
       "issue": "name-merge",
       "entityId": "saint:khwaja-muhammad-qasim",
       "details": "\"Khwaja Muhammad Qasim (\"Zinda Pir\")\" merged into canonical \"Khwaja Muhammad Qasim\" (slug: khwaja-muhammad-qasim). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "details": "\"Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" merged into canonical \"Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" (slug: malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-wasif-ali-wasif-awan",
+      "details": "\"Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus)\" merged into canonical \"Hazrat Wasif Ali Wasif Awan\" (slug: hazrat-wasif-ali-wasif-awan). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -7291,6 +8960,11 @@
       "details": "\"Swami Dharmdas (Nanakpanthi sant)\" merged into canonical \"Swami Dharmdas\" (slug: swami-dharmdas). Verify the merge is correct."
     },
     {
+      "issue": "figure-type-conflict",
+      "entityId": "saint:guru-gorakhnath",
+      "details": "figure_type differs across this figure's shrines: kept \"Deity\", also saw \"Sant\". Decide which is right in the sheet."
+    },
+    {
       "issue": "name-merge",
       "entityId": "saint:guru-gorakhnath",
       "details": "\"Guru Gorakhnath (Nath yogis)\" merged into canonical \"Guru Gorakhnath\" (slug: guru-gorakhnath). Verify the merge is correct."
@@ -7299,6 +8973,11 @@
       "issue": "name-merge",
       "entityId": "saint:hazrat-bahaal-halim",
       "details": "\"Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)\" merged into canonical \"Hazrat Baha'al-Halim\" (slug: hazrat-bahaal-halim). Verify the merge is correct."
+    },
+    {
+      "issue": "figure-type-conflict",
+      "entityId": "saint:jalaluddin-surkh-posh-bukhari",
+      "details": "figure_type differs across this figure's shrines: kept \"Sufi saint\", also saw \"Historical person\". Decide which is right in the sheet."
     },
     {
       "issue": "name-merge",

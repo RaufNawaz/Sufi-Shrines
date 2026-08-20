@@ -46,6 +46,34 @@
   margin: 0 0 var(--space-4);
 }
 
+/* useFocusHeadingOnMount focuses this h1 after a route change so screen
+   readers announce the new page. The ring that came with it drew a box around
+   the title of every saint, order, graph and almanac page — it reads as a text
+   input, not a heading. shrine.css:122 already did this for .shrine-title; the
+   entity pages were missed. The heading is tabindex="-1", so nothing
+   keyboard-reachable is lost. */
+.entity-title:focus,
+.entity-title:focus-visible {
+  outline: none;
+}
+
+/* A figure_type recorded as a sentence rather than a category, shown under the
+   title. One of the two in the data exists precisely to say the figure is *not*
+   a Sufi pir, so it has to appear as written. */
+.entity-figure-as-recorded {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-4);
+  max-width: 60ch;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  padding-inline-start: var(--space-3);
+  border-inline-start: 2px solid var(--color-border);
+}
+
+[dir='rtl'] .entity-figure-as-recorded {
+  font-size: var(--text-base);
+}
+
 /* ── Entity meta row ─────────────────────────────────────────────────────── */
 
 .entity-meta {
@@ -575,6 +603,71 @@
 .graph-saints-list a {
   display: block;
   padding: 0.4rem 0;
+}
+
+/* ── Figure groups ────────────────────────────────────────────────────────────
+   This list used to be 130 undifferentiated links under a heading reading
+   "All saints" — including Hindu deities and Sikh Gurus, because the graph
+   types every principal figure as `saint`. Grouping by the dataset's own
+   figure_type makes it both honest and scannable; the styling exists to make
+   the group the unit the eye lands on, not the link. */
+
+.graph-figures-note {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  max-width: 62ch;
+  margin-block: 0 var(--space-5);
+}
+
+.graph-figure-group {
+  margin-block-end: var(--space-6);
+}
+
+.graph-figure-group-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-block: 0 var(--space-3);
+  padding-block-end: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  /* The group headings are signposts over a dense list, so they read as small
+     caps rather than as another tier of prose heading. Nastaliq has no small-
+     caps tradition and is unreadable tracked out, so the RTL override below
+     drops both (the same reason .contents-nav-title steps up a size in Urdu). */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .graph-figure-group-heading {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--text-base);
+}
+
+.graph-figure-group-count {
+  margin-inline-start: auto;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+  color: var(--color-text-muted);
+}
+
+/* A figure_type that is a sentence rather than a category — shown as recorded
+   (RULE 2) rather than filed under a label it might contradict. */
+.graph-figure-as-recorded {
+  display: block;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  padding-block-end: var(--space-2);
+  max-width: 44ch;
+}
+
+[dir='rtl'] .graph-figure-as-recorded {
+  font-size: var(--text-sm);
 }
 
 .graph-lineage-list {

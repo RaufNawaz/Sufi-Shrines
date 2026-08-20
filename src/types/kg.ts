@@ -26,6 +26,14 @@ export interface KGSaint extends KGEntity {
   died?: string;
   era?: string;
   shrines: string[]; // shrine slugs where this saint is commemorated
+  /** The dataset's `figure_type`, verbatim. NOT always a Sufi saint: the
+   * archive covers six traditions, so this is 'Deity', 'Sikh Guru', 'Sant',
+   * 'Historical person', 'Collective' … as often as 'Sufi saint', and two rows
+   * answer with a hedged sentence instead of a category. Kept as written
+   * (RULE 2) — use figureGroup() in src/lib/data/figureType.ts to bucket it for
+   * display, and never assume this entity is a Sufi saint because its KG type
+   * is 'saint'. */
+  figureType?: string;
 }
 
 export interface KGOrder extends KGEntity {

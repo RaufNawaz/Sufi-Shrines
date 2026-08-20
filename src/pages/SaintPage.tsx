@@ -19,6 +19,7 @@ import {
   slugToLabel,
 } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
+import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -27,6 +28,7 @@ export default function SaintPage() {
   const { shrines } = useShrineData();
 
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
+  const figureBucket = useMemo(() => figureGroup(saint?.figureType), [saint?.figureType]);
   const order = useMemo(() => (slug ? getOrderForSaint(slug) : undefined), [slug]);
   const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
@@ -117,13 +119,20 @@ export default function SaintPage() {
           </ol>
         </nav>
 
-        <p className="entity-type-kicker" aria-label={t('sufiOrder')}>
-          {t('saintLabel')}
-        </p>
+        {/* The kicker read "Saint" for every figure in the archive, including
+            its Hindu deities and Sikh Gurus. It now names what the record says
+            this figure is; where the record answers with a sentence rather than
+            a category, that sentence is shown under the title instead of being
+            filed under a label it may contradict (RULE 2). */}
+        <p className="entity-type-kicker">{figureGroupLabelSingular(figureBucket, lang)}</p>
 
         <h1 ref={headingRef} className="entity-title">
           {displayName}
         </h1>
+
+        {isProseFigureType(saint.figureType) && (
+          <p className="entity-figure-as-recorded">{saint.figureType}</p>
+        )}
 
         {/* Meta row */}
         <div className="entity-meta">

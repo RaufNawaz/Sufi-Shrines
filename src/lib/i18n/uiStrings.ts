@@ -82,7 +82,9 @@ export const UI_TEXT = {
     graphExplorerIntro:
       'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
     graphExplorerOrders: 'Sufi orders',
-    graphExplorerAllSaints: 'All saints',
+    graphExplorerAllFigures: 'Figures in the archive',
+    graphExplorerFiguresNote:
+      'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',
     graphLineageHeading: 'Teacher-disciple relationships',
 
     // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
@@ -322,7 +324,9 @@ export const UI_TEXT = {
     graphExplorerIntro:
       'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
     graphExplorerOrders: 'صوفی سلسلے',
-    graphExplorerAllSaints: 'تمام اولیاء',
+    graphExplorerAllFigures: 'آرکائیو کی شخصیات',
+    graphExplorerFiguresNote:
+      'ہر شخصیت کو اُس کے مطابق درجہ بند کیا گیا ہے جو ریکارڈ اُس کے بارے میں کہتا ہے۔ یہ آرکائیو چھ روایات کا احاطہ کرتا ہے، اِس لیے یہاں ہر شخصیت صوفی ولی نہیں۔',
     graphLineageHeading: 'استاد و شاگرد کے تعلقات',
 
     // ── عرس تقویم ──────────────────────────────────────────────────────────

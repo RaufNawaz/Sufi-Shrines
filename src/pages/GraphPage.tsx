@@ -9,6 +9,14 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import { getKGStore, getSaintsInOrder, getAllLineageEdges } from '../lib/kg';
+import {
+  FIGURE_GROUP_ORDER,
+  figureGroup,
+  figureGroupLabel,
+  isProseFigureType,
+} from '../lib/data/figureType';
+import type { FigureGroup } from '../lib/data/figureType';
+import type { KGSaint } from '../types/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 
 /**
@@ -18,7 +26,7 @@ import { translateToUrdu } from '../lib/i18n/urduFallback';
  * for this as a dedicated page rather than only the per-saint embed.
  */
 export default function GraphPage() {
-  const { lang, t } = useLang();
+  const { lang, t, fmtNum } = useLang();
   const isRtl = lang === 'ur';
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
@@ -48,6 +56,26 @@ export default function GraphPage() {
   }));
 
   const lineageEdges = useMemo(() => getAllLineageEdges(), []);
+
+  /* The graph types every principal figure as `saint` because that is its only
+     entity type for a person — so this list previously ran 130 names under a
+     heading reading "All saints", Durga and Guru Nanak among them. Group by the
+     dataset's own figure_type instead, which it fills for 168 of 169 rows.
+     Sorted within a group by locale so the Urdu view collates as Urdu. */
+  const groupedFigures = useMemo(() => {
+    const buckets = new Map<FigureGroup, KGSaint[]>();
+    for (const saint of kg.saints) {
+      const group = figureGroup(saint.figureType);
+      const list = buckets.get(group);
+      if (list) list.push(saint);
+      else buckets.set(group, [saint]);
+    }
+    const collator = new Intl.Collator(isRtl ? 'ur' : 'en');
+    return FIGURE_GROUP_ORDER.filter((g) => buckets.has(g)).map((group) => ({
+      group,
+      figures: [...buckets.get(group)!].sort((a, b) => collator.compare(a.name, b.name)),
+    }));
+  }, [kg.saints, isRtl]);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -148,16 +176,31 @@ export default function GraphPage() {
         )}
 
         <section className="graph-page-section">
-          <h2>{t('graphExplorerAllSaints')}</h2>
-          <ul className="graph-saints-list">
-            {kg.saints.map((saint) => (
-              <li key={saint.slug}>
-                <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                  {saint.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2>{t('graphExplorerAllFigures')}</h2>
+          <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
+          {groupedFigures.map(({ group, figures }) => (
+            <div key={group} className="graph-figure-group">
+              <h3 className="graph-figure-group-heading">
+                {figureGroupLabel(group, lang)}
+                <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
+              </h3>
+              <ul className="graph-saints-list">
+                {figures.map((saint) => (
+                  <li key={saint.slug}>
+                    <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      {saint.name}
+                    </Link>
+                    {/* A figure_type that is a sentence rather than a category is
+                        content, not a defect (RULE 2) — show it as recorded
+                        instead of filing it under a label it may contradict. */}
+                    {isProseFigureType(saint.figureType) && (
+                      <span className="graph-figure-as-recorded">{saint.figureType}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </section>
       </article>
     </div>

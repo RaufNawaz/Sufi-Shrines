@@ -155,6 +155,19 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
 
   const altNames = extractParenthetical(rawSaint).filter((n) => n !== canonical);
 
+  // figure_type says WHAT this figure is, and the dataset fills it for 168 of
+  // 169 rows: 'Sufi saint' (70), 'Deity' (33), 'Sikh Guru' (28), 'Sant' (17),
+  // 'Historical person' (11), 'Individual', 'Collective', plus two rows whose
+  // value is a hedged sentence rather than a category. It was never carried
+  // into the graph, so every one of these entities was typed `saint` — which
+  // is how the explorer came to list Durga, Kali, Krishna, Guru Nanak and
+  // "Jain Tirthankaras" under a heading reading "All saints". On an archive
+  // that sets out to cover six traditions honestly, that is a terminology
+  // failure, not a cosmetic one (CLAUDE.md: respect the traditions in copy and
+  // terminology). Carried verbatim — RULE 2 — so the two prose values stay
+  // prose and the UI decides how to present them.
+  const figureType = String(row['figure_type'] ?? '').trim();
+
   if (!saintMap.has(saintSlug)) {
     const qidEntry = qidMap[saintSlug];
     saintMap.set(saintSlug, {
@@ -164,11 +177,31 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
       name: canonical,
       altNames: [...altNames],
       shrines: [],
+      ...(figureType ? { figureType } : {}),
       ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
     });
   }
 
   const entity = saintMap.get(saintSlug);
+
+  // One canonical figure can be reached from several shrines, and those rows do
+  // not always agree on figure_type (e.g. a Sikh Guru recorded as 'Sikh Guru'
+  // at one gurdwara and 'Historical person' at another). Keep the first and
+  // log the disagreement rather than letting row order decide silently.
+  if (figureType && entity.figureType && entity.figureType !== figureType) {
+    const alreadyLogged = reviewNeeded.some(
+      (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'figure-type-conflict',
+    );
+    if (!alreadyLogged) {
+      reviewNeeded.push({
+        issue: 'figure-type-conflict',
+        entityId: `saint:${saintSlug}`,
+        details: `figure_type differs across this figure's shrines: kept "${entity.figureType}", also saw "${figureType}". Decide which is right in the sheet.`,
+      });
+    }
+  } else if (figureType && !entity.figureType) {
+    entity.figureType = figureType;
+  }
 
   if (!entity.shrines.includes(shrineSlug)) {
     entity.shrines.push(shrineSlug);
