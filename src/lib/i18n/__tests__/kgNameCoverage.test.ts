@@ -13,16 +13,19 @@ import { buildUrduFallback, translateNameToUrdu, translateToUrdu } from '../urdu
  * columns, and the graph's canonical names often differ from them ("Data Ganj
  * Bakhsh" vs "Hazrat Data Ganj Bakhsh (Ali Hujwiri)").
  *
- * The no-English-leak e2e guard cannot be pointed at these routes yet for
- * exactly that reason. So the floor is locked here instead: coverage may rise,
- * and a change that drops it fails. Raising a floor is a one-line diff; letting
- * it fall silently is how these pages ended up all-Latin in the first place.
+ * Figures are now at **100%**, so that one is a hard assertion rather than a
+ * floor: 51 of the 69 gaps closed once `translateNameToUrdu` matched on a
+ * normalized name key (the sheet writes "Hazrat Data Ganj Bakhsh (Ali
+ * Hujwiri)" where the graph writes "Data Ganj Bakhsh"), and the remaining 18
+ * were added to `urdu-i18n/build_dictionary.py`. Adding a shrine with a new
+ * principal figure should fail this and make someone write that figure's name
+ * in Urdu — that is the point, not an inconvenience.
  *
- * Measured 20 August 2026: 118/136 archive figures, 102/169 shrine labels, 5/5
- * orders — after `translateNameToUrdu` began matching on a normalized name
- * key, which recovered 51 figures whose only problem was that the sheet writes
- * "Hazrat Data Ganj Bakhsh (Ali Hujwiri)" where the graph writes "Data Ganj
- * Bakhsh".
+ * Shrine labels stay a floor at 102/169. That path is only a fallback:
+ * OrderPage and SaintPage take shrine names from the live dataset, and
+ * `localizeShrineSlug` fires only for a shrine the graph knows and the sheet
+ * has dropped. The uncovered slugs are names absent from the dictionary
+ * entirely, not spelling differences.
  */
 
 const isUrdu = (s: string) => !/[A-Za-z]/.test(s);
@@ -48,15 +51,15 @@ describe('Urdu coverage of knowledge-graph names', () => {
     expect(missing, 'add descriptionUr in data/kg-seeds.json').toEqual([]);
   });
 
-  it('archive figures: Urdu name coverage does not fall below the recorded floor', () => {
-    const covered = figures.filter((f) => isUrdu(localizeFigureName(f, 'ur'))).length;
+  it('every archive figure has an Urdu name', () => {
     expect(figures.length).toBeGreaterThan(120);
+    const latin = figures.filter((f) => !isUrdu(localizeFigureName(f, 'ur'))).map((f) => f.name);
     expect(
-      covered,
-      `Urdu figure-name coverage fell to ${covered}/${figures.length}. If this is a ` +
-        'deliberate drop, lower the floor here and say why; otherwise a name changed ' +
-        'out from under urdu-seed.json.',
-    ).toBeGreaterThanOrEqual(118);
+      latin,
+      'these figures render in Latin script in the Urdu view. Add them to SAINTS in ' +
+        'urdu-i18n/build_dictionary.py (the dictionary JSON is generated — editing it ' +
+        'does nothing) and run `npm run urdu:build`.',
+    ).toEqual([]);
   });
 
   it('shrine labels: Urdu coverage does not fall below the recorded floor', () => {

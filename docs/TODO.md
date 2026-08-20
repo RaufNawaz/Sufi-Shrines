@@ -75,22 +75,38 @@ disciples. The name comes from the sheet in the reader's own language; only the 
 comes from the graph, through the 11 KB shrine → figure index rather than the whole graph, so
 the almanac route grows by kilobytes rather than by 317 of them.
 
+**Then the last 18 were written, and figure coverage is 136/136.** They were genuinely absent
+from the dictionary rather than spelled differently, so they went into `SAINTS` in
+`urdu-i18n/build_dictionary.py`. Most are Pakistani names whose native script *is*
+Perso-Arabic, so writing them there restores the original spelling rather than translating it;
+three carry a descriptive clause, which is translated. **The gate for figures is now a hard
+assertion, not a floor** — add a shrine whose principal figure has no Urdu name and
+`kgNameCoverage.test.ts` fails and tells you where to put it. That is the point of it.
+
+**A trap, now fixed in `urdu-i18n/README.md`.** The README said `urdu-dictionary.json` was the
+source of truth and to "Edit here". It is not: `build_dictionary.py` holds the real
+dictionaries and rewrites that JSON from them on every run. I added 18 entries to the JSON,
+ran the build, and watched them vanish with no error. Also worth knowing: `npm run
+data:build:urdu` writes `urdu-i18n/shrine-translations.seed.json` but does **not** sync it to
+`src/data/urdu-seed.json` — only `npm run urdu:build` does, so a dictionary change made with
+the shorter command never reaches the app.
+
 **Needs a human:**
 
-1. The **18 figures and 67 shrine labels** still with no Urdu name are genuinely absent from
-   the dictionary — not a spelling difference. They want entries in the `urdu-i18n/` pipeline.
-   The figure list is short enough to paste: Bhai Waliram · Hazrat Syed Muhammad Khair ul Deen
-   (Shah Abul Muali Qadri) · Ghazi Ilm Din Shaheed · Hazrat Khawaja Feroz-ud-Din Gharib Nawaz
-   Chishti Nizami · Hazrat Tahir Bandagi Qadri · Malik Ahmad Ayaz · Hazrat Wasif Ali Wasif
-   Awan · Kali · Bhai Gurdas Singh · Sain Vali Vilayat Rai · Sant Baba Asudaram "Sakhi Baba" ·
-   Bhagat Kanwar Ram · Satguru Swami Sai Satramdas Sahib · Bhai Gurdas · Makhdoom Abdul Rahim
-   Girhori · Pir Chhatal Shah Noorani · Pir Lakha · Swami Dharmdas.
+1. The **18 new figure names are unreviewed drafts**. Confidence is high for the Punjabi/Urdu
+   Muslim names and lower for the Sindhi Hindu ones — "Sant Baba Asudaram" and "Satguru Swami
+   Sai Satramdas Sahib" both have more than one current spelling. They are flagged in a
+   comment beside them in `build_dictionary.py`.
 2. The **five order descriptions** I translated are machine-quality drafts by the project's own
    standard and want a fluent reader.
 3. `valmiki` and `bhagwan-valmik` are **one figure entered twice** in the graph — the first
    duplicate the new collision test caught. There are others it did not (three Guru Nanak
    nodes, a composite "Guru Arjan Dev & Guru Hargobind"), still awaiting the merge rules noted
    in the previous session log.
+4. **67 of 169 shrine *slug labels* still have no Urdu name.** Much lower priority than it
+   sounds: OrderPage and SaintPage take shrine names from the live dataset, so
+   `localizeShrineSlug` only fires for a shrine the graph knows and the sheet has dropped. Its
+   floor stays at 102 rather than becoming an assertion for that reason.
 
 ---
 

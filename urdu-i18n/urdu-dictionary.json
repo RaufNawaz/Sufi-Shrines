@@ -11,11 +11,11 @@
       "tourEras": 7,
       "placeTokens": 243,
       "shrineNames": 143,
-      "saints": 123,
+      "saints": 141,
       "foundedPhrases": 86,
       "locations": 123,
       "sufiGlossary": 49,
-      "flatSeedEntries": 548
+      "flatSeedEntries": 566
     }
   },
   "categories": {
@@ -566,7 +566,25 @@
     "Ustad Nuriya (master-builder)": "استاد نوریہ (معمار)",
     "Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)": "خواجہ محمد زمان \"سلطان الاولیاء\" (1713ء–1775ء)",
     "Guru Hargobind (Sixth Guru)": "گرو ہرگوبند (چھٹے گرو)",
-    "Jain temple dedicated to Parshvanatha (23rd Tirthankara)": "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر"
+    "Jain temple dedicated to Parshvanatha (23rd Tirthankara)": "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر",
+    "Bhai Waliram": "بھائی والی رام",
+    "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri": "حضرت سید محمد خیر الدین، معروف بہ شاہ ابو المعالی قادری",
+    "Ghazi Ilm Din Shaheed": "غازی علم دین شہید",
+    "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami": "حضرت خواجہ فیروز الدین غریب نواز چشتی نظامی",
+    "Hazrat Tahir Bandagi Qadri": "حضرت طاہر بندگی قادری",
+    "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore": "ملک احمد ایاز، سروے کے مطابق محمود غزنوی کے غلام، وزیر اور لاہور کے گورنر",
+    "Hazrat Wasif Ali Wasif Awan": "حضرت واصف علی واصف اعوان",
+    "Kali": "کالی",
+    "Bhai Gurdas Singh, disciple of Guru Gobind Singh": "بھائی گرداس سنگھ، گرو گوبند سنگھ کے مرید",
+    "Sain Vali Vilayat Rai": "سائیں ولی ولایت رائے",
+    "Sant Baba Asudaram \"Sakhi Baba\"": "سنت بابا آسودا رام \"سخی بابا\"",
+    "Bhagat Kanwar Ram": "بھگت کنور رام",
+    "Satguru Swami Sai Satramdas Sahib": "ستگرو سوامی سائیں ست رام داس صاحب",
+    "Bhai Gurdas; veneration of Guru Nanak": "بھائی گرداس؛ گرو نانک کی عقیدت",
+    "Makhdoom Abdul Rahim Girhori": "مخدوم عبدالرحیم گرہوڑی",
+    "Pir Chhatal Shah Noorani": "پیر چھتل شاہ نورانی",
+    "Pir Lakha": "پیر لاکھا",
+    "Swami Dharmdas": "سوامی دھرم داس"
   },
   "foundedPhrases": {
     "11th Century": "11ویں صدی",

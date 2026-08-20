@@ -993,6 +993,24 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
       failure but a genuine duplicate in the graph, one figure entered twice. The collision
       test found it; it is named in the allowlist rather than quietly tolerated.
 
+    The remaining 18 were genuinely absent from the dictionary, so they were written into
+    `SAINTS` in `urdu-i18n/build_dictionary.py` — most are Pakistani names whose native script
+    *is* Perso-Arabic, so that restores the original spelling rather than translating it.
+    **Figures are now 136/136 and the gate is a hard assertion rather than a floor:** adding a
+    shrine whose principal figure has no Urdu name fails `kgNameCoverage.test.ts` and is told
+    where to put it. The Sindhi Hindu names among the 18 ("Asudaram", "Satramdas") have more
+    than one current spelling and are flagged as unreviewed beside the entries.
+
+    **And a documented trap that is now a fixed one.** `urdu-i18n/README.md` said
+    `urdu-dictionary.json` was "Source of truth — Edit here". It is not:
+    `build_dictionary.py` holds the real dictionaries and rewrites that JSON from them on every
+    run. I added 18 entries to the JSON exactly as instructed, ran the build, and watched them
+    disappear without an error. The README now says which file is the input and which is
+    generated. Second half of the same trap: `npm run data:build:urdu` writes
+    `urdu-i18n/shrine-translations.seed.json` but does **not** copy it to
+    `src/data/urdu-seed.json` — only `npm run urdu:build` does — so a dictionary change made
+    with the shorter command builds cleanly, reports 100% coverage, and never reaches the app.
+
 30. **Grouping the order pages by branch was the wrong idea, and the data said so.** The
     obvious use for the newly-extracted `branch` field was branch headings under each silsila.
     Only 13 of 64 memberships name a branch, and on Qadiriyya that is four groups of exactly

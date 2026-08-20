@@ -613,6 +613,41 @@ SAINTS = {
  "Guru Hargobind (Sixth Guru)": "گرو ہرگوبند (چھٹے گرو)",
  "Jain temple dedicated to Parshvanatha (23rd Tirthankara)":
      "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر",
+
+ # ── Knowledge-graph figures, added 20 August 2026 ────────────────────────────
+ # These are figures the knowledge graph names but the sheet's `Sufi Saint`
+ # column does not, so the coverage check above never asked for them and the
+ # entity pages rendered them in Latin script even in the Urdu view. Their
+ # native script IS Perso-Arabic — writing them here restores the original
+ # spelling rather than translating it. The three entries carrying a
+ # descriptive clause are translated, not transliterated.
+ #
+ # UNREVIEWED DRAFTS. Confidence is high for the Punjabi/Urdu Muslim names and
+ # lower for the Sindhi Hindu ones ("Asudaram", "Satramdas"), where more than
+ # one spelling is current. See TRANSLATION_LOG.md and docs/TODO.md §0.
+ "Bhai Waliram": "بھائی والی رام",
+ "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri":
+     "حضرت سید محمد خیر الدین، معروف بہ شاہ ابو المعالی قادری",
+ "Ghazi Ilm Din Shaheed": "غازی علم دین شہید",
+ "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami":
+     "حضرت خواجہ فیروز الدین غریب نواز چشتی نظامی",
+ "Hazrat Tahir Bandagi Qadri": "حضرت طاہر بندگی قادری",
+ "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, "
+ "minister, and governor of Lahore":
+     "ملک احمد ایاز، سروے کے مطابق محمود غزنوی کے غلام، وزیر اور لاہور کے گورنر",
+ "Hazrat Wasif Ali Wasif Awan": "حضرت واصف علی واصف اعوان",
+ "Kali": "کالی",
+ "Bhai Gurdas Singh, disciple of Guru Gobind Singh":
+     "بھائی گرداس سنگھ، گرو گوبند سنگھ کے مرید",
+ "Sain Vali Vilayat Rai": "سائیں ولی ولایت رائے",
+ 'Sant Baba Asudaram "Sakhi Baba"': 'سنت بابا آسودا رام "سخی بابا"',
+ "Bhagat Kanwar Ram": "بھگت کنور رام",
+ "Satguru Swami Sai Satramdas Sahib": "ستگرو سوامی سائیں ست رام داس صاحب",
+ "Bhai Gurdas; veneration of Guru Nanak": "بھائی گرداس؛ گرو نانک کی عقیدت",
+ "Makhdoom Abdul Rahim Girhori": "مخدوم عبدالرحیم گرہوڑی",
+ "Pir Chhatal Shah Noorani": "پیر چھتل شاہ نورانی",
+ "Pir Lakha": "پیر لاکھا",
+ "Swami Dharmdas": "سوامی دھرم داس",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
