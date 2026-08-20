@@ -15,128 +15,7 @@
    "english_chars": 6909
   }
  ],
- "delta": [
-  {
-   "slug": "samadhi-of-maharaja-ranjit-singh",
-   "added_chars": 674,
-   "old_chars": 1900,
-   "new_chars": 2489
-  },
-  {
-   "slug": "tomb-of-allama-iqbal-mazar-e-iqbal",
-   "added_chars": 478,
-   "old_chars": 22540,
-   "new_chars": 22885
-  },
-  {
-   "slug": "data-darbar",
-   "added_chars": 440,
-   "old_chars": 14618,
-   "new_chars": 14961
-  },
-  {
-   "slug": "shrine-of-bibi-pak-daman",
-   "added_chars": 371,
-   "old_chars": 18205,
-   "new_chars": 18480
-  },
-  {
-   "slug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
-   "added_chars": 276,
-   "old_chars": 16237,
-   "new_chars": 16371
-  },
-  {
-   "slug": "shrine-of-mian-mir",
-   "added_chars": 228,
-   "old_chars": 18890,
-   "new_chars": 19022
-  },
-  {
-   "slug": "tilla-jogian",
-   "added_chars": 223,
-   "old_chars": 4720,
-   "new_chars": 4845
-  },
-  {
-   "slug": "gurdwara-rori-sahib",
-   "added_chars": 145,
-   "old_chars": 4680,
-   "new_chars": 4708
-  },
-  {
-   "slug": "gurdwara-tambo-sahib",
-   "added_chars": 94,
-   "old_chars": 3518,
-   "new_chars": 3398
-  },
-  {
-   "slug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
-   "added_chars": 53,
-   "old_chars": 13745,
-   "new_chars": 13711
-  },
-  {
-   "slug": "shrine-of-ganj-e-inayat-sarkar",
-   "added_chars": 12,
-   "old_chars": 11986,
-   "new_chars": 11910
-  },
-  {
-   "slug": "shri-varun-dev-mandir",
-   "added_chars": 5,
-   "old_chars": 3647,
-   "new_chars": 3553
-  },
-  {
-   "slug": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
-   "added_chars": 3,
-   "old_chars": 3508,
-   "new_chars": 3424
-  },
-  {
-   "slug": "shrine-of-bahauddin-zakariya",
-   "added_chars": 2,
-   "old_chars": 4229,
-   "new_chars": 4144
-  },
-  {
-   "slug": "shrine-of-makhdoom-jahaniyan-jahangasht",
-   "added_chars": 2,
-   "old_chars": 3257,
-   "new_chars": 3172
-  },
-  {
-   "slug": "umarkot-amarkot-shiv-mandir",
-   "added_chars": 2,
-   "old_chars": 3654,
-   "new_chars": 3569
-  },
-  {
-   "slug": "dargah-fateh-pur-sharif",
-   "added_chars": 1,
-   "old_chars": 4874,
-   "new_chars": 4788
-  },
-  {
-   "slug": "kalka-cave-temple-asthan-of-kalka-devi",
-   "added_chars": 1,
-   "old_chars": 3934,
-   "new_chars": 3848
-  },
-  {
-   "slug": "mazar-of-bulleh-shah",
-   "added_chars": 1,
-   "old_chars": 4638,
-   "new_chars": 4552
-  },
-  {
-   "slug": "shrine-of-lakhi-shah-saddar",
-   "added_chars": 1,
-   "old_chars": 5083,
-   "new_chars": 4997
-  }
- ],
+ "delta": [],
  "no_action": [
   "allo-mahar",
   "amb-temples-amb-sharif",
@@ -154,11 +33,13 @@
   "darbar-hazrat-tahir-bandagi-qadri",
   "darbar-sakhi-shah-chan-charagh",
   "darbar-wasif-ali-wasif",
+  "dargah-fateh-pur-sharif",
   "dargah-of-khwaja-muhammad-zaman-luari-sharif",
   "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
   "dargah-pir-ratan-nath-jee",
   "dargah-roza-sufi-shah-inayat-shaheed",
   "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+  "data-darbar",
   "eidgah-sharif",
   "garh-maharaja-shorkot",
   "golra-sharif",
@@ -188,6 +69,7 @@
   "gurdwara-patshahi-chhevin-hadiara-lahore",
   "gurdwara-patti-sahib",
   "gurdwara-pehli-patshahi-jind-pir-sukkur",
+  "gurdwara-rori-sahib",
   "gurdwara-sach-khand-sahib",
   "gurdwara-sacha-sauda",
   "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
@@ -196,6 +78,7 @@
   "gurdwara-singh-sabha",
   "gurdwara-sri-kiara-sahib",
   "gurdwara-sri-tilganji-sahib",
+  "gurdwara-tambo-sahib",
   "guru-gurpat-mandir-db-80-sirey-ghat",
   "gurudwara-janam-asthan-nankana-sahib",
   "jagannath-temple-sialkot",
@@ -203,6 +86,7 @@
   "jhollay-lal-mandir",
   "kalat-kali-temple",
   "kali-bari-mandir",
+  "kalka-cave-temple-asthan-of-kalka-devi",
   "katas-raj-temples",
   "khatwari-darbar-shikarpur",
   "krishna-mandir-kabari-bazar",
@@ -212,6 +96,7 @@
   "langer-makhdoom",
   "loh-temple-lava-temple",
   "mausoleum-of-waris-shah",
+  "mazar-of-bulleh-shah",
   "mithankot-kot-mithan",
   "mohra-sharif-khanqah",
   "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
@@ -226,6 +111,7 @@
   "sadh-belo-sadh-belo-island-temple",
   "sain-vali-vilayat-rai-darbar-kambar",
   "sakhi-sarwar",
+  "samadhi-of-maharaja-ranjit-singh",
   "sant-baba-asudaram-darbar-panno-aqil",
   "sant-baba-bhagat-ram-darbar-mandir",
   "sant-bhagat-kanwar-ram-temple-chak",
@@ -243,21 +129,31 @@
   "shri-laxmi-narayan-mandir-native-jetty-bridge",
   "shri-panchmukhi-hanuman-mandir-karachi",
   "shri-swaminarayan-mandir-karachi",
+  "shri-varun-dev-mandir",
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
+  "shrine-of-abul-faiz-qalander-ali-suharwardi",
   "shrine-of-akhund-darweza-baba",
   "shrine-of-akhund-panju-baba",
   "shrine-of-baba-shah-chiragh",
   "shrine-of-baba-shah-kamal",
+  "shrine-of-bahauddin-zakariya",
+  "shrine-of-bibi-pak-daman",
   "shrine-of-fariduddin-ganjshakar",
+  "shrine-of-ganj-e-inayat-sarkar",
   "shrine-of-hafiz-muhammad-jamal-multani",
+  "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
   "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
   "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
+  "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+  "shrine-of-lakhi-shah-saddar",
   "shrine-of-makhdoom-abdul-rahim-girhori",
+  "shrine-of-makhdoom-jahaniyan-jahangasht",
   "shrine-of-makhdoom-nooh-hala",
   "shrine-of-mauj-darya-bukhari",
+  "shrine-of-mian-mir",
   "shrine-of-mian-umar-baba-chamkani",
   "shrine-of-miran-hussain-zanjani-zanjani-sahib",
   "shrine-of-peer-makki",
@@ -277,10 +173,13 @@
   "shrine-of-syed-musa-pak",
   "sial-sharif",
   "swami-dharmdas-darbar-larkana-kennedy-market",
+  "tilla-jogian",
+  "tomb-of-allama-iqbal-mazar-e-iqbal",
   "tomb-of-bahaal-halim-uch-sharif",
   "tomb-of-javindi-bibi",
   "tomb-of-qutbuddin-aibak",
   "tomb-of-ustad-nuriya",
+  "umarkot-amarkot-shiv-mandir",
   "valmik-mandir-naqi-road",
   "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
   "wadpagga-sharif",
