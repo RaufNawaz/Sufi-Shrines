@@ -8,6 +8,57 @@
 
 ---
 
+## 0. Session log — 20 August 2026
+
+**The headline is not the backlog, it is a retraction that never crossed languages.**
+`allo-mahar`'s English was cut back to an "awaiting a field visit" stub because its prose was
+a confident biography of the wrong man (`docs/allo_mahar_resolution.md`). The Urdu still
+carried the withdrawn 700 words — dates, offices, an urs date, none of it sourced — and had
+done since the retraction, because `mergeUrduContent()` overrides the whole Urdu Description
+per slug and nothing compares the two languages. Fixed, and now gated. Full account in
+`docs/HANDOVER.md` §9.11–§9.17.
+
+**Done and committed:**
+
+- **12 Urdu articles brought up to date** — `allo-mahar` plus the 11 largest A8 deltas. A8
+  backlog **74 -> 61** entries, **61,635 -> 38,729** added English chars. All `reviewed=false`:
+  **a human still has to read the Urdu prose before any of this counts as done (RULE 2).**
+  Per-entry list and the pattern they share in `docs/planning/A8_URDU_DELTA_SCOPE.md`.
+- **New gate: `pipeline/urdu_content_qa.py`**, wired into `npm run data:validate` (so `verify`
+  covers it). Latin leaks, asterisk balance, section-count sanity, and the Urdu/English length
+  ratio. Over-coverage >1.15x is an ERROR — it is exactly the allo-mahar signature, and
+  reverting that file makes the gate fail at 2.46x. Under-coverage <0.70x warns against a
+  ratchet, now at 41, that may only be lowered.
+- **`a8_urdu_delta.py --mark <slug>`** — records the English an article was translated from.
+  Doing this by hand is what once made five finished translations grow the backlog 74 -> 79.
+- **Two build scripts that could not run in a fresh clone**, both reading the gitignored
+  `data/shrines_final_import_2026-08-16.csv`. `npm run urdu:build` crashed at step 4 of 4,
+  after steps 1-3 had written their output. Both now fall back to tracked `data/shrines.csv`.
+- **An orphan check that accused a healthy row.** Against the 169-row built snapshot,
+  `update_log.py` flagged `darbar-hazrat-shah-gohar-peer` — a real live row, dropped from the
+  snapshot for empty coordinates. Orphan detection now only fails when the universe is
+  complete, and `a8-scope.json` carries `partial: true`.
+- **`shrine-of-peer-makki` said "Diwan Ganj Bakhsh"** where the other 14 files say "Data".
+
+**Needs a human decision — CLAUDE.md contradicts a gate.** i18n rule 6 permits URLs in the
+Urdu view; `scripts/data/validate-urdu-leak.mjs` forbids every Latin letter in
+`urdu-content.json`. A citation that is a URL therefore cannot be carried in an Urdu
+bibliography. Hit on `tomb-of-qutbuddin-aibak`; worked around by naming the source and
+pointing at the English entry. Either exempt URLs in the gate or write the prohibition down.
+**Do not let the next session work around it a third way.**
+
+**Note on scope regeneration.** `docs.google.com` is unreachable from this environment's
+network policy, so the live sheet could not be fetched and everything above was computed
+against `data/shrines.csv`. It reproduced the committed 74-delta scope exactly before any
+edits, so it is a faithful English source — but `a8-scope.json` now carries `partial: true`
+and **someone with sheet access should rerun `python3 pipeline/a8_urdu_delta.py` to clear it.**
+
+**Still outstanding from earlier sessions, unchanged by this one:** the 4-row
+`data/patch_schema_and_truncation.csv` import, `data/provenance.json` stale at 163 rows, and
+coordinates for the two rows the site never receives.
+
+---
+
 ## 0. Session log — 18 August 2026
 
 **Done and committed:**

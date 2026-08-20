@@ -15,6 +15,43 @@
 > Two measurement bugs found and fixed while doing this — see the tables' note below and
 > `docs/HANDOVER.md` §9.
 
+> **Progress, 20 August 2026: step 2 is under way. 11 deltas done, backlog 74 -> 61.**
+> Added English chars outstanding: 61,635 -> 38,729. Done, largest-gap-first:
+> `shrine-of-mauj-darya-bukhari`, `shrine-of-shah-jamal`, `shrine-of-shah-inayat-qadiri`,
+> `shrine-of-peer-makki`, `gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore`,
+> `valmiki-swamiji-mandir-gracy-lines-rawalpindi`, `tomb-of-qutbuddin-aibak`,
+> `khatwari-darbar-shikarpur`, `sant-satram-dham-raharki-sacho-satram-devri-sahib`,
+> `shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi`, `darbar-ghamkol-sharif-zinda-pir`,
+> `lal-kurti-temple-balmiki-mandir-rawalpindi`. All `reviewed=false`.
+>
+> **Plus one entry that was not on any list and mattered more than all of them:**
+> `allo-mahar`'s English had been *retracted* (a biography of the wrong man — see
+> `docs/allo_mahar_resolution.md`) and the Urdu still carried the withdrawn text. A8's
+> framing — "the Urdu has fallen behind" — cannot see that case at all, because there the
+> Urdu is *ahead*. See `docs/HANDOVER.md` §9.11–§9.12.
+>
+> **What the delta actually consists of, now that eleven have been done.** In every single
+> case the missing English was the *corroborating source* paragraph — Alam Faqri's
+> *Tazkirah*, Iqbal Qaiser, Majid Sheikh's *Dawn* columns, Pnina Werbner, the Archaeology
+> Department's own listing — usually together with the visitor and urs figures, and always
+> together with the Bibliography. The Urdu reader was systematically getting the devotional
+> tradition **without the scholarship that tests it**, which is precisely the archive's
+> stated distinguishing claim. Treat the remaining deltas as a provenance-parity problem,
+> not a word-count one.
+>
+> **Three working notes for whoever continues:**
+> - Use `python3 pipeline/a8_urdu_delta.py --offline --mark <slug>` after each article. It
+>   copies the current English into the baseline, which is what moves the entry out of the
+>   delta bucket and arms drift detection on it.
+> - `python3 pipeline/urdu_content_qa.py` is the fast check: Latin leaks, asterisk balance,
+>   and the length ratio. A finished article should land at 0.90-1.05 of its English. Under
+>   0.70 means content is still missing; over 1.15 fails the build.
+> - Say "these sources are in English, see the English entry" **once** at the head of the
+>   bibliography, not per item. Per-item it adds ~300 characters of scaffolding and can push
+>   a correct file over the over-coverage threshold.
+>
+> **Next, still largest-first:** `gori-temple-gori-jo-mandar` +1,359, `jain-mandir-lahore` +1,347, `chandragup-baba-chandragup` +1,339, `kalat-kali-temple` +1,338, `gurdwara-chakki-sahib` +1,306, `sant-bhagat-kanwar-ram-temple-chak` +1,279.
+
 Regenerate any time: `python3 pipeline/a8_urdu_delta.py` (add `--check` to assert the
 committed scope still matches the live sheet; it exits non-zero if not).
 Machine-readable per-entry lists: **`urdu-i18n/a8-scope.json`**.

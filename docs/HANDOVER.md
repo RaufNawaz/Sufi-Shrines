@@ -721,6 +721,75 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     `e2eFixtureSync.test.ts` now fails in `npm run verify` within seconds. Regenerate, never
     hand-edit.
 
+### Added 20 August 2026 — the Urdu was serving a retraction the English had made
+
+11. **A retracted hallucination stayed live in Urdu for as long as the retraction existed.**
+    `allo-mahar`'s English was cut from ~700 words to a short "awaiting a field visit" note
+    because the prose turned out to be a confident biography of **the wrong man** — see
+    `docs/allo_mahar_resolution.md`, which explicitly declined to replace it with a second
+    generated biography. The Urdu was never cut. `mergeUrduContent()`
+    (`src/lib/data/urduContentOverride.ts`) overrides the **whole** `Description Urdu` per
+    slug, so the Urdu reader kept getting the withdrawn text — a birth year, a decade-long
+    presidency of a named body, a death date, an urs date — while the English reader got the
+    honest stub. **This is the shape of failure to watch for here:** the two languages are
+    separate stores with no link between them, so any editorial *retraction* in English is
+    invisible to Urdu by default. Additions at least show up as a stale-looking article;
+    retractions look like a *richer* article.
+
+12. **The Urdu/English length ratio is a genuinely sharp diagnostic, and cost nothing to
+    measure.** Across 169 live rows: entries whose English had not moved since the Urdu was
+    written run **0.74–0.95** (median 0.81, n=93); known-stale ones run **0.36–0.62** (median
+    0.62, n=74). The two populations **do not overlap**. `allo-mahar` sat at **2.46** — the
+    only entry above 1.0, and the bug. `pipeline/urdu_content_qa.py` now gates on this:
+    over-coverage (>1.15×) is an ERROR, under-coverage (<0.70×) a WARN against a ratchet
+    that may only go down. It is wired into `data:validate`, so `npm run verify` covers it.
+    Note the ratchet counts something narrower than `a8-scope.json`'s delta list: an entry
+    whose English grew by one paragraph is a delta but can still clear 0.70.
+
+13. **A check that fired on 144 files was wrong 144 times.** The first version of that gate
+    compared `##` heading counts between English and Urdu. Almost every English article
+    carries `## Bibliography` and almost every Urdu file omits the section — because
+    `scripts/data/validate-urdu-leak.mjs` allows **zero Latin letters**, so a Latin-titled
+    source cannot be cited verbatim. Excluding bibliography headings, and only comparing
+    when the English has ≥2 prose sections, took it from 144 warnings to 4 real ones. RULE 4
+    cuts both ways: the check was the thing that was wrong.
+
+14. **CLAUDE.md's i18n rule 6 and the leak gate disagree about URLs, and nobody had hit it.**
+    The rule says no English in the Urdu view "outside URLs/coordinates/`<bdi>`". The leak
+    gate forbids every Latin letter in `urdu-content.json`, and a URL is nothing but Latin
+    letters. So a citation that legitimately *is* a URL cannot be carried in Urdu article
+    content at all. Hit while translating `tomb-of-qutbuddin-aibak`, whose English cites the
+    Punjab Archaeology Department's web page. Worked around by naming the source and pointing
+    to the English entry for the address. **This needs a deliberate decision, not another
+    workaround:** either the leak gate gets a URL exemption (matching the stated rule and the
+    `WESTERN_LOCKED` carve-out already in `src/lib/i18n/numerals.ts`), or the convention is
+    written down as "Urdu bibliographies never carry URLs".
+
+15. **Two build scripts could not run in a fresh clone, and one of them failed halfway.**
+    `pipeline/a8_urdu_delta.py --offline` and `urdu-i18n/update_log.py` both read
+    `data/shrines_final_import_2026-08-16.csv`, which `data/*.csv` gitignores. `npm run
+    urdu:build` therefore crashed at step **4 of 4**, after steps 1–3 had already written
+    their output — the worst kind of failure, because the artifacts look built. Both now fall
+    back to the tracked `data/shrines.csv`, whose `Description` is byte-identical to the
+    import for every row it carries. **When you add a local-file fallback in this repo, check
+    whether the file is gitignored first.**
+
+16. **A partial row source made an orphan check accuse a healthy row.** `data/shrines.csv` is
+    the *built* snapshot: `build-dataset` drops the two rows with empty coordinates (see §9.6),
+    so it has 169 rows against the sheet's 171. `update_log.py`'s orphan invariant — a
+    `content/<slug>.md` with no live row means the slug drifted — then flagged
+    `darbar-hazrat-shah-gohar-peer`, which is a real live row with a real translation. **A
+    partial universe cannot prove a negative.** Orphan detection now only exits non-zero when
+    the source carries all 171 rows, and `a8-scope.json` records `partial: true` so `--check`
+    refuses to bless a scope built from a snapshot.
+
+17. **One Urdu file rendered "Data Ganj Bakhsh" as "Diwan".** `shrine-of-peer-makki.md` had
+    دیوان گنج بخش and دیوان دربار; the other 14 files that name him have داتا. Nothing checks
+    that a proper noun is rendered consistently across `urdu-i18n/content/`, and the
+    dictionary in `urdu-i18n/urdu-dictionary.json` covers structured fields, not article
+    prose. Worth a check if another instance turns up — the class is "a name silently
+    re-transliterated in one file".
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
