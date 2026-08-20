@@ -18,7 +18,18 @@ export default defineConfig({
     // The tour specs exercise narration and autoplay, which drive real speech
     // synthesis — a test run would play audio out of the developer's speakers
     // with no warning. A test suite should never make noise.
-    launchOptions: { args: ['--mute-audio'] },
+    // PLAYWRIGHT_CHROMIUM_PATH lets a sandbox that has a Chromium build but
+    // not the exact revision this @playwright/test pins point the runner at
+    // the one it has, instead of downloading (often impossible offline, and
+    // the repo must not depend on it). Unset in CI, so CI behaviour is
+    // unchanged. Example:
+    //   PLAYWRIGHT_CHROMIUM_PATH=/opt/pw-browsers/chromium npm run e2e
+    launchOptions: {
+      args: ['--mute-audio'],
+      ...(process.env.PLAYWRIGHT_CHROMIUM_PATH
+        ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH }
+        : {}),
+    },
   },
   projects: [
     {

@@ -258,6 +258,21 @@
   flex: 1;
   min-width: 0;
   position: relative;
+  /* Trap Leaflet's z-index scale inside its own stacking context.
+     Leaflet numbers its internals in the hundreds — .leaflet-pane is 400,
+     .leaflet-control 800, .leaflet-bottom 1000 — while this app's scale
+     (tokens.css) tops out at --z-lightbox: 60. `position: relative` alone
+     does NOT create a stacking context, so those vendor values were
+     competing directly against --z-sidebar (20) in the root context and
+     winning: on mobile, where the sidebar is a fixed bottom sheet
+     overlapping the map, the tile pane and the markers painted OVER it.
+     Zoomed out, that buried the sheet completely — the sidebar was
+     unreachable in portrait and appeared only in landscape, where the
+     desktop flex layout gives it its own column and nothing overlaps.
+     `isolation: isolate` makes the whole Leaflet stack resolve at this
+     element's level, so app chrome above it wins by its own scale.
+     Guarded by e2e/mobile-sheet.spec.ts. */
+  isolation: isolate;
 }
 
 #map {
@@ -1264,6 +1279,31 @@
   justify-content: center;
 }
 
+/* The rule above suppresses Leaflet's sprite (it is a raster PNG that ignores
+   the theme) and centres a flex child — but the vendor's toggle is an empty
+   <a>, so there was no child to centre and the control rendered as a blank
+   white square in the corner of the map. Draw the layers glyph here instead:
+   a mask means it inherits currentColor and so follows dark mode, which the
+   sprite never did. */
+.leaflet-control-layers-toggle::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-text-secondary);
+  -webkit-mask-image: var(--icon-layers);
+  mask-image: var(--icon-layers);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.leaflet-control-layers-toggle:hover::after {
+  background-color: var(--color-text);
+}
+
 .leaflet-control-layers-expanded {
   padding: var(--space-3) var(--space-4);
   min-width: 160px;
@@ -1478,6 +1518,15 @@
      inside it stays visually slim. Measured 16px high before this. */
   .sidebar-sheet-handle {
     min-height: 44px;
+  }
+
+  /* Lift Leaflet's bottom row above the sheet's peek. Two reasons, and the
+     second is not cosmetic: the zoom control was clipped by the sheet and so
+     unusable, and the attribution — which Leaflet's licence terms require be
+     visible — was hidden behind it entirely. Both live in .leaflet-bottom, so
+     one offset fixes both. Guarded by e2e/mobile-sheet.spec.ts. */
+  .leaflet-bottom {
+    bottom: calc(var(--sheet-peek-height, 108px) + var(--safe-bottom));
   }
 }
 
