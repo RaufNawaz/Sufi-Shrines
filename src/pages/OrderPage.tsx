@@ -225,7 +225,12 @@ export default function OrderPage() {
                   {members.map(({ saint, membership, alsoIn }) => (
                     <li key={saint.slug} className="entity-saint-item">
                       <div className="entity-saint-item-name">
-                        <Link to={`/saint/${saint.slug}`}>{localizeFigureName(saint, lang)}</Link>
+                        {/* fmtNum because a few recorded names carry a
+                            lifespan in parentheses — Eastern numerals reach
+                            every number site, names included (i18n rule 5). */}
+                        <Link to={`/saint/${saint.slug}`}>
+                          {fmtNum(localizeFigureName(saint, lang))}
+                        </Link>
                         {saint.altNames?.[0] && (
                           <span className="entity-saint-altname">
                             <bdi>{localizeAltName(saint.altNames[0], lang)}</bdi>

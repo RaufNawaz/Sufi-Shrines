@@ -964,10 +964,34 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
       the live dataset's names now, which also fixed the English view.
 
     Because coverage cannot be 100% (the dictionary is generated from the sheet's columns and
-    the graph's canonical names often differ — "Data Ganj Bakhsh" vs "Hazrat Data Ganj Bakhsh
-    (Ali Hujwiri)"), the floor is a **ratchet** rather than an assertion:
-    `src/lib/i18n/__tests__/kgNameCoverage.test.ts` fails if coverage drops. Raising a floor
-    is a one-line diff; letting it fall silently is how the pages got this way.
+    the graph's canonical names often differ), the floor is a **ratchet** rather than an
+    assertion: `src/lib/i18n/__tests__/kgNameCoverage.test.ts` fails if coverage drops.
+    Raising a floor is a one-line diff; letting it fall silently is how the pages got this way.
+
+    **Then most of the remaining gap turned out not to be a gap.** 51 of the 69 figures with
+    no Urdu name were the *same* name written differently on the two sides: the sheet says
+    "Hazrat Data Ganj Bakhsh (Ali Hujwiri)" where the graph says "Data Ganj Bakhsh"; a slug
+    label says "Shrine Of Shah Rukn E Alam" where the dictionary says
+    "Shrine of Shah Rukn-e-Alam". `translateNameToUrdu` (urduFallback.ts) matches on a
+    normalized key — lower-cased, parentheticals and quotes dropped, dashes flattened, leading
+    honorifics stripped — after exact and case-insensitive matching have failed, and takes a
+    record's `altNames` as further candidates (which is how the graph's "Valmiki" reaches the
+    entry written "Bhagwan Valmik (Valmiki)"). Coverage: figures **67 → 118 of 136**, shrine
+    labels **92 → 102 of 169**.
+
+    Three deliberate constraints, each of which is the difference between this being a fix and
+    being a data-corruption bug:
+
+    - **Exact-after-normalization, never by prefix.** "Khwaja Muhammad Qasim" and "Khwaja
+      Muhammad Qasim Sadiq" are a master and his pupil, two separate figures in this archive
+      (§9.24). Prefix matching would merge them. There is a test for exactly that pair.
+    - **Separate from `translateToUrdu`, which is unchanged.** Normalized matching is right for
+      proper nouns and wrong for everything else: applied to a status or a date phrase it would
+      equate "Active" with "Active c. 6th–12th c.". Only names go through the new path.
+    - **A collision test.** Two distinct figures resolving to one Urdu name fails the build.
+      Exactly one pair is allowlisted — `valmiki` / `bhagwan-valmik` — and it is not a matching
+      failure but a genuine duplicate in the graph, one figure entered twice. The collision
+      test found it; it is named in the allowlist rather than quietly tolerated.
 
 30. **Grouping the order pages by branch was the wrong idea, and the data said so.** The
     obvious use for the newly-extracted `branch` field was branch headings under each silsila.

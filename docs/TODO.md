@@ -31,10 +31,23 @@ leaks, guarded in `e2e/payload.spec.ts`. Three fixes fell out:
   the real name. They use the live dataset now — which fixed the English view too
   ("Shrine Of Shah Rukn E Alam" → "Shrine of Shah Rukn-e-Alam").
 
-Coverage cannot be 100% — the dictionary is generated from the sheet's columns and the graph's
-canonical names often differ — so the floor is a **ratchet**
-(`src/lib/i18n/__tests__/kgNameCoverage.test.ts`): 67/136 figures, 92/169 shrine labels, 5/5
-orders, and a drop fails.
+The floor is a **ratchet** rather than an assertion
+(`src/lib/i18n/__tests__/kgNameCoverage.test.ts`): coverage may rise, and a drop fails.
+
+**Then most of the remaining gap turned out not to be a gap.** 51 of the 69 uncovered figures
+were the same name written differently on the two sides — "Hazrat Data Ganj Bakhsh (Ali
+Hujwiri)" vs "Data Ganj Bakhsh", "Shrine Of Shah Rukn E Alam" vs "Shrine of Shah
+Rukn-e-Alam". `translateNameToUrdu` matches on a normalized key (parentheticals and quotes
+dropped, dashes flattened, leading honorifics stripped) after exact matching fails, and tries
+a record's `altNames` too. Figures **67 → 118 of 136**; shrine labels **92 → 102 of 169**.
+
+Matching is exact-after-normalization and never by prefix, because "Khwaja Muhammad Qasim" and
+"Khwaja Muhammad Qasim Sadiq" are a master and his pupil; `translateToUrdu` itself is
+untouched, because normalized matching on a status or a date phrase would equate "Active" with
+"Active c. 6th–12th c."; and a collision test fails the build if two figures ever resolve to
+one Urdu name. That test immediately found one real duplicate in the graph —
+`valmiki` / `bhagwan-valmik`, one figure entered twice — which is allowlisted with a comment
+rather than tolerated silently.
 
 **Order pages now show what the graph actually knows.** Each member carries its branch (شاخ)
 when a source names one, an `unreviewed` chip when the edge has not been read by a human, and
@@ -54,11 +67,30 @@ carries that edge type alone; `src/lib/__tests__/kgShrineFigures.test.ts` compar
 the graph for every shrine so it cannot drift. `/shrine/<slug>`: 774 → 475 KB eager, and
 2667 → 1379 KB of total JS with the Urdu-payload fix.
 
-**Needs a human (unchanged in kind, larger in number):** the 69 figures and 77 shrine labels
-with no Urdu name are a dictionary-coverage job for the `urdu-i18n/` pipeline, not a code fix —
-they are cases where the graph's canonical name differs from the sheet column the dictionary
-was built from. The five order descriptions I translated are machine-quality drafts by the
-project's own standard and want a fluent reader.
+**The Urs Almanac now links into the lineage views.** An ʿurs is a death anniversary, so the
+figure it commemorates is the point of the entry — but the almanac only ever linked the shrine.
+Each card now carries "Commemorating / یادگار: <figure>" linking to that figure's entity page,
+so a reader can go from "whose ʿurs is this week" straight to their silsila, teachers and
+disciples. The name comes from the sheet in the reader's own language; only the link target
+comes from the graph, through the 11 KB shrine → figure index rather than the whole graph, so
+the almanac route grows by kilobytes rather than by 317 of them.
+
+**Needs a human:**
+
+1. The **18 figures and 67 shrine labels** still with no Urdu name are genuinely absent from
+   the dictionary — not a spelling difference. They want entries in the `urdu-i18n/` pipeline.
+   The figure list is short enough to paste: Bhai Waliram · Hazrat Syed Muhammad Khair ul Deen
+   (Shah Abul Muali Qadri) · Ghazi Ilm Din Shaheed · Hazrat Khawaja Feroz-ud-Din Gharib Nawaz
+   Chishti Nizami · Hazrat Tahir Bandagi Qadri · Malik Ahmad Ayaz · Hazrat Wasif Ali Wasif
+   Awan · Kali · Bhai Gurdas Singh · Sain Vali Vilayat Rai · Sant Baba Asudaram "Sakhi Baba" ·
+   Bhagat Kanwar Ram · Satguru Swami Sai Satramdas Sahib · Bhai Gurdas · Makhdoom Abdul Rahim
+   Girhori · Pir Chhatal Shah Noorani · Pir Lakha · Swami Dharmdas.
+2. The **five order descriptions** I translated are machine-quality drafts by the project's own
+   standard and want a fluent reader.
+3. `valmiki` and `bhagwan-valmik` are **one figure entered twice** in the graph — the first
+   duplicate the new collision test caught. There are others it did not (three Guru Nanak
+   nodes, a composite "Guru Arjan Dev & Guru Hargobind"), still awaiting the merge rules noted
+   in the previous session log.
 
 ---
 

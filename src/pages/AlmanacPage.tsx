@@ -8,6 +8,7 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { primaryFigureSlug } from '../lib/kgShrineFigures';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
 import {
@@ -33,6 +34,14 @@ function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
   const { shrine, observance, window, approximate } = entry;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const monthOnly = observance.precision === 'month';
+  // An ʿurs is a death anniversary, so the figure it commemorates is the point
+  // of the entry — and now that the knowledge graph is populated, the reader
+  // can go straight from "whose ʿurs is this week" to that figure's lineage
+  // and order. The name comes from the sheet (the reader's own language via
+  // localizeField); only the link target comes from the graph, via the 11 KB
+  // shrine → figure index rather than the whole graph (see kgShrineFigures.ts).
+  const figureName = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
+  const figureSlug = primaryFigureSlug(shrine.slug);
 
   return (
     <li className="almanac-entry">
@@ -64,6 +73,19 @@ function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
              was simply unreadable. */
           <p className="almanac-entry-location" title={location}>
             <bdi>{location}</bdi>
+          </p>
+        ) : null}
+
+        {figureName ? (
+          <p className="almanac-entry-figure">
+            <span className="almanac-entry-source-label">{t('almanacFigureLabel')}: </span>
+            {figureSlug ? (
+              <Link to={`/saint/${figureSlug}`}>
+                <bdi>{figureName}</bdi>
+              </Link>
+            ) : (
+              <bdi>{figureName}</bdi>
+            )}
           </p>
         ) : null}
 

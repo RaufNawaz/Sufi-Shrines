@@ -266,6 +266,7 @@
 }
 
 .almanac-entry-location,
+.almanac-entry-figure,
 .almanac-entry-source,
 .almanac-entry-caveat {
   margin: 0 0 var(--space-1);
@@ -294,6 +295,7 @@
 }
 
 [dir='rtl'] .almanac-entry-location,
+[dir='rtl'] .almanac-entry-figure,
 [dir='rtl'] .almanac-entry-source,
 [dir='rtl'] .almanac-entry-caveat {
   line-height: var(--leading-urdu);
@@ -302,6 +304,18 @@
 .almanac-entry-source-label {
   color: var(--color-text-secondary);
   font-weight: 600;
+}
+
+/* The figure whose death anniversary this is — a route into the lineage and
+   order views from the calendar. */
+.almanac-entry-figure a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.almanac-entry-figure a:hover,
+.almanac-entry-figure a:focus {
+  text-decoration: underline;
 }
 
 .almanac-entry-calendar {

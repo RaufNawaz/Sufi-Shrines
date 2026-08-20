@@ -176,13 +176,13 @@ export default function GraphPage() {
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
                   <div className="graph-lineage-edge">
                     <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {localizeFigureName(edge.subject, lang)}
+                      {fmtNum(localizeFigureName(edge.subject, lang))}
                     </Link>
                     <span className="graph-lineage-relation">
                       {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
                     </span>
                     <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {localizeFigureName(edge.object, lang)}
+                      {fmtNum(localizeFigureName(edge.object, lang))}
                     </Link>
                     {/* An edge nobody has read yet says so. The archive's claim is
                         honesty about provenance, so a lineage drawn from
@@ -226,7 +226,7 @@ export default function GraphPage() {
                 {figures.map((saint) => (
                   <li key={saint.slug}>
                     <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {localizeFigureName(saint, lang)}
+                      {fmtNum(localizeFigureName(saint, lang))}
                     </Link>
                     {/* A figure_type that is a sentence rather than a category is
                         content, not a defect (RULE 2) — show it as recorded

@@ -441,6 +441,96 @@ function schedulePersistCache() {
   else queueMicrotask(flush);
 }
 
+/**
+ * Honorifics and titles that prefix a name in one record and not in another.
+ * Stripped only from the *front* of a string, repeatedly, and only for the
+ * name lookup below — never from displayed text.
+ */
+const NAME_HONORIFICS =
+  /^(?:hazrat|hz|shaikh|sheikh|shaykh|syed|sayyid|khwaja|khawaja|pir|peer|baba|makhdoom|mian|sultan|maulana|mawlana|sain|shah)\s+/;
+
+/**
+ * A name reduced to the part two records are likely to agree on: lower-cased,
+ * parentheticals and quotes dropped, dashes flattened to spaces, punctuation
+ * removed, leading honorifics stripped.
+ *
+ * This exists because the Urdu dictionary is generated from the sheet's own
+ * columns while the knowledge graph carries its own canonical names, and the
+ * two disagree in predictable, cosmetic ways: the sheet says
+ * "Hazrat Data Ganj Bakhsh (Ali Hujwiri)", the graph says "Data Ganj Bakhsh";
+ * the sheet says "Shrine of Shah Rukn-e-Alam", a slug label says
+ * "Shrine Of Shah Rukn E Alam". 51 of the 69 figures with no Urdu name were
+ * this, not a missing translation.
+ */
+function normalizeNameKey(raw: string): string {
+  let s = raw
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, '')
+    .replace(/["\u201c\u201d'\u2019]/g, '')
+    .replace(/[-\u2013\u2014]/g, ' ')
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  let previous = '';
+  while (previous !== s) {
+    previous = s;
+    s = s.replace(NAME_HONORIFICS, '');
+  }
+  return s.trim();
+}
+
+let _nameIndex: Map<string, string> | null = null;
+
+function getNameIndex(): Map<string, string> {
+  if (!_nameIndex) {
+    _nameIndex = new Map();
+    for (const [key, value] of getCache()) {
+      // Same rule as the lower-cased index: a value that still contains Latin
+      // is not a translation, and the first entry for a key wins.
+      if (/[A-Za-z]/.test(value)) continue;
+      const normalized = normalizeNameKey(key);
+      if (normalized && !_nameIndex.has(normalized)) _nameIndex.set(normalized, value);
+    }
+  }
+  return _nameIndex;
+}
+
+/**
+ * Urdu for a proper noun — a person, a shrine, an order.
+ *
+ * Deliberately separate from `translateToUrdu`. The normalized match below is
+ * right for names and wrong for everything else: applied to a status or a date
+ * phrase it would happily equate "Active" with "Active c. 6th-12th c.". Only
+ * exact matching is safe there, so `translateToUrdu` keeps exactly the
+ * behaviour it had.
+ *
+ * Matching is exact-after-normalization, never by prefix. That distinction is
+ * load-bearing: "Khwaja Muhammad Qasim" and "Khwaja Muhammad Qasim Sadiq" are
+ * a master and his pupil, two separate figures in this archive, and prefix
+ * matching would silently merge them (HANDOVER §9.24 records the trap).
+ *
+ * `alsoTry` is for a record's alternative names, which is how a figure the
+ * graph calls "Valmiki" reaches the dictionary entry written as
+ * "Bhagwan Valmik (Valmiki)".
+ */
+export function translateNameToUrdu(name: string, alsoTry: readonly string[] = []): string {
+  const raw = String(name ?? '').trim();
+  if (!raw) return '';
+  if (!/[A-Za-z]/.test(raw)) return raw;
+
+  // Exact and case-insensitive first — an authored entry always beats a
+  // normalized guess.
+  const direct = translateToUrdu(raw);
+  if (!/[A-Za-z]/.test(direct)) return direct;
+
+  const index = getNameIndex();
+  for (const candidate of [raw, ...alsoTry]) {
+    const hit = index.get(normalizeNameKey(candidate));
+    if (hit) return hit;
+  }
+  return raw;
+}
+
 export function translateToUrdu(text: string): string {
   const raw = String(text ?? '').trim();
   if (!raw) return '';

@@ -1,5 +1,5 @@
 import type { Lang } from '../../types/shrine';
-import { translateToUrdu } from './urduFallback';
+import { translateNameToUrdu, translateToUrdu } from './urduFallback';
 import { slugToLabel } from '../kg';
 
 /**
@@ -27,12 +27,13 @@ import { slugToLabel } from '../kg';
 interface NamedEntity {
   name: string;
   nameUr?: string | undefined;
+  altNames?: readonly string[] | undefined;
 }
 
 /** A figure's name — an explicit `nameUr` wins, then the dictionary. */
 export function localizeFigureName(saint: NamedEntity, lang: Lang): string {
   if (lang !== 'ur') return saint.name;
-  return saint.nameUr || translateToUrdu(saint.name);
+  return saint.nameUr || translateNameToUrdu(saint.name, saint.altNames ?? []);
 }
 
 interface NamedOrder extends NamedEntity {
@@ -44,7 +45,7 @@ interface NamedOrder extends NamedEntity {
 
 export function localizeOrderName(order: NamedOrder, lang: Lang): string {
   if (lang !== 'ur') return order.name;
-  return order.nameUr || order.arabicName || translateToUrdu(order.name);
+  return order.nameUr || order.arabicName || translateNameToUrdu(order.name);
 }
 
 /**
@@ -70,5 +71,5 @@ export function localizeAltName(altName: string, lang: Lang): string {
  */
 export function localizeShrineSlug(slug: string, lang: Lang): string {
   const label = slugToLabel(slug);
-  return lang === 'ur' ? translateToUrdu(label) : label;
+  return lang === 'ur' ? translateNameToUrdu(label) : label;
 }

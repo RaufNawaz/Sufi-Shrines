@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getArchiveFigures, getKGStore, slugToLabel } from '../../kg';
 import { localizeFigureName, localizeOrderName, localizeShrineSlug } from '../localizeKgName';
-import { buildUrduFallback, translateToUrdu } from '../urduFallback';
+import { buildUrduFallback, translateNameToUrdu, translateToUrdu } from '../urduFallback';
 
 /**
  * A ratchet, not an assertion of completeness.
@@ -18,8 +18,11 @@ import { buildUrduFallback, translateToUrdu } from '../urduFallback';
  * and a change that drops it fails. Raising a floor is a one-line diff; letting
  * it fall silently is how these pages ended up all-Latin in the first place.
  *
- * Measured 20 August 2026: 67/136 archive figures, 92/169 shrine labels, 5/5
- * orders.
+ * Measured 20 August 2026: 118/136 archive figures, 102/169 shrine labels, 5/5
+ * orders — after `translateNameToUrdu` began matching on a normalized name
+ * key, which recovered 51 figures whose only problem was that the sheet writes
+ * "Hazrat Data Ganj Bakhsh (Ali Hujwiri)" where the graph writes "Data Ganj
+ * Bakhsh".
  */
 
 const isUrdu = (s: string) => !/[A-Za-z]/.test(s);
@@ -53,12 +56,12 @@ describe('Urdu coverage of knowledge-graph names', () => {
       `Urdu figure-name coverage fell to ${covered}/${figures.length}. If this is a ` +
         'deliberate drop, lower the floor here and say why; otherwise a name changed ' +
         'out from under urdu-seed.json.',
-    ).toBeGreaterThanOrEqual(67);
+    ).toBeGreaterThanOrEqual(118);
   });
 
   it('shrine labels: Urdu coverage does not fall below the recorded floor', () => {
     const covered = shrineSlugs.filter((s) => isUrdu(localizeShrineSlug(s, 'ur'))).length;
-    expect(covered).toBeGreaterThanOrEqual(92);
+    expect(covered).toBeGreaterThanOrEqual(102);
   });
 
   it('an unknown name stays in its original script rather than being transliterated', () => {
@@ -100,5 +103,61 @@ describe('approximate years translate', () => {
     // A bare "c" is not circa, so this stays a pattern rule rather than a
     // word-level mapping.
     expect(buildUrduFallback('c')).toBe('c');
+  });
+});
+
+/**
+ * Two different figures must never resolve to the same Urdu name.
+ *
+ * This is the guard on the normalized matching in `translateNameToUrdu`. The
+ * match is exact-after-normalization rather than by prefix precisely so that
+ * "Khwaja Muhammad Qasim" and "Khwaja Muhammad Qasim Sadiq" — a master and his
+ * pupil, two separate figures here — stay separate (HANDOVER §9.24). A new
+ * collision means the normalization has become too aggressive.
+ *
+ * The one allowed pair is not a matching failure but a real duplicate in the
+ * graph: `valmiki` and `bhagwan-valmik` are one figure entered twice. Removing
+ * the duplicate is data work (see docs/TODO.md); until then it is named here
+ * rather than silently tolerated.
+ */
+const KNOWN_DUPLICATE_FIGURES = [['bhagwan-valmik', 'valmiki']];
+
+describe('normalized name matching does not merge distinct figures', () => {
+  it('no two archive figures share an Urdu name', () => {
+    const bySharedName = new Map<string, string[]>();
+    for (const figure of getArchiveFigures()) {
+      const urdu = localizeFigureName(figure, 'ur');
+      if (!isUrdu(urdu)) continue;
+      const bucket = bySharedName.get(urdu);
+      if (bucket) bucket.push(figure.slug);
+      else bySharedName.set(urdu, [figure.slug]);
+    }
+    const collisions = [...bySharedName.values()]
+      .filter((slugs) => slugs.length > 1)
+      .map((slugs) => [...slugs].sort())
+      .filter(
+        (slugs) => !KNOWN_DUPLICATE_FIGURES.some((known) => known.join('|') === slugs.join('|')),
+      );
+    expect(collisions, 'two distinct figures resolved to one Urdu name').toEqual([]);
+  });
+
+  it('keeps a master and his pupil apart', () => {
+    const master = translateNameToUrdu('Khwaja Muhammad Qasim');
+    const pupil = translateNameToUrdu('Khwaja Muhammad Qasim Sadiq');
+    expect(isUrdu(master)).toBe(true);
+    expect(isUrdu(pupil)).toBe(true);
+    expect(master).not.toBe(pupil);
+  });
+
+  it('matches only after normalization, never by prefix', () => {
+    // A name that is a strict prefix of a dictionary entry and normalizes to
+    // something else must not resolve.
+    expect(translateNameToUrdu('Data')).toBe('Data');
+  });
+
+  it('translateToUrdu itself is unchanged — no normalized matching there', () => {
+    // Applied to a non-name it would equate a bare status with a qualified one.
+    expect(translateToUrdu('Data Ganj Bakhsh')).toBe('Data Ganj Bakhsh');
+    expect(buildUrduFallback('Data Ganj Bakhsh')).not.toMatch(/^حضرت/);
   });
 });

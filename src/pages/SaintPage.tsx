@@ -80,7 +80,9 @@ export default function SaintPage() {
     })),
   ];
 
-  const displayName = localizeFigureName(saint, lang);
+  // fmtNum because a recorded name can carry a lifespan in parentheses —
+  // Eastern numerals reach every number site, names included (i18n rule 5).
+  const displayName = fmtNum(localizeFigureName(saint, lang));
   const isRtl = lang === 'ur';
   const born = isRtl && saint.born ? translateToUrdu(saint.born) : saint.born;
   const died = isRtl && saint.died ? translateToUrdu(saint.died) : saint.died;
