@@ -276,6 +276,18 @@ App.tsx (a hardcoded list is what would go stale) and runs in `npm run build`. M
 
 `npm run verify`: 522 tests.
 
+### Lighthouse was measuring two routes of twelve
+
+`.lighthouserc.cjs` listed `/` and `/shrine/data-darbar` while the app grew six more routes, so
+the performance, SEO and accessibility budgets reported on a sixth of the site. Now all nine
+page types plus `?lang=ur`. **Unverified locally and the config says so** — lhci cannot run
+here (no tile/font/CSV host is reachable through the proxy, and the report upload needs
+network). The additions rest on the axe sweep, which does run here and is clean on every one of
+those routes in both languages.
+
+`public/_redirects` now says in its first line that it does nothing on GitHub Pages, and
+`backfill-slugs.mjs` says so where it generates blocks for it.
+
 ### Translate next
 
 The **graph's 253** are mostly personal names, and some are not names at all but phrases from a

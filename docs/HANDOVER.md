@@ -1639,6 +1639,32 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     plainly: **no builds while an e2e suite is running** — the suite reads `dist` from disk on
     every request.
 
+61. **Lighthouse CI was measuring two routes of twelve.** `.lighthouserc.cjs` listed `/` and
+    `/shrine/data-darbar` while the app grew `/saint`, `/order`, `/graph`, `/almanac`,
+    `/coverage` and `/about` — so the performance, SEO and accessibility budgets reported on a
+    sixth of the site. Extended to all nine distinct page types plus `?lang=ur`, which earns its
+    own entry because RTL flips every layout, Nastaliq changes every line box and the numeral
+    toggle rewrites text content.
+
+    **Unverified locally, and stated as such in the config.** lhci cannot run in this
+    environment: Chrome reaches no tile, font or CSV host through the agent proxy, and
+    `upload: temporary-public-storage` needs network. The additions rest on the axe sweep, which
+    *does* run here and reports zero critical or serious violations on all of these routes in
+    both languages, and Lighthouse's accessibility audit is a subset of those rules. If a new
+    URL trips an `error`-level assertion, that is a real finding on a page nothing was measuring
+    before.
+
+    Related, checked while there: CI builds the e2e artifact with `VITE_BASE_PATH=/` and
+    deploy-pages builds its own with the real base, both documented in `ci.yml` — so
+    `check-routes-prerendered.mjs` runs in both, and the seed-sync gates
+    (`git diff --exit-code -- urdu-i18n`, `cmp` against `src/data/urdu-seed.json`) both pass
+    after this session's dictionary regeneration.
+
+    `public/_redirects` now carries a header saying, in the first line, that the file does
+    nothing on this host — and `scripts/backfill-slugs.mjs`, which generates blocks for it, says
+    so too. It is kept rather than deleted because it is the record of a fallback that looked
+    correct for months.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

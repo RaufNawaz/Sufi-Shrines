@@ -244,11 +244,20 @@ outside citations/URLs/coordinates/`<bdi>`.
   being true.** That is why `/coverage` now computes these figures from the shipped data on
   every page load — a page cannot go stale the way a note can. Method:
   `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
-- Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). The 534 is an external
-  figure from the register, not computed here.
+- Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). *Measured 21 August
+  2026* for the 169; the 534 is an external figure from the register, not computed here.
+- **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
+  the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
+  `/coverage`, which recomputes it on every load.
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
+  ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
+  media directories, which are gitignored and not present in a fresh clone, so this cannot be
+  checked from the repository. Treat the 18 as of unknown date until someone with the media
+  drive re-counts it.
 - Mauj Darya Bukhari lost all 12 media files (verified 404s). Data Darbar and Bibi Pak Daman
-  photos are WhatsApp-compressed. All need re-shooting.
+  photos are WhatsApp-compressed. All need re-shooting. ⚠ *Not re-measured* — the 404s need a
+  live network check, which this environment cannot make (every external host is blocked
+  through the agent proxy; see HANDOVER §9.53).
 
 Full detail, plus a list of previously-confident-but-wrong diagnoses, in `docs/HANDOVER.md`.
 
