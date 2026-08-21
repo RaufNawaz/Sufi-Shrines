@@ -177,23 +177,6 @@ function buildShrineHead(shrine, baseHtml) {
     `${name}${location ? ` in ${location}` : ''}${saint ? `, associated with ${saint}` : ''}.`;
   const canonicalUrl = SITE_URL ? `${SITE_URL}/shrine/${slug}` : '';
 
-  const metaBlock = [
-    `<title>${name} — Sufi Shrines</title>`,
-    `<meta name="description" content="${escHtml(desc)}" />`,
-    `<meta property="og:title" content="${name} — Sufi Shrines" />`,
-    `<meta property="og:description" content="${escHtml(desc)}" />`,
-    `<meta property="og:type" content="article" />`,
-    canonicalUrl ? `<meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-    canonicalUrl ? `<link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
-    imgUrl ? `<meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `<meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
-    `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
-    `<meta name="twitter:title" content="${name} — Sufi Shrines" />`,
-    `<meta name="twitter:description" content="${escHtml(desc)}" />`,
-  ]
-    .filter(Boolean)
-    .join('\n    ');
-
   // Build KG-enriched About node for the saint (falls back to plain name if KG absent)
   const kgEntry = kgByShrineSlug.get(slug);
   let aboutNode = null;
@@ -271,7 +254,7 @@ function buildShrineHead(shrine, baseHtml) {
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
     .replace(
       /<meta\s+name="twitter:card"[^>]*>/i,
-      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
     );
 
   const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/shrine/${slug}` : '';
@@ -281,13 +264,12 @@ function buildShrineHead(shrine, baseHtml) {
   const extras = [
     canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
     canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-    imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
     `  <script type="application/ld+json">${jsonLd}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
+  html = withSocialImage(html, imgUrl, `${field(row, 'Name')}${location ? ` — ${location}` : ''}`);
   html = html.replace('</head>', `${extras}\n</head>`);
   return html;
 }
@@ -349,7 +331,7 @@ function buildShrineHeadUr(shrine, baseHtml) {
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
     .replace(
       /<meta\s+name="twitter:card"[^>]*>/i,
-      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
     );
 
   html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
@@ -357,13 +339,12 @@ function buildShrineHeadUr(shrine, baseHtml) {
   const extras = [
     urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
     urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-    imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
     `  <script type="application/ld+json">${jsonLd}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
+  html = withSocialImage(html, imgUrl, imgUrl ? urduNameFor(row) : SITE_TITLE_UR);
   return html.replace('</head>', `${extras}\n</head>`);
 }
 
@@ -379,6 +360,71 @@ try {
 } catch (err) {
   console.error(`[prerender] Could not read required files: ${err.message}`);
   process.exit(1);
+}
+
+/*
+ * The default social card, absolute.
+ *
+ * index.html carries `/og-image.png` as a relative stub. No crawler resolves a
+ * relative og:image — Facebook, Twitter and WhatsApp all require an absolute
+ * URL — and this site is served from a subpath (`/Sufi-Shrines`), so the stub
+ * would be wrong even if they did. Rewriting it here, once, on the template
+ * every generated page is built from, means the shrine, saint and order pages
+ * inherit a correct default without each having to remember.
+ */
+const DEFAULT_OG_IMAGE = SITE_URL ? `${SITE_URL}/og-image.png` : '';
+if (DEFAULT_OG_IMAGE) {
+  const before = baseHtml;
+  baseHtml = baseHtml.replaceAll('content="/og-image.png"', `content="${DEFAULT_OG_IMAGE}"`);
+  if (baseHtml === before) {
+    // The stub is the only thing pointing crawlers at a card. If a refactor
+    // renames or drops it, say so loudly rather than shipping a site whose
+    // every shared link is a bare URL again.
+    console.error(
+      '[prerender] index.html no longer contains the `content="/og-image.png"` stub, so no ' +
+        'absolute og:image could be written. Restore it or update this rewrite.',
+    );
+    process.exit(1);
+  }
+}
+
+/**
+ * Point a page's social card at a specific photograph.
+ *
+ * The template now carries the default card, so a page with its own photo must
+ * *replace* those tags rather than append more. Appending was the trap: two
+ * `og:image` tags in one head, and every crawler I know of takes the first —
+ * so every photographed shrine would have shared as the generic archive card
+ * while the head looked, to a reader of the source, entirely correct.
+ *
+ * `og:image:width`/`height`/`type` are dropped along the way: they describe
+ * the 1200x630 card, and this function's argument is an arbitrary photograph
+ * off Wikimedia or Drive whose dimensions the build does not know. A declared
+ * size that is wrong is worse than none — Facebook lays out the card from it
+ * before the image arrives.
+ */
+function withSocialImage(html, url, alt) {
+  let out = html;
+  /* The alt is worth setting even when the page keeps the default card: on the
+     Urdu pages the template's alt is an English sentence, and an Urdu page
+     should not describe itself in English to a screen reader or a crawler. */
+  if (alt) {
+    out = out.replace(
+      /<meta\s+property="og:image:alt"[\s\S]*?\/>/i,
+      `<meta property="og:image:alt" content="${escHtml(alt)}" />`,
+    );
+  }
+  if (!url) return out; // keep the default card, dimensions and all
+  const esc = escHtml(url);
+  return out
+    .replace(/\s*<meta\s+property="og:image:type"[^>]*>/i, '')
+    .replace(/\s*<meta\s+property="og:image:width"[^>]*>/i, '')
+    .replace(/\s*<meta\s+property="og:image:height"[^>]*>/i, '')
+    .replace(/<meta\s+property="og:image"[^>]*>/i, `<meta property="og:image" content="${esc}" />`)
+    .replace(
+      /<meta\s+name="twitter:image"[^>]*>/i,
+      `<meta name="twitter:image" content="${esc}" />`,
+    );
 }
 
 // ── KG lookup: shrine slug → { saint, order, events } ─────────────────────

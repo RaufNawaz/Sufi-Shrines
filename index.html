@@ -14,7 +14,27 @@
       content="Explore Sufi shrine histories, architecture, rituals, and visitor information across Pakistan in English and Urdu."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sufi Shrines of Pakistan" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:locale:alternate" content="ur" />
+
+    <!-- Social card. `twitter:card=summary_large_image` was declared here with
+         no image at all, so every link shared on WhatsApp, Twitter or Slack
+         rendered as a bare URL — and a WhatsApp forward is how most of this
+         archive's readers arrive. The card is generated from the archive's own
+         data by `npm run og:image`; prerender.mjs rewrites this relative path
+         to an absolute one (crawlers do not resolve relative og:image), so the
+         stub below is what you see only in dev. -->
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sufi Shrines of Pakistan — پاکستان کے صوفی مزارات. 169 documented sites, plotted at their recorded coordinates."
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image.png" />
 
     <!-- Language variants — same URL, content swaps client-side via ?lang=;
          prerender.mjs rewrites these to absolute URLs (with SITE_URL) on

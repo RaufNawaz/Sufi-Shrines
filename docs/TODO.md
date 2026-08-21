@@ -61,6 +61,64 @@ been quoted as current for weeks after it stopped being true. It is struck throu
 rather than deleted, because the note is the lesson: **a standing finding is a measurement with
 a date on it.** A page computed from the data cannot go stale that way.
 
+### `/about` — licence, citation, corrections
+
+`src/pages/AboutPage.tsx` + `src/lib/data/citation.ts`. Code MIT, data ODbL-1.0, stated on the
+page rather than only in `LICENSE`; copy-able citations for the archive as a whole and for a
+single entry; how to report a correction. A public archive that cannot be cited cannot be used
+in the scholarship it exists to support.
+
+### Then the accessibility sweep, which was scanning two pages out of nine
+
+`e2e/a11y.spec.ts` covered `/` and `/shrine/:slug` while the app grew `/graph`, `/almanac`,
+`/saint`, `/order`, `/coverage` and `/about` — the fifth instance this week of a check reporting
+success over the wrong universe. Extended to nine routes × both languages (23 tests).
+
+It failed eight of eighteen, and **six of the eight were the check's own fault.** axe folds
+ancestor `opacity` into the foreground colour it measures, so it was reporting elements
+part-way through their fade-in: almanac text at `#978d7f`, order links at `#6b82b6` — colours
+that are in no palette, being `--color-text-muted` and `--color-primary` composited onto the
+page ground. Every failing selector carried `.reveal-rise` or `.page-enter`.
+
+Worth writing down that my first diagnosis was wrong: I had rebuilt `dist` twice during the
+run and concluded the failures were artefacts of that. Rebuilding mid-run is a real mistake,
+but it was not this one — the failures reproduced exactly on a stable build. **A plausible
+explanation is not a cause.** `settle()` now waits for animations to finish before scanning,
+skipping infinite ones, and *fails* if they never finish, so a permanently semi-transparent
+element is still caught and is attributed to the animation rather than the palette.
+
+Two genuine findings were underneath:
+
+- **`.not-found-code` at 1.43:1.** The 36px "404" was painted with `--color-border`, a hairline
+  token. `src/styles/__tests__/textColorTokens.test.ts` now rejects any `color:` resolving to a
+  border token, with a by-selector exemption list for decorative glyphs that fails when an entry
+  goes stale. Mutation-tested.
+- **Order links distinguished by hue alone**, 1.26:1 against the surrounding prose (WCAG 1.4.1).
+  The obvious fix was an underline; an underline crosses the descenders of Nastaliq and that
+  line is Urdu half the time. They are pills now, matching the shrine tags beneath them. axe
+  reported it on the Urdu route only, but the markup was identical — **an accessibility fix that
+  reads as an English-first fix is not finished.**
+
+23/23 green. `npm run verify`: 499 tests.
+
+### And the social card, which did not exist
+
+`index.html` declared `twitter:card=summary_large_image` and carried no `og:image`, so every
+link to this archive shared on WhatsApp — which is how most of its readers arrive — rendered as
+a bare URL. `npm run og:image` renders `public/og-image.png` from the repo's own material: both
+`siteTitle` values, the palette from `tokens.css`, and all 169 recorded coordinates as a point
+cloud that traces the Indus corridor. The skew towards Punjab is the honest part; a card
+implying national coverage would advertise something the archive does not have.
+
+The generator refuses to write if a font did not load (a card silently set in DejaVu Serif is
+found out from a shared link months later), `withSocialImage()` in `prerender.mjs` *replaces*
+rather than appends so a photographed shrine does not end up with two `og:image` tags where
+crawlers read only the first, and `scripts/og-image.lock.json` +
+`src/lib/data/__tests__/socialCard.test.ts` fail when the count baked into the PNG drifts from
+the data. Also deleted a 14-line dead `metaBlock` in `prerender.mjs` that nothing referenced.
+
+`npm run verify`: 505 tests.
+
 ---
 
 ## 0. Session log — 21 August 2026 (eleventh: shared ground, and a dictionary measuring the wrong archive)

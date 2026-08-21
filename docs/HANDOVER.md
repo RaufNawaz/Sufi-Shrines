@@ -1263,6 +1263,91 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     **A standing finding is a measurement with a date on it.** Anything in §9 without one should
     be re-measured before it is repeated.
 
+### Added 21 August 2026 — the accessibility sweep was measuring a page mid-fade
+
+46. **The axe sweep reported eight failing routes; six were the check's own fault, and the
+    fifth instance of the wrong-universe pattern.** Extending `e2e/a11y.spec.ts` from two routes
+    to nine × two languages produced eight `color-contrast` failures at colours that appear
+    nowhere in the palette — almanac text at `#978d7f`, order links at `#6b82b6`. The palette
+    tokens are `#6b5e4b` and `#2a4d9b`, and every text-on-background pair computes **above** AA
+    (lowest 4.80:1). The reported colours are those tokens *composited part-way onto the page
+    ground*: axe folds ancestor `opacity` into the foreground it measures, and it was scanning
+    while `reveal-rise` was still animating. Every failing selector carries `.reveal-rise` or
+    `.page-enter` — the evidence was in the selector the whole time.
+
+    My first reading was wrong in an instructive way. I had rebuilt `dist` twice *during* the
+    4.5-minute run, so I concluded the run had read CSS that changed underfoot and the failures
+    were probably artefacts of that. Rebuilding mid-run **is** a real mistake — don't — but it
+    was not the cause: the failures reproduced identically on a stable build. **A plausible
+    explanation for a wrong result is not the same as the cause of it**, and settling for the
+    first one would have left the two genuine findings buried in six false ones.
+
+    The fix is `settle()` in `e2e/a11y.spec.ts`: wait until no animation is `running`, skipping
+    infinite ones (the loading spinner, the same animation `motion.test.ts` exempts). This is not
+    averting one's eyes — an animation that never finishes now fails the wait, so text left
+    permanently semi-transparent is still caught, and caught as a stuck animation rather than
+    misattributed to the palette. 8 failures → 1.
+
+47. **`--color-border` was painting 36px text.** `.not-found-code` — the "404" — used the
+    hairline token as its colour: **1.43:1**, where WCAG asks 3:1 of large text. A border colour
+    wants to be barely there and text never does, so this is a token-intent error that no palette
+    tuning could fix. `src/styles/__tests__/textColorTokens.test.ts` now refuses any `color:`
+    resolving to a `--color-border*` token, with a by-selector exemption list for decorative
+    glyphs that fails when an entry goes stale. Mutation-tested: reinstating the bug makes it
+    name `.not-found-code` by file and selector, in milliseconds rather than five minutes.
+
+48. **Order links inside a sentence were distinguished by hue alone.** The "Also in: Chishtiyya ·
+    Suhrawardiyya" line on `/order/:slug` put cobalt links in muted-brown prose with
+    `text-decoration: none` — **1.26:1** between link and surrounding text against a 3:1
+    minimum, so nothing marked them as links for a reader with deuteranopia or on a washed-out
+    screen (WCAG 1.4.1, axe `link-in-text-block`). It surfaced only after §9.46, which is the
+    argument for fixing a noisy check rather than raising its threshold.
+
+    **The obvious fix was the wrong one.** An underline runs straight through the descenders of
+    Nastaliq, and this line is Urdu half the time. They are pills now — border and ground, like
+    the shrine tags directly beneath them — which survives greyscale, colour blindness and both
+    scripts. Worth carrying: **an accessibility fix that reads as an English-first fix is not
+    finished.** The rule reported the violation on the Urdu route only; the markup was identical
+    in both, so it was latent in English too.
+
+49. **Every shared link rendered as a bare URL.** `index.html` declared
+    `twitter:card=summary_large_image` and carried **no `og:image` at all** — a card with no
+    picture in it. Most of this archive's readers arrive from a WhatsApp forward, so that blank
+    was the project's front door. `npm run og:image` (`scripts/make-og-image.mjs`) now renders
+    `public/og-image.png` from the repository's own material: both `siteTitle` values, the
+    palette out of `tokens.css`, and **all 169 recorded coordinates as a point cloud** — which
+    traces the Indus corridor and shows the coverage skew rather than implying national reach.
+
+    Three traps, all encoded rather than remembered:
+
+    - **A card rendered in the wrong font is silent.** The generator fetches Merriweather and
+      Source Sans 3 at *generation* time and refuses to write the PNG unless
+      `document.fonts.check()` confirms each face loaded — otherwise a CDN blip commits a card
+      set in DejaVu Serif and you find out from a shared link months later. Nastaliq is embedded
+      as a data URI from `public/fonts`, and it is rendered by a browser rather than an SVG
+      rasteriser because Nastaliq's joins *are* the writing system, not a style.
+    - **The template's card and a page's photograph both wanted the same tag.** Appending the
+      photo left **two `og:image` tags** in one head, and every crawler takes the first — so
+      every photographed shrine would have shared as the generic card while the source looked
+      correct. `withSocialImage()` replaces instead, and drops `og:image:width/height/type`
+      when it does, because those describe the 1200×630 card and not an arbitrary Wikimedia
+      photograph whose size the build does not know.
+    - **A PNG cannot recompute itself.** The card says "169 documented sites", so the number is
+      a measurement with a date on it — §9.45's lesson in a form that cannot be re-read.
+      `scripts/og-image.lock.json` records what was baked in and
+      `src/lib/data/__tests__/socialCard.test.ts` fails when the archive outgrows it.
+      Mutation-tested in all three directions (missing tag, stale count, dimension drift).
+
+    Also found and removed here: `buildShrineHead()` in `prerender.mjs` computed a 14-line
+    `metaBlock` of title/description/OG tags that **nothing ever used** — the real tags came
+    from a `.replace()` chain further down. It had no effect either way, but it is exactly the
+    thing a later reader edits in good faith and then cannot understand why the output does not
+    change.
+
+    The 51 entries with no photograph now share the archive's card instead of degrading to a
+    bare `summary`, and the Urdu pages carry an Urdu `og:image:alt` — an Urdu page should not
+    describe itself in English to a crawler or a screen reader.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

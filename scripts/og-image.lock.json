@@ -1,0 +1,9 @@
+{
+  "note": "Facts baked into public/og-image.png. src/lib/data/__tests__/socialCard.test.ts fails when the archive outgrows them — regenerate with `npm run og:image`.",
+  "sites": 169,
+  "traditions": 6,
+  "titleEn": "Sufi Shrines of Pakistan",
+  "titleUr": "پاکستان کے صوفی مزارات",
+  "width": 1200,
+  "height": 630
+}
