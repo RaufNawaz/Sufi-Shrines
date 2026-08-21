@@ -54,10 +54,44 @@
          primary Urdu reading face doesn't depend on this CDN being reachable. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Non-blocking, deliberately.
+
+      A plain <link rel="stylesheet"> to fonts.googleapis.com is render-blocking:
+      until it answers, nothing paints — not the map, not the shrine list, not a
+      heading. That is a third-party host this archive does not control, on a
+      site whose readers are mostly on a mobile connection in Pakistan, where
+      Google's font CDN is periodically slow or unreachable. Measured in this
+      sandbox, where it is blocked outright: a reload of / takes 12.6 s, and
+      that is what a reader on a blocked network gets too.
+
+      `media="print"` makes the browser fetch the sheet without blocking the
+      render; the onload handler promotes it to `all` when it arrives, at which
+      point `display=swap` swaps the faces in. The <noscript> copy keeps the
+      webfonts for a reader without JavaScript, who has nothing else to wait on.
+
+      This works because every family has a real fallback (see tokens.css:
+      Georgia for the serif, system-ui for the sans), so the first paint is
+      typeset rather than blank. Nastaliq is self-hosted for the same reason and
+      is unaffected.
+    -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
+      />
+    </noscript>
     <script>
       // Nastaliq is preloaded only for readers who will actually see it.
       //

@@ -161,16 +161,30 @@ wrong. Fixed with `tFn` (each language writes the whole sentence), and
   because every external subresource times out through the proxy. Verified by rebuilding
   `40d9fe1` and watching them fail identically.
 
-`npm run verify`: 508 tests.
+### And a blank page for 12.5 s, for a font
+
+`index.html` linked fonts.googleapis.com as a plain render-blocking stylesheet, so nothing
+painted until that host answered. Measured with the CDN blocked: **first paint 12468 ms →
+44 ms**, first contentful paint 12672 ms → 108 ms. Preload + `media="print"` +
+`onload="this.media='all'"` + a `<noscript>` copy. It works only because every family has a
+real fallback in tokens.css, which `renderBlocking.test.ts` asserts along with the rule.
+
+This was already the project's reasoning applied to half the fonts: Nastaliq is self-hosted so
+the Urdu reading face does not depend on a CDN. The Latin faces never got the same treatment.
+
+The guard's first draft passed while inspecting nothing — the HTML comment documenting the
+pattern says `<noscript>` in prose, and stripping noscript before comments swallowed the links
+under test. Strip comments first; the CSS tests already do.
+
+`npm run verify`: 512 tests.
 
 ### Needs a human
 
 - The ~20 new Urdu accessible-name strings and the five map-control strings are drafts, same
   standing as the dictionary additions.
-- The basemap picker's layer names are still English ("Voyager (CARTO)", "Dark (CARTO)",
-  "Streets (Esri)", "Streets — English labels (MapTiler)"). Mostly provider names, but "Dark"
-  and "Streets — English labels" are description. The panel is collapsed by default, so the
-  text-node guard never opens it either.
+- The five map-control strings and the seven basemap descriptors are drafts too. The provider
+  names in the picker (CARTO, Esri, MapTiler) stay Latin on purpose, on the same footing as a
+  bibliography entry — a reader chasing an attribution needs the exact string.
 
 ---
 

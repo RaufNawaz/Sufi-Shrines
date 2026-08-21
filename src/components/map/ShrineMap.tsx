@@ -16,6 +16,7 @@ import { TourRoute } from './TourRoute';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
 /*
  * The vector basemap is loaded on demand.
  *
@@ -436,7 +437,9 @@ export function ShrineMap({
             The custom Map Designer style is only offered when explicitly opted
             into, because MapTiler 403s its raster tiles on this account. */}
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Streets — English labels (MapTiler)">
+          <LayersControl.BaseLayer
+            name={tFn(lang, 'mapLayerFrom', t('mapLayerStreetsEnglish'), 'MapTiler')}
+          >
             <TileLayer
               url={maptilerRasterUrl(
                 defaultMaptilerStyleId() ?? MAPTILER_DEFAULT_STYLE,
@@ -450,15 +453,15 @@ export function ShrineMap({
           </LayersControl.BaseLayer>
         )}
 
-        <LayersControl.BaseLayer name="Voyager (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerVoyager'), 'CARTO')}>
           <TileLayer url={CARTO_VOYAGER} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Dark (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerDark'), 'CARTO')}>
           <TileLayer url={CARTO_DARK} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Streets (Esri)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerStreets'), 'Esri')}>
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
@@ -466,7 +469,7 @@ export function ShrineMap({
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Satellite (Esri)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerSatellite'), 'Esri')}>
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
@@ -474,7 +477,7 @@ export function ShrineMap({
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Light (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerLight'), 'CARTO')}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             subdomains="abcd"
@@ -484,7 +487,9 @@ export function ShrineMap({
         </LayersControl.BaseLayer>
 
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Streets (MapTiler)">
+          <LayersControl.BaseLayer
+            name={tFn(lang, 'mapLayerFrom', t('mapLayerStreets'), 'MapTiler')}
+          >
             <TileLayer
               url={maptilerRasterUrl('streets-v2', MAPTILER_KEY)}
               tileSize={512}
@@ -496,7 +501,7 @@ export function ShrineMap({
         )}
 
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Topo (MapTiler)">
+          <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerTopo'), 'MapTiler')}>
             <TileLayer
               url={maptilerRasterUrl('topo-v2', MAPTILER_KEY)}
               tileSize={512}

@@ -1440,6 +1440,38 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     (CPU contention from my own concurrent typechecks) was also wrong, and only re-running the
     specs alone ruled it out.
 
+54. **A blank page for twelve and a half seconds, for a font.** `index.html` linked
+    fonts.googleapis.com as a plain `<link rel="stylesheet">`, which is render-blocking: until
+    that host answered, nothing painted — not the map, not the shrine list, not a heading.
+    Measured in this sandbox, where the CDN is blocked outright:
+
+    | | first-paint | first-contentful-paint |
+    |---|---|---|
+    | before | 12468 ms | 12672 ms |
+    | after | **44 ms** | **108 ms** |
+
+    The blocked case is extreme, but it is the honest one to design for: this archive's readers
+    are mostly on a mobile connection in Pakistan, where Google's font CDN is periodically slow
+    or unreachable, and the site does not control that host. The fix is `rel=preload` plus
+    `media="print" onload="this.media='all'"` and a `<noscript>` copy — fetched without
+    blocking, applied on arrival, `display=swap` doing the swap. It works *only* because every
+    family has a real fallback in tokens.css, so the first paint is typeset rather than empty,
+    which `src/lib/data/__tests__/renderBlocking.test.ts` now asserts alongside the rule
+    itself.
+
+    **This was already the project's own reasoning, applied to only half the fonts.** Noto
+    Nastaliq Urdu is self-hosted precisely so the primary Urdu reading face does not depend on
+    a CDN. The Latin faces had never been given the same treatment.
+
+    And the first draft of the guard **passed while inspecting nothing.** The HTML comment
+    documenting the pattern contains the words `<noscript>` and `<link rel="stylesheet">` as
+    prose; stripping `<noscript>…</noscript>` before stripping comments matched from the
+    mention inside the comment to the real closing tag and swallowed the very links under test,
+    leaving two fragments scraped out of the prose. The CSS tests in `src/styles/__tests__`
+    strip comments first for exactly this reason, and I had read them. **Strip comments before
+    you parse anything, and check what your check is actually looking at** — that is now seven
+    instances of the same lesson in this file (§9.29, §9.38, §9.39, §9.40, §9.46, §9.51).
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

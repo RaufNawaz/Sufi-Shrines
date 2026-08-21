@@ -187,6 +187,19 @@ export const UI_TEXT = {
     mapLayers: 'Basemap layers',
     mapResetView: 'Reset view',
     mapResetViewLabel: 'Reset the map to its default view',
+    /* Basemap picker entries. Only the *descriptor* is translated; the provider
+       (CARTO, Esri, MapTiler) stays as written, on the same footing as a
+       bibliography entry — it is the name of a thing, and a reader chasing an
+       attribution needs the exact string. tFn keeps the two in whichever order
+       the language wants. */
+    mapLayerStreetsEnglish: 'Streets, English labels',
+    mapLayerVoyager: 'Voyager',
+    mapLayerDark: 'Dark',
+    mapLayerLight: 'Light',
+    mapLayerStreets: 'Streets',
+    mapLayerSatellite: 'Satellite',
+    mapLayerTopo: 'Topographic',
+    mapLayerFrom: (name: string, provider: string) => `${name} (${provider})`,
     ariaCategoryOf: (category: string) => `Category: ${category}`,
     ariaMapShowing: (name: string) => `Map showing the location of ${name}`,
     ariaExternalMapShowing: (name: string) => `Google Maps showing the location of ${name}`,
@@ -553,6 +566,14 @@ export const UI_TEXT = {
     mapLayers: 'نقشے کی تہیں',
     mapResetView: 'نظر بحال کریں',
     mapResetViewLabel: 'نقشے کو ابتدائی نظر پر بحال کریں',
+    mapLayerStreetsEnglish: 'سڑکیں، انگریزی نام',
+    mapLayerVoyager: 'وائجر',
+    mapLayerDark: 'تاریک',
+    mapLayerLight: 'روشن',
+    mapLayerStreets: 'سڑکیں',
+    mapLayerSatellite: 'سیٹلائٹ',
+    mapLayerTopo: 'نقشۂ ارضی',
+    mapLayerFrom: (name: string, provider: string) => `${name} (${provider})`,
     ariaCategoryOf: (category: string) => `روایت: ${category}`,
     ariaMapShowing: (name: string) => `${name} کے مقام کا نقشہ`,
     ariaExternalMapShowing: (name: string) => `گوگل میپس پر ${name} کا مقام`,
@@ -782,6 +803,7 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    variable in a different place in Urdu, and a component that concatenates the
    pieces itself decides that placement in English. */
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
+export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
 export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
 export function tFn(lang: Lang, key: 'ariaExternalMapShowing', name: string): string;
 export function tFn(lang: Lang, key: 'galleryImageLabel', index: number, action: string): string;
@@ -802,6 +824,7 @@ export function tFn(
     | 'coverageEntriesNoun'
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'
+    | 'mapLayerFrom'
     | 'ariaMapShowing'
     | 'ariaExternalMapShowing'
     | 'galleryImageLabel',
