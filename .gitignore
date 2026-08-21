@@ -97,3 +97,6 @@ pipeline/validation_issues.tsv
 # Throwaway probe scripts (need this repo's node_modules to resolve
 # playwright, so they cannot live in a system temp dir)
 .scratch/
+
+# Generated side-by-side Urdu review pages — regenerate with urdu-i18n/build_review_queue.py
+urdu-i18n/review/
