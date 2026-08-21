@@ -32,6 +32,7 @@ import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
+import { ShrineObservances } from '../components/shrine/ShrineObservances';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -260,6 +261,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         )}
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
+          <ShrineObservances shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />

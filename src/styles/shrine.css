@@ -247,6 +247,48 @@
   font-weight: 600;
 }
 
+/* The shrine's own almanac slice — same quiet idiom as the citation block:
+   hairline rule, prominent date, the source always shown beside the
+   projection so a reader can check the arithmetic. */
+.shrine-observances {
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-4);
+}
+
+.shrine-observances-heading {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+}
+
+.shrine-observances-next {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2);
+}
+
+.shrine-observances-date {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.shrine-observances-source {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.shrine-observances-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
 /* "Cite this entry" — a quiet scholarly appendix in the de-carded idiom:
    hairline rule, muted summary, monospace citation text. The <bdi>-wrapped
    strings stay logically isolated, so the block needs no dir overrides. */

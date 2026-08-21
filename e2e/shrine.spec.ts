@@ -38,6 +38,20 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('.share-toast--visible')).toBeVisible();
   });
 
+  test('the urs block deep-links into the almanac at this shrine', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    // Data Darbar's Events carry a day-precise Hijri urs (18-20 Safar), so
+    // the block must render, flag the projection approximate, and land the
+    // reader on this shrine's anchored card in the almanac.
+    const block = page.locator('.shrine-observances');
+    await expect(block).toBeVisible();
+    await expect(block.locator('.almanac-flag--approximate')).toBeVisible();
+
+    await block.locator('.shrine-observances-link').click();
+    await expect(page).toHaveURL(/\/almanac#data-darbar$/);
+    await expect(page.locator('#data-darbar')).toBeVisible();
+  });
+
   test('unknown slug redirects to map', async ({ page }) => {
     await page.goto('/shrine/this-shrine-does-not-exist-xyz123');
     await expect(page).toHaveURL('/');
