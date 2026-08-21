@@ -16,7 +16,23 @@ import { TourRoute } from './TourRoute';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
-import { MapLibreBasemap } from './MapLibreBasemap';
+/*
+ * The vector basemap is loaded on demand.
+ *
+ * maplibre-gl is 1035 KB minified — by itself two-thirds of everything the map
+ * route used to ship before a reader saw anything, and this archive's readers
+ * are overwhelmingly on a phone on a mobile connection. Nothing in the primary
+ * interaction needs it: the sidebar, the search, the filters, the era slider
+ * and the markers are all Leaflet and React. Only the tiles under them are
+ * maplibre's, so only the tiles wait.
+ *
+ * `check-bundle-budget.mjs` keeps it that way — vendor-maplibre is on the
+ * MUST_STAY_LAZY list, so a stray top-level import fails the build rather than
+ * quietly putting a megabyte back on the critical path.
+ */
+const MapLibreBasemap = React.lazy(() =>
+  import('./MapLibreBasemap').then((m) => ({ default: m.MapLibreBasemap })),
+);
 import type { Lang } from '../../types/shrine';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
@@ -136,7 +152,15 @@ function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
   // just fails a second time and leaves the reader with a blank map. Go
   // straight to the keyless provider.
   if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} keyless />;
-  return <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />;
+  /* No fallback element: the map's own ground shows through for the moment the
+     chunk is in flight. A placeholder raster layer would mean watching the
+     basemap change under the markers, which is the flicker DefaultBasemap
+     exists to avoid. */
+  return (
+    <React.Suspense fallback={null}>
+      <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />
+    </React.Suspense>
+  );
 }
 
 // Manages the raster fallback tile layer and switches it when dark mode changes.

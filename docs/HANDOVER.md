@@ -1348,6 +1348,35 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     bare `summary`, and the Urdu pages carry an Urdu `og:image:alt` — an Urdu page should not
     describe itself in English to a crawler or a screen reader.
 
+50. **The map route shipped a megabyte of basemap before anything appeared.**
+    `/` carried **1628 KB** of eager JS, and **1035 KB of it was maplibre-gl** — a vector
+    rendering engine for the tiles *under* the archive. Nothing in the primary interaction
+    touches it: the sidebar, the search worker, the facet filters, the era slider and every
+    marker are Leaflet and React. `ShrineMap.tsx` lazy-loads `MapLibreBasemap` now, taking the
+    map route from **1628 KB → 593 KB**. It is no longer the heaviest route in the app; the
+    entity pages are.
+
+    Two things made this safe rather than clever. The basemap was **already** attached
+    asynchronously — `MapLibreBasemap` fetches and localises the style before calling
+    `layer.addTo(map)` — so Leaflet's pane ordering was never relying on it mounting first, and
+    lazy loading only lengthens a wait that existed. And there is deliberately **no Suspense
+    fallback**: a placeholder raster layer would mean watching the basemap change under the
+    markers, which is the flicker `DefaultBasemap`'s latching `vectorFailed` exists to prevent.
+
+    Guarded twice, at both the level that can go wrong: `vendor-maplibre-` is on
+    `MUST_STAY_LAZY`, so a stray top-level import fails the build (proved by reinstating the
+    static import — the gate named the chunk, the route and the reason); and
+    `e2e/payload.spec.ts` holds the chunk unfulfilled *forever* and asserts markers, list and
+    search still work, because a lazily-loaded module can still be awaited before first paint
+    and a bundle budget cannot see that.
+
+    **What this sandbox could not verify:** the vector basemap does not render here at all.
+    Every tile host returns `ERR_TUNNEL_CONNECTION_FAILED` through the proxy and there is no
+    `VITE_MAPTILER_KEY`, so the map falls back to CARTO raster and then to nothing. That was
+    equally true before this change — it is not a regression — but it means the *rendered*
+    basemap after lazy loading has been reasoned about, not seen. Worth one look on a real
+    network.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

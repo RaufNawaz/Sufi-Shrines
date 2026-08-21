@@ -53,7 +53,7 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  */
 const BUDGETS_KB = {
   'index.html': 320, // measured 297 (was 274 before the Urdu seed grew)
-  'src/pages/MapPage.tsx': 1740, // measured 1619 — maplibre (1035) + leaflet (151) dominate
+  'src/pages/MapPage.tsx': 640, // measured 593 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
   'src/pages/ShrinePage.tsx': 540, // measured 500 — the graph is no longer on this route
   'src/pages/SaintPage.tsx': 715, // measured 663
   'src/pages/OrderPage.tsx': 700, // measured 649
@@ -75,6 +75,13 @@ const MUST_STAY_LAZY = [
   {
     match: /^shrines-fallback-/,
     why: 'the offline snapshot (loaded only when the sheet fetch fails)',
+  },
+  {
+    match: /^vendor-maplibre-/,
+    why:
+      'maplibre-gl, 1035 KB — the basemap tiles only. The sidebar, search, filters, ' +
+      'era slider and markers are Leaflet and need none of it, so it must never sit on ' +
+      'the map route’s critical path (src/components/map/ShrineMap.tsx lazy-loads it)',
   },
 ];
 

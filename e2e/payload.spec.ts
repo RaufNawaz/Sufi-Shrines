@@ -1,5 +1,6 @@
 import type { Page, Request } from '@playwright/test';
 import { test, expect } from './fixtures';
+import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 /**
  * The Urdu article payload must stay off the English critical path.
@@ -135,4 +136,53 @@ test.describe('Urdu order pages carry no untranslated English', () => {
       ).toEqual([]);
     });
   }
+});
+
+/**
+ * The basemap must not hold up the map.
+ *
+ * maplibre-gl is 1035 KB minified — on its own two-thirds of everything `/`
+ * used to ship before a reader saw anything, on a site whose readers are
+ * overwhelmingly on a phone on a mobile connection. Nothing in the primary
+ * interaction needs it: the sidebar, the search, the filters, the era slider
+ * and the markers are Leaflet and React. Only the tiles are maplibre's.
+ *
+ * `check-bundle-budget.mjs` proves it is not in the route's static import
+ * graph. That is a fact about chunks, not about the reader's experience — a
+ * lazily-loaded module can still be awaited before anything paints, and the
+ * budget would be perfectly happy. So this test holds the chunk hostage
+ * indefinitely and asserts that the archive is still usable without it:
+ * markers on the map, a browsable list, working search.
+ */
+const MAPLIBRE_CHUNK = /vendor-maplibre-[^/]*\.js/;
+
+test.describe('the vector basemap is not on the critical path', () => {
+  test('markers, list and search all work while maplibre is still in flight', async ({ page }) => {
+    let held = 0;
+    // Never fulfil it. If anything on the critical path awaits the basemap,
+    // this test times out rather than passing by a hair on a fast machine.
+    await page.route(MAPLIBRE_CHUNK, async () => {
+      held += 1;
+      await new Promise(() => {});
+    });
+
+    await page.goto('/');
+
+    // The markers are Leaflet's, drawn over whatever ground exists.
+    await expect(page.locator('.shrine-dot').first()).toBeVisible();
+    // The sidebar list is the primary way through the archive on a phone. It
+    // starts collapsed behind the table button, so open it the way a reader
+    // does rather than asserting on a list nobody has asked for yet.
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    const items = page.locator('.shrine-list-item');
+    await expect(items.first()).toBeVisible();
+    expect(await items.count()).toBeGreaterThan(10);
+    // And search, which runs in a worker and shares nothing with the basemap.
+    await page.getByPlaceholder(UI_TEXT.en.searchPlaceholder).fill('Data Darbar');
+    await expect(
+      items.filter({ has: page.locator('.shrine-list-name', { hasText: /^Data Darbar$/ }) }),
+    ).toBeVisible();
+
+    expect(held, 'the maplibre chunk was never requested at all — has it been inlined?').toBe(1);
+  });
 });
