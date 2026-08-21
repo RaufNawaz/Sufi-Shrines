@@ -1686,6 +1686,23 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     only broken one of them. **A mutation test that passes has not proved the check is sound; it
     has proved the mutation was too weak.**
 
+63. **The site count was stale in four files at once, including the repository's front page.**
+    `README.md` said 163 sacred sites and named three traditions of six; `CITATION.cff` said
+    163; §1 of this file said 167; CLAUDE.md's standing findings said "49 of 167". None was
+    wrong when written, and that is the whole problem — a count in prose is a measurement with a
+    date on it, and prose does not recompute.
+
+    `src/lib/data/__tests__/siteCountConsistency.test.ts` now checks each of those numbers
+    against `src/data/shrines-fallback.json`, anchored on the surrounding words rather than on
+    digits, so a reworded sentence fails loudly rather than silently stopping being checked.
+    Deliberately narrow: only the total, only where a stranger reads it first. Mutation-tested.
+
+    The README also had no link to the live site at all — the front door said "GitHub Pages
+    (deployed via .github/workflows/deploy-pages.yml)" — and its feature list predated
+    `/almanac`, `/coverage`, `/about` and shared ground. And it described `npm run verify` as
+    "typecheck + lint + unit tests", omitting the format and data gates that CLAUDE.md is
+    emphatic about, which is how `format:check` came to be failing on every CI run once before.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

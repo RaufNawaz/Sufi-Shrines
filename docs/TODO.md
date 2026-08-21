@@ -306,6 +306,22 @@ weak.
 
 `npm run verify`: 526 tests.
 
+### The site count was stale in four files, one of them the front page
+
+README.md said 163 sacred sites and named three traditions of six; CITATION.cff said 163;
+HANDOVER §1 said 167; CLAUDE.md's standing findings said "49 of 167". None was wrong when
+written — a count in prose is a measurement with a date on it, and prose does not recompute.
+`siteCountConsistency.test.ts` checks each against the shipped snapshot, anchored on the
+surrounding words so a reworded sentence fails rather than silently stopping being checked.
+
+The README also had **no link to the live site** — the front door said "GitHub Pages (deployed
+via .github/workflows/deploy-pages.yml)". Now it links the site, `/about` and `/coverage`, lists
+the features added since (almanac, coverage, about, shared ground), and describes `npm run
+verify` accurately: it includes format:check and the data gates, which CLAUDE.md is emphatic
+about and the old wording omitted.
+
+`npm run verify`: 531 tests.
+
 ### Translate next
 
 The **graph's 253** are mostly personal names, and some are not names at all but phrases from a
