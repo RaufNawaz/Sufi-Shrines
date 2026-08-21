@@ -16,7 +16,16 @@ import { TourRoute } from './TourRoute';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
-import { MapLibreBasemap } from './MapLibreBasemap';
+// Lazy: maplibre-gl is ~286 KB gzipped — a third of the landing page's JS —
+// and it only paints the basemap. Loading it as its own chunk lets Leaflet,
+// the markers and the sidebar become interactive first; the vector basemap
+// streams in when the chunk lands (instantly on repeat visits — the service
+// worker precaches it). Suspense fallback is null on purpose: the alternative
+// (mount the raster fallback while waiting) would visibly churn every tile
+// when the vector layer replaces it moments later.
+const MapLibreBasemap = React.lazy(() =>
+  import('./MapLibreBasemap').then((m) => ({ default: m.MapLibreBasemap })),
+);
 import type { Lang } from '../../types/shrine';
 
 const MAPTILER_KEY = import.meta.env.VITE_MAPTILER_KEY;
@@ -136,7 +145,11 @@ function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
   // just fails a second time and leaves the reader with a blank map. Go
   // straight to the keyless provider.
   if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} keyless />;
-  return <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />;
+  return (
+    <React.Suspense fallback={null}>
+      <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />
+    </React.Suspense>
+  );
 }
 
 // Manages the raster fallback tile layer and switches it when dark mode changes.
