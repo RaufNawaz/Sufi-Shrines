@@ -4,6 +4,32 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0a′. Session log — 21 August 2026, second session: Lane A of the plan, executed
+
+All six agent-executable items from `planning/NEXT_STEPS_2026-08-21.md` §2 are done (one
+blocked and re-lodged in Lane B). `npm run verify` 437 unit tests green; **e2e 62/62 green
+in 51 s** — the suite had never run in this sandbox before today.
+
+- **Urdu search parity fixed** (`24aefe7`): the worker indexed a sheet `Urdu Name` column
+  that doesn't exist, so داتا دربار found nothing. It now indexes what the UI displays
+  (dictionary names, locations, saints). Unit + e2e pinned.
+- **e2e suite hermetic and 8× faster** (`b1a58d4`, `878cd06`): nothing leaves localhost
+  now. Root causes written into `docs/FRONTEND_NOTES.md` §9 — pinned-browser mismatch,
+  hanging external requests holding the `load` event hostage, and a geolocation test that
+  raced the app's own timeout.
+- **Review cockpit** (`026eeea`): `python3 urdu-i18n/build_review_queue.py` → priority
+  queue + side-by-side EN/UR pages + a hash-pinned `reviewed.json` ledger (edits after a
+  review auto-drop the entry to *stale*). **The top-8 packet is ready — this is the
+  next thing that needs you.**
+- **Cite-this-entry** (`1bc8174`): plain text + BibTeX on every shrine page, both carrying
+  the entry's support level; no-leak-safe in Urdu.
+- **/almanac and /graph in the axe matrix** (`cbf2600`), green on first run.
+- **Auqaf register: blocked, measured** — no register in the repo (it's the pending ask in
+  `docs/auqaf_records_brief.md`) and the department's site is egress-blocked from the
+  sandbox. Moved to the needs-you queue.
+
+---
+
 ## 0a. Session log — 21 August 2026: A8 step 2 finished
 
 **All 74 Urdu deltas are translated. `urdu-i18n/a8-scope.json` now reads 0 delta entries.**

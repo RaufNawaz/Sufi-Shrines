@@ -59,6 +59,11 @@ through one of you. So the plan runs in three lanes:
 Ordered. Each has a definition of done; nothing counts until `npm run verify` (and where
 UI-visible, `npm run e2e`) is green and the finding is written into the repo (RULE 0).
 
+> **Status, same day (21 Aug, second session): Lane A is done.** A1 `24aefe7`, A2
+> `b1a58d4`+`878cd06` (62/62 specs green in the sandbox, 51 s — the hermetic fixtures
+> also made the suite 8× faster), A3 `026eeea`, A5 `1bc8174`, A6 `cbf2600`. A4 is blocked
+> and moved to Lane B (see its section). Verify green at 437 unit tests.
+
 ### A1 — Fix Urdu search parity (a real bug, found and verified 21 Aug)
 
 `src/lib/search/useSearch.ts` builds each search document's `urduName` from
@@ -107,7 +112,7 @@ archaeology, not editing. Build the tool that makes review a three-minute job:
 **DoD:** queue + ledger + regenerated log committed; the top-8 review packet ready for
 you. This is the item that converts Lane B1 from "someday" into "next sitting".
 
-### A4 — F2 groundwork: the Auqaf register as data
+### A4 — F2 groundwork: the Auqaf register as data — **BLOCKED (measured 21 Aug)**
 
 The honest coverage map (Lane C, F2) needs the Punjab Auqaf register (534 sites) as
 structured data before it needs any UI. Extract it to `data/auqaf-register.csv` with
@@ -115,6 +120,15 @@ per-row provenance, then a matching script (name + district fuzzy match against 
 emitting a human-confirmable report — never auto-merging). **DoD:** register file +
 match report committed; unmatched-both-ways lists are the seed of the public "not yet
 documented" page.
+
+**Status 21 Aug:** blocked twice over, both verified rather than assumed. The full
+534-site register has never been obtained — it is the subject of the pending ask in
+`docs/auqaf_records_brief.md` (the "534" figure is a count from the department's public
+functions page, not a list we hold). And even the department's published per-shrine
+listing at `auqaf.punjab.gov.pk` is unreachable from this sandbox: the egress proxy
+answers 403 to curl and EGRESS_BLOCKED to the fetch tool. So A4 moves to Lane B: it
+resumes the day the register (or even a saved copy of the public listing) lands in
+`data/`, and the ask in the brief is the way to get it.
 
 ### A5 — Cite-this-entry
 
@@ -136,8 +150,10 @@ covered. **DoD:** both pages in `a11y.spec.ts`, green.
 
 Each item is one sitting or less. In rough order of leverage:
 
-1. **Review Urdu articles** (unblocked by A3). Start with the eight named in
-   `docs/TODO.md` §0a. Every review converts `reviewed=false` risk into standing content.
+1. **Review Urdu articles** (now unblocked — the cockpit exists). Run
+   `python3 urdu-i18n/build_review_queue.py`, open `urdu-i18n/review/<slug>.html` for the
+   top-8, record each with `--mark <slug> --reviewer "Rauf"`. Every review converts
+   `reviewed=false` risk into standing content.
 2. **Answer `docs/EDITORIAL_DECISIONS_PENDING.md`** — four policy questions plus the
    sensitive-content call on two entries. Unblocks: the last 3 Urdu translations (A8
    step 3), qa_note surfacing, and F7's contradiction display. The briefs are written;
@@ -156,6 +172,10 @@ Each item is one sitting or less. In rough order of leverage:
 7. **The oral-history go/no-go** (`docs/DECISION_oral_histories.md`). Gates F3, F8, F9.
    HANDOVER §10 already says it plainly: if oral history is the purpose, it needs a
    decision, not a backlog entry.
+8. **The Auqaf register** (was A4 — moved here 21 Aug after both paths were measured
+   blocked). The ask in `docs/auqaf_records_brief.md` is the way to get it; even a saved
+   HTML copy of the department's public listing, dropped into `data/`, un-blocks the
+   matching work.
 
 ---
 
