@@ -273,6 +273,14 @@ partners, and the Auqaf department.
 
 ## Part 4 — Status audit of PROJECT_VISION.md's tracks (18 Aug 2026)
 
+> **Corrections, 21 August 2026** (details and the current sequencing in
+> [`NEXT_STEPS_2026-08-21.md`](NEXT_STEPS_2026-08-21.md), which supersedes the
+> sequencing below): `provenance.json` is no longer stale — fixed the same day this
+> audit was written (`0da15d3`, validate reports 169/169). F1 (Urs Almanac) shipped
+> 18 Aug with `.ics` export (`26ed561`). Track 0 article drafting is now 168/171:
+> A8 steps 1–2 complete (all 74 deltas done 21 Aug), 3 entries blocked on editorial
+> decisions, all still `reviewed=false`.
+
 | Track | Status | Evidence |
 |---|---|---|
 | 0 — Urdu parity | **Done** | `headingLabels.ts`, no-leak e2e guard, `fmtNum` sites tested, `/ur/*` prerender (`22bca4c`); article content 168/171 drafted (3 blocked on editorial calls), all `reviewed=false` |

@@ -1,5 +1,9 @@
 # To-do — as of 21 August 2026
 
+> **The current working plan is [`planning/NEXT_STEPS_2026-08-21.md`](planning/NEXT_STEPS_2026-08-21.md)**
+> — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
+> blue-sky line. This file remains the session-by-session log.
+
 ## 0a. Session log — 21 August 2026: A8 step 2 finished
 
 **All 74 Urdu deltas are translated. `urdu-i18n/a8-scope.json` now reads 0 delta entries.**
