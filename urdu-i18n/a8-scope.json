@@ -15,126 +15,6 @@
  ],
  "delta": [
   {
-   "slug": "gurdwara-chakki-sahib",
-   "added_chars": 1306,
-   "old_chars": 1650,
-   "new_chars": 2871
-  },
-  {
-   "slug": "sant-bhagat-kanwar-ram-temple-chak",
-   "added_chars": 1279,
-   "old_chars": 1310,
-   "new_chars": 2504
-  },
-  {
-   "slug": "gurdwara-choa-sahib",
-   "added_chars": 1227,
-   "old_chars": 1456,
-   "new_chars": 2598
-  },
-  {
-   "slug": "shrine-of-baba-shah-chiragh",
-   "added_chars": 1190,
-   "old_chars": 1898,
-   "new_chars": 3003
-  },
-  {
-   "slug": "loh-temple-lava-temple",
-   "added_chars": 1110,
-   "old_chars": 1964,
-   "new_chars": 2989
-  },
-  {
-   "slug": "tomb-of-bahaal-halim-uch-sharif",
-   "added_chars": 1100,
-   "old_chars": 1316,
-   "new_chars": 2331
-  },
-  {
-   "slug": "sain-vali-vilayat-rai-darbar-kambar",
-   "added_chars": 1086,
-   "old_chars": 1754,
-   "new_chars": 2755
-  },
-  {
-   "slug": "mohra-sharif-khanqah",
-   "added_chars": 1043,
-   "old_chars": 1379,
-   "new_chars": 2337
-  },
-  {
-   "slug": "sevapanthi-darbar-bhai-gurdas-gandava",
-   "added_chars": 1041,
-   "old_chars": 2071,
-   "new_chars": 3027
-  },
-  {
-   "slug": "shrine-of-akhund-panju-baba",
-   "added_chars": 1030,
-   "old_chars": 1513,
-   "new_chars": 2458
-  },
-  {
-   "slug": "ziarat-kaka-sahib",
-   "added_chars": 966,
-   "old_chars": 1509,
-   "new_chars": 2297
-  },
-  {
-   "slug": "ram-mandir-saidpur-ram-kund-mandir",
-   "added_chars": 947,
-   "old_chars": 1559,
-   "new_chars": 2421
-  },
-  {
-   "slug": "shrine-of-baba-shah-kamal",
-   "added_chars": 938,
-   "old_chars": 1822,
-   "new_chars": 2676
-  },
-  {
-   "slug": "shrine-of-makhdoom-abdul-rahim-girhori",
-   "added_chars": 937,
-   "old_chars": 1354,
-   "new_chars": 2206
-  },
-  {
-   "slug": "gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
-   "added_chars": 920,
-   "old_chars": 1902,
-   "new_chars": 2737
-  },
-  {
-   "slug": "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-   "added_chars": 876,
-   "old_chars": 1347,
-   "new_chars": 2138
-  },
-  {
-   "slug": "shrine-of-miran-hussain-zanjani-zanjani-sahib",
-   "added_chars": 834,
-   "old_chars": 1739,
-   "new_chars": 2488
-  },
-  {
-   "slug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
-   "added_chars": 817,
-   "old_chars": 1292,
-   "new_chars": 2024
-  },
-  {
-   "slug": "tomb-of-ustad-nuriya",
-   "added_chars": 810,
-   "old_chars": 2111,
-   "new_chars": 2564
-  },
-  {
-   "slug": "shrine-of-pir-chhatal-shah-noorani",
-   "added_chars": 805,
-   "old_chars": 1531,
-   "new_chars": 2251
-  },
-  {
    "slug": "gurdwara-malji-sahib",
    "added_chars": 760,
    "old_chars": 1576,
@@ -393,7 +273,10 @@
   "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
   "gurdwara-bhai-beba-singh",
   "gurdwara-bhai-joga-singh",
+  "gurdwara-chakki-sahib",
+  "gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
   "gurdwara-chhevin-patshahi-mozang",
+  "gurdwara-choa-sahib",
   "gurdwara-chowmala-sahib",
   "gurdwara-darbar-sahib-kartarpur",
   "gurdwara-dash-mesh-pita",
@@ -402,8 +285,10 @@
   "gurdwara-panja-sahib",
   "gurdwara-panjvi-chati-patshahi",
   "gurdwara-patti-sahib",
+  "gurdwara-pehli-patshahi-jind-pir-sukkur",
   "gurdwara-sach-khand-sahib",
   "gurdwara-sacha-sauda",
+  "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
   "gurdwara-shaheed-bhai-taru-singh",
   "gurdwara-shaheed-ganj-singh-singhnian",
   "gurdwara-singh-sabha",
@@ -422,21 +307,27 @@
   "lal-kurti-temple-balmiki-mandir-rawalpindi",
   "lal-shahbaz-qalandar",
   "langer-makhdoom",
+  "loh-temple-lava-temple",
   "mausoleum-of-waris-shah",
   "mithankot-kot-mithan",
+  "mohra-sharif-khanqah",
   "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
   "panj-tirath",
   "parnami-mandir",
   "prahladpuri-temple",
   "purana-bhalwal",
   "rahman-baba-mausoleum-rehman-baba-shrine",
+  "ram-mandir-saidpur-ram-kund-mandir",
   "ramapir-temple-tando-allahyar",
   "ranmal-sharif",
   "sadh-belo-sadh-belo-island-temple",
+  "sain-vali-vilayat-rai-darbar-kambar",
   "sakhi-sarwar",
   "sant-baba-asudaram-darbar-panno-aqil",
   "sant-baba-bhagat-ram-darbar-mandir",
+  "sant-bhagat-kanwar-ram-temple-chak",
   "sant-satram-dham-raharki-sacho-satram-devri-sahib",
+  "sevapanthi-darbar-bhai-gurdas-gandava",
   "shah-noorani-shrine-syed-bilawal-shah-noorani",
   "shah-yousuf",
   "shahwala-teja-singh-mandir",
@@ -451,12 +342,18 @@
   "shri-swaminarayan-mandir-karachi",
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
+  "shrine-of-akhund-panju-baba",
+  "shrine-of-baba-shah-chiragh",
+  "shrine-of-baba-shah-kamal",
   "shrine-of-fariduddin-ganjshakar",
   "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
+  "shrine-of-makhdoom-abdul-rahim-girhori",
   "shrine-of-mauj-darya-bukhari",
+  "shrine-of-miran-hussain-zanjani-zanjani-sahib",
   "shrine-of-peer-makki",
+  "shrine-of-pir-chhatal-shah-noorani",
   "shrine-of-pir-mangho",
   "shrine-of-pir-sher-muhammad",
   "shrine-of-qalandar-baba-auliya",
@@ -468,11 +365,14 @@
   "shrine-of-shah-yusaf-gardez",
   "shrine-of-syed-musa-pak",
   "sial-sharif",
+  "tomb-of-bahaal-halim-uch-sharif",
   "tomb-of-javindi-bibi",
   "tomb-of-qutbuddin-aibak",
+  "tomb-of-ustad-nuriya",
   "valmik-mandir-naqi-road",
   "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-  "wadpagga-sharif"
+  "wadpagga-sharif",
+  "ziarat-kaka-sahib"
  ],
  "rows_not_in_source": [
   "darbar-hazrat-shah-gohar-peer",
