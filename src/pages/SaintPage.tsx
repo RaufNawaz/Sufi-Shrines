@@ -474,6 +474,10 @@ export default function SaintPage() {
           <Link to="/">{t('backToMap')}</Link>
           {' · '}
           <span>{t('footerCredit')}</span>
+          {' · '}
+          {/* Licence and citation must be reachable from any page — a public
+            archive that states neither is not publishable. */}
+          <Link to="/about">{t('aboutTitle')}</Link>
         </footer>
       </article>
 

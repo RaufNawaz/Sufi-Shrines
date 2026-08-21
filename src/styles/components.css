@@ -368,3 +368,130 @@
     display: none;
   }
 }
+
+/* ── About & cite ────────────────────────────────────────────────────────── */
+
+.about-lede {
+  max-width: 60ch;
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.about-section {
+  margin-block-end: var(--space-6);
+  max-width: 68ch;
+}
+
+.about-section-heading {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.about-section p {
+  margin: 0 0 var(--space-3);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.about-list {
+  margin: 0;
+  padding-inline-start: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.about-licence {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-4);
+  margin: 0 0 var(--space-4);
+}
+
+.about-licence dt {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.about-licence dd {
+  margin: 0;
+}
+
+/* A citation is meant to be copied, so it is set as a block of monospaced text
+   with its own copy control rather than as running prose. */
+.about-citation {
+  margin-block-end: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+}
+
+.about-citation-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-2);
+}
+
+.about-citation-text {
+  margin: 0 0 var(--space-2) !important;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text) !important;
+  overflow-wrap: anywhere;
+}
+
+.about-copy-btn {
+  min-height: 36px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.about-copy-btn:hover,
+.about-copy-btn:focus-visible {
+  color: var(--color-primary);
+}
+
+.about-note {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.about-contact {
+  overflow-wrap: anywhere;
+}
+
+[dir='rtl'] .about-lede,
+[dir='rtl'] .about-section p,
+[dir='rtl'] .about-list,
+[dir='rtl'] .about-licence dt,
+[dir='rtl'] .about-section-heading,
+[dir='rtl'] .about-citation-label,
+[dir='rtl'] .about-copy-btn {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}
+
+[dir='rtl'] .about-citation-label {
+  letter-spacing: normal;
+}

@@ -61,6 +61,7 @@ const BUDGETS_KB = {
   'src/pages/AlmanacPage.tsx': 385, // measured 356
   'src/pages/NotFoundPage.tsx': 325, // measured 300
   'src/pages/CoveragePage.tsx': 370, // measured 342 — shrine data, no map or graph
+  'src/pages/AboutPage.tsx': 340, // measured 315 — static text, no dataset needed
 };
 
 /**

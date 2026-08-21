@@ -5,9 +5,10 @@ message: >-
 type: dataset
 title: 'Sufi Shrines of Pakistan'
 abstract: >-
-  A bilingual (English/Urdu), schema-validated, open dataset of 163 sacred
+  A bilingual (English/Urdu), schema-validated, open dataset of 169 sacred
   sites across Pakistan. Covers Muslim Sufi shrines (dargahs, mazars), Hindu
-  temples (mandirs), and Sikh gurdwaras, with structured provenance tracking,
+  temples (mandirs), Sikh gurdwaras, Nanakpanthi/Udasi darbars, Jain temples
+  and secular memorials, with structured provenance tracking,
   a Frictionless Data Package descriptor, and a companion interactive web map.
   Built for Harvard computational humanities research.
 authors:

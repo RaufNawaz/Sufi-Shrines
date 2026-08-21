@@ -154,6 +154,35 @@ export const UI_TEXT = {
     almanacSourceLabel: 'Recorded as',
     almanacFigureLabel: 'Commemorating',
     almanacJumpToMonth: 'Jump to month',
+    aboutTitle: 'About this archive',
+    aboutLede:
+      'A public, bilingual record of sacred sites across Pakistan — Muslim shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi and Udasi darbars, Jain temples and secular memorials — built to be cited, and to be honest about what it does not yet know.',
+    aboutScopeHeading: 'Scope',
+    aboutScopeBody:
+      'Each entry records what a source says, with that source named. Entries are labelled by how they were established, from field-verified to web-compiled, so a reader can weigh them without leaving the page.',
+    aboutMethodHeading: 'How it is built',
+    aboutMethodSheet:
+      'Entries are maintained in a spreadsheet and read by this site at load time, so a correction reaches readers immediately.',
+    aboutMethodProvenance:
+      'Every claim is meant to be traceable to a source. Where sources disagree, the archive reports the disagreement rather than choosing for you.',
+    aboutMethodUrdu:
+      'The Urdu edition is a first-class edition, not a translation layer. Machine-drafted translations are marked as drafts until a fluent reader signs them off.',
+    aboutMethodGaps: 'What the archive does not know is published alongside what it does.',
+    aboutCoverageLink: 'See what this archive knows',
+    aboutLicenceHeading: 'Licence and reuse',
+    aboutLicenceData: 'Dataset',
+    aboutLicenceCode: 'Site and pipeline code',
+    aboutLicenceAttributionLabel: 'Required attribution when reusing the data',
+    aboutCiteHeading: 'How to cite',
+    aboutCiteArchive: 'The archive',
+    aboutCiteEntry: 'A single entry',
+    aboutCiteNote:
+      'Include the date you consulted the page. This archive reads a live source, so an entry can change after you cite it.',
+    aboutCorrectionsHeading: 'Corrections',
+    aboutCorrectionsBody:
+      'Corrections are welcome and credited. If something here is wrong — a date, a coordinate, a lineage, a name — please say so.',
+    aboutCopyDone: 'Copied',
+    aboutCopy: 'Copy',
     coverageTitle: 'What this archive knows',
     coverageIntro:
       'Every figure on this page is counted from the published data, not estimated. Where the archive is silent, it says so.',
@@ -462,6 +491,35 @@ export const UI_TEXT = {
     almanacSourceLabel: 'اندراج',
     almanacFigureLabel: 'یادگار',
     almanacJumpToMonth: 'مہینے پر جائیں',
+    aboutTitle: 'اِس آرکائیو کے بارے میں',
+    aboutLede:
+      'پاکستان بھر کے مقدس مقامات کا ایک عوامی، دو لسانی ریکارڈ — مسلم مزارات، ہندو مندر، سکھ گوردوارے، نانک پنتھی و اُداسی دربار، جین مندر اور سیکولر یادگاریں — اِس نیت سے مرتب کیا گیا کہ اِس کا حوالہ دیا جا سکے، اور یہ بھی صاف بتایا جا سکے کہ ابھی کیا معلوم نہیں۔',
+    aboutScopeHeading: 'دائرہ',
+    aboutScopeBody:
+      'ہر اندراج وہی درج کرتا ہے جو ماخذ کہتا ہے، اور ماخذ کا نام بھی۔ ہر اندراج پر یہ درج ہے کہ وہ کس بنیاد پر قائم ہوا — میدانی تصدیق سے لے کر ویب سے ترتیب تک — تاکہ قاری صفحہ چھوڑے بغیر اُس کا وزن جانچ سکے۔',
+    aboutMethodHeading: 'یہ کیسے بنتا ہے',
+    aboutMethodSheet:
+      'اندراجات ایک اسپریڈ شیٹ میں رکھے جاتے ہیں اور یہ سائٹ اُنہیں لوڈ کے وقت پڑھتی ہے، اِس لیے کوئی تصحیح فوراً قاری تک پہنچتی ہے۔',
+    aboutMethodProvenance:
+      'ہر دعوے کا کسی ماخذ تک پہنچنا مقصود ہے۔ جہاں ماخذ آپس میں مختلف ہوں، آرکائیو خود فیصلہ کرنے کے بجائے اختلاف درج کرتا ہے۔',
+    aboutMethodUrdu:
+      'اردو ایڈیشن ایک مکمل ایڈیشن ہے، ترجمے کی تہہ نہیں۔ مشینی ترجمے اُس وقت تک مسودہ شمار ہوتے ہیں جب تک کوئی اہلِ زبان اُن کی تصدیق نہ کر دے۔',
+    aboutMethodGaps: 'آرکائیو جو نہیں جانتا، وہ بھی اُس کے ساتھ شائع کیا جاتا ہے جو جانتا ہے۔',
+    aboutCoverageLink: 'دیکھیں یہ آرکائیو کیا جانتا ہے',
+    aboutLicenceHeading: 'لائسنس اور دوبارہ استعمال',
+    aboutLicenceData: 'ڈیٹا سیٹ',
+    aboutLicenceCode: 'سائٹ اور پائپ لائن کا کوڈ',
+    aboutLicenceAttributionLabel: 'ڈیٹا دوبارہ استعمال کرتے وقت لازمی حوالہ',
+    aboutCiteHeading: 'حوالہ کیسے دیں',
+    aboutCiteArchive: 'مکمل آرکائیو',
+    aboutCiteEntry: 'کوئی ایک اندراج',
+    aboutCiteNote:
+      'وہ تاریخ بھی شامل کریں جس دن آپ نے صفحہ دیکھا۔ یہ آرکائیو ایک زندہ ماخذ سے پڑھتا ہے، اِس لیے اندراج آپ کے حوالے کے بعد بھی بدل سکتا ہے۔',
+    aboutCorrectionsHeading: 'تصحیحات',
+    aboutCorrectionsBody:
+      'تصحیحات کا خیر مقدم ہے اور اُن کا اعتراف کیا جاتا ہے۔ اگر یہاں کچھ غلط ہے — کوئی تاریخ، محلِ وقوع، سلسلہ یا نام — تو براہِ کرم بتائیں۔',
+    aboutCopyDone: 'نقل ہو گیا',
+    aboutCopy: 'نقل کریں',
     coverageTitle: 'یہ آرکائیو کیا جانتا ہے',
     coverageIntro:
       'اِس صفحے کا ہر عدد شائع شدہ ڈیٹا سے شمار کیا گیا ہے، اندازہ نہیں۔ جہاں آرکائیو خاموش ہے، وہاں یہ بات بھی درج ہے۔',
