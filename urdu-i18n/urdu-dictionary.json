@@ -13,9 +13,10 @@
       "shrineNames": 169,
       "saints": 158,
       "foundedPhrases": 116,
+      "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "flatSeedEntries": 666
+      "flatSeedEntries": 697
     }
   },
   "categories": {
@@ -787,6 +788,41 @@
     "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653": "تقریباً 1661 (مقبرہ، اُن کے صاحبزادے نے بنوایا)؛ بزرگ کی روایتی پیدائش 1575ء، وفات 1653",
     "c. 1849 (mid-19th century)": "تقریباً 1849 (وسط انیسویں صدی)",
     "traditionally said to be about 1,500 years old (Sewa dynasty, pre-Islamic era); exact date unknown": "روایتاً تقریباً 1,500 سال پرانا کہا جاتا ہے (سیوا خاندان، قبل از اسلام دور)؛ متعین تاریخ نامعلوم"
+  },
+  "observances": {
+    "Annual urs": "سالانہ عرس",
+    "Annual urs (spring)": "سالانہ عرس (بہار)",
+    "langar": "لنگر",
+    "daily langar": "روزانہ لنگر",
+    "qawwali": "قوالی",
+    "qawwali and naat": "قوالی اور نعت",
+    "naat and qawwali": "نعت اور قوالی",
+    "qawwali and langar": "قوالی اور لنگر",
+    "Thursday-evening qawwali and dhamal": "جمعرات کی شام قوالی اور دھمال",
+    "large annual gathering": "بڑا سالانہ اجتماع",
+    "Holi": "ہولی",
+    "Diwali": "دیوالی",
+    "Janmashtami": "جنم اشٹمی",
+    "Maha Shivratri": "مہا شیو راتری",
+    "Raksha Bandhan": "رکشا بندھن",
+    "Cheti Chand": "چیٹی چنڈ",
+    "Guru Nanak Gurpurab": "گرو نانک گرپورب",
+    "Guru Nanak anniversaries": "گرو نانک کی برسیاں",
+    "Sikh anniversaries": "سکھ برسیاں",
+    "Sikh pilgrimage": "سکھ زیارت",
+    "Sikh pilgrimage, especially Guru Nanak's Gurpurab": "سکھ زیارت، خاص طور پر گرو نانک کا گرپورب",
+    "Daily prakash": "روزانہ پرکاش",
+    "Community worship": "اجتماعی عبادت",
+    "Daily worship": "روزانہ عبادت",
+    "daily worship": "روزانہ عبادت",
+    "Occasional pilgrimage": "کبھی کبھار زیارت",
+    "heritage visitation": "ورثہ کے طور پر آمد",
+    "five daily prayers": "پنج وقتہ نماز",
+    "Not documented": "درج نہیں",
+    "not currently observed": "اِس وقت نہیں منایا جاتا",
+    "None - abandoned": "کوئی نہیں — متروک",
+    "None - heritage site, no devotional programme": "کوئی نہیں — ورثہ مقام، کوئی عبادتی پروگرام نہیں",
+    "no fixed public festival documented": "کوئی مقررہ عوامی تہوار درج نہیں"
   },
   "locations": {
     "Aibak Road, Anarkali, Lahore, Punjab, Pakistan": "ایبک روڈ، انار کلی، لاہور، پنجاب، پاکستان",

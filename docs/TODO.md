@@ -178,6 +178,93 @@ under test. Strip comments first; the CSS tests already do.
 
 `npm run verify`: 512 tests.
 
+### The skip links: English, dangling, and not moving focus
+
+Three defects in the two controls a keyboard reader reaches first. The labels were hardcoded
+English on every route. `#shrine-directory` exists only on the map route, so on eight of nine
+routes the second link pointed at a missing id and focus stayed put. And `#main-content` had no
+`tabindex="-1"`, so following the working link scrolled the page and left focus on the link —
+the next Tab resumed from the header the reader had just asked to bypass. Plus four pages
+rendering a duplicate `#main-content` link on top of the global one.
+
+Invisible to axe (a plausible fragment href is not a violation), to screenshots (a skip link is
+hidden until focused) and to the leak guard. `e2e/skip-links.spec.ts` is behavioural: every
+route, does each target exist, is it unique, does following it move focus.
+
+### And the leak guard was exempting every `<a>`
+
+`.coords, a, bdi, [data-latin]` — on a site where a large share of the interface is anchors.
+Removing `a`: **328 leaks on the map route**, nearly all of them `#shrine-directory`, the
+`sr-only` list of all 169 shrines, announcing English names and locations on the Urdu site.
+Built for screen-reader users, invisible to screenshots, waved through by the one guard for it.
+
+`bdi` is no longer an exemption either. `<bdi>` is a bidi tool — mixed-script text needs it
+whether or not the run is translated — so letting it mean "deliberately untranslated" made the
+fix for any leak "wrap it", which satisfies the check and changes nothing for the reader. The
+declaration is `data-latin` now, and `e2e/urdu-no-leak.spec.ts` **counts** it per route against
+a budget that may shrink and may not grow.
+
+Undeclared English: 0 on all eight routes. Declared debt: graph 253, almanac 87, order 41,
+saint 14, about 7, map 7, shrine 4, coverage 1.
+
+Also found: the same alt-name field was localised on the order page and raw on the saint page
+and lineage view; `altNames.join(' · ')` made one Latin run that bidi reordered; and two
+components render the same related-card shape, so fixing one left the other leaking. Grep the
+class name, not the component.
+
+`npm run verify`: 512 tests.
+
+### And then translated them
+
+The almanac's observance strings were the largest block of untranslated reader-facing prose
+left, on the page a reader visits to find out when to go. Measured: 318 occurrences over 168
+rows, semicolon-joined, **190 distinct segments**, of which the 33 most common cover 157. So the
+unit is the segment, not the cell — a whole-cell lookup matches almost nothing.
+
+`OBSERVANCES` in `build_dictionary.py` carries those 33; `localizeObservance.ts` splits on `;`,
+looks each part up, and **leaves an unmatched segment exactly as written**. Composing Urdu from
+tokens ("annual" + "urs" + "spring") is refused on purpose — that is how the false number
+happened above. The separator is localised to `؛` only when something actually translated;
+Arabic punctuation around English fragments reads as a bug, not a translation.
+
+The shrine infobox's `Events` row goes through the same path now (it had the same whole-string
+lookup problem), with `resolveFieldValue()` holding both field-specific cases in one place.
+
+The 33 entries are drafts, same standing as the shrine names. What is not translated stays
+English and stays counted.
+
+Measured effect: the almanac's declared debt fell **87 → 39**, the shrine page's 4 → 2.
+
+### 169 links in the accessibility landmark 404'd in production
+
+The screen-reader shrine directory emitted `<a href="/shrine/${slug}">`, which bypasses the
+router basename — and the site is served from `/Sufi-Shrines/`. Every one of those links was
+broken on the live site: the one part of the interface that exists solely for a screen reader.
+
+**No test could see it.** `build:e2e` sets `VITE_BASE_PATH=/`, which is exactly the
+configuration in which the bug does not exist. `<Link to>` now, plus
+`internalLinks.test.ts`, whose own first draft flagged the comment explaining the fix (it
+quotes the bad pattern) — the third time this session a check scraped its own prose.
+
+### And a spec that was measuring a transition
+
+`dragging the handle open reveals the shrine list` read the sheet's height as soon as the
+`collapsed` class dropped: 134px against >200, on a sheet that animates 108px → ~641px. Two
+wrong diagnoses first — "more environmental failures" (no: it reproduced alone, three times)
+and "one of this session's commits" (no: the bisect came back non-monotonic, which is a bisect
+telling you the test is timing-dependent). `settle()` moved from the a11y spec into
+`fixtures.ts` and both use it; two checks had now blamed the code for a transient animated
+state.
+
+`npm run verify`: 520 tests.
+
+### Translate next
+
+The **graph's 253** are mostly personal names, and some are not names at all but phrases from a
+source quote ("the princess Jahanara", "founder of the Rashidi order") — inventing Urdu for
+those would break RULE 2, so they need a human reading the sources, not a dictionary pass. The
+almanac's remaining tail is 157 single-occurrence segments, several of them a sentence long.
+
 ### Needs a human
 
 - The ~20 new Urdu accessible-name strings and the five map-control strings are drafts, same

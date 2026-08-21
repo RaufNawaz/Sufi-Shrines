@@ -138,9 +138,6 @@ export default function CoveragePage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           {t('backToMap')}
@@ -154,6 +151,7 @@ export default function CoveragePage() {
       <article
         className="entity-page coverage-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >

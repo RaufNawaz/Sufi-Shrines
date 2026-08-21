@@ -9,6 +9,7 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { localizeObservance } from '../lib/i18n/localizeObservance';
 import { primaryFigureSlug } from '../lib/kgShrineFigures';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
@@ -186,9 +187,6 @@ export default function AlmanacPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           <svg
@@ -215,6 +213,7 @@ export default function AlmanacPage() {
       <article
         className="entity-page almanac-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
@@ -404,8 +403,16 @@ export default function AlmanacPage() {
                       <Link to={`/shrine/${entry.shrine.slug}`}>
                         <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
                       </Link>
-                      <span className="almanac-plain-source">
-                        <bdi>{entry.sourceText}</bdi>
+                      {/* The observance as the sheet records it — "Annual urs",
+                          "Maha Shivratri", "Sikh pilgrimage; Guru Nanak
+                          Gurpurab". Semicolon-joined, so localizeObservance
+                          translates it segment by segment and leaves an unknown
+                          segment exactly as written (RULE 2 — show what the
+                          source says). `data-latin` declares whatever is left,
+                          so e2e/urdu-no-leak.spec.ts counts the remaining debt
+                          rather than waving it through. */}
+                      <span className="almanac-plain-source" data-latin>
+                        <bdi>{localizeObservance(entry.sourceText, lang)}</bdi>
                       </span>
                     </li>
                   ))}

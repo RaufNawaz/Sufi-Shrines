@@ -98,9 +98,6 @@ export default function GraphPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           <svg
@@ -127,6 +124,7 @@ export default function GraphPage() {
       <article
         className="entity-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
@@ -182,18 +180,26 @@ export default function GraphPage() {
               {' · '}
               {fmtNum(lineageEdges.filter((e) => !e.reviewed).length)} {t('lineageUnreviewed')}
             </p>
-            <ul className="graph-lineage-list">
+            {/* `data-latin`: many of these endpoints are figures the Urdu
+                dictionary does not cover, and some are not names at all but
+                descriptive phrases lifted from a source quote ("the princess
+                Jahanara", "founder of the Rashidi order"). localizeFigureName
+                returns the source string unchanged for those, which is correct
+                — inventing an Urdu name for a figure would break RULE 2 — so the
+                element declares the debt instead of hiding it. Each name is
+                <bdi>-wrapped for bidi isolation, which is a separate need. */}
+            <ul className="graph-lineage-list" data-latin>
               {lineageEdges.map((edge) => (
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
                   <div className="graph-lineage-edge">
                     <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {fmtNum(localizeFigureName(edge.subject, lang))}
+                      <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
                     </Link>
                     <span className="graph-lineage-relation">
                       {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
                     </span>
                     <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {fmtNum(localizeFigureName(edge.object, lang))}
+                      <bdi>{fmtNum(localizeFigureName(edge.object, lang))}</bdi>
                     </Link>
                     {/* An edge nobody has read yet says so. The archive's claim is
                         honesty about provenance, so a lineage drawn from
@@ -282,13 +288,15 @@ export default function GraphPage() {
                     style={{ '--stagger-index': i } as React.CSSProperties}
                   >
                     <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      {fmtNum(localizeFigureName(saint, lang))}
+                      <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
                     </Link>
                     {/* A figure_type that is a sentence rather than a category is
                         content, not a defect (RULE 2) — show it as recorded
                         instead of filing it under a label it may contradict. */}
                     {isProseFigureType(saint.figureType) && (
-                      <span className="graph-figure-as-recorded">{saint.figureType}</span>
+                      <span className="graph-figure-as-recorded" data-latin>
+                        <bdi>{saint.figureType}</bdi>
+                      </span>
                     )}
                   </li>
                 ))}

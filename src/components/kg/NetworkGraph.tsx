@@ -118,6 +118,7 @@ export function NetworkGraph({ center, connected, legend }: Props) {
   return (
     <div className="network-graph">
       <svg
+        data-latin
         className="network-graph-svg"
         viewBox={`0 0 ${geo.w} ${geo.h}`}
         role="img"
@@ -230,7 +231,12 @@ export function NetworkGraph({ center, connected, legend }: Props) {
 
       {/* Accessible link list */}
       {connected.length > 0 && (
-        <ul className="network-links" aria-label={t('networkConnections')}>
+        /* `data-latin` on the list, not on each item: a node label is a figure
+           or order name straight from the graph, and the ones the dictionary
+           does not cover stay in their source script (RULE 2). The SVG above
+           carries the same declaration for the same reason — and there <bdi> is
+           not even available, which is why labelDirection() exists. */
+        <ul className="network-links" aria-label={t('networkConnections')} data-latin>
           {connected.map((node, i) => (
             <li
               key={node.id}

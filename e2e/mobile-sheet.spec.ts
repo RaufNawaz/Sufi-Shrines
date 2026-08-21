@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, settle } from './fixtures';
 
 /**
  * The mobile bottom sheet must be the topmost thing in its own band.
@@ -80,6 +80,12 @@ test.describe('mobile bottom sheet', () => {
     // it is load-bearing: if it stops working there is no other way in.
     await page.locator('.sidebar-sheet-handle').click();
     await expect(page.locator('.sidebar')).not.toHaveClass(/collapsed/);
+    /* The class flips immediately; the height takes --duration-base to follow
+       (`transition: height` on the sheet, 108px → ~641px). Measuring straight
+       after the class change caught it 5% in, at 134px, and read as a broken
+       drag handle. Same mistake the axe sweep made with `reveal-rise` — see
+       settle() in fixtures.ts. */
+    await settle(page);
     const box = await page.locator('.sidebar').boundingBox();
     expect(box!.height).toBeGreaterThan(200);
   });

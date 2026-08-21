@@ -79,7 +79,12 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   }, [shrine.raw]);
 
   return (
-    <article className="shrine-page" id="main-content" lang={lang === 'ur' ? 'ur' : undefined}>
+    <article
+      className="shrine-page"
+      id="main-content"
+      tabIndex={-1}
+      lang={lang === 'ur' ? 'ur' : undefined}
+    >
       {/* Breadcrumb */}
       <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
         <ol>

@@ -1,42 +1,12 @@
-import { test, expect } from './fixtures';
-import type { Page } from '@playwright/test';
+import { test, expect, settle } from './fixtures';
 import AxeBuilder from '@axe-core/playwright';
 
 // Leaflet injects tiles/controls that have known axe false-positives; exclude them.
 const EXCLUDE_SELECTORS = ['.leaflet-container'];
 
-/**
- * Scan the page as it comes to rest, not mid-entrance.
- *
- * axe composites ancestor `opacity` into the foreground colour it measures, so
- * an element halfway through a `reveal-rise` fade is measured at its
- * *blended* colour. That produced six failures on this suite's first run —
- * almanac entries reported at #978d7f, order links at #6b82b6 — colours that
- * appear nowhere in the palette, because they are `--color-text-muted` and
- * `--color-primary` part-way onto the page ground. All six were the scan
- * racing the animation. The seventh was real (`.not-found-code`, 1.43:1), and
- * would have been indistinguishable from the noise had the noise stayed.
- *
- * Waiting is not a way of averting one's eyes. An animation that *never*
- * finishes fails the wait, so text left permanently semi-transparent is still
- * caught — and caught as what it is (a stuck animation) rather than
- * misattributed to the palette. Infinite animations are skipped by design:
- * the loading spinner is meant to run forever, and it is the one animation
- * `src/styles/__tests__/motion.test.ts` exempts from the reduced-motion
- * contract for the same reason.
- */
-async function settle(page: Page) {
-  await page.waitForFunction(
-    () =>
-      document.getAnimations().every((a) => {
-        if (a.playState !== 'running') return true;
-        const timing = a.effect?.getComputedTiming();
-        return timing?.iterations === Infinity;
-      }),
-    null,
-    { timeout: 10_000 },
-  );
-}
+/* settle() moved to fixtures.ts: the mobile-sheet spec needed the same wait
+   for the same reason (a bottom sheet measured 5% into its height transition),
+   and two copies of an accessibility contract is one too many. */
 
 /**
  * Every route, in both languages.

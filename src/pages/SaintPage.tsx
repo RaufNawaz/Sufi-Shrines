@@ -189,6 +189,7 @@ export default function SaintPage() {
       <article
         className="entity-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
@@ -226,8 +227,12 @@ export default function SaintPage() {
         {saint.titles && saint.titles.length > 0 && (
           <ul className="entity-titles" aria-label={t('titlesLabel')}>
             {saint.titles.map((title) => (
-              <li key={title} className="entity-title-chip">
-                {title}
+              <li key={title} className="entity-title-chip" data-latin>
+                {/* Honorifics go through the dictionary like every other name,
+                    and <bdi> when they come back unchanged — "teacher of
+                    teachers" is a gloss from a source, not interface copy, and
+                    a Latin run needs isolating inside RTL text either way. */}
+                <bdi>{localizeAltName(title, lang)}</bdi>
               </li>
             ))}
           </ul>
@@ -315,7 +320,21 @@ export default function SaintPage() {
             {saint.altNames && saint.altNames.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('alsoKnownAs')}</h2>
-                <p>{saint.altNames.join(' · ')}</p>
+                {/* Per-item, through the dictionary, each isolated. Joined
+                    into one string it was a single Latin run inside RTL prose:
+                    the bidi algorithm reordered the middot-separated names, and
+                    a name the dictionary *does* carry stayed English because
+                    nothing localised the parts. `data-latin` declares the
+                    remainder as untranslated source text rather than leaving
+                    the guard to guess. */}
+                <p data-latin>
+                  {saint.altNames.map((alt, i) => (
+                    <React.Fragment key={alt}>
+                      {i > 0 && <span aria-hidden="true"> · </span>}
+                      <bdi>{localizeAltName(alt, lang)}</bdi>
+                    </React.Fragment>
+                  ))}
+                </p>
               </section>
             )}
 
@@ -412,7 +431,7 @@ export default function SaintPage() {
               {saint.altNames?.[0] && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('alsoKnownAs')}</span>
-                  <span className="entity-infobox-value">
+                  <span className="entity-infobox-value" data-latin>
                     <bdi>{localizeAltName(saint.altNames[0], lang)}</bdi>
                   </span>
                 </div>

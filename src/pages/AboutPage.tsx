@@ -69,9 +69,6 @@ export default function AboutPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           {t('backToMap')}
@@ -85,6 +82,7 @@ export default function AboutPage() {
       <article
         className="entity-page about-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
@@ -116,13 +114,13 @@ export default function AboutPage() {
             <dt>{t('aboutLicenceData')}</dt>
             <dd>
               <a href={PUBLICATION.dataLicenseUrl} target="_blank" rel="noopener noreferrer">
-                <bdi>Open Database License (ODbL) v1.0</bdi>
+                <bdi data-latin>Open Database License (ODbL) v1.0</bdi>
               </a>
             </dd>
             <dt>{t('aboutLicenceCode')}</dt>
             <dd>
               <a href={PUBLICATION.codeLicenseUrl} target="_blank" rel="noopener noreferrer">
-                <bdi>MIT</bdi>
+                <bdi data-latin>MIT</bdi>
               </a>
             </dd>
           </dl>
@@ -142,7 +140,7 @@ export default function AboutPage() {
           <p>{t('aboutCorrectionsBody')}</p>
           <p className="about-contact">
             <a href={`mailto:${CONTACT_EMAIL}`}>
-              <bdi>{CONTACT_EMAIL}</bdi>
+              <bdi data-latin>{CONTACT_EMAIL}</bdi>
             </a>
             {' · '}
             <a href={correctionIssueUrl('')} target="_blank" rel="noopener noreferrer">
@@ -151,7 +149,7 @@ export default function AboutPage() {
           </p>
           <p className="about-note">
             <a href={PUBLICATION.repository} target="_blank" rel="noopener noreferrer">
-              <bdi>{PUBLICATION.repository}</bdi>
+              <bdi data-latin>{PUBLICATION.repository}</bdi>
             </a>
           </p>
         </section>

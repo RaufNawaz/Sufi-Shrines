@@ -47,7 +47,16 @@ export function RelatedShrines({ shrine, all }: Props) {
               <div className="related-card-body">
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
-                  {location && <span>{location} · </span>}
+                  {/* The Location column often carries a survey qualification
+                      rather than a place name, still in English. <bdi> isolates
+                      the Latin run inside the RTL card; `data-latin` declares it
+                      as untranslated source text so the no-leak guard counts it
+                      as debt rather than passing it silently. */}
+                  {location && (
+                    <span data-latin>
+                      <bdi>{location}</bdi> ·{' '}
+                    </span>
+                  )}
                   <span>
                     {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
                   </span>

@@ -150,6 +150,7 @@ export default function OrderPage() {
       <article
         className="entity-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
@@ -236,12 +237,16 @@ export default function OrderPage() {
                           {fmtNum(localizeFigureName(saint, lang))}
                         </Link>
                         {saint.altNames?.[0] && (
-                          <span className="entity-saint-altname">
+                          <span className="entity-saint-altname" data-latin>
                             <bdi>{localizeAltName(saint.altNames[0], lang)}</bdi>
                           </span>
                         )}
                         {membership?.branch && (
-                          <span className="order-branch-chip" title={t('orderBranchHelp')}>
+                          <span
+                            className="order-branch-chip"
+                            title={t('orderBranchHelp')}
+                            data-latin
+                          >
                             <bdi>{membership.branch}</bdi>
                           </span>
                         )}

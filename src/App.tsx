@@ -90,17 +90,45 @@ function RouteAnnouncer() {
   return null;
 }
 
+/*
+ * The skip links, inside the language provider.
+ *
+ * They were two English literals rendered on every route, Urdu included — the
+ * first two controls a keyboard reader reaches, announcing themselves in the
+ * wrong language. They survived because the no-English-leak guard exempted
+ * every `<a>` (the sweep now lives in e2e/urdu-no-leak.spec.ts) and because a
+ * skip link is invisible until focused, so no screenshot showed them either.
+ *
+ * They live in a component rather than inline because `useLang` needs to be
+ * called below LanguageProvider, and App itself renders the provider.
+ */
+function SkipLinks() {
+  const { t } = useLang();
+  const { pathname } = useLocation();
+  /* #shrine-directory exists on the map route and nowhere else, so on the other
+     eight routes this was a skip link to nothing: the keyboard reader's second
+     stop, which silently does not move focus. Every route has #main-content. */
+  const onMap = pathname === '/' || pathname === '/ur' || pathname === '/ur/';
+  return (
+    <>
+      <a href="#main-content" className="skip-link">
+        {t('skipToContent')}
+      </a>
+      {onMap && (
+        <a href="#shrine-directory" className="skip-link">
+          {t('skipToShrineList')}
+        </a>
+      )}
+    </>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <BrowserRouter basename={import.meta.env.BASE_URL}>
-          <a href="#main-content" className="skip-link">
-            Skip to content
-          </a>
-          <a href="#shrine-directory" className="skip-link">
-            Skip to shrine list
-          </a>
+          <SkipLinks />
           <RouteAnnouncer />
           <AppErrorBoundary>
             <Suspense fallback={<PageFallback />}>

@@ -1472,6 +1472,128 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     you parse anything, and check what your check is actually looking at** — that is now seven
     instances of the same lesson in this file (§9.29, §9.38, §9.39, §9.40, §9.46, §9.51).
 
+55. **The skip links were English, pointed at nothing, and did not move focus.** Three separate
+    defects in the two controls a keyboard reader reaches first, all in the same place:
+
+    - `Skip to content` / `Skip to shrine list` were hardcoded English literals rendered on
+      every route, Urdu included.
+    - `#shrine-directory` exists on the map route and **nowhere else**, so on eight of nine
+      routes the second link pointed at a missing id. Focus simply stayed put — the failure a
+      keyboard reader cannot report.
+    - `#main-content` had no `tabindex="-1"`, so following the *working* link scrolled the page
+      and left focus on the link. The next Tab resumed from the header — the block the reader
+      had just asked to bypass. Measured: `document.activeElement` unmoved after Enter.
+
+    Plus four pages rendering their own duplicate `#main-content` link on top of the global
+    one, so the first two stops in the tab order were the same destination twice.
+
+    None of it is visible to axe (a link with a plausible fragment href is not a violation) or
+    to a screenshot (a skip link is invisible until focused) or to the leak guard (see §9.56).
+    `e2e/skip-links.spec.ts` is behavioural instead: every route, every skip link, does its
+    target exist, is it unique, does following it move focus.
+
+    Two smaller things fell out. `tabindex="-1"` made the global `:focus-visible` rule draw a
+    2px cobalt outline around the *entire article*, which reads as a selected form control —
+    the codebase had already solved this for the route-announcement headings
+    (`.shrine-title:focus`, `.entity-title:focus`) and the rule just needed extending to the
+    targets. And the test's first draft asserted "one Tab focuses the skip link", which failed:
+    the page focuses its `<h1>` on mount so a screen reader announces the route, so a forward
+    Tab starts from the heading. The property that actually matters is *first tabbable in DOM
+    order*, which it is.
+
+56. **The no-English-leak guard exempted every `<a>`.** The one check whose job is to keep
+    English out of the Urdu view allowed `.coords, a, bdi, [data-latin]` — and a large share of
+    this interface is anchors. Removing `a` and measuring: **328 leaks on the map route alone**,
+    almost all of them `#shrine-directory`, the `sr-only` list of all 169 shrines, announcing
+    **English names and English locations** on the Urdu site. Built for screen-reader users;
+    invisible to every screenshot; waved through by the guard meant to catch exactly this.
+
+    **`bdi` is no longer an exemption either, and that is the substantive change.** `<bdi>` is a
+    bidi tool — it stops a Latin run reordering the Urdu around it, which mixed-script text
+    needs whether or not the run is translated. Letting it double as "deliberately untranslated"
+    meant the fix for any leak was to wrap it, which satisfies the check and changes nothing for
+    the reader. The declaration is now `data-latin`, and it is **counted**:
+    `e2e/urdu-no-leak.spec.ts` holds a per-route budget of declared Latin runs that may shrink
+    and may not grow.
+
+    That count is the useful output. Undeclared English is 0 on all eight routes; the declared
+    debt is graph 253, almanac 87, order 41, saint 14, about 7, map 7, shrine 4, coverage 1.
+    **The almanac's 87 are the ones to translate next** — they are the observance strings the
+    sheet records ("Annual urs", "Maha Shivratri", "Sikh pilgrimage; Guru Nanak Gurpurab"), and
+    they are the largest block of untranslated *reader-facing* prose left in the archive. The
+    graph's 253 are mostly names, and some are not names at all but phrases from a source quote
+    ("the princess Jahanara"), where inventing Urdu would break RULE 2.
+
+    Found on the way: the same alt-name field was localised on the order page and rendered raw
+    on the saint page and in the lineage view; `saint.altNames.join(' · ')` put a whole
+    middot-separated list in one Latin run so bidi reordered the names; and **two components
+    render the same "related card" shape** (`RelatedShrines`, `NearbyShrines`) — fixing one and
+    not the other is how that leak survived a whole pass. Grep for the class name, not the
+    component.
+
+57. **The observance vocabulary, translated where it can be and counted where it cannot.**
+    §9.56's largest debt was the almanac's 87 declared Latin runs — the `Events` column, which
+    is what a reader consults to find out *when to go*. Measured: 318 occurrences across 168
+    rows, semicolon-joined, reducing to **190 distinct segments**, of which the 33 most common
+    account for 157. So the unit of translation is the segment, not the cell: a whole-cell
+    lookup would have matched almost nothing.
+
+    `OBSERVANCES` in `urdu-i18n/build_dictionary.py` carries those 33, and
+    `src/lib/i18n/localizeObservance.ts` splits on `;`, looks each part up, and **leaves an
+    unmatched segment exactly as it is**. Composing Urdu from tokens ("annual" + "urs" +
+    "spring") was the obvious shortcut and is refused on purpose: that is precisely how §9.52's
+    false number happened — a component deciding word order for a language whose word order it
+    does not know. A visibly untranslated observance is better than a confidently wrong one.
+
+    One detail worth keeping: the separator is localised *only when something translated*.
+    Urdu's semicolon is `؛` (U+061B), and rejoining Urdu segments with an ASCII `;` leaves Latin
+    punctuation steering the bidi run. But wrapping Arabic punctuation around English fragments
+    reads as a bug rather than a translation, so a fully-untranslated cell keeps `;`.
+
+    Also routed through it: the shrine infobox's `Events` row, which had the same whole-string
+    lookup problem. `resolveFieldValue()` now holds both field-specific cases (Founded and
+    Events) in one place instead of two copies of a ternary.
+
+    The 33 entries are **drafts** — same standing as the shrine names and founding phrases.
+    What is not translated stays English and stays counted, which is the honest way round.
+
+    Result, measured: the almanac's declared debt fell **87 → 39** and the shrine page's 4 → 2.
+
+58. **169 links in the accessibility landmark 404'd in production, and no test could see it.**
+    The screen-reader shrine directory emitted `<a href="/shrine/${slug}">`. React Router is
+    mounted with `basename={import.meta.env.BASE_URL}` and the site is served from
+    `/Sufi-Shrines/`, so every one of those links pointed at
+    `raufnawaz.github.io/shrine/<slug>`. The one part of the interface that exists solely for a
+    screen reader, entirely broken, live.
+
+    **This is the sharpest version of the pattern yet — not a check looking at the wrong
+    universe but a check that *cannot* look at the right one.** `npm run build:e2e` sets
+    `VITE_BASE_PATH=/` because the suite needs root-relative URLs, which is precisely the one
+    configuration in which the bug does not exist. Playwright followed those links happily.
+
+    `<Link to>` now, and `src/lib/data/__tests__/internalLinks.test.ts` rejects an absolute
+    `href` into any route this app owns. Its own first draft flagged the *comment* explaining
+    the fix, because the comment quotes `href="/shrine/…"` — the third time in one session that
+    a check scraped its own prose. **Strip comments before you parse.**
+
+59. **The mobile-sheet spec was measuring a transition, not a sheet.** `dragging the handle open
+    reveals the shrine list` waited for the `collapsed` class to drop and then took a bounding
+    box: 134px against an assertion of >200, on a sheet that animates `height` from 108px to
+    ~641px. Five per cent into the transition.
+
+    Worth recording how it was diagnosed, because two plausible explanations were both wrong.
+    It appeared in a full run alongside the five environmental failures of §9.53, so the first
+    guess was "more of the same" — but re-running it alone reproduced it, three times. The
+    second guess was "one of this session's four commits", and bisecting gave `e845f95` pass,
+    `d9bcf8e` fail, `f2e9e1b` pass, `cbfaa02` fail: **non-monotonic, which is a bisect telling
+    you the test is timing-dependent rather than telling you which commit broke it.** Probing
+    the sheet directly with an 800ms settle gave 641px every time.
+
+    So `settle()` moved from `e2e/a11y.spec.ts` into `e2e/fixtures.ts` and both specs use it.
+    Two different checks had now measured a transient animated state and blamed the code: axe
+    reading a `reveal-rise` fade as a contrast failure (§9.46), and this reading a height
+    transition as a broken drag handle. One definition, one place.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

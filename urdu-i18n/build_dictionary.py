@@ -981,6 +981,68 @@ FOUNDED = {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
+# 5b. OBSERVANCES (the `Events` column, segment by segment)
+# ─────────────────────────────────────────────────────────────────────────────
+# Why segments rather than whole cells: the column is semicolon-joined, so 318
+# occurrences reduce to 190 distinct segments, and the 29 below account for 157
+# of them. The almanac splits on ';' and looks each part up, which is why the
+# keys here have no trailing punctuation.
+#
+# Why not compose from tokens: "urs" + "annual" + "spring" would let this file
+# decide Urdu word order, which is exactly the bug that made the almanac's
+# coverage line read "169 places out of 32" (HANDOVER §9.52). A whole segment is
+# translated once, by hand, or not at all.
+#
+# These are DRAFTS. Same standing as the shrine-name and founding-phrase
+# additions: written carefully, not signed off by a fluent speaker. What is not
+# here stays in English and is counted as declared debt by
+# e2e/urdu-no-leak.spec.ts, which is the honest way round — a wrong Urdu
+# observance would be worse than a visibly untranslated one.
+OBSERVANCES = {
+    # ── ʿurs and Sufi programme ──────────────────────────────────────────────
+    "Annual urs": "سالانہ عرس",
+    "Annual urs (spring)": "سالانہ عرس (بہار)",
+    "langar": "لنگر",
+    "daily langar": "روزانہ لنگر",
+    "qawwali": "قوالی",
+    "qawwali and naat": "قوالی اور نعت",
+    "naat and qawwali": "نعت اور قوالی",
+    "qawwali and langar": "قوالی اور لنگر",
+    "Thursday-evening qawwali and dhamal": "جمعرات کی شام قوالی اور دھمال",
+    "large annual gathering": "بڑا سالانہ اجتماع",
+    # ── Hindu observances ────────────────────────────────────────────────────
+    "Holi": "ہولی",
+    "Diwali": "دیوالی",
+    "Janmashtami": "جنم اشٹمی",
+    "Maha Shivratri": "مہا شیو راتری",
+    "Raksha Bandhan": "رکشا بندھن",
+    "Cheti Chand": "چیٹی چنڈ",
+    # ── Sikh observances ─────────────────────────────────────────────────────
+    "Guru Nanak Gurpurab": "گرو نانک گرپورب",
+    "Guru Nanak anniversaries": "گرو نانک کی برسیاں",
+    "Sikh anniversaries": "سکھ برسیاں",
+    "Sikh pilgrimage": "سکھ زیارت",
+    "Sikh pilgrimage, especially Guru Nanak's Gurpurab":
+        "سکھ زیارت، خاص طور پر گرو نانک کا گرپورب",
+    "Daily prakash": "روزانہ پرکاش",
+    # ── Generic practice ─────────────────────────────────────────────────────
+    "Community worship": "اجتماعی عبادت",
+    "Daily worship": "روزانہ عبادت",
+    "daily worship": "روزانہ عبادت",
+    "Occasional pilgrimage": "کبھی کبھار زیارت",
+    "heritage visitation": "ورثہ کے طور پر آمد",
+    "five daily prayers": "پنج وقتہ نماز",
+    # ── Absences. The archive says "we do not know" and "there is none" in
+    #    different words on purpose; the Urdu keeps them apart. ──────────────
+    "Not documented": "درج نہیں",
+    "not currently observed": "اِس وقت نہیں منایا جاتا",
+    "None - abandoned": "کوئی نہیں — متروک",
+    "None - heritage site, no devotional programme":
+        "کوئی نہیں — ورثہ مقام، کوئی عبادتی پروگرام نہیں",
+    "no fixed public festival documented": "کوئی مقررہ عوامی تہوار درج نہیں",
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
 # 6. LOCATION COMPOSITION
 # ─────────────────────────────────────────────────────────────────────────────
 # split on Latin/Arabic commas and slashes but keep parenthetical groups
@@ -1106,6 +1168,7 @@ def build(rows, glossary):
     seed.update(names_map)
     seed.update(SAINTS)
     seed.update(FOUNDED)
+    seed.update(OBSERVANCES)
     seed.update(locations_map)
     seed.update(glossary)
 
@@ -1127,6 +1190,7 @@ def build(rows, glossary):
         "shrineNames": names_map,
         "saints": SAINTS,
         "foundedPhrases": FOUNDED,
+        "observances": OBSERVANCES,
         "locations": locations_map,
         "sufiGlossary": glossary,
     }
@@ -1135,7 +1199,8 @@ def build(rows, glossary):
         "tourRegions": len(TOUR_REGIONS), "tourThemes": len(TOUR_THEMES),
         "tourEras": len(TOUR_ERAS), "placeTokens": len(PLACE_TOKENS),
         "shrineNames": len(names_map), "saints": len(SAINTS),
-        "foundedPhrases": len(FOUNDED), "locations": len(locations_map),
+        "foundedPhrases": len(FOUNDED), "observances": len(OBSERVANCES),
+        "locations": len(locations_map),
         "sufiGlossary": len(glossary), "flatSeedEntries": len(seed),
     }
     return structured, seed, names_map, loc_unknowns

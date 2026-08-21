@@ -48,7 +48,16 @@ export function NearbyShrines({ shrine, all }: Props) {
               <div className="related-card-body">
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
-                  {location && <span>{location} · </span>}
+                  {/* Same as RelatedShrines: the Location column is often a
+                      survey qualification in English, so <bdi> isolates it and
+                      `data-latin` declares it. Two components render the same
+                      card shape; fixing one and not the other is how the leak
+                      survived. */}
+                  {location && (
+                    <span data-latin>
+                      <bdi>{location}</bdi> ·{' '}
+                    </span>
+                  )}
                   {/* "< 1 km" covered everything from a shared pin to 900 m.
                       Metres below a kilometre, and for two records that share a
                       recorded position, no distance at all — every
