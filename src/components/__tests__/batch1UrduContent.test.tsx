@@ -25,8 +25,8 @@ const BATCH_1_SAMPLE = ['Shrine of Abdullah Shah Ghazi', 'Gurdwara Darbar Sahib 
 describe('batch-1 Urdu content (18 tour-featured shrines)', () => {
   it.each(BATCH_1_SAMPLE)(
     '%s: renders a fully-Urdu article via the content override, no leaks',
-    (name) => {
-      const rows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+    async (name) => {
+      const rows = await applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
       const row = rows.find((r) => r.Name === name);
       expect(row, `fixture row for "${name}"`).toBeDefined();
       expect(row!['Description Urdu'], 'override should have filled Description Urdu').toBeTruthy();
@@ -57,8 +57,8 @@ function NavItemsProbe({ shrine }: { shrine: ReturnType<typeof buildShrine> }) {
 }
 
 describe('batch-1 Table of Contents', () => {
-  it('lists Urdu section labels (not raw English headings) for a translated shrine', () => {
-    const rows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+  it('lists Urdu section labels (not raw English headings) for a translated shrine', async () => {
+    const rows = await applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
     const row = rows.find((r) => r.Name === 'Shrine of Abdullah Shah Ghazi')!;
     const shrine = buildShrine(row, 0)!;
     const { container } = renderWithProviders(<NavItemsProbe shrine={shrine} />, { lang: 'ur' });

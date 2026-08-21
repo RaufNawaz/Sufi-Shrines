@@ -14,7 +14,7 @@ import type { ShrineRow } from '../../types/shrine';
 // raw CSV/fallback rows) so this test exercises actual production behavior
 // instead of depending on the fixture carrying a hand-seeded "Description
 // Urdu" column — the live sheet has no Urdu columns at all (see CLAUDE.md).
-const fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+const fixtureRows = await applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
 
 // The search worker isn't available in jsdom; "no query yet" (ids: null)
 // is exactly its real behavior before the worker has indexed anything.

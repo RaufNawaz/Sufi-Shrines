@@ -1,7 +1,6 @@
 import type { ShrineRow } from '../../types/shrine';
 import { buildStableSlug } from './slugify';
 import { getFieldValue } from './fieldAliasing';
-import urduContent from '../../data/urdu-content.json';
 
 export interface UrduContentSections {
   history?: string;
@@ -28,7 +27,19 @@ const SECTION_FIELD_MAP: Record<keyof UrduContentSections, string> = {
   sources: 'Sources',
 };
 
-const CONTENT = urduContent as Record<string, UrduContentEntry>;
+/** urdu-content.json is ~250 KB gzipped — all 168 Urdu articles. Loaded as
+ * its own lazy chunk so it never sits in any page's critical-path JS: both
+ * call sites (CSV parse, snapshot fallback) are already async, and every
+ * setShrines happens strictly after the merge, so nothing can render
+ * unmerged. Memoized: one import per session, shared by all callers. */
+let contentPromise: Promise<Record<string, UrduContentEntry>> | null = null;
+
+function loadUrduContent(): Promise<Record<string, UrduContentEntry>> {
+  contentPromise ??= import('../../data/urdu-content.json').then(
+    (m) => m.default as Record<string, UrduContentEntry>,
+  );
+  return contentPromise;
+}
 
 /**
  * Fills in "<Field> Urdu" values on rows whose shrine slug has an in-repo
@@ -70,6 +81,6 @@ export function mergeUrduContent(
   });
 }
 
-export function applyUrduContentOverrides(rows: ShrineRow[]): ShrineRow[] {
-  return mergeUrduContent(rows, CONTENT);
+export async function applyUrduContentOverrides(rows: ShrineRow[]): Promise<ShrineRow[]> {
+  return mergeUrduContent(rows, await loadUrduContent());
 }
