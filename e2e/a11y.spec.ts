@@ -48,6 +48,40 @@ test.describe('Accessibility (axe-core)', () => {
     expect(h2Count).toBeGreaterThan(0);
   });
 
+  // The almanac and graph pages shipped after the original a11y sweep
+  // (18 Aug); they stay in the matrix so regressions surface here rather
+  // than in a reader's screen reader (plan item A6,
+  // docs/planning/NEXT_STEPS_2026-08-21.md).
+  test('almanac page has no critical violations', async ({ page }) => {
+    await page.goto('/almanac');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
+  test('graph page has no critical violations', async ({ page }) => {
+    await page.goto('/graph');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('keyboard navigation reaches interactive elements', async ({ page }) => {
     await page.goto('/');
     // Tab from body should hit skip-link then sidebar controls
