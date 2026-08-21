@@ -17,9 +17,11 @@ Live at **`raufnawaz.github.io/Sufi-Shrines/`**.
 
 Each site has a location, a prose description, provenance metadata, and where available
 photographs taken by our own enumerators. The archive's distinguishing claim is not coverage —
-Punjab Auqaf alone administers **534** shrines against our **167** — but *honesty about
-provenance*: a visitor should be able to tell a field-verified entry from one compiled off the
-web.
+Punjab Auqaf alone administers **534** shrines against our **169** (*count as of 21 August
+2026*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
+from one compiled off the web. `/coverage` computes that comparison, and everything behind it,
+from the shipped data on every page load, so the reader is never relying on a number in a
+document.
 
 ### People
 
@@ -1664,6 +1666,25 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     nothing on this host — and `scripts/backfill-slugs.mjs`, which generates blocks for it, says
     so too. It is kept rather than deleted because it is the record of a fallback that looked
     correct for months.
+
+62. **The documentation index listed 23 of 52 docs, and `HANDOVER.md` was not one of them.**
+    CLAUDE.md calls `docs/README.md` "index of all reference and planning docs". It omitted this
+    file — the one CLAUDE.md tells every reader to open first — along with `TODO.md`,
+    `RUNBOOK.md`, `GOLD_STANDARD.md`, `FRONTEND_NOTES.md` and the entire `prompts/` directory
+    that RULE 0 exists to populate.
+
+    **The worse half was a link that pointed somewhere wrong rather than nowhere.** The index's
+    "live working checklist" was `docs/planning/TODO.md`, a snapshot from **12 July** whose
+    stated highest-priority item — syncing the enriched workbook to the live sheet — was
+    completed on 18 August, and whose row count was two imports stale. A contributor following
+    the index would have started on finished work. That file now opens with a SUPERSEDED banner
+    naming the live one.
+
+    `src/lib/data/__tests__/docsIndex.test.ts` enforces it in both directions: every doc under
+    `docs/` must be linked, and every link must resolve. Mutation-tested both ways — and the
+    first mutation attempt *passed*, because `HANDOVER.md` happened to be linked twice and I had
+    only broken one of them. **A mutation test that passes has not proved the check is sound; it
+    has proved the mutation was too weak.**
 
 ## 10. Risks if this is left unattended
 

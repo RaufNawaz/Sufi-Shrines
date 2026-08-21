@@ -1,3 +1,12 @@
+> ## ⚠ SUPERSEDED — this is a snapshot from 12 July 2026, kept for history.
+>
+> **The live working log is [`docs/TODO.md`](../TODO.md).** Read that instead.
+>
+> Nothing below is current. Its stated highest-priority item — syncing the enriched workbook to
+> the live Google Sheet — was completed on **18 August 2026**, and its row count (163) is two
+> imports out of date. `docs/README.md` pointed at *this* file as the live checklist for weeks
+> after that, which is why the index is now enforced by a test.
+
 # Shrines Project — To-Do List
 
 _Last updated: 2026-07-12. Snapshot: **163 data rows**, **0 missing descriptions**, **51 missing Image 1** (exhaustively searched — see `_image_unverified.md`; these have no discoverable, appropriately-licensed Commons photo). Note: the enriched `Shrines_with_Descriptions.xlsx` (Founded/Events/Images/Description Urdu) has **not yet been synced to the live Google Sheet** the app actually reads from — `data/shrines.json` still reflects the pre-enrichment Sheet state (e.g. only 6/163 rows have an Image 2). Syncing the Sheet is the highest-priority open item; see the root project plan._

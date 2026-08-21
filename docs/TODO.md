@@ -288,6 +288,24 @@ those routes in both languages.
 `public/_redirects` now says in its first line that it does nothing on GitHub Pages, and
 `backfill-slugs.mjs` says so where it generates blocks for it.
 
+### The docs index listed 23 of 52 files, and HANDOVER.md was not one
+
+CLAUDE.md calls `docs/README.md` the index of all docs. It omitted this file's own companion —
+`HANDOVER.md`, the one CLAUDE.md says to read first — plus `TODO.md`, `RUNBOOK.md`,
+`GOLD_STANDARD.md`, `FRONTEND_NOTES.md` and the whole `prompts/` directory.
+
+The worse half pointed somewhere wrong rather than nowhere: the "live working checklist" link
+went to `docs/planning/TODO.md`, a 12 July snapshot whose stated highest-priority item was
+completed on 18 August. Anyone following the index would have started on finished work. That
+file now opens with a SUPERSEDED banner.
+
+Rewritten to list all 52, and `docsIndex.test.ts` enforces both directions. Mutation-tested —
+and the first mutation *passed*, because HANDOVER.md was linked twice and I had broken only one
+link. A mutation test that passes has not proved the check sound; it has proved the mutation
+weak.
+
+`npm run verify`: 526 tests.
+
 ### Translate next
 
 The **graph's 253** are mostly personal names, and some are not names at all but phrases from a

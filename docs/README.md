@@ -4,15 +4,42 @@ Reference documentation for the Sufi Shrines project. Start with the root
 [`README.md`](../README.md) (overview, quick start) and [`CLAUDE.md`](../CLAUDE.md)
 (architecture, i18n rules, working conventions).
 
-## Reference
+**Every markdown file under `docs/` is listed below.** That is not a courtesy — it is enforced.
+`src/lib/data/__tests__/docsIndex.test.ts` fails if a doc exists that this page does not link,
+because the previous version of this index omitted **29 files, including `HANDOVER.md`** — the
+one file `CLAUDE.md` tells every reader to open first — and pointed the "live checklist" link at
+a July snapshot whose stated highest-priority item had been completed in August. An index that
+can go stale silently is worse than no index, because it is trusted.
 
-| Doc                                        | Purpose                                                                         |
-| ------------------------------------------ | ------------------------------------------------------------------------------- |
-| [`HANDOFF.md`](HANDOFF.md)                 | Maintainer handbook: scripts, architecture, data updates, deploy, environment   |
-| [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) | Dataset field reference, controlled vocabularies, validation rules              |
-| [`DATA_RELEASE.md`](DATA_RELEASE.md)       | Producing a citable data release and minting a DOI (Zenodo / Harvard Dataverse) |
-| [`KG_VOCABULARY.md`](KG_VOCABULARY.md)     | Custom `sufi:` vocabulary used in the knowledge-graph exports (JSON-LD / RDF)   |
-| [`CORRECTIONS_WORKFLOW.md`](CORRECTIONS_WORKFLOW.md) | How to report and process a factual correction to shrine content     |
+## Read these first
+
+| Doc                                | Purpose                                                                       |
+| ---------------------------------- | ----------------------------------------------------------------------------- |
+| [`HANDOVER.md`](HANDOVER.md)       | **Full project state**: what this is, where everything lives, trust calibration (§9 — read it), risks, how to resume. The most important document here. |
+| [`TODO.md`](TODO.md)               | **The live working log.** Session-by-session record of what was done and what is next. |
+| [`RUNBOOK.md`](RUNBOOK.md)         | What to do next, in order                                                     |
+| [`HANDOFF.md`](HANDOFF.md)         | Maintainer handbook: scripts, architecture, data updates, deploy, environment  |
+| [`GOLD_STANDARD.md`](GOLD_STANDARD.md) | What "done properly" means for a single entry                              |
+
+## Data and schema
+
+| Doc                                                  | Purpose                                                              |
+| ---------------------------------------------------- | -------------------------------------------------------------------- |
+| [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md)           | Field reference, controlled vocabularies, validation rules           |
+| [`DATA_RELEASE.md`](DATA_RELEASE.md)                 | Producing a citable data release and minting a DOI (Zenodo / Dataverse) |
+| [`KG_VOCABULARY.md`](KG_VOCABULARY.md)               | The custom `sufi:` vocabulary used in the JSON-LD / RDF exports      |
+| [`CORRECTIONS_WORKFLOW.md`](CORRECTIONS_WORKFLOW.md) | How to report and process a factual correction                       |
+| [`Shrines_Schema_and_Remediation_Spec.md`](Shrines_Schema_and_Remediation_Spec.md) | Schema revision and remediation spec        |
+| [`EDITORIAL_DECISIONS_PENDING.md`](EDITORIAL_DECISIONS_PENDING.md) | The `qa_note` backlog — decisions only a human can make |
+| [`allo_mahar_resolution.md`](allo_mahar_resolution.md) | Worked example: resolving a figure mismatch in one entry            |
+| [`patch_addendum_hinglaj.md`](patch_addendum_hinglaj.md) | Patch addendum for Shaktipeeth Shri Hinglaj Mata Mandir           |
+
+## Front end
+
+| Doc                                    | Purpose                                                                    |
+| -------------------------------------- | -------------------------------------------------------------------------- |
+| [`FRONTEND_NOTES.md`](FRONTEND_NOTES.md) | How the front end reads and renders the sheet — including §6, the MapTiler basemap measurements |
+| [`REVIEW_ur_prefix_routing.md`](REVIEW_ur_prefix_routing.md) | Review gate for the `/ur/*` prerendered routes       |
 
 ## OCR guides (Urdu book pipeline)
 
@@ -22,23 +49,65 @@ Reference documentation for the Sufi Shrines project. Start with the root
 | [`BOOK_OCR_WORKFLOW_MAC.md`](BOOK_OCR_WORKFLOW_MAC.md)       | Full OCR + translation pipeline setup — macOS                |
 | [`LOCAL_OCR_QUICKSTART.md`](LOCAL_OCR_QUICKSTART.md)         | Short "run OCR on a PDF now" recipe — Windows / PowerShell   |
 | [`LOCAL_OCR_QUICKSTART_MAC.md`](LOCAL_OCR_QUICKSTART_MAC.md) | Short "run OCR on a PDF now" recipe — macOS                  |
+| [`LIBRARY_OCR_SETUP.md`](LIBRARY_OCR_SETUP.md)               | Setting up the library workstation OCR kit                   |
+| [`NEW_LAPTOP_OCR_RUNBOOK.md`](NEW_LAPTOP_OCR_RUNBOOK.md)     | Move, OCR, translate, photos — walkthrough on a fresh laptop  |
+| [`CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md`](CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md) | Measured comparison: reading OCR'd Urdu directly vs the LibreTranslate pipeline |
+
+## Media and archiving
+
+| Doc                                              | Purpose                                                     |
+| ------------------------------------------------ | ----------------------------------------------------------- |
+| [`manifest_report.md`](manifest_report.md)       | Shrine → Drive media manifest report                        |
+| [`internet_archive_setup.md`](internet_archive_setup.md) | Internet Archive setup for the oral-history recordings |
+| [`DECISION_oral_histories.md`](DECISION_oral_histories.md) | Decision required: do oral histories happen, or come off the plan? |
 
 ## Planning (`planning/`)
 
-Roadmaps and runbooks; some are kept for history after implementation.
+Roadmaps and runbooks; several are kept for history after implementation.
 
 | Doc                                                                            | Purpose                                                                           |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| [`planning/TODO.md`](planning/TODO.md)                                         | Live working checklist for the dataset and app                                    |
-| [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
-| [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |
-| [`planning/PROJECT_VISION.md`](planning/PROJECT_VISION.md)                     | Blue-sky roadmap (Track 0 = Urdu parity; Tracks 1–8 = the future)                 |
-| [`planning/DESIGN_VISION.md`](planning/DESIGN_VISION.md)                       | Aesthetic direction (palette, type, marginalia signature) + blue-sky features F1–F10 |
-| [`planning/URDU_IMPLEMENTATION_PLAN.md`](planning/URDU_IMPLEMENTATION_PLAN.md) | Phased Urdu-parity plan (implemented — historical reference)                      |
-| [`planning/ENRICHMENT_RUNBOOK.md`](planning/ENRICHMENT_RUNBOOK.md)             | Per-run procedure for enriching the shrines workbook (descriptions, rows, images) |
-| [`planning/TOURS_FUTURE_PLAN.md`](planning/TOURS_FUTURE_PLAN.md)               | Guided-tours experience roadmap (phases 1–5 implemented)                          |
-| [`planning/DATA_QUALITY_PLAN.md`](planning/DATA_QUALITY_PLAN.md)               | Detailed plan: description content provenance, citations, fact-verification (Track 6) |
+| [`planning/PROJECT_VISION.md`](planning/PROJECT_VISION.md)                     | Blue-sky roadmap (Track 0 = Urdu parity; Tracks 1–8 = the future)                  |
+| [`planning/DESIGN_VISION.md`](planning/DESIGN_VISION.md)                       | Aesthetic direction (palette, type, marginalia) + blue-sky features F1–F10         |
+| [`planning/SHARED_GROUND_VISION.md`](planning/SHARED_GROUND_VISION.md)         | Sites that share ground across traditions — tracks A–D, and the 3358 m clustering near-miss |
+| [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                      |
+| [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for cheaper models                  |
+| [`planning/URDU_IMPLEMENTATION_PLAN.md`](planning/URDU_IMPLEMENTATION_PLAN.md) | Phased Urdu-parity plan (implemented — historical reference)                       |
+| [`planning/A8_URDU_DELTA_SCOPE.md`](planning/A8_URDU_DELTA_SCOPE.md)           | Measured scope and resume point for the Urdu content delta (task A8)               |
+| [`planning/TOURS_FUTURE_PLAN.md`](planning/TOURS_FUTURE_PLAN.md)               | Guided-tours roadmap (phases 1–5 implemented)                                      |
+| [`planning/DATA_QUALITY_PLAN.md`](planning/DATA_QUALITY_PLAN.md)               | Description provenance, citations, fact-verification (Track 6)                     |
+| [`planning/ENRICHMENT_RUNBOOK.md`](planning/ENRICHMENT_RUNBOOK.md)             | Per-run procedure for enriching the shrines workbook                               |
+| [`planning/AUQAF_INTEGRATION_PLAN.md`](planning/AUQAF_INTEGRATION_PLAN.md)     | Auqaf ↔ Shrines integration plan (Bibi Pak Daman demo)                            |
+| [`planning/PROJECT_HEAD_FEEDBACK_PLAN.md`](planning/PROJECT_HEAD_FEEDBACK_PLAN.md) | Triage and plan for the project head's feedback                               |
+| [`planning/TODO.md`](planning/TODO.md)                                         | ⚠ **Superseded snapshot (12 July 2026).** Kept for history. The live checklist is [`TODO.md`](TODO.md). |
 
-Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu
-dictionary + content pipeline) and [`../data/`](../data/) (canonical dataset, schema,
-provenance, exports).
+## Proposals, status and correspondence
+
+Point-in-time documents. Useful as history; **do not read them as current state** — that is
+[`HANDOVER.md`](HANDOVER.md) and [`TODO.md`](TODO.md).
+
+| Doc                                                            | Purpose                                                    |
+| -------------------------------------------------------------- | ---------------------------------------------------------- |
+| [`PROPOSAL_Shrines_Data_Quality.md`](PROPOSAL_Shrines_Data_Quality.md) | Data-quality proposal                               |
+| [`STATUS_AND_ROADMAP.md`](STATUS_AND_ROADMAP.md)               | Status and roadmap write-up                                |
+| [`OPERATING_PLAN.md`](OPERATING_PLAN.md)                       | Operating plan                                             |
+| [`POST_DATA_LAYER_ROADMAP.md`](POST_DATA_LAYER_ROADMAP.md)     | What comes after the data layer                             |
+| [`Shrines_Execution_Plan.md`](Shrines_Execution_Plan.md)       | Earlier execution plan                                      |
+| [`Shrines_Content_Quality_Plan.md`](Shrines_Content_Quality_Plan.md) | Content quality, source strategy, field-data plan     |
+| [`FAST_PLAN.md`](FAST_PLAN.md)                                 | A 30-minute run plan                                        |
+| [`TASKS.md`](TASKS.md)                                         | An autonomous work plan                                     |
+| [`auqaf_records_brief.md`](auqaf_records_brief.md)             | Briefing note for the Auqaf records ask                     |
+| [`email_to_adil_data_layer.md`](email_to_adil_data_layer.md)   | Follow-up email to Adil on the data layer                   |
+| [`message_to_saifullah_2026-08-16.md`](message_to_saifullah_2026-08-16.md) | Draft message to Saifullah, 16 August 2026        |
+
+## Prompts (`prompts/`)
+
+Prompts written for Claude Code or other agents (RULE 0: they live here, not in a transcript).
+
+| Doc                                                              | Purpose                                              |
+| ---------------------------------------------------------------- | ---------------------------------------------------- |
+| [`prompts/pipeline_prompts.md`](prompts/pipeline_prompts.md)     | Generation-pipeline prompt specification             |
+| [`prompts/PROMPT_media_pipeline.md`](prompts/PROMPT_media_pipeline.md) | Generalising the image pipeline to all shrines |
+
+Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
+content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
