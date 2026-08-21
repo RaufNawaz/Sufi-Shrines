@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { buildAlmanac, type AlmanacEntry } from '../../lib/data/almanac';
+import { buildIcs } from '../../lib/data/almanacIcs';
+import { downloadIcsFile } from '../../lib/data/icsDownload';
 import { formatDateWindow, formatSourceDate } from '../../lib/i18n/formatDateWindow';
 
 interface Props {
@@ -20,14 +22,26 @@ interface Props {
 export function ShrineObservances({ shrine }: Props) {
   const { lang, t, fmtNum } = useLang();
 
-  const next: AlmanacEntry | null = useMemo(() => {
-    const almanac = buildAlmanac([shrine], new Date());
-    return almanac.dated[0] ?? null;
-  }, [shrine]);
+  const dated: AlmanacEntry[] = useMemo(() => buildAlmanac([shrine], new Date()).dated, [shrine]);
+  const next = dated[0] ?? null;
 
   if (!next) return null;
 
-  const { observance, window, approximate } = next;
+  const downloadShrineIcs = () => {
+    // All of this shrine's projected windows in the horizon — a Hijri urs
+    // can genuinely fall twice in one Gregorian year, and the reader's
+    // calendar should carry both. The approximation warnings travel inside
+    // the file (see almanacIcs.ts).
+    const ics = buildIcs(dated, {
+      baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
+      now: new Date(),
+    });
+    downloadIcsFile(ics, `urs-${shrine.slug}.ics`);
+  };
+
+  // `window` renamed on destructure: the DateWindow would otherwise shadow
+  // globalThis.window inside downloadShrineIcs above.
+  const { observance, window: dateWindow, approximate } = next;
   const monthOnly = observance.precision === 'month';
 
   return (
@@ -37,7 +51,7 @@ export function ShrineObservances({ shrine }: Props) {
       </h2>
       <p className="shrine-observances-next">
         <span className="shrine-observances-date">
-          {formatDateWindow(window, lang, fmtNum, { monthOnly })}
+          {formatDateWindow(dateWindow, lang, fmtNum, { monthOnly })}
         </span>
         {approximate && (
           <span
@@ -62,9 +76,14 @@ export function ShrineObservances({ shrine }: Props) {
           )}
         </bdi>
       </p>
-      <Link className="shrine-observances-link" to={`/almanac#${shrine.slug}`}>
-        {t('obsViewAlmanac')}
-      </Link>
+      <div className="shrine-observances-actions">
+        <button type="button" className="action-btn" onClick={downloadShrineIcs}>
+          {t('almanacDownloadIcs')}
+        </button>
+        <Link className="shrine-observances-link" to={`/almanac#${shrine.slug}`}>
+          {t('obsViewAlmanac')}
+        </Link>
+      </div>
     </aside>
   );
 }

@@ -52,6 +52,17 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('#data-darbar')).toBeVisible();
   });
 
+  test('the urs block hands the reader a real .ics file for this shrine', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    const block = page.locator('.shrine-observances');
+    await expect(block).toBeVisible();
+
+    const downloadPromise = page.waitForEvent('download');
+    await block.getByRole('button', { name: UI_TEXT.en.almanacDownloadIcs }).click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe('urs-data-darbar.ics');
+  });
+
   test('prints as a handout: article and facts stay, chrome and map go', async ({ page }) => {
     await page.goto('/shrine/data-darbar');
     await page.locator('h1.shrine-title').waitFor();

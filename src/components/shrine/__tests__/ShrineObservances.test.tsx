@@ -35,6 +35,11 @@ describe('<ShrineObservances>', () => {
     expect(screen.getByText(/18–20 Safar/)).toBeInTheDocument();
   });
 
+  it('offers a calendar download for a dated observance', () => {
+    renderIt('Annual urs (18-20 Safar)');
+    expect(screen.getByRole('button', { name: UI_TEXT.en.almanacDownloadIcs })).toBeInTheDocument();
+  });
+
   it('deep-links to the shrine anchor in the almanac', () => {
     renderIt('Annual urs (18-20 Safar)');
     const link = screen.getByText(UI_TEXT.en.obsViewAlmanac).closest('a');

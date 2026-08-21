@@ -288,6 +288,13 @@
   color: var(--color-text-secondary);
 }
 
+.shrine-observances-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
 .shrine-observances-link {
   display: inline-flex;
   align-items: center;

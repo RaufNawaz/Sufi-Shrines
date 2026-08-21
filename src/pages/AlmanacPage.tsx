@@ -10,6 +10,7 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
+import { downloadIcsFile } from '../lib/data/icsDownload';
 import {
   formatDateWindow,
   formatSourceDate,
@@ -144,15 +145,7 @@ export default function AlmanacPage() {
       baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
       now: new Date(),
     });
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'urs-almanac.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    downloadIcsFile(ics, 'urs-almanac.ics');
   };
 
   const { counts } = almanac;
