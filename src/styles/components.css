@@ -329,6 +329,67 @@
   color: var(--color-text-secondary);
 }
 
+/* The places index (Track B). A grid rather than a list: 30-odd short names
+   with a count each read as a table of contents, and a single column of them
+   would be a page of whitespace. */
+.coverage-place-note {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.coverage-place-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--space-1) var(--space-4);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.coverage-place-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  /* 44px would break the grid's rhythm for a row of text; this is a link in a
+     dense index, which WCAG's target-size criterion exempts, and the whole row
+     is the target rather than the word. */
+  min-height: 32px;
+  padding-block: var(--space-1);
+  border-block-end: 1px solid var(--color-border-light);
+  text-decoration: none;
+}
+
+.coverage-place-link:hover .coverage-place-name,
+.coverage-place-link:focus-visible .coverage-place-name {
+  text-decoration: underline;
+}
+
+/* An underline crosses Nastaliq descenders, so the Urdu index marks the hover
+   state by weight instead (HANDOVER §9.48). */
+[dir='rtl'] .coverage-place-link:hover .coverage-place-name,
+[dir='rtl'] .coverage-place-link:focus-visible .coverage-place-name {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.coverage-place-name {
+  color: var(--color-primary);
+}
+
+.coverage-place-count {
+  flex-shrink: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .coverage-place-count {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
 .coverage-facts strong {
   color: var(--color-text);
   font-variant-numeric: tabular-nums;
@@ -494,4 +555,99 @@
 
 [dir='rtl'] .about-citation-label {
   letter-spacing: normal;
+}
+
+/* ── Place pages (Track B) ──────────────────────────────────────────────────
+   One place, and what the archive records in it. The traditions row is the
+   point of the page: in Lahore, five of the six traditions stand within a few
+   streets of one another, and until these pages existed no view said so. */
+
+.place-page .coverage-intro {
+  margin-block-end: var(--space-5);
+}
+
+.place-tradition-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place-tradition {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  /* A left/right border would land on the wrong side in Urdu. */
+  border-inline-start-width: 3px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  font-size: var(--text-sm);
+}
+
+.place-tradition-name {
+  color: var(--color-text-secondary);
+}
+
+.place-tradition-count {
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The tradition's own colour, the same palette the map markers, the category
+   chips and the coverage bars use. Only the leading edge is tinted: a fully
+   coloured chip competes with the site list below it. */
+.place-tradition--muslim {
+  border-inline-start-color: var(--color-cat-muslim);
+}
+.place-tradition--hindu {
+  border-inline-start-color: var(--color-cat-hindu);
+}
+.place-tradition--sikh {
+  border-inline-start-color: var(--color-cat-sikh);
+}
+.place-tradition--nanakpanthi {
+  border-inline-start-color: var(--color-cat-nanakpanthi);
+}
+.place-tradition--jain {
+  border-inline-start-color: var(--color-cat-jain);
+}
+.place-tradition--secular {
+  border-inline-start-color: var(--color-cat-secular);
+}
+
+.place-site-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place-site {
+  padding-block: var(--space-2);
+  border-block-end: 1px solid var(--color-border-light);
+}
+
+.place-site:last-child {
+  border-block-end: none;
+}
+
+.place-site a {
+  font-weight: 600;
+}
+
+.place-site-location {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .place-site-location {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
 }

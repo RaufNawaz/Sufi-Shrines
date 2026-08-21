@@ -43,7 +43,12 @@ import { categoryKey, type CategoryKey } from './categoryKey';
 /**
  * The closed place vocabulary.
  *
- * `name` is spelled as the data spells it. `match` is deliberately loose about
+ * `name` is spelled as the **dictionary and the data** spell it, which is not
+ * always the shortest form: the sheet says "Sehwan Sharif", "Ghotki District"
+ * and "Hingol National Park", and the Urdu dictionary is keyed on exactly those
+ * strings. Shortening a name to look tidier costs its Urdu — measured: five of
+ * the sixty-two entries had no Urdu until their names were spelled the way the
+ * archive spells them. `places.test.ts` asserts every name resolves. `match` is deliberately loose about
  * level ("Multan" catches "Multan City") and strict about word boundaries, so
  * `Dadu` cannot match inside another word. Entries are ordered alphabetically by
  * slug for review, not by frequency.
@@ -69,11 +74,11 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'dera-ghazi-khan', name: 'Dera Ghazi Khan', match: /\bDera\s+Ghazi\s+Khan\b/i },
   { slug: 'eminabad', name: 'Eminabad', match: /\bEminabad\b/i },
   { slug: 'farooqabad', name: 'Farooqabad', match: /\bFarooqabad\b/i },
-  { slug: 'ghotki', name: 'Ghotki', match: /\bGhotki\b/i },
+  { slug: 'ghotki', name: 'Ghotki District', match: /\bGhotki\b/i },
   { slug: 'gujranwala', name: 'Gujranwala', match: /\bGujranwala\b/i },
   { slug: 'gujrat', name: 'Gujrat', match: /\bGujrat\b/i },
   { slug: 'hasan-abdal', name: 'Hasan Abdal', match: /\bHasan\s+Abdal\b/i },
-  { slug: 'hingol', name: 'Hingol', match: /\bHingol\b/i },
+  { slug: 'hingol', name: 'Hingol National Park', match: /\bHingol\b/i },
   { slug: 'islamabad', name: 'Islamabad', match: /\bIslamabad\b/i },
   { slug: 'jhal-magsi', name: 'Jhal Magsi', match: /\bJhal\s+Magsi\b/i },
   { slug: 'jhang', name: 'Jhang', match: /\bJhang\b/i },
@@ -88,7 +93,7 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'kohat', name: 'Kohat', match: /\bKohat\b/i },
   { slug: 'lahore', name: 'Lahore', match: /\bLahore\b/i },
   { slug: 'larkana', name: 'Larkana', match: /\bLarkana\b/i },
-  { slug: 'lasbela', name: 'Lasbela', match: /\bLasbela\b/i },
+  { slug: 'lasbela', name: 'Lasbela District', match: /\bLasbela\b/i },
   { slug: 'luari-sharif', name: 'Luari Sharif', match: /\bLuari\s+Sharif\b/i },
   { slug: 'malka-hans', name: 'Malka Hans', match: /\bMalka\s+Hans\b/i },
   { slug: 'mansehra', name: 'Mansehra', match: /\bMansehra\b/i },
@@ -105,13 +110,13 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'phalia', name: 'Phalia', match: /\bPhalia\b/i },
   {
     slug: 'qambar-shahdadkot',
-    name: 'Qambar–Shahdadkot',
+    name: 'Qambar–Shahdadkot District',
     match: /\bQambar[-–]\s?Shahdadkot\b|\bQambar\b/i,
   },
   { slug: 'rajanpur', name: 'Rajanpur', match: /\bRajanpur\b/i },
   { slug: 'rawalpindi', name: 'Rawalpindi', match: /\bRawalpindi\b/i },
   { slug: 'sargodha', name: 'Sargodha', match: /\bSargodha\b|\bSial\s+Sharif\b/i },
-  { slug: 'sehwan', name: 'Sehwan', match: /\bSehwan\b/i },
+  { slug: 'sehwan', name: 'Sehwan Sharif', match: /\bSehwan\b/i },
   { slug: 'shahpur', name: 'Shahpur', match: /\bShahpur\b/i },
   { slug: 'sharaqpur', name: 'Sharaqpur', match: /\bSharaqpur\b/i },
   { slug: 'sheikhupura', name: 'Sheikhupura', match: /\bSheikhupura\b/i },

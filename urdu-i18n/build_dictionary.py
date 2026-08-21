@@ -1169,6 +1169,14 @@ def build(rows, glossary):
     seed.update(SAINTS)
     seed.update(FOUNDED)
     seed.update(OBSERVANCES)
+    # Place tokens were in the *structured* dictionary but not the flat runtime
+    # seed, so `translateToUrdu('Lahore')` missed even though the dictionary has
+    # had لاہور all along — only whole location strings ("…, Lahore, Punjab,
+    # Pakistan") were looked up. A place rendered on its own, which is what the
+    # /place/:slug pages do, had no Urdu at all. Measured before adding: 0 of the
+    # 25 densest place names resolved. 282 entries, zero collisions with an
+    # existing seed key, zero Latin-script values.
+    seed.update(PLACE_TOKENS)
     seed.update(locations_map)
     seed.update(glossary)
 

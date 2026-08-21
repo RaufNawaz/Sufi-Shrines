@@ -154,6 +154,22 @@ export const UI_TEXT = {
        postposition takes its operands in the opposite order, so the fragments
        reassembled into a claim about the wrong numbers — see the ur entry. */
     almanacCoverageTotal: (dated: number, total: number) => `${dated} of ${total} sites`,
+    /* ── Places (Track B) ─────────────────────────────────────────────────── */
+    placesTitle: 'Places',
+    placeKicker: 'Place',
+    placeIntro:
+      'What the archive records in one place — which sites, which traditions, and the span of the dates it can read.',
+    placeSitesHeading: 'Sites recorded here',
+    placeTraditionsHeading: 'Traditions',
+    placeSpanHeading: 'Dates recorded',
+    placeSpanNone: 'No site here records a date this archive can read.',
+    placeNotFound: 'No place by that name is recorded.',
+    placesIntro:
+      'Where the archive is, counted from the Location each entry records. A site can appear under both a town and its district, because it is in both.',
+    placeSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
+    placeSpan: (from: number, to: number) => `${from}–${to}`,
+    placesUnplaced: (n: number) =>
+      `${n} site${n === 1 ? '' : 's'} name${n === 1 ? 's' : ''} no place this archive can identify.`,
     /* ── Accessible names ─────────────────────────────────────────────────
        Every one of these was a hardcoded English literal, so the Urdu site's
        entire accessible layer — landmark names, button labels, the reading
@@ -545,6 +561,22 @@ export const UI_TEXT = {
        English order ("32" + "میں سے" + "169" + "مقامات") it said "169 places
        out of 32", which is not clumsy phrasing but a false number. */
     almanacCoverageTotal: (dated: number, total: number) => `${total} میں سے ${dated} مقامات`,
+    /* ── Places (Track B) — drafts, not reviewed by a fluent speaker ──────── */
+    placesTitle: 'مقامات',
+    placeKicker: 'مقام',
+    placeIntro:
+      'ایک مقام پر آرکائیو کیا درج کرتا ہے — کون سے مزارات، کون سی روایات، اور جو تاریخیں پڑھی جا سکتی ہیں اُن کا دورانیہ۔',
+    placeSitesHeading: 'یہاں درج مزارات',
+    placeTraditionsHeading: 'روایات',
+    placeSpanHeading: 'درج تاریخیں',
+    placeSpanNone: 'یہاں کسی مزار کی ایسی تاریخ درج نہیں جو یہ آرکائیو پڑھ سکے۔',
+    placeNotFound: 'اِس نام کا کوئی مقام درج نہیں۔',
+    placesIntro:
+      'آرکائیو کہاں ہے — ہر اندراج کے مقام کے خانے سے گنا گیا۔ ایک مزار شہر اور اُس کے ضلع، دونوں کے تحت آ سکتا ہے، کیونکہ وہ دونوں میں ہے۔',
+    placeSiteCount: (n: number) => `${n} مزارات`,
+    placeSpan: (from: number, to: number) => `${from}ء–${to}ء`,
+    placesUnplaced: (n: number) =>
+      `${n} مزارات کا ایسا مقام درج ہے جسے یہ آرکائیو پہچان نہیں سکتا۔`,
     /* ── Accessible names ─────────────────────────────────────────────────
        Drafted here, not reviewed by a fluent speaker. Same standing as the
        dictionary drafts: usable and honest about being a draft. */
@@ -806,6 +838,9 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    pieces itself decides that placement in English. */
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
+export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
+export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
+export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
 export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
 export function tFn(lang: Lang, key: 'ariaExternalMapShowing', name: string): string;
 export function tFn(lang: Lang, key: 'galleryImageLabel', index: number, action: string): string;
@@ -827,6 +862,9 @@ export function tFn(
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'
     | 'mapLayerFrom'
+    | 'placeSiteCount'
+    | 'placeSpan'
+    | 'placesUnplaced'
     | 'ariaMapShowing'
     | 'ariaExternalMapShowing'
     | 'galleryImageLabel',

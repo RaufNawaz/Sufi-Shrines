@@ -226,6 +226,70 @@
   color: var(--color-text-secondary);
 }
 
+/* ── Place links in the masthead (Track B) ───────────────────────────────────
+   The towns and districts this site is recorded in — usually two, because a
+   shrine in Uch Sharif is also in Bahawalpur and both are true. Pills rather
+   than links inside a sentence: the order tags on /order/:slug had to stop
+   being coloured words in running prose to satisfy WCAG 1.4.1, and the fix
+   there (a bordered chip, so the affordance is shape and not hue) is the fix
+   here. No underline, deliberately — these lines can be Nastaliq, where an
+   underline crosses the descenders (HANDOVER §9.48). */
+.shrine-place-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+}
+
+.shrine-place-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+/* A map pin, so the chip reads as a place before it is read at all. Drawn in
+   CSS rather than as an inline SVG per pill: 169 pages × up to three pills is
+   a lot of identical markup for one 8px glyph. */
+.shrine-place-tag::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  /* Not a colour-only cue — the border and pill shape carry the affordance;
+     this is decoration on top of them. */
+  background: var(--color-primary);
+  opacity: 0.7;
+}
+
+.shrine-place-tag:hover,
+.shrine-place-tag:focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.shrine-place-tag:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+[dir='rtl'] .shrine-place-tag {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+}
+
 /* Quiet contribution prompt on low-information pages — a footnote, not a
    banner. */
 .contribute-note {
@@ -1511,6 +1575,12 @@
 @media (max-width: 768px) {
   .action-btn,
   .infobox-action-btn {
+    min-height: 44px;
+  }
+
+  /* Standalone chips, not links in a sentence, so the target-size exemption
+     above does not apply to them. */
+  .shrine-place-tag {
     min-height: 44px;
   }
 

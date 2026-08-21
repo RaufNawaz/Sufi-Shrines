@@ -6,6 +6,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
+import { placesForShrine } from '../lib/data/places';
+import { translateToUrdu } from '../lib/i18n/urduFallback';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -49,6 +51,7 @@ function SkeletonPage() {
 
 function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
   const { lang, t, localizeField, fmtNum } = useLang();
+  const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
   // Move focus to the heading so screen readers announce the shrine name on navigation
@@ -179,6 +182,22 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
         <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
       </div>
+
+      {/* The places this site is recorded in — often two, a town and its
+          district, because it is in both. Until these pages existed, the fact
+          that 35 of 169 sites are in or around Lahore was visible nowhere.
+          Rendered as pills, not links-in-prose: the order tags on /order/:slug
+          had to stop being cobalt words inside a sentence for the same reason
+          (WCAG 1.4.1, HANDOVER §9.48). */}
+      {shrinePlaces.length > 0 && (
+        <div className="shrine-place-links">
+          {shrinePlaces.map((place) => (
+            <Link key={place.slug} to={`/place/${place.slug}`} className="shrine-place-tag">
+              <bdi>{lang === 'ur' ? translateToUrdu(place.name) : place.name}</bdi>
+            </Link>
+          ))}
+        </div>
+      )}
 
       {/* Non-Active site status — plain wording so a visitor doesn't travel
           expecting a functioning site. statusNote (e.g. "reconstructed 2022")

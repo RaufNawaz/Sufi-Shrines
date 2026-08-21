@@ -25,6 +25,7 @@ const GraphPage = lazy(() => import('./pages/GraphPage'));
 const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
 const CoveragePage = lazy(() => import('./pages/CoveragePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
+const PlacePage = lazy(() => import('./pages/PlacePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -141,6 +142,7 @@ export default function App() {
                 <Route path="/almanac" element={<AlmanacPage />} />
                 <Route path="/coverage" element={<CoveragePage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/place/:slug" element={<PlacePage />} />
                 {/* Legacy shrine.html?id=N redirect */}
                 <Route path="/shrine.html" element={<LegacyRedirect />} />
                 {/* /ur/* — crawler-discovery mirror of the routes above (see
@@ -206,6 +208,14 @@ export default function App() {
                   element={
                     <UrPrefixNormalizer>
                       <AboutPage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
+                  path="/ur/place/:slug"
+                  element={
+                    <UrPrefixNormalizer>
+                      <PlacePage />
                     </UrPrefixNormalizer>
                   }
                 />

@@ -17,6 +17,8 @@ import {
 import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
+import { buildPlaces } from '../lib/data/places';
+import { translateToUrdu } from '../lib/i18n/urduFallback';
 import { tFn } from '../lib/i18n/uiStrings';
 
 /**
@@ -135,6 +137,13 @@ export default function CoveragePage() {
   useDocumentTitle(`${t('coverageTitle')} — ${t('siteTitle')}`);
 
   const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
+  /* The index for /place/:slug. It lives here rather than on its own route
+     because /coverage is already the page about where the archive is thin, and
+     "35 sites in Lahore, 1 in Chiniot" is that same fact stated by geography.
+     It is also the only inbound link to the place pages — a route reachable
+     only by typing its URL is a route nobody reads, and the prerenderer needs
+     something to crawl. */
+  const { places, unplaced } = useMemo(() => buildPlaces(shrines), [shrines]);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -247,6 +256,31 @@ export default function CoveragePage() {
                   value={coverage.observances.withNone}
                   label={t('coverageObservancesWithNone')}
                 />
+              </ul>
+            </section>
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('placesTitle')}</h2>
+              <p className="coverage-place-note">{t('placesIntro')}</p>
+              <ul className="coverage-place-list">
+                {places.map((place) => (
+                  <li key={place.slug}>
+                    <Link to={`/place/${place.slug}`} className="coverage-place-link">
+                      <bdi className="coverage-place-name">
+                        {lang === 'ur' ? translateToUrdu(place.name) : place.name}
+                      </bdi>
+                      <span className="coverage-place-count">
+                        {fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length))}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {/* Stated, not hidden: the places vocabulary is hand-written, so
+                  what it fails to match is a limit of this page and belongs on
+                  the page about limits. */}
+              <ul className="coverage-facts">
+                <li>{fmtNum(tFn(lang, 'placesUnplaced', unplaced.length))}</li>
               </ul>
             </section>
 

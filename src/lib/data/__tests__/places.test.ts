@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildPlaces, placesForShrine, PLACES } from '../places';
+import { translateToUrdu } from '../../i18n/urduFallback';
 import { buildShrines } from '../shrineModel';
 import snapshot from '../../../data/shrines-fallback.json';
 import type { ShrineRow } from '../../../types/shrine';
@@ -26,6 +27,31 @@ describe('the place vocabulary', () => {
   it('is ordered alphabetically by slug, so review is a diff', () => {
     const slugs = PLACES.map((p) => p.slug);
     expect(slugs).toEqual([...slugs].sort());
+  });
+
+  it('every place name has an Urdu translation', () => {
+    /*
+     * A place page in the Urdu view must not be titled in English. The names are
+     * therefore spelled the way the archive and the dictionary spell them, which
+     * is not always the shortest form — "Sehwan Sharif", "Ghotki District",
+     * "Hingol National Park". Five of the sixty-two had no Urdu until their
+     * names were spelled that way, so this is the check that keeps a tidier
+     * spelling from silently costing a translation.
+     *
+     * If a name genuinely has no Urdu, add the entry to
+     * urdu-i18n/build_dictionary.py's PLACE_TOKENS and rebuild — do not
+     * transliterate here, and do not add it to an allowlist.
+     */
+    const untranslated = PLACES.filter((p) => {
+      const urdu = translateToUrdu(p.name);
+      return !urdu || /[A-Za-z]/.test(urdu);
+    }).map((p) => `${p.slug} ("${p.name}")`);
+    expect(
+      untranslated,
+      'these place names return Latin from the dictionary, so their Urdu page would be ' +
+        'titled in English. Add them to PLACE_TOKENS in urdu-i18n/build_dictionary.py and ' +
+        'run `npm run data:build:urdu`.',
+    ).toEqual([]);
   });
 
   it('matches nothing in a Location that names no place', () => {
