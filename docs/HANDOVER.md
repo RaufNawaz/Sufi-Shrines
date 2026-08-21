@@ -1559,6 +1559,16 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
 
     Result, measured: the almanac's declared debt fell **87 → 39** and the shrine page's 4 → 2.
 
+    **A partly-translated list needs isolation per run, not per element.** With half the
+    segments Urdu and half still English, a single `<bdi>` around the joined value does nothing:
+    the bidi algorithm reorders the English fragments against the Urdu ones, and on the Urdu
+    almanac the segments appeared in an order matching neither the source nor the translation.
+    `localizeObservance` wraps each segment in U+2068 FSI / U+2069 PDI — the plain-text
+    equivalent of `<bdi>`, and necessary here because the function returns a *string* used in a
+    `<dd>`, in a list item, and potentially in a `title` attribute where no element can reach.
+    Only when the list actually mixes scripts, so a uniform list carries no invisible characters
+    into anything a reader copies.
+
 58. **169 links in the accessibility landmark 404'd in production, and no test could see it.**
     The screen-reader shrine directory emitted `<a href="/shrine/${slug}">`. React Router is
     mounted with `basename={import.meta.env.BASE_URL}` and the site is served from
@@ -1593,6 +1603,41 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     Two different checks had now measured a transient animated state and blamed the code: axe
     reading a `reveal-rise` fade as a contrast failure (§9.46), and this reading a height
     transition as a broken drag handle. One definition, one place.
+
+60. **Four routes 404'd on the live site, including the licence page.** `/graph`, `/almanac`,
+    `/coverage` and `/about` were declared in `App.tsx`, reachable by in-app navigation, and had
+    **no prerendered file at all**. GitHub Pages serves files, so a direct visit or a shared
+    link to any of the four returned GitHub's own 404 page. Two of them are the archive's
+    licence and its self-assessment — the pages most likely to be sent as a link, and the two I
+    had just built.
+
+    Three things made it invisible, and they compound:
+
+    - **`public/_redirects` carries `/* /index.html 200` — Netlify syntax.** GitHub Pages
+      ignores that file entirely, so the SPA fallback someone wrote had never worked. A
+      plausible assumption, never cheaply checked, in a file nobody had cause to reopen.
+    - `npm run preview` is a dev server with SPA fallback built in, so every route resolves
+      locally.
+    - the e2e suite runs against that same preview server, so 126 tests navigated those routes
+      happily.
+
+    Fixed at both levels: the four get real prerendered files with their own title, description,
+    canonical URL and `/ur` mirror, and `dist/404.html` is now a copy of the app shell so any
+    *other* unknown path boots the router instead of GitHub's 404. `robots.txt` gained the
+    `Sitemap:` line it never had (written at build time, since the absolute URL depends on
+    `SITE_URL`), and the four are in `sitemap.xml`.
+
+    `scripts/check-routes-prerendered.mjs` runs in `npm run build` and **parses the route table
+    out of `App.tsx`** rather than holding a list — a hardcoded list is exactly what would go
+    stale the next time a route is added, which is how this happened. It fails if the parse
+    yields fewer than eight routes, spot-checks one instance of each parameterised family in
+    case a prerender loop silently emits nothing, and requires `404.html`. Mutation-tested:
+    disabling one static page names both `/about` and `/ur/about`.
+
+    **And I made the §9.46 mistake myself while fixing this**, rebuilding `dist` twice under a
+    running Playwright suite. Killed the run rather than read it. The rule is worth stating
+    plainly: **no builds while an e2e suite is running** — the suite reads `dist` from disk on
+    every request.
 
 ## 10. Risks if this is left unattended
 

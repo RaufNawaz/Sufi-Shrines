@@ -687,6 +687,115 @@ function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
     .join('\n');
 }
 
+// ── static app pages ──────────────────────────────────────────────────────
+/*
+ * /graph, /almanac, /coverage and /about had no prerendered file at all, and
+ * GitHub Pages serves files — so a direct visit or a shared link to any of the
+ * four returned GitHub's own 404 page. Two of them are the archive's licence and
+ * its self-assessment: the pages a reader is most likely to be sent a link to.
+ *
+ * The SPA fallback that was supposed to cover this is `public/_redirects` with
+ * `/* /index.html 200`, which is **Netlify** syntax. GitHub Pages ignores that
+ * file completely, so it had never worked. Nothing said so, because in-app
+ * navigation reaches all four perfectly and `npm run preview` (a dev server
+ * with SPA fallback) serves them too.
+ *
+ * Fixed at both levels: these four get real prerendered files with their own
+ * title, description and canonical URL, and `dist/404.html` below is a copy of
+ * the app shell so any *other* unknown path still boots the router instead of
+ * showing GitHub's 404.
+ */
+const STATIC_PAGES = [
+  {
+    path: '/graph',
+    titleEn: 'Saints & Orders Explorer',
+    titleUr: 'اولیا و سلاسل کا نقشہ',
+    descEn:
+      'The lineages and Sufi orders recorded in this archive: who taught whom, which silsila each figure held, and which claims are still unreviewed.',
+  },
+  {
+    path: '/almanac',
+    titleEn: 'The Urs Almanac',
+    titleUr: 'عرس تقویم',
+    descEn:
+      'When the ʿurs gatherings fall across the year, computed from the dates each entry records, with the Hijri readings shown alongside.',
+  },
+  {
+    path: '/coverage',
+    titleEn: 'What This Archive Knows',
+    titleUr: 'یہ آرکائیو کیا جانتا ہے',
+    descEn:
+      'Every figure counted from the published data rather than estimated: how each entry was established, how deep it goes, what is cited, and where the archive is silent.',
+  },
+  {
+    path: '/about',
+    titleEn: 'About This Archive',
+    titleUr: 'اِس آرکائیو کے بارے میں',
+    descEn:
+      'A public, bilingual record of sacred sites across Pakistan — its licence (code MIT, data ODbL-1.0), how to cite it, and how to report a correction.',
+  },
+];
+
+let staticCount = 0;
+for (const page of STATIC_PAGES) {
+  const canonicalUrl = SITE_URL ? `${SITE_URL}${page.path}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${page.path}` : '';
+
+  const head = (title, desc, lang, canonical) => {
+    let out = baseHtml
+      .replace(
+        /<title>[^<]*<\/title>/,
+        `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+      )
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${escHtml(desc)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${escHtml(title)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${escHtml(desc)}" />`,
+      );
+    if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+    out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+    if (canonical) {
+      out = out
+        .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+        .replace(
+          '</head>',
+          `  <link rel="canonical" href="${escHtml(canonical)}" />\n  <meta property="og:url" content="${escHtml(canonical)}" />\n</head>`,
+        );
+    }
+    return out;
+  };
+
+  const outDir = join(distDir, page.path.replace(/^\//, ''));
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(
+    join(outDir, 'index.html'),
+    head(page.titleEn, page.descEn, 'en', canonicalUrl),
+    'utf8',
+  );
+
+  /* The Urdu description is deliberately the English one: an untranslated
+     meta description is a known gap, and writing an Urdu sentence here that no
+     fluent reader has seen would be inventing content the archive does not
+     have. The title is translated because it exists in uiStrings already. */
+  const urOutDir = join(distDir, 'ur', page.path.replace(/^\//, ''));
+  mkdirSync(urOutDir, { recursive: true });
+  writeFileSync(
+    join(urOutDir, 'index.html'),
+    head(page.titleUr, page.descEn, 'ur', urCanonicalUrl),
+    'utf8',
+  );
+
+  staticCount++;
+}
+console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
+
 // Also emit a sitemap
 const sitemapLines = [
   '<?xml version="1.0" encoding="UTF-8"?>',
@@ -709,10 +818,43 @@ if (SITE_URL) {
     ...orderSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
     ),
+    // The four static pages. They were absent from the sitemap for the same
+    // reason they were absent from dist: nothing enumerated them.
+    ...STATIC_PAGES.map(({ path }) =>
+      sitemapUrlPair(`${SITE_URL}${path}`, `${SITE_URL}/ur${path}`, 'monthly', '0.5'),
+    ),
   );
 }
 sitemapLines.push('</urlset>');
 writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
+
+/*
+ * GitHub Pages serves 404.html for any path it has no file for, and the SPA
+ * router then handles the URL — the standard fallback for a project page. This
+ * is the second half of the fix for the four static routes above: they now have
+ * real files, and anything else (an old link, a typo, a route added later
+ * without a prerender entry) still boots the app instead of showing GitHub's
+ * own 404 page.
+ */
+writeFileSync(join(distDir, '404.html'), baseHtml, 'utf8');
+
+/*
+ * robots.txt gets the sitemap line here rather than in public/robots.txt,
+ * because the absolute URL is only known once SITE_URL is set at build time.
+ */
+if (SITE_URL) {
+  const robotsPath = join(distDir, 'robots.txt');
+  let robots = '';
+  try {
+    robots = readFileSync(robotsPath, 'utf8');
+  } catch {
+    robots = 'User-agent: *\nAllow: /\n';
+  }
+  if (!/^Sitemap:/im.test(robots)) {
+    robots = `${robots.replace(/\s*$/, '')}\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+    writeFileSync(robotsPath, robots, 'utf8');
+  }
+}
 
 // ── homepage: upgrade the relative hreflang stubs to absolute URLs ─────────
 if (SITE_URL) {

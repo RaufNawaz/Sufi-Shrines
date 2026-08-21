@@ -24,6 +24,23 @@ describe('localizeObservance', () => {
     expect(out).toContain('nightly Shah jo Raag');
   });
 
+  it('isolates each run when the list ends up mixing scripts', () => {
+    // Without per-run isolation the bidi algorithm reorders the English
+    // fragments against the Urdu ones and the list reads jumbled.
+    const mixed = localizeObservance('Annual urs; nightly Shah jo Raag', 'ur');
+    expect(mixed).toContain('\u2068');
+    expect(mixed).toContain('\u2069');
+    // The Urdu segment must come first, as written.
+    expect(mixed.indexOf('سالانہ عرس')).toBeLessThan(mixed.indexOf('nightly'));
+  });
+
+  it('adds no isolates to a list that does not mix scripts', () => {
+    // Invisible control characters in text a reader may copy are a cost; only
+    // pay it where it buys correct ordering.
+    expect(localizeObservance('Annual urs; daily langar', 'ur')).not.toContain('\u2068');
+    expect(localizeObservance('nightly Shah jo Raag', 'ur')).not.toContain('\u2068');
+  });
+
   it('keeps ASCII punctuation when nothing translated', () => {
     // Arabic punctuation around English fragments reads as a bug, not a
     // translation.

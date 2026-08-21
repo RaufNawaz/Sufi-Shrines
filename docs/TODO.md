@@ -258,6 +258,24 @@ state.
 
 `npm run verify`: 520 tests.
 
+### Four routes 404'd on the live site
+
+`/graph`, `/almanac`, `/coverage` and `/about` were declared in App.tsx, reachable in-app, and
+had no prerendered file. GitHub Pages serves files, so a shared link to any of them returned
+GitHub's 404 — including the licence page and the coverage page, the two most linkable things in
+the archive.
+
+Invisible three times over: `public/_redirects` carries `/* /index.html 200`, which is **Netlify**
+syntax that GitHub Pages ignores, so the SPA fallback had never worked; `npm run preview` has SPA
+fallback built in; and the e2e suite runs against that preview server.
+
+Now: real prerendered files with title, description, canonical and `/ur` mirror; `dist/404.html`
+as the GitHub Pages fallback for anything else; the `Sitemap:` line robots.txt never had; and
+the four in sitemap.xml. `scripts/check-routes-prerendered.mjs` parses the route table out of
+App.tsx (a hardcoded list is what would go stale) and runs in `npm run build`. Mutation-tested.
+
+`npm run verify`: 522 tests.
+
 ### Translate next
 
 The **graph's 253** are mostly personal names, and some are not names at all but phrases from a

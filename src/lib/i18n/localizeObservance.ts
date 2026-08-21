@@ -23,7 +23,23 @@ import { translateToUrdu } from './urduFallback';
  *    steering the bidi run, and it simply reads wrong. But if *nothing*
  *    translated, the original separator is kept: Arabic punctuation wrapped
  *    around English fragments looks like a bug rather than a translation.
+ * 3. **Each segment is bidi-isolated in the string itself**, with U+2068 FSI /
+ *    U+2069 PDI. A partly-translated list is the common case — "سالانہ عرس؛
+ *    Heer recitation and qawwali" — and a single `<bdi>` around the whole
+ *    joined value does not help: the isolation has to be per run, or the bidi
+ *    algorithm reorders the English fragments against the Urdu ones and the
+ *    list reads jumbled. Measured on the Urdu almanac before this: segments
+ *    appearing in an order that matched neither the source nor the translation.
+ *
+ *    Isolates rather than more markup because this returns a *string*, used in
+ *    a `<dd>` value, in a list item, and (via the infobox) potentially in a
+ *    `title` attribute where no element can reach. FSI/PDI are invisible and
+ *    are exactly what Unicode provides for this.
  */
+
+/** First Strong Isolate / Pop Directional Isolate — the plain-text `<bdi>`. */
+const FSI = '\u2068';
+const PDI = '\u2069';
 export function localizeObservance(text: string | undefined | null, lang: Lang): string {
   const raw = String(text ?? '').trim();
   if (!raw || lang !== 'ur') return raw;
@@ -44,5 +60,12 @@ export function localizeObservance(text: string | undefined | null, lang: Lang):
     return trimmed;
   });
 
-  return out.filter(Boolean).join(translatedAny ? '؛ ' : '; ');
+  const kept = out.filter(Boolean);
+  // Only worth isolating when the list actually mixes scripts; a uniform list
+  // needs no help, and leaving the characters out keeps copied text clean.
+  const mixed =
+    kept.some((seg) => /[A-Za-z]/.test(seg)) && kept.some((seg) => /[\u0600-\u06FF]/.test(seg));
+  const wrapped = mixed ? kept.map((seg) => `${FSI}${seg}${PDI}`) : kept;
+
+  return wrapped.join(translatedAny ? '؛ ' : '; ');
 }

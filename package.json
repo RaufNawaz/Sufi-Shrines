@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/check-bundle-budget.mjs && node scripts/prerender.mjs",
+    "build": "tsc && vite build && node scripts/check-bundle-budget.mjs && node scripts/prerender.mjs && node scripts/check-routes-prerendered.mjs",
     "build:e2e": "VITE_BASE_PATH=/ npm run build",
     "preview": "vite preview",
     "lint": "eslint src e2e --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
