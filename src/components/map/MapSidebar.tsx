@@ -270,7 +270,7 @@ export function MapSidebar({
     <aside
       className={`sidebar${isOpen ? '' : ' collapsed'}`}
       id="sidebar"
-      aria-label="Shrine browser"
+      aria-label={t('ariaShrineBrowser')}
     >
       {/* Mobile drag handle — tap to toggle peek/full */}
       {isMobile && (
@@ -361,7 +361,9 @@ export function MapSidebar({
               <line x1="3" y1="18" x2="3.01" y2="18" />
             </svg>
             {t('tableButton')}
-            {hasActiveFilter && <span className="filter-active-dot" aria-label="filters active" />}
+            {hasActiveFilter && (
+              <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
+            )}
           </button>
         </div>
       )}
@@ -408,7 +410,7 @@ export function MapSidebar({
                     setSearchRaw('');
                     searchRef.current?.focus();
                   }}
-                  aria-label="Clear search"
+                  aria-label={t('ariaClearSearch')}
                 >
                   <svg
                     width="14"
@@ -445,7 +447,7 @@ export function MapSidebar({
               the selection; no selection = all categories shown. */}
           {categories.length > 1 && (
             <div className="filter-section">
-              <div className="filter-chips" role="group" aria-label="Filter by category">
+              <div className="filter-chips" role="group" aria-label={t('ariaFilterByCategory')}>
                 <button
                   className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
                   onClick={() => onCategoriesChange([])}
@@ -473,7 +475,7 @@ export function MapSidebar({
               <span className="filter-section-label" aria-hidden="true">
                 {t('filterByRegion')}
               </span>
-              <div className="filter-chips" role="group" aria-label="Filter by region">
+              <div className="filter-chips" role="group" aria-label={t('ariaFilterByRegion')}>
                 <button
                   className={`filter-chip${!activeRegion ? ' active' : ''}`}
                   onClick={() => onRegionChange('')}
@@ -520,7 +522,7 @@ export function MapSidebar({
               </svg>
               {t('moreFiltersLabel')}
               {hasMoreFiltersActive && (
-                <span className="filter-active-dot" aria-label="filters active" />
+                <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
               )}
             </button>
           </div>
@@ -533,7 +535,7 @@ export function MapSidebar({
                   <span className="filter-section-label" aria-hidden="true">
                     {t('saintLabel')}
                   </span>
-                  <div className="filter-chips" role="group" aria-label="Filter by Sufi saint">
+                  <div className="filter-chips" role="group" aria-label={t('ariaFilterBySaint')}>
                     <button
                       className={`filter-chip${!activeSaint ? ' active' : ''}`}
                       onClick={() => onSaintChange('')}
@@ -581,7 +583,7 @@ export function MapSidebar({
                 <span className="filter-section-label" aria-hidden="true">
                   {t('provenanceFilterLabel')}
                 </span>
-                <div className="filter-chips" role="group" aria-label="Filter by provenance">
+                <div className="filter-chips" role="group" aria-label={t('ariaFilterByProvenance')}>
                   <button
                     className={`filter-chip${verifiedOnly ? ' active' : ''}`}
                     onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
@@ -604,7 +606,7 @@ export function MapSidebar({
           {loading && shrines.length === 0 ? (
             <ShrineListSkeleton />
           ) : (
-            <div className="shrine-list-panel" role="list" aria-label="Shrine list">
+            <div className="shrine-list-panel" role="list" aria-label={t('ariaShrineList')}>
               {filtered.length === 0 && !loading && (
                 <div className="shrine-list-empty-state">
                   <svg
@@ -636,7 +638,21 @@ export function MapSidebar({
               {grouped.map(([cat, items]) => (
                 <div key={cat}>
                   {grouped.length > 1 && (
-                    <div className="shrine-list-group-heading" aria-label={`Category: ${cat}`}>
+                    /* One label, used for both the visible heading and the
+                       accessible name. They used to diverge: the heading was
+                       localised and the aria-label interpolated the raw English
+                       `cat`, so a screen reader announced the English category
+                       over the Urdu the page was showing. */
+                    <div
+                      className="shrine-list-group-heading"
+                      aria-label={tFn(
+                        lang,
+                        'ariaCategoryOf',
+                        categoryDisplayLabel(items[0].category, lang) ??
+                          localizeField(items[0].raw, 'Category') ??
+                          cat,
+                      )}
+                    >
                       {categoryDisplayLabel(items[0].category, lang) ??
                         (localizeField(items[0].raw, 'Category') || cat)}
                     </div>

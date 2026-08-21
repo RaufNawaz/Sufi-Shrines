@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { tFn } from '../lib/i18n/uiStrings';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
@@ -82,8 +83,16 @@ function ObservanceCard({
              carry a paragraph of qualification in the Location column rather
              than a place name. `title` is what makes the clamped remainder
              reachable — without it the qualification, which is the honest part,
-             was simply unreadable. */
-          <p className="almanac-entry-location" title={location}>
+             was simply unreadable.
+
+             `data-latin` declares the element, not just its visible run. That
+             prose is the survey's own wording and is often still English;
+             <bdi> says so for the text, and the same string is repeated in
+             `title` where <bdi> cannot reach. The accessible-name guard reads
+             `data-latin`, so the attribute has to declare itself the way the
+             text already does — otherwise that guard either misses every
+             untranslated tooltip or fails on all of them. */
+          <p className="almanac-entry-location" title={location} data-latin>
             <bdi>{location}</bdi>
           </p>
         ) : null}
@@ -210,7 +219,7 @@ export default function AlmanacPage() {
         dir={isRtl ? 'rtl' : undefined}
       >
         <ScrollToTop />
-        <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+        <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
           <ol>
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>
@@ -249,8 +258,14 @@ export default function AlmanacPage() {
             ))}
           </ul>
           <p className="almanac-coverage-total">
-            {fmtNum(counts.dayPrecision + counts.monthPrecision)} {t('almanacCoverageOf')}{' '}
-            {fmtNum(counts.totalShrines)} {t('almanacCoverageSites')}
+            {fmtNum(
+              tFn(
+                lang,
+                'almanacCoverageTotal',
+                counts.dayPrecision + counts.monthPrecision,
+                counts.totalShrines,
+              ),
+            )}
           </p>
         </section>
 

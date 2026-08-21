@@ -5,6 +5,7 @@ import { useShareLink } from '../hooks/useShareLink';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { tFn } from '../lib/i18n/uiStrings';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -80,7 +81,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   return (
     <article className="shrine-page" id="main-content" lang={lang === 'ur' ? 'ur' : undefined}>
       {/* Breadcrumb */}
-      <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+      <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
         <ol>
           <li>
             <Link to="/">{t('mapBreadcrumb')}</Link>
@@ -94,7 +95,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
       {/* Category kicker */}
       {category && (
-        <p className="shrine-category-kicker" aria-label={`Category: ${category}`}>
+        <p className="shrine-category-kicker" aria-label={tFn(lang, 'ariaCategoryOf', category)}>
           {category}
         </p>
       )}

@@ -1,5 +1,6 @@
 import type { LatLng } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
 import { useShareLink } from '../../hooks/useShareLink';
 
 interface Props {
@@ -19,7 +20,7 @@ function buildMapsUrl(lat: number, lng: number, directions = false): string {
 }
 
 export function LocationMap({ latLng, name }: Props) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const { share, copy, copied } = useShareLink({ copiedMs: 2000 });
 
   const coords = `${latLng.lat.toFixed(5)}, ${latLng.lng.toFixed(5)}`;
@@ -40,8 +41,8 @@ export function LocationMap({ latLng, name }: Props) {
         className="location-map-embed"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title={`Map showing location of ${name}`}
-        aria-label={`Google Maps showing location of ${name}`}
+        title={tFn(lang, 'ariaMapShowing', name)}
+        aria-label={tFn(lang, 'ariaExternalMapShowing', name)}
       />
 
       <div className="location-actions">

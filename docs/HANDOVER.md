@@ -1377,6 +1377,69 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     basemap after lazy loading has been reasoned about, not seen. Worth one look on a real
     network.
 
+51. **The Urdu site's accessible layer was entirely English.** Twenty-six hardcoded literals:
+    every `aria-label="Breadcrumb"`, `"Shrine browser"`, `"Open sidebar"`, `"Clear search"`,
+    `"Filter by category"`, `"Previous image"`, `"Reading progress"`, `"Dismiss"`, Leaflet's
+    `"Zoom in"` / `"Zoom out"` / `"Layers"`, and the reset-view control. An Urdu
+    screen-reader user got an English interface wrapped around Urdu content, which is exactly
+    the "translation layer" the project's i18n contract says the Urdu edition must not be.
+
+    **The no-English-leak guard could not see any of it.** It walks text nodes under
+    `[dir='rtl']`; an accessible name is an attribute. Sixth instance in a week of a check
+    passing over the wrong universe (§9.29, §9.38, §9.39, §9.40, §9.46). The new guard is
+    `e2e/urdu-accessible-names.spec.ts` — eight routes, every attribute a browser turns into
+    an accessible name or tooltip, with three *declared* exemptions (`[data-latin]`, URLs and
+    decimal coordinates, and Leaflet's own attribution sentence). Mutation-tested: putting one
+    literal back names the element and attribute.
+
+    Two sharper cases inside it:
+
+    - **The accessible name contradicted the visible text.** The sidebar's category heading
+      rendered the localised label and set `aria-label={`Category: ${cat}`}` from the *raw
+      English* key — so a screen reader announced "Category: Sikh Gurdwara" over a heading
+      that said سکھ گوردوارہ. One value now feeds both.
+    - **`UpdateToast` had visible English** ("New version available", "Reload") that no guard
+      could ever reach: the toast only renders after a `controllerchange` event, and
+      `playwright.config.ts` blocks service workers to keep the CSV intercept hermetic. **A
+      component that only appears under a condition the test harness disables is invisible to
+      every e2e guard you have.** Worth auditing for others.
+
+52. **A translated sentence assembled in English word order stated a false number.** The
+    almanac's coverage line was built in JSX as `{dated} {t('almanacCoverageOf')} {total}
+    {t('almanacCoverageSites')}` with the fragment `of` / `میں سے`. Urdu's postposition takes
+    its operands the other way round — "X میں سے Y" is "Y out of X" — so the Urdu page read
+    **"169 places out of 32"** where the English read "32 of 169 sites". Both fragments
+    translate perfectly; only the composition is wrong, and no per-string check can see that.
+
+    `tFn` already existed for exactly this: each language writes the whole sentence and
+    interpolates the values itself. Nothing stopped a fragment being added instead, so
+    `src/lib/i18n/__tests__/noSentenceFragments.test.ts` now rejects any UI value that is
+    nothing but a function word ("of", "in", "and", "out of", …) — a function word's whole job
+    is to relate the things around it, and where they go is a fact about the language, not
+    about the layout. It also asserts the two tables have identical keys and that a key is a
+    function in both or a string in both (`t()` returns `''` for a function value, so a
+    half-migrated key vanishes silently in one language).
+
+    `tFn` now takes `string | number` arguments, which is what let the interpolated
+    accessible names in §9.51 be fixed properly rather than concatenated.
+
+    **Urdu review still owed.** The ~20 new accessible-name strings and the map-control
+    strings are drafts by the same standard as the dictionary additions: written carefully,
+    not checked by a fluent speaker.
+
+53. **Five e2e failures that were the sandbox, not the code.** `persistence.spec.ts` ×4 and
+    the tours geolocation fallback began failing mid-session with `page.reload: Test timeout of
+    30000ms exceeded`. I checked out `40d9fe1` — the commit this session started from, which
+    had run green — rebuilt, and they failed identically, so no change of mine caused them.
+    Measured directly: **a reload of `/` takes 12.6 s here**, because every external
+    subresource (Google Fonts, CARTO tiles, the published-sheet CSV) has to time out through
+    the agent proxy, which returns `ERR_TUNNEL_CONNECTION_FAILED` for the tile hosts and
+    `ERR_CONNECTION_RESET` for fonts. Nothing to fix in the tests: loosening a timeout to suit
+    a sandbox is how a real regression gets through later. **Bisect before believing an e2e
+    failure that appears without a matching change** — and note that the first instinct here
+    (CPU contention from my own concurrent typechecks) was also wrong, and only re-running the
+    specs alone ruled it out.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

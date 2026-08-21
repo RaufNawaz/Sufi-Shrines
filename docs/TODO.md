@@ -119,6 +119,59 @@ the data. Also deleted a 14-line dead `metaBlock` in `prerender.mjs` that nothin
 
 `npm run verify`: 505 tests.
 
+### Then the map route, which shipped a megabyte of basemap first
+
+`/` carried 1628 KB of eager JS and 1035 KB of it was maplibre-gl — the tiles *under* the
+archive. The sidebar, search worker, filters, era slider and markers are Leaflet and React and
+need none of it. Lazy-loaded: **1628 KB → 593 KB**, and `/` is no longer the heaviest route.
+Guarded by `MUST_STAY_LAZY` (build fails on a stray top-level import — proved) and by a
+payload spec that holds the chunk unfulfilled forever and asserts markers, list and search
+still work, because a lazy module can still be awaited before first paint.
+
+### And the Urdu accessible layer, which was entirely English
+
+Twenty-six hardcoded `aria-label` / `title` / `alt` literals: every breadcrumb landmark,
+"Shrine browser", "Open sidebar", "Clear search", "Filter by category", "Previous image",
+"Reading progress", "Dismiss", and Leaflet's "Zoom in" / "Zoom out" / "Layers". An Urdu
+screen-reader user got an English interface around Urdu content. The no-leak guard walks text
+nodes; an accessible name is an attribute — the sixth wrong-universe check this week.
+
+Two worse cases inside it. The sidebar's category heading rendered the Urdu label and set its
+`aria-label` from the raw English key, so a screen reader announced English over Urdu. And
+`UpdateToast` had *visible* English that no guard could ever reach, because it only renders
+after a `controllerchange` and the e2e config blocks service workers — **a component gated on
+something the harness disables is invisible to every e2e guard.**
+
+`e2e/urdu-accessible-names.spec.ts` covers eight routes and every name-bearing attribute, with
+three declared exemptions. Mutation-tested.
+
+### A translated sentence that stated a false number
+
+The almanac's coverage line was `{dated} {t('almanacCoverageOf')} {total} {t('...Sites')}`.
+Urdu's postposition reverses the operands — "X میں سے Y" is "Y out of X" — so the Urdu page
+said **"169 places out of 32"**. Both fragments translate perfectly; only the composition was
+wrong. Fixed with `tFn` (each language writes the whole sentence), and
+`noSentenceFragments.test.ts` now rejects any UI value that is nothing but a function word.
+
+### Also
+
+- The infobox title's accent was a 3px cobalt→gold gradient running into a 12px corner radius,
+  so it read as two stray colour chips at the corners. Inset clear of the radius and solid.
+- Five e2e failures traced to the sandbox, not the code: a reload of `/` takes 12.6 s here
+  because every external subresource times out through the proxy. Verified by rebuilding
+  `40d9fe1` and watching them fail identically.
+
+`npm run verify`: 508 tests.
+
+### Needs a human
+
+- The ~20 new Urdu accessible-name strings and the five map-control strings are drafts, same
+  standing as the dictionary additions.
+- The basemap picker's layer names are still English ("Voyager (CARTO)", "Dark (CARTO)",
+  "Streets (Esri)", "Streets — English labels (MapTiler)"). Mostly provider names, but "Dark"
+  and "Streets — English labels" are description. The panel is collapsed by default, so the
+  text-node guard never opens it either.
+
 ---
 
 ## 0. Session log — 21 August 2026 (eleventh: shared ground, and a dictionary measuring the wrong archive)

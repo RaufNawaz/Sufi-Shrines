@@ -149,8 +149,48 @@ export const UI_TEXT = {
     almanacCoverageSeasonal: 'with a season only',
     almanacCoverageUndated: 'observed, date unrecorded',
     almanacCoverageNone: 'no observance recorded',
-    almanacCoverageOf: 'of',
-    almanacCoverageSites: 'sites',
+    /* One sentence, not "of" + "sites" assembled around two numbers. Urdu's
+       postposition takes its operands in the opposite order, so the fragments
+       reassembled into a claim about the wrong numbers — see the ur entry. */
+    almanacCoverageTotal: (dated: number, total: number) => `${dated} of ${total} sites`,
+    /* ── Accessible names ─────────────────────────────────────────────────
+       Every one of these was a hardcoded English literal, so the Urdu site's
+       entire accessible layer — landmark names, button labels, the reading
+       progress bar, the filter groups — was announced in English to an Urdu
+       screen-reader user. The no-English-leak e2e guard could not see any of
+       it: it reads visible text under [dir='rtl'], and an accessible name is
+       not visible text. See docs/HANDOVER.md §9.51. */
+    ariaBreadcrumb: 'Breadcrumb',
+    ariaShrineBrowser: 'Shrine browser',
+    ariaShrineList: 'Shrine list',
+    ariaFiltersActive: 'filters active',
+    ariaClearSearch: 'Clear search',
+    ariaFilterByCategory: 'Filter by category',
+    ariaFilterByRegion: 'Filter by region',
+    ariaFilterBySaint: 'Filter by Sufi saint',
+    ariaFilterByProvenance: 'Filter by provenance',
+    ariaReadingProgress: 'Reading progress',
+    ariaPreviousImage: 'Previous image',
+    ariaNextImage: 'Next image',
+    ariaInteractiveMap: 'Interactive shrine map',
+    ariaOpenSidebar: 'Open sidebar',
+    /* The service-worker update toast. Its two visible strings were English
+       literals, and no guard could see them: the toast only appears after a
+       controllerchange event, and the e2e config blocks service workers to
+       keep the CSV intercept hermetic. */
+    swUpdateAvailable: 'A new version is available',
+    /* Leaflet writes its own control titles ("Zoom in", "Layers") and sets
+       aria-label from them, so they have to be passed in rather than styled
+       away. The reset-view control is ours. */
+    mapZoomIn: 'Zoom in',
+    mapZoomOut: 'Zoom out',
+    mapLayers: 'Basemap layers',
+    mapResetView: 'Reset view',
+    mapResetViewLabel: 'Reset the map to its default view',
+    ariaCategoryOf: (category: string) => `Category: ${category}`,
+    ariaMapShowing: (name: string) => `Map showing the location of ${name}`,
+    ariaExternalMapShowing: (name: string) => `Google Maps showing the location of ${name}`,
+    galleryImageLabel: (index: number, action: string) => `Image ${index}: ${action}`,
     almanacSourceLabel: 'Recorded as',
     almanacFigureLabel: 'Commemorating',
     almanacJumpToMonth: 'Jump to month',
@@ -486,8 +526,37 @@ export const UI_TEXT = {
     almanacCoverageSeasonal: 'صرف موسم کے ساتھ',
     almanacCoverageUndated: 'تقریب ہوتی ہے، تاریخ درج نہیں',
     almanacCoverageNone: 'کوئی تقریب درج نہیں',
-    almanacCoverageOf: 'میں سے',
-    almanacCoverageSites: 'مقامات',
+    /* "X میں سے Y" reads "Y out of X" — the total comes first. Built from the
+       English order ("32" + "میں سے" + "169" + "مقامات") it said "169 places
+       out of 32", which is not clumsy phrasing but a false number. */
+    almanacCoverageTotal: (dated: number, total: number) => `${total} میں سے ${dated} مقامات`,
+    /* ── Accessible names ─────────────────────────────────────────────────
+       Drafted here, not reviewed by a fluent speaker. Same standing as the
+       dictionary drafts: usable and honest about being a draft. */
+    ariaBreadcrumb: 'صفحہ راستہ',
+    ariaShrineBrowser: 'مزارات کی فہرست اور چھانٹ',
+    ariaShrineList: 'مزارات کی فہرست',
+    ariaFiltersActive: 'فلٹرز فعال',
+    ariaClearSearch: 'تلاش صاف کریں',
+    ariaFilterByCategory: 'روایت کے مطابق چھانٹیں',
+    ariaFilterByRegion: 'علاقے کے مطابق چھانٹیں',
+    ariaFilterBySaint: 'ولی کے مطابق چھانٹیں',
+    ariaFilterByProvenance: 'ماخذ کے مطابق چھانٹیں',
+    ariaReadingProgress: 'مطالعے کی پیش رفت',
+    ariaPreviousImage: 'پچھلی تصویر',
+    ariaNextImage: 'اگلی تصویر',
+    ariaInteractiveMap: 'مزارات کا متحرک نقشہ',
+    ariaOpenSidebar: 'فہرست کھولیں',
+    swUpdateAvailable: 'نیا نسخہ دستیاب ہے',
+    mapZoomIn: 'قریب کریں',
+    mapZoomOut: 'دور کریں',
+    mapLayers: 'نقشے کی تہیں',
+    mapResetView: 'نظر بحال کریں',
+    mapResetViewLabel: 'نقشے کو ابتدائی نظر پر بحال کریں',
+    ariaCategoryOf: (category: string) => `روایت: ${category}`,
+    ariaMapShowing: (name: string) => `${name} کے مقام کا نقشہ`,
+    ariaExternalMapShowing: (name: string) => `گوگل میپس پر ${name} کا مقام`,
+    galleryImageLabel: (index: number, action: string) => `تصویر ${index}: ${action}`,
     almanacSourceLabel: 'اندراج',
     almanacFigureLabel: 'یادگار',
     almanacJumpToMonth: 'مہینے پر جائیں',
@@ -707,6 +776,15 @@ export function tFn(
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
+export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, total: number): string;
+/* String-valued interpolations. These exist for the same reason the numeric
+   ones do: a label like "Category: X" or "Map showing location of X" puts its
+   variable in a different place in Urdu, and a component that concatenates the
+   pieces itself decides that placement in English. */
+export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
+export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
+export function tFn(lang: Lang, key: 'ariaExternalMapShowing', name: string): string;
+export function tFn(lang: Lang, key: 'galleryImageLabel', index: number, action: string): string;
 export function tFn(
   lang: Lang,
   key:
@@ -721,10 +799,15 @@ export function tFn(
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'
-    | 'coverageEntriesNoun',
-  ...args: number[]
+    | 'coverageEntriesNoun'
+    | 'almanacCoverageTotal'
+    | 'ariaCategoryOf'
+    | 'ariaMapShowing'
+    | 'ariaExternalMapShowing'
+    | 'galleryImageLabel',
+  ...args: (number | string)[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
-  if (typeof fn === 'function') return (fn as (...a: number[]) => string)(...args);
+  if (typeof fn === 'function') return (fn as (...a: (number | string)[]) => string)(...args);
   return String(fn ?? '');
 }

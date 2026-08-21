@@ -258,8 +258,41 @@ function MapClickDeselect({ onSelect }: { onSelect: (s: Shrine | null) => void }
   return null;
 }
 
+/*
+ * Leaflet hardcodes `link.title = 'Layers'` on the layers-control toggle in
+ * `_initLayout`, and react-leaflet exposes no prop for it — so on the Urdu map
+ * the one control that opens the basemap picker announced itself in English.
+ * Setting it after mount is imperative, but the alternative is patching
+ * Leaflet's prototype, which is worse.
+ */
+function LayersControlTitle({ title }: { title: string }) {
+  const map = useMap();
+  useEffect(() => {
+    const apply = () => {
+      const toggle = map.getContainer().querySelector('.leaflet-control-layers-toggle');
+      if (!toggle) return false;
+      toggle.setAttribute('title', title);
+      toggle.setAttribute('aria-label', title);
+      return true;
+    };
+    // The control mounts as a sibling, so it may not exist on this tick.
+    if (apply()) return;
+    const id = window.requestAnimationFrame(() => apply());
+    return () => window.cancelAnimationFrame(id);
+  }, [map, title]);
+  return null;
+}
+
 // Reset-view Leaflet control (bottom-right, above zoom)
-function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }) {
+function ResetViewControl({
+  onSelect,
+  title,
+  label,
+}: {
+  onSelect: (s: Shrine | null) => void;
+  title: string;
+  label: string;
+}) {
   const map = useMap();
 
   useEffect(() => {
@@ -270,9 +303,9 @@ function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }
         const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
         const btn = L.DomUtil.create('a', 'reset-view-btn', container);
         btn.href = '#';
-        btn.title = 'Reset view';
+        btn.title = title;
         btn.setAttribute('role', 'button');
-        btn.setAttribute('aria-label', 'Reset map to default view');
+        btn.setAttribute('aria-label', label);
         btn.innerHTML =
           '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
 
@@ -295,7 +328,7 @@ function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }
     const ctrl = new ResetCtrl();
     ctrl.addTo(map);
     return () => ctrl.remove();
-  }, [map, onSelect]);
+  }, [map, onSelect, title, label]);
 
   return null;
 }
@@ -367,7 +400,7 @@ export function ShrineMap({
   activeTourStop,
 }: Props) {
   const { theme } = useTheme();
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const isDark = theme === 'dark';
 
   const tourStopSlugs = useMemo(
@@ -385,10 +418,19 @@ export function ShrineMap({
         isRTL={isRTL}
         tourActive={activeTour !== null}
       />
-      <ZoomControl position="bottomright" />
-      <ResetViewControl onSelect={onSelect} />
+      <ZoomControl
+        position="bottomright"
+        zoomInTitle={t('mapZoomIn')}
+        zoomOutTitle={t('mapZoomOut')}
+      />
+      <ResetViewControl
+        onSelect={onSelect}
+        title={t('mapResetView')}
+        label={t('mapResetViewLabel')}
+      />
       <MapClickDeselect onSelect={onSelect} />
 
+      <LayersControlTitle title={t('mapLayers')} />
       <LayersControl position="bottomleft">
         {/* English labels now come from the built-in style's `language` parameter.
             The custom Map Designer style is only offered when explicitly opted

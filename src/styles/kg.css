@@ -336,14 +336,32 @@
   position: relative;
 }
 
+/*
+ * The accent rule beside the infobox title.
+ *
+ * It used to run the full height of the title, flush to the leading edge — so
+ * its top and bottom disappeared into the panel's 12px corner radius, which
+ * `overflow: hidden` on .entity-infobox clips correctly and which therefore
+ * left two tapered slivers hanging at the corners. Worse, it was a cobalt →
+ * gold gradient: over 3px x 50px a gradient cannot read as a gradient, so what
+ * a reader actually saw was a blue chip above an orange chip, looking like a
+ * rendering artefact rather than a mark anyone chose.
+ *
+ * Inset clear of the radius and solid, it reads as what it is — an editorial
+ * rule marking the panel's title, the same gesture as the rules under the
+ * section headings.
+ */
 .entity-infobox-title::before {
   content: '';
   position: absolute;
   inset-inline-start: 0;
-  top: 0;
-  bottom: 0;
+  top: var(--space-3);
+  bottom: var(--space-3);
   width: 3px;
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+  background: var(--color-primary);
+  /* Logical, so the rounded end is the *free* end in both scripts. */
+  border-start-end-radius: 2px;
+  border-end-end-radius: 2px;
 }
 
 .entity-infobox-body {

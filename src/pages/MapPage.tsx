@@ -421,7 +421,7 @@ export default function MapPage() {
       <main
         className="map-container"
         id="main-content"
-        aria-label="Interactive shrine map"
+        aria-label={t('ariaInteractiveMap')}
         onClick={isMobile && sidebarOpen ? handleSidebarClose : undefined}
       >
         <ShrineMap
@@ -440,7 +440,7 @@ export default function MapPage() {
         <button
           className="sidebar-toggle no-print"
           onClick={handleSidebarToggle}
-          aria-label="Open sidebar"
+          aria-label={t('ariaOpenSidebar')}
           aria-expanded={false}
           aria-controls="sidebar"
         >

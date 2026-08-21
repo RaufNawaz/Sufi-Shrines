@@ -88,7 +88,11 @@ export function SourcesProvenance({ shrineSlug, lang }: Props) {
               )}
 
               {unreviewed && (
-                <span className="provenance-unreviewed" role="img" aria-label="Unreviewed">
+                <span
+                  className="provenance-unreviewed"
+                  role="img"
+                  aria-label={t(lang, 'unreviewedLabel')}
+                >
                   {t(lang, 'unreviewedLabel')}
                 </span>
               )}

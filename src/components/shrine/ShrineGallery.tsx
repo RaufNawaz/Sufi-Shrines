@@ -101,7 +101,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
         <button
           className="lightbox-nav-btn prev"
           onClick={goPrev}
-          aria-label="Previous image"
+          aria-label={t('ariaPreviousImage')}
           disabled={idx === 0}
         >
           <svg
@@ -142,7 +142,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
         <button
           className="lightbox-nav-btn next"
           onClick={goNext}
-          aria-label="Next image"
+          aria-label={t('ariaNextImage')}
           disabled={idx === items.length - 1}
         >
           <svg
@@ -187,7 +187,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
 }
 
 export function ShrineGallery({ items, category = '' }: Props) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   if (items.length === 0) return null;
@@ -204,7 +204,7 @@ export function ShrineGallery({ items, category = '' }: Props) {
             className="gallery-item"
             role="listitem"
             onClick={() => setLightboxIdx(i)}
-            aria-label={item.caption || `${t('gallery')} image ${i + 1}: ${t('imageExpand')}`}
+            aria-label={item.caption || tFn(lang, 'galleryImageLabel', i + 1, t('imageExpand'))}
           >
             <ShrineImage
               src={item.imageUrl}
