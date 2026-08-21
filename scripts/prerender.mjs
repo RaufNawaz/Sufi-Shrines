@@ -17,6 +17,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './data/lib/slugs.mjs';
+import { countPlaces, locationOfRow } from './data/lib/places.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -91,6 +92,23 @@ function translateWordsUr(text) {
   if (!raw || /^https?:\/\//i.test(raw) || !/[A-Za-z]/.test(raw)) return raw;
   const hit = urduSeed[raw];
   return hit && !/[A-Za-z]/.test(hit) ? hit : raw;
+}
+
+/**
+ * Western digits → Eastern (۰–۹), for numbers this script writes into an Urdu
+ * sentence.
+ *
+ * Mirrors `toEasternDigits` in src/lib/i18n/numerals.ts. Eastern is the Urdu
+ * default in the app (CLAUDE.md, i18n rule 5) and a static <meta> cannot
+ * consult the reader's numeral toggle, so the default is the honest choice —
+ * these strings are what a search result shows before anyone has a preference.
+ *
+ * Applied only to counts and years *this script composes*, never to Urdu prose
+ * lifted from urdu-content.json: that text is the authors' own and reformatting
+ * inside it is a content edit, not a rendering choice.
+ */
+function easternDigits(text) {
+  return String(text).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
 }
 
 function urduNameFor(row) {
@@ -527,8 +545,14 @@ if (kgData) {
 
     // ── Urdu mirror (/ur/saint/<slug>) ──
     const nameUr = escHtml(translateWordsUr(saint.name));
+    /* Eastern digits, like everywhere else in the Urdu edition. These read
+       "(وفات 1072)" until now, which is the same numeral inconsistency the app
+       fixed at every render site with `fmtNum` and which the prerenderer had
+       never been held to. */
     const descUr = escHtml(
-      `${translateWordsUr(saint.name)}${saint.died ? ` (وفات ${saint.died})` : ''} — پاکستان میں ${saint.shrines.length} مزار سے منسلک صوفی بزرگ۔`,
+      easternDigits(
+        `${translateWordsUr(saint.name)}${saint.died ? ` (وفات ${saint.died})` : ''} — پاکستان میں ${saint.shrines.length} مزار سے منسلک صوفی بزرگ۔`,
+      ),
     );
     let htmlUr = baseHtml
       .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
@@ -630,7 +654,9 @@ if (kgData) {
     // ── Urdu mirror (/ur/order/<slug>) ──
     const nameUr = escHtml(translateWordsUr(order.name));
     const descUr = escHtml(
-      `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
+      easternDigits(
+        `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
+      ),
     );
     let htmlUr = baseHtml
       .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
@@ -667,6 +693,101 @@ if (kgData) {
     orderCount++;
   }
   console.log(`[prerender] ✓ ${orderCount} order pages`);
+}
+
+// ── place pages ───────────────────────────────────────────────────────────
+/*
+ * One file per place with two or more sites, in both languages.
+ *
+ * The vocabulary and the counting live in scripts/data/lib/places.mjs, mirrored
+ * from src/lib/data/places.ts and held to it by
+ * src/lib/data/__tests__/placesVocabSync.test.ts — so the set of files written
+ * here is exactly the set of places /coverage links to. A prerendered page for
+ * a place the app would not build, or a place page missing from dist, is a
+ * failing test rather than a 404 someone finds later.
+ *
+ * The description states the count and nothing else. There is no prose about
+ * Lahore in this archive, and writing some for a meta description would be
+ * inventing content (RULE 2) in the one place a reader has no way to check it.
+ */
+const placeSlugs = [];
+{
+  const places = countPlaces(shrines, ({ row }) => locationOfRow(row));
+  for (const place of places) {
+    const canonicalUrl = SITE_URL ? `${SITE_URL}/place/${place.slug}` : '';
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/place/${place.slug}` : '';
+    const desc = escHtml(
+      `${place.count} sacred sites recorded in ${place.name} — the shrines, temples, gurdwaras and memorials this archive holds for one place, with what is known about each.`,
+    );
+    const nameUr = translateWordsUr(place.name);
+    /* The Urdu description is built from the dictionary's own place name and a
+       fixed sentence; if the dictionary has no Urdu for the place, the English
+       name rides inside the Urdu sentence rather than the sentence being
+       dropped. All 62 names resolve today (places.test.ts asserts it), so this
+       is a safety net, not the normal path. */
+    const descUr = escHtml(easternDigits(`${nameUr} میں اِس آرکائیو کے ${place.count} مقامات۔`));
+
+    const page = (title, description, lang, canonical, alternate) => {
+      let out = baseHtml
+        .replace(
+          /<title>[^<]*<\/title>/,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+        )
+        .replace(
+          /<meta\s+name="description"[^>]*>/i,
+          `<meta name="description" content="${description}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:title"[^>]*>/i,
+          `<meta property="og:title" content="${escHtml(title)}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:description"[^>]*>/i,
+          `<meta property="og:description" content="${description}" />`,
+        );
+      if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+      out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+      const extras = [
+        canonical ? `  <link rel="canonical" href="${escHtml(canonical)}" />` : '',
+        canonical ? `  <meta property="og:url" content="${escHtml(canonical)}" />` : '',
+        /* Place, not Person or Article: a reader searching for "shrines in
+           Multan" is looking for the place, and schema.org's Place is what a
+           crawler can do something with. `containsPlace` is left out
+           deliberately — listing 35 shrines in the head of a page that already
+           links to all 35 adds bytes, not information. */
+        `  <script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Place',
+          '@id': canonical || `${KG_BASE}place/${place.slug}`,
+          name: lang === 'ur' ? nameUr : place.name,
+          ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
+          ...(alternate ? { url: alternate } : {}),
+        })}</script>`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      return out.replace('</head>', `${extras}\n</head>`);
+    };
+
+    const outDir = join(distDir, 'place', place.slug);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(
+      join(outDir, 'index.html'),
+      page(place.name, desc, 'en', canonicalUrl, canonicalUrl),
+      'utf8',
+    );
+
+    const urOutDir = join(distDir, 'ur', 'place', place.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(
+      join(urOutDir, 'index.html'),
+      page(nameUr, descUr, 'ur', urCanonicalUrl, urCanonicalUrl),
+      'utf8',
+    );
+
+    placeSlugs.push(`/place/${place.slug}`);
+  }
+  console.log(`[prerender] ✓ ${placeSlugs.length} place pages (+ /ur mirrors)`);
 }
 
 // Emits both the English and Urdu <url> entries for a page, each annotated
@@ -817,6 +938,9 @@ if (SITE_URL) {
     ),
     ...orderSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
+    ),
+    ...placeSlugs.map((p) =>
+      sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.6'),
     ),
     // The four static pages. They were absent from the sitemap for the same
     // reason they were absent from dist: nothing enumerated them.

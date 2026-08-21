@@ -51,17 +51,31 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * `ensureUrduContentForLang` + rebuild-listener treatment, which is its own
  * change. Logged in docs/planning/SHARED_GROUND_VISION.md.
  */
+/*
+ * Raised again on 21 August 2026, same cause, one step further. The Urdu seed
+ * went from 697 to 960 entries when the 282 place tokens behind Track B's
+ * /place/:slug pages were merged into it — 69 KB of JSON to 80 KB, which lands
+ * as ~25 KB of eager chunk on *every* route because `urduFallback` imports the
+ * seed statically. Every budget below moved by about that much and none of the
+ * growth is a new dependency.
+ *
+ * This is the second raise for the same reason in two days, which is the
+ * argument for finally doing the language gate described above rather than
+ * absorbing a third: ~80 KB now rides on every English-only page load for a
+ * dictionary it never consults.
+ */
 const BUDGETS_KB = {
-  'index.html': 320, // measured 297 (was 274 before the Urdu seed grew)
-  'src/pages/MapPage.tsx': 640, // measured 593 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
-  'src/pages/ShrinePage.tsx': 540, // measured 500 — the graph is no longer on this route
-  'src/pages/SaintPage.tsx': 715, // measured 663
-  'src/pages/OrderPage.tsx': 700, // measured 649
-  'src/pages/GraphPage.tsx': 670, // measured 620
-  'src/pages/AlmanacPage.tsx': 385, // measured 356
-  'src/pages/NotFoundPage.tsx': 325, // measured 300
-  'src/pages/CoveragePage.tsx': 370, // measured 342 — shrine data, no map or graph
-  'src/pages/AboutPage.tsx': 340, // measured 315 — static text, no dataset needed
+  'index.html': 345, // measured 322 (297 before the place tokens, 274 before that)
+  'src/pages/MapPage.tsx': 660, // measured 611 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
+  'src/pages/ShrinePage.tsx': 575, // measured 531 — the graph is no longer on this route
+  'src/pages/SaintPage.tsx': 745, // measured 689
+  'src/pages/OrderPage.tsx': 730, // measured 674
+  'src/pages/GraphPage.tsx': 700, // measured 645
+  'src/pages/AlmanacPage.tsx': 415, // measured 382
+  'src/pages/NotFoundPage.tsx': 350, // measured 325
+  'src/pages/CoveragePage.tsx': 400, // measured 368 — shrine data + the places index
+  'src/pages/AboutPage.tsx': 360, // measured 331 — static text, no dataset needed
+  'src/pages/PlacePage.tsx': 395, // measured 363 — the dataset and the place vocabulary
 };
 
 /**

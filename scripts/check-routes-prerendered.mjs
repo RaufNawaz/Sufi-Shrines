@@ -45,7 +45,8 @@ if (declared.length < 8) {
  * Routes that are correctly absent from dist, each for a stated reason.
  *
  * The parameterised ones are prerendered per entity elsewhere (169 shrines, 196
- * saints, 5 orders) and are spot-checked below rather than enumerated here.
+ * saints, 5 orders, 30-odd places) and are spot-checked below rather than
+ * enumerated here.
  */
 const NOT_A_FILE = new Map([
   ['*', 'the catch-all — served by 404.html'],
@@ -69,7 +70,17 @@ for (const route of declared) {
 
 /* One instance of each parameterised family, so a prerender loop that silently
    emitted nothing is caught too. */
-const SPOT_CHECKS = ['shrine/data-darbar', 'saint/data-ganj-bakhsh', 'order/qadiriyya'];
+const SPOT_CHECKS = [
+  'shrine/data-darbar',
+  'saint/data-ganj-bakhsh',
+  'order/qadiriyya',
+  // The archive's densest place, 35 sites. Its absence would mean the place
+  // loop emitted nothing at all, since it is the first place by count.
+  'place/lahore',
+  // …and the Urdu mirror of one, because the /ur tree is written by a separate
+  // pass and could fail on its own.
+  'ur/place/lahore',
+];
 for (const rel of SPOT_CHECKS) {
   if (!existsSync(join(DIST, rel, 'index.html'))) {
     failures.push(`dist/${rel}/index.html is missing — did a prerender loop emit nothing?`);
