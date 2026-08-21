@@ -60,7 +60,10 @@ def slugify(text):
     t = (text or "").lower()
     for ch, rep in (("&", " and "), ("@", " at "), ("%", " percent "), ("+", " plus ")):
         t = t.replace(ch, rep)
-    t = re.sub(r"[^\w\s-]", "", t)
+    # JS \w is ASCII-only; Python's is Unicode. Without the explicit class, a
+    # name containing an accented letter slugifies differently here than on
+    # the site, silently mispairing content (code-review finding, 21 Aug 2026).
+    t = re.sub(r"[^A-Za-z0-9_\s-]", "", t)
     t = re.sub(r"[\s_]+", "-", t)
     t = re.sub(r"-+", "-", t)
     return t.strip("-").strip()
@@ -80,7 +83,17 @@ def load_ledger():
 def load_entries():
     """slug -> {name, english, english_source, urdu} for every Urdu article."""
     rows = json.load(open(SNAPSHOT, encoding="utf-8"))["rows"]
-    by_slug = {slugify(r.get("Name", "")): r for r in rows}
+    by_slug = {}
+    for r in rows:
+        slug = slugify(r.get("Name", ""))
+        if slug in by_slug:
+            # The site resolves name collisions by appending the location
+            # (shrineModel.buildShrines); this script cannot replicate that
+            # mapping safely, and pairing an Urdu article with the WRONG
+            # shrine's English would have a reviewer approving a mistranslation.
+            # Fail loudly instead (RULE 4).
+            sys.exit(f"FAIL: two sheet rows slugify to '{slug}' — resolve before reviewing")
+        by_slug[slug] = r
     baseline = json.load(open(BASELINE, encoding="utf-8"))
 
     entries = {}
@@ -117,13 +130,13 @@ def review_state(slug, entry, ledger):
 
 
 def tour_slugs():
+    # No fallback: tours.json is required app data, and silently returning an
+    # empty set would quietly demote 30+ tour stops out of priority tier 1
+    # and leave --check failing with no visible cause (RULE 4 — fail loudly).
     slugs = set()
-    try:
-        for t in json.load(open(TOURS, encoding="utf-8")):
-            for s in t.get("stops", []):
-                slugs.add(s["shrineSlug"])
-    except Exception:
-        pass
+    for t in json.load(open(TOURS, encoding="utf-8")):
+        for s in t.get("stops", []):
+            slugs.add(s["shrineSlug"])
     return slugs
 
 
@@ -234,6 +247,12 @@ def main():
     ap.add_argument("--reviewer", help="reviewer name (required with --mark)")
     ap.add_argument("--check", action="store_true", help="exit 1 if REVIEW_QUEUE.md is stale")
     args = ap.parse_args()
+
+    if args.mark and args.check:
+        # --mark mutates the ledger, --check must observe without mutating;
+        # combined they would record the review and then exit 1 against the
+        # now-outdated queue. Refuse the ambiguous combination outright.
+        sys.exit("FAIL: --mark and --check are mutually exclusive")
 
     entries = load_entries()
     ledger = load_ledger()

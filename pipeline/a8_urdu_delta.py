@@ -60,7 +60,10 @@ def slugify(text):
     t = (text or "").lower()
     for ch, rep in (("&", " and "), ("@", " at "), ("%", " percent "), ("+", " plus ")):
         t = t.replace(ch, rep)
-    t = re.sub(r"[^\w\s-]", "", t)
+    # JS \w is ASCII-only; Python's is Unicode. Without the explicit class, a
+    # name containing an accented letter slugifies differently here than on
+    # the site, silently mispairing content (code-review finding, 21 Aug 2026).
+    t = re.sub(r"[^A-Za-z0-9_\s-]", "", t)
     t = re.sub(r"[\s_]+", "-", t)
     t = re.sub(r"-+", "-", t)
     return t.strip("-").strip()

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { screen } from '@testing-library/react';
 import type { Shrine } from '../../../types/shrine';
 import { CiteThisEntry } from '../CiteThisEntry';
-import { buildBibtex, buildPlainCitation } from '../../../lib/cite';
+import { buildBibtex, buildPlainCitation, escapeBibtex } from '../../../lib/cite';
 import { renderWithProviders, findLatinLeaks, makeShrineRow } from '../../../test/utils';
 
 function makeShrine(overrides: Partial<Shrine> = {}): Shrine {
@@ -60,6 +60,24 @@ describe('citation builders', () => {
     expect(bib).toContain('note = {Support level: Field-verified. Retrieved 2026-08-21}');
     // Balanced braces — an unbalanced BibTeX entry breaks the consuming tool
     expect(bib.split('{').length).toBe(bib.split('}').length);
+  });
+
+  it('escapes LaTeX specials so a production-sheet edit cannot break the entry', () => {
+    // The slug schema itself anticipates '&' in names (SLUG_REPLACEMENTS);
+    // the sheet has no review step, so any of these can arrive any day.
+    expect(escapeBibtex('Shah & Sons 100% #1 _test_')).toBe('Shah \\& Sons 100\\% \\#1 \\_test\\_');
+    // Single-pass: the braces of \textbackslash{} must not get re-escaped
+    expect(escapeBibtex('a\\b')).toBe('a\\textbackslash{}b');
+    expect(escapeBibtex('{lone')).toBe('\\{lone');
+    const bib = buildBibtex({
+      slug: 's',
+      englishName: 'A & B {broken',
+      url: 'https://example.test/s',
+      supportLevelLabel: '',
+      retrieved: '2026-08-21',
+      year: 2026,
+    });
+    expect(bib).toContain('title = {A \\& B \\{broken}');
   });
 });
 

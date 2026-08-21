@@ -63,7 +63,6 @@ export function CiteThisEntry({ shrine }: Props) {
       }),
       bibtex: buildBibtex({
         ...common,
-        name: shrine.name,
         englishName: shrine.name,
         supportLevelLabel: supportLabelEn,
         retrieved: iso,
