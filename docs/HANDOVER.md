@@ -1816,6 +1816,41 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     focus-restore test is the one that found the third bug — the first three were found by
     reading, the fourth by the test I wrote for them.
 
+68. **The interaction-gated audit came back clean, which bounds §9.67.** Having found four bugs
+    behind one click, I ran the same undeclared-English and page-error scan *after* performing
+    each interaction that reveals new UI — the guided-tours toggle, the basemap picker, the
+    facet panel (which reveals +1251 elements and +12,611 characters), scrolling to the page
+    foot, and Share. All five clean, in Urdu.
+
+    The probe needed two goes, both for reasons worth keeping. The first run reported every
+    route broken because **the preview server had died and I had not checked** — a sweep whose
+    harness is down reports silence as success, so it now asserts that at least one route
+    rendered. The second reported Share as doing nothing, which was **the probe lacking
+    clipboard permission**: with `clipboard-write` granted, the toast appears with
+    `role="status"`, the text is localised ("Copied" / "کاپی ہو گیا"), and the copied URL
+    preserves `?lang=ur`. I had also mis-read the component and said `copied` was destructured
+    but unused; it drives a `.share-toast` twenty lines further down.
+
+69. **The production base path now has a check, and it is the only thing that can have one.**
+    `npm run verify:pages` boots the *real* artifact at `/Sufi-Shrines/` behind a server that
+    behaves like GitHub Pages — files under the prefix, directory paths to `index.html`, and
+    **404.html returned with a 404 status** — then asserts, per route: it renders, no page
+    errors, no failed subrequests, every in-app `href` carries the base, and one client-side
+    navigation lands inside it. Wired into `deploy-pages.yml` as the last gate before publish.
+    Mutation-tested by turning one `<Link>` back into an `<a href>`, which it catches by name.
+
+    Result on the current build: **12/12 routes render, all links based, the fallback boots the
+    router.** So §9.58 and §9.60 are closed rather than merely fixed.
+
+    Getting there took three wrong harnesses in a row, and the third is the instructive one:
+    **`vite preview` cannot serve a subpath build.** `vite.config.ts` computes `base` only for
+    `command === 'build'`, so preview serves at `/` — and a request for
+    `/Sufi-Shrines/assets/index-*.js` falls through to its HTML fallback. `curl` got a 200
+    (fallback HTML with the wrong content type) while the browser got a 404 (the fallback only
+    answers `Accept: text/html`), so the two disagreed and neither was measuring the app. Hence
+    the hand-written static server: for a check about how files are *served*, the serving has to
+    be the thing under test, not a dev convenience.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

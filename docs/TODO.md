@@ -396,6 +396,32 @@ service-worker event or geolocation grant is unexamined.**
 `e2e/lightbox.spec.ts` covers all of it in both languages. The focus-restore test found the
 third bug — the first three by reading, the fourth by the test written for them.
 
+### The gated-surface audit came back clean
+
+Having found four bugs behind one click, I ran the same scan after each interaction that reveals
+new UI: guided-tours toggle, basemap picker, facet panel (+1251 elements, +12,611 chars),
+scroll-to-foot, Share. All five clean in Urdu. That bounds the "audit for others" worry — the
+lightbox was the outlier, not the pattern.
+
+Two harness lessons on the way: the first run reported everything broken because **the preview
+server had died and I had not checked** (a sweep with a dead harness reports silence as
+success), and the second reported Share as dead because the probe had no clipboard permission —
+with it granted, the toast shows, localised, and the copied URL preserves `?lang=ur`.
+
+### `npm run verify:pages` — the production base path, checked
+
+Boots the real artifact at `/Sufi-Shrines/` behind a server that behaves like GitHub Pages
+(files under the prefix, 404.html with a 404 status) and asserts every route renders, no page
+errors, no failed subrequests, every in-app href carries the base, and a client-side navigation
+lands inside it. **12/12 clean.** Wired into `deploy-pages.yml` as the last gate before publish;
+mutation-tested by turning one `<Link>` back into an `<a href>`.
+
+It exists because nothing else can see base-path bugs — every other job builds with the base at
+`/`. And **`vite preview` cannot serve a subpath build**: it computes `base` only for
+`command === 'build'`, so subpath asset requests fall through to its HTML fallback, where `curl`
+sees 200 and the browser sees 404. Hence a hand-written static server: for a check about how
+files are served, the serving has to be under test.
+
 ### Suite state
 
 `npm run verify`: 537 tests, green. Full Playwright run: **121 passed, 5 failed** — and those
