@@ -266,6 +266,14 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
           <CiteThisEntry shrine={shrine} />
+          {/* Print-only provenance footer: a printed page is a handout that
+              has left the site, so it must carry its own source line. The
+              <details> citation block cannot be forced open by print CSS,
+              hence this parallel, always-rendered-but-screen-hidden line. */}
+          <p className="shrine-print-provenance print-only">
+            {t('siteTitle')} · {typeof window !== 'undefined' ? window.location.href : ''}
+            {shrine.supportLevel ? ` · ${t('citeSupportLevel')}: ${shrine.supportLevel}` : ''}
+          </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
           {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}

@@ -52,6 +52,25 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('#data-darbar')).toBeVisible();
   });
 
+  test('prints as a handout: article and facts stay, chrome and map go', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    await page.locator('h1.shrine-title').waitFor();
+    await page.emulateMedia({ media: 'print' });
+
+    // Keeps: the article, the fact sheet, and a provenance footer — a
+    // printed page has left the site, so it must carry its own source line.
+    await expect(page.locator('.article-section').first()).toBeVisible();
+    await expect(page.locator('.shrine-infobox')).toBeVisible();
+    await expect(page.locator('.shrine-print-provenance')).toBeVisible();
+
+    // Drops: navigation chrome, the map (grey tiles on paper), related
+    // grids, and the interactive citation disclosure.
+    await expect(page.locator('.shrine-page-header')).toBeHidden();
+    await expect(page.locator('.location-section')).toBeHidden();
+    await expect(page.locator('.related-shrines').first()).toBeHidden();
+    await expect(page.locator('.cite-entry')).toBeHidden();
+  });
+
   test('unknown slug redirects to map', async ({ page }) => {
     await page.goto('/shrine/this-shrine-does-not-exist-xyz123');
     await expect(page).toHaveURL('/');

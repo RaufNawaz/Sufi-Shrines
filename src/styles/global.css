@@ -296,6 +296,11 @@ body.lang-rtl,
 }
 
 /* Print */
+/* Screen-hidden, print-visible (e.g. the shrine page's provenance footer). */
+.print-only {
+  display: none;
+}
+
 @media print {
   .no-print {
     display: none !important;
@@ -303,6 +308,70 @@ body.lang-rtl,
 
   [dir='rtl'] {
     direction: rtl;
+  }
+
+  .print-only {
+    display: block;
+  }
+
+  /* ── Shrine pages print as handouts (plan: F6 groundwork) ─────────────
+     Keep: masthead, article, urs block, infobox fact sheet, provenance
+     line. Drop: anything interactive or navigational — maps print as grey
+     tiles, related-card grids as broken links, a collapsed <details> as a
+     stray summary line. */
+  .contents-nav-rail,
+  .location-section,
+  .related-shrines,
+  .cite-entry,
+  .contribute-note,
+  .shrine-actions,
+  .site-footer,
+  .scroll-to-top,
+  .reading-progress-bar,
+  .share-toast {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .shrine-article-layout {
+    display: block;
+  }
+
+  /* A full-bleed hero swallows half the first page; cap it. */
+  .shrine-hero-img {
+    max-height: 70mm;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .shrine-print-provenance {
+    margin-top: 8mm;
+    padding-top: 3mm;
+    border-top: 1px solid #999;
+    font-size: 9pt;
+    color: #333;
+  }
+
+  /* Nastaliq needs its generous leading on paper as much as on screen, but
+     page-break control matters more: never split a heading from its text. */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .article-verse,
+  .shrine-infobox {
+    break-inside: avoid;
   }
 }
 
