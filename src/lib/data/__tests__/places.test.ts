@@ -69,7 +69,7 @@ describe('buildPlaces over the shipped snapshot', () => {
   });
 
   it('groups the archive into places that each hold at least two sites', () => {
-    expect(places.length).toBeGreaterThanOrEqual(20);
+    expect(places.length).toBeGreaterThanOrEqual(25);
     for (const p of places) expect(p.shrines.length).toBeGreaterThanOrEqual(2);
   });
 
@@ -80,10 +80,24 @@ describe('buildPlaces over the shipped snapshot', () => {
     expect(places[0]!.shrines.length).toBeGreaterThanOrEqual(30);
   });
 
-  it('leaves few sites unplaced, and never silently', () => {
-    // Unplaced means "the Location names nowhere in the vocabulary", not "this
-    // place has only one site".
-    expect(unplaced.length).toBeLessThanOrEqual(10);
+  it('leaves at most the one site whose survey names no place at all', () => {
+    /* Unplaced means "the Location names nowhere in the vocabulary", not "this
+       place has only one site".
+     *
+     * Exactly one row qualifies as of 21 August 2026, and it qualifies
+     * honestly: Darbar Malik Ahmad Ayaz's Location is a paragraph saying, in
+     * as many words, that "no city, district, tehsil or province is stated
+     * anywhere in the survey for the shrine itself". Nothing can place it, and
+     * inventing a city for it would be the exact thing RULE 2 forbids.
+     *
+     * The threshold was 10 while the vocabulary was still being read off the
+     * data; it is 2 now, because the remaining six unplaced rows turned out to
+     * be vocabulary gaps rather than data gaps — Quetta, Hyderabad, Kasur and
+     * Sharda were simply missing, and Girhor Sharif was unplaced for a vowel
+     * ("Umarkot" against a pattern that only matched "Umerkot"). A loose
+     * threshold would have hidden all five. */
+    expect(unplaced.length).toBeLessThanOrEqual(2);
+    expect(unplaced.every((s) => !s.location || s.location.length > 80)).toBe(true);
   });
 
   it('lets one site belong to a town and its district, because it is in both', () => {

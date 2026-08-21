@@ -199,6 +199,18 @@
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
 
+  /* How much of the mobile bottom sheet stays on screen when it is collapsed.
+     Declared here because three rules in map.css depend on it — the collapsed
+     height, the expanded-state floor, and the offset that lifts Leaflet's zoom
+     control and attribution clear of the sheet — and they were three copies of
+     a literal with a `var(…, 108px)` fallback nobody ever set. Raising one of
+     them and not the others is how the zoom control ends up behind the sheet.
+
+     184px is measured, not chosen: at 390×844 the "Table of Shrines" button's
+     box runs to 166px inside the sheet, and it is the only route into the
+     archive's 169 sites on a phone. */
+  --sheet-peek-height: 184px;
+
   /* Inline icon masks. A mask rather than a background-image so the glyph
      takes currentColor and therefore follows dark mode; Leaflet's own sprites
      are raster PNGs that do not. url() must be quoted — an unquoted data URI

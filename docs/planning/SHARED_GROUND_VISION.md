@@ -101,11 +101,11 @@ which traditions, and the span of the dates the archive can actually read. Index
 
 | | |
 |---|---|
-| Place vocabulary | **62 entries**, every one derived from a `Location` string that appears in the data |
-| Pages built | **27** places with ≥2 sites (× 2 languages) |
+| Place vocabulary | **66 entries**, every one derived from a `Location` string that appears in the data |
+| Pages built | **29** places with ≥2 sites (× 2 languages) |
 | Densest place | **Lahore, 35 sites**, five of the six traditions |
-| Sites the vocabulary cannot place | **8 of 169** — reported on `/coverage`, not rounded away |
-| Urdu | all 62 names resolve through the dictionary; 282 place tokens added to the seed |
+| Sites the vocabulary cannot place | **1 of 169** — and its survey states no city, district, tehsil or province anywhere |
+| Urdu | all 66 names resolve through the dictionary; 282 place tokens added to the seed |
 
 **What the data forced, and what it cost**
 
@@ -118,7 +118,7 @@ anywhere in the string, the same technique `extractRegion` already used one leve
 Two consequences, both kept deliberately:
 
 - **A site can be in two places.** "Uch Sharif, Bahawalpur District" matches both, because it is
-  in both. Choosing one would mean suppressing a true statement.
+  in both — twelve rows do. Choosing one would mean suppressing a true statement.
 - **The district/tehsil hierarchy this section hoped for is not here.** One `\bLahore\b` entry
   covers "Lahore", "Lahore District" and "Walled City, Lahore" without asserting that a district
   is a city. That is weaker than a hierarchy and it is what the data supports; a hierarchy needs

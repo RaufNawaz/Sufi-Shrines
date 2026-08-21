@@ -22,7 +22,7 @@
  *
  * Run as part of `npm run build`, after prerender.
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -87,6 +87,74 @@ for (const rel of SPOT_CHECKS) {
   }
 }
 
+/*
+ * Every URL the sitemap advertises must be a file that exists.
+ *
+ * The spot-checks above prove a prerender loop ran; this proves it ran over the
+ * same set the sitemap claims. They are built from different code paths in
+ * prerender.mjs — the files from one loop, the `<loc>` entries from a list
+ * assembled at the end — so a place, saint or order can appear in one and not
+ * the other. A sitemap is the one document a crawler trusts completely, and a
+ * `<loc>` that 404s is worse than an absent one.
+ *
+ * Only runs when SITE_URL was set at build time. Without it prerender.mjs emits
+ * an empty `<urlset>` by design — a local `npm run build` therefore has nothing
+ * to compare, and treating "no URLs" as "all URLs missing" made this check fail
+ * every local build the first time it was written.
+ */
+const sitemapPath = join(DIST, 'sitemap.xml');
+let sitemapChecked = 0;
+if (existsSync(sitemapPath)) {
+  const xml = readFileSync(sitemapPath, 'utf8');
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  if (locs.length === 0) {
+    console.log(
+      'check-routes-prerendered: sitemap.xml is empty (SITE_URL unset at build time) — ' +
+        'skipping the sitemap half of this check.',
+    );
+  }
+  // The origin is whatever SITE_URL was; strip it to get a repo-relative path.
+  const origin = locs[0]?.match(/^https?:\/\/[^/]+(\/[^/]*)?/)?.[0] ?? '';
+  const missing = [];
+  for (const loc of locs) {
+    const path = loc.slice(origin.length).replace(/^\//, '');
+    const target = path === '' ? join(DIST, 'index.html') : join(DIST, path, 'index.html');
+    if (!existsSync(target)) missing.push(loc);
+    sitemapChecked++;
+  }
+  if (missing.length) {
+    failures.push(
+      `${missing.length} sitemap URL(s) have no file, e.g. ${missing.slice(0, 3).join(', ')}`,
+    );
+  }
+  /* And the reverse direction, for the parameterised families: a place page in
+     dist that the sitemap never mentions is invisible to a crawler. Counted per
+     language, because every page is listed twice — once for itself and once for
+     its /ur mirror — and a single count that conflated them was exactly 2×
+     everything and reported four families broken. */
+  for (const family of locs.length ? ['shrine', 'saint', 'order', 'place'] : []) {
+    const dirs = (dir) =>
+      existsSync(dir)
+        ? readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory()).length
+        : 0;
+    const en = new RegExp(`(?<!/ur)/${family}/[^/]+$`);
+    const ur = new RegExp(`/ur/${family}/[^/]+$`);
+    for (const [label, dir, re] of [
+      ['', join(DIST, family), en],
+      ['ur/', join(DIST, 'ur', family), ur],
+    ]) {
+      const inDist = dirs(dir);
+      const inSitemap = locs.filter((l) => re.test(l)).length;
+      if (inDist !== inSitemap) {
+        failures.push(
+          `dist/${label}${family} holds ${inDist} page(s) but the sitemap lists ${inSitemap} — ` +
+            'one of the two loops in prerender.mjs missed some.',
+        );
+      }
+    }
+  }
+}
+
 /* The fallback itself. Without it an unknown path shows GitHub's 404 rather
    than the app's own NotFoundPage. */
 if (!existsSync(join(DIST, '404.html'))) {
@@ -106,5 +174,6 @@ if (failures.length) {
 
 console.log(
   `check-routes-prerendered: OK — ${checked.length} declared route(s) + ${SPOT_CHECKS.length} ` +
-    'parameterised famil(ies) have files, and 404.html is present.',
+    `spot-check(s) have files${sitemapChecked ? `, ${sitemapChecked} sitemap URL(s) resolve` : ''}` +
+    ', and 404.html is present.',
 );

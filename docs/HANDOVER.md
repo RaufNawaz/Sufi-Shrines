@@ -1851,8 +1851,8 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     the hand-written static server: for a check about how files are *served*, the serving has to
     be the thing under test, not a dev convenience.
 
-70. **Places as entities shipped (Track B), and the data decided its shape.** 27 place pages in
-    both languages, from a closed 62-entry vocabulary; Lahore holds 35 sites and five of the six
+70. **Places as entities shipped (Track B), and the data decided its shape.** 29 place pages in
+    both languages, from a closed 66-entry vocabulary; Lahore holds 35 sites and five of the six
     traditions. Every entry is derived from a `Location` string that appears in the data, none
     from general knowledge of Pakistani geography.
 
@@ -1866,8 +1866,16 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     hierarchy, which is the honest trade when the hierarchy is not in the data.
 
     Two things stay deliberately untidy. A site can be in **two** places ("Uch Sharif,
-    Bahawalpur District" is in both, and eight rows are like this), and **eight sites are
-    unplaced** — reported on `/coverage` rather than rounded away. The date span reads bare
+    Bahawalpur District" is in both, and twelve rows are like this), and **one site is unplaced** —
+    reported on `/coverage` rather than rounded away. That last number started at seven, and the
+    reduction is the useful part: six of the seven were the *vocabulary's* fault, not the data's.
+    Quetta, Hyderabad, Kasur and Sharda were missing outright; Girhor Sharif was unplaced because
+    the sheet spells its district "Umarkot" while the pattern only accepted "Umerkot". Reading the
+    unplaced list is how you find that, and a loose test threshold (`≤ 10`, which passed at seven)
+    is how you never do — it is `≤ 2` now.
+
+    The one that remains cannot be placed by anything: Darbar Malik Ahmad Ayaz's Location is a
+    paragraph stating that no city, district, tehsil or province appears anywhere in its survey. The date span reads bare
     Gregorian years only and skips every Hijri or hedged date instead of flattening it (RULE 2).
 
 71. **A class name is a string, and every string typechecks.** `PlacePage` was written against

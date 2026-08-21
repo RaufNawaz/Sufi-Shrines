@@ -424,14 +424,21 @@ files are served, the serving has to be under test.
 
 ### Places as entities — Track B shipped
 
-`/place/:slug` and `/ur/place/:slug`: **27 pages** for every place holding two or more sites,
-from a closed **62-entry** vocabulary. Indexed from `/coverage`, a pill row on every shrine
+`/place/:slug` and `/ur/place/:slug`: **29 pages** for every place holding two or more sites,
+from a closed **66-entry** vocabulary. Indexed from `/coverage`, a pill row on every shrine
 masthead, prerendered in both languages, in the sitemap, in the axe / no-leak /
 accessible-names / skip-link sweeps, and covered by `e2e/places.spec.ts` (6 tests, the journey
 in both languages).
 
 Lahore holds **35 sites and five of the six traditions** — a fact no view in the archive stated
-before. **Eight sites are unplaced** and `/coverage` says so.
+before. **One site is unplaced**, and its survey states no city, district, tehsil or province
+anywhere; `/coverage` says so rather than hiding it.
+
+Five of the vocabulary's entries came from reading the *unplaced* list afterwards: Quetta,
+Hyderabad, Kasur and Sharda were missing outright, and Girhor Sharif was unplaced because the
+sheet spells its district "Umarkot" against a pattern that only accepted "Umerkot". Six of the
+seven gaps were the vocabulary's fault, not the data's — worth knowing before trusting the next
+"the data doesn't say".
 
 The shape was forced by the data: there is no District, City, Province or Region column, and
 across the snapshot the last segment of `Location` is "Pakistan" for 124 rows and a province for

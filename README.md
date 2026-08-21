@@ -26,6 +26,7 @@ knows](https://raufnawaz.github.io/Sufi-Shrines/coverage)
 - Saints/orders knowledge graph: lineage views, network graph, standalone explorer at `/graph`
 - The ʿurs almanac at `/almanac`: when the gatherings fall, computed from each entry's recorded dates, with the Hijri reading shown alongside
 - `/coverage`: the archive's own limits, computed from the shipped data on every load rather than asserted in a document
+- `/place/:slug`: 29 places as readable subjects — which sites stand there, which traditions, and the span of the dates the archive can read (35 of the 169 sites are in or around Lahore, and five of the six traditions stand within a few streets of one another there)
 - `/about`: licence, copy-able citations for the archive and for a single entry, and how to report a correction
 - Shared ground: where a site stands within 800 m of one from another tradition, shown on the shrine page
 - Bilingual: English and Urdu (RTL layout, Nastaliq type, Eastern numerals), zero runtime translation API calls — and the Urdu edition is held to the same bar as the English one, enforced by e2e guards over visible text _and_ accessible names

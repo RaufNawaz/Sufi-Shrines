@@ -10,9 +10,9 @@ module.exports = {
        * Every route, and one of them in Urdu.
        *
        * This measured `/` and `/shrine/data-darbar` and nothing else, while the
-       * app grew /saint, /order, /graph, /almanac, /coverage and /about — so it
-       * reported the site's performance and SEO having looked at two pages of
-       * twelve. Same shape of gap as the axe sweep (HANDOVER §9.46) and the
+       * app grew /saint, /order, /graph, /almanac, /coverage, /place and
+       * /about — so it reported the site's performance and SEO having looked at
+       * two pages of thirteen. Same shape of gap as the axe sweep (HANDOVER §9.46) and the
        * no-leak guard (§9.56): a URL list is a universe, and a check is only as
        * good as the one it ran over.
        *
@@ -39,6 +39,7 @@ module.exports = {
         'http://localhost:4173/graph',
         'http://localhost:4173/almanac',
         'http://localhost:4173/coverage',
+        'http://localhost:4173/place/lahore',
         'http://localhost:4173/about',
       ],
       numberOfRuns: 1,

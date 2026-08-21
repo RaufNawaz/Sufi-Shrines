@@ -5,7 +5,7 @@ import { categoryKey, type CategoryKey } from './categoryKey';
  * Places as entities — Track B of `docs/planning/SHARED_GROUND_VISION.md`.
  *
  * The archive presents every site as an island. The coordinates say otherwise:
- * **35 of 169 sites are in or around Lahore**, and 25 places hold two or more.
+ * **35 of 169 sites are in or around Lahore**, and 29 places hold two or more.
  * "Lahore" and "Uch Sharif" should be readable subjects, not filter values.
  *
  * ── Why a vocabulary, and why matched anywhere in the string ─────────────────
@@ -26,9 +26,9 @@ import { categoryKey, type CategoryKey } from './categoryKey';
  *
  * 1. **A site can belong to more than one place.** "Uch Sharif, Bahawalpur
  *    District, Punjab" matches both `uch-sharif` and `bahawalpur`, because it is
- *    in both. Eight rows do this and every one is a town inside its own
- *    district. Treating them as exclusive would mean choosing which of two true
- *    statements to suppress.
+ *    in both. Twelve rows do this and every one is a town or neighbourhood
+ *    inside its own district or city. Treating them as exclusive would mean
+ *    choosing which of two true statements to suppress.
  * 2. **A name matched anywhere covers the level variations for free.** One
  *    `\bLahore\b` entry catches "Lahore", "Lahore District" and "Walled City,
  *    Lahore" without a hierarchy table. That is not a claim that a district is a
@@ -47,11 +47,18 @@ import { categoryKey, type CategoryKey } from './categoryKey';
  * always the shortest form: the sheet says "Sehwan Sharif", "Ghotki District"
  * and "Hingol National Park", and the Urdu dictionary is keyed on exactly those
  * strings. Shortening a name to look tidier costs its Urdu — measured: five of
- * the sixty-two entries had no Urdu until their names were spelled the way the
- * archive spells them. `places.test.ts` asserts every name resolves. `match` is deliberately loose about
- * level ("Multan" catches "Multan City") and strict about word boundaries, so
- * `Dadu` cannot match inside another word. Entries are ordered alphabetically by
- * slug for review, not by frequency.
+ * the first sixty-two entries had no Urdu until their names were spelled the way
+ * the archive spells them. `places.test.ts` asserts every name resolves. `match`
+ * is deliberately loose about level ("Multan" catches "Multan City") and strict
+ * about word boundaries, so `Dadu` cannot match inside another word. Entries are
+ * ordered alphabetically by slug for review, not by frequency.
+ *
+ * Sixty-six entries as of 21 August 2026. The last five were found by reading
+ * the *unplaced* list rather than the data: Quetta, Hyderabad, Kasur and Sharda
+ * were missing outright, and Girhor Sharif was unplaced because the sheet spells
+ * its district "Umarkot" while the pattern only accepted "Umerkot". One row
+ * remains unplaced and always will — its survey states no city, district, tehsil
+ * or province anywhere.
  *
  * Where the data uses an en-dash in a name (Qambar–Shahdadkot) the pattern
  * accepts either dash, because the sheet is inconsistent about it.
@@ -79,6 +86,7 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'gujrat', name: 'Gujrat', match: /\bGujrat\b/i },
   { slug: 'hasan-abdal', name: 'Hasan Abdal', match: /\bHasan\s+Abdal\b/i },
   { slug: 'hingol', name: 'Hingol National Park', match: /\bHingol\b/i },
+  { slug: 'hyderabad', name: 'Hyderabad', match: /\bHyderabad\b/i },
   { slug: 'islamabad', name: 'Islamabad', match: /\bIslamabad\b/i },
   { slug: 'jhal-magsi', name: 'Jhal Magsi', match: /\bJhal\s+Magsi\b/i },
   { slug: 'jhang', name: 'Jhang', match: /\bJhang\b/i },
@@ -87,6 +95,7 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'kalat', name: 'Kalat', match: /\bKalat\b/i },
   { slug: 'karachi', name: 'Karachi', match: /\bKarachi\b/i },
   { slug: 'kartarpur', name: 'Kartarpur', match: /\bKartarpur\b/i },
+  { slug: 'kasur', name: 'Kasur', match: /\bKasur\b/i },
   { slug: 'khairpur', name: 'Khairpur', match: /\bKhairpur\b/i },
   { slug: 'khushab', name: 'Khushab', match: /\bKhushab\b/i },
   { slug: 'khuzdar', name: 'Khuzdar', match: /\bKhuzdar\b/i },
@@ -113,12 +122,14 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
     name: 'Qambar–Shahdadkot District',
     match: /\bQambar[-–]\s?Shahdadkot\b|\bQambar\b/i,
   },
+  { slug: 'quetta', name: 'Quetta', match: /\bQuetta\b/i },
   { slug: 'rajanpur', name: 'Rajanpur', match: /\bRajanpur\b/i },
   { slug: 'rawalpindi', name: 'Rawalpindi', match: /\bRawalpindi\b/i },
   { slug: 'sargodha', name: 'Sargodha', match: /\bSargodha\b|\bSial\s+Sharif\b/i },
   { slug: 'sehwan', name: 'Sehwan Sharif', match: /\bSehwan\b/i },
   { slug: 'shahpur', name: 'Shahpur', match: /\bShahpur\b/i },
   { slug: 'sharaqpur', name: 'Sharaqpur', match: /\bSharaqpur\b/i },
+  { slug: 'sharda', name: 'Sharda', match: /\bSharda\b/i },
   { slug: 'sheikhupura', name: 'Sheikhupura', match: /\bSheikhupura\b/i },
   { slug: 'shikarpur', name: 'Shikarpur', match: /\bShikarpur\b/i },
   { slug: 'sialkot', name: 'Sialkot', match: /\bSialkot\b/i },
@@ -132,7 +143,10 @@ export const PLACES: readonly PlaceVocabularyEntry[] = [
   { slug: 'taunsa-sharif', name: 'Taunsa Sharif', match: /\bTaunsa\b/i },
   { slug: 'tharparkar', name: 'Tharparkar', match: /\bTharparkar\b/i },
   { slug: 'uch-sharif', name: 'Uch Sharif', match: /\bUch\s+Sharif\b/i },
-  { slug: 'umerkot', name: 'Umerkot', match: /\bUme?rkot\b/i },
+  /* Both spellings occur in the data — "Umerkot" in the Location column of one
+     row and "Umarkot" in another. `Ume?rkot` matched only the first, which left
+     Girhor Sharif unplaced for a missing vowel. */
+  { slug: 'umerkot', name: 'Umerkot', match: /\bUm[ae]?rkot\b/i },
 ] as const;
 
 export interface PlaceRecord {

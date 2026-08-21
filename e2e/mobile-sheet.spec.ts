@@ -114,3 +114,52 @@ test.describe('mobile bottom sheet', () => {
     }
   });
 });
+
+/**
+ * The sheet must fill the width of the phone, with the list open.
+ *
+ * It did not. `.sidebar` set `left: 0; right: 0` and then
+ * `inset-inline-start: auto !important` — which *is* `left` in LTR, so the pin
+ * was cancelled and a fixed box with one inset and `width: auto` resolves to
+ * shrink-to-fit. Measured at 390×844 with the shrine list open: **2201px wide,
+ * starting at x = −1811**, sized by the widest row in the list and hanging off
+ * the left of the screen. The peek looked fine because its own content is
+ * narrower than the viewport, so nothing showed until a reader tapped through
+ * to the list — and then most of the sheet they had just opened was off-screen
+ * with blank rows where the names should be.
+ *
+ * Checked in both directions, because the old rule cancelled the *right* edge
+ * in RTL and blew the sheet out the other way.
+ */
+for (const [label, url] of [
+  ['en', '/'],
+  ['ur', '/?lang=ur'],
+] as const) {
+  test(`[${label}] the expanded sheet fits the viewport, and so do its rows`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(url);
+    await page.locator('#sidebar').waitFor();
+    await page.locator('.list-toggle-btn').click();
+    await expect(page.locator('.shrine-list-item').first()).toBeVisible();
+
+    const geometry = await page.evaluate(() => {
+      const sheet = document.querySelector('#sidebar')!.getBoundingClientRect();
+      const row = document.querySelector('.shrine-list-item')!.getBoundingClientRect();
+      return {
+        sheetLeft: Math.round(sheet.left),
+        sheetWidth: Math.round(sheet.width),
+        rowWidth: Math.round(row.width),
+        viewport: window.innerWidth,
+        // A horizontally scrollable document is the same bug seen from outside.
+        docScrollWidth: document.documentElement.scrollWidth,
+      };
+    });
+
+    expect(geometry.sheetLeft, 'the sheet starts off-screen').toBe(0);
+    expect(geometry.sheetWidth, 'the sheet is not the width of the phone').toBe(geometry.viewport);
+    expect(geometry.rowWidth).toBeLessThanOrEqual(geometry.viewport);
+    expect(geometry.docScrollWidth, 'the page scrolls sideways').toBeLessThanOrEqual(
+      geometry.viewport,
+    );
+  });
+}

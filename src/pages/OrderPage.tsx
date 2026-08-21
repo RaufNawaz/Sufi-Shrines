@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
+import { ShrineImage } from '../components/ui/ShrineImage';
+import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
@@ -86,6 +88,17 @@ export default function OrderPage() {
     for (const shrine of shrines) m.set(shrine.slug, localizeShrineName(shrine, lang));
     return m;
   }, [shrines, lang]);
+
+  /* The shrine record itself, for the member cards below: a figure's portrait
+     does not exist and inventing one is out of the question, but the *shrine
+     that holds them* is photographed for 118 of the 169 entries, and that photo
+     is the closest thing to a face this archive can honestly show. Same map as
+     above, keyed the same way. */
+  const shrineBySlug = useMemo(() => {
+    const m = new Map<string, (typeof shrines)[number]>();
+    for (const shrine of shrines) m.set(shrine.slug, shrine);
+    return m;
+  }, [shrines]);
 
   const order = useMemo(() => (slug ? getOrderBySlug(slug) : undefined), [slug]);
   const saints = useMemo(() => (slug ? getSaintsInOrder(slug) : []), [slug]);
@@ -229,6 +242,39 @@ export default function OrderPage() {
                       className="entity-saint-item reveal-rise"
                       style={{ '--stagger-index': i } as React.CSSProperties}
                     >
+                      {/* The shrine that holds this figure, as a photograph.
+                          The page listed twenty-odd names with no image of any
+                          kind, on a site whose subject is architecture. Falls
+                          back to the tradition's own glyph, which is what the
+                          sidebar list and the related-shrine cards already do
+                          for an entry with no photo. */}
+                      {(() => {
+                        const restingShrine = saint.shrines
+                          .map((slug) => shrineBySlug.get(slug))
+                          .find((shrine) => shrine);
+                        if (!restingShrine) return null;
+                        return (
+                          <Link
+                            to={`/shrine/${restingShrine.slug}`}
+                            className="entity-saint-thumb"
+                            aria-label={
+                              shrineNames.get(restingShrine.slug) ??
+                              localizeShrineSlug(restingShrine.slug, lang)
+                            }
+                            tabIndex={-1}
+                          >
+                            <ShrineImage
+                              src={restingShrine.imageUrl}
+                              alt=""
+                              category={restingShrine.category}
+                              className="entity-saint-thumb-img"
+                              placeholderClassName="entity-saint-thumb-placeholder"
+                              loading="lazy"
+                              width={IMAGE_WIDTH.preview}
+                            />
+                          </Link>
+                        );
+                      })()}
                       <div className="entity-saint-item-name">
                         {/* fmtNum because a few recorded names carry a
                             lifespan in parentheses — Eastern numerals reach
@@ -256,6 +302,30 @@ export default function OrderPage() {
                           </span>
                         )}
                       </div>
+                      {/* Dates, when the graph holds them. They were on the
+                          figure's own page and nowhere in this list, so a
+                          reader scanning an order could not see that its
+                          members span the 11th to the 20th century — the one
+                          thing a list of an order's members is for. Rendered
+                          verbatim, hedges included: "c. 1165" stays "c. 1165".
+                       */}
+                      {(saint.born || saint.died) && (
+                        <div className="entity-saint-dates">
+                          {saint.born && (
+                            <span>
+                              {t('born')}:{' '}
+                              {fmtNum(isRtl ? translateToUrdu(saint.born) : saint.born)}
+                            </span>
+                          )}
+                          {saint.died && (
+                            <span>
+                              {t('died')}:{' '}
+                              {fmtNum(isRtl ? translateToUrdu(saint.died) : saint.died)}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
                       {/* A figure can hold more than one silsila, and the
                           archive's sources say so for twenty of them. Each of
                           these is its own quoted edge, not an inference. */}

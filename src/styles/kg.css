@@ -283,11 +283,74 @@
   gap: var(--space-3);
 }
 
+/* A member of an order: the shrine that holds them on the leading edge, then
+   the name, dates, silsila chips and shrine tags. A grid rather than a flex row
+   so the text column keeps its full width when there is no photograph — which
+   is the case for the fifty-one entries that carry none. */
 .entity-saint-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0 var(--space-3);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border);
+}
+
+/* Everything after the thumbnail sits in the second column. The thumbnail is
+   the first child when it exists; when it does not, `grid-column: 2` on the
+   text rows would leave an empty first column, so the rows are placed by
+   `grid-column: auto` and the thumbnail spans all of them instead. */
+.entity-saint-thumb {
+  grid-row: 1 / -1;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  flex-shrink: 0;
+}
+
+.entity-saint-thumb-img,
+.entity-saint-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The figure's dates, as the graph records them — hedges included. */
+.entity-saint-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .entity-saint-dates {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 480px) {
+  /* On a narrow phone the 72px column costs a third of the line length the
+     names need, so the photograph goes full width above them instead of
+     beside them. */
+  .entity-saint-item {
+    grid-template-columns: 1fr;
+  }
+
+  .entity-saint-thumb {
+    grid-row: auto;
+    width: 100%;
+    height: 120px;
+    margin-block-end: var(--space-2);
+  }
 }
 
 .entity-saint-item-name a {

@@ -11,6 +11,8 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import { buildPlaces, type PlaceRecord } from '../lib/data/places';
+import { ShrineImage } from '../components/ui/ShrineImage';
+import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
 
 /**
@@ -36,6 +38,17 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: 'en' | 'ur' }
   const headingRef = useFocusHeadingOnMount();
   const displayName = localizePlaceName(place.name, lang);
 
+  /* Up to five photographs from the place's own sites.
+   *
+   * Only sites that actually have one, and only when there are at least two:
+   * 51 of 169 entries carry no photograph (see /coverage), and a strip of
+   * category glyphs standing in for missing photos would advertise an absence
+   * as if it were content. */
+  const photos = React.useMemo(
+    () => place.shrines.filter((s) => s.imageUrl).slice(0, 5),
+    [place.shrines],
+  );
+
   useDocumentTitle(`${displayName} — ${t('siteTitle')}`);
 
   return (
@@ -49,6 +62,38 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: 'en' | 'ur' }
         {displayName}
       </h1>
       <p className="coverage-intro">{t('placeIntro')}</p>
+
+      {photos.length >= 2 && (
+        <div className="place-photo-strip">
+          {photos.map((shrine) => {
+            const name = localizeShrineName(shrine, lang);
+            return (
+              <Link
+                key={shrine.slug}
+                to={`/shrine/${shrine.slug}`}
+                className="place-photo"
+                /* Named on the link, not left to the image: ShrineImage falls
+                   back to an aria-hidden glyph when a photo 404s, and a link
+                   whose only child is hidden has no accessible name at all. */
+                aria-label={name}
+              >
+                <ShrineImage
+                  src={shrine.imageUrl}
+                  alt=""
+                  category={shrine.category}
+                  className="place-photo-img"
+                  placeholderClassName="place-photo-placeholder"
+                  loading="lazy"
+                  width={IMAGE_WIDTH.preview}
+                />
+                <span className="place-photo-caption">
+                  <bdi>{name}</bdi>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      )}
 
       <div className="entity-meta">
         <span className="entity-meta-item">

@@ -179,6 +179,11 @@ export const UI_TEXT = {
        not visible text. See docs/HANDOVER.md §9.51. */
     ariaBreadcrumb: 'Breadcrumb',
     ariaShrineBrowser: 'Shrine browser',
+    /* The mobile bottom sheet's drag handle. Was a hardcoded English literal in
+       MapSidebar.tsx — invisible to the Urdu accessible-name sweep, which runs
+       at a desktop viewport where this control does not exist. */
+    ariaExpandSheet: 'Expand the shrine browser',
+    ariaCollapseSheet: 'Collapse the shrine browser',
     ariaShrineList: 'Shrine list',
     ariaFiltersActive: 'filters active',
     ariaClearSearch: 'Clear search',
@@ -582,6 +587,8 @@ export const UI_TEXT = {
        dictionary drafts: usable and honest about being a draft. */
     ariaBreadcrumb: 'صفحہ راستہ',
     ariaShrineBrowser: 'مزارات کی فہرست اور چھانٹ',
+    ariaExpandSheet: 'مزارات کی فہرست کھولیں',
+    ariaCollapseSheet: 'مزارات کی فہرست بند کریں',
     ariaShrineList: 'مزارات کی فہرست',
     ariaFiltersActive: 'فلٹرز فعال',
     ariaClearSearch: 'تلاش صاف کریں',

@@ -277,7 +277,10 @@ export function MapSidebar({
         <button
           className="sidebar-sheet-handle"
           onClick={onToggle}
-          aria-label={isOpen ? 'Collapse sheet' : 'Expand sheet'}
+          /* Was a hardcoded English 'Collapse sheet' / 'Expand sheet'. The
+             Urdu accessible-name sweep never saw it: that suite runs at a
+             desktop viewport, and this control only exists under 768px. */
+          aria-label={isOpen ? t('ariaCollapseSheet') : t('ariaExpandSheet')}
           aria-expanded={isOpen}
           aria-controls="sidebar"
         >
@@ -341,7 +344,17 @@ export function MapSidebar({
         <div className="list-toggle-bar">
           <button
             className={`list-toggle-btn${showList ? ' active' : ''}`}
-            onClick={() => setShowList((v) => !v)}
+            onClick={() => {
+              const next = !showList;
+              setShowList(next);
+              /* On a phone this button is the one thing visible in the
+                 collapsed sheet, so it has to be the whole gesture: opening
+                 the list inside a 184px peek would show two rows of a
+                 169-row list. Expand on open; leave the sheet alone on close,
+                 because collapsing it would yank the map out from under a
+                 reader who only wanted the list shut. */
+              if (next && isMobile && !isOpen) onToggle?.();
+            }}
             aria-expanded={showList}
           >
             <svg

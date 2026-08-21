@@ -69,12 +69,35 @@
   .sidebar {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    /*
+     * Pinned to *both* edges, and this is the load-bearing part of the rule.
+     *
+     * It read `left: 0; right: 0; inset-inline-start: auto !important`, and
+     * `inset-inline-start` is `left` in LTR — so the `auto` cancelled the pin
+     * and left a fixed box with one inset set and `width: auto`, which resolves
+     * to shrink-to-fit. Measured at 390×844 with the shrine list open: the sheet
+     * was **2201px wide and started at x = −1811**, sized by the widest row in
+     * the list and hanging off the left of the screen. The peek looked fine
+     * because its own content is narrower than the viewport, so the bug only
+     * appeared after a reader tapped through to the list — and then the sheet
+     * they had just opened was mostly off-screen, with blank rows where the
+     * names should be.
+     *
+     * `inset-inline: 0` sets both logical edges, so it is correct in RTL too,
+     * where the previous rule cancelled the *right* edge instead and blew the
+     * sheet out to the right. Guarded by e2e/mobile-sheet.spec.ts.
+     */
+    inset-inline: 0 !important;
     top: auto !important;
-    inset-inline-start: auto !important;
     width: auto !important;
-    height: var(--sheet-peek-height, 108px);
+    /* 184px, not 108. At 108 the peek showed the drag handle and the brand row
+       and stopped one pixel above the "Table of Shrines" button — measured at
+       390×844, the button's box runs from 122px to 166px inside the sheet. So a
+       reader on a phone in portrait saw a map, a title, and a 36×4px grey pill,
+       with the only route into 169 sites below the fold and nothing to say so.
+       184px clears the button with room to breathe, and still leaves 78% of a
+       844px screen to the map. */
+    height: var(--sheet-peek-height);
     max-height: calc(80dvh - var(--safe-top));
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     border-inline-end: none;
@@ -93,11 +116,11 @@
     height: min(76dvh, calc(100dvh - 80px));
   }
 
-  /* Peek = collapsed on mobile (shows handle + header) */
+  /* Peek = collapsed on mobile (handle + header + the way in) */
   .sidebar.collapsed {
     width: auto !important;
     transform: none !important;
-    height: var(--sheet-peek-height, 108px);
+    height: var(--sheet-peek-height);
   }
 
   [dir='rtl'] .sidebar.collapsed {
@@ -127,11 +150,24 @@
 }
 
 .sheet-handle-pill {
-  width: 36px;
-  height: 4px;
+  /* Wider and darker than the 36×4 hairline it was. A drag handle is the only
+     affordance the collapsed sheet has, and one drawn in --color-border is
+     deliberately almost invisible (see the hairline-token check in
+     src/styles/__tests__/textColorTokens.test.ts — the same token painting
+     36px type was a contrast failure). */
+  width: 44px;
+  height: 5px;
   border-radius: var(--radius-full);
-  background: var(--color-border);
-  transition: background var(--duration-fast);
+  background: var(--color-text-muted);
+  opacity: 0.55;
+  transition:
+    background var(--duration-fast),
+    opacity var(--duration-fast);
+}
+
+.sidebar-sheet-handle:hover .sheet-handle-pill,
+.sidebar-sheet-handle:focus-visible .sheet-handle-pill {
+  opacity: 1;
 }
 
 .sidebar-sheet-handle:hover .sheet-handle-pill {
@@ -1542,7 +1578,7 @@
      visible — was hidden behind it entirely. Both live in .leaflet-bottom, so
      one offset fixes both. Guarded by e2e/mobile-sheet.spec.ts. */
   .leaflet-bottom {
-    bottom: calc(var(--sheet-peek-height, 108px) + var(--safe-bottom));
+    bottom: calc(var(--sheet-peek-height) + var(--safe-bottom));
   }
 }
 
