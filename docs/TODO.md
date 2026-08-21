@@ -322,6 +322,31 @@ about and the old wording omitted.
 
 `npm run verify`: 531 tests.
 
+### A doc told the reader to do the one thing RULE 3 forbids — and I had just promoted it
+
+`docs/RUNBOOK.md` STEP 1 said `File → Download → Tab-separated values`. TSV export strips the
+newlines inside cells and flattens the markdown of every Description; the repo documents that in
+three other places. The runbook predates the discovery — it is dated 9 August.
+
+The point is what the index rewrite above did to it: I put it under "read these first" on the
+strength of its title, without reading it. A stale fact is believed; a stale instruction is
+followed. Corrected in place with the old wording quoted, bannered with its date, demoted to the
+history section, and `docsNoTsvExport.test.ts` now fails any doc that instructs a TSV export
+while allowing the passages that explain why it is banned. Its first two runs flagged my own
+prose — the banner, then these very log entries — which is the fourth and fifth time this
+session a check caught text describing the thing it bans. The second lesson is the sharper one:
+the exemption was scoped to the matching *line*, and prose wraps. A line is not a thought. It
+looks at a window now, which costs nothing — a genuine imperative step does not have the word
+"forbidden" three lines away.
+
+### Suite state
+
+`npm run verify`: 537 tests, green. Full Playwright run: **121 passed, 5 failed** — and those
+five are the environmental failures of §9.53, verified by rebuilding `40d9fe1` (the commit this
+session started from) and watching them fail identically. A reload of `/` takes 12.6 s here
+because every external subresource times out through the agent proxy. The mobile-sheet failure
+that appeared alongside them is fixed.
+
 ### Translate next
 
 The **graph's 253** are mostly personal names, and some are not names at all but phrases from a

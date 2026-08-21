@@ -1,5 +1,21 @@
 # Runbook — what to do next, in order
 
+> ## ⚠ Dated 9 August 2026. Read it as a record, not as instructions.
+>
+> Its STEP 0 is "this afternoon's meeting"; its baseline filename is
+> `Shrines DB — backup 2026-08-09`. The live working log is
+> [`TODO.md`](TODO.md), and current state is [`HANDOVER.md`](HANDOVER.md).
+>
+> **One step in it is actively harmful and has been corrected in place:** STEP 1 told you to
+> download the sheet as **Tab-separated values**. Google Sheets' TSV export silently strips the
+> newlines inside cells, which flattens the markdown structure of every Description in the
+> archive — headings, bibliography bullets, verse breaks. Nothing errors; you find out later.
+> That is CLAUDE.md RULE 3, and this repository documents the discovery in three other places
+> (`HANDOVER.md` §"Every Description is markdown", `STATUS_AND_ROADMAP.md`,
+> `email_to_adil_data_layer.md`) — this file simply predated it. `docsNoTsvExport.test.ts` now
+> fails any doc that instructs a TSV download of this sheet: it is forbidden here.
+
+
 Tick through these. Each step says what to do, how to know it worked, and roughly how long.
 
 **One dependency before you start:** your responses-sheet → TSV task needs to land first. If it renames any shrine, the field patch joins on `name` and those rows will fail to match. Finish that, then start here.
@@ -22,11 +38,14 @@ Can wait: subject-matter reader, model budget, post-CID funding.
 **Do:**
 
 1. In Google Sheets: `File → Make a copy` → name it `Shrines DB — backup 2026-08-09`.
-2. `File → Download → Tab-separated values` → save as `shrines.tsv` next to the scripts.
+2. `File → Download → Comma-separated values (.csv)` → save as `shrines.csv` next to the
+   scripts. **Not TSV** — see the banner at the top of this file and CLAUDE.md RULE 3. (This
+   line originally said "Tab-separated values"; it was written before the TSV newline-stripping
+   was discovered.)
 3. Run the validator **before changing anything**:
 
 ```bash
-python3 validate_shrines.py shrines.tsv --termbase termbase.tsv --fail-on NONE
+python3 validate_shrines.py shrines.csv --termbase termbase.tsv --fail-on NONE
 cp validation_issues.tsv validation_baseline.tsv
 ```
 
@@ -41,14 +60,14 @@ cp validation_issues.tsv validation_baseline.tsv
 **Do:**
 
 ```bash
-python3 apply_description_fixes.py shrines.tsv shrines_clean.tsv
+python3 apply_description_fixes.py shrines.csv shrines_clean.csv
 cut -f2 fixes_applied.log | sort -u    # which shrines actually changed
 ```
 
 **Do NOT re-import all 162 descriptions.** Multi-thousand-word cells with embedded newlines and markdown are exactly what Google Sheets mangles on import. Instead:
 
 4. Open `fixes_applied.log`. Only ~20–30 rows changed.
-5. For each, copy the cleaned description out of `shrines_clean.tsv` and paste into that one cell in the live sheet.
+5. For each, copy the cleaned description out of `shrines_clean.csv` and paste into that one cell in the live sheet.
 6. Add a `qa_note` column and paste the lifted `NOTE:` text into the handful of rows that had one — Luari Sharif, Chitti Gatti, Tilganji Sahib, Ustad Nuriya.
 
 **Done when:** searching the sheet for `NOTE:` and for `=====` returns nothing.
@@ -85,7 +104,7 @@ Then column 3 for `category`, 4 for `site_type`, and so on across.
 
 ```bash
 # re-export the sheet as shrines.tsv, then
-python3 validate_shrines.py shrines.tsv --termbase termbase.tsv --fail-on NONE
+python3 validate_shrines.py shrines.csv --termbase termbase.tsv --fail-on NONE
 awk -F'\t' '$2=="ERROR"' validation_issues.tsv
 ```
 

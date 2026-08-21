@@ -1703,6 +1703,33 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     "typecheck + lint + unit tests", omitting the format and data gates that CLAUDE.md is
     emphatic about, which is how `format:check` came to be failing on every CI run once before.
 
+64. **A doc told the reader to do the one thing RULE 3 forbids — and I had just promoted it.**
+    `docs/RUNBOOK.md` STEP 1: `File → Download → Tab-separated values`. Google Sheets' TSV
+    export silently strips the newlines inside cells, which flattens the markdown of every
+    Description in the archive. That is exactly RULE 3, and this repository documents the
+    discovery in three other places — the runbook simply predates it, being dated 9 August
+    ("this afternoon's meeting", `backup 2026-08-09`).
+
+    **The point is what §9.62 did to it.** Rewriting the documentation index, I put this file
+    under "read these first" on the strength of its title. A stale *fact* is merely believed; a
+    stale *instruction* is followed. Promoting a document without reading it is how a correct
+    index becomes a more dangerous one than the incomplete index it replaced.
+
+    Fixed in place with a note (the historical wording is quoted so the correction is visible,
+    not silent), the whole file banners its date, and it is demoted to the point-in-time
+    section. `src/lib/data/__tests__/docsNoTsvExport.test.ts` fails any doc that *instructs* a
+    TSV export while allowing the passages that explain why it is forbidden.
+
+    Its first two runs flagged **my own prose** — the banner, then these very handover and TODO
+    entries, each quoting the menu path on one line and calling it harmful on the next. That is
+    the fourth and fifth time in this session a check caught text describing the thing it bans,
+    and the second lesson is sharper than the first: the exemption was scoped to the *matching
+    line*, and **prose wraps — a line is not a thought.** A line-scoped exemption over wrapped
+    prose is a false-positive machine. It looks at a window now (two lines before, three after),
+    which costs nothing real: a genuine imperative step in a runbook does not have the word
+    "forbidden" three lines away. Mutation-tested — reinstating the TSV step still names
+    `docs/RUNBOOK.md:41`, because the file's banner is thirty lines above it.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

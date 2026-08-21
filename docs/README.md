@@ -17,7 +17,6 @@ can go stale silently is worse than no index, because it is trusted.
 | ---------------------------------- | ----------------------------------------------------------------------------- |
 | [`HANDOVER.md`](HANDOVER.md)       | **Full project state**: what this is, where everything lives, trust calibration (§9 — read it), risks, how to resume. The most important document here. |
 | [`TODO.md`](TODO.md)               | **The live working log.** Session-by-session record of what was done and what is next. |
-| [`RUNBOOK.md`](RUNBOOK.md)         | What to do next, in order                                                     |
 | [`HANDOFF.md`](HANDOFF.md)         | Maintainer handbook: scripts, architecture, data updates, deploy, environment  |
 | [`GOLD_STANDARD.md`](GOLD_STANDARD.md) | What "done properly" means for a single entry                              |
 
@@ -94,6 +93,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | [`POST_DATA_LAYER_ROADMAP.md`](POST_DATA_LAYER_ROADMAP.md)     | What comes after the data layer                             |
 | [`Shrines_Execution_Plan.md`](Shrines_Execution_Plan.md)       | Earlier execution plan                                      |
 | [`Shrines_Content_Quality_Plan.md`](Shrines_Content_Quality_Plan.md) | Content quality, source strategy, field-data plan     |
+| [`RUNBOOK.md`](RUNBOOK.md)                                     | ⚠ **Dated 9 August 2026.** Step-by-step sheet-cleaning run. Read as a record: one of its steps told you to export TSV, which flattens every Description (RULE 3), and is corrected in place with a note. |
 | [`FAST_PLAN.md`](FAST_PLAN.md)                                 | A 30-minute run plan                                        |
 | [`TASKS.md`](TASKS.md)                                         | An autonomous work plan                                     |
 | [`auqaf_records_brief.md`](auqaf_records_brief.md)             | Briefing note for the Auqaf records ask                     |
