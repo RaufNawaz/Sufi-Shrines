@@ -144,6 +144,18 @@
   gap: var(--space-2);
 }
 
+/* The contested numbers themselves. Every other cell in this row had a rule —
+   the field label is 600 and secondary, the "vs" and the spread are muted and
+   small — and the two dates the sources disagree about, the only content the
+   row exists to show, inherited body text and so read *lighter* than the label
+   beside them. Found by src/styles/__tests__/classNamesStyled.test.ts, which
+   was written for a different bug. */
+.entity-disputed-value {
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
 .entity-disputed-vs {
   color: var(--color-text-muted);
   font-size: var(--text-xs);

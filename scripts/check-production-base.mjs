@@ -120,6 +120,7 @@ const ROUTES = [
   { path: '/?lang=ur', ready: '#sidebar' },
   { path: '/about', ready: 'h1.entity-title' },
   { path: '/coverage', ready: 'h1.entity-title' },
+  { path: '/place/lahore', ready: 'h1.entity-title' },
   { path: '/graph', ready: 'h1.entity-title' },
   { path: '/almanac', ready: 'h1.entity-title' },
   { path: '/shrine/data-darbar', ready: 'h1.shrine-title' },

@@ -41,6 +41,7 @@ const ROUTES = [
   { name: 'graph', path: '/graph?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac?lang=ur', ready: 'h1' },
   { name: 'coverage', path: '/coverage?lang=ur', ready: 'h1.entity-title' },
+  { name: 'place', path: '/place/lahore?lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
 ] as const;
 

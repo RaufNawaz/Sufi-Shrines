@@ -33,6 +33,7 @@ const ROUTES = [
   { name: 'graph', path: '/graph', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac', ready: 'h1' },
   { name: 'coverage', path: '/coverage', ready: 'h1.entity-title' },
+  { name: 'place', path: '/place/lahore', ready: 'h1.entity-title' },
   { name: 'about', path: '/about', ready: 'h1.entity-title' },
 ] as const;
 

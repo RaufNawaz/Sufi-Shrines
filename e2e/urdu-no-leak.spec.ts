@@ -71,6 +71,14 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  * - `map` (7) / `shrine` (2) — the Location column, which on several
  *   field-survey rows is a paragraph of English qualification rather than a
  *   place name.
+ * - `place` (36) — the Location column again, once per site listed, plus the
+ *   language toggle's own "EN". The place page shows each site's Location
+ *   verbatim beneath its name, and on the densest place (Lahore, 35 sites) that
+ *   is 35 runs. Deliberate: the Location string is what the survey recorded,
+ *   and paraphrasing it into Urdu would be translating data rather than
+ *   interface. Counted, not estimated — the first number here was 35, one short,
+ *   because the toggle is on every route and so is invisible in every other
+ *   budget.
  * - `coverage` (1) — one category value the sheet still holds as "Islam"
  *   instead of "Muslim Shrine"; drops to 0 when
  *   data/patch_data_hygiene_2026-08-21.csv is imported.
@@ -88,6 +96,7 @@ const BUDGET: Record<string, number> = {
   almanac: 39,
   coverage: 1,
   about: 7,
+  place: 36,
 };
 
 /* All five orders, not one: they came from the sweep this file replaced
@@ -105,6 +114,7 @@ const ROUTES = [
   { name: 'graph', path: '/graph?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac?lang=ur', ready: 'h1' },
   { name: 'coverage', path: '/coverage?lang=ur', ready: 'h1.entity-title' },
+  { name: 'place', path: '/place/lahore?lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
 ] as const;
 
