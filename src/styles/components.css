@@ -183,3 +183,188 @@
   height: auto;
   aspect-ratio: 16/9;
 }
+
+/* ── Coverage page ───────────────────────────────────────────────────────── */
+
+/*
+ * What the archive knows and does not, computed from the data. Deliberately
+ * plain: this page's credibility comes from the numbers being checkable, so it
+ * reads as a table of facts rather than a dashboard.
+ */
+.coverage-intro {
+  max-width: 62ch;
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.coverage-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-4);
+  margin-block-end: var(--space-6);
+}
+
+.coverage-stat {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+}
+
+.coverage-stat-value {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.coverage-stat-label {
+  margin-block-start: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.coverage-section {
+  margin-block-end: var(--space-6);
+}
+
+.coverage-section-heading {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.coverage-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.coverage-bar-row {
+  display: grid;
+  /* Label, bar, number. The number column is fixed so the digits line up down
+     the page and can be compared at a glance. */
+  grid-template-columns: minmax(8rem, 14rem) 1fr minmax(5.5rem, auto);
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.coverage-bar-label {
+  color: var(--color-text-secondary);
+}
+
+.coverage-bar-track {
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.coverage-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-muted);
+  transition: width var(--duration-slow) var(--easing);
+}
+
+/* Field-verified is the standard the archive is working towards, so it is the
+   one bar that earns emphasis. */
+.coverage-bar-fill--strong {
+  background-color: var(--color-primary);
+}
+
+/* Tradition bars wear the tradition's own colour, the same palette the map and
+   the category chips use. */
+.coverage-bar-fill--muslim {
+  background-color: var(--color-cat-muslim);
+}
+.coverage-bar-fill--hindu {
+  background-color: var(--color-cat-hindu);
+}
+.coverage-bar-fill--sikh {
+  background-color: var(--color-cat-sikh);
+}
+.coverage-bar-fill--nanakpanthi {
+  background-color: var(--color-cat-nanakpanthi);
+}
+.coverage-bar-fill--jain {
+  background-color: var(--color-cat-jain);
+}
+.coverage-bar-fill--secular {
+  background-color: var(--color-cat-secular);
+}
+
+.coverage-bar-value {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.coverage-bar-pct {
+  color: var(--color-text-muted);
+}
+
+.coverage-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.coverage-facts strong {
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.coverage-why p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.coverage-loading {
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .coverage-intro,
+[dir='rtl'] .coverage-stat-label,
+[dir='rtl'] .coverage-bar-label,
+[dir='rtl'] .coverage-facts,
+[dir='rtl'] .coverage-why p {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}
+
+[dir='rtl'] .coverage-section-heading {
+  font-family: var(--font-urdu);
+}
+
+@media (max-width: 640px) {
+  .coverage-bar-row {
+    /* The bar is the first thing to go on a narrow screen; the label and the
+       number are the information. */
+    grid-template-columns: 1fr auto;
+  }
+  .coverage-bar-track {
+    display: none;
+  }
+}

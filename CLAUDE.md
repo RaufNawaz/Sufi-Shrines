@@ -230,11 +230,17 @@ outside citations/URLs/coordinates/`<bdi>`.
 
 ## Standing findings
 
-- **49 of 167 entries (29%) have no bibliography at all** — single-paragraph prose giving
-  specific dates and lineages with nothing cited. Verified not a formatting artefact. These
-  should compute to `Web-compiled` / `Low`; if they render better than that, the computation is
-  wrong — report it rather than adjusting the badge.
-- Coverage is ~31% of Punjab Auqaf's Punjab register alone (167 vs 534).
+- ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
+  21 August 2026.** 168 of 169 entries now carry a bibliography, 544 citations in total, 107 of
+  them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
+  Darbar). The enrichment passes since this note was written closed it. Kept struck through
+  rather than deleted, because the note itself is the lesson: **a standing finding is a
+  measurement with a date on it, and this one was quoted as current for weeks after it stopped
+  being true.** That is why `/coverage` now computes these figures from the shipped data on
+  every page load — a page cannot go stale the way a note can. Method:
+  `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
+- Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). The 534 is an external
+  figure from the register, not computed here.
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
 - Mauj Darya Bukhari lost all 12 media files (verified 404s). Data Darbar and Bibi Pak Daman
   photos are WhatsApp-compressed. All need re-shooting.
@@ -312,3 +318,5 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `docs/planning/URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.
 - `urdu-i18n/README.md` — dictionary files, coverage, regeneration.
 - `docs/planning/PROJECT_VISION.md` — blue-sky roadmap.
+- `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
+  of another and in eight places across traditions. Track A shipped; D in progress.

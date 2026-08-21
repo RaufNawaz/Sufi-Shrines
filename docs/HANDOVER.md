@@ -1228,6 +1228,41 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     identical-pin groups it shows "same recorded location" — a distance the archive did not
     measure must never be displayed as one it did.
 
+43. **An internal note to a colleague was rendering as a public UI control**, and the note is
+    still in a public column. `Location` on two rows ends with *"ask Saifullah for a precise pin
+    when possible"*, which reaches the shrine page, the almanac and the sidebar.
+    `scripts/data/validate-publication-safety.mjs` now refuses to ship that class of text, and
+    draws the line that matters: **"(surveyor: Saifullah)" in a bibliography is provenance and
+    must stay** — seventeen entries credit their fieldworker — while a directive addressed to a
+    person is not a fact about a shrine. The rule is "no directives, no task markers", never "no
+    names"; a broader rule would delete the archive's provenance. Fix is
+    `data/patch_data_hygiene_2026-08-21.csv` (RULE 3: agents do not write to the sheet), and the
+    gate carries a **shrinking** exception list that fails if an entry goes stale, so it cannot
+    quietly become permanent.
+
+44. **Nothing checked that `category` is one of the six schema values.** `Darbar Abul Muali
+    Qadri` carries a blank `Category` and a lowercase `category: "Islam"`. That is not cosmetic:
+    the row loses its marker colour, drops out of the category filter, and is excluded from every
+    per-tradition count — the archive under-reports itself by one and nothing says so.
+    `validate.mjs` warns by name now.
+
+    Two things worth carrying: the violation was **found by the coverage page**, not by a
+    validator — a page that displays "not recorded" as its own row makes schema drift visible,
+    which is an argument for showing such rows rather than hiding them. And my first draft of the
+    check accused a second row falsely, because `row['category'] ?? row['Category']` lets an
+    empty string shadow a valid value — `??` only falls through null. **First-non-empty, not
+    `??`, whenever two columns alias one field.**
+
+45. **`/coverage` — the archive's own limits, computed rather than asserted.** Track D of
+    `SHARED_GROUND_VISION.md`. It exists because the standing findings in this file are the most
+    candid thing in the repository, no reader could see any of them, and they go stale: §9.40's
+    entry and CLAUDE.md's "49 of 167 entries have no bibliography" were both quoted as current
+    long after they stopped being true (168 of 169 now carry one; 544 citations; 107 citing three
+    or more). A page computed from the shipped data cannot drift from it.
+
+    **A standing finding is a measurement with a date on it.** Anything in §9 without one should
+    be re-measured before it is repeated.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

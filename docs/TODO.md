@@ -8,6 +8,61 @@
 
 ---
 
+## 0. Session log — 21 August 2026 (twelfth: publication-readiness)
+
+Brief was "a full-scale professional deliverable, publicly publishable". So this pass looked for
+things that would embarrass the project in public rather than for features.
+
+### An internal note to a colleague was a public UI control
+
+The region-filter chip reading *"not the shrine's exact position) — ask Saifullah for a precise
+pin when possible"* was only the visible half. The note is still in `Location`, a public column,
+and still reaches the shrine page, the almanac and the sidebar.
+
+`scripts/data/validate-publication-safety.mjs` (wired into `data:validate`) refuses to ship
+internal workflow notes. It draws one careful line:
+
+- **`(surveyor: Saifullah)` inside a bibliography is correct and must stay.** Seventeen entries
+  credit their fieldworker, and an archive whose distinguishing claim is provenance names its
+  sources, including its people. A rule broad enough to catch personal names would delete
+  exactly the thing this project exists to provide.
+- **"ask Saifullah for a precise pin" is not a fact about a shrine.** It is a note between
+  colleagues that happens to live in a content column.
+
+So the rule is "no directives addressed to a person, and no task markers" — not "no names".
+Proved in both directions: a planted `TODO: confirm the urs date with Rauf` fails it, and a
+stale entry in its own exception list fails it too. `data/patch_data_hygiene_2026-08-21.csv`
+moves the two live notes into `qa_note` (internal, never rendered) and keeps the substantive
+provenance — *"an approximate landmark, not the shrine's exact position"* — where it is.
+
+### A schema violation nothing was checking
+
+`validate.mjs` never checked that `category` is one of the six schema values. `Darbar Abul Muali
+Qadri` carries a blank `Category` and a lowercase `category: "Islam"`, so it loses its map
+colour, drops out of the category filter, and is excluded from every per-tradition count — the
+archive under-reporting itself by one, silently. Now a named warning; the repair is in the same
+patch.
+
+My first draft of that check accused a second row falsely: `row['category'] ?? row['Category']`
+lets an *empty string* shadow a valid value, because `??` only falls through null. Same
+first-non-empty semantics as `getFieldValue` now.
+
+### /coverage — the gaps as a page
+
+`src/lib/data/coverage.ts` + `/coverage`, computed from the shipped data on every load. Support
+level, depth, tradition, citations, photography, dates, coordinates, observances — with
+"not recorded" shown as its own row, because *the archive does not say* is a fact about the
+archive and hiding the row would imply there is no such case.
+
+It immediately earned its place twice: it exposed the category violation above, and it
+established that **CLAUDE.md's standing finding "49 of 167 entries have no bibliography at all"
+is closed** — 168 of 169 now carry one, 544 citations, 107 citing three or more. That note had
+been quoted as current for weeks after it stopped being true. It is struck through in CLAUDE.md
+rather than deleted, because the note is the lesson: **a standing finding is a measurement with
+a date on it.** A page computed from the data cannot go stale that way.
+
+---
+
 ## 0. Session log — 21 August 2026 (eleventh: shared ground, and a dictionary measuring the wrong archive)
 
 ### Planned first

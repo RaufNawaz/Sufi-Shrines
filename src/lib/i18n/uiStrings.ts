@@ -154,6 +154,35 @@ export const UI_TEXT = {
     almanacSourceLabel: 'Recorded as',
     almanacFigureLabel: 'Commemorating',
     almanacJumpToMonth: 'Jump to month',
+    coverageTitle: 'What this archive knows',
+    coverageIntro:
+      'Every figure on this page is counted from the published data, not estimated. Where the archive is silent, it says so.',
+    coverageSitesHeading: 'Sites documented',
+    coverageSupportHeading: 'How each entry was established',
+    coverageInfoHeading: 'Depth of each entry',
+    coverageTraditionHeading: 'Traditions covered',
+    coverageSourcesHeading: 'Citations',
+    coverageEntriesNoun: (n: number) => (n === 1 ? 'entry' : 'entries'),
+    coverageSourcesWithAny: 'with a bibliography',
+    coverageSourcesWithThree: 'citing three or more sources',
+    coverageSourcesWithNone: 'citing nothing',
+    coverageSourcesItems: 'citations in total',
+    coveragePhotosHeading: 'Photography',
+    coveragePhotosWithNone: 'with no photograph',
+    coveragePhotosItems: 'photographs in total',
+    coverageDatesHeading: 'Dates',
+    coverageDatesWithYear: 'recording a construction year',
+    coverageDatesExact: 'of those the archive itself calls exact',
+    coverageDatesHedged: 'whose date carries a written qualification',
+    coverageLocationHeading: 'Coordinates',
+    coverageLocationApprox: 'whose own text says the pin is approximate',
+    coverageObservancesHeading: 'Urs and festivals',
+    coverageObservancesWithText: 'recording an observance',
+    coverageObservancesWithNone: 'recording none',
+    coverageUnrecorded: 'not recorded',
+    coverageWhyHeading: 'Why publish this',
+    coverageWhy:
+      'An archive is only as useful as its account of its own limits. A note in a repository goes stale; a page computed from the data cannot. If a figure here looks low, that is the gap, stated plainly rather than smoothed over.',
     saintNextUrs: 'Next ʿurs',
     saintNextUrsLink: 'See the almanac',
     almanacNothingUpcoming: 'No dated observance falls in the next twelve months.',
@@ -433,6 +462,35 @@ export const UI_TEXT = {
     almanacSourceLabel: 'اندراج',
     almanacFigureLabel: 'یادگار',
     almanacJumpToMonth: 'مہینے پر جائیں',
+    coverageTitle: 'یہ آرکائیو کیا جانتا ہے',
+    coverageIntro:
+      'اِس صفحے کا ہر عدد شائع شدہ ڈیٹا سے شمار کیا گیا ہے، اندازہ نہیں۔ جہاں آرکائیو خاموش ہے، وہاں یہ بات بھی درج ہے۔',
+    coverageSitesHeading: 'درج مقامات',
+    coverageSupportHeading: 'ہر اندراج کی بنیاد',
+    coverageInfoHeading: 'ہر اندراج کی گہرائی',
+    coverageTraditionHeading: 'شامل روایات',
+    coverageSourcesHeading: 'حوالے',
+    coverageEntriesNoun: (_n: number) => 'اندراجات',
+    coverageSourcesWithAny: 'کتابیات رکھنے والے',
+    coverageSourcesWithThree: 'تین یا زیادہ حوالے دینے والے',
+    coverageSourcesWithNone: 'کوئی حوالہ نہ دینے والے',
+    coverageSourcesItems: 'کل حوالے',
+    coveragePhotosHeading: 'عکس بندی',
+    coveragePhotosWithNone: 'بغیر تصویر والے',
+    coveragePhotosItems: 'کل تصاویر',
+    coverageDatesHeading: 'تاریخیں',
+    coverageDatesWithYear: 'سنِ تعمیر درج کرنے والے',
+    coverageDatesExact: 'اِن میں سے جنہیں آرکائیو خود متعین کہتا ہے',
+    coverageDatesHedged: 'جن کی تاریخ کے ساتھ تحریری تحفظ درج ہے',
+    coverageLocationHeading: 'متعین مقام',
+    coverageLocationApprox: 'جن کی اپنی تحریر پن کو تخمینی بتاتی ہے',
+    coverageObservancesHeading: 'عرس اور میلے',
+    coverageObservancesWithText: 'عرس یا میلہ درج کرنے والے',
+    coverageObservancesWithNone: 'کوئی عرس درج نہ رکھنے والے',
+    coverageUnrecorded: 'درج نہیں',
+    coverageWhyHeading: 'یہ کیوں شائع کیا گیا',
+    coverageWhy:
+      'کوئی آرکائیو اُتنا ہی کارآمد ہے جتنا اپنی حدود کا بیان۔ ریپازٹری میں لکھا نوٹ پرانا ہو جاتا ہے؛ ڈیٹا سے شمار ہونے والا صفحہ نہیں ہو سکتا۔ اگر یہاں کوئی عدد کم لگے تو وہی خلا ہے، صاف صاف بیان کیا گیا۔',
     saintNextUrs: 'اگلا عرس',
     saintNextUrsLink: 'تقویم دیکھیں',
     almanacNothingUpcoming: 'آئندہ بارہ مہینوں میں کوئی متعین تاریخ والی تقریب نہیں۔',
@@ -590,6 +648,7 @@ export function tFn(
   traditions: number,
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
+export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(
   lang: Lang,
   key:
@@ -603,7 +662,8 @@ export function tFn(
     | 'orderMultiCount'
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
-    | 'sharedGroundIntroSame',
+    | 'sharedGroundIntroSame'
+    | 'coverageEntriesNoun',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

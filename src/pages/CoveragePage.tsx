@@ -1,0 +1,265 @@
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { useShrineData } from '../hooks/useShrineData';
+import { useLang } from '../lib/i18n/LanguageContext';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
+import { LanguageToggle } from '../components/ui/LanguageToggle';
+import { DarkModeToggle } from '../components/ui/DarkModeToggle';
+import { ScrollToTop } from '../components/ui/ScrollToTop';
+import {
+  buildCoverage,
+  INFO_KEYS,
+  SUPPORT_KEYS,
+  TRADITION_KEYS,
+  type Distribution,
+} from '../lib/data/coverage';
+import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
+import { INFO_LEVEL_LABEL_KEYS } from '../lib/data/infoLevel';
+import { CATEGORY_LABELS } from '../lib/data/categoryKey';
+import { tFn } from '../lib/i18n/uiStrings';
+
+/**
+ * What this archive knows, and what it does not — computed, not asserted.
+ *
+ * The standing findings in `docs/HANDOVER.md` are the most candid thing in this
+ * project and no reader could see any of them. They also went stale: the note
+ * that "49 of 167 entries have no bibliography at all" was true when written and
+ * is now wrong (168 of 169 carry one, 544 citations in total). A page computed
+ * from the data cannot drift from the data.
+ *
+ * Track D of `docs/planning/SHARED_GROUND_VISION.md`. The argument for
+ * publishing it: an archive is only as useful as its account of its own limits,
+ * and stating them plainly is what separates a scholarly resource from a
+ * brochure.
+ */
+
+/** A labelled bar row. Numbers first — this page is a table of facts. */
+function Bar({
+  label,
+  value,
+  total,
+  tone,
+}: {
+  label: string;
+  value: number;
+  total: number;
+  tone?: string;
+}) {
+  const { fmtNum } = useLang();
+  const pct = total > 0 ? Math.round((value / total) * 100) : 0;
+  return (
+    <li className="coverage-bar-row">
+      <span className="coverage-bar-label">{label}</span>
+      <span className="coverage-bar-track" aria-hidden="true">
+        <span
+          className={`coverage-bar-fill${tone ? ` coverage-bar-fill--${tone}` : ''}`}
+          style={{ width: `${pct}%` }}
+        />
+      </span>
+      {/* The count is the fact; the percentage is the aid. Both, because a
+          percentage alone hides how small the denominator is. */}
+      <span className="coverage-bar-value">
+        {fmtNum(value)} <span className="coverage-bar-pct">({fmtNum(pct)}%)</span>
+      </span>
+    </li>
+  );
+}
+
+/**
+ * "N entries <predicate>". The noun is pluralised here rather than baked into
+ * each label, so there is one place for it to be right — the first draft read
+ * "1 entries citing nothing".
+ */
+function Fact({ value, label }: { value: number; label: string }) {
+  const { lang, fmtNum } = useLang();
+  return (
+    <li>
+      <strong>{fmtNum(value)}</strong> {tFn(lang, 'coverageEntriesNoun', value)} {label}
+    </li>
+  );
+}
+
+function Stat({ value, label }: { value: number; label: string }) {
+  const { fmtNum } = useLang();
+  return (
+    <div className="coverage-stat">
+      <div className="coverage-stat-value">{fmtNum(value)}</div>
+      <div className="coverage-stat-label">{label}</div>
+    </div>
+  );
+}
+
+function DistributionBlock<K extends string>({
+  heading,
+  dist,
+  keys,
+  labelFor,
+  toneFor,
+}: {
+  heading: string;
+  dist: Distribution<K>;
+  keys: readonly K[];
+  labelFor: (key: K) => string;
+  toneFor?: (key: K) => string | undefined;
+}) {
+  const { t } = useLang();
+  return (
+    <section className="coverage-section">
+      <h2 className="coverage-section-heading">{heading}</h2>
+      <ul className="coverage-bars">
+        {keys.map((key) => (
+          <Bar
+            key={key}
+            label={labelFor(key)}
+            value={dist.counts[key]}
+            total={dist.total}
+            {...(toneFor?.(key) ? { tone: toneFor(key)! } : {})}
+          />
+        ))}
+        {/* Shown even at zero: "the archive does not say" is a fact about the
+            archive, and hiding the row would quietly imply there is no such
+            case. */}
+        <Bar label={t('coverageUnrecorded')} value={dist.unrecorded} total={dist.total} />
+      </ul>
+    </section>
+  );
+}
+
+export default function CoveragePage() {
+  const { shrines, loading } = useShrineData();
+  const { lang, t, fmtNum } = useLang();
+  const isRtl = lang === 'ur';
+  const headingRef = useFocusHeadingOnMount();
+
+  useDocumentTitle(`${t('coverageTitle')} — ${t('siteTitle')}`);
+
+  const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
+
+  return (
+    <div className="page-enter entity-page-wrapper">
+      <a href="#main-content" className="skip-link">
+        {t('skipToContent')}
+      </a>
+      <header className="shrine-page-header no-print">
+        <Link to="/" className="back-link" aria-label={t('backToMap')}>
+          {t('backToMap')}
+        </Link>
+        <div className="shrine-page-header-actions">
+          <DarkModeToggle />
+          <LanguageToggle />
+        </div>
+      </header>
+
+      <article
+        className="entity-page coverage-page"
+        id="main-content"
+        lang={isRtl ? 'ur' : undefined}
+        dir={isRtl ? 'rtl' : undefined}
+      >
+        <h1 ref={headingRef} className="entity-title">
+          {t('coverageTitle')}
+        </h1>
+        <p className="coverage-intro">{t('coverageIntro')}</p>
+
+        {loading && shrines.length === 0 ? (
+          <p className="coverage-loading">{t('loading')}</p>
+        ) : (
+          <>
+            <div className="coverage-stat-grid">
+              <Stat value={coverage.total} label={t('coverageSitesHeading')} />
+              <Stat value={coverage.bibliography.items} label={t('coverageSourcesItems')} />
+              <Stat value={coverage.photos.items} label={t('coveragePhotosItems')} />
+            </div>
+
+            <DistributionBlock
+              heading={t('coverageSupportHeading')}
+              dist={coverage.support}
+              keys={SUPPORT_KEYS}
+              labelFor={(k) => t(SUPPORT_LEVEL_LABEL_KEYS[k])}
+              toneFor={(k) => (k === 'field-verified' ? 'strong' : undefined)}
+            />
+
+            <DistributionBlock
+              heading={t('coverageInfoHeading')}
+              dist={coverage.info}
+              keys={INFO_KEYS}
+              labelFor={(k) => t(INFO_LEVEL_LABEL_KEYS[k])}
+            />
+
+            <DistributionBlock
+              heading={t('coverageTraditionHeading')}
+              dist={coverage.tradition}
+              keys={TRADITION_KEYS}
+              labelFor={(k) => CATEGORY_LABELS[k][lang]}
+              toneFor={(k) => k}
+            />
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('coverageSourcesHeading')}</h2>
+              <ul className="coverage-facts">
+                <Fact value={coverage.bibliography.withAny} label={t('coverageSourcesWithAny')} />
+                <Fact
+                  value={coverage.bibliography.withThreeOrMore}
+                  label={t('coverageSourcesWithThree')}
+                />
+                <Fact value={coverage.bibliography.withNone} label={t('coverageSourcesWithNone')} />
+              </ul>
+            </section>
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('coveragePhotosHeading')}</h2>
+              <ul className="coverage-facts">
+                <Fact value={coverage.photos.withNone} label={t('coveragePhotosWithNone')} />
+              </ul>
+            </section>
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('coverageDatesHeading')}</h2>
+              <ul className="coverage-facts">
+                <Fact value={coverage.dates.withYear} label={t('coverageDatesWithYear')} />
+                <li>
+                  <strong>{fmtNum(coverage.dates.exact)}</strong> {t('coverageDatesExact')}
+                </li>
+                {/* A date the archive argues with is better content than a tidy
+                    number (CLAUDE.md RULE 2), so this is reported as a feature
+                    of the record rather than as a defect. */}
+                <Fact value={coverage.dates.hedged} label={t('coverageDatesHedged')} />
+              </ul>
+            </section>
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('coverageLocationHeading')}</h2>
+              <ul className="coverage-facts">
+                <Fact
+                  value={coverage.location.approximatePin}
+                  label={t('coverageLocationApprox')}
+                />
+              </ul>
+            </section>
+
+            <section className="coverage-section">
+              <h2 className="coverage-section-heading">{t('coverageObservancesHeading')}</h2>
+              <ul className="coverage-facts">
+                <Fact
+                  value={coverage.observances.withText}
+                  label={t('coverageObservancesWithText')}
+                />
+                <Fact
+                  value={coverage.observances.withNone}
+                  label={t('coverageObservancesWithNone')}
+                />
+              </ul>
+            </section>
+
+            <section className="coverage-section coverage-why">
+              <h2 className="coverage-section-heading">{t('coverageWhyHeading')}</h2>
+              <p>{t('coverageWhy')}</p>
+            </section>
+          </>
+        )}
+      </article>
+      <ScrollToTop />
+    </div>
+  );
+}
