@@ -219,7 +219,12 @@ outside citations/URLs/coordinates/`<bdi>`.
 - Components are functional + hooks; prefer existing patterns (see `TRADITION_LABELS` in
   `src/lib/tours/tours.ts` as the model for enum label maps).
 - Accessibility is a requirement, not a nice-to-have (axe + Storybook a11y). 44px targets,
-  correct `lang`/`dir`, focus states.
+  correct `lang`/`dir`, focus states. `e2e/a11y.spec.ts` scans **every route in both
+  languages** and must stay at zero critical/serious violations; it waits for animations to
+  settle first, because axe folds ancestor `opacity` into the colour it measures and a
+  mid-fade element reports a contrast failure that does not exist (HANDOVER §9.46). Never
+  distinguish a link from surrounding prose by colour alone — and never fix that with an
+  underline on a line that can be Urdu (§9.48).
 - Respect provenance and the three traditions in copy, imagery, and terminology (honorifics
   per `data/glossary.csv`).
 - Tests: unit for logic (`src/**/__tests__`), Playwright for journeys. The

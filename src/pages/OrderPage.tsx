@@ -255,15 +255,30 @@ export default function OrderPage() {
                           archive's sources say so for twenty of them. Each of
                           these is its own quoted edge, not an inference. */}
                       {alsoIn.length > 0 && (
+                        /* Tags rather than inline links, matching the shrine
+                           tags directly beneath. These were cobalt links in a
+                           run of muted-brown prose, separated by a middot:
+                           1.26:1 against the surrounding text and no
+                           underline, so the only thing marking them as links
+                           was hue — invisible to a reader with deuteranopia
+                           and to anyone on a washed-out screen (WCAG 1.4.1,
+                           caught by axe's link-in-text-block once the sweep
+                           stopped racing the fade-in). Underlining was the
+                           obvious fix and the wrong one: an underline runs
+                           straight through the descenders of Nastaliq, and
+                           this line is Urdu half the time. A pill carries its
+                           own border and ground, so it reads as a control in
+                           either script and in monochrome. */
                         <div className="entity-saint-also-in">
-                          {t('orderAlsoIn')}:{' '}
-                          {alsoIn.map((other, i) => (
-                            <React.Fragment key={other.order.slug}>
-                              {i > 0 && <span aria-hidden="true">{' · '}</span>}
-                              <Link to={`/order/${other.order.slug}`}>
-                                {localizeOrderName(other.order, lang)}
-                              </Link>
-                            </React.Fragment>
+                          <span className="entity-saint-also-in-label">{t('orderAlsoIn')}:</span>
+                          {alsoIn.map((other) => (
+                            <Link
+                              key={other.order.slug}
+                              to={`/order/${other.order.slug}`}
+                              className="entity-saint-order-tag"
+                            >
+                              {localizeOrderName(other.order, lang)}
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -346,6 +361,10 @@ export default function OrderPage() {
           <Link to="/">{t('backToMap')}</Link>
           {' · '}
           <span>{t('footerCredit')}</span>
+          {' · '}
+          {/* Licence and citation must be reachable from any page — a public
+            archive that states neither is not publishable. */}
+          <Link to="/about">{t('aboutTitle')}</Link>
         </footer>
       </article>
 

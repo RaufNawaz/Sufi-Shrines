@@ -950,20 +950,44 @@
 /* The other silsilas the same figure holds. Each is its own quoted edge, so
    these are links into the archive's own evidence, not a "see also". */
 .entity-saint-also-in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
   margin-block-start: var(--space-1);
   font-size: var(--text-xs);
   line-height: 1.6;
   color: var(--color-text-muted);
 }
 
-.entity-saint-also-in a {
-  color: var(--color-primary);
-  text-decoration: none;
+.entity-saint-also-in-label {
+  /* Keeps the label off the tag row's gap rhythm without a nested wrapper. */
+  margin-inline-end: 2px;
 }
 
-.entity-saint-also-in a:hover,
-.entity-saint-also-in a:focus {
-  text-decoration: underline;
+/* A second silsila is a claim about a person, so it gets the same weight as
+   the shrine tags below it — a pill, not a coloured word inside a sentence.
+   The border does the distinguishing work that hue alone was doing before, so
+   the link survives greyscale, deuteranopia, and Nastaliq (an underline here
+   crosses the descenders). */
+.entity-saint-order-tag {
+  display: inline-block;
+  font-size: inherit;
+  color: var(--color-primary);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast);
+}
+
+.entity-saint-order-tag:hover,
+.entity-saint-order-tag:focus-visible {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg-alt);
 }
 
 [dir='rtl'] .entity-saint-also-in {
