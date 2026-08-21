@@ -4,7 +4,6 @@ import {
   isLikelyUrl,
   normalizeFoundedDate,
 } from '../data/fieldAliasing';
-import urduSeed from '../../data/urdu-seed.json';
 import type { Lang, ShrineRow } from '../../types/shrine';
 
 const SPECIAL_URDU_PHRASES: Record<string, string> = {
@@ -377,6 +376,100 @@ export function buildUrduFallback(rawText: string): string {
 
 const TRANSLATION_CACHE_KEY = 'shrines_translation_cache_v4';
 
+/**
+ * `urdu-seed.json` is loaded on demand, not imported.
+ *
+ * The dictionary is 80 KB of JSON — 960 entries covering every shrine name,
+ * saint, place, category and observance in the archive — and a static import
+ * put all of it in the eager chunk of every route. **An English reader
+ * downloaded the whole Urdu dictionary and consulted none of it.** Measured on
+ * 21 August 2026: it accounted for ~25 KB of every route's eager JavaScript,
+ * and it had grown twice in two days (49 KB → 67 KB → 80 KB), each time forcing
+ * `check-bundle-budget.mjs` to be raised. The budget note in that file had
+ * argued for this change twice.
+ *
+ * The reason it was not done sooner is real and is handled here rather than
+ * wished away: `translateToUrdu` is called **synchronously during render**, so
+ * a dictionary that arrives late means a frame of English in the Urdu view.
+ * Three things together close that gap:
+ *
+ * 1. The request starts from `detectInitialLang()` at module scope in
+ *    `main.tsx`, before React renders — not from an effect after first paint.
+ * 2. `LanguageProvider` bumps a counter in the context value when it lands, so
+ *    every component that translates (all of them read `useLang()`) re-renders
+ *    with the dictionary in place.
+ * 3. `useShrineData` waits for it in the same place it already waits for the
+ *    Urdu article payload, and rebuilds if it arrives afterwards — which also
+ *    keeps the search index correct, since `useSearch` indexes the Urdu fields
+ *    from this dictionary and an index built without it returns nothing for an
+ *    Urdu query (the bug e2e/search-bilingual.spec.ts exists to catch).
+ *
+ * An English reader triggers none of this and ships none of the bytes.
+ */
+let SEED: Record<string, string> | null = null;
+let seedInflight: Promise<Record<string, string>> | null = null;
+const seedListeners = new Set<() => void>();
+
+/** True once the dictionary is in memory. */
+export function isUrduSeedLoaded(): boolean {
+  return SEED !== null;
+}
+
+/** Fetch the dictionary, at most once per session; concurrent callers share
+ *  one chunk request. */
+export function loadUrduSeed(): Promise<Record<string, string>> {
+  if (SEED) return Promise.resolve(SEED);
+  if (!seedInflight) {
+    seedInflight = import('../../data/urdu-seed.json')
+      .then((module) => {
+        SEED = module.default as Record<string, string>;
+        /* Every derived cache has to go, not just the main one. `_misses` is
+           the load-bearing one: a string looked up before the dictionary
+           arrived is remembered as untranslatable, and without this line it
+           would stay English for the rest of the session even though the
+           translation is now sitting in memory. */
+        _cache = null;
+        _lowerCache = null;
+        _nameIndex = null;
+        _misses.clear();
+        // Notify before resolving, so a subscriber's rebuild is in place by the
+        // time an awaiting caller continues.
+        seedListeners.forEach((listener) => listener());
+        return SEED;
+      })
+      .finally(() => {
+        seedInflight = null;
+      });
+  }
+  return seedInflight;
+}
+
+/** Load the dictionary only when the reader is actually reading Urdu. */
+export function ensureUrduSeedForLang(lang: Lang): Promise<void> {
+  if (lang !== 'ur') return Promise.resolve();
+  return loadUrduSeed().then(() => undefined);
+}
+
+/** Subscribe to the dictionary's arrival. Returns an unsubscribe function.
+ *  Fires once; check `isUrduSeedLoaded()` for the already-loaded case. */
+export function onUrduSeedLoaded(listener: () => void): () => void {
+  seedListeners.add(listener);
+  return () => {
+    seedListeners.delete(listener);
+  };
+}
+
+/** Test-only: forget the dictionary so a case can assert the un-loaded
+ *  behaviour — an English string returned unchanged rather than transliterated. */
+export function resetUrduSeedForTests(): void {
+  SEED = null;
+  seedInflight = null;
+  _cache = null;
+  _lowerCache = null;
+  _nameIndex = null;
+  _misses.clear();
+}
+
 function loadSeedTranslations(): Map<string, string> {
   const w = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>) : {};
   const win =
@@ -395,8 +488,12 @@ function loadSeedTranslations(): Map<string, string> {
     // ignore
   }
 
-  // Seed file wins over stale persisted cache; window can still override in dev.
-  return new Map(Object.entries({ ...persisted, ...(urduSeed as Record<string, string>), ...win }));
+  /* Seed file wins over stale persisted cache; window can still override in
+     dev. `SEED` is null until the dictionary chunk lands, and the persisted
+     cache carries the previous session's hits in the meantime — which is why
+     the un-loaded window degrades to "English, briefly" rather than to
+     "nothing works". */
+  return new Map(Object.entries({ ...persisted, ...(SEED ?? {}), ...win }));
 }
 
 let _cache: Map<string, string> | null = null;

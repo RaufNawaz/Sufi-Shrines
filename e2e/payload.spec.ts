@@ -86,6 +86,90 @@ test.describe('Urdu article payload is language-gated', () => {
   });
 });
 
+/**
+ * The Urdu dictionary must stay off the English critical path too — and must
+ * arrive in time to be *used* on the Urdu one.
+ *
+ * `src/data/urdu-seed.json` is 80 KB and 960 entries: every shrine name, saint,
+ * place, category and observance in the archive. It was a static import in
+ * `urduFallback.ts`, so it rode on all eleven routes; removing it took
+ * `index.html` from 322 KB of eager JavaScript to 248.
+ *
+ * The behavioural half is sharper here than for the article payload, because
+ * `translateToUrdu` is called **synchronously during render**. A dictionary that
+ * arrives but is never re-read leaves the reader looking at English names on an
+ * Urdu page — so the tests below check the rendered name, not just the request.
+ */
+const SEED_CHUNK = /urdu-seed-[^/]*\.js/;
+
+function watchSeedChunk(page: Page): string[] {
+  const hits: string[] = [];
+  page.on('request', (request: Request) => {
+    if (SEED_CHUNK.test(request.url())) hits.push(request.url());
+  });
+  return hits;
+}
+
+test.describe('Urdu dictionary is language-gated', () => {
+  test('an English reader never requests it', async ({ page }) => {
+    const hits = watchSeedChunk(page);
+    await page.goto('/shrine/data-darbar');
+    await expect(page.locator('h1.shrine-title')).toBeVisible();
+    expect(hits, 'the 80 KB Urdu dictionary was fetched for an English reader').toEqual([]);
+  });
+
+  test('the map route never requests it in English either', async ({ page }) => {
+    const hits = watchSeedChunk(page);
+    await page.goto('/');
+    await expect(page.locator('.shrine-dot').first()).toBeVisible();
+    expect(hits).toEqual([]);
+  });
+
+  test('?lang=ur requests it and renders the dictionary name', async ({ page }) => {
+    const hits = watchSeedChunk(page);
+    await page.goto('/shrine/data-darbar?lang=ur');
+    await expect(page.locator('h1.shrine-title')).toBeVisible();
+    await expect
+      .poll(() => hits.length, { message: 'Urdu reader did not get the dictionary' })
+      .toBeGreaterThan(0);
+    // The name itself, from the dictionary — not the localized chrome around it.
+    await expect(page.locator('h1.shrine-title')).toContainText('داتا دربار');
+  });
+
+  test('switching to Urdu mid-session re-renders the names', async ({ page }) => {
+    const hits = watchSeedChunk(page);
+    await page.goto('/shrine/data-darbar');
+    await expect(page.locator('h1.shrine-title')).toHaveText(/Data Darbar/);
+    expect(hits).toEqual([]);
+
+    /* This is the case the dictionary's arrival listener exists for: the
+       heading was already rendered from a dictionary that did not exist yet, so
+       without the context bump in LanguageProvider the page would turn RTL with
+       an English name in it. */
+    await page.locator('.lang-seg[lang="ur"]').click();
+    await expect
+      .poll(() => hits.length, { message: 'switching language did not fetch the dictionary' })
+      .toBeGreaterThan(0);
+    await expect(page.locator('h1.shrine-title')).toContainText('داتا دربار');
+  });
+
+  test('and an Urdu query still finds a shrine, which needs the index rebuilt', async ({
+    page,
+  }) => {
+    /* The search index takes its Urdu fields from this dictionary. An index
+       built before the dictionary lands has an empty urduName for all 169
+       documents — the exact bug e2e/search-bilingual.spec.ts was written for,
+       which language-gating the dictionary could have reintroduced. */
+    await page.goto('/?lang=ur');
+    await page.locator('#sidebar').waitFor();
+    await page.locator('.list-toggle-btn').click();
+    await page.locator('.search-input').fill('داتا');
+    await expect
+      .poll(async () => page.locator('.shrine-list-item').count(), { timeout: 8000 })
+      .toBeGreaterThan(0);
+  });
+});
+
 /*
  * The five-order Latin-leak sweep that used to live here has moved to
  * e2e/urdu-no-leak.spec.ts, which runs the same walk over every route in both

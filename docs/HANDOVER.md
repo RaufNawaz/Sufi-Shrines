@@ -1927,6 +1927,57 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     been placed in `dist` and unplaced in the app, which is a page the sitemap advertises and
     the router calls "not recorded". Both sides now share `locationOfRow`.
 
+75. **The Urdu dictionary is no longer on the English critical path — 74 KB off every route.**
+    `src/data/urdu-seed.json` (80 KB, 960 entries) was a static import in `urduFallback.ts`, so
+    an English reader downloaded the entire Urdu dictionary and consulted none of it.
+    `index.html` fell from 322 KB of eager JavaScript to **248**, the map route from 611 to
+    **537**, and every budget in `check-bundle-budget.mjs` came down with it — the first time
+    that file's numbers have gone *down*.
+
+    The note in that file had argued for this twice and deferred it twice, for a real reason:
+    `translateToUrdu` runs synchronously during render, so a late dictionary shows English on an
+    Urdu page. The fix is four things at once — a module-scope request in `main.tsx` from
+    `detectInitialLang()` (before React's first pass, so it races the sheet fetch and wins), a
+    `dictVersion` in the language context so arrival re-renders everything that translates,
+    `useShrineData` awaiting it where it already awaited the article payload, and `useSearch`
+    rebuilding the index on arrival.
+
+    **The regression it caused, and the reason to run the whole suite rather than the new
+    tests:** two `search-bilingual` cases went red — *in the English interface*, an Urdu query
+    found nothing. The worker indexes both scripts deliberately ("a reader in the English one may
+    paste Urdu"), and that promise was free only while the dictionary was eager. `useSearch` now
+    fetches it when a query contains Urdu letters, so an English reader who never types Urdu
+    still ships none of it and one who does waits a single chunk request. Nothing in the new
+    tests would have caught this; the suite that already existed did.
+
+    One trap found by mutation-testing my own test. `translateToUrdu` remembers permanent misses
+    in a `_misses` set, so `loadUrduSeed()` clears it — and my first test of that cleared nothing,
+    because the exact-key lookup happens *before* the miss check and so survives a stale miss. It
+    is the **case-insensitive** index, consulted *after* it, that gets poisoned. Deleting
+    `_misses.clear()` left the first version of the test green; with a lowercased fixture
+    ("uch sharif", which is how the sheet spells some values) it goes red. A mutation that passes
+    has not proved the check sound, only the mutation too weak — third time that lesson has
+    appeared in this file.
+
+    Also worth keeping: **894 of the seed's 960 entries are translatable only from the seed.** The
+    other 66 include the common city words, which `buildUrduFallback`'s built-in maps already
+    cover — so a test of the un-loaded window that used "Lahore" would pass while measuring the
+    built-in map rather than the gate. Mine did, at first.
+
+    **And a layer below all of it, the service worker was undoing the whole thing.** The PWA
+    precache globbed `**` + every emitted `.js`, so both language payloads — the 1 MB article
+    chunk and the 77 KB dictionary — were downloaded in the background by *every* visitor on
+    first load. After first paint, so no eager-payload budget and no Lighthouse run could see it,
+    and the careful language-gating in `urduContentOverride.ts` and `urduFallback.ts` was being
+    quietly cancelled one layer down for every returning reader. Both are now excluded via
+    `globIgnores` and cached by a `CacheFirst` runtime rule when actually fetched, so an Urdu
+    reader who has read one page still has them offline. Measured: the precache went from
+    **4980 KiB to 3865 KiB (52 entries)**.
+
+    The general lesson is the one this file keeps relearning in new costumes: a check measures the
+    layer it was pointed at. `check-bundle-budget.mjs` measures the static import graph, and was
+    right; the bytes left anyway, through a mechanism nothing was looking at.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

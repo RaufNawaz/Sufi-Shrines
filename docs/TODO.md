@@ -446,13 +446,31 @@ column read the same on both sides), and a `place/lahore` + `ur/place/lahore` sp
 prerender gate. The prerenderer also stopped writing Western digits into Urdu meta descriptions:
 `(وفات 1072)` → `(وفات ۱۰۷۲)`, for places, saints and orders.
 
-### The Urdu seed is now 80 KB on every route
+### The Urdu dictionary is no longer on every route — 74 KB off each one
 
-Track B's 282 place tokens took the seed from 697 to 960 entries, and `urduFallback` imports it
-statically, so ~25 KB landed on every route and every eager budget moved. Second raise for the
-same cause in two days. The fix is the language gate already logged in
-`SHARED_GROUND_VISION.md`; it is blocked on `translateToUrdu` being synchronous during render,
-not on effort.
+Track B's 282 place tokens took the seed to 960 entries and 80 KB, and `urduFallback` imported it
+statically, so it rode on all eleven routes. That was the second budget raise in two days for the
+same cause, and recording a debt twice is where recording stops being the answer.
+
+Now loaded on demand and gated on language, like `urdu-content.json`. `index.html`: **322 KB →
+248 KB** of eager JavaScript. Map route: **611 → 537**. Every budget in
+`check-bundle-budget.mjs` came down.
+
+The synchronous-render problem — `translateToUrdu` is called during render, so a late dictionary
+flashes English — is handled by requesting it at module scope in `main.tsx` before React's first
+pass, a `dictVersion` in the language context, `useShrineData` awaiting it, and `useSearch`
+rebuilding the index when it lands.
+
+**It broke Urdu search in the English interface, and the existing suite caught it.** The worker
+indexes both scripts on purpose; that was free only while the dictionary was eager. `useSearch`
+now fetches it the moment a query contains Urdu letters. An English reader who never types Urdu
+ships none of it.
+
+**The service worker was cancelling the gate anyway.** The PWA precache globbed every emitted
+`.js`, so both language payloads (1 MB of articles, 77 KB of dictionary) were fetched in the
+background for every visitor on first load — invisible to the budget check and to Lighthouse,
+because it happens after first paint. Excluded via `globIgnores` and cached on first real use by a
+runtime rule instead: precache **4980 KiB → 3865 KiB**.
 
 ### Suite state
 

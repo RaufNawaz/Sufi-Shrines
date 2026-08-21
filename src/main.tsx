@@ -15,6 +15,8 @@ import './styles/kg.css';
 import './styles/almanac.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
+import { detectInitialLang } from './lib/i18n/detectLang';
+import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 
 // Prevent FOUC by setting data-theme before paint
 const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -22,6 +24,15 @@ const theme = stored === 'dark' || stored === 'light' ? stored : 'light';
 document.documentElement.setAttribute('data-theme', theme);
 
 initTelemetry();
+
+/* The Urdu dictionary (80 KB) is no longer in the eager bundle, so an English
+   reader never downloads it. Requested here rather than from an effect inside
+   the provider, because `translateToUrdu` runs synchronously during render: at
+   module scope the request is already in flight before React's first pass, so
+   for an Urdu reader it resolves alongside — usually well before — the shrine
+   data fetch it would otherwise be waiting behind. If it does land late,
+   `LanguageProvider` re-renders on arrival. */
+void ensureUrduSeedForLang(detectInitialLang());
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

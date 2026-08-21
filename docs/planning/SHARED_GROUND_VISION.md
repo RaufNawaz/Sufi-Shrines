@@ -164,20 +164,36 @@ sentence in a document can.
 
 ---
 
-## A payload debt this phase created
+## A payload debt this phase created — **paid, 21 August 2026**
 
-Correcting the dictionary's row universe grew `src/data/urdu-seed.json` from 49 KB to 67 KB,
-and `urduFallback` imports it eagerly — so ~18 KB landed on every route and
-`scripts/check-bundle-budget.mjs` failed two of them. Budgets were raised with the reason
-recorded, which is the honest short-term answer.
+Correcting the dictionary's row universe grew `src/data/urdu-seed.json` from 49 KB to 67 KB, and
+Track B's place tokens took it to 80 KB. `urduFallback` imported it statically, so all of it
+landed on every route and `scripts/check-bundle-budget.mjs` had to be raised twice in two days.
+The note here used to say what the real answer was and why it had not been done.
 
-**Still outstanding as of 21 August 2026.** The real answer is that **an English reader needs
-no Urdu dictionary at all.** The seed can be
-language-gated exactly as `urdu-content.json` now is (`ensureUrduContentForLang` plus a
-rebuild listener in `useShrineData`) — worth ~67 KB off every route, more than the whole
-knowledge-graph chunk. It was not done in the same pass because `translateToUrdu` is called
-synchronously during render, so a missing dictionary would flash English before it arrived;
-that needs the same care the article payload got, not a quick dynamic import.
+**It is done.** The dictionary is loaded on demand and gated on the reader's language, exactly as
+`urdu-content.json` already was. Measured after: `index.html` fell from **322 KB to 248 KB** of
+eager JavaScript and the map route from **611 to 537** — 74 KB off every one of the eleven
+routes, for readers who were downloading a dictionary they never consulted.
+
+The reason it had waited was real, not laziness: `translateToUrdu` runs **synchronously during
+render**, so a late dictionary means a frame of English on an Urdu page. Four things close that:
+
+1. the request starts at module scope in `main.tsx` from `detectInitialLang()`, before React's
+   first pass — so for an Urdu reader it resolves alongside, usually well before, the sheet fetch;
+2. `LanguageProvider` carries a `dictVersion` in its context value, so the arrival re-renders
+   every component that translates (they all read `useLang()` anyway);
+3. `useShrineData` waits for it where it already waited for the article payload, and rebuilds if
+   it lands later — which also rebuilds the search index;
+4. `useSearch` fetches it when a **query contains Urdu letters**, because the worker indexes both
+   scripts on purpose and an English-interface reader pasting an Urdu name must still find it.
+   That promise was free when the dictionary was eager and now has to be kept explicitly; the
+   first such query in an English session waits one chunk request.
+
+Guarded by `MUST_STAY_LAZY` in the budget check (bundling), five tests in `e2e/payload.spec.ts`
+(behaviour, including the mid-session switch and the Urdu-query case), and
+`src/lib/i18n/__tests__/urduSeedGating.test.ts` for the un-loaded window — where the rule is that
+an unknown string comes back **unchanged**, never transliterated.
 
 ## Sequencing
 

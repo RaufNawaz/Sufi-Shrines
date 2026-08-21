@@ -10,6 +10,7 @@ import {
   onUrduContentLoaded,
 } from '../lib/data/urduContentOverride';
 import { detectInitialLang } from '../lib/i18n/detectLang';
+import { ensureUrduSeedForLang, onUrduSeedLoaded } from '../lib/i18n/urduFallback';
 
 // v5: Shrine gained supportLevel/statusNote and the split date fields —
 // older cached shapes lack them.
@@ -53,6 +54,7 @@ async function loadSnapshot(): Promise<{ shrines: Shrine[]; generated: number | 
   // is only needed when both the network and the localStorage cache fail.
   const { default: snapshotData } = await import('../data/shrines-fallback.json');
   await ensureUrduContentForLang(detectInitialLang());
+  await ensureUrduSeedForLang(detectInitialLang());
   const rows = (snapshotData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
   const shrines = buildFromRows(rows);
   const generated = Date.parse(snapshotData.generated as string);
@@ -63,6 +65,11 @@ async function fetchShrines(): Promise<Shrine[]> {
   // Resolved before the parse starts so the first build already carries the
   // Urdu articles for an Urdu reader — no visible re-render.
   await ensureUrduContentForLang(detectInitialLang());
+  /* And the dictionary, for the same reason: the rows are built once, and the
+     search index is built from them. An index built before the dictionary
+     arrives has an empty `urduName` for all 169 documents, which is exactly the
+     "Urdu query finds nothing" bug of e2e/search-bilingual.spec.ts. */
+  await ensureUrduSeedForLang(detectInitialLang());
   return new Promise((resolve, reject) => {
     Papa.parse(CSV_URL, {
       download: true,
@@ -265,6 +272,19 @@ export function useShrineData(): ShrineDataState {
   useEffect(
     () =>
       onUrduContentLoaded(() => {
+        const rebuilt = rebuildWithUrduContent();
+        if (rebuilt) setShrines(rebuilt);
+      }),
+    [],
+  );
+
+  /* A switch to Urdu also loads the dictionary. The rows themselves do not
+     change, but everything derived from them — the localized names, and the
+     search index built from those names — does, so the same rebuild is the
+     right response. */
+  useEffect(
+    () =>
+      onUrduSeedLoaded(() => {
         const rebuilt = rebuildWithUrduContent();
         if (rebuilt) setShrines(rebuilt);
       }),

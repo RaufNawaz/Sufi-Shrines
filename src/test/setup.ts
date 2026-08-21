@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { loadUrduSeed } from '../lib/i18n/urduFallback';
 
 // jsdom does not implement IntersectionObserver (scroll-spy, etc.)
 if (typeof IntersectionObserver === 'undefined') {
@@ -61,3 +62,12 @@ if (typeof window !== 'undefined') {
     }),
   });
 }
+
+/* The Urdu dictionary is loaded on demand in the app (see the header of
+ * src/lib/i18n/urduFallback.ts — 80 KB that an English reader never needs), so
+ * a test that expects `translateToUrdu('Lahore')` to return لاہور has to say so.
+ * Loaded here for every test file, because the loaded state is the one almost
+ * every test means. A case that wants the *un*-loaded behaviour — an English
+ * string returned unchanged rather than transliterated — calls
+ * `resetUrduSeedForTests()` itself. */
+await loadUrduSeed();

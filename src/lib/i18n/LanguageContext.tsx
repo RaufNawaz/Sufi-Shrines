@@ -4,7 +4,12 @@ import type { Lang } from '../../types/shrine';
 import type { UI_TEXT } from './uiStrings';
 import { t, tFn } from './uiStrings';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
-import { translateToUrdu } from './urduFallback';
+import {
+  translateToUrdu,
+  ensureUrduSeedForLang,
+  isUrduSeedLoaded,
+  onUrduSeedLoaded,
+} from './urduFallback';
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
 import { detectInitialLang } from './detectLang';
@@ -28,6 +33,10 @@ interface LangContextValue {
   numerals: Numerals;
   setNumerals: (numerals: Numerals) => void;
   fmtNum: (n: number | string) => string;
+  /** Increments when the Urdu dictionary arrives. Read it only to depend on
+   *  it — a component that translates during render needs the re-render, not
+   *  the number. */
+  dictVersion: number;
 }
 
 const LangContext = createContext<LangContextValue | null>(null);
@@ -35,6 +44,13 @@ const LangContext = createContext<LangContextValue | null>(null);
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectInitialLang);
   const [numerals, setNumeralsState] = useState<Numerals>(detectInitialNumerals);
+  /* Bumped when the Urdu dictionary lands. It is in the context value on
+     purpose: every component that translates a name reads `useLang()` for the
+     language itself, so one changed value re-renders all of them with the
+     dictionary in place. Without it, a switch to Urdu mid-session would leave
+     already-rendered names in English until something else happened to
+     re-render them. */
+  const [dictVersion, setDictVersion] = useState(() => (isUrduSeedLoaded() ? 1 : 0));
 
   const setNumerals = useCallback((next: Numerals) => {
     setNumeralsState(next);
@@ -61,6 +77,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // switches. useShrineData re-merges the rows when it arrives.
   useEffect(() => {
     if (lang === 'ur') void loadUrduContent();
+  }, [lang]);
+
+  /* Same arrangement for the dictionary (80 KB): requested when the language is
+     Urdu, and never for an English reader. `main.tsx` starts the request before
+     first paint for a /ur or ?lang=ur visit; this covers the mid-session
+     switch, and the subscription covers the case where either request is still
+     in flight when this provider mounts. */
+  useEffect(() => {
+    if (lang !== 'ur') return;
+    if (isUrduSeedLoaded()) {
+      setDictVersion((n) => (n === 0 ? 1 : n));
+      return;
+    }
+    const unsubscribe = onUrduSeedLoaded(() => setDictVersion((n) => n + 1));
+    void ensureUrduSeedForLang(lang);
+    return unsubscribe;
   }, [lang]);
 
   useEffect(() => {
@@ -104,8 +136,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       numerals,
       setNumerals,
       fmtNum,
+      dictVersion,
     }),
-    [lang, setLang, localizeField, numerals, setNumerals, fmtNum],
+    [lang, setLang, localizeField, numerals, setNumerals, fmtNum, dictVersion],
   );
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;

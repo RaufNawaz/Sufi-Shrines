@@ -35,47 +35,34 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * enough to absorb a normal feature but not another megabyte.
  */
 /*
- * Raised on 21 August 2026, deliberately. `src/data/urdu-seed.json` grew from
- * 49 KB to 67 KB when the Urdu dictionary's row universe was corrected from a
- * stale 143-row snapshot to the real 169 — closing a gap of 27 shrine names, 17
- * saint strings, 30 founding phrases and 23 rows of place tokens. `urduFallback`
- * imports that seed eagerly, so ~18 KB landed on every route and this check
- * failed on two of them. Working exactly as intended: the growth is real, and it
- * is now recorded rather than absorbed silently.
+ * **Paid off on 21 August 2026, and every budget below dropped ~74 KB.**
  *
- * The seed does not have to be eager. An English reader needs no Urdu dictionary
- * at all, so it could be language-gated the way `urdu-content.json` already is
- * (see urduContentOverride.ts) — worth ~67 KB off every route. Not done here
- * because `translateToUrdu` is called synchronously during render and a missing
- * dictionary would flash English; it needs the same
- * `ensureUrduContentForLang` + rebuild-listener treatment, which is its own
- * change. Logged in docs/planning/SHARED_GROUND_VISION.md.
- */
-/*
- * Raised again on 21 August 2026, same cause, one step further. The Urdu seed
- * went from 697 to 960 entries when the 282 place tokens behind Track B's
- * /place/:slug pages were merged into it — 69 KB of JSON to 80 KB, which lands
- * as ~25 KB of eager chunk on *every* route because `urduFallback` imports the
- * seed statically. Every budget below moved by about that much and none of the
- * growth is a new dependency.
+ * The two notes this block used to carry both said the same thing: the Urdu
+ * dictionary (`src/data/urdu-seed.json`) was a static import in
+ * `urduFallback.ts`, so every route shipped it eagerly, and it had grown twice
+ * in two days (49 → 67 → 80 KB) with the budgets raised each time. Twice
+ * recording a debt is the point at which recording it stops being the answer.
  *
- * This is the second raise for the same reason in two days, which is the
- * argument for finally doing the language gate described above rather than
- * absorbing a third: ~80 KB now rides on every English-only page load for a
- * dictionary it never consults.
+ * It is now loaded on demand, gated on the reader's language exactly as
+ * `urdu-content.json` already was — an English reader downloads none of it. The
+ * header of `src/lib/i18n/urduFallback.ts` explains how the synchronous-render
+ * problem is handled, which was the real reason this waited.
+ *
+ * Numbers below are the measurement *after* that change. `index.html` went from
+ * 322 KB to 248 KB of eager JavaScript; the map route from 611 to 537.
  */
 const BUDGETS_KB = {
-  'index.html': 345, // measured 322 (297 before the place tokens, 274 before that)
-  'src/pages/MapPage.tsx': 660, // measured 611 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
-  'src/pages/ShrinePage.tsx': 575, // measured 531 — the graph is no longer on this route
-  'src/pages/SaintPage.tsx': 745, // measured 689
-  'src/pages/OrderPage.tsx': 730, // measured 674
-  'src/pages/GraphPage.tsx': 700, // measured 645
-  'src/pages/AlmanacPage.tsx': 415, // measured 382
-  'src/pages/NotFoundPage.tsx': 350, // measured 325
-  'src/pages/CoveragePage.tsx': 400, // measured 368 — shrine data + the places index
-  'src/pages/AboutPage.tsx': 360, // measured 331 — static text, no dataset needed
-  'src/pages/PlacePage.tsx': 395, // measured 363 — the dataset and the place vocabulary
+  'index.html': 270, // measured 248 (was 322 with the dictionary eager)
+  'src/pages/MapPage.tsx': 580, // measured 537 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
+  'src/pages/ShrinePage.tsx': 495, // measured 457 — the graph is no longer on this route
+  'src/pages/SaintPage.tsx': 665, // measured 615
+  'src/pages/OrderPage.tsx': 650, // measured 600
+  'src/pages/GraphPage.tsx': 620, // measured 571
+  'src/pages/AlmanacPage.tsx': 335, // measured 307
+  'src/pages/NotFoundPage.tsx': 275, // measured 251
+  'src/pages/CoveragePage.tsx': 320, // measured 294 — shrine data + the places index
+  'src/pages/AboutPage.tsx': 280, // measured 257 — static text, no dataset needed
+  'src/pages/PlacePage.tsx': 315, // measured 289 — the dataset and the place vocabulary
 };
 
 /**
@@ -86,6 +73,10 @@ const BUDGETS_KB = {
  */
 const MUST_STAY_LAZY = [
   { match: /^urdu-content-/, why: 'the 1 MB Urdu article payload (Urdu readers only)' },
+  {
+    match: /^urdu-seed-/,
+    why: 'the 80 KB Urdu dictionary (Urdu readers only) — see urduFallback.ts',
+  },
   {
     match: /^shrines-fallback-/,
     why: 'the offline snapshot (loaded only when the sheet fetch fails)',
