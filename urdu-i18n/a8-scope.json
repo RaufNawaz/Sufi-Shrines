@@ -1,8 +1,8 @@
 {
  "_comment": "A8 (Urdu content delta) scope. Regenerate with pipeline/a8_urdu_delta.py. 'added_chars' counts inserted/replaced characters, not a diff of meaning.",
- "generated": "2026-08-18",
+ "generated": "2026-08-21",
  "baseline": "urdu-i18n/_english_descriptions.json",
- "english_source": "data/shrines_final_import_2026-08-16.csv",
+ "english_source": "data/shrines.json snapshot (2026-08-18T16:25:08.798Z, 169 rows)",
  "full_translation": [
   {
    "slug": "darbar-abul-muali-qadri",
@@ -11,109 +11,9 @@
   {
    "slug": "darbar-malik-ahmad-ayaz",
    "english_chars": 6909
-  },
-  {
-   "slug": "darbar-mian-qurban-ali-shah",
-   "english_chars": 5374
   }
  ],
  "delta": [
-  {
-   "slug": "shrine-of-mauj-darya-bukhari",
-   "added_chars": 3001,
-   "old_chars": 1869,
-   "new_chars": 4639
-  },
-  {
-   "slug": "shrine-of-shah-jamal",
-   "added_chars": 2579,
-   "old_chars": 1764,
-   "new_chars": 4231
-  },
-  {
-   "slug": "shrine-of-shah-inayat-qadiri",
-   "added_chars": 2213,
-   "old_chars": 1787,
-   "new_chars": 3837
-  },
-  {
-   "slug": "shrine-of-peer-makki",
-   "added_chars": 1998,
-   "old_chars": 1830,
-   "new_chars": 3724
-  },
-  {
-   "slug": "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-   "added_chars": 1996,
-   "old_chars": 1456,
-   "new_chars": 3367
-  },
-  {
-   "slug": "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-   "added_chars": 1658,
-   "old_chars": 1542,
-   "new_chars": 3115
-  },
-  {
-   "slug": "tomb-of-qutbuddin-aibak",
-   "added_chars": 1594,
-   "old_chars": 1766,
-   "new_chars": 3275
-  },
-  {
-   "slug": "khatwari-darbar-shikarpur",
-   "added_chars": 1550,
-   "old_chars": 1443,
-   "new_chars": 2908
-  },
-  {
-   "slug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
-   "added_chars": 1428,
-   "old_chars": 1630,
-   "new_chars": 2973
-  },
-  {
-   "slug": "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
-   "added_chars": 1408,
-   "old_chars": 1413,
-   "new_chars": 2736
-  },
-  {
-   "slug": "darbar-ghamkol-sharif-zinda-pir",
-   "added_chars": 1382,
-   "old_chars": 1410,
-   "new_chars": 2659
-  },
-  {
-   "slug": "lal-kurti-temple-balmiki-mandir-rawalpindi",
-   "added_chars": 1378,
-   "old_chars": 1470,
-   "new_chars": 2763
-  },
-  {
-   "slug": "gori-temple-gori-jo-mandar",
-   "added_chars": 1359,
-   "old_chars": 1547,
-   "new_chars": 2821
-  },
-  {
-   "slug": "jain-mandir-lahore",
-   "added_chars": 1347,
-   "old_chars": 1840,
-   "new_chars": 3102
-  },
-  {
-   "slug": "chandragup-baba-chandragup",
-   "added_chars": 1339,
-   "old_chars": 1576,
-   "new_chars": 2915
-  },
-  {
-   "slug": "kalat-kali-temple",
-   "added_chars": 1338,
-   "old_chars": 1380,
-   "new_chars": 2718
-  },
   {
    "slug": "gurdwara-chakki-sahib",
    "added_chars": 1306,
@@ -469,11 +369,12 @@
   "bhagnari-mandir",
   "bhai-sant-thawan-das-mandir",
   "bhit-bhit-shah",
+  "chandragup-baba-chandragup",
   "churrio-jabal-durga-mata-temple",
+  "darbar-ghamkol-sharif-zinda-pir",
   "darbar-ghazi-ilm-din-shaheed",
   "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
   "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
-  "darbar-hazrat-shah-gohar-peer",
   "darbar-hazrat-tahir-bandagi-qadri",
   "darbar-sakhi-shah-chan-charagh",
   "darbar-wasif-ali-wasif",
@@ -484,10 +385,12 @@
   "garh-maharaja-shorkot",
   "golra-sharif",
   "gorakhnath-goraknath-temple",
+  "gori-temple-gori-jo-mandar",
   "gurdas-ram-mandir",
   "gurdwara-babay-de-ber",
   "gurdwara-babay-nanki",
   "gurdwara-balila-sahib-bal-lila-sahib",
+  "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
   "gurdwara-bhai-beba-singh",
   "gurdwara-bhai-joga-singh",
   "gurdwara-chhevin-patshahi-mozang",
@@ -508,11 +411,15 @@
   "guru-gurpat-mandir-db-80-sirey-ghat",
   "gurudwara-janam-asthan-nankana-sahib",
   "jagannath-temple-sialkot",
+  "jain-mandir-lahore",
   "jhollay-lal-mandir",
+  "kalat-kali-temple",
   "kali-bari-mandir",
   "katas-raj-temples",
+  "khatwari-darbar-shikarpur",
   "krishna-mandir-kabari-bazar",
   "krishna-mandir-ravi-road",
+  "lal-kurti-temple-balmiki-mandir-rawalpindi",
   "lal-shahbaz-qalandar",
   "langer-makhdoom",
   "mausoleum-of-waris-shah",
@@ -529,6 +436,7 @@
   "sakhi-sarwar",
   "sant-baba-asudaram-darbar-panno-aqil",
   "sant-baba-bhagat-ram-darbar-mandir",
+  "sant-satram-dham-raharki-sacho-satram-devri-sahib",
   "shah-noorani-shrine-syed-bilawal-shah-noorani",
   "shah-yousuf",
   "shahwala-teja-singh-mandir",
@@ -544,19 +452,30 @@
   "shrine-at-odero-lal-udero-lal-teerath-asthan",
   "shrine-of-abdullah-shah-ghazi",
   "shrine-of-fariduddin-ganjshakar",
+  "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
   "shrine-of-hazrat-shah-daula-daryai",
   "shrine-of-imam-ali-ul-haq",
+  "shrine-of-mauj-darya-bukhari",
+  "shrine-of-peer-makki",
   "shrine-of-pir-mangho",
   "shrine-of-pir-sher-muhammad",
   "shrine-of-qalandar-baba-auliya",
   "shrine-of-sachal-sarmast",
+  "shrine-of-shah-inayat-qadiri",
+  "shrine-of-shah-jamal",
   "shrine-of-shah-rukn-e-alam",
   "shrine-of-shah-shams-ud-din-sabzwari",
   "shrine-of-shah-yusaf-gardez",
   "shrine-of-syed-musa-pak",
   "sial-sharif",
   "tomb-of-javindi-bibi",
+  "tomb-of-qutbuddin-aibak",
   "valmik-mandir-naqi-road",
+  "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
   "wadpagga-sharif"
+ ],
+ "rows_not_in_source": [
+  "darbar-hazrat-shah-gohar-peer",
+  "darbar-mian-qurban-ali-shah"
  ]
 }

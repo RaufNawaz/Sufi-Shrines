@@ -61,6 +61,19 @@ def load_live_rows(live):
         # io.StringIO, never raw.splitlines() — splitlines breaks quoted
         # multi-paragraph cells before the csv module sees them.
         return list(csv.DictReader(io.StringIO(raw))), "live published sheet"
+    if not os.path.exists(LOCAL_CSV):
+        # LOCAL_CSV is gitignored, so it is absent in a fresh clone. Say so plainly
+        # rather than raising a bare FileNotFoundError. Deliberately no snapshot
+        # fallback: data/shrines.json drops the rows with empty coordinates, and
+        # counting coverage against a 169-row universe would both misreport the
+        # percentage and flag the two dropped rows' existing Urdu as orphaned.
+        raise SystemExit(
+            f"FAIL: {os.path.relpath(LOCAL_CSV, ROOT)} is absent (it is gitignored).\n"
+            "  Either run with --live to fetch the published sheet, or regenerate it\n"
+            "  locally with `python3 pipeline/build_final_import.py`.\n"
+            "  Note: the log's coverage denominator must be the full 171-row sheet,\n"
+            "  so data/shrines.json (169 rows) is not a valid substitute."
+        )
     with open(LOCAL_CSV, newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh)), os.path.relpath(LOCAL_CSV, ROOT)
 
