@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Shrine } from '../../types/shrine';
-import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
+import { getFieldValue } from '../data/fieldAliasing';
+import { localizeShrineName } from '../i18n/localizeShrineName';
+import { translateNameToUrdu, translateToUrdu } from '../i18n/urduFallback';
 
 interface SearchState {
   ids: number[] | null; // null = "no query / show all"; otherwise ranked best-match-first
@@ -39,13 +41,37 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
       }
     };
 
+    /*
+     * The Urdu fields come from the dictionary — the same source the UI
+     * displays — not from a sheet column.
+     *
+     * `urduName` was `getUrduFieldValue(s.raw, 'Name')`, i.e. an "Urdu Name"
+     * column. **The sheet has no Urdu column at all**, so that was the empty
+     * string for all 169 rows: the boosted urduName field indexed nothing and
+     * an Urdu query on the Urdu site returned zero results. A reader looking at
+     * an entirely Urdu interface, with an Urdu placeholder in the search box,
+     * had to type English to find anything.
+     *
+     * Everything needed was already there and correct — the worker folds Arabic
+     * letter variants to Urdu ones, strips harakat, boosts urduName to 4, and
+     * has unit tests for `داتا دربار`. Those tests build their own index from
+     * hand-written docs, so they passed while production indexed empty strings.
+     *
+     * These calls are all dictionary lookups already in memory (urdu-seed.json
+     * is a static import). The Urdu *article* prose is deliberately not indexed:
+     * it is a 1 MB lazily-loaded chunk (see urduContentOverride.ts) and pulling
+     * it in here would put it back on every route's critical path.
+     */
     const docs = shrines.map((s) => ({
       id: s.id,
       name: s.name,
-      urduName: getUrduFieldValue(s.raw, 'Name') || '',
+      urduName: localizeShrineName(s, 'ur'),
       location: s.location || '',
+      urduLocation: s.location ? translateToUrdu(s.location) : '',
       saint: s.sufiSaint || '',
+      urduSaint: s.sufiSaint ? translateNameToUrdu(s.sufiSaint) : '',
       category: s.category || '',
+      urduCategory: s.category ? translateToUrdu(s.category) : '',
       description: getFieldValue(s.raw, 'Description').slice(0, 500), // cap length
     }));
     worker.postMessage({ type: 'init', docs });

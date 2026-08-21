@@ -1730,6 +1730,59 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     "forbidden" three lines away. Mutation-tested — reinstating the TSV step still names
     `docs/RUNBOOK.md:41`, because the file's banner is thirty lines above it.
 
+65. **Searching in Urdu on the Urdu site returned zero results.** `داتا` — the first word of
+    the archive's best-known shrine, displayed in Urdu on screen, typed into a box whose
+    placeholder is `مزار تلاش کریں...` — matched nothing. So did `لاہور`, `مندر`, `گوردوارہ`. A
+    reader in an entirely Urdu interface had to type English to find anything.
+
+    **Two sources for one fact, one of them empty.** The page *displays* Urdu names from the
+    dictionary (`urdu-seed.json`, 169/169 covered). The search index took `urduName` from
+    `getUrduFieldValue(row, 'Name')` — a sheet column. **The sheet has no Urdu column at all**,
+    so that field was `''` for all 169 documents and the boosted field indexed nothing.
+
+    Everything around it was already right, and that is what made it invisible. The worker folds
+    Arabic letter variants to Urdu ones, strips harakat, boosts `urduName` to 4, and
+    `search.worker.test.ts` asserts that `داتا دربار` matches. **Those tests build their own
+    index from hand-written documents**, so they passed in full while production indexed empty
+    strings. A unit test that supplies its own fixture proves the algorithm and says nothing
+    about whether the data reaches it. Worth auditing wherever else a worker or index is tested
+    that way.
+
+    `useSearch.ts` now indexes name, location, saint and category in **both** scripts, from the
+    same dictionary the UI displays — always, not per active language, because a reader in the
+    Urdu interface may well type a Latin name they saw in a citation. The Urdu *article* prose is
+    deliberately not indexed: it is the 1 MB lazy chunk from §9.29, and pulling it in here would
+    put it back on every route's critical path. `e2e/search-bilingual.spec.ts` runs the real
+    index over the real dataset through the real UI in both languages; mutation-tested by
+    blanking the four Urdu fields, which reproduces "returned 0" on every Urdu query.
+
+    Two of its own assertions were wrong first, both instructive: it asserted the *displayed*
+    name, which is script-dependent, so "Data Darbar" typed in the Urdu interface finds the
+    shrine and renders it as داتا دربار; and the fallback of matching a slug in an `href` does not
+    work because the list items are click handlers, not links.
+
+66. **A dated CSV restore point, and a check that fired correctly on its first run — at me.**
+    `npm run data:snapshot` writes `data/snapshot_<date>[_<label>].csv`: every row, every column,
+    newlines inside every Description intact. The sheet is production and keeps no history
+    (RULE 3), so the state before an import has to be recoverable from a commit rather than from
+    whoever ran the export (RULE 0). `.gitignore` ignores `data/*.csv`, so
+    `!data/snapshot_*.csv` had to be added — without it the file would have been written,
+    reported as written, and quietly untracked, which is the exact failure RULE 0 exists for.
+    Verified: 7,436 field comparisons against the source, zero differing, all 168
+    newline-bearing Descriptions preserved.
+
+    The filename's date is the snapshot's own `generated` stamp, not the day the script ran — a
+    snapshot named for when someone happened to type a command is not a fact about the data.
+
+    **Its own first invariant was wrong.** "Refuse if a long Description has no newline" fired
+    immediately on Sant Baba Asudaram Darbar: a well-formed 1339-character paragraph with
+    balanced `*sant*` emphasis, which has no newline because it is the one entry in the archive
+    with no bibliography section and so no heading to break the line. A TSV round-trip flattens
+    *every* cell at once, so the signature is a collapse in the population share, not one row.
+    The check asserts ≥90% (99.4% of 169 today) and *reports* the individual ones. This is
+    RULE 4's own worked example — the linter that flagged "a poet of note:" — arriving in my own
+    code within an hour of my quoting it.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

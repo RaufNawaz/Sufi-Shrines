@@ -5,8 +5,11 @@ interface ShrineDoc {
   name: string;
   urduName: string;
   location: string;
+  urduLocation: string;
   saint: string;
+  urduSaint: string;
   category: string;
+  urduCategory: string;
   description: string;
 }
 
@@ -54,13 +57,38 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
   if (msg.type === 'init') {
     ms = new MiniSearch<ShrineDoc>({
       idField: 'id',
-      fields: ['name', 'urduName', 'location', 'saint', 'category', 'description'],
+      /* Both scripts are indexed for every field, always — not one set or the
+         other depending on the active language. A reader in the Urdu interface
+         may well type a Latin name they saw in a citation, and a reader in the
+         English one may paste Urdu. Indexing both costs one pass and removes
+         the question. */
+      fields: [
+        'name',
+        'urduName',
+        'location',
+        'urduLocation',
+        'saint',
+        'urduSaint',
+        'category',
+        'urduCategory',
+        'description',
+      ],
       storeFields: [],
       processTerm,
       searchOptions: {
         fuzzy: 0.2,
         prefix: true,
-        boost: { name: 4, urduName: 4, location: 2, saint: 2, category: 1, description: 1 },
+        boost: {
+          name: 4,
+          urduName: 4,
+          location: 2,
+          urduLocation: 2,
+          saint: 2,
+          urduSaint: 2,
+          category: 1,
+          urduCategory: 1,
+          description: 1,
+        },
         combineWith: 'OR',
       },
     });

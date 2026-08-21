@@ -339,6 +339,43 @@ the exemption was scoped to the matching *line*, and prose wraps. A line is not 
 looks at a window now, which costs nothing — a genuine imperative step does not have the word
 "forbidden" three lines away.
 
+### Searching in Urdu on the Urdu site returned zero results
+
+`داتا`, `لاہور`, `مندر`, `گوردوارہ` — all zero. A reader in an entirely Urdu interface, with an
+Urdu placeholder in the box, had to type English to find anything.
+
+Two sources for one fact, one empty. The page displays Urdu names from the dictionary (169/169
+covered); the index took `urduName` from a **sheet column that does not exist** — the sheet has
+no Urdu column at all — so the boosted field indexed `''` 169 times.
+
+Everything around it was right, which is what hid it: the worker folds Arabic letter variants,
+strips harakat, boosts urduName to 4, and its unit tests assert `داتا دربار` matches. **Those
+tests build their own index from hand-written docs**, so they passed while production indexed
+nothing. A unit test that supplies its own fixture proves the algorithm and says nothing about
+the data reaching it — worth auditing anywhere else an index is tested that way.
+
+Now indexed in both scripts from the dictionary, always (a reader in Urdu may type a Latin name
+from a citation). Urdu article prose deliberately excluded — it is the 1 MB lazy chunk.
+`e2e/search-bilingual.spec.ts` runs the real index over the real dataset through the real UI in
+both languages, mutation-tested by blanking the Urdu fields.
+
+### A dated CSV restore point — `npm run data:snapshot`
+
+`data/snapshot_<date>[_<label>].csv`: every row, every column, Description newlines intact.
+Written because the sheet is production and keeps no history, so the state before an import has
+to be recoverable from a commit. `.gitignore` needed `!data/snapshot_*.csv` — without it the
+file would have been written, reported, and quietly untracked. Verified by 7,436 field
+comparisons against the source: zero differing, all 168 newline-bearing Descriptions preserved.
+`snapshotFidelity.test.ts` keeps the newest snapshot honest.
+
+The date is the data's `generated` stamp, not the run date. See `data/SNAPSHOTS.md` for what it
+is, what it is not, and the import settings.
+
+**Its own first invariant was wrong** and fired on Sant Baba Asudaram Darbar — a well-formed
+single paragraph that has no newline because it is the one entry with no bibliography. TSV
+flattening is a population-level collapse, not one row; the check is a ≥90% share now (99.4%
+today) and reports individuals. RULE 4's own worked example, in my code, within the hour.
+
 ### Suite state
 
 `npm run verify`: 537 tests, green. Full Playwright run: **121 passed, 5 failed** — and those
