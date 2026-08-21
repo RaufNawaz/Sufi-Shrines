@@ -1173,6 +1173,61 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     test — it reports a safety it never established.** Any spec that reveals UI behind a
     disclosure needs an assertion that the disclosure actually opened, not a best-effort click.
 
+40. **The Urdu dictionary was validated against a stale 143-row snapshot while the app shipped
+    169.** `urdu-i18n/_shrine_rows.json` had not been refreshed since the sheet grew, so
+    `build_dictionary.py` printed **"OK — 100% coverage, zero Latin-script leaks"** and
+    `npm run data:validate` passed while, in truth:
+
+    | | missing |
+    |---|---|
+    | shrine names | 27 |
+    | saint strings | 17 |
+    | founding-date phrases | 30 |
+    | rows with untranslatable place tokens | 23 |
+
+    The README even documented the refresh step ("after adding shrines, refresh the snapshot") —
+    as a note, which is precisely the kind of intention RULE 4 exists to replace. **Snapshot
+    drift is now an error**: `load_rows()` compares the snapshot against
+    `src/data/shrines-fallback.json` by name and refuses to build, naming the rows that differ.
+    Proved by deleting three rows and watching it name all three.
+
+    This is the fourth instance of one pattern in a single session — a check that passes because
+    it is measuring the wrong universe. The others: the no-English-leak e2e guard covering only
+    two routes (§9.29), `extractRegion` reading prose Locations (§9.38), and my own chip-overflow
+    spec that never opened the facet it measured (§9.39). **When a check reports success, ask
+    what set it ran over before believing it.**
+
+    All four gaps are now filled and the coverage claim is true. The additions are unreviewed
+    drafts, flagged in the file: Pakistani place and shrine names whose native script is
+    Perso-Arabic, plus the founding-date *hedges* — "1024 AH (as given in the form; not a
+    construction date)" — translated with the hedge intact rather than tidied into a number.
+
+41. **`NAME_LIST` was positional.** 143 Urdu names in a bare list, matched to the row snapshot
+    by index, guarded only by a length assertion. A reordered sheet would have silently renamed
+    every shrine in the archive and the build would still have reported full coverage. It is a
+    dict keyed on the English name now, so a mis-assignment is impossible rather than merely
+    unlikely. Worth checking for elsewhere: **any parallel-array pairing across a file boundary
+    is one sheet re-sort away from silent corruption.**
+
+42. **Shared ground.** 62 of 169 sites stand within 800 m of another, and in eight places the
+    neighbour belongs to a different tradition — Data Darbar 222 m from Gurdwara Chowmala Sahib,
+    Dargah Pir Ratan Nath 100 m from Gurdwara Bhai Beba Singh and 411 m from the Gorakhnath
+    Temple. `src/lib/data/sharedGround.ts` + the section on each shrine page make that visible
+    for the first time. Rationale and the rest of the roadmap in
+    `docs/planning/SHARED_GROUND_VISION.md`.
+
+    **The near-miss is the part worth remembering.** The obvious model was a cluster: single-link
+    everything within 800 m, call each component a complex. Measured, that produced one cluster
+    of 15 sites with an **extent of 3358 m** — transitive closure had strung together the whole
+    of central Lahore and called it a courtyard. The shipped unit is therefore "within 800 m of
+    *this* site", with no chaining. Any future grouping must publish its extent; a group without
+    one is an unchecked claim about proximity.
+
+    Also fixed here: `NearbyShrines` rendered every neighbour under a kilometre as "< 1 km",
+    which covered both a shared pin and 900 m. It shows metres now, and for the four
+    identical-pin groups it shows "same recorded location" — a distance the archive did not
+    measure must never be displayed as one it did.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

@@ -1,1003 +1,1185 @@
 [
- {
-  "name": "Data Darbar",
-  "location": "Lahore, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "11th Century",
-  "saint": "Hazrat Data Ganj Bakhsh (Ali Hujwiri)"
- },
- {
-  "name": "Lal Shahbaz Qalandar",
-  "location": "Sehwan Sharif, Jamshoro District, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "1356",
-  "saint": "Lal Shahbaz Qalandar"
- },
- {
-  "name": "Shrine of Abdullah Shah Ghazi",
-  "location": "Clifton, Karachi, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "773",
-  "saint": "Abdullah Shah Ghazi"
- },
- {
-  "name": "Shrine of Bahauddin Zakariya",
-  "location": "Multan City, Multan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1167",
-  "saint": "Bahauddin Zakariya"
- },
- {
-  "name": "Shrine of Ganj e Inayat Sarkar",
-  "location": "Gulberg 3, Lahore, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "2011",
-  "saint": "Ganj e Inayat Sarkar"
- },
- {
-  "name": "Shrine of Shah Rukn-e-Alam",
-  "location": "Multan City, Multan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1235",
-  "saint": "Shah Rukn-e-Alam"
- },
- {
-  "name": "Langer Makhdoom",
-  "location": "Langer Makhdoom, Chiniot, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1245",
-  "saint": "Makhdoom Burhan-ud-din"
- },
- {
-  "name": "Shrine of Fariduddin Ganjshakar",
-  "location": "Pakpattan, Pakpattan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1280",
-  "saint": "Fariduddin Ganjshakar"
- },
- {
-  "name": "Dargah Fateh Pur Sharif",
-  "location": "Dargah Fateh Pur Sharif, Gandawah (Jhal Magsi District), Balochistan",
-  "category": "Muslim Shrine",
-  "founded": "1359",
-  "saint": "Syed Rakhyal Shah Sufi Al Qadri"
- },
- {
-  "name": "Tomb of Javindi Bibi",
-  "location": "Mohalla Bukhari, Uch Sharif, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1291",
-  "saint": "Jalaluddin Surkh-Posh Bukhari"
- },
- {
-  "name": "Shergarh",
-  "location": "Shergarh, Okara, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1575",
-  "saint": "Daud Bandagi Kirmani"
- },
- {
-  "name": "Shah Yousuf",
-  "location": "Shah Yousuf, Shahpur, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "15th century",
-  "saint": "Hazrat Shah Yousuf"
- },
- {
-  "name": "Shrine of Syed Musa Pak",
-  "location": "Multan, Multan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1592",
-  "saint": "Syed Musa Pak"
- },
- {
-  "name": "Garh Maharaja (Shorkot)",
-  "location": "Garh Maharaja (Shorkot), Jhang, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1691",
-  "saint": "Sultan Bahoo"
- },
- {
-  "name": "Mazar of Bulleh Shah",
-  "location": "Mazar of Bulleh Shah, Kasur, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1757",
-  "saint": "Bulleh Shah (Abdullah Shah Qadri)"
- },
- {
-  "name": "Purana Bhalwal",
-  "location": "Purana Bhalwal, Bhalwal, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1604",
-  "saint": "Shah Sulaimān Nūri"
- },
- {
-  "name": "Ranmal Sharif",
-  "location": "Ranmal Sharif, Phalia, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1654",
-  "saint": "Syed Muhammad Noushah Qadiri"
- },
- {
-  "name": "Shamsabad",
-  "location": "Shamsabad, Okara, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1966",
-  "saint": "Shams Ali Qalandar"
- },
- {
-  "name": "Shrine of Abul Faiz Qalander Ali Suharwardi",
-  "location": "Lahore, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "",
-  "saint": "Abul Faiz Qalander Ali Suharwardi"
- },
- {
-  "name": "Shrine of Qalandar Baba Auliya",
-  "location": "Shadman Town, Karachi, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "1979",
-  "saint": "Qalandar Baba Auliya"
- },
- {
-  "name": "Shrine of Bibi Pak Daman",
-  "location": "Lahore, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "681",
-  "saint": "Bibi Pak Daman"
- },
- {
-  "name": "Golra Sharif",
-  "location": "Golra Sharif, Islamabad, Islamabad Capital Territory",
-  "category": "Muslim Shrine",
-  "founded": "1937",
-  "saint": "Pir Meher Ali Shah"
- },
- {
-  "name": "Allo Mahar",
-  "location": "Allo Mahar, Sialkot, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1898",
-  "saint": "Pir Syed Muhammad Channan Shah Nuri"
- },
- {
-  "name": "Shrine of Sachal Sarmast",
-  "location": "Daraza, Khairpur, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "1829",
-  "saint": "Sachal Sarmast (Abdul Wahab Faruqi)"
- },
- {
-  "name": "Sakhi Sarwar",
-  "location": "Sakhi Sarwar, Dera Ghazi Khan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "13th century",
-  "saint": "Sultan Sakhi Sarwar"
- },
- {
-  "name": "Mithankot (Kot Mithan)",
-  "location": "Mithankot (Kot Mithan), Rajanpur, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1901",
-  "saint": "Khwaja Ghulam Farid"
- },
- {
-  "name": "Shrine of Shah Yusaf Gardez",
-  "location": "Multan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "c. 1152 (12th century)",
-  "saint": "Shah Yusaf Gardez"
- },
- {
-  "name": "Wadpagga Sharif",
-  "location": "Wadpagga Sharif, Peshawar, Khyber Pakhtunkhwa",
-  "category": "Muslim Shrine",
-  "founded": "16th century",
-  "saint": "Ghazi Syed Shah Fateh Muhammad Bukhari"
- },
- {
-  "name": "Shrine of Imam Ali-ul-Haq",
-  "location": "Sialkot, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "13th century",
-  "saint": "Imam Ali-ul-Haq"
- },
- {
-  "name": "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)",
-  "location": "Taunsa, Taunsa Sharif, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1850",
-  "saint": "Khawaja Shah Muhammad Sulaiman Taunsvi"
- },
- {
-  "name": "Sial Sharif",
-  "location": "Sial Sharif, Sial Sharif (Sargodha District), Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1883",
-  "saint": "Muhammad Shamsuddin Sialvi"
- },
- {
-  "name": "Shrine of Pir Sher Muhammad",
-  "location": "Sharaqpur, Sharaqpur, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1928",
-  "saint": "Pir Sher Muhammad"
- },
- {
-  "name": "Bhit (Bhit Shah)",
-  "location": "Bhit (Bhit Shah), Bhit, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "1772",
-  "saint": "Shah Abdul Latif Bhittai"
- },
- {
-  "name": "Bari Imam",
-  "location": "Bari Imam, Islamabad, Islamabad Capital Territory",
-  "category": "Muslim Shrine",
-  "founded": "1705",
-  "saint": "Bari Imam (Shah Abdul Latif Kazmi)"
- },
- {
-  "name": "Shrine of Shah Shams-ud-Din Sabzwari",
-  "location": "Multan, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "1330 (rebuilt 1779)",
-  "saint": "Shah Shams-ud-Din Sabzwari"
- },
- {
-  "name": "Shrine of Pir Mangho",
-  "location": "Gadap Town, Karachi, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "773",
-  "saint": "Pir Mangho"
- },
- {
-  "name": "Eidgah Sharif",
-  "location": "Eidgah Sharif, Rawalpindi, Punjab",
-  "category": "Muslim Shrine",
-  "founded": "18th century",
-  "saint": "Pir Abdul-ul-karim"
- },
- {
-  "name": "Jamshoro District",
-  "location": "Jamshoro District, Jamshoro, Sindh",
-  "category": "Muslim Shrine",
-  "founded": "",
-  "saint": "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)"
- },
- {
-  "name": "Gurudwara Janam Asthan Nankana Sahib",
-  "location": "Nankana Sahib, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1819",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Darbar Sahib Kartarpur",
-  "location": "Kartarpur, Shakargarh Tehsil, Narowal District, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1539",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Panja Sahib",
-  "location": "Hasan Abdal, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1521",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Dera Sahib",
-  "location": "Lahore, Punjab",
-  "category": "Sikh Gurdwara",
-  "founded": "1606",
-  "saint": "Guru Arjan Dev"
- },
- {
-  "name": "Gurdwara Rori Sahib",
-  "location": "Eminabad, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Commemorates Guru Nanak's 1521 arrest",
-  "saint": "Guru Nanak and Bhai Mardana"
- },
- {
-  "name": "Gurdwara Bhai Joga Singh",
-  "location": "Peshawar, KPK, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Early 19th century (founded by Hari Singh Nalwa, Ranjit Singh era)",
-  "saint": "Bhai Joga Singh"
- },
- {
-  "name": "Gurdwara Shaheed Bhai Taru Singh",
-  "location": "Lahore, Punjab",
-  "category": "Sikh Gurdwara",
-  "founded": "1745",
-  "saint": "Bhai Taru"
- },
- {
-  "name": "Gurdwara Sri Kiara Sahib",
-  "location": "Nankana Sahib, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1930s (present building)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Shaktipeeth Shri Hinglaj Mata Mandir",
-  "location": "Hingol Balochistan National Park, Road، Asha Pura, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1986",
-  "saint": "Hinglaj Mata"
- },
- {
-  "name": "Parnami Mandir",
-  "location": "Malka Hans, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "17th Century",
-  "saint": "Smadhi of Dya Ram"
- },
- {
-  "name": "Katas Raj Temples",
-  "location": "Choa Saidanshah, Chakwal District, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "7th century CE onwards",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Sharada Peeth",
-  "location": "Sharda, Neelum Valley (Azad Kashmir), Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Active c. 6th–12th c. CE; likely commissioned c. 724–760 CE",
-  "saint": "Goddess Sharada (Saraswati)"
- },
- {
-  "name": "Sadh Belo (Sadh Belo Island Temple)",
-  "location": "Sadh Belo Island, near Sukkur/Rohri, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1823 (site); 1899 (temple built)",
-  "saint": "Baba Bankhandi Maharaj (Udasi founder)"
- },
- {
-  "name": "Shri Swaminarayan Mandir, Karachi",
-  "location": "M. A. Jinnah Road, Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1788",
-  "saint": "Bhagwan Swaminarayan"
- },
- {
-  "name": "Shri Panchmukhi Hanuman Mandir (Karachi)",
-  "location": "Soldier Bazaar, Karachi East, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "around 500 AD",
-  "saint": "Lord Hanuman (Panchmukhi form)"
- },
- {
-  "name": "Shri Varun Dev Mandir",
-  "location": "Manora Island (Manora Beach), Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "c. 1917-18 (current structure); ancient origins",
-  "saint": "Varuna (Varun Dev)"
- },
- {
-  "name": "Gorakhnath (Goraknath) Temple",
-  "location": "Gor Khatri area, Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1851",
-  "saint": "Guru Gorakhnath"
- },
- {
-  "name": "Umarkot (Amarkot) Shiv Mandir",
-  "location": "Umerkot District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "ancient; current structure ~early 1900s",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Gurdwara Sacha Sauda",
-  "location": "Farooqabad (formerly Chuharkana), Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Sikh Empire era (early–mid 19th c.)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Patti Sahib",
-  "location": "Nankana Sahib, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1930s–1940s (present building)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Tambo Sahib",
-  "location": "Nankana Sahib, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Mid-19th century",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Balila Sahib (Bal Lila Sahib)",
-  "location": "Nankana Sahib, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Built 1748 (Diwan Kaura Mal)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Malji Sahib",
-  "location": "Nankana Sahib, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Built c.1740s (Diwan Kaura Mal), renovated under Ranjit Singh (early 19th c.)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Panjvi Chati Patshahi",
-  "location": "Nankana Sahib, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Commemorates Guru Arjan (visited before 1600) and Guru Hargobind (1613 visit)",
-  "saint": "Guru Arjan Dev (5th) & Guru Hargobind (6th)"
- },
- {
-  "name": "Rahman Baba Mausoleum (Rehman Baba Shrine)",
-  "location": "Hazarkhwani (Ring Road), Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1954 (mausoleum constructed)",
-  "saint": "Rahman Baba (Abdur Rahman Mohmand)"
- },
- {
-  "name": "Shah Noorani Shrine (Syed Bilawal Shah Noorani)",
-  "location": "Lahoot Lamakan valley, Khuzdar District, Balochistan, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "15th century (associated with saint active c. 1449)",
-  "saint": "Syed Bilawal Shah Noorani"
- },
- {
-  "name": "Mausoleum of Waris Shah",
-  "location": "Jandiala Sher Khan, Sheikhupura District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1978 (complex completed/opened)",
-  "saint": "Waris Shah"
- },
- {
-  "name": "Shrine of Hazrat Shah Daula Daryai",
-  "location": "Gujrat, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "17th century",
-  "saint": "Hazrat Shah Daula Daryai"
- },
- {
-  "name": "Dargah / Roza Sufi Shah Inayat Shaheed",
-  "location": "Jhok Sharif (Jhok), Sindh, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "early 18th century (burial c. 1718)",
-  "saint": "Sufi Shah Inayat Shaheed"
- },
- {
-  "name": "Shiv Mandir Chiti Ghati",
-  "location": "Ghandian, Mansehra District, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1830s (present structure); lingam ~2,000 yrs old",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Kali Bari Mandir",
-  "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Goddess Kali"
- },
- {
-  "name": "Krishna Mandir (Kabari Bazar)",
-  "location": "Kabari Bazar, Rawalpindi, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1897",
-  "saint": "Lord Krishna"
- },
- {
-  "name": "Shahwala Teja Singh Mandir",
-  "location": "Mohallah Dharowal, Sialkot, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "ancient; heritage accounts ~900-1,000 yrs old",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Krishna Mandir (Ravi Road)",
-  "location": "Ravi Road, Lahore, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Lord Krishna"
- },
- {
-  "name": "Valmik Mandir (Naqi Road)",
-  "location": "Naqi Road, Lahore, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Bhagwan Valmik (Valmiki)"
- },
- {
-  "name": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
-  "location": "DB-80 Sirey Ghat, Hyderabad, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Guru Gurpat"
- },
- {
-  "name": "Sant Baba Bhagat Ram Darbar Mandir",
-  "location": "Shahi Bazar, Dadu, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Sant Baba Bhagat Ram"
- },
- {
-  "name": "Bhai Sant Thawan Das Mandir",
-  "location": "Old Shahi Bazar, Mehar, Dadu District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Bhai Sant Thawan Das"
- },
- {
-  "name": "Jhollay Lal Mandir",
-  "location": "Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Jhulelal (Uderolal)"
- },
- {
-  "name": "Gurdas Ram Mandir",
-  "location": "Radhan Town, Tehsil Mehar, Dadu District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "",
-  "saint": "Sant Gurdas Ram"
- },
- {
-  "name": "Bhagnari Mandir",
-  "location": "Embankment Road, Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "pre-1947 (colonial era)",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Gurdwara Babay De Ber",
-  "location": "Sialkot, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "19th century (built by Natha Singh)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Bhai Beba Singh",
-  "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Sikh Empire era (early 19th c.)",
-  "saint": "Bhai Biba (Beba) Singh (Sikh warrior; gurdwara from era of Guru Gobind Singh)"
- },
- {
-  "name": "Gurdwara Guru Ram Das Ji",
-  "location": "Lahore, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1801 (present shrine, Maharaja Ranjit Singh)",
-  "saint": "Guru Ram Das (4th)"
- },
- {
-  "name": "Gurdwara Shaheed Ganj Singh Singhnian",
-  "location": "Lahore, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1760s",
-  "saint": "Sikh women & children martyrs (18th century, Mir Mannu era)"
- },
- {
-  "name": "Gurdwara Babay Nanki",
-  "location": "Lahore, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Commemorates Bebe Nanaki (b. c.1464)",
-  "saint": "Bebe Nanaki (elder sister of Guru Nanak)"
- },
- {
-  "name": "Gurdwara Sach Khand Sahib",
-  "location": "Shikarpur, Sindh, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Modern building (built in recent decades)",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Dash Mesh Pita",
-  "location": "Sukkur, Sindh, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "",
-  "saint": "Guru Gobind Singh (Dashmesh Pita)"
- },
- {
-  "name": "Gurdwara Singh Sabha",
-  "location": "Quetta, Balochistan, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Said to be ~200 years old (early 19th c.)",
-  "saint": "Guru Granth Sahib / Sikh community (Singh Sabha congregation; city assoc. w/ Guru Nanak per Tilganji tradition)"
- },
- {
-  "name": "Shrine of Mian Mir",
-  "location": "Alam Ganj (Dharampura), Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Completed/consecrated 1640",
-  "saint": "Mian Mir"
- },
- {
-  "name": "Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)",
-  "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Rebuilt 1670 (site associated with saint d. c.1290)",
-  "saint": "Jalaluddin Surkh-Posh Bukhari"
- },
- {
-  "name": "Shrine of Makhdoom Jahaniyan Jahangasht",
-  "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Associated with saint (d. 1384)",
-  "saint": "Jahaniyan Jahangasht"
- },
- {
-  "name": "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)",
-  "location": "Baghbanpura (near Shalimar Gardens), Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Associated with Shah Hussain (1538–1599)",
-  "saint": "Shah Hussain (Madho Lal Hussain)"
- },
- {
-  "name": "Darbar Sakhi Shah Chan Charagh",
-  "location": "Rawalpindi District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "18th century",
-  "saint": "Syed Sakhi Shah Chan Charagh"
- },
- {
-  "name": "Ramapir Temple, Tando Allahyar",
-  "location": "Tando Allahyar, Tando Allahyar District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Established 1861 (British Raj)",
-  "saint": "Ramdev Pir (Ramapir)"
- },
- {
-  "name": "Prahladpuri Temple",
-  "location": "Fort of Multan (near Shrine of Bahauddin Zakariya), Multan, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Historic; rebuilt/raised 1810; destroyed 1992",
-  "saint": "Narasimha (named after Prahlada)"
- },
- {
-  "name": "Kalka Cave Temple (Asthan of Kalka Devi)",
-  "location": "Aror, Sukkur District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1920s (present temple); ancient sacred site",
-  "saint": "Goddess Kali (Kalka Devi)"
- },
- {
-  "name": "Tilla Jogian",
-  "location": "Salt Range (near Dina/Jhelum), Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Founded 9th century CE; abandoned 1947",
-  "saint": "Guru Gorakhnath (Nath yogis)"
- },
- {
-  "name": "Amb Temples (Amb Sharif)",
-  "location": "Sakesar Mountain (Soon Valley), Khushab District, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Built 9th–10th century CE",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Churrio Jabal Durga Mata Temple",
-  "location": "Churrio Hill, Nagarparkar, Tharparkar District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "ancient; construction date undocumented",
-  "saint": "Goddess Durga (Mata)"
- },
- {
-  "name": "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
-  "location": "Karoonjhar Mountains region, Nagarparkar, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Buildings date 12th–15th century CE",
-  "saint": "Jain Tirthankaras"
- },
- {
-  "name": "Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
-  "location": "Near Custom House, Saddar Town, Karachi South District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Approx. 300 years old",
-  "saint": "Jhulelal / Daryalal (Zinda Pir)"
- },
- {
-  "name": "Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
-  "location": "Under Native Jetty Bridge, Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Approx. 200 years old",
-  "saint": "Lakshmi-Narayan (Vishnu & Lakshmi)"
- },
- {
-  "name": "Shree Ratneshwar Mahadev Temple, Karachi",
-  "location": "Near Clifton Beach / Jehangir Kothari Parade area, Karachi, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "c. 18th century (~300+ years old)",
-  "saint": "Shiva (Mahadev)"
- },
- {
-  "name": "Dargah Pir Ratan Nath Jee",
-  "location": "Jhanda Bazar, Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "British colonial period (19th c.); no exact year",
-  "saint": "Baba Pir Ratan Nath (Nath yogi)"
- },
- {
-  "name": "Panj Tirath",
-  "location": "Hashtnagri, Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "ancient",
-  "saint": "King Pandu (Mahabharata pilgrimage)"
- },
- {
-  "name": "Jagannath Temple, Sialkot",
-  "location": "Sialkot, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "2007 (Paris Road temple)",
-  "saint": "Lord Jagannath (Krishna/Vishnu)"
- },
- {
-  "name": "Shrine at Odero Lal (Udero Lal Teerath Asthan)",
-  "location": "Odero Lal Village (near Tando Adam), Matiari District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Completed 1684 CE",
-  "saint": "Sheikh Tahir (also revered as Udero Lal/Jhulelal)"
- },
- {
-  "name": "Tomb of Allama Iqbal (Mazar-e-Iqbal)",
-  "location": "Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1951 (mausoleum; Iqbal d. 1938)",
-  "saint": "Allama Muhammad Iqbal"
- },
- {
-  "name": "Shrine of Shah Jamal",
-  "location": "Shah Jamal/Ichhra, Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "17th Century",
-  "saint": "Syed Shah Jamal Uddin Naqvi Bukhari (Baba Shah Jamal)"
- },
- {
-  "name": "Shrine of Mauj Darya Bukhari",
-  "location": "Edward Road, Anarkali, Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "16th Century",
-  "saint": "Hazrat Meeran Muhammad Shah Bukhari (\"Mauj Darya\")"
- },
- {
-  "name": "Shrine of Peer Makki",
-  "location": "Bhati Gate area (near Data Darbar), Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "13th Century",
-  "saint": "Hazrat Syed Azizuddin al-Hassani wal-Hussaini (Peer Makki)"
- },
- {
-  "name": "Shrine of Miran Hussain Zanjani (Zanjani Sahib)",
-  "location": "Chah Miran, Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "11th Century",
-  "saint": "Syed Miran Hussain Zanjani"
- },
- {
-  "name": "Shrine of Baba Shah Chiragh",
-  "location": "The Mall (near Lahore High Court), Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "17th Century",
-  "saint": "Syed Abdul Razzaq (\"Shah Chiragh\")"
- },
- {
-  "name": "Shrine of Shah Inayat Qadiri",
-  "location": "Mozang Chungi, Queens Road, Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "18th Century",
-  "saint": "Shah Inayat Qadiri (murshid of Bulleh Shah)"
- },
- {
-  "name": "Samadhi of Maharaja Ranjit Singh",
-  "location": "Hazuri Bagh (near Lahore Fort), Lahore, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1848",
-  "saint": "Maharaja Ranjit Singh"
- },
- {
-  "name": "Loh Temple (Lava Temple)",
-  "location": "Lahore Fort (near Alamgiri Gate), Lahore, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "Early 19th Century",
-  "saint": "Lava (Luv), son of Rama and Sita"
- },
- {
-  "name": "Jain Mandir, Lahore",
-  "location": "Lytton Road, Old Anarkali, Lahore, Punjab, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1940",
-  "saint": "Jain Tirthankaras"
- },
- {
-  "name": "Shrine of Baba Shah Kamal",
-  "location": "Muslim Town / Samanabad (near Ichhra), Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "17th Century",
-  "saint": "Hazrat Baba Shah Kamal"
- },
- {
-  "name": "Tomb of Qutbuddin Aibak",
-  "location": "Aibak Road, Anarkali, Lahore, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1210 (original); rebuilt 1970s",
-  "saint": "Sultan Qutb ud-Din Aibak"
- },
- {
-  "name": "Shrine of Pir Baba (Syed Ali Tirmizi)",
-  "location": "Pacha Kalay, Buner District, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "16th century (saint died 1583 CE; shrine developed thereafter)",
-  "saint": "Syed Ali Tirmizi (Pir Baba)"
- },
- {
-  "name": "Ziarat Kaka Sahib",
-  "location": "Ziarat Kaka Sahib, Nowshera District, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Early 17th century (mausoleum); saint born 1576 CE",
-  "saint": "Kaka Sahib (Syed Kasteer Gul, \"Sheikh Rahmkar\")"
- },
- {
-  "name": "Darbar Ghamkol Sharif (Zinda Pir)",
-  "location": "Ghamkol valley, near Kohat, Kohat District, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1952",
-  "saint": "Khwaja Muhammad Qasim (\"Zinda Pir\")"
- },
- {
-  "name": "Mohra Sharif (Khanqah)",
-  "location": "Mohra Sharif village, Murree Tehsil, Rawalpindi District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Late 19th century (founder born 1846 CE)",
-  "saint": "Khwaja Muhammad Qasim Sadiq"
- },
- {
-  "name": "Gurdwara Choa Sahib",
-  "location": "Rohtas Fort (Talaqi gate), near Dina, Jhelum District, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1834 (present structure); commemorates Guru Nanak",
-  "saint": "Guru Nanak"
- },
- {
-  "name": "Gurdwara Chakki Sahib",
-  "location": "Eminabad, Gujranwala District, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Commemorates events of c. 1520-21; gurdwara built later",
-  "saint": "Guru Nanak Dev Ji"
- },
- {
-  "name": "Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
-  "location": "Eminabad, Gujranwala District, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Commemorates Guru Nanak's stay in the early 16th century; gurdwara built later",
-  "saint": "Guru Nanak Dev Ji; associated with Bhai Lalo"
- },
- {
-  "name": "Ram Mandir, Saidpur (Ram Kund Mandir)",
-  "location": "Saidpur Village, Margalla Hills, Islamabad Capital Territory, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "16th century (traditionally attributed to Raja Man Singh I)",
-  "saint": "Dedicated to Lord Rama"
- },
- {
-  "name": "Shrine of Akhund Panju Baba",
-  "location": "Akbarpura, Nowshera District, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Late 16th-early 17th century (Mughal era)",
-  "saint": "Hazrat Syed Abdul Wahab (Akhund Panju Baba)"
- },
- {
-  "name": "Shrine of Akhund Darweza Baba",
-  "location": "Hazarkhwani, Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "17th century (saint died 1638)",
-  "saint": "Akhund Darweza Baba (Syed Muhammad, d. 1638)"
- },
- {
-  "name": "Gori Temple (Gori jo Mandar)",
-  "location": "Gori village (between Islamkot and Nagarparkar), Tharparkar District, Sindh, Pakistan",
-  "category": "Hindu Temple",
-  "founded": "1375-1376 CE",
-  "saint": "Jain temple dedicated to Parshvanatha (23rd Tirthankara)"
- },
- {
-  "name": "Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)",
-  "location": "Saidpur Village, Margalla Hills, Islamabad Capital Territory, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "Early 20th century",
-  "saint": "Guru Nanak (gurdwara-school dedicated to his teachings)"
- },
- {
-  "name": "Shrine of Mian Umar Baba (Chamkani)",
-  "location": "Chamkani, Peshawar, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "18th century (saint died 1776)",
-  "saint": "Mian Muhammad Umar Chamkani (Naqshbandi Sufi)"
- },
- {
-  "name": "Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth",
-  "location": "Pir Jo Goth, Kingri Taluka, Khairpur District, Sindh, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Early 19th century (saint died 1818)",
-  "saint": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\" (founder of the Rashidi order)"
- },
- {
-  "name": "Shrine of Hazrat Muhammad Ayub Shah Bukhari",
-  "location": "Gandawah (Gandava), Jhal Magsi District, Balochistan, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Unknown (traditional Sufi shrine)",
-  "saint": "Hazrat Muhammad Ayub Shah Bukhari"
- },
- {
-  "name": "Shrine of Hafiz Muhammad Jamal Multani",
-  "location": "Near Aam Khas Bagh, outside Daulat Gate, Multan City, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "Early 19th century (saint died 1811)",
-  "saint": "Hazrat Hafiz Muhammad Jamal Multani (Chishti)"
- },
- {
-  "name": "Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
-  "location": "Dabbi Bazaar, Walled City, Lahore, Punjab, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "1599 (baoli commissioned by Guru Arjan Dev)",
-  "saint": "Guru Arjan Dev (fifth Sikh Guru)"
- },
- {
-  "name": "Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)",
-  "location": "Suraj Miani, Multan, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1585 CE (993 AH)",
-  "saint": "Hazrat Shah Ali Akbar Shamsi"
- },
- {
-  "name": "Tomb of Baha'al-Halim (Uch Sharif)",
-  "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "14th century (traditionally)",
-  "saint": "Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)"
- },
- {
-  "name": "Shrine of Makhdoom Nooh (Hala)",
-  "location": "Hala, Matiari District, Sindh, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "16th century (saint d. 1590)",
-  "saint": "Makhdoom Nooh (Makhdoom Lutufullah / Sarwar Nooh)"
- },
- {
-  "name": "Shrine of Shah Abdul Karim Bulri",
-  "location": "Bulri Shah Karim, Tando Muhammad Khan District, Sindh, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1741 CE (1154 AH); saint d. 1623",
-  "saint": "Shah Abdul Karim Bulri"
- },
- {
-  "name": "Tomb of Ustad Nuriya",
-  "location": "Bukhari mound, Uch Sharif, Bahawalpur District, Punjab, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "15th century (attributed)",
-  "saint": "Ustad Nuriya (master-builder)"
- },
- {
-  "name": "Dargah of Khwaja Muhammad Zaman (Luari Sharif)",
-  "location": "Luari Sharif, Shaheed Fazil Rahu Taluka, Badin District, Sindh, Pakistan",
-  "category": "Muslim Shrine",
-  "founded": "1737 (khanqah)",
-  "saint": "Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)"
- },
- {
-  "name": "Gurdwara Chhevin Patshahi, Chitti Gatti",
-  "location": "Chitti Gatti, near Mansehra, Khyber Pakhtunkhwa, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "commemorates Guru Hargobind (r. 1606–1644)",
-  "saint": "Guru Hargobind (Sixth Guru)"
- },
- {
-  "name": "Gurdwara Sri Tilganji Sahib",
-  "location": "Masjid Road, Quetta, Balochistan, Pakistan",
-  "category": "Sikh Gurdwara",
-  "founded": "commemorates Guru Nanak (early 16th century)",
-  "saint": "Guru Nanak (First Guru)"
- }
+  {
+    "name": "Allo Mahar",
+    "location": "Allo Mahar, Sialkot, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1898",
+    "saint": "Pir Syed Muhammad Channan Shah Nuri"
+  },
+  {
+    "name": "Amb Temples (Amb Sharif)",
+    "location": "Sakesar Mountain (Soon Valley), Khushab District, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Built 9th–10th century CE",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Bari Imam",
+    "location": "Bari Imam, Islamabad, Islamabad Capital Territory",
+    "category": "Muslim Shrine",
+    "founded": "1705",
+    "saint": "Bari Imam (Shah Abdul Latif Kazmi)"
+  },
+  {
+    "name": "Bhagnari Mandir",
+    "location": "Embankment Road, Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "pre-1947 (colonial era)",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Bhai Sant Thawan Das Mandir",
+    "location": "Old Shahi Bazar, Mehar, Dadu District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Undocumented",
+    "saint": "Bhai Sant Thawan Das"
+  },
+  {
+    "name": "Bhai Waliram Darbar",
+    "location": "Digano Mahesar village, Miro Khan taluka, Qambar–Shahdadkot District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Undocumented",
+    "saint": "Bhai Waliram"
+  },
+  {
+    "name": "Bhit (Bhit Shah)",
+    "location": "Bhit (Bhit Shah), Bhit, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "1772",
+    "saint": "Shah Abdul Latif Bhittai"
+  },
+  {
+    "name": "Chandragup (Baba Chandragup)",
+    "location": "Hingol National Park, Lasbela District, Balochistan, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Natural site; veneration is of unrecorded antiquity, attested in the living Hinglaj pilgrimage tradition",
+    "saint": "Shiva (associated deity)"
+  },
+  {
+    "name": "Churrio Jabal Durga Mata Temple",
+    "location": "Churrio Hill, Nagarparkar, Tharparkar District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "ancient; construction date undocumented",
+    "saint": "Goddess Durga (Mata)"
+  },
+  {
+    "name": "Darbar Abul Muali Qadri",
+    "location": "Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is \"right near his shrine.\" No province, district, address or coordinates given in the survey. Pin is Mochi Gate's own coordinate (an approximate landmark, not the shrine's exact position) — ask Saifullah for a precise pin when possible.",
+    "category": "",
+    "founded": "1024 AH (as given in the form; not a construction date)",
+    "saint": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"
+  },
+  {
+    "name": "Darbar Ghamkol Sharif (Zinda Pir)",
+    "location": "Ghamkol valley, near Kohat, Kohat District, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1952",
+    "saint": "Khwaja Muhammad Qasim (\"Zinda Pir\")"
+  },
+  {
+    "name": "Darbar Ghazi Ilm Din Shaheed",
+    "location": "Miani Sahib Graveyard, Lahore. The field survey itself locates the shrine only as “Lahore” (its one detail, ‘Railway Auqaf land,’ refers to the funeral prayer, not necessarily the burial site); the placement at Miani Sahib comes from published press accounts — see Bibliography. The pin is the graveyard landmark, shared with the other Miani Sahib entries, not the grave's exact position.",
+    "category": "",
+    "founded": "1929",
+    "saint": "Ghazi Ilm Din Shaheed"
+  },
+  {
+    "name": "Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+    "location": "Miani Sahib Graveyard, Lahore, Punjab. The field survey places the shrine \"in the middle of Miani Sahib Graveyard\" but gives no street address, no locality/section name within the graveyard, and no coordinates.",
+    "category": "",
+    "founded": "November 27, 1981 CE / 1402 AH",
+    "saint": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami"
+  },
+  {
+    "name": "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)",
+    "location": "Taunsa, Taunsa Sharif, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1850",
+    "saint": "Khawaja Shah Muhammad Sulaiman Taunsvi"
+  },
+  {
+    "name": "Darbar Hazrat Tahir Bandagi Qadri",
+    "location": "Miani Sahib Graveyard, Lahore. Per the field survey, this shrine is the oldest seat within Miani Sahib Graveyard — the graveyard grew up around it over the centuries, not the reverse. The survey gives no street address, no coordinates, and no position within the graveyard's roughly 475 kanals beyond \"alongside the mosque\" that Hazrat Tahir Bandagi built.",
+    "category": "",
+    "founded": "1630 CE (8 Muharram 1040 AH)",
+    "saint": "Hazrat Tahir Bandagi Qadri"
+  },
+  {
+    "name": "Darbar Malik Ahmad Ayaz",
+    "location": "Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city, district, tehsil or province is stated anywhere in the survey for the shrine itself. Pin reuses Data Darbar's own coordinate, since the survey ties this shrine's location directly to it — an approximate landmark, not the shrine's exact position. Ask Saifullah for a precise pin when possible.",
+    "category": "",
+    "founded": "1041 (as given: \"8 August 1041\")",
+    "saint": "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"
+  },
+  {
+    "name": "Darbar Sakhi Shah Chan Charagh",
+    "location": "Rawalpindi District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "18th century",
+    "saint": "Syed Sakhi Shah Chan Charagh"
+  },
+  {
+    "name": "Darbar Wasif Ali Wasif",
+    "location": "Miani Sahib Graveyard, Lahore — the survey gives no street address, tehsil, district, or coordinates; it locates the shrine only as a dedicated plot beside the graveyard, which it describes as one of the largest graveyards in Asia.",
+    "category": "",
+    "founded": "1993",
+    "saint": "Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus)"
+  },
+  {
+    "name": "Dargah / Roza Sufi Shah Inayat Shaheed",
+    "location": "Jhok Sharif (Jhok), Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "early 18th century (burial c. 1718)",
+    "saint": "Sufi Shah Inayat Shaheed"
+  },
+  {
+    "name": "Dargah Fateh Pur Sharif",
+    "location": "Dargah Fateh Pur Sharif, Gandawah (Jhal Magsi District), Balochistan",
+    "category": "Muslim Shrine",
+    "founded": "1359 (site/settlement); present dargah c. 1940 (after Syed Rakhyal Shah's death)",
+    "saint": "Syed Rakhyal Shah Sufi Al Qadri"
+  },
+  {
+    "name": "Dargah of Khwaja Muhammad Zaman (Luari Sharif)",
+    "location": "Luari Sharif, Shaheed Fazil Rahu Taluka, Badin District, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1737 (khanqah)",
+    "saint": "Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)"
+  },
+  {
+    "name": "Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth",
+    "location": "Pir Jo Goth, Kingri Taluka, Khairpur District, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Early 19th century (saint died 1818)",
+    "saint": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\" (founder of the Rashidi order)"
+  },
+  {
+    "name": "Dargah Pir Ratan Nath Jee",
+    "location": "Jhanda Bazar, Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "British colonial period (19th c.); no exact year",
+    "saint": "Baba Pir Ratan Nath (Nath yogi)"
+  },
+  {
+    "name": "Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
+    "location": "Near Custom House, Saddar Town, Karachi South District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Approx. 300 years old",
+    "saint": "Jhulelal / Daryalal (Zinda Pir)"
+  },
+  {
+    "name": "Data Darbar",
+    "location": "Lahore, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "11th Century",
+    "saint": "Hazrat Data Ganj Bakhsh (Ali Hujwiri)"
+  },
+  {
+    "name": "Eidgah Sharif",
+    "location": "Eidgah Sharif, Rawalpindi, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "18th century",
+    "saint": "Pir Abdul-ul-karim"
+  },
+  {
+    "name": "Garh Maharaja (Shorkot)",
+    "location": "Garh Maharaja (Shorkot), Jhang, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1691",
+    "saint": "Sultan Bahoo"
+  },
+  {
+    "name": "Golra Sharif",
+    "location": "Golra Sharif, Islamabad, Islamabad Capital Territory",
+    "category": "Muslim Shrine",
+    "founded": "1937",
+    "saint": "Pir Meher Ali Shah"
+  },
+  {
+    "name": "Gorakhnath (Goraknath) Temple",
+    "location": "Gor Khatri area, Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1851",
+    "saint": "Guru Gorakhnath"
+  },
+  {
+    "name": "Gori Temple (Gori jo Mandar)",
+    "location": "Gori village (between Islamkot and Nagarparkar), Tharparkar District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1375-1376 CE",
+    "saint": "Jain temple dedicated to Parshvanatha (23rd Tirthankara)"
+  },
+  {
+    "name": "Gurdas Ram Mandir",
+    "location": "Radhan Town, Tehsil Mehar, Dadu District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Undocumented",
+    "saint": "Sant Gurdas Ram"
+  },
+  {
+    "name": "Gurdwara Babay De Ber",
+    "location": "Sialkot, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "19th century (built by Natha Singh)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Babay Nanki",
+    "location": "Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Commemorates Bebe Nanaki (b. c.1464)",
+    "saint": "Bebe Nanaki (elder sister of Guru Nanak)"
+  },
+  {
+    "name": "Gurdwara Balila Sahib (Bal Lila Sahib)",
+    "location": "Nankana Sahib, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Built 1748 (Diwan Kaura Mal)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
+    "location": "Dabbi Bazaar, Walled City, Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1599 (baoli commissioned by Guru Arjan Dev)",
+    "saint": "Guru Arjan Dev (fifth Sikh Guru)"
+  },
+  {
+    "name": "Gurdwara Bhai Beba Singh",
+    "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Sikh Empire era (early 19th c.)",
+    "saint": "Bhai Biba (Beba) Singh (Sikh warrior; gurdwara from era of Guru Gobind Singh)"
+  },
+  {
+    "name": "Gurdwara Bhai Joga Singh",
+    "location": "Peshawar, KPK, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Early 19th century (founded by Hari Singh Nalwa, Ranjit Singh era)",
+    "saint": "Bhai Joga Singh"
+  },
+  {
+    "name": "Gurdwara Chakki Sahib",
+    "location": "Eminabad, Gujranwala District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Commemorates events of c. 1520-21; gurdwara built later",
+    "saint": "Guru Nanak Dev Ji"
+  },
+  {
+    "name": "Gurdwara Chhevin Patshahi, Chitti Gatti",
+    "location": "Chitti Gatti, near Mansehra, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "commemorates Guru Hargobind (r. 1606–1644)",
+    "saint": "Guru Hargobind (Sixth Guru)"
+  },
+  {
+    "name": "Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",
+    "location": "Jhalian (Jhalian Dhilwan), near Barki, Lahore District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Traditionally linked to a visit of Guru Hargobind (early 17th century); present structure colonial-era",
+    "saint": "Guru Hargobind (Sixth Guru / Chhevin Patshahi)"
+  },
+  {
+    "name": "Gurdwara Chhevin Patshahi, Mozang",
+    "location": "Temple Road, Mozang, Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1619 (commemorated event); original structure raised under Maharaja Ranjit Singh (early 19th c.); present building rebuilt 1926 by Sardar Mehar Singh",
+    "saint": "Guru Hargobind"
+  },
+  {
+    "name": "Gurdwara Choa Sahib",
+    "location": "Rohtas Fort (Talaqi gate), near Dina, Jhelum District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1834 (present structure); commemorates Guru Nanak",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Chowmala Sahib",
+    "location": "Chowmala Mohalla, inside Bhati Gate, Walled City, Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "17th century (Guru Hargobind's visit and Bhai Jiwan's conversion of his house into a gurdwara); hall enlarged 1915",
+    "saint": "Guru Hargobind"
+  },
+  {
+    "name": "Gurdwara Darbar Sahib Kartarpur",
+    "location": "Kartarpur, Shakargarh Tehsil, Narowal District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1539",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Dash Mesh Pita",
+    "location": "Sukkur, Sindh, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Undocumented",
+    "saint": "Guru Gobind Singh (Dashmesh Pita)"
+  },
+  {
+    "name": "Gurdwara Dera Sahib",
+    "location": "Lahore, Punjab",
+    "category": "Sikh Gurdwara",
+    "founded": "1606",
+    "saint": "Guru Arjan Dev"
+  },
+  {
+    "name": "Gurdwara Guru Ram Das Ji",
+    "location": "Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1801 (present shrine, Maharaja Ranjit Singh)",
+    "saint": "Guru Ram Das (4th)"
+  },
+  {
+    "name": "Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
+    "location": "Eminabad, Gujranwala District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Commemorates Guru Nanak's stay in the early 16th century; gurdwara built later",
+    "saint": "Guru Nanak Dev Ji; associated with Bhai Lalo"
+  },
+  {
+    "name": "Gurdwara Malji Sahib",
+    "location": "Nankana Sahib, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Built c.1740s (Diwan Kaura Mal), renovated under Ranjit Singh (early 19th c.)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Panja Sahib",
+    "location": "Hasan Abdal, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1521",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Panjvi Chati Patshahi",
+    "location": "Nankana Sahib, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Commemorates Guru Hargobind's 1613 visit; Guru Arjan Dev's association with the site is traditional and undated",
+    "saint": "Guru Arjan Dev (5th) & Guru Hargobind (6th)"
+  },
+  {
+    "name": "Gurdwara Patshahi Chhevin (Hadiara), Lahore",
+    "location": "Hadiara village, Lahore District, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "c. 1620 (visit of Guru Hargobind); present structure later",
+    "saint": "Guru Hargobind (Sixth Guru / Chhevin Patshahi)"
+  },
+  {
+    "name": "Gurdwara Patti Sahib",
+    "location": "Nankana Sahib, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1930s–1940s (present building)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
+    "location": "Near the Sukkur–Rohri (Lansdowne/Ayub) railway bridge, Sukkur, Sindh, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Traditionally linked to Guru Nanak's third udasi (early 16th century)",
+    "saint": "Guru Nanak (First Guru / Pehli Patshahi)"
+  },
+  {
+    "name": "Gurdwara Rori Sahib",
+    "location": "Eminabad, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Commemorates Guru Nanak's 1521 arrest",
+    "saint": "Guru Nanak and Bhai Mardana"
+  },
+  {
+    "name": "Gurdwara Sach Khand Sahib",
+    "location": "Shikarpur, Sindh, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Recent (built within the last decade or so, replacing an unlocated pre-Partition gurdwara)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Sacha Sauda",
+    "location": "Farooqabad (formerly Chuharkana), Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Sikh Empire era (early–mid 19th c.)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)",
+    "location": "Saidpur Village, Margalla Hills, Islamabad Capital Territory, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Early 20th century",
+    "saint": "Guru Nanak (gurdwara-school dedicated to his teachings)"
+  },
+  {
+    "name": "Gurdwara Shaheed Bhai Taru Singh",
+    "location": "Lahore, Punjab",
+    "category": "Sikh Gurdwara",
+    "founded": "1745",
+    "saint": "Bhai Taru"
+  },
+  {
+    "name": "Gurdwara Shaheed Ganj Singh Singhnian",
+    "location": "Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1760s",
+    "saint": "Sikh women & children martyrs (18th century, Mir Mannu era)"
+  },
+  {
+    "name": "Gurdwara Singh Sabha",
+    "location": "Quetta, Balochistan, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Said to be ~200 years old (early 19th c.)",
+    "saint": "Guru Granth Sahib / Sikh community (Singh Sabha congregation; city assoc. w/ Guru Nanak per Tilganji tradition)"
+  },
+  {
+    "name": "Gurdwara Sri Kiara Sahib",
+    "location": "Nankana Sahib, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1930s (present building)",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Gurdwara Sri Tilganji Sahib",
+    "location": "Masjid Road, Quetta, Balochistan, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "commemorates Guru Nanak (early 16th century)",
+    "saint": "Guru Nanak (First Guru)"
+  },
+  {
+    "name": "Gurdwara Tambo Sahib",
+    "location": "Nankana Sahib, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "Mid-19th century",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+    "location": "DB-80 Sirey Ghat, Hyderabad, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1931 (present darbar building); Baba Gurpat Sahib active in Hyderabad c. 1830-1877",
+    "saint": "Guru Gurpat"
+  },
+  {
+    "name": "Gurudwara Janam Asthan Nankana Sahib",
+    "location": "Nankana Sahib, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1819",
+    "saint": "Guru Nanak"
+  },
+  {
+    "name": "Jagannath Temple, Sialkot",
+    "location": "Paris Road, Mohallah Puran Nagar, Sialkot, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "2007 (Paris Road temple)",
+    "saint": "Lord Jagannath (Krishna/Vishnu)"
+  },
+  {
+    "name": "Jain Mandir, Lahore",
+    "location": "Lytton Road, Old Anarkali, Lahore, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1940",
+    "saint": "Jain Tirthankaras"
+  },
+  {
+    "name": "Jhollay Lal Mandir",
+    "location": "Darya Lal Street, Jodia Bazaar, Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "",
+    "saint": "Jhulelal (Uderolal)"
+  },
+  {
+    "name": "Kalat Kali Temple",
+    "location": "Shahi Bazaar, Kalat, Balochistan, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "traditionally said to be about 1,500 years old (Sewa dynasty, pre-Islamic era); exact date unknown",
+    "saint": "Kali (deity)"
+  },
+  {
+    "name": "Kali Bari Mandir",
+    "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "",
+    "saint": "Goddess Kali"
+  },
+  {
+    "name": "Kalka Cave Temple (Asthan of Kalka Devi)",
+    "location": "Aror, Sukkur District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1920s (present temple); ancient sacred site",
+    "saint": "Goddess Kali (Kalka Devi)"
+  },
+  {
+    "name": "Katas Raj Temples",
+    "location": "Choa Saidanshah, Chakwal District, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "7th century CE onwards",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Khatwari Darbar, Shikarpur",
+    "location": "Thekrati Bazar, old city, Shikarpur, Sindh, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "18th century (c. 1725–1750)",
+    "saint": "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh"
+  },
+  {
+    "name": "Krishna Mandir (Kabari Bazar)",
+    "location": "Kabari Bazar, Rawalpindi, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1897",
+    "saint": "Lord Krishna"
+  },
+  {
+    "name": "Krishna Mandir (Ravi Road)",
+    "location": "Ravi Road, Lahore, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "",
+    "saint": "Lord Krishna"
+  },
+  {
+    "name": "Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
+    "location": "Lalkurti, Rawalpindi Cantonment, Rawalpindi, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1905",
+    "saint": "Valmiki (Bhagwan Valmik)"
+  },
+  {
+    "name": "Lal Shahbaz Qalandar",
+    "location": "Sehwan Sharif, Jamshoro District, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "1356",
+    "saint": "Lal Shahbaz Qalandar"
+  },
+  {
+    "name": "Langer Makhdoom",
+    "location": "Langer Makhdoom, Chiniot, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1245",
+    "saint": "Makhdoom Burhan-ud-din"
+  },
+  {
+    "name": "Loh Temple (Lava Temple)",
+    "location": "Lahore Fort (near Alamgiri Gate), Lahore, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Early 19th Century",
+    "saint": "Lava (Luv), son of Rama and Sita"
+  },
+  {
+    "name": "Mausoleum of Waris Shah",
+    "location": "Jandiala Sher Khan, Sheikhupura District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1978 (complex completed/opened)",
+    "saint": "Waris Shah"
+  },
+  {
+    "name": "Mazar of Bulleh Shah",
+    "location": "Mazar of Bulleh Shah, Kasur, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1757",
+    "saint": "Bulleh Shah (Abdullah Shah Qadri)"
+  },
+  {
+    "name": "Mithankot (Kot Mithan)",
+    "location": "Mithankot (Kot Mithan), Rajanpur, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1901",
+    "saint": "Khwaja Ghulam Farid"
+  },
+  {
+    "name": "Mohra Sharif (Khanqah)",
+    "location": "Mohra Sharif village, Murree Tehsil, Rawalpindi District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Late 19th century (founder born 1846 CE)",
+    "saint": "Khwaja Muhammad Qasim Sadiq"
+  },
+  {
+    "name": "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
+    "location": "Karoonjhar Mountains region, Nagarparkar, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Buildings date 12th–15th century CE",
+    "saint": "Jain Tirthankaras"
+  },
+  {
+    "name": "Panj Tirath",
+    "location": "Hashtnagri, Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "ancient",
+    "saint": "King Pandu (Mahabharata pilgrimage)"
+  },
+  {
+    "name": "Parnami Mandir",
+    "location": "Malka Hans, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "17th Century",
+    "saint": "Smadhi of Dya Ram"
+  },
+  {
+    "name": "Prahladpuri Temple",
+    "location": "Fort of Multan (near Shrine of Bahauddin Zakariya), Multan, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Historic; rebuilt/raised 1810; destroyed 1992",
+    "saint": "Narasimha (named after Prahlada)"
+  },
+  {
+    "name": "Purana Bhalwal",
+    "location": "Purana Bhalwal, Bhalwal, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1604",
+    "saint": "Shah Sulaimān Nūri"
+  },
+  {
+    "name": "Rahman Baba Mausoleum (Rehman Baba Shrine)",
+    "location": "Hazarkhwani (Ring Road), Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1954 (mausoleum constructed)",
+    "saint": "Rahman Baba (Abdur Rahman Mohmand)"
+  },
+  {
+    "name": "Ram Mandir, Saidpur (Ram Kund Mandir)",
+    "location": "Saidpur Village, Margalla Hills, Islamabad Capital Territory, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "16th century (traditionally attributed to Raja Man Singh I)",
+    "saint": "Dedicated to Lord Rama"
+  },
+  {
+    "name": "Ramapir Temple, Tando Allahyar",
+    "location": "Tando Allahyar, Tando Allahyar District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Established 1861 (British Raj)",
+    "saint": "Ramdev Pir (Ramapir)"
+  },
+  {
+    "name": "Ranmal Sharif",
+    "location": "Ranmal Sharif, Phalia, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1654",
+    "saint": "Syed Muhammad Noushah Qadiri"
+  },
+  {
+    "name": "Sadh Belo (Sadh Belo Island Temple)",
+    "location": "Sadh Belo Island, near Sukkur/Rohri, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1823 (site); 1899 (temple built)",
+    "saint": "Baba Bankhandi Maharaj (Udasi founder)"
+  },
+  {
+    "name": "Sain Vali Vilayat Rai Darbar, Kambar",
+    "location": "Shivalo mohalla, Kambar (Qambar) town, Qambar–Shahdadkot District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Mid–late 19th century (founder b. 1825)",
+    "saint": "Sain Vali Vilayat Rai (b. 1825)"
+  },
+  {
+    "name": "Sakhi Sarwar",
+    "location": "Sakhi Sarwar, Dera Ghazi Khan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "13th century",
+    "saint": "Sultan Sakhi Sarwar"
+  },
+  {
+    "name": "Samadhi of Maharaja Ranjit Singh",
+    "location": "Hazuri Bagh (near Lahore Fort), Lahore, Punjab, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "1848",
+    "saint": "Maharaja Ranjit Singh"
+  },
+  {
+    "name": "Sant Baba Asudaram Darbar (Panno Aqil)",
+    "location": "Panno Aqil (Pano Akil), Sukkur District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1940 (Darbar Sahib established by Sant Asudaram)",
+    "saint": "Sant Baba Asudaram \"Sakhi Baba\" (1895–1960)"
+  },
+  {
+    "name": "Sant Baba Bhagat Ram Darbar Mandir",
+    "location": "Shahi Bazar, Dadu, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "",
+    "saint": "Sant Baba Bhagat Ram"
+  },
+  {
+    "name": "Sant Bhagat Kanwar Ram Temple (Chak)",
+    "location": "Chak, Shikarpur, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "after 1939 (rebuilt 2006)",
+    "saint": "Bhagat Kanwar Ram (1885–1939)"
+  },
+  {
+    "name": "Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",
+    "location": "Raharki (Raherki Sahib), Daharki Taluka, Ghotki District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Late 19th–early 20th century (era of Sant Satramdas, 1866–1910)",
+    "saint": "Satguru Swami Sai Satramdas Sahib (1866–1910)"
+  },
+  {
+    "name": "Sevapanthi Darbar (Bhai Gurdas), Gandava",
+    "location": "Heart of Gandava (Gandawah) town, Jhal Magsi District, Balochistan, Pakistan",
+    "category": "Sikh Gurdwara",
+    "founded": "18th–19th century (Sevapanthi foundation; exact date uncertain)",
+    "saint": "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak"
+  },
+  {
+    "name": "Shah Noorani Shrine (Syed Bilawal Shah Noorani)",
+    "location": "Lahoot Lamakan valley, Khuzdar District, Balochistan, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "15th century (associated with saint active c. 1449)",
+    "saint": "Syed Bilawal Shah Noorani"
+  },
+  {
+    "name": "Shah Yousuf",
+    "location": "Shah Yousuf, Shahpur, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "15th century",
+    "saint": "Hazrat Shah Yousuf"
+  },
+  {
+    "name": "Shahwala Teja Singh Mandir",
+    "location": "Mohallah Dharowal, Sialkot, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "ancient; heritage accounts ~900-1,000 yrs old",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Shaktipeeth Shri Hinglaj Mata Mandir",
+    "location": "Hingol Balochistan National Park, Road، Asha Pura, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1986",
+    "saint": "Hinglaj Mata"
+  },
+  {
+    "name": "Shamsabad",
+    "location": "Shamsabad, Okara, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1966",
+    "saint": "Shams Ali Qalandar"
+  },
+  {
+    "name": "Sharada Peeth",
+    "location": "Sharda, Neelum Valley (Azad Kashmir), Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Active c. 6th–12th c. CE; likely commissioned c. 724–760 CE",
+    "saint": "Goddess Sharada (Saraswati)"
+  },
+  {
+    "name": "Shergarh",
+    "location": "Shergarh, Okara, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1575",
+    "saint": "Daud Bandagi Kirmani"
+  },
+  {
+    "name": "Shiv Mandir Chiti Ghati",
+    "location": "Ghandian, Mansehra District, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1830s (present structure); lingam ~2,000 yrs old",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Shree Ratneshwar Mahadev Temple, Karachi",
+    "location": "Near Clifton Beach / Jehangir Kothari Parade area, Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "c. 18th century (~300+ years old)",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
+    "location": "Under Native Jetty Bridge, Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Approx. 200 years old",
+    "saint": "Lakshmi-Narayan (Vishnu & Lakshmi)"
+  },
+  {
+    "name": "Shri Panchmukhi Hanuman Mandir (Karachi)",
+    "location": "Soldier Bazaar, Karachi East, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "around 500 AD",
+    "saint": "Lord Hanuman (Panchmukhi form)"
+  },
+  {
+    "name": "Shri Swaminarayan Mandir, Karachi",
+    "location": "M. A. Jinnah Road, Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "c. 1849 (mid-19th century)",
+    "saint": "Bhagwan Swaminarayan"
+  },
+  {
+    "name": "Shri Varun Dev Mandir",
+    "location": "Manora Island (Manora Beach), Karachi, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "c. 1917-18 (current structure); ancient origins",
+    "saint": "Varuna (Varun Dev)"
+  },
+  {
+    "name": "Shrine at Odero Lal (Udero Lal Teerath Asthan)",
+    "location": "Odero Lal Village (near Tando Adam), Matiari District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Completed 1684 CE",
+    "saint": "Sheikh Tahir (also revered as Udero Lal/Jhulelal)"
+  },
+  {
+    "name": "Shrine of Abdullah Shah Ghazi",
+    "location": "Clifton, Karachi, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "773",
+    "saint": "Abdullah Shah Ghazi"
+  },
+  {
+    "name": "Shrine of Abul Faiz Qalander Ali Suharwardi",
+    "location": "Lahore, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "",
+    "saint": "Abul Faiz Qalander Ali Suharwardi"
+  },
+  {
+    "name": "Shrine of Akhund Darweza Baba",
+    "location": "Hazarkhwani, Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "17th century (saint died 1638)",
+    "saint": "Akhund Darweza Baba (Syed Muhammad, d. 1638)"
+  },
+  {
+    "name": "Shrine of Akhund Panju Baba",
+    "location": "Akbarpura, Nowshera District, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Late 16th-early 17th century (Mughal era)",
+    "saint": "Hazrat Syed Abdul Wahab (Akhund Panju Baba)"
+  },
+  {
+    "name": "Shrine of Baba Shah Chiragh",
+    "location": "The Mall (near Lahore High Court), Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "17th Century",
+    "saint": "Syed Abdul Razzaq (\"Shah Chiragh\")"
+  },
+  {
+    "name": "Shrine of Baba Shah Kamal",
+    "location": "Muslim Town / Samanabad (near Ichhra), Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "17th Century",
+    "saint": "Hazrat Baba Shah Kamal"
+  },
+  {
+    "name": "Shrine of Bahauddin Zakariya",
+    "location": "Multan City, Multan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1167",
+    "saint": "Bahauddin Zakariya"
+  },
+  {
+    "name": "Shrine of Bibi Pak Daman",
+    "location": "Lahore, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "681",
+    "saint": "Bibi Pak Daman"
+  },
+  {
+    "name": "Shrine of Fariduddin Ganjshakar",
+    "location": "Pakpattan, Pakpattan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1280",
+    "saint": "Fariduddin Ganjshakar"
+  },
+  {
+    "name": "Shrine of Ganj e Inayat Sarkar",
+    "location": "Gulberg 3, Lahore, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "2011",
+    "saint": "Ganj e Inayat Sarkar"
+  },
+  {
+    "name": "Shrine of Hafiz Muhammad Jamal Multani",
+    "location": "Near Aam Khas Bagh, outside Daulat Gate, Multan City, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Early 19th century (saint died 1811)",
+    "saint": "Hazrat Hafiz Muhammad Jamal Multani (Chishti)"
+  },
+  {
+    "name": "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)",
+    "location": "Baghbanpura (near Shalimar Gardens), Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Associated with Shah Hussain (1538–1599)",
+    "saint": "Shah Hussain (Madho Lal Hussain)"
+  },
+  {
+    "name": "Shrine of Hazrat Muhammad Ayub Shah Bukhari",
+    "location": "Gandawah (Gandava), Jhal Magsi District, Balochistan, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Unknown (traditional Sufi shrine)",
+    "saint": "Hazrat Muhammad Ayub Shah Bukhari"
+  },
+  {
+    "name": "Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)",
+    "location": "Suraj Miani, Multan, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1585 CE (993 AH)",
+    "saint": "Hazrat Shah Ali Akbar Shamsi"
+  },
+  {
+    "name": "Shrine of Hazrat Shah Daula Daryai",
+    "location": "Gujrat, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "17th century",
+    "saint": "Hazrat Shah Daula Daryai"
+  },
+  {
+    "name": "Shrine of Imam Ali-ul-Haq",
+    "location": "Sialkot, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "13th century",
+    "saint": "Imam Ali-ul-Haq"
+  },
+  {
+    "name": "Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)",
+    "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Rebuilt 1670 (site associated with saint d. c.1290)",
+    "saint": "Jalaluddin Surkh-Posh Bukhari"
+  },
+  {
+    "name": "Shrine of Lakhi Shah Saddar",
+    "location": "Laki (Lakhi), near Sehwan Sharif, Jamshoro, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "",
+    "saint": "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)"
+  },
+  {
+    "name": "Shrine of Makhdoom Abdul Rahim Girhori",
+    "location": "Girhor Sharif, near Pithoro, Umarkot, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "18th century (saint d. 1778)",
+    "saint": "Makhdoom Abdul Rahim Girhori (1739–1778)"
+  },
+  {
+    "name": "Shrine of Makhdoom Jahaniyan Jahangasht",
+    "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Associated with saint (d. 1384)",
+    "saint": "Jahaniyan Jahangasht"
+  },
+  {
+    "name": "Shrine of Makhdoom Nooh (Hala)",
+    "location": "Hala, Matiari District, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "16th century (saint d. 1590)",
+    "saint": "Makhdoom Nooh (Makhdoom Lutufullah / Sarwar Nooh)"
+  },
+  {
+    "name": "Shrine of Mauj Darya Bukhari",
+    "location": "Edward Road, Anarkali, Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "16th Century",
+    "saint": "Hazrat Meeran Muhammad Shah Bukhari (\"Mauj Darya\")"
+  },
+  {
+    "name": "Shrine of Mian Mir",
+    "location": "Alam Ganj (Dharampura), Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Completed/consecrated 1640",
+    "saint": "Mian Mir"
+  },
+  {
+    "name": "Shrine of Mian Umar Baba (Chamkani)",
+    "location": "Chamkani, Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "18th century (saint died 1776)",
+    "saint": "Mian Muhammad Umar Chamkani (Naqshbandi Sufi)"
+  },
+  {
+    "name": "Shrine of Miran Hussain Zanjani (Zanjani Sahib)",
+    "location": "Chah Miran, Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "11th Century",
+    "saint": "Syed Miran Hussain Zanjani"
+  },
+  {
+    "name": "Shrine of Peer Makki",
+    "location": "Bhati Gate area (near Data Darbar), Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "13th Century",
+    "saint": "Hazrat Syed Azizuddin al-Hassani wal-Hussaini (Peer Makki)"
+  },
+  {
+    "name": "Shrine of Pir Baba (Syed Ali Tirmizi)",
+    "location": "Pacha Kalay, Buner District, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "16th century (saint died 1583 CE; shrine developed thereafter)",
+    "saint": "Syed Ali Tirmizi (Pir Baba)"
+  },
+  {
+    "name": "Shrine of Pir Chhatal Shah Noorani",
+    "location": "Near Naulung (Moola gorge), Gandava area, Jhal Magsi District, Balochistan, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Unknown (recorded 1831; traditionally centuries old)",
+    "saint": "Pir Chhatal Shah Noorani (Pir Chatta)"
+  },
+  {
+    "name": "Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",
+    "location": "Near Kotra (Moola gorge area), Jhal Magsi District, Balochistan, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "Unknown",
+    "saint": "Pir Lakha"
+  },
+  {
+    "name": "Shrine of Pir Mangho",
+    "location": "Gadap Town, Karachi, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "773",
+    "saint": "Pir Mangho"
+  },
+  {
+    "name": "Shrine of Pir Sher Muhammad",
+    "location": "Sharaqpur, Sharaqpur, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1928",
+    "saint": "Pir Sher Muhammad"
+  },
+  {
+    "name": "Shrine of Qalandar Baba Auliya",
+    "location": "Shadman Town, Karachi, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "1979",
+    "saint": "Qalandar Baba Auliya"
+  },
+  {
+    "name": "Shrine of Sachal Sarmast",
+    "location": "Daraza, Khairpur, Sindh",
+    "category": "Muslim Shrine",
+    "founded": "1829",
+    "saint": "Sachal Sarmast (Abdul Wahab Faruqi)"
+  },
+  {
+    "name": "Shrine of Shah Abdul Karim Bulri",
+    "location": "Bulri Shah Karim, Tando Muhammad Khan District, Sindh, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1741 CE (1154 AH); saint d. 1623",
+    "saint": "Shah Abdul Karim Bulri"
+  },
+  {
+    "name": "Shrine of Shah Inayat Qadiri",
+    "location": "Mozang Chungi, Queens Road, Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "18th century (c. 1728, per figure's death; a field survey separately gives 1141 AH)",
+    "saint": "Shah Inayat Qadiri (murshid of Bulleh Shah)"
+  },
+  {
+    "name": "Shrine of Shah Jamal",
+    "location": "Shah Jamal/Ichhra, Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "17th Century",
+    "saint": "Syed Shah Jamal Uddin Naqvi Bukhari (Baba Shah Jamal)"
+  },
+  {
+    "name": "Shrine of Shah Rukn-e-Alam",
+    "location": "Multan City, Multan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1235",
+    "saint": "Shah Rukn-e-Alam"
+  },
+  {
+    "name": "Shrine of Shah Shams-ud-Din Sabzwari",
+    "location": "Multan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1330 (rebuilt 1779)",
+    "saint": "Shah Shams-ud-Din Sabzwari"
+  },
+  {
+    "name": "Shrine of Shah Yusaf Gardez",
+    "location": "Multan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "c. 1152 (12th century)",
+    "saint": "Shah Yusaf Gardez"
+  },
+  {
+    "name": "Shrine of Syed Musa Pak",
+    "location": "Multan, Multan, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1592",
+    "saint": "Syed Musa Pak"
+  },
+  {
+    "name": "Sial Sharif",
+    "location": "Sial Sharif, Sial Sharif (Sargodha District), Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1883",
+    "saint": "Muhammad Shamsuddin Sialvi"
+  },
+  {
+    "name": "Swami Dharmdas Darbar, Larkana (Kennedy Market)",
+    "location": "Kennedy Market area, Larkana, Larkana District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Late 19th–early 20th century (uncertain)",
+    "saint": "Swami Dharmdas (Nanakpanthi sant)"
+  },
+  {
+    "name": "Tilla Jogian",
+    "location": "Salt Range (near Dina/Jhelum), Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "Traditional founding date uncertain/legendary (accounts range from antiquity to the 11th–12th century CE); abandoned 1947",
+    "saint": "Guru Gorakhnath (Nath yogis)"
+  },
+  {
+    "name": "Tomb of Allama Iqbal (Mazar-e-Iqbal)",
+    "location": "Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1951 (mausoleum; Iqbal d. 1938)",
+    "saint": "Allama Muhammad Iqbal"
+  },
+  {
+    "name": "Tomb of Baha'al-Halim (Uch Sharif)",
+    "location": "Uch Sharif, Bahawalpur District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "14th century (traditionally)",
+    "saint": "Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)"
+  },
+  {
+    "name": "Tomb of Javindi Bibi",
+    "location": "Mohalla Bukhari, Uch Sharif, Punjab",
+    "category": "Muslim Shrine",
+    "founded": "1291",
+    "saint": "Jalaluddin Surkh-Posh Bukhari"
+  },
+  {
+    "name": "Tomb of Qutbuddin Aibak",
+    "location": "Aibak Road, Anarkali, Lahore, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "1210 (original); rebuilt 1970s",
+    "saint": "Sultan Qutb ud-Din Aibak"
+  },
+  {
+    "name": "Tomb of Ustad Nuriya",
+    "location": "Bukhari mound, Uch Sharif, Bahawalpur District, Punjab, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "15th century (attributed)",
+    "saint": "Ustad Nuriya (master-builder)"
+  },
+  {
+    "name": "Umarkot (Amarkot) Shiv Mandir",
+    "location": "Umerkot District, Sindh, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "ancient; current structure ~early 1900s",
+    "saint": "Shiva (Mahadev)"
+  },
+  {
+    "name": "Valmik Mandir (Naqi Road)",
+    "location": "Naqi Road, Lahore, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "",
+    "saint": "Bhagwan Valmik (Valmiki)"
+  },
+  {
+    "name": "Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",
+    "location": "Gracy Lines, Chaklala Cantonment, Rawalpindi, Punjab, Pakistan",
+    "category": "Hindu Temple",
+    "founded": "1935",
+    "saint": "Valmiki (Bhagwan Valmik)"
+  },
+  {
+    "name": "Wadpagga Sharif",
+    "location": "Wadpagga Sharif, Peshawar, Khyber Pakhtunkhwa",
+    "category": "Muslim Shrine",
+    "founded": "16th century",
+    "saint": "Ghazi Syed Shah Fateh Muhammad Bukhari"
+  },
+  {
+    "name": "Ziarat Kaka Sahib",
+    "location": "Ziarat Kaka Sahib, Nowshera District, Khyber Pakhtunkhwa, Pakistan",
+    "category": "Muslim Shrine",
+    "founded": "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653",
+    "saint": "Kaka Sahib (Syed Kasteer Gul, \"Sheikh Rahmkar\")"
+  }
 ]

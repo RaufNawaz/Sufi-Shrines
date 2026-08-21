@@ -7,6 +7,11 @@ Claude Code can execute. Read alongside `CLAUDE.md` (conventions) and
 > **18 Aug 2026:** [`DESIGN_VISION.md`](DESIGN_VISION.md) now carries the aesthetic
 > direction this doc never had, ten new feature ideas (F1–F10), and a status audit of the
 > tracks below — Track 0 is done; 2/3/6/7/8 are partial. Read it alongside this.
+>
+> **20 Aug 2026:** [`SHARED_GROUND_VISION.md`](SHARED_GROUND_VISION.md) argues for one idea
+> none of these tracks contain — that 37% of the archive's sites stand within 800 m of
+> another, and in eight places across different traditions — and sizes it against measured
+> data. Its Track A is in progress.
 
 ---
 

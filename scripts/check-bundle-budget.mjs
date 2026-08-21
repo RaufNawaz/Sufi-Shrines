@@ -34,15 +34,32 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * chunk's static closure. Headroom is ~8% over the 20 August 2026 measurement,
  * enough to absorb a normal feature but not another megabyte.
  */
+/*
+ * Raised on 21 August 2026, deliberately. `src/data/urdu-seed.json` grew from
+ * 49 KB to 67 KB when the Urdu dictionary's row universe was corrected from a
+ * stale 143-row snapshot to the real 169 — closing a gap of 27 shrine names, 17
+ * saint strings, 30 founding phrases and 23 rows of place tokens. `urduFallback`
+ * imports that seed eagerly, so ~18 KB landed on every route and this check
+ * failed on two of them. Working exactly as intended: the growth is real, and it
+ * is now recorded rather than absorbed silently.
+ *
+ * The seed does not have to be eager. An English reader needs no Urdu dictionary
+ * at all, so it could be language-gated the way `urdu-content.json` already is
+ * (see urduContentOverride.ts) — worth ~67 KB off every route. Not done here
+ * because `translateToUrdu` is called synchronously during render and a missing
+ * dictionary would flash English; it needs the same
+ * `ensureUrduContentForLang` + rebuild-listener treatment, which is its own
+ * change. Logged in docs/planning/SHARED_GROUND_VISION.md.
+ */
 const BUDGETS_KB = {
-  'index.html': 300, // shell alone — measured 274
-  'src/pages/MapPage.tsx': 1720, // measured 1595 — maplibre (1035) + leaflet (151) dominate
-  'src/pages/ShrinePage.tsx': 520, // measured 475 — the graph is no longer on this route
-  'src/pages/SaintPage.tsx': 680, // measured 628
-  'src/pages/OrderPage.tsx': 640, // measured 592
-  'src/pages/GraphPage.tsx': 640, // measured 593
-  'src/pages/AlmanacPage.tsx': 350, // measured 322
-  'src/pages/NotFoundPage.tsx': 300, // measured 277
+  'index.html': 320, // measured 297 (was 274 before the Urdu seed grew)
+  'src/pages/MapPage.tsx': 1740, // measured 1619 — maplibre (1035) + leaflet (151) dominate
+  'src/pages/ShrinePage.tsx': 540, // measured 500 — the graph is no longer on this route
+  'src/pages/SaintPage.tsx': 715, // measured 663
+  'src/pages/OrderPage.tsx': 700, // measured 649
+  'src/pages/GraphPage.tsx': 670, // measured 620
+  'src/pages/AlmanacPage.tsx': 385, // measured 356
+  'src/pages/NotFoundPage.tsx': 325, // measured 300
 };
 
 /**

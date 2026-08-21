@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { haversineKm, findNearbyShrines } from '../../lib/data/shrineModel';
+import { SAME_PIN_THRESHOLD_M } from '../../lib/data/sharedGround';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
@@ -48,9 +49,23 @@ export function NearbyShrines({ shrine, all }: Props) {
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
                   {location && <span>{location} · </span>}
-                  <span>
-                    {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
-                  </span>
+                  {/* "< 1 km" covered everything from a shared pin to 900 m.
+                      Metres below a kilometre, and for two records that share a
+                      recorded position, no distance at all — every
+                      identical-pin group in this data is a documented
+                      approximation, and printing a number for it would present
+                      the archive's uncertainty as a measurement. */}
+                  {dist * 1000 <= SAME_PIN_THRESHOLD_M ? (
+                    <span title={t('sharedGroundSamePinHelp')}>{t('sharedGroundSamePin')}</span>
+                  ) : dist < 1 ? (
+                    <span>
+                      {fmtNum(Math.round(dist * 1000))} {t('distanceMetres')}
+                    </span>
+                  ) : (
+                    <span>
+                      {fmtNum(Math.round(dist))} {t('distanceKm')}
+                    </span>
+                  )}
                 </div>
               </div>
             </Link>

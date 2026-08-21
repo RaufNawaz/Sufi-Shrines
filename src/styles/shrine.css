@@ -1514,3 +1514,126 @@
     align-items: center;
   }
 }
+
+/* ── Shared ground ───────────────────────────────────────────────────────── */
+
+/*
+ * Which other sites — and which other traditions — stand within walking
+ * distance. The archive's own coordinates say that 62 of 169 sites have a
+ * neighbour inside 800 m and that in eight places the neighbour belongs to a
+ * different tradition; nothing in the interface could show that before.
+ */
+.shared-ground-intro {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+.shared-ground-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.shared-ground-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  /* The border-inline-start is set per tradition below, so it must be a
+     logical property or it lands on the wrong edge in the Urdu view. */
+  border-inline-start: 3px solid var(--color-border);
+}
+
+/* A neighbour from another tradition is the point of the section, so it is the
+   one that gets emphasis — with weight as well as colour, since colour alone
+   fails in greyscale and for a colour-blind reader. */
+.shared-ground-item--other {
+  background-color: var(--color-bg-alt);
+}
+
+.shared-ground-item--other .shared-ground-tradition {
+  font-weight: 600;
+}
+
+.shared-ground-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.shared-ground-name:hover,
+.shared-ground-name:focus-visible {
+  text-decoration: underline;
+}
+
+.shared-ground-tradition {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Each tradition's own colour on the leading edge — the same palette the map
+   markers and category chips use, so a reader who has learned it on the map
+   reads this list without a legend. Never --color-primary: chrome must not wear
+   a tradition's colour (see styles/__tests__/tokenSplit.test.ts). */
+.shared-ground-tradition--muslim {
+  color: var(--color-cat-muslim);
+}
+.shared-ground-tradition--hindu {
+  color: var(--color-cat-hindu);
+}
+.shared-ground-tradition--sikh {
+  color: var(--color-cat-sikh);
+}
+.shared-ground-tradition--nanakpanthi {
+  color: var(--color-cat-nanakpanthi);
+}
+.shared-ground-tradition--jain {
+  color: var(--color-cat-jain);
+}
+.shared-ground-tradition--secular {
+  color: var(--color-cat-secular);
+}
+
+.shared-ground-distance {
+  margin-inline-start: auto;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Not a number, and deliberately not styled like one: these two records share a
+   recorded position because the survey gives no separate one. */
+.shared-ground-distance--same {
+  font-style: italic;
+  cursor: help;
+}
+
+.shared-ground-note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+[dir='rtl'] .shared-ground-tradition,
+[dir='rtl'] .shared-ground-distance,
+[dir='rtl'] .shared-ground-note,
+[dir='rtl'] .shared-ground-intro {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .shared-ground-tradition,
+[dir='rtl'] .shared-ground-distance,
+[dir='rtl'] .shared-ground-note {
+  font-size: var(--text-sm);
+  line-height: var(--leading-urdu);
+}

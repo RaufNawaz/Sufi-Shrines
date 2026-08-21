@@ -8,6 +8,61 @@
 
 ---
 
+## 0. Session log — 21 August 2026 (eleventh: shared ground, and a dictionary measuring the wrong archive)
+
+### Planned first
+
+`docs/planning/SHARED_GROUND_VISION.md` — a blue-sky vision for the next phase, every number in
+it measured rather than estimated. Its argument: this archive documents six traditions and shows
+each site as an island, while its own coordinates say **62 of 169 sites stand within 800 m of
+another, and in eight places the neighbour belongs to a different tradition.** For much of
+Punjab and Sindh that adjacency *is* the heritage — these communities built on the same streets.
+Four tracks (shared ground · places as entities · chronology · the gaps as a page), sequenced.
+
+### Then built — Track A
+
+`src/lib/data/sharedGround.ts` and a **Shared ground** section on every shrine page, under the
+map. Data Darbar's reads: *"5 other sites within walking distance, 3 of them in another
+tradition"* — Gurdwara Chowmala Sahib at 222 m, Peer Makki at 576 m, Gurdwara Baoli Sahib at
+692 m, Qutbuddin Aibak's tomb at 727 m.
+
+**The near-miss worth recording.** The obvious model was a cluster: single-link everything
+within 800 m, call each component a complex. Measured, that gave one cluster of 15 sites with an
+extent of **3358 m** — transitive closure had strung together central Lahore and called it a
+courtyard. The shipped unit is "within 800 m of *this* site", no chaining.
+
+**And the editorial rule it forced.** Four coordinate groups in the data are identical, and every
+one is a documented approximation. `NearbyShrines` rendered them as "< 1 km" — the same string it
+used for 900 m. Both components now say **"same recorded location"** for a shared pin and show
+metres otherwise: a distance the archive did not measure must never be displayed as one it did.
+
+### And a dictionary measuring the wrong archive
+
+`urdu-i18n/_shrine_rows.json` held **143 rows while the app shipped 169**, so the build printed
+"OK — 100% coverage, zero Latin-script leaks" and `data:validate` passed while 27 shrine names,
+17 saint strings, 30 founding phrases and 23 rows of place tokens had no Urdu at all. The README
+documented the refresh step — as a note.
+
+All four gaps are filled (**shrine names 169/169**), snapshot drift is now a build **error** that
+names the differing rows, and `NAME_LIST` — 143 Urdu names matched to rows *by index*, so a
+re-sorted sheet would have renamed every shrine — is a keyed dict.
+
+This was the fourth instance of one pattern in a single session: a check that passes because it
+is measuring the wrong universe. **When a check reports success, ask what set it ran over.**
+
+**Needs a human:** the ~97 new dictionary entries are unreviewed drafts. The founding-date ones
+matter most — several are hedges ("1024 AH (as given in the form; not a construction date)")
+translated with the hedge intact, and a fluent reader should confirm the hedge survived. The
+Sindhi and Balochi place names have competing spellings.
+
+**Debt this created, logged in the vision doc:** the seed grew 49 KB → 67 KB and
+`urduFallback` imports it eagerly, so bundle budgets rose ~22 KB on every route. The real fix is
+to language-gate the seed as `urdu-content.json` already is — worth ~67 KB off every route —
+but `translateToUrdu` is synchronous during render, so it needs the same care the article
+payload got.
+
+---
+
 ## 0. Session log — 20 August 2026 (tenth: a chip three times wider than its sidebar)
 
 Following the region-filter finding, I checked the other facet built the same way. The **saint

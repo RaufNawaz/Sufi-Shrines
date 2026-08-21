@@ -16,6 +16,7 @@ import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { NearbyShrines } from '../components/shrine/NearbyShrines';
+import { SharedGround } from '../components/shrine/SharedGround';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
@@ -260,6 +261,10 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
+          {/* Directly under the map, because it is a fact about this ground:
+              which other sites — and which other traditions — stand within
+              walking distance. Renders nothing when there are none. */}
+          <SharedGround shrine={shrine} all={allShrines} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
           {/* Provenance/sources detail is project-team-only visibility (not

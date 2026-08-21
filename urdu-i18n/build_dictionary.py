@@ -21,8 +21,45 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 
 
 def load_rows():
+    """
+    The row universe the dictionary is built and validated against.
+
+    **This must not drift from the app's own dataset.** On 20 August 2026 it held
+    143 rows while `src/data/shrines-fallback.json` held 169, so this script
+    reported "100% coverage, zero Latin-script leaks" — and `npm run
+    data:validate` passed — while 27 shrines had no Urdu name at all, along with
+    17 saint strings, 30 founding phrases and 23 rows' worth of place tokens.
+    The check was measuring the wrong universe, which is the most expensive kind
+    of passing test: it reports a safety it never established.
+
+    So the drift is now an error, not a footnote in the README.
+    """
     with open(os.path.join(OUT, "_shrine_rows.json"), encoding="utf-8") as f:
-        return json.load(f)
+        rows = json.load(f)
+
+    app_snapshot = os.path.normpath(
+        os.path.join(OUT, "..", "src", "data", "shrines-fallback.json")
+    )
+    if os.path.exists(app_snapshot):
+        with open(app_snapshot, encoding="utf-8") as f:
+            live = json.load(f).get("rows", [])
+        snap_names = {r.get("name", "") for r in rows}
+        live_names = {r.get("Name", "") for r in live}
+        only_live = sorted(live_names - snap_names)
+        only_snap = sorted(snap_names - live_names)
+        if only_live or only_snap:
+            raise SystemExit(
+                "[build_dictionary] ERROR — _shrine_rows.json has drifted from the app's\n"
+                "dataset, so every coverage number below would be measured against the\n"
+                "wrong universe.\n"
+                "  in the app but not in this snapshot (%d): %s\n"
+                "  in this snapshot but not in the app (%d): %s\n"
+                "Refresh urdu-i18n/_shrine_rows.json from src/data/shrines-fallback.json\n"
+                "(name/location/category/founded/saint per row), then rerun."
+                % (len(only_live), ", ".join(only_live[:8]) or "-",
+                   len(only_snap), ", ".join(only_snap[:8]) or "-")
+            )
+    return rows
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. CATEGORIES / TRADITIONS / TOUR FACETS
@@ -309,6 +346,52 @@ PLACE_TOKENS = {
     "formerly": "سابقہ",
     "Mohallah": "محلہ",
     "Mohalla": "محلہ",
+ # ── Added 20 August 2026 with the row-snapshot refresh (143 → 169).
+ # Street, village, mohalla, taluka and district names the older 143-row
+ # universe never contained. Unreviewed drafts; the Sindhi and Balochi
+ # place names in particular have more than one current spelling.
+ "Chak": "چک",
+ "Chowmala Mohalla": "چومالا محلہ",
+ "inside Bhati Gate": "بھاٹی دروازے کے اندر",
+ "Darya Lal Street": "دریا لال اسٹریٹ",
+ "Jodia Bazaar": "جوڑیا بازار",
+ "Digano Mahesar village": "ڈگانو مہیسر گاؤں",
+ "Miro Khan taluka": "میرو خان تعلقہ",
+ "Qambar–Shahdadkot District": "قمبر–شہدادکوٹ ضلع",
+ "Girhor Sharif": "گرہوڑ شریف",
+ "near Pithoro": "پتھورو کے قریب",
+ "Umarkot": "عمرکوٹ",
+ "Gracy Lines": "گریسی لائنز",
+ "Chaklala Cantonment": "چکلالہ کینٹ",
+ "Hadiara village": "ہدیارہ گاؤں",
+ "Heart of Gandava (Gandawah) town": "گنداوہ شہر کا مرکز",
+ "Lasbela District": "لسبیلہ ضلع",
+ "Jhalian (Jhalian Dhilwan)": "جھلیاں (جھلیاں ڈھلواں)",
+ "near Barki": "برکی کے قریب",
+ "Kennedy Market area": "کینیڈی مارکیٹ کا علاقہ",
+ "Larkana": "لاڑکانہ",
+ "Larkana District": "لاڑکانہ ضلع",
+ "Laki (Lakhi)": "لکی (لکھی)",
+ "Lalkurti": "لال کرتی",
+ "Rawalpindi Cantonment": "راولپنڈی کینٹ",
+ "Near Kotra (Moola gorge area)": "کوٹڑہ کے قریب (مولا درہ کا علاقہ)",
+ "Near Naulung (Moola gorge)": "نولنگ کے قریب (مولا درہ)",
+ "Gandava area": "گنداوہ کا علاقہ",
+ "Near the Sukkur–Rohri (Lansdowne/Ayub) railway bridge":
+     "سکھر–روہڑی (لینز ڈاؤن/ایوب) ریلوے پل کے قریب",
+ "Panno Aqil (Pano Akil)": "پنو عاقل",
+ "Mohallah Puran Nagar": "محلہ پران نگر",
+ "Raharki (Raherki Sahib)": "راڑھکی (راڑھکی صاحب)",
+ "Daharki Taluka": "ڈہرکی تعلقہ",
+ "Ghotki District": "گھوٹکی ضلع",
+ "Shahi Bazaar": "شاہی بازار",
+ "Kalat": "قلات",
+ "Shivalo mohalla": "شیوالو محلہ",
+ "Kambar (Qambar) town": "کمبر (قمبر) شہر",
+ "Temple Road": "ٹیمپل روڈ",
+ "Mozang": "موزنگ",
+ "Thekrati Bazar": "ٹھیکراتی بازار",
+ "old city": "پرانا شہر",
 }
 
 # District names that appear as "<X> District" — ensure the X is known
@@ -328,151 +411,202 @@ for k, v in DISTRICT_STEMS.items():
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. SHRINE NAMES (all 143, in row order)
 # ─────────────────────────────────────────────────────────────────────────────
-NAME_LIST = [
- "داتا دربار",
- "لعل شہباز قلندر",
- "مزارِ عبداللہ شاہ غازی",
- "مزارِ بہاؤالدین زکریا",
- "مزارِ گنجِ عنایت سرکار",
- "مزارِ شاہ رکنِ عالم",
- "لنگر مخدوم",
- "مزارِ فرید الدین گنج شکر",
- "درگاہ فتح پور شریف",
- "مقبرہ بی بی جاوندی",
- "شیر گڑھ",
- "شاہ یوسف",
- "مزارِ سید موسیٰ پاک",
- "گڑھ مہاراجہ (شورکوٹ)",
- "مزارِ بلھے شاہ",
- "پرانا بھلوال",
- "رانمل شریف",
- "شمس آباد",
- "مزارِ ابو الفیض قلندر علی سہروردی",
- "مزارِ قلندر بابا اولیاء",
- "مزارِ بی بی پاک دامن",
- "گولڑہ شریف",
- "آلو مہار",
- "مزارِ سچل سرمست",
- "سخی سرور",
- "مٹھن کوٹ (کوٹ مٹھن)",
- "مزارِ شاہ یوسف گردیز",
- "واد پگہ شریف",
- "مزارِ امام علی الحق",
- "دربار حضرت خواجہ شاہ محمد سلیمان تونسوی (رحمۃ اللہ علیہ)",
- "سیال شریف",
- "مزارِ پیر شیر محمد",
- "بھٹ (بھٹ شاہ)",
- "باری امام",
- "مزارِ شاہ شمس الدین سبزواری",
- "مزارِ پیر منگھو",
- "عیدگاہ شریف",
- "ضلع جامشورو",
- "گوردوارہ جنم استھان ننکانہ صاحب",
- "گوردوارہ دربار صاحب کرتارپور",
- "گوردوارہ پنجہ صاحب",
- "گوردوارہ ڈیرہ صاحب",
- "گوردوارہ روڑی صاحب",
- "گوردوارہ بھائی جوگا سنگھ",
- "گوردوارہ شہید بھائی تارو سنگھ",
- "گوردوارہ سری کیارہ صاحب",
- "شکتی پیٹھ شری ہنگلاج ماتا مندر",
- "پرنامی مندر",
- "کٹاس راج مندر",
- "شاردا پیٹھ",
- "سادھ بیلو (سادھ بیلو جزیرہ مندر)",
- "شری سوامی نارائن مندر، کراچی",
- "شری پنچمکھی ہنومان مندر (کراچی)",
- "شری ورون دیو مندر",
- "گورکھ ناتھ مندر",
- "عمرکوٹ (امرکوٹ) شیو مندر",
- "گوردوارہ سچا سودا",
- "گوردوارہ پٹی صاحب",
- "گوردوارہ ٹمبو صاحب",
- "گوردوارہ بالیلا صاحب (بال لیلا صاحب)",
- "گوردوارہ مالجی صاحب",
- "گوردوارہ پنجویں چھٹی پاتشاہی",
- "مقبرہ رحمان بابا (رحمان بابا مزار)",
- "مزارِ شاہ نورانی (سید بلاول شاہ نورانی)",
- "مقبرہ وارث شاہ",
- "مزارِ حضرت شاہ دولہ دریائی",
- "درگاہ / روضہ صوفی شاہ عنایت شہید",
- "شیو مندر چٹی گھاٹی",
- "کالی باری مندر",
- "کرشنا مندر (کباڑی بازار)",
- "شاہ والا تیجا سنگھ مندر",
- "کرشنا مندر (راوی روڈ)",
- "والمیک مندر (نقی روڈ)",
- "گرو گرپت مندر (ڈی بی-80 سرے گھاٹ)",
- "سنت بابا بھگت رام دربار مندر",
- "بھائی سنت تھاون داس مندر",
- "جھولے لال مندر",
- "گرداس رام مندر",
- "بھگناری مندر",
- "گوردوارہ بابے دی بیر",
- "گوردوارہ بھائی بیبا سنگھ",
- "گوردوارہ گرو رام داس جی",
- "گوردوارہ شہید گنج سنگھ سنگھنیاں",
- "گوردوارہ بابے نانکی",
- "گوردوارہ سچ کھنڈ صاحب",
- "گوردوارہ دشمیش پِتا",
- "گوردوارہ سنگھ سبھا",
- "مزارِ میاں میر",
- "مزارِ جلال الدین سرخ پوش بخاری (جلال الدین بخاری)",
- "مزارِ مخدوم جہانیاں جہاں گشت",
- "مزارِ حضرت مادھو لال حسین (شاہ حسین دربار)",
- "دربار سخی شاہ چن چراغ",
- "رامہ پیر مندر، ٹنڈو الہ یار",
- "پرہلاد پوری مندر",
- "کالکا غار مندر (استھان کالکا دیوی)",
- "ٹلہ جوگیاں",
- "امب مندر (امب شریف)",
- "چڑیو جبل درگا ماتا مندر",
- "ننگرپارکر جین مندر (ننگرپارکر ثقافتی منظرنامہ)",
- "دریا لال مندر (دریا لال سنکٹ موچن مندر)",
- "شری لکشمی نارائن مندر (نیٹو جیٹی پل)",
- "شری رتنیشور مہادیو مندر، کراچی",
- "درگاہ پیر رتن ناتھ جی",
- "پنج تیرتھ",
- "جگن ناتھ مندر، سیالکوٹ",
- "اوڈیرو لال کا مقام (اُڈیرو لال تیرتھ استھان)",
- "مقبرہ علامہ اقبال (مزارِ اقبال)",
- "مزارِ شاہ جمال",
- "مزارِ موج دریا بخاری",
- "مزارِ پیر مکی",
- "مزارِ میراں حسین زنجانی (زنجانی صاحب)",
- "مزارِ بابا شاہ چراغ",
- "مزارِ شاہ عنایت قادری",
- "سمادھی مہاراجہ رنجیت سنگھ",
- "لوہ مندر (لاوا مندر)",
- "جین مندر، لاہور",
- "مزارِ بابا شاہ کمال",
- "مقبرہ قطب الدین ایبک",
- "مزارِ پیر بابا (سید علی ترمذی)",
- "زیارت کاکا صاحب",
- "دربار گھمکول شریف (زندہ پیر)",
- "موہڑہ شریف (خانقاہ)",
- "گوردوارہ چوآ صاحب",
- "گوردوارہ چکی صاحب",
- "گوردوارہ کھوہی بھائی لالو (بھائی لالو دی کھوہی)",
- "رام مندر، سید پور (رام کنڈ مندر)",
- "مزارِ آخوند پنجو بابا",
- "مزارِ آخوند درویزہ بابا",
- "گوری مندر (گوری جو مندر)",
- "گوردوارہ صاحب سید پور (گرو نانک دیو جی)",
- "مزارِ میاں عمر بابا (چمکنی)",
- "درگاہ پیر محمد راشد (روزے دھنی)، پیر جو گوٹھ",
- "مزارِ حضرت محمد ایوب شاہ بخاری",
- "مزارِ حافظ محمد جمال ملتانی",
- "گوردوارہ باؤلی صاحب (گرو ارجن دیو جی)، لاہور",
- "مزارِ حضرت شاہ علی اکبر (شاہ علی اکبر شمسی)",
- "مقبرہ بہاء الحلیم (اوچ شریف)",
- "مزارِ مخدوم نوح (ہالہ)",
- "مزارِ شاہ عبدالکریم بلڑی",
- "مقبرہ استاد نوریہ",
- "درگاہ خواجہ محمد زمان (لواری شریف)",
- "گوردوارہ چھیویں پاتشاہی، چٹی گٹی",
- "گوردوارہ سری تلگنجی صاحب",
-]
+SHRINE_NAMES = {
+ # Keyed on the exact English Name, not positional.
+ #
+ # This was a bare list matched to _shrine_rows.json by index, with only a
+ # length assertion guarding it — so a reordered sheet would have silently
+ # renamed every shrine in the archive, and the build would still have
+ # reported "100% coverage". A dict cannot mis-assign.
+ #
+ # The 27 entries added 20 August 2026 are UNREVIEWED DRAFTS. They are
+ # Pakistani place and shrine names whose native script is Perso-Arabic, so
+ # writing them here restores the original spelling rather than translating
+ # it; conventions follow the existing entries ("Shrine of X" → مزارِ X,
+ # Gurdwara → گوردوارہ, Temple/Mandir → مندر, Darbar → دربار). Confidence is
+ # lower for the Sindhi Hindu darbars, where more than one spelling is
+ # current. See urdu-i18n/README.md and docs/TODO.md §0.
+ "Allo Mahar": "آلو مہار",
+ "Amb Temples (Amb Sharif)": "امب مندر (امب شریف)",
+ "Bari Imam": "باری امام",
+ "Bhagnari Mandir": "بھگناری مندر",
+ "Bhai Sant Thawan Das Mandir": "بھائی سنت تھاون داس مندر",
+ "Bhai Waliram Darbar": "بھائی والی رام دربار",
+ "Bhit (Bhit Shah)": "بھٹ (بھٹ شاہ)",
+ "Chandragup (Baba Chandragup)": "چندرا گپ (بابا چندرا گپ)",
+ "Churrio Jabal Durga Mata Temple": "چڑیو جبل درگا ماتا مندر",
+ "Darbar Abul Muali Qadri": "دربار ابو المعالی قادری",
+ "Darbar Ghamkol Sharif (Zinda Pir)": "دربار گھمکول شریف (زندہ پیر)",
+ "Darbar Ghazi Ilm Din Shaheed": "دربار غازی علم دین شہید",
+ "Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami":
+     "دربار حضرت خواجہ فیروز الدین غریب نواز چشتی نظامی",
+ "Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)":
+     "دربار حضرت خواجہ شاہ محمد سلیمان تونسوی (رحمۃ اللہ علیہ)",
+ "Darbar Hazrat Tahir Bandagi Qadri": "دربار حضرت طاہر بندگی قادری",
+ "Darbar Malik Ahmad Ayaz": "دربار ملک احمد ایاز",
+ "Darbar Sakhi Shah Chan Charagh": "دربار سخی شاہ چن چراغ",
+ "Darbar Wasif Ali Wasif": "دربار واصف علی واصف",
+ "Dargah / Roza Sufi Shah Inayat Shaheed": "درگاہ / روضہ صوفی شاہ عنایت شہید",
+ "Dargah Fateh Pur Sharif": "درگاہ فتح پور شریف",
+ "Dargah of Khwaja Muhammad Zaman (Luari Sharif)": "درگاہ خواجہ محمد زمان (لواری شریف)",
+ "Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth":
+     "درگاہ پیر محمد راشد (روزے دھنی)، پیر جو گوٹھ",
+ "Dargah Pir Ratan Nath Jee": "درگاہ پیر رتن ناتھ جی",
+ "Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)": "دریا لال مندر (دریا لال سنکٹ موچن مندر)",
+ "Data Darbar": "داتا دربار",
+ "Eidgah Sharif": "عیدگاہ شریف",
+ "Garh Maharaja (Shorkot)": "گڑھ مہاراجہ (شورکوٹ)",
+ "Golra Sharif": "گولڑہ شریف",
+ "Gorakhnath (Goraknath) Temple": "گورکھ ناتھ مندر",
+ "Gori Temple (Gori jo Mandar)": "گوری مندر (گوری جو مندر)",
+ "Gurdas Ram Mandir": "گرداس رام مندر",
+ "Gurdwara Babay De Ber": "گوردوارہ بابے دی بیر",
+ "Gurdwara Babay Nanki": "گوردوارہ بابے نانکی",
+ "Gurdwara Balila Sahib (Bal Lila Sahib)": "گوردوارہ بالیلا صاحب (بال لیلا صاحب)",
+ "Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore": "گوردوارہ باؤلی صاحب (گرو ارجن دیو جی)، لاہور",
+ "Gurdwara Bhai Beba Singh": "گوردوارہ بھائی بیبا سنگھ",
+ "Gurdwara Bhai Joga Singh": "گوردوارہ بھائی جوگا سنگھ",
+ "Gurdwara Chakki Sahib": "گوردوارہ چکی صاحب",
+ "Gurdwara Chhevin Patshahi, Chitti Gatti": "گوردوارہ چھیویں پاتشاہی، چٹی گٹی",
+ "Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)":
+     "گوردوارہ چھیویں پاتشاہی، جھلیاں (جھلیاں ڈھلواں)",
+ "Gurdwara Chhevin Patshahi, Mozang": "گوردوارہ چھیویں پاتشاہی، موزنگ",
+ "Gurdwara Choa Sahib": "گوردوارہ چوآ صاحب",
+ "Gurdwara Chowmala Sahib": "گوردوارہ چومالا صاحب",
+ "Gurdwara Darbar Sahib Kartarpur": "گوردوارہ دربار صاحب کرتارپور",
+ "Gurdwara Dash Mesh Pita": "گوردوارہ دشمیش پِتا",
+ "Gurdwara Dera Sahib": "گوردوارہ ڈیرہ صاحب",
+ "Gurdwara Guru Ram Das Ji": "گوردوارہ گرو رام داس جی",
+ "Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)":
+     "گوردوارہ کھوہی بھائی لالو (بھائی لالو دی کھوہی)",
+ "Gurdwara Malji Sahib": "گوردوارہ مالجی صاحب",
+ "Gurdwara Panja Sahib": "گوردوارہ پنجہ صاحب",
+ "Gurdwara Panjvi Chati Patshahi": "گوردوارہ پنجویں چھٹی پاتشاہی",
+ "Gurdwara Patshahi Chhevin (Hadiara), Lahore": "گوردوارہ پاتشاہی چھیویں (ہدیارہ)، لاہور",
+ "Gurdwara Patti Sahib": "گوردوارہ پٹی صاحب",
+ "Gurdwara Pehli Patshahi (Jind Pir), Sukkur": "گوردوارہ پہلی پاتشاہی (جند پیر)، سکھر",
+ "Gurdwara Rori Sahib": "گوردوارہ روڑی صاحب",
+ "Gurdwara Sach Khand Sahib": "گوردوارہ سچ کھنڈ صاحب",
+ "Gurdwara Sacha Sauda": "گوردوارہ سچا سودا",
+ "Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)": "گوردوارہ صاحب سید پور (گرو نانک دیو جی)",
+ "Gurdwara Shaheed Bhai Taru Singh": "گوردوارہ شہید بھائی تارو سنگھ",
+ "Gurdwara Shaheed Ganj Singh Singhnian": "گوردوارہ شہید گنج سنگھ سنگھنیاں",
+ "Gurdwara Singh Sabha": "گوردوارہ سنگھ سبھا",
+ "Gurdwara Sri Kiara Sahib": "گوردوارہ سری کیارہ صاحب",
+ "Gurdwara Sri Tilganji Sahib": "گوردوارہ سری تلگنجی صاحب",
+ "Gurdwara Tambo Sahib": "گوردوارہ ٹمبو صاحب",
+ "Guru Gurpat Mandir (DB-80 Sirey Ghat)": "گرو گرپت مندر (ڈی بی-80 سرے گھاٹ)",
+ "Gurudwara Janam Asthan Nankana Sahib": "گوردوارہ جنم استھان ننکانہ صاحب",
+ "Jagannath Temple, Sialkot": "جگن ناتھ مندر، سیالکوٹ",
+ "Jain Mandir, Lahore": "جین مندر، لاہور",
+ "Jhollay Lal Mandir": "جھولے لال مندر",
+ "Kalat Kali Temple": "قلات کالی مندر",
+ "Kali Bari Mandir": "کالی باری مندر",
+ "Kalka Cave Temple (Asthan of Kalka Devi)": "کالکا غار مندر (استھان کالکا دیوی)",
+ "Katas Raj Temples": "کٹاس راج مندر",
+ "Khatwari Darbar, Shikarpur": "کھٹواری دربار، شکارپور",
+ "Krishna Mandir (Kabari Bazar)": "کرشنا مندر (کباڑی بازار)",
+ "Krishna Mandir (Ravi Road)": "کرشنا مندر (راوی روڈ)",
+ "Lal Kurti Temple (Balmiki Mandir), Rawalpindi": "لال کرتی مندر (بالمیکی مندر)، راولپنڈی",
+ "Lal Shahbaz Qalandar": "لعل شہباز قلندر",
+ "Langer Makhdoom": "لنگر مخدوم",
+ "Loh Temple (Lava Temple)": "لوہ مندر (لاوا مندر)",
+ "Mausoleum of Waris Shah": "مقبرہ وارث شاہ",
+ "Mazar of Bulleh Shah": "مزارِ بلھے شاہ",
+ "Mithankot (Kot Mithan)": "مٹھن کوٹ (کوٹ مٹھن)",
+ "Mohra Sharif (Khanqah)": "موہڑہ شریف (خانقاہ)",
+ "Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)":
+     "ننگرپارکر جین مندر (ننگرپارکر ثقافتی منظرنامہ)",
+ "Panj Tirath": "پنج تیرتھ",
+ "Parnami Mandir": "پرنامی مندر",
+ "Prahladpuri Temple": "پرہلاد پوری مندر",
+ "Purana Bhalwal": "پرانا بھلوال",
+ "Rahman Baba Mausoleum (Rehman Baba Shrine)": "مقبرہ رحمان بابا (رحمان بابا مزار)",
+ "Ram Mandir, Saidpur (Ram Kund Mandir)": "رام مندر، سید پور (رام کنڈ مندر)",
+ "Ramapir Temple, Tando Allahyar": "رامہ پیر مندر، ٹنڈو الہ یار",
+ "Ranmal Sharif": "رانمل شریف",
+ "Sadh Belo (Sadh Belo Island Temple)": "سادھ بیلو (سادھ بیلو جزیرہ مندر)",
+ "Sain Vali Vilayat Rai Darbar, Kambar": "سائیں ولی ولایت رائے دربار، کمبر",
+ "Sakhi Sarwar": "سخی سرور",
+ "Samadhi of Maharaja Ranjit Singh": "سمادھی مہاراجہ رنجیت سنگھ",
+ "Sant Baba Asudaram Darbar (Panno Aqil)": "سنت بابا آسودا رام دربار (پنو عاقل)",
+ "Sant Baba Bhagat Ram Darbar Mandir": "سنت بابا بھگت رام دربار مندر",
+ "Sant Bhagat Kanwar Ram Temple (Chak)": "سنت بھگت کنور رام مندر (چک)",
+ "Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)":
+     "سنت ست رام دھام، راڑھکی (ساچو ست رام / دیوری صاحب)",
+ "Sevapanthi Darbar (Bhai Gurdas), Gandava": "سیوا پنتھی دربار (بھائی گرداس)، گنداوہ",
+ "Shah Noorani Shrine (Syed Bilawal Shah Noorani)": "مزارِ شاہ نورانی (سید بلاول شاہ نورانی)",
+ "Shah Yousuf": "شاہ یوسف",
+ "Shahwala Teja Singh Mandir": "شاہ والا تیجا سنگھ مندر",
+ "Shaktipeeth Shri Hinglaj Mata Mandir": "شکتی پیٹھ شری ہنگلاج ماتا مندر",
+ "Shamsabad": "شمس آباد",
+ "Sharada Peeth": "شاردا پیٹھ",
+ "Shergarh": "شیر گڑھ",
+ "Shiv Mandir Chiti Ghati": "شیو مندر چٹی گھاٹی",
+ "Shree Ratneshwar Mahadev Temple, Karachi": "شری رتنیشور مہادیو مندر، کراچی",
+ "Shri Laxmi Narayan Mandir (Native Jetty Bridge)": "شری لکشمی نارائن مندر (نیٹو جیٹی پل)",
+ "Shri Panchmukhi Hanuman Mandir (Karachi)": "شری پنچمکھی ہنومان مندر (کراچی)",
+ "Shri Swaminarayan Mandir, Karachi": "شری سوامی نارائن مندر، کراچی",
+ "Shri Varun Dev Mandir": "شری ورون دیو مندر",
+ "Shrine at Odero Lal (Udero Lal Teerath Asthan)": "اوڈیرو لال کا مقام (اُڈیرو لال تیرتھ استھان)",
+ "Shrine of Abdullah Shah Ghazi": "مزارِ عبداللہ شاہ غازی",
+ "Shrine of Abul Faiz Qalander Ali Suharwardi": "مزارِ ابو الفیض قلندر علی سہروردی",
+ "Shrine of Akhund Darweza Baba": "مزارِ آخوند درویزہ بابا",
+ "Shrine of Akhund Panju Baba": "مزارِ آخوند پنجو بابا",
+ "Shrine of Baba Shah Chiragh": "مزارِ بابا شاہ چراغ",
+ "Shrine of Baba Shah Kamal": "مزارِ بابا شاہ کمال",
+ "Shrine of Bahauddin Zakariya": "مزارِ بہاؤالدین زکریا",
+ "Shrine of Bibi Pak Daman": "مزارِ بی بی پاک دامن",
+ "Shrine of Fariduddin Ganjshakar": "مزارِ فرید الدین گنج شکر",
+ "Shrine of Ganj e Inayat Sarkar": "مزارِ گنجِ عنایت سرکار",
+ "Shrine of Hafiz Muhammad Jamal Multani": "مزارِ حافظ محمد جمال ملتانی",
+ "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)":
+     "مزارِ حضرت مادھو لال حسین (شاہ حسین دربار)",
+ "Shrine of Hazrat Muhammad Ayub Shah Bukhari": "مزارِ حضرت محمد ایوب شاہ بخاری",
+ "Shrine of Hazrat Shah Ali Akbar (Shah Ali Akbar Shamsi)":
+     "مزارِ حضرت شاہ علی اکبر (شاہ علی اکبر شمسی)",
+ "Shrine of Hazrat Shah Daula Daryai": "مزارِ حضرت شاہ دولہ دریائی",
+ "Shrine of Imam Ali-ul-Haq": "مزارِ امام علی الحق",
+ "Shrine of Jalaluddin Surkh-Posh Bukhari (Jalaluddin Bukhari)":
+     "مزارِ جلال الدین سرخ پوش بخاری (جلال الدین بخاری)",
+ "Shrine of Lakhi Shah Saddar": "مزارِ لکھی شاہ سدر",
+ "Shrine of Makhdoom Abdul Rahim Girhori": "مزارِ مخدوم عبدالرحیم گرہوڑی",
+ "Shrine of Makhdoom Jahaniyan Jahangasht": "مزارِ مخدوم جہانیاں جہاں گشت",
+ "Shrine of Makhdoom Nooh (Hala)": "مزارِ مخدوم نوح (ہالہ)",
+ "Shrine of Mauj Darya Bukhari": "مزارِ موج دریا بخاری",
+ "Shrine of Mian Mir": "مزارِ میاں میر",
+ "Shrine of Mian Umar Baba (Chamkani)": "مزارِ میاں عمر بابا (چمکنی)",
+ "Shrine of Miran Hussain Zanjani (Zanjani Sahib)": "مزارِ میراں حسین زنجانی (زنجانی صاحب)",
+ "Shrine of Peer Makki": "مزارِ پیر مکی",
+ "Shrine of Pir Baba (Syed Ali Tirmizi)": "مزارِ پیر بابا (سید علی ترمذی)",
+ "Shrine of Pir Chhatal Shah Noorani": "مزارِ پیر چھتل شاہ نورانی",
+ "Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi": "مزارِ پیر لاکھا (آبِ شفا)، جھل مگسی",
+ "Shrine of Pir Mangho": "مزارِ پیر منگھو",
+ "Shrine of Pir Sher Muhammad": "مزارِ پیر شیر محمد",
+ "Shrine of Qalandar Baba Auliya": "مزارِ قلندر بابا اولیاء",
+ "Shrine of Sachal Sarmast": "مزارِ سچل سرمست",
+ "Shrine of Shah Abdul Karim Bulri": "مزارِ شاہ عبدالکریم بلڑی",
+ "Shrine of Shah Inayat Qadiri": "مزارِ شاہ عنایت قادری",
+ "Shrine of Shah Jamal": "مزارِ شاہ جمال",
+ "Shrine of Shah Rukn-e-Alam": "مزارِ شاہ رکنِ عالم",
+ "Shrine of Shah Shams-ud-Din Sabzwari": "مزارِ شاہ شمس الدین سبزواری",
+ "Shrine of Shah Yusaf Gardez": "مزارِ شاہ یوسف گردیز",
+ "Shrine of Syed Musa Pak": "مزارِ سید موسیٰ پاک",
+ "Sial Sharif": "سیال شریف",
+ "Swami Dharmdas Darbar, Larkana (Kennedy Market)": "سوامی دھرم داس دربار، لاڑکانہ (کینیڈی مارکیٹ)",
+ "Tilla Jogian": "ٹلہ جوگیاں",
+ "Tomb of Allama Iqbal (Mazar-e-Iqbal)": "مقبرہ علامہ اقبال (مزارِ اقبال)",
+ "Tomb of Baha'al-Halim (Uch Sharif)": "مقبرہ بہاء الحلیم (اوچ شریف)",
+ "Tomb of Javindi Bibi": "مقبرہ بی بی جاوندی",
+ "Tomb of Qutbuddin Aibak": "مقبرہ قطب الدین ایبک",
+ "Tomb of Ustad Nuriya": "مقبرہ استاد نوریہ",
+ "Umarkot (Amarkot) Shiv Mandir": "عمرکوٹ (امرکوٹ) شیو مندر",
+ "Valmik Mandir (Naqi Road)": "والمیک مندر (نقی روڈ)",
+ "Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi":
+     "والمیکی سوامی جی مندر (گریسی لائنز)، راولپنڈی",
+ "Wadpagga Sharif": "واد پگہ شریف",
+ "Ziarat Kaka Sahib": "زیارت کاکا صاحب",
+}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 4. SAINTS (keyed by exact English string)
@@ -648,6 +782,30 @@ SAINTS = {
  "Pir Chhatal Shah Noorani": "پیر چھتل شاہ نورانی",
  "Pir Lakha": "پیر لاکھا",
  "Swami Dharmdas": "سوامی دھرم داس",
+ # ── Added 20 August 2026, when the row snapshot was refreshed from 143 to
+ # 169 rows and the coverage check finally saw the whole archive. Unreviewed
+ # drafts; see docs/TODO.md §0.
+ "Bhagat Kanwar Ram (1885–1939)": "بھگت کنور رام (1885ء–1939ء)",
+ "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak":
+     "بھائی گرداس (سیوا پنتھی روایت)؛ گرو نانک کی عقیدت",
+ "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh":
+     "بھائی گرداس سنگھ (کنہیا لال)، گرو گوبند سنگھ کے مرید",
+ "Guru Hargobind": "گرو ہرگوبند",
+ "Guru Hargobind (Sixth Guru / Chhevin Patshahi)": "گرو ہرگوبند (چھٹے گرو / چھیویں پاتشاہی)",
+ "Guru Nanak (First Guru / Pehli Patshahi)": "گرو نانک (پہلے گرو / پہلی پاتشاہی)",
+ "Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus)":
+     "حضرت واصف علی واصف اعوان (اصل نام محمد واصف اعوان؛ \"واصف\" اُن کا تخلص تھا)",
+ "Kali (deity)": "کالی (دیوی)",
+ "Makhdoom Abdul Rahim Girhori (1739–1778)": "مخدوم عبدالرحیم گرہوڑی (1739ء–1778ء)",
+ "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore":
+     "ملک احمد ایاز (بعض جگہ \"ملک ایاز احمد\" اور \"ملک ایاز\" بھی درج)، سروے کے مطابق محمود غزنوی کے غلام، وزیر اور لاہور کے گورنر",
+ "Pir Chhatal Shah Noorani (Pir Chatta)": "پیر چھتل شاہ نورانی (پیر چھتہ)",
+ "Sain Vali Vilayat Rai (b. 1825)": "سائیں ولی ولایت رائے (پیدائش 1825ء)",
+ "Sant Baba Asudaram \"Sakhi Baba\" (1895–1960)": "سنت بابا آسودا رام \"سخی بابا\" (1895ء–1960ء)",
+ "Satguru Swami Sai Satramdas Sahib (1866–1910)": "ستگرو سوامی سائیں ست رام داس صاحب (1866ء–1910ء)",
+ "Shiva (associated deity)": "شیو (متعلقہ دیوتا)",
+ "Swami Dharmdas (Nanakpanthi sant)": "سوامی دھرم داس (نانک پنتھی سنت)",
+ "Valmiki (Bhagwan Valmik)": "والمیکی (بھگوان والمیک)",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -767,6 +925,59 @@ FOUNDED = {
      "گرو نانک کی یادگار (سولہویں صدی کا اوائل)",
  "Commemorates Guru Nanak's stay in the early 16th century; gurdwara built later":
      "سولہویں صدی کے اوائل میں گرو نانک کے قیام کی یادگار؛ گوردوارہ بعد میں تعمیر",
+ # ── Added 20 August 2026 with the snapshot refresh (143 → 169 rows).
+ # Several of these are qualifying notes rather than dates — "1024 AH (as
+ # given in the form; not a construction date)" — and CLAUDE.md RULE 2 calls
+ # that the most honest content in the archive. The hedge is translated, not
+ # tidied away. Unreviewed drafts.
+ "1024 AH (as given in the form; not a construction date)":
+     "1024ھ (فارم میں یہی درج ہے؛ یہ تعمیر کی تاریخ نہیں)",
+ "1041 (as given: \"8 August 1041\")": "1041 (جیسا درج ہے: \"8 اگست 1041\")",
+ "1359 (site/settlement); present dargah c. 1940 (after Syed Rakhyal Shah's death)":
+     "1359 (مقام/آبادی)؛ موجودہ درگاہ تقریباً 1940 (سید رکھیل شاہ کی وفات کے بعد)",
+ "1619 (commemorated event); original structure raised under Maharaja Ranjit Singh (early 19th c.); present building rebuilt 1926 by Sardar Mehar Singh":
+     "1619 (یادگاری واقعہ)؛ اصل عمارت مہاراجہ رنجیت سنگھ کے عہد میں (اوائل انیسویں صدی)؛ موجودہ عمارت 1926 میں سردار مہر سنگھ نے دوبارہ بنوائی",
+ "1630 CE (8 Muharram 1040 AH)": "1630ء (8 محرم 1040ھ)",
+ "17th century (Guru Hargobind's visit and Bhai Jiwan's conversion of his house into a gurdwara); hall enlarged 1915":
+     "سترہویں صدی (گرو ہرگوبند کی آمد اور بھائی جیون کا اپنے گھر کو گوردوارے میں بدلنا)؛ ہال 1915 میں وسیع کیا گیا",
+ "18th century (c. 1725–1750)": "اٹھارہویں صدی (تقریباً 1725–1750)",
+ "18th century (c. 1728, per figure's death; a field survey separately gives 1141 AH)":
+     "اٹھارہویں صدی (تقریباً 1728، بزرگ کی وفات کے حساب سے؛ ایک فیلڈ سروے الگ سے 1141ھ دیتا ہے)",
+ "18th century (saint d. 1778)": "اٹھارہویں صدی (بزرگ کی وفات 1778)",
+ "18th–19th century (Sevapanthi foundation; exact date uncertain)":
+     "اٹھارہویں–انیسویں صدی (سیوا پنتھی بنیاد؛ متعین تاریخ غیر یقینی)",
+ "1931 (present darbar building); Baba Gurpat Sahib active in Hyderabad c. 1830-1877":
+     "1931 (موجودہ دربار کی عمارت)؛ بابا گرپت صاحب حیدرآباد میں تقریباً 1830–1877 فعال رہے",
+ "1940 (Darbar Sahib established by Sant Asudaram)": "1940 (دربار صاحب سنت آسودا رام نے قائم کیا)",
+ "Commemorates Guru Hargobind's 1613 visit; Guru Arjan Dev's association with the site is traditional and undated":
+     "گرو ہرگوبند کی 1613 کی آمد کی یادگار؛ گرو ارجن دیو کا اِس مقام سے تعلق روایتی ہے اور غیر مؤرخ",
+ "Late 19th–early 20th century (era of Sant Satramdas, 1866–1910)":
+     "اواخر انیسویں–اوائل بیسویں صدی (سنت ست رام داس کا زمانہ، 1866–1910)",
+ "Late 19th–early 20th century (uncertain)": "اواخر انیسویں–اوائل بیسویں صدی (غیر یقینی)",
+ "Mid–late 19th century (founder b. 1825)": "وسط–اواخر انیسویں صدی (بانی کی پیدائش 1825)",
+ "Natural site; veneration is of unrecorded antiquity, attested in the living Hinglaj pilgrimage tradition":
+     "قدرتی مقام؛ عقیدت کی قدامت درج نہیں، مگر ہنگلاج کی زندہ زیارتی روایت میں اِس کی شہادت موجود ہے",
+ "November 27, 1981 CE / 1402 AH": "27 نومبر 1981ء / 1402ھ",
+ "Recent (built within the last decade or so, replacing an unlocated pre-Partition gurdwara)":
+     "حالیہ (گزشتہ ایک دہائی کے دوران تعمیر، تقسیم سے پہلے کے ایک غیر متعین گوردوارے کی جگہ)",
+ "Traditional founding date uncertain/legendary (accounts range from antiquity to the 11th–12th century CE); abandoned 1947":
+     "روایتی تاریخِ بنیاد غیر یقینی/روایتی (بیانات قدیم زمانے سے گیارہویں–بارہویں صدی عیسوی تک پھیلے ہیں)؛ 1947 میں متروک",
+ "Traditionally linked to Guru Nanak's third udasi (early 16th century)":
+     "روایتاً گرو نانک کی تیسری اُداسی سے منسوب (اوائل سولہویں صدی)",
+ "Traditionally linked to a visit of Guru Hargobind (early 17th century); present structure colonial-era":
+     "روایتاً گرو ہرگوبند کی ایک آمد سے منسوب (اوائل سترہویں صدی)؛ موجودہ عمارت نوآبادیاتی دور کی",
+ "Undocumented": "غیر دستاویزی",
+ "Unknown": "نامعلوم",
+ "Unknown (recorded 1831; traditionally centuries old)":
+     "نامعلوم (1831 میں درج؛ روایتاً صدیوں پرانا)",
+ "after 1939 (rebuilt 2006)": "1939 کے بعد (2006 میں دوبارہ تعمیر)",
+ "c. 1620 (visit of Guru Hargobind); present structure later":
+     "تقریباً 1620 (گرو ہرگوبند کی آمد)؛ موجودہ عمارت بعد کی",
+ "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653":
+     "تقریباً 1661 (مقبرہ، اُن کے صاحبزادے نے بنوایا)؛ بزرگ کی روایتی پیدائش 1575ء، وفات 1653",
+ "c. 1849 (mid-19th century)": "تقریباً 1849 (وسط انیسویں صدی)",
+ "traditionally said to be about 1,500 years old (Sewa dynasty, pre-Islamic era); exact date unknown":
+     "روایتاً تقریباً 1,500 سال پرانا کہا جاتا ہے (سیوا خاندان، قبل از اسلام دور)؛ متعین تاریخ نامعلوم",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -800,9 +1011,33 @@ def translate_segment(seg):
             return f"{a} ({b})"
     return None  # signal: unknown
 
+# A Location that is a paragraph rather than an address. Six rows are like
+# this, because a field survey that can only place a shrine as "Lahore" says so
+# at length — deliberate, honest content (CLAUDE.md RULE 2) that must not be
+# edited. Their commas are sentence commas, so comma-splitting them yields
+# sentence fragments, not place names. `extractRegion` in
+# src/lib/data/shrineModel.ts had exactly this bug and surfaced
+# "not the grave's exact position." as a map filter option.
+#
+# Detected structurally rather than by a hardcoded list of rows: a place name is
+# short and carries no sentence punctuation. These are reported separately and
+# never counted as missing place tokens — a token dictionary is the wrong tool
+# for a paragraph, and pretending otherwise would either fail the build forever
+# or fill the dictionary with half-sentences.
+def is_prose_location(loc):
+    if len(loc) > 160:
+        return True
+    return bool(re.search(r"[.;](?:\s|$)", loc)) and len(loc.split()) > 12
+
+
 def translate_location(loc):
     # normalise the one row that already contains an Arabic comma
     loc = loc.replace("،", ",")
+    if is_prose_location(loc):
+        # Left in English; the UI wraps it in <bdi> so the RTL page renders it
+        # correctly. Translating it belongs to the article-content pipeline,
+        # not to a place-token map.
+        return loc, []
     parts = [p for p in re.split(r"\s*,\s*", loc) if p.strip()]
     out, unknown = [], []
     for p in parts:
@@ -841,8 +1076,16 @@ def load_glossary():
 # ─────────────────────────────────────────────────────────────────────────────
 def build(rows, glossary):
     """Compose the structured dictionary and flat runtime seed from the data above."""
-    assert len(NAME_LIST) == len(rows), f"name count {len(NAME_LIST)} != rows {len(rows)}"
-    names_map = {rows[i]["name"]: NAME_LIST[i] for i in range(len(rows))}
+    unnamed = [r["name"] for r in rows if r["name"] not in SHRINE_NAMES]
+    if unnamed:
+        raise SystemExit(
+            "[build_dictionary] ERROR — no Urdu name for %d shrine(s):\n  %s\n"
+            "Add them to SHRINE_NAMES in this file. (The dictionary used to be a\n"
+            "positional list validated against a stale 143-row snapshot, so 27\n"
+            "shrines had no Urdu name while the build reported 100%% coverage.)"
+            % (len(unnamed), "\n  ".join(unnamed))
+        )
+    names_map = {r["name"]: SHRINE_NAMES[r["name"]] for r in rows}
 
     # locations
     loc_unique = sorted({r["location"] for r in rows if r["location"]})

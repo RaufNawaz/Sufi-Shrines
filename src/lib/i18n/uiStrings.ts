@@ -36,6 +36,18 @@ export const UI_TEXT = {
     getDirections: 'Get Directions',
     relatedShrines: 'Related Shrines',
     nearbyShrines: 'Nearby Shrines',
+    sharedGroundHeading: 'Shared ground',
+    sharedGroundIntro: (sites: number, traditions: number) =>
+      `${sites} other site${sites === 1 ? '' : 's'} within walking distance, ` +
+      `${traditions} of them in another tradition.`,
+    sharedGroundIntroSame: (sites: number) =>
+      `${sites} other site${sites === 1 ? '' : 's'} within walking distance.`,
+    sharedGroundNote:
+      'Sites recorded within 800 m of this one. For much of Punjab and Sindh these communities built on the same streets.',
+    sharedGroundSamePin: 'same recorded location',
+    sharedGroundSamePinHelp:
+      'The survey gives no separate position for these, so they share one pin. The distance between them is not recorded.',
+    distanceMetres: 'm away',
     shrineFacts: 'Shrine facts',
     distanceKm: 'km away',
     noImage: 'No image found. Add an "Image Link" value in your sheet.',
@@ -305,6 +317,16 @@ export const UI_TEXT = {
     getDirections: 'راستہ حاصل کریں',
     relatedShrines: 'متعلقہ مزارات',
     nearbyShrines: 'قریبی مزارات',
+    sharedGroundHeading: 'مشترکہ زمین',
+    sharedGroundIntro: (sites: number, traditions: number) =>
+      `پیدل فاصلے پر ${sites} دیگر مقامات، جن میں سے ${traditions} کسی اور روایت سے تعلق رکھتے ہیں۔`,
+    sharedGroundIntroSame: (sites: number) => `پیدل فاصلے پر ${sites} دیگر مقامات۔`,
+    sharedGroundNote:
+      'اِس مقام سے 800 میٹر کے اندر درج مقامات۔ پنجاب اور سندھ کے بڑے حصے میں یہ برادریاں ایک ہی گلی کوچے میں آباد رہیں۔',
+    sharedGroundSamePin: 'ایک ہی درج مقام',
+    sharedGroundSamePinHelp:
+      'سروے اِن کے لیے الگ مقام نہیں دیتا، اِس لیے یہ ایک ہی نشان رکھتے ہیں۔ اِن کے درمیان فاصلہ درج نہیں۔',
+    distanceMetres: 'میٹر کے فاصلے پر',
     shrineFacts: 'مزار کی اہم باتیں',
     distanceKm: 'کلومیٹر دور',
     noImage: 'تصویر نہیں ملی۔ اپنی شیٹ میں "Image Link" شامل کریں۔',
@@ -563,6 +585,13 @@ export function tFn(
 ): string;
 export function tFn(
   lang: Lang,
+  key: 'sharedGroundIntro',
+  sites: number,
+  traditions: number,
+): string;
+export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
+export function tFn(
+  lang: Lang,
   key:
     | 'resultCount'
     | 'stopOf'
@@ -572,7 +601,9 @@ export function tFn(
     | 'orderMemberCount'
     | 'orderBranchCount'
     | 'orderMultiCount'
-    | 'graphFigureFilterCount',
+    | 'graphFigureFilterCount'
+    | 'sharedGroundIntro'
+    | 'sharedGroundIntroSame',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
