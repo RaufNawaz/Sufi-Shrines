@@ -1,4 +1,62 @@
-# To-do — as of 18 August 2026
+# To-do — as of 21 August 2026
+
+## 0a. Session log — 21 August 2026: A8 step 2 finished
+
+**All 74 Urdu deltas are translated. `urdu-i18n/a8-scope.json` now reads 0 delta entries.**
+Commits `25150d6` (16 largest), `090b30d` (20), `8b9621e` (the last 38); `npm run verify` green
+throughout (426 tests). Every file is **`reviewed=false`** — the Urdu prose still needs a human
+reader before any of it counts as done (RULE 2).
+
+**What is left of A8:** step 3 only — the three full translations still waiting on
+`docs/EDITORIAL_DECISIONS_PENDING.md` (`darbar-abul-muali-qadri`, `darbar-malik-ahmad-ayaz`,
+`darbar-mian-qurban-ali-shah`). That is blocked on a decision, not on work.
+
+**Needs you, and it is the highest-value thing on this list:** *read some of the Urdu.* There
+are now 168 Urdu articles in `urdu-i18n/content/`, none of them reviewed by a human. The eight
+worth reading first, because they carry the most new prose and the highest traffic:
+`shrine-of-mauj-darya-bukhari`, `shrine-of-shah-jamal`, `shrine-of-shah-inayat-qadiri`,
+`shrine-of-peer-makki`, `data-darbar`, `shrine-of-bibi-pak-daman`,
+`tomb-of-allama-iqbal-mazar-e-iqbal`, `allo-mahar`.
+
+**Three editorial fixes made while in the files** — all cases of the Urdu asserting something
+the English no longer says, which is a failure mode a purely additive delta pass would miss:
+
+- `allo-mahar` — the English **retracted** its Faiz-ul-Hassan Shah biography (identification
+  unresolved between two figures; bibliography withdrawn as unreliable). The Urdu still carried
+  all five sections of the withdrawn biography. Now matches the retraction.
+- `gurdwara-tambo-sahib` — told the standing-shadow sakhi as its own; the English attributes it
+  to Gurdwara Mal Ji Sahib and calls it "often-conflated."
+- `gurdwara-rori-sahib` — stated the Bhai Lalo / Malik Bhago episode flatly; the English ties it
+  specifically to Gurdwara Khuhi Bhai Lalo.
+
+**Two mistranslations and one unsourced claim, fixed:** `shrine-of-peer-makki` rendered "Data
+Ganj Bakhsh" as **دیوان** گنج بخش throughout (Data, not Diwan; grep confirmed no other file did
+it), `loh-temple-lava-temple` wrote the Walled City of Lahore Authority as **واجد** سٹی, and
+`kalat-kali-temple` opened with "far from Quetta", which appears nowhere in its English.
+`darbar-ghamkol-sharif-zinda-pir` looked like the same class of error — a founder's name the
+English never gives — and is not: it is the row's own `principal_figure`. Check the row before
+"fixing" a name.
+
+**Two gates added** (`urdu-i18n/build_urdu_content.py` now refuses to write on either):
+a `## heading` with no blank line before it — markdown folds it into the previous paragraph, so
+the section vanishes from the article and the contents nav with nothing erroring, which happened
+five times in one sitting — and an odd number of `*` in a file.
+
+**Tooling:** `pipeline/a8_urdu_delta.py` gained `--snapshot` (the published sheet is unreachable
+from the web sandbox: the agent proxy 403s `docs.google.com`, and `--offline`'s CSV is
+gitignored, so neither path ran in a fresh clone). It also now names rows the loaded source
+dropped in `rows_not_in_source`, and stamps `generated` from the clock only when the buckets
+change instead of hardcoding a date. `urdu-i18n/update_log.py` deliberately got *no* snapshot
+fallback — its denominator must be the full 171 rows — but now says so instead of raising
+`FileNotFoundError`. **`urdu-i18n/TRANSLATION_LOG.md` was therefore not regenerated this
+session; run `npm run urdu:build` from a machine that can reach the sheet.** Its numbers are
+unchanged (168/171 translated) since the deltas were edits to existing files.
+
+Full detail in `docs/planning/A8_URDU_DELTA_SCOPE.md` (21 August note) and `docs/HANDOVER.md` §9.
+
+---
+
+# To-do — as of 18 August 2026 (superseded above; kept for the record)
 
 > **18 August: the sheet import is DONE.** The live published sheet now serves 171 rows /
 > 44 columns with `support_level` populated; §1 below is closed and kept only for the record.

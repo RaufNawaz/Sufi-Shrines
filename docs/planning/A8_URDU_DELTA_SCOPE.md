@@ -11,13 +11,62 @@
 > gates green; `npm run verify` green (259 tests). All five are **`reviewed=false`** — a human
 > still has to read the Urdu prose (RULE 2).
 > Scope now reads **3 full / 74 delta / 94 no-action**. The remaining 3 are the
-> editorial-decision-blocked ones (step 3). **Next: step 2, the 74 deltas, largest first.**
+> editorial-decision-blocked ones (step 3). Next was step 2, the 74 deltas, largest first —
+> now done; see the 21 August note below.
 > Two measurement bugs found and fixed while doing this — see the tables' note below and
 > `docs/HANDOVER.md` §9.
+
+> **Progress, 21 August 2026: step 2 is DONE. All 74 deltas are cleared** — the scope now
+> reads **0 delta entries / 0 added chars**, from 74 / 61,635 when it was measured. Three
+> commits: `25150d6` (16 largest), `090b30d` (20), `8b9621e` (the last 38). All are
+> **`reviewed=false`**; a human still has to read the Urdu prose (RULE 2). `npm run verify`
+> green throughout (426 tests). **What is left of A8 is step 3 only**, and it is still blocked
+> on `docs/EDITORIAL_DECISIONS_PENDING.md`: `darbar-abul-muali-qadri`,
+> `darbar-malik-ahmad-ayaz`, `darbar-mian-qurban-ali-shah`.
+>
+> Three things that batch established, in order of how much time they will save:
+>
+> 1. **The delta count does not move when you translate. It moves when you advance the
+>    baseline.** `added_chars` is measured against `urdu-i18n/_english_descriptions.json`, so
+>    a finished translation still reports as outstanding until that file's `desc` for the slug
+>    is replaced with the English it was translated from. This is the same trap in a new
+>    costume as the 18 August one recorded below (translating five entries made the remaining
+>    work appear to *grow*). Advance the baseline in the same commit as the translation.
+> 2. **A `## heading` appended without a blank line before it silently disappears.** Markdown
+>    folds it into the preceding paragraph, so the section vanishes from the article *and* from
+>    the contents nav, and nothing errors. This happened five times in one sitting, from
+>    `cat >>` onto files with no trailing newline. `build_urdu_content.py` now refuses to write
+>    when it sees one (and on an odd number of `*`).
+> 3. **Paragraph-level diffs hide small deltas.** For the 38 entries under ~800 added chars,
+>    most of the real change was a clause inside an existing sentence, while the paragraph-level
+>    diff marked whole paragraphs as rewritten because the `=====` artefact's removal re-flowed
+>    them. A sentence-level set difference (current English minus baseline, with a 0.93-ratio
+>    near-match filter to separate "reworded" from "new") is what made those legible.
+>
+> And the finding that mattered most editorially: **three entries had Urdu asserting what the
+> English had withdrawn.** `allo-mahar`'s English retracted its entire Faiz-ul-Hassan Shah
+> biography in favour of an explicit "which of two figures is this?" note with the bibliography
+> withdrawn as unreliable — and the Urdu still carried all five sections of the withdrawn
+> biography. `gurdwara-tambo-sahib` and `gurdwara-rori-sahib` each told a sakhi as their own
+> that the English now attributes to a neighbouring shrine. A delta pass is therefore not only
+> additive: **check what the English has removed, not just what it has added.**
 
 Regenerate any time: `python3 pipeline/a8_urdu_delta.py` (add `--check` to assert the
 committed scope still matches the live sheet; it exits non-zero if not).
 Machine-readable per-entry lists: **`urdu-i18n/a8-scope.json`**.
+
+**Running it without the sheet.** The published sheet is unreachable from the Claude Code web
+sandbox — the agent proxy answers `403` to `docs.google.com` (measured 21 August 2026) — and
+`--offline`'s CSV (`data/shrines_final_import_2026-08-16.csv`) is gitignored, so it is absent in
+a fresh clone. Use **`--snapshot`**, which reads the committed `data/shrines.json`. One caveat,
+stated in the script and in the file it writes: the snapshot holds **169 of the sheet's 171
+rows**, because `build-dataset` drops rows with empty coordinates. The two it drops
+(`darbar-hazrat-shah-gohar-peer`, `darbar-mian-qurban-ali-shah`) are named in the scope file's
+new `rows_not_in_source` field rather than silently vanishing from every bucket — which is why
+`full_translation` reads 2 there and 3 against the live sheet. `update_log.py` deliberately has
+*no* snapshot fallback: its coverage denominator must be the full 171 rows, and counting against
+169 would both misreport the percentage and flag the two dropped rows' existing Urdu as orphaned.
+It now says so instead of raising `FileNotFoundError`.
 
 ---
 
@@ -81,14 +130,14 @@ decided — otherwise the Urdu prose has to be redone when the English framing c
 
 ## Sequencing (recommended)
 
-1. **5 of the 8 full translations** — the ones with no editorial questions outstanding
-   (`tahir-bandagi-qadri`, `khawaja-feroz-ud-din`, `wasif-ali-wasif`, `ghazi-ilm-din-shaheed`,
-   `shah-gohar-peer`).
-2. **The 74 deltas**, largest first — `urdu-i18n/a8-scope.json` is pre-sorted by `added_chars`.
-   The top of that list (`shrine-of-mauj-darya-bukhari` +3,001, `shrine-of-shah-jamal` +2,579,
-   `shrine-of-shah-inayat-qadiri` +2,213, `shrine-of-peer-makki` +1,998) is where a reader
-   actually notices the gap.
-3. **The remaining 3 full translations**, once the editorial policy is settled.
+1. ~~**5 of the 8 full translations**~~ — done 18 August (`tahir-bandagi-qadri`,
+   `khawaja-feroz-ud-din`, `wasif-ali-wasif`, `ghazi-ilm-din-shaheed`, `shah-gohar-peer`).
+2. ~~**The 74 deltas**, largest first~~ — done 21 August, all 74. `urdu-i18n/a8-scope.json`
+   was pre-sorted by `added_chars`; working it in that order put the four a reader actually
+   notices (`mauj-darya-bukhari` +3,001, `shah-jamal` +2,579, `shah-inayat-qadiri` +2,213,
+   `peer-makki` +1,998) first, and the long tail of sub-800-char clause-level drift last.
+3. **The remaining 3 full translations**, once the editorial policy is settled. ← *the only
+   step still open, and it is blocked on a human, not on work.*
 
 ## Conventions that apply (verified against the pipeline, not assumed)
 
