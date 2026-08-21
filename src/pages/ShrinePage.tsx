@@ -33,6 +33,7 @@ import { getSaintsForShrine } from '../lib/kg';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
+import { useSavedShrines, toggleSaved } from '../lib/savedShrines';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -51,6 +52,8 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const { lang, t, localizeField, fmtNum } = useLang();
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
+  const saved = useSavedShrines();
+  const isShrineSaved = saved.includes(shrine.slug);
   // Move focus to the heading so screen readers announce the shrine name on navigation
   const headingRef = useFocusHeadingOnMount();
 
@@ -207,6 +210,27 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
           </svg>
           {t('share')}
+        </button>
+        <button
+          className={`action-btn${isShrineSaved ? ' action-btn--active' : ''}`}
+          onClick={() => toggleSaved(shrine.slug)}
+          aria-pressed={isShrineSaved}
+          title={t('saveShrineFull')}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill={isShrineSaved ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          {isShrineSaved ? t('savedLabel') : t('saveShrine')}
         </button>
       </div>
 

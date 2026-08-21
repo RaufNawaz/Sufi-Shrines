@@ -247,6 +247,14 @@
   font-weight: 600;
 }
 
+/* Saved-state of the bookmark action: quiet fill, not a color shout —
+   aria-pressed carries the semantics, this just confirms it visually. */
+.action-btn--active {
+  background: var(--color-bg-alt);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
 /* The shrine's own almanac slice — same quiet idiom as the citation block:
    hairline rule, prominent date, the source always shown beside the
    projection so a reader can check the arithmetic. */

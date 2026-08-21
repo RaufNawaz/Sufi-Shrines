@@ -83,6 +83,8 @@ describe('no English leaks in ?lang=ur', () => {
         activeCategories={[]}
         onCategoriesChange={noop}
         verifiedOnly={false}
+        savedOnly={false}
+        onSavedOnlyChange={() => {}}
         onVerifiedOnlyChange={noop}
         activeRegion=""
         onRegionChange={noop}
