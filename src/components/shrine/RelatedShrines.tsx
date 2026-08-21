@@ -34,7 +34,7 @@ export function RelatedShrines({ shrine, all }: Props) {
           const dist = haversineKm(shrine.latLng, s.latLng);
 
           return (
-            <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card">
+            <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card hover-lift">
               <ShrineImage
                 src={s.imageUrl}
                 alt={name}

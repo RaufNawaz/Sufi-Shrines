@@ -1,0 +1,244 @@
+import React, { useCallback, useMemo } from 'react';
+import type { Shrine } from '../../types/shrine';
+import { useLang } from '../../lib/i18n/LanguageContext';
+import { translateToUrdu } from '../../lib/i18n/urduFallback';
+import { CATEGORY_LABELS, CATEGORY_ORDER, categoryKey } from '../../lib/data/categoryKey';
+import type { CategoryKey } from '../../lib/data/categoryKey';
+import { TimeSlider } from './TimeSlider';
+
+/**
+ * The filter controls for the archive — one component, two homes.
+ *
+ * These chips lived inline in `MapSidebar`, which was fine while the sidebar
+ * was the only place a reader could filter. The command palette needs exactly
+ * the same controls behind its filters button, and two copies of a filter UI is
+ * how a filter ends up working in one place and not the other. So the JSX moved
+ * here unchanged — same class names, so every existing selector and e2e test
+ * still finds it — and both surfaces render this.
+ *
+ * It owns no state. Every value and setter is a prop, because the filter state
+ * lives in `MapPage` (the map, the list and the palette all read it) and a
+ * component that kept its own copy would drift from the map on the first
+ * interaction.
+ */
+export interface ShrineFiltersProps {
+  shrines: Shrine[];
+  activeCategories: CategoryKey[];
+  onCategoriesChange: (categories: CategoryKey[]) => void;
+  verifiedOnly: boolean;
+  onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
+  activeRegion: string;
+  onRegionChange: (region: string) => void;
+  activeSaint: string;
+  onSaintChange: (saint: string) => void;
+  eraMin: number;
+  eraMax: number;
+  onEraChange: (range: [number, number]) => void;
+  /** Whether the saint/era/provenance group is open. Lifted, so the palette and
+   *  the sidebar each remember their own disclosure without fighting. */
+  filtersExpanded: boolean;
+  onFiltersExpandedChange: (expanded: boolean) => void;
+  hasMoreFiltersActive: boolean;
+}
+
+export function ShrineFilters({
+  shrines,
+  activeCategories,
+  onCategoriesChange,
+  verifiedOnly,
+  onVerifiedOnlyChange,
+  activeRegion,
+  onRegionChange,
+  activeSaint,
+  onSaintChange,
+  eraMin,
+  eraMax,
+  onEraChange,
+  filtersExpanded,
+  onFiltersExpandedChange,
+  hasMoreFiltersActive,
+}: ShrineFiltersProps) {
+  const { lang, t, localizeField, fmtNum } = useLang();
+
+  const categories = useMemo(() => {
+    const present = new Set(shrines.map((s) => categoryKey(s.category)));
+    return CATEGORY_ORDER.filter((key) => present.has(key));
+  }, [shrines]);
+
+  const regions = useMemo(() => {
+    const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
+    return Array.from(regs).sort();
+  }, [shrines]);
+
+  const saints = useMemo(() => {
+    const saintSet = new Set(shrines.map((s) => s.sufiSaint).filter(Boolean));
+    return Array.from(saintSet).sort();
+  }, [shrines]);
+
+  // Additive toggle — selecting chips accumulates categories (kept in
+  // canonical order); an empty selection means all categories are shown.
+  const toggleCategory = useCallback(
+    (key: CategoryKey) => {
+      onCategoriesChange(
+        activeCategories.includes(key)
+          ? activeCategories.filter((k) => k !== key)
+          : CATEGORY_ORDER.filter((k) => k === key || activeCategories.includes(k)),
+      );
+    },
+    [activeCategories, onCategoriesChange],
+  );
+
+  const setFiltersExpanded = (fn: (v: boolean) => boolean) =>
+    onFiltersExpandedChange(fn(filtersExpanded));
+
+  return (
+    <>
+      {/* Category chips — additive: each chip toggles its category into
+          the selection; no selection = all categories shown. */}
+      {categories.length > 1 && (
+        <div className="filter-section">
+          <div className="filter-chips" role="group" aria-label={t('ariaFilterByCategory')}>
+            <button
+              className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
+              onClick={() => onCategoriesChange([])}
+              aria-pressed={activeCategories.length === 0}
+            >
+              {t('filterAll')}
+            </button>
+            {categories.map((key) => (
+              <button
+                key={key}
+                className={`filter-chip${activeCategories.includes(key) ? ' active' : ''}`}
+                onClick={() => toggleCategory(key)}
+                aria-pressed={activeCategories.includes(key)}
+              >
+                {CATEGORY_LABELS[key][lang]}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Region chips */}
+      {regions.length > 1 && (
+        <div className="filter-section">
+          <span className="filter-section-label" aria-hidden="true">
+            {t('filterByRegion')}
+          </span>
+          <div className="filter-chips" role="group" aria-label={t('ariaFilterByRegion')}>
+            <button
+              className={`filter-chip${!activeRegion ? ' active' : ''}`}
+              onClick={() => onRegionChange('')}
+              aria-pressed={!activeRegion}
+            >
+              {t('filterAll')}
+            </button>
+            {regions.map((reg) => (
+              <button
+                key={reg}
+                className={`filter-chip${activeRegion === reg ? ' active' : ''}`}
+                onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
+                aria-pressed={activeRegion === reg}
+              >
+                {lang === 'ur' ? translateToUrdu(reg) : reg}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* More filters disclosure: saint + era, collapsed by default so
+          category chips and the shrine list get more default room. */}
+      <div className="filter-section">
+        <button
+          type="button"
+          className={`more-filters-toggle${filtersExpanded ? ' active' : ''}`}
+          onClick={() => setFiltersExpanded((v) => !v)}
+          aria-expanded={filtersExpanded}
+        >
+          <svg
+            className="more-filters-chevron"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          {t('moreFiltersLabel')}
+          {hasMoreFiltersActive && (
+            <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
+          )}
+        </button>
+      </div>
+
+      {filtersExpanded && (
+        <>
+          {/* Saint chips */}
+          {saints.length > 1 && (
+            <div className="filter-section">
+              <span className="filter-section-label" aria-hidden="true">
+                {t('saintLabel')}
+              </span>
+              <div className="filter-chips" role="group" aria-label={t('ariaFilterBySaint')}>
+                <button
+                  className={`filter-chip${!activeSaint ? ' active' : ''}`}
+                  onClick={() => onSaintChange('')}
+                  aria-pressed={!activeSaint}
+                >
+                  {t('filterAll')}
+                </button>
+                {saints.map((saint) => {
+                  const label =
+                    localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
+                    saint;
+                  return (
+                    <button
+                      key={saint}
+                      className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
+                      onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
+                      aria-pressed={activeSaint === saint}
+                      /* Several of these values are qualified names running
+                         past 100 characters — real content, and the join key
+                         that matches rows, so the chip clamps its display and
+                         keeps the whole string here instead. */
+                      title={label}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Time-slider by founding era */}
+          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+
+          {/* Provenance (support_level) — show only field-verified sites.
+              Describes how the info was gathered, never a site's importance. */}
+          <div className="filter-section">
+            <span className="filter-section-label" aria-hidden="true">
+              {t('provenanceFilterLabel')}
+            </span>
+            <div className="filter-chips" role="group" aria-label={t('ariaFilterByProvenance')}>
+              <button
+                className={`filter-chip${verifiedOnly ? ' active' : ''}`}
+                onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
+                aria-pressed={verifiedOnly}
+                title={t('supportLevelTooltip')}
+              >
+                {t('verifiedOnlyFilter')}
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  );
+}

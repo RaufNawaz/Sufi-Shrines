@@ -49,6 +49,104 @@
   animation-delay: min(calc(var(--stagger-index, 0) * var(--stagger-step)), var(--stagger-max));
 }
 
+/* ── Hover: the shared card lift ──────────────────────────────────────────────
+ *
+ * Every card-like surface in the archive — a tour, a place's site row, a related
+ * shrine, a palette result — used a different hover treatment or none: some
+ * changed border colour, some changed ground, one changed nothing. This is one
+ * vocabulary: rise 2px, deepen the shadow, keep the border.
+ *
+ * A transition rather than keyframes, and transform/box-shadow rather than
+ * `top`/`margin`, so it runs on the compositor and cannot reflow the list under
+ * the cursor. Reduced motion keeps the shadow (it carries the affordance) and
+ * drops the movement.
+ */
+.hover-lift {
+  transition:
+    transform var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing);
+}
+
+.hover-lift:hover,
+.hover-lift:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* A pressed card should feel pressed, not stuck mid-lift. */
+.hover-lift:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift:hover,
+  .hover-lift:focus-visible,
+  .hover-lift:active {
+    transform: none;
+  }
+}
+
+/* ── Attention: one pulse, on the thing that just changed ────────────────────
+ *
+ * Used when the *app* moves the reader rather than the reader moving: selecting
+ * a shrine from the palette flies the map and opens a preview, and without a
+ * cue the reader has to work out which of 169 markers is now the subject. One
+ * ring, once — a repeating pulse on a map is a tooltip that never stops
+ * talking.
+ */
+@keyframes pulse-once {
+  from {
+    box-shadow: 0 0 0 0 var(--color-primary);
+  }
+  to {
+    box-shadow: 0 0 0 14px rgba(0, 0, 0, 0);
+  }
+}
+
+.pulse-once {
+  animation: pulse-once var(--duration-slow) var(--easing) 2 both;
+}
+
+/* ── Scroll reveal ───────────────────────────────────────────────────────────
+ *
+ * Long article pages arrive all at once, which on a shrine with eight sections
+ * reads as a wall. `useRevealOnScroll` adds `.is-revealed` as each section
+ * crosses into view; the section starts slightly down and faded and settles as
+ * it arrives.
+ *
+ * The starting state is deliberately *not* `opacity: 0` alone: the hook only
+ * ever adds the class, so if JavaScript never runs — a crawler, a failed chunk,
+ * a reader with scripts off — the content must still be visible. Hence the
+ * `.js-reveal` opt-in class, which the hook itself puts on the element.
+ */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--duration-slow) var(--easing),
+    transform var(--duration-slow) var(--easing);
+}
+
+.js-reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal,
+  .js-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pulse-once {
+    animation: none;
+  }
+}
+
 /* ── Knowledge-graph network: the silsila traces itself ──────────────────── */
 
 /*

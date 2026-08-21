@@ -1,0 +1,542 @@
+/*
+ * The command palette — the archive's search, given the middle of the screen.
+ *
+ * Loaded after components.css and before shrine.css, like every other feature
+ * sheet (see the components.css header for the cascade order).
+ *
+ * Motion: everything here is a compositor-only animation (opacity + transform)
+ * and everything is switched off under `prefers-reduced-motion`. The overlay
+ * covers the whole viewport, so a heavy entrance is exactly the animation a
+ * motion-sensitive reader cannot look away from.
+ */
+
+.palette-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(var(--space-4), 8vh, 8rem) var(--space-4) var(--space-4);
+  background: rgba(26, 12, 8, 0.46);
+  /* A blur rather than a heavier scrim: the map behind stays legible as
+     context, which is the point of searching a map. */
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  animation: palette-backdrop-in var(--duration-base) var(--easing) both;
+}
+
+.palette {
+  width: min(46rem, 100%);
+  max-height: min(72dvh, 44rem);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  /* Opaque first: a browser without backdrop-filter gets a solid panel rather
+     than text over a live map. The translucent version is applied only where
+     the blur that makes it legible is actually available. */
+  background: var(--color-bg-surface);
+  box-shadow:
+    0 24px 64px -12px rgba(26, 12, 8, 0.45),
+    0 2px 8px rgba(26, 12, 8, 0.18);
+  animation: palette-in var(--duration-base) var(--easing-spring) both;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .palette {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+}
+
+/* ── Search row ───────────────────────────────────────────────────────────── */
+
+.palette-search {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-block-end: 1px solid var(--color-border-light);
+}
+
+.palette-search-icon {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.palette-input {
+  flex: 1;
+  min-width: 0;
+  /* The field is the panel's ground: no border, no box, just type. The panel
+     itself is the affordance. */
+  border: none;
+  background: none;
+  padding: var(--space-1) 0;
+  font-family: inherit;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  min-height: 44px;
+  /* This element also carries `.search-input`, so it inherits the pale halo and
+     the small shadow that class paints on the sidebar field. Inside the palette
+     that reads as a box drawn around a box; the panel already is the box. */
+  box-shadow: none;
+}
+
+/* No ring on the field. The panel *is* the focus indicator — it appears on
+   focus, it is the only thing on screen, and the caret sits in this input from
+   the moment it opens. A ring drawn inside a dialog whose sole purpose is this
+   input is noise, not information. */
+.palette-input:focus,
+.palette-input:focus-visible {
+  outline: none;
+}
+
+.palette-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Safari draws its own clear button on type=search; ours is localized. */
+.palette-input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+[dir='rtl'] .palette-input {
+  font-family: var(--font-urdu);
+}
+
+.palette-clear,
+.palette-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 var(--space-1);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.palette-clear:hover,
+.palette-close:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.palette-filters-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast),
+    border-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.palette-filters-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.palette-filters-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+[dir='rtl'] .palette-filters-btn,
+[dir='rtl'] .palette-filters-label {
+  font-family: var(--font-urdu);
+}
+
+.palette-filters-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.palette-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--color-border);
+  border-block-end-width: 2px;
+  border-radius: 5px;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* ── Filters drawer ───────────────────────────────────────────────────────── */
+
+/* The drawer and the footer sit *inside* the glass panel, so they take a tint
+   rather than a second layer of blur — stacking backdrop-filters is expensive
+   and does nothing visible. */
+.palette-filters {
+  /* `flex-shrink: 0` is load-bearing: the panel is a flex column with a
+     max-height, and the results list below asks for `flex: 1`. Without this the
+     drawer was squeezed to 55px — one chip row and half of the next, sliced
+     mid-word — which looked like a rendering bug and was a flex default. */
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  border-block-end: 1px solid var(--color-border-light);
+  background: var(--color-bg-alt);
+  max-height: 44dvh;
+  overflow-y: auto;
+  animation: palette-drawer-in var(--duration-base) var(--easing) both;
+}
+
+.palette-filters-clear {
+  margin-block-start: var(--space-3);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.palette-filters-clear:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+/* ── Results ──────────────────────────────────────────────────────────────── */
+
+.palette-status {
+  flex-shrink: 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-block-end: 1px solid var(--color-border-light);
+}
+
+[dir='rtl'] .palette-status {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.palette-results {
+  /* `min-height: 0` so this is the part that gives way when the filters drawer
+     opens — a flex item's default `min-height: auto` refuses to shrink below
+     its content and the drawer pays instead. */
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.palette-result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  animation: palette-row-in var(--duration-base) var(--easing) both;
+  /* Staggered, but capped at 12 rows in the component: a 40th row waiting
+     400ms to appear reads as jank, not choreography. */
+  animation-delay: calc(var(--stagger-index, 0) * 18ms);
+}
+
+.palette-result.active,
+.palette-result:hover {
+  background: var(--color-bg-alt);
+}
+
+/* The keyboard's idea of "here" needs to survive a hover elsewhere, so the
+   active row carries a leading edge as well as a ground. */
+.palette-result.active {
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+[dir='rtl'] .palette-result.active {
+  box-shadow: inset -3px 0 0 var(--color-primary);
+}
+
+.palette-result-img,
+.palette-result-placeholder {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--color-bg-alt);
+}
+
+.palette-result-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.palette-result-name {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  /* One line: a wrapped 100-character survey name would push the next result
+     off the screen. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[dir='rtl'] .palette-result-name {
+  font-family: var(--font-urdu);
+}
+
+.palette-result-meta {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* The Location column is Latin on most rows. In the Urdu view an RTL
+     container truncates a Latin run from its *start* — the Urdu palette read
+     "…alley), Khushab District, Punjab", losing the village and keeping the
+     country. `plaintext` lays each string out in its own direction, so the
+     ellipsis lands at the end of the string as written. */
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+.palette-result-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-marker-default);
+}
+
+.palette-result-dot--muslim {
+  background: var(--color-cat-muslim);
+}
+.palette-result-dot--hindu {
+  background: var(--color-cat-hindu);
+}
+.palette-result-dot--sikh {
+  background: var(--color-cat-sikh);
+}
+.palette-result-dot--nanakpanthi {
+  background: var(--color-cat-nanakpanthi);
+}
+.palette-result-dot--jain {
+  background: var(--color-cat-jain);
+}
+.palette-result-dot--secular {
+  background: var(--color-cat-secular);
+}
+
+.palette-empty {
+  margin: 0;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .palette-empty {
+  font-family: var(--font-urdu);
+}
+
+.palette-footer {
+  flex-shrink: 0;
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-block-start: 1px solid var(--color-border-light);
+  background: var(--color-bg-alt);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.palette-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+[dir='rtl'] .palette-hint {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* ── The trigger in the sidebar ───────────────────────────────────────────── */
+
+.palette-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast),
+    box-shadow var(--duration-fast);
+}
+
+.palette-trigger:hover,
+.palette-trigger:focus-visible {
+  border-color: var(--color-primary);
+}
+
+[dir='rtl'] .palette-trigger {
+  font-family: var(--font-urdu);
+}
+
+.palette-trigger-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.palette-trigger-shortcut {
+  flex-shrink: 0;
+}
+
+.palette-trigger-filters {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-secondary);
+}
+
+.palette-trigger-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────────── */
+
+@keyframes palette-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes palette-drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes palette-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette-backdrop,
+  .palette,
+  .palette-filters,
+  .palette-result {
+    animation: none;
+  }
+}
+
+/* ── Phone ────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .palette-backdrop {
+    /* Near-fullscreen on a phone: a centred card with 8vh of blurred map above
+       it wastes the only screen the majority of this archive's readers have. */
+    padding: var(--space-2);
+    align-items: stretch;
+  }
+
+  .palette {
+    width: 100%;
+    max-height: none;
+  }
+
+  .palette-filters-label {
+    /* The icon and the count carry it; the word costs a third of the row. */
+    display: none;
+  }
+}

@@ -71,7 +71,7 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: 'en' | 'ur' }
               <Link
                 key={shrine.slug}
                 to={`/shrine/${shrine.slug}`}
-                className="place-photo"
+                className="place-photo hover-lift"
                 /* Named on the link, not left to the image: ShrineImage falls
                    back to an aria-hidden glyph when a photo 404s, and a link
                    whose only child is hidden has no accessible name at all. */

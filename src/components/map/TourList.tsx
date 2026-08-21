@@ -12,7 +12,7 @@ import { resolveTourStops } from '../../lib/tours/tourRoute';
 import { totalDistanceKm } from '../../lib/tours/tourGeo';
 import { getTourProgressState, clearLastActive } from '../../lib/tours/tourProgress';
 import { haversineKm } from '../../lib/data/shrineModel';
-import { t } from '../../lib/i18n/uiStrings';
+import { t, tFn } from '../../lib/i18n/uiStrings';
 import { TourPreview } from './TourPreview';
 import type { Shrine, Lang } from '../../types/shrine';
 
@@ -45,6 +45,7 @@ export function TourList({
   const [regionFilter, setRegionFilter] = useState('');
   const [themeFilter, setThemeFilter] = useState('');
   const [eraFilter, setEraFilter] = useState('');
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [nearest, setNearest] = useState<{ tourId: string; km: number } | null>(null);
@@ -62,6 +63,19 @@ export function TourList({
   const regions = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.region))), []);
   const themes = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.theme))), []);
   const eras = useMemo(() => Array.from(new Set(TOURS.map((tr) => tr.era))), []);
+
+  const activeTourFilterCount =
+    (traditionFilter ? 1 : 0) +
+    (regionFilter ? 1 : 0) +
+    (themeFilter ? 1 : 0) +
+    (eraFilter ? 1 : 0);
+
+  const clearTourFilters = useCallback(() => {
+    setTraditionFilter('');
+    setRegionFilter('');
+    setThemeFilter('');
+    setEraFilter('');
+  }, []);
 
   const filteredTours = useMemo(
     () =>
@@ -195,111 +209,165 @@ export function TourList({
             <p className="tour-geo-error">{t(lang, 'locationUnavailable')}</p>
           )}
 
-          {traditions.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t(lang, 'filterByTradition')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByTradition')}>
-                <button
-                  className={`filter-chip${!traditionFilter ? ' active' : ''}`}
-                  onClick={() => setTraditionFilter('')}
-                  aria-pressed={!traditionFilter}
-                >
-                  {t(lang, 'filterAll')}
-                </button>
-                {traditions.map((tr) => (
-                  <button
-                    key={tr}
-                    className={`filter-chip${traditionFilter === tr ? ' active' : ''}`}
-                    onClick={() => setTraditionFilter(traditionFilter === tr ? '' : tr)}
-                    aria-pressed={traditionFilter === tr}
-                  >
-                    {TRADITION_LABELS[tr as TourTradition][lang]}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Four rows of filter chips — tradition, region, theme, era — used to
+              stand between the "near me" button and the tours themselves, which
+              on a phone meant scrolling past twenty controls to reach eight
+              cards. Folded behind one summary control now, with a count of what
+              is on, in the same shape as the palette's filters button. The chips
+              are unchanged inside. */}
+          <div className="tour-filter-bar">
+            <button
+              type="button"
+              className={`tour-filter-toggle${filtersOpen ? ' active' : ''}`}
+              onClick={() => setFiltersOpen((v) => !v)}
+              aria-expanded={filtersOpen}
+              aria-controls="tour-filters"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="7" y1="12" x2="17" y2="12" />
+                <line x1="10" y1="18" x2="14" y2="18" />
+              </svg>
+              {t(lang, 'filtersLabel')}
+              {activeTourFilterCount > 0 && (
+                <span className="tour-filter-count">{fmtNum(activeTourFilterCount)}</span>
+              )}
+            </button>
+            {/* The count of what survived the filters, so the effect is visible
+                without opening the drawer. */}
+            <span className="tour-filter-result-count">
+              {fmtNum(tFn(lang, 'tourCount', filteredTours.length))}
+            </span>
+            {activeTourFilterCount > 0 && (
+              <button type="button" className="tour-filter-clear" onClick={clearTourFilters}>
+                {t(lang, 'clearFilters')}
+              </button>
+            )}
+          </div>
 
-          {regions.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t(lang, 'filterByRegion')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByRegion')}>
-                <button
-                  className={`filter-chip${!regionFilter ? ' active' : ''}`}
-                  onClick={() => setRegionFilter('')}
-                  aria-pressed={!regionFilter}
-                >
-                  {t(lang, 'filterAll')}
-                </button>
-                {regions.map((r) => (
-                  <button
-                    key={r}
-                    className={`filter-chip${regionFilter === r ? ' active' : ''}`}
-                    onClick={() => setRegionFilter(regionFilter === r ? '' : r)}
-                    aria-pressed={regionFilter === r}
+          {filtersOpen && (
+            <div className="tour-filters" id="tour-filters">
+              {traditions.length > 1 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t(lang, 'filterByTradition')}
+                  </span>
+                  <div
+                    className="filter-chips"
+                    role="group"
+                    aria-label={t(lang, 'filterByTradition')}
                   >
-                    {REGION_LABELS[r]?.[lang] ?? r}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+                    <button
+                      className={`filter-chip${!traditionFilter ? ' active' : ''}`}
+                      onClick={() => setTraditionFilter('')}
+                      aria-pressed={!traditionFilter}
+                    >
+                      {t(lang, 'filterAll')}
+                    </button>
+                    {traditions.map((tr) => (
+                      <button
+                        key={tr}
+                        className={`filter-chip${traditionFilter === tr ? ' active' : ''}`}
+                        onClick={() => setTraditionFilter(traditionFilter === tr ? '' : tr)}
+                        aria-pressed={traditionFilter === tr}
+                      >
+                        {TRADITION_LABELS[tr as TourTradition][lang]}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-          {themes.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t(lang, 'filterByTheme')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByTheme')}>
-                <button
-                  className={`filter-chip${!themeFilter ? ' active' : ''}`}
-                  onClick={() => setThemeFilter('')}
-                  aria-pressed={!themeFilter}
-                >
-                  {t(lang, 'filterAll')}
-                </button>
-                {themes.map((th) => (
-                  <button
-                    key={th}
-                    className={`filter-chip${themeFilter === th ? ' active' : ''}`}
-                    onClick={() => setThemeFilter(themeFilter === th ? '' : th)}
-                    aria-pressed={themeFilter === th}
-                  >
-                    {THEME_LABELS[th]?.[lang] ?? th}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+              {regions.length > 1 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t(lang, 'filterByRegion')}
+                  </span>
+                  <div className="filter-chips" role="group" aria-label={t(lang, 'filterByRegion')}>
+                    <button
+                      className={`filter-chip${!regionFilter ? ' active' : ''}`}
+                      onClick={() => setRegionFilter('')}
+                      aria-pressed={!regionFilter}
+                    >
+                      {t(lang, 'filterAll')}
+                    </button>
+                    {regions.map((r) => (
+                      <button
+                        key={r}
+                        className={`filter-chip${regionFilter === r ? ' active' : ''}`}
+                        onClick={() => setRegionFilter(regionFilter === r ? '' : r)}
+                        aria-pressed={regionFilter === r}
+                      >
+                        {REGION_LABELS[r]?.[lang] ?? r}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-          {eras.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t(lang, 'filterByEra')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t(lang, 'filterByEra')}>
-                <button
-                  className={`filter-chip${!eraFilter ? ' active' : ''}`}
-                  onClick={() => setEraFilter('')}
-                  aria-pressed={!eraFilter}
-                >
-                  {t(lang, 'filterAll')}
-                </button>
-                {eras.map((e) => (
-                  <button
-                    key={e}
-                    className={`filter-chip${eraFilter === e ? ' active' : ''}`}
-                    onClick={() => setEraFilter(eraFilter === e ? '' : e)}
-                    aria-pressed={eraFilter === e}
-                  >
-                    {fmtNum(ERA_LABELS[e]?.[lang] ?? e)}
-                  </button>
-                ))}
-              </div>
+              {themes.length > 1 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t(lang, 'filterByTheme')}
+                  </span>
+                  <div className="filter-chips" role="group" aria-label={t(lang, 'filterByTheme')}>
+                    <button
+                      className={`filter-chip${!themeFilter ? ' active' : ''}`}
+                      onClick={() => setThemeFilter('')}
+                      aria-pressed={!themeFilter}
+                    >
+                      {t(lang, 'filterAll')}
+                    </button>
+                    {themes.map((th) => (
+                      <button
+                        key={th}
+                        className={`filter-chip${themeFilter === th ? ' active' : ''}`}
+                        onClick={() => setThemeFilter(themeFilter === th ? '' : th)}
+                        aria-pressed={themeFilter === th}
+                      >
+                        {THEME_LABELS[th]?.[lang] ?? th}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {eras.length > 1 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t(lang, 'filterByEra')}
+                  </span>
+                  <div className="filter-chips" role="group" aria-label={t(lang, 'filterByEra')}>
+                    <button
+                      className={`filter-chip${!eraFilter ? ' active' : ''}`}
+                      onClick={() => setEraFilter('')}
+                      aria-pressed={!eraFilter}
+                    >
+                      {t(lang, 'filterAll')}
+                    </button>
+                    {eras.map((e) => (
+                      <button
+                        key={e}
+                        className={`filter-chip${eraFilter === e ? ' active' : ''}`}
+                        onClick={() => setEraFilter(eraFilter === e ? '' : e)}
+                        aria-pressed={eraFilter === e}
+                      >
+                        {fmtNum(ERA_LABELS[e]?.[lang] ?? e)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -311,7 +379,7 @@ export function TourList({
               return (
                 <button
                   key={tour.id}
-                  className={`tour-card${isNearest ? ' tour-card--nearest' : ''}`}
+                  className={`tour-card hover-lift${isNearest ? ' tour-card--nearest' : ''}`}
                   onClick={() => setPreviewId(tour.id)}
                 >
                   <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>

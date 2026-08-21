@@ -182,7 +182,21 @@
   border-bottom: 1px solid var(--color-border-light);
   flex-shrink: 0;
   background: var(--color-bg-surface);
+  /* Sticky on the desktop column and the top of the mobile sheet, so the list
+     scrolls *under* it; the glass below keeps that legible without hiding what
+     is passing behind. */
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding-top: calc(var(--space-3) + var(--safe-top));
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sidebar-header {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
 }
 
 .sidebar-brand {
@@ -211,6 +225,33 @@
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: -0.01em;
+  /* `min-width: 0` so the title is the flex item that gives way.
+     Without it a nowrap heading refuses to shrink below its content and pushes
+     the row past the viewport instead — measured at 390px in Urdu, where
+     "صوفی مزارات" in Nastaliq is wider than the English title and overflowed the
+     brand row by 12px. Caught by e2e/no-overflow.spec.ts, which exists for
+     exactly this: a layout that fits in English and does not in Urdu. */
+  min-width: 0;
+}
+
+/* Nastaliq needs vertical room its Latin counterpart does not — the script's
+   descenders and the kerning of its ligatures both sit below the baseline — and
+   the extra line-height is what keeps the glyphs from being clipped by the
+   `overflow: hidden` above. */
+[dir='rtl'] .sidebar-title {
+  font-family: var(--font-urdu);
+  line-height: 1.9;
+  letter-spacing: normal;
+}
+
+/* At 390px the brand row holds the title, the theme toggle and the language
+   segment; the Urdu title is the widest of the three and the only one that can
+   give. A notch smaller here means it fits whole rather than being clipped to
+   "صوفی مز…" — measured 12px over at --text-base on a 390px screen. */
+@media (max-width: 420px) {
+  [dir='rtl'] .sidebar-title {
+    font-size: var(--text-sm);
+  }
 }
 
 .sidebar-actions {
@@ -1284,6 +1325,10 @@
   line-height: 34px !important;
   font-size: var(--text-lg) !important; /* vendor: .leaflet-touch zoom buttons set 22px */
   background: var(--color-bg-surface) !important; /* vendor :hover/.leaflet-disabled set grays */
+  /* Glass, from the shared tokens — the same material as the command palette
+     and the mobile sheet header, so the map's chrome belongs to the same
+     interface. Applied inside @supports below, because these buttons sit over
+     arbitrary tiles and an unsupported blur would leave text on live map. */
   color: var(--color-text) !important;
   border-bottom: 1px solid var(--color-border-light);
   transition:
@@ -1293,6 +1338,18 @@
 
 .leaflet-bar a:last-child {
   border-bottom: none;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .leaflet-bar a {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  .leaflet-bar {
+    border-color: var(--glass-border) !important;
+  }
 }
 
 .leaflet-bar a:hover {
@@ -1633,7 +1690,7 @@
 .time-slider-track:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 
 .time-slider-ticks {

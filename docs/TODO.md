@@ -8,6 +8,71 @@
 
 ---
 
+## 0. Session log — 21 August 2026 (thirteenth: the interface, from a phone)
+
+Driven by what the site actually looked like on a phone, plus a request for animations,
+translucency, richer order pages and an overhaul of the tour and table-of-shrines filters.
+
+> **Nothing here is live.** It is all on `claude/keep-working-on-this-ewipvq`, ~57 commits ahead
+> of `main`, and Pages deploys from `main`. See `docs/SESSION_CHECKPOINT_2026-08-21.md`.
+
+### The mobile sheet was broken, not just cramped
+
+2201px wide, starting at x = −1811, with the shrine list open — `inset-inline-start: auto`
+cancelled `left: 0`, and a fixed box with one inset shrink-to-fits. The peek was also one pixel
+short of showing the only control that opens the archive. Both fixed; the peek height is one
+token now instead of three copies of a literal. HANDOVER §9.76.
+
+### The command palette (⌘K)
+
+Search and filters moved out of the sidebar into a Spotlight-style overlay: input, filters behind
+a control at the trailing end of the field, live results, ↑↓/Enter/Esc, focus trap and restore,
+translucent panel. The chips were *moved* into `ShrineFilters` (same class names) and are rendered
+by both surfaces. HANDOVER §9.78.
+
+### "The tour filters look ugly" was a typo, six times over
+
+`tours.css` used `--color-surface` and `--radius-pill`; neither exists. `cssTokensDefined.test.ts`
+now fails the build on any `var()` referencing an undeclared property — it found four such
+properties across three stylesheets, plus one I had written an hour earlier. The tour filters are
+also folded behind a single control with a count now. HANDOVER §9.77.
+
+### Does the Urdu overflow anywhere? Now there is a check
+
+`e2e/no-overflow.spec.ts`: 9 routes × 2 languages × 3 widths, for sideways document scroll *and*
+per-element overflow. One real find — `h1.sidebar-title` over its row by 12px at 390px in Urdu
+only. HANDOVER §9.79.
+
+### Translucency as one material
+
+`--glass-bg` / `--glass-blur` / `--glass-border`, light and dark, on the palette, the map controls
+and the sheet header, each behind `@supports` with an opaque fallback. Alpha 0.82, not 0.6: these
+surfaces carry text over arbitrary backdrops. HANDOVER §9.80.
+
+### Animations
+
+A shared vocabulary in motion.css rather than per-component keyframes: `.hover-lift` (one hover
+treatment for every card-like surface), `.pulse-once` (for when the *app* moves the reader),
+and `.js-reveal` + `useRevealOnScroll` so a shrine's eight article sections arrive as the reader
+reaches them. The reveal hook adds its own hiding class, so with no JavaScript the content is
+simply visible.
+
+### Order pages, enriched from what the archive already holds
+
+Each member now carries the photograph of the shrine that holds them and the dates the graph
+records; two new sections say *where* the order is — place pills (derived from each site's
+Location, linking to the new place pages) and a photo grid of its sites. All derived; nothing
+invented (RULE 2). Deeper enrichment needs the 50 unreviewed order proposals in the KG, which is
+a human review decision.
+
+### Still to do
+
+Palette e2e coverage; a phone-viewport and open-overlay pass for the three Urdu/a11y sweeps
+(they have never seen any mobile-only UI, which is how a hardcoded English `aria-label` survived
+on the sheet handle); Track C. See §4 of the checkpoint doc.
+
+---
+
 ## 0. Session log — 21 August 2026 (twelfth: publication-readiness)
 
 Brief was "a full-scale professional deliverable, publicly publishable". So this pass looked for

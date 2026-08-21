@@ -55,7 +55,7 @@
   inset-inline-end: var(--space-2);
   margin: 0;
   padding: 2px var(--space-2);
-  border-radius: var(--radius-sm, 4px);
+  border-radius: var(--radius-sm);
   background: rgba(0, 0, 0, 0.55);
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--text-xs);
@@ -842,7 +842,7 @@
 .lightbox-caption .lightbox-credit {
   opacity: 0.7;
   font-size: 0.85em;
-  margin-top: var(--space-1, 4px);
+  margin-top: var(--space-1);
 }
 
 .lightbox-nav-btn {

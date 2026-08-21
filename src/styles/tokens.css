@@ -13,6 +13,28 @@
   --color-bg-alt: #f0ebe0;
   --color-bg-surface: #ffffff;
   --color-bg-overlay: rgba(249, 246, 240, 0.95);
+
+  /* ── Glass: the archive's floating chrome ─────────────────────────────────
+     One treatment, three tokens, so every surface that floats over the map or
+     the article reads as the same material rather than each component guessing.
+     Used by the command palette, the map controls, the mobile sheet header and
+     the tour panel.
+
+     The alpha is deliberately high (0.82, not the 0.6 a screenshot makes
+     tempting): every one of these surfaces carries body text over an
+     *arbitrary* backdrop — satellite tiles, a photograph, a dense marker
+     cluster — and contrast has to hold against all of them, not against the
+     average. At 0.82 over this palette the text pair stays above 4.5:1 whatever
+     is behind it, which is the whole reason a fixed backdrop colour beats a
+     pretty one.
+
+     `--glass-blur` is applied through `backdrop-filter`, which not every
+     browser supports; each rule therefore sets a solid `background` first and
+     the translucent one only inside `@supports`, so a browser without it gets
+     an opaque panel rather than an unreadable one. */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-blur: blur(16px) saturate(150%);
+  --glass-border: rgba(214, 207, 192, 0.7);
   --color-border: #d6cfc0;
   --color-border-light: #e8e2d6;
 
@@ -237,6 +259,13 @@
   --color-bg-alt: #211b16;
   --color-bg-surface: #2a221c;
   --color-bg-overlay: rgba(23, 19, 16, 0.96);
+
+  /* Glass, after dark. Alpha slightly higher: the dark ground is closer in
+     value to the map tiles behind it, so the same 0.82 read as murky rather
+     than translucent. */
+  --glass-bg: rgba(42, 34, 28, 0.86);
+  --glass-blur: blur(16px) saturate(140%);
+  --glass-border: rgba(58, 47, 38, 0.8);
   --color-border: #3a2f26;
   --color-border-light: #2e251e;
 

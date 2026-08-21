@@ -12,6 +12,14 @@ export const UI_TEXT = {
     exploreTitle: 'Explore Sufi Shrines',
     exploreHint: 'Use the list button above to browse all shrines.',
     tableButton: 'Table of Shrines',
+    /* ── Command palette (⌘K search) ─────────────────────────────────────── */
+    paletteTitle: 'Search the archive',
+    paletteOpen: 'Search and filter',
+    filtersLabel: 'Filters',
+    paletteHintMove: 'to move',
+    paletteHintOpen: 'to open',
+    ariaOpenPalette: 'Search and filter the archive',
+    paletteClose: 'Close search',
     searchPlaceholder: 'Search shrines…',
     noMatches: 'No matches.',
     uncategorized: 'Uncategorized',
@@ -60,6 +68,16 @@ export const UI_TEXT = {
     appErrorReload: 'Reload',
     filterAll: 'All',
     resultCount: (n: number) => `${n} shrine${n === 1 ? '' : 's'}`,
+    /* "12 of 169" — the count *and* the denominator, because a bare "12" hides
+       how much of the archive a query just excluded. */
+    paletteResultCount: (shown: number, total: number) =>
+      shown === total ? `${total} sites` : `${shown} of ${total} sites`,
+    tourCount: (n: number) => `${n} tour${n === 1 ? '' : 's'}`,
+    /* ── Order pages: what the archive can say about where an order is ────── */
+    orderWhereHeading: 'Where this order stands',
+    orderWhereNote:
+      'Counted from the Location of every site where one of its figures is commemorated.',
+    orderSitesHeading: 'Sites of this order',
     activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
     nearMe: 'Near Me',
     switchToUrdu: 'اردو',
@@ -426,6 +444,15 @@ export const UI_TEXT = {
     exploreTitle: 'مزارات دریافت کریں',
     exploreHint: 'مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔',
     tableButton: 'مزارات کی فہرست',
+    /* ── Command palette (⌘K search) — drafts, not reviewed by a fluent
+       speaker ─────────────────────────────────────────────────────────────── */
+    paletteTitle: 'آرکائیو میں تلاش',
+    paletteOpen: 'تلاش اور چھانٹ',
+    filtersLabel: 'چھانٹ',
+    paletteHintMove: 'حرکت کے لیے',
+    paletteHintOpen: 'کھولنے کے لیے',
+    ariaOpenPalette: 'آرکائیو میں تلاش اور چھانٹ',
+    paletteClose: 'تلاش بند کریں',
     searchPlaceholder: 'مزار تلاش کریں...',
     noMatches: 'کوئی نتیجہ نہیں ملا۔',
     uncategorized: 'غیر زمرہ بند',
@@ -472,6 +499,16 @@ export const UI_TEXT = {
     appErrorReload: 'دوبارہ لوڈ کریں',
     filterAll: 'سب',
     resultCount: (n: number) => `${n} مزار`,
+    /* "X میں سے Y" — the total comes first in Urdu. Built in the English order
+       it would read "169 out of 12", which is a false number, not clumsy
+       phrasing (the same trap as almanacCoverageTotal). */
+    paletteResultCount: (shown: number, total: number) =>
+      shown === total ? `${total} مقامات` : `${total} میں سے ${shown} مقامات`,
+    tourCount: (n: number) => `${n} سفر`,
+    /* ── Order pages — drafts, not reviewed by a fluent speaker ──────────── */
+    orderWhereHeading: 'یہ سلسلہ کہاں ہے',
+    orderWhereNote: 'ہر اُس مقام کے خانے سے گنا گیا جہاں اِس سلسلے کے کسی بزرگ کی یادگار ہے۔',
+    orderSitesHeading: 'اِس سلسلے کے مقامات',
     activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
     nearMe: 'میرے قریب',
     switchToUrdu: 'اردو',
@@ -845,6 +882,8 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    pieces itself decides that placement in English. */
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
+export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
+export function tFn(lang: Lang, key: 'tourCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
 export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
@@ -869,6 +908,8 @@ export function tFn(
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'
     | 'mapLayerFrom'
+    | 'paletteResultCount'
+    | 'tourCount'
     | 'placeSiteCount'
     | 'placeSpan'
     | 'placesUnplaced'

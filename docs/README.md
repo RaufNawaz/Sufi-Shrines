@@ -17,6 +17,7 @@ can go stale silently is worse than no index, because it is trusted.
 | ---------------------------------- | ----------------------------------------------------------------------------- |
 | [`HANDOVER.md`](HANDOVER.md)       | **Full project state**: what this is, where everything lives, trust calibration (§9 — read it), risks, how to resume. The most important document here. |
 | [`TODO.md`](TODO.md)               | **The live working log.** Session-by-session record of what was done and what is next. |
+| [`SESSION_CHECKPOINT_2026-08-21.md`](SESSION_CHECKPOINT_2026-08-21.md) | **Start here in a new session.** What is on the branch vs live, what shipped on 21 August, what to pick up, and the gotchas that cost an hour each. |
 | [`HANDOFF.md`](HANDOFF.md)         | Maintainer handbook: scripts, architecture, data updates, deploy, environment  |
 | [`GOLD_STANDARD.md`](GOLD_STANDARD.md) | What "done properly" means for a single entry                              |
 

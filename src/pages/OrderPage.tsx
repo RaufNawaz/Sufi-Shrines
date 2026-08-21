@@ -3,6 +3,8 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
+import { placesForShrine } from '../lib/data/places';
+import type { Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -115,6 +117,33 @@ export default function OrderPage() {
     });
     return sortMembers(rows, lang);
   }, [saints, slug, lang]);
+
+  /* The sites this order is present at, and the places those sites stand in.
+   *
+   * Both derived, neither invented (RULE 2): a shrine belongs to this order's
+   * section because one of its members is buried there and the graph says so,
+   * and a place is named because the shrine's own Location names it. The page
+   * had 20-odd figure names and no sense of *where* the order is — which for a
+   * silsila is half of what it is. */
+  const orderShrines = useMemo(() => {
+    const slugs = new Set<string>();
+    for (const { saint } of members) for (const slug of saint.shrines) slugs.add(slug);
+    return [...slugs].map((slug) => shrineBySlug.get(slug)).filter((s): s is Shrine => Boolean(s));
+  }, [members, shrineBySlug]);
+
+  const orderPlaces = useMemo(() => {
+    const counts = new Map<string, { name: string; count: number }>();
+    for (const shrine of orderShrines) {
+      for (const place of placesForShrine(shrine)) {
+        const seen = counts.get(place.slug);
+        if (seen) seen.count += 1;
+        else counts.set(place.slug, { name: place.name, count: 1 });
+      }
+    }
+    return [...counts.entries()]
+      .map(([slug, v]) => ({ slug, ...v }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  }, [orderShrines]);
 
   const branchCount = new Set(
     members.map((m) => m.membership?.branch).filter((b): b is string => Boolean(b)),
@@ -373,6 +402,61 @@ export default function OrderPage() {
                     </li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+            {orderPlaces.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('orderWhereHeading')}</h2>
+                <p className="kg-section-note">{t('orderWhereNote')}</p>
+                <div className="order-place-list">
+                  {orderPlaces.map((place) => (
+                    <Link
+                      key={place.slug}
+                      to={`/place/${place.slug}`}
+                      className="order-place-tag hover-lift"
+                    >
+                      <bdi>{isRtl ? translateToUrdu(place.name) : place.name}</bdi>
+                      <span className="order-place-count">{fmtNum(place.count)}</span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {orderShrines.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('orderSitesHeading')}</h2>
+                <div className="order-site-grid">
+                  {orderShrines.map((shrine, i) => (
+                    <Link
+                      key={shrine.slug}
+                      to={`/shrine/${shrine.slug}`}
+                      className="order-site-card hover-lift reveal-rise"
+                      style={{ '--stagger-index': i } as React.CSSProperties}
+                    >
+                      <ShrineImage
+                        src={shrine.imageUrl}
+                        alt=""
+                        category={shrine.category}
+                        className="order-site-img"
+                        placeholderClassName="order-site-placeholder"
+                        loading="lazy"
+                        width={IMAGE_WIDTH.preview}
+                      />
+                      <span className="order-site-body">
+                        <span className="order-site-name">
+                          <bdi>{shrineNames.get(shrine.slug) ?? shrine.name}</bdi>
+                        </span>
+                        {shrine.location && (
+                          <span className="order-site-location" data-latin>
+                            <bdi>{shrine.location}</bdi>
+                          </span>
+                        )}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </section>
             )}
 

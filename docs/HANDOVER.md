@@ -1986,6 +1986,81 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     layer it was pointed at. `check-bundle-budget.mjs` measures the static import graph, and was
     right; the bytes left anyway, through a mechanism nothing was looking at.
 
+76. **Reported from a phone: "I still cannot see the sidebar." Two faults, one of them a real
+    layout break.** `.sidebar` set `left: 0; right: 0` and then
+    `inset-inline-start: auto !important` — and `inset-inline-start` *is* `left` in LTR, so the
+    pin was cancelled. A fixed box with one inset and `width: auto` resolves to shrink-to-fit:
+    measured at 390×844 with the shrine list open, the sheet was **2201px wide starting at
+    x = −1811**, sized by the widest row and hanging off the left of the screen. The peek looked
+    fine because its own content is narrower than the viewport, so nothing showed until a reader
+    tapped through to the list — and then most of the sheet was off-screen with blank rows where
+    the names should be. In RTL the same rule cancelled the right edge instead.
+
+    The other half was discoverability: the peek was 108px, which cleared the drag handle and the
+    brand row and stopped **one pixel above** the "Table of Shrines" button (its box runs
+    122–166px inside the sheet). So a phone reader saw a map, a title, and a 36×4px pill drawn in
+    the *hairline border colour*, with the only route into 169 sites below the fold. 184px now,
+    the pill is 44×5 in an ink colour, and the list button expands the sheet in the same tap.
+
+    Also: the handle's accessible name was a hardcoded English "Expand sheet". **The Urdu sweeps
+    have never seen any mobile-only UI** — they run at a desktop viewport, where this control
+    does not exist. That is a standing gap, not a one-off.
+
+77. **"The tour filters look ugly" had a mechanical cause, and it generalised.** `tours.css`
+    painted the chips with `var(--color-surface)` and rounded them with `var(--radius-pill)`.
+    This palette defines neither (`--color-bg-surface`, `--radius-full`), so both declarations
+    were dropped and the chips rendered unstyled — which looks like a design failure and is a
+    typo.
+
+    A `var(--nope)` is not an error anywhere in the pipeline: the declaration is dropped, the
+    element keeps what it inherited, and the page looks *nearly* right. So
+    `src/styles/__tests__/cssTokensDefined.test.ts` now sweeps every stylesheet: **six live
+    references to four properties that never existed** (`--color-surface`, `--radius-pill`,
+    `--radius-xs`, `--color-bg-subtle`), plus `--ease-out` in a rule I had written an hour
+    earlier. It also bans a fallback on a *declared* token, because that is a second source of
+    truth that keeps working while the palette moves on around it.
+
+78. **The command palette, and what it cost to build honestly.** Search moved out of the sidebar
+    (a 184px sheet on a phone, with five rows of chips competing with the list they act on) into
+    a Spotlight-style overlay on ⌘K, `/`, or the trigger: input, filters folded behind a control
+    at the trailing end of the field, live results, ↑↓/Enter/Esc, focus trap, focus restored to
+    the trigger.
+
+    Two things worth keeping. **The filters were moved, not copied** — into `ShrineFilters`, with
+    the class names unchanged, so the sidebar's existing tests kept working after adding the two
+    clicks a reader now walks; two copies of a filter UI is how a filter starts working in one
+    place and not the other. And **the panel's flex defaults ate the filters drawer**: it opened
+    at 55px — one chip row and half of the next, sliced mid-word — because the results list asked
+    for `flex: 1` and a flex item's default `min-height: auto` refuses to shrink. It looked like
+    a rendering bug and was a flex default.
+
+79. **The Urdu overflow sweep, and the one thing it found.** `e2e/no-overflow.spec.ts` checks
+    9 routes × 2 languages × 3 widths for a document that scrolls sideways *and* for any element
+    past the viewport edges or wider than its own non-scrolling box. Nastaliq sets wider and
+    taller than Latin, an Urdu word cannot be hyphenated, and several strings are long in Urdu
+    and short in English — so a layout that fits in English can break in Urdu, and neither a unit
+    test (jsdom has no layout) nor a screenshot review (one page, one width) reliably catches it.
+
+    It found `h1.sidebar-title` overflowing its row by 12px at 390px **in Urdu only**: a `nowrap`
+    heading with no `min-width: 0` refuses to shrink and pushes the row instead. Fixed, with the
+    extra line-height Nastaliq needs to clear its descenders inside `overflow: hidden`.
+
+    Its first run reported six failures that were all the check's fault, and both exemptions are
+    instructive: `.leaflet-container` reports its tile panes' width as its own `scrollWidth`, and
+    `.sr-only` — the visually-hidden shrine directory holding 169 links with their full Locations
+    — measures thousands of pixels wide while occupying no visual space. Exempting the panes but
+    not the container was not enough.
+
+80. **Translucency, done as one material rather than six guesses.** `--glass-bg` /
+    `--glass-blur` / `--glass-border` in tokens.css (light and dark), applied to the command
+    palette, the map's control bars and the mobile sheet header. Two decisions are load-bearing:
+    the alpha is **0.82, not the 0.6 a screenshot makes tempting**, because every one of those
+    surfaces carries body text over an *arbitrary* backdrop (satellite tiles, a photograph, a
+    dense marker cluster) and contrast has to hold against all of them; and each rule sets an
+    opaque background first and the translucent one only inside
+    `@supports (backdrop-filter: …)`, so a browser without the blur gets a solid panel rather
+    than text over a live map.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

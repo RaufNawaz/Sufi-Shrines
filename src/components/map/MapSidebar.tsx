@@ -1,18 +1,12 @@
-import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
-import {
-  categoryKey,
-  categoryDisplayLabel,
-  CATEGORY_LABELS,
-  CATEGORY_ORDER,
-} from '../../lib/data/categoryKey';
+import { categoryKey, categoryDisplayLabel } from '../../lib/data/categoryKey';
 import type { CategoryKey } from '../../lib/data/categoryKey';
 import { supportLevelKey } from '../../lib/data/supportLevel';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
@@ -22,12 +16,12 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useSearch } from '../../lib/search/useSearch';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
-import { TimeSlider } from './TimeSlider';
 import type { Tour } from '../../lib/tours/tours';
 import { TourPanel } from './TourPanel';
 import { TourList } from './TourList';
 import { WelcomeCard } from './WelcomeCard';
 import { ShrinePreview } from './ShrinePreview';
+import { CommandPalette } from './CommandPalette';
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
 const SEARCH_DEBOUNCE_MS = 200;
@@ -104,8 +98,7 @@ export function MapSidebar({
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [searchRaw, setSearchRaw] = useState('');
   const [showList, setShowList] = useState(false);
-  const [filtersExpanded, setFiltersExpanded] = useState(false);
-  const searchRef = useRef<HTMLInputElement>(null);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const search = useDebounce(searchRaw, SEARCH_DEBOUNCE_MS);
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
@@ -125,52 +118,37 @@ export function MapSidebar({
     if (selectedId !== null) setShowList(false);
   }, [selectedId]);
 
-  // `/` key opens the list and focuses the search field
+  /* `/` and ⌘K (Ctrl+K off the Mac) open the palette.
+   *
+   * `/` was here before and focused the sidebar's own field; it now opens the
+   * overlay, which is where that field went. ⌘K is the convention every reader
+   * who has used a command palette already knows, and it costs one listener. */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key !== '/') return;
-      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const isSlash = e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey;
+      const isCmdK = (e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K');
+      if (!isSlash && !isCmdK) return;
       const tag = (e.target as HTMLElement).tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      // `/` is a character; never steal it from a field someone is typing in.
+      // ⌘K is not, so it opens from anywhere.
+      if (isSlash && (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT')) return;
       e.preventDefault();
       setShowList(true);
-      setTimeout(() => searchRef.current?.focus(), 0);
+      setPaletteOpen(true);
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, []);
 
-  const localizeName = useCallback((shrine: Shrine) => localizeShrineName(shrine, lang), [lang]);
-
-  // Category chips are driven by the `category` column: every known category
-  // key present in the data, in canonical order.
-  const categories = useMemo(() => {
-    const present = new Set(shrines.map((s) => categoryKey(s.category)));
-    return CATEGORY_ORDER.filter((key) => present.has(key));
-  }, [shrines]);
-
-  // Additive toggle — selecting chips accumulates categories (kept in
-  // canonical order); an empty selection means all categories are shown.
-  const toggleCategory = useCallback(
-    (key: CategoryKey) => {
-      onCategoriesChange(
-        activeCategories.includes(key)
-          ? activeCategories.filter((k) => k !== key)
-          : CATEGORY_ORDER.filter((k) => k === key || activeCategories.includes(k)),
-      );
-    },
-    [activeCategories, onCategoriesChange],
+  /* Which shortcut to *show*. Reading the platform is the only way to label a
+     modifier key honestly, and getting it wrong ("Ctrl K" on a Mac) is the kind
+     of detail that makes an interface feel foreign. */
+  const isMac = useMemo(
+    () => typeof navigator !== 'undefined' && /Mac|iPhone|iPad/i.test(navigator.platform || ''),
+    [],
   );
 
-  const regions = useMemo(() => {
-    const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
-    return Array.from(regs).sort();
-  }, [shrines]);
-
-  const saints = useMemo(() => {
-    const saintSet = new Set(shrines.map((s) => s.sufiSaint).filter(Boolean));
-    return Array.from(saintSet).sort();
-  }, [shrines]);
+  const localizeName = useCallback((shrine: Shrine) => localizeShrineName(shrine, lang), [lang]);
 
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
@@ -384,9 +362,19 @@ export function MapSidebar({
       {/* List view */}
       {showList ? (
         <>
-          {/* Search */}
+          {/* Search and filters — one control, opening the overlay.
+              The field itself used to live here, with five rows of chips
+              stacked under it, inside a panel that is a 184px sheet on a phone.
+              Now this is a button that looks like the field it opens
+              (CommandPalette), which is where the typing and the filtering
+              happen. */}
           <div className="search-bar">
-            <div className="search-input-wrap">
+            <button
+              type="button"
+              className="palette-trigger"
+              onClick={() => setPaletteOpen(true)}
+              aria-label={t('ariaOpenPalette')}
+            >
               <svg
                 className="search-icon"
                 width="16"
@@ -402,45 +390,34 @@ export function MapSidebar({
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-              <input
-                ref={searchRef}
-                type="search"
-                className="search-input"
-                dir={lang === 'ur' ? 'rtl' : undefined}
-                placeholder={t('searchPlaceholder')}
-                value={searchRaw}
-                onChange={(e) => setSearchRaw(e.target.value)}
-                aria-label={t('searchPlaceholder')}
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="none"
-                spellCheck={false}
-              />
-              {searchRaw && (
-                <button
-                  className="search-clear"
-                  onClick={() => {
-                    setSearchRaw('');
-                    searchRef.current?.focus();
-                  }}
-                  aria-label={t('ariaClearSearch')}
+              <span className="palette-trigger-label">{searchRaw || t('searchPlaceholder')}</span>
+              <span className="palette-trigger-filters" aria-hidden="true">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    aria-hidden="true"
-                  >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
+                  <line x1="4" y1="6" x2="20" y2="6" />
+                  <line x1="7" y1="12" x2="17" y2="12" />
+                  <line x1="10" y1="18" x2="14" y2="18" />
+                </svg>
+                {activeFilterCount > 0 && (
+                  <span className="palette-trigger-count">{fmtNum(activeFilterCount)}</span>
+                )}
+              </span>
+              {/* The shortcut is shown only where there is a keyboard to press
+                  it with. */}
+              {!isMobile && (
+                <span className="palette-kbd palette-trigger-shortcut" aria-hidden="true">
+                  {isMac ? '⌘K' : 'Ctrl K'}
+                </span>
               )}
-            </div>
+            </button>
           </div>
 
           {/* Active-filter summary — persistent count + one-click reset,
@@ -454,160 +431,6 @@ export function MapSidebar({
                 {t('clearFilters')}
               </button>
             </div>
-          )}
-
-          {/* Category chips — additive: each chip toggles its category into
-              the selection; no selection = all categories shown. */}
-          {categories.length > 1 && (
-            <div className="filter-section">
-              <div className="filter-chips" role="group" aria-label={t('ariaFilterByCategory')}>
-                <button
-                  className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
-                  onClick={() => onCategoriesChange([])}
-                  aria-pressed={activeCategories.length === 0}
-                >
-                  {t('filterAll')}
-                </button>
-                {categories.map((key) => (
-                  <button
-                    key={key}
-                    className={`filter-chip${activeCategories.includes(key) ? ' active' : ''}`}
-                    onClick={() => toggleCategory(key)}
-                    aria-pressed={activeCategories.includes(key)}
-                  >
-                    {CATEGORY_LABELS[key][lang]}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Region chips */}
-          {regions.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t('filterByRegion')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t('ariaFilterByRegion')}>
-                <button
-                  className={`filter-chip${!activeRegion ? ' active' : ''}`}
-                  onClick={() => onRegionChange('')}
-                  aria-pressed={!activeRegion}
-                >
-                  {t('filterAll')}
-                </button>
-                {regions.map((reg) => (
-                  <button
-                    key={reg}
-                    className={`filter-chip${activeRegion === reg ? ' active' : ''}`}
-                    onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
-                    aria-pressed={activeRegion === reg}
-                  >
-                    {lang === 'ur' ? translateToUrdu(reg) : reg}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* More filters disclosure: saint + era, collapsed by default so
-              category chips and the shrine list get more default room. */}
-          <div className="filter-section">
-            <button
-              type="button"
-              className={`more-filters-toggle${filtersExpanded ? ' active' : ''}`}
-              onClick={() => setFiltersExpanded((v) => !v)}
-              aria-expanded={filtersExpanded}
-            >
-              <svg
-                className="more-filters-chevron"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-              {t('moreFiltersLabel')}
-              {hasMoreFiltersActive && (
-                <span className="filter-active-dot" aria-label={t('ariaFiltersActive')} />
-              )}
-            </button>
-          </div>
-
-          {filtersExpanded && (
-            <>
-              {/* Saint chips */}
-              {saints.length > 1 && (
-                <div className="filter-section">
-                  <span className="filter-section-label" aria-hidden="true">
-                    {t('saintLabel')}
-                  </span>
-                  <div className="filter-chips" role="group" aria-label={t('ariaFilterBySaint')}>
-                    <button
-                      className={`filter-chip${!activeSaint ? ' active' : ''}`}
-                      onClick={() => onSaintChange('')}
-                      aria-pressed={!activeSaint}
-                    >
-                      {t('filterAll')}
-                    </button>
-                    {saints.map((saint) => {
-                      const label =
-                        localizeField(
-                          shrines.find((s) => s.sufiSaint === saint)!.raw,
-                          'Sufi Saint',
-                        ) || saint;
-                      return (
-                        <button
-                          key={saint}
-                          className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
-                          onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
-                          aria-pressed={activeSaint === saint}
-                          /* Several of these values are qualified names running
-                             past 100 characters — real content, and the join key
-                             that matches rows, so the chip clamps its display and
-                             keeps the whole string here instead. */
-                          title={label}
-                        >
-                          {label}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* Time-slider by founding era */}
-              <TimeSlider
-                value={[eraMin, eraMax]}
-                onChange={onEraChange}
-                lang={lang}
-                fmtNum={fmtNum}
-              />
-
-              {/* Provenance (support_level) — show only field-verified sites.
-                  Describes how the info was gathered, never a site's importance. */}
-              <div className="filter-section">
-                <span className="filter-section-label" aria-hidden="true">
-                  {t('provenanceFilterLabel')}
-                </span>
-                <div className="filter-chips" role="group" aria-label={t('ariaFilterByProvenance')}>
-                  <button
-                    className={`filter-chip${verifiedOnly ? ' active' : ''}`}
-                    onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
-                    aria-pressed={verifiedOnly}
-                    title={t('supportLevelTooltip')}
-                  >
-                    {t('verifiedOnlyFilter')}
-                  </button>
-                </div>
-              </div>
-            </>
           )}
 
           {/* Result count */}
@@ -775,6 +598,36 @@ export function MapSidebar({
           )}
         </div>
       )}
+      {/* Search and filters, in the middle of the screen. Rendered here (not in
+          MapPage) because this component owns the query and the derived result
+          list; it portals to document.body, so the 184px sheet it lives inside
+          on a phone does not clip it. */}
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        query={searchRaw}
+        onQueryChange={setSearchRaw}
+        results={filtered}
+        total={shrines.length}
+        onSelect={(shrine) => onSelect(shrine)}
+        activeFilterCount={activeFilterCount}
+        onClearFilters={clearAllFilters}
+        filters={{
+          shrines,
+          activeCategories,
+          onCategoriesChange,
+          verifiedOnly,
+          onVerifiedOnlyChange,
+          activeRegion,
+          onRegionChange,
+          activeSaint,
+          onSaintChange,
+          eraMin,
+          eraMax,
+          onEraChange,
+          hasMoreFiltersActive,
+        }}
+      />
     </aside>
   );
 }

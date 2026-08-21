@@ -4,6 +4,7 @@ import { useShrineData } from '../hooks/useShrineData';
 import { useShareLink } from '../hooks/useShareLink';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { placesForShrine } from '../lib/data/places';
@@ -81,12 +82,18 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
     if (meta && desc) meta.setAttribute('content', desc.slice(0, 160));
   }, [shrine.raw]);
 
+  /* Article sections arrive as the reader reaches them. Attached here rather
+     than per section so one observer covers all eight, and keyed on the shrine
+     so navigating between shrines re-runs it. */
+  const revealRef = useRevealOnScroll<HTMLElement>('.article-section', [shrine.slug]);
+
   return (
     <article
       className="shrine-page"
       id="main-content"
       tabIndex={-1}
       lang={lang === 'ur' ? 'ur' : undefined}
+      ref={revealRef}
     >
       {/* Breadcrumb */}
       <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
