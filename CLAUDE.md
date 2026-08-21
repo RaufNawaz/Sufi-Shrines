@@ -277,7 +277,10 @@ public/        the site's published assets, including photos/<slug>/
 
 Front-end source layout, for orientation:
 
-- `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `NotFoundPage`.
+- `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `PlacePage`,
+  `GraphPage`, `AlmanacPage`, `CoveragePage`, `AboutPage`, `NotFoundPage`. Every route needs a
+  prerendered file (`scripts/prerender.mjs`) — GitHub Pages serves files, not routes, and
+  `scripts/check-routes-prerendered.mjs` fails the build if one is missing.
 - `src/components/map/` — `ShrineMap`, `MapSidebar` (browser + filters, with
   `WelcomeCard`/`ShrinePreview`), `ShrineMarkers`, `TimeSlider` (era filter),
   `TourPanel`/`TourList`/`TourPreview`/`TourRoute` (guided tours).
@@ -287,7 +290,9 @@ Front-end source layout, for orientation:
 - `src/lib/i18n/` — `LanguageContext`, `uiStrings`, `numerals`, `urduFallback`,
   `localizeShrineName`. **All user-facing strings and localization flow through here.**
 - `src/lib/data/` — `articleParsing`, `fieldAliasing`, `era`, `categoryKey`, `constants`,
-  `shrineModel`, `slugify`, `fieldLabels`, `infoLevel`, `supportLevel`, `siteStatus`.
+  `shrineModel`, `slugify`, `fieldLabels`, `infoLevel`, `supportLevel`, `siteStatus`,
+  `coverage`, `places` (the closed place vocabulary behind `/place/:slug`, mirrored for the
+  scripts in `scripts/data/lib/places.mjs` under a drift guard).
 - `src/lib/tours/` — tour model, geo/distance, progress, audio (TTS), autoplay.
 - `src/data/` — `tours.json` (8 tours), `urdu-seed.json` + `urdu-content.json` (from
   `urdu-i18n/`), fallback shrine data.

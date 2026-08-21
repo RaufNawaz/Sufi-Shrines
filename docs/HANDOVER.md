@@ -1851,6 +1851,82 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     the hand-written static server: for a check about how files are *served*, the serving has to
     be the thing under test, not a dev convenience.
 
+70. **Places as entities shipped (Track B), and the data decided its shape.** 27 place pages in
+    both languages, from a closed 62-entry vocabulary; Lahore holds 35 sites and five of the six
+    traditions. Every entry is derived from a `Location` string that appears in the data, none
+    from general knowledge of Pakistani geography.
+
+    The design was forced by a measurement, not chosen: **there is no District, City, Province or
+    Region column anywhere in the sheet.** Across the 169-row snapshot the last comma-separated
+    segment of `Location` is "Pakistan" for 124 rows and a province for 35, and six rows carry a
+    paragraph of survey qualification where an address should be. Positional parsing cannot
+    survive that, so the vocabulary is matched anywhere in the string — the same technique
+    `extractRegion` already used for provinces. It buys the level variations for free ("Lahore",
+    "Lahore District", "Walled City, Lahore" are one place) at the price of asserting no
+    hierarchy, which is the honest trade when the hierarchy is not in the data.
+
+    Two things stay deliberately untidy. A site can be in **two** places ("Uch Sharif,
+    Bahawalpur District" is in both, and eight rows are like this), and **eight sites are
+    unplaced** — reported on `/coverage` rather than rounded away. The date span reads bare
+    Gregorian years only and skips every Hijri or hedged date instead of flattening it (RULE 2).
+
+71. **A class name is a string, and every string typechecks.** `PlacePage` was written against
+    `entity-kicker` and `entity-lede` — plausible names, in a namespace that does exist, defined
+    in no stylesheet. `npm run typecheck` was clean. An hour later I did it again: the shrine
+    masthead's place pills went in referencing `.shrine-place-links` / `.shrine-place-tag` before
+    either rule was written.
+
+    Nothing in the pipeline could have caught it. TypeScript cannot (`className` takes any
+    string), lint cannot (the class is valid), and the unit tests cannot (jsdom applies no
+    stylesheet, so an unstyled element renders exactly like a styled one). So
+    `src/styles/__tests__/classNamesStyled.test.ts` walks every `className` in `src/` and
+    requires each name to appear in `src/styles/*.css`, with a seven-entry
+    `UNSTYLED_BY_DESIGN` list for scope hooks and one semantic marker (`.coords`, which the Urdu
+    leak guard reads).
+
+    Two details are worth keeping. Dynamic names are checked as **prefixes**
+    (`place-tradition--${key}` requires some `.place-tradition--…` rule) — the first draft
+    skipped interpolated names entirely and would have missed eight variant families. And the
+    first run reported `en` and `ur` as unstyled classes, which were `lang === 'en'` comparands
+    harvested out of a ternary; comparison right-hand sides and call arguments are stripped
+    before literals are collected.
+
+    It found a real bug on its first honest run: `.entity-disputed-value` on `/saint/:slug` had
+    no rule, so in a row whose whole point is two contested dates, the field label was bold and
+    the **numbers** were plain body text.
+
+72. **The Urdu seed grew again and every eager budget moved with it.** Merging Track B's 282
+    place tokens took `src/data/urdu-seed.json` from 697 to 960 entries, 69 KB to 80 KB, which
+    lands as ~25 KB on *every* route because `urduFallback` imports the seed statically.
+    `check-bundle-budget.mjs` failed `index.html` and the budgets were raised with the
+    measurement recorded — the second raise for the same cause in two days.
+
+    That is the argument for finally language-gating the seed: **an English reader downloads
+    80 KB of Urdu dictionary and consults none of it.** Blocked on the same thing as before —
+    `translateToUrdu` runs synchronously during render, so a late dictionary flashes English —
+    and it needs the `ensureUrduContentForLang` treatment `urdu-content.json` already has.
+
+73. **The prerenderer was writing Urdu with Western digits.** Found while adding place pages:
+    `/ur/saint/data-ganj-bakhsh` shipped `(وفات 1072)`. The app has `fmtNum` at every render
+    site and the static `<meta>` tags were simply never held to it. Fixed for places, saints and
+    orders — `(وفات ۱۰۷۲)` — applied only to numbers the script *composes* and never to Urdu
+    prose lifted from `urdu-content.json`, because reformatting inside an author's text is a
+    content edit rather than a rendering choice.
+
+74. **The place vocabulary exists twice on purpose, and is held to itself.**
+    `scripts/data/lib/places.mjs` mirrors `src/lib/data/places.ts` because the prerenderer runs
+    under plain node with no TypeScript loader — the same arrangement as `slugs.mjs`. The guard
+    (`placesVocabSync.test.ts`) compares the tables field by field, checks each regex's flags
+    (`i`, and *not* `g`: a global regex used with `.test()` carries a `lastIndex`, so the same
+    string matches on one call and misses on the next), and then runs both matchers over every
+    `Location` in the shipped snapshot.
+
+    It also checks one step earlier than the vocabulary. The prerenderer works from raw sheet
+    rows, and my first draft read `field(row, 'Location', 'Address', 'Place')` while the app
+    reads `row['Location']` and nothing else — a row with an Address and no Location would have
+    been placed in `dist` and unplaced in the app, which is a page the sitemap advertises and
+    the router calls "not recorded". Both sides now share `locationOfRow`.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

@@ -422,7 +422,42 @@ It exists because nothing else can see base-path bugs — every other job builds
 sees 200 and the browser sees 404. Hence a hand-written static server: for a check about how
 files are served, the serving has to be under test.
 
+### Places as entities — Track B shipped
+
+`/place/:slug` and `/ur/place/:slug`: **27 pages** for every place holding two or more sites,
+from a closed **62-entry** vocabulary. Indexed from `/coverage`, a pill row on every shrine
+masthead, prerendered in both languages, in the sitemap, in the axe / no-leak /
+accessible-names / skip-link sweeps, and covered by `e2e/places.spec.ts` (6 tests, the journey
+in both languages).
+
+Lahore holds **35 sites and five of the six traditions** — a fact no view in the archive stated
+before. **Eight sites are unplaced** and `/coverage` says so.
+
+The shape was forced by the data: there is no District, City, Province or Region column, and
+across the snapshot the last segment of `Location` is "Pakistan" for 124 rows and a province for
+35. So the vocabulary is matched anywhere in the string. A site can be in two places, and the
+date span reads bare Gregorian years only — every Hijri and hedged date is skipped rather than
+flattened (RULE 2).
+
+Three checks came out of it, two of them from my own mistakes: `classNamesStyled.test.ts` (a
+`className` that exists in no stylesheet — I wrote two such pages an hour apart, and it then
+found a real one on `/saint/:slug`), `placesVocabSync.test.ts` (the vocabulary and the sheet
+column read the same on both sides), and a `place/lahore` + `ur/place/lahore` spot-check in the
+prerender gate. The prerenderer also stopped writing Western digits into Urdu meta descriptions:
+`(وفات 1072)` → `(وفات ۱۰۷۲)`, for places, saints and orders.
+
+### The Urdu seed is now 80 KB on every route
+
+Track B's 282 place tokens took the seed from 697 to 960 entries, and `urduFallback` imports it
+statically, so ~25 KB landed on every route and every eager budget moved. Second raise for the
+same cause in two days. The fix is the language gate already logged in
+`SHARED_GROUND_VISION.md`; it is blocked on `translateToUrdu` being synchronous during render,
+not on effort.
+
 ### Suite state
+
+(Updated after Track B: **570 tests, 64 files, green**, and the Playwright suite is 142 passed /
+5 failed with the same five environmental failures.)
 
 `npm run verify`: 537 tests, green. Full Playwright run: **121 passed, 5 failed** — and those
 five are the environmental failures of §9.53, verified by rebuilding `40d9fe1` (the commit this

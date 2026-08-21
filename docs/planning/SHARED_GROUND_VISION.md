@@ -1,7 +1,7 @@
 # Shared Ground — a vision for the next phase
 
-**Status:** proposed 20 August 2026. **Track A and Track D shipped 21 August 2026**; Track B is
-next per the sequencing at the foot of this file, Track C last. Read alongside
+**Status:** proposed 20 August 2026. **Tracks A, B and D shipped 21 August 2026**; Track C is
+last per the sequencing at the foot of this file, and still gated on date quality. Read alongside
 [`PROJECT_VISION.md`](PROJECT_VISION.md)
 (the nine-track roadmap) and [`DESIGN_VISION.md`](DESIGN_VISION.md) (aesthetic direction).
 This document does not replace either; it argues for one idea those two do not contain, and
@@ -91,15 +91,49 @@ this archive did not measure must never be displayed as one it did.
 
 ---
 
-## Track B — Places as entities · **NEXT**
+## Track B — Places as entities · **SHIPPED 21 Aug 2026**
 
-The knowledge graph holds 94 places but they are thin: `located_in` edges and little else. A
-place should carry what the archive knows about it — which sites, which traditions, which
-century each was founded, what its name is in Urdu — so that "Uch Sharif" and "Nankana Sahib"
-become readable subjects rather than filter values.
+`/place/:slug` and `/ur/place/:slug`, one page per place holding two or more sites: which sites,
+which traditions, and the span of the dates the archive can actually read. Indexed from
+`/coverage`, linked from every shrine masthead, prerendered in both languages, in the sitemap.
 
-This is where the *named* half of shared ground lives, and it is the natural home for the
-district/tehsil hierarchy the survey records inconsistently.
+**What shipped**
+
+| | |
+|---|---|
+| Place vocabulary | **62 entries**, every one derived from a `Location` string that appears in the data |
+| Pages built | **27** places with ≥2 sites (× 2 languages) |
+| Densest place | **Lahore, 35 sites**, five of the six traditions |
+| Sites the vocabulary cannot place | **8 of 169** — reported on `/coverage`, not rounded away |
+| Urdu | all 62 names resolve through the dictionary; 282 place tokens added to the seed |
+
+**What the data forced, and what it cost**
+
+There is no District, City, Province or Region column — all of it is derived from one free-text
+`Location`. Positional parsing does not survive that: measured over the snapshot, the last
+comma-separated segment is "Pakistan" for 124 rows and a province for 35, and six rows carry a
+paragraph of survey qualification instead of an address. So the vocabulary is closed and matched
+anywhere in the string, the same technique `extractRegion` already used one level up.
+
+Two consequences, both kept deliberately:
+
+- **A site can be in two places.** "Uch Sharif, Bahawalpur District" matches both, because it is
+  in both. Choosing one would mean suppressing a true statement.
+- **The district/tehsil hierarchy this section hoped for is not here.** One `\bLahore\b` entry
+  covers "Lahore", "Lahore District" and "Walled City, Lahore" without asserting that a district
+  is a city. That is weaker than a hierarchy and it is what the data supports; a hierarchy needs
+  a column the sheet does not have.
+
+The page states counts, traditions and a date span, and **nothing else** — no prose about
+Lahore, because the archive has none and writing some would be inventing content (RULE 2). The
+date span reads only bare Gregorian years and skips every Hijri and hedged date rather than
+flattening it into a point.
+
+**Invariants added with it** (RULE 4): a vocabulary drift guard holding
+`scripts/data/lib/places.mjs` to `src/lib/data/places.ts` structurally *and* over every Location
+in the snapshot; a `/place/lahore` + `/ur/place/lahore` spot-check in the prerender gate; and
+`src/styles/__tests__/classNamesStyled.test.ts`, which came out of this track's own mistake —
+two class names written into JSX that existed in no stylesheet.
 
 ## Track C — Chronology · not started
 
