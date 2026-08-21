@@ -31,6 +31,7 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
 import { hasProjectAccess } from '../lib/projectAccess';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -262,6 +263,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
+          <CiteThisEntry shrine={shrine} />
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
           {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}
