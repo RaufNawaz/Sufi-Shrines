@@ -5,8 +5,8 @@ held it on that date: every row, every column, with the newlines inside every `D
 intact.
 
 ```bash
-npm run data:snapshot                      # snapshot_<date>.csv
-npm run data:snapshot -- --label pre-import # snapshot_<date>_pre-import.csv
+npm run data:restore-point                      # snapshot_<date>.csv
+npm run data:restore-point -- --label pre-import # snapshot_<date>_pre-import.csv
 ```
 
 ## Why these are committed when `data/*.csv` is gitignored

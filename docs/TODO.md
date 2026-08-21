@@ -359,7 +359,7 @@ from a citation). Urdu article prose deliberately excluded — it is the 1 MB la
 `e2e/search-bilingual.spec.ts` runs the real index over the real dataset through the real UI in
 both languages, mutation-tested by blanking the Urdu fields.
 
-### A dated CSV restore point — `npm run data:snapshot`
+### A dated CSV restore point — `npm run data:restore-point`
 
 `data/snapshot_<date>[_<label>].csv`: every row, every column, Description newlines intact.
 Written because the sheet is production and keeps no history, so the state before an import has

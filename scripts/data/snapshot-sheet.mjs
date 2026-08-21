@@ -1,7 +1,7 @@
 /**
  * Write a dated, full-fidelity CSV snapshot of the archive as the repo holds it.
  *
- *   node scripts/data/snapshot-sheet.mjs            (npm run data:snapshot)
+ *   node scripts/data/snapshot-sheet.mjs            (npm run data:restore-point)
  *   node scripts/data/snapshot-sheet.mjs --label pre-import
  *
  * Why this exists: the Google Sheet is production (RULE 3). An import replaces
@@ -40,7 +40,7 @@
  * exact failure RULE 0 was written for.
  */
 import Papa from 'papaparse';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -97,8 +97,6 @@ const unbalanced = rows
   .filter((r) => (String(r.Description ?? '').match(/\*/g) ?? []).length % 2 !== 0)
   .map((r) => r.Name ?? '(unnamed)');
 
-const outName = `snapshot_${stamp}${label ? `_${label}` : ''}.csv`;
-const outPath = join(ROOT, 'data', outName);
 
 /* LF row delimiters, not Papa's default CRLF.
    `.gitattributes` sets `* text=auto`, so a CRLF file is normalised to LF in the
@@ -107,7 +105,31 @@ const outPath = join(ROOT, 'data', outName);
    lost: no cell in this dataset contains a CR (checked), the 3739 bare LFs
    inside Description cells are the markdown and are quoted by the serialiser,
    and Google Sheets imports LF-delimited CSV without complaint. */
+const outName = `snapshot_${stamp}${label ? `_${label}` : ''}.csv`;
+const outPath = join(ROOT, 'data', outName);
+
 const csv = Papa.unparse(rows, { header: true, columns, newline: '\n' });
+
+/*
+ * Refuse to write a second identical snapshot for the same data.
+ *
+ * A restore point is worth having once per state of the archive. Running this
+ * twice — with and without a --label, say — produced two byte-identical files
+ * for the same `generated` stamp, which is noise in a directory whose whole
+ * purpose is that a reader can tell which file is which. If the content
+ * differs, the write goes ahead: same date, changed data, both worth keeping.
+ */
+const existing = readdirSync(join(ROOT, 'data'))
+  .filter((f) => f.startsWith(`snapshot_${stamp}`) && f.endsWith('.csv'))
+  .filter((f) => f !== outName);
+for (const other of existing) {
+  if (readFileSync(join(ROOT, 'data', other), 'utf8') === csv) {
+    console.log(`snapshot-sheet: data/${other} already holds exactly this data — nothing to do.`);
+    console.log('  Pass --label <name> only when you want a differently-named copy of a');
+    console.log('  *different* state; a second identical file makes the directory harder to read.');
+    process.exit(0);
+  }
+}
 writeFileSync(outPath, csv, 'utf8');
 
 // ── invariant 4: round-trip the file we just wrote ──────────────────────────

@@ -1762,7 +1762,7 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     work because the list items are click handlers, not links.
 
 66. **A dated CSV restore point, and a check that fired correctly on its first run — at me.**
-    `npm run data:snapshot` writes `data/snapshot_<date>[_<label>].csv`: every row, every column,
+    `npm run data:restore-point` writes `data/snapshot_<date>[_<label>].csv`: every row, every column,
     newlines inside every Description intact. The sheet is production and keeps no history
     (RULE 3), so the state before an import has to be recoverable from a commit rather than from
     whoever ran the export (RULE 0). `.gitignore` ignores `data/*.csv`, so

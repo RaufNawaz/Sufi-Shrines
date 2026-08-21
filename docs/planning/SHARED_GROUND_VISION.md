@@ -1,6 +1,8 @@
 # Shared Ground — a vision for the next phase
 
-**Status:** proposed 20 August 2026. Read alongside [`PROJECT_VISION.md`](PROJECT_VISION.md)
+**Status:** proposed 20 August 2026. **Track A and Track D shipped 21 August 2026**; Track B is
+next per the sequencing at the foot of this file, Track C last. Read alongside
+[`PROJECT_VISION.md`](PROJECT_VISION.md)
 (the nine-track roadmap) and [`DESIGN_VISION.md`](DESIGN_VISION.md) (aesthetic direction).
 This document does not replace either; it argues for one idea those two do not contain, and
 sizes it against the data we actually hold.
@@ -60,7 +62,11 @@ claim about proximity that has not been checked.
 
 ---
 
-## Track A — Shared ground (experience + relations)
+## Track A — Shared ground (experience + relations) · **SHIPPED 21 Aug 2026**
+
+`src/lib/data/sharedGround.ts` + the section on each shrine page. The honesty fix it forced is
+in: `NearbyShrines` shows metres below a kilometre, and for the four identical-pin groups it
+shows "same recorded location" rather than a distance the archive never measured.
 
 **Database.** Model adjacency as a first-class, derived relation rather than a runtime sort:
 per site, its neighbours inside a radius, each with a measured distance and the neighbour's
@@ -85,7 +91,7 @@ this archive did not measure must never be displayed as one it did.
 
 ---
 
-## Track B — Places as entities
+## Track B — Places as entities · **NEXT**
 
 The knowledge graph holds 94 places but they are thin: `located_in` edges and little else. A
 place should carry what the archive knows about it — which sites, which traditions, which
@@ -95,7 +101,7 @@ become readable subjects rather than filter values.
 This is where the *named* half of shared ground lives, and it is the natural home for the
 district/tehsil hierarchy the survey records inconsistently.
 
-## Track C — Chronology
+## Track C — Chronology · not started
 
 Era parsing exists (`src/lib/data/era.ts`), the map has a time slider, and 69 of 196 figures
 now carry dates — but there is no view in which the archive's whole span is legible. A
@@ -106,14 +112,21 @@ Prerequisite: dates are still thin and 31 rows have a date column that hardened 
 prose never made (`docs/TODO.md` §0). A timeline must render "c. 1165" as an interval, not a
 point, or it will launder uncertainty into false precision.
 
-## Track D — The gaps as a first-class page
+## Track D — The gaps as a first-class page · **SHIPPED 21 Aug 2026**
 
-The standing findings in `docs/HANDOVER.md` are the most honest thing in this repository and
-they are invisible to readers: 49 of 167 entries have no bibliography; coverage is ~31% of the
-Punjab register alone; there are 18 videos and **zero** audio recordings against a stated oral-
-history purpose. A coverage page that states all of this, computed live rather than asserted,
-would turn the archive's candour from a document into a feature — and would make the case for
-the fieldwork that closes it.
+`/coverage`, computed by `buildCoverage()` from the shipped data on every page load.
+
+**Two of the three numbers this section argued from were already wrong when it was written**,
+which is the argument for the page rather than against it. Re-measured 21 August: 168 of 169
+entries carry a bibliography (not 49 of 167 missing — the enrichment passes had closed it
+weeks earlier and the note was still being quoted); coverage is ~32% of the Punjab register
+(169 vs 534); 51 of 169 entries carry no photograph, and 242 image fields are populated across
+the other 118. The video/audio count could not be re-measured at all — the sheet has no video
+or audio column, so it came from media directories that are gitignored and absent from a fresh
+clone. It is flagged as undated in CLAUDE.md rather than repeated.
+
+That is exactly what the page fixes: a figure computed on every load cannot go stale the way a
+sentence in a document can.
 
 ---
 
@@ -124,7 +137,8 @@ and `urduFallback` imports it eagerly — so ~18 KB landed on every route and
 `scripts/check-bundle-budget.mjs` failed two of them. Budgets were raised with the reason
 recorded, which is the honest short-term answer.
 
-The real answer is that **an English reader needs no Urdu dictionary at all.** The seed can be
+**Still outstanding as of 21 August 2026.** The real answer is that **an English reader needs
+no Urdu dictionary at all.** The seed can be
 language-gated exactly as `urdu-content.json` now is (`ensureUrduContentForLang` plus a
 rebuild listener in `useShrineData`) — worth ~67 KB off every route, more than the whole
 knowledge-graph chunk. It was not done in the same pass because `translateToUrdu` is called
@@ -133,11 +147,14 @@ that needs the same care the article payload got, not a quick dynamic import.
 
 ## Sequencing
 
-1. **Track A** — highest value per unit of work, needs no new content, and the honesty fix it
-   forces (identical pins) is owed regardless.
-2. **Track D** — cheap, computed from what exists, and it recruits help.
-3. **Track B** — unlocks the named half of A and tidies the region/district mess.
-4. **Track C** — last, because it depends on date quality that is not there yet.
+1. ~~**Track A**~~ — shipped 21 August.
+2. ~~**Track D**~~ — shipped 21 August.
+3. **Track B** — unlocks the named half of A and tidies the region/district mess. ← next
+4. **Track C** — last, because it depends on date quality that is not there yet. The date
+   hedges are still hedges: `year_built_note` carries readings like "1416 AH is the survey's
+   answer to 'in which year was this place built', but may refer to the saint's death rather
+   than construction", and a timeline must render those as intervals or it launders uncertainty
+   into false precision.
 
 Every number in this document was measured against `src/data/shrines-fallback.json` on
 20 August 2026, not estimated. Re-measure before trusting any of it; the sheet is production
