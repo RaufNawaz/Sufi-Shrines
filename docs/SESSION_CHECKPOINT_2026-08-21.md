@@ -55,14 +55,17 @@ The last instructions in the session were: **animations, database enrichment (Su
 more features, an aesthetic overhaul of tours and the table of shrines, translucency, coherence,
 no Urdu overflow.** Most of that is done (§2); what remains:
 
-1. **Verify the new UI end to end.** `npm run verify` and the full Playwright run were green
-   before the palette landed; the palette's own e2e coverage does **not** exist yet. Write
-   `e2e/palette.spec.ts`: open on ⌘K / `/` / the trigger, type, ↑↓ + Enter selects, Esc closes,
-   focus returns to the trigger, filters button reveals the chips, both languages.
-2. **The a11y sweep has never seen the palette or any mobile-only UI.** `e2e/a11y.spec.ts`,
-   `urdu-no-leak.spec.ts` and `urdu-accessible-names.spec.ts` all run at a desktop viewport with
-   no overlay open. That is how the sheet handle kept a hardcoded English `aria-label` for
-   months. Add an open-palette state and a phone viewport pass.
+1. ~~Palette e2e coverage~~ — **done**: `e2e/palette.spec.ts`, 11 cases (three ways in, typing,
+   ↑↓/Enter, click, filters drawer, focus restore, backdrop dismiss, and two Urdu cases), plus an
+   axe scan of the open palette *with* its filters drawer in both languages.
+   **That scan immediately found two criticals** in the shrine list, which no sweep had ever
+   opened: `aria-pressed` on 169 `role="listitem"` rows, and a `role="list"` owning `div`
+   headings. The list is a `listbox`/`group`/`option` now (HANDOVER §9.81).
+2. **A phone-viewport pass for the sweeps is still missing.** `a11y.spec.ts`,
+   `urdu-no-leak.spec.ts` and `urdu-accessible-names.spec.ts` run only at a desktop viewport, so
+   no mobile-only control has ever been scanned — that is how the sheet handle kept a hardcoded
+   English `aria-label`. `no-overflow.spec.ts` is the only sweep that runs at 390px. Copy its
+   viewport loop into the other three.
 3. **Database enrichment for the orders is still shallow.** What shipped is derived (places,
    sites, dates). The KG holds 235 verified-but-unreviewed proposals
    (`npm run data:validate:kg-proposals`), 50 of them about orders; importing any of them is a

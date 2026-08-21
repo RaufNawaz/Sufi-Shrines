@@ -2061,6 +2061,25 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     `@supports (backdrop-filter: …)`, so a browser without the blur gets a solid panel rather
     than text over a live map.
 
+81. **Two critical a11y violations sat on the primary browse surface, and the route sweep could
+    not see them.** Adding an axe scan of the *open* command palette meant clicking "Table of
+    Shrines" as part of the setup — and that revealed the shrine list had never been scanned at
+    all, because the route sweep scans the map page with the list collapsed. On it: `aria-pressed`
+    on every one of 169 rows, which is **not allowed on `role="listitem"`**, and a `role="list"`
+    owning `div` category headings, which a list may not own. Both critical, both invisible for as
+    long as the list has existed.
+
+    The fix is the honest structure rather than a patch: these rows are a single-select list of
+    options (clicking one selects that shrine on the map), so the panel is a `listbox`, each
+    category is a `group` carrying the category as its accessible name, each row is an `option`
+    with `aria-selected`, and the visible heading is `aria-hidden` because the group already
+    announces it.
+
+    The lesson is the one this file keeps recording in new costumes: **a sweep's route list is
+    not its universe — its *state* is.** Nine routes at rest is not the same as nine routes with
+    the panel a reader actually uses opened. The palette scan now opens the list *and* the filters
+    drawer, and a phone-viewport pass is still missing (see the checkpoint doc §4).
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

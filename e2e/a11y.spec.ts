@@ -61,6 +61,42 @@ test.describe('Accessibility (axe-core) — every route', () => {
 
 /* The `/` and `/shrine/:slug` axe scans that used to live here are covered by
    the ROUTES loop above, in both languages. */
+/**
+ * The command palette, open.
+ *
+ * The route sweep above scans pages at rest, so it has never seen an overlay —
+ * and an overlay is where the a11y risk concentrates: it is a modal dialog with
+ * a combobox, a listbox, a focus trap and a translucent panel that has to keep
+ * its contrast over whatever is behind it. Scanned in both languages, because
+ * the panel flips direction and swaps to Nastaliq.
+ */
+test.describe('Accessibility (axe-core) — the command palette', () => {
+  for (const lang of ['en', 'ur'] as const) {
+    test(`the open palette (${lang}) has no critical or serious violations`, async ({ page }) => {
+      await page.goto(lang === 'ur' ? '/?lang=ur' : '/');
+      await page.locator('#sidebar').waitFor();
+      await page.locator('.list-toggle-btn').click();
+      await page.locator('.palette-trigger').click();
+      await page.locator('.palette').waitFor();
+      // With the filters drawer open too — that is another twenty controls the
+      // sweep would otherwise never see.
+      await page.locator('.palette-filters-btn').click();
+      await page.locator('.palette-filters').waitFor();
+      await settle(page);
+
+      const results = await new AxeBuilder({ page })
+        .exclude(EXCLUDE_SELECTORS)
+        .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+        .analyze();
+
+      const criticalOrSerious = results.violations.filter(
+        (v) => v.impact === 'critical' || v.impact === 'serious',
+      );
+      expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+    });
+  }
+});
+
 test.describe('Accessibility (axe-core)', () => {
   test('shrine page has correct heading hierarchy', async ({ page }) => {
     await page.goto('/shrine/data-darbar');

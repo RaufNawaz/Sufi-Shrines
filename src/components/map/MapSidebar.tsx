@@ -442,7 +442,21 @@ export function MapSidebar({
           {loading && shrines.length === 0 ? (
             <ShrineListSkeleton />
           ) : (
-            <div className="shrine-list-panel" role="list" aria-label={t('ariaShrineList')}>
+            /* A listbox, not a list.
+                axe reported two criticals here, both invisible until the
+                command palette's a11y scan happened to open this panel — the
+                route sweep scans the map with the list collapsed, so 169 rows
+                had never been scanned at all. `aria-pressed` is not allowed on
+                `role="listitem"` (it was on every row), and a `role="list"`
+                may own only `listitem` children (each category heading was a
+                `div` inside it).
+
+                These rows *are* a single-select list of options: clicking one
+                selects that shrine on the map. So listbox / group / option is
+                both the valid structure and the honest one, and
+                `aria-selected` replaces the `aria-pressed` that could not be
+                there. */
+            <div className="shrine-list-panel" role="listbox" aria-label={t('ariaShrineList')}>
               {filtered.length === 0 && !loading && (
                 <div className="shrine-list-empty-state">
                   <svg
@@ -472,23 +486,32 @@ export function MapSidebar({
                 </div>
               )}
               {grouped.map(([cat, items]) => (
-                <div key={cat}>
+                <div
+                  key={cat}
+                  role="group"
+                  aria-label={
+                    grouped.length > 1
+                      ? tFn(
+                          lang,
+                          'ariaCategoryOf',
+                          categoryDisplayLabel(items[0].category, lang) ??
+                            localizeField(items[0].raw, 'Category') ??
+                            cat,
+                        )
+                      : t('ariaShrineList')
+                  }
+                >
                   {grouped.length > 1 && (
                     /* One label, used for both the visible heading and the
                        accessible name. They used to diverge: the heading was
                        localised and the aria-label interpolated the raw English
                        `cat`, so a screen reader announced the English category
                        over the Urdu the page was showing. */
-                    <div
-                      className="shrine-list-group-heading"
-                      aria-label={tFn(
-                        lang,
-                        'ariaCategoryOf',
-                        categoryDisplayLabel(items[0].category, lang) ??
-                          localizeField(items[0].raw, 'Category') ??
-                          cat,
-                      )}
-                    >
+                    /* `aria-hidden` because the group above now carries this
+                       same string as its accessible name — announcing it twice
+                       is worse than once, and a bare div inside a listbox is
+                       not an allowed child. */
+                    <div className="shrine-list-group-heading" aria-hidden="true">
                       {categoryDisplayLabel(items[0].category, lang) ??
                         (localizeField(items[0].raw, 'Category') || cat)}
                     </div>
@@ -501,12 +524,12 @@ export function MapSidebar({
                       <button
                         key={shrine.id}
                         className={`shrine-list-item${shrine.id === selectedId ? ' selected' : ''}`}
-                        role="listitem"
+                        role="option"
                         onClick={() => {
                           onSelect(shrine);
                           setShowList(false);
                         }}
-                        aria-pressed={shrine.id === selectedId}
+                        aria-selected={shrine.id === selectedId}
                       >
                         <div
                           className={`shrine-list-thumb-slot${shrine.imageUrl ? '' : ` shrine-list-thumb-slot--empty shrine-list-thumb-slot--${catKey}`}`}
