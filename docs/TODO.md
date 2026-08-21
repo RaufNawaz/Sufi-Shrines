@@ -4,6 +4,31 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0a″. Session log — 21 August 2026, third session: features until told to stop
+
+Standing instruction: keep improving functionality. Four shipped, each verified
+(`npm run verify` + full e2e green before every push):
+
+- **The shrine's almanac slice** (`4d21be0`): shrine pages with a datable observance show
+  the next projected window with the approximate flag, deep-linking to the shrine's
+  anchored card in /almanac. F5 (silsila metro map) was *rejected* after measurement — the
+  KG holds 6 lineage edges across 130 saints; a transit diagram of six connections would
+  imply a mapped tradition the archive doesn't have. It waits on lineage extraction.
+- **Print-grade shrine pages** (`bfeb47b`) — and the bigger half: tours.css's unscoped
+  `body * { visibility: hidden }` print hack meant **every page without an active tour has
+  been printing blank**. Now scoped with `:has(.tour-print-itinerary)` and guarded by a
+  print-emulation e2e spec.
+- **Saved shrines / ziyarat list** (`7572109`): on-device bookmarks + a "Your list" map
+  filter (?saved=1). localStorage only — offline-friendly, no account, never leaves the
+  device.
+- **252 KB gzip off the critical path** (`urdu-content.json` made a lazy chunk): the
+  useShrineData chunk went 585 KB → 11 KB. Both merge sites were already async, so nothing
+  ever renders unmerged; the Urdu experience is byte-identical.
+
+Unit tests 426 → 447 across the day; e2e 59 (all broken in sandbox) → 66/66 green in ~1 min.
+
+---
+
 ## 0a′. Session log — 21 August 2026, second session: Lane A of the plan, executed
 
 All six agent-executable items from `planning/NEXT_STEPS_2026-08-21.md` §2 are done (one
