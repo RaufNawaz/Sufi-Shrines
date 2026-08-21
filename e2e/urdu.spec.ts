@@ -47,6 +47,25 @@ test.describe('Urdu (?lang=ur) journey', () => {
     }
   });
 
+  test('searching in Urdu script finds a shrine by its displayed Urdu name', async ({ page }) => {
+    // Guards the 21 Aug 2026 parity fix (searchDocs.ts): the worker index
+    // must carry the same dictionary Urdu names the list renders. Before the
+    // fix, urduName came from a sheet column that doesn't exist, and this
+    // exact query returned nothing.
+    await page.goto('/?lang=ur');
+    await page.locator('.list-toggle-btn').click();
+    await expect(page.locator('.shrine-list-panel')).toBeVisible();
+
+    await page.getByPlaceholder(UI_TEXT.ur.searchPlaceholder).fill('داتا دربار');
+
+    // The seed dictionary renders Data Darbar as داتا دربار; the list shows
+    // localized names in ?lang=ur, so the match must surface under that name.
+    const match = page
+      .locator('.shrine-list-item')
+      .filter({ has: page.locator('.shrine-list-name', { hasText: 'داتا دربار' }) });
+    await expect(match.first()).toBeVisible();
+  });
+
   test('opening a shrine page renders its name in Urdu script', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
 
