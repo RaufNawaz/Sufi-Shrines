@@ -100,7 +100,14 @@ const unbalanced = rows
 const outName = `snapshot_${stamp}${label ? `_${label}` : ''}.csv`;
 const outPath = join(ROOT, 'data', outName);
 
-const csv = Papa.unparse(rows, { header: true, columns });
+/* LF row delimiters, not Papa's default CRLF.
+   `.gitattributes` sets `* text=auto`, so a CRLF file is normalised to LF in the
+   repository — which would mean the committed blob never matches what the script
+   wrote, and a re-run would show 169 spurious changed lines forever. Nothing is
+   lost: no cell in this dataset contains a CR (checked), the 3739 bare LFs
+   inside Description cells are the markdown and are quoted by the serialiser,
+   and Google Sheets imports LF-delimited CSV without complaint. */
+const csv = Papa.unparse(rows, { header: true, columns, newline: '\n' });
 writeFileSync(outPath, csv, 'utf8');
 
 // ── invariant 4: round-trip the file we just wrote ──────────────────────────
@@ -110,6 +117,13 @@ if (backRows.length !== rows.length) {
   console.error(
     `snapshot-sheet: wrote ${rows.length} rows but reading the file back yields ` +
       `${backRows.length}. Not a usable restore point.`,
+  );
+  process.exit(1);
+}
+if (csv.includes('\r')) {
+  console.error(
+    'snapshot-sheet: the serialised CSV contains a CR. `.gitattributes` would normalise it, ' +
+      'so the committed file could never match what was written. Refusing.',
   );
   process.exit(1);
 }
