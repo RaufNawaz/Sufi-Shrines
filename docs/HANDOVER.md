@@ -1783,6 +1783,39 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     RULE 4's own worked example — the linter that flagged "a poet of note:" — arriving in my own
     code within an hour of my quoting it.
 
+67. **Four bugs in the gallery lightbox, all behind one click no test performed.** The
+    accessible-name sweep, the axe sweep and the no-leak guard all scan the page *as loaded*, so
+    a modal that exists only after a click is invisible to every one of them — the same blind
+    spot as `UpdateToast` (§9.51), and now the second time it has hidden real defects. **Audit
+    for others: anything gated on a click, a hover, a service-worker event, or a geolocation
+    grant is unexamined by every sweep in this suite.**
+
+    - **Arrowing past the end destroyed the lightbox in Urdu.** The handler flipped the *step*
+      for RTL without flipping the *clamp*: `Math.max(0, i - (isRTL ? -1 : 1))` can exceed the
+      last index and `Math.min(len - 1, i + (isRTL ? -1 : 1))` can go below zero. `items[idx]`
+      became `undefined`, reading `item.index` in the render threw, and the dialog vanished.
+      Measured: five ArrowLefts on a two-photo gallery removed it in Urdu and did nothing in
+      English. There were two copies of that arithmetic; there is one clamped `step()` now,
+      because the bug was precisely the two copies disagreeing.
+    - **Nothing trapped focus, under a comment saying "Focus trap".** Eight Tabs escaped to a
+      `.related-card` link behind an `aria-modal="true"` container: the screen reader is told the
+      page is inert while the keyboard roams it. The comment was the tell — it described focus
+      *management* (focus on open, restore on close) and called it a trap.
+    - **The restore did nothing either**, and this one is worth remembering as a shape:
+      `closeRef.current?.focus()` ran *before* `const prev = document.activeElement`, so `prev`
+      was the dialog's own close button, and on unmount focus was restored to an element that
+      had just been removed. It fell to `<body>`. A reader who opened a photo and pressed Escape
+      landed at the top of the document. **Two correct statements in the wrong order look like
+      working code and are not.**
+    - **The image `alt` was `Gallery image ${idx + 1}`** — English on the Urdu site. It is
+      `photoOf` now ("Photo 1 of 2" / "تصویر ۱ از ۲"): where the archive records no caption, the
+      honest description of the image is its position, said in a sentence.
+
+    `e2e/lightbox.spec.ts` opens it in both languages, walks off both ends, tabs past the last
+    control, presses Escape and checks focus came back to the tile that opened it. The
+    focus-restore test is the one that found the third bug — the first three were found by
+    reading, the fourth by the test I wrote for them.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

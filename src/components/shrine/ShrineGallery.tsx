@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { GalleryItem } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
@@ -22,31 +22,100 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
   const { t, lang, isRTL, fmtNum } = useLang();
   const [idx, setIdx] = useState(initialIndex);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const goPrev = () => setIdx((i) => Math.max(0, i - 1));
-  const goNext = () => setIdx((i) => Math.min(items.length - 1, i + 1));
+  /*
+   * One clamped step, used by the buttons, the arrow keys and the swipe.
+   *
+   * There were two copies of this arithmetic, and the arrow-key copy flipped
+   * the *step* for RTL without flipping the *clamp*:
+   *
+   *   ArrowLeft:  Math.max(0, i - (isRTL ? -1 : 1))          // can exceed the end
+   *   ArrowRight: Math.min(len - 1, i + (isRTL ? -1 : 1))    // can go below zero
+   *
+   * So in the Urdu view, arrowing past the last photo set idx out of range,
+   * `items[idx]` became undefined, and reading `item.index` in the render threw
+   * — the whole lightbox vanished. Measured: five ArrowLefts on a two-photo
+   * gallery destroyed it in Urdu and did nothing in English. Clamping in one
+   * place makes the direction and the bound impossible to disagree.
+   */
+  const step = useCallback(
+    (delta: number) => setIdx((i) => Math.min(items.length - 1, Math.max(0, i + delta))),
+    [items.length],
+  );
+  const goPrev = () => step(-1);
+  const goNext = () => step(1);
 
-  // Focus trap
   useEffect(() => {
+    /*
+     * Capture *before* focusing, not after.
+     *
+     * These two lines were the other way round, so `document.activeElement` was
+     * already the dialog's own close button by the time it was read — and on
+     * unmount the code restored focus to an element that had just been removed
+     * from the document. Focus fell to <body>: a reader who opened a photo with
+     * the keyboard and pressed Escape landed at the top of the page and had to
+     * tab all the way back to where they were. The restore looked implemented
+     * and did nothing.
+     */
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     closeRef.current?.focus();
-    const prev = document.activeElement as HTMLElement | null;
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = '';
-      prev?.focus();
+      previouslyFocused?.focus();
     };
   }, []);
 
+  /*
+   * A real focus trap. The previous code was labelled "Focus trap" and was
+   * focus *management*: it focused the close button on open and restored focus
+   * on close, but Tab walked straight out of the dialog and into the page
+   * behind it — measured, eight Tabs landed on a `.related-card` link. For a
+   * container marked `aria-modal="true"` that is a contradiction: the screen
+   * reader has been told the rest of the page is inert while the keyboard is
+   * free to roam it.
+   */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') setIdx((i) => Math.max(0, i - (isRTL ? -1 : 1)));
-      if (e.key === 'ArrowRight') setIdx((i) => Math.min(items.length - 1, i + (isRTL ? -1 : 1)));
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key === 'ArrowLeft') step(isRTL ? 1 : -1);
+      if (e.key === 'ArrowRight') step(isRTL ? -1 : 1);
+      if (e.key !== 'Tab') return;
+
+      const overlay = overlayRef.current;
+      if (!overlay) return;
+      const focusable = [
+        ...overlay.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ),
+      ].filter((el) => el.offsetParent !== null);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      const active = document.activeElement;
+      // Cycle at the ends, and pull focus back in if it has already left —
+      // the prev/next buttons become `disabled` at the ends, which removes the
+      // currently-focused element from the tab order mid-interaction.
+      if (!overlay.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      } else if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [items.length, onClose, isRTL]);
+  }, [onClose, isRTL, step]);
 
   // Warm the browser cache for adjacent images so prev/next feels instant.
   useEffect(() => {
@@ -76,6 +145,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
 
   return (
     <div
+      ref={overlayRef}
       className="lightbox-overlay"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -123,7 +193,15 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
       <img
         key={item.index}
         src={thumbnailUrl(item.imageUrl, IMAGE_WIDTH.hero)}
-        alt={item.caption || `Gallery image ${idx + 1}`}
+        /* Was `Gallery image ${idx + 1}` — an English literal in the Urdu view.
+           The accessible-name guard could not see it: the lightbox only exists
+           after a click, and that sweep scans the page as loaded. Same blind
+           spot as UpdateToast (HANDOVER §9.51).
+
+           `photoOf` rather than a composed label: when the archive records no
+           caption, the honest description of the image *is* its position, and
+           "Photo 1 of 2" / "تصویر ۱ از ۲" says that in a sentence. */
+        alt={item.caption || fmtNum(tFn(lang, 'photoOf', idx + 1, items.length))}
         className="lightbox-img"
       />
 

@@ -376,6 +376,26 @@ single paragraph that has no newline because it is the one entry with no bibliog
 flattening is a population-level collapse, not one row; the check is a ≥90% share now (99.4%
 today) and reports individuals. RULE 4's own worked example, in my code, within the hour.
 
+### Four bugs in the gallery lightbox, behind one click no test performed
+
+Every sweep in this suite — accessible names, axe, no-leak — scans the page *as loaded*. A modal
+that exists only after a click is invisible to all of them. Same blind spot as `UpdateToast`, and
+now the second time it has hidden real defects. **Anything gated on a click, hover,
+service-worker event or geolocation grant is unexamined.**
+
+- **Arrowing past the end destroyed the lightbox in Urdu.** The RTL step was flipped, the clamp
+  was not, so `items[idx]` went out of range and the render threw. Two copies of the arithmetic;
+  one clamped `step()` now.
+- **Nothing trapped focus**, under a comment saying "Focus trap" — it described focus management.
+  Eight Tabs escaped to a `.related-card` behind `aria-modal="true"`.
+- **The restore did nothing either**: `closeRef.current?.focus()` ran *before*
+  `const prev = document.activeElement`, so `prev` was the dialog's own close button and focus
+  fell to `<body>`. Two correct statements in the wrong order look like working code.
+- **The image `alt` was English** on the Urdu site; it is `photoOf` now.
+
+`e2e/lightbox.spec.ts` covers all of it in both languages. The focus-restore test found the
+third bug — the first three by reading, the fourth by the test written for them.
+
 ### Suite state
 
 `npm run verify`: 537 tests, green. Full Playwright run: **121 passed, 5 failed** — and those
