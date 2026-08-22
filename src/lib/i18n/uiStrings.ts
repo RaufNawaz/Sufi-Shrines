@@ -181,6 +181,9 @@ export const UI_TEXT = {
     obsViewAlmanac: 'See it in the Urs Almanac',
     fieldSiteType: 'Built form',
     locationNotRecorded: 'Location not recorded — this entry is not on the map yet.',
+    srcNotesHeading: 'Where the source contradicts itself',
+    srcNotesIntro:
+      'The archive reports its source as recorded, contradictions included. Nothing below is resolved or omitted — each item is the survey\u2019s own statement, attributed.',
     mosquesHeading: 'Auqaf mosques nearby',
     mosquesSource: 'From the Auqaf mosque survey — women’s prayer access as the survey records it.',
     mosquesWomens: 'Women’s prayer section',
@@ -489,6 +492,9 @@ export const UI_TEXT = {
     obsViewAlmanac: 'عرس تقویم میں دیکھیں',
     fieldSiteType: 'تعمیری صورت',
     locationNotRecorded: 'محلِ وقوع درج نہیں — یہ اندراج ابھی نقشے پر نہیں ہے۔',
+    srcNotesHeading: 'جہاں ماخذ خود اپنے بیان سے ٹکراتا ہے',
+    srcNotesIntro:
+      'آرکائیو اپنے ماخذ کو ویسا ہی درج کرتا ہے جیسا وہ ہے — تضادات سمیت۔ نیچے کچھ بھی حل یا حذف نہیں کیا گیا — ہر شق سروے کا اپنا بیان ہے، بحوالہ۔',
     mosquesHeading: 'قریبی اوقاف مساجد',
     mosquesSource:
       'اوقاف مساجد سروے سے — خواتین کی نماز کی سہولت ویسی ہی درج ہے جیسی سروے نے لکھی۔',

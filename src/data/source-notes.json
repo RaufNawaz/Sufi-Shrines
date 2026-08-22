@@ -1,0 +1,63 @@
+{
+  "_readme": "Reader-facing source notes (22 Aug 2026 ruling, EDITORIAL_DECISIONS_PENDING.md §6): a cleaned per-entry disclosure of where the source contradicts itself. Every item RESTATES what the sheet's internal qa_note records, attributed to the survey — nothing is resolved, nothing invented, nothing withheld (the sensitive-content ruling). The raw qa_note stays internal. Keyed by route slug; items are bilingual and drafted from the qa_note verbatim quotes.",
+  "darbar-abul-muali-qadri": [
+    {
+      "en": "Asked for the saint's Sufi order, the survey answers with descent and a personal bond — \"Lineage of Hazrat Ali (R.A), Kirmani Sadaat, Affiliation with Syed Dawood Bandgi Kirmani\" — and names no order anywhere. The shrine's own name carries \"Qadri\", but this entry does not infer an affiliation from a name.",
+      "ur": "سلسلے کے سوال پر سروے نسب اور ذاتی نسبت بتاتا ہے — حضرت علیؓ کا نسب، کرمانی سادات، اور سید داؤد بندگی کرمانی سے وابستگی — اور کہیں کسی سلسلے کا نام نہیں لیتا۔ درگاہ کے اپنے نام میں «قادری» شامل ہے، مگر یہ اندراج محض نام سے نسبت اخذ نہیں کرتا۔"
+    },
+    {
+      "en": "The founding year the survey gives — 16 Rabi ul Awal 1024 AH — is the same date it gives for the saint's death and for the middle day of the urs. It is reported as given, not treated as a construction date.",
+      "ur": "سروے جو سنِ تاسیس دیتا ہے — 16 ربیع الاول 1024 ہجری — وہی تاریخ وہ وفات اور عرس کے درمیانی دن کے طور پر بھی دیتا ہے۔ یہ ویسے ہی درج ہے جیسے دی گئی؛ اِسے تعمیر کی تاریخ نہیں مانا گیا۔"
+    },
+    {
+      "en": "The year 980 AH is used two incompatible ways: as the year he settled in Lahore, and — against a birth of 960 AH and thirty years of study before migrating — as a date the account's own arithmetic cannot reach. Both statements are the survey's; neither is corrected.",
+      "ur": "سنہ 980 ہجری دو ناموافق طریقوں سے آیا ہے: لاہور میں قیام کا سال بھی، اور — 960 ہجری کی پیدائش اور ہجرت سے پہلے تیس برس کی تعلیم کے حساب سے — ایسی تاریخ بھی جہاں بیان کا اپنا حساب نہیں پہنچتا۔ دونوں بیان سروے کے ہیں؛ کسی کی تصحیح نہیں کی گئی۔"
+    },
+    {
+      "en": "The stated lifespan (\"He lived a life of 65 years\") does not match the birth and death dates given, which span about 63 years and 3 months. All three figures are reported as given.",
+      "ur": "بیان کردہ عمر («65 برس کی زندگی») پیدائش اور وفات کی دی گئی تاریخوں سے نہیں ملتی، جن کا حاصل تقریباً 63 برس 3 ماہ بنتا ہے۔ تینوں اعداد ویسے ہی درج ہیں۔"
+    },
+    {
+      "en": "Three Mughal attachments in the account cannot be reconciled from within it: a death \"during the reign of Shah Jahan\", a wife who is a daughter of \"Emperor Shah Jahangir\", and Dara Shikoh — styled \"the Mughal emperor\" — attending him in person.",
+      "ur": "بیان میں تین مغل نسبتیں باہم جمع نہیں ہوتیں: وفات «شاہ جہاں کے عہد میں»، ایک زوجہ «شہنشاہ شاہ جہانگیر» کی صاحبزادی، اور دارا شکوہ — جسے «مغل شہنشاہ» لکھا گیا — کی بذاتِ خود حاضری۔"
+    },
+    {
+      "en": "The survey states that one of his eight sons \"was martyred while fighting in a war against the Sikhs\". It gives no date, and the claim sits uneasily with a death in 1024 AH; it is reported in the account's own words.",
+      "ur": "سروے کہتا ہے کہ آٹھ بیٹوں میں سے ایک «سکھوں کے خلاف جنگ میں لڑتے ہوئے شہید ہوا»۔ کوئی تاریخ نہیں دی گئی، اور 1024 ہجری کی وفات کے ساتھ یہ بات مشکل سے بیٹھتی ہے؛ بیان اُنہی کے الفاظ میں درج ہے۔"
+    },
+    {
+      "en": "The survey reports that the land for Dyal Singh College in Lahore \"was also given by his descendants\". The claim is undated and unevidenced in the survey; it appears here strictly as the survey's statement.",
+      "ur": "سروے بتاتا ہے کہ لاہور کے دیال سنگھ کالج کی زمین «اُن کی اولاد نے دی تھی»۔ سروے میں اِس دعوے کی نہ تاریخ ہے نہ سند؛ یہ یہاں صرف سروے کے بیان کے طور پر درج ہے۔"
+    }
+  ],
+  "darbar-malik-ahmad-ayaz": [
+    {
+      "en": "The founding date the survey gives (\"8 August 1041\") is the same date it gives for Malik Ayaz's death, and its own history answer says the tomb was built after his death. The founding field is therefore a death date, reported as such.",
+      "ur": "سروے جو سنِ تاسیس دیتا ہے («8 اگست 1041») وہی ملک ایاز کی وفات کی تاریخ بھی دیتا ہے، اور خود اُس کا تاریخی بیان کہتا ہے کہ مقبرہ وفات کے بعد بنا۔ چنانچہ یہ خانہ درحقیقت تاریخِ وفات ہے، اور اِسی طور درج ہے۔"
+    },
+    {
+      "en": "Whether \"1041\" is a Hijri or a Gregorian year — about six centuries apart — the survey does not say. Internal cues lean Gregorian, but the archive does not choose on the survey's authority.",
+      "ur": "«1041» ہجری ہے یا عیسوی — جن میں تقریباً چھ صدیوں کا فرق ہے — سروے نہیں بتاتا۔ اندرونی قرائن عیسوی کی طرف جھکتے ہیں، مگر آرکائیو سروے کی سند پر فیصلہ نہیں کرتا۔"
+    },
+    {
+      "en": "One answer places the shrine \"in this village\"; two others place it in Shah Alam Market, a dense city bazaar. Both settings are reported; the survey never names a city or province for the site itself.",
+      "ur": "ایک جواب درگاہ کو «اِس گاؤں میں» رکھتا ہے؛ دو اور جواب شاہ عالم مارکیٹ میں، جو گنجان شہری بازار ہے۔ دونوں بیانات درج ہیں؛ سروے خود مقام کے لیے کوئی شہر یا صوبہ نہیں لکھتا۔"
+    },
+    {
+      "en": "The account credits \"Raja Maharaja\" with maintaining the shrine and blames \"Sikh Raja Ranjit Singh\" for spoiling it, in consecutive clauses. Whether these are the same figure is not determinable from the survey.",
+      "ur": "بیان یکے بعد دیگرے «راجا مہاراجا» کو درگاہ کی دیکھ بھال کا سہرا دیتا ہے اور «سکھ راجا رنجیت سنگھ» کو نقصان کا ذمہ دار ٹھہراتا ہے۔ یہ ایک ہی شخصیت ہیں یا الگ، سروے سے طے نہیں ہوتا۔"
+    },
+    {
+      "en": "The order of deaths is contradictory: one answer implies Mahmud Ghaznavi outlived him; another has him leaving his residence after Mahmud's death. Not reconcilable as recorded.",
+      "ur": "وفاتوں کی ترتیب متضاد ہے: ایک جواب سے لگتا ہے محمود غزنوی اُن کے بعد زندہ رہا؛ دوسرے میں وہ محمود کی وفات کے بعد رہائش چھوڑتے ہیں۔ جیسا درج ہے ویسا ہی رکھا گیا؛ تطبیق ممکن نہیں۔"
+    },
+    {
+      "en": "The cause of death is given two ways within one answer — poisoned out of resentment, or \"in some places it is said that he died a natural death\". The survey itself presents these as alternatives, and so does the archive.",
+      "ur": "سببِ وفات ایک ہی جواب میں دو طرح آیا ہے — رنجش میں زہر دیا گیا، یا «بعض جگہ کہا جاتا ہے کہ طبعی وفات پائی»۔ سروے خود اِنہیں متبادل کے طور پر پیش کرتا ہے، اور آرکائیو بھی۔"
+    },
+    {
+      "en": "The account describes battles and a temple demolition in its own vocabulary, including \"infidels\" for non-Muslims. Those are the account's words, quoted, never the archive's; several passages are garbled in transcription and are left uninterpreted.",
+      "ur": "بیان جنگوں اور ایک مندر کے انہدام کو اپنی ہی زبان میں بیان کرتا ہے، جس میں غیر مسلموں کے لیے «کافر» بھی شامل ہے۔ یہ الفاظ بیان کے ہیں، بحوالہ نقل ہوئے ہیں، آرکائیو کے نہیں؛ بعض عبارتیں نقل میں مسخ ہیں اور اُن کی تعبیر نہیں کی گئی۔"
+    }
+  ]
+}

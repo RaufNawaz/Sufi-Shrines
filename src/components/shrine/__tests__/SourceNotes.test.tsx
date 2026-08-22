@@ -1,0 +1,59 @@
+import React from 'react';
+import { describe, it, expect } from 'vitest';
+import { screen, waitFor } from '@testing-library/react';
+import { SourceNotes } from '../SourceNotes';
+import { renderWithProviders } from '../../../test/utils';
+import sourceNotes from '../../../data/source-notes.json';
+
+const table = sourceNotes as unknown as Record<string, Array<{ en: string; ur: string }> | string>;
+
+describe('source-notes content contract', () => {
+  it('every entry is bilingual, and the Urdu side carries no Latin', () => {
+    const slugs = Object.keys(table).filter((k) => !k.startsWith('_'));
+    expect(slugs.length).toBeGreaterThan(0);
+    for (const slug of slugs) {
+      const items = table[slug];
+      expect(Array.isArray(items), `${slug} must hold an item array`).toBe(true);
+      for (const item of items as Array<{ en: string; ur: string }>) {
+        expect(item.en.length).toBeGreaterThan(20);
+        expect(item.ur.length).toBeGreaterThan(20);
+        expect(item.ur, `Urdu note leaked Latin in ${slug}`).not.toMatch(/[A-Za-z]/);
+      }
+    }
+  });
+
+  it('the sensitive items are attributed, never asserted in the archive voice', () => {
+    // The ruling: attribute everything, withhold nothing. The Dyal Singh
+    // College claim must be present AND framed as the survey's statement.
+    const items = table['darbar-abul-muali-qadri'] as Array<{ en: string }>;
+    const dyal = items.find((i) => i.en.includes('Dyal Singh College'));
+    expect(dyal).toBeDefined();
+    expect(dyal!.en).toMatch(/survey/i);
+  });
+});
+
+describe('SourceNotes component', () => {
+  it('renders the disclosure for an entry with notes', async () => {
+    renderWithProviders(<SourceNotes slug="darbar-abul-muali-qadri" />);
+    await waitFor(() =>
+      expect(screen.getByText('Where the source contradicts itself')).toBeInTheDocument(),
+    );
+    expect(screen.getByText(/Dyal Singh College/)).toBeInTheDocument();
+  });
+
+  it('renders nothing for an entry without notes', async () => {
+    const { container } = renderWithProviders(<SourceNotes slug="data-darbar" />);
+    // Let the lazy import settle, then assert absence.
+    await new Promise((r) => setTimeout(r, 50));
+    expect(container.querySelector('.source-notes')).toBeNull();
+  });
+
+  it('renders the Urdu side in Urdu', async () => {
+    renderWithProviders(<SourceNotes slug="darbar-malik-ahmad-ayaz" />, { lang: 'ur' });
+    await waitFor(() =>
+      expect(screen.getByText('جہاں ماخذ خود اپنے بیان سے ٹکراتا ہے')).toBeInTheDocument(),
+    );
+    const list = document.querySelector('.source-notes-list')!;
+    expect(list.textContent).not.toMatch(/[A-Za-z]/);
+  });
+});
