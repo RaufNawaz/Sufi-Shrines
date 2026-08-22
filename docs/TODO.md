@@ -19,6 +19,14 @@ section" + "Shrine Name" columns; site already links Awqaf→shrines, we build t
 Also this session: N4 groundwork landed (`5c5326e` — language facts in one table,
 Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
 
+- **Shrines ↔ Auqaf mosques** (`4ec50fd`, the new direction): shrine pages list nearby
+  Auqaf mosques from the Awqaf repo's live published CSV — the survey's "Women's prayer
+  section" answer as recorded, distance the only computed fact, "this shrine's mosque"
+  asserted only by the survey's own Shrine Name join key. Deep links replicate the Awqaf
+  site's id contract (`mosqueId-rawRowIndex`) against the same live sheet. Lazy fetch,
+  quiet absence on failure. e2e fixture router now disambiguates the two docs.google.com
+  sheets by publish token. Unit 480 → 485; e2e 84 → 86/86.
+
 ---
 
 ## 0a⁗. Session log — 22 August 2026, fifth session: deployed, then system dark
