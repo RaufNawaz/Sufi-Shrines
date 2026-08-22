@@ -155,6 +155,37 @@ test.describe('Saved shrines (ziyarat list)', () => {
     await expect(pack.locator('.ziyarat-print-coords').first()).toContainText('31.');
   });
 
+  test('a shared ?list= link narrows the list and imports only on consent', async ({ page }) => {
+    // Arriving on a shared link: banner up, list narrowed, nothing saved yet.
+    await page.goto('/?list=data-darbar,shrine-of-shah-jamal');
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    await expect(page.locator('.shared-list-banner')).toBeVisible();
+    await expect(page.locator('.shrine-list-name')).toHaveCount(2);
+    expect(
+      await page.evaluate(() => localStorage.getItem('shrines_saved')),
+      'receiving a shared list must write nothing by itself',
+    ).toBeNull();
+
+    // Adding imports the slugs, clears the one-shot param, keeps the view.
+    await page.getByRole('button', { name: UI_TEXT.en.sharedListAdd }).click();
+    await expect(page.locator('.shared-list-banner')).toBeHidden();
+    expect(new URL(page.url()).searchParams.get('list')).toBeNull();
+    const saved = await page.evaluate(() =>
+      JSON.parse(localStorage.getItem('shrines_saved') ?? '[]'),
+    );
+    expect([...saved].sort()).toEqual(['data-darbar', 'shrine-of-shah-jamal']);
+    await expect(page.locator('.shrine-list-name')).toHaveCount(2);
+  });
+
+  test('dismissing a shared list leaves the device untouched', async ({ page }) => {
+    await page.goto('/?list=data-darbar');
+    await expect(page.locator('.shared-list-banner')).toBeVisible();
+    await page.getByRole('button', { name: UI_TEXT.en.sharedListDismiss }).click();
+    await expect(page.locator('.shared-list-banner')).toBeHidden();
+    expect(await page.evaluate(() => localStorage.getItem('shrines_saved'))).toBeNull();
+    expect(new URL(page.url()).searchParams.get('list')).toBeNull();
+  });
+
   test('the saved filter chip stays hidden while the list is empty', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();

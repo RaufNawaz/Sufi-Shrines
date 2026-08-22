@@ -30,6 +30,8 @@ import { TourList } from './TourList';
 import { WelcomeCard } from './WelcomeCard';
 import { ShrinePreview } from './ShrinePreview';
 import { ZiyaratPrintPack } from './ZiyaratPrintPack';
+import { buildSharedListUrl } from '../../lib/sharedList';
+import { useShareLink } from '../../hooks/useShareLink';
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
 const SEARCH_DEBOUNCE_MS = 200;
@@ -51,6 +53,9 @@ interface Props {
   onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
   savedOnly: boolean;
   onSavedOnlyChange: (savedOnly: boolean) => void;
+  /** Slugs of a shared list arriving via ?list= — narrows the list while the
+   * banner on MapPage is open; empty otherwise. */
+  sharedSlugs: string[];
   activeRegion: string;
   onRegionChange: (region: string) => void;
   activeSaint: string;
@@ -87,6 +92,7 @@ export function MapSidebar({
   onVerifiedOnlyChange,
   savedOnly,
   onSavedOnlyChange,
+  sharedSlugs,
   activeRegion,
   onRegionChange,
   activeSaint,
@@ -191,6 +197,7 @@ export function MapSidebar({
     () => shrines.filter((s) => savedSlugs.includes(s.slug)),
     [shrines, savedSlugs],
   );
+  const { copy: copyListLink, copied: listLinkCopied } = useShareLink({ copiedMs: 2000 });
 
   const filtered = useMemo(() => {
     let result = shrines;
@@ -201,6 +208,7 @@ export function MapSidebar({
     if (savedOnly) result = result.filter((s) => savedSlugs.includes(s.slug));
     // (the print pack below recomputes this from `shrines` so search/era
     // narrowing never silently drops entries from the printed list)
+    if (sharedSlugs.length) result = result.filter((s) => sharedSlugs.includes(s.slug));
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
@@ -242,6 +250,7 @@ export function MapSidebar({
     verifiedOnly,
     savedOnly,
     savedSlugs,
+    sharedSlugs,
     activeRegion,
     activeSaint,
     search,
@@ -623,9 +632,24 @@ export function MapSidebar({
                       {t('savedOnlyFilter')} · {fmtNum(savedSlugs.length)}
                     </button>
                     {savedOnly && (
-                      <button className="filter-chip" onClick={() => window.print()}>
-                        {t('ziyaratPackPrint')}
-                      </button>
+                      <>
+                        <button className="filter-chip" onClick={() => window.print()}>
+                          {t('ziyaratPackPrint')}
+                        </button>
+                        <button
+                          className={`filter-chip${listLinkCopied ? ' active' : ''}`}
+                          onClick={() =>
+                            copyListLink(
+                              buildSharedListUrl(
+                                savedSlugs,
+                                `${window.location.origin}${window.location.pathname}`,
+                              ),
+                            )
+                          }
+                        >
+                          {listLinkCopied ? t('copied') : t('ziyaratShareLink')}
+                        </button>
+                      </>
                     )}
                   </div>
                 </div>

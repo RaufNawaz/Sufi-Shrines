@@ -41,6 +41,7 @@ function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar
       verifiedOnly={false}
       savedOnly={false}
       onSavedOnlyChange={() => {}}
+      sharedSlugs={[]}
       onVerifiedOnlyChange={noop}
       activeRegion=""
       onRegionChange={noop}
