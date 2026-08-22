@@ -60,6 +60,14 @@ Unit tests 452 → 459; e2e 71 → 78/78 green in ~66 s.
   Suharwardi shrine is `shrine-of-abul-faiz-…` — the protected slug list in CLAUDE.md is
   photo-URL keys, not route slugs. Unit 459 → 467; e2e 78 → 79/79.
 
+- **The blank basemap button** (`fdaa98a`, reported from a real phone on production): the
+  layers control was a glyphless white square — map.css strips the vendor sprite and
+  nothing ever replaced it — parked bottom-left ON TOP of the mobile bottom sheet's brand
+  row. Now: a theme-token mask glyph and `position="topright"` (bottom-right holds
+  zoom + reset; top-left is the desktop sidebar toggle). Guarded at 390×844. Note the
+  fix is on this branch — production keeps the blank square until the branch deploys.
+  E2e 79 → 80/80.
+
 ---
 
 ## 0a″. Session log — 21 August 2026, third session: features until told to stop
