@@ -31,6 +31,26 @@ animations, deeper UI integration, more features, database enrichment. Shipped, 
 
 Unit tests 447 → 452; e2e 66 → 71/71 green in ~56 s.
 
+Continued the same day, same standing instruction:
+
+- **Save from the map** (`82ce64c`): the preview card carries the same ziyarat bookmark as
+  the shrine page — same store, same aria-pressed contract.
+- **Phone-viewport guard** (`341b2a3`): on being asked whether the phone sidebar issue was
+  fixed — yes (HANDOVER §9.9's min-height floor holds; measured 192px with all 169 items at
+  390×844 and 360×740), and the e2e guard now pins the phone size, not just 1280×720.
+- **The Atlas of Built Forms** (`949ea06`, N7 + a data-visibility bug): `site_type` was
+  parsed and displayed **nowhere** — 168/169 rows invisible to readers through the whole
+  schema migration. Now: an infobox "Built form" row (vocabulary localizes and links; the
+  two survey-prose values render verbatim per RULE 2) and /typology grouping the archive by
+  what stands at each site. **Found on the way:** the e2e fixture generator exported only
+  the 11 legacy columns, so every e2e run to date saw a dataset with no `site_type`/
+  `status`/`info_level`/`support_level` at all; the fixture now mirrors the live sheet's
+  structured columns. **N2 (Wikidata round-trip) is blocked in this sandbox** — the egress
+  proxy 403s both www.wikidata.org and query.wikidata.org; it needs a session with wider
+  egress or a human-run script.
+
+Unit tests 452 → 459; e2e 71 → 78/78 green in ~66 s.
+
 ---
 
 ## 0a″. Session log — 21 August 2026, third session: features until told to stop

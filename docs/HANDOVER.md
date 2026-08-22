@@ -762,6 +762,32 @@ nothing errored.
     `rows_not_in_source` rather than silently absent. `update_log.py` has no such fallback on
     purpose (its denominator must be 171) and now says so rather than raising.
 
+### Added 22 August 2026 — the fixture that lied and the column nobody showed
+
+15. **The e2e fixture silently dropped the entire 2026 schema until 22 August.**
+    `e2e/fixtures/generate-shrines-csv.mjs` exported a hardcoded 11-legacy-column list, so
+    every Playwright run to that date exercised a dataset in which no row had `site_type`,
+    `status`, `status_note`, `info_level` or `support_level` — badges, status notes and
+    anything built on the structured columns were untested end-to-end while their unit tests
+    passed. Nothing errored; specs that would have covered them simply couldn't exist. The
+    generator now mirrors the live sheet's structured columns. The general shape: **a
+    generated fixture constrains what e2e can ever see, and it does not follow the schema on
+    its own.** When a column is added to the sheet, check the generator.
+
+16. **`site_type` was displayed nowhere for the entire life of the 2026 schema.** The column
+    is filled for 168 of 169 rows, `constants.ts` excluded it from generic infobox rows with
+    a comment promising dedicated UI "later", and later never came — readers could not see
+    the built form of a single site. Fixed 22 Aug (infobox row + /typology). When adding a
+    structured column, grep `STRUCTURED_FACET_KEYS` for others still waiting: as of today
+    `principal_figure`, `figure_type`, `silsila` and `flags` are in the same
+    parsed-but-never-shown state.
+
+17. **The egress proxy also 403s Wikidata** (`www.wikidata.org` and `query.wikidata.org`,
+    measured 22 Aug), joining `docs.google.com` and `auqaf.punjab.gov.pk`. N2 (the
+    Wikidata/Commons round-trip) therefore cannot run in this sandbox at all — it needs a
+    wider-egress environment or a human-run script. Test reachability per-domain before
+    planning any enrichment that fetches.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
