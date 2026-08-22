@@ -4,6 +4,63 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0a⁵. Session log — 22 August 2026, sixth session: every pending decision, decided
+
+Rauf answered the whole Lane B queue in-session (reviews explicitly skipped — "ignore them
+and just move on"). Rulings recorded in `EDITORIAL_DECISIONS_PENDING.md` §6; in brief:
+reader-facing source-notes disclosure YES (further than recommended); sensitive content
+attribute-everything-withhold-nothing; `silsila_note` column YES; oral/video media NO-GO
+for now (F3/F8/F9 parked); the two coordinate-less rows get **unmapped-page treatment**;
+the 4-row patch is to be **regenerated** before import; the Saifullah draft is to be
+**updated** then sent; DOI + Auqaf register parked. New direction in their place:
+**connect shrines with the Auqaf mosques data** (`RaufNawaz/Awqaf` — "Women's prayer
+section" + "Shrine Name" columns; site already links Awqaf→shrines, we build the reverse).
+
+Also this session: N4 groundwork landed (`5c5326e` — language facts in one table,
+Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
+
+- **Shrines ↔ Auqaf mosques** (`4ec50fd`, the new direction): shrine pages list nearby
+  Auqaf mosques from the Awqaf repo's live published CSV — the survey's "Women's prayer
+  section" answer as recorded, distance the only computed fact, "this shrine's mosque"
+  asserted only by the survey's own Shrine Name join key. Deep links replicate the Awqaf
+  site's id contract (`mosqueId-rawRowIndex`) against the same live sheet. Lazy fetch,
+  quiet absence on failure. e2e fixture router now disambiguates the two docs.google.com
+  sheets by publish token. Unit 480 → 485; e2e 84 → 86/86.
+- **The two importables are ready for you** (`ac89845`): the regenerated patch
+  (`data/patch_schema_and_truncation.csv` + its `INSTRUCTIONS.md` — the instructions list
+  is the authority, since a sparse CSV can't say "leave this cell alone") now carries the
+  `silsila_note` moves, and the drift guard already earned its keep (the live abul-muali
+  cell ends "See qa_note 1."). The Saifullah draft is refreshed (prasad/diya question in,
+  coordinates ask softened). Front-end renders silsila_note the moment it lands.
+  Unit 485 → 486; e2e 86/86.
+
+---
+
+## 0a⁗. Session log — 22 August 2026, fifth session: deployed, then system dark
+
+- **Everything shipped to production.** PR #2 (32 commits: Urdu delta pass, mobile fixes,
+  saved shrines, urs + .ics, /report, /typology, figure labels + silsila, motion system,
+  perf) merged to main; PR #3 fast-forwarded the Pages branch `1.6`; deploy run #18 green.
+  The branch was restarted from main per convention.
+- **System dark preference honored** (`06ea535`): theme init read only localStorage and
+  defaulted light, so a phone in dark mode got the light site. Both init paths now follow
+  `prefers-color-scheme` when no choice is stored; the provider tracks live device flips
+  until the moon button pins a choice. Unit 467 → 470; e2e 80 → 81/81.
+- **Ziyarat print pack** (`fe518ef`, F6's remaining half): "Print your list" beside the
+  saved filter prints names, places, categories, WGS84 coordinates (Western digits in every
+  language) and computed next-observance windows with the approximate flag. Prints from the
+  full saved list, never the search-narrowed view. **CSS gotcha:** `body:has(.x) *` (0,1,1)
+  outranks a bare `.x` show-rule, so a print wrapper computes visibility:hidden while its
+  children re-show — content prints, wrapper is genuinely hidden; both print wrappers now
+  ride under `body:has(…)` in the show rule. Unit 470 → 473; e2e 81 → 82/82.
+- **Shareable ziyarat list** (`46a3974`): "Copy list link" builds `?list=slug,slug`; arrival
+  shows a consent card and narrows the list — nothing is written until "Add to my list"
+  merges into the reader's own device list. Hostile tokens in the param are dropped, not
+  guessed. **Gotcha again:** route slugs ≠ photo slugs (`shrine-of-shah-jamal`, not
+  `shah-jamal`). Unit 473 → 478; e2e 82 → 84/84.
+
+---
+
 ## 0a‴. Session log — 22 August 2026, fourth session: blue-sky continued
 
 Standing instruction unchanged (keep improving until told to stop), plus two refinements from

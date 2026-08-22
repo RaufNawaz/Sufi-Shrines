@@ -82,6 +82,10 @@ export interface Shrine {
    * one (52 rows). Mostly clean order names; four rows carry survey prose
    * that renders verbatim (RULE 2). '' when absent. */
   silsila: string;
+  /** Prose qualifier for `silsila` (22 Aug 2026 ruling, §1.2): distinguishes
+   * "no silsila recorded" from "recorded as X, uncorroborated". '' when
+   * absent — the column reaches the sheet via the pending import patch. */
+  silsilaNote: string;
   location: string;
   region: string;
   founded: string;
@@ -103,7 +107,9 @@ export interface Shrine {
   raw: ShrineRow;
 }
 
-export type Lang = 'en' | 'ur';
+// Derived from the language metadata table (N4 groundwork) — re-exported
+// here because most of the codebase already imports Lang from this module.
+export type { Lang } from '../lib/i18n/languages';
 
 export type Theme = 'light' | 'dark';
 

@@ -6,6 +6,7 @@ import { totalDistanceKm, estimateDriveTime } from '../../lib/tours/tourGeo';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { t } from '../../lib/i18n/uiStrings';
 import type { Shrine, Lang } from '../../types/shrine';
+import { langAttr } from '../../lib/i18n/languages';
 
 function formatDriveTime(km: number, lang: Lang, fmtNum: (n: number | string) => string): string {
   const { hours, minutes } = estimateDriveTime(km);
@@ -63,10 +64,10 @@ export function TourPreview({
         {t(lang, 'tourBackButton')}
       </button>
 
-      <h3 className="tour-preview-title" lang={lang === 'ur' ? 'ur' : undefined}>
+      <h3 className="tour-preview-title" lang={langAttr(lang)}>
         {localizeTourTitle(tour, lang)}
       </h3>
-      <p className="tour-preview-description" lang={lang === 'ur' ? 'ur' : undefined}>
+      <p className="tour-preview-description" lang={langAttr(lang)}>
         {localizeTourDescription(tour, lang)}
       </p>
 
@@ -93,7 +94,7 @@ export function TourPreview({
 
       <ol className="tour-preview-stops">
         {points.map((p, i) => (
-          <li key={p.shrine.id} lang={lang === 'ur' ? 'ur' : undefined}>
+          <li key={p.shrine.id} lang={langAttr(lang)}>
             {fmtNum(i + 1)}. {localizeShrineName(p.shrine, lang)}
           </li>
         ))}
@@ -113,9 +114,7 @@ export function TourPreview({
                 className="tour-related-card"
                 onClick={() => onPreviewTour(related.id)}
               >
-                <span lang={lang === 'ur' ? 'ur' : undefined}>
-                  {localizeTourTitle(related, lang)}
-                </span>
+                <span lang={langAttr(lang)}>{localizeTourTitle(related, lang)}</span>
               </button>
             ))}
           </div>

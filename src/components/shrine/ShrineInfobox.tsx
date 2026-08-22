@@ -96,7 +96,8 @@ export function ShrineInfobox({ shrine }: Props) {
 
   const siteTypeLabel = shrine.siteType ? siteTypeDisplayLabel(shrine.siteType, lang) : null;
 
-  if (rows.length === 0 && !hasDates && !shrine.siteType && !shrine.silsila) return null;
+  if (rows.length === 0 && !hasDates && !shrine.siteType && !shrine.silsila && !shrine.silsilaNote)
+    return null;
 
   return (
     <aside className="shrine-infobox" aria-label={t('shrineFacts')}>
@@ -159,19 +160,28 @@ export function ShrineInfobox({ shrine }: Props) {
             </dd>
           </div>
         )}
-        {shrine.silsila &&
+        {(shrine.silsila || shrine.silsilaNote) &&
           (() => {
             // The 14 clean order names come back in Urdu from the data
             // dictionary; the four survey-prose values stay verbatim and
             // Latin content is its own "untranslated" signal, as above.
+            // silsila_note (22 Aug ruling) qualifies the value — or stands
+            // alone when the survey recorded no order at all.
             const silsilaValue = localizeField(shrine.raw, 'silsila') || shrine.silsila;
             return (
               <div className="infobox-row">
                 <dt className="infobox-label">{t('fieldSilsila')}</dt>
                 <dd className="infobox-value">
-                  <bdi lang={isUntranslatedInUrdu(lang, silsilaValue) ? 'en' : undefined}>
-                    {silsilaValue}
-                  </bdi>
+                  {silsilaValue && (
+                    <bdi lang={isUntranslatedInUrdu(lang, silsilaValue) ? 'en' : undefined}>
+                      {silsilaValue}
+                    </bdi>
+                  )}
+                  {shrine.silsilaNote && (
+                    <p className="infobox-note">
+                      {t('sourceNoteLabel')}: <bdi>{shrine.silsilaNote}</bdi>
+                    </p>
+                  )}
                 </dd>
               </div>
             );

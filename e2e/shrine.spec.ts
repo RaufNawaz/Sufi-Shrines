@@ -103,3 +103,39 @@ test.describe('Shrine detail page', () => {
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   });
 });
+
+test.describe('Nearby Auqaf mosques (women’s prayer access)', () => {
+  test('shows survey answers, distance-sorted, the shrine’s own mosque first', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    const block = page.locator('.nearby-mosques');
+    await expect(block).toBeVisible();
+
+    // The survey's Shrine Name join key ranks Fixture A first with the badge;
+    // the Karachi fixture is out of range and must not appear.
+    const names = block.locator('.nearby-mosque-name a');
+    await expect(names.first()).toHaveText('Jamia Masjid Fixture A');
+    await expect(block.locator('.nearby-mosque-own')).toHaveCount(1);
+    await expect(block).not.toContainText('Fixture Far');
+
+    // The women's answer is the survey's, as recorded.
+    const womens = block.locator('.nearby-mosque-womens');
+    await expect(womens.first()).toContainText('Yes');
+    await expect(womens.nth(1)).toContainText('No');
+
+    // Deep link replicates the Awqaf site's id contract.
+    await expect(names.first()).toHaveAttribute(
+      'href',
+      'https://raufnawaz.github.io/Awqaf/mosque.html?id=FIX-1-0',
+    );
+  });
+
+  test('reads in Urdu — answers localized, survey names sanctioned via bdi', async ({ page }) => {
+    await page.goto('/shrine/data-darbar?lang=ur');
+    const block = page.locator('.nearby-mosques');
+    await expect(block).toBeVisible();
+    await expect(block.locator('#mosques-heading')).toHaveText('قریبی اوقاف مساجد');
+    await expect(block.locator('.nearby-mosque-womens').first()).toContainText('ہاں');
+    // English survey names appear only inside <bdi lang="en">.
+    await expect(block.locator('bdi[lang="en"]').first()).toContainText('Fixture A');
+  });
+});

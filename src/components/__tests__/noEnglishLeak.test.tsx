@@ -90,6 +90,7 @@ describe('no English leaks in ?lang=ur', () => {
         verifiedOnly={false}
         savedOnly={false}
         onSavedOnlyChange={() => {}}
+        sharedSlugs={[]}
         onVerifiedOnlyChange={noop}
         activeRegion=""
         onRegionChange={noop}
