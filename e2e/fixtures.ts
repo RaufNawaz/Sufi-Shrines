@@ -27,6 +27,15 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 
 const csvBody = fs.readFileSync(path.join(here, 'fixtures', 'shrines.csv'), 'utf-8');
 
+// Synthetic Auqaf-mosques fixture (names say "Fixture" on purpose) for the
+// NearbyMosques block; served for the Awqaf sheet's publish token below.
+const mosquesCsvBody = fs.readFileSync(path.join(here, 'fixtures', 'mosques.csv'), 'utf-8');
+
+/** Distinguishes the Awqaf mosques sheet from the shrines sheet — both live
+ * on docs.google.com; the publish token in the URL is the stable difference
+ * (AWQAF_CSV_URL in src/lib/data/mosques.ts). */
+const AWQAF_TOKEN = '2PACX-1vTzVlDrUr';
+
 // The snapshot the CSV fixture is generated from — read with fs rather than
 // imported, because Playwright's ESM runtime rejects JSON imports reached
 // through TS modules (`needs an import attribute of "type: json"`).
@@ -74,7 +83,7 @@ export const test = base.extend({
         return route.fulfill({
           status: 200,
           contentType: 'text/csv; charset=utf-8',
-          body: csvBody,
+          body: url.href.includes(AWQAF_TOKEN) ? mosquesCsvBody : csvBody,
         });
       if (route.request().resourceType() === 'image')
         return route.fulfill({ status: 200, contentType: 'image/png', body: BLANK_PNG });

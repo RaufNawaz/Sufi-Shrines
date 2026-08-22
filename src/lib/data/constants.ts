@@ -66,6 +66,7 @@ export const STRUCTURED_FACET_KEYS = new Set([
   'principal_figure',
   'figure_type',
   'silsila',
+  'silsila_note',
   'year_built',
   'year_built_precision',
   'year_built_note',

@@ -29,7 +29,11 @@ import { TourPanel } from './TourPanel';
 import { TourList } from './TourList';
 import { WelcomeCard } from './WelcomeCard';
 import { ShrinePreview } from './ShrinePreview';
+import { ZiyaratPrintPack } from './ZiyaratPrintPack';
+import { buildSharedListUrl } from '../../lib/sharedList';
+import { useShareLink } from '../../hooks/useShareLink';
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
+import { dirAttr } from '../../lib/i18n/languages';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -50,6 +54,9 @@ interface Props {
   onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
   savedOnly: boolean;
   onSavedOnlyChange: (savedOnly: boolean) => void;
+  /** Slugs of a shared list arriving via ?list= — narrows the list while the
+   * banner on MapPage is open; empty otherwise. */
+  sharedSlugs: string[];
   activeRegion: string;
   onRegionChange: (region: string) => void;
   activeSaint: string;
@@ -86,6 +93,7 @@ export function MapSidebar({
   onVerifiedOnlyChange,
   savedOnly,
   onSavedOnlyChange,
+  sharedSlugs,
   activeRegion,
   onRegionChange,
   activeSaint,
@@ -186,6 +194,11 @@ export function MapSidebar({
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
   const savedSlugs = useSavedShrines();
+  const savedShrineObjects = useMemo(
+    () => shrines.filter((s) => savedSlugs.includes(s.slug)),
+    [shrines, savedSlugs],
+  );
+  const { copy: copyListLink, copied: listLinkCopied } = useShareLink({ copiedMs: 2000 });
 
   const filtered = useMemo(() => {
     let result = shrines;
@@ -194,6 +207,9 @@ export function MapSidebar({
     if (verifiedOnly)
       result = result.filter((s) => supportLevelKey(s.supportLevel) === 'field-verified');
     if (savedOnly) result = result.filter((s) => savedSlugs.includes(s.slug));
+    // (the print pack below recomputes this from `shrines` so search/era
+    // narrowing never silently drops entries from the printed list)
+    if (sharedSlugs.length) result = result.filter((s) => sharedSlugs.includes(s.slug));
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
@@ -235,6 +251,7 @@ export function MapSidebar({
     verifiedOnly,
     savedOnly,
     savedSlugs,
+    sharedSlugs,
     activeRegion,
     activeSaint,
     search,
@@ -406,7 +423,7 @@ export function MapSidebar({
                 ref={searchRef}
                 type="search"
                 className="search-input"
-                dir={lang === 'ur' ? 'rtl' : undefined}
+                dir={dirAttr(lang)}
                 placeholder={t('searchPlaceholder')}
                 value={searchRaw}
                 onChange={(e) => setSearchRaw(e.target.value)}
@@ -615,6 +632,26 @@ export function MapSidebar({
                     >
                       {t('savedOnlyFilter')} · {fmtNum(savedSlugs.length)}
                     </button>
+                    {savedOnly && (
+                      <>
+                        <button className="filter-chip" onClick={() => window.print()}>
+                          {t('ziyaratPackPrint')}
+                        </button>
+                        <button
+                          className={`filter-chip${listLinkCopied ? ' active' : ''}`}
+                          onClick={() =>
+                            copyListLink(
+                              buildSharedListUrl(
+                                savedSlugs,
+                                `${window.location.origin}${window.location.pathname}`,
+                              ),
+                            )
+                          }
+                        >
+                          {listLinkCopied ? t('copied') : t('ziyaratShareLink')}
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               )}
@@ -765,6 +802,14 @@ export function MapSidebar({
             </>
           )}
         </div>
+      )}
+
+      {/* Printable ziyarat pack (F6): hidden on screen, becomes the page
+          under @media print. Mounted only while the saved filter is active
+          and no tour is running — the tour itinerary owns printing then,
+          and the two :has-scoped print blocks must never coexist. */}
+      {savedOnly && !activeTour && savedShrineObjects.length > 0 && (
+        <ZiyaratPrintPack shrines={savedShrineObjects} />
       )}
     </aside>
   );

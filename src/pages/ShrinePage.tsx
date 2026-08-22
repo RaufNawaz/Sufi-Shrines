@@ -33,8 +33,10 @@ import { getSaintsForShrine } from '../lib/kg';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
+import { NearbyMosques } from '../components/shrine/NearbyMosques';
 import { useSavedShrines, toggleSaved } from '../lib/savedShrines';
 import type { Shrine } from '../types/shrine';
+import { langAttr } from '../lib/i18n/languages';
 
 function SkeletonPage() {
   return (
@@ -82,7 +84,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   }, [shrine.raw]);
 
   return (
-    <article className="shrine-page" id="main-content" lang={lang === 'ur' ? 'ur' : undefined}>
+    <article className="shrine-page" id="main-content" lang={langAttr(lang)}>
       {/* Breadcrumb */}
       <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
         <ol>
@@ -287,6 +289,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           <ShrineArticle shrine={shrine} />
           <ShrineObservances shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
+          <NearbyMosques shrine={shrine} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
           <CiteThisEntry shrine={shrine} />

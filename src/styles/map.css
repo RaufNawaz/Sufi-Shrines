@@ -14,6 +14,43 @@
   text-align: center;
 }
 
+/* A shared ziyarat list arrived via ?list= — a card, not a strip: it asks
+   for a decision (add/dismiss), so it must read as one. */
+.shared-list-banner {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(var(--safe-top) + var(--space-4));
+  z-index: var(--z-header);
+  margin-inline: auto;
+  width: min(26rem, calc(100% - 2 * var(--space-4)));
+  padding: var(--space-4);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.shared-list-banner-title {
+  font-weight: 700;
+  margin: 0 0 var(--space-1);
+}
+
+.shared-list-banner-body {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .shared-list-banner-body {
+  line-height: var(--leading-urdu);
+}
+
+.shared-list-banner-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
 /* Map page layout */
 .map-root {
   display: flex;

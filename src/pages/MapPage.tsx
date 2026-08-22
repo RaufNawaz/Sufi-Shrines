@@ -14,6 +14,15 @@ import { TOURS } from '../lib/tours/tours';
 import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
 // Guided tours are opt-in: hidden unless the user flips the TOURS_STORAGE_KEY switch on.
 import { TOURS_STORAGE_KEY } from '../lib/storageKeys';
+import { parseSharedList, importSharedList } from '../lib/sharedList';
+
+/** Drop the one-shot ?list= param after the reader acts on the banner. */
+function clearListParam(): void {
+  const p = new URLSearchParams(window.location.search);
+  p.delete('list');
+  const qs = p.toString();
+  window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+}
 
 /** Read/write URL params without triggering a react-router re-render. */
 function getSelectedSlug(): string | null {
@@ -137,6 +146,11 @@ export default function MapPage() {
     () => isEmbedMode() || !window.matchMedia('(max-width: 768px)').matches,
   );
   const [filters, setFilters] = useState<FilterState>(getFiltersFromURL);
+  // A shared list (?list=) is a one-shot payload, not a persisted filter:
+  // it lives in state from the URL and is cleared on add/dismiss.
+  const [sharedSlugs, setSharedSlugs] = useState<string[]>(() =>
+    parseSharedList(window.location.search),
+  );
   const [toursEnabled, setToursEnabled] = useState(
     () => localStorage.getItem(TOURS_STORAGE_KEY) === 'on',
   );
@@ -393,6 +407,37 @@ export default function MapPage() {
 
       <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
+      {/* A shared ziyarat list arrived via ?list= — receiving one writes
+          nothing; the reader chooses to add it to their own device list. */}
+      {sharedSlugs.length > 0 && (
+        <div className="shared-list-banner" role="region" aria-label={t('sharedListBannerTitle')}>
+          <p className="shared-list-banner-title">{t('sharedListBannerTitle')}</p>
+          <p className="shared-list-banner-body">{t('sharedListBannerBody')}</p>
+          <div className="shared-list-banner-actions">
+            <button
+              className="action-btn action-btn--active"
+              onClick={() => {
+                importSharedList(sharedSlugs);
+                setSharedSlugs([]);
+                clearListParam();
+                setFilters((f) => ({ ...f, savedOnly: true }));
+              }}
+            >
+              {t('sharedListAdd')}
+            </button>
+            <button
+              className="action-btn"
+              onClick={() => {
+                setSharedSlugs([]);
+                clearListParam();
+              }}
+            >
+              {t('sharedListDismiss')}
+            </button>
+          </div>
+        </div>
+      )}
+
       <MapSidebar
         shrines={shrines}
         selectedId={selectedId}
@@ -406,6 +451,7 @@ export default function MapPage() {
         onCategoriesChange={handleCategoriesChange}
         verifiedOnly={filters.verifiedOnly}
         savedOnly={filters.savedOnly}
+        sharedSlugs={sharedSlugs}
         onSavedOnlyChange={handleSavedOnlyChange}
         onVerifiedOnlyChange={handleVerifiedOnlyChange}
         activeRegion={filters.region}

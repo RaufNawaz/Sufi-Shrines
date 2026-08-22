@@ -7,6 +7,7 @@ import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import { translateToUrdu } from './urduFallback';
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
+import { isRtlLang } from './languages';
 import { isUrPrefixedPath } from './urlLangPrefix';
 import type { ShrineRow } from '../../types/shrine';
 
@@ -68,8 +69,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const isRTL = lang === 'ur';
-    document.documentElement.setAttribute('lang', isRTL ? 'ur' : 'en');
+    // Direction derives from the language metadata table (languages.ts) —
+    // a third RTL language must not require touching this effect.
+    const isRTL = isRtlLang(lang);
+    document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     document.body.classList.toggle('lang-rtl', isRTL);
     document.body.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
@@ -100,7 +103,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<LangContextValue>(
     () => ({
       lang,
-      isRTL: lang === 'ur',
+      isRTL: isRtlLang(lang),
       setLang,
       t: (key) => t(lang, key),
       tCount: (n) => fmtNum(tFn(lang, 'resultCount', n)),
