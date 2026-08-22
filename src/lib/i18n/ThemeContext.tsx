@@ -7,7 +7,9 @@ import { THEME_STORAGE_KEY } from '../storageKeys';
 function detectInitialTheme(): Theme {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
   if (stored === 'dark' || stored === 'light') return stored;
-  return 'light';
+  // No explicit choice: follow the device (mirrors the pre-paint block in
+  // main.tsx). A phone in dark mode used to get the light site.
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 interface ThemeContextValue {
@@ -31,6 +33,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
+
+  // Until the reader chooses explicitly, track live device-theme changes
+  // (sunset auto-switch on phones). The moon button writes to storage and
+  // pins the choice from then on.
+  useEffect(() => {
+    if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = (e: MediaQueryListEvent) => {
+      // Re-check at event time: a choice made after mount pins the theme.
+      if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+      setTheme(e.matches ? 'dark' : 'light');
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 

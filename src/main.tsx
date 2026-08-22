@@ -15,9 +15,16 @@ import './styles/almanac.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 
-// Prevent FOUC by setting data-theme before paint
+// Prevent FOUC by setting data-theme before paint. An explicit choice
+// (the moon button) pins the theme; otherwise follow the device — a phone
+// in dark mode used to get the light site (seen on a real phone, 22 Aug).
 const stored = localStorage.getItem(THEME_STORAGE_KEY);
-const theme = stored === 'dark' || stored === 'light' ? stored : 'light';
+const theme =
+  stored === 'dark' || stored === 'light'
+    ? stored
+    : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
 document.documentElement.setAttribute('data-theme', theme);
 
 initTelemetry();

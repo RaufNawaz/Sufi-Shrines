@@ -40,6 +40,21 @@ test.describe('Preference persistence', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   });
 
+  test('a dark-mode device gets the dark site — until an explicit choice pins it', async ({
+    page,
+  }) => {
+    // No stored choice + system dark → the site follows the device.
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+
+    // The moon/sun button pins an explicit choice that beats the device.
+    await page.getByRole('button', { name: UI_TEXT.en.lightMode }).first().click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  });
+
   test('Urdu language selection persists across reload', async ({ page }) => {
     // Start in English
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
