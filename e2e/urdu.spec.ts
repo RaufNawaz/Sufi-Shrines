@@ -78,6 +78,19 @@ test.describe('Urdu (?lang=ur) journey', () => {
     expect(await ledger.textContent()).not.toMatch(/[A-Za-z]/);
   });
 
+  test('the typology atlas reads in Urdu, prose forms sanctioned via bdi', async ({ page }) => {
+    await page.goto('/typology?lang=ur');
+    await expect(page.locator('h1.entity-title')).toHaveText('تعمیری صورتوں کا اٹلس');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    // Group headings are vocabulary labels + Eastern-numeral counts — no
+    // Latin anywhere. The survey-prose groups are the sanctioned exception,
+    // and only inside <bdi lang="en">.
+    for (const heading of await page.locator('.typology-group-heading').allTextContents()) {
+      expect(heading, `heading "${heading}" must carry no Latin`).not.toMatch(/[A-Za-z]/);
+    }
+    await expect(page.locator('.typology-group-prose bdi[lang="en"]')).toHaveCount(2);
+  });
+
   test('opening a shrine page renders its name in Urdu script', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
 

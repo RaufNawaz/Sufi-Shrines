@@ -68,6 +68,12 @@ export interface Shrine {
    * controlled-vocabulary column during schema hygiene (e.g. "deteriorating
    * fabric", "reconstructed 2022"). '' when absent. */
   statusNote: string;
+  /** Raw `site_type` sheet value — the built form (Khanqah, Gurdwara, Cave
+   * shrine, …). Mostly short vocabulary, but two rows carry survey prose;
+   * both are rendered as-is when they don't map (RULE 2). '' when absent. */
+  siteType: string;
+  /** Prose qualifier for `site_type`, '' when absent. */
+  siteTypeNote: string;
   location: string;
   region: string;
   founded: string;

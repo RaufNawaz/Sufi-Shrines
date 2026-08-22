@@ -719,3 +719,87 @@
 [dir='rtl'] .report-ledger-text {
   line-height: var(--leading-urdu);
 }
+
+/* ── Atlas of Built Forms (/typology, N7) — the archive browsed by what
+      stands at each site. Shares the related-card grid; the group headings
+      carry the count so no chart is needed. ─────────────────────────────── */
+.typology-page .typology-intro {
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 62ch;
+}
+
+[dir='rtl'] .typology-page .typology-intro {
+  line-height: var(--leading-urdu);
+}
+
+.typology-jump {
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.typology-jump ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.typology-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full, 999px);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast),
+    border-color var(--duration-fast);
+}
+
+.typology-jump a:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.typology-group-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  margin: var(--space-10) 0 var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  /* Anchored heading: leave air above when jumped to. */
+  scroll-margin-top: var(--space-6);
+}
+
+.typology-group-count {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+[dir='rtl'] .typology-group-count {
+  font-family: var(--font-urdu);
+}
+
+.typology-group-prose {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  max-width: 62ch;
+  margin: 0 0 var(--space-3);
+}
+
+.typology-grid {
+  margin-top: var(--space-4);
+}

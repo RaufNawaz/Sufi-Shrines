@@ -46,6 +46,8 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
     supportLevel: getFieldValue(row, 'support_level'),
     status: getFieldValue(row, 'status'),
     statusNote: getFieldValue(row, 'status_note'),
+    siteType: getFieldValue(row, 'site_type'),
+    siteTypeNote: getFieldValue(row, 'site_type_note'),
     location,
     region: extractRegion(location),
     founded: getFieldValue(row, 'Founded/Opened') || getFieldValue(row, 'Founded'),

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { siteTypeDisplayLabel, siteTypeKey } from '../../lib/data/siteType';
 import {
   INFOBOX_PRIORITY_KEYS,
   MAX_INFOBOX_ROWS,
@@ -91,7 +93,9 @@ export function ShrineInfobox({ shrine }: Props) {
     shrine.yearBuilt || shrine.figureBorn || shrine.figureDied || shrine.eventYear,
   );
 
-  if (rows.length === 0 && !hasDates) return null;
+  const siteTypeLabel = shrine.siteType ? siteTypeDisplayLabel(shrine.siteType, lang) : null;
+
+  if (rows.length === 0 && !hasDates && !shrine.siteType) return null;
 
   return (
     <aside className="shrine-infobox" aria-label={t('shrineFacts')}>
@@ -123,6 +127,29 @@ export function ShrineInfobox({ shrine }: Props) {
             </div>
           );
         })}
+        {shrine.siteType && (
+          // Built form (site_type): the column existed for a full schema
+          // migration before anything displayed it. A vocabulary value
+          // localizes and links to its group in the typology atlas; the two
+          // survey-prose values render verbatim (RULE 2), unlinked.
+          <div className="infobox-row">
+            <dt className="infobox-label">{t('fieldSiteType')}</dt>
+            <dd className="infobox-value">
+              {siteTypeLabel ? (
+                <Link to={`/typology#${siteTypeKey(shrine.siteType)}`}>{siteTypeLabel}</Link>
+              ) : (
+                <bdi lang={isUntranslatedInUrdu(lang, shrine.siteType) ? 'en' : undefined}>
+                  {shrine.siteType}
+                </bdi>
+              )}
+              {shrine.siteTypeNote && (
+                <p className="infobox-note">
+                  {t('sourceNoteLabel')}: <bdi>{shrine.siteTypeNote}</bdi>
+                </p>
+              )}
+            </dd>
+          </div>
+        )}
       </dl>
       {hasDates && (
         // Split date fields (2026 schema) — kept out of the capped generic

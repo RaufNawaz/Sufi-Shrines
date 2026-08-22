@@ -666,6 +666,7 @@ if (SITE_URL) {
     sitemapUrlPair(`${SITE_URL}/almanac`, `${SITE_URL}/ur/almanac`, 'weekly', '0.8'),
     sitemapUrlPair(`${SITE_URL}/graph`, `${SITE_URL}/ur/graph`, 'monthly', '0.6'),
     sitemapUrlPair(`${SITE_URL}/report`, `${SITE_URL}/ur/report`, 'weekly', '0.7'),
+    sitemapUrlPair(`${SITE_URL}/typology`, `${SITE_URL}/ur/typology`, 'monthly', '0.7'),
   );
 }
 sitemapLines.push('</urlset>');
@@ -729,6 +730,11 @@ const APP_ROUTES = [
     path: 'report',
     titleEn: 'State of the Archive — Sufi Shrines',
     titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
+  },
+  {
+    path: 'typology',
+    titleEn: 'Atlas of Built Forms — Sufi Shrines',
+    titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
   },
 ];
 

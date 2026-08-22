@@ -179,6 +179,14 @@ export const UI_TEXT = {
     citeSupportLevel: 'Support level',
     obsHeading: 'Urs & observances',
     obsViewAlmanac: 'See it in the Urs Almanac',
+    fieldSiteType: 'Built form',
+    typologyTitle: 'Atlas of Built Forms',
+    typologyIntro:
+      'Every place in the archive, grouped by what actually stands there — khanqah, gurdwara, cave shrine. The labels are the survey’s own vocabulary; where the survey described a form in prose, the prose is kept as it was written.',
+    typologyAsDescribed: 'As the survey describes it',
+    typologyNotRecorded: 'Built form not recorded',
+    typologySiteCount: 'sites',
+    typologySiteCountOne: 'site',
     reportTitle: 'State of the Archive',
     reportIntro:
       'An archive that asks to be trusted should grade itself in public. Every number on this page is computed from the dataset the page loaded — nothing is typed in by hand — and what cannot be computed is cited to the project\u2019s own working documents.',
@@ -461,6 +469,14 @@ export const UI_TEXT = {
     citeSupportLevel: 'تصدیق کا درجہ',
     obsHeading: 'عرس اور تقریبات',
     obsViewAlmanac: 'عرس تقویم میں دیکھیں',
+    fieldSiteType: 'تعمیری صورت',
+    typologyTitle: 'تعمیری صورتوں کا اٹلس',
+    typologyIntro:
+      'آرکائیو کا ہر مقام، اِس اعتبار سے کہ وہاں فی الواقع کیا تعمیر کھڑی ہے — خانقاہ، گردوارہ، غار کا مزار۔ یہ خانے سروے کی اپنی اصطلاحیں ہیں؛ جس صورت کو سروے نے نثر میں بیان کیا، اُس کی نثر جوں کی توں رکھی گئی ہے۔',
+    typologyAsDescribed: 'جیسا سروے نے بیان کیا',
+    typologyNotRecorded: 'تعمیری صورت درج نہیں',
+    typologySiteCount: 'مقامات',
+    typologySiteCountOne: 'مقام',
     reportTitle: 'آرکائیو کا حال',
     reportIntro:
       'جو آرکائیو بھروسے کی طلب گار ہو، اُسے اپنا حساب برسرِعام دینا چاہیے۔ اِس صفحے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو صفحے نے خود لوڈ کیا — کوئی عدد ہاتھ سے نہیں لکھا گیا — اور جو شمار نہیں ہو سکتا اُس کا حوالہ پروجیکٹ کی اپنی دستاویزات میں دیا گیا ہے۔',
