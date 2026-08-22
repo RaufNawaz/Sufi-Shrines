@@ -50,11 +50,36 @@ export function getTour(id: string): Tour {
   return tour;
 }
 
+/** 1×1 transparent PNG — served for any external image/tile request. */
+const BLANK_PNG = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
+  'base64',
+);
+
 export const test = base.extend({
   context: async ({ context }, use) => {
-    await context.route(/docs\.google\.com/, (route) =>
-      route.fulfill({ status: 200, contentType: 'text/csv; charset=utf-8', body: csvBody }),
-    );
+    // Hermetic by construction: NOTHING leaves localhost. The CSV is served
+    // from the fixture; external images and map tiles get a blank PNG (so
+    // Leaflet/<img> elements resolve instead of erroring); everything else
+    // is aborted. This matters beyond determinism: in an environment where
+    // external hosts are proxied or unreachable (measured in the Claude Code
+    // web sandbox, 21 Aug 2026), tile requests HANG rather than fail — and
+    // pending <img> subresources hold the window `load` event hostage, so
+    // every `page.reload()` in persistence.spec.ts timed out at 30s while
+    // the rest of the suite passed.
+    await context.route('**/*', (route) => {
+      const url = new URL(route.request().url());
+      if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return route.continue();
+      if (url.hostname.endsWith('docs.google.com'))
+        return route.fulfill({
+          status: 200,
+          contentType: 'text/csv; charset=utf-8',
+          body: csvBody,
+        });
+      if (route.request().resourceType() === 'image')
+        return route.fulfill({ status: 200, contentType: 'image/png', body: BLANK_PNG });
+      return route.abort();
+    });
     await use(context);
   },
 });

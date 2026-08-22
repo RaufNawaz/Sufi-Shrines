@@ -4,9 +4,13 @@
 //
 //   node e2e/fixtures/generate-shrines-csv.mjs
 //
-// The header row mirrors the live sheet's 11 columns (see CLAUDE.md and
-// src/lib/data/constants.ts); values are unparsed with papaparse — the same
-// library the app parses with — so quoting/newline handling round-trips.
+// The header row mirrors the live sheet (data/shrines.csv); values are
+// unparsed with papaparse — the same library the app parses with — so
+// quoting/newline handling round-trips. The 2026 structured columns are
+// included deliberately: until 22 Aug the fixture exported only the 11
+// legacy columns, so every e2e run exercised a site with no site_type,
+// status, info_level or support_level anywhere — badges, status notes and
+// the typology atlas were untestable end-to-end.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +32,22 @@ const COLUMNS = [
   'Image 2',
   'Events',
   'Description',
+  'category',
+  'site_type',
+  'status',
+  'status_note',
+  'principal_figure',
+  'figure_type',
+  'silsila',
+  'year_built',
+  'year_built_precision',
+  'year_built_note',
+  'figure_born',
+  'figure_died',
+  'event_year',
+  'event_note',
+  'info_level',
+  'support_level',
 ];
 
 const { rows } = JSON.parse(fs.readFileSync(snapshotPath, 'utf-8'));

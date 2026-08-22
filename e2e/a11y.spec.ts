@@ -5,6 +5,12 @@ import AxeBuilder from '@axe-core/playwright';
 const EXCLUDE_SELECTORS = ['.leaflet-container'];
 
 test.describe('Accessibility (axe-core)', () => {
+  // Contrast is a rest-state property: the stagger/reveal animations pass
+  // through intermediate opacities, and axe scanning mid-animation reports
+  // phantom contrast failures (seen 21 Aug 2026 on /report: token colors at
+  // ~90% opacity). Motion behaviour has its own specs in typography.spec.ts.
+  test.use({ contextOptions: { reducedMotion: 'reduce' } });
+
   test('map page has no critical violations', async ({ page }) => {
     await page.goto('/');
     // Wait for the sidebar to render before scanning
@@ -48,8 +54,76 @@ test.describe('Accessibility (axe-core)', () => {
     expect(h2Count).toBeGreaterThan(0);
   });
 
+  // The almanac and graph pages shipped after the original a11y sweep
+  // (18 Aug); they stay in the matrix so regressions surface here rather
+  // than in a reader's screen reader (plan item A6,
+  // docs/planning/NEXT_STEPS_2026-08-21.md).
+  test('almanac page has no critical violations', async ({ page }) => {
+    await page.goto('/almanac');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
+  test('graph page has no critical violations', async ({ page }) => {
+    await page.goto('/graph');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
+  test('report page has no critical violations', async ({ page }) => {
+    await page.goto('/report');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
+  test('typology page has no critical violations', async ({ page }) => {
+    await page.goto('/typology');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('keyboard navigation reaches interactive elements', async ({ page }) => {
     await page.goto('/');
+    // Tabbing before hydration finishes can land focus on a node React is
+    // about to replace (seen flaking under full-suite load) — wait for the
+    // app shell first.
+    await page.locator('#sidebar').waitFor();
     // Tab from body should hit skip-link then sidebar controls
     await page.keyboard.press('Tab');
     const focused = page.locator(':focus');

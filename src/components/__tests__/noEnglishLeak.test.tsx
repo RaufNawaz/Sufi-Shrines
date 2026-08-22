@@ -14,7 +14,7 @@ import type { ShrineRow } from '../../types/shrine';
 // raw CSV/fallback rows) so this test exercises actual production behavior
 // instead of depending on the fixture carrying a hand-seeded "Description
 // Urdu" column — the live sheet has no Urdu columns at all (see CLAUDE.md).
-const fixtureRows = applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
+const fixtureRows = await applyUrduContentOverrides(shrinesFixture.rows as ShrineRow[]);
 
 // The search worker isn't available in jsdom; "no query yet" (ids: null)
 // is exactly its real behavior before the worker has indexed anything.
@@ -45,7 +45,12 @@ describe('no English leaks in ?lang=ur', () => {
   it('shrine infobox: field labels (Category/Location/Founded/…) render in Urdu, not raw column names', () => {
     const row = fixtureRows.find((r) => r.Name === 'Data Darbar')!;
     const shrine = buildShrine(row, 0)!;
-    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />, { lang: 'ur' });
+    // route: the built-form row links into /typology, so the infobox needs
+    // router context now.
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />, {
+      lang: 'ur',
+      route: '/',
+    });
 
     const leaks = findLatinLeaks(container);
     expect(leaks, `Latin text leaked into the Urdu infobox: ${JSON.stringify(leaks)}`).toEqual([]);
@@ -83,6 +88,8 @@ describe('no English leaks in ?lang=ur', () => {
         activeCategories={[]}
         onCategoriesChange={noop}
         verifiedOnly={false}
+        savedOnly={false}
+        onSavedOnlyChange={() => {}}
         onVerifiedOnlyChange={noop}
         activeRegion=""
         onRegionChange={noop}

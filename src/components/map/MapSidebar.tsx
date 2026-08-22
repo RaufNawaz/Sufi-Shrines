@@ -21,6 +21,7 @@ import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useSearch } from '../../lib/search/useSearch';
+import { useSavedShrines } from '../../lib/savedShrines';
 import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import { TimeSlider } from './TimeSlider';
 import type { Tour } from '../../lib/tours/tours';
@@ -47,6 +48,8 @@ interface Props {
   /** Show only info_level = Full ("Field-verified") sites. */
   verifiedOnly: boolean;
   onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
+  savedOnly: boolean;
+  onSavedOnlyChange: (savedOnly: boolean) => void;
   activeRegion: string;
   onRegionChange: (region: string) => void;
   activeSaint: string;
@@ -81,6 +84,8 @@ export function MapSidebar({
   onCategoriesChange,
   verifiedOnly,
   onVerifiedOnlyChange,
+  savedOnly,
+  onSavedOnlyChange,
   activeRegion,
   onRegionChange,
   activeSaint,
@@ -110,15 +115,21 @@ export function MapSidebar({
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
   const hasActiveFilter = Boolean(
-    activeCategories.length || activeRegion || activeSaint || hasEraFilter || verifiedOnly,
+    activeCategories.length ||
+    activeRegion ||
+    activeSaint ||
+    hasEraFilter ||
+    verifiedOnly ||
+    savedOnly,
   );
-  const hasMoreFiltersActive = Boolean(activeSaint || hasEraFilter || verifiedOnly);
+  const hasMoreFiltersActive = Boolean(activeSaint || hasEraFilter || verifiedOnly || savedOnly);
   const activeFilterCount =
     activeCategories.length +
     (activeRegion ? 1 : 0) +
     (activeSaint ? 1 : 0) +
     (hasEraFilter ? 1 : 0) +
-    (verifiedOnly ? 1 : 0);
+    (verifiedOnly ? 1 : 0) +
+    (savedOnly ? 1 : 0);
 
   // Collapse list whenever a shrine is selected (from map marker or any other source)
   useEffect(() => {
@@ -174,6 +185,7 @@ export function MapSidebar({
 
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
+  const savedSlugs = useSavedShrines();
 
   const filtered = useMemo(() => {
     let result = shrines;
@@ -181,6 +193,7 @@ export function MapSidebar({
       result = result.filter((s) => activeCategories.includes(categoryKey(s.category)));
     if (verifiedOnly)
       result = result.filter((s) => supportLevelKey(s.supportLevel) === 'field-verified');
+    if (savedOnly) result = result.filter((s) => savedSlugs.includes(s.slug));
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
@@ -220,6 +233,8 @@ export function MapSidebar({
     shrines,
     activeCategories,
     verifiedOnly,
+    savedOnly,
+    savedSlugs,
     activeRegion,
     activeSaint,
     search,
@@ -583,6 +598,26 @@ export function MapSidebar({
                   </button>
                 </div>
               </div>
+
+              {/* The reader's own ziyarat list — hidden while empty: a filter
+                  that can only produce zero results is noise, not a control. */}
+              {savedSlugs.length > 0 && (
+                <div className="filter-section">
+                  <span className="filter-section-label" aria-hidden="true">
+                    {t('savedFilterLabel')}
+                  </span>
+                  <div className="filter-chips" role="group" aria-label="Filter to saved shrines">
+                    <button
+                      className={`filter-chip${savedOnly ? ' active' : ''}`}
+                      onClick={() => onSavedOnlyChange(!savedOnly)}
+                      aria-pressed={savedOnly}
+                      title={t('saveShrineFull')}
+                    >
+                      {t('savedOnlyFilter')} · {fmtNum(savedSlugs.length)}
+                    </button>
+                  </div>
+                </div>
+              )}
             </>
           )}
 

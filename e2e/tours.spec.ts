@@ -207,6 +207,16 @@ test.describe('Guided tours on the map — Phase 5 (discovery & on-site awarenes
   });
 
   test('near me degrades gracefully when geolocation is unavailable', async ({ page }) => {
+    // Make the API *actually* unavailable — what this test claims to cover.
+    // Relying on the browser's un-granted-permission behaviour is not
+    // deterministic: the geolocation spec starts the caller's `timeout`
+    // only after permission resolves, so on a headless browser where the
+    // prompt never resolves (measured on the sandbox's pinned Chromium,
+    // 21 Aug 2026), getCurrentPosition neither succeeds nor errors and the
+    // app sat in its loading state forever.
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, 'geolocation', { value: undefined });
+    });
     await page.getByRole('button', { name: UI_TEXT.en.nearMe }).click();
     await expect(page.getByText(UI_TEXT.en.locationUnavailable)).toBeVisible();
   });

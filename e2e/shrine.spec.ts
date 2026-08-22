@@ -38,6 +38,50 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('.share-toast--visible')).toBeVisible();
   });
 
+  test('the urs block deep-links into the almanac at this shrine', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    // Data Darbar's Events carry a day-precise Hijri urs (18-20 Safar), so
+    // the block must render, flag the projection approximate, and land the
+    // reader on this shrine's anchored card in the almanac.
+    const block = page.locator('.shrine-observances');
+    await expect(block).toBeVisible();
+    await expect(block.locator('.almanac-flag--approximate')).toBeVisible();
+
+    await block.locator('.shrine-observances-link').click();
+    await expect(page).toHaveURL(/\/almanac#data-darbar$/);
+    await expect(page.locator('#data-darbar')).toBeVisible();
+  });
+
+  test('the urs block hands the reader a real .ics file for this shrine', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    const block = page.locator('.shrine-observances');
+    await expect(block).toBeVisible();
+
+    const downloadPromise = page.waitForEvent('download');
+    await block.getByRole('button', { name: UI_TEXT.en.almanacDownloadIcs }).click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe('urs-data-darbar.ics');
+  });
+
+  test('prints as a handout: article and facts stay, chrome and map go', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    await page.locator('h1.shrine-title').waitFor();
+    await page.emulateMedia({ media: 'print' });
+
+    // Keeps: the article, the fact sheet, and a provenance footer — a
+    // printed page has left the site, so it must carry its own source line.
+    await expect(page.locator('.article-section').first()).toBeVisible();
+    await expect(page.locator('.shrine-infobox')).toBeVisible();
+    await expect(page.locator('.shrine-print-provenance')).toBeVisible();
+
+    // Drops: navigation chrome, the map (grey tiles on paper), related
+    // grids, and the interactive citation disclosure.
+    await expect(page.locator('.shrine-page-header')).toBeHidden();
+    await expect(page.locator('.location-section')).toBeHidden();
+    await expect(page.locator('.related-shrines').first()).toBeHidden();
+    await expect(page.locator('.cite-entry')).toBeHidden();
+  });
+
   test('unknown slug redirects to map', async ({ page }) => {
     await page.goto('/shrine/this-shrine-does-not-exist-xyz123');
     await expect(page).toHaveURL('/');

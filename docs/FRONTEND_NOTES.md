@@ -338,3 +338,36 @@ Four user-reported items after §8 shipped:
 - **Trust badges in the masthead.** `.shrine-summary-badge` unfills the
   info/support pills into dot + colored label on the shrine page only; list
   cards keep the filled pill.
+
+## 9. Running the e2e suite in the Claude Code web sandbox (21 August 2026)
+
+Two things break the suite in the remote sandbox, and both have in-repo fixes now:
+
+1. **The pinned browser mismatch.** `@playwright/test` 1.61 wants
+   `chromium_headless_shell-1228`; the sandbox pre-installs build 1194 under
+   `/opt/pw-browsers` and blocks `npx playwright install`. Every spec then fails in 2 ms
+   with "Executable doesn't exist" — which reads like a broken suite, not a missing
+   download. Fix: `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/opt/pw-browsers/chromium npx playwright test`.
+   The config honours that variable and is byte-identical behaviour when it is unset.
+   Deliberately **not** wired into `.claude/settings.json` env: the path exists only in the
+   sandbox, and exporting it unconditionally would break the suite on any machine where
+   `/opt/pw-browsers` is absent.
+
+2. **External requests hang instead of failing.** The sandbox's egress proxy leaves
+   basemap-tile and image requests to external hosts pending forever. Pending `<img>`
+   subresources hold the window `load` event hostage, so every `page.reload()` in
+   `persistence.spec.ts` timed out at 30 s while 54 other specs passed — a genuinely
+   misleading failure signature. Fix in `e2e/fixtures.ts`: the suite is now hermetic by
+   construction — nothing leaves localhost. The CSV is fulfilled from the fixture (as
+   before), any external image resolves to a 1×1 PNG, everything else is aborted. This is
+   the right behaviour everywhere, not just in the sandbox: a test suite should not
+   depend on carto.com being reachable.
+
+Related: `tours.spec.ts`'s "near me degrades gracefully" asserted the error state with a
+5 s expect while `TourList`'s own `getCurrentPosition` timeout is 10 s — on a browser
+that only rejects at the deadline (this sandbox's build), the test raced the app and
+lost. The expect now outlives the app's timeout (15 s).
+
+Full run recorded 21 Aug 2026: build 1194 via the env var, 62 specs. Remember the base
+path: `npm run build:e2e` (root `/`), not `npm run build`, before `npx playwright test`.
+

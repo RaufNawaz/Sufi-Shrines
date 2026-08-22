@@ -31,6 +31,7 @@ urdu-i18n/*.json
 # byte-stable so regeneration produces no diff
 urdu-i18n/content/
 urdu-i18n/TRANSLATION_LOG.md
+urdu-i18n/REVIEW_QUEUE.md
 
 # Out of cleanup scope: quarantined pre-React reference app + one-off eval outputs
 legacy/

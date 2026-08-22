@@ -93,13 +93,61 @@ test('the Urdu infobox stays a compact list, not running prose', async ({ page }
   ).toBeLessThan(1.3);
 });
 
-test('the shrine list has room to be a list on a laptop viewport', async ({ page }) => {
-  // 1280x720 is the common case that collapsed the panel to 0px.
-  await page.setViewportSize({ width: 1280, height: 720 });
-  await page.goto('/');
-  await page.locator('.list-toggle-btn').click();
-  const panel = page.locator('.shrine-list-panel');
-  await expect(panel).toBeVisible();
-  const box = (await panel.boundingBox())!;
-  expect(box.height, 'the filter sections above must yield space to the list').toBeGreaterThan(150);
+// The filter sections above the list are the failure mode (HANDOVER §9.9):
+// their height grows with the dataset, and at 169 rows they once squeezed the
+// list to exactly 0px. Guard the two viewports that hit it — the common
+// laptop, and a phone, where the min-height floor is all the list gets.
+for (const vp of [
+  { name: 'laptop', width: 1280, height: 720 },
+  { name: 'phone', width: 390, height: 844 },
+]) {
+  test(`the shrine list has room to be a list on a ${vp.name} viewport`, async ({ page }) => {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto('/');
+    await page.locator('.list-toggle-btn').click();
+    const panel = page.locator('.shrine-list-panel');
+    await expect(panel).toBeVisible();
+    // Poll rather than one-shot: a React re-render can swap the panel node
+    // between the visibility check and boundingBox(), returning null.
+    await expect
+      .poll(async () => (await panel.boundingBox())?.height ?? 0, {
+        message: 'the filter sections above must yield space to the list',
+      })
+      .toBeGreaterThan(150);
+  });
+}
+
+test.describe('Motion honesty', () => {
+  test('reduced motion disables the stagger and reveal system entirely', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/shrine/data-darbar');
+    await page.locator('h1.shrine-title').waitFor();
+
+    // No element may be animation- or transition-hidden when the reader has
+    // asked for reduced motion: the utilities live behind
+    // prefers-reduced-motion: no-preference, so animation-name must be none.
+    const gridChild = page.locator('.related-grid > *').first();
+    await expect(gridChild).toBeVisible();
+    const animation = await gridChild.evaluate((el) => getComputedStyle(el).animationName);
+    expect(animation).toBe('none');
+
+    const section = page.locator('.article-section').first();
+    const cls = await section.getAttribute('class');
+    expect(cls).not.toContain('reveal-pending');
+  });
+
+  test('with motion enabled, every article section still ends fully visible', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.goto('/shrine/data-darbar');
+    await page.locator('h1.shrine-title').waitFor();
+
+    // Scroll to the last section: reveal must have fired (or the failsafe),
+    // and the section must be at full opacity — an animation system must
+    // never be able to withhold prose.
+    const sections = page.locator('.article-section');
+    const last = sections.last();
+    await last.scrollIntoViewIfNeeded();
+    await expect(last).toBeVisible();
+    await expect.poll(async () => last.evaluate((el) => getComputedStyle(el).opacity)).toBe('1');
+  });
 });

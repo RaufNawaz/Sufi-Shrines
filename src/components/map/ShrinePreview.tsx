@@ -17,6 +17,7 @@ import { ShrineGlyph } from '../ui/ShrineGlyph';
 import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
+import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
 
 interface ShrinePreviewProps {
   shrine: Shrine;
@@ -35,6 +36,7 @@ export function ShrinePreview({
 }: ShrinePreviewProps) {
   const { fmtNum } = useLang();
   const { copy, copied } = useShareLink({ copiedMs: 2000 });
+  const isShrineSaved = useSavedShrines().includes(shrine.slug);
 
   const relatedTour = toursEnabled
     ? (TOURS.find((tr) => tr.stops.some((s) => s.shrineSlug === shrine.slug)) ?? null)
@@ -179,6 +181,31 @@ export function ShrinePreview({
           )}
           <span>
             {copied ? translate(lang as Lang, 'copied') : translate(lang as Lang, 'share')}
+          </span>
+        </button>
+        <button
+          className={`preview-copy-link preview-save-btn${isShrineSaved ? ' is-saved' : ''}`}
+          onClick={() => toggleSaved(shrine.slug)}
+          aria-pressed={isShrineSaved}
+          title={translate(lang as Lang, 'saveShrineFull')}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill={isShrineSaved ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          <span>
+            {isShrineSaved
+              ? translate(lang as Lang, 'savedLabel')
+              : translate(lang as Lang, 'saveShrine')}
           </span>
         </button>
       </div>

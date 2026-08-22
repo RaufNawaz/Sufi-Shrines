@@ -721,6 +721,73 @@ Found while running the e2e suite after the dataset refresh, not by looking for 
     `e2eFixtureSync.test.ts` now fails in `npm run verify` within seconds. Regenerate, never
     hand-edit.
 
+### Added 21 August 2026 — finishing the 74 Urdu deltas
+
+All four of these cost time in one sitting; the first two are the expensive kind, because
+nothing errored.
+
+11. **A `## heading` appended without a blank line before it silently disappears from the
+    article.** Markdown folds it into the preceding paragraph, so the section is gone from both
+    the rendered article and the contents nav, and every gate stayed green — `build_urdu_content`,
+    `validate-urdu-leak` and the whole of `npm run verify` passed with five such files in the
+    tree. The cause is mundane: `cat >>` onto a file whose last line has no trailing newline.
+    `urdu-i18n/build_urdu_content.py` now refuses to write when it sees one, and on an odd
+    number of `*` (one unclosed italic run italicises the rest of the article). Both were
+    negative-tested — they exit 1.
+
+12. **Translating a delta does not reduce the delta count. Advancing the baseline does.**
+    `pipeline/a8_urdu_delta.py` measures against `urdu-i18n/_english_descriptions.json` (a 12
+    July snapshot), so a finished translation keeps reporting as outstanding until that file's
+    `desc` for the slug is replaced with the English it was translated from. This is the same
+    trap as item 5 of the 18 August entries above, wearing different clothes — there, finishing
+    five translations made the remaining work appear to *grow*. Advance the baseline in the same
+    commit as the translation, or the next session re-derives work that is already done.
+
+13. **A delta pass must look at what the English removed, not only what it added.** Three
+    entries had Urdu asserting claims the English had withdrawn or reassigned: `allo-mahar`
+    (the English retracted its whole Faiz-ul-Hassan Shah biography as an unresolved
+    identification, with its bibliography withdrawn as unreliable — the Urdu still carried all
+    five sections), `gurdwara-tambo-sahib` and `gurdwara-rori-sahib` (each told as its own a
+    sakhi the English now attributes to a neighbouring shrine). `added_chars` cannot see this
+    class of drift at all; only reading the diff both ways does.
+
+14. **Paragraph-level diffs hide the small deltas, and the sandbox cannot reach the sheet.**
+    For the 38 entries under ~800 added chars, the real change was usually a clause inside an
+    existing sentence, while a paragraph-level diff marked whole paragraphs as rewritten because
+    removing the `=====` artefact re-flowed them; a sentence-level set difference with a
+    near-match filter is what made those legible. Separately: the Claude Code web sandbox's
+    agent proxy answers **403 to `docs.google.com`**, so nothing that fetches the published sheet
+    runs there. `a8_urdu_delta.py --snapshot` reads the committed `data/shrines.json` instead —
+    169 of 171 rows, with the two coordinate-less rows it drops now named in the scope file's
+    `rows_not_in_source` rather than silently absent. `update_log.py` has no such fallback on
+    purpose (its denominator must be 171) and now says so rather than raising.
+
+### Added 22 August 2026 — the fixture that lied and the column nobody showed
+
+15. **The e2e fixture silently dropped the entire 2026 schema until 22 August.**
+    `e2e/fixtures/generate-shrines-csv.mjs` exported a hardcoded 11-legacy-column list, so
+    every Playwright run to that date exercised a dataset in which no row had `site_type`,
+    `status`, `status_note`, `info_level` or `support_level` — badges, status notes and
+    anything built on the structured columns were untested end-to-end while their unit tests
+    passed. Nothing errored; specs that would have covered them simply couldn't exist. The
+    generator now mirrors the live sheet's structured columns. The general shape: **a
+    generated fixture constrains what e2e can ever see, and it does not follow the schema on
+    its own.** When a column is added to the sheet, check the generator.
+
+16. **`site_type` was displayed nowhere for the entire life of the 2026 schema.** The column
+    is filled for 168 of 169 rows, `constants.ts` excluded it from generic infobox rows with
+    a comment promising dedicated UI "later", and later never came — readers could not see
+    the built form of a single site. Fixed 22 Aug (infobox row + /typology). When adding a
+    structured column, grep `STRUCTURED_FACET_KEYS` for others still waiting: as of today
+    `principal_figure`, `figure_type`, `silsila` and `flags` are in the same
+    parsed-but-never-shown state.
+
+17. **The egress proxy also 403s Wikidata** (`www.wikidata.org` and `query.wikidata.org`,
+    measured 22 Aug), joining `docs.google.com` and `auqaf.punjab.gov.pk`. N2 (the
+    Wikidata/Commons round-trip) therefore cannot run in this sandbox at all — it needs a
+    wider-egress environment or a human-run script. Test reachability per-domain before
+    planning any enrichment that fetches.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

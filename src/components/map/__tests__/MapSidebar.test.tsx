@@ -39,6 +39,8 @@ function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar
       activeCategories={[]}
       onCategoriesChange={noop}
       verifiedOnly={false}
+      savedOnly={false}
+      onSavedOnlyChange={() => {}}
       onVerifiedOnlyChange={noop}
       activeRegion=""
       onRegionChange={noop}
@@ -244,6 +246,8 @@ describe('MapSidebar — provenance (support-level) filter (More filters)', () =
         buildShrine(makeShrineRow({ Name: 'Sparse', info_level: 'Full' }), 1)!,
       ],
       verifiedOnly: true,
+      savedOnly: false,
+      onSavedOnlyChange: () => {},
     });
     fireEvent.click(document.querySelector('.list-toggle-btn')!);
 

@@ -27,17 +27,29 @@ Buckets      : full_translation — a live row with no content/<slug>.md at all
 Writes urdu-i18n/a8-scope.json. Use --check to verify the committed file is current
 (exits non-zero if not) — wired for CI the same way build_dictionary.py --check is.
 
-    python3 pipeline/a8_urdu_delta.py [--check] [--offline]
+    python3 pipeline/a8_urdu_delta.py [--check] [--offline] [--snapshot]
 
---offline uses data/shrines_final_import_2026-08-16.csv instead of fetching.
+--offline uses data/shrines_final_import_2026-08-16.csv instead of fetching. That
+file is gitignored, so it does not exist in a fresh clone; --snapshot falls back to
+the committed data/shrines.json instead, which is the only offline source available
+in a sandbox that cannot reach the published sheet (measured 21 August 2026: the
+web session's proxy answers 403 to docs.google.com). --offline degrades to
+--snapshot automatically when the CSV is absent, so the script always runs.
+
+One caveat with --snapshot, stated rather than papered over: build-dataset drops
+rows with empty coordinates, so the snapshot holds 169 of the sheet's 171 rows.
+The two missing ones (darbar-hazrat-shah-gohar-peer, darbar-mian-qurban-ali-shah)
+are simply absent from the buckets, and the row-count assertion below is against
+whatever source was loaded, not a hardcoded 171.
 """
-import csv, difflib, io, json, os, re, sys, urllib.request
+import csv, datetime, difflib, io, json, os, re, sys, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCOPE = os.path.join(ROOT, "urdu-i18n", "a8-scope.json")
 BASELINE = os.path.join(ROOT, "urdu-i18n", "_english_descriptions.json")
 CONTENT = os.path.join(ROOT, "urdu-i18n", "content")
 LOCAL_CSV = os.path.join(ROOT, "data", "shrines_final_import_2026-08-16.csv")
+SNAPSHOT = os.path.join(ROOT, "data", "shrines.json")
 
 SEPARATOR = re.compile(r"\n*={10,}\n*")
 
@@ -48,7 +60,10 @@ def slugify(text):
     t = (text or "").lower()
     for ch, rep in (("&", " and "), ("@", " at "), ("%", " percent "), ("+", " plus ")):
         t = t.replace(ch, rep)
-    t = re.sub(r"[^\w\s-]", "", t)
+    # JS \w is ASCII-only; Python's is Unicode. Without the explicit class, a
+    # name containing an accented letter slugifies differently here than on
+    # the site, silently mispairing content (code-review finding, 21 Aug 2026).
+    t = re.sub(r"[^A-Za-z0-9_\s-]", "", t)
     t = re.sub(r"[\s_]+", "-", t)
     t = re.sub(r"-+", "-", t)
     return t.strip("-").strip()
@@ -60,7 +75,11 @@ def normalise(text):
     return re.sub(r"\s+", " ", SEPARATOR.sub("\n", text or "")).strip()
 
 
-def load_english(offline):
+def load_english(offline, snapshot):
+    if snapshot or (offline and not os.path.exists(LOCAL_CSV)):
+        with open(SNAPSHOT, encoding="utf-8") as fh:
+            data = json.load(fh)
+        return data["rows"], f"data/shrines.json snapshot ({data.get('generated', 'undated')}, {len(data['rows'])} rows)"
     if offline:
         with open(LOCAL_CSV, newline="", encoding="utf-8") as fh:
             return list(csv.DictReader(fh)), "data/shrines_final_import_2026-08-16.csv"
@@ -75,8 +94,9 @@ def load_english(offline):
 def main():
     offline = "--offline" in sys.argv
     check = "--check" in sys.argv
+    snapshot = "--snapshot" in sys.argv
 
-    rows, source = load_english(offline)
+    rows, source = load_english(offline, snapshot)
     baseline = json.load(open(BASELINE, encoding="utf-8"))
     have = {f[:-3] for f in os.listdir(CONTENT) if f.endswith(".md")}
 
@@ -97,16 +117,32 @@ def main():
                           "old_chars": len(old), "new_chars": len(new)})
 
     delta.sort(key=lambda d: -d["added_chars"])
+
+    # Nothing may vanish quietly. If the loaded source holds fewer rows than the
+    # scope this replaces — which is exactly what --snapshot does, since
+    # build-dataset drops rows with empty coordinates — name the dropped slugs in
+    # the file itself rather than letting them disappear from every bucket.
+    seen = {d["slug"] for d in full} | {d["slug"] for d in delta} | set(no_action)
+    dropped = []
+    if os.path.exists(SCOPE):
+        previous = json.load(open(SCOPE, encoding="utf-8"))
+        known = ([d["slug"] for d in previous.get("full_translation", [])]
+                 + [d["slug"] for d in previous.get("delta", [])]
+                 + list(previous.get("no_action", []))
+                 + list(previous.get("rows_not_in_source", [])))
+        dropped = sorted({s for s in known if s not in seen})
+
     result = {
         "_comment": ("A8 (Urdu content delta) scope. Regenerate with "
                      "pipeline/a8_urdu_delta.py. 'added_chars' counts inserted/replaced "
                      "characters, not a diff of meaning."),
-        "generated": "2026-08-18",
+        "generated": "",  # filled below: today's date, but only when content changes
         "baseline": "urdu-i18n/_english_descriptions.json",
         "english_source": source,
         "full_translation": sorted(full, key=lambda d: d["slug"]),
         "delta": delta,
         "no_action": sorted(no_action),
+        "rows_not_in_source": dropped,
     }
 
     total = len(full) + len(delta) + len(no_action)
@@ -117,6 +153,8 @@ def main():
     print(f"[a8]   full translation needed : {len(full):>4}  ({sum(d['english_chars'] for d in full):,} English chars)")
     print(f"[a8]   delta needed            : {len(delta):>4}  ({sum(d['added_chars'] for d in delta):,} added English chars)")
     print(f"[a8]   no action               : {len(no_action):>4}")
+    if dropped:
+        print(f"[a8]   in previous scope but not in this source: {len(dropped)} — {', '.join(dropped)}")
 
     if check:
         if not os.path.exists(SCOPE):
@@ -126,12 +164,22 @@ def main():
                  or sorted(d["slug"] for d in current.get("delta", [])) != sorted(d["slug"] for d in result["delta"]))
         if drift:
             raise SystemExit("FAIL: urdu-i18n/a8-scope.json is stale — rerun without --check")
-        print("[a8] OK — committed scope matches the live sheet.")
+        print(f"[a8] OK — committed scope matches {source}.")
         return
+
+    # Stamp the date only when the buckets actually change. A hardcoded or
+    # always-refreshed date is how data/provenance.json came to assert a
+    # provenance date months out of step with its own contents
+    # (docs/HANDOVER.md §9) — the file that measures staleness must not lie
+    # about its own.
+    previous = json.load(open(SCOPE, encoding="utf-8")) if os.path.exists(SCOPE) else {}
+    comparable = {k: v for k, v in result.items() if k != "generated"}
+    unchanged = {k: v for k, v in previous.items() if k != "generated"} == comparable
+    result["generated"] = previous.get("generated", "") if unchanged else datetime.date.today().isoformat()
 
     with open(SCOPE, "w", encoding="utf-8") as fh:
         json.dump(result, fh, ensure_ascii=False, indent=1)
-    print(f"[a8] wrote {SCOPE}")
+    print(f"[a8] wrote {SCOPE} (generated: {result['generated']})")
 
 
 if __name__ == "__main__":
