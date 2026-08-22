@@ -93,21 +93,29 @@ test('the Urdu infobox stays a compact list, not running prose', async ({ page }
   ).toBeLessThan(1.3);
 });
 
-test('the shrine list has room to be a list on a laptop viewport', async ({ page }) => {
-  // 1280x720 is the common case that collapsed the panel to 0px.
-  await page.setViewportSize({ width: 1280, height: 720 });
-  await page.goto('/');
-  await page.locator('.list-toggle-btn').click();
-  const panel = page.locator('.shrine-list-panel');
-  await expect(panel).toBeVisible();
-  // Poll rather than one-shot: a React re-render can swap the panel node
-  // between the visibility check and boundingBox(), returning null.
-  await expect
-    .poll(async () => (await panel.boundingBox())?.height ?? 0, {
-      message: 'the filter sections above must yield space to the list',
-    })
-    .toBeGreaterThan(150);
-});
+// The filter sections above the list are the failure mode (HANDOVER §9.9):
+// their height grows with the dataset, and at 169 rows they once squeezed the
+// list to exactly 0px. Guard the two viewports that hit it — the common
+// laptop, and a phone, where the min-height floor is all the list gets.
+for (const vp of [
+  { name: 'laptop', width: 1280, height: 720 },
+  { name: 'phone', width: 390, height: 844 },
+]) {
+  test(`the shrine list has room to be a list on a ${vp.name} viewport`, async ({ page }) => {
+    await page.setViewportSize({ width: vp.width, height: vp.height });
+    await page.goto('/');
+    await page.locator('.list-toggle-btn').click();
+    const panel = page.locator('.shrine-list-panel');
+    await expect(panel).toBeVisible();
+    // Poll rather than one-shot: a React re-render can swap the panel node
+    // between the visibility check and boundingBox(), returning null.
+    await expect
+      .poll(async () => (await panel.boundingBox())?.height ?? 0, {
+        message: 'the filter sections above must yield space to the list',
+      })
+      .toBeGreaterThan(150);
+  });
+}
 
 test.describe('Motion honesty', () => {
   test('reduced motion disables the stagger and reveal system entirely', async ({ page }) => {
