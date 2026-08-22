@@ -73,3 +73,28 @@ test.describe('Map page', () => {
     await expect(list).toHaveCount(SHRINE_COUNT, settled);
   });
 });
+
+test.describe('Basemap layers control', () => {
+  test('has a drawn icon and sits clear of the mobile bottom sheet', async ({ page }) => {
+    // Production shipped this control as a blank white square sitting on the
+    // bottom sheet's brand row (real-phone screenshot, 22 Aug 2026): the CSS
+    // removes the vendor sprite, so the glyph must come from our ::after mask.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    const toggle = page.locator('.leaflet-control-layers-toggle');
+    await expect(toggle).toBeVisible();
+
+    const mask = await toggle.evaluate((el) => {
+      const s = getComputedStyle(el, '::after');
+      return s.maskImage || s.webkitMaskImage || '';
+    });
+    expect(mask, 'the toggle must draw a glyph — a blank square is not a control').toContain('svg');
+
+    // topright: above the sheet, right half of the screen.
+    const control = (await page.locator('.leaflet-control-layers').boundingBox())!;
+    const sheet = (await page.locator('#sidebar').boundingBox())!;
+    expect(control.y + control.height, 'must not overlap the bottom sheet').toBeLessThan(sheet.y);
+    expect(control.x, 'lives in the top-right corner').toBeGreaterThan(390 / 2);
+    expect(control.y).toBeLessThan(100);
+  });
+});

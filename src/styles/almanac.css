@@ -201,6 +201,9 @@
 }
 
 .almanac-entry {
+  /* Deep links from shrine pages (/almanac#<slug>) land here — keep the
+     anchored card clear of the viewport edge. */
+  scroll-margin-top: var(--space-8);
   display: grid;
   grid-template-columns: minmax(10rem, 13rem) 1fr;
   gap: var(--space-4);

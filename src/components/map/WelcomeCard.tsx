@@ -27,6 +27,8 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
           <p className="welcome-card-links-heading">{t('welcomeExploreMore')}</p>
           <Link to="/almanac">{t('almanacTitle')}</Link>
           <Link to="/graph">{t('graphExplorerTitle')}</Link>
+          <Link to="/report">{t('reportTitle')}</Link>
+          <Link to="/typology">{t('typologyTitle')}</Link>
         </nav>
       )}
     </div>

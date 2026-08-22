@@ -683,7 +683,12 @@
 }
 
 @media print {
-  body * {
+  /* Scoped with :has — the un-scoped `body * { visibility: hidden }` version
+     applied on EVERY page, so any page without an active tour printed blank
+     (found 21 Aug 2026 while building the shrine handout print view; the
+     shrine e2e print spec now guards against it coming back). The itinerary
+     div only mounts inside TourPanel during an active tour. */
+  body:has(.tour-print-itinerary) * {
     visibility: hidden;
   }
 

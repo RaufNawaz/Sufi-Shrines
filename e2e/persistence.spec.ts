@@ -67,3 +67,66 @@ test.describe('Preference persistence', () => {
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
   });
 });
+
+test.describe('Saved shrines (ziyarat list)', () => {
+  test('a save survives reload and powers the map filter', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+
+    // Save from the shrine page
+    const saveBtn = page.getByRole('button', { name: UI_TEXT.en.saveShrine, exact: true });
+    await saveBtn.click();
+    await expect(page.getByRole('button', { name: UI_TEXT.en.savedLabel })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+
+    // The save is device state, not session state
+    await page.reload();
+    await expect(page.getByRole('button', { name: UI_TEXT.en.savedLabel })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+
+    // The map's "Your list" filter narrows to exactly the saved shrine
+    await page.goto('/?saved=1');
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    const names = page.locator('.shrine-list-name');
+    await expect(names).toHaveCount(1);
+    await expect(names.first()).toHaveText('Data Darbar');
+  });
+
+  test('the preview card can save a shrine without opening its page', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    await page.getByPlaceholder(UI_TEXT.en.searchPlaceholder).fill('Data Darbar');
+    await page
+      .locator('.shrine-list-item')
+      .filter({ has: page.locator('.shrine-list-name', { hasText: /^Data Darbar$/ }) })
+      .click();
+    await expect(page.locator('.preview-card')).toBeVisible();
+
+    const saveBtn = page.locator('.preview-save-btn');
+    await expect(saveBtn).toHaveAttribute('aria-pressed', 'false');
+    await saveBtn.click();
+    await expect(saveBtn).toHaveAttribute('aria-pressed', 'true');
+    await expect(saveBtn).toContainText(UI_TEXT.en.savedLabel);
+
+    // The same store the shrine page reads: its button now reports saved.
+    await page.goto('/shrine/data-darbar');
+    await expect(page.getByRole('button', { name: UI_TEXT.en.savedLabel })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+  });
+
+  test('the saved filter chip stays hidden while the list is empty', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    // The chip lives behind "more filters" — expand so absence is meaningful,
+    // not just unexpanded. A filter that can only produce zero results is
+    // noise, and this pins that it never renders for an empty list.
+    await page.locator('.more-filters-toggle').click();
+    await expect(page.getByText(UI_TEXT.en.verifiedOnlyFilter)).toBeVisible();
+    await expect(page.getByText(UI_TEXT.en.savedFilterLabel)).toHaveCount(0);
+  });
+});

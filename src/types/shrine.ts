@@ -68,6 +68,20 @@ export interface Shrine {
    * controlled-vocabulary column during schema hygiene (e.g. "deteriorating
    * fabric", "reconstructed 2022"). '' when absent. */
   statusNote: string;
+  /** Raw `site_type` sheet value — the built form (Khanqah, Gurdwara, Cave
+   * shrine, …). Mostly short vocabulary, but two rows carry survey prose;
+   * both are rendered as-is when they don't map (RULE 2). '' when absent. */
+  siteType: string;
+  /** Prose qualifier for `site_type`, '' when absent. */
+  siteTypeNote: string;
+  /** Raw `figure_type` sheet value — what kind of figure is honored (Sufi
+   * saint | Deity | Sikh Guru | Sant | Historical person | Individual |
+   * Collective, plus two survey-prose rows). '' when absent. */
+  figureType: string;
+  /** Raw `silsila` sheet value — the Sufi order, where the survey recorded
+   * one (52 rows). Mostly clean order names; four rows carry survey prose
+   * that renders verbatim (RULE 2). '' when absent. */
+  silsila: string;
   location: string;
   region: string;
   founded: string;

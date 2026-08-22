@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { useReveal } from '../../lib/useReveal';
 import { ShrineGallery } from './ShrineGallery';
 import { anchorSlug, useArticleContent } from './useArticleContent';
 import { localizeHeading } from '../../lib/data/headingLabels';
@@ -81,8 +82,10 @@ function ArticleSection({
   // and ISBNs keep their Western digits — see localizeProseDigits.
   const localize = (text: string) => localizeProseDigits(text, lang, numerals === 'eastern');
 
+  const revealRef = useReveal<HTMLElement>();
+
   return (
-    <section className="article-section" id={id} aria-labelledby={`${id}-heading`}>
+    <section ref={revealRef} className="article-section" id={id} aria-labelledby={`${id}-heading`}>
       <h2 className="article-section-heading" id={`${id}-heading`}>
         {heading}
       </h2>

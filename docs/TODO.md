@@ -1,4 +1,183 @@
-# To-do — as of 18 August 2026
+# To-do — as of 22 August 2026
+
+> **The current working plan is [`planning/NEXT_STEPS_2026-08-21.md`](planning/NEXT_STEPS_2026-08-21.md)**
+> — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
+> blue-sky line. This file remains the session-by-session log.
+
+## 0a‴. Session log — 22 August 2026, fourth session: blue-sky continued
+
+Standing instruction unchanged (keep improving until told to stop), plus two refinements from
+you mid-stream: work in a *substantial, blue-sky* register, and once Urdu is solid, move to
+animations, deeper UI integration, more features, database enrichment. Shipped, each verified
+(`npm run verify` + full e2e green before every push):
+
+- **Add-to-calendar** (`4010fcc`): the shrine urs block exports its projected windows as
+  `.ics` (all windows in the horizon — a Hijri urs can fall twice in one Gregorian year).
+  Approximation warnings travel inside the file.
+- **Real files for /almanac, /graph, /report on GitHub Pages** (`426c46b`): Pages has no SPA
+  rewrite, so app routes 404'd on hard refresh. Prerendered shells (+/ur mirrors, hreflang,
+  sitemap pairs) and a noindex 404.html.
+- **F10 — State of the Archive** (`929fac9`): `/report`, the archive grading itself in
+  public. Everything computed from the loaded dataset (`archiveReport.ts`); the one external
+  constant is Punjab Auqaf's 534, cited where used. Corrections and known-losses ledgers are
+  content, bilingual, in the TRADITION_LABELS pattern.
+- **Motion system** (`99a5a04`): useReveal() scroll-reveal with a 1500ms failsafe — content
+  visible by default, hiding class added only by JS, so no-JS/print/prerender never lose
+  prose. Stagger utilities on grids and ledgers; micro-interactions on chips/buttons/save.
+  Two independent reduced-motion layers (media-query-gated rules + tokens.css durations→0).
+  **Gotcha for the next person:** axe must scan at `reducedMotion: 'reduce'` — scanning
+  mid-stagger samples colors at partial opacity and reports phantom contrast failures
+  (e.g. `#827766`) that exist in no rest state. Rest-state contrast is 5.85:1.
+
+Unit tests 447 → 452; e2e 66 → 71/71 green in ~56 s.
+
+Continued the same day, same standing instruction:
+
+- **Save from the map** (`82ce64c`): the preview card carries the same ziyarat bookmark as
+  the shrine page — same store, same aria-pressed contract.
+- **Phone-viewport guard** (`341b2a3`): on being asked whether the phone sidebar issue was
+  fixed — yes (HANDOVER §9.9's min-height floor holds; measured 192px with all 169 items at
+  390×844 and 360×740), and the e2e guard now pins the phone size, not just 1280×720.
+- **The Atlas of Built Forms** (`949ea06`, N7 + a data-visibility bug): `site_type` was
+  parsed and displayed **nowhere** — 168/169 rows invisible to readers through the whole
+  schema migration. Now: an infobox "Built form" row (vocabulary localizes and links; the
+  two survey-prose values render verbatim per RULE 2) and /typology grouping the archive by
+  what stands at each site. **Found on the way:** the e2e fixture generator exported only
+  the 11 legacy columns, so every e2e run to date saw a dataset with no `site_type`/
+  `status`/`info_level`/`support_level` at all; the fixture now mirrors the live sheet's
+  structured columns. **N2 (Wikidata round-trip) is blocked in this sandbox** — the egress
+  proxy 403s both www.wikidata.org and query.wikidata.org; it needs a session with wider
+  egress or a human-run script.
+
+Unit tests 452 → 459; e2e 71 → 78/78 green in ~66 s.
+
+- **Honest figure labels + silsila** (`48cab74`): the infobox called every principal figure
+  "Saint" / "ولی" — 33 deities, 28 Sikh Gurus and 17 sants mislabeled, and ولی is
+  specifically a Muslim saint. figure_type now drives the row label (دیوتا / سکھ گرو /
+  سنت); the silsila column (52 rows) gets a row, its 14 clean order names added to the
+  urdu-i18n dictionary (seed 548 → 562). The four survey-prose silsila values and two prose
+  figure_types render verbatim / fall back, per RULE 2. **Gotcha:** the route slug for the
+  Suharwardi shrine is `shrine-of-abul-faiz-…` — the protected slug list in CLAUDE.md is
+  photo-URL keys, not route slugs. Unit 459 → 467; e2e 78 → 79/79.
+
+- **The blank basemap button** (`fdaa98a`, reported from a real phone on production): the
+  layers control was a glyphless white square — map.css strips the vendor sprite and
+  nothing ever replaced it — parked bottom-left ON TOP of the mobile bottom sheet's brand
+  row. Now: a theme-token mask glyph and `position="topright"` (bottom-right holds
+  zoom + reset; top-left is the desktop sidebar toggle). Guarded at 390×844. Note the
+  fix is on this branch — production keeps the blank square until the branch deploys.
+  E2e 79 → 80/80.
+
+---
+
+## 0a″. Session log — 21 August 2026, third session: features until told to stop
+
+Standing instruction: keep improving functionality. Four shipped, each verified
+(`npm run verify` + full e2e green before every push):
+
+- **The shrine's almanac slice** (`4d21be0`): shrine pages with a datable observance show
+  the next projected window with the approximate flag, deep-linking to the shrine's
+  anchored card in /almanac. F5 (silsila metro map) was *rejected* after measurement — the
+  KG holds 6 lineage edges across 130 saints; a transit diagram of six connections would
+  imply a mapped tradition the archive doesn't have. It waits on lineage extraction.
+- **Print-grade shrine pages** (`bfeb47b`) — and the bigger half: tours.css's unscoped
+  `body * { visibility: hidden }` print hack meant **every page without an active tour has
+  been printing blank**. Now scoped with `:has(.tour-print-itinerary)` and guarded by a
+  print-emulation e2e spec.
+- **Saved shrines / ziyarat list** (`7572109`): on-device bookmarks + a "Your list" map
+  filter (?saved=1). localStorage only — offline-friendly, no account, never leaves the
+  device.
+- **252 KB gzip off the critical path** (`urdu-content.json` made a lazy chunk): the
+  useShrineData chunk went 585 KB → 11 KB. Both merge sites were already async, so nothing
+  ever renders unmerged; the Urdu experience is byte-identical.
+
+Unit tests 426 → 447 across the day; e2e 59 (all broken in sandbox) → 66/66 green in ~1 min.
+
+---
+
+## 0a′. Session log — 21 August 2026, second session: Lane A of the plan, executed
+
+All six agent-executable items from `planning/NEXT_STEPS_2026-08-21.md` §2 are done (one
+blocked and re-lodged in Lane B). `npm run verify` 437 unit tests green; **e2e 62/62 green
+in 51 s** — the suite had never run in this sandbox before today.
+
+- **Urdu search parity fixed** (`24aefe7`): the worker indexed a sheet `Urdu Name` column
+  that doesn't exist, so داتا دربار found nothing. It now indexes what the UI displays
+  (dictionary names, locations, saints). Unit + e2e pinned.
+- **e2e suite hermetic and 8× faster** (`b1a58d4`, `878cd06`): nothing leaves localhost
+  now. Root causes written into `docs/FRONTEND_NOTES.md` §9 — pinned-browser mismatch,
+  hanging external requests holding the `load` event hostage, and a geolocation test that
+  raced the app's own timeout.
+- **Review cockpit** (`026eeea`): `python3 urdu-i18n/build_review_queue.py` → priority
+  queue + side-by-side EN/UR pages + a hash-pinned `reviewed.json` ledger (edits after a
+  review auto-drop the entry to *stale*). **The top-8 packet is ready — this is the
+  next thing that needs you.**
+- **Cite-this-entry** (`1bc8174`): plain text + BibTeX on every shrine page, both carrying
+  the entry's support level; no-leak-safe in Urdu.
+- **/almanac and /graph in the axe matrix** (`cbf2600`), green on first run.
+- **Auqaf register: blocked, measured** — no register in the repo (it's the pending ask in
+  `docs/auqaf_records_brief.md`) and the department's site is egress-blocked from the
+  sandbox. Moved to the needs-you queue.
+
+---
+
+## 0a. Session log — 21 August 2026: A8 step 2 finished
+
+**All 74 Urdu deltas are translated. `urdu-i18n/a8-scope.json` now reads 0 delta entries.**
+Commits `25150d6` (16 largest), `090b30d` (20), `8b9621e` (the last 38); `npm run verify` green
+throughout (426 tests). Every file is **`reviewed=false`** — the Urdu prose still needs a human
+reader before any of it counts as done (RULE 2).
+
+**What is left of A8:** step 3 only — the three full translations still waiting on
+`docs/EDITORIAL_DECISIONS_PENDING.md` (`darbar-abul-muali-qadri`, `darbar-malik-ahmad-ayaz`,
+`darbar-mian-qurban-ali-shah`). That is blocked on a decision, not on work.
+
+**Needs you, and it is the highest-value thing on this list:** *read some of the Urdu.* There
+are now 168 Urdu articles in `urdu-i18n/content/`, none of them reviewed by a human. The eight
+worth reading first, because they carry the most new prose and the highest traffic:
+`shrine-of-mauj-darya-bukhari`, `shrine-of-shah-jamal`, `shrine-of-shah-inayat-qadiri`,
+`shrine-of-peer-makki`, `data-darbar`, `shrine-of-bibi-pak-daman`,
+`tomb-of-allama-iqbal-mazar-e-iqbal`, `allo-mahar`.
+
+**Three editorial fixes made while in the files** — all cases of the Urdu asserting something
+the English no longer says, which is a failure mode a purely additive delta pass would miss:
+
+- `allo-mahar` — the English **retracted** its Faiz-ul-Hassan Shah biography (identification
+  unresolved between two figures; bibliography withdrawn as unreliable). The Urdu still carried
+  all five sections of the withdrawn biography. Now matches the retraction.
+- `gurdwara-tambo-sahib` — told the standing-shadow sakhi as its own; the English attributes it
+  to Gurdwara Mal Ji Sahib and calls it "often-conflated."
+- `gurdwara-rori-sahib` — stated the Bhai Lalo / Malik Bhago episode flatly; the English ties it
+  specifically to Gurdwara Khuhi Bhai Lalo.
+
+**Two mistranslations and one unsourced claim, fixed:** `shrine-of-peer-makki` rendered "Data
+Ganj Bakhsh" as **دیوان** گنج بخش throughout (Data, not Diwan; grep confirmed no other file did
+it), `loh-temple-lava-temple` wrote the Walled City of Lahore Authority as **واجد** سٹی, and
+`kalat-kali-temple` opened with "far from Quetta", which appears nowhere in its English.
+`darbar-ghamkol-sharif-zinda-pir` looked like the same class of error — a founder's name the
+English never gives — and is not: it is the row's own `principal_figure`. Check the row before
+"fixing" a name.
+
+**Two gates added** (`urdu-i18n/build_urdu_content.py` now refuses to write on either):
+a `## heading` with no blank line before it — markdown folds it into the previous paragraph, so
+the section vanishes from the article and the contents nav with nothing erroring, which happened
+five times in one sitting — and an odd number of `*` in a file.
+
+**Tooling:** `pipeline/a8_urdu_delta.py` gained `--snapshot` (the published sheet is unreachable
+from the web sandbox: the agent proxy 403s `docs.google.com`, and `--offline`'s CSV is
+gitignored, so neither path ran in a fresh clone). It also now names rows the loaded source
+dropped in `rows_not_in_source`, and stamps `generated` from the clock only when the buckets
+change instead of hardcoding a date. `urdu-i18n/update_log.py` deliberately got *no* snapshot
+fallback — its denominator must be the full 171 rows — but now says so instead of raising
+`FileNotFoundError`. **`urdu-i18n/TRANSLATION_LOG.md` was therefore not regenerated this
+session; run `npm run urdu:build` from a machine that can reach the sheet.** Its numbers are
+unchanged (168/171 translated) since the deltas were edits to existing files.
+
+Full detail in `docs/planning/A8_URDU_DELTA_SCOPE.md` (21 August note) and `docs/HANDOVER.md` §9.
+
+---
+
+# To-do — as of 18 August 2026 (superseded above; kept for the record)
 
 > **18 August: the sheet import is DONE.** The live published sheet now serves 171 rows /
 > 44 columns with `support_level` populated; §1 below is closed and kept only for the record.

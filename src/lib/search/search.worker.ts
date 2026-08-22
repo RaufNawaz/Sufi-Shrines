@@ -1,16 +1,8 @@
 import MiniSearch from 'minisearch';
+import type { ShrineSearchDoc } from './searchDocs';
 
-interface ShrineDoc {
-  id: number;
-  name: string;
-  urduName: string;
-  location: string;
-  saint: string;
-  category: string;
-  description: string;
-}
-
-type InMsg = { type: 'init'; docs: ShrineDoc[] } | { type: 'search'; query: string; reqId: number };
+type InMsg =
+  { type: 'init'; docs: ShrineSearchDoc[] } | { type: 'search'; query: string; reqId: number };
 
 type OutMsg = { type: 'ready' } | { type: 'results'; ids: number[]; reqId: number };
 
@@ -46,21 +38,41 @@ export function processTerm(term: string): string {
     .toLowerCase();
 }
 
-let ms: MiniSearch<ShrineDoc> | null = null;
+let ms: MiniSearch<ShrineSearchDoc> | null = null;
 
 self.onmessage = (e: MessageEvent<InMsg>) => {
   const msg = e.data;
 
   if (msg.type === 'init') {
-    ms = new MiniSearch<ShrineDoc>({
+    ms = new MiniSearch<ShrineSearchDoc>({
       idField: 'id',
-      fields: ['name', 'urduName', 'location', 'saint', 'category', 'description'],
+      fields: [
+        'name',
+        'urduName',
+        'location',
+        'urduLocation',
+        'saint',
+        'urduSaint',
+        'category',
+        'description',
+      ],
       storeFields: [],
       processTerm,
       searchOptions: {
         fuzzy: 0.2,
         prefix: true,
-        boost: { name: 4, urduName: 4, location: 2, saint: 2, category: 1, description: 1 },
+        // Urdu fields mirror their Latin counterparts' boosts: same string,
+        // different script, same rank.
+        boost: {
+          name: 4,
+          urduName: 4,
+          location: 2,
+          urduLocation: 2,
+          saint: 2,
+          urduSaint: 2,
+          category: 1,
+          description: 1,
+        },
         combineWith: 'OR',
       },
     });

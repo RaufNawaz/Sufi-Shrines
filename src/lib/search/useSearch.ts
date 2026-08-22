@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Shrine } from '../../types/shrine';
-import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
+import { buildSearchDocs } from './searchDocs';
 
 interface SearchState {
   ids: number[] | null; // null = "no query / show all"; otherwise ranked best-match-first
@@ -39,16 +39,7 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
       }
     };
 
-    const docs = shrines.map((s) => ({
-      id: s.id,
-      name: s.name,
-      urduName: getUrduFieldValue(s.raw, 'Name') || '',
-      location: s.location || '',
-      saint: s.sufiSaint || '',
-      category: s.category || '',
-      description: getFieldValue(s.raw, 'Description').slice(0, 500), // cap length
-    }));
-    worker.postMessage({ type: 'init', docs });
+    worker.postMessage({ type: 'init', docs: buildSearchDocs(shrines) });
 
     return () => {
       worker.terminate();

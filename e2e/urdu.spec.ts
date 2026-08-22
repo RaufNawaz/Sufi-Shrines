@@ -47,6 +47,69 @@ test.describe('Urdu (?lang=ur) journey', () => {
     }
   });
 
+  test('searching in Urdu script finds a shrine by its displayed Urdu name', async ({ page }) => {
+    // Guards the 21 Aug 2026 parity fix (searchDocs.ts): the worker index
+    // must carry the same dictionary Urdu names the list renders. Before the
+    // fix, urduName came from a sheet column that doesn't exist, and this
+    // exact query returned nothing.
+    await page.goto('/?lang=ur');
+    await page.locator('.list-toggle-btn').click();
+    await expect(page.locator('.shrine-list-panel')).toBeVisible();
+
+    await page.getByPlaceholder(UI_TEXT.ur.searchPlaceholder).fill('داتا دربار');
+
+    // The seed dictionary renders Data Darbar as داتا دربار; the list shows
+    // localized names in ?lang=ur, so the match must surface under that name.
+    const match = page
+      .locator('.shrine-list-item')
+      .filter({ has: page.locator('.shrine-list-name', { hasText: 'داتا دربار' }) });
+    await expect(match.first()).toBeVisible();
+  });
+
+  test('the State of the Archive reads fully in Urdu', async ({ page }) => {
+    await page.goto('/report?lang=ur');
+    const title = page.locator('h1.entity-title');
+    await expect(title).toHaveText('آرکائیو کا حال');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    // The corrections ledger is bilingual data — its Urdu side must carry no
+    // Latin (dates are Western digits by the numerals rule, not letters).
+    const ledger = page.locator('.report-ledger-text').first();
+    await expect(ledger).toBeVisible();
+    expect(await ledger.textContent()).not.toMatch(/[A-Za-z]/);
+  });
+
+  test('the typology atlas reads in Urdu, prose forms sanctioned via bdi', async ({ page }) => {
+    await page.goto('/typology?lang=ur');
+    await expect(page.locator('h1.entity-title')).toHaveText('تعمیری صورتوں کا اٹلس');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    // Group headings are vocabulary labels + Eastern-numeral counts — no
+    // Latin anywhere. The survey-prose groups are the sanctioned exception,
+    // and only inside <bdi lang="en">.
+    for (const heading of await page.locator('.typology-group-heading').allTextContents()) {
+      expect(heading, `heading "${heading}" must carry no Latin`).not.toMatch(/[A-Za-z]/);
+    }
+    await expect(page.locator('.typology-group-prose bdi[lang="en"]')).toHaveCount(2);
+  });
+
+  test('the infobox names each tradition honestly: دیوتا for a deity, سلسلہ translated', async ({
+    page,
+  }) => {
+    // A Hindu temple's figure row must be labeled "Deity" (دیوتا), never
+    // the Muslim-specific ولی.
+    await page.goto('/shrine/katas-raj-temples?lang=ur');
+    const infobox = page.locator('.shrine-infobox');
+    await expect(infobox).toBeVisible();
+    await expect(infobox.locator('.infobox-label', { hasText: 'دیوتا' })).toBeVisible();
+    await expect(infobox.locator('.infobox-label', { hasText: 'ولی' })).toHaveCount(0);
+
+    // A Suhrawardi shrine shows its order, in Urdu, from the data dictionary.
+    await page.goto('/shrine/shrine-of-abul-faiz-qalander-ali-suharwardi?lang=ur');
+    const row = page.locator('.infobox-row', { hasText: 'سلسلہ' });
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('سہروردی');
+    expect(await row.textContent()).not.toMatch(/[A-Za-z]/);
+  });
+
   test('opening a shrine page renders its name in Urdu script', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
 

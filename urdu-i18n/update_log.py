@@ -42,7 +42,10 @@ def slugify(text):
     t = (text or "").lower()
     for ch, rep in (("&", " and "), ("@", " at "), ("%", " percent "), ("+", " plus ")):
         t = t.replace(ch, rep)
-    t = re.sub(r"[^\w\s-]", "", t)
+    # JS \w is ASCII-only; Python's is Unicode. Without the explicit class, a
+    # name containing an accented letter slugifies differently here than on
+    # the site, silently mispairing content (code-review finding, 21 Aug 2026).
+    t = re.sub(r"[^A-Za-z0-9_\s-]", "", t)
     t = re.sub(r"[\s_]+", "-", t)
     t = re.sub(r"-+", "-", t)
     return t.strip("-").strip()
@@ -61,6 +64,19 @@ def load_live_rows(live):
         # io.StringIO, never raw.splitlines() — splitlines breaks quoted
         # multi-paragraph cells before the csv module sees them.
         return list(csv.DictReader(io.StringIO(raw))), "live published sheet"
+    if not os.path.exists(LOCAL_CSV):
+        # LOCAL_CSV is gitignored, so it is absent in a fresh clone. Say so plainly
+        # rather than raising a bare FileNotFoundError. Deliberately no snapshot
+        # fallback: data/shrines.json drops the rows with empty coordinates, and
+        # counting coverage against a 169-row universe would both misreport the
+        # percentage and flag the two dropped rows' existing Urdu as orphaned.
+        raise SystemExit(
+            f"FAIL: {os.path.relpath(LOCAL_CSV, ROOT)} is absent (it is gitignored).\n"
+            "  Either run with --live to fetch the published sheet, or regenerate it\n"
+            "  locally with `python3 pipeline/build_final_import.py`.\n"
+            "  Note: the log's coverage denominator must be the full 171-row sheet,\n"
+            "  so data/shrines.json (169 rows) is not a valid substitute."
+        )
     with open(LOCAL_CSV, newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh)), os.path.relpath(LOCAL_CSV, ROOT)
 

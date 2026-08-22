@@ -23,3 +23,7 @@ export const TOURS_STORAGE_KEY = 'shrines_tours';
 
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
+
+/** The reader's saved shrines — a personal ziyarat list (JSON array of
+ * slugs, see savedShrines.ts). */
+export const SAVED_SHRINES_STORAGE_KEY = 'shrines_saved';

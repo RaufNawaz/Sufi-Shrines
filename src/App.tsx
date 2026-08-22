@@ -23,6 +23,8 @@ const SaintPage = lazy(() => import('./pages/SaintPage'));
 const OrderPage = lazy(() => import('./pages/OrderPage'));
 const GraphPage = lazy(() => import('./pages/GraphPage'));
 const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
+const ReportPage = lazy(() => import('./pages/ReportPage'));
+const TypologyPage = lazy(() => import('./pages/TypologyPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -109,6 +111,8 @@ export default function App() {
                 <Route path="/order/:slug" element={<OrderPage />} />
                 <Route path="/graph" element={<GraphPage />} />
                 <Route path="/almanac" element={<AlmanacPage />} />
+                <Route path="/report" element={<ReportPage />} />
+                <Route path="/typology" element={<TypologyPage />} />
                 {/* Legacy shrine.html?id=N redirect */}
                 <Route path="/shrine.html" element={<LegacyRedirect />} />
                 {/* /ur/* — crawler-discovery mirror of the routes above (see
@@ -158,6 +162,22 @@ export default function App() {
                   element={
                     <UrPrefixNormalizer>
                       <AlmanacPage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
+                  path="/ur/report"
+                  element={
+                    <UrPrefixNormalizer>
+                      <ReportPage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
+                  path="/ur/typology"
+                  element={
+                    <UrPrefixNormalizer>
+                      <TypologyPage />
                     </UrPrefixNormalizer>
                   }
                 />

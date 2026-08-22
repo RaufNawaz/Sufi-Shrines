@@ -31,6 +31,9 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
 import { getSaintsForShrine } from '../lib/kg';
 import { hasProjectAccess } from '../lib/projectAccess';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
+import { ShrineObservances } from '../components/shrine/ShrineObservances';
+import { useSavedShrines, toggleSaved } from '../lib/savedShrines';
 import type { Shrine } from '../types/shrine';
 
 function SkeletonPage() {
@@ -49,6 +52,8 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
   const { lang, t, localizeField, fmtNum } = useLang();
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
+  const saved = useSavedShrines();
+  const isShrineSaved = saved.includes(shrine.slug);
   // Move focus to the heading so screen readers announce the shrine name on navigation
   const headingRef = useFocusHeadingOnMount();
 
@@ -206,6 +211,27 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           </svg>
           {t('share')}
         </button>
+        <button
+          className={`action-btn${isShrineSaved ? ' action-btn--active' : ''}`}
+          onClick={() => toggleSaved(shrine.slug)}
+          aria-pressed={isShrineSaved}
+          title={t('saveShrineFull')}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill={isShrineSaved ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          {isShrineSaved ? t('savedLabel') : t('saveShrine')}
+        </button>
       </div>
 
       {/* Share toast */}
@@ -259,9 +285,19 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         )}
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
+          <ShrineObservances shrine={shrine} />
           <LocationMap latLng={shrine.latLng} name={name} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
+          <CiteThisEntry shrine={shrine} />
+          {/* Print-only provenance footer: a printed page is a handout that
+              has left the site, so it must carry its own source line. The
+              <details> citation block cannot be forced open by print CSS,
+              hence this parallel, always-rendered-but-screen-hidden line. */}
+          <p className="shrine-print-provenance print-only">
+            {t('siteTitle')} · {typeof window !== 'undefined' ? window.location.href : ''}
+            {shrine.supportLevel ? ` · ${t('citeSupportLevel')}: ${shrine.supportLevel}` : ''}
+          </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
           {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}

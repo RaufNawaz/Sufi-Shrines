@@ -663,6 +663,10 @@ if (SITE_URL) {
     ...orderSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
     ),
+    sitemapUrlPair(`${SITE_URL}/almanac`, `${SITE_URL}/ur/almanac`, 'weekly', '0.8'),
+    sitemapUrlPair(`${SITE_URL}/graph`, `${SITE_URL}/ur/graph`, 'monthly', '0.6'),
+    sitemapUrlPair(`${SITE_URL}/report`, `${SITE_URL}/ur/report`, 'weekly', '0.7'),
+    sitemapUrlPair(`${SITE_URL}/typology`, `${SITE_URL}/ur/typology`, 'monthly', '0.7'),
   );
 }
 sitemapLines.push('</urlset>');
@@ -703,6 +707,96 @@ if (SITE_URL) {
   writeFileSync(join(urHomeOutDir, 'index.html'), homeHtmlUr, 'utf8');
 }
 
+// ── App-route pages GitHub Pages can actually serve ─────────────────────────
+// GH Pages has no SPA rewrite: `_redirects` is a Netlify convention it
+// ignores, so any route without a real file 404s on direct navigation,
+// refresh, or a shared link. /almanac and /graph (and their /ur mirrors) are
+// linked from the welcome card and from every shrine page's urs block —
+// they must exist as files. Titles mirror uiStrings.ts
+// (almanacTitle / graphExplorerTitle); keep them in sync by hand, the same
+// contract as SITE_TITLE_UR above.
+const APP_ROUTES = [
+  {
+    path: 'almanac',
+    titleEn: 'The Urs Almanac — Sufi Shrines',
+    titleUr: `عرس تقویم — ${SITE_TITLE_UR}`,
+  },
+  {
+    path: 'graph',
+    titleEn: 'Saints & Orders Explorer — Sufi Shrines',
+    titleUr: `اولیاء اور سلسلے — ${SITE_TITLE_UR}`,
+  },
+  {
+    path: 'report',
+    titleEn: 'State of the Archive — Sufi Shrines',
+    titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
+  },
+  {
+    path: 'typology',
+    titleEn: 'Atlas of Built Forms — Sufi Shrines',
+    titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
+  },
+];
+
+for (const route of APP_ROUTES) {
+  const canonicalUrl = SITE_URL ? `${SITE_URL}/${route.path}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/${route.path}` : '';
+
+  let html = baseHtml
+    .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(route.titleEn)}</title>`)
+    .replace(
+      /<meta\s+property="og:title"[^>]*>/i,
+      `<meta property="og:title" content="${escHtml(route.titleEn)}" />`,
+    );
+  html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
+  if (canonicalUrl) {
+    html = html
+      .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+      .replace(
+        '</head>',
+        `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />\n  <meta property="og:url" content="${escHtml(canonicalUrl)}" />\n</head>`,
+      );
+  }
+  const outDir = join(distDir, route.path);
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, 'index.html'), html, 'utf8');
+
+  let htmlUr = baseHtml
+    .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(route.titleUr)}</title>`)
+    .replace(
+      /<meta\s+property="og:title"[^>]*>/i,
+      `<meta property="og:title" content="${escHtml(route.titleUr)}" />`,
+    );
+  htmlUr = replaceHreflang(htmlUr, canonicalUrl, urCanonicalUrl);
+  if (urCanonicalUrl) {
+    htmlUr = htmlUr
+      .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+      .replace(
+        '</head>',
+        `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />\n  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />\n</head>`,
+      );
+  }
+  const urOutDir = join(distDir, 'ur', route.path);
+  mkdirSync(urOutDir, { recursive: true });
+  writeFileSync(join(urOutDir, 'index.html'), htmlUr, 'utf8');
+}
+
+// ── 404.html: the SPA shell as GitHub Pages' fallback ───────────────────────
+// GH Pages serves /404.html (with a 404 status) for any path that has no
+// file. Shipping the app shell there means an unknown or legacy URL boots
+// the SPA and lands in its own NotFoundPage (which redirects unknown slugs
+// to the map) instead of GitHub's dead-end page. noindex: this document
+// answers many URLs; none of them should enter an index through it.
+{
+  const notFoundHtml = baseHtml.replace(
+    '</head>',
+    '  <meta name="robots" content="noindex" />\n</head>',
+  );
+  writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
+}
+
+console.log(`[prerender] ✓ ${APP_ROUTES.length * 2} app-route pages (+/ur) + 404.html`);
 console.log(`[prerender] ✓ ${written} shrine pages + sitemap.xml`);
 if (!SITE_URL) {
   console.log('[prerender]   Set SITE_URL env var to populate canonical URLs and the sitemap.');

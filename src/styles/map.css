@@ -1002,6 +1002,14 @@
   outline-offset: 2px;
 }
 
+/* The save toggle shares the copy-link chrome; saved state reads as primary,
+   the same visual voice as .action-btn--active on the shrine page. */
+.preview-save-btn.is-saved {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
 /* List-of-shrines toggle bar + button */
 .list-toggle-bar {
   padding: var(--space-2) var(--space-4);
@@ -1262,6 +1270,21 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
+}
+
+/* The rule above removes the vendor's sprite icon; until 22 Aug 2026 nothing
+   replaced it, so the toggle shipped as a blank white square (seen on a real
+   phone in production). A mask + background-color draws the stacked-layers
+   glyph in a theme token — a data-URI SVG alone couldn't follow dark mode. */
+.leaflet-control-layers-toggle::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-color: var(--color-text);
+  -webkit-mask: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E")
+    no-repeat center / contain;
 }
 
 .leaflet-control-layers-expanded {

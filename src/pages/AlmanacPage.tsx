@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -10,6 +10,7 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
+import { downloadIcsFile } from '../lib/data/icsDownload';
 import {
   formatDateWindow,
   formatSourceDate,
@@ -28,14 +29,24 @@ const SEASON_KEYS = {
 /** How many entries the "Coming up" rail shows before the month listing. */
 const UPCOMING_COUNT = 5;
 
-function ObservanceCard({ entry, lang }: { entry: AlmanacEntry; lang: Lang }) {
+function ObservanceCard({
+  entry,
+  lang,
+  anchorId,
+}: {
+  entry: AlmanacEntry;
+  lang: Lang;
+  /** Set on a shrine's first card in the year listing so /almanac#<slug>
+   * (the link on the shrine page) lands here. */
+  anchorId?: string | undefined;
+}) {
   const { t, fmtNum, localizeField } = useLang();
   const { shrine, observance, window, approximate } = entry;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const monthOnly = observance.precision === 'month';
 
   return (
-    <li className="almanac-entry">
+    <li className="almanac-entry" id={anchorId}>
       <div className="almanac-entry-date">
         <span className="almanac-entry-date-main">
           {formatDateWindow(window, lang, fmtNum, { monthOnly })}
@@ -110,20 +121,31 @@ export default function AlmanacPage() {
   const months = useMemo(() => groupByMonth(almanac.dated), [almanac.dated]);
   const upcoming = almanac.dated.slice(0, UPCOMING_COUNT);
 
+  // A shrine's first entry in the year listing carries id=<slug>, so the
+  // shrine page's "See it in the Urs Almanac" deep link has somewhere to
+  // land. First occurrence only — ids must stay unique when a Hijri
+  // observance appears twice in one Gregorian year.
+  const anchorEntry = useMemo(() => {
+    const first = new Map<string, AlmanacEntry>();
+    for (const entry of almanac.dated) {
+      if (!first.has(entry.shrine.slug)) first.set(entry.shrine.slug, entry);
+    }
+    return first;
+  }, [almanac.dated]);
+
+  // Client-side navigation keeps the hash but does not scroll to it.
+  useEffect(() => {
+    const slug = window.location.hash.slice(1);
+    if (!slug || almanac.dated.length === 0) return;
+    document.getElementById(slug)?.scrollIntoView({ block: 'start' });
+  }, [almanac.dated.length]);
+
   const downloadIcs = () => {
     const ics = buildIcs(almanac.dated, {
       baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
       now: new Date(),
     });
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'urs-almanac.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    downloadIcsFile(ics, 'urs-almanac.ics');
   };
 
   const { counts } = almanac;
@@ -221,7 +243,7 @@ export default function AlmanacPage() {
                 <h2 id="almanac-upcoming-heading" className="almanac-section-heading">
                   {t('almanacUpcoming')}
                 </h2>
-                <ul className="almanac-list almanac-list--upcoming">
+                <ul className="almanac-list almanac-list--upcoming stagger-in">
                   {upcoming.map((entry, i) => (
                     <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} />
                   ))}
@@ -256,6 +278,11 @@ export default function AlmanacPage() {
                           key={`${entry.shrine.slug}-${i}`}
                           entry={entry}
                           lang={lang}
+                          anchorId={
+                            anchorEntry.get(entry.shrine.slug) === entry
+                              ? entry.shrine.slug
+                              : undefined
+                          }
                         />
                       ))}
                     </ul>

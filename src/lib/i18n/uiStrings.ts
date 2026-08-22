@@ -171,6 +171,56 @@ export const UI_TEXT = {
     longitudeLabel: 'Longitude',
     imageLabel: 'Image',
     footerCredit: 'Sufi Shrines of Pakistan · Harvard Research Project',
+    citeTitle: 'Cite this entry',
+    citeTextLabel: 'Text',
+    citeCopy: 'Copy',
+    citeArchive: 'digital archive',
+    citeRetrieved: 'Retrieved',
+    citeSupportLevel: 'Support level',
+    obsHeading: 'Urs & observances',
+    obsViewAlmanac: 'See it in the Urs Almanac',
+    fieldSiteType: 'Built form',
+    fieldSilsila: 'Silsila (order)',
+    typologyTitle: 'Atlas of Built Forms',
+    typologyIntro:
+      'Every place in the archive, grouped by what actually stands there — khanqah, gurdwara, cave shrine. The labels are the survey’s own vocabulary; where the survey described a form in prose, the prose is kept as it was written.',
+    typologyAsDescribed: 'As the survey describes it',
+    typologyNotRecorded: 'Built form not recorded',
+    typologySiteCount: 'sites',
+    typologySiteCountOne: 'site',
+    reportTitle: 'State of the Archive',
+    reportIntro:
+      'An archive that asks to be trusted should grade itself in public. Every number on this page is computed from the dataset the page loaded — nothing is typed in by hand — and what cannot be computed is cited to the project\u2019s own working documents.',
+    reportCoverageHeading: 'Coverage',
+    reportShrinesLive: 'entries live on this site',
+    reportRegisterNote: (pct: number) =>
+      `Punjab\u2019s Auqaf department alone administers 534 shrines (its own public functions page, 2026). This archive currently covers about ${pct}% of that single provincial register \u2014 before Sindh, Khyber Pakhtunkhwa or Balochistan are counted at all.`,
+    reportSupportHeading: 'How well is each entry supported?',
+    reportSupportNote:
+      'Support level records how the information was gathered \u2014 never a site\u2019s importance.',
+    reportInfoHeading: 'How much does each entry say?',
+    reportStatusHeading: 'The state of the sites themselves',
+    reportWordsHeading: 'How the words were made',
+    reportWordsNote:
+      'The archive tracks, per entry, how its article was produced. Honesty about method is the price of asking to be cited.',
+    reportWithCitations: 'articles carrying at least one citation',
+    reportAiResearched: 'articles that are AI-researched drafts',
+    reportPrimarySource: 'articles researched from primary sources (OCR of printed tazkiras)',
+    reportUrduHeading: 'The Urdu mirror',
+    reportUrduDrafted: 'entries with a full Urdu article',
+    reportUrduReviewed: 'of them read and signed off by a human reader',
+    reportUrduReviewNote:
+      'Machine and hand-drafted translations alike are drafts until a person has read them. The number above is this archive\u2019s most honest one.',
+    reportCorrectionsHeading: 'Corrected in public',
+    reportCorrectionsNote:
+      'Every serious archive gets things wrong. This one writes them down. A selection from the project\u2019s correction ledger:',
+    reportLostHeading: 'What was lost',
+    reportUnknownLabel: 'not recorded',
+    saveShrine: 'Save',
+    saveShrineFull: 'Save to your ziyarat list (stored on this device)',
+    savedLabel: 'Saved',
+    savedFilterLabel: 'Your list',
+    savedOnlyFilter: 'Saved shrines',
     reportCorrection: 'Report a correction',
     sourcesHeading: 'Sources & Provenance',
     unreviewedLabel: 'Unreviewed',
@@ -223,6 +273,7 @@ export const UI_TEXT = {
     supportLevelTooltip:
       'How this entry’s information was gathered — a field survey, a cited source, or a web compilation. It reflects our research process only — never the site’s significance.',
     verifiedOnlyFilter: 'Field-verified only',
+    statusActive: 'Active',
     statusOccasional: 'Festival-only',
     statusHeritage: 'Heritage site — worship discontinued',
     statusRuin: 'Ruin',
@@ -411,6 +462,56 @@ export const UI_TEXT = {
     longitudeLabel: 'طول بلد',
     imageLabel: 'تصویر',
     footerCredit: 'پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ',
+    citeTitle: 'اس اندراج کا حوالہ',
+    citeTextLabel: 'متن',
+    citeCopy: 'کاپی کریں',
+    citeArchive: 'ڈیجیٹل آرکائیو',
+    citeRetrieved: 'کو دیکھا گیا',
+    citeSupportLevel: 'تصدیق کا درجہ',
+    obsHeading: 'عرس اور تقریبات',
+    obsViewAlmanac: 'عرس تقویم میں دیکھیں',
+    fieldSiteType: 'تعمیری صورت',
+    fieldSilsila: 'سلسلہ',
+    typologyTitle: 'تعمیری صورتوں کا اٹلس',
+    typologyIntro:
+      'آرکائیو کا ہر مقام، اِس اعتبار سے کہ وہاں فی الواقع کیا تعمیر کھڑی ہے — خانقاہ، گردوارہ، غار کا مزار۔ یہ خانے سروے کی اپنی اصطلاحیں ہیں؛ جس صورت کو سروے نے نثر میں بیان کیا، اُس کی نثر جوں کی توں رکھی گئی ہے۔',
+    typologyAsDescribed: 'جیسا سروے نے بیان کیا',
+    typologyNotRecorded: 'تعمیری صورت درج نہیں',
+    typologySiteCount: 'مقامات',
+    typologySiteCountOne: 'مقام',
+    reportTitle: 'آرکائیو کا حال',
+    reportIntro:
+      'جو آرکائیو بھروسے کی طلب گار ہو، اُسے اپنا حساب برسرِعام دینا چاہیے۔ اِس صفحے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو صفحے نے خود لوڈ کیا — کوئی عدد ہاتھ سے نہیں لکھا گیا — اور جو شمار نہیں ہو سکتا اُس کا حوالہ پروجیکٹ کی اپنی دستاویزات میں دیا گیا ہے۔',
+    reportCoverageHeading: 'احاطہ',
+    reportShrinesLive: 'اندراجات اِس سائٹ پر موجود',
+    reportRegisterNote: (pct: number) =>
+      `صرف پنجاب کا محکمہ اوقاف 534 مزارات کا انتظام کرتا ہے (اُس کے اپنے عوامی صفحے کے مطابق، 2026)۔ یہ آرکائیو فی الحال اُس ایک صوبائی رجسٹر کے تقریباً ${pct}٪ کا احاطہ کرتی ہے — سندھ، خیبر پختونخوا اور بلوچستان کا شمار اِس سے الگ ہے۔`,
+    reportSupportHeading: 'ہر اندراج کی تصدیق کس درجے کی ہے؟',
+    reportSupportNote:
+      'تصدیق کا درجہ یہ بتاتا ہے کہ معلومات کیسے جمع ہوئیں — کسی مقام کی اہمیت کبھی نہیں۔',
+    reportInfoHeading: 'ہر اندراج کتنا بتاتا ہے؟',
+    reportStatusHeading: 'خود مقامات کا حال',
+    reportWordsHeading: 'یہ تحریریں کیسے بنیں',
+    reportWordsNote:
+      'آرکائیو ہر اندراج کے لیے درج رکھتی ہے کہ اُس کا مضمون کیسے تیار ہوا۔ طریقۂ کار کے بارے میں دیانت داری، حوالہ بننے کی قیمت ہے۔',
+    reportWithCitations: 'مضامین جن میں کم از کم ایک حوالہ موجود ہے',
+    reportAiResearched: 'مضامین جو اے آئی سے تحقیق شدہ مسودے ہیں',
+    reportPrimarySource: 'مضامین جو بنیادی مآخذ (چھپے تذکروں کے او سی آر) سے تحقیق ہوئے',
+    reportUrduHeading: 'اردو آئینہ',
+    reportUrduDrafted: 'اندراجات جن کا مکمل اردو مضمون موجود ہے',
+    reportUrduReviewed: 'اِن میں سے جنہیں کسی انسانی قاری نے پڑھ کر منظور کیا',
+    reportUrduReviewNote:
+      'مشینی ہوں یا ہاتھ کے لکھے، سب تراجم اُس وقت تک مسودے ہیں جب تک کوئی شخص اُنہیں پڑھ نہ لے۔ اوپر کا عدد اِس آرکائیو کا سب سے سچا عدد ہے۔',
+    reportCorrectionsHeading: 'برسرِعام درستی',
+    reportCorrectionsNote:
+      'ہر سنجیدہ آرکائیو سے غلطیاں ہوتی ہیں۔ یہ آرکائیو اُنہیں لکھ رکھتی ہے۔ پروجیکٹ کے درستی نامے سے ایک انتخاب:',
+    reportLostHeading: 'جو ضائع ہوا',
+    reportUnknownLabel: 'درج نہیں',
+    saveShrine: 'محفوظ کریں',
+    saveShrineFull: 'اپنی زیارت کی فہرست میں محفوظ کریں (اسی آلے پر رہتی ہے)',
+    savedLabel: 'محفوظ ہے',
+    savedFilterLabel: 'آپ کی فہرست',
+    savedOnlyFilter: 'محفوظ شدہ مزارات',
     reportCorrection: 'غلطی کی نشاندہی کریں',
     sourcesHeading: 'مصادر اور ماخذ',
     unreviewedLabel: 'غیر جانچا گیا',
@@ -463,6 +564,7 @@ export const UI_TEXT = {
     supportLevelTooltip:
       'یہ نشان بتاتا ہے کہ اس اندراج کی معلومات کیسے حاصل کی گئیں — میدانی سروے، حوالہ شدہ ماخذ، یا ویب سے مرتب کردہ۔ اس کا تعلق صرف ہمارے تحقیقی عمل سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
     verifiedOnlyFilter: 'صرف میدانی تصدیق شدہ',
+    statusActive: 'فعال',
     statusOccasional: 'صرف تہواروں پر',
     statusHeritage: 'ورثہ مقام — عبادت منقطع',
     statusRuin: 'کھنڈر',
@@ -494,9 +596,11 @@ export function tFn(lang: Lang, key: 'stopOf', current: number, total: number): 
 export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
 export function tFn(lang: Lang, key: 'photoOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'activeFiltersCount', n: number): string;
+export function tFn(lang: Lang, key: 'reportRegisterNote', pct: number): string;
 export function tFn(
   lang: Lang,
-  key: 'resultCount' | 'stopOf' | 'nextIn' | 'photoOf' | 'activeFiltersCount',
+  key:
+    'resultCount' | 'stopOf' | 'nextIn' | 'photoOf' | 'activeFiltersCount' | 'reportRegisterNote',
   ...args: number[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];

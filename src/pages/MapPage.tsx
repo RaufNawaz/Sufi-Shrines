@@ -72,6 +72,7 @@ interface FilterState {
   categories: CategoryKey[];
   /** Show only support_level = Field-verified sites. */
   verifiedOnly: boolean;
+  savedOnly: boolean;
   region: string;
   saint: string;
   eraMin: number;
@@ -98,6 +99,7 @@ function getFiltersFromURL(): FilterState {
   return {
     categories: parseCategoryParam(p.get('category')),
     verifiedOnly: p.get('info') === 'verified',
+    savedOnly: p.get('saved') === '1',
     region: p.get('region') || '',
     saint: p.get('saint') || '',
     eraMin: parseInt(p.get('eraMin') || '', 10) || ERA_MIN,
@@ -111,6 +113,8 @@ function setFiltersInURL(filters: FilterState): void {
   else p.delete('category');
   if (filters.verifiedOnly) p.set('info', 'verified');
   else p.delete('info');
+  if (filters.savedOnly) p.set('saved', '1');
+  else p.delete('saved');
   if (filters.region) p.set('region', filters.region);
   else p.delete('region');
   if (filters.saint) p.set('saint', filters.saint);
@@ -291,6 +295,10 @@ export default function MapPage() {
     setFilters((f) => ({ ...f, verifiedOnly }));
   }, []);
 
+  const handleSavedOnlyChange = useCallback((savedOnly: boolean) => {
+    setFilters((f) => ({ ...f, savedOnly }));
+  }, []);
+
   const handleRegionChange = useCallback((region: string) => {
     setFilters((f) => ({ ...f, region }));
   }, []);
@@ -397,6 +405,8 @@ export default function MapPage() {
         activeCategories={filters.categories}
         onCategoriesChange={handleCategoriesChange}
         verifiedOnly={filters.verifiedOnly}
+        savedOnly={filters.savedOnly}
+        onSavedOnlyChange={handleSavedOnlyChange}
         onVerifiedOnlyChange={handleVerifiedOnlyChange}
         activeRegion={filters.region}
         onRegionChange={handleRegionChange}
