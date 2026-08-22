@@ -51,6 +51,15 @@ Continued the same day, same standing instruction:
 
 Unit tests 452 → 459; e2e 71 → 78/78 green in ~66 s.
 
+- **Honest figure labels + silsila** (`48cab74`): the infobox called every principal figure
+  "Saint" / "ولی" — 33 deities, 28 Sikh Gurus and 17 sants mislabeled, and ولی is
+  specifically a Muslim saint. figure_type now drives the row label (دیوتا / سکھ گرو /
+  سنت); the silsila column (52 rows) gets a row, its 14 clean order names added to the
+  urdu-i18n dictionary (seed 548 → 562). The four survey-prose silsila values and two prose
+  figure_types render verbatim / fall back, per RULE 2. **Gotcha:** the route slug for the
+  Suharwardi shrine is `shrine-of-abul-faiz-…` — the protected slug list in CLAUDE.md is
+  photo-URL keys, not route slugs. Unit 459 → 467; e2e 78 → 79/79.
+
 ---
 
 ## 0a″. Session log — 21 August 2026, third session: features until told to stop
