@@ -611,3 +611,111 @@
   border-radius: var(--radius-sm);
   padding: 1px var(--space-2);
 }
+
+/* ── State of the Archive (/report) — the register's typographic idiom:
+      prose, big honest numbers, hairline tables. No charts: a distribution
+      the reader can total by eye needs no bars. ─────────────────────────── */
+.report-page .report-intro {
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 62ch;
+}
+
+[dir='rtl'] .report-page .report-intro {
+  line-height: var(--leading-urdu);
+}
+
+.report-section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  margin: var(--space-10) 0 var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.report-big-number {
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.report-figure {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-inline-end: var(--space-2);
+}
+
+.report-note {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+[dir='rtl'] .report-note {
+  font-size: var(--text-base);
+  line-height: var(--leading-urdu-ui);
+}
+
+.report-stat-list {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  max-width: 40rem;
+}
+
+.report-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.report-stat-label {
+  color: var(--color-text);
+}
+
+.report-stat-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.report-stat-pct {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.report-ledger {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  max-width: 62ch;
+}
+
+.report-ledger-item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  align-items: baseline;
+}
+
+.report-ledger-date {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.report-ledger-text {
+  line-height: 1.65;
+}
+
+[dir='rtl'] .report-ledger-text {
+  line-height: var(--leading-urdu);
+}

@@ -66,6 +66,18 @@ test.describe('Urdu (?lang=ur) journey', () => {
     await expect(match.first()).toBeVisible();
   });
 
+  test('the State of the Archive reads fully in Urdu', async ({ page }) => {
+    await page.goto('/report?lang=ur');
+    const title = page.locator('h1.entity-title');
+    await expect(title).toHaveText('آرکائیو کا حال');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    // The corrections ledger is bilingual data — its Urdu side must carry no
+    // Latin (dates are Western digits by the numerals rule, not letters).
+    const ledger = page.locator('.report-ledger-text').first();
+    await expect(ledger).toBeVisible();
+    expect(await ledger.textContent()).not.toMatch(/[A-Za-z]/);
+  });
+
   test('opening a shrine page renders its name in Urdu script', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
 
