@@ -4,6 +4,19 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0a⁗. Session log — 22 August 2026, fifth session: deployed, then system dark
+
+- **Everything shipped to production.** PR #2 (32 commits: Urdu delta pass, mobile fixes,
+  saved shrines, urs + .ics, /report, /typology, figure labels + silsila, motion system,
+  perf) merged to main; PR #3 fast-forwarded the Pages branch `1.6`; deploy run #18 green.
+  The branch was restarted from main per convention.
+- **System dark preference honored** (`06ea535`): theme init read only localStorage and
+  defaulted light, so a phone in dark mode got the light site. Both init paths now follow
+  `prefers-color-scheme` when no choice is stored; the provider tracks live device flips
+  until the moon button pins a choice. Unit 467 → 470; e2e 80 → 81/81.
+
+---
+
 ## 0a‴. Session log — 22 August 2026, fourth session: blue-sky continued
 
 Standing instruction unchanged (keep improving until told to stop), plus two refinements from
