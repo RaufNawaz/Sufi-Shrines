@@ -1002,6 +1002,14 @@
   outline-offset: 2px;
 }
 
+/* The save toggle shares the copy-link chrome; saved state reads as primary,
+   the same visual voice as .action-btn--active on the shrine page. */
+.preview-save-btn.is-saved {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
 /* List-of-shrines toggle bar + button */
 .list-toggle-bar {
   padding: var(--space-2) var(--space-4);

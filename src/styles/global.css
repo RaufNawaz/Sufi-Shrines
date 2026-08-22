@@ -491,7 +491,8 @@ body.lang-rtl,
       transform: scale(1);
     }
   }
-  .action-btn--active svg {
+  .action-btn--active svg,
+  .preview-save-btn.is-saved svg {
     animation: save-land var(--duration-slow) var(--easing-spring);
   }
 }
