@@ -33,6 +33,15 @@ Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
   cell ends "See qa_note 1."). The Saifullah draft is refreshed (prasad/diya question in,
   coordinates ask softened). Front-end renders silsila_note the moment it lands.
   Unit 485 → 486; e2e 86/86.
+- **Production redeployed on request** (deploy run #19 green): everything through the
+  mosque connection is live on github.io. Branch restarted from main.
+- **Unmapped shrines get pages** (`987b78d`): latLng honestly nullable; a named row
+  without coordinates keeps its page/list/search presence marked "location not recorded";
+  tour geometry narrowed through `MappedShrine` so it stays null-free by type; nearby/
+  related/mosques/directions/print all decline rather than pretend. build-dataset keeps
+  such rows (garbage coordinates still rejected). Takes effect for Shah Gohar Peer and
+  Mian Qurban Ali Shah when the live sheet is next fetched or the snapshot rebuilt with
+  network. Two legacy drop-policy tests updated. Unit 486 → 493; e2e 86/86.
 
 ---
 
