@@ -99,4 +99,29 @@ describe('ShrineInfobox — silsila row', () => {
     const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />, ROUTE);
     expect(container.textContent).not.toContain('Silsila');
   });
+
+  it('a silsila_note qualifies the value — or stands alone when no order is recorded', () => {
+    const withBoth = buildShrine(
+      makeShrineRow({
+        silsila: 'Naqshbandi-Mujaddidi',
+        silsila_note: 'The field rests on the one-line Q5 answer alone.',
+      }),
+      0,
+    )!;
+    const both = renderWithProviders(<ShrineInfobox shrine={withBoth} />, ROUTE);
+    expect(both.container.textContent).toContain('Naqshbandi-Mujaddidi');
+    expect(both.container.querySelector('.infobox-note')?.textContent).toContain(
+      'one-line Q5 answer',
+    );
+    both.unmount();
+
+    // Note without a value: "not stated as an order" made legible (22 Aug ruling).
+    const noteOnly = buildShrine(
+      makeShrineRow({ silsila_note: 'Not stated as an order in the survey.' }),
+      0,
+    )!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={noteOnly} />, ROUTE);
+    expect(container.textContent).toContain('Silsila');
+    expect(container.textContent).toContain('Not stated as an order');
+  });
 });

@@ -1,4 +1,10 @@
-# Draft message to Saifullah — 16 August 2026
+# Draft message to Saifullah — updated 22 August 2026
+
+*(Original drafted 16 August; refreshed 22 August after the editorial rulings —
+added item 5 (the prasad/diya vocabulary question from
+`EDITORIAL_DECISIONS_PENDING.md` §1.4) and softened item 1: the two unpinned
+shrines will now appear on the site marked "location not recorded", so a pin
+improves them rather than unblocking them.)*
 
 Everything currently waiting on Saifullah, collected from `docs/TODO.md` §2 into one
 forwardable message. Source of each ask: the field-survey reconciliation session
@@ -10,8 +16,9 @@ nothing below is committed until he confirms it.
 Salaam Saifullah sahib — a few follow-ups from the survey forms, whenever convenient:
 
 **1. Exact locations for two shrines.** The forms don't give enough to place these on the
-map, so they're currently unpinned. A dropped pin from Google Maps (share → copy link) is
-ideal; a nearby landmark also works:
+map. Their pages will still appear on the site marked "location not recorded", but a
+dropped pin from Google Maps (share → copy link) would let them join the map properly;
+a nearby landmark also works:
 
 - **Darbar Hazrat Shah Gohar Peer** — the form gives no landmark at all.
 - **Darbar Mian Qurban Ali Shah** — the form says "Mint Stop, Lahore." There are two
@@ -33,7 +40,12 @@ remove that label.
   compressed them badly. When re-sharing, please send as **files/documents** (or a Drive
   link), not as chat images, so the quality survives.
 
-**4. Housekeeping** — there's a stray database-backup file in the shared photo folder; please
+**4. One question about Malik Ahmad Ayaz's darbar.** The form records that "diyas and
+prasad are also given on a daily basis" there. So we describe it accurately: at this
+shrine, what is lit and what is distributed, and what do the people there themselves
+call these things? (No wrong answer — we want the words used on the ground.)
+
+**5. Housekeeping** — there's a stray database-backup file in the shared photo folder; please
 delete it (or say the word and we will).
 
 Shukriya!
