@@ -378,7 +378,10 @@ export function ShrineMap({
       <ResetViewControl onSelect={onSelect} />
       <MapClickDeselect onSelect={onSelect} />
 
-      <LayersControl position="bottomleft">
+      {/* topright: bottomleft sat on top of the mobile bottom sheet's brand
+          row (seen on a real phone, 22 Aug), and bottomright holds zoom +
+          reset. Top-left belongs to the desktop collapsed-sidebar toggle. */}
+      <LayersControl position="topright">
         {/* English labels now come from the built-in style's `language` parameter.
             The custom Map Designer style is only offered when explicitly opted
             into, because MapTiler 403s its raster tiles on this account. */}
