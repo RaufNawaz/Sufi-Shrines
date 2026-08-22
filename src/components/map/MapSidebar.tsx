@@ -29,6 +29,7 @@ import { TourPanel } from './TourPanel';
 import { TourList } from './TourList';
 import { WelcomeCard } from './WelcomeCard';
 import { ShrinePreview } from './ShrinePreview';
+import { ZiyaratPrintPack } from './ZiyaratPrintPack';
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
 const SEARCH_DEBOUNCE_MS = 200;
@@ -186,6 +187,10 @@ export function MapSidebar({
   // Worker-based fuzzy search — falls back to "show all" until the index is ready
   const { ids: searchIds } = useSearch(shrines, search);
   const savedSlugs = useSavedShrines();
+  const savedShrineObjects = useMemo(
+    () => shrines.filter((s) => savedSlugs.includes(s.slug)),
+    [shrines, savedSlugs],
+  );
 
   const filtered = useMemo(() => {
     let result = shrines;
@@ -194,6 +199,8 @@ export function MapSidebar({
     if (verifiedOnly)
       result = result.filter((s) => supportLevelKey(s.supportLevel) === 'field-verified');
     if (savedOnly) result = result.filter((s) => savedSlugs.includes(s.slug));
+    // (the print pack below recomputes this from `shrines` so search/era
+    // narrowing never silently drops entries from the printed list)
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
     if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
@@ -615,6 +622,11 @@ export function MapSidebar({
                     >
                       {t('savedOnlyFilter')} · {fmtNum(savedSlugs.length)}
                     </button>
+                    {savedOnly && (
+                      <button className="filter-chip" onClick={() => window.print()}>
+                        {t('ziyaratPackPrint')}
+                      </button>
+                    )}
                   </div>
                 </div>
               )}
@@ -765,6 +777,14 @@ export function MapSidebar({
             </>
           )}
         </div>
+      )}
+
+      {/* Printable ziyarat pack (F6): hidden on screen, becomes the page
+          under @media print. Mounted only while the saved filter is active
+          and no tour is running — the tour itinerary owns printing then,
+          and the two :has-scoped print blocks must never coexist. */}
+      {savedOnly && !activeTour && savedShrineObjects.length > 0 && (
+        <ZiyaratPrintPack shrines={savedShrineObjects} />
       )}
     </aside>
   );

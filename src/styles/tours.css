@@ -678,7 +678,8 @@
 }
 
 /* Printable itinerary — hidden on screen, shown via the print stylesheet */
-.tour-print-itinerary {
+.tour-print-itinerary,
+.ziyarat-print-pack {
   display: none;
 }
 
@@ -687,14 +688,61 @@
      applied on EVERY page, so any page without an active tour printed blank
      (found 21 Aug 2026 while building the shrine handout print view; the
      shrine e2e print spec now guards against it coming back). The itinerary
-     div only mounts inside TourPanel during an active tour. */
-  body:has(.tour-print-itinerary) * {
+     div only mounts inside TourPanel during an active tour; the ziyarat pack
+     only while the saved filter is on with no tour running (MapSidebar
+     guarantees the two never coexist). */
+  body:has(.tour-print-itinerary) *,
+  body:has(.ziyarat-print-pack) * {
     visibility: hidden;
   }
 
+  /* The container selectors ride under body:has(…) to outrank the
+     hide-everything rule above ((0,1,1) beats a bare class): without it the
+     wrapper computes visibility:hidden even though its children re-show —
+     the content still prints, but the wrapper is genuinely hidden. */
   .tour-print-itinerary,
-  .tour-print-itinerary * {
+  body:has(.tour-print-itinerary) .tour-print-itinerary,
+  .tour-print-itinerary *,
+  body:has(.ziyarat-print-pack) .ziyarat-print-pack,
+  .ziyarat-print-pack * {
     visibility: visible;
+  }
+
+  .ziyarat-print-pack {
+    display: block;
+    position: absolute;
+    inset: 0;
+    padding: 2rem;
+    color: #000;
+    background: #fff;
+  }
+
+  .ziyarat-print-pack h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ziyarat-print-pack ol {
+    padding-inline-start: 1.25rem;
+  }
+
+  .ziyarat-print-pack li {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+
+  .ziyarat-print-pack h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .ziyarat-print-coords {
+    font-variant-numeric: tabular-nums;
+  }
+
+  [dir='rtl'] .ziyarat-print-pack {
+    direction: rtl;
+    text-align: start;
   }
 
   .tour-print-itinerary {

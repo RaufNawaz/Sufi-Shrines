@@ -134,6 +134,27 @@ test.describe('Saved shrines (ziyarat list)', () => {
     );
   });
 
+  test('the saved list prints as a ziyarat pack — and only the pack', async ({ page }) => {
+    // Save a shrine, then filter to the list.
+    await page.goto('/shrine/data-darbar');
+    await page.getByRole('button', { name: UI_TEXT.en.saveShrine, exact: true }).click();
+    await page.goto('/?saved=1');
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    // The saved section lives behind "more filters".
+    await page.locator('.more-filters-toggle').click();
+
+    // On screen: a print action beside the filter chip; the pack itself hidden.
+    await expect(page.getByRole('button', { name: UI_TEXT.en.ziyaratPackPrint })).toBeVisible();
+    await expect(page.locator('.ziyarat-print-pack')).toBeHidden();
+
+    // On paper: the pack is the page — name, coordinates — and the map is not.
+    await page.emulateMedia({ media: 'print' });
+    const pack = page.locator('.ziyarat-print-pack');
+    await expect(pack).toBeVisible();
+    await expect(pack).toContainText('Data Darbar');
+    await expect(pack.locator('.ziyarat-print-coords').first()).toContainText('31.');
+  });
+
   test('the saved filter chip stays hidden while the list is empty', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
