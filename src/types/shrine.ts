@@ -103,7 +103,9 @@ export interface Shrine {
   raw: ShrineRow;
 }
 
-export type Lang = 'en' | 'ur';
+// Derived from the language metadata table (N4 groundwork) — re-exported
+// here because most of the codebase already imports Lang from this module.
+export type { Lang } from '../lib/i18n/languages';
 
 export type Theme = 'light' | 'dark';
 

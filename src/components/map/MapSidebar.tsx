@@ -33,6 +33,7 @@ import { ZiyaratPrintPack } from './ZiyaratPrintPack';
 import { buildSharedListUrl } from '../../lib/sharedList';
 import { useShareLink } from '../../hooks/useShareLink';
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
+import { dirAttr } from '../../lib/i18n/languages';
 
 const SEARCH_DEBOUNCE_MS = 200;
 
@@ -422,7 +423,7 @@ export function MapSidebar({
                 ref={searchRef}
                 type="search"
                 className="search-input"
-                dir={lang === 'ur' ? 'rtl' : undefined}
+                dir={dirAttr(lang)}
                 placeholder={t('searchPlaceholder')}
                 value={searchRaw}
                 onChange={(e) => setSearchRaw(e.target.value)}

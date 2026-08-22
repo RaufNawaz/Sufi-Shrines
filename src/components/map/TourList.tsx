@@ -15,6 +15,7 @@ import { haversineKm } from '../../lib/data/shrineModel';
 import { t } from '../../lib/i18n/uiStrings';
 import { TourPreview } from './TourPreview';
 import type { Shrine, Lang } from '../../types/shrine';
+import { langAttr } from '../../lib/i18n/languages';
 
 interface TourListProps {
   lang: Lang;
@@ -141,9 +142,7 @@ export function TourList({
       {enabled && resumableTour && progress.lastActive && (
         <div className="tour-resume-banner">
           <div className="tour-resume-text">
-            <strong lang={lang === 'ur' ? 'ur' : undefined}>
-              {localizeTourTitle(resumableTour, lang)}
-            </strong>
+            <strong lang={langAttr(lang)}>{localizeTourTitle(resumableTour, lang)}</strong>
             <span>{t(lang, 'resumeTourPrompt')}</span>
           </div>
           <div className="tour-resume-actions">
@@ -314,7 +313,7 @@ export function TourList({
                   className={`tour-card${isNearest ? ' tour-card--nearest' : ''}`}
                   onClick={() => setPreviewId(tour.id)}
                 >
-                  <span className="tour-card-title" lang={lang === 'ur' ? 'ur' : undefined}>
+                  <span className="tour-card-title" lang={langAttr(lang)}>
                     {localizeTourTitle(tour, lang)}
                   </span>
                   <span className="tour-card-meta">

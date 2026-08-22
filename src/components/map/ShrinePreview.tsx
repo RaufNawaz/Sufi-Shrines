@@ -18,6 +18,7 @@ import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
+import { langAttr } from '../../lib/i18n/languages';
 
 interface ShrinePreviewProps {
   shrine: Shrine;
@@ -86,7 +87,7 @@ export function ShrinePreview({
         </div>
       )}
       <h2 className="preview-title">
-        <Link to={`/shrine/${shrine.slug}`} lang={lang === 'ur' ? 'ur' : undefined}>
+        <Link to={`/shrine/${shrine.slug}`} lang={langAttr(lang as Lang)}>
           {name}
         </Link>
       </h2>

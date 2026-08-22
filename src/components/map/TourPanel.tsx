@@ -18,6 +18,7 @@ import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
+import { langAttr } from '../../lib/i18n/languages';
 
 /** How long each stop gets in autoplay before advancing to the next. */
 const AUTOPLAY_STOP_DURATION_MS = 12000;
@@ -239,11 +240,11 @@ export function TourPanel({
         width={IMAGE_WIDTH.preview}
       />
 
-      <h3 className="tour-stop-name" lang={lang === 'ur' ? 'ur' : undefined}>
+      <h3 className="tour-stop-name" lang={langAttr(lang)}>
         {shrineName}
       </h3>
 
-      <p className="tour-narrative" lang={lang === 'ur' ? 'ur' : undefined}>
+      <p className="tour-narrative" lang={langAttr(lang)}>
         {narrativeText}
       </p>
 
@@ -291,7 +292,7 @@ export function TourPanel({
       </div>
 
       {visitingInfo && (
-        <p className="tour-visiting-info" lang={lang === 'ur' ? 'ur' : undefined}>
+        <p className="tour-visiting-info" lang={langAttr(lang)}>
           <strong>{VISITING_INFO_TITLE[lang]}: </strong>
           {visitingInfo}
         </p>
@@ -347,10 +348,8 @@ export function TourPanel({
         <ol>
           {points.map((p) => (
             <li key={p.shrine.id}>
-              <h2 lang={lang === 'ur' ? 'ur' : undefined}>{localizeShrineName(p.shrine, lang)}</h2>
-              <p lang={lang === 'ur' ? 'ur' : undefined}>
-                {localizeStopNarrative(tour.stops[p.stopIndex], lang)}
-              </p>
+              <h2 lang={langAttr(lang)}>{localizeShrineName(p.shrine, lang)}</h2>
+              <p lang={langAttr(lang)}>{localizeStopNarrative(tour.stops[p.stopIndex], lang)}</p>
             </li>
           ))}
         </ol>
