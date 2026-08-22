@@ -91,6 +91,25 @@ test.describe('Urdu (?lang=ur) journey', () => {
     await expect(page.locator('.typology-group-prose bdi[lang="en"]')).toHaveCount(2);
   });
 
+  test('the infobox names each tradition honestly: دیوتا for a deity, سلسلہ translated', async ({
+    page,
+  }) => {
+    // A Hindu temple's figure row must be labeled "Deity" (دیوتا), never
+    // the Muslim-specific ولی.
+    await page.goto('/shrine/katas-raj-temples?lang=ur');
+    const infobox = page.locator('.shrine-infobox');
+    await expect(infobox).toBeVisible();
+    await expect(infobox.locator('.infobox-label', { hasText: 'دیوتا' })).toBeVisible();
+    await expect(infobox.locator('.infobox-label', { hasText: 'ولی' })).toHaveCount(0);
+
+    // A Suhrawardi shrine shows its order, in Urdu, from the data dictionary.
+    await page.goto('/shrine/shrine-of-abul-faiz-qalander-ali-suharwardi?lang=ur');
+    const row = page.locator('.infobox-row', { hasText: 'سلسلہ' });
+    await expect(row).toBeVisible();
+    await expect(row).toContainText('سہروردی');
+    expect(await row.textContent()).not.toMatch(/[A-Za-z]/);
+  });
+
   test('opening a shrine page renders its name in Urdu script', async ({ page }) => {
     await page.goto('/shrine/data-darbar?lang=ur');
 

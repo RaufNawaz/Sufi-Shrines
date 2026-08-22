@@ -120,6 +120,10 @@ test.describe('Accessibility (axe-core)', () => {
 
   test('keyboard navigation reaches interactive elements', async ({ page }) => {
     await page.goto('/');
+    // Tabbing before hydration finishes can land focus on a node React is
+    // about to replace (seen flaking under full-suite load) — wait for the
+    // app shell first.
+    await page.locator('#sidebar').waitFor();
     // Tab from body should hit skip-link then sidebar controls
     await page.keyboard.press('Tab');
     const focused = page.locator(':focus');

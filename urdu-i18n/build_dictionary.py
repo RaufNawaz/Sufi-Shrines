@@ -616,6 +616,28 @@ SAINTS = {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
+# 4b. SILSILAS (keyed by exact `silsila` sheet value). Only the clean order
+#     names — the four survey-prose values in that column stay untranslated
+#     on purpose and render inside <bdi> like other unreviewed source notes.
+# ─────────────────────────────────────────────────────────────────────────────
+SILSILAS = {
+ "Qadiri": "قادری",
+ "Chishti": "چشتی",
+ "Suhrawardi": "سہروردی",
+ "Naqshbandi": "نقشبندی",
+ "Chishti-Nizami": "چشتی نظامی",
+ "Naqshbandi-Mujaddidi": "نقشبندی مجددی",
+ "Azeemia": "عظیمیہ",
+ "Malamati": "ملامتی",
+ "Qalandari": "قلندری",
+ "Rashidi": "راشدی",
+ "Sarwari Qadiri": "سروری قادری",
+ "Qadri Shattari": "قادری شطاری",
+ "Naushahia Qadiri": "نوشاہیہ قادری",
+ "Chishti Nizamia Qadria": "چشتی نظامیہ قادریہ",
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
 # 5. FOUNDING-DATE PHRASES (only strings containing letters; pure numbers are
 #    handled at render time by the Eastern-numeral converter)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -827,6 +849,7 @@ def build(rows, glossary):
     seed.update(TOUR_ERAS)
     seed.update(names_map)
     seed.update(SAINTS)
+    seed.update(SILSILAS)
     seed.update(FOUNDED)
     seed.update(locations_map)
     seed.update(glossary)
@@ -848,6 +871,7 @@ def build(rows, glossary):
         "placeTokens": PLACE_TOKENS,
         "shrineNames": names_map,
         "saints": SAINTS,
+        "silsilas": SILSILAS,
         "foundedPhrases": FOUNDED,
         "locations": locations_map,
         "sufiGlossary": glossary,
@@ -857,6 +881,7 @@ def build(rows, glossary):
         "tourRegions": len(TOUR_REGIONS), "tourThemes": len(TOUR_THEMES),
         "tourEras": len(TOUR_ERAS), "placeTokens": len(PLACE_TOKENS),
         "shrineNames": len(names_map), "saints": len(SAINTS),
+        "silsilas": len(SILSILAS),
         "foundedPhrases": len(FOUNDED), "locations": len(locations_map),
         "sufiGlossary": len(glossary), "flatSeedEntries": len(seed),
     }
@@ -894,7 +919,8 @@ def validate(rows, structured, names_map, loc_unknowns):
     failed = False
 
     print("\n=== LATIN-LEAK CHECK (values still containing A-Z) ===")
-    for label, m in [("names", names_map), ("saints", SAINTS), ("founded", FOUNDED),
+    for label, m in [("names", names_map), ("saints", SAINTS), ("silsilas", SILSILAS),
+                     ("founded", FOUNDED),
                      ("categories", CATEGORIES), ("tourFacets",
                       {**TOUR_REGIONS, **TOUR_THEMES, **TOUR_ERAS})]:
         lk = leaks(m)

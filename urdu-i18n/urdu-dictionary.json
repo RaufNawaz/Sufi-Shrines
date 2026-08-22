@@ -12,10 +12,11 @@
       "placeTokens": 243,
       "shrineNames": 143,
       "saints": 123,
+      "silsilas": 14,
       "foundedPhrases": 86,
       "locations": 123,
       "sufiGlossary": 49,
-      "flatSeedEntries": 548
+      "flatSeedEntries": 562
     }
   },
   "categories": {
@@ -567,6 +568,22 @@
     "Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)": "خواجہ محمد زمان \"سلطان الاولیاء\" (1713ء–1775ء)",
     "Guru Hargobind (Sixth Guru)": "گرو ہرگوبند (چھٹے گرو)",
     "Jain temple dedicated to Parshvanatha (23rd Tirthankara)": "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر"
+  },
+  "silsilas": {
+    "Qadiri": "قادری",
+    "Chishti": "چشتی",
+    "Suhrawardi": "سہروردی",
+    "Naqshbandi": "نقشبندی",
+    "Chishti-Nizami": "چشتی نظامی",
+    "Naqshbandi-Mujaddidi": "نقشبندی مجددی",
+    "Azeemia": "عظیمیہ",
+    "Malamati": "ملامتی",
+    "Qalandari": "قلندری",
+    "Rashidi": "راشدی",
+    "Sarwari Qadiri": "سروری قادری",
+    "Qadri Shattari": "قادری شطاری",
+    "Naushahia Qadiri": "نوشاہیہ قادری",
+    "Chishti Nizamia Qadria": "چشتی نظامیہ قادریہ"
   },
   "foundedPhrases": {
     "11th Century": "11ویں صدی",

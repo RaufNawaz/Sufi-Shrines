@@ -180,6 +180,7 @@ export const UI_TEXT = {
     obsHeading: 'Urs & observances',
     obsViewAlmanac: 'See it in the Urs Almanac',
     fieldSiteType: 'Built form',
+    fieldSilsila: 'Silsila (order)',
     typologyTitle: 'Atlas of Built Forms',
     typologyIntro:
       'Every place in the archive, grouped by what actually stands there — khanqah, gurdwara, cave shrine. The labels are the survey’s own vocabulary; where the survey described a form in prose, the prose is kept as it was written.',
@@ -470,6 +471,7 @@ export const UI_TEXT = {
     obsHeading: 'عرس اور تقریبات',
     obsViewAlmanac: 'عرس تقویم میں دیکھیں',
     fieldSiteType: 'تعمیری صورت',
+    fieldSilsila: 'سلسلہ',
     typologyTitle: 'تعمیری صورتوں کا اٹلس',
     typologyIntro:
       'آرکائیو کا ہر مقام، اِس اعتبار سے کہ وہاں فی الواقع کیا تعمیر کھڑی ہے — خانقاہ، گردوارہ، غار کا مزار۔ یہ خانے سروے کی اپنی اصطلاحیں ہیں؛ جس صورت کو سروے نے نثر میں بیان کیا، اُس کی نثر جوں کی توں رکھی گئی ہے۔',

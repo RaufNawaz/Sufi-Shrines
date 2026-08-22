@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { siteTypeDisplayLabel, siteTypeKey } from '../../lib/data/siteType';
+import { figureTypeDisplayLabel } from '../../lib/data/figureType';
 import {
   INFOBOX_PRIORITY_KEYS,
   MAX_INFOBOX_ROWS,
@@ -95,7 +96,7 @@ export function ShrineInfobox({ shrine }: Props) {
 
   const siteTypeLabel = shrine.siteType ? siteTypeDisplayLabel(shrine.siteType, lang) : null;
 
-  if (rows.length === 0 && !hasDates && !shrine.siteType) return null;
+  if (rows.length === 0 && !hasDates && !shrine.siteType && !shrine.silsila) return null;
 
   return (
     <aside className="shrine-infobox" aria-label={t('shrineFacts')}>
@@ -105,7 +106,15 @@ export function ShrineInfobox({ shrine }: Props) {
       <h2 className="infobox-title">{t('shrineFacts')}</h2>
       <dl className="infobox-list">
         {rows.map(([key, value]) => {
-          const localKey = localizeFieldName(key, lang);
+          // The saint row's label says what the figure actually is when the
+          // sheet records it — "Deity", "Sikh Guru", "Sant" — instead of
+          // calling every tradition's figure a saint (ولی is specifically a
+          // Muslim saint; it must not label Shiva or Guru Nanak).
+          const figureLabel =
+            (key === 'Sufi Saint' || key === 'Saint') && shrine.figureType
+              ? figureTypeDisplayLabel(shrine.figureType, lang)
+              : null;
+          const localKey = figureLabel ?? localizeFieldName(key, lang);
           return (
             <div className="infobox-row" key={key}>
               <dt className="infobox-label">{localKey || key}</dt>
@@ -150,6 +159,23 @@ export function ShrineInfobox({ shrine }: Props) {
             </dd>
           </div>
         )}
+        {shrine.silsila &&
+          (() => {
+            // The 14 clean order names come back in Urdu from the data
+            // dictionary; the four survey-prose values stay verbatim and
+            // Latin content is its own "untranslated" signal, as above.
+            const silsilaValue = localizeField(shrine.raw, 'silsila') || shrine.silsila;
+            return (
+              <div className="infobox-row">
+                <dt className="infobox-label">{t('fieldSilsila')}</dt>
+                <dd className="infobox-value">
+                  <bdi lang={isUntranslatedInUrdu(lang, silsilaValue) ? 'en' : undefined}>
+                    {silsilaValue}
+                  </bdi>
+                </dd>
+              </div>
+            );
+          })()}
       </dl>
       {hasDates && (
         // Split date fields (2026 schema) — kept out of the capped generic
