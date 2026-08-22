@@ -1,8 +1,37 @@
-# To-do — as of 21 August 2026
+# To-do — as of 22 August 2026
 
 > **The current working plan is [`planning/NEXT_STEPS_2026-08-21.md`](planning/NEXT_STEPS_2026-08-21.md)**
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
+
+## 0a‴. Session log — 22 August 2026, fourth session: blue-sky continued
+
+Standing instruction unchanged (keep improving until told to stop), plus two refinements from
+you mid-stream: work in a *substantial, blue-sky* register, and once Urdu is solid, move to
+animations, deeper UI integration, more features, database enrichment. Shipped, each verified
+(`npm run verify` + full e2e green before every push):
+
+- **Add-to-calendar** (`4010fcc`): the shrine urs block exports its projected windows as
+  `.ics` (all windows in the horizon — a Hijri urs can fall twice in one Gregorian year).
+  Approximation warnings travel inside the file.
+- **Real files for /almanac, /graph, /report on GitHub Pages** (`426c46b`): Pages has no SPA
+  rewrite, so app routes 404'd on hard refresh. Prerendered shells (+/ur mirrors, hreflang,
+  sitemap pairs) and a noindex 404.html.
+- **F10 — State of the Archive** (`929fac9`): `/report`, the archive grading itself in
+  public. Everything computed from the loaded dataset (`archiveReport.ts`); the one external
+  constant is Punjab Auqaf's 534, cited where used. Corrections and known-losses ledgers are
+  content, bilingual, in the TRADITION_LABELS pattern.
+- **Motion system** (`99a5a04`): useReveal() scroll-reveal with a 1500ms failsafe — content
+  visible by default, hiding class added only by JS, so no-JS/print/prerender never lose
+  prose. Stagger utilities on grids and ledgers; micro-interactions on chips/buttons/save.
+  Two independent reduced-motion layers (media-query-gated rules + tokens.css durations→0).
+  **Gotcha for the next person:** axe must scan at `reducedMotion: 'reduce'` — scanning
+  mid-stagger samples colors at partial opacity and reports phantom contrast failures
+  (e.g. `#827766`) that exist in no rest state. Rest-state contrast is 5.85:1.
+
+Unit tests 447 → 452; e2e 66 → 71/71 green in ~56 s.
+
+---
 
 ## 0a″. Session log — 21 August 2026, third session: features until told to stop
 
