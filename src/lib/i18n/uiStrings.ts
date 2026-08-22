@@ -180,6 +180,13 @@ export const UI_TEXT = {
     obsHeading: 'Urs & observances',
     obsViewAlmanac: 'See it in the Urs Almanac',
     fieldSiteType: 'Built form',
+    mosquesHeading: 'Auqaf mosques nearby',
+    mosquesSource: 'From the Auqaf mosque survey — women’s prayer access as the survey records it.',
+    mosquesWomens: 'Women’s prayer section',
+    mosquesYes: 'Yes',
+    mosquesNo: 'No',
+    mosquesOwn: 'recorded as this shrine’s mosque',
+    mosquesNotRecorded: 'not recorded',
     fieldSilsila: 'Silsila (order)',
     typologyTitle: 'Atlas of Built Forms',
     typologyIntro:
@@ -480,6 +487,14 @@ export const UI_TEXT = {
     obsHeading: 'عرس اور تقریبات',
     obsViewAlmanac: 'عرس تقویم میں دیکھیں',
     fieldSiteType: 'تعمیری صورت',
+    mosquesHeading: 'قریبی اوقاف مساجد',
+    mosquesSource:
+      'اوقاف مساجد سروے سے — خواتین کی نماز کی سہولت ویسی ہی درج ہے جیسی سروے نے لکھی۔',
+    mosquesWomens: 'خواتین کے لیے نماز کی جگہ',
+    mosquesYes: 'ہاں',
+    mosquesNo: 'نہیں',
+    mosquesOwn: 'سروے میں اِس مزار کی مسجد درج',
+    mosquesNotRecorded: 'درج نہیں',
     fieldSilsila: 'سلسلہ',
     typologyTitle: 'تعمیری صورتوں کا اٹلس',
     typologyIntro:
