@@ -21,6 +21,11 @@
   outranks a bare `.x` show-rule, so a print wrapper computes visibility:hidden while its
   children re-show — content prints, wrapper is genuinely hidden; both print wrappers now
   ride under `body:has(…)` in the show rule. Unit 470 → 473; e2e 81 → 82/82.
+- **Shareable ziyarat list** (`46a3974`): "Copy list link" builds `?list=slug,slug`; arrival
+  shows a consent card and narrows the list — nothing is written until "Add to my list"
+  merges into the reader's own device list. Hostile tokens in the param are dropped, not
+  guessed. **Gotcha again:** route slugs ≠ photo slugs (`shrine-of-shah-jamal`, not
+  `shah-jamal`). Unit 473 → 478; e2e 82 → 84/84.
 
 ---
 
