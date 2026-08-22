@@ -258,3 +258,36 @@ No ruling needed; listed so they are not mistaken for open questions.
   what do people there call it? (§1.4.) *Deliberately not added to the current message to him.*
 - **Nobody, for the rest.** §3 and §4 are closed. §1.1's audit — does the public prose reflect
   each recorded doubt — is delegable work that needs no new information.
+
+---
+
+## 6. DECIDED — 22 August 2026, by Rauf (in session)
+
+All four policy questions plus the sensitive-content call were answered. Recorded verbatim
+so no later session re-litigates them:
+
+| Question | Ruling |
+|---|---|
+| §1.1 reader visibility of internal contradictions | **Publish a reader-facing version** — a cleaned per-entry "source notes" disclosure summarizing internal contradictions. Not the raw `qa_note` (it stays internal); a reader-addressed summary. Goes further than this doc's recommendation. |
+| §2 sensitive content | **Attribute everything, withhold nothing.** Tiers 1–2 as drafted (tradition claims attributed to the tradition; community-history claims attributed to the survey, its vocabulary in quotes). The Dyal Singh College land claim stays public with explicit survey attribution — the hold-pending-citation carve-out was declined. |
+| §1.2 non-silsila answers in the silsila field | **Add `silsila_note`** (the `*_note` pattern). Patch to be produced for import; no inference from names. |
+| §1.3 Hijri/Gregorian ambiguity | Not re-asked — the doc records it as already right (no change). |
+| §1.4 cross-tradition vocabulary | Not re-asked — retained-and-attributed is mechanical once §2 is decided; the clarifying question goes to Saifullah in the updated field message. |
+
+Also decided in the same sitting (Lane B operational items):
+
+- **Oral/video media: no-go for now.** "Ignore oral and video media publishing on the
+  website at the moment." F3/F8/F9 stay parked; `docs/DECISION_oral_histories.md` remains
+  the reference if reopened.
+- **The two coordinate-less rows** (Shah Gohar Peer, Mian Qurban Ali Shah): **show them
+  without map pins** — pages, list and search presence, honestly marked unmapped. No
+  coordinates invented; no field ask for now.
+- **`data/patch_schema_and_truncation.csv`: regenerate against the current snapshot first**
+  (it may have drifted since 18 Aug), then Rauf imports. The regenerated patch should carry
+  the new `silsila_note` column.
+- **Saifullah message: update the 16 Aug draft** (re-shoots + the §1.4 prasad/diya
+  question), then Rauf sends.
+- **Zenodo DOI and the Auqaf register: parked.** In their place, a new direction:
+  **connect shrines with the Auqaf mosques data** (the `RaufNawaz/Awqaf` repo — mosque
+  survey with a "Women's prayer section" column and a "Shrine Name" join key), starting
+  with women's-prayer access shown from shrine pages.

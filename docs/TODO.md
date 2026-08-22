@@ -4,6 +4,23 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0a⁵. Session log — 22 August 2026, sixth session: every pending decision, decided
+
+Rauf answered the whole Lane B queue in-session (reviews explicitly skipped — "ignore them
+and just move on"). Rulings recorded in `EDITORIAL_DECISIONS_PENDING.md` §6; in brief:
+reader-facing source-notes disclosure YES (further than recommended); sensitive content
+attribute-everything-withhold-nothing; `silsila_note` column YES; oral/video media NO-GO
+for now (F3/F8/F9 parked); the two coordinate-less rows get **unmapped-page treatment**;
+the 4-row patch is to be **regenerated** before import; the Saifullah draft is to be
+**updated** then sent; DOI + Auqaf register parked. New direction in their place:
+**connect shrines with the Auqaf mosques data** (`RaufNawaz/Awqaf` — "Women's prayer
+section" + "Shrine Name" columns; site already links Awqaf→shrines, we build the reverse).
+
+Also this session: N4 groundwork landed (`5c5326e` — language facts in one table,
+Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
+
+---
+
 ## 0a⁗. Session log — 22 August 2026, fifth session: deployed, then system dark
 
 - **Everything shipped to production.** PR #2 (32 commits: Urdu delta pass, mobile fixes,
