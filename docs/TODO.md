@@ -14,6 +14,13 @@
   defaulted light, so a phone in dark mode got the light site. Both init paths now follow
   `prefers-color-scheme` when no choice is stored; the provider tracks live device flips
   until the moon button pins a choice. Unit 467 → 470; e2e 80 → 81/81.
+- **Ziyarat print pack** (`fe518ef`, F6's remaining half): "Print your list" beside the
+  saved filter prints names, places, categories, WGS84 coordinates (Western digits in every
+  language) and computed next-observance windows with the approximate flag. Prints from the
+  full saved list, never the search-narrowed view. **CSS gotcha:** `body:has(.x) *` (0,1,1)
+  outranks a bare `.x` show-rule, so a print wrapper computes visibility:hidden while its
+  children re-show — content prints, wrapper is genuinely hidden; both print wrappers now
+  ride under `body:has(…)` in the show rule. Unit 470 → 473; e2e 81 → 82/82.
 
 ---
 
