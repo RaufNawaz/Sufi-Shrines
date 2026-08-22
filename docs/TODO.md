@@ -26,6 +26,13 @@ Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
   site's id contract (`mosqueId-rawRowIndex`) against the same live sheet. Lazy fetch,
   quiet absence on failure. e2e fixture router now disambiguates the two docs.google.com
   sheets by publish token. Unit 480 → 485; e2e 84 → 86/86.
+- **The two importables are ready for you** (`ac89845`): the regenerated patch
+  (`data/patch_schema_and_truncation.csv` + its `INSTRUCTIONS.md` — the instructions list
+  is the authority, since a sparse CSV can't say "leave this cell alone") now carries the
+  `silsila_note` moves, and the drift guard already earned its keep (the live abul-muali
+  cell ends "See qa_note 1."). The Saifullah draft is refreshed (prasad/diya question in,
+  coordinates ask softened). Front-end renders silsila_note the moment it lands.
+  Unit 485 → 486; e2e 86/86.
 
 ---
 
