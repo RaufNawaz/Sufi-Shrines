@@ -55,7 +55,10 @@ export interface Shrine {
   id: number;
   slug: string;
   name: string;
-  latLng: LatLng;
+  /** null when the sheet has no coordinates (22 Aug ruling: such rows get
+   * pages and list/search presence, honestly marked unmapped — a fake
+   * coordinate would be an invented one). */
+  latLng: LatLng | null;
   category: string;
   /** Raw `info_level` sheet value (Full | Moderate | Low), '' when absent. */
   infoLevel: string;
@@ -106,6 +109,10 @@ export interface Shrine {
   articleSections: ArticleSection[];
   raw: ShrineRow;
 }
+
+/** A shrine known to carry coordinates — what map/tour geometry code works
+ * with (tour stops resolve through this; unmapped rows never reach them). */
+export type MappedShrine = Shrine & { latLng: LatLng };
 
 // Derived from the language metadata table (N4 groundwork) — re-exported
 // here because most of the codebase already imports Lang from this module.

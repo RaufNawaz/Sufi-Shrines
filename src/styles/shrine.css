@@ -1707,3 +1707,17 @@
 [dir='rtl'] .nearby-mosque-womens {
   line-height: var(--leading-urdu);
 }
+
+/* Unmapped entries (22 Aug ruling): the honest absence where the map went. */
+.location-not-recorded {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+[dir='rtl'] .location-not-recorded {
+  line-height: var(--leading-urdu);
+}

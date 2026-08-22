@@ -288,7 +288,11 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
           <ShrineObservances shrine={shrine} />
-          <LocationMap latLng={shrine.latLng} name={name} />
+          {shrine.latLng ? (
+            <LocationMap latLng={shrine.latLng} name={name} />
+          ) : (
+            <p className="location-not-recorded">{t('locationNotRecorded')}</p>
+          )}
           <NearbyMosques shrine={shrine} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />

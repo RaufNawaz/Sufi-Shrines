@@ -55,9 +55,17 @@ function normalizeRow(row) {
 }
 
 function isValidRow(row) {
+  // A named row is kept even without coordinates (22 Aug 2026 ruling:
+  // unmapped rows get pages, honestly marked — dropping them here was why
+  // Shah Gohar Peer's finished Urdu article was invisible). Rows with
+  // OUT-OF-RANGE coordinates are still rejected: that's corruption, not
+  // absence.
   if (!String(row.Name ?? '').trim()) return false;
-  const lat = parseFloat(row.Latitude ?? '');
-  const lng = parseFloat(row.Longitude ?? '');
+  const latRaw = String(row.Latitude ?? '').trim();
+  const lngRaw = String(row.Longitude ?? '').trim();
+  if (!latRaw && !lngRaw) return true; // unmapped, kept
+  const lat = parseFloat(latRaw);
+  const lng = parseFloat(lngRaw);
   if (!isFinite(lat) || !isFinite(lng)) return false;
   if (lat < -90 || lat > 90) return false;
   if (lng < -180 || lng > 180) return false;

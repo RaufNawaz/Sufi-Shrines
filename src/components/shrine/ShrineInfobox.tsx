@@ -246,29 +246,32 @@ export function ShrineInfobox({ shrine }: Props) {
           )}
         </dl>
       )}
-      <div className="infobox-actions">
-        <a
-          href={`https://www.google.com/maps/dir/?api=1&destination=${shrine.latLng.lat},${shrine.latLng.lng}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="infobox-action-btn"
-        >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
+      {!shrine.latLng && <p className="infobox-note">{t('locationNotRecorded')}</p>}
+      {shrine.latLng && (
+        <div className="infobox-actions">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${shrine.latLng.lat},${shrine.latLng.lng}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="infobox-action-btn"
           >
-            <polygon points="3 11 22 2 13 21 11 13 3 11" />
-          </svg>
-          {t('getDirections')}
-        </a>
-      </div>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+            </svg>
+            {t('getDirections')}
+          </a>
+        </div>
+      )}
     </aside>
   );
 }

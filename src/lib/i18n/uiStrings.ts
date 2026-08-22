@@ -180,6 +180,7 @@ export const UI_TEXT = {
     obsHeading: 'Urs & observances',
     obsViewAlmanac: 'See it in the Urs Almanac',
     fieldSiteType: 'Built form',
+    locationNotRecorded: 'Location not recorded — this entry is not on the map yet.',
     mosquesHeading: 'Auqaf mosques nearby',
     mosquesSource: 'From the Auqaf mosque survey — women’s prayer access as the survey records it.',
     mosquesWomens: 'Women’s prayer section',
@@ -487,6 +488,7 @@ export const UI_TEXT = {
     obsHeading: 'عرس اور تقریبات',
     obsViewAlmanac: 'عرس تقویم میں دیکھیں',
     fieldSiteType: 'تعمیری صورت',
+    locationNotRecorded: 'محلِ وقوع درج نہیں — یہ اندراج ابھی نقشے پر نہیں ہے۔',
     mosquesHeading: 'قریبی اوقاف مساجد',
     mosquesSource:
       'اوقاف مساجد سروے سے — خواتین کی نماز کی سہولت ویسی ہی درج ہے جیسی سروے نے لکھی۔',

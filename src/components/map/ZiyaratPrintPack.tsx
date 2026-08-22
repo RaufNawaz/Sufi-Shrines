@@ -52,12 +52,15 @@ export function ZiyaratPrintPack({ shrines }: Props) {
                 {location && <span>{location} · </span>}
                 <span>{category}</span>
               </p>
-              {/* Coordinates stay Western digits in every language. */}
-              <p className="ziyarat-print-coords">
-                <bdi>
-                  {s.latLng.lat.toFixed(4)}, {s.latLng.lng.toFixed(4)}
-                </bdi>
-              </p>
+              {/* Coordinates stay Western digits in every language;
+                  unmapped rows print without a coordinate line. */}
+              {s.latLng && (
+                <p className="ziyarat-print-coords">
+                  <bdi>
+                    {s.latLng.lat.toFixed(4)}, {s.latLng.lng.toFixed(4)}
+                  </bdi>
+                </p>
+              )}
               {when && (
                 <p>
                   {t('obsHeading')}: {when}

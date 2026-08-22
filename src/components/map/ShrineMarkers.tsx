@@ -95,6 +95,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const isSelected = shrine.id === selectedIdRef.current;
       const localName = localizeShrineName(shrine, lang);
 
+      if (!shrine.latLng) return; // unmapped (22 Aug ruling): no marker, page-only
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
         icon: buildDivIcon(isSelected, shrine.category, tourStopSlugSet !== null, shrine.imageUrl),
         title: localName,

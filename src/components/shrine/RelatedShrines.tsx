@@ -31,7 +31,7 @@ export function RelatedShrines({ shrine, all }: Props) {
         {related.map((s) => {
           const name = localizeShrineName(s, lang);
           const location = localizeField(s.raw, 'Location') || s.location;
-          const dist = haversineKm(shrine.latLng, s.latLng);
+          const dist = shrine.latLng && s.latLng ? haversineKm(shrine.latLng, s.latLng) : null;
 
           return (
             <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card">
@@ -47,10 +47,13 @@ export function RelatedShrines({ shrine, all }: Props) {
               <div className="related-card-body">
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
-                  {location && <span>{location} · </span>}
-                  <span>
-                    {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
-                  </span>
+                  {location && <span>{location}</span>}
+                  {dist !== null && (
+                    <span>
+                      {location && ' · '}
+                      {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
+                    </span>
+                  )}
                 </div>
               </div>
             </Link>
