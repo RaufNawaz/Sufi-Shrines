@@ -243,7 +243,7 @@ export default function AlmanacPage() {
                 <h2 id="almanac-upcoming-heading" className="almanac-section-heading">
                   {t('almanacUpcoming')}
                 </h2>
-                <ul className="almanac-list almanac-list--upcoming">
+                <ul className="almanac-list almanac-list--upcoming stagger-in">
                   {upcoming.map((entry, i) => (
                     <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} />
                   ))}

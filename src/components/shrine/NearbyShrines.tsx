@@ -27,7 +27,7 @@ export function NearbyShrines({ shrine, all }: Props) {
       <h2 className="article-section-heading" id="nearby-heading">
         {t('nearbyShrines')}
       </h2>
-      <div className="related-grid">
+      <div className="related-grid stagger-in">
         {nearby.map((s) => {
           const name = localizeShrineName(s, lang);
           const location = localizeField(s.raw, 'Location') || s.location;

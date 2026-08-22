@@ -400,3 +400,106 @@ body.lang-rtl,
     animation: none;
   }
 }
+
+/* ── Motion system (21 Aug 2026) ─────────────────────────────────────────────
+   Editorial motion for a print-idiom site: things settle onto the page, they
+   never bounce off it. Every rule lives behind prefers-reduced-motion:
+   no-preference, and tokens.css additionally collapses all durations to 0ms
+   when reduction is requested — belt and braces. Content is never hidden by
+   default: .reveal-pending is only ever added by useReveal() at runtime. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .reveal-pending.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--duration-slow) var(--easing),
+      transform var(--duration-slow) var(--easing);
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Mount-time stagger for card grids and short lists. Capped at eight
+     steps: past that the tail reads as lag, not rhythm. */
+  .stagger-in > * {
+    animation: rise-in var(--duration-slow) var(--easing) backwards;
+  }
+  .stagger-in > *:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .stagger-in > *:nth-child(2) {
+    animation-delay: 45ms;
+  }
+  .stagger-in > *:nth-child(3) {
+    animation-delay: 90ms;
+  }
+  .stagger-in > *:nth-child(4) {
+    animation-delay: 135ms;
+  }
+  .stagger-in > *:nth-child(5) {
+    animation-delay: 180ms;
+  }
+  .stagger-in > *:nth-child(6) {
+    animation-delay: 225ms;
+  }
+  .stagger-in > *:nth-child(7) {
+    animation-delay: 270ms;
+  }
+  .stagger-in > *:nth-child(n + 8) {
+    animation-delay: 315ms;
+  }
+
+  /* The preview card slides up from the map edge when a shrine is picked. */
+  .preview-card {
+    animation: rise-in var(--duration-base) var(--easing) backwards;
+  }
+
+  /* Micro-interactions: a pressed chip gives, a saved bookmark lands. */
+  .filter-chip,
+  .action-btn {
+    transition:
+      transform var(--duration-fast) var(--easing),
+      background-color var(--duration-fast) var(--easing),
+      border-color var(--duration-fast) var(--easing);
+  }
+  .filter-chip:active,
+  .action-btn:active {
+    transform: scale(0.96);
+  }
+
+  @keyframes save-land {
+    0% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .action-btn--active svg {
+    animation: save-land var(--duration-slow) var(--easing-spring);
+  }
+}
+
+/* Print must always see settled content, whatever JS did mid-scroll. */
+@media print {
+  .reveal-pending {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

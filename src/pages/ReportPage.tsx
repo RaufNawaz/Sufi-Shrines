@@ -184,7 +184,7 @@ export default function ReportPage() {
             {t('reportShrinesLive')}
           </p>
           <p className="report-note">{tFn(lang, 'reportRegisterNote', registerPct)}</p>
-          <ul className="report-stat-list">
+          <ul className="report-stat-list stagger-in">
             {report.categories.map((c) => (
               <StatRow
                 key={c.label}
@@ -201,7 +201,7 @@ export default function ReportPage() {
             {t('reportSupportHeading')}
           </h2>
           <p className="report-note">{t('reportSupportNote')}</p>
-          <ul className="report-stat-list">
+          <ul className="report-stat-list stagger-in">
             {(Object.keys(report.supportLevels) as SupportLevelKey[]).map((key) => (
               <StatRow
                 key={key}
@@ -224,7 +224,7 @@ export default function ReportPage() {
           <h2 id="report-info" className="report-section-heading">
             {t('reportInfoHeading')}
           </h2>
-          <ul className="report-stat-list">
+          <ul className="report-stat-list stagger-in">
             {(Object.keys(report.infoLevels) as InfoLevelKey[]).map((key) => (
               <StatRow
                 key={key}
@@ -247,7 +247,7 @@ export default function ReportPage() {
           <h2 id="report-status" className="report-section-heading">
             {t('reportStatusHeading')}
           </h2>
-          <ul className="report-stat-list">
+          <ul className="report-stat-list stagger-in">
             {(Object.keys(report.statuses) as SiteStatusKey[]).map((key) => (
               <StatRow
                 key={key}
@@ -272,7 +272,7 @@ export default function ReportPage() {
               {t('reportWordsHeading')}
             </h2>
             <p className="report-note">{t('reportWordsNote')}</p>
-            <ul className="report-stat-list">
+            <ul className="report-stat-list stagger-in">
               <StatRow
                 label={t('reportWithCitations')}
                 count={provenance.withCitations}
@@ -296,7 +296,7 @@ export default function ReportPage() {
           <h2 id="report-urdu" className="report-section-heading">
             {t('reportUrduHeading')}
           </h2>
-          <ul className="report-stat-list">
+          <ul className="report-stat-list stagger-in">
             <StatRow
               label={t('reportUrduDrafted')}
               count={report.urduDrafted}
@@ -316,7 +316,7 @@ export default function ReportPage() {
             {t('reportCorrectionsHeading')}
           </h2>
           <p className="report-note">{t('reportCorrectionsNote')}</p>
-          <ul className="report-ledger">
+          <ul className="report-ledger stagger-in">
             {CORRECTIONS.map((c) => (
               <li key={c.date + c.en.slice(0, 20)} className="report-ledger-item">
                 <span className="report-ledger-date">{fmtNum(c.date)}</span>
@@ -330,7 +330,7 @@ export default function ReportPage() {
           <h2 id="report-lost" className="report-section-heading">
             {t('reportLostHeading')}
           </h2>
-          <ul className="report-ledger">
+          <ul className="report-ledger stagger-in">
             {LOSSES.map((l, i) => (
               <li key={i} className="report-ledger-item">
                 <span className="report-ledger-text">{isRtl ? l.ur : l.en}</span>

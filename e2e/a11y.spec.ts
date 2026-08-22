@@ -5,6 +5,12 @@ import AxeBuilder from '@axe-core/playwright';
 const EXCLUDE_SELECTORS = ['.leaflet-container'];
 
 test.describe('Accessibility (axe-core)', () => {
+  // Contrast is a rest-state property: the stagger/reveal animations pass
+  // through intermediate opacities, and axe scanning mid-animation reports
+  // phantom contrast failures (seen 21 Aug 2026 on /report: token colors at
+  // ~90% opacity). Motion behaviour has its own specs in typography.spec.ts.
+  test.use({ contextOptions: { reducedMotion: 'reduce' } });
+
   test('map page has no critical violations', async ({ page }) => {
     await page.goto('/');
     // Wait for the sidebar to render before scanning

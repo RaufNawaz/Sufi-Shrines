@@ -27,7 +27,7 @@ export function RelatedShrines({ shrine, all }: Props) {
       <h2 className="article-section-heading" id="related-heading">
         {t('relatedShrines')}
       </h2>
-      <div className="related-grid">
+      <div className="related-grid stagger-in">
         {related.map((s) => {
           const name = localizeShrineName(s, lang);
           const location = localizeField(s.raw, 'Location') || s.location;
