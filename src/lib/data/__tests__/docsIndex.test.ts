@@ -28,8 +28,17 @@ const ROOT = join(__dirname, '../../../..');
 const INDEX_PATH = join(ROOT, 'docs/README.md');
 const INDEX = readFileSync(INDEX_PATH, 'utf8');
 
-/** Every markdown file under docs/, relative to docs/. */
-const DOCS = execSync("find docs -name '*.md'", { cwd: ROOT, encoding: 'utf8' })
+/**
+ * Every markdown file under docs/ *that is in the repository*, relative to docs/.
+ *
+ * `git ls-files`, not `find`. With `find`, a doc someone deliberately gitignored
+ * (.gitignore carries at least one) reads as an unindexed doc on the machine
+ * that has it and does not exist in CI — so the two assertions below fail on
+ * different machines for opposite reasons, and linking the file "to fix it"
+ * makes CI fail on a dangling link. The index can only be judged against what a
+ * clone actually contains.
+ */
+const DOCS = execSync("git ls-files 'docs/**/*.md' 'docs/*.md'", { cwd: ROOT, encoding: 'utf8' })
   .trim()
   .split('\n')
   .filter(Boolean)

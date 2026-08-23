@@ -121,7 +121,6 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 | ---------------------------------------------------------------- | ---------------------------------------------------- |
 | [`prompts/pipeline_prompts.md`](prompts/pipeline_prompts.md)     | Generation-pipeline prompt specification             |
 | [`prompts/PROMPT_media_pipeline.md`](prompts/PROMPT_media_pipeline.md) | Generalising the image pipeline to all shrines |
-| [`prompts/PROMPT_post_import.md`](prompts/PROMPT_post_import.md) | Post-import verification and follow-up pass |
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).
