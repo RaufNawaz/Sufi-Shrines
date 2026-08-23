@@ -818,22 +818,53 @@ nothing errored.
 
 ---
 
-## 11. How to resume — first 30 minutes
+## 11. How to resume — current as of 23 August 2026
+
+**Everything through this date is merged and deployed.** `main` and the Pages branch `1.6`
+both carry it; deploy run #20 published it. The working branch
+`claude/continue-previous-work-n31xsk` was restarted from `main`, so it holds nothing
+unreleased. Nothing is in flight and nothing is half-finished in the tree.
 
 ```bash
-# 1. confirm you are in the right directory
-ls -l ~/shrines-repo/.git && echo "correct repo"
+# 1. right repo (never derive this path by find — RULE 1)
+ls -l ~/shrines-repo/.git && cd ~/shrines-repo
 
-# 2. what did Claude Code leave behind
-cd ~/shrines-repo && git status --short && git log --oneline -8
+# 2. nothing unreleased? (expect empty)
+git fetch origin main 1.6 && git log --oneline origin/main..HEAD
 
-# 3. does the site still build
-npm run build
-
-# 4. what does the data currently say
-#    export the sheet as CSV (File > Download > CSV) into ~/shrines, then:
-cd ~/shrines && python3 validate_shrines.py <export>.csv --termbase termbase.tsv --fail-on NONE
+# 3. the gate that decides whether the site deploys
+npm run verify          # 498 unit tests + every data gate
+npm run build:e2e && npm run e2e   # 89 specs, hermetic (no network)
 ```
 
-Then read §8 "Outstanding" and start with the Bibi Pak Daman entry. It is the smallest piece of
-work with the largest effect on whether this archive is taken seriously.
+### What is waiting on a human (nothing else blocks these)
+
+1. **Import `data/patch_schema_and_truncation.csv`** — follow
+   `data/patch_schema_and_truncation.INSTRUCTIONS.md`, which is the authority: a sparse
+   patch CSV cannot express "leave this cell alone". It adds the `silsila_note` column
+   (the front end already renders it) and fixes the out-of-schema `category` values.
+   Regenerate first if the sheet has moved: `python3 pipeline/regenerate_import_patch.py`
+   — it verifies every cell it moves and exits non-zero on drift.
+2. **Send `docs/message_to_saifullah_2026-08-16.md`** (refreshed 22 Aug) — re-shoots plus
+   the prasad/diya vocabulary question.
+3. **Two coordinate-less rows** now appear as unmapped pages; a dropped pin from the field
+   would put them on the map. Never invent one (RULE 2).
+4. **Parked by decision, 22 Aug:** the Zenodo DOI, the Auqaf register acquisition, and all
+   oral/video media publishing (F3/F8/F9). See `docs/EDITORIAL_DECISIONS_PENDING.md` §6 for
+   every ruling, verbatim.
+
+### The next agent-executable piece of work
+
+`src/data/source-notes.json` carries the reader-facing "Where the source contradicts
+itself" disclosure for **2 of the 52 entries** that have internal `qa_note` contradictions.
+Drafting the remaining 50 is the largest queued task: cleaned bilingual restatements,
+every item attributed to the survey, nothing resolved and nothing withheld (the 22 Aug
+attribution ruling). Highest-stakes first; the longest notes are Mian Qurban Ali Shah
+(5.2k) and Abul Muali Qadri / Malik Ahmad Ayaz (already done). A content-contract test
+enforces bilingual items and zero Latin on the Urdu side.
+
+After that, the open blue-sky items are N3 (field-kit PWA), N5 (adopt-a-shrine) and the
+rest of N4 beyond its type-level groundwork. `docs/planning/NEXT_STEPS_2026-08-21.md` is
+the working plan; §9 of this file is the trust-calibration list — read it before believing
+any older note.
+
