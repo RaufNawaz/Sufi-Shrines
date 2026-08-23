@@ -371,3 +371,99 @@ lost. The expect now outlives the app's timeout (15 s).
 Full run recorded 21 Aug 2026: build 1194 via the env var, 62 specs. Remember the base
 path: `npm run build:e2e` (root `/`), not `npm run build`, before `npx playwright test`.
 
+
+## 10. Two shipped outages the suite could not see (23 August 2026)
+
+Both were live on production at the same time. Neither turned a test red, and the
+reason in both cases was the *kind* of assertion the suite makes, not a missing spec.
+Recorded together because the lesson is one lesson.
+
+### 10a. The map rendered zero markers — `return` where `continue` was meant
+
+**Symptom:** the basemap drew, the sidebar listed all 171 shrines, and there was not a
+single pin on the map. No console error, no failed request, no error card.
+
+Measured against the live site before touching anything: `.leaflet-marker-icon` count 0,
+`.leaflet-marker-pane` childElementCount 0, `localStorage.shrines_csv_cache_v5` holding
+171 shrines of which **169 carried coordinates**, and `#shrine-directory` listing all
+171. So the data was never the problem.
+
+**Cause,** in `ShrineMarkers.tsx`'s build effect, from the 22 Aug unmapped-rows work:
+
+```js
+for (const shrine of shrines) {
+  ...
+  if (!shrine.latLng) return;   // meant: continue
+```
+
+That is a `for...of` in the effect body, not a `forEach` callback. `return` leaves the
+whole effect — and `map.addLayer(group)` is *after* the loop. So the two coordinate-less
+rows did not skip themselves, they discarded all 169 markers and the layer group with
+them. A `forEach` would have made the same word mean the right thing, which is exactly
+why it reads as correct.
+
+**Why nothing caught it.** Every marker-ish assertion in the suite counted
+`.shrine-list-item`. Nothing anywhere distinguished a map drawing 168 markers from a map
+drawing none. `map.spec.ts` now asserts marker count == rows with coordinates *and* list
+count == all rows — the "marker-count vs row-count" check CLAUDE.md RULE 4 names as one
+that has actually worked, which this suite simply did not have.
+
+**The fixture was the second half of the bug.** That check only means something if the
+two counts differ, and they did not: all 169 fixture rows carried coordinates, so the
+unmapped branch was unreachable in tests no matter how many specs existed. The generator
+now exports one row (`Umarkot (Amarkot) Shiv Mandir` — not a tour stop, referenced by no
+spec) without coordinates, chosen by name and asserted to exist so it cannot quietly
+lapse back. Verified to fail: reintroducing `return` gives `Expected: 168, Received: 0`.
+
+**Still open, and the reason the fixture had to fake it:** `src/data/shrines-fallback.json`
+holds **169 rows where the live sheet holds 171**. `scripts/data/build-dataset.mjs` was
+already fixed to keep coordinate-less rows; the committed snapshot predates that fix and
+was never regenerated. Until someone runs `npm run data:build`, the offline fallback is
+missing Shah Gohar Peer and Mian Qurban Ali Shah entirely, and the e2e fixture inherits
+the same gap.
+
+### 10b. On a phone, the entire sidebar painted under the basemap
+
+**Symptom:** at any viewport under 769px the site was a bare map. No brand, no language
+toggle, no search, no filters, no shrine list. Tapping a marker showed a tooltip and
+nothing else. The sheet handle did not respond, so there was no way to open any of it.
+
+**Cause:** `.map-container` was `position: relative` with no z-index, so it never became
+a stacking context. Leaflet numbers its own panes 200–700 and the maplibre-gl-leaflet
+layer sits among them; with no stacking context those numbers land in the *root* context,
+where they outrank `--z-sidebar` (20). On desktop the sidebar sits beside the map, so
+nothing ever overlapped and nothing looked wrong. `--z-map: 0` had been sitting in
+`tokens.css` since the token system was written, applied to nothing.
+
+**Why nothing caught it.** `a11y.spec.ts` already tests the 390px viewport — it asserts
+`getBoundingClientRect()` on every map control. Every box was the correct size. They were
+merely buried, and a size assertion cannot see occlusion.
+
+`e2e/mobile-sheet.spec.ts` hit-tests instead: `document.elementFromPoint` at a control's
+own centre must resolve to that control or a descendant. Two details it needs to not be
+flaky — probe the centre of the element's *visible* rectangle (a tall card in a scrolling
+sheet legitimately has its midpoint off-screen), and poll, because the sheet animates its
+height and a card measured mid-transition is still below the fold. All four tests verified
+to fail with the `z-index` line removed.
+
+**Generalisable:** for any control that can be overlapped, "is it big enough" and "is it
+on top" are different questions, and only the second one is about whether a user can use
+it.
+
+### 10c. iCloud conflict copies, including inside .git
+
+Eleven `* 2.ts`/`* 2.tsx` copies of tracked test files were sitting untracked in `src/`,
+and `npm run verify` was red because of three of them that predated a `prettier --write`
+run — a red format gate on paths that are not in git at all. The other eight were
+byte-identical, so vitest collected and ran them: nothing failed, the suite just ran the
+same assertions twice.
+
+`src/test/repoHygiene.test.ts` now fails on the pattern, naming the paths. The fix when
+it fires is to delete the duplicate, never to reformat it.
+
+The same duplication had also reached `.git/refs/remotes/origin/`, where `1.6 2` and
+`main 2` broke `git fetch` outright (`fatal: bad object refs/remotes/origin/1.6 2` —
+git rejects a ref name containing a space). Removed by hand; both pointed at an old
+commit that is still reachable. Git's ref store is deliberately outside the hygiene
+check's scope, but if `git fetch` ever fails with "bad object" on a ref whose name has a
+space in it, that is this.
