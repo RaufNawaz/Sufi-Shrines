@@ -467,3 +467,64 @@ git rejects a ref name containing a space). Removed by hand; both pointed at an 
 commit that is still reachable. Git's ref store is deliberately outside the hygiene
 check's scope, but if `git fetch` ever fails with "bad object" on a ref whose name has a
 space in it, that is this.
+
+## 11. The two-branch merge (23 August 2026), and what it left open
+
+`main` and `claude/keep-working-on-this-ewipvq` had both been developed from the same
+19 August commit and never merged — 58 commits one way, 55 the other, 99 conflicting
+files. The merge commit message carries the full resolution policy; three things from it
+are worth having here, because they will come up again.
+
+**"Newest per file" is a decision you can make mechanically, and should still spot-check.**
+All 65 conflicting Urdu articles resolved to main by last-commit date (21 Aug vs 20 Aug).
+That is the right rule, but it is only safe because the *content* was checked at the point
+where it mattered: the other branch had fixed `allo-mahar`'s Urdu, which was still serving
+prose the English had retracted as a misidentification. main's newer file already carried
+the retraction. Had it not, "newest wins" would have re-shipped a hallucination.
+
+**Derived files are regenerated, never merged.** `urdu-dictionary.json`,
+`shrine-translations.seed.json`, `urdu-seed.json` and `urdu-content.json` were resolved by
+taking either side and then re-running `build_dictionary.py`, `build_urdu_content.py` and
+the seed sync (`urdu-i18n/build-all.sh` steps 1–3). Hand-merging a generated JSON produces
+a file that matches neither source.
+
+**Two designs for one concern: keep the superset, port the difference.** Both branches had
+independently solved "don't ship the Urdu edition to English readers" and "the map paints
+over the mobile sheet". For the payload the other line's version was a strict superset
+(gated on language, content *and* dictionary, with a mid-session re-merge), so it won and
+main's call sites were adapted. For the stacking context both fixes are kept —
+`z-index: var(--z-map)` names where the map sits, `isolation: isolate` states the intent —
+because each documents the other.
+
+### The search field and the command palette
+
+The palette (⌘K) did not replace the sidebar's search field, though the branch that built
+it had removed it. `ShrineFilters` exists precisely so both surfaces can render the same
+controls with the same class names, and its own docstring says so. So: the field stays in
+the sidebar, the palette is the faster way in, and both render `ShrineFilters`.
+
+One mechanical consequence worth knowing before touching either: **the sidebar field
+unmounts while the palette is open.** Two live `.search-input` elements are two focusable
+copies of one control, and every selector that reaches for it would have to choose. The
+palette trigger, by contrast, must stay mounted — the palette returns focus to whatever
+opened it, and a remounted button is a different element.
+
+### Still open: Urdu dates on order and shrine pages
+
+The no-leak guard's budgets went up, deliberately, and one entry is a genuine gap rather
+than source data. Order pages render each figure's dates verbatim, which is correct for a
+hedged phrase — `8 Muharram 1040 AH / 8 August 1630 CE` must not be paraphrased (RULE 2) —
+but the *calendar vocabulary* inside it is interface copy and is not translated: month
+names, `AH`/`CE`, and weekday names have no dictionary entries.
+
+`GREGORIAN_MONTH_NAMES_UR` and `HIJRI_MONTH_NAMES_UR` already exist in
+`src/lib/data/ursDates.ts` and `formatDateWindow` uses them, so projected almanac dates are
+fine. What leaks is the *recorded* strings, which never pass through a formatter. Closing
+it means a translated era/calendar vocabulary in `urdu-i18n/` (reviewed, not authored in a
+hurry) plus a parser willing to localise the parts it recognises and leave the rest as
+recorded. Until then it is declared `data-latin` and counted, which is honest but is not
+parity.
+
+Same category, smaller: an order page's shrine tag falls back to a title-cased slug
+("Dargah Of Pir Muhammad Rashid Roze Dhani Pir Jo Goth") when the Urdu name is unknown.
+That one is a dictionary gap, not a formatter gap.
