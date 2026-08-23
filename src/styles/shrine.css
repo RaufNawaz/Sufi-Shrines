@@ -55,7 +55,7 @@
   inset-inline-end: var(--space-2);
   margin: 0;
   padding: 2px var(--space-2);
-  border-radius: var(--radius-sm, 4px);
+  border-radius: var(--radius-sm);
   background: rgba(0, 0, 0, 0.55);
   color: rgba(255, 255, 255, 0.9);
   font-size: var(--text-xs);
@@ -224,6 +224,70 @@
   background: var(--color-accent-pale);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+}
+
+/* ── Place links in the masthead (Track B) ───────────────────────────────────
+   The towns and districts this site is recorded in — usually two, because a
+   shrine in Uch Sharif is also in Bahawalpur and both are true. Pills rather
+   than links inside a sentence: the order tags on /order/:slug had to stop
+   being coloured words in running prose to satisfy WCAG 1.4.1, and the fix
+   there (a bordered chip, so the affordance is shape and not hue) is the fix
+   here. No underline, deliberately — these lines can be Nastaliq, where an
+   underline crosses the descenders (HANDOVER §9.48). */
+.shrine-place-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+}
+
+.shrine-place-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+/* A map pin, so the chip reads as a place before it is read at all. Drawn in
+   CSS rather than as an inline SVG per pill: 169 pages × up to three pills is
+   a lot of identical markup for one 8px glyph. */
+.shrine-place-tag::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  /* Not a colour-only cue — the border and pill shape carry the affordance;
+     this is decoration on top of them. */
+  background: var(--color-primary);
+  opacity: 0.7;
+}
+
+.shrine-place-tag:hover,
+.shrine-place-tag:focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.shrine-place-tag:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+[dir='rtl'] .shrine-place-tag {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
 }
 
 /* Quiet contribution prompt on low-information pages — a footnote, not a
@@ -915,7 +979,7 @@
 .lightbox-caption .lightbox-credit {
   opacity: 0.7;
   font-size: 0.85em;
-  margin-top: var(--space-1, 4px);
+  margin-top: var(--space-1);
 }
 
 .lightbox-nav-btn {
@@ -1362,11 +1426,17 @@
   opacity: 0.7;
 }
 
+/* The status code is content, not ornament — it is the one string on the page
+   that tells a reader (or someone pasting it into a bug report) *which* failure
+   this was. It was painted in `--color-border`, a hairline token, which put
+   36px bold type at 1.43:1 on the page ground: legible on a calibrated laptop
+   in a dim room and invisible in daylight or on a cheap phone panel. A muted
+   *text* token keeps it recessive below the title while staying readable. */
 .not-found-code {
   font-family: var(--font-serif);
   font-size: var(--text-4xl);
   font-weight: 700;
-  color: var(--color-border);
+  color: var(--color-text-muted);
   margin: 0;
   letter-spacing: -0.05em;
   line-height: 1;
@@ -1645,6 +1715,12 @@
     min-height: 44px;
   }
 
+  /* Standalone chips, not links in a sentence, so the target-size exemption
+     above does not apply to them. */
+  .shrine-place-tag {
+    min-height: 44px;
+  }
+
   .back-link {
     min-height: 44px;
     display: inline-flex;
@@ -1688,7 +1764,7 @@
   font-weight: 500;
   color: var(--color-primary);
   border: 1px solid currentColor;
-  border-radius: var(--radius-full, 999px);
+  border-radius: var(--radius-full);
   padding: 1px var(--space-2);
 }
 
@@ -1764,5 +1840,127 @@
 
 [dir='rtl'] .source-notes-intro,
 [dir='rtl'] .source-notes-list {
+}
+
+/* ── Shared ground ───────────────────────────────────────────────────────── */
+
+/*
+ * Which other sites — and which other traditions — stand within walking
+ * distance. The archive's own coordinates say that 62 of 169 sites have a
+ * neighbour inside 800 m and that in eight places the neighbour belongs to a
+ * different tradition; nothing in the interface could show that before.
+ */
+.shared-ground-intro {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+.shared-ground-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.shared-ground-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  /* The border-inline-start is set per tradition below, so it must be a
+     logical property or it lands on the wrong edge in the Urdu view. */
+  border-inline-start: 3px solid var(--color-border);
+}
+
+/* A neighbour from another tradition is the point of the section, so it is the
+   one that gets emphasis — with weight as well as colour, since colour alone
+   fails in greyscale and for a colour-blind reader. */
+.shared-ground-item--other {
+  background-color: var(--color-bg-alt);
+}
+
+.shared-ground-item--other .shared-ground-tradition {
+  font-weight: 600;
+}
+
+.shared-ground-name {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.shared-ground-name:hover,
+.shared-ground-name:focus-visible {
+  text-decoration: underline;
+}
+
+.shared-ground-tradition {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Each tradition's own colour on the leading edge — the same palette the map
+   markers and category chips use, so a reader who has learned it on the map
+   reads this list without a legend. Never --color-primary: chrome must not wear
+   a tradition's colour (see styles/__tests__/tokenSplit.test.ts). */
+.shared-ground-tradition--muslim {
+  color: var(--color-cat-muslim);
+}
+.shared-ground-tradition--hindu {
+  color: var(--color-cat-hindu);
+}
+.shared-ground-tradition--sikh {
+  color: var(--color-cat-sikh);
+}
+.shared-ground-tradition--nanakpanthi {
+  color: var(--color-cat-nanakpanthi);
+}
+.shared-ground-tradition--jain {
+  color: var(--color-cat-jain);
+}
+.shared-ground-tradition--secular {
+  color: var(--color-cat-secular);
+}
+
+.shared-ground-distance {
+  margin-inline-start: auto;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Not a number, and deliberately not styled like one: these two records share a
+   recorded position because the survey gives no separate one. */
+.shared-ground-distance--same {
+  font-style: italic;
+  cursor: help;
+}
+
+.shared-ground-note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+[dir='rtl'] .shared-ground-tradition,
+[dir='rtl'] .shared-ground-distance,
+[dir='rtl'] .shared-ground-note,
+[dir='rtl'] .shared-ground-intro {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .shared-ground-tradition,
+[dir='rtl'] .shared-ground-distance,
+[dir='rtl'] .shared-ground-note {
+  font-size: var(--text-sm);
   line-height: var(--leading-urdu);
 }

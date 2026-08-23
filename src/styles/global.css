@@ -161,6 +161,30 @@ body.lang-rtl,
   border-radius: var(--radius-sm);
 }
 
+/*
+ * A skip-link target is focused, never tabbed to.
+ *
+ * Making #main-content focusable (tabIndex={-1}) is what makes the skip link
+ * work at all — without it the browser scrolls to the element and leaves focus
+ * on the link, so the next Tab resumes from the header block the reader just
+ * asked to bypass. Measured before the fix: activating the link left
+ * document.activeElement unmoved.
+ *
+ * But the global :focus-visible ring then drew a 2px cobalt outline around the
+ * *entire article*, which reads as a selected form control rather than as "you
+ * are here". Nothing keyboard-reachable is lost by removing it: tabindex="-1"
+ * means these elements are never a tab stop, and a reader who follows a skip
+ * link knows where they asked to go. This is the same reasoning already applied
+ * to the route-announcement headings (shrine.css `.shrine-title:focus`,
+ * kg.css `.entity-title:focus`), extended to the targets themselves.
+ */
+#main-content:focus,
+#main-content:focus-visible,
+#shrine-directory:focus,
+#shrine-directory:focus-visible {
+  outline: none;
+}
+
 /* Skip link */
 .skip-link {
   position: absolute;
@@ -398,6 +422,15 @@ body.lang-rtl,
 @media (prefers-reduced-motion: reduce) {
   .page-enter {
     animation: none;
+  }
+
+  /* Smooth scrolling is motion too, and the kind most likely to trigger
+     vestibular symptoms — a whole viewport of content sliding past. It was
+     switched on globally and never switched off here. Anchor jumps (the
+     almanac's month nav, the shrine article's contents nav, every skip link)
+     now land instantly for a reader who asked for that. */
+  html {
+    scroll-behavior: auto;
   }
 }
 

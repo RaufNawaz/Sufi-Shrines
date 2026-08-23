@@ -4,7 +4,11 @@ import { useShrineData } from '../hooks/useShrineData';
 import { useShareLink } from '../hooks/useShareLink';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { tFn } from '../lib/i18n/uiStrings';
+import { placesForShrine } from '../lib/data/places';
+import { translateToUrdu } from '../lib/i18n/urduFallback';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -16,6 +20,7 @@ import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { NearbyShrines } from '../components/shrine/NearbyShrines';
+import { SharedGround } from '../components/shrine/SharedGround';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { SourceNotes } from '../components/shrine/SourceNotes';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
@@ -30,7 +35,7 @@ import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
-import { getSaintsForShrine } from '../lib/kg';
+import { primaryFigureSlug } from '../lib/kgShrineFigures';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
@@ -38,6 +43,7 @@ import { NearbyMosques } from '../components/shrine/NearbyMosques';
 import { useSavedShrines, toggleSaved } from '../lib/savedShrines';
 import type { Shrine } from '../types/shrine';
 import { langAttr } from '../lib/i18n/languages';
+import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 
 function SkeletonPage() {
   return (
@@ -53,6 +59,7 @@ function SkeletonPage() {
 
 function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
   const { lang, t, localizeField, fmtNum } = useLang();
+  const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
   const saved = useSavedShrines();
@@ -62,7 +69,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
   const name = localizeShrineName(shrine, lang);
 
-  const primaryKgSaint = useMemo(() => getSaintsForShrine(shrine.slug)[0], [shrine.slug]);
+  const primaryFigure = primaryFigureSlug(shrine.slug);
 
   const category =
     categoryDisplayLabel(shrine.category, lang) ??
@@ -84,10 +91,26 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
     if (meta && desc) meta.setAttribute('content', desc.slice(0, 160));
   }, [shrine.raw]);
 
+  /* Article sections arrive as the reader reaches them. Attached here rather
+     than per section so one observer covers all eight, and keyed on the shrine
+     so navigating between shrines re-runs it. */
+  const revealRef = useRevealOnScroll<HTMLElement>('.article-section', [shrine.slug]);
+
+  /* The print footer showed the sheet's raw value ("Field-verified") to an
+     Urdu reader. It is a controlled vocabulary with a label in uiStrings, so
+     this is a translation, not debt. */
+  const supportKey = supportLevelKey(shrine.supportLevel);
+
   return (
-    <article className="shrine-page" id="main-content" lang={langAttr(lang)}>
+    <article
+      className="shrine-page"
+      id="main-content"
+      tabIndex={-1}
+      lang={langAttr(lang)}
+      ref={revealRef}
+    >
       {/* Breadcrumb */}
-      <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+      <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
         <ol>
           <li>
             <Link to="/">{t('mapBreadcrumb')}</Link>
@@ -101,7 +124,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
       {/* Category kicker */}
       {category && (
-        <p className="shrine-category-kicker" aria-label={`Category: ${category}`}>
+        <p className="shrine-category-kicker" aria-label={tFn(lang, 'ariaCategoryOf', category)}>
           {category}
         </p>
       )}
@@ -168,8 +191,8 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            {primaryKgSaint ? (
-              <Link to={`/saint/${primaryKgSaint.slug}`} className="meta-entity-link">
+            {primaryFigure ? (
+              <Link to={`/saint/${primaryFigure}`} className="meta-entity-link">
                 {saint}
               </Link>
             ) : (
@@ -180,6 +203,22 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
         <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
       </div>
+
+      {/* The places this site is recorded in — often two, a town and its
+          district, because it is in both. Until these pages existed, the fact
+          that 35 of 169 sites are in or around Lahore was visible nowhere.
+          Rendered as pills, not links-in-prose: the order tags on /order/:slug
+          had to stop being cobalt words inside a sentence for the same reason
+          (WCAG 1.4.1, HANDOVER §9.48). */}
+      {shrinePlaces.length > 0 && (
+        <div className="shrine-place-links">
+          {shrinePlaces.map((place) => (
+            <Link key={place.slug} to={`/place/${place.slug}`} className="shrine-place-tag">
+              <bdi>{lang === 'ur' ? translateToUrdu(place.name) : place.name}</bdi>
+            </Link>
+          ))}
+        </div>
+      )}
 
       {/* Non-Active site status — plain wording so a visitor doesn't travel
           expecting a functioning site. statusNote (e.g. "reconstructed 2022")
@@ -294,7 +333,12 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           ) : (
             <p className="location-not-recorded">{t('locationNotRecorded')}</p>
           )}
+          {/* Directly under the map, because it is a fact about this ground:
+              which other sites — and which other traditions — stand within
+              walking distance. Renders nothing when there are none. */}
+          <SharedGround shrine={shrine} all={allShrines} />
           <NearbyMosques shrine={shrine} />
+
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
           <CiteThisEntry shrine={shrine} />
@@ -304,7 +348,9 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               hence this parallel, always-rendered-but-screen-hidden line. */}
           <p className="shrine-print-provenance print-only">
             {t('siteTitle')} · {typeof window !== 'undefined' ? window.location.href : ''}
-            {shrine.supportLevel ? ` · ${t('citeSupportLevel')}: ${shrine.supportLevel}` : ''}
+            {supportKey
+              ? ` · ${t('citeSupportLevel')}: ${t(SUPPORT_LEVEL_LABEL_KEYS[supportKey])}`
+              : ''}
           </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
@@ -333,6 +379,10 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <Link to="/">{t('backToMap')}</Link>
         {' · '}
         <span>{t('footerCredit')}</span>
+        {' · '}
+        {/* Licence and citation must be reachable from any page — a public
+            archive that states neither is not publishable. */}
+        <Link to="/about">{t('aboutTitle')}</Link>
         {' · '}
         <a href={correctionIssueUrl(shrine.slug)} target="_blank" rel="noopener noreferrer">
           {t('reportCorrection')}

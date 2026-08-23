@@ -1,0 +1,294 @@
+# -*- coding: utf-8 -*-
+"""
+urdu_content_qa.py — per-file invariants on urdu-i18n/content/<slug>.md
+
+Why this exists
+---------------
+A8 (the Urdu article backlog) had a reporting tool — pipeline/a8_urdu_delta.py — that
+measured, correctly, that 74 Urdu articles had fallen behind their English. Nothing
+*failed*, so the number sat in a JSON file for weeks. CLAUDE.md RULE 4: prefer a check
+that exits non-zero over a note saying "be careful here".
+
+The failure that made this urgent was not a stale translation, it was the opposite. The
+English for `allo-mahar` was deliberately *retracted* — a ~700-word biography turned out
+to be about the wrong man, and docs/allo_mahar_resolution.md replaced it with a short
+"awaiting a field visit" note rather than fix a hallucination with a second one. The
+retraction never reached the Urdu. Because mergeUrduContent() overrides the *whole*
+Description per slug, the Urdu reader kept getting the withdrawn text — confident dates,
+offices and an urs date — while the English reader got the honest stub. A live RULE 2
+violation, invisible to every gate in the repo, and found only by eyeballing a length
+ratio.
+
+So the sharp check here is over-coverage: Urdu that is substantially longer than its
+English carries claims the English does not make. That is an ERROR. Under-coverage — the
+ordinary A8 delta — is a WARN against a ratchet, so the backlog can only shrink.
+
+The ratio is computed on **prose only** — everything before the first bibliography
+heading, on both sides. Citations may legitimately carry Latin titles and URLs (the
+20 Aug 2026 decision; see scripts/data/validate-urdu-leak.mjs), which means an Urdu
+bibliography can be much shorter or much longer than its English counterpart for reasons
+that say nothing about article coverage. Including them would make this gate fire on
+citation practice and, worse, could block a build for *adding* a source.
+
+Thresholds are measured, not guessed. On full text (the first cut, 20 Aug 2026) up-to-date
+entries ran 0.74-0.95 against 0.36-0.62 for the 74 known-stale ones. On prose only, with
+all 167 now up to date, the distribution is much tighter: min 0.84, median 0.91, max 1.06.
+So 0.75 sits below the observed floor with headroom, and 1.20 above the ceiling — while
+the retraction that motivated this whole check (allo-mahar, see above) sits near 2.7 and
+still fails loudly.
+
+    python3 pipeline/urdu_content_qa.py [--fail-on {NONE,WARN,ERROR}] [--verbose]
+
+Reads English from data/shrines.csv (tracked, and byte-identical in Description to the
+16 August import for every row it carries) so the gate is deterministic in CI. Note it is
+the *built* snapshot: build-dataset drops rows with empty coordinates, so a content file
+for one of those cannot be ratio-checked and is reported as skipped, not as passing.
+"""
+import argparse
+import csv
+import glob
+import os
+import re
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONTENT_DIR = os.path.join(ROOT, "urdu-i18n", "content")
+ENGLISH_CSV = os.path.join(ROOT, "data", "shrines.csv")
+
+LATIN = re.compile(r"[A-Za-z]+")
+HEADING = re.compile(r"^##\s+(.*)$", re.M)
+
+# Bibliography headings are excluded from the structure comparison on both sides. Most
+# English articles carry "## Bibliography" while most Urdu files, by convention, omit the
+# section (scripts/data/validate-urdu-leak.mjs allows zero Latin letters, so a
+# Latin-titled source cannot be cited verbatim). Counting them made this check fire on
+# 144 files, all of them correct — CLAUDE.md RULE 4: fix the check, not the content.
+BIBLIO_HEADINGS = {
+    "sources", "bibliography", "references", "citations", "works cited",
+    "کتابیات", "حوالہ جات", "حوالے",
+}
+
+# English number-words, so "the sixteenth to the eighteenth of Rabi-ul-Awal" is recognised as
+# supplying 16 and 18 to a Urdu file that writes them as digits (numbers stay Western digits in
+# stored Urdu text — the Eastern-numeral toggle converts at render). Without this the
+# figure check fires on the convention rather than on a problem: it is exactly the two false
+# positives measured across all 169 rows on 20 Aug 2026, langer-makhdoom and shamsabad.
+NUMBER_WORDS = {
+    "one": 1, "first": 1, "two": 2, "second": 2, "three": 3, "third": 3, "four": 4,
+    "fourth": 4, "five": 5, "fifth": 5, "six": 6, "sixth": 6, "seven": 7, "seventh": 7,
+    "eight": 8, "eighth": 8, "nine": 9, "ninth": 9, "ten": 10, "tenth": 10,
+    "eleven": 11, "eleventh": 11, "twelve": 12, "twelfth": 12, "thirteen": 13,
+    "thirteenth": 13, "fourteen": 14, "fourteenth": 14, "fifteen": 15, "fifteenth": 15,
+    "sixteen": 16, "sixteenth": 16, "seventeen": 17, "seventeenth": 17, "eighteen": 18,
+    "eighteenth": 18, "nineteen": 19, "nineteenth": 19, "twenty": 20, "twentieth": 20,
+    "thirty": 30, "thirtieth": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70,
+    "eighty": 80, "ninety": 90, "hundred": 100, "thousand": 1000, "million": 1000000,
+}
+FIGURE = re.compile(r"\d[\d,.]*")
+WORD = re.compile(r"[a-z]+")
+
+# Ratio bounds on len(urdu) / len(english).
+OVER_COVERAGE = 1.20   # ERROR: Urdu asserts more than the English does
+UNDER_COVERAGE = 0.75  # WARN:  Urdu has not caught up with the English
+
+# Ratchet, and it is now AT ZERO (20 Aug 2026): every Urdu article clears 0.70 of its
+# English. Note this was never the same count as a8-scope.json's deltas — an entry whose
+# English grew by a sentence is a delta but its ratio still clears the bar — so zero here
+# means "no article reads as a stub beside its English", not "no drift at all". The number
+# must never go up: a new translation that lands condensed is a bug, not a milestone. If
+# you raise this to land work, you have removed the only thing that made the gate mean
+# something. a8-scope.json still lists the remaining small deltas.
+UNDER_COVERAGE_BUDGET = 0
+
+
+def slugify(text):
+    """Mirror of buildStableSlug() in src/lib/data/slugify.ts — content/<slug>.md is
+    keyed by exactly this, so drift here silently un-pairs every file from its English."""
+    t = (text or "").lower()
+    for ch, rep in (("&", " and "), ("@", " at "), ("%", " percent "), ("+", " plus ")):
+        t = t.replace(ch, rep)
+    t = re.sub(r"[^\w\s-]", "", t)
+    t = re.sub(r"[\s_]+", "-", t)
+    t = re.sub(r"-+", "-", t)
+    return t.strip("-").strip()
+
+
+def _figures(text):
+    """Bare numeric values in a text, comma- and trailing-period-stripped."""
+    out = set()
+    for m in FIGURE.findall(text):
+        m = m.rstrip(".").replace(",", "")
+        if m:
+            out.add(m)
+    return out
+
+
+def _english_figures(text):
+    """Figures the English supplies, counting spelled-out numbers as their digits."""
+    out = _figures(text)
+    for w in WORD.findall(text.lower()):
+        if w in NUMBER_WORDS:
+            out.add(str(NUMBER_WORDS[w]))
+    return out
+
+
+def _prose(text):
+    """The Urdu article body — everything before the first bibliography heading."""
+    cut = len(text)
+    for h in ("## کتابیات", "## حوالہ جات", "## حوالے"):
+        i = text.find(h)
+        if i != -1:
+            cut = min(cut, i)
+    return text[:cut]
+
+
+def _english_prose(text):
+    """The English article body, cut at its own bibliography heading."""
+    cut = len(text)
+    for h in ("## Bibliography", "## Sources", "## References", "## Citations", "## Works Cited"):
+        i = text.find(h)
+        if i != -1:
+            cut = min(cut, i)
+    return text[:cut]
+
+
+def _prose_headings(text):
+    """`## ` headings excluding bibliography aliases — see BIBLIO_HEADINGS."""
+    return [h.strip() for h in HEADING.findall(text) if h.strip().lower() not in BIBLIO_HEADINGS]
+
+
+def load_english():
+    if not os.path.exists(ENGLISH_CSV):
+        raise SystemExit(f"FAIL: {os.path.relpath(ENGLISH_CSV, ROOT)} not found — run npm run data:build")
+    with open(ENGLISH_CSV, newline="", encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh))
+    return {slugify(r.get("Name", "")): (r.get("Description") or "").strip() for r in rows}
+
+
+def check_file(path, english):
+    """Returns (errors, warnings, ratio_or_None) for one content file."""
+    slug = os.path.splitext(os.path.basename(path))[0]
+    with open(path, encoding="utf-8") as fh:
+        body = fh.read().strip()
+    errors, warnings = [], []
+
+    if not body:
+        errors.append("file is empty")
+        return errors, warnings, None
+
+    # Latin in the *prose* is an untranslated sentence. Latin in a citation is a
+    # book title, a publisher or a URL, and is expected — see the 20 Aug 2026
+    # decision recorded in scripts/data/validate-urdu-leak.mjs. Checking prose only
+    # keeps this gate agreeing with that one; before the decision both required zero
+    # Latin anywhere, which meant a URL-titled source could not be cited at all.
+    leaks = sorted(set(LATIN.findall(_prose(body))))
+    if leaks:
+        errors.append(f"Latin-script leak in prose: {', '.join(leaks[:6])}")
+
+    if body.count("*") % 2:
+        errors.append(f"unbalanced asterisks ({body.count('*')}) — markdown italics/bold will bleed")
+
+    en = english.get(slug)
+    if en is None:
+        # Orphans (a content file with no live row) are build_dictionary.py's gate; a row
+        # dropped for missing coordinates lands here too, so this is a skip, not a failure.
+        return errors, warnings, None
+    if not en:
+        return errors, warnings, None
+
+    # Prose only, both sides — see the module docstring on why citations are excluded.
+    ur_prose, en_prose = _prose(body), _english_prose(en)
+    if not en_prose:
+        return errors, warnings, None
+    ratio = len(ur_prose) / len(en_prose)
+    if ratio > OVER_COVERAGE:
+        errors.append(
+            f"over-coverage: Urdu prose is {ratio:.2f}x its English "
+            f"({len(ur_prose)} vs {len(en_prose)} chars). "
+            "The Urdu is asserting material the English does not — check whether the English "
+            "was cut or retracted (see docs/allo_mahar_resolution.md for the precedent)."
+        )
+    elif ratio < UNDER_COVERAGE:
+        warnings.append(
+            f"under-coverage: {ratio:.2f}x ({len(ur_prose)} vs {len(en_prose)} prose chars) "
+            "— English has moved on"
+        )
+
+    # A figure present only in the Urdu is a claim from nowhere: these files were drafted
+    # *from* the English and are not independently sourced, so an Urdu-only date, year or
+    # visitor count cannot have a source behind it (RULE 2). Measured clean across all 169
+    # rows on 20 Aug 2026 — the only two candidates were the number-word convention above,
+    # which NUMBER_WORDS now absorbs. This is the enforcement RULE 2 previously lacked
+    # across the language boundary; a phrase-level invention like kalat-kali-temple's
+    # "far from Quetta" still slips through, so it is not a substitute for reading.
+    extra = sorted(_figures(_prose(body)) - _english_figures(_english_prose(en)), key=lambda v: (len(v), v))
+    if extra:
+        warnings.append(
+            f"figure(s) not present in the English: {', '.join(extra[:6])} — an Urdu-only "
+            "number has no source behind it; check against the English before keeping it"
+        )
+
+    en_headings = _prose_headings(en)
+    ur_headings = _prose_headings(body)
+    # Only meaningful when the English is actually sectioned: plenty of entries are
+    # unheaded prose in English, and the Urdu files give those bespoke section headings
+    # on purpose, so a bare count difference there says nothing.
+    if len(en_headings) >= 2 and len(en_headings) != len(ur_headings):
+        warnings.append(
+            f"section count differs: English has {len(en_headings)} "
+            f"({', '.join(en_headings)}), Urdu has {len(ur_headings)}"
+        )
+
+    return errors, warnings, ratio
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--fail-on", choices=("NONE", "WARN", "ERROR"), default="ERROR")
+    ap.add_argument("--verbose", action="store_true", help="list every warning, not just the counts")
+    args = ap.parse_args()
+
+    english = load_english()
+    paths = sorted(glob.glob(os.path.join(CONTENT_DIR, "*.md")))
+    if not paths:
+        raise SystemExit(f"FAIL: no content files under {os.path.relpath(CONTENT_DIR, ROOT)}")
+
+    n_err = n_warn = n_under = n_skipped = 0
+    for path in paths:
+        slug = os.path.splitext(os.path.basename(path))[0]
+        errors, warnings, ratio = check_file(path, english)
+        if ratio is None and not errors:
+            n_skipped += 1
+        for e in errors:
+            print(f"  ✗ {slug}: {e}")
+            n_err += 1
+        for w in warnings:
+            if w.startswith("under-coverage"):
+                n_under += 1
+                if args.verbose:
+                    print(f"  ⚠ {slug}: {w}")
+            else:
+                print(f"  ⚠ {slug}: {w}")
+            n_warn += 1
+
+    print(f"[urdu-content-qa] {len(paths)} content files · {n_err} error(s) · {n_warn} warning(s)")
+    print(f"[urdu-content-qa]   of which under-coverage (A8 backlog): {n_under} / budget {UNDER_COVERAGE_BUDGET}")
+    if n_skipped:
+        print(f"[urdu-content-qa]   {n_skipped} not ratio-checked (no English row in the snapshot)")
+    if not args.verbose and n_under:
+        print("[urdu-content-qa]   rerun with --verbose to list them, or see urdu-i18n/a8-scope.json")
+
+    if n_under > UNDER_COVERAGE_BUDGET:
+        raise SystemExit(
+            f"FAIL: under-coverage count {n_under} exceeds the budget of {UNDER_COVERAGE_BUDGET}. "
+            "A new Urdu article that lands condensed is a bug. Translate it in full, or, if the "
+            "budget is genuinely stale, lower it — never raise it."
+        )
+    if n_err and args.fail_on in ("WARN", "ERROR"):
+        raise SystemExit(f"FAIL: {n_err} error(s) in Urdu content files.")
+    if n_warn and args.fail_on == "WARN":
+        raise SystemExit(f"FAIL: {n_warn} warning(s) in Urdu content files (--fail-on WARN).")
+    print("[urdu-content-qa] OK")
+
+
+if __name__ == "__main__":
+    main()

@@ -60,6 +60,22 @@ export default defineConfig(({ command }) => {
         },
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+          /*
+           * The two language payloads are kept out of the precache.
+           *
+           * The glob pattern above matches every emitted `.js`, so the service
+           * worker downloaded the 1 MB Urdu article chunk and the 77 KB
+           * dictionary in the background for
+           * *every* visitor on their first load — after first paint, so no
+           * budget and no Lighthouse run could see it, and the eager-payload
+           * work upstream (urduContentOverride.ts, urduFallback.ts) was quietly
+           * being undone one layer down for returning readers.
+           *
+           * They are cached the moment they are actually fetched instead, by the
+           * runtime rule below, so an Urdu reader who has read one page still
+           * has both offline. An English reader now really does ship neither.
+           */
+          globIgnores: ['**/urdu-content-*.js', '**/urdu-seed-*.js'],
           // The navigation fallback must resolve to a URL that exists in the
           // precache manifest, which is served under `base` — a hardcoded
           // '/index.html' breaks offline navigation on the /Sufi-Shrines/
@@ -68,6 +84,17 @@ export default defineConfig(({ command }) => {
           navigateFallback: `${base}index.html`,
           navigateFallbackDenylist: [new RegExp(`^${baseForRegExp}offline\\.html`)],
           runtimeCaching: [
+            {
+              // The language payloads excluded from the precache above: cached
+              // on first real use, then served from the cache offline.
+              urlPattern: /\/assets\/urdu-(content|seed)-[^/]*\.js$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'urdu-payloads',
+                expiration: { maxEntries: 8, maxAgeSeconds: 60 * 60 * 24 * 30 },
+                cacheableResponse: { statuses: [0, 200] },
+              },
+            },
             {
               urlPattern: /^https:\/\/docs\.google\.com\/spreadsheets/,
               handler: 'StaleWhileRevalidate',
@@ -124,6 +151,10 @@ export default defineConfig(({ command }) => {
       },
     },
     build: {
+      // Emitted so scripts/check-bundle-budget.mjs can walk the real static
+      // import graph. Guessing which chunks load eagerly is how 1 MB of Urdu
+      // prose sat on the English critical path unnoticed.
+      manifest: true,
       rollupOptions: {
         output: {
           manualChunks: {

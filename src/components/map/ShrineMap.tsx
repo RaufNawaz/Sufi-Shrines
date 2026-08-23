@@ -16,13 +16,22 @@ import { TourRoute } from './TourRoute';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
-// Lazy: maplibre-gl is ~286 KB gzipped — a third of the landing page's JS —
-// and it only paints the basemap. Loading it as its own chunk lets Leaflet,
-// the markers and the sidebar become interactive first; the vector basemap
-// streams in when the chunk lands (instantly on repeat visits — the service
-// worker precaches it). Suspense fallback is null on purpose: the alternative
-// (mount the raster fallback while waiting) would visibly churn every tile
-// when the vector layer replaces it moments later.
+import { tFn } from '../../lib/i18n/uiStrings';
+/*
+ * The vector basemap is loaded on demand.
+ *
+ * maplibre-gl is 1035 KB minified — by itself two-thirds of everything the map
+ * route used to ship before a reader saw anything, and this archive's readers
+ * are overwhelmingly on a phone on a mobile connection. Nothing in the primary
+ * interaction needs it: the sidebar, the search, the filters, the era slider
+ * and the markers are all Leaflet and React. Only the tiles under them are
+ * maplibre's, so only the tiles wait.
+ *
+ * `check-bundle-budget.mjs` keeps it that way — vendor-maplibre is on the
+ * MUST_STAY_LAZY list, so a stray top-level import fails the build rather than
+ * quietly putting a megabyte back on the critical path.
+ */
+
 const MapLibreBasemap = React.lazy(() =>
   import('./MapLibreBasemap').then((m) => ({ default: m.MapLibreBasemap })),
 );
@@ -145,6 +154,11 @@ function DefaultBasemap({ isDark, lang }: { isDark: boolean; lang: Lang }) {
   // just fails a second time and leaves the reader with a blank map. Go
   // straight to the keyless provider.
   if (vectorFailed) return <ThemeAwareTileLayer isDark={isDark} keyless />;
+  /* No fallback element: the map's own ground shows through for the moment the
+     chunk is in flight. A placeholder raster layer would mean watching the
+     basemap change under the markers, which is the flicker DefaultBasemap
+     exists to avoid. */
+
   return (
     <React.Suspense fallback={null}>
       <MapLibreBasemap isDark={isDark} lang={lang} onFailure={onFailure} />
@@ -247,8 +261,41 @@ function MapClickDeselect({ onSelect }: { onSelect: (s: Shrine | null) => void }
   return null;
 }
 
+/*
+ * Leaflet hardcodes `link.title = 'Layers'` on the layers-control toggle in
+ * `_initLayout`, and react-leaflet exposes no prop for it — so on the Urdu map
+ * the one control that opens the basemap picker announced itself in English.
+ * Setting it after mount is imperative, but the alternative is patching
+ * Leaflet's prototype, which is worse.
+ */
+function LayersControlTitle({ title }: { title: string }) {
+  const map = useMap();
+  useEffect(() => {
+    const apply = () => {
+      const toggle = map.getContainer().querySelector('.leaflet-control-layers-toggle');
+      if (!toggle) return false;
+      toggle.setAttribute('title', title);
+      toggle.setAttribute('aria-label', title);
+      return true;
+    };
+    // The control mounts as a sibling, so it may not exist on this tick.
+    if (apply()) return;
+    const id = window.requestAnimationFrame(() => apply());
+    return () => window.cancelAnimationFrame(id);
+  }, [map, title]);
+  return null;
+}
+
 // Reset-view Leaflet control (bottom-right, above zoom)
-function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }) {
+function ResetViewControl({
+  onSelect,
+  title,
+  label,
+}: {
+  onSelect: (s: Shrine | null) => void;
+  title: string;
+  label: string;
+}) {
   const map = useMap();
 
   useEffect(() => {
@@ -259,9 +306,9 @@ function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }
         const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
         const btn = L.DomUtil.create('a', 'reset-view-btn', container);
         btn.href = '#';
-        btn.title = 'Reset view';
+        btn.title = title;
         btn.setAttribute('role', 'button');
-        btn.setAttribute('aria-label', 'Reset map to default view');
+        btn.setAttribute('aria-label', label);
         btn.innerHTML =
           '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
 
@@ -284,7 +331,7 @@ function ResetViewControl({ onSelect }: { onSelect: (s: Shrine | null) => void }
     const ctrl = new ResetCtrl();
     ctrl.addTo(map);
     return () => ctrl.remove();
-  }, [map, onSelect]);
+  }, [map, onSelect, title, label]);
 
   return null;
 }
@@ -356,7 +403,7 @@ export function ShrineMap({
   activeTourStop,
 }: Props) {
   const { theme } = useTheme();
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const isDark = theme === 'dark';
 
   const tourStopSlugs = useMemo(
@@ -374,19 +421,30 @@ export function ShrineMap({
         isRTL={isRTL}
         tourActive={activeTour !== null}
       />
-      <ZoomControl position="bottomright" />
-      <ResetViewControl onSelect={onSelect} />
+      <ZoomControl
+        position="bottomright"
+        zoomInTitle={t('mapZoomIn')}
+        zoomOutTitle={t('mapZoomOut')}
+      />
+      <ResetViewControl
+        onSelect={onSelect}
+        title={t('mapResetView')}
+        label={t('mapResetViewLabel')}
+      />
       <MapClickDeselect onSelect={onSelect} />
 
-      {/* topright: bottomleft sat on top of the mobile bottom sheet's brand
-          row (seen on a real phone, 22 Aug), and bottomright holds zoom +
-          reset. Top-left belongs to the desktop collapsed-sidebar toggle. */}
+      <LayersControlTitle title={t('mapLayers')} />
+      {/* topright: bottomleft sat on top of the mobile bottom sheet's brand row
+          (seen on a real phone, 22 Aug), and bottomright holds zoom + reset.
+          Top-left belongs to the desktop collapsed-sidebar toggle. */}
       <LayersControl position="topright">
         {/* English labels now come from the built-in style's `language` parameter.
             The custom Map Designer style is only offered when explicitly opted
             into, because MapTiler 403s its raster tiles on this account. */}
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Streets — English labels (MapTiler)">
+          <LayersControl.BaseLayer
+            name={tFn(lang, 'mapLayerFrom', t('mapLayerStreetsEnglish'), 'MapTiler')}
+          >
             <TileLayer
               url={maptilerRasterUrl(
                 defaultMaptilerStyleId() ?? MAPTILER_DEFAULT_STYLE,
@@ -400,15 +458,15 @@ export function ShrineMap({
           </LayersControl.BaseLayer>
         )}
 
-        <LayersControl.BaseLayer name="Voyager (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerVoyager'), 'CARTO')}>
           <TileLayer url={CARTO_VOYAGER} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Dark (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerDark'), 'CARTO')}>
           <TileLayer url={CARTO_DARK} subdomains="abcd" maxZoom={20} attribution={CARTO_ATTR} />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Streets (Esri)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerStreets'), 'Esri')}>
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
@@ -416,7 +474,7 @@ export function ShrineMap({
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Satellite (Esri)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerSatellite'), 'Esri')}>
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
@@ -424,7 +482,7 @@ export function ShrineMap({
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer name="Light (CARTO)">
+        <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerLight'), 'CARTO')}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             subdomains="abcd"
@@ -434,7 +492,9 @@ export function ShrineMap({
         </LayersControl.BaseLayer>
 
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Streets (MapTiler)">
+          <LayersControl.BaseLayer
+            name={tFn(lang, 'mapLayerFrom', t('mapLayerStreets'), 'MapTiler')}
+          >
             <TileLayer
               url={maptilerRasterUrl('streets-v2', MAPTILER_KEY)}
               tileSize={512}
@@ -446,7 +506,7 @@ export function ShrineMap({
         )}
 
         {MAPTILER_KEY && (
-          <LayersControl.BaseLayer name="Topo (MapTiler)">
+          <LayersControl.BaseLayer name={tFn(lang, 'mapLayerFrom', t('mapLayerTopo'), 'MapTiler')}>
             <TileLayer
               url={maptilerRasterUrl('topo-v2', MAPTILER_KEY)}
               tileSize={512}

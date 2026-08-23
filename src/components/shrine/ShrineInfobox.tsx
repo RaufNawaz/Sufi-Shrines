@@ -14,9 +14,29 @@ import { isLikelyUrl, isUrduVariantKey, normalizeUrl } from '../../lib/data/fiel
 import { localizeFieldName } from '../../lib/data/fieldLabels';
 import { yearPrecisionKey, YEAR_PRECISION_LABEL_KEYS } from '../../lib/data/yearPrecision';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
+import { localizeObservance } from '../../lib/i18n/localizeObservance';
+import type { Lang } from '../../types/shrine';
 
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
+}
+
+/* `Events` is semicolon-joined ("Annual urs; qawwali and naat; daily langar"),
+   so localizeField's whole-string lookup matches almost none of it. Same shape
+   of special case as Founded above. */
+function isEventsKey(key: string): boolean {
+  return key === 'Events';
+}
+
+function resolveFieldValue(
+  shrine: Shrine,
+  key: string,
+  lang: Lang,
+  localizeField: (row: Shrine['raw'], field: string) => string,
+): string {
+  if (isFoundedKey(key)) return resolveFoundedDate(shrine.raw, lang);
+  if (isEventsKey(key)) return localizeObservance(localizeField(shrine.raw, key), lang);
+  return localizeField(shrine.raw, key);
 }
 
 /** localizeField() only ever returns Latin text in the Urdu view when
@@ -59,9 +79,7 @@ export function ShrineInfobox({ shrine }: Props) {
   for (const key of INFOBOX_PRIORITY_KEYS) {
     const entry = allEntries.find(([k]) => k === key);
     if (entry) {
-      const localValue = isFoundedKey(entry[0])
-        ? resolveFoundedDate(shrine.raw, lang)
-        : localizeField(shrine.raw, entry[0]);
+      const localValue = resolveFieldValue(shrine, entry[0], lang, localizeField);
       if (localValue) priorityRows.push([entry[0], localValue]);
     }
   }
@@ -83,9 +101,7 @@ export function ShrineInfobox({ shrine }: Props) {
     // Skip gallery keys
     if (/^Gallery\s*\d+|^Image\s*\d+|^Caption\s*\d+/i.test(key)) continue;
 
-    const localValue = isFoundedKey(key)
-      ? resolveFoundedDate(shrine.raw, lang)
-      : localizeField(shrine.raw, key);
+    const localValue = resolveFieldValue(shrine, key, lang, localizeField);
     if (localValue) remainingRows.push([key, localValue]);
   }
 
@@ -208,7 +224,7 @@ export function ShrineInfobox({ shrine }: Props) {
                   })()}
                 </bdi>
                 {shrine.yearBuiltNote && (
-                  <p className="infobox-note">
+                  <p className="infobox-note" data-latin>
                     {t('sourceNoteLabel')}: <bdi>{shrine.yearBuiltNote}</bdi>
                   </p>
                 )}
@@ -237,7 +253,7 @@ export function ShrineInfobox({ shrine }: Props) {
               <dd className="infobox-value">
                 <bdi>{fmtNum(shrine.eventYear)}</bdi>
                 {shrine.eventNote && (
-                  <p className="infobox-note">
+                  <p className="infobox-note" data-latin>
                     {t('sourceNoteLabel')}: <bdi>{shrine.eventNote}</bdi>
                   </p>
                 )}

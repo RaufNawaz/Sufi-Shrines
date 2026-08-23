@@ -46,6 +46,239 @@
   margin: 0 0 var(--space-4);
 }
 
+/* useFocusHeadingOnMount focuses this h1 after a route change so screen
+   readers announce the new page. The ring that came with it drew a box around
+   the title of every saint, order, graph and almanac page — it reads as a text
+   input, not a heading. shrine.css:122 already did this for .shrine-title; the
+   entity pages were missed. The heading is tabindex="-1", so nothing
+   keyboard-reachable is lost. */
+.entity-title:focus,
+.entity-title:focus-visible {
+  outline: none;
+}
+
+/* A figure_type recorded as a sentence rather than a category, shown under the
+   title. One of the two in the data exists precisely to say the figure is *not*
+   a Sufi pir, so it has to appear as written. */
+.entity-figure-as-recorded {
+  margin: calc(-1 * var(--space-2)) 0 var(--space-4);
+  max-width: 60ch;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  padding-inline-start: var(--space-3);
+  border-inline-start: 2px solid var(--color-border);
+}
+
+[dir='rtl'] .entity-figure-as-recorded {
+  font-size: var(--text-base);
+}
+
+/* Honorifics. Chips rather than a comma list: they are names in their own
+   right, several per figure, and reading them as a run-on sentence loses that. */
+.entity-titles {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+}
+
+.entity-title-chip {
+  padding: 0.15em 0.6em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* A disagreement between sources, presented as one. Bordered rather than
+   tinted red: the archive treats an unresolved contradiction as good content,
+   not as an error state. */
+.entity-disputed {
+  margin: 0 0 var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-inline-start: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+}
+
+.entity-disputed-heading {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .entity-disputed-heading {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--text-base);
+}
+
+.entity-disputed-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.entity-disputed-field {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.entity-disputed-values {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+/* The contested numbers themselves. Every other cell in this row had a rule —
+   the field label is 600 and secondary, the "vs" and the spread are muted and
+   small — and the two dates the sources disagree about, the only content the
+   row exists to show, inherited body text and so read *lighter* than the label
+   beside them. Found by src/styles/__tests__/classNamesStyled.test.ts, which
+   was written for a different bug. */
+.entity-disputed-value {
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.entity-disputed-vs {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.entity-disputed-spread {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+[dir='rtl'] .entity-disputed-vs,
+[dir='rtl'] .entity-disputed-spread {
+  font-size: var(--text-sm);
+}
+
+/* ── An order's geography (derived, not asserted) ─────────────────────────── */
+
+.kg-section-note {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .kg-section-note {
+  font-family: var(--font-urdu);
+}
+
+.order-place-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.order-place-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.order-place-tag:hover,
+.order-place-tag:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+[dir='rtl'] .order-place-tag {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+}
+
+.order-place-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.order-site-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-3);
+}
+
+.order-site-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  text-decoration: none;
+}
+
+.order-site-img,
+.order-site-placeholder {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--color-bg-alt);
+}
+
+.order-site-body {
+  min-width: 0;
+}
+
+.order-site-name {
+  display: block;
+  font-weight: 600;
+  color: var(--color-primary);
+  /* Names in this archive run past 60 characters; two lines, then clip. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[dir='rtl'] .order-site-name {
+  font-family: var(--font-urdu);
+}
+
+.order-site-location {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  /* The Location is Latin on most rows; `plaintext` keeps its ellipsis at the
+     end of the string in the Urdu view rather than eating its beginning. */
+  unicode-bidi: plaintext;
+  text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* ── Entity meta row ─────────────────────────────────────────────────────── */
 
 .entity-meta {
@@ -158,11 +391,74 @@
   gap: var(--space-3);
 }
 
+/* A member of an order: the shrine that holds them on the leading edge, then
+   the name, dates, silsila chips and shrine tags. A grid rather than a flex row
+   so the text column keeps its full width when there is no photograph — which
+   is the case for the fifty-one entries that carry none. */
 .entity-saint-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0 var(--space-3);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border);
+}
+
+/* Everything after the thumbnail sits in the second column. The thumbnail is
+   the first child when it exists; when it does not, `grid-column: 2` on the
+   text rows would leave an empty first column, so the rows are placed by
+   `grid-column: auto` and the thumbnail spans all of them instead. */
+.entity-saint-thumb {
+  grid-row: 1 / -1;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  flex-shrink: 0;
+}
+
+.entity-saint-thumb-img,
+.entity-saint-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The figure's dates, as the graph records them — hedges included. */
+.entity-saint-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .entity-saint-dates {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 480px) {
+  /* On a narrow phone the 72px column costs a third of the line length the
+     names need, so the photograph goes full width above them instead of
+     beside them. */
+  .entity-saint-item {
+    grid-template-columns: 1fr;
+  }
+
+  .entity-saint-thumb {
+    grid-row: auto;
+    width: 100%;
+    height: 120px;
+    margin-block-end: var(--space-2);
+  }
 }
 
 .entity-saint-item-name a {
@@ -223,14 +519,32 @@
   position: relative;
 }
 
+/*
+ * The accent rule beside the infobox title.
+ *
+ * It used to run the full height of the title, flush to the leading edge — so
+ * its top and bottom disappeared into the panel's 12px corner radius, which
+ * `overflow: hidden` on .entity-infobox clips correctly and which therefore
+ * left two tapered slivers hanging at the corners. Worse, it was a cobalt →
+ * gold gradient: over 3px x 50px a gradient cannot read as a gradient, so what
+ * a reader actually saw was a blue chip above an orange chip, looking like a
+ * rendering artefact rather than a mark anyone chose.
+ *
+ * Inset clear of the radius and solid, it reads as what it is — an editorial
+ * rule marking the panel's title, the same gesture as the rules under the
+ * section headings.
+ */
 .entity-infobox-title::before {
   content: '';
   position: absolute;
   inset-inline-start: 0;
-  top: 0;
-  bottom: 0;
+  top: var(--space-3);
+  bottom: var(--space-3);
   width: 3px;
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+  background: var(--color-primary);
+  /* Logical, so the rounded end is the *free* end in both scripts. */
+  border-start-end-radius: 2px;
+  border-end-end-radius: 2px;
 }
 
 .entity-infobox-body {
@@ -452,6 +766,78 @@
   stroke: var(--color-border);
 }
 
+/* Teachers and disciples sit on the same ring as the order and the shrines, so
+   direction has to be legible at a glance: a teacher is filled (the figure
+   received from them), a disciple is hollow (the figure gave onward). Shape
+   rather than hue alone, because hue alone fails for a colour-blind reader and
+   in print. */
+.network-node--teacher {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+.network-node--disciple {
+  fill: var(--color-bg-surface);
+  stroke: var(--color-primary);
+  stroke-width: 2.5;
+  stroke-dasharray: 3 2;
+}
+
+/* ── Network legend ─────────────────────────────────────────────────────── */
+
+.network-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.network-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.network-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+}
+
+.network-legend-swatch--teacher {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Square, matching the diagram: an order is an institution, not a person. */
+.network-legend-swatch--order {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.network-legend-swatch--disciple {
+  background-color: var(--color-bg-surface);
+  border: 2px dashed var(--color-primary);
+}
+
+.network-legend-swatch--saint {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+[dir='rtl'] .network-legend {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
 .network-node--current {
   stroke-width: 3;
   stroke: var(--color-accent);
@@ -497,9 +883,18 @@
 }
 .network-link--order::before {
   background-color: var(--color-primary);
+  border-radius: 2px;
 }
 .network-link--shrine::before {
   background-color: var(--color-border);
+}
+/* Matches the diagram's own coding: teacher filled, disciple hollow. */
+.network-link--teacher::before {
+  background-color: var(--color-primary);
+}
+.network-link--disciple::before {
+  background-color: var(--color-bg-surface);
+  box-shadow: inset 0 0 0 2px var(--color-primary);
 }
 
 .network-link a {
@@ -575,6 +970,121 @@
 .graph-saints-list a {
   display: block;
   padding: 0.4rem 0;
+}
+
+/* ── Figure groups ────────────────────────────────────────────────────────────
+   This list used to be 130 undifferentiated links under a heading reading
+   "All saints" — including Hindu deities and Sikh Gurus, because the graph
+   types every principal figure as `saint`. Grouping by the dataset's own
+   figure_type makes it both honest and scannable; the styling exists to make
+   the group the unit the eye lands on, not the link. */
+
+.graph-figures-note {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  max-width: 62ch;
+  margin-block: 0 var(--space-5);
+}
+
+.graph-figure-group {
+  margin-block-end: var(--space-6);
+}
+
+.graph-figure-group-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-block: 0 var(--space-3);
+  padding-block-end: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  /* The group headings are signposts over a dense list, so they read as small
+     caps rather than as another tier of prose heading. Nastaliq has no small-
+     caps tradition and is unreadable tracked out, so the RTL override below
+     drops both (the same reason .contents-nav-title steps up a size in Urdu). */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .graph-figure-group-heading {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--text-base);
+}
+
+.graph-figure-group-count {
+  margin-inline-start: auto;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+  color: var(--color-text-muted);
+}
+
+/* A figure_type that is a sentence rather than a category — shown as recorded
+   (RULE 2) rather than filed under a label it might contradict. */
+.graph-figure-as-recorded {
+  display: block;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  padding-block-end: var(--space-2);
+  max-width: 44ch;
+}
+
+[dir='rtl'] .graph-figure-as-recorded {
+  font-size: var(--text-sm);
+}
+
+/* An edge nobody has read yet. Deliberately quiet but legible — the point is
+   that a reader can tell reviewed from unreviewed at a glance, not that the
+   page nags. Amber rather than red: unreviewed is a state, not an error. */
+.lineage-unreviewed {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  padding: 0.1em 0.5em;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-accent-text);
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .lineage-unreviewed {
+  font-size: var(--text-sm);
+}
+
+.graph-lineage-edge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+/* The verbatim sentence the edge was read out of. This is the whole basis of
+   trusting an unreviewed claim, so it is shown rather than hidden behind a
+   tooltip — a reader can judge it without leaving the page. */
+.graph-lineage-quote {
+  margin: var(--space-1) 0 0;
+  padding-inline-start: var(--space-3);
+  border-inline-start: 2px solid var(--color-border);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 72ch;
+}
+
+.graph-lineage-cite {
+  display: block;
+  margin-block-start: 0.15em;
+  font-size: var(--text-xs);
+  font-style: normal;
+  color: var(--color-text-muted);
+  word-break: break-word;
 }
 
 .graph-lineage-list {
@@ -753,7 +1263,7 @@
   min-height: 44px;
   padding: var(--space-1) var(--space-3);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full, 999px);
+  border-radius: var(--radius-full);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   text-decoration: none;
@@ -802,4 +1312,218 @@
 
 .typology-grid {
   margin-top: var(--space-4);
+}
+
+/* ── Order membership detail (شاخ, cross-silsila) ─────────────────────────── */
+
+/* A branch is a sub-line inside a silsila — Sarwari Qadiri inside the
+   Qadiriyya. Only 13 of 64 memberships name one, so it rides on the member's
+   row as a chip and simply disappears when absent, rather than becoming a
+   heading that fragments the list. */
+.order-branch-chip {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  padding: 0.1em 0.5em;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .order-branch-chip {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The other silsilas the same figure holds. Each is its own quoted edge, so
+   these are links into the archive's own evidence, not a "see also". */
+.entity-saint-also-in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+  margin-block-start: var(--space-1);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.entity-saint-also-in-label {
+  /* Keeps the label off the tag row's gap rhythm without a nested wrapper. */
+  margin-inline-end: 2px;
+}
+
+/* A second silsila is a claim about a person, so it gets the same weight as
+   the shrine tags below it — a pill, not a coloured word inside a sentence.
+   The border does the distinguishing work that hue alone was doing before, so
+   the link survives greyscale, deuteranopia, and Nastaliq (an underline here
+   crosses the descenders). */
+.entity-saint-order-tag {
+  display: inline-block;
+  font-size: inherit;
+  color: var(--color-primary);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast),
+    background-color var(--duration-fast);
+}
+
+.entity-saint-order-tag:hover,
+.entity-saint-order-tag:focus-visible {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg-alt);
+}
+
+[dir='rtl'] .entity-saint-also-in {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The Arabic form of the order's name, riding alongside the title. Was an
+   inline style object; the codebase keeps presentation in CSS. */
+.entity-title-arabic {
+  margin-inline-start: var(--space-3);
+  font-size: 0.7em;
+  opacity: 0.75;
+}
+
+.entity-saint-altname {
+  margin-inline-start: var(--space-2);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .entity-saint-altname {
+  font-family: var(--font-urdu);
+}
+
+/* The order's one-line summary under its badge on a figure's page. Was an
+   inline style; presentation belongs here. */
+.entity-order-description {
+  margin-block-start: var(--space-3);
+}
+
+/* ── Figure filter (explorer) ────────────────────────────────────────────── */
+
+/* 136 names under seven headings is a list you scroll past rather than find
+   anything in. The filter searches both scripts, so an Urdu reader types Urdu
+   and someone who only knows the Latin spelling still finds the figure. */
+.graph-figure-filter {
+  margin-block: var(--space-4) var(--space-5);
+}
+
+.graph-figure-filter-label {
+  display: block;
+  margin-block-end: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.graph-figure-filter-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+  max-width: 32rem;
+}
+
+.graph-figure-filter-input {
+  flex: 1;
+  min-width: 0;
+  /* 44px so it is a real touch target (CLAUDE.md: accessibility is a
+     requirement, not a nice-to-have). */
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-base);
+}
+
+.graph-figure-filter-input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.graph-figure-filter-clear {
+  min-height: 44px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.graph-figure-filter-clear:hover,
+.graph-figure-filter-clear:focus-visible {
+  color: var(--color-primary);
+}
+
+.graph-figure-filter-count {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.graph-figure-filter-empty {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Nastaliq on inputs and buttons too — i18n rule 4 is explicit that the Urdu
+   face must reach form controls, not just prose. */
+[dir='rtl'] .graph-figure-filter-label,
+[dir='rtl'] .graph-figure-filter-input,
+[dir='rtl'] .graph-figure-filter-clear,
+[dir='rtl'] .graph-figure-filter-count,
+[dir='rtl'] .graph-figure-filter-empty {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .graph-figure-filter-count,
+[dir='rtl'] .graph-figure-filter-empty {
+  font-size: var(--text-sm);
+}
+
+/* ── Next ʿurs on a figure's page ────────────────────────────────────────── */
+
+/* The almanac links each observance to the figure it commemorates; this is the
+   other direction, which is what a reader arriving from a lineage view wants. */
+.entity-urs-flag {
+  margin-inline-start: var(--space-2);
+}
+
+.entity-urs-link {
+  margin-inline-start: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.entity-urs-link:hover,
+.entity-urs-link:focus-visible {
+  text-decoration: underline;
+}
+
+[dir='rtl'] .entity-urs-link {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
 }

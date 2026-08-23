@@ -1,3 +1,4 @@
+import type { Page } from '@playwright/test';
 /**
  * Hermetic Playwright test fixture: every spec imports `test`/`expect` from
  * here instead of '@playwright/test'. The extended context intercepts the
@@ -103,3 +104,38 @@ export const test = base.extend({
 });
 
 export { expect };
+
+/**
+ * Wait until the page stops animating.
+ *
+ * Two separate checks have now measured a transient animated state and reported
+ * it as a defect:
+ *
+ * - the axe sweep read elements part-way through their `reveal-rise` fade and
+ *   blamed the palette for a contrast failure that does not exist, because axe
+ *   composites ancestor `opacity` into the foreground colour (HANDOVER §9.46);
+ * - the mobile-sheet spec measured the bottom sheet 5% into its
+ *   `transition: height` — 134px of an eventual 641px — and concluded the drag
+ *   handle had stopped working.
+ *
+ * Both are the same mistake, so the fix lives in one place. Infinite animations
+ * are skipped by design: the loading spinner is meant to run forever, and it is
+ * the one animation `src/styles/__tests__/motion.test.ts` exempts from the
+ * reduced-motion contract for the same reason.
+ *
+ * This is not a way of averting one's eyes. An animation that *never* finishes
+ * fails the wait, so an element left permanently mid-transition is still
+ * caught — and caught as a stuck animation rather than as whatever it happens
+ * to look like at that instant.
+ */
+export async function settle(page: Page, timeout = 10_000): Promise<void> {
+  await page.waitForFunction(
+    () =>
+      document.getAnimations().every((a) => {
+        if (a.playState !== 'running') return true;
+        return a.effect?.getComputedTiming().iterations === Infinity;
+      }),
+    null,
+    { timeout },
+  );
+}

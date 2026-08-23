@@ -1,9 +1,9 @@
 import React from 'react';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, vi } from 'vitest';
 import { ShrineArticle } from '../shrine/ShrineArticle';
 import { useArticleContent } from '../shrine/useArticleContent';
 import { buildShrine } from '../../lib/data/shrineModel';
-import { applyUrduContentOverrides } from '../../lib/data/urduContentOverride';
+import { applyUrduContentOverrides, loadUrduContent } from '../../lib/data/urduContentOverride';
 import shrinesFixture from '../../data/shrines-fallback.json';
 import { renderWithProviders, findLatinLeaks } from '../../test/utils';
 import type { ShrineRow } from '../../types/shrine';
@@ -11,6 +11,13 @@ import type { ShrineRow } from '../../types/shrine';
 vi.mock('../shrine/ShrineGallery', async () =>
   (await import('../../test/utils')).shrineGalleryMockFactory(),
 );
+
+// The Urdu article payload is loaded on demand in production (it is ~1 MB and
+// an English reader never needs it), so a test that depends on the overrides
+// has to request it the way LanguageProvider does for an Urdu reader.
+beforeAll(async () => {
+  await loadUrduContent();
+});
 
 beforeEach(() => {
   localStorage.clear();

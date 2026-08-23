@@ -106,12 +106,35 @@
   .sidebar {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    /*
+     * Pinned to *both* edges, and this is the load-bearing part of the rule.
+     *
+     * It read `left: 0; right: 0; inset-inline-start: auto !important`, and
+     * `inset-inline-start` is `left` in LTR — so the `auto` cancelled the pin
+     * and left a fixed box with one inset set and `width: auto`, which resolves
+     * to shrink-to-fit. Measured at 390×844 with the shrine list open: the sheet
+     * was **2201px wide and started at x = −1811**, sized by the widest row in
+     * the list and hanging off the left of the screen. The peek looked fine
+     * because its own content is narrower than the viewport, so the bug only
+     * appeared after a reader tapped through to the list — and then the sheet
+     * they had just opened was mostly off-screen, with blank rows where the
+     * names should be.
+     *
+     * `inset-inline: 0` sets both logical edges, so it is correct in RTL too,
+     * where the previous rule cancelled the *right* edge instead and blew the
+     * sheet out to the right. Guarded by e2e/mobile-sheet.spec.ts.
+     */
+    inset-inline: 0 !important;
     top: auto !important;
-    inset-inline-start: auto !important;
     width: auto !important;
-    height: var(--sheet-peek-height, 108px);
+    /* 184px, not 108. At 108 the peek showed the drag handle and the brand row
+       and stopped one pixel above the "Table of Shrines" button — measured at
+       390×844, the button's box runs from 122px to 166px inside the sheet. So a
+       reader on a phone in portrait saw a map, a title, and a 36×4px grey pill,
+       with the only route into 169 sites below the fold and nothing to say so.
+       184px clears the button with room to breathe, and still leaves 78% of a
+       844px screen to the map. */
+    height: var(--sheet-peek-height);
     max-height: calc(80dvh - var(--safe-top));
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     border-inline-end: none;
@@ -130,11 +153,11 @@
     height: min(76dvh, calc(100dvh - 80px));
   }
 
-  /* Peek = collapsed on mobile (shows handle + header) */
+  /* Peek = collapsed on mobile (handle + header + the way in) */
   .sidebar.collapsed {
     width: auto !important;
     transform: none !important;
-    height: var(--sheet-peek-height, 108px);
+    height: var(--sheet-peek-height);
   }
 
   [dir='rtl'] .sidebar.collapsed {
@@ -164,11 +187,24 @@
 }
 
 .sheet-handle-pill {
-  width: 36px;
-  height: 4px;
+  /* Wider and darker than the 36×4 hairline it was. A drag handle is the only
+     affordance the collapsed sheet has, and one drawn in --color-border is
+     deliberately almost invisible (see the hairline-token check in
+     src/styles/__tests__/textColorTokens.test.ts — the same token painting
+     36px type was a contrast failure). */
+  width: 44px;
+  height: 5px;
   border-radius: var(--radius-full);
-  background: var(--color-border);
-  transition: background var(--duration-fast);
+  background: var(--color-text-muted);
+  opacity: 0.55;
+  transition:
+    background var(--duration-fast),
+    opacity var(--duration-fast);
+}
+
+.sidebar-sheet-handle:hover .sheet-handle-pill,
+.sidebar-sheet-handle:focus-visible .sheet-handle-pill {
+  opacity: 1;
 }
 
 .sidebar-sheet-handle:hover .sheet-handle-pill {
@@ -183,7 +219,21 @@
   border-bottom: 1px solid var(--color-border-light);
   flex-shrink: 0;
   background: var(--color-bg-surface);
+  /* Sticky on the desktop column and the top of the mobile sheet, so the list
+     scrolls *under* it; the glass below keeps that legible without hiding what
+     is passing behind. */
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding-top: calc(var(--space-3) + var(--safe-top));
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sidebar-header {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
 }
 
 .sidebar-brand {
@@ -212,6 +262,33 @@
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: -0.01em;
+  /* `min-width: 0` so the title is the flex item that gives way.
+     Without it a nowrap heading refuses to shrink below its content and pushes
+     the row past the viewport instead — measured at 390px in Urdu, where
+     "صوفی مزارات" in Nastaliq is wider than the English title and overflowed the
+     brand row by 12px. Caught by e2e/no-overflow.spec.ts, which exists for
+     exactly this: a layout that fits in English and does not in Urdu. */
+  min-width: 0;
+}
+
+/* Nastaliq needs vertical room its Latin counterpart does not — the script's
+   descenders and the kerning of its ligatures both sit below the baseline — and
+   the extra line-height is what keeps the glyphs from being clipped by the
+   `overflow: hidden` above. */
+[dir='rtl'] .sidebar-title {
+  font-family: var(--font-urdu);
+  line-height: 1.9;
+  letter-spacing: normal;
+}
+
+/* At 390px the brand row holds the title, the theme toggle and the language
+   segment; the Urdu title is the widest of the three and the only one that can
+   give. A notch smaller here means it fits whole rather than being clipped to
+   "صوفی مز…" — measured 12px over at --text-base on a 390px screen. */
+@media (max-width: 420px) {
+  [dir='rtl'] .sidebar-title {
+    font-size: var(--text-sm);
+  }
 }
 
 .sidebar-actions {
@@ -295,14 +372,28 @@
   flex: 1;
   min-width: 0;
   position: relative;
-  /* Leaflet numbers its own panes 200–700 and the plugin's GL layer sits among
-     them. Without a stacking context here those numbers land in the root
-     context, where they outrank --z-sidebar (20) — so on mobile, where the
-     sheet overlaps the map, the whole sidebar painted *under* the basemap and
-     stopped receiving taps. --z-map exists for exactly this and was never
-     applied to anything. Removing it re-buries the sheet; see
+  /* Trap Leaflet's z-index scale inside its own stacking context.
+
+     Leaflet numbers its internals in the hundreds — .leaflet-pane 400,
+     .leaflet-control 800, .leaflet-bottom 1000 — and the maplibre-gl-leaflet
+     GL layer sits among them, while this app's scale (tokens.css) tops out at
+     --z-lightbox: 60. `position: relative` alone does NOT create a stacking
+     context, so those vendor values competed directly against --z-sidebar (20)
+     in the root context and won: on mobile, where the sidebar is a fixed bottom
+     sheet overlapping the map, the basemap painted OVER the whole sheet and it
+     stopped receiving taps — no brand, no language toggle, no list, no
+     selected-shrine card, in portrait only (landscape gives the sidebar its own
+     flex column, so nothing overlaps and nothing looked wrong).
+
+     Two branches found this independently and fixed it two ways; both are kept
+     because they say different things. --z-map is the token that has existed for
+     exactly this purpose since the scale was written, applied to nothing until
+     now, and it states where the map sits. `isolation: isolate` states the
+     intent — resolve Leaflet's whole stack at this element's level — and would
+     still hold if the z-index were ever removed. Guarded by
      e2e/mobile-sheet.spec.ts. */
   z-index: var(--z-map);
+  isolation: isolate;
 }
 
 #map {
@@ -624,18 +715,34 @@
 }
 
 .filter-chips {
-  /* These are short, fixed option sets (a handful of pills per group) — wrap
-     them rather than hiding the overflow behind a scroll+fade, which read as
-     a cut-off label ("Hindu & Jai...") rather than "scroll for more". */
+  /* Wrap rather than hiding the overflow behind a scroll+fade, which reads as
+     a cut-off label ("Hindu & Jai...") rather than "scroll for more".
+     This comment used to say "short, fixed option sets (a handful of pills per
+     group)". True of categories and regions; the saint facet has 147 chips and
+     several are qualified names — hence the clamp below. */
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .filter-chip {
   flex-shrink: 0;
+  /* A chip can never be wider than the column it sits in. Measured before this
+     rule: the sidebar is 380px and the widest saint chip was 1163px — "Malik
+     Ahmad Ayaz (also given as "Malik Ayaz Ahmad" and "Malik Ayaz"), described in
+     the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore" —
+     so the saint row's scrollWidth was 1179 against a clientWidth of 379 and the
+     filter overflowed its own panel threefold.
+
+     Clamped rather than shortened at the source: the value is the join key that
+     matches rows (CLAUDE.md RULE 3), and the qualification in it is real
+     content. The full string stays reachable through the chip's `title`. */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: var(--space-1) var(--space-4);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-full);
@@ -1270,6 +1377,10 @@
   line-height: 34px !important;
   font-size: var(--text-lg) !important; /* vendor: .leaflet-touch zoom buttons set 22px */
   background: var(--color-bg-surface) !important; /* vendor :hover/.leaflet-disabled set grays */
+  /* Glass, from the shared tokens — the same material as the command palette
+     and the mobile sheet header, so the map's chrome belongs to the same
+     interface. Applied inside @supports below, because these buttons sit over
+     arbitrary tiles and an unsupported blur would leave text on live map. */
   color: var(--color-text) !important;
   border-bottom: 1px solid var(--color-border-light);
   transition:
@@ -1279,6 +1390,18 @@
 
 .leaflet-bar a:last-child {
   border-bottom: none;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .leaflet-bar a {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  .leaflet-bar {
+    border-color: var(--glass-border) !important;
+  }
 }
 
 .leaflet-bar a:hover {
@@ -1317,19 +1440,29 @@
   justify-content: center;
 }
 
-/* The rule above removes the vendor's sprite icon; until 22 Aug 2026 nothing
-   replaced it, so the toggle shipped as a blank white square (seen on a real
-   phone in production). A mask + background-color draws the stacked-layers
-   glyph in a theme token — a data-URI SVG alone couldn't follow dark mode. */
+/* The rule above suppresses Leaflet's sprite (it is a raster PNG that ignores
+   the theme) and centres a flex child — but the vendor's toggle is an empty
+   <a>, so there was no child to centre and the control rendered as a blank
+   white square in the corner of the map, the only button on the map with no
+   glyph. Draw the layers glyph here instead: a mask means it inherits
+   currentColor and so follows dark mode, which the sprite never did. */
 .leaflet-control-layers-toggle::after {
   content: '';
   width: 18px;
   height: 18px;
+  background-color: var(--color-text-secondary);
+  -webkit-mask-image: var(--icon-layers);
+  mask-image: var(--icon-layers);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.leaflet-control-layers-toggle:hover::after {
   background-color: var(--color-text);
-  -webkit-mask: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E")
-    no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E")
-    no-repeat center / contain;
 }
 
 .leaflet-control-layers-expanded {
@@ -1547,6 +1680,15 @@
   .sidebar-sheet-handle {
     min-height: 44px;
   }
+
+  /* Lift Leaflet's bottom row above the sheet's peek. Two reasons, and the
+     second is not cosmetic: the zoom control was clipped by the sheet and so
+     unusable, and the attribution — which Leaflet's licence terms require be
+     visible — was hidden behind it entirely. Both live in .leaflet-bottom, so
+     one offset fixes both. Guarded by e2e/mobile-sheet.spec.ts. */
+  .leaflet-bottom {
+    bottom: calc(var(--sheet-peek-height) + var(--safe-bottom));
+  }
 }
 
 /* ── TimeSlider ───────────────────────────────────────────────────────────── */
@@ -1600,7 +1742,7 @@
 .time-slider-track:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 
 .time-slider-ticks {

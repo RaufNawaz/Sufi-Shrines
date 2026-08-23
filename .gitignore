@@ -83,6 +83,10 @@ media-source/
 data/*.csv
 !data/schema_patch.csv
 !data/patch_*.csv
+# Dated full-sheet restore points (npm run data:snapshot). Committed on purpose:
+# the sheet is production and an import replaces it, so the point before an
+# import has to be recoverable from a commit, not from someone Downloads folder.
+!data/snapshot_*.csv
 docs/prompts/PROMPT_post_import.md
 PROMPT_post_import.md
 *.bak

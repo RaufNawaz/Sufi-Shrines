@@ -120,6 +120,31 @@ delete saintOrders.comment;
 const qidMap = seeds.saintWikidataQids ?? {};
 const lineageRelations = seeds.lineageRelations ?? [];
 
+/* ── machine-extracted proposals ───────────────────────────────────────────────
+   data/kg-lineage-proposals.json and data/kg-order-proposals.json are agent
+   extractions from the archive's own English prose, every claim carrying a
+   verbatim quote. scripts/data/verify-kg-proposals.mjs re-checks each quote
+   against the source it names, so what lands here is provably not fabricated —
+   but "not fabricated" is not "reviewed", and RULE 2 is explicit that machine
+   output is a draft until a human reads it. So every relation derived from them
+   is marked `method: 'machine-extracted'` and `reviewed: false`, keeps its
+   quote and source, and the UI is expected to say so.
+
+   This is the difference between the graph being thin and the graph being
+   wrong: before this the explorer had 6 lineage edges across 130 figures, so
+   the lineage feature had almost nothing to show. Filling it from the project's
+   own field surveys and cited texts is the point; pretending the fill is
+   reviewed would not be. */
+function loadProposals(file) {
+  const path = join(ROOT, 'data', file);
+  if (!existsSync(path)) return [];
+  const doc = JSON.parse(readFileSync(path, 'utf8'));
+  return doc.proposals ?? [];
+}
+const lineageProposals = loadProposals('kg-lineage-proposals.json');
+const orderProposals = loadProposals('kg-order-proposals.json');
+const dateProposals = loadProposals('kg-saint-dates-proposals.json');
+
 // ── generate shrine slugs (same logic as the app) ────────────────────────────
 
 const shrineSlugs = buildSlugs(rows);
@@ -135,6 +160,11 @@ const orders = seedOrders.map((o) => ({
   arabicName: o.arabicName,
   founded: o.founded,
   description: o.description,
+  // The same one-liner in Urdu. English prose in the Urdu view is an
+  // untranslated sentence, not a citation, so OrderPage/SaintPage drop the
+  // English rather than print it (i18n rule 7) — an order with no
+  // `descriptionUr` simply shows no summary in Urdu.
+  ...(o.descriptionUr ? { descriptionUr: o.descriptionUr } : {}),
   ...(o.wikidataQid ? { wikidataQid: o.wikidataQid } : {}),
 }));
 
@@ -155,6 +185,19 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
 
   const altNames = extractParenthetical(rawSaint).filter((n) => n !== canonical);
 
+  // figure_type says WHAT this figure is, and the dataset fills it for 168 of
+  // 169 rows: 'Sufi saint' (70), 'Deity' (33), 'Sikh Guru' (28), 'Sant' (17),
+  // 'Historical person' (11), 'Individual', 'Collective', plus two rows whose
+  // value is a hedged sentence rather than a category. It was never carried
+  // into the graph, so every one of these entities was typed `saint` — which
+  // is how the explorer came to list Durga, Kali, Krishna, Guru Nanak and
+  // "Jain Tirthankaras" under a heading reading "All saints". On an archive
+  // that sets out to cover six traditions honestly, that is a terminology
+  // failure, not a cosmetic one (CLAUDE.md: respect the traditions in copy and
+  // terminology). Carried verbatim — RULE 2 — so the two prose values stay
+  // prose and the UI decides how to present them.
+  const figureType = String(row['figure_type'] ?? '').trim();
+
   if (!saintMap.has(saintSlug)) {
     const qidEntry = qidMap[saintSlug];
     saintMap.set(saintSlug, {
@@ -164,11 +207,60 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
       name: canonical,
       altNames: [...altNames],
       shrines: [],
+      ...(figureType ? { figureType } : {}),
       ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
     });
   }
 
   const entity = saintMap.get(saintSlug);
+
+  // One canonical figure can be reached from several shrines, and those rows do
+  // not always agree on figure_type (e.g. a Sikh Guru recorded as 'Sikh Guru'
+  // at one gurdwara and 'Historical person' at another). Keep the first and
+  // log the disagreement rather than letting row order decide silently.
+  if (figureType && entity.figureType && entity.figureType !== figureType) {
+    const alreadyLogged = reviewNeeded.some(
+      (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'figure-type-conflict',
+    );
+    if (!alreadyLogged) {
+      reviewNeeded.push({
+        issue: 'figure-type-conflict',
+        entityId: `saint:${saintSlug}`,
+        details: `figure_type differs across this figure's shrines: kept "${entity.figureType}", also saw "${figureType}". Decide which is right in the sheet.`,
+      });
+    }
+  } else if (figureType && !entity.figureType) {
+    entity.figureType = figureType;
+  }
+
+  /* The sheet's own dates. Like figure_type these were never carried, so the
+     graph held ZERO born/died values while `figure_born` is filled for 66 rows
+     and `figure_died` for 71 — saint pages simply showed no dates. Kept
+     verbatim, because the archive's editorial standard treats a hedged date as
+     correct content: "between about 1072 and 1077 CE (465–469 AH)" must not
+     become 1072. These are authoritative; the machine-extracted proposals
+     merged further down only fill what is still empty. */
+  for (const [field, column] of [
+    ['born', 'figure_born'],
+    ['died', 'figure_died'],
+  ]) {
+    const value = String(row[column] ?? '').trim();
+    if (!value) continue;
+    if (entity[field] && entity[field] !== value) {
+      const alreadyLogged = reviewNeeded.some(
+        (r) => r.entityId === `saint:${saintSlug}` && r.issue === `${field}-conflict`,
+      );
+      if (!alreadyLogged) {
+        reviewNeeded.push({
+          issue: `${field}-conflict`,
+          entityId: `saint:${saintSlug}`,
+          details: `${column} differs across this figure's shrines: kept "${entity[field]}", also saw "${value}".`,
+        });
+      }
+    } else if (!entity[field]) {
+      entity[field] = value;
+    }
+  }
 
   if (!entity.shrines.includes(shrineSlug)) {
     entity.shrines.push(shrineSlug);
@@ -193,6 +285,97 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
       });
     }
   }
+}
+
+/* Teachers named in the prose who have no shrine in this archive — Hujwiri's
+   master al-Khuttali, Mian Mir's Shaikh Siyustani, and 60-odd others. They are
+   real graph nodes: without them a lineage stops at the first person who
+   happens not to have a shrine here, which is most of them. But they are NOT
+   archive entries, and listing them beside the documented figures would inflate
+   the archive's own counts and imply coverage that does not exist. So they are
+   flagged `lineageOnly` and the UI keeps them out of the "Figures in the
+   archive" list while still drawing them in a lineage. */
+for (const p of lineageProposals) {
+  for (const side of ['subject', 'object']) {
+    const slug = p[`${side}Slug`];
+    const name = p[`${side}Name`];
+    if (!slug || saintMap.has(slug)) continue;
+    saintMap.set(slug, {
+      id: `saint:${slug}`,
+      type: 'saint',
+      slug,
+      name: name || slug,
+      altNames: [],
+      shrines: [],
+      lineageOnly: true,
+      reviewed: false,
+    });
+  }
+}
+
+/* Biographical anchors — dates, titles, alt-names — read out of the same prose.
+   Only fills what is EMPTY: a value already in the sheet is the sheet's to
+   change (RULE 3), and 17 of these proposals disagree with a column. Those
+   disagreements are recorded in the proposals file under `disagreesWithColumn`
+   for a human, not resolved here. Values the extractor withheld
+   (`blockedFields`) stay withheld — the verifier fails the build if one is ever
+   promoted back into a live field. */
+for (const p of dateProposals) {
+  const saint = saintMap.get(p.saintSlug);
+  if (!saint) continue;
+  let touched = false;
+
+  for (const field of ['born', 'died']) {
+    const value = typeof p[field] === 'string' ? p[field].trim() : '';
+    if (!value) continue;
+    if (p.blockedFields && field in p.blockedFields) continue;
+    if (!saint[field]) {
+      saint[field] = value;
+      touched = true;
+    }
+  }
+  if (p.precision && !saint.datePrecision) {
+    saint.datePrecision = p.precision;
+    touched = true;
+  }
+  for (const title of p.titles ?? []) {
+    saint.titles ??= [];
+    if (!saint.titles.includes(title)) {
+      saint.titles.push(title);
+      touched = true;
+    }
+  }
+  for (const alt of p.altNames ?? []) {
+    saint.altNames ??= [];
+    if (!saint.altNames.includes(alt) && alt !== saint.name) {
+      saint.altNames.push(alt);
+      touched = true;
+    }
+  }
+  if (touched) {
+    saint.biographyReviewed = false;
+    if (p.source) saint.biographySource = p.source;
+  }
+}
+
+/* Dates the sources refuse to agree on. Carried onto the figure so a page can
+   show the disagreement instead of picking a winner — the archive's editorial
+   standard is that a contradiction reported is better content than a clean
+   number (CLAUDE.md RULE 2). Eleven figures have one, the widest being a
+   68-year spread on Mian Umar Baba's death. */
+const datesDoc = existsSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'))
+  ? JSON.parse(readFileSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'), 'utf8'))
+  : {};
+for (const d of datesDoc.disputedDates ?? []) {
+  const saint = saintMap.get(d.saintSlug);
+  if (!saint) continue;
+  saint.disputedDates ??= [];
+  saint.disputedDates.push({
+    field: d.field,
+    values: d.values ?? [],
+    ...(d.spreadYears != null ? { spreadYears: d.spreadYears } : {}),
+    ...(d.quotes ? { quotes: d.quotes } : {}),
+  });
 }
 
 const saints = [...saintMap.values()];
@@ -360,6 +543,62 @@ for (const rel of lineageRelations) {
   });
 }
 
+/* Verified machine-extracted lineage edges. Deliberately emitted AFTER the
+   hand-curated seed loop so a seed always wins the id collision below: a human
+   reading beats an extraction of the same pair. */
+for (const p of lineageProposals) {
+  const { subjectSlug, relation, objectSlug, confidence, source, quote, notes } = p;
+  if (!subjectSlug || !relation || !objectSlug) continue;
+  if (!saintBySlug.has(subjectSlug) || !saintBySlug.has(objectSlug)) continue;
+  const id = `${relation}:saint:${subjectSlug}:saint:${objectSlug}`;
+  if (relations.some((r) => r.id === id)) continue;
+  relations.push({
+    id,
+    type: relation,
+    subject: `saint:${subjectSlug}`,
+    object: `saint:${objectSlug}`,
+    confidence: confidence ?? 0.7,
+    method: 'machine-extracted',
+    reviewed: false,
+    source,
+    quote,
+    ...(notes ? { notes } : {}),
+  });
+}
+
+/* Verified machine-extracted order memberships. A proposal may place a figure
+   in more than one order — several silsila values are compound ("Qadri
+   Shattari", "Chishti Qadri") — so this emits one edge per parent order rather
+   than forcing a single choice. `isProseNotValue` proposals carry no parent by
+   construction (the verifier fails the build if one ever does), so they add no
+   edge here; their text belongs on the page, not in the taxonomy. */
+for (const p of orderProposals) {
+  const { saintSlug, parentOrder, parentOrders, branch, asRecorded, confidence, source, quote } = p;
+  if (!saintSlug || !saintBySlug.has(saintSlug)) continue;
+  const targets = [parentOrder, ...(parentOrders ?? [])].filter(Boolean);
+  for (const orderSlug of targets) {
+    if (!orderBySlug.has(orderSlug)) continue;
+    const id = `belongs_to_order:saint:${saintSlug}:order:${orderSlug}`;
+    if (relations.some((r) => r.id === id)) continue;
+    relations.push({
+      id,
+      type: 'belongs_to_order',
+      subject: `saint:${saintSlug}`,
+      object: `order:${orderSlug}`,
+      confidence: confidence ?? 0.7,
+      method: 'machine-extracted',
+      reviewed: false,
+      source,
+      quote,
+      // The branch and the raw cell are the information a parent-order edge
+      // loses. Carried so the UI can say "Naqshbandi-Mujaddidi", not just
+      // "Naqshbandiyya", and can show the cell as recorded (RULE 3).
+      ...(branch ? { branch } : {}),
+      ...(asRecorded ? { asRecorded } : {}),
+    });
+  }
+}
+
 // saint → commemorated_by → event
 for (const event of events) {
   if (!event.saintSlug) continue;
@@ -410,6 +649,32 @@ const kg = {
 
 writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
 
+// ── slim lookup for the shrine route ─────────────────────────────────────────
+// ShrinePage renders exactly one thing out of the graph: a link from the
+// shrine's named figure to that figure's entity page. Importing src/lib/kg.ts
+// for it pulled the whole 317 KB graph chunk onto a hot route — measured on
+// 20 August 2026 as 40% of that route's eager JS, for one href. So the shrine
+// → figure edge ships as its own index instead. Keep it to slugs: the moment
+// this grows a second field it stops being cheaper than the graph.
+const shrineFigures = {};
+for (const relation of relations) {
+  if (relation.type !== 'buried_at') continue;
+  const saintSlug = relation.subject.replace(/^saint:/, '');
+  const shrineSlug = relation.object.replace(/^shrine:/, '');
+  if (!saints.some((s) => s.slug === saintSlug)) continue;
+  (shrineFigures[shrineSlug] ??= []).push(saintSlug);
+}
+const sortedShrineFigures = Object.fromEntries(
+  Object.keys(shrineFigures)
+    .sort()
+    .map((shrineSlug) => [shrineSlug, shrineFigures[shrineSlug]]),
+);
+writeFileSync(
+  join(ROOT, 'data', 'kg-shrine-figures.json'),
+  JSON.stringify(sortedShrineFigures, null, 2) + '\n',
+  'utf8',
+);
+
 // ── summary ───────────────────────────────────────────────────────────────────
 
 console.log(`[kg] ✓ saints: ${stats.saints}  orders: ${stats.orders}  places: ${stats.places}  events: ${stats.events}`);
@@ -417,4 +682,7 @@ console.log(`[kg] ✓ relations: ${stats.relations}  (${stats.ambiguousMerges} m
 if (reviewNeeded.length > 0) {
   console.log(`[kg] ⚠  ${reviewNeeded.length} item(s) need review → see data/kg.json reviewNeeded`);
 }
+console.log(
+  `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,
+);
 console.log('[kg] ✓ data/kg.json written');

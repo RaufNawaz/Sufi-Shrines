@@ -101,6 +101,9 @@ export interface LineageLink {
   relation: LineageRelationType;
   quote?: string;
   source?: string;
+  /** False when no human has read this edge yet (RULE 2). */
+  reviewed: boolean;
+  confidence: number;
 }
 
 const LINEAGE_TYPES: LineageRelationType[] = ['disciple_of', 'successor_of'];
@@ -110,6 +113,8 @@ function toLineageLink(r: KGRelation, saint: KGSaint | undefined): LineageLink |
   return {
     saint,
     relation: r.type as LineageRelationType,
+    reviewed: r.reviewed !== false,
+    confidence: r.confidence,
     ...(r.quote ? { quote: r.quote } : {}),
     ...(r.source ? { source: r.source } : {}),
   };
@@ -140,6 +145,12 @@ export interface LineageEdge {
   subject: KGSaint;
   relation: LineageRelationType;
   object: KGSaint;
+  /** False when no human has read this edge yet — it was extracted from the
+   * archive's own prose and quote-verified, but not reviewed (RULE 2). */
+  reviewed: boolean;
+  confidence: number;
+  source?: string;
+  quote?: string;
 }
 
 /** Every recorded disciple_of/successor_of edge, resolved to saint records —
@@ -151,9 +162,56 @@ export function getAllLineageEdges(): LineageEdge[] {
       const subject = getSaintBySlug(r.subject.replace(/^saint:/, ''));
       const object = getSaintBySlug(r.object.replace(/^saint:/, ''));
       if (!subject || !object) return null;
-      return { subject, relation: r.type as LineageRelationType, object };
+      return {
+        subject,
+        relation: r.type as LineageRelationType,
+        object,
+        reviewed: r.reviewed !== false,
+        confidence: r.confidence,
+        ...(r.source ? { source: r.source } : {}),
+        ...(r.quote ? { quote: r.quote } : {}),
+      };
     })
     .filter((e): e is LineageEdge => e !== null);
+}
+
+/** Figures the archive actually documents — i.e. everyone with a shrine here.
+ * Excludes the ~60 `lineageOnly` nodes, which exist so a lineage does not stop
+ * at the first teacher who has no shrine in Pakistan. Any count or list that
+ * describes the archive's coverage must use this, not `kg.saints`. */
+export function getArchiveFigures(): KGSaint[] {
+  return kg.saints.filter((s) => !s.lineageOnly);
+}
+
+/** The order membership(s) recorded for a saint, with the branch and the raw
+ * sheet cell preserved. `getOrderForSaint` returns only the first; a compound
+ * silsila ("Qadri Shattari") legitimately yields more than one. */
+export interface OrderMembership {
+  order: KGOrder;
+  branch?: string;
+  asRecorded?: string;
+  reviewed: boolean;
+  confidence: number;
+  source?: string;
+  quote?: string;
+}
+
+export function getOrderMemberships(saintSlug: string): OrderMembership[] {
+  return getRelations({ subject: `saint:${saintSlug}`, type: 'belongs_to_order' })
+    .map((r) => {
+      const order = getOrderBySlug(r.object.replace(/^order:/, ''));
+      if (!order) return null;
+      return {
+        order,
+        reviewed: r.reviewed !== false,
+        confidence: r.confidence,
+        ...(r.branch ? { branch: r.branch } : {}),
+        ...(r.asRecorded ? { asRecorded: r.asRecorded } : {}),
+        ...(r.source ? { source: r.source } : {}),
+        ...(r.quote ? { quote: r.quote } : {}),
+      };
+    })
+    .filter((m): m is OrderMembership => m !== null);
 }
 
 /** Raw store for advanced queries (read-only). */

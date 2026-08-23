@@ -29,6 +29,8 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
           <Link to="/graph">{t('graphExplorerTitle')}</Link>
           <Link to="/report">{t('reportTitle')}</Link>
           <Link to="/typology">{t('typologyTitle')}</Link>
+          <Link to="/coverage">{t('coverageTitle')}</Link>
+          <Link to="/about">{t('aboutTitle')}</Link>
         </nav>
       )}
     </div>

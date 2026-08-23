@@ -113,7 +113,9 @@ try {
 
   if (!tsvOnly) {
     process.stdout.write(
-      '\n# ── Netlify _redirects (paste into public/_redirects) ──────────────────────\n',
+      '\n# ── Netlify _redirects (paste into public/_redirects) ──────────────────────\n' +
+        '# NOTE: GitHub Pages ignores _redirects entirely — see the header of that\n' +
+        '# file. A redirect pasted there will not run on this host.\n',
     );
     for (const { legacySlug, stableSlug } of changed) {
       process.stdout.write(`/shrine/${legacySlug}  /shrine/${stableSlug}  301\n`);

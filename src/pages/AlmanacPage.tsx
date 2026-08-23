@@ -2,12 +2,15 @@ import React, { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { tFn } from '../lib/i18n/uiStrings';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { localizeObservance } from '../lib/i18n/localizeObservance';
+import { primaryFigureSlug } from '../lib/kgShrineFigures';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
 import { downloadIcsFile } from '../lib/data/icsDownload';
@@ -33,20 +36,35 @@ function ObservanceCard({
   entry,
   lang,
   anchorId,
+  index = 0,
 }: {
   entry: AlmanacEntry;
   lang: Lang;
   /** Set on a shrine's first card in the year listing so /almanac#<slug>
    * (the link on the shrine page) lands here. */
   anchorId?: string | undefined;
+  /** Position in its list, for the entrance stagger. */
+  index?: number;
 }) {
   const { t, fmtNum, localizeField } = useLang();
   const { shrine, observance, window, approximate } = entry;
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const monthOnly = observance.precision === 'month';
+  // An ʿurs is a death anniversary, so the figure it commemorates is the point
+  // of the entry — and now that the knowledge graph is populated, the reader
+  // can go straight from "whose ʿurs is this week" to that figure's lineage
+  // and order. The name comes from the sheet (the reader's own language via
+  // localizeField); only the link target comes from the graph, via the 11 KB
+  // shrine → figure index rather than the whole graph (see kgShrineFigures.ts).
+  const figureName = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
+  const figureSlug = primaryFigureSlug(shrine.slug);
 
   return (
-    <li className="almanac-entry" id={anchorId}>
+    <li
+      className="almanac-entry reveal-rise"
+      id={anchorId}
+      style={{ '--stagger-index': index } as React.CSSProperties}
+    >
       <div className="almanac-entry-date">
         <span className="almanac-entry-date-main">
           {formatDateWindow(window, lang, fmtNum, { monthOnly })}
@@ -68,8 +86,34 @@ function ObservanceCard({
           </Link>
         </h3>
         {location ? (
-          <p className="almanac-entry-location">
+          /* The CSS clamps this to two lines because several field-survey rows
+             carry a paragraph of qualification in the Location column rather
+             than a place name. `title` is what makes the clamped remainder
+             reachable — without it the qualification, which is the honest part,
+             was simply unreadable.
+
+             `data-latin` declares the element, not just its visible run. That
+             prose is the survey's own wording and is often still English;
+             <bdi> says so for the text, and the same string is repeated in
+             `title` where <bdi> cannot reach. The accessible-name guard reads
+             `data-latin`, so the attribute has to declare itself the way the
+             text already does — otherwise that guard either misses every
+             untranslated tooltip or fails on all of them. */
+          <p className="almanac-entry-location" title={location} data-latin>
             <bdi>{location}</bdi>
+          </p>
+        ) : null}
+
+        {figureName ? (
+          <p className="almanac-entry-figure">
+            <span className="almanac-entry-source-label">{t('almanacFigureLabel')}: </span>
+            {figureSlug ? (
+              <Link to={`/saint/${figureSlug}`}>
+                <bdi>{figureName}</bdi>
+              </Link>
+            ) : (
+              <bdi>{figureName}</bdi>
+            )}
           </p>
         ) : null}
 
@@ -140,6 +184,14 @@ export default function AlmanacPage() {
     document.getElementById(slug)?.scrollIntoView({ block: 'start' });
   }, [almanac.dated.length]);
 
+  /* Month numbers appearing more than once across the window — the twelve-month
+     span wraps, so its first and last group share a name. */
+  const repeatedMonthNames = useMemo(() => {
+    const counts = new Map<number, number>();
+    for (const group of months) counts.set(group.month, (counts.get(group.month) ?? 0) + 1);
+    return new Set([...counts].filter(([, n]) => n > 1).map(([month]) => month));
+  }, [months]);
+
   const downloadIcs = () => {
     const ics = buildIcs(almanac.dated, {
       baseUrl: `${window.location.origin}${import.meta.env.BASE_URL}`.replace(/\/$/, ''),
@@ -152,9 +204,6 @@ export default function AlmanacPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           <svg
@@ -181,11 +230,12 @@ export default function AlmanacPage() {
       <article
         className="entity-page almanac-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
         <ScrollToTop />
-        <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+        <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
           <ol>
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>
@@ -224,8 +274,14 @@ export default function AlmanacPage() {
             ))}
           </ul>
           <p className="almanac-coverage-total">
-            {fmtNum(counts.dayPrecision + counts.monthPrecision)} {t('almanacCoverageOf')}{' '}
-            {fmtNum(counts.totalShrines)} {t('almanacCoverageSites')}
+            {fmtNum(
+              tFn(
+                lang,
+                'almanacCoverageTotal',
+                counts.dayPrecision + counts.monthPrecision,
+                counts.totalShrines,
+              ),
+            )}
           </p>
         </section>
 
@@ -245,7 +301,12 @@ export default function AlmanacPage() {
                 </h2>
                 <ul className="almanac-list almanac-list--upcoming stagger-in">
                   {upcoming.map((entry, i) => (
-                    <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} />
+                    <ObservanceCard
+                      key={`${entry.shrine.slug}-${i}`}
+                      entry={entry}
+                      lang={lang}
+                      index={i}
+                    />
                   ))}
                 </ul>
               </section>
@@ -264,11 +325,46 @@ export default function AlmanacPage() {
               </div>
               <p className="almanac-hint">{t('almanacDownloadIcsHint')}</p>
 
+              {/* Twelve month sections is a long scroll to reach next spring.
+                  Anchor links rather than a scripted scroller: they work
+                  without JavaScript, they are focusable and announced as links,
+                  and `scroll-behavior: smooth` on the container gives the
+                  motion — which `prefers-reduced-motion` then removes for free,
+                  because the browser honours it for scrolling natively. */}
+              {months.length > 1 && (
+                <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
+                  <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
+                  <ul className="almanac-month-nav-list">
+                    {months.map((group) => (
+                      <li key={`nav-${group.year}-${group.month}`}>
+                        <a href={`#almanac-${group.year}-${group.month}`}>
+                          {gregorianMonthName(group.month, lang)}
+                          {/* A twelve-month window starts and ends in the same
+                              month, so two pills read "August" — the year is
+                              what tells them apart, and is shown only on the
+                              names that actually repeat. */}
+                          {repeatedMonthNames.has(group.month) && (
+                            <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
+                          )}
+                          <span className="almanac-month-nav-count">
+                            {fmtNum(group.entries.length)}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+
               {months.length === 0 ? (
                 <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
               ) : (
                 months.map((group) => (
-                  <div key={`${group.year}-${group.month}`} className="almanac-month">
+                  <div
+                    key={`${group.year}-${group.month}`}
+                    id={`almanac-${group.year}-${group.month}`}
+                    className="almanac-month"
+                  >
                     <h3 className="almanac-month-heading">
                       {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
                     </h3>
@@ -283,6 +379,7 @@ export default function AlmanacPage() {
                               ? entry.shrine.slug
                               : undefined
                           }
+                          index={i}
                         />
                       ))}
                     </ul>
@@ -328,8 +425,16 @@ export default function AlmanacPage() {
                       <Link to={`/shrine/${entry.shrine.slug}`}>
                         <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
                       </Link>
-                      <span className="almanac-plain-source">
-                        <bdi>{entry.sourceText}</bdi>
+                      {/* The observance as the sheet records it — "Annual urs",
+                          "Maha Shivratri", "Sikh pilgrimage; Guru Nanak
+                          Gurpurab". Semicolon-joined, so localizeObservance
+                          translates it segment by segment and leaves an unknown
+                          segment exactly as written (RULE 2 — show what the
+                          source says). `data-latin` declares whatever is left,
+                          so e2e/urdu-no-leak.spec.ts counts the remaining debt
+                          rather than waving it through. */}
+                      <span className="almanac-plain-source" data-latin>
+                        <bdi>{localizeObservance(entry.sourceText, lang)}</bdi>
                       </span>
                     </li>
                   ))}

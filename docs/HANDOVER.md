@@ -17,9 +17,11 @@ Live at **`raufnawaz.github.io/Sufi-Shrines/`**.
 
 Each site has a location, a prose description, provenance metadata, and where available
 photographs taken by our own enumerators. The archive's distinguishing claim is not coverage —
-Punjab Auqaf alone administers **534** shrines against our **167** — but *honesty about
-provenance*: a visitor should be able to tell a field-verified entry from one compiled off the
-web.
+Punjab Auqaf alone administers **534** shrines against our **169** (*count as of 21 August
+2026*) — but *honesty about provenance*: a visitor should be able to tell a field-verified entry
+from one compiled off the web. `/coverage` computes that comparison, and everything behind it,
+from the shipped data on every page load, so the reader is never relying on a number in a
+document.
 
 ### People
 
@@ -787,6 +789,1368 @@ nothing errored.
     Wikidata/Commons round-trip) therefore cannot run in this sandbox at all — it needs a
     wider-egress environment or a human-run script. Test reachability per-domain before
     planning any enrichment that fetches.
+
+<!-- Below: the same period as logged on the parallel branch merged 23 Aug 2026.
+     Both records are kept: they cover overlapping days from different work, and
+     an entry deleted here is a measurement nobody can recover. -->
+
+### Added 20 August 2026 — the Urdu was serving a retraction the English had made
+
+11. **A retracted hallucination stayed live in Urdu for as long as the retraction existed.**
+    `allo-mahar`'s English was cut from ~700 words to a short "awaiting a field visit" note
+    because the prose turned out to be a confident biography of **the wrong man** — see
+    `docs/allo_mahar_resolution.md`, which explicitly declined to replace it with a second
+    generated biography. The Urdu was never cut. `mergeUrduContent()`
+    (`src/lib/data/urduContentOverride.ts`) overrides the **whole** `Description Urdu` per
+    slug, so the Urdu reader kept getting the withdrawn text — a birth year, a decade-long
+    presidency of a named body, a death date, an urs date — while the English reader got the
+    honest stub. **This is the shape of failure to watch for here:** the two languages are
+    separate stores with no link between them, so any editorial *retraction* in English is
+    invisible to Urdu by default. Additions at least show up as a stale-looking article;
+    retractions look like a *richer* article.
+
+12. **The Urdu/English length ratio is a genuinely sharp diagnostic, and cost nothing to
+    measure.** Across 169 live rows: entries whose English had not moved since the Urdu was
+    written run **0.74–0.95** (median 0.81, n=93); known-stale ones run **0.36–0.62** (median
+    0.62, n=74). The two populations **do not overlap**. `allo-mahar` sat at **2.46** — the
+    only entry above 1.0, and the bug. `pipeline/urdu_content_qa.py` now gates on this:
+    over-coverage (>1.15×) is an ERROR, under-coverage (<0.70×) a WARN against a ratchet
+    that may only go down. It is wired into `data:validate`, so `npm run verify` covers it.
+    Note the ratchet counts something narrower than `a8-scope.json`'s delta list: an entry
+    whose English grew by one paragraph is a delta but can still clear 0.70.
+
+13. **A check that fired on 144 files was wrong 144 times.** The first version of that gate
+    compared `##` heading counts between English and Urdu. Almost every English article
+    carries `## Bibliography` and almost every Urdu file omits the section — because
+    `scripts/data/validate-urdu-leak.mjs` allows **zero Latin letters**, so a Latin-titled
+    source cannot be cited verbatim. Excluding bibliography headings, and only comparing
+    when the English has ≥2 prose sections, took it from 144 warnings to 4 real ones. RULE 4
+    cuts both ways: the check was the thing that was wrong.
+
+14. **RESOLVED 20 August 2026 — Latin citations are allowed; English prose is not.** The
+    project head's call, after this was raised below. `scripts/data/validate-urdu-leak.mjs`
+    now scans the article body only and exempts everything from the first bibliography
+    heading onward (matching `urdu-i18n/build_urdu_content.py`, which always did);
+    `pipeline/urdu_content_qa.py` matches, and additionally computes its length ratio on
+    prose only, since an Urdu bibliography's length says nothing about article coverage and
+    the old full-text ratio could have blocked a build for adding a source. Re-measured on
+    that basis the ratio is much tighter — 0.84-1.06 across 167 entries, median 0.91 — so
+    the bounds moved to 0.75/1.20; the allo-mahar retraction still fails at 2.64x, and the
+    figure check independently flags its fabricated 22 February / 23 March / 1930s dates.
+    **The original problem, kept because it explains the existing files:**
+    The rule says no English in the Urdu view "outside URLs/coordinates/`<bdi>`". The leak
+    gate forbids every Latin letter in `urdu-content.json`, and a URL is nothing but Latin
+    letters. So a citation that legitimately *is* a URL cannot be carried in Urdu article
+    content at all. Hit while translating `tomb-of-qutbuddin-aibak`, whose English cites the
+    Punjab Archaeology Department's web page. Worked around by naming the source and pointing
+    to the English entry for the address. **This needs a deliberate decision, not another
+    workaround:** either the leak gate gets a URL exemption (matching the stated rule and the
+    `WESTERN_LOCKED` carve-out already in `src/lib/i18n/numerals.ts`), or the convention is
+    written down as "Urdu bibliographies never carry URLs".
+
+15. **Two build scripts could not run in a fresh clone, and one of them failed halfway.**
+    `pipeline/a8_urdu_delta.py --offline` and `urdu-i18n/update_log.py` both read
+    `data/shrines_final_import_2026-08-16.csv`, which `data/*.csv` gitignores. `npm run
+    urdu:build` therefore crashed at step **4 of 4**, after steps 1–3 had already written
+    their output — the worst kind of failure, because the artifacts look built. Both now fall
+    back to the tracked `data/shrines.csv`, whose `Description` is byte-identical to the
+    import for every row it carries. **When you add a local-file fallback in this repo, check
+    whether the file is gitignored first.**
+
+16. **A partial row source made an orphan check accuse a healthy row.** `data/shrines.csv` is
+    the *built* snapshot: `build-dataset` drops the two rows with empty coordinates (see §9.6),
+    so it has 169 rows against the sheet's 171. `update_log.py`'s orphan invariant — a
+    `content/<slug>.md` with no live row means the slug drifted — then flagged
+    `darbar-hazrat-shah-gohar-peer`, which is a real live row with a real translation. **A
+    partial universe cannot prove a negative.** Orphan detection now only exits non-zero when
+    the source carries all 171 rows, and `a8-scope.json` records `partial: true` so `--check`
+    refuses to bless a scope built from a snapshot.
+
+18. **Three Urdu articles asserted the reverse of their English, and one asserted a fact
+    the English never claimed.** Beyond the `allo-mahar` retraction in §9.11, found while
+    working through all 74 deltas: `ziarat-kaka-sahib` named Akhund Panju Baba among the
+    saint's *teachers*, where the English says in as many words that he was a contemporary
+    and not a teacher; `shrine-of-pir-baba-syed-ali-tirmizi` said the December 2008 attack
+    on the shrine "was foiled", where the English says militants attacked it and destroyed
+    its religious inscriptions; and `kalat-kali-temple` opened by placing the town "far
+    from Quetta", a distance found nowhere in the English. **The structural point:
+    `urdu-i18n/content/*.md` was drafted *from* the English and is not independently
+    sourced. Anything in the Urdu that is not in the English therefore has no source
+    behind it at all.** The figure check added to `pipeline/urdu_content_qa.py` catches the
+    numeric slice of this (and is measured clean across the corpus); phrase-level drift
+    like "far from Quetta" is only findable by reading the two side by side. Four instances
+    in 74 files is a rate worth assuming still holds in the parts nobody has re-read.
+
+19. **A8's own framing could not see the worst failures.** The task was scoped as "the
+    Urdu has fallen behind the English", and `a8_urdu_delta.py` measures exactly that. But
+    a retraction makes the Urdu *longer* than the English, and a mistranslation changes its
+    length not at all. Both were invisible to the scope tool, and both were more damaging
+    than any of the 74 gaps it did find. When a backlog tool tells you the size of a job,
+    ask what shape of problem it is structurally unable to count.
+
+17. **One Urdu file rendered "Data Ganj Bakhsh" as "Diwan".** `shrine-of-peer-makki.md` had
+    دیوان گنج بخش and دیوان دربار; the other 14 files that name him have داتا. Nothing checks
+    that a proper noun is rendered consistently across `urdu-i18n/content/`, and the
+    dictionary in `urdu-i18n/urdu-dictionary.json` covers structured fields, not article
+    prose. Worth a check if another instance turns up — the class is "a name silently
+    re-transliterated in one file".
+
+### Added 20 August 2026 (later) — the knowledge graph was thin, and the thinness was hiding things
+
+20. **The lineage and order features had almost no data, and the reason was that nothing read
+    the dataset's own columns.** 130 figures, **6** lineage edges, **20** order memberships —
+    all 26 hand-listed in `data/kg-seeds.json`. Meanwhile `silsila` is filled for 52 of 169
+    rows and the prose states teacher-disciple links constantly. Three extraction agents over
+    the archive's own English (`data/shrines.json`, `shrine_entries/`, `entries/`) produced 130
+    quote-carrying proposals; after verification the graph holds **86 lineage edges** (6 human,
+    80 machine-extracted) and **64 order memberships** (20 human, 44 extracted), 13 of which
+    carry a named sub-order branch. `docs/allo_mahar_resolution.md` is the reason this was done
+    as *extraction with verbatim quotes* rather than research: an agent recalling saints from
+    training is precisely what produced the biography of the wrong man.
+
+21. **`scripts/data/verify-kg-proposals.mjs` re-checks every quote against the source it
+    names.** The extractors reported verifying their own quotes; that is not the same as them
+    being verified. All 130 passed — nothing fabricated. **What it proves is "not fabricated",
+    never "correct":** whether a quote *means* what the proposal says, whether two similar
+    names are one person, and which side of a contradiction is right all remain a human's job.
+    Every derived edge carries `method: 'machine-extracted'`, `reviewed: false`, its confidence
+    tier and its quote, and the UI labels them `unreviewed` with the quote shown inline so a
+    reader can judge for themselves.
+
+22. **Two checks I wrote were circular or stale, and both taught the same lesson.** The
+    `isNew` flag on a proposal is *derived* — it says whether a slug is already in the graph —
+    so (a) it went stale the moment a dataset refresh added six saints between extraction and
+    the next build, and (b) once `build-kg.mjs` started adding a node for every teacher the
+    proposals name, comparing against `kg.saints` found every `isNew: true` proposal "already
+    present" on the second run. Fixed by comparing against **archive figures only** (`!
+    lineageOnly`), which is what the flag actually asserts, plus a `--reconcile` mode that
+    rewrites only that derived flag. **Do not store a fact you can compute, and if you must,
+    do not check it against a set your own build mutates.**
+
+23. **60 of the graph's figures now have no shrine here, and must never be counted as if they
+    did.** A lineage stops dead at the first teacher without a shrine in Pakistan — Hujwiri's
+    al-Khuttali, Mian Mir's Shaikh Siyustani — so those are real nodes, flagged `lineageOnly`.
+    Use `getArchiveFigures()` for anything describing the archive's coverage; `kg.saints` is
+    196 and only 136 of those are archive entries.
+
+24. **Four of the twenty hand-curated order memberships are contradicted by the dataset, and
+    four more cannot be verified at all.** Contradicted: `daud-bandagi-kirmani` (seed says
+    Chishti; column and prose say Qadiri, five times), `waris-shah` (seed Qadiri; both say
+    Chishti), `shams-ali-qalandar` (seed Qalandari; sources say Owaisi Qadiriyya Noshahi and
+    frame qalandar as a style of asceticism, not the silsila), `qalandar-baba-auliya` (seed
+    Qalandari; sources make him the Azeemia's founder and "Qalandar Baba Auliya" a title).
+    Unverifiable — no order named anywhere in their rows or entries: `rahman-baba`,
+    `sachal-sarmast`, `sufi-shah-inayat-shaheed`, `makhdoom-burhan-ud-din`. **These are
+    untouched.** They are in `data/kg-order-proposals.json#disagreesWithExistingSeed` for a
+    human, because overwriting reviewed data with an extraction is the wrong direction of
+    trust.
+
+25. **"Sarwari" names two different branches under two different parents.** Sultan Bahu's
+    *Sarwari Qadiri* (Qadiriyya) and Makhdoom Nooh's Sindh *Sarwari* line (Suhrawardiyya).
+    Keying on the branch string alone would have merged them into one false edge. Any future
+    branch-level modelling must key on branch **plus** parent.
+
+26. **The explorer's network graph broke as soon as it had data.** Labels were anchored
+    `middle` directly beneath each node, which is fine for the four saints Chishtiyya used to
+    have and unreadable at fourteen — every label overlapped its neighbours and the hub. The
+    ring now grows with the node count and labels read radially outward, anchored by side.
+    Worth remembering as a class: **a layout that works on sparse data is untested, not
+    correct.**
+
+27. **1.0 MB of Urdu prose was on the English critical path, and had been for the whole life
+    of the feature.** `src/lib/data/urduContentOverride.ts` imported
+    `src/data/urdu-content.json` statically. That file holds complete Urdu Descriptions for
+    168 shrines, and the static import put every byte of it into the same eager chunk as
+    `useShrineData` — so every visitor, English-only included, downloaded and parsed the
+    entire Urdu edition of the archive before the first map tile appeared. Measured with
+    Playwright against `vite preview` on 20 August 2026:
+
+    | route | eager JS before | after |
+    |---|---|---|
+    | `/` | 3506 KB | 2517 KB |
+    | `/shrine/data-darbar` | 2667 KB | 1678 KB |
+    | `/saint/data-ganj-bakhsh` | 2520 KB | 1532 KB |
+    | `/almanac` | 2214 KB | 1226 KB |
+
+    The fix is a language-gated dynamic import: `loadUrduContent()` fetches once, on demand;
+    `LanguageProvider` requests it whenever `lang === 'ur'`; `applyUrduContentOverrides()` is
+    a no-op until it lands; and `useShrineData` subscribes to `onUrduContentLoaded()` so a
+    reader who switches language mid-session gets the rows re-merged from the remembered raw
+    rows rather than a second sheet fetch. The merge does not change the fingerprint (name,
+    founded, English description length), so background-refresh no-op detection still works.
+
+    Two things about *how* this went unnoticed matter more than the number. First, nothing
+    was broken: no test failed, no console error, every Urdu assertion passed — the payload
+    was simply always present, which is the one state in which a lazy-loading bug is
+    invisible. Second, `vite build` had been printing "Some chunks are larger than 500 kB"
+    on every single build for other reasons long enough to be read as decoration.
+
+    So the invariant is `scripts/check-bundle-budget.mjs`, wired into `npm run build`: it
+    walks the real static import graph out of Vite's manifest (`build.manifest: true` now,
+    for exactly this) and fails the build when a route's eager JS exceeds a budget set at
+    the measured figure plus ~8%. It also names two chunks that must never re-enter a static
+    graph — `urdu-content-*` and `shrines-fallback-*` — because a budget overshoot from
+    those is a different bug (a lazy import turned static) than a chunk that merely grew.
+    Verified by reverting the static import and watching it fail on all eight routes.
+    Behaviour is guarded separately in `e2e/payload.spec.ts`, which a size budget cannot
+    see: English never requests the chunk, `?lang=ur` requests it and renders real Urdu
+    prose, and a mid-session switch does both.
+
+    **Budgets are measurements, not aspirations.** Raising one should be a line in a diff
+    with a reason beside it.
+
+28. **`src/hooks/useShrineData.ts` was invisible to `grep -r`.** It contained two literal
+    NUL bytes, used as field separators inside a template literal in
+    `fingerprintShrines()`. `file` reported it as `data`, and `grep -rn` printed "binary file
+    matches" instead of the line — so any search for a symbol used there silently missed the
+    hot data path. They are `\0` escapes now; identical behaviour, and the file is text.
+
+29. **The Saints & Orders explorer was an English page with Urdu furniture around it.** On
+    `/order/qadiriyya?lang=ur`, as of the morning of 20 August 2026: the `<h1>` read
+    "Qadiriyya", the description was an untranslated English sentence, every one of the
+    twenty-three figures was listed in Latin script, every shrine tag was a title-cased slug
+    ("Shrine Of Shah Rukn E Alam"), and the founding year read `c. ۱۱۶۵`. `/saint/*` and
+    `/graph` were the same.
+
+    The reason it survived is structural, and worth remembering as a class: **the
+    no-English-leak guard only ever covered the routes it was written for.** `e2e/urdu.spec.ts`
+    checks `/` and `/shrine/<slug>`; the knowledge-graph routes were added later and grew up
+    outside it. A guard scoped to a route list silently exempts every route added after it.
+
+    Almost nothing was missing. `urdu-seed.json` is keyed on the *English* string, so
+    `translateToUrdu` can resolve a KG name it was never told about — it simply was not being
+    asked. `src/lib/i18n/localizeKgName.ts` now asks, from OrderPage, SaintPage, GraphPage and
+    LineageView: 67 of 136 archive figures, 92 of 169 shrine labels and all 5 orders come back
+    in Urdu, and the rest fall through to English (i18n rule 3 — never transliterate).
+    `/order/*` is at **zero** leaks and guarded by `e2e/payload.spec.ts`. Three other fixes
+    fell out of it:
+
+    - `translateToUrdu('c. 1165')` always missed, because tokenising left the `c.` in Latin,
+      which failed the function's own no-Latin check and returned the input untouched. A
+      circa pattern rule in `buildUrduFallback` fixes it everywhere, not just on order pages.
+    - GraphPage was calling `translateToUrdu` on a whole English *sentence* — the dictionary
+      is keyed on names, so it always missed and printed the English. Orders now carry
+      `descriptionUr` in `data/kg-seeds.json`, and an order without one shows no summary in
+      Urdu rather than an English one.
+    - OrderPage's shrine tags were `slugToLabel(slug)`, which title-cases a slug and so can
+      never match a dictionary keyed on the real name ("Shrine of Shah Rukn-e-Alam"). It uses
+      the live dataset's names now, which also fixed the English view.
+
+    Because coverage cannot be 100% (the dictionary is generated from the sheet's columns and
+    the graph's canonical names often differ), the floor is a **ratchet** rather than an
+    assertion: `src/lib/i18n/__tests__/kgNameCoverage.test.ts` fails if coverage drops.
+    Raising a floor is a one-line diff; letting it fall silently is how the pages got this way.
+
+    **Then most of the remaining gap turned out not to be a gap.** 51 of the 69 figures with
+    no Urdu name were the *same* name written differently on the two sides: the sheet says
+    "Hazrat Data Ganj Bakhsh (Ali Hujwiri)" where the graph says "Data Ganj Bakhsh"; a slug
+    label says "Shrine Of Shah Rukn E Alam" where the dictionary says
+    "Shrine of Shah Rukn-e-Alam". `translateNameToUrdu` (urduFallback.ts) matches on a
+    normalized key — lower-cased, parentheticals and quotes dropped, dashes flattened, leading
+    honorifics stripped — after exact and case-insensitive matching have failed, and takes a
+    record's `altNames` as further candidates (which is how the graph's "Valmiki" reaches the
+    entry written "Bhagwan Valmik (Valmiki)"). Coverage: figures **67 → 118 of 136**, shrine
+    labels **92 → 102 of 169**.
+
+    Three deliberate constraints, each of which is the difference between this being a fix and
+    being a data-corruption bug:
+
+    - **Exact-after-normalization, never by prefix.** "Khwaja Muhammad Qasim" and "Khwaja
+      Muhammad Qasim Sadiq" are a master and his pupil, two separate figures in this archive
+      (§9.24). Prefix matching would merge them. There is a test for exactly that pair.
+    - **Separate from `translateToUrdu`, which is unchanged.** Normalized matching is right for
+      proper nouns and wrong for everything else: applied to a status or a date phrase it would
+      equate "Active" with "Active c. 6th–12th c.". Only names go through the new path.
+    - **A collision test.** Two distinct figures resolving to one Urdu name fails the build.
+      Exactly one pair is allowlisted — `valmiki` / `bhagwan-valmik` — and it is not a matching
+      failure but a genuine duplicate in the graph, one figure entered twice. The collision
+      test found it; it is named in the allowlist rather than quietly tolerated.
+
+    The remaining 18 were genuinely absent from the dictionary, so they were written into
+    `SAINTS` in `urdu-i18n/build_dictionary.py` — most are Pakistani names whose native script
+    *is* Perso-Arabic, so that restores the original spelling rather than translating it.
+    **Figures are now 136/136 and the gate is a hard assertion rather than a floor:** adding a
+    shrine whose principal figure has no Urdu name fails `kgNameCoverage.test.ts` and is told
+    where to put it. The Sindhi Hindu names among the 18 ("Asudaram", "Satramdas") have more
+    than one current spelling and are flagged as unreviewed beside the entries.
+
+    **And a documented trap that is now a fixed one.** `urdu-i18n/README.md` said
+    `urdu-dictionary.json` was "Source of truth — Edit here". It is not:
+    `build_dictionary.py` holds the real dictionaries and rewrites that JSON from them on every
+    run. I added 18 entries to the JSON exactly as instructed, ran the build, and watched them
+    disappear without an error. The README now says which file is the input and which is
+    generated. Second half of the same trap: `npm run data:build:urdu` writes
+    `urdu-i18n/shrine-translations.seed.json` but does **not** copy it to
+    `src/data/urdu-seed.json` — only `npm run urdu:build` does — so a dictionary change made
+    with the shorter command builds cleanly, reports 100% coverage, and never reaches the app.
+
+30. **Grouping the order pages by branch was the wrong idea, and the data said so.** The
+    obvious use for the newly-extracted `branch` field was branch headings under each silsila.
+    Only 13 of 64 memberships name a branch, and on Qadiriyya that is four groups of exactly
+    one member beside nineteen with none — HANDOVER §9.26 in reverse: a layout tuned to data
+    the archive does not have. The branch rides on the member's row instead. What *is*
+    well-supported is the opposite fact — 20 of 64 memberships are second or third
+    affiliations — so each member now links to the other silsilas they hold.
+
+    Also: **`asRecorded` must not be shown on an order page.** It is the row's `silsila` cell,
+    not a per-edge string, so a figure whose column reads "Suhrawardi" but whose prose also
+    places them in the Qadiriyya carries `asRecorded: "Suhrawardi"` on *both* edges. Printing
+    it under the Qadiriyya heading attributes the source's words to the wrong order. (I first
+    read the multi-order edges as a matching bug in `build-kg`. They are not — each is a
+    separate quoted proposal, and the corpus draws the distinction itself.)
+
+31. **ShrinePage imported the entire 426 KB knowledge graph to render one `href`.** The only
+    fact it took from `lib/kg.ts` was the slug of the shrine's named figure, for a link to
+    that figure's page — and that pulled the 317 KB graph chunk onto the archive's hottest
+    route, 40% of its eager JavaScript. `data/kg-shrine-figures.json` (11 KB) is that one edge
+    type, generated by `build-kg.mjs` and held to the graph by
+    `src/lib/__tests__/kgShrineFigures.test.ts`, which compares the two for every shrine
+    rather than a sample. `/shrine/<slug>` went 774 KB → 475 KB eager, and 2667 KB → 1379 KB
+    of total JS once combined with §9.27. Slugs only, deliberately: add a name field and it
+    stops being cheaper than the graph.
+
+32. **`text-anchor` is logical, not physical — and that broke every Urdu label on the network
+    graph.** Under `direction: rtl`, `text-anchor: start` means the *right* edge.
+    `labelPlacement` in `NetworkGraph.tsx` reasons physically — "this label sits left of its
+    node, so it must extend leftwards" — so in the Urdu view every Arabic-script label extended
+    back across its own node and printed on top of it: the order's name rendered inside the
+    order's square. Labels now carry an explicit `direction` and the anchor is flipped for
+    Arabic script. Latin names get `direction="ltr"` for the same reason in reverse: a truncated
+    Latin label inside the RTL page rendered its ellipsis on the *left*, reading as though the
+    beginning of the name had been cut off.
+
+    Worth generalising: **SVG has no `<bdi>`.** Every bidi trick this codebase relies on in HTML
+    is unavailable inside `<svg>`, so mixed-script SVG text needs `direction` set explicitly and
+    any logical property re-derived by hand.
+
+33. **The lineage graph left out the lineage, and filling it exposed three faults sparsity had
+    hidden.** `/saint/<slug>`'s diagram plotted the order and the shrines while the page below
+    it listed teachers and disciples the graph had all along. With them on the ring:
+    a figure recorded as both `disciple_of` and `successor_of` the same master drew as **two
+    people** (`getTeachersOf` returns one link per relation — correct for a relation list,
+    wrong for an ego network, so the diagram dedupes by slug); the legend claimed to
+    distinguish teachers from the order while both rendered as filled `--color-primary` (the
+    order is a rounded square now — an institution, not a person, and shape survives
+    greyscale, colour-blindness and print); and `LABEL_GUTTER` at 132px clipped the first
+    letter off a full-length 9-o'clock label. Same lesson as §9.26, restated: **a layout that
+    works on sparse data is untested, not correct.**
+
+34. **The reduced-motion contract is now measured, and writing the check taught more than the
+    check does.** `src/styles/motion.css` consolidates what were five one-off `@keyframes`
+    across four stylesheets. Two guards enforce it: `src/styles/__tests__/motion.test.ts`
+    (static — every `@keyframes` must have an escape) and `e2e/motion.spec.ts` (dynamic —
+    `document.getAnimations()` must be **empty** under `prefers-reduced-motion: reduce`;
+    measured 5 animations by default, 0 reduced).
+
+    The first draft of the static check flagged three existing animations, and **all three were
+    the check's fault, not the code's** — precisely the situation CLAUDE.md RULE 4 warns about
+    ("do not edit content to satisfy a failing check"). The three legitimate escapes are now
+    named in the test: timed by a `--duration-*` token (tokens.css zeroes them under reduce),
+    declared inside `@media (prefers-reduced-motion: no-preference)` (the strongest form — it
+    cannot be un-done by a later override), or explicitly exempt because the motion carries the
+    information. There is exactly one exemption — a loading spinner, which frozen mid-turn reads
+    as a hung page — and the test asserts that list stays at most one entry long, because a
+    growing pile of "this one is special" is how an accessibility contract rots.
+
+35. **`scroll-behavior: smooth` was on globally and never guarded.** Set on `<html>` in
+    `global.css`, with no `auto` override under `prefers-reduced-motion: reduce`. Every anchor
+    jump on the site animated for a reader who had asked for no animation: the article contents
+    nav, every skip link, the almanac's new month row. Scroll animation is the *most* likely
+    kind to provoke vestibular symptoms — a whole viewport of content sliding past, not one
+    small element fading in.
+
+    Worth generalising, because it is the reason this survived: **the `@keyframes` audit could
+    not have found it.** There is no keyframe involved, so a check built around animations was
+    structurally blind to it. `src/styles/__tests__/motion.test.ts` has a separate case for
+    scroll behaviour now. Any future "motion" that is neither an animation nor a transition —
+    `scroll-snap`, `view-transition`, autoplaying media — needs its own case for the same
+    reason.
+
+36. **A twelve-month window's first and last group share a month name.** The almanac's new month
+    navigation rendered thirteen pills for a year horizon, two of them reading "August" — 2026
+    and 2027. The section headings carried the year and the pills did not. Fixed by showing the
+    year only on names that actually repeat, so it disambiguates where needed and clutters
+    nothing else. Generalises to any wrapping period label: **thirteen groups over twelve months
+    is correct, and two identical labels is the tell.**
+
+37. **The almanac and the lineage views now point at each other.** Each almanac observance links
+    to the figure it commemorates, and each figure's page states when their next ʿurs falls.
+    Both directions run through the same `buildAlmanac`, so there is no second implementation of
+    Hijri projection to drift — a figure's page passes only that figure's own shrines, which is
+    a handful of rows.
+
+    One detail that matters editorially: the "approximate" flag appears on a Hijri-derived
+    projection and *not* on a recorded Gregorian date. Verified per figure — Shams Ali Qalandar
+    (6 September) carries no flag while Abul Faiz Qalander Ali Suharwardi (24–25 August) does.
+    That is `AlmanacEntry.approximate` doing the job it exists for: the difference between a
+    date and a forecast, which for an archive built on provenance is not a cosmetic distinction.
+
+38. **The map's region filter was offering sentence fragments as options, including an internal
+    note naming a colleague.** Live on the site until 20 August 2026. Chips read
+    "and no coordinates.", "not the grave's exact position.", "which it describes as one of the
+    largest graveyards in Asia.", and — worst — "not the shrine's exact position) — ask
+    Saifullah for a precise pin when possible."
+
+    `extractRegion` was "the last comma-separated segment of Location". Six rows carry a
+    *paragraph* in that column instead of an address, because a field survey that can only place
+    a shrine as "Lahore" says so at length — which is exactly the honesty RULE 2 asks for, and
+    must not be edited. Their commas are sentence commas, so the "last segment" was the tail of
+    a sentence.
+
+    The same rule was quietly breaking the filter for the other 124 rows too: their Location
+    *does* end in an address, and its last segment is "Pakistan". A filter meant to narrow by
+    region had one option matching **73% of the archive**.
+
+    Now: scan segments from the end for a known Pakistani administrative unit, preferring a
+    province over the country, matched at the *head* of a segment so a province followed by
+    prose is still found. Measured across the snapshot,
+    `{Pakistan: 124, Punjab: 30, Sindh: 6, …}` plus six fragments becomes
+    `{Punjab: 87, Sindh: 43, Khyber Pakhtunkhwa: 15, Balochistan: 10, Islamabad Capital
+    Territory: 4, Pakistan: 5}`, five rows honestly unknown, and the chip count drops from 20
+    to 14. Both spellings of Balochistan normalise to one value, because two chips for one
+    province is a filter bug and not a spelling debate.
+
+    Two lessons worth carrying:
+
+    - **A derived field inherits every irregularity of its source.** The prose Locations were
+      already documented as correct content; nobody asked what a comma-splitting rule would do
+      to them. Any future derivation off Location, Description or Events needs the same
+      question asked.
+    - **The invariant that catches this has to run over the real dataset.** Hand-written cases
+      encode the rule; only `buildShrines(shrines-fallback.json)` with a closed allow-list of
+      place names would have caught the original. Proved by reinstating the old rule and
+      watching 8 tests fail.
+
+39. **A filter chip 1163px wide inside a 380px sidebar.** `.filter-chip` had `white-space:
+    nowrap` and `flex-shrink: 0`, and its stylesheet comment described the contents as "short,
+    fixed option sets (a handful of pills per group)". That is true of categories and regions.
+    The **saint facet is 147 chips** read from the `Sufi Saint` column, and eleven of those
+    values are qualified names — "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and
+    \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor
+    of Lahore" at 150 characters. Measured: the saint row's `scrollWidth` was 1179 against a
+    `clientWidth` of 379.
+
+    Clamped with `max-width: 100%` + ellipsis rather than shortened at the source: the value is
+    the join key that matches rows (RULE 3), and the qualification in it is real content. The
+    whole string stays reachable in the chip's `title`, the same pattern the almanac's clamped
+    Location already uses.
+
+    **The more useful lesson is about the test.** My first guard clicked a list of plausible
+    disclosure selectors and swallowed the failures. None matched — the control is
+    `.more-filters-toggle` — so the saint facet never entered the DOM, the spec measured only
+    the seven category chips, and it **passed with the clamp deleted**. I only noticed because I
+    make a habit of watching a new guard fail before trusting it.
+
+    So: `e2e/filter-layout.spec.ts` now asserts the facet is present (>100 chips) before
+    measuring anything. **A test that can silently skip the thing it checks is worse than no
+    test — it reports a safety it never established.** Any spec that reveals UI behind a
+    disclosure needs an assertion that the disclosure actually opened, not a best-effort click.
+
+40. **The Urdu dictionary was validated against a stale 143-row snapshot while the app shipped
+    169.** `urdu-i18n/_shrine_rows.json` had not been refreshed since the sheet grew, so
+    `build_dictionary.py` printed **"OK — 100% coverage, zero Latin-script leaks"** and
+    `npm run data:validate` passed while, in truth:
+
+    | | missing |
+    |---|---|
+    | shrine names | 27 |
+    | saint strings | 17 |
+    | founding-date phrases | 30 |
+    | rows with untranslatable place tokens | 23 |
+
+    The README even documented the refresh step ("after adding shrines, refresh the snapshot") —
+    as a note, which is precisely the kind of intention RULE 4 exists to replace. **Snapshot
+    drift is now an error**: `load_rows()` compares the snapshot against
+    `src/data/shrines-fallback.json` by name and refuses to build, naming the rows that differ.
+    Proved by deleting three rows and watching it name all three.
+
+    This is the fourth instance of one pattern in a single session — a check that passes because
+    it is measuring the wrong universe. The others: the no-English-leak e2e guard covering only
+    two routes (§9.29), `extractRegion` reading prose Locations (§9.38), and my own chip-overflow
+    spec that never opened the facet it measured (§9.39). **When a check reports success, ask
+    what set it ran over before believing it.**
+
+    All four gaps are now filled and the coverage claim is true. The additions are unreviewed
+    drafts, flagged in the file: Pakistani place and shrine names whose native script is
+    Perso-Arabic, plus the founding-date *hedges* — "1024 AH (as given in the form; not a
+    construction date)" — translated with the hedge intact rather than tidied into a number.
+
+41. **`NAME_LIST` was positional.** 143 Urdu names in a bare list, matched to the row snapshot
+    by index, guarded only by a length assertion. A reordered sheet would have silently renamed
+    every shrine in the archive and the build would still have reported full coverage. It is a
+    dict keyed on the English name now, so a mis-assignment is impossible rather than merely
+    unlikely. Worth checking for elsewhere: **any parallel-array pairing across a file boundary
+    is one sheet re-sort away from silent corruption.**
+
+42. **Shared ground.** 62 of 169 sites stand within 800 m of another, and in eight places the
+    neighbour belongs to a different tradition — Data Darbar 222 m from Gurdwara Chowmala Sahib,
+    Dargah Pir Ratan Nath 100 m from Gurdwara Bhai Beba Singh and 411 m from the Gorakhnath
+    Temple. `src/lib/data/sharedGround.ts` + the section on each shrine page make that visible
+    for the first time. Rationale and the rest of the roadmap in
+    `docs/planning/SHARED_GROUND_VISION.md`.
+
+    **The near-miss is the part worth remembering.** The obvious model was a cluster: single-link
+    everything within 800 m, call each component a complex. Measured, that produced one cluster
+    of 15 sites with an **extent of 3358 m** — transitive closure had strung together the whole
+    of central Lahore and called it a courtyard. The shipped unit is therefore "within 800 m of
+    *this* site", with no chaining. Any future grouping must publish its extent; a group without
+    one is an unchecked claim about proximity.
+
+    Also fixed here: `NearbyShrines` rendered every neighbour under a kilometre as "< 1 km",
+    which covered both a shared pin and 900 m. It shows metres now, and for the four
+    identical-pin groups it shows "same recorded location" — a distance the archive did not
+    measure must never be displayed as one it did.
+
+43. **An internal note to a colleague was rendering as a public UI control**, and the note is
+    still in a public column. `Location` on two rows ends with *"ask Saifullah for a precise pin
+    when possible"*, which reaches the shrine page, the almanac and the sidebar.
+    `scripts/data/validate-publication-safety.mjs` now refuses to ship that class of text, and
+    draws the line that matters: **"(surveyor: Saifullah)" in a bibliography is provenance and
+    must stay** — seventeen entries credit their fieldworker — while a directive addressed to a
+    person is not a fact about a shrine. The rule is "no directives, no task markers", never "no
+    names"; a broader rule would delete the archive's provenance. Fix is
+    `data/patch_data_hygiene_2026-08-21.csv` (RULE 3: agents do not write to the sheet), and the
+    gate carries a **shrinking** exception list that fails if an entry goes stale, so it cannot
+    quietly become permanent.
+
+44. **Nothing checked that `category` is one of the six schema values.** `Darbar Abul Muali
+    Qadri` carries a blank `Category` and a lowercase `category: "Islam"`. That is not cosmetic:
+    the row loses its marker colour, drops out of the category filter, and is excluded from every
+    per-tradition count — the archive under-reports itself by one and nothing says so.
+    `validate.mjs` warns by name now.
+
+    Two things worth carrying: the violation was **found by the coverage page**, not by a
+    validator — a page that displays "not recorded" as its own row makes schema drift visible,
+    which is an argument for showing such rows rather than hiding them. And my first draft of the
+    check accused a second row falsely, because `row['category'] ?? row['Category']` lets an
+    empty string shadow a valid value — `??` only falls through null. **First-non-empty, not
+    `??`, whenever two columns alias one field.**
+
+45. **`/coverage` — the archive's own limits, computed rather than asserted.** Track D of
+    `SHARED_GROUND_VISION.md`. It exists because the standing findings in this file are the most
+    candid thing in the repository, no reader could see any of them, and they go stale: §9.40's
+    entry and CLAUDE.md's "49 of 167 entries have no bibliography" were both quoted as current
+    long after they stopped being true (168 of 169 now carry one; 544 citations; 107 citing three
+    or more). A page computed from the shipped data cannot drift from it.
+
+    **A standing finding is a measurement with a date on it.** Anything in §9 without one should
+    be re-measured before it is repeated.
+
+### Added 21 August 2026 — the accessibility sweep was measuring a page mid-fade
+
+46. **The axe sweep reported eight failing routes; six were the check's own fault, and the
+    fifth instance of the wrong-universe pattern.** Extending `e2e/a11y.spec.ts` from two routes
+    to nine × two languages produced eight `color-contrast` failures at colours that appear
+    nowhere in the palette — almanac text at `#978d7f`, order links at `#6b82b6`. The palette
+    tokens are `#6b5e4b` and `#2a4d9b`, and every text-on-background pair computes **above** AA
+    (lowest 4.80:1). The reported colours are those tokens *composited part-way onto the page
+    ground*: axe folds ancestor `opacity` into the foreground it measures, and it was scanning
+    while `reveal-rise` was still animating. Every failing selector carries `.reveal-rise` or
+    `.page-enter` — the evidence was in the selector the whole time.
+
+    My first reading was wrong in an instructive way. I had rebuilt `dist` twice *during* the
+    4.5-minute run, so I concluded the run had read CSS that changed underfoot and the failures
+    were probably artefacts of that. Rebuilding mid-run **is** a real mistake — don't — but it
+    was not the cause: the failures reproduced identically on a stable build. **A plausible
+    explanation for a wrong result is not the same as the cause of it**, and settling for the
+    first one would have left the two genuine findings buried in six false ones.
+
+    The fix is `settle()` in `e2e/a11y.spec.ts`: wait until no animation is `running`, skipping
+    infinite ones (the loading spinner, the same animation `motion.test.ts` exempts). This is not
+    averting one's eyes — an animation that never finishes now fails the wait, so text left
+    permanently semi-transparent is still caught, and caught as a stuck animation rather than
+    misattributed to the palette. 8 failures → 1.
+
+47. **`--color-border` was painting 36px text.** `.not-found-code` — the "404" — used the
+    hairline token as its colour: **1.43:1**, where WCAG asks 3:1 of large text. A border colour
+    wants to be barely there and text never does, so this is a token-intent error that no palette
+    tuning could fix. `src/styles/__tests__/textColorTokens.test.ts` now refuses any `color:`
+    resolving to a `--color-border*` token, with a by-selector exemption list for decorative
+    glyphs that fails when an entry goes stale. Mutation-tested: reinstating the bug makes it
+    name `.not-found-code` by file and selector, in milliseconds rather than five minutes.
+
+48. **Order links inside a sentence were distinguished by hue alone.** The "Also in: Chishtiyya ·
+    Suhrawardiyya" line on `/order/:slug` put cobalt links in muted-brown prose with
+    `text-decoration: none` — **1.26:1** between link and surrounding text against a 3:1
+    minimum, so nothing marked them as links for a reader with deuteranopia or on a washed-out
+    screen (WCAG 1.4.1, axe `link-in-text-block`). It surfaced only after §9.46, which is the
+    argument for fixing a noisy check rather than raising its threshold.
+
+    **The obvious fix was the wrong one.** An underline runs straight through the descenders of
+    Nastaliq, and this line is Urdu half the time. They are pills now — border and ground, like
+    the shrine tags directly beneath them — which survives greyscale, colour blindness and both
+    scripts. Worth carrying: **an accessibility fix that reads as an English-first fix is not
+    finished.** The rule reported the violation on the Urdu route only; the markup was identical
+    in both, so it was latent in English too.
+
+49. **Every shared link rendered as a bare URL.** `index.html` declared
+    `twitter:card=summary_large_image` and carried **no `og:image` at all** — a card with no
+    picture in it. Most of this archive's readers arrive from a WhatsApp forward, so that blank
+    was the project's front door. `npm run og:image` (`scripts/make-og-image.mjs`) now renders
+    `public/og-image.png` from the repository's own material: both `siteTitle` values, the
+    palette out of `tokens.css`, and **all 169 recorded coordinates as a point cloud** — which
+    traces the Indus corridor and shows the coverage skew rather than implying national reach.
+
+    Three traps, all encoded rather than remembered:
+
+    - **A card rendered in the wrong font is silent.** The generator fetches Merriweather and
+      Source Sans 3 at *generation* time and refuses to write the PNG unless
+      `document.fonts.check()` confirms each face loaded — otherwise a CDN blip commits a card
+      set in DejaVu Serif and you find out from a shared link months later. Nastaliq is embedded
+      as a data URI from `public/fonts`, and it is rendered by a browser rather than an SVG
+      rasteriser because Nastaliq's joins *are* the writing system, not a style.
+    - **The template's card and a page's photograph both wanted the same tag.** Appending the
+      photo left **two `og:image` tags** in one head, and every crawler takes the first — so
+      every photographed shrine would have shared as the generic card while the source looked
+      correct. `withSocialImage()` replaces instead, and drops `og:image:width/height/type`
+      when it does, because those describe the 1200×630 card and not an arbitrary Wikimedia
+      photograph whose size the build does not know.
+    - **A PNG cannot recompute itself.** The card says "169 documented sites", so the number is
+      a measurement with a date on it — §9.45's lesson in a form that cannot be re-read.
+      `scripts/og-image.lock.json` records what was baked in and
+      `src/lib/data/__tests__/socialCard.test.ts` fails when the archive outgrows it.
+      Mutation-tested in all three directions (missing tag, stale count, dimension drift).
+
+    Also found and removed here: `buildShrineHead()` in `prerender.mjs` computed a 14-line
+    `metaBlock` of title/description/OG tags that **nothing ever used** — the real tags came
+    from a `.replace()` chain further down. It had no effect either way, but it is exactly the
+    thing a later reader edits in good faith and then cannot understand why the output does not
+    change.
+
+    The 51 entries with no photograph now share the archive's card instead of degrading to a
+    bare `summary`, and the Urdu pages carry an Urdu `og:image:alt` — an Urdu page should not
+    describe itself in English to a crawler or a screen reader.
+
+50. **The map route shipped a megabyte of basemap before anything appeared.**
+    `/` carried **1628 KB** of eager JS, and **1035 KB of it was maplibre-gl** — a vector
+    rendering engine for the tiles *under* the archive. Nothing in the primary interaction
+    touches it: the sidebar, the search worker, the facet filters, the era slider and every
+    marker are Leaflet and React. `ShrineMap.tsx` lazy-loads `MapLibreBasemap` now, taking the
+    map route from **1628 KB → 593 KB**. It is no longer the heaviest route in the app; the
+    entity pages are.
+
+    Two things made this safe rather than clever. The basemap was **already** attached
+    asynchronously — `MapLibreBasemap` fetches and localises the style before calling
+    `layer.addTo(map)` — so Leaflet's pane ordering was never relying on it mounting first, and
+    lazy loading only lengthens a wait that existed. And there is deliberately **no Suspense
+    fallback**: a placeholder raster layer would mean watching the basemap change under the
+    markers, which is the flicker `DefaultBasemap`'s latching `vectorFailed` exists to prevent.
+
+    Guarded twice, at both the level that can go wrong: `vendor-maplibre-` is on
+    `MUST_STAY_LAZY`, so a stray top-level import fails the build (proved by reinstating the
+    static import — the gate named the chunk, the route and the reason); and
+    `e2e/payload.spec.ts` holds the chunk unfulfilled *forever* and asserts markers, list and
+    search still work, because a lazily-loaded module can still be awaited before first paint
+    and a bundle budget cannot see that.
+
+    **What this sandbox could not verify:** the vector basemap does not render here at all.
+    Every tile host returns `ERR_TUNNEL_CONNECTION_FAILED` through the proxy and there is no
+    `VITE_MAPTILER_KEY`, so the map falls back to CARTO raster and then to nothing. That was
+    equally true before this change — it is not a regression — but it means the *rendered*
+    basemap after lazy loading has been reasoned about, not seen. Worth one look on a real
+    network.
+
+51. **The Urdu site's accessible layer was entirely English.** Twenty-six hardcoded literals:
+    every `aria-label="Breadcrumb"`, `"Shrine browser"`, `"Open sidebar"`, `"Clear search"`,
+    `"Filter by category"`, `"Previous image"`, `"Reading progress"`, `"Dismiss"`, Leaflet's
+    `"Zoom in"` / `"Zoom out"` / `"Layers"`, and the reset-view control. An Urdu
+    screen-reader user got an English interface wrapped around Urdu content, which is exactly
+    the "translation layer" the project's i18n contract says the Urdu edition must not be.
+
+    **The no-English-leak guard could not see any of it.** It walks text nodes under
+    `[dir='rtl']`; an accessible name is an attribute. Sixth instance in a week of a check
+    passing over the wrong universe (§9.29, §9.38, §9.39, §9.40, §9.46). The new guard is
+    `e2e/urdu-accessible-names.spec.ts` — eight routes, every attribute a browser turns into
+    an accessible name or tooltip, with three *declared* exemptions (`[data-latin]`, URLs and
+    decimal coordinates, and Leaflet's own attribution sentence). Mutation-tested: putting one
+    literal back names the element and attribute.
+
+    Two sharper cases inside it:
+
+    - **The accessible name contradicted the visible text.** The sidebar's category heading
+      rendered the localised label and set `aria-label={`Category: ${cat}`}` from the *raw
+      English* key — so a screen reader announced "Category: Sikh Gurdwara" over a heading
+      that said سکھ گوردوارہ. One value now feeds both.
+    - **`UpdateToast` had visible English** ("New version available", "Reload") that no guard
+      could ever reach: the toast only renders after a `controllerchange` event, and
+      `playwright.config.ts` blocks service workers to keep the CSV intercept hermetic. **A
+      component that only appears under a condition the test harness disables is invisible to
+      every e2e guard you have.** Worth auditing for others.
+
+52. **A translated sentence assembled in English word order stated a false number.** The
+    almanac's coverage line was built in JSX as `{dated} {t('almanacCoverageOf')} {total}
+    {t('almanacCoverageSites')}` with the fragment `of` / `میں سے`. Urdu's postposition takes
+    its operands the other way round — "X میں سے Y" is "Y out of X" — so the Urdu page read
+    **"169 places out of 32"** where the English read "32 of 169 sites". Both fragments
+    translate perfectly; only the composition is wrong, and no per-string check can see that.
+
+    `tFn` already existed for exactly this: each language writes the whole sentence and
+    interpolates the values itself. Nothing stopped a fragment being added instead, so
+    `src/lib/i18n/__tests__/noSentenceFragments.test.ts` now rejects any UI value that is
+    nothing but a function word ("of", "in", "and", "out of", …) — a function word's whole job
+    is to relate the things around it, and where they go is a fact about the language, not
+    about the layout. It also asserts the two tables have identical keys and that a key is a
+    function in both or a string in both (`t()` returns `''` for a function value, so a
+    half-migrated key vanishes silently in one language).
+
+    `tFn` now takes `string | number` arguments, which is what let the interpolated
+    accessible names in §9.51 be fixed properly rather than concatenated.
+
+    **Urdu review still owed.** The ~20 new accessible-name strings and the map-control
+    strings are drafts by the same standard as the dictionary additions: written carefully,
+    not checked by a fluent speaker.
+
+53. **Five e2e failures that were the sandbox, not the code.** `persistence.spec.ts` ×4 and
+    the tours geolocation fallback began failing mid-session with `page.reload: Test timeout of
+    30000ms exceeded`. I checked out `40d9fe1` — the commit this session started from, which
+    had run green — rebuilt, and they failed identically, so no change of mine caused them.
+    Measured directly: **a reload of `/` takes 12.6 s here**, because every external
+    subresource (Google Fonts, CARTO tiles, the published-sheet CSV) has to time out through
+    the agent proxy, which returns `ERR_TUNNEL_CONNECTION_FAILED` for the tile hosts and
+    `ERR_CONNECTION_RESET` for fonts. Nothing to fix in the tests: loosening a timeout to suit
+    a sandbox is how a real regression gets through later. **Bisect before believing an e2e
+    failure that appears without a matching change** — and note that the first instinct here
+    (CPU contention from my own concurrent typechecks) was also wrong, and only re-running the
+    specs alone ruled it out.
+
+54. **A blank page for twelve and a half seconds, for a font.** `index.html` linked
+    fonts.googleapis.com as a plain `<link rel="stylesheet">`, which is render-blocking: until
+    that host answered, nothing painted — not the map, not the shrine list, not a heading.
+    Measured in this sandbox, where the CDN is blocked outright:
+
+    | | first-paint | first-contentful-paint |
+    |---|---|---|
+    | before | 12468 ms | 12672 ms |
+    | after | **44 ms** | **108 ms** |
+
+    The blocked case is extreme, but it is the honest one to design for: this archive's readers
+    are mostly on a mobile connection in Pakistan, where Google's font CDN is periodically slow
+    or unreachable, and the site does not control that host. The fix is `rel=preload` plus
+    `media="print" onload="this.media='all'"` and a `<noscript>` copy — fetched without
+    blocking, applied on arrival, `display=swap` doing the swap. It works *only* because every
+    family has a real fallback in tokens.css, so the first paint is typeset rather than empty,
+    which `src/lib/data/__tests__/renderBlocking.test.ts` now asserts alongside the rule
+    itself.
+
+    **This was already the project's own reasoning, applied to only half the fonts.** Noto
+    Nastaliq Urdu is self-hosted precisely so the primary Urdu reading face does not depend on
+    a CDN. The Latin faces had never been given the same treatment.
+
+    And the first draft of the guard **passed while inspecting nothing.** The HTML comment
+    documenting the pattern contains the words `<noscript>` and `<link rel="stylesheet">` as
+    prose; stripping `<noscript>…</noscript>` before stripping comments matched from the
+    mention inside the comment to the real closing tag and swallowed the very links under test,
+    leaving two fragments scraped out of the prose. The CSS tests in `src/styles/__tests__`
+    strip comments first for exactly this reason, and I had read them. **Strip comments before
+    you parse anything, and check what your check is actually looking at** — that is now seven
+    instances of the same lesson in this file (§9.29, §9.38, §9.39, §9.40, §9.46, §9.51).
+
+55. **The skip links were English, pointed at nothing, and did not move focus.** Three separate
+    defects in the two controls a keyboard reader reaches first, all in the same place:
+
+    - `Skip to content` / `Skip to shrine list` were hardcoded English literals rendered on
+      every route, Urdu included.
+    - `#shrine-directory` exists on the map route and **nowhere else**, so on eight of nine
+      routes the second link pointed at a missing id. Focus simply stayed put — the failure a
+      keyboard reader cannot report.
+    - `#main-content` had no `tabindex="-1"`, so following the *working* link scrolled the page
+      and left focus on the link. The next Tab resumed from the header — the block the reader
+      had just asked to bypass. Measured: `document.activeElement` unmoved after Enter.
+
+    Plus four pages rendering their own duplicate `#main-content` link on top of the global
+    one, so the first two stops in the tab order were the same destination twice.
+
+    None of it is visible to axe (a link with a plausible fragment href is not a violation) or
+    to a screenshot (a skip link is invisible until focused) or to the leak guard (see §9.56).
+    `e2e/skip-links.spec.ts` is behavioural instead: every route, every skip link, does its
+    target exist, is it unique, does following it move focus.
+
+    Two smaller things fell out. `tabindex="-1"` made the global `:focus-visible` rule draw a
+    2px cobalt outline around the *entire article*, which reads as a selected form control —
+    the codebase had already solved this for the route-announcement headings
+    (`.shrine-title:focus`, `.entity-title:focus`) and the rule just needed extending to the
+    targets. And the test's first draft asserted "one Tab focuses the skip link", which failed:
+    the page focuses its `<h1>` on mount so a screen reader announces the route, so a forward
+    Tab starts from the heading. The property that actually matters is *first tabbable in DOM
+    order*, which it is.
+
+56. **The no-English-leak guard exempted every `<a>`.** The one check whose job is to keep
+    English out of the Urdu view allowed `.coords, a, bdi, [data-latin]` — and a large share of
+    this interface is anchors. Removing `a` and measuring: **328 leaks on the map route alone**,
+    almost all of them `#shrine-directory`, the `sr-only` list of all 169 shrines, announcing
+    **English names and English locations** on the Urdu site. Built for screen-reader users;
+    invisible to every screenshot; waved through by the guard meant to catch exactly this.
+
+    **`bdi` is no longer an exemption either, and that is the substantive change.** `<bdi>` is a
+    bidi tool — it stops a Latin run reordering the Urdu around it, which mixed-script text
+    needs whether or not the run is translated. Letting it double as "deliberately untranslated"
+    meant the fix for any leak was to wrap it, which satisfies the check and changes nothing for
+    the reader. The declaration is now `data-latin`, and it is **counted**:
+    `e2e/urdu-no-leak.spec.ts` holds a per-route budget of declared Latin runs that may shrink
+    and may not grow.
+
+    That count is the useful output. Undeclared English is 0 on all eight routes; the declared
+    debt is graph 253, almanac 87, order 41, saint 14, about 7, map 7, shrine 4, coverage 1.
+    **The almanac's 87 are the ones to translate next** — they are the observance strings the
+    sheet records ("Annual urs", "Maha Shivratri", "Sikh pilgrimage; Guru Nanak Gurpurab"), and
+    they are the largest block of untranslated *reader-facing* prose left in the archive. The
+    graph's 253 are mostly names, and some are not names at all but phrases from a source quote
+    ("the princess Jahanara"), where inventing Urdu would break RULE 2.
+
+    Found on the way: the same alt-name field was localised on the order page and rendered raw
+    on the saint page and in the lineage view; `saint.altNames.join(' · ')` put a whole
+    middot-separated list in one Latin run so bidi reordered the names; and **two components
+    render the same "related card" shape** (`RelatedShrines`, `NearbyShrines`) — fixing one and
+    not the other is how that leak survived a whole pass. Grep for the class name, not the
+    component.
+
+57. **The observance vocabulary, translated where it can be and counted where it cannot.**
+    §9.56's largest debt was the almanac's 87 declared Latin runs — the `Events` column, which
+    is what a reader consults to find out *when to go*. Measured: 318 occurrences across 168
+    rows, semicolon-joined, reducing to **190 distinct segments**, of which the 33 most common
+    account for 157. So the unit of translation is the segment, not the cell: a whole-cell
+    lookup would have matched almost nothing.
+
+    `OBSERVANCES` in `urdu-i18n/build_dictionary.py` carries those 33, and
+    `src/lib/i18n/localizeObservance.ts` splits on `;`, looks each part up, and **leaves an
+    unmatched segment exactly as it is**. Composing Urdu from tokens ("annual" + "urs" +
+    "spring") was the obvious shortcut and is refused on purpose: that is precisely how §9.52's
+    false number happened — a component deciding word order for a language whose word order it
+    does not know. A visibly untranslated observance is better than a confidently wrong one.
+
+    One detail worth keeping: the separator is localised *only when something translated*.
+    Urdu's semicolon is `؛` (U+061B), and rejoining Urdu segments with an ASCII `;` leaves Latin
+    punctuation steering the bidi run. But wrapping Arabic punctuation around English fragments
+    reads as a bug rather than a translation, so a fully-untranslated cell keeps `;`.
+
+    Also routed through it: the shrine infobox's `Events` row, which had the same whole-string
+    lookup problem. `resolveFieldValue()` now holds both field-specific cases (Founded and
+    Events) in one place instead of two copies of a ternary.
+
+    The 33 entries are **drafts** — same standing as the shrine names and founding phrases.
+    What is not translated stays English and stays counted, which is the honest way round.
+
+    Result, measured: the almanac's declared debt fell **87 → 39** and the shrine page's 4 → 2.
+
+    **A partly-translated list needs isolation per run, not per element.** With half the
+    segments Urdu and half still English, a single `<bdi>` around the joined value does nothing:
+    the bidi algorithm reorders the English fragments against the Urdu ones, and on the Urdu
+    almanac the segments appeared in an order matching neither the source nor the translation.
+    `localizeObservance` wraps each segment in U+2068 FSI / U+2069 PDI — the plain-text
+    equivalent of `<bdi>`, and necessary here because the function returns a *string* used in a
+    `<dd>`, in a list item, and potentially in a `title` attribute where no element can reach.
+    Only when the list actually mixes scripts, so a uniform list carries no invisible characters
+    into anything a reader copies.
+
+58. **169 links in the accessibility landmark 404'd in production, and no test could see it.**
+    The screen-reader shrine directory emitted `<a href="/shrine/${slug}">`. React Router is
+    mounted with `basename={import.meta.env.BASE_URL}` and the site is served from
+    `/Sufi-Shrines/`, so every one of those links pointed at
+    `raufnawaz.github.io/shrine/<slug>`. The one part of the interface that exists solely for a
+    screen reader, entirely broken, live.
+
+    **This is the sharpest version of the pattern yet — not a check looking at the wrong
+    universe but a check that *cannot* look at the right one.** `npm run build:e2e` sets
+    `VITE_BASE_PATH=/` because the suite needs root-relative URLs, which is precisely the one
+    configuration in which the bug does not exist. Playwright followed those links happily.
+
+    `<Link to>` now, and `src/lib/data/__tests__/internalLinks.test.ts` rejects an absolute
+    `href` into any route this app owns. Its own first draft flagged the *comment* explaining
+    the fix, because the comment quotes `href="/shrine/…"` — the third time in one session that
+    a check scraped its own prose. **Strip comments before you parse.**
+
+59. **The mobile-sheet spec was measuring a transition, not a sheet.** `dragging the handle open
+    reveals the shrine list` waited for the `collapsed` class to drop and then took a bounding
+    box: 134px against an assertion of >200, on a sheet that animates `height` from 108px to
+    ~641px. Five per cent into the transition.
+
+    Worth recording how it was diagnosed, because two plausible explanations were both wrong.
+    It appeared in a full run alongside the five environmental failures of §9.53, so the first
+    guess was "more of the same" — but re-running it alone reproduced it, three times. The
+    second guess was "one of this session's four commits", and bisecting gave `e845f95` pass,
+    `d9bcf8e` fail, `f2e9e1b` pass, `cbfaa02` fail: **non-monotonic, which is a bisect telling
+    you the test is timing-dependent rather than telling you which commit broke it.** Probing
+    the sheet directly with an 800ms settle gave 641px every time.
+
+    So `settle()` moved from `e2e/a11y.spec.ts` into `e2e/fixtures.ts` and both specs use it.
+    Two different checks had now measured a transient animated state and blamed the code: axe
+    reading a `reveal-rise` fade as a contrast failure (§9.46), and this reading a height
+    transition as a broken drag handle. One definition, one place.
+
+60. **Four routes 404'd on the live site, including the licence page.** `/graph`, `/almanac`,
+    `/coverage` and `/about` were declared in `App.tsx`, reachable by in-app navigation, and had
+    **no prerendered file at all**. GitHub Pages serves files, so a direct visit or a shared
+    link to any of the four returned GitHub's own 404 page. Two of them are the archive's
+    licence and its self-assessment — the pages most likely to be sent as a link, and the two I
+    had just built.
+
+    Three things made it invisible, and they compound:
+
+    - **`public/_redirects` carries `/* /index.html 200` — Netlify syntax.** GitHub Pages
+      ignores that file entirely, so the SPA fallback someone wrote had never worked. A
+      plausible assumption, never cheaply checked, in a file nobody had cause to reopen.
+    - `npm run preview` is a dev server with SPA fallback built in, so every route resolves
+      locally.
+    - the e2e suite runs against that same preview server, so 126 tests navigated those routes
+      happily.
+
+    Fixed at both levels: the four get real prerendered files with their own title, description,
+    canonical URL and `/ur` mirror, and `dist/404.html` is now a copy of the app shell so any
+    *other* unknown path boots the router instead of GitHub's 404. `robots.txt` gained the
+    `Sitemap:` line it never had (written at build time, since the absolute URL depends on
+    `SITE_URL`), and the four are in `sitemap.xml`.
+
+    `scripts/check-routes-prerendered.mjs` runs in `npm run build` and **parses the route table
+    out of `App.tsx`** rather than holding a list — a hardcoded list is exactly what would go
+    stale the next time a route is added, which is how this happened. It fails if the parse
+    yields fewer than eight routes, spot-checks one instance of each parameterised family in
+    case a prerender loop silently emits nothing, and requires `404.html`. Mutation-tested:
+    disabling one static page names both `/about` and `/ur/about`.
+
+    **And I made the §9.46 mistake myself while fixing this**, rebuilding `dist` twice under a
+    running Playwright suite. Killed the run rather than read it. The rule is worth stating
+    plainly: **no builds while an e2e suite is running** — the suite reads `dist` from disk on
+    every request.
+
+61. **Lighthouse CI was measuring two routes of twelve.** `.lighthouserc.cjs` listed `/` and
+    `/shrine/data-darbar` while the app grew `/saint`, `/order`, `/graph`, `/almanac`,
+    `/coverage` and `/about` — so the performance, SEO and accessibility budgets reported on a
+    sixth of the site. Extended to all nine distinct page types plus `?lang=ur`, which earns its
+    own entry because RTL flips every layout, Nastaliq changes every line box and the numeral
+    toggle rewrites text content.
+
+    **Unverified locally, and stated as such in the config.** lhci cannot run in this
+    environment: Chrome reaches no tile, font or CSV host through the agent proxy, and
+    `upload: temporary-public-storage` needs network. The additions rest on the axe sweep, which
+    *does* run here and reports zero critical or serious violations on all of these routes in
+    both languages, and Lighthouse's accessibility audit is a subset of those rules. If a new
+    URL trips an `error`-level assertion, that is a real finding on a page nothing was measuring
+    before.
+
+    Related, checked while there: CI builds the e2e artifact with `VITE_BASE_PATH=/` and
+    deploy-pages builds its own with the real base, both documented in `ci.yml` — so
+    `check-routes-prerendered.mjs` runs in both, and the seed-sync gates
+    (`git diff --exit-code -- urdu-i18n`, `cmp` against `src/data/urdu-seed.json`) both pass
+    after this session's dictionary regeneration.
+
+    `public/_redirects` now carries a header saying, in the first line, that the file does
+    nothing on this host — and `scripts/backfill-slugs.mjs`, which generates blocks for it, says
+    so too. It is kept rather than deleted because it is the record of a fallback that looked
+    correct for months.
+
+62. **The documentation index listed 23 of 52 docs, and `HANDOVER.md` was not one of them.**
+    CLAUDE.md calls `docs/README.md` "index of all reference and planning docs". It omitted this
+    file — the one CLAUDE.md tells every reader to open first — along with `TODO.md`,
+    `RUNBOOK.md`, `GOLD_STANDARD.md`, `FRONTEND_NOTES.md` and the entire `prompts/` directory
+    that RULE 0 exists to populate.
+
+    **The worse half was a link that pointed somewhere wrong rather than nowhere.** The index's
+    "live working checklist" was `docs/planning/TODO.md`, a snapshot from **12 July** whose
+    stated highest-priority item — syncing the enriched workbook to the live sheet — was
+    completed on 18 August, and whose row count was two imports stale. A contributor following
+    the index would have started on finished work. That file now opens with a SUPERSEDED banner
+    naming the live one.
+
+    `src/lib/data/__tests__/docsIndex.test.ts` enforces it in both directions: every doc under
+    `docs/` must be linked, and every link must resolve. Mutation-tested both ways — and the
+    first mutation attempt *passed*, because `HANDOVER.md` happened to be linked twice and I had
+    only broken one of them. **A mutation test that passes has not proved the check is sound; it
+    has proved the mutation was too weak.**
+
+63. **The site count was stale in four files at once, including the repository's front page.**
+    `README.md` said 163 sacred sites and named three traditions of six; `CITATION.cff` said
+    163; §1 of this file said 167; CLAUDE.md's standing findings said "49 of 167". None was
+    wrong when written, and that is the whole problem — a count in prose is a measurement with a
+    date on it, and prose does not recompute.
+
+    `src/lib/data/__tests__/siteCountConsistency.test.ts` now checks each of those numbers
+    against `src/data/shrines-fallback.json`, anchored on the surrounding words rather than on
+    digits, so a reworded sentence fails loudly rather than silently stopping being checked.
+    Deliberately narrow: only the total, only where a stranger reads it first. Mutation-tested.
+
+    The README also had no link to the live site at all — the front door said "GitHub Pages
+    (deployed via .github/workflows/deploy-pages.yml)" — and its feature list predated
+    `/almanac`, `/coverage`, `/about` and shared ground. And it described `npm run verify` as
+    "typecheck + lint + unit tests", omitting the format and data gates that CLAUDE.md is
+    emphatic about, which is how `format:check` came to be failing on every CI run once before.
+
+64. **A doc told the reader to do the one thing RULE 3 forbids — and I had just promoted it.**
+    `docs/RUNBOOK.md` STEP 1: `File → Download → Tab-separated values`. Google Sheets' TSV
+    export silently strips the newlines inside cells, which flattens the markdown of every
+    Description in the archive. That is exactly RULE 3, and this repository documents the
+    discovery in three other places — the runbook simply predates it, being dated 9 August
+    ("this afternoon's meeting", `backup 2026-08-09`).
+
+    **The point is what §9.62 did to it.** Rewriting the documentation index, I put this file
+    under "read these first" on the strength of its title. A stale *fact* is merely believed; a
+    stale *instruction* is followed. Promoting a document without reading it is how a correct
+    index becomes a more dangerous one than the incomplete index it replaced.
+
+    Fixed in place with a note (the historical wording is quoted so the correction is visible,
+    not silent), the whole file banners its date, and it is demoted to the point-in-time
+    section. `src/lib/data/__tests__/docsNoTsvExport.test.ts` fails any doc that *instructs* a
+    TSV export while allowing the passages that explain why it is forbidden.
+
+    Its first two runs flagged **my own prose** — the banner, then these very handover and TODO
+    entries, each quoting the menu path on one line and calling it harmful on the next. That is
+    the fourth and fifth time in this session a check caught text describing the thing it bans,
+    and the second lesson is sharper than the first: the exemption was scoped to the *matching
+    line*, and **prose wraps — a line is not a thought.** A line-scoped exemption over wrapped
+    prose is a false-positive machine. It looks at a window now (two lines before, three after),
+    which costs nothing real: a genuine imperative step in a runbook does not have the word
+    "forbidden" three lines away. Mutation-tested — reinstating the TSV step still names
+    `docs/RUNBOOK.md:41`, because the file's banner is thirty lines above it.
+
+65. **Searching in Urdu on the Urdu site returned zero results.** `داتا` — the first word of
+    the archive's best-known shrine, displayed in Urdu on screen, typed into a box whose
+    placeholder is `مزار تلاش کریں...` — matched nothing. So did `لاہور`, `مندر`, `گوردوارہ`. A
+    reader in an entirely Urdu interface had to type English to find anything.
+
+    **Two sources for one fact, one of them empty.** The page *displays* Urdu names from the
+    dictionary (`urdu-seed.json`, 169/169 covered). The search index took `urduName` from
+    `getUrduFieldValue(row, 'Name')` — a sheet column. **The sheet has no Urdu column at all**,
+    so that field was `''` for all 169 documents and the boosted field indexed nothing.
+
+    Everything around it was already right, and that is what made it invisible. The worker folds
+    Arabic letter variants to Urdu ones, strips harakat, boosts `urduName` to 4, and
+    `search.worker.test.ts` asserts that `داتا دربار` matches. **Those tests build their own
+    index from hand-written documents**, so they passed in full while production indexed empty
+    strings. A unit test that supplies its own fixture proves the algorithm and says nothing
+    about whether the data reaches it. Worth auditing wherever else a worker or index is tested
+    that way.
+
+    `useSearch.ts` now indexes name, location, saint and category in **both** scripts, from the
+    same dictionary the UI displays — always, not per active language, because a reader in the
+    Urdu interface may well type a Latin name they saw in a citation. The Urdu *article* prose is
+    deliberately not indexed: it is the 1 MB lazy chunk from §9.29, and pulling it in here would
+    put it back on every route's critical path. `e2e/search-bilingual.spec.ts` runs the real
+    index over the real dataset through the real UI in both languages; mutation-tested by
+    blanking the four Urdu fields, which reproduces "returned 0" on every Urdu query.
+
+    Two of its own assertions were wrong first, both instructive: it asserted the *displayed*
+    name, which is script-dependent, so "Data Darbar" typed in the Urdu interface finds the
+    shrine and renders it as داتا دربار; and the fallback of matching a slug in an `href` does not
+    work because the list items are click handlers, not links.
+
+66. **A dated CSV restore point, and a check that fired correctly on its first run — at me.**
+    `npm run data:restore-point` writes `data/snapshot_<date>[_<label>].csv`: every row, every column,
+    newlines inside every Description intact. The sheet is production and keeps no history
+    (RULE 3), so the state before an import has to be recoverable from a commit rather than from
+    whoever ran the export (RULE 0). `.gitignore` ignores `data/*.csv`, so
+    `!data/snapshot_*.csv` had to be added — without it the file would have been written,
+    reported as written, and quietly untracked, which is the exact failure RULE 0 exists for.
+    Verified: 7,436 field comparisons against the source, zero differing, all 168
+    newline-bearing Descriptions preserved.
+
+    The filename's date is the snapshot's own `generated` stamp, not the day the script ran — a
+    snapshot named for when someone happened to type a command is not a fact about the data.
+
+    **Its own first invariant was wrong.** "Refuse if a long Description has no newline" fired
+    immediately on Sant Baba Asudaram Darbar: a well-formed 1339-character paragraph with
+    balanced `*sant*` emphasis, which has no newline because it is the one entry in the archive
+    with no bibliography section and so no heading to break the line. A TSV round-trip flattens
+    *every* cell at once, so the signature is a collapse in the population share, not one row.
+    The check asserts ≥90% (99.4% of 169 today) and *reports* the individual ones. This is
+    RULE 4's own worked example — the linter that flagged "a poet of note:" — arriving in my own
+    code within an hour of my quoting it.
+
+67. **Four bugs in the gallery lightbox, all behind one click no test performed.** The
+    accessible-name sweep, the axe sweep and the no-leak guard all scan the page *as loaded*, so
+    a modal that exists only after a click is invisible to every one of them — the same blind
+    spot as `UpdateToast` (§9.51), and now the second time it has hidden real defects. **Audit
+    for others: anything gated on a click, a hover, a service-worker event, or a geolocation
+    grant is unexamined by every sweep in this suite.**
+
+    - **Arrowing past the end destroyed the lightbox in Urdu.** The handler flipped the *step*
+      for RTL without flipping the *clamp*: `Math.max(0, i - (isRTL ? -1 : 1))` can exceed the
+      last index and `Math.min(len - 1, i + (isRTL ? -1 : 1))` can go below zero. `items[idx]`
+      became `undefined`, reading `item.index` in the render threw, and the dialog vanished.
+      Measured: five ArrowLefts on a two-photo gallery removed it in Urdu and did nothing in
+      English. There were two copies of that arithmetic; there is one clamped `step()` now,
+      because the bug was precisely the two copies disagreeing.
+    - **Nothing trapped focus, under a comment saying "Focus trap".** Eight Tabs escaped to a
+      `.related-card` link behind an `aria-modal="true"` container: the screen reader is told the
+      page is inert while the keyboard roams it. The comment was the tell — it described focus
+      *management* (focus on open, restore on close) and called it a trap.
+    - **The restore did nothing either**, and this one is worth remembering as a shape:
+      `closeRef.current?.focus()` ran *before* `const prev = document.activeElement`, so `prev`
+      was the dialog's own close button, and on unmount focus was restored to an element that
+      had just been removed. It fell to `<body>`. A reader who opened a photo and pressed Escape
+      landed at the top of the document. **Two correct statements in the wrong order look like
+      working code and are not.**
+    - **The image `alt` was `Gallery image ${idx + 1}`** — English on the Urdu site. It is
+      `photoOf` now ("Photo 1 of 2" / "تصویر ۱ از ۲"): where the archive records no caption, the
+      honest description of the image is its position, said in a sentence.
+
+    `e2e/lightbox.spec.ts` opens it in both languages, walks off both ends, tabs past the last
+    control, presses Escape and checks focus came back to the tile that opened it. The
+    focus-restore test is the one that found the third bug — the first three were found by
+    reading, the fourth by the test I wrote for them.
+
+68. **The interaction-gated audit came back clean, which bounds §9.67.** Having found four bugs
+    behind one click, I ran the same undeclared-English and page-error scan *after* performing
+    each interaction that reveals new UI — the guided-tours toggle, the basemap picker, the
+    facet panel (which reveals +1251 elements and +12,611 characters), scrolling to the page
+    foot, and Share. All five clean, in Urdu.
+
+    The probe needed two goes, both for reasons worth keeping. The first run reported every
+    route broken because **the preview server had died and I had not checked** — a sweep whose
+    harness is down reports silence as success, so it now asserts that at least one route
+    rendered. The second reported Share as doing nothing, which was **the probe lacking
+    clipboard permission**: with `clipboard-write` granted, the toast appears with
+    `role="status"`, the text is localised ("Copied" / "کاپی ہو گیا"), and the copied URL
+    preserves `?lang=ur`. I had also mis-read the component and said `copied` was destructured
+    but unused; it drives a `.share-toast` twenty lines further down.
+
+69. **The production base path now has a check, and it is the only thing that can have one.**
+    `npm run verify:pages` boots the *real* artifact at `/Sufi-Shrines/` behind a server that
+    behaves like GitHub Pages — files under the prefix, directory paths to `index.html`, and
+    **404.html returned with a 404 status** — then asserts, per route: it renders, no page
+    errors, no failed subrequests, every in-app `href` carries the base, and one client-side
+    navigation lands inside it. Wired into `deploy-pages.yml` as the last gate before publish.
+    Mutation-tested by turning one `<Link>` back into an `<a href>`, which it catches by name.
+
+    Result on the current build: **12/12 routes render, all links based, the fallback boots the
+    router.** So §9.58 and §9.60 are closed rather than merely fixed.
+
+    Getting there took three wrong harnesses in a row, and the third is the instructive one:
+    **`vite preview` cannot serve a subpath build.** `vite.config.ts` computes `base` only for
+    `command === 'build'`, so preview serves at `/` — and a request for
+    `/Sufi-Shrines/assets/index-*.js` falls through to its HTML fallback. `curl` got a 200
+    (fallback HTML with the wrong content type) while the browser got a 404 (the fallback only
+    answers `Accept: text/html`), so the two disagreed and neither was measuring the app. Hence
+    the hand-written static server: for a check about how files are *served*, the serving has to
+    be the thing under test, not a dev convenience.
+
+70. **Places as entities shipped (Track B), and the data decided its shape.** 29 place pages in
+    both languages, from a closed 66-entry vocabulary; Lahore holds 35 sites and five of the six
+    traditions. Every entry is derived from a `Location` string that appears in the data, none
+    from general knowledge of Pakistani geography.
+
+    The design was forced by a measurement, not chosen: **there is no District, City, Province or
+    Region column anywhere in the sheet.** Across the 169-row snapshot the last comma-separated
+    segment of `Location` is "Pakistan" for 124 rows and a province for 35, and six rows carry a
+    paragraph of survey qualification where an address should be. Positional parsing cannot
+    survive that, so the vocabulary is matched anywhere in the string — the same technique
+    `extractRegion` already used for provinces. It buys the level variations for free ("Lahore",
+    "Lahore District", "Walled City, Lahore" are one place) at the price of asserting no
+    hierarchy, which is the honest trade when the hierarchy is not in the data.
+
+    Two things stay deliberately untidy. A site can be in **two** places ("Uch Sharif,
+    Bahawalpur District" is in both, and twelve rows are like this), and **one site is unplaced** —
+    reported on `/coverage` rather than rounded away. That last number started at seven, and the
+    reduction is the useful part: six of the seven were the *vocabulary's* fault, not the data's.
+    Quetta, Hyderabad, Kasur and Sharda were missing outright; Girhor Sharif was unplaced because
+    the sheet spells its district "Umarkot" while the pattern only accepted "Umerkot". Reading the
+    unplaced list is how you find that, and a loose test threshold (`≤ 10`, which passed at seven)
+    is how you never do — it is `≤ 2` now.
+
+    The one that remains cannot be placed by anything: Darbar Malik Ahmad Ayaz's Location is a
+    paragraph stating that no city, district, tehsil or province appears anywhere in its survey. The date span reads bare
+    Gregorian years only and skips every Hijri or hedged date instead of flattening it (RULE 2).
+
+71. **A class name is a string, and every string typechecks.** `PlacePage` was written against
+    `entity-kicker` and `entity-lede` — plausible names, in a namespace that does exist, defined
+    in no stylesheet. `npm run typecheck` was clean. An hour later I did it again: the shrine
+    masthead's place pills went in referencing `.shrine-place-links` / `.shrine-place-tag` before
+    either rule was written.
+
+    Nothing in the pipeline could have caught it. TypeScript cannot (`className` takes any
+    string), lint cannot (the class is valid), and the unit tests cannot (jsdom applies no
+    stylesheet, so an unstyled element renders exactly like a styled one). So
+    `src/styles/__tests__/classNamesStyled.test.ts` walks every `className` in `src/` and
+    requires each name to appear in `src/styles/*.css`, with a seven-entry
+    `UNSTYLED_BY_DESIGN` list for scope hooks and one semantic marker (`.coords`, which the Urdu
+    leak guard reads).
+
+    Two details are worth keeping. Dynamic names are checked as **prefixes**
+    (`place-tradition--${key}` requires some `.place-tradition--…` rule) — the first draft
+    skipped interpolated names entirely and would have missed eight variant families. And the
+    first run reported `en` and `ur` as unstyled classes, which were `lang === 'en'` comparands
+    harvested out of a ternary; comparison right-hand sides and call arguments are stripped
+    before literals are collected.
+
+    It found a real bug on its first honest run: `.entity-disputed-value` on `/saint/:slug` had
+    no rule, so in a row whose whole point is two contested dates, the field label was bold and
+    the **numbers** were plain body text.
+
+72. **The Urdu seed grew again and every eager budget moved with it.** Merging Track B's 282
+    place tokens took `src/data/urdu-seed.json` from 697 to 960 entries, 69 KB to 80 KB, which
+    lands as ~25 KB on *every* route because `urduFallback` imports the seed statically.
+    `check-bundle-budget.mjs` failed `index.html` and the budgets were raised with the
+    measurement recorded — the second raise for the same cause in two days.
+
+    That is the argument for finally language-gating the seed: **an English reader downloads
+    80 KB of Urdu dictionary and consults none of it.** Blocked on the same thing as before —
+    `translateToUrdu` runs synchronously during render, so a late dictionary flashes English —
+    and it needs the `ensureUrduContentForLang` treatment `urdu-content.json` already has.
+
+73. **The prerenderer was writing Urdu with Western digits.** Found while adding place pages:
+    `/ur/saint/data-ganj-bakhsh` shipped `(وفات 1072)`. The app has `fmtNum` at every render
+    site and the static `<meta>` tags were simply never held to it. Fixed for places, saints and
+    orders — `(وفات ۱۰۷۲)` — applied only to numbers the script *composes* and never to Urdu
+    prose lifted from `urdu-content.json`, because reformatting inside an author's text is a
+    content edit rather than a rendering choice.
+
+74. **The place vocabulary exists twice on purpose, and is held to itself.**
+    `scripts/data/lib/places.mjs` mirrors `src/lib/data/places.ts` because the prerenderer runs
+    under plain node with no TypeScript loader — the same arrangement as `slugs.mjs`. The guard
+    (`placesVocabSync.test.ts`) compares the tables field by field, checks each regex's flags
+    (`i`, and *not* `g`: a global regex used with `.test()` carries a `lastIndex`, so the same
+    string matches on one call and misses on the next), and then runs both matchers over every
+    `Location` in the shipped snapshot.
+
+    It also checks one step earlier than the vocabulary. The prerenderer works from raw sheet
+    rows, and my first draft read `field(row, 'Location', 'Address', 'Place')` while the app
+    reads `row['Location']` and nothing else — a row with an Address and no Location would have
+    been placed in `dist` and unplaced in the app, which is a page the sitemap advertises and
+    the router calls "not recorded". Both sides now share `locationOfRow`.
+
+75. **The Urdu dictionary is no longer on the English critical path — 74 KB off every route.**
+    `src/data/urdu-seed.json` (80 KB, 960 entries) was a static import in `urduFallback.ts`, so
+    an English reader downloaded the entire Urdu dictionary and consulted none of it.
+    `index.html` fell from 322 KB of eager JavaScript to **248**, the map route from 611 to
+    **537**, and every budget in `check-bundle-budget.mjs` came down with it — the first time
+    that file's numbers have gone *down*.
+
+    The note in that file had argued for this twice and deferred it twice, for a real reason:
+    `translateToUrdu` runs synchronously during render, so a late dictionary shows English on an
+    Urdu page. The fix is four things at once — a module-scope request in `main.tsx` from
+    `detectInitialLang()` (before React's first pass, so it races the sheet fetch and wins), a
+    `dictVersion` in the language context so arrival re-renders everything that translates,
+    `useShrineData` awaiting it where it already awaited the article payload, and `useSearch`
+    rebuilding the index on arrival.
+
+    **The regression it caused, and the reason to run the whole suite rather than the new
+    tests:** two `search-bilingual` cases went red — *in the English interface*, an Urdu query
+    found nothing. The worker indexes both scripts deliberately ("a reader in the English one may
+    paste Urdu"), and that promise was free only while the dictionary was eager. `useSearch` now
+    fetches it when a query contains Urdu letters, so an English reader who never types Urdu
+    still ships none of it and one who does waits a single chunk request. Nothing in the new
+    tests would have caught this; the suite that already existed did.
+
+    One trap found by mutation-testing my own test. `translateToUrdu` remembers permanent misses
+    in a `_misses` set, so `loadUrduSeed()` clears it — and my first test of that cleared nothing,
+    because the exact-key lookup happens *before* the miss check and so survives a stale miss. It
+    is the **case-insensitive** index, consulted *after* it, that gets poisoned. Deleting
+    `_misses.clear()` left the first version of the test green; with a lowercased fixture
+    ("uch sharif", which is how the sheet spells some values) it goes red. A mutation that passes
+    has not proved the check sound, only the mutation too weak — third time that lesson has
+    appeared in this file.
+
+    Also worth keeping: **894 of the seed's 960 entries are translatable only from the seed.** The
+    other 66 include the common city words, which `buildUrduFallback`'s built-in maps already
+    cover — so a test of the un-loaded window that used "Lahore" would pass while measuring the
+    built-in map rather than the gate. Mine did, at first.
+
+    **And a layer below all of it, the service worker was undoing the whole thing.** The PWA
+    precache globbed `**` + every emitted `.js`, so both language payloads — the 1 MB article
+    chunk and the 77 KB dictionary — were downloaded in the background by *every* visitor on
+    first load. After first paint, so no eager-payload budget and no Lighthouse run could see it,
+    and the careful language-gating in `urduContentOverride.ts` and `urduFallback.ts` was being
+    quietly cancelled one layer down for every returning reader. Both are now excluded via
+    `globIgnores` and cached by a `CacheFirst` runtime rule when actually fetched, so an Urdu
+    reader who has read one page still has them offline. Measured: the precache went from
+    **4980 KiB to 3865 KiB (52 entries)**.
+
+    The general lesson is the one this file keeps relearning in new costumes: a check measures the
+    layer it was pointed at. `check-bundle-budget.mjs` measures the static import graph, and was
+    right; the bytes left anyway, through a mechanism nothing was looking at.
+
+76. **Reported from a phone: "I still cannot see the sidebar." Two faults, one of them a real
+    layout break.** `.sidebar` set `left: 0; right: 0` and then
+    `inset-inline-start: auto !important` — and `inset-inline-start` *is* `left` in LTR, so the
+    pin was cancelled. A fixed box with one inset and `width: auto` resolves to shrink-to-fit:
+    measured at 390×844 with the shrine list open, the sheet was **2201px wide starting at
+    x = −1811**, sized by the widest row and hanging off the left of the screen. The peek looked
+    fine because its own content is narrower than the viewport, so nothing showed until a reader
+    tapped through to the list — and then most of the sheet was off-screen with blank rows where
+    the names should be. In RTL the same rule cancelled the right edge instead.
+
+    The other half was discoverability: the peek was 108px, which cleared the drag handle and the
+    brand row and stopped **one pixel above** the "Table of Shrines" button (its box runs
+    122–166px inside the sheet). So a phone reader saw a map, a title, and a 36×4px pill drawn in
+    the *hairline border colour*, with the only route into 169 sites below the fold. 184px now,
+    the pill is 44×5 in an ink colour, and the list button expands the sheet in the same tap.
+
+    Also: the handle's accessible name was a hardcoded English "Expand sheet". **The Urdu sweeps
+    have never seen any mobile-only UI** — they run at a desktop viewport, where this control
+    does not exist. That is a standing gap, not a one-off.
+
+77. **"The tour filters look ugly" had a mechanical cause, and it generalised.** `tours.css`
+    painted the chips with `var(--color-surface)` and rounded them with `var(--radius-pill)`.
+    This palette defines neither (`--color-bg-surface`, `--radius-full`), so both declarations
+    were dropped and the chips rendered unstyled — which looks like a design failure and is a
+    typo.
+
+    A `var(--nope)` is not an error anywhere in the pipeline: the declaration is dropped, the
+    element keeps what it inherited, and the page looks *nearly* right. So
+    `src/styles/__tests__/cssTokensDefined.test.ts` now sweeps every stylesheet: **six live
+    references to four properties that never existed** (`--color-surface`, `--radius-pill`,
+    `--radius-xs`, `--color-bg-subtle`), plus `--ease-out` in a rule I had written an hour
+    earlier. It also bans a fallback on a *declared* token, because that is a second source of
+    truth that keeps working while the palette moves on around it.
+
+78. **The command palette, and what it cost to build honestly.** Search moved out of the sidebar
+    (a 184px sheet on a phone, with five rows of chips competing with the list they act on) into
+    a Spotlight-style overlay on ⌘K, `/`, or the trigger: input, filters folded behind a control
+    at the trailing end of the field, live results, ↑↓/Enter/Esc, focus trap, focus restored to
+    the trigger.
+
+    Two things worth keeping. **The filters were moved, not copied** — into `ShrineFilters`, with
+    the class names unchanged, so the sidebar's existing tests kept working after adding the two
+    clicks a reader now walks; two copies of a filter UI is how a filter starts working in one
+    place and not the other. And **the panel's flex defaults ate the filters drawer**: it opened
+    at 55px — one chip row and half of the next, sliced mid-word — because the results list asked
+    for `flex: 1` and a flex item's default `min-height: auto` refuses to shrink. It looked like
+    a rendering bug and was a flex default.
+
+79. **The Urdu overflow sweep, and the one thing it found.** `e2e/no-overflow.spec.ts` checks
+    9 routes × 2 languages × 3 widths for a document that scrolls sideways *and* for any element
+    past the viewport edges or wider than its own non-scrolling box. Nastaliq sets wider and
+    taller than Latin, an Urdu word cannot be hyphenated, and several strings are long in Urdu
+    and short in English — so a layout that fits in English can break in Urdu, and neither a unit
+    test (jsdom has no layout) nor a screenshot review (one page, one width) reliably catches it.
+
+    It found `h1.sidebar-title` overflowing its row by 12px at 390px **in Urdu only**: a `nowrap`
+    heading with no `min-width: 0` refuses to shrink and pushes the row instead. Fixed, with the
+    extra line-height Nastaliq needs to clear its descenders inside `overflow: hidden`.
+
+    Its first run reported six failures that were all the check's fault, and both exemptions are
+    instructive: `.leaflet-container` reports its tile panes' width as its own `scrollWidth`, and
+    `.sr-only` — the visually-hidden shrine directory holding 169 links with their full Locations
+    — measures thousands of pixels wide while occupying no visual space. Exempting the panes but
+    not the container was not enough.
+
+80. **Translucency, done as one material rather than six guesses.** `--glass-bg` /
+    `--glass-blur` / `--glass-border` in tokens.css (light and dark), applied to the command
+    palette, the map's control bars and the mobile sheet header. Two decisions are load-bearing:
+    the alpha is **0.82, not the 0.6 a screenshot makes tempting**, because every one of those
+    surfaces carries body text over an *arbitrary* backdrop (satellite tiles, a photograph, a
+    dense marker cluster) and contrast has to hold against all of them; and each rule sets an
+    opaque background first and the translucent one only inside
+    `@supports (backdrop-filter: …)`, so a browser without the blur gets a solid panel rather
+    than text over a live map.
+
+81. **Two critical a11y violations sat on the primary browse surface, and the route sweep could
+    not see them.** Adding an axe scan of the *open* command palette meant clicking "Table of
+    Shrines" as part of the setup — and that revealed the shrine list had never been scanned at
+    all, because the route sweep scans the map page with the list collapsed. On it: `aria-pressed`
+    on every one of 169 rows, which is **not allowed on `role="listitem"`**, and a `role="list"`
+    owning `div` category headings, which a list may not own. Both critical, both invisible for as
+    long as the list has existed.
+
+    The fix is the honest structure rather than a patch: these rows are a single-select list of
+    options (clicking one selects that shrine on the map), so the panel is a `listbox`, each
+    category is a `group` carrying the category as its accessible name, each row is an `option`
+    with `aria-selected`, and the visible heading is `aria-hidden` because the group already
+    announces it.
+
+    The lesson is the one this file keeps recording in new costumes: **a sweep's route list is
+    not its universe — its *state* is.** Nine routes at rest is not the same as nine routes with
+    the panel a reader actually uses opened. The palette scan now opens the list *and* the filters
+    drawer, and a phone-viewport pass is still missing (see the checkpoint doc §4).
+
 
 ## 10. Risks if this is left unattended
 

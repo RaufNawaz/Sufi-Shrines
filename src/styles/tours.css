@@ -123,6 +123,118 @@
   margin: 0 0 var(--space-3);
 }
 
+/* ── The filter bar (one control, not four chip rows) ─────────────────────── */
+
+.tour-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-block: var(--space-3) var(--space-2);
+}
+
+.tour-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast),
+    border-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.tour-filter-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.tour-filter-toggle.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+[dir='rtl'] .tour-filter-toggle,
+[dir='rtl'] .tour-filter-result-count,
+[dir='rtl'] .tour-filter-clear {
+  font-family: var(--font-urdu);
+}
+
+.tour-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.tour-filter-result-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tour-filter-clear {
+  margin-inline-start: auto;
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--color-primary);
+  font-family: inherit;
+  font-size: var(--text-xs);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* No underline in Urdu — it runs through the descenders of Nastaliq
+   (HANDOVER §9.48). The colour plus the position carry it there. */
+[dir='rtl'] .tour-filter-clear {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tour-filters {
+  margin-block-end: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+  animation: tour-filters-in var(--duration-base) var(--easing) both;
+}
+
+@keyframes tour-filters-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-filters {
+    animation: none;
+  }
+}
+
 .tour-list-cards {
   display: flex;
   flex-direction: column;
@@ -137,7 +249,7 @@
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: var(--color-bg-surface);
   text-align: start;
   cursor: pointer;
   transition:
@@ -189,7 +301,7 @@
   color: var(--color-primary);
   background: var(--color-primary-pale);
   padding: 2px var(--space-2);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-full);
   letter-spacing: 0.03em;
 }
 
@@ -269,7 +381,7 @@
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: var(--color-bg-surface);
   color: var(--color-text);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -520,7 +632,7 @@
   font-size: var(--text-xs);
   font-weight: 600;
   padding: 1px var(--space-2);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-full);
   white-space: nowrap;
 }
 
@@ -636,7 +748,7 @@
   font-weight: 600;
   background: var(--color-accent-pale);
   padding: 1px var(--space-2);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-full);
   white-space: nowrap;
 }
 
@@ -662,7 +774,7 @@
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: var(--color-surface);
+  background: var(--color-bg-surface);
   color: var(--color-text);
   font-size: var(--text-sm);
   text-align: start;

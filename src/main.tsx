@@ -5,15 +5,21 @@ import App from './App';
 import 'leaflet/dist/leaflet.css';
 import './styles/tokens.css';
 import './styles/global.css';
+import './styles/motion.css';
 import './styles/map.css';
 import './styles/tours.css';
 // Shared primitives load after map/tours and before shrine.css — see components.css header.
 import './styles/components.css';
+// The command palette is a feature sheet, loaded like map/tours; it must come
+// after components.css so its own .palette-* rules win where they overlap.
+import './styles/palette.css';
 import './styles/shrine.css';
 import './styles/kg.css';
 import './styles/almanac.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
+import { detectInitialLang } from './lib/i18n/detectLang';
+import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 
 // Prevent FOUC by setting data-theme before paint. An explicit choice
 // (the moon button) pins the theme; otherwise follow the device — a phone
@@ -28,6 +34,15 @@ const theme =
 document.documentElement.setAttribute('data-theme', theme);
 
 initTelemetry();
+
+/* The Urdu dictionary (80 KB) is no longer in the eager bundle, so an English
+   reader never downloads it. Requested here rather than from an effect inside
+   the provider, because `translateToUrdu` runs synchronously during render: at
+   module scope the request is already in flight before React's first pass, so
+   for an Urdu reader it resolves alongside — usually well before — the shrine
+   data fetch it would otherwise be waiting behind. If it does land late,
+   `LanguageProvider` re-renders on arrival. */
+void ensureUrduSeedForLang(detectInitialLang());
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

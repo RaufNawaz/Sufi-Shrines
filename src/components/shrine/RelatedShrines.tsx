@@ -34,7 +34,7 @@ export function RelatedShrines({ shrine, all }: Props) {
           const dist = shrine.latLng && s.latLng ? haversineKm(shrine.latLng, s.latLng) : null;
 
           return (
-            <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card">
+            <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card hover-lift">
               <ShrineImage
                 src={s.imageUrl}
                 alt={name}
@@ -47,10 +47,19 @@ export function RelatedShrines({ shrine, all }: Props) {
               <div className="related-card-body">
                 <div className="related-card-name">{name}</div>
                 <div className="related-card-meta">
-                  {location && <span>{location}</span>}
+                  {/* The Location column often carries a survey qualification
+                      rather than a place name, still in English. <bdi> isolates
+                      the Latin run inside the RTL card; `data-latin` declares it
+                      as untranslated source text so the no-leak guard counts it
+                      as debt rather than passing it silently. */}
+                  {location && (
+                    <span data-latin>
+                      <bdi>{location}</bdi>
+                      {dist !== null && ' · '}
+                    </span>
+                  )}
                   {dist !== null && (
                     <span>
-                      {location && ' · '}
                       {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
                     </span>
                   )}

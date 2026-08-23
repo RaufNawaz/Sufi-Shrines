@@ -21,14 +21,14 @@ function CiteBlock({ label, text }: { label: string; text: string }) {
     <div className="cite-block">
       <div className="cite-block-head">
         <span className="cite-block-label">
-          <bdi>{label}</bdi>
+          <bdi data-latin>{label}</bdi>
         </span>
         <button type="button" className="cite-copy-btn" onClick={() => void copy(text)}>
           {copied ? t('copied') : t('citeCopy')}
         </button>
       </div>
       <pre className="cite-text">
-        <bdi>{text}</bdi>
+        <bdi data-latin>{text}</bdi>
       </pre>
     </div>
   );

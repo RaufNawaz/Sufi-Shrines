@@ -4,7 +4,6 @@ import {
   isLikelyUrl,
   normalizeFoundedDate,
 } from '../data/fieldAliasing';
-import urduSeed from '../../data/urdu-seed.json';
 import type { Lang, ShrineRow } from '../../types/shrine';
 
 const SPECIAL_URDU_PHRASES: Record<string, string> = {
@@ -351,6 +350,15 @@ export function buildUrduFallback(rawText: string): string {
   const centuryMatch = raw.match(/^(\d+)(st|nd|rd|th)\s+century$/i);
   if (centuryMatch) return `${centuryMatch[1]}ویں صدی`;
 
+  // "c. 1165" — an approximate year, and the most common shape of a `founded`
+  // value in the knowledge graph's order records. Tokenising it leaves the "c."
+  // in Latin, which makes the whole string fail translateToUrdu's
+  // no-Latin check and come back untranslated: every order page printed
+  // "c. ۱۱۶۵". A pattern rule rather than a WORD_URDU_MAP entry because a bare
+  // "c" elsewhere is not necessarily circa.
+  const circaMatch = raw.match(/^c(?:a|irca)?\.?\s*(\d{3,4})\s*(?:CE|AD)?$/i);
+  if (circaMatch) return `تقریباً ${circaMatch[1]}`;
+
   const tokens = raw.match(/[A-Za-z]+|\d+|[^A-Za-z\d]+/g) || [];
   return (
     tokens
@@ -367,6 +375,100 @@ export function buildUrduFallback(rawText: string): string {
 }
 
 const TRANSLATION_CACHE_KEY = 'shrines_translation_cache_v4';
+
+/**
+ * `urdu-seed.json` is loaded on demand, not imported.
+ *
+ * The dictionary is 80 KB of JSON — 960 entries covering every shrine name,
+ * saint, place, category and observance in the archive — and a static import
+ * put all of it in the eager chunk of every route. **An English reader
+ * downloaded the whole Urdu dictionary and consulted none of it.** Measured on
+ * 21 August 2026: it accounted for ~25 KB of every route's eager JavaScript,
+ * and it had grown twice in two days (49 KB → 67 KB → 80 KB), each time forcing
+ * `check-bundle-budget.mjs` to be raised. The budget note in that file had
+ * argued for this change twice.
+ *
+ * The reason it was not done sooner is real and is handled here rather than
+ * wished away: `translateToUrdu` is called **synchronously during render**, so
+ * a dictionary that arrives late means a frame of English in the Urdu view.
+ * Three things together close that gap:
+ *
+ * 1. The request starts from `detectInitialLang()` at module scope in
+ *    `main.tsx`, before React renders — not from an effect after first paint.
+ * 2. `LanguageProvider` bumps a counter in the context value when it lands, so
+ *    every component that translates (all of them read `useLang()`) re-renders
+ *    with the dictionary in place.
+ * 3. `useShrineData` waits for it in the same place it already waits for the
+ *    Urdu article payload, and rebuilds if it arrives afterwards — which also
+ *    keeps the search index correct, since `useSearch` indexes the Urdu fields
+ *    from this dictionary and an index built without it returns nothing for an
+ *    Urdu query (the bug e2e/search-bilingual.spec.ts exists to catch).
+ *
+ * An English reader triggers none of this and ships none of the bytes.
+ */
+let SEED: Record<string, string> | null = null;
+let seedInflight: Promise<Record<string, string>> | null = null;
+const seedListeners = new Set<() => void>();
+
+/** True once the dictionary is in memory. */
+export function isUrduSeedLoaded(): boolean {
+  return SEED !== null;
+}
+
+/** Fetch the dictionary, at most once per session; concurrent callers share
+ *  one chunk request. */
+export function loadUrduSeed(): Promise<Record<string, string>> {
+  if (SEED) return Promise.resolve(SEED);
+  if (!seedInflight) {
+    seedInflight = import('../../data/urdu-seed.json')
+      .then((module) => {
+        SEED = module.default as Record<string, string>;
+        /* Every derived cache has to go, not just the main one. `_misses` is
+           the load-bearing one: a string looked up before the dictionary
+           arrived is remembered as untranslatable, and without this line it
+           would stay English for the rest of the session even though the
+           translation is now sitting in memory. */
+        _cache = null;
+        _lowerCache = null;
+        _nameIndex = null;
+        _misses.clear();
+        // Notify before resolving, so a subscriber's rebuild is in place by the
+        // time an awaiting caller continues.
+        seedListeners.forEach((listener) => listener());
+        return SEED;
+      })
+      .finally(() => {
+        seedInflight = null;
+      });
+  }
+  return seedInflight;
+}
+
+/** Load the dictionary only when the reader is actually reading Urdu. */
+export function ensureUrduSeedForLang(lang: Lang): Promise<void> {
+  if (lang !== 'ur') return Promise.resolve();
+  return loadUrduSeed().then(() => undefined);
+}
+
+/** Subscribe to the dictionary's arrival. Returns an unsubscribe function.
+ *  Fires once; check `isUrduSeedLoaded()` for the already-loaded case. */
+export function onUrduSeedLoaded(listener: () => void): () => void {
+  seedListeners.add(listener);
+  return () => {
+    seedListeners.delete(listener);
+  };
+}
+
+/** Test-only: forget the dictionary so a case can assert the un-loaded
+ *  behaviour — an English string returned unchanged rather than transliterated. */
+export function resetUrduSeedForTests(): void {
+  SEED = null;
+  seedInflight = null;
+  _cache = null;
+  _lowerCache = null;
+  _nameIndex = null;
+  _misses.clear();
+}
 
 function loadSeedTranslations(): Map<string, string> {
   const w = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>) : {};
@@ -386,8 +488,12 @@ function loadSeedTranslations(): Map<string, string> {
     // ignore
   }
 
-  // Seed file wins over stale persisted cache; window can still override in dev.
-  return new Map(Object.entries({ ...persisted, ...(urduSeed as Record<string, string>), ...win }));
+  /* Seed file wins over stale persisted cache; window can still override in
+     dev. `SEED` is null until the dictionary chunk lands, and the persisted
+     cache carries the previous session's hits in the meantime — which is why
+     the un-loaded window degrades to "English, briefly" rather than to
+     "nothing works". */
+  return new Map(Object.entries({ ...persisted, ...(SEED ?? {}), ...win }));
 }
 
 let _cache: Map<string, string> | null = null;
@@ -430,6 +536,96 @@ function schedulePersistCache() {
   };
   if (typeof requestIdleCallback === 'function') requestIdleCallback(flush);
   else queueMicrotask(flush);
+}
+
+/**
+ * Honorifics and titles that prefix a name in one record and not in another.
+ * Stripped only from the *front* of a string, repeatedly, and only for the
+ * name lookup below — never from displayed text.
+ */
+const NAME_HONORIFICS =
+  /^(?:hazrat|hz|shaikh|sheikh|shaykh|syed|sayyid|khwaja|khawaja|pir|peer|baba|makhdoom|mian|sultan|maulana|mawlana|sain|shah)\s+/;
+
+/**
+ * A name reduced to the part two records are likely to agree on: lower-cased,
+ * parentheticals and quotes dropped, dashes flattened to spaces, punctuation
+ * removed, leading honorifics stripped.
+ *
+ * This exists because the Urdu dictionary is generated from the sheet's own
+ * columns while the knowledge graph carries its own canonical names, and the
+ * two disagree in predictable, cosmetic ways: the sheet says
+ * "Hazrat Data Ganj Bakhsh (Ali Hujwiri)", the graph says "Data Ganj Bakhsh";
+ * the sheet says "Shrine of Shah Rukn-e-Alam", a slug label says
+ * "Shrine Of Shah Rukn E Alam". 51 of the 69 figures with no Urdu name were
+ * this, not a missing translation.
+ */
+function normalizeNameKey(raw: string): string {
+  let s = raw
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, '')
+    .replace(/["\u201c\u201d'\u2019]/g, '')
+    .replace(/[-\u2013\u2014]/g, ' ')
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  let previous = '';
+  while (previous !== s) {
+    previous = s;
+    s = s.replace(NAME_HONORIFICS, '');
+  }
+  return s.trim();
+}
+
+let _nameIndex: Map<string, string> | null = null;
+
+function getNameIndex(): Map<string, string> {
+  if (!_nameIndex) {
+    _nameIndex = new Map();
+    for (const [key, value] of getCache()) {
+      // Same rule as the lower-cased index: a value that still contains Latin
+      // is not a translation, and the first entry for a key wins.
+      if (/[A-Za-z]/.test(value)) continue;
+      const normalized = normalizeNameKey(key);
+      if (normalized && !_nameIndex.has(normalized)) _nameIndex.set(normalized, value);
+    }
+  }
+  return _nameIndex;
+}
+
+/**
+ * Urdu for a proper noun — a person, a shrine, an order.
+ *
+ * Deliberately separate from `translateToUrdu`. The normalized match below is
+ * right for names and wrong for everything else: applied to a status or a date
+ * phrase it would happily equate "Active" with "Active c. 6th-12th c.". Only
+ * exact matching is safe there, so `translateToUrdu` keeps exactly the
+ * behaviour it had.
+ *
+ * Matching is exact-after-normalization, never by prefix. That distinction is
+ * load-bearing: "Khwaja Muhammad Qasim" and "Khwaja Muhammad Qasim Sadiq" are
+ * a master and his pupil, two separate figures in this archive, and prefix
+ * matching would silently merge them (HANDOVER §9.24 records the trap).
+ *
+ * `alsoTry` is for a record's alternative names, which is how a figure the
+ * graph calls "Valmiki" reaches the dictionary entry written as
+ * "Bhagwan Valmik (Valmiki)".
+ */
+export function translateNameToUrdu(name: string, alsoTry: readonly string[] = []): string {
+  const raw = String(name ?? '').trim();
+  if (!raw) return '';
+  if (!/[A-Za-z]/.test(raw)) return raw;
+
+  // Exact and case-insensitive first — an authored entry always beats a
+  // normalized guess.
+  const direct = translateToUrdu(raw);
+  if (!/[A-Za-z]/.test(direct)) return direct;
+
+  const index = getNameIndex();
+  for (const candidate of [raw, ...alsoTry]) {
+    const hit = index.get(normalizeNameKey(candidate));
+    if (hit) return hit;
+  }
+  return raw;
 }
 
 export function translateToUrdu(text: string): string {

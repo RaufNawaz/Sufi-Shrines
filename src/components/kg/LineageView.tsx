@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import type { KGOrder, KGSaint } from '../../types/kg';
 import type { LineageLink } from '../../lib/kg';
+import {
+  localizeFigureName,
+  localizeOrderName,
+  localizeAltName,
+} from '../../lib/i18n/localizeKgName';
 
 interface Props {
   order: KGOrder | undefined;
@@ -24,8 +29,11 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
 
   return (
     <li className="lineage-relation-item">
-      <Link to={`/saint/${saint.slug}`} lang={lang === 'ur' && saint.nameUr ? 'ur' : undefined}>
-        {lang === 'ur' && saint.nameUr ? saint.nameUr : saint.name}
+      {/* A figure the dictionary does not cover comes back as its source name
+          (RULE 2 — do not invent an Urdu name for a person). <bdi> isolates the
+          Latin run; `data-latin` declares the debt for the no-leak guard. */}
+      <Link to={`/saint/${saint.slug}`} lang={lang === 'ur' ? 'ur' : undefined} data-latin>
+        <bdi>{localizeFigureName(saint, lang)}</bdi>
       </Link>
       <span className="lineage-relation-tag">{relationLabel}</span>
     </li>
@@ -57,7 +65,7 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
               className={`lineage-node${isOrderCurrent ? ' lineage-node--current' : ''}`}
               aria-current={isOrderCurrent ? 'page' : undefined}
             >
-              {order.name}
+              {localizeOrderName(order, lang)}
               {order.arabicName && (
                 <span className="lineage-node-alt" lang="ar">
                   {order.arabicName}
@@ -79,11 +87,19 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
                     <Link
                       to={`/saint/${saint.slug}`}
                       aria-current={isCurrent ? 'page' : undefined}
-                      lang={lang === 'ur' && saint.nameUr ? 'ur' : undefined}
+                      lang={lang === 'ur' ? 'ur' : undefined}
                     >
-                      {lang === 'ur' && saint.nameUr ? saint.nameUr : saint.name}
+                      {localizeFigureName(saint, lang)}
                       {saint.altNames?.[0] && (
-                        <span className="lineage-member-alt">{saint.altNames[0]}</span>
+                        /* Same treatment OrderPage already gave this field:
+                           through the dictionary, and <bdi> when it comes back
+                           unchanged, which for a source alt-name it often does.
+                           Rendering the raw string here and the localised one
+                           there meant the same datum read differently on two
+                           pages of the same archive. */
+                        <span className="lineage-member-alt" data-latin>
+                          <bdi>{localizeAltName(saint.altNames[0], lang)}</bdi>
+                        </span>
                       )}
                     </Link>
                   </li>

@@ -6,7 +6,42 @@ module.exports = {
     collect: {
       startServerCommand: 'npm run preview',
       startServerReadyPattern: 'Local:',
-      url: ['http://localhost:4173/', 'http://localhost:4173/shrine/data-darbar'],
+      /*
+       * Every route, and one of them in Urdu.
+       *
+       * This measured `/` and `/shrine/data-darbar` and nothing else, while the
+       * app grew /saint, /order, /graph, /almanac, /coverage, /place and
+       * /about — so it reported the site's performance and SEO having looked at
+       * two pages of thirteen. Same shape of gap as the axe sweep (HANDOVER §9.46) and the
+       * no-leak guard (§9.56): a URL list is a universe, and a check is only as
+       * good as the one it ran over.
+       *
+       * The Urdu entry earns its place separately: RTL flips every layout,
+       * Nastaliq changes every line box, and the numeral toggle rewrites text
+       * content. None of that is exercised by an English-only run, and the
+       * project's standard is that Urdu is a first-class edition.
+       *
+       * Note: lhci could not be run in the environment where this list was
+       * extended (Chrome cannot reach the tile, font or CSV hosts through the
+       * agent proxy, and `upload: temporary-public-storage` needs network). The
+       * additions rest on the axe sweep, which does run here and reports zero
+       * critical or serious violations on all of these routes in both
+       * languages — Lighthouse's accessibility audit is a subset of those
+       * rules. If a new URL trips an `error`-level assertion, that is a real
+       * finding on a page nothing was measuring before, not a bad budget.
+       */
+      url: [
+        'http://localhost:4173/',
+        'http://localhost:4173/?lang=ur',
+        'http://localhost:4173/shrine/data-darbar',
+        'http://localhost:4173/saint/data-ganj-bakhsh',
+        'http://localhost:4173/order/qadiriyya',
+        'http://localhost:4173/graph',
+        'http://localhost:4173/almanac',
+        'http://localhost:4173/coverage',
+        'http://localhost:4173/place/lahore',
+        'http://localhost:4173/about',
+      ],
       numberOfRuns: 1,
     },
     assert: {

@@ -63,14 +63,19 @@ export function NearbyMosques({ shrine }: Props) {
                 {/* Survey names are English source data — sanctioned Latin
                     in the Urdu view, isolated like other source strings. */}
                 <a href={mosquePageUrl(mosque)} target="_blank" rel="noopener noreferrer">
-                  <bdi lang={lang === 'ur' ? 'en' : undefined}>{mosque.name}</bdi>
+                  <bdi lang={lang === 'ur' ? 'en' : undefined} data-latin>
+                    {mosque.name}
+                  </bdi>
                 </a>
                 {isShrinesMosque && <span className="nearby-mosque-own">{t('mosquesOwn')}</span>}
               </div>
               <div className="nearby-mosque-meta">
                 {mosque.city && (
                   <span>
-                    <bdi lang={lang === 'ur' ? 'en' : undefined}>{mosque.city}</bdi> ·{' '}
+                    <bdi lang={lang === 'ur' ? 'en' : undefined} data-latin>
+                      {mosque.city}
+                    </bdi>{' '}
+                    ·{' '}
                   </span>
                 )}
                 <span>
@@ -80,7 +85,13 @@ export function NearbyMosques({ shrine }: Props) {
               </div>
               <div className="nearby-mosque-womens">
                 {t('mosquesWomens')}:{' '}
-                {womensIsLatin && lang === 'ur' ? <bdi lang="en">{womens}</bdi> : womens}
+                {womensIsLatin && lang === 'ur' ? (
+                  <bdi lang="en" data-latin>
+                    {womens}
+                  </bdi>
+                ) : (
+                  womens
+                )}
               </div>
             </li>
           );

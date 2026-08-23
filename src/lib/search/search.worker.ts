@@ -1,8 +1,19 @@
 import MiniSearch from 'minisearch';
-import type { ShrineSearchDoc } from './searchDocs';
 
-type InMsg =
-  { type: 'init'; docs: ShrineSearchDoc[] } | { type: 'search'; query: string; reqId: number };
+interface ShrineDoc {
+  id: number;
+  name: string;
+  urduName: string;
+  location: string;
+  urduLocation: string;
+  saint: string;
+  urduSaint: string;
+  category: string;
+  urduCategory: string;
+  description: string;
+}
+
+type InMsg = { type: 'init'; docs: ShrineDoc[] } | { type: 'search'; query: string; reqId: number };
 
 type OutMsg = { type: 'ready' } | { type: 'results'; ids: number[]; reqId: number };
 
@@ -38,14 +49,19 @@ export function processTerm(term: string): string {
     .toLowerCase();
 }
 
-let ms: MiniSearch<ShrineSearchDoc> | null = null;
+let ms: MiniSearch<ShrineDoc> | null = null;
 
 self.onmessage = (e: MessageEvent<InMsg>) => {
   const msg = e.data;
 
   if (msg.type === 'init') {
-    ms = new MiniSearch<ShrineSearchDoc>({
+    ms = new MiniSearch<ShrineDoc>({
       idField: 'id',
+      /* Both scripts are indexed for every field, always — not one set or the
+         other depending on the active language. A reader in the Urdu interface
+         may well type a Latin name they saw in a citation, and a reader in the
+         English one may paste Urdu. Indexing both costs one pass and removes
+         the question. */
       fields: [
         'name',
         'urduName',
@@ -54,6 +70,7 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
         'saint',
         'urduSaint',
         'category',
+        'urduCategory',
         'description',
       ],
       storeFields: [],
@@ -61,8 +78,6 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
       searchOptions: {
         fuzzy: 0.2,
         prefix: true,
-        // Urdu fields mirror their Latin counterparts' boosts: same string,
-        // different script, same rank.
         boost: {
           name: 4,
           urduName: 4,
@@ -71,6 +86,7 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
           saint: 2,
           urduSaint: 2,
           category: 1,
+          urduCategory: 1,
           description: 1,
         },
         combineWith: 'OR',

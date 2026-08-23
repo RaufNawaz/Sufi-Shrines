@@ -17,6 +17,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './data/lib/slugs.mjs';
+import { countPlaces, locationOfRow } from './data/lib/places.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -91,6 +92,23 @@ function translateWordsUr(text) {
   if (!raw || /^https?:\/\//i.test(raw) || !/[A-Za-z]/.test(raw)) return raw;
   const hit = urduSeed[raw];
   return hit && !/[A-Za-z]/.test(hit) ? hit : raw;
+}
+
+/**
+ * Western digits → Eastern (۰–۹), for numbers this script writes into an Urdu
+ * sentence.
+ *
+ * Mirrors `toEasternDigits` in src/lib/i18n/numerals.ts. Eastern is the Urdu
+ * default in the app (CLAUDE.md, i18n rule 5) and a static <meta> cannot
+ * consult the reader's numeral toggle, so the default is the honest choice —
+ * these strings are what a search result shows before anyone has a preference.
+ *
+ * Applied only to counts and years *this script composes*, never to Urdu prose
+ * lifted from urdu-content.json: that text is the authors' own and reformatting
+ * inside it is a content edit, not a rendering choice.
+ */
+function easternDigits(text) {
+  return String(text).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
 }
 
 function urduNameFor(row) {
@@ -177,23 +195,6 @@ function buildShrineHead(shrine, baseHtml) {
     `${name}${location ? ` in ${location}` : ''}${saint ? `, associated with ${saint}` : ''}.`;
   const canonicalUrl = SITE_URL ? `${SITE_URL}/shrine/${slug}` : '';
 
-  const metaBlock = [
-    `<title>${name} — Sufi Shrines</title>`,
-    `<meta name="description" content="${escHtml(desc)}" />`,
-    `<meta property="og:title" content="${name} — Sufi Shrines" />`,
-    `<meta property="og:description" content="${escHtml(desc)}" />`,
-    `<meta property="og:type" content="article" />`,
-    canonicalUrl ? `<meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-    canonicalUrl ? `<link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
-    imgUrl ? `<meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `<meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
-    `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
-    `<meta name="twitter:title" content="${name} — Sufi Shrines" />`,
-    `<meta name="twitter:description" content="${escHtml(desc)}" />`,
-  ]
-    .filter(Boolean)
-    .join('\n    ');
-
   // Build KG-enriched About node for the saint (falls back to plain name if KG absent)
   const kgEntry = kgByShrineSlug.get(slug);
   let aboutNode = null;
@@ -271,7 +272,7 @@ function buildShrineHead(shrine, baseHtml) {
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
     .replace(
       /<meta\s+name="twitter:card"[^>]*>/i,
-      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
     );
 
   const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/shrine/${slug}` : '';
@@ -281,13 +282,12 @@ function buildShrineHead(shrine, baseHtml) {
   const extras = [
     canonicalUrl ? `  <link rel="canonical" href="${escHtml(canonicalUrl)}" />` : '',
     canonicalUrl ? `  <meta property="og:url" content="${escHtml(canonicalUrl)}" />` : '',
-    imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
     `  <script type="application/ld+json">${jsonLd}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
+  html = withSocialImage(html, imgUrl, `${field(row, 'Name')}${location ? ` — ${location}` : ''}`);
   html = html.replace('</head>', `${extras}\n</head>`);
   return html;
 }
@@ -349,7 +349,7 @@ function buildShrineHeadUr(shrine, baseHtml) {
     .replace(/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
     .replace(
       /<meta\s+name="twitter:card"[^>]*>/i,
-      `<meta name="twitter:card" content="${imgUrl ? 'summary_large_image' : 'summary'}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
     );
 
   html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
@@ -357,13 +357,12 @@ function buildShrineHeadUr(shrine, baseHtml) {
   const extras = [
     urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
     urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-    imgUrl ? `  <meta property="og:image" content="${escHtml(imgUrl)}" />` : '',
-    imgUrl ? `  <meta name="twitter:image" content="${escHtml(imgUrl)}" />` : '',
     `  <script type="application/ld+json">${jsonLd}</script>`,
   ]
     .filter(Boolean)
     .join('\n');
 
+  html = withSocialImage(html, imgUrl, imgUrl ? urduNameFor(row) : SITE_TITLE_UR);
   return html.replace('</head>', `${extras}\n</head>`);
 }
 
@@ -379,6 +378,71 @@ try {
 } catch (err) {
   console.error(`[prerender] Could not read required files: ${err.message}`);
   process.exit(1);
+}
+
+/*
+ * The default social card, absolute.
+ *
+ * index.html carries `/og-image.png` as a relative stub. No crawler resolves a
+ * relative og:image — Facebook, Twitter and WhatsApp all require an absolute
+ * URL — and this site is served from a subpath (`/Sufi-Shrines`), so the stub
+ * would be wrong even if they did. Rewriting it here, once, on the template
+ * every generated page is built from, means the shrine, saint and order pages
+ * inherit a correct default without each having to remember.
+ */
+const DEFAULT_OG_IMAGE = SITE_URL ? `${SITE_URL}/og-image.png` : '';
+if (DEFAULT_OG_IMAGE) {
+  const before = baseHtml;
+  baseHtml = baseHtml.replaceAll('content="/og-image.png"', `content="${DEFAULT_OG_IMAGE}"`);
+  if (baseHtml === before) {
+    // The stub is the only thing pointing crawlers at a card. If a refactor
+    // renames or drops it, say so loudly rather than shipping a site whose
+    // every shared link is a bare URL again.
+    console.error(
+      '[prerender] index.html no longer contains the `content="/og-image.png"` stub, so no ' +
+        'absolute og:image could be written. Restore it or update this rewrite.',
+    );
+    process.exit(1);
+  }
+}
+
+/**
+ * Point a page's social card at a specific photograph.
+ *
+ * The template now carries the default card, so a page with its own photo must
+ * *replace* those tags rather than append more. Appending was the trap: two
+ * `og:image` tags in one head, and every crawler I know of takes the first —
+ * so every photographed shrine would have shared as the generic archive card
+ * while the head looked, to a reader of the source, entirely correct.
+ *
+ * `og:image:width`/`height`/`type` are dropped along the way: they describe
+ * the 1200x630 card, and this function's argument is an arbitrary photograph
+ * off Wikimedia or Drive whose dimensions the build does not know. A declared
+ * size that is wrong is worse than none — Facebook lays out the card from it
+ * before the image arrives.
+ */
+function withSocialImage(html, url, alt) {
+  let out = html;
+  /* The alt is worth setting even when the page keeps the default card: on the
+     Urdu pages the template's alt is an English sentence, and an Urdu page
+     should not describe itself in English to a screen reader or a crawler. */
+  if (alt) {
+    out = out.replace(
+      /<meta\s+property="og:image:alt"[\s\S]*?\/>/i,
+      `<meta property="og:image:alt" content="${escHtml(alt)}" />`,
+    );
+  }
+  if (!url) return out; // keep the default card, dimensions and all
+  const esc = escHtml(url);
+  return out
+    .replace(/\s*<meta\s+property="og:image:type"[^>]*>/i, '')
+    .replace(/\s*<meta\s+property="og:image:width"[^>]*>/i, '')
+    .replace(/\s*<meta\s+property="og:image:height"[^>]*>/i, '')
+    .replace(/<meta\s+property="og:image"[^>]*>/i, `<meta property="og:image" content="${esc}" />`)
+    .replace(
+      /<meta\s+name="twitter:image"[^>]*>/i,
+      `<meta name="twitter:image" content="${esc}" />`,
+    );
 }
 
 // ── KG lookup: shrine slug → { saint, order, events } ─────────────────────
@@ -481,8 +545,14 @@ if (kgData) {
 
     // ── Urdu mirror (/ur/saint/<slug>) ──
     const nameUr = escHtml(translateWordsUr(saint.name));
+    /* Eastern digits, like everywhere else in the Urdu edition. These read
+       "(وفات 1072)" until now, which is the same numeral inconsistency the app
+       fixed at every render site with `fmtNum` and which the prerenderer had
+       never been held to. */
     const descUr = escHtml(
-      `${translateWordsUr(saint.name)}${saint.died ? ` (وفات ${saint.died})` : ''} — پاکستان میں ${saint.shrines.length} مزار سے منسلک صوفی بزرگ۔`,
+      easternDigits(
+        `${translateWordsUr(saint.name)}${saint.died ? ` (وفات ${saint.died})` : ''} — پاکستان میں ${saint.shrines.length} مزار سے منسلک صوفی بزرگ۔`,
+      ),
     );
     let htmlUr = baseHtml
       .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
@@ -584,7 +654,9 @@ if (kgData) {
     // ── Urdu mirror (/ur/order/<slug>) ──
     const nameUr = escHtml(translateWordsUr(order.name));
     const descUr = escHtml(
-      `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
+      easternDigits(
+        `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
+      ),
     );
     let htmlUr = baseHtml
       .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
@@ -623,6 +695,101 @@ if (kgData) {
   console.log(`[prerender] ✓ ${orderCount} order pages`);
 }
 
+// ── place pages ───────────────────────────────────────────────────────────
+/*
+ * One file per place with two or more sites, in both languages.
+ *
+ * The vocabulary and the counting live in scripts/data/lib/places.mjs, mirrored
+ * from src/lib/data/places.ts and held to it by
+ * src/lib/data/__tests__/placesVocabSync.test.ts — so the set of files written
+ * here is exactly the set of places /coverage links to. A prerendered page for
+ * a place the app would not build, or a place page missing from dist, is a
+ * failing test rather than a 404 someone finds later.
+ *
+ * The description states the count and nothing else. There is no prose about
+ * Lahore in this archive, and writing some for a meta description would be
+ * inventing content (RULE 2) in the one place a reader has no way to check it.
+ */
+const placeSlugs = [];
+{
+  const places = countPlaces(shrines, ({ row }) => locationOfRow(row));
+  for (const place of places) {
+    const canonicalUrl = SITE_URL ? `${SITE_URL}/place/${place.slug}` : '';
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/place/${place.slug}` : '';
+    const desc = escHtml(
+      `${place.count} sacred sites recorded in ${place.name} — the shrines, temples, gurdwaras and memorials this archive holds for one place, with what is known about each.`,
+    );
+    const nameUr = translateWordsUr(place.name);
+    /* The Urdu description is built from the dictionary's own place name and a
+       fixed sentence; if the dictionary has no Urdu for the place, the English
+       name rides inside the Urdu sentence rather than the sentence being
+       dropped. All 62 names resolve today (places.test.ts asserts it), so this
+       is a safety net, not the normal path. */
+    const descUr = escHtml(easternDigits(`${nameUr} میں اِس آرکائیو کے ${place.count} مقامات۔`));
+
+    const page = (title, description, lang, canonical, alternate) => {
+      let out = baseHtml
+        .replace(
+          /<title>[^<]*<\/title>/,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+        )
+        .replace(
+          /<meta\s+name="description"[^>]*>/i,
+          `<meta name="description" content="${description}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:title"[^>]*>/i,
+          `<meta property="og:title" content="${escHtml(title)}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:description"[^>]*>/i,
+          `<meta property="og:description" content="${description}" />`,
+        );
+      if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+      out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+      const extras = [
+        canonical ? `  <link rel="canonical" href="${escHtml(canonical)}" />` : '',
+        canonical ? `  <meta property="og:url" content="${escHtml(canonical)}" />` : '',
+        /* Place, not Person or Article: a reader searching for "shrines in
+           Multan" is looking for the place, and schema.org's Place is what a
+           crawler can do something with. `containsPlace` is left out
+           deliberately — listing 35 shrines in the head of a page that already
+           links to all 35 adds bytes, not information. */
+        `  <script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Place',
+          '@id': canonical || `${KG_BASE}place/${place.slug}`,
+          name: lang === 'ur' ? nameUr : place.name,
+          ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
+          ...(alternate ? { url: alternate } : {}),
+        })}</script>`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      return out.replace('</head>', `${extras}\n</head>`);
+    };
+
+    const outDir = join(distDir, 'place', place.slug);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(
+      join(outDir, 'index.html'),
+      page(place.name, desc, 'en', canonicalUrl, canonicalUrl),
+      'utf8',
+    );
+
+    const urOutDir = join(distDir, 'ur', 'place', place.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(
+      join(urOutDir, 'index.html'),
+      page(nameUr, descUr, 'ur', urCanonicalUrl, urCanonicalUrl),
+      'utf8',
+    );
+
+    placeSlugs.push(`/place/${place.slug}`);
+  }
+  console.log(`[prerender] ✓ ${placeSlugs.length} place pages (+ /ur mirrors)`);
+}
+
 // Emits both the English and Urdu <url> entries for a page, each annotated
 // with hreflang alternates pointing at both — the standard bidirectional
 // sitemap+hreflang pattern (see https://developers.google.com/search/docs
@@ -640,6 +807,115 @@ function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
     )
     .join('\n');
 }
+
+// ── static app pages ──────────────────────────────────────────────────────
+/*
+ * /graph, /almanac, /coverage and /about had no prerendered file at all, and
+ * GitHub Pages serves files — so a direct visit or a shared link to any of the
+ * four returned GitHub's own 404 page. Two of them are the archive's licence and
+ * its self-assessment: the pages a reader is most likely to be sent a link to.
+ *
+ * The SPA fallback that was supposed to cover this is `public/_redirects` with
+ * `/* /index.html 200`, which is **Netlify** syntax. GitHub Pages ignores that
+ * file completely, so it had never worked. Nothing said so, because in-app
+ * navigation reaches all four perfectly and `npm run preview` (a dev server
+ * with SPA fallback) serves them too.
+ *
+ * Fixed at both levels: these four get real prerendered files with their own
+ * title, description and canonical URL, and `dist/404.html` below is a copy of
+ * the app shell so any *other* unknown path still boots the router instead of
+ * showing GitHub's 404.
+ */
+const STATIC_PAGES = [
+  {
+    path: '/graph',
+    titleEn: 'Saints & Orders Explorer',
+    titleUr: 'اولیا و سلاسل کا نقشہ',
+    descEn:
+      'The lineages and Sufi orders recorded in this archive: who taught whom, which silsila each figure held, and which claims are still unreviewed.',
+  },
+  {
+    path: '/almanac',
+    titleEn: 'The Urs Almanac',
+    titleUr: 'عرس تقویم',
+    descEn:
+      'When the ʿurs gatherings fall across the year, computed from the dates each entry records, with the Hijri readings shown alongside.',
+  },
+  {
+    path: '/coverage',
+    titleEn: 'What This Archive Knows',
+    titleUr: 'یہ آرکائیو کیا جانتا ہے',
+    descEn:
+      'Every figure counted from the published data rather than estimated: how each entry was established, how deep it goes, what is cited, and where the archive is silent.',
+  },
+  {
+    path: '/about',
+    titleEn: 'About This Archive',
+    titleUr: 'اِس آرکائیو کے بارے میں',
+    descEn:
+      'A public, bilingual record of sacred sites across Pakistan — its licence (code MIT, data ODbL-1.0), how to cite it, and how to report a correction.',
+  },
+];
+
+let staticCount = 0;
+for (const page of STATIC_PAGES) {
+  const canonicalUrl = SITE_URL ? `${SITE_URL}${page.path}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${page.path}` : '';
+
+  const head = (title, desc, lang, canonical) => {
+    let out = baseHtml
+      .replace(
+        /<title>[^<]*<\/title>/,
+        `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+      )
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${escHtml(desc)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:title"[^>]*>/i,
+        `<meta property="og:title" content="${escHtml(title)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${escHtml(desc)}" />`,
+      );
+    if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+    out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+    if (canonical) {
+      out = out
+        .replace(/<meta\s+property="og:url"[^>]*>\s*/i, '')
+        .replace(
+          '</head>',
+          `  <link rel="canonical" href="${escHtml(canonical)}" />\n  <meta property="og:url" content="${escHtml(canonical)}" />\n</head>`,
+        );
+    }
+    return out;
+  };
+
+  const outDir = join(distDir, page.path.replace(/^\//, ''));
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(
+    join(outDir, 'index.html'),
+    head(page.titleEn, page.descEn, 'en', canonicalUrl),
+    'utf8',
+  );
+
+  /* The Urdu description is deliberately the English one: an untranslated
+     meta description is a known gap, and writing an Urdu sentence here that no
+     fluent reader has seen would be inventing content the archive does not
+     have. The title is translated because it exists in uiStrings already. */
+  const urOutDir = join(distDir, 'ur', page.path.replace(/^\//, ''));
+  mkdirSync(urOutDir, { recursive: true });
+  writeFileSync(
+    join(urOutDir, 'index.html'),
+    head(page.titleUr, page.descEn, 'ur', urCanonicalUrl),
+    'utf8',
+  );
+
+  staticCount++;
+}
+console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
 
 // Also emit a sitemap
 const sitemapLines = [
@@ -667,10 +943,46 @@ if (SITE_URL) {
     sitemapUrlPair(`${SITE_URL}/graph`, `${SITE_URL}/ur/graph`, 'monthly', '0.6'),
     sitemapUrlPair(`${SITE_URL}/report`, `${SITE_URL}/ur/report`, 'weekly', '0.7'),
     sitemapUrlPair(`${SITE_URL}/typology`, `${SITE_URL}/ur/typology`, 'monthly', '0.7'),
+    ...placeSlugs.map((p) =>
+      sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.6'),
+    ),
+    // The four static pages. They were absent from the sitemap for the same
+    // reason they were absent from dist: nothing enumerated them.
+    ...STATIC_PAGES.map(({ path }) =>
+      sitemapUrlPair(`${SITE_URL}${path}`, `${SITE_URL}/ur${path}`, 'monthly', '0.5'),
+    ),
   );
 }
 sitemapLines.push('</urlset>');
 writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
+
+/*
+ * GitHub Pages serves 404.html for any path it has no file for, and the SPA
+ * router then handles the URL — the standard fallback for a project page. This
+ * is the second half of the fix for the four static routes above: they now have
+ * real files, and anything else (an old link, a typo, a route added later
+ * without a prerender entry) still boots the app instead of showing GitHub's
+ * own 404 page.
+ */
+writeFileSync(join(distDir, '404.html'), baseHtml, 'utf8');
+
+/*
+ * robots.txt gets the sitemap line here rather than in public/robots.txt,
+ * because the absolute URL is only known once SITE_URL is set at build time.
+ */
+if (SITE_URL) {
+  const robotsPath = join(distDir, 'robots.txt');
+  let robots = '';
+  try {
+    robots = readFileSync(robotsPath, 'utf8');
+  } catch {
+    robots = 'User-agent: *\nAllow: /\n';
+  }
+  if (!/^Sitemap:/im.test(robots)) {
+    robots = `${robots.replace(/\s*$/, '')}\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+    writeFileSync(robotsPath, robots, 'utf8');
+  }
+}
 
 // ── homepage: upgrade the relative hreflang stubs to absolute URLs ─────────
 if (SITE_URL) {

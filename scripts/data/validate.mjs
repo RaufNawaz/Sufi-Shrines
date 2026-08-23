@@ -103,6 +103,52 @@ rows.forEach((row, i) => {
   });
 });
 
+// ── category enum guard ───────────────────────────────────────────────────
+// `category` is one of exactly six values (CLAUDE.md § Schema). Nothing checked
+// that until 21 August 2026, when the coverage page counted one row into a "not
+// recorded" bucket and exposed it: Darbar Abul Muali Qadri carries a blank
+// `Category` and a lowercase `category: "Islam"`.
+//
+// A value outside the enum is not cosmetic. It loses the row its marker colour
+// on the map, drops it out of the category filter, and excludes it from every
+// per-tradition count — so the archive under-reports itself by one and nothing
+// says so. Warning rather than error, matching this validator's treatment of
+// data-quality gaps that need a sheet edit (agents do not write to the sheet —
+// RULE 3); the fix is in data/patch_data_hygiene_2026-08-21.csv.
+const CATEGORY_ENUM = new Set([
+  'Muslim Shrine',
+  'Hindu Temple',
+  'Sikh Gurdwara',
+  'Nanakpanthi / Udasi Darbar',
+  'Jain Temple',
+  'Secular / Memorial',
+]);
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  /*
+   * First *non-empty* of the two, not `??`. Both casings exist mid-migration and
+   * a blank string is not nullish, so `row['category'] ?? row['Category']` lets
+   * an empty `category` shadow a perfectly good `Category` — which is how the
+   * first draft of this check accused Shaktipeeth Shri Hinglaj Mata Mandir of
+   * having no category when it has "Hindu Temple". Same fallback semantics as
+   * getFieldValue in src/lib/data/fieldAliasing.ts.
+   */
+  const raw = [row['category'], row['Category']]
+    .map((v) => String(v ?? '').trim())
+    .find((v) => v !== '') ?? '';
+  if (!raw) {
+    rowWarnings.push(`  ${label}: no category — loses its map colour and every tradition count`);
+    return;
+  }
+  if (!CATEGORY_ENUM.has(raw)) {
+    rowWarnings.push(
+      `  ${label}: category "${raw}" is not one of the six schema values — ` +
+        `loses its map colour and every tradition count`,
+    );
+  }
+});
+
 // ── provenance validation ─────────────────────────────────────────────────
 
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');

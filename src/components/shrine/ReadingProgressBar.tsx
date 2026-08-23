@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useLang } from '../../lib/i18n/LanguageContext';
 
 export function ReadingProgressBar() {
+  const { t } = useLang();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export function ReadingProgressBar() {
       aria-valuenow={Math.round(progress)}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label="Reading progress"
+      aria-label={t('ariaReadingProgress')}
     />
   );
 }

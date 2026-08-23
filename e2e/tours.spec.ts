@@ -186,6 +186,9 @@ test.describe('Guided tours on the map — Phase 5 (discovery & on-site awarenes
     await expect(page.locator('.tour-card')).toHaveCount(TOURS.length);
 
     const sikhTours = TOURS.filter((t) => t.tradition === 'sikh');
+    // The tour filters are a disclosure now — the chips are not on screen until
+    // it is open, so a click on one waits forever.
+    await page.locator('.tour-filter-toggle').click();
     // 'Sikh' mirrors TRADITION_LABELS.sikh.en (tours.ts can't be imported
     // here — its tours.json import trips Playwright's ESM JSON restriction).
     await page

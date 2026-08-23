@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import type { Shrine } from '../types/shrine';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
+import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ShrineMap } from '../components/map/ShrineMap';
@@ -138,7 +140,7 @@ function setFiltersInURL(filters: FilterState): void {
 
 export default function MapPage() {
   const { shrines, loading, error, offline, sourceTimestamp, refresh } = useShrineData();
-  const { t, isRTL } = useLang();
+  const { t, isRTL, lang, localizeField } = useLang();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [isEmbed] = useState(isEmbedMode);
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -391,17 +393,50 @@ export default function MapPage() {
 
   return (
     <div className="map-root">
-      {/* Screen-reader shrine directory — visually hidden, announced as a landmark */}
-      <nav id="shrine-directory" className="sr-only" aria-label={t('shrineDirectoryLabel')}>
+      {/* Screen-reader shrine directory — visually hidden, announced as a landmark.
+
+          Every entry here was the *English* name and location, on the Urdu site
+          too: 169 shrines announced in English in the one part of the interface
+          that exists solely for a screen reader. Nothing could see it. The
+          no-English-leak guard exempted every `<a>` (this whole list is anchors),
+          and being `sr-only` it never appeared in a screenshot either. It now
+          reads the same localised name the visible list does, and the location
+          through localizeField, exactly as the sidebar rows do. */}
+      <nav
+        id="shrine-directory"
+        tabIndex={-1}
+        className="sr-only"
+        aria-label={t('shrineDirectoryLabel')}
+      >
         <ol>
-          {shrines.map((s) => (
-            <li key={s.id}>
-              <a href={`/shrine/${s.slug}`}>
-                {s.name}
-                {s.location ? ` — ${s.location}` : ''}
-              </a>
-            </li>
-          ))}
+          {shrines.map((s) => {
+            const location = localizeField(s.raw, 'Location') || s.location;
+            return (
+              <li key={s.id}>
+                {/* <Link>, not <a href>. This was a raw `href="/shrine/…"`,
+                    which bypasses the router's basename — and production is
+                    served from /Sufi-Shrines/, so all 169 links in this landmark
+                    404'd on the live site. No test could catch it: `build:e2e`
+                    builds with base `/`, which is exactly the configuration
+                    where the bug does not exist. */}
+                <Link to={`/shrine/${s.slug}`}>
+                  {localizeShrineName(s, lang)}
+                  {/* The Location column is often still an English survey note.
+                      <bdi> isolates the Latin run so the surrounding Urdu does
+                      not reorder around it; `data-latin` is what declares it
+                      untranslated for the no-leak guard. */}
+                  {location ? (
+                    <>
+                      {' '}
+                      — <bdi data-latin>{location}</bdi>
+                    </>
+                  ) : (
+                    ''
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ol>
       </nav>
 
@@ -477,7 +512,8 @@ export default function MapPage() {
       <main
         className="map-container"
         id="main-content"
-        aria-label="Interactive shrine map"
+        tabIndex={-1}
+        aria-label={t('ariaInteractiveMap')}
         onClick={isMobile && sidebarOpen ? handleSidebarClose : undefined}
       >
         <ShrineMap
@@ -496,7 +532,7 @@ export default function MapPage() {
         <button
           className="sidebar-toggle no-print"
           onClick={handleSidebarToggle}
-          aria-label="Open sidebar"
+          aria-label={t('ariaOpenSidebar')}
           aria-expanded={false}
           aria-controls="sidebar"
         >

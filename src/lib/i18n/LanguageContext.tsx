@@ -4,11 +4,16 @@ import type { Lang } from '../../types/shrine';
 import type { UI_TEXT } from './uiStrings';
 import { t, tFn } from './uiStrings';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
-import { translateToUrdu } from './urduFallback';
+import {
+  translateToUrdu,
+  ensureUrduSeedForLang,
+  isUrduSeedLoaded,
+  onUrduSeedLoaded,
+} from './urduFallback';
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
-import { isRtlLang } from './languages';
-import { isUrPrefixedPath } from './urlLangPrefix';
+import { detectInitialLang } from './detectLang';
+import { loadUrduContent } from '../data/urduContentOverride';
 import type { ShrineRow } from '../../types/shrine';
 
 export type Numerals = 'eastern' | 'western';
@@ -16,19 +21,6 @@ export type Numerals = 'eastern' | 'western';
 function detectInitialNumerals(): Numerals {
   const stored = localStorage.getItem(NUMERALS_STORAGE_KEY);
   return stored === 'western' ? 'western' : 'eastern';
-}
-
-function detectInitialLang(): Lang {
-  const param = new URLSearchParams(window.location.search).get('lang');
-  if (param === 'en' || param === 'ur') return param;
-  // A /ur/* prerendered route (see urlLangPrefix.ts) is as explicit a signal
-  // as ?lang=ur — checked before localStorage so a shared /ur/shrine/<slug>
-  // link never flashes the wrong language before App.tsx's normalizer runs.
-  if (isUrPrefixedPath(window.location.pathname)) return 'ur';
-  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-  if (stored === 'en' || stored === 'ur') return stored;
-  if (navigator.language?.toLowerCase().startsWith('ur')) return 'ur';
-  return 'en';
 }
 
 interface LangContextValue {
@@ -41,6 +33,10 @@ interface LangContextValue {
   numerals: Numerals;
   setNumerals: (numerals: Numerals) => void;
   fmtNum: (n: number | string) => string;
+  /** Increments when the Urdu dictionary arrives. Read it only to depend on
+   *  it — a component that translates during render needs the re-render, not
+   *  the number. */
+  dictVersion: number;
 }
 
 const LangContext = createContext<LangContextValue | null>(null);
@@ -48,6 +44,13 @@ const LangContext = createContext<LangContextValue | null>(null);
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectInitialLang);
   const [numerals, setNumeralsState] = useState<Numerals>(detectInitialNumerals);
+  /* Bumped when the Urdu dictionary lands. It is in the context value on
+     purpose: every component that translates a name reads `useLang()` for the
+     language itself, so one changed value re-renders all of them with the
+     dictionary in place. Without it, a switch to Urdu mid-session would leave
+     already-rendered names in English until something else happened to
+     re-render them. */
+  const [dictVersion, setDictVersion] = useState(() => (isUrduSeedLoaded() ? 1 : 0));
 
   const setNumerals = useCallback((next: Numerals) => {
     setNumeralsState(next);
@@ -68,11 +71,33 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     window.history.replaceState(null, '', url);
   }, []);
 
+  // The Urdu article payload (~1 MB) is not in the eager bundle; an English
+  // reader never downloads it. Request it as soon as the language is Urdu —
+  // on first paint for a /ur/ or ?lang=ur visit, or the moment the reader
+  // switches. useShrineData re-merges the rows when it arrives.
   useEffect(() => {
-    // Direction derives from the language metadata table (languages.ts) —
-    // a third RTL language must not require touching this effect.
-    const isRTL = isRtlLang(lang);
-    document.documentElement.setAttribute('lang', lang);
+    if (lang === 'ur') void loadUrduContent();
+  }, [lang]);
+
+  /* Same arrangement for the dictionary (80 KB): requested when the language is
+     Urdu, and never for an English reader. `main.tsx` starts the request before
+     first paint for a /ur or ?lang=ur visit; this covers the mid-session
+     switch, and the subscription covers the case where either request is still
+     in flight when this provider mounts. */
+  useEffect(() => {
+    if (lang !== 'ur') return;
+    if (isUrduSeedLoaded()) {
+      setDictVersion((n) => (n === 0 ? 1 : n));
+      return;
+    }
+    const unsubscribe = onUrduSeedLoaded(() => setDictVersion((n) => n + 1));
+    void ensureUrduSeedForLang(lang);
+    return unsubscribe;
+  }, [lang]);
+
+  useEffect(() => {
+    const isRTL = lang === 'ur';
+    document.documentElement.setAttribute('lang', isRTL ? 'ur' : 'en');
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     document.body.classList.toggle('lang-rtl', isRTL);
     document.body.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
@@ -103,7 +128,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<LangContextValue>(
     () => ({
       lang,
-      isRTL: isRtlLang(lang),
+      isRTL: lang === 'ur',
       setLang,
       t: (key) => t(lang, key),
       tCount: (n) => fmtNum(tFn(lang, 'resultCount', n)),
@@ -111,8 +136,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       numerals,
       setNumerals,
       fmtNum,
+      dictVersion,
     }),
-    [lang, setLang, localizeField, numerals, setNumerals, fmtNum],
+    [lang, setLang, localizeField, numerals, setNumerals, fmtNum, dictVersion],
   );
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;

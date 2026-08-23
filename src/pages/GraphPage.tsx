@@ -8,8 +8,18 @@ import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import { getKGStore, getSaintsInOrder, getAllLineageEdges } from '../lib/kg';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+import { getKGStore, getSaintsInOrder, getAllLineageEdges, getArchiveFigures } from '../lib/kg';
+import {
+  FIGURE_GROUP_ORDER,
+  figureGroup,
+  figureGroupLabel,
+  isProseFigureType,
+} from '../lib/data/figureType';
+import type { FigureGroup } from '../lib/data/figureType';
+import type { KGSaint } from '../types/kg';
+import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
+import { tFn } from '../lib/i18n/uiStrings';
+import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
@@ -18,15 +28,18 @@ import { translateToUrdu } from '../lib/i18n/urduFallback';
  * for this as a dedicated page rather than only the per-saint embed.
  */
 export default function GraphPage() {
-  const { lang, t } = useLang();
+  const { lang, t, fmtNum } = useLang();
   const isRtl = lang === 'ur';
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
+  const [figureQuery, setFigureQuery] = useState('');
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
 
   const activeOrder = kg.orders.find((o) => o.slug === activeOrderSlug) ?? null;
+  const orderDescription =
+    activeOrder && (lang === 'ur' ? activeOrder.descriptionUr : activeOrder.description);
   const orderSaints = useMemo(
     () => (activeOrder ? getSaintsInOrder(activeOrder.slug) : []),
     [activeOrder],
@@ -35,25 +48,56 @@ export default function GraphPage() {
   const centerNode: GraphNode | null = activeOrder
     ? {
         id: activeOrder.id,
-        label: activeOrder.name,
+        label: localizeOrderName(activeOrder, lang),
         type: 'order',
         href: `/order/${activeOrder.slug}`,
       }
     : null;
   const connectedNodes: GraphNode[] = orderSaints.map((s) => ({
     id: s.id,
-    label: s.name,
+    label: localizeFigureName(s, lang),
     type: 'saint',
     href: `/saint/${s.slug}`,
   }));
 
   const lineageEdges = useMemo(() => getAllLineageEdges(), []);
 
+  /* The graph types every principal figure as `saint` because that is its only
+     entity type for a person — so this list previously ran 130 names under a
+     heading reading "All saints", Durga and Guru Nanak among them. Group by the
+     dataset's own figure_type instead, which it fills for 168 of 169 rows.
+     Sorted within a group by locale so the Urdu view collates as Urdu. */
+  /* getArchiveFigures(), not kg.saints: the graph also holds ~60 figures who
+     exist only as a link in someone else's lineage — teachers named in the
+     prose with no shrine in this archive. Counting them here would overstate
+     what the archive documents. */
+  const archiveFigures = useMemo(() => getArchiveFigures(), []);
+
+  const figureIndex = useMemo(() => buildFigureIndex(archiveFigures), [archiveFigures]);
+  const matchingFigures = useMemo(
+    () => matchFigures(archiveFigures, figureQuery, figureIndex),
+    [archiveFigures, figureIndex, figureQuery],
+  );
+
+  const groupedFigures = useMemo(() => {
+    const buckets = new Map<FigureGroup, KGSaint[]>();
+    for (const saint of matchingFigures) {
+      const group = figureGroup(saint.figureType);
+      const list = buckets.get(group);
+      if (list) list.push(saint);
+      else buckets.set(group, [saint]);
+    }
+    const collator = new Intl.Collator(lang === 'ur' ? 'ur' : 'en');
+    return FIGURE_GROUP_ORDER.filter((g) => buckets.has(g)).map((group) => ({
+      group,
+      figures: [...buckets.get(group)!].sort((a, b) =>
+        collator.compare(localizeFigureName(a, lang), localizeFigureName(b, lang)),
+      ),
+    }));
+  }, [lang, matchingFigures]);
+
   return (
     <div className="page-enter entity-page-wrapper">
-      <a href="#main-content" className="skip-link">
-        {t('skipToContent')}
-      </a>
       <header className="shrine-page-header no-print">
         <Link to="/" className="back-link" aria-label={t('backToMap')}>
           <svg
@@ -80,11 +124,12 @@ export default function GraphPage() {
       <article
         className="entity-page"
         id="main-content"
+        tabIndex={-1}
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
         <ScrollToTop />
-        <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+        <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
           <ol>
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>
@@ -110,18 +155,19 @@ export default function GraphPage() {
               onClick={() => setActiveOrderSlug(order.slug)}
               aria-pressed={activeOrderSlug === order.slug}
             >
-              {isRtl ? translateToUrdu(order.name) : order.name}
+              {localizeOrderName(order, lang)}
             </button>
           ))}
         </div>
 
         {centerNode && (
           <section className="graph-page-section">
-            {activeOrder?.description && (
-              <p lang={isRtl ? 'ur' : undefined}>
-                {isRtl ? translateToUrdu(activeOrder.description) : activeOrder.description}
-              </p>
-            )}
+            {/* `translateToUrdu` used to be applied to this whole sentence,
+                which of course missed and returned the English — the dictionary
+                is keyed on names, not prose. The Urdu comes from
+                `descriptionUr` in data/kg-seeds.json, and an order without one
+                shows no summary rather than an English one. */}
+            {orderDescription && <p lang={isRtl ? 'ur' : undefined}>{orderDescription}</p>}
             <NetworkGraph center={centerNode} connected={connectedNodes} />
           </section>
         )}
@@ -129,18 +175,55 @@ export default function GraphPage() {
         {lineageEdges.length > 0 && (
           <section className="graph-page-section">
             <h2>{t('graphLineageHeading')}</h2>
-            <ul className="graph-lineage-list">
+            <p className="graph-figures-note">
+              {t('graphLineageNote')} {fmtNum(lineageEdges.length)}
+              {' · '}
+              {fmtNum(lineageEdges.filter((e) => !e.reviewed).length)} {t('lineageUnreviewed')}
+            </p>
+            {/* `data-latin`: many of these endpoints are figures the Urdu
+                dictionary does not cover, and some are not names at all but
+                descriptive phrases lifted from a source quote ("the princess
+                Jahanara", "founder of the Rashidi order"). localizeFigureName
+                returns the source string unchanged for those, which is correct
+                — inventing an Urdu name for a figure would break RULE 2 — so the
+                element declares the debt instead of hiding it. Each name is
+                <bdi>-wrapped for bidi isolation, which is a separate need. */}
+            <ul className="graph-lineage-list" data-latin>
               {lineageEdges.map((edge) => (
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
-                  <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                    {edge.subject.name}
-                  </Link>
-                  <span className="graph-lineage-relation">
-                    {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
-                  </span>
-                  <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                    {edge.object.name}
-                  </Link>
+                  <div className="graph-lineage-edge">
+                    <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
+                    </Link>
+                    <span className="graph-lineage-relation">
+                      {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
+                    </span>
+                    <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      <bdi>{fmtNum(localizeFigureName(edge.object, lang))}</bdi>
+                    </Link>
+                    {/* An edge nobody has read yet says so. The archive's claim is
+                        honesty about provenance, so a lineage drawn from
+                        machine-extracted prose must not look like a reviewed one. */}
+                    {!edge.reviewed && (
+                      <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+                        {t('lineageUnreviewed')}
+                      </span>
+                    )}
+                  </div>
+                  {edge.quote && (
+                    /* The source's own words and the file they came from. Latin
+                       on purpose in either language: this is the evidence for
+                       an unreviewed edge, and an archive whose claim is
+                       provenance must leave the reader an exact search string
+                       (CLAUDE.md i18n rule 7). `lang`/`dir` so an English
+                       sentence inside an RTL page keeps its punctuation, and
+                       `data-latin` so the no-leak guard reads it as
+                       deliberate rather than untranslated. */
+                    <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
+                      {edge.quote}
+                      {edge.source && <cite className="graph-lineage-cite">{edge.source}</cite>}
+                    </blockquote>
+                  )}
                 </li>
               ))}
             </ul>
@@ -148,16 +231,78 @@ export default function GraphPage() {
         )}
 
         <section className="graph-page-section">
-          <h2>{t('graphExplorerAllSaints')}</h2>
-          <ul className="graph-saints-list">
-            {kg.saints.map((saint) => (
-              <li key={saint.slug}>
-                <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                  {saint.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2>{t('graphExplorerAllFigures')}</h2>
+          <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
+
+          {/* 136 names under seven headings is a list you scroll past, not one
+              you find anything in. Client-side because the whole set is already
+              in memory — no worker, no debounce, no spinner. */}
+          <div className="graph-figure-filter">
+            <label className="graph-figure-filter-label" htmlFor="figure-filter">
+              {t('graphFigureFilterLabel')}
+            </label>
+            <div className="graph-figure-filter-row">
+              <input
+                id="figure-filter"
+                type="search"
+                className="graph-figure-filter-input"
+                value={figureQuery}
+                onChange={(e) => setFigureQuery(e.target.value)}
+                placeholder={t('graphFigureFilterPlaceholder')}
+                autoComplete="off"
+              />
+              {figureQuery && (
+                <button
+                  type="button"
+                  className="graph-figure-filter-clear"
+                  onClick={() => setFigureQuery('')}
+                >
+                  {t('graphFigureFilterClear')}
+                </button>
+              )}
+            </div>
+            {/* aria-live so a screen-reader user hears the result count change
+                without having to go looking for it. */}
+            <p className="graph-figure-filter-count" role="status" aria-live="polite">
+              {fmtNum(
+                tFn(lang, 'graphFigureFilterCount', matchingFigures.length, archiveFigures.length),
+              )}
+            </p>
+          </div>
+
+          {matchingFigures.length === 0 && (
+            <p className="graph-figure-filter-empty">{t('graphFigureFilterEmpty')}</p>
+          )}
+
+          {groupedFigures.map(({ group, figures }) => (
+            <div key={group} className="graph-figure-group">
+              <h3 className="graph-figure-group-heading">
+                {figureGroupLabel(group, lang)}
+                <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
+              </h3>
+              <ul className="graph-saints-list">
+                {figures.map((saint, i) => (
+                  <li
+                    key={saint.slug}
+                    className="reveal-rise"
+                    style={{ '--stagger-index': i } as React.CSSProperties}
+                  >
+                    <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
+                      <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
+                    </Link>
+                    {/* A figure_type that is a sentence rather than a category is
+                        content, not a defect (RULE 2) — show it as recorded
+                        instead of filing it under a label it may contradict. */}
+                    {isProseFigureType(saint.figureType) && (
+                      <span className="graph-figure-as-recorded" data-latin>
+                        <bdi>{saint.figureType}</bdi>
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </section>
       </article>
     </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useLang } from '../../lib/i18n/LanguageContext';
 
 export function UpdateToast() {
+  const { t } = useLang();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -18,11 +20,15 @@ export function UpdateToast() {
 
   return (
     <div className="sw-update-toast" role="status" aria-live="polite">
-      <span className="sw-update-msg">New version available</span>
+      <span className="sw-update-msg">{t('swUpdateAvailable')}</span>
       <button className="sw-update-reload" onClick={() => window.location.reload()}>
-        Reload
+        {t('appErrorReload')}
       </button>
-      <button className="sw-update-dismiss" onClick={() => setShow(false)} aria-label="Dismiss">
+      <button
+        className="sw-update-dismiss"
+        onClick={() => setShow(false)}
+        aria-label={t('dismiss')}
+      >
         <svg
           width="14"
           height="14"

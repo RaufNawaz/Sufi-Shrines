@@ -66,10 +66,32 @@ function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar
   );
 }
 
+/**
+ * The filters moved into the command palette.
+ *
+ * They used to be five chip rows under the sidebar's search field; they are now
+ * behind the button at the trailing end of the palette's input (see
+ * CommandPalette.tsx). The chips themselves are unchanged — same component
+ * (ShrineFilters), same class names, same behaviour — so these tests only need
+ * to walk the two extra clicks a reader now walks. That is the point of moving
+ * the JSX rather than rewriting it.
+ */
+function openFilters() {
+  fireEvent.click(document.querySelector('.list-toggle-btn')!);
+  fireEvent.click(document.querySelector('.palette-trigger')!);
+  fireEvent.click(document.querySelector('.palette-filters-btn')!);
+}
+
+/** Opens the palette without its filters drawer — for search itself. */
+function openPalette() {
+  fireEvent.click(document.querySelector('.list-toggle-btn')!);
+  fireEvent.click(document.querySelector('.palette-trigger')!);
+}
+
 describe('MapSidebar — More filters disclosure', () => {
   it('hides saint chips and the era slider by default, revealing them via the toggle', () => {
     renderSidebar();
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     expect(document.querySelector('.time-slider')).not.toBeInTheDocument();
     expect(document.querySelector('[aria-label="Filter by Sufi saint"]')).not.toBeInTheDocument();
@@ -82,7 +104,7 @@ describe('MapSidebar — More filters disclosure', () => {
 
   it('shows the active-filter dot on the collapsed toggle when a saint filter is set', () => {
     renderSidebar({ activeSaint: 'Saint One' });
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     const toggle = document.querySelector('.more-filters-toggle')!;
     expect(toggle.querySelector('.filter-active-dot')).toBeInTheDocument();
@@ -92,7 +114,7 @@ describe('MapSidebar — More filters disclosure', () => {
 
   it('shows no active-filter dot on the toggle when neither saint nor era is set', () => {
     renderSidebar();
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     const toggle = document.querySelector('.more-filters-toggle')!;
     expect(toggle.querySelector('.filter-active-dot')).not.toBeInTheDocument();
@@ -117,17 +139,20 @@ describe('MapSidebar — six-category filters', () => {
     );
   }
 
+  /* Scoped to the palette, which is what openFilters() opens. The sidebar
+     renders the same ShrineFilters inline (one component, two homes), so an
+     unscoped query returns both copies and counts every chip twice. */
   function chipButtons(): HTMLButtonElement[] {
     return [
       ...document.querySelectorAll<HTMLButtonElement>(
-        '[aria-label="Filter by category"] .filter-chip',
+        '.palette [aria-label="Filter by category"] .filter-chip',
       ),
     ];
   }
 
   it('renders a chip for each of the six categories, driven by the `category` column', () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     const labels = chipButtons().map((b) => b.textContent);
     expect(labels).toEqual([
@@ -148,7 +173,7 @@ describe('MapSidebar — six-category filters', () => {
       activeCategories: ['jain'],
       onCategoriesChange,
     });
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     // Adding Muslim to an existing Jain selection accumulates both.
     fireEvent.click(chipButtons().find((b) => b.textContent === 'Muslim Shrine')!);
@@ -161,7 +186,7 @@ describe('MapSidebar — six-category filters', () => {
 
   it('defaults to all-on: with no selection every category is listed and "All" is active', () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
-    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    openFilters();
 
     const allChip = chipButtons().find((b) => b.textContent === 'All')!;
     expect(allChip.getAttribute('aria-pressed')).toBe('true');
@@ -227,6 +252,8 @@ describe('MapSidebar — provenance (support-level) filter (More filters)', () =
       onVerifiedOnlyChange,
     });
     fireEvent.click(document.querySelector('.list-toggle-btn')!);
+    fireEvent.click(document.querySelector('.palette-trigger')!);
+    fireEvent.click(document.querySelector('.palette-filters-btn')!);
 
     // Collapsed by default — no top-level clutter.
     expect(document.querySelector('[aria-label="Filter by provenance"]')).not.toBeInTheDocument();
@@ -271,7 +298,10 @@ describe('MapSidebar — search result ordering', () => {
         buildShrine(makeShrineRow({ Name: 'Weak Match', Category: 'Aardvark Category' }), 1)!,
       ];
       renderSidebar({ shrines });
-      fireEvent.click(document.querySelector('.list-toggle-btn')!);
+      // `.search-input` is the palette's field now; it carries that class
+      // precisely so selectors like this one still describe the archive's
+      // search box.
+      openPalette();
       fireEvent.change(document.querySelector('.search-input')!, { target: { value: 'match' } });
 
       await act(async () => {

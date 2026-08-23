@@ -1,0 +1,4788 @@
+{
+ "_comment": "Machine-extracted saint biographical anchors. UNREVIEWED. Dates are kept verbatim as the source expresses them, never normalised. Not merged until a human signs off.",
+ "_method": "Every one of the 169 rows of the shrine corpus was read (human-figure rows in full; deity/temple rows filtered for any date, title or name statement), then the 39 files in shrine_entries/ and the 10 in entries/ plus entries/web-research-2026-08/. Nothing here comes from model knowledge: every value is a substring of, or a literal reading of, the quoted source text. An automated check asserts that every `quote` in this file is a verbatim substring of its named source (whitespace normalised); it exits non-zero otherwise. The checker asserts, per proposal: (1) every `quote` and every variant quote is a verbatim substring of its named source with whitespace normalised; (2) every 3- or 4-digit year appearing in born/died/floruit occurs literally in that source text — this is the rule that catches a year supplied from model priors, and it fired twice during authoring and was fixed both times; (3) precision is one of the seven allowed values, calendar one of four, confidence one of {0.95, 0.7}; (4) saintIsNew agrees with membership in the KG saint list; (5) shrineSlug resolves to a corpus row or a repo file; (6) precision \"unrecorded\" cannot carry a born value. The script was written at scratchpad path build/check.py during this task and is NOT yet in the repository — it belongs in pipeline/ (see CLAUDE.md RULE 0 and RULE 4) if these proposals are taken forward.",
+ "_fields": {
+  "born/died": "verbatim as the source expresses it, including hedges (\"around 1720\", \"the first half of the 1100s\", \"25 Rabiʿ al-Thani; year not stated\"). Empty string means the source gives nothing, which is itself the finding.",
+  "floruit": "used where a source gives only a century or a reign window and no birth or death year; never promoted into born/died.",
+  "precision": "exact-date | year | circa | range | century | disputed | unrecorded. \"unrecorded\" is used only where the source positively states the dates are unknown.",
+  "confidence": "0.95 explicit and unambiguous; 0.7 hedged (\"is said to\", \"traditionally\", \"generally held\"), identity uncertain, or the source is self-published/interested."
+ },
+ "_counts": {
+  "proposals": 105,
+  "newSaints": 11,
+  "withBornOrDied": 78,
+  "disputedDates": 11,
+  "disagreesWithColumn": 17,
+  "subjectMismatch": 6,
+  "nameCollisions": 11,
+  "titlesFound": 98,
+  "altNamesFound": 102,
+  "rejected": 27
+ },
+ "proposals": [
+  {
+   "saintSlug": "bari-imam",
+   "saintName": "Bari Imam",
+   "saintIsNew": false,
+   "shrineSlug": "bari-imam",
+   "born": "1617",
+   "died": "1705",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Bari Imam",
+    "Bari Sarkar"
+   ],
+   "altNames": [
+    "Sayyid Abdul Latif Kazmi",
+    "Sayyid Abdul Latif Shah"
+   ],
+   "deathPlace": "Nurpur Shahan",
+   "confidence": 0.95,
+   "quote": "Sayyid Abdul Latif Shah, called *Bari Imam* and *Bari Sarkar*, was born in 1617 into a Kazmi Sayyid family; tradition traces his descent to the Prophet through the Imams. From",
+   "source": "data/shrines.csv#bari-imam"
+  },
+  {
+   "saintSlug": "shah-abdul-latif-bhittai",
+   "saintName": "Shah Abdul Latif Bhittai",
+   "saintIsNew": false,
+   "shrineSlug": "bhit-bhit-shah",
+   "born": "1689",
+   "died": "1752",
+   "calendar": "CE",
+   "precision": "year",
+   "deathPlace": "Bhit Shah (a sandhill near Hala)",
+   "titles": [],
+   "altNames": [
+    "Shah Abdul Latif Bhittai"
+   ],
+   "confidence": 0.95,
+   "quote": "Abdul Latif was born in 1689 into a Sayyid family of Sindh, descendants of a line of saints; his ancestor Shah Abdul Karim of Bulri was himself a noted mystic",
+   "source": "data/shrines.csv#bhit-bhit-shah"
+  },
+  {
+   "saintSlug": "shah-abul-muali-qadri",
+   "saintName": "Shah Abul Muali Qadri (Hazrat Syed Muhammad Khair ul Deen)",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-abul-muali-qadri",
+   "born": "10 Zil Hajj 960 Hijri",
+   "died": "16 Rabi ul Awal 1024 Hijri",
+   "calendar": "AH",
+   "precision": "exact-date",
+   "titles": [
+    "Abul Muali (kunyat)",
+    "Asadullah",
+    "Wali Allah"
+   ],
+   "altNames": [
+    "Hazrat Syed Muhammad Khair ul Deen",
+    "Shah Khairuddin Muhammad",
+    "Abul Ma’ali"
+   ],
+   "birthPlace": "Kirman, Iran",
+   "deathPlace": "Lahore (near Mochi Darwaza)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "\"during the reign of Shah Jahan, at the age of sixty-five\"",
+     "heldBy": "the same field survey, alongside 1024 AH",
+     "quote": "It states that he died on 16 Rabi ul Awal 1024 Hijri, during the reign of Shah Jahan, at the age of sixty-five. Two marriages are recorded: the first to a daughter of Dawood Bandgi Kirmani, who died"
+    }
+   ],
+   "note": "The survey dates the death to 1024 AH but also places it in the reign of Shah Jahan while giving his second marriage to a daughter of \"Emperor Shah Jahangir\"; the two imperial attributions are not reconciled in the source. Reported as recorded.",
+   "quote": "Tradition holds that Shah Abul Muali was born on 10 Zil Hajj 960 Hijri in Kirman, Iran, the son of Syed Rehmatullah Kirmani, of the Kirmani Sadaat. His *kunyat* was Abul Muali,",
+   "source": "data/shrines.csv#darbar-abul-muali-qadri"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim",
+   "saintName": "Khwaja Muhammad Qasim",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-ghamkol-sharif-zinda-pir",
+   "born": "1912",
+   "died": "21 March 1999",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Zinda Pir"
+   ],
+   "altNames": [
+    "Khwaja Muhammad Qasim",
+    "Zinda Pir"
+   ],
+   "birthPlace": "Jungle Khail (village near Kohat)",
+   "deathPlace": "Ghamkol Sharif",
+   "confidence": 0.95,
+   "quote": "Zinda Pir died on 21 March 1999 and is buried at the darbar, his tomb becoming a place of pilgrimage in its turn; his spiritual seat passed to his",
+   "source": "data/shrines.csv#darbar-ghamkol-sharif-zinda-pir"
+  },
+  {
+   "saintSlug": "ghazi-ilm-din-shaheed",
+   "saintName": "Ghazi Ilm Din Shaheed",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-ghazi-ilm-din-shaheed",
+   "born": "4 December 1908",
+   "died": "31 October 1929",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Ghazi-e-Millat",
+    "Fakhr-e-Ummah",
+    "Ghazi",
+    "Shaheed"
+   ],
+   "altNames": [
+    "Ilm Din",
+    "Ghazi Ilam Din"
+   ],
+   "birthPlace": "Lahore",
+   "deathPlace": "Mianwali Jail (executed)",
+   "confidence": 0.95,
+   "quote": "Ghazi Ilm Din was born on 4 December 1908 in Lahore to a family of carpenters (*tarkhan*); his father's name is given as Taleh Mand. He had two brothers, one a fellow carpenter",
+   "source": "data/shrines.csv#darbar-ghazi-ilm-din-shaheed"
+  },
+  {
+   "saintSlug": "khawaja-feroz-ud-din-gharib-nawaz",
+   "saintName": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "born": "",
+   "died": "Friday, 27 November 1981",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Sakhi Lajpal",
+    "Gharib Nawaz"
+   ],
+   "altNames": [],
+   "birthPlace": "Kandhari Bazaar, Rang Mahal, Lahore",
+   "confidence": 0.95,
+   "note": "Birth year deliberately left empty: the survey states he was \"born in the latter part of the 1900s (19th century)\", a self-contradictory phrase the entry itself flags as unresolvable. No other birth figure is given.",
+   "quote": "He died suddenly of a liver ailment on Friday, 27 November 1981, and his disciples built his shrine at Miani Sahib, where — the survey says — a crowd",
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "subjectMismatchJustification": "This row is in subjectMismatch, but only for the birth year: 1390 AH is the master's death, and `born` is left empty accordingly. The quoted death date is stated of the principal figure himself (\"He died suddenly of a liver ailment on Friday, 27 November 1981\"), so it is his and not the master's."
+  },
+  {
+   "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+   "saintName": "Khawaja Shah Muhammad Sulaiman Taunsvi",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+   "born": "c. 1770 (prose: \"around 1770\")",
+   "died": "1850",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Pir Pathan"
+   ],
+   "altNames": [
+    "Khwaja Muhammad Sulaiman Taunsvi"
+   ],
+   "birthPlace": "the Taunsa region",
+   "deathPlace": "Taunsa Sharif",
+   "confidence": 0.95,
+   "quote": "Khwaja Muhammad Sulaiman was born around 1770 in the Taunsa region, into a Pathan family — whence his title *Pir Pathan* — and gave himself from youth to religious",
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
+  },
+  {
+   "saintSlug": "tahir-bandagi-qadri",
+   "saintName": "Hazrat Tahir Bandagi Qadri",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
+   "born": "1576 CE",
+   "died": "8 Muharram 1040 AH, which the survey gives as 8 August 1630 CE",
+   "calendar": "both",
+   "precision": "exact-date",
+   "titles": [
+    "Tahir Bandagi (name conferred by Hazrat Shah Sikandar)",
+    "wali-e-kamil"
+   ],
+   "altNames": [
+    "Tahir Bandagi"
+   ],
+   "birthPlace": "Lahore",
+   "deathPlace": "Lahore (buried beside his own mosque, Miani Sahib)",
+   "confidence": 0.95,
+   "quote": "He died on 8 Muharram 1040 AH, which the survey gives as 8 August 1630 CE -- the two calendars agreeing exactly -- at the age of 54, consistent with the birth year of 1576 the same survey",
+   "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri"
+  },
+  {
+   "saintSlug": "malik-ahmad-ayaz",
+   "saintName": "Malik Ahmad Ayaz",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-malik-ahmad-ayaz",
+   "born": "",
+   "died": "8 August 1041 (calendar era unstated in the account)",
+   "calendar": "unclear",
+   "precision": "exact-date",
+   "titles": [],
+   "altNames": [
+    "Malik Ayaz Ahmad",
+    "Malik Ayaz"
+   ],
+   "deathPlace": "Lahore",
+   "confidence": 0.7,
+   "note": "No birth year is given. The only early date in the account is \"educated in Georgia in 993 AD\"; it is not a birth year and is not treated as one. The death date’s calendar era is unstated in the source.",
+   "quote": "The account gives his death as 8 August 1041, and states that his mausoleum was then built in Shah Alam Market. ## Memory,",
+   "source": "data/shrines.csv#darbar-malik-ahmad-ayaz"
+  },
+  {
+   "saintSlug": "wasif-ali-wasif",
+   "saintName": "Hazrat Wasif Ali Wasif",
+   "saintIsNew": true,
+   "shrineSlug": "darbar-wasif-ali-wasif",
+   "born": "15 January 1929",
+   "died": "18 January 1993",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "shaheed (as popular belief, not a formal ruling — per the survey)"
+   ],
+   "altNames": [
+    "Muhammad Wasif Awan",
+    "Wasif (takhallus / pen name)"
+   ],
+   "birthPlace": "Shahpur, Khushab District",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "quote": "He was born on 15 January 1929 in Shahpur, Khushab District. His father, Muhammad Arif, was himself a teacher. The survey states his family",
+   "source": "data/shrines.csv#darbar-wasif-ali-wasif"
+  },
+  {
+   "saintSlug": "sufi-shah-inayat-shaheed",
+   "saintName": "Sufi Shah Inayat Shaheed",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-roza-sufi-shah-inayat-shaheed",
+   "born": "",
+   "died": "1718",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Shaheed"
+   ],
+   "altNames": [],
+   "deathPlace": "Jhok Sharif",
+   "confidence": 0.95,
+   "quote": "after a long resistance he was taken by treachery and put to death in 1718. He is remembered ever after as *Shaheed*,",
+   "source": "data/shrines.csv#dargah-roza-sufi-shah-inayat-shaheed"
+  },
+  {
+   "saintSlug": "syed-rakhyal-shah-sufi-al-qadri",
+   "saintName": "Syed Rakhyal Shah Sufi Al Qadri",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-fateh-pur-sharif",
+   "born": "1842",
+   "died": "1940",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Saeen Rakhyal",
+    "Sufi al-Qadiri"
+   ],
+   "altNames": [
+    "Syed Rakhyal Shah",
+    "Pir Rakhail Shah"
+   ],
+   "deathPlace": "Fateh Pur (Fatehpur)",
+   "confidence": 0.7,
+   "note": "The prose hedges: \"generally held to have lived from 1842 to 1940\".",
+   "quote": "Rakhyal Shah is generally held to have lived from 1842 to 1940, a span of nearly a century across the",
+   "source": "data/shrines.csv#dargah-fateh-pur-sharif"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-zaman-sultan-al-aulia",
+   "saintName": "Khwaja Muhammad Zaman \"Sultan al-Aulia\"",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-of-khwaja-muhammad-zaman-luari-sharif",
+   "born": "1713",
+   "died": "January 1775",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Sultan al-Aulia",
+    "Khwaja Kalan"
+   ],
+   "altNames": [
+    "Makhdoom Muhammad Zaman Naqshbandi",
+    "Khwaja Muhammad Zaman"
+   ],
+   "deathPlace": "Luari (Luari Sharif, Badin)",
+   "confidence": 0.95,
+   "note": "The prose gives the month (\"died in January 1775\"), which the structured column (1775) does not carry. The tazkira also gives a year of death but its digits are illegible in the OCR scan and are not reproduced.",
+   "quote": "He died in January 1775 and was buried at Luari, where his tomb and the vaulted chambers of his successors form the",
+   "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif"
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "saintName": "Pir Syed Muhammad Rashid Shah, \"Roze Dhani\"",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+   "born": "1757",
+   "died": "1818",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Roze Dhani"
+   ],
+   "altNames": [
+    "Pir Syed Muhammad Rashid Shah"
+   ],
+   "confidence": 0.95,
+   "quote": "Pir Syed Muhammad Rashid Shah (1757–1818), known by his honorific Roze Dhani, \"master of the shrine,\" the founder of the Rashidi Sufi order and an",
+   "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth"
+  },
+  {
+   "saintSlug": "data-ganj-bakhsh",
+   "saintName": "Data Ganj Bakhsh",
+   "saintIsNew": false,
+   "shrineSlug": "data-darbar",
+   "born": "c. 1009 (\"around the turn of the eleventh century\")",
+   "died": "between about 1072 and 1077 CE (465–469 AH)",
+   "calendar": "both",
+   "precision": "range",
+   "titles": [
+    "Data Ganj Bakhsh",
+    "Ganj Bakhsh",
+    "Data",
+    "teacher of teachers"
+   ],
+   "altNames": [
+    "Ali ibn Usman al-Hujwiri",
+    "al-Jullabi",
+    "al-Hujwiri"
+   ],
+   "birthPlace": "Ghazni",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "d. 1072–77, \"the standard scholarly ranges; keep as approximate\"",
+     "heldBy": "the entry’s own editorial note in shrine_entries/Data Darbar.md",
+     "quote": "Dates for Hujwiri (b. c. 1009; d. 1072–77) and the arrival (c. 1039) are the standard scholarly ranges; keep as"
+    }
+   ],
+   "quote": "He died in Lahore between about 1072 and 1077 CE (465–469 AH), and his grave, from the first, drew those who had loved",
+   "source": "data/shrines.csv#data-darbar"
+  },
+  {
+   "saintSlug": "sultan-bahoo",
+   "saintName": "Sultan Bahoo",
+   "saintIsNew": false,
+   "shrineSlug": "garh-maharaja-shorkot",
+   "born": "1630",
+   "died": "1691",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Sultan Bahu"
+   ],
+   "altNames": [
+    "Bahu (\"with Hoo\")"
+   ],
+   "birthPlace": "the Shorkot region of Jhang",
+   "confidence": 0.95,
+   "quote": "Bahu was born in 1630 in the Shorkot region of Jhang, into an Awan family; his father was an official of the Mughal administration and his mother, Bibi Rasti,",
+   "source": "data/shrines.csv#garh-maharaja-shorkot"
+  },
+  {
+   "saintSlug": "pir-meher-ali-shah",
+   "saintName": "Pir Meher Ali Shah",
+   "saintIsNew": false,
+   "shrineSlug": "golra-sharif",
+   "born": "1859",
+   "died": "1937",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Pir"
+   ],
+   "altNames": [
+    "Pir Sayyid Meher Ali Shah",
+    "Pir Mehr Ali Shah"
+   ],
+   "birthPlace": "Golra",
+   "deathPlace": "Golra",
+   "confidence": 0.95,
+   "quote": "Meher Ali Shah was born in 1859 at Golra, into a Sayyid family of learning and sanctity descended from the Prophet. He received a",
+   "source": "data/shrines.csv#golra-sharif"
+  },
+  {
+   "saintSlug": "bebe-nanaki",
+   "saintName": "Bebe Nanaki",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-babay-nanki",
+   "born": "around 1464 (\"by tradition\")",
+   "died": "1518",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [],
+   "altNames": [
+    "Bibi Nanaki",
+    "Bebe Nanaki"
+   ],
+   "birthPlace": "Dera Chahal (traditionally held)",
+   "deathPlace": "Sultanpur",
+   "confidence": 0.7,
+   "quote": "Bebe Nanaki was born, by tradition, around 1464 and was older than her brother by some five years. From his earliest childhood she is said to have perceived in Nanak a",
+   "source": "data/shrines.csv#gurdwara-babay-nanki"
+  },
+  {
+   "saintSlug": "guru-nanak",
+   "saintName": "Guru Nanak",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-darbar-sahib-kartarpur",
+   "born": "",
+   "died": "22 September 1539 (\"by tradition\")",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [],
+   "altNames": [
+    "Guru Nanak Dev Ji",
+    "Nanak"
+   ],
+   "deathPlace": "Kartarpur",
+   "confidence": 0.95,
+   "note": "This row carries the exact death date (the column has only 1539) but does not print the birth year at all — see the separate Janam Asthan proposal for the birth.",
+   "quote": "Guru Nanak died at Kartarpur, by tradition on 22 September 1539. A cherished legend, preserved in",
+   "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur"
+  },
+  {
+   "saintSlug": "guru-nanak",
+   "saintName": "Guru Nanak",
+   "saintIsNew": false,
+   "shrineSlug": "gurudwara-janam-asthan-nankana-sahib",
+   "born": "1469, \"a date commonly rendered as 15 April 1469 in the Common Era\"",
+   "died": "1539",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "the first of the ten Gurus"
+   ],
+   "altNames": [
+    "Guru Nanak Dev Ji",
+    "Nanak"
+   ],
+   "birthPlace": "Rai Bhoi di Talwandi, now Nankana Sahib",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "Sikhs observe his Prakash Utsav (Gurpurab) on the full-moon day of the month of Kartik, in October or November — not on 15 April",
+     "heldBy": "the same entry, immediately after giving the 15 April rendering",
+     "quote": "though Sikhs observe his *Prakash Utsav* (birth celebration, also called *Gurpurab*) on the full-moon day of the month of Kartik, in October or November. His father, Mehta Kalu (Kalyan"
+    }
+   ],
+   "quote": "Guru Nanak was born, by tradition, in the year 1469 — a date commonly rendered as 15 April 1469 in the Common Era, though Sikhs observe his *Prakash Utsav* (birth celebration, also called",
+   "source": "data/shrines.csv#gurudwara-janam-asthan-nankana-sahib"
+  },
+  {
+   "saintSlug": "guru-gobind-singh",
+   "saintName": "Guru Gobind Singh",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-bhai-beba-singh",
+   "born": "",
+   "died": "1708",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "the tenth Guru"
+   ],
+   "altNames": [],
+   "confidence": 0.95,
+   "note": "Recorded from the Bhai Biba Singh entry, which names Guru Gobind Singh in passing; the graph attaches Guru Gobind Singh to gurdwara-dash-mesh-pita, whose own prose gives no dates.",
+   "quote": "the era of *Guru Gobind Singh* (the tenth Guru, died 1708). It took its enduring form, however, during the",
+   "source": "data/shrines.csv#gurdwara-bhai-beba-singh"
+  },
+  {
+   "saintSlug": "guru-arjan-dev",
+   "saintName": "Guru Arjan Dev",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-dera-sahib",
+   "born": "1563",
+   "died": "1606",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "the fifth Guru",
+    "the first martyr of the Sikh faith"
+   ],
+   "altNames": [
+    "Guru Arjan"
+   ],
+   "confidence": 0.95,
+   "note": "The prose adds that his shaheedi is \"traditionally commemorated in the month of Jeth, in late May or early June\" — a commemoration month, not a calendar death date.",
+   "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth at a",
+   "source": "data/shrines.csv#gurdwara-dera-sahib"
+  },
+  {
+   "saintSlug": "guru-ram-das",
+   "saintName": "Guru Ram Das",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-guru-ram-das-ji",
+   "born": "1534",
+   "died": "1581",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "the fourth of the ten Sikh Gurus"
+   ],
+   "altNames": [
+    "Bhai Jetha"
+   ],
+   "birthPlace": "Chuna Mandi bazaar, Lahore",
+   "confidence": 0.95,
+   "quote": "Ram Das was born in the Chuna Mandi bazaar of Lahore in 1534, in a family of modest means, and was known in his boyhood as Bhai Jetha. Orphaned",
+   "source": "data/shrines.csv#gurdwara-guru-ram-das-ji"
+  },
+  {
+   "saintSlug": "bhai-lalo",
+   "saintName": "Bhai Lalo",
+   "saintIsNew": true,
+   "shrineSlug": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+   "born": "1452 (\"traditionally said\")",
+   "died": "",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [],
+   "altNames": [
+    "Bhai Lalu"
+   ],
+   "birthPlace": "Saidpur (Eminabad)",
+   "confidence": 0.7,
+   "note": "The graph currently carries this shrine under the composite saint \"guru-nanak-dev-ji-associated-with-bhai-lalo\"; Bhai Lalo has no saint node of his own.",
+   "quote": "Bhai Lalo, traditionally said to have been born at Saidpur (Eminabad) in 1452 into a family of carpenters, became one of the most beloved of the",
+   "source": "data/shrines.csv#gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
+  },
+  {
+   "saintSlug": "bhai-taru",
+   "saintName": "Bhai Taru",
+   "saintIsNew": false,
+   "shrineSlug": "gurdwara-shaheed-bhai-taru-singh",
+   "born": "around 1720 (prose: \"c. 1720\")",
+   "died": "1 July 1745",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Shaheed"
+   ],
+   "altNames": [
+    "Bhai Taru Singh"
+   ],
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "quote": "Bhai Taru Singh, having outlived his persecutor, is said to have given up his life of his own will on 1 July 1745. His fortitude made him",
+   "source": "data/shrines.csv#gurdwara-shaheed-bhai-taru-singh"
+  },
+  {
+   "saintSlug": "guru-gurpat",
+   "saintName": "Guru Gurpat",
+   "saintIsNew": false,
+   "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
+   "born": "",
+   "died": "1877",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Guru",
+    "Sant"
+   ],
+   "altNames": [
+    "Baba Gurpat Sahib"
+   ],
+   "confidence": 0.95,
+   "note": "The prose corroborates the death year and adds \"at the age of about seventy\", but gives no birth year of its own (the column carries 1807).",
+   "quote": "before his death in 1877 at the age of about seventy. ## The Darbar and Its Trust The present building at",
+   "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
+  },
+  {
+   "saintSlug": "lal-shahbaz-qalandar",
+   "saintName": "Lal Shahbaz Qalandar",
+   "saintIsNew": false,
+   "shrineSlug": "lal-shahbaz-qalandar",
+   "born": "around 1177 (prose: \"c. 1177\")",
+   "died": "around 1274",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Lal (\"the Red\")",
+    "Shahbaz (\"royal falcon\")",
+    "Qalandar"
+   ],
+   "altNames": [
+    "Sayyid Usman Marwandi",
+    "Usman Marwandi"
+   ],
+   "birthPlace": "Marwand",
+   "deathPlace": "Sehwan",
+   "confidence": 0.95,
+   "quote": "Sayyid Usman Marwandi — known to the world as Lal Shahbaz Qalandar — was born around 1177 at Marwand, in the Persian-speaking lands to the west (in the region of present-day",
+   "source": "data/shrines.csv#lal-shahbaz-qalandar"
+  },
+  {
+   "saintSlug": "makhdoom-burhan-ud-din",
+   "saintName": "Makhdoom Burhan-ud-din",
+   "saintIsNew": false,
+   "shrineSlug": "langer-makhdoom",
+   "born": "",
+   "died": "1245 of the Common Era — 666 of the Hijri calendar",
+   "calendar": "both",
+   "precision": "year",
+   "titles": [
+    "Makhdoom"
+   ],
+   "altNames": [
+    "Hazrat Langar Makhdoom",
+    "Langar Makhdoom"
+   ],
+   "deathPlace": "a burial ground near Changranwala, Lalian (Chiniot District)",
+   "confidence": 0.7,
+   "note": "The entry is explicit that \"little can be stated with certainty\" and that the dates are traditional.",
+   "quote": "Tradition holds that he lived and taught in this corner of the Chiniot region and that he died in the year 1245 of the Common Era — 666 of the Hijri calendar — asking, in his humility, to",
+   "source": "data/shrines.csv#langer-makhdoom"
+  },
+  {
+   "saintSlug": "waris-shah",
+   "saintName": "Waris Shah",
+   "saintIsNew": false,
+   "shrineSlug": "mausoleum-of-waris-shah",
+   "born": "around 1722 (prose: \"c. 1722\")",
+   "died": "around 1798",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "the \"Shakespeare of the Punjabi language\""
+   ],
+   "altNames": [
+    "Waris Shah"
+   ],
+   "birthPlace": "Jandiala Sher Khan",
+   "deathPlace": "Jandiala Sher Khan",
+   "confidence": 0.95,
+   "quote": "Waris Shah was born around 1722 into a Sayyid family at Jandiala Sher Khan. He received a thorough religious and",
+   "source": "data/shrines.csv#mausoleum-of-waris-shah"
+  },
+  {
+   "saintSlug": "bulleh-shah",
+   "saintName": "Bulleh Shah",
+   "saintIsNew": false,
+   "shrineSlug": "mazar-of-bulleh-shah",
+   "born": "around 1680",
+   "died": "around 1757",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [],
+   "altNames": [
+    "Sayyid Abdullah Shah Qadiri",
+    "Abdullah Shah Qadri"
+   ],
+   "deathPlace": "Kasur",
+   "confidence": 0.95,
+   "quote": "Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher,",
+   "source": "data/shrines.csv#mazar-of-bulleh-shah"
+  },
+  {
+   "saintSlug": "khwaja-ghulam-farid",
+   "saintName": "Khwaja Ghulam Farid",
+   "saintIsNew": false,
+   "shrineSlug": "mithankot-kot-mithan",
+   "born": "1845",
+   "died": "1901",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Khwaja"
+   ],
+   "altNames": [
+    "Khwaja Ghulam Farid"
+   ],
+   "birthPlace": "Chachran, near Kot Mithan",
+   "deathPlace": "Chachran (buried at Kot Mithan)",
+   "confidence": 0.95,
+   "quote": "He died in 1901 at Chachran and was buried at Kot Mithan. ## The Poetry Khwaja Ghulam Farid’s fame rests on",
+   "source": "data/shrines.csv#mithankot-kot-mithan"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "saintName": "Khwaja Muhammad Qasim Sadiq",
+   "saintIsNew": false,
+   "shrineSlug": "mohra-sharif-khanqah",
+   "sourceFiles": [
+    "entries/web-research-2026-08/mohra-sharif-khanqah.md"
+   ],
+   "born": "about 1846 (1263 AH)",
+   "calendar": "both",
+   "precision": "year",
+   "titles": [
+    "Khwaja"
+   ],
+   "altNames": [
+    "Hazrat Khawaja Muhammad Qasim Sadiq",
+    "Khawaja Muhammad Qasim Moharwi",
+    "Muḥammad Qāthim Mohŕvī"
+   ],
+   "confidence": 0.7,
+   "variants": [
+    {
+     "field": "died",
+     "value": "\"Passed away on the 20th November of 1943\", the founder also described as \"living 120 years\"",
+     "heldBy": "mohrasharif.com, the khanqah’s own self-published history",
+     "quote": "founder, \"Hazrat Khawaja Muhammad Qasim Sadiq (RA),\" is described as born in \"1263 A.H.,\" living 120 years, and \"Passed away on the 20th November of 1943.\" Succession: \"Khawaja Pir Muhammad Zahid"
+    },
+    {
+     "field": "died",
+     "value": "21 November 1942 (infobox) / 21 November 1943 (article text) / \"1943 deaths\" (category); births given as 1822 and 1845",
+     "heldBy": "English Wikipedia — recorded in the repo file as a non-citable pointer only",
+     "quote": "It reports (its own, not independently verified by me): founding of Mohra Sharif \"In 1878\"; the founder's infobox giving birth 1845, death 21 November 1942, while the article's own text says he"
+    },
+    {
+     "field": "died",
+     "value": "\"Ḥaḍrat Muḥammad Qāthim Mohŕvī (d. 1943) of Mohŕ\"",
+     "heldBy": "Brill Encyclopaedia of Islam THREE, as cited second-hand (page could not be fetched, 403)",
+     "quote": "names his murshid as \"Ḥaḍrat Muḥammad Qāthim Mohŕvī (d. 1943) of Mohŕ\" — apparently the same founder, with a third death year (1943, matching"
+    }
+   ],
+   "note": "The structured column for figure_died is EMPTY; this is a new death year, but it rests on the khanqah’s own interested source, which the repo’s own research file grades PARTIAL. The claim of \"living 120 years\" is not consistent with a birth of 1263 AH and a death in 1943. Do not merge without a citable source.",
+   "quote": "The centre was established by *Khwaja Muhammad Qasim Sadiq*, born about 1846 (1263 AH), whose forebears are said to have migrated from Iran and",
+   "source": "data/shrines.csv#mohra-sharif-khanqah",
+   "blockedFields": {
+    "died": "20 November 1943 (per the khanqah’s own account)"
+   },
+   "blockedReason": "The death date comes from the khanqah's own self-published account, which the repo's research file grades PARTIAL and whose \"living 120 years\" claim is inconsistent with the 1263 AH birth recorded here. Withheld until a citable source exists. The birth year is unaffected: it is stated of this figure in the quote below.",
+   "subjectMismatchJustification": "This row is in subjectMismatch because the only two exact death dates printed in it belong to the founder's successors. Neither was taken. The birth year quoted here is stated of the founder himself."
+  },
+  {
+   "saintSlug": "shah-sulaimn-nri",
+   "saintName": "Shah Sulaimān Nūri",
+   "saintIsNew": false,
+   "shrineSlug": "purana-bhalwal",
+   "born": "the early sixteenth century",
+   "died": "1604",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Sakhi Badshah (\"the generous king\")"
+   ],
+   "altNames": [
+    "Hazrat Shah Sulaiman Nuri",
+    "Shah Sulaimān Nūri"
+   ],
+   "deathPlace": "Purana Bhalwal",
+   "confidence": 0.7,
+   "note": "The prose gives only \"the early sixteenth century\" for the birth, where the column carries 1510; it also says he died \"on the night of the twenty-seventh of Ramadan\" and warns that \"precise dates should be treated as traditional\".",
+   "quote": "Shah Sulaiman Nuri is traditionally said to have lived a remarkably long life, from the early sixteenth century until 1604. According to the accounts",
+   "source": "data/shrines.csv#purana-bhalwal"
+  },
+  {
+   "saintSlug": "rahman-baba",
+   "saintName": "Rahman Baba",
+   "saintIsNew": false,
+   "shrineSlug": "rahman-baba-mausoleum-rehman-baba-shrine",
+   "born": "around 1653",
+   "died": "around 1711",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Rahman Baba"
+   ],
+   "altNames": [
+    "Abdur Rahman Mohmand",
+    "Abdur Rahman"
+   ],
+   "birthPlace": "near Peshawar",
+   "deathPlace": "Hazarkhwani",
+   "confidence": 0.95,
+   "quote": "Abdur Rahman was born around 1653 near Peshawar, into the Mohmand tribe of the Pashtuns; he is remembered as a man of humble means and",
+   "source": "data/shrines.csv#rahman-baba-mausoleum-rehman-baba-shrine"
+  },
+  {
+   "saintSlug": "syed-muhammad-noushah-qadiri",
+   "saintName": "Syed Muhammad Noushah Qadiri",
+   "saintIsNew": false,
+   "shrineSlug": "ranmal-sharif",
+   "born": "1552",
+   "died": "1654",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Ganj Bakhsh (\"the bestower of treasure\")",
+    "Noushah (\"the bridegroom\")"
+   ],
+   "altNames": [
+    "Syed Muhammad Noushah Ganj Bakhsh",
+    "Syed Muhammad Noushah Qadiri"
+   ],
+   "deathPlace": "Ranmal Sharif",
+   "confidence": 0.95,
+   "quote": "Muhammad Noushah — honoured as *Ganj Bakhsh*, “the bestower of treasure,” and *Noushah*, “the bridegroom” — was born in 1552. He took the Sufi path in the Qadiri order and, attaining a high",
+   "source": "data/shrines.csv#ranmal-sharif"
+  },
+  {
+   "saintSlug": "sain-vali-vilayat-rai",
+   "saintName": "Sain Vali Vilayat Rai",
+   "saintIsNew": false,
+   "shrineSlug": "sain-vali-vilayat-rai-darbar-kambar",
+   "born": "1825",
+   "died": "",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Sain"
+   ],
+   "altNames": [
+    "Vali Vilayat Rai"
+   ],
+   "birthPlace": "Old Hala",
+   "confidence": 0.95,
+   "note": "No death year is given for the founder. The 1899 death in the same paragraph belongs to his successor Sain Jiwat Singh and must not be attached to him.",
+   "quote": "Its founder, Vali Vilayat Rai, was born in 1825 into a prosperous Hindu family of Old Hala; his father, Pratab Rai, had served as a *munshi*",
+   "source": "data/shrines.csv#sain-vali-vilayat-rai-darbar-kambar"
+  },
+  {
+   "saintSlug": "sultan-sakhi-sarwar",
+   "saintName": "Sultan Sakhi Sarwar",
+   "saintIsNew": false,
+   "shrineSlug": "sakhi-sarwar",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Lakhdata (\"the giver of hundreds of thousands\")",
+    "Sakhi Sarwar (\"the Generous Chief\")",
+    "Sultan"
+   ],
+   "altNames": [
+    "Sayyid Ahmad Sultan"
+   ],
+   "birthPlace": "the region of Multan/Shahkot (tradition)",
+   "confidence": 0.7,
+   "floruit": "the twelfth century",
+   "note": "Both structured columns are empty and the prose gives no year, only \"lived in the twelfth century\" and that \"his life is wrapped in legend more than documented history\". Recorded as a century-level floruit, not as a birth or death year.",
+   "quote": "Sayyid Ahmad Sultan, called Sakhi Sarwar (“the Generous Chief”), lived in the twelfth century; tradition places his origins in the region of Multan/Shahkot, and his life",
+   "source": "data/shrines.csv#sakhi-sarwar"
+  },
+  {
+   "saintSlug": "maharaja-ranjit-singh",
+   "saintName": "Maharaja Ranjit Singh",
+   "saintIsNew": false,
+   "shrineSlug": "samadhi-of-maharaja-ranjit-singh",
+   "born": "",
+   "died": "27 June 1839",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "the \"Lion of Punjab\"",
+    "Maharaja"
+   ],
+   "altNames": [
+    "Ranjit Singh"
+   ],
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "The prose gives the exact death date, which the column (1839) does not carry; it gives no birth year of its own (the column carries 1780).",
+   "quote": "Ranjit Singh, the \"Lion of Punjab,\" founded and ruled the Sikh Empire from 1801 until his death on 27 June 1839. Construction began the following",
+   "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh"
+  },
+  {
+   "saintSlug": "sant-baba-asudaram-sakhi-baba",
+   "saintName": "Sant Baba Asudaram \"Sakhi Baba\"",
+   "saintIsNew": false,
+   "shrineSlug": "sant-baba-asudaram-darbar-panno-aqil",
+   "born": "3 April 1895",
+   "died": "4 September 1960",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Sakhi Baba (\"the generous master\")",
+    "Shiv Swaroop (name given by Bhagat Kanwar Ram)"
+   ],
+   "altNames": [
+    "Sant Baba Asudaram",
+    "Asudaram"
+   ],
+   "birthPlace": "Jatoin, near Panno Aqil",
+   "confidence": 0.95,
+   "quote": "Asudaram (1895–1960), remembered by the honorific *Sakhi Baba*, \"the generous master,\" was born on 3 April 1895 in the village of Jatoin near Panno Aqil, the son of Bhai Ludhrodmal and",
+   "source": "data/shrines.csv#sant-baba-asudaram-darbar-panno-aqil"
+  },
+  {
+   "saintSlug": "bhagat-kanwar-ram",
+   "saintName": "Bhagat Kanwar Ram",
+   "saintIsNew": false,
+   "shrineSlug": "sant-bhagat-kanwar-ram-temple-chak",
+   "born": "13 April 1885",
+   "died": "November 1939 (assassinated at Ruk railway station)",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Bhagat",
+    "shaheed / martyr"
+   ],
+   "altNames": [
+    "Kanwar Ram"
+   ],
+   "birthPlace": "Tarachand’s house in Jarwar village, then Mirpur Mathelo tehsil (Sukkur region)",
+   "deathPlace": "Ruk railway station, Sukkur area",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "2 November — the day on which the martyrdom anniversary is annually marked",
+     "heldBy": "the entry’s account of the annual commemoration",
+     "quote": "Every year on 2 November his followers gather to mark the anniversary of his martyrdom, both at this shrine and at Ruk station where he was"
+    }
+   ],
+   "note": "The prose gives the month and year of death but not the day; the 2 November commemoration date is recorded separately as a variant rather than promoted to a death date.",
+   "quote": "Kanwar Ram — born 13 April 1885 at Tarachand's house in Jarwar, then part of Mirpur Mathelo tehsil, and a disciple of Sant Satram Das (1866-1910) — was also remembered for singing the",
+   "source": "data/shrines.csv#sant-bhagat-kanwar-ram-temple-chak"
+  },
+  {
+   "saintSlug": "satguru-swami-sai-satramdas-sahib",
+   "saintName": "Satguru Swami Sai Satramdas Sahib",
+   "saintIsNew": false,
+   "shrineSlug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
+   "born": "25 October 1866",
+   "died": "25 January 1910",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Satguru",
+    "Swami",
+    "Sai"
+   ],
+   "altNames": [
+    "Sant Satram Das",
+    "Satguru Swami Sai Satramdas Sahib",
+    "Sant Shiromani Satramdas"
+   ],
+   "birthPlace": "Raharki (Raherki Sahib), Ghotki district",
+   "confidence": 0.95,
+   "quote": "the revered Sindhi saint born here, according to the tradition, on 25 October 1866. He gave his life to spiritual teaching in the syncretic Sindhi devotional mould, preaching love, humility",
+   "source": "data/shrines.csv#sant-satram-dham-raharki-sacho-satram-devri-sahib"
+  },
+  {
+   "saintSlug": "bhai-gurdas-veneration-of-guru-nanak",
+   "saintName": "Bhai Gurdas; veneration of Guru Nanak",
+   "saintIsNew": false,
+   "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Bhai",
+    "a Khalsa saint"
+   ],
+   "altNames": [
+    "Bhai Kanya Lal",
+    "Kanhiya Lal",
+    "Bhai Gurdas Singh"
+   ],
+   "confidence": 0.95,
+   "note": "GRAPH LINK: the same figure appears twice in the graph — \"bhai-gurdas-veneration-of-guru-nanak\" (this shrine) and \"bhai-gurdas-singh-disciple-of-guru-gobind-singh\" (khatwari-darbar-shikarpur), whose prose names him \"Bhai Gurdas Singh — also remembered by the name Kanhiya Lal\". Both are described as a disciple of Guru Gobind Singh who carried the teaching into Sindh. No dates in either source.",
+   "quote": "born Bhai Kanya Lal, he is remembered as a Khalsa saint who received the blessing of Guru Gobind Singh himself before carrying that teaching into the towns of",
+   "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava"
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "saintName": "Shams Ali Qalandar",
+   "saintIsNew": false,
+   "shrineSlug": "shamsabad",
+   "born": "c. 1873",
+   "died": "Tuesday, the sixth of September 1966",
+   "calendar": "CE",
+   "precision": "exact-date",
+   "titles": [
+    "Qalandar",
+    "faqir"
+   ],
+   "altNames": [
+    "Hazrat Shams Ali Qalandar"
+   ],
+   "deathPlace": "Dhaliana, Shamsabad (Depalpur, Okara)",
+   "confidence": 0.95,
+   "note": "The prose adds \"at the advanced age of about ninety-three\", consistent with the c. 1873 birth in the column.",
+   "quote": "Tradition records that Shams Ali Qalandar died on Tuesday, the sixth of September 1966, at the advanced age of about ninety-three, at Dhaliana in the Shamsabad area, where his",
+   "source": "data/shrines.csv#shamsabad"
+  },
+  {
+   "saintSlug": "daud-bandagi-kirmani",
+   "saintName": "Daud Bandagi Kirmani",
+   "saintIsNew": false,
+   "shrineSlug": "shergarh",
+   "born": "1513",
+   "died": "1575",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Bandagi (\"servitude\")",
+    "Kirmani"
+   ],
+   "altNames": [
+    "Daud Bandagi Kirmani",
+    "Sheikh Dawood Bandgi Kirmani",
+    "Syed Dawood Bandgi Kirmani"
+   ],
+   "deathPlace": "Shergarh",
+   "confidence": 0.95,
+   "note": "The two alternate spellings come from the Darbar Abul Muali Qadri entry, which names him as the uncle and father-in-law of that shrine’s saint — a lineage link the graph can use.",
+   "quote": "Daud, honoured with the title *Bandagi* (“servitude,” marking his devotion) and the epithet *Kirmani* for his family’s origins, was born in 1513. He gave himself to religious learning and",
+   "source": "data/shrines.csv#shergarh"
+  },
+  {
+   "saintSlug": "bhagwan-swaminarayan",
+   "saintName": "Bhagwan Swaminarayan",
+   "saintIsNew": false,
+   "shrineSlug": "shri-swaminarayan-mandir-karachi",
+   "born": "1781",
+   "died": "1830",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Bhagwan Swaminarayan"
+   ],
+   "altNames": [
+    "Sahajanand Swami",
+    "Swaminarayan"
+   ],
+   "confidence": 0.95,
+   "note": "Both structured columns are empty for this row; the dates are stated in the prose parenthetically.",
+   "quote": "The Swaminarayan movement takes its name from *Swaminarayan* (Sahajanand Swami, 1781–1830), the reformer and teacher who gathered a large following across Gujarat and",
+   "source": "data/shrines.csv#shri-swaminarayan-mandir-karachi"
+  },
+  {
+   "saintSlug": "ramdev-pir",
+   "saintName": "Ramdev Pir",
+   "saintIsNew": false,
+   "shrineSlug": "ramapir-temple-tando-allahyar",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Pir"
+   ],
+   "altNames": [
+    "Ramapir",
+    "Baba Ramdev",
+    "Ramdev Pir"
+   ],
+   "floruit": "the fifteenth century",
+   "confidence": 0.7,
+   "note": "Century-level floruit only (\"a fifteenth-century saint of Rajasthan\"); no birth or death year is given.",
+   "quote": "also called Ramapir or Baba Ramdev — a fifteenth-century saint of Rajasthan venerated across western India and Sindh as a worker of miracles and a champion of the poor",
+   "source": "data/shrines.csv#ramapir-temple-tando-allahyar"
+  },
+  {
+   "saintSlug": "guru-gorakhnath",
+   "saintName": "Guru Gorakhnath",
+   "saintIsNew": false,
+   "shrineSlug": "gorakhnath-goraknath-temple",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "disputed",
+   "titles": [
+    "Guru",
+    "mahasiddha",
+    "founder of the Nath order of yogis"
+   ],
+   "altNames": [
+    "Gorakhnath",
+    "Goraknath"
+   ],
+   "floruit": "somewhere between the ninth and twelfth centuries CE",
+   "variants": [
+    {
+     "field": "floruit",
+     "value": "fl. 11th–12th century CE",
+     "heldBy": "the Tilla Jogian entry",
+     "quote": "11th–12th century CE) and should be read as legend rather than settled history. It became the principal seat of the"
+    }
+   ],
+   "confidence": 0.7,
+   "note": "No birth or death year exists in the corpus; two different floruit ranges are given in two rows about the same figure.",
+   "quote": "traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*. He is",
+   "source": "data/shrines.csv#gorakhnath-goraknath-temple"
+  },
+  {
+   "saintSlug": "sheikh-tahir",
+   "saintName": "Sheikh Tahir",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-at-odero-lal-udero-lal-teerath-asthan",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [],
+   "altNames": [
+    "Odero Lal",
+    "Udero Lal",
+    "Jhulelal",
+    "Khwaja Khizr (identified by some)"
+   ],
+   "confidence": 0.7,
+   "note": "No dates. The Muslim tradition of the site holds the interred figure was born a Hindu named Odero Lal and became Sheikh Tahir on embracing Islam; the Hindu tradition identifies the figure with Jhulelal.",
+   "quote": "The Muslim tradition of the site tells that the saint interred here was born a Hindu named Odero Lal and embraced Islam, becoming known as Sheikh Tahir; some identify the figure with",
+   "source": "data/shrines.csv#shrine-at-odero-lal-udero-lal-teerath-asthan"
+  },
+  {
+   "saintSlug": "abdullah-shah-ghazi",
+   "saintName": "Abdullah Shah Ghazi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-abdullah-shah-ghazi",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Ghazi",
+    "patron saint of Karachi"
+   ],
+   "altNames": [
+    "Abdullah Shah Ghazi"
+   ],
+   "floruit": "the eighth century",
+   "confidence": 0.7,
+   "note": "The column carries a death year of 773 but the prose nowhere gives a year — only \"Tradition places him in the eighth century\" and \"The historical record ... is thin and wrapped in legend\". The 773 is not corroborated by this text.",
+   "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan; for the people of Karachi he is the guardian of the",
+   "source": "data/shrines.csv#shrine-of-abdullah-shah-ghazi"
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "saintName": "Abul Faiz Qalander Ali Suharwardi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+   "born": "Monday, 18 November 1885 (one account) — see variants; the shrine’s own custodians give 4 January 1895",
+   "died": "9 September 1958",
+   "calendar": "CE",
+   "precision": "disputed",
+   "titles": [
+    "Qalandar",
+    "Hazrat"
+   ],
+   "altNames": [
+    "Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi",
+    "Abul Faiz Qalandar"
+   ],
+   "birthPlace": "Kotli Loharan, Sialkot district",
+   "deathPlace": "Hanjarwal, Lahore",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "Monday, 18 November 1885, at Kotli Loharan",
+     "heldBy": "\"one careful account\"",
+     "quote": "by one careful account on Monday, 18 November 1885, at Kotli Loharan, and by another — the account kept by the shrine's own custodians — on 4 January"
+    },
+    {
+     "field": "born",
+     "value": "4 January 1895",
+     "heldBy": "\"the account kept by the shrine’s own custodians\"",
+     "quote": "and by another — the account kept by the shrine's own custodians — on 4 January 1895. Devotional tradition holds that his birth was foretold: a saint"
+    }
+   ],
+   "quote": "He died on 9 September 1958, and was buried at Hanjarwal, where his shrine now stands. ## Teachers and the Chain of",
+   "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi"
+  },
+  {
+   "saintSlug": "akhund-darweza-baba",
+   "saintName": "Akhund Darweza Baba",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-akhund-darweza-baba",
+   "born": "1533 (\"traditionally\")",
+   "died": "1638 (\"traditionally\")",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Akhund",
+    "Baba"
+   ],
+   "altNames": [
+    "Akhund Darweza",
+    "Syed Muhammad"
+   ],
+   "deathPlace": "Hazarkhwani, Peshawar",
+   "confidence": 0.7,
+   "note": "Prose hedges with \"traditionally 1533-1638\" and adds only \"He died in the reign of Shah Jahan\". The tazkira gives a death year whose digits are illegible in the OCR scan and are not reproduced.",
+   "quote": "*Akhund Darweza* (traditionally 1533-1638) was one of the most influential religious figures of the Pashtun country in the age of the Mughals — a",
+   "source": "data/shrines.csv#shrine-of-akhund-darweza-baba"
+  },
+  {
+   "saintSlug": "hazrat-syed-abdul-wahab",
+   "saintName": "Hazrat Syed Abdul Wahab",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-akhund-panju-baba",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Akhund",
+    "Baba",
+    "\"Panju\" (\"five\"), a mocking nickname for his insistence on preaching the five pillars"
+   ],
+   "altNames": [
+    "Hazrat Syed Abdul Wahab",
+    "Akhund Panju Baba"
+   ],
+   "floruit": "the reign of the Mughal emperor Akbar (1556-1605)",
+   "confidence": 0.7,
+   "note": "No dates at all; only a reign-window floruit. Two sources place the shrine in two different localities (Akbarpura, Nowshera vs Misri Pura, Peshawar Sadar) and the entry itself flags that they may be two different men.",
+   "quote": "a Sufi and preacher remembered as one of the great teachers of Islam in the Pashtun country during the reign of the Mughal emperor Akbar (1556-1605). Tradition holds that many were guided",
+   "source": "data/shrines.csv#shrine-of-akhund-panju-baba"
+  },
+  {
+   "saintSlug": "syed-abdul-razzaq",
+   "saintName": "Syed Abdul Razzaq",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-baba-shah-chiragh",
+   "born": "",
+   "died": "1657 CE",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Chiragh (\"lamp\"), given by his grandfather Hazrat Abdul Qadir Sani"
+   ],
+   "altNames": [
+    "Syed Abdul Razzaq",
+    "Baba Shah Chiragh"
+   ],
+   "confidence": 0.95,
+   "note": "The prose adds that he \"flourished during the reign of the Mughal emperor Shah Jahan\"; no birth year is given.",
+   "quote": "Given the honorific \"Chiragh,\" meaning lamp, by his grandfather Hazrat Abdul Qadir Sani, he flourished during the reign of the Mughal emperor Shah Jahan and died in 1657 CE. His mausoleum",
+   "source": "data/shrines.csv#shrine-of-baba-shah-chiragh"
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "saintName": "Hazrat Baba Shah Kamal",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-baba-shah-kamal",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "\"Qadiri Suhrawardi\" (a composite title attached by local devotional tradition)"
+   ],
+   "altNames": [
+    "Hazrat Baba Shah Kamal",
+    "Shah Kamal"
+   ],
+   "floruit": "the late-sixteenth to seventeenth-century Mughal-era window",
+   "confidence": 0.7,
+   "note": "Both columns are empty. The only chronological anchor is a relational one: his lifetime is placed in the same window as his younger brother Shah Jamal’s. Their father is named as Syed Ahmad Shah, a descendant of Jalaluddin Surkh-Posh Bukhari — a usable lineage edge.",
+   "quote": "his likely lifetime is generally placed in the same late-sixteenth to seventeenth-century Mughal-era window as Shah Jamal's own. The shrine sits within the historic Shah Kamal",
+   "source": "data/shrines.csv#shrine-of-baba-shah-kamal"
+  },
+  {
+   "saintSlug": "bahauddin-zakariya",
+   "saintName": "Bahauddin Zakariya",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-bahauddin-zakariya",
+   "born": "around 1170 (prose: \"c. 1170\")",
+   "died": "1267",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Hazrat",
+    "Baha-ud-Din"
+   ],
+   "altNames": [
+    "Baha-ud-Din Zakariya",
+    "Bahauddin Zakariya"
+   ],
+   "birthPlace": "near Multan",
+   "deathPlace": "Multan",
+   "confidence": 0.95,
+   "quote": "Baha-ud-Din Zakariya was born around 1170 near Multan, into a Qureshi family of Arab descent that had settled in the region. He pursued",
+   "source": "data/shrines.csv#shrine-of-bahauddin-zakariya"
+  },
+  {
+   "saintSlug": "bibi-pak-daman",
+   "saintName": "Bibi Pak Daman",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-bibi-pak-daman",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "disputed",
+   "titles": [
+    "Pak Daman (\"the pure of hem\")",
+    "the six Bibis"
+   ],
+   "altNames": [
+    "Bibi Haj",
+    "Bibi Taj",
+    "Bibi Noor",
+    "Bibi Hoor",
+    "Bibi Gauhar",
+    "Bibi Shahbaz (or Shahnaz)",
+    "Sayyida Ruqayya bint Ali (in the Karbala tradition)"
+   ],
+   "confidence": 0.7,
+   "variants": [
+    {
+     "field": "era",
+     "value": "survivors of Karbala (61 AH); the shrine’s traditional founding date of about 63 AH",
+     "heldBy": "the older and by far the more popular tradition, held by most pilgrims",
+     "quote": "The older and by far the more popular tradition — the one held by most pilgrims, and reflected in the shrine’s traditional founding date of about 63 AH, in the first century of Islam —"
+    },
+    {
+     "field": "era",
+     "value": "daughters of Sayyid Ahmad Tokhta Tirmidhi who \"lived and died in Lahore in the early thirteenth century, at the time of the Mongol invasions\"",
+     "heldBy": "the shrine’s own custodial family and scholars including Mufti Ghulam Sarwar, Pir Ghulam Dastgir Nami, Hafeez Ullah Manzar",
+     "quote": "holds that the six were the daughters of the great saint Sayyid Ahmad Tokhta Tirmidhi, “Murshid-e-Punjab,” and that they lived and died in Lahore in the early thirteenth century, at the"
+    }
+   ],
+   "note": "The two traditions differ by \"some three or four centuries\" in the arithmetic of the entry’s own debate section. No birth or death year for any of the six is given in either tradition. Deliberately left blank.",
+   "quote": "Two great traditions about the identity of the six women endure side by side, and the shrine holds meaning in both. The older and by far the more",
+   "source": "data/shrines.csv#shrine-of-bibi-pak-daman"
+  },
+  {
+   "saintSlug": "sayyid-ahmad-tokhta-tirmidhi",
+   "saintName": "Sayyid Ahmad Tokhta Tirmidhi",
+   "saintIsNew": true,
+   "shrineSlug": "shrine-of-bibi-pak-daman",
+   "born": "",
+   "died": "around 602 AH",
+   "calendar": "AH",
+   "precision": "circa",
+   "titles": [
+    "Murshid-e-Punjab",
+    "Tokhta (\"standing\", \"ever-present\")"
+   ],
+   "altNames": [
+    "Sayyid Ahmad Tirmidhi"
+   ],
+   "deathPlace": "Lahore (buried in the quarter called Chilla Bibiyan)",
+   "confidence": 0.7,
+   "note": "Not the shrine’s principal figure: he is named in one of the two traditions as the father of the six Bibis. Recorded as a separate saint so the lineage view can hold the claimed relation without attributing his date to the Bibis.",
+   "quote": "He is said to have died around 602 AH — near the beginning of the reign of Sultan Qutb al-Din Aibak — and to be buried in the Lahore quarter still called Chilla Bibiyan, which takes its",
+   "source": "data/shrines.csv#shrine-of-bibi-pak-daman"
+  },
+  {
+   "saintSlug": "fariduddin-ganjshakar",
+   "saintName": "Fariduddin Ganjshakar",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-fariduddin-ganjshakar",
+   "born": "around 1173 (prose: \"c. 1173\")",
+   "died": "1266",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Ganjshakar (\"the Treasure of Sugar\")",
+    "Baba Farid",
+    "qutb of the Chishti order"
+   ],
+   "altNames": [
+    "Baba Fariduddin Mas‘ud Ganjshakar",
+    "Baba Farid",
+    "Farid"
+   ],
+   "birthPlace": "Kothewal, near Multan",
+   "deathPlace": "Ajodhan (now Pakpattan)",
+   "confidence": 0.95,
+   "quote": "Farid was born around 1173 at Kothewal, near Multan, into a family of learned émigrés of Central Asian origin; his grandfather is said to have come",
+   "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar"
+  },
+  {
+   "saintSlug": "ganj-e-inayat-sarkar",
+   "saintName": "Ganj e Inayat Sarkar",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
+   "born": "18 November 1937",
+   "died": "2011",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Huzoor Ganj-e-Inayat Sarkar (\"the Treasure of Grace\")",
+    "Allama",
+    "Maulana",
+    "Pir",
+    "khalifa-e-mujaz of Karman Wali Sharif"
+   ],
+   "altNames": [
+    "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi",
+    "Muhammad Inayat Ahmad"
+   ],
+   "birthPlace": "Kalisaah, a village of the Kashmir valley",
+   "deathPlace": "Lahore (Firdous Market, Gulberg)",
+   "confidence": 0.95,
+   "note": "The prose supplies an exact birth date (absent from the column) and \"He lived to the age of seventy-four\" for the 2011 death; the day and month of death are not given. The shrine_entries note records the village name as \"uncertain in the scan\".",
+   "quote": "Muhammad Inayat Ahmad was born on 18 November 1937 at Kalisaah, a village of the Kashmir valley, into a household known for both learning and piety.",
+   "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar"
+  },
+  {
+   "saintSlug": "hazrat-hafiz-muhammad-jamal-multani",
+   "saintName": "Hazrat Hafiz Muhammad Jamal Multani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hafiz-muhammad-jamal-multani",
+   "born": "around 1747 (1160 AH)",
+   "died": "1811",
+   "calendar": "both",
+   "precision": "circa",
+   "titles": [
+    "Hafiz"
+   ],
+   "altNames": [
+    "Hafiz Jamal",
+    "Hafiz Muhammad Jamal Multani"
+   ],
+   "birthPlace": "Multan",
+   "confidence": 0.95,
+   "quote": "Born at Multan around 1747 (1160 AH) and dying in 1811, Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the",
+   "source": "data/shrines.csv#shrine-of-hafiz-muhammad-jamal-multani"
+  },
+  {
+   "saintSlug": "hazrat-muhammad-ayub-shah-bukhari",
+   "saintName": "Hazrat Muhammad Ayub Shah Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-muhammad-ayub-shah-bukhari",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Bukhari"
+   ],
+   "altNames": [
+    "Ayub Shah Bukhari"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"the documented history of the saint is thin and his dates uncertain, so his biography is best treated as living tradition rather than established record.\"",
+   "quote": "the documented history of the saint is thin and his dates uncertain, so his biography is best treated as living tradition rather than established record; the *Bukhari*",
+   "source": "data/shrines.csv#shrine-of-hazrat-muhammad-ayub-shah-bukhari"
+  },
+  {
+   "saintSlug": "hazrat-shah-ali-akbar-shamsi",
+   "saintName": "Hazrat Shah Ali Akbar Shamsi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Shamsi"
+   ],
+   "altNames": [
+    "Shah Ali Akbar",
+    "Hazrat Shah Ali Akbar Shamsi"
+   ],
+   "confidence": 0.95,
+   "note": "TRAP CHECKED: the only dates in this row (993 AH / about 1585 CE, plus a 17th-century attribution by the Punjab archaeology department) are for the construction of the mausoleum, not the saint’s life. He is described only as an eighth-generation descendant of Shah Shams Sabzwari.",
+   "quote": "construction of the mausoleum began in 993 AH (about 1585 CE) and took some fifteen years to complete; it is said to have been raised by the saint's",
+   "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi"
+  },
+  {
+   "saintSlug": "shah-daula-daryai",
+   "saintName": "Shah Daula Daryai",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-shah-daula-daryai",
+   "born": "roughly 1581 (\"traditionally said\")",
+   "died": "roughly 1675 (\"traditionally said\")",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Daryai (from *darya*, \"river\")"
+   ],
+   "altNames": [
+    "Shah Daula"
+   ],
+   "deathPlace": "Gujrat",
+   "confidence": 0.7,
+   "note": "The prose opens by saying \"Reliable dates for Shah Daula are difficult to fix, and the sources differ\", and disagrees with itself on his arrival at Gujrat — \"some accounts placing this in the reign of the Mughal emperor Jahangir, others in that of Akbar\". The 1898 rebuilding date is a building date, not a life date.",
+   "quote": "Reliable dates for Shah Daula are difficult to fix, and the sources differ; he is traditionally said to have lived roughly between 1581 and 1675, and to have settled in Gujrat in the early",
+   "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai"
+  },
+  {
+   "saintSlug": "imam-ali-ul-haq",
+   "saintName": "Imam Ali-ul-Haq",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-imam-ali-ul-haq",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "disputed",
+   "titles": [
+    "Imam Sahib",
+    "shahid (martyr)",
+    "warrior-saint"
+   ],
+   "altNames": [
+    "Imam Ali al-Haq",
+    "Imam Ali-ul-Haq"
+   ],
+   "confidence": 0.7,
+   "variants": [
+    {
+     "field": "era",
+     "value": "the medieval period — \"often placed in the thirteenth or fourteenth century, and sometimes associated with the reign of the Delhi sultan Firuz Shah Tughlaq\"",
+     "heldBy": "the more commonly repeated local account",
+     "quote": "he lived in the medieval period — often placed in the thirteenth or fourteenth century, and sometimes associated with the reign of the Delhi sultan Firuz Shah Tughlaq — and came as a"
+    },
+    {
+     "field": "died",
+     "value": "killed around 970–971 CE in a battle with a local raja named Sahan Pal",
+     "heldBy": "the nineteenth-century Persian chronicle Chār Bāgh-i-Panjāb of Ganesh Das Wadhera — corroborated by no other historical work",
+     "quote": "This account maintains that \"Imam Ali al-Haq\" led an army from Arabia to Sialkot around 970–971 CE, where he was killed in a battle with a local raja named Sahan Pal (who is said to have"
+    }
+   ],
+   "note": "Both columns are empty and must stay empty: the entry states plainly that \"the saint’s true dates, origins and circumstances remain unresolved\", the two traditions \"differing by some three or four centuries\".",
+   "quote": "Two broad traditions circulate about Imam Ali-ul-Haq, and they cannot easily be reconciled. According to the more commonly repeated local account, he lived in the medieval period",
+   "source": "data/shrines.csv#shrine-of-imam-ali-ul-haq"
+  },
+  {
+   "saintSlug": "jalaluddin-surkh-posh-bukhari",
+   "saintName": "Jalaluddin Surkh-Posh Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
+   "born": "1192",
+   "died": "1291",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Surkh-Posh (\"the Red-Robed\")"
+   ],
+   "altNames": [
+    "Sayyid Jalaluddin Surkh-Posh Bukhari",
+    "Jalaluddin Bukhari"
+   ],
+   "birthPlace": "Bukhara",
+   "deathPlace": "Uch (Uch Sharif)",
+   "confidence": 0.95,
+   "quote": "Sayyid Jalaluddin was born in 1192 at Bukhara, in Central Asia, into a family of Sayyids tracing descent from the Prophet. Migrating southward in the",
+   "source": "data/shrines.csv#shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari"
+  },
+  {
+   "saintSlug": "laki-shah-saddar",
+   "saintName": "Laki Shah Saddar",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-lakhi-shah-saddar",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Sayyid",
+    "Lakhi Shah Saddar"
+   ],
+   "altNames": [
+    "Syed Shah Sadaruddin Lakyari",
+    "Shah Sadaruddin",
+    "Laki Shah Sadar",
+    "Lakhi Shah Saddar"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"Precise dates for his life have not been securely established, and devotees emphasise his spiritual station and the miracles (karamat) attributed to him rather than a fixed chronology.\" The multiple spellings are the reason this shrine sat in the dataset under a bare placeholder.",
+   "quote": "Precise dates for his life have not been securely established, and devotees emphasise his spiritual station and the miracles (*karamat*) attributed",
+   "source": "data/shrines.csv#shrine-of-lakhi-shah-saddar"
+  },
+  {
+   "saintSlug": "makhdoom-abdul-rahim-girhori",
+   "saintName": "Makhdoom Abdul Rahim Girhori",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-abdul-rahim-girhori",
+   "born": "1739",
+   "died": "1778",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Makhdoom",
+    "Girhori (after Girhor, where he settled)",
+    "shaheed (martyr)"
+   ],
+   "altNames": [
+    "Abdul Rahim Girhori"
+   ],
+   "confidence": 0.95,
+   "quote": "a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe and came to be known as *Girhori* after he settled at",
+   "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori"
+  },
+  {
+   "saintSlug": "jahaniyan-jahangasht",
+   "saintName": "Jahaniyan Jahangasht",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-jahaniyan-jahangasht",
+   "born": "1308",
+   "died": "1384",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Makhdoom-i-Jahaniyan (\"the Master of the World\")",
+    "Jahangasht (\"the World-Traveller\")"
+   ],
+   "altNames": [
+    "Sayyid Jalaluddin Bukhari",
+    "Makhdoom Jahaniyan Jahangasht",
+    "Syed Jalal-ud-Din Jahaniyan Jahangasht"
+   ],
+   "birthPlace": "Uch",
+   "deathPlace": "Uch",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "1307-1383 AD (a one-year offset on both ends)",
+     "heldBy": "UNESCO World Heritage tentative-list submission Ref. 1883 (Pakistan Department of Archaeology and Museums, 30 January 2004), as quoted in the Baha’al-Halim entry",
+     "quote": "raised for Baha' al-Halim by his pupil Jahaniyan Jahangasht (1307-1383 AD) during or shortly after the latter's lifetime, predating the tomb of Bibi"
+    }
+   ],
+   "quote": "Born at Uch in 1308 into the Bukhari sayyid family founded by his grandfather Surkh-Posh, Jalaluddin was schooled in the religious sciences and the",
+   "source": "data/shrines.csv#shrine-of-makhdoom-jahaniyan-jahangasht"
+  },
+  {
+   "saintSlug": "makhdoom-nooh",
+   "saintName": "Makhdoom Nooh",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-makhdoom-nooh-hala",
+   "born": "around 1500-1505",
+   "died": "about 1590",
+   "calendar": "CE",
+   "precision": "range",
+   "titles": [
+    "Makhdoom",
+    "Makhdoom Sarwar Nooh"
+   ],
+   "altNames": [
+    "Makhdoom Lutufullah",
+    "Lutfullah",
+    "Makhdoom Nooh"
+   ],
+   "birthPlace": "a village near Halakandi",
+   "deathPlace": "near Halakandi (remains later moved to Mula Sanwani c. 1601 and to new Hala in 1777)",
+   "confidence": 0.95,
+   "note": "The tazkira adds that he \"died at the age of 87\", which the entry itself notes implies roughly 85-90 years against the c.1500-1505 / c.1590 span. The relocation dates (1601, 1777) are movements of the grave, not life dates.",
+   "quote": "with tradition placing his birth around 1500-1505 and his death about 1590. A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as",
+   "source": "data/shrines.csv#shrine-of-makhdoom-nooh-hala"
+  },
+  {
+   "saintSlug": "hazrat-meeran-muhammad-shah-bukhari",
+   "saintName": "Hazrat Meeran Muhammad Shah Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-mauj-darya-bukhari",
+   "born": "1533",
+   "died": "1604",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Mauj Darya (\"Wave of the River\")",
+    "hafiz-e-Quran"
+   ],
+   "altNames": [
+    "Hazrat Meeran Muhammad Shah Bukhari",
+    "Miran Muhammad Shah",
+    "Mauj Darya"
+   ],
+   "birthPlace": "Uch Sharif",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "GRAPH LINK: the tazkira gives the given name as \"Miran Muhammad Shah\" while the shrine calls him \"Meeran Muhammad Shah Bukhari\" and devotees \"Mauj Darya\" — three spellings of one man.",
+   "quote": "commemorates a saint born in 1533 in Uch Sharif, the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh",
+   "source": "data/shrines.csv#shrine-of-mauj-darya-bukhari"
+  },
+  {
+   "saintSlug": "mian-mir",
+   "saintName": "Mian Mir",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-mian-mir",
+   "born": "the sixteenth century",
+   "died": "1635 (1045 AH)",
+   "calendar": "both",
+   "precision": "disputed",
+   "titles": [
+    "Farooqi",
+    "Hazrat",
+    "Mian"
+   ],
+   "altNames": [
+    "Mir Mohammad",
+    "Mir Mohammad of Sind",
+    "Mian Mir"
+   ],
+   "birthPlace": "Sehwan (Sivastan), Sindh",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "1635 (1045 AH)",
+     "heldBy": "the Auqaf Department and the great majority of sources",
+     "quote": "He died in the city in 1635 (1045 AH) — the date held by the Auqaf Department and the great majority of sources, though a few place his death in 1645. In his final illness, worn"
+    },
+    {
+     "field": "died",
+     "value": "1645",
+     "heldBy": "\"a few\" sources",
+     "quote": "though a few place his death in 1645. In his final illness, worn by age and by the gout that had crippled his legs, he"
+    }
+   ],
+   "note": "The prose gives only \"the sixteenth century\" for the birth where the column carries 1550; it adds that he lived \"by tradition some eighty-eight years\" and spent \"some sixty years in the same small cell\". The 1659 execution date in the same entry belongs to Dara Shikoh, not the saint.",
+   "quote": "Mian Mir was born in the sixteenth century in Sehwan (Sivastan) in Sindh — the town lying, as the prince Dara Shikoh later noted, between the cities",
+   "source": "data/shrines.csv#shrine-of-mian-mir"
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "saintName": "Mian Muhammad Umar Chamkani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-mian-umar-baba-chamkani",
+   "born": "1671 (\"traditionally\")",
+   "died": "1776 (this entry) / Rajab 1119 AH, approximately 1707-1708 CE (Alam Faqri) — unresolved",
+   "calendar": "both",
+   "precision": "disputed",
+   "titles": [
+    "Baba",
+    "Mian"
+   ],
+   "altNames": [
+    "Mian Muhammad Umar Chamkani",
+    "Mian Umar Baba",
+    "Mian Umar"
+   ],
+   "birthPlace": "near Lahore",
+   "deathPlace": "Chamkani, near Peshawar",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "in the month of Rajab, 1119 AH (approximately 1707-1708 CE)",
+     "heldBy": "Alam Faqri, Tazkirah Awliya-e-Pakistan, vol. 2",
+     "quote": "gives a specific account of his death — in the month of Rajab, 1119 AH (approximately 1707-1708 CE) — and records his burial at the village of Chamkani, three miles from Peshawar,"
+    },
+    {
+     "field": "died",
+     "value": "1776",
+     "heldBy": "the entry’s own main text and the structured column",
+     "quote": "that date, however, falls roughly seven decades earlier than the 1776 death year given elsewhere in this entry, and the discrepancy is left unresolved here, with both figures reported"
+    }
+   ],
+   "note": "The entry itself refuses to reconcile the two: \"the discrepancy is left unresolved here, with both figures reported rather than reconciled.\" A 1671 birth with a 1707-08 death would also contradict \"said to ... have lived to a great age\".",
+   "quote": "Mian Umar (traditionally 1671-1776) was a Sufi of the Naqshbandi order — a scholar, poet, social reformer, and historian who is counted, together",
+   "source": "data/shrines.csv#shrine-of-mian-umar-baba-chamkani"
+  },
+  {
+   "saintSlug": "syed-miran-hussain-zanjani",
+   "saintName": "Syed Miran Hussain Zanjani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-miran-hussain-zanjani-zanjani-sahib",
+   "born": "958 CE",
+   "died": "1042 CE",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Hussaini Syed"
+   ],
+   "altNames": [
+    "Syed Miran Hussain Zanjani",
+    "Shaikh Hussain Zanjani",
+    "Hazrat Shaikh Hussain Zanjani"
+   ],
+   "birthPlace": "Zanjan, in present-day Iran",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "The prose adds that he came to Lahore around 998 CE and preached there some thirty-six years, consistent with the 1042 death.",
+   "quote": "A Hussaini Syed born in 958 CE in Zanjan, in present-day Iran, he travelled to Lahore around 998 CE on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is",
+   "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib"
+  },
+  {
+   "saintSlug": "hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+   "saintName": "Hazrat Syed Azizuddin al-Hassani wal-Hussaini",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-peer-makki",
+   "born": "",
+   "died": "612 AH (1215 CE)",
+   "calendar": "both",
+   "precision": "year",
+   "titles": [
+    "Makki (from twelve years of seclusion at Mecca)"
+   ],
+   "altNames": [
+    "Hazrat Syed Azizuddin al-Hassani wal-Hussaini",
+    "Azizuddin",
+    "Peer Makki"
+   ],
+   "birthPlace": "Baghdad",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "The column carries a birth year of 1132, but the prose gives NO birth year — only that \"he migrated to Mecca in 562 AH, at about the age of thirty\". That is a derivable anchor, deliberately not computed here. The entry itself flags a chronological tension with Data Ganj Bakhsh’s conventional death around 1072.",
+   "quote": "He is said to have died in 612 AH (1215 CE). Alam Faqri's *Tazkirah Awliya-e-Pakistan* preserves the same broad outline",
+   "source": "data/shrines.csv#shrine-of-peer-makki"
+  },
+  {
+   "saintSlug": "syed-ali-tirmizi",
+   "saintName": "Syed Ali Tirmizi",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-baba-syed-ali-tirmizi",
+   "born": "c. 1502",
+   "died": "1583",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Pir Baba"
+   ],
+   "altNames": [
+    "Syed Ali Tirmizi",
+    "Syed Ali Ghawwas Tirmizi"
+   ],
+   "birthPlace": "Tirmiz in Central Asia (present-day Uzbekistan)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "birthPlace",
+     "value": "Fergana",
+     "heldBy": "\"some accounts\"",
+     "quote": "though some accounts instead give Fergana as his birthplace — and, according to tradition, came to the region in the train of the"
+    }
+   ],
+   "quote": "*Syed Ali Tirmizi* (c. 1502–1583), the Sufi saint universally known as *Pir Baba*, one of the most revered holy figures of the Pashtun lands. Of",
+   "source": "data/shrines.csv#shrine-of-pir-baba-syed-ali-tirmizi"
+  },
+  {
+   "saintSlug": "pir-chhatal-shah-noorani",
+   "saintName": "Pir Chhatal Shah Noorani",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-chhatal-shah-noorani",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Pir",
+    "\"a granter of wishes\""
+   ],
+   "altNames": [
+    "Chhatal Shah Noorani"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown — the shrine keeper, asked who he had been, answered \"Only Allah knows!\". The 1831 sighting by Charles Masson is a traveller’s record of the building, not a life date.",
+   "quote": "asked who Chhatal Shah Noorani had been, the man replied simply, \"Only Allah knows!\" — adding only that he was \"a granter of wishes\" to Hindus and Muslims",
+   "source": "data/shrines.csv#shrine-of-pir-chhatal-shah-noorani"
+  },
+  {
+   "saintSlug": "pir-lakha",
+   "saintName": "Pir Lakha",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Pir"
+   ],
+   "altNames": [
+    "Pir Lakha"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"Because the life of the eponymous pir is essentially undocumented in accessible sources, only the shrine’s living role as a pilgrimage-and-healing centre can be stated with confidence.\"",
+   "quote": "Because the life of the eponymous *pir* is essentially undocumented in accessible sources, only the shrine's living role as a pilgrimage-and-healing centre can be stated",
+   "source": "data/shrines.csv#shrine-of-pir-lakha-aab-e-shifa-jhal-magsi"
+  },
+  {
+   "saintSlug": "pir-mangho",
+   "saintName": "Pir Mangho",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-mangho",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "century",
+   "titles": [
+    "Pir",
+    "Sakhi Sultan",
+    "Haji"
+   ],
+   "altNames": [
+    "Hazrat Haji Syed Sakhi Sultan",
+    "Pir Mangho",
+    "Mangho Pir"
+   ],
+   "floruit": "the medieval centuries",
+   "confidence": 0.7,
+   "note": "Both columns empty; the prose offers only \"a holy man of the medieval centuries who settled at this spot\".",
+   "quote": "The saint of Mangho Pir is remembered as a holy man of the medieval centuries who settled at this spot in the hills above Karachi. Around his memory has",
+   "source": "data/shrines.csv#shrine-of-pir-mangho"
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "saintName": "Pir Sher Muhammad",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-pir-sher-muhammad",
+   "born": "1865",
+   "died": "1928",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Mian",
+    "Pir",
+    "Sharaqpuri"
+   ],
+   "altNames": [
+    "Mian Pir Sher Muhammad Sharaqpuri",
+    "Mian Sher Muhammad"
+   ],
+   "birthPlace": "Sharaqpur",
+   "deathPlace": "Sharaqpur",
+   "confidence": 0.95,
+   "quote": "Mian Sher Muhammad was born in 1865 at Sharaqpur into a devout family, and from his youth turned to the religious sciences and the Sufi",
+   "source": "data/shrines.csv#shrine-of-pir-sher-muhammad"
+  },
+  {
+   "saintSlug": "qalandar-baba-auliya",
+   "saintName": "Qalandar Baba Auliya",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-qalandar-baba-auliya",
+   "born": "1898",
+   "died": "1979",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Qalandar Baba Auliya"
+   ],
+   "altNames": [
+    "Sayyid Muhammad Azeem Barkhiya",
+    "Muhammad Azeem"
+   ],
+   "birthPlace": "Khurja, in the United Provinces of British India",
+   "deathPlace": "Karachi",
+   "confidence": 0.95,
+   "quote": "Muhammad Azeem was born in 1898 at Khurja, in the United Provinces of British India, into a Sayyid family, and is known by the spiritual title",
+   "source": "data/shrines.csv#shrine-of-qalandar-baba-auliya"
+  },
+  {
+   "saintSlug": "sachal-sarmast",
+   "saintName": "Sachal Sarmast",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-sachal-sarmast",
+   "born": "1739",
+   "died": "1827",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Sachal (\"the truthful\")",
+    "Sarmast (\"the intoxicated\")",
+    "the Second Mansur",
+    "Shair-e-Haft-Zaban (\"the poet of seven languages\")"
+   ],
+   "altNames": [
+    "Abdul Wahab",
+    "Abdul Wahab Faruqi"
+   ],
+   "birthPlace": "Daraza",
+   "confidence": 0.95,
+   "quote": "Sachal Sarmast was born in 1739 at Daraza into a Sayyid family of the Farooqi line; his given name was Abdul Wahab, but he became known as *Sachal* — “the truthful” — and *Sarmast* — “the",
+   "source": "data/shrines.csv#shrine-of-sachal-sarmast"
+  },
+  {
+   "saintSlug": "shah-abdul-karim-bulri",
+   "saintName": "Shah Abdul Karim Bulri",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-abdul-karim-bulri",
+   "born": "1536",
+   "died": "1623",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Shah"
+   ],
+   "altNames": [
+    "Shah Abdul Karim",
+    "Shah Abdul Karim Bulri",
+    "Bulri Shah Karim"
+   ],
+   "birthPlace": "a Sayyid family of Matiari",
+   "deathPlace": "Bulri",
+   "confidence": 0.95,
+   "note": "Genealogy is disputed in the sources: this entry calls him the great-great-grandfather of Shah Abdul Latif Bhittai while Alam Faqri’s tazkira calls him the great-grandfather; the entry records both \"without picking one generational count over the other\". The 1741 (1154 AH) tomb foundation and the 1630 Bayan al-Arifin are not life dates.",
+   "quote": "Shah Abdul Karim (1536–1623) was born into a Sayyid family of Matiari but spent most of his life at Bulri, from which he takes his epithet. He is remembered as a mystic of simple, laborious",
+   "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri"
+  },
+  {
+   "saintSlug": "shah-inayat-qadiri",
+   "saintName": "Shah Inayat Qadiri",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-inayat-qadiri",
+   "born": "around 1643",
+   "died": "around 1728",
+   "calendar": "CE",
+   "precision": "circa",
+   "titles": [
+    "Sheikh-ul-Mashaikh",
+    "Shah-e-Lahore",
+    "Mufakkir-e-Pakistan (as recorded by the 2026 field survey)"
+   ],
+   "altNames": [
+    "Abul-Muarif Hanfi Qadri",
+    "Shah Inayat Qadiri",
+    "Shah Inayat"
+   ],
+   "birthPlace": "Kasur",
+   "deathPlace": "Lahore (Mozang)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "1056 AH (~1646 CE)",
+     "heldBy": "a 2026 field survey; the column itself notes the two are consistent within the normal margin of Hijri/Gregorian conversion",
+     "quote": "Born around 1643 in Kasur into a farming family of the Arain community, Shah Inayat trained under a Shattari Sufi teacher — named in earlier sourcing"
+    }
+   ],
+   "note": "FLAG: the field survey records \"Mufakkir-e-Pakistan\" as one of his titles. That honorific is elsewhere in this same dataset the standing title of Allama Iqbal (tomb-of-allama-iqbal). Reported as recorded rather than tidied away, but a human should check whether the surveyor conflated the two.",
+   "quote": "The field survey adds biographical detail not previously in this entry: his given name as Abul-Muarif Hanfi Qadri, his memorisation of the Qur'an by age five, and titles it records for him",
+   "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri"
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "saintName": "Syed Shah Jamal Uddin Naqvi Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-jamal",
+   "born": "1587 (\"by the shrine’s account\")",
+   "died": "1671 (the shrine’s own tradition) / 1649 — sources differ",
+   "calendar": "CE",
+   "precision": "disputed",
+   "titles": [
+    "Baba Shah Jamal"
+   ],
+   "altNames": [
+    "Syed Shah Jamal",
+    "Syed Shah Jamal Uddin Naqvi Bukhari"
+   ],
+   "deathPlace": "Lahore (Ichhra)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "1671, with the death commemorated on the 4th of Rabi-ul-Sani",
+     "heldBy": "the shrine’s own tradition",
+     "quote": "1649 and 1671 both appear, the shrine's own tradition holding to 1671 and commemorating his death on the 4th of Rabi-ul-Sani. A separate compendium of Pakistani Sufi saints, Alam"
+    },
+    {
+     "field": "died",
+     "value": "1649",
+     "heldBy": "unattributed sources cited by the entry as also appearing",
+     "quote": "he is generally held to have died in the later seventeenth century, though sources differ on the precise year: 1649 and 1671 both appear, the shrine's own tradition"
+    }
+   ],
+   "quote": "Born, by the shrine's account, in 1587, he is generally held to have died in the later seventeenth century, though sources differ on the precise",
+   "source": "data/shrines.csv#shrine-of-shah-jamal"
+  },
+  {
+   "saintSlug": "shah-rukn-e-alam",
+   "saintName": "Shah Rukn-e-Alam",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-rukn-e-alam",
+   "born": "1251",
+   "died": "1335",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Rukn-e-Alam (\"Pillar of the World\")"
+   ],
+   "altNames": [
+    "Rukn-ud-Din Abul Fath",
+    "Rukn-ud-Din"
+   ],
+   "birthPlace": "Multan",
+   "deathPlace": "Multan",
+   "confidence": 0.95,
+   "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif, into the leading Suhrawardi family of the",
+   "source": "data/shrines.csv#shrine-of-shah-rukn-e-alam"
+  },
+  {
+   "saintSlug": "shah-shams-ud-din-sabzwari",
+   "saintName": "Shah Shams-ud-Din Sabzwari",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-shams-ud-din-sabzwari",
+   "born": "",
+   "died": "the thirteenth century",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Shah Shams",
+    "Pir Shams",
+    "Shams (\"the sun\")"
+   ],
+   "altNames": [
+    "Shah Shams-ud-Din Sabzwari",
+    "Shah Shams Sabzwari"
+   ],
+   "deathPlace": "Multan",
+   "confidence": 0.7,
+   "note": "The column carries 1276 but the prose gives only \"He died in Multan in the thirteenth century\" and says his life is \"more legend than chronicle\". The century, not the column, is what this source supports.",
+   "quote": "He died in Multan in the thirteenth century. ## The Shrine and its Devotion Shah Shams Sabzwari’s shrine in",
+   "source": "data/shrines.csv#shrine-of-shah-shams-ud-din-sabzwari"
+  },
+  {
+   "saintSlug": "shah-yusaf-gardez",
+   "saintName": "Shah Yusaf Gardez",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-shah-yusaf-gardez",
+   "born": "",
+   "died": "the first half of the 1100s",
+   "calendar": "CE",
+   "precision": "range",
+   "titles": [
+    "Shah",
+    "Sayyid"
+   ],
+   "altNames": [
+    "Sayyid Yusuf",
+    "Shah Yusuf Gardez"
+   ],
+   "birthPlace": "Gardez",
+   "deathPlace": "Multan",
+   "confidence": 0.7,
+   "note": "The column carries 1150; the prose supports only \"tradition places his arrival in the years around 1088 and his death in the first half of the 1100s\". Arrival is not a birth date.",
+   "quote": "tradition places his arrival in the years around 1088 and his death in the first half of the 1100s), when Islam was still taking root in the region. A Sayyid of the family of the",
+   "source": "data/shrines.csv#shrine-of-shah-yusaf-gardez"
+  },
+  {
+   "saintSlug": "syed-musa-pak",
+   "saintName": "Syed Musa Pak",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-syed-musa-pak",
+   "born": "",
+   "died": "",
+   "calendar": "CE",
+   "precision": "century",
+   "titles": [
+    "Pak (\"the pure\")",
+    "Shaheed (\"the martyr\")"
+   ],
+   "altNames": [
+    "Syed Musa",
+    "Musa Pak Shaheed"
+   ],
+   "deathPlace": "Multan",
+   "floruit": "the sixteenth century",
+   "confidence": 0.7,
+   "note": "Both columns are empty; the prose gives only that he \"flourished in Multan in the sixteenth century\". Recorded as a century floruit, not a date.",
+   "quote": "who flourished in Multan in the sixteenth century. Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples, and he is remembered for a life",
+   "source": "data/shrines.csv#shrine-of-syed-musa-pak"
+  },
+  {
+   "saintSlug": "muhammad-shamsuddin-sialvi",
+   "saintName": "Muhammad Shamsuddin Sialvi",
+   "saintIsNew": false,
+   "shrineSlug": "sial-sharif",
+   "born": "1799",
+   "died": "1883",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Khwaja",
+    "Hazrat"
+   ],
+   "altNames": [
+    "Khwaja Muhammad Shamsuddin Sialvi",
+    "Muhammad Shamsuddin Sialvi"
+   ],
+   "birthPlace": "Sial Sharif",
+   "deathPlace": "Sial Sharif",
+   "confidence": 0.95,
+   "quote": "Khwaja Muhammad Shamsuddin was born in 1799 at Sial Sharif into a devout family, and from his youth pursued the religious sciences and the Sufi path.",
+   "source": "data/shrines.csv#sial-sharif"
+  },
+  {
+   "saintSlug": "shah-hussain",
+   "saintName": "Shah Hussain",
+   "saintIsNew": false,
+   "shrineSlug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+   "born": "1538",
+   "died": "1599",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Lal (\"the Red\") Hussain",
+    "Madho Lal Hussain",
+    "\"Baba\""
+   ],
+   "altNames": [
+    "Shah Hussain",
+    "Madho Lal Hussain",
+    "Lal Hussain"
+   ],
+   "birthPlace": "Lahore",
+   "deathPlace": "buried first on the bank of the Ravi, later reburied at Baghbanpura",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "b. 1538, d. 1599 given as 945–1008 AH",
+     "heldBy": "the entry’s own editorial note in shrine_entries/Madho Lal Hussain.md, which also flags the survey’s \"1600/1800 Hijri\" as garbled",
+     "quote": "Dates: b. 1538, d. 1599 (945–1008 AH) are standard and match your sheet. Madho Lal outlived him and was buried beside him (mid-17th century). The survey's \"1600/1800 Hijri\" are garbled"
+    }
+   ],
+   "note": "Madho Lal, the Hindu youth whose name is joined to his, outlived him \"decades later\" and has no dates in the corpus; the shrine_entries note places his burial in the mid-17th century.",
+   "quote": "Hussain was born in Lahore in 1538 into a family of weavers — his father, by tradition, a craftsman who stitched uniforms for the army of the Emperor",
+   "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar"
+  },
+  {
+   "saintSlug": "allama-muhammad-iqbal",
+   "saintName": "Allama Muhammad Iqbal",
+   "saintIsNew": false,
+   "shrineSlug": "tomb-of-allama-iqbal-mazar-e-iqbal",
+   "born": "9 November 1877",
+   "died": "21 April 1938",
+   "calendar": "CE",
+   "precision": "disputed",
+   "titles": [
+    "Shair-e-Mashriq (\"the Poet of the East\")",
+    "Hakeem-ul-Ummat (\"the Sage of the Community\")",
+    "Mufakkir-e-Pakistan (\"the Thinker of Pakistan\")",
+    "Allama",
+    "Sir"
+   ],
+   "altNames": [
+    "Muhammad Iqbal",
+    "Allama Muhammad Iqbal",
+    "Sir Muhammad Iqbal"
+   ],
+   "birthPlace": "Sialkot",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "21 April 1938",
+     "heldBy": "the standard biographies; observed nationally",
+     "quote": "He died in Lahore on 21 April 1938 — the date given in the standard biographies and observed nationally, though the tomb’s own records preserve a variant date of 21 September, a discrepancy"
+    },
+    {
+     "field": "died",
+     "value": "21 September",
+     "heldBy": "the tomb’s own records",
+     "quote": "though the tomb’s own records preserve a variant date of 21 September, a discrepancy that remains unreconciled. To his people he is known by a"
+    }
+   ],
+   "note": "The entry states the discrepancy \"remains unreconciled\". Both dates share the year 1938; only the month differs.",
+   "quote": "Muhammad Iqbal was born on 9 November 1877 in the city of Sialkot, in the Punjab, into a family descended from Kashmiri Brahmins who had embraced",
+   "source": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal"
+  },
+  {
+   "saintSlug": "hazrat-bahaal-halim",
+   "saintName": "Hazrat Baha'al-Halim",
+   "saintIsNew": false,
+   "shrineSlug": "tomb-of-bahaal-halim-uch-sharif",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Hazrat"
+   ],
+   "altNames": [
+    "Baha'al-Halim",
+    "Baha' al-Halim",
+    "Bahaul Halim"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"the exact dates of his life are not securely recorded and are best treated with caution\". A relative anchor exists: UNESCO records his tomb as raised for him by his pupil Jahaniyan Jahangasht (1307-1383) \"during or shortly after the latter’s lifetime\", which places him in the same or an earlier generation.",
+   "quote": "the exact dates of his life are not securely recorded and are best treated with caution. The mausoleum is an octagonal, three-tiered structure of",
+   "source": "data/shrines.csv#tomb-of-bahaal-halim-uch-sharif"
+  },
+  {
+   "saintSlug": "bibi-jawindi",
+   "saintName": "Bibi Jawindi",
+   "saintIsNew": true,
+   "shrineSlug": "tomb-of-javindi-bibi",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Bibi"
+   ],
+   "altNames": [
+    "Bibi Jawindi",
+    "Javindi Bibi"
+   ],
+   "confidence": 0.95,
+   "note": "GRAPH MISMATCH: existing-saints.json attaches this shrine to \"jalaluddin-surkh-posh-bukhari\", but the row’s principal figure and its whole prose are about Bibi Jawindi, \"by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht\". She has no saint node. No dates for her exist; the c. 1493/1494 date is her tomb’s construction, not her life.",
+   "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her",
+   "source": "data/shrines.csv#tomb-of-javindi-bibi"
+  },
+  {
+   "saintSlug": "sultan-qutb-ud-din-aibak",
+   "saintName": "Sultan Qutb ud-Din Aibak",
+   "saintIsNew": false,
+   "shrineSlug": "tomb-of-qutbuddin-aibak",
+   "born": "around 1150",
+   "died": "November 1210",
+   "calendar": "CE",
+   "precision": "year",
+   "titles": [
+    "Sultan",
+    "founder of the Mamluk (\"Slave\") dynasty"
+   ],
+   "altNames": [
+    "Qutb ud-Din Aibak",
+    "Aibak"
+   ],
+   "birthPlace": "Turkestan",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "The prose gives the month of death, which the column (1210) does not carry, and a cause: \"after a fall from his horse while playing chaugan\". The 1970s/1990 reconstruction dates belong to the monument.",
+   "quote": "Born around 1150 in Turkestan, Aibak was sold into slavery as a child and eventually rose, through service to the Ghurid ruler Muhammad Ghori, to",
+   "source": "data/shrines.csv#tomb-of-qutbuddin-aibak"
+  },
+  {
+   "saintSlug": "ustad-nuriya",
+   "saintName": "Ustad Nuriya",
+   "saintIsNew": false,
+   "shrineSlug": "tomb-of-ustad-nuriya",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Ustad (\"master-builder\")"
+   ],
+   "altNames": [
+    "Ustad Nuriya",
+    "Ustead"
+   ],
+   "confidence": 0.95,
+   "note": "A craftsman, not a saint: \"the tomb honours Ustad Nuriya — the master-builder, or ustad, credited with designing the exquisite tomb of Bibi Jawindi\". No dates; the only anchor is the late-fifteenth-century date of the tomb he is credited with designing.",
+   "quote": "Tradition holds that the tomb honours Ustad Nuriya — the master-builder, or ustad, credited with designing the exquisite tomb of Bibi Jawindi, itself usually dated to the late",
+   "source": "data/shrines.csv#tomb-of-ustad-nuriya"
+  },
+  {
+   "saintSlug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+   "saintName": "Ghazi Syed Shah Fateh Muhammad Bukhari",
+   "saintIsNew": false,
+   "shrineSlug": "wadpagga-sharif",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Ghazi Baba",
+    "Ghazi"
+   ],
+   "altNames": [
+    "Ghazi Baba",
+    "Ghazi Syed Shah Fateh Muhammad Bukhari"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"the particulars of his dates and deeds are best received as the community remembers them\". Two relative anchors: a descendant \"some fifteen generations removed\" of Syed Nasiruddin Mahmud, and \"a contemporary of ... Mian Umar, remembered at the village of Chamkani\" — and Mian Umar’s own dates are themselves disputed by ~70 years in this dataset.",
+   "quote": "Because the detailed record of his life survives chiefly in family and devotional tradition rather than in independent chronicle, the particulars of his dates and deeds are best received as",
+   "source": "data/shrines.csv#wadpagga-sharif"
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "saintName": "Kaka Sahib",
+   "saintIsNew": false,
+   "shrineSlug": "ziarat-kaka-sahib",
+   "born": "the first of Ramazan in 1575, \"sometimes given as 1576\"",
+   "died": "",
+   "calendar": "both",
+   "precision": "disputed",
+   "titles": [
+    "Kaka Sahib",
+    "Sheikh Rahmkar"
+   ],
+   "altNames": [
+    "Syed Kasteer Gul",
+    "Sheikh Rahmkar",
+    "Sheikh Rahm Kar",
+    "Kaka Sahib"
+   ],
+   "birthPlace": "\"in forest roughly six miles south of the site later known as Ziarat Kaka Sahib\" (per the tazkira)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "born",
+     "value": "1576",
+     "heldBy": "\"sometimes given as\" — an unattributed alternative in the same sentence",
+     "quote": "Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he received his religious education from his Sufi father and from the scholars"
+    }
+   ],
+   "note": "The column carries a death year of 1653 but the prose gives NO death year at all; the only later date is his son Sheikh Abdul Haleem raising the mausoleum \"around 1661\", which is a building date. GRAPH LINK: \"Sheikh Rahmkar\" (this entry) and \"Sheikh Rahm Kar\" (Alam Faqri) are the same man.",
+   "quote": "whose given name was *Syed Kasteer Gul* and who is also remembered by the honorific *Sheikh Rahmkar*. Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he",
+   "source": "data/shrines.csv#ziarat-kaka-sahib"
+  },
+  {
+   "saintSlug": "mian-qurban-ali-shah",
+   "saintName": "Hazrat Mian Qurban Ali Shah Sarkar",
+   "saintIsNew": true,
+   "shrineSlug": "entries/entry_mian_qurban_ali_shah.md",
+   "born": "1341 AH (c. 1922–23 CE by calendar conversion)",
+   "died": "25 Rabīʿ al-Thānī; year not stated in the survey",
+   "calendar": "AH",
+   "precision": "exact-date",
+   "titles": [
+    "Mian",
+    "Sarkar"
+   ],
+   "altNames": [
+    "Qurban Ali"
+   ],
+   "birthPlace": "Malerkotla, India",
+   "deathPlace": "Lahore (Mint Stop)",
+   "confidence": 0.95,
+   "variants": [
+    {
+     "field": "died",
+     "value": "possibly 1416 AH — the survey’s answer to the founding-year question, which the entry argues is most probably the death year",
+     "heldBy": "the entry’s own year_built_note reasoning, explicitly marked as not resolvable from this source",
+     "quote": "1416 AH falls exactly 75 lunar years after the stated birth year of 1341 AH, which is consistent with its being the saint's death year — the survey gives the death day (25 Rabīʿ al-Thānī)"
+    }
+   ],
+   "note": "This shrine is NOT in the 169-row corpus; it exists only as a drafted entry. The death day is recorded without a year, exactly as the source leaves it. The urs dates (24-26 Rabīʿ al-Thānī) bracket the death day consistently.",
+   "quote": "Hazrat Qurban Ali Shah was born in 1341 AH in Malerkotla, India, that his given name was Qurban Ali, and that people later came to call him Mian Qurban Ali Shah in recognition of",
+   "source": "entries/entry_mian_qurban_ali_shah.md"
+  },
+  {
+   "saintSlug": "shah-gohar-peer",
+   "saintName": "Hazrat Shah Gohar Peer",
+   "saintIsNew": true,
+   "shrineSlug": "entries/entry_shah_gohar_peer.md",
+   "born": "11 Rabīʿ al-Sānī 729 AH",
+   "died": "21 Ramzan 825 AH",
+   "calendar": "AH",
+   "precision": "exact-date",
+   "titles": [
+    "Kuffar Shikan (\"the destroyer of disbelief\")",
+    "Peer",
+    "Sufi"
+   ],
+   "altNames": [
+    "Syed Ali Gohar",
+    "Hazrat Sufi Peer Syed Gohar Ali Shah",
+    "Shah Gohar Peer"
+   ],
+   "birthPlace": "Uch Sharif",
+   "deathPlace": "Lahore",
+   "confidence": 0.95,
+   "note": "This shrine is NOT in the 169-row corpus; it exists only as a drafted entry. The entry flags that the survey’s attribution of the shrine’s construction to Sultan Mahmud Ghaznavi is chronologically irreconcilable with a death in 825 AH — an inconsistency about the BUILDING, which does not impugn the two life dates.",
+   "quote": "was born on 11 Rabīʿ al-Sānī 729 AH at Uch Sharif. His father, Syed Ul Hassan Kabeer, is described as a pious Sufi and a scholar of *dīn* (religion)",
+   "source": "entries/entry_shah_gohar_peer.md"
+  },
+  {
+   "saintSlug": "syed-bilawal-shah-noorani",
+   "saintName": "Syed Bilawal Shah Noorani",
+   "saintIsNew": false,
+   "shrineSlug": "shah-noorani-shrine-syed-bilawal-shah-noorani",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "century",
+   "titles": [
+    "Shah Noorani"
+   ],
+   "altNames": [
+    "Syed Bilawal Shah Noorani",
+    "Shah Noorani"
+   ],
+   "floruit": "the medieval centuries",
+   "confidence": 0.7,
+   "note": "Both columns empty; the prose gives only \"a Sufi saint of the medieval centuries who settled in the wild valley of Lahut Lamakan\" and says \"His life is known more through devotion and legend than through documented history.\"",
+   "quote": "Shah Noorani is remembered as a Sufi saint of the medieval centuries who settled in the wild valley of Lahut Lamakan — a place whose very name (*la-hut la-makan*, “the",
+   "source": "data/shrines.csv#shah-noorani-shrine-syed-bilawal-shah-noorani"
+  },
+  {
+   "saintSlug": "shah-yousuf",
+   "saintName": "Shah Yousuf",
+   "saintIsNew": false,
+   "shrineSlug": "shah-yousuf",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Shah"
+   ],
+   "altNames": [
+    "Hazrat Shah Yousuf",
+    "Shah Yousaf"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"almost nothing about the saint's life, lineage, or era survives in accessible written sources\", and the fifteenth-century founding date attached to the site \"could not be corroborated\" and is a site date, not a life date. The entry warns explicitly against conflating him with Shah Yusuf Gardez of Multan — two different saints, two different centuries.",
+   "quote": "almost nothing about the saint's life, lineage, or era survives in accessible written sources. The fifteenth-century founding date sometimes attached to the site could not be",
+   "source": "data/shrines.csv#shah-yousuf"
+  },
+  {
+   "saintSlug": "baba-pir-ratan-nath",
+   "saintName": "Baba Pir Ratan Nath",
+   "saintIsNew": false,
+   "shrineSlug": "dargah-pir-ratan-nath-jee",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Pir",
+    "Nath",
+    "yogi-saint"
+   ],
+   "altNames": [
+    "Ratan Nath",
+    "Baba Pir Ratan Nath"
+   ],
+   "confidence": 0.95,
+   "note": "Positively recorded as unknown: \"the details of his life are wrapped in legend and cannot be fixed with confidence to a particular century, and the tradition should be received as sacred memory rather than documented biography.\"",
+   "quote": "the details of his life are wrapped in legend and cannot be fixed with confidence to a particular century, and the tradition should be received as sacred memory rather than",
+   "source": "data/shrines.csv#dargah-pir-ratan-nath-jee"
+  },
+  {
+   "saintSlug": "baba-bankhandi-maharaj",
+   "saintName": "Baba Bankhandi Maharaj",
+   "saintIsNew": false,
+   "shrineSlug": "sadh-belo-sadh-belo-island-temple",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Maharaj",
+    "Udasi saint"
+   ],
+   "altNames": [
+    "Balchand Sharma",
+    "Baba Bankhandi Maharaj"
+   ],
+   "confidence": 0.95,
+   "note": "No dates. The 1823 arrival at Sukkur \"still in his teens\" is a movement, not a birth year, and the entry says his origins are \"variously traced, according to differing accounts, to Kero Khetar near Delhi or to Nepal\" — a disputed birthplace with no year attached.",
+   "quote": "The founding of Sadh Belo is attributed to the *Udasi* saint Baba Bankhandi Maharaj, born Balchand Sharma, whose origins are variously traced, according to differing accounts, to Kero",
+   "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
+  },
+  {
+   "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+   "saintName": "Bhai Gurdas Singh, disciple of Guru Gobind Singh",
+   "saintIsNew": false,
+   "shrineSlug": "khatwari-darbar-shikarpur",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "unrecorded",
+   "titles": [
+    "Bhai"
+   ],
+   "altNames": [
+    "Kanhiya Lal",
+    "Bhai Gurdas Singh",
+    "Bhai Kanya Lal"
+   ],
+   "confidence": 0.95,
+   "note": "GRAPH LINK: see sevapanthi-darbar-bhai-gurdas-gandava — the graph holds this figure twice under two slugs. Only relative anchors: a disciple of Guru Gobind Singh who travelled to Sindh \"after the Guru's death in 1708\", with the building dated to \"the second quarter of the eighteenth century\" in the web-research file.",
+   "quote": "founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh who, after the Guru's death in 1708, is said to have travelled to Sindh and preached",
+   "source": "data/shrines.csv#khatwari-darbar-shikarpur"
+  },
+  {
+   "saintSlug": "syed-sakhi-shah-chan-charagh",
+   "saintName": "Syed Sakhi Shah Chan Charagh",
+   "saintIsNew": false,
+   "shrineSlug": "darbar-sakhi-shah-chan-charagh",
+   "born": "",
+   "died": "",
+   "calendar": "unclear",
+   "precision": "century",
+   "titles": [
+    "Sakhi",
+    "Chan Charagh (\"the moon and the lamp\")",
+    "patron saint of Rawalpindi"
+   ],
+   "altNames": [
+    "Shah Zaman",
+    "Sayyid Shah Zaman",
+    "Sakhi Shah Chan Charagh"
+   ],
+   "floruit": "generally placed in the eighteenth century, \"in the twilight of Mughal power\"",
+   "birthPlace": "forebears from Mashhad, Iran, who settled at Chakwal before he came to Rawalpindi",
+   "confidence": 0.7,
+   "variants": [
+    {
+     "field": "floruit",
+     "value": "\"the shrine is spoken of by some as being three to four centuries old\"",
+     "heldBy": "unattributed local report, offered alongside the eighteenth-century placing",
+     "quote": "He is generally placed in the eighteenth century, in the twilight of Mughal power, though the datings given for him vary and the shrine is spoken of by some as being three to four centuries"
+    }
+   ],
+   "note": "Both columns empty. The entry itself says \"the datings given for him vary and ... in the absence of firm documentary record these figures are best treated as traditional rather than exact\". Lineage anchors: disciple of his maternal uncle Sayyid Shah Inayat; described as a cousin or spiritual kinsman of Bari Imam (1617-1705 in this dataset) — which does not sit easily with an eighteenth-century placing and should be checked.",
+   "quote": "The saint's given name is traditionally said to have been Shah Zaman, and he is remembered as a *sayyid* — a descendant of the Prophet Muhammad — whose lineage is traced through",
+   "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh"
+  }
+ ],
+ "disputedDates": [
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "field": "born",
+   "values": [
+    "Monday, 18 November 1885, at Kotli Loharan",
+    "4 January 1895"
+   ],
+   "spreadYears": 9,
+   "heldBy": [
+    "\"one careful account\"",
+    "\"the account kept by the shrine's own custodians\""
+   ],
+   "quotes": [
+    "by one careful account on Monday, 18 November 1885, at Kotli Loharan, and by another — the account kept by the shrine's own custodians — on 4 January 1895. Devotional"
+   ]
+  },
+  {
+   "saintSlug": "mian-mir",
+   "field": "died",
+   "values": [
+    "1635 (1045 AH)",
+    "1645"
+   ],
+   "spreadYears": 10,
+   "heldBy": [
+    "the Auqaf Department and the great majority of sources",
+    "\"a few\" sources"
+   ],
+   "quotes": [
+    "He died in the city in 1635 (1045 AH) — the date held by the Auqaf Department and the great majority of sources, though a few place his death in 1645. In his final illness, worn by age and"
+   ]
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "field": "died",
+   "values": [
+    "1776",
+    "the month of Rajab, 1119 AH (approximately 1707-1708 CE)"
+   ],
+   "spreadYears": 68,
+   "heldBy": [
+    "the entry's own text and the structured column",
+    "Alam Faqri, Tazkirah Awliya-e-Pakistan, vol. 2"
+   ],
+   "quotes": [
+    "that date, however, falls roughly seven decades earlier than the 1776 death year given elsewhere in this entry, and the discrepancy is left unresolved here, with both figures reported"
+   ]
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "field": "died",
+   "values": [
+    "1671",
+    "1649"
+   ],
+   "spreadYears": 22,
+   "heldBy": [
+    "the shrine's own tradition, which commemorates the death on 4 Rabi-ul-Sani",
+    "also appears in the sources, unattributed"
+   ],
+   "quotes": [
+    "1649 and 1671 both appear, the shrine's own tradition holding to 1671 and commemorating his death on the 4th of Rabi-ul-Sani. A separate compendium of Pakistani Sufi"
+   ]
+  },
+  {
+   "saintSlug": "allama-muhammad-iqbal",
+   "field": "died",
+   "values": [
+    "21 April 1938",
+    "21 September (1938)"
+   ],
+   "spreadYears": 0,
+   "spreadNote": "Same year; the months differ by five. The entry says the discrepancy \"remains unreconciled\".",
+   "heldBy": [
+    "the standard biographies, observed nationally",
+    "the tomb's own records"
+   ],
+   "quotes": [
+    "though the tomb’s own records preserve a variant date of 21 September, a discrepancy that remains unreconciled. To his people he is known by a constellation of"
+   ]
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "field": "born",
+   "values": [
+    "the first of Ramazan in 1575",
+    "1576"
+   ],
+   "spreadYears": 1,
+   "heldBy": [
+    "tradition, as the entry gives it",
+    "\"sometimes given as\""
+   ],
+   "quotes": [
+    "Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he received his religious education from his Sufi father and from the"
+   ]
+  },
+  {
+   "saintSlug": "imam-ali-ul-haq",
+   "field": "era / died",
+   "values": [
+    "the thirteenth or fourteenth century, sometimes tied to the reign of Firuz Shah Tughlaq",
+    "killed around 970–971 CE"
+   ],
+   "spreadYears": 300,
+   "spreadNote": "The entry itself puts the gap at \"some three or four centuries\"; 300 is the low end of its own estimate, not a computed figure.",
+   "heldBy": [
+    "the more commonly repeated local account",
+    "Ganesh Das Wadhera, Chār Bāgh-i-Panjāb — \"corroborated by no other historical work\""
+   ],
+   "quotes": [
+    "Taken together, these divergent traditions — differing by some three or four centuries — mean that the saint's true dates, origins and circumstances remain unresolved. What is consistent"
+   ]
+  },
+  {
+   "saintSlug": "bibi-pak-daman",
+   "field": "era",
+   "values": [
+    "survivors of Karbala, 61 AH (shrine's traditional founding date about 63 AH)",
+    "daughters of Sayyid Ahmad Tokhta Tirmidhi, who \"lived and died in Lahore in the early thirteenth century\""
+   ],
+   "spreadYears": null,
+   "spreadNote": "Not computed: the two traditions are stated in different calendars (61/63 AH versus the early thirteenth century CE) and the entry does not convert between them.",
+   "heldBy": [
+    "the older and by far more popular tradition, held by most pilgrims",
+    "the shrine's own custodial family and a line of named scholars"
+   ],
+   "quotes": [
+    "Two great traditions about the identity of the six women endure side by side, and the shrine holds meaning in both. The older and by far the more popular"
+   ]
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "field": "died",
+   "values": [
+    "20 November 1943",
+    "21 November 1943",
+    "21 November 1942"
+   ],
+   "spreadYears": 1,
+   "heldBy": [
+    "mohrasharif.com, the khanqah's own self-published history",
+    "English Wikipedia article text (non-citable pointer)",
+    "English Wikipedia infobox (non-citable pointer)"
+   ],
+   "spreadNote": "The structured column is EMPTY, so any of these would be a new value. Birth is separately given as 1263 AH / 1846 / 1845 / 1822 across the same sources.",
+   "quotes": [
+    "death date for the founder (1943) disagrees with Wikipedia's own infobox (1942), a discrepancy this session could not resolve because none of the underlying sources on either side"
+   ]
+  },
+  {
+   "saintSlug": "guru-gorakhnath",
+   "field": "floruit",
+   "values": [
+    "somewhere between the ninth and twelfth centuries CE",
+    "11th–12th century CE"
+   ],
+   "spreadYears": 200,
+   "spreadNote": "Century-level ranges, not years; 200 is the width of the disagreement in centuries, not a computed date gap.",
+   "heldBy": [
+    "the Gorakhnath Temple entry",
+    "the Tilla Jogian entry"
+   ],
+   "quotes": [
+    "traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*. He is"
+   ]
+  },
+  {
+   "saintSlug": "syed-sakhi-shah-chan-charagh",
+   "field": "floruit",
+   "values": [
+    "the eighteenth century",
+    "\"three to four centuries old\" (as the shrine is spoken of by some)"
+   ],
+   "spreadYears": null,
+   "spreadNote": "The entry gives no years at all and says outright that \"the datings given for him vary\".",
+   "heldBy": [
+    "the general placing in the entry",
+    "unattributed local report"
+   ],
+   "quotes": [
+    "He is generally placed in the eighteenth century, in the twilight of Mughal power, though the datings given for him vary and the shrine is spoken of by some as being three to four centuries"
+   ]
+  }
+ ],
+ "disagreesWithColumn": [
+  {
+   "saintSlug": "data-ganj-bakhsh",
+   "field": "died",
+   "columnSays": "1072",
+   "proseSays": "between about 1072 and 1077 CE (465–469 AH)",
+   "quote": "He died in Lahore between about 1072 and 1077 CE (465–469 AH), and his grave, from the first, drew those who"
+  },
+  {
+   "saintSlug": "mian-mir",
+   "field": "born",
+   "columnSays": "1550",
+   "proseSays": "\"the sixteenth century\" — no year at all",
+   "quote": "Mian Mir was born in the sixteenth century in Sehwan (Sivastan) in Sindh — the town lying, as the prince Dara Shikoh"
+  },
+  {
+   "saintSlug": "shah-sulaimn-nri",
+   "field": "born",
+   "columnSays": "1510",
+   "proseSays": "\"the early sixteenth century\", with an explicit warning that \"precise dates should be treated as traditional\"",
+   "quote": "Shah Sulaiman Nuri is traditionally said to have lived a remarkably long life, from the early sixteenth century until 1604. According to the accounts"
+  },
+  {
+   "saintSlug": "abdullah-shah-ghazi",
+   "field": "died",
+   "columnSays": "773",
+   "proseSays": "\"the eighth century\" — no year; \"The historical record of Abdullah Shah Ghazi is thin and wrapped in legend\"",
+   "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam"
+  },
+  {
+   "saintSlug": "shah-shams-ud-din-sabzwari",
+   "field": "died",
+   "columnSays": "1276",
+   "proseSays": "\"He died in Multan in the thirteenth century\" — no year",
+   "quote": "He died in Multan in the thirteenth century. ## The Shrine and its Devotion Shah Shams Sabzwari’s"
+  },
+  {
+   "saintSlug": "shah-yusaf-gardez",
+   "field": "died",
+   "columnSays": "1150",
+   "proseSays": "\"his death in the first half of the 1100s\"",
+   "quote": "tradition places his arrival in the years around 1088 and his death in the first half of the 1100s), when Islam was still taking root in the region. A Sayyid of the family of the"
+  },
+  {
+   "saintSlug": "hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+   "field": "born",
+   "columnSays": "1132",
+   "proseSays": "no birth year at all; only that \"he migrated to Mecca in 562 AH, at about the age of thirty\"",
+   "quote": "He is said to have migrated to Mecca in 562 AH, at about the age of thirty, and to have spent twelve years there in ascetic seclusion — hence his popular title \"Makki\" —"
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "field": "died",
+   "columnSays": "1653",
+   "proseSays": "no death year anywhere; the only later date is his son raising the mausoleum \"around 1661\"",
+   "quote": "His white mausoleum, raised by his son Sheikh Abdul Haleem around 1661, is a fine example of Mughal-era funerary architecture, richly ornamented"
+  },
+  {
+   "saintSlug": "guru-gurpat",
+   "field": "born",
+   "columnSays": "1807",
+   "proseSays": "no birth year; only \"his death in 1877 at the age of about seventy\"",
+   "quote": "before his death in 1877 at the age of about seventy. ## The Darbar and Its Trust The present building at"
+  },
+  {
+   "saintSlug": "maharaja-ranjit-singh",
+   "field": "born",
+   "columnSays": "1780",
+   "proseSays": "no birth year; only that he \"founded and ruled the Sikh Empire from 1801 until his death on 27 June 1839\"",
+   "quote": "founded and ruled the Sikh Empire from 1801 until his death on 27 June 1839. Construction began the following month under his son Kharak"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "field": "died",
+   "columnSays": "(empty)",
+   "proseSays": "20 November 1943, per the khanqah's own self-published history recorded in the repo's web-research file",
+   "quote": "living 120 years, and \"Passed away on the 20th November of 1943.\" Succession: \"Khawaja Pir Muhammad Zahid Khan,\" the founder's third son, chosen as"
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "field": "died",
+   "columnSays": "1671",
+   "proseSays": "\"1649 and 1671 both appear\" — the column has silently taken one side of a live disagreement",
+   "quote": "though sources differ on the precise year: 1649 and 1671 both appear, the shrine's own tradition holding to 1671 and commemorating his death on the"
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "field": "died",
+   "columnSays": "1776",
+   "proseSays": "1776 and \"Rajab, 1119 AH (approximately 1707-1708 CE)\" reported side by side, explicitly unreconciled",
+   "quote": "the discrepancy is left unresolved here, with both figures reported rather than reconciled. His tomb at Chamkani grew into a shrine and khanqah that"
+  },
+  {
+   "saintSlug": "allama-muhammad-iqbal",
+   "field": "died",
+   "columnSays": "1938",
+   "proseSays": "21 April 1938 nationally, but \"the tomb's own records preserve a variant date of 21 September\"",
+   "quote": "though the tomb’s own records preserve a variant date of 21 September, a discrepancy that remains unreconciled. To his people he is known by a"
+  },
+  {
+   "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+   "field": "born",
+   "columnSays": "1770",
+   "proseSays": "\"around 1770\" / \"c. 1770\" — circa, not exact",
+   "quote": "Khwaja Muhammad Sulaiman was born around 1770 in the Taunsa region, into a Pathan family — whence his title *Pir"
+  },
+  {
+   "saintSlug": "shah-daula-daryai",
+   "field": "born",
+   "columnSays": "1581",
+   "proseSays": "\"traditionally said to have lived roughly between 1581 and 1675\", prefaced by \"Reliable dates for Shah Daula are difficult to fix, and the sources differ\"",
+   "quote": "Reliable dates for Shah Daula are difficult to fix, and the sources differ; he is traditionally said to have lived roughly between 1581 and 1675, and to have"
+  },
+  {
+   "saintSlug": "akhund-darweza-baba",
+   "field": "born",
+   "columnSays": "1533",
+   "proseSays": "\"traditionally 1533-1638\" — the hedge is in the source and is lost in the column",
+   "quote": "*Akhund Darweza* (traditionally 1533-1638) was one of the most influential religious figures of the Pashtun"
+  }
+ ],
+ "subjectMismatch": [
+  {
+   "shrineSlug": "allo-mahar",
+   "principalFigure": "Pir Syed Muhammad Channan Shah Nuri",
+   "proseSubject": "Sayyid Faiz-ul-Hassan Shah (c. 1911–1984), honoured as Khatib-ul-Islam",
+   "why": "The row's only dated figure is not its recorded figure. The entry itself documents this as an unresolved identification awaiting a field visit (docs/allo_mahar_resolution.md). The 1911/1984 dates are therefore NOT proposed for Channan Shah Nuri, and no dates are proposed for him at all.",
+   "quote": "**Pir Syed Muhammad Channan Shah Nuri** is the figure recorded in our database for this site, in the Naqshbandi tradition. **Sayyid Faiz-ul-Hassan Shah** (c. 1911–1984), honoured as"
+  },
+  {
+   "shrineSlug": "eidgah-sharif",
+   "principalFigure": "Hazrat Hafiz Muhammad Abdul Karim (Baba Ji)",
+   "proseSubject": "His son Hazrat Hafiz Muhammad Abdur Rahman (born 8 June 1898) and the present custodian Pir Muhammad Naqib-ur-Rahman (born 4 January 1953)",
+   "why": "DANGEROUS: this row carries two precise birth dates and neither belongs to the principal figure. Baba Ji himself has no dates anywhere in the row. Anything that scrapes \"the first date in the row\" would attach 1898 to the wrong man.",
+   "quote": "who is said to have been born on 8 June 1898 in the household of the founder and who carried the mission forward through much of the twentieth century as *sajjada-nashin*. From him the"
+  },
+  {
+   "shrineSlug": "sant-baba-bhagat-ram-darbar-mandir",
+   "principalFigure": "Sant Baba Bhagat Ram",
+   "proseSubject": "Dayo Ram Daduvansi (dates variously given as 1836–1906)",
+   "why": "The only dates in the row belong to a different saint of the same town, and are themselves flagged as \"variously given\". No dates are proposed for Bhagat Ram.",
+   "quote": "among them a Dayo Ram Daduvansi said to have lived in the nineteenth century (dates variously given as 1836–1906), and it has even been suggested, though this is no more than a local"
+  },
+  {
+   "shrineSlug": "mohra-sharif-khanqah",
+   "principalFigure": "Khwaja Muhammad Qasim Sadiq",
+   "proseSubject": "His successors: Khwaja Pir Muhammad Zahid Khan (d. 9 December 1993) and Khawaja Pir Badshah Sahib (d. 13 August 2008)",
+   "why": "The only two exact death dates printed in this row belong to the founder's successors, not the founder — while the founder's own death year is missing from the column entirely. Another \"first date in the row\" trap.",
+   "quote": "is recorded as having died on 9 December 1993; he was followed by Hazrat Khawaja Pir Badshah Sahib, who died on 13 August 2008; and then by Pir Auliya Badshah Farooq Sahib as the third"
+  },
+  {
+   "shrineSlug": "tomb-of-javindi-bibi",
+   "principalFigure": "Bibi Jawindi",
+   "proseSubject": "Bibi Jawindi (the prose and the row agree) — but the KG attaches this shrine to the saint node \"jalaluddin-surkh-posh-bukhari\"",
+   "why": "Graph-side mismatch rather than prose-side: existing-saints.json gives this shrine to Jalaluddin Surkh-Posh Bukhari, so a lineage view would show his 1192–1291 dates against a shrine whose subject is his descendant four generations later. Bibi Jawindi needs her own node.",
+   "quote": "by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness. Her tomb was built around 1493, tradition holds,"
+  },
+  {
+   "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "principalFigure": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+   "proseSubject": "His master Hazrat Khawaja Sheikh Muhammad Mustafa Chishti-Nizami, who \"died in 1390 AH\"",
+   "why": "The row's only other year — 1390 AH — is the master's death, not the saint's. The saint's own birth statement is self-contradictory (\"the latter part of the 1900s (19th century)\") and the entry says so.",
+   "quote": "When Hazrat Khawaja Sheikh Muhammad Mustafa died in 1390 AH, he called Feroz-ud-Din to him in his final moments, conferred on him the cloak of"
+  }
+ ],
+ "nameCollisions": [
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+    "bhai-gurdas-veneration-of-guru-nanak"
+   ],
+   "why": "Both are a disciple of Guru Gobind Singh who carried the teaching into Sindh/Balochistan, born Kanhiya Lal / Kanya Lal. Two shrines, two nodes, almost certainly one man.",
+   "quotes": [
+    "founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh who, after the Guru's death in 1708, is said",
+    "born Bhai Kanya Lal, he is remembered as a Khalsa saint who received the blessing of Guru Gobind Singh himself before carrying"
+   ]
+  },
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "guru-nanak",
+    "guru-nanak-dev-ji",
+    "guru-nanak-dev-ji-associated-with-bhai-lalo"
+   ],
+   "why": "Three nodes for Guru Nanak (the third also swallowing Bhai Lalo, who has a birth year of his own — 1452 — and needs separating).",
+   "quotes": []
+  },
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "guru-arjan-dev",
+    "guru-arjan-dev-and-guru-hargobind",
+    "guru-hargobind"
+   ],
+   "why": "A composite node for two Gurus sits alongside their individual nodes; dates would attach ambiguously.",
+   "quotes": []
+  },
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "kali",
+    "goddess-kali"
+   ],
+   "why": "Duplicate deity nodes.",
+   "quotes": []
+  },
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "jhulelal",
+    "jhulelal-daryalal",
+    "sheikh-tahir"
+   ],
+   "why": "Jhulelal appears twice, and the Odero Lal entry identifies Sheikh Tahir with Jhulelal (and, for some, with Khwaja Khizr).",
+   "quotes": []
+  },
+  {
+   "kind": "two saint nodes, one person",
+   "slugs": [
+    "valmiki",
+    "bhagwan-valmik"
+   ],
+   "why": "Duplicate deity nodes across three temples.",
+   "quotes": []
+  },
+  {
+   "kind": "DIFFERENT people with near-identical names",
+   "slugs": [
+    "khwaja-muhammad-qasim",
+    "khwaja-muhammad-qasim-sadiq"
+   ],
+   "why": "CRITICAL for lineage ordering: \"khwaja-muhammad-qasim\" is Zinda Pir of Ghamkol Sharif (1912–1999); \"khwaja-muhammad-qasim-sadiq\" is the founder of Mohra Sharif (b. c. 1846). They are pupil and master — Zinda Pir received khilafat \"from his own guide, Baba Ji Muhammad Qasim of Mohra Sharif\" — so a name-based merge would collapse a teacher-pupil edge into one person.",
+   "quotes": [
+    "He had received spiritual authority (*khilafat*) around 1942 from his own guide, Baba Ji Muhammad Qasim of Mohra Sharif, who directed him to establish an independent centre; obedient to"
+   ]
+  },
+  {
+   "kind": "DIFFERENT people, same honorific",
+   "slugs": [
+    "shah-yousuf",
+    "shah-yusaf-gardez"
+   ],
+   "why": "The entry warns explicitly against conflation: different centuries, different cities, \"no source treats them as the same figure\".",
+   "quotes": [
+    "Because the honorific \"Shah Yousuf/Yusuf\" recurs among Punjabi Sufi figures, this Shahpur shrine is easily conflated with the much larger, better-documented shrine of Shah Yusuf Gardezi in"
+   ]
+  },
+  {
+   "kind": "DIFFERENT people, same honorific",
+   "slugs": [
+    "imam-ali-ul-haq",
+    "bari-imam"
+   ],
+   "why": "The Sialkot entry opens by insisting on the distinction from Bari Imam of Nurpur Shahan, \"with whom the similar honorific 'Imam' sometimes causes confusion\".",
+   "quotes": [
+    "It is essential at the outset to distinguish him clearly from the celebrated *Bari Imam* (Syed Abdul Latif Shah Kazmi) of Nurpur Shahan near Islamabad, with whom the similar honorific"
+   ]
+  },
+  {
+   "kind": "possibly two people under one name",
+   "slugs": [
+    "hazrat-syed-abdul-wahab"
+   ],
+   "why": "Two sources place \"Akhund Panju Baba\" in two different localities and the entry says outright that whether they are the same saint \"is not resolvable from these two sources alone\".",
+   "quotes": [
+    "Whether this is the same saint remembered with a variant locality tradition, or a distinct Pashtun preacher who happened to share the same by-name — \"Akhund [X] Baba\" is a common honorific"
+   ]
+  },
+  {
+   "kind": "title collision",
+   "slugs": [
+    "allama-muhammad-iqbal",
+    "shah-inayat-qadiri"
+   ],
+   "why": "\"Mufakkir-e-Pakistan\" is Iqbal's standing honorific in this dataset, but a 2026 field survey records it among Shah Inayat Qadiri's titles. Reported as recorded; a human should check for surveyor conflation before either title is displayed.",
+   "quotes": [
+    "titles it records for him — Sheikh-ul-Mashaikh, Shah-e-Lahore, and Mufakkir-e-Pakistan. ## Bulleh Shah, Waris Shah, and His Wider Circle His acceptance of Bulleh Shah"
+   ]
+  }
+ ],
+ "titlesFound": [
+  {
+   "saintSlug": "bari-imam",
+   "titles": [
+    "Bari Imam",
+    "Bari Sarkar"
+   ],
+   "quote": "Sayyid Abdul Latif Shah, called *Bari Imam* and *Bari Sarkar*, was born in 1617 into a Kazmi Sayyid family; tradition traces his descent to the Prophet through the Imams. From"
+  },
+  {
+   "saintSlug": "shah-abul-muali-qadri",
+   "titles": [
+    "Abul Muali (kunyat)",
+    "Asadullah",
+    "Wali Allah"
+   ],
+   "quote": "Tradition holds that Shah Abul Muali was born on 10 Zil Hajj 960 Hijri in Kirman, Iran, the son of Syed Rehmatullah Kirmani, of the Kirmani Sadaat. His *kunyat* was Abul Muali,"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim",
+   "titles": [
+    "Zinda Pir"
+   ],
+   "quote": "Zinda Pir died on 21 March 1999 and is buried at the darbar, his tomb becoming a place of pilgrimage in its turn; his spiritual seat passed to his"
+  },
+  {
+   "saintSlug": "ghazi-ilm-din-shaheed",
+   "titles": [
+    "Ghazi-e-Millat",
+    "Fakhr-e-Ummah",
+    "Ghazi",
+    "Shaheed"
+   ],
+   "quote": "Ghazi Ilm Din was born on 4 December 1908 in Lahore to a family of carpenters (*tarkhan*); his father's name is given as Taleh Mand. He had two brothers, one a fellow carpenter"
+  },
+  {
+   "saintSlug": "khawaja-feroz-ud-din-gharib-nawaz",
+   "titles": [
+    "Sakhi Lajpal",
+    "Gharib Nawaz"
+   ],
+   "quote": "He died suddenly of a liver ailment on Friday, 27 November 1981, and his disciples built his shrine at Miani Sahib, where — the survey says — a crowd"
+  },
+  {
+   "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+   "titles": [
+    "Pir Pathan"
+   ],
+   "quote": "Khwaja Muhammad Sulaiman was born around 1770 in the Taunsa region, into a Pathan family — whence his title *Pir Pathan* — and gave himself from youth to religious"
+  },
+  {
+   "saintSlug": "tahir-bandagi-qadri",
+   "titles": [
+    "Tahir Bandagi (name conferred by Hazrat Shah Sikandar)",
+    "wali-e-kamil"
+   ],
+   "quote": "He died on 8 Muharram 1040 AH, which the survey gives as 8 August 1630 CE -- the two calendars agreeing exactly -- at the age of 54, consistent with the birth year of 1576 the same survey"
+  },
+  {
+   "saintSlug": "wasif-ali-wasif",
+   "titles": [
+    "shaheed (as popular belief, not a formal ruling — per the survey)"
+   ],
+   "quote": "He was born on 15 January 1929 in Shahpur, Khushab District. His father, Muhammad Arif, was himself a teacher. The survey states his family"
+  },
+  {
+   "saintSlug": "sufi-shah-inayat-shaheed",
+   "titles": [
+    "Shaheed"
+   ],
+   "quote": "after a long resistance he was taken by treachery and put to death in 1718. He is remembered ever after as *Shaheed*,"
+  },
+  {
+   "saintSlug": "syed-rakhyal-shah-sufi-al-qadri",
+   "titles": [
+    "Saeen Rakhyal",
+    "Sufi al-Qadiri"
+   ],
+   "quote": "Rakhyal Shah is generally held to have lived from 1842 to 1940, a span of nearly a century across the"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-zaman-sultan-al-aulia",
+   "titles": [
+    "Sultan al-Aulia",
+    "Khwaja Kalan"
+   ],
+   "quote": "He died in January 1775 and was buried at Luari, where his tomb and the vaulted chambers of his successors form the"
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "titles": [
+    "Roze Dhani"
+   ],
+   "quote": "Pir Syed Muhammad Rashid Shah (1757–1818), known by his honorific Roze Dhani, \"master of the shrine,\" the founder of the Rashidi Sufi order and an"
+  },
+  {
+   "saintSlug": "data-ganj-bakhsh",
+   "titles": [
+    "Data Ganj Bakhsh",
+    "Ganj Bakhsh",
+    "Data",
+    "teacher of teachers"
+   ],
+   "quote": "He died in Lahore between about 1072 and 1077 CE (465–469 AH), and his grave, from the first, drew those who had loved"
+  },
+  {
+   "saintSlug": "sultan-bahoo",
+   "titles": [
+    "Sultan Bahu"
+   ],
+   "quote": "Bahu was born in 1630 in the Shorkot region of Jhang, into an Awan family; his father was an official of the Mughal administration and his mother, Bibi Rasti,"
+  },
+  {
+   "saintSlug": "pir-meher-ali-shah",
+   "titles": [
+    "Pir"
+   ],
+   "quote": "Meher Ali Shah was born in 1859 at Golra, into a Sayyid family of learning and sanctity descended from the Prophet. He received a"
+  },
+  {
+   "saintSlug": "guru-nanak",
+   "titles": [
+    "the first of the ten Gurus"
+   ],
+   "quote": "Guru Nanak was born, by tradition, in the year 1469 — a date commonly rendered as 15 April 1469 in the Common Era, though Sikhs observe his *Prakash Utsav* (birth celebration, also called"
+  },
+  {
+   "saintSlug": "guru-gobind-singh",
+   "titles": [
+    "the tenth Guru"
+   ],
+   "quote": "the era of *Guru Gobind Singh* (the tenth Guru, died 1708). It took its enduring form, however, during the"
+  },
+  {
+   "saintSlug": "guru-arjan-dev",
+   "titles": [
+    "the fifth Guru",
+    "the first martyr of the Sikh faith"
+   ],
+   "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth at a"
+  },
+  {
+   "saintSlug": "guru-ram-das",
+   "titles": [
+    "the fourth of the ten Sikh Gurus"
+   ],
+   "quote": "Ram Das was born in the Chuna Mandi bazaar of Lahore in 1534, in a family of modest means, and was known in his boyhood as Bhai Jetha. Orphaned"
+  },
+  {
+   "saintSlug": "bhai-taru",
+   "titles": [
+    "Shaheed"
+   ],
+   "quote": "Bhai Taru Singh, having outlived his persecutor, is said to have given up his life of his own will on 1 July 1745. His fortitude made him"
+  },
+  {
+   "saintSlug": "guru-gurpat",
+   "titles": [
+    "Guru",
+    "Sant"
+   ],
+   "quote": "before his death in 1877 at the age of about seventy. ## The Darbar and Its Trust The present building at"
+  },
+  {
+   "saintSlug": "lal-shahbaz-qalandar",
+   "titles": [
+    "Lal (\"the Red\")",
+    "Shahbaz (\"royal falcon\")",
+    "Qalandar"
+   ],
+   "quote": "Sayyid Usman Marwandi — known to the world as Lal Shahbaz Qalandar — was born around 1177 at Marwand, in the Persian-speaking lands to the west (in the region of present-day"
+  },
+  {
+   "saintSlug": "makhdoom-burhan-ud-din",
+   "titles": [
+    "Makhdoom"
+   ],
+   "quote": "Tradition holds that he lived and taught in this corner of the Chiniot region and that he died in the year 1245 of the Common Era — 666 of the Hijri calendar — asking, in his humility, to"
+  },
+  {
+   "saintSlug": "waris-shah",
+   "titles": [
+    "the \"Shakespeare of the Punjabi language\""
+   ],
+   "quote": "Waris Shah was born around 1722 into a Sayyid family at Jandiala Sher Khan. He received a thorough religious and"
+  },
+  {
+   "saintSlug": "khwaja-ghulam-farid",
+   "titles": [
+    "Khwaja"
+   ],
+   "quote": "He died in 1901 at Chachran and was buried at Kot Mithan. ## The Poetry Khwaja Ghulam Farid’s fame rests on"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "titles": [
+    "Khwaja"
+   ],
+   "quote": "The centre was established by *Khwaja Muhammad Qasim Sadiq*, born about 1846 (1263 AH), whose forebears are said to have migrated from Iran and"
+  },
+  {
+   "saintSlug": "shah-sulaimn-nri",
+   "titles": [
+    "Sakhi Badshah (\"the generous king\")"
+   ],
+   "quote": "Shah Sulaiman Nuri is traditionally said to have lived a remarkably long life, from the early sixteenth century until 1604. According to the accounts"
+  },
+  {
+   "saintSlug": "rahman-baba",
+   "titles": [
+    "Rahman Baba"
+   ],
+   "quote": "Abdur Rahman was born around 1653 near Peshawar, into the Mohmand tribe of the Pashtuns; he is remembered as a man of humble means and"
+  },
+  {
+   "saintSlug": "syed-muhammad-noushah-qadiri",
+   "titles": [
+    "Ganj Bakhsh (\"the bestower of treasure\")",
+    "Noushah (\"the bridegroom\")"
+   ],
+   "quote": "Muhammad Noushah — honoured as *Ganj Bakhsh*, “the bestower of treasure,” and *Noushah*, “the bridegroom” — was born in 1552. He took the Sufi path in the Qadiri order and, attaining a high"
+  },
+  {
+   "saintSlug": "sain-vali-vilayat-rai",
+   "titles": [
+    "Sain"
+   ],
+   "quote": "Its founder, Vali Vilayat Rai, was born in 1825 into a prosperous Hindu family of Old Hala; his father, Pratab Rai, had served as a *munshi*"
+  },
+  {
+   "saintSlug": "sultan-sakhi-sarwar",
+   "titles": [
+    "Lakhdata (\"the giver of hundreds of thousands\")",
+    "Sakhi Sarwar (\"the Generous Chief\")",
+    "Sultan"
+   ],
+   "quote": "Sayyid Ahmad Sultan, called Sakhi Sarwar (“the Generous Chief”), lived in the twelfth century; tradition places his origins in the region of Multan/Shahkot, and his life"
+  },
+  {
+   "saintSlug": "maharaja-ranjit-singh",
+   "titles": [
+    "the \"Lion of Punjab\"",
+    "Maharaja"
+   ],
+   "quote": "Ranjit Singh, the \"Lion of Punjab,\" founded and ruled the Sikh Empire from 1801 until his death on 27 June 1839. Construction began the following"
+  },
+  {
+   "saintSlug": "sant-baba-asudaram-sakhi-baba",
+   "titles": [
+    "Sakhi Baba (\"the generous master\")",
+    "Shiv Swaroop (name given by Bhagat Kanwar Ram)"
+   ],
+   "quote": "Asudaram (1895–1960), remembered by the honorific *Sakhi Baba*, \"the generous master,\" was born on 3 April 1895 in the village of Jatoin near Panno Aqil, the son of Bhai Ludhrodmal and"
+  },
+  {
+   "saintSlug": "bhagat-kanwar-ram",
+   "titles": [
+    "Bhagat",
+    "shaheed / martyr"
+   ],
+   "quote": "Kanwar Ram — born 13 April 1885 at Tarachand's house in Jarwar, then part of Mirpur Mathelo tehsil, and a disciple of Sant Satram Das (1866-1910) — was also remembered for singing the"
+  },
+  {
+   "saintSlug": "satguru-swami-sai-satramdas-sahib",
+   "titles": [
+    "Satguru",
+    "Swami",
+    "Sai"
+   ],
+   "quote": "the revered Sindhi saint born here, according to the tradition, on 25 October 1866. He gave his life to spiritual teaching in the syncretic Sindhi devotional mould, preaching love, humility"
+  },
+  {
+   "saintSlug": "bhai-gurdas-veneration-of-guru-nanak",
+   "titles": [
+    "Bhai",
+    "a Khalsa saint"
+   ],
+   "quote": "born Bhai Kanya Lal, he is remembered as a Khalsa saint who received the blessing of Guru Gobind Singh himself before carrying that teaching into the towns of"
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "titles": [
+    "Qalandar",
+    "faqir"
+   ],
+   "quote": "Tradition records that Shams Ali Qalandar died on Tuesday, the sixth of September 1966, at the advanced age of about ninety-three, at Dhaliana in the Shamsabad area, where his"
+  },
+  {
+   "saintSlug": "daud-bandagi-kirmani",
+   "titles": [
+    "Bandagi (\"servitude\")",
+    "Kirmani"
+   ],
+   "quote": "Daud, honoured with the title *Bandagi* (“servitude,” marking his devotion) and the epithet *Kirmani* for his family’s origins, was born in 1513. He gave himself to religious learning and"
+  },
+  {
+   "saintSlug": "bhagwan-swaminarayan",
+   "titles": [
+    "Bhagwan Swaminarayan"
+   ],
+   "quote": "The Swaminarayan movement takes its name from *Swaminarayan* (Sahajanand Swami, 1781–1830), the reformer and teacher who gathered a large following across Gujarat and"
+  },
+  {
+   "saintSlug": "ramdev-pir",
+   "titles": [
+    "Pir"
+   ],
+   "quote": "also called Ramapir or Baba Ramdev — a fifteenth-century saint of Rajasthan venerated across western India and Sindh as a worker of miracles and a champion of the poor"
+  },
+  {
+   "saintSlug": "guru-gorakhnath",
+   "titles": [
+    "Guru",
+    "mahasiddha",
+    "founder of the Nath order of yogis"
+   ],
+   "quote": "traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*. He is"
+  },
+  {
+   "saintSlug": "abdullah-shah-ghazi",
+   "titles": [
+    "Ghazi",
+    "patron saint of Karachi"
+   ],
+   "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan; for the people of Karachi he is the guardian of the"
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "titles": [
+    "Qalandar",
+    "Hazrat"
+   ],
+   "quote": "He died on 9 September 1958, and was buried at Hanjarwal, where his shrine now stands. ## Teachers and the Chain of"
+  },
+  {
+   "saintSlug": "akhund-darweza-baba",
+   "titles": [
+    "Akhund",
+    "Baba"
+   ],
+   "quote": "*Akhund Darweza* (traditionally 1533-1638) was one of the most influential religious figures of the Pashtun country in the age of the Mughals — a"
+  },
+  {
+   "saintSlug": "hazrat-syed-abdul-wahab",
+   "titles": [
+    "Akhund",
+    "Baba",
+    "\"Panju\" (\"five\"), a mocking nickname for his insistence on preaching the five pillars"
+   ],
+   "quote": "a Sufi and preacher remembered as one of the great teachers of Islam in the Pashtun country during the reign of the Mughal emperor Akbar (1556-1605). Tradition holds that many were guided"
+  },
+  {
+   "saintSlug": "syed-abdul-razzaq",
+   "titles": [
+    "Chiragh (\"lamp\"), given by his grandfather Hazrat Abdul Qadir Sani"
+   ],
+   "quote": "Given the honorific \"Chiragh,\" meaning lamp, by his grandfather Hazrat Abdul Qadir Sani, he flourished during the reign of the Mughal emperor Shah Jahan and died in 1657 CE. His mausoleum"
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "titles": [
+    "\"Qadiri Suhrawardi\" (a composite title attached by local devotional tradition)"
+   ],
+   "quote": "his likely lifetime is generally placed in the same late-sixteenth to seventeenth-century Mughal-era window as Shah Jamal's own. The shrine sits within the historic Shah Kamal"
+  },
+  {
+   "saintSlug": "bahauddin-zakariya",
+   "titles": [
+    "Hazrat",
+    "Baha-ud-Din"
+   ],
+   "quote": "Baha-ud-Din Zakariya was born around 1170 near Multan, into a Qureshi family of Arab descent that had settled in the region. He pursued"
+  },
+  {
+   "saintSlug": "bibi-pak-daman",
+   "titles": [
+    "Pak Daman (\"the pure of hem\")",
+    "the six Bibis"
+   ],
+   "quote": "Two great traditions about the identity of the six women endure side by side, and the shrine holds meaning in both. The older and by far the more"
+  },
+  {
+   "saintSlug": "sayyid-ahmad-tokhta-tirmidhi",
+   "titles": [
+    "Murshid-e-Punjab",
+    "Tokhta (\"standing\", \"ever-present\")"
+   ],
+   "quote": "He is said to have died around 602 AH — near the beginning of the reign of Sultan Qutb al-Din Aibak — and to be buried in the Lahore quarter still called Chilla Bibiyan, which takes its"
+  },
+  {
+   "saintSlug": "fariduddin-ganjshakar",
+   "titles": [
+    "Ganjshakar (\"the Treasure of Sugar\")",
+    "Baba Farid",
+    "qutb of the Chishti order"
+   ],
+   "quote": "Farid was born around 1173 at Kothewal, near Multan, into a family of learned émigrés of Central Asian origin; his grandfather is said to have come"
+  },
+  {
+   "saintSlug": "ganj-e-inayat-sarkar",
+   "titles": [
+    "Huzoor Ganj-e-Inayat Sarkar (\"the Treasure of Grace\")",
+    "Allama",
+    "Maulana",
+    "Pir",
+    "khalifa-e-mujaz of Karman Wali Sharif"
+   ],
+   "quote": "Muhammad Inayat Ahmad was born on 18 November 1937 at Kalisaah, a village of the Kashmir valley, into a household known for both learning and piety."
+  },
+  {
+   "saintSlug": "hazrat-hafiz-muhammad-jamal-multani",
+   "titles": [
+    "Hafiz"
+   ],
+   "quote": "Born at Multan around 1747 (1160 AH) and dying in 1811, Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the"
+  },
+  {
+   "saintSlug": "hazrat-muhammad-ayub-shah-bukhari",
+   "titles": [
+    "Bukhari"
+   ],
+   "quote": "the documented history of the saint is thin and his dates uncertain, so his biography is best treated as living tradition rather than established record; the *Bukhari*"
+  },
+  {
+   "saintSlug": "hazrat-shah-ali-akbar-shamsi",
+   "titles": [
+    "Shamsi"
+   ],
+   "quote": "construction of the mausoleum began in 993 AH (about 1585 CE) and took some fifteen years to complete; it is said to have been raised by the saint's"
+  },
+  {
+   "saintSlug": "shah-daula-daryai",
+   "titles": [
+    "Daryai (from *darya*, \"river\")"
+   ],
+   "quote": "Reliable dates for Shah Daula are difficult to fix, and the sources differ; he is traditionally said to have lived roughly between 1581 and 1675, and to have settled in Gujrat in the early"
+  },
+  {
+   "saintSlug": "imam-ali-ul-haq",
+   "titles": [
+    "Imam Sahib",
+    "shahid (martyr)",
+    "warrior-saint"
+   ],
+   "quote": "Two broad traditions circulate about Imam Ali-ul-Haq, and they cannot easily be reconciled. According to the more commonly repeated local account, he lived in the medieval period"
+  },
+  {
+   "saintSlug": "jalaluddin-surkh-posh-bukhari",
+   "titles": [
+    "Surkh-Posh (\"the Red-Robed\")"
+   ],
+   "quote": "Sayyid Jalaluddin was born in 1192 at Bukhara, in Central Asia, into a family of Sayyids tracing descent from the Prophet. Migrating southward in the"
+  },
+  {
+   "saintSlug": "laki-shah-saddar",
+   "titles": [
+    "Sayyid",
+    "Lakhi Shah Saddar"
+   ],
+   "quote": "Precise dates for his life have not been securely established, and devotees emphasise his spiritual station and the miracles (*karamat*) attributed"
+  },
+  {
+   "saintSlug": "makhdoom-abdul-rahim-girhori",
+   "titles": [
+    "Makhdoom",
+    "Girhori (after Girhor, where he settled)",
+    "shaheed (martyr)"
+   ],
+   "quote": "a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe and came to be known as *Girhori* after he settled at"
+  },
+  {
+   "saintSlug": "jahaniyan-jahangasht",
+   "titles": [
+    "Makhdoom-i-Jahaniyan (\"the Master of the World\")",
+    "Jahangasht (\"the World-Traveller\")"
+   ],
+   "quote": "Born at Uch in 1308 into the Bukhari sayyid family founded by his grandfather Surkh-Posh, Jalaluddin was schooled in the religious sciences and the"
+  },
+  {
+   "saintSlug": "makhdoom-nooh",
+   "titles": [
+    "Makhdoom",
+    "Makhdoom Sarwar Nooh"
+   ],
+   "quote": "with tradition placing his birth around 1500-1505 and his death about 1590. A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as"
+  },
+  {
+   "saintSlug": "hazrat-meeran-muhammad-shah-bukhari",
+   "titles": [
+    "Mauj Darya (\"Wave of the River\")",
+    "hafiz-e-Quran"
+   ],
+   "quote": "commemorates a saint born in 1533 in Uch Sharif, the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh"
+  },
+  {
+   "saintSlug": "mian-mir",
+   "titles": [
+    "Farooqi",
+    "Hazrat",
+    "Mian"
+   ],
+   "quote": "Mian Mir was born in the sixteenth century in Sehwan (Sivastan) in Sindh — the town lying, as the prince Dara Shikoh later noted, between the cities"
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "titles": [
+    "Baba",
+    "Mian"
+   ],
+   "quote": "Mian Umar (traditionally 1671-1776) was a Sufi of the Naqshbandi order — a scholar, poet, social reformer, and historian who is counted, together"
+  },
+  {
+   "saintSlug": "syed-miran-hussain-zanjani",
+   "titles": [
+    "Hussaini Syed"
+   ],
+   "quote": "A Hussaini Syed born in 958 CE in Zanjan, in present-day Iran, he travelled to Lahore around 998 CE on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is"
+  },
+  {
+   "saintSlug": "hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+   "titles": [
+    "Makki (from twelve years of seclusion at Mecca)"
+   ],
+   "quote": "He is said to have died in 612 AH (1215 CE). Alam Faqri's *Tazkirah Awliya-e-Pakistan* preserves the same broad outline"
+  },
+  {
+   "saintSlug": "syed-ali-tirmizi",
+   "titles": [
+    "Pir Baba"
+   ],
+   "quote": "*Syed Ali Tirmizi* (c. 1502–1583), the Sufi saint universally known as *Pir Baba*, one of the most revered holy figures of the Pashtun lands. Of"
+  },
+  {
+   "saintSlug": "pir-chhatal-shah-noorani",
+   "titles": [
+    "Pir",
+    "\"a granter of wishes\""
+   ],
+   "quote": "asked who Chhatal Shah Noorani had been, the man replied simply, \"Only Allah knows!\" — adding only that he was \"a granter of wishes\" to Hindus and Muslims"
+  },
+  {
+   "saintSlug": "pir-lakha",
+   "titles": [
+    "Pir"
+   ],
+   "quote": "Because the life of the eponymous *pir* is essentially undocumented in accessible sources, only the shrine's living role as a pilgrimage-and-healing centre can be stated"
+  },
+  {
+   "saintSlug": "pir-mangho",
+   "titles": [
+    "Pir",
+    "Sakhi Sultan",
+    "Haji"
+   ],
+   "quote": "The saint of Mangho Pir is remembered as a holy man of the medieval centuries who settled at this spot in the hills above Karachi. Around his memory has"
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "titles": [
+    "Mian",
+    "Pir",
+    "Sharaqpuri"
+   ],
+   "quote": "Mian Sher Muhammad was born in 1865 at Sharaqpur into a devout family, and from his youth turned to the religious sciences and the Sufi"
+  },
+  {
+   "saintSlug": "qalandar-baba-auliya",
+   "titles": [
+    "Qalandar Baba Auliya"
+   ],
+   "quote": "Muhammad Azeem was born in 1898 at Khurja, in the United Provinces of British India, into a Sayyid family, and is known by the spiritual title"
+  },
+  {
+   "saintSlug": "sachal-sarmast",
+   "titles": [
+    "Sachal (\"the truthful\")",
+    "Sarmast (\"the intoxicated\")",
+    "the Second Mansur",
+    "Shair-e-Haft-Zaban (\"the poet of seven languages\")"
+   ],
+   "quote": "Sachal Sarmast was born in 1739 at Daraza into a Sayyid family of the Farooqi line; his given name was Abdul Wahab, but he became known as *Sachal* — “the truthful” — and *Sarmast* — “the"
+  },
+  {
+   "saintSlug": "shah-abdul-karim-bulri",
+   "titles": [
+    "Shah"
+   ],
+   "quote": "Shah Abdul Karim (1536–1623) was born into a Sayyid family of Matiari but spent most of his life at Bulri, from which he takes his epithet. He is remembered as a mystic of simple, laborious"
+  },
+  {
+   "saintSlug": "shah-inayat-qadiri",
+   "titles": [
+    "Sheikh-ul-Mashaikh",
+    "Shah-e-Lahore",
+    "Mufakkir-e-Pakistan (as recorded by the 2026 field survey)"
+   ],
+   "quote": "The field survey adds biographical detail not previously in this entry: his given name as Abul-Muarif Hanfi Qadri, his memorisation of the Qur'an by age five, and titles it records for him"
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "titles": [
+    "Baba Shah Jamal"
+   ],
+   "quote": "Born, by the shrine's account, in 1587, he is generally held to have died in the later seventeenth century, though sources differ on the precise"
+  },
+  {
+   "saintSlug": "shah-rukn-e-alam",
+   "titles": [
+    "Rukn-e-Alam (\"Pillar of the World\")"
+   ],
+   "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif, into the leading Suhrawardi family of the"
+  },
+  {
+   "saintSlug": "shah-shams-ud-din-sabzwari",
+   "titles": [
+    "Shah Shams",
+    "Pir Shams",
+    "Shams (\"the sun\")"
+   ],
+   "quote": "He died in Multan in the thirteenth century. ## The Shrine and its Devotion Shah Shams Sabzwari’s shrine in"
+  },
+  {
+   "saintSlug": "shah-yusaf-gardez",
+   "titles": [
+    "Shah",
+    "Sayyid"
+   ],
+   "quote": "tradition places his arrival in the years around 1088 and his death in the first half of the 1100s), when Islam was still taking root in the region. A Sayyid of the family of the"
+  },
+  {
+   "saintSlug": "syed-musa-pak",
+   "titles": [
+    "Pak (\"the pure\")",
+    "Shaheed (\"the martyr\")"
+   ],
+   "quote": "who flourished in Multan in the sixteenth century. Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples, and he is remembered for a life"
+  },
+  {
+   "saintSlug": "muhammad-shamsuddin-sialvi",
+   "titles": [
+    "Khwaja",
+    "Hazrat"
+   ],
+   "quote": "Khwaja Muhammad Shamsuddin was born in 1799 at Sial Sharif into a devout family, and from his youth pursued the religious sciences and the Sufi path."
+  },
+  {
+   "saintSlug": "shah-hussain",
+   "titles": [
+    "Lal (\"the Red\") Hussain",
+    "Madho Lal Hussain",
+    "\"Baba\""
+   ],
+   "quote": "Hussain was born in Lahore in 1538 into a family of weavers — his father, by tradition, a craftsman who stitched uniforms for the army of the Emperor"
+  },
+  {
+   "saintSlug": "allama-muhammad-iqbal",
+   "titles": [
+    "Shair-e-Mashriq (\"the Poet of the East\")",
+    "Hakeem-ul-Ummat (\"the Sage of the Community\")",
+    "Mufakkir-e-Pakistan (\"the Thinker of Pakistan\")",
+    "Allama",
+    "Sir"
+   ],
+   "quote": "Muhammad Iqbal was born on 9 November 1877 in the city of Sialkot, in the Punjab, into a family descended from Kashmiri Brahmins who had embraced"
+  },
+  {
+   "saintSlug": "hazrat-bahaal-halim",
+   "titles": [
+    "Hazrat"
+   ],
+   "quote": "the exact dates of his life are not securely recorded and are best treated with caution. The mausoleum is an octagonal, three-tiered structure of"
+  },
+  {
+   "saintSlug": "bibi-jawindi",
+   "titles": [
+    "Bibi"
+   ],
+   "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her"
+  },
+  {
+   "saintSlug": "sultan-qutb-ud-din-aibak",
+   "titles": [
+    "Sultan",
+    "founder of the Mamluk (\"Slave\") dynasty"
+   ],
+   "quote": "Born around 1150 in Turkestan, Aibak was sold into slavery as a child and eventually rose, through service to the Ghurid ruler Muhammad Ghori, to"
+  },
+  {
+   "saintSlug": "ustad-nuriya",
+   "titles": [
+    "Ustad (\"master-builder\")"
+   ],
+   "quote": "Tradition holds that the tomb honours Ustad Nuriya — the master-builder, or ustad, credited with designing the exquisite tomb of Bibi Jawindi, itself usually dated to the late"
+  },
+  {
+   "saintSlug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+   "titles": [
+    "Ghazi Baba",
+    "Ghazi"
+   ],
+   "quote": "Because the detailed record of his life survives chiefly in family and devotional tradition rather than in independent chronicle, the particulars of his dates and deeds are best received as"
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "titles": [
+    "Kaka Sahib",
+    "Sheikh Rahmkar"
+   ],
+   "quote": "whose given name was *Syed Kasteer Gul* and who is also remembered by the honorific *Sheikh Rahmkar*. Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he"
+  },
+  {
+   "saintSlug": "mian-qurban-ali-shah",
+   "titles": [
+    "Mian",
+    "Sarkar"
+   ],
+   "quote": "Hazrat Qurban Ali Shah was born in 1341 AH in Malerkotla, India, that his given name was Qurban Ali, and that people later came to call him Mian Qurban Ali Shah in recognition of"
+  },
+  {
+   "saintSlug": "shah-gohar-peer",
+   "titles": [
+    "Kuffar Shikan (\"the destroyer of disbelief\")",
+    "Peer",
+    "Sufi"
+   ],
+   "quote": "was born on 11 Rabīʿ al-Sānī 729 AH at Uch Sharif. His father, Syed Ul Hassan Kabeer, is described as a pious Sufi and a scholar of *dīn* (religion)"
+  },
+  {
+   "saintSlug": "syed-bilawal-shah-noorani",
+   "titles": [
+    "Shah Noorani"
+   ],
+   "quote": "Shah Noorani is remembered as a Sufi saint of the medieval centuries who settled in the wild valley of Lahut Lamakan — a place whose very name (*la-hut la-makan*, “the"
+  },
+  {
+   "saintSlug": "shah-yousuf",
+   "titles": [
+    "Shah"
+   ],
+   "quote": "almost nothing about the saint's life, lineage, or era survives in accessible written sources. The fifteenth-century founding date sometimes attached to the site could not be"
+  },
+  {
+   "saintSlug": "baba-pir-ratan-nath",
+   "titles": [
+    "Pir",
+    "Nath",
+    "yogi-saint"
+   ],
+   "quote": "the details of his life are wrapped in legend and cannot be fixed with confidence to a particular century, and the tradition should be received as sacred memory rather than"
+  },
+  {
+   "saintSlug": "baba-bankhandi-maharaj",
+   "titles": [
+    "Maharaj",
+    "Udasi saint"
+   ],
+   "quote": "The founding of Sadh Belo is attributed to the *Udasi* saint Baba Bankhandi Maharaj, born Balchand Sharma, whose origins are variously traced, according to differing accounts, to Kero"
+  },
+  {
+   "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+   "titles": [
+    "Bhai"
+   ],
+   "quote": "founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh who, after the Guru's death in 1708, is said to have travelled to Sindh and preached"
+  },
+  {
+   "saintSlug": "syed-sakhi-shah-chan-charagh",
+   "titles": [
+    "Sakhi",
+    "Chan Charagh (\"the moon and the lamp\")",
+    "patron saint of Rawalpindi"
+   ],
+   "quote": "The saint's given name is traditionally said to have been Shah Zaman, and he is remembered as a *sayyid* — a descendant of the Prophet Muhammad — whose lineage is traced through"
+  }
+ ],
+ "altNamesFound": [
+  {
+   "saintSlug": "bari-imam",
+   "altNames": [
+    "Sayyid Abdul Latif Kazmi",
+    "Sayyid Abdul Latif Shah"
+   ],
+   "quote": "Sayyid Abdul Latif Shah, called *Bari Imam* and *Bari Sarkar*, was born in 1617 into a Kazmi Sayyid family; tradition traces his descent to the Prophet through the Imams. From"
+  },
+  {
+   "saintSlug": "shah-abdul-latif-bhittai",
+   "altNames": [
+    "Shah Abdul Latif Bhittai"
+   ],
+   "quote": "Abdul Latif was born in 1689 into a Sayyid family of Sindh, descendants of a line of saints; his ancestor Shah Abdul Karim of Bulri was himself a noted mystic"
+  },
+  {
+   "saintSlug": "shah-abul-muali-qadri",
+   "altNames": [
+    "Hazrat Syed Muhammad Khair ul Deen",
+    "Shah Khairuddin Muhammad",
+    "Abul Ma’ali"
+   ],
+   "quote": "Tradition holds that Shah Abul Muali was born on 10 Zil Hajj 960 Hijri in Kirman, Iran, the son of Syed Rehmatullah Kirmani, of the Kirmani Sadaat. His *kunyat* was Abul Muali,"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim",
+   "altNames": [
+    "Khwaja Muhammad Qasim",
+    "Zinda Pir"
+   ],
+   "quote": "Zinda Pir died on 21 March 1999 and is buried at the darbar, his tomb becoming a place of pilgrimage in its turn; his spiritual seat passed to his"
+  },
+  {
+   "saintSlug": "ghazi-ilm-din-shaheed",
+   "altNames": [
+    "Ilm Din",
+    "Ghazi Ilam Din"
+   ],
+   "quote": "Ghazi Ilm Din was born on 4 December 1908 in Lahore to a family of carpenters (*tarkhan*); his father's name is given as Taleh Mand. He had two brothers, one a fellow carpenter"
+  },
+  {
+   "saintSlug": "khawaja-shah-muhammad-sulaiman-taunsvi",
+   "altNames": [
+    "Khwaja Muhammad Sulaiman Taunsvi"
+   ],
+   "quote": "Khwaja Muhammad Sulaiman was born around 1770 in the Taunsa region, into a Pathan family — whence his title *Pir Pathan* — and gave himself from youth to religious"
+  },
+  {
+   "saintSlug": "tahir-bandagi-qadri",
+   "altNames": [
+    "Tahir Bandagi"
+   ],
+   "quote": "He died on 8 Muharram 1040 AH, which the survey gives as 8 August 1630 CE -- the two calendars agreeing exactly -- at the age of 54, consistent with the birth year of 1576 the same survey"
+  },
+  {
+   "saintSlug": "malik-ahmad-ayaz",
+   "altNames": [
+    "Malik Ayaz Ahmad",
+    "Malik Ayaz"
+   ],
+   "quote": "The account gives his death as 8 August 1041, and states that his mausoleum was then built in Shah Alam Market. ## Memory,"
+  },
+  {
+   "saintSlug": "wasif-ali-wasif",
+   "altNames": [
+    "Muhammad Wasif Awan",
+    "Wasif (takhallus / pen name)"
+   ],
+   "quote": "He was born on 15 January 1929 in Shahpur, Khushab District. His father, Muhammad Arif, was himself a teacher. The survey states his family"
+  },
+  {
+   "saintSlug": "syed-rakhyal-shah-sufi-al-qadri",
+   "altNames": [
+    "Syed Rakhyal Shah",
+    "Pir Rakhail Shah"
+   ],
+   "quote": "Rakhyal Shah is generally held to have lived from 1842 to 1940, a span of nearly a century across the"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-zaman-sultan-al-aulia",
+   "altNames": [
+    "Makhdoom Muhammad Zaman Naqshbandi",
+    "Khwaja Muhammad Zaman"
+   ],
+   "quote": "He died in January 1775 and was buried at Luari, where his tomb and the vaulted chambers of his successors form the"
+  },
+  {
+   "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
+   "altNames": [
+    "Pir Syed Muhammad Rashid Shah"
+   ],
+   "quote": "Pir Syed Muhammad Rashid Shah (1757–1818), known by his honorific Roze Dhani, \"master of the shrine,\" the founder of the Rashidi Sufi order and an"
+  },
+  {
+   "saintSlug": "data-ganj-bakhsh",
+   "altNames": [
+    "Ali ibn Usman al-Hujwiri",
+    "al-Jullabi",
+    "al-Hujwiri"
+   ],
+   "quote": "He died in Lahore between about 1072 and 1077 CE (465–469 AH), and his grave, from the first, drew those who had loved"
+  },
+  {
+   "saintSlug": "sultan-bahoo",
+   "altNames": [
+    "Bahu (\"with Hoo\")"
+   ],
+   "quote": "Bahu was born in 1630 in the Shorkot region of Jhang, into an Awan family; his father was an official of the Mughal administration and his mother, Bibi Rasti,"
+  },
+  {
+   "saintSlug": "pir-meher-ali-shah",
+   "altNames": [
+    "Pir Sayyid Meher Ali Shah",
+    "Pir Mehr Ali Shah"
+   ],
+   "quote": "Meher Ali Shah was born in 1859 at Golra, into a Sayyid family of learning and sanctity descended from the Prophet. He received a"
+  },
+  {
+   "saintSlug": "bebe-nanaki",
+   "altNames": [
+    "Bibi Nanaki",
+    "Bebe Nanaki"
+   ],
+   "quote": "Bebe Nanaki was born, by tradition, around 1464 and was older than her brother by some five years. From his earliest childhood she is said to have perceived in Nanak a"
+  },
+  {
+   "saintSlug": "guru-nanak",
+   "altNames": [
+    "Guru Nanak Dev Ji",
+    "Nanak"
+   ],
+   "quote": "Guru Nanak died at Kartarpur, by tradition on 22 September 1539. A cherished legend, preserved in"
+  },
+  {
+   "saintSlug": "guru-nanak",
+   "altNames": [
+    "Guru Nanak Dev Ji",
+    "Nanak"
+   ],
+   "quote": "Guru Nanak was born, by tradition, in the year 1469 — a date commonly rendered as 15 April 1469 in the Common Era, though Sikhs observe his *Prakash Utsav* (birth celebration, also called"
+  },
+  {
+   "saintSlug": "guru-arjan-dev",
+   "altNames": [
+    "Guru Arjan"
+   ],
+   "quote": "Guru Arjan (1563–1606), son of the fourth Guru, Ram Das, and grandson of the third, Amar Das, presided over the Sikh Panth at a"
+  },
+  {
+   "saintSlug": "guru-ram-das",
+   "altNames": [
+    "Bhai Jetha"
+   ],
+   "quote": "Ram Das was born in the Chuna Mandi bazaar of Lahore in 1534, in a family of modest means, and was known in his boyhood as Bhai Jetha. Orphaned"
+  },
+  {
+   "saintSlug": "bhai-lalo",
+   "altNames": [
+    "Bhai Lalu"
+   ],
+   "quote": "Bhai Lalo, traditionally said to have been born at Saidpur (Eminabad) in 1452 into a family of carpenters, became one of the most beloved of the"
+  },
+  {
+   "saintSlug": "bhai-taru",
+   "altNames": [
+    "Bhai Taru Singh"
+   ],
+   "quote": "Bhai Taru Singh, having outlived his persecutor, is said to have given up his life of his own will on 1 July 1745. His fortitude made him"
+  },
+  {
+   "saintSlug": "guru-gurpat",
+   "altNames": [
+    "Baba Gurpat Sahib"
+   ],
+   "quote": "before his death in 1877 at the age of about seventy. ## The Darbar and Its Trust The present building at"
+  },
+  {
+   "saintSlug": "lal-shahbaz-qalandar",
+   "altNames": [
+    "Sayyid Usman Marwandi",
+    "Usman Marwandi"
+   ],
+   "quote": "Sayyid Usman Marwandi — known to the world as Lal Shahbaz Qalandar — was born around 1177 at Marwand, in the Persian-speaking lands to the west (in the region of present-day"
+  },
+  {
+   "saintSlug": "makhdoom-burhan-ud-din",
+   "altNames": [
+    "Hazrat Langar Makhdoom",
+    "Langar Makhdoom"
+   ],
+   "quote": "Tradition holds that he lived and taught in this corner of the Chiniot region and that he died in the year 1245 of the Common Era — 666 of the Hijri calendar — asking, in his humility, to"
+  },
+  {
+   "saintSlug": "waris-shah",
+   "altNames": [
+    "Waris Shah"
+   ],
+   "quote": "Waris Shah was born around 1722 into a Sayyid family at Jandiala Sher Khan. He received a thorough religious and"
+  },
+  {
+   "saintSlug": "bulleh-shah",
+   "altNames": [
+    "Sayyid Abdullah Shah Qadiri",
+    "Abdullah Shah Qadri"
+   ],
+   "quote": "Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher,"
+  },
+  {
+   "saintSlug": "khwaja-ghulam-farid",
+   "altNames": [
+    "Khwaja Ghulam Farid"
+   ],
+   "quote": "He died in 1901 at Chachran and was buried at Kot Mithan. ## The Poetry Khwaja Ghulam Farid’s fame rests on"
+  },
+  {
+   "saintSlug": "khwaja-muhammad-qasim-sadiq",
+   "altNames": [
+    "Hazrat Khawaja Muhammad Qasim Sadiq",
+    "Khawaja Muhammad Qasim Moharwi",
+    "Muḥammad Qāthim Mohŕvī"
+   ],
+   "quote": "The centre was established by *Khwaja Muhammad Qasim Sadiq*, born about 1846 (1263 AH), whose forebears are said to have migrated from Iran and"
+  },
+  {
+   "saintSlug": "shah-sulaimn-nri",
+   "altNames": [
+    "Hazrat Shah Sulaiman Nuri",
+    "Shah Sulaimān Nūri"
+   ],
+   "quote": "Shah Sulaiman Nuri is traditionally said to have lived a remarkably long life, from the early sixteenth century until 1604. According to the accounts"
+  },
+  {
+   "saintSlug": "rahman-baba",
+   "altNames": [
+    "Abdur Rahman Mohmand",
+    "Abdur Rahman"
+   ],
+   "quote": "Abdur Rahman was born around 1653 near Peshawar, into the Mohmand tribe of the Pashtuns; he is remembered as a man of humble means and"
+  },
+  {
+   "saintSlug": "syed-muhammad-noushah-qadiri",
+   "altNames": [
+    "Syed Muhammad Noushah Ganj Bakhsh",
+    "Syed Muhammad Noushah Qadiri"
+   ],
+   "quote": "Muhammad Noushah — honoured as *Ganj Bakhsh*, “the bestower of treasure,” and *Noushah*, “the bridegroom” — was born in 1552. He took the Sufi path in the Qadiri order and, attaining a high"
+  },
+  {
+   "saintSlug": "sain-vali-vilayat-rai",
+   "altNames": [
+    "Vali Vilayat Rai"
+   ],
+   "quote": "Its founder, Vali Vilayat Rai, was born in 1825 into a prosperous Hindu family of Old Hala; his father, Pratab Rai, had served as a *munshi*"
+  },
+  {
+   "saintSlug": "sultan-sakhi-sarwar",
+   "altNames": [
+    "Sayyid Ahmad Sultan"
+   ],
+   "quote": "Sayyid Ahmad Sultan, called Sakhi Sarwar (“the Generous Chief”), lived in the twelfth century; tradition places his origins in the region of Multan/Shahkot, and his life"
+  },
+  {
+   "saintSlug": "maharaja-ranjit-singh",
+   "altNames": [
+    "Ranjit Singh"
+   ],
+   "quote": "Ranjit Singh, the \"Lion of Punjab,\" founded and ruled the Sikh Empire from 1801 until his death on 27 June 1839. Construction began the following"
+  },
+  {
+   "saintSlug": "sant-baba-asudaram-sakhi-baba",
+   "altNames": [
+    "Sant Baba Asudaram",
+    "Asudaram"
+   ],
+   "quote": "Asudaram (1895–1960), remembered by the honorific *Sakhi Baba*, \"the generous master,\" was born on 3 April 1895 in the village of Jatoin near Panno Aqil, the son of Bhai Ludhrodmal and"
+  },
+  {
+   "saintSlug": "bhagat-kanwar-ram",
+   "altNames": [
+    "Kanwar Ram"
+   ],
+   "quote": "Kanwar Ram — born 13 April 1885 at Tarachand's house in Jarwar, then part of Mirpur Mathelo tehsil, and a disciple of Sant Satram Das (1866-1910) — was also remembered for singing the"
+  },
+  {
+   "saintSlug": "satguru-swami-sai-satramdas-sahib",
+   "altNames": [
+    "Sant Satram Das",
+    "Satguru Swami Sai Satramdas Sahib",
+    "Sant Shiromani Satramdas"
+   ],
+   "quote": "the revered Sindhi saint born here, according to the tradition, on 25 October 1866. He gave his life to spiritual teaching in the syncretic Sindhi devotional mould, preaching love, humility"
+  },
+  {
+   "saintSlug": "bhai-gurdas-veneration-of-guru-nanak",
+   "altNames": [
+    "Bhai Kanya Lal",
+    "Kanhiya Lal",
+    "Bhai Gurdas Singh"
+   ],
+   "quote": "born Bhai Kanya Lal, he is remembered as a Khalsa saint who received the blessing of Guru Gobind Singh himself before carrying that teaching into the towns of"
+  },
+  {
+   "saintSlug": "shams-ali-qalandar",
+   "altNames": [
+    "Hazrat Shams Ali Qalandar"
+   ],
+   "quote": "Tradition records that Shams Ali Qalandar died on Tuesday, the sixth of September 1966, at the advanced age of about ninety-three, at Dhaliana in the Shamsabad area, where his"
+  },
+  {
+   "saintSlug": "daud-bandagi-kirmani",
+   "altNames": [
+    "Daud Bandagi Kirmani",
+    "Sheikh Dawood Bandgi Kirmani",
+    "Syed Dawood Bandgi Kirmani"
+   ],
+   "quote": "Daud, honoured with the title *Bandagi* (“servitude,” marking his devotion) and the epithet *Kirmani* for his family’s origins, was born in 1513. He gave himself to religious learning and"
+  },
+  {
+   "saintSlug": "bhagwan-swaminarayan",
+   "altNames": [
+    "Sahajanand Swami",
+    "Swaminarayan"
+   ],
+   "quote": "The Swaminarayan movement takes its name from *Swaminarayan* (Sahajanand Swami, 1781–1830), the reformer and teacher who gathered a large following across Gujarat and"
+  },
+  {
+   "saintSlug": "ramdev-pir",
+   "altNames": [
+    "Ramapir",
+    "Baba Ramdev",
+    "Ramdev Pir"
+   ],
+   "quote": "also called Ramapir or Baba Ramdev — a fifteenth-century saint of Rajasthan venerated across western India and Sindh as a worker of miracles and a champion of the poor"
+  },
+  {
+   "saintSlug": "guru-gorakhnath",
+   "altNames": [
+    "Gorakhnath",
+    "Goraknath"
+   ],
+   "quote": "traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*. He is"
+  },
+  {
+   "saintSlug": "sheikh-tahir",
+   "altNames": [
+    "Odero Lal",
+    "Udero Lal",
+    "Jhulelal",
+    "Khwaja Khizr (identified by some)"
+   ],
+   "quote": "The Muslim tradition of the site tells that the saint interred here was born a Hindu named Odero Lal and embraced Islam, becoming known as Sheikh Tahir; some identify the figure with"
+  },
+  {
+   "saintSlug": "abdullah-shah-ghazi",
+   "altNames": [
+    "Abdullah Shah Ghazi"
+   ],
+   "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan; for the people of Karachi he is the guardian of the"
+  },
+  {
+   "saintSlug": "abul-faiz-qalander-ali-suharwardi",
+   "altNames": [
+    "Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi",
+    "Abul Faiz Qalandar"
+   ],
+   "quote": "He died on 9 September 1958, and was buried at Hanjarwal, where his shrine now stands. ## Teachers and the Chain of"
+  },
+  {
+   "saintSlug": "akhund-darweza-baba",
+   "altNames": [
+    "Akhund Darweza",
+    "Syed Muhammad"
+   ],
+   "quote": "*Akhund Darweza* (traditionally 1533-1638) was one of the most influential religious figures of the Pashtun country in the age of the Mughals — a"
+  },
+  {
+   "saintSlug": "hazrat-syed-abdul-wahab",
+   "altNames": [
+    "Hazrat Syed Abdul Wahab",
+    "Akhund Panju Baba"
+   ],
+   "quote": "a Sufi and preacher remembered as one of the great teachers of Islam in the Pashtun country during the reign of the Mughal emperor Akbar (1556-1605). Tradition holds that many were guided"
+  },
+  {
+   "saintSlug": "syed-abdul-razzaq",
+   "altNames": [
+    "Syed Abdul Razzaq",
+    "Baba Shah Chiragh"
+   ],
+   "quote": "Given the honorific \"Chiragh,\" meaning lamp, by his grandfather Hazrat Abdul Qadir Sani, he flourished during the reign of the Mughal emperor Shah Jahan and died in 1657 CE. His mausoleum"
+  },
+  {
+   "saintSlug": "hazrat-baba-shah-kamal",
+   "altNames": [
+    "Hazrat Baba Shah Kamal",
+    "Shah Kamal"
+   ],
+   "quote": "his likely lifetime is generally placed in the same late-sixteenth to seventeenth-century Mughal-era window as Shah Jamal's own. The shrine sits within the historic Shah Kamal"
+  },
+  {
+   "saintSlug": "bahauddin-zakariya",
+   "altNames": [
+    "Baha-ud-Din Zakariya",
+    "Bahauddin Zakariya"
+   ],
+   "quote": "Baha-ud-Din Zakariya was born around 1170 near Multan, into a Qureshi family of Arab descent that had settled in the region. He pursued"
+  },
+  {
+   "saintSlug": "bibi-pak-daman",
+   "altNames": [
+    "Bibi Haj",
+    "Bibi Taj",
+    "Bibi Noor",
+    "Bibi Hoor",
+    "Bibi Gauhar",
+    "Bibi Shahbaz (or Shahnaz)",
+    "Sayyida Ruqayya bint Ali (in the Karbala tradition)"
+   ],
+   "quote": "Two great traditions about the identity of the six women endure side by side, and the shrine holds meaning in both. The older and by far the more"
+  },
+  {
+   "saintSlug": "sayyid-ahmad-tokhta-tirmidhi",
+   "altNames": [
+    "Sayyid Ahmad Tirmidhi"
+   ],
+   "quote": "He is said to have died around 602 AH — near the beginning of the reign of Sultan Qutb al-Din Aibak — and to be buried in the Lahore quarter still called Chilla Bibiyan, which takes its"
+  },
+  {
+   "saintSlug": "fariduddin-ganjshakar",
+   "altNames": [
+    "Baba Fariduddin Mas‘ud Ganjshakar",
+    "Baba Farid",
+    "Farid"
+   ],
+   "quote": "Farid was born around 1173 at Kothewal, near Multan, into a family of learned émigrés of Central Asian origin; his grandfather is said to have come"
+  },
+  {
+   "saintSlug": "ganj-e-inayat-sarkar",
+   "altNames": [
+    "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi",
+    "Muhammad Inayat Ahmad"
+   ],
+   "quote": "Muhammad Inayat Ahmad was born on 18 November 1937 at Kalisaah, a village of the Kashmir valley, into a household known for both learning and piety."
+  },
+  {
+   "saintSlug": "hazrat-hafiz-muhammad-jamal-multani",
+   "altNames": [
+    "Hafiz Jamal",
+    "Hafiz Muhammad Jamal Multani"
+   ],
+   "quote": "Born at Multan around 1747 (1160 AH) and dying in 1811, Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the"
+  },
+  {
+   "saintSlug": "hazrat-muhammad-ayub-shah-bukhari",
+   "altNames": [
+    "Ayub Shah Bukhari"
+   ],
+   "quote": "the documented history of the saint is thin and his dates uncertain, so his biography is best treated as living tradition rather than established record; the *Bukhari*"
+  },
+  {
+   "saintSlug": "hazrat-shah-ali-akbar-shamsi",
+   "altNames": [
+    "Shah Ali Akbar",
+    "Hazrat Shah Ali Akbar Shamsi"
+   ],
+   "quote": "construction of the mausoleum began in 993 AH (about 1585 CE) and took some fifteen years to complete; it is said to have been raised by the saint's"
+  },
+  {
+   "saintSlug": "shah-daula-daryai",
+   "altNames": [
+    "Shah Daula"
+   ],
+   "quote": "Reliable dates for Shah Daula are difficult to fix, and the sources differ; he is traditionally said to have lived roughly between 1581 and 1675, and to have settled in Gujrat in the early"
+  },
+  {
+   "saintSlug": "imam-ali-ul-haq",
+   "altNames": [
+    "Imam Ali al-Haq",
+    "Imam Ali-ul-Haq"
+   ],
+   "quote": "Two broad traditions circulate about Imam Ali-ul-Haq, and they cannot easily be reconciled. According to the more commonly repeated local account, he lived in the medieval period"
+  },
+  {
+   "saintSlug": "jalaluddin-surkh-posh-bukhari",
+   "altNames": [
+    "Sayyid Jalaluddin Surkh-Posh Bukhari",
+    "Jalaluddin Bukhari"
+   ],
+   "quote": "Sayyid Jalaluddin was born in 1192 at Bukhara, in Central Asia, into a family of Sayyids tracing descent from the Prophet. Migrating southward in the"
+  },
+  {
+   "saintSlug": "laki-shah-saddar",
+   "altNames": [
+    "Syed Shah Sadaruddin Lakyari",
+    "Shah Sadaruddin",
+    "Laki Shah Sadar",
+    "Lakhi Shah Saddar"
+   ],
+   "quote": "Precise dates for his life have not been securely established, and devotees emphasise his spiritual station and the miracles (*karamat*) attributed"
+  },
+  {
+   "saintSlug": "makhdoom-abdul-rahim-girhori",
+   "altNames": [
+    "Abdul Rahim Girhori"
+   ],
+   "quote": "a leading Naqshbandi mystic and scholar of eighteenth-century Sindh (1739–1778) who belonged to the Mangrio tribe and came to be known as *Girhori* after he settled at"
+  },
+  {
+   "saintSlug": "jahaniyan-jahangasht",
+   "altNames": [
+    "Sayyid Jalaluddin Bukhari",
+    "Makhdoom Jahaniyan Jahangasht",
+    "Syed Jalal-ud-Din Jahaniyan Jahangasht"
+   ],
+   "quote": "Born at Uch in 1308 into the Bukhari sayyid family founded by his grandfather Surkh-Posh, Jalaluddin was schooled in the religious sciences and the"
+  },
+  {
+   "saintSlug": "makhdoom-nooh",
+   "altNames": [
+    "Makhdoom Lutufullah",
+    "Lutfullah",
+    "Makhdoom Nooh"
+   ],
+   "quote": "with tradition placing his birth around 1500-1505 and his death about 1590. A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as"
+  },
+  {
+   "saintSlug": "hazrat-meeran-muhammad-shah-bukhari",
+   "altNames": [
+    "Hazrat Meeran Muhammad Shah Bukhari",
+    "Miran Muhammad Shah",
+    "Mauj Darya"
+   ],
+   "quote": "commemorates a saint born in 1533 in Uch Sharif, the son of Safi-ud-Din Bukhari of the Sadaat of that town, a descendant of Jalaluddin Surkh-Posh"
+  },
+  {
+   "saintSlug": "mian-mir",
+   "altNames": [
+    "Mir Mohammad",
+    "Mir Mohammad of Sind",
+    "Mian Mir"
+   ],
+   "quote": "Mian Mir was born in the sixteenth century in Sehwan (Sivastan) in Sindh — the town lying, as the prince Dara Shikoh later noted, between the cities"
+  },
+  {
+   "saintSlug": "mian-muhammad-umar-chamkani",
+   "altNames": [
+    "Mian Muhammad Umar Chamkani",
+    "Mian Umar Baba",
+    "Mian Umar"
+   ],
+   "quote": "Mian Umar (traditionally 1671-1776) was a Sufi of the Naqshbandi order — a scholar, poet, social reformer, and historian who is counted, together"
+  },
+  {
+   "saintSlug": "syed-miran-hussain-zanjani",
+   "altNames": [
+    "Syed Miran Hussain Zanjani",
+    "Shaikh Hussain Zanjani",
+    "Hazrat Shaikh Hussain Zanjani"
+   ],
+   "quote": "A Hussaini Syed born in 958 CE in Zanjan, in present-day Iran, he travelled to Lahore around 998 CE on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is"
+  },
+  {
+   "saintSlug": "hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+   "altNames": [
+    "Hazrat Syed Azizuddin al-Hassani wal-Hussaini",
+    "Azizuddin",
+    "Peer Makki"
+   ],
+   "quote": "He is said to have died in 612 AH (1215 CE). Alam Faqri's *Tazkirah Awliya-e-Pakistan* preserves the same broad outline"
+  },
+  {
+   "saintSlug": "syed-ali-tirmizi",
+   "altNames": [
+    "Syed Ali Tirmizi",
+    "Syed Ali Ghawwas Tirmizi"
+   ],
+   "quote": "*Syed Ali Tirmizi* (c. 1502–1583), the Sufi saint universally known as *Pir Baba*, one of the most revered holy figures of the Pashtun lands. Of"
+  },
+  {
+   "saintSlug": "pir-chhatal-shah-noorani",
+   "altNames": [
+    "Chhatal Shah Noorani"
+   ],
+   "quote": "asked who Chhatal Shah Noorani had been, the man replied simply, \"Only Allah knows!\" — adding only that he was \"a granter of wishes\" to Hindus and Muslims"
+  },
+  {
+   "saintSlug": "pir-lakha",
+   "altNames": [
+    "Pir Lakha"
+   ],
+   "quote": "Because the life of the eponymous *pir* is essentially undocumented in accessible sources, only the shrine's living role as a pilgrimage-and-healing centre can be stated"
+  },
+  {
+   "saintSlug": "pir-mangho",
+   "altNames": [
+    "Hazrat Haji Syed Sakhi Sultan",
+    "Pir Mangho",
+    "Mangho Pir"
+   ],
+   "quote": "The saint of Mangho Pir is remembered as a holy man of the medieval centuries who settled at this spot in the hills above Karachi. Around his memory has"
+  },
+  {
+   "saintSlug": "pir-sher-muhammad",
+   "altNames": [
+    "Mian Pir Sher Muhammad Sharaqpuri",
+    "Mian Sher Muhammad"
+   ],
+   "quote": "Mian Sher Muhammad was born in 1865 at Sharaqpur into a devout family, and from his youth turned to the religious sciences and the Sufi"
+  },
+  {
+   "saintSlug": "qalandar-baba-auliya",
+   "altNames": [
+    "Sayyid Muhammad Azeem Barkhiya",
+    "Muhammad Azeem"
+   ],
+   "quote": "Muhammad Azeem was born in 1898 at Khurja, in the United Provinces of British India, into a Sayyid family, and is known by the spiritual title"
+  },
+  {
+   "saintSlug": "sachal-sarmast",
+   "altNames": [
+    "Abdul Wahab",
+    "Abdul Wahab Faruqi"
+   ],
+   "quote": "Sachal Sarmast was born in 1739 at Daraza into a Sayyid family of the Farooqi line; his given name was Abdul Wahab, but he became known as *Sachal* — “the truthful” — and *Sarmast* — “the"
+  },
+  {
+   "saintSlug": "shah-abdul-karim-bulri",
+   "altNames": [
+    "Shah Abdul Karim",
+    "Shah Abdul Karim Bulri",
+    "Bulri Shah Karim"
+   ],
+   "quote": "Shah Abdul Karim (1536–1623) was born into a Sayyid family of Matiari but spent most of his life at Bulri, from which he takes his epithet. He is remembered as a mystic of simple, laborious"
+  },
+  {
+   "saintSlug": "shah-inayat-qadiri",
+   "altNames": [
+    "Abul-Muarif Hanfi Qadri",
+    "Shah Inayat Qadiri",
+    "Shah Inayat"
+   ],
+   "quote": "The field survey adds biographical detail not previously in this entry: his given name as Abul-Muarif Hanfi Qadri, his memorisation of the Qur'an by age five, and titles it records for him"
+  },
+  {
+   "saintSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "altNames": [
+    "Syed Shah Jamal",
+    "Syed Shah Jamal Uddin Naqvi Bukhari"
+   ],
+   "quote": "Born, by the shrine's account, in 1587, he is generally held to have died in the later seventeenth century, though sources differ on the precise"
+  },
+  {
+   "saintSlug": "shah-rukn-e-alam",
+   "altNames": [
+    "Rukn-ud-Din Abul Fath",
+    "Rukn-ud-Din"
+   ],
+   "quote": "Rukn-ud-Din was born in Multan in 1251, the grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif, into the leading Suhrawardi family of the"
+  },
+  {
+   "saintSlug": "shah-shams-ud-din-sabzwari",
+   "altNames": [
+    "Shah Shams-ud-Din Sabzwari",
+    "Shah Shams Sabzwari"
+   ],
+   "quote": "He died in Multan in the thirteenth century. ## The Shrine and its Devotion Shah Shams Sabzwari’s shrine in"
+  },
+  {
+   "saintSlug": "shah-yusaf-gardez",
+   "altNames": [
+    "Sayyid Yusuf",
+    "Shah Yusuf Gardez"
+   ],
+   "quote": "tradition places his arrival in the years around 1088 and his death in the first half of the 1100s), when Islam was still taking root in the region. A Sayyid of the family of the"
+  },
+  {
+   "saintSlug": "syed-musa-pak",
+   "altNames": [
+    "Syed Musa",
+    "Musa Pak Shaheed"
+   ],
+   "quote": "who flourished in Multan in the sixteenth century. Learned and devout, he was a shaykh of the Qadiri order and a guide of many disciples, and he is remembered for a life"
+  },
+  {
+   "saintSlug": "muhammad-shamsuddin-sialvi",
+   "altNames": [
+    "Khwaja Muhammad Shamsuddin Sialvi",
+    "Muhammad Shamsuddin Sialvi"
+   ],
+   "quote": "Khwaja Muhammad Shamsuddin was born in 1799 at Sial Sharif into a devout family, and from his youth pursued the religious sciences and the Sufi path."
+  },
+  {
+   "saintSlug": "shah-hussain",
+   "altNames": [
+    "Shah Hussain",
+    "Madho Lal Hussain",
+    "Lal Hussain"
+   ],
+   "quote": "Hussain was born in Lahore in 1538 into a family of weavers — his father, by tradition, a craftsman who stitched uniforms for the army of the Emperor"
+  },
+  {
+   "saintSlug": "allama-muhammad-iqbal",
+   "altNames": [
+    "Muhammad Iqbal",
+    "Allama Muhammad Iqbal",
+    "Sir Muhammad Iqbal"
+   ],
+   "quote": "Muhammad Iqbal was born on 9 November 1877 in the city of Sialkot, in the Punjab, into a family descended from Kashmiri Brahmins who had embraced"
+  },
+  {
+   "saintSlug": "hazrat-bahaal-halim",
+   "altNames": [
+    "Baha'al-Halim",
+    "Baha' al-Halim",
+    "Bahaul Halim"
+   ],
+   "quote": "the exact dates of his life are not securely recorded and are best treated with caution. The mausoleum is an octagonal, three-tiered structure of"
+  },
+  {
+   "saintSlug": "bibi-jawindi",
+   "altNames": [
+    "Bibi Jawindi",
+    "Javindi Bibi"
+   ],
+   "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her"
+  },
+  {
+   "saintSlug": "sultan-qutb-ud-din-aibak",
+   "altNames": [
+    "Qutb ud-Din Aibak",
+    "Aibak"
+   ],
+   "quote": "Born around 1150 in Turkestan, Aibak was sold into slavery as a child and eventually rose, through service to the Ghurid ruler Muhammad Ghori, to"
+  },
+  {
+   "saintSlug": "ustad-nuriya",
+   "altNames": [
+    "Ustad Nuriya",
+    "Ustead"
+   ],
+   "quote": "Tradition holds that the tomb honours Ustad Nuriya — the master-builder, or ustad, credited with designing the exquisite tomb of Bibi Jawindi, itself usually dated to the late"
+  },
+  {
+   "saintSlug": "ghazi-syed-shah-fateh-muhammad-bukhari",
+   "altNames": [
+    "Ghazi Baba",
+    "Ghazi Syed Shah Fateh Muhammad Bukhari"
+   ],
+   "quote": "Because the detailed record of his life survives chiefly in family and devotional tradition rather than in independent chronicle, the particulars of his dates and deeds are best received as"
+  },
+  {
+   "saintSlug": "kaka-sahib",
+   "altNames": [
+    "Syed Kasteer Gul",
+    "Sheikh Rahmkar",
+    "Sheikh Rahm Kar",
+    "Kaka Sahib"
+   ],
+   "quote": "whose given name was *Syed Kasteer Gul* and who is also remembered by the honorific *Sheikh Rahmkar*. Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he"
+  },
+  {
+   "saintSlug": "mian-qurban-ali-shah",
+   "altNames": [
+    "Qurban Ali"
+   ],
+   "quote": "Hazrat Qurban Ali Shah was born in 1341 AH in Malerkotla, India, that his given name was Qurban Ali, and that people later came to call him Mian Qurban Ali Shah in recognition of"
+  },
+  {
+   "saintSlug": "shah-gohar-peer",
+   "altNames": [
+    "Syed Ali Gohar",
+    "Hazrat Sufi Peer Syed Gohar Ali Shah",
+    "Shah Gohar Peer"
+   ],
+   "quote": "was born on 11 Rabīʿ al-Sānī 729 AH at Uch Sharif. His father, Syed Ul Hassan Kabeer, is described as a pious Sufi and a scholar of *dīn* (religion)"
+  },
+  {
+   "saintSlug": "syed-bilawal-shah-noorani",
+   "altNames": [
+    "Syed Bilawal Shah Noorani",
+    "Shah Noorani"
+   ],
+   "quote": "Shah Noorani is remembered as a Sufi saint of the medieval centuries who settled in the wild valley of Lahut Lamakan — a place whose very name (*la-hut la-makan*, “the"
+  },
+  {
+   "saintSlug": "shah-yousuf",
+   "altNames": [
+    "Hazrat Shah Yousuf",
+    "Shah Yousaf"
+   ],
+   "quote": "almost nothing about the saint's life, lineage, or era survives in accessible written sources. The fifteenth-century founding date sometimes attached to the site could not be"
+  },
+  {
+   "saintSlug": "baba-pir-ratan-nath",
+   "altNames": [
+    "Ratan Nath",
+    "Baba Pir Ratan Nath"
+   ],
+   "quote": "the details of his life are wrapped in legend and cannot be fixed with confidence to a particular century, and the tradition should be received as sacred memory rather than"
+  },
+  {
+   "saintSlug": "baba-bankhandi-maharaj",
+   "altNames": [
+    "Balchand Sharma",
+    "Baba Bankhandi Maharaj"
+   ],
+   "quote": "The founding of Sadh Belo is attributed to the *Udasi* saint Baba Bankhandi Maharaj, born Balchand Sharma, whose origins are variously traced, according to differing accounts, to Kero"
+  },
+  {
+   "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+   "altNames": [
+    "Kanhiya Lal",
+    "Bhai Gurdas Singh",
+    "Bhai Kanya Lal"
+   ],
+   "quote": "founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh who, after the Guru's death in 1708, is said to have travelled to Sindh and preached"
+  },
+  {
+   "saintSlug": "syed-sakhi-shah-chan-charagh",
+   "altNames": [
+    "Shah Zaman",
+    "Sayyid Shah Zaman",
+    "Sakhi Shah Chan Charagh"
+   ],
+   "quote": "The saint's given name is traditionally said to have been Shah Zaman, and he is remembered as a *sayyid* — a descendant of the Prophet Muhammad — whose lineage is traced through"
+  }
+ ],
+ "rejected": [
+  {
+   "candidate": "Guru Hargobind — 1606 to 1644",
+   "reason": "Guruship period, not life dates. \"the sixth Guru of the Sikhs (Guru from 1606 to 1644)\". Five gurdwara rows name him; none gives a birth or death year."
+  },
+  {
+   "candidate": "Guru Hargobind — Samvat 1670 / 1613 CE (Nankana Sahib), 1619 (Mozang), c. 1620 (Hadiara)",
+   "reason": "Dates of remembered visits, not life dates."
+  },
+  {
+   "candidate": "Hazrat Hafiz Muhammad Abdul Karim \"Baba Ji\" (eidgah-sharif) — 8 June 1898 / 4 January 1953",
+   "reason": "Both dates belong to his son and to the present custodian. See subjectMismatch. No date is proposed for Baba Ji."
+  },
+  {
+   "candidate": "Hazrat Shah Ali Akbar Shamsi — 993 AH / about 1585 CE",
+   "reason": "Construction date of the mausoleum (which took \"some fifteen years to complete\"), attributed to his grandson. Punjab archaeology separately attributes the building to the 17th century. Neither is a life date."
+  },
+  {
+   "candidate": "Bibi Jawindi — c. 1493/1494",
+   "reason": "Date her tomb was built, by tradition by an Iranian prince named Dilshad. Not a death date."
+  },
+  {
+   "candidate": "Sayyid Faiz-ul-Hassan Shah — c. 1911–1984 (allo-mahar)",
+   "reason": "Real dates, but for a figure who is not the row's recorded saint. Recorded in subjectMismatch, not attributed to Channan Shah Nuri. This is the case docs/allo_mahar_resolution.md exists to prevent repeating."
+  },
+  {
+   "candidate": "Dayo Ram Daduvansi — 1836–1906 (sant-baba-bhagat-ram-darbar-mandir)",
+   "reason": "A different figure from the row's saint, and the dates are themselves \"variously given\"."
+  },
+  {
+   "candidate": "Khwaja Feroz-ud-Din — \"born in the latter part of the 1900s (19th century)\"",
+   "reason": "Self-contradictory in the source, which says so itself. Left empty rather than resolved to a decade."
+  },
+  {
+   "candidate": "Khawaja Sheikh Muhammad Mustafa Chishti-Nizami — d. 1390 AH",
+   "reason": "The master of the Feroz-ud-Din shrine's saint, not the saint. Not proposed as a new node because nothing else about him is dated."
+  },
+  {
+   "candidate": "Khwaja Pir Muhammad Zahid Khan (d. 9 December 1993), Khawaja Pir Badshah Sahib (d. 13 August 2008)",
+   "reason": "Successors at Mohra Sharif, not the founder. See subjectMismatch."
+  },
+  {
+   "candidate": "Sain Jiwat Singh — d. 1899 (sain-vali-vilayat-rai-darbar-kambar)",
+   "reason": "Successor, not the founder Vali Vilayat Rai. The web-research file confirms the 1899 belongs to Jiwat Singh."
+  },
+  {
+   "candidate": "Maharaja Ranjit Singh — 1801",
+   "reason": "Accession, not birth. His birth year appears only in the column, not the prose."
+  },
+  {
+   "candidate": "Ali Hujwiri — around 1039 CE (431 AH)",
+   "reason": "Arrival in Lahore, not a life date."
+  },
+  {
+   "candidate": "Bhai Karam Singh (\"a man of about thirty\") and Bhai Pratap Singh (\"some twenty-four years old\"), d. 30 October 1922",
+   "reason": "Martyrs of the Saka Panja Sahib, with ages but no birth years, and no saint nodes. Ages are not converted into birth years."
+  },
+  {
+   "candidate": "Shah Abul Muali Qadri — 980 Hijri",
+   "reason": "Year of his migration from Depalpur to Lahore and of the journey towards Delhi, not a life date."
+  },
+  {
+   "candidate": "Malik Ahmad Ayaz — \"educated in Georgia in 993 AD\"",
+   "reason": "The only early date in the account, explicitly not a birth year; the entry's own proposed field value says \"Not given\"."
+  },
+  {
+   "candidate": "Kaka Sahib — around 1661",
+   "reason": "His son raising the mausoleum. Building date."
+  },
+  {
+   "candidate": "Makhdoom Nooh — c. 1601 and 1777",
+   "reason": "Two relocations of his remains as the Indus shifted, not life dates."
+  },
+  {
+   "candidate": "Shah Abdul Karim Bulri — 1630 and about 1741 (1154 AH)",
+   "reason": "Completion of the Bayan al-Arifin (seven years after his death, per the source) and the foundation of the tomb complex. Neither is a life date."
+  },
+  {
+   "candidate": "Shah Daula Daryai — 1898",
+   "reason": "Nineteenth-century rebuilding of the shrine."
+  },
+  {
+   "candidate": "Baba Bankhandi Maharaj — 1823",
+   "reason": "Arrival at Sukkur \"still in his teens\". An age band with no birth year; not converted."
+  },
+  {
+   "candidate": "Sant Thawan Das, Bhai Waliram, Sant Gurdas Ram, Swami Dharmdas",
+   "reason": "Four Hindu/Nanakpanthi sant rows whose prose contains no date, no title and no alternate name for the figure. Nothing to extract; not even an \"unrecorded\" claim is made by the source."
+  },
+  {
+   "candidate": "All deity rows (Shiva, Krishna, Kali, Durga, Varuna, Hanuman, Rama, Lava, Jagannath, Narasimha, Sharada, Hinglaj Mata, King Pandu, Jain Tirthankaras)",
+   "reason": "Temple construction and restoration dates only (9th–10th c. Hindu Shahi, 1375-76 CE Gori, c. 1851 Gorakhnath, 1917–18 Varun Dev, etc.). No biographical anchors exist for a deity and none were invented."
+  },
+  {
+   "candidate": "Guru Gobind Singh — birth year",
+   "reason": "Only his death (1708) is stated anywhere in the corpus, in passing, in a row about a different figure."
+  },
+  {
+   "candidate": "Madho Lal (the Hindu companion of Shah Hussain)",
+   "reason": "No dates at all: the prose says only that he outlived Shah Hussain by \"decades\" and the shrine_entries note places his burial \"mid-17th century\". Not proposed as a dated node."
+  },
+  {
+   "candidate": "Mian Mir — 1659",
+   "reason": "Execution of Dara Shikoh, his disciple's patron, in a row that also carries the saint's own disputed death. A classic adjacent-date trap."
+  },
+  {
+   "candidate": "Sayyid Ahmad Tokhta Tirmidhi — attribution of his 602 AH death to the six Bibis",
+   "reason": "His date belongs to him, not to the Bibis. Recorded as a separate (new) saint precisely so that it cannot leak into the Bibi Pak Daman row."
+  }
+ ]
+}

@@ -54,6 +54,20 @@ jobs:
           VITE_MAPTILER_KEY: ${{ secrets.VITE_MAPTILER_KEY }}
           VITE_MAPTILER_STYLE_ID: ${{ secrets.VITE_MAPTILER_STYLE_ID }}
 
+      # The last gate before the site goes live, and the only one that can see
+      # base-path bugs: every other job builds with the base at `/` (the e2e
+      # artifact needs root-relative URLs), which is the one configuration in
+      # which such bugs do not exist. Boots the *real* artifact at
+      # /Sufi-Shrines/ behind a server that behaves like GitHub Pages — files
+      # under the prefix, 404.html with a 404 status — and asserts every route
+      # renders and every in-app link carries the base. See HANDOVER §9.58/§9.60
+      # for the two production-only bugs that motivated it.
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify the production base path
+        run: npm run verify:pages
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

@@ -19,17 +19,22 @@ export default defineConfig({
     // synthesis — a test run would play audio out of the developer's speakers
     // with no warning. A test suite should never make noise.
     //
-    // PLAYWRIGHT_CHROMIUM_EXECUTABLE lets a sandbox point the suite at a
-    // Chromium it already has. Without it, all 59 specs fail identically in
-    // 2ms with "Executable doesn't exist at …/chromium_headless_shell-<build>",
-    // which reads like a broken suite rather than a missing download — and
-    // `npx playwright install` is not always available (the Claude Code web
-    // sandbox pre-installs a *pinned* build under /opt/pw-browsers and blocks
-    // the download). Unset on a normal machine, so nothing changes there.
+    // Lets a sandbox point the suite at a Chromium it already has. Without it,
+    // every spec fails identically in 2ms with "Executable doesn't exist at
+    // …/chromium_headless_shell-<build>", which reads like a broken suite rather
+    // than a missing download — and `npx playwright install` is not always
+    // available (the Claude Code web sandbox pre-installs a *pinned* build under
+    // /opt/pw-browsers and blocks the download). Both names are accepted because
+    // two branches added this independently and both are written down in
+    // runbooks. Unset on a normal machine, so nothing changes there.
+    //   PLAYWRIGHT_CHROMIUM_EXECUTABLE=/opt/pw-browsers/chromium npm run e2e
     launchOptions: {
       args: ['--mute-audio'],
-      ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
-        ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
+      ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE || process.env.PLAYWRIGHT_CHROMIUM_PATH
+        ? {
+            executablePath:
+              process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE || process.env.PLAYWRIGHT_CHROMIUM_PATH,
+          }
         : {}),
     },
   },

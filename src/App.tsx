@@ -25,6 +25,9 @@ const GraphPage = lazy(() => import('./pages/GraphPage'));
 const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
 const ReportPage = lazy(() => import('./pages/ReportPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
+const CoveragePage = lazy(() => import('./pages/CoveragePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const PlacePage = lazy(() => import('./pages/PlacePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -90,17 +93,45 @@ function RouteAnnouncer() {
   return null;
 }
 
+/*
+ * The skip links, inside the language provider.
+ *
+ * They were two English literals rendered on every route, Urdu included — the
+ * first two controls a keyboard reader reaches, announcing themselves in the
+ * wrong language. They survived because the no-English-leak guard exempted
+ * every `<a>` (the sweep now lives in e2e/urdu-no-leak.spec.ts) and because a
+ * skip link is invisible until focused, so no screenshot showed them either.
+ *
+ * They live in a component rather than inline because `useLang` needs to be
+ * called below LanguageProvider, and App itself renders the provider.
+ */
+function SkipLinks() {
+  const { t } = useLang();
+  const { pathname } = useLocation();
+  /* #shrine-directory exists on the map route and nowhere else, so on the other
+     eight routes this was a skip link to nothing: the keyboard reader's second
+     stop, which silently does not move focus. Every route has #main-content. */
+  const onMap = pathname === '/' || pathname === '/ur' || pathname === '/ur/';
+  return (
+    <>
+      <a href="#main-content" className="skip-link">
+        {t('skipToContent')}
+      </a>
+      {onMap && (
+        <a href="#shrine-directory" className="skip-link">
+          {t('skipToShrineList')}
+        </a>
+      )}
+    </>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <BrowserRouter basename={import.meta.env.BASE_URL}>
-          <a href="#main-content" className="skip-link">
-            Skip to content
-          </a>
-          <a href="#shrine-directory" className="skip-link">
-            Skip to shrine list
-          </a>
+          <SkipLinks />
           <RouteAnnouncer />
           <AppErrorBoundary>
             <Suspense fallback={<PageFallback />}>
@@ -113,6 +144,9 @@ export default function App() {
                 <Route path="/almanac" element={<AlmanacPage />} />
                 <Route path="/report" element={<ReportPage />} />
                 <Route path="/typology" element={<TypologyPage />} />
+                <Route path="/coverage" element={<CoveragePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/place/:slug" element={<PlacePage />} />
                 {/* Legacy shrine.html?id=N redirect */}
                 <Route path="/shrine.html" element={<LegacyRedirect />} />
                 {/* /ur/* — crawler-discovery mirror of the routes above (see
@@ -174,10 +208,34 @@ export default function App() {
                   }
                 />
                 <Route
+                  path="/ur/coverage"
+                  element={
+                    <UrPrefixNormalizer>
+                      <CoveragePage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
                   path="/ur/typology"
                   element={
                     <UrPrefixNormalizer>
                       <TypologyPage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
+                  path="/ur/about"
+                  element={
+                    <UrPrefixNormalizer>
+                      <AboutPage />
+                    </UrPrefixNormalizer>
+                  }
+                />
+                <Route
+                  path="/ur/place/:slug"
+                  element={
+                    <UrPrefixNormalizer>
+                      <PlacePage />
                     </UrPrefixNormalizer>
                   }
                 />

@@ -12,6 +12,14 @@ export const UI_TEXT = {
     exploreTitle: 'Explore Sufi Shrines',
     exploreHint: 'Use the list button above to browse all shrines.',
     tableButton: 'Table of Shrines',
+    /* ── Command palette (⌘K search) ─────────────────────────────────────── */
+    paletteTitle: 'Search the archive',
+    paletteOpen: 'Search and filter',
+    filtersLabel: 'Filters',
+    paletteHintMove: 'to move',
+    paletteHintOpen: 'to open',
+    ariaOpenPalette: 'Search and filter the archive',
+    paletteClose: 'Close search',
     searchPlaceholder: 'Search shrines…',
     noMatches: 'No matches.',
     uncategorized: 'Uncategorized',
@@ -36,6 +44,18 @@ export const UI_TEXT = {
     getDirections: 'Get Directions',
     relatedShrines: 'Related Shrines',
     nearbyShrines: 'Nearby Shrines',
+    sharedGroundHeading: 'Shared ground',
+    sharedGroundIntro: (sites: number, traditions: number) =>
+      `${sites} other site${sites === 1 ? '' : 's'} within walking distance, ` +
+      `${traditions} of them in another tradition.`,
+    sharedGroundIntroSame: (sites: number) =>
+      `${sites} other site${sites === 1 ? '' : 's'} within walking distance.`,
+    sharedGroundNote:
+      'Sites recorded within 800 m of this one. For much of Punjab and Sindh these communities built on the same streets.',
+    sharedGroundSamePin: 'same recorded location',
+    sharedGroundSamePinHelp:
+      'The survey gives no separate position for these, so they share one pin. The distance between them is not recorded.',
+    distanceMetres: 'm away',
     shrineFacts: 'Shrine facts',
     distanceKm: 'km away',
     noImage: 'No image found. Add an "Image Link" value in your sheet.',
@@ -48,6 +68,16 @@ export const UI_TEXT = {
     appErrorReload: 'Reload',
     filterAll: 'All',
     resultCount: (n: number) => `${n} shrine${n === 1 ? '' : 's'}`,
+    /* "12 of 169" — the count *and* the denominator, because a bare "12" hides
+       how much of the archive a query just excluded. */
+    paletteResultCount: (shown: number, total: number) =>
+      shown === total ? `${total} sites` : `${shown} of ${total} sites`,
+    tourCount: (n: number) => `${n} tour${n === 1 ? '' : 's'}`,
+    /* ── Order pages: what the archive can say about where an order is ────── */
+    orderWhereHeading: 'Where this order stands',
+    orderWhereNote:
+      'Counted from the Location of every site where one of its figures is commemorated.',
+    orderSitesHeading: 'Sites of this order',
     activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
     nearMe: 'Near Me',
     switchToUrdu: 'اردو',
@@ -55,12 +85,23 @@ export const UI_TEXT = {
     darkMode: 'Dark mode',
     lightMode: 'Light mode',
     skipToContent: 'Skip to content',
+    skipToShrineList: 'Skip to shrine list',
     gallery: 'Gallery',
     scrollToTop: 'Scroll to top',
     openInMaps: 'Open in Maps',
     sufiOrder: 'Sufi Order',
     spiritualLineage: 'Spiritual Lineage',
     orderMembers: 'Members of this order',
+    orderMemberCount: (n: number) => `${n} saint${n === 1 ? '' : 's'}`,
+    orderBranchCount: (n: number) => `${n} branch${n === 1 ? '' : 'es'}`,
+    orderBranchesLabel: 'Branches',
+    orderMembersLabel: 'Members',
+    orderAlsoIn: 'Also in',
+    orderMultiCount: (n: number) => `${n} figure${n === 1 ? '' : 's'} in more than one silsila`,
+    orderMultiHelp:
+      'A figure can hold allegiance in several silsilas at once. Each affiliation here is a separate edge with its own quoted source, not an inference from the others.',
+    orderBranchHelp:
+      'A branch (\u0634\u0627\u062e) is a sub-line within a silsila. The same branch name can belong to two different orders, so a branch is only meaningful together with its parent.',
     teachersHeading: 'Teachers',
     disciplesHeading: 'Disciples & successors',
     discipleOfLabel: 'Disciple',
@@ -82,7 +123,22 @@ export const UI_TEXT = {
     graphExplorerIntro:
       'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
     graphExplorerOrders: 'Sufi orders',
-    graphExplorerAllSaints: 'All saints',
+    graphExplorerAllFigures: 'Figures in the archive',
+    graphFigureFilterLabel: 'Find a figure',
+    graphFigureFilterPlaceholder: 'Name, title or tradition…',
+    graphFigureFilterClear: 'Clear',
+    graphFigureFilterCount: (shown: number, total: number) => `${shown} of ${total}`,
+    graphFigureFilterEmpty: 'No figure matches that.',
+    lineageUnreviewed: 'unreviewed',
+    titlesLabel: 'Titles and honorifics',
+    disputedDatesLabel: 'Sources disagree',
+    disputedVersus: 'vs',
+    yearsApart: 'years apart',
+    lineageUnreviewedHelp:
+      'Extracted from this archive\u2019s own sources and quote-checked, but not yet read by an editor.',
+    graphLineageNote: 'Recorded teacher\u2013disciple links:',
+    graphExplorerFiguresNote:
+      'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',
     graphLineageHeading: 'Teacher-disciple relationships',
 
     // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
@@ -112,9 +168,145 @@ export const UI_TEXT = {
     almanacCoverageSeasonal: 'with a season only',
     almanacCoverageUndated: 'observed, date unrecorded',
     almanacCoverageNone: 'no observance recorded',
-    almanacCoverageOf: 'of',
-    almanacCoverageSites: 'sites',
+    /* One sentence, not "of" + "sites" assembled around two numbers. Urdu's
+       postposition takes its operands in the opposite order, so the fragments
+       reassembled into a claim about the wrong numbers — see the ur entry. */
+    almanacCoverageTotal: (dated: number, total: number) => `${dated} of ${total} sites`,
+    /* ── Places (Track B) ─────────────────────────────────────────────────── */
+    placesTitle: 'Places',
+    placeKicker: 'Place',
+    placeIntro:
+      'What the archive records in one place — which sites, which traditions, and the span of the dates it can read.',
+    placeSitesHeading: 'Sites recorded here',
+    placeTraditionsHeading: 'Traditions',
+    placeSpanHeading: 'Dates recorded',
+    placeSpanNone: 'No site here records a date this archive can read.',
+    placeNotFound: 'No place by that name is recorded.',
+    placesIntro:
+      'Where the archive is, counted from the Location each entry records. A site can appear under both a town and its district, because it is in both.',
+    placeSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
+    placeSpan: (from: number, to: number) => `${from}–${to}`,
+    placesUnplaced: (n: number) =>
+      `${n} site${n === 1 ? '' : 's'} name${n === 1 ? 's' : ''} no place this archive can identify.`,
+    /* ── Accessible names ─────────────────────────────────────────────────
+       Every one of these was a hardcoded English literal, so the Urdu site's
+       entire accessible layer — landmark names, button labels, the reading
+       progress bar, the filter groups — was announced in English to an Urdu
+       screen-reader user. The no-English-leak e2e guard could not see any of
+       it: it reads visible text under [dir='rtl'], and an accessible name is
+       not visible text. See docs/HANDOVER.md §9.51. */
+    ariaBreadcrumb: 'Breadcrumb',
+    ariaShrineBrowser: 'Shrine browser',
+    /* The mobile bottom sheet's drag handle. Was a hardcoded English literal in
+       MapSidebar.tsx — invisible to the Urdu accessible-name sweep, which runs
+       at a desktop viewport where this control does not exist. */
+    ariaExpandSheet: 'Expand the shrine browser',
+    ariaCollapseSheet: 'Collapse the shrine browser',
+    ariaShrineList: 'Shrine list',
+    ariaFiltersActive: 'filters active',
+    ariaClearSearch: 'Clear search',
+    ariaFilterByCategory: 'Filter by category',
+    ariaFilterByRegion: 'Filter by region',
+    ariaFilterBySaint: 'Filter by Sufi saint',
+    ariaFilterByProvenance: 'Filter by provenance',
+    ariaReadingProgress: 'Reading progress',
+    ariaPreviousImage: 'Previous image',
+    ariaNextImage: 'Next image',
+    ariaInteractiveMap: 'Interactive shrine map',
+    ariaOpenSidebar: 'Open sidebar',
+    /* The service-worker update toast. Its two visible strings were English
+       literals, and no guard could see them: the toast only appears after a
+       controllerchange event, and the e2e config blocks service workers to
+       keep the CSV intercept hermetic. */
+    swUpdateAvailable: 'A new version is available',
+    /* Leaflet writes its own control titles ("Zoom in", "Layers") and sets
+       aria-label from them, so they have to be passed in rather than styled
+       away. The reset-view control is ours. */
+    mapZoomIn: 'Zoom in',
+    mapZoomOut: 'Zoom out',
+    mapLayers: 'Basemap layers',
+    mapResetView: 'Reset view',
+    mapResetViewLabel: 'Reset the map to its default view',
+    /* Basemap picker entries. Only the *descriptor* is translated; the provider
+       (CARTO, Esri, MapTiler) stays as written, on the same footing as a
+       bibliography entry — it is the name of a thing, and a reader chasing an
+       attribution needs the exact string. tFn keeps the two in whichever order
+       the language wants. */
+    mapLayerStreetsEnglish: 'Streets, English labels',
+    mapLayerVoyager: 'Voyager',
+    mapLayerDark: 'Dark',
+    mapLayerLight: 'Light',
+    mapLayerStreets: 'Streets',
+    mapLayerSatellite: 'Satellite',
+    mapLayerTopo: 'Topographic',
+    mapLayerFrom: (name: string, provider: string) => `${name} (${provider})`,
+    ariaCategoryOf: (category: string) => `Category: ${category}`,
+    ariaMapShowing: (name: string) => `Map showing the location of ${name}`,
+    ariaExternalMapShowing: (name: string) => `Google Maps showing the location of ${name}`,
+    galleryImageLabel: (index: number, action: string) => `Image ${index}: ${action}`,
     almanacSourceLabel: 'Recorded as',
+    almanacFigureLabel: 'Commemorating',
+    almanacJumpToMonth: 'Jump to month',
+    aboutTitle: 'About this archive',
+    aboutLede:
+      'A public, bilingual record of sacred sites across Pakistan — Muslim shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi and Udasi darbars, Jain temples and secular memorials — built to be cited, and to be honest about what it does not yet know.',
+    aboutScopeHeading: 'Scope',
+    aboutScopeBody:
+      'Each entry records what a source says, with that source named. Entries are labelled by how they were established, from field-verified to web-compiled, so a reader can weigh them without leaving the page.',
+    aboutMethodHeading: 'How it is built',
+    aboutMethodSheet:
+      'Entries are maintained in a spreadsheet and read by this site at load time, so a correction reaches readers immediately.',
+    aboutMethodProvenance:
+      'Every claim is meant to be traceable to a source. Where sources disagree, the archive reports the disagreement rather than choosing for you.',
+    aboutMethodUrdu:
+      'The Urdu edition is a first-class edition, not a translation layer. Machine-drafted translations are marked as drafts until a fluent reader signs them off.',
+    aboutMethodGaps: 'What the archive does not know is published alongside what it does.',
+    aboutCoverageLink: 'See what this archive knows',
+    aboutLicenceHeading: 'Licence and reuse',
+    aboutLicenceData: 'Dataset',
+    aboutLicenceCode: 'Site and pipeline code',
+    aboutLicenceAttributionLabel: 'Required attribution when reusing the data',
+    aboutCiteHeading: 'How to cite',
+    aboutCiteArchive: 'The archive',
+    aboutCiteEntry: 'A single entry',
+    aboutCiteNote:
+      'Include the date you consulted the page. This archive reads a live source, so an entry can change after you cite it.',
+    aboutCorrectionsHeading: 'Corrections',
+    aboutCorrectionsBody:
+      'Corrections are welcome and credited. If something here is wrong — a date, a coordinate, a lineage, a name — please say so.',
+    aboutCopyDone: 'Copied',
+    aboutCopy: 'Copy',
+    coverageTitle: 'What this archive knows',
+    coverageIntro:
+      'Every figure on this page is counted from the published data, not estimated. Where the archive is silent, it says so.',
+    coverageSitesHeading: 'Sites documented',
+    coverageSupportHeading: 'How each entry was established',
+    coverageInfoHeading: 'Depth of each entry',
+    coverageTraditionHeading: 'Traditions covered',
+    coverageSourcesHeading: 'Citations',
+    coverageEntriesNoun: (n: number) => (n === 1 ? 'entry' : 'entries'),
+    coverageSourcesWithAny: 'with a bibliography',
+    coverageSourcesWithThree: 'citing three or more sources',
+    coverageSourcesWithNone: 'citing nothing',
+    coverageSourcesItems: 'citations in total',
+    coveragePhotosHeading: 'Photography',
+    coveragePhotosWithNone: 'with no photograph',
+    coveragePhotosItems: 'photographs in total',
+    coverageDatesHeading: 'Dates',
+    coverageDatesWithYear: 'recording a construction year',
+    coverageDatesExact: 'of those the archive itself calls exact',
+    coverageDatesHedged: 'whose date carries a written qualification',
+    coverageLocationHeading: 'Coordinates',
+    coverageLocationApprox: 'whose own text says the pin is approximate',
+    coverageObservancesHeading: 'Urs and festivals',
+    coverageObservancesWithText: 'recording an observance',
+    coverageObservancesWithNone: 'recording none',
+    coverageUnrecorded: 'not recorded',
+    coverageWhyHeading: 'Why publish this',
+    coverageWhy:
+      'An archive is only as useful as its account of its own limits. A note in a repository goes stale; a page computed from the data cannot. If a figure here looks low, that is the gap, stated plainly rather than smoothed over.',
+    saintNextUrs: 'Next ʿurs',
+    saintNextUrsLink: 'See the almanac',
     almanacNothingUpcoming: 'No dated observance falls in the next twelve months.',
     almanacSeasonSpring: 'Spring',
     almanacSeasonSummer: 'Summer',
@@ -323,6 +515,15 @@ export const UI_TEXT = {
     exploreTitle: 'مزارات دریافت کریں',
     exploreHint: 'مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔',
     tableButton: 'مزارات کی فہرست',
+    /* ── Command palette (⌘K search) — drafts, not reviewed by a fluent
+       speaker ─────────────────────────────────────────────────────────────── */
+    paletteTitle: 'آرکائیو میں تلاش',
+    paletteOpen: 'تلاش اور چھانٹ',
+    filtersLabel: 'چھانٹ',
+    paletteHintMove: 'حرکت کے لیے',
+    paletteHintOpen: 'کھولنے کے لیے',
+    ariaOpenPalette: 'آرکائیو میں تلاش اور چھانٹ',
+    paletteClose: 'تلاش بند کریں',
     searchPlaceholder: 'مزار تلاش کریں...',
     noMatches: 'کوئی نتیجہ نہیں ملا۔',
     uncategorized: 'غیر زمرہ بند',
@@ -347,6 +548,16 @@ export const UI_TEXT = {
     getDirections: 'راستہ حاصل کریں',
     relatedShrines: 'متعلقہ مزارات',
     nearbyShrines: 'قریبی مزارات',
+    sharedGroundHeading: 'مشترکہ زمین',
+    sharedGroundIntro: (sites: number, traditions: number) =>
+      `پیدل فاصلے پر ${sites} دیگر مقامات، جن میں سے ${traditions} کسی اور روایت سے تعلق رکھتے ہیں۔`,
+    sharedGroundIntroSame: (sites: number) => `پیدل فاصلے پر ${sites} دیگر مقامات۔`,
+    sharedGroundNote:
+      'اِس مقام سے 800 میٹر کے اندر درج مقامات۔ پنجاب اور سندھ کے بڑے حصے میں یہ برادریاں ایک ہی گلی کوچے میں آباد رہیں۔',
+    sharedGroundSamePin: 'ایک ہی درج مقام',
+    sharedGroundSamePinHelp:
+      'سروے اِن کے لیے الگ مقام نہیں دیتا، اِس لیے یہ ایک ہی نشان رکھتے ہیں۔ اِن کے درمیان فاصلہ درج نہیں۔',
+    distanceMetres: 'میٹر کے فاصلے پر',
     shrineFacts: 'مزار کی اہم باتیں',
     distanceKm: 'کلومیٹر دور',
     noImage: 'تصویر نہیں ملی۔ اپنی شیٹ میں "Image Link" شامل کریں۔',
@@ -359,6 +570,16 @@ export const UI_TEXT = {
     appErrorReload: 'دوبارہ لوڈ کریں',
     filterAll: 'سب',
     resultCount: (n: number) => `${n} مزار`,
+    /* "X میں سے Y" — the total comes first in Urdu. Built in the English order
+       it would read "169 out of 12", which is a false number, not clumsy
+       phrasing (the same trap as almanacCoverageTotal). */
+    paletteResultCount: (shown: number, total: number) =>
+      shown === total ? `${total} مقامات` : `${total} میں سے ${shown} مقامات`,
+    tourCount: (n: number) => `${n} سفر`,
+    /* ── Order pages — drafts, not reviewed by a fluent speaker ──────────── */
+    orderWhereHeading: 'یہ سلسلہ کہاں ہے',
+    orderWhereNote: 'ہر اُس مقام کے خانے سے گنا گیا جہاں اِس سلسلے کے کسی بزرگ کی یادگار ہے۔',
+    orderSitesHeading: 'اِس سلسلے کے مقامات',
     activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
     nearMe: 'میرے قریب',
     switchToUrdu: 'اردو',
@@ -366,6 +587,7 @@ export const UI_TEXT = {
     darkMode: 'ڈارک موڈ',
     lightMode: 'لائٹ موڈ',
     skipToContent: 'مواد پر جائیں',
+    skipToShrineList: 'مزارات کی فہرست پر جائیں',
     gallery: 'گیلری',
     scrollToTop: 'اوپر جائیں',
     openInMaps: 'نقشے میں کھولیں',
@@ -376,6 +598,16 @@ export const UI_TEXT = {
     discipleOfLabel: 'شاگرد',
     successorOfLabel: 'جانشین',
     orderMembers: 'اس سلسلے کے ولی',
+    orderMemberCount: (n: number) => `${n} ولی`,
+    orderBranchCount: (n: number) => `${n} شاخ`,
+    orderBranchesLabel: 'شاخیں',
+    orderMembersLabel: 'ارکان',
+    orderAlsoIn: 'دیگر سلسلے',
+    orderMultiCount: (n: number) => `${n} شخصیات ایک سے زیادہ سلسلوں میں`,
+    orderMultiHelp:
+      'ایک ہی بزرگ بیک وقت کئی سلسلوں سے وابستہ ہو سکتے ہیں۔ یہاں ہر وابستگی اپنے الگ ماخذ اور اقتباس کے ساتھ درج ہے، کسی دوسری وابستگی سے نکالی گئی نہیں۔',
+    orderBranchHelp:
+      'شاخ کسی سلسلے کے اندر ایک ذیلی لڑی ہوتی ہے۔ ایک ہی نام کی شاخ دو مختلف سلسلوں میں ہو سکتی ہے، اس لیے شاخ کا مطلب اپنے سلسلے کے ساتھ ہی واضح ہوتا ہے۔',
     shrinesAssociated: 'متعلقہ مزارات',
     alsoKnownAs: 'دیگر نام',
     born: 'پیدائش',
@@ -393,7 +625,22 @@ export const UI_TEXT = {
     graphExplorerIntro:
       'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
     graphExplorerOrders: 'صوفی سلسلے',
-    graphExplorerAllSaints: 'تمام اولیاء',
+    graphExplorerAllFigures: 'آرکائیو کی شخصیات',
+    graphFigureFilterLabel: 'شخصیت تلاش کریں',
+    graphFigureFilterPlaceholder: 'نام، لقب یا روایت…',
+    graphFigureFilterClear: 'صاف کریں',
+    graphFigureFilterCount: (shown: number, total: number) => `${total} میں سے ${shown}`,
+    graphFigureFilterEmpty: 'اس سے مطابقت رکھنے والی کوئی شخصیت نہیں۔',
+    lineageUnreviewed: 'غیر نظر ثانی شدہ',
+    titlesLabel: 'القاب و خطابات',
+    disputedDatesLabel: 'مآخذ متفق نہیں',
+    disputedVersus: 'بمقابلہ',
+    yearsApart: 'برس کا فرق',
+    lineageUnreviewedHelp:
+      'اِس آرکائیو کے اپنے مآخذ سے نکالا گیا اور اقتباس کی جانچ ہو چکی ہے، مگر ابھی کسی مدیر نے نہیں پڑھا۔',
+    graphLineageNote: 'درج شدہ استاد و مرید کے رشتے:',
+    graphExplorerFiguresNote:
+      'ہر شخصیت کو اُس کے مطابق درجہ بند کیا گیا ہے جو ریکارڈ اُس کے بارے میں کہتا ہے۔ یہ آرکائیو چھ روایات کا احاطہ کرتا ہے، اِس لیے یہاں ہر شخصیت صوفی ولی نہیں۔',
     graphLineageHeading: 'استاد و شاگرد کے تعلقات',
 
     // ── عرس تقویم ──────────────────────────────────────────────────────────
@@ -423,9 +670,126 @@ export const UI_TEXT = {
     almanacCoverageSeasonal: 'صرف موسم کے ساتھ',
     almanacCoverageUndated: 'تقریب ہوتی ہے، تاریخ درج نہیں',
     almanacCoverageNone: 'کوئی تقریب درج نہیں',
-    almanacCoverageOf: 'میں سے',
-    almanacCoverageSites: 'مقامات',
+    /* "X میں سے Y" reads "Y out of X" — the total comes first. Built from the
+       English order ("32" + "میں سے" + "169" + "مقامات") it said "169 places
+       out of 32", which is not clumsy phrasing but a false number. */
+    almanacCoverageTotal: (dated: number, total: number) => `${total} میں سے ${dated} مقامات`,
+    /* ── Places (Track B) — drafts, not reviewed by a fluent speaker ──────── */
+    placesTitle: 'مقامات',
+    placeKicker: 'مقام',
+    placeIntro:
+      'ایک مقام پر آرکائیو کیا درج کرتا ہے — کون سے مزارات، کون سی روایات، اور جو تاریخیں پڑھی جا سکتی ہیں اُن کا دورانیہ۔',
+    placeSitesHeading: 'یہاں درج مزارات',
+    placeTraditionsHeading: 'روایات',
+    placeSpanHeading: 'درج تاریخیں',
+    placeSpanNone: 'یہاں کسی مزار کی ایسی تاریخ درج نہیں جو یہ آرکائیو پڑھ سکے۔',
+    placeNotFound: 'اِس نام کا کوئی مقام درج نہیں۔',
+    placesIntro:
+      'آرکائیو کہاں ہے — ہر اندراج کے مقام کے خانے سے گنا گیا۔ ایک مزار شہر اور اُس کے ضلع، دونوں کے تحت آ سکتا ہے، کیونکہ وہ دونوں میں ہے۔',
+    placeSiteCount: (n: number) => `${n} مزارات`,
+    placeSpan: (from: number, to: number) => `${from}ء–${to}ء`,
+    placesUnplaced: (n: number) =>
+      `${n} مزارات کا ایسا مقام درج ہے جسے یہ آرکائیو پہچان نہیں سکتا۔`,
+    /* ── Accessible names ─────────────────────────────────────────────────
+       Drafted here, not reviewed by a fluent speaker. Same standing as the
+       dictionary drafts: usable and honest about being a draft. */
+    ariaBreadcrumb: 'صفحہ راستہ',
+    ariaShrineBrowser: 'مزارات کی فہرست اور چھانٹ',
+    ariaExpandSheet: 'مزارات کی فہرست کھولیں',
+    ariaCollapseSheet: 'مزارات کی فہرست بند کریں',
+    ariaShrineList: 'مزارات کی فہرست',
+    ariaFiltersActive: 'فلٹرز فعال',
+    ariaClearSearch: 'تلاش صاف کریں',
+    ariaFilterByCategory: 'روایت کے مطابق چھانٹیں',
+    ariaFilterByRegion: 'علاقے کے مطابق چھانٹیں',
+    ariaFilterBySaint: 'ولی کے مطابق چھانٹیں',
+    ariaFilterByProvenance: 'ماخذ کے مطابق چھانٹیں',
+    ariaReadingProgress: 'مطالعے کی پیش رفت',
+    ariaPreviousImage: 'پچھلی تصویر',
+    ariaNextImage: 'اگلی تصویر',
+    ariaInteractiveMap: 'مزارات کا متحرک نقشہ',
+    ariaOpenSidebar: 'فہرست کھولیں',
+    swUpdateAvailable: 'نیا نسخہ دستیاب ہے',
+    mapZoomIn: 'قریب کریں',
+    mapZoomOut: 'دور کریں',
+    mapLayers: 'نقشے کی تہیں',
+    mapResetView: 'نظر بحال کریں',
+    mapResetViewLabel: 'نقشے کو ابتدائی نظر پر بحال کریں',
+    mapLayerStreetsEnglish: 'سڑکیں، انگریزی نام',
+    mapLayerVoyager: 'وائجر',
+    mapLayerDark: 'تاریک',
+    mapLayerLight: 'روشن',
+    mapLayerStreets: 'سڑکیں',
+    mapLayerSatellite: 'سیٹلائٹ',
+    mapLayerTopo: 'نقشۂ ارضی',
+    mapLayerFrom: (name: string, provider: string) => `${name} (${provider})`,
+    ariaCategoryOf: (category: string) => `روایت: ${category}`,
+    ariaMapShowing: (name: string) => `${name} کے مقام کا نقشہ`,
+    ariaExternalMapShowing: (name: string) => `گوگل میپس پر ${name} کا مقام`,
+    galleryImageLabel: (index: number, action: string) => `تصویر ${index}: ${action}`,
     almanacSourceLabel: 'اندراج',
+    almanacFigureLabel: 'یادگار',
+    almanacJumpToMonth: 'مہینے پر جائیں',
+    aboutTitle: 'اِس آرکائیو کے بارے میں',
+    aboutLede:
+      'پاکستان بھر کے مقدس مقامات کا ایک عوامی، دو لسانی ریکارڈ — مسلم مزارات، ہندو مندر، سکھ گوردوارے، نانک پنتھی و اُداسی دربار، جین مندر اور سیکولر یادگاریں — اِس نیت سے مرتب کیا گیا کہ اِس کا حوالہ دیا جا سکے، اور یہ بھی صاف بتایا جا سکے کہ ابھی کیا معلوم نہیں۔',
+    aboutScopeHeading: 'دائرہ',
+    aboutScopeBody:
+      'ہر اندراج وہی درج کرتا ہے جو ماخذ کہتا ہے، اور ماخذ کا نام بھی۔ ہر اندراج پر یہ درج ہے کہ وہ کس بنیاد پر قائم ہوا — میدانی تصدیق سے لے کر ویب سے ترتیب تک — تاکہ قاری صفحہ چھوڑے بغیر اُس کا وزن جانچ سکے۔',
+    aboutMethodHeading: 'یہ کیسے بنتا ہے',
+    aboutMethodSheet:
+      'اندراجات ایک اسپریڈ شیٹ میں رکھے جاتے ہیں اور یہ سائٹ اُنہیں لوڈ کے وقت پڑھتی ہے، اِس لیے کوئی تصحیح فوراً قاری تک پہنچتی ہے۔',
+    aboutMethodProvenance:
+      'ہر دعوے کا کسی ماخذ تک پہنچنا مقصود ہے۔ جہاں ماخذ آپس میں مختلف ہوں، آرکائیو خود فیصلہ کرنے کے بجائے اختلاف درج کرتا ہے۔',
+    aboutMethodUrdu:
+      'اردو ایڈیشن ایک مکمل ایڈیشن ہے، ترجمے کی تہہ نہیں۔ مشینی ترجمے اُس وقت تک مسودہ شمار ہوتے ہیں جب تک کوئی اہلِ زبان اُن کی تصدیق نہ کر دے۔',
+    aboutMethodGaps: 'آرکائیو جو نہیں جانتا، وہ بھی اُس کے ساتھ شائع کیا جاتا ہے جو جانتا ہے۔',
+    aboutCoverageLink: 'دیکھیں یہ آرکائیو کیا جانتا ہے',
+    aboutLicenceHeading: 'لائسنس اور دوبارہ استعمال',
+    aboutLicenceData: 'ڈیٹا سیٹ',
+    aboutLicenceCode: 'سائٹ اور پائپ لائن کا کوڈ',
+    aboutLicenceAttributionLabel: 'ڈیٹا دوبارہ استعمال کرتے وقت لازمی حوالہ',
+    aboutCiteHeading: 'حوالہ کیسے دیں',
+    aboutCiteArchive: 'مکمل آرکائیو',
+    aboutCiteEntry: 'کوئی ایک اندراج',
+    aboutCiteNote:
+      'وہ تاریخ بھی شامل کریں جس دن آپ نے صفحہ دیکھا۔ یہ آرکائیو ایک زندہ ماخذ سے پڑھتا ہے، اِس لیے اندراج آپ کے حوالے کے بعد بھی بدل سکتا ہے۔',
+    aboutCorrectionsHeading: 'تصحیحات',
+    aboutCorrectionsBody:
+      'تصحیحات کا خیر مقدم ہے اور اُن کا اعتراف کیا جاتا ہے۔ اگر یہاں کچھ غلط ہے — کوئی تاریخ، محلِ وقوع، سلسلہ یا نام — تو براہِ کرم بتائیں۔',
+    aboutCopyDone: 'نقل ہو گیا',
+    aboutCopy: 'نقل کریں',
+    coverageTitle: 'یہ آرکائیو کیا جانتا ہے',
+    coverageIntro:
+      'اِس صفحے کا ہر عدد شائع شدہ ڈیٹا سے شمار کیا گیا ہے، اندازہ نہیں۔ جہاں آرکائیو خاموش ہے، وہاں یہ بات بھی درج ہے۔',
+    coverageSitesHeading: 'درج مقامات',
+    coverageSupportHeading: 'ہر اندراج کی بنیاد',
+    coverageInfoHeading: 'ہر اندراج کی گہرائی',
+    coverageTraditionHeading: 'شامل روایات',
+    coverageSourcesHeading: 'حوالے',
+    coverageEntriesNoun: (_n: number) => 'اندراجات',
+    coverageSourcesWithAny: 'کتابیات رکھنے والے',
+    coverageSourcesWithThree: 'تین یا زیادہ حوالے دینے والے',
+    coverageSourcesWithNone: 'کوئی حوالہ نہ دینے والے',
+    coverageSourcesItems: 'کل حوالے',
+    coveragePhotosHeading: 'عکس بندی',
+    coveragePhotosWithNone: 'بغیر تصویر والے',
+    coveragePhotosItems: 'کل تصاویر',
+    coverageDatesHeading: 'تاریخیں',
+    coverageDatesWithYear: 'سنِ تعمیر درج کرنے والے',
+    coverageDatesExact: 'اِن میں سے جنہیں آرکائیو خود متعین کہتا ہے',
+    coverageDatesHedged: 'جن کی تاریخ کے ساتھ تحریری تحفظ درج ہے',
+    coverageLocationHeading: 'متعین مقام',
+    coverageLocationApprox: 'جن کی اپنی تحریر پن کو تخمینی بتاتی ہے',
+    coverageObservancesHeading: 'عرس اور میلے',
+    coverageObservancesWithText: 'عرس یا میلہ درج کرنے والے',
+    coverageObservancesWithNone: 'کوئی عرس درج نہ رکھنے والے',
+    coverageUnrecorded: 'درج نہیں',
+    coverageWhyHeading: 'یہ کیوں شائع کیا گیا',
+    coverageWhy:
+      'کوئی آرکائیو اُتنا ہی کارآمد ہے جتنا اپنی حدود کا بیان۔ ریپازٹری میں لکھا نوٹ پرانا ہو جاتا ہے؛ ڈیٹا سے شمار ہونے والا صفحہ نہیں ہو سکتا۔ اگر یہاں کوئی عدد کم لگے تو وہی خلا ہے، صاف صاف بیان کیا گیا۔',
+    saintNextUrs: 'اگلا عرس',
+    saintNextUrsLink: 'تقویم دیکھیں',
     almanacNothingUpcoming: 'آئندہ بارہ مہینوں میں کوئی متعین تاریخ والی تقریب نہیں۔',
     almanacSeasonSpring: 'بہار',
     almanacSeasonSummer: 'گرما',
@@ -638,13 +1002,68 @@ export function tFn(lang: Lang, key: 'nextIn', seconds: number): string;
 export function tFn(lang: Lang, key: 'photoOf', current: number, total: number): string;
 export function tFn(lang: Lang, key: 'activeFiltersCount', n: number): string;
 export function tFn(lang: Lang, key: 'reportRegisterNote', pct: number): string;
+export function tFn(lang: Lang, key: 'orderMemberCount', n: number): string;
+export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
+export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
+export function tFn(
+  lang: Lang,
+  key: 'graphFigureFilterCount',
+  shown: number,
+  total: number,
+): string;
+export function tFn(
+  lang: Lang,
+  key: 'sharedGroundIntro',
+  sites: number,
+  traditions: number,
+): string;
+export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
+export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
+export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, total: number): string;
+/* String-valued interpolations. These exist for the same reason the numeric
+   ones do: a label like "Category: X" or "Map showing location of X" puts its
+   variable in a different place in Urdu, and a component that concatenates the
+   pieces itself decides that placement in English. */
+export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
+export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
+export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
+export function tFn(lang: Lang, key: 'tourCount', n: number): string;
+export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
+export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
+export function tFn(lang: Lang, key: 'placesUnplaced', n: number): string;
+export function tFn(lang: Lang, key: 'ariaMapShowing', name: string): string;
+export function tFn(lang: Lang, key: 'ariaExternalMapShowing', name: string): string;
+export function tFn(lang: Lang, key: 'galleryImageLabel', index: number, action: string): string;
 export function tFn(
   lang: Lang,
   key:
-    'resultCount' | 'stopOf' | 'nextIn' | 'photoOf' | 'activeFiltersCount' | 'reportRegisterNote',
-  ...args: number[]
+    | 'resultCount'
+    | 'stopOf'
+    | 'nextIn'
+    | 'photoOf'
+    | 'activeFiltersCount'
+    | 'reportRegisterNote'
+    | 'orderMemberCount'
+    | 'orderBranchCount'
+    | 'orderMultiCount'
+    | 'graphFigureFilterCount'
+    | 'sharedGroundIntro'
+    | 'sharedGroundIntroSame'
+    | 'coverageEntriesNoun'
+    | 'almanacCoverageTotal'
+    | 'ariaCategoryOf'
+    | 'mapLayerFrom'
+    | 'paletteResultCount'
+    | 'tourCount'
+    | 'placeSiteCount'
+    | 'placeSpan'
+    | 'placesUnplaced'
+    | 'ariaMapShowing'
+    | 'ariaExternalMapShowing'
+    | 'galleryImageLabel',
+  ...args: (number | string)[]
 ): string {
   const fn = UI_TEXT[lang]?.[key] ?? UI_TEXT.en[key];
-  if (typeof fn === 'function') return (fn as (...a: number[]) => string)(...args);
+  if (typeof fn === 'function') return (fn as (...a: (number | string)[]) => string)(...args);
   return String(fn ?? '');
 }

@@ -10,28 +10,42 @@ implemented — kept for history).
 
 ## Files
 
-| File                                   | Purpose                                                                                                                                      |
-| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `urdu-dictionary.json`                 | Source of truth — structured, human‑readable sections. Edit here.                                                                            |
-| `shrine-translations.seed.json`        | Flat `en → ur` map (548 entries) for runtime lookup. Synced to `src/data/urdu-seed.json`.                                                    |
-| `build_dictionary.py`                  | Regenerates the seed from the source dict and validates coverage. `--check` validates only (no writes) — wired into `npm run data:validate`. |
-| `content/`                             | Per‑shrine Urdu article markdown (163 files, one per site — AI‑translated drafts pending human review).                                      |
-| `build_urdu_content.py`                | Builds `src/data/urdu-content.json` from `content/`.                                                                                         |
-| `build-all.sh`                         | Full pipeline (`npm run urdu:build`) — see workflow below.                                                                                   |
-| `update_log.py` / `TRANSLATION_LOG.md` | Regenerates / records per‑shrine translation + review status.                                                                                |
-| `_shrine_rows.json`                    | Snapshot of the shrine rows used to build/validate the dictionary.                                                                           |
-| `_english_descriptions.json`           | English source descriptions used by the content pipeline.                                                                                    |
+| File                                   | Purpose                                                                                                                                              |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `build_dictionary.py`                  | **Source of truth. Edit the `PLACE_TOKENS` / `SHRINE_NAMES` / `SAINTS` / `FOUNDED` dicts here.**                                                     |
+| `urdu-dictionary.json`                 | **Generated — do not edit.** A readable dump of the Python dicts, overwritten on every build.                                                        |
+| `shrine-translations.seed.json`        | Flat `en → ur` map (566 entries) for runtime lookup. Synced to `src/data/urdu-seed.json`.                                                            |
+| (same script)                          | Regenerates both the JSON dump and the flat seed, and validates coverage. `--check` validates only (no writes) — wired into `npm run data:validate`. |
+| `content/`                             | Per‑shrine Urdu article markdown (163 files, one per site — AI‑translated drafts pending human review).                                              |
+| `build_urdu_content.py`                | Builds `src/data/urdu-content.json` from `content/`.                                                                                                 |
+| `build-all.sh`                         | Full pipeline (`npm run urdu:build`) — see workflow below.                                                                                           |
+| `update_log.py` / `TRANSLATION_LOG.md` | Regenerates / records per‑shrine translation + review status.                                                                                        |
+| `_shrine_rows.json`                    | Snapshot of the shrine rows used to build/validate the dictionary.                                                                                   |
+| `_english_descriptions.json`           | English source descriptions used by the content pipeline.                                                                                            |
 
 ## Coverage (validated on every build, 0 Latin‑script leaks)
 
 - categories 3 · traditions 3 · tour regions 5 · tour themes 7 · tour eras 7
-- place tokens 243 · shrine names 143 · saints 123 · founded phrases 86 · full locations 123 · Sufi glossary 49
-- flat seed: 548 entries
+- place tokens 243 · shrine names 143 · saints 141 · founded phrases 86 · full locations 123 · Sufi glossary 49
+- flat seed: 566 entries
+- **every principal figure in the knowledge graph has an Urdu name** (136/136), asserted by
+  `src/lib/i18n/__tests__/kgNameCoverage.test.ts`. 18 of those were added on 20 August 2026
+  and are unreviewed drafts — see the note in `build_dictionary.py`'s `SAINTS`.
 - article content: 163/163 shrines have an Urdu description (machine‑translated,
   `reviewed=false` until a human signs off — see `TRANSLATION_LOG.md`)
 
 Coverage is validated against the `_shrine_rows.json` snapshot; after adding shrines,
 refresh the snapshot and rerun the build so new names/saints/locations are covered.
+
+## Careful — the JSON is an output, not an input
+
+`urdu-dictionary.json` reads like the place to add a translation, and this file used to say
+so. It is not: `build_dictionary.py` holds the real dictionaries and **rewrites the JSON from
+them on every run**, so an edit made in the JSON is silently discarded the next time anyone
+builds. Nothing errors; the entry simply vanishes. Add translations to the Python dicts and
+run `npm run urdu:build`, which also syncs `src/data/urdu-seed.json` — the file the app
+actually loads. (Step 1 alone writes `urdu-i18n/shrine-translations.seed.json` but does _not_
+sync it, so a dictionary change made with `npm run data:build:urdu` will not reach the app.)
 
 ## Conventions
 

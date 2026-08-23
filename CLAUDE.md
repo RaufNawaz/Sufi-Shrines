@@ -198,10 +198,18 @@ rules:
    `text-align: start`), `<bdi>` around mixed Latin/number runs (e.g. an unreviewed English
    source note shown in the Urdu view), locale-aware `localeCompare(…, 'ur')`.
 
+7. **Citations may be Latin; prose may not.** (Decided 20 August 2026.) A bibliography entry
+   carries the source's real title, publisher and URL, because an archive whose distinguishing
+   claim is provenance must leave the reader an exact search string. Everything *before* the
+   first bibliography heading (`## کتابیات` / `## حوالہ جات` / `## حوالے`) must be Urdu:
+   Latin there is an untranslated sentence. `scripts/data/validate-urdu-leak.mjs` and
+   `pipeline/urdu_content_qa.py` both enforce exactly that split, and the latter's length
+   ratio is computed on prose only so citation practice can never fail a build.
+
 **Definition of done for any Urdu/i18n change:** `npm run verify` + `npm run e2e` green
 (including the no-leak guard); ESLint blocks new inline ternaries; Nastaliq on all controls;
 Eastern numerals reach every number site; no English or transliteration in the Urdu view
-outside URLs/coordinates/`<bdi>`.
+outside citations/URLs/coordinates/`<bdi>`.
 
 ---
 
@@ -211,7 +219,12 @@ outside URLs/coordinates/`<bdi>`.
 - Components are functional + hooks; prefer existing patterns (see `TRADITION_LABELS` in
   `src/lib/tours/tours.ts` as the model for enum label maps).
 - Accessibility is a requirement, not a nice-to-have (axe + Storybook a11y). 44px targets,
-  correct `lang`/`dir`, focus states.
+  correct `lang`/`dir`, focus states. `e2e/a11y.spec.ts` scans **every route in both
+  languages** and must stay at zero critical/serious violations; it waits for animations to
+  settle first, because axe folds ancestor `opacity` into the colour it measures and a
+  mid-fade element reports a contrast failure that does not exist (HANDOVER §9.46). Never
+  distinguish a link from surrounding prose by colour alone — and never fix that with an
+  underline on a line that can be Urdu (§9.48).
 - Respect provenance and the three traditions in copy, imagery, and terminology (honorifics
   per `data/glossary.csv`).
 - Tests: unit for logic (`src/**/__tests__`), Playwright for journeys. The
@@ -222,14 +235,29 @@ outside URLs/coordinates/`<bdi>`.
 
 ## Standing findings
 
-- **49 of 167 entries (29%) have no bibliography at all** — single-paragraph prose giving
-  specific dates and lineages with nothing cited. Verified not a formatting artefact. These
-  should compute to `Web-compiled` / `Low`; if they render better than that, the computation is
-  wrong — report it rather than adjusting the badge.
-- Coverage is ~31% of Punjab Auqaf's Punjab register alone (167 vs 534).
+- ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
+  21 August 2026.** 168 of 169 entries now carry a bibliography, 544 citations in total, 107 of
+  them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
+  Darbar). The enrichment passes since this note was written closed it. Kept struck through
+  rather than deleted, because the note itself is the lesson: **a standing finding is a
+  measurement with a date on it, and this one was quoted as current for weeks after it stopped
+  being true.** That is why `/coverage` now computes these figures from the shipped data on
+  every page load — a page cannot go stale the way a note can. Method:
+  `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
+- Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). *Measured 21 August
+  2026* for the 169; the 534 is an external figure from the register, not computed here.
+- **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
+  the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
+  `/coverage`, which recomputes it on every load.
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
+  ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
+  media directories, which are gitignored and not present in a fresh clone, so this cannot be
+  checked from the repository. Treat the 18 as of unknown date until someone with the media
+  drive re-counts it.
 - Mauj Darya Bukhari lost all 12 media files (verified 404s). Data Darbar and Bibi Pak Daman
-  photos are WhatsApp-compressed. All need re-shooting.
+  photos are WhatsApp-compressed. All need re-shooting. ⚠ *Not re-measured* — the 404s need a
+  live network check, which this environment cannot make (every external host is blocked
+  through the agent proxy; see HANDOVER §9.53).
 
 Full detail, plus a list of previously-confident-but-wrong diagnoses, in `docs/HANDOVER.md`.
 
@@ -249,7 +277,10 @@ public/        the site's published assets, including photos/<slug>/
 
 Front-end source layout, for orientation:
 
-- `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `NotFoundPage`.
+- `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `PlacePage`,
+  `GraphPage`, `AlmanacPage`, `CoveragePage`, `AboutPage`, `NotFoundPage`. Every route needs a
+  prerendered file (`scripts/prerender.mjs`) — GitHub Pages serves files, not routes, and
+  `scripts/check-routes-prerendered.mjs` fails the build if one is missing.
 - `src/components/map/` — `ShrineMap`, `MapSidebar` (browser + filters, with
   `WelcomeCard`/`ShrinePreview`), `ShrineMarkers`, `TimeSlider` (era filter),
   `TourPanel`/`TourList`/`TourPreview`/`TourRoute` (guided tours).
@@ -259,7 +290,9 @@ Front-end source layout, for orientation:
 - `src/lib/i18n/` — `LanguageContext`, `uiStrings`, `numerals`, `urduFallback`,
   `localizeShrineName`. **All user-facing strings and localization flow through here.**
 - `src/lib/data/` — `articleParsing`, `fieldAliasing`, `era`, `categoryKey`, `constants`,
-  `shrineModel`, `slugify`, `fieldLabels`, `infoLevel`, `supportLevel`, `siteStatus`.
+  `shrineModel`, `slugify`, `fieldLabels`, `infoLevel`, `supportLevel`, `siteStatus`,
+  `coverage`, `places` (the closed place vocabulary behind `/place/:slug`, mirrored for the
+  scripts in `scripts/data/lib/places.mjs` under a drift guard).
 - `src/lib/tours/` — tour model, geo/distance, progress, audio (TTS), autoplay.
 - `src/data/` — `tours.json` (8 tours), `urdu-seed.json` + `urdu-content.json` (from
   `urdu-i18n/`), fallback shrine data.
@@ -304,3 +337,5 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `docs/planning/URDU_IMPLEMENTATION_PLAN.md` — full phased Urdu plan.
 - `urdu-i18n/README.md` — dictionary files, coverage, regeneration.
 - `docs/planning/PROJECT_VISION.md` — blue-sky roadmap.
+- `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
+  of another and in eight places across traditions. Track A shipped; D in progress.
