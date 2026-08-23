@@ -33,6 +33,23 @@ Lang derives from it; byte-identical, 480 unit + 84 e2e unchanged).
   cell ends "See qa_note 1."). The Saifullah draft is refreshed (prasad/diya question in,
   coordinates ask softened). Front-end renders silsila_note the moment it lands.
   Unit 485 → 486; e2e 86/86.
+- **Production redeployed on request** (deploy run #19 green): everything through the
+  mosque connection is live on github.io. Branch restarted from main.
+- **Unmapped shrines get pages** (`987b78d`): latLng honestly nullable; a named row
+  without coordinates keeps its page/list/search presence marked "location not recorded";
+  tour geometry narrowed through `MappedShrine` so it stays null-free by type; nearby/
+  related/mosques/directions/print all decline rather than pretend. build-dataset keeps
+  such rows (garbage coordinates still rejected). Takes effect for Shah Gohar Peer and
+  Mian Qurban Ali Shah when the live sheet is next fetched or the snapshot rebuilt with
+  network. Two legacy drop-policy tests updated. Unit 486 → 493; e2e 86/86.
+- **Source notes published** (`7827096`, the F7 ruling executed): "Where the source
+  contradicts itself" — a bilingual disclosure on shrine pages restating the internal
+  qa_note contradictions, attributed, nothing resolved or withheld (the Dyal Singh College
+  claim and the battle narratives are in, framed as the survey's statements, its
+  vocabulary quoted never adopted). First two entries drafted (abul-muali-qadri,
+  malik-ahmad-ayaz — the sensitive pair); **50 more qa_note entries remain to draft**,
+  highest-stakes-first in later passes. Content-contract test: bilingual, no Latin in
+  Urdu, sensitive items present AND attributed. Unit 493 → 498; e2e 86 → 89/89.
 
 ---
 

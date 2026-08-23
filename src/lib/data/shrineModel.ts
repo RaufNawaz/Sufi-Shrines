@@ -19,12 +19,12 @@ function extractRegion(location: string): string {
 
 export function buildShrine(row: ShrineRow, id: number): Shrine | null {
   const latLng = parseLatLng(row);
-  if (!latLng) {
-    if (import.meta.env.DEV) {
-      const name = row?.Name || `(row ${id})`;
-      console.warn(`[shrines] Skipped "${name}" — missing or non-numeric Latitude/Longitude`);
-    }
-    return null;
+  // A named row without coordinates is KEPT, unmapped (22 Aug ruling): it
+  // gets a page and list/search presence, honestly marked. A row with
+  // neither name nor coordinates is parser noise and is dropped.
+  if (!latLng && !getFieldValue(row, 'Name')) return null;
+  if (!latLng && import.meta.env.DEV) {
+    console.warn(`[shrines] "${row.Name}" has no coordinates — kept, unmapped`);
   }
 
   const name = getFieldValue(row, 'Name') || `Shrine ${id}`;
@@ -125,6 +125,7 @@ export function haversineKm(from: LatLng, to: LatLng): number {
 }
 
 export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 5): Shrine[] {
+  const from = shrine.latLng;
   return all
     .filter((s) => s.id !== shrine.id)
     .map((s) => ({
@@ -132,7 +133,9 @@ export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 5): Sh
       score:
         (s.category && s.category === shrine.category ? 3 : 0) +
         (s.location && s.location === shrine.location ? 2 : 0) -
-        haversineKm(shrine.latLng, s.latLng) / 500,
+        // Unmapped rows (22 Aug ruling) contribute no distance signal —
+        // similarity alone ranks them.
+        (from && s.latLng ? haversineKm(from, s.latLng) / 500 : 0),
     }))
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
@@ -141,13 +144,14 @@ export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 5): Sh
 
 /** Purely geographic nearest-shrines, unlike findRelatedShrines() above
  * (which weights category/location similarity ahead of distance) — for a
- * pilgrim asking "what else is nearby", not "what else is like this". Every
- * `Shrine` already has valid coordinates (buildShrines() drops coordinate-
- * less rows before this point), so no filtering for that is needed here. */
+ * pilgrim asking "what else is nearby", not "what else is like this".
+ * Unmapped rows have no geography: they neither anchor nor appear here. */
 export function findNearbyShrines(shrine: Shrine, all: Shrine[], limit = 5): Shrine[] {
+  const from = shrine.latLng;
+  if (!from) return [];
   return all
-    .filter((s) => s.id !== shrine.id)
-    .map((s) => ({ shrine: s, distanceKm: haversineKm(shrine.latLng, s.latLng) }))
+    .filter((s) => s.id !== shrine.id && s.latLng)
+    .map((s) => ({ shrine: s, distanceKm: haversineKm(from, s.latLng!) }))
     .sort((a, b) => a.distanceKm - b.distanceKm)
     .slice(0, limit)
     .map((r) => r.shrine);

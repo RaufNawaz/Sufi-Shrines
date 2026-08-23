@@ -131,10 +131,12 @@ export function nearbyMosques(
   mosques: AuqafMosque[],
   { maxKm = 3, limit = 4 }: { maxKm?: number; limit?: number } = {},
 ): NearbyMosque[] {
+  const from = shrine.latLng;
+  if (!from) return []; // unmapped shrine: distance is undefined
   return mosques
     .map((mosque) => ({
       mosque,
-      distanceKm: haversineKm(shrine.latLng, { lat: mosque.lat, lng: mosque.lng }),
+      distanceKm: haversineKm(from, { lat: mosque.lat, lng: mosque.lng }),
       isShrinesMosque: isShrinesOwnMosque(mosque, shrine),
     }))
     .filter((entry) => entry.isShrinesMosque || entry.distanceKm <= maxKm)

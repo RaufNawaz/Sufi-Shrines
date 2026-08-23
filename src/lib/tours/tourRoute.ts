@@ -1,8 +1,10 @@
-import type { Shrine } from '../../types/shrine';
+import type { MappedShrine, Shrine } from '../../types/shrine';
 import type { Tour } from './tours';
 
 export interface TourStopPoint {
-  shrine: Shrine;
+  /** Narrowed: a stop only resolves to a shrine with coordinates, so all
+   * downstream tour geometry (routes, distances, fly-tos) is null-free. */
+  shrine: MappedShrine;
   /** Index into tour.stops — preserved even if earlier stops are unresolved. */
   stopIndex: number;
 }
@@ -17,7 +19,9 @@ export function resolveTourStops(tour: Tour, shrines: Shrine[]): TourStopPoint[]
   const points: TourStopPoint[] = [];
   tour.stops.forEach((stop, stopIndex) => {
     const shrine = bySlug.get(stop.shrineSlug);
-    if (shrine) points.push({ shrine, stopIndex });
+    // A stop whose shrine lost its coordinates is skipped like an unknown
+    // slug — tour geometry cannot route through an unmapped point.
+    if (shrine?.latLng) points.push({ shrine: shrine as MappedShrine, stopIndex });
   });
   return points;
 }
