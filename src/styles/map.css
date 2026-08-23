@@ -295,6 +295,14 @@
   flex: 1;
   min-width: 0;
   position: relative;
+  /* Leaflet numbers its own panes 200–700 and the plugin's GL layer sits among
+     them. Without a stacking context here those numbers land in the root
+     context, where they outrank --z-sidebar (20) — so on mobile, where the
+     sheet overlaps the map, the whole sidebar painted *under* the basemap and
+     stopped receiving taps. --z-map exists for exactly this and was never
+     applied to anything. Removing it re-buries the sheet; see
+     e2e/mobile-sheet.spec.ts. */
+  z-index: var(--z-map);
 }
 
 #map {
