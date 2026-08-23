@@ -17,6 +17,7 @@ import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
 import { NearbyShrines } from '../components/shrine/NearbyShrines';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
+import { SourceNotes } from '../components/shrine/SourceNotes';
 import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
@@ -288,7 +289,11 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <div className="shrine-article-main">
           <ShrineArticle shrine={shrine} />
           <ShrineObservances shrine={shrine} />
-          <LocationMap latLng={shrine.latLng} name={name} />
+          {shrine.latLng ? (
+            <LocationMap latLng={shrine.latLng} name={name} />
+          ) : (
+            <p className="location-not-recorded">{t('locationNotRecorded')}</p>
+          )}
           <NearbyMosques shrine={shrine} />
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
@@ -303,6 +308,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
           </p>
           {/* Provenance/sources detail is project-team-only visibility (not
               security — see src/lib/projectAccess.ts for why). */}
+          <SourceNotes slug={shrine.slug} />
           {hasProjectAccess() && <SourcesProvenance shrineSlug={shrine.slug} lang={lang} />}
           {/* Quiet contribution prompt — only on pages we know little about */}
           {isLowInfo && (

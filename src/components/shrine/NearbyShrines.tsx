@@ -31,7 +31,9 @@ export function NearbyShrines({ shrine, all }: Props) {
         {nearby.map((s) => {
           const name = localizeShrineName(s, lang);
           const location = localizeField(s.raw, 'Location') || s.location;
-          const dist = haversineKm(shrine.latLng, s.latLng);
+          // findNearbyShrines only returns mapped candidates for a mapped
+          // subject, so both ends exist here; TS can't see through it.
+          const dist = haversineKm(shrine.latLng!, s.latLng!);
 
           return (
             <Link key={s.id} to={`/shrine/${s.slug}`} className="related-card">

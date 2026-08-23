@@ -139,3 +139,37 @@ test.describe('Nearby Auqaf mosques (women’s prayer access)', () => {
     await expect(block.locator('bdi[lang="en"]').first()).toContainText('Fixture A');
   });
 });
+
+test.describe('Source notes — where the source contradicts itself', () => {
+  test('the disclosure lists the survey’s contradictions, attributed, none withheld', async ({
+    page,
+  }) => {
+    await page.goto('/shrine/darbar-abul-muali-qadri');
+    const details = page.locator('.source-notes-details');
+    await expect(details).toBeVisible();
+    await details.locator('summary').click();
+
+    const items = details.locator('.source-notes-list li');
+    await expect(items).toHaveCount(7);
+    // The sensitive property claim is present AND framed as the survey's
+    // statement (the 22 Aug ruling: attribute everything, withhold nothing).
+    await expect(details).toContainText('Dyal Singh College');
+    await expect(details).toContainText('strictly as the survey');
+  });
+
+  test('entries without notes show no disclosure', async ({ page }) => {
+    await page.goto('/shrine/data-darbar');
+    await page.locator('h1.shrine-title').waitFor();
+    await expect(page.locator('.source-notes')).toHaveCount(0);
+  });
+
+  test('reads fully in Urdu', async ({ page }) => {
+    await page.goto('/shrine/darbar-malik-ahmad-ayaz?lang=ur');
+    const details = page.locator('.source-notes-details');
+    await expect(details).toBeVisible();
+    await expect(details.locator('summary')).toContainText('جہاں ماخذ خود اپنے بیان سے ٹکراتا ہے');
+    await details.locator('summary').click();
+    const text = await details.locator('.source-notes-list').textContent();
+    expect(text, 'Urdu source notes must carry no Latin').not.toMatch(/[A-Za-z]/);
+  });
+});

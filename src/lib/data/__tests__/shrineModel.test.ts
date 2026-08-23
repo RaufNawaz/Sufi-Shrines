@@ -24,9 +24,14 @@ describe('buildShrine', () => {
     expect(shrine!.imageUrl).toBe('https://example.com/data-darbar.jpg');
   });
 
-  it('returns null for rows without coordinates', () => {
+  it('keeps a named row without coordinates, unmapped (22 Aug ruling)', () => {
     const result = buildShrine({ Name: 'Test' }, 0);
-    expect(result).toBeNull();
+    expect(result).not.toBeNull();
+    expect(result!.latLng).toBeNull();
+  });
+
+  it('still drops rows with neither name nor coordinates', () => {
+    expect(buildShrine({}, 0)).toBeNull();
   });
 
   it('generates a slug from the name', () => {
@@ -41,14 +46,15 @@ describe('buildShrine', () => {
 });
 
 describe('buildShrines', () => {
-  it('skips rows without coordinates', () => {
+  it('keeps named rows without coordinates as unmapped entries (22 Aug ruling)', () => {
     const rows: ShrineRow[] = [
       baseRow,
       { Name: 'No coords' },
       { Name: 'Also no coords', Latitude: 'abc', Longitude: '0' },
     ];
     const shrines = buildShrines(rows);
-    expect(shrines).toHaveLength(1);
+    expect(shrines).toHaveLength(3);
+    expect(shrines.filter((s) => s.latLng)).toHaveLength(1);
     expect(shrines[0].name).toBe('Data Darbar');
   });
 

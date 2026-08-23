@@ -323,7 +323,7 @@ function MapController({
     if (tourActive) return;
     if (selectedId === null) return;
     const shrine = shrines.find((s) => s.id === selectedId);
-    if (!shrine) return;
+    if (!shrine?.latLng) return; // unmapped selection: nothing to fly to
 
     const targetZoom = Math.max(map.getZoom(), 13);
     const isDesktop = window.innerWidth > 768;
