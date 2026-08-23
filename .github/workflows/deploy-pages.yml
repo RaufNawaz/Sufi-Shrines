@@ -1,10 +1,15 @@
 name: Deploy to GitHub Pages
 
 # Triggers on the version branch Pages is meant to track. Update this list
-# when cutting a new version branch (e.g. add '1.7' before retiring '1.6').
+# when cutting a new version branch (e.g. add '1.8' before retiring '1.7').
+#
+# 1.7 was cut 23 August 2026 and is the branch Pages tracks. 1.6 stays listed
+# until Pages is confirmed pointing at 1.7 — a push trigger reads the workflow
+# from the branch being pushed, so removing 1.6 here removes its only path to
+# a deploy, and there would be nothing to fall back to if 1.7 has a problem.
 on:
   push:
-    branches: [1.6]
+    branches: [1.7, 1.6]
   workflow_dispatch:
 
 # Building only needs to read the repo; the deploy job requests its own
