@@ -91,11 +91,17 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
 
     for (const shrine of shrines) {
       if (tourStopSlugSet?.has(shrine.slug)) continue;
+      // Unmapped (22 Aug ruling): no marker, page-only. `continue`, never
+      // `return` — this is a for...of, not a forEach callback, so a `return`
+      // here abandons the whole effect before map.addLayer(group) below and
+      // the two coordinate-less rows erase all 169 markers that do have
+      // coordinates. That shipped to production; see e2e/map.spec.ts's
+      // marker-count invariant.
+      if (!shrine.latLng) continue;
 
       const isSelected = shrine.id === selectedIdRef.current;
       const localName = localizeShrineName(shrine, lang);
 
-      if (!shrine.latLng) return; // unmapped (22 Aug ruling): no marker, page-only
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
         icon: buildDivIcon(isSelected, shrine.category, tourStopSlugSet !== null, shrine.imageUrl),
         title: localName,

@@ -1,4 +1,4 @@
-import { test, expect, SHRINE_COUNT } from './fixtures';
+import { test, expect, SHRINE_COUNT, MAPPED_SHRINE_COUNT } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 test.describe('Map page', () => {
@@ -9,6 +9,31 @@ test.describe('Map page', () => {
   test('loads with sidebar and map', async ({ page }) => {
     await expect(page.locator('#sidebar')).toBeVisible();
     await expect(page.locator('.leaflet-container')).toBeVisible();
+  });
+
+  /**
+   * Marker count vs row count — the check CLAUDE.md RULE 4 names as one that
+   * has actually worked, and which this suite did not have.
+   *
+   * Every assertion here counted `.shrine-list-item`, so the suite could not
+   * distinguish a map drawing all 168 markers from one drawing none. On
+   * 22 Aug an `if (!shrine.latLng) return` landed inside ShrineMarkers'
+   * `for...of` where `continue` was meant; it abandoned the effect before
+   * `map.addLayer(group)`, and production shipped a basemap with zero
+   * markers while the sidebar list showed all 171 shrines. The suite stayed
+   * green.
+   *
+   * The two counts must differ for this to mean anything — hence the
+   * deliberately unmapped fixture row.
+   */
+  test('draws exactly one marker per shrine that has coordinates', async ({ page }) => {
+    await expect(page.locator('.leaflet-marker-icon')).toHaveCount(MAPPED_SHRINE_COUNT, {
+      timeout: 15000,
+    });
+
+    // The unmapped row is still a shrine everywhere that isn't the map.
+    await page.getByRole('button', { name: UI_TEXT.en.tableButton }).click();
+    await expect(page.locator('.shrine-list-item')).toHaveCount(SHRINE_COUNT, { timeout: 15000 });
   });
 
   test('search filters list and shows preview card', async ({ page }) => {

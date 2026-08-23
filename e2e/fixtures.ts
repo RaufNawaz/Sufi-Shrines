@@ -43,9 +43,18 @@ const snapshot = JSON.parse(
   fs.readFileSync(path.join(here, '..', 'src', 'data', 'shrines-fallback.json'), 'utf-8'),
 ) as { rows: unknown[] };
 
-/** Exact number of shrines the app builds from the CSV fixture (every row
- * has valid coordinates, so none are dropped). */
+/** Exact number of shrines the app builds from the CSV fixture. Every row is
+ * kept — including the one exported without coordinates (see
+ * e2e/fixtures/generate-shrines-csv.mjs), since an unmapped row still gets a
+ * page, a list entry and search presence. */
 export const SHRINE_COUNT: number = snapshot.rows.length;
+
+/** How many of those carry coordinates, and therefore how many markers the
+ * map must draw. Differs from SHRINE_COUNT by exactly the unmapped row the
+ * fixture generator manufactures — which is the point: when the two were
+ * equal, nothing in the suite could tell a map drawing every marker from a
+ * map drawing none. */
+export const MAPPED_SHRINE_COUNT: number = SHRINE_COUNT - 1;
 
 /** The bundled tour data, typed with the app's own Tour model. tours.ts
  * itself can't be imported here (same JSON-import restriction as above). */
