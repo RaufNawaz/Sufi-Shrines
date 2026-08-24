@@ -1,6 +1,6 @@
 # The Review Desk
 
-**Written 24 August 2026.** Status: plan + phase 1–2 implemented.
+**Written 24 August 2026.** Status: phases 1–3 implemented; phase 4 needed no work.
 
 ## The problem, stated as a number
 
@@ -50,19 +50,37 @@ A **Download verdicts** button writes a CSV whose columns match
 flow. Agents do not write the sheet and do not write the proposals (RULE 3); a human takes the
 file and imports it.
 
-### Phase 3 — the loop back (not built)
+### Phase 3 — the loop back (built)
 
-`scripts/data/apply-review-verdicts.mjs`: reads a returned verdict CSV, and for each **confirmed**
-claim sets `reviewed: true` on the matching proposal so `build-kg.mjs` stops emitting the
-`unreviewed` badge. A **rejected** claim is *removed from the proposal set*, not silently dropped —
+`scripts/data/apply-review-verdicts.mjs` (`npm run data:review:apply -- verdicts.csv [--write]`):
+reads a returned verdict CSV and for each **confirmed** claim sets `reviewed: true` on the matching
+proposal, so `build-kg.mjs` stops emitting the `unreviewed` badge. Dry run by default — the files
+it edits are hand-curated data in a provenance archive, and the default for a script like that is
+to show its work first. `build-kg.mjs` had `reviewed: false` hardcoded in three places, which is
+why a verdict could not previously land at all; it now reads the flag off the proposal, so the flag
+lives with the claim it is about. A **rejected** claim is *removed from the proposal set*, not silently dropped —
 the rejection is recorded with its reviewer note, because "an editor looked at this and said no" is
 itself provenance and the extractor should not propose it again next run.
 
-Invariant to write with it: a verdict may only ever *narrow* what the graph asserts. Applying a
-verdict file must never create a claim, change a quote, or alter a date. The script should refuse
-to run if the CSV's evidence digest does not match the proposal it names — the digest already
-exists (`evidenceKey`, first 8 hex of sha1 of the quote), and it is what makes a stale verdict file
-fail loudly instead of confirming the wrong claim.
+Three invariants, all asserted against the **real** proposal documents and the real queue rather
+than against fixtures:
+
+- **A verdict may only ever narrow what the graph asserts.** No path writes a value into a
+  proposal's fields; the confirm test compares every other key before and after and requires them
+  identical.
+- **All or nothing.** One bad row refuses the whole file — a stale file half-applied is worse than
+  one refused, because then somebody has to work out which half landed. The applier is pure and
+  returns the *original* documents on error, so a caller that ignored the error list would still
+  write nothing.
+- **The digest is checked, not trusted.** A mismatch means the quote changed after the verdict was
+  recorded, so the verdict is a judgement about text that no longer exists.
+
+A **rejected** claim moves into the file's existing `rejected` array with the reviewer's note, and
+is spliced out of `proposals` in descending index order — three rejections at once is what catches
+the off-by-one that one at a time never would. It is recorded rather than deleted because "an
+editor looked at this and said no" is itself provenance, and the extractor should not propose it
+again next run. **Needs work** changes nothing about the claim, which is the truth, and keeps the
+note: "supports the link but not the date" is the next reviewer's head start.
 
 ### Phase 4 — the measure (already built, by accident)
 

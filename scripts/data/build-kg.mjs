@@ -398,7 +398,10 @@ for (const p of dateProposals) {
     }
   }
   if (touched) {
-    saint.biographyReviewed = false;
+    /* Was hardcoded `false`. A confirmed biography proposal now says so, which
+       is what lets /about's "94 machine-read biographies" fall as reviews land
+       (docs/planning/REVIEW_DESK_2026-08-24.md, phase 4). */
+    saint.biographyReviewed = p.reviewed === true;
     if (p.source) saint.biographySource = p.source;
   }
 }
@@ -631,7 +634,11 @@ for (const p of lineageProposals) {
     object: `saint:${objectSlug}`,
     confidence: confidence ?? 0.7,
     method: 'machine-extracted',
-    reviewed: false,
+    /* Was hardcoded `false`, which made a reviewer's verdict unable to land: the
+       review desk could record one and the graph would still say unreviewed.
+       Set by scripts/data/apply-review-verdicts.mjs on the proposal itself, so
+       the flag lives with the claim it is about. */
+    reviewed: p.reviewed === true,
     source,
     quote,
     ...(notes ? { notes } : {}),
@@ -659,7 +666,7 @@ for (const p of orderProposals) {
       object: `order:${orderSlug}`,
       confidence: confidence ?? 0.7,
       method: 'machine-extracted',
-      reviewed: false,
+      reviewed: p.reviewed === true,
       source,
       quote,
       // The branch and the raw cell are the information a parent-order edge

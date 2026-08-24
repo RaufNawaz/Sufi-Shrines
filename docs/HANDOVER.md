@@ -3040,6 +3040,47 @@ nothing errored.
     Phase 4 needs no work at all: `/about` recomputes those three numbers on every load, so they
     fall on their own as verdicts land.
 
+120. **The review loop closes: a verdict can now land.** *Built 24 August 2026 — phase 3 of
+    `docs/planning/REVIEW_DESK_2026-08-24.md`.* `/review` produced a CSV and nothing consumed it,
+    so a review session ended with a downloaded file and a graph that still said `unreviewed`.
+    `npm run data:review:apply -- verdicts.csv [--write]` is the other half.
+
+    **The reason a verdict could not previously land is worth knowing:** `build-kg.mjs` had
+    `reviewed: false` **hardcoded in three places** — lineage relations, order memberships, and
+    `biographyReviewed`. Even a hand-edited proposal could not have been marked reviewed. All three
+    now read the flag off the proposal, so it lives with the claim it is about.
+
+    Three invariants, asserted against the **real** proposal documents and the real queue rather
+    than fixtures, because a fixture agrees with whatever shape I imagined instead of the shape the
+    pipeline emits:
+    - **A verdict may only ever narrow what the graph asserts.** No path writes a value into a
+      proposal's fields. The confirm test compares *every other key* before and after and requires
+      them identical — a reviewer's judgement about a claim must not be able to edit the claim.
+    - **All or nothing.** One bad row refuses the whole file. The applier is pure and returns the
+      *original* documents on error, so even a caller that ignored the error list would write
+      nothing. A stale file half-applied is worse than one refused: somebody then has to work out
+      which half landed.
+    - **The digest is checked, not trusted.** A mismatch means the quote changed after the verdict
+      was recorded, so it is a judgement about text that no longer exists. Verified end to end: the
+      CLI refuses with `--write` passed and exits 1.
+
+    Rejections splice `proposals` in **descending index order** — three at once is what catches the
+    off-by-one that one at a time never would — and land in the file's existing `rejected` array
+    with the reviewer's note. Recorded rather than deleted: "an editor looked at this and said no"
+    is itself provenance, and the extractor should not propose it again next run. `unsure` changes
+    nothing about the claim, which is the truth, and keeps the note.
+
+    Dry run by default; `--write` is opt-in. The files are hand-curated data in a provenance
+    archive, and the default for a script like that is to show its work first. There is also a
+    hand-rolled RFC 4180 parser in the lib — 30 lines, no dependency — because the two things this
+    archive's data guarantees will appear in a verdict file are commas inside quoted fields (every
+    citation) and newlines inside them (a reviewer's note).
+
+    **Phase 4 needed no work at all.** `/about` recomputes "94 machine-read biographies, 80 of 86
+    links, 44 of 64 affiliations" from the graph on every load, so those numbers fall on their own
+    as verdicts land. The progress bar for this project is a page that already existed — which is
+    the argument for computing figures from data rather than writing them down.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

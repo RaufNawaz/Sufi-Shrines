@@ -44,6 +44,7 @@
     "urdu:build": "bash urdu-i18n/build-all.sh",
     "data:snapshot": "node scripts/data/build-dataset.mjs",
     "data:kg": "npm run data:validate && node scripts/data/build-kg.mjs",
+    "data:review:apply": "node scripts/data/apply-review-verdicts.mjs",
     "data:export": "npm run data:kg && node scripts/data/export-jsonld.mjs && node scripts/data/export-rdf.mjs",
     "data:release": "npm run data:validate && npm run data:validate:images && node scripts/data/release.mjs",
     "storybook": "storybook dev -p 6006",
