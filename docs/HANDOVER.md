@@ -2416,6 +2416,20 @@ nothing errored.
     no entry gets its string back unchanged (i18n rule 3). Adding a language is one entry, and
     the shape makes the wrong version unwriteable.
 
+
+98. **`scripts/prerender.mjs` does not server-render anything.** It bakes `<head>` metadata —
+    title, description, OG tags, JSON-LD — into one shell per route, so link previews and
+    crawlers get real metadata without JavaScript. The body of every one of those files is
+    `<div id="root"></div>`: 29 bytes, zero Arabic characters on a `/ur` page. *Measured 24
+    August 2026.*
+
+    Recorded because a plan written the same day asserted the opposite — "the first paint is
+    server-rendered HTML in the right language regardless" — and built a design on it. The words
+    "prerender" and "`/ur` mirrors exist" are both true and neither implies rendered content.
+    Anything that wants to hide a fetch behind the first paint has nothing to hide behind; the
+    choice is a blank paint or a flash, and the way out is `<link rel="modulepreload">` in the
+    `<head>` the prerenderer *does* control.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

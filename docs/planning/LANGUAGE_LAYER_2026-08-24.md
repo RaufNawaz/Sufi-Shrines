@@ -178,16 +178,44 @@ English flash in the Urdu view is not an acceptable intermediate state — the m
 "equally excellent in both languages", and a reader whose page reads English for 200ms has been
 told which language is the real one.
 
-Two facts make this tractable:
+**Third correction, and this one was load-bearing.** This document originally said:
 
-- `detectInitialLang` runs before render, so the *active* language is known at module init and its
-  table can be requested immediately.
-- every route is already prerendered in both languages (`/ur` mirrors, `scripts/prerender.mjs`),
-  so the first paint is server-rendered HTML in the right language regardless.
+> every route is already prerendered in both languages (`/ur` mirrors, `scripts/prerender.mjs`),
+> so the first paint is server-rendered HTML in the right language regardless.
 
-So the load is gated on the active language only, and the *other* language's table is fetched
-lazily on toggle — where a brief pending state is honest, because the reader just asked for a
-change and is watching for one.
+That is false, and one command disproves it:
+
+```bash
+python3 -c "import io,re; s=io.open('dist/ur/about/index.html',encoding='utf-8').read();
+b=re.search(r'<body[^>]*>(.*)</body>', s, re.S).group(1);
+print(len(b.encode()), 'body bytes,', sum(1 for c in b if '\u0600'<=c<='\u06ff'), 'Arabic chars')"
+# → 29 body bytes, 0 Arabic chars
+```
+
+`prerender.mjs` bakes **`<head>` metadata** — title, description, OG tags, JSON-LD — into one
+shell per route so link previews and crawlers get real metadata. The body is `<div id="root">`.
+There is no server-rendered paint to hide a fetch behind. So the two options are a blank first
+paint or an English flash, and the plan as written assumed a third that does not exist.
+
+**What actually makes it tractable is the same script, used differently.** The prerenderer writes
+per-route, per-language HTML and controls the `<head>` of every file. So it can inject
+`<link rel="modulepreload">` for the Urdu strings chunk into `/ur/**` pages only — the fetch then
+starts with the document, in parallel with the main bundle, instead of after it parses. The
+hashed chunk name comes from `dist/.vite/manifest.json`, which `check-bundle-budget.mjs` already
+reads, so there is precedent for both halves.
+
+The revised shape:
+
+- English strings stay static. They are the default and the smaller half (29 KB), and an English
+  reader should not pay a round trip to read the site.
+- The Urdu table becomes its own chunk, `modulepreload`ed on `/ur/**`.
+- `main.tsx` awaits the active language's table before `render()`. That is what makes the flash
+  impossible rather than unlikely — with the preload the wait is near zero for the `/ur` paths,
+  and correctness does not depend on the preload having worked.
+- `?lang=ur` on a non-`/ur` URL cannot be preloaded (the query string is not part of the file
+  path), so it pays the round trip. It is a shareable-link case, not the primary path.
+- The runtime toggle fetches on demand, where a pending state is honest: the reader just asked
+  for a change and is watching for one.
 
 **Done when:** the English route's eager JS drops by ~40 KB (measured, and `check-bundle-budget.mjs`
 budgets lowered to match — a budget that does not fall when the payload does is how "measured 457"
