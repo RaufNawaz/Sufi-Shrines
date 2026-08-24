@@ -33,6 +33,8 @@ import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 import { figureProvenance } from '../lib/data/figureProvenance';
+import { disputedFieldLabelKey } from '../lib/data/figureDates';
+import { localizeRecordedDate } from '../lib/i18n/localizeRecordedDate';
 
 import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
@@ -183,9 +185,21 @@ export default function SaintPage() {
   // Eastern numerals reach every number site, names included (i18n rule 5).
   const displayName = fmtNum(localizeFigureName(saint, lang));
   const isRtl = isRtlLang(lang);
-  const born = isRtl && saint.born ? translateToUrdu(saint.born) : saint.born;
-  const died = isRtl && saint.died ? translateToUrdu(saint.died) : saint.died;
-  const era = isRtl && saint.era ? translateToUrdu(saint.era) : saint.era;
+  /*
+   * A recorded date, read in Urdu.
+   *
+   * The dictionary first, for a value it carries whole; then the Hijri month
+   * and calendar marker, which no whole-string lookup will ever match — the
+   * archive holds "11 Rabīʿ al-Sānī 729 AH", "16 Rabi ul Awal 1024 Hijri" and
+   * 43 other spellings of dates no two sources write the same way. Without the
+   * second step the Urdu view showed "۱۱ Rabīʿ al-Sānī ۷۲۹ AH": Eastern digits
+   * around a Latin month, which is worse than either language on its own.
+   */
+  const localizeDate = (value: string | undefined) =>
+    value && isRtl ? localizeRecordedDate(translateToUrdu(value), lang) : value;
+  const born = localizeDate(saint.born);
+  const died = localizeDate(saint.died);
+  const era = localizeDate(saint.era);
   const orderDescription = order && (isRtl ? order.descriptionUr : order.description);
 
   /* How precise these dates are, where the record says imprecise and the date
@@ -382,12 +396,32 @@ export default function SaintPage() {
             <h2 className="entity-disputed-heading">{t('disputedDatesLabel')}</h2>
             {saint.disputedDates.map((d) => (
               <div key={`${d.field}-${d.values.join('|')}`} className="entity-disputed-row">
-                <span className="entity-disputed-field">{d.field}</span>
+                {/* The recorded key was printed verbatim — "born", "died",
+                    "floruit" — which in English is an unlabelled lowercase token
+                    mid-article and in Urdu is undeclared English. Labelled where
+                    the key is one this page already names; shown as recorded
+                    source text where the key is the data's own compound
+                    ("era / died"), because inventing a translation for that
+                    would be inventing content. */}
+                <span className="entity-disputed-field">
+                  {(() => {
+                    const labelKey = disputedFieldLabelKey(d.field);
+                    return labelKey ? t(labelKey) : <bdi data-latin>{d.field}</bdi>;
+                  })()}
+                </span>
                 <span className="entity-disputed-values">
                   {d.values.map((v, i) => (
                     <React.Fragment key={v}>
                       {i > 0 && <span className="entity-disputed-vs">{t('disputedVersus')}</span>}
-                      <span className="entity-disputed-value">{fmtNum(v)}</span>
+                      {/* Each competing value is a recorded date too, and
+                          several carry a Hijri month or an era marker. Declared,
+                          because most of them also carry the source's own
+                          qualification in English — "survivors of Karbala, 61
+                          AH (shrine's traditional founding date about 63 AH)" —
+                          and that clause is the honest part of the row. */}
+                      <span className="entity-disputed-value" data-latin>
+                        <bdi>{fmtNum(localizeRecordedDate(v, lang))}</bdi>
+                      </span>
                     </React.Fragment>
                   ))}
                 </span>

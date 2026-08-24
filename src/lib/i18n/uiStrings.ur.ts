@@ -159,6 +159,9 @@ export const UI_TEXT_UR: UiStrings = {
   born: 'پیدائش',
   died: 'وفات',
   era: 'دور',
+  floruitLabel: 'دورِ فعالیت',
+  floruitHelp:
+    'وہ عرصہ جس میں یہ شخصیت متحرک بتائی جاتی ہے، اُن صورتوں میں جہاں مآخذ نہ سنِ پیدائش دیتے ہیں نہ سنِ وفات۔',
   arabicName: 'عربی نام',
   founded: 'قیام',
   notFoundSaint: 'ولی نہیں ملے۔',

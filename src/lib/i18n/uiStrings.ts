@@ -137,6 +137,9 @@ const UI_TEXT_EN = {
   born: 'Born',
   died: 'Died',
   era: 'Era',
+  floruitLabel: 'Active',
+  floruitHelp:
+    'The period a figure is recorded as active, where the sources give neither a birth nor a death year.',
   arabicName: 'Arabic name',
   founded: 'Founded',
   notFoundSaint: 'Saint not found.',

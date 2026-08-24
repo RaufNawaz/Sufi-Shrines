@@ -2542,6 +2542,46 @@ nothing errored.
     is now asserted: every `SET_AT_RUNTIME` entry must be written by real code under `src/`.
     Probed by re-adding the entry; it fails.
 
+104. **Recorded Hijri dates read half-translated in Urdu, and the fix is the one substitution
+    `localizeObservance` is right to refuse.** The Urdu view showed "۱۱ Rabīʿ al-Sānī ۷۲۹ AH" —
+    Eastern digits around a Latin month and a Latin era marker, which is worse than either
+    language on its own. 45 recorded strings across `data/kg.json` and the shipped snapshot carry
+    a Hijri month or an era marker. *Measured 24 August 2026.*
+
+    `localizeObservance`'s standing rule is **never compose Urdu out of tokens**, because that
+    means deciding word order, and the wrong decision produced a coverage line reading "169
+    places out of 32". A date is the one case where no such decision exists: **Urdu writes day,
+    month, year in the same order English does**, so `ربیع الثانی` goes exactly where
+    `Rabīʿ al-Sānī` was and nothing is reordered. That, and only that, is why
+    `localizeRecordedDate` is allowed to substitute.
+
+    Two guards on it, both load-bearing:
+    - **No loose matching.** `Rabi` alone is deliberately not in the variant table: it would map
+      `Rabi al-Awwal` and `Rabi al-Thani` to the same month, a five-week error in a death date.
+      Longest variant always wins.
+    - **A date context is required** — a day before, a year after, `(Month)` alone in
+      parentheses, "month of X", or "X in 1575". The month words appear in English *prose* too
+      ("Muharram observances", "during Ramadan"), and this function must never reach into a
+      sentence. Measured against every name, title and description in the shipped data: no
+      collisions, because the prose hits are all sentences and all fail the context test.
+
+    Everything else passes through untouched (RULE 2), so "10 Zil Hajj 960 AH, Kirman, Iran (as
+    related in the survey)" keeps its qualification in English — declared and isolated. The
+    lineage-only route's declared Latin fell 28 → 24: four runs *gone*, not merely declared.
+
+    Same pass: `disputedDates[].field` was printed verbatim — `born`, `died`, `floruit`,
+    `era / died`. In English an unlabelled lowercase token mid-article; in Urdu undeclared
+    English. The three keys this page already labels use those labels, `floruit` gained a label
+    pair, and `era / died` — a compound the pipeline itself invented — is shown as recorded
+    source text rather than given a translation this codebase would be making up.
+
+    **Still open:** the same substitution would help the almanac and the shrine infobox, whose
+    observance strings ("Annual urs (18-20 Safar)") reach the reader through
+    `localizeObservance`'s whole-segment lookup and stay Latin when the segment is not in the
+    dictionary. Wiring it in there changes that function's `translatedAny` logic — a partly
+    substituted segment still contains Latin — so it wants its own measured pass rather than a
+    quick edit.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

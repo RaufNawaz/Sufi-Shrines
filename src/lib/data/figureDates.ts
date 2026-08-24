@@ -100,3 +100,35 @@ export function centurySpan(saints: DatedFigure[]): CenturySpan | null {
     undated,
   };
 }
+
+/**
+ * The field a disputed-date row is about, as a label.
+ *
+ * `disputedDates[].field` is a recorded key — `born`, `died`, `era`,
+ * `floruit`, `era / died` — and the page printed it verbatim. In English that
+ * is an unlabelled lowercase token in the middle of an article; in the Urdu view
+ * it is undeclared English. The three that map onto fields this page already
+ * labels use those labels. `floruit` gets its own, because the archive uses the
+ * term and a reader is owed it in both languages.
+ *
+ * Anything else — `era / died` is the data's own compound — returns null, and
+ * the caller shows the recorded key as declared source text. Inventing a
+ * translation for a key the pipeline invented would be inventing content
+ * (RULE 2).
+ */
+export function disputedFieldLabelKey(
+  field: string,
+): 'born' | 'died' | 'era' | 'floruitLabel' | null {
+  switch (field.trim().toLowerCase()) {
+    case 'born':
+      return 'born';
+    case 'died':
+      return 'died';
+    case 'era':
+      return 'era';
+    case 'floruit':
+      return 'floruitLabel';
+    default:
+      return null;
+  }
+}

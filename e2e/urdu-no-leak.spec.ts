@@ -98,16 +98,22 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   the language toggle's "EN" (1), and the one name at the first remove of
  *   his chain of transmission (1). Nothing here is prose: every run is a
  *   source's words, a person's name, or a citation.
- * - `saint:lineage-only` (28) — the third saint-page shape, and the densest in
+ * - `saint:lineage-only` (24) — the third saint-page shape, and the densest in
  *   declared Latin of any page in this file. Counted, not estimated: his own
  *   name at 3 sites (breadcrumb, title, infobox), which the Urdu dictionary does
  *   not carry; 4 alt-name runs; 2 honorific chips; 6 runs for his one recorded
  *   teacher (the Teachers list, the chain of transmission, the link, and the
  *   network diagram's `<title>`, `<text>` and `<a>`); 2 lineage quotes with 2
- *   `<cite>`s; his recorded birth and death at 2 sites each — Eastern digits
- *   around a Latin Hijri month, because the month name is the source's word;
- *   the 3 network-diagram runs for his own name; the file his biography was read
- *   out of (1); and the language toggle's "EN" (1).
+ *   `<cite>`s; the 3 network-diagram runs for his own name; the file his
+ *   biography was read out of (1); and the language toggle's "EN" (1).
+ *
+ *   **28 → 24.** His recorded birth and death used to be Latin at 2 sites each:
+ *   "۱۱ Rabīʿ al-Sānī ۷۲۹ AH" — Eastern digits around a Latin month, which is
+ *   worse than either language alone. `localizeRecordedDate` now substitutes the
+ *   Hijri month and the calendar marker in place, which is safe for a date and
+ *   is refused for prose: Urdu writes day-month-year in that same order, so
+ *   nothing is reordered and no word-order decision is being made. The four
+ *   runs are gone rather than merely declared.
  *
  *   **This route is why the budget list has three saint pages.** Adding it
  *   turned up 9 *undeclared* runs on a page shape the other two never exercise:
@@ -167,7 +173,7 @@ const BUDGET: Record<string, number> = {
   graph: 49,
   almanac: 39,
   coverage: 1,
-  'saint:lineage-only': 28,
+  'saint:lineage-only': 24,
   about: 7,
   place: 36,
 };
