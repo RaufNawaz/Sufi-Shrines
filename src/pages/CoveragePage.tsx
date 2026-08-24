@@ -7,13 +7,8 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
-import {
-  buildCoverage,
-  INFO_KEYS,
-  SUPPORT_KEYS,
-  TRADITION_KEYS,
-  type Distribution,
-} from '../lib/data/coverage';
+import { buildCoverage, INFO_KEYS, SUPPORT_KEYS, TRADITION_KEYS } from '../lib/data/coverage';
+import { Fact, Stat, DistributionBlock } from '../components/archive/CoverageStats';
 import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
@@ -35,98 +30,6 @@ import { tFn } from '../lib/i18n/uiStrings';
  * and stating them plainly is what separates a scholarly resource from a
  * brochure.
  */
-
-/** A labelled bar row. Numbers first — this page is a table of facts. */
-function Bar({
-  label,
-  value,
-  total,
-  tone,
-}: {
-  label: string;
-  value: number;
-  total: number;
-  tone?: string;
-}) {
-  const { fmtNum } = useLang();
-  const pct = total > 0 ? Math.round((value / total) * 100) : 0;
-  return (
-    <li className="coverage-bar-row">
-      <span className="coverage-bar-label">{label}</span>
-      <span className="coverage-bar-track" aria-hidden="true">
-        <span
-          className={`coverage-bar-fill${tone ? ` coverage-bar-fill--${tone}` : ''}`}
-          style={{ width: `${pct}%` }}
-        />
-      </span>
-      {/* The count is the fact; the percentage is the aid. Both, because a
-          percentage alone hides how small the denominator is. */}
-      <span className="coverage-bar-value">
-        {fmtNum(value)} <span className="coverage-bar-pct">({fmtNum(pct)}%)</span>
-      </span>
-    </li>
-  );
-}
-
-/**
- * "N entries <predicate>". The noun is pluralised here rather than baked into
- * each label, so there is one place for it to be right — the first draft read
- * "1 entries citing nothing".
- */
-function Fact({ value, label }: { value: number; label: string }) {
-  const { lang, fmtNum } = useLang();
-  return (
-    <li>
-      <strong>{fmtNum(value)}</strong> {tFn(lang, 'coverageEntriesNoun', value)} {label}
-    </li>
-  );
-}
-
-function Stat({ value, label }: { value: number; label: string }) {
-  const { fmtNum } = useLang();
-  return (
-    <div className="coverage-stat">
-      <div className="coverage-stat-value">{fmtNum(value)}</div>
-      <div className="coverage-stat-label">{label}</div>
-    </div>
-  );
-}
-
-function DistributionBlock<K extends string>({
-  heading,
-  dist,
-  keys,
-  labelFor,
-  toneFor,
-}: {
-  heading: string;
-  dist: Distribution<K>;
-  keys: readonly K[];
-  labelFor: (key: K) => string;
-  toneFor?: (key: K) => string | undefined;
-}) {
-  const { t } = useLang();
-  return (
-    <section className="coverage-section">
-      <h2 className="coverage-section-heading">{heading}</h2>
-      <ul className="coverage-bars">
-        {keys.map((key) => (
-          <Bar
-            key={key}
-            label={labelFor(key)}
-            value={dist.counts[key]}
-            total={dist.total}
-            {...(toneFor?.(key) ? { tone: toneFor(key)! } : {})}
-          />
-        ))}
-        {/* Shown even at zero: "the archive does not say" is a fact about the
-            archive, and hiding the row would quietly imply there is no such
-            case. */}
-        <Bar label={t('coverageUnrecorded')} value={dist.unrecorded} total={dist.total} />
-      </ul>
-    </section>
-  );
-}
 
 export default function CoveragePage() {
   const { shrines, loading } = useShrineData();

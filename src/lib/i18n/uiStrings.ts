@@ -277,6 +277,21 @@ export const UI_TEXT = {
     aboutTitle: 'About this archive',
     aboutLede:
       'A public, bilingual record of sacred sites across Pakistan — Muslim shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi and Udasi darbars, Jain temples and secular memorials — built to be cited, and to be honest about what it does not yet know.',
+    aboutStateHeading: 'What this archive holds',
+    aboutStateNote:
+      'Every number in this section is counted from the data this page just loaded, so it cannot drift from the archive the way a sentence can. Each one describes what the archive records \u2014 never an estimate of what is out there.',
+    aboutStateSites: 'sites',
+    aboutStateSources: 'cited sources',
+    aboutStatePhotos: 'photographs',
+    aboutStateTraditions: 'traditions',
+    aboutKnowsHeading: 'How it knows what it says',
+    aboutKnowsNote:
+      'Every entry records the kind of evidence behind it. A field visit and a web compilation are both honest and they are not the same thing, so the archive says which rather than levelling them.',
+    aboutThinHeading: 'Where it is thin',
+    aboutThinNote:
+      'The gaps, as counts. An archive is only as useful as its account of its own limits.',
+    aboutStateMore: 'The full breakdown, tradition by tradition and place by place:',
+    aboutStateReportLink: 'the archive grading itself',
     aboutScopeHeading: 'Scope',
     aboutScopeBody:
       'Each entry records what a source says, with that source named. Entries are labelled by how they were established, from field-verified to web-compiled, so a reader can weigh them without leaving the page.',
@@ -787,6 +802,21 @@ export const UI_TEXT = {
     aboutTitle: 'اِس آرکائیو کے بارے میں',
     aboutLede:
       'پاکستان بھر کے مقدس مقامات کا ایک عوامی، دو لسانی ریکارڈ — مسلم مزارات، ہندو مندر، سکھ گوردوارے، نانک پنتھی و اُداسی دربار، جین مندر اور سیکولر یادگاریں — اِس نیت سے مرتب کیا گیا کہ اِس کا حوالہ دیا جا سکے، اور یہ بھی صاف بتایا جا سکے کہ ابھی کیا معلوم نہیں۔',
+    aboutStateHeading: 'اِس آرکائیو کے پاس کیا ہے',
+    aboutStateNote:
+      'اِس حصے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو ابھی اِس صفحے نے پڑھا ہے، اِس لیے یہ آرکائیو سے اُس طرح جدا نہیں ہو سکتا جیسے کوئی جملہ ہو جاتا ہے۔ ہر عدد بتاتا ہے کہ آرکائیو میں کیا درج ہے \u2014 یہ اندازہ نہیں کہ باہر کیا موجود ہے۔',
+    aboutStateSites: 'مقامات',
+    aboutStateSources: 'حوالہ شدہ مآخذ',
+    aboutStatePhotos: 'تصاویر',
+    aboutStateTraditions: 'روایات',
+    aboutKnowsHeading: 'یہ جو کہتا ہے وہ کیسے جانتا ہے',
+    aboutKnowsNote:
+      'ہر اندراج کے ساتھ درج ہے کہ اُس کے پیچھے کس قسم کی شہادت ہے۔ میدانی دورہ اور ویب سے مرتب کردہ معلومات، دونوں دیانت دار ہیں مگر ایک جیسے نہیں، اِس لیے آرکائیو دونوں کو برابر کیے بغیر بتاتا ہے کہ کون سی ہے۔',
+    aboutThinHeading: 'یہ کہاں کمزور ہے',
+    aboutThinNote:
+      'خلا، اعداد کی صورت میں۔ کوئی آرکائیو اُتنا ہی کارآمد ہے جتنا اپنی حدود کا بیان۔',
+    aboutStateMore: 'مکمل تفصیل، روایت بہ روایت اور مقام بہ مقام:',
+    aboutStateReportLink: 'آرکائیو کی اپنی جانچ',
     aboutScopeHeading: 'دائرہ',
     aboutScopeBody:
       'ہر اندراج وہی درج کرتا ہے جو ماخذ کہتا ہے، اور ماخذ کا نام بھی۔ ہر اندراج پر یہ درج ہے کہ وہ کس بنیاد پر قائم ہوا — میدانی تصدیق سے لے کر ویب سے ترتیب تک — تاکہ قاری صفحہ چھوڑے بغیر اُس کا وزن جانچ سکے۔',

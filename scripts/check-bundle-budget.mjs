@@ -81,7 +81,20 @@ const BUDGETS_KB = {
   'src/pages/AlmanacPage.tsx': 335, // measured 307
   'src/pages/NotFoundPage.tsx': 275, // measured 251
   'src/pages/CoveragePage.tsx': 320, // measured 294 — shrine data + the places index
-  'src/pages/AboutPage.tsx': 280, // measured 257 — static text, no dataset needed
+  /* 280 → 320, raised 24 August 2026, and this one is the page doing more rather
+     than a shared module growing. /about now computes the archive's own account
+     of itself — total sites, cited sources, photographs, the support-level
+     distribution and the gaps — instead of printing a link to /coverage and
+     calling that transparency. That means `useShrineData` and `buildCoverage`
+     on this route: +39 KB, almost all of it Papa Parse and the row model.
+
+     Worth knowing what it is *not*: the 1 MB `shrines-fallback.json` stays
+     behind the dynamic import in useShrineData, so the dataset itself is still
+     off the critical path here exactly as it is on /coverage. The number lands
+     at 309 against /coverage's 312, which is the right shape — the two pages now
+     load the same machinery because they now do the same work. Set to 320 to
+     match /coverage rather than to 309, so the two move together. */
+  'src/pages/AboutPage.tsx': 320, // measured 309 on 24 Aug 2026
   'src/pages/PlacePage.tsx': 315, // measured 289 — the dataset and the place vocabulary
   // Added 23 Aug 2026 when the two branches merged: these routes were built on
   // the other line, so this table had never seen them. Same headroom as their
