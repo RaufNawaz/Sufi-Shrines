@@ -19,8 +19,10 @@ export function LanguageToggle({ className }: { className?: string }) {
         <bdi data-latin>EN</bdi>
       </button>
       <button
+        // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this segment *is* the Urdu one; its label is اردو
         className={`lang-seg${lang === 'ur' ? ' active' : ''}`}
         onClick={() => setLang('ur')}
+        // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this segment *is* the Urdu one; its label is اردو
         aria-pressed={lang === 'ur'}
         lang="ur"
       >

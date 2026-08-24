@@ -34,4 +34,45 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      /* Scoped to app source. The e2e specs legitimately parameterise over
+         languages — `for (const lang of ['en','ur'])` and `lang === 'ur' ? …`
+         inside a test are describing the two editions under test, not branching
+         product behaviour, and forcing them through the registry helpers would
+         make the tests agree with the code by construction. */
+      files: ['src/**/*.ts', 'src/**/*.tsx'],
+      excludedFiles: ['src/**/__tests__/**'],
+      rules: {
+        'no-restricted-syntax': [
+          'error',
+          {
+            /*
+             * Any comparison against a language literal, anywhere.
+             *
+             * 55 of these existed (measured 24 August 2026) and they were asking four
+             * different questions — is this RTL, should numerals be Eastern, does this
+             * need the Nastaliq stack, is there a translation for this datum. Every one
+             * was correct and about half go silently wrong the moment a second RTL
+             * language exists, because nothing distinguishes "RTL" from "Urdu
+             * specifically". 39 are now `isRtlLang` / `usesEasternNumerals` /
+             * `usesLatinScript` / a `Record<Lang, …>`; see
+             * docs/planning/LANGUAGE_LAYER_2026-08-24.md.
+             *
+             * The 16 that remain are genuinely Urdu-specific and each carries an
+             * `eslint-disable-next-line` naming the reason — almost always that the
+             * *data* has an `Ur`-suffixed sibling field or sheet column rather than a
+             * per-language record. That is a data migration, not a refactor, so the
+             * rule's job is to stop new ones appearing unexamined rather than to force
+             * the last 16 through a conversion that would be a lie.
+             */
+            selector:
+              "BinaryExpression[operator=/^(===|!==)$/][right.value='ur'][left.name='lang']",
+            message:
+              "Don't compare a language against 'ur'. Ask what you mean: isRtlLang(), usesEasternNumerals(), usesLatinScript(), needsNastaliq(), or a Record<Lang, …> lookup — all in src/lib/i18n/languages.ts. If the datum genuinely only exists in Urdu (an `Ur` sibling field or sheet column), add an eslint-disable-next-line saying so.",
+          },
+        ],
+      },
+    },
+  ],
 };

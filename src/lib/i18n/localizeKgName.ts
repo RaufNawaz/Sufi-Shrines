@@ -6,6 +6,14 @@ import { translateNameToUrdu } from './urduFallback';
 import { localizeRecordedName } from './localizeRecordedName';
 
 export { localizeRecordedName };
+
+/* Same shape as NAME_DICTIONARIES in localizeRecordedName.ts, and separate on
+   purpose: this one goes through `translateNameToUrdu`, which is the *name*
+   lookup rather than the general string lookup. Keyed on the language so a
+   second translated language cannot accidentally be served Urdu. */
+const SLUG_LABEL_DICTIONARIES: Partial<Record<Lang, (value: string) => string>> = {
+  ur: translateNameToUrdu,
+};
 import { slugToLabel } from '../kg';
 
 /**
@@ -38,6 +46,7 @@ interface NamedEntity {
 
 /** A figure's name — an explicit `nameUr` wins, then the dictionary. */
 export function localizeFigureName(saint: NamedEntity, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: reads the Urdu-only nameUr field and the Urdu name dictionary
   if (lang !== 'ur') return saint.name;
   return saint.nameUr || translateNameToUrdu(saint.name, saint.altNames ?? []);
 }
@@ -50,6 +59,7 @@ interface NamedOrder extends NamedEntity {
 }
 
 export function localizeOrderName(order: NamedOrder, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: reads the Urdu-only nameUr field and the Urdu name dictionary
   if (lang !== 'ur') return order.name;
   return order.nameUr || order.arabicName || translateNameToUrdu(order.name);
 }
@@ -77,5 +87,5 @@ export function localizeAltName(altName: string, lang: Lang): string {
  */
 export function localizeShrineSlug(slug: string, lang: Lang): string {
   const label = slugToLabel(slug);
-  return lang === 'ur' ? translateNameToUrdu(label) : label;
+  return SLUG_LABEL_DICTIONARIES[lang]?.(label) ?? label;
 }

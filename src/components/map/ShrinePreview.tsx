@@ -59,6 +59,7 @@ export function ShrinePreview({
       : '';
 
   const descRaw =
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only Description column
     lang === 'ur'
       ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
       : getFieldValue(shrine.raw, 'Description');

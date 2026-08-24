@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { usesLatinScript } from '../../lib/i18n/languages';
 import {
   fetchMosques,
   nearbyMosques,
@@ -63,7 +64,7 @@ export function NearbyMosques({ shrine }: Props) {
                 {/* Survey names are English source data — sanctioned Latin
                     in the Urdu view, isolated like other source strings. */}
                 <a href={mosquePageUrl(mosque)} target="_blank" rel="noopener noreferrer">
-                  <bdi lang={lang === 'ur' ? 'en' : undefined} data-latin>
+                  <bdi lang={usesLatinScript(lang) ? undefined : 'en'} data-latin>
                     {mosque.name}
                   </bdi>
                 </a>
@@ -72,7 +73,7 @@ export function NearbyMosques({ shrine }: Props) {
               <div className="nearby-mosque-meta">
                 {mosque.city && (
                   <span>
-                    <bdi lang={lang === 'ur' ? 'en' : undefined} data-latin>
+                    <bdi lang={usesLatinScript(lang) ? undefined : 'en'} data-latin>
                       {mosque.city}
                     </bdi>{' '}
                     ·{' '}
@@ -85,7 +86,7 @@ export function NearbyMosques({ shrine }: Props) {
               </div>
               <div className="nearby-mosque-womens">
                 {t('mosquesWomens')}:{' '}
-                {womensIsLatin && lang === 'ur' ? (
+                {womensIsLatin && !usesLatinScript(lang) ? (
                   <bdi lang="en" data-latin>
                     {womens}
                   </bdi>

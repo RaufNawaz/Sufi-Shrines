@@ -82,6 +82,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
        than about direction. A future Shahmukhi edition would load its own file
        here, not this one. Kept as a literal deliberately — see
        docs/planning/LANGUAGE_LAYER_2026-08-24.md phase 2. */
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this loads the Urdu content payload, a fact about that one file
     if (lang === 'ur') void loadUrduContent();
   }, [lang]);
 
@@ -91,6 +92,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
      switch, and the subscription covers the case where either request is still
      in flight when this provider mounts. */
   useEffect(() => {
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this waits on the Urdu dictionary, a fact about that one file
     if (lang !== 'ur') return;
     if (isUrduSeedLoaded()) {
       setDictVersion((n) => (n === 0 ? 1 : n));
@@ -123,6 +125,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const localizeField = useCallback(
     (row: ShrineRow, field: string) => {
+      // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only columns
       if (lang !== 'ur') return getFieldValue(row, field);
       const urduValue = getUrduFieldValue(row, field);
       if (urduValue) return urduValue;

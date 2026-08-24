@@ -1,5 +1,5 @@
 import React, { useCallback, useId } from 'react';
-import { ERA_MIN, ERA_MAX, formatCentury, formatCenturyUr } from '../../lib/data/era';
+import { ERA_MIN, ERA_MAX, CENTURY_LABEL } from '../../lib/data/era';
 import { t } from '../../lib/i18n/uiStrings';
 import type { Lang } from '../../types/shrine';
 
@@ -14,10 +14,7 @@ export function TimeSlider({ value, onChange, lang = 'en', fmtNum = (n) => Strin
   const minId = useId();
   const maxId = useId();
   const [selMin, selMax] = value;
-  const century = useCallback(
-    (c: number) => fmtNum(lang === 'ur' ? formatCenturyUr(c) : formatCentury(c)),
-    [lang, fmtNum],
-  );
+  const century = useCallback((c: number) => fmtNum(CENTURY_LABEL[lang](c)), [lang, fmtNum]);
 
   const handleMin = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

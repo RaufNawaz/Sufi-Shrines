@@ -79,6 +79,7 @@ export function loadUrduContent(): Promise<UrduContentMap> {
 
 /** Load the payload only when the reader is actually reading Urdu. */
 export function ensureUrduContentForLang(lang: Lang): Promise<void> {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this loads the Urdu content payload, a fact about that one file
   if (lang !== 'ur') return Promise.resolve();
   return loadUrduContent().then(() => undefined);
 }

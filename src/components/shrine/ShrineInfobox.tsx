@@ -17,6 +17,7 @@ import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import type { Lang } from '../../types/shrine';
 
+import { usesLatinScript } from '../../lib/i18n/languages';
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
 }
@@ -39,11 +40,16 @@ function resolveFieldValue(
   return localizeField(shrine.raw, key);
 }
 
-/** localizeField() only ever returns Latin text in the Urdu view when
+/** localizeField() only ever returns Latin text in a non-Latin view when
  * translateToUrdu() fell through to the raw original — Latin content is
- * itself the "untranslated" signal (see urduFallback.ts). */
-function isUntranslatedInUrdu(lang: string, value: string): boolean {
-  return lang === 'ur' && /[A-Za-z]/.test(value);
+ * itself the "untranslated" signal (see urduFallback.ts).
+ *
+ * `usesLatinScript` rather than `lang === 'ur'`: the question is whether Latin
+ * text is *foreign to the page*, which is a property of the page's script. Asked
+ * as "is this Urdu" it is right by coincidence today and wrong for the next
+ * non-Latin language. */
+function isUntranslatedInUrdu(lang: Lang, value: string): boolean {
+  return !usesLatinScript(lang) && /[A-Za-z]/.test(value);
 }
 
 interface Props {

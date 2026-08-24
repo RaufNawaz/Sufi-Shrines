@@ -159,6 +159,7 @@ export function getArticleLeadText(text: string): string {
 export function getLeadText(row: ShrineRow, lang: string): string {
   for (const key of LEAD_PARAGRAPH_KEYS) {
     let value = '';
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: Urdu section headings come from the Urdu-only content files
     if (lang === 'ur') {
       value = getUrduFieldValue(row, key) || getFieldValue(row, key);
     } else {
@@ -177,6 +178,7 @@ export function buildArticleSections(
 
   for (const def of ARTICLE_SECTION_DEFINITIONS) {
     let content = '';
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: Urdu section headings come from the Urdu-only content files
     if (lang === 'ur') {
       content = getUrduFieldValue(row, def.field) || getFieldValue(row, def.field);
     } else {

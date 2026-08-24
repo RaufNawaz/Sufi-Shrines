@@ -78,6 +78,7 @@ export function buildBibtex(input: Omit<CiteInput, 'name'> & { englishName: stri
 
 export function buildPlainCitation(lang: Lang, input: CiteInput): string {
   const words = UI_TEXT[lang] ?? UI_TEXT.en;
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: Urdu citation grammar, hand-built around the danda (۔)
   if (lang === 'ur') {
     const support = input.supportLevelLabel
       ? ` ${words.citeSupportLevel}: ${input.supportLevelLabel}۔`

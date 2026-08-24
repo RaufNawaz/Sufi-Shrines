@@ -1,21 +1,16 @@
 import type { Lang } from '../../types/shrine';
-import {
-  GREGORIAN_MONTH_NAMES_EN,
-  GREGORIAN_MONTH_NAMES_UR,
-  HIJRI_MONTH_NAMES_EN,
-  HIJRI_MONTH_NAMES_UR,
-} from '../data/ursDates';
+import { GREGORIAN_MONTH_NAMES, HIJRI_MONTH_NAMES } from '../data/ursDates';
 import type { DateWindow } from '../data/hijriCalendar';
 
 /** Gregorian month name in the reader's language. */
 export function gregorianMonthName(month: number, lang: Lang): string {
-  const names = lang === 'ur' ? GREGORIAN_MONTH_NAMES_UR : GREGORIAN_MONTH_NAMES_EN;
+  const names = GREGORIAN_MONTH_NAMES[lang];
   return names[month - 1] ?? '';
 }
 
 /** Hijri month name in the reader's language. */
 export function hijriMonthName(month: number, lang: Lang): string {
-  const names = lang === 'ur' ? HIJRI_MONTH_NAMES_UR : HIJRI_MONTH_NAMES_EN;
+  const names = HIJRI_MONTH_NAMES[lang];
   return names[month - 1] ?? '';
 }
 

@@ -48,6 +48,7 @@ export function useArticleContent(shrine: Shrine) {
   // Inline sections: headings authored inside the Description column
   const inlineSections = useMemo(() => {
     const raw =
+      // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article body is an Urdu-only content file, not a per-language record
       lang === 'ur'
         ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
         : getFieldValue(shrine.raw, 'Description');
@@ -75,6 +76,7 @@ export function useArticleContent(shrine: Shrine) {
   // Last-resort fallback: raw Description when nothing else has content
   const rawFallback = useMemo(() => {
     if (leadText || inlineSections.length || uniqueColumnSections.length) return '';
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article body is an Urdu-only content file, not a per-language record
     return lang === 'ur'
       ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
       : getFieldValue(shrine.raw, 'Description');

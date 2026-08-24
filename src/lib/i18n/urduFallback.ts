@@ -446,6 +446,7 @@ export function loadUrduSeed(): Promise<Record<string, string>> {
 
 /** Load the dictionary only when the reader is actually reading Urdu. */
 export function ensureUrduSeedForLang(lang: Lang): Promise<void> {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this module *is* the Urdu dictionary
   if (lang !== 'ur') return Promise.resolve();
   return loadUrduSeed().then(() => undefined);
 }
@@ -673,6 +674,7 @@ export function resolveFoundedDate(row: ShrineRow, lang: Lang): string {
   const cleanEnglish =
     normalizeFoundedDate(getFieldValue(row, 'Founded/Opened')) ||
     normalizeFoundedDate(getFieldValue(row, 'Founded'));
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this module *is* the Urdu dictionary
   if (lang !== 'ur') return cleanEnglish;
 
   const urduValue = getUrduFieldValue(row, 'Founded/Opened') || getUrduFieldValue(row, 'Founded');

@@ -1,3 +1,4 @@
+import type { Lang } from '../../types/shrine';
 /**
  * Reading observance dates out of the sheet's free-text `Events` column.
  *
@@ -373,3 +374,21 @@ export function claimsUndatedObservance(events: string | null | undefined): bool
     (clause) => OBSERVANCE_RE.test(clause) && !NEGATED_RE.test(clause),
   );
 }
+
+/**
+ * Month names per language, so a caller asks for "this language's months" rather
+ * than picking the Urdu array by comparing against a literal.
+ *
+ * `formatDateWindow` had both selections as ternaries. A Record keyed on the
+ * language widens with the table, and a missing entry is a type error rather than
+ * an almanac quietly printing "Muharram" in a page set in Nastaliq.
+ */
+export const GREGORIAN_MONTH_NAMES: Record<Lang, readonly string[]> = {
+  en: GREGORIAN_MONTH_NAMES_EN,
+  ur: GREGORIAN_MONTH_NAMES_UR,
+};
+
+export const HIJRI_MONTH_NAMES: Record<Lang, readonly string[]> = {
+  en: HIJRI_MONTH_NAMES_EN,
+  ur: HIJRI_MONTH_NAMES_UR,
+};

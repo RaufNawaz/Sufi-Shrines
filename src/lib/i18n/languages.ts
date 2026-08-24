@@ -71,6 +71,19 @@ export function usesEasternNumerals(lang: Lang): boolean {
   return LANGUAGES[lang].numerals === 'eastern';
 }
 
+/**
+ * Whether this language is set in Latin script.
+ *
+ * The question behind `<bdi lang="en">` and the `/[A-Za-z]/` checks: a Latin run
+ * inside a non-Latin page has to be declared, so the bidi algorithm isolates it
+ * and a screen reader switches voice. Asked as "is the page Urdu" it is right by
+ * accident — the property that matters is the *page's* script, not which
+ * non-Latin language it happens to be.
+ */
+export function usesLatinScript(lang: Lang): boolean {
+  return LANGUAGES[lang].script === 'latin';
+}
+
 /** Whether this language needs the Nastaliq type stack: the `--font-urdu`
  * family, the Urdu leading tokens, and no letter-spacing. Distinct from
  * `isRtlLang` for the same reason — a future RTL language set in Naskh would

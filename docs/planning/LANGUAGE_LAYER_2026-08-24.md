@@ -32,6 +32,7 @@ grep -rn "lang === 'ur'" src/ --include=*.ts --include=*.tsx | wc -l # 55
 | keys per language | ~460 |
 | `'en' \| 'ur'` union declarations | 10 |
 | `lang === 'ur'` comparisons | 55 |
+| `lang !== 'ur'` comparisons | 11 — **missed by the grep above; see phase 2** |
 
 **Every reader downloads both languages on every route.** 42 KB of Nastaliq interface copy
 reaches an English-only reader who will never see a word of it. A third Arabic-script language at
@@ -130,9 +131,41 @@ literal, with a comment: `if (lang === 'ur') void loadUrduContent()` asks whethe
 applies, which is a fact about one file rather than about direction. Roughly 50 remain, thinly
 spread — 1 or 2 per file across 30 files.
 
-**Done when:** `grep -rn "lang === 'ur'" src/` returns only the sites that genuinely mean Urdu
-specifically — each with a comment saying why — and a lint rule (beside the existing
-inline-ternary one) blocks new ones.
+**Done when:** only the sites that genuinely mean Urdu specifically remain, each saying why, and
+a lint rule blocks new ones. **Done 24 August 2026.**
+
+*Second correction to the measurement.* The count was never 55. `grep "lang === 'ur'"` misses
+`lang !== 'ur'`, and there were **11** of those — early-return guards in the dictionary and
+content modules. The real total was **66**. The lint rule found them, which is the argument for
+the rule over the grep: a selector on the syntax tree cannot miss an operator.
+
+**39 converted, 27 remaining, and the remainder is the interesting part.** Every one of the 27 is
+genuinely Urdu-specific, and almost all for the same reason: **the data has an `Ur`-suffixed
+sibling rather than a per-language record.** `tour.titleUr`, `order.descriptionUr`,
+`saint.nameUr`, the sheet's Urdu-only Description / Visiting Info columns, the Urdu article
+content files, the Urdu name dictionary. `lang === 'ur'` there is not a shortcut for "is this
+RTL" — it is the honest statement that this datum exists in exactly one other language.
+
+So **phase 2 bottoms out at the data shape**, and that is a finding rather than a stopping point:
+adding Punjabi needs `titleUr: string` to become `title: Record<Lang, string>` across the tours
+file, the KG seeds, and the sheet's column naming. That is a data migration with a CSV patch and
+a human import (RULE 3), not a refactor — which is worth knowing *before* someone budgets phase 4
+as an afternoon.
+
+Two conversions found while annotating, both of which the eye had passed over twice:
+
+- `localizeProseDigits` still asked `lang !== 'ur'` while its sibling `localizeDigits` had been
+  converted an hour earlier. Two functions in one file, one page apart, disagreeing about what
+  they were testing.
+- the **۱۲۳/123 numerals toggle** was gated on `lang === 'ur'`. It exists because Eastern digits
+  are the reader's default and some readers prefer Western — a question about `numerals`. Gated on
+  the language, a future Eastern-numeral edition would have silently had no toggle at all, which
+  is the exact failure mode this phase is for, sitting in the control that i18n rule 5 is about.
+
+The 25 that stay each carry `// eslint-disable-next-line no-restricted-syntax -- Urdu-specific: …`
+with the reason. The rule is scoped to `src/` and excludes `__tests__` and `e2e/`: a spec that
+parameterises over `['en', 'ur']` is describing the two editions under test, and forcing it
+through the registry helpers would make the tests agree with the code by construction.
 
 ### Phase 3 — load a language's strings when that language is used
 

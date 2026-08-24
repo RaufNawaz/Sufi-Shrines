@@ -120,13 +120,16 @@ export const TOURS: Tour[] = loadTours(toursData);
  * place that picks between a tour's English and hand-authored Urdu fields,
  * so components don't repeat `lang === 'ur' ? x.titleUr : x.title` inline. */
 export function localizeTourTitle(tour: Tour, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: tours carry an Urdu-only titleUr sibling; a per-language record is a data migration
   return lang === 'ur' ? tour.titleUr : tour.title;
 }
 
 export function localizeTourDescription(tour: Tour, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: tours carry an Urdu-only descriptionUr sibling; a per-language record is a data migration
   return lang === 'ur' ? tour.descriptionUr : tour.description;
 }
 
 export function localizeStopNarrative(stop: TourStop, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: stops carry an Urdu-only narrativeUr sibling; a per-language record is a data migration
   return lang === 'ur' ? stop.narrativeUr : stop.narrative;
 }

@@ -21,7 +21,7 @@ import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgNam
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 import { centurySpan } from '../lib/data/figureDates';
-import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
+import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
@@ -35,7 +35,7 @@ import { isRtlLang } from '../lib/i18n/languages';
  * OrderPage, kept local because it is two lines and importing a component's
  * private formatter across pages is worse. */
 function centuryLabel(century: number, lang: Lang): string {
-  return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
+  return CENTURY_ORDINAL[lang](century);
 }
 
 export default function GraphPage() {
@@ -50,6 +50,7 @@ export default function GraphPage() {
 
   const activeOrder = kg.orders.find((o) => o.slug === activeOrderSlug) ?? null;
   const orderDescription =
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: orders carry an Urdu-only descriptionUr sibling; a per-language record is a data migration
     activeOrder && (lang === 'ur' ? activeOrder.descriptionUr : activeOrder.description);
   const orderSaints = useMemo(
     () => (activeOrder ? getSaintsInOrder(activeOrder.slug) : []),

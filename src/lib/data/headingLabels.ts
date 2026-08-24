@@ -31,6 +31,7 @@ const HEADING_LABELS: Record<string, string> = {
  * through unchanged; this never invents a translation.
  */
 export function localizeHeading(heading: string, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the heading dictionary is Urdu-only
   if (lang !== 'ur') return heading;
   return HEADING_LABELS[heading.trim().toLowerCase()] ?? heading;
 }

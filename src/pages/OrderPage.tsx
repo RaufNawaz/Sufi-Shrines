@@ -5,7 +5,7 @@ import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { placesForShrine } from '../lib/data/places';
 import { centurySpan } from '../lib/data/figureDates';
-import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
+import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang, Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -93,7 +93,7 @@ function DateAsRecorded({ value }: { value: string }) {
  * name a century the same way. The noun comes from the span string, which is
  * why this is the ordinal alone. */
 function centuryLabel(century: number, lang: Lang): string {
-  return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
+  return CENTURY_ORDINAL[lang](century);
 }
 
 export default function OrderPage() {

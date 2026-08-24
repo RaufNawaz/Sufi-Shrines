@@ -7,6 +7,7 @@ import { translateToUrdu } from './urduFallback';
  * when present, dictionary fallback otherwise; English name as-is.
  */
 export function localizeShrineName(shrine: Shrine, lang: string): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: reads the Urdu-only nameUr field
   if (lang !== 'ur') return shrine.name;
   return getUrduFieldValue(shrine.raw, 'Name') || translateToUrdu(shrine.name);
 }

@@ -33,6 +33,7 @@ interface ShrineMastheadProps {
 export function ShrineMasthead({ shrine, lang, latinName, headingRef }: ShrineMastheadProps) {
   const urduName = urduDisplayName(shrine);
 
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: urduDisplayName reads an Urdu-only field; there is no per-language name record yet
   if (lang === 'ur') {
     return (
       <h1 ref={headingRef} className="shrine-title shrine-title--nastaliq">

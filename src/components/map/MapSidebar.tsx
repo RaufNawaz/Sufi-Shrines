@@ -25,7 +25,7 @@ import { ShrinePreview } from './ShrinePreview';
 import { ZiyaratPrintPack } from './ZiyaratPrintPack';
 import { buildSharedListUrl } from '../../lib/sharedList';
 import { useShareLink } from '../../hooks/useShareLink';
-import { dirAttr } from '../../lib/i18n/languages';
+import { dirAttr, usesEasternNumerals } from '../../lib/i18n/languages';
 import { CommandPalette } from './CommandPalette';
 import { ShrineFilters } from './ShrineFilters';
 import {
@@ -362,7 +362,12 @@ export function MapSidebar({
             <h1 className="sidebar-title">{t('title')}</h1>
           </div>
           <div className="sidebar-actions">
-            {lang === 'ur' && (
+            {/* Gated on the digit set, not on the language. This control exists
+                because Eastern numerals are the reader's default here and some
+                readers prefer Western — a question about `numerals`, so a future
+                Eastern-numeral language gets the toggle instead of silently
+                losing it. */}
+            {usesEasternNumerals(lang) && (
               <button
                 type="button"
                 className="icon-btn numerals-toggle"

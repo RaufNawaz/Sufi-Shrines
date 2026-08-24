@@ -45,7 +45,7 @@ const WESTERN_LOCKED =
  * rendering as 1873–1966 in the middle of Nastaliq.
  */
 export function localizeProseDigits(text: string, lang: Lang, eastern: boolean): string {
-  if (lang !== 'ur' || !eastern) return text;
+  if (!usesEasternNumerals(lang) || !eastern) return text;
   if (!/[0-9]/.test(text)) return text;
 
   let out = '';

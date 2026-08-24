@@ -1,3 +1,4 @@
+import type { Lang } from '../../types/shrine';
 export interface EraRange {
   minCentury: number;
   maxCentury: number;
@@ -102,3 +103,23 @@ export function formatCentury(century: number): string {
 export function formatCenturyUr(century: number): string {
   return `${centuryOrdinalUr(century)} صدی`;
 }
+
+/**
+ * Century labels per language, so a caller says "in this language" rather than
+ * picking the Urdu function by comparing against a literal.
+ *
+ * Three call sites did the latter — the era slider, the order page's span, the
+ * explorer's comparison table — each with its own `lang === 'ur' ? …Ur : …`. A
+ * Record keyed on the language widens when the language table does, and a
+ * language with no entry is a type error rather than a silent fall back to
+ * English ordinals in a script that has none.
+ */
+export const CENTURY_ORDINAL: Record<Lang, (century: number) => string> = {
+  en: centuryOrdinal,
+  ur: centuryOrdinalUr,
+};
+
+export const CENTURY_LABEL: Record<Lang, (century: number) => string> = {
+  en: formatCentury,
+  ur: formatCenturyUr,
+};

@@ -26,6 +26,7 @@ const AUTOPLAY_STOP_DURATION_MS = 12000;
 const VISITING_INFO_TITLE = ARTICLE_SECTION_DEFINITIONS.find((d) => d.id === 'visiting')!.title;
 
 function localizedVisitingInfo(shrine: Shrine, lang: Lang): string {
+  // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only Visiting Info column
   if (lang === 'ur') {
     return (
       getUrduFieldValue(shrine.raw, 'Visiting Info') || getFieldValue(shrine.raw, 'Visiting Info')
