@@ -2430,6 +2430,30 @@ nothing errored.
     choice is a blank paint or a flash, and the way out is `<link rel="modulepreload">` in the
     `<head>` the prerenderer *does* control.
 
+
+99. **23 figures were shown bare years the archive's own data calls imprecise.** `datePrecision`
+    is set on 97 of the graph's figures — `exact-date | year | circa | century | range | disputed
+    | unrecorded` — and was rendered by nothing. So Bulleh Shah read "1680 / 1757" where the
+    record says `circa`; Data Ganj Bakhsh "1009 / 1072" (`range`); Abdullah Shah Ghazi "773"
+    (`century`); and Abul Faiz Qalander Ali Suharwardi "1885 / 1958" where the record says
+    `disputed` **and his own `disputedDates` lists two competing birth dates** — the page
+    asserting a settled year over data that says the sources do not agree. *Measured 24 August
+    2026.*
+
+    Nothing could have caught it. A number is a valid string, every page rendered, and the dates
+    shown were the ones the sheet holds. It was wrong only in what it implied, and the field
+    saying so sat one property away. This is the same shape as §9.85 — data the archive holds and
+    no surface reads — and it is worth doing that audit deliberately rather than stumbling into
+    it: `datePrecision` (97) and `biographySource` (97) were both rendered nowhere; `lineageOnly`
+    (60) is used for counting but never shown.
+
+    Fixed as a *marker*, never a rewrite: the date string stays exactly as recorded (RULE 2) and
+    the precision is shown beside it, reusing the four `precision*` labels the shrine infobox
+    already had. And it stays quiet where the string already hedges — "c. 1165 · circa" makes the
+    archive look like it cannot read its own data, which is worse than the silence it replaced.
+    `figurePrecision.test.ts` asserts both directions, so a future import cannot slip either a
+    bare approximate year or a doubled hedge onto a page.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

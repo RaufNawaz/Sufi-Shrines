@@ -538,6 +538,8 @@ export const UI_TEXT_UR: UiStrings = {
   statusRuin: 'کھنڈر',
   statusDestroyed: 'منہدم',
   sourceNoteLabel: 'نوٹ',
+  figurePrecisionHelp:
+    'ریکارڈ اِس شخصیت کی تاریخوں کے بارے میں کتنا متعین ہے۔ یہ وہاں دکھایا جاتا ہے جہاں تاریخیں خود نہیں بتاتیں — ورنہ ایک سادہ سن، جسے آرکائیو تخمینہ جانتا ہے، حتمی معلوم ہوتا ہے۔',
   precisionExact: 'متعین',
   precisionCirca: 'تقریباً',
   precisionCentury: 'صدی',

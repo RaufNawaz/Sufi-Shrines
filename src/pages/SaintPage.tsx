@@ -31,6 +31,7 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { buildAlmanac } from '../lib/data/almanac';
 import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
+import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 
 import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
@@ -186,6 +187,12 @@ export default function SaintPage() {
   const era = isRtl && saint.era ? translateToUrdu(saint.era) : saint.era;
   const orderDescription = order && (isRtl ? order.descriptionUr : order.description);
 
+  /* How precise these dates are, where the record says imprecise and the date
+     string does not say so itself. 23 figures were shown bare years the data
+     calls circa, range, century or disputed — a number nobody can tell is an
+     approximation, which is the one thing this archive is not supposed to do. */
+  const precision = figurePrecisionMarker(saint);
+
   return (
     <div className="page-enter entity-page-wrapper">
       <header className="shrine-page-header no-print">
@@ -278,6 +285,16 @@ export default function SaintPage() {
           {era && (
             <span className="entity-meta-item">
               <span aria-label={t('era')}>{t('era')}:</span> {fmtNum(era)}
+            </span>
+          )}
+          {precision && (
+            /* Beside the dates, not in a footnote. `title` carries the longer
+               explanation the way the other qualifying chips on this page do. */
+            <span
+              className="entity-meta-item entity-date-precision"
+              title={t('figurePrecisionHelp')}
+            >
+              {t(precision.labelKey)}
             </span>
           )}
           {memberships.map(({ order: o }) => (

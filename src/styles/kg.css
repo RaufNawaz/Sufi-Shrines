@@ -1788,3 +1788,26 @@
 .graph-lineage-scope {
   margin-block: var(--space-2) var(--space-3);
 }
+
+/* "circa", "range", "sources disagree" — the record's own account of how precise
+   a figure's dates are, beside the dates rather than in a footnote.
+   `--color-accent-text` is the same gold the almanac's approximate-date flag
+   uses: this is the same claim about the same kind of uncertainty, and it clears
+   AA on the pale ground where the raw gilding gold does not. */
+.entity-date-precision {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-slight);
+  text-transform: lowercase;
+  color: var(--color-accent-text);
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .entity-date-precision {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  /* Nastaliq is caseless; lowercasing it does nothing and confuses a screen
+     reader's pronunciation of the run. */
+  text-transform: none;
+}

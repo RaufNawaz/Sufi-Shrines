@@ -5,6 +5,7 @@ import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { placesForShrine } from '../lib/data/places';
 import { centurySpan } from '../lib/data/figureDates';
+import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang, Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
@@ -413,6 +414,21 @@ export default function OrderPage() {
                               {t('died')}: <DateAsRecorded value={saint.died} />
                             </span>
                           )}
+                          {/* The same marker the figure's own page shows. A
+                              member list that prints "1680" for Bulleh Shah
+                              beside a member whose year is exact invites the
+                              reader to compare two numbers of different kinds. */}
+                          {(() => {
+                            const precision = figurePrecisionMarker(saint);
+                            return precision ? (
+                              <span
+                                className="entity-date-precision"
+                                title={t('figurePrecisionHelp')}
+                              >
+                                {t(precision.labelKey)}
+                              </span>
+                            ) : null;
+                          })()}
                         </div>
                       )}
 

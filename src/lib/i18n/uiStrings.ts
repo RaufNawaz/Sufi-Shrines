@@ -537,6 +537,8 @@ const UI_TEXT_EN = {
   statusRuin: 'Ruin',
   statusDestroyed: 'Destroyed',
   sourceNoteLabel: 'Note',
+  figurePrecisionHelp:
+    'How precise the record is about this figure\u2019s dates. Shown where the dates themselves do not say — a bare year the archive knows is an approximation would otherwise read as settled.',
   precisionExact: 'exact',
   precisionCirca: 'circa',
   precisionCentury: 'century',
