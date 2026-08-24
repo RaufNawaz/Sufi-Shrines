@@ -2151,6 +2151,40 @@ nothing errored.
     the panel a reader actually uses opened. The palette scan now opens the list *and* the filters
     drawer, and a phone-viewport pass is still missing (see the checkpoint doc §4).
 
+82. **`offsetParent` is not the containing block, and a shut `<details>` is not out of the
+    layout.** The sidebar settings popover shipped from a handoff patch anchored to its own
+    32px icon. Measured, it began at **x = −53** on desktop and, in RTL on a 390px phone,
+    **ended 109px past the trailing edge** — the icon sits at the inline *start* of the actions
+    row, so aligning the panel's inline *end* to it pushes the panel out of the sidebar in
+    whichever direction the language runs.
+
+    Two things are worth the next session's time here:
+
+    - **A closed `<details>` still lays its contents out.** Chrome hides them with
+      `content-visibility: hidden` on `::details-content`, not `display: none`, and skipped
+      content still answers layout queries. So the panel overflowed the page for every reader
+      *before anyone clicked it* — which is the only reason `e2e/no-overflow.spec.ts` saw it at
+      all. It was caught by an accident of the element, not by a check.
+    - **That same `content-visibility: hidden` implies paint containment, which makes the
+      `<details>` box the containing block for absolutely positioned descendants.** So the
+      obvious fix — put `position: relative` on `.sidebar-actions` so the panel aligns to the
+      row — changed nothing, and `offsetParent` *reported `.sidebar-actions`* while the panel
+      went on aligning to the details box. `offsetParent` does not account for a containing
+      block established by a pseudo-element. Nothing absolutely positioned can escape a
+      `<details>`; if a popover must align to something outside it, it cannot live in one.
+
+    The fix is the pattern the sidebar already used everywhere else: a `<button aria-expanded>`
+    plus a conditionally rendered panel, anchored to `.sidebar-actions`. And because the closed
+    panel is now absent from the DOM rather than hidden in it, **the accident that caught the
+    bug is gone** — so `no-overflow.spec.ts` gained six cases that open the panel and measure
+    it, at three widths in both languages.
+
+    Process note, same class as §9.53: the handoff reported "production and E2E builds: passed",
+    which was true and was not the same claim as the suite passing. The full run was **16 failed
+    / 229 passed** — 4 of them this bug, and 12 specs that asserted the old table default and
+    needed to opt into it (`setTraditionalDirectory`). Read a handoff's gate list for which
+    gates it names.
+
 
 ## 10. Risks if this is left unattended
 
@@ -2219,16 +2253,22 @@ npm run build:e2e && npm run e2e   # 89 specs, hermetic (no network)
 
 ### The next agent-executable piece of work
 
-`src/data/source-notes.json` carries the reader-facing "Where the source contradicts
-itself" disclosure for **2 of the 52 entries** that have internal `qa_note` contradictions.
-Drafting the remaining 50 is the largest queued task: cleaned bilingual restatements,
-every item attributed to the survey, nothing resolved and nothing withheld (the 22 Aug
-attribution ruling). Highest-stakes first; the longest notes are Mian Qurban Ali Shah
-(5.2k) and Abul Muali Qadri / Malik Ahmad Ayaz (already done). A content-contract test
-enforces bilingual items and zero Latin on the Urdu side.
+**Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
+"Where the source contradicts itself" disclosure for **all 52 entries** with internal
+`qa_note` contradictions, including the two unmapped survey rows (131 bilingual notes).
+Every item is a cleaned restatement of recorded evidence: claims stay attributed, conflicts
+remain unresolved, and nothing covered by the 22 August attribution ruling is withheld.
 
-After that, the open blue-sky items are N3 (field-kit PWA), N5 (adopt-a-shrine) and the
-rest of N4 beyond its type-level groundwork. `docs/planning/NEXT_STEPS_2026-08-21.md` is
-the working plan; §9 of this file is the trust-calibration list — read it before believing
-any older note.
+The content-contract test now derives its expected slugs from the committed 169-row snapshot,
+adds the two deliberately unmapped rows, and requires exact coverage. It also enforces
+bilingual items, minimum lengths and zero Latin letters on the Urdu side. There is no remaining
+source-note drafting backlog.
 
+**Frontend preference, 24 August 2026:** the map's "Table of Shrines" button now opens the
+Command-K Spotlight search by default. Settings in the sidebar header retains the traditional
+table as a persisted browser preference (`shrines_directory_mode`). The keyboard shortcuts
+open Spotlight directly in either mode.
+
+The open blue-sky items are N3 (field-kit PWA), N5 (adopt-a-shrine) and the rest of N4 beyond
+its type-level groundwork. `docs/planning/NEXT_STEPS_2026-08-21.md` is the working plan; §9 of
+this file is the trust-calibration list — read it before believing any older note.
