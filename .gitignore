@@ -36,7 +36,11 @@ PHASE2_RESEARCH_PROMPT.md
 CLAUDE_CODE_PROMPT.md
 TOURS_CLAUDE_CODE_PROMPT.md
 NEXT_STEPS.md
-archive/
+# Root-anchored on purpose. Unanchored, `archive/` matches a directory of that
+# name at *any* depth — which silently excluded src/components/archive/ and
+# pushed a commit whose imports do not exist in a clean clone. The rule was
+# only ever meant for the stale top-level archive/ folder (CLAUDE.md RULE 1).
+/archive/
 MEDIA_NOTES.md
 media_changes.md
 image_urls.tsv
