@@ -25,7 +25,11 @@ test.describe('the century filter', () => {
     await settle(page);
   });
 
-  const rows = (page: Page) => page.locator('.graph-saints-list .inset-row');
+  /* Scoped to the archive's own figure groups. `.graph-saints-list .inset-row`
+     was ambiguous the moment a second list appeared on the page — the 60
+     lineage-only figures below — and the filter's counts silently became 13 + 60.
+     A selector that can span two lists is a test that can stop testing. */
+  const rows = (page: Page) => page.locator('.graph-figure-group .inset-row');
 
   test('offers a chip per century the archive can place, plus undated', async ({ page }) => {
     const chips = page.locator('.graph-century-chips .filter-chip');

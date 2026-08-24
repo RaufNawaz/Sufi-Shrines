@@ -248,6 +248,26 @@ export function getArchiveFigures(): KGSaint[] {
   return kg.saints.filter((s) => !s.lineageOnly);
 }
 
+/**
+ * The other 60: figures named in someone else's recorded lineage, with no site
+ * in this archive.
+ *
+ * They are deliberately kept out of `getArchiveFigures` so that every count
+ * describing the archive's coverage describes the archive — Hujwiri's master
+ * al-Khuttali is in the graph because a chain of transmission must not stop at
+ * the first teacher who happens to have no shrine in Pakistan, not because this
+ * archive documents him.
+ *
+ * But excluded from the counts is not the same as excluded from the site. Each
+ * of these 60 has a reachable page, and **all 60 appear in a recorded lineage
+ * relation** — so the only way to find one was to already be walking the chain
+ * that names it. That included Prince Dara Shikoh. A separate list, plainly
+ * labelled, gives them a way in without touching a single count.
+ */
+export function getLineageOnlyFigures(): KGSaint[] {
+  return kg.saints.filter((s) => s.lineageOnly === true);
+}
+
 /** The order membership(s) recorded for a saint, with the branch and the raw
  * sheet cell preserved. `getOrderForSaint` returns only the first; a compound
  * silsila ("Qadri Shattari") legitimately yields more than one. */

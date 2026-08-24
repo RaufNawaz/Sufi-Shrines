@@ -2867,6 +2867,16 @@ nothing errored.
     box then overflows it. Breaking a name mid-word is ugly; a name hanging out of its row is a
     bug.
 
+    **And the sequel, caused by over-correcting the above.** Trying to avoid a stale `dist`, I
+    started a background playwright batch, then rebuilt and ran two more playwright invocations
+    while it was still going. The batch reported **35 failed / 73 passed**; every one of those
+    suites passes when run alone (16, 32, 71). The suite reuses a single preview server
+    (`reuseExistingServer`) and a single `test-results` directory, so a concurrent
+    `npm run build:e2e` swaps `dist` out from under a run in flight. **Never run playwright
+    concurrently with itself or with a build** — one sequential run on a stable `dist` is the
+    only kind whose result means anything. A red suite from contention is as useless as a green
+    one from a stale bundle, and costs more to diagnose.
+
 114. **The almanac's two plain lists were the last holdout on the old idiom, and they are
     converted.** The seasonal list (season tag + name) and the undated list (name + the recorded
     observance under it) now use `.inset-list` like the other four, so the archive has one list
@@ -2907,6 +2917,39 @@ nothing errored.
     the §9.46 trap exactly — axe folds an ancestor's opacity into the colour it measures, so it
     would have reported a contrast failure no reader could see. It takes `currentColor` at full
     strength instead.
+
+116. **60 figures had a page and no way in.** `getArchiveFigures` excludes the `lineageOnly`
+    nodes so that every count describing the archive describes the archive — Hujwiri's master
+    al-Khuttali is in the graph because a chain must not stop at the first teacher without a
+    shrine in Pakistan, not because this archive documents him. That exclusion is right and
+    stays. But excluded from the counts had quietly become excluded from the site: each of the 60
+    has a reachable page, every one is named in a recorded lineage relation, and **none appeared
+    in any index**. The only way to reach one was to already be walking the chain that names it.
+    **Prince Dara Shikoh was unreachable from anywhere on the site.** *Found 24 August 2026.*
+
+    `/graph` now ends with "Named in a lineage, not documented here (60)" — a separate section,
+    plainly labelled, below the archive's own figures, so it adds a way in without touching a
+    single count. Each row says how the record connects the figure, which is what makes an
+    unfamiliar name mean anything.
+
+    **The assumption that was wrong, and how it was caught.** I measured "all 60 appear in a
+    lineage relation" by collecting *both* sides of every relation, then wrote the row note as
+    "teacher of X" — and 17 of the 60 are recorded as somebody's *disciple*, not as a teacher
+    (Dara Shikoh, Princess Jahanara, and Nizamuddin Auliya, whose dargah is in Delhi and so is
+    rightly not an entry in an archive of Pakistan). Those 17 rows rendered with no note at all.
+    The test now asserts both directions exist and that the two groups sum to 60, so the
+    assumption cannot be made again silently.
+
+    Also: the no-leak guard caught **73 undeclared Latin runs** here, because unlike the
+    archive's own figures most of these names are not in the Urdu dictionary — they are masters
+    named in a source and nothing else, so RULE 2 shows them as recorded rather than
+    transliterating. Declared, and the route's budget raised 49 → 122 with the reason written
+    down. `<bdi>` alone does not declare a run; `data-latin` does.
+
+    And a phone-layout consequence worth keeping: at 390px a row is ~340px, so the note's 45%
+    cap left ~150px — enough to render "teacher of Data Ga…", truncating away the only half that
+    matters. Below 560px the note now wraps to its own full-width line, with `order` keeping the
+    chevron on the first line where a thumb expects it.
 
 ## 10. Risks if this is left unattended
 

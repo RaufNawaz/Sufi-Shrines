@@ -192,6 +192,13 @@ export const UI_TEXT_UR: UiStrings = {
   graphCenturyUndated: 'بلا تاریخ',
   graphCenturyUndatedHelp:
     'وہ شخصیات جنہیں ریکارڈ صرف ہجری تقویم میں رکھتا ہے، یا کسی سن میں نہیں رکھتا۔ ہجری سن کو یہاں صدی میں بدلنا آرکائیو کی طرف سے تاریخ گھڑنا ہوتا، اِس لیے اُنہیں قیاس کے بجائے الگ گروہ میں رکھا گیا ہے — اور یہ آرکائیو کی تقریباً نصف شخصیات ہیں۔',
+  graphLineageOnlyHeading: 'سلسلے میں نامزد، یہاں دستاویز نہیں',
+  graphLineageOnlyNote:
+    'وہ اساتذہ اور مشائخ جن کے نام کسی دوسری شخصیت کے درج شدہ سلسلۂ ارادت میں آتے ہیں اور جن کا کوئی مقام اِس آرکائیو میں درج نہیں۔ اُنہیں آرکائیو کے اندراجات میں شمار نہیں کیا جاتا — وہ یہاں اِس لیے ہیں کہ سلسلہ پہلے ہی ایسے مرشد پر نہ رُک جائے جن کا مزار پاکستان میں درج نہیں۔ اب تک اُن تک پہنچنے کا واحد راستہ وہی زنجیر تھی جس میں اُن کا نام آتا ہے۔',
+  graphLineageOnlyTeacherOf: (name: string) => `${name} کے اُستاد`,
+  graphLineageOnlyTeacherOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے اُستاد`,
+  graphLineageOnlyDiscipleOf: (name: string) => `${name} کے شاگرد`,
+  graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے شاگرد`,
   graphCenturyNote:
     'صدی شخصیت کے درج شدہ سنِ وفات سے لی گئی ہے، اور جہاں وفات درج نہیں وہاں سنِ پیدائش سے۔ ہجری تقویم سے کوئی تبدیلی نہیں کی گئی۔',
   lineageUnreviewed: 'غیر نظر ثانی شدہ',

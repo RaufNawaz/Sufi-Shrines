@@ -205,3 +205,33 @@
   font-weight: 400;
   color: var(--color-text-muted);
 }
+
+/* On a phone the note has to stop competing for the row.
+   At 390px a row is ~340px, and a 45% cap leaves the note ~150px — enough to
+   render "teacher of Data Ga…", which truncates away the only half that
+   matters. Wrapping it onto its own full-width line keeps the name whole and
+   the note readable, at the cost of a taller row, which is the right trade on
+   the screen with the most vertical space to spare.
+
+   `order` is what keeps the chevron where a thumb expects it: with the note
+   pushed to a second line, the chevron would otherwise follow it down. */
+@media (max-width: 560px) {
+  .inset-row--link > a {
+    flex-wrap: wrap;
+    padding-block: var(--space-2);
+  }
+
+  .inset-row-chevron {
+    order: 1;
+  }
+
+  .inset-row-note {
+    order: 2;
+    flex-basis: 100%;
+    max-width: 100%;
+    white-space: normal;
+    /* The cap was for a single line; on its own line the note can breathe. */
+    overflow: visible;
+    text-overflow: clip;
+  }
+}

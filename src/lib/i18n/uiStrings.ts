@@ -170,6 +170,13 @@ const UI_TEXT_EN = {
   graphCenturyUndated: 'Undated',
   graphCenturyUndatedHelp:
     'Figures the record places in the Hijri calendar only, or in no year at all. Converting a Hijri year to a century here would be this archive inventing a date, so they are grouped rather than guessed \u2014 and they are nearly half of the figures the archive holds.',
+  graphLineageOnlyHeading: 'Named in a lineage, not documented here',
+  graphLineageOnlyNote:
+    'Teachers and masters whose names appear in another figure\u2019s recorded chain of transmission, and who have no site in this archive. They are not counted among its entries \u2014 they are here so a chain does not stop at the first master who happens to have no shrine in Pakistan. Until now the only way to reach one was to already be walking the chain that names it.',
+  graphLineageOnlyTeacherOf: (name: string) => `teacher of ${name}`,
+  graphLineageOnlyTeacherOfMore: (name: string, n: number) => `teacher of ${name} and ${n} more`,
+  graphLineageOnlyDiscipleOf: (name: string) => `disciple of ${name}`,
+  graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `disciple of ${name} and ${n} more`,
   graphCenturyNote:
     'Centuries are read from a figure\u2019s recorded death year, or birth year where no death is given. Nothing is converted from the Hijri calendar.',
   lineageUnreviewed: 'unreviewed',
@@ -712,6 +719,20 @@ export function tFn(
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
+export function tFn(lang: Lang, key: 'graphLineageOnlyTeacherOf', name: string): string;
+export function tFn(
+  lang: Lang,
+  key: 'graphLineageOnlyTeacherOfMore',
+  name: string,
+  n: number,
+): string;
+export function tFn(lang: Lang, key: 'graphLineageOnlyDiscipleOf', name: string): string;
+export function tFn(
+  lang: Lang,
+  key: 'graphLineageOnlyDiscipleOfMore',
+  name: string,
+  n: number,
+): string;
 export function tFn(lang: Lang, key: 'coverageRestsTail', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, total: number): string;
 /* String-valued interpolations. These exist for the same reason the numeric
@@ -753,6 +774,10 @@ export function tFn(
     | 'sharedGroundIntroSame'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'
+    | 'graphLineageOnlyTeacherOf'
+    | 'graphLineageOnlyTeacherOfMore'
+    | 'graphLineageOnlyDiscipleOf'
+    | 'graphLineageOnlyDiscipleOfMore'
     | 'coverageRestsTail'
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'

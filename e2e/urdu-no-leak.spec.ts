@@ -57,6 +57,17 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   cannot carry `<bdi>` either, which is why NetworkGraph has
  *   `labelDirection()`.
  *
+ *   **49 → 122.** The explorer gained "Named in a lineage, not documented here":
+ *   the 60 figures the archive holds no entry for, who until now were reachable
+ *   only by already walking the chain that names them — Prince Dara Shikoh among
+ *   them. Unlike the archive's own figures, most of these names are *not* in the
+ *   Urdu dictionary: they are masters named in a source and nothing else, so
+ *   RULE 2 shows them as recorded rather than transliterating them. Two runs per
+ *   row (the name, and "teacher of X" / "disciple of Y" — the fact that makes an
+ *   unfamiliar name mean something), and the note carries a second untranslated
+ *   name inside it. This is the archive being honest about what it has not
+ *   translated, on 60 rows it previously did not show at all.
+ *
  *   **Was 253.** The teacher-disciple list used to print all 86 recorded edges,
  *   each with its verbatim source quote, regardless of which order the chips
  *   above had selected — a filter that half the page ignored, and the long half
@@ -179,7 +190,7 @@ const BUDGET: Record<string, number> = {
   'order:suhrawardiyya': 45,
   'order:naqshbandiyya': 27,
   'order:qalandariyya': 10,
-  graph: 49,
+  graph: 122,
   almanac: 39,
   coverage: 68,
   'saint:lineage-only': 24,

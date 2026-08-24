@@ -7,7 +7,15 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
-import { getKGStore, getSaintsInOrder, getAllLineageEdges, getArchiveFigures } from '../lib/kg';
+import {
+  getKGStore,
+  getSaintsInOrder,
+  getAllLineageEdges,
+  getArchiveFigures,
+  getLineageOnlyFigures,
+  getDisciplesOf,
+  getTeachersOf,
+} from '../lib/kg';
 import {
   FIGURE_GROUP_ORDER,
   figureGroup,
@@ -35,6 +43,27 @@ import { isRtlLang } from '../lib/i18n/languages';
  * private formatter across pages is worse. */
 function centuryLabel(century: number, lang: Lang): string {
   return CENTURY_ORDINAL[lang](century);
+}
+
+/**
+ * "teacher of X and 3 more", or "disciple of Y".
+ *
+ * Both directions, because the graph connects these figures both ways: 43 of the
+ * 60 are recorded as somebody's teacher and 17 as somebody's disciple. A
+ * function rather than a ternary in the JSX because the four string keys differ
+ * in arity, and picking the wrong pair silently renders "teacher of undefined".
+ */
+function lineageOnlyNote(lang: Lang, direction: 'teacher' | 'disciple', people: KGSaint[]): string {
+  const first = localizeFigureName(people[0], lang);
+  const others = people.length - 1;
+  if (direction === 'teacher') {
+    return others > 0
+      ? tFn(lang, 'graphLineageOnlyTeacherOfMore', first, others)
+      : tFn(lang, 'graphLineageOnlyTeacherOf', first);
+  }
+  return others > 0
+    ? tFn(lang, 'graphLineageOnlyDiscipleOfMore', first, others)
+    : tFn(lang, 'graphLineageOnlyDiscipleOf', first);
 }
 
 export default function GraphPage() {
@@ -198,6 +227,44 @@ export default function GraphPage() {
     () => matchFigures(centuryFiltered, figureQuery, figureIndex),
     [centuryFiltered, figureIndex, figureQuery],
   );
+
+  /*
+   * The other 60 — figures named in someone else's chain with no site here.
+   *
+   * Kept out of every count on this page for the reason `getArchiveFigures`
+   * exists, and given a list of their own for a different reason: all 60 appear
+   * in a recorded lineage relation and none appears in any index, so the only
+   * way to reach one was to already be walking the chain that names it. Prince
+   * Dara Shikoh was among them.
+   *
+   * Each row says whose teacher the record calls them, which is the fact that
+   * makes the name mean something to a reader who has not met it before.
+   */
+  const lineageOnlyFigures = useMemo(() => {
+    const collator = new Intl.Collator(lang);
+    /* One person, not one relation: a figure recorded as both disciple and
+       successor of the same master appears twice in the relation list. */
+    const people = (links: ReturnType<typeof getDisciplesOf>) => [
+      ...new Map(links.map((l) => [l.saint.slug, l.saint])).values(),
+    ];
+    return getLineageOnlyFigures()
+      .map((saint) => {
+        /* Both directions, because 17 of the 60 are named as somebody's
+           *disciple* rather than as a teacher — Dara Shikoh, Jahanara,
+           Nizamuddin Auliya, whose dargah is in Delhi and so is rightly not an
+           entry in an archive of Pakistan. Assuming they were all teachers is
+           how the first draft of this left 17 rows with no note at all. */
+        const disciples = people(getDisciplesOf(saint.slug));
+        return {
+          saint,
+          disciples,
+          teachers: disciples.length > 0 ? [] : people(getTeachersOf(saint.slug)),
+        };
+      })
+      .sort((a, b) =>
+        collator.compare(localizeFigureName(a.saint, lang), localizeFigureName(b.saint, lang)),
+      );
+  }, [lang]);
 
   const groupedFigures = useMemo(() => {
     const buckets = new Map<FigureGroup, KGSaint[]>();
@@ -570,6 +637,54 @@ export default function GraphPage() {
             </div>
           ))}
         </section>
+
+        {/* The other 60. A section of their own, below the archive's own
+            figures and plainly labelled, so it adds a way in without touching a
+            single count. */}
+        {lineageOnlyFigures.length > 0 && (
+          <section className="graph-page-section">
+            <h2>
+              {t('graphLineageOnlyHeading')}{' '}
+              <span className="graph-figure-group-count">{fmtNum(lineageOnlyFigures.length)}</span>
+            </h2>
+            <p className="graph-figures-note">{t('graphLineageOnlyNote')}</p>
+            <ul className="graph-lineage-only-list inset-list">
+              {lineageOnlyFigures.map(({ saint, disciples, teachers }) => (
+                <li key={saint.slug} className="inset-row inset-row--link">
+                  <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
+                    {/* `data-latin` on both: unlike the archive's own figures,
+                        most of these 60 names are not in the Urdu dictionary —
+                        they are masters named in a source and nothing else — so
+                        they come back as recorded (RULE 2 forbids
+                        transliterating them). Declared rather than left for the
+                        no-leak guard to find, which is what it did: 73
+                        undeclared runs. */}
+                    <span className="inset-row-label" data-latin>
+                      <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
+                    </span>
+                    {/* How the record connects them, in whichever direction it
+                        does — the fact that makes an unfamiliar name mean
+                        something to a reader who has not met it before. */}
+                    {(disciples[0] || teachers[0]) && (
+                      <span className="inset-row-note" data-latin>
+                        <bdi>
+                          {fmtNum(
+                            lineageOnlyNote(
+                              lang,
+                              disciples.length > 0 ? 'teacher' : 'disciple',
+                              disciples.length > 0 ? disciples : teachers,
+                            ),
+                          )}
+                        </bdi>
+                      </span>
+                    )}
+                    <span className="inset-row-chevron" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </article>
     </div>
   );

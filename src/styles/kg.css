@@ -951,6 +951,16 @@
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
 }
 
+/* The 60 figures the archive holds no entry for. A class of its own rather than
+   a second use of `.graph-saints-list`, because the two lists have to be
+   distinguishable: sharing the class made `.graph-saints-list .inset-row` count
+   both, and the century filter's own test started measuring 73 rows where 13
+   were filtered. A selector that silently spans two lists is a test that
+   silently stops testing. */
+.graph-lineage-only-list {
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+}
+
 /* ── Figure groups ────────────────────────────────────────────────────────────
    This list used to be 130 undifferentiated links under a heading reading
    "All saints" — including Hindu deities and Sikh Gurus, because the graph
