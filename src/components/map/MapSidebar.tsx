@@ -121,6 +121,8 @@ export function MapSidebar({
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const settingsRef = useRef<HTMLDivElement>(null);
+  const settingsTriggerRef = useRef<HTMLButtonElement>(null);
   /* The sidebar's own field and disclosure. Both moved into the overlay on
      the branch that added it; they are back here because the sidebar renders
      the field and ShrineFilters too, and each surface remembers its own
@@ -172,6 +174,38 @@ export function MapSidebar({
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, []);
+
+  /* The settings popover dismisses the way every other overlay here does:
+     Escape, or a click outside it. Without this the only way to shut it is the
+     gear again — and the panel hangs directly over the "Table of Shrines"
+     button it configures, so a reader who changed the setting could not see
+     what they had changed until they found their way back to the gear. */
+  useEffect(() => {
+    if (!settingsOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      /* Capture phase, and stop here: MapPage also listens for Escape, to
+         collapse the sidebar and deselect the shrine (MapPage.tsx:278). One
+         Escape should shut the thing on top — the popover — not the surface
+         behind it as well. Registered on the way down because this listener is
+         added when the panel opens, so on the way up MapPage's would already
+         have run. */
+      e.stopPropagation();
+      e.preventDefault();
+      setSettingsOpen(false);
+      settingsTriggerRef.current?.focus();
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (settingsRef.current?.contains(e.target as Node)) return;
+      setSettingsOpen(false);
+    };
+    document.addEventListener('keydown', onKey, true);
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      document.removeEventListener('keydown', onKey, true);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
+  }, [settingsOpen]);
 
   /* Which shortcut to *show*. Reading the platform is the only way to label a
      modifier key honestly, and getting it wrong ("Ctrl K" on a Mac) is the kind
@@ -294,6 +328,9 @@ export function MapSidebar({
     setDirectoryMode(mode);
     writeDirectoryMode(mode);
     if (mode === 'spotlight') setShowList(false);
+    // Choosing is the whole purpose of the panel, so choosing closes it —
+    // otherwise it stays open over the button whose behaviour just changed.
+    setSettingsOpen(false);
   }, []);
   const directoryOpen = directoryMode === 'spotlight' ? paletteOpen : showList;
 
@@ -354,9 +391,10 @@ export function MapSidebar({
                 anchored there cannot be aligned to the row it belongs to, and
                 hangs off the sidebar instead (HANDOVER §9.82). This is also the
                 pattern the rest of the sidebar already uses. */}
-            <div className="sidebar-settings">
+            <div className="sidebar-settings" ref={settingsRef}>
               <button
                 type="button"
+                ref={settingsTriggerRef}
                 className={`icon-btn sidebar-settings-trigger${settingsOpen ? ' active' : ''}`}
                 aria-label={t('settings')}
                 title={t('settings')}
