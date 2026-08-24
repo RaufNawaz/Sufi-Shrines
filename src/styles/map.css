@@ -211,6 +211,25 @@
   background: var(--color-text-muted);
 }
 
+/* Pressed: the grabber darkens, the strip does not move.
+ *
+ * The global `button:active` scale would otherwise apply to this button, which
+ * is the full width of the sheet — so a tap on the grabber shrank the entire
+ * sheet header by 3% and sprang it back. Native sheets darken the grabber and
+ * leave the sheet still, which is also the only reading that makes sense here:
+ * the strip is not the control, the pill is what a finger is aiming at.
+ *
+ * Opacity is safe on this one element — it carries no text, so there is no
+ * contrast for axe to fold an ancestor's alpha into (HANDOVER §9.46). */
+.sidebar-sheet-handle:active {
+  transform: none;
+}
+
+.sidebar-sheet-handle:active .sheet-handle-pill {
+  opacity: 1;
+  background: var(--color-text);
+}
+
 .sidebar-header {
   display: flex;
   align-items: center;

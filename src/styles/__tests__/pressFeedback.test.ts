@@ -29,12 +29,32 @@
  *    hour to a contrast failure that did not exist.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const STYLES = join(__dirname, '..');
 const global = readFileSync(join(STYLES, 'global.css'), 'utf8');
 const tokens = readFileSync(join(STYLES, 'tokens.css'), 'utf8');
+
+/** Every stylesheet, because global.css is not the only file that suppresses the
+ * highlight — map.css does it for the sheet's drag handle. Checking one file
+ * while the docstring claims "whatever loses the native highlight" is a test
+ * that describes more than it does. */
+const sheets = readdirSync(STYLES)
+  .filter((f) => f.endsWith('.css'))
+  .map((f) => ({ name: f, css: readFileSync(join(STYLES, f), 'utf8') }));
+
+/**
+ * Selectors whose press state comes from a base element rule instead of their
+ * own, each with the reason.
+ *
+ * `.sidebar-sheet-handle` is a `<button>`, so `button:active` in global.css
+ * reaches it. It then needed a rule of its own for the opposite reason: the
+ * global scale applies to the full width of the sheet, so a tap on the grabber
+ * shrank the whole sheet header and sprang it back. It cancels the scale and
+ * darkens the pill, which is what a native grabber does.
+ */
+const COVERED_BY_ELEMENT_RULE = ['.sidebar-sheet-handle'];
 
 /** The selectors global.css strips the native highlight from.
  *
@@ -59,6 +79,9 @@ function suppressedSelectors(rawCss: string): string[] {
 
 describe('the tap highlight is replaced, not just removed', () => {
   const suppressed = suppressedSelectors(global);
+  const suppressedEverywhere = sheets.flatMap(({ name, css }) =>
+    suppressedSelectors(css).map((sel) => ({ name, sel })),
+  );
 
   it('suppresses the native highlight somewhere (or this test is checking nothing)', () => {
     expect(suppressed).not.toEqual([]);
@@ -75,6 +98,23 @@ describe('the tap highlight is replaced, not just removed', () => {
       'These selectors lose the browser’s tap feedback and provide none of their ' +
         'own, so on a phone they answer a tap with nothing. Add an :active rule in ' +
         'global.css beside the suppression.',
+    ).toEqual([]);
+  });
+
+  it('pairs suppression with an :active rule in every stylesheet, not just global.css', () => {
+    const allCss = sheets.map((s) => s.css).join('\n');
+    const missing = suppressedEverywhere
+      .filter(({ sel }) => !COVERED_BY_ELEMENT_RULE.includes(sel))
+      .filter(({ sel }) => {
+        const escaped = sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return !new RegExp(`${escaped}\\s*:active`).test(allCss);
+      })
+      .map(({ name, sel }) => `${name}: ${sel}`);
+    expect(
+      missing,
+      'These suppress the browser’s tap feedback and provide none of their own. Add an ' +
+        ':active rule, or — if a base element rule already covers it — add it to ' +
+        'COVERED_BY_ELEMENT_RULE with the reason.',
     ).toEqual([]);
   });
 
