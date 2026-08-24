@@ -24,6 +24,7 @@ import { centurySpan } from '../lib/data/figureDates';
 import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
  * saints as a network (reusing the same NetworkGraph used on SaintPage),
@@ -39,7 +40,7 @@ function centuryLabel(century: number, lang: Lang): string {
 
 export default function GraphPage() {
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
@@ -133,7 +134,7 @@ export default function GraphPage() {
       if (list) list.push(saint);
       else buckets.set(group, [saint]);
     }
-    const collator = new Intl.Collator(lang === 'ur' ? 'ur' : 'en');
+    const collator = new Intl.Collator(lang);
     return FIGURE_GROUP_ORDER.filter((g) => buckets.has(g)).map((group) => ({
       group,
       figures: [...buckets.get(group)!].sort((a, b) =>

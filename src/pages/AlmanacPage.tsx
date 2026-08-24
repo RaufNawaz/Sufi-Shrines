@@ -22,6 +22,7 @@ import {
 import type { Season } from '../lib/data/ursDates';
 import type { Lang } from '../types/shrine';
 
+import { isRtlLang } from '../lib/i18n/languages';
 const SEASON_KEYS = {
   spring: 'almanacSeasonSpring',
   summer: 'almanacSeasonSummer',
@@ -150,7 +151,7 @@ function ObservanceCard({
 export default function AlmanacPage() {
   const { shrines, loading } = useShrineData();
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
 
   useDocumentTitle(`${t('almanacTitle')} — ${t('siteTitle')}`);

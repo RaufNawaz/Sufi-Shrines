@@ -12,6 +12,7 @@ import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { groupBySiteType, SITE_TYPE_LABELS, type SiteTypeGroup } from '../lib/data/siteType';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /**
  * The typology atlas (blue-sky item N7): the archive browsed by built form —
  * what actually stands at each site — using the survey's own `site_type`
@@ -47,7 +48,7 @@ function GroupHeading({ group, label }: { group: SiteTypeGroup; label: string })
 export default function TypologyPage() {
   const { shrines } = useShrineData();
   const { lang, t, localizeField } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('typologyTitle')} — ${t('siteTitle')}`);
 

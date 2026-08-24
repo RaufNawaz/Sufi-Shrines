@@ -44,12 +44,14 @@ const codes = Object.keys(LANGUAGES) as Lang[];
 
 /** Every property a branch in this codebase reads off a language. Adding one
  * here without adding it to every entry is the failure this file exists for. */
-const REQUIRED = ['dir', 'numerals', 'script'] as const;
+const REQUIRED = ['dir', 'numerals', 'script', 'speech'] as const;
 
 const VOCABULARY: Record<(typeof REQUIRED)[number], readonly string[]> = {
   dir: ['ltr', 'rtl'],
   numerals: ['western', 'eastern'],
   script: ['latin', 'nastaliq'],
+  // Open vocabulary: a BCP-47 tag, checked for shape rather than membership.
+  speech: [],
 };
 
 describe('the language registry', () => {
@@ -63,8 +65,18 @@ describe('the language registry', () => {
       const entry = LANGUAGES[code] as Record<string, string>;
       for (const key of REQUIRED) {
         expect(entry[key], `${code} is missing ${key}`).toBeDefined();
-        expect(VOCABULARY[key], `${code}.${key} = ${entry[key]}`).toContain(entry[key]);
+        const allowed = VOCABULARY[key];
+        if (allowed.length === 0) continue;
+        expect(allowed, `${code}.${key} = ${entry[key]}`).toContain(entry[key]);
       }
+    }
+  });
+
+  it('gives every language a BCP-47 speech tag with a region', () => {
+    /* Shape, not membership: a voice list is matched on the full tag, so `ur`
+       alone would silently fall back to whatever the platform offers. */
+    for (const code of codes) {
+      expect(LANGUAGES[code].speech, `${code}.speech`).toMatch(/^[a-z]{2}-[A-Z]{2}$/);
     }
   });
 
@@ -121,6 +133,9 @@ describe('the helpers read the registry rather than hardcoding a language', () =
     expect(needsNastaliq('en')).toBe(false);
     expect(needsNastaliq('ur')).toBe(true);
     expect(DEFAULT_LANG).toBe('en');
+    // The tours narrate through this; a wrong tag silently picks another voice.
+    expect(LANGUAGES.en.speech).toBe('en-US');
+    expect(LANGUAGES.ur.speech).toBe('ur-PK');
   });
 
   it('renders an attribute only where it differs from the document default', () => {

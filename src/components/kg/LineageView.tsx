@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import type { KGOrder, KGSaint } from '../../types/kg';
 import type { LineageLink } from '../../lib/kg';
+import { langAttr } from '../../lib/i18n/languages';
 import {
   localizeFigureName,
   localizeOrderName,
@@ -44,7 +45,7 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
         {/* A figure the dictionary does not cover comes back as its source name
             (RULE 2 — do not invent an Urdu name for a person). <bdi> isolates the
             Latin run; `data-latin` declares the debt for the no-leak guard. */}
-        <Link to={`/saint/${saint.slug}`} lang={lang === 'ur' ? 'ur' : undefined} data-latin>
+        <Link to={`/saint/${saint.slug}`} lang={langAttr(lang)} data-latin>
           <bdi>{localizeFigureName(saint, lang)}</bdi>
         </Link>
         <span className="lineage-relation-tag">{relationLabel}</span>
@@ -120,7 +121,7 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
                     <Link
                       to={`/saint/${saint.slug}`}
                       aria-current={isCurrent ? 'page' : undefined}
-                      lang={lang === 'ur' ? 'ur' : undefined}
+                      lang={langAttr(lang)}
                     >
                       {localizeFigureName(saint, lang)}
                       {saint.altNames?.[0] && (

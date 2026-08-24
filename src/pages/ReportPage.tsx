@@ -22,6 +22,7 @@ import type { UI_TEXT } from '../lib/i18n/uiStrings';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import reviewedLedger from '../../urdu-i18n/reviewed.json';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /** SITE_STATUS_LABEL_KEYS deliberately omits 'active' (badges only mark the
  * exceptional states); the report counts every state, so complete the map. */
 const STATUS_LABEL_KEYS: Record<SiteStatusKey, keyof (typeof UI_TEXT)['en']> = {
@@ -100,7 +101,7 @@ function StatRow({ label, count, total }: { label: string; count: number; total:
 export default function ReportPage() {
   const { shrines } = useShrineData();
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('reportTitle')} — ${t('siteTitle')}`);
 

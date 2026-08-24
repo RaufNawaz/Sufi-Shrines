@@ -34,8 +34,8 @@ export const DEFAULT_LANG = 'en';
  * docs/planning/LANGUAGE_LAYER_2026-08-24.md.
  */
 export const LANGUAGES = {
-  en: { dir: 'ltr', numerals: 'western', script: 'latin' },
-  ur: { dir: 'rtl', numerals: 'eastern', script: 'nastaliq' },
+  en: { dir: 'ltr', numerals: 'western', script: 'latin', speech: 'en-US' },
+  ur: { dir: 'rtl', numerals: 'eastern', script: 'nastaliq', speech: 'ur-PK' },
 } as const satisfies Record<
   string,
   {
@@ -47,6 +47,13 @@ export const LANGUAGES = {
      * Arabic script, which is also why tracking must collapse to `normal` — see
      * the `--tracking-*` tokens. */
     script: 'latin' | 'nastaliq';
+    /** BCP-47 tag for speech synthesis — the guided tours' narration. A regional
+     * subtag is unavoidable here (`ur-PK`, not `ur`): a voice list is matched on
+     * the full tag, and this is the one property where the *country* matters
+     * rather than the language. It lived in useTourAudio as a ternary, which is
+     * exactly the kind of per-language fact that goes missing when a language is
+     * added. */
+    speech: string;
   }
 >;
 

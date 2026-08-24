@@ -16,6 +16,7 @@ import { buildPlaces } from '../lib/data/places';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import { tFn } from '../lib/i18n/uiStrings';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /**
  * What this archive knows, and what it does not — computed, not asserted.
  *
@@ -34,7 +35,7 @@ import { tFn } from '../lib/i18n/uiStrings';
 export default function CoveragePage() {
   const { shrines, loading } = useShrineData();
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
 
   useDocumentTitle(`${t('coverageTitle')} — ${t('siteTitle')}`);

@@ -32,6 +32,7 @@ import { buildAlmanac } from '../lib/data/almanac';
 import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 
+import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
@@ -179,7 +180,7 @@ export default function SaintPage() {
   // fmtNum because a recorded name can carry a lifespan in parentheses —
   // Eastern numerals reach every number site, names included (i18n rule 5).
   const displayName = fmtNum(localizeFigureName(saint, lang));
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const born = isRtl && saint.born ? translateToUrdu(saint.born) : saint.born;
   const died = isRtl && saint.died ? translateToUrdu(saint.died) : saint.died;
   const era = isRtl && saint.era ? translateToUrdu(saint.era) : saint.era;

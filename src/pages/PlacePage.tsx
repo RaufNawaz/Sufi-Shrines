@@ -16,6 +16,7 @@ import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
 import type { Lang } from '../types/shrine';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /**
  * One place, and what the archive records in it.
  *
@@ -150,7 +151,7 @@ export default function PlacePage() {
   const { slug } = useParams<{ slug: string }>();
   const { shrines, loading } = useShrineData();
   const { lang, t } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
 
   const place = useMemo(() => {
     const { places } = buildPlaces(shrines);

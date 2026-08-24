@@ -9,6 +9,7 @@ import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
 
+import { isRtlLang } from '../../lib/i18n/languages';
 /**
  * Search the archive from the middle of the screen.
  *
@@ -66,7 +67,7 @@ export function CommandPalette({
   filters,
 }: CommandPaletteProps) {
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);

@@ -5,6 +5,7 @@ import { tFn } from '../../lib/i18n/uiStrings';
 import type { LineageChain } from '../../lib/kg';
 import { localizeFigureName } from '../../lib/i18n/localizeKgName';
 
+import { isRtlLang } from '../../lib/i18n/languages';
 /**
  * A figure's chain of transmission, drawn as a chain.
  *
@@ -26,7 +27,7 @@ import { localizeFigureName } from '../../lib/i18n/localizeKgName';
  */
 export function LineageChainView({ chain }: { chain: LineageChain }) {
   const { lang, t, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
 
   if (chain.steps.length === 0) return null;
 

@@ -305,9 +305,7 @@ export function MapSidebar({
       group.push(shrine);
       groups.set(cat, group);
     }
-    return Array.from(groups.entries()).sort(([a], [b]) =>
-      a.localeCompare(b, lang === 'ur' ? 'ur' : 'en'),
-    );
+    return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b, lang));
   }, [filtered, t, lang, search]);
 
   const selectedShrine = useMemo(

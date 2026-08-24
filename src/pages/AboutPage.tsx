@@ -18,6 +18,7 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { PUBLICATION, archiveCitation, entryCitation } from '../lib/data/citation';
 import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 
+import { isRtlLang } from '../lib/i18n/languages';
 /**
  * What this archive is, who made it, how to reuse it, and how to cite it.
  *
@@ -95,7 +96,7 @@ export default function AboutPage() {
   const { lang, t } = useLang();
   const { shrines, loading } = useShrineData();
   const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
 
   useDocumentTitle(`${t('aboutTitle')} — ${t('siteTitle')}`);

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Lang } from '../../types/shrine';
 
+import { LANGUAGES } from '../i18n/languages';
 export type TourAudioState = 'idle' | 'playing' | 'paused';
 export type TourAudioSource = 'asset' | 'tts' | null;
 
@@ -38,7 +39,7 @@ function probeAudioAsset(src: string): Promise<boolean> {
 }
 
 function speechLangTag(lang: Lang): string {
-  return lang === 'ur' ? 'ur-PK' : 'en-US';
+  return LANGUAGES[lang].speech;
 }
 
 interface UseTourAudioOptions {

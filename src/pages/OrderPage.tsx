@@ -31,6 +31,7 @@ import {
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import type { KGSaint } from '../types/kg';
 
+import { isRtlLang } from '../lib/i18n/languages';
 interface Member {
   saint: KGSaint;
   /** This figure's membership record for the order being displayed. */
@@ -64,7 +65,7 @@ interface Member {
  * interesting thing the order graph now knows.
  */
 function sortMembers(members: Member[], lang: Lang): Member[] {
-  const collator = new Intl.Collator(lang === 'ur' ? 'ur' : 'en', { sensitivity: 'base' });
+  const collator = new Intl.Collator(lang, { sensitivity: 'base' });
   return [...members].sort((a, b) =>
     collator.compare(localizeFigureName(a.saint, lang), localizeFigureName(b.saint, lang)),
   );
@@ -82,7 +83,7 @@ function sortMembers(members: Member[], lang: Lang): Member[] {
  */
 function DateAsRecorded({ value }: { value: string }) {
   const { lang, fmtNum } = useLang();
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const rendered = fmtNum(isRtl ? translateToUrdu(value) : value);
   if (isRtl && /[A-Za-z]/.test(rendered)) return <bdi data-latin>{rendered}</bdi>;
   return <>{rendered}</>;
@@ -192,7 +193,7 @@ export default function OrderPage() {
 
   if (!order) return <Navigate to="/" replace />;
 
-  const isRtl = lang === 'ur';
+  const isRtl = isRtlLang(lang);
   const orderName = localizeOrderName(order, lang);
   const founded = isRtl && order.founded ? translateToUrdu(order.founded) : order.founded;
   // The one-line order summary in the reader's language. English text in the
