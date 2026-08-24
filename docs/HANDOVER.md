@@ -1330,7 +1330,8 @@ nothing errored.
     `SHARED_GROUND_VISION.md`. It exists because the standing findings in this file are the most
     candid thing in the repository, no reader could see any of them, and they go stale: §9.40's
     entry and CLAUDE.md's "49 of 167 entries have no bibliography" were both quoted as current
-    long after they stopped being true (168 of 169 now carry one; 544 citations; 107 citing three
+    long after they stopped being true (168 of 169 now carry one; 533 citations — 544 until the
+    counting rule was corrected on 24 August; 107 citing three
     or more). A page computed from the shipped data cannot drift from it.
 
     **A standing finding is a measurement with a date on it.** Anything in §9 without one should
@@ -2657,6 +2658,21 @@ nothing errored.
     `row['category'] ?? row['Category']` lets an empty `category` shadow a good `Category`. Six
     rows have a blank `Category` and one a blank `category`, so either `??` direction gets a
     different row wrong. One resolver, used by both, with the trap written down once.
+
+107. **`/coverage` was displaying 544 citations where the archive holds 533.** The counting rule
+    was one regex, `/^\s*[-*]\s+\S|https?:\/\//gm`, whose two alternatives both match inside a
+    single item — so a citation ending in a URL was counted twice, and nine do. *Corrected
+    24 August 2026.* Every bibliography region in the shipped data is only list items (533, no
+    prose, no wrapped lines), so one item is one list line.
+
+    2%, and worth the commit for the reason `/coverage` exists at all: the page's claim is that a
+    number computed from the data cannot drift from the data. A rule that miscounts is a
+    different failure from a stale note, and a subtler one — nothing goes stale, it was never
+    right. 544 was also quoted in CLAUDE.md's standing findings, now corrected there too.
+
+    The rule now lives in `src/lib/data/bibliography.ts` and returns the items' *text*, not just a
+    count, because the knowledge graph needs the same items to build source nodes and two
+    implementations of one definition is how they diverge.
 
 ## 10. Risks if this is left unattended
 

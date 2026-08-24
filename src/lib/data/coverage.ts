@@ -1,4 +1,5 @@
 import type { Shrine } from '../../types/shrine';
+import { bibliographyItems } from './bibliography';
 import { getFieldValue } from './fieldAliasing';
 import { supportLevelKey, type SupportLevelKey } from './supportLevel';
 import { infoLevelKey, type InfoLevelKey } from './infoLevel';
@@ -72,23 +73,18 @@ export interface CoverageReport {
   };
 }
 
-/** One bibliography item = a markdown list item or a bare URL. */
-const BIB_ITEM = /^\s*[-*]\s+\S|https?:\/\//gm;
-const BIB_HEADING = /^##\s*(Sources|Bibliography|References|Further reading)\b/im;
-
 /**
- * The bibliography region of an entry: a dedicated `Sources` column if the sheet
- * has one, otherwise everything after the first bibliography heading inside the
- * Description. Article sections can be authored either way (see
- * ARTICLE_SECTION_DEFINITIONS), so looking in only one place undercounts.
+ * How many citations an entry carries.
+ *
+ * The rule for "one item" moved to `bibliography.ts`, because the knowledge
+ * graph needs the same items' *text* and two implementations of a definition is
+ * how they diverge. It also fixed the count: the single regex this replaced had
+ * two alternatives that both matched inside one item, so a citation ending in a
+ * URL — nine do — was counted twice, and this page reported 544 where the
+ * archive holds 533.
  */
-function bibliographyItems(shrine: Shrine): number {
-  const column = getFieldValue(shrine.raw, 'Sources');
-  if (column.trim()) return (column.match(BIB_ITEM) ?? []).length;
-  const description = getFieldValue(shrine.raw, 'Description');
-  const heading = BIB_HEADING.exec(description);
-  if (!heading) return 0;
-  return (description.slice(heading.index + heading[0].length).match(BIB_ITEM) ?? []).length;
+function citationCount(shrine: Shrine): number {
+  return bibliographyItems(getFieldValue(shrine.raw, 'Sources'), getFieldValue(shrine.raw, 'Description')).length;
 }
 
 /**
@@ -139,7 +135,7 @@ export const TRADITION_KEYS: TraditionKey[] = [
 ];
 
 export function buildCoverage(shrines: readonly Shrine[]): CoverageReport {
-  const bibCounts = shrines.map(bibliographyItems);
+  const bibCounts = shrines.map(citationCount);
   const photoCounts = shrines.map(photoCount);
 
   const withYear = shrines.filter((s) => getFieldValue(s.raw, 'year_built').trim());

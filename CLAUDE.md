@@ -236,7 +236,9 @@ outside citations/URLs/coordinates/`<bdi>`.
 ## Standing findings
 
 - ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
-  21 August 2026.** 168 of 169 entries now carry a bibliography, 544 citations in total, 107 of
+  21 August 2026; count corrected 24 August.** 168 of 169 entries now carry a bibliography,
+  **533** citations in total (544 until the counting rule was fixed — one regex matched twice
+  inside any citation ending in a URL, and nine do), 107 of
   them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
   Darbar). The enrichment passes since this note was written closed it. Kept struck through
   rather than deleted, because the note itself is the lesson: **a standing finding is a
