@@ -45,6 +45,7 @@ export default function GraphPage() {
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
   const [figureQuery, setFigureQuery] = useState('');
+  const [lineageScope, setLineageScope] = useState<'order' | 'all'>('order');
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
 
@@ -73,6 +74,44 @@ export default function GraphPage() {
   }));
 
   const lineageEdges = useMemo(() => getAllLineageEdges(), []);
+
+  /*
+   * The lineage list, scoped to the order the chips have selected.
+   *
+   * The chips above filtered the network diagram and this list ignored them
+   * entirely — 86 edges regardless, so the page had a filter that half of it did
+   * not obey, and the half it did not obey was the long half.
+   *
+   * Scoped rather than filtered, and the difference matters: **28 of the 86 edges
+   * belong to no order this archive records.** Guru Ram Das ← Guru Amar Das is a
+   * line of teaching, not a silsila; and several Sufi teachers named inside a
+   * chain have no order recorded for them. A hard filter would have silently
+   * hidden a third of the archive's lineage, most of it non-Muslim — which on a
+   * site whose whole claim is covering six traditions would be the worst possible
+   * thing to drop quietly. So "all" stays one click away, and the count of
+   * unaffiliated links is stated rather than left to be noticed.
+   */
+  const orderMemberSlugs = useMemo(() => new Set(orderSaints.map((s) => s.slug)), [orderSaints]);
+
+  const scopedLineageEdges = useMemo(() => {
+    if (lineageScope === 'all' || !activeOrder) return lineageEdges;
+    return lineageEdges.filter(
+      (edge) => orderMemberSlugs.has(edge.subject.slug) || orderMemberSlugs.has(edge.object.slug),
+    );
+  }, [lineageEdges, lineageScope, activeOrder, orderMemberSlugs]);
+
+  /* Edges with neither endpoint in any recorded order. Computed over every order
+     rather than the active one — this is a fact about the dataset, not about the
+     current selection, so it must not change as the reader clicks. */
+  const unaffiliatedCount = useMemo(() => {
+    const affiliated = new Set<string>();
+    for (const order of kg.orders) {
+      for (const saint of getSaintsInOrder(order.slug)) affiliated.add(saint.slug);
+    }
+    return lineageEdges.filter(
+      (edge) => !affiliated.has(edge.subject.slug) && !affiliated.has(edge.object.slug),
+    ).length;
+  }, [kg.orders, lineageEdges]);
 
   /*
    * The five silsilas side by side.
@@ -285,10 +324,59 @@ export default function GraphPage() {
           <section className="graph-page-section">
             <h2>{t('graphLineageHeading')}</h2>
             <p className="graph-figures-note">
-              {t('graphLineageNote')} {fmtNum(lineageEdges.length)}
+              {t('graphLineageNote')} {fmtNum(scopedLineageEdges.length)}
               {' · '}
-              {fmtNum(lineageEdges.filter((e) => !e.reviewed).length)} {t('lineageUnreviewed')}
+              {fmtNum(scopedLineageEdges.filter((e) => !e.reviewed).length)}{' '}
+              {t('lineageUnreviewed')}
             </p>
+
+            {/* Two buttons rather than a dropdown: there are two choices and both
+                carry a count, which is the information a reader needs to decide. */}
+            {activeOrder && (
+              <div
+                className="filter-chips graph-lineage-scope"
+                role="group"
+                aria-label={t('graphLineageScopeLabel')}
+              >
+                <button
+                  type="button"
+                  className={`filter-chip${lineageScope === 'order' ? ' active' : ''}`}
+                  onClick={() => setLineageScope('order')}
+                  aria-pressed={lineageScope === 'order'}
+                >
+                  {fmtNum(
+                    tFn(
+                      lang,
+                      'graphLineageScopeOrder',
+                      localizeOrderName(activeOrder, lang),
+                      lineageEdges.filter(
+                        (edge) =>
+                          orderMemberSlugs.has(edge.subject.slug) ||
+                          orderMemberSlugs.has(edge.object.slug),
+                      ).length,
+                    ),
+                  )}
+                </button>
+                <button
+                  type="button"
+                  className={`filter-chip${lineageScope === 'all' ? ' active' : ''}`}
+                  onClick={() => setLineageScope('all')}
+                  aria-pressed={lineageScope === 'all'}
+                >
+                  {fmtNum(tFn(lang, 'graphLineageScopeAll', lineageEdges.length))}
+                </button>
+              </div>
+            )}
+
+            {/* Stated, not left to be noticed. A third of the recorded lineage
+                belongs to no silsila, most of it the Sikh and Hindu chains — on a
+                site covering six traditions that is the last thing that should
+                disappear behind a Sufi-order filter. */}
+            {unaffiliatedCount > 0 && (
+              <p className="graph-figures-note">
+                {fmtNum(tFn(lang, 'graphLineageUnaffiliated', unaffiliatedCount))}
+              </p>
+            )}
             {/* `data-latin`: many of these endpoints are figures the Urdu
                 dictionary does not cover, and some are not names at all but
                 descriptive phrases lifted from a source quote ("the princess
@@ -298,7 +386,7 @@ export default function GraphPage() {
                 element declares the debt instead of hiding it. Each name is
                 <bdi>-wrapped for bidi isolation, which is a separate need. */}
             <ul className="graph-lineage-list" data-latin>
-              {lineageEdges.map((edge) => (
+              {scopedLineageEdges.map((edge) => (
                 <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
                   <div className="graph-lineage-edge">
                     <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>

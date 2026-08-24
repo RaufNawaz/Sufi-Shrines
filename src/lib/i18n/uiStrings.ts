@@ -166,6 +166,11 @@ const UI_TEXT_EN = {
   graphExplorerFiguresNote:
     'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',
   graphLineageHeading: 'Teacher-disciple relationships',
+  graphLineageScopeOrder: (order: string, n: number) => `In the ${order} (${n})`,
+  graphLineageScopeAll: (n: number) => `All recorded links (${n})`,
+  graphLineageScopeLabel: 'Which links to show',
+  graphLineageUnaffiliated: (n: number) =>
+    `${n} of these links belong to no order this archive records — a Sikh or Hindu lineage is a line of teaching, not a silsila, and some Sufi teachers named in a chain have no order recorded here.`,
 
   // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
   welcomeExploreMore: 'Elsewhere in the archive',
@@ -646,6 +651,9 @@ export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
 export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
+export function tFn(lang: Lang, key: 'graphLineageScopeOrder', order: string, n: number): string;
+export function tFn(lang: Lang, key: 'graphLineageScopeAll', n: number): string;
+export function tFn(lang: Lang, key: 'graphLineageUnaffiliated', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpanOne', century: string): string;
 export function tFn(lang: Lang, key: 'lineageChainRemove', n: number): string;
 export function tFn(
@@ -692,6 +700,9 @@ export function tFn(
     | 'lineageChainForks'
     | 'orderUndated'
     | 'orderSpan'
+    | 'graphLineageScopeOrder'
+    | 'graphLineageScopeAll'
+    | 'graphLineageUnaffiliated'
     | 'orderSpanOne'
     | 'lineageChainRemove'
     | 'graphFigureFilterCount'

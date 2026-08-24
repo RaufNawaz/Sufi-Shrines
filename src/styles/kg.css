@@ -1780,3 +1780,11 @@
   font-family: var(--font-urdu);
   font-size: var(--text-sm);
 }
+
+/* The lineage list's scope control. Sits directly under the section's own count
+   line, so it reads as "showing this many — of these" rather than as a second
+   set of order chips: `.graph-order-chips` above picks the *subject* of the page,
+   this picks how much of one section to show. */
+.graph-lineage-scope {
+  margin-block: var(--space-2) var(--space-3);
+}

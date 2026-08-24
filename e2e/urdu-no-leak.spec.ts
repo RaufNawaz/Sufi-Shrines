@@ -50,12 +50,20 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *
  * What is behind them today, largest first:
  *
- * - `graph` (253) — figure and order labels from the knowledge graph, in the
+ * - `graph` (49) — figure and order labels from the knowledge graph, in the
  *   SVG and its accessible link list. Some are not names at all but phrases
  *   lifted from a source quote ("the princess Jahanara", "founder of the
  *   Rashidi order"). Inventing Urdu for those would break RULE 2. SVG `<text>`
  *   cannot carry `<bdi>` either, which is why NetworkGraph has
  *   `labelDirection()`.
+ *
+ *   **Was 253.** The teacher-disciple list used to print all 86 recorded edges,
+ *   each with its verbatim source quote, regardless of which order the chips
+ *   above had selected — a filter that half the page ignored, and the long half
+ *   at that. Scoped to the selected order it shows 17 for the Chishtiyya, and
+ *   the declared Latin falls with it. Lowered rather than left: this file's own
+ *   rule is that a number which shrank should shrink, and 253 standing over a
+ *   page declaring 49 is how a budget stops describing anything.
  * - the five `order` pages (41 / 30 / 24 / 16 / 7) — alt-names and branch
  *   names. Each order carries a different set of figures, which is why all five
  *   are here rather than one standing in for the rest.
@@ -137,7 +145,7 @@ const BUDGET: Record<string, number> = {
   'order:suhrawardiyya': 45,
   'order:naqshbandiyya': 27,
   'order:qalandariyya': 10,
-  graph: 253,
+  graph: 49,
   almanac: 39,
   coverage: 1,
   about: 7,

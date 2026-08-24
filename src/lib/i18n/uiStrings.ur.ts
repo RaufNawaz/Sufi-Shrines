@@ -188,6 +188,11 @@ export const UI_TEXT_UR: UiStrings = {
   graphExplorerFiguresNote:
     'ہر شخصیت کو اُس کے مطابق درجہ بند کیا گیا ہے جو ریکارڈ اُس کے بارے میں کہتا ہے۔ یہ آرکائیو چھ روایات کا احاطہ کرتا ہے، اِس لیے یہاں ہر شخصیت صوفی ولی نہیں۔',
   graphLineageHeading: 'استاد و شاگرد کے تعلقات',
+  graphLineageScopeOrder: (order: string, n: number) => `${order} میں (${n})`,
+  graphLineageScopeAll: (n: number) => `تمام درج شدہ رشتے (${n})`,
+  graphLineageScopeLabel: 'کون سے رشتے دکھائے جائیں',
+  graphLineageUnaffiliated: (n: number) =>
+    `اِن میں سے ${n} رشتے کسی ایسے سلسلے سے تعلق نہیں رکھتے جو یہ آرکائیو درج کرتا ہے — سکھ یا ہندو روایت میں تعلیم کی لڑی ہوتی ہے، سلسلہ نہیں، اور زنجیر میں نامزد کچھ صوفی اساتذہ کا سلسلہ یہاں درج نہیں۔`,
 
   // ── عرس تقویم ──────────────────────────────────────────────────────────
   welcomeExploreMore: 'آرکائیو میں مزید',
