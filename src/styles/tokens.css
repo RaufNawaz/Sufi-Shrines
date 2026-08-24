@@ -221,6 +221,24 @@
   --space-12: 3rem;
   --space-16: 4rem;
 
+  /* ── Hairline ────────────────────────────────────────────────────────────
+     The width of a *separator*, as opposed to an outline.
+
+     A 1px CSS border is 2 device pixels on a retina screen and 3 on a phone, so
+     a row divider that was drawn to be the lightest mark on the page arrives as
+     the heaviest thing in a list of eight. Halving it at 2dppx and above puts it
+     back at roughly one device pixel — which is what a separator in a native
+     list is, and most of why a web list reads as heavier than an app's.
+
+     Scoped to separators on purpose. The palette already draws the distinction
+     this needs: `--color-border` is structural (card outlines, inputs, focus
+     rings) and stays at 1px, because a hairline outline reads as a rendering
+     artefact rather than an edge. `--color-border-light` is the separator
+     colour, and every one of its 39 uses is a single-edge divider. Pairing the
+     hairline width with that colour is therefore a rule rather than a
+     preference, and `hairline.test.ts` enforces the pairing in both directions. */
+  --hairline: 1px;
+
   /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -289,6 +307,16 @@
   --z-toast: 40;
   --z-modal: 50;
   --z-lightbox: 60;
+}
+
+/* One device pixel, where the device has more than one per CSS pixel. Declared
+   outside :root's block rather than inside a nested query so it applies to the
+   dark theme's redefinitions too — the width is a property of the screen, not of
+   the palette. */
+@media (min-resolution: 2dppx) {
+  :root {
+    --hairline: 0.5px;
+  }
 }
 
 /* Dark mode — "Thursday night", not "the same site with the lights off".

@@ -138,7 +138,7 @@
     max-height: calc(80dvh - var(--safe-top));
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     border-inline-end: none;
-    border-top: 1px solid var(--color-border-light);
+    border-top: var(--hairline) solid var(--color-border-light);
     box-shadow:
       0 -4px 24px rgba(26, 12, 8, 0.14),
       0 -1px 0 var(--color-border-light);
@@ -216,7 +216,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   flex-shrink: 0;
   background: var(--color-bg-surface);
   /* Sticky on the desktop column and the top of the mobile sheet, so the list
@@ -599,7 +599,7 @@
 /* Search + filters */
 .search-bar {
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   flex-shrink: 0;
 }
 
@@ -678,7 +678,7 @@
 /* Filter section: wraps label + chips row for region/saint filters */
 .filter-section {
   flex-shrink: 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
 }
 
 .filter-section-label {
@@ -716,7 +716,7 @@
   justify-content: space-between;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   flex-shrink: 0;
 }
 
@@ -869,7 +869,7 @@
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
 }
 
 .shrine-list-group-heading {
@@ -880,7 +880,7 @@
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-muted);
   background: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -897,14 +897,14 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   cursor: pointer;
   transition: background var(--duration-fast);
   text-align: start;
   width: 100%;
   background: none;
   border: none;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   color: inherit;
   border-inline-start: 3px solid transparent;
 }
@@ -1231,7 +1231,7 @@
 /* List-of-shrines toggle bar + button */
 .list-toggle-bar {
   padding: var(--space-2) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   flex-shrink: 0;
 }
 
@@ -1448,7 +1448,7 @@
      interface. Applied inside @supports below, because these buttons sit over
      arbitrary tiles and an unsupported blur would leave text on live map. */
   color: var(--color-text) !important;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
   transition:
     background var(--duration-fast),
     color var(--duration-fast);
@@ -1761,7 +1761,7 @@
 .time-slider {
   flex-shrink: 0;
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: var(--hairline) solid var(--color-border-light);
 }
 
 .time-slider-header {
@@ -1828,7 +1828,7 @@
   gap: var(--space-2);
   margin-block-start: var(--space-5);
   padding-block-start: var(--space-4);
-  border-block-start: 1px solid var(--color-border-light);
+  border-block-start: var(--hairline) solid var(--color-border-light);
   width: 100%;
 }
 

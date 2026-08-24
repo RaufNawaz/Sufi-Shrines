@@ -357,7 +357,7 @@
      is the target rather than the word. */
   min-height: 32px;
   padding-block: var(--space-1);
-  border-block-end: 1px solid var(--color-border-light);
+  border-block-end: var(--hairline) solid var(--color-border-light);
   text-decoration: none;
 }
 
@@ -702,7 +702,7 @@
 
 .place-site {
   padding-block: var(--space-2);
-  border-block-end: 1px solid var(--color-border-light);
+  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
 .place-site:last-child {

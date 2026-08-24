@@ -61,7 +61,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  border-block-end: 1px solid var(--color-border-light);
+  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
 .palette-search-icon {
@@ -211,7 +211,7 @@
      mid-word — which looked like a rendering bug and was a flex default. */
   flex-shrink: 0;
   padding: var(--space-3) var(--space-4) var(--space-4);
-  border-block-end: 1px solid var(--color-border-light);
+  border-block-end: var(--hairline) solid var(--color-border-light);
   background: var(--color-bg-alt);
   max-height: 44dvh;
   overflow-y: auto;
@@ -245,7 +245,7 @@
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-text-muted);
-  border-block-end: 1px solid var(--color-border-light);
+  border-block-end: var(--hairline) solid var(--color-border-light);
 }
 
 [dir='rtl'] .palette-status {
@@ -385,7 +385,7 @@
   display: flex;
   gap: var(--space-4);
   padding: var(--space-2) var(--space-4);
-  border-block-start: 1px solid var(--color-border-light);
+  border-block-start: var(--hairline) solid var(--color-border-light);
   background: var(--color-bg-alt);
   font-size: var(--text-xs);
   color: var(--color-text-muted);

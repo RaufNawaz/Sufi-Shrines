@@ -1,0 +1,104 @@
+// @vitest-environment node
+/**
+ * Separators are hairlines; outlines are not.
+ *
+ * A 1px CSS border is two device pixels on a retina screen and three on a phone.
+ * For a card outline that is fine — it is meant to be seen. For a row divider it
+ * is not: the mark drawn to be the lightest thing on the page arrives as the
+ * heaviest thing in a list of eight, and that difference is most of why a web
+ * list reads as heavier than a native one. `--hairline` halves at 2dppx so a
+ * separator lands at roughly one device pixel.
+ *
+ * The pairing is the invariant, in both directions, because either half alone is
+ * a bug that looks like a style choice:
+ *
+ *  - a separator (`--color-border-light`) at a hardcoded `1px` is the heavy
+ *    divider this exists to fix, and there were 44 of them;
+ *  - an outline (`--color-border`) at `var(--hairline)` is worse — a
+ *    half-pixel outline renders as a grey shimmer on some displays and
+ *    disappears on others, which reads as a rendering artefact rather than an
+ *    edge.
+ *
+ * Neither shows up in a screenshot review at 1x, which is the resolution a CI
+ * machine and most desktop monitors run at. Hence a test rather than an eye.
+ */
+import { describe, it, expect } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+const STYLES = join(__dirname, '..');
+const sheets = readdirSync(STYLES)
+  .filter((f) => f.endsWith('.css'))
+  .map((f) => ({ name: f, css: readFileSync(join(STYLES, f), 'utf8') }));
+
+const tokens = sheets.find((s) => s.name === 'tokens.css')!.css;
+
+/** Strip comments — they discuss both tokens by name and would match every
+ * pattern below. The tracking test learned this the hard way. */
+const code = (css: string) => css.replace(/\/\*[\s\S]*?\*\//g, '');
+
+describe('the hairline token', () => {
+  it('is declared, and is a full pixel by default', () => {
+    expect(/--hairline:\s*1px/.test(code(tokens))).toBe(true);
+  });
+
+  it('halves on a display with more than one device pixel per CSS pixel', () => {
+    const retina = /@media\s*\(min-resolution:\s*2dppx\)\s*\{[^}]*\{[^}]*--hairline:\s*0\.5px/;
+    expect(retina.test(code(tokens))).toBe(true);
+  });
+
+  it('halves outside :root’s own block, so the dark theme inherits it', () => {
+    /* The width is a property of the screen, not of the palette. Declared inside
+       the light-mode block it would be overridden by the dark theme's own token
+       block on any dark-mode retina device — which is to say, on a phone at
+       night, which is when most of this archive is read. */
+    const c = code(tokens);
+    const retinaAt = c.indexOf('@media (min-resolution: 2dppx)');
+    const darkAt = c.indexOf("[data-theme='dark']");
+    expect(retinaAt, 'no retina override at all').toBeGreaterThan(-1);
+    expect(darkAt, 'no dark theme block at all').toBeGreaterThan(-1);
+    expect(retinaAt, 'the retina override must come before the dark block').toBeLessThan(darkAt);
+  });
+});
+
+describe('separators and outlines do not swap treatments', () => {
+  it('leaves no separator at a hardcoded 1px', () => {
+    const offenders: string[] = [];
+    for (const { name, css } of sheets) {
+      for (const line of code(css).split('\n')) {
+        if (/1px\s+(solid|dashed)\s+var\(--color-border-light\)/.test(line)) {
+          offenders.push(`${name}: ${line.trim()}`);
+        }
+      }
+    }
+    expect(
+      offenders,
+      'A separator drawn at 1px is 2–3 device pixels on the screens this site is ' +
+        'read on. Use var(--hairline).',
+    ).toEqual([]);
+  });
+
+  it('never draws a structural outline as a hairline', () => {
+    const offenders: string[] = [];
+    for (const { name, css } of sheets) {
+      for (const line of code(css).split('\n')) {
+        if (/var\(--hairline\)\s+(solid|dashed)\s+var\(--color-border\)/.test(line)) {
+          offenders.push(`${name}: ${line.trim()}`);
+        }
+      }
+    }
+    expect(
+      offenders,
+      'A half-pixel outline shimmers on some displays and vanishes on others. ' +
+        'Structural borders (--color-border) stay at 1px; --hairline is for separators.',
+    ).toEqual([]);
+  });
+
+  it('actually uses the hairline somewhere (or the pairing proves nothing)', () => {
+    const uses = sheets.reduce(
+      (n, { css }) => n + (code(css).match(/var\(--hairline\)/g)?.length ?? 0),
+      0,
+    );
+    expect(uses).toBeGreaterThan(20);
+  });
+});
