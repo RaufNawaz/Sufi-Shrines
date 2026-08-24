@@ -34,7 +34,7 @@
     "verify:pages": "node scripts/check-production-base.mjs",
     "data:build:provenance": "node scripts/data/build-provenance.mjs",
     "data:build:content-provenance": "node scripts/data/build-content-provenance.mjs",
-    "data:validate": "node scripts/data/validate.mjs && node scripts/data/validate-tours.mjs && python3 urdu-i18n/build_dictionary.py --check && node scripts/data/validate-urdu-leak.mjs && python3 pipeline/urdu_content_qa.py && node scripts/data/verify-kg-proposals.mjs && node scripts/data/validate-publication-safety.mjs",
+    "data:validate": "node scripts/data/validate.mjs && node scripts/data/validate-tours.mjs && python3 urdu-i18n/build_dictionary.py --check && node scripts/data/validate-urdu-leak.mjs && python3 pipeline/urdu_content_qa.py && node scripts/data/verify-kg-proposals.mjs && node scripts/data/validate-publication-safety.mjs && npm run data:review:check",
     "data:validate:tours": "node scripts/data/validate-tours.mjs",
     "data:validate:urdu-leak": "node scripts/data/validate-urdu-leak.mjs",
     "data:validate:urdu-content": "python3 pipeline/urdu_content_qa.py --verbose",
@@ -47,7 +47,9 @@
     "data:export": "npm run data:kg && node scripts/data/export-jsonld.mjs && node scripts/data/export-rdf.mjs",
     "data:release": "npm run data:validate && npm run data:validate:images && node scripts/data/release.mjs",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "data:review": "node scripts/data/build-review-worksheet.mjs",
+    "data:review:check": "node scripts/data/build-review-worksheet.mjs --check"
   },
   "dependencies": {
     "@maplibre/maplibre-gl-leaflet": "^0.1.4",
