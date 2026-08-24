@@ -331,25 +331,18 @@
 }
 
 /* ── Plain lists (seasonal, undated) ─────────────────────────────────────── */
+/* Layout and separators come from `.inset-list` in list.css — the last of the
+   three list idioms this archive had for the same thing. What stays is the
+   column width: an undated row carries a name and the recorded observance under
+   it, and 79 of them read better in wider columns. */
 .almanac-list--plain {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: var(--space-2) var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
 
-.almanac-plain-entry {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: var(--space-2) 0;
-  border-block-end: var(--hairline) solid var(--color-border-light);
-  font-size: var(--text-sm);
-}
-
-.almanac-plain-source {
-  color: var(--color-text-muted);
-  font-size: var(--text-xs);
-  line-height: var(--leading-snug);
+/* The season, on the leading edge, before the name. Never allowed to shrink —
+   "late winter" ellipsised to "late w…" is worse than a narrower name. */
+.almanac-season-tag {
+  flex-shrink: 0;
 }
 
 .almanac-season-tag {

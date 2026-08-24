@@ -21,7 +21,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
-import { bibliographyItems } from './lib/bibliography.mjs';
+import { bibliographyItems, citationKey } from './lib/bibliography.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -727,14 +727,6 @@ for (const event of events) {
  *  punctuation stay two nodes. Under-merging leaves a duplicate a human can
  *  see; over-merging asserts that two different citations are the same source,
  *  which is a claim about the literature. */
-function citationKey(text) {
-  return text
-    .toLowerCase()
-    .replace(/[*_`]/g, '')
-    .replace(/\s+/g, ' ')
-    .replace(/[.,;:]+$/, '')
-    .trim();
-}
 
 const BARE_URL = /^<?https?:\/\/\S+>?$/;
 

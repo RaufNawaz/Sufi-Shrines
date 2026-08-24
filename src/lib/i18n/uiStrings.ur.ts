@@ -355,6 +355,19 @@ export const UI_TEXT_UR: UiStrings = {
   coverageSourcesWithThree: 'تین یا زیادہ حوالے دینے والے',
   coverageSourcesWithNone: 'کوئی حوالہ نہ دینے والے',
   coverageSourcesItems: 'کل حوالے',
+  /* ── آرکائیو کس پر قائم ہے (/coverage) ────────────────────────────────── */
+  coverageRestsHeading: 'یہ آرکائیو کس پر قائم ہے',
+  coverageRestsNote:
+    'اِس کے حوالے دوسری طرف سے گنے گئے ہیں — یہ نہیں کہ ہر اندراج کے پاس کتنے حوالے ہیں، بلکہ یہ کہ کتنے اندراج ایک ہی ماخذ پر ٹیکے ہوئے ہیں۔ یہاں کے ہر عدد کی طرح یہ بھی ہر بار شائع شدہ ڈیٹا سے شمار ہوتا ہے۔',
+  coverageRestsDistinct: 'الگ الگ مآخذ',
+  coverageRestsShared: 'مآخذ جو ایک سے زیادہ اندراجات میں درج ہیں',
+  coverageRestsSingle: 'اندراجات جو ایک ہی ماخذ پر قائم ہیں',
+  coverageRestsTop: 'وہ مآخذ جن پر اِس کا بڑا حصہ قائم ہے',
+  coverageRestsEntryCount: (n: number) => `${n} اندراج`,
+  coverageRestsTail: (n: number) =>
+    `${n} مزید مآخذ ایسے ہیں جن کا حوالہ صرف ایک ایک اندراج میں آتا ہے؛ وہ یہاں درج نہیں۔`,
+  coverageRestsCaveat:
+    'کسی ماخذ کا کئی اندراجات میں آنا کمزوری نہیں — ایک بنیادی حوالہ بار بار آنا ہی چاہیے۔ دیکھنے کی بات یہ ہے کہ اِس سے پتہ چلتا ہے کہ ایک غلطی کہاں تک پھیل سکتی ہے۔',
   coveragePhotosHeading: 'عکس بندی',
   coveragePhotosWithNone: 'بغیر تصویر والے',
   coveragePhotosItems: 'کل تصاویر',

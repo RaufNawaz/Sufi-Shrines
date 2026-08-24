@@ -373,12 +373,15 @@ export default function AlmanacPage() {
                   {t('almanacSeasonalHeading')}
                 </h2>
                 <p className="almanac-hint">{t('almanacSeasonalNote')}</p>
-                <ul className="almanac-list almanac-list--plain">
+                <ul className="almanac-list almanac-list--plain inset-list">
                   {almanac.seasonal.map((entry, i) => (
-                    <li key={`${entry.shrine.slug}-${i}`} className="almanac-plain-entry">
-                      <span className="almanac-season-tag">{t(SEASON_KEYS[entry.season])}</span>
+                    <li key={`${entry.shrine.slug}-${i}`} className="inset-row inset-row--link">
                       <Link to={`/shrine/${entry.shrine.slug}`}>
-                        <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                        <span className="almanac-season-tag">{t(SEASON_KEYS[entry.season])}</span>
+                        <span className="inset-row-label">
+                          <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                        </span>
+                        <span className="inset-row-chevron" />
                       </Link>
                     </li>
                   ))}
@@ -398,13 +401,15 @@ export default function AlmanacPage() {
                   <span className="almanac-section-count">({fmtNum(almanac.undated.length)})</span>
                 </h2>
                 <p className="almanac-hint">{t('almanacUndatedNote')}</p>
-                <ul className="almanac-list almanac-list--plain almanac-list--undated">
+                <ul className="almanac-list almanac-list--plain almanac-list--undated inset-list">
                   {almanac.undated.map((entry) => (
-                    <li key={entry.shrine.slug} className="almanac-plain-entry">
+                    <li key={entry.shrine.slug} className="inset-row inset-row--link">
                       <Link to={`/shrine/${entry.shrine.slug}`}>
-                        <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
-                      </Link>
-                      {/* The observance as the sheet records it — "Annual urs",
+                        <span className="inset-row-label inset-row-label--stacked">
+                          <span className="inset-row-title">
+                            <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                          </span>
+                          {/* The observance as the sheet records it — "Annual urs",
                           "Maha Shivratri", "Sikh pilgrimage; Guru Nanak
                           Gurpurab". Semicolon-joined, so localizeObservance
                           translates it segment by segment and leaves an unknown
@@ -412,15 +417,18 @@ export default function AlmanacPage() {
                           source says). `data-latin` declares whatever is left,
                           so e2e/urdu-no-leak.spec.ts counts the remaining debt
                           rather than waving it through. */}
-                      <span className="almanac-plain-source" data-latin>
-                        {/* fmtNum, like every other number site: a translated
+                          <span className="almanac-plain-source inset-row-sub" data-latin>
+                            {/* fmtNum, like every other number site: a translated
                             observance carries the recorded dates with it
                             ("سالانہ عرس (18-20 صفر)"), and Western digits inside
                             Nastaliq is the i18n rule 5 gap this render site had.
                             The infobox's own Events row has always gone through
                             fmtNum; this one did not. */}
-                        <bdi>{fmtNum(localizeObservance(entry.sourceText, lang))}</bdi>
-                      </span>
+                            <bdi>{fmtNum(localizeObservance(entry.sourceText, lang))}</bdi>
+                          </span>
+                        </span>
+                        <span className="inset-row-chevron" />
+                      </Link>
                     </li>
                   ))}
                 </ul>

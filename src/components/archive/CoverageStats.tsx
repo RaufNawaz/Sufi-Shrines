@@ -53,11 +53,30 @@ export function Bar({
  * each label, so there is one place for it to be right — the first draft read
  * "1 entries citing nothing".
  */
-export function Fact({ value, label }: { value: number; label: string }) {
+export function Fact({
+  value,
+  label,
+  noun,
+}: {
+  value: number;
+  label: string;
+  /**
+   * The thing being counted, when it is not entries.
+   *
+   * Most facts on this page count entries, so that noun is the default and is
+   * pluralised in one place. But "what the archive rests on" counts *sources*,
+   * and the default produced "464 entries distinct sources" — a sentence that
+   * is wrong in a way only reading the page catches. Pass `''` to let the label
+   * carry its own noun.
+   */
+  noun?: string;
+}) {
   const { lang, fmtNum } = useLang();
+  const counted = noun ?? tFn(lang, 'coverageEntriesNoun', value);
   return (
     <li>
-      <strong>{fmtNum(value)}</strong> {tFn(lang, 'coverageEntriesNoun', value)} {label}
+      <strong>{fmtNum(value)}</strong>
+      {counted ? ` ${counted}` : ''} {label}
     </li>
   );
 }

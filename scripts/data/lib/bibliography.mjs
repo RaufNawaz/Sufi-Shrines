@@ -81,3 +81,28 @@ export function bibliographyItems(sourcesColumn, description) {
   }
   return items;
 }
+
+/**
+ * The key two citations must share to be one source.
+ *
+ * Deliberately conservative: case, markdown emphasis, runs of whitespace and a
+ * trailing period are noise, and nothing else is touched. Two entries citing the
+ * same book with different punctuation stay two sources — under-merging leaves a
+ * duplicate a human can see, while over-merging asserts that two different
+ * citations are the same source, which is a claim about the literature that no
+ * normaliser is entitled to make. The three volumes of the Tazkirah stay three
+ * keys, correctly.
+ *
+ * Shared with `scripts/data/build-kg.mjs` through its mirror, because the graph's
+ * source nodes and any page that counts distinct sources have to agree on what
+ * "distinct" means — and `kgSourceIndex.test.ts` asserts they produce the same
+ * number.
+ */
+export function citationKey(text) {
+  return text
+    .toLowerCase()
+    .replace(/[*_`]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/[.,;:]+$/, '')
+    .trim();
+}

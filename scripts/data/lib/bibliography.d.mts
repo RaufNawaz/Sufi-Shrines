@@ -5,3 +5,4 @@
  */
 export declare function bibliographyRegion(sourcesColumn: string, description: string): string;
 export declare function bibliographyItems(sourcesColumn: string, description: string): string[];
+export declare function citationKey(text: string): string;

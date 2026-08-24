@@ -1007,14 +1007,15 @@
 /* Inside a grouped row now rather than under a link, so it sits on the trailing
    edge as the row's note. The block display and the bottom padding it needed as
    a standalone line would push the row past its 44px. */
+/* No `max-width` here on purpose. 24ch is a sensible reading measure and a
+   terrible share of a 275px grid cell: it let the note claim 178px of the row
+   and squeezed "Ghazi Ilm Din Shaheed" into 50px, which then overflowed by 11.
+   The cap belongs to the row (`.inset-row-note`, 45%), where it is relative to
+   whatever width the column happens to have. */
 .graph-figure-as-recorded {
   font-size: var(--text-xs);
   line-height: 1.5;
   color: var(--color-text-muted);
-  max-width: 24ch;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 [dir='rtl'] .graph-figure-as-recorded {

@@ -701,3 +701,46 @@
 .place-site-list {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
+
+/* ── What the archive rests on (/coverage) ────────────────────────────────────
+   The citations counted across entries rather than within one: which sources
+   more than one entry leans on, and how many lean on each. Per-entry
+   bibliographies were always on the shrine pages; what the archive as a whole
+   rests on had no surface at all. */
+.coverage-note {
+  max-width: 66ch;
+  margin-block: 0 var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+[dir='rtl'] .coverage-note {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+}
+
+/* One column, always. A citation is a sentence — author, title, publisher,
+   sometimes a URL — and two of them side by side read as one run-on line. The
+   list primitive's `auto-fill` is right for names and wrong for prose. */
+.coverage-rests-list {
+  grid-template-columns: 1fr;
+  margin-block-end: var(--space-4);
+}
+
+/* The citation wraps rather than ellipsising: unlike a name in a browse list,
+   the end of a citation is the part that identifies the edition. Truncating it
+   would leave a reader a search string that does not resolve. */
+.coverage-rests-citation {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+/* A citation is Latin even in the Urdu view (i18n rule 7 — the reader is owed an
+   exact search string), and a Latin paragraph set flush-right inside an RTL page
+   is hard to read: the eye has to find a new ragged start on every line. `<bdi>`
+   already gets the *order* right; this gets the alignment right too. */
+[dir='rtl'] .coverage-rests-citation {
+  direction: ltr;
+  text-align: left;
+}

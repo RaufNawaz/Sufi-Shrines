@@ -123,6 +123,15 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   names, so the title of most figures' pages was an undeclared Latin run for
  *   as long as this guard has existed. A budget file is only as wide as its
  *   route list.
+ * - `coverage` (68) — **was 1.** The page gained "What the archive rests on": the
+ *   28 sources that more than one entry cites, printed as the citations they
+ *   are. i18n rule 7 makes this the one place Latin is not a debt at all — a
+ *   bibliography entry carries the source's real title, publisher and edition,
+ *   and it is the exact string a reader needs in order to go and check. 68
+ *   rather than 28 because the emphasis inside a citation is rendered rather
+ *   than printed as asterisks, so "Alam Faqri, *Tazkirah Awliya-e-Pakistan*
+ *   (Lahore)" is three runs: the author, the italicised title, and the rest.
+ *   Splitting it that way is what makes a book title read as a book title.
  * - `about` (7) — licence names, the contact address, the repository URL. Latin
  *   by nature, like a citation.
  * - `map` (7) / `shrine` (2) — the Location column, which on several
@@ -172,7 +181,7 @@ const BUDGET: Record<string, number> = {
   'order:qalandariyya': 10,
   graph: 49,
   almanac: 39,
-  coverage: 1,
+  coverage: 68,
   'saint:lineage-only': 24,
   about: 7,
   place: 36,

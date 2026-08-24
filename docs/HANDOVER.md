@@ -2822,6 +2822,63 @@ nothing errored.
     that most need to show their sources are exactly the ones the graph knows least about. Sources
     are attached in their own pass.
 
+112. **`/coverage` can now say what the archive rests on, and the answer is one book.** The
+    source layer built in §9.111 is a build-time file, so no page could read it. This rebuilds
+    the same index from the shrine data the app has already loaded — **no new payload at all**,
+    and nothing to go stale, because it reads whatever the sheet currently says. Same extractor,
+    same dedupe key, and `sourceIndex.test.ts` asserts the two arrive at the same numbers (464
+    sources, 533 citations) rather than trusting that they do. That agreement only holds if both
+    sides normalise identically, which is the half that would otherwise drift silently.
+
+    What the page now says: 464 distinct sources, 28 cited by more than one entry, 27 entries
+    resting on a single source — and a list of the shared ones, headed by Alam Faqri's *Tazkirah
+    Awliya-e-Pakistan* at 25 entries. The page states the caveat too, because it is true: a
+    recurring standard reference is not a weakness. It is worth seeing because it says where a
+    single error would travel furthest.
+
+    Three things the first draft got wrong, all caught by looking at the rendered page:
+    - `Fact` hardcodes "entries" as its noun, so the facts read **"464 entries distinct
+      sources"**. It now takes an optional noun, and `''` lets a label carry its own.
+    - The citations printed their markdown literally — `*Tazkirah Awliya-e-Pakistan*` with the
+      asterisks showing. Rendered as emphasis now, and emphasis *only*: a full markdown renderer
+      would parse a citation's brackets, quotes and URLs as syntax, and the one thing a citation
+      must survive is being read literally.
+    - In the Urdu view the Latin citations were set flush-right, so the eye had to find a new
+      ragged start on every line. `<bdi>` gets the order right; `direction: ltr` on the citation
+      gets the alignment right too.
+
+113. **A real overflow shipped, and the run I cited as green had tested a stale bundle.** The
+    grouped-list commit put a 17px overflow on `/graph` at 1280px — the recorded `figure_type`
+    note claimed 178px of a 275px row (a `max-width: 24ch` I had written myself, sensible as a
+    reading measure and useless as a share of a grid cell), squeezing "Ghazi Ilm Din Shaheed"
+    into 50px, where it overflowed by 11.
+
+    **The process failure is the part to keep.** After editing the list CSS I ran the playwright
+    batch, it timed out at 120s, and I re-ran it in the background *without* rebuilding — so
+    `dist` was the previous build and the suite reported 65 green on code that was not the code I
+    had written. This repository already has that lesson written down twice (§9.68, §9.53:
+    "local green plus a successful deploy is not verification"), and I repeated it in the same
+    session I was citing it in. **`npm run build:e2e` before every playwright run, no
+    exceptions** — a stale `dist` produces a green suite, which is worse than a red one.
+
+    Fixed by moving the cap to `.inset-row-note` (45% of the row, relative to whatever width the
+    column has) and giving `.inset-row-label` `overflow-wrap: break-word` as a floor —
+    `min-width: 0` lets a flex item shrink below its content, and a word longer than the shrunken
+    box then overflows it. Breaking a name mid-word is ugly; a name hanging out of its row is a
+    bug.
+
+114. **The almanac's two plain lists were the last holdout on the old idiom, and they are
+    converted.** The seasonal list (season tag + name) and the undated list (name + the recorded
+    observance under it) now use `.inset-list` like the other four, so the archive has one list
+    appearance rather than three.
+
+    **The dated calendar entries are deliberately not converted.** `.almanac-entry` is a
+    two-column grid — a date column aligned across every row, then the content — and that
+    alignment is what makes a calendar readable down the page. A browse row and a calendar row are
+    different things, and running the primitive over both because both are `<li>`s would cost the
+    alignment to gain a consistency nobody asked for. The boundary is: the primitive is for lists
+    a reader scans to pick something; a calendar is for reading down a column.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

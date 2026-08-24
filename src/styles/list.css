@@ -43,6 +43,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  /* A grid item's default `min-width: auto` refuses to shrink below its
+     content's min-content width, so a row with a long name *and* a long
+     recorded note overflowed its track by 17px rather than ellipsising inside
+     it. Both this and the anchor below need the override: the chain is grid item
+     → flex item → flex item, and `auto` at any link in it wins. */
+  min-width: 0;
   /* 44px, because the row is the target. */
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
@@ -60,6 +66,7 @@
 .inset-row--link > a {
   display: flex;
   flex: 1 1 auto;
+  min-width: 0;
   align-items: center;
   gap: var(--space-2);
   min-height: 44px;
@@ -91,6 +98,12 @@
 .inset-row-label {
   flex: 1 1 auto;
   min-width: 0;
+  /* The floor. `min-width: 0` lets the box shrink below its content, and with
+     normal wrapping a word longer than the shrunken box then overflows it —
+     which is precisely how a 50px cell and the word "Shaheed" produced an 11px
+     overflow. Breaking a name mid-word is ugly; a name hanging out of its row is
+     a layout bug. */
+  overflow-wrap: break-word;
 }
 
 /* A row whose label is two lines — a name and what the record says under it.
@@ -120,8 +133,18 @@
 
 /* What the record says *about* the row — a recorded figure_type, a location.
    Secondary colour, and never the only way the row is distinguished. */
+/* Shrinkable, and that is the whole point of the rule. With `flex-shrink: 0` a
+   long recorded note — "Martyr (Shaheed) — not a Sufi saint…" — refused to give
+   up any width, so the row overflowed its grid cell by 17px on a laptop instead
+   of ellipsising. The note is the least important thing in the row; it should be
+   the first to give way. */
 .inset-row-note {
-  flex-shrink: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--color-text-secondary);
   font-size: var(--text-xs);
 }

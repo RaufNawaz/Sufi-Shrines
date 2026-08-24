@@ -354,6 +354,19 @@ const UI_TEXT_EN = {
   coverageSourcesWithThree: 'citing three or more sources',
   coverageSourcesWithNone: 'citing nothing',
   coverageSourcesItems: 'citations in total',
+  /* ── What the archive rests on (/coverage) ───────────────────────────── */
+  coverageRestsHeading: 'What the archive rests on',
+  coverageRestsNote:
+    'Its citations counted the other way round \u2014 not how many each entry has, but how many entries lean on the same source. Computed from the shipped data on every load, like every other figure here.',
+  coverageRestsDistinct: 'distinct sources',
+  coverageRestsShared: 'sources cited by more than one entry',
+  coverageRestsSingle: 'entries resting on a single source',
+  coverageRestsTop: 'The sources most of it rests on',
+  coverageRestsEntryCount: (n: number) => `${n} ${n === 1 ? 'entry' : 'entries'}`,
+  coverageRestsTail: (n: number) =>
+    `${n} further sources are each cited by a single entry, and are not listed.`,
+  coverageRestsCaveat:
+    'A source cited by many entries is not a weakness \u2014 a standard reference should recur. It is worth seeing, because it says where a single error would travel furthest.',
   coveragePhotosHeading: 'Photography',
   coveragePhotosWithNone: 'with no photograph',
   coveragePhotosItems: 'photographs in total',
@@ -691,6 +704,8 @@ export function tFn(
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
+export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
+export function tFn(lang: Lang, key: 'coverageRestsTail', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, total: number): string;
 /* String-valued interpolations. These exist for the same reason the numeric
    ones do: a label like "Category: X" or "Map showing location of X" puts its
@@ -730,6 +745,8 @@ export function tFn(
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'
     | 'coverageEntriesNoun'
+    | 'coverageRestsEntryCount'
+    | 'coverageRestsTail'
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'
     | 'mapLayerFrom'
