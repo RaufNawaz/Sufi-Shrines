@@ -326,12 +326,24 @@
   box-shadow: inset -3px 0 0 var(--color-primary);
 }
 
+/* 44px → 38px, and the radius up a step.
+ *
+ * Reported as looking cluttered, and the thumbnail is where the weight is: at
+ * 44px it set the row height for a two-line body that only needs ~36px, so eight
+ * results filled the panel where ten fit comfortably. 38px still reads as a
+ * photograph and still clears the two lines beside it.
+ *
+ * The rounder corner is the other half. For the 51 entries with no photograph
+ * this element is a flat block of the tradition's colour, which at 44px square
+ * was the heaviest mark in the row — heavier than the name — while carrying the
+ * same one fact as the 8px dot at the other end. Smaller and rounder reads as an
+ * avatar rather than a colour swatch. */
 .palette-result-img,
 .palette-result-placeholder {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
   object-fit: cover;
   background: var(--color-bg-alt);
 }
