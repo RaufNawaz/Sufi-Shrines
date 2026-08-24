@@ -19,7 +19,7 @@ import type { KGSaint } from '../types/kg';
 import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
-import { centurySpan } from '../lib/data/figureDates';
+import { centurySpan, figureCentury } from '../lib/data/figureDates';
 import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
@@ -44,6 +44,11 @@ export default function GraphPage() {
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
   const [figureQuery, setFigureQuery] = useState('');
+  /* `null` is "any century"; the string 'undated' is the explicit bucket for
+     figures the record does not date. A sentinel rather than a number because
+     "no century" is an answer here, not an absence — 63 of the 136 figures the
+     archive documents are in it. */
+  const [centuryFilter, setCenturyFilter] = useState<number | 'undated' | null>(null);
   const [lineageScope, setLineageScope] = useState<'order' | 'all'>('order');
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
@@ -160,9 +165,38 @@ export default function GraphPage() {
   const archiveFigures = useMemo(() => getArchiveFigures(), []);
 
   const figureIndex = useMemo(() => buildFigureIndex(archiveFigures), [archiveFigures]);
+  /*
+   * The centuries the archive can actually place a figure in, with counts.
+   *
+   * Read from the recorded death year, or the birth year where no death is
+   * given, and *never* converted from the Hijri calendar — `figureCentury`
+   * returns null rather than guessing, which is why the undated bucket is as
+   * large as it is. Only centuries with at least one figure get a chip: an empty
+   * 15th-century chip would imply the archive had looked and found nothing,
+   * when in fact it holds three figures it cannot date for every two it can.
+   */
+  const centuryCounts = useMemo(() => {
+    const counts = new Map<number, number>();
+    let undated = 0;
+    for (const saint of archiveFigures) {
+      const century = figureCentury(saint);
+      if (century === null) undated++;
+      else counts.set(century, (counts.get(century) ?? 0) + 1);
+    }
+    return { centuries: [...counts.entries()].sort((a, b) => a[0] - b[0]), undated };
+  }, [archiveFigures]);
+
+  const centuryFiltered = useMemo(() => {
+    if (centuryFilter === null) return archiveFigures;
+    return archiveFigures.filter((saint) => {
+      const century = figureCentury(saint);
+      return centuryFilter === 'undated' ? century === null : century === centuryFilter;
+    });
+  }, [archiveFigures, centuryFilter]);
+
   const matchingFigures = useMemo(
-    () => matchFigures(archiveFigures, figureQuery, figureIndex),
-    [archiveFigures, figureIndex, figureQuery],
+    () => matchFigures(centuryFiltered, figureQuery, figureIndex),
+    [centuryFiltered, figureIndex, figureQuery],
   );
 
   const groupedFigures = useMemo(() => {
@@ -436,6 +470,57 @@ export default function GraphPage() {
                 </button>
               )}
             </div>
+            {/* The archive's temporal shape, as a filter.
+                A reader could search by name and by tradition and not by *when* —
+                on an archive spanning the 8th to the 21st century, that is the
+                axis its material is actually organised along. The undated chip
+                is not a leftover: at 63 of 136 it is the largest group here, and
+                the honest thing is to let a reader see it and open it. */}
+            <div className="graph-century-filter">
+              <span className="graph-century-filter-label" id="century-filter-label">
+                {t('graphCenturyFilterLabel')}
+              </span>
+              <div
+                className="filter-chips graph-century-chips"
+                role="group"
+                aria-labelledby="century-filter-label"
+              >
+                <button
+                  type="button"
+                  className={`filter-chip${centuryFilter === null ? ' active' : ''}`}
+                  aria-pressed={centuryFilter === null}
+                  onClick={() => setCenturyFilter(null)}
+                >
+                  {t('graphCenturyAll')}
+                </button>
+                {centuryCounts.centuries.map(([century, count]) => (
+                  <button
+                    key={century}
+                    type="button"
+                    className={`filter-chip${centuryFilter === century ? ' active' : ''}`}
+                    aria-pressed={centuryFilter === century}
+                    onClick={() => setCenturyFilter(centuryFilter === century ? null : century)}
+                  >
+                    {fmtNum(CENTURY_ORDINAL[lang](century))}
+                    <span className="filter-chip-count">{fmtNum(count)}</span>
+                  </button>
+                ))}
+                {centuryCounts.undated > 0 && (
+                  <button
+                    type="button"
+                    className={`filter-chip${centuryFilter === 'undated' ? ' active' : ''}`}
+                    aria-pressed={centuryFilter === 'undated'}
+                    title={t('graphCenturyUndatedHelp')}
+                    onClick={() => setCenturyFilter(centuryFilter === 'undated' ? null : 'undated')}
+                  >
+                    {t('graphCenturyUndated')}
+                    <span className="filter-chip-count">{fmtNum(centuryCounts.undated)}</span>
+                  </button>
+                )}
+              </div>
+              <p className="graph-figures-note graph-century-note">{t('graphCenturyNote')}</p>
+            </div>
+
             {/* aria-live so a screen-reader user hears the result count change
                 without having to go looking for it. */}
             <p className="graph-figure-filter-count" role="status" aria-live="polite">

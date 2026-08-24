@@ -187,6 +187,13 @@ export const UI_TEXT_UR: UiStrings = {
   graphFigureFilterClear: 'صاف کریں',
   graphFigureFilterCount: (shown: number, total: number) => `${total} میں سے ${shown}`,
   graphFigureFilterEmpty: 'اس سے مطابقت رکھنے والی کوئی شخصیت نہیں۔',
+  graphCenturyFilterLabel: 'صدی',
+  graphCenturyAll: 'کوئی بھی',
+  graphCenturyUndated: 'بلا تاریخ',
+  graphCenturyUndatedHelp:
+    'وہ شخصیات جنہیں ریکارڈ صرف ہجری تقویم میں رکھتا ہے، یا کسی سن میں نہیں رکھتا۔ ہجری سن کو یہاں صدی میں بدلنا آرکائیو کی طرف سے تاریخ گھڑنا ہوتا، اِس لیے اُنہیں قیاس کے بجائے الگ گروہ میں رکھا گیا ہے — اور یہ آرکائیو کی تقریباً نصف شخصیات ہیں۔',
+  graphCenturyNote:
+    'صدی شخصیت کے درج شدہ سنِ وفات سے لی گئی ہے، اور جہاں وفات درج نہیں وہاں سنِ پیدائش سے۔ ہجری تقویم سے کوئی تبدیلی نہیں کی گئی۔',
   lineageUnreviewed: 'غیر نظر ثانی شدہ',
   titlesLabel: 'القاب و خطابات',
   disputedDatesLabel: 'مآخذ متفق نہیں',

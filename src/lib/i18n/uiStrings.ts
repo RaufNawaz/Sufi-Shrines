@@ -165,6 +165,13 @@ const UI_TEXT_EN = {
   graphFigureFilterClear: 'Clear',
   graphFigureFilterCount: (shown: number, total: number) => `${shown} of ${total}`,
   graphFigureFilterEmpty: 'No figure matches that.',
+  graphCenturyFilterLabel: 'Century',
+  graphCenturyAll: 'Any',
+  graphCenturyUndated: 'Undated',
+  graphCenturyUndatedHelp:
+    'Figures the record places in the Hijri calendar only, or in no year at all. Converting a Hijri year to a century here would be this archive inventing a date, so they are grouped rather than guessed \u2014 and they are nearly half of the figures the archive holds.',
+  graphCenturyNote:
+    'Centuries are read from a figure\u2019s recorded death year, or birth year where no death is given. Nothing is converted from the Hijri calendar.',
   lineageUnreviewed: 'unreviewed',
   titlesLabel: 'Titles and honorifics',
   disputedDatesLabel: 'Sources disagree',

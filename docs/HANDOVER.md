@@ -2879,6 +2879,35 @@ nothing errored.
     alignment to gain a consistency nobody asked for. The boundary is: the primitive is for lists
     a reader scans to pick something; a calendar is for reading down a column.
 
+115. **The explorer could be browsed by name and by tradition but not by *when*.** On an archive
+    whose figures run from the 8th century to the 21st, that is the axis its material is actually
+    organised along, and it was the one axis with no control. `/graph` now carries a century chip
+    row: **8th 1 · 11th 3 · 12th 1 · 13th 8 · 14th 2 · 16th 7 · 17th 13 · 18th 12 · 19th 10 ·
+    20th 15 · 21st 1 · Undated 63.** *Measured 24 August 2026.*
+
+    **The undated chip is the point, not the leftover.** `figureCentury` reads the recorded death
+    year, or the birth year where no death is given, and refuses to convert a Hijri year — that
+    would be the archive inventing a date (RULE 2). So **63 of the 136 documented figures cannot
+    be placed in a century at all**, which makes undated the largest group in the row. A filter
+    that silently dropped them would hide nearly half the archive behind a control that looks
+    complete. It carries its count, it is clickable, and the note above the row says where
+    centuries come from and that nothing is converted.
+
+    Only centuries with at least one figure get a chip. An empty 15th-century chip would imply
+    the archive had looked and found nothing, when what is true is that it holds three figures it
+    cannot date for every two it can.
+
+    Two invariants worth having: `figureCenturyFilter.test.ts` asserts a Hijri-only figure always
+    comes back null and that the buckets partition the figures exactly once each; and
+    `e2e/century-filter.spec.ts` asserts **the chip counts sum to the list length** — a filter
+    whose parts do not add up to the whole is one a reader cannot trust — plus that the century
+    and the text filter compose rather than resetting each other.
+
+    One near-miss: the count inside an active chip was first dimmed with `opacity: 0.75`, which is
+    the §9.46 trap exactly — axe folds an ancestor's opacity into the colour it measures, so it
+    would have reported a contrast failure no reader could see. It takes `currentColor` at full
+    strength instead.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

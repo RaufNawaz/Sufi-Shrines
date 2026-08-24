@@ -1845,3 +1845,59 @@
   font-family: var(--font-urdu);
   font-size: var(--text-base);
 }
+
+/* ── Century filter ───────────────────────────────────────────────────────────
+   The archive spans the 8th to the 21st century and a reader could search it by
+   name and by tradition and not by *when* — the axis its material is actually
+   organised along. The undated chip carries the largest count of the row (63 of
+   136), which is the point: a reader should be able to see how much of the
+   archive it cannot date, and open it. */
+.graph-century-filter {
+  margin-block: var(--space-4) 0;
+}
+
+.graph-century-filter-label {
+  display: block;
+  margin-block-end: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .graph-century-filter-label {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  /* Nastaliq is caseless and unletterspaceable. */
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Thirteen chips wrap to three rows on a phone, which is fine — what is not
+   fine is a horizontal scroller nobody can tell is scrollable. */
+.graph-century-chips {
+  margin-block-end: var(--space-2);
+}
+
+/* The count inside a chip. Tabular so the chips in a row do not jitter in width
+   between 1 and 15, and quiet enough that the century stays the label. */
+.filter-chip-count {
+  margin-inline-start: 0.4em;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* On an active chip the count sits on the filled ground, where the muted grey
+   drops below contrast — so it takes the chip's own colour. Deliberately *not*
+   dimmed with opacity: axe folds an ancestor's opacity into the colour it
+   measures, and a 0.75 here would report a contrast failure that a reader cannot
+   see (HANDOVER §9.46). Full strength and let it be equal. */
+.filter-chip.active .filter-chip-count {
+  color: currentColor;
+}
+
+.graph-century-note {
+  margin-block: 0 var(--space-4);
+}
