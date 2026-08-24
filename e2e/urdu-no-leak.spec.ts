@@ -77,13 +77,18 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   `disciple_of` edge and no order membership; a figure with a compound
  *   silsila declares more, which is why the number belongs to this route
  *   rather than to the page type.
+ *   **16 → 17** when the chain of transmission was added: one more run for the
+ *   teacher's name at the first remove, which is the same figure already named
+ *   under `Teachers` — a chain repeats its links by construction, and the
+ *   dictionary does not carry this one.
  * - `saint:multi-order` (22) — the same page type with the sections the first
  *   figure has none of. Counted, not estimated: 3 lineage/membership quotes
  *   with 3 `<cite>`s (6), the branch chip on each of his two order edges (2),
  *   his row's own silsila cell — once, deduped across both edges, and a
  *   sentence long (1), 8 figure and order names the dictionary does not carry,
  *   the network diagram's `<title>`/`<text>`/`<a>` for one such name (3), and
- *   the language toggle's "EN" (1). Nothing here is prose: every run is a
+ *   the language toggle's "EN" (1), and the one name at the first remove of
+ *   his chain of transmission (1). Nothing here is prose: every run is a
  *   source's words, a person's name, or a citation.
  * - `about` (7) — licence names, the contact address, the repository URL. Latin
  *   by nature, like a citation.
@@ -115,8 +120,8 @@ const BUDGET: Record<string, number> = {
   // the print footer's raw "Field-verified" — is now translated through
   // SUPPORT_LEVEL_LABEL_KEYS rather than declared.
   shrine: 10,
-  saint: 16,
-  'saint:multi-order': 22,
+  saint: 17,
+  'saint:multi-order': 23,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine

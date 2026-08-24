@@ -2246,6 +2246,59 @@ nothing errored.
     journey at both device classes in both languages.
 
 
+
+85. **A page can be less honest than the graph-wide dump of the same data, and nothing will
+    say so.** `LineageLink` has carried `quote`, `source` and `reviewed` since the lineage
+    relations were seeded, and only `/graph` ever printed them. So `/saint/:slug` — the page a
+    reader actually reads a lineage on — showed a bare name for an edge that is unreviewed 80
+    times out of 86 and quotable all 86, while the bulk listing nobody browses showed the
+    evidence. Same for `belongs_to_order`: `/order/:slug` grew an "Also in" row for figures
+    holding several silsilas, and the figure's own page asked `getOrderForSaint`, which returns
+    the first edge and discards the rest. 11 figures. Provenance parity between surfaces is not
+    something a type checker or a test suite notices; the only way to catch it is to ask, of
+    every field on a record, *which* pages render it.
+
+86. **`getOrderForSaint` is a correct accessor and the wrong question.** It returns one order,
+    which is right for seeding a diagram that takes one, and wrong for "show this figure's
+    affiliation". The test in `src/lib/__tests__/orderMemberships.test.ts` now fails the build if
+    an affiliation page *calls* it — a mention in a comment is fine, since the comment explaining
+    why it stopped being used is worth keeping.
+
+87. **Deciding whether a source's own wording is "redundant" is a transliteration judgement, and
+    it is not worth making.** The first version of the recorded-silsila display hid any
+    `asRecorded` string that restated the order's name. To be right, that rule had to know that
+    *Qadri*, *Qadiri* and *Qadiriyya* are one name while *Rashidi* under Qadiriyya is a different
+    one — and its wrong answers delete the archive's most honest field. One of these cells reads
+    "Qadri (see year_built_note / Description for a discrepancy in how the survey names his
+    order)". The rule is gone; the field is shown as recorded. Note also that `asRecorded` is a
+    **row-level** cell: both of a figure's order edges carry the same string, which is why
+    OrderPage refuses to print it at all and why the figure's page prints it once, deduped.
+
+88. **A lineage walk that takes the first teacher fabricates descent, plausibly.** The longest
+    apparent chain in the graph is eight names and it runs straight through Abul Faiz Qalander
+    Ali Suharwardi, who records **four** masters. A walk that took the first would have drawn
+    five generations of transmission the archive never claims, and it would have looked
+    completely ordinary on the page. `getLineageChain` therefore stops at a fork and reports the
+    fork — the honest answer is a statement about the sources, not a gap in the display. 57
+    figures record a teacher; following only unambiguous links gives 15 of them a chain two or
+    more removes deep, so refusing to guess costs almost nothing. Cycles terminate the walk too;
+    none exist today, and one `successor_of` import is all it would take, with an infinite render
+    loop as the symptom.
+
+89. **`uiStrings.ts` ships 39 KB of Urdu interface copy to every reader on every route,
+    English-only ones included.** *Measured 24 August 2026* (66.7 KB file, 27.7 KB before the
+    `ur:` key, 39.0 KB from it). This is the same shape as the `urdu-content.json` waste that
+    `scripts/check-bundle-budget.mjs` was written to catch, and it is unfixed. The symptom that
+    surfaced it: eight new interface strings added ~1 KB to *every* route's eager JS, which
+    tripped ShrinePage's budget — a route the change never touched, because it happened to be
+    sitting at 495/495 with zero headroom while its annotation still read "measured 457". Two
+    lessons, one for each half: **a per-route budget cannot express "a shared module grew", so
+    the route with the least headroom takes the blame**, and a budget comment without a date on
+    it becomes a claim. Gating `UI_TEXT.ur` behind the language the way the content payload
+    already is would give every route back far more than the 10 KB this cost. Candidate for the
+    next planning pass; not attempted here, because `t()` is synchronous everywhere and an
+    English flash in the Urdu view is not an acceptable intermediate state.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

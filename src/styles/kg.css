@@ -1601,3 +1601,89 @@
   align-items: baseline;
   gap: var(--space-2);
 }
+
+/* ── Chain of transmission ───────────────────────────────────────────────────
+   A silsila is literally a chain, so it is drawn as one: a rule down the inline
+   start edge with each remove hanging off it. Logical properties throughout —
+   in Urdu the chain runs down the right-hand side, and a `border-left` would
+   have put the spine on the wrong side of the names it threads. */
+
+.lineage-chain {
+  margin-block-start: var(--space-2);
+}
+
+.lineage-chain-list {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  padding-inline-start: var(--space-4);
+  border-inline-start: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.lineage-chain-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* The node on the spine. Drawn on the border rather than as a list marker so it
+   lands on the line in both directions; `inset-inline-start` is what makes that
+   one rule instead of two. */
+.lineage-chain-step::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: calc(-1 * var(--space-4) - 5px);
+  inset-block-start: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+}
+
+.lineage-chain-remove {
+  font-size: var(--text-xs);
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .lineage-chain-remove {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+}
+
+.lineage-chain-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.lineage-chain-name {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lineage-chain-name:hover,
+.lineage-chain-name:focus-visible {
+  text-decoration: underline;
+}
+
+/* Why the chain ends. Not a caption — for a figure with four recorded masters
+   this sentence is the finding, and the absence of further names is not. */
+.lineage-chain-stop {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+}
+
+[dir='rtl'] .lineage-chain-stop {
+  font-family: var(--font-urdu);
+}

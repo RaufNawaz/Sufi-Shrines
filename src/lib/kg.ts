@@ -141,6 +141,71 @@ export function getDisciplesOf(saintSlug: string): LineageLink[] {
   ).filter((link): link is LineageLink => link !== null);
 }
 
+/** One remove up a chain of transmission. */
+export interface LineageChainStep {
+  /** The teacher at this remove. */
+  saint: KGSaint;
+  /** Every recorded relation to them. Usually one; two where a source calls
+   * the same figure both disciple and successor, which 13 pairs in the graph
+   * do — both are facts and the step keeps both. */
+  links: LineageLink[];
+}
+
+export interface LineageChain {
+  /** Nearest teacher first. Empty when the record names none. */
+  steps: LineageChainStep[];
+  /** Why the walk stopped, which is itself worth telling the reader. */
+  stop: 'root' | 'forks' | 'cycle';
+  /** Teachers recorded at the point the chain forked — 0 unless `stop` is
+   * `'forks'`. */
+  forks: number;
+}
+
+/**
+ * The chain of transmission above a figure — the *silsila* in its literal
+ * sense, one master to the next.
+ *
+ * SaintPage showed a figure's immediate teachers and stopped, which for a
+ * tradition whose whole claim is an unbroken chain is the least interesting
+ * hop of it. The graph has held the rest all along: 57 figures record a
+ * teacher, and following those links gives 15 of them a chain two or more
+ * removes deep — "Nizamuddin Auliya ← Fariduddin Ganjshakar ← Khwaja Qutbuddin
+ * Bakhtiar Kaki", which no page in the archive was drawing.
+ *
+ * **It walks only while the record is unambiguous.** Five figures name several
+ * teachers, and picking one of four to continue through would be inventing a
+ * line of descent (RULE 2) — so the walk stops there and says it forked, which
+ * is the honest answer and is a fact about the sources rather than a gap in the
+ * display. That is not a corner case: the longest apparent chain in the data
+ * runs eight names deep *through* Abul Faiz Qalander Ali Suharwardi, who
+ * records four teachers, so a walk that just took the first would have drawn
+ * five generations of descent the archive never claims.
+ *
+ * Cycles terminate the walk too. None exist today; a `successor_of` pointing
+ * back into its own ancestry is one CSV import away, and an infinite loop in a
+ * render is not a good way to find out.
+ */
+export function getLineageChain(saintSlug: string): LineageChain {
+  const steps: LineageChainStep[] = [];
+  const seen = new Set<string>([saintSlug]);
+  let current = saintSlug;
+
+  for (;;) {
+    const links = getTeachersOf(current);
+    const teachers = [...new Set(links.map((l) => l.saint.slug))];
+    if (teachers.length === 0) return { steps, stop: 'root', forks: 0 };
+    if (teachers.length > 1) return { steps, stop: 'forks', forks: teachers.length };
+
+    const next = teachers[0];
+    if (seen.has(next)) return { steps, stop: 'cycle', forks: 0 };
+
+    const teacherLinks = links.filter((l) => l.saint.slug === next);
+    steps.push({ saint: teacherLinks[0].saint, links: teacherLinks });
+    seen.add(next);
+    current = next;
+  }
+}
+
 export interface LineageEdge {
   subject: KGSaint;
   relation: LineageRelationType;

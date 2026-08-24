@@ -8,6 +8,7 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
+import { LineageChainView } from '../components/kg/LineageChainView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import {
@@ -16,6 +17,7 @@ import {
   getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
+  getLineageChain,
   recordedSilsilas,
 } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
@@ -59,6 +61,10 @@ export default function SaintPage() {
   const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
   const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
+  /* The chain above this figure, walked as far as the record goes without
+     picking between several recorded masters. 15 figures in the graph have one
+     two or more removes deep; the page used to stop at the first hop. */
+  const chain = useMemo(() => (slug ? getLineageChain(slug) : null), [slug]);
 
   // Shrine names in the reader's language, from the live dataset. The slug
   // fallback is for a shrine the graph knows but the sheet has dropped.
@@ -494,6 +500,15 @@ export default function SaintPage() {
                   teachers={teachers}
                   disciples={disciples}
                 />
+                {/* The chain, after the neighbourhood. A silsila read from the
+                    inside is "who linked whom to whom", and only the first link
+                    of that was on the page. */}
+                {chain && chain.steps.length > 0 && (
+                  <>
+                    <h3 className="lineage-chain-heading">{t('lineageChainHeading')}</h3>
+                    <LineageChainView chain={chain} />
+                  </>
+                )}
               </section>
             )}
 

@@ -112,6 +112,14 @@ export const UI_TEXT = {
       'The silsila exactly as this figure\u2019s own record words it, including where the record contradicts itself. It describes the figure rather than any one of the orders above, so it is shown once.',
     teachersHeading: 'Teachers',
     disciplesHeading: 'Disciples & successors',
+    lineageChainHeading: 'Chain of transmission',
+    lineageChainNote:
+      'Followed one master at a time, as far as the record goes without guessing. Nearest first.',
+    lineageChainRoot: 'The record names no teacher beyond this point.',
+    lineageChainForks: (n: number) =>
+      `The record names ${n} teachers here, so the chain does not continue as a single line.`,
+    lineageChainCycle: 'The record turns back on itself here.',
+    lineageChainRemove: (n: number) => `${n} removed`,
     discipleOfLabel: 'Disciple',
     successorOfLabel: 'Successor',
     shrinesAssociated: 'Associated shrines',
@@ -611,6 +619,14 @@ export const UI_TEXT = {
       'سلسلہ بعینہٖ اُن الفاظ میں جو اِس شخصیت کے اپنے ریکارڈ میں لکھے ہیں، بشمول اُس صورت کے جہاں ریکارڈ خود اپنی نفی کرتا ہے۔ یہ اوپر دیے گئے کسی ایک سلسلے کے بجائے خود شخصیت کو بیان کرتا ہے، اِس لیے ایک ہی بار دکھایا جاتا ہے۔',
     teachersHeading: 'اساتذہ',
     disciplesHeading: 'شاگرد و جانشین',
+    lineageChainHeading: 'سلسلۂ ارادت',
+    lineageChainNote:
+      'ایک وقت میں ایک ہی مرشد کے حساب سے، جہاں تک ریکارڈ بغیر قیاس کے لے جاتا ہے۔ قریب ترین پہلے۔',
+    lineageChainRoot: 'اِس سے آگے ریکارڈ کسی اُستاد کا نام نہیں لیتا۔',
+    lineageChainForks: (n: number) =>
+      `یہاں ریکارڈ ${n} اساتذہ کے نام لیتا ہے، اِس لیے سلسلہ ایک ہی لڑی کی صورت آگے نہیں بڑھتا۔`,
+    lineageChainCycle: 'یہاں ریکارڈ خود اپنی طرف لوٹ آتا ہے۔',
+    lineageChainRemove: (n: number) => `${n} واسطے`,
     discipleOfLabel: 'شاگرد',
     successorOfLabel: 'جانشین',
     orderMembers: 'اس سلسلے کے ولی',
@@ -1021,6 +1037,8 @@ export function tFn(lang: Lang, key: 'reportRegisterNote', pct: number): string;
 export function tFn(lang: Lang, key: 'orderMemberCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
+export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
+export function tFn(lang: Lang, key: 'lineageChainRemove', n: number): string;
 export function tFn(
   lang: Lang,
   key: 'graphFigureFilterCount',
@@ -1062,6 +1080,8 @@ export function tFn(
     | 'orderMemberCount'
     | 'orderBranchCount'
     | 'orderMultiCount'
+    | 'lineageChainForks'
+    | 'lineageChainRemove'
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'

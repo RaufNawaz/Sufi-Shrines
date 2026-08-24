@@ -54,7 +54,27 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
 const BUDGETS_KB = {
   'index.html': 270, // measured 248 (was 322 with the dictionary eager)
   'src/pages/MapPage.tsx': 580, // measured 537 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
-  'src/pages/ShrinePage.tsx': 495, // measured 457 — the graph is no longer on this route
+  /* 495 → 505, raised 24 August 2026. Two things worth knowing before touching
+     this line again.
+
+     The old annotation read "measured 457" and the route measured 495 — it had
+     eaten all 38 KB of its headroom since that comment was written, so it sat
+     exactly on its budget and the next commit to touch *any shared module* was
+     going to fail here regardless of what it did. What actually tripped it was
+     eight new interface strings in src/lib/i18n/uiStrings.ts, which every route
+     imports: +1 KB on ShrinePage, AboutPage and SaintPage alike, for copy that
+     renders only on the figure page. A per-route budget cannot express "a shared
+     module grew", so the route with the least headroom takes the blame.
+
+     The comment is now the measurement *and* its date, because the number
+     without the date is what went stale. Which is also the standing lesson in
+     CLAUDE.md: a measurement quoted long enough becomes a claim.
+
+     The real finding underneath is in HANDOVER §9: UI_TEXT.ur is 39 KB of
+     source shipped eagerly to every reader, English-only ones included — the
+     same shape as the urdu-content.json waste this whole script was written to
+     catch. Fixing that gives every route back far more than this 10 KB. */
+  'src/pages/ShrinePage.tsx': 505, // measured 496 on 24 Aug 2026
   'src/pages/SaintPage.tsx': 665, // measured 615
   'src/pages/OrderPage.tsx': 650, // measured 600
   'src/pages/GraphPage.tsx': 620, // measured 571
