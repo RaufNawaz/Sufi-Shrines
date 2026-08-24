@@ -1,0 +1,184 @@
+/*
+ * The inset grouped list.
+ *
+ * The archive is mostly lists — 196 figures, 169 sites, the sites in a place, a
+ * figure's shrines — and each of them was styled separately: a bare multi-column
+ * grid of links here, a stack of bordered cards there, a flex column with a gap
+ * somewhere else. Three idioms for one thing, and the longest of them (the 196
+ * figures on /graph) read as undifferentiated blue text on a phone.
+ *
+ * This is one primitive for all of them, and it is the platform's own: a single
+ * rounded container, rows separated by hairlines rather than by gaps, the row as
+ * the tap target, and a chevron where the row leads somewhere.
+ *
+ * **The separators are the gaps.** `gap: var(--hairline)` over a container
+ * painted in the separator colour, with each row painted in the surface colour.
+ * One declaration, and it is correct at any column count — the alternative is
+ * per-row borders plus `:nth-child` arithmetic to strip the trailing edge off
+ * the last row and the last column, which is where a responsive grid of cells
+ * usually goes wrong.
+ *
+ * Loaded after components.css so it can override the per-list rules that remain,
+ * and before the page sheets so a page can still say something specific.
+ */
+
+.inset-list {
+  display: grid;
+  /* One column on a phone, filling out on a wider screen. 15rem is the width at
+     which a long recorded name — "Hazrat Sufi Peer Syed Gohar Ali Shah" — stops
+     wrapping to three lines. */
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--hairline);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--color-border-light);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  /* So the rows' square corners are clipped by the container's round ones. */
+  overflow: hidden;
+}
+
+.inset-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  /* 44px, because the row is the target. */
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg-surface);
+  font-size: var(--text-sm);
+}
+
+/* A row that goes somewhere: the whole row, not the words inside it. A link
+   sized to its text in a 44px row leaves most of the target inert, which on a
+   phone reads as an app that ignores taps. */
+.inset-row--link {
+  padding: 0;
+}
+
+.inset-row--link > a {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.inset-row--link > a:hover {
+  background: var(--color-primary-bg);
+}
+
+/* Pressed, and a tint rather than opacity: axe folds an ancestor's opacity into
+   the colour it measures, and this project has already lost an hour to a
+   contrast failure that did not exist (HANDOVER §9.46). */
+.inset-row--link > a:active {
+  background: var(--press-tint);
+}
+
+.inset-row--link > a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* The row's own name, taking the space so anything trailing is pushed to the
+   far edge. `min-width: 0` so a long name ellipsises instead of widening the
+   grid cell past its column. */
+.inset-row-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* A row whose label is two lines — a name and what the record says under it.
+   The *label* stacks, not the row: the chevron stays on the trailing edge where
+   a reader's thumb expects it, and the row keeps one baseline for its height. */
+.inset-row-label--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-block: 2px;
+}
+
+.inset-row-title {
+  font-weight: 600;
+}
+
+.inset-row-sub {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .inset-row-sub {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* What the record says *about* the row — a recorded figure_type, a location.
+   Secondary colour, and never the only way the row is distinguished. */
+.inset-row-note {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}
+
+[dir='rtl'] .inset-row-note {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The disclosure chevron. Drawn in CSS rather than as an SVG per row: 196 rows
+   is 196 elements the browser does not need, and a border-box rotated 45° is
+   exactly the glyph. `aria-hidden` is unnecessary because it is not in the DOM
+   at all — the link text is the accessible name. */
+.inset-row-chevron {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid var(--color-text-muted);
+  border-inline-end: 1.5px solid var(--color-text-muted);
+  /* Rotation is a transform, and a transform on a non-replaced inline element is
+     a no-op — hence the inline-block. */
+  display: inline-block;
+  transform: rotate(45deg);
+}
+
+/* In RTL the chevron points the other way, and it is a *rotation* that has to
+   change: `border-inline-end` already flips, so without this the two borders
+   would meet on the wrong corner and the arrow would point up-left. */
+[dir='rtl'] .inset-row-chevron {
+  transform: rotate(-135deg);
+}
+
+/* A header above the card, in the platform's idiom: small, upper-case,
+   letterspaced, outside the container rather than inside it. */
+.inset-list-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-block: 0 var(--space-2);
+  padding-inline: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .inset-list-header {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  /* Nastaliq is caseless and unletterspaceable; both of these do nothing to it
+     except confuse a screen reader's pronunciation of the run. */
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.inset-list-header-count {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}

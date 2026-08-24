@@ -694,34 +694,10 @@
   border-inline-start-color: var(--color-cat-secular);
 }
 
+/* Layout and separators come from `.inset-list` in list.css — this was one of
+   the three list idioms the archive had for the same thing. What stays is the
+   column width: a site row carries a name and a Location line under it, and
+   Lahore has 35 of them, so a wider minimum keeps the pairs readable. */
 .place-site-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.place-site {
-  padding-block: var(--space-2);
-  border-block-end: var(--hairline) solid var(--color-border-light);
-}
-
-.place-site:last-child {
-  border-block-end: none;
-}
-
-.place-site a {
-  font-weight: 600;
-}
-
-.place-site-location {
-  display: block;
-  margin-block-start: 2px;
-  font-size: var(--text-xs);
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-[dir='rtl'] .place-site-location {
-  font-family: var(--font-urdu);
-  font-size: var(--text-sm);
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }

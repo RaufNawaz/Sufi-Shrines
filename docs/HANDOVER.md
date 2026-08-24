@@ -2714,6 +2714,35 @@ nothing errored.
     44px targets, the last element of each page clearing the bar, RTL mirroring, and absence on a
     laptop.
 
+109. **The archive had three list idioms for one thing, and the longest list used the worst
+    one.** *Found 24 August 2026.* 196 figures on `/graph` were a bare multi-column grid of blue
+    links — on a phone, an undifferentiated column of underlined text with no rows, no targets
+    and nothing to say a row led anywhere. A figure's own shrines were a stack of individually
+    bordered cards separated by gaps. A place's sites were a flex column with hairlines and no
+    container. Same content shape, three appearances, none of them a list.
+
+    Replaced with one primitive, `src/styles/list.css`: the platform's inset grouped list — a
+    single rounded container, hairline separators, the whole row as the tap target, and a chevron
+    where the row leads somewhere. Applied to all three (figures, a figure's shrines, a place's
+    sites) and the old per-list rules retired rather than left to fight it.
+
+    **The separators are the gaps.** `gap: var(--hairline)` over a container painted in the
+    separator colour, with each row painted in the surface colour. One declaration, correct at
+    any column count — and the reason that matters is the alternative: per-row borders plus
+    `:nth-child` arithmetic to strip the trailing edge off the last row *and* the last column of
+    a responsive grid, which is where this pattern usually breaks when the column count changes
+    at a breakpoint nobody tested.
+
+    Two smaller things fell out of it. The group heading kept a `border-bottom` from when it sat
+    over bare links, which directly above a bordered card is two lines doing one job. And
+    `.graph-figure-as-recorded` — a recorded `figure_type` that is a sentence — was `display:
+    block` with bottom padding as a standalone line under a link; inside a row it had to become
+    an ellipsised trailing note, or a 44px row grew to 70.
+
+    **What is still on the old idiom:** the almanac's seasonal and undated lists
+    (`.almanac-list--plain`). They carry a season tag *and* a two-line label, so converting them
+    is a JSX refactor rather than a class swap, and it wants its own pass.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

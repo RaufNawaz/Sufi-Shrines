@@ -561,9 +561,12 @@ export default function SaintPage() {
             {saint.shrines.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('shrinesAssociated')}</h2>
-                <ul className="entity-shrine-list">
+                <ul className="inset-list">
                   {saint.shrines.map((shrineSlug) => (
-                    <li key={shrineSlug} className="entity-shrine-list-item">
+                    <li
+                      key={shrineSlug}
+                      className="entity-shrine-list-item inset-row inset-row--link"
+                    >
                       <Link to={`/shrine/${shrineSlug}`}>
                         <svg
                           width="13"
@@ -579,7 +582,8 @@ export default function SaintPage() {
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                           <circle cx="12" cy="10" r="3" />
                         </svg>
-                        {shrineLabel(shrineSlug)}
+                        <span className="inset-row-label">{shrineLabel(shrineSlug)}</span>
+                        <span className="inset-row-chevron" />
                       </Link>
                     </li>
                   ))}

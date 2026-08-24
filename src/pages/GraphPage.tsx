@@ -477,24 +477,30 @@ export default function GraphPage() {
                 {figureGroupLabel(group, lang)}
                 <span className="graph-figure-group-count">{fmtNum(figures.length)}</span>
               </h3>
-              <ul className="graph-saints-list">
+              {/* One grouped list per figure type. 196 bare links in a grid read
+                  as undifferentiated blue text on a phone; the row is the unit
+                  now, and the row is the tap target. */}
+              <ul className="graph-saints-list inset-list">
                 {figures.map((saint, i) => (
                   <li
                     key={saint.slug}
-                    className="reveal-rise"
+                    className="inset-row inset-row--link reveal-rise"
                     style={{ '--stagger-index': i } as React.CSSProperties}
                   >
                     <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
-                    </Link>
-                    {/* A figure_type that is a sentence rather than a category is
-                        content, not a defect (RULE 2) — show it as recorded
-                        instead of filing it under a label it may contradict. */}
-                    {isProseFigureType(saint.figureType) && (
-                      <span className="graph-figure-as-recorded" data-latin>
-                        <bdi>{saint.figureType}</bdi>
+                      <span className="inset-row-label">
+                        <bdi>{fmtNum(localizeFigureName(saint, lang))}</bdi>
                       </span>
-                    )}
+                      {/* A figure_type that is a sentence rather than a category is
+                          content, not a defect (RULE 2) — show it as recorded
+                          instead of filing it under a label it may contradict. */}
+                      {isProseFigureType(saint.figureType) && (
+                        <span className="graph-figure-as-recorded inset-row-note" data-latin>
+                          <bdi>{saint.figureType}</bdi>
+                        </span>
+                      )}
+                      <span className="inset-row-chevron" />
+                    </Link>
                   </li>
                 ))}
               </ul>

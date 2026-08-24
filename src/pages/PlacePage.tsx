@@ -120,21 +120,26 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
 
       <section className="kg-section">
         <h2 className="kg-section-heading">{t('placeSitesHeading')}</h2>
-        <ul className="place-site-list">
+        <ul className="place-site-list inset-list">
           {place.shrines.map((shrine, i) => (
             <li
               key={shrine.slug}
-              className="place-site reveal-rise"
+              className="inset-row inset-row--link reveal-rise"
               style={{ '--stagger-index': i } as React.CSSProperties}
             >
               <Link to={`/shrine/${shrine.slug}`}>
-                <bdi>{localizeShrineName(shrine, lang)}</bdi>
+                <span className="inset-row-label inset-row-label--stacked">
+                  <span className="inset-row-title">
+                    <bdi>{localizeShrineName(shrine, lang)}</bdi>
+                  </span>
+                  {/* The Location column, as recorded. Often an English survey
+                      qualification rather than a place name, hence data-latin. */}
+                  <span className="inset-row-sub" data-latin>
+                    <bdi>{shrine.location}</bdi>
+                  </span>
+                </span>
+                <span className="inset-row-chevron" />
               </Link>
-              {/* The Location column, as recorded. Often an English survey
-                  qualification rather than a place name, hence data-latin. */}
-              <span className="place-site-location" data-latin>
-                <bdi>{shrine.location}</bdi>
-              </span>
             </li>
           ))}
         </ul>

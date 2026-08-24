@@ -356,35 +356,13 @@
 
 /* ── Shrine list (in saint page) ─────────────────────────────────────────── */
 
-.entity-shrine-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.entity-shrine-list-item a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg-surface);
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: var(--text-sm);
-  border: 1px solid var(--color-border);
-  transition:
-    background-color var(--duration-fast),
-    border-color var(--duration-fast);
-}
-
-.entity-shrine-list-item a:hover,
-.entity-shrine-list-item a:focus {
-  background-color: var(--color-primary-bg);
-  border-color: var(--color-primary);
+/* Was a stack of individually bordered cards with a gap between them — one of
+   the three list idioms this archive had for the same thing. `.inset-list` in
+   list.css is that thing now; the pin icon inside each row keeps its colour
+   here because it is this list's own affordance. */
+.entity-shrine-list-item svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
 }
 
 /* ── Saint list (in order page) ──────────────────────────────────────────── */
@@ -965,18 +943,12 @@
   margin-block-end: 2rem;
 }
 
+/* Layout comes from `.inset-list` in list.css. What stays here is the one thing
+   this list needs that the primitive should not assume: a wider minimum column,
+   because a recorded figure name runs longer than a shrine name and 15rem wraps
+   the long ones to three lines. */
 .graph-saints-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  gap: 0.5rem 1rem;
-}
-
-.graph-saints-list a {
-  display: block;
-  padding: 0.4rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
 }
 
 /* ── Figure groups ────────────────────────────────────────────────────────────
@@ -1001,9 +973,10 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
-  margin-block: 0 var(--space-3);
-  padding-block-end: var(--space-2);
-  border-bottom: var(--hairline) solid var(--color-border-light);
+  margin-block: 0 var(--space-2);
+  /* No rule under it any more: the grouped list below has its own top edge, and
+     a heading underline directly above a bordered card is two lines doing one
+     job. */
   font-size: var(--text-sm);
   font-weight: 600;
   /* The group headings are signposts over a dense list, so they read as small
@@ -1031,13 +1004,17 @@
 
 /* A figure_type that is a sentence rather than a category — shown as recorded
    (RULE 2) rather than filed under a label it might contradict. */
+/* Inside a grouped row now rather than under a link, so it sits on the trailing
+   edge as the row's note. The block display and the bottom padding it needed as
+   a standalone line would push the row past its 44px. */
 .graph-figure-as-recorded {
-  display: block;
   font-size: var(--text-xs);
   line-height: 1.5;
   color: var(--color-text-muted);
-  padding-block-end: var(--space-2);
-  max-width: 44ch;
+  max-width: 24ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 [dir='rtl'] .graph-figure-as-recorded {
