@@ -134,17 +134,20 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   names, so the title of most figures' pages was an undeclared Latin run for
  *   as long as this guard has existed. A budget file is only as wide as its
  *   route list.
- * - `coverage` (68) — **was 1.** The page gained "What the archive rests on": the
- *   28 sources that more than one entry cites, printed as the citations they
- *   are. i18n rule 7 makes this the one place Latin is not a debt at all — a
- *   bibliography entry carries the source's real title, publisher and edition,
- *   and it is the exact string a reader needs in order to go and check. 68
- *   rather than 28 because the emphasis inside a citation is rendered rather
- *   than printed as asterisks, so "Alam Faqri, *Tazkirah Awliya-e-Pakistan*
- *   (Lahore)" is three runs: the author, the italicised title, and the rest.
- *   Splitting it that way is what makes a book title read as a book title.
- * - `about` (7) — licence names, the contact address, the repository URL. Latin
- *   by nature, like a citation.
+ * - `about` (74) — **was 7, and `coverage`'s 68 is gone from this list.** The
+ *   two pages merged on 24 August 2026: `/coverage` is a redirect into `/about`
+ *   now, so measuring both measured the same document twice, under two names
+ *   and two different budgets. 7 of the 74 are what /about always had — licence
+ *   names, the contact address, the repository URL, Latin by nature. The other
+ *   67 came with "What the archive rests on": the 28 sources that more than one
+ *   entry cites, printed as the citations they are. i18n rule 7 makes this the
+ *   one place Latin is not a debt at all — a bibliography entry carries the
+ *   source's real title, publisher and edition, and it is the exact string a
+ *   reader needs in order to go and check. Far more than 28 runs because the
+ *   emphasis inside a citation is rendered rather than printed as asterisks, so
+ *   "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore)" is three runs: the
+ *   author, the italicised title, and the rest. Splitting it that way is what
+ *   makes a book title read as a book title.
  * - `map` (7) / `shrine` (2) — the Location column, which on several
  *   field-survey rows is a paragraph of English qualification rather than a
  *   place name.
@@ -156,8 +159,9 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   interface. Counted, not estimated — the first number here was 35, one short,
  *   because the toggle is on every route and so is invisible in every other
  *   budget.
- * - `coverage` (1) — one category value the sheet still holds as "Islam"
- *   instead of "Muslim Shrine"; drops to 0 when
+ *   One of the 74 is not a citation and not a licence: a category value the
+ *   sheet still holds as "Islam" instead of "Muslim Shrine". It was listed
+ *   against `coverage` while that route existed. It drops when
  *   data/patch_data_hygiene_2026-08-21.csv is imported.
  */
 const BUDGET: Record<string, number> = {
@@ -192,9 +196,8 @@ const BUDGET: Record<string, number> = {
   'order:qalandariyya': 10,
   graph: 122,
   almanac: 39,
-  coverage: 68,
   'saint:lineage-only': 24,
-  about: 7,
+  about: 74,
   place: 36,
 };
 
@@ -232,7 +235,6 @@ const ROUTES = [
   { name: 'order:qalandariyya', path: '/order/qalandariyya?lang=ur', ready: 'h1.entity-title' },
   { name: 'graph', path: '/graph?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac?lang=ur', ready: 'h1' },
-  { name: 'coverage', path: '/coverage?lang=ur', ready: 'h1.entity-title' },
   { name: 'place', path: '/place/lahore?lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
 ] as const;

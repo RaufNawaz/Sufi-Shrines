@@ -352,8 +352,6 @@ const UI_TEXT_EN = {
   aboutThinHeading: 'Where it is thin',
   aboutThinNote:
     'The gaps, as counts. An archive is only as useful as its account of its own limits.',
-  aboutStateMore: 'The full breakdown, tradition by tradition and place by place:',
-  aboutStateReportLink: 'the archive grading itself',
   aboutScopeHeading: 'Scope',
   aboutScopeBody:
     'Each entry records what a source says, with that source named. Entries are labelled by how they were established, from field-verified to web-compiled, so a reader can weigh them without leaving the page.',

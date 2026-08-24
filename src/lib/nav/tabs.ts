@@ -11,8 +11,10 @@ import type { UI_TEXT } from '../i18n/uiStrings';
  *
  * Five, deliberately: a tab bar stops being legible past five on a phone, and
  * every tab here is an index over the whole archive rather than one entry.
- * `/coverage` and `/report` are one tap deeper because About links to both and
- * they answer "how complete is this?" rather than "what is in it?".
+ * `/coverage` and `/report` are not among them because they are no longer
+ * pages: both are sections of `/about`, and both routes redirect into it. They
+ * stay in `owns` so the Archive tab is already lit during the redirect rather
+ * than flashing five unselected tabs on the way through.
  *
  * The order is the reading order of the archive: where things are, who they were,
  * when people gather, what was built, and what the whole thing claims.

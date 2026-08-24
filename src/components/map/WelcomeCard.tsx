@@ -19,17 +19,19 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
       {/* The "list button above" this hint refers to is hidden in embed mode */}
       {!embed && <p className="welcome-card-hint">{t('exploreHint')}</p>}
 
-      {/* Both of these routes existed with no link anywhere in the app — the
-          graph explorer has been reachable only by typing /graph. Embeds stay
-          link-free so an embedded map can't navigate its host away. */}
+      {/* These routes existed with no link anywhere in the app — the graph
+          explorer has been reachable only by typing /graph. Embeds stay
+          link-free so an embedded map can't navigate its host away.
+
+          Four, not six: "State of the Archive" and "What this archive knows"
+          are sections of "About this archive" now, and listing all three sent a
+          reader to the same page under three names. */}
       {!embed && (
         <nav className="welcome-card-links" aria-label={t('welcomeExploreMore')}>
           <p className="welcome-card-links-heading">{t('welcomeExploreMore')}</p>
           <Link to="/almanac">{t('almanacTitle')}</Link>
           <Link to="/graph">{t('graphExplorerTitle')}</Link>
-          <Link to="/report">{t('reportTitle')}</Link>
           <Link to="/typology">{t('typologyTitle')}</Link>
-          <Link to="/coverage">{t('coverageTitle')}</Link>
           <Link to="/about">{t('aboutTitle')}</Link>
         </nav>
       )}

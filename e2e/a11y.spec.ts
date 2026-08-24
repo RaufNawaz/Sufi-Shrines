@@ -88,8 +88,11 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
-  test('report page has no critical violations', async ({ page }) => {
-    await page.goto('/report');
+  /* /about, which now carries what /coverage and /report each used to: two
+     dozen sections, four kinds of statistic block and two ledgers. It is the
+     densest page in the archive, so it is the one worth scanning. */
+  test('about page has no critical violations', async ({ page }) => {
+    await page.goto('/about');
     await page.locator('h1.entity-title').waitFor();
 
     const results = await new AxeBuilder({ page })

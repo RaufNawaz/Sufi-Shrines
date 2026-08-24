@@ -53,7 +53,6 @@ const REPO = join(SRC, '..');
  */
 const UNSTYLED_BY_DESIGN: Record<string, string> = {
   'about-page': 'scope hook — the page is styled entirely through .entity-page',
-  'coverage-page': 'scope hook — see .coverage-* descendants',
   'shared-ground': 'scope hook — the section is styled through .article-section',
   'nearby-mosques': 'scope hook — .nearby-mosques-source/-list carry the styling',
   'source-notes': 'scope hook — .source-notes-intro/-list carry the styling',

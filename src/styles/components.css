@@ -455,6 +455,32 @@
   border-block-end: 1px solid var(--color-border);
 }
 
+/* ── Contents, on /about ──────────────────────────────────────────────────
+   The page absorbed /coverage and /report, which is two dozen sections — long
+   enough that without this a reader scrolls past the thing they came for. The
+   shrine pages hang the same component in a sticky side rail; this page has no
+   rail, so it sits inline under the lede and takes columns when there is width
+   for them. */
+.about-contents {
+  margin-block: var(--space-5);
+  padding-block: var(--space-3);
+  border-block: var(--hairline) solid var(--color-border-light);
+}
+
+@media (min-width: 640px) {
+  .about-contents .contents-nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-4);
+  }
+}
+
+@media (min-width: 900px) {
+  .about-contents .contents-nav-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .about-section p {
   margin: 0 0 var(--space-3);
   line-height: var(--leading-relaxed);
@@ -536,6 +562,17 @@
 .about-note {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+}
+
+/* Nastaliq needs the size and the leading back.
+   `.report-note` carried exactly this rule and `.about-note` did not, which
+   went unnoticed while they were on different pages. When /report's sections
+   moved onto /about they would have landed on the thinner of the two — a
+   silent downgrade of the Urdu view, in a project whose stated bar is that
+   Urdu is not the afterthought. One rule, so there is one answer. */
+[dir='rtl'] .about-note {
+  font-size: var(--text-base);
+  line-height: var(--leading-urdu-ui);
 }
 
 .about-contact {

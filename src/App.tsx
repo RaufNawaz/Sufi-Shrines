@@ -24,12 +24,10 @@ const SaintPage = lazy(() => import('./pages/SaintPage'));
 const OrderPage = lazy(() => import('./pages/OrderPage'));
 const GraphPage = lazy(() => import('./pages/GraphPage'));
 const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
-const ReportPage = lazy(() => import('./pages/ReportPage'));
 /* Team-only, unlisted, and prerendered like every other route because GitHub
    Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
 const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
-const CoveragePage = lazy(() => import('./pages/CoveragePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PlacePage = lazy(() => import('./pages/PlacePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -151,10 +149,17 @@ export default function App() {
                 <Route path="/order/:slug" element={<OrderPage />} />
                 <Route path="/graph" element={<GraphPage />} />
                 <Route path="/almanac" element={<AlmanacPage />} />
-                <Route path="/report" element={<ReportPage />} />
+                {/* `/coverage` and `/report` were pages; they are sections of
+                    `/about` now. They stay as routes because they are published
+                    URLs — a merge is not a reason to 404 a link somebody sent —
+                    and because check-routes-prerendered.mjs still writes a file
+                    for each, so a direct visit resolves on GitHub Pages before
+                    any JavaScript runs. Each lands on the section it was sent
+                    for rather than the top of a very long page. */}
+                <Route path="/report" element={<Navigate to="/about#site-status" replace />} />
                 <Route path="/review" element={<ReviewPage />} />
                 <Route path="/typology" element={<TypologyPage />} />
-                <Route path="/coverage" element={<CoveragePage />} />
+                <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/place/:slug" element={<PlacePage />} />
                 {/* Legacy shrine.html?id=N redirect */}
@@ -209,22 +214,11 @@ export default function App() {
                     </UrPrefixNormalizer>
                   }
                 />
-                <Route
-                  path="/ur/report"
-                  element={
-                    <UrPrefixNormalizer>
-                      <ReportPage />
-                    </UrPrefixNormalizer>
-                  }
-                />
-                <Route
-                  path="/ur/coverage"
-                  element={
-                    <UrPrefixNormalizer>
-                      <CoveragePage />
-                    </UrPrefixNormalizer>
-                  }
-                />
+                {/* Straight to the Urdu mirror of the merged page, rather than
+                    normalising here and redirecting after: two effects racing to
+                    rewrite the same URL. `/ur/about` already does this properly. */}
+                <Route path="/ur/report" element={<Navigate to="/ur/about" replace />} />
+                <Route path="/ur/coverage" element={<Navigate to="/ur/about" replace />} />
                 <Route
                   path="/ur/typology"
                   element={

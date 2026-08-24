@@ -97,17 +97,27 @@ export function DistributionBlock<K extends string>({
   keys,
   labelFor,
   toneFor,
+  id,
+  note,
 }: {
   heading: string;
   dist: Distribution<K>;
   keys: readonly K[];
   labelFor: (key: K) => string;
   toneFor?: (key: K) => string | undefined;
+  /** Anchor for the contents nav on /about, where these blocks are sections of
+   *  a long page rather than a page of their own. */
+  id?: string;
+  /** A sentence between the heading and the bars. Three of these distributions
+   *  are unreadable without one: "Source-seeded" and "Occasional" are this
+   *  project's vocabulary, not English. */
+  note?: string;
 }) {
   const { t } = useLang();
   return (
-    <section className="coverage-section">
+    <section className="coverage-section" {...(id ? { id } : {})}>
       <h2 className="coverage-section-heading">{heading}</h2>
+      {note ? <p className="about-note">{note}</p> : null}
       <ul className="coverage-bars">
         {keys.map((key) => (
           <Bar

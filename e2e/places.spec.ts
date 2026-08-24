@@ -22,12 +22,12 @@ import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 const LAHORE_MIN_SITES = 20;
 
 test.describe('places', () => {
-  test('the coverage index links to a place page', async ({ page }) => {
-    await page.goto('/coverage');
+  test('the places index links to a place page', async ({ page }) => {
+    await page.goto('/about');
     await page.locator('h1.entity-title').waitFor();
 
     const links = page.locator('.coverage-place-link');
-    // Polled, not counted once: /coverage is prerendered, so the first HTML the
+    // Polled, not counted once: /about is prerendered, so the first HTML the
     // browser paints has no place list at all — it is built from the dataset
     // after hydration.
     await expect.poll(() => links.count(), { timeout: 15000 }).toBeGreaterThanOrEqual(20);
@@ -45,7 +45,13 @@ test.describe('places', () => {
     await page.goto('/place/lahore');
     await page.locator('h1.entity-title').waitFor();
 
-    const sites = page.locator('.place-site');
+    /* `.place-site-list .inset-row`, not `.place-site`. Commit 9556adf put the
+       place page on the shared inset-list idiom and renamed the row class; this
+       spec kept the old selector and matched nothing, so both assertions below
+       had been reading an empty list rather than a wrong one. Scoped to
+       `.place-site-list` so it cannot start counting some other inset list that
+       lands on this page later. */
+    const sites = page.locator('.place-site-list .inset-row');
     expect(await sites.count()).toBeGreaterThanOrEqual(LAHORE_MIN_SITES);
 
     // More than one tradition, which is the argument for the page existing.
@@ -71,7 +77,7 @@ test.describe('places', () => {
     /* …and the place it navigated to lists the shrine it came from. Matched by
        href rather than by text: two of Lahore's entries mention Data Darbar,
        because one of them records its location relative to it. */
-    await expect(page.locator('.place-site a[href$="/shrine/data-darbar"]')).toBeVisible();
+    await expect(page.locator('.place-site-list a[href$="/shrine/data-darbar"]')).toBeVisible();
   });
 
   test('an unknown place says so rather than rendering an empty page', async ({ page }) => {
@@ -83,13 +89,18 @@ test.describe('places', () => {
   });
 
   test('[ur] the place page and the route to it are Urdu', async ({ page }) => {
-    await page.goto('/coverage?lang=ur');
+    await page.goto('/about?lang=ur');
     await page.locator('h1.entity-title').waitFor();
 
-    // The index heading is the Urdu word for Places, and the place names in it
-    // come from the dictionary rather than from the English table.
+    /* The index heading is the Urdu word for Places, and the place names in it
+       come from the dictionary rather than from the English table.
+
+       Matched exactly, not by substring. Since /coverage and /report merged into
+       /about, this page also carries رپورٹ's "خود مقامات کا حال" — which contains
+       مقامات, so `hasText` resolved to two headings and failed on strict mode.
+       An exact accessible name is the thing being asserted anyway. */
     await expect(
-      page.locator('.coverage-section-heading', { hasText: UI_TEXT_UR.placesTitle }),
+      page.getByRole('heading', { name: UI_TEXT_UR.placesTitle, exact: true }),
     ).toBeVisible();
     const first = page.locator('.coverage-place-link').first();
     await expect(first.locator('.coverage-place-name')).toHaveText('لاہور');

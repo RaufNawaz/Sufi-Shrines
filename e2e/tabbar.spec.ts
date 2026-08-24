@@ -31,7 +31,6 @@ const ROUTES = [
   { name: 'about', path: '/about', ready: 'h1.entity-title', tab: 'Archive' },
   { name: 'shrine', path: '/shrine/data-darbar', ready: 'h1.shrine-title', tab: 'Map' },
   { name: 'saint', path: '/saint/data-ganj-bakhsh', ready: 'h1.entity-title', tab: 'Figures' },
-  { name: 'coverage', path: '/coverage', ready: 'h1.entity-title', tab: 'Archive' },
 ] as const;
 
 test.describe('on a phone', () => {
@@ -65,16 +64,28 @@ test.describe('on a phone', () => {
     }
   });
 
-  for (const path of ['/saint/data-ganj-bakhsh', '/about', '/coverage']) {
+  /* `/about` is the long one: it absorbed /coverage and /report, so it is the
+     page most likely to end underneath the bar. */
+  for (const path of ['/saint/data-ganj-bakhsh', '/about']) {
     test(`the last of ${path} is not hidden behind the bar`, async ({ page }) => {
       await page.goto(path);
       await page.locator('h1.entity-title').first().waitFor();
       await page.waitForTimeout(400);
       /* Scrolled repeatedly rather than once: a late image or font shifts the
          document height, and a single scrollTo then stops short of the end —
-         which is what made the first measurement of this look like a failure. */
+         which is what made the first measurement of this look like a failure.
+
+         `behavior: 'instant'` because <html> carries `scroll-behavior: smooth`,
+         so a plain scrollTo *animates*. On a short page 200ms was enough to
+         finish and nobody noticed. /about absorbed /coverage and /report and is
+         now some twenty thousand pixels tall, and this began measuring a scroll
+         still in flight — reporting the footer five thousand pixels below the
+         fold on a page whose footer is perfectly reachable. This test is about
+         layout, not motion. */
       for (let i = 0; i < 6; i++) {
-        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.evaluate(() =>
+          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }),
+        );
         await page.waitForTimeout(200);
       }
       const clearance = await page.evaluate(() => {

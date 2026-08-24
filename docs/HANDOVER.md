@@ -3149,6 +3149,91 @@ about a build artefact belongs in the build**, not in a test run that does not p
 a test must read `dist/` anyway, its precondition is "newer than the sources that decide its
 contents", never "exists".
 
+### Added 24 August 2026 (later) — three pages were answering one question
+
+`/about`, `/coverage` ("What this archive knows") and `/report` ("State of the Archive") were
+three routes about the same subject: what is in this archive and how far it can be trusted.
+The map's welcome card listed all three by name, one under the other, which is how it was
+noticed. They are **one page** now — `/about` — and the two old routes redirect into it.
+
+What made this a merge rather than a concatenation:
+
+- **The same statistics were computed twice and rendered three times.** `buildCoverage`
+  (`src/lib/data/coverage.ts`) and `buildArchiveReport` (`src/lib/data/archiveReport.ts`) are
+  independent implementations of the support-level, info-level and tradition breakdowns.
+  `/coverage` drew them from the first, `/report` from the second, and `/about` drew a summary
+  of the first. `archiveStatsAgree.test.ts` existed precisely because an archive whose claim is
+  candour cannot say "14 field-verified" on one page and "13" on another. The merged page
+  renders each breakdown **once**, from `buildCoverage`; `buildArchiveReport` keeps the four
+  things only it had — the register comparison, site status, the Urdu mirror's progress, and
+  `urduDrafted`. Both builders stay, and so does the test that holds them to each other: two
+  implementations feeding one page is a stronger reason for it, not a weaker one.
+- **`/coverage` and `/report` stay as routes.** They are published URLs, they are in the
+  sitemap, and neither can be recalled from wherever someone has already sent them. Each is a
+  `<Navigate>` to the section it was sent for — `/about#traditions` and `/about#site-status` —
+  and `check-routes-prerendered.mjs` still writes a file for each, so a direct visit resolves
+  on GitHub Pages before any JavaScript runs. Their prerendered files now carry
+  `canonical → /about` (a new `canonicalPath` field in both prerender loops), because a
+  redirect stub that declares itself canonical is a crawler telling itself there are three
+  documents here. `/about` scrolls to the hash once the dataset is in — the same effect
+  `TypologyPage` and `AlmanacPage` already carry, and the difference between an anchor and a
+  decoration: client-side navigation keeps a hash and does nothing with it, and the section it
+  names does not exist at the moment the browser would have acted on it anyway. The e2e guard
+  asserts the page actually scrolled and that the named section is the one at the top, because
+  a redirect that "works" by URL can still leave the reader four screens above what they
+  clicked.
+- **The `/ur` mirrors redirect to `/ur/about`, not through `UrPrefixNormalizer`.** Normalising
+  and then redirecting is two effects racing to rewrite the same URL; `/ur/about` already does
+  it properly, so the mirrors hop there in one step.
+
+Two things found on the way, both worth keeping in mind:
+
+1. **`src/components/archive/` is a trap this repo has already been bitten by.** The new
+   components were untracked, and `importsAreTracked.test.ts` caught it — the guard written in
+   August after `.gitignore`'s unanchored `archive/` silently excluded `CoverageStats.tsx`. The
+   ignore rule is anchored now (`/archive/`), so this was an ordinary forgotten `git add`; the
+   test catches that too, and it is the only thing that does. **A green working tree proves
+   nothing about a clean clone.**
+2. **`StatRow` printed U+066A ARABIC PERCENT SIGN in both languages.** Every English figure on
+   `/report` read "· 8٪". Fixed while moving the component, since the merge put it on a page
+   far more people read.
+3. **`.about-note` had no RTL rule and `.report-note` did.** The two were identical apart from
+   the Urdu treatment — `--text-base` and `--leading-urdu-ui` versus a flat `--text-sm` — which
+   nobody could see while they were on different pages. Moving /report's paragraphs onto
+   /about's class would have quietly thinned the Nastaliq on every one of them. `.about-note`
+   now carries the rule, so there is one answer rather than two.
+4. **`html { scroll-behavior: smooth }` turns every scroll measurement into a race, and a
+   long page is what makes it visible.** `global.css:47` sets it deliberately — anchor jumps
+   the reader *chose* should move — and `prefers-reduced-motion` turns it off. Nothing else
+   did. So `window.scrollTo(0, scrollHeight)` in `tabbar.spec.ts` was animating; on a short
+   page its 200 ms settle was plenty, and on a `/about` some twenty thousand pixels tall it
+   started measuring a scroll still in flight and reported the footer five thousand pixels
+   below the fold on a page whose footer is perfectly reachable. Two separate failures had
+   this one cause. The test scrolls with `behavior: 'instant'` now — it is about layout, not
+   motion — and the redirect landing does too, for a different reason worth keeping distinct:
+   a reader who opened `/coverage` did not click an anchor, and animating them four screens
+   down a page they have never seen is a slide through unrelated content, not an orientation
+   cue. **Any new test that measures position after scrolling needs `behavior: 'instant'`.**
+5. **`e2e/places.spec.ts` had been failing since `9556adf`, ten commits back.** That commit put
+   the place page on the shared inset-list idiom and renamed `.place-site` to `.inset-row`; the
+   spec kept the old selector, matched nothing, and asserted `count() >= 20` against an empty
+   list. Nothing surfaced it, because **`npm run e2e` is not part of `npm run verify`** — the
+   same gap that let `data:validate` break a deploy on 18 August and `format:check` run red for
+   the repo's whole visible history. Two of the three failures in this session's first full e2e
+   run had nothing to do with the merge; they were waiting. Worth deciding whether e2e joins
+   verify, or whether something else makes a red suite visible between commits.
+
+Cost, measured rather than assumed: `/about` went from 278 KB to **308 KB** of eager JS, and
+the 281 KB and 279 KB that `/coverage` and `/report` each cost are gone from the budget table
+entirely. `provenance.json` (170 KB) is still a dynamic `import()` inside the page — if
+AboutPage's budget ever jumps by that much, that is what went static.
+
+The contents nav is not decoration. Two dozen sections is a page you scroll past rather than
+use, and its entries are a hand-written list of ids: rename a section and the link goes
+quietly inert, which reads as a broken page rather than a missing anchor.
+`e2e/about-merge.spec.ts` asserts every entry resolves to a section that exists, along with
+both redirects.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

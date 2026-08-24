@@ -84,13 +84,17 @@ const BUDGETS_KB = {
   'src/pages/GraphPage.tsx': 600, // measured 563 on 24 Aug 2026
   'src/pages/AlmanacPage.tsx': 315, // measured 295 on 24 Aug 2026
   'src/pages/NotFoundPage.tsx': 255, // measured 237 on 24 Aug 2026
-  'src/pages/CoveragePage.tsx': 300, // measured 281 on 24 Aug 2026
-  'src/pages/AboutPage.tsx': 295, // measured 278 on 24 Aug 2026
+  /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
+     routes used to: the source index, the places index and the archive report.
+     278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
+     routes each cost are gone from this table rather than moved down it. A
+     reader who wanted the archive's account of itself used to download all
+     three. provenance.json stays a dynamic import inside the page; if this
+     number jumps by ~170 KB, that is what went static. */
+  'src/pages/AboutPage.tsx': 330, // measured 308 on 24 Aug 2026
   'src/pages/PlacePage.tsx': 295, // measured 278 on 24 Aug 2026
-  // Added 23 Aug 2026 when the two branches merged: these routes were built on
-  // the other line, so this table had never seen them. Same headroom as their
-  // peers (~5%); both read the shipped dataset and render prose and tables.
-  'src/pages/ReportPage.tsx': 300, // measured 279 on 24 Aug 2026
+  // Added 23 Aug 2026 when the two branches merged: this route was built on the
+  // other line, so this table had never seen it.
   'src/pages/TypologyPage.tsx': 295, // measured 274 on 24 Aug 2026
   /* The review desk. 251 KB measured 24 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`

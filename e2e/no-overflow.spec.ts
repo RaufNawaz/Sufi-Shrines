@@ -50,7 +50,6 @@ const ROUTES = [
   { name: 'saint', path: '/saint/data-ganj-bakhsh', ready: 'h1.entity-title' },
   { name: 'order', path: '/order/chishtiyya', ready: 'h1.entity-title' },
   { name: 'place', path: '/place/lahore', ready: 'h1.entity-title' },
-  { name: 'coverage', path: '/coverage', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac', ready: 'h1' },
   { name: 'graph', path: '/graph', ready: 'h1.entity-title' },
   { name: 'about', path: '/about', ready: 'h1.entity-title' },

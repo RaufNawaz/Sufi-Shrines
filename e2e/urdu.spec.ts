@@ -72,9 +72,10 @@ test.describe('Urdu (?lang=ur) journey', () => {
   });
 
   test('the State of the Archive reads fully in Urdu', async ({ page }) => {
-    await page.goto('/report?lang=ur');
+    // Its sections live on /about now; the ledger below is what was /report.
+    await page.goto('/about?lang=ur');
     const title = page.locator('h1.entity-title');
-    await expect(title).toHaveText('آرکائیو کا حال');
+    await expect(title).toHaveText(UI_TEXT_UR.aboutTitle);
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     // The corrections ledger is bilingual data — its Urdu side must carry no
     // Latin (dates are Western digits by the numerals rule, not letters).

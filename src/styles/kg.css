@@ -1117,53 +1117,11 @@
   padding: 1px var(--space-2);
 }
 
-/* ── State of the Archive (/report) — the register's typographic idiom:
-      prose, big honest numbers, hairline tables. No charts: a distribution
-      the reader can total by eye needs no bars. ─────────────────────────── */
-.report-page .report-intro {
-  font-size: var(--text-lg);
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  max-width: 62ch;
-}
-
-[dir='rtl'] .report-page .report-intro {
-  line-height: var(--leading-urdu);
-}
-
-.report-section-heading {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  margin: var(--space-10) 0 var(--space-3);
-  padding-bottom: var(--space-2);
-  border-bottom: var(--hairline) solid var(--color-border-light);
-}
-
-.report-big-number {
-  margin: var(--space-4) 0 var(--space-2);
-  font-size: var(--text-lg);
-}
-
-.report-figure {
-  font-family: var(--font-serif);
-  font-size: 2.6rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-inline-end: var(--space-2);
-}
-
-.report-note {
-  color: var(--color-text-secondary);
-  font-size: var(--text-sm);
-  max-width: 62ch;
-  line-height: 1.65;
-}
-
-[dir='rtl'] .report-note {
-  font-size: var(--text-base);
-  line-height: var(--leading-urdu-ui);
-}
-
+/* ── What was /report — hairline tables and two ledgers, now sections of
+      /about. The page's own idiom (its lede, its section headings, its big
+      opening number) went with the page: on a merged page one heading style is
+      the point, and the count it set in 2.6rem is a stat in /about's grid now.
+      What is left is what /about had no equivalent of. ──────────────────── */
 .report-stat-list {
   list-style: none;
   margin: var(--space-4) 0 0;

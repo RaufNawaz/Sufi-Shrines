@@ -1,18 +1,15 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { useShrineData } from '../hooks/useShrineData';
-import {
-  buildCoverage,
-  SUPPORT_KEYS,
-  TRADITION_KEYS,
-  type CoverageReport,
-} from '../lib/data/coverage';
-import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
-import { Bar, Fact, Stat } from '../components/archive/CoverageStats';
+import { buildCoverage, TRADITION_KEYS, type CoverageReport } from '../lib/data/coverage';
+import { AUQAF_PUNJAB_REGISTER } from '../lib/data/archiveReport';
+import { Fact, Stat } from '../components/archive/CoverageStats';
+import { ArchiveKnows } from '../components/archive/ArchiveKnows';
+import { ArchiveState } from '../components/archive/ArchiveState';
+import { ContentsNav } from '../components/shrine/ContentsNav';
 import graph from '../../data/kg-stats.json';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -39,9 +36,15 @@ import { isRtlLang } from '../lib/i18n/languages';
  * project and hand the reader a link — "See what this archive knows" — for the
  * only part that is checkable. The archive's own account of itself was split
  * across three pages (`/about`, `/coverage`, `/report`), which means a reader
- * asking the obvious question had to find out that two other pages existed. The
- * measured state now lives here, computed on load, with the two detail pages as
- * the drill-down rather than the only place the numbers appear.
+ * asking the obvious question had to find out that two other pages existed.
+ *
+ * They are one page now. `/coverage` and `/report` are redirects into it, kept
+ * because they are published URLs and a merge is no reason to 404 a link
+ * somebody sent. Their sections moved wholesale into `ArchiveKnows` and
+ * `ArchiveState`; what did *not* move is the duplication, which was the reason
+ * to merge rather than concatenate — three pages each drew their own support
+ * and info breakdowns from two different builders, and this page now draws each
+ * of them once.
  *
  * Computed, not written: the standing findings in `docs/HANDOVER.md` are the
  * most candid thing in this repository, and the note that "49 of 167 entries
@@ -107,6 +110,73 @@ export default function AboutPage() {
      a citation should see the shape of a real one. */
   const exampleEntry = entryCitation('Data Darbar', 'data-darbar', new Date());
 
+  /* How much of the Punjab Auqaf register this archive has reached, under the
+     count it qualifies. The denominator is an external figure from one
+     province's register, not something this archive computed. */
+  const registerNote = tFn(
+    lang,
+    'reportRegisterNote',
+    coverage.total > 0 ? Math.round((coverage.total / AUQAF_PUNJAB_REGISTER) * 100) : 0,
+  );
+
+  /* Client-side navigation keeps the hash but does not scroll to it — the same
+     effect `TypologyPage` and `AlmanacPage` carry, and the thing that makes the
+     `/coverage` and `/report` redirects land on the section they name instead of
+     at the top of a page four screens long. Keyed on `coverage.total` rather
+     than run once: the sections it is scrolling to do not exist until the
+     dataset arrives, and an effect that fired on mount would find nothing and
+     silently do nothing. */
+  useEffect(() => {
+    const anchor = window.location.hash.slice(1);
+    if (!anchor || coverage.total === 0) return;
+    /* `instant`, against the global `scroll-behavior: smooth`. That rule is for
+       an anchor the reader clicked — the contents nav, a skip link — where the
+       motion says where they went. This is an arrival: someone opened
+       /coverage and the app decided to put them four screens down a page they
+       have not seen. Animating that is a long slide through unrelated content,
+       and it leaves the page mid-flight for seconds. */
+    document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }, [coverage.total]);
+
+  /* Twenty sections is a page you scroll past, not one you use. The ids are the
+     anchors `/coverage` and `/report` redirect into, so an old link still lands
+     on what it was sent for.
+
+     Two entries point at sections that are themselves conditional: `rests-on`
+     appears once any entry cites anything, and `how-the-words-were-made` once
+     the lazily-loaded provenance file arrives. Both are present in every real
+     load; neither is worth omitting from the contents to cover the first paint,
+     and ContentsNav ignores an id with no element behind it. */
+  const contents = useMemo(
+    () => [
+      { id: 'scope', label: t('aboutScopeHeading') },
+      { id: 'holds', label: t('aboutStateHeading') },
+      { id: 'graph', label: t('aboutGraphHeading') },
+      { id: 'trust', label: t('aboutTrustHeading') },
+      { id: 'traditions', label: t('coverageTraditionHeading') },
+      { id: 'support', label: t('coverageSupportHeading') },
+      { id: 'depth', label: t('coverageInfoHeading') },
+      { id: 'citations', label: t('coverageSourcesHeading') },
+      { id: 'rests-on', label: t('coverageRestsHeading') },
+      { id: 'photography', label: t('coveragePhotosHeading') },
+      { id: 'dates', label: t('coverageDatesHeading') },
+      { id: 'coordinates', label: t('coverageLocationHeading') },
+      { id: 'observances', label: t('coverageObservancesHeading') },
+      { id: 'places', label: t('placesTitle') },
+      { id: 'site-status', label: t('reportStatusHeading') },
+      { id: 'how-the-words-were-made', label: t('reportWordsHeading') },
+      { id: 'urdu-mirror', label: t('reportUrduHeading') },
+      { id: 'corrected-in-public', label: t('reportCorrectionsHeading') },
+      { id: 'what-was-lost', label: t('reportLostHeading') },
+      { id: 'why', label: t('coverageWhyHeading') },
+      { id: 'method', label: t('aboutMethodHeading') },
+      { id: 'licence', label: t('aboutLicenceHeading') },
+      { id: 'cite', label: t('aboutCiteHeading') },
+      { id: 'corrections', label: t('aboutCorrectionsHeading') },
+    ],
+    [t],
+  );
+
   return (
     <div className="page-enter entity-page-wrapper">
       <EntityPageHeader title={t('aboutTitle')} />
@@ -123,7 +193,11 @@ export default function AboutPage() {
         </h1>
         <p className="about-lede">{t('aboutLede')}</p>
 
-        <section className="about-section">
+        <div className="about-contents">
+          <ContentsNav items={contents} />
+        </div>
+
+        <section className="about-section" id="scope">
           <h2 className="about-section-heading">{t('aboutScopeHeading')}</h2>
           <p>{t('aboutScopeBody')}</p>
         </section>
@@ -135,7 +209,7 @@ export default function AboutPage() {
             reading "0 sites" is a lie the page tells for one paint. */}
         {!loading || shrines.length > 0 ? (
           <>
-            <section className="about-section">
+            <section className="about-section" id="holds">
               <h2 className="about-section-heading">{t('aboutStateHeading')}</h2>
               <p className="about-note">{t('aboutStateNote')}</p>
               <div className="coverage-stat-grid">
@@ -144,6 +218,11 @@ export default function AboutPage() {
                 <Stat value={coverage.photos.items} label={t('aboutStatePhotos')} />
                 <Stat value={traditionsCovered(coverage)} label={t('aboutStateTraditions')} />
               </div>
+              {/* What that total is a share of. The denominator is one province's
+                  register and an external figure, not something this archive
+                  computed — which is exactly why it is a sentence under the count
+                  rather than a statistic beside it. */}
+              <p className="about-note">{registerNote}</p>
             </section>
 
             {/* The graph's own state, from data/kg-stats.json.
@@ -155,7 +234,7 @@ export default function AboutPage() {
                 half. The numbers come from a ~400-byte build artefact rather than
                 from the graph itself, because `src/lib/kg.ts` imports kg.json
                 statically and six counts are not worth 426 KB. */}
-            <section className="about-section">
+            <section className="about-section" id="graph">
               <h2 className="about-section-heading">{t('aboutGraphHeading')}</h2>
               <p className="about-note">{t('aboutGraphNote')}</p>
               <div className="coverage-stat-grid">
@@ -170,7 +249,7 @@ export default function AboutPage() {
               </div>
             </section>
 
-            <section className="about-section">
+            <section className="about-section" id="trust">
               <h2 className="about-section-heading">{t('aboutTrustHeading')}</h2>
               <p className="about-note">{t('aboutTrustNote')}</p>
               <ul className="coverage-facts">
@@ -199,59 +278,25 @@ export default function AboutPage() {
               </ul>
             </section>
 
-            <section className="about-section">
-              <h2 className="about-section-heading">{t('aboutKnowsHeading')}</h2>
-              <p className="about-note">{t('aboutKnowsNote')}</p>
-              <ul className="coverage-bars">
-                {SUPPORT_KEYS.map((key) => (
-                  <Bar
-                    key={key}
-                    label={t(SUPPORT_LEVEL_LABEL_KEYS[key])}
-                    value={coverage.support.counts[key]}
-                    total={coverage.support.total}
-                    {...(key === 'field-verified' ? { tone: 'strong' } : {})}
-                  />
-                ))}
-                {/* Rendered at zero as well. "The archive does not say" is a fact
-                    about the archive, and dropping the row would quietly imply
-                    there is no such case. */}
-                <Bar
-                  label={t('coverageUnrecorded')}
-                  value={coverage.support.unrecorded}
-                  total={coverage.support.total}
-                />
-              </ul>
-            </section>
+            {/* Everything `/coverage` was. The support and info breakdowns used to
+                appear here in summary and again in full one route away; they
+                appear once now, in full. */}
+            <ArchiveKnows shrines={shrines} coverage={coverage} />
 
-            <section className="about-section">
-              <h2 className="about-section-heading">{t('aboutThinHeading')}</h2>
-              <p className="about-note">{t('aboutThinNote')}</p>
-              <ul className="coverage-facts">
-                <Fact value={coverage.photos.withNone} label={t('coveragePhotosWithNone')} />
-                <Fact value={coverage.bibliography.withNone} label={t('coverageSourcesWithNone')} />
-                <Fact
-                  value={coverage.location.approximatePin}
-                  label={t('coverageLocationApprox')}
-                />
-                <Fact
-                  value={coverage.observances.withNone}
-                  label={t('coverageObservancesWithNone')}
-                />
-                {/* A date the archive argues with is better content than a tidy
-                    number (RULE 2), so this sits among the facts rather than
-                    among the gaps it is not. */}
-                <Fact value={coverage.dates.hedged} label={t('coverageDatesHedged')} />
-              </ul>
-              <p className="about-note">
-                {t('aboutStateMore')} <Link to="/coverage">{t('coverageTitle')}</Link>
-                {' · '}
-                <Link to="/report">{t('aboutStateReportLink')}</Link>
-              </p>
+            {/* Everything `/report` was, minus the three breakdowns it drew a
+                second time from a second builder. What is left is what only it
+                had: the state of the sites, how the prose was made, the Urdu
+                mirror's progress, and the two ledgers. */}
+            <ArchiveState shrines={shrines} />
+
+            <section className="about-section coverage-why" id="why">
+              <h2 className="about-section-heading">{t('coverageWhyHeading')}</h2>
+              <p>{t('coverageWhy')}</p>
             </section>
           </>
         ) : null}
 
-        <section className="about-section">
+        <section className="about-section" id="method">
           <h2 className="about-section-heading">{t('aboutMethodHeading')}</h2>
           <ul className="about-list">
             <li>{t('aboutMethodSheet')}</li>
@@ -265,7 +310,7 @@ export default function AboutPage() {
           </ul>
         </section>
 
-        <section className="about-section">
+        <section className="about-section" id="licence">
           <h2 className="about-section-heading">{t('aboutLicenceHeading')}</h2>
           <dl className="about-licence">
             <dt>{t('aboutLicenceData')}</dt>
@@ -285,14 +330,14 @@ export default function AboutPage() {
           <Citable label={t('aboutLicenceAttributionLabel')} text={PUBLICATION.attribution} />
         </section>
 
-        <section className="about-section">
+        <section className="about-section" id="cite">
           <h2 className="about-section-heading">{t('aboutCiteHeading')}</h2>
           <Citable label={t('aboutCiteArchive')} text={archiveCitation()} />
           <Citable label={t('aboutCiteEntry')} text={exampleEntry} />
           <p className="about-note">{t('aboutCiteNote')}</p>
         </section>
 
-        <section className="about-section">
+        <section className="about-section" id="corrections">
           <h2 className="about-section-heading">{t('aboutCorrectionsHeading')}</h2>
           <p>{t('aboutCorrectionsBody')}</p>
           <p className="about-contact">

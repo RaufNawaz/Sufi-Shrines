@@ -885,12 +885,17 @@ const STATIC_PAGES = [
     descEn:
       'When the ʿurs gatherings fall across the year, computed from the dates each entry records, with the Hijri readings shown alongside.',
   },
+  /* A redirect, since 24 August 2026 — its sections are part of /about. The
+     file still has to exist (GitHub Pages serves files, and this URL is
+     published), but `canonicalPath` sends a crawler to the page it lands on
+     rather than letting a redirect stub claim to be a document of its own. */
   {
     path: '/coverage',
+    canonicalPath: '/about',
     titleEn: 'What This Archive Knows',
     titleUr: 'یہ آرکائیو کیا جانتا ہے',
     descEn:
-      'Every figure counted from the published data rather than estimated: how each entry was established, how deep it goes, what is cited, and where the archive is silent.',
+      'Every figure counted from the published data rather than estimated: how each entry was established, how deep it goes, what is cited, and where the archive is silent. Now part of About This Archive.',
   },
   {
     path: '/about',
@@ -903,8 +908,11 @@ const STATIC_PAGES = [
 
 let staticCount = 0;
 for (const page of STATIC_PAGES) {
-  const canonicalUrl = SITE_URL ? `${SITE_URL}${page.path}` : '';
-  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${page.path}` : '';
+  /* `canonicalPath` for a route that redirects: the file exists, but the
+     document a reader ends on is another one. */
+  const canonicalPath = page.canonicalPath ?? page.path;
+  const canonicalUrl = SITE_URL ? `${SITE_URL}${canonicalPath}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${canonicalPath}` : '';
 
   const head = (title, desc, lang, canonical) => {
     let out = baseHtml
@@ -1082,8 +1090,11 @@ const APP_ROUTES = [
     titleEn: 'Saints & Orders Explorer — Sufi Shrines',
     titleUr: `اولیاء اور سلسلے — ${SITE_TITLE_UR}`,
   },
+  /* A redirect since 24 August 2026 — see the /coverage entry in STATIC_PAGES
+     above for why the file still has to exist. */
   {
     path: 'report',
+    canonicalPath: '/about',
     titleEn: 'State of the Archive — Sufi Shrines',
     titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
   },
@@ -1103,8 +1114,9 @@ const APP_ROUTES = [
 ];
 
 for (const route of APP_ROUTES) {
-  const canonicalUrl = SITE_URL ? `${SITE_URL}/${route.path}` : '';
-  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/${route.path}` : '';
+  const canonicalPath = route.canonicalPath ?? `/${route.path}`;
+  const canonicalUrl = SITE_URL ? `${SITE_URL}${canonicalPath}` : '';
+  const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${canonicalPath}` : '';
 
   let html = baseHtml
     .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(route.titleEn)}</title>`)

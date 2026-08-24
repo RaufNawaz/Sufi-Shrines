@@ -243,14 +243,16 @@ outside citations/URLs/coordinates/`<bdi>`.
   Darbar). The enrichment passes since this note was written closed it. Kept struck through
   rather than deleted, because the note itself is the lesson: **a standing finding is a
   measurement with a date on it, and this one was quoted as current for weeks after it stopped
-  being true.** That is why `/coverage` now computes these figures from the shipped data on
+  being true.** That is why `/about` now computes these figures from the shipped data on
   every page load — a page cannot go stale the way a note can. Method:
   `buildCoverage()` in `src/lib/data/coverage.ts`, tested against the shipped snapshot.
+  (They computed on `/coverage` until 24 August 2026, when `/coverage` and `/report` were
+  merged into `/about`; both remain as redirects into it.)
 - Coverage is ~32% of Punjab Auqaf's Punjab register alone (169 vs 534). *Measured 21 August
   2026* for the 169; the 534 is an external figure from the register, not computed here.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
-  `/coverage`, which recomputes it on every load.
+  `/about`, which recomputes it on every load.
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
   ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
   media directories, which are gitignored and not present in a fresh clone, so this cannot be
@@ -280,7 +282,9 @@ public/        the site's published assets, including photos/<slug>/
 Front-end source layout, for orientation:
 
 - `src/pages/` — routes: `MapPage`, `ShrinePage`, `SaintPage`, `OrderPage`, `PlacePage`,
-  `GraphPage`, `AlmanacPage`, `CoveragePage`, `AboutPage`, `NotFoundPage`. Every route needs a
+  `GraphPage`, `AlmanacPage`, `TypologyPage`, `ReviewPage`, `AboutPage`, `NotFoundPage`.
+  (`/coverage` and `/report` were merged into `AboutPage` on 24 August 2026; both routes
+  survive as redirects, so both still need a file.) Every route needs a
   prerendered file (`scripts/prerender.mjs`) — GitHub Pages serves files, not routes, and
   `scripts/check-routes-prerendered.mjs` fails the build if one is missing.
 - `src/components/map/` — `ShrineMap`, `MapSidebar` (browser + filters, with
