@@ -98,6 +98,25 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   the language toggle's "EN" (1), and the one name at the first remove of
  *   his chain of transmission (1). Nothing here is prose: every run is a
  *   source's words, a person's name, or a citation.
+ * - `saint:lineage-only` (28) — the third saint-page shape, and the densest in
+ *   declared Latin of any page in this file. Counted, not estimated: his own
+ *   name at 3 sites (breadcrumb, title, infobox), which the Urdu dictionary does
+ *   not carry; 4 alt-name runs; 2 honorific chips; 6 runs for his one recorded
+ *   teacher (the Teachers list, the chain of transmission, the link, and the
+ *   network diagram's `<title>`, `<text>` and `<a>`); 2 lineage quotes with 2
+ *   `<cite>`s; his recorded birth and death at 2 sites each — Eastern digits
+ *   around a Latin Hijri month, because the month name is the source's word;
+ *   the 3 network-diagram runs for his own name; the file his biography was read
+ *   out of (1); and the language toggle's "EN" (1).
+ *
+ *   **This route is why the budget list has three saint pages.** Adding it
+ *   turned up 9 *undeclared* runs on a page shape the other two never exercise:
+ *   a figure whose name the dictionary lacks had that name printed raw in the
+ *   breadcrumb, the `<h1>` and the infobox, and his Hijri dates printed raw
+ *   twice each. Both saint pages already scanned happen to have translated
+ *   names, so the title of most figures' pages was an undeclared Latin run for
+ *   as long as this guard has existed. A budget file is only as wide as its
+ *   route list.
  * - `about` (7) — licence names, the contact address, the repository URL. Latin
  *   by nature, like a citation.
  * - `map` (7) / `shrine` (2) — the Location column, which on several
@@ -148,6 +167,7 @@ const BUDGET: Record<string, number> = {
   graph: 49,
   almanac: 39,
   coverage: 1,
+  'saint:lineage-only': 28,
   about: 7,
   place: 36,
 };
@@ -167,6 +187,16 @@ const ROUTES = [
   {
     name: 'saint:multi-order',
     path: '/saint/hazrat-wasif-ali-wasif?lang=ur',
+    ready: 'h1.entity-title',
+  },
+  /* A third figure, for the page shape neither of the others has: no site in
+     this archive, and a biography read out of a drafted entry file. That file
+     path is the only Latin on the page that is neither a name nor a quote — it
+     is a citable location, which i18n rule 7 puts on the same footing as a
+     bibliography entry, and it must stay declared rather than paraphrased. */
+  {
+    name: 'saint:lineage-only',
+    path: '/saint/shah-gohar-peer?lang=ur',
     ready: 'h1.entity-title',
   },
   { name: 'order', path: '/order/qadiriyya?lang=ur', ready: 'h1.entity-title' },

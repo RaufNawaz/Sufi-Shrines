@@ -32,6 +32,7 @@ import { buildAlmanac } from '../lib/data/almanac';
 import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 import { figurePrecisionMarker } from '../lib/data/figurePrecision';
+import { figureProvenance } from '../lib/data/figureProvenance';
 
 import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
@@ -193,6 +194,12 @@ export default function SaintPage() {
      approximation, which is the one thing this archive is not supposed to do. */
   const precision = figurePrecisionMarker(saint);
 
+  /* Where the values on this page came from, and whether the archive holds an
+     entry for this figure at all. Both are fields the graph has carried all
+     along: 97 figures show machine-read dates and titles that no person has
+     checked, and 60 are here only because someone else's lineage names them. */
+  const provenance = figureProvenance(saint);
+
   return (
     <div className="page-enter entity-page-wrapper">
       <header className="shrine-page-header no-print">
@@ -232,7 +239,16 @@ export default function SaintPage() {
               <Link to="/">{t('mapBreadcrumb')}</Link>
             </li>
             <li className="shrine-breadcrumb-current" aria-current="page">
-              {displayName}
+              {/* A figure the Urdu dictionary does not carry comes back as the
+                  name the source recorded (RULE 2 — never transliterate
+                  character by character). That is data, not interface copy, so
+                  it is declared and bidi-isolated like every other recorded
+                  name on the page. Widening e2e/urdu-no-leak.spec.ts to a
+                  figure outside the dictionary is what surfaced this: the two
+                  saint pages it already scanned both happened to have
+                  translated names, so the title of every other figure's page
+                  was an undeclared Latin run. */}
+              <bdi data-latin>{displayName}</bdi>
             </li>
           </ol>
         </nav>
@@ -245,7 +261,7 @@ export default function SaintPage() {
         <p className="entity-type-kicker">{figureGroupLabelSingular(figureBucket, lang)}</p>
 
         <h1 ref={headingRef} className="entity-title">
-          {displayName}
+          <bdi data-latin>{displayName}</bdi>
         </h1>
 
         {isProseFigureType(saint.figureType) && (
@@ -274,17 +290,35 @@ export default function SaintPage() {
         <div className="entity-meta">
           {born && (
             <span className="entity-meta-item">
-              <span aria-label={t('born')}>{t('born')}:</span> {fmtNum(born)}
+              <span aria-label={t('born')}>{t('born')}:</span>{' '}
+              {/* A recorded date can be a phrase the dictionary only partly
+                  covers — "11 Rabīʿ al-Sānī 729 AH" comes back with Eastern
+                  digits and a Latin month, because the month name is the
+                  source's word and this archive does not invent one. Declared
+                  and isolated, like a citation. */}
+              <bdi data-latin>{fmtNum(born)}</bdi>
             </span>
           )}
           {died && (
             <span className="entity-meta-item">
-              <span aria-label={t('died')}>{t('died')}:</span> {fmtNum(died)}
+              <span aria-label={t('died')}>{t('died')}:</span>{' '}
+              {/* A recorded date can be a phrase the dictionary only partly
+                  covers — "11 Rabīʿ al-Sānī 729 AH" comes back with Eastern
+                  digits and a Latin month, because the month name is the
+                  source's word and this archive does not invent one. Declared
+                  and isolated, like a citation. */}
+              <bdi data-latin>{fmtNum(died)}</bdi>
             </span>
           )}
           {era && (
             <span className="entity-meta-item">
-              <span aria-label={t('era')}>{t('era')}:</span> {fmtNum(era)}
+              <span aria-label={t('era')}>{t('era')}:</span>{' '}
+              {/* A recorded date can be a phrase the dictionary only partly
+                  covers — "11 Rabīʿ al-Sānī 729 AH" comes back with Eastern
+                  digits and a Latin month, because the month name is the
+                  source's word and this archive does not invent one. Declared
+                  and isolated, like a citation. */}
+              <bdi data-latin>{fmtNum(era)}</bdi>
             </span>
           )}
           {precision && (
@@ -295,6 +329,18 @@ export default function SaintPage() {
               title={t('figurePrecisionHelp')}
             >
               {t(precision.labelKey)}
+            </span>
+          )}
+          {saint.lineageOnly && (
+            /* Above the fold, because it governs how everything else on the
+               page should be read. For these figures the meta row is otherwise
+               empty — no dates, no order, no ʿurs — and an empty row was the
+               only sign the archive had nothing of its own on them. */
+            <span
+              className="entity-meta-item entity-lineage-only"
+              title={t('figureLineageOnlyHelp')}
+            >
+              {t('figureLineageOnly')}
             </span>
           )}
           {memberships.map(({ order: o }) => (
@@ -530,6 +576,68 @@ export default function SaintPage() {
               </section>
             )}
 
+            {/* Sources & provenance — the same heading a shrine page uses, for
+                the same reason: a reader should be able to ask "how does the
+                archive know this?" on any page and find the answer in the same
+                place. Nothing renders for the 42 figures whose values were
+                typed in from the survey; absence here means hand-entered,
+                which is the strongest provenance the archive has. */}
+            {provenance.length > 0 && (
+              <section className="kg-section figure-provenance">
+                <h2 className="kg-section-heading">{t('sourcesHeading')}</h2>
+                {provenance.map((note) =>
+                  note.kind === 'lineage-only' ? (
+                    <p key="lineage-only" className="figure-provenance-row">
+                      {t('figureLineageOnlyNote')}
+                    </p>
+                  ) : (
+                    <div key="biography" className="figure-provenance-row">
+                      <p>
+                        {t('figureBiographyNote')}{' '}
+                        {!note.reviewed && (
+                          /* The same chip the lineage links and the order
+                             memberships on this page already carry. A figure's
+                             own dates were the one machine-read claim shown
+                             without it. */
+                          <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+                            {t('lineageUnreviewed')}
+                          </span>
+                        )}
+                      </p>
+                      {note.source && (
+                        <p className="figure-provenance-source">
+                          <span className="figure-provenance-label">
+                            {t('figureProvenanceReadFrom')}:
+                          </span>{' '}
+                          {/* A dataset fragment is an entry slug, so it links —
+                              and for three figures it links to an entry that is
+                              *not* one of their own shrines, which is exactly
+                              the thing worth being able to check. The link is
+                              offered only when that entry is still in the live
+                              data; otherwise the reference is printed as
+                              recorded rather than pointing at a 404. */}
+                          {note.source.shrineSlug && shrineMap.has(note.source.shrineSlug) ? (
+                            <Link
+                              to={`/shrine/${note.source.shrineSlug}`}
+                              className="meta-entity-link"
+                            >
+                              {shrineLabel(note.source.shrineSlug)}
+                            </Link>
+                          ) : (
+                            /* A repository path, in either language: it is a
+                               citable location, and an archive that claims
+                               provenance leaves the reader an exact string to
+                               look for (i18n rule 7). */
+                            <bdi data-latin>{note.source.raw}</bdi>
+                          )}
+                        </p>
+                      )}
+                    </div>
+                  ),
+                )}
+              </section>
+            )}
+
             {/* Network graph */}
             {networkConnected.length > 0 && (
               <section className="kg-section">
@@ -545,7 +653,9 @@ export default function SaintPage() {
 
           {/* Infobox sidebar */}
           <aside className="entity-infobox">
-            <div className="entity-infobox-title">{displayName}</div>
+            <div className="entity-infobox-title">
+              <bdi data-latin>{displayName}</bdi>
+            </div>
             <div className="entity-infobox-body">
               {saint.altNames?.[0] && (
                 <div className="entity-infobox-row">
@@ -558,19 +668,25 @@ export default function SaintPage() {
               {born && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('born')}</span>
-                  <span className="entity-infobox-value">{fmtNum(born)}</span>
+                  <span className="entity-infobox-value" data-latin>
+                    <bdi>{fmtNum(born)}</bdi>
+                  </span>
                 </div>
               )}
               {died && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('died')}</span>
-                  <span className="entity-infobox-value">{fmtNum(died)}</span>
+                  <span className="entity-infobox-value" data-latin>
+                    <bdi>{fmtNum(died)}</bdi>
+                  </span>
                 </div>
               )}
               {era && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('era')}</span>
-                  <span className="entity-infobox-value">{fmtNum(era)}</span>
+                  <span className="entity-infobox-value" data-latin>
+                    <bdi>{fmtNum(era)}</bdi>
+                  </span>
                 </div>
               )}
               {memberships.length > 0 && (

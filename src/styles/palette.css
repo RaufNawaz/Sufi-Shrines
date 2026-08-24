@@ -18,6 +18,16 @@
   align-items: flex-start;
   justify-content: center;
   padding: clamp(var(--space-4), 8vh, 8rem) var(--space-4) var(--space-4);
+  /* `inset: 0` on a fixed element resolves against the *large* viewport on
+     mobile Safari — the one with the URL bar hidden. So this flex container was
+     taller than the screen, the panel stretched to match it, and the results
+     list therefore never overflowed: the rows past the screen edge were simply
+     clipped, with nothing to scroll and no way to reach them. `100dvh` is the
+     dynamic viewport, which is what the reader can actually see. */
+  height: 100dvh;
+  /* Belt and braces for a browser that honours neither dvh nor the stretch
+     below: the backdrop clips rather than letting the panel run off-screen. */
+  overflow: hidden;
   /* 0.46 → 0.58, and 6px → 10px of blur. The reasoning below still holds — the
      map behind should stay legible as context, because that is the point of
      searching a map — but at 0.46 over a pale basemap the scrim landed close
@@ -245,6 +255,12 @@
   background: var(--color-bg-alt);
   max-height: 44dvh;
   overflow-y: auto;
+  /* The drawer scrolls on its own on a phone — six facet groups do not fit in
+     44dvh. Momentum scrolling and a contained overscroll, the same treatment
+     the sidebar's shrine list has had all along. */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   animation: palette-drawer-in var(--duration-base) var(--easing) both;
 }
 
@@ -296,6 +312,13 @@
   list-style: none;
   overflow-y: auto;
   overscroll-behavior: contain;
+  /* A touch drag inside the list scrolls the list. `pan-y` says so explicitly
+     rather than leaving it to `auto`, which a parent can narrow; momentum
+     scrolling is the iOS default only for elements that opt in on older
+     WebKit. Both are what `.shrine-list-panel` in map.css already carries —
+     the palette is the archive's other long list and never got them. */
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .palette-result {
@@ -567,14 +590,21 @@
 @media (max-width: 640px) {
   .palette-backdrop {
     /* Near-fullscreen on a phone: a centred card with 8vh of blurred map above
-       it wastes the only screen the majority of this archive's readers have. */
-    padding: var(--space-2);
+       it wastes the only screen the majority of this archive's readers have.
+       The bottom pad clears the home indicator, which otherwise sits over the
+       last result — and over the part of the list a thumb drags on. */
+    padding: var(--space-2) var(--space-2) max(var(--space-2), var(--safe-bottom));
     align-items: stretch;
   }
 
   .palette {
     width: 100%;
-    max-height: none;
+    /* Not `none`: the panel must stay inside the backdrop's content box, which
+       is now the visible viewport. `none` let a 40-row list push the panel past
+       the bottom of the screen in any engine where `align-items: stretch` is
+       defeated by content — and a panel that overflows its container is a
+       panel whose own list has nothing to scroll. */
+    max-height: 100%;
   }
 
   .palette-filters-label {

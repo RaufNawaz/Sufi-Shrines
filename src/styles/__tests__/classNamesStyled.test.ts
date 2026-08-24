@@ -60,6 +60,9 @@ const UNSTYLED_BY_DESIGN: Record<string, string> = {
   'typology-group': 'scope hook — .typology-group-heading and siblings carry the styling',
   'almanac-entry-body': 'scope hook — its children are styled individually',
   'almanac-list--undated': 'modifier reserved for the undated group; inherits .almanac-list',
+  'figure-provenance':
+    'scope hook — the section is styled through .kg-section; ' +
+    '.figure-provenance-row/-source/-label carry the rest',
   coords: 'semantic marker read by e2e/urdu-no-leak.spec.ts, not a visual class',
 };
 

@@ -162,6 +162,15 @@ const UI_TEXT_EN = {
   yearsApart: 'years apart',
   lineageUnreviewedHelp:
     'Extracted from this archive\u2019s own sources and quote-checked, but not yet read by an editor.',
+  /* ── Figure provenance (SaintPage) ───────────────────────────────────── */
+  figureBiographyNote:
+    'The dates, titles and other names above were read out of the source below rather than entered by hand.',
+  figureProvenanceReadFrom: 'Read from',
+  figureLineageOnly: 'named in a lineage, no entry here',
+  figureLineageOnlyHelp:
+    'This figure has no site in the archive, so they are not counted among its entries. They are in the graph because another figure\u2019s recorded lineage names them \u2014 without that, a chain of transmission would stop at the first master who happens not to have a shrine here.',
+  figureLineageOnlyNote:
+    'The archive holds no entry of its own for this figure. Everything below comes from what other figures\u2019 records say about them.',
   graphLineageNote: 'Recorded teacher\u2013disciple links:',
   graphExplorerFiguresNote:
     'Grouped by what the record says each figure is. The archive covers six traditions, so not every figure here is a Sufi saint.',

@@ -1811,3 +1811,57 @@
      reader's pronunciation of the run. */
   text-transform: none;
 }
+
+/* ── Figure provenance ────────────────────────────────────────────────────
+   "Where this comes from", on a person's page rather than only a site's.
+
+   Two statements share this block and they are different kinds of claim, so
+   they are not styled alike: the lineage-only chip sits in the meta row because
+   it governs how the whole page should be read, and the source reference sits
+   at the foot of the article next to the article's other sourcing. Both are
+   quiet on purpose — provenance is context, not a warning. */
+.entity-lineage-only {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-slight);
+  color: var(--color-text-secondary);
+  /* 1px, not --hairline: this is a chip outline, and a half-pixel structural
+     border shimmers on some displays and disappears on others. */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.1em 0.6em;
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .entity-lineage-only {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  /* This chip can wrap in Urdu: the phrase is a clause, not a word, and
+     `nowrap` on it pushed the meta row wider than the article on a phone. */
+  white-space: normal;
+}
+
+.figure-provenance-row {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+.figure-provenance-row + .figure-provenance-row {
+  margin-block-start: var(--space-3);
+}
+
+.figure-provenance-source {
+  margin-block-start: var(--space-2);
+}
+
+.figure-provenance-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+[dir='rtl'] .figure-provenance-row {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+}
