@@ -23,6 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test as base, expect } from '@playwright/test';
 import type { Tour } from '../src/lib/tours/tours';
+import { DIRECTORY_MODE_STORAGE_KEY } from '../src/lib/storageKeys';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -67,6 +68,14 @@ export function getTour(id: string): Tour {
   const tour = TOURS.find((t) => t.id === id);
   if (!tour) throw new Error(`No tour with id "${id}" in src/data/tours.json`);
   return tour;
+}
+
+/** Opt a test into the legacy sidebar table before its next navigation. */
+export async function setTraditionalDirectory(page: Page): Promise<void> {
+  await page.addInitScript(
+    ([key, value]) => window.localStorage.setItem(key, value),
+    [DIRECTORY_MODE_STORAGE_KEY, 'table'],
+  );
 }
 
 /** 1×1 transparent PNG — served for any external image/tile request. */

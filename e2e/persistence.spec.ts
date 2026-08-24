@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 import { LANGUAGE_STORAGE_KEY, THEME_STORAGE_KEY } from '../src/lib/storageKeys';
 
@@ -84,6 +84,10 @@ test.describe('Preference persistence', () => {
 });
 
 test.describe('Saved shrines (ziyarat list)', () => {
+  // A saved shrine is checked by finding it in the table and by the saved-only
+  // filter chip above it, so these tests want the table open.
+  test.beforeEach(async ({ page }) => setTraditionalDirectory(page));
+
   test('a save survives reload and powers the map filter', async ({ page }) => {
     await page.goto('/shrine/data-darbar');
 

@@ -18,7 +18,6 @@ async function openViaTrigger(page: Page, urdu = false) {
   await page.goto(urdu ? '/?lang=ur' : '/');
   await page.locator('#sidebar').waitFor();
   await page.locator('.list-toggle-btn').click();
-  await page.locator('.palette-trigger').click();
   await expect(page.locator('.palette')).toBeVisible();
 }
 
@@ -111,7 +110,7 @@ test.describe('command palette', () => {
   test('focus goes back to whatever opened it', async ({ page }) => {
     await openViaTrigger(page);
     await page.keyboard.press('Escape');
-    await expect(page.locator('.palette-trigger')).toBeFocused();
+    await expect(page.locator('.list-toggle-btn')).toBeFocused();
   });
 
   test('a click on the backdrop dismisses it; a click inside does not', async ({ page }) => {

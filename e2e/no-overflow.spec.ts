@@ -178,3 +178,39 @@ for (const viewport of VIEWPORTS) {
     }
   }
 }
+
+/**
+ * The sidebar settings popover, measured *open*.
+ *
+ * The route sweep above cannot see it. The panel is rendered only while it is
+ * open, so at rest there is no element to measure — and its first version was
+ * badly placed: anchored to its own 32px icon rather than to the row of icons,
+ * it began at x = −53 on desktop and, in RTL, ended 109px past the trailing
+ * edge of a 390px phone (HANDOVER §9.82).
+ *
+ * The bug was caught only because a closed <details> still lays its contents
+ * out, which is an accident of that element and not a check. This is the check:
+ * §9.68 and §9.81 both record the same lesson in other costumes — a sweep's
+ * route list is not its universe, its *state* is.
+ */
+for (const viewport of VIEWPORTS) {
+  for (const lang of ['ur', 'en'] as const) {
+    test(`[${viewport.name}/${lang}] the open settings panel fits its box`, async ({ page }) => {
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.goto(lang === 'ur' ? '/?lang=ur' : '/');
+      await page.locator('#sidebar').waitFor();
+
+      await page.locator('.sidebar-settings-trigger').click();
+      await expect(page.locator('.sidebar-settings-panel')).toBeVisible();
+      await settle(page);
+
+      const offenders = await findOverflow(page, [...EXEMPT_SELECTORS]);
+      expect(
+        offenders,
+        'The open settings panel pushes past the viewport. It is anchored to ' +
+          '.sidebar-actions, not to .sidebar-settings — check nothing has given the icon ' +
+          'wrapper a containing block of its own.',
+      ).toEqual([]);
+    });
+  }
+}

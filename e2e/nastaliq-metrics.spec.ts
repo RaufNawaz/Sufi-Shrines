@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import type { Locator } from '@playwright/test';
 
 /**
@@ -11,6 +11,8 @@ import type { Locator } from '@playwright/test';
  * these must compute to font-style: normal / letter-spacing: normal.
  */
 test.describe('Nastaliq metrics (?lang=ur)', () => {
+  test.beforeEach(async ({ page }) => setTraditionalDirectory(page));
+
   async function letterSpacing(locator: Locator) {
     return locator.evaluate((el) => getComputedStyle(el).letterSpacing);
   }

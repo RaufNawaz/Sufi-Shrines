@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import type { Page } from '@playwright/test';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
@@ -52,6 +52,7 @@ const QUERIES = [
 ];
 
 async function openList(page: Page, lang: 'en' | 'ur') {
+  await setTraditionalDirectory(page);
   await page.goto(lang === 'ur' ? '/?lang=ur' : '/');
   await page.locator('#sidebar').waitFor();
   await page.locator('.list-toggle-btn').click();
@@ -118,6 +119,7 @@ test.describe('search works in both scripts', () => {
   }) => {
     // The reason the bug mattered: the interface invites the query it could not
     // answer.
+    await setTraditionalDirectory(page);
     await page.goto('/?lang=ur');
     await page.locator('#sidebar').waitFor();
     await page.locator('.list-toggle-btn').click();

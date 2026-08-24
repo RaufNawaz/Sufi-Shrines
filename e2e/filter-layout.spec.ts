@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test';
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 
 /**
  * No filter chip may be wider than the panel it sits in.
@@ -48,6 +48,8 @@ async function openAllFacets(page: Page) {
 }
 
 test.describe('filter chips fit their panel', () => {
+  test.beforeEach(async ({ page }) => setTraditionalDirectory(page));
+
   test('no chip row overflows, at any facet', async ({ page }) => {
     await page.goto('/');
     await openAllFacets(page);

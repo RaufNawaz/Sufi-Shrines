@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import type { Page } from '@playwright/test';
 
 /**
@@ -103,6 +103,7 @@ for (const vp of [
 ]) {
   test(`the shrine list has room to be a list on a ${vp.name} viewport`, async ({ page }) => {
     await page.setViewportSize({ width: vp.width, height: vp.height });
+    await setTraditionalDirectory(page);
     await page.goto('/');
     await page.locator('.list-toggle-btn').click();
     const panel = page.locator('.shrine-list-panel');

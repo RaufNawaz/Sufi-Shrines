@@ -5,6 +5,8 @@ import { MapSidebar } from '../MapSidebar';
 import { buildShrine } from '../../../lib/data/shrineModel';
 import { renderWithProviders, makeShrineRow } from '../../../test/utils';
 import type { Shrine } from '../../../types/shrine';
+import { DIRECTORY_MODE_STORAGE_KEY } from '../../../lib/storageKeys';
+import type { DirectoryMode } from '../../../lib/directoryPreference';
 
 vi.mock('../../../lib/search/useSearch', () => ({
   useSearch: (_shrines: unknown, query: string) => {
@@ -26,7 +28,12 @@ function makeShrines(): Shrine[] {
   ];
 }
 
-function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar>> = {}) {
+function renderSidebar(
+  overrides: Partial<React.ComponentProps<typeof MapSidebar>> = {},
+  directoryMode: DirectoryMode | null = 'table',
+) {
+  if (directoryMode === null) localStorage.removeItem(DIRECTORY_MODE_STORAGE_KEY);
+  else localStorage.setItem(DIRECTORY_MODE_STORAGE_KEY, directoryMode);
   return renderWithProviders(
     <MapSidebar
       shrines={makeShrines()}
@@ -65,6 +72,28 @@ function renderSidebar(overrides: Partial<React.ComponentProps<typeof MapSidebar
     { route: '/' },
   );
 }
+
+describe('MapSidebar — directory preference', () => {
+  it('opens Spotlight search from Table of Shrines by default', () => {
+    renderSidebar({}, null);
+
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    expect(document.querySelector('.palette')).toBeInTheDocument();
+    expect(document.querySelector('.shrine-list-panel')).not.toBeInTheDocument();
+  });
+
+  it('keeps the traditional table available as a saved setting', () => {
+    const view = renderSidebar({}, null);
+    fireEvent.click(view.getByRole('button', { name: 'Settings' }));
+    fireEvent.click(view.getByRole('radio', { name: 'Shrine table' }));
+    fireEvent.click(document.querySelector('.list-toggle-btn')!);
+
+    expect(document.querySelector('.palette')).not.toBeInTheDocument();
+    expect(document.querySelectorAll('.shrine-list-name')).toHaveLength(2);
+    expect(localStorage.getItem(DIRECTORY_MODE_STORAGE_KEY)).toBe('table');
+  });
+});
 
 /**
  * The filters moved into the command palette.

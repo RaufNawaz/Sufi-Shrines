@@ -1,8 +1,18 @@
-import { test, expect, SHRINE_COUNT, MAPPED_SHRINE_COUNT } from './fixtures';
+import {
+  test,
+  expect,
+  SHRINE_COUNT,
+  MAPPED_SHRINE_COUNT,
+  setTraditionalDirectory,
+} from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 test.describe('Map page', () => {
   test.beforeEach(async ({ page }) => {
+    // These tests are about the shrine table itself — the row count, the
+    // preview it opens, the search that filters it — so they ask for it
+    // rather than relying on it being what the button happens to open.
+    await setTraditionalDirectory(page);
     await page.goto('/');
   });
 

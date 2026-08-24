@@ -12,6 +12,10 @@ export const UI_TEXT = {
     exploreTitle: 'Explore Sufi Shrines',
     exploreHint: 'Use the list button above to browse all shrines.',
     tableButton: 'Table of Shrines',
+    settings: 'Settings',
+    directoryModeLabel: 'Table button opens',
+    directoryModeSpotlight: 'Spotlight search',
+    directoryModeTable: 'Shrine table',
     /* ── Command palette (⌘K search) ─────────────────────────────────────── */
     paletteTitle: 'Search the archive',
     paletteOpen: 'Search and filter',
@@ -515,6 +519,10 @@ export const UI_TEXT = {
     exploreTitle: 'مزارات دریافت کریں',
     exploreHint: 'مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔',
     tableButton: 'مزارات کی فہرست',
+    settings: 'ترتیبات',
+    directoryModeLabel: 'مزارات کی فہرست کا بٹن کھولے',
+    directoryModeSpotlight: 'فوری تلاش',
+    directoryModeTable: 'مزارات کی روایتی فہرست',
     /* ── Command palette (⌘K search) — drafts, not reviewed by a fluent
        speaker ─────────────────────────────────────────────────────────────── */
     paletteTitle: 'آرکائیو میں تلاش',

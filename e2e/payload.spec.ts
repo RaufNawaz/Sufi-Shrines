@@ -1,5 +1,5 @@
 import type { Page, Request } from '@playwright/test';
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 /**
@@ -160,6 +160,7 @@ test.describe('Urdu dictionary is language-gated', () => {
        built before the dictionary lands has an empty urduName for all 169
        documents — the exact bug e2e/search-bilingual.spec.ts was written for,
        which language-gating the dictionary could have reintroduced. */
+    await setTraditionalDirectory(page);
     await page.goto('/?lang=ur');
     await page.locator('#sidebar').waitFor();
     await page.locator('.list-toggle-btn').click();
@@ -207,6 +208,8 @@ test.describe('the vector basemap is not on the critical path', () => {
       await new Promise(() => {});
     });
 
+    // "A browsable list" is the claim under test, so browse the list.
+    await setTraditionalDirectory(page);
     await page.goto('/');
 
     // The markers are Leaflet's, drawn over whatever ground exists.

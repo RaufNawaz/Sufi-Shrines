@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, setTraditionalDirectory } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 import { LANGUAGE_STORAGE_KEY } from '../src/lib/storageKeys';
 
@@ -14,6 +14,7 @@ import { LANGUAGE_STORAGE_KEY } from '../src/lib/storageKeys';
  */
 test.describe('Urdu (?lang=ur) journey', () => {
   test.beforeEach(async ({ page }) => {
+    await setTraditionalDirectory(page);
     await page.goto('/');
     await page.evaluate((key) => localStorage.removeItem(key), LANGUAGE_STORAGE_KEY);
   });

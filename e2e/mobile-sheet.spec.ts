@@ -1,4 +1,4 @@
-import { test, expect, settle } from './fixtures';
+import { test, expect, settle, setTraditionalDirectory } from './fixtures';
 
 /**
  * The mobile bottom sheet must be the topmost thing in its own band.
@@ -25,6 +25,7 @@ const PHONE = { width: 390, height: 844 };
 
 test.describe('mobile bottom sheet', () => {
   test.use({ viewport: PHONE, isMobile: true, hasTouch: true });
+  test.beforeEach(async ({ page }) => setTraditionalDirectory(page));
 
   test('sheet paints above the map across its whole peek band', async ({ page }) => {
     await page.goto('/');
@@ -137,6 +138,9 @@ for (const [label, url] of [
 ] as const) {
   test(`[${label}] the expanded sheet fits the viewport, and so do its rows`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
+    // The rows being measured are the table's, so open the table. (This loop
+    // sits outside the describe above and does not inherit its beforeEach.)
+    await setTraditionalDirectory(page);
     await page.goto(url);
     await page.locator('#sidebar').waitFor();
     await page.locator('.list-toggle-btn').click();

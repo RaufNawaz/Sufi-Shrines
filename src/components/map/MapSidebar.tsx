@@ -28,6 +28,11 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { dirAttr } from '../../lib/i18n/languages';
 import { CommandPalette } from './CommandPalette';
 import { ShrineFilters } from './ShrineFilters';
+import {
+  readDirectoryMode,
+  writeDirectoryMode,
+  type DirectoryMode,
+} from '../../lib/directoryPreference';
 
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
@@ -114,6 +119,8 @@ export function MapSidebar({
   const [searchRaw, setSearchRaw] = useState('');
   const [showList, setShowList] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   /* The sidebar's own field and disclosure. Both moved into the overlay on
      the branch that added it; they are back here because the sidebar renders
      the field and ShrineFilters too, and each surface remembers its own
@@ -160,7 +167,6 @@ export function MapSidebar({
       // ⌘K is not, so it opens from anywhere.
       if (isSlash && (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT')) return;
       e.preventDefault();
-      setShowList(true);
       setPaletteOpen(true);
     };
     document.addEventListener('keydown', handler);
@@ -284,6 +290,13 @@ export function MapSidebar({
     onEraChange([ERA_MIN, ERA_MAX]);
   }, [onCategoriesChange, onVerifiedOnlyChange, onRegionChange, onSaintChange, onEraChange]);
 
+  const chooseDirectoryMode = useCallback((mode: DirectoryMode) => {
+    setDirectoryMode(mode);
+    writeDirectoryMode(mode);
+    if (mode === 'spotlight') setShowList(false);
+  }, []);
+  const directoryOpen = directoryMode === 'spotlight' ? paletteOpen : showList;
+
   return (
     <aside
       className={`sidebar${isOpen ? '' : ' collapsed'}`}
@@ -334,6 +347,65 @@ export function MapSidebar({
                 {numerals === 'eastern' ? '۱۲۳' : '123'}
               </button>
             )}
+            {/* A button and a conditional panel, not <details>. Chrome gives
+                ::details-content `content-visibility: hidden`, which implies
+                paint containment and so makes the <details> box the containing
+                block for anything absolutely positioned inside it — a popover
+                anchored there cannot be aligned to the row it belongs to, and
+                hangs off the sidebar instead (HANDOVER §9.82). This is also the
+                pattern the rest of the sidebar already uses. */}
+            <div className="sidebar-settings">
+              <button
+                type="button"
+                className={`icon-btn sidebar-settings-trigger${settingsOpen ? ' active' : ''}`}
+                aria-label={t('settings')}
+                title={t('settings')}
+                aria-expanded={settingsOpen}
+                onClick={() => setSettingsOpen((v) => !v)}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.15.38.36.72.6 1 .29.34.68.53 1.1.6h.09v4h-.09c-.42.07-.81.26-1.1.6-.24.28-.45.62-.6 1Z" />
+                </svg>
+              </button>
+              {settingsOpen && (
+                <div className="sidebar-settings-panel">
+                  <fieldset>
+                    <legend>{t('directoryModeLabel')}</legend>
+                    <label>
+                      <input
+                        type="radio"
+                        name="directory-mode"
+                        value="spotlight"
+                        checked={directoryMode === 'spotlight'}
+                        onChange={() => chooseDirectoryMode('spotlight')}
+                      />
+                      <span>{t('directoryModeSpotlight')}</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="directory-mode"
+                        value="table"
+                        checked={directoryMode === 'table'}
+                        onChange={() => chooseDirectoryMode('table')}
+                      />
+                      <span>{t('directoryModeTable')}</span>
+                    </label>
+                  </fieldset>
+                </div>
+              )}
+            </div>
             <DarkModeToggle />
             <LanguageToggle />
           </div>
@@ -361,8 +433,12 @@ export function MapSidebar({
       {!error && !embed && (
         <div className="list-toggle-bar">
           <button
-            className={`list-toggle-btn${showList ? ' active' : ''}`}
+            className={`list-toggle-btn${directoryOpen ? ' active' : ''}`}
             onClick={() => {
+              if (directoryMode === 'spotlight') {
+                setPaletteOpen(true);
+                return;
+              }
               const next = !showList;
               setShowList(next);
               /* On a phone this button is the one thing visible in the
@@ -373,7 +449,7 @@ export function MapSidebar({
                  reader who only wanted the list shut. */
               if (next && isMobile && !isOpen) onToggle?.();
             }}
-            aria-expanded={showList}
+            aria-expanded={directoryOpen}
           >
             <svg
               width="16"

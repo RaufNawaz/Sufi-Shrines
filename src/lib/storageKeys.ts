@@ -21,6 +21,9 @@ export const THEME_STORAGE_KEY = 'shrines_theme';
 /** Guided-tours opt-in switch on the map sidebar ('on' | 'off'). */
 export const TOURS_STORAGE_KEY = 'shrines_tours';
 
+/** Preferred destination for the map's "Table of Shrines" button. */
+export const DIRECTORY_MODE_STORAGE_KEY = 'shrines_directory_mode';
+
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
 
