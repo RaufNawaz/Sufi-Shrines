@@ -10,7 +10,7 @@
  * Or:     npm run data:export    (chains data:kg first)
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
@@ -64,6 +64,18 @@ function parseLocationAddress(location) {
 
 const { rows } = JSON.parse(readFileSync(join(ROOT, 'data', 'shrines.json'), 'utf8'));
 const kg = JSON.parse(readFileSync(join(ROOT, 'data', 'kg.json'), 'utf8'));
+/* The source layer lives beside kg.json rather than inside it: the browser
+   statically imports the graph, and 464 source nodes there cost 169 KB of eager
+   JS for data no page renders (see build-kg.mjs). */
+const SOURCES_JSON = join(ROOT, 'data', 'kg-sources.json');
+const sourceLayer = existsSync(SOURCES_JSON)
+  ? JSON.parse(readFileSync(SOURCES_JSON, 'utf8'))
+  : { sources: [], attestations: [] };
+const attestationsBySubject = new Map();
+for (const a of sourceLayer.attestations) {
+  if (!attestationsBySubject.has(a.subject)) attestationsBySubject.set(a.subject, []);
+  attestationsBySubject.get(a.subject).push(a);
+}
 
 const slugs = buildSlugs(rows);
 const shrinesWithSlugs = rows.map((row, i) => ({ row, slug: slugs[i] }));
@@ -140,7 +152,11 @@ for (const p of kg.places) {
 for (const e of kg.events) {
   const evSlug = e.id.replace(/^event:/, '');
   graph.push({
-    '@type': ['Event', 'UrsEvent'],
+    /* `UrsEvent` only for an urs. This typed every event as one, including 86
+       at Hindu temples and Sikh gurdwaras — the same category error the graph
+       itself carried (HANDOVER §9.106), one layer further out where a consumer
+       reads it as a claim about the tradition. */
+    '@type': e.eventType === 'urs' ? ['Event', 'UrsEvent'] : ['Event'],
     '@id': iri('event', evSlug),
     'name': e.name,
     ...(e.shrineSlug ? { 'location': { '@id': iri('shrine', e.shrineSlug) } } : {}),
@@ -149,6 +165,27 @@ for (const e of kg.events) {
     ...(e.frequency === 'annual' ? {
       'eventSchedule': { '@type': 'Schedule', 'repeatFrequency': 'P1Y' },
     } : {}),
+  });
+}
+
+// Sources
+/*
+ * The archive's citations, as CreativeWork nodes.
+ *
+ * `kg.sources` was empty until 24 August 2026, so an export whose whole purpose
+ * is machine-readable provenance carried none. `name` is the citation verbatim:
+ * it is the exact string a reader needs to find the source, and schema.org has
+ * no better field for a bibliography line that has not been parsed into
+ * author/title/publisher — which this archive deliberately does not do, because
+ * a wrong split loses the reader their search string.
+ */
+for (const source of sourceLayer.sources) {
+  const slug = source.id.replace(/^source:/, '');
+  graph.push({
+    '@type': 'CreativeWork',
+    '@id': iri('source', slug),
+    'name': source.name,
+    ...(source.sourceType === 'website' ? { 'url': source.name.replace(/^<|>$/g, '') } : {}),
   });
 }
 
@@ -166,6 +203,13 @@ for (const { row, slug } of shrinesWithSlugs) {
 
   const saintRels = (relByObject.get(slug) ?? []).filter((r) => r.type === 'buried_at');
   const aboutSaints = saintRels.map((r) => ({ '@id': iri('saint', r.subject.replace(/^saint:/, '')) }));
+
+  /* What this entry rests on. schema.org's `citation` is exactly this relation,
+     and an archive whose distinguishing claim is provenance was exporting none
+     of it. */
+  const citations = (attestationsBySubject.get(slug) ?? []).map((r) => ({
+    '@id': iri('source', r.object.replace(/^source:/, '')),
+  }));
 
   graph.push({
     '@type': ['LandmarksOrHistoricalBuildings', 'PlaceOfWorship'],
@@ -187,6 +231,7 @@ for (const { row, slug } of shrinesWithSlugs) {
     ...(placeSlug     ? { 'containedInPlace': { '@id': iri('place', placeSlug) } } : {}),
     ...(aboutSaints.length === 1 ? { 'about': aboutSaints[0] } :
         aboutSaints.length  > 1 ? { 'about': aboutSaints }   : {}),
+    ...(citations.length ? { 'citation': citations } : {}),
   });
 }
 

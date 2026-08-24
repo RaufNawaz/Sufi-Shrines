@@ -112,7 +112,22 @@ export interface KGEvent extends KGEntity {
 
 export interface KGSource extends KGEntity {
   type: 'source';
-  sourceType: 'book' | 'article' | 'website' | 'oral' | 'inscription';
+  /**
+   * Optional, and that is the honest shape.
+   *
+   * A bibliography line is a sentence — "Alam Faqri, *Tazkirah
+   * Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan." —
+   * and deciding book-vs-article from it is exactly the inference this project
+   * does not make (RULE 2). The builder sets it only where the citation is
+   * nothing but a URL, which is the one unambiguous case; otherwise it is
+   * absent rather than guessed.
+   *
+   * `author`, `year` and `publisher` are unset for the same reason: they are
+   * all *inside* `name`, unsplit, because splitting a citation reliably needs a
+   * parser for a dozen house styles and a wrong split loses the reader their
+   * search string.
+   */
+  sourceType?: 'book' | 'article' | 'website' | 'oral' | 'inscription';
   author?: string;
   year?: string;
   publisher?: string;
@@ -168,7 +183,17 @@ export interface KGStore {
   orders: KGOrder[];
   places: KGPlace[];
   events: KGEvent[];
-  sources: KGSource[];
+  /**
+   * Absent from `data/kg.json` on purpose.
+   *
+   * The source layer — 464 nodes and 533 attestations — lives in
+   * `data/kg-sources.json`, because `src/lib/kg.ts` imports the graph
+   * statically and putting it in `kg.json` took `/order/:slug` from 600 KB to
+   * 769 KB of eager JS for data no page renders. Its consumers are all
+   * build-time: the two exporters and the prerenderer's JSON-LD.
+   * `stats.sources` still counts them.
+   */
+  sources?: KGSource[];
   relations: KGRelation[];
   stats: KGStats;
   reviewNeeded: KGReviewItem[];

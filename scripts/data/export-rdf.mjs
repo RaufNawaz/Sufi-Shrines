@@ -10,7 +10,7 @@
  * Or:     npm run data:export    (chains data:kg, export-jsonld, then this)
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
@@ -67,6 +67,18 @@ function getImageUrl(row) {
 
 const { rows } = JSON.parse(readFileSync(join(ROOT, 'data', 'shrines.json'), 'utf8'));
 const kg       = JSON.parse(readFileSync(join(ROOT, 'data', 'kg.json'), 'utf8'));
+/* The source layer lives beside kg.json rather than inside it: the browser
+   statically imports the graph, and 464 source nodes there cost 169 KB of eager
+   JS for data no page renders (see build-kg.mjs). */
+const SOURCES_JSON = join(ROOT, 'data', 'kg-sources.json');
+const sourceLayer = existsSync(SOURCES_JSON)
+  ? JSON.parse(readFileSync(SOURCES_JSON, 'utf8'))
+  : { sources: [], attestations: [] };
+const attestationsBySubject = new Map();
+for (const a of sourceLayer.attestations) {
+  if (!attestationsBySubject.has(a.subject)) attestationsBySubject.set(a.subject, []);
+  attestationsBySubject.get(a.subject).push(a);
+}
 
 const slugs = buildSlugs(rows);
 const shrinesWithSlugs = rows.map((row, i) => ({ row, slug: slugs[i] }));
@@ -97,6 +109,7 @@ emit('@prefix saint:   <' + KG_BASE + 'saint/> .');
 emit('@prefix order_:  <' + KG_BASE + 'order/> .');
 emit('@prefix place:   <' + KG_BASE + 'place/> .');
 emit('@prefix event_:  <' + KG_BASE + 'event/> .');
+emit('@prefix source_: <' + KG_BASE + 'source/> .');
 emit();
 
 // Vocabulary declarations
@@ -173,7 +186,11 @@ emit('# ── Urs Events ──────────────────
 for (const e of kg.events) {
   const evSlug = e.id.replace(/^event:/, '');
   emit(`event_:${evSlug}`);
-  emit(`  a schema:Event, sufi:UrsEvent ;`);
+  /* `sufi:UrsEvent` only where the record says urs. This asserted it for all
+     168 events, 86 of them at Hindu temples and Sikh gurdwaras — the graph's own
+     category error (HANDOVER §9.106) restated in RDF, where a consumer reads it
+     as a claim about the tradition. */
+  emit(`  a schema:Event${e.eventType === 'urs' ? ', sufi:UrsEvent' : ''} ;`);
   emit(`  schema:name ${lit(e.name)} ;`);
   if (e.shrineSlug) emit(`  schema:location shrine:${e.shrineSlug} ;`);
   if (e.saintSlug)  emit(`  schema:about saint:${e.saintSlug} ;`);
@@ -189,6 +206,22 @@ for (const e of kg.events) {
 }
 
 // Shrines
+// Sources
+emit('# ── Sources ───────────────────────────────────────────────────────────────');
+/* The archive's 533 citations, deduped to 464 nodes. `kg.sources` was empty
+   until 24 August 2026, so an export whose whole purpose is machine-readable
+   provenance carried none of it. The citation is emitted verbatim: it is the
+   exact string a reader needs to find the source, and it is deliberately not
+   split into author/title/publisher, because a wrong split loses them that. */
+for (const source of sourceLayer.sources) {
+  const sSlug = source.id.replace(/^source:/, '');
+  emit(`source_:${sSlug}`);
+  emit(`  a schema:CreativeWork ;`);
+  emit(`  schema:name ${lit(source.name)} ;`);
+  emit('  .');
+  emit();
+}
+
 emit('# ── Shrines ───────────────────────────────────────────────────────────────');
 for (const { row, slug } of shrinesWithSlugs) {
   const lat  = parseFloat(row['Latitude'] || '');
@@ -229,6 +262,10 @@ for (const { row, slug } of shrinesWithSlugs) {
   for (const r of saintRels) {
     const sSlug = r.subject.replace(/^saint:/, '');
     emit(`  schema:about saint:${sSlug} ;`);
+  }
+  // What this entry rests on. schema:citation is exactly this relation.
+  for (const r of attestationsBySubject.get(slug) ?? []) {
+    emit(`  schema:citation source_:${r.object.replace(/^source:/, '')} ;`);
   }
   emit('  .');
   emit();

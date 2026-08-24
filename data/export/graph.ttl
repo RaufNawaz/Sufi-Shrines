@@ -8,6 +8,7 @@
 @prefix order_:  <https://github.com/raufnawaz/sufi-shrines/data/order/> .
 @prefix place:   <https://github.com/raufnawaz/sufi-shrines/data/place/> .
 @prefix event_:  <https://github.com/raufnawaz/sufi-shrines/data/event/> .
+@prefix source_: <https://github.com/raufnawaz/sufi-shrines/data/source/> .
 
 # ── Vocabulary ────────────────────────────────────────────────────────────
 sufi:SufiOrder rdfs:subClassOf schema:Organization .
@@ -2606,7 +2607,7 @@ event_:urs-bari-imam
   .
 
 event_:observance-bhagnari-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Community worship at Bhagnari Mandir"@en ;
   schema:location shrine:bhagnari-mandir ;
   schema:about saint:shiva ;
@@ -2625,14 +2626,14 @@ event_:urs-bhit-bhit-shah
   .
 
 event_:observance-chandragup-baba-chandragup
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Hinglaj Yatra halt at Chandragup (Baba Chandragup)"@en ;
   schema:location shrine:chandragup-baba-chandragup ;
   schema:about saint:shiva ;
   .
 
 event_:observance-churrio-jabal-durga-mata-temple
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Churrio Jabal Durga Mata Temple"@en ;
   schema:location shrine:churrio-jabal-durga-mata-temple ;
   schema:about saint:goddess-durga ;
@@ -2777,14 +2778,14 @@ event_:urs-dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
   .
 
 event_:observance-dargah-pir-ratan-nath-jee
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Dargah Pir Ratan Nath Jee"@en ;
   schema:location shrine:dargah-pir-ratan-nath-jee ;
   schema:about saint:baba-pir-ratan-nath ;
   .
 
 event_:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Cheti Chand at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)"@en ;
   schema:location shrine:darya-lal-mandir-darya-lal-sankat-mochan-mandir ;
   schema:about saint:jhulelal-daryalal ;
@@ -2836,7 +2837,7 @@ event_:urs-golra-sharif
   .
 
 event_:observance-gorakhnath-goraknath-temple
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Diwali at Gorakhnath (Goraknath) Temple"@en ;
   schema:location shrine:gorakhnath-goraknath-temple ;
   schema:about saint:guru-gorakhnath ;
@@ -2847,63 +2848,63 @@ event_:observance-gorakhnath-goraknath-temple
   .
 
 event_:observance-gurdwara-babay-de-ber
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh pilgrimage at Gurdwara Babay De Ber"@en ;
   schema:location shrine:gurdwara-babay-de-ber ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-babay-nanki
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Occasional pilgrimage at Gurdwara Babay Nanki"@en ;
   schema:location shrine:gurdwara-babay-nanki ;
   schema:about saint:bebe-nanaki ;
   .
 
 event_:observance-gurdwara-balila-sahib-bal-lila-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurdwara Balila Sahib (Bal Lila Sahib)"@en ;
   schema:location shrine:gurdwara-balila-sahib-bal-lila-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh anniversaries at Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore"@en ;
   schema:location shrine:gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore ;
   schema:about saint:guru-arjan-dev ;
   .
 
 event_:observance-gurdwara-bhai-beba-singh
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Daily prakash at Gurdwara Bhai Beba Singh"@en ;
   schema:location shrine:gurdwara-bhai-beba-singh ;
   schema:about saint:bhai-biba-singh ;
   .
 
 event_:observance-gurdwara-bhai-joga-singh
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Daily prakash at Gurdwara Bhai Joga Singh"@en ;
   schema:location shrine:gurdwara-bhai-joga-singh ;
   schema:about saint:bhai-joga-singh ;
   .
 
 event_:observance-gurdwara-chakki-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Chakki Sahib"@en ;
   schema:location shrine:gurdwara-chakki-sahib ;
   schema:about saint:guru-nanak-dev-ji ;
   .
 
 event_:observance-gurdwara-chhevin-patshahi-chitti-gatti
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically a Vaisakhi fair at Gurdwara Chhevin Patshahi, Chitti Gatti"@en ;
   schema:location shrine:gurdwara-chhevin-patshahi-chitti-gatti ;
   schema:about saint:guru-hargobind ;
   .
 
 event_:observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically an annual fair at Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)"@en ;
   schema:location shrine:gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan ;
   schema:about saint:guru-hargobind ;
@@ -2914,7 +2915,7 @@ event_:observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
   .
 
 event_:observance-gurdwara-chhevin-patshahi-mozang
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual Akhand Path around Guru Hargobind's Gurpurb at Gurdwara Chhevin Patshahi, Mozang"@en ;
   schema:location shrine:gurdwara-chhevin-patshahi-mozang ;
   schema:about saint:guru-hargobind ;
@@ -2925,7 +2926,7 @@ event_:observance-gurdwara-chhevin-patshahi-mozang
   .
 
 event_:observance-gurdwara-chowmala-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically an annual fair at Basant Panchami at Gurdwara Chowmala Sahib"@en ;
   schema:location shrine:gurdwara-chowmala-sahib ;
   schema:about saint:guru-hargobind ;
@@ -2936,56 +2937,56 @@ event_:observance-gurdwara-chowmala-sahib
   .
 
 event_:observance-gurdwara-darbar-sahib-kartarpur
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak anniversaries at Gurdwara Darbar Sahib Kartarpur"@en ;
   schema:location shrine:gurdwara-darbar-sahib-kartarpur ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-dera-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Martyrdom anniversary of Guru Arjan Dev at Gurdwara Dera Sahib"@en ;
   schema:location shrine:gurdwara-dera-sahib ;
   schema:about saint:guru-arjan-dev ;
   .
 
 event_:observance-gurdwara-guru-ram-das-ji
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Ram Das birth anniversary at Gurdwara Guru Ram Das Ji"@en ;
   schema:location shrine:gurdwara-guru-ram-das-ji ;
   schema:about saint:guru-ram-das ;
   .
 
 event_:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)"@en ;
   schema:location shrine:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi ;
   schema:about saint:guru-nanak-dev-ji-associated-with-bhai-lalo ;
   .
 
 event_:observance-gurdwara-malji-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Malji Sahib"@en ;
   schema:location shrine:gurdwara-malji-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-panja-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Vaisakhi at Gurdwara Panja Sahib"@en ;
   schema:location shrine:gurdwara-panja-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-panjvi-chati-patshahi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Occasional pilgrimage at Gurdwara Panjvi Chati Patshahi"@en ;
   schema:location shrine:gurdwara-panjvi-chati-patshahi ;
   schema:about saint:guru-arjan-dev-and-guru-hargobind ;
   .
 
 event_:observance-gurdwara-patshahi-chhevin-hadiara-lahore
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically an annual Maghi fair at Gurdwara Patshahi Chhevin (Hadiara), Lahore"@en ;
   schema:location shrine:gurdwara-patshahi-chhevin-hadiara-lahore ;
   schema:about saint:guru-hargobind ;
@@ -2996,112 +2997,112 @@ event_:observance-gurdwara-patshahi-chhevin-hadiara-lahore
   .
 
 event_:observance-gurdwara-patti-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurdwara Patti Sahib"@en ;
   schema:location shrine:gurdwara-patti-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-pehli-patshahi-jind-pir-sukkur
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Gurpurabs at Gurdwara Pehli Patshahi (Jind Pir), Sukkur"@en ;
   schema:location shrine:gurdwara-pehli-patshahi-jind-pir-sukkur ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-rori-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurdwara Rori Sahib"@en ;
   schema:location shrine:gurdwara-rori-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-sach-khand-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Daily prakash at Gurdwara Sach Khand Sahib"@en ;
   schema:location shrine:gurdwara-sach-khand-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-sacha-sauda
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak anniversaries at Gurdwara Sacha Sauda"@en ;
   schema:location shrine:gurdwara-sacha-sauda ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-shaheed-bhai-taru-singh
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Martyrdom commemoration at Gurdwara Shaheed Bhai Taru Singh"@en ;
   schema:location shrine:gurdwara-shaheed-bhai-taru-singh ;
   schema:about saint:bhai-taru ;
   .
 
 event_:observance-gurdwara-shaheed-ganj-singh-singhnian
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Martyrdom commemoration at Gurdwara Shaheed Ganj Singh Singhnian"@en ;
   schema:location shrine:gurdwara-shaheed-ganj-singh-singhnian ;
   schema:about saint:sikh-women-and-children-martyrs ;
   .
 
 event_:observance-gurdwara-singh-sabha
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Daily worship at Gurdwara Singh Sabha"@en ;
   schema:location shrine:gurdwara-singh-sabha ;
   schema:about saint:guru-granth-sahib-sikh-community ;
   .
 
 event_:observance-gurdwara-sri-kiara-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurdwara Sri Kiara Sahib"@en ;
   schema:location shrine:gurdwara-sri-kiara-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-sri-tilganji-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Daily worship at Gurdwara Sri Tilganji Sahib"@en ;
   schema:location shrine:gurdwara-sri-tilganji-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-tambo-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurdwara Tambo Sahib"@en ;
   schema:location shrine:gurdwara-tambo-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-guru-gurpat-mandir-db-80-sirey-ghat
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Community worship at Guru Gurpat Mandir (DB-80 Sirey Ghat)"@en ;
   schema:location shrine:guru-gurpat-mandir-db-80-sirey-ghat ;
   schema:about saint:guru-gurpat ;
   .
 
 event_:observance-gurudwara-janam-asthan-nankana-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Guru Nanak Gurpurab at Gurudwara Janam Asthan Nankana Sahib"@en ;
   schema:location shrine:gurudwara-janam-asthan-nankana-sahib ;
   schema:about saint:guru-nanak ;
   .
 
 event_:observance-jagannath-temple-sialkot
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Community worship at Jagannath Temple, Sialkot"@en ;
   schema:location shrine:jagannath-temple-sialkot ;
   schema:about saint:lord-jagannath ;
   .
 
 event_:observance-jhollay-lal-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Cheti Chand at Jhollay Lal Mandir"@en ;
   schema:location shrine:jhollay-lal-mandir ;
   schema:about saint:jhulelal ;
   .
 
 event_:observance-kalat-kali-temple
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual three-day Kali festival at Kalat Kali Temple"@en ;
   schema:location shrine:kalat-kali-temple ;
   schema:about saint:kali ;
@@ -3112,49 +3113,49 @@ event_:observance-kalat-kali-temple
   .
 
 event_:observance-kali-bari-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Durga Puja at Kali Bari Mandir"@en ;
   schema:location shrine:kali-bari-mandir ;
   schema:about saint:goddess-kali ;
   .
 
 event_:observance-kalka-cave-temple-asthan-of-kalka-devi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)"@en ;
   schema:location shrine:kalka-cave-temple-asthan-of-kalka-devi ;
   schema:about saint:goddess-kali ;
   .
 
 event_:observance-katas-raj-temples
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Katas Raj Temples"@en ;
   schema:location shrine:katas-raj-temples ;
   schema:about saint:shiva ;
   .
 
 event_:observance-khatwari-darbar-shikarpur
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Sikh and Nanakpanthi festivals at Khatwari Darbar, Shikarpur"@en ;
   schema:location shrine:khatwari-darbar-shikarpur ;
   schema:about saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh ;
   .
 
 event_:observance-krishna-mandir-kabari-bazar
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Holi at Krishna Mandir (Kabari Bazar)"@en ;
   schema:location shrine:krishna-mandir-kabari-bazar ;
   schema:about saint:lord-krishna ;
   .
 
 event_:observance-krishna-mandir-ravi-road
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Janmashtami at Krishna Mandir (Ravi Road)"@en ;
   schema:location shrine:krishna-mandir-ravi-road ;
   schema:about saint:lord-krishna ;
   .
 
 event_:observance-lal-kurti-temple-balmiki-mandir-rawalpindi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Diwali at Lal Kurti Temple (Balmiki Mandir), Rawalpindi"@en ;
   schema:location shrine:lal-kurti-temple-balmiki-mandir-rawalpindi ;
   schema:about saint:valmiki ;
@@ -3228,14 +3229,14 @@ event_:urs-mohra-sharif-khanqah
   .
 
 event_:observance-panj-tirath
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically Kartik bathing at Panj Tirath"@en ;
   schema:location shrine:panj-tirath ;
   schema:about saint:king-pandu ;
   .
 
 event_:observance-parnami-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Historically an annual mela in Chaitra at Parnami Mandir"@en ;
   schema:location shrine:parnami-mandir ;
   schema:about saint:smadhi-of-dya-ram ;
@@ -3268,7 +3269,7 @@ event_:urs-rahman-baba-mausoleum-rehman-baba-shrine
   .
 
 event_:observance-ramapir-temple-tando-allahyar
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Ramapir Mela at Ramapir Temple, Tando Allahyar"@en ;
   schema:location shrine:ramapir-temple-tando-allahyar ;
   schema:about saint:ramdev-pir ;
@@ -3286,7 +3287,7 @@ event_:urs-ranmal-sharif
   .
 
 event_:observance-sadh-belo-sadh-belo-island-temple
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual festival at Sadh Belo (Sadh Belo Island Temple)"@en ;
   schema:location shrine:sadh-belo-sadh-belo-island-temple ;
   schema:about saint:baba-bankhandi-maharaj ;
@@ -3297,7 +3298,7 @@ event_:observance-sadh-belo-sadh-belo-island-temple
   .
 
 event_:observance-sain-vali-vilayat-rai-darbar-kambar
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Commemoration of Sain Vali Vilayat Rai at Sain Vali Vilayat Rai Darbar, Kambar"@en ;
   schema:location shrine:sain-vali-vilayat-rai-darbar-kambar ;
   schema:about saint:sain-vali-vilayat-rai ;
@@ -3315,14 +3316,14 @@ event_:urs-sakhi-sarwar
   .
 
 event_:observance-samadhi-of-maharaja-ranjit-singh
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Death anniversary commemoration at Samadhi of Maharaja Ranjit Singh"@en ;
   schema:location shrine:samadhi-of-maharaja-ranjit-singh ;
   schema:about saint:maharaja-ranjit-singh ;
   .
 
 event_:observance-sant-baba-asudaram-darbar-panno-aqil
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual death anniversary at Sant Baba Asudaram Darbar (Panno Aqil)"@en ;
   schema:location shrine:sant-baba-asudaram-darbar-panno-aqil ;
   schema:about saint:sant-baba-asudaram-sakhi-baba ;
@@ -3333,7 +3334,7 @@ event_:observance-sant-baba-asudaram-darbar-panno-aqil
   .
 
 event_:observance-sant-bhagat-kanwar-ram-temple-chak
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual commemoration at Sant Bhagat Kanwar Ram Temple (Chak)"@en ;
   schema:location shrine:sant-bhagat-kanwar-ram-temple-chak ;
   schema:about saint:bhagat-kanwar-ram ;
@@ -3344,7 +3345,7 @@ event_:observance-sant-bhagat-kanwar-ram-temple-chak
   .
 
 event_:observance-sant-satram-dham-raharki-sacho-satram-devri-sahib
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Annual birth-anniversary celebrations at Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)"@en ;
   schema:location shrine:sant-satram-dham-raharki-sacho-satram-devri-sahib ;
   schema:about saint:satguru-swami-sai-satramdas-sahib ;
@@ -3355,7 +3356,7 @@ event_:observance-sant-satram-dham-raharki-sacho-satram-devri-sahib
   .
 
 event_:observance-sevapanthi-darbar-bhai-gurdas-gandava
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "No regular events documented at Sevapanthi Darbar (Bhai Gurdas), Gandava"@en ;
   schema:location shrine:sevapanthi-darbar-bhai-gurdas-gandava ;
   schema:about saint:bhai-gurdas-veneration-of-guru-nanak ;
@@ -3384,7 +3385,7 @@ event_:urs-shah-yousuf
   .
 
 event_:observance-shahwala-teja-singh-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Shahwala Teja Singh Mandir"@en ;
   schema:location shrine:shahwala-teja-singh-mandir ;
   schema:about saint:shiva ;
@@ -3413,42 +3414,42 @@ event_:urs-shergarh
   .
 
 event_:observance-shiv-mandir-chiti-ghati
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Shiv Mandir Chiti Ghati"@en ;
   schema:location shrine:shiv-mandir-chiti-ghati ;
   schema:about saint:shiva ;
   .
 
 event_:observance-shree-ratneshwar-mahadev-temple-karachi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Shree Ratneshwar Mahadev Temple, Karachi"@en ;
   schema:location shrine:shree-ratneshwar-mahadev-temple-karachi ;
   schema:about saint:shiva ;
   .
 
 event_:observance-shri-laxmi-narayan-mandir-native-jetty-bridge
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Ganesh Chaturthi at Shri Laxmi Narayan Mandir (Native Jetty Bridge)"@en ;
   schema:location shrine:shri-laxmi-narayan-mandir-native-jetty-bridge ;
   schema:about saint:lakshmi-narayan ;
   .
 
 event_:observance-shri-panchmukhi-hanuman-mandir-karachi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Hanuman Jayanti at Shri Panchmukhi Hanuman Mandir (Karachi)"@en ;
   schema:location shrine:shri-panchmukhi-hanuman-mandir-karachi ;
   schema:about saint:lord-hanuman ;
   .
 
 event_:observance-shri-swaminarayan-mandir-karachi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Janmashtami at Shri Swaminarayan Mandir, Karachi"@en ;
   schema:location shrine:shri-swaminarayan-mandir-karachi ;
   schema:about saint:bhagwan-swaminarayan ;
   .
 
 event_:observance-shrine-at-odero-lal-udero-lal-teerath-asthan
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Cheti Chand at Shrine at Odero Lal (Udero Lal Teerath Asthan)"@en ;
   schema:location shrine:shrine-at-odero-lal-udero-lal-teerath-asthan ;
   schema:about saint:sheikh-tahir ;
@@ -3478,7 +3479,7 @@ event_:urs-shrine-of-abul-faiz-qalander-ali-suharwardi
   .
 
 event_:observance-shrine-of-akhund-darweza-baba
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Pilgrimage to the tomb at Shrine of Akhund Darweza Baba"@en ;
   schema:location shrine:shrine-of-akhund-darweza-baba ;
   schema:about saint:akhund-darweza-baba ;
@@ -3764,7 +3765,7 @@ event_:urs-shrine-of-pir-chhatal-shah-noorani
   .
 
 event_:observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Year-round pilgrimage at Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi"@en ;
   schema:location shrine:shrine-of-pir-lakha-aab-e-shifa-jhal-magsi ;
   schema:about saint:pir-lakha ;
@@ -3904,14 +3905,14 @@ event_:urs-sial-sharif
   .
 
 event_:observance-swami-dharmdas-darbar-larkana-kennedy-market
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "No events documented at Swami Dharmdas Darbar, Larkana (Kennedy Market)"@en ;
   schema:location shrine:swami-dharmdas-darbar-larkana-kennedy-market ;
   schema:about saint:swami-dharmdas ;
   .
 
 event_:observance-tomb-of-allama-iqbal-mazar-e-iqbal
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Iqbal Day at Tomb of Allama Iqbal (Mazar-e-Iqbal)"@en ;
   schema:location shrine:tomb-of-allama-iqbal-mazar-e-iqbal ;
   schema:about saint:allama-muhammad-iqbal ;
@@ -3940,21 +3941,21 @@ event_:urs-tomb-of-javindi-bibi
   .
 
 event_:observance-umarkot-amarkot-shiv-mandir
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Maha Shivratri at Umarkot (Amarkot) Shiv Mandir"@en ;
   schema:location shrine:umarkot-amarkot-shiv-mandir ;
   schema:about saint:shiva ;
   .
 
 event_:observance-valmik-mandir-naqi-road
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Holi at Valmik Mandir (Naqi Road)"@en ;
   schema:location shrine:valmik-mandir-naqi-road ;
   schema:about saint:bhagwan-valmik ;
   .
 
 event_:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi
-  a schema:Event, sufi:UrsEvent ;
+  a schema:Event ;
   schema:name "Diwali at Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi"@en ;
   schema:location shrine:valmiki-swamiji-mandir-gracy-lines-rawalpindi ;
   schema:about saint:valmiki ;
@@ -3980,6 +3981,2327 @@ event_:urs-ziarat-kaka-sahib
     a schema:Schedule ;
     schema:repeatFrequency "P1Y"^^xsd:string
   ] ;
+  .
+
+# ── Sources ───────────────────────────────────────────────────────────────
+source_:387e8ef241bd
+  a schema:CreativeWork ;
+  schema:name "Pending. Prior source attribution for this entry has been withdrawn as unreliable."@en ;
+  .
+
+source_:5be939d956b0
+  a schema:CreativeWork ;
+  schema:name "\"Amb Temples,\" in reference encyclopaedias, for the complex's dating, architecture, and Hindu Shahi context."@en ;
+  .
+
+source_:7af1292e490e
+  a schema:CreativeWork ;
+  schema:name "Studies of Hindu Shahi temple architecture in the Salt Range and Gandhara."@en ;
+  .
+
+source_:27ea5c7bc09f
+  a schema:CreativeWork ;
+  schema:name "*Khushab District* and Soon Valley heritage surveys and archaeological notices."@en ;
+  .
+
+source_:cffd677dc6b5
+  a schema:CreativeWork ;
+  schema:name "Comparative literature on the Katas Raj and Tilla Jogian sites of the Salt Range."@en ;
+  .
+
+source_:39b56f78b1c1
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan."@en ;
+  .
+
+source_:c9072bfa43f1
+  a schema:CreativeWork ;
+  schema:name "General established histories and traditions of Bari Imam and Nurpur Shahan."@en ;
+  .
+
+source_:fdd412eb6719
+  a schema:CreativeWork ;
+  schema:name "*The Karachi Walla*, \"City Landmarks – Bhagnari Temple\"."@en ;
+  .
+
+source_:12d8030d4593
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Religion in Karachi\" and related entries on the city's Hindu heritage."@en ;
+  .
+
+source_:6dcdcee6864d
+  a schema:CreativeWork ;
+  schema:name "Journalistic and heritage accounts of the temples of the Mithadar and Lea Market quarters of old Karachi."@en ;
+  .
+
+source_:61d053652ab3
+  a schema:CreativeWork ;
+  schema:name "General literature on the Hindu communities of Sindh and eastern Balochistan and their migration to Karachi and Mumbai."@en ;
+  .
+
+source_:0e877a3184af
+  a schema:CreativeWork ;
+  schema:name "Evacuee Trust Property Board (Pakistan), Functional Mandirs register."@en ;
+  .
+
+source_:f164bc6033fb
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, published surveys of Nanakpanthi saints and shrines of Sindh (for wider regional context; this specific site is not covered)."@en ;
+  .
+
+source_:bcc90d29b508
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, published surveys of Nanakpanthi saints and shrines of Sindh."@en ;
+  .
+
+source_:46aa61cbd803
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"Nanakpanthi Saints of Sindh,\" *The Friday Times*, 13 April 2018."@en ;
+  .
+
+source_:ba473c49c51f
+  a schema:CreativeWork ;
+  schema:name "Shah Abdul Latif Bhittai, *Shah Jo Risalo* (his collected Sindhi poetry; line quoted in standard published wording)."@en ;
+  .
+
+source_:81daef888445
+  a schema:CreativeWork ;
+  schema:name "General established histories of Sindhi literature and Sufism."@en ;
+  .
+
+source_:cc06aadd95f9
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Chandragup\" and \"Hinglaj Yatra.\""@en ;
+  .
+
+source_:6b100c6db014
+  a schema:CreativeWork ;
+  schema:name "Published accounts and photo-documentation of the annual Hinglaj pilgrimage."@en ;
+  .
+
+source_:3d8672c1e02f
+  a schema:CreativeWork ;
+  schema:name "Gulnaz Khan (photographs by Matthieu Paley), \"Hindu Pilgrimage in Pakistan,\" *National Geographic*, 10 January 2019."@en ;
+  .
+
+source_:a78e3a7d5d57
+  a schema:CreativeWork ;
+  schema:name "Saleem Shahid, \"Thousands attend festival at Hinglaj Mata temple,\" *Dawn*, 5 May 2025."@en ;
+  .
+
+source_:9ef85422f1fe
+  a schema:CreativeWork ;
+  schema:name "Jürgen Schaflechner, *Hinglaj Devi: Identity, Change, and Solidification at a Hindu Temple in Pakistan* (Oxford University Press; Pakistan pbk. 2020)."@en ;
+  .
+
+source_:df5aac8a98b5
+  a schema:CreativeWork ;
+  schema:name "\"Churrio Jabal Durga Mata Temple,\" in reference encyclopaedias, for the site, its name, and its festivals."@en ;
+  .
+
+source_:1abe0c9d1a65
+  a schema:CreativeWork ;
+  schema:name "Reporting in *Dawn* and the Sindhi press on the Maha Shivratri pilgrimage to Churrio Jabal."@en ;
+  .
+
+source_:71f9b020e35c
+  a schema:CreativeWork ;
+  schema:name "Sindh High Court judgment (October 2023) on the protection of the Karoonjhar mountains."@en ;
+  .
+
+source_:f88eef96a7b1
+  a schema:CreativeWork ;
+  schema:name "Studies of Hindu communities and sacred geography in Tharparkar and Nagarparkar."@en ;
+  .
+
+source_:43479728f7a0
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Abul Muali Qadri (surveyor: Saifullah), 23 July 2026."@en ;
+  .
+
+source_:78d2023e84a3
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan."@en ;
+  .
+
+source_:fbd177313632
+  a schema:CreativeWork ;
+  schema:name "Pnina Werbner, \"Transnationalism and Regional Cults: The Dialectics of Sufism in the Plurivocal Muslim World\" (conference paper, Keele University, May 2009)."@en ;
+  .
+
+source_:8b0ab600484f
+  a schema:CreativeWork ;
+  schema:name "Pnina Werbner, *Pilgrims of Love: The Anthropology of a Global Sufi Cult* (Hurst, 2004; Indiana University Press ed., 2016)."@en ;
+  .
+
+source_:5b6c0acc171c
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Ghazi Ilm Din Shaheed responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:49767fd55d99
+  a schema:CreativeWork ;
+  schema:name "Parvez Mahmood, “Miani Sahib: Resting Place of Heroes,” *The Friday Times*, 20 May 2022 (first-hand account naming Ilam Din Shaheed's resting place at Miani Sahib, in the same passage as Wasif Ali Wasif and Tahir Bandagi) — cited here only for the shrine's location."@en ;
+  .
+
+source_:d699025c24d2
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:ab5850648bb4
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Chishti revival in nineteenth-century Punjab."@en ;
+  .
+
+source_:14a5d76f3b66
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Hazrat Tahir Bandagi Qadri Naqshbandi Mujaddidi responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:a4718caf798d
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Malik Ahmad Ayaz (surveyor: Saifullah), 29 July 2026."@en ;
+  .
+
+source_:fc53973f1847
+  a schema:CreativeWork ;
+  schema:name "*Rawalpindi District Gazetteer* (Punjab Government, colonial-era editions), for the topography and religious life of the old city."@en ;
+  .
+
+source_:0c975febe667
+  a schema:CreativeWork ;
+  schema:name "Reports in *Dawn* on the annual *urs* and Muharram observances at the shrine of Shah Chan Charagh, Rawalpindi."@en ;
+  .
+
+source_:b7b754ae5da4
+  a schema:CreativeWork ;
+  schema:name "Local hagiographical (*malfuzat* and *tazkira*) traditions concerning Sayyid Shah Zaman \"Chan Charagh\" and his lineage."@en ;
+  .
+
+source_:448785757ec5
+  a schema:CreativeWork ;
+  schema:name "General studies of Sufi shrine culture and Muharram devotion in the Pothohar region of Punjab."@en ;
+  .
+
+source_:2696d938f87e
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Wasif Ali Wasif responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:0377661c8a23
+  a schema:CreativeWork ;
+  schema:name "General established histories of Sufism in Sindh and of the Jhok movement."@en ;
+  .
+
+source_:b7f08f14373d
+  a schema:CreativeWork ;
+  schema:name "Michel Boivin, *South Asian Sufis: Devotion, Deviation, and Destiny* (London: Bloomsbury, 2012)."@en ;
+  .
+
+source_:74a25ad53ac6
+  a schema:CreativeWork ;
+  schema:name "Michel Boivin, \"At the Crossroads of Sufism and Vedanta: The Building of an Interfaith Dialogue in Colonial and Post-Colonial Sindh and Beyond,\" in Naveed Ahmad Tahir (ed.), *The Issue of Religious Harmony in Europe, South Asia and the Middle East* (Karachi: Area Study Centre for Europe, 2015)."@en ;
+  .
+
+source_:b8c284478f49
+  a schema:CreativeWork ;
+  schema:name "Rakhyal Shah, *Bahar al-'ishq* (the saint's collected Sufi poetry)."@en ;
+  .
+
+source_:969047947460
+  a schema:CreativeWork ;
+  schema:name "\"Rakhyal Shah,\" *Wikipedia* (citing Boivin and contemporary press coverage)."@en ;
+  .
+
+source_:386ebefbf7f4
+  a schema:CreativeWork ;
+  schema:name "Government of Balochistan, Culture Department — portal listing the shrines and Sufi heritage of Balochistan."@en ;
+  .
+
+source_:4d0b501c86c0
+  a schema:CreativeWork ;
+  schema:name "George Weston Briggs, *Gorakhnath and the Kanphata Yogis* (the standard study of the Nath order)."@en ;
+  .
+
+source_:0e35b5a569d6
+  a schema:CreativeWork ;
+  schema:name "David Gordon White, *The Alchemical Body: Siddha Traditions in Medieval India* (University of Chicago Press)."@en ;
+  .
+
+source_:d61de10d0954
+  a schema:CreativeWork ;
+  schema:name "Directorate of Archaeology & Museums, Khyber Pakhtunkhwa, site documentation for Peshawar's temples."@en ;
+  .
+
+source_:112c0ff2dbd1
+  a schema:CreativeWork ;
+  schema:name "Contemporary press coverage of Peshawar's surviving Hindu temples (Dawn, The Express Tribune)."@en ;
+  .
+
+source_:a71bade55b3d
+  a schema:CreativeWork ;
+  schema:name "Studies of the pre-Partition Hindu community of Peshawar and the Gor Khatri complex."@en ;
+  .
+
+source_:cd8b2a8ab1e1
+  a schema:CreativeWork ;
+  schema:name "Endowment Fund Trust for Preservation of the Heritage of Sindh, documentation on Karachi temples."@en ;
+  .
+
+source_:06fe60ec25c0
+  a schema:CreativeWork ;
+  schema:name "*Dawn* and *The Express Tribune*, reports on the Darya Lal Mandir and its 2015 renovation."@en ;
+  .
+
+source_:79d8503538dc
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Darya Lal Mandir\" (with cited sources)."@en ;
+  .
+
+source_:ac235ea4c0ae
+  a schema:CreativeWork ;
+  schema:name "Michel Boivin, *Historical Dictionary of the Sufi Culture of Sindh*, for the shared veneration of the river-lord."@en ;
+  .
+
+source_:3b3ca80b422d
+  a schema:CreativeWork ;
+  schema:name "Ali ibn Usman al-Hujwiri, *Kashf al-Mahjub* (“The Unveiling of the Veiled”) — the saint’s own Persian treatise on Sufism (Urdu translations in the project collection)."@en ;
+  .
+
+source_:c41cf97e4fb2
+  a schema:CreativeWork ;
+  schema:name "*Fatih-e-Quloob: Syeduna Data Ganj Bakhsh Ali Hajveri* — Urdu biography/devotional study."@en ;
+  .
+
+source_:6cbc8cdc7463
+  a schema:CreativeWork ;
+  schema:name "*Hazrat Data Ali Hajvairy* — by Anwar-e-Raza."@en ;
+  .
+
+source_:cb33e6be2d51
+  a schema:CreativeWork ;
+  schema:name "*Seerat Hazrat Ali Hajveri*; *Seerat Hazrat Data Ganj Bakhsh Rehmatullah Alaih* — Urdu biographies."@en ;
+  .
+
+source_:a4ea54487a6b
+  a schema:CreativeWork ;
+  schema:name "*Hadrat Data Ganj Bakhsh* and *Maslik-e-Data Ganj Bakhsh* — Urdu studies of his life and path."@en ;
+  .
+
+source_:25690772aa5e
+  a schema:CreativeWork ;
+  schema:name "*Exegetical Notes of the Holy Qur’an by Shaykh Hujwiri* — a compilation of Qur’anic commentary attributed to the saint."@en ;
+  .
+
+source_:49ad0aeb36fe
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Data Darbar responses (surveyor: Saifullah Imtiaz), 2026."@en ;
+  .
+
+source_:9a1b4c4537a4
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (biographical accounts of the saints and shrines of Pakistan)."@en ;
+  .
+
+source_:0f759a5f8e7b
+  a schema:CreativeWork ;
+  schema:name "District Gazetteer of Rawalpindi (Punjab Government gazetteer series), for the local history and topography of the Rawalpindi district."@en ;
+  .
+
+source_:68a1374510d8
+  a schema:CreativeWork ;
+  schema:name "General histories of the Chishti order in South Asia, e.g. K. A. Nizami, *The Life and Times of Shaikh Nizam-ud-din Auliya* and studies of the Chishti-Nizami *silsila*."@en ;
+  .
+
+source_:62de8127e447
+  a schema:CreativeWork ;
+  schema:name "Published biographical and devotional literature issued by the *darbar* of Eidgah Sharif concerning its founding elders and their spiritual succession."@en ;
+  .
+
+source_:96aa436aa023
+  a schema:CreativeWork ;
+  schema:name "Contemporary Pakistani press coverage of the *urs* and *milad* gatherings at Eidgah Sharif and of its custodians."@en ;
+  .
+
+source_:fdf633d5f1a4
+  a schema:CreativeWork ;
+  schema:name "Sultan Bahu, *Abyat-e-Bahu* (his Punjabi quatrains; verse quoted in standard published wording)."@en ;
+  .
+
+source_:1a41be362da0
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Qadiri order and Punjabi Sufi poetry."@en ;
+  .
+
+source_:b03de6ef6534
+  a schema:CreativeWork ;
+  schema:name "Works of and about Pir Meher Ali Shah (e.g., *Saif-e-Chishtiyai*)."@en ;
+  .
+
+source_:9f5705219998
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Chishti order in modern Punjab."@en ;
+  .
+
+source_:b2ef28fbad6d
+  a schema:CreativeWork ;
+  schema:name "Documentation of the Directorate General of Archaeology & Museums, Khyber Pakhtunkhwa, on Gor Khatri and the Goraknath Temple."@en ;
+  .
+
+source_:3fcaabf2821a
+  a schema:CreativeWork ;
+  schema:name "Excavation reports associated with Professor Farzand Ali Durrani and Professor Ihsan Ali on the Gor Khatri stratigraphy."@en ;
+  .
+
+source_:b600003c4893
+  a schema:CreativeWork ;
+  schema:name "George Weston Briggs, *Gorakhnath and the Kanphata Yogis*, on Gorakhnath and the *Nath* tradition."@en ;
+  .
+
+source_:021a788597fb
+  a schema:CreativeWork ;
+  schema:name "Press coverage of the 2011 reopening of the temple following the Peshawar High Court ruling."@en ;
+  .
+
+source_:67db2b838105
+  a schema:CreativeWork ;
+  schema:name "Mughal-era accounts and histories of Peshawar noting Jahan Ara Begum's Sarai Jahanabad."@en ;
+  .
+
+source_:309a5ce2076c
+  a schema:CreativeWork ;
+  schema:name "\"Gori Temple,\" Heritage of Sindh (Endowment Fund Trust for Preservation of the Heritage of Sindh), https://heritage.eftsindh.com/districts/tharparkar/gori-temple.php."@en ;
+  .
+
+source_:8c67e1e3f6ec
+  a schema:CreativeWork ;
+  schema:name "Ema Anis, \"Secrets of Thar: A Jain temple, a mosque and a 'magical' well,\" *Dawn*, 19 February 2016."@en ;
+  .
+
+source_:963e48538a22
+  a schema:CreativeWork ;
+  schema:name "Henry Cousens, *The Antiquities of Sind, with Historical Outline* (Calcutta: Government of India Central Publication Branch, 1929)."@en ;
+  .
+
+source_:40d29fadae86
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"List of Hindu temples in Pakistan.\""@en ;
+  .
+
+source_:38d453b6cb2d
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, published writing on Sindh's Nanakpanthi saints, including the distinct Bhai Gurdas of Shikarpur (for contrast only)."@en ;
+  .
+
+source_:9f9c20be9822
+  a schema:CreativeWork ;
+  schema:name "\"Gurdwara Beri Sahib\" (Babe di Ber), Sialkot, in Sikh reference works and heritage listings."@en ;
+  .
+
+source_:b5547a09895e
+  a schema:CreativeWork ;
+  schema:name "The *Janamsakhi* traditions of Guru Nanak's visit to Sialkot and his meeting with Hamza Ghaus."@en ;
+  .
+
+source_:d68becbaa1b0
+  a schema:CreativeWork ;
+  schema:name "Reporting in *Dawn* and the Sikh press on the reopening and restoration of the Sialkot gurdwara (c. 2012–2019)."@en ;
+  .
+
+source_:9719166cffb5
+  a schema:CreativeWork ;
+  schema:name "Pakistan Sikh Gurdwara Parbandhak Committee accounts of the historic gurdwaras of the Punjab."@en ;
+  .
+
+source_:38503459e7c2
+  a schema:CreativeWork ;
+  schema:name "W. H. McLeod, *Guru Nanak and the Sikh Religion* (Oxford University Press, 1968)."@en ;
+  .
+
+source_:26a8718e258a
+  a schema:CreativeWork ;
+  schema:name "Max Arthur Macauliffe, *The Sikh Religion: Its Gurus, Sacred Writings and Authors* (Oxford, 1909)."@en ;
+  .
+
+source_:3037d6b937fd
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998)."@en ;
+  .
+
+source_:ceb23d3db0f9
+  a schema:CreativeWork ;
+  schema:name "SikhiWiki and Discover Sikhism, entries on Bebe Nanaki and Gurdwara Janamasthan Bebe Nanaki, Dera Chahal."@en ;
+  .
+
+source_:c7b960e21e2f
+  a schema:CreativeWork ;
+  schema:name "Harbans Singh (ed.), *The Encyclopaedia of Sikhism* (Punjabi University, Patiala)."@en ;
+  .
+
+source_:2db8ce266e73
+  a schema:CreativeWork ;
+  schema:name "W. H. McLeod, *Guru Nanak and the Sikh Religion* (Oxford University Press)."@en ;
+  .
+
+source_:6c6d4305945e
+  a schema:CreativeWork ;
+  schema:name "Patwant Singh, *The Sikhs* (Knopf/Doubleday)."@en ;
+  .
+
+source_:6b5272654bc9
+  a schema:CreativeWork ;
+  schema:name "Surinder Singh Johar, *Guru Nanak: A Biography*."@en ;
+  .
+
+source_:84bc93d4c8ef
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998), p. 218."@en ;
+  .
+
+source_:feda774f8af0
+  a schema:CreativeWork ;
+  schema:name "Majid Sheikh, \"Harking back: The magical baolis of Arjan and Dina Nath,\" *Dawn*, 1 February 2015."@en ;
+  .
+
+source_:43f8bd5b803f
+  a schema:CreativeWork ;
+  schema:name "Majid Sheikh, \"Harking back: The connection of Dabbi Bazaar to Kartarpur 'pothi',\" *Dawn*, 30 September 2018."@en ;
+  .
+
+source_:3eab833e8170
+  a schema:CreativeWork ;
+  schema:name "Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan*, Memoir of the Department of Archaeology in Pakistan No. 3 (Karachi: Department of Archaeology, Government of Pakistan, 1962), entry 3, Plate No. 32."@en ;
+  .
+
+source_:c8ec1630677a
+  a schema:CreativeWork ;
+  schema:name "SikhiWiki and Discover Sikhism, entries on the gurdwaras of Peshawar."@en ;
+  .
+
+source_:7e99e7baf657
+  a schema:CreativeWork ;
+  schema:name "Contemporary press coverage of the 2016 reopening (*The Express Tribune*, *Scroll.in*, SBS)."@en ;
+  .
+
+source_:2c917233b17d
+  a schema:CreativeWork ;
+  schema:name "Reports of the Evacuee Trust Property Board, Government of Pakistan."@en ;
+  .
+
+source_:96958ebe7c61
+  a schema:CreativeWork ;
+  schema:name "\"Bhai Joga Singh\" and \"Gurdwara Bhai Joga Singh (Peshawar),\" in Sikh reference works and encyclopaedias."@en ;
+  .
+
+source_:e24b295be86f
+  a schema:CreativeWork ;
+  schema:name "Traditional accounts of Bhai Joga Singh in the *Sikh* devotional literature of the era of Guru Gobind Singh."@en ;
+  .
+
+source_:54e395e9d81d
+  a schema:CreativeWork ;
+  schema:name "Histories of Hari Singh Nalwa and Sikh rule in Peshawar and the frontier."@en ;
+  .
+
+source_:d7b90eccceed
+  a schema:CreativeWork ;
+  schema:name "Reporting (e.g. *Scroll.in*) on the reopening and present life of Peshawar's gurdwaras."@en ;
+  .
+
+source_:7125812806e9
+  a schema:CreativeWork ;
+  schema:name "Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan*, Memoir of the Department of Archaeology in Pakistan No. 3 (Department of Archaeology, Government of Pakistan, 1962), entry 2, Gujranwala District."@en ;
+  .
+
+source_:3000015d5298
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Punjabi History Board, 1998), p. 56."@en ;
+  .
+
+source_:37b45535702b
+  a schema:CreativeWork ;
+  schema:name "\"Eminabad,\" in *The Encyclopaedia of Sikhism*, Vol. II: E–L, ed. Harbans Singh, 3rd ed. (Punjabi University, Patiala, 2011)."@en ;
+  .
+
+source_:c3e5b218634a
+  a schema:CreativeWork ;
+  schema:name "Haroon Khalid, \"A visit to Gujranwala's Eimanabad throws new light on Babur's legacy,\" *Dawn*, 4 January 2017."@en ;
+  .
+
+source_:3cfeb087c8a3
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Punjabi History Board, 1998), p. 228."@en ;
+  .
+
+source_:2f0d8bf17971
+  a schema:CreativeWork ;
+  schema:name "Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan*, Memoir of the Department of Archaeology in Pakistan No. 3 (Department of Archaeology, Government of Pakistan, 1962), Appendix 2, \"List of the Shrines.\""@en ;
+  .
+
+source_:2da98a8e2ef1
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Punjabi History Board, 1998), pp. 276, 278."@en ;
+  .
+
+source_:d83238c76c80
+  a schema:CreativeWork ;
+  schema:name "Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan*, Memoir of the Department of Archaeology in Pakistan No. 3 (Department of Archaeology, Government of Pakistan, 1962), entry 6, Lahore District."@en ;
+  .
+
+source_:2435073bcd46
+  a schema:CreativeWork ;
+  schema:name "Sikh pilgrimage literature and gazetteer references to the Mozang gurdwara and the Mata Kaulan tradition."@en ;
+  .
+
+source_:9f165d94d09a
+  a schema:CreativeWork ;
+  schema:name "Records of Sardar Mehar Singh's 1926 reconstruction, as preserved in Sikh heritage surveys of Lahore."@en ;
+  .
+
+source_:cd02086a3d60
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Punjabi History Board, 1998), p. 178."@en ;
+  .
+
+source_:3f19a819af7a
+  a schema:CreativeWork ;
+  schema:name "\"WCLA to help restore Sikh sites in Jhelum,\" *Dawn*, 2 January 2019."@en ;
+  .
+
+source_:6d12bd4c423e
+  a schema:CreativeWork ;
+  schema:name "\"72 years after Partition, Pak opens Gurdwara Choa Sahib for Sikh devotees,\" *The Tribune* (Chandigarh), 2 August 2019."@en ;
+  .
+
+source_:4f488f99886e
+  a schema:CreativeWork ;
+  schema:name "\"A Complete Tour Guide To Ghurdwara Choa Sahib, Pakistan,\" Ministry of Religious Affairs and Interfaith Harmony, Government of Pakistan (text closely mirrors the English Wikipedia article \"Gurdwara Chowa Sahib\")."@en ;
+  .
+
+source_:78bbe1aeeb37
+  a schema:CreativeWork ;
+  schema:name "SikhiWiki and Sikh pilgrimage literature on the Guru Hargobind gurdwaras of Lahore."@en ;
+  .
+
+source_:a2b2733eaa24
+  a schema:CreativeWork ;
+  schema:name "Gazetteer and heritage-survey references to the Walled City's Sikh-era sites."@en ;
+  .
+
+source_:69537fc38447
+  a schema:CreativeWork ;
+  schema:name "W. H. McLeod, *Gurū Nānak and the Sikh Religion* (Oxford University Press), on the historical Nanak and the Kartarpur period."@en ;
+  .
+
+source_:cdfd25546c96
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs*, for the founding of the community and the succession of Guru Angad."@en ;
+  .
+
+source_:6600de3db291
+  a schema:CreativeWork ;
+  schema:name "The *Puratan Janamsakhi* and allied *Janamsakhi* traditions preserving the account of the Guru's passing."@en ;
+  .
+
+source_:eae3f72f1534
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan*, on the shrine and its history by the Ravi."@en ;
+  .
+
+source_:8788e8954396
+  a schema:CreativeWork ;
+  schema:name "UNESCO and international press coverage of the Kartarpur Corridor and its inauguration for Guru Nanak's 550th *Prakash Utsav* (2019)."@en ;
+  .
+
+source_:607933c5b377
+  a schema:CreativeWork ;
+  schema:name "Evacuee Trust Property Board (Pakistan), Functional Gurdwaras register."@en ;
+  .
+
+source_:8fe5ceaceeff
+  a schema:CreativeWork ;
+  schema:name "SikhiWiki, \"Gurdwara Pehli Patshahi (Jind Pir)\" (for contrast with Sukkur's better-documented gurdwaras)."@en ;
+  .
+
+source_:c72776a05867
+  a schema:CreativeWork ;
+  schema:name "AllAboutSikhs, \"Gurudwara Sadhu Bela, Sukkur\" (for contrast)."@en ;
+  .
+
+source_:6b1f7d0a1d0c
+  a schema:CreativeWork ;
+  schema:name "Pashaura Singh, *The Life and Work of Guru Arjan* (Oxford University Press), on the fifth Guru, the compilation of the *Adi Granth*, and the martyrdom."@en ;
+  .
+
+source_:1b628a50cc53
+  a schema:CreativeWork ;
+  schema:name "The *Tuzuk-i-Jahangiri* (memoirs of the Emperor Jahangir), a primary source for the imperial order against Guru Arjan."@en ;
+  .
+
+source_:4db5dc8373a0
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs*, and Max Arthur Macauliffe, *The Sikh Religion*, on Guru Arjan and its aftermath under Guru Hargobind."@en ;
+  .
+
+source_:72d678ec2b05
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan*, on the shrine at Lahore and its setting among the city's monuments."@en ;
+  .
+
+source_:b1be56c03ad8
+  a schema:CreativeWork ;
+  schema:name "Records of the Evacuee Trust Property Board (ETPB) and heritage documentation of the Lahore Fort and Badshahi Mosque ensemble."@en ;
+  .
+
+source_:39fafb45e69a
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs* (Oxford University Press)."@en ;
+  .
+
+source_:0926198ae714
+  a schema:CreativeWork ;
+  schema:name "Studies of the Walled City of Lahore by the Aga Khan Trust for Culture and the Walled City of Lahore Authority."@en ;
+  .
+
+source_:0c36abd6317c
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Punjabi History Board, 1998), pp. 58-60."@en ;
+  .
+
+source_:ae1c32a6cd9f
+  a schema:CreativeWork ;
+  schema:name "District Gujranwala, Government of Punjab, \"Important Places,\" official district website, accessed 16 August 2026."@en ;
+  .
+
+source_:69e52b9f228e
+  a schema:CreativeWork ;
+  schema:name "Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (Department of Archaeology, Government of Pakistan, 1962), entry 22 (\"Gurdwara Mal Ji Sahib\"), Plate No. 20."@en ;
+  .
+
+source_:a8e4f03bdf5d
+  a schema:CreativeWork ;
+  schema:name "Max Arthur Macauliffe, *The Sikh Religion: Its Gurus, Sacred Writings and Authors* (1909), and the *Janamsakhi* accounts of Guru Nanak's *udasis*."@en ;
+  .
+
+source_:b1b108ff4eaa
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs* (Oxford University Press), for the life of Guru Nanak and the northern journeys."@en ;
+  .
+
+source_:77f39ff147e5
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan*, on the shrine at Hasan Abdal and its history."@en ;
+  .
+
+source_:e5ce00a308f6
+  a schema:CreativeWork ;
+  schema:name "Mohinder Singh, *The Akali Movement*, and contemporary records of the Gurdwara Reform Movement, on the *Saka* Panja Sahib of 1922."@en ;
+  .
+
+source_:e0613ec86e6c
+  a schema:CreativeWork ;
+  schema:name "Records of the Evacuee Trust Property Board (ETPB) and press coverage of the Baisakhi pilgrimages to Panja Sahib."@en ;
+  .
+
+source_:f1b747c39d2b
+  a schema:CreativeWork ;
+  schema:name "\"Nankana Sahib,\" in *The Encyclopaedia of Sikhism* (Harbans Singh, ed.) and Sikh reference works, for the shrines of the fifth and sixth Gurus."@en ;
+  .
+
+source_:7eebb5391dad
+  a schema:CreativeWork ;
+  schema:name "Accounts of Guru Hargobind's return from Kashmir and his visit to Nankana Sahib (Samvat 1670 / 1613 CE)."@en ;
+  .
+
+source_:75da21a1f02a
+  a schema:CreativeWork ;
+  schema:name "Shiromani Gurdwara Parbandhak Committee and Evacuee Trust Property Board listings of the Nankana gurdwaras."@en ;
+  .
+
+source_:4dcff029a9a8
+  a schema:CreativeWork ;
+  schema:name "Pilgrimage guides to the historic gurdwaras of Nankana Sahib."@en ;
+  .
+
+source_:e8cf6d91ce21
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998), p. 283–284."@en ;
+  .
+
+source_:adb000572376
+  a schema:CreativeWork ;
+  schema:name "Guru Nanak, *Patti Likhi*, in *Rag Asa*, *Guru Granth Sahib*."@en ;
+  .
+
+source_:e8707ab2f81a
+  a schema:CreativeWork ;
+  schema:name "\"Gurdwara Patti Sahib\" and \"Nankana Sahib,\" in *The Encyclopaedia of Sikhism* (Harbans Singh, ed.) and Sikh reference works."@en ;
+  .
+
+source_:03f62f7bb7fc
+  a schema:CreativeWork ;
+  schema:name "The *Janamsakhi* accounts of Guru Nanak's schooling at Rai Bhoi di Talwandi."@en ;
+  .
+
+source_:7c1833220c5b
+  a schema:CreativeWork ;
+  schema:name "Pakistan Sikh Gurdwara Parbandhak Committee and pilgrimage guides to the shrines of Nankana Sahib."@en ;
+  .
+
+source_:94bae9504a5a
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998), p. 120."@en ;
+  .
+
+source_:ea2f47169578
+  a schema:CreativeWork ;
+  schema:name "Alice Albinia, \"Life Around The Indus: Tracing River Worship In Sindh,\" *Outlook Traveller*, 30 September 2014."@en ;
+  .
+
+source_:a7a82553161c
+  a schema:CreativeWork ;
+  schema:name "Singh, Harbans (ed.). *The Encyclopaedia of Sikhism*. Patiala: Punjabi University."@en ;
+  .
+
+source_:1dd201be997e
+  a schema:CreativeWork ;
+  schema:name "Singh, Khushwant. *A History of the Sikhs*, Vol. 1. Oxford University Press."@en ;
+  .
+
+source_:95a8af56df3a
+  a schema:CreativeWork ;
+  schema:name "Macauliffe, Max Arthur. *The Sikh Religion: Its Gurus, Sacred Writings and Authors*. Oxford: Clarendon Press."@en ;
+  .
+
+source_:7ee22363b1b0
+  a schema:CreativeWork ;
+  schema:name "*The Janamsakhi Tradition* (traditional biographies of Guru Nanak)."@en ;
+  .
+
+source_:2ca3afb32cdb
+  a schema:CreativeWork ;
+  schema:name "Government of Pakistan, Evacuee Trust Property Board, records on Sikh heritage gurdwaras."@en ;
+  .
+
+source_:c17ad132becf
+  a schema:CreativeWork ;
+  schema:name "SikhNet, \"Guru Nanak in Shikarpur, Sindh\" (news report)."@en ;
+  .
+
+source_:e8fe0bb78f6e
+  a schema:CreativeWork ;
+  schema:name "DiscoverSikhism, \"Gurdwara Sri Guru Nanak Sahib, Shikarpur.\""@en ;
+  .
+
+source_:70e57d0051d0
+  a schema:CreativeWork ;
+  schema:name "Asia Samachar, coverage of the March 2017 All Sindh Balochistan Gurdwara Management Committee meeting, Kandhkot."@en ;
+  .
+
+source_:bbb4c58f1bd9
+  a schema:CreativeWork ;
+  schema:name "Singh, Nikky-Guninder Kaur. *Sikhism: An Introduction*. I. B. Tauris."@en ;
+  .
+
+source_:199ff1a1af41
+  a schema:CreativeWork ;
+  schema:name "The Express Tribune (APP), \"Antiquity of Saidpur Village lures tourists,\" 28 December 2020."@en ;
+  .
+
+source_:97aac0fafffd
+  a schema:CreativeWork ;
+  schema:name "Aamir Saeed, \"In Pakistani capital, a centuries-old temple where Hindus are not allowed to pray,\" Arab News PK, 7 July 2020 (updated 8 July 2020)."@en ;
+  .
+
+source_:a68a5f3702c3
+  a schema:CreativeWork ;
+  schema:name "Singh, Ganda. *Sardar Jassa Singh Ahluwalia* and related studies on the eighteenth-century Sikh struggle."@en ;
+  .
+
+source_:df2bffee04be
+  a schema:CreativeWork ;
+  schema:name "Fenech, Louis E. *Martyrdom in the Sikh Tradition: Playing the \"Game of Love\"*. Oxford University Press."@en ;
+  .
+
+source_:032689ba6d64
+  a schema:CreativeWork ;
+  schema:name "Gandhi, Surjit Singh. *History of Sikh Gurus Retold*."@en ;
+  .
+
+source_:8cbde8604227
+  a schema:CreativeWork ;
+  schema:name "Hari Ram Gupta, *History of the Sikhs*, vol. II: *Evolution of Sikh Confederacies* (Munshiram Manoharlal)."@en ;
+  .
+
+source_:4dbfa7f7e358
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs*, vol. I (Oxford University Press)."@en ;
+  .
+
+source_:26f6d153818d
+  a schema:CreativeWork ;
+  schema:name "Shiromani Gurdwara Parbandhak Committee and SikhiWiki, entries on Gurdwara Shahid Ganj Singhnian, Lahore."@en ;
+  .
+
+source_:b9ad9c00f906
+  a schema:CreativeWork ;
+  schema:name "*Dawn*, \"73 years on, gurdwara restored to Sikhs in Quetta\" (2020) and \"A gurdwara worth the seven-decade wait\"."@en ;
+  .
+
+source_:1784def38da5
+  a schema:CreativeWork ;
+  schema:name "*Bolan Voice*, \"Historical background of the Sikh community in Balochistan province\"."@en ;
+  .
+
+source_:1094ca6a696f
+  a schema:CreativeWork ;
+  schema:name "World Gurudwaras, entry on Gurdwara Sri Guru Singh Sabha, Quetta."@en ;
+  .
+
+source_:6f440ad363e9
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Sikhism in Pakistan\" (with cited sources)."@en ;
+  .
+
+source_:4445be83286e
+  a schema:CreativeWork ;
+  schema:name "\"Nankana Sahib\" and \"Gurdwara Kiara Sahib,\" in *The Encyclopaedia of Sikhism* (Harbans Singh, ed.) and Sikh reference works."@en ;
+  .
+
+source_:058b12978517
+  a schema:CreativeWork ;
+  schema:name "The *Janamsakhi* traditions of Guru Nanak's childhood at Rai Bhoi di Talwandi."@en ;
+  .
+
+source_:ee9a7d2b2da0
+  a schema:CreativeWork ;
+  schema:name "Shiromani Gurdwara Parbandhak Committee and Pakistan Sikh Gurdwara Parbandhak Committee accounts of the Nankana Sahib shrines."@en ;
+  .
+
+source_:0cfcabb9fd08
+  a schema:CreativeWork ;
+  schema:name "Histories of Sant Gurmukh Singh \"Sevavale\" and the pre-Partition rebuilding of Sikh gurdwaras."@en ;
+  .
+
+source_:c31bb371a7da
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998), p. 134."@en ;
+  .
+
+source_:6bf94b7f0bcd
+  a schema:CreativeWork ;
+  schema:name "\"Gurdwara Tambu Sahib\" and \"Nankana Sahib,\" in *The Encyclopaedia of Sikhism* (Harbans Singh, ed.) and Sikh reference works."@en ;
+  .
+
+source_:799522894afd
+  a schema:CreativeWork ;
+  schema:name "The *Janamsakhi* traditions of the *sacha sauda* (the \"true bargain\") and Guru Nanak's boyhood."@en ;
+  .
+
+source_:60539217b3a0
+  a schema:CreativeWork ;
+  schema:name "Shiromani Gurdwara Parbandhak Committee and Pakistan Sikh Gurdwara Parbandhak Committee accounts of the Nankana shrines."@en ;
+  .
+
+source_:3b08917c568e
+  a schema:CreativeWork ;
+  schema:name "The Friday Times, \"At The Darbar Of Baba Gurpat Sahib In Hyderabad\" (26 January 2025)."@en ;
+  .
+
+source_:6f5d713e742a
+  a schema:CreativeWork ;
+  schema:name "General accounts of the Jagiasi/Udasi Nanakpanthi tradition in Sindh."@en ;
+  .
+
+source_:828018e1576b
+  a schema:CreativeWork ;
+  schema:name "Khushwant Singh, *A History of the Sikhs* (Oxford University Press), for the life of Guru Nanak and the origins of the Panth."@en ;
+  .
+
+source_:4b8b79efc5ee
+  a schema:CreativeWork ;
+  schema:name "Max Arthur Macauliffe, *The Sikh Religion: Its Gurus, Sacred Writings and Authors* (1909), and the *Janamsakhi* traditions preserving the birth narratives."@en ;
+  .
+
+source_:61ee418adf2b
+  a schema:CreativeWork ;
+  schema:name "Iqbal Qaiser, *Historical Sikh Shrines in Pakistan*, a survey of the gurdwaras on the Pakistani side of Punjab."@en ;
+  .
+
+source_:27b3732fd64a
+  a schema:CreativeWork ;
+  schema:name "Ruchi Ram Sahni, *Struggle for Reform in Sikh Shrines*, and Mohinder Singh, *The Akali Movement*, on the Gurdwara Reform Movement and the 1921 massacre."@en ;
+  .
+
+source_:a21516f56d62
+  a schema:CreativeWork ;
+  schema:name "Records of the Evacuee Trust Property Board (ETPB) and Government of Punjab heritage listings, together with press coverage of the annual Gurpurab pilgrimages."@en ;
+  .
+
+source_:636bf416e9b5
+  a schema:CreativeWork ;
+  schema:name "Community and press accounts of Hindu temple grants in Sialkot under the Pervaiz Elahi provincial government (2007) and subsequent renovation (2017)."@en ;
+  .
+
+source_:6d526ca18098
+  a schema:CreativeWork ;
+  schema:name "Odishabytes, \"There's a Jagannath Temple in Pakistan (and Bangladesh) too.\""@en ;
+  .
+
+source_:6ea9377a1091
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Shivala Teja Singh temple,\" for contrast; the redirect from \"Jagannath Temple, Sialkot\" reflects an unresolved identification, not a confirmed identity between the two sites."@en ;
+  .
+
+source_:b484e3bb868a
+  a schema:CreativeWork ;
+  schema:name "Sheharyar Rizwan, \"Under-reconstruction Jain Mandir in Lahore all set to reopen,\" *Dawn*, 1 April 2022."@en ;
+  .
+
+source_:2fa33dd8813c
+  a schema:CreativeWork ;
+  schema:name "\"Pakistan set to reopen Lahore's famous Jain temple,\" *The Express Tribune*, 5 December 2021."@en ;
+  .
+
+source_:5c2ceabac45d
+  a schema:CreativeWork ;
+  schema:name "Muhammad Asif Nawaz, \"Story of the Jain Mandir,\" *Youlin Magazine*, 20 July 2022."@en ;
+  .
+
+source_:aaef3e8f26e5
+  a schema:CreativeWork ;
+  schema:name "Udero Lal Research Project, field documentation of Karachi's Jhulelal temples — Jodia Bazaar and Custom House sites (2016)."@en ;
+  .
+
+source_:55183d1feb42
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Darya Lal Mandir,\" for contrast with the Custom House site."@en ;
+  .
+
+source_:8703d44784a2
+  a schema:CreativeWork ;
+  schema:name "General accounts of Sindhi Hindu Cheti Chand observance and the Jhulelal/Udero Lal tradition."@en ;
+  .
+
+source_:b4da85ea9890
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Kali Temple, Kalat.\""@en ;
+  .
+
+source_:47aa52a2ba78
+  a schema:CreativeWork ;
+  schema:name "Local and regional press coverage of the annual Kalat Kali festival."@en ;
+  .
+
+source_:6fa0d3e43a86
+  a schema:CreativeWork ;
+  schema:name "Denys Bray, *Ethnographic Survey of Baluchistan*, Vol. 2 (Bombay: The Times Press, 1913)."@en ;
+  .
+
+source_:4993c402b604
+  a schema:CreativeWork ;
+  schema:name "Muhammad Akbar Notezai, \"Footprints: Descendants of Royalty,\" *Dawn*, 15 October 2017."@en ;
+  .
+
+source_:0b819270f6c3
+  a schema:CreativeWork ;
+  schema:name "\"Three-day annual festival starts at Kalat's Kali Mandir,\" Associated Press of Pakistan, *The Express Tribune*, 24 January 2023."@en ;
+  .
+
+source_:ceeffe1031a3
+  a schema:CreativeWork ;
+  schema:name "*The Express Tribune*, features on the surviving Hindu temples of Peshawar."@en ;
+  .
+
+source_:add9dbabaab6
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Kalibari Mandir, Peshawar\" and \"List of Hindu temples in Pakistan\" (with cited sources)."@en ;
+  .
+
+source_:a83ef74e776d
+  a schema:CreativeWork ;
+  schema:name "Reports of the Evacuee Trust Property Board on Hindu shrines in Khyber Pakhtunkhwa."@en ;
+  .
+
+source_:5e41a15dd0a3
+  a schema:CreativeWork ;
+  schema:name "Reema Abbasi, *Historic Temples in Pakistan: A Call to Conscience* (Niyogi Books), for the temples of the north-west."@en ;
+  .
+
+source_:5bdb12e02128
+  a schema:CreativeWork ;
+  schema:name "Endowment Fund Trust for Preservation of the Heritage of Sindh, \"Heritage of Sindh\" documentation."@en ;
+  .
+
+source_:dbd14c04b719
+  a schema:CreativeWork ;
+  schema:name "*The Friday Times* and *The Express Tribune*, features on the Kalka Devi Temple, Rohri."@en ;
+  .
+
+source_:69196a042d09
+  a schema:CreativeWork ;
+  schema:name "H. T. Lambrick, *Sindh: A General Introduction* (Sindhi Adabi Board), on Aror and the historical geography of the Rohri region."@en ;
+  .
+
+source_:f07363b21002
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Kalka Cave Temple\" and \"Aror (Alor)\" (with cited sources)."@en ;
+  .
+
+source_:b69b85acc74f
+  a schema:CreativeWork ;
+  schema:name "Alexander Cunningham, *Archaeological Survey of India Reports* (survey of the Salt Range and Katas, 1872–73)."@en ;
+  .
+
+source_:cfe1df853f06
+  a schema:CreativeWork ;
+  schema:name "Subhash Parihar and regional studies on the Hindu Shahi temple architecture of the Salt Range."@en ;
+  .
+
+source_:748d86d6fd4a
+  a schema:CreativeWork ;
+  schema:name "Xuanzang (Hiuen Tsang), *Records of the Western Regions* (Si-Yu-Ki), for the early Buddhist presence."@en ;
+  .
+
+source_:d2ddd0192517
+  a schema:CreativeWork ;
+  schema:name "Press and heritage coverage of the 2005 restoration and the Supreme Court proceedings on the Katas pond (Dawn; Scroll.in)."@en ;
+  .
+
+source_:4b2070f84002
+  a schema:CreativeWork ;
+  schema:name "The *Mahabharata* and Puranic *tirtha* literature for the Shiva and Pandava traditions."@en ;
+  .
+
+source_:d929dfce3336
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"The Magnificent Khatwari Darbar in Shikarpur,\" *Youlin Magazine*, 6 June 2024."@en ;
+  .
+
+source_:a15cad40188b
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"Gurus in Shikarpur,\" *The Friday Times*, 12 January 2018."@en ;
+  .
+
+source_:40bbfbeeacbf
+  a schema:CreativeWork ;
+  schema:name "Staff Reporter, \"Desecration of Guru Granth Sahib across Sindh cities slammed,\" *Dawn*, 28 August 2013."@en ;
+  .
+
+source_:cfa21ff30226
+  a schema:CreativeWork ;
+  schema:name "*Dawn* and *The Express Tribune*, features on the Krishna Temple, Rawalpindi, and the temples of the twin cities."@en ;
+  .
+
+source_:a8f9efc29782
+  a schema:CreativeWork ;
+  schema:name "Heritage surveys of Rawalpindi's colonial-era architecture."@en ;
+  .
+
+source_:62c1fd339b92
+  a schema:CreativeWork ;
+  schema:name "Records of the Evacuee Trust Property Board, Government of Pakistan."@en ;
+  .
+
+source_:a32593c33a4a
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Krishna Temple, Rawalpindi\" (with cited press sources)."@en ;
+  .
+
+source_:edd322c6e134
+  a schema:CreativeWork ;
+  schema:name "*Dawn* (Prism) and *Scroll.in*, features on the fate and spatial politics of Lahore's Hindu temples."@en ;
+  .
+
+source_:5f1239310700
+  a schema:CreativeWork ;
+  schema:name "Hindu American Foundation and other reports on the condition of Lahore's temples."@en ;
+  .
+
+source_:8ceed5ca95fc
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Krishna Mandir, Lahore\" and \"List of temples in Lahore\" (with cited sources)."@en ;
+  .
+
+source_:710d7099969f
+  a schema:CreativeWork ;
+  schema:name "Aamir Yasin, \"British colonial legacy lives on in Rawalpindi's Lal Kurti,\" *Dawn*, 12 May 2025."@en ;
+  .
+
+source_:ca2b27ebffed
+  a schema:CreativeWork ;
+  schema:name "Qaiser Shirazi, \"Century-old Balmik Temple stands test of time,\" *The Express Tribune*, 27 August 2025."@en ;
+  .
+
+source_:8e018eb26a86
+  a schema:CreativeWork ;
+  schema:name "Qaiser Shirazi, \"Rawalpindi's Hindu heritage fades,\" *The Express Tribune*, 16 December 2025."@en ;
+  .
+
+source_:3e993e750157
+  a schema:CreativeWork ;
+  schema:name "Shiraz Hassan, \"Lal Kurti – an epitome of religious co-existence,\" *Dawn*, 21 August 2014."@en ;
+  .
+
+source_:984cce588ba2
+  a schema:CreativeWork ;
+  schema:name "\"Pindi lit up as Hindus celebrate 'Festival of Lights',\" *The Express Tribune*, 1 November 2024."@en ;
+  .
+
+source_:364116dbec52
+  a schema:CreativeWork ;
+  schema:name "Qaiser Shirazi, \"A tale of overlooked places of worship,\" *The Express Tribune*, 23 January 2023."@en ;
+  .
+
+source_:62f0574dd9bd
+  a schema:CreativeWork ;
+  schema:name "Verses attributed to Lal Shahbaz Qalandar and the traditional *Dama Dam Mast Qalandar* (quoted in standard published wording)."@en ;
+  .
+
+source_:ad041a40206c
+  a schema:CreativeWork ;
+  schema:name "General established histories of the qalandari tradition and of Sehwan Sharif."@en ;
+  .
+
+source_:ce8e0b87a476
+  a schema:CreativeWork ;
+  schema:name "Richard M. Eaton, essays on the Sufi shrines and the Islamisation of the Punjab and the Indus frontier."@en ;
+  .
+
+source_:536c16826303
+  a schema:CreativeWork ;
+  schema:name "Annemarie Schimmel, *Mystical Dimensions of Islam* (University of North Carolina Press)."@en ;
+  .
+
+source_:ac484ce2830d
+  a schema:CreativeWork ;
+  schema:name "David Gilmartin, *Empire and Islam: Punjab and the Making of Pakistan* (on shrine culture in rural Punjab)."@en ;
+  .
+
+source_:4d58c4e39011
+  a schema:CreativeWork ;
+  schema:name "Punjab district gazetteers for the Chiniot / Jhang region."@en ;
+  .
+
+source_:cac9dd8b015e
+  a schema:CreativeWork ;
+  schema:name "Local hagiographical tradition concerning Hazrat Makhdoom Burhan-ud-din (to be used with due caution)."@en ;
+  .
+
+source_:a08a1083e51a
+  a schema:CreativeWork ;
+  schema:name "Sufia Zamir, \"Heritage: The Lonely Little Temple,\" *Dawn*, 14 January 2018."@en ;
+  .
+
+source_:072dceca1b10
+  a schema:CreativeWork ;
+  schema:name "\"Temple of Loh — a connection between Prince Loh and Lahore,\" Walled City of Lahore Authority, walledcitylahore.gop.pk."@en ;
+  .
+
+source_:a9c9d14cb452
+  a schema:CreativeWork ;
+  schema:name "\"Temple dedicated to Lord Ram's son restored, opens for public in Pakistan's Lahore,\" PTI, *The Tribune* (Chandigarh), 27 January 2026."@en ;
+  .
+
+source_:1935e3549485
+  a schema:CreativeWork ;
+  schema:name "Waris Shah, *Heer* (1766; verse quoted in standard published wording)."@en ;
+  .
+
+source_:7aeb603e0bcb
+  a schema:CreativeWork ;
+  schema:name "General established histories of Punjabi literature."@en ;
+  .
+
+source_:a2103c3d9de4
+  a schema:CreativeWork ;
+  schema:name "Bulleh Shah, *Kafian* (his collected Punjabi kafis; verses quoted in standard published wording)."@en ;
+  .
+
+source_:c86e6ffc7401
+  a schema:CreativeWork ;
+  schema:name "General established histories of Punjabi Sufi poetry."@en ;
+  .
+
+source_:a261e0d236eb
+  a schema:CreativeWork ;
+  schema:name "Khwaja Ghulam Farid, *Diwan-e-Farid* (his Seraiki kafis; line quoted in standard published wording)."@en ;
+  .
+
+source_:5699f49c7bb7
+  a schema:CreativeWork ;
+  schema:name "General established histories of Seraiki literature and Chishti Sufism."@en ;
+  .
+
+source_:4d282ad746ab
+  a schema:CreativeWork ;
+  schema:name "\"German envoy visits historic shrine,\" *The Express Tribune*, 8 January 2026."@en ;
+  .
+
+source_:8f9fa8000204
+  a schema:CreativeWork ;
+  schema:name "\"German Ambassador visits madrassa in Mohra Sharif,\" *Islamabad Post*, 13 January 2026."@en ;
+  .
+
+source_:7b565fb63f36
+  a schema:CreativeWork ;
+  schema:name "\"Guide to Mohra Sharif,\" mohrasharif.com, accessed 16 August 2026."@en ;
+  .
+
+source_:bf1d4529415e
+  a schema:CreativeWork ;
+  schema:name "UNESCO World Heritage Centre, tentative list entry, \"Nagarparkar Cultural Landscape\" (2016)."@en ;
+  .
+
+source_:6f13eac84fc0
+  a schema:CreativeWork ;
+  schema:name "Endowment Fund Trust for Preservation of the Heritage of Sindh, documentation on the Nagarparkar temples."@en ;
+  .
+
+source_:fa44bead1103
+  a schema:CreativeWork ;
+  schema:name "*The Friday Times*, \"Jain Legacy of Nagarparkar\" (2019)."@en ;
+  .
+
+source_:25768c0ceb89
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Nagarparkar Jain temples\" and \"Nagarparkar\" (with cited sources)."@en ;
+  .
+
+source_:58114a2c264c
+  a schema:CreativeWork ;
+  schema:name "Ahmad Nabi Khan, *Islamic Architecture of Pakistan* (for the Bhodesar mosque and regional context)."@en ;
+  .
+
+source_:0e2d4c1c0b3f
+  a schema:CreativeWork ;
+  schema:name "Munshi Gopal Das, *Tareekh-e-Peshawar* (1874), for the tradition linking the site to the sons of Pandu."@en ;
+  .
+
+source_:23d760132f3a
+  a schema:CreativeWork ;
+  schema:name "A. Cunningham, *The Ancient Geography of India*, and A. Foucher's studies, on the Buddhist associations of Peshawar (*Purushapura*)."@en ;
+  .
+
+source_:635a86520782
+  a schema:CreativeWork ;
+  schema:name "Reporting in *The Friday Times* and *Dawn* on the 2019 heritage listing and the condition of Panj Tirath."@en ;
+  .
+
+source_:c32eab9666f3
+  a schema:CreativeWork ;
+  schema:name "Directorate of Archaeology, Khyber Pakhtunkhwa, notifications under the KP Antiquities Act 2016."@en ;
+  .
+
+source_:22b74c8564ef
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Pranami\" (Pranami Sampradaya) and \"Mahamati Prannath\", with cited sources."@en ;
+  .
+
+source_:98aaa675e1cf
+  a schema:CreativeWork ;
+  schema:name "Documentation of the Malka Hans temple by heritage writers on Pakistan's Hindu monuments (e.g. the *lahOre and mOre* and Ali Usman Baig field accounts)."@en ;
+  .
+
+source_:dbdceffa5e0f
+  a schema:CreativeWork ;
+  schema:name "Haroon Khalid, writings on the folk and minority religious heritage of the Pakistani Punjab."@en ;
+  .
+
+source_:40dd16c8dddc
+  a schema:CreativeWork ;
+  schema:name "General literature on the *bhakti* movements of western India and their spread into Sindh and the Punjab."@en ;
+  .
+
+source_:911925b99e5d
+  a schema:CreativeWork ;
+  schema:name "\"Prahladpuri Temple\" and \"Multan Fort,\" in reference encyclopaedias, for the temple's location, history, and destruction."@en ;
+  .
+
+source_:e86040da1318
+  a schema:CreativeWork ;
+  schema:name "Colonial-era accounts of the 1848 Siege of Multan and *Multan District Gazetteer* notices of the fort and its shrines."@en ;
+  .
+
+source_:7eff863b4486
+  a schema:CreativeWork ;
+  schema:name "Studies of the *Narasimha* and *Holika*–Prahlada legend cycle in Vaishnava tradition."@en ;
+  .
+
+source_:2ee84f682864
+  a schema:CreativeWork ;
+  schema:name "Reports on the 1992 destruction of Hindu temples in Pakistan and the status of Evacuee Trust properties."@en ;
+  .
+
+source_:8ba5d8575838
+  a schema:CreativeWork ;
+  schema:name "Auqaf and Religious Affairs Department, Government of the Punjab, register of shrines and darbars."@en ;
+  .
+
+source_:217297582fc7
+  a schema:CreativeWork ;
+  schema:name "Jürgen Wasim Frembgen, *Journey to God: Sufis and Dervishes in Islam* (Oxford University Press, 2008)."@en ;
+  .
+
+source_:c679857653e1
+  a schema:CreativeWork ;
+  schema:name "Katherine Ewing, *Arguing Sainthood: Modernity, Psychoanalysis, and Islam* (Duke University Press, 1997)."@en ;
+  .
+
+source_:e9373b4bda71
+  a schema:CreativeWork ;
+  schema:name "Gazetteer of the Shahpur District (the historic district encompassing Bhalwal and Sargodha), Punjab Government."@en ;
+  .
+
+source_:a6b79aac7c32
+  a schema:CreativeWork ;
+  schema:name "Rahman Baba, *Diwan* (his Pashto poetry; the quoted teaching given here in English translation only)."@en ;
+  .
+
+source_:eb911502f8be
+  a schema:CreativeWork ;
+  schema:name "General established histories of Pashto literature and Sufism."@en ;
+  .
+
+source_:a9652d0c0402
+  a schema:CreativeWork ;
+  schema:name "Aamir Yasin, \"'Tourists, restaurants violate sanctity of Saidpur's temple',\" *Dawn*, 9 October 2016."@en ;
+  .
+
+source_:7c756e942486
+  a schema:CreativeWork ;
+  schema:name "Aamir Saeed, \"In Pakistani capital, a centuries-old temple where Hindus are not allowed to pray,\" *Arab News* (Pakistan edition), 7 July 2020."@en ;
+  .
+
+source_:fd82efc5a654
+  a schema:CreativeWork ;
+  schema:name "Dominique-Sila Khan, *Conversions and Shifting Identities: Ramdev Pir and the Ismailis in Rajasthan* (Manohar)."@en ;
+  .
+
+source_:997ff0e14476
+  a schema:CreativeWork ;
+  schema:name "Michel Boivin, studies of the shared religious culture and shrines of Sindh."@en ;
+  .
+
+source_:31d6d55afb19
+  a schema:CreativeWork ;
+  schema:name "Contemporary press coverage of the annual Ramapir Mela (Dawn, The Express Tribune)."@en ;
+  .
+
+source_:768aa2534496
+  a schema:CreativeWork ;
+  schema:name "Reports of the Pakistan Hindu Council on the temples and festivals of Sindh."@en ;
+  .
+
+source_:11d8faaa8f68
+  a schema:CreativeWork ;
+  schema:name "Regional gazetteer material on the cult of Ramdev Pir and Ramdevra."@en ;
+  .
+
+source_:862d762304b3
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Qadiri/Naushahia order in the Punjab."@en ;
+  .
+
+source_:1dbc67c9263a
+  a schema:CreativeWork ;
+  schema:name "Documentation on Sadh Belo and its founding in surveys of the heritage of Sindh."@en ;
+  .
+
+source_:7e9294d5acc1
+  a schema:CreativeWork ;
+  schema:name "Studies of the *Udasi* order and the legacy of Sri Chand in Sindh."@en ;
+  .
+
+source_:1a98b5549c8c
+  a schema:CreativeWork ;
+  schema:name "Feature reporting on Sadh Belo and its annual festival (Dawn; Scroll.in; *Daily Times*)."@en ;
+  .
+
+source_:4ab74ac0d049
+  a schema:CreativeWork ;
+  schema:name "Regional histories of Hindu Sindh and the shrines of the Sukkur–Rohri Indus corridor."@en ;
+  .
+
+source_:18e624a15fae
+  a schema:CreativeWork ;
+  schema:name "Accounts of the *gaddi nashin* lineage and the nineteenth-century building of the temple complex."@en ;
+  .
+
+source_:42ee3c429e54
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Sakhi Sarwar cult and the shared religious culture of the Punjab."@en ;
+  .
+
+source_:f50b8f7870f9
+  a schema:CreativeWork ;
+  schema:name "Bushra Shehzad, \"Rediscovering our Sikh heritage,\" *Dawn*, 24 May 2012."@en ;
+  .
+
+source_:a5e2ff1fb076
+  a schema:CreativeWork ;
+  schema:name "Directorate General of Archaeology, Government of Punjab, \"Religious Monuments\" (online monument index), accessed 16 August 2026."@en ;
+  .
+
+source_:64c38f3b4a69
+  a schema:CreativeWork ;
+  schema:name "*Sindh Courier*, \"Dadu: Exploring the Historical Background\"."@en ;
+  .
+
+source_:679675e91ee5
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, writings on the Hindu shrines and saint-cults of Sindh (e.g. \"Sindh: A Place of Sadhus, Sanyasis, Sants, Udasis, Bairagis and Sufis\")."@en ;
+  .
+
+source_:99d4c4fd627b
+  a schema:CreativeWork ;
+  schema:name "Evacuee Trust Property Board listings of functioning temples in Sindh."@en ;
+  .
+
+source_:9710dfb3595d
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Hinduism in Sindh\" and \"Dadu, Sindh\", with cited sources."@en ;
+  .
+
+source_:be6be7525574
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"Historic Temples and Darbars of Chak,\" *The Friday Times*, 2 February 2023."@en ;
+  .
+
+source_:89033af652bb
+  a schema:CreativeWork ;
+  schema:name "Shaikh Abdul Rasheed, \"Remembering Bhagat Kanwar Ram,\" *The News on Sunday*, 26 April 2020."@en ;
+  .
+
+source_:1c5a7180ea60
+  a schema:CreativeWork ;
+  schema:name "\"Bhagat Kanwar remembered,\" *The Nation*, 2 November 2016."@en ;
+  .
+
+source_:64aa3a2f97a3
+  a schema:CreativeWork ;
+  schema:name "\"Bhagat Kanwar died for Sindh, says son,\" *Dawn*, 3 November 2008."@en ;
+  .
+
+source_:a6b25ad10c9c
+  a schema:CreativeWork ;
+  schema:name "Cyril Almeida, \"Hindus of upper Sindh: a bruised community carries on,\" *Dawn*, 2 April 2012."@en ;
+  .
+
+source_:3bc90ba866b7
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"Shikarpur's Sant Satram Dham,\" *Youlin Magazine*, 14 October 2024."@en ;
+  .
+
+source_:5e4492283a5e
+  a schema:CreativeWork ;
+  schema:name "Mohammad Hussain Khan, \"'Ghotki attacks on Hindu community conspiracy to foment communal unrest,' probe finds,\" *Dawn*, 28 September 2019."@en ;
+  .
+
+source_:b316ab5b6693
+  a schema:CreativeWork ;
+  schema:name "\"Bilawal visits ransacked temple, mosque in Ghotki,\" *Dawn*, 29 September 2019."@en ;
+  .
+
+source_:4a1ad10a6062
+  a schema:CreativeWork ;
+  schema:name "Sheikh Javed Ali Sindhi, \"Heritage: A Refuge and Fort for Ancient Armies,\" *Dawn*, 22 December 2019."@en ;
+  .
+
+source_:bb9ab76cb514
+  a schema:CreativeWork ;
+  schema:name "General established accounts of the Shah Noorani shrine and the Lahut Lamakan valley."@en ;
+  .
+
+source_:5ccee079acd4
+  a schema:CreativeWork ;
+  schema:name "Punjab Auqaf & Religious Affairs Department, list of notified shrines, Sargodha zone."@en ;
+  .
+
+source_:3dd9540c3014
+  a schema:CreativeWork ;
+  schema:name "District school directories, Sargodha (locality confirmation: \"GHS Shah Yousaf, Shahpur\")."@en ;
+  .
+
+source_:f7e74894f8b6
+  a schema:CreativeWork ;
+  schema:name "Local histories of Shahpur town, for contrast with its separately documented founding figure, Syed Shams Shah Shirazi."@en ;
+  .
+
+source_:600d4bcdc013
+  a schema:CreativeWork ;
+  schema:name "Reeta Grewal and others on the urban and religious history of the colonial and pre-colonial Punjab."@en ;
+  .
+
+source_:df0fd5f75d37
+  a schema:CreativeWork ;
+  schema:name "Reports of the Evacuee Trust Property Board (Pakistan) and the Sir Ganga Ram Heritage Foundation on temple conservation."@en ;
+  .
+
+source_:ea14fb9baae4
+  a schema:CreativeWork ;
+  schema:name "Contemporary press coverage of the 2019 restoration (Dawn, The Express Tribune, and international agencies)."@en ;
+  .
+
+source_:8263869272d0
+  a schema:CreativeWork ;
+  schema:name "Prakash Tandon, *Punjabi Century* (for the texture of Hindu life in pre-Partition Punjab)."@en ;
+  .
+
+source_:d07c338c0dde
+  a schema:CreativeWork ;
+  schema:name "George Michell, *The Hindu Temple: An Introduction to Its Meaning and Forms* (on the *nagara* tradition)."@en ;
+  .
+
+source_:7eea271da628
+  a schema:CreativeWork ;
+  schema:name "*Devi Bhagavata Purana* and the *Shakta* Peetha literature for the legend of Sati and the fifty-one seats."@en ;
+  .
+
+source_:391c107f6ed0
+  a schema:CreativeWork ;
+  schema:name "Jürgen Schaflechner, *Hinglaj Devi: Identity, Change, and Solidification at a Hindu Temple in Pakistan* (scholarly monograph on the shrine and its pilgrimage)."@en ;
+  .
+
+source_:73ef704e3ec5
+  a schema:CreativeWork ;
+  schema:name "UNESCO Tentative List documentation for the Hingol Cultural Landscape."@en ;
+  .
+
+source_:030dd48e6664
+  a schema:CreativeWork ;
+  schema:name "Press coverage of the annual Hinglaj Yatra (Dawn; regional and international media)."@en ;
+  .
+
+source_:7861a985c4df
+  a schema:CreativeWork ;
+  schema:name "Ethnographic accounts of the Aghori and Charan traditions associated with Hinglaj."@en ;
+  .
+
+source_:ad06772c3b9a
+  a schema:CreativeWork ;
+  schema:name "Annemarie Schimmel, *Mystical Dimensions of Islam* (University of North Carolina Press), on the qalandars and the Qadiri order."@en ;
+  .
+
+source_:b1164ed6b04e
+  a schema:CreativeWork ;
+  schema:name "Katherine Ewing, *Arguing Sainthood: Modernity, Psychoanalysis, and Islam* (on modern Punjabi Sufism and shrine devotion)."@en ;
+  .
+
+source_:d76431bdeed5
+  a schema:CreativeWork ;
+  schema:name "Jürgen Wasim Frembgen, *Journey to God: Sufis and Dervishes in Islam* (on qalandar traditions)."@en ;
+  .
+
+source_:2dfc69dc7026
+  a schema:CreativeWork ;
+  schema:name "Punjab district gazetteer material for the Okara / Depalpur region."@en ;
+  .
+
+source_:841770ab2252
+  a schema:CreativeWork ;
+  schema:name "Devotional accounts of Hazrat Shams Ali Qalandar and his *Tegh-e-Barahna* (to be used with due caution)."@en ;
+  .
+
+source_:861850b1a0a7
+  a schema:CreativeWork ;
+  schema:name "Kalhana, *Rajatarangini* (the twelfth-century chronicle of Kashmir), for the shrine's medieval renown."@en ;
+  .
+
+source_:4e11a236d58b
+  a schema:CreativeWork ;
+  schema:name "Aurel Stein, *Kalhana's Rajatarangini: A Chronicle of the Kings of Kashmir* (translation and topographical notes locating Sharada)."@en ;
+  .
+
+source_:4dd6426edb3e
+  a schema:CreativeWork ;
+  schema:name "Studies on the development of the *Sharada* script and Sanskrit manuscript culture in Kashmir."@en ;
+  .
+
+source_:05309119d4d9
+  a schema:CreativeWork ;
+  schema:name "Adi Shankara's hymns enumerating the eighteen *Maha Shakti Peethas*."@en ;
+  .
+
+source_:3ddf18d9bf1b
+  a schema:CreativeWork ;
+  schema:name "Contemporary heritage and press coverage of conservation appeals and the Sharada corridor initiative (Kashmir press; Indian and Pakistani media)."@en ;
+  .
+
+source_:d29ac93c8775
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Qadiri order in the Punjab."@en ;
+  .
+
+source_:5efbfe24902f
+  a schema:CreativeWork ;
+  schema:name "*The Friday Times*, \"Mansehra's Shiv temple\"."@en ;
+  .
+
+source_:9e90db6e6cd6
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Mansehra Shiva Temple\" and \"Chitti Gatti\" (with cited sources)."@en ;
+  .
+
+source_:30c8a10ee18e
+  a schema:CreativeWork ;
+  schema:name "Reports in *Dawn* and *The Express Tribune* on the reopening and restoration of the temple."@en ;
+  .
+
+source_:4e70ef3376f1
+  a schema:CreativeWork ;
+  schema:name "Reema Abbasi, *Historic Temples in Pakistan: A Call to Conscience* (Niyogi Books)."@en ;
+  .
+
+source_:6bace31df01c
+  a schema:CreativeWork ;
+  schema:name "*Dawn* and *The Express Tribune*, reports on the Ratneshwar Mahadev Temple and the 2014 Supreme Court order."@en ;
+  .
+
+source_:5b475ddfbe01
+  a schema:CreativeWork ;
+  schema:name "Habib University Ethnography Lab, field documentation of the Shree Ratneshwar Mahadev Temple."@en ;
+  .
+
+source_:a2d41f06336d
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Shree Ratneshwar Mahadev Temple, Karachi\" and \"Jehangir Kothari Parade\" (with cited sources)."@en ;
+  .
+
+source_:c6747cca9d6b
+  a schema:CreativeWork ;
+  schema:name "*Dawn*, reports on the Shri Laxmi Narayan Mandir and the 2012 Sindh High Court order."@en ;
+  .
+
+source_:fd775f2596aa
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Shri Laxmi Narayan Mandir\" (Karachi) (with cited sources)."@en ;
+  .
+
+source_:4684faac0397
+  a schema:CreativeWork ;
+  schema:name "Reema Abbasi, *Historic Temples in Pakistan: A Call to Conscience* (Niyogi Books), for Karachi's Hindu shrines."@en ;
+  .
+
+source_:7def32effd8e
+  a schema:CreativeWork ;
+  schema:name "*The Rāmāyaṇa* of Valmiki (for the traditions of Hanuman and Rama's exile)."@en ;
+  .
+
+source_:d675c8e045bf
+  a schema:CreativeWork ;
+  schema:name "Lutgendorf, Philip. *Hanuman's Tale: The Messages of a Divine Monkey*. Oxford University Press."@en ;
+  .
+
+source_:fb9b2148aa74
+  a schema:CreativeWork ;
+  schema:name "Contemporary press reporting (Arab News, Dawn, The Express Tribune) on the temple and the 2019 discoveries."@en ;
+  .
+
+source_:e498b21796ce
+  a schema:CreativeWork ;
+  schema:name "Sindh Cultural Heritage (Preservation) Act 1994 and related heritage listings."@en ;
+  .
+
+source_:0ffb47d094ca
+  a schema:CreativeWork ;
+  schema:name "Sir Ganga Ram Heritage Foundation documentation on Karachi's Hindu temples."@en ;
+  .
+
+source_:2101e93bc5c5
+  a schema:CreativeWork ;
+  schema:name "Williams, Raymond Brady. *An Introduction to Swaminarayan Hinduism*. Cambridge University Press."@en ;
+  .
+
+source_:1eb1e637b5c2
+  a schema:CreativeWork ;
+  schema:name "Markovits, Claude. *The Global World of Indian Merchants, 1750–1947*. Cambridge University Press."@en ;
+  .
+
+source_:0db4dad93e50
+  a schema:CreativeWork ;
+  schema:name "Government of Pakistan / Evacuee Trust Property Board records on functioning Hindu temples."@en ;
+  .
+
+source_:3f0dbc4c8d0b
+  a schema:CreativeWork ;
+  schema:name "Contemporary press reporting (Dawn, The Express Tribune) on Karachi's Hindu heritage and festivals."@en ;
+  .
+
+source_:c3c6fa20ebeb
+  a schema:CreativeWork ;
+  schema:name "Studies of Partition migration through the port of Karachi."@en ;
+  .
+
+source_:bc2f59372697
+  a schema:CreativeWork ;
+  schema:name "Cousens, Henry. *The Antiquities of Sindh, with Historical Outline*. Archaeological Survey of India."@en ;
+  .
+
+source_:13666acb8f03
+  a schema:CreativeWork ;
+  schema:name "Boivin, Michel. *Historical Dictionary of the Sufi Culture of Sindh* and related studies on Sindhi religion."@en ;
+  .
+
+source_:61a3e7f8037e
+  a schema:CreativeWork ;
+  schema:name "Contemporary press reporting (Dawn, Youlin Magazine, The Express Tribune) on Manora and its temple."@en ;
+  .
+
+source_:886d9e2e6149
+  a schema:CreativeWork ;
+  schema:name "Studies of the cult of Jhulelal and water-veneration among Sindhi Hindus."@en ;
+  .
+
+source_:74a12dedecc6
+  a schema:CreativeWork ;
+  schema:name "Heritage documentation of Manora Island and Karachi's endangered monuments."@en ;
+  .
+
+source_:847b42291725
+  a schema:CreativeWork ;
+  schema:name "\"Shrine at Odero Lal,\" in reference encyclopaedias, for the dual Hindu-Muslim character of the site."@en ;
+  .
+
+source_:54da55809198
+  a schema:CreativeWork ;
+  schema:name "Studies of the Jhulelal / Zinda Pir cult and Cheti Chand among Sindhi Hindus."@en ;
+  .
+
+source_:9bec61f20112
+  a schema:CreativeWork ;
+  schema:name "Reporting in *Dawn* and *Daily Times* on Udero Lal as a site of interfaith harmony."@en ;
+  .
+
+source_:52b7fa8195cd
+  a schema:CreativeWork ;
+  schema:name "Academic work on shared sacred spaces and river veneration in Sindh."@en ;
+  .
+
+source_:7b475d312b81
+  a schema:CreativeWork ;
+  schema:name "General established histories and traditions of Karachi's patron saint."@en ;
+  .
+
+source_:a11af7fef00f
+  a schema:CreativeWork ;
+  schema:name "Sayyid Abul Faiz Qalandar Ali Suhrawardi, *Jamal-e-Rasool* (Lahore: Oriental Publications) — the saint’s own devotional work in praise of the Prophet."@en ;
+  .
+
+source_:32a1fe9bbbc8
+  a schema:CreativeWork ;
+  schema:name "Professor Dilawar Khan, *Talzeem-e-Ala Hazrat: Hazrat Abul Faiz kī ‘Ilmī Khidmāt kā Mutāla‘a* — a study of the saint’s scholarship as a pupil of Ahmad Raza Khan."@en ;
+  .
+
+source_:04059c13aa91
+  a schema:CreativeWork ;
+  schema:name "*Darbar Abul Faiz Qalandari Gilani Soharwardi* — Urdu account of the shrine and lineage."@en ;
+  .
+
+source_:4979fde6e627
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Abul Faiz Qalandari responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:498f1cdad9f3
+  a schema:CreativeWork ;
+  schema:name "Academic study of Sufis and pre-colonial Muslim rulers of India (full citation to be confirmed from source PDF) — corroborates the Aurangzeb construction date."@en ;
+  .
+
+source_:25edc3619b63
+  a schema:CreativeWork ;
+  schema:name "Auqaf & Religious Affairs Department, Government of Punjab, \"Shrines\" (official shrine listing), https://auqaf.punjab.gov.pk/shrines, accessed 16 August 2026."@en ;
+  .
+
+source_:cee0bd42d332
+  a schema:CreativeWork ;
+  schema:name "Chughtai (Public) Library Digital Library, \"Historic Monuments of Lahore — Mughal Period — Shrine of Hazrat Shah Kamal,\" https://www.chughtailibrary.com/digital_library/place_detail.php?plc_id=35, accessed 16 August 2026."@en ;
+  .
+
+source_:154bf63434bb
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan, including Bahauddin Zakariya."@en ;
+  .
+
+source_:9cf20af00b48
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Suhrawardi order and of Multan."@en ;
+  .
+
+source_:285b13d4cd97
+  a schema:CreativeWork ;
+  schema:name "Pir Ghulam Dastgir Nami, *Bibian-e-Pak Daman* (Lahore: Idara Ma‘arif Nomania; first published 1372 AH / 1953)."@en ;
+  .
+
+source_:5dd3b14bd00e
+  a schema:CreativeWork ;
+  schema:name "Muhammad Ilyas Aadil, *Bibiyan Pakdamanan / Darbar Bibi Pak Daman* (Lahore)."@en ;
+  .
+
+source_:814236c62e66
+  a schema:CreativeWork ;
+  schema:name "Hafeez Ullah Manzar, *Hazrat Bibi Pak Damanan Lahore ki Tareekh*."@en ;
+  .
+
+source_:ac8d29b1624e
+  a schema:CreativeWork ;
+  schema:name "Maulvi Muhammad Bakhsh Shah Qureshi, *Tareekh-e-Bibiyan Pakdaman*."@en ;
+  .
+
+source_:91c62f347c50
+  a schema:CreativeWork ;
+  schema:name "Hafeez Ullah Khan Manzar, *Hazrat Bibi Pakdaman: Kaun Hain aur Kahan se Aain?* (Lahore: Idara Ziya-e-Adab)."@en ;
+  .
+
+source_:dbf7f1efae6d
+  a schema:CreativeWork ;
+  schema:name "Earlier works cited within the above: Mufti Ghulam Sarwar Lahori, *Hadiqat al-Auliya* and *Khazinat al-Asfiya*; *Tazkira-e-Hamidiya*; *Tuhfat al-Wasilin*; Rai Bahadur Kanhaiya Lal, *Tareekh-e-Lahore*; *Nuqoosh: Lahore Number*."@en ;
+  .
+
+source_:0a1a9b7b2daa
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Bibi Pak Daman responses (surveyor: Saifullah Imtiaz), 2026."@en ;
+  .
+
+source_:fae28cb651c8
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan, including Baba Farid."@en ;
+  .
+
+source_:7208bb3eaceb
+  a schema:CreativeWork ;
+  schema:name "Farid’s *shlokas* as preserved in the Guru Granth Sahib and in Punjabi tradition (verses quoted in standard published wording)."@en ;
+  .
+
+source_:b8f4e190b157
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Chishti order and of Pakpattan."@en ;
+  .
+
+source_:b0a8dd559505
+  a schema:CreativeWork ;
+  schema:name "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi (“Ganj-e-Inayat Sarkar”), *Kitab-us-Salat: Namaz, Durood aur Tasawwuf ki Barakat* (Lahore: Idara Punjabi Likhariyan, Shahdara) — the saint’s own work on prayer and the Sufi path."@en ;
+  .
+
+source_:b5f74f83976a
+  a schema:CreativeWork ;
+  schema:name "*Darbar Hazrat Ganj-e-Inayat Sarkar* — Urdu account of the saint and the shrine."@en ;
+  .
+
+source_:6f494ba9c573
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Ganj-e-Inayat Sarkar responses (surveyor: Saifullah Imtiaz), 2026."@en ;
+  .
+
+source_:5dd4770b6161
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan."@en ;
+  .
+
+source_:e98ef3663d2a
+  a schema:CreativeWork ;
+  schema:name "Shafqat Tanvir Mirza, *Shah Hussain* (Islamabad: Lok Virsa) — Urdu study of the saint’s life, teachers (Bahlol, Data’s darbar), contemporaries, and travels."@en ;
+  .
+
+source_:9e6f29fde727
+  a schema:CreativeWork ;
+  schema:name "*Kalam-e-Shah Hussain* (ed. Syed Babar Ali) — a collected edition of Shah Hussain’s Punjabi kafis."@en ;
+  .
+
+source_:3930f62be4a7
+  a schema:CreativeWork ;
+  schema:name "*Shah Husain* (Punjabi/Urdu study; from the project’s source collection)."@en ;
+  .
+
+source_:1414249cf33d
+  a schema:CreativeWork ;
+  schema:name "*Darbar Madho Lal Hussain* — Urdu account of the shrine and its history."@en ;
+  .
+
+source_:c637c65b7d95
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Darbar Madho Lal Hussain responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:7c8f97fc6950
+  a schema:CreativeWork ;
+  schema:name "Sana Jamal and Imran Adnan, \"Bids for conservation of tomb to open on November 18,\" *The Express Tribune*, 5 November 2019."@en ;
+  .
+
+source_:546eee5b56f3
+  a schema:CreativeWork ;
+  schema:name "\"Govt approves Rs30m to restore historic Multan site,\" *The Express Tribune*, 21 May 2019."@en ;
+  .
+
+source_:8a88cb1ba3b5
+  a schema:CreativeWork ;
+  schema:name "Directorate General of Archaeology, Government of Punjab, \"Tomb of Shah Ali Akbar & His Mother, Multan,\" https://archaeology.punjab.gov.pk/tomb_shahaliakbar, accessed 16 August 2026."@en ;
+  .
+
+source_:96175a5f07d9
+  a schema:CreativeWork ;
+  schema:name "M. Miles, \"The Chuas of Shah Daulah at Gujrat, Pakistan: Evidence, Historical Background and Development\" (survey with extensive bibliography of sources from 1839 onward), Independent Living Institute."@en ;
+  .
+
+source_:378e857de2c7
+  a schema:CreativeWork ;
+  schema:name "Katherine Pratt Ewing, *Arguing Sainthood: Modernity, Psychoanalysis, and Islam* (Duke University Press), on the shrine and its administration."@en ;
+  .
+
+source_:84bcbbd190b5
+  a schema:CreativeWork ;
+  schema:name "A. C. Elliott, *The Chronicles of Gujrat*, and the District Gazetteer of Gujrat, for local history."@en ;
+  .
+
+source_:6be1a1273797
+  a schema:CreativeWork ;
+  schema:name "Shahamat Ali, *The Sikhs and Afghans* (London, 1847), for the earliest printed notice of the *chuhas*."@en ;
+  .
+
+source_:2d2fb1e4e621
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, and general histories of Mughal-era Punjabi Sufism, for the life and cult of the saint."@en ;
+  .
+
+source_:8e27f12ced60
+  a schema:CreativeWork ;
+  schema:name "Ganesh Das Wadhera, *Chār Bāgh-i-Panjāb* (nineteenth-century Persian chronicle of the Punjab), for the disputed tenth-century account of the saint."@en ;
+  .
+
+source_:e434fe02d5e2
+  a schema:CreativeWork ;
+  schema:name "District Gazetteer of Sialkot (Punjab Government gazetteer series), for the local history and topography of the city and its shrines."@en ;
+  .
+
+source_:78c2288b0393
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, and comparable hagiographical compendia of the saints of Pakistan."@en ;
+  .
+
+source_:9bf5dd25ab9a
+  a schema:CreativeWork ;
+  schema:name "General studies of the Islamisation of the Punjab and of warrior-saint (*ghazi*/*shahid*) cults in South Asian Islam."@en ;
+  .
+
+source_:3311d822b0b8
+  a schema:CreativeWork ;
+  schema:name "Contemporary Pakistani press and local commemorative accounts of Imam Ali-ul-Haq (\"Imam Sahib\") and the *urs* held at his Sialkot shrine."@en ;
+  .
+
+source_:685e097eb0bb
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Suhrawardi order and of Uch Sharif."@en ;
+  .
+
+source_:94e993951ce2
+  a schema:CreativeWork ;
+  schema:name "Sindh Exploration and Adventure Society / EFT Sindh, *Heritage Sites of Sindh: District Jamshoro* (gazetteer of the district's shrines and monuments)."@en ;
+  .
+
+source_:ccbb9f7ac551
+  a schema:CreativeWork ;
+  schema:name "Ansari, Sarah F. D. *Sufi Saints and State Power: The Pirs of Sindh, 1843–1947.* Cambridge University Press, 1992."@en ;
+  .
+
+source_:c1505b524a1d
+  a schema:CreativeWork ;
+  schema:name "Schimmel, Annemarie. *Pearls from the Indus: Studies in Sindhi Culture.* Jamshoro: Sindhi Adabi Board, 1986."@en ;
+  .
+
+source_:ddfde8f37f0b
+  a schema:CreativeWork ;
+  schema:name "Boivin, Michel. *Historical Dictionary of the Sufi Culture of Sindh in Pakistan and India.* Karachi: Oxford University Press, 2015."@en ;
+  .
+
+source_:0f3a38c6549c
+  a schema:CreativeWork ;
+  schema:name "Zulfiqar Ali Kalhoro, \"Swamis and Sufis,\" *The Friday Times*, 28 September 2018."@en ;
+  .
+
+source_:0ca5e19759ca
+  a schema:CreativeWork ;
+  schema:name "\"'Armed attack' on Girhor Sharif custodian stirs sectarian unrest,\" *Dawn*, 10 June 2015."@en ;
+  .
+
+source_:81a654b12f83
+  a schema:CreativeWork ;
+  schema:name "Gyani Brahma Singh ‘Brahma’, *Hazrat Mian Mir and the Sufi Tradition* (Patiala: Publication Bureau, Punjabi University, 1994)."@en ;
+  .
+
+source_:8a09f740a2ca
+  a schema:CreativeWork ;
+  schema:name "Muhammad Dara Shikoh, *Sakīnat al-Auliyā* (Persian; the prince’s hagiography of Mian Mir and his circle)."@en ;
+  .
+
+source_:29502dbb789b
+  a schema:CreativeWork ;
+  schema:name "Komal Butter, “Emotions and Miracles: Folktales of the Mian Mir Shrine in Nineteenth-Century Lahore,” *Journal of the Punjab University Historical Society* 38:2 (2025)."@en ;
+  .
+
+source_:a1490099f004
+  a schema:CreativeWork ;
+  schema:name "Madanjit Kaur, *The Golden Temple: Past and Present* (referenced on the foundation-stone tradition)."@en ;
+  .
+
+source_:153ef8ead35f
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Mian Mir responses (surveyor: Muhammad Rizwan), 2026."@en ;
+  .
+
+source_:b9de6ea1885d
+  a schema:CreativeWork ;
+  schema:name "Salman Rashid, \"TRAVEL: Pir Chhatal's Mystical Fish,\" *Dawn*, 18 October 2020."@en ;
+  .
+
+source_:97cb781997f0
+  a schema:CreativeWork ;
+  schema:name "\"Culture & Heritage,\" Jhal Magsi District Government of Balochistan, archived 26 April 2025, http://web.archive.org/web/20250426101741/https://jhalmagsi.balochistan.gov.pk/culture-heritage/."@en ;
+  .
+
+source_:fac5ddc4aa3e
+  a schema:CreativeWork ;
+  schema:name "General established accounts of Mangho Pir, its crocodiles and springs, and the Sheedi community."@en ;
+  .
+
+source_:a050bca7b6fd
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Qadiri-Chishti tradition in modern Punjab."@en ;
+  .
+
+source_:6f2d84610779
+  a schema:CreativeWork ;
+  schema:name "Qalandar Baba Auliya, *Loh-o-Qalam* — the saint's principal work."@en ;
+  .
+
+source_:fbd333650c43
+  a schema:CreativeWork ;
+  schema:name "Established histories of the Azeemia Sufi order (and the writings of Khwaja Shamsuddin Azeemi)."@en ;
+  .
+
+source_:cad325874d6e
+  a schema:CreativeWork ;
+  schema:name "(This saint post-dates the Tazkirah Awliya-e-Pakistan compendium; entry based on established modern accounts.)"@en ;
+  .
+
+source_:8eb6e9702613
+  a schema:CreativeWork ;
+  schema:name "The collected poetry (*Risalo/Kalam*) of Sachal Sarmast in Sindhi and Seraiki."@en ;
+  .
+
+source_:97ad4b876617
+  a schema:CreativeWork ;
+  schema:name "General established histories of Sindhi Sufi poetry."@en ;
+  .
+
+source_:45f6b03645fb
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Shrine of Shah Inayat Qadiri responses (surveyor: Saifullah), 2026."@en ;
+  .
+
+source_:2b62dfcf5581
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan, including Shah Rukn-e-Alam."@en ;
+  .
+
+source_:c9bd9ee554b9
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Suhrawardi order and studies of the architecture of Multan."@en ;
+  .
+
+source_:66d435c68316
+  a schema:CreativeWork ;
+  schema:name "General established histories and legends of the saints of Multan."@en ;
+  .
+
+source_:4bd04a7d32f0
+  a schema:CreativeWork ;
+  schema:name "General established histories of Multan and its saints."@en ;
+  .
+
+source_:c4143388fe5a
+  a schema:CreativeWork ;
+  schema:name "General established histories of the Qadiri-Gilani sayyids of Multan."@en ;
+  .
+
+source_:0c01d32a0939
+  a schema:CreativeWork ;
+  schema:name "\"Tilla Jogian,\" in reference encyclopaedias, for the site's geography, history, and Nath associations."@en ;
+  .
+
+source_:a666a88a0b9c
+  a schema:CreativeWork ;
+  schema:name "*Jhelum District Gazetteer* and Salt Range surveys, for the monastic complex and its context."@en ;
+  .
+
+source_:c090b8ffc8e0
+  a schema:CreativeWork ;
+  schema:name "Waris Shah, *Heer* (eighteenth century), the classic Punjabi verse-romance featuring Ranjha's initiation at Tilla Jogian."@en ;
+  .
+
+source_:3c900943246d
+  a schema:CreativeWork ;
+  schema:name "Reporting in *Dawn* and heritage literature on the decay and endangerment of the Tilla Jogian complex."@en ;
+  .
+
+source_:7e5affaa77d1
+  a schema:CreativeWork ;
+  schema:name "G. W. Briggs, *Gorakhnath and the Kanphata Yogis*, for the wider Nath ascetic tradition."@en ;
+  .
+
+source_:c268789f7b17
+  a schema:CreativeWork ;
+  schema:name "Muhammad Iqbal, *Kulliyat-e-Iqbal (Urdu)* — including *Bang-e-Dara* (1924), *Bal-e-Jibril* (1935), and *Zarb-e-Kalim* (1936)."@en ;
+  .
+
+source_:092abc4bd3eb
+  a schema:CreativeWork ;
+  schema:name "Muhammad Iqbal, Persian works: *Asrar-e-Khudi*, *Rumuz-e-Bekhudi*, *Payam-e-Mashriq*, and *Javid Nama*."@en ;
+  .
+
+source_:bfac75da5991
+  a schema:CreativeWork ;
+  schema:name "Muhammad Iqbal, *The Reconstruction of Religious Thought in Islam* (English lectures)."@en ;
+  .
+
+source_:c26d47ddf42a
+  a schema:CreativeWork ;
+  schema:name "Shrines Project field survey, Mazar-e-Iqbal responses (surveyor: Saifullah Imtiaz), 2026."@en ;
+  .
+
+source_:d0f0df38455d
+  a schema:CreativeWork ;
+  schema:name "For life and dates, standard biographies of Iqbal (the 2026 field survey preserves some variant dates, noted above)."@en ;
+  .
+
+source_:2a1ab364c7bd
+  a schema:CreativeWork ;
+  schema:name "UNESCO World Heritage Centre, \"Tomb of Bibi Jawindi, Baha'al-Halim and Ustead and the Tomb and Mosque of Jalaluddin Bukhari,\" Tentative Lists, Ref. 1883, submitted 30 January 2004 (Department of Archaeology and Museums, Government of Pakistan), https://whc.unesco.org/en/tentativelists/1883/."@en ;
+  .
+
+source_:f1cc1c9be576
+  a schema:CreativeWork ;
+  schema:name "\"Uch Sharif: where the shrine culture began,\" *Dawn*, 27 June 2011."@en ;
+  .
+
+source_:611b08bbfe59
+  a schema:CreativeWork ;
+  schema:name "\"Restoration of Uch Sharif tombs goes on,\" *Dawn*, 24 April 2025."@en ;
+  .
+
+source_:28df59c4f52c
+  a schema:CreativeWork ;
+  schema:name "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan (Bukhari line of Uch)."@en ;
+  .
+
+source_:9d94f7dfe1ea
+  a schema:CreativeWork ;
+  schema:name "General established histories and heritage/conservation studies of the monuments of Uch Sharif."@en ;
+  .
+
+source_:d9dde2f53dd6
+  a schema:CreativeWork ;
+  schema:name "Directorate General of Archaeology, Government of Punjab, \"Tomb of Qutb-ud-Din Aibak, Anarkali Bazar Lahore,\" https://archaeology.punjab.gov.pk/qutbuddin_aibak."@en ;
+  .
+
+source_:798e5e84d048
+  a schema:CreativeWork ;
+  schema:name "Majid Sheikh, \"Harking Back: The once 'mud' grave of slave Sultan Aibak,\" *Dawn*, 24 August 2025."@en ;
+  .
+
+source_:169861dd877e
+  a schema:CreativeWork ;
+  schema:name "Majid Sheikh, \"Harking back: Massive graveyard that Aibak envisaged,\" *Dawn*, 2 June 2024."@en ;
+  .
+
+source_:4c66b90776ae
+  a schema:CreativeWork ;
+  schema:name "Dr Syed Talha Shah, \"Qutbuddin Aibak: The forgotten tomb of a slave sultan,\" *Daily Times*, 23 December 2018."@en ;
+  .
+
+source_:6c1f60e40df4
+  a schema:CreativeWork ;
+  schema:name "Nusrat Bibi, \"The Land of Saints Uch Sharif\" [section: \"Ustad Nuriya Tomb Monument Complex\"], *International Journal of Scientific and Research Publications*, Vol. 11, Issue 10 (October 2021), p. 282."@en ;
+  .
+
+source_:87b1e3e7975c
+  a schema:CreativeWork ;
+  schema:name "Directorate General of Archaeology, Government of Punjab, \"Religious Monuments,\" https://archaeology.punjab.gov.pk/religious_monuments, accessed 16 August 2026."@en ;
+  .
+
+source_:f783f1305b42
+  a schema:CreativeWork ;
+  schema:name "Raikes, S. N. *Memoir on the Thurr and Parkur Districts of Sindh*."@en ;
+  .
+
+source_:81ba5eb3eba9
+  a schema:CreativeWork ;
+  schema:name "Contemporary press reporting (Dawn, \"The thriving Shiva festival in Umarkot\") on Maha Shivaratri at the temple."@en ;
+  .
+
+source_:bdb3818e4310
+  a schema:CreativeWork ;
+  schema:name "Studies of Hindu communities and pilgrimage in modern Sindh."@en ;
+  .
+
+source_:6f21cfb141af
+  a schema:CreativeWork ;
+  schema:name "Local histories of Umarkot (Amarkot) and the birth of Akbar."@en ;
+  .
+
+source_:fdf6af5d4004
+  a schema:CreativeWork ;
+  schema:name "*Dawn*, \"Harking Back: Valmiki's temple could be Lahore's oldest structure\"."@en ;
+  .
+
+source_:de3489e64b11
+  a schema:CreativeWork ;
+  schema:name "*Dawn*, \"Valmikis converge on Lahore temple 'after 20 years'\"."@en ;
+  .
+
+source_:da1ad0c1e6da
+  a schema:CreativeWork ;
+  schema:name "*The Express Tribune*, \"Nila Gumbad Mandar: The story of a temple\"."@en ;
+  .
+
+source_:5d03ddcc1037
+  a schema:CreativeWork ;
+  schema:name "Wikipedia, \"Valmiki Mandir\" and \"List of temples in Lahore\" (with cited sources)."@en ;
+  .
+
+source_:cdcdb4fa04d9
+  a schema:CreativeWork ;
+  schema:name "Reporting of the Pakistan Hindu Council and Evacuee Trust Property Board on functioning temples in Lahore."@en ;
+  .
+
+source_:2f32889ff5bf
+  a schema:CreativeWork ;
+  schema:name "Shiraz Hassan, \"Historic temple's days may be numbered,\" *Dawn*, 28 August 2014."@en ;
+  .
+
+source_:f7652afe83d7
+  a schema:CreativeWork ;
+  schema:name "Uroosa Jadoon, \"'No temple of their own': Islamabad's Hindus still wait for promised place of worship,\" *Arab News*, 29 August 2025."@en ;
+  .
+
+source_:bc9881734ca9
+  a schema:CreativeWork ;
+  schema:name "Family and community traditions (*shajra* and oral *tazkira*) of the Bukhari *sayyids* of Wadpagga Sharif, Peshawar."@en ;
+  .
+
+source_:c16f4ed5efe4
+  a schema:CreativeWork ;
+  schema:name "Studies of the Bukhari Suhrawardi lineage of Jalaluddin Surkh-Posh and Makhdoom Jahaniyan Jahangasht of Uch."@en ;
+  .
+
+source_:52a2937d3351
+  a schema:CreativeWork ;
+  schema:name "*Gazetteer of the Peshawar District* (colonial-era editions), for the villages and shrines around Peshawar."@en ;
+  .
+
+source_:78380956934d
+  a schema:CreativeWork ;
+  schema:name "General works on Sufi shrine culture and *sayyid* families in Khyber Pakhtunkhwa."@en ;
   .
 
 # ── Shrines ───────────────────────────────────────────────────────────────
@@ -4017,6 +6339,7 @@ The village contains tombs of more than one member of these *sayyid* households,
   ] ;
   schema:containedInPlace place:sialkot ;
   schema:about saint:pir-syed-muhammad-channan-shah-nuri ;
+  schema:citation source_:387e8ef241bd ;
   .
 
 shrine:amb-temples-amb-sharif
@@ -4060,6 +6383,10 @@ The Amb temples, with Katas Raj and Tilla Jogian, complete the great triad of Sa
   ] ;
   schema:containedInPlace place:khushab-district ;
   schema:about saint:shiva ;
+  schema:citation source_:5be939d956b0 ;
+  schema:citation source_:7af1292e490e ;
+  schema:citation source_:27ea5c7bc09f ;
+  schema:citation source_:cffd677dc6b5 ;
   .
 
 shrine:bari-imam
@@ -4099,6 +6426,8 @@ Bari Imam is the guardian saint of Pakistan’s capital region — a seventeenth
   ] ;
   schema:containedInPlace place:islamabad ;
   schema:about saint:bari-imam ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:c9072bfa43f1 ;
   .
 
 shrine:bhagnari-mandir
@@ -4143,6 +6472,10 @@ The Bhagnari Mandir is valued today less as a major pilgrimage centre than as a 
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:shiva ;
+  schema:citation source_:fdd412eb6719 ;
+  schema:citation source_:12d8030d4593 ;
+  schema:citation source_:6dcdcee6864d ;
+  schema:citation source_:61d053652ab3 ;
   .
 
 shrine:bhai-sant-thawan-das-mandir
@@ -4177,6 +6510,8 @@ What can be stated with confidence, on the strength of the Evacuee Trust Propert
   ] ;
   schema:containedInPlace place:mehar ;
   schema:about saint:bhai-sant-thawan-das ;
+  schema:citation source_:0e877a3184af ;
+  schema:citation source_:f164bc6033fb ;
   .
 
 shrine:bhai-waliram-darbar
@@ -4209,6 +6544,8 @@ A 2018 profile of the region's Nanakpanthi saints for *The Friday Times*, drawin
   ] ;
   schema:containedInPlace place:miro-khan-taluka ;
   schema:about saint:bhai-waliram ;
+  schema:citation source_:bcc90d29b508 ;
+  schema:citation source_:46aa61cbd803 ;
   .
 
 shrine:bhit-bhit-shah
@@ -4259,6 +6596,9 @@ Shah Abdul Latif Bhittai is at once the national poet of Sindh and one of the to
   ] ;
   schema:containedInPlace place:bhit ;
   schema:about saint:shah-abdul-latif-bhittai ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:ba473c49c51f ;
+  schema:citation source_:81daef888445 ;
   .
 
 shrine:chandragup-baba-chandragup
@@ -4299,6 +6639,11 @@ Press accounts of the pilgrimage add further devotional detail: an image of Shiv
   ] ;
   schema:containedInPlace place:lasbela-district ;
   schema:about saint:shiva ;
+  schema:citation source_:cc06aadd95f9 ;
+  schema:citation source_:6b100c6db014 ;
+  schema:citation source_:3d8672c1e02f ;
+  schema:citation source_:a78e3a7d5d57 ;
+  schema:citation source_:9ef85422f1fe ;
   .
 
 shrine:churrio-jabal-durga-mata-temple
@@ -4344,6 +6689,10 @@ Churrio Jabal Durga Mata Temple is a powerful emblem of the enduring Hindu life 
   ] ;
   schema:containedInPlace place:nagarparkar ;
   schema:about saint:goddess-durga ;
+  schema:citation source_:df5aac8a98b5 ;
+  schema:citation source_:1abe0c9d1a65 ;
+  schema:citation source_:71f9b020e35c ;
+  schema:citation source_:f88eef96a7b1 ;
   .
 
 shrine:darbar-abul-muali-qadri
@@ -4407,6 +6756,8 @@ A general compendium of Pakistani Sufi saints, consulted independently of the fi
   ] ;
   schema:containedInPlace place:district ;
   schema:about saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri ;
+  schema:citation source_:43479728f7a0 ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:darbar-ghamkol-sharif-zinda-pir
@@ -4434,6 +6785,8 @@ Independent scholarly confirmation for the core outline comes from the anthropol
   ] ;
   schema:containedInPlace place:near-kohat ;
   schema:about saint:khwaja-muhammad-qasim ;
+  schema:citation source_:fbd177313632 ;
+  schema:citation source_:8b0ab600484f ;
   .
 
 shrine:darbar-ghazi-ilm-din-shaheed
@@ -4493,6 +6846,8 @@ The survey states the shrine is managed by a body called the Ghazi Ilam Din Shah
   ] ;
   schema:containedInPlace place:lahore-the-field-survey-itself-locates-the-shrine-only-as-lahore-its-one-detail ;
   schema:about saint:ghazi-ilm-din-shaheed ;
+  schema:citation source_:5b6c0acc171c ;
+  schema:citation source_:49767fd55d99 ;
   .
 
 shrine:darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami
@@ -4549,6 +6904,7 @@ The shrine is maintained, per the survey, by his special disciples (*mureedeen-e
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami ;
+  schema:citation source_:d699025c24d2 ;
   .
 
 shrine:darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra
@@ -4588,6 +6944,8 @@ Khwaja Muhammad Sulaiman Taunsvi stands among the principal architects of the Ch
   ] ;
   schema:containedInPlace place:taunsa-sharif ;
   schema:about saint:khawaja-shah-muhammad-sulaiman-taunsvi ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:ab5850648bb4 ;
   .
 
 shrine:darbar-hazrat-tahir-bandagi-qadri
@@ -4654,6 +7012,7 @@ The shrine is overseen today by its Gaddi Nasheen (current custodians), with sev
   ] ;
   schema:containedInPlace place:lahore-per-the-field-survey ;
   schema:about saint:hazrat-tahir-bandagi-qadri ;
+  schema:citation source_:14a5d76f3b66 ;
   .
 
 shrine:darbar-malik-ahmad-ayaz
@@ -4708,6 +7067,7 @@ The shrine is under the supervision of the Department of Auqaf (Government Mehka
   ] ;
   schema:containedInPlace place:district ;
   schema:about saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore ;
+  schema:citation source_:a4718caf798d ;
   .
 
 shrine:darbar-sakhi-shah-chan-charagh
@@ -4753,6 +7113,10 @@ For the inhabitants of Rawalpindi, Shah Chan Charagh is not a remote historical 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:syed-sakhi-shah-chan-charagh ;
+  schema:citation source_:fc53973f1847 ;
+  schema:citation source_:0c975febe667 ;
+  schema:citation source_:b7b754ae5da4 ;
+  schema:citation source_:448785757ec5 ;
   .
 
 shrine:darbar-wasif-ali-wasif
@@ -4807,6 +7171,7 @@ The survey's answer on sect/spiritual lineage reads, verbatim: "Kandan Kabila, A
   ] ;
   schema:containedInPlace place:lahore-the-survey-gives-no-street-address ;
   schema:about saint:hazrat-wasif-ali-wasif-awan ;
+  schema:citation source_:2696d938f87e ;
   .
 
 shrine:dargah-roza-sufi-shah-inayat-shaheed
@@ -4846,6 +7211,8 @@ Sufi Shah Inayat Shaheed holds a singular place among the saints of Sindh — a 
   ] ;
   schema:containedInPlace place:sindh ;
   schema:about saint:sufi-shah-inayat-shaheed ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:0377661c8a23 ;
   .
 
 shrine:dargah-fateh-pur-sharif
@@ -4896,6 +7263,11 @@ Rakhyal Shah endures as one of Balochistan's most cherished mystic poets, and hi
   ] ;
   schema:containedInPlace place:gandawah-jhal-magsi-district ;
   schema:about saint:syed-rakhyal-shah-sufi-al-qadri ;
+  schema:citation source_:b7f08f14373d ;
+  schema:citation source_:74a25ad53ac6 ;
+  schema:citation source_:b8c284478f49 ;
+  schema:citation source_:969047947460 ;
+  schema:citation source_:386ebefbf7f4 ;
   .
 
 shrine:dargah-of-khwaja-muhammad-zaman-luari-sharif
@@ -4922,6 +7294,7 @@ A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-
   ] ;
   schema:containedInPlace place:shaheed-fazil-rahu-taluka ;
   schema:about saint:khwaja-muhammad-zaman-sultan-al-aulia ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
@@ -4948,6 +7321,7 @@ A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-
   ] ;
   schema:containedInPlace place:kingri-taluka ;
   schema:about saint:pir-syed-muhammad-rashid-shah-roze-dhani ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:dargah-pir-ratan-nath-jee
@@ -4994,6 +7368,11 @@ The survival of the Dargah Pir Ratan Nath is significant out of all proportion t
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:baba-pir-ratan-nath ;
+  schema:citation source_:4d0b501c86c0 ;
+  schema:citation source_:0e35b5a569d6 ;
+  schema:citation source_:d61de10d0954 ;
+  schema:citation source_:112c0ff2dbd1 ;
+  schema:citation source_:a71bade55b3d ;
   .
 
 shrine:darya-lal-mandir-darya-lal-sankat-mochan-mandir
@@ -5039,6 +7418,10 @@ The Darya Lal Mandir remains an active centre of worship for the Hindus of Karac
   ] ;
   schema:containedInPlace place:saddar-town ;
   schema:about saint:jhulelal-daryalal ;
+  schema:citation source_:cd8b2a8ab1e1 ;
+  schema:citation source_:06fe60ec25c0 ;
+  schema:citation source_:79d8503538dc ;
+  schema:citation source_:ac235ea4c0ae ;
   .
 
 shrine:data-darbar
@@ -5122,6 +7505,13 @@ No shrine stands closer to the heart of Lahore than Data Darbar, and few figures
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:data-ganj-bakhsh ;
+  schema:citation source_:3b3ca80b422d ;
+  schema:citation source_:c41cf97e4fb2 ;
+  schema:citation source_:6cbc8cdc7463 ;
+  schema:citation source_:cb33e6be2d51 ;
+  schema:citation source_:a4ea54487a6b ;
+  schema:citation source_:25690772aa5e ;
+  schema:citation source_:49ad0aeb36fe ;
   .
 
 shrine:eidgah-sharif
@@ -5168,6 +7558,11 @@ Eidgah Sharif illustrates a form of Sufism that is at once traditional and moder
   ] ;
   schema:containedInPlace place:rawalpindi ;
   schema:about saint:pir-abdul-ul-karim ;
+  schema:citation source_:9a1b4c4537a4 ;
+  schema:citation source_:0f759a5f8e7b ;
+  schema:citation source_:68a1374510d8 ;
+  schema:citation source_:62de8127e447 ;
+  schema:citation source_:96aa436aa023 ;
   .
 
 shrine:garh-maharaja-shorkot
@@ -5218,6 +7613,9 @@ Sultan Bahu ranks with Shah Hussain, Bulleh Shah, and Waris Shah among the immor
   ] ;
   schema:containedInPlace place:jhang ;
   schema:about saint:sultan-bahoo ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:fdf633d5f1a4 ;
+  schema:citation source_:1a41be362da0 ;
   .
 
 shrine:golra-sharif
@@ -5262,6 +7660,9 @@ Pir Meher Ali Shah stands among the towering figures of modern Sunni Sufism in S
   ] ;
   schema:containedInPlace place:islamabad ;
   schema:about saint:pir-meher-ali-shah ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:b03de6ef6534 ;
+  schema:citation source_:9f5705219998 ;
   .
 
 shrine:gorakhnath-goraknath-temple
@@ -5310,6 +7711,11 @@ The Gorakhnath Temple at Gor Khatri is at once a living place of Hindu worship a
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:guru-gorakhnath ;
+  schema:citation source_:b2ef28fbad6d ;
+  schema:citation source_:3fcaabf2821a ;
+  schema:citation source_:b600003c4893 ;
+  schema:citation source_:021a788597fb ;
+  schema:citation source_:67db2b838105 ;
   .
 
 shrine:gori-temple-gori-jo-mandar
@@ -5338,6 +7744,9 @@ A heritage-preservation survey by the Endowment Fund Trust for the Heritage of S
   ] ;
   schema:containedInPlace place:tharparkar-district ;
   schema:about saint:jain-temple-dedicated-to-parshvanatha ;
+  schema:citation source_:309a5ce2076c ;
+  schema:citation source_:8c67e1e3f6ec ;
+  schema:citation source_:963e48538a22 ;
   .
 
 shrine:gurdas-ram-mandir
@@ -5373,6 +7782,9 @@ Beyond its precise location and its listed (if disputed) functional status, noth
   ] ;
   schema:containedInPlace place:tehsil-mehar ;
   schema:about saint:sant-gurdas-ram ;
+  schema:citation source_:0e877a3184af ;
+  schema:citation source_:40d29fadae86 ;
+  schema:citation source_:38d453b6cb2d ;
   .
 
 shrine:gurdwara-babay-de-ber
@@ -5418,6 +7830,10 @@ Gurdwara Babay De Ber is one of several historic gurdwaras associated with Guru 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:9f9c20be9822 ;
+  schema:citation source_:b5547a09895e ;
+  schema:citation source_:d68becbaa1b0 ;
+  schema:citation source_:9719166cffb5 ;
   .
 
 shrine:gurdwara-babay-nanki
@@ -5464,6 +7880,10 @@ The veneration of Bebe Nanaki affirms the honoured place of women in the Sikh tr
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:bebe-nanaki ;
+  schema:citation source_:38503459e7c2 ;
+  schema:citation source_:26a8718e258a ;
+  schema:citation source_:3037d6b937fd ;
+  schema:citation source_:ceb23d3db0f9 ;
   .
 
 shrine:gurdwara-balila-sahib-bal-lila-sahib
@@ -5514,6 +7934,11 @@ Bal Lila Sahib endures as a tender counterpoint to the grander shrines of Sikhis
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:c7b960e21e2f ;
+  schema:citation source_:26a8718e258a ;
+  schema:citation source_:2db8ce266e73 ;
+  schema:citation source_:6c6d4305945e ;
+  schema:citation source_:6b5272654bc9 ;
   .
 
 shrine:gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore
@@ -5542,6 +7967,10 @@ Independent verification substantially corroborates and enriches this account. I
   ] ;
   schema:containedInPlace place:walled-city ;
   schema:about saint:guru-arjan-dev ;
+  schema:citation source_:84bc93d4c8ef ;
+  schema:citation source_:feda774f8af0 ;
+  schema:citation source_:43f8bd5b803f ;
+  schema:citation source_:3eab833e8170 ;
   .
 
 shrine:gurdwara-bhai-beba-singh
@@ -5588,6 +8017,10 @@ Gurdwara Bhai Biba Singh stands as one of the most tangible reminders of Peshawa
   ] ;
   schema:containedInPlace place:khyber-pakhtunkhwa ;
   schema:about saint:bhai-biba-singh ;
+  schema:citation source_:3037d6b937fd ;
+  schema:citation source_:c8ec1630677a ;
+  schema:citation source_:7e99e7baf657 ;
+  schema:citation source_:2c917233b17d ;
   .
 
 shrine:gurdwara-bhai-joga-singh
@@ -5629,6 +8062,10 @@ Gurdwara Bhai Joga Singh is a monument both to the reach of the Sikh empire, whi
   ] ;
   schema:containedInPlace place:kpk ;
   schema:about saint:bhai-joga-singh ;
+  schema:citation source_:96958ebe7c61 ;
+  schema:citation source_:e24b295be86f ;
+  schema:citation source_:54e395e9d81d ;
+  schema:citation source_:d7b90eccceed ;
   .
 
 shrine:gurdwara-chakki-sahib
@@ -5657,6 +8094,10 @@ Iqbal Qaiser's 1998 survey records that fourteen *ghumaon* of land remain attach
   ] ;
   schema:containedInPlace place:gujranwala-district ;
   schema:about saint:guru-nanak-dev-ji ;
+  schema:citation source_:7125812806e9 ;
+  schema:citation source_:3000015d5298 ;
+  schema:citation source_:37b45535702b ;
+  schema:citation source_:c3e5b218634a ;
   .
 
 shrine:gurdwara-chhevin-patshahi-chitti-gatti
@@ -5682,6 +8123,8 @@ This account rests on Iqbal Qaiser's 1998 survey, which describes the gurdwara a
   ] ;
   schema:containedInPlace place:near-mansehra ;
   schema:about saint:guru-hargobind ;
+  schema:citation source_:3cfeb087c8a3 ;
+  schema:citation source_:2f0d8bf17971 ;
   .
 
 shrine:gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
@@ -5707,6 +8150,8 @@ Iqbal Qaiser's 1998 survey adds that a refugee family from Ambala had settled in
   ] ;
   schema:containedInPlace place:near-barki ;
   schema:about saint:guru-hargobind ;
+  schema:citation source_:2da98a8e2ef1 ;
+  schema:citation source_:d83238c76c80 ;
   .
 
 shrine:gurdwara-chhevin-patshahi-mozang
@@ -5741,6 +8186,8 @@ Since Partition the gurdwara has been maintained, like most of Lahore's Sikh shr
   ] ;
   schema:containedInPlace place:mozang ;
   schema:about saint:guru-hargobind ;
+  schema:citation source_:2435073bcd46 ;
+  schema:citation source_:9f165d94d09a ;
   .
 
 shrine:gurdwara-choa-sahib
@@ -5768,6 +8215,10 @@ Iqbal Qaiser's 1998 survey adds that Maharaja Ranjit Singh endowed the shrine wi
   ] ;
   schema:containedInPlace place:near-dina ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:cd02086a3d60 ;
+  schema:citation source_:3f19a819af7a ;
+  schema:citation source_:6d12bd4c423e ;
+  schema:citation source_:4f488f99886e ;
   .
 
 shrine:gurdwara-chowmala-sahib
@@ -5798,6 +8249,8 @@ As with several of Lahore's smaller, intramural gurdwaras, Chowmala Sahib's post
   ] ;
   schema:containedInPlace place:inside-bhati-gate ;
   schema:about saint:guru-hargobind ;
+  schema:citation source_:78bbe1aeeb37 ;
+  schema:citation source_:a2b2733eaa24 ;
   .
 
 shrine:gurdwara-darbar-sahib-kartarpur
@@ -5852,6 +8305,11 @@ For Sikhs, Kartarpur is where their Guru laid down the pattern of a whole way of
   ] ;
   schema:containedInPlace place:shakargarh-tehsil ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:69537fc38447 ;
+  schema:citation source_:cdfd25546c96 ;
+  schema:citation source_:6600de3db291 ;
+  schema:citation source_:eae3f72f1534 ;
+  schema:citation source_:8788e8954396 ;
   .
 
 shrine:gurdwara-dash-mesh-pita
@@ -5887,6 +8345,9 @@ As with several of Sindh's smallest gurdwaras, what can be confirmed rests on th
   ] ;
   schema:containedInPlace place:sindh ;
   schema:about saint:guru-gobind-singh ;
+  schema:citation source_:607933c5b377 ;
+  schema:citation source_:8fe5ceaceeff ;
+  schema:citation source_:c72776a05867 ;
   .
 
 shrine:gurdwara-dera-sahib
@@ -5935,6 +8396,11 @@ The martyrdom of Guru Arjan altered the course of Sikh history. His son, Guru Ha
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-arjan-dev ;
+  schema:citation source_:6b1f7d0a1d0c ;
+  schema:citation source_:1b628a50cc53 ;
+  schema:citation source_:4db5dc8373a0 ;
+  schema:citation source_:72d678ec2b05 ;
+  schema:citation source_:b1be56c03ad8 ;
   .
 
 shrine:gurdwara-guru-ram-das-ji
@@ -5985,6 +8451,11 @@ For the Sikh community, Gurdwara Janam Asthan Guru Ram Das is doubly precious: i
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-ram-das ;
+  schema:citation source_:c7b960e21e2f ;
+  schema:citation source_:26a8718e258a ;
+  schema:citation source_:39fafb45e69a ;
+  schema:citation source_:0926198ae714 ;
+  schema:citation source_:6c6d4305945e ;
   .
 
 shrine:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi
@@ -6010,6 +8481,8 @@ Iqbal Qaiser's 1998 survey identifies Bhai Lalo as “a carpenter of *Getaura* c
   ] ;
   schema:containedInPlace place:gujranwala-district ;
   schema:about saint:guru-nanak-dev-ji-associated-with-bhai-lalo ;
+  schema:citation source_:0c36abd6317c ;
+  schema:citation source_:ae1c32a6cd9f ;
   .
 
 shrine:gurdwara-malji-sahib
@@ -6035,6 +8508,7 @@ A 1962 Department of Archaeology register independently confirms this as a real,
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:69e52b9f228e ;
   .
 
 shrine:gurdwara-panja-sahib
@@ -6083,6 +8557,11 @@ Since 1947 Panja Sahib has lain within Pakistan, cared for by the Evacuee Trust 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:a8e4f03bdf5d ;
+  schema:citation source_:b1b108ff4eaa ;
+  schema:citation source_:77f39ff147e5 ;
+  schema:citation source_:e5ce00a308f6 ;
+  schema:citation source_:e0613ec86e6c ;
   .
 
 shrine:gurdwara-panjvi-chati-patshahi
@@ -6123,6 +8602,10 @@ Since 1947 the gurdwara, like its neighbours, has stood without a local congrega
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-arjan-dev-and-guru-hargobind ;
+  schema:citation source_:f1b747c39d2b ;
+  schema:citation source_:7eebb5391dad ;
+  schema:citation source_:75da21a1f02a ;
+  schema:citation source_:4dcff029a9a8 ;
   .
 
 shrine:gurdwara-patshahi-chhevin-hadiara-lahore
@@ -6146,6 +8629,7 @@ shrine:gurdwara-patshahi-chhevin-hadiara-lahore
   ] ;
   schema:containedInPlace place:lahore-district ;
   schema:about saint:guru-hargobind ;
+  schema:citation source_:e8cf6d91ce21 ;
   .
 
 shrine:gurdwara-patti-sahib
@@ -6190,6 +8674,10 @@ Patti Sahib enshrines one of the tenderest and most characteristic of the Guru N
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:adb000572376 ;
+  schema:citation source_:e8707ab2f81a ;
+  schema:citation source_:03f62f7bb7fc ;
+  schema:citation source_:7c1833220c5b ;
   .
 
 shrine:gurdwara-pehli-patshahi-jind-pir-sukkur
@@ -6213,6 +8701,8 @@ shrine:gurdwara-pehli-patshahi-jind-pir-sukkur
   ] ;
   schema:containedInPlace place:sukkur ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:94bae9504a5a ;
+  schema:citation source_:ea2f47169578 ;
   .
 
 shrine:gurdwara-rori-sahib
@@ -6261,6 +8751,11 @@ Gurdwara Rori Sahib endures as a quiet monument to the earliest chapter of the S
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:a7a82553161c ;
+  schema:citation source_:1dd201be997e ;
+  schema:citation source_:95a8af56df3a ;
+  schema:citation source_:7ee22363b1b0 ;
+  schema:citation source_:2ca3afb32cdb ;
   .
 
 shrine:gurdwara-sach-khand-sahib
@@ -6301,6 +8796,10 @@ Some sources also describe a separate or possibly older Shikarpur site called Gu
   ] ;
   schema:containedInPlace place:sindh ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:c17ad132becf ;
+  schema:citation source_:e8fe0bb78f6e ;
+  schema:citation source_:70e57d0051d0 ;
+  schema:citation source_:607933c5b377 ;
   .
 
 shrine:gurdwara-sacha-sauda
@@ -6345,6 +8844,11 @@ Gurdwara Sacha Sauda enshrines a story that is, in miniature, the whole ethic of
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:a7a82553161c ;
+  schema:citation source_:95a8af56df3a ;
+  schema:citation source_:1dd201be997e ;
+  schema:citation source_:7ee22363b1b0 ;
+  schema:citation source_:bbb4c58f1bd9 ;
   .
 
 shrine:gurdwara-sahib-saidpur-guru-nanak-dev-ji
@@ -6369,6 +8873,8 @@ shrine:gurdwara-sahib-saidpur-guru-nanak-dev-ji
   ] ;
   schema:containedInPlace place:margalla-hills ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:199ff1a1af41 ;
+  schema:citation source_:97aac0fafffd ;
   .
 
 shrine:gurdwara-shaheed-bhai-taru-singh
@@ -6415,6 +8921,11 @@ The martyrdom of Bhai Taru Singh has become one of the defining stories of Sikh 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:bhai-taru ;
+  schema:citation source_:a7a82553161c ;
+  schema:citation source_:1dd201be997e ;
+  schema:citation source_:a68a5f3702c3 ;
+  schema:citation source_:df2bffee04be ;
+  schema:citation source_:032689ba6d64 ;
   .
 
 shrine:gurdwara-shaheed-ganj-singh-singhnian
@@ -6459,6 +8970,10 @@ In Sikh historical consciousness the martyrdoms at Lahore under Mir Mannu occupy
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:sikh-women-and-children-martyrs ;
+  schema:citation source_:8cbde8604227 ;
+  schema:citation source_:4dbfa7f7e358 ;
+  schema:citation source_:3037d6b937fd ;
+  schema:citation source_:26f6d153818d ;
   .
 
 shrine:gurdwara-singh-sabha
@@ -6503,6 +9018,10 @@ For the roughly two thousand Sikh families of Balochistan, the Gurdwara Singh Sa
   ] ;
   schema:containedInPlace place:balochistan ;
   schema:about saint:guru-granth-sahib-sikh-community ;
+  schema:citation source_:b9ad9c00f906 ;
+  schema:citation source_:1784def38da5 ;
+  schema:citation source_:1094ca6a696f ;
+  schema:citation source_:6f440ad363e9 ;
   .
 
 shrine:gurdwara-sri-kiara-sahib
@@ -6548,6 +9067,10 @@ Kiara Sahib is one of the cluster of gurdwaras that make Nankana Sahib the holie
   ] ;
   schema:containedInPlace place:nankana-sahib ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:4445be83286e ;
+  schema:citation source_:058b12978517 ;
+  schema:citation source_:ee9a7d2b2da0 ;
+  schema:citation source_:0cfcabb9fd08 ;
   .
 
 shrine:gurdwara-sri-tilganji-sahib
@@ -6570,6 +9093,7 @@ shrine:gurdwara-sri-tilganji-sahib
   ] ;
   schema:containedInPlace place:quetta ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:c31bb371a7da ;
   .
 
 shrine:gurdwara-tambo-sahib
@@ -6610,6 +9134,10 @@ Since Partition in 1947 the resident Sikh community of Nankana Sahib has been go
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:6bf94b7f0bcd ;
+  schema:citation source_:799522894afd ;
+  schema:citation source_:60539217b3a0 ;
+  schema:citation source_:4dcff029a9a8 ;
   .
 
 shrine:guru-gurpat-mandir-db-80-sirey-ghat
@@ -6653,6 +9181,9 @@ Much of what is recorded here rests on the darbar's own community tradition as r
   ] ;
   schema:containedInPlace place:hyderabad ;
   schema:about saint:guru-gurpat ;
+  schema:citation source_:3b08917c568e ;
+  schema:citation source_:0e877a3184af ;
+  schema:citation source_:6f5d713e742a ;
   .
 
 shrine:gurudwara-janam-asthan-nankana-sahib
@@ -6701,6 +9232,11 @@ After the Partition of 1947, when the newly drawn border left Nankana Sahib with
   ] ;
   schema:containedInPlace place:nankana-sahib ;
   schema:about saint:guru-nanak ;
+  schema:citation source_:828018e1576b ;
+  schema:citation source_:4b8b79efc5ee ;
+  schema:citation source_:61ee418adf2b ;
+  schema:citation source_:27b3732fd64a ;
+  schema:citation source_:a21516f56d62 ;
   .
 
 shrine:jagannath-temple-sialkot
@@ -6740,6 +9276,9 @@ Much of what is reported about this temple circulates through a small number of 
   ] ;
   schema:containedInPlace place:mohallah-puran-nagar ;
   schema:about saint:lord-jagannath ;
+  schema:citation source_:636bf416e9b5 ;
+  schema:citation source_:6d526ca18098 ;
+  schema:citation source_:6ea9377a1091 ;
   .
 
 shrine:jain-mandir-lahore
@@ -6764,6 +9303,9 @@ shrine:jain-mandir-lahore
   ] ;
   schema:containedInPlace place:old-anarkali ;
   schema:about saint:jain-tirthankaras ;
+  schema:citation source_:b484e3bb868a ;
+  schema:citation source_:2fa33dd8813c ;
+  schema:citation source_:5c2ceabac45d ;
   .
 
 shrine:jhollay-lal-mandir
@@ -6807,6 +9349,9 @@ Documentation of the temple's founding date and building history is thin; what i
   ] ;
   schema:containedInPlace place:jodia-bazaar ;
   schema:about saint:jhulelal ;
+  schema:citation source_:aaef3e8f26e5 ;
+  schema:citation source_:55183d1feb42 ;
+  schema:citation source_:8703d44784a2 ;
   .
 
 shrine:kalat-kali-temple
@@ -6847,6 +9392,11 @@ Independent confirmation of the temple's antiquity comes from the colonial-era *
   ] ;
   schema:containedInPlace place:kalat ;
   schema:about saint:kali ;
+  schema:citation source_:b4da85ea9890 ;
+  schema:citation source_:47aa52a2ba78 ;
+  schema:citation source_:6fa0d3e43a86 ;
+  schema:citation source_:4993c402b604 ;
+  schema:citation source_:0b819270f6c3 ;
   .
 
 shrine:kali-bari-mandir
@@ -6891,6 +9441,10 @@ The Kali Bari Mandir stands as a quiet emblem of continuity in a city where Hind
   ] ;
   schema:containedInPlace place:khyber-pakhtunkhwa ;
   schema:about saint:goddess-kali ;
+  schema:citation source_:ceeffe1031a3 ;
+  schema:citation source_:add9dbabaab6 ;
+  schema:citation source_:a83ef74e776d ;
+  schema:citation source_:5e41a15dd0a3 ;
   .
 
 shrine:kalka-cave-temple-asthan-of-kalka-devi
@@ -6936,6 +9490,10 @@ As a living shrine of undoubted antiquity, the Kalka Devi Cave Temple is among t
   ] ;
   schema:containedInPlace place:sukkur-district ;
   schema:about saint:goddess-kali ;
+  schema:citation source_:5bdb12e02128 ;
+  schema:citation source_:dbd14c04b719 ;
+  schema:citation source_:69196a042d09 ;
+  schema:citation source_:f07363b21002 ;
   .
 
 shrine:katas-raj-temples
@@ -6988,6 +9546,11 @@ Today the Katas Raj Temples stand as one of the most significant surviving monum
   ] ;
   schema:containedInPlace place:chakwal-district ;
   schema:about saint:shiva ;
+  schema:citation source_:b69b85acc74f ;
+  schema:citation source_:cfe1df853f06 ;
+  schema:citation source_:748d86d6fd4a ;
+  schema:citation source_:d2ddd0192517 ;
+  schema:citation source_:4b2070f84002 ;
   .
 
 shrine:khatwari-darbar-shikarpur
@@ -7016,6 +9579,9 @@ Local tradition, as recorded by the anthropologist Zulfiqar Ali Kalhoro, adds a 
   ] ;
   schema:containedInPlace place:old-city ;
   schema:about saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh ;
+  schema:citation source_:d929dfce3336 ;
+  schema:citation source_:a15cad40188b ;
+  schema:citation source_:40bbfbeeacbf ;
   .
 
 shrine:krishna-mandir-kabari-bazar
@@ -7061,6 +9627,10 @@ The Krishna Mandir of Rawalpindi is a poignant survivor: a small Victorian-era s
   ] ;
   schema:containedInPlace place:rawalpindi ;
   schema:about saint:lord-krishna ;
+  schema:citation source_:cfa21ff30226 ;
+  schema:citation source_:a8f9efc29782 ;
+  schema:citation source_:62c1fd339b92 ;
+  schema:citation source_:a32593c33a4a ;
   .
 
 shrine:krishna-mandir-ravi-road
@@ -7106,6 +9676,10 @@ The Krishna Mandir on Ravi Road is significant less for its architecture than fo
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:lord-krishna ;
+  schema:citation source_:edd322c6e134 ;
+  schema:citation source_:5f1239310700 ;
+  schema:citation source_:62c1fd339b92 ;
+  schema:citation source_:8ceed5ca95fc ;
   .
 
 shrine:lal-kurti-temple-balmiki-mandir-rawalpindi
@@ -7136,6 +9710,12 @@ As of 2025, more than 60 Hindus were reported to live in the immediate Lal Kurti
   ] ;
   schema:containedInPlace place:rawalpindi-cantonment ;
   schema:about saint:valmiki ;
+  schema:citation source_:710d7099969f ;
+  schema:citation source_:ca2b27ebffed ;
+  schema:citation source_:8e018eb26a86 ;
+  schema:citation source_:3e993e750157 ;
+  schema:citation source_:984cce588ba2 ;
+  schema:citation source_:364116dbec52 ;
   .
 
 shrine:lal-shahbaz-qalandar
@@ -7192,6 +9772,9 @@ Lal Shahbaz Qalandar embodies the ecstatic, boundary-crossing pole of South Asia
   ] ;
   schema:containedInPlace place:jamshoro-district ;
   schema:about saint:lal-shahbaz-qalandar ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:62f0574dd9bd ;
+  schema:citation source_:ad041a40206c ;
   .
 
 shrine:langer-makhdoom
@@ -7240,6 +9823,11 @@ Langar Makhdoom is not among the grand shrines of the Punjab, and the sober hist
   ] ;
   schema:containedInPlace place:chiniot ;
   schema:about saint:makhdoom-burhan-ud-din ;
+  schema:citation source_:ce8e0b87a476 ;
+  schema:citation source_:536c16826303 ;
+  schema:citation source_:ac484ce2830d ;
+  schema:citation source_:4d58c4e39011 ;
+  schema:citation source_:cac9dd8b015e ;
   .
 
 shrine:loh-temple-lava-temple
@@ -7268,6 +9856,9 @@ Visiting in 2018, a Dawn correspondent found the then-unrestored temple littered
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:lava-son-of-rama-and-sita ;
+  schema:citation source_:a08a1083e51a ;
+  schema:citation source_:072dceca1b10 ;
+  schema:citation source_:a9c9d14cb452 ;
   .
 
 shrine:mausoleum-of-waris-shah
@@ -7318,6 +9909,9 @@ Waris Shah occupies a place in Punjabi culture that few poets hold in any langua
   ] ;
   schema:containedInPlace place:sheikhupura-district ;
   schema:about saint:waris-shah ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:1935e3549485 ;
+  schema:citation source_:7aeb603e0bcb ;
   .
 
 shrine:mazar-of-bulleh-shah
@@ -7376,6 +9970,9 @@ Bulleh Shah is, with Shah Hussain, Sultan Bahu, and Waris Shah, one of the pilla
   ] ;
   schema:containedInPlace place:kasur ;
   schema:about saint:bulleh-shah ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:a2103c3d9de4 ;
+  schema:citation source_:c86e6ffc7401 ;
   .
 
 shrine:mithankot-kot-mithan
@@ -7426,6 +10023,9 @@ Khwaja Ghulam Farid is to Seraiki what Bhittai is to Sindhi and Bulleh Shah to P
   ] ;
   schema:containedInPlace place:rajanpur ;
   schema:about saint:khwaja-ghulam-farid ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:a261e0d236eb ;
+  schema:citation source_:5699f49c7bb7 ;
   .
 
 shrine:mohra-sharif-khanqah
@@ -7454,6 +10054,9 @@ The khanqah's own historical account names the specific line of succession only 
   ] ;
   schema:containedInPlace place:murree-tehsil ;
   schema:about saint:khwaja-muhammad-qasim-sadiq ;
+  schema:citation source_:4d282ad746ab ;
+  schema:citation source_:8f9fa8000204 ;
+  schema:citation source_:7b565fb63f36 ;
   .
 
 shrine:nagarparkar-jain-temples-nagarparkar-cultural-landscape
@@ -7500,6 +10103,11 @@ The Nagarparkar temples endure as among the most important pre-Islamic monuments
   ] ;
   schema:containedInPlace place:nagarparkar ;
   schema:about saint:jain-tirthankaras ;
+  schema:citation source_:bf1d4529415e ;
+  schema:citation source_:6f13eac84fc0 ;
+  schema:citation source_:fa44bead1103 ;
+  schema:citation source_:25768c0ceb89 ;
+  schema:citation source_:58114a2c264c ;
   .
 
 shrine:panj-tirath
@@ -7544,6 +10152,10 @@ Panj Tirath is a witness to the deep and plural past of Peshawar — a city that
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:king-pandu ;
+  schema:citation source_:0e2d4c1c0b3f ;
+  schema:citation source_:23d760132f3a ;
+  schema:citation source_:635a86520782 ;
+  schema:citation source_:c32eab9666f3 ;
   .
 
 shrine:parnami-mandir
@@ -7589,6 +10201,10 @@ The Parnami temple of Malka Hans is a reminder that the religious map of the Pun
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:smadhi-of-dya-ram ;
+  schema:citation source_:22b74c8564ef ;
+  schema:citation source_:98aaa675e1cf ;
+  schema:citation source_:dbdceffa5e0f ;
+  schema:citation source_:40dd16c8dddc ;
   .
 
 shrine:prahladpuri-temple
@@ -7634,6 +10250,10 @@ The ruins of Prahladpuri remain among the most poignant of Pakistan's lost Hindu
   ] ;
   schema:containedInPlace place:multan ;
   schema:about saint:narasimha ;
+  schema:citation source_:911925b99e5d ;
+  schema:citation source_:e86040da1318 ;
+  schema:citation source_:7eff863b4486 ;
+  schema:citation source_:2ee84f682864 ;
   .
 
 shrine:purana-bhalwal
@@ -7678,6 +10298,10 @@ Shah Sulaiman Nuri belongs to the dense network of Qadiri and Chishti saints who
   ] ;
   schema:containedInPlace place:bhalwal ;
   schema:about saint:shah-sulaimn-nri ;
+  schema:citation source_:8ba5d8575838 ;
+  schema:citation source_:217297582fc7 ;
+  schema:citation source_:c679857653e1 ;
+  schema:citation source_:e9373b4bda71 ;
   .
 
 shrine:rahman-baba-mausoleum-rehman-baba-shrine
@@ -7725,6 +10349,9 @@ Rahman Baba stands to Pashto as Bhittai to Sindhi and Bulleh Shah to Punjabi: th
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:rahman-baba ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:a6b79aac7c32 ;
+  schema:citation source_:eb911502f8be ;
   .
 
 shrine:ram-mandir-saidpur-ram-kund-mandir
@@ -7751,6 +10378,8 @@ According to *Dawn*'s 2016 reporting, local memory also ties the site to the adj
   ] ;
   schema:containedInPlace place:margalla-hills ;
   schema:about saint:dedicated-to-lord-rama ;
+  schema:citation source_:a9652d0c0402 ;
+  schema:citation source_:7c756e942486 ;
   .
 
 shrine:ramapir-temple-tando-allahyar
@@ -7801,6 +10430,11 @@ The Ramapir Temple at Tando Allahyar is at once a major centre of Hindu pilgrima
   ] ;
   schema:containedInPlace place:tando-allahyar-district ;
   schema:about saint:ramdev-pir ;
+  schema:citation source_:fd82efc5a654 ;
+  schema:citation source_:997ff0e14476 ;
+  schema:citation source_:31d6d55afb19 ;
+  schema:citation source_:768aa2534496 ;
+  schema:citation source_:11d8faaa8f68 ;
   .
 
 shrine:ranmal-sharif
@@ -7840,6 +10474,8 @@ Syed Muhammad Noushah Ganj Bakhsh is remembered as the founder of the Naushahia 
   ] ;
   schema:containedInPlace place:phalia ;
   schema:about saint:syed-muhammad-noushah-qadiri ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:862d762304b3 ;
   .
 
 shrine:sadh-belo-sadh-belo-island-temple
@@ -7890,6 +10526,11 @@ Sadh Belo stands as a remarkable testament to Sindh's plural religious heritage 
   ] ;
   schema:containedInPlace place:near-sukkurrohri ;
   schema:about saint:baba-bankhandi-maharaj ;
+  schema:citation source_:1dbc67c9263a ;
+  schema:citation source_:7e9294d5acc1 ;
+  schema:citation source_:1a98b5549c8c ;
+  schema:citation source_:4ab74ac0d049 ;
+  schema:citation source_:18e624a15fae ;
   .
 
 shrine:sain-vali-vilayat-rai-darbar-kambar
@@ -7914,6 +10555,7 @@ According to a hagiographic account recorded by the anthropologist Zulfiqar Ali 
   ] ;
   schema:containedInPlace place:kambar-qambar-town ;
   schema:about saint:sain-vali-vilayat-rai ;
+  schema:citation source_:46aa61cbd803 ;
   .
 
 shrine:sakhi-sarwar
@@ -7953,6 +10595,8 @@ Sultan Sakhi Sarwar is remembered as one of the most widely venerated saints of 
   ] ;
   schema:containedInPlace place:dera-ghazi-khan ;
   schema:about saint:sultan-sakhi-sarwar ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:42ee3c429e54 ;
   .
 
 shrine:samadhi-of-maharaja-ranjit-singh
@@ -7979,6 +10623,8 @@ Modern scholarship has focused particular attention on the samadhi's ornamental 
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:maharaja-ranjit-singh ;
+  schema:citation source_:f50b8f7870f9 ;
+  schema:citation source_:a5e2ff1fb076 ;
   .
 
 shrine:sant-baba-asudaram-darbar-panno-aqil
@@ -8038,6 +10684,10 @@ The Partition of 1947 and subsequent migrations greatly reduced the Hindu popula
   ] ;
   schema:containedInPlace place:dadu ;
   schema:about saint:sant-baba-bhagat-ram ;
+  schema:citation source_:64c38f3b4a69 ;
+  schema:citation source_:679675e91ee5 ;
+  schema:citation source_:99d4c4fd627b ;
+  schema:citation source_:9710dfb3595d ;
   .
 
 shrine:sant-bhagat-kanwar-ram-temple-chak
@@ -8065,6 +10715,10 @@ The temple stands specifically in the Lakhi Ghulam Shah taluka of Shikarpur dist
   ] ;
   schema:containedInPlace place:shikarpur ;
   schema:about saint:bhagat-kanwar-ram ;
+  schema:citation source_:be6be7525574 ;
+  schema:citation source_:89033af652bb ;
+  schema:citation source_:1c5a7180ea60 ;
+  schema:citation source_:64aa3a2f97a3 ;
   .
 
 shrine:sant-satram-dham-raharki-sacho-satram-devri-sahib
@@ -8092,6 +10746,10 @@ According to *Dawn*'s 2012 reporting, the darbar forms a sprawling, multi-acre c
   ] ;
   schema:containedInPlace place:daharki-taluka ;
   schema:about saint:satguru-swami-sai-satramdas-sahib ;
+  schema:citation source_:a6b25ad10c9c ;
+  schema:citation source_:3bc90ba866b7 ;
+  schema:citation source_:5e4492283a5e ;
+  schema:citation source_:b316ab5b6693 ;
   .
 
 shrine:sevapanthi-darbar-bhai-gurdas-gandava
@@ -8116,6 +10774,9 @@ shrine:sevapanthi-darbar-bhai-gurdas-gandava
   ] ;
   schema:containedInPlace place:jhal-magsi-district ;
   schema:about saint:bhai-gurdas-veneration-of-guru-nanak ;
+  schema:citation source_:a15cad40188b ;
+  schema:citation source_:d929dfce3336 ;
+  schema:citation source_:4a1ad10a6062 ;
   .
 
 shrine:shah-noorani-shrine-syed-bilawal-shah-noorani
@@ -8155,6 +10816,8 @@ Shah Noorani stands among the great shrines of Balochistan and lower Sindh — a
   ] ;
   schema:containedInPlace place:khuzdar-district ;
   schema:about saint:syed-bilawal-shah-noorani ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:bb9ab76cb514 ;
   .
 
 shrine:shah-yousuf
@@ -8195,6 +10858,9 @@ Practically nothing has been published on the shrine's current physical form, cu
   ] ;
   schema:containedInPlace place:shahpur ;
   schema:about saint:shah-yousuf ;
+  schema:citation source_:5ccee079acd4 ;
+  schema:citation source_:3dd9540c3014 ;
+  schema:citation source_:f7e74894f8b6 ;
   .
 
 shrine:shahwala-teja-singh-mandir
@@ -8243,6 +10909,11 @@ The Shivala Teja Singh Temple endures as one of the most evocative Hindu monumen
   ] ;
   schema:containedInPlace place:sialkot ;
   schema:about saint:shiva ;
+  schema:citation source_:600d4bcdc013 ;
+  schema:citation source_:df0fd5f75d37 ;
+  schema:citation source_:ea14fb9baae4 ;
+  schema:citation source_:8263869272d0 ;
+  schema:citation source_:d07c338c0dde ;
   .
 
 shrine:shaktipeeth-shri-hinglaj-mata-mandir
@@ -8291,6 +10962,11 @@ Hinglaj Mata Mandir stands as the foremost living Hindu pilgrimage site in Pakis
   ] ;
   schema:containedInPlace place:road-asha-pura ;
   schema:about saint:hinglaj-mata ;
+  schema:citation source_:7eea271da628 ;
+  schema:citation source_:391c107f6ed0 ;
+  schema:citation source_:73ef704e3ec5 ;
+  schema:citation source_:030dd48e6664 ;
+  schema:citation source_:7861a985c4df ;
   .
 
 shrine:shamsabad
@@ -8339,6 +11015,11 @@ The darbar of Shams Ali Qalandar at Shamsabad is a reminder that the Sufi landsc
   ] ;
   schema:containedInPlace place:okara ;
   schema:about saint:shams-ali-qalandar ;
+  schema:citation source_:ad06772c3b9a ;
+  schema:citation source_:b1164ed6b04e ;
+  schema:citation source_:d76431bdeed5 ;
+  schema:citation source_:2dfc69dc7026 ;
+  schema:citation source_:841770ab2252 ;
   .
 
 shrine:sharada-peeth
@@ -8389,6 +11070,11 @@ Sharada Peeth endures as one of the most poignant and evocative sacred sites of 
   ] ;
   schema:containedInPlace place:neelum-valley-azad-kashmir ;
   schema:about saint:goddess-sharada ;
+  schema:citation source_:861850b1a0a7 ;
+  schema:citation source_:4e11a236d58b ;
+  schema:citation source_:4dd6426edb3e ;
+  schema:citation source_:05309119d4d9 ;
+  schema:citation source_:3ddf18d9bf1b ;
   .
 
 shrine:shergarh
@@ -8428,6 +11114,8 @@ Daud Bandagi Kirmani is remembered as one of the saints who firmly planted the Q
   ] ;
   schema:containedInPlace place:okara ;
   schema:about saint:daud-bandagi-kirmani ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:d29ac93c8775 ;
   .
 
 shrine:shiv-mandir-chiti-ghati
@@ -8473,6 +11161,10 @@ The Shiv Mandir of Chitti Gatti holds a special place among the Hindu shrines of
   ] ;
   schema:containedInPlace place:mansehra-district ;
   schema:about saint:shiva ;
+  schema:citation source_:5efbfe24902f ;
+  schema:citation source_:9e90db6e6cd6 ;
+  schema:citation source_:30c8a10ee18e ;
+  schema:citation source_:4e70ef3376f1 ;
   .
 
 shrine:shree-ratneshwar-mahadev-temple-karachi
@@ -8522,6 +11214,10 @@ The Shree Ratneshwar Mahadev Temple stands among the most evocative of Karachi's
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:shiva ;
+  schema:citation source_:6bace31df01c ;
+  schema:citation source_:5b475ddfbe01 ;
+  schema:citation source_:a2d41f06336d ;
+  schema:citation source_:4e70ef3376f1 ;
   .
 
 shrine:shri-laxmi-narayan-mandir-native-jetty-bridge
@@ -8567,6 +11263,10 @@ The Shri Laxmi Narayan Mandir endures as a small but singular monument: a living
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:lakshmi-narayan ;
+  schema:citation source_:c6747cca9d6b ;
+  schema:citation source_:cd8b2a8ab1e1 ;
+  schema:citation source_:fd775f2596aa ;
+  schema:citation source_:4684faac0397 ;
   .
 
 shrine:shri-panchmukhi-hanuman-mandir-karachi
@@ -8613,6 +11313,11 @@ The Shri Panchmukhi Hanuman Mandir occupies a singular place among the Hindu shr
   ] ;
   schema:containedInPlace place:karachi-east ;
   schema:about saint:lord-hanuman ;
+  schema:citation source_:7def32effd8e ;
+  schema:citation source_:d675c8e045bf ;
+  schema:citation source_:fb9b2148aa74 ;
+  schema:citation source_:e498b21796ce ;
+  schema:citation source_:0ffb47d094ca ;
   .
 
 shrine:shri-swaminarayan-mandir-karachi
@@ -8659,6 +11364,11 @@ Today the Shri Swaminarayan Mandir remains an active and well-attended temple, s
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:bhagwan-swaminarayan ;
+  schema:citation source_:2101e93bc5c5 ;
+  schema:citation source_:1eb1e637b5c2 ;
+  schema:citation source_:0db4dad93e50 ;
+  schema:citation source_:3f0dbc4c8d0b ;
+  schema:citation source_:c3c6fa20ebeb ;
   .
 
 shrine:shri-varun-dev-mandir
@@ -8705,6 +11415,11 @@ The Shri Varun Dev Mandir is a rare and poignant survival — a temple to the go
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:varuna ;
+  schema:citation source_:bc2f59372697 ;
+  schema:citation source_:13666acb8f03 ;
+  schema:citation source_:61a3e7f8037e ;
+  schema:citation source_:886d9e2e6149 ;
+  schema:citation source_:74a12dedecc6 ;
   .
 
 shrine:shrine-at-odero-lal-udero-lal-teerath-asthan
@@ -8746,6 +11461,10 @@ The shrine at Odero Lal has endured as a symbol of tolerance and common humanity
   ] ;
   schema:containedInPlace place:matiari-district ;
   schema:about saint:sheikh-tahir ;
+  schema:citation source_:847b42291725 ;
+  schema:citation source_:54da55809198 ;
+  schema:citation source_:9bec61f20112 ;
+  schema:citation source_:52b7fa8195cd ;
   .
 
 shrine:shrine-of-abdullah-shah-ghazi
@@ -8785,6 +11504,8 @@ Abdullah Shah Ghazi is the spiritual guardian of Karachi — a saint of the earl
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:abdullah-shah-ghazi ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:7b475d312b81 ;
   .
 
 shrine:shrine-of-abul-faiz-qalander-ali-suharwardi
@@ -8862,6 +11583,10 @@ Abul Faiz Qalandar Ali Gilani Suhrawardi stands as a bridge between the classica
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:abul-faiz-qalander-ali-suharwardi ;
+  schema:citation source_:a11af7fef00f ;
+  schema:citation source_:32a1fe9bbbc8 ;
+  schema:citation source_:04059c13aa91 ;
+  schema:citation source_:4979fde6e627 ;
   .
 
 shrine:shrine-of-akhund-darweza-baba
@@ -8887,6 +11612,7 @@ A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:akhund-darweza-baba ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-akhund-panju-baba
@@ -8916,6 +11642,7 @@ A general compendium of Pakistani Sufi saints separately records an "Akhund Panj
   ] ;
   schema:containedInPlace place:nowshera-district ;
   schema:about saint:hazrat-syed-abdul-wahab ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-baba-shah-chiragh
@@ -8947,6 +11674,8 @@ An independent English-language academic study of Sufis and pre-colonial Muslim 
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:syed-abdul-razzaq ;
+  schema:citation source_:78d2023e84a3 ;
+  schema:citation source_:498f1cdad9f3 ;
   .
 
 shrine:shrine-of-baba-shah-kamal
@@ -8970,6 +11699,8 @@ shrine:shrine-of-baba-shah-kamal
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:hazrat-baba-shah-kamal ;
+  schema:citation source_:25edc3619b63 ;
+  schema:citation source_:cee0bd42d332 ;
   .
 
 shrine:shrine-of-bahauddin-zakariya
@@ -9015,6 +11746,8 @@ Bahauddin Zakariya stands beside Baba Farid as one of the two founding fathers o
   ] ;
   schema:containedInPlace place:multan ;
   schema:about saint:bahauddin-zakariya ;
+  schema:citation source_:154bf63434bb ;
+  schema:citation source_:9cf20af00b48 ;
   .
 
 shrine:shrine-of-bibi-pak-daman
@@ -9105,6 +11838,13 @@ Whether one honours the six Bibis as women of the Prophet’s household who carr
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:bibi-pak-daman ;
+  schema:citation source_:285b13d4cd97 ;
+  schema:citation source_:5dd3b14bd00e ;
+  schema:citation source_:814236c62e66 ;
+  schema:citation source_:ac8d29b1624e ;
+  schema:citation source_:91c62f347c50 ;
+  schema:citation source_:dbf7f1efae6d ;
+  schema:citation source_:0a1a9b7b2daa ;
   .
 
 shrine:shrine-of-fariduddin-ganjshakar
@@ -9161,6 +11901,9 @@ For the people of the Punjab, Baba Farid is not a remote historical figure but a
   ] ;
   schema:containedInPlace place:pakpattan ;
   schema:about saint:fariduddin-ganjshakar ;
+  schema:citation source_:fae28cb651c8 ;
+  schema:citation source_:7208bb3eaceb ;
+  schema:citation source_:b8f4e190b157 ;
   .
 
 shrine:shrine-of-ganj-e-inayat-sarkar
@@ -9229,6 +11972,9 @@ The shrine of Ganj-e-Inayat Sarkar is a reminder that the making of saints and s
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:ganj-e-inayat-sarkar ;
+  schema:citation source_:b0a8dd559505 ;
+  schema:citation source_:b5f74f83976a ;
+  schema:citation source_:6f494ba9c573 ;
   .
 
 shrine:shrine-of-hafiz-muhammad-jamal-multani
@@ -9259,6 +12005,7 @@ A general compendium of Pakistani Sufi saints independently corroborates this en
   ] ;
   schema:containedInPlace place:outside-daulat-gate ;
   schema:about saint:hazrat-hafiz-muhammad-jamal-multani ;
+  schema:citation source_:5dd4770b6161 ;
   .
 
 shrine:shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar
@@ -9366,6 +12113,11 @@ Shah Hussain — Madho Lal Hussain — occupies a place all his own in the memor
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:shah-hussain ;
+  schema:citation source_:e98ef3663d2a ;
+  schema:citation source_:9e6f29fde727 ;
+  schema:citation source_:3930f62be4a7 ;
+  schema:citation source_:1414249cf33d ;
+  schema:citation source_:c637c65b7d95 ;
   .
 
 shrine:shrine-of-hazrat-muhammad-ayub-shah-bukhari
@@ -9388,6 +12140,7 @@ shrine:shrine-of-hazrat-muhammad-ayub-shah-bukhari
   ] ;
   schema:containedInPlace place:jhal-magsi-district ;
   schema:about saint:hazrat-muhammad-ayub-shah-bukhari ;
+  schema:citation source_:4a1ad10a6062 ;
   .
 
 shrine:shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi
@@ -9413,6 +12166,9 @@ shrine:shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi
   ] ;
   schema:containedInPlace place:multan ;
   schema:about saint:hazrat-shah-ali-akbar-shamsi ;
+  schema:citation source_:7c8f97fc6950 ;
+  schema:citation source_:546eee5b56f3 ;
+  schema:citation source_:8a88cb1ba3b5 ;
   .
 
 shrine:shrine-of-hazrat-shah-daula-daryai
@@ -9462,6 +12218,11 @@ Shah Daula Daryai is remembered in the Punjab as a saint of works and mercy, who
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:shah-daula-daryai ;
+  schema:citation source_:96175a5f07d9 ;
+  schema:citation source_:378e857de2c7 ;
+  schema:citation source_:84bcbbd190b5 ;
+  schema:citation source_:6be1a1273797 ;
+  schema:citation source_:2d2fb1e4e621 ;
   .
 
 shrine:shrine-of-imam-ali-ul-haq
@@ -9508,6 +12269,11 @@ Imam Ali-ul-Haq occupies a place in Sialkot comparable to that of a patron saint
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:imam-ali-ul-haq ;
+  schema:citation source_:8e27f12ced60 ;
+  schema:citation source_:e434fe02d5e2 ;
+  schema:citation source_:78c2288b0393 ;
+  schema:citation source_:9bf5dd25ab9a ;
+  schema:citation source_:3311d822b0b8 ;
   .
 
 shrine:shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari
@@ -9551,6 +12317,8 @@ Jalaluddin Surkh-Posh Bukhari holds a foundational place in the spiritual histor
   ] ;
   schema:containedInPlace place:bahawalpur-district ;
   schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:685e097eb0bb ;
   .
 
 shrine:shrine-of-lakhi-shah-saddar
@@ -9592,6 +12360,10 @@ Like most Sindhi dargahs, the shrine of Lakhi Shah Saddar is a place of continuo
   ] ;
   schema:containedInPlace place:near-sehwan-sharif ;
   schema:about saint:laki-shah-saddar ;
+  schema:citation source_:94e993951ce2 ;
+  schema:citation source_:ccbb9f7ac551 ;
+  schema:citation source_:c1505b524a1d ;
+  schema:citation source_:ddfde8f37f0b ;
   .
 
 shrine:shrine-of-makhdoom-abdul-rahim-girhori
@@ -9615,6 +12387,8 @@ shrine:shrine-of-makhdoom-abdul-rahim-girhori
   ] ;
   schema:containedInPlace place:near-pithoro ;
   schema:about saint:makhdoom-abdul-rahim-girhori ;
+  schema:citation source_:0f3a38c6549c ;
+  schema:citation source_:0ca5e19759ca ;
   .
 
 shrine:shrine-of-makhdoom-jahaniyan-jahangasht
@@ -9658,6 +12432,8 @@ Makhdoom Jahaniyan Jahangasht is remembered as one of the great Suhrawardi saint
   ] ;
   schema:containedInPlace place:bahawalpur-district ;
   schema:about saint:jahaniyan-jahangasht ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:685e097eb0bb ;
   .
 
 shrine:shrine-of-makhdoom-nooh-hala
@@ -9687,6 +12463,7 @@ A general compendium of Pakistani Sufi saints independently confirms his real na
   ] ;
   schema:containedInPlace place:matiari-district ;
   schema:about saint:makhdoom-nooh ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-mauj-darya-bukhari
@@ -9719,6 +12496,7 @@ The shrine remains one of scores of Lahore shrines administered by the Punjab Au
   ] ;
   schema:containedInPlace place:anarkali ;
   schema:about saint:hazrat-meeran-muhammad-shah-bukhari ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-mian-mir
@@ -9818,6 +12596,11 @@ Mian Mir stands in memory as the very type of the Sufi ideal: a man who owned no
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:mian-mir ;
+  schema:citation source_:81a654b12f83 ;
+  schema:citation source_:8a09f740a2ca ;
+  schema:citation source_:29502dbb789b ;
+  schema:citation source_:a1490099f004 ;
+  schema:citation source_:153ef8ead35f ;
   .
 
 shrine:shrine-of-mian-umar-baba-chamkani
@@ -9842,6 +12625,7 @@ shrine:shrine-of-mian-umar-baba-chamkani
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:mian-muhammad-umar-chamkani ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-miran-hussain-zanjani-zanjani-sahib
@@ -9868,6 +12652,7 @@ A substantial chapter devoted to the saint in Alam Faqri's *Tazkirah Awliya-e-Pa
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:syed-miran-hussain-zanjani ;
+  schema:citation source_:5dd4770b6161 ;
   .
 
 shrine:shrine-of-peer-makki
@@ -9896,6 +12681,7 @@ The shrine complex includes an adjoining mosque, the Hazrat Pir Makki Masjid, an
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini ;
+  schema:citation source_:5dd4770b6161 ;
   .
 
 shrine:shrine-of-pir-baba-syed-ali-tirmizi
@@ -9920,6 +12706,7 @@ shrine:shrine-of-pir-baba-syed-ali-tirmizi
   ] ;
   schema:containedInPlace place:buner-district ;
   schema:about saint:syed-ali-tirmizi ;
+  schema:citation source_:5dd4770b6161 ;
   .
 
 shrine:shrine-of-pir-chhatal-shah-noorani
@@ -9944,6 +12731,8 @@ shrine:shrine-of-pir-chhatal-shah-noorani
   ] ;
   schema:containedInPlace place:gandava-area ;
   schema:about saint:pir-chhatal-shah-noorani ;
+  schema:citation source_:b9de6ea1885d ;
+  schema:citation source_:97cb781997f0 ;
   .
 
 shrine:shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
@@ -9967,6 +12756,7 @@ shrine:shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
   ] ;
   schema:containedInPlace place:jhal-magsi-district ;
   schema:about saint:pir-lakha ;
+  schema:citation source_:97cb781997f0 ;
   .
 
 shrine:shrine-of-pir-mangho
@@ -10006,6 +12796,8 @@ Pir Mangho is unlike any other shrine in Pakistan — a place where Sufi devotio
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:pir-mangho ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:fac5ddc4aa3e ;
   .
 
 shrine:shrine-of-pir-sher-muhammad
@@ -10045,6 +12837,8 @@ Pir Sher Muhammad Sharaqpuri is remembered as one of the influential Sufi master
   ] ;
   schema:containedInPlace place:sharaqpur ;
   schema:about saint:pir-sher-muhammad ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:a050bca7b6fd ;
   .
 
 shrine:shrine-of-qalandar-baba-auliya
@@ -10085,6 +12879,9 @@ Qalandar Baba Auliya represents the continuation of the Sufi tradition into the 
   ] ;
   schema:containedInPlace place:karachi ;
   schema:about saint:qalandar-baba-auliya ;
+  schema:citation source_:6f2d84610779 ;
+  schema:citation source_:fbd333650c43 ;
+  schema:citation source_:cad325874d6e ;
   .
 
 shrine:shrine-of-sachal-sarmast
@@ -10129,6 +12926,9 @@ With Shah Abdul Latif Bhittai, Sachal Sarmast is one of the two great poet-saint
   ] ;
   schema:containedInPlace place:khairpur ;
   schema:about saint:sachal-sarmast ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:8eb6e9702613 ;
+  schema:citation source_:97ad4b876617 ;
   .
 
 shrine:shrine-of-shah-abdul-karim-bulri
@@ -10153,6 +12953,7 @@ shrine:shrine-of-shah-abdul-karim-bulri
   ] ;
   schema:containedInPlace place:tando-muhammad-khan-district ;
   schema:about saint:shah-abdul-karim-bulri ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-shah-inayat-qadiri
@@ -10199,6 +13000,7 @@ His shrine, with its adjoining mosque, remains an active site of pilgrimage. The
   ] ;
   schema:containedInPlace place:queens-road ;
   schema:about saint:shah-inayat-qadiri ;
+  schema:citation source_:45f6b03645fb ;
   .
 
 shrine:shrine-of-shah-jamal
@@ -10231,6 +13033,7 @@ The tomb itself is enclosed within a mosque of relatively modern construction, s
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:syed-shah-jamal-uddin-naqvi-bukhari ;
+  schema:citation source_:78d2023e84a3 ;
   .
 
 shrine:shrine-of-shah-rukn-e-alam
@@ -10270,6 +13073,8 @@ Shah Rukn-e-Alam’s shrine is a centre of continuous devotion, thronged by pilg
   ] ;
   schema:containedInPlace place:multan ;
   schema:about saint:shah-rukn-e-alam ;
+  schema:citation source_:2b62dfcf5581 ;
+  schema:citation source_:c9bd9ee554b9 ;
   .
 
 shrine:shrine-of-shah-shams-ud-din-sabzwari
@@ -10309,6 +13114,8 @@ Shah Shams Sabzwari endures in memory as one of the great wonder-working saints 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:shah-shams-ud-din-sabzwari ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:66d435c68316 ;
   .
 
 shrine:shrine-of-shah-yusaf-gardez
@@ -10348,6 +13155,8 @@ Shah Yusuf Gardez holds an honoured place as one of the earliest saints of Multa
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:shah-yusaf-gardez ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:4bd04a7d32f0 ;
   .
 
 shrine:shrine-of-syed-musa-pak
@@ -10387,6 +13196,8 @@ Syed Musa Pak Shaheed is remembered as a chief bearer of the Qadiri order in Mul
   ] ;
   schema:containedInPlace place:multan ;
   schema:about saint:syed-musa-pak ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:c4143388fe5a ;
   .
 
 shrine:sial-sharif
@@ -10426,6 +13237,8 @@ Khwaja Shamsuddin Sialvi holds an important place in the Chishti revival of nine
   ] ;
   schema:containedInPlace place:sial-sharif-sargodha-district ;
   schema:about saint:muhammad-shamsuddin-sialvi ;
+  schema:citation source_:39b56f78b1c1 ;
+  schema:citation source_:ab5850648bb4 ;
   .
 
 shrine:swami-dharmdas-darbar-larkana-kennedy-market
@@ -10449,6 +13262,7 @@ shrine:swami-dharmdas-darbar-larkana-kennedy-market
   ] ;
   schema:containedInPlace place:larkana ;
   schema:about saint:swami-dharmdas ;
+  schema:citation source_:46aa61cbd803 ;
   .
 
 shrine:tilla-jogian
@@ -10497,6 +13311,11 @@ Tilla Jogian gathers into one windswept hilltop several of the great strands of 
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-gorakhnath ;
+  schema:citation source_:0c01d32a0939 ;
+  schema:citation source_:a666a88a0b9c ;
+  schema:citation source_:c090b8ffc8e0 ;
+  schema:citation source_:3c900943246d ;
+  schema:citation source_:7e5affaa77d1 ;
   .
 
 shrine:tomb-of-allama-iqbal-mazar-e-iqbal
@@ -10643,6 +13462,11 @@ More than a grave, Mazar-e-Iqbal is a meeting-place of literature, faith, and na
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:allama-muhammad-iqbal ;
+  schema:citation source_:c268789f7b17 ;
+  schema:citation source_:092abc4bd3eb ;
+  schema:citation source_:bfac75da5991 ;
+  schema:citation source_:c26d47ddf42a ;
+  schema:citation source_:d0f0df38455d ;
   .
 
 shrine:tomb-of-bahaal-halim-uch-sharif
@@ -10669,6 +13493,9 @@ shrine:tomb-of-bahaal-halim-uch-sharif
   ] ;
   schema:containedInPlace place:bahawalpur-district ;
   schema:about saint:hazrat-bahaal-halim ;
+  schema:citation source_:2a1ab364c7bd ;
+  schema:citation source_:f1cc1c9be576 ;
+  schema:citation source_:611b08bbfe59 ;
   .
 
 shrine:tomb-of-javindi-bibi
@@ -10708,6 +13535,8 @@ As the resting place of a holy woman of the revered Bukhari line, Bibi Jawindi�
   ] ;
   schema:containedInPlace place:uch-sharif ;
   schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  schema:citation source_:28df59c4f52c ;
+  schema:citation source_:9d94f7dfe1ea ;
   .
 
 shrine:tomb-of-qutbuddin-aibak
@@ -10735,6 +13564,10 @@ shrine:tomb-of-qutbuddin-aibak
   ] ;
   schema:containedInPlace place:anarkali ;
   schema:about saint:sultan-qutb-ud-din-aibak ;
+  schema:citation source_:d9dde2f53dd6 ;
+  schema:citation source_:798e5e84d048 ;
+  schema:citation source_:169861dd877e ;
+  schema:citation source_:4c66b90776ae ;
   .
 
 shrine:tomb-of-ustad-nuriya
@@ -10761,6 +13594,8 @@ An academic study of the Uch Sharif funerary complex places the tomb specificall
   ] ;
   schema:containedInPlace place:uch-sharif ;
   schema:about saint:ustad-nuriya ;
+  schema:citation source_:6c1f60e40df4 ;
+  schema:citation source_:87b1e3e7975c ;
   .
 
 shrine:umarkot-amarkot-shiv-mandir
@@ -10807,6 +13642,11 @@ The Umarkot Shiv Mandir is far more than an ancient building; it is a beating he
   ] ;
   schema:containedInPlace place:sindh ;
   schema:about saint:shiva ;
+  schema:citation source_:bc2f59372697 ;
+  schema:citation source_:f783f1305b42 ;
+  schema:citation source_:81ba5eb3eba9 ;
+  schema:citation source_:bdb3818e4310 ;
+  schema:citation source_:6f21cfb141af ;
   .
 
 shrine:valmik-mandir-naqi-road
@@ -10852,6 +13692,11 @@ For a city whose Hindu heritage survives largely in ruined *havelis*, disused sh
   ] ;
   schema:containedInPlace place:lahore ;
   schema:about saint:bhagwan-valmik ;
+  schema:citation source_:fdf6af5d4004 ;
+  schema:citation source_:de3489e64b11 ;
+  schema:citation source_:da1ad0c1e6da ;
+  schema:citation source_:5d03ddcc1037 ;
+  schema:citation source_:cdcdb4fa04d9 ;
   .
 
 shrine:valmiki-swamiji-mandir-gracy-lines-rawalpindi
@@ -10880,6 +13725,11 @@ Reporting on the temple's more recent history, profiles in *Dawn* and *Arab News
   ] ;
   schema:containedInPlace place:chaklala-cantonment ;
   schema:about saint:valmiki ;
+  schema:citation source_:2f32889ff5bf ;
+  schema:citation source_:f7652afe83d7 ;
+  schema:citation source_:364116dbec52 ;
+  schema:citation source_:8e018eb26a86 ;
+  schema:citation source_:984cce588ba2 ;
   .
 
 shrine:wadpagga-sharif
@@ -10921,6 +13771,10 @@ Wadpagga Sharif is a characteristic example of the smaller sacred places that st
   ] ;
   schema:containedInPlace place:peshawar ;
   schema:about saint:ghazi-syed-shah-fateh-muhammad-bukhari ;
+  schema:citation source_:bc9881734ca9 ;
+  schema:citation source_:c16f4ed5efe4 ;
+  schema:citation source_:52a2937d3351 ;
+  schema:citation source_:78380956934d ;
   .
 
 shrine:ziarat-kaka-sahib
@@ -10944,4 +13798,5 @@ shrine:ziarat-kaka-sahib
   ] ;
   schema:containedInPlace place:nowshera-district ;
   schema:about saint:kaka-sahib ;
+  schema:citation source_:5dd4770b6161 ;
   .

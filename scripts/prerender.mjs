@@ -229,6 +229,16 @@ function buildShrineHead(shrine, baseHtml) {
       : {}),
   }));
 
+  /* The citation verbatim, as `CreativeWork.name`: it is the exact string a
+     reader needs to find the source, and it is deliberately unsplit — parsing a
+     bibliography line into author/title/publisher takes a parser for a dozen
+     house styles, and a wrong split loses the reader that string. */
+  const citationNodes = (kgEntry?.sources ?? []).map((s) => ({
+    '@type': 'CreativeWork',
+    '@id': `${KG_BASE}source/${s.id.replace(/^source:/, '')}`,
+    name: s.name,
+  }));
+
   const shrineId = canonicalUrl || `${KG_BASE}shrine/${slug}`;
 
   const jsonLd = JSON.stringify({
@@ -249,6 +259,7 @@ function buildShrineHead(shrine, baseHtml) {
     ...(category ? { additionalType: category } : {}),
     ...(aboutNode ? { about: aboutNode } : {}),
     ...(eventNodes.length ? { event: eventNodes } : {}),
+    ...(citationNodes.length ? { citation: citationNodes } : {}),
     ...(founded ? { foundingDate: founded } : {}),
     ...(imgUrl ? { image: imgUrl } : {}),
     ...(canonicalUrl ? { url: canonicalUrl } : {}),
@@ -447,11 +458,18 @@ function withSocialImage(html, url, alt) {
 
 // ── KG lookup: shrine slug → { saint, order, events } ─────────────────────
 let kgData = null;
+let sourceLayer = { sources: [], attestations: [] };
 const kgByShrineSlug = new Map();
 const kgPath = join(ROOT, 'data', 'kg.json');
 if (existsSync(kgPath)) {
   try {
     kgData = JSON.parse(readFileSync(kgPath, 'utf8'));
+    const sourcesPath = join(ROOT, 'data', 'kg-sources.json');
+    /* Beside kg.json, not in it — the browser imports the graph statically and
+       464 source nodes there are 169 KB of eager JS for data no page renders. */
+    sourceLayer = existsSync(sourcesPath)
+      ? JSON.parse(readFileSync(sourcesPath, 'utf8'))
+      : { sources: [], attestations: [] };
     const saintMap = new Map(kgData.saints.map((s) => [s.id, s]));
     const orderMap = new Map(kgData.orders.map((o) => [o.id, o]));
     const relByShrineSlug = new Map();
@@ -469,7 +487,33 @@ if (existsSync(kgPath)) {
         : null;
       const order = orderRel ? orderMap.get(orderRel.object) : null;
       const events = kgData.events.filter((e) => e.shrineSlug === shrineSlug);
-      kgByShrineSlug.set(shrineSlug, { saint, order, events });
+      /* What the entry rests on. The graph's source layer was empty until
+         24 August 2026, so the JSON-LD on every shrine page — the archive's
+         machine-readable face — carried no provenance at all, on an archive
+         whose distinguishing claim is exactly that. */
+      kgByShrineSlug.set(shrineSlug, { saint, order, events, sources: [] });
+    }
+
+    /*
+     * What each entry rests on.
+     *
+     * Attached in its own pass, and that is the point: the map above is built
+     * from `buried_at`, so it only holds shrines the graph gives a figure. A
+     * shrine with citations and no recorded figure would have had its
+     * provenance silently dropped — and the two entries that most need showing
+     * their sources are exactly the ones the graph knows least about.
+     */
+    const sourceById = new Map(sourceLayer.sources.map((src) => [src.id, src]));
+    for (const attestation of sourceLayer.attestations) {
+      const entry = kgByShrineSlug.get(attestation.subject) ?? {
+        saint: null,
+        order: null,
+        events: [],
+        sources: [],
+      };
+      const source = sourceById.get(attestation.object);
+      if (source) entry.sources.push(source);
+      kgByShrineSlug.set(attestation.subject, entry);
     }
   } catch {
     kgData = null;

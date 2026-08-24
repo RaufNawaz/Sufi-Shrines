@@ -16,10 +16,12 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
+import { bibliographyItems } from './lib/bibliography.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -684,6 +686,97 @@ for (const event of events) {
   });
 }
 
+// ── extract: sources ──────────────────────────────────────────────────────────
+
+/*
+ * The archive's 533 citations, as graph nodes.
+ *
+ * `kg.sources` was an empty array and `stats.sources` was 0 — on an archive
+ * whose distinguishing claim is provenance, a knowledge graph with no source
+ * layer at all. The `attested_in` relation type has been in `KGRelationType`
+ * since the graph was designed, described as "entity/relation id → source", and
+ * nothing ever emitted one.
+ *
+ * The point of putting them in a graph rather than counting them is the
+ * *sharing*: a source cited by nine entries becomes one node with nine edges,
+ * which is the question a reader of an archive actually has — not "how many
+ * citations are there" but "what does this rest on, and what else rests on the
+ * same thing".
+ *
+ * **Written to their own file, not into `kg.json`.** `src/lib/kg.ts` statically
+ * imports the graph, so anything in it is in the browser's bundle: 464 source
+ * nodes and 533 attestations took `/order/:slug` from 600 KB to 769 KB of eager
+ * JS, for data no page renders. The consumers are all build-time — the two
+ * exporters and the prerenderer's JSON-LD — so `data/kg-sources.json` is where
+ * they belong, exactly like `kg-shrine-figures.json` next to it. `stats.sources`
+ * still counts them, because the count is one number and the graph should be
+ * able to say how much it rests on.
+ *
+ * Two RULE 2 lines that must not move:
+ *
+ * - **The citation text is verbatim.** It is the source's real title, publisher
+ *   and URL, and it is the exact string a reader needs in order to go and check.
+ *   Nothing is title-cased, abbreviated or reordered.
+ * - **`sourceType` is set only for a bare URL.** Deciding book-vs-article from a
+ *   bibliography line is precisely the kind of inference this project does not
+ *   make; the field is absent rather than guessed. A citation that is nothing
+ *   but a link is the one unambiguous case.
+ */
+
+/** Conservative on purpose: two entries citing the same book with different
+ *  punctuation stay two nodes. Under-merging leaves a duplicate a human can
+ *  see; over-merging asserts that two different citations are the same source,
+ *  which is a claim about the literature. */
+function citationKey(text) {
+  return text
+    .toLowerCase()
+    .replace(/[*_`]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/[.,;:]+$/, '')
+    .trim();
+}
+
+const BARE_URL = /^<?https?:\/\/\S+>?$/;
+
+const sources = [];
+const attestations = [];
+const sourceByKey = new Map();
+
+for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
+  const items = bibliographyItems(String(row['Sources'] ?? ''), String(row['Description'] ?? ''));
+  for (const item of items) {
+    const key = citationKey(item);
+    if (!key) continue;
+    let source = sourceByKey.get(key);
+    if (!source) {
+      /* A digest, not a counter: the id has to be stable across builds so an
+         export consumer's stored reference keeps resolving, and it must not
+         depend on the order rows happen to arrive in. */
+      const slug = createHash('sha1').update(key).digest('hex').slice(0, 12);
+      source = {
+        id: `source:${slug}`,
+        type: 'source',
+        slug,
+        name: item,
+        ...(BARE_URL.test(item.trim()) ? { sourceType: 'website' } : {}),
+      };
+      sourceByKey.set(key, source);
+      sources.push(source);
+    }
+    const relId = `attested_in:${shrineSlug}:${source.id}`;
+    if (!attestations.some((r) => r.id === relId)) {
+      attestations.push({
+        id: relId,
+        type: 'attested_in',
+        subject: shrineSlug,
+        object: source.id,
+        confidence: 1,
+        method: 'rule',
+      });
+    }
+  }
+}
+
 // ── add seed review notes ─────────────────────────────────────────────────────
 
 for (const note of seeds.reviewNeededNotes ?? []) {
@@ -697,7 +790,7 @@ const stats = {
   orders: orders.length,
   places: places.length,
   events: events.length,
-  sources: 0,
+  sources: sources.length,
   relations: relations.length,
   ambiguousMerges: reviewNeeded.filter((r) => r.issue === 'name-merge').length,
 };
@@ -711,13 +804,21 @@ const kg = {
   orders,
   places,
   events,
-  sources: [],
   relations,
   stats,
   reviewNeeded,
 };
 
 writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
+
+// ── source layer, for the build-time consumers only ──────────────────────────
+/* Out of kg.json on purpose — see the sources section above. The exporters and
+   prerender.mjs read this; the browser never does. */
+writeFileSync(
+  join(ROOT, 'data', 'kg-sources.json'),
+  JSON.stringify({ generated: kg.generated, sources, attestations }, null, 2) + '\n',
+  'utf8',
+);
 
 // ── slim lookup for the shrine route ─────────────────────────────────────────
 // ShrinePage renders exactly one thing out of the graph: a link from the

@@ -2743,6 +2743,85 @@ nothing errored.
     (`.almanac-list--plain`). They carry a season tag *and* a two-line label, so converting them
     is a JSX refactor rather than a class swap, and it wants its own pass.
 
+110. **The article header was copied into ten pages, and three copies had drifted.** About,
+    Coverage and Place carried a back link with **no chevron** while the other seven had one — the
+    same control looking like two different controls depending on which page you reached it from.
+    Nothing was going to catch that: the copies are seven files apart and each one is correct on
+    its own. *Found 24 August 2026 while adding the collapsing title.*
+
+    Now one `EntityPageHeader`, and it does the thing the duplication was in the way of: **the
+    page's title arrives in the sticky bar once the `<h1>` has scrolled behind it.** A sticky bar
+    holding only a back button is the least useful sticky bar there is — on an article eight
+    sections long, nothing on screen said which shrine or which figure the reader was in.
+
+    Three decisions worth keeping:
+    - **Watched, not measured on scroll.** An `IntersectionObserver` on the page's own `<h1>`
+      fires twice per visit; a scroll listener fires on every frame and has to be throttled into
+      approximating the same answer. `rootMargin` is the header's height, so the swap lands as
+      the title passes *behind* the bar rather than when it leaves the viewport.
+    - **Conditionally rendered, never faded.** A cross-fade is the obvious treatment and is the
+      one thing that must not be used: axe folds an ancestor's opacity into the colour it
+      measures, so text mid-fade — or parked at `opacity: 0` — reports a contrast failure that
+      does not exist (§9.46, which cost an hour). The entry animation is a transform only.
+    - **`aria-hidden` on the title.** It is the `<h1>` said twice. A screen reader has already
+      announced the heading, and a second copy appearing on scroll is noise a sighted reader
+      never hears.
+
+    Under 480px the back link's *label* goes and its chevron stays: a 390px bar minus a back
+    label and two toggles leaves a title about eight characters wide. The target is unchanged and
+    `aria-label` still carries the name, so nothing is lost but the word.
+
+    The `<h1>` is found with `document.querySelector('h1')` rather than a ref threaded through
+    ten pages. That is safe here for a specific reason — the header renders *inside* each page,
+    so the heading is in the same commit and present by the time an effect runs — and it would
+    not be safe if the header ever moved into a layout above the routes.
+
+111. **The knowledge graph had no source layer at all.** `kg.sources` was `[]` and
+    `stats.sources` was `0`, on an archive whose distinguishing claim is provenance. The
+    `attested_in` relation type had been sitting in `KGRelationType` since the graph was
+    designed — described in the type as "entity/relation id → source" — and nothing had ever
+    emitted one. 533 citations across 168 entries were counted on `/coverage` and modelled
+    nowhere. *Built 24 August 2026.*
+
+    **464 sources, 533 attestations, 28 of them shared.** The point of a graph rather than a
+    count is that sharing: the archive's most load-bearing source, Alam Faqri's *Tazkirah
+    Awliya-e-Pakistan*, turns out to underpin **25 entries**, and its two volumes another 16
+    between them. "What does this rest on, and what else rests on the same thing" is the question
+    a reader of an archive actually has, and until now the data could not answer it.
+
+    Now exported everywhere it belongs: `schema:citation` on every shrine in `graph.jsonld` and
+    `graph.ttl`, and — the reader-facing one — in the **prerendered JSON-LD of all 168 cited
+    shrine pages**, 533 `CreativeWork` nodes in total.
+
+    Decisions that are load-bearing:
+    - **Verbatim, always.** A citation is the source's real title, publisher and URL and is the
+      exact string a reader needs to go and check. Nothing is title-cased, trimmed or reordered,
+      and `author`/`year`/`publisher` stay unsplit inside `name`: a reliable split needs a parser
+      for a dozen house styles, and a wrong one loses the reader that string. Asserted by
+      requiring every node's name to appear character-for-character in some entry's bibliography.
+    - **`sourceType` only for a bare URL.** Book-vs-article from a bibliography line is the
+      inference this project does not make; the field is absent rather than guessed. It made the
+      field optional in `KGSource`, which is the honest shape.
+    - **Dedupe is conservative.** Two entries citing the same book with different punctuation stay
+      two nodes. Under-merging leaves a duplicate a human can see; over-merging asserts two
+      citations are the same source, which is a claim about the literature. The three volumes of
+      the Tazkirah stay three nodes, correctly.
+
+    **And the trap, which I walked into:** putting the layer in `kg.json` took `/order/:slug` from
+    600 KB to **769 KB of eager JS**, because `src/lib/kg.ts` imports the graph statically — the
+    same regression class as the 300 KB one earlier today, and caught by the same budget check.
+    Every consumer is build-time (two exporters, the prerenderer), so it lives in
+    `data/kg-sources.json` beside `kg-shrine-figures.json`. `stats.sources` still carries the
+    count, because the count is one number and the graph should be able to say how much it rests
+    on. `kgSources.test.ts` asserts the layer is *absent* from `kg.json` with the reason attached:
+    the budget check catches the symptom on a build, this catches the cause.
+
+    One thing found while wiring prerender: `kgByShrineSlug` is built from `buried_at`, so it only
+    held shrines the graph gives a figure. Attaching sources in that loop would have silently
+    dropped the provenance of any entry with citations and no recorded figure — and the entries
+    that most need to show their sources are exactly the ones the graph knows least about. Sources
+    are attached in their own pass.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

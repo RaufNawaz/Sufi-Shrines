@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-24T16:47:32.896Z",
+  "generated": "2026-08-24T17:39:42.332Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -5847,7 +5847,6 @@
       "frequency": "annual"
     }
   ],
-  "sources": [],
   "relations": [
     {
       "id": "buried_at:saint:pir-syed-muhammad-channan-shah-nuri:allo-mahar",
@@ -11455,7 +11454,7 @@
     "orders": 5,
     "places": 94,
     "events": 149,
-    "sources": 0,
+    "sources": 464,
     "relations": 637,
     "ambiguousMerges": 69
   },
