@@ -123,3 +123,24 @@ It reads the deploy branches out of the workflow rather than from memory, so a v
 can never be reported as finished merely because `main` has caught up with it — which `1.7`,
 sitting at 0, otherwise would be. And it deletes nothing: deciding a branch is finished and
 deleting it are different decisions, and only the first is safe to automate.
+
+## Publishing cadence (agreed 24 August 2026)
+
+**The live site must never be more than two commits behind `main`.** So the push
+sequence for every commit is three pushes, not one:
+
+```bash
+git push origin <working-branch>
+git push origin HEAD:main
+git push origin HEAD:1.7      # the branch GitHub Pages tracks
+```
+
+The third one is the deploy. `1.7` is what `.github/workflows/deploy-pages.yml`
+triggers on (with `1.6` still listed as a fallback), and it is *not* `main` — for
+most of 24 August, 25 commits sat on a working branch while `1.7` and `main` were
+the same commit, so nothing that had been built, tested and pushed was actually
+visible. Pushing to `main` alone does not publish anything.
+
+The deploy job re-runs `npm run verify` and `data:validate` before it publishes,
+so a red commit cannot reach production by this route; that is the reason it is
+safe to publish per commit rather than in batches.
