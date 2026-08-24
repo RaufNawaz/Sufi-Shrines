@@ -876,6 +876,13 @@
 .lightbox-overlay {
   position: fixed;
   inset: 0;
+  /* `inset: 0` on a fixed element is the *large* viewport on mobile Safari — the
+     one measured with the URL bar hidden. The image inside is `max-height: 100%`
+     of this box, so on a phone the bottom of every photo sat behind the URL bar,
+     clipped, with nothing to scroll to reach it. Same defect as the command
+     palette's (HANDOVER §9.102), on the surface whose entire job is showing a
+     photograph whole. */
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.92);
   z-index: var(--z-lightbox);
   display: flex;
@@ -1100,7 +1107,18 @@
 }
 
 .shrine-page-wrapper {
-  min-height: var(--page-min-height, 100vh);
+  /* `svh`, not `dvh`: a page's minimum height should be the *smallest* the
+     viewport gets, so the page is never taller than the screen (a phantom
+     scrollbar on a short page) and never reflows as the URL bar hides. `dvh` is
+     for a fixed overlay that must match what is visible right now.
+
+     Was `var(--page-min-height, 100vh)`, whose variable **nothing has ever
+     set** — `useViewportHeight`, named as its source in
+     cssTokensDefined.test.ts, does not exist in this codebase. So every page
+     took the fallback, and the test's own exemption list asserted a runtime
+     source that was not there. The indirection is gone and the exemption with
+     it. */
+  min-height: 100svh;
   background: var(--color-bg);
 }
 
@@ -1391,7 +1409,7 @@
 
 /* ── 404 page ──────────────────────────────────────────────────────────────── */
 .not-found-page {
-  min-height: 100vh;
+  min-height: 100svh;
   background: var(--color-bg);
   display: flex;
   flex-direction: column;

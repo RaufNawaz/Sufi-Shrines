@@ -2517,6 +2517,31 @@ nothing errored.
     `touch-action: none` on the backdrop — a plausible way to stop the map behind from panning —
     would silently kill scrolling in every list inside it.
 
+103. **The same viewport bug was in the lightbox, and the sweep for it found a dead token.**
+    Having fixed §9.102, I swept every stylesheet for `position: fixed; inset: 0`. Two hits: the
+    palette, and `.lightbox-overlay` — whose image is `max-height: 100%` of that box, so **on a
+    phone the bottom of every photograph sat behind the URL bar, clipped, with nothing to
+    scroll**, on the one surface whose entire job is showing a photograph whole. It also carried
+    `-webkit-overflow-scrolling: touch` with no `overflow` property at all, so that declaration
+    was inert. Now `height: 100dvh`, and `touchScroll.test.ts` asserts the *pattern* — any fixed
+    inset-0 overlay must be dvh-sized — so the third one is caught on the way in.
+
+    The sweep also turned up **`min-height: 100vh` on three page wrappers**, which on iOS is the
+    large viewport: a page is at minimum URL-bar-taller than the screen, so short pages carried a
+    phantom scroll. `100svh` is the right unit for a *minimum* height — the smallest the viewport
+    gets, so no phantom scroll and no reflow when the URL bar hides. `dvh` is for a fixed overlay
+    that must match what is visible right now. Three units, three different questions; using one
+    everywhere is how this class of bug spreads.
+
+    **And the dead token.** `.shrine-page-wrapper` read `var(--page-min-height, 100vh)`, and
+    `cssTokensDefined.test.ts` exempted that property from its no-fallback rule with the note
+    "set by useViewportHeight". **No such hook exists anywhere in `src/`.** Every page had always
+    taken the fallback. The test's stale-entry check passed throughout, because it only asked
+    whether the *property* was still read from CSS — and it was. An exemption has two halves, the
+    property and the thing that sets it, and a check on one half is not a check. The missing half
+    is now asserted: every `SET_AT_RUNTIME` entry must be written by real code under `src/`.
+    Probed by re-adding the entry; it fails.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

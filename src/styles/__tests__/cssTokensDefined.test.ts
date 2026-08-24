@@ -22,7 +22,7 @@
  * runtime*, and those are listed by name below.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const STYLES = join(__dirname, '..');
@@ -34,8 +34,26 @@ const STYLES = join(__dirname, '..');
  */
 const SET_AT_RUNTIME: Record<string, string> = {
   '--stagger-index': 'per-item index, set inline by list components (see motion.css)',
-  '--page-min-height': 'measured viewport height, set by useViewportHeight',
 };
+
+/** Every `.ts`/`.tsx` under `src/`, so an exemption can be checked against the
+ *  code rather than against its own description. */
+function sourceFiles(dir: string, out: string[] = []): string[] {
+  for (const name of readdirSync(dir)) {
+    if (name === 'node_modules' || name === '__tests__') continue;
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) sourceFiles(full, out);
+    else if (/\.tsx?$/.test(name)) out.push(full);
+  }
+  return out;
+}
+
+/* `src/` — the styles directory's parent. */
+const sourceText = sourceFiles(join(STYLES, '..')).map((f) => readFileSync(f, 'utf8'));
+
+/** True when some component writes this property — the claim an entry in
+ *  SET_AT_RUNTIME makes. */
+const sourceSets = (name: string) => sourceText.some((text) => text.includes(name));
 
 const sheets = readdirSync(STYLES)
   .filter((f) => f.endsWith('.css'))
@@ -112,6 +130,30 @@ describe('CSS custom properties', () => {
     expect(
       stale,
       'Either nothing reads these any more, or they are declared in a stylesheet now.',
+    ).toEqual([]);
+  });
+
+  it('has something in the source that actually sets each one', () => {
+    /*
+     * The half the check above was missing, and it missed a live one.
+     *
+     * `--page-min-height` sat in this list described as "set by
+     * useViewportHeight". No such hook exists anywhere in `src/` — it was
+     * removed, or never landed. The stale check passed anyway, because
+     * shrine.css still *read* the property: the token was in use, so the entry
+     * looked current, while the runtime source it named was fiction. Every page
+     * silently took the `100vh` fallback, and the exemption that was supposed
+     * to justify that fallback was the reason nobody looked.
+     *
+     * An exemption has two halves — the property and the thing that sets it —
+     * and a check on one half is not a check.
+     */
+    const unset = Object.keys(SET_AT_RUNTIME).filter((name) => !sourceSets(name));
+    expect(
+      unset,
+      'These are exempted as runtime-set, but nothing under src/ sets them — so the ' +
+        'fallback in the stylesheet is the only value there has ever been. Remove the ' +
+        'indirection and declare the value, or point the entry at real code.',
     ).toEqual([]);
   });
 });

@@ -1,7 +1,9 @@
 /* ── Entity page (saint / order) ─────────────────────────────────────────── */
 
 .entity-page-wrapper {
-  min-height: 100vh;
+  /* svh: the smallest the viewport gets, so a short entity page neither carries
+     a phantom scroll on a phone nor reflows when the URL bar hides. */
+  min-height: 100svh;
   background-color: var(--color-bg);
   color: var(--color-text);
 }

@@ -82,6 +82,49 @@ describe('the palette is bounded by the viewport a reader can see', () => {
   });
 });
 
+describe('no full-viewport overlay is sized on `inset: 0` alone', () => {
+  /* The palette was the reported bug; the lightbox had the same one, on the
+     surface whose entire job is showing a photograph whole. Its image is
+     `max-height: 100%` of an overlay that was the large viewport, so on a phone
+     the bottom of every photo sat behind the URL bar — clipped, with nothing to
+     scroll. Both are now `dvh`. This asserts the pattern rather than the two
+     instances, so the third overlay someone adds is caught on the way in. */
+  it('gives every fixed inset-0 overlay a dynamic-viewport height', () => {
+    const offenders: string[] = [];
+    for (const sheet of sheets) {
+      const re = /([^{}]+)\{([^{}]*)\}/g;
+      let m: RegExpExecArray | null;
+      while ((m = re.exec(code(sheet.css)))) {
+        const body = m[2];
+        if (!/position:\s*fixed/.test(body)) continue;
+        if (!/inset:\s*0/.test(body)) continue;
+        if (/height:\s*(100dvh|100svh|var\()/.test(body)) continue;
+        offenders.push(`${sheet.name}: ${m[1].trim().split('\n')[0]}`);
+      }
+    }
+    expect(
+      offenders,
+      'A fixed overlay at `inset: 0` is the *large* viewport on mobile Safari — taller than ' +
+        'the screen. Its content is then clipped at the screen edge with nothing to scroll, ' +
+        'because nothing overflowed. Give it `height: 100dvh`.',
+    ).toEqual([]);
+  });
+
+  it('sizes a page’s minimum height in svh, not vh', () => {
+    /* Different unit, different question: a *minimum* height should be the
+       smallest the viewport gets, so a short page neither carries a phantom
+       scroll nor reflows as the URL bar hides. `dvh` is for the fixed overlay
+       that must match what is visible right now. */
+    const offenders: string[] = [];
+    for (const sheet of sheets) {
+      for (const m of code(sheet.css).matchAll(/min-height:\s*([^;]*100vh[^;]*);/g)) {
+        offenders.push(`${sheet.name}: min-height: ${m[1].trim()}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+});
+
 describe('every internally-scrolling region takes a thumb', () => {
   /* The palette's two scroll containers. Named rather than discovered: a list
      of classes that must each carry three properties is exactly the kind of

@@ -285,7 +285,9 @@ body.lang-rtl,
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* dvh: this centres a spinner in what the reader can see, and it is on screen
+     for under a second — the reflow `dvh` can cause has nothing to reflow. */
+  height: 100dvh;
   background: var(--color-bg);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
