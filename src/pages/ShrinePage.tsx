@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useShareLink } from '../hooks/useShareLink';
@@ -9,8 +10,6 @@ import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { placesForShrine } from '../lib/data/places';
 
-import { LanguageToggle } from '../components/ui/LanguageToggle';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { ShrineInfobox } from '../components/shrine/ShrineInfobox';
 import { ShrineArticle } from '../components/shrine/ShrineArticle';
@@ -396,7 +395,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
   const { shrines, loading, error } = useShrineData();
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const shrine = useMemo(() => {
     if (!slug || !shrines.length) return null;
@@ -418,28 +417,10 @@ export default function ShrinePage() {
     <div className="page-enter shrine-page-wrapper">
       <ReadingProgressBar />
       {/* Sticky header */}
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* The shrine's name once the masthead has scrolled away. Undefined
+          while the sheet is still loading — a header claiming a title for a
+          shrine it has not got is worse than a bare bar. */}
+      <EntityPageHeader {...(shrine ? { title: localizeShrineName(shrine, lang) } : {})} />
 
       {loading && !shrine && <SkeletonPage />}
 

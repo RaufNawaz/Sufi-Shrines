@@ -1,11 +1,10 @@
 import React, { useMemo } from 'react';
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
-import { LanguageToggle } from '../components/ui/LanguageToggle';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { LineageChainView } from '../components/kg/LineageChainView';
@@ -216,28 +215,7 @@ export default function SaintPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      <EntityPageHeader title={displayName} />
 
       <article
         className="entity-page"

@@ -1982,3 +1982,70 @@
   font-size: var(--text-sm);
   line-height: var(--leading-urdu);
 }
+
+/* ── The collapsing title ─────────────────────────────────────────────────────
+   The page's own heading, arriving in the sticky bar once the `<h1>` has
+   scrolled behind it. A sticky bar holding only a back button is the least
+   useful sticky bar there is: on an article eight sections long, nothing on
+   screen said which shrine or which figure a reader was in.
+
+   No opacity anywhere in here, and that is deliberate rather than austere. axe
+   folds an ancestor's opacity into the colour it measures, so text mid-fade —
+   or parked at `opacity: 0` — reports a contrast failure that does not exist,
+   and this project has already lost an hour to exactly that (HANDOVER §9.46).
+   The element is rendered or it is not, and it enters on a transform. */
+.page-header-title {
+  /* Centred in the bar, and taking the middle cell of a three-part flex row, so
+     the back link and the toggles keep their edges. `min-width: 0` so a long
+     recorded name ellipsises rather than pushing the toggles off-screen. */
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-inline: var(--space-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  animation: page-header-title-in var(--duration-fast) var(--easing) both;
+}
+
+[dir='rtl'] .page-header-title {
+  font-family: var(--font-urdu);
+  font-size: var(--text-lg);
+  letter-spacing: normal;
+}
+
+@keyframes page-header-title-in {
+  from {
+    transform: translateY(6px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-header-title {
+    animation: none;
+  }
+}
+
+/* On a phone the bar is 100% of a 390px screen minus a back link and two
+   toggles, which leaves a title about eight characters wide. The back link's
+   label goes and its chevron stays — the target is unchanged, and a chevron
+   pointing back is the platform's own idiom for exactly this. */
+@media (max-width: 480px) {
+  .shrine-page-header .back-link {
+    gap: 0;
+    font-size: 0;
+  }
+
+  .shrine-page-header .back-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
-import { LanguageToggle } from '../components/ui/LanguageToggle';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 
@@ -161,15 +160,10 @@ export default function PlacePage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      {/* The place's own name once it has scrolled away, resolved here as well as
+          in the article below — the header is in the outer component and the
+          article is in the inner one. */}
+      <EntityPageHeader {...(place ? { title: localizeRecordedName(place.name, lang) } : {})} />
 
       <article
         className="entity-page place-page"

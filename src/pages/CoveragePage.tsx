@@ -1,11 +1,10 @@
 import React, { useMemo } from 'react';
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
-import { LanguageToggle } from '../components/ui/LanguageToggle';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { buildCoverage, INFO_KEYS, SUPPORT_KEYS, TRADITION_KEYS } from '../lib/data/coverage';
 import { Fact, Stat, DistributionBlock } from '../components/archive/CoverageStats';
@@ -52,15 +51,7 @@ export default function CoveragePage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      <EntityPageHeader title={t('coverageTitle')} />
 
       <article
         className="entity-page coverage-page"

@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
@@ -12,8 +13,6 @@ import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 import { Bar, Fact, Stat } from '../components/archive/CoverageStats';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
-import { LanguageToggle } from '../components/ui/LanguageToggle';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { PUBLICATION, archiveCitation, entryCitation } from '../lib/data/citation';
 import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
@@ -107,15 +106,7 @@ export default function AboutPage() {
 
   return (
     <div className="page-enter entity-page-wrapper">
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      <EntityPageHeader title={t('aboutTitle')} />
 
       <article
         className="entity-page about-page"
