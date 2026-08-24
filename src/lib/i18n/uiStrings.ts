@@ -107,6 +107,17 @@ export const UI_TEXT = {
       'A figure can hold allegiance in several silsilas at once. Each affiliation here is a separate edge with its own quoted source, not an inference from the others.',
     orderBranchHelp:
       'A branch (\u0634\u0627\u062e) is a sub-line within a silsila. The same branch name can belong to two different orders, so a branch is only meaningful together with its parent.',
+    orderSpan: (from: string, to: string) => `${from}\u2013${to} c.`,
+    orderSpanOne: (century: string) => `${century} c.`,
+    orderUndated: (n: number) => `${n} undated`,
+    orderUndatedHelp:
+      'Figures the record places in the Hijri calendar only, or in no year at all. The span is not computed for them \u2014 converting a Hijri year here would be this archive inventing a date.',
+    orderCompareHeading: 'The silsilas at a glance',
+    orderCompareNote:
+      'Every figure, century span and place below is counted from the graph on load, so this table cannot go stale the way a sentence can. Each row is what the archive holds, not what the order is.',
+    orderCompareFigures: 'Figures',
+    orderCompareSpan: 'Century span',
+    orderCompareSites: 'Sites',
     orderAsRecorded: 'As recorded',
     orderAsRecordedHelp:
       'The silsila exactly as this figure\u2019s own record words it, including where the record contradicts itself. It describes the figure rather than any one of the orders above, so it is shown once.',
@@ -614,6 +625,17 @@ export const UI_TEXT = {
     sufiOrder: 'صوفی سلسلہ',
     sufiOrders: 'صوفی سلسلے',
     spiritualLineage: 'روحانی سلسلہ',
+    orderSpan: (from: string, to: string) => `${from} تا ${to} صدی`,
+    orderSpanOne: (century: string) => `${century} صدی`,
+    orderUndated: (n: number) => `${n} بلا تاریخ`,
+    orderUndatedHelp:
+      'وہ شخصیات جنہیں ریکارڈ صرف ہجری سن میں رکھتا ہے، یا کسی سن میں نہیں۔ اُن کے لیے مدت شمار نہیں کی جاتی \u2014 یہاں ہجری سن کو تبدیل کرنا اِس آرکائیو کی طرف سے تاریخ گھڑنا ہوگا۔',
+    orderCompareHeading: 'سلسلے ایک نظر میں',
+    orderCompareNote:
+      'نیچے دی گئی ہر تعداد، صدی اور جگہ صفحہ کھلتے وقت گراف سے شمار کی جاتی ہے، اِس لیے یہ جدول اُس طرح پرانا نہیں ہو سکتا جیسے کوئی جملہ ہو جاتا ہے۔ ہر سطر یہ بتاتی ہے کہ آرکائیو کے پاس کیا ہے، یہ نہیں کہ سلسلہ کیا ہے۔',
+    orderCompareFigures: 'شخصیات',
+    orderCompareSpan: 'صدیوں کا دورانیہ',
+    orderCompareSites: 'مقامات کی تعداد',
     orderAsRecorded: 'ماخذ میں درج',
     orderAsRecordedHelp:
       'سلسلہ بعینہٖ اُن الفاظ میں جو اِس شخصیت کے اپنے ریکارڈ میں لکھے ہیں، بشمول اُس صورت کے جہاں ریکارڈ خود اپنی نفی کرتا ہے۔ یہ اوپر دیے گئے کسی ایک سلسلے کے بجائے خود شخصیت کو بیان کرتا ہے، اِس لیے ایک ہی بار دکھایا جاتا ہے۔',
@@ -1038,6 +1060,9 @@ export function tFn(lang: Lang, key: 'orderMemberCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
+export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
+export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
+export function tFn(lang: Lang, key: 'orderSpanOne', century: string): string;
 export function tFn(lang: Lang, key: 'lineageChainRemove', n: number): string;
 export function tFn(
   lang: Lang,
@@ -1081,6 +1106,9 @@ export function tFn(
     | 'orderBranchCount'
     | 'orderMultiCount'
     | 'lineageChainForks'
+    | 'orderUndated'
+    | 'orderSpan'
+    | 'orderSpanOne'
     | 'lineageChainRemove'
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'

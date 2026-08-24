@@ -4,6 +4,8 @@ import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { placesForShrine } from '../lib/data/places';
+import { centurySpan } from '../lib/data/figureDates';
+import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
 import type { Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -86,6 +88,13 @@ function DateAsRecorded({ value }: { value: string }) {
   return <>{rendered}</>;
 }
 
+/** "17th" / "۱۷ویں" — the same ordinals the era filter uses, so the two surfaces
+ * name a century the same way. The noun comes from the span string, which is
+ * why this is the ordinal alone. */
+function centuryLabel(century: number, lang: 'en' | 'ur'): string {
+  return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
+}
+
 export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
@@ -162,6 +171,16 @@ export default function OrderPage() {
       .map(([slug, v]) => ({ slug, ...v }))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
   }, [orderShrines]);
+
+  /* When this order's figures lived, from the graph's own date strings.
+     OrderPage already prints each member's dates verbatim — the note above the
+     member list says a reader should be able to see that an order spans the
+     11th to the 20th century — but nothing summed them, so that was true of a
+     reader willing to scan 23 rows. `centurySpan` refuses to place a figure the
+     record dates only in the Hijri calendar, and reports how many, because a
+     span over the placeable subset presented as the whole is a fabricated
+     date (RULE 2). */
+  const span = useMemo(() => centurySpan(members.map(({ saint }) => saint)), [members]);
 
   const branchCount = new Set(
     members.map((m) => m.membership?.branch).filter((b): b is string => Boolean(b)),
@@ -248,6 +267,25 @@ export default function OrderPage() {
           {members.length > 0 && (
             <span className="entity-meta-item">
               {fmtNum(tFn(lang, 'orderMemberCount', members.length))}
+            </span>
+          )}
+          {span && (
+            <span className="entity-meta-item">
+              {fmtNum(
+                span.from === span.to
+                  ? tFn(lang, 'orderSpanOne', centuryLabel(span.from, lang))
+                  : tFn(
+                      lang,
+                      'orderSpan',
+                      centuryLabel(span.from, lang),
+                      centuryLabel(span.to, lang),
+                    ),
+              )}
+            </span>
+          )}
+          {span && span.undated > 0 && (
+            <span className="entity-meta-item" title={t('orderUndatedHelp')}>
+              {fmtNum(tFn(lang, 'orderUndated', span.undated))}
             </span>
           )}
           {branchCount > 0 && (

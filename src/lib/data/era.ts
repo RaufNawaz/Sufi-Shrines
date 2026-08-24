@@ -77,13 +77,28 @@ const CENTURY_LABELS: Record<number, string> = {
   17: '17th', 18: '18th', 19: '19th', 20: '20th', 21: '21st',
 };
 
-export function formatCentury(century: number): string {
-  return `${CENTURY_LABELS[century] ?? `${century}th`} c.`;
+/** Just the ordinal — "17th", "1st" — without the word "century".
+ *
+ * Split out so a *range* can name the century once: "12th–20th c." rather than
+ * "12th c.–20th c.", and in Urdu "۱۲ویں تا ۲۰ویں صدی" rather than the same noun
+ * twice. `formatCentury` is this plus the noun, so single-century callers are
+ * unchanged. */
+export function centuryOrdinal(century: number): string {
+  return CENTURY_LABELS[century] ?? `${century}th`;
 }
 
-/** e.g. formatCenturyUr(8) → "8ویں صدی". Digits stay Western here — the
+/** e.g. centuryOrdinalUr(8) → "8ویں". Digits stay Western here — the
  * render-time numeral toggle (fmtNum) converts them, keeping the toggle
  * reversible for stored/formatted text alike. */
+export function centuryOrdinalUr(century: number): string {
+  return `${century}ویں`;
+}
+
+export function formatCentury(century: number): string {
+  return `${centuryOrdinal(century)} c.`;
+}
+
+/** e.g. formatCenturyUr(8) → "8ویں صدی". */
 export function formatCenturyUr(century: number): string {
-  return `${century}ویں صدی`;
+  return `${centuryOrdinalUr(century)} صدی`;
 }

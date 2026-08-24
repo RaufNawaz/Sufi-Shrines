@@ -1687,3 +1687,91 @@
 [dir='rtl'] .lineage-chain-stop {
   font-family: var(--font-urdu);
 }
+
+/* ── The silsilas at a glance ────────────────────────────────────────────────
+   A real table, because this is tabular data and a grid of divs would take the
+   row/column relationship away from a screen reader for nothing. Wrapped in its
+   own scroll container so a narrow phone scrolls the table and not the page —
+   the five-column body is wider than 360px and always will be. */
+
+.order-compare-scroll {
+  overflow-x: auto;
+  margin-block-start: var(--space-3);
+  /* Keeps a focus ring on the last column from being clipped by the scroller. */
+  padding-block-end: 2px;
+}
+
+.order-compare-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 30rem;
+  font-size: var(--text-sm);
+}
+
+.order-compare-table th,
+.order-compare-table td {
+  padding: var(--space-2) var(--space-3);
+  text-align: start;
+  border-block-end: 1px solid var(--color-border-light);
+  vertical-align: baseline;
+}
+
+.order-compare-table thead th {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-block-end: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+[dir='rtl'] .order-compare-table thead th {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+  /* Nastaliq is caseless; uppercasing only confuses pronunciation. */
+  text-transform: none;
+}
+
+.order-compare-table tbody th {
+  font-weight: 600;
+}
+
+.order-compare-table tbody th a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.order-compare-table tbody th a:hover,
+.order-compare-table tbody th a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Counts align on their own edge so columns can be compared down the page.
+   `text-align: end` rather than `right`: in Urdu the numerals sit on the left,
+   which is where the column's own reading edge is. */
+.order-compare-num {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.order-compare-table tbody tr:last-child th,
+.order-compare-table tbody tr:last-child td {
+  border-block-end: none;
+}
+
+/* The figures the span could not place. Beside the span, never below it. */
+.order-compare-undated {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  cursor: help;
+}
+
+[dir='rtl'] .order-compare-undated {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}

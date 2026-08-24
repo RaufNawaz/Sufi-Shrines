@@ -26,7 +26,13 @@ import { settle } from './fixtures';
  *
  * Deliberate exemptions, each for a reason rather than to get to green:
  * — elements whose own computed style scrolls them (`auto`/`scroll`), because
- *   that overflow is the design;
+ *   that overflow is the design — *and* elements inside an ancestor that is
+ *   genuinely scrolling horizontally, for the same reason. That second half was
+ *   missing until 24 August 2026: rule 2 honoured scrollers and rule 1 did not,
+ *   so a table in an `overflow-x: auto` wrapper reported 56 offenders on a phone
+ *   while the document width was exactly the viewport. The ancestor must be
+ *   overflowing now, not merely permitted to — otherwise one `auto` high in the
+ *   tree hides every real overflow beneath it;
  * — Leaflet's map panes, which are *supposed* to extend past the viewport (the
  *   tile grid is bigger than the window on purpose);
  * — anything the page has hidden (`display: none`, zero box).
@@ -118,6 +124,32 @@ async function findOverflow(page: Page, exempt: string[]) {
         }
       }
       if (clampedAncestor) continue;
+
+      /* Inside a horizontal scroller, being past the viewport edge is the point.
+       *
+       * The exemption list at the top of this file has always said that overflow
+       * in an `auto`/`scroll` box "is the design", and the second rule below
+       * honoured it — but the viewport-edge rule did not, and it is the one that
+       * fires on a scroller's *children*. A five-column table in an
+       * `overflow-x: auto` wrapper reported 56 offenders on a 390px phone while
+       * `documentElement.scrollWidth` was exactly 390: the page did not scroll
+       * sideways, the region did, which is what the region is for.
+       *
+       * "Genuinely scrolling", not "declares auto": the ancestor has to be
+       * overflowing horizontally right now. A container that merely *permits*
+       * scrolling must not blanket-exempt everything inside it, or a real
+       * overflow hides behind one `overflow-x: auto` three levels up. Stops at
+       * `body`, because the root's own computed overflow would exempt the page.
+       */
+      let scrollingAncestor = false;
+      for (let node = el.parentElement; node && node !== document.body; node = node.parentElement) {
+        const cs = getComputedStyle(node);
+        if (/(auto|scroll)/.test(cs.overflowX) && node.scrollWidth - node.clientWidth > 1) {
+          scrollingAncestor = true;
+          break;
+        }
+      }
+      if (scrollingAncestor) continue;
 
       // Past the leading or trailing edge of the viewport.
       const past = Math.max(0, -rect.left, rect.right - viewportWidth);

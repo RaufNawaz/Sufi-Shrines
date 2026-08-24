@@ -20,6 +20,8 @@ import type { KGSaint } from '../types/kg';
 import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
+import { centurySpan } from '../lib/data/figureDates';
+import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
 
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
@@ -27,6 +29,13 @@ import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
  * and jump to any saint's own lineage view. PROJECT_VISION.md Track 2 asks
  * for this as a dedicated page rather than only the per-saint embed.
  */
+/** The ordinal alone; the noun comes from the span string. Same helper as
+ * OrderPage, kept local because it is two lines and importing a component's
+ * private formatter across pages is worse. */
+function centuryLabel(century: number, lang: 'en' | 'ur'): string {
+  return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
+}
+
 export default function GraphPage() {
   const { lang, t, fmtNum } = useLang();
   const isRtl = lang === 'ur';
@@ -61,6 +70,42 @@ export default function GraphPage() {
   }));
 
   const lineageEdges = useMemo(() => getAllLineageEdges(), []);
+
+  /*
+   * The five silsilas side by side.
+   *
+   * The chips above let a reader look at one order at a time, which answers
+   * "who is in the Chishtiyya" and never answers "how do these five compare" —
+   * and comparison is most of what an explorer is for. Every figure here is
+   * counted from the graph on load, so the table cannot go stale the way the
+   * struck-through note in CLAUDE.md did.
+   *
+   * Each row says what the *archive* holds, not what the order is: the
+   * Qadiriyya is not a 23-person tradition, it is a tradition of which this
+   * archive documents 23 people. The note above the table says so, because a
+   * table of counts invites exactly the other reading.
+   *
+   * There is deliberately no "places" column. It was written, and it cost 8 KB
+   * of eager JS on this route — `placesForShrine` needs the live dataset, which
+   * this page otherwise never loads — to derive a number the order's own page
+   * already gives in full under "Where this order is", one click away. The
+   * bundle budget caught it; dropping the column was the right answer, not
+   * raising the number. Everything left here comes from the graph, which this
+   * page already has.
+   */
+  const orderRows = useMemo(
+    () =>
+      kg.orders.map((order) => {
+        const saints = getSaintsInOrder(order.slug);
+        return {
+          order,
+          figures: saints.length,
+          span: centurySpan(saints),
+          sites: new Set(saints.flatMap((s) => s.shrines)).size,
+        };
+      }),
+    [kg.orders],
+  );
 
   /* The graph types every principal figure as `saint` because that is its only
      entity type for a person — so this list previously ran 130 names under a
@@ -142,6 +187,67 @@ export default function GraphPage() {
           {t('graphExplorerTitle')}
         </h1>
         <p className="graph-page-intro">{t('graphExplorerIntro')}</p>
+
+        {/* The comparison first, then the chips. A reader who has just been told
+            the archive covers five silsilas needs to see them beside each other
+            before being asked to pick one. */}
+        <section className="graph-page-section">
+          <h2>{t('orderCompareHeading')}</h2>
+          <p className="graph-figures-note">{t('orderCompareNote')}</p>
+          <div className="order-compare-scroll">
+            <table className="order-compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">{t('sufiOrder')}</th>
+                  <th scope="col" className="order-compare-num">
+                    {t('orderCompareFigures')}
+                  </th>
+                  <th scope="col">{t('orderCompareSpan')}</th>
+                  <th scope="col" className="order-compare-num">
+                    {t('orderCompareSites')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {orderRows.map((row) => (
+                  <tr key={row.order.slug}>
+                    <th scope="row">
+                      <Link to={`/order/${row.order.slug}`}>
+                        {localizeOrderName(row.order, lang)}
+                      </Link>
+                    </th>
+                    <td className="order-compare-num">{fmtNum(row.figures)}</td>
+                    <td>
+                      {row.span && (
+                        <>
+                          {fmtNum(
+                            row.span.from === row.span.to
+                              ? tFn(lang, 'orderSpanOne', centuryLabel(row.span.from, lang))
+                              : tFn(
+                                  lang,
+                                  'orderSpan',
+                                  centuryLabel(row.span.from, lang),
+                                  centuryLabel(row.span.to, lang),
+                                ),
+                          )}
+                          {/* The count the span does not cover, next to the span
+                              rather than in a footnote. A span over the datable
+                              members shown alone is a fabricated date. */}
+                          {row.span.undated > 0 && (
+                            <span className="order-compare-undated" title={t('orderUndatedHelp')}>
+                              {fmtNum(tFn(lang, 'orderUndated', row.span.undated))}
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </td>
+                    <td className="order-compare-num">{fmtNum(row.sites)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         <div
           className="filter-chips graph-order-chips"
