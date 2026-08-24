@@ -1,4 +1,5 @@
 import React from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
@@ -59,6 +60,10 @@ export default function NotFoundPage() {
           </svg>
           {t('backToMap')}
         </Link>
+        {/* A 404 is the page a reader is most likely to have arrived at from
+            outside, so it is the last one that should be missing the licence and
+            the route to what this archive is. */}
+        <SiteFooter />
       </div>
     </div>
   );

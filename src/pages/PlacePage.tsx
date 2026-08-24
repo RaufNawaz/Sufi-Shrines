@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
@@ -188,6 +189,7 @@ export default function PlacePage() {
             <p className="coverage-intro">{t('placeNotFound')}</p>
           </>
         )}
+        <SiteFooter />
       </article>
 
       <ScrollToTop />

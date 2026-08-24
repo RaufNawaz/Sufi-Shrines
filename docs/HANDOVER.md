@@ -3081,6 +3081,36 @@ nothing errored.
     as verdicts land. The progress bar for this project is a page that already existed — which is
     the argument for computing figures from data rather than writing them down.
 
+121. **Ten of thirteen pages had no route to the licence or to what this archive is.** The
+    sentence *"Licence and citation must be reachable from any page — a public archive that states
+    neither is not publishable"* was already a comment in this codebase — on the shrine, saint and
+    order pages, and nowhere else. *Found 24 August 2026.*
+
+    The pages missing it were the ones it mattered most on: `/coverage`, `/about`'s siblings,
+    `/graph`, `/almanac`, `/typology`, `/report`, `/place/:slug` — the surfaces *about* this
+    archive's provenance did not say who made it or under what terms — and the **404**, which is
+    the page a reader is most likely to arrive at from outside.
+
+    One `SiteFooter` now, on every page but the map. Two details worth keeping:
+    - **The shrine page's footer was not identical**, which is why extracting it needed care: it
+      carries a fourth item, a "report a correction" link with that entry's own issue URL. The
+      component takes `children` so that survives — it is the one place a reader can push back on a
+      specific claim, which on this archive is the point.
+    - **On `/about` the About link becomes plain text.** A link from the licence page to itself is
+      a dead control that looks like a live one; the credit still shows, which is the part that has
+      to be everywhere.
+
+    `MapPage` is exempt by name, with the reason: it is a fixed full-height layout whose bottom
+    edge already carries the sheet and the tab bar, and a footer there is not a footer, it is a
+    thing on top of the map.
+
+    The guard reads the `src/pages` directory rather than a route list, because **the failure mode
+    is a new page**: someone adds a route, copies a page's structure, and forgets a footer nobody
+    looks at. A test that lists the directory notices a fourteenth file; an e2e over a hardcoded
+    list does not. It also fails on any page still hand-rolling its own footer — three identical
+    copies is precisely the state in which a fourth gets forgotten rather than copied, which is
+    what happened here.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

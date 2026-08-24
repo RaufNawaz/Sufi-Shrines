@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
@@ -260,6 +261,7 @@ export default function CoveragePage() {
             </section>
           </>
         )}
+        <SiteFooter />
       </article>
       <ScrollToTop />
     </div>

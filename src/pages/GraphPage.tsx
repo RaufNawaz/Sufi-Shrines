@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -685,6 +686,7 @@ export default function GraphPage() {
             </ul>
           </section>
         )}
+        <SiteFooter />
       </article>
     </div>
   );

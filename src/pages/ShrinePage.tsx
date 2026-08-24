@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
@@ -374,20 +375,12 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         </aside>
       </div>
 
-      {/* Footer */}
-      <footer className="site-footer">
-        <Link to="/">{t('backToMap')}</Link>
-        {' · '}
-        <span>{t('footerCredit')}</span>
-        {' · '}
-        {/* Licence and citation must be reachable from any page — a public
-            archive that states neither is not publishable. */}
-        <Link to="/about">{t('aboutTitle')}</Link>
-        {' · '}
+      <SiteFooter>
         <a href={correctionIssueUrl(shrine.slug)} target="_blank" rel="noopener noreferrer">
           {t('reportCorrection')}
         </a>
-      </footer>
+      </SiteFooter>
+      <SiteFooter />
     </article>
   );
 }

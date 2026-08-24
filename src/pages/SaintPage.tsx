@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -749,15 +750,7 @@ export default function SaintPage() {
           </aside>
         </div>
 
-        <footer className="site-footer">
-          <Link to="/">{t('backToMap')}</Link>
-          {' · '}
-          <span>{t('footerCredit')}</span>
-          {' · '}
-          {/* Licence and citation must be reachable from any page — a public
-            archive that states neither is not publishable. */}
-          <Link to="/about">{t('aboutTitle')}</Link>
-        </footer>
+        <SiteFooter />
       </article>
 
       <ScrollToTop />

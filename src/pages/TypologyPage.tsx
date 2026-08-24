@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
@@ -135,6 +136,7 @@ export default function TypologyPage() {
             </div>
           </section>
         ))}
+        <SiteFooter />
       </article>
     </div>
   );

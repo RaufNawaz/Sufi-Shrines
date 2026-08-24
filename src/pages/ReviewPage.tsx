@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { SiteFooter } from '../components/ui/SiteFooter';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -314,6 +315,7 @@ export default function ReviewPage() {
             </ul>
           </>
         )}
+        <SiteFooter />
       </article>
 
       <ScrollToTop />
