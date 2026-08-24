@@ -3,6 +3,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 import { isRtlLang } from './languages';
 import type { Lang } from '../../types/shrine';
 import type { UI_TEXT } from './uiStrings';
+import { loadUiStrings } from './uiStrings';
 import { t, tFn } from './uiStrings';
 import { getUrduFieldValue, getFieldValue } from '../data/fieldAliasing';
 import {
@@ -64,12 +65,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 
   const setLang = useCallback((next: Lang) => {
-    setLangState(next);
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
-    const params = new URLSearchParams(window.location.search);
-    params.set('lang', next);
-    const url = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState(null, '', url);
+    /*
+     * The strings first, then the switch.
+     *
+     * A language's interface table is its own chunk now, so switching before it
+     * arrives would paint the *new* language's page with the *old* language's
+     * words — `t()` falls back to English for a missing table, which on a
+     * switch into Urdu is the whole page in English under an Urdu toggle. The
+     * URL and the stored preference move with the state, not ahead of it, so a
+     * reload during the fetch lands on the language actually being shown.
+     *
+     * Resolves synchronously when the table is already loaded, which is every
+     * switch after the first in each direction, and always for English.
+     */
+    void loadUiStrings(next).then(() => {
+      setLangState(next);
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
+      const params = new URLSearchParams(window.location.search);
+      params.set('lang', next);
+      const url = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState(null, '', url);
+    });
   }, []);
 
   // The Urdu article payload (~1 MB) is not in the eager bundle; an English

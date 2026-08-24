@@ -26,6 +26,10 @@
  */
 import { describe, it, expect } from 'vitest';
 import { UI_TEXT, tFn } from '../uiStrings';
+/* The Urdu table is a lazily-loaded chunk now, so `UI_TEXT.ur` is
+   `UiStrings | undefined`. This file is about the *tables*, so it reads the
+   module. A static import here does not reach the bundle. */
+import { UI_TEXT_UR } from '../uiStrings.ur';
 
 /**
  * Words that only ever glue other words together. Deliberately short: this is
@@ -83,7 +87,7 @@ describe('UI strings are whole phrases', () => {
     // A fragment removed from one table and left in the other is how the
     // English falls back silently.
     const en = Object.keys(UI_TEXT.en).sort();
-    const ur = Object.keys(UI_TEXT.ur).sort();
+    const ur = Object.keys(UI_TEXT_UR).sort();
     expect(ur, 'the Urdu table is missing keys the English table has').toEqual(en);
   });
 
@@ -94,7 +98,7 @@ describe('UI strings are whole phrases', () => {
     const mismatched: string[] = [];
     for (const key of Object.keys(UI_TEXT.en) as (keyof typeof UI_TEXT.en)[]) {
       const enKind = typeof UI_TEXT.en[key];
-      const urKind = typeof UI_TEXT.ur[key];
+      const urKind = typeof UI_TEXT_UR[key];
       if (enKind !== urKind) mismatched.push(`${key}: en is ${enKind}, ur is ${urKind}`);
     }
     expect(mismatched, 't() returns an empty string for a function value').toEqual([]);

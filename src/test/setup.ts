@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { loadUrduSeed } from '../lib/i18n/urduFallback';
+import { loadUiStrings } from '../lib/i18n/uiStrings';
 
 // jsdom does not implement IntersectionObserver (scroll-spy, etc.)
 if (typeof IntersectionObserver === 'undefined') {
@@ -71,3 +72,17 @@ if (typeof window !== 'undefined') {
  * string returned unchanged rather than transliterated — calls
  * `resetUrduSeedForTests()` itself. */
 await loadUrduSeed();
+
+/*
+ * The Urdu interface strings, for the same reason the seed above is loaded: they
+ * are a lazily-loaded chunk now, and `t()` falls back to English for a table that
+ * is absent.
+ *
+ * In the app `main.tsx` awaits this before the first render, so a component is
+ * never asked to paint Urdu without its strings. A component test has no
+ * `main.tsx`, so without this line thirteen Urdu tests started asserting Urdu
+ * copy against a page rendering English — which is not a test failure so much as
+ * the tests correctly reporting that any consumer has to load the table. This is
+ * that guarantee, in the place a test suite can make it.
+ */
+await loadUiStrings('ur');

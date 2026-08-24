@@ -1,6 +1,11 @@
 import type { Page } from '@playwright/test';
 import { test, expect, settle } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+/* `UI_TEXT.ur` is `UiStrings | undefined` in the app — the Urdu table is a
+   lazily-loaded chunk — so a spec parameterised over both languages picks the
+   table rather than indexing a registry that may be unpopulated. A static import
+   in a test does not reach the bundle. */
+import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 import { DIRECTORY_MODE_STORAGE_KEY } from '../src/lib/storageKeys';
 
 /**
@@ -44,7 +49,7 @@ const DEVICES = [
 
 for (const device of DEVICES) {
   for (const lang of ['en', 'ur'] as const) {
-    const T = UI_TEXT[lang];
+    const T = lang === 'ur' ? UI_TEXT_UR : UI_TEXT.en;
     const url = lang === 'ur' ? '/?lang=ur' : '/';
 
     test.describe(`[${device.name}/${lang}] the Table of Shrines button`, () => {

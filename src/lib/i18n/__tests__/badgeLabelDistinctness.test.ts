@@ -13,6 +13,12 @@
  */
 import { describe, it, expect } from 'vitest';
 import { UI_TEXT } from '../uiStrings';
+/* Imported directly rather than through `UI_TEXT.ur`, which is now
+   `UiStrings | undefined` because the Urdu table is a lazily-loaded chunk. A
+   static import in a *test* costs the bundle nothing, and asserting against the
+   table itself is more direct than asserting against a registry that may or may
+   not have been populated. */
+import { UI_TEXT_UR } from '../uiStrings.ur';
 
 const INFO_KEYS = ['infoLevelFull', 'infoLevelModerate', 'infoLevelLow'] as const;
 const SUPPORT_KEYS = [
@@ -23,7 +29,7 @@ const SUPPORT_KEYS = [
 ] as const;
 
 describe.each(['en', 'ur'] as const)('badge labels are distinguishable (%s)', (lang) => {
-  const text = UI_TEXT[lang];
+  const text = lang === 'ur' ? UI_TEXT_UR : UI_TEXT.en;
 
   it('no info-level label repeats a support-level label', () => {
     const info: string[] = INFO_KEYS.map((k) => text[k]);

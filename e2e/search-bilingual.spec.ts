@@ -1,6 +1,9 @@
 import { test, expect, setTraditionalDirectory } from './fixtures';
 import type { Page } from '@playwright/test';
-import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+/* The Urdu table is a lazily-loaded chunk in the app, so `UI_TEXT.ur` is
+   `UiStrings | undefined` there. A spec asserting the Urdu view's copy wants the
+   table itself; a static import in a test does not reach the bundle. */
+import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 
 /**
  * Search must work in the language the interface is in.
@@ -123,6 +126,6 @@ test.describe('search works in both scripts', () => {
     await page.goto('/?lang=ur');
     await page.locator('#sidebar').waitFor();
     await page.locator('.list-toggle-btn').click();
-    await expect(page.getByPlaceholder(UI_TEXT.ur.searchPlaceholder)).toBeVisible();
+    await expect(page.getByPlaceholder(UI_TEXT_UR.searchPlaceholder)).toBeVisible();
   });
 });

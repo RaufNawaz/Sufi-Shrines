@@ -1,6 +1,9 @@
 import type { Page } from '@playwright/test';
 import { test, expect } from './fixtures';
-import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+/* The Urdu table is a lazily-loaded chunk in the app, so `UI_TEXT.ur` is
+   `UiStrings | undefined` there. A spec asserting the Urdu view's copy wants the
+   table itself; a static import in a test does not reach the bundle. */
+import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 
 /**
  * The command palette is the archive's search now, so the journey through it is
@@ -127,12 +130,12 @@ test.describe('command palette', () => {
     await openViaTrigger(page, true);
     await expect(page.locator('.palette-input')).toHaveAttribute(
       'placeholder',
-      UI_TEXT.ur.searchPlaceholder,
+      UI_TEXT_UR.searchPlaceholder,
     );
-    await expect(page.locator('.palette-filters-label')).toHaveText(UI_TEXT.ur.filtersLabel);
+    await expect(page.locator('.palette-filters-label')).toHaveText(UI_TEXT_UR.filtersLabel);
     // Eastern numerals reach the status line like every other number site.
     await expect(page.locator('.palette-status')).toHaveText(/[۰-۹]/);
-    await expect(page.locator('.palette-hint').first()).toContainText(UI_TEXT.ur.paletteHintMove);
+    await expect(page.locator('.palette-hint').first()).toContainText(UI_TEXT_UR.paletteHintMove);
     // …and the panel is RTL, not an LTR panel with Urdu text in it.
     await expect(page.locator('.palette')).toHaveAttribute('dir', 'rtl');
   });

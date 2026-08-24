@@ -1,5 +1,9 @@
 import { test, expect } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+/* The Urdu table is a lazily-loaded chunk in the app, so `UI_TEXT.ur` is
+   `UiStrings | undefined` there. A spec asserting the Urdu view's copy wants the
+   table itself; a static import in a test does not reach the bundle. */
+import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 
 /**
  * Places as entities — Track B.
@@ -85,14 +89,14 @@ test.describe('places', () => {
     // The index heading is the Urdu word for Places, and the place names in it
     // come from the dictionary rather than from the English table.
     await expect(
-      page.locator('.coverage-section-heading', { hasText: UI_TEXT.ur.placesTitle }),
+      page.locator('.coverage-section-heading', { hasText: UI_TEXT_UR.placesTitle }),
     ).toBeVisible();
     const first = page.locator('.coverage-place-link').first();
     await expect(first.locator('.coverage-place-name')).toHaveText('لاہور');
 
     await first.click();
     await expect(page.locator('h1.entity-title')).toHaveText('لاہور');
-    await expect(page.locator('.entity-type-kicker')).toHaveText(UI_TEXT.ur.placeKicker);
+    await expect(page.locator('.entity-type-kicker')).toHaveText(UI_TEXT_UR.placeKicker);
     // Eastern numerals reach the counts, like every other number site.
     await expect(page.locator('.place-tradition-count').first()).toHaveText(/[۰-۹]/);
   });

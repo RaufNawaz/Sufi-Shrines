@@ -1,5 +1,9 @@
 import { test, expect, setTraditionalDirectory } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
+/* The Urdu table is a lazily-loaded chunk in the app, so `UI_TEXT.ur` is
+   `UiStrings | undefined` there. A spec asserting the Urdu view's copy wants the
+   table itself; a static import in e2e does not reach the bundle. */
+import { UI_TEXT_UR } from '../src/lib/i18n/uiStrings.ur';
 import { LANGUAGE_STORAGE_KEY } from '../src/lib/storageKeys';
 
 /**
@@ -57,7 +61,7 @@ test.describe('Urdu (?lang=ur) journey', () => {
     await page.locator('.list-toggle-btn').click();
     await expect(page.locator('.shrine-list-panel')).toBeVisible();
 
-    await page.getByPlaceholder(UI_TEXT.ur.searchPlaceholder).fill('داتا دربار');
+    await page.getByPlaceholder(UI_TEXT_UR.searchPlaceholder).fill('داتا دربار');
 
     // The seed dictionary renders Data Darbar as داتا دربار; the list shows
     // localized names in ?lang=ur, so the match must surface under that name.
@@ -124,14 +128,14 @@ test.describe('Urdu (?lang=ur) journey', () => {
 
   test('starting a tour shows Urdu chrome with Eastern-numeral stop counts', async ({ page }) => {
     await page.goto('/?lang=ur');
-    await page.getByRole('switch', { name: UI_TEXT.ur.turnOnTours }).click();
+    await page.getByRole('switch', { name: UI_TEXT_UR.turnOnTours }).click();
 
     const firstCard = page.locator('.tour-card').first();
     await expect(firstCard).toBeVisible();
     await firstCard.click();
 
-    await expect(page.getByRole('button', { name: UI_TEXT.ur.tourStartButton })).toBeVisible();
-    await page.getByRole('button', { name: UI_TEXT.ur.tourStartButton }).click();
+    await expect(page.getByRole('button', { name: UI_TEXT_UR.tourStartButton })).toBeVisible();
+    await page.getByRole('button', { name: UI_TEXT_UR.tourStartButton }).click();
 
     const stepBadge = page.locator('.tour-step-badge');
     await expect(stepBadge).toBeVisible();
@@ -145,9 +149,9 @@ test.describe('Urdu (?lang=ur) journey', () => {
     page,
   }) => {
     await page.goto('/?lang=ur');
-    await page.getByRole('switch', { name: UI_TEXT.ur.turnOnTours }).click();
+    await page.getByRole('switch', { name: UI_TEXT_UR.turnOnTours }).click();
     await page.locator('.tour-card').first().click();
-    await page.getByRole('button', { name: UI_TEXT.ur.tourStartButton }).click();
+    await page.getByRole('button', { name: UI_TEXT_UR.tourStartButton }).click();
 
     const stepBadge = page.locator('.tour-step-badge');
     await expect(stepBadge).toContainText(/[۰-۹]/);

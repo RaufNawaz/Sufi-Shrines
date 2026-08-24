@@ -51,56 +51,47 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * Numbers below are the measurement *after* that change. `index.html` went from
  * 322 KB to 248 KB of eager JavaScript; the map route from 611 to 537.
  */
+/*
+ * **Every number below was re-measured and lowered on 24 August 2026**, when the
+ * Urdu interface strings were split into their own chunk. Each route's eager JS
+ * fell 20–30 KB — index.html 261 → 234, MapPage 575 → 548, ShrinePage 496 → 469
+ * — because 42 KB of Nastaliq copy had been reaching every reader on every route,
+ * English-only ones included. See docs/planning/LANGUAGE_LAYER_2026-08-24.md.
+ *
+ * The budgets came down with it, deliberately. A budget that does not fall when
+ * the payload does is how this table ended up with a line reading "measured 457"
+ * against a route sitting at 495: the headroom had been silently spent, and the
+ * next commit to touch *any* shared module was going to fail here regardless of
+ * what it did. Two block comments used to live in this table explaining raises
+ * for ShrinePage and AboutPage; both described numbers these lines no longer
+ * carry, so they are gone rather than left to read as current. The lesson they
+ * recorded is kept because it is the general one:
+ *
+ *   **a per-route budget cannot express "a shared module grew", so the route
+ *   with the least headroom takes the blame for a change unrelated to it.**
+ *
+ * Each line is now `measured N on <date>`. The date is the part that matters —
+ * a measurement quoted long enough becomes a claim (CLAUDE.md's standing
+ * findings). Headroom is ~7%: enough for a normal feature, not for another
+ * language's worth of strings.
+ */
 const BUDGETS_KB = {
-  'index.html': 270, // measured 248 (was 322 with the dictionary eager)
-  'src/pages/MapPage.tsx': 580, // measured 537 — maplibre-gl (1035 KB) is lazy; see MUST_STAY_LAZY
-  /* 495 → 505, raised 24 August 2026. Two things worth knowing before touching
-     this line again.
-
-     The old annotation read "measured 457" and the route measured 495 — it had
-     eaten all 38 KB of its headroom since that comment was written, so it sat
-     exactly on its budget and the next commit to touch *any shared module* was
-     going to fail here regardless of what it did. What actually tripped it was
-     eight new interface strings in src/lib/i18n/uiStrings.ts, which every route
-     imports: +1 KB on ShrinePage, AboutPage and SaintPage alike, for copy that
-     renders only on the figure page. A per-route budget cannot express "a shared
-     module grew", so the route with the least headroom takes the blame.
-
-     The comment is now the measurement *and* its date, because the number
-     without the date is what went stale. Which is also the standing lesson in
-     CLAUDE.md: a measurement quoted long enough becomes a claim.
-
-     The real finding underneath is in HANDOVER §9: UI_TEXT.ur is 39 KB of
-     source shipped eagerly to every reader, English-only ones included — the
-     same shape as the urdu-content.json waste this whole script was written to
-     catch. Fixing that gives every route back far more than this 10 KB. */
-  'src/pages/ShrinePage.tsx': 505, // measured 496 on 24 Aug 2026
-  'src/pages/SaintPage.tsx': 665, // measured 615
-  'src/pages/OrderPage.tsx': 650, // measured 600
-  'src/pages/GraphPage.tsx': 620, // measured 571
-  'src/pages/AlmanacPage.tsx': 335, // measured 307
-  'src/pages/NotFoundPage.tsx': 275, // measured 251
-  'src/pages/CoveragePage.tsx': 320, // measured 294 — shrine data + the places index
-  /* 280 → 320, raised 24 August 2026, and this one is the page doing more rather
-     than a shared module growing. /about now computes the archive's own account
-     of itself — total sites, cited sources, photographs, the support-level
-     distribution and the gaps — instead of printing a link to /coverage and
-     calling that transparency. That means `useShrineData` and `buildCoverage`
-     on this route: +39 KB, almost all of it Papa Parse and the row model.
-
-     Worth knowing what it is *not*: the 1 MB `shrines-fallback.json` stays
-     behind the dynamic import in useShrineData, so the dataset itself is still
-     off the critical path here exactly as it is on /coverage. The number lands
-     at 309 against /coverage's 312, which is the right shape — the two pages now
-     load the same machinery because they now do the same work. Set to 320 to
-     match /coverage rather than to 309, so the two move together. */
-  'src/pages/AboutPage.tsx': 320, // measured 309 on 24 Aug 2026
-  'src/pages/PlacePage.tsx': 315, // measured 289 — the dataset and the place vocabulary
+  'index.html': 250, // measured 234 on 24 Aug 2026
+  'src/pages/MapPage.tsx': 580, // measured 548 on 24 Aug 2026
+  'src/pages/ShrinePage.tsx': 500, // measured 469 on 24 Aug 2026
+  'src/pages/SaintPage.tsx': 650, // measured 606 on 24 Aug 2026
+  'src/pages/OrderPage.tsx': 640, // measured 600 on 24 Aug 2026
+  'src/pages/GraphPage.tsx': 600, // measured 563 on 24 Aug 2026
+  'src/pages/AlmanacPage.tsx': 315, // measured 295 on 24 Aug 2026
+  'src/pages/NotFoundPage.tsx': 255, // measured 237 on 24 Aug 2026
+  'src/pages/CoveragePage.tsx': 300, // measured 281 on 24 Aug 2026
+  'src/pages/AboutPage.tsx': 295, // measured 278 on 24 Aug 2026
+  'src/pages/PlacePage.tsx': 295, // measured 278 on 24 Aug 2026
   // Added 23 Aug 2026 when the two branches merged: these routes were built on
   // the other line, so this table had never seen them. Same headroom as their
   // peers (~5%); both read the shipped dataset and render prose and tables.
-  'src/pages/ReportPage.tsx': 320, // measured 304 — coverage figures from the data
-  'src/pages/TypologyPage.tsx': 315, // measured 299 — the built-form atlas
+  'src/pages/ReportPage.tsx': 300, // measured 279 on 24 Aug 2026
+  'src/pages/TypologyPage.tsx': 295, // measured 274 on 24 Aug 2026
 };
 
 /**

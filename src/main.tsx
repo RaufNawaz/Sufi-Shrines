@@ -20,6 +20,7 @@ import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
+import { loadUiStrings } from './lib/i18n/uiStrings';
 
 // Prevent FOUC by setting data-theme before paint. An explicit choice
 // (the moon button) pins the theme; otherwise follow the device — a phone
@@ -42,10 +43,33 @@ initTelemetry();
    for an Urdu reader it resolves alongside — usually well before — the shrine
    data fetch it would otherwise be waiting behind. If it does land late,
    `LanguageProvider` re-renders on arrival. */
-void ensureUrduSeedForLang(detectInitialLang());
+const initialLang = detectInitialLang();
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+void ensureUrduSeedForLang(initialLang);
+
+/*
+ * The interface strings for the reader's language, *awaited* before the first
+ * render — the only line in this file that gates paint, and deliberately so.
+ *
+ * The Urdu table is 42 KB and now its own chunk, so an English reader never
+ * fetches it (this resolves synchronously for English: the table is static).
+ * For an Urdu reader it has to be in hand before React's first pass, because
+ * `t()` falls back to English for a missing table. That fallback is the right
+ * safety net and exactly the wrong first frame: 200ms of English chrome tells a
+ * reader which language the site thinks is real.
+ *
+ * There is nothing to hide the fetch behind. `scripts/prerender.mjs` bakes
+ * <head> metadata into per-route shells whose body is `<div id="root">` — it is
+ * not server rendering (HANDOVER §9.98) — so the alternative to awaiting is a
+ * flash, not a rendered page. What keeps the wait from being felt is the
+ * `modulepreload` the prerenderer injects into /ur/** pages: the request starts
+ * with the document rather than after this bundle parses. Correctness does not
+ * depend on that having worked, only the speed does.
+ */
+void loadUiStrings(initialLang).then(() => {
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+});

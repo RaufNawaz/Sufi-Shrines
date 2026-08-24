@@ -13,7 +13,7 @@
  * Run automatically via:  npm run build
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './data/lib/slugs.mjs';
@@ -1106,6 +1106,69 @@ for (const route of APP_ROUTES) {
     '  <meta name="robots" content="noindex" />\n</head>',
   );
   writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
+}
+
+// ── modulepreload for the Urdu interface strings, on /ur pages only ─────────
+/*
+ * The Urdu string table is its own 22 KB chunk, and `main.tsx` awaits it before
+ * the first render — an Urdu reader must never see an English frame, and there
+ * is nothing to hide the fetch behind: the files this script writes are <head>
+ * metadata around a `<div id="root">` shell, not server-rendered HTML
+ * (HANDOVER §9.98).
+ *
+ * So the request is started by the document instead of by the bundle. A
+ * `modulepreload` in the <head> of every /ur page means the fetch is already in
+ * flight while the entry chunk is still being parsed, which is the difference
+ * between "awaits a round trip" and "awaits something already arriving".
+ *
+ * Injected here, in one pass over what was written, rather than at each of the
+ * six places that write a mirror — a mirror added later cannot be forgotten.
+ * Only /ur pages get it: an English reader must not fetch 22 KB of Nastaliq
+ * copy, which is the entire point of the split.
+ *
+ * Correctness does not depend on this. If the manifest key moves and the preload
+ * silently stops being emitted, Urdu readers pay a round trip and see nothing
+ * wrong — which is exactly why `check-routes-prerendered.mjs` asserts the tag is
+ * present rather than trusting this loop to have run.
+ */
+{
+  const manifestPath = join(distDir, '.vite', 'manifest.json');
+  const urduChunk = existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, 'utf8'))['src/lib/i18n/uiStrings.ur.ts']?.file
+    : undefined;
+
+  if (!urduChunk) {
+    console.log(
+      '[prerender]   ! no uiStrings.ur chunk in the manifest — /ur pages get no ' +
+        'modulepreload, so an Urdu reader waits a round trip before first paint.',
+    );
+  } else {
+    /* The base comes out of the document, not out of the environment. Reading
+       `VITE_BASE_PATH` here would duplicate vite.config.ts's own default
+       (`/Sufi-Shrines/`), and a preload whose base has drifted from the entry
+       script's points at a 404 — which costs an Urdu reader the round trip this
+       tag exists to remove, while looking like it worked. The entry script's own
+       `src` is the base, by construction. */
+    const entrySrc = /<script[^>]+type="module"[^>]+src="([^"]+)"/.exec(baseHtml)?.[1];
+    const base = entrySrc ? entrySrc.slice(0, entrySrc.indexOf('assets/')) : '/';
+    const tag = `    <link rel="modulepreload" crossorigin href="${base}${urduChunk}">`;
+    let injected = 0;
+    const walk = (dir) => {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (entry.name === 'index.html') {
+          const html = readFileSync(full, 'utf8');
+          if (html.includes(urduChunk)) continue;
+          writeFileSync(full, html.replace('</head>', `${tag}\n</head>`), 'utf8');
+          injected += 1;
+        }
+      }
+    };
+    const urRoot = join(distDir, 'ur');
+    if (existsSync(urRoot)) walk(urRoot);
+    console.log(`[prerender] \u2713 modulepreload for the Urdu strings on ${injected} /ur page(s)`);
+  }
 }
 
 console.log(`[prerender] ✓ ${APP_ROUTES.length * 2} app-route pages (+/ur) + 404.html`);

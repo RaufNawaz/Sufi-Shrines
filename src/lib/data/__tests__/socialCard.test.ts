@@ -87,8 +87,16 @@ describe('social sharing card', () => {
   });
 
   it('the titles printed on the card are the ones the UI uses', () => {
-    const ui = readFileSync(join(ROOT, 'src/lib/i18n/uiStrings.ts'), 'utf8');
-    const titles = [...ui.matchAll(/siteTitle:\s*'([^']+)'/g)].map((m) => m[1]);
+    /* Both tables, because they are two files now: the Urdu strings were split
+       into `uiStrings.ur.ts` so an English reader does not download 42 KB of
+       Nastaliq copy. Reading only `uiStrings.ts` found one title and this test
+       failed with "expected ['Sufi Shrines of Pakistan'] to include
+       'پاکستان کے صوفی مزارات'" — which is a correct complaint about the wrong
+       thing, and the reason this comment names both paths. */
+    const sources = ['src/lib/i18n/uiStrings.ts', 'src/lib/i18n/uiStrings.ur.ts']
+      .map((rel) => readFileSync(join(ROOT, rel), 'utf8'))
+      .join('\n');
+    const titles = [...sources.matchAll(/siteTitle:\s*'([^']+)'/g)].map((m) => m[1]);
     expect(titles).toContain(LOCK.titleEn);
     expect(titles).toContain(LOCK.titleUr);
   });
