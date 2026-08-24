@@ -399,7 +399,17 @@ export function MapSidebar({
                 aria-label={t('settings')}
                 title={t('settings')}
                 aria-expanded={settingsOpen}
-                onClick={() => setSettingsOpen((v) => !v)}
+                onClick={() => {
+                  /* On a phone the sidebar is a bottom sheet, and at peek
+                     height its header sits near the foot of the screen: the
+                     panel opened downward past the fold, and opening it upward
+                     instead put it outside the sheet's box, where the sheet
+                     clips it and the map is what a finger actually hits. There
+                     is only room for it inside an expanded sheet — so expand
+                     the sheet, exactly as the list button does. §9.84 */
+                  if (!settingsOpen && isMobile && !isOpen) onToggle?.();
+                  setSettingsOpen((v) => !v);
+                }}
               >
                 <svg
                   width="18"
