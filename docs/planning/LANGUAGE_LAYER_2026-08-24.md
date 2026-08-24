@@ -1,0 +1,169 @@
+# The language layer — one refactor, two problems
+
+*Written 24 August 2026. Every number below was measured that day; the commands are given so
+they can be re-measured rather than quoted.*
+
+## The claim
+
+**N4's architectural cost and the eager Urdu payload are the same piece of work**, and doing
+either one first makes the other harder. `NEXT_STEPS_2026-08-21.md` §4 already says to do N4's
+type-level generalisation "now-ish while the i18n code is warm" — this says what that means
+concretely, and why the payload finding (HANDOVER §9.89) belongs inside it rather than beside it.
+
+## What is measured
+
+```bash
+# the split
+node -e "const s=require('fs').readFileSync('src/lib/i18n/uiStrings.ts','utf8');
+const i=s.indexOf('\n  ur: {');
+console.log('total', Buffer.byteLength(s), '| en-side', Buffer.byteLength(s.slice(0,i)),
+            '| ur table', Buffer.byteLength(s.slice(i)))"
+
+# the union type, and the comparisons against a literal
+grep -rn "'en' | 'ur'" src/ --include=*.ts --include=*.tsx | wc -l   # 10
+grep -rn "lang === 'ur'" src/ --include=*.ts --include=*.tsx | wc -l # 55
+```
+
+| | measured 24 Aug 2026 |
+|---|---|
+| `src/lib/i18n/uiStrings.ts` | 71,508 bytes |
+| — everything before the `ur:` key | 29,483 |
+| — the `ur:` table alone | 42,025 |
+| keys per language | ~460 |
+| `'en' \| 'ur'` union declarations | 10 |
+| `lang === 'ur'` comparisons | 55 |
+
+**Every reader downloads both languages on every route.** 42 KB of Nastaliq interface copy
+reaches an English-only reader who will never see a word of it. A third Arabic-script language at
+the same density takes the eager cost to roughly **113 KB, a 59% increase**, and a fourth to
+155 KB. This is the same shape as the waste `scripts/check-bundle-budget.mjs` was written to
+catch — `urdu-content.json`, 1 MB of article prose, was a static import until 20 August — and it
+is the reason that script exists at all.
+
+It has already had a visible cost. Eight new interface strings added ~1 KB to *every* route's
+eager JS and tripped `ShrinePage`'s budget: a route the change never touched, which happened to
+be sitting at 495/495 with an annotation still reading "measured 457". A per-route budget cannot
+express "a shared module grew", so the route with the least headroom takes the blame.
+
+## Why the two are one job
+
+Adding a language today means:
+
+1. widening `Lang` in 10 places;
+2. finding the right branch in each of **55** `lang === 'ur'` comparisons — and every one of them
+   is really asking one of four different questions:
+   - *is this script right-to-left?* (`dir`, bidi isolation)
+   - *does this need the Nastaliq stack?* (`--font-urdu`, leading, tracking)
+   - *should numerals be Eastern?*
+   - *is there a translation for this datum at all?* (dictionary lookups, content overrides)
+3. shipping a third string table to everyone, eagerly.
+
+(2) is the expensive one and it is invisible in a diff: `lang === 'ur'` is correct today and
+becomes silently wrong the moment a second RTL language exists, because half of those 55 sites
+mean "RTL" and half mean "Urdu specifically". Nothing distinguishes them. That is a
+plausible-assumption-never-cheaply-checked in the exact shape RULE 4 exists for.
+
+And (3) cannot be fixed *after* (1) and (2) without touching all of it again, because the load
+boundary is per-language: you cannot lazily load a table whose shape is hardcoded into a union at
+55 call sites.
+
+## The plan, in the order that keeps the build green at every step
+
+Each phase ends with `npm run verify` and the Urdu e2e suite green, and is independently
+committable. Nothing here changes what a reader sees until phase 3, and phase 3 changes nothing
+either — it is the same behaviour expressed once instead of 55 times.
+
+### Phase 1 — a language registry, replacing the union
+
+One record per language, carrying the properties the 55 comparisons are actually asking about:
+
+```ts
+export const LANGUAGES = {
+  en: { dir: 'ltr', script: 'latin',  numerals: 'western', font: 'sans' },
+  ur: { dir: 'rtl', script: 'arabic', numerals: 'eastern', font: 'nastaliq' },
+} as const;
+export type Lang = keyof typeof LANGUAGES;
+```
+
+`Lang` is *derived* from the registry, so adding a language is one entry and the type follows.
+No behaviour change; the 10 union declarations collapse to this.
+
+**Done when:** `Lang` has one definition, `npm run verify` green, and a test asserts every
+registry entry carries every property (a language missing `numerals` is a silent Western-digit
+leak, which i18n rule 5 exists to prevent).
+
+### Phase 2 — retire `lang === 'ur'` in favour of what it means
+
+Replace each of the 55 with the property it is testing: `isRtl(lang)`, `usesEasternNumerals(lang)`,
+`needsNastaliq(lang)`, `hasTranslations(lang)`. Mechanical, reviewable one file at a time, and
+this is the phase that makes a second RTL language *possible* rather than merely typeable.
+
+**Done when:** `grep -rn "lang === 'ur'" src/` returns only the sites that genuinely mean Urdu
+specifically — each with a comment saying why — and a lint rule (beside the existing
+inline-ternary one) blocks new ones.
+
+### Phase 3 — load a language's strings when that language is used
+
+Follow the pattern already in this repo rather than inventing one: `ensureUrduSeedForLang` /
+`onUrduSeedLoaded` in `src/lib/i18n/urduFallback.ts` already load the Urdu *dictionary* on demand
+and notify on arrival. The string table gets the same treatment.
+
+**The hard constraint, and it is non-negotiable:** `t()` is synchronous at every call site, and an
+English flash in the Urdu view is not an acceptable intermediate state — the mission bar is
+"equally excellent in both languages", and a reader whose page reads English for 200ms has been
+told which language is the real one.
+
+Two facts make this tractable:
+
+- `detectInitialLang` runs before render, so the *active* language is known at module init and its
+  table can be requested immediately.
+- every route is already prerendered in both languages (`/ur` mirrors, `scripts/prerender.mjs`),
+  so the first paint is server-rendered HTML in the right language regardless.
+
+So the load is gated on the active language only, and the *other* language's table is fetched
+lazily on toggle — where a brief pending state is honest, because the reader just asked for a
+change and is watching for one.
+
+**Done when:** the English route's eager JS drops by ~40 KB (measured, and `check-bundle-budget.mjs`
+budgets lowered to match — a budget that does not fall when the payload does is how "measured 457"
+became a page sitting at 495), the Urdu route shows no English at any point in a cold load, and
+`e2e/urdu-no-leak.spec.ts` stays green including on a throttled connection.
+
+### Phase 4 — Punjabi in Shahmukhi becomes a content task
+
+Only now. One `LANGUAGES` entry, one string table, and the whole Nastaliq/RTL/Eastern-numeral
+stack applies by construction.
+
+**This phase is gated on editorial capacity, not engineering**, and the plan should say so
+plainly: 0 of 168 Urdu articles have been read by a human (NEXT_STEPS §0), and that is already
+the project's largest queue. A third language triples the reviewing debt while the second
+language's debt is untouched. The refactor's value is that Punjabi stops being an *architecture*
+decision and becomes a scheduling one — not that it should be scheduled now.
+
+## What this plan deliberately does not do
+
+- **It does not touch `urdu-content.json` or the dictionary.** Both are already lazy. The finding
+  is specifically about `uiStrings.ts`, which is not.
+- **It does not add Punjabi content.** See phase 4.
+- **It does not machine-translate anything.** A Punjabi string table authored by a machine and
+  shipped unreviewed would repeat, in a third language, the debt the second one already carries.
+
+## Why this and not N1/N2/N3/N5
+
+Checked against `NEXT_STEPS_2026-08-21.md` §4 rather than chosen by preference:
+
+- **N1 (Ask the Archive)** is explicitly gated behind F7 claim-level provenance, and building it
+  first "would launder exactly the uncited prose this project spent August citing".
+- **N2 (Wikidata round-trip)** is gated on a media-licence audit — "we push nothing whose rights
+  we can't state" — and on network access this sandbox does not have (HANDOVER §9.53).
+- **N3 (field-kit PWA)** is for one named surveyor and its value is realised on a trip, not in a
+  repo; it also needs decisions about Drive keys that are not an agent's to make.
+- **N5 (adopt-a-shrine)** takes money. That is a decision about the project's public commitments,
+  not a feature.
+- **N7 (typology atlas)** and most of **N6** have shipped — `/typology` and `/report` exist.
+
+This one needs no external service, no editorial decision and no money; it removes a measured
+cost from every reader on every route; and it is the prerequisite the project's own plan already
+identified for the next language. It is also, bluntly, the piece most likely to be got wrong
+later by someone who does not know that half of those 55 comparisons mean "RTL" and half mean
+"Urdu".
