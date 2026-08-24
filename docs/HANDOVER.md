@@ -3111,6 +3111,44 @@ nothing errored.
     copies is precisely the state in which a fourth gets forgotten rather than copied, which is
     what happened here.
 
+### Added 24 August 2026 — a red test that meant `dist/` was old, not that anything broke
+
+`npm run test` came back **2 failed, 909 passed**, both in
+`src/lib/i18n/__tests__/uiStringSplit.test.ts`: *"the Urdu table is no longer a dynamic entry —
+the split is gone."* Nothing was wrong with the source. `dist/` was built on **23 August**; the
+Urdu-string split landed on the **24th** (`813b1c5`). The test was reading a build that predated
+the thing it asserts about, and saying so in the voice of a regression.
+
+The mechanism is worth knowing because it will recur for any test that reads `dist/`:
+
+- `dist/` is **gitignored**, so it is never cleaned by a checkout and never refreshed by
+  `npm run test`. It persists at whatever commit last built it, indefinitely, across branches.
+- The guard was `describe.skipIf(!existsSync(distUr))`. Existence is not freshness. A build from
+  any date satisfies it, and every assertion inside then runs against an artefact that may have
+  been produced by different source.
+- The skip was written for exactly this class of problem — its comment says a test that fails
+  because `dist/` is absent "trains people to ignore it" — and then failed for the stale case
+  the same way.
+
+Both halves are now fixed, and the fix is a relocation, not a patch:
+
+1. **`scripts/check-routes-prerendered.mjs` asserts the preload** — the chunk is a dynamic entry
+   in the manifest, every `/ur` page carries the `modulepreload`, its base matches the entry
+   script's, and no English page carries it. This runs **inside `npm run build`**, moments after
+   the artefact is written, so it cannot be handed a stale one. Confirmed to exit non-zero on all
+   four breaks, not merely to pass when things are fine. `prerender.mjs` had claimed this check
+   existed since the split landed; it did not until now, so for a day the invariant lived only in
+   a comment.
+2. **The unit test's guard compares mtimes** — `dist/.vite/manifest.json` against
+   `uiStrings.ur.ts`, `uiStrings.ts`, `prerender.mjs` and `vite.config.ts`. Stale dist → 3 skipped,
+   no failure. Fresh dist → 8 passed. Skipping loses nothing now that the build gate holds the
+   line.
+
+The general lesson, and the reason this is in §9 rather than a commit message: **an assertion
+about a build artefact belongs in the build**, not in a test run that does not produce one. Where
+a test must read `dist/` anyway, its precondition is "newer than the sources that decide its
+contents", never "exists".
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

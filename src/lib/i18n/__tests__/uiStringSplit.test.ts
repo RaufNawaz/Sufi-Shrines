@@ -29,7 +29,7 @@
  * stopped being emitted.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SRC = join(__dirname, '..', '..', '..');
@@ -107,41 +107,72 @@ describe('the Urdu string table is not in the eager bundle', () => {
 
 /* The preload is a build artefact, so it can only be checked after a build. Skipped
    rather than failed when dist/ is absent: `npm run test` runs without building,
-   and a test that fails for that reason trains people to ignore it. */
+   and a test that fails for that reason trains people to ignore it.
+
+   Absent was the easy half. `dist/` is gitignored, so it is never cleaned by a
+   checkout and never rebuilt by `npm run test` — it simply persists, at whatever
+   commit last built it. A build from 23 August satisfied `existsSync` and then
+   failed both assertions below, because the split it is asserting about did not
+   exist until the 24th. Nothing was wrong with the source; the guard was asking
+   the wrong question. So it asks the right one: is this dist newer than the
+   things that decide what it contains?
+
+   Skipping a stale one loses nothing, because the real gate is
+   `check-routes-prerendered.mjs`, which runs inside `npm run build` and therefore
+   cannot be handed an old artefact. What survives here is the cheap local signal
+   for anyone who did just build. */
 const distUr = join(ROOT, 'dist', 'ur', 'about', 'index.html');
 const distEn = join(ROOT, 'dist', 'about', 'index.html');
+const distManifest = join(ROOT, 'dist', '.vite', 'manifest.json');
 
-describe.skipIf(!existsSync(distUr))('the built /ur pages preload the table', () => {
-  it('names the real chunk from the manifest', () => {
-    const manifest = JSON.parse(
-      readFileSync(join(ROOT, 'dist', '.vite', 'manifest.json'), 'utf8'),
-    ) as Record<string, { file?: string }>;
-    const chunk = manifest['src/lib/i18n/uiStrings.ur.ts']?.file;
-    expect(chunk, 'the Urdu table is no longer a dynamic entry — the split is gone').toBeTruthy();
+/** Change any of these and the built preload can change with it. */
+const DECIDES_THE_OUTPUT = [
+  join(SRC, 'lib', 'i18n', 'uiStrings.ur.ts'),
+  join(SRC, 'lib', 'i18n', 'uiStrings.ts'),
+  join(ROOT, 'scripts', 'prerender.mjs'),
+  join(ROOT, 'vite.config.ts'),
+];
 
-    const html = readFileSync(distUr, 'utf8');
-    expect(html, 'the /ur page does not preload the Urdu strings').toContain(chunk!);
-    expect(html).toMatch(/<link rel="modulepreload"[^>]*uiStrings\.ur/);
-  });
+const mtime = (f: string) => (existsSync(f) ? statSync(f).mtimeMs : 0);
+const distIsCurrent =
+  existsSync(distUr) &&
+  existsSync(distManifest) &&
+  mtime(distManifest) >= Math.max(...DECIDES_THE_OUTPUT.map(mtime));
 
-  it('uses the same base path as the entry script', () => {
-    /* A preload whose base has drifted from the entry script's points at a 404,
+describe.skipIf(!distIsCurrent)(
+  'the built /ur pages preload the table (needs a fresh dist)',
+  () => {
+    it('names the real chunk from the manifest', () => {
+      const manifest = JSON.parse(
+        readFileSync(join(ROOT, 'dist', '.vite', 'manifest.json'), 'utf8'),
+      ) as Record<string, { file?: string }>;
+      const chunk = manifest['src/lib/i18n/uiStrings.ur.ts']?.file;
+      expect(chunk, 'the Urdu table is no longer a dynamic entry — the split is gone').toBeTruthy();
+
+      const html = readFileSync(distUr, 'utf8');
+      expect(html, 'the /ur page does not preload the Urdu strings').toContain(chunk!);
+      expect(html).toMatch(/<link rel="modulepreload"[^>]*uiStrings\.ur/);
+    });
+
+    it('uses the same base path as the entry script', () => {
+      /* A preload whose base has drifted from the entry script's points at a 404,
        which costs the round trip this tag exists to remove while looking like it
        worked. */
-    const html = readFileSync(distUr, 'utf8');
-    const entry = /<script[^>]+type="module"[^>]+src="([^"]+)"/.exec(html)?.[1];
-    const preload = /<link rel="modulepreload"[^>]*href="([^"]*uiStrings\.ur[^"]*)"/.exec(
-      html,
-    )?.[1];
-    expect(entry).toBeTruthy();
-    expect(preload).toBeTruthy();
-    const baseOf = (url: string) => url.slice(0, url.indexOf('assets/'));
-    expect(baseOf(preload!), 'preload base differs from the entry script’s').toBe(baseOf(entry!));
-  });
+      const html = readFileSync(distUr, 'utf8');
+      const entry = /<script[^>]+type="module"[^>]+src="([^"]+)"/.exec(html)?.[1];
+      const preload = /<link rel="modulepreload"[^>]*href="([^"]*uiStrings\.ur[^"]*)"/.exec(
+        html,
+      )?.[1];
+      expect(entry).toBeTruthy();
+      expect(preload).toBeTruthy();
+      const baseOf = (url: string) => url.slice(0, url.indexOf('assets/'));
+      expect(baseOf(preload!), 'preload base differs from the entry script’s').toBe(baseOf(entry!));
+    });
 
-  it('does not put it on an English page', () => {
-    /* The entire point of the split. An English reader fetching 22 KB of Nastaliq
+    it('does not put it on an English page', () => {
+      /* The entire point of the split. An English reader fetching 22 KB of Nastaliq
        interface copy is the thing this undid. */
-    expect(readFileSync(distEn, 'utf8')).not.toContain('uiStrings.ur');
-  });
-});
+      expect(readFileSync(distEn, 'utf8')).not.toContain('uiStrings.ur');
+    });
+  },
+);
