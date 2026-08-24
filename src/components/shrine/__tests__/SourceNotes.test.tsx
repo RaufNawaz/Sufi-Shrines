@@ -4,10 +4,24 @@ import { screen, waitFor } from '@testing-library/react';
 import { SourceNotes } from '../SourceNotes';
 import { renderWithProviders } from '../../../test/utils';
 import sourceNotes from '../../../data/source-notes.json';
+import shrineSnapshot from '../../../data/shrines-fallback.json';
 
 const table = sourceNotes as unknown as Record<string, Array<{ en: string; ur: string }> | string>;
 
 describe('source-notes content contract', () => {
+  it('covers every shrine with an internal QA note, plus the two unmapped survey rows', () => {
+    const expected = shrineSnapshot.rows
+      .filter((row) => row.qa_note?.trim())
+      .map((row) => row.id)
+      .concat(['darbar-mian-qurban-ali-shah', 'darbar-hazrat-shah-gohar-peer'])
+      .sort();
+    const actual = Object.keys(table)
+      .filter((slug) => !slug.startsWith('_'))
+      .sort();
+
+    expect(actual).toEqual(expected);
+  });
+
   it('every entry is bilingual, and the Urdu side carries no Latin', () => {
     const slugs = Object.keys(table).filter((k) => !k.startsWith('_'));
     expect(slugs.length).toBeGreaterThan(0);
