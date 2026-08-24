@@ -151,7 +151,7 @@ export function ShrineArticle({ shrine }: Props) {
         <ArticleSection
           key={section.id}
           id={section.id}
-          heading={section.title[lang as 'en' | 'ur'] || section.title.en}
+          heading={section.title[lang] || section.title.en}
           content={section.content}
           isSources={section.id === 'sources'}
         />

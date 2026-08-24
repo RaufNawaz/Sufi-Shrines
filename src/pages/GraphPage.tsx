@@ -22,6 +22,7 @@ import { tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 import { centurySpan } from '../lib/data/figureDates';
 import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
+import type { Lang } from '../types/shrine';
 
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
@@ -32,7 +33,7 @@ import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
 /** The ordinal alone; the noun comes from the span string. Same helper as
  * OrderPage, kept local because it is two lines and importing a component's
  * private formatter across pages is worse. */
-function centuryLabel(century: number, lang: 'en' | 'ur'): string {
+function centuryLabel(century: number, lang: Lang): string {
   return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
 }
 

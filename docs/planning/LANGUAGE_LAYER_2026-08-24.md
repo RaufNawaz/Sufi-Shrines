@@ -73,30 +73,62 @@ Each phase ends with `npm run verify` and the Urdu e2e suite green, and is indep
 committable. Nothing here changes what a reader sees until phase 3, and phase 3 changes nothing
 either — it is the same behaviour expressed once instead of 55 times.
 
-### Phase 1 — a language registry, replacing the union
+### Phase 1 — a language registry, replacing the union — **partly done before this plan, finished 24 August**
 
-One record per language, carrying the properties the 55 comparisons are actually asking about:
+*Correction to this document as first written.* `src/lib/i18n/languages.ts` already existed, with
+`LANGUAGES`, `Lang` derived from its keys, `isRtlLang`, `dirAttr` and `langAttr` — committed as
+"N4 groundwork" in `5c5326e`. The plan above described phase 1 as undone. It was not; what was
+missing was narrower, and worth stating precisely because a plan that overstates the work
+remaining is how the same thing gets built twice:
+
+- the table carried only `dir`, so `numerals` and `script` — two of the four questions the 55
+  comparisons ask — had nowhere to live and were still being answered by `lang === 'ur'`;
+- ten inline `'en' | 'ur'` literals had not been switched to `Lang`.
+
+Both are now done. One record per language, carrying the properties the comparisons are actually
+asking about:
 
 ```ts
 export const LANGUAGES = {
-  en: { dir: 'ltr', script: 'latin',  numerals: 'western', font: 'sans' },
-  ur: { dir: 'rtl', script: 'arabic', numerals: 'eastern', font: 'nastaliq' },
-} as const;
+  en: { dir: 'ltr', numerals: 'western', script: 'latin' },
+  ur: { dir: 'rtl', numerals: 'eastern', script: 'nastaliq' },
+} as const satisfies Record<string, { … }>;
 export type Lang = keyof typeof LANGUAGES;
 ```
 
+Three fields, not the four this document first sketched: `font` was dropped because it is not an
+independent question — the type stack follows from `script`, and a second token saying the same
+thing is a second thing to get out of step. `script` names the stack (`nastaliq`) rather than the
+writing system (`arabic`), because what the code branches on is which metrics and which tracking
+rules apply, and a Naskh-set Arabic-script language would want different ones.
+
 `Lang` is *derived* from the registry, so adding a language is one entry and the type follows.
-No behaviour change; the 10 union declarations collapse to this.
+No behaviour change; the ten inline unions collapse to this.
 
 **Done when:** `Lang` has one definition, `npm run verify` green, and a test asserts every
 registry entry carries every property (a language missing `numerals` is a silent Western-digit
-leak, which i18n rule 5 exists to prevent).
+leak, which i18n rule 5 exists to prevent). **Done 24 August 2026.**
+
+One thing learned while writing that test, worth carrying into phases 2 and 3: a test that checks
+each helper against the field it reads is tautological on its own — set `ur: { dir: 'ltr' }` and
+helper and table still agree, so everything passes. `languages.test.ts` therefore keeps both
+kinds: the loops that prove a helper reads the right field, and flat anchors that pin what the
+archive's two published languages actually are. The smaller file this replaced had only the
+anchors, and swapping them for tidier loops would have been a downgrade.
 
 ### Phase 2 — retire `lang === 'ur'` in favour of what it means
 
-Replace each of the 55 with the property it is testing: `isRtl(lang)`, `usesEasternNumerals(lang)`,
-`needsNastaliq(lang)`, `hasTranslations(lang)`. Mechanical, reviewable one file at a time, and
-this is the phase that makes a second RTL language *possible* rather than merely typeable.
+Replace each of the 55 with the property it is testing: `isRtlLang(lang)`,
+`usesEasternNumerals(lang)`, `needsNastaliq(lang)`, or a `Record<Lang, …>` lookup where the real
+question is "is there a translation for this datum". Mechanical, reviewable one file at a time,
+and this is the phase that makes a second RTL language *possible* rather than merely typeable.
+
+Started 24 August: the i18n core is converted — `numerals.ts` (`localizeDigits` now asks
+`usesEasternNumerals`, which matters because digit set and direction are genuinely independent)
+and `LanguageContext`'s two `isRTL` derivations. Its third comparison is deliberately left as a
+literal, with a comment: `if (lang === 'ur') void loadUrduContent()` asks whether *that payload*
+applies, which is a fact about one file rather than about direction. Roughly 50 remain, thinly
+spread — 1 or 2 per file across 30 files.
 
 **Done when:** `grep -rn "lang === 'ur'" src/` returns only the sites that genuinely mean Urdu
 specifically — each with a comment saying why — and a lint rule (beside the existing

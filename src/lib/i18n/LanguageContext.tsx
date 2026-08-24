@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { isRtlLang } from './languages';
 import type { Lang } from '../../types/shrine';
 import type { UI_TEXT } from './uiStrings';
 import { t, tFn } from './uiStrings';
@@ -76,6 +77,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // on first paint for a /ur/ or ?lang=ur visit, or the moment the reader
   // switches. useShrineData re-merges the rows when it arrives.
   useEffect(() => {
+    /* `lang === 'ur'` and not `isRtlLang(lang)`: this asks whether the *Urdu*
+       content payload applies, which is a fact about that one payload rather
+       than about direction. A future Shahmukhi edition would load its own file
+       here, not this one. Kept as a literal deliberately — see
+       docs/planning/LANGUAGE_LAYER_2026-08-24.md phase 2. */
     if (lang === 'ur') void loadUrduContent();
   }, [lang]);
 
@@ -96,7 +102,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [lang]);
 
   useEffect(() => {
-    const isRTL = lang === 'ur';
+    const isRTL = isRtlLang(lang);
     document.documentElement.setAttribute('lang', isRTL ? 'ur' : 'en');
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     document.body.classList.toggle('lang-rtl', isRTL);
@@ -128,7 +134,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<LangContextValue>(
     () => ({
       lang,
-      isRTL: lang === 'ur',
+      isRTL: isRtlLang(lang),
       setLang,
       t: (key) => t(lang, key),
       tCount: (n) => fmtNum(tFn(lang, 'resultCount', n)),

@@ -1,4 +1,5 @@
 import type { Lang } from '../../types/shrine';
+import { usesEasternNumerals } from './languages';
 
 const EASTERN = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
@@ -7,13 +8,19 @@ export const toEasternDigits = (s: string | number): string =>
   String(s).replace(/[0-9]/g, (d) => EASTERN[+d]);
 
 /**
- * Applies the Eastern-numeral toggle: only affects Urdu, and only when the
- * toggle is on. Coordinates and other Western-locked values should never be
- * passed through this — callers opt in per render site (see fmtNum in
- * LanguageContext).
+ * Applies the Eastern-numeral toggle: only for a language whose default digits
+ * are Eastern, and only when the toggle is on. Coordinates and other
+ * Western-locked values should never be passed through this — callers opt in per
+ * render site (see fmtNum in LanguageContext).
+ *
+ * `usesEasternNumerals` rather than `lang === 'ur'`, and the difference is not
+ * cosmetic: digit set and text direction are independent properties. Arabic is
+ * RTL and conventionally sets Western digits across much of the Maghreb, so a
+ * future language could answer yes to one and no to the other. Asking the
+ * registry keeps that a one-line entry instead of a bug.
  */
 export function localizeDigits(text: string, lang: Lang, eastern: boolean): string {
-  return lang === 'ur' && eastern ? toEasternDigits(text) : text;
+  return usesEasternNumerals(lang) && eastern ? toEasternDigits(text) : text;
 }
 
 /**

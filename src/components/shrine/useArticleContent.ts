@@ -87,7 +87,7 @@ export function useArticleContent(shrine: Shrine) {
       items.push({ id: anchorSlug(s.heading), label: localizeHeading(s.heading, lang) });
     }
     for (const s of uniqueColumnSections) {
-      items.push({ id: s.id, label: s.title[lang as 'en' | 'ur'] || s.title.en });
+      items.push({ id: s.id, label: s.title[lang] || s.title.en });
     }
     if (shrine.gallery.length > 0) items.push({ id: 'gallery', label: t('gallery') });
     return items;

@@ -174,10 +174,10 @@ export function isProseFigureType(figureType: string | undefined): boolean {
   return raw.length > 0 && !(raw in EXACT);
 }
 
-export function figureGroupLabel(group: FigureGroup, lang: 'en' | 'ur'): string {
+export function figureGroupLabel(group: FigureGroup, lang: Lang): string {
   return FIGURE_GROUP_LABELS[group][lang];
 }
 
-export function figureGroupLabelSingular(group: FigureGroup, lang: 'en' | 'ur'): string {
+export function figureGroupLabelSingular(group: FigureGroup, lang: Lang): string {
   return FIGURE_GROUP_LABELS_SINGULAR[group][lang];
 }

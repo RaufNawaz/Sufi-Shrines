@@ -14,6 +14,7 @@ import { buildPlaces, type PlaceRecord } from '../lib/data/places';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
+import type { Lang } from '../types/shrine';
 
 /**
  * One place, and what the archive records in it.
@@ -33,7 +34,7 @@ function localizePlaceName(name: string, lang: string): string {
   return lang === 'ur' ? translateToUrdu(name) : name;
 }
 
-function PlaceContent({ place, lang }: { place: PlaceRecord; lang: 'en' | 'ur' }) {
+function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
   const { t, fmtNum } = useLang();
   const headingRef = useFocusHeadingOnMount();
   const displayName = localizePlaceName(place.name, lang);

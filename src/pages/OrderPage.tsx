@@ -6,7 +6,7 @@ import { ShrineImage } from '../components/ui/ShrineImage';
 import { placesForShrine } from '../lib/data/places';
 import { centurySpan } from '../lib/data/figureDates';
 import { centuryOrdinal, centuryOrdinalUr } from '../lib/data/era';
-import type { Shrine } from '../types/shrine';
+import type { Lang, Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -63,7 +63,7 @@ interface Member {
  * affiliations, each with its own quoted source, and they are the most
  * interesting thing the order graph now knows.
  */
-function sortMembers(members: Member[], lang: 'en' | 'ur'): Member[] {
+function sortMembers(members: Member[], lang: Lang): Member[] {
   const collator = new Intl.Collator(lang === 'ur' ? 'ur' : 'en', { sensitivity: 'base' });
   return [...members].sort((a, b) =>
     collator.compare(localizeFigureName(a.saint, lang), localizeFigureName(b.saint, lang)),
@@ -91,7 +91,7 @@ function DateAsRecorded({ value }: { value: string }) {
 /** "17th" / "۱۷ویں" — the same ordinals the era filter uses, so the two surfaces
  * name a century the same way. The noun comes from the span string, which is
  * why this is the ordinal alone. */
-function centuryLabel(century: number, lang: 'en' | 'ur'): string {
+function centuryLabel(century: number, lang: Lang): string {
   return lang === 'ur' ? centuryOrdinalUr(century) : centuryOrdinal(century);
 }
 
