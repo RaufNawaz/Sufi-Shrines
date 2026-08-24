@@ -94,6 +94,7 @@ export const UI_TEXT = {
     scrollToTop: 'Scroll to top',
     openInMaps: 'Open in Maps',
     sufiOrder: 'Sufi Order',
+    sufiOrders: 'Sufi orders',
     spiritualLineage: 'Spiritual Lineage',
     orderMembers: 'Members of this order',
     orderMemberCount: (n: number) => `${n} saint${n === 1 ? '' : 's'}`,
@@ -106,6 +107,9 @@ export const UI_TEXT = {
       'A figure can hold allegiance in several silsilas at once. Each affiliation here is a separate edge with its own quoted source, not an inference from the others.',
     orderBranchHelp:
       'A branch (\u0634\u0627\u062e) is a sub-line within a silsila. The same branch name can belong to two different orders, so a branch is only meaningful together with its parent.',
+    orderAsRecorded: 'As recorded',
+    orderAsRecordedHelp:
+      'The silsila exactly as this figure\u2019s own record words it, including where the record contradicts itself. It describes the figure rather than any one of the orders above, so it is shown once.',
     teachersHeading: 'Teachers',
     disciplesHeading: 'Disciples & successors',
     discipleOfLabel: 'Disciple',
@@ -600,7 +604,11 @@ export const UI_TEXT = {
     scrollToTop: 'اوپر جائیں',
     openInMaps: 'نقشے میں کھولیں',
     sufiOrder: 'صوفی سلسلہ',
+    sufiOrders: 'صوفی سلسلے',
     spiritualLineage: 'روحانی سلسلہ',
+    orderAsRecorded: 'ماخذ میں درج',
+    orderAsRecordedHelp:
+      'سلسلہ بعینہٖ اُن الفاظ میں جو اِس شخصیت کے اپنے ریکارڈ میں لکھے ہیں، بشمول اُس صورت کے جہاں ریکارڈ خود اپنی نفی کرتا ہے۔ یہ اوپر دیے گئے کسی ایک سلسلے کے بجائے خود شخصیت کو بیان کرتا ہے، اِس لیے ایک ہی بار دکھایا جاتا ہے۔',
     teachersHeading: 'اساتذہ',
     disciplesHeading: 'شاگرد و جانشین',
     discipleOfLabel: 'شاگرد',

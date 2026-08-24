@@ -65,7 +65,26 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   almanac and the shrine infobox both look up segment by segment via
  *   localizeObservance. What is left is the long tail: 157 segments that occur
  *   once each, several of them a sentence long.
- * - `saint` (14) — honorific chips and the alt-name list.
+ * - `saint` (16) — honorific chips and the alt-name list (14), plus the two
+ *   runs of the one lineage edge this figure has: the verbatim quote and its
+ *   `<cite>`. **Was 14.** SaintPage now prints the evidence under each
+ *   recorded teacher and each order membership, which `/graph` had been doing
+ *   all along — so the figure's own page held its claims to a *lower*
+ *   standard of provenance than the graph-wide dump. i18n rule 7 makes that
+ *   quote Latin on purpose: it is the entire basis for trusting an unreviewed
+ *   edge, and paraphrasing it into Urdu would destroy the reader's search
+ *   string. Counted on `/saint/data-ganj-bakhsh`, whose graph holds one
+ *   `disciple_of` edge and no order membership; a figure with a compound
+ *   silsila declares more, which is why the number belongs to this route
+ *   rather than to the page type.
+ * - `saint:multi-order` (22) — the same page type with the sections the first
+ *   figure has none of. Counted, not estimated: 3 lineage/membership quotes
+ *   with 3 `<cite>`s (6), the branch chip on each of his two order edges (2),
+ *   his row's own silsila cell — once, deduped across both edges, and a
+ *   sentence long (1), 8 figure and order names the dictionary does not carry,
+ *   the network diagram's `<title>`/`<text>`/`<a>` for one such name (3), and
+ *   the language toggle's "EN" (1). Nothing here is prose: every run is a
+ *   source's words, a person's name, or a citation.
  * - `about` (7) — licence names, the contact address, the repository URL. Latin
  *   by nature, like a citation.
  * - `map` (7) / `shrine` (2) — the Location column, which on several
@@ -96,7 +115,8 @@ const BUDGET: Record<string, number> = {
   // the print footer's raw "Field-verified" — is now translated through
   // SUPPORT_LEVEL_LABEL_KEYS rather than declared.
   shrine: 10,
-  saint: 14,
+  saint: 16,
+  'saint:multi-order': 22,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine
@@ -126,6 +146,16 @@ const ROUTES = [
   { name: 'map', path: '/?lang=ur', ready: '#sidebar' },
   { name: 'shrine', path: '/shrine/data-darbar?lang=ur', ready: 'h1.shrine-title' },
   { name: 'saint', path: '/saint/data-ganj-bakhsh?lang=ur', ready: 'h1.entity-title' },
+  /* A second figure, for the same reason all five orders are here: the two
+     saint pages render different sections. Data Ganj Bakhsh has one lineage
+     edge and no recorded order; Wasif Ali Wasif holds two silsilas at once and
+     his row's own silsila cell is a sentence long — the exact shape that used
+     to render as one order and no source wording. */
+  {
+    name: 'saint:multi-order',
+    path: '/saint/hazrat-wasif-ali-wasif?lang=ur',
+    ready: 'h1.entity-title',
+  },
   { name: 'order', path: '/order/qadiriyya?lang=ur', ready: 'h1.entity-title' },
   { name: 'order:chishtiyya', path: '/order/chishtiyya?lang=ur', ready: 'h1.entity-title' },
   { name: 'order:suhrawardiyya', path: '/order/suhrawardiyya?lang=ur', ready: 'h1.entity-title' },

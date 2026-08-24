@@ -20,6 +20,17 @@ interface Props {
   disciples?: LineageLink[];
 }
 
+/**
+ * One recorded lineage edge, with the evidence for it.
+ *
+ * The quote, the source file and the reviewed flag were on the link object all
+ * along and only `/graph` printed them — so the graph-wide dump held its
+ * claims to a higher standard of honesty than the figure's own page, which is
+ * where a reader actually reads a lineage. 80 of the archive's 86
+ * teacher-disciple edges are unreviewed and all 86 carry a verbatim quote;
+ * a page that shows the name and hides both is asserting more than the archive
+ * knows.
+ */
 function LineageLinkItem({ link }: { link: LineageLink }) {
   const { lang, t } = useLang();
   const saint = link.saint;
@@ -29,13 +40,31 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
 
   return (
     <li className="lineage-relation-item">
-      {/* A figure the dictionary does not cover comes back as its source name
-          (RULE 2 — do not invent an Urdu name for a person). <bdi> isolates the
-          Latin run; `data-latin` declares the debt for the no-leak guard. */}
-      <Link to={`/saint/${saint.slug}`} lang={lang === 'ur' ? 'ur' : undefined} data-latin>
-        <bdi>{localizeFigureName(saint, lang)}</bdi>
-      </Link>
-      <span className="lineage-relation-tag">{relationLabel}</span>
+      <div className="lineage-relation-row">
+        {/* A figure the dictionary does not cover comes back as its source name
+            (RULE 2 — do not invent an Urdu name for a person). <bdi> isolates the
+            Latin run; `data-latin` declares the debt for the no-leak guard. */}
+        <Link to={`/saint/${saint.slug}`} lang={lang === 'ur' ? 'ur' : undefined} data-latin>
+          <bdi>{localizeFigureName(saint, lang)}</bdi>
+        </Link>
+        <span className="lineage-relation-tag">{relationLabel}</span>
+        {!link.reviewed && (
+          <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+            {t('lineageUnreviewed')}
+          </span>
+        )}
+      </div>
+      {link.quote && (
+        /* Latin on purpose in either language, for the same reason /graph does
+           it: this sentence is the entire basis for trusting an unreviewed
+           claim, and an archive whose distinguishing claim is provenance must
+           leave the reader an exact search string (i18n rule 7). `lang`/`dir`
+           keep an English sentence's punctuation inside an RTL page. */
+        <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
+          {link.quote}
+          {link.source && <cite className="graph-lineage-cite">{link.source}</cite>}
+        </blockquote>
+      )}
     </li>
   );
 }
@@ -50,8 +79,12 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
         <div className="lineage-chain-section">
           <h3 className="lineage-chain-heading">{t('teachersHeading')}</h3>
           <ul className="lineage-relation-list">
+            {/* Keyed by relation as well as slug. 13 pairs in the graph are
+                recorded twice — once `disciple_of`, once `successor_of` — and
+                keyed on the slug alone React saw a duplicate and dropped one of
+                the two recorded facts. */}
             {teachers.map((link) => (
-              <LineageLinkItem key={link.saint.slug} link={link} />
+              <LineageLinkItem key={`${link.saint.slug}:${link.relation}`} link={link} />
             ))}
           </ul>
         </div>
@@ -115,7 +148,7 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
           <h3 className="lineage-chain-heading">{t('disciplesHeading')}</h3>
           <ul className="lineage-relation-list">
             {disciples.map((link) => (
-              <LineageLinkItem key={link.saint.slug} link={link} />
+              <LineageLinkItem key={`${link.saint.slug}:${link.relation}`} link={link} />
             ))}
           </ul>
         </div>

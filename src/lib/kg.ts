@@ -196,6 +196,38 @@ export interface OrderMembership {
   quote?: string;
 }
 
+/**
+ * The silsila as the figure's own record words it — once per figure, not once
+ * per order.
+ *
+ * `asRecorded` is the row's `silsila` cell, and a figure with two order edges
+ * carries the *same* cell on both: `abul-faiz-qalander-ali-suharwardi` is
+ * recorded "Suhrawardi" on his Suhrawardiyya edge and "Suhrawardi" on his
+ * Qadiriyya edge too, because the prose is what put him in the second one.
+ * OrderPage refuses to print it for exactly that reason — under a Qadiriyya
+ * heading it would attribute the source's words to the wrong order. On the
+ * figure's own page there is no wrong order to attribute it to, so it belongs
+ * here, deduped, labelled as the source's wording rather than as an answer.
+ *
+ * No cleverness about whether it is "worth" showing. The first version of this
+ * dropped any string that looked like the order's name restated, which would
+ * have suppressed "Qadri" under Qadiriyya — and the rule needed to know that
+ * "Qadri", "Qadiri" and "Qadiriyya" are one name while "Rashidi" under
+ * Qadiriyya is a different one. That is a transliteration judgement, and a
+ * wrong one silently deletes the archive's most honest field: one of these
+ * cells reads "Qadri (see year_built_note / Description for a discrepancy in
+ * how the survey names his order)". Report what the data says (RULE 2); a
+ * redundant short line costs the reader nothing next to a suppressed hedge.
+ */
+export function recordedSilsilas(memberships: OrderMembership[]): string[] {
+  const seen = new Set<string>();
+  for (const m of memberships) {
+    const value = m.asRecorded?.trim();
+    if (value) seen.add(value);
+  }
+  return [...seen];
+}
+
 export function getOrderMemberships(saintSlug: string): OrderMembership[] {
   return getRelations({ subject: `saint:${saintSlug}`, type: 'belongs_to_order' })
     .map((r) => {

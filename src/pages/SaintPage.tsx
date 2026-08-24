@@ -12,10 +12,11 @@ import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import {
   getSaintBySlug,
-  getOrderForSaint,
+  getOrderMemberships,
   getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
+  recordedSilsilas,
 } from '../lib/kg';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import {
@@ -37,7 +38,24 @@ export default function SaintPage() {
 
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
   const figureBucket = useMemo(() => figureGroup(saint?.figureType), [saint?.figureType]);
-  const order = useMemo(() => (slug ? getOrderForSaint(slug) : undefined), [slug]);
+  /*
+   * Every silsila this figure is recorded in, not the first one found.
+   *
+   * `getOrderForSaint` returns a single order, and for 11 figures in the graph
+   * that silently discarded a second or third affiliation — each of which is
+   * its own edge with its own quoted source, never an inference from the
+   * others. The absurd part was that `/order/:slug` already showed those
+   * figures an "Also in" row, so a compound allegiance was visible from the
+   * order's page and invisible on the person's own. It also carried the branch,
+   * the source's verbatim silsila wording and the reviewed flag, none of which
+   * had anywhere to be rendered.
+   *
+   * The first membership stays the one that seeds the lineage tree and the
+   * network diagram, both of which take a single order.
+   */
+  const memberships = useMemo(() => (slug ? getOrderMemberships(slug) : []), [slug]);
+  const order = memberships[0]?.order;
+  const recorded = useMemo(() => recordedSilsilas(memberships), [memberships]);
   const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
   const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
@@ -255,13 +273,13 @@ export default function SaintPage() {
               <span aria-label={t('era')}>{t('era')}:</span> {fmtNum(era)}
             </span>
           )}
-          {order && (
-            <span className="entity-meta-item">
-              <Link to={`/order/${order.slug}`} className="order-badge">
-                {localizeOrderName(order, lang)}
+          {memberships.map(({ order: o }) => (
+            <span key={o.slug} className="entity-meta-item">
+              <Link to={`/order/${o.slug}`} className="order-badge">
+                {localizeOrderName(o, lang)}
               </Link>
             </span>
-          )}
+          ))}
           {nextUrs && (
             <span className="entity-meta-item">
               {t('saintNextUrs')}:{' '}
@@ -346,23 +364,91 @@ export default function SaintPage() {
               </section>
             )}
 
-            {/* Sufi order */}
-            {order && (
+            {/* Sufi order(s) — the figure's whole recorded affiliation, with
+                the evidence for each. One row per membership, so a compound
+                silsila reads as two sourced claims rather than one tidy
+                answer. */}
+            {memberships.length > 0 && (
               <section className="kg-section">
-                <h2 className="kg-section-heading">{t('sufiOrder')}</h2>
-                <p>
-                  <Link to={`/order/${order.slug}`} className="order-badge">
-                    {localizeOrderName(order, lang)}
-                    {/* In Urdu the badge already carries the Arabic-script
-                        name, so appending it would repeat the same word. */}
-                    {order.arabicName && !isRtl && (
-                      <>
-                        {' '}
-                        · <span lang="ar">{order.arabicName}</span>
-                      </>
-                    )}
-                  </Link>
-                </p>
+                <h2 className="kg-section-heading">
+                  {memberships.length > 1 ? t('sufiOrders') : t('sufiOrder')}
+                </h2>
+                {memberships.length > 1 && <p className="kg-section-note">{t('orderMultiHelp')}</p>}
+                <ul className="entity-order-list">
+                  {memberships.map((membership) => {
+                    const o = membership.order;
+                    return (
+                      <li key={o.slug} className="entity-order-item">
+                        <div className="entity-order-row">
+                          <Link to={`/order/${o.slug}`} className="order-badge">
+                            {localizeOrderName(o, lang)}
+                            {/* In Urdu the badge already carries the
+                                Arabic-script name, so appending it would repeat
+                                the same word. */}
+                            {o.arabicName && !isRtl && (
+                              <>
+                                {' '}
+                                · <span lang="ar">{o.arabicName}</span>
+                              </>
+                            )}
+                          </Link>
+                          {membership.branch && (
+                            <span
+                              className="order-branch-chip"
+                              title={t('orderBranchHelp')}
+                              data-latin
+                            >
+                              <bdi>{membership.branch}</bdi>
+                            </span>
+                          )}
+                          {!membership.reviewed && (
+                            <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+                              {t('lineageUnreviewed')}
+                            </span>
+                          )}
+                        </div>
+                        {membership.quote && (
+                          /* Latin in either language, on purpose: the evidence
+                             for an unreviewed claim has to stay quotable
+                             (i18n rule 7). */
+                          <blockquote
+                            className="graph-lineage-quote"
+                            lang="en"
+                            dir="ltr"
+                            data-latin
+                          >
+                            {membership.quote}
+                            {membership.source && (
+                              <cite className="graph-lineage-cite">{membership.source}</cite>
+                            )}
+                          </blockquote>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+                {/* The source's own words for this figure's silsila, once. This
+                    is where the archive's editorial standard actually lands:
+                    one of these cells reads "Qadri (see year_built_note /
+                    Description for a discrepancy in how the survey names his
+                    order)", and that parenthesis is better content than the
+                    clean badge above it. */}
+                {recorded.length > 0 && (
+                  <p className="entity-order-as-recorded">
+                    <span
+                      className="entity-order-as-recorded-label"
+                      title={t('orderAsRecordedHelp')}
+                    >
+                      {t('orderAsRecorded')}:
+                    </span>{' '}
+                    {recorded.map((value, i) => (
+                      <React.Fragment key={value}>
+                        {i > 0 && <span aria-hidden="true"> · </span>}
+                        <bdi data-latin>{value}</bdi>
+                      </React.Fragment>
+                    ))}
+                  </p>
+                )}
                 {orderDescription && <p className="entity-order-description">{orderDescription}</p>}
               </section>
             )}
@@ -454,20 +540,29 @@ export default function SaintPage() {
                   <span className="entity-infobox-value">{fmtNum(era)}</span>
                 </div>
               )}
-              {order && (
+              {memberships.length > 0 && (
                 <div className="entity-infobox-row">
-                  <span className="entity-infobox-label">{t('sufiOrder')}</span>
+                  <span className="entity-infobox-label">
+                    {memberships.length > 1 ? t('sufiOrders') : t('sufiOrder')}
+                  </span>
                   <span className="entity-infobox-value">
-                    <Link to={`/order/${order.slug}`} className="meta-entity-link">
-                      {localizeOrderName(order, lang)}
-                    </Link>
+                    {memberships.map(({ order: o }, i) => (
+                      <React.Fragment key={o.slug}>
+                        {i > 0 && <span aria-hidden="true"> · </span>}
+                        <Link to={`/order/${o.slug}`} className="meta-entity-link">
+                          {localizeOrderName(o, lang)}
+                        </Link>
+                      </React.Fragment>
+                    ))}
                   </span>
                 </div>
               )}
               {saint.shrines.length > 0 && (
                 <div className="entity-infobox-row">
                   <span className="entity-infobox-label">{t('shrinesAssociated')}</span>
-                  <span className="entity-infobox-value">{saint.shrines.length}</span>
+                  {/* fmtNum, like every other number site — this one rendered a
+                      Western digit inside the Urdu infobox (i18n rule 5). */}
+                  <span className="entity-infobox-value">{fmtNum(saint.shrines.length)}</span>
                 </div>
               )}
               {saint.wikidataQid && (
