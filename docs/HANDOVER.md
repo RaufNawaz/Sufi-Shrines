@@ -2216,6 +2216,35 @@ nothing errored.
     and Playwright's scroll-into-view mis-computing a hit point inside a sticky header. Ask the
     browser directly — `elementFromPoint` — before believing an interception report.
 
+84. **A popover cannot float out of the bottom sheet, in either direction — the sheet has to be
+    open.** Fourth defect in the same control, found the same way: on the deployed site at
+    390×844 the sheet at peek height runs y 660–844 with its header at 705–774, so the panel
+    opening downward reached y 928. `elementFromPoint` at the radios returned **null** — the
+    points were off-screen entirely — which meant the second option was untappable in English
+    and *both* were in Urdu. The archive's escape hatch back to the shrine table did not exist
+    on a phone.
+
+    Flipping it to open upward looked right and was worse in an instructive way: the panel then
+    sat at y 552–709, **outside the sheet's box**, and the sheet clips it. `elementFromPoint`
+    over the first radio returned `div.leaflet-container` — the map. So the panel was drawn
+    where nothing could receive a touch, and a `z-index: 30` inside a `.sidebar-header` whose
+    own stacking context is `z-index: 1` cannot fix that, because clipping is not painting
+    order.
+
+    There is only room inside an *expanded* sheet, so opening the settings expands it — the same
+    line the list button has always had (`if (next && isMobile && !isOpen) onToggle?.()`). When
+    a control needs more space than the sheet's peek height, the sheet is the thing that has to
+    move.
+
+    Two invariants came out of it, and the first is the reusable one: **`elementFromPoint` at a
+    control's own centre is the honest test of whether a reader can use it.** It catches being
+    covered, being clipped, and being off-screen, which no bounding-box assertion does — a
+    `getBoundingClientRect()` on that untappable radio looked perfectly reasonable. And the
+    overflow checks now measure **all four edges** for this panel: `no-overflow.spec.ts` measures
+    only the horizontal ones for the route sweep, correctly, since page content below the fold
+    is normal — but a popover below the fold is not. `e2e/directory-mode.spec.ts` runs the whole
+    journey at both device classes in both languages.
+
 
 ## 10. Risks if this is left unattended
 
