@@ -2454,6 +2454,69 @@ nothing errored.
     `figurePrecision.test.ts` asserts both directions, so a future import cannot slip either a
     bare approximate year or a doubled hedge onto a page.
 
+100. **The audit §9.99 called for, one field on: `biographySource` and `lineageOnly` were
+    rendered by nothing either.** *Measured 24 August 2026 from `data/kg.json` (196 figures).*
+    97 figures carry `biographySource` — the file their dates, titles and alt-names were read
+    out of — and `biographyReviewed` is **`false` on all 97**. Those pages printed machine-read
+    values in the same type as a value entered by hand from the survey, while the lineage links
+    and the order memberships *on the same page* already carried an unreviewed chip and a quoted
+    source. A figure's own dates were the one machine-read claim on the page shown without
+    either. 60 figures carry `lineageOnly` — the masters named in someone else's chain who have
+    no site here — and their pages said nothing to distinguish "documented, and the archive knows
+    almost nothing" from "here only because another figure's lineage names them".
+
+    **Three figures are both**, and they are the interesting ones: Shah Abul Muali Qadri, Shah
+    Gohar Peer and Mian Qurban Ali Shah have no site in the archive *and* a full sourced
+    biography read out of its own entries. `getAllSaints` excludes them from "Figures in the
+    archive" so the headline counts stay honest, which is the right call for a count and leaves
+    three documented figures reachable only through a lineage. **A question for a human, not for
+    an agent to decide:** should a lineage-only figure with a sourced biography be listed?
+    Nothing has been changed about list membership.
+
+    `figureProvenance()` therefore returns a *list* of statements rather than one classification
+    — collapsing them has to discard a true sentence. Rendered under the same
+    "Sources & Provenance" heading a shrine page uses. All 95 dataset references resolve to real
+    entry slugs, and one of them is worth the whole feature: Guru Gobind Singh's dates were read
+    from the entry for `gurdwara-bhai-beba-singh` while his own shrine is
+    `gurdwara-dash-mesh-pita`, so the link is not a duplicate of "Associated shrines" — it is
+    the only way to check the actual sentence. The guard fails the build if a reference stops
+    resolving, because printing the raw path is the deliberate fallback and a pipeline rename
+    would otherwise be silent.
+
+101. **A budget file is only as wide as its route list — and the no-leak guard's list was two
+    saint pages, both of figures the Urdu dictionary happens to carry.** Adding a third route
+    (`/saint/shah-gohar-peer?lang=ur`, the lineage-only shape) immediately found **9 undeclared
+    Latin runs**: a figure whose name the dictionary lacks had that name printed raw in the
+    breadcrumb, the `<h1>` and the infobox title, and his recorded Hijri dates printed raw twice
+    each ("۱۱ Rabīʿ al-Sānī ۷۲۹ AH" — Eastern digits, Latin month). So **the title of most
+    figures' pages has been an undeclared leak for as long as this guard has existed**, and the
+    guard was green throughout. Now declared and bidi-isolated like every other recorded name;
+    the route declares 28 runs, accounted item by item in the spec header.
+
+    The open follow-up, not done: a recorded Hijri date's month name could go through a segment
+    dictionary the way `localizeObservance` already handles observance strings —
+    `HIJRI_MONTH_NAMES` in `src/lib/data/ursDates.ts` already holds both languages. That would
+    turn several declared runs into actual Urdu. It is a translation of *data*, so it needs the
+    same care as the termbase: a wrong month is a wrong date.
+
+102. **Touch scrolling in the command palette never worked on a phone, and no desktop test could
+    see it.** Reported by the user, 24 August 2026. `.palette-backdrop` is
+    `position: fixed; inset: 0`, and on mobile Safari that resolves against the **large**
+    viewport — the one measured with the URL bar hidden. The flex container was therefore taller
+    than the screen, the phone override said `max-height: none` on the panel, the panel stretched
+    to match the container, and `.palette-results` **never overflowed**. Nothing overflowing means
+    nothing to scroll: the rows past the screen edge were clipped and unreachable, and a drag did
+    nothing at all. It presents as a broken scroll container and is in fact a correct one given
+    too much room.
+
+    Fixed with `height: 100dvh` on the backdrop, `max-height: 100%` on the phone panel, and the
+    momentum / `overscroll-behavior: contain` / `touch-action: pan-y` triad on both scroll
+    regions — which `.shrine-list-panel` in map.css has carried since the sidebar was built. The
+    palette, added later, had one of the three. `touchScroll.test.ts` asserts all of it, plus one
+    prohibition worth knowing: **`touch-action` is intersected down the ancestor chain**, so
+    `touch-action: none` on the backdrop — a plausible way to stop the map behind from panning —
+    would silently kill scrolling in every list inside it.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
