@@ -150,6 +150,31 @@ const UI_TEXT_EN = {
   arabicName: 'Arabic name',
   founded: 'Founded',
   notFoundSaint: 'Saint not found.',
+  /* ── Review desk (/review, team-gated) ───────────────────────────────── */
+  reviewTitle: 'Review desk',
+  reviewIntro:
+    'The claims this archive has extracted and no person has read yet, with the evidence each was read from. A verdict here is a judgement about a claim \u2014 nothing on this page edits the archive.',
+  reviewGateNote: 'This page is for the project team. Open it with the team link to see the queue.',
+  reviewEmpty: 'Nothing is waiting for review.',
+  reviewLoading: 'Loading the queue\u2026',
+  reviewClaimDiscipleOf: 'is recorded as a disciple of',
+  reviewClaimSuccessorOf: 'is recorded as the successor of',
+  reviewClaimBelongsToOrder: 'is recorded in the silsila',
+  reviewClaimBiography: 'these dates and titles were read out of prose',
+  reviewEvidence: 'Read from',
+  reviewConfirm: 'Confirm',
+  reviewReject: 'Reject',
+  reviewUnsure: 'Needs work',
+  reviewNotePlaceholder: 'What the evidence does and does not support\u2026',
+  reviewProgress: 'Verdicts recorded',
+  reviewDownload: 'Download verdicts (CSV)',
+  reviewDownloadHelp:
+    'A CSV in the review worksheet\u2019s own columns. Import it by hand \u2014 this page never writes to the sheet.',
+  reviewClear: 'Clear my verdicts',
+  reviewStale:
+    'The evidence for this claim changed after the verdict was recorded, so the verdict no longer applies to it.',
+  reviewNoQuote:
+    'No quote was captured for this claim. Judge it against the source, or mark it as needing work.',
   notFoundOrder: 'Order not found.',
   aboutThisSaint: 'About this saint',
   viewOrder: 'View spiritual order',

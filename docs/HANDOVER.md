@@ -2987,6 +2987,59 @@ nothing errored.
     sentence; it is inside it now via `tFn`, because Urdu puts it in a different place and that
     is exactly what `tFn` exists for.
 
+119. **The archive could state its provenance debt and not reduce it. Now it can.** *Built
+    24 August 2026 — plan in `docs/planning/REVIEW_DESK_2026-08-24.md`.*
+
+    `/about` publishes 94 machine-read biographies, 80 of 86 lineage links and 44 of 64
+    affiliations — **218 claims** carrying a source quote and an `unreviewed` badge, none hidden,
+    none presented as settled. That is the honest minimum and it is not the goal. The reason the
+    number had never moved is not that nobody would review these: it is that reviewing one meant
+    opening a 255-row CSV, reading a quote in a spreadsheet cell, and hand-editing a proposals
+    JSON. **The evidence and the verdict lived in different tools.**
+
+    `/review` puts them in one place — the claim in words a person can judge, the verbatim quote
+    it was read from, the file it came from, and three verdicts with a note field. Behind the
+    existing soft `?team=1` gate, unlisted, absent from the tab bar.
+
+    Three lines it does not cross, each with a test:
+    - **Not an editor.** No field writes a value into the archive; the only writable thing on the
+      page is the reviewer's own note, asserted by walking every input on the page. Letting a
+      reviewer retype a date would put an unsourced value into a provenance archive *through its
+      provenance tooling*.
+    - **Not authenticated.** `hasProjectAccess()` is visibility and says so in its own file. The
+      data is a published CSV; this keeps casual readers out of editorial detail and claims nothing
+      more.
+    - **Not a queue with an owner.** No assignment, no locking. Two reviewers agreeing
+      independently is better evidence than one holding a lock.
+
+    **The staleness rule is the load-bearing one.** A verdict is stored with the digest of the
+    quote it judged. If a later extraction changes that quote, the verdict no longer applies and
+    the page says so instead of carrying it forward — otherwise this tooling would move an
+    *unreviewed* claim into the reviewed pile, which is the exact failure it exists to reduce.
+
+    Output is a CSV in `build-review-worksheet.mjs`'s own columns, so it drops into the flow that
+    exists rather than starting a second one. **Agents do not write the sheet or the proposals
+    (RULE 3)** — a human takes the file. `verdictsToCsv` quotes every field and doubles embedded
+    quotes, tested against a note containing a newline, because a citation contains commas and an
+    unquoted field turns one row into two and imports silently wrong.
+
+    Payload: `data/kg-review-queue.json`, 218 items with quotes and resolved names, 78 KB, loaded
+    by **dynamic `import()` inside the route** — the eager cost is 251 KB, essentially the app
+    shell. If that number ever jumps by ~78 KB the import went static; the budget entry says so.
+    Fourth use of the slim-file-beside-the-graph pattern.
+
+    `verdicts.test.ts` also asserts the queue is **exactly** the claims `/about` publishes, by
+    kind. If the desk and the About page ever disagree, one of the two is lying about the state of
+    the archive.
+
+    **Phase 3 is the missing half**: `apply-review-verdicts.mjs`, which reads a returned verdict
+    file and flips `reviewed: true` on confirmed proposals. Written up in the plan, including the
+    invariant it needs — a verdict may only ever *narrow* what the graph asserts, and the script
+    must refuse to run when a CSV's evidence digest does not match the proposal it names. Until
+    that exists, a reviewer's session ends in a downloaded file and nothing changes in the graph.
+    Phase 4 needs no work at all: `/about` recomputes those three numbers on every load, so they
+    fall on their own as verdicts land.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

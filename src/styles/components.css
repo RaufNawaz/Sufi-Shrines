@@ -744,3 +744,215 @@
   direction: ltr;
   text-align: left;
 }
+
+/* ── Review desk ──────────────────────────────────────────────────────────────
+   Team-only, unlisted, and deliberately plain: this is a working surface, not a
+   published one. Every visual decision here is in service of one action — read
+   a quote, decide. See docs/planning/REVIEW_DESK_2026-08-24.md. */
+.review-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block: var(--space-5) var(--space-4);
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-alt);
+}
+
+.review-progress {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.review-download {
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-bg-surface);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Disabled because there is nothing to download yet, which is a state a
+   reviewer reaches by simply arriving. Muted rather than half-transparent: axe
+   folds opacity into the colour it measures (HANDOVER §9.46). */
+.review-download:disabled {
+  border-color: var(--color-border);
+  background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+.review-download-help {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.review-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* One card per claim. A bordered card rather than a row in a grouped list,
+   because a reviewer works one claim at a time and the card is the unit of that
+   work — the inset list is for browsing, this is for deciding. */
+.review-item {
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+}
+
+.review-claim {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.4;
+}
+
+[dir='rtl'] .review-claim {
+  font-family: var(--font-urdu);
+  font-size: var(--text-xl);
+}
+
+.review-branch,
+.review-source {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.review-source-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.review-fields {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: var(--space-2) 0;
+  font-size: var(--text-sm);
+}
+
+.review-fields dt {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.review-fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* A claim with no captured quote is the one a reviewer should be most careful
+   with, so it says so rather than showing an empty space. */
+.review-no-quote {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-3);
+  border-inline-start: 3px solid var(--color-accent);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.review-stale {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-3);
+  border-inline-start: 3px solid var(--color-accent);
+  font-size: var(--text-sm);
+  color: var(--color-accent-text);
+}
+
+.review-verdicts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block: var(--space-3) var(--space-2);
+}
+
+.review-verdict {
+  min-height: 44px;
+}
+
+/*
+ * The three verdicts, coloured only once *chosen*.
+ *
+ * Inactive chips stay uniform: a row of red/green/amber before anyone has
+ * decided reads as a status, not as a choice. And the colour is never the only
+ * carrier — each chip has its word — so this is reinforcement rather than
+ * information (CLAUDE.md: never distinguish by colour alone).
+ *
+ * The tokens are picked by their stated meanings rather than by hue.
+ * `--color-rubric` is documented as "we checked and it is genuinely uncertain,
+ * not something broke", which is exactly what "needs work" means here; and a
+ * rejected extraction *is* something broken, so it takes `--color-error`.
+ */
+.review-verdict--confirm.active {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: var(--color-bg-surface);
+}
+
+.review-verdict--reject.active {
+  border-color: var(--color-error);
+  background: var(--color-error);
+  color: var(--color-bg-surface);
+}
+
+.review-verdict--unsure.active {
+  border-color: var(--color-rubric);
+  background: var(--color-rubric);
+  color: var(--color-bg-surface);
+}
+
+.review-note-label {
+  display: block;
+}
+
+/* The prompt is the placeholder, so the visible label would say it twice. Kept
+   in the DOM and hidden from sight only — a textarea whose only name is a
+   placeholder is unnamed the moment a reviewer types in it. */
+.review-note-label-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.review-note {
+  display: block;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  /* 16px, or iOS zooms the page when the field takes focus. */
+  font-size: var(--text-base);
+  line-height: 1.5;
+  resize: vertical;
+}
+
+[dir='rtl'] .review-note {
+  font-family: var(--font-urdu);
+}

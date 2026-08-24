@@ -92,6 +92,11 @@ const BUDGETS_KB = {
   // peers (~5%); both read the shipped dataset and render prose and tables.
   'src/pages/ReportPage.tsx': 300, // measured 279 on 24 Aug 2026
   'src/pages/TypologyPage.tsx': 295, // measured 274 on 24 Aug 2026
+  /* The review desk. 251 KB measured 24 Aug 2026 — essentially the app shell and
+     nothing else, which is the point: its 78 KB queue is a dynamic `import()`
+     inside the route, so a public reader never downloads a page they cannot
+     open. If this number jumps by ~78 KB, that import went static. */
+  'src/pages/ReviewPage.tsx': 270, // measured 251 on 24 Aug 2026
 };
 
 /**

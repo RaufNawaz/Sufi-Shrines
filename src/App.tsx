@@ -25,6 +25,9 @@ const OrderPage = lazy(() => import('./pages/OrderPage'));
 const GraphPage = lazy(() => import('./pages/GraphPage'));
 const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
 const ReportPage = lazy(() => import('./pages/ReportPage'));
+/* Team-only, unlisted, and prerendered like every other route because GitHub
+   Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
+const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
 const CoveragePage = lazy(() => import('./pages/CoveragePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -149,6 +152,7 @@ export default function App() {
                 <Route path="/graph" element={<GraphPage />} />
                 <Route path="/almanac" element={<AlmanacPage />} />
                 <Route path="/report" element={<ReportPage />} />
+                <Route path="/review" element={<ReviewPage />} />
                 <Route path="/typology" element={<TypologyPage />} />
                 <Route path="/coverage" element={<CoveragePage />} />
                 <Route path="/about" element={<AboutPage />} />

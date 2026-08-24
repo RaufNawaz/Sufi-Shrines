@@ -104,7 +104,10 @@ describe('the route table in App.tsx', () => {
        and the legacy `?id=` redirect that resolves elsewhere before anything
        renders. Everything else is a page a reader can be on, and a page a
        reader can be on needs a tab lit. */
-    const EXEMPT = new Set(['*', '/shrine.html']);
+    /* `/review` is team-only and unlisted by design: it is not one of the
+       archive's six public surfaces, and lighting a tab for it would advertise
+       a page a reader cannot open. */
+    const EXEMPT = new Set(['*', '/shrine.html', '/review']);
     const homeless = paths
       .filter((p) => !EXEMPT.has(p))
       .map((p) => p.replace(/:\w+/g, 'sample'))

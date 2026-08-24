@@ -812,6 +812,79 @@ writeFileSync(
   'utf8',
 );
 
+// ── the review queue ─────────────────────────────────────────────────────────
+/*
+ * The 218 claims a person has not read yet, with the evidence they were read
+ * from, in a shape a review page can render.
+ *
+ * The archive can state its provenance debt precisely — /about publishes 94
+ * machine-read biographies, 80 of 86 lineage links, 44 of 64 affiliations — and
+ * until now could not reduce it, because reviewing one claim meant opening a
+ * 255-row CSV, reading a quote in a spreadsheet cell and hand-editing a
+ * proposals file. The evidence and the verdict lived in different tools. See
+ * docs/planning/REVIEW_DESK_2026-08-24.md.
+ *
+ * Names are resolved here rather than in the browser: the alternative is
+ * shipping the whole graph to a page that needs 218 rows of it, which is the
+ * 426 KB trap this file has now walked into twice.
+ *
+ * `evidence` is the same digest the worksheet uses — first 8 hex of sha1 of the
+ * quote. It is what lets a returned verdict file be matched back to the exact
+ * claim it judged, and what makes a stale verdict fail loudly rather than
+ * confirm the wrong thing.
+ */
+const nameOf = (id) => {
+  const slug = String(id).replace(/^(saint|order):/, '');
+  return (
+    saintBySlug.get(slug)?.name ?? orders.find((o) => o.slug === slug)?.name ?? slug
+  );
+};
+const digest = (text) =>
+  text ? createHash('sha1').update(text).digest('hex').slice(0, 8) : '';
+
+const reviewQueue = [];
+
+for (const r of relations) {
+  if (r.reviewed !== false) continue;
+  if (!['disciple_of', 'successor_of', 'belongs_to_order'].includes(r.type)) continue;
+  reviewQueue.push({
+    id: r.id,
+    kind: r.type,
+    subject: nameOf(r.subject),
+    subjectSlug: String(r.subject).replace(/^saint:/, ''),
+    object: nameOf(r.object),
+    ...(r.quote ? { quote: r.quote } : {}),
+    ...(r.source ? { source: r.source } : {}),
+    ...(r.branch ? { branch: r.branch } : {}),
+    evidence: digest(r.quote ?? ''),
+  });
+}
+
+for (const saint of saints.filter((s) => !s.lineageOnly)) {
+  if (saint.biographyReviewed !== false) continue;
+  reviewQueue.push({
+    id: `biography:${saint.slug}`,
+    kind: 'biography',
+    subject: saint.name,
+    subjectSlug: saint.slug,
+    object: '',
+    /* No quote: a biography proposal is a set of *values* read out of prose, and
+       the values are the thing to judge. Shown as fields rather than as a
+       sentence, so a reviewer checks each one against the source they open. */
+    ...(saint.born ? { born: saint.born } : {}),
+    ...(saint.died ? { died: saint.died } : {}),
+    ...(saint.titles?.length ? { titles: saint.titles } : {}),
+    ...(saint.biographySource ? { source: saint.biographySource } : {}),
+    evidence: digest(`${saint.slug}|${saint.born ?? ''}|${saint.died ?? ''}`),
+  });
+}
+
+writeFileSync(
+  join(ROOT, 'data', 'kg-review-queue.json'),
+  JSON.stringify({ generated: kg.generated, items: reviewQueue }, null, 2) + '\n',
+  'utf8',
+);
+
 // ── what the archive knows, as a dozen numbers ───────────────────────────────
 /*
  * A tiny file so `/about` can state the graph's own state without importing the
