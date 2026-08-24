@@ -160,6 +160,34 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
 
+  /* ── Tracking ────────────────────────────────────────────────────────────
+     Optical letter-spacing as tokens, for two reasons that happen to point the
+     same way.
+
+     The typographic one: type wants tighter tracking as it gets larger and
+     looser as it gets smaller — a 36px title set at 0 reads loose, a 12px
+     all-caps label set at 0 reads cramped. Naming the steps is what makes that
+     consistent instead of thirteen hand-picked em values across six
+     stylesheets, which is what these replaced.
+
+     The correctness one, which is the reason they are tokens rather than a
+     convention: **Nastaliq is a connected script.** Letter-spacing does not
+     loosen Urdu, it forces gaps between glyphs that are supposed to join, so a
+     tracked label is not "airy" in the Urdu view — it is broken. Because custom
+     properties inherit, redefining them once under `[dir="rtl"]` collapses every
+     consumer to `normal` with no specificity fight and no per-rule override to
+     forget. Thirteen rules had remembered; the rest had not.
+
+     `e2e/typography.spec.ts` measures the result in the browser: no element
+     rendering Arabic-script text may report non-zero letter-spacing, on any
+     route. */
+  --tracking-tighter: -0.025em; /* display: page titles, 30px and up */
+  --tracking-tight: -0.015em; /* headings and large numerals */
+  --tracking-normal: 0;
+  --tracking-slight: 0.03em; /* small labels that are not caps */
+  --tracking-wide: 0.06em; /* uppercase section labels */
+  --tracking-caps: 0.1em; /* uppercase kickers and eyebrows */
+
   --leading-tight: 1.25;
   --leading-snug: 1.375;
   --leading-normal: 1.6;

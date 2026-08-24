@@ -1,4 +1,4 @@
-import { test, expect, setTraditionalDirectory } from './fixtures';
+import { test, expect, setTraditionalDirectory, settle } from './fixtures';
 import type { Page } from '@playwright/test';
 
 /**
@@ -14,6 +14,15 @@ import type { Page } from '@playwright/test';
  *   while still announcing "169 shrines" to screen readers.
  * - The Urdu infobox ran 36% taller than the English one for identical
  *   content, because data rows inherited running-prose leading.
+ *
+ * - Tracked labels in the Urdu view. Nastaliq is a *connected* script, so
+ *   letter-spacing does not loosen it — it forces gaps between glyphs that are
+ *   meant to join, and the result reads as broken rather than airy. The
+ *   stylesheets knew this for `h1`-`h4` and for `body`, and a `.entity-type-kicker`
+ *   or a table `<th>` is neither: thirteen such rules carried an individual
+ *   `[dir='rtl'] … { letter-spacing: normal }` and the rest did not. Tracking is
+ *   now a token that collapses under `[dir='rtl']`, and this measures the
+ *   rendered result rather than trusting either mechanism.
  *
  * These assert relationships, not pixel values, so they survive deliberate
  * design changes and fail on accidental ones.
@@ -152,3 +161,63 @@ test.describe('Motion honesty', () => {
     await expect.poll(async () => last.evaluate((el) => getComputedStyle(el).opacity)).toBe('1');
   });
 });
+
+/**
+ * Every route, in Urdu, with no tracking on anything that renders Urdu.
+ *
+ * Measured rather than asserted about the stylesheets, because the failure is a
+ * *computed* value: a token that stops collapsing, a raw `letter-spacing: 0.08em`
+ * written without the token, or a new component whose RTL block forgets the
+ * override all produce the same broken joins and none of them are visible in a
+ * grep. `getComputedStyle` is the only witness that covers all three.
+ *
+ * Scoped to elements whose own text contains Arabic-script characters — an
+ * embedded Latin run inside the Urdu view (a `<bdi>` citation, a URL) is Latin
+ * type and may legitimately be tracked.
+ */
+const URDU_ROUTES = [
+  '/?lang=ur',
+  '/shrine/data-darbar?lang=ur',
+  '/saint/data-ganj-bakhsh?lang=ur',
+  '/order/chishtiyya?lang=ur',
+  '/graph?lang=ur',
+  '/almanac?lang=ur',
+  '/coverage?lang=ur',
+  '/about?lang=ur',
+  '/place/lahore?lang=ur',
+];
+
+for (const route of URDU_ROUTES) {
+  test(`no tracking on Urdu text: ${route}`, async ({ page }) => {
+    await page.goto(route);
+    await page.locator('h1').first().waitFor();
+    await settle(page);
+
+    const tracked = await page.evaluate(() => {
+      const ARABIC = /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/;
+      const offenders: string[] = [];
+      for (const el of document.querySelectorAll<HTMLElement>('body *')) {
+        // The element's own text, not its descendants': a wrapper is not what
+        // gets tracked, the leaf that carries the declaration is.
+        const own = [...el.childNodes]
+          .filter((n) => n.nodeType === Node.TEXT_NODE)
+          .map((n) => n.textContent ?? '')
+          .join('');
+        if (!ARABIC.test(own)) continue;
+        const spacing = getComputedStyle(el).letterSpacing;
+        // Chrome reports 'normal' or a px value; 0px is fine, anything else is not.
+        if (spacing === 'normal' || Number.parseFloat(spacing) === 0) continue;
+        const cls = typeof el.className === 'string' ? el.className.split(' ')[0] : '';
+        offenders.push(`<${el.tagName.toLowerCase()}${cls ? '.' + cls : ''}> ${spacing}`);
+      }
+      return [...new Set(offenders)];
+    });
+
+    expect(
+      tracked,
+      'These elements render Urdu with letter-spacing, which breaks Nastaliq\u2019s joins. ' +
+        'Use a --tracking-* token rather than a raw em value: the tokens collapse to ' +
+        "`normal` under [dir='rtl'] in global.css, so no per-rule override is needed.",
+    ).toEqual([]);
+  });
+}

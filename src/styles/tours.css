@@ -302,7 +302,7 @@
   background: var(--color-primary-pale);
   padding: 2px var(--space-2);
   border-radius: var(--radius-full);
-  letter-spacing: 0.03em;
+  letter-spacing: var(--tracking-slight);
 }
 
 .tour-exit-btn {

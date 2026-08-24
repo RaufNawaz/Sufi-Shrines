@@ -119,6 +119,21 @@ body.lang-rtl,
    Scaling the tokens instead keeps every component's proportions intact and
    never competes on specificity with the rules that set a size. */
 [dir='rtl'] {
+  /* And the tracking steps collapse to nothing, for the reason the h1-h4 rule
+     below already gives: negative tracking breaks a connected script, and
+     positive tracking breaks it worse — it prises apart glyphs that are meant to
+     join. Doing it here, on the tokens, reaches every consumer. The rule below
+     only ever caught headings; a `.entity-type-kicker` or a table's `<th>` is
+     neither a heading nor inheriting, so thirteen of them had to remember an
+     override individually and the rest did not. Custom properties inherit, so
+     this needs no specificity to win. */
+  --tracking-tighter: normal;
+  --tracking-tight: normal;
+  --tracking-normal: normal;
+  --tracking-slight: normal;
+  --tracking-wide: normal;
+  --tracking-caps: normal;
+
   --text-xs: calc(0.75rem * var(--font-scale-urdu));
   --text-sm: calc(0.875rem * var(--font-scale-urdu));
   --text-base: calc(1rem * var(--font-scale-urdu));

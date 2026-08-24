@@ -21,7 +21,7 @@
   gap: var(--space-2);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: var(--space-2);
@@ -41,6 +41,11 @@
 .entity-title {
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
+  /* Display sizes want tracking pulled in — the same treatment .shrine-title
+     already had, which is why the two titles read differently at the same size.
+     Collapses to `normal` in Urdu through the token (global.css), because
+     negative tracking on Nastaliq prises apart glyphs that are meant to join. */
+  letter-spacing: var(--tracking-tighter);
   line-height: var(--leading-tight);
   color: var(--color-text);
   margin: 0 0 var(--space-4);
@@ -113,7 +118,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
 }
 
@@ -684,7 +689,7 @@
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--tracking-slight);
   color: var(--color-text-muted);
   margin: 0 0 var(--space-2);
 }
@@ -1004,7 +1009,7 @@
      caps tradition and is unreadable tracked out, so the RTL override below
      drops both (the same reason .contents-nav-title steps up a size in Urdu). */
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
 }
 
@@ -1573,7 +1578,7 @@
 .entity-order-as-recorded-label {
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: var(--tracking-slight);
   text-transform: uppercase;
   color: var(--color-text-muted);
   cursor: help;
@@ -1646,7 +1651,7 @@
 
 .lineage-chain-remove {
   font-size: var(--text-xs);
-  letter-spacing: 0.03em;
+  letter-spacing: var(--tracking-slight);
   color: var(--color-text-muted);
 }
 
@@ -1719,7 +1724,7 @@
 .order-compare-table thead th {
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: var(--tracking-slight);
   text-transform: uppercase;
   color: var(--color-text-muted);
   border-block-end: 1px solid var(--color-border);
