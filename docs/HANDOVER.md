@@ -2185,6 +2185,37 @@ nothing errored.
     needed to opt into it (`setTraditionalDirectory`). Read a handoff's gate list for which
     gates it names.
 
+83. **Two more defects in the same popover, both found only by driving the deployed site.** The
+    geometry above was fixed and verified green locally, and the feature was still not usable:
+
+    - **Choosing an option left the panel open, on top of the button it configures.** The panel
+      occupies y 62–203; the "Table of Shrines" button sits under it. So a reader who switched
+      to the table could not see the button change, and on production the button was not even
+      clickable — a Playwright click on it failed with the panel's own `<legend>` intercepting.
+      Choosing now closes the panel.
+    - **Its only dismissal was the gear itself** — no Escape, no click-outside, unlike every
+      other overlay here. Adding Escape then exposed a third thing: `MapPage.tsx:278` also
+      listens for Escape, to collapse the sidebar and deselect the shrine, so one Escape shut
+      the popover *and* the sidebar behind it. The listener is registered when the panel opens,
+      which is after MapPage's, so stopping propagation on the way up was too late; it runs in
+      the **capture** phase and stops there. One Escape now shuts the thing on top.
+
+    Both are invisible to jsdom, which has no layout and no hit-testing, and the first was
+    invisible to the local suite too — it only bit at the specific sidebar width production
+    renders. `e2e/directory-mode.spec.ts` now drives the whole journey in a real browser in
+    both languages: the panel opens inside the sidebar (not merely inside the viewport), the
+    radio is the topmost element at its own centre, choosing closes the panel and changes what
+    the button opens, the choice survives a reload, and Escape closes the panel without
+    collapsing the sidebar.
+
+    The lesson, which is really §9.68's: **local green plus a successful deploy is not
+    verification of the deployed thing.** Three defects survived a full local suite and a
+    passing Pages deploy, and each surfaced within a minute of actually clicking the live site.
+    Also worth keeping: two of the "failures" the live run reported were the *harness* being
+    wrong, not the site — a panel measured mid-slide (the sidebar animates open; §9.46 again)
+    and Playwright's scroll-into-view mis-computing a hit point inside a sticky header. Ask the
+    browser directly — `elementFromPoint` — before believing an interception report.
+
 
 ## 10. Risks if this is left unattended
 
