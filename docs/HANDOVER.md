@@ -2392,6 +2392,30 @@ nothing errored.
     onto the other. Ids now end in a digest of the quote — stable across regenerations, changing
     exactly when the evidence does.
 
+
+96. **`src/lib/i18n/localizeKgName.ts` cannot host a general-purpose helper: it imports the
+    whole knowledge graph.** It pulls `slugToLabel` from `../kg`, which statically imports
+    `data/kg.json` — 426 KB. Moving four open-coded `lang === 'ur' ? translateToUrdu(x) : x`
+    call sites onto a helper *in that file* therefore pulled the entire graph onto the map,
+    shrine, place and coverage routes: `check-bundle-budget.mjs` reported MapPage at **891 KB
+    against a 580 KB budget** and three others ~300 KB over. The helper needs the dictionary and
+    nothing else, so it now lives in `localizeRecordedName.ts` with only that dependency, and
+    `localizeKgName` re-exports it so there is still one implementation.
+
+    Two lessons, and the second is the reusable one. A "put the shared thing in the shared file"
+    refactor can be a 300 KB regression, and the file's name tells you nothing about its
+    dependency weight. And the reason this was a five-minute fix rather than a shipped
+    regression is that the budget check runs in `npm run build`, not in `npm run verify` — the
+    unit suite was green through all of it.
+
+97. **The obvious generalisation of a translation call is wrong in a way that looks right.**
+    `lang === 'ur' ? translateToUrdu(x) : x` reads as "translate when the language is
+    translated", and rewriting it that way returns **Urdu** for a future Shahmukhi reader. The
+    guard is not "does this language have a dictionary", it is "which dictionary" — so the
+    helper is a `Partial<Record<Lang, translator>>` keyed on the language, where a language with
+    no entry gets its string back unchanged (i18n rule 3). Adding a language is one entry, and
+    the shape makes the wrong version unwriteable.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

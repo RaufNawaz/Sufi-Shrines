@@ -9,7 +9,7 @@ import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+
 import { buildPlaces, type PlaceRecord } from '../lib/data/places';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
@@ -17,6 +17,7 @@ import { CATEGORY_LABELS } from '../lib/data/categoryKey';
 import type { Lang } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 /**
  * One place, and what the archive records in it.
  *
@@ -30,15 +31,10 @@ import { isRtlLang } from '../lib/i18n/languages';
  * Lahore, and writing some here would be inventing content (RULE 2).
  */
 
-/** Urdu place name from the dictionary; the English name unchanged otherwise. */
-function localizePlaceName(name: string, lang: string): string {
-  return lang === 'ur' ? translateToUrdu(name) : name;
-}
-
 function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
   const { t, fmtNum } = useLang();
   const headingRef = useFocusHeadingOnMount();
-  const displayName = localizePlaceName(place.name, lang);
+  const displayName = localizeRecordedName(place.name, lang);
 
   /* Up to five photographs from the place's own sites.
    *

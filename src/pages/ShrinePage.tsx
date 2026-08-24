@@ -8,7 +8,7 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
 import { placesForShrine } from '../lib/data/places';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+
 import { LanguageToggle } from '../components/ui/LanguageToggle';
 import { DarkModeToggle } from '../components/ui/DarkModeToggle';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -45,6 +45,7 @@ import type { Shrine } from '../types/shrine';
 import { langAttr } from '../lib/i18n/languages';
 import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 
+import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -214,7 +215,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         <div className="shrine-place-links">
           {shrinePlaces.map((place) => (
             <Link key={place.slug} to={`/place/${place.slug}`} className="shrine-place-tag">
-              <bdi>{lang === 'ur' ? translateToUrdu(place.name) : place.name}</bdi>
+              <bdi>{localizeRecordedName(place.name, lang)}</bdi>
             </Link>
           ))}
         </div>

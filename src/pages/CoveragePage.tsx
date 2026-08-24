@@ -13,10 +13,11 @@ import { SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
 import { buildPlaces } from '../lib/data/places';
-import { translateToUrdu } from '../lib/i18n/urduFallback';
+
 import { tFn } from '../lib/i18n/uiStrings';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 /**
  * What this archive knows, and what it does not — computed, not asserted.
  *
@@ -171,7 +172,7 @@ export default function CoveragePage() {
                   <li key={place.slug}>
                     <Link to={`/place/${place.slug}`} className="coverage-place-link">
                       <bdi className="coverage-place-name">
-                        {lang === 'ur' ? translateToUrdu(place.name) : place.name}
+                        {localizeRecordedName(place.name, lang)}
                       </bdi>
                       <span className="coverage-place-count">
                         {fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length))}

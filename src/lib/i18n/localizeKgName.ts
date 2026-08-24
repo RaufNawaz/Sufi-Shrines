@@ -1,5 +1,11 @@
 import type { Lang } from '../../types/shrine';
-import { translateNameToUrdu, translateToUrdu } from './urduFallback';
+import { translateNameToUrdu } from './urduFallback';
+/* Re-exported, not reimplemented: this module cannot *host* it — it imports
+   `slugToLabel` from `../kg`, which pulls in the 426 KB graph, and four routes
+   that need only the dictionary were paying for it. See localizeRecordedName.ts. */
+import { localizeRecordedName } from './localizeRecordedName';
+
+export { localizeRecordedName };
 import { slugToLabel } from '../kg';
 
 /**
@@ -60,7 +66,7 @@ export function localizeOrderName(order: NamedOrder, lang: Lang): string {
  * i18n rules for exactly this case.
  */
 export function localizeAltName(altName: string, lang: Lang): string {
-  return lang === 'ur' ? translateToUrdu(altName) : altName;
+  return localizeRecordedName(altName, lang);
 }
 
 /**

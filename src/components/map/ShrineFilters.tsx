@@ -1,11 +1,12 @@
 import React, { useCallback, useMemo } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
-import { translateToUrdu } from '../../lib/i18n/urduFallback';
+
 import { CATEGORY_LABELS, CATEGORY_ORDER, categoryKey } from '../../lib/data/categoryKey';
 import type { CategoryKey } from '../../lib/data/categoryKey';
 import { TimeSlider } from './TimeSlider';
 
+import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 /**
  * The filter controls for the archive — one component, two homes.
  *
@@ -154,7 +155,7 @@ export function ShrineFilters({
                 onClick={() => onRegionChange(activeRegion === reg ? '' : reg)}
                 aria-pressed={activeRegion === reg}
               >
-                {lang === 'ur' ? translateToUrdu(reg) : reg}
+                {localizeRecordedName(reg, lang)}
               </button>
             ))}
           </div>
