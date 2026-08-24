@@ -2299,6 +2299,99 @@ nothing errored.
     next planning pass; not attempted here, because `t()` is synchronous everywhere and an
     English flash in the Urdu view is not an acceptable intermediate state.
 
+
+90. **A `.gitignore` rule can be broader than it reads, and an ignored file is invisible to the
+    command you would check with.** `archive/`, added for the stale top-level folder RULE 1 warns
+    about, matches a directory of that name at *any* depth — so `src/components/archive/` was
+    silently excluded and a commit shipped two pages importing a file the repository does not
+    have. It builds here and cannot build from a clean clone. Nothing in the pipeline could see
+    it: the working tree has the file, so tsc, vite build, eslint and 714 tests were green, and
+    `git status` showed nothing to commit because the file was *ignored* rather than untracked.
+    Anchored to `/archive/`. `src/lib/__tests__/importsAreTracked.test.ts` now asks **git**, not
+    the filesystem, whether every relative import under `src/` is tracked — it reproduces this
+    exactly when the file is removed from the index, and catches the plainer forgotten-`git add`
+    too.
+
+91. **Nastaliq must never be letter-spaced, and per-rule overrides are the wrong mechanism.**
+    Urdu is a connected script: tracking does not loosen it, it prises apart glyphs that are
+    meant to join. The stylesheets knew this for `body.lang-rtl` and for `[dir='rtl'] h1..h4`
+    with a comment saying why — and neither reaches a `.entity-type-kicker`, a
+    `.filter-section-label` or a table `<th>`, which are not headings and inherit nothing. So
+    thirteen class rules carried an individual `letter-spacing: normal` and the rest did not.
+    Tracking is now six `--tracking-*` tokens that `[dir='rtl']` redefines to `normal`; custom
+    properties inherit, so that reaches every consumer with no specificity fight.
+    `e2e/typography.spec.ts` measures the rendered result on nine routes, because all three ways
+    this breaks — a token that stops collapsing, a raw em value, a new component's forgotten
+    override — produce the same computed value and none are visible in a grep.
+
+    Worth knowing for the next guard of this kind: the first probe of that test *passed* on an
+    injected violation, because `[dir='rtl'] h1` at (0,1,1) already outranked the class selector
+    it was injected on. A guard that has not been shown to fail on the thing it guards is not yet
+    a guard. Re-probed on `.coverage-stat-label`, which nothing covered, and got the failure.
+
+92. **Suppressing the browser's tap highlight is half a decision.**
+    `-webkit-tap-highlight-color: transparent` on `a`, `button` and `[role='button']` is right —
+    the grey flash looks nothing like the rest of the site — and it removes the only touch
+    feedback those elements had. Four selectors replaced it (`.filter-chip`, `.action-btn`,
+    `.icon-btn`, `.hover-lift`); every other link, tag, chip, badge, table row and card answered
+    a tap with *nothing* until the page changed. There is no console warning for "this control
+    does not acknowledge being pressed", and hover states hide it completely on a desktop, which
+    is where it was being looked at.
+
+    Two treatments, split by a CSS fact rather than by taste: `transform` is a no-op on a
+    non-replaced inline element, so the scale rule can safely name `a` — it reaches pills and
+    cards and passes straight over inline prose links, which take a ground tint instead. The tint
+    is a colour and not opacity (§9.46), and sits outside the reduced-motion query, because a
+    reader who asked for less movement has not asked to stop being told their tap landed.
+    `pressFeedback.test.ts` holds the two selector lists together across every stylesheet — its
+    first version read only global.css while map.css suppresses it too, for the sheet handle.
+
+93. **Two implementations of one statistic, and nothing comparing them.** `/coverage` and
+    `/report` compute the same support-level, info-level and tradition distributions through
+    `buildCoverage` and `buildArchiveReport` respectively. They agree; nothing was checking.
+    An archive whose distinguishing claim is candour cannot say "14 field-verified" on one page
+    and "13" on another — that is worse than saying neither, because a reader who notices cannot
+    tell which page lied. `archiveStatsAgree.test.ts` now pins it, deliberately *not* key-for-key
+    on traditions: the sheet's stray "Islam" row is its own line on /report and inside
+    `unrecorded` on /coverage, which is a real difference in what the two pages are for. A test
+    asserts that stray row still exists, so when the hygiene patch lands the difference stops
+    being invisible.
+
+    **And the harness trap.** Both builders read their fields through `getFieldValue`. Handed raw
+    snapshot rows instead of `buildShrines(...)` output they report every support level as zero
+    and all 169 entries as unrecorded — which reads exactly like a live bug on the two pages
+    whose whole purpose is honest self-assessment, and is an artefact of the measurement. The
+    data is fully populated (100 source-documented, 53 source-seeded, 14 field-verified, 2
+    web-compiled). This was very nearly reported as a defect.
+
+94. **GitHub Pages does not deploy from `main`.** It deploys from the newest *version* branch —
+    `1.7`, with `1.6` listed as a fallback — so `1.7` sits at 0 commits ahead of `main` and looks
+    exactly like a finished feature branch while being the one branch that must never be deleted.
+    The project has already paid for this once: ten commits of fixes believed live had never
+    deployed. Full per-branch disposition, the reason `1.6` stays listed, and how to cut a new
+    version branch are in `docs/BRANCHING.md`; `scripts/branch-audit.sh` recomputes the table and
+    reads the deploy list out of the workflow rather than from memory.
+
+    Also measured, and separately relevant: `feat/tours-phase5-discovery` looks like 131 commits
+    of unmerged work and contains nothing `main` lacks — 0 unique file paths, 0 unique exported
+    symbols (202 against main's 422), and every file older (kg.json 104 KB against 428 KB). An
+    agent session cannot finish the cleanup: pushing a tag returns HTTP 403 with the token, and
+    `git push --delete` is blocked in the sandbox.
+
+95. **A review queue that under-flags reads as a finished review.** The graph's 235
+    machine-extracted proposals are live and badged `reviewed: false`; what was missing was any
+    way to record a human verdict. Building `data/review/kg-review.csv` turned up two bugs in the
+    generator, both found by its test rather than by reading it. The conflict buckets name their
+    subject six different ways (`saintSlug`, `shrineSlug`, `canonicalSlug`, `proposedSlug`,
+    `subjectSlug`/`objectSlug`, and a bare `slugs` array) and the first version knew four — so 33
+    findings were filed as priority-3 rubber stamps, `subjectMismatch` (the allo-mahar
+    misidentification) among them. Four of those buckets record the *absence* of a claim and have
+    no proposal row to flag at all; they are rows of their own now. And row ids collided: Guru
+    Nanak has a birth-sentence date proposal and a death-sentence one, and five saints have two
+    order proposals apiece for the same parent, so a verdict typed against one would have carried
+    onto the other. Ids now end in a digest of the quote — stable across regenerations, changing
+    exactly when the evidence does.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
