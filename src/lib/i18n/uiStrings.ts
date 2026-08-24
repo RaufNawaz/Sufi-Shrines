@@ -337,6 +337,28 @@ const UI_TEXT_EN = {
     'Entries are maintained in a spreadsheet and read by this site at load time, so a correction reaches readers immediately.',
   aboutMethodProvenance:
     'Every claim is meant to be traceable to a source. Where sources disagree, the archive reports the disagreement rather than choosing for you.',
+  /* ── What the graph holds (/about) ─────────────────────────────────── */
+  aboutGraphHeading: 'What this archive knows',
+  aboutGraphNote:
+    'The entries above are the archive\u2019s sites. This is its graph \u2014 the people, silsilas, places and observances behind them, and the links between. Counted at build time from the graph itself.',
+  aboutGraphFigures: 'figures with a site here',
+  aboutGraphLineageOnly: 'named in a lineage, with no site here',
+  aboutGraphOrders: 'Sufi orders',
+  aboutGraphPlaces: 'places',
+  aboutGraphObservances: 'recorded observances',
+  aboutGraphSources: 'distinct sources',
+  aboutGraphTitles: 'honorifics and titles',
+  aboutGraphLineageLinks: 'recorded teacher\u2013disciple links',
+  aboutTrustHeading: 'How well it knows it',
+  aboutTrustNote:
+    'The same graph, counted by how much of it a person has actually checked. Machine-extracted claims carry the source quote they were read from and are marked unreviewed wherever they appear; none is hidden, and none is presented as settled.',
+  aboutTrustBiographies:
+    'figures whose dates and titles were read out of prose by a machine, not yet read by an editor',
+  aboutTrustLineage: (total: number) =>
+    `of ${total} recorded teacher\u2013disciple links are unreviewed`,
+  aboutTrustMemberships: (total: number) =>
+    `of ${total} recorded silsila affiliations are unreviewed`,
+  aboutTrustDisputed: 'figures whose sources give conflicting dates, reported rather than resolved',
   aboutMethodUrdu:
     'The Urdu edition is a first-class edition, not a translation layer. Machine-drafted translations are marked as drafts until a fluent reader signs them off.',
   aboutMethodGaps: 'What the archive does not know is published alongside what it does.',
@@ -719,6 +741,8 @@ export function tFn(
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
+export function tFn(lang: Lang, key: 'aboutTrustLineage', total: number): string;
+export function tFn(lang: Lang, key: 'aboutTrustMemberships', total: number): string;
 export function tFn(lang: Lang, key: 'graphLineageOnlyTeacherOf', name: string): string;
 export function tFn(
   lang: Lang,
@@ -774,6 +798,8 @@ export function tFn(
     | 'sharedGroundIntroSame'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'
+    | 'aboutTrustLineage'
+    | 'aboutTrustMemberships'
     | 'graphLineageOnlyTeacherOf'
     | 'graphLineageOnlyTeacherOfMore'
     | 'graphLineageOnlyDiscipleOf'

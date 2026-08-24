@@ -812,6 +812,51 @@ writeFileSync(
   'utf8',
 );
 
+// ── what the archive knows, as a dozen numbers ───────────────────────────────
+/*
+ * A tiny file so `/about` can state the graph's own state without importing the
+ * graph.
+ *
+ * `src/lib/kg.ts` imports `kg.json` statically, so a page that wants six counts
+ * off it pays 426 KB for them — the trap that took `/order/:slug` to 769 KB when
+ * the source layer went in. These are the counts themselves, ~400 bytes, in the
+ * same "slim lookup" shape as `kg-shrine-figures.json` beside it.
+ *
+ * The review counts are here on purpose and are the more useful half. An archive
+ * that publishes "136 figures" and not "94 of their biographies were read out of
+ * prose by a machine and by no person" is publishing the flattering number only.
+ */
+const knownLineage = relations.filter(
+  (r) => r.type === 'disciple_of' || r.type === 'successor_of',
+);
+const knownMemberships = relations.filter((r) => r.type === 'belongs_to_order');
+const documented = saints.filter((s) => !s.lineageOnly);
+
+const knowledge = {
+  generated: kg.generated,
+  figures: documented.length,
+  lineageOnlyFigures: saints.length - documented.length,
+  orders: orders.length,
+  places: places.length,
+  observances: events.length,
+  ursObservances: events.filter((e) => e.eventType === 'urs').length,
+  sources: sources.length,
+  citations: attestations.length,
+  titles: saints.reduce((n, s) => n + (s.titles?.length ?? 0), 0),
+  lineageLinks: knownLineage.length,
+  lineageLinksUnreviewed: knownLineage.filter((r) => r.reviewed === false).length,
+  orderMemberships: knownMemberships.length,
+  orderMembershipsUnreviewed: knownMemberships.filter((r) => r.reviewed === false).length,
+  biographiesMachineRead: documented.filter((s) => s.biographyReviewed === false).length,
+  disputedDateFigures: saints.filter((s) => s.disputedDates?.length).length,
+};
+
+writeFileSync(
+  join(ROOT, 'data', 'kg-stats.json'),
+  JSON.stringify(knowledge, null, 2) + '\n',
+  'utf8',
+);
+
 // ── slim lookup for the shrine route ─────────────────────────────────────────
 // ShrinePage renders exactly one thing out of the graph: a link from the
 // shrine's named figure to that figure's entity page. Importing src/lib/kg.ts

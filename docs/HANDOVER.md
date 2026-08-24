@@ -2951,6 +2951,42 @@ nothing errored.
     matters. Below 560px the note now wraps to its own full-width line, with `order` keeping the
     chevron on the first line where a thumb expects it.
 
+117. **`/about` now states what the graph knows *and how well it knows it*.** The page counted
+    the archive's sites; it said nothing about the people, silsilas and links behind them, and
+    nothing at all about how much of that a person had checked. *Added 24 August 2026.*
+
+    Two sections. **What this archive knows:** 136 figures with a site here, 5 orders, 86 recorded
+    teacher–disciple links, 149 observances, 464 distinct sources, 177 honorifics, 94 places, and
+    the 60 figures named in a lineage with no site here. **How well it knows it:** 94 figures whose
+    dates and titles were read out of prose by a machine and by no editor, **80 of 86** lineage
+    links unreviewed, **44 of 64** silsila affiliations unreviewed, 11 figures whose sources give
+    conflicting dates.
+
+    That second section is the point. An archive that publishes "136 figures" and not "most of
+    this graph's lineage is machine-read" is publishing the flattering half. Every one of those
+    claims already carried its source quote and an `unreviewed` badge wherever it appeared; what
+    was missing was the total, in one place, where a reader decides how much to trust the rest.
+
+    **`data/kg-stats.json`, ~400 bytes, generated.** `src/lib/kg.ts` imports `kg.json`
+    statically, so six counts off the graph would have cost 426 KB of eager JS — the same trap
+    that took `/order/:slug` to 769 KB when the source layer went in. Third use of the "slim
+    lookup beside the graph" pattern (`kg-shrine-figures.json`, `kg-sources.json`).
+
+    A derived stats file is a snapshot, and snapshots go stale — the failure this repository's
+    struck-through standing findings are a monument to. `kgStats.test.ts` recomputes **every**
+    number from `kg.json` and requires a match, so a future pass that changes how figures are
+    counted and forgets this artefact fails a test instead of leaving `/about` publishing
+    yesterday's figure with today's confidence. It also asserts the unreviewed counts are
+    non-zero: not a tautology but a floor on candour — a silent drop to zero would mean the review
+    flag stopped being written, not that 224 claims got reviewed.
+
+    Two drafting notes. `aboutKnowsHeading` already existed, meaning "How it knows what it says"
+    (the methodology block), so these keys are `aboutGraph*` — TypeScript caught the collision,
+    which is the only reason the two sections did not end up fighting over one heading. And the
+    unreviewed counts first read "80 … (86)", with the denominator bolted on outside the
+    sentence; it is inside it now via `tFn`, because Urdu puts it in a different place and that
+    is exactly what `tFn` exists for.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every
