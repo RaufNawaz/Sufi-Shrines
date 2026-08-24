@@ -241,6 +241,21 @@
   --easing: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  /* ── Press ───────────────────────────────────────────────────────────────
+     What a tap looks like. Two values because one treatment cannot serve both
+     kinds of target, for a reason that is CSS rather than taste: `transform`
+     does not apply to a non-replaced inline element, so scaling an inline link
+     inside a paragraph silently does nothing. Controls (buttons, pills, cards)
+     are inline-block or flex and scale; inline links take a ground tint, which
+     is what the native highlight we suppress was doing in grey.
+
+     Deliberately not opacity. HANDOVER §9.46: axe folds an ancestor's opacity
+     into the colour it measures, and this project has already lost an hour to a
+     contrast failure that did not exist. A tint is a real colour and can be
+     checked like one. */
+  --press-scale: 0.97;
+  --press-tint: var(--color-primary-pale);
+
   /* Layout */
   --sidebar-width: 380px;
   --header-height: 56px;

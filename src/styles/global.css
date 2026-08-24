@@ -63,10 +63,55 @@ body {
 }
 
 /* iOS tap highlight */
+/* The browser's own grey tap flash, suppressed — it looks nothing like the rest
+   of the site. Suppressing it is only half a decision: whatever is on this
+   selector list has just lost *all* touch feedback, so the `:active` rules below
+   are the other half, and `pressFeedback.test.ts` fails the build if these two
+   lists ever drift apart. Before that pairing existed, exactly four selectors
+   replaced it (`.filter-chip`, `.action-btn`, `.icon-btn`, `.hover-lift`) and
+   every other link, tag, chip and table row on a phone responded to a tap with
+   nothing at all until the page changed. */
 a,
 button,
 [role='button'] {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* The replacement, in two halves, split by what CSS will actually do.
+ *
+ * `transform` has no effect on a non-replaced inline element, so scaling an
+ * inline prose link silently does nothing — those take a ground tint instead,
+ * which is what the native highlight was doing in grey. Scoped to prose
+ * containers rather than applied to every `a`, so a filled button or a coloured
+ * pill never tints itself pale mid-press; those are buttons, and they scale.
+ *
+ * The tint sits outside any reduced-motion query on purpose: a colour is not
+ * motion, and a reader who asked for less movement has not asked to stop being
+ * told their tap registered. */
+p a:active,
+.article-prose a:active {
+  background-color: var(--press-tint);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button,
+  [role='button'] {
+    transition: transform var(--duration-fast) var(--easing);
+  }
+
+  /* Applied to `a` as well, and that is not sloppiness — it is the same CSS fact
+     used the other way round. A transform on an inline element is a no-op by
+     specification, so this reaches exactly the links that *can* scale: the
+     pills, tags, cards and badges, which are inline-block or flex. Inline prose
+     links are untouched by it and take the tint above. Enumerating the pill
+     classes instead would have been a list to keep current, and every new pill
+     would have shipped without feedback until someone noticed. */
+  a:active,
+  button:active,
+  [role='button']:active {
+    transform: scale(var(--press-scale));
+  }
 }
 
 /* Prevent FOUT on dark theme */
