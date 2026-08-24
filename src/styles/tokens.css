@@ -35,6 +35,33 @@
   --glass-bg: rgba(255, 255, 255, 0.82);
   --glass-blur: blur(16px) saturate(150%);
   --glass-border: rgba(214, 207, 192, 0.7);
+
+  /* ── A second material, for a panel that floats over arbitrary content ────
+     The 0.82 above is right for *chrome* — a zoom control, a sticky header —
+     which carries a word or two over the map. It is not right for the command
+     palette, which puts forty rows of dense text over a live map, and on this
+     palette produced the exact failure a translucent panel is supposed to avoid:
+     a near-white surface over a cream page, with a 0.7-alpha warm-grey border
+     that has almost no contrast against either. In light mode the panel's edge
+     was invisible; in dark mode `--glass-border` is within a few values of
+     `--glass-bg` itself, so the edge was invisible there too, for the opposite
+     reason.
+
+     Three tokens rather than one, because "make it more opaque" alone does not
+     fix an edge:
+
+     · `--glass-bg-strong` — the denser material. Dense text needs a ground it
+       can be read against no matter what is behind it.
+     · `--glass-edge` — a border with real contrast against *both* a light page
+       and a dark one. Decorative, so it has no contrast minimum to meet; it
+       does have to be visible, which the token it replaces was not.
+     · `--glass-sheen` — a one-pixel inset highlight along the top. This is the
+       trick that separates a translucent panel from its backdrop when the two
+       happen to be the same value, and it works because it does not depend on
+       what is behind the panel at all. */
+  --glass-bg-strong: rgba(255, 255, 255, 0.94);
+  --glass-edge: rgba(90, 79, 58, 0.3);
+  --glass-sheen: rgba(255, 255, 255, 0.8);
   --color-border: #d6cfc0;
   --color-border-light: #e8e2d6;
 
@@ -337,6 +364,12 @@
   --glass-bg: rgba(42, 34, 28, 0.86);
   --glass-blur: blur(16px) saturate(140%);
   --glass-border: rgba(58, 47, 38, 0.8);
+  /* Dark mode inverts which direction the edge has to go: a warm dark border on
+     a warm dark panel is the invisible case, so the edge is a light hairline and
+     the sheen is barely-there rather than bright. */
+  --glass-bg-strong: rgba(38, 31, 26, 0.95);
+  --glass-edge: rgba(255, 255, 255, 0.18);
+  --glass-sheen: rgba(255, 255, 255, 0.07);
   --color-border: #3a2f26;
   --color-border-light: #2e251e;
 

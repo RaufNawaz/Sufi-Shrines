@@ -18,11 +18,14 @@
   align-items: flex-start;
   justify-content: center;
   padding: clamp(var(--space-4), 8vh, 8rem) var(--space-4) var(--space-4);
-  background: rgba(26, 12, 8, 0.46);
-  /* A blur rather than a heavier scrim: the map behind stays legible as
-     context, which is the point of searching a map. */
-  backdrop-filter: blur(6px) saturate(120%);
-  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  /* 0.46 → 0.58, and 6px → 10px of blur. The reasoning below still holds — the
+     map behind should stay legible as context, because that is the point of
+     searching a map — but at 0.46 over a pale basemap the scrim landed close
+     enough to the panel's own value that the panel had no edge to speak of. The
+     map is still readable through this; it is no longer competing. */
+  background: rgba(26, 12, 8, 0.58);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
   animation: palette-backdrop-in var(--duration-base) var(--easing) both;
 }
 
@@ -32,22 +35,29 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-edge);
   border-radius: var(--radius-xl);
   /* Opaque first: a browser without backdrop-filter gets a solid panel rather
      than text over a live map. The translucent version is applied only where
      the blur that makes it legible is actually available. */
   background: var(--color-bg-surface);
+  /* Three layers, and the first is the one that does the work. An inset
+     hairline along the top separates the panel from its backdrop even when the
+     two are the same value, which is exactly the case that made this panel's
+     edge disappear — and unlike a border it does not depend on what is behind
+     the panel at all. */
   box-shadow:
-    0 24px 64px -12px rgba(26, 12, 8, 0.45),
-    0 2px 8px rgba(26, 12, 8, 0.18);
+    inset 0 1px 0 var(--glass-sheen),
+    0 32px 72px -16px rgba(26, 12, 8, 0.55),
+    0 2px 10px rgba(26, 12, 8, 0.22);
   animation: palette-in var(--duration-base) var(--easing-spring) both;
 }
 
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .palette {
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
+    /* The strong material, not the chrome one: this panel carries forty rows of
+       dense text, and 0.82 left them sitting on the map. */
+    background: var(--glass-bg-strong);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
   }
@@ -81,19 +91,39 @@
   font-size: var(--text-lg);
   color: var(--color-text);
   min-height: 44px;
-  /* This element also carries `.search-input`, so it inherits the pale halo and
-     the small shadow that class paints on the sidebar field. Inside the palette
-     that reads as a box drawn around a box; the panel already is the box. */
+  /* This element also carries `.search-input`, which paints a 1.5px pill border,
+     an opaque ground and a small shadow for the *sidebar* field. Inside the
+     palette that is a box drawn around a box, and the comment here used to say
+     so while only cancelling the shadow — so the pill was still being drawn,
+     inside a panel that already is the box. All four are cancelled now.
+     `padding-inline-start` goes too: it exists to clear the sidebar field's
+     absolutely-positioned icon, and in here the icon is a sibling, so it was
+     36px of dead space pushing the caret away from it. */
+  border: none;
+  border-radius: 0;
+  background: none;
   box-shadow: none;
+  height: auto;
+  padding-inline: 0;
 }
 
 /* No ring on the field. The panel *is* the focus indicator — it appears on
    focus, it is the only thing on screen, and the caret sits in this input from
    the moment it opens. A ring drawn inside a dialog whose sole purpose is this
-   input is noise, not information. */
+   input is noise, not information.
+   
+   And the reason the pill survived every attempt to cancel it above: the caret
+   is in this field from the moment the palette opens, so `.search-input:focus`
+   — which paints a primary border and a 3px pale halo for the *sidebar* field —
+   was permanently active. At (0,2,0) it outranks the single-class rule above,
+   so cancelling `border` there could never have worked. It has to be cancelled
+   at matching specificity, here, which is also where it belongs: this rule is
+   the one that says the field has no ring. */
 .palette-input:focus,
 .palette-input:focus-visible {
   outline: none;
+  border: none;
+  box-shadow: none;
 }
 
 .palette-input::placeholder {
