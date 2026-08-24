@@ -328,12 +328,37 @@
   --icon-layers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E");
 
   /* Z-index */
+  /* The phone tab bar's height, and 0 everywhere else.
+     Read by every full-height page so its content clears the bar, and by the
+     map's bottom sheet so the sheet sits above it rather than under it. Zero
+     above the breakpoint means those rules need no media query of their own —
+     the one declaration below is the single place the bar's existence is
+     decided. */
+  --tabbar-height: 0px;
   --z-map: 0;
   --z-sidebar: 20;
   --z-header: 30;
   --z-toast: 40;
   --z-modal: 50;
   --z-lightbox: 60;
+  /* Above the map and the sidebar sheet, below a modal: the palette and the
+     lightbox cover the whole screen on purpose and a tab bar poking through one
+     is a z-index accident, not a design. */
+  --z-tabbar: 35;
+}
+
+/* The tab bar exists on a phone and nowhere else — on a laptop the pages carry
+   their own headers, and a bar fixed across the bottom of a wide screen is a
+   mobile idiom borrowed badly. 49px plus the home-indicator inset, which is what
+   iOS itself uses; the target inside it still clears 44px.
+
+   Declared outside :root's own block, like --hairline above and for the same
+   reason: the bar's existence is a property of the viewport, not of the palette,
+   so it must survive the dark theme's token block further down. */
+@media (max-width: 640px) {
+  :root {
+    --tabbar-height: calc(49px + var(--safe-bottom));
+  }
 }
 
 /* One device pixel, where the device has more than one per CSS pixel. Declared

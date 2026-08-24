@@ -105,7 +105,10 @@
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
-    bottom: 0;
+    /* Above the tab bar, not under it. `--tabbar-height` is 0 outside the tab
+       bar's own breakpoint, so this needs no second media query: between 641 and
+       768px the sheet still sits on the bottom edge. */
+    bottom: var(--tabbar-height);
     /*
      * Pinned to *both* edges, and this is the load-bearing part of the rule.
      *
@@ -1772,7 +1775,13 @@
      visible — was hidden behind it entirely. Both live in .leaflet-bottom, so
      one offset fixes both. Guarded by e2e/mobile-sheet.spec.ts. */
   .leaflet-bottom {
-    bottom: calc(var(--sheet-peek-height) + var(--safe-bottom));
+    /* The sheet now sits on top of the tab bar rather than on the screen edge,
+       so the row Leaflet needs kept clear is that much taller. `--safe-bottom`
+       is inside `--tabbar-height` on a phone, and is still needed on its own
+       between 641 and 768px where there is no tab bar — adding both would
+       double-count the inset on a phone, so the max of the two is what the
+       sheet's own bottom edge actually is. */
+    bottom: calc(var(--sheet-peek-height) + max(var(--tabbar-height), var(--safe-bottom)));
   }
 }
 

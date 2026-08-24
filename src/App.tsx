@@ -11,6 +11,7 @@ import {
 import { LanguageProvider, useLang } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
 import { UpdateToast } from './components/ui/UpdateToast';
+import { TabBar } from './components/nav/TabBar';
 import { AppErrorBoundary } from './components/ui/AppErrorBoundary';
 import { persistAccessParamIfPresent } from './lib/projectAccess';
 import { stripUrPrefix } from './lib/i18n/urlLangPrefix';
@@ -133,6 +134,11 @@ export default function App() {
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <SkipLinks />
           <RouteAnnouncer />
+          {/* Top-level navigation, phone only (hidden by CSS above 640px).
+              Outside the Suspense boundary on purpose: the bar is the one thing
+              on screen while a lazily-loaded page is still arriving, and a
+              navigation that disappears during navigation is worse than none. */}
+          <TabBar />
           <AppErrorBoundary>
             <Suspense fallback={<PageFallback />}>
               <Routes>

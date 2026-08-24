@@ -2674,6 +2674,46 @@ nothing errored.
     count, because the knowledge graph needs the same items to build source nodes and two
     implementations of one definition is how they diverge.
 
+108. **The archive had no top-level navigation on a phone.** *Found 24 August 2026, and it had
+    been true since the app was built.* A phone reader's only navigation anywhere in the app was
+    "Back to map". `/graph` (the figures explorer), `/almanac`, `/typology` and `/coverage` were
+    reachable **only** through links inside article bodies — so four of the archive's six
+    surfaces existed for a reader who already knew they existed. The map was a front door onto
+    one room.
+
+    Fixed with a five-tab bar, phone only: **Map · Figures · Almanac · Atlas · Archive**. Five
+    because a tab bar stops being legible past five on a phone, and every one is an index over
+    the whole archive rather than one entry; `/coverage` and `/report` are one tap deeper because
+    About links to both and they answer "how complete is this" rather than "what is in it".
+
+    Things that were not obvious:
+    - **A detail route has to light up the index that leads to it** — a shrine and a place belong
+      to the map, a figure and an order to the explorer — or a reader arriving from a search
+      engine sees five unselected tabs and no sense of place. `tabs.test.ts` asserts this against
+      the *real* route table parsed out of `App.tsx`, so a route added without a home fails a
+      test instead of shipping a dead bar on a new page.
+    - **A route no tab owns resolves to null, not to a default.** Marking the map current on a
+      404 is a claim, and `aria-current="page"` has a screen reader say it out loud.
+    - **`display: none` above the breakpoint, nothing softer.** `visibility: hidden` and an
+      off-screen transform both leave five links in a desktop keyboard reader's tab order,
+      leading to a bar that is not on the screen. Asserted by checking the element has no box at
+      all.
+    - **The map's bottom sheet had to move.** It was pinned to `bottom: 0`; it now sits on
+      `var(--tabbar-height)`, and Leaflet's attribution row — which the licence requires be
+      visible — needed `max(--tabbar-height, --safe-bottom)` rather than a sum, because the
+      home-indicator inset is already inside the tab bar's height on a phone and would otherwise
+      be counted twice.
+    - **The material had to be the strong one.** At `--glass-bg` (0.82) the article text
+      scrolling underneath showed through the 10px labels. Same failure, same fix, as the command
+      palette three commits earlier: small type needs a ground.
+    - **Nastaliq pays for the height.** 10px Latin labels are fine; Urdu at 10px smears, and at
+      12px in a 49px bar the tail of تقویم clipped against the bottom edge. The Urdu label gets
+      12px with `line-height: 1.45`, and the icon gives up two points to pay for it.
+
+    `e2e/tabbar.spec.ts` covers the geometry no unit test can see: one current tab per route,
+    44px targets, the last element of each page clearing the bar, RTL mirroring, and absence on a
+    laptop.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

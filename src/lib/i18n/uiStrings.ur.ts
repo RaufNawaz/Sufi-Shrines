@@ -52,6 +52,13 @@ export const UI_TEXT_UR: UiStrings = {
   uncategorized: 'غیر زمرہ بند',
   descriptionMore: 'مزید',
   backToMap: 'نقشے پر واپس جائیں',
+  /* ── ٹیب بار (فون) ───────────────────────────────────────────────────── */
+  tabMap: 'نقشہ',
+  tabExplore: 'شخصیات',
+  tabAlmanac: 'تقویم',
+  tabAtlas: 'اقسام',
+  tabAbout: 'آرکائیو',
+  tabBarLabel: 'آرکائیو کے حصے',
   share: 'شیئر',
   copied: 'کاپی ہو گیا',
   openFullMap: 'پورا نقشہ کھولیں',

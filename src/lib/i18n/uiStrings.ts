@@ -28,6 +28,13 @@ const UI_TEXT_EN = {
   uncategorized: 'Uncategorized',
   descriptionMore: 'More',
   backToMap: 'Back to map',
+  /* ── Tab bar (phone) ─────────────────────────────────────────────────── */
+  tabMap: 'Map',
+  tabExplore: 'Figures',
+  tabAlmanac: 'Almanac',
+  tabAtlas: 'Atlas',
+  tabAbout: 'Archive',
+  tabBarLabel: 'Archive sections',
   share: 'Share',
   copied: 'Copied',
   openFullMap: 'Open full map',

@@ -1,0 +1,150 @@
+/*
+ * The phone tab bar.
+ *
+ * Loaded last of the feature sheets: it is chrome that sits over every page, so
+ * it should win a specificity tie with a page's own rules rather than depend on
+ * one.
+ *
+ * Phone only. `display: none` above the breakpoint rather than `visibility` or
+ * an off-screen transform, because none of the others take the bar out of the
+ * accessibility tree — a desktop keyboard reader would tab through five links
+ * to a bar that is not on the screen.
+ */
+
+.tabbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tabbar {
+    display: block;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: var(--z-tabbar);
+    height: var(--tabbar-height);
+    /* Opaque first, so a browser without backdrop-filter gets a solid bar
+       instead of five labels over a live map. The material is applied only
+       where the blur that makes it legible actually exists. */
+    background: var(--color-bg-surface);
+    border-top: var(--hairline) solid var(--color-border-light);
+    /* The home-indicator inset as padding, not margin: the bar's background has
+       to reach the bottom of the screen, and only its contents move up. */
+    padding-bottom: var(--safe-bottom);
+  }
+
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .tabbar {
+      /* The *strong* material, not the chrome one. Measured on a phone at 0.82:
+         the article text scrolling underneath showed through the labels, and a
+         10px label over moving prose is unreadable — the same failure the
+         command palette had at the same alpha (HANDOVER §9.9x, palette.css).
+         Small type needs a ground. */
+      background: var(--glass-bg-strong);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+    }
+  }
+
+  .tabbar-list {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    height: 49px;
+    list-style: none;
+  }
+
+  .tabbar-item {
+    /* Equal fifths, and `min-width: 0` so a long Urdu label shrinks its own
+       cell instead of pushing the row wider than the screen. */
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .tabbar-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+    /* The whole cell is the target: 49px tall by a fifth of any phone width is
+       comfortably past 44px in both axes. */
+    min-height: 44px;
+    padding: 4px 2px;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .tabbar-link--current {
+    color: var(--color-primary);
+  }
+
+  /* Pressed, not hovered: there is no hover on a phone, and a tab that does
+     nothing under a thumb reads as an unresponsive app. Tint rather than
+     opacity — axe folds an ancestor's opacity into the colour it measures
+     (HANDOVER §9.46). */
+  .tabbar-link:active {
+    background: var(--press-tint);
+  }
+
+  .tabbar-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .tabbar-label {
+    font-size: 10px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: var(--tracking-slight);
+    /* One line, ellipsised. Two lines of 10px type inside a 49px bar leaves the
+       icon no room, and a wrapped label makes the five cells different
+       heights. */
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [dir='rtl'] .tabbar-label {
+    font-family: var(--font-urdu);
+    /* Nastaliq needs the height; at 10px its descenders collide with the
+       baseline and the word turns to a smear. 12px with room below it — the
+       first attempt clipped the tail of تقویم against the bottom of the bar. */
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: normal;
+  }
+
+  /* Two points of icon paid to the type. Nastaliq's ascenders and descenders
+     need more vertical room than a Latin label of the same nominal size, and the
+     bar's height is fixed by the platform convention rather than by the script
+     inside it. */
+  [dir='rtl'] .tabbar-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  [dir='rtl'] .tabbar-link {
+    gap: 0;
+  }
+
+  /* Every full-height page has to clear the bar, or its last row and its footer
+     sit underneath one. Applied to the wrappers rather than to `body`, because
+     the map page is a fixed-height layout that must not grow. */
+  .entity-page-wrapper,
+  .shrine-page-wrapper,
+  .not-found-page {
+    padding-bottom: var(--tabbar-height);
+  }
+}
+
+@media print {
+  .tabbar {
+    display: none;
+  }
+}
