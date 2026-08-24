@@ -435,7 +435,13 @@ export default function AlmanacPage() {
                           so e2e/urdu-no-leak.spec.ts counts the remaining debt
                           rather than waving it through. */}
                       <span className="almanac-plain-source" data-latin>
-                        <bdi>{localizeObservance(entry.sourceText, lang)}</bdi>
+                        {/* fmtNum, like every other number site: a translated
+                            observance carries the recorded dates with it
+                            ("سالانہ عرس (18-20 صفر)"), and Western digits inside
+                            Nastaliq is the i18n rule 5 gap this render site had.
+                            The infobox's own Events row has always gone through
+                            fmtNum; this one did not. */}
+                        <bdi>{fmtNum(localizeObservance(entry.sourceText, lang))}</bdi>
                       </span>
                     </li>
                   ))}

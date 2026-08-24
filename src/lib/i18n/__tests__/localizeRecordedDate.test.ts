@@ -67,6 +67,32 @@ describe('a recorded Hijri date reads in Urdu', () => {
     expect(localizeRecordedDate('1585 CE (993 AH)', 'ur')).toBe('1585 عیسوی (993 ہجری)');
   });
 
+  it('translates a Gregorian month too, since the archive records both calendars', () => {
+    /* Often in one field: "8 Muharram 1040 AH / 8 August 1630 CE" would
+       otherwise be half Urdu down the middle of a slash. */
+    expect(localizeRecordedDate('4 December 1908, Lahore', 'ur')).toBe('4 دسمبر 1908, Lahore');
+    expect(localizeRecordedDate('8 Muharram 1040 AH / 8 August 1630 CE', 'ur')).toBe(
+      '8 محرم 1040 ہجری / 8 اگست 1630 عیسوی',
+    );
+  });
+
+  it('does not reorder a month-first date', () => {
+    /* "November 27, 1981" stays month-first. Urdu would normally write the day
+       first, and moving it would be this function deciding word order — the one
+       thing the substitution rule is allowed to avoid precisely because it never
+       does it. Faithful to the recorded order (RULE 2). */
+    expect(localizeRecordedDate('November 27, 1981 (Friday)', 'ur')).toBe(
+      'نومبر 27, 1981 (Friday)',
+    );
+  });
+
+  it('leaves a month word that is also an English verb alone in prose', () => {
+    /* `May` and `March` are the risky pair. Matching is case-sensitive and needs
+       a date context, so neither reaches a sentence. */
+    const prose = 'the procession may pass; devotees march to the darbar';
+    expect(localizeRecordedDate(prose, 'ur')).toBe(prose);
+  });
+
   it('translates a month standing alone in parentheses', () => {
     expect(localizeRecordedDate("Annual urs (Sha'ban)", 'ur')).toBe('Annual urs (شعبان)');
   });

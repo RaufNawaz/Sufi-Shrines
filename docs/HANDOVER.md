@@ -2582,6 +2582,40 @@ nothing errored.
     substituted segment still contains Latin — so it wants its own measured pass rather than a
     quick edit.
 
+105. **I built an observance fallback that no page can reach, and measured it only after
+    building it.** Recorded because the mistake is more useful than the code was.
+
+    Following §9.104's open item, I added a rule to `localizeObservance`: for a segment shaped
+    `<phrase> (<date>)` — `Annual urs (18-20 Safar)` — look the phrase up, localise the
+    parenthetical as a date, and recombine only if the result carries no Latin at all. The gate is
+    sound and the rule is defensible. It rescued 8 of the 190 distinct `Events` segments in a
+    direct measurement, and **it fires on exactly zero pages.**
+
+    Why, and this is the part worth keeping: the infobox calls
+    `localizeObservance(localizeField(row, 'Events'), lang)` — **`localizeField` runs first**, and
+    for all eight shrines carrying those segments it already returns a human translation, better
+    than the mechanical one ("سالانہ عرس (۱۸ سے ۲۰ صفر)", with سے for the range and Eastern
+    digits, against my "سالانہ عرس (18-20 صفر)"). The almanac's other call site renders
+    `sourceText` only for **undated** observances, and all eight of these parse to a date, so they
+    are never in that list. Checked by dumping the rendered Urdu infobox row on all eight shrine
+    pages: eight of eight already fully Urdu.
+
+    Reverted. **The lesson is the ordering.** My earlier estimate of "23 rescuable segments" came
+    from looking keys up in `src/data/urdu-seed.json` directly, which is not how the runtime
+    resolves them — `translateToUrdu` normalises, and `localizeField` gets there first. Measuring
+    through the real call path takes one temporary spec file and would have come before the
+    implementation rather than after it. The repository is full of the same shape in the other
+    direction (§9.85, §9.99, §9.100: data held and not rendered); this is code written for a
+    render path that was already covered.
+
+    What survived, because it *is* reachable: Gregorian months in `localizeRecordedDate` — the
+    archive records both calendars and sometimes both in one field ("8 Muharram 1040 AH /
+    8 August 1630 CE"), which would otherwise be half Urdu down the middle of a slash — and a
+    missing `fmtNum` on the almanac's undated observance row, a genuine i18n rule 5 gap where the
+    infobox's equivalent row had always had one. A month-first date ("November 27, 1981") is left
+    month-first: reordering it to the usual Urdu day-first would be this function deciding word
+    order, the one thing the whole substitution argument rests on not doing.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

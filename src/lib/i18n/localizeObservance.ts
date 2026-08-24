@@ -40,6 +40,7 @@ import { translateToUrdu } from './urduFallback';
 /** First Strong Isolate / Pop Directional Isolate — the plain-text `<bdi>`. */
 const FSI = '\u2068';
 const PDI = '\u2069';
+
 export function localizeObservance(text: string | undefined | null, lang: Lang): string {
   const raw = String(text ?? '').trim();
   // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the observance segment dictionary is Urdu-only

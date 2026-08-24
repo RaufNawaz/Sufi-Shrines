@@ -1,5 +1,5 @@
 import type { Lang } from '../../types/shrine';
-import { HIJRI_MONTH_NAMES_UR } from '../data/ursDates';
+import { HIJRI_MONTH_NAMES_UR, GREGORIAN_MONTH_NAMES_UR } from '../data/ursDates';
 
 /**
  * A recorded date, read in Urdu.
@@ -74,6 +74,33 @@ const MONTH_VARIANTS: readonly (readonly string[])[] = [
 ];
 
 /**
+ * Gregorian months, with the abbreviations the sources use.
+ *
+ * The archive records both calendars, often in the same field — "8 Muharram
+ * 1040 AH / 8 August 1630 CE" — so translating one and not the other produces a
+ * date that is half Urdu down the middle of a slash.
+ *
+ * `May` is a month and an English modal verb; `March` is a month and a verb.
+ * Matching is case-sensitive and still requires a date context, so neither
+ * reaches a sentence: "the procession may pass" has no capital and no adjacent
+ * number.
+ */
+const GREGORIAN_VARIANTS: readonly (readonly string[])[] = [
+  ['January', 'Jan.', 'Jan'],
+  ['February', 'Feb.', 'Feb'],
+  ['March', 'Mar.', 'Mar'],
+  ['April', 'Apr.', 'Apr'],
+  ['May'],
+  ['June', 'Jun.', 'Jun'],
+  ['July', 'Jul.', 'Jul'],
+  ['August', 'Aug.', 'Aug'],
+  ['September', 'Sept.', 'Sept', 'Sep.', 'Sep'],
+  ['October', 'Oct.', 'Oct'],
+  ['November', 'Nov.', 'Nov'],
+  ['December', 'Dec.', 'Dec'],
+];
+
+/**
  * Calendar markers.
  *
  * `ہجری` and `عیسوی` rather than a bare `ھ`: the archive's readers include
@@ -105,12 +132,23 @@ function alternation(values: readonly string[]): string {
     .join('|');
 }
 
-const MONTH_INDEX = new Map<string, number>();
+/* One table, two calendars: a single pass means the longest variant across both
+   wins, rather than whichever calendar happened to be matched first. */
+const MONTH_INDEX = new Map<string, string>();
 for (const [i, variants] of MONTH_VARIANTS.entries()) {
-  for (const variant of variants) MONTH_INDEX.set(variant.toLowerCase(), i);
+  for (const variant of variants) MONTH_INDEX.set(variant.toLowerCase(), HIJRI_MONTH_NAMES_UR[i]);
+}
+for (const [i, variants] of GREGORIAN_VARIANTS.entries()) {
+  for (const variant of variants) {
+    /* Hijri wins a collision. There is none today, and if a future variant
+       collides, the calendar the archive records dates in most is the one to
+       keep. */
+    const key = variant.toLowerCase();
+    if (!MONTH_INDEX.has(key)) MONTH_INDEX.set(key, GREGORIAN_MONTH_NAMES_UR[i]);
+  }
 }
 
-const ALL_MONTHS = MONTH_VARIANTS.flat();
+const ALL_MONTHS = [...MONTH_VARIANTS.flat(), ...GREGORIAN_VARIANTS.flat()];
 /* No `\b` on either side: several variants end in a letter but others contain
    `.` and `ʿ`, where `\b` behaves differently. A lookaround on the letter class
    is what "not part of a longer word" actually means here. */
@@ -159,10 +197,10 @@ export function localizeRecordedDate(value: string | null | undefined, lang: Lan
   let touchedMonth = false;
   const withMonths = raw.replace(MONTH_RE, (match, _m, offset: number) => {
     if (!inDateContext(raw, offset, offset + match.length)) return match;
-    const index = MONTH_INDEX.get(match.toLowerCase());
-    if (index === undefined) return match;
+    const urdu = MONTH_INDEX.get(match.toLowerCase());
+    if (urdu === undefined) return match;
     touchedMonth = true;
-    return HIJRI_MONTH_NAMES_UR[index];
+    return urdu;
   });
 
   /* The era marker only follows the month, never leads. Substituted only where
