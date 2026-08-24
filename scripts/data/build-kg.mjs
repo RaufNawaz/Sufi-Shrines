@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
+import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -85,15 +86,57 @@ const ISLAMIC_MONTHS = [
   'Ramadan', 'Shawwal', 'Dhu al-Qidah', 'Dhu al-Hijjah',
 ];
 
+/**
+ * Records that describe a site's *status* rather than an observance.
+ *
+ * The `Events` column answers "what happens here", and for 16 sites the honest
+ * answer is nothing, or nothing documented: "Not documented", "None -
+ * abandoned", "None - destroyed 1992", "Heritage site", "Reopened for
+ * pilgrims". An event node built from one of those asserted a recurring
+ * observance at a site whose own record says there is none — and it reached the
+ * reader, because prerender.mjs publishes every event as a schema.org `Event` in
+ * the JSON-LD of its shrine page.
+ *
+ * Matched on the *first* recorded segment only. "Hur gatherings on 27 Rajab and
+ * at fixed times; no public urs observed" denies an urs while describing a real
+ * observance, and a blanket search for negatives would throw the observance away
+ * with the denial.
+ */
+const NO_OBSERVANCE_RECORDED =
+  /^(not documented|none\b|heritage\b|heritage\/|preserved as\b|reopened\b|recently restored)/i;
+
+/** Stated, not assumed. The old code's final fallback was `'annual'` for any
+ *  non-empty text, so 83 of 168 events were published with
+ *  `repeatFrequency: P1Y` on no evidence at all — including sites whose column
+ *  reads "Not documented". An unstated frequency is now absent, and the JSON-LD
+ *  already omits `eventSchedule` when it is. */
+function statedFrequency(lower) {
+  if (lower.includes('biannual')) return 'biannual';
+  if (lower.includes('monthly')) return 'monthly';
+  if (lower.includes('annual')) return 'annual';
+  return undefined;
+}
+
 function parseEvent(evText) {
   if (!evText?.trim()) return null;
+  const first = evText.split(';')[0].trim();
+  if (NO_OBSERVANCE_RECORDED.test(first)) return null;
   const lower = evText.toLowerCase();
-  const frequency = lower.includes('annual') ? 'annual' :
-                    lower.includes('monthly') ? 'monthly' :
-                    lower.includes('biannual') ? 'biannual' : 'annual';
   const monthMatch = evText.match(new RegExp(`\\b(${ISLAMIC_MONTHS.join('|')})\\b`, 'i'));
-  const date = monthMatch ? monthMatch[1] : undefined;
-  return { frequency, date };
+  return {
+    frequency: statedFrequency(lower),
+    date: monthMatch ? monthMatch[1] : undefined,
+    /* The source's own words for what happens here, which is what a non-urs
+       observance has to be named from: the archive covers six traditions and
+       has no vocabulary of its own for a Gurpurab or a Shivratri. The trailing
+       parenthetical is dropped because it qualifies the date rather than naming
+       the observance, and the date is carried in its own field. */
+    recorded: first.replace(/\s*\([^()]*\)\s*$/, '').trim(),
+    /* An urs is a Sufi death-anniversary observance. It is `urs` only where the
+       record says so — see the call site, which also requires the site to be a
+       Muslim shrine. */
+    saysUrs: /\burs\b|\u02bfurs/i.test(evText),
+  };
 }
 
 // ── load inputs ───────────────────────────────────────────────────────────────
@@ -426,18 +469,45 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const saintSlug = canonical ? slugify(canonical) : undefined;
 
   const shrine = row['Name'] || '';
-  const evSlug = `urs-${shrineSlug}`;
+
+  /*
+   * An urs is a Sufi observance, and this used to be asserted for every site in
+   * the archive: 86 of 168 events were named "Urs of Shiva at Amb Temples" or
+   * "Urs of Bhai Waliram at Bhai Waliram Darbar", typed `urs`, and published as
+   * schema.org `Event` nodes in those shrine pages' JSON-LD. The archive covers
+   * six traditions; flattening a Shivratri and a Gurpurab into Sufi vocabulary
+   * is the exact failure its own terminology rule exists to prevent.
+   *
+   * `urs` now requires both the site to be a Muslim shrine and the record to
+   * say urs. Everything else is `observance` — a neutral word, and the *only*
+   * other value in the vocabulary, because naming a Gurpurab a "gurpurab" from
+   * a category would be this script inferring a taxonomy the record does not
+   * give it. What the record does give is the observance's own name, so that is
+   * what the node is called.
+   */
+  /* The record's own word is the evidence, and the tradition is the guard
+     against a future sheet edit: exactly 77 rows mention urs today and every one
+     of them is a Muslim shrine (or the single row whose `category` is the
+     invalid "Islam", whose text plainly says *ʿurs*). Requiring
+     `category === 'Muslim Shrine'` instead would have thrown that row's real
+     urs away over a schema violation a human still has to fix in the sheet. */
+  const isUrs = parsed.saysUrs && !NON_MUSLIM_TRADITIONS.has(resolveCategory(row));
+  const evSlug = `${isUrs ? 'urs' : 'observance'}-${shrineSlug}`;
+  const saintName = saintSlug ? (saintBySlug.get(saintSlug)?.name ?? canonical) : '';
+  const at = shrine ? ` at ${shrine}` : '';
 
   events.push({
     id: `event:${evSlug}`,
     type: 'event',
     slug: evSlug,
-    name: `Urs${saintSlug ? ' of ' + (saintBySlug.get(saintSlug)?.name ?? canonical) : ''}${shrine ? ' at ' + shrine : ''}`,
-    eventType: 'urs',
+    name: isUrs
+      ? `Urs${saintName ? ' of ' + saintName : ''}${at}`
+      : `${parsed.recorded || 'Observance'}${at}`,
+    eventType: isUrs ? 'urs' : 'observance',
     shrineSlug,
     saintSlug,
     date: parsed.date,
-    frequency: parsed.frequency,
+    ...(parsed.frequency ? { frequency: parsed.frequency } : {}),
   });
 }
 

@@ -86,11 +86,28 @@ export interface KGPlace extends KGEntity {
 
 export interface KGEvent extends KGEntity {
   type: 'event';
-  eventType: 'urs' | 'mela' | 'pilgrimage' | 'other';
+  /**
+   * Two values, and the vocabulary is deliberately this small.
+   *
+   * `urs` is a Sufi death-anniversary observance and is set only where the
+   * record says urs. Everything else is `observance` — a Shivratri, a Gurpurab,
+   * a Vaisakhi fair, a daily prakash. Naming those from the site's tradition
+   * would be the build script inferring a taxonomy the record does not give it,
+   * so the node carries the observance's own recorded name instead.
+   *
+   * Was `'urs' | 'mela' | 'pilgrimage' | 'other'`, three of which the builder
+   * never emitted while it typed all 168 events `urs` — including 86 at Hindu
+   * temples and Sikh gurdwaras. A vocabulary the data never uses is a promise
+   * the data does not keep.
+   */
+  eventType: 'urs' | 'observance';
   shrineSlug?: string;
   saintSlug?: string;
   date?: string;
-  frequency?: 'annual' | 'monthly' | 'biannual' | 'one-time';
+  /** Present only where the record states one. Absent means unstated, never
+   *  "assume annual" — that assumption published `repeatFrequency: P1Y` for 83
+   *  events on no evidence. */
+  frequency?: 'annual' | 'monthly' | 'biannual';
 }
 
 export interface KGSource extends KGEntity {

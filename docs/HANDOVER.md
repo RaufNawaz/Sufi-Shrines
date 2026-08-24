@@ -2616,6 +2616,48 @@ nothing errored.
     month-first: reordering it to the usual Urdu day-first would be this function deciding word
     order, the one thing the whole substitution argument rests on not doing.
 
+106. **The graph called a Shivratri an urs — 86 times, in published structured data.**
+    *Measured 24 August 2026 from `data/kg.json`.* `build-kg.mjs` typed **every one** of its 168
+    event nodes `urs` and named them from a single template, so the graph asserted "Urs of Shiva
+    at Amb Temples", "Urs of Goddess Durga at Churrio Jabal Durga Mata Temple", "Urs of Bhai
+    Waliram at Bhai Waliram Darbar". 86 of the 168 were at Hindu temples (49) and Sikh gurdwaras
+    (37).
+
+    **Not internal.** `scripts/prerender.mjs` emits every event as a schema.org `Event` in its
+    shrine page's JSON-LD, so this was machine-readable on 86 published pages and exported again
+    through `data:export` into `graph.jsonld` and `graph.ttl`. An urs is a Sufi death-anniversary
+    observance; flattening six traditions into one tradition's vocabulary is exactly what
+    CLAUDE.md's terminology rule exists to prevent, and it went unnoticed because no *page*
+    renders event names — `getEventsForShrine` has no callers. **A field with no UI is not a
+    field with no readers.**
+
+    Two more inventions in the same twelve lines:
+    - **`frequency: 'annual'` for 83 of 168 events**, because the parser's final fallback was
+      `'annual'` for any non-empty text. Those published `repeatFrequency: P1Y` — including sites
+      whose `Events` column reads "Not documented" or "None - destroyed 1992".
+    - **An event node at all** for 16 rows whose answer to "what happens here" is a site *status*
+      ("Heritage site", "Reopened for pilgrims", "None - abandoned").
+
+    Fixed so the record's word decides: `urs` requires the text to say urs *and* the site not to
+    be one of the four non-Muslim traditions; everything else is `observance`, named from the
+    observance's own recorded words ("Maha Shivratri at Churrio Jabal Durga Mata Temple") because
+    the archive has no vocabulary of its own for a Gurpurab and inventing one is not a build
+    script's job. Frequency is present only when stated. 168 → 149 events, 76 urs and 73
+    observances. `KGEvent.eventType` narrowed from four values to the two the data uses — three
+    of the old four were never emitted while all 168 rows took the fourth.
+
+    **The direction that nearly broke:** requiring `category === 'Muslim Shrine'` would have
+    retyped Darbar Abul Muali Qadri's real *ʿurs* as a generic observance, because that row's
+    `category` is the invalid `"Islam"` (a known sheet defect the validator has warned about since
+    21 August). The record's own word has to be able to outvote a schema violation. Asserted in
+    both directions.
+
+    Also extracted `scripts/data/lib/category.mjs`, because **build-kg.mjs had reintroduced the
+    exact `??` bug validate.mjs's own comment warns about**: a blank string is not nullish, so
+    `row['category'] ?? row['Category']` lets an empty `category` shadow a good `Category`. Six
+    rows have a blank `Category` and one a blank `category`, so either `??` direction gets a
+    different row wrong. One resolver, used by both, with the trap written down once.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

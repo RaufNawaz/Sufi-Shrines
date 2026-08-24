@@ -18,6 +18,7 @@
  */
 
 import { readFileSync, existsSync } from 'node:fs';
+import { CATEGORY_ENUM as CATEGORY_VALUES, resolveCategory } from './lib/category.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateRow } from './schema.mjs';
@@ -115,14 +116,7 @@ rows.forEach((row, i) => {
 // says so. Warning rather than error, matching this validator's treatment of
 // data-quality gaps that need a sheet edit (agents do not write to the sheet —
 // RULE 3); the fix is in data/patch_data_hygiene_2026-08-21.csv.
-const CATEGORY_ENUM = new Set([
-  'Muslim Shrine',
-  'Hindu Temple',
-  'Sikh Gurdwara',
-  'Nanakpanthi / Udasi Darbar',
-  'Jain Temple',
-  'Secular / Memorial',
-]);
+const CATEGORY_ENUM = new Set(CATEGORY_VALUES);
 
 rows.forEach((row, i) => {
   const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
@@ -134,9 +128,7 @@ rows.forEach((row, i) => {
    * having no category when it has "Hindu Temple". Same fallback semantics as
    * getFieldValue in src/lib/data/fieldAliasing.ts.
    */
-  const raw = [row['category'], row['Category']]
-    .map((v) => String(v ?? '').trim())
-    .find((v) => v !== '') ?? '';
+  const raw = resolveCategory(row);
   if (!raw) {
     rowWarnings.push(`  ${label}: no category — loses its map colour and every tradition count`);
     return;

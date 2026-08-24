@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-20T21:46:08.901Z",
+  "generated": "2026-08-24T16:47:32.896Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -4415,16 +4415,6 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-amb-temples-amb-sharif",
-      "type": "event",
-      "slug": "urs-amb-temples-amb-sharif",
-      "name": "Urs of Shiva at Amb Temples (Amb Sharif)",
-      "eventType": "urs",
-      "shrineSlug": "amb-temples-amb-sharif",
-      "saintSlug": "shiva",
-      "frequency": "annual"
-    },
-    {
       "id": "event:urs-bari-imam",
       "type": "event",
       "slug": "urs-bari-imam",
@@ -4435,34 +4425,13 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-bhagnari-mandir",
+      "id": "event:observance-bhagnari-mandir",
       "type": "event",
-      "slug": "urs-bhagnari-mandir",
-      "name": "Urs of Shiva at Bhagnari Mandir",
-      "eventType": "urs",
+      "slug": "observance-bhagnari-mandir",
+      "name": "Community worship at Bhagnari Mandir",
+      "eventType": "observance",
       "shrineSlug": "bhagnari-mandir",
-      "saintSlug": "shiva",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-bhai-sant-thawan-das-mandir",
-      "type": "event",
-      "slug": "urs-bhai-sant-thawan-das-mandir",
-      "name": "Urs of Bhai Sant Thawan Das at Bhai Sant Thawan Das Mandir",
-      "eventType": "urs",
-      "shrineSlug": "bhai-sant-thawan-das-mandir",
-      "saintSlug": "bhai-sant-thawan-das",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-bhai-waliram-darbar",
-      "type": "event",
-      "slug": "urs-bhai-waliram-darbar",
-      "name": "Urs of Bhai Waliram at Bhai Waliram Darbar",
-      "eventType": "urs",
-      "shrineSlug": "bhai-waliram-darbar",
-      "saintSlug": "bhai-waliram",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
       "id": "event:urs-bhit-bhit-shah",
@@ -4476,24 +4445,22 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-chandragup-baba-chandragup",
+      "id": "event:observance-chandragup-baba-chandragup",
       "type": "event",
-      "slug": "urs-chandragup-baba-chandragup",
-      "name": "Urs of Shiva at Chandragup (Baba Chandragup)",
-      "eventType": "urs",
+      "slug": "observance-chandragup-baba-chandragup",
+      "name": "Hinglaj Yatra halt at Chandragup (Baba Chandragup)",
+      "eventType": "observance",
       "shrineSlug": "chandragup-baba-chandragup",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
-      "id": "event:urs-churrio-jabal-durga-mata-temple",
+      "id": "event:observance-churrio-jabal-durga-mata-temple",
       "type": "event",
-      "slug": "urs-churrio-jabal-durga-mata-temple",
-      "name": "Urs of Goddess Durga at Churrio Jabal Durga Mata Temple",
-      "eventType": "urs",
+      "slug": "observance-churrio-jabal-durga-mata-temple",
+      "name": "Maha Shivratri at Churrio Jabal Durga Mata Temple",
+      "eventType": "observance",
       "shrineSlug": "churrio-jabal-durga-mata-temple",
-      "saintSlug": "goddess-durga",
-      "frequency": "annual"
+      "saintSlug": "goddess-durga"
     },
     {
       "id": "event:urs-darbar-abul-muali-qadri",
@@ -4502,8 +4469,7 @@
       "name": "Urs of Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri at Darbar Abul Muali Qadri",
       "eventType": "urs",
       "shrineSlug": "darbar-abul-muali-qadri",
-      "saintSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
-      "frequency": "annual"
+      "saintSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri"
     },
     {
       "id": "event:urs-darbar-ghamkol-sharif-zinda-pir",
@@ -4625,28 +4591,25 @@
       "eventType": "urs",
       "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
       "saintSlug": "pir-syed-muhammad-rashid-shah-roze-dhani",
-      "date": "Rajab",
-      "frequency": "annual"
+      "date": "Rajab"
     },
     {
-      "id": "event:urs-dargah-pir-ratan-nath-jee",
+      "id": "event:observance-dargah-pir-ratan-nath-jee",
       "type": "event",
-      "slug": "urs-dargah-pir-ratan-nath-jee",
-      "name": "Urs of Baba Pir Ratan Nath at Dargah Pir Ratan Nath Jee",
-      "eventType": "urs",
+      "slug": "observance-dargah-pir-ratan-nath-jee",
+      "name": "Maha Shivratri at Dargah Pir Ratan Nath Jee",
+      "eventType": "observance",
       "shrineSlug": "dargah-pir-ratan-nath-jee",
-      "saintSlug": "baba-pir-ratan-nath",
-      "frequency": "annual"
+      "saintSlug": "baba-pir-ratan-nath"
     },
     {
-      "id": "event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "id": "event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "type": "event",
-      "slug": "urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
-      "name": "Urs of Jhulelal / Daryalal at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
-      "eventType": "urs",
+      "slug": "observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "name": "Cheti Chand at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
+      "eventType": "observance",
       "shrineSlug": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
-      "saintSlug": "jhulelal-daryalal",
-      "frequency": "annual"
+      "saintSlug": "jhulelal-daryalal"
     },
     {
       "id": "event:urs-data-darbar",
@@ -4690,494 +4653,397 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gorakhnath-goraknath-temple",
+      "id": "event:observance-gorakhnath-goraknath-temple",
       "type": "event",
-      "slug": "urs-gorakhnath-goraknath-temple",
-      "name": "Urs of Guru Gorakhnath at Gorakhnath (Goraknath) Temple",
-      "eventType": "urs",
+      "slug": "observance-gorakhnath-goraknath-temple",
+      "name": "Diwali at Gorakhnath (Goraknath) Temple",
+      "eventType": "observance",
       "shrineSlug": "gorakhnath-goraknath-temple",
       "saintSlug": "guru-gorakhnath",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gori-temple-gori-jo-mandar",
+      "id": "event:observance-gurdwara-babay-de-ber",
       "type": "event",
-      "slug": "urs-gori-temple-gori-jo-mandar",
-      "name": "Urs of Jain temple dedicated to Parshvanatha at Gori Temple (Gori jo Mandar)",
-      "eventType": "urs",
-      "shrineSlug": "gori-temple-gori-jo-mandar",
-      "saintSlug": "jain-temple-dedicated-to-parshvanatha",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-gurdas-ram-mandir",
-      "type": "event",
-      "slug": "urs-gurdas-ram-mandir",
-      "name": "Urs of Sant Gurdas Ram at Gurdas Ram Mandir",
-      "eventType": "urs",
-      "shrineSlug": "gurdas-ram-mandir",
-      "saintSlug": "sant-gurdas-ram",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-gurdwara-babay-de-ber",
-      "type": "event",
-      "slug": "urs-gurdwara-babay-de-ber",
-      "name": "Urs of Guru Nanak at Gurdwara Babay De Ber",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-babay-de-ber",
+      "name": "Sikh pilgrimage at Gurdwara Babay De Ber",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-babay-de-ber",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-babay-nanki",
+      "id": "event:observance-gurdwara-babay-nanki",
       "type": "event",
-      "slug": "urs-gurdwara-babay-nanki",
-      "name": "Urs of Bebe Nanaki at Gurdwara Babay Nanki",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-babay-nanki",
+      "name": "Occasional pilgrimage at Gurdwara Babay Nanki",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-babay-nanki",
-      "saintSlug": "bebe-nanaki",
-      "frequency": "annual"
+      "saintSlug": "bebe-nanaki"
     },
     {
-      "id": "event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "id": "event:observance-gurdwara-balila-sahib-bal-lila-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-balila-sahib-bal-lila-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Balila Sahib (Bal Lila Sahib)",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-balila-sahib-bal-lila-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Balila Sahib (Bal Lila Sahib)",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-balila-sahib-bal-lila-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "id": "event:observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "type": "event",
-      "slug": "urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-      "name": "Urs of Guru Arjan Dev at Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "name": "Sikh anniversaries at Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-      "saintSlug": "guru-arjan-dev",
-      "frequency": "annual"
+      "saintSlug": "guru-arjan-dev"
     },
     {
-      "id": "event:urs-gurdwara-bhai-beba-singh",
+      "id": "event:observance-gurdwara-bhai-beba-singh",
       "type": "event",
-      "slug": "urs-gurdwara-bhai-beba-singh",
-      "name": "Urs of Bhai Biba Singh at Gurdwara Bhai Beba Singh",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-bhai-beba-singh",
+      "name": "Daily prakash at Gurdwara Bhai Beba Singh",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-bhai-beba-singh",
-      "saintSlug": "bhai-biba-singh",
-      "frequency": "annual"
+      "saintSlug": "bhai-biba-singh"
     },
     {
-      "id": "event:urs-gurdwara-bhai-joga-singh",
+      "id": "event:observance-gurdwara-bhai-joga-singh",
       "type": "event",
-      "slug": "urs-gurdwara-bhai-joga-singh",
-      "name": "Urs of Bhai Joga Singh at Gurdwara Bhai Joga Singh",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-bhai-joga-singh",
+      "name": "Daily prakash at Gurdwara Bhai Joga Singh",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-bhai-joga-singh",
-      "saintSlug": "bhai-joga-singh",
-      "frequency": "annual"
+      "saintSlug": "bhai-joga-singh"
     },
     {
-      "id": "event:urs-gurdwara-chakki-sahib",
+      "id": "event:observance-gurdwara-chakki-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-chakki-sahib",
-      "name": "Urs of Guru Nanak Dev Ji at Gurdwara Chakki Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-chakki-sahib",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Chakki Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-chakki-sahib",
-      "saintSlug": "guru-nanak-dev-ji",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak-dev-ji"
     },
     {
-      "id": "event:urs-gurdwara-chhevin-patshahi-chitti-gatti",
+      "id": "event:observance-gurdwara-chhevin-patshahi-chitti-gatti",
       "type": "event",
-      "slug": "urs-gurdwara-chhevin-patshahi-chitti-gatti",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Chitti Gatti",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-chhevin-patshahi-chitti-gatti",
+      "name": "Historically a Vaisakhi fair at Gurdwara Chhevin Patshahi, Chitti Gatti",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-chhevin-patshahi-chitti-gatti",
-      "saintSlug": "guru-hargobind",
-      "frequency": "annual"
+      "saintSlug": "guru-hargobind"
     },
     {
-      "id": "event:urs-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "id": "event:observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
       "type": "event",
-      "slug": "urs-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "name": "Historically an annual fair at Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
       "saintSlug": "guru-hargobind",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gurdwara-chhevin-patshahi-mozang",
+      "id": "event:observance-gurdwara-chhevin-patshahi-mozang",
       "type": "event",
-      "slug": "urs-gurdwara-chhevin-patshahi-mozang",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Mozang",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-chhevin-patshahi-mozang",
+      "name": "Annual Akhand Path around Guru Hargobind's Gurpurb at Gurdwara Chhevin Patshahi, Mozang",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-chhevin-patshahi-mozang",
       "saintSlug": "guru-hargobind",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gurdwara-choa-sahib",
+      "id": "event:observance-gurdwara-chowmala-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-choa-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Choa Sahib",
-      "eventType": "urs",
-      "shrineSlug": "gurdwara-choa-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-gurdwara-chowmala-sahib",
-      "type": "event",
-      "slug": "urs-gurdwara-chowmala-sahib",
-      "name": "Urs of Guru Hargobind at Gurdwara Chowmala Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-chowmala-sahib",
+      "name": "Historically an annual fair at Basant Panchami at Gurdwara Chowmala Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-chowmala-sahib",
       "saintSlug": "guru-hargobind",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gurdwara-darbar-sahib-kartarpur",
+      "id": "event:observance-gurdwara-darbar-sahib-kartarpur",
       "type": "event",
-      "slug": "urs-gurdwara-darbar-sahib-kartarpur",
-      "name": "Urs of Guru Nanak at Gurdwara Darbar Sahib Kartarpur",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-darbar-sahib-kartarpur",
+      "name": "Guru Nanak anniversaries at Gurdwara Darbar Sahib Kartarpur",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-darbar-sahib-kartarpur",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-dash-mesh-pita",
+      "id": "event:observance-gurdwara-dera-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-dash-mesh-pita",
-      "name": "Urs of Guru Gobind Singh at Gurdwara Dash Mesh Pita",
-      "eventType": "urs",
-      "shrineSlug": "gurdwara-dash-mesh-pita",
-      "saintSlug": "guru-gobind-singh",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-gurdwara-dera-sahib",
-      "type": "event",
-      "slug": "urs-gurdwara-dera-sahib",
-      "name": "Urs of Guru Arjan Dev at Gurdwara Dera Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-dera-sahib",
+      "name": "Martyrdom anniversary of Guru Arjan Dev at Gurdwara Dera Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-dera-sahib",
-      "saintSlug": "guru-arjan-dev",
-      "frequency": "annual"
+      "saintSlug": "guru-arjan-dev"
     },
     {
-      "id": "event:urs-gurdwara-guru-ram-das-ji",
+      "id": "event:observance-gurdwara-guru-ram-das-ji",
       "type": "event",
-      "slug": "urs-gurdwara-guru-ram-das-ji",
-      "name": "Urs of Guru Ram Das at Gurdwara Guru Ram Das Ji",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-guru-ram-das-ji",
+      "name": "Guru Ram Das birth anniversary at Gurdwara Guru Ram Das Ji",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-guru-ram-das-ji",
-      "saintSlug": "guru-ram-das",
-      "frequency": "annual"
+      "saintSlug": "guru-ram-das"
     },
     {
-      "id": "event:urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "id": "event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "event",
-      "slug": "urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
-      "name": "Urs of Guru Nanak Dev Ji; associated with Bhai Lalo at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
-      "saintSlug": "guru-nanak-dev-ji-associated-with-bhai-lalo",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak-dev-ji-associated-with-bhai-lalo"
     },
     {
-      "id": "event:urs-gurdwara-malji-sahib",
+      "id": "event:observance-gurdwara-malji-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-malji-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Malji Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-malji-sahib",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Malji Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-malji-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-panja-sahib",
+      "id": "event:observance-gurdwara-panja-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-panja-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Panja Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-panja-sahib",
+      "name": "Vaisakhi at Gurdwara Panja Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-panja-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-panjvi-chati-patshahi",
+      "id": "event:observance-gurdwara-panjvi-chati-patshahi",
       "type": "event",
-      "slug": "urs-gurdwara-panjvi-chati-patshahi",
-      "name": "Urs of Guru Arjan Dev & Guru Hargobind at Gurdwara Panjvi Chati Patshahi",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-panjvi-chati-patshahi",
+      "name": "Occasional pilgrimage at Gurdwara Panjvi Chati Patshahi",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-panjvi-chati-patshahi",
-      "saintSlug": "guru-arjan-dev-and-guru-hargobind",
-      "frequency": "annual"
+      "saintSlug": "guru-arjan-dev-and-guru-hargobind"
     },
     {
-      "id": "event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "id": "event:observance-gurdwara-patshahi-chhevin-hadiara-lahore",
       "type": "event",
-      "slug": "urs-gurdwara-patshahi-chhevin-hadiara-lahore",
-      "name": "Urs of Guru Hargobind at Gurdwara Patshahi Chhevin (Hadiara), Lahore",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "name": "Historically an annual Maghi fair at Gurdwara Patshahi Chhevin (Hadiara), Lahore",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-patshahi-chhevin-hadiara-lahore",
       "saintSlug": "guru-hargobind",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-gurdwara-patti-sahib",
+      "id": "event:observance-gurdwara-patti-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-patti-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Patti Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-patti-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Patti Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-patti-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "id": "event:observance-gurdwara-pehli-patshahi-jind-pir-sukkur",
       "type": "event",
-      "slug": "urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
-      "name": "Urs of Guru Nanak at Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "name": "Gurpurabs at Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-rori-sahib",
+      "id": "event:observance-gurdwara-rori-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-rori-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Rori Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-rori-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Rori Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-rori-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-sach-khand-sahib",
+      "id": "event:observance-gurdwara-sach-khand-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-sach-khand-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sach Khand Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-sach-khand-sahib",
+      "name": "Daily prakash at Gurdwara Sach Khand Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-sach-khand-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-sacha-sauda",
+      "id": "event:observance-gurdwara-sacha-sauda",
       "type": "event",
-      "slug": "urs-gurdwara-sacha-sauda",
-      "name": "Urs of Guru Nanak at Gurdwara Sacha Sauda",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-sacha-sauda",
+      "name": "Guru Nanak anniversaries at Gurdwara Sacha Sauda",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-sacha-sauda",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
+      "id": "event:observance-gurdwara-shaheed-bhai-taru-singh",
       "type": "event",
-      "slug": "urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-      "name": "Urs of Guru Nanak at Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)",
-      "eventType": "urs",
-      "shrineSlug": "gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-gurdwara-shaheed-bhai-taru-singh",
-      "type": "event",
-      "slug": "urs-gurdwara-shaheed-bhai-taru-singh",
-      "name": "Urs of Bhai Taru at Gurdwara Shaheed Bhai Taru Singh",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-shaheed-bhai-taru-singh",
+      "name": "Martyrdom commemoration at Gurdwara Shaheed Bhai Taru Singh",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-shaheed-bhai-taru-singh",
-      "saintSlug": "bhai-taru",
-      "frequency": "annual"
+      "saintSlug": "bhai-taru"
     },
     {
-      "id": "event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "id": "event:observance-gurdwara-shaheed-ganj-singh-singhnian",
       "type": "event",
-      "slug": "urs-gurdwara-shaheed-ganj-singh-singhnian",
-      "name": "Urs of Sikh women & children martyrs at Gurdwara Shaheed Ganj Singh Singhnian",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-shaheed-ganj-singh-singhnian",
+      "name": "Martyrdom commemoration at Gurdwara Shaheed Ganj Singh Singhnian",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-shaheed-ganj-singh-singhnian",
-      "saintSlug": "sikh-women-and-children-martyrs",
-      "frequency": "annual"
+      "saintSlug": "sikh-women-and-children-martyrs"
     },
     {
-      "id": "event:urs-gurdwara-singh-sabha",
+      "id": "event:observance-gurdwara-singh-sabha",
       "type": "event",
-      "slug": "urs-gurdwara-singh-sabha",
-      "name": "Urs of Guru Granth Sahib / Sikh community at Gurdwara Singh Sabha",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-singh-sabha",
+      "name": "Daily worship at Gurdwara Singh Sabha",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-singh-sabha",
-      "saintSlug": "guru-granth-sahib-sikh-community",
-      "frequency": "annual"
+      "saintSlug": "guru-granth-sahib-sikh-community"
     },
     {
-      "id": "event:urs-gurdwara-sri-kiara-sahib",
+      "id": "event:observance-gurdwara-sri-kiara-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-sri-kiara-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sri Kiara Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-sri-kiara-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Sri Kiara Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-sri-kiara-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-sri-tilganji-sahib",
+      "id": "event:observance-gurdwara-sri-tilganji-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-sri-tilganji-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sri Tilganji Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-sri-tilganji-sahib",
+      "name": "Daily worship at Gurdwara Sri Tilganji Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-sri-tilganji-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-gurdwara-tambo-sahib",
+      "id": "event:observance-gurdwara-tambo-sahib",
       "type": "event",
-      "slug": "urs-gurdwara-tambo-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Tambo Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurdwara-tambo-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Tambo Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurdwara-tambo-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "id": "event:observance-guru-gurpat-mandir-db-80-sirey-ghat",
       "type": "event",
-      "slug": "urs-guru-gurpat-mandir-db-80-sirey-ghat",
-      "name": "Urs of Guru Gurpat at Guru Gurpat Mandir (DB-80 Sirey Ghat)",
-      "eventType": "urs",
+      "slug": "observance-guru-gurpat-mandir-db-80-sirey-ghat",
+      "name": "Community worship at Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "eventType": "observance",
       "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
-      "saintSlug": "guru-gurpat",
-      "frequency": "annual"
+      "saintSlug": "guru-gurpat"
     },
     {
-      "id": "event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "id": "event:observance-gurudwara-janam-asthan-nankana-sahib",
       "type": "event",
-      "slug": "urs-gurudwara-janam-asthan-nankana-sahib",
-      "name": "Urs of Guru Nanak at Gurudwara Janam Asthan Nankana Sahib",
-      "eventType": "urs",
+      "slug": "observance-gurudwara-janam-asthan-nankana-sahib",
+      "name": "Guru Nanak Gurpurab at Gurudwara Janam Asthan Nankana Sahib",
+      "eventType": "observance",
       "shrineSlug": "gurudwara-janam-asthan-nankana-sahib",
-      "saintSlug": "guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "guru-nanak"
     },
     {
-      "id": "event:urs-jagannath-temple-sialkot",
+      "id": "event:observance-jagannath-temple-sialkot",
       "type": "event",
-      "slug": "urs-jagannath-temple-sialkot",
-      "name": "Urs of Lord Jagannath at Jagannath Temple, Sialkot",
-      "eventType": "urs",
+      "slug": "observance-jagannath-temple-sialkot",
+      "name": "Community worship at Jagannath Temple, Sialkot",
+      "eventType": "observance",
       "shrineSlug": "jagannath-temple-sialkot",
-      "saintSlug": "lord-jagannath",
-      "frequency": "annual"
+      "saintSlug": "lord-jagannath"
     },
     {
-      "id": "event:urs-jain-mandir-lahore",
+      "id": "event:observance-jhollay-lal-mandir",
       "type": "event",
-      "slug": "urs-jain-mandir-lahore",
-      "name": "Urs of Jain Tirthankaras at Jain Mandir, Lahore",
-      "eventType": "urs",
-      "shrineSlug": "jain-mandir-lahore",
-      "saintSlug": "jain-tirthankaras",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-jhollay-lal-mandir",
-      "type": "event",
-      "slug": "urs-jhollay-lal-mandir",
-      "name": "Urs of Jhulelal at Jhollay Lal Mandir",
-      "eventType": "urs",
+      "slug": "observance-jhollay-lal-mandir",
+      "name": "Cheti Chand at Jhollay Lal Mandir",
+      "eventType": "observance",
       "shrineSlug": "jhollay-lal-mandir",
-      "saintSlug": "jhulelal",
-      "frequency": "annual"
+      "saintSlug": "jhulelal"
     },
     {
-      "id": "event:urs-kalat-kali-temple",
+      "id": "event:observance-kalat-kali-temple",
       "type": "event",
-      "slug": "urs-kalat-kali-temple",
-      "name": "Urs of Kali at Kalat Kali Temple",
-      "eventType": "urs",
+      "slug": "observance-kalat-kali-temple",
+      "name": "Annual three-day Kali festival at Kalat Kali Temple",
+      "eventType": "observance",
       "shrineSlug": "kalat-kali-temple",
       "saintSlug": "kali",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-kali-bari-mandir",
+      "id": "event:observance-kali-bari-mandir",
       "type": "event",
-      "slug": "urs-kali-bari-mandir",
-      "name": "Urs of Goddess Kali at Kali Bari Mandir",
-      "eventType": "urs",
+      "slug": "observance-kali-bari-mandir",
+      "name": "Durga Puja at Kali Bari Mandir",
+      "eventType": "observance",
       "shrineSlug": "kali-bari-mandir",
-      "saintSlug": "goddess-kali",
-      "frequency": "annual"
+      "saintSlug": "goddess-kali"
     },
     {
-      "id": "event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "type": "event",
-      "slug": "urs-kalka-cave-temple-asthan-of-kalka-devi",
-      "name": "Urs of Goddess Kali at Kalka Cave Temple (Asthan of Kalka Devi)",
-      "eventType": "urs",
+      "slug": "observance-kalka-cave-temple-asthan-of-kalka-devi",
+      "name": "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)",
+      "eventType": "observance",
       "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
-      "saintSlug": "goddess-kali",
-      "frequency": "annual"
+      "saintSlug": "goddess-kali"
     },
     {
-      "id": "event:urs-katas-raj-temples",
+      "id": "event:observance-katas-raj-temples",
       "type": "event",
-      "slug": "urs-katas-raj-temples",
-      "name": "Urs of Shiva at Katas Raj Temples",
-      "eventType": "urs",
+      "slug": "observance-katas-raj-temples",
+      "name": "Maha Shivratri at Katas Raj Temples",
+      "eventType": "observance",
       "shrineSlug": "katas-raj-temples",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
-      "id": "event:urs-khatwari-darbar-shikarpur",
+      "id": "event:observance-khatwari-darbar-shikarpur",
       "type": "event",
-      "slug": "urs-khatwari-darbar-shikarpur",
-      "name": "Urs of Bhai Gurdas Singh, disciple of Guru Gobind Singh at Khatwari Darbar, Shikarpur",
-      "eventType": "urs",
+      "slug": "observance-khatwari-darbar-shikarpur",
+      "name": "Sikh and Nanakpanthi festivals at Khatwari Darbar, Shikarpur",
+      "eventType": "observance",
       "shrineSlug": "khatwari-darbar-shikarpur",
-      "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
-      "frequency": "annual"
+      "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh"
     },
     {
-      "id": "event:urs-krishna-mandir-kabari-bazar",
+      "id": "event:observance-krishna-mandir-kabari-bazar",
       "type": "event",
-      "slug": "urs-krishna-mandir-kabari-bazar",
-      "name": "Urs of Lord Krishna at Krishna Mandir (Kabari Bazar)",
-      "eventType": "urs",
+      "slug": "observance-krishna-mandir-kabari-bazar",
+      "name": "Holi at Krishna Mandir (Kabari Bazar)",
+      "eventType": "observance",
       "shrineSlug": "krishna-mandir-kabari-bazar",
-      "saintSlug": "lord-krishna",
-      "frequency": "annual"
+      "saintSlug": "lord-krishna"
     },
     {
-      "id": "event:urs-krishna-mandir-ravi-road",
+      "id": "event:observance-krishna-mandir-ravi-road",
       "type": "event",
-      "slug": "urs-krishna-mandir-ravi-road",
-      "name": "Urs of Lord Krishna at Krishna Mandir (Ravi Road)",
-      "eventType": "urs",
+      "slug": "observance-krishna-mandir-ravi-road",
+      "name": "Janmashtami at Krishna Mandir (Ravi Road)",
+      "eventType": "observance",
       "shrineSlug": "krishna-mandir-ravi-road",
-      "saintSlug": "lord-krishna",
-      "frequency": "annual"
+      "saintSlug": "lord-krishna"
     },
     {
-      "id": "event:urs-lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "id": "event:observance-lal-kurti-temple-balmiki-mandir-rawalpindi",
       "type": "event",
-      "slug": "urs-lal-kurti-temple-balmiki-mandir-rawalpindi",
-      "name": "Urs of Valmiki at Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
-      "eventType": "urs",
+      "slug": "observance-lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "name": "Diwali at Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
+      "eventType": "observance",
       "shrineSlug": "lal-kurti-temple-balmiki-mandir-rawalpindi",
-      "saintSlug": "valmiki",
-      "frequency": "annual"
+      "saintSlug": "valmiki"
     },
     {
       "id": "event:urs-lal-shahbaz-qalandar",
@@ -5198,16 +5064,6 @@
       "eventType": "urs",
       "shrineSlug": "langer-makhdoom",
       "saintSlug": "makhdoom-burhan-ud-din",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-loh-temple-lava-temple",
-      "type": "event",
-      "slug": "urs-loh-temple-lava-temple",
-      "name": "Urs of Lava, son of Rama and Sita at Loh Temple (Lava Temple)",
-      "eventType": "urs",
-      "shrineSlug": "loh-temple-lava-temple",
-      "saintSlug": "lava-son-of-rama-and-sita",
       "frequency": "annual"
     },
     {
@@ -5251,43 +5107,22 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
+      "id": "event:observance-panj-tirath",
       "type": "event",
-      "slug": "urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-      "name": "Urs of Jain Tirthankaras at Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
-      "eventType": "urs",
-      "shrineSlug": "nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-      "saintSlug": "jain-tirthankaras",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-panj-tirath",
-      "type": "event",
-      "slug": "urs-panj-tirath",
-      "name": "Urs of King Pandu at Panj Tirath",
-      "eventType": "urs",
+      "slug": "observance-panj-tirath",
+      "name": "Historically Kartik bathing at Panj Tirath",
+      "eventType": "observance",
       "shrineSlug": "panj-tirath",
-      "saintSlug": "king-pandu",
-      "frequency": "annual"
+      "saintSlug": "king-pandu"
     },
     {
-      "id": "event:urs-parnami-mandir",
+      "id": "event:observance-parnami-mandir",
       "type": "event",
-      "slug": "urs-parnami-mandir",
-      "name": "Urs of Smadhi of Dya Ram at Parnami Mandir",
-      "eventType": "urs",
+      "slug": "observance-parnami-mandir",
+      "name": "Historically an annual mela in Chaitra at Parnami Mandir",
+      "eventType": "observance",
       "shrineSlug": "parnami-mandir",
       "saintSlug": "smadhi-of-dya-ram",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-prahladpuri-temple",
-      "type": "event",
-      "slug": "urs-prahladpuri-temple",
-      "name": "Urs of Narasimha at Prahladpuri Temple",
-      "eventType": "urs",
-      "shrineSlug": "prahladpuri-temple",
-      "saintSlug": "narasimha",
       "frequency": "annual"
     },
     {
@@ -5311,24 +5146,13 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-ram-mandir-saidpur-ram-kund-mandir",
+      "id": "event:observance-ramapir-temple-tando-allahyar",
       "type": "event",
-      "slug": "urs-ram-mandir-saidpur-ram-kund-mandir",
-      "name": "Urs of Dedicated to Lord Rama at Ram Mandir, Saidpur (Ram Kund Mandir)",
-      "eventType": "urs",
-      "shrineSlug": "ram-mandir-saidpur-ram-kund-mandir",
-      "saintSlug": "dedicated-to-lord-rama",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-ramapir-temple-tando-allahyar",
-      "type": "event",
-      "slug": "urs-ramapir-temple-tando-allahyar",
-      "name": "Urs of Ramdev Pir at Ramapir Temple, Tando Allahyar",
-      "eventType": "urs",
+      "slug": "observance-ramapir-temple-tando-allahyar",
+      "name": "Ramapir Mela at Ramapir Temple, Tando Allahyar",
+      "eventType": "observance",
       "shrineSlug": "ramapir-temple-tando-allahyar",
-      "saintSlug": "ramdev-pir",
-      "frequency": "annual"
+      "saintSlug": "ramdev-pir"
     },
     {
       "id": "event:urs-ranmal-sharif",
@@ -5341,24 +5165,23 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-sadh-belo-sadh-belo-island-temple",
+      "id": "event:observance-sadh-belo-sadh-belo-island-temple",
       "type": "event",
-      "slug": "urs-sadh-belo-sadh-belo-island-temple",
-      "name": "Urs of Baba Bankhandi Maharaj at Sadh Belo (Sadh Belo Island Temple)",
-      "eventType": "urs",
+      "slug": "observance-sadh-belo-sadh-belo-island-temple",
+      "name": "Annual festival at Sadh Belo (Sadh Belo Island Temple)",
+      "eventType": "observance",
       "shrineSlug": "sadh-belo-sadh-belo-island-temple",
       "saintSlug": "baba-bankhandi-maharaj",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-sain-vali-vilayat-rai-darbar-kambar",
+      "id": "event:observance-sain-vali-vilayat-rai-darbar-kambar",
       "type": "event",
-      "slug": "urs-sain-vali-vilayat-rai-darbar-kambar",
-      "name": "Urs of Sain Vali Vilayat Rai at Sain Vali Vilayat Rai Darbar, Kambar",
-      "eventType": "urs",
+      "slug": "observance-sain-vali-vilayat-rai-darbar-kambar",
+      "name": "Commemoration of Sain Vali Vilayat Rai at Sain Vali Vilayat Rai Darbar, Kambar",
+      "eventType": "observance",
       "shrineSlug": "sain-vali-vilayat-rai-darbar-kambar",
-      "saintSlug": "sain-vali-vilayat-rai",
-      "frequency": "annual"
+      "saintSlug": "sain-vali-vilayat-rai"
     },
     {
       "id": "event:urs-sakhi-sarwar",
@@ -5371,64 +5194,52 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-samadhi-of-maharaja-ranjit-singh",
+      "id": "event:observance-samadhi-of-maharaja-ranjit-singh",
       "type": "event",
-      "slug": "urs-samadhi-of-maharaja-ranjit-singh",
-      "name": "Urs of Maharaja Ranjit Singh at Samadhi of Maharaja Ranjit Singh",
-      "eventType": "urs",
+      "slug": "observance-samadhi-of-maharaja-ranjit-singh",
+      "name": "Death anniversary commemoration at Samadhi of Maharaja Ranjit Singh",
+      "eventType": "observance",
       "shrineSlug": "samadhi-of-maharaja-ranjit-singh",
-      "saintSlug": "maharaja-ranjit-singh",
-      "frequency": "annual"
+      "saintSlug": "maharaja-ranjit-singh"
     },
     {
-      "id": "event:urs-sant-baba-asudaram-darbar-panno-aqil",
+      "id": "event:observance-sant-baba-asudaram-darbar-panno-aqil",
       "type": "event",
-      "slug": "urs-sant-baba-asudaram-darbar-panno-aqil",
-      "name": "Urs of Sant Baba Asudaram \"Sakhi Baba\" at Sant Baba Asudaram Darbar (Panno Aqil)",
-      "eventType": "urs",
+      "slug": "observance-sant-baba-asudaram-darbar-panno-aqil",
+      "name": "Annual death anniversary at Sant Baba Asudaram Darbar (Panno Aqil)",
+      "eventType": "observance",
       "shrineSlug": "sant-baba-asudaram-darbar-panno-aqil",
       "saintSlug": "sant-baba-asudaram-sakhi-baba",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-sant-baba-bhagat-ram-darbar-mandir",
+      "id": "event:observance-sant-bhagat-kanwar-ram-temple-chak",
       "type": "event",
-      "slug": "urs-sant-baba-bhagat-ram-darbar-mandir",
-      "name": "Urs of Sant Baba Bhagat Ram at Sant Baba Bhagat Ram Darbar Mandir",
-      "eventType": "urs",
-      "shrineSlug": "sant-baba-bhagat-ram-darbar-mandir",
-      "saintSlug": "sant-baba-bhagat-ram",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-sant-bhagat-kanwar-ram-temple-chak",
-      "type": "event",
-      "slug": "urs-sant-bhagat-kanwar-ram-temple-chak",
-      "name": "Urs of Bhagat Kanwar Ram at Sant Bhagat Kanwar Ram Temple (Chak)",
-      "eventType": "urs",
+      "slug": "observance-sant-bhagat-kanwar-ram-temple-chak",
+      "name": "Annual commemoration at Sant Bhagat Kanwar Ram Temple (Chak)",
+      "eventType": "observance",
       "shrineSlug": "sant-bhagat-kanwar-ram-temple-chak",
       "saintSlug": "bhagat-kanwar-ram",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "id": "event:observance-sant-satram-dham-raharki-sacho-satram-devri-sahib",
       "type": "event",
-      "slug": "urs-sant-satram-dham-raharki-sacho-satram-devri-sahib",
-      "name": "Urs of Satguru Swami Sai Satramdas Sahib at Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",
-      "eventType": "urs",
+      "slug": "observance-sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "name": "Annual birth-anniversary celebrations at Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",
+      "eventType": "observance",
       "shrineSlug": "sant-satram-dham-raharki-sacho-satram-devri-sahib",
       "saintSlug": "satguru-swami-sai-satramdas-sahib",
       "frequency": "annual"
     },
     {
-      "id": "event:urs-sevapanthi-darbar-bhai-gurdas-gandava",
+      "id": "event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
       "type": "event",
-      "slug": "urs-sevapanthi-darbar-bhai-gurdas-gandava",
-      "name": "Urs of Bhai Gurdas; veneration of Guru Nanak at Sevapanthi Darbar (Bhai Gurdas), Gandava",
-      "eventType": "urs",
+      "slug": "observance-sevapanthi-darbar-bhai-gurdas-gandava",
+      "name": "No regular events documented at Sevapanthi Darbar (Bhai Gurdas), Gandava",
+      "eventType": "observance",
       "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
-      "saintSlug": "bhai-gurdas-veneration-of-guru-nanak",
-      "frequency": "annual"
+      "saintSlug": "bhai-gurdas-veneration-of-guru-nanak"
     },
     {
       "id": "event:urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
@@ -5451,14 +5262,13 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-shahwala-teja-singh-mandir",
+      "id": "event:observance-shahwala-teja-singh-mandir",
       "type": "event",
-      "slug": "urs-shahwala-teja-singh-mandir",
-      "name": "Urs of Shiva at Shahwala Teja Singh Mandir",
-      "eventType": "urs",
+      "slug": "observance-shahwala-teja-singh-mandir",
+      "name": "Maha Shivratri at Shahwala Teja Singh Mandir",
+      "eventType": "observance",
       "shrineSlug": "shahwala-teja-singh-mandir",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
       "id": "event:urs-shamsabad",
@@ -5468,16 +5278,6 @@
       "eventType": "urs",
       "shrineSlug": "shamsabad",
       "saintSlug": "shams-ali-qalandar",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-sharada-peeth",
-      "type": "event",
-      "slug": "urs-sharada-peeth",
-      "name": "Urs of Goddess Sharada at Sharada Peeth",
-      "eventType": "urs",
-      "shrineSlug": "sharada-peeth",
-      "saintSlug": "goddess-sharada",
       "frequency": "annual"
     },
     {
@@ -5491,74 +5291,58 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-shiv-mandir-chiti-ghati",
+      "id": "event:observance-shiv-mandir-chiti-ghati",
       "type": "event",
-      "slug": "urs-shiv-mandir-chiti-ghati",
-      "name": "Urs of Shiva at Shiv Mandir Chiti Ghati",
-      "eventType": "urs",
+      "slug": "observance-shiv-mandir-chiti-ghati",
+      "name": "Maha Shivratri at Shiv Mandir Chiti Ghati",
+      "eventType": "observance",
       "shrineSlug": "shiv-mandir-chiti-ghati",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
-      "id": "event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "id": "event:observance-shree-ratneshwar-mahadev-temple-karachi",
       "type": "event",
-      "slug": "urs-shree-ratneshwar-mahadev-temple-karachi",
-      "name": "Urs of Shiva at Shree Ratneshwar Mahadev Temple, Karachi",
-      "eventType": "urs",
+      "slug": "observance-shree-ratneshwar-mahadev-temple-karachi",
+      "name": "Maha Shivratri at Shree Ratneshwar Mahadev Temple, Karachi",
+      "eventType": "observance",
       "shrineSlug": "shree-ratneshwar-mahadev-temple-karachi",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
-      "id": "event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "id": "event:observance-shri-laxmi-narayan-mandir-native-jetty-bridge",
       "type": "event",
-      "slug": "urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
-      "name": "Urs of Lakshmi-Narayan at Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
-      "eventType": "urs",
+      "slug": "observance-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "name": "Ganesh Chaturthi at Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
+      "eventType": "observance",
       "shrineSlug": "shri-laxmi-narayan-mandir-native-jetty-bridge",
-      "saintSlug": "lakshmi-narayan",
-      "frequency": "annual"
+      "saintSlug": "lakshmi-narayan"
     },
     {
-      "id": "event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "id": "event:observance-shri-panchmukhi-hanuman-mandir-karachi",
       "type": "event",
-      "slug": "urs-shri-panchmukhi-hanuman-mandir-karachi",
-      "name": "Urs of Lord Hanuman at Shri Panchmukhi Hanuman Mandir (Karachi)",
-      "eventType": "urs",
+      "slug": "observance-shri-panchmukhi-hanuman-mandir-karachi",
+      "name": "Hanuman Jayanti at Shri Panchmukhi Hanuman Mandir (Karachi)",
+      "eventType": "observance",
       "shrineSlug": "shri-panchmukhi-hanuman-mandir-karachi",
-      "saintSlug": "lord-hanuman",
-      "frequency": "annual"
+      "saintSlug": "lord-hanuman"
     },
     {
-      "id": "event:urs-shri-swaminarayan-mandir-karachi",
+      "id": "event:observance-shri-swaminarayan-mandir-karachi",
       "type": "event",
-      "slug": "urs-shri-swaminarayan-mandir-karachi",
-      "name": "Urs of Bhagwan Swaminarayan at Shri Swaminarayan Mandir, Karachi",
-      "eventType": "urs",
+      "slug": "observance-shri-swaminarayan-mandir-karachi",
+      "name": "Janmashtami at Shri Swaminarayan Mandir, Karachi",
+      "eventType": "observance",
       "shrineSlug": "shri-swaminarayan-mandir-karachi",
-      "saintSlug": "bhagwan-swaminarayan",
-      "frequency": "annual"
+      "saintSlug": "bhagwan-swaminarayan"
     },
     {
-      "id": "event:urs-shri-varun-dev-mandir",
+      "id": "event:observance-shrine-at-odero-lal-udero-lal-teerath-asthan",
       "type": "event",
-      "slug": "urs-shri-varun-dev-mandir",
-      "name": "Urs of Varuna at Shri Varun Dev Mandir",
-      "eventType": "urs",
-      "shrineSlug": "shri-varun-dev-mandir",
-      "saintSlug": "varuna",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
-      "type": "event",
-      "slug": "urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
-      "name": "Urs of Sheikh Tahir at Shrine at Odero Lal (Udero Lal Teerath Asthan)",
-      "eventType": "urs",
+      "slug": "observance-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "name": "Cheti Chand at Shrine at Odero Lal (Udero Lal Teerath Asthan)",
+      "eventType": "observance",
       "shrineSlug": "shrine-at-odero-lal-udero-lal-teerath-asthan",
-      "saintSlug": "sheikh-tahir",
-      "frequency": "annual"
+      "saintSlug": "sheikh-tahir"
     },
     {
       "id": "event:urs-shrine-of-abdullah-shah-ghazi",
@@ -5582,14 +5366,13 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-shrine-of-akhund-darweza-baba",
+      "id": "event:observance-shrine-of-akhund-darweza-baba",
       "type": "event",
-      "slug": "urs-shrine-of-akhund-darweza-baba",
-      "name": "Urs of Akhund Darweza Baba at Shrine of Akhund Darweza Baba",
-      "eventType": "urs",
+      "slug": "observance-shrine-of-akhund-darweza-baba",
+      "name": "Pilgrimage to the tomb at Shrine of Akhund Darweza Baba",
+      "eventType": "observance",
       "shrineSlug": "shrine-of-akhund-darweza-baba",
-      "saintSlug": "akhund-darweza-baba",
-      "frequency": "annual"
+      "saintSlug": "akhund-darweza-baba"
     },
     {
       "id": "event:urs-shrine-of-akhund-panju-baba",
@@ -5846,18 +5629,16 @@
       "name": "Urs of Pir Chhatal Shah Noorani at Shrine of Pir Chhatal Shah Noorani",
       "eventType": "urs",
       "shrineSlug": "shrine-of-pir-chhatal-shah-noorani",
-      "saintSlug": "pir-chhatal-shah-noorani",
-      "frequency": "annual"
+      "saintSlug": "pir-chhatal-shah-noorani"
     },
     {
-      "id": "event:urs-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "id": "event:observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
       "type": "event",
-      "slug": "urs-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
-      "name": "Urs of Pir Lakha at Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",
-      "eventType": "urs",
+      "slug": "observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "name": "Year-round pilgrimage at Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",
+      "eventType": "observance",
       "shrineSlug": "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
-      "saintSlug": "pir-lakha",
-      "frequency": "annual"
+      "saintSlug": "pir-lakha"
     },
     {
       "id": "event:urs-shrine-of-pir-mangho",
@@ -5981,34 +5762,22 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-swami-dharmdas-darbar-larkana-kennedy-market",
+      "id": "event:observance-swami-dharmdas-darbar-larkana-kennedy-market",
       "type": "event",
-      "slug": "urs-swami-dharmdas-darbar-larkana-kennedy-market",
-      "name": "Urs of Swami Dharmdas at Swami Dharmdas Darbar, Larkana (Kennedy Market)",
-      "eventType": "urs",
+      "slug": "observance-swami-dharmdas-darbar-larkana-kennedy-market",
+      "name": "No events documented at Swami Dharmdas Darbar, Larkana (Kennedy Market)",
+      "eventType": "observance",
       "shrineSlug": "swami-dharmdas-darbar-larkana-kennedy-market",
-      "saintSlug": "swami-dharmdas",
-      "frequency": "annual"
+      "saintSlug": "swami-dharmdas"
     },
     {
-      "id": "event:urs-tilla-jogian",
+      "id": "event:observance-tomb-of-allama-iqbal-mazar-e-iqbal",
       "type": "event",
-      "slug": "urs-tilla-jogian",
-      "name": "Urs of Guru Gorakhnath at Tilla Jogian",
-      "eventType": "urs",
-      "shrineSlug": "tilla-jogian",
-      "saintSlug": "guru-gorakhnath",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
-      "type": "event",
-      "slug": "urs-tomb-of-allama-iqbal-mazar-e-iqbal",
-      "name": "Urs of Allama Muhammad Iqbal at Tomb of Allama Iqbal (Mazar-e-Iqbal)",
-      "eventType": "urs",
+      "slug": "observance-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "name": "Iqbal Day at Tomb of Allama Iqbal (Mazar-e-Iqbal)",
+      "eventType": "observance",
       "shrineSlug": "tomb-of-allama-iqbal-mazar-e-iqbal",
-      "saintSlug": "allama-muhammad-iqbal",
-      "frequency": "annual"
+      "saintSlug": "allama-muhammad-iqbal"
     },
     {
       "id": "event:urs-tomb-of-bahaal-halim-uch-sharif",
@@ -6031,54 +5800,31 @@
       "frequency": "annual"
     },
     {
-      "id": "event:urs-tomb-of-qutbuddin-aibak",
+      "id": "event:observance-umarkot-amarkot-shiv-mandir",
       "type": "event",
-      "slug": "urs-tomb-of-qutbuddin-aibak",
-      "name": "Urs of Sultan Qutb ud-Din Aibak at Tomb of Qutbuddin Aibak",
-      "eventType": "urs",
-      "shrineSlug": "tomb-of-qutbuddin-aibak",
-      "saintSlug": "sultan-qutb-ud-din-aibak",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-tomb-of-ustad-nuriya",
-      "type": "event",
-      "slug": "urs-tomb-of-ustad-nuriya",
-      "name": "Urs of Ustad Nuriya at Tomb of Ustad Nuriya",
-      "eventType": "urs",
-      "shrineSlug": "tomb-of-ustad-nuriya",
-      "saintSlug": "ustad-nuriya",
-      "frequency": "annual"
-    },
-    {
-      "id": "event:urs-umarkot-amarkot-shiv-mandir",
-      "type": "event",
-      "slug": "urs-umarkot-amarkot-shiv-mandir",
-      "name": "Urs of Shiva at Umarkot (Amarkot) Shiv Mandir",
-      "eventType": "urs",
+      "slug": "observance-umarkot-amarkot-shiv-mandir",
+      "name": "Maha Shivratri at Umarkot (Amarkot) Shiv Mandir",
+      "eventType": "observance",
       "shrineSlug": "umarkot-amarkot-shiv-mandir",
-      "saintSlug": "shiva",
-      "frequency": "annual"
+      "saintSlug": "shiva"
     },
     {
-      "id": "event:urs-valmik-mandir-naqi-road",
+      "id": "event:observance-valmik-mandir-naqi-road",
       "type": "event",
-      "slug": "urs-valmik-mandir-naqi-road",
-      "name": "Urs of Bhagwan Valmik at Valmik Mandir (Naqi Road)",
-      "eventType": "urs",
+      "slug": "observance-valmik-mandir-naqi-road",
+      "name": "Holi at Valmik Mandir (Naqi Road)",
+      "eventType": "observance",
       "shrineSlug": "valmik-mandir-naqi-road",
-      "saintSlug": "bhagwan-valmik",
-      "frequency": "annual"
+      "saintSlug": "bhagwan-valmik"
     },
     {
-      "id": "event:urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "id": "event:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
       "type": "event",
-      "slug": "urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-      "name": "Urs of Valmiki at Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",
-      "eventType": "urs",
+      "slug": "observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "name": "Diwali at Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",
+      "eventType": "observance",
       "shrineSlug": "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-      "saintSlug": "valmiki",
-      "frequency": "annual"
+      "saintSlug": "valmiki"
     },
     {
       "id": "event:urs-wadpagga-sharif",
@@ -10520,14 +10266,6 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-amb-temples-amb-sharif",
-      "type": "commemorated_by",
-      "subject": "saint:shiva",
-      "object": "event:urs-amb-temples-amb-sharif",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
       "id": "commemorated_by:saint:bari-imam:event:urs-bari-imam",
       "type": "commemorated_by",
       "subject": "saint:bari-imam",
@@ -10536,26 +10274,10 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-bhagnari-mandir",
+      "id": "commemorated_by:saint:shiva:event:observance-bhagnari-mandir",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-bhagnari-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:bhai-sant-thawan-das:event:urs-bhai-sant-thawan-das-mandir",
-      "type": "commemorated_by",
-      "subject": "saint:bhai-sant-thawan-das",
-      "object": "event:urs-bhai-sant-thawan-das-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:bhai-waliram:event:urs-bhai-waliram-darbar",
-      "type": "commemorated_by",
-      "subject": "saint:bhai-waliram",
-      "object": "event:urs-bhai-waliram-darbar",
+      "object": "event:observance-bhagnari-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -10568,18 +10290,18 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-chandragup-baba-chandragup",
+      "id": "commemorated_by:saint:shiva:event:observance-chandragup-baba-chandragup",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-chandragup-baba-chandragup",
+      "object": "event:observance-chandragup-baba-chandragup",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-durga:event:urs-churrio-jabal-durga-mata-temple",
+      "id": "commemorated_by:saint:goddess-durga:event:observance-churrio-jabal-durga-mata-temple",
       "type": "commemorated_by",
       "subject": "saint:goddess-durga",
-      "object": "event:urs-churrio-jabal-durga-mata-temple",
+      "object": "event:observance-churrio-jabal-durga-mata-temple",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -10688,18 +10410,18 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:baba-pir-ratan-nath:event:urs-dargah-pir-ratan-nath-jee",
+      "id": "commemorated_by:saint:baba-pir-ratan-nath:event:observance-dargah-pir-ratan-nath-jee",
       "type": "commemorated_by",
       "subject": "saint:baba-pir-ratan-nath",
-      "object": "event:urs-dargah-pir-ratan-nath-jee",
+      "object": "event:observance-dargah-pir-ratan-nath-jee",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:jhulelal-daryalal:event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "id": "commemorated_by:saint:jhulelal-daryalal:event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "type": "commemorated_by",
       "subject": "saint:jhulelal-daryalal",
-      "object": "event:urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "object": "event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -10736,394 +10458,346 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-gorakhnath:event:urs-gorakhnath-goraknath-temple",
+      "id": "commemorated_by:saint:guru-gorakhnath:event:observance-gorakhnath-goraknath-temple",
       "type": "commemorated_by",
       "subject": "saint:guru-gorakhnath",
-      "object": "event:urs-gorakhnath-goraknath-temple",
+      "object": "event:observance-gorakhnath-goraknath-temple",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:jain-temple-dedicated-to-parshvanatha:event:urs-gori-temple-gori-jo-mandar",
-      "type": "commemorated_by",
-      "subject": "saint:jain-temple-dedicated-to-parshvanatha",
-      "object": "event:urs-gori-temple-gori-jo-mandar",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:sant-gurdas-ram:event:urs-gurdas-ram-mandir",
-      "type": "commemorated_by",
-      "subject": "saint:sant-gurdas-ram",
-      "object": "event:urs-gurdas-ram-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-babay-de-ber",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-babay-de-ber",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-babay-de-ber",
+      "object": "event:observance-gurdwara-babay-de-ber",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bebe-nanaki:event:urs-gurdwara-babay-nanki",
+      "id": "commemorated_by:saint:bebe-nanaki:event:observance-gurdwara-babay-nanki",
       "type": "commemorated_by",
       "subject": "saint:bebe-nanaki",
-      "object": "event:urs-gurdwara-babay-nanki",
+      "object": "event:observance-gurdwara-babay-nanki",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-balila-sahib-bal-lila-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-balila-sahib-bal-lila-sahib",
+      "object": "event:observance-gurdwara-balila-sahib-bal-lila-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-arjan-dev:event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "id": "commemorated_by:saint:guru-arjan-dev:event:observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "type": "commemorated_by",
       "subject": "saint:guru-arjan-dev",
-      "object": "event:urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "object": "event:observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-biba-singh:event:urs-gurdwara-bhai-beba-singh",
+      "id": "commemorated_by:saint:bhai-biba-singh:event:observance-gurdwara-bhai-beba-singh",
       "type": "commemorated_by",
       "subject": "saint:bhai-biba-singh",
-      "object": "event:urs-gurdwara-bhai-beba-singh",
+      "object": "event:observance-gurdwara-bhai-beba-singh",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-joga-singh:event:urs-gurdwara-bhai-joga-singh",
+      "id": "commemorated_by:saint:bhai-joga-singh:event:observance-gurdwara-bhai-joga-singh",
       "type": "commemorated_by",
       "subject": "saint:bhai-joga-singh",
-      "object": "event:urs-gurdwara-bhai-joga-singh",
+      "object": "event:observance-gurdwara-bhai-joga-singh",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak-dev-ji:event:urs-gurdwara-chakki-sahib",
+      "id": "commemorated_by:saint:guru-nanak-dev-ji:event:observance-gurdwara-chakki-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak-dev-ji",
-      "object": "event:urs-gurdwara-chakki-sahib",
+      "object": "event:observance-gurdwara-chakki-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-chhevin-patshahi-chitti-gatti",
+      "id": "commemorated_by:saint:guru-hargobind:event:observance-gurdwara-chhevin-patshahi-chitti-gatti",
       "type": "commemorated_by",
       "subject": "saint:guru-hargobind",
-      "object": "event:urs-gurdwara-chhevin-patshahi-chitti-gatti",
+      "object": "event:observance-gurdwara-chhevin-patshahi-chitti-gatti",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "id": "commemorated_by:saint:guru-hargobind:event:observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
       "type": "commemorated_by",
       "subject": "saint:guru-hargobind",
-      "object": "event:urs-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "object": "event:observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-chhevin-patshahi-mozang",
+      "id": "commemorated_by:saint:guru-hargobind:event:observance-gurdwara-chhevin-patshahi-mozang",
       "type": "commemorated_by",
       "subject": "saint:guru-hargobind",
-      "object": "event:urs-gurdwara-chhevin-patshahi-mozang",
+      "object": "event:observance-gurdwara-chhevin-patshahi-mozang",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-choa-sahib",
+      "id": "commemorated_by:saint:guru-hargobind:event:observance-gurdwara-chowmala-sahib",
+      "type": "commemorated_by",
+      "subject": "saint:guru-hargobind",
+      "object": "event:observance-gurdwara-chowmala-sahib",
+      "confidence": 0.9,
+      "method": "rule"
+    },
+    {
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-darbar-sahib-kartarpur",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-choa-sahib",
+      "object": "event:observance-gurdwara-darbar-sahib-kartarpur",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-chowmala-sahib",
-      "type": "commemorated_by",
-      "subject": "saint:guru-hargobind",
-      "object": "event:urs-gurdwara-chowmala-sahib",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-darbar-sahib-kartarpur",
-      "type": "commemorated_by",
-      "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-darbar-sahib-kartarpur",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:guru-gobind-singh:event:urs-gurdwara-dash-mesh-pita",
-      "type": "commemorated_by",
-      "subject": "saint:guru-gobind-singh",
-      "object": "event:urs-gurdwara-dash-mesh-pita",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:guru-arjan-dev:event:urs-gurdwara-dera-sahib",
+      "id": "commemorated_by:saint:guru-arjan-dev:event:observance-gurdwara-dera-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-arjan-dev",
-      "object": "event:urs-gurdwara-dera-sahib",
+      "object": "event:observance-gurdwara-dera-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-ram-das:event:urs-gurdwara-guru-ram-das-ji",
+      "id": "commemorated_by:saint:guru-ram-das:event:observance-gurdwara-guru-ram-das-ji",
       "type": "commemorated_by",
       "subject": "saint:guru-ram-das",
-      "object": "event:urs-gurdwara-guru-ram-das-ji",
+      "object": "event:observance-gurdwara-guru-ram-das-ji",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak-dev-ji-associated-with-bhai-lalo:event:urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "id": "commemorated_by:saint:guru-nanak-dev-ji-associated-with-bhai-lalo:event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
-      "object": "event:urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "object": "event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-malji-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-malji-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-malji-sahib",
+      "object": "event:observance-gurdwara-malji-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-panja-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-panja-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-panja-sahib",
+      "object": "event:observance-gurdwara-panja-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-arjan-dev-and-guru-hargobind:event:urs-gurdwara-panjvi-chati-patshahi",
+      "id": "commemorated_by:saint:guru-arjan-dev-and-guru-hargobind:event:observance-gurdwara-panjvi-chati-patshahi",
       "type": "commemorated_by",
       "subject": "saint:guru-arjan-dev-and-guru-hargobind",
-      "object": "event:urs-gurdwara-panjvi-chati-patshahi",
+      "object": "event:observance-gurdwara-panjvi-chati-patshahi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-hargobind:event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "id": "commemorated_by:saint:guru-hargobind:event:observance-gurdwara-patshahi-chhevin-hadiara-lahore",
       "type": "commemorated_by",
       "subject": "saint:guru-hargobind",
-      "object": "event:urs-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "object": "event:observance-gurdwara-patshahi-chhevin-hadiara-lahore",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-patti-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-patti-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-patti-sahib",
+      "object": "event:observance-gurdwara-patti-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-pehli-patshahi-jind-pir-sukkur",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "object": "event:observance-gurdwara-pehli-patshahi-jind-pir-sukkur",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-rori-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-rori-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-rori-sahib",
+      "object": "event:observance-gurdwara-rori-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sach-khand-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-sach-khand-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-sach-khand-sahib",
+      "object": "event:observance-gurdwara-sach-khand-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sacha-sauda",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-sacha-sauda",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-sacha-sauda",
+      "object": "event:observance-gurdwara-sacha-sauda",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-      "type": "commemorated_by",
-      "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:bhai-taru:event:urs-gurdwara-shaheed-bhai-taru-singh",
+      "id": "commemorated_by:saint:bhai-taru:event:observance-gurdwara-shaheed-bhai-taru-singh",
       "type": "commemorated_by",
       "subject": "saint:bhai-taru",
-      "object": "event:urs-gurdwara-shaheed-bhai-taru-singh",
+      "object": "event:observance-gurdwara-shaheed-bhai-taru-singh",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:sikh-women-and-children-martyrs:event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "id": "commemorated_by:saint:sikh-women-and-children-martyrs:event:observance-gurdwara-shaheed-ganj-singh-singhnian",
       "type": "commemorated_by",
       "subject": "saint:sikh-women-and-children-martyrs",
-      "object": "event:urs-gurdwara-shaheed-ganj-singh-singhnian",
+      "object": "event:observance-gurdwara-shaheed-ganj-singh-singhnian",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-granth-sahib-sikh-community:event:urs-gurdwara-singh-sabha",
+      "id": "commemorated_by:saint:guru-granth-sahib-sikh-community:event:observance-gurdwara-singh-sabha",
       "type": "commemorated_by",
       "subject": "saint:guru-granth-sahib-sikh-community",
-      "object": "event:urs-gurdwara-singh-sabha",
+      "object": "event:observance-gurdwara-singh-sabha",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sri-kiara-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-sri-kiara-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-sri-kiara-sahib",
+      "object": "event:observance-gurdwara-sri-kiara-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-sri-tilganji-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-sri-tilganji-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-sri-tilganji-sahib",
+      "object": "event:observance-gurdwara-sri-tilganji-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurdwara-tambo-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-tambo-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurdwara-tambo-sahib",
+      "object": "event:observance-gurdwara-tambo-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-gurpat:event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "id": "commemorated_by:saint:guru-gurpat:event:observance-guru-gurpat-mandir-db-80-sirey-ghat",
       "type": "commemorated_by",
       "subject": "saint:guru-gurpat",
-      "object": "event:urs-guru-gurpat-mandir-db-80-sirey-ghat",
+      "object": "event:observance-guru-gurpat-mandir-db-80-sirey-ghat",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak:event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurudwara-janam-asthan-nankana-sahib",
       "type": "commemorated_by",
       "subject": "saint:guru-nanak",
-      "object": "event:urs-gurudwara-janam-asthan-nankana-sahib",
+      "object": "event:observance-gurudwara-janam-asthan-nankana-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:lord-jagannath:event:urs-jagannath-temple-sialkot",
+      "id": "commemorated_by:saint:lord-jagannath:event:observance-jagannath-temple-sialkot",
       "type": "commemorated_by",
       "subject": "saint:lord-jagannath",
-      "object": "event:urs-jagannath-temple-sialkot",
+      "object": "event:observance-jagannath-temple-sialkot",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:jain-tirthankaras:event:urs-jain-mandir-lahore",
-      "type": "commemorated_by",
-      "subject": "saint:jain-tirthankaras",
-      "object": "event:urs-jain-mandir-lahore",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:jhulelal:event:urs-jhollay-lal-mandir",
+      "id": "commemorated_by:saint:jhulelal:event:observance-jhollay-lal-mandir",
       "type": "commemorated_by",
       "subject": "saint:jhulelal",
-      "object": "event:urs-jhollay-lal-mandir",
+      "object": "event:observance-jhollay-lal-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:kali:event:urs-kalat-kali-temple",
+      "id": "commemorated_by:saint:kali:event:observance-kalat-kali-temple",
       "type": "commemorated_by",
       "subject": "saint:kali",
-      "object": "event:urs-kalat-kali-temple",
+      "object": "event:observance-kalat-kali-temple",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-kali:event:urs-kali-bari-mandir",
+      "id": "commemorated_by:saint:goddess-kali:event:observance-kali-bari-mandir",
       "type": "commemorated_by",
       "subject": "saint:goddess-kali",
-      "object": "event:urs-kali-bari-mandir",
+      "object": "event:observance-kali-bari-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-kali:event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "commemorated_by:saint:goddess-kali:event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "type": "commemorated_by",
       "subject": "saint:goddess-kali",
-      "object": "event:urs-kalka-cave-temple-asthan-of-kalka-devi",
+      "object": "event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-katas-raj-temples",
+      "id": "commemorated_by:saint:shiva:event:observance-katas-raj-temples",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-katas-raj-temples",
+      "object": "event:observance-katas-raj-temples",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:event:urs-khatwari-darbar-shikarpur",
+      "id": "commemorated_by:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:event:observance-khatwari-darbar-shikarpur",
       "type": "commemorated_by",
       "subject": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
-      "object": "event:urs-khatwari-darbar-shikarpur",
+      "object": "event:observance-khatwari-darbar-shikarpur",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:lord-krishna:event:urs-krishna-mandir-kabari-bazar",
+      "id": "commemorated_by:saint:lord-krishna:event:observance-krishna-mandir-kabari-bazar",
       "type": "commemorated_by",
       "subject": "saint:lord-krishna",
-      "object": "event:urs-krishna-mandir-kabari-bazar",
+      "object": "event:observance-krishna-mandir-kabari-bazar",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:lord-krishna:event:urs-krishna-mandir-ravi-road",
+      "id": "commemorated_by:saint:lord-krishna:event:observance-krishna-mandir-ravi-road",
       "type": "commemorated_by",
       "subject": "saint:lord-krishna",
-      "object": "event:urs-krishna-mandir-ravi-road",
+      "object": "event:observance-krishna-mandir-ravi-road",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:valmiki:event:urs-lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "id": "commemorated_by:saint:valmiki:event:observance-lal-kurti-temple-balmiki-mandir-rawalpindi",
       "type": "commemorated_by",
       "subject": "saint:valmiki",
-      "object": "event:urs-lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "object": "event:observance-lal-kurti-temple-balmiki-mandir-rawalpindi",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11140,14 +10814,6 @@
       "type": "commemorated_by",
       "subject": "saint:makhdoom-burhan-ud-din",
       "object": "event:urs-langer-makhdoom",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:lava-son-of-rama-and-sita:event:urs-loh-temple-lava-temple",
-      "type": "commemorated_by",
-      "subject": "saint:lava-son-of-rama-and-sita",
-      "object": "event:urs-loh-temple-lava-temple",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11184,34 +10850,18 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:jain-tirthankaras:event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-      "type": "commemorated_by",
-      "subject": "saint:jain-tirthankaras",
-      "object": "event:urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:king-pandu:event:urs-panj-tirath",
+      "id": "commemorated_by:saint:king-pandu:event:observance-panj-tirath",
       "type": "commemorated_by",
       "subject": "saint:king-pandu",
-      "object": "event:urs-panj-tirath",
+      "object": "event:observance-panj-tirath",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:smadhi-of-dya-ram:event:urs-parnami-mandir",
+      "id": "commemorated_by:saint:smadhi-of-dya-ram:event:observance-parnami-mandir",
       "type": "commemorated_by",
       "subject": "saint:smadhi-of-dya-ram",
-      "object": "event:urs-parnami-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:narasimha:event:urs-prahladpuri-temple",
-      "type": "commemorated_by",
-      "subject": "saint:narasimha",
-      "object": "event:urs-prahladpuri-temple",
+      "object": "event:observance-parnami-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11232,18 +10882,10 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:dedicated-to-lord-rama:event:urs-ram-mandir-saidpur-ram-kund-mandir",
-      "type": "commemorated_by",
-      "subject": "saint:dedicated-to-lord-rama",
-      "object": "event:urs-ram-mandir-saidpur-ram-kund-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:ramdev-pir:event:urs-ramapir-temple-tando-allahyar",
+      "id": "commemorated_by:saint:ramdev-pir:event:observance-ramapir-temple-tando-allahyar",
       "type": "commemorated_by",
       "subject": "saint:ramdev-pir",
-      "object": "event:urs-ramapir-temple-tando-allahyar",
+      "object": "event:observance-ramapir-temple-tando-allahyar",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11256,18 +10898,18 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:baba-bankhandi-maharaj:event:urs-sadh-belo-sadh-belo-island-temple",
+      "id": "commemorated_by:saint:baba-bankhandi-maharaj:event:observance-sadh-belo-sadh-belo-island-temple",
       "type": "commemorated_by",
       "subject": "saint:baba-bankhandi-maharaj",
-      "object": "event:urs-sadh-belo-sadh-belo-island-temple",
+      "object": "event:observance-sadh-belo-sadh-belo-island-temple",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:sain-vali-vilayat-rai:event:urs-sain-vali-vilayat-rai-darbar-kambar",
+      "id": "commemorated_by:saint:sain-vali-vilayat-rai:event:observance-sain-vali-vilayat-rai-darbar-kambar",
       "type": "commemorated_by",
       "subject": "saint:sain-vali-vilayat-rai",
-      "object": "event:urs-sain-vali-vilayat-rai-darbar-kambar",
+      "object": "event:observance-sain-vali-vilayat-rai-darbar-kambar",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11280,50 +10922,42 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:maharaja-ranjit-singh:event:urs-samadhi-of-maharaja-ranjit-singh",
+      "id": "commemorated_by:saint:maharaja-ranjit-singh:event:observance-samadhi-of-maharaja-ranjit-singh",
       "type": "commemorated_by",
       "subject": "saint:maharaja-ranjit-singh",
-      "object": "event:urs-samadhi-of-maharaja-ranjit-singh",
+      "object": "event:observance-samadhi-of-maharaja-ranjit-singh",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:sant-baba-asudaram-sakhi-baba:event:urs-sant-baba-asudaram-darbar-panno-aqil",
+      "id": "commemorated_by:saint:sant-baba-asudaram-sakhi-baba:event:observance-sant-baba-asudaram-darbar-panno-aqil",
       "type": "commemorated_by",
       "subject": "saint:sant-baba-asudaram-sakhi-baba",
-      "object": "event:urs-sant-baba-asudaram-darbar-panno-aqil",
+      "object": "event:observance-sant-baba-asudaram-darbar-panno-aqil",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:sant-baba-bhagat-ram:event:urs-sant-baba-bhagat-ram-darbar-mandir",
-      "type": "commemorated_by",
-      "subject": "saint:sant-baba-bhagat-ram",
-      "object": "event:urs-sant-baba-bhagat-ram-darbar-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:bhagat-kanwar-ram:event:urs-sant-bhagat-kanwar-ram-temple-chak",
+      "id": "commemorated_by:saint:bhagat-kanwar-ram:event:observance-sant-bhagat-kanwar-ram-temple-chak",
       "type": "commemorated_by",
       "subject": "saint:bhagat-kanwar-ram",
-      "object": "event:urs-sant-bhagat-kanwar-ram-temple-chak",
+      "object": "event:observance-sant-bhagat-kanwar-ram-temple-chak",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:satguru-swami-sai-satramdas-sahib:event:urs-sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "id": "commemorated_by:saint:satguru-swami-sai-satramdas-sahib:event:observance-sant-satram-dham-raharki-sacho-satram-devri-sahib",
       "type": "commemorated_by",
       "subject": "saint:satguru-swami-sai-satramdas-sahib",
-      "object": "event:urs-sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "object": "event:observance-sant-satram-dham-raharki-sacho-satram-devri-sahib",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-gurdas-veneration-of-guru-nanak:event:urs-sevapanthi-darbar-bhai-gurdas-gandava",
+      "id": "commemorated_by:saint:bhai-gurdas-veneration-of-guru-nanak:event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
       "type": "commemorated_by",
       "subject": "saint:bhai-gurdas-veneration-of-guru-nanak",
-      "object": "event:urs-sevapanthi-darbar-bhai-gurdas-gandava",
+      "object": "event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11344,10 +10978,10 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-shahwala-teja-singh-mandir",
+      "id": "commemorated_by:saint:shiva:event:observance-shahwala-teja-singh-mandir",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-shahwala-teja-singh-mandir",
+      "object": "event:observance-shahwala-teja-singh-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11360,14 +10994,6 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-sharada:event:urs-sharada-peeth",
-      "type": "commemorated_by",
-      "subject": "saint:goddess-sharada",
-      "object": "event:urs-sharada-peeth",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
       "id": "commemorated_by:saint:daud-bandagi-kirmani:event:urs-shergarh",
       "type": "commemorated_by",
       "subject": "saint:daud-bandagi-kirmani",
@@ -11376,58 +11002,50 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-shiv-mandir-chiti-ghati",
+      "id": "commemorated_by:saint:shiva:event:observance-shiv-mandir-chiti-ghati",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-shiv-mandir-chiti-ghati",
+      "object": "event:observance-shiv-mandir-chiti-ghati",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:shiva:event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "id": "commemorated_by:saint:shiva:event:observance-shree-ratneshwar-mahadev-temple-karachi",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-shree-ratneshwar-mahadev-temple-karachi",
+      "object": "event:observance-shree-ratneshwar-mahadev-temple-karachi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:lakshmi-narayan:event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "id": "commemorated_by:saint:lakshmi-narayan:event:observance-shri-laxmi-narayan-mandir-native-jetty-bridge",
       "type": "commemorated_by",
       "subject": "saint:lakshmi-narayan",
-      "object": "event:urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "object": "event:observance-shri-laxmi-narayan-mandir-native-jetty-bridge",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:lord-hanuman:event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "id": "commemorated_by:saint:lord-hanuman:event:observance-shri-panchmukhi-hanuman-mandir-karachi",
       "type": "commemorated_by",
       "subject": "saint:lord-hanuman",
-      "object": "event:urs-shri-panchmukhi-hanuman-mandir-karachi",
+      "object": "event:observance-shri-panchmukhi-hanuman-mandir-karachi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhagwan-swaminarayan:event:urs-shri-swaminarayan-mandir-karachi",
+      "id": "commemorated_by:saint:bhagwan-swaminarayan:event:observance-shri-swaminarayan-mandir-karachi",
       "type": "commemorated_by",
       "subject": "saint:bhagwan-swaminarayan",
-      "object": "event:urs-shri-swaminarayan-mandir-karachi",
+      "object": "event:observance-shri-swaminarayan-mandir-karachi",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:varuna:event:urs-shri-varun-dev-mandir",
-      "type": "commemorated_by",
-      "subject": "saint:varuna",
-      "object": "event:urs-shri-varun-dev-mandir",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:sheikh-tahir:event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "id": "commemorated_by:saint:sheikh-tahir:event:observance-shrine-at-odero-lal-udero-lal-teerath-asthan",
       "type": "commemorated_by",
       "subject": "saint:sheikh-tahir",
-      "object": "event:urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "object": "event:observance-shrine-at-odero-lal-udero-lal-teerath-asthan",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11448,10 +11066,10 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:akhund-darweza-baba:event:urs-shrine-of-akhund-darweza-baba",
+      "id": "commemorated_by:saint:akhund-darweza-baba:event:observance-shrine-of-akhund-darweza-baba",
       "type": "commemorated_by",
       "subject": "saint:akhund-darweza-baba",
-      "object": "event:urs-shrine-of-akhund-darweza-baba",
+      "object": "event:observance-shrine-of-akhund-darweza-baba",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11656,10 +11274,10 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:pir-lakha:event:urs-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "id": "commemorated_by:saint:pir-lakha:event:observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
       "type": "commemorated_by",
       "subject": "saint:pir-lakha",
-      "object": "event:urs-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "object": "event:observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11760,26 +11378,18 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:swami-dharmdas:event:urs-swami-dharmdas-darbar-larkana-kennedy-market",
+      "id": "commemorated_by:saint:swami-dharmdas:event:observance-swami-dharmdas-darbar-larkana-kennedy-market",
       "type": "commemorated_by",
       "subject": "saint:swami-dharmdas",
-      "object": "event:urs-swami-dharmdas-darbar-larkana-kennedy-market",
+      "object": "event:observance-swami-dharmdas-darbar-larkana-kennedy-market",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-gorakhnath:event:urs-tilla-jogian",
-      "type": "commemorated_by",
-      "subject": "saint:guru-gorakhnath",
-      "object": "event:urs-tilla-jogian",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:allama-muhammad-iqbal:event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "id": "commemorated_by:saint:allama-muhammad-iqbal:event:observance-tomb-of-allama-iqbal-mazar-e-iqbal",
       "type": "commemorated_by",
       "subject": "saint:allama-muhammad-iqbal",
-      "object": "event:urs-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "object": "event:observance-tomb-of-allama-iqbal-mazar-e-iqbal",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11800,42 +11410,26 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:sultan-qutb-ud-din-aibak:event:urs-tomb-of-qutbuddin-aibak",
-      "type": "commemorated_by",
-      "subject": "saint:sultan-qutb-ud-din-aibak",
-      "object": "event:urs-tomb-of-qutbuddin-aibak",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:ustad-nuriya:event:urs-tomb-of-ustad-nuriya",
-      "type": "commemorated_by",
-      "subject": "saint:ustad-nuriya",
-      "object": "event:urs-tomb-of-ustad-nuriya",
-      "confidence": 0.9,
-      "method": "rule"
-    },
-    {
-      "id": "commemorated_by:saint:shiva:event:urs-umarkot-amarkot-shiv-mandir",
+      "id": "commemorated_by:saint:shiva:event:observance-umarkot-amarkot-shiv-mandir",
       "type": "commemorated_by",
       "subject": "saint:shiva",
-      "object": "event:urs-umarkot-amarkot-shiv-mandir",
+      "object": "event:observance-umarkot-amarkot-shiv-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhagwan-valmik:event:urs-valmik-mandir-naqi-road",
+      "id": "commemorated_by:saint:bhagwan-valmik:event:observance-valmik-mandir-naqi-road",
       "type": "commemorated_by",
       "subject": "saint:bhagwan-valmik",
-      "object": "event:urs-valmik-mandir-naqi-road",
+      "object": "event:observance-valmik-mandir-naqi-road",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:valmiki:event:urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "id": "commemorated_by:saint:valmiki:event:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
       "type": "commemorated_by",
       "subject": "saint:valmiki",
-      "object": "event:urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "object": "event:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
       "confidence": 0.9,
       "method": "rule"
     },
@@ -11860,9 +11454,9 @@
     "saints": 196,
     "orders": 5,
     "places": 94,
-    "events": 168,
+    "events": 149,
     "sources": 0,
-    "relations": 656,
+    "relations": 637,
     "ambiguousMerges": 69
   },
   "reviewNeeded": [

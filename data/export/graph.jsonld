@@ -3280,24 +3280,6 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-amb-temples-amb-sharif",
-      "name": "Urs of Shiva at Amb Temples (Amb Sharif)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/amb-temples-amb-sharif"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bari-imam",
       "name": "Urs of Bari Imam at Bari Imam",
       "location": {
@@ -3316,53 +3298,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bhagnari-mandir",
-      "name": "Urs of Shiva at Bhagnari Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-bhagnari-mandir",
+      "name": "Community worship at Bhagnari Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhagnari-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bhai-sant-thawan-das-mandir",
-      "name": "Urs of Bhai Sant Thawan Das at Bhai Sant Thawan Das Mandir",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhai-sant-thawan-das-mandir"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-sant-thawan-das"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-bhai-waliram-darbar",
-      "name": "Urs of Bhai Waliram at Bhai Waliram Darbar",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/bhai-waliram-darbar"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-waliram"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3389,17 +3331,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-chandragup-baba-chandragup",
-      "name": "Urs of Shiva at Chandragup (Baba Chandragup)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-chandragup-baba-chandragup",
+      "name": "Hinglaj Yatra halt at Chandragup (Baba Chandragup)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/chandragup-baba-chandragup"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3407,17 +3345,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-churrio-jabal-durga-mata-temple",
-      "name": "Urs of Goddess Durga at Churrio Jabal Durga Mata Temple",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-churrio-jabal-durga-mata-temple",
+      "name": "Maha Shivratri at Churrio Jabal Durga Mata Temple",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/churrio-jabal-durga-mata-temple"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/goddess-durga"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3432,10 +3366,6 @@
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3651,28 +3581,20 @@
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-rashid-shah-roze-dhani"
       },
-      "description": "Takes place in Rajab",
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
+      "description": "Takes place in Rajab"
     },
     {
       "@type": [
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-dargah-pir-ratan-nath-jee",
-      "name": "Urs of Baba Pir Ratan Nath at Dargah Pir Ratan Nath Jee",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-dargah-pir-ratan-nath-jee",
+      "name": "Maha Shivratri at Dargah Pir Ratan Nath Jee",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/dargah-pir-ratan-nath-jee"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-pir-ratan-nath"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3680,17 +3602,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
-      "name": "Urs of Jhulelal / Daryalal at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "name": "Cheti Chand at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darya-lal-mandir-darya-lal-sankat-mochan-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jhulelal-daryalal"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3771,8 +3689,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gorakhnath-goraknath-temple",
-      "name": "Urs of Guru Gorakhnath at Gorakhnath (Goraknath) Temple",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gorakhnath-goraknath-temple",
+      "name": "Diwali at Gorakhnath (Goraknath) Temple",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gorakhnath-goraknath-temple"
       },
@@ -3789,53 +3707,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gori-temple-gori-jo-mandar",
-      "name": "Urs of Jain temple dedicated to Parshvanatha at Gori Temple (Gori jo Mandar)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gori-temple-gori-jo-mandar"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jain-temple-dedicated-to-parshvanatha"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdas-ram-mandir",
-      "name": "Urs of Sant Gurdas Ram at Gurdas Ram Mandir",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdas-ram-mandir"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-gurdas-ram"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-babay-de-ber",
-      "name": "Urs of Guru Nanak at Gurdwara Babay De Ber",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-babay-de-ber",
+      "name": "Sikh pilgrimage at Gurdwara Babay De Ber",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-babay-de-ber"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3843,17 +3721,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-babay-nanki",
-      "name": "Urs of Bebe Nanaki at Gurdwara Babay Nanki",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-babay-nanki",
+      "name": "Occasional pilgrimage at Gurdwara Babay Nanki",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-babay-nanki"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bebe-nanaki"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3861,17 +3735,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-balila-sahib-bal-lila-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Balila Sahib (Bal Lila Sahib)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-balila-sahib-bal-lila-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Balila Sahib (Bal Lila Sahib)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-balila-sahib-bal-lila-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3879,17 +3749,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-      "name": "Urs of Guru Arjan Dev at Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
+      "name": "Sikh anniversaries at Gurdwara Baoli Sahib (Guru Arjan Dev Ji), Lahore",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3897,17 +3763,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-bhai-beba-singh",
-      "name": "Urs of Bhai Biba Singh at Gurdwara Bhai Beba Singh",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-bhai-beba-singh",
+      "name": "Daily prakash at Gurdwara Bhai Beba Singh",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-bhai-beba-singh"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-biba-singh"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3915,17 +3777,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-bhai-joga-singh",
-      "name": "Urs of Bhai Joga Singh at Gurdwara Bhai Joga Singh",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-bhai-joga-singh",
+      "name": "Daily prakash at Gurdwara Bhai Joga Singh",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-bhai-joga-singh"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-joga-singh"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3933,17 +3791,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-chakki-sahib",
-      "name": "Urs of Guru Nanak Dev Ji at Gurdwara Chakki Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-chakki-sahib",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Chakki Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-chakki-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak-dev-ji"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3951,17 +3805,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-chhevin-patshahi-chitti-gatti",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Chitti Gatti",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-chhevin-patshahi-chitti-gatti",
+      "name": "Historically a Vaisakhi fair at Gurdwara Chhevin Patshahi, Chitti Gatti",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-chhevin-patshahi-chitti-gatti"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-hargobind"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -3969,8 +3819,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
+      "name": "Historically an annual fair at Gurdwara Chhevin Patshahi, Jhalian (Jhalian Dhilwan)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan"
       },
@@ -3987,8 +3837,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-chhevin-patshahi-mozang",
-      "name": "Urs of Guru Hargobind at Gurdwara Chhevin Patshahi, Mozang",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-chhevin-patshahi-mozang",
+      "name": "Annual Akhand Path around Guru Hargobind's Gurpurb at Gurdwara Chhevin Patshahi, Mozang",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-chhevin-patshahi-mozang"
       },
@@ -4005,26 +3855,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-choa-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Choa Sahib",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-choa-sahib"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-chowmala-sahib",
-      "name": "Urs of Guru Hargobind at Gurdwara Chowmala Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-chowmala-sahib",
+      "name": "Historically an annual fair at Basant Panchami at Gurdwara Chowmala Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-chowmala-sahib"
       },
@@ -4041,17 +3873,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-darbar-sahib-kartarpur",
-      "name": "Urs of Guru Nanak at Gurdwara Darbar Sahib Kartarpur",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-darbar-sahib-kartarpur",
+      "name": "Guru Nanak anniversaries at Gurdwara Darbar Sahib Kartarpur",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-darbar-sahib-kartarpur"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4059,35 +3887,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-dash-mesh-pita",
-      "name": "Urs of Guru Gobind Singh at Gurdwara Dash Mesh Pita",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-dash-mesh-pita"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gobind-singh"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-dera-sahib",
-      "name": "Urs of Guru Arjan Dev at Gurdwara Dera Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-dera-sahib",
+      "name": "Martyrdom anniversary of Guru Arjan Dev at Gurdwara Dera Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-dera-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4095,17 +3901,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-guru-ram-das-ji",
-      "name": "Urs of Guru Ram Das at Gurdwara Guru Ram Das Ji",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-guru-ram-das-ji",
+      "name": "Guru Ram Das birth anniversary at Gurdwara Guru Ram Das Ji",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-guru-ram-das-ji"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-ram-das"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4113,17 +3915,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
-      "name": "Urs of Guru Nanak Dev Ji; associated with Bhai Lalo at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak-dev-ji-associated-with-bhai-lalo"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4131,17 +3929,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-malji-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Malji Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-malji-sahib",
+      "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Malji Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-malji-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4149,17 +3943,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-panja-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Panja Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-panja-sahib",
+      "name": "Vaisakhi at Gurdwara Panja Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-panja-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4167,17 +3957,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-panjvi-chati-patshahi",
-      "name": "Urs of Guru Arjan Dev & Guru Hargobind at Gurdwara Panjvi Chati Patshahi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-panjvi-chati-patshahi",
+      "name": "Occasional pilgrimage at Gurdwara Panjvi Chati Patshahi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-panjvi-chati-patshahi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-arjan-dev-and-guru-hargobind"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4185,8 +3971,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-patshahi-chhevin-hadiara-lahore",
-      "name": "Urs of Guru Hargobind at Gurdwara Patshahi Chhevin (Hadiara), Lahore",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-patshahi-chhevin-hadiara-lahore",
+      "name": "Historically an annual Maghi fair at Gurdwara Patshahi Chhevin (Hadiara), Lahore",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-patshahi-chhevin-hadiara-lahore"
       },
@@ -4203,17 +3989,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-patti-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Patti Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-patti-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Patti Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-patti-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4221,17 +4003,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-pehli-patshahi-jind-pir-sukkur",
-      "name": "Urs of Guru Nanak at Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "name": "Gurpurabs at Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-pehli-patshahi-jind-pir-sukkur"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4239,17 +4017,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-rori-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Rori Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-rori-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Rori Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-rori-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4257,17 +4031,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-sach-khand-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sach Khand Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-sach-khand-sahib",
+      "name": "Daily prakash at Gurdwara Sach Khand Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sach-khand-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4275,17 +4045,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-sacha-sauda",
-      "name": "Urs of Guru Nanak at Gurdwara Sacha Sauda",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-sacha-sauda",
+      "name": "Guru Nanak anniversaries at Gurdwara Sacha Sauda",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sacha-sauda"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4293,35 +4059,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-sahib-saidpur-guru-nanak-dev-ji",
-      "name": "Urs of Guru Nanak at Gurdwara Sahib Saidpur (Guru Nanak Dev Ji)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sahib-saidpur-guru-nanak-dev-ji"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-shaheed-bhai-taru-singh",
-      "name": "Urs of Bhai Taru at Gurdwara Shaheed Bhai Taru Singh",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-shaheed-bhai-taru-singh",
+      "name": "Martyrdom commemoration at Gurdwara Shaheed Bhai Taru Singh",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-shaheed-bhai-taru-singh"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-taru"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4329,17 +4073,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-shaheed-ganj-singh-singhnian",
-      "name": "Urs of Sikh women & children martyrs at Gurdwara Shaheed Ganj Singh Singhnian",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-shaheed-ganj-singh-singhnian",
+      "name": "Martyrdom commemoration at Gurdwara Shaheed Ganj Singh Singhnian",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-shaheed-ganj-singh-singhnian"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sikh-women-and-children-martyrs"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4347,17 +4087,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-singh-sabha",
-      "name": "Urs of Guru Granth Sahib / Sikh community at Gurdwara Singh Sabha",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-singh-sabha",
+      "name": "Daily worship at Gurdwara Singh Sabha",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-singh-sabha"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-granth-sahib-sikh-community"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4365,17 +4101,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-sri-kiara-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sri Kiara Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-sri-kiara-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Sri Kiara Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sri-kiara-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4383,17 +4115,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-sri-tilganji-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Sri Tilganji Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-sri-tilganji-sahib",
+      "name": "Daily worship at Gurdwara Sri Tilganji Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-sri-tilganji-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4401,17 +4129,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurdwara-tambo-sahib",
-      "name": "Urs of Guru Nanak at Gurdwara Tambo Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurdwara-tambo-sahib",
+      "name": "Guru Nanak Gurpurab at Gurdwara Tambo Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurdwara-tambo-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4419,17 +4143,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-guru-gurpat-mandir-db-80-sirey-ghat",
-      "name": "Urs of Guru Gurpat at Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-guru-gurpat-mandir-db-80-sirey-ghat",
+      "name": "Community worship at Guru Gurpat Mandir (DB-80 Sirey Ghat)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/guru-gurpat-mandir-db-80-sirey-ghat"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gurpat"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4437,17 +4157,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-gurudwara-janam-asthan-nankana-sahib",
-      "name": "Urs of Guru Nanak at Gurudwara Janam Asthan Nankana Sahib",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-gurudwara-janam-asthan-nankana-sahib",
+      "name": "Guru Nanak Gurpurab at Gurudwara Janam Asthan Nankana Sahib",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/gurudwara-janam-asthan-nankana-sahib"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4455,17 +4171,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-jagannath-temple-sialkot",
-      "name": "Urs of Lord Jagannath at Jagannath Temple, Sialkot",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-jagannath-temple-sialkot",
+      "name": "Community worship at Jagannath Temple, Sialkot",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jagannath-temple-sialkot"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lord-jagannath"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4473,35 +4185,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-jain-mandir-lahore",
-      "name": "Urs of Jain Tirthankaras at Jain Mandir, Lahore",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jain-mandir-lahore"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jain-tirthankaras"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-jhollay-lal-mandir",
-      "name": "Urs of Jhulelal at Jhollay Lal Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-jhollay-lal-mandir",
+      "name": "Cheti Chand at Jhollay Lal Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/jhollay-lal-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jhulelal"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4509,8 +4199,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-kalat-kali-temple",
-      "name": "Urs of Kali at Kalat Kali Temple",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-kalat-kali-temple",
+      "name": "Annual three-day Kali festival at Kalat Kali Temple",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/kalat-kali-temple"
       },
@@ -4527,17 +4217,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-kali-bari-mandir",
-      "name": "Urs of Goddess Kali at Kali Bari Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-kali-bari-mandir",
+      "name": "Durga Puja at Kali Bari Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/kali-bari-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/goddess-kali"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4545,17 +4231,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-kalka-cave-temple-asthan-of-kalka-devi",
-      "name": "Urs of Goddess Kali at Kalka Cave Temple (Asthan of Kalka Devi)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-kalka-cave-temple-asthan-of-kalka-devi",
+      "name": "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/kalka-cave-temple-asthan-of-kalka-devi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/goddess-kali"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4563,17 +4245,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-katas-raj-temples",
-      "name": "Urs of Shiva at Katas Raj Temples",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-katas-raj-temples",
+      "name": "Maha Shivratri at Katas Raj Temples",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/katas-raj-temples"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4581,17 +4259,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-khatwari-darbar-shikarpur",
-      "name": "Urs of Bhai Gurdas Singh, disciple of Guru Gobind Singh at Khatwari Darbar, Shikarpur",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-khatwari-darbar-shikarpur",
+      "name": "Sikh and Nanakpanthi festivals at Khatwari Darbar, Shikarpur",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/khatwari-darbar-shikarpur"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-gurdas-singh-disciple-of-guru-gobind-singh"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4599,17 +4273,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-krishna-mandir-kabari-bazar",
-      "name": "Urs of Lord Krishna at Krishna Mandir (Kabari Bazar)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-krishna-mandir-kabari-bazar",
+      "name": "Holi at Krishna Mandir (Kabari Bazar)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/krishna-mandir-kabari-bazar"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lord-krishna"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4617,17 +4287,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-krishna-mandir-ravi-road",
-      "name": "Urs of Lord Krishna at Krishna Mandir (Ravi Road)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-krishna-mandir-ravi-road",
+      "name": "Janmashtami at Krishna Mandir (Ravi Road)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/krishna-mandir-ravi-road"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lord-krishna"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4635,17 +4301,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-lal-kurti-temple-balmiki-mandir-rawalpindi",
-      "name": "Urs of Valmiki at Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "name": "Diwali at Lal Kurti Temple (Balmiki Mandir), Rawalpindi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/lal-kurti-temple-balmiki-mandir-rawalpindi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/valmiki"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4679,24 +4341,6 @@
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-burhan-ud-din"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-loh-temple-lava-temple",
-      "name": "Urs of Lava, son of Rama and Sita at Loh Temple (Lava Temple)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/loh-temple-lava-temple"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lava-son-of-rama-and-sita"
       },
       "eventSchedule": {
         "@type": "Schedule",
@@ -4780,35 +4424,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-nagarparkar-jain-temples-nagarparkar-cultural-landscape",
-      "name": "Urs of Jain Tirthankaras at Nagarparkar Jain Temples (Nagarparkar Cultural Landscape)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/nagarparkar-jain-temples-nagarparkar-cultural-landscape"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jain-tirthankaras"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-panj-tirath",
-      "name": "Urs of King Pandu at Panj Tirath",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-panj-tirath",
+      "name": "Historically Kartik bathing at Panj Tirath",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/panj-tirath"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/king-pandu"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4816,31 +4438,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-parnami-mandir",
-      "name": "Urs of Smadhi of Dya Ram at Parnami Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-parnami-mandir",
+      "name": "Historically an annual mela in Chaitra at Parnami Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/parnami-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/smadhi-of-dya-ram"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-prahladpuri-temple",
-      "name": "Urs of Narasimha at Prahladpuri Temple",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/prahladpuri-temple"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/narasimha"
       },
       "eventSchedule": {
         "@type": "Schedule",
@@ -4888,35 +4492,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-ram-mandir-saidpur-ram-kund-mandir",
-      "name": "Urs of Dedicated to Lord Rama at Ram Mandir, Saidpur (Ram Kund Mandir)",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/ram-mandir-saidpur-ram-kund-mandir"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/dedicated-to-lord-rama"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-ramapir-temple-tando-allahyar",
-      "name": "Urs of Ramdev Pir at Ramapir Temple, Tando Allahyar",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-ramapir-temple-tando-allahyar",
+      "name": "Ramapir Mela at Ramapir Temple, Tando Allahyar",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/ramapir-temple-tando-allahyar"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ramdev-pir"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4942,8 +4524,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sadh-belo-sadh-belo-island-temple",
-      "name": "Urs of Baba Bankhandi Maharaj at Sadh Belo (Sadh Belo Island Temple)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sadh-belo-sadh-belo-island-temple",
+      "name": "Annual festival at Sadh Belo (Sadh Belo Island Temple)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sadh-belo-sadh-belo-island-temple"
       },
@@ -4960,17 +4542,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sain-vali-vilayat-rai-darbar-kambar",
-      "name": "Urs of Sain Vali Vilayat Rai at Sain Vali Vilayat Rai Darbar, Kambar",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sain-vali-vilayat-rai-darbar-kambar",
+      "name": "Commemoration of Sain Vali Vilayat Rai at Sain Vali Vilayat Rai Darbar, Kambar",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sain-vali-vilayat-rai-darbar-kambar"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sain-vali-vilayat-rai"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -4996,17 +4574,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-samadhi-of-maharaja-ranjit-singh",
-      "name": "Urs of Maharaja Ranjit Singh at Samadhi of Maharaja Ranjit Singh",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-samadhi-of-maharaja-ranjit-singh",
+      "name": "Death anniversary commemoration at Samadhi of Maharaja Ranjit Singh",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/samadhi-of-maharaja-ranjit-singh"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5014,8 +4588,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sant-baba-asudaram-darbar-panno-aqil",
-      "name": "Urs of Sant Baba Asudaram \"Sakhi Baba\" at Sant Baba Asudaram Darbar (Panno Aqil)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sant-baba-asudaram-darbar-panno-aqil",
+      "name": "Annual death anniversary at Sant Baba Asudaram Darbar (Panno Aqil)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sant-baba-asudaram-darbar-panno-aqil"
       },
@@ -5032,26 +4606,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sant-baba-bhagat-ram-darbar-mandir",
-      "name": "Urs of Sant Baba Bhagat Ram at Sant Baba Bhagat Ram Darbar Mandir",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sant-baba-bhagat-ram-darbar-mandir"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-baba-bhagat-ram"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sant-bhagat-kanwar-ram-temple-chak",
-      "name": "Urs of Bhagat Kanwar Ram at Sant Bhagat Kanwar Ram Temple (Chak)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sant-bhagat-kanwar-ram-temple-chak",
+      "name": "Annual commemoration at Sant Bhagat Kanwar Ram Temple (Chak)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sant-bhagat-kanwar-ram-temple-chak"
       },
@@ -5068,8 +4624,8 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sant-satram-dham-raharki-sacho-satram-devri-sahib",
-      "name": "Urs of Satguru Swami Sai Satramdas Sahib at Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sant-satram-dham-raharki-sacho-satram-devri-sahib",
+      "name": "Annual birth-anniversary celebrations at Sant Satram Dham, Raharki (Sacho Satram / Devri Sahib)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sant-satram-dham-raharki-sacho-satram-devri-sahib"
       },
@@ -5086,17 +4642,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sevapanthi-darbar-bhai-gurdas-gandava",
-      "name": "Urs of Bhai Gurdas; veneration of Guru Nanak at Sevapanthi Darbar (Bhai Gurdas), Gandava",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-sevapanthi-darbar-bhai-gurdas-gandava",
+      "name": "No regular events documented at Sevapanthi Darbar (Bhai Gurdas), Gandava",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sevapanthi-darbar-bhai-gurdas-gandava"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-gurdas-veneration-of-guru-nanak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5140,17 +4692,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shahwala-teja-singh-mandir",
-      "name": "Urs of Shiva at Shahwala Teja Singh Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shahwala-teja-singh-mandir",
+      "name": "Maha Shivratri at Shahwala Teja Singh Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shahwala-teja-singh-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5165,24 +4713,6 @@
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shams-ali-qalandar"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-sharada-peeth",
-      "name": "Urs of Goddess Sharada at Sharada Peeth",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/sharada-peeth"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/goddess-sharada"
       },
       "eventSchedule": {
         "@type": "Schedule",
@@ -5212,17 +4742,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shiv-mandir-chiti-ghati",
-      "name": "Urs of Shiva at Shiv Mandir Chiti Ghati",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shiv-mandir-chiti-ghati",
+      "name": "Maha Shivratri at Shiv Mandir Chiti Ghati",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shiv-mandir-chiti-ghati"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5230,17 +4756,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shree-ratneshwar-mahadev-temple-karachi",
-      "name": "Urs of Shiva at Shree Ratneshwar Mahadev Temple, Karachi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shree-ratneshwar-mahadev-temple-karachi",
+      "name": "Maha Shivratri at Shree Ratneshwar Mahadev Temple, Karachi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shree-ratneshwar-mahadev-temple-karachi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5248,17 +4770,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shri-laxmi-narayan-mandir-native-jetty-bridge",
-      "name": "Urs of Lakshmi-Narayan at Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shri-laxmi-narayan-mandir-native-jetty-bridge",
+      "name": "Ganesh Chaturthi at Shri Laxmi Narayan Mandir (Native Jetty Bridge)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-laxmi-narayan-mandir-native-jetty-bridge"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lakshmi-narayan"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5266,17 +4784,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shri-panchmukhi-hanuman-mandir-karachi",
-      "name": "Urs of Lord Hanuman at Shri Panchmukhi Hanuman Mandir (Karachi)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shri-panchmukhi-hanuman-mandir-karachi",
+      "name": "Hanuman Jayanti at Shri Panchmukhi Hanuman Mandir (Karachi)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-panchmukhi-hanuman-mandir-karachi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/lord-hanuman"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5284,17 +4798,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shri-swaminarayan-mandir-karachi",
-      "name": "Urs of Bhagwan Swaminarayan at Shri Swaminarayan Mandir, Karachi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shri-swaminarayan-mandir-karachi",
+      "name": "Janmashtami at Shri Swaminarayan Mandir, Karachi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-swaminarayan-mandir-karachi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhagwan-swaminarayan"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5302,35 +4812,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shri-varun-dev-mandir",
-      "name": "Urs of Varuna at Shri Varun Dev Mandir",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shri-varun-dev-mandir"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/varuna"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-at-odero-lal-udero-lal-teerath-asthan",
-      "name": "Urs of Sheikh Tahir at Shrine at Odero Lal (Udero Lal Teerath Asthan)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shrine-at-odero-lal-udero-lal-teerath-asthan",
+      "name": "Cheti Chand at Shrine at Odero Lal (Udero Lal Teerath Asthan)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-at-odero-lal-udero-lal-teerath-asthan"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-tahir"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5375,17 +4863,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-akhund-darweza-baba",
-      "name": "Urs of Akhund Darweza Baba at Shrine of Akhund Darweza Baba",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shrine-of-akhund-darweza-baba",
+      "name": "Pilgrimage to the tomb at Shrine of Akhund Darweza Baba",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-akhund-darweza-baba"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/akhund-darweza-baba"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5840,10 +5324,6 @@
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-chhatal-shah-noorani"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -5851,17 +5331,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
-      "name": "Urs of Pir Lakha at Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-shrine-of-pir-lakha-aab-e-shifa-jhal-magsi",
+      "name": "Year-round pilgrimage at Shrine of Pir Lakha (Aab-e-Shifa), Jhal Magsi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/shrine-of-pir-lakha-aab-e-shifa-jhal-magsi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-lakha"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -6086,17 +5562,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-swami-dharmdas-darbar-larkana-kennedy-market",
-      "name": "Urs of Swami Dharmdas at Swami Dharmdas Darbar, Larkana (Kennedy Market)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-swami-dharmdas-darbar-larkana-kennedy-market",
+      "name": "No events documented at Swami Dharmdas Darbar, Larkana (Kennedy Market)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/swami-dharmdas-darbar-larkana-kennedy-market"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/swami-dharmdas"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -6104,35 +5576,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-tilla-jogian",
-      "name": "Urs of Guru Gorakhnath at Tilla Jogian",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tilla-jogian"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-gorakhnath"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-tomb-of-allama-iqbal-mazar-e-iqbal",
-      "name": "Urs of Allama Muhammad Iqbal at Tomb of Allama Iqbal (Mazar-e-Iqbal)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-tomb-of-allama-iqbal-mazar-e-iqbal",
+      "name": "Iqbal Day at Tomb of Allama Iqbal (Mazar-e-Iqbal)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-allama-iqbal-mazar-e-iqbal"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/allama-muhammad-iqbal"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -6176,53 +5626,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-tomb-of-qutbuddin-aibak",
-      "name": "Urs of Sultan Qutb ud-Din Aibak at Tomb of Qutbuddin Aibak",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-qutbuddin-aibak"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sultan-qutb-ud-din-aibak"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-tomb-of-ustad-nuriya",
-      "name": "Urs of Ustad Nuriya at Tomb of Ustad Nuriya",
-      "location": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/tomb-of-ustad-nuriya"
-      },
-      "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/ustad-nuriya"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
-      }
-    },
-    {
-      "@type": [
-        "Event",
-        "UrsEvent"
-      ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-umarkot-amarkot-shiv-mandir",
-      "name": "Urs of Shiva at Umarkot (Amarkot) Shiv Mandir",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-umarkot-amarkot-shiv-mandir",
+      "name": "Maha Shivratri at Umarkot (Amarkot) Shiv Mandir",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/umarkot-amarkot-shiv-mandir"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shiva"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -6230,17 +5640,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-valmik-mandir-naqi-road",
-      "name": "Urs of Bhagwan Valmik at Valmik Mandir (Naqi Road)",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-valmik-mandir-naqi-road",
+      "name": "Holi at Valmik Mandir (Naqi Road)",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/valmik-mandir-naqi-road"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhagwan-valmik"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
@@ -6248,17 +5654,13 @@
         "Event",
         "UrsEvent"
       ],
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-      "name": "Urs of Valmiki at Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
+      "name": "Diwali at Valmiki Swamiji Mandir (Gracy Lines), Rawalpindi",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/valmiki-swamiji-mandir-gracy-lines-rawalpindi"
       },
       "about": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/valmiki"
-      },
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y"
       }
     },
     {
