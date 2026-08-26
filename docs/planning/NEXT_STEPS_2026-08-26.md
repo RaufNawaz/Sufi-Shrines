@@ -175,6 +175,74 @@ Done when: filters narrow the list, the URL round-trips them, an e2e spec covers
 filter in both languages, verify + relevant e2e green.
 > Status: open.
 
+### A7 — The figure-image batch: agents find candidate pictures for the order pages
+
+**Gap:** the order pages' member lists (and the saint pages behind them) are text-only.
+The archive's photo pipeline covers *shrines*; no figure has an image. Openly licensed
+historical material exists for many of these figures — portraits in manuscript
+collections, calligraphic panels, Company-school paintings, old lithographs — and finding
+it is exactly the kind of parallel research work a fan-out of agents does well.
+
+**This task produces candidates for the editor, not published images.** An image's
+*identification* ("this depicts Baba Farid") is content under RULE 2: it must come from
+the source, quoted, never from the agent's own judgement of a likeness. And imagery of
+religious figures is tradition-sensitive — what is publishable differs across the
+traditions this archive covers — so nothing ships without the Lane B review (item 5).
+
+**Do:**
+1. Build the target list from the graph: every member figure on the five order pages
+   (`belongs_to_order`, deduped across orders, lineage-only figures included — they have
+   pages too). ~50–60 figures.
+2. **Check network access first.** This batch needs `WebSearch`/`WebFetch`. If external
+   hosts are blocked in the running environment (the HANDOVER §9.53 situation), stop and
+   record that here rather than burning a session — this task is environment-gated.
+3. Fan out research agents — one per order is the natural split (five agents; split a
+   large order in two rather than raising the per-agent load). Each agent, per figure,
+   searches **openly licensed or public-domain collections only**: Wikimedia Commons
+   first; then archive.org, museum open-access programs (V&A, Met, British Library
+   releases), HathiTrust public domain. General image search may *locate* an item, but
+   the candidate recorded must be the item on its licensed source page.
+4. Each candidate row records: figure slug · image URL · source page URL · collection ·
+   author/creator (as the source states) · **license, exactly as stated** · date/period
+   the source gives · the source's own caption or title, **quoted verbatim** (this is the
+   identification evidence) · image type (portrait / calligraphy / manuscript folio /
+   shrine art) · agent's one-line note, clearly marked as a note.
+5. Output: `pipeline/figure_image_candidates.tsv` (one row per candidate, the
+   `photo_manifest.tsv` precedent; keep every field single-line), and the image files
+   themselves under `media-source/figures/<figure-slug>/` (gitignored but kept — the
+   iCloud-backed convention). Zero, one, or several candidates per figure are all fine;
+   **an empty result is recorded as a row saying so**, so the next session doesn't
+   re-search it.
+
+**Hard rules for the agents (put these in every agent's prompt verbatim):**
+- No AI-generated or AI-upscaled imagery, no modern devotional posters of uncertain
+  authorship, nothing whose license the source page does not state.
+- Never record an image as depicting a figure unless the source itself names the figure;
+  a "possibly," "attributed," or lookalike goes in as `identification: uncertain` with
+  the source's wording, or not at all.
+- For figures whose `figureType` is Deity, Sikh Guru, or anything outside 'Sufi saint':
+  collect, but tag the row `tradition-review: required` — imagery norms are an editorial
+  decision, not an agent's.
+- No image of the Prophet or his family in figural form, under any license.
+
+Done when: the manifest is committed with every target figure accounted for (candidates
+or an explicit empty row), the downloads sit in `media-source/figures/`, and a summary
+(counts per order, per license, per `tradition-review` flag) is appended here and to
+`docs/HANDOVER.md` §9.
+> Status: open. Blocked-by: network access from the executing environment.
+
+### A8 — Wire approved figure images into the order and saint pages
+
+**Conditioned on Lane B item 5** — do not start before the editor has marked approvals in
+the manifest. Approved images move to `public/photos/figures/<figure-slug>/` (RMS pixel
+comparison before any copy — filenames lie, per RULE 4), get a `figure_images` manifest
+the build validates (license + attribution required fields, build fails loudly if
+missing), and render: a small portrait on the order page's member row and on the saint
+page masthead, each with the credit + license line (`photoCredit` idiom), proper `alt`
+text built from the source's own caption, and graceful absence for the many figures that
+will rightly have no image. Bilingual, both themes, a11y-checked.
+> Status: open. Blocked-by: A7, then Lane B item 5.
+
 ---
 
 ## 3. Lane A′ — feature improvements, after (or interleaved with) the above
@@ -236,13 +304,21 @@ Nothing here is agent-executable; each names what it waits for.
 4. **Media** — Mauj Darya Bukhari re-shoot, Data Darbar / Bibi Pak Daman re-shoots,
    the zero-audio gap. Waits on the surveyor (message drafted:
    `docs/message_to_saifullah_2026-08-16.md`).
+5. **Figure-image approvals** (created by A7) — per-candidate accept/reject in
+   `pipeline/figure_image_candidates.tsv` (an `approved` column the editor fills), plus
+   the tradition-sensitivity ruling for every row A7 tagged `tradition-review: required`.
+   Nothing from A7 renders anywhere until this happens; A8 is the wiring that waits
+   on it.
 
 ---
 
 ## 5. Explicitly out of scope for this phase
 
 - New content authoring (order histories, saint biographies beyond what the sheet/KG
-  hold) — that is editorial work, not display work.
+  hold) — that is editorial work, not display work. (A7 is not an exception: it gathers
+  *candidates with quoted provenance* for the editor; the publishing decision stays
+  in Lane B.)
+- AI-generated imagery of any figure, in any role, including as a placeholder.
 - `/source/:slug` as a route (see A5), N3 field-kit PWA, N5 adopt-a-shrine — blue-sky
   items stay in `PROJECT_VISION.md`.
 - Anything that writes to the Google Sheet (RULE 3) or deploys (Session-start rule).
