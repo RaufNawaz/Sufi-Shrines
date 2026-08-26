@@ -63,6 +63,9 @@ const UNSTYLED_BY_DESIGN: Record<string, string> = {
     'scope hook — the section is styled through .kg-section; ' +
     '.figure-provenance-row/-source/-label carry the rest',
   coords: 'semantic marker read by e2e/urdu-no-leak.spec.ts, not a visual class',
+  'archive-search-results':
+    'scope hook — the list is styled through .palette-results; this names the ' +
+    'archive-wide variant for .archive-search-group and the kind-dots',
 };
 
 function walk(dir: string, out: string[] = []): string[] {

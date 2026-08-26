@@ -963,6 +963,91 @@ writeFileSync(
   'utf8',
 );
 
+// ── the search index for the whole archive ───────────────────────────────────
+/*
+ * Names and aliases only, for every figure and order, so search can reach them
+ * from any route.
+ *
+ * The archive had a search field on exactly one of its thirteen routes — inside
+ * the map's sidebar — and it searched shrines. A reader on a saint's page who
+ * wanted a different saint had to go back to the map, and ⌘K, which the sidebar
+ * advertises, did nothing anywhere else.
+ *
+ * Making search global cannot mean shipping the graph: `src/lib/kg.ts` imports
+ * kg.json statically, and 416 KB on every route to find a name is the thing
+ * `kg-shrine-figures.json` above exists to avoid. So the same trick, one field
+ * wider — the strings a person would actually type, and the slug to go to. It
+ * is a dynamic import, fetched the first time the palette opens, so a reader who
+ * never searches pays nothing.
+ *
+ * Titles are indexed beside alt-names deliberately: "Data Ganj Bakhsh" is an
+ * honorific, not a name, and it is what most people know him by. A search that
+ * cannot find him by it is not a search of this archive.
+ */
+{
+  const orderOf = new Map();
+  for (const relation of relations) {
+    if (relation.type !== 'belongs_to_order') continue;
+    const saintSlug = relation.subject.replace(/^saint:/, '');
+    const orderSlug = relation.object.replace(/^order:/, '');
+    if (!orderOf.has(saintSlug)) orderOf.set(saintSlug, orderSlug);
+  }
+  const orderName = new Map(orders.map((o) => [o.slug, o.name]));
+
+  /** Alt-names and honorifics, deduped against the name itself — a title that
+   *  repeats the name adds a row to every reader's download and nothing to the
+   *  match. */
+  const aliases = (entity, extra = []) => {
+    const seen = new Set([entity.name.toLowerCase()]);
+    const out = [];
+    for (const value of [...(entity.altNames ?? []), ...extra]) {
+      const key = String(value).trim().toLowerCase();
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      out.push(String(value).trim());
+    }
+    return out;
+  };
+
+  const index = [
+    ...saints.map((saint) => ({
+      type: 'figure',
+      slug: saint.slug,
+      name: saint.name,
+      ...(saint.nameUr ? { nameUr: saint.nameUr } : {}),
+      ...(aliases(saint, saint.titles ?? []).length
+        ? { aka: aliases(saint, saint.titles ?? []) }
+        : {}),
+      ...(orderOf.has(saint.slug) && orderName.has(orderOf.get(saint.slug))
+        ? { note: orderName.get(orderOf.get(saint.slug)) }
+        : {}),
+      /* A figure who exists only as a link in someone else's lineage. They have
+         a page and belong in search; they are not archive entries, and the row
+         says so rather than implying an entry that is not there. */
+      ...(saint.lineageOnly ? { lineageOnly: true } : {}),
+    })),
+    ...orders.map((order) => ({
+      type: 'order',
+      slug: order.slug,
+      name: order.name,
+      ...(order.nameUr ? { nameUr: order.nameUr } : {}),
+      ...(aliases(order, order.arabicName ? [order.arabicName] : []).length
+        ? { aka: aliases(order, order.arabicName ? [order.arabicName] : []) }
+        : {}),
+    })),
+  ].sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
+
+  writeFileSync(
+    join(ROOT, 'data', 'kg-search-index.json'),
+    JSON.stringify(index) + '\n',
+    'utf8',
+  );
+  console.log(
+    `[kg] \u2713 data/kg-search-index.json written (${index.length} entities, ` +
+      `${Math.round(JSON.stringify(index).length / 1024)} KB)`,
+  );
+}
+
 // ── summary ───────────────────────────────────────────────────────────────────
 
 console.log(`[kg] ✓ saints: ${stats.saints}  orders: ${stats.orders}  places: ${stats.places}  events: ${stats.events}`);

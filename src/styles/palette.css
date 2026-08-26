@@ -434,6 +434,48 @@
   background: var(--color-cat-secular);
 }
 
+/* ── The archive-wide palette (ArchiveSearch) ─────────────────────────────────
+ *
+ * Same classes as the map's palette on purpose — it is the same act. The two
+ * additions are its own: group headings, because this one returns four kinds of
+ * thing where the map's returns one; and kind-dots for the rows that have no
+ * tradition to colour them by. */
+
+/* The heading is chrome, not a result: `.palette-status` typography, aligned to
+   the rows' inline padding, with space above to separate one group from the
+   last — except the first, whose gap the list's own padding already provides. */
+.archive-search-group {
+  padding: var(--space-4) var(--space-3) var(--space-1);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.archive-search-group:first-child {
+  padding-block-start: var(--space-2);
+}
+
+[dir='rtl'] .archive-search-group {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Figure and order take the graph page's colours (.network-node--saint/--order
+   in kg.css): one entity, one colour, wherever it appears. Shrine rows keep
+   their tradition's tone from `.palette-result-dot--…`, and a place stays on
+   the default marker colour — places have no colour of their own anywhere in
+   the archive, and this list is not the place to invent one. */
+.archive-search-dot--figure {
+  background: var(--color-accent);
+}
+
+.archive-search-dot--order {
+  background: var(--color-primary);
+}
+
 .palette-empty {
   margin: 0;
   padding: var(--space-8) var(--space-4);
