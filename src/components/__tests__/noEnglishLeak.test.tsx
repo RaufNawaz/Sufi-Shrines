@@ -100,8 +100,6 @@ describe('no English leaks in ?lang=ur', () => {
         onVerifiedOnlyChange={noop}
         activeRegion=""
         onRegionChange={noop}
-        activeSaint=""
-        onSaintChange={noop}
         eraMin={5}
         eraMax={21}
         onEraChange={noop}

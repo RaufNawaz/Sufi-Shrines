@@ -5,29 +5,28 @@ import { test, expect, setTraditionalDirectory } from './fixtures';
  * No filter chip may be wider than the panel it sits in.
  *
  * `.filter-chips`'s own comment described its contents as "short, fixed option
- * sets (a handful of pills per group)". True of categories and regions. The
- * saint facet is 147 chips built from the `Sufi Saint` column, and several of
- * those values are qualified names running past a hundred characters — real,
- * deliberate content, and the join key that matches rows, so it cannot be
- * shortened at the source.
- *
- * With `white-space: nowrap` and `flex-shrink: 0` that produced a single
- * unbreakable pill 1163px wide inside a 380px sidebar; the saint row's
- * scrollWidth was 1179 against a clientWidth of 379. Measured, not guessed —
- * and measurable, which is why this is a test rather than a note.
+ * sets (a handful of pills per group)". The case that disproved it was the
+ * saint facet — 147 chips from the `Sufi Saint` column, several of them
+ * qualified names past a hundred characters, one pill 1163px wide inside a
+ * 380px sidebar. That facet was removed on 26 August 2026 (search covers the
+ * need), but the clamp it forced onto `.filter-chip` still guards every
+ * remaining row: region names and the saved-list chips are unbounded content
+ * too, just less spectacularly.
  */
 
 /**
- * Reveal every facet, and *assert* the saint one is there.
+ * Reveal every facet, and *assert* the hidden group actually opened.
  *
  * The first draft of this spec clicked a list of plausible disclosure selectors
  * and tolerated failures. None of them matched — the control is
- * `.more-filters-toggle` — so the saint facet never entered the DOM, and the
- * spec passed having measured only the seven category chips. It stayed green
- * with the clamp deleted, which is how I found out.
+ * `.more-filters-toggle` — so the collapsed facets never entered the DOM, and
+ * the spec passed having measured only the seven category chips. It stayed
+ * green with the clamp deleted, which is how I found out.
  *
  * A test that can silently skip the thing it checks is worse than no test: it
- * reports a safety it never established. Hence the assertions below.
+ * reports a safety it never established. Hence the assertion below — the
+ * provenance group renders only inside the expanded disclosure, so its
+ * presence proves the hidden facets are in the DOM.
  */
 async function openAllFacets(page: Page) {
   await expect(page.locator('.shrine-dot').first()).toBeVisible();
@@ -39,12 +38,10 @@ async function openAllFacets(page: Page) {
   await expect(moreFilters, 'the more-filters disclosure has moved').toHaveCount(1);
   if ((await moreFilters.getAttribute('aria-expanded')) !== 'true') await moreFilters.click();
 
-  // The saint facet is the wide one. Without it this spec proves nothing.
-  await expect
-    .poll(() => page.locator('.filter-chip').count(), {
-      message: 'the saint facet never appeared, so nothing wide was measured',
-    })
-    .toBeGreaterThan(100);
+  await expect(
+    page.locator('[aria-label="Filter by provenance"]'),
+    'the disclosure never opened, so the hidden facets were not measured',
+  ).toHaveCount(1);
 }
 
 test.describe('filter chips fit their panel', () => {

@@ -60,8 +60,6 @@ interface Props {
   sharedSlugs: string[];
   activeRegion: string;
   onRegionChange: (region: string) => void;
-  activeSaint: string;
-  onSaintChange: (saint: string) => void;
   eraMin: number;
   eraMax: number;
   onEraChange: (range: [number, number]) => void;
@@ -97,8 +95,6 @@ export function MapSidebar({
   sharedSlugs,
   activeRegion,
   onRegionChange,
-  activeSaint,
-  onSaintChange,
   eraMin,
   eraMax,
   onEraChange,
@@ -133,18 +129,12 @@ export function MapSidebar({
 
   const hasEraFilter = eraMin !== ERA_MIN || eraMax !== ERA_MAX;
   const hasActiveFilter = Boolean(
-    activeCategories.length ||
-    activeRegion ||
-    activeSaint ||
-    hasEraFilter ||
-    verifiedOnly ||
-    savedOnly,
+    activeCategories.length || activeRegion || hasEraFilter || verifiedOnly || savedOnly,
   );
-  const hasMoreFiltersActive = Boolean(activeSaint || hasEraFilter || verifiedOnly || savedOnly);
+  const hasMoreFiltersActive = Boolean(hasEraFilter || verifiedOnly || savedOnly);
   const activeFilterCount =
     activeCategories.length +
     (activeRegion ? 1 : 0) +
-    (activeSaint ? 1 : 0) +
     (hasEraFilter ? 1 : 0) +
     (verifiedOnly ? 1 : 0) +
     (savedOnly ? 1 : 0);
@@ -237,7 +227,6 @@ export function MapSidebar({
     // narrowing never silently drops entries from the printed list)
     if (sharedSlugs.length) result = result.filter((s) => sharedSlugs.includes(s.slug));
     if (activeRegion) result = result.filter((s) => s.region === activeRegion);
-    if (activeSaint) result = result.filter((s) => s.sufiSaint === activeSaint);
     if (hasEraFilter) {
       result = result.filter((s) => {
         if (!s.founded) return false;
@@ -279,7 +268,6 @@ export function MapSidebar({
     savedSlugs,
     sharedSlugs,
     activeRegion,
-    activeSaint,
     search,
     searchIds,
     localizeName,
@@ -318,9 +306,8 @@ export function MapSidebar({
     onCategoriesChange([]);
     onVerifiedOnlyChange(false);
     onRegionChange('');
-    onSaintChange('');
     onEraChange([ERA_MIN, ERA_MAX]);
-  }, [onCategoriesChange, onVerifiedOnlyChange, onRegionChange, onSaintChange, onEraChange]);
+  }, [onCategoriesChange, onVerifiedOnlyChange, onRegionChange, onEraChange]);
 
   const chooseDirectoryMode = useCallback((mode: DirectoryMode) => {
     setDirectoryMode(mode);
@@ -662,8 +649,6 @@ export function MapSidebar({
             onVerifiedOnlyChange={onVerifiedOnlyChange}
             activeRegion={activeRegion}
             onRegionChange={onRegionChange}
-            activeSaint={activeSaint}
-            onSaintChange={onSaintChange}
             eraMin={eraMin}
             eraMax={eraMax}
             onEraChange={onEraChange}
@@ -902,8 +887,6 @@ export function MapSidebar({
           onVerifiedOnlyChange,
           activeRegion,
           onRegionChange,
-          activeSaint,
-          onSaintChange,
           eraMin,
           eraMax,
           onEraChange,

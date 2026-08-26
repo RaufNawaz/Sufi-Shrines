@@ -300,7 +300,6 @@ const UI_TEXT_EN = {
   ariaClearSearch: 'Clear search',
   ariaFilterByCategory: 'Filter by category',
   ariaFilterByRegion: 'Filter by region',
-  ariaFilterBySaint: 'Filter by Sufi saint',
   ariaFilterByProvenance: 'Filter by provenance',
   ariaReadingProgress: 'Reading progress',
   ariaPreviousImage: 'Previous image',
@@ -489,9 +488,11 @@ const UI_TEXT_EN = {
   filterByRegion: 'Region',
   filterByTheme: 'Theme',
   filterByEra: 'Era',
-  saintLabel: 'Saint',
   categoryLabel: 'Category',
   locationLabel: 'Location',
+  /* Labels the Sufi Saint field in the infobox (fieldLabels.ts) — no longer a
+     filter: the saint chip list was removed from the sidebar 26 August 2026. */
+  saintLabel: 'Saint',
   districtLabel: 'District',
   provinceLabel: 'Province',
   cityLabel: 'City',

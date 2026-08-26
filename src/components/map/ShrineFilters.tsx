@@ -30,12 +30,10 @@ export interface ShrineFiltersProps {
   onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
   activeRegion: string;
   onRegionChange: (region: string) => void;
-  activeSaint: string;
-  onSaintChange: (saint: string) => void;
   eraMin: number;
   eraMax: number;
   onEraChange: (range: [number, number]) => void;
-  /** Whether the saint/era/provenance group is open. Lifted, so the palette and
+  /** Whether the saved/era/provenance group is open. Lifted, so the palette and
    *  the sidebar each remember their own disclosure without fighting. */
   filtersExpanded: boolean;
   onFiltersExpandedChange: (expanded: boolean) => void;
@@ -59,8 +57,6 @@ export function ShrineFilters({
   onVerifiedOnlyChange,
   activeRegion,
   onRegionChange,
-  activeSaint,
-  onSaintChange,
   eraMin,
   eraMax,
   onEraChange,
@@ -73,7 +69,7 @@ export function ShrineFilters({
   listLinkCopied = false,
   onShareList,
 }: ShrineFiltersProps) {
-  const { lang, t, localizeField, fmtNum } = useLang();
+  const { lang, t, fmtNum } = useLang();
 
   const categories = useMemo(() => {
     const present = new Set(shrines.map((s) => categoryKey(s.category)));
@@ -83,11 +79,6 @@ export function ShrineFilters({
   const regions = useMemo(() => {
     const regs = new Set(shrines.map((s) => s.region).filter(Boolean));
     return Array.from(regs).sort();
-  }, [shrines]);
-
-  const saints = useMemo(() => {
-    const saintSet = new Set(shrines.map((s) => s.sufiSaint).filter(Boolean));
-    return Array.from(saintSet).sort();
   }, [shrines]);
 
   // Additive toggle — selecting chips accumulates categories (kept in
@@ -162,8 +153,12 @@ export function ShrineFilters({
         </div>
       )}
 
-      {/* More filters disclosure: saint + era, collapsed by default so
-          category chips and the shrine list get more default room. */}
+      {/* More filters disclosure: saved list + era + provenance, collapsed by
+          default so category chips and the shrine list get more default room.
+          (A saint chip list lived here until 26 August 2026 — one chip per
+          distinct sufiSaint value, over a hundred of them — and was removed:
+          a reader looking for one saint has search, and the sidebar has the
+          figure pages.) */}
       <div className="filter-section">
         <button
           type="button"
@@ -194,67 +189,10 @@ export function ShrineFilters({
 
       {filtersExpanded && (
         <>
-          {/* Saint chips */}
-          {saints.length > 1 && (
-            <div className="filter-section">
-              <span className="filter-section-label" aria-hidden="true">
-                {t('saintLabel')}
-              </span>
-              <div className="filter-chips" role="group" aria-label={t('ariaFilterBySaint')}>
-                <button
-                  className={`filter-chip${!activeSaint ? ' active' : ''}`}
-                  onClick={() => onSaintChange('')}
-                  aria-pressed={!activeSaint}
-                >
-                  {t('filterAll')}
-                </button>
-                {saints.map((saint) => {
-                  const label =
-                    localizeField(shrines.find((s) => s.sufiSaint === saint)!.raw, 'Sufi Saint') ||
-                    saint;
-                  return (
-                    <button
-                      key={saint}
-                      className={`filter-chip${activeSaint === saint ? ' active' : ''}`}
-                      onClick={() => onSaintChange(activeSaint === saint ? '' : saint)}
-                      aria-pressed={activeSaint === saint}
-                      /* Several of these values are qualified names running
-                         past 100 characters — real content, and the join key
-                         that matches rows, so the chip clamps its display and
-                         keeps the whole string here instead. */
-                      title={label}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Time-slider by founding era */}
-          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
-
-          {/* Provenance (support_level) — show only field-verified sites.
-              Describes how the info was gathered, never a site's importance. */}
-          <div className="filter-section">
-            <span className="filter-section-label" aria-hidden="true">
-              {t('provenanceFilterLabel')}
-            </span>
-            <div className="filter-chips" role="group" aria-label={t('ariaFilterByProvenance')}>
-              <button
-                className={`filter-chip${verifiedOnly ? ' active' : ''}`}
-                onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
-                aria-pressed={verifiedOnly}
-                title={t('supportLevelTooltip')}
-              >
-                {t('verifiedOnlyFilter')}
-              </button>
-            </div>
-          </div>
-
-          {/* The reader's own ziyarat list — hidden while empty: a filter that
-              can only produce zero results is noise, not a control. */}
+          {/* The reader's own ziyarat list — first in the group: it is the one
+              filter that is *theirs*, and it should not sit below controls
+              about the data. Hidden while empty: a filter that can only
+              produce zero results is noise, not a control. */}
           {onSavedOnlyChange && savedSlugs.length > 0 && (
             <div className="filter-section">
               <span className="filter-section-label" aria-hidden="true">
@@ -287,6 +225,27 @@ export function ShrineFilters({
               </div>
             </div>
           )}
+
+          {/* Time-slider by founding era */}
+          <TimeSlider value={[eraMin, eraMax]} onChange={onEraChange} lang={lang} fmtNum={fmtNum} />
+
+          {/* Provenance (support_level) — show only field-verified sites.
+              Describes how the info was gathered, never a site's importance. */}
+          <div className="filter-section">
+            <span className="filter-section-label" aria-hidden="true">
+              {t('provenanceFilterLabel')}
+            </span>
+            <div className="filter-chips" role="group" aria-label={t('ariaFilterByProvenance')}>
+              <button
+                className={`filter-chip${verifiedOnly ? ' active' : ''}`}
+                onClick={() => onVerifiedOnlyChange(!verifiedOnly)}
+                aria-pressed={verifiedOnly}
+                title={t('supportLevelTooltip')}
+              >
+                {t('verifiedOnlyFilter')}
+              </button>
+            </div>
+          </div>
         </>
       )}
     </>

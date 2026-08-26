@@ -85,7 +85,6 @@ interface FilterState {
   verifiedOnly: boolean;
   savedOnly: boolean;
   region: string;
-  saint: string;
   eraMin: number;
   eraMax: number;
 }
@@ -112,7 +111,6 @@ function getFiltersFromURL(): FilterState {
     verifiedOnly: p.get('info') === 'verified',
     savedOnly: p.get('saved') === '1',
     region: p.get('region') || '',
-    saint: p.get('saint') || '',
     eraMin: parseInt(p.get('eraMin') || '', 10) || ERA_MIN,
     eraMax: parseInt(p.get('eraMax') || '', 10) || ERA_MAX,
   };
@@ -128,8 +126,6 @@ function setFiltersInURL(filters: FilterState): void {
   else p.delete('saved');
   if (filters.region) p.set('region', filters.region);
   else p.delete('region');
-  if (filters.saint) p.set('saint', filters.saint);
-  else p.delete('saint');
   if (filters.eraMin !== ERA_MIN) p.set('eraMin', String(filters.eraMin));
   else p.delete('eraMin');
   if (filters.eraMax !== ERA_MAX) p.set('eraMax', String(filters.eraMax));
@@ -319,10 +315,6 @@ export default function MapPage() {
     setFilters((f) => ({ ...f, region }));
   }, []);
 
-  const handleSaintChange = useCallback((saint: string) => {
-    setFilters((f) => ({ ...f, saint }));
-  }, []);
-
   const handleEraChange = useCallback((range: [number, number]) => {
     setFilters((f) => ({ ...f, eraMin: range[0], eraMax: range[1] }));
   }, []);
@@ -491,8 +483,6 @@ export default function MapPage() {
         onVerifiedOnlyChange={handleVerifiedOnlyChange}
         activeRegion={filters.region}
         onRegionChange={handleRegionChange}
-        activeSaint={filters.saint}
-        onSaintChange={handleSaintChange}
         eraMin={filters.eraMin}
         eraMax={filters.eraMax}
         onEraChange={handleEraChange}

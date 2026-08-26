@@ -48,7 +48,7 @@ test.describe('Nastaliq metrics (?lang=ur)', () => {
     await page.locator('.list-toggle-btn').click();
 
     // Provenance section is always rendered once "more filters" is expanded
-    // (unlike region/saint, which depend on the fixture having >1 value).
+    // (unlike region, which depends on the fixture having >1 value).
     await page.locator('.more-filters-toggle').click();
     const label = page.locator('.filter-section-label').first();
     await expect(label).toBeVisible();

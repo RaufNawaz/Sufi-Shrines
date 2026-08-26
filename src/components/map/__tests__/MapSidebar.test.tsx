@@ -52,8 +52,6 @@ function renderSidebar(
       onVerifiedOnlyChange={noop}
       activeRegion=""
       onRegionChange={noop}
-      activeSaint=""
-      onSaintChange={noop}
       eraMin={5}
       eraMax={21}
       onEraChange={noop}
@@ -154,21 +152,21 @@ function openPalette() {
 }
 
 describe('MapSidebar — More filters disclosure', () => {
-  it('hides saint chips and the era slider by default, revealing them via the toggle', () => {
+  it('hides the era slider and provenance chips by default, revealing them via the toggle', () => {
     renderSidebar();
     openFilters();
 
     expect(document.querySelector('.time-slider')).not.toBeInTheDocument();
-    expect(document.querySelector('[aria-label="Filter by Sufi saint"]')).not.toBeInTheDocument();
+    expect(document.querySelector('[aria-label="Filter by provenance"]')).not.toBeInTheDocument();
 
     fireEvent.click(document.querySelector('.more-filters-toggle')!);
 
     expect(document.querySelector('.time-slider')).toBeInTheDocument();
-    expect(document.querySelector('[aria-label="Filter by Sufi saint"]')).toBeInTheDocument();
+    expect(document.querySelector('[aria-label="Filter by provenance"]')).toBeInTheDocument();
   });
 
-  it('shows the active-filter dot on the collapsed toggle when a saint filter is set', () => {
-    renderSidebar({ activeSaint: 'Saint One' });
+  it('shows the active-filter dot on the collapsed toggle when a hidden filter is set', () => {
+    renderSidebar({ verifiedOnly: true });
     openFilters();
 
     const toggle = document.querySelector('.more-filters-toggle')!;
@@ -177,7 +175,7 @@ describe('MapSidebar — More filters disclosure', () => {
     expect(document.querySelector('.time-slider')).not.toBeInTheDocument();
   });
 
-  it('shows no active-filter dot on the toggle when neither saint nor era is set', () => {
+  it('shows no active-filter dot on the toggle when no hidden filter is set', () => {
     renderSidebar();
     openFilters();
 
