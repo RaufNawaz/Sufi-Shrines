@@ -72,7 +72,8 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | [`planning/TODO.md`](planning/TODO.md)                                         | Live working checklist for the dataset and app                                    |
 | [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |
-| [`planning/NEXT_STEPS_2026-08-21.md`](planning/NEXT_STEPS_2026-08-21.md)       | **Current working plan**: three-lane next steps + refreshed blue-sky line (supersedes older sequencing sections) |
+| [`planning/NEXT_STEPS_2026-08-26.md`](planning/NEXT_STEPS_2026-08-26.md)       | **Current working plan**: display-enrichment phase (order/place/almanac surfaces from data the KG already holds) + feature polish, specced for a cheaper model |
+| [`planning/NEXT_STEPS_2026-08-21.md`](planning/NEXT_STEPS_2026-08-21.md)       | Previous working plan (Lane A closed same day); record of what was done and why |
 | [`planning/REVIEW_DESK_2026-08-24.md`](planning/REVIEW_DESK_2026-08-24.md) | The review desk: turning the archive's 218 unreviewed claims from a number it publishes into a number it can reduce |
 | [`planning/LANGUAGE_LAYER_2026-08-24.md`](planning/LANGUAGE_LAYER_2026-08-24.md) | **The next phase.** Why N4's type-level refactor and the 42 KB of eager Urdu interface copy are one job, and the four-phase order that keeps the build green at every step. |
 | [`planning/PROJECT_VISION.md`](planning/PROJECT_VISION.md)                     | Blue-sky roadmap (Track 0 = Urdu parity; Tracks 1–8 = the future)                 |
