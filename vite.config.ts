@@ -18,6 +18,16 @@ export default defineConfig(({ command }) => {
 
   return {
     base,
+    // The dev server is the project's review surface (CLAUDE.md, "Session
+    // start"), and the review link must be the same every session:
+    // http://localhost:5173. `strictPort` so a taken port fails loudly here
+    // instead of Vite silently moving to 5174 — a reviewer's bookmark that
+    // sometimes shows a different session's build is worse than an error.
+    // If it fails, a server is already up on 5173: reuse it.
+    server: {
+      port: 5173,
+      strictPort: true,
+    },
     test: {
       environment: 'jsdom',
       globals: true,

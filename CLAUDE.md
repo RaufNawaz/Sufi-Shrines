@@ -306,6 +306,30 @@ Front-end source layout, for orientation:
 
 ---
 
+## Session start — the dev server is the review surface
+
+**We do not review work on the live site.** (Decided 26 August 2026.) At the start of each
+session, make sure the local dev server is running, and keep it running for testing and review
+throughout — the reviewer looks at **http://localhost:5173** and that link must be the same
+every session (`vite.config.ts` pins `port: 5173, strictPort: true`, so a taken port fails
+loudly instead of Vite silently drifting to 5174).
+
+```bash
+curl -sf -o /dev/null http://localhost:5173/ && echo "already running — reuse it" \
+  || nohup npm run dev > /tmp/shrines-dev.log 2>&1 &
+```
+
+- **Check before starting**: another agent or an earlier session may already have one up (see
+  the parallel-agents note in the memory), and one server on the pinned port is the point.
+  If `strictPort` fails, that is what happened — reuse the running one.
+- Review and demonstrate changes against this server (Playwright driving it included), not
+  against GitHub Pages. Deploys happen only when explicitly requested.
+- Dev-only quirk to not chase: the *first-ever* open of the search palette in a fresh dev
+  server reloads the page once — Vite discovering `minisearch`, not an app bug
+  (HANDOVER §9.122).
+
+---
+
 ## Commands
 
 ```bash
