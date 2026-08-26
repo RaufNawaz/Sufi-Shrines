@@ -3252,6 +3252,33 @@ both redirects.
       inside an `aria-modal` dialog; `src/hooks/__tests__/useFocusHeadingOnMount.test.tsx`
       pins it.
 
+### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
+
+The scheduled responses-sync task still describes the master sheet as 25 columns and says its
+`shrines_updated*.tsv` baseline "is kept in sync". Both stopped being true on 16 August, when
+production moved to the 44-column schema and the import lineage switched to `data/patch_*.csv`
+files. Measured 26 August: baseline `data/shrines_updated_2026-08-09.tsv` = 167 rows × 25
+columns; production sheet = 171 rows × 44 columns. The task's own stop rule ("if the two
+disagree on row count, say so and stop") fired, so no `shrines_updated_2026-08-26.tsv` was
+written — a full-file 25-column TSV would drop 19 columns and 4 rows if anyone imported it.
+Retire the `shrines_updated` lineage or regenerate the sync task against the 44-column
+snapshot. Three things fell in the gap and are documented, with the recommended patch route, in
+`docs/responses_sync_2026-08-26.md`:
+
+- **Shah Jamal, Peer Makki and Mauj Darya Bukhari were enriched from their field-survey
+  responses only in the never-imported 9 August TSV.** Production carries no
+  "Shrines Project field survey" citation on any of the three; every other surveyed shrine got
+  its survey content via the 16 August patches. The enriched rows sit intact in
+  `data/shrines_updated_2026-08-09.tsv`.
+- **Mauj Darya Bukhari's replacement photos exist and are mapped, but were never fetched.**
+  The 29 July response carries the photo uploads the re-shoot request asked for;
+  `data/new-photos-manifest.json` has held the full slug → Drive-id mapping since 10 August;
+  `public/photos/` has no `mauj-darya-bukhari/` directory. Needs a network-capable run of
+  `tools/fetch_shrine_photos.py` then `tools/swap_photo_urls.py`.
+- **The 14 July Shah Jamaal response claims "Book uploaded" but uploaded no book.** Its
+  column 21 is empty and the Drive book folder's newest upload is 29 June. One for the next
+  message to Saifullah.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

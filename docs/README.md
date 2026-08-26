@@ -117,6 +117,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | [`auqaf_records_brief.md`](auqaf_records_brief.md)             | Briefing note for the Auqaf records ask                     |
 | [`email_to_adil_data_layer.md`](email_to_adil_data_layer.md)   | Follow-up email to Adil on the data layer                   |
 | [`message_to_saifullah_2026-08-16.md`](message_to_saifullah_2026-08-16.md) | Draft message to Saifullah, 16 August 2026        |
+| [`responses_sync_2026-08-26.md`](responses_sync_2026-08-26.md) | Field-survey responses sync, 26 August 2026: why the `shrines_updated` TSV lineage stopped, and the three orphaned enrichments |
 
 ## Prompts (`prompts/`)
 
