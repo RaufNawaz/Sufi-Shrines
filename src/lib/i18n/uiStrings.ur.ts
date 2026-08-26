@@ -47,6 +47,7 @@ export const UI_TEXT_UR: UiStrings = {
   paletteHintOpen: 'کھولنے کے لیے',
   ariaOpenPalette: 'آرکائیو میں تلاش اور چھانٹ',
   paletteClose: 'تلاش بند کریں',
+  searchGroupSites: 'مقامات',
   searchPlaceholder: 'مزار تلاش کریں...',
   noMatches: 'کوئی نتیجہ نہیں ملا۔',
   uncategorized: 'غیر زمرہ بند',
@@ -386,7 +387,6 @@ export const UI_TEXT_UR: UiStrings = {
   aboutMethodUrdu:
     'اردو ایڈیشن ایک مکمل ایڈیشن ہے، ترجمے کی تہہ نہیں۔ مشینی ترجمے اُس وقت تک مسودہ شمار ہوتے ہیں جب تک کوئی اہلِ زبان اُن کی تصدیق نہ کر دے۔',
   aboutMethodGaps: 'آرکائیو جو نہیں جانتا، وہ بھی اُس کے ساتھ شائع کیا جاتا ہے جو جانتا ہے۔',
-  aboutCoverageLink: 'دیکھیں یہ آرکائیو کیا جانتا ہے',
   aboutLicenceHeading: 'لائسنس اور دوبارہ استعمال',
   aboutLicenceData: 'ڈیٹا سیٹ',
   aboutLicenceCode: 'سائٹ اور پائپ لائن کا کوڈ',
@@ -401,10 +401,8 @@ export const UI_TEXT_UR: UiStrings = {
     'تصحیحات کا خیر مقدم ہے اور اُن کا اعتراف کیا جاتا ہے۔ اگر یہاں کچھ غلط ہے — کوئی تاریخ، محلِ وقوع، سلسلہ یا نام — تو براہِ کرم بتائیں۔',
   aboutCopyDone: 'نقل ہو گیا',
   aboutCopy: 'نقل کریں',
-  coverageTitle: 'یہ آرکائیو کیا جانتا ہے',
   coverageIntro:
     'اِس صفحے کا ہر عدد شائع شدہ ڈیٹا سے شمار کیا گیا ہے، اندازہ نہیں۔ جہاں آرکائیو خاموش ہے، وہاں یہ بات بھی درج ہے۔',
-  coverageSitesHeading: 'درج مقامات',
   coverageSupportHeading: 'ہر اندراج کی بنیاد',
   coverageInfoHeading: 'ہر اندراج کی گہرائی',
   coverageTraditionHeading: 'شامل روایات',
@@ -529,7 +527,6 @@ export const UI_TEXT_UR: UiStrings = {
   typologyNotRecorded: 'تعمیری صورت درج نہیں',
   typologySiteCount: 'مقامات',
   typologySiteCountOne: 'مقام',
-  reportTitle: 'آرکائیو کا حال',
   reportIntro:
     'جو آرکائیو بھروسے کی طلب گار ہو، اُسے اپنا حساب برسرِعام دینا چاہیے۔ اِس صفحے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو صفحے نے خود لوڈ کیا — کوئی عدد ہاتھ سے نہیں لکھا گیا — اور جو شمار نہیں ہو سکتا اُس کا حوالہ پروجیکٹ کی اپنی دستاویزات میں دیا گیا ہے۔',
   reportCoverageHeading: 'احاطہ',

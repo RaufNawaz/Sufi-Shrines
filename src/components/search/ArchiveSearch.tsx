@@ -152,7 +152,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
      the keyboard walks one flat array and cannot land on a heading. */
   const headingFor = (kind: Row['kind']): string =>
     kind === 'shrine'
-      ? t('coverageSitesHeading')
+      ? t('searchGroupSites')
       : kind === 'figure'
         ? t('tabExplore')
         : kind === 'order'

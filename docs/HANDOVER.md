@@ -3234,6 +3234,24 @@ quietly inert, which reads as a broken page rather than a missing anchor.
 `e2e/about-merge.spec.ts` asserts every entry resolves to a section that exists, along with
 both redirects.
 
+122. **Search reaches all thirteen routes now, and the two ways it misbehaved in testing were
+    both something else.** *Built 26 August 2026.* `ArchiveSearchProvider` (app shell) binds
+    ⌘K and `/` everywhere except the map route, where `MapSidebar` keeps its own palette;
+    `EntityPageHeader` carries the trigger button. Figures and orders come from
+    `data/kg-search-index.json` (built by `build-kg.mjs`, fetched on first open), matched by
+    `src/lib/search/entitySearch.ts`. Two findings for whoever tests it next:
+
+    - **In dev, the very first palette open reloads the page.** Vite discovers `minisearch` as
+      a new dependency, logs "optimized dependencies changed. reloading", and the palette
+      appears to dismiss itself. One-time, dev-server-only — production bundles it. Do not
+      diagnose the overlay.
+    - **A page heading that mounts late was stealing the caret out of the open palette.**
+      `useFocusHeadingOnMount` fires when data lands and the skeleton swaps for the article, so
+      opening search in that gap lost focus mid-word — reproduced with Playwright, invisible in
+      any test that waits for load. The hook now stands down while `document.activeElement` is
+      inside an `aria-modal` dialog; `src/hooks/__tests__/useFocusHeadingOnMount.test.tsx`
+      pins it.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

@@ -1,7 +1,23 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  lazy,
+  Suspense,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArchiveSearch } from './ArchiveSearch';
+
+/* Lazy for the same reason the overlay fetches its index on mount rather than
+   import: this provider sits in the app shell, on every route, and a static
+   import here would pull the overlay, the worker hook and the matcher into the
+   entry chunk for readers who never press ⌘K. The chunk arrives on first open. */
+const ArchiveSearch = lazy(() =>
+  import('./ArchiveSearch').then((m) => ({ default: m.ArchiveSearch })),
+);
 
 /**
  * ⌘K, on the twelve routes that did not have it.
@@ -80,7 +96,14 @@ export function ArchiveSearchProvider({ children }: { children: React.ReactNode 
   return (
     <ArchiveSearchContext.Provider value={api}>
       {children}
-      {available && open && <ArchiveSearch onClose={close} />}
+      {available && open && (
+        /* No fallback: the palette animates in when its chunk lands, and a
+           spinner flashed for the ~one frame the chunk takes from cache would
+           be noise. The keys were pressed; the overlay is already coming. */
+        <Suspense fallback={null}>
+          <ArchiveSearch onClose={close} />
+        </Suspense>
+      )}
     </ArchiveSearchContext.Provider>
   );
 }

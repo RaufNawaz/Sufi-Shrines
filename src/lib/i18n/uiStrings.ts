@@ -23,6 +23,10 @@ const UI_TEXT_EN = {
   paletteHintOpen: 'to open',
   ariaOpenPalette: 'Search and filter the archive',
   paletteClose: 'Close search',
+  /* The archive-wide palette's sites group. Its own key rather than
+     `coverageSitesHeading`: "Sites documented" is a coverage claim, and a
+     search result group is not making one. */
+  searchGroupSites: 'Sites',
   searchPlaceholder: 'Search shrines…',
   noMatches: 'No matches.',
   uncategorized: 'Uncategorized',
@@ -385,7 +389,6 @@ const UI_TEXT_EN = {
   aboutMethodUrdu:
     'The Urdu edition is a first-class edition, not a translation layer. Machine-drafted translations are marked as drafts until a fluent reader signs them off.',
   aboutMethodGaps: 'What the archive does not know is published alongside what it does.',
-  aboutCoverageLink: 'See what this archive knows',
   aboutLicenceHeading: 'Licence and reuse',
   aboutLicenceData: 'Dataset',
   aboutLicenceCode: 'Site and pipeline code',
@@ -400,10 +403,8 @@ const UI_TEXT_EN = {
     'Corrections are welcome and credited. If something here is wrong — a date, a coordinate, a lineage, a name — please say so.',
   aboutCopyDone: 'Copied',
   aboutCopy: 'Copy',
-  coverageTitle: 'What this archive knows',
   coverageIntro:
     'Every figure on this page is counted from the published data, not estimated. Where the archive is silent, it says so.',
-  coverageSitesHeading: 'Sites documented',
   coverageSupportHeading: 'How each entry was established',
   coverageInfoHeading: 'Depth of each entry',
   coverageTraditionHeading: 'Traditions covered',
@@ -528,7 +529,6 @@ const UI_TEXT_EN = {
   typologyNotRecorded: 'Built form not recorded',
   typologySiteCount: 'sites',
   typologySiteCountOne: 'site',
-  reportTitle: 'State of the Archive',
   reportIntro:
     'An archive that asks to be trusted should grade itself in public. Every number on this page is computed from the dataset the page loaded — nothing is typed in by hand — and what cannot be computed is cited to the project\u2019s own working documents.',
   reportCoverageHeading: 'Coverage',

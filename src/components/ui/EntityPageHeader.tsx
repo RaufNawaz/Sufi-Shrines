@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { useArchiveSearch } from '../search/ArchiveSearchProvider';
 import { DarkModeToggle } from './DarkModeToggle';
 import { LanguageToggle } from './LanguageToggle';
 
@@ -37,6 +38,7 @@ import { LanguageToggle } from './LanguageToggle';
  */
 export function EntityPageHeader({ title }: { title?: string }) {
   const { t } = useLang();
+  const search = useArchiveSearch();
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
@@ -85,6 +87,33 @@ export function EntityPageHeader({ title }: { title?: string }) {
         </span>
       )}
       <div className="shrine-page-header-actions">
+        {/* Guarded on `available` even though every page that renders this
+            header is off the map today: the guard is what keeps two overlays
+            from ever answering the same button if that stops being true. */}
+        {search.available && (
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={search.open}
+            aria-label={t('paletteTitle')}
+            title={t('paletteTitle')}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        )}
         <DarkModeToggle />
         <LanguageToggle />
       </div>
