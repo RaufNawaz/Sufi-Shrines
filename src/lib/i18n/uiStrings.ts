@@ -108,6 +108,15 @@ const UI_TEXT_EN = {
   saintPlaceHeading: 'Where this figure rests',
   saintPlaceNote:
     'The place comes from the site’s own recorded Location, which is shown beneath it as written — including where it says what the survey did not record.',
+  /* ── Figure pages: the entry's own account of the life ─────────────────
+     Attributed, always, and as a whole sentence rather than "From" + a link:
+     where the phrase's operands sit is a fact about the language. The link's
+     text *is* the sentence, so one string per language owns its own word
+     order. */
+  saintBiographyHeading: 'The life, from the entry',
+  saintBiographyNote:
+    'Written as part of a site’s entry rather than as a life of this figure, and shown here because it is about them. Each passage keeps the heading the entry gave it and says which entry it came from.',
+  saintBiographyFrom: (entry: string) => `From the entry for ${entry}`,
   /* The absences, named. `/about` computes what the archive does not know and
      says so on the page; this is the same move at the scale of one figure. */
   saintGapsHeading: 'What the archive does not record',
@@ -829,6 +838,7 @@ export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
 export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
 export function tFn(lang: Lang, key: 'orderUrsUndatedCount', n: number): string;
+export function tFn(lang: Lang, key: 'saintBiographyFrom', entry: string): string;
 export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
@@ -906,6 +916,7 @@ export function tFn(
     | 'orderSpanOne'
     | 'lineageChainRemove'
     | 'orderUrsUndatedCount'
+    | 'saintBiographyFrom'
     | 'almanacMorePlaces'
     | 'almanacCalendarPlaced'
     | 'almanacCalendarDayCount'

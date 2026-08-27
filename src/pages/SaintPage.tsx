@@ -25,6 +25,9 @@ import { placesForShrine } from '../lib/data/places';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { readRecordedObservances } from '../lib/data/recordedObservances';
+import { biographyForFigure } from '../lib/data/figureBiography';
+import { ProseParagraphs } from '../components/shrine/ProseParagraphs';
+import { localizeProseDigits } from '../lib/i18n/numerals';
 import {
   ObservanceGapNote,
   RecordedObservanceList,
@@ -39,6 +42,7 @@ import {
   localizeShrineSlug,
 } from '../lib/i18n/localizeKgName';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { tFn } from '../lib/i18n/uiStrings';
 import { buildAlmanac } from '../lib/data/almanac';
 import { formatDateWindow } from '../lib/i18n/formatDateWindow';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
@@ -50,7 +54,7 @@ import { localizeRecordedDate } from '../lib/i18n/localizeRecordedDate';
 import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { lang, t, fmtNum } = useLang();
+  const { lang, t, fmtNum, localizeField, numerals } = useLang();
   const headingRef = useFocusHeadingOnMount();
   const { shrines } = useShrineData();
 
@@ -151,6 +155,30 @@ export default function SaintPage() {
       };
     });
   }, [slug, shrineRecords, shrineMap, lang]);
+
+  /* The entry's own account of this figure's life.
+   *
+   * 48 of the 169 entries carry an explicitly biographical section and it
+   * rendered only on the shrine page — the largest body of real biographical
+   * prose the archive holds, on the pages least likely to be read for it. The
+   * guard is in `figureBiography.ts`, where a test can hold it: an entry may
+   * speak for the figure it is about and for no one else, and a heading is a
+   * life only if the classification says so in the reader's own language.
+   *
+   * `localizeField` is what makes the Urdu view safe rather than a wall of
+   * untranslated English: it returns the Urdu Description where one exists, and
+   * where one does not it returns the English, whose Latin headings the Urdu
+   * classifier rejects — so the reader is shown nothing instead of a page they
+   * cannot read (i18n rule 7). */
+  const biographies = useMemo(() => {
+    if (!slug) return [];
+    return biographyForFigure(
+      slug,
+      shrines,
+      (shrine) => localizeField(shrine.raw, 'Description'),
+      lang,
+    );
+  }, [slug, shrines, localizeField, lang]);
 
   /* Where the figure rests. The graph has tied every one of the 169 entries to
      a place through `located_in` since the place vocabulary landed, and the
@@ -667,6 +695,42 @@ export default function SaintPage() {
                     </li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+            {/* ── The life, in the entry's own words ──────────────────────
+                Attributed to the entry it came from, visibly and by link, and
+                keeping that entry's own heading: "The Life of the Poet-Saint"
+                is the archive's wording, and flattening it to "Biography" would
+                throw away the one thing that says who wrote it and about
+                whom. */}
+            {biographies.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintBiographyHeading')}</h2>
+                <p className="kg-section-note">{t('saintBiographyNote')}</p>
+                {biographies.map((entry) => (
+                  <article key={`${entry.shrine.slug}-${entry.heading}`} className="figure-life">
+                    <h3 className="figure-life-heading">{entry.heading}</h3>
+                    {/* The whole attribution is the link's text, not "From" plus
+                        a name: where the phrase's operands sit is a fact about
+                        the language, and `noSentenceFragments.test.ts` is right
+                        to refuse the assembled version. */}
+                    <Link to={`/shrine/${entry.shrine.slug}`} className="figure-life-source">
+                      {tFn(lang, 'saintBiographyFrom', localizeShrineName(entry.shrine, lang))}
+                    </Link>
+                    <div className="figure-life-prose">
+                      {/* The same digit localization the shrine article gives
+                          this exact prose. Without it the Urdu view reads
+                          "1722" mid-Nastaliq — the one place Eastern numerals
+                          never reached, and the reason `localizeProseDigits`
+                          exists. URLs, DOIs and ISBNs keep Western digits. */}
+                      <ProseParagraphs
+                        text={entry.content}
+                        localize={(text) => localizeProseDigits(text, lang, numerals === 'eastern')}
+                      />
+                    </div>
+                  </article>
+                ))}
               </section>
             )}
 

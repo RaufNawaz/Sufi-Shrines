@@ -2062,6 +2062,77 @@
   text-transform: none;
 }
 
+/* ── A life, quoted from an entry ──────────────────────────────────────────
+   Set as a quotation rather than as the page's own prose, because it is not
+   the page's own prose: it was written as part of a site's entry, and the rule
+   down its leading edge is what says so before the attribution line does. */
+
+.figure-life {
+  padding-inline-start: var(--space-4);
+  border-inline-start: 2px solid var(--color-border);
+  margin-block-end: var(--space-5);
+}
+
+.figure-life:last-child {
+  margin-block-end: 0;
+}
+
+.figure-life-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--color-primary);
+  margin: 0 0 var(--space-1);
+}
+
+[dir='rtl'] .figure-life-heading {
+  font-family: var(--font-urdu);
+  /* Nastaliq is caseless and letter-spacing breaks its joins. */
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+.figure-life-source {
+  display: inline-block;
+  margin-block-end: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+}
+
+.figure-life-source:hover,
+.figure-life-source:focus-visible {
+  color: var(--color-primary);
+}
+
+/* An underline runs straight through the descenders of Nastaliq, so the Urdu
+   view marks the link with its own rule instead (HANDOVER §9.48). */
+[dir='rtl'] .figure-life-source {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+  text-decoration: none;
+  border-block-end: 1px solid var(--color-border);
+}
+
+.figure-life-prose p {
+  margin-block: 0 var(--space-3);
+  line-height: var(--leading-relaxed);
+}
+
+.figure-life-prose p:last-child {
+  margin-block-end: 0;
+}
+
+[dir='rtl'] .figure-life-prose p {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}
+
 /* ── Figure provenance ────────────────────────────────────────────────────
    "Where this comes from", on a person's page rather than only a site's.
 
