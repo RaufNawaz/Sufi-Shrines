@@ -44,6 +44,20 @@
 
 .shrine-hero-img {
   width: 100%;
+  /* No fixed aspect ratio here, and that is a measurement rather than an
+   * omission — see `pipeline/measure_image_shapes.py`.
+   *
+   * A replaced element has no height until it decodes, so this hero measures
+   * 0px and then its real height about a second after the article has already
+   * rendered, taking the infobox at y=483 down with it: the whole of
+   * `/shrine`'s CLS 0.1115. Reserving the box needs one ratio for all 118
+   * photographs, and the first attempt used 3:2 because Data Darbar's hero
+   * happens to be 1280×857. Measured across all of them: the median and the
+   * mode are **4:3**, and **16 of 115 heroes are portrait** — one entry in
+   * seven, cropped to a band by any landscape box. For an archive whose
+   * distinguishing content is these photographs that is not a free win, so the
+   * box stays intrinsic until each image can reserve its own (the shapes are in
+   * `pipeline/image_shapes.tsv`). */
   max-height: 460px;
   object-fit: cover;
   display: block;
