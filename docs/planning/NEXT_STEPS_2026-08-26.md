@@ -564,7 +564,17 @@ the reader's thumb mid-sentence.
 
 Whichever is chosen, the measurement to keep is the one above: article height over five seconds at
 390px, and the observed CLS. Both are in HANDOVER §9 with today's numbers to compare against.
-> Status: open, needs scoping.
+> **Status: closed, 27 August 2026 — and none of the three options was taken.** Measuring which
+> *sections* arrive late ruled out the first two: `The life, from the entry` is 1,186px of the
+> 1,455px and only 48 of 169 entries have one, so a reserve or a skeleton resolves to nothing on
+> the other 121 and shifts the page by as much again. What was done instead is per route — the
+> two late sections moved below the fold on `/saint`, the calendar's slot held open on `/almanac`,
+> a viewport reserved in the loading branch on `/place`, and each photograph reserving its own
+> measured box on `/shrine`. Every route is now inside the 0.1 budget: `/shrine` 0, `/place`
+> 0.0004, `/almanac` 0.0211, `/order` 0.0235, `/saint` 0.0704. The instrument is
+> `scripts/measure-cls.mjs` (`--sections` to diagnose, `--check` for the invariant); the
+> photograph shapes are `pipeline/measure_image_shapes.py`. Full write-up, including four
+> instrument failures and two unrelated defects found on the way, in HANDOVER §9.
 
 ## 5. Explicitly out of scope for this phase
 

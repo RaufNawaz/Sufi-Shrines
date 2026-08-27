@@ -3993,6 +3993,112 @@ whether that stays below the fold depends on the 4× CPU throttle Lighthouse app
 does not. **Do not quote the dev number for `/order`.** For `/saint`, `/almanac` and `/place` the
 two instruments agree to within 0.02 and dev is the faster loop.
 
+### Added 27 August 2026 — A14 closed: every route inside the CLS budget, and no photograph cropped
+
+| route | before | after | what it was |
+|---|---|---|---|
+| `/saint/data-ganj-bakhsh` | **0.5687** | **0.0704** | two data-dependent sections inserted at y=564 and y=790 |
+| `/almanac` | **0.5208** | **0.0211** | the calendar arrived above the coverage tiles and pushed them 2,443px |
+| `/order/qadiriyya` | 0.0196 | 0.0235 | (unchanged; see the dev-instrument caveat below) |
+| `/shrine/data-darbar` | **0.1115** | **0** | the hero had no reserved box |
+| `/place/lahore` | **0.1048** | **0.0004** | the footer was the only thing on screen, then moved 12,149px |
+
+Reproduce any of it with `node scripts/measure-cls.mjs --runs 3`, and diagnose with
+`--sections`. `--check` is the invariant for the `/place` half.
+
+**A14 was escalated as a choice between three options and none of them was taken**, because
+taking the diagnosis down to the level of *which section* changed what was possible:
+
+- *Reserve space* and *render a skeleton* both require knowing that content is coming before it
+  arrives, and **only 48 of 169 entries carry a biography** — on the other 121 either one
+  resolves to nothing and shifts the page by as much again in the other direction.
+- *Hold the article back* trades a jump for two seconds of blank on the archive's slowest route,
+  and on `/place` it is measurably *worse*: an empty page is shorter than the viewport, which is
+  what put the footer on screen in the first place.
+
+What was done instead, per route:
+
+1. **`/place`** — the loading branch reserves a viewport (`page-loading-reserve` in
+   components.css). This is not a guess about the content that is coming; it is a statement that
+   the footer must not be the first thing a reader sees. The footer is rendered *inside* each
+   page's article, which is why `.entity-page-wrapper`'s existing `min-height: 100svh` never
+   protected it.
+2. **`/saint`** — the two sections that wait for the sheet moved below the lineage, from y=564
+   and y=790 to y=1488 and y=1714. They now arrive below the fold and move nothing visible. This
+   is a reading-order change and is argued as one in the code: the entry's account of a life is
+   an attributed quotation from another page, so it sits beside Sources rather than above the
+   silsila. Reverting is safe and costs 0.57.
+3. **`/almanac`** — the calendar's slot is held open. Both of the page's existing decisions were
+   right (the calendar opens the page; the coverage tiles and the caveat are true of the archive
+   rather than of the fetch) and together they produced the defect.
+4. **`/shrine`** — each photograph reserves its own box from its measured dimensions.
+
+#### The measurement that stopped a one-line fix
+
+`.shrine-hero-img` could have taken a single CSS `aspect-ratio` and been done in a line. I wrote
+it as 3:2, because Data Darbar's hero is 1280×857 and 3:2 reproduced its box to within a pixel.
+The second entry looked at by hand was Allo Mahar: **1024×1280, portrait.**
+
+`pipeline/measure_image_shapes.py` then measured all of them — 239 of 242 decoded:
+
+    4:3 is both the median and the mode      126 of 239
+    portrait (ratio < 1.00)                   31, one image in eight
+    p10 0.750    median 1.333    p90 1.779
+
+**16 of the 115 measurable heroes are portrait**, so any single landscape box crops one entry in
+seven to a band. So the box is per-image instead, keyed by a 7-character hash of the URL — see
+`src/lib/images/imageShapeKey.ts` for why a hash and not the URL (32 KB eager on every route)
+and why not the slug (a shape must stop applying when the sheet changes that field).
+
+Cross-validation worth keeping: the 3 images that script cannot decode are **exactly** the 3
+that `check_image_liveness.py` found dead on the same day by a different method.
+
+#### Four instrument failures from one night, all of them recorded in the scripts
+
+1. **The `layout-shift` entry's own `sources` rects are misleading on this app.** On `/saint`
+   they reported two sections moving *up* by 533px and 840px and getting shorter. The truth is
+   that two sections were inserted and everything below moved *down* by 1,486px. A fix chosen
+   from those rects would have been aimed at the wrong end of the page. Use `--sections`.
+2. **Wikimedia answers a User-Agent-less request with 429, not 403.** The first shape run
+   reported 68 of 118 heroes undecodable, every one on commons.wikimedia.org, while
+   `check_image_liveness.py` had just found 84 Wikimedia URLs alive. A 2,253-byte `text/html`
+   body is the tell. **And the rate limit outlived the run that earned it** — a correct second
+   pass still got 429 on all 67 — hence backoff, three workers and `--resume`.
+3. **A 64 KB range is not enough for Pillow, and the error does not say "too small".** A JPEG
+   with a large EXIF block raises `OSError: Truncated File Read` from the APP handler even though
+   the SOF header carrying the dimensions arrived in the first few hundred bytes.
+   `ImageFile.Parser` reads a header without demanding the rest of the file.
+4. **A check a comment can satisfy is not checking the code.** The first version of the
+   duplicate-footer count read 2 on the *fixed* file, because the comment explaining the fix
+   contains the string it was matching on. It strips comments now.
+
+#### Two defects found while measuring, unrelated to CLS
+
+- **Every shrine page has been shipping the site footer twice** since 24 August — the whole
+  footer nav, 142px apart, on 169 pages. `a1f2585` added a footer to the ten pages that had none
+  and appended a bare `<SiteFooter />` beside the one page that already had a customised one.
+  `siteFooter.test.ts`'s three assertions all ask "does this page have a footer", and every one
+  of them passes on a page that has two: **missing and duplicated are opposite failures of the
+  same feature, and only one was being tested.**
+- **`img { height: auto }` did not exist**, and there is no base `img` reset in this codebase at
+  all. It matters the moment an image carries `width`/`height`: those map to presentational
+  hints, which lose to any author rule but *beat* `aspect-ratio`, so `.related-card-img` — which
+  shapes itself 16/9 and sets no height — rendered 356×899 and eight of them added 7,192px to a
+  shrine page.
+
+#### What is left on these routes, and why it was not chased
+
+- `/saint`'s remaining 0.0704 is **0.0441 of font settle** — three text blocks re-wrapping when
+  Merriweather swaps in at ~800ms, with everything below moving up 76px — plus 0.0263 from the
+  header's meta row gaining a "next ʿurs" line. The font half is under budget on its own and
+  needs fallback metric overrides (`size-adjust`, `ascent-override`) measured per family, not a
+  guess. **It will still be there after A14 and is not a regression.**
+- **`/order` is the one route where the dev server is not a valid instrument.** It measures
+  0.0002–0.0274 here against Lighthouse's 0.219, and both are honest: the order page is already
+  9,503px tall at first paint, so whether its insertion stays below the fold depends on the 4×
+  CPU throttle Lighthouse applies and this script does not. Do not quote the dev number for it.
+- The `aside` shift on `/shrine` at ~3s was the hero and is gone. Nothing else on that page moves.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
