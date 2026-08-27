@@ -4198,6 +4198,79 @@ measure with `node scripts/measure-cls.mjs --base http://localhost:4173` against
 Not dev — in dev the files come off disk in milliseconds and CLS reads 0 whatever the strategy,
 which would look exactly like success.
 
+### Added 27 August 2026 — A11 closed: the archive has a settings page, and nine preferences
+
+Asked for directly by the project head. Full write-up in
+`docs/planning/SETTINGS_AND_READING_PREFERENCES.md`; this is the part worth reading before
+touching a preference.
+
+**The defect was not "too few options."** Every control this site had lived on the map sidebar —
+theme, language, numerals, the tours switch, and a popover holding exactly one option — so a
+reader arriving on `/shrine/data-darbar` from a search engine, which is how most readers arrive
+given that all 169 entries are prerendered with their own metadata, could not reach a single one
+without going to the map first. And nothing said what a preference *did*: `shrines_numerals`
+decides whether a recorded date reads ۱۴۱۶ or 1416, which is editorial in a bilingual archive,
+and its only affordance was an unlabelled toggle.
+
+Six options now, each deepening a feature that was already here:
+
+| option | the thing worth knowing |
+|---|---|
+| **Reading size** | Scoped to `.shrine-page`/`.entity-page`, **never `:root`** — the type tokens are in `rem`, so a root scale resizes the tab bar and the map controls, which are laid out at 390px under an overflow guard. Prose 15/16/18px, chrome 10px at all three. |
+| **Motion** | `system`/`reduced`, **no `full`**. The attribute path is a universal reset rather than a mirror of the twelve named escapes. |
+| **Calendar** | Hijri-first where the archive recorded a Hijri date. A Gregorian-recorded observance is left alone — computing a Hijri date for it would be inventing one (RULE 2). |
+| **Distance units** | km/mi, and nine call sites stopped assembling `number + "km away"` in the component. |
+| **Saved list** | Export / import / clear. Import **merges**; the parser keeps a slug the archive no longer has. |
+| plus | theme, language, numerals, shrine-list destination and tours, consolidated onto one page. |
+
+#### Three mistakes worth more than the features
+
+1. **A custom property's `var()` is substituted where the property is *declared*, not where it
+   is used.** The reading size was implemented as `--text-base: calc(1rem * var(--reading-scale))`
+   on `:root`, with `--reading-scale` redefined deeper — which changes nothing, because
+   `--text-base` has already resolved against `:root`. It measured **16px at every setting**. The
+   fix is to declare the tokens on the same element that carries the scale, *and* to give that
+   element its own `font-size`: `body` sets `font-size: var(--text-base)` and prose inherits the
+   computed pixels, so redefining tokens on a descendant reaches nothing on its own.
+   `readingScale.test.ts` pins both.
+2. **A label must follow the value it describes, not the position it sits in.** The calendar
+   preference has two: the `approximate` flag belongs to the projection, and the "(Hijri)" note
+   belongs to the recorded date. Both were wrong until measured in a browser, and the second
+   shipped **"Projected: 22–24 July 2027 (Hijri)"** — a Gregorian date labelled Hijri, which is
+   worse than no label.
+3. **An abbreviation does not inflect and a unit name does.** `distanceAwayMi` rendered
+   "1 miles away". The value reaching the string is already localized — it can be "۱", "0.1" or
+   "< 1" — so a plural rule would have to parse Eastern digits. `mi`, with /settings spelling out
+   "Miles" beside the option.
+
+#### The guards earned their keep, and this is the list
+
+Six of this repo's own checks caught real gaps in this work, on the first run each time:
+`hairline.test.ts` (a 1px separator), `docsIndex.test.ts` (a doc not in the index),
+`importsAreTracked.test.ts` (three files git did not have), `tabs.test.ts` (**`/settings` owned by
+no tab**, so a reader opening it would have seen five unselected tabs),
+`cssTokensDefined.test.ts` (a `var(--x, 1)` fallback on an undeclared token, at sixteen use
+sites), `noSentenceFragments.test.ts` ("On"/"Off" as radio labels), and
+`check-bundle-budget.mjs` (no budget for the new route). None of them was a false positive.
+
+#### Where a preference lives, and why — read this before adding a tenth
+
+`storageKeys.ts` is the list. The split is deliberate and documented on
+`ReaderPreferencesContext`:
+
+- **Two are `data-*` attributes on `documentElement`, set before paint in `main.tsx`** — reading
+  size and motion. CSS resolves them, so no component re-renders and no attribute is applied
+  after the reader has already seen the un-styled frame. Both write *no attribute* for their
+  default value, so the plain DOM is the default state.
+- **Two are React state, in `ReaderPreferencesContext`** — calendar and units. These are read
+  *while rendering*, inside formatters, on four and nine surfaces respectively, and all of them
+  must change together the moment the reader chooses.
+- **The rest are read once on mount** by the one or two surfaces that own them
+  (`directoryPreference`, `toursPreference`), which is why they need no provider.
+
+Reaching for the provider first is the mistake to avoid: it is a re-render in place of a
+stylesheet.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
