@@ -118,6 +118,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | [`email_to_adil_data_layer.md`](email_to_adil_data_layer.md)   | Follow-up email to Adil on the data layer                   |
 | [`message_to_saifullah_2026-08-16.md`](message_to_saifullah_2026-08-16.md) | Draft message to Saifullah, 16 August 2026        |
 | [`responses_sync_2026-08-26.md`](responses_sync_2026-08-26.md) | Field-survey responses sync, 26 August 2026: why the `shrines_updated` TSV lineage stopped, and the three orphaned enrichments |
+| [`SESSION_2026-08-27_overnight_handoff.md`](SESSION_2026-08-27_overnight_handoff.md) | Handoff for the overnight run of 26–27 August 2026: every agent-executable task in the 26 August plan closed (A2–A6, A10, B1–B4), five findings the gates produced that were in no plan (the dark theme, the header height, the bundle budgets, three dead images, 86 diverging figure slugs), and the three new tasks waiting on a decision |
 | [`SESSION_2026-08-26_evening_handoff.md`](SESSION_2026-08-26_evening_handoff.md) | Mid-session handoff, 26 August 2026 evening: A1 + the almanac calendar view shipped, the live-sheet sync answer and the import-ready CSV, the image hunt left running, and the two enrichment asks not yet started |
 
 ## Prompts (`prompts/`)

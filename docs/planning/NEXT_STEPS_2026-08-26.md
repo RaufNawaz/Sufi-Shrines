@@ -15,6 +15,34 @@ report.
 
 ---
 
+## STATUS, 27 August 2026 — the agent-executable queue is empty
+
+**Everything in Lane A and Lane A′ that an agent could do without a decision from the project
+head is done**, in one overnight run. A1 · A2 · A3 · A4 · A5 · A6 · A9 · A10 · B1 · B2 · B3 · B4.
+
+**What is left, and what each waits on:**
+
+| task | waits on |
+|---|---|
+| A7 / A8 — figure images | Lane B item 5: an editor's accept/reject and the tradition-sensitivity ruling |
+| A11 — settings | one round of scoping questions; "customizations" points at six different features |
+| **A12** — the calendar is not all ʿurs | what a non-ʿurs day is called in each language, and whether the page keeps its title |
+| **A13** — one place vocabulary, or two | a decision about which is canonical; measure the overlap first |
+| **A14** — entity pages jump 1,455px | which of three loading strategies, each trading something different |
+| Lane B (all five) | a human afternoon |
+
+A12, A13 and A14 are new, found by A4 and B4 rather than planned — which is what those two tasks
+were for. Each is written up below with the decision it needs, so the scoping conversation can
+happen without re-deriving the finding.
+
+**The night also produced work that was in nobody's plan**, because the gates found it: the dark
+theme failed contrast on every route and had never been scanned; `--header-height` describes no
+header in the app; all twelve bundle budgets were stale; 3 of the archive's 242 images are dead;
+and 86 of 169 figure slugs diverge between the sheet and the graph. All are in `docs/HANDOVER.md`
+§9 with dates.
+
+---
+
 ## 0. Guardrails for the executing agent — read before any task
 
 These restate the operating contract (CLAUDE.md) as it applies to this plan. They are not
