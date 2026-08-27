@@ -3547,6 +3547,62 @@ turned on, because retries hide real flakiness as readily as they hide fake flak
 targeted fix is `test.slow()` on the almanac facet round-trip, which genuinely does three cold
 navigations twice over and is stating its cost rather than raising anyone else's ceiling.
 
+### Added 27 August 2026 — every image the archive points at, checked; and two instruments that lie
+
+`pipeline/check_image_liveness.py` is new and `pipeline/image_liveness.tsv` is its output. Until
+now **nothing had ever checked that the archive's 242 image URLs still answer**, and 108 of them
+point at twenty-one hosts this project does not control.
+
+**239 alive, 3 dead** (27 August 2026):
+
+| entry | field | status | host |
+|---|---|---|---|
+| Gurdwara Sacha Sauda | Image 1 | 404 | commons.wikimedia.org |
+| Tomb of Qutbuddin Aibak | Image 1 | 404 | commons.wikimedia.org |
+| Shrine of Sachal Sarmast | Image 1 | 403 | heritageofpakistan.org |
+
+Two of those — Gurdwara Sacha Sauda and Shrine of Sachal Sarmast — lose their **only** image. So
+**the standing "51 entries carry no photograph" is 53 by this measure**, and the general point
+stands whatever the number: a row whose hot-link is dead is counted by `/about` as photographed.
+
+#### Three instruments, and only one of them can be trusted here
+
+This took four attempts and each wrong answer is worth more than the right one.
+
+1. **`urllib` — 32 seconds per request.** The first version used Python's `urllib.request` and
+   every request took 32s where `curl` took 0.34s, with the socket timeout not capping it
+   (whatever stalls happens before the socket exists). 242 × 32s is over an hour; the script was
+   discovered by hanging. The transport is `curl` now.
+
+2. **Concurrency invented 55 dead images.** Eight workers against Wikimedia produced **55 of 65
+   URLs reported dead, every one of them a 429, every one of them fine.** Writing that into a
+   standing finding would have been this file's own cautionary tale happening again. The script
+   now retries 429/503 with backoff, runs two workers by default, and has a **third verdict** —
+   `unknown` — so a rate-limit, a timeout or a 5xx can never be counted as a loss. After that:
+   63 alive, 2 dead, 0 unknown, from the same 65.
+
+3. **A browser pass is not a valid instrument from inside a proxied sandbox.** Loading all 242
+   in Chromium reported **80 failures** — `ERR_BLOCKED_BY_ORB` on upload.wikimedia.org,
+   unfollowed 302s on commons.wikimedia.org. It is wrong: the same URLs return `206 image/jpeg`
+   over curl seconds later, the failures cluster on exactly the two highest-volume hosts, and on
+   `/shrine/shrine-of-mian-mir` **the same URL rendered once and failed once on the same page**.
+   That is throttling in the egress path. It also first ran under `page.setContent`, which gives
+   a null origin and changes cross-origin image handling — a check looking at the wrong universe,
+   caught only because Wikimedia photographs were visibly rendering on the order pages minutes
+   earlier. **In principle the browser is the right instrument** (real certificate validation,
+   real referrer, and it is what a reader uses); run it from an ordinary network.
+
+4. **And curl here is blind to certificates.** Chromium refused `sultan-bahoo.com` with
+   `net::ERR_CERT_DATE_INVALID` on 26 August. `openssl s_client` returned a certificate expired
+   **24 June 2026** on one connection and one valid to **28 September 2026** on the next. curl
+   through this environment reports `206 image/jpeg` with `ssl_verify_result=0`. The host serves
+   inconsistent TLS across edges and the egress path hides it, so that image is recorded alive
+   and is at least intermittently broken for readers. **Not counted among the three**, because a
+   number in a finding has to be one somebody can reproduce.
+
+The script exits 0 whatever it finds, deliberately: making it a gate would tie `npm run verify`
+to twenty-one third-party hosts and to the network.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing

@@ -361,6 +361,14 @@ axe violations and eager bytes; measure rather than assume.
 > 242 populated external image URLs**, and two on `/order/qadiriyya` are already dead (one 403,
 > one expired TLS certificate). A row whose hot-link is dead currently counts as *having* a
 > photograph.
+>
+> **The image half is done, 27 August 2026** — `pipeline/check_image_liveness.py` +
+> `pipeline/image_liveness.tsv`. **239 of 242 alive, 3 dead**, two of which are an entry’s only
+> image, so "51 entries carry no photograph" is 53. The four wrong answers it took to get there
+> are in HANDOVER §9 and are the more useful half: `urllib` takes 32s a request here, eight
+> workers invented 55 dead Wikimedia images out of 429s, a browser pass from inside this sandbox
+> reports 80 failures that are throttling rather than data, and curl here cannot see an expired
+> certificate. **Lighthouse is what is left of B4.**
 
 ---
 
