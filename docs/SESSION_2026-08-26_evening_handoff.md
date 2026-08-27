@@ -15,9 +15,9 @@ on branch `claude/website-explorer-improvements-f5bwgk`. Nothing has been pushed
 | `b99dbaa` | This handoff, the plan's new tasks, four HANDOVER §9 measurements |
 | `12c5553` | **A9 (part)** — figure pages say where the figure rests and what days are kept |
 
-All three were reviewed at http://localhost:5173 in **both languages**, driven with Playwright.
-`npm run typecheck`, `npm run lint`, `npm run test` (937 passing) and `npm run data:validate`
-are green. **`npm run e2e` has NOT been run this session** — see §4.
+Every front-end change was reviewed at http://localhost:5173 in **both languages**, driven with
+Playwright. `npm run typecheck`, `npm run lint`, `npm run test` (**955 passing, 3 skipped**) and
+`npm run data:validate` are green. **`npm run e2e` has NOT been run this session** — see §4.
 
 ### A1 — `/order/:slug` → "ʿUrs in this order"
 
@@ -57,16 +57,23 @@ missing from one of them.
 
 ### The sheet
 
-- `data/snapshot_live_sheet_2026-08-26.csv` — the fetched live export (171 × 44).
-- **`data/snapshot_import_2026-08-26.csv` — THE FILE TO IMPORT.** 171 rows, 44 columns, 9 cells
-  changed, every invariant green.
+- `data/live_sheet_2026-08-26.csv` — the fetched live export (171 × 44).
+- **`data/import_2026-08-26.csv` — THE FILE TO IMPORT.** 171 rows, 44 columns, 9 cells changed,
+  every invariant green.
 - `data/patch_location_notes_2026-08-26.csv` — the new 2-row patch.
 - `pipeline/build_import_csv.py` — rebuilds the import file from live + any patches.
 
+**Do not name either of these `snapshot_*.csv`.** That glob means "a dated snapshot of the app
+dataset", and `snapshotFidelity.test.ts` asserts the newest one matches the shipped **169** rows
+field for field. A live export is **171** — it carries the two rows `build-dataset` drops for
+having no coordinates — so filing it under `snapshot_*` makes a correct file fail a correct test.
+It did, once, in this session. `.gitignore` now has `!data/live_sheet_*.csv` and
+`!data/import_*.csv` with that reason written next to them.
+
 ```bash
-curl -sSL -o data/snapshot_live_sheet_<date>.csv "$(python3 -c "import json;print(json.load(open('data/csv-source.json'))['csvUrl'])")"
+curl -sSL -o data/live_sheet_<date>.csv "$(python3 -c "import json;print(json.load(open('data/csv-source.json'))['csvUrl'])")"
 python3 pipeline/build_import_csv.py \
-  data/snapshot_live_sheet_<date>.csv data/snapshot_import_<date>.csv \
+  data/live_sheet_<date>.csv data/import_<date>.csv \
   data/patch_data_hygiene_2026-08-21.csv data/patch_location_notes_2026-08-26.csv
 ```
 
