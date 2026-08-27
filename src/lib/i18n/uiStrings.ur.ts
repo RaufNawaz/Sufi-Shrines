@@ -47,6 +47,7 @@ export const UI_TEXT_UR: UiStrings = {
   paletteHintOpen: 'کھولنے کے لیے',
   ariaOpenPalette: 'آرکائیو میں تلاش اور چھانٹ',
   paletteClose: 'تلاش بند کریں',
+  searchGroupDays: 'ایام',
   searchGroupSites: 'مقامات',
   searchPlaceholder: 'مزار تلاش کریں...',
   noMatches: 'کوئی نتیجہ نہیں ملا۔',

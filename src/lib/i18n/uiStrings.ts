@@ -26,6 +26,7 @@ const UI_TEXT_EN = {
   /* The archive-wide palette's sites group. Its own key rather than
      `coverageSitesHeading`: "Sites documented" is a coverage claim, and a
      search result group is not making one. */
+  searchGroupDays: 'Days',
   searchGroupSites: 'Sites',
   searchPlaceholder: 'Search shrines…',
   noMatches: 'No matches.',

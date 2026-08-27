@@ -13,6 +13,10 @@ import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { buildPlaces } from '../../lib/data/places';
 import { tFn } from '../../lib/i18n/uiStrings';
+import { highlightSegments } from '../../lib/search/highlight';
+import { localizeObservance } from '../../lib/i18n/localizeObservance';
+import { getFieldValue } from '../../lib/data/fieldAliasing';
+import { useSavedShrines } from '../../lib/savedShrines';
 import type { Shrine } from '../../types/shrine';
 
 /**
@@ -40,20 +44,38 @@ import type { Shrine } from '../../types/shrine';
 
 /** Per group, so no single kind can crowd out the others. A reader searching
  *  "chishti" wants the order, the figures and the sites — not eight figures. */
-const PER_GROUP = { shrine: 6, figure: 5, order: 3, place: 4 } as const;
+const PER_GROUP = { shrine: 6, figure: 5, order: 3, place: 4, day: 4 } as const;
 
 /* `| undefined` on the optional fields, not just `?`: this project runs
    `exactOptionalPropertyTypes`, under which `meta?: string` refuses an explicit
    `undefined` — and every one of these is computed from data that may not be
    there. */
 type Row = {
-  kind: 'shrine' | 'figure' | 'order' | 'place';
+  kind: 'shrine' | 'figure' | 'order' | 'place' | 'day';
   key: string;
   name: string;
   meta?: string | undefined;
   to: string;
   tone?: string | undefined;
+  /** Shrine rows only: this site is on the reader's own list. */
+  saved?: boolean | undefined;
 };
+
+/** The matched run, marked. `highlightSegments` returns the whole string
+ * unmarked when the query does not literally appear — a fuzzy hit, or a match
+ * on a location or an alternative name — so a row can be a correct result and
+ * carry no mark, which is the honest rendering of it. */
+function Highlighted({ text, query }: { text: string; query: string }) {
+  const segments = highlightSegments(text, query);
+  if (segments.length === 1) return <>{text}</>;
+  return (
+    <>
+      {segments.map((segment, i) =>
+        segment.match ? <mark key={i}>{segment.text}</mark> : <span key={i}>{segment.text}</span>,
+      )}
+    </>
+  );
+}
 
 export function ArchiveSearch({ onClose }: { onClose: () => void }) {
   const { lang, t, fmtNum } = useLang();
@@ -92,6 +114,8 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
 
   const { ids } = useSearch(shrines as Shrine[], debounced);
   const places = useMemo(() => buildPlaces(shrines).places, [shrines]);
+  const savedSlugs = useSavedShrines();
+  const saved = useMemo(() => new Set(savedSlugs), [savedSlugs]);
 
   const rows = useMemo<Row[]>(() => {
     const q = debounced.trim();
@@ -108,6 +132,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
         meta: shrine.location ? localizeRecordedName(shrine.location, lang) : undefined,
         to: `/shrine/${shrine.slug}`,
         tone: categoryKey(shrine.category),
+        saved: saved.has(shrine.slug),
       }));
 
     const byType = (type: 'figure' | 'order') =>
@@ -145,8 +170,36 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       };
     });
 
-    return [...shrineRows, ...byType('figure'), ...byType('order'), ...placeRows];
-  }, [debounced, ids, shrines, entities, places, lang, t, fmtNum]);
+    /* Days. The archive knows 149 observances and none of them was searchable:
+       "Shivratri" found the temple that keeps it only if the word happened to be
+       in the temple's name. Matched against the site's recorded `Events` cell in
+       both the reader's language and the source's, because a reader may know the
+       day by either — and the row shows the observance as recorded, with the
+       site as its meta, so it is clear which of the two matched.
+
+       The link carries a hash, which is what makes the almanac open its month
+       *listing* rather than the calendar: the anchor exists only there. */
+    const needle = q.toLocaleLowerCase(lang);
+    const dayRows: Row[] = shrines
+      .map((shrine): Row | null => {
+        const recorded = getFieldValue(shrine.raw, 'Events').trim();
+        if (!recorded) return null;
+        const shown = localizeObservance(recorded, lang);
+        const haystack = `${recorded}\n${shown}`.toLocaleLowerCase(lang);
+        if (!haystack.includes(needle)) return null;
+        return {
+          kind: 'day' as const,
+          key: `day:${shrine.slug}`,
+          name: shown,
+          meta: localizeShrineName(shrine, lang),
+          to: `/almanac#${shrine.slug}`,
+        };
+      })
+      .filter((row) => row !== null)
+      .slice(0, PER_GROUP.day);
+
+    return [...shrineRows, ...byType('figure'), ...byType('order'), ...placeRows, ...dayRows];
+  }, [debounced, ids, shrines, entities, places, lang, t, fmtNum, saved]);
 
   /* Group headings are rendered from the row list rather than stored on it, so
      the keyboard walks one flat array and cannot land on a heading. */
@@ -157,7 +210,9 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
         ? t('tabExplore')
         : kind === 'order'
           ? t('sufiOrders')
-          : t('placesTitle');
+          : kind === 'place'
+            ? t('placesTitle')
+            : t('searchGroupDays');
 
   useEffect(() => setActiveIndex(0), [rows]);
 
@@ -341,7 +396,31 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
                   />
                   <span className="palette-result-body">
                     <span className="palette-result-name">
-                      <bdi>{row.name}</bdi>
+                      <bdi>
+                        <Highlighted text={row.name} query={debounced.trim()} />
+                      </bdi>
+                      {/* A site already on the reader's own list. A glyph and a
+                          word, never a colour on its own: the archive's a11y
+                          rule, and the icon alone would be one more thing to
+                          learn. The word is `sr-only` because the icon is
+                          legible at a glance and the row is already dense. */}
+                      {row.saved && (
+                        <span className="archive-search-saved" title={t('savedLabel')}>
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z" />
+                          </svg>
+                          <span className="sr-only">{t('savedLabel')}</span>
+                        </span>
+                      )}
                     </span>
                     {row.meta && (
                       <span className="palette-result-meta">

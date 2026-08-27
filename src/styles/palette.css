@@ -654,3 +654,50 @@
     display: none;
   }
 }
+
+/* ── The matched run, and a site already saved ────────────────────────────
+   Both added when search grew a fifth group and a reason to say why a row is
+   there. */
+
+/* `<mark>`'s user-agent style is a yellow block with black text, which in this
+   palette reads as a browser artefact and on the dark theme is a torch.
+   A tinted ground in the archive's own accent instead, plus weight.
+
+   Two rules the first draft broke. **`color: inherit`**, because the default
+   forces black and on the dark theme that is black text on a dark tint. And
+   **the same ground on the active row** — the first version deepened it to
+   `--color-accent-light` with inverse text, which axe measured at 1.4:1 and
+   which is the exact class of failure this project's a11y sweep exists for.
+   `--color-accent-pale` is defined per theme, so `inherit` clears contrast in
+   both; what separates the mark on an already-tinted active row is the weight,
+   which is a property of neither theme nor script. */
+.palette-result-name mark {
+  background-color: var(--color-accent-pale);
+  color: inherit;
+  font-weight: 600;
+  border-radius: 2px;
+  padding-inline: 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.archive-search-saved {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: var(--space-2);
+  color: var(--color-accent-text);
+  /* The glyph sits on the text baseline rather than the line box, so it does
+     not lift a Nastaliq name. */
+  vertical-align: baseline;
+}
+
+.archive-search-saved svg {
+  display: block;
+}
+
+/* The fifth kind's dot. `archive-search-dot--day` completes the family the
+   other four already have; without it a Days row draws no dot at all and the
+   group reads as indented rather than as its own kind. */
+.archive-search-dot--day {
+  background-color: var(--color-accent);
+}
