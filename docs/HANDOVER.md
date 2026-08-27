@@ -3524,6 +3524,29 @@ use. Moving `slugToLabel` into its own module would close the trap permanently; 
 five-minute change with no consumer needing it today, which is why it is written down here
 instead of done.
 
+### Added 26 August 2026 (night, A6) — the e2e suite flakes under local parallel load
+
+**A full local `npx playwright test` run fails 1–2 tests, and they are different tests each
+run.** Observed four times on 26 August: `palette.spec.ts` (keyboard), `nastaliq-metrics.spec.ts`
+(saint kicker), `almanac-facets.spec.ts` (`[en]` coverage), `tours.spec.ts` (resume banner). Every
+one of them passes on its own, immediately, and the failure mode is `Test timeout of 30000ms
+exceeded` rather than a wrong assertion.
+
+The cause is the configuration, not the app: `playwright.config.ts` sets `workers: 1` and
+`retries: 2` **only when `process.env.CI` is set**. Locally it runs `workers: undefined`
+(Playwright's default, half the CPU count) with zero retries, against a preview server, usually
+alongside a dev server and whatever else the session is doing.
+
+**What this means for anyone reading a red local run:** a single failure in a full local suite is
+not evidence of a regression. Re-run the named spec on its own before believing it. A failure
+that reproduces in isolation is real; one that does not is this.
+
+Two things were deliberately *not* done about it. The global timeout was not raised — that would
+slow every honest failure in the suite to thirty seconds of waiting. And local retries were not
+turned on, because retries hide real flakiness as readily as they hide fake flakiness. The one
+targeted fix is `test.slow()` on the almanac facet round-trip, which genuinely does three cold
+navigations twice over and is stating its cost rather than raising anyone else's ceiling.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
