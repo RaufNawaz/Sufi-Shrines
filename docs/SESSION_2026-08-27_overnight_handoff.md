@@ -44,6 +44,25 @@ Twenty-two commits on `claude/website-explorer-improvements-f5bwgk`. Nothing pus
 | `e229f76` | **3 of the archive's 242 images are dead.** Two are an entry's only image, so the photograph gap is 53, not 51. |
 | `e605274` | **86 of 169 figure slugs diverge** between the sheet's `principal_figure` and the graph's canonical entity. |
 
+**And a second pass, after the plan's queue was empty**, applying the night's own repeated lesson
+— *a guard that samples one member of a set is blind to the others* — to the guards themselves:
+
+| | |
+|---|---|
+| `1f76efb` | **The Urdu edition had no citations on 98 of 169 entries.** The English article carries the bibliography and the Urdu one replaces it, so the citations rendered and then *vanished* two seconds later. Closed by falling back to the English bibliography, which is exactly what i18n rule 7 was written to permit. One entry still shows none, and it is the one that cites nothing in any language. |
+| `04e0c19` | **7 of 23 Urdu routes were leaking** when the no-leak walker was pointed at 23 routes instead of its usual 14. Three were code and are fixed; `/typology` and `/almanac?view=list` are in the matrix now. |
+| `904bd2c` | **Two entries render an entirely English page** and now say so, in the archive's own "here is what we do not have" register. |
+| `cbba48e` | The CSV request no longer queues behind a megabyte of Urdu JSON. **This did not move the LCP** — see below. |
+| `9ff57f1` | **Why the map blocks for four seconds.** `maplibre-gl` is 8,484ms of it and is *already lazy*: a lazy chunk still evaluates, and the eager-bytes budget cannot see it by construction. |
+| `eb9d7cd` | **The committed snapshot has drifted from the live sheet** — 171 rows against 169 — and no gate can see the difference. |
+
+**One thing that did not work, reported because the result is worth more than the change.**
+`cbba48e` removed a real serialisation: `fetchShrines` awaited a 1 MB Urdu payload, then the Urdu
+dictionary, and only then started the CSV download. Re-measured after: **LCP 15,349ms against
+15,072ms before — unmoved.** The Urdu front door is script-evaluation-bound, not fetch-bound. The
+change stays because the serialisation was real, but anyone continuing should start from
+`maplibre-gl`, not from the data hook.
+
 ---
 
 ## 2. What is waiting, and on what
@@ -66,7 +85,23 @@ Nothing here is blocked on engineering. Each waits on a decision or a human afte
 
 ---
 
-## 3. Five things that will save the next session an hour
+## 2a. The one thing to do before touching data
+
+**`npm run data:build` is due, and running it alone makes things worse.** The live sheet has 171
+rows and the snapshot has 169; the two extra rows have no Urdu article and no dictionary entry for
+their names, so pulling them in turns the no-leak guard red and the only ways back to green are
+raising a budget (recording untranslated content as accepted debt) or translating them. Order:
+`data:build`, then the two Urdu articles and the two name entries, then `data:build:urdu`, then
+re-measure every budget in `e2e/urdu-no-leak.spec.ts` — several will move, because the e2e fixture
+is regenerated from the snapshot too.
+
+While in there: one row's `category` is `"Islam"`, which is not one of the schema's six values, so
+it renders untranslated in the kicker and the breadcrumb. That is a sheet fix, not a dictionary
+one.
+
+---
+
+## 3. Six things that will save the next session an hour
 
 1. **A red local `npx playwright test` is not necessarily red.** 1–2 tests fail per full local run
    and they are different tests each time; `workers: 1` and `retries: 2` are set only under `CI`.
@@ -82,14 +117,23 @@ Nothing here is blocked on engineering. Each waits on a decision or a human afte
    page.
 5. **`:target` never matches in this app.** The browser resolves the fragment before a
    client-rendered list exists, and an in-app `pushState` does not set a target element at all.
+6. **Every gate here runs against the committed snapshot; the live site runs against the sheet.**
+   The e2e fixture, the Urdu dictionary, `/about`'s figures and `data:validate` all read
+   `src/data/shrines-fallback.json`. Anything added to the sheet since the last `data:build` is
+   invisible to all of them. That is not a bug in a check — it is the shape of the gate system,
+   and it follows from RULE 3.
 
 ---
 
 ## 4. State of the gates
 
-`npm run verify` green. **322/322 e2e** (up from 300 — the suite gained the almanac facets, the
-archive search and a nine-route dark-theme a11y matrix). **1,006 unit tests.** Every route inside
-a re-measured bundle budget. axe clean in both languages *and* both themes.
+`npm run verify` green. **325/325 e2e** (up from 300 — the suite gained the almanac facets, the
+archive search, a nine-route dark-theme a11y matrix and three more Urdu no-leak routes).
+**1,006 unit tests.** Every route inside a re-measured bundle budget. axe clean in both languages
+*and* both themes.
+
+Two specs flake under full local parallel load and pass in isolation — see item 1 above. Fifty
+commits.
 
 Nothing has been pushed and nothing has been deployed. The release branch is `1.7`
 (`project_deploy_branch_trap`), and this work is on `claude/website-explorer-improvements-f5bwgk`.
