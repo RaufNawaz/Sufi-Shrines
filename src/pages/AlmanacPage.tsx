@@ -302,6 +302,23 @@ export default function AlmanacPage() {
             block: the "N of M sites" total is printed with the grid, so the
             denominator still reaches a reader who never scrolls, and the full
             coverage breakdown is a scroll away rather than a gate. */}
+        {/* The calendar's slot, held open while the sheet is still answering.
+            Without it the coverage tiles and the caveat below — which do render
+            immediately, deliberately, because they are true of the archive
+            rather than of the fetch — are the only things on screen, and the
+            calendar then appears *above* them and pushes them 1,270px and
+            2,443px down. Measured 27 August 2026: CLS 0.5208 on /almanac, and
+            the calendar section arriving at y=360 in an 844px viewport was all
+            of it. Reproduce with
+            `node scripts/measure-cls.mjs --sections --route /almanac`.
+
+            Reserving a screen here is not a guess about the grid's height (it
+            is 1,269px, and this reserves 844). It only has to keep the coverage
+            block below the fold until the thing the page is named after is
+            there, which is the same argument the section order above already
+            makes. */}
+        {!hasEntries && <p className="coverage-loading page-loading-reserve">{t('loading')}</p>}
+
         {hasEntries && (
           <section className="almanac-lead" aria-labelledby="almanac-year-heading">
             {/* Heading, view switch and the .ics button on one line. They were
