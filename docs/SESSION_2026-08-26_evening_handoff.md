@@ -12,6 +12,8 @@ on branch `claude/website-explorer-improvements-f5bwgk`. Nothing has been pushed
 | `c2482cd` | **A1** — the order pages carry their own ʿurs calendar |
 | `180c8db` | **The ʿurs almanac has a calendar view** (`?view=calendar`) |
 | `657e7a5` | **Live-sheet sync check + the import-ready CSV**, and two new data findings |
+| `b99dbaa` | This handoff, the plan's new tasks, four HANDOVER §9 measurements |
+| `12c5553` | **A9 (part)** — figure pages say where the figure rests and what days are kept |
 
 All three were reviewed at http://localhost:5173 in **both languages**, driven with Playwright.
 `npm run typecheck`, `npm run lint`, `npm run test` (937 passing) and `npm run data:validate`
@@ -98,6 +100,17 @@ and a row is never recorded unless the source names the site**; license exactly 
 row; no AI imagery; deity images tagged `tradition-review required`; an empty result recorded as
 a row saying so, so the next session does not re-search it.
 
+**First result in (Sikh gurdwaras, 18 targets, `candidates_sikh.tsv` committed):** 2 targets got
+candidates, 16 got an explicit empty row with the searches recorded. All 5 image rows are
+`identification: uncertain` — **not one openly licensed image anywhere names any of these 18
+sites in its own caption.** That is the finding, not a failure, and the empty rows are what stop
+the next session repeating the work. Two traps worth knowing: the Commons category is spelled
+`Category:Gurudwaras in Pakistan` (with the *u* — the other spelling returns nothing, silently),
+and the two Rohtas files are geotagged ~50 km south of the fort, so a proximity search around
+the correct coordinate never finds them. One row is flagged contested-PD (open deletion request,
+Getty scans of the same photograph linked from its own description) and must not be used without
+a check.
+
 **Nothing from this renders anywhere.** The next steps are, in order: (1) check the four
 `candidates_*.tsv` exist and merge them; (2) the editor approves per candidate; (3) only then
 the wiring — RMS pixel comparison before any copy, license + attribution as required fields
@@ -106,11 +119,28 @@ rather than trusting a summary.
 
 ---
 
-## 3. Asked for, not started
+## 3. Asked for — one part-done, one not started
 
-Both were requested this session and are unstarted. Neither is blocked.
+### Enriching the figure pages (`/saint/:slug`) — **two of four sections shipped in `12c5553`**
 
-### Enriching the figure pages (`/saint/:slug`)
+**Done:** "Where this figure rests" (place chip → `/place/:slug`, with the site's recorded
+Location verbatim beneath) and "Days kept for this figure" (every recorded observance, dated or
+not). `/saint/baba-pir-ratan-nath` — the screenshotted page — now names Peshawar and Maha
+Shivratri; in Urdu it reads پشاور and مہا شیو راتری, because the observance dictionary already
+carried that segment.
+
+The row markup now lives in `src/components/kg/RecordedObservanceList.tsx` and the date reading
+in `src/lib/data/recordedObservances.ts`, shared with the order pages. **Use them for anything
+else that lists observances** — that is the `ObservanceCard` argument again.
+
+**Still open — A9 items 3 and 4, and A10:** the site's photograph and facts on the
+associated-shrine rows; an explicit "what the archive does not record"; and the entry's
+biographical section on the figure's page, where the misattribution guard *is* the task.
+
+The table below is why those are worth doing — it is what the archive held for that one figure
+before this commit, and items 3 and 4 are the rows still unticked.
+
+### Enriching the figure pages — the original audit
 
 The prompt was a screenshot of `/saint/baba-pir-ratan-nath` — a page with a name, three titles,
 one shrine row, and nothing else. **What the archive already holds for that exact figure and does
@@ -118,14 +148,15 @@ not show:**
 
 | Held | Where | Rendered on the saint page? |
 |---|---|---|
-| Peshawar, Khyber Pakhtunkhwa | shrine `Location` + `placesForShrine` | **no** — no place anywhere |
-| "Maha Shivratri" | shrine `Events`, and a `commemorated_by` event node | **no** — `nextUrs` shows only *dated* observances inside 12 months |
+| Peshawar, Khyber Pakhtunkhwa | shrine `Location` + `placesForShrine` | **yes, `12c5553`** |
+| "Maha Shivratri" | shrine `Events`, and a `commemorated_by` event node | **yes, `12c5553`** |
 | A Wikimedia photograph of the site | shrine `Image 1` | **no** — the shrine row is a bare chevron |
 | Hindu Temple; Temple; Active | `category`, `site_type`, `status` | **no** |
 | 1850, precision `century`, "British colonial period, 19th c." | `year_built*` | **no** |
 | A full `## Overview` whose second sentence is about the yogi-saint himself | shrine `Description` | **no** |
 
-So four sections, all display of held data, none needing new content:
+Four sections, all display of held data, none needing new content. **1 and 2 shipped in
+`12c5553`; 3 and 4 remain.**
 
 1. **"Where this figure rests"** — place link(s) + the recorded `Location`.
 2. **"Days kept for this figure"** — every recorded observance, dates as recorded, "date not
