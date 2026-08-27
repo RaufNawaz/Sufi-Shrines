@@ -22,6 +22,8 @@ import {
   recordedSilsilas,
 } from '../lib/kg';
 import { placesForShrine } from '../lib/data/places';
+import { ShrineImage } from '../components/ui/ShrineImage';
+import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { readRecordedObservances } from '../lib/data/recordedObservances';
 import {
   ObservanceGapNote,
@@ -167,6 +169,36 @@ export default function SaintPage() {
       }))
       .filter((row) => row.places.length > 0 || Boolean(row.shrine.location));
   }, [saint, shrineRecords]);
+
+  /* The absences, named.
+   *
+   * `/about` computes what the archive does not know and puts it on the page,
+   * on the argument that a page cannot go stale the way a sentence can. This is
+   * the same move at the scale of one figure, and it is what turns a page
+   * carrying a name and three titles into a page that tells a reader something:
+   * the gap is information, and it is the kind a source or a field visit can
+   * close.
+   *
+   * Every line is an absence in *this archive's record*, never a claim that no
+   * such fact exists — "No teacher." means nobody has written one down here, and
+   * the note above the list says exactly that. Getting that distinction wrong
+   * would turn a gap into an assertion about a person's life (RULE 2).
+   */
+  const gaps = useMemo(() => {
+    if (!saint) return [];
+    const keys: string[] = [];
+    if (!saint.born && !saint.died) keys.push('saintGapDates');
+    if (memberships.length === 0) keys.push('saintGapOrder');
+    if (teachers.length === 0) keys.push('saintGapTeachers');
+    if (disciples.length === 0) keys.push('saintGapDisciples');
+    if (observances.length === 0) keys.push('saintGapObservance');
+    // Only claimable where the archive actually holds the site: a figure whose
+    // shrine the sheet has dropped has no photograph *and* no entry, and saying
+    // "no photograph" about a site that is not here would be the wrong gap.
+    const own = saint.shrines.map((slug) => shrineRecords.get(slug)).filter(Boolean);
+    if (own.length > 0 && own.every((shrine) => !shrine?.imageUrl)) keys.push('saintGapPhoto');
+    return keys;
+  }, [saint, memberships, teachers, disciples, observances, shrineRecords]);
 
   useDocumentTitle(saint ? `${localizeFigureName(saint, lang)} — ${t('siteTitle')}` : null);
 
@@ -648,37 +680,55 @@ export default function SaintPage() {
               </section>
             )}
 
-            {/* Associated shrines */}
+            {/* Associated shrines — the site, photographed.
+                The list was a pin glyph and a name. A figure has no portrait in
+                this archive and inventing one is out of the question, but the
+                shrine that holds them is photographed for 118 of the 169
+                entries, and that photograph is the closest thing to a face the
+                record can honestly show. The order pages' member list already
+                made this argument; the figure's own page was the surface still
+                showing nothing. Same `order-site-*` idiom, so the two read as
+                one design rather than two. */}
             {saint.shrines.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('shrinesAssociated')}</h2>
-                <ul className="inset-list">
-                  {saint.shrines.map((shrineSlug) => (
-                    <li
-                      key={shrineSlug}
-                      className="entity-shrine-list-item inset-row inset-row--link"
-                    >
-                      <Link to={`/shrine/${shrineSlug}`}>
-                        <svg
-                          width="13"
-                          height="13"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
-                        <span className="inset-row-label">{shrineLabel(shrineSlug)}</span>
-                        <span className="inset-row-chevron" />
+                <div className="order-site-grid">
+                  {saint.shrines.map((shrineSlug, i) => {
+                    const shrine = shrineRecords.get(shrineSlug);
+                    return (
+                      <Link
+                        key={shrineSlug}
+                        to={`/shrine/${shrineSlug}`}
+                        className="order-site-card hover-lift reveal-rise"
+                        style={{ '--stagger-index': i } as React.CSSProperties}
+                      >
+                        {/* Falls back to the tradition's own glyph, which is what
+                            the sidebar list and the related-shrine cards already
+                            do for an entry with no photograph. */}
+                        <ShrineImage
+                          src={shrine?.imageUrl ?? null}
+                          alt=""
+                          category={shrine?.category ?? ''}
+                          className="order-site-img"
+                          placeholderClassName="order-site-placeholder"
+                          loading="lazy"
+                          width={IMAGE_WIDTH.preview}
+                        />
+                        <span className="order-site-body">
+                          <span className="order-site-name">
+                            <bdi>{shrineLabel(shrineSlug)}</bdi>
+                          </span>
+                          {shrine?.location && (
+                            /* The survey's own wording, often still English. */
+                            <span className="order-site-location" data-latin>
+                              <bdi>{shrine.location}</bdi>
+                            </span>
+                          )}
+                        </span>
                       </Link>
-                    </li>
-                  ))}
-                </ul>
+                    );
+                  })}
+                </div>
               </section>
             )}
 
@@ -702,6 +752,22 @@ export default function SaintPage() {
                     <LineageChainView chain={chain} />
                   </>
                 )}
+              </section>
+            )}
+
+            {/* What the archive does not record. Deliberately *after* everything
+                it does — a reader should meet the record before its gaps. */}
+            {gaps.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintGapsHeading')}</h2>
+                <p className="kg-section-note">{t('saintGapsNote')}</p>
+                <ul className="figure-gap-list">
+                  {gaps.map((key) => (
+                    <li key={key} className="figure-gap-item">
+                      {t(key as Parameters<typeof t>[0])}
+                    </li>
+                  ))}
+                </ul>
               </section>
             )}
 

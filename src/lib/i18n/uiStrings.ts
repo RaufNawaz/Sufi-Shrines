@@ -108,6 +108,18 @@ const UI_TEXT_EN = {
   saintPlaceHeading: 'Where this figure rests',
   saintPlaceNote:
     'The place comes from the site’s own recorded Location, which is shown beneath it as written — including where it says what the survey did not record.',
+  /* The absences, named. `/about` computes what the archive does not know and
+     says so on the page; this is the same move at the scale of one figure. */
+  saintGapsHeading: 'What the archive does not record',
+  saintGapsNote:
+    'Stated rather than left as an empty page. Each line is a gap in the record, not a claim that no such fact exists — and each is something a source or a field visit could close.',
+  saintGapDates: 'No birth or death date.',
+  saintGapOrder: 'No silsila.',
+  saintGapTeachers: 'No teacher.',
+  saintGapDisciples: 'No disciple or successor.',
+  saintGapObservance: 'No observance of any kind.',
+  saintGapPhoto: 'No photograph of the site.',
+  saintGapBiography: 'No biographical prose beyond the site’s own entry.',
   activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
   nearMe: 'Near Me',
   switchToUrdu: 'اردو',

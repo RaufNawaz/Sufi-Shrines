@@ -2035,3 +2035,40 @@
   font-size: var(--text-sm);
   line-height: var(--leading-urdu);
 }
+
+/* ── Figure pages: what the archive does not record ──────────────────────────
+   The absences, given the same typographic weight as a section that has
+   content — `/about`'s argument at the scale of one figure. Quiet, not
+   apologetic: a gap here is information, and it is the kind a reader can help
+   close. Rubric colour, the same one the almanac's own gap note uses, so the
+   two read as the same voice. */
+
+.figure-gap-list {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.figure-gap-item {
+  padding-inline-start: var(--space-4);
+  position: relative;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* An em dash rather than a bullet: a list of things that are absent should not
+   look like a list of features. */
+.figure-gap-item::before {
+  content: '—';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--color-rubric);
+}
+
+[dir='rtl'] .figure-gap-item {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
