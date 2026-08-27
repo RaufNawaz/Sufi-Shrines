@@ -52,36 +52,60 @@ function isFresh(entry: CacheEntry): boolean {
 async function loadSnapshot(): Promise<{ shrines: Shrine[]; generated: number | null }> {
   // Dynamic import keeps the ~680 KB fallback out of the eager bundle — it
   // is only needed when both the network and the localStorage cache fail.
-  const { default: snapshotData } = await import('../data/shrines-fallback.json');
-  await ensureUrduContentForLang(detectInitialLang());
-  await ensureUrduSeedForLang(detectInitialLang());
+  /* Same shape as `fetchShrines`: the snapshot import and both Urdu payloads
+     are independent, so they run together rather than one after another. */
+  const lang = detectInitialLang();
+  const [{ default: snapshotData }] = await Promise.all([
+    import('../data/shrines-fallback.json'),
+    ensureUrduContentForLang(lang),
+    ensureUrduSeedForLang(lang),
+  ]);
   const rows = (snapshotData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
   const shrines = buildFromRows(rows);
   const generated = Date.parse(snapshotData.generated as string);
   return { shrines, generated: Number.isFinite(generated) ? generated : null };
 }
 
+/**
+ * The sheet, and the two Urdu payloads the first build needs.
+ *
+ * **All three start at once; the build waits for all three.** The invariant is
+ * unchanged and is the reason this function ever awaited anything: rows are
+ * built exactly once, and the search index is built from them, so an index
+ * built before the Urdu dictionary lands has an empty `urduName` on all 169
+ * documents — the "Urdu query finds nothing" bug that
+ * `e2e/search-bilingual.spec.ts` exists for. The Urdu articles are the same
+ * argument for the article text: arriving late means a visible re-render.
+ *
+ * What changed is that the waiting used to be *serial and in front of the
+ * network*: two `await`s, then `Papa.parse(CSV_URL, { download: true })`. So
+ * the CSV request — a real round trip to Google in production — could not
+ * begin until a 1 MB JSON payload had been fetched *and parsed*. Measured on
+ * `/?lang=ur` (Lighthouse, 27 August 2026): **LCP 15.1s, of which 14.6s is
+ * render delay, not network.** Starting the download first costs nothing and
+ * removes the whole Urdu payload from in front of it.
+ *
+ * An English reader is unaffected either way — both `ensure…` calls return an
+ * already-resolved promise when the language is not Urdu.
+ */
 async function fetchShrines(): Promise<Shrine[]> {
-  // Resolved before the parse starts so the first build already carries the
-  // Urdu articles for an Urdu reader — no visible re-render.
-  await ensureUrduContentForLang(detectInitialLang());
-  /* And the dictionary, for the same reason: the rows are built once, and the
-     search index is built from them. An index built before the dictionary
-     arrives has an empty `urduName` for all 169 documents, which is exactly the
-     "Urdu query finds nothing" bug of e2e/search-bilingual.spec.ts. */
-  await ensureUrduSeedForLang(detectInitialLang());
-  return new Promise((resolve, reject) => {
+  const lang = detectInitialLang();
+  const urduReady = Promise.all([ensureUrduContentForLang(lang), ensureUrduSeedForLang(lang)]);
+
+  const parsed = new Promise<ShrineRow[]>((resolve, reject) => {
     Papa.parse(CSV_URL, {
       download: true,
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        const rows = (results.data as Record<string, unknown>[]).map(normalizeRow) as ShrineRow[];
-        resolve(buildFromRows(rows));
+        resolve((results.data as Record<string, unknown>[]).map(normalizeRow) as ShrineRow[]);
       },
       error: reject,
     });
   });
+
+  const [rows] = await Promise.all([parsed, urduReady]);
+  return buildFromRows(rows);
 }
 
 // ── Module-level shared state ────────────────────────────────────────────────
