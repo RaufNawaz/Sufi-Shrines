@@ -9,10 +9,12 @@ import { placesForShrine } from '../lib/data/places';
 import { centurySpan } from '../lib/data/figureDates';
 import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 import { CENTURY_ORDINAL } from '../lib/data/era';
-import { getFieldValue } from '../lib/data/fieldAliasing';
-import { parseObservances, type Observance } from '../lib/data/ursDates';
-import { formatSourceDate, SEASON_LABEL_KEYS } from '../lib/i18n/formatDateWindow';
-import { localizeObservance } from '../lib/i18n/localizeObservance';
+import { readRecordedObservances } from '../lib/data/recordedObservances';
+import {
+  ObservanceGapNote,
+  RecordedObservanceList,
+  type RecordedObservanceRow,
+} from '../components/kg/RecordedObservanceList';
 import type { Lang, Shrine } from '../types/shrine';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -35,7 +37,7 @@ import {
   localizeShrineSlug,
 } from '../lib/i18n/localizeKgName';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
-import type { KGEvent, KGSaint } from '../types/kg';
+import type { KGSaint } from '../types/kg';
 
 import { isRtlLang } from '../lib/i18n/languages';
 interface Member {
@@ -102,55 +104,6 @@ function centuryLabel(century: number, lang: Lang): string {
   return CENTURY_ORDINAL[lang](century);
 }
 
-/** Only where the record states one. 85 of the 149 events do; the other 64 are
- * absent rather than assumed annual — that assumption once published
- * `repeatFrequency: P1Y` for 83 events on no evidence (see KGEvent.frequency). */
-const FREQUENCY_KEYS = {
-  annual: 'orderUrsAnnual',
-  monthly: 'orderUrsMonthly',
-  biannual: 'orderUrsBiannual',
-} as const satisfies Record<NonNullable<KGEvent['frequency']>, string>;
-
-/**
- * One observance date, in the words the archive used for it.
- *
- * The almanac's cards carry an "approximate" flag because they print a
- * *projected* Gregorian date that moves with the moon sighting. This list
- * projects nothing — it prints the month and day the source wrote, in the
- * reader's script and numerals — so there is no forecast here to qualify. The
- * Hijri label stays, because which calendar a date is in is part of the date.
- */
-function RecordedDate({ observance }: { observance: Observance }) {
-  const { lang, t, fmtNum } = useLang();
-
-  /* Six observances in the archive record a season and no month. `centurySpan`
-     refuses to place an undated figure on an axis for the same reason this
-     refuses to turn "spring" into a month. */
-  if (observance.precision === 'season') {
-    return observance.season ? <>{t(SEASON_LABEL_KEYS[observance.season])}</> : null;
-  }
-
-  const text = formatSourceDate(
-    observance.calendar,
-    observance.month,
-    observance.monthEnd,
-    observance.dayStart,
-    observance.dayEnd,
-    lang,
-    fmtNum,
-  );
-  if (!text) return null;
-
-  return (
-    <>
-      {text}
-      {observance.calendar === 'hijri' && (
-        <span className="order-urs-calendar"> ({t('almanacHijriLabel')})</span>
-      )}
-    </>
-  );
-}
-
 export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
@@ -215,24 +168,27 @@ export default function OrderPage() {
    * than a guessed one — which is roughly two thirds of them. */
   const observances = useMemo(() => {
     if (!slug) return [];
-    const rows = getOrderObservances(slug).map((row) => {
+    const rows: RecordedObservanceRow[] = getOrderObservances(slug).map((row) => {
+      // A shrine the graph knows and the sheet has since dropped reads as
+      // "date not recorded" — correct, and the same fallback the member list's
+      // shrine tags already take.
       const shrine = row.event.shrineSlug ? shrineBySlug.get(row.event.shrineSlug) : undefined;
-      // A shrine the graph knows and the sheet has since dropped leaves the
-      // cell empty, which reads as "date not recorded" — correct, and the same
-      // fallback the member list's shrine tags already take.
-      const recorded = shrine ? getFieldValue(shrine.raw, 'Events') : '';
-      return { ...row, recorded, dates: parseObservances(recorded) };
+      const shrineSlug = row.event.shrineSlug;
+      return {
+        key: `${row.saint.slug}:${row.event.id}`,
+        figure: { slug: row.saint.slug, name: localizeFigureName(row.saint, lang) },
+        unreviewed: !row.membershipReviewed,
+        shrineSlug,
+        shrineLabel: shrineSlug
+          ? (shrineNames.get(shrineSlug) ?? localizeShrineSlug(shrineSlug, lang))
+          : undefined,
+        frequency: row.event.frequency,
+        ...readRecordedObservances(shrine),
+      };
     });
     const collator = new Intl.Collator(lang, { sensitivity: 'base' });
-    return rows.sort((a, b) =>
-      collator.compare(localizeFigureName(a.saint, lang), localizeFigureName(b.saint, lang)),
-    );
-  }, [slug, shrineBySlug, lang]);
-
-  /* Named, not hidden. The almanac gives its undated list a heading of its own
-     because the gap is as much the point as the calendar is; the order page is
-     too small for a second list, so the count carries it. */
-  const observancesUndated = observances.filter((row) => row.dates.length === 0).length;
+    return rows.sort((a, b) => collator.compare(a.figure?.name ?? '', b.figure?.name ?? ''));
+  }, [slug, shrineBySlug, shrineNames, lang]);
 
   /* The sites this order is present at, and the places those sites stand in.
    *
@@ -568,106 +524,12 @@ export default function OrderPage() {
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('orderUrsHeading')}</h2>
                 <p className="kg-section-note">{t('orderUrsNote')}</p>
-                {observancesUndated > 0 && (
-                  <p className="order-urs-gap">
-                    {fmtNum(tFn(lang, 'orderUrsUndatedCount', observancesUndated))}
-                  </p>
-                )}
-                <ul className="order-urs-list">
-                  {observances.map(({ saint, event, membershipReviewed, recorded, dates }, i) => {
-                    const shrineSlug = event.shrineSlug;
-                    const shrineLabel = shrineSlug
-                      ? (shrineNames.get(shrineSlug) ?? localizeShrineSlug(shrineSlug, lang))
-                      : '';
-                    return (
-                      <li
-                        key={`${saint.slug}:${event.id}`}
-                        className="order-urs-row reveal-rise"
-                        style={{ '--stagger-index': i } as React.CSSProperties}
-                      >
-                        <div className="order-urs-figure">
-                          <Link to={`/saint/${saint.slug}`}>
-                            {fmtNum(localizeFigureName(saint, lang))}
-                          </Link>
-                          {/* The membership edge, not the observance, is what is
-                              unread — and it is the edge that put this row on
-                              this page, so the row carries its marking. */}
-                          {!membershipReviewed && (
-                            <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
-                              {t('lineageUnreviewed')}
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="order-urs-when">
-                          {dates.length > 0 ? (
-                            dates.map((observance, j) => (
-                              <span
-                                key={`${observance.sourceText}:${j}`}
-                                className="order-urs-date"
-                              >
-                                <RecordedDate observance={observance} />
-                              </span>
-                            ))
-                          ) : (
-                            <span className="order-urs-date order-urs-date--none">
-                              {t('orderUrsNoDate')}
-                            </span>
-                          )}
-                          {event.frequency && (
-                            <span className="order-urs-frequency">
-                              {t(FREQUENCY_KEYS[event.frequency])}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* The cell the dates above were read out of, so the
-                            reader can check the reading — the almanac's own
-                            convention. Semicolon-joined, so localizeObservance
-                            translates it segment by segment and leaves an
-                            unknown segment exactly as written; `data-latin`
-                            declares whatever is left as debt rather than
-                            letting it pass as Urdu. */}
-                        {recorded && (
-                          <p className="order-urs-recorded" data-latin>
-                            <span className="order-urs-recorded-label">
-                              {t('almanacSourceLabel')}:{' '}
-                            </span>
-                            <bdi>{fmtNum(localizeObservance(recorded, lang))}</bdi>
-                          </p>
-                        )}
-
-                        {/* Pills, not inline links: this row is Urdu half the
-                            time, an underline runs through Nastaliq descenders,
-                            and colour alone is not a link (a11y rule, and the
-                            lesson recorded on the "Also in" row below). */}
-                        <div className="order-urs-links">
-                          {shrineSlug && (
-                            <Link to={`/shrine/${shrineSlug}`} className="entity-saint-shrine-tag">
-                              {isRtl && /[A-Za-z]/.test(shrineLabel) ? (
-                                <bdi data-latin>{shrineLabel}</bdi>
-                              ) : (
-                                shrineLabel
-                              )}
-                            </Link>
-                          )}
-                          {/* The almanac anchors its year listing on the shrine
-                              slug, but only for a shrine it could actually
-                              place — so an undated row links to the page and
-                              not to an id that is not there. */}
-                          <Link
-                            to={
-                              dates.length > 0 && shrineSlug ? `/almanac#${shrineSlug}` : '/almanac'
-                            }
-                            className="entity-saint-shrine-tag"
-                          >
-                            {t('saintNextUrsLink')}
-                          </Link>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
+                {/* Named, not hidden. The almanac gives its undated list a
+                    heading of its own because the gap is as much the point as
+                    the calendar is; the order page is too small for a second
+                    list, so the count carries it. */}
+                <ObservanceGapNote rows={observances} />
+                <RecordedObservanceList rows={observances} />
               </section>
             )}
 

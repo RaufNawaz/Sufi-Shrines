@@ -101,6 +101,13 @@ const UI_TEXT_EN = {
   orderUrsAnnual: 'annual',
   orderUrsMonthly: 'monthly',
   orderUrsBiannual: 'twice a year',
+  /* ── Figure pages: the days kept, and where the figure rests ──────────── */
+  saintObservancesHeading: 'Days kept for this figure',
+  saintObservancesNote:
+    'Every observance the archive records at a site where this figure is commemorated — not only the ones with a date. Dates appear exactly as they were written down.',
+  saintPlaceHeading: 'Where this figure rests',
+  saintPlaceNote:
+    'The place comes from the site’s own recorded Location, which is shown beneath it as written — including where it says what the survey did not record.',
   activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
   nearMe: 'Near Me',
   switchToUrdu: 'اردو',

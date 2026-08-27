@@ -91,6 +91,14 @@ data/*.csv
 # the sheet is production and an import replaces it, so the point before an
 # import has to be recoverable from a commit, not from someone Downloads folder.
 !data/snapshot_*.csv
+# A fetched live-sheet export and the import file built from it. Deliberately
+# NOT named snapshot_* : that glob means "a dated snapshot of the app dataset",
+# and snapshotFidelity.test.ts asserts the newest one matches the shipped 169
+# rows field for field. A live export is 171 rows — it carries the two rows
+# build-dataset drops for having no coordinates — so filing it under snapshot_*
+# made a passing invariant fail on a file that was correct.
+!data/live_sheet_*.csv
+!data/import_*.csv
 docs/prompts/PROMPT_post_import.md
 PROMPT_post_import.md
 *.bak

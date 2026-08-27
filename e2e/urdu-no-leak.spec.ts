@@ -177,7 +177,15 @@ const BUDGET: Record<string, number> = {
   // the print footer's raw "Field-verified" — is now translated through
   // SUPPORT_LEVEL_LABEL_KEYS rather than declared.
   shrine: 10,
-  saint: 17,
+  // 17 -> 19, raised 26 August 2026: the figure pages gained "Where this figure
+  // rests", and its second line is the site's recorded Location verbatim —
+  // "Jhanda Bazar, Peshawar, Khyber Pakhtunkhwa, Pakistan", and for several rows
+  // a paragraph about what the survey did *not* record. That is the survey's own
+  // wording and RULE 2 keeps it, so it is declared rather than paraphrased. The
+  // other two saint routes measured exactly their pre-existing numbers:
+  // multi-order 23, lineage-only 24 (the latter's figure has no site in the app,
+  // so the section correctly does not render).
+  saint: 19,
   'saint:multi-order': 23,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase

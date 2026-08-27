@@ -14,12 +14,21 @@ import type { GraphNode } from '../components/kg/NetworkGraph';
 import {
   getSaintBySlug,
   getOrderMemberships,
+  getSaintObservances,
   getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
   getLineageChain,
   recordedSilsilas,
 } from '../lib/kg';
+import { placesForShrine } from '../lib/data/places';
+import { readRecordedObservances } from '../lib/data/recordedObservances';
+import {
+  ObservanceGapNote,
+  RecordedObservanceList,
+  type RecordedObservanceRow,
+} from '../components/kg/RecordedObservanceList';
+import { translateToUrdu as translatePlaceName } from '../lib/i18n/urduFallback';
 import { translateToUrdu } from '../lib/i18n/urduFallback';
 import {
   localizeAltName,
@@ -103,6 +112,61 @@ export default function SaintPage() {
     if (own.length === 0) return null;
     return buildAlmanac(own, today).dated[0] ?? null;
   }, [saint, shrines, today]);
+
+  /* The shrine records themselves, not just their names: the place a figure
+     rests in, and the observance cell kept there, both live on the row. */
+  const shrineRecords = useMemo(() => {
+    const m = new Map<string, (typeof shrines)[number]>();
+    for (const shrine of shrines) m.set(shrine.slug, shrine);
+    return m;
+  }, [shrines]);
+
+  /* Every day kept for this figure, dated or not.
+   *
+   * `nextUrs` above answers "when is the next one", which is silent for every
+   * figure whose observance the archive records without a date — and that is
+   * most of them. Dargah Pir Ratan Nath Jee records "Maha Shivratri" and the
+   * figure's page showed nothing at all. Same reader, same records, same
+   * component as the order pages (RecordedObservanceList), so the two surfaces
+   * cannot drift on how they say "date not recorded". */
+  const observances = useMemo<RecordedObservanceRow[]>(() => {
+    if (!slug) return [];
+    return getSaintObservances(slug).map((event) => {
+      const shrineSlug = event.shrineSlug;
+      const shrine = shrineSlug ? shrineRecords.get(shrineSlug) : undefined;
+      return {
+        key: event.id,
+        // No `figure`: this page is that figure, and a row repeating the name
+        // in the heading above it tells the reader nothing.
+        shrineSlug,
+        // The map, not the `shrineLabel` closure: a memo whose dependency is a
+        // function redefined every render is a memo that never memoises.
+        shrineLabel: shrineSlug
+          ? (shrineMap.get(shrineSlug) ?? localizeShrineSlug(shrineSlug, lang))
+          : undefined,
+        frequency: event.frequency,
+        ...readRecordedObservances(shrine),
+      };
+    });
+  }, [slug, shrineRecords, shrineMap, lang]);
+
+  /* Where the figure rests. The graph has tied every one of the 169 entries to
+     a place through `located_in` since the place vocabulary landed, and the
+     figure pages were the surface that never asked: this page could name three
+     titles and not the city. The recorded Location rides with it, verbatim —
+     for several rows that cell is a paragraph saying what the survey did not
+     record, which is the most honest thing on the page. */
+  const restingPlaces = useMemo(() => {
+    if (!saint) return [];
+    return saint.shrines
+      .map((shrineSlug) => shrineRecords.get(shrineSlug))
+      .filter((shrine): shrine is NonNullable<typeof shrine> => Boolean(shrine))
+      .map((shrine) => ({
+        shrine,
+        places: placesForShrine(shrine),
+      }))
+      .filter((row) => row.places.length > 0 || Boolean(row.shrine.location));
+  }, [saint, shrineRecords]);
 
   useDocumentTitle(saint ? `${localizeFigureName(saint, lang)} — ${t('siteTitle')}` : null);
 
@@ -533,6 +597,54 @@ export default function SaintPage() {
                   </p>
                 )}
                 {orderDescription && <p className="entity-order-description">{orderDescription}</p>}
+              </section>
+            )}
+
+            {/* Where this figure rests — place, then the Location as recorded. */}
+            {restingPlaces.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintPlaceHeading')}</h2>
+                <p className="kg-section-note">{t('saintPlaceNote')}</p>
+                <ul className="saint-place-list">
+                  {restingPlaces.map(({ shrine, places }) => (
+                    <li key={shrine.slug} className="saint-place-row">
+                      {places.length > 0 && (
+                        <div className="order-place-list">
+                          {places.map((place) => (
+                            <Link
+                              key={place.slug}
+                              to={`/place/${place.slug}`}
+                              className="order-place-tag hover-lift"
+                            >
+                              <bdi>{isRtl ? translatePlaceName(place.name) : place.name}</bdi>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                      {shrine.location && (
+                        /* The survey's own words. Often still English, and often
+                           a paragraph of qualification rather than an address —
+                           declared rather than tidied (RULE 2). */
+                        <p className="saint-place-recorded" data-latin>
+                          <span className="order-urs-recorded-label">
+                            {t('almanacSourceLabel')}:{' '}
+                          </span>
+                          <bdi>{shrine.location}</bdi>
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Days kept for this figure — all of them, dated or not. */}
+            {observances.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintObservancesHeading')}</h2>
+                <p className="kg-section-note">{t('saintObservancesNote')}</p>
+                <ObservanceGapNote rows={observances} />
+                <RecordedObservanceList rows={observances} />
               </section>
             )}
 

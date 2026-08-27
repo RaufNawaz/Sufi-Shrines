@@ -694,3 +694,14 @@
     margin-inline: auto;
   }
 }
+
+/* A day with nothing on it is a <span>, not a <button>. It shares the cell
+   layout and drops the pointer affordance — `.almanac-calendar-day:hover` would
+   otherwise offer a hover state on a cell that does not respond. */
+.almanac-calendar-day--empty {
+  cursor: default;
+}
+
+.almanac-calendar-day--empty:hover .almanac-calendar-day-number {
+  color: var(--color-text-muted);
+}

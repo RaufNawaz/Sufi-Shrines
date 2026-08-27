@@ -148,6 +148,30 @@ export function getOrderObservances(orderSlug: string): OrderObservance[] {
   return rows;
 }
 
+/**
+ * The observances recorded for one figure.
+ *
+ * The other direction of the almanac's own join, and the one a reader arriving
+ * at a figure's page wants: not "whose ʿurs is this week" but "when do people
+ * gather for this person". `SaintPage` answered it with `buildAlmanac(...)
+ * .dated[0]` — the next *dated* observance inside twelve months — which is
+ * right for a "coming up" line and silent for every figure whose observance the
+ * archive records without a date. That is most of them: `Maha Shivratri` at
+ * Dargah Pir Ratan Nath Jee is recorded, and the figure's page showed nothing.
+ */
+export function getSaintObservances(saintSlug: string): KGEvent[] {
+  const byId = new Map(kg.events.map((e) => [e.id, e]));
+  const seen = new Set<string>();
+  const out: KGEvent[] = [];
+  for (const rel of getRelations({ subject: `saint:${saintSlug}`, type: 'commemorated_by' })) {
+    const event = byId.get(rel.object);
+    if (!event || seen.has(event.id)) continue;
+    seen.add(event.id);
+    out.push(event);
+  }
+  return out;
+}
+
 export type LineageRelationType = 'disciple_of' | 'successor_of';
 
 export interface LineageLink {

@@ -151,10 +151,13 @@ describe('OrderPage renders the join honestly', () => {
   });
 
   it('reads dates through the almanac’s parser, not the event node', () => {
-    expect(src).toContain('parseObservances');
-    // `event.date` is the 16-of-149 field. Reading it here would silently drop
+    // The read moved into lib/data/recordedObservances.ts, which both pages
+    // call. `event.date` is the 16-of-149 field: reading it would silently drop
     // the day ranges, month ranges and seasons the cell holds.
-    expect(src).not.toMatch(/event\.date\b/);
+    expect(read('lib/data/recordedObservances.ts')).toContain('parseObservances');
+    for (const page of ['pages/OrderPage.tsx', 'pages/SaintPage.tsx']) {
+      expect(read(page), page).not.toMatch(/event\.date\b/);
+    }
   });
 
   it('marks an unreviewed membership on this surface too', () => {
@@ -162,14 +165,29 @@ describe('OrderPage renders the join honestly', () => {
     expect(src).toContain('lineageUnreviewed');
   });
 
+  it('renders the rows through the shared list, not its own copy', () => {
+    /* The row markup moved to components/kg/RecordedObservanceList.tsx when the
+       figure pages grew the same section. Two surfaces showing the same records
+       must show the same provenance, and a reimplemented row is how one of them
+       quietly loses the "date not recorded" that is the honest half of this. */
+    expect(src).toContain('RecordedObservanceList');
+    expect(src).toContain('readRecordedObservances');
+  });
+
   it('shows the reader the cell the dates were read out of', () => {
-    expect(src).toContain('localizeObservance');
+    expect(read('components/kg/RecordedObservanceList.tsx')).toContain('localizeObservance');
   });
 
   it('names a season with the same key the almanac does', () => {
-    /* Two surfaces render a recorded season now. A second copy of the map is a
-       second place for a season to go untranslated. */
-    expect(src).toContain('SEASON_LABEL_KEYS');
+    /* Three surfaces render a recorded season now. A second copy of the map is
+       a second place for a season to go untranslated. */
+    expect(read('components/kg/RecordedObservanceList.tsx')).toContain('SEASON_LABEL_KEYS');
     expect(read('pages/AlmanacPage.tsx')).toContain('SEASON_LABEL_KEYS');
+  });
+
+  it('gives the figure pages the same section from the same component', () => {
+    const saint = read('pages/SaintPage.tsx');
+    expect(saint).toContain('getSaintObservances');
+    expect(saint).toContain('RecordedObservanceList');
   });
 });

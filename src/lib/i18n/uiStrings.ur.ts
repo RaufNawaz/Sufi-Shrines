@@ -119,6 +119,12 @@ export const UI_TEXT_UR: UiStrings = {
   orderUrsAnnual: 'سالانہ',
   orderUrsMonthly: 'ماہانہ',
   orderUrsBiannual: 'سال میں دو بار',
+  saintObservancesHeading: 'اِس شخصیت کے دن',
+  saintObservancesNote:
+    'ہر وہ تقریب جو آرکائیو اُس مقام پر درج کرتا ہے جہاں اِس شخصیت کی یادگار ہے — صرف وہ نہیں جن کی تاریخ درج ہے۔ تاریخیں بعینہٖ اُسی طرح دی گئی ہیں جیسے لکھی گئی تھیں۔',
+  saintPlaceHeading: 'یہ شخصیت کہاں آرام فرما ہے',
+  saintPlaceNote:
+    'جگہ کا نام مقام کے اپنے درج شدہ محلِ وقوع سے آیا ہے، جو نیچے بعینہٖ دیا گیا ہے — بشمول اُس صورت میں جہاں وہ بتاتا ہے کہ سروے نے کیا درج نہیں کیا۔',
   activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
   nearMe: 'میرے قریب',
   switchToUrdu: 'اردو',
