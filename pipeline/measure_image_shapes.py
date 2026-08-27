@@ -169,6 +169,10 @@ def main() -> int:
     ap.add_argument("--all", action="store_true", help="every image field, not just heroes")
     ap.add_argument("--tsv", help="write the per-image rows here")
     ap.add_argument(
+        "--unmeasurable-tsv",
+        help="write the URLs that could not be decoded here, with the status that says why",
+    )
+    ap.add_argument(
         "--resume",
         action="store_true",
         help="keep the rows already in --tsv and fetch only what is missing",
@@ -281,6 +285,21 @@ def main() -> int:
             handle.write("slug\tfield\twidth\theight\tratio\turl\n")
             for slug, field, width, height, ratio, url in measured:
                 handle.write(f"{slug}\t{field}\t{width}\t{height}\t{ratio:.4f}\t{url}\n")
+        print(f"wrote {out}")
+
+    if args.unmeasurable_tsv:
+        # A separate file, deliberately, and never consulted by --resume: a 429
+        # is transient and a 404 is not, and a script that remembered failures
+        # the way it remembers successes would bake a rate limit in as a fact.
+        # The front end reads this as the list of images that legitimately have
+        # no reserved box, so a *newly added* image with no shape is a gate
+        # failure rather than a silent loss of the box.
+        out = Path(args.unmeasurable_tsv)
+        with out.open("w", encoding="utf-8") as handle:
+            handle.write("slug\tfield\tstatus\turl\n")
+            for slug, field, why in failed:
+                status, _, url = why.partition("  ")
+                handle.write(f"{slug}\t{field}\t{status.strip()}\t{url.strip()}\n")
         print(f"wrote {out}")
 
     return 0

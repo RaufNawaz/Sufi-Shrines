@@ -93,6 +93,28 @@ a {
   color: var(--color-primary);
 }
 
+/* An image's width/height attributes are a ratio here, not a size.
+ *
+ * `ShrineImage` carries each photograph's measured dimensions so the browser
+ * can reserve the box before the bytes arrive — that is what takes `/shrine`
+ * from CLS 0.1115 to 0 without cropping the 31 portrait images a single CSS
+ * `aspect-ratio` would crop (`pipeline/measure_image_shapes.py`).
+ *
+ * Those attributes map to *presentational hints* — effectively `height: 899px`
+ * — and a hint loses to any author rule but **beats `aspect-ratio`**, which
+ * only fills in a dimension nobody has set. So `.related-card-img`, which
+ * shapes itself with `aspect-ratio: 16/9` and sets no height, rendered 356×899
+ * the moment the attribute arrived, and eight of them added 7,192px to a shrine
+ * page. Measured, not theorised.
+ *
+ * Specificity 0,0,1, deliberately: it beats the hint and loses to every class,
+ * so `.gallery-img`'s `height: 100%` still wins. An attribute selector would
+ * have been 0,2,1 and would have overridden exactly the rules that must not be
+ * overridden. */
+img {
+  height: auto;
+}
+
 /* The replacement, in two halves, split by what CSS will actually do.
  *
  * `transform` has no effect on a non-replaced inline element, so scaling an
