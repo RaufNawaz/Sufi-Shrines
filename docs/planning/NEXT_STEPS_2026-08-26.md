@@ -218,6 +218,16 @@ filter in both languages, verify + relevant e2e green.
 > The calendar's honesty rule is in `src/lib/data/almanacCalendar.ts`: only an observance
 > recorded with a day gets a day; the ten recorded to a month alone are listed unplaced
 > beneath the grid. A filter that hides the unplaced list would undo that.
+>
+> **Done 26 August 2026, `cc44976`.** The design decision the task did not anticipate:
+> **filter the sites the almanac is built from, not the four lists it produces.** One line
+> instead of four, and it makes the coverage block follow the filter automatically — filtering
+> the outputs separately would have left "33 of 171 sites" printed under a page showing 35.
+> Collapsed behind a one-row disclosure, because the calendar had just been moved to the top of
+> the page and two chip rows above it would have put it back where it was; it opens
+> automatically when a filter is active, including on a shared link. The place row shows twelve
+> of 66 with the rest behind a dashed "54 more" chip. `e2e/almanac-facets.spec.ts` (5 tests, the
+> round-trip in both languages) — which also closes part of **B3**.
 
 ### A7 — The figure-image batch: agents find candidate pictures for the order pages
 
@@ -329,7 +339,13 @@ session's throwaway scripts) and extend `e2e/filter-layout.spec.ts`'s neighbours
 remain. Mind HANDOVER §9.122: in dev, the first-ever palette open reloads once (Vite
 discovering minisearch) — build-based e2e does not hit this.
 Done when: specs pass in the sandbox (`npm run build:e2e` first); verify green.
-> Status: open.
+> Status: **partly done 26 August 2026.** `e2e/almanac-facets.spec.ts` landed with A6
+> (`cc44976`) and covers the new facets in both languages. `e2e/archive-search.spec.ts` is still
+> open. One thing to know before writing it: **the suite flakes under local parallel load** —
+> 1–2 tests fail per full local run and they are different tests each time, because `workers: 1`
+> and `retries: 2` are set only under `CI`. Every one passes in isolation and the failure is
+> always a 30-second timeout rather than a wrong assertion. Re-run a named spec alone before
+> believing a local red (HANDOVER §9, 26 August).
 
 ### B4 — Periodic honesty sweep
 
