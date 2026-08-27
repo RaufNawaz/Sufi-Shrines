@@ -1,0 +1,107 @@
+Name,Location,qa_note
+Darbar Hazrat Shah Gohar Peer,"Lahore (no locality, address or coordinates recorded in the survey)","1. **Builder and death date are chronologically irreconcilable.** The survey states that
+   after the saint's death his shrine was built by Sultan Mahmud Ghaznavi, and elsewhere
+   gives his death as 21 Ramzan 825 AH (c. 1422 CE). Mahmud of Ghazni died in 1030 CE,
+   roughly four centuries earlier, so he cannot have built a shrine for a saint who died in
+   825 AH. The attribution is recorded here as tradition, not repeated as fact, and no
+   resolution is proposed. Note only that the same account also mentions a Lahore locality
+   called Mahmood Booti as a place where the saint briefly stayed; both names appear in the
+   survey, and nothing in the survey connects them or explains one by the other. The
+   founding-year field (""825 Hijri"") has been treated as the death year, not a construction
+   date, and `year_built` left unknown.
+2. **The sect/lineage answer combines two distinct traditions.** The field reads ""Ahl e
+   Sunnat - Ismaili Sadaat Uch Shareef - Shajra e nasab Hazrat Imam Hussain (R.A)"", and the
+   life account likewise says his family lineage was from the Ismaili Sadaat of Uch Sharif.
+   Ahl-e-Sunnat (Sunni) and Ismaili are different traditions, and the survey does not
+   reconcile them. The lineage is recorded exactly as given; no choice has been made between
+   the two, and no silsila has been inferred.
+3. **Minor internal variance (not resolved).** The hand-planted tree is described as a Sukh
+   Chain (Pongamia) in the answer on the saint's life and as a banyan (*bor*) in the
+   additional-information answer. Both descriptions are reported; the survey gives no basis
+   for preferring either, and it is unclear whether one tree or two is meant.
+4. No other source was consulted. The survey reports that later saints wrote books about
+   the saint, but names none, and the export column records ""No book available"", so no work
+   is cited. Nine photographs and three audio/video files were uploaded with the survey and
+   are held as Google Drive links in the source record.
+
+Moved out of the public Location column, 26 August 2026: this row has no landmark to approximate from at all; ask Saifullah for a precise pin or at least a nearby landmark."
+Darbar Mian Qurban Ali Shah,"Mint Stop, Lahore (as given in the survey; no province, street address or coordinates are recorded)","Internal contradictions and gaps in the source. None of these are resolved in the public
+prose above; none should be silently harmonised by a later editor.
+
+1. FOUNDING YEAR vs NARRATIVE. Q6 (""year founded"") = ""1416 Hijri"", c. 1995-96 CE. But Q8
+   and Q9 both state the shrine was built after the saint's death, by others. 1416 AH is
+   exactly 75 lunar years after the stated birth year of 1341 AH (Q9), and no death year
+   is given anywhere in the survey — only the day, 25 Rabi-ul-Sani. The most economical
+   reading is that the respondent answered the ""founded"" question with the death year.
+   Flagged rather than resolved: the survey does not say so.
+
+2. NO DEATH YEAR AT ALL. Q9 gives ""25 Rabi-ul-Sani"" with no year. The entry therefore
+   carries a death day and no death year. The urs dates (24-26 Rabi-ul-Sani, Q13) do
+   bracket the stated death day consistently — that is the one date check in this survey
+   that passes cleanly.
+
+3. WHO BUILT THE SHRINE — two different answers. Q8: ""His disciples built a beautiful
+   shrine, and alongside the shrine, a mosque was also constructed in his name."" Q9: ""The
+   wealthy people of that era took responsibility for his shrine and constructed a
+   beautiful shrine along with a mosque."" Same building event, two different patrons
+   (disciples / wealthy notables). The prose above attributes the construction to neither
+   and says only that it was built after his death.
+
+4. LENGTH OF RESIDENCE AT MINT STOP — two different answers. Q8: he ""established his
+   final camp at this location of Mint Stop, Lahore, where he spent the remaining part of
+   his life."" Q9: he ""arrived at this area of Mint Stop in Lahore and stayed for a short
+   while, but made this very place his final abode."" A short stay and the remainder of a
+   life are not the same claim.
+
+5. SUCCESSION — singular vs plural. Q9: ""he passed on his spiritual seat (gaddi) to his
+   special disciples"" (plural). Q16: ""he passed on his spiritual seat (gaddi) to his
+   successor disciple, Haji Tufail"" (a single named successor). One or more successors is
+   left open above.
+
+6. CUSTODIANSHIP — two answers standing in tension. Q15 (custodian question): ""Government
+   Mehkama Auqaaf"", flat. Q16: after Haji Tufail's death ""his sons hold the position of
+   managing it"". Q8 adds that although Auqaf took charge in 2005, ""most of the maintenance
+   and decoration is taken care of by his devotees themselves"". Both the Auqaf answer and
+   the hereditary-management answer are reported above, side by side, without deciding
+   which body actually controls the site. The devotee-maintenance detail is retained as
+   given: it is the nearest thing to a maintenance-shortfall report in this survey, and
+   has not been softened.
+
+7. THE BOOK — asserted and denied within the same submission. Q16: ""A short while ago, his
+   disciple published a discourse on his life, which became a source of great popularity
+   among the people."" Q20 (upload a book or pamphlet): blank. Trailing export column
+   ""Column 1"": ""No book available"". Reported above only as a claim of the tradition, with
+   no title and no citation, per instruction.
+
+8. ""SHAH"" — honorific or Sayyid descent? Q9 explains the name as an honorific earned by
+   learning: ""His original name was Qurban Ali, but later, on account of his knowledge,
+   people began calling him by the name of Mian Qurban Ali Shah."" Q19 instead attributes
+   to him ""spiritual majesty and nobility (Sadaat character)"", i.e. implies Sayyid
+   descent. The entry makes no descent claim and uses ""Hazrat"" throughout, never ""Sayyid"".
+
+9. SILSILA UNSUPPORTED BY THE BIOGRAPHY. Q5 answers ""Naqshbandi Majdadi - Ahl e Sunnat"",
+   but nothing in Q8, Q9, Q10, Q11, Q16 or Q19 mentions a Naqshbandi affiliation, a
+   Naqshbandi chain, or any Naqshbandi practice. All spiritual authority in the biography
+   descends from his father, Hazrat Mian Fazal Deen, whose own affiliation is never given.
+   The silsila field therefore rests on the one-line Q5 answer alone. Note also that the
+   Q5 answer mixes a silsila (Naqshbandi Mujaddidi) with a sect (Ahl-e Sunnat); the survey
+   spelling is ""Majdadi"" and has been normalised to Mujaddidī in the entry.
+
+10. MIGRATION UNDATED. Birth is placed at Malerkotla, India (Q9); life, death and shrine
+    at Lahore. The survey never dates or explains the move, and no context has been
+    supplied for it here.
+
+11. WEEKLY ATTENDANCE FIGURE WITHHELD. Q12 says the Thursday gathering has ""a specific
+    number of people"" participating but never states the number. Daily and urs figures are
+    given (Q14) and are reported.
+
+12. REGISTER NOTE, NOT A CONTRADICTION. Q19 is written in the second person, addressing the
+    saint directly (""your father"", ""you became a scholar"", ""you included thousands""). A
+    reader skimming the transcript could mistake these for statements about the surveyor.
+    All Q19 material has been converted to third person above.
+
+13. QAWWALI. Not reported at this site. Q12 lists mosque prayers, and a Thursday gathering
+    with Zikr, Naat and langar; Q13 lists dhol at the urs. The absence is stated in the
+    entry so that a later editor does not read it as an omission.
+
+Moved out of the public Location column, 26 August 2026: 'Mint Stop' did not resolve to one confident location (candidates found: a 'Pakistan Mint' railway/metro stop and a separate 'Akhri Mint' bus stop, in different parts of the city) — left blank rather than guess between them. Ask Saifullah which stop he meant, or for a precise pin."
