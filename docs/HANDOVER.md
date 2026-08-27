@@ -3754,7 +3754,29 @@ as **A14** rather than chosen here.
 #### The rest, for whoever picks it up
 
 - **The map's TBT is 4,306ms** against a 300ms budget, and its performance score is 28. It is the
-  archive's front door.
+  archive's front door. Diagnosed rather than left as a number:
+
+  | script | bootup | longest task | unused bytes |
+  |---|---|---|---|
+  | `vendor-maplibre` | **8,484ms** | **5,447ms** | 169,678 |
+  | `vendor-papa` | 730ms | 729ms | — |
+  | `vendor-react` | 510ms | 702ms | — |
+  | `vendor-leaflet` | 89ms | — | 28,882 |
+
+  **`maplibre-gl` is 88% of it, and it is already lazy.** `ShrineMap` loads it through
+  `React.lazy`, deliberately, and `check-bundle-budget`'s `MUST_STAY_LAZY` keeps it there. The
+  lesson is that **the split moved it off the first paint and not off the main thread**: a lazy
+  chunk still evaluates, and on the map route it evaluates immediately, because the map mounts
+  immediately. The eager-bytes budget cannot see this by construction — it measures the static
+  import graph — so a route can pass every budget in the repository and still spend four seconds
+  blocked. Whether the archive wants a 1 MB vector basemap at all is a product question (the
+  keyless CARTO raster fallback already exists and is what `ThemeAwareTileLayer` falls back to);
+  it is not an engineering one, so it is not decided here.
+
+  **`vendor-papa` at 730ms is the second-largest and is a different kind of problem** — that is
+  not evaluation, it is papaparse *running*, parsing the ~1 MB sheet CSV on the main thread. There
+  is already a worker in this codebase (`src/lib/search/search.worker.ts`) and no reason the parse
+  could not join it.
 - **`/?lang=ur` has an LCP of 15 seconds.** One run, so treat it as a lead rather than a number,
   but the Urdu route is the only one over 8s and the Urdu strings and dictionary are two extra
   chunks on the critical path.
