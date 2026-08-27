@@ -404,13 +404,13 @@
 .tour-nav-btn--next {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 
 .tour-nav-btn--next:not(:disabled):hover {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
-  color: #fff;
+  color: var(--color-text-inverse);
 }
 
 /* Previous/Next chevrons are mirror images of each other, so flipping both

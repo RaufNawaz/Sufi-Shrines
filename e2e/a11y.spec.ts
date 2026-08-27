@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, settle } from './fixtures';
 import AxeBuilder from '@axe-core/playwright';
 
 // Leaflet injects tiles/controls that have known axe false-positives; exclude them.
@@ -231,4 +231,64 @@ test.describe('Touch targets (390px)', () => {
     });
     expect(geometry).toEqual({ contentWidth: 36, contentHeight: 20, clip: 'content-box' });
   });
+});
+
+/**
+ * The same sweep, in the dark theme.
+ *
+ * Everything above this block ran in one theme, and `CLAUDE.md` described it as
+ * scanning "every route in both languages" — true, and it hid the other axis.
+ * The first dark run, on 27 August 2026, found **63 serious contrast failures
+ * across every route in the archive**, from three causes that had all been there
+ * since dark mode shipped:
+ *
+ *  - `background: var(--color-primary); color: white` on the language toggle,
+ *    the filter chips, the order chips, scroll-to-top, the 404 action and the
+ *    tour's next button. `--color-primary` is a *light* cobalt in dark mode, so
+ *    white on it is 2.37:1. Fixed at the token
+ *    (`src/styles/__tests__/themeFlippingGrounds.test.ts` now refuses the
+ *    pairing statically, which is milliseconds against this suite's minutes).
+ *  - Sixteen anchors with no `color` rule at all, falling back to the user
+ *    agent's `#0000ee` — about 8:1 on cream, **1.96:1** on the dark ground.
+ *  - White on `--color-accent`, which is a light gold in *both* themes and was
+ *    therefore failing in both; only the dark sweep noticed.
+ *
+ * Routes rather than one page, because the first two causes are in shared
+ * chrome and would pass on whichever single page happened to be chosen.
+ */
+const DARK_ROUTES = [
+  '/',
+  '/shrine/data-darbar',
+  '/saint/data-ganj-bakhsh',
+  '/order/qadiriyya',
+  '/place/lahore',
+  '/almanac',
+  '/graph',
+  '/typology',
+  '/about',
+];
+
+test.describe('Accessibility in the dark theme', () => {
+  test.use({
+    contextOptions: { reducedMotion: 'reduce' },
+    colorScheme: 'dark',
+  });
+
+  for (const route of DARK_ROUTES) {
+    test(`${route} has no critical violations in the dark theme`, async ({ page }) => {
+      await page.goto(route);
+      await page.locator('h1').first().waitFor();
+      await settle(page);
+
+      const results = await new AxeBuilder({ page })
+        .exclude(EXCLUDE_SELECTORS)
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+
+      const criticalOrSerious = results.violations.filter(
+        (v) => v.impact === 'critical' || v.impact === 'serious',
+      );
+      expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+    });
+  }
 });

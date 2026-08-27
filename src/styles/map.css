@@ -857,7 +857,7 @@
 .filter-chip.active {
   border-color: var(--color-primary);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
   transform: scale(1.02);
 }
 
@@ -1098,7 +1098,7 @@
 
 .retry-btn:hover {
   background: var(--color-error);
-  color: white;
+  color: var(--color-text-inverse);
 }
 
 /* Preview card in sidebar — hero image styles live on .preview-card-hero below */
@@ -1284,7 +1284,7 @@
 .list-toggle-btn.active {
   border-color: var(--color-primary);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
 }
 
 /* Shrine list thumbnail slot — always renders, fallback when no image */
@@ -1698,7 +1698,7 @@
 
 .lang-seg.active {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
 }
 
 .lang-seg:not(.active):hover {

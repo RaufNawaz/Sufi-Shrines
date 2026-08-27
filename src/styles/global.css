@@ -77,6 +77,22 @@ button,
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Every link has a colour, including the ones nobody styled.
+ *
+ * There was no `a { color }` anywhere, so an anchor without its own rule fell
+ * back to the user agent's `#0000ee`. On the cream ground that is about 8:1 and
+ * looks like an ordinary link; on the dark theme it is **1.96:1** — a blue so
+ * close to the background it reads as damage. Sixteen of them, across the
+ * almanac's cards, `/about`'s contact and licence lines, and the nearby-mosque
+ * list, none of them caught, because the accessibility sweep had only ever run
+ * in light mode.
+ *
+ * Specificity 0,0,1, so every existing rule still wins. This is a floor, not a
+ * decision about how any particular link should look. */
+a {
+  color: var(--color-primary);
+}
+
 /* The replacement, in two halves, split by what CSS will actually do.
  *
  * `transform` has no effect on a non-replaced inline element, so scaling an
@@ -348,7 +364,7 @@ body.lang-rtl,
 .sw-update-reload {
   padding: var(--space-1) var(--space-3);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
   border: none;
   border-radius: var(--radius-full);
   font-size: var(--text-sm);

@@ -95,6 +95,13 @@
   --color-secondary-pale: #e4f2f1;
 
   --color-accent: #c8890a;
+  /* Text on an accent *ground*. Deliberately not overridden in the dark block:
+     --color-accent is a light gold in both themes (#c8890a / #e8a82a), so a
+     foreground that flips with the theme is wrong in one of them. White on gold
+     measures 2.98:1 in light and 2.09:1 in dark — it was failing in *both*, and
+     only the dark sweep noticed because nobody had run one. This ink is 5.9:1
+     and 8.44:1. */
+  --color-on-accent: #1f1808;
   --color-accent-light: #f5d78e;
   --color-accent-pale: #fdf7e6;
   /* The gilding gold is a fill/stroke color, not a text color: #c8890a is

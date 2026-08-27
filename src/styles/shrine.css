@@ -1171,7 +1171,7 @@
   height: 44px;
   border-radius: var(--radius-full);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
   border: none;
   cursor: pointer;
   display: flex;
@@ -1484,7 +1484,7 @@
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-full);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-text-inverse);
   font-weight: 600;
   font-size: var(--text-sm);
   text-decoration: none;
