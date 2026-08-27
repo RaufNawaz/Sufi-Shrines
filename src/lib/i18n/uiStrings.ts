@@ -495,6 +495,20 @@ const UI_TEXT_EN = {
   coverageRestsDistinct: 'distinct sources',
   coverageRestsShared: 'sources cited by more than one entry',
   coverageRestsSingle: 'entries resting on a single source',
+  /* ── The source index, made addressable ────────────────────────────────
+     A5. The point of an anchor is that a shrine page can send a reader to
+     "everything this archive cites this source for", so the index has to hold
+     every source rather than only the shared ones — and the entries have to be
+     named, not counted. */
+  coverageRestsEvery: 'Every source, in full',
+  coverageRestsEveryNote: (n: number) =>
+    `The other ${n} are each cited by a single entry. Listed rather than summarised: a claim resting on a source nothing else in the archive uses is worth being able to see.`,
+  coverageRestsShow: 'Show all',
+  coverageRestsHide: 'Hide',
+  /* On a shrine page, beside a bibliography line. Only where the answer is more
+     than "this entry", so 436 of the 533 citations stay unadorned. */
+  sourceAlsoCitedBy: (n: number) =>
+    n === 1 ? 'also cited by 1 other entry' : `also cited by ${n} other entries`,
   coverageRestsTop: 'The sources most of it rests on',
   coverageRestsEntryCount: (n: number) => `${n} ${n === 1 ? 'entry' : 'entries'}`,
   coverageRestsTail: (n: number) =>
@@ -839,6 +853,8 @@ export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
 export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
 export function tFn(lang: Lang, key: 'orderUrsUndatedCount', n: number): string;
+export function tFn(lang: Lang, key: 'coverageRestsEveryNote', n: number): string;
+export function tFn(lang: Lang, key: 'sourceAlsoCitedBy', n: number): string;
 export function tFn(lang: Lang, key: 'saintBiographyFrom', entry: string): string;
 export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
@@ -917,6 +933,8 @@ export function tFn(
     | 'orderSpanOne'
     | 'lineageChainRemove'
     | 'orderUrsUndatedCount'
+    | 'coverageRestsEveryNote'
+    | 'sourceAlsoCitedBy'
     | 'saintBiographyFrom'
     | 'almanacMorePlaces'
     | 'almanacCalendarPlaced'

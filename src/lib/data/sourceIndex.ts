@@ -48,6 +48,52 @@ export interface SourceIndex {
   uncited: number;
 }
 
+/**
+ * A short, stable digest of a citation key — the tail of an anchor whose head
+ * had to be cut.
+ *
+ * FNV-1a, because it needs to be deterministic across builds and languages and
+ * to fit in six characters, and needs no cryptographic property at all.
+ */
+function digest(text: string): string {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash.toString(36).padStart(6, '0').slice(-6);
+}
+
+/** How much of the citation the anchor spells out before it gives up. */
+const ANCHOR_SLUG_MAX = 60;
+
+/**
+ * The URL fragment a source is reachable at, inside `/about`'s index.
+ *
+ * `citationKey` is the dedupe key and is free text — lowercased, but still full
+ * of spaces, commas, brackets and the occasional URL. This is that made safe to
+ * put after a `#`, and it is deliberately derived from the key rather than
+ * invented: two spellings of one citation dedupe to one entry in the index, so
+ * they must also dedupe to one anchor, or a shrine page would link to a
+ * fragment the index does not contain.
+ *
+ * **Truncated, and therefore suffixed.** A handful of these citations are a
+ * full sentence with a URL in it, and a 300-character fragment is not a link
+ * anyone can read or paste. Cutting to 60 characters alone collided **22 times**
+ * in the current 464 — five separate volumes of Alam Faqri's *Tazkirah* share
+ * their first sixty characters, and would have shared one anchor, sending a
+ * reader from one volume's citation to another's. So a cut slug carries a
+ * digest of the whole key; an uncut one does not, which keeps the common case
+ * readable. `sourceIndex.test.ts` asserts zero collisions over the shipped data.
+ */
+export function sourceAnchorId(nameOrKey: string): string {
+  const key = citationKey(nameOrKey);
+  const full = key.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  if (full.length <= ANCHOR_SLUG_MAX) return `source-${full || 'untitled'}`;
+  const head = full.slice(0, ANCHOR_SLUG_MAX).replace(/-+$/, '');
+  return `source-${head}-${digest(key)}`;
+}
+
 export function buildSourceIndex(shrines: readonly Shrine[]): SourceIndex {
   const byKey = new Map<string, IndexedSource>();
   let citations = 0;

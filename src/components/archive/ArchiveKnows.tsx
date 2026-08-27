@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
@@ -8,9 +8,69 @@ import { SUPPORT_LEVEL_LABEL_KEYS } from '../../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../../lib/data/categoryKey';
 import { buildPlaces } from '../../lib/data/places';
-import { buildSourceIndex } from '../../lib/data/sourceIndex';
+import {
+  buildSourceIndex,
+  sourceAnchorId,
+  type IndexedSource,
+} from '../../lib/data/sourceIndex';
 import { Fact, DistributionBlock } from './CoverageStats';
 import type { Shrine } from '../../types/shrine';
+
+/**
+ * One source, and every entry that cites it.
+ *
+ * The entries were a count — "cited by 25 entries" — which answers how much the
+ * archive leans on a book and not *where*, which is the question a reader
+ * following a claim actually has. Each row is now an anchor target as well, so a
+ * shrine page's bibliography can point at it.
+ */
+function SourceList({ sources, targeted }: { sources: IndexedSource[]; targeted: string }) {
+  const { lang, fmtNum } = useLang();
+  return (
+    <ul className="inset-list coverage-rests-list">
+      {/* The landing row is marked from state, not with `:target`. `:target`
+          never matches here: the browser resolves the document's fragment
+          before this client-rendered list exists, and a pushState navigation
+          does not set a target element at all — so the row a reader was sent to
+          would have arrived looking like all 465 others. */}
+      {sources.map((source) => (
+        <li
+          key={source.key}
+          id={sourceAnchorId(source.name)}
+          className={
+            targeted === sourceAnchorId(source.name)
+              ? 'inset-row coverage-rests-row--targeted'
+              : 'inset-row'
+          }
+        >
+          {/* A citation is Latin by design — the source's real title, publisher
+              and URL, which is the exact search string a reader is owed
+              (i18n rule 7). Declared and isolated rather than translated. */}
+          <span className="inset-row-label coverage-rests-citation" data-latin>
+            <bdi>{renderCitation(source.name)}</bdi>
+            <span className="coverage-rests-entries">
+              {source.shrines.map((shrine) => (
+                <Link
+                  key={shrine.slug}
+                  to={`/shrine/${shrine.slug}`}
+                  className="coverage-rests-entry"
+                >
+                  {/* `IndexedSource.shrines` carries the name the index
+                      recorded, not a Shrine, so this is the recorded-string
+                      localizer rather than the shrine one. */}
+                  <bdi>{localizeRecordedName(shrine.name, lang)}</bdi>
+                </Link>
+              ))}
+            </span>
+          </span>
+          <span className="inset-row-note">
+            {fmtNum(tFn(lang, 'coverageRestsEntryCount', source.shrines.length))}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 /**
  * What this archive knows, and what it does not — computed, not asserted.
@@ -74,6 +134,42 @@ export function ArchiveKnows({
      to crawl. */
   const { places, unplaced } = useMemo(() => buildPlaces(shrines), [shrines]);
 
+  const shared = useMemo(
+    () => restsOn.sources.filter((source) => source.shrines.length > 1),
+    [restsOn.sources],
+  );
+  const tail = useMemo(
+    () => restsOn.sources.filter((source) => source.shrines.length <= 1),
+    [restsOn.sources],
+  );
+
+  /* Which source the URL is asking for, and getting the reader to it.
+   *
+   * Both halves are the app's job rather than the browser's. A client-rendered
+   * list does not exist when the document's fragment is resolved, and an in-app
+   * `pushState` navigation does not set a target element at all — so neither
+   * the scroll nor `:target` can be relied on, and the row a reader was sent to
+   * would have arrived looking like all 465 others. */
+  const { hash } = useLocation();
+  const wanted = hash.startsWith('#') ? hash.slice(1) : '';
+  const [tailOpen, setTailOpen] = useState(false);
+
+  /* A link from a shrine page's bibliography must land on the citation it
+     names, and four of every five sources are in the collapsed tail. */
+  useEffect(() => {
+    if (!wanted.startsWith('source-')) return;
+    if (tail.some((source) => sourceAnchorId(source.name) === wanted)) setTailOpen(true);
+  }, [wanted, tail]);
+
+  useEffect(() => {
+    if (!wanted.startsWith('source-')) return;
+    // One frame after the rows exist, or there is nothing to scroll to.
+    const id = window.requestAnimationFrame(() =>
+      document.getElementById(wanted)?.scrollIntoView({ block: 'center' }),
+    );
+    return () => window.cancelAnimationFrame(id);
+  }, [wanted, tailOpen]);
+
   return (
     <>
       <DistributionBlock
@@ -132,28 +228,45 @@ export function ArchiveKnows({
           </ul>
 
           <h3 className="inset-list-header">{t('coverageRestsTop')}</h3>
-          <ul className="inset-list coverage-rests-list">
-            {restsOn.sources
-              .filter((source) => source.shrines.length > 1)
-              .map((source) => (
-                <li key={source.key} className="inset-row">
-                  {/* A citation is Latin by design — the source's real title,
-                      publisher and URL, which is the exact search string a reader
-                      is owed (i18n rule 7). Declared and isolated rather than
-                      translated. */}
-                  <span className="inset-row-label coverage-rests-citation" data-latin>
-                    <bdi>{renderCitation(source.name)}</bdi>
-                  </span>
-                  <span className="inset-row-note">
-                    {fmtNum(tFn(lang, 'coverageRestsEntryCount', source.shrines.length))}
-                  </span>
-                </li>
-              ))}
-          </ul>
-          <p className="coverage-note">
-            {fmtNum(tFn(lang, 'coverageRestsTail', restsOn.sources.length - restsOn.shared))}{' '}
-            {t('coverageRestsCaveat')}
-          </p>
+          <SourceList sources={shared} targeted={wanted} />
+
+          {/* The long tail, behind a disclosure and reachable by anchor.
+              436 of the 464 are cited once. Listing them costs a screen nobody
+              asked for; *not* listing them means a shrine page's link to
+              "everything this archive cites this source for" has no target for
+              five citations in six — and means the archive cannot show the case
+              it is most candid about, a claim resting on a source nothing else
+              uses. So: collapsed, and opened automatically when the URL asks
+              for a source inside it. */}
+          {tail.length > 0 && (
+            <div className="coverage-rests-tail">
+              <div className="coverage-rests-tail-bar">
+                <h3 className="inset-list-header">{t('coverageRestsEvery')}</h3>
+                <button
+                  type="button"
+                  className="action-btn"
+                  onClick={() => setTailOpen((open) => !open)}
+                  aria-expanded={tailOpen}
+                  aria-controls="rests-on-tail"
+                >
+                  {tailOpen ? t('coverageRestsHide') : t('coverageRestsShow')}
+                </button>
+              </div>
+              <p className="coverage-note">
+                {fmtNum(tFn(lang, 'coverageRestsEveryNote', tail.length))}
+              </p>
+              {/* Rendered only when open. 438 rows kept in the DOM behind a
+                  `hidden` attribute cost the page 2,500 nodes it does not use;
+                  a deep link works because the effect above opens the section
+                  before the effect below looks for the row. */}
+              {tailOpen && (
+                <div id="rests-on-tail">
+                  <SourceList sources={tail} targeted={wanted} />
+                </div>
+              )}
+            </div>
+          )}
+          <p className="coverage-note">{t('coverageRestsCaveat')}</p>
         </section>
       )}
 

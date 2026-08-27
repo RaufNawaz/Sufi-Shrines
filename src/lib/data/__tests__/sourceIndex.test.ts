@@ -18,7 +18,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildShrines } from '../shrineModel';
-import { buildSourceIndex } from '../sourceIndex';
+import { buildSourceIndex, sourceAnchorId } from '../sourceIndex';
 
 const ROOT = join(__dirname, '..', '..', '..', '..');
 const snapshot = JSON.parse(readFileSync(join(ROOT, 'src/data/shrines-fallback.json'), 'utf8'));
@@ -87,5 +87,46 @@ describe('what it says about the archive', () => {
 
   it('finds sources more than one entry rests on', () => {
     expect(index.shared).toBeGreaterThan(10);
+  });
+});
+
+describe('every source is addressable', () => {
+  /**
+   * A5's whole premise: a shrine page's bibliography links to
+   * `/about#<anchor>`, so an anchor that is wrong sends a reader to the wrong
+   * citation — or to none — and looks exactly like one that is right.
+   */
+  it('gives all 464 sources distinct anchors', () => {
+    /* Truncating the slug to 60 characters and stopping there collided **22
+       times** in the shipped data: five volumes of Alam Faqri's *Tazkirah* share
+       their first sixty characters, and a reader following the citation for
+       volume 2 would have landed on volume 1. Hence the digest on a cut slug —
+       and hence this test, which is the only thing that would notice the next
+       time two citations converge. */
+    const anchors = index.sources.map((source) => sourceAnchorId(source.name));
+    expect(anchors.length).toBeGreaterThan(400);
+    expect(new Set(anchors).size).toBe(anchors.length);
+  });
+
+  it('produces fragments that are legal in a URL and readable in one', () => {
+    for (const source of index.sources) {
+      const anchor = sourceAnchorId(source.name);
+      expect(anchor, source.name.slice(0, 60)).toMatch(/^source-[a-z0-9-]+$/);
+      expect(anchor.length).toBeLessThanOrEqual(75);
+    }
+  });
+
+  it('is a function of the dedupe key, so two spellings reach one anchor', () => {
+    /* The index merges "Alam Faqri, *Tazkirah*" and "alam faqri, tazkirah" into
+       one entry. If the anchor were derived from the raw text instead, the
+       second spelling would link to a fragment the index does not contain. */
+    expect(sourceAnchorId('Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore).')).toBe(
+      sourceAnchorId('alam faqri, tazkirah awliya-e-pakistan (lahore)'),
+    );
+  });
+
+  it('never returns a bare prefix for an empty citation', () => {
+    expect(sourceAnchorId('')).toBe('source-untitled');
+    expect(sourceAnchorId('***')).toBe('source-untitled');
   });
 });

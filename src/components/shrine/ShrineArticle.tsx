@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { useReveal } from '../../lib/useReveal';
@@ -9,11 +9,49 @@ import { renderInlineBold } from './inlineFormat';
 import { ProseParagraphs } from './ProseParagraphs';
 import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
 import { localizeProseDigits } from '../../lib/i18n/numerals';
+import { Link } from 'react-router-dom';
+import { useShrineData } from '../../hooks/useShrineData';
+import { buildSourceIndex, sourceAnchorId } from '../../lib/data/sourceIndex';
+import { citationKey } from '../../lib/data/bibliography';
+import { tFn } from '../../lib/i18n/uiStrings';
 
 /** Source lines are often hand-authored with their own "- " / "* " marker —
  * strip it so the real <li> bullet doesn't double up with a literal one. */
 function stripLeadingListMarker(line: string): string {
   return line.replace(/^[-*•]\s+/, '');
+}
+
+/**
+ * Where else the archive uses this source.
+ *
+ * A bibliography line answers "where did this claim come from". It could never
+ * answer the next question — "and what else rests on it" — although the archive
+ * has known since the source layer landed: 464 distinct sources behind 533
+ * citations, **28 of them carrying more than one entry**, one of them carrying
+ * twenty-five.
+ *
+ * Shown only where the answer is more than "this entry", which leaves 436 of
+ * the 533 citations exactly as they were. A note reading "cited by this entry
+ * alone" under five lines in six would be noise, and the interesting half —
+ * that a source is *shared* — would be buried in it. Where the note is absent,
+ * the full index on `/about` still lists the source; the link is a shortcut to
+ * a question worth asking, not the only way in.
+ */
+function SourceReach({ citation }: { citation: string }) {
+  const { lang, fmtNum } = useLang();
+  const { shrines } = useShrineData();
+  const index = useMemo(() => buildSourceIndex(shrines), [shrines]);
+  const entry = useMemo(() => {
+    const key = citationKey(citation);
+    return index.sources.find((source) => source.key === key);
+  }, [index, citation]);
+
+  if (!entry || entry.shrines.length <= 1) return null;
+  return (
+    <Link className="article-source-reach" to={`/about#${sourceAnchorId(entry.name)}`}>
+      {fmtNum(tFn(lang, 'sourceAlsoCitedBy', entry.shrines.length - 1))}
+    </Link>
+  );
 }
 
 function ArticleSection({
@@ -47,7 +85,10 @@ function ArticleSection({
             .map((line) => stripLeadingListMarker(line.trim()))
             .filter(Boolean)
             .map((line, i) => (
-              <li key={i}>{renderInlineBold(localize(line))}</li>
+              <li key={i}>
+                {renderInlineBold(localize(line))}
+                <SourceReach citation={line} />
+              </li>
             ))}
         </ul>
       ) : (

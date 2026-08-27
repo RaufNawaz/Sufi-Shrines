@@ -759,8 +759,17 @@
 
 /* One column, always. A citation is a sentence — author, title, publisher,
    sometimes a URL — and two of them side by side read as one run-on line. The
-   list primitive's `auto-fill` is right for names and wrong for prose. */
-.coverage-rests-list {
+   list primitive's `auto-fill` is right for names and wrong for prose.
+
+   **Written with one class and therefore never applied.** `.inset-list` sets
+   `grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr))`, it lives in
+   `list.css`, and `list.css` is imported after this file — same specificity,
+   later wins. The comment above described an intention the page did not have
+   for as long as this rule existed, and it only became visible when each row
+   grew a list of citing entries and the three columns started clipping the
+   counts. Both classes now, which beats the primitive on specificity rather
+   than on import order. */
+.inset-list.coverage-rests-list {
   grid-template-columns: 1fr;
   margin-block-end: var(--space-4);
 }
@@ -992,4 +1001,77 @@
 
 [dir='rtl'] .review-note {
   font-family: var(--font-urdu);
+}
+
+/* ── The source index, made addressable ───────────────────────────────────
+   Each row is an anchor target, so a shrine page's bibliography can point at
+   "everything this archive cites this source for". The entries under a citation
+   are the answer; they were a count. */
+
+.coverage-rests-entries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  margin-block-start: var(--space-1);
+}
+
+.coverage-rests-entry {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-block-end: 1px solid var(--color-border);
+}
+
+.coverage-rests-entry:hover,
+.coverage-rests-entry:focus-visible {
+  color: var(--color-primary);
+  border-block-end-color: currentcolor;
+}
+
+[dir='rtl'] .coverage-rests-entry {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The row a reader was sent to by a fragment. Marked so the landing is obvious
+   in a list of 466 — a scroll alone leaves them counting rows.
+
+   A class rather than `:target`, which never matches here: the browser resolves
+   the document's fragment before this client-rendered list exists, and an
+   in-app `pushState` navigation does not set a target element at all. */
+.coverage-rests-row--targeted {
+  background-color: var(--color-accent-pale);
+  /* An inset rule down the leading edge as well as the tint. `--color-accent-
+     pale` against the row's own ground is a two-percent difference — real, and
+     not enough to find in a list of 466 at a glance. `box-shadow` rather than a
+     border so the row does not shift by three pixels when it becomes the
+     target. */
+  box-shadow: inset 3px 0 0 var(--color-accent);
+  scroll-margin-block: var(--space-8);
+}
+
+/* Mirrored, because "leading edge" is a direction. */
+[dir='rtl'] .coverage-rests-row--targeted {
+  box-shadow: inset -3px 0 0 var(--color-accent);
+}
+
+/* The count is the row's fixed column and the citation is the elastic one. It
+   was the other way round by default, so "25 entries" arrived as "2." once the
+   citing entries widened the label beside it. */
+.coverage-rests-list .inset-row-note {
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: start;
+}
+
+.coverage-rests-tail {
+  margin-block-start: var(--space-5);
+}
+
+.coverage-rests-tail-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
 }

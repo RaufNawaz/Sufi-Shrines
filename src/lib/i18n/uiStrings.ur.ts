@@ -466,6 +466,12 @@ export const UI_TEXT_UR: UiStrings = {
   coverageRestsDistinct: 'الگ الگ مآخذ',
   coverageRestsShared: 'مآخذ جو ایک سے زیادہ اندراجات میں درج ہیں',
   coverageRestsSingle: 'اندراجات جو ایک ہی ماخذ پر قائم ہیں',
+  coverageRestsEvery: 'تمام مآخذ، مکمل فہرست',
+  coverageRestsEveryNote: (n: number) =>
+    `باقی ${n} مآخذ میں سے ہر ایک صرف ایک اندراج میں استعمال ہوا ہے۔ اِنہیں گنتی میں سمیٹنے کے بجائے نام بہ نام دیا گیا ہے: جو دعویٰ ایسے مأخذ پر کھڑا ہو جسے آرکائیو میں اور کہیں استعمال نہیں کیا گیا، اُسے دیکھ سکنا اہم ہے۔`,
+  coverageRestsShow: 'سب دکھائیں',
+  coverageRestsHide: 'چھپائیں',
+  sourceAlsoCitedBy: (n: number) => `${n} دیگر اندراجات میں بھی درج`,
   coverageRestsTop: 'وہ مآخذ جن پر اِس کا بڑا حصہ قائم ہے',
   coverageRestsEntryCount: (n: number) => `${n} اندراج`,
   coverageRestsTail: (n: number) =>
