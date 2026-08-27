@@ -31,6 +31,11 @@ export function SiteFooter({ children }: { children?: React.ReactNode }) {
      that looks like a live one, so it becomes plain text there — the credit
      still shows, which is the part that has to be on every page. */
   const onAbout = pathname === '/about' || pathname === '/ur/about';
+  /* Same argument for the settings link: this is the one control that has to be
+     reachable from every page, because until /settings existed every preference
+     the archive has lived on the map sidebar and a reader who arrived on a
+     shrine page could not reach one. */
+  const onSettings = pathname === '/settings' || pathname === '/ur/settings';
 
   return (
     <footer className="site-footer">
@@ -39,6 +44,8 @@ export function SiteFooter({ children }: { children?: React.ReactNode }) {
       <span>{t('footerCredit')}</span>
       {' · '}
       {onAbout ? <span>{t('aboutTitle')}</span> : <Link to="/about">{t('aboutTitle')}</Link>}
+      {' · '}
+      {onSettings ? <span>{t('settings')}</span> : <Link to="/settings">{t('settings')}</Link>}
       {/* A page with a per-entry control appends it here — the shrine page's
           "report a correction" carries that entry's own issue URL. Extracting the
           footer must not cost that: it is the one place a reader can push back on

@@ -14,8 +14,10 @@ import { CATEGORY_ORDER, categoryKey } from '../lib/data/categoryKey';
 import type { CategoryKey } from '../lib/data/categoryKey';
 import { TOURS } from '../lib/tours/tours';
 import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
-// Guided tours are opt-in: hidden unless the user flips the TOURS_STORAGE_KEY switch on.
-import { TOURS_STORAGE_KEY } from '../lib/storageKeys';
+// Guided tours are opt-in: hidden unless the reader turns them on, here or in
+// /settings. Both surfaces go through toursPreference so they cannot disagree
+// about what counts as "on".
+import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
 import { parseSharedList, importSharedList } from '../lib/sharedList';
 
 /** Drop the one-shot ?list= param after the reader acts on the banner. */
@@ -149,9 +151,7 @@ export default function MapPage() {
   const [sharedSlugs, setSharedSlugs] = useState<string[]>(() =>
     parseSharedList(window.location.search),
   );
-  const [toursEnabled, setToursEnabled] = useState(
-    () => localStorage.getItem(TOURS_STORAGE_KEY) === 'on',
-  );
+  const [toursEnabled, setToursEnabled] = useState(readToursEnabled);
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
@@ -178,7 +178,7 @@ export default function MapPage() {
       if (tour) {
         const clampedStop = Math.min(Math.max(stopIdx, 0), tour.stops.length - 1);
         setToursEnabled(true);
-        localStorage.setItem(TOURS_STORAGE_KEY, 'on');
+        writeToursEnabled(true);
         activeTourIdRef.current = tourId;
         tourStopIdxRef.current = clampedStop;
         setActiveTourId(tourId);
@@ -337,7 +337,7 @@ export default function MapPage() {
 
   const handleToursToggle = useCallback((enabled: boolean) => {
     setToursEnabled(enabled);
-    localStorage.setItem(TOURS_STORAGE_KEY, enabled ? 'on' : 'off');
+    writeToursEnabled(enabled);
     if (!enabled) {
       setActiveTourId(null);
       setTourStopIdx(0);

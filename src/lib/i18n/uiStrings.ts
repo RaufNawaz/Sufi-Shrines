@@ -15,6 +15,42 @@ const UI_TEXT_EN = {
   directoryModeLabel: 'Table button opens',
   directoryModeSpotlight: 'Spotlight search',
   directoryModeTable: 'Shrine table',
+  /* ── Settings page (/settings) ─────────────────────────────────────────
+     Every control the archive had lived on the map sidebar, so a reader who
+     arrived on a shrine page from a search engine could not reach one. The
+     help text under each option is not decoration: `shrines_numerals` decides
+     whether a recorded date reads ۱۴۱۶ or 1416, which is an editorial matter
+     in a bilingual archive and had no explanation anywhere. */
+  settingsIntro:
+    'These choices are kept in this browser only. Nothing is sent anywhere, and clearing your browsing data resets them.',
+  settingsLanguageSection: 'Language and numerals',
+  settingsLanguageLabel: 'Reading language',
+  settingsLanguageHelp:
+    'The archive reads in English or Urdu. Both are complete: entries, filters, dates and search.',
+  settingsNumeralsLabel: 'Numerals',
+  settingsNumeralsHelp:
+    'Whether numbers appear in Eastern or Western digits. Coordinates stay Western either way, because they get copied into other tools.',
+  settingsNumeralsEastern: 'Eastern (۱۲۳)',
+  settingsNumeralsWestern: 'Western (123)',
+  settingsNumeralsUrduOnly: 'Applies to the Urdu edition.',
+  settingsAppearanceSection: 'Appearance',
+  settingsThemeLabel: 'Theme',
+  settingsThemeHelp: 'Until you choose here, the archive follows your device.',
+  settingsThemeLight: 'Light',
+  settingsThemeDark: 'Dark',
+  settingsMapSection: 'Map and guided tours',
+  /* Its own legend rather than reusing `directoryModeLabel` ("Table button
+     opens"), which works above two radios in a popover and reads as a
+     fragment above a paragraph explaining the same thing. */
+  settingsDirectoryLabel: 'Shrine list',
+  settingsDirectoryHelp: 'What the list button on the map opens.',
+  settingsToursLabel: 'Guided tours',
+  /* The switch says what turning it on does. Repeating the legend beside the
+     checkbox told the reader the same words twice and nothing about the
+     effect. */
+  settingsToursToggle: 'Show tours on the map',
+  settingsToursHelp:
+    'Curated routes through the archive. Off by default — the map’s own subject is the sites themselves.',
   /* ── Command palette (⌘K search) ─────────────────────────────────────── */
   paletteTitle: 'Search the archive',
   paletteOpen: 'Search and filter',

@@ -24,6 +24,31 @@ import type { UiStrings } from './uiStrings';
  * view at runtime.
  */
 export const UI_TEXT_UR: UiStrings = {
+  /* ── ترتیبات کا صفحہ (/settings) ───────────────────────────────────── */
+  settingsIntro:
+    'یہ انتخاب صرف اسی براؤزر میں محفوظ رہتے ہیں۔ کچھ بھی کہیں نہیں بھیجا جاتا، اور براؤزر کا ڈیٹا صاف کرنے پر یہ دوبارہ طے شدہ حالت پر آ جاتے ہیں۔',
+  settingsLanguageSection: 'زبان اور اعداد',
+  settingsLanguageLabel: 'مطالعے کی زبان',
+  settingsLanguageHelp:
+    'آرکائیو اردو یا انگریزی میں پڑھا جا سکتا ہے۔ دونوں مکمل ہیں: اندراجات، فلٹر، تاریخیں اور تلاش۔',
+  settingsNumeralsLabel: 'اعداد',
+  settingsNumeralsHelp:
+    'اعداد مشرقی صورت میں دکھائے جائیں یا مغربی۔ عرضِ بلد و طولِ بلد بہر صورت مغربی رہتے ہیں، کیونکہ انہیں دوسرے آلات میں نقل کیا جاتا ہے۔',
+  settingsNumeralsEastern: 'مشرقی (۱۲۳)',
+  settingsNumeralsWestern: 'مغربی (123)',
+  settingsNumeralsUrduOnly: 'اردو ایڈیشن پر لاگو ہوتا ہے۔',
+  settingsAppearanceSection: 'ظاہری شکل',
+  settingsThemeLabel: 'رنگ',
+  settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
+  settingsThemeLight: 'روشن',
+  settingsThemeDark: 'تاریک',
+  settingsMapSection: 'نقشہ اور رہنما دورے',
+  settingsDirectoryLabel: 'مزارات کی فہرست',
+  settingsDirectoryHelp: 'نقشے پر فہرست کا بٹن کیا کھولے۔',
+  settingsToursLabel: 'رہنما دورے',
+  settingsToursToggle: 'نقشے پر دورے دکھائیں',
+  settingsToursHelp:
+    'آرکائیو میں سے منتخب راستے۔ طے شدہ طور پر بند ہیں — نقشے کا اپنا موضوع خود یہ مقامات ہیں۔',
   title: 'صوفی مزارات',
   siteTitle: 'پاکستان کے صوفی مزارات',
   siteMetaDescription:

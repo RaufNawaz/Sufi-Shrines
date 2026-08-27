@@ -121,6 +121,26 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
+  test('settings page has no critical violations', async ({ page }) => {
+    /* The densest page of form controls in the archive, and the only one whose
+       whole content is native inputs: a fieldset per option, a legend per
+       fieldset, and every control inside its own label so the 44px row is the
+       hit area rather than the 18px box. All four combinations — both languages,
+       both themes — were clean when it landed. */
+    await page.goto('/settings');
+    await page.locator('h1.entity-title').waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('keyboard navigation reaches interactive elements', async ({ page }) => {
     await page.goto('/');
     // Tabbing before hydration finishes can land focus on a node React is
@@ -266,6 +286,7 @@ const DARK_ROUTES = [
   '/graph',
   '/typology',
   '/about',
+  '/settings',
 ];
 
 test.describe('Accessibility in the dark theme', () => {

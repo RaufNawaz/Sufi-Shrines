@@ -1,0 +1,125 @@
+/**
+ * The settings page: does each control actually reach the preference?
+ *
+ * The rule this asserts is the one in the plan — **no preference may be
+ * write-only.** Before this page existed every control lived on the map
+ * sidebar, so the failure this guards against is not "the option is missing"
+ * but "the option is on the page and changes nothing", which looks identical to
+ * working until a reader reloads.
+ *
+ * Rendered rather than inspected as source, because the thing under test is the
+ * wiring between a radio and `localStorage`, and a source check cannot see a
+ * handler that sets state without persisting.
+ */
+import { describe, it, expect, beforeEach } from 'vitest';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import SettingsPage from '../SettingsPage';
+import { renderWithProviders } from '../../test/utils';
+import {
+  DIRECTORY_MODE_STORAGE_KEY,
+  NUMERALS_STORAGE_KEY,
+  THEME_STORAGE_KEY,
+  TOURS_STORAGE_KEY,
+} from '../../lib/storageKeys';
+import { UI_TEXT } from '../../lib/i18n/uiStrings';
+
+const en = UI_TEXT.en;
+
+describe('SettingsPage', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('renders every section', () => {
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    for (const heading of [
+      en.settingsLanguageSection,
+      en.settingsAppearanceSection,
+      en.settingsMapSection,
+    ]) {
+      expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument();
+    }
+  });
+
+  it('explains every option rather than only offering it', () => {
+    /* The half that was missing was not the controls, it was that nothing said
+       what a preference does — `shrines_numerals` decides whether a recorded
+       date reads ۱۴۱۶ or 1416, which is editorial in a bilingual archive. A
+       group with no help text is the defect this page was written to fix. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    const groups = document.querySelectorAll('fieldset.settings-group');
+    expect(groups.length).toBeGreaterThanOrEqual(5);
+    for (const group of groups) {
+      const help = group.querySelector('.settings-help');
+      expect(help?.textContent?.trim().length ?? 0).toBeGreaterThan(20);
+      expect(group.querySelector('legend')?.textContent?.trim()).toBeTruthy();
+    }
+  });
+
+  it('persists the numerals choice', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsNumeralsWestern }));
+    expect(localStorage.getItem(NUMERALS_STORAGE_KEY)).toBe('western');
+    await user.click(screen.getByRole('radio', { name: en.settingsNumeralsEastern }));
+    expect(localStorage.getItem(NUMERALS_STORAGE_KEY)).toBe('eastern');
+  });
+
+  it('persists the shrine-list destination, the option that used to be map-only', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.directoryModeTable }));
+    expect(localStorage.getItem(DIRECTORY_MODE_STORAGE_KEY)).toBe('table');
+    await user.click(screen.getByRole('radio', { name: en.directoryModeSpotlight }));
+    expect(localStorage.getItem(DIRECTORY_MODE_STORAGE_KEY)).toBe('spotlight');
+  });
+
+  it('persists the tours switch, and writes an explicit off', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    const toggle = screen.getByRole('checkbox', { name: en.turnOnTours });
+    await user.click(toggle);
+    expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('on');
+    await user.click(screen.getByRole('checkbox', { name: en.turnOffTours }));
+    expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('off');
+  });
+
+  it('persists the theme, and choosing the theme already shown is a no-op', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsThemeDark }));
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+    /* `useTheme` exposes a toggle rather than a setter, so a radio group over it
+       has to guard against flipping when the reader picks what is already
+       selected — the bug that would make the dark option turn the lights back
+       on every second click. */
+    await user.click(screen.getByRole('radio', { name: en.settingsThemeDark }));
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
+    await user.click(screen.getByRole('radio', { name: en.settingsThemeLight }));
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
+  });
+
+  it('reflects what is already stored instead of showing defaults', () => {
+    /* A settings page that renders its defaults over a stored choice tells the
+       reader their preference was forgotten. */
+    localStorage.setItem(DIRECTORY_MODE_STORAGE_KEY, 'table');
+    localStorage.setItem(TOURS_STORAGE_KEY, 'on');
+    localStorage.setItem(NUMERALS_STORAGE_KEY, 'western');
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByRole('radio', { name: en.directoryModeTable })).toBeChecked();
+    expect(screen.getByRole('checkbox', { name: en.turnOffTours })).toBeChecked();
+    expect(screen.getByRole('radio', { name: en.settingsNumeralsWestern })).toBeChecked();
+  });
+
+  it('gives every option row a 44px target and the whole label as the hit area', () => {
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    const options = document.querySelectorAll('.settings-option');
+    expect(options.length).toBeGreaterThanOrEqual(9);
+    for (const option of options) {
+      // The control is inside its own label, so the label is the hit area
+      // rather than the 18px box — asserted structurally because jsdom has no
+      // layout and cannot measure the 44px the stylesheet sets.
+      expect(option.tagName).toBe('LABEL');
+      expect(option.querySelector('input')).toBeTruthy();
+    }
+  });
+});

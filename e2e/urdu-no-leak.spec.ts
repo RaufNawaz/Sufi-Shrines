@@ -264,6 +264,14 @@ const BUDGET: Record<string, number> = {
      figures section added none: a figure's recorded name is in the dictionary
      for all 169 rows, and the site tags beside it were already on the page. */
   place: 59,
+  /* Two, and they are the only two Latin runs on the page a reader can
+     legitimately meet: `EN` in the masthead's language segment, and `English`
+     as the name of the English option in the reading-language group. A language
+     picker is the one place in this archive where an English word belongs in the
+     Urdu view — a reader who cannot read the current interface has to be able to
+     recognise the way out of it. Everything else on /settings, including the
+     help text under every option, is interface copy and therefore translated. */
+  settings: 2,
 };
 
 /* All five orders, not one: they came from the sweep this file replaced
@@ -332,6 +340,13 @@ const ROUTES = [
   { name: 'typology', path: '/typology?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac:list', path: '/almanac?view=list&lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
+  /* Added with the route, 27 August 2026, rather than after someone noticed it
+     was missing. The lesson of this file's own history is that a route absent
+     from this matrix is a route nobody has checked: pointing the walker at 23
+     routes instead of 14 found seven leaks. A settings page is more exposed than
+     most — every string on it is interface copy, and interface copy is exactly
+     what gets added in English and translated later. */
+  { name: 'settings', path: '/settings?lang=ur', ready: 'h1.entity-title' },
 ] as const;
 
 test.describe('the Urdu view carries no undeclared English', () => {

@@ -11,6 +11,9 @@ import './styles/tours.css';
 // Shared primitives load after map/tours and before shrine.css — see components.css header.
 import './styles/components.css';
 import './styles/list.css';
+// Self-contained `.settings-*` rules; after components.css so its option rows
+// win where they overlap the shared control styles.
+import './styles/settings.css';
 // The command palette is a feature sheet, loaded like map/tours; it must come
 // after components.css so its own .palette-* rules win where they overlap.
 import './styles/palette.css';

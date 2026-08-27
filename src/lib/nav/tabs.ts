@@ -40,7 +40,16 @@ export const TABS: readonly TabDefinition[] = [
   { id: 'explore', path: '/graph', labelKey: 'tabExplore', owns: ['/saint/', '/order/'] },
   { id: 'almanac', path: '/almanac', labelKey: 'tabAlmanac', owns: [] },
   { id: 'atlas', path: '/typology', labelKey: 'tabAtlas', owns: [] },
-  { id: 'about', path: '/about', labelKey: 'tabAbout', owns: ['/coverage', '/report'] },
+  /* `/settings` sits here for the same reason `/coverage` and `/report` do: it
+     is a page *about* the archive rather than a part of its content, it is
+     linked from the footer beside "About this archive", and a reader who opens
+     it should not be shown five unselected tabs. */
+  {
+    id: 'about',
+    path: '/about',
+    labelKey: 'tabAbout',
+    owns: ['/coverage', '/report', '/settings'],
+  },
 ];
 
 /**

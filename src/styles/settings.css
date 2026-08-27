@@ -1,0 +1,145 @@
+/*
+ * The settings page.
+ *
+ * Set as a register rather than as a control panel, following the same
+ * direction as the almanac: ruled rows, the explanation carried beside the
+ * control rather than hidden behind an info icon, and no cards. The design
+ * direction for this project is hairlines and not boxes, and cobalt means
+ * interactive — so a row is separated by a rule, and the only coloured thing
+ * in it is the control the reader can actually operate.
+ *
+ * Every option row is at least 44px tall, which is the accessibility floor this
+ * project holds itself to, and the whole `label` is the hit target rather than
+ * the radio inside it.
+ */
+
+.settings-page {
+  max-width: 44rem;
+}
+
+.settings-intro {
+  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  max-width: 34rem;
+}
+
+[dir='rtl'] .settings-intro {
+  line-height: var(--leading-urdu);
+}
+
+.settings-section {
+  margin-bottom: var(--space-10);
+}
+
+.settings-section-heading {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Urdu has no capital forms, so `text-transform: uppercase` does nothing to it
+   and the letter-spacing that makes a Latin caps-run legible instead pulls a
+   Nastaliq ligature apart. Both are dropped, and the weight carries the
+   heading. */
+[dir='rtl'] .settings-section-heading {
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: var(--text-sm);
+  line-height: var(--leading-urdu-heading);
+}
+
+.settings-group {
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  border: 0;
+}
+
+.settings-legend {
+  padding: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+[dir='rtl'] .settings-legend {
+  line-height: var(--leading-urdu-heading);
+}
+
+.settings-help {
+  margin: var(--space-1) 0 var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  max-width: 32rem;
+}
+
+.settings-note {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+[dir='rtl'] .settings-help,
+[dir='rtl'] .settings-note {
+  line-height: var(--leading-urdu-ui);
+}
+
+.settings-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-option {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: var(--hairline) solid var(--color-border-light);
+  cursor: pointer;
+}
+
+/* The last rule in a group would otherwise sit directly above the next
+   group's legend and read as its underline. */
+.settings-option:last-child {
+  border-bottom: 0;
+}
+
+.settings-option input {
+  /* 18px, not the 13px default: this is the interactive element in the row and
+     the row is 44px tall. `accent-color` is what makes a native control take
+     the archive's cobalt without replacing it with a div, which keeps the
+     keyboard and screen-reader behaviour the platform already gets right. */
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  flex: none;
+  accent-color: var(--color-primary);
+}
+
+.settings-option-label {
+  font-size: var(--text-base);
+}
+
+[dir='rtl'] .settings-option-label {
+  line-height: var(--leading-urdu-ui);
+}
+
+.settings-option:hover .settings-option-label {
+  color: var(--color-primary);
+}
+
+/* The focus ring belongs to the row, not to the 18px radio inside it: a
+   keyboard reader tabbing through needs to see which option is focused at the
+   scale they are reading at. */
+.settings-option:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

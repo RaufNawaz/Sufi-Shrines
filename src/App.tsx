@@ -31,6 +31,7 @@ const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PlacePage = lazy(() => import('./pages/PlacePage'));
+const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function LegacyRedirect() {
@@ -168,6 +169,7 @@ export default function App() {
                   <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/place/:slug" element={<PlacePage />} />
+                  <Route path="/settings" element={<SettingsPage />} />
                   {/* Legacy shrine.html?id=N redirect */}
                   <Route path="/shrine.html" element={<LegacyRedirect />} />
                   {/* /ur/* — crawler-discovery mirror of the routes above (see

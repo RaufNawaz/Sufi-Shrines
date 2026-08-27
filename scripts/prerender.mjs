@@ -1103,6 +1103,11 @@ const APP_ROUTES = [
     titleEn: 'Atlas of Built Forms — Sufi Shrines',
     titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
   },
+  {
+    path: 'settings',
+    titleEn: 'Settings — Sufi Shrines',
+    titleUr: `ترتیبات — ${SITE_TITLE_UR}`,
+  },
   /* Team-only in the UI, but it still needs a file: GitHub Pages serves files,
      not routes, and check-routes-prerendered.mjs parses the route table out of
      App.tsx and would fail the build without one. */
