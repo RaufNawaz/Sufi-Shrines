@@ -3854,9 +3854,17 @@ The structural point is worth more than the two names:
 > it.
 
 That is not a bug in any check; it is the shape of the whole gate system, and it follows directly
-from RULE 3 (the sheet is production, and it deploys with no review step). **`npm run data:build`
-is due**, and after it the two names need dictionary entries and the two entries need Urdu
-articles.
+from RULE 3 (the sheet is production, and it deploys with no review step).
+
+**`npm run data:build` is due — and it is not a one-liner, which is why it was not run here.**
+Rebuilding the snapshot pulls the two rows in, and both of them have **no Urdu article and no
+dictionary entry for their names**. So the rebuild on its own turns the no-leak guard red on
+whichever routes those two rows reach, and the only ways to make it green again are to raise a
+budget (recording untranslated content as accepted debt, which is the wrong direction) or to
+translate them. **The data build and the Urdu content for those two entries have to land
+together.** Order: `npm run data:build`, then the two Urdu articles and the two name entries, then
+`npm run data:build:urdu`, then re-measure every budget in `e2e/urdu-no-leak.spec.ts` — several
+will move, because the fixture the guard runs against is regenerated from the snapshot too.
 
 #### And one negative result worth keeping
 
