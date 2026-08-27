@@ -3911,6 +3911,88 @@ combination — and found **zero**. `e2e/no-overflow.spec.ts`'s eight-route samp
 representative today. Recorded because the absence is the answer: that guard does not need
 widening, and the next person wondering can read this instead of running it again.
 
+### Added 27 August 2026 — A14 measured properly: 81% of the jump is one section, and the shift attribution lied
+
+**The instrument now exists as a file.** `scripts/measure-cls.mjs`. The five-second height trace
+quoted in the B4 note above was taken in a scratch script that was never committed, so the number
+survived in this document with nothing able to reproduce it — the exact failure RULE 0 is about.
+The committed script reproduces it to four decimal places on the first run: **CLS 0.5687 on
+`/saint/data-ganj-bakhsh`, article 2163 → 3618px**, identical to what was recorded. That is the
+instrument validated against a known answer before anything was concluded from it.
+
+#### The `layout-shift` entry's own attribution is misleading on this app — do not diagnose from it
+
+Chromium hands each shift entry a `sources` array with `previousRect`/`currentRect` per node. On
+`/saint` it reported, for the 0.5246 entry at 1652ms:
+
+    div.entity-article-layout  moved  +31px, grew  -31px
+    section.kg-section         moved -533px, grew -275px
+    section.kg-section         moved -840px, grew   -4px
+
+Read literally: sections moved **up** by 533 and 840 pixels and got **shorter**. The truth is the
+opposite — sections were inserted and everything below them moved **down** by 1,486px. Whatever
+those rect pairs describe, it is not the net movement, and a fix chosen from them would have been
+aimed at the wrong end of the page. `--sections`, which diffs every sectioning element's heading,
+top and height between timestamps, is the instrument that gives the right answer, and it is in the
+same script. **Diagnose with `--sections`; use the default mode for the score.**
+
+#### What actually appears, by name and by size
+
+`node scripts/measure-cls.mjs --sections --route /saint/data-ganj-bakhsh`, 390×844, dev server:
+
+| at | what | height | position |
+|---|---|---|---|
+| 1400→1900ms | `Where this figure rests` appears | 194px | top 564px — **in the first viewport** |
+| 1400→1900ms | `The life, from the entry` appears | **1,186px** | top 790px — **in the first viewport** |
+| " | `Also known as` pushed down | — | +31px, was visible |
+| " | `Days kept for this figure` pushed down | — | **+1,475px**, was visible |
+| " | `Associated shrines` pushed down | — | +1,486px, was visible |
+| " | lineage, gaps, sources, network, infobox, footer | — | +1,486px, all below the fold |
+
+So **A10's biography section is 1,186px of the 1,455px — 81% of the whole defect** — and it lands
+directly under the reader's thumb at 790px in an 844px viewport.
+
+**That single number rules out the skeleton, which was option 2 of the three the B4 note escalated.**
+A skeleton has to be shown before it is known whether content is coming, and **only 48 of 169
+entries carry a biography at all**: on the other 121 figures a 1,186px skeleton would resolve to
+nothing and shift the page by the same amount in the opposite direction. Same objection kills
+reserve-space, harder — the reserve would be a guess between 0px and 1,186px, wrong either way for
+most figures.
+
+#### A second, smaller shift nobody had noticed, at 400→900ms
+
+The article *shrinks* 76px — `Spiritual Lineage` −29px, `What the archive does not record` −22px,
+`Sources & Provenance` −24px — and everything below moves up. Three text blocks re-wrapping to
+fewer lines is a font metric settle, not data. It is the 0.0441 entry, and it is a separate defect
+from the 0.5246 one: no loading strategy fixes it, and `font-display` plus metric overrides would.
+Recorded because it will still be there after A14 is closed and would otherwise read as a
+regression.
+
+#### `/place` and `/shrine` are over budget for a completely different reason
+
+Both were in the B4 table at 0.105 and 0.118 and were read as the same defect. They are not.
+
+    /place/lahore   400ms → 1400ms: page is 844px — the viewport — and holds nothing but
+                    a one-line "Loading…" and the footer at top 232px.
+                    1400 → 1900ms: four sections appear (168, 2253, 5851, 3132px) and the
+                    footer moves from 232px to 12,381px.
+
+Nothing is inserted *between* visible sections here, because there are no visible sections. **The
+only visible element that moves is the footer**, and it moves because an empty page is shorter than
+the viewport. That makes it the one part of A14 with no trade in it at all: reserving viewport
+height while loading is not a guess about content, it is a statement that the footer must not be
+the first thing a reader sees. `/shrine/data-darbar` is the same shape — nothing until 2.6s, the
+`SkeletonPage` is ~400px against an 844px viewport — plus a second ~239px shift near 3s from an
+`aside` that is timing-dependent and not yet pinned down.
+
+#### One caveat on the dev server as an instrument
+
+`/order/qadiriyya` measures **0.0002** here against Lighthouse's **0.219**. Both are honest: the
+order page is already 9,503px tall at first paint, so its insertion happens far below the fold, and
+whether that stays below the fold depends on the 4× CPU throttle Lighthouse applies and this script
+does not. **Do not quote the dev number for `/order`.** For `/saint`, `/almanac` and `/place` the
+two instruments agree to within 0.02 and dev is the faster loop.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
