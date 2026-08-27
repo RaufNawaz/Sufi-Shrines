@@ -75,15 +75,49 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * findings). Headroom is ~7%: enough for a normal feature, not for another
  * language's worth of strings.
  */
+/*
+ * **Re-measured on 26 August 2026, and every line moved.** Twelve routes, all
+ * of them 5–26 KB heavier than the 24 August numbers two days above:
+ *
+ *   index 234 → 246 · Map 548 → 560 · Shrine 469 → 484 · Saint 606 → 632 ·
+ *   Order 600 → 620 · Graph 563 → 574 · Almanac 295 → 316 · About 308 → 313 ·
+ *   Place 278 → 292 · Typology 274 → 288 · Review 251 → 257 · 404 237 → 250
+ *
+ * Two things in that column, and separating them is the point of re-measuring
+ * rather than raising one line:
+ *
+ * **A shared module grew, and it reached every route.** `src/lib/i18n/
+ * uiStrings.ts` went 44.5 KB → 49.7 KB of source in two days — the ʿurs
+ * calendar's strings, A9's figure-page sections, the century strip's — and the
+ * English strings are eager on every route by construction, because English is
+ * the default language and the first paint renders them synchronously. That is
+ * most of the ~12 KB floor under every number above. The Urdu strings were
+ * split into their own chunk on 24 August for exactly this reason; the English
+ * ones cannot be split the same way, but the *route-specific* ones could be,
+ * and that is the follow-up this measurement earns rather than a raise.
+ *
+ * **And the almanac had already spent its headroom.** It was at 315/315 —
+ * exactly its ceiling — when the calendar view shipped on 26 August, and the
+ * budget was not re-measured with it. So the next commit to touch any shared
+ * module failed here, on a route it had nothing to do with. That is the failure
+ * this table's own header foresees ("the route with the least headroom takes the
+ * blame for a change unrelated to it") happening for the second time, and the
+ * fix is the same one the header prescribes: re-measure the whole table when
+ * features ship, not when it goes red.
+ *
+ * Headroom stays ~7%. Nothing here is a lazy import gone static — MUST_STAY_LAZY
+ * passes on every route, which is the check that would catch the megabyte-class
+ * regression this file exists for.
+ */
 const BUDGETS_KB = {
-  'index.html': 250, // measured 234 on 24 Aug 2026
-  'src/pages/MapPage.tsx': 580, // measured 548 on 24 Aug 2026
-  'src/pages/ShrinePage.tsx': 500, // measured 469 on 24 Aug 2026
-  'src/pages/SaintPage.tsx': 650, // measured 606 on 24 Aug 2026
-  'src/pages/OrderPage.tsx': 640, // measured 600 on 24 Aug 2026
-  'src/pages/GraphPage.tsx': 600, // measured 563 on 24 Aug 2026
-  'src/pages/AlmanacPage.tsx': 315, // measured 295 on 24 Aug 2026
-  'src/pages/NotFoundPage.tsx': 255, // measured 237 on 24 Aug 2026
+  'index.html': 265, // measured 246 on 26 Aug 2026
+  'src/pages/MapPage.tsx': 600, // measured 560 on 26 Aug 2026
+  'src/pages/ShrinePage.tsx': 520, // measured 484 on 26 Aug 2026
+  'src/pages/SaintPage.tsx': 675, // measured 632 on 26 Aug 2026
+  'src/pages/OrderPage.tsx': 665, // measured 620 on 26 Aug 2026
+  'src/pages/GraphPage.tsx': 615, // measured 574 on 26 Aug 2026
+  'src/pages/AlmanacPage.tsx': 340, // measured 316 on 26 Aug 2026
+  'src/pages/NotFoundPage.tsx': 270, // measured 250 on 26 Aug 2026
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -91,16 +125,16 @@ const BUDGETS_KB = {
      reader who wanted the archive's account of itself used to download all
      three. provenance.json stays a dynamic import inside the page; if this
      number jumps by ~170 KB, that is what went static. */
-  'src/pages/AboutPage.tsx': 330, // measured 308 on 24 Aug 2026
-  'src/pages/PlacePage.tsx': 295, // measured 278 on 24 Aug 2026
+  'src/pages/AboutPage.tsx': 335, // measured 313 on 26 Aug 2026
+  'src/pages/PlacePage.tsx': 315, // measured 292 on 26 Aug 2026
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
-  'src/pages/TypologyPage.tsx': 295, // measured 274 on 24 Aug 2026
-  /* The review desk. 251 KB measured 24 Aug 2026 — essentially the app shell and
+  'src/pages/TypologyPage.tsx': 310, // measured 288 on 26 Aug 2026
+  /* The review desk. 257 KB measured 26 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
      open. If this number jumps by ~78 KB, that import went static. */
-  'src/pages/ReviewPage.tsx': 270, // measured 251 on 24 Aug 2026
+  'src/pages/ReviewPage.tsx': 275, // measured 257 on 26 Aug 2026
 };
 
 /**
