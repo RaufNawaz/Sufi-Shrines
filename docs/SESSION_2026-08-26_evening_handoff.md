@@ -110,11 +110,35 @@ and a row is never recorded unless the source names the site**; license exactly 
 row; no AI imagery; deity images tagged `tradition-review required`; an empty result recorded as
 a row saying so, so the next session does not re-search it.
 
-**Three of four sets are in and committed. Totals so far: 2 of 42 targets got any candidate at
-all**, and every one of those 5 image rows is `identification: uncertain`. The Hindu/Jain set
-(9 targets) was still running at the pause — it is the one with the best prospects (Panj Tirath
-is a protected heritage site; the demolished Jain Mandir on Lytton Road should have historical
-photography), so do not read the totals as final.
+**ALL FOUR SETS ARE IN AND COMMITTED. Final: 3 of 51 targets got any candidate at all**, 6 image
+rows, every one `identification: uncertain` — **not one openly licensed image anywhere names any
+of these 51 sites in its own caption.** 48 targets carry an explicit empty row recording what was
+searched. Licences on the 6: CC BY-SA 4.0 ×3, CC BY-SA 3.0 ×1, Public domain ×2.
+
+**The conclusion to act on: these 51 entries need field photography, not more searching.** The
+open-license corpus does not contain them, and that is now measured rather than assumed. Two rows
+must not be published without a human check — one contested-PD (open deletion request, Getty
+scans of the same photograph) and one possible licence-laundering (a blogspot credited as source
+under a `{{self|cc-by-sa-4.0}}` tag).
+
+**Leads that are worth more than the candidates**, all captured in the TSV `note` columns:
+- Openly licensed imagery exists for sites this archive holds **no entry for** — Sadh Belo
+  (Sukkur, 20+ files incl. a ca.1940 photograph), Sri Khat Wari Darbar (Shikarpur), Haveli Bhuman
+  Shah, Udasin Ashram at Lachkani, and 12 public-domain frescoes at Gurdwara Chhevin Patshahi,
+  Hadiara. A coverage lead, not an image lead.
+- Two CC BY-SA 4.0 files of Darya Lal Mandir match an entry the archive **already has**
+  (Darya Lal Sankat Mochan Mandir) to four decimals — check whether that entry lacks a photo.
+- `Rahman-baba-Tomb.png` on ps.wikipedia is titled exactly the target with a completely blank
+  file page. Chase the uploader.
+- Real photographs of the Raharki dham exist at sachosatram.com with no stated licence; a
+  permission request is the only route.
+
+**Traps now recorded so nobody re-hits them:** `Category:Gurudwaras in Pakistan` is spelled with
+the *u* and the other spelling silently returns empty; `Category:Shrine of Hazrat Shah Kamal,
+Lahore` on Commons is misnamed and its files are Kasur and Haryana; Openverse still serves a
+Panj Tirath file that Commons deleted in 2020, so an aggregator's licence is not a licence; the
+Cousens *Antiquities of Sind* plate list has no plate of Makhdum Nuh's tomb; and the Commons API
+returns 429 without a descriptive User-Agent.
 
 **Sikh (18 targets):** 2 targets got
 candidates, 16 got an explicit empty row with the searches recorded. All 5 image rows are
