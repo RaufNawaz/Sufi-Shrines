@@ -3424,6 +3424,73 @@ page). Neither is about A10 and both outlive it.
   wrong checks were written and fixed inside one session, which is the argument for writing the
   check as a script that prints what it flags rather than as a rule someone trusts.
 
+### Added 26 August 2026 (night) — the header is not 56px, and every bundle budget was stale
+
+Three measurements from the night's work on `docs/planning/NEXT_STEPS_2026-08-26.md`. Each was
+found by a gate or a ruler, not by reading code, and each cost something before it was found.
+
+- **`--header-height` is 56px and `.shrine-page-header` is 71px on a desktop viewport and 93px
+  on a phone.** Measured with Playwright at 1280×900 and 390×844. The token has described no
+  header in this app for as long as the header has existed, and nothing noticed because the
+  three things that offset against it (`.contents-nav`, `.shrine-infobox`, `.entity-infobox`)
+  all add `--space-4`, and **56 + 16 = 72 clears a 71px header by one pixel**. The number was
+  wrong and the sum was right, on desktop, by coincidence — and all three are desktop-only
+  layouts, so the coincidence held until the first sticky element on a narrow screen went in.
+  `EntityPageHeader` now measures itself with a ResizeObserver and publishes
+  `--page-header-height`; the token remains as the pre-paint fallback, and the three desktop
+  offsets were deliberately **not** changed, because they are correct today and moving them
+  would be a 15px shift on a shipped page to fix nothing. The same literal 56 was in that
+  component's own IntersectionObserver `rootMargin`, so the collapsing page title swapped 15px
+  late on desktop and 37px late on a phone. **If a sticky offset is ever wrong again, this is
+  the first thing to check.**
+
+- **Every one of the twelve bundle budgets was stale by 5–26 KB**, two days after the table was
+  last measured, and the almanac was sitting at exactly 315/315 when the calendar view shipped.
+  So `check-bundle-budget` went red for a commit that touched the order page — the failure the
+  table's own header predicts, for the second time: *a per-route budget cannot express "a shared
+  module grew", so the route with the least headroom takes the blame.* Re-measured and dated
+  26 August. The underlying cause is worth carrying forward: **`src/lib/i18n/uiStrings.ts` grew
+  44.5 → 49.7 KB of source in two days and the English strings are eager on every route by
+  construction**, because English is the default language and the first paint renders them
+  synchronously. That is the ~12 KB floor under all twelve numbers. The Urdu strings were split
+  into their own chunk on 24 August for exactly this reason; the English ones cannot be split
+  the same way, but the route-specific ones could be, and that is the standing follow-up.
+
+- **Two hot-linked external images on `/order/qadiriyya` are dying.** One returns 403; the other
+  is on `sultan-bahoo.com`, whose TLS certificate has expired (`net::ERR_CERT_DATE_INVALID`), so
+  the browser refuses the image outright. Both are `imageUrl` values pointing at third-party
+  hosts rather than at `public/photos/`. This was visible only as two console errors on a page
+  nobody was debugging. **The archive has no liveness check on external image URLs**, and the
+  51-entries-with-no-photograph finding counts a row with a dead hot-link as *having* a
+  photograph. Not yet quantified across all 242 populated image fields — that sweep is a
+  follow-up, and it needs the network, which this environment does have (HANDOVER §9.53 does not
+  apply here).
+
+### Added 26 August 2026 (night, later) — a strip is a claim, and two gates said so in Urdu
+
+Building A2 (the order page's century strip) produced two failures that only ever appear in the
+Urdu view, and both are worth knowing before building the next axis, table or grid.
+
+- **`e2e/no-overflow` caught a century label 2px outside its track.** `۲۰ویں` is 40px of
+  Nastaliq where `20th` is 26px, and the final century's band on a nine-century axis is 38px.
+  The English view was clean and always would have been. The general shape: **any absolutely
+  positioned label anchored at a percentage will overflow at the far end of its container in
+  Urdu before it does in English**, and the last one is the only one with no neighbour to
+  overlap into. The fix here was to anchor the final label to the end of the axis, which is
+  where that century ends anyway.
+
+- **`e2e/urdu-accessible-names` reads `title` attributes**, which is easy to forget when the
+  visible text is already translated. A verbatim recorded date in a tooltip — "8 Muharram 1040
+  AH / 8 August 1630 CE" — is an English accessible name on the Urdu site. It must be declared
+  `data-latin`, and **the element it is declared on matters**: putting the declaration on the
+  row's link would also have exempted the figure's *name* from the no-leak text walker, which is
+  exactly the exemption creep that spec was written against. It went on the mark instead, which
+  carries the tooltip and no text at all.
+
+- **A `title` on an `aria-hidden` element is deliberate here, not an oversight.** The strip's
+  bars are `aria-hidden` because every date behind them is printed verbatim in the member list
+  directly below; the tooltip is a sighted-reader convenience over a redundant graphic.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing

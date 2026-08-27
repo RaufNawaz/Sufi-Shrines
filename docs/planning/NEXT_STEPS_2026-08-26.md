@@ -121,7 +121,19 @@ list already uses.
 Done when: strip renders on orders with ≥2 dated members, absent otherwise; no invented
 positions (an undated figure never appears on the axis — assert it in a unit test);
 verify green; reviewed in both languages and both themes.
-> Status: open.
+> **Done 26 August 2026, `b7eb6f0`.** `src/lib/data/figureTimeline.ts` +
+> `figureTimeline.test.ts` (15 assertions). The three refusals the task asked for turned out to
+> be three, not one: an unplaceable figure is off the axis *and named beneath it*; **one
+> recorded year is a point, never a bar** (six of the fifty-one members across the five orders
+> have only a death year, or only a birth year, and reading `figureCentury` would have given
+> each a hundred-year life); and two years in the wrong order are reported rather than swapped
+> (fires on nothing today, tested synthetically). Below two placeable figures the section hides.
+> CSS only — the century grid is one `repeating-linear-gradient`. Marks are firozi, not cobalt,
+> per the design direction. Verbatim dates ride as the mark's tooltip rather than as text,
+> because the derived year that positions a bar drops the "c." one member's source wrote.
+> **Two things came out of it and are in HANDOVER §9:** `--header-height` (56px) describes no
+> header in the app (71px desktop / 93px phone), found by the first sticky element on a narrow
+> screen; and all twelve bundle budgets were stale, which is **B4's bundle half, done early**.
 
 ### A3 — Place pages: who is commemorated here, and when
 
@@ -184,6 +196,15 @@ filter in both languages, verify + relevant e2e green.
 > **calendar view** (`?view=calendar`), requested directly by the project head. It is
 > URL-param-backed in exactly the idiom this task calls for, so A6's chip rows should follow
 > the same `useSearchParams` pattern already in `AlmanacPage`, and should filter *both* views.
+> **Changed again 26 August 2026, `1e9a7b4`:** at the project head's request the calendar is now
+> the page's *default view and opening section*, with coverage, the moon-sighting caveat,
+> "Coming up" and the month listing all below it. Three consequences for A6: the chip rows
+> belong at the top of that opening section, where they will be the first thing under the
+> calendar's own month rail; `?view=` is now written explicitly in both directions (the default
+> is conditional — a `/almanac#<slug>` deep link opens the *list*, because that is the only view
+> carrying the anchor); and the route's Urdu no-leak budget dropped 39 → 34 because one month's
+> cards are on the page instead of thirteen listings, so a filter that changes what renders will
+> move that number again.
 > The calendar's honesty rule is in `src/lib/data/almanacCalendar.ts`: only an observance
 > recorded with a day gets a day; the ten recorded to a month alone are listed unplaced
 > beneath the grid. A filter that hides the unplaced list would undo that.
@@ -305,7 +326,15 @@ Done when: specs pass in the sandbox (`npm run build:e2e` first); verify green.
 Once, after A1–A3 land: re-run the bundle-budget check, the a11y e2e in both languages,
 and Lighthouse locally; record numbers (dated) in HANDOVER §9. New sections tend to cost
 axe violations and eager bytes; measure rather than assume.
-> Status: open.
+> Status: **partly done 26 August 2026.** The *bundle* half is done and dated (`6e8fe57`) —
+> all twelve routes re-measured, every budget stale by 5–26 KB, the cause identified as the
+> eager English string table growing 5 KB in two days. The *a11y* half has been run per-change
+> rather than as a sweep: axe is clean in both languages on `/almanac` (list and calendar) and
+> on all five order pages, desktop and phone. **Lighthouse has not been run**; that is what is
+> left of this task, plus one new item the night produced — **no liveness check exists on the
+> 242 populated external image URLs**, and two on `/order/qadiriyya` are already dead (one 403,
+> one expired TLS certificate). A row whose hot-link is dead currently counts as *having* a
+> photograph.
 
 ---
 
