@@ -3344,6 +3344,37 @@ npm run build:e2e && npm run e2e   # 89 specs, hermetic (no network)
    oral/video media publishing (F3/F8/F9). See `docs/EDITORIAL_DECISIONS_PENDING.md` §6 for
    every ruling, verbatim.
 
+### Added 26 August 2026 (evening) — four measurements, two of them checks that were wrong
+
+- **The live sheet is not ahead of the repo, and never was this session.** Fetched the
+  published CSV and diffed it cell-for-cell against `data/shrines.csv`: **171 rows x 44
+  columns live, 169 shared rows, every shared cell identical.** The sheet's two extra rows are
+  the coordinate-less pair `build-dataset` drops by design. So "is the sheet newer?" has a
+  cheap, repeatable answer — `pipeline/build_import_csv.py` plus a 30-second `curl` — and the
+  answer today is no. What the sheet *is* behind on is the 21 August hygiene patch, still not
+  imported after five days.
+- **An internal instruction sits in the public `Location` column of four rows, not two.**
+  `data/patch_data_hygiene_2026-08-21.csv` covers Darbar Abul Muali Qadri and Darbar Malik
+  Ahmad Ayaz. It misses **Darbar Hazrat Shah Gohar Peer** and **Darbar Mian Qurban Ali Shah** —
+  which are exactly the two rows the app drops for having no coordinates. The reason every gate
+  missed them is structural and worth remembering: **`publication-safety` reads
+  `src/data/shrines-fallback.json`, which is the 169-row app snapshot, so it is blind to the
+  sheet rows the app discards.** Any future data gate that reads the snapshot inherits that
+  blind spot. `data/patch_location_notes_2026-08-26.csv` fixes the two.
+- **"A long Description with no newline means the markdown was stripped" is false.** Exactly
+  one row trips it: Sant Baba Asudaram Darbar, 1,339 characters of genuine single-paragraph
+  prose with no headings, no list items and no bibliography — the same entry the standing
+  findings name as the one citing nothing. The signature of the real TSV corruption is a
+  **line-start marker (`##`, `- `) inside a cell with no lines**, not length. This is the
+  `re.I`/ARTEFACT lesson again, caught before it edited anything: the check was fixed, the
+  prose was not.
+- **"The surveyor's name in a public column is a leak" is false too.** That check flagged 17
+  rows; 16 were correct provenance — `(surveyor: Saifullah)` inside a bibliography is a
+  citation, and an archive whose distinguishing claim is provenance must name its surveyor.
+  Only the imperative (`ask Saifullah ...`) and the `FLAG:` workflow marker are internal. Both
+  wrong checks were written and fixed inside one session, which is the argument for writing the
+  check as a script that prints what it flags rather than as a rule someone trusts.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing

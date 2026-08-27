@@ -95,7 +95,14 @@ through the order's membership list (helper in `src/lib/kg.ts`, unit-tested in
 **Hide when empty.** New strings in both languages. Done when: section renders for an
 order with ≥1 urs and is absent otherwise; unit test for the join; verify green; reviewed
 at localhost:5173 in EN and UR.
-> Status: open.
+> **Done 26 August 2026, `c2482cd`.** `getOrderObservances()` in `src/lib/kg.ts`;
+> `src/lib/__tests__/orderObservances.test.ts` (14 assertions). The date is read off the
+> shrine's `Events` cell through `parseObservances`, **not** from `KGEvent.date` — that field
+> is a bare month on 16 of 149 nodes, so reading it would have shown a date for a sixth of the
+> rows that can actually be dated. Two thirds of rows have no readable date and say so.
+> `SEASON_LABEL_KEYS` moved to `formatDateWindow.ts` (two surfaces render a recorded season
+> now). No-leak budget raised by exactly the new runs: +11/+7/+6/+5/+1, measured per route.
+> Not covered by an e2e spec yet — see B3.
 
 ### A2 — Order pages: a century strip for the members
 
@@ -173,7 +180,13 @@ with <2 values.
 
 Done when: filters narrow the list, the URL round-trips them, an e2e spec covers one
 filter in both languages, verify + relevant e2e green.
-> Status: open.
+> Status: open. **Related work landed 26 August, `180c8db`:** the almanac gained a
+> **calendar view** (`?view=calendar`), requested directly by the project head. It is
+> URL-param-backed in exactly the idiom this task calls for, so A6's chip rows should follow
+> the same `useSearchParams` pattern already in `AlmanacPage`, and should filter *both* views.
+> The calendar's honesty rule is in `src/lib/data/almanacCalendar.ts`: only an observance
+> recorded with a day gets a day; the ten recorded to a month alone are listed unplaced
+> beneath the grid. A filter that hides the unplaced list would undo that.
 
 ### A7 — The figure-image batch: agents find candidate pictures for the order pages
 
@@ -229,7 +242,14 @@ Done when: the manifest is committed with every target figure accounted for (can
 or an explicit empty row), the downloads sit in `media-source/figures/`, and a summary
 (counts per order, per license, per `tradition-review` flag) is appended here and to
 `docs/HANDOVER.md` §9.
-> Status: open. Blocked-by: network access from the executing environment.
+> Status: **unblocked, and the shrine equivalent is running.** Network access was measured
+> on 26 August 2026: `commons.wikimedia.org` returns 200 and the published sheet fetches with
+> `-L`. HANDOVER §9.53 does not apply to this environment. The figure batch A7 describes is
+> still open; what was launched instead, at the project head's request, is the **same method
+> aimed at the 51 entries with no photograph at all** — targets in
+> `pipeline/image-hunt/targets_{sikh,udasi,hindu-jain,muslim}.tsv`, candidates to
+> `pipeline/image-hunt/candidates_*.tsv`, every hard rule above passed to the agents verbatim.
+> Check the candidate files exist before trusting any summary of them.
 
 ### A8 — Wire approved figure images into the order and saint pages
 
@@ -311,6 +331,61 @@ Nothing here is agent-executable; each names what it waits for.
    on it.
 
 ---
+
+### A9 — Figure pages: the four sections that would make an empty one informative
+
+**Requested by the project head, 26 August 2026**, with a screenshot of
+`/saint/baba-pir-ratan-nath`: a page carrying a name, three titles, one shrine row and nothing
+else. The archive holds, for that exact figure, a place (Peshawar), an observance ("Maha
+Shivratri"), a photograph of the site, the site's category/type/status, a dated
+`year_built` with its precision and note, and a full `## Overview` whose second sentence is
+about the yogi-saint himself. None of it reaches the figure's page.
+
+**Do**, all display of held data:
+
+1. **"Where this figure rests"** — `placesForShrine` link(s) plus the recorded `Location`.
+2. **"Days kept for this figure"** — every recorded observance, not only a dated one inside
+   twelve months (`nextUrs` is the only observance surface today). **Reuse A1 directly**:
+   `parseObservances` + `formatSourceDate` + `localizeObservance`, "date not recorded" where
+   there is none.
+3. **The site's photograph and facts on the associated-shrine rows.** The order page's member
+   list already makes the argument: a figure has no portrait, and inventing one is out of the
+   question, but the shrine that holds them is photographed for 118 of 169 entries.
+4. **"What the archive does not record"** — an explicit list where there are no dates, no
+   order, no teachers. This is the ethos of `/about` applied to a figure.
+
+Done when: all four hide cleanly when empty, bilingual, unit-tested joins, reviewed in both
+languages at localhost:5173.
+> Status: open.
+
+### A10 — The entry's biography on the figure's page, with the misattribution guard
+
+32 entries carry an explicitly biographical section — `## The Life of the Saint` (26),
+`## The Life of the Poet-Saint` (4), `## The Saint and the Tradition` (2) — and it renders only
+on the shrine page. It is the single largest body of real biographical prose the archive holds.
+
+**The guard is the task.** Show it **only** where the entry names *this* figure as its
+`principal_figure`, or where the figure is the only one `buried_at` that entry. Some entries
+hold several figures, and echoing one entry's biography onto two figure pages would attribute a
+life to the wrong person — which is a RULE 2 violation produced by a layout decision. Attribute
+visibly ("from the entry for X", linked), never silently.
+
+Done when: the guard is unit-tested against the shipped data, including at least one
+multi-figure entry that correctly shows nothing.
+> Status: open.
+
+### A11 — Settings: what a reader can actually customize
+
+**Requested by the project head, 26 August 2026.** Today the sidebar Settings header holds two
+preferences: directory mode (`shrines_directory_mode`) and the numerals toggle.
+`src/lib/storageKeys.ts` is the persistence convention.
+
+**Scope this with the reviewer before building.** "Customizations" points at several different
+features — display density, default language, map basemap, saved-list behaviour, reduced
+motion, default landing view — and the answer changes the shape of the work entirely. One round
+of questions first; then build. Design direction is `feedback_design_direction_os_minimal`
+(hairlines not cards, cobalt for interactive only).
+> Status: open, needs scoping.
 
 ## 5. Explicitly out of scope for this phase
 
