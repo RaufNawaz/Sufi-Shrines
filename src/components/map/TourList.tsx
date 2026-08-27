@@ -16,6 +16,8 @@ import { t, tFn } from '../../lib/i18n/uiStrings';
 import { TourPreview } from './TourPreview';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface TourListProps {
   lang: Lang;
@@ -36,6 +38,11 @@ export function TourList({
   onResume,
   shrines,
 }: TourListProps) {
+  /* The reader's units, read here rather than threaded through as a prop:
+     these components already take `lang` and `fmtNum` from the map, and a
+     third formatting prop on four components is a prop drilled for a
+     preference that every surface reads the same way. */
+  const { units } = useReaderPreferences();
   const [previewId, setPreviewId] = useState<string | null>(null);
   const previewTour = previewId ? (TOURS.find((tr) => tr.id === previewId) ?? null) : null;
   // Read fresh on every render — TourList remounts whenever the user leaves
@@ -387,7 +394,8 @@ export function TourList({
                   <span className="tour-card-meta">
                     <span className="tour-card-meta-text">
                       {fmtNum(tour.stops.length)} {t(lang, 'stopsLabel')}
-                      {km !== undefined && ` · ${fmtNum(Math.round(km))} ${t(lang, 'kmUnit')}`}
+                      {km !== undefined &&
+                        ` · ${formatDistance(km, units, lang, fmtNum, { style: 'bare' })}`}
                     </span>
                     {tourProgress && (
                       <span className={`tour-card-status tour-card-status--${tourProgress.status}`}>
@@ -398,8 +406,8 @@ export function TourList({
                     )}
                     {isNearest && (
                       <span className="tour-card-nearest-badge">
-                        {t(lang, 'nearestToYou')} ({fmtNum(Math.round(nearest!.km))}{' '}
-                        {t(lang, 'kmUnit')})
+                        {t(lang, 'nearestToYou')} (
+                        {formatDistance(nearest!.km, units, lang, fmtNum, { style: 'bare' })})
                       </span>
                     )}
                   </span>

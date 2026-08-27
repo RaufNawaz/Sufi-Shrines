@@ -22,6 +22,7 @@ import {
 } from '../lib/textSizePreference';
 import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
 import type { CalendarPreference } from '../lib/calendarPreference';
+import type { DistanceUnits } from '../lib/unitsPreference';
 import type { Lang, Theme } from '../types/shrine';
 
 /**
@@ -102,7 +103,7 @@ function SettingsRadio<T extends string>({
 export default function SettingsPage() {
   const { lang, setLang, numerals, setNumerals, t } = useLang();
   const { theme, toggleTheme } = useTheme();
-  const { calendar, setCalendar } = useReaderPreferences();
+  const { calendar, setCalendar, units, setUnits } = useReaderPreferences();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('settings')} — ${t('siteTitle')}`);
@@ -305,6 +306,29 @@ export default function SettingsPage() {
               current={calendar}
               label={t('settingsCalendarHijri')}
               onChoose={setCalendar}
+            />
+          </SettingsGroup>
+        </section>
+
+        <section className="settings-section" aria-labelledby="settings-distance">
+          <h2 id="settings-distance" className="settings-section-heading">
+            {t('settingsDistanceSection')}
+          </h2>
+
+          <SettingsGroup legend={t('settingsUnitsLabel')} help={t('settingsUnitsHelp')}>
+            <SettingsRadio<DistanceUnits>
+              name="units"
+              value="km"
+              current={units}
+              label={t('settingsUnitsKm')}
+              onChoose={setUnits}
+            />
+            <SettingsRadio<DistanceUnits>
+              name="units"
+              value="mi"
+              current={units}
+              label={t('settingsUnitsMi')}
+              onChoose={setUnits}
             />
           </SettingsGroup>
         </section>

@@ -19,6 +19,8 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 /** How long each stop gets in autoplay before advancing to the next. */
 const AUTOPLAY_STOP_DURATION_MS = 12000;
@@ -115,6 +117,11 @@ export function TourPanel({
   onPrev,
   onExit,
 }: Props) {
+  /* The reader's units, read here rather than threaded through as a prop:
+     these components already take `lang` and `fmtNum` from the map, and a
+     third formatting prop on four components is a prop drilled for a
+     preference that every surface reads the same way. */
+  const { units } = useReaderPreferences();
   const stop = tour.stops[stopIdx];
   const isFirst = stopIdx === 0;
   const isLast = stopIdx === tour.stops.length - 1;
@@ -301,7 +308,8 @@ export function TourPanel({
 
       {nextLegKm !== null && (
         <p className="tour-next-distance">
-          {fmtNum(Math.round(nextLegKm))} {t(lang, 'kmUnit')} {t(lang, 'tourNextStopDistance')}
+          {formatDistance(nextLegKm, units, lang, fmtNum, { style: 'bare' })}{' '}
+          {t(lang, 'tourNextStopDistance')}
         </p>
       )}
 

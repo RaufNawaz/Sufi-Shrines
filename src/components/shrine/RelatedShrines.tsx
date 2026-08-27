@@ -6,6 +6,8 @@ import { haversineKm, findRelatedShrines } from '../../lib/data/shrineModel';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface Props {
   shrine: Shrine;
@@ -14,6 +16,7 @@ interface Props {
 
 export function RelatedShrines({ shrine, all }: Props) {
   const { lang, t, localizeField, fmtNum } = useLang();
+  const { units } = useReaderPreferences();
 
   const related = findRelatedShrines(shrine, all);
   if (related.length === 0) return null;
@@ -60,7 +63,10 @@ export function RelatedShrines({ shrine, all }: Props) {
                   )}
                   {dist !== null && (
                     <span>
-                      {dist < 1 ? fmtNum('< 1') : fmtNum(Math.round(dist))} {t('distanceKm')}
+                      {formatDistance(dist, units, lang, fmtNum, {
+                        style: 'away',
+                        below: 'lessThanOne',
+                      })}
                     </span>
                   )}
                 </div>

@@ -78,7 +78,12 @@ test.describe('Guided tours on the map — Phase 2 (richer stops)', () => {
     ).toContainText(String(INDUS.stops.length));
     await expect(
       preview.locator('.tour-preview-stat', { hasText: UI_TEXT.en.tourTotalDistance }),
-    ).toContainText(UI_TEXT.en.kmUnit);
+      /* `distanceBareKm` is a whole-phrase entry now rather than the bare unit
+         fragment `kmUnit` — see lib/i18n/formatDistance.ts. Asked for with a
+         placeholder value and reduced to the unit, so this keeps asserting
+         "a distance is shown in the reader's units" without pinning the number,
+         which depends on the CSV. */
+    ).toContainText(UI_TEXT.en.distanceBareKm('').trim());
     await expect(
       preview.locator('.tour-preview-stat', { hasText: UI_TEXT.en.tourEstDriveTime }),
     ).toBeVisible();
@@ -235,7 +240,9 @@ test.describe('Guided tours on the map — Phase 5 (discovery & on-site awarenes
 
     // Per-tour distance depends on shrine data having loaded from the CSV —
     // wait for a card to show its computed distance before using Near Me.
-    await expect(page.locator('.tour-card-meta').first()).toContainText(UI_TEXT.en.kmUnit);
+    await expect(page.locator('.tour-card-meta').first()).toContainText(
+      UI_TEXT.en.distanceBareKm('').trim(),
+    );
 
     await page.getByRole('button', { name: UI_TEXT.en.nearMe }).click();
 

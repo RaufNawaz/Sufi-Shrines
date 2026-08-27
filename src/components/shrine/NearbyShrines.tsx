@@ -7,6 +7,8 @@ import { SAME_PIN_THRESHOLD_M } from '../../lib/data/sharedGround';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface Props {
   shrine: Shrine;
@@ -15,6 +17,7 @@ interface Props {
 
 export function NearbyShrines({ shrine, all }: Props) {
   const { lang, t, localizeField, fmtNum } = useLang();
+  const { units } = useReaderPreferences();
 
   const nearby = findNearbyShrines(shrine, all);
   if (nearby.length === 0) return null;
@@ -68,13 +71,12 @@ export function NearbyShrines({ shrine, all }: Props) {
                       the archive's uncertainty as a measurement. */}
                   {dist * 1000 <= SAME_PIN_THRESHOLD_M ? (
                     <span title={t('sharedGroundSamePinHelp')}>{t('sharedGroundSamePin')}</span>
-                  ) : dist < 1 ? (
-                    <span>
-                      {fmtNum(Math.round(dist * 1000))} {t('distanceMetres')}
-                    </span>
                   ) : (
                     <span>
-                      {fmtNum(Math.round(dist))} {t('distanceKm')}
+                      {formatDistance(dist, units, lang, fmtNum, {
+                        style: 'away',
+                        below: 'metres',
+                      })}
                     </span>
                   )}
                 </div>

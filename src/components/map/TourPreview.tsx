@@ -7,6 +7,8 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { t } from '../../lib/i18n/uiStrings';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 function formatDriveTime(km: number, lang: Lang, fmtNum: (n: number | string) => string): string {
   const { hours, minutes } = estimateDriveTime(km);
@@ -35,6 +37,11 @@ export function TourPreview({
   onBack,
   onPreviewTour,
 }: TourPreviewProps) {
+  /* The reader's units, read here rather than threaded through as a prop:
+     these components already take `lang` and `fmtNum` from the map, and a
+     third formatting prop on four components is a prop drilled for a
+     preference that every surface reads the same way. */
+  const { units } = useReaderPreferences();
   const points = useMemo(() => resolveTourStops(tour, shrines), [tour, shrines]);
   const km = useMemo(() => totalDistanceKm(points.map((p) => p.shrine.latLng)), [points]);
   const hasDistance = points.length > 1;
@@ -80,9 +87,7 @@ export function TourPreview({
           <>
             <div className="tour-preview-stat">
               <dt>{t(lang, 'tourTotalDistance')}</dt>
-              <dd>
-                {fmtNum(Math.round(km))} {t(lang, 'kmUnit')}
-              </dd>
+              <dd>{formatDistance(km, units, lang, fmtNum, { style: 'bare' })}</dd>
             </div>
             <div className="tour-preview-stat">
               <dt>{t(lang, 'tourEstDriveTime')}</dt>

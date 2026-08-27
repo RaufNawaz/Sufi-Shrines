@@ -8,6 +8,8 @@ import {
   mosquePageUrl,
   type NearbyMosque,
 } from '../../lib/data/mosques';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface Props {
   shrine: Shrine;
@@ -23,6 +25,7 @@ interface Props {
  */
 export function NearbyMosques({ shrine }: Props) {
   const { lang, t, fmtNum } = useLang();
+  const { units } = useReaderPreferences();
   const [entries, setEntries] = useState<NearbyMosque[] | null>(null);
 
   useEffect(() => {
@@ -80,8 +83,11 @@ export function NearbyMosques({ shrine }: Props) {
                   </span>
                 )}
                 <span>
-                  {distanceKm < 1 ? fmtNum('< 1') : fmtNum(Math.round(distanceKm * 10) / 10)}{' '}
-                  {t('distanceKm')}
+                  {formatDistance(distanceKm, units, lang, fmtNum, {
+                    style: 'away',
+                    decimals: 1,
+                    below: 'lessThanOne',
+                  })}
                 </span>
               </div>
               <div className="nearby-mosque-womens">

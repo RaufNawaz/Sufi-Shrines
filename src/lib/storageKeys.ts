@@ -27,6 +27,9 @@ export const DIRECTORY_MODE_STORAGE_KEY = 'shrines_directory_mode';
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
 
+/** Distance units ('km' | 'mi'). See unitsPreference.ts. */
+export const UNITS_STORAGE_KEY = 'shrines_units';
+
 /** Which calendar leads on an observance ('gregorian' | 'hijri'). See
  * calendarPreference.ts — it changes emphasis, never the arithmetic. */
 export const CALENDAR_STORAGE_KEY = 'shrines_calendar';

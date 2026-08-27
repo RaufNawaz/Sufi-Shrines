@@ -50,6 +50,12 @@ const UI_TEXT_EN = {
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
   settingsThemeLight: 'Light',
   settingsThemeDark: 'Dark',
+  settingsDistanceSection: 'Distances',
+  settingsUnitsLabel: 'Units',
+  settingsUnitsHelp:
+    'Distances between sites, on shrine pages and along guided tours. The archive records coordinates and computes distances in metric; this converts them for reading.',
+  settingsUnitsKm: 'Kilometres',
+  settingsUnitsMi: 'Miles',
   settingsDatesSection: 'Dates and observances',
   settingsCalendarLabel: 'Which calendar leads',
   settingsCalendarHelp:
@@ -126,9 +132,23 @@ const UI_TEXT_EN = {
   sharedGroundSamePin: 'same recorded location',
   sharedGroundSamePinHelp:
     'The survey gives no separate position for these, so they share one pin. The distance between them is not recorded.',
-  distanceMetres: 'm away',
+  distanceAwayMetres: (value: string) => `${value} m away`,
   shrineFacts: 'Shrine facts',
-  distanceKm: 'km away',
+  /* Four keys rather than a number plus the fragment "km away". Each language
+     writes the whole phrase, because the unit does not sit in the same place in
+     every language and a component that concatenates the pieces has already
+     decided that it does. `formatDistance` picks the key; the reader's units
+     preference picks the pair.
+
+     `mi`, not `miles`: the value can be "1", "0.1" or "< 1", and a plural rule
+     over a pre-localized string would have to read Eastern digits to decide
+     between "mile" and "miles". An abbreviation does not inflect, which is also
+     why `km` never had the problem. /settings spells out "Miles" beside the
+     option so the abbreviation is introduced before it is used. */
+  distanceAwayKm: (value: string) => `${value} km away`,
+  distanceAwayMi: (value: string) => `${value} mi away`,
+  distanceBareKm: (value: string) => `${value} km`,
+  distanceBareMi: (value: string) => `${value} mi`,
   noImage: 'No image found. Add an "Image Link" value in your sheet.',
   imageLoadFailed: 'Image failed to load.',
   notFound: 'Shrine not found.',
@@ -624,7 +644,6 @@ const UI_TEXT_EN = {
   almanacCalendarUnplacedHeading: 'This month, day not recorded',
   almanacCalendarUnplacedNote:
     'The archive records the month for these and no day, so they sit beside the grid rather than on it. A Hijri month straddles two Gregorian ones, which is why one can appear under both.',
-  kmUnit: 'km',
   tourTotalDistance: 'Total distance',
   tourEstDriveTime: 'Est. drive time',
   tourNextStopDistance: 'to next stop',
@@ -962,6 +981,11 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    ones do: a label like "Category: X" or "Map showing location of X" puts its
    variable in a different place in Urdu, and a component that concatenates the
    pieces itself decides that placement in English. */
+export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
+export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
+export function tFn(lang: Lang, key: 'distanceAwayMi', value: string): string;
+export function tFn(lang: Lang, key: 'distanceBareKm', value: string): string;
+export function tFn(lang: Lang, key: 'distanceBareMi', value: string): string;
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
 export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
@@ -976,6 +1000,11 @@ export function tFn(
   lang: Lang,
   key:
     | 'resultCount'
+    | 'distanceAwayKm'
+    | 'distanceAwayMetres'
+    | 'distanceAwayMi'
+    | 'distanceBareKm'
+    | 'distanceBareMi'
     | 'stopOf'
     | 'nextIn'
     | 'photoOf'

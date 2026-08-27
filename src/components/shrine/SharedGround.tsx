@@ -6,6 +6,8 @@ import { tFn } from '../../lib/i18n/uiStrings';
 import { findSharedGround } from '../../lib/data/sharedGround';
 import { categoryDisplayLabel } from '../../lib/data/categoryKey';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { formatDistance } from '../../lib/i18n/formatDistance';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 /**
  * The sites standing within walking distance of this one — and how many belong
@@ -25,6 +27,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
  */
 export function SharedGround({ shrine, all }: { shrine: Shrine; all: Shrine[] }) {
   const { lang, t, fmtNum } = useLang();
+  const { units } = useReaderPreferences();
 
   const { neighbours, otherTraditions } = useMemo(
     () => findSharedGround(shrine, all),
@@ -85,7 +88,10 @@ export function SharedGround({ shrine, all }: { shrine: Shrine; all: Shrine[] })
                 </span>
               ) : (
                 <span className="shared-ground-distance">
-                  {fmtNum(n.distanceM)} {t('distanceMetres')}
+                  {formatDistance(n.distanceM / 1000, units, lang, fmtNum, {
+                    style: 'away',
+                    below: 'metres',
+                  })}
                 </span>
               )}
             </li>

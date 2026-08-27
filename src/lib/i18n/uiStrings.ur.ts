@@ -50,6 +50,12 @@ export const UI_TEXT_UR: UiStrings = {
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
   settingsThemeLight: 'روشن',
   settingsThemeDark: 'تاریک',
+  settingsDistanceSection: 'فاصلے',
+  settingsUnitsLabel: 'پیمانہ',
+  settingsUnitsHelp:
+    'مقامات کے درمیان فاصلے، مزارات کے صفحات پر اور رہنما دوروں کے ساتھ۔ آرکائیو عرض بلد و طول بلد درج کرتا ہے اور فاصلے میٹرک میں شمار کرتا ہے؛ یہاں سے صرف پڑھنے کے لیے تبدیل ہوتے ہیں۔',
+  settingsUnitsKm: 'کلومیٹر',
+  settingsUnitsMi: 'میل',
   settingsDatesSection: 'تاریخیں اور ایامِ عرس',
   settingsCalendarLabel: 'کون سی تقویم پہلے',
   settingsCalendarHelp:
@@ -130,9 +136,12 @@ export const UI_TEXT_UR: UiStrings = {
   sharedGroundSamePin: 'ایک ہی درج مقام',
   sharedGroundSamePinHelp:
     'سروے اِن کے لیے الگ مقام نہیں دیتا، اِس لیے یہ ایک ہی نشان رکھتے ہیں۔ اِن کے درمیان فاصلہ درج نہیں۔',
-  distanceMetres: 'میٹر کے فاصلے پر',
+  distanceAwayMetres: (value: string) => `${value} میٹر کے فاصلے پر`,
   shrineFacts: 'مزار کی اہم باتیں',
-  distanceKm: 'کلومیٹر دور',
+  distanceAwayKm: (value: string) => `${value} کلومیٹر دور`,
+  distanceAwayMi: (value: string) => `${value} میل دور`,
+  distanceBareKm: (value: string) => `${value} کلومیٹر`,
+  distanceBareMi: (value: string) => `${value} میل`,
   noImage: 'تصویر نہیں ملی۔ اپنی شیٹ میں "Image Link" شامل کریں۔',
   imageLoadFailed: 'تصویر لوڈ نہیں ہوئی۔',
   notFound: 'مزار نہیں ملا۔',
@@ -570,7 +579,6 @@ export const UI_TEXT_UR: UiStrings = {
   almanacCalendarUnplacedHeading: 'اِس مہینے میں، دن درج نہیں',
   almanacCalendarUnplacedNote:
     'آرکائیو اِن کا مہینہ درج کرتا ہے، دن نہیں، اِس لیے یہ جدول پر نہیں بلکہ اُس کے ساتھ دی گئی ہیں۔ ہجری مہینہ دو عیسوی مہینوں پر پھیلتا ہے، اِسی لیے ایک تقریب دونوں کے نیچے آ سکتی ہے۔',
-  kmUnit: 'کلومیٹر',
   tourTotalDistance: 'کل فاصلہ',
   tourEstDriveTime: 'ڈرائیو کا تخمینی وقت',
   tourNextStopDistance: 'اگلے مقام تک',

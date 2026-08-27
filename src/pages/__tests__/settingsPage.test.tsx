@@ -23,6 +23,7 @@ import {
   TEXT_SIZE_STORAGE_KEY,
   THEME_STORAGE_KEY,
   TOURS_STORAGE_KEY,
+  UNITS_STORAGE_KEY,
 } from '../../lib/storageKeys';
 import { UI_TEXT } from '../../lib/i18n/uiStrings';
 
@@ -139,6 +140,15 @@ describe('SettingsPage', () => {
        leave the reader wondering why some rows did not change. */
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     expect(screen.getByText(en.settingsCalendarNote)).toBeInTheDocument();
+  });
+
+  it('persists the distance units', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsUnitsMi }));
+    expect(localStorage.getItem(UNITS_STORAGE_KEY)).toBe('mi');
+    await user.click(screen.getByRole('radio', { name: en.settingsUnitsKm }));
+    expect(localStorage.getItem(UNITS_STORAGE_KEY)).toBe('km');
   });
 
   it('reflects what is already stored instead of showing defaults', () => {
