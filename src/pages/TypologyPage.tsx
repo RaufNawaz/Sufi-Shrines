@@ -34,11 +34,17 @@ function GroupHeading({ group, label }: { group: SiteTypeGroup; label: string })
         </span>
       </h2>
       {group.rawValue && (
-        // The survey's own words for this form, kept as written. English
-        // prose in the Urdu view is sanctioned untranslated source content,
-        // so it travels in <bdi lang="en"> like the infobox source notes.
+        /* The survey's own words for this form, kept as written.
+           `<bdi lang="en">` alone was the old convention and the no-leak guard
+           rejects it on purpose: `<bdi>` is a *bidi* tool, needed by mixed-script
+           text whether or not it is translated, and letting it double as "this
+           is deliberately untranslated" made the fix for any leak "wrap it",
+           which satisfies the check and changes nothing for the reader.
+           `data-latin` is the declaration, and it is countable. */
         <p className="typology-group-prose">
-          <bdi lang="en">{group.rawValue}</bdi>
+          <bdi lang="en" data-latin>
+            {group.rawValue}
+          </bdi>
         </p>
       )}
     </>
@@ -128,7 +134,19 @@ export default function TypologyPage() {
                     />
                     <div className="related-card-body">
                       <div className="related-card-name">{name}</div>
-                      {location && <div className="related-card-meta">{location}</div>}
+                      {/* The recorded Location, declared. `RelatedShrines` and
+                          `NearbyShrines` render the identical value with
+                          `<bdi data-latin>` — the column often carries a survey
+                          qualification in English rather than a place name —
+                          and this copy of the card did not, which put 14
+                          undeclared English runs on `/typology?lang=ur`. Found
+                          by sweeping the no-leak walker over routes the guard
+                          does not visit; `/typology` is in its matrix now. */}
+                      {location && (
+                        <div className="related-card-meta" data-latin>
+                          <bdi>{location}</bdi>
+                        </div>
+                      )}
                     </div>
                   </Link>
                 );

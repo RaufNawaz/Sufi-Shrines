@@ -224,6 +224,17 @@ const BUDGET: Record<string, number> = {
      the same observance cells are still untranslated, still declared, and still
      counted on whichever month the reader opens. */
   almanac: 34,
+  /* The month listing, which the calendar-default route never renders: twelve
+     months of cards, each printing its site's recorded `Events` cell verbatim.
+     The same debt as `almanac`'s 34 seen at full extent rather than one month
+     at a time, and it falls as `urdu-i18n/build_dictionary.py` gains observance
+     entries. */
+  'almanac:list': 39,
+  /* Recorded `site_type` prose — the survey's own words for a built form,
+     "Shrine complex (tomb, mosque, graveyard…)" — plus the Location on each
+     card. Both are source data shown as recorded (RULE 2); what changed is that
+     they are now declared, and therefore counted. */
+  typology: 9,
   /* 19 → 20, 26 August 2026. A9's "Where this figure rests" (`a725488`) prints
      the site's recorded `Location` verbatim — "Lahore, Punjab" on Data Ganj
      Bakhsh — and the commit that added it did not move this number, so the gate
@@ -301,6 +312,15 @@ const ROUTES = [
   { name: 'graph', path: '/graph?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac', path: '/almanac?lang=ur', ready: 'h1' },
   { name: 'place', path: '/place/lahore?lang=ur', ready: 'h1.entity-title' },
+  /* Two routes the matrix never visited, both of which were leaking.
+     `/typology` renders the same related-card as the shrine page and did not
+     declare its Location — 14 undeclared runs. `/almanac?view=list` is the
+     *other* half of a route the matrix already had: the default view is the
+     calendar, which shows one month's cards, so the twelve month listings were
+     never scanned. Found by running the walker below over 23 Urdu routes
+     instead of 14; the wider sweep is in HANDOVER §9. */
+  { name: 'typology', path: '/typology?lang=ur', ready: 'h1.entity-title' },
+  { name: 'almanac:list', path: '/almanac?view=list&lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
 ] as const;
 

@@ -173,7 +173,18 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
               <line x1="8" y1="2" x2="8" y2="6" />
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            {fmtNum(founded)}
+            {/* A recorded date, verbatim. Most are a bare year and `fmtNum`
+                localizes the digits; a few are a phrase the sheet wrote —
+                "Built 9th–10th century CE", "7th century CE onwards" — which
+                RULE 2 says is shown as recorded rather than rewritten, and
+                i18n rule 7 says is therefore *declared* rather than left to
+                look translated. Only where Latin actually survives, so the
+                bare years stay undeclared and the budget keeps counting real
+                debt. */}
+            {(() => {
+              const shown = fmtNum(founded);
+              return /[A-Za-z]/.test(shown) ? <bdi data-latin>{shown}</bdi> : shown;
+            })()}
           </span>
         )}
         {saint && (
