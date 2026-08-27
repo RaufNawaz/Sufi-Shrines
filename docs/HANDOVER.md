@@ -3603,6 +3603,54 @@ This took four attempts and each wrong answer is worth more than the right one.
 The script exits 0 whatever it finds, deliberately: making it a gate would tie `npm run verify`
 to twenty-one third-party hosts and to the network.
 
+### Added 27 August 2026 — the dark theme failed contrast on every route, and the sweep never looked
+
+`e2e/a11y.spec.ts` scans every route in both languages, has been green for weeks, and CLAUDE.md
+cited it as the reason accessibility is not a worry here. **It had only ever run in one theme.**
+The first dark run found **63 serious contrast failures across every route in the archive**,
+from three causes that had all been present since dark mode shipped.
+
+This is the ninth instance of the pattern this section exists to catalogue — a check looking at
+the wrong universe (§9.29, §9.38, §9.39, §9.40, §9.46, §9.51, §9.54, the `a` exemption in
+`urdu-no-leak`) — and the most expensive so far in reader-facing terms, because it was every
+page rather than one.
+
+1. **A literal `white` on a ground that flips.** Twelve rules pair `background:
+   var(--color-primary)` with `color: white`. The token is `#2a4d9b` in light and `#8aa8e8` in
+   dark — a dark cobalt and a light one, because a chip has to stand off a cream page and off a
+   brown one. 7.97:1 became **2.37:1** on the language toggle, the map's filter chips, the
+   explorer's order chips, scroll-to-top, the 404 action and the tour's next button.
+
+2. **Sixteen anchors with no `color` rule at all**, inheriting the user agent's `#0000ee` —
+   roughly 8:1 on cream, **1.96:1** on the dark ground. The almanac's cards, `/about`'s contact
+   and licence lines, the nearby-mosque list. There is now an `a { color: var(--color-primary) }`
+   floor in `global.css` at specificity 0,0,1.
+
+3. **White on `--color-accent`, failing in *both* themes** — 2.98:1 and 2.09:1 — on the two
+   search count badges. The accent is a light gold in both (#c8890a / #e8a82a), so a foreground
+   that flips with the theme is wrong in one of them. `--color-on-accent` is declared once in
+   `:root` and deliberately never overridden.
+
+#### What to do with this, next time
+
+**The token, not the rule.** All twelve of (1) were reaching for "the colour that reads on the
+primary ground", which is what `--color-text-inverse` already was. A theme-flipping ground with a
+hardcoded foreground is a bug by construction, whatever the current hexes are — so
+`src/styles/__tests__/themeFlippingGrounds.test.ts` checks the *pairing* rather than recomputing
+contrast, in milliseconds rather than the five minutes an axe run costs.
+
+Two traps in writing that check, both hit first:
+
+- **`--color-primary: var(--color-kashi-cobalt)` is the identical declaration in both blocks.**
+  Only the cobalt underneath differs. A comparison of declarations concludes the token does not
+  flip, which is the opposite of the truth — the resolver has to follow the indirection.
+- **A token the dark block does not redeclare inherits `:root`.** Absent is not undefined, and
+  treating it as undefined makes "is it the same in both themes?" unanswerable for exactly the
+  tokens that are.
+
+The a11y suite now carries a dark matrix over nine routes. Nine rather than one, because two of
+the three causes are in shared chrome and would have passed on whichever single page was picked.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
