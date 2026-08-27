@@ -21,6 +21,21 @@ import { join } from 'node:path';
 const PAGES = join(__dirname, '..', '..', '..', 'pages');
 const files = readdirSync(PAGES).filter((f) => f.endsWith('.tsx'));
 
+/**
+ * The page source with its comments removed.
+ *
+ * Needed because the first version of the duplicate check counted the comment
+ * that explains the duplicate: a `/* … <SiteFooter /> … *\/` note beside the fix
+ * reads as a second footer to a bare `match`. A check that a comment can
+ * satisfy — or break — is not checking the code, so the comments come out
+ * first.
+ */
+function code(file: string): string {
+  return readFileSync(join(PAGES, file), 'utf8')
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/^\s*\/\/.*$/gm, '');
+}
+
 /** The map is a fixed full-height layout whose bottom edge already carries the
  *  sheet and the tab bar. A footer there is not a footer, it is a thing on top
  *  of the map — so it is exempt, by name, with the reason. */
@@ -34,7 +49,7 @@ describe('every page carries the site footer', () => {
   it('renders SiteFooter on every page but the map', () => {
     const missing = files
       .filter((f) => !EXEMPT.has(f))
-      .filter((f) => !readFileSync(join(PAGES, f), 'utf8').includes('<SiteFooter'));
+      .filter((f) => !code(f).includes('<SiteFooter'));
     expect(
       missing,
       'A public archive that states neither its licence nor how to cite it is not publishable.',
@@ -44,10 +59,23 @@ describe('every page carries the site footer', () => {
   it('has no page still hand-rolling its own footer', () => {
     /* Three identical copies is the state in which a fourth gets forgotten
        rather than copied — which is exactly what happened. */
-    const inline = files.filter((f) =>
-      /className="site-footer"/.test(readFileSync(join(PAGES, f), 'utf8')),
-    );
+    const inline = files.filter((f) => /className="site-footer"/.test(code(f)));
     expect(inline).toEqual([]);
+  });
+
+  it('renders it exactly once — not at least once', () => {
+    /* The original three assertions all read "does this page have a footer",
+       and every one of them passed on a page that had two. ShrinePage shipped
+       the whole footer nav twice from 24 August to 27 August 2026: the sweep
+       that added a footer to the ten pages without one appended a bare
+       `<SiteFooter />` beside the only customised footer in the app, and no
+       check could see it because "missing" and "duplicated" are opposite
+       failures of the same feature and only one was being tested. */
+    const duplicated = files
+      .filter((f) => !EXEMPT.has(f))
+      .map((f) => [f, (code(f).match(/<SiteFooter/g) ?? []).length])
+      .filter(([, count]) => (count as number) > 1);
+    expect(duplicated, 'A page renders the site footer more than once.').toEqual([]);
   });
 
   it('keeps the exemption honest', () => {

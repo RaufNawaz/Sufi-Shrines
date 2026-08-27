@@ -386,12 +386,18 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
         </aside>
       </div>
 
+      {/* One footer. The sweep that put a footer on the ten pages missing one
+          (a1f2585) appended a bare `<SiteFooter />` here without noticing this
+          page already had the only non-identical one — the one carrying this
+          entry's own correction link — so every shrine page has shipped the
+          whole footer nav twice, 142px apart, since 24 August 2026.
+          `siteFooter.test.ts` asserted *at least* one per page, which is the
+          shape of check that cannot see a second. It counts now. */}
       <SiteFooter>
         <a href={correctionIssueUrl(shrine.slug)} target="_blank" rel="noopener noreferrer">
           {t('reportCorrection')}
         </a>
       </SiteFooter>
-      <SiteFooter />
     </article>
   );
 }
