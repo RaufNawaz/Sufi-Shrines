@@ -3344,6 +3344,28 @@ npm run build:e2e && npm run e2e   # 89 specs, hermetic (no network)
    oral/video media publishing (F3/F8/F9). See `docs/EDITORIAL_DECISIONS_PENDING.md` §6 for
    every ruling, verbatim.
 
+### Added 26 August 2026 (evening, later) — coordinate precision, measured
+
+- **Twelve rows are pinned at two decimal places or coarser; two at one.** A degree of latitude
+  is ~111 km, so two decimals is a ~1.1 km grid and one decimal is ~11 km. The rows:
+  Gurdwara Chakki Sahib, Gurdwara Chhevin Patshahi (Jhalian), Kalat Kali Temple, Mohra Sharif,
+  Rahman Baba Mausoleum, Sant Satram Dham (Raharki), Sharada Peeth, Shrine of Makhdoom Abdul
+  Rahim Girhori, Shrine of Mauj Darya Bukhari, Shrine of Mian Umar Baba (Chamkani), Shrine of
+  Pir Chhatal Shah Noorani, Shrine of Pir Lakha. The map draws all of them at full confidence,
+  because a marker has no way to say "this pin is a kilometre wide".
+- **One of them is not merely coarse, it looks wrong.** Sant Satram Dham, Raharki carries
+  `28.3, 69.39`, which is **34.5 km** from Daharki town — and its own `Location` cell reads
+  "Raharki (Raherki Sahib), **Daharki Taluka**, Ghotki District". Surfaced by the image-hunt
+  agent noticing that a 5 km geosearch around the pin returned nothing plausible; the distance
+  was then computed here rather than taken on trust. **Not corrected**: this archive does not
+  invent a coordinate (RULE 2), and the honest fix is a surveyed pin or a sourced one. Recorded
+  so the next person does not spend the same hour rediscovering it.
+- **What this is not:** a claim that the other eleven are misplaced. Coarse and wrong are
+  different things, and only Raharki was measured against its own stated locality. A per-row
+  displacement audit — every pin against the city or taluka its `Location` names, using
+  centroids derived from the archive's own high-precision rows rather than from general
+  knowledge — is a real task and has not been done.
+
 ### Added 26 August 2026 (evening) — four measurements, two of them checks that were wrong
 
 - **The live sheet is not ahead of the repo, and never was this session.** Fetched the
