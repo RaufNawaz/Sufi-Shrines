@@ -77,3 +77,45 @@ one:
 
 Each commit: the option, its wiring into the feature, unit tests, both languages, and
 `npm run verify` green.
+
+---
+
+## 5. Done, 27 August 2026 — all six, and what each one turned out to cost
+
+| | |
+|---|---|
+| **`/settings`** | Linked from `SiteFooter`. Four of this repo's guards caught real gaps on the first `verify`: a 1px separator that should be `var(--hairline)`, a doc missing from `docs/README.md`, three files git did not have, and `/settings` owned by no tab — a reader opening it would have seen five unselected tabs. It sits under **Archive**, with `/coverage` and `/report`. |
+| **Reading size** | Scoped to `.shrine-page`/`.entity-page`, never `:root`, so the chrome keeps its measured sizes. Prose 15/16/18px; tab bar 10px at all three. The container needs its own `font-size` or the tokens reach nothing — `body` sets `font-size: var(--text-base)` resolved against `:root` and prose *inherits* the computed pixels. First version measured 16px at every setting. |
+| **Motion** | `system` / `reduced`, and **no `full`** — restoring motion against the OS setting would mean un-disabling twelve escapes across eight stylesheets. The attribute path is a universal reset rather than a mirror, deliberately asymmetric. 0.01ms not 0s, because a zero-duration animation never fires `animationend` and the tour autoplay sequences on it. |
+| **Distance units** | Nine call sites were assembling `number + "km away"` in the component — the exact construction `noSentenceFragments.test.ts` exists to prevent. Five whole-phrase entries replace three fragments. Under a mile, miles gets a decimal rather than an invented unit. `mi` not `miles`, because the value reaching the string is already localized and a plural rule would have to parse Eastern digits. |
+| **Calendar** | The archive's own editorial position, offered to the reader. Two labels have to follow the value they describe rather than its position, and **both were wrong before they were measured in a browser** — the approximate flag belongs to the projection, the "(Hijri)" note to the recorded date, and the first version rendered "Projected: 22–24 July 2027 (Hijri)". A Gregorian-recorded observance is left alone (RULE 2). |
+| **Saved list** | Export / import / clear. Slugs and no names, because a slug is the stable identity and a name is editorial. Import **merges**, so moving a list between devices never deletes the other one. The parser keeps a slug the archive no longer has — the archive gains entries, and an import must not silently delete a reader's record. |
+
+**Measured rather than asserted, in each case before the tests were written:** the
+reading-size scale in the browser at three settings and two languages, zero overflow at 390px
+in Urdu at the largest size across six routes; the calendar swap in all four combinations; the
+distance phrases in all four; the saved-list round trip including a malformed file; the motion
+reset including the spinner still turning.
+
+**Guards the new route joined in the same commits, not later:** `scripts/prerender.mjs`
+APP_ROUTES, the `e2e/urdu-no-leak.spec.ts` matrix (budget **2** — `EN` in the masthead segment
+and `English` as the name of the English option, zero undeclared), `e2e/a11y.spec.ts` in both
+the light suite and the nine-route dark matrix. axe is clean on `/settings` in both languages
+and both themes, re-measured after the page grew to six sections.
+
+### Not done, and why
+
+**Map label language** was on the original list and is not here. `MapLibreBasemap` rewrites the
+style's `text-field` expressions per language, so the machinery exists — but the map is the most
+delicate component in the app (two constraints in its header are documented as "easy to undo by
+accident", and the MapTiler 403 diagnosis took two attempts), and a label-language option needs
+a build and a real look at the tiles rather than a unit test. It is the obvious next one.
+
+### One thing the next session should know
+
+There are now **nine** persisted preferences. `storageKeys.ts` is the list, and the rule from §3
+holds: *no preference may be write-only.* Two of the nine live in
+`ReaderPreferencesContext` because they are read while rendering (calendar, units); two are
+`data-*` attributes on the document set before paint (reading size, motion); the rest are read
+once by the surface that owns them. The docstring on the context explains which is which —
+adding a tenth should start there rather than by reaching for the provider.

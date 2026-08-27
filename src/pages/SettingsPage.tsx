@@ -470,7 +470,7 @@ export default function SettingsPage() {
           </h2>
 
           <SettingsGroup
-            legend={t('settingsSavedSection')}
+            legend={t('settingsSavedFileLabel')}
             help={t('settingsSavedHelp')}
             note={t('settingsSavedMergeNote')}
           >

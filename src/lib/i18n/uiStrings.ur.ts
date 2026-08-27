@@ -56,6 +56,7 @@ export const UI_TEXT_UR: UiStrings = {
   settingsThemeLight: 'روشن',
   settingsThemeDark: 'تاریک',
   settingsSavedSection: 'آپ کے محفوظ مقامات',
+  settingsSavedFileLabel: 'فہرست بطور فائل',
   settingsSavedHelp:
     'جن مقامات کو آپ نے نشان زد کیا ہے وہ صرف اسی براؤزر میں محفوظ ہیں، کہیں اور نہیں۔ کچھ اپ لوڈ نہیں ہوتا، اور اسی لیے کسی اور جگہ محفوظ بھی نہیں رہتا — فہرست کو باہر محفوظ کر لیں یا کسی دوسرے آلے پر منتقل کر لیں۔',
   settingsSavedCount: (n: string) => `${n} محفوظ`,

@@ -61,6 +61,11 @@ const UI_TEXT_EN = {
      from gone, and unable to move to a phone. These three controls are the
      durability the design traded away. */
   settingsSavedSection: 'Your saved sites',
+  /* The group's own legend, distinct from the section heading above it: the
+     section names the subject, the group names what these three controls do to
+     it. Reusing the heading printed the same words twice and told the reader
+     nothing about the buttons — the same duplication the tours switch had. */
+  settingsSavedFileLabel: 'The list as a file',
   settingsSavedHelp:
     'The sites you have starred are kept in this browser and nowhere else. Nothing is uploaded, which also means nothing is backed up — export the list to keep it, or to move it to another device.',
   settingsSavedCount: (n: string) => `${n} saved`,
