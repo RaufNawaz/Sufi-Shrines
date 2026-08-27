@@ -140,7 +140,16 @@ const BUDGETS_KB = {
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
      open. If this number jumps by ~78 KB, that import went static. */
-  'src/pages/ReviewPage.tsx': 275, // measured 257 on 26 Aug 2026
+  'src/pages/ReviewPage.tsx': 275, // measured 264 on 27 Aug 2026
+  /* The settings page, added 27 Aug 2026. 269 KB is the app shell plus a page
+     of native form controls, which is why it sits beside NotFoundPage and
+     ReviewPage rather than with the routes that carry an index.
+     `useSavedShrines` is the only data it touches, and that is one localStorage
+     key — this route deliberately does **not** call `useShrineData`, so opening
+     the settings does not fetch the sheet. If this number grows by ~90 KB, a
+     preference started reading shrine data; if by ~426 KB, something on it
+     imported `lib/kg.ts`. */
+  'src/pages/SettingsPage.tsx': 285, // measured 269 on 27 Aug 2026
 };
 
 /**
