@@ -4369,6 +4369,60 @@ layer that rendered over the keyless raster fallback while the vector basemap lo
 pins on screen roughly eight seconds earlier. Not attempted here — `DefaultBasemap` deliberately
 avoids showing two basemaps in sequence, and changing that is a visual decision.
 
+### Added 27 August 2026 — the language toggle was buying an English reader 154 KB of Nastaliq
+
+Found with `scripts/measure-blocking.mjs` and a response listener, while looking for what else was
+on the Urdu route's critical path.
+
+`.lang-seg[lang='ur']` in `map.css` set `var(--font-urdu)` — whose first family is Noto Nastaliq
+Urdu — under a comment reading *"Urdu segment uses Naskh for the inline label."* The comment was
+the intent and the code was not, and the effect is this: **on the English map the only
+Arabic-script text painted anywhere is the language toggle's own name, اردو, and painting it
+fetched NotoNastaliqUrdu-700 — 154 KB.**
+
+That is precisely the cost `index.html`'s preload gating exists to avoid, in its own words:
+preloading unconditionally *"would cost every English-first visitor ~154KB they don't need."* The
+preload was gated. The fetch happened anyway, one control over.
+
+**And `e2e/font-preload.spec.ts` already claimed otherwise** — "an English reader who never paints
+an Arabic-script glyph now fetches neither face" — with two tests that both passed on a page that
+downloaded the face. *Does not preload* and *does not download* are different claims, and only one
+of them is the 154 KB. The spec asserts the request now, and the new test was confirmed to fail on
+the old CSS.
+
+Fixed by rendering those four letters in the system's own Arabic face for the **English**
+interface only; `[dir='rtl']` keeps Nastaliq, because i18n rule 4 requires it on every control in
+the Urdu view and an Urdu reader has the face loaded anyway. **No webfont family may appear in
+that stack** — font matching is per-character, so naming Noto Naskh Arabic after `system-ui` would
+download it for the one glyph `system-ui` cannot draw. The toggle measures 45px against 47px, so
+nothing moves.
+
+#### Where the front door stands now
+
+Same instrument, same preset (4× CPU, slow 4G, preview build, 390px), after both of today's
+changes:
+
+| | before | after |
+|---|---|---|
+| `/` TBT | 1386 / 1385 / 1253 ms | **68 / 119 ms** |
+| `/` longest task | 706–813 ms | **104–137 ms** |
+| `/` LCP | 2068 ms | 1928–1984 ms |
+| `/?lang=ur` TBT | 531 ms | 384–472 ms |
+| `/?lang=ur` LCP | 8888 ms | 8568–8596 ms |
+
+The map route is inside the 300ms TBT budget with room, from 4.5× over it. **The Urdu LCP has
+barely moved and will not until bytes come off its critical path** — the 154 KB helps the English
+route, not that one, because an Urdu reader genuinely needs the faces. The lead there is still
+`urdu-content.js`: 253 KB of shrine *article* text on a route that displays no articles.
+
+#### One more thing the font trace showed
+
+The Urdu view paints **four** weights — 400, 500, 600, 700 — from **three** faces. There is no 500
+weight, so `.tabbar-label` resolves to 600 through CSS font matching (for a target of 500 the
+algorithm checks upward first). That is neither a download nor synthetic bolding, so it is left
+alone — but a stylesheet asking for a weight the type system does not have is worth knowing about
+before someone adds a fourth face to satisfy it.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
