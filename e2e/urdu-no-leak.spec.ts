@@ -232,6 +232,10 @@ const BUDGET: Record<string, number> = {
      a place name (RULE 2). The same string was already declared one section
      below in `.order-site-location`; what is new is that the figure's page now
      says where the figure rests before it lists the site. */
+  /* Every one is a bibliography line the Urdu article does not have — see the
+     route's note. The number is the size of one entry's English bibliography,
+     counted per text node, and it moves when that entry's citations do. */
+  'shrine:urdu-bibliography-fallback': 8,
   saint: 20,
   'saint:lineage-only': 24,
   about: 74,
@@ -257,6 +261,17 @@ const BUDGET: Record<string, number> = {
 const ROUTES = [
   { name: 'map', path: '/?lang=ur', ready: '#sidebar' },
   { name: 'shrine', path: '/shrine/data-darbar?lang=ur', ready: 'h1.shrine-title' },
+  /* A second shrine, for the case the first cannot show: Data Darbar's Urdu
+     article carries its own bibliography, and **98 of the 169 entries do not**.
+     Those fall back to the English one, which is sanctioned (i18n rule 7 — a
+     citation is a search string) and has to be *declared*, or the guard would
+     be blind to the one place this archive deliberately shows an Urdu reader
+     Latin. Bari Imam is one of the 98. */
+  {
+    name: 'shrine:urdu-bibliography-fallback',
+    path: '/shrine/bari-imam?lang=ur',
+    ready: 'h1.shrine-title',
+  },
   { name: 'saint', path: '/saint/data-ganj-bakhsh?lang=ur', ready: 'h1.entity-title' },
   /* A second figure, for the same reason all five orders are here: the two
      saint pages render different sections. Data Ganj Bakhsh has one lineage

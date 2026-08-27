@@ -8,6 +8,7 @@ import {
 } from '../../lib/data/articleParsing';
 import { getUrduFieldValue, getFieldValue } from '../../lib/data/fieldAliasing';
 import { localizeHeading } from '../../lib/data/headingLabels';
+import { SOURCES_HEADING_ALIASES } from '../../lib/data/constants';
 
 /** Heading → in-page anchor id. Distinct from lib/data/slugify (URL slugs). */
 export function anchorSlug(text: string): string {
@@ -45,14 +46,45 @@ export function useArticleContent(shrine: Shrine) {
   // Lead text: prose before the first heading in Description, language-aware
   const leadText = useMemo(() => getLeadText(shrine.raw, lang), [shrine.raw, lang]);
 
-  // Inline sections: headings authored inside the Description column
+  /**
+   * Inline sections: headings authored inside the Description column.
+   *
+   * **And the bibliography an Urdu article does not have.** 98 of the archive's
+   * 169 entries carry a bibliography in English and none in Urdu — measured
+   * 27 August 2026 — so an Urdu reader on those entries was shown no citations
+   * at all. Not fewer: none. On an archive whose distinguishing claim is
+   * provenance, that made the Urdu edition unable to show its own working for
+   * three entries in five.
+   *
+   * The fix is what i18n rule 7 was written for. That ruling (20 August 2026)
+   * lets a bibliography stay Latin *precisely so* an Urdu reader chasing a
+   * source gets the exact search string an English one would — a citation is a
+   * search string, not a sentence. So where the Urdu article has no
+   * bibliography section and the English Description does, the English one is
+   * appended under the Urdu heading `localizeHeading` already gives it.
+   *
+   * Deliberately narrow. Only the bibliography, only when the Urdu side has
+   * none, and only from the Description the entry already carries — no other
+   * section falls back, because every other section is prose, and untranslated
+   * prose in the Urdu view is the thing rule 7 forbids in the same breath as it
+   * permits this.
+   */
   const inlineSections = useMemo(() => {
-    const raw =
-      // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article body is an Urdu-only content file, not a per-language record
-      lang === 'ur'
-        ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
-        : getFieldValue(shrine.raw, 'Description');
-    return raw ? parseInlineSections(raw) : [];
+    const english = getFieldValue(shrine.raw, 'Description');
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the Urdu article body is an Urdu-only content file, not a per-language record
+    const isUrdu = lang === 'ur';
+    const raw = isUrdu ? getUrduFieldValue(shrine.raw, 'Description') || english : english;
+    const sections = raw ? parseInlineSections(raw) : [];
+    if (!isUrdu || !english || raw === english) return sections;
+
+    const isBibliography = (heading: string) =>
+      SOURCES_HEADING_ALIASES.has(heading.trim().toLowerCase());
+    if (sections.some((section) => isBibliography(section.heading))) return sections;
+
+    const englishBibliography = parseInlineSections(english).find((section) =>
+      isBibliography(section.heading),
+    );
+    return englishBibliography ? [...sections, englishBibliography] : sections;
   }, [shrine.raw, lang]);
 
   // Dedicated column sections (History, Architecture, …)

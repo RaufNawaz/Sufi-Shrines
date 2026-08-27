@@ -85,7 +85,15 @@ function ArticleSection({
             .map((line) => stripLeadingListMarker(line.trim()))
             .filter(Boolean)
             .map((line, i) => (
-              <li key={i}>
+              /* Declared where it is actually Latin, and not otherwise.
+                 A citation stays in the source's own script by design — i18n
+                 rule 7 exists so an Urdu reader chasing a source gets the exact
+                 search string — and 98 entries show the English bibliography in
+                 the Urdu view because the Urdu article has none. But Data
+                 Darbar's citations *are* Urdu, and declaring those would be
+                 claiming a leak that is not there and inflating the budget that
+                 counts real ones. Per line, on the evidence. */
+              <li key={i} {...(/[A-Za-z]/.test(line) ? { 'data-latin': '' } : {})}>
                 {renderInlineBold(localize(line))}
                 <SourceReach citation={line} />
               </li>
