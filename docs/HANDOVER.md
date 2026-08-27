@@ -4149,6 +4149,55 @@ a throttled dev run measures the module waterfall. The same boundary is why `/or
 (0.0196) disagrees with Lighthouse's (0.219), and why the map's TBT work cannot start here:
 `vendor-maplibre` is 8,484ms of *script evaluation*, and dev neither bundles nor minifies it.
 
+### Added 27 August 2026 — the Nastaliq preload gate saves nothing, because the service worker fetches all three anyway
+
+Found while preparing the font self-hosting the previous note recommends. **Verified against
+`dist/sw.js` from a real build, not inferred.**
+
+`index.html` preloads Noto Nastaliq Urdu only for readers who will actually see it, and says why:
+doing it unconditionally *"would cost every English-first visitor ~154KB they don't need."* The
+400 weight was gated on that reasoning after the 700 already had been.
+
+`vite.config.ts` then precaches `globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']`, and the
+manifest in the built service worker contains:
+
+    "fonts/NotoNastaliqUrdu-700.woff2"
+    "fonts/NotoNastaliqUrdu-600.woff2"
+    "fonts/NotoNastaliqUrdu-400.woff2"
+
+All three, 476 KB, for every visitor — 11% of the 4,269 KB precache. **The gate controls
+first-paint priority and does not save a single byte.** Two optimisations in the same build, one
+quietly undoing the other's stated purpose, and the comment explaining the intent is what makes it
+look done.
+
+This is not an argument for removing the precache: the PWA is why the archive works offline at
+all, and a font that is not precached means an offline reader gets a fallback face. It is an
+argument that **the byte cost is unconditional and nobody chose it**, which is a different
+statement from the one in `index.html`.
+
+#### It also blocks the font self-hosting, and that is why the migration is staged
+
+`pipeline/fetch_google_fonts.py` is committed and does the laborious half: it reads the Google
+Fonts URL out of `index.html` (asserting the three tags agree), downloads all **53 `@font-face`
+blocks** across Merriweather, Source Sans 3 and Noto Naskh Arabic, and writes
+`src/styles/fonts.css` with every block copied verbatim and only `src` rewritten — so
+`unicode-range` coverage is identical *by construction* rather than by review. It refuses to write
+if any block lacks a `unicode-range`, and refuses any download whose first four bytes are not
+`wOF2`, because a rate-limit page is also a 200 with bytes in it and writes to a `.woff2` as tofu.
+
+**The files are deliberately not committed.** They are 1,560 KB, and dropped into `public/fonts/`
+the glob above would take every visitor's first load from 4,269 KB to about 5,830 KB — a 37%
+regression, including the Cyrillic, Greek and Vietnamese subsets nobody will render — bought to
+remove a 76px layout shift. Committing them would have left that as a landmine for whoever wired
+the CSS up. Re-run the script; it takes about thirty seconds.
+
+So the migration is one commit, not two, and it contains: `globIgnores` for the font directory
+plus a runtime CacheFirst route (what workbox recommends for fonts), the `<link>` swap, preloads
+for the latin subsets, **and a decision about what the archive should still render offline.** Then
+measure with `node scripts/measure-cls.mjs --base http://localhost:4173` against a preview build.
+Not dev — in dev the files come off disk in milliseconds and CLS reads 0 whatever the strategy,
+which would look exactly like success.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
