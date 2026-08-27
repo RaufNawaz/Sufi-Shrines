@@ -113,15 +113,27 @@ interface Props {
 }
 
 export function ShrineArticle({ shrine }: Props) {
-  const { lang, numerals } = useLang();
-  const { leadText, inlineSections, uniqueColumnSections, rawFallback } = useArticleContent(shrine);
+  const { lang, numerals, t } = useLang();
+  const { leadText, inlineSections, uniqueColumnSections, rawFallback, urduArticleMissing } =
+    useArticleContent(shrine);
   // The lead and the raw-Description fallback bypass ArticleSection, so they
   // were the two remaining prose paths where Urdu still showed Western
   // digits (rule 5: fmtNum/localized digits at every number render site).
   const localize = (text: string) => localizeProseDigits(text, lang, numerals === 'eastern');
 
   return (
-    <div>
+    /* When the Urdu article does not exist, the whole article below is English.
+       Declared at the wrapper rather than per element: the condition is exactly
+       "all of this is the English fallback", so anything narrower would be
+       pretending some of it is translated. The budget in
+       `e2e/urdu-no-leak.spec.ts` is the size of that debt, and it should go to
+       zero when the two entries are written — not be raised again. */
+    <div {...(urduArticleMissing ? { 'data-latin': '' } : {})}>
+      {urduArticleMissing && (
+        <p className="article-untranslated-note" lang="ur" dir="rtl">
+          {t('articleUrduMissing')}
+        </p>
+      )}
       {leadText && (
         <section
           className="article-section article-lead"

@@ -288,6 +288,10 @@ const UI_TEXT_EN = {
 
   // ── Urs Almanac (DESIGN_VISION.md F1) ──────────────────────────────────
   welcomeExploreMore: 'Elsewhere in the archive',
+  /* Shown on the two entries with no Urdu article, above the English one they
+     fall back to. Says the thing rather than letting the reader discover it. */
+  articleUrduMissing:
+    'The Urdu text of this entry has not been written yet. The article below is the English one, shown as recorded rather than withheld.',
   almanacTitle: 'The Urs Almanac',
   almanacIntro:
     'When the shrines gather. An ʿurs is the death anniversary of a saint, kept as a festival of union — and for most of these places it is the one day of the year the whole community returns.',

@@ -114,6 +114,29 @@ export function useArticleContent(shrine: Shrine) {
       : getFieldValue(shrine.raw, 'Description');
   }, [leadText, inlineSections, uniqueColumnSections, shrine.raw, lang]);
 
+  /**
+   * True when this entry has no Urdu article and the reader is reading Urdu.
+   *
+   * Two of the archive's 169 entries — Darbar Abul Muali Qadri and Darbar Malik
+   * Ahmad Ayaz — have no row in `src/data/urdu-content.json`, so every part of
+   * the article falls back: the lead, the headings, the prose, the table of
+   * contents. An Urdu reader gets an entirely English page with nothing saying
+   * why, which is the one failure this archive's own standard ("as complete and
+   * native-feeling as English") should never produce silently.
+   *
+   * It cannot be fixed here — writing the Urdu is content work, and RULE 2 puts
+   * it out of an agent's hands. What can be fixed is the silence: the page says
+   * so, and the prose beneath is declared, so the debt is counted rather than
+   * passing as translated.
+   */
+  const urduArticleMissing = useMemo(() => {
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: asks whether the Urdu-only content file has this entry at all
+    if (lang !== 'ur') return false;
+    return (
+      !getUrduFieldValue(shrine.raw, 'Description') && !!getFieldValue(shrine.raw, 'Description')
+    );
+  }, [shrine.raw, lang]);
+
   const navItems = useMemo(() => {
     const items: ArticleNavItem[] = [];
     if (leadText) items.push({ id: 'overview', label: t('overview') });
@@ -127,5 +150,12 @@ export function useArticleContent(shrine: Shrine) {
     return items;
   }, [leadText, inlineSections, uniqueColumnSections, shrine.gallery, lang, t]);
 
-  return { leadText, inlineSections, uniqueColumnSections, rawFallback, navItems };
+  return {
+    leadText,
+    inlineSections,
+    uniqueColumnSections,
+    rawFallback,
+    navItems,
+    urduArticleMissing,
+  };
 }

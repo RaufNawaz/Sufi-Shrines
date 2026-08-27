@@ -2076,3 +2076,19 @@
   text-decoration: none;
   border-block-end: 1px solid var(--color-border);
 }
+
+/* An entry whose Urdu article has not been written. The note sits above the
+   English one it falls back to, in the archive's own "here is what we do not
+   have" register — the rubric colour the source-contradiction disclosures use,
+   not an error colour, because a gap in the record is not a fault in the page. */
+.article-untranslated-note {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  border-inline-start: 3px solid var(--color-rubric-border);
+  background-color: var(--color-rubric-pale);
+  color: var(--color-text);
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+  line-height: var(--leading-urdu);
+  border-radius: var(--radius-sm);
+}

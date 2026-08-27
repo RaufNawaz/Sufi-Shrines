@@ -319,6 +319,16 @@ const ROUTES = [
      calendar, which shows one month's cards, so the twelve month listings were
      never scanned. Found by running the walker below over 23 Urdu routes
      instead of 14; the wider sweep is in HANDOVER §9. */
+  /* **Not here yet, deliberately: `/shrine/darbar-abul-muali-qadri?lang=ur`.**
+     That entry has no Urdu article, so its whole page falls back to English.
+     `ShrineArticle` now says so and declares the article it renders, but the
+     table of contents, the category kicker, the masthead's recorded Location
+     and four recorded dates in the infobox are all still undeclared — four more
+     components, one of them showing an off-schema `category` value ("Islam")
+     that has no dictionary entry because it is not one of the archive's six.
+     Adding the route with a budget before those are declared would mean
+     exempting them wholesale, which is the exemption creep this file exists
+     against. The remaining list is in HANDOVER §9. */
   { name: 'typology', path: '/typology?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac:list', path: '/almanac?view=list&lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },
