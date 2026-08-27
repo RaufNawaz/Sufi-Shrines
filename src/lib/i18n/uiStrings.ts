@@ -50,6 +50,25 @@ const UI_TEXT_EN = {
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
   settingsThemeLight: 'Light',
   settingsThemeDark: 'Dark',
+  /* ── Saved list, on /settings ─────────────────────────────────────────
+     The list is localStorage only — no account, works offline, never leaves
+     the device — which is the right design and leaves it one cleared cache
+     from gone, and unable to move to a phone. These three controls are the
+     durability the design traded away. */
+  settingsSavedSection: 'Your saved sites',
+  settingsSavedHelp:
+    'The sites you have starred are kept in this browser and nowhere else. Nothing is uploaded, which also means nothing is backed up — export the list to keep it, or to move it to another device.',
+  settingsSavedCount: (n: string) => `${n} saved`,
+  settingsSavedEmpty: 'Nothing saved yet. The star on a shrine page adds it here.',
+  settingsSavedExport: 'Export the list',
+  settingsSavedImport: 'Import a list',
+  settingsSavedClear: 'Clear the list',
+  settingsSavedClearConfirm: 'Clear every saved site? This cannot be undone.',
+  settingsSavedImported: (n: string) => `${n} added from the file`,
+  settingsSavedImportedNone: 'Everything in that file was already saved.',
+  settingsSavedImportFailed: 'That file is not a saved-sites export from this archive.',
+  settingsSavedMergeNote:
+    'An import adds to what is here rather than replacing it, so moving a list between devices never loses the other one. Clear first if you want an exact copy.',
   settingsDistanceSection: 'Distances',
   settingsUnitsLabel: 'Units',
   settingsUnitsHelp:
@@ -981,6 +1000,8 @@ export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, tota
    ones do: a label like "Category: X" or "Map showing location of X" puts its
    variable in a different place in Urdu, and a component that concatenates the
    pieces itself decides that placement in English. */
+export function tFn(lang: Lang, key: 'settingsSavedCount', n: string): string;
+export function tFn(lang: Lang, key: 'settingsSavedImported', n: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMi', value: string): string;
@@ -1000,6 +1021,8 @@ export function tFn(
   lang: Lang,
   key:
     | 'resultCount'
+    | 'settingsSavedCount'
+    | 'settingsSavedImported'
     | 'distanceAwayKm'
     | 'distanceAwayMetres'
     | 'distanceAwayMi'

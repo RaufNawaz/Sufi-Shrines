@@ -50,6 +50,20 @@ export const UI_TEXT_UR: UiStrings = {
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
   settingsThemeLight: 'روشن',
   settingsThemeDark: 'تاریک',
+  settingsSavedSection: 'آپ کے محفوظ مقامات',
+  settingsSavedHelp:
+    'جن مقامات کو آپ نے نشان زد کیا ہے وہ صرف اسی براؤزر میں محفوظ ہیں، کہیں اور نہیں۔ کچھ اپ لوڈ نہیں ہوتا، اور اسی لیے کسی اور جگہ محفوظ بھی نہیں رہتا — فہرست کو باہر محفوظ کر لیں یا کسی دوسرے آلے پر منتقل کر لیں۔',
+  settingsSavedCount: (n: string) => `${n} محفوظ`,
+  settingsSavedEmpty: 'ابھی کچھ محفوظ نہیں۔ کسی مزار کے صفحے پر ستارہ دبانے سے وہ یہاں آ جاتا ہے۔',
+  settingsSavedExport: 'فہرست محفوظ کریں',
+  settingsSavedImport: 'فہرست درآمد کریں',
+  settingsSavedClear: 'فہرست خالی کریں',
+  settingsSavedClearConfirm: 'تمام محفوظ مقامات مٹا دیے جائیں؟ یہ واپس نہیں ہو سکتا۔',
+  settingsSavedImported: (n: string) => `فائل سے ${n} شامل ہوئے`,
+  settingsSavedImportedNone: 'اس فائل میں سب کچھ پہلے ہی محفوظ تھا۔',
+  settingsSavedImportFailed: 'یہ فائل اس آرکائیو کی محفوظ مقامات کی فہرست نہیں ہے۔',
+  settingsSavedMergeNote:
+    'درآمد موجودہ فہرست میں اضافہ کرتی ہے، اسے بدلتی نہیں، تاکہ ایک آلے سے دوسرے پر منتقلی میں کوئی فہرست ضائع نہ ہو۔ بالکل ویسی نقل چاہیے ہو تو پہلے فہرست خالی کر لیں۔',
   settingsDistanceSection: 'فاصلے',
   settingsUnitsLabel: 'پیمانہ',
   settingsUnitsHelp:

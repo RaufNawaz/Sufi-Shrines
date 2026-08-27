@@ -162,3 +162,50 @@
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu);
 }
+
+/* ── Saved list controls ───────────────────────────────────────────────────
+   Three buttons and a count, not a table: the list itself is on the map's
+   saved filter and on each shrine page's star, and repeating it here would be
+   a fourth place it can disagree with itself. This section is about the
+   list as a *file* — keeping it, moving it, discarding it. */
+
+.settings-saved-count {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+[dir='rtl'] .settings-saved-count {
+  line-height: var(--leading-urdu-ui);
+}
+
+.settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Off-screen rather than `display: none`: a hidden input is still the thing
+   the label and the button trigger, and `display: none` makes it
+   unfocusable, which breaks the keyboard path to the file picker in some
+   browsers. */
+.settings-file-input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.settings-saved-message {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .settings-saved-message {
+  line-height: var(--leading-urdu-ui);
+}

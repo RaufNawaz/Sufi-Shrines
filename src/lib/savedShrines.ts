@@ -68,6 +68,73 @@ export function toggleSaved(slug: string): void {
   write(current.includes(slug) ? current.filter((s) => s !== slug) : [...current, slug]);
 }
 
+/**
+ * Replace the whole list — the import path.
+ *
+ * Separate from `toggleSaved` because an import is one write and one event
+ * rather than N of each: toggling in a loop would fire a re-render per slug and,
+ * on a list of thirty, leave the intermediate states visible.
+ */
+export function replaceSavedSlugs(slugs: readonly string[]): void {
+  // De-duplicated on the way in: a merge of two devices' lists will overlap,
+  // and the list is a set that happens to be stored in order.
+  write([...new Set(slugs)]);
+}
+
+/** Empty the list. Its own function so the caller reads as what it means. */
+export function clearSaved(): void {
+  write([]);
+}
+
+/**
+ * The reader's list as a file they can keep.
+ *
+ * **Slugs only, and no names.** A slug is the archive's stable identity — the
+ * same contract the published photo URLs ride on, so renaming one is already a
+ * breaking change — while a site's name is editorial and gets corrected. A file
+ * carrying names would look more readable and be wrong a year later, and the
+ * importer would have to ignore them anyway. `data-darbar` is legible enough.
+ *
+ * `exported` is for the person reading the file, not for the importer: nothing
+ * in it is trusted on the way back in.
+ */
+export interface SavedListFile {
+  version: 1;
+  exported: string;
+  saved: readonly string[];
+}
+
+export function buildSavedListFile(now: Date): SavedListFile {
+  return { version: 1, exported: now.toISOString(), saved: [...read()] };
+}
+
+/**
+ * Read a list back, refusing anything it cannot vouch for.
+ *
+ * Returns the slugs, or null when the file is not one of ours. Deliberately
+ * strict about *shape* and deliberately silent about *membership*: a slug that
+ * no longer exists in the archive is kept rather than dropped, because the
+ * archive gains entries and a reader who saved a site before it was published
+ * should not have it quietly deleted by an import. The pages that render the
+ * list already skip slugs they cannot resolve.
+ */
+export function parseSavedListFile(text: string): readonly string[] | null {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    return null;
+  }
+  if (!parsed || typeof parsed !== 'object') return null;
+  const saved = (parsed as { saved?: unknown }).saved;
+  if (!Array.isArray(saved)) return null;
+  const slugs = saved.filter((s): s is string => typeof s === 'string' && s.trim().length > 0);
+  // An empty array is a valid list; a file whose `saved` held nothing usable is
+  // not, and the difference matters because one of them should report a failure.
+  if (slugs.length === 0 && saved.length > 0) return null;
+  return slugs;
+}
+
 function subscribe(onChange: () => void): () => void {
   window.addEventListener(CHANGE_EVENT, onChange);
   window.addEventListener('storage', onChange);

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { useLang, type Numerals } from '../lib/i18n/LanguageContext';
+import { tFn } from '../lib/i18n/uiStrings';
 import { useTheme } from '../lib/i18n/ThemeContext';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
@@ -23,6 +24,13 @@ import {
 import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
 import type { CalendarPreference } from '../lib/calendarPreference';
 import type { DistanceUnits } from '../lib/unitsPreference';
+import {
+  buildSavedListFile,
+  clearSaved,
+  parseSavedListFile,
+  replaceSavedSlugs,
+  useSavedShrines,
+} from '../lib/savedShrines';
 import type { Lang, Theme } from '../types/shrine';
 
 /**
@@ -101,7 +109,12 @@ function SettingsRadio<T extends string>({
 }
 
 export default function SettingsPage() {
-  const { lang, setLang, numerals, setNumerals, t } = useLang();
+  const { lang, setLang, numerals, setNumerals, t, fmtNum } = useLang();
+  /* Through `fmtNum` and `tFn` rather than interpolated into a template here:
+     the count is a number (i18n rule 5, Eastern numerals in Urdu) and the
+     phrase around it belongs to whichever language is being read. */
+  const savedCountLabel = (n: number) => tFn(lang, 'settingsSavedCount', fmtNum(n));
+  const importedLabel = (n: number) => tFn(lang, 'settingsSavedImported', fmtNum(n));
   const { theme, toggleTheme } = useTheme();
   const { calendar, setCalendar, units, setUnits } = useReaderPreferences();
   const isRtl = isRtlLang(lang);
@@ -115,10 +128,58 @@ export default function SettingsPage() {
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   const [toursEnabled, setToursEnabled] = useState<boolean>(readToursEnabled);
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
+  const saved = useSavedShrines();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  /* One line of feedback under the buttons, because an import that silently
+     succeeds is indistinguishable from one that silently failed. `role="status"`
+     rather than an alert: this is the outcome of something the reader just did,
+     not an interruption. */
+  const [savedMessage, setSavedMessage] = useState<string | null>(null);
 
   const chooseDirectoryMode = (mode: DirectoryMode) => {
     setDirectoryMode(mode);
     writeDirectoryMode(mode);
+  };
+
+  const exportSavedList = () => {
+    const file = buildSavedListFile(new Date());
+    const blob = new Blob([`${JSON.stringify(file, null, 2)}\n`], {
+      type: 'application/json;charset=utf-8',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    /* Dated, because the point of the file is that it is a copy taken at a
+       moment — two exports a month apart should not overwrite each other in a
+       downloads folder. */
+    link.download = `sufi-shrines-saved-${file.exported.slice(0, 10)}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const importSavedList = async (file: File) => {
+    const parsed = parseSavedListFile(await file.text());
+    if (!parsed) {
+      setSavedMessage(t('settingsSavedImportFailed'));
+      return;
+    }
+    /* Merge, not replace: moving a list from a laptop to a phone should not
+       delete what the phone already had. The note under the buttons says so,
+       and says to clear first for an exact copy. */
+    const before = new Set(saved);
+    const added = parsed.filter((slug) => !before.has(slug));
+    replaceSavedSlugs([...saved, ...parsed]);
+    setSavedMessage(
+      added.length === 0 ? t('settingsSavedImportedNone') : importedLabel(added.length),
+    );
+  };
+
+  const clearSavedList = () => {
+    if (!window.confirm(t('settingsSavedClearConfirm'))) return;
+    clearSaved();
+    setSavedMessage(null);
   };
 
   const chooseTextSize = (size: TextSize) => {
@@ -370,6 +431,69 @@ export default function SettingsPage() {
               />
               <span className="settings-option-label">{t('settingsToursToggle')}</span>
             </label>
+          </SettingsGroup>
+        </section>
+
+        <section className="settings-section" aria-labelledby="settings-saved">
+          <h2 id="settings-saved" className="settings-section-heading">
+            {t('settingsSavedSection')}
+          </h2>
+
+          <SettingsGroup
+            legend={t('settingsSavedSection')}
+            help={t('settingsSavedHelp')}
+            note={t('settingsSavedMergeNote')}
+          >
+            <p className="settings-saved-count">
+              {saved.length === 0 ? t('settingsSavedEmpty') : savedCountLabel(saved.length)}
+            </p>
+            <div className="settings-actions">
+              <button
+                type="button"
+                className="action-btn"
+                onClick={exportSavedList}
+                disabled={saved.length === 0}
+              >
+                {t('settingsSavedExport')}
+              </button>
+              <button
+                type="button"
+                className="action-btn"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                {t('settingsSavedImport')}
+              </button>
+              <button
+                type="button"
+                className="action-btn"
+                onClick={clearSavedList}
+                disabled={saved.length === 0}
+              >
+                {t('settingsSavedClear')}
+              </button>
+            </div>
+            {/* Hidden rather than styled: a native file input cannot be
+                restyled to match the archive's buttons, and hiding it behind
+                one keeps the keyboard and screen-reader behaviour the platform
+                already gets right. */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="application/json,.json"
+              className="settings-file-input"
+              aria-label={t('settingsSavedImport')}
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importSavedList(file);
+                // Reset, so choosing the same file twice fires again.
+                event.target.value = '';
+              }}
+            />
+            {savedMessage && (
+              <p className="settings-saved-message" role="status">
+                {savedMessage}
+              </p>
+            )}
           </SettingsGroup>
         </section>
 

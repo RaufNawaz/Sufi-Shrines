@@ -163,6 +163,26 @@ describe('SettingsPage', () => {
     expect(screen.getByRole('radio', { name: en.settingsNumeralsWestern })).toBeChecked();
   });
 
+  it('shows the saved-list count, and disables what an empty list cannot do', async () => {
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByText(en.settingsSavedEmpty)).toBeInTheDocument();
+    /* Export and Clear on an empty list are buttons that do nothing, which is
+       worse than a button that is visibly unavailable. Import stays live: an
+       empty list is exactly when a reader arrives with a file. */
+    expect(screen.getByRole('button', { name: en.settingsSavedExport })).toBeDisabled();
+    expect(screen.getByRole('button', { name: en.settingsSavedClear })).toBeDisabled();
+    expect(screen.getByRole('button', { name: en.settingsSavedImport })).toBeEnabled();
+  });
+
+  it('says the list is not backed up, which is the honest part', () => {
+    /* The design decision — localStorage only, no account, never leaves the
+       device — has a cost the reader has to be told about, or the first thing
+       they learn about it is that it is gone. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByText(en.settingsSavedHelp)).toBeInTheDocument();
+    expect(screen.getByText(en.settingsSavedMergeNote)).toBeInTheDocument();
+  });
+
   it('gives every option row a 44px target and the whole label as the hit area', () => {
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     const options = document.querySelectorAll('.settings-option');
