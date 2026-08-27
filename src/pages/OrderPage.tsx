@@ -41,6 +41,7 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import type { KGSaint } from '../types/kg';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 interface Member {
   saint: KGSaint;
   /** This figure's membership record for the order being displayed. */
@@ -109,7 +110,7 @@ export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum } = useLang();
   const headingRef = useFocusHeadingOnMount();
-  const { shrines } = useShrineData();
+  const { shrines, offline, sourceTimestamp } = useShrineData();
 
   /*
    * Real shrine names, from the live dataset.
@@ -290,6 +291,12 @@ export default function OrderPage() {
         </nav>
 
         <p className="entity-type-kicker">{t('sufiOrder')}</p>
+
+        {/* The date of what the reader is looking at. Self-hides unless a live
+
+            fetch has actually failed — see OfflineDataBanner. */}
+
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         <h1 ref={headingRef} className="entity-title">
           {orderName}

@@ -22,6 +22,7 @@ import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import type { CategoryKey } from '../lib/data/categoryKey';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 
 /** How many entries the "Coming up" rail shows before the month listing. */
 const UPCOMING_COUNT = 5;
@@ -51,7 +52,7 @@ const VIEW_LABEL_KEYS = {
 } as const satisfies Record<AlmanacView, string>;
 
 export default function AlmanacPage() {
-  const { shrines, loading } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -285,6 +286,12 @@ export default function AlmanacPage() {
             <li aria-current="page">{t('almanacTitle')}</li>
           </ol>
         </nav>
+
+        {/* The date of what the reader is looking at. Self-hides unless a live
+
+            fetch has actually failed — see OfflineDataBanner. */}
+
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         <h1 ref={headingRef} className="entity-title">
           {t('almanacTitle')}

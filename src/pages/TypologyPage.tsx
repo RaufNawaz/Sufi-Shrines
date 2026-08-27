@@ -13,6 +13,7 @@ import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { groupBySiteType, SITE_TYPE_LABELS, type SiteTypeGroup } from '../lib/data/siteType';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 /**
  * The typology atlas (blue-sky item N7): the archive browsed by built form —
  * what actually stands at each site — using the survey's own `site_type`
@@ -52,7 +53,7 @@ function GroupHeading({ group, label }: { group: SiteTypeGroup; label: string })
 }
 
 export default function TypologyPage() {
-  const { shrines } = useShrineData();
+  const { shrines, offline, sourceTimestamp } = useShrineData();
   const { lang, t, localizeField } = useLang();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -97,6 +98,12 @@ export default function TypologyPage() {
             <li aria-current="page">{t('typologyTitle')}</li>
           </ol>
         </nav>
+
+        {/* The date of what the reader is looking at. Self-hides unless a live
+
+            fetch has actually failed — see OfflineDataBanner. */}
+
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         <h1 ref={headingRef} className="entity-title">
           {t('typologyTitle')}

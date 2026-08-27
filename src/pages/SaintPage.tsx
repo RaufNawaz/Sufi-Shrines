@@ -53,12 +53,13 @@ import { disputedFieldLabelKey } from '../lib/data/figureDates';
 import { localizeRecordedDate } from '../lib/i18n/localizeRecordedDate';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum, localizeField, numerals } = useLang();
   const { calendar } = useReaderPreferences();
   const headingRef = useFocusHeadingOnMount();
-  const { shrines } = useShrineData();
+  const { shrines, offline, sourceTimestamp } = useShrineData();
 
   const saint = useMemo(() => (slug ? getSaintBySlug(slug) : undefined), [slug]);
   const figureBucket = useMemo(() => figureGroup(saint?.figureType), [saint?.figureType]);
@@ -396,6 +397,12 @@ export default function SaintPage() {
             a category, that sentence is shown under the title instead of being
             filed under a label it may contradict (RULE 2). */}
         <p className="entity-type-kicker">{figureGroupLabelSingular(figureBucket, lang)}</p>
+
+        {/* The date of what the reader is looking at. Self-hides unless a live
+
+            fetch has actually failed — see OfflineDataBanner. */}
+
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         <h1 ref={headingRef} className="entity-title">
           <bdi data-latin>{displayName}</bdi>

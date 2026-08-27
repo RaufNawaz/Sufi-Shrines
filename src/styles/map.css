@@ -1,17 +1,29 @@
 /* Offline fallback notice — only rendered once a live fetch has actually
    failed (see useShrineData's `offline` flag). Overlays the top edge so it
    doesn't disturb the sidebar/map flex layout beneath it. */
+/* Shared appearance; the two variants differ only in how they are placed.
+   `--overlay` is the map, which is a full-height layout with no document flow
+   to sit in; `--inline` is every article page, where the banner is the first
+   thing in the content and scrolls with it. */
 .offline-data-banner {
-  position: absolute;
-  inset-inline: 0;
-  top: var(--safe-top);
-  z-index: var(--z-header);
   padding: var(--space-2) var(--space-4);
   background: var(--color-accent-pale);
   color: var(--color-accent-text);
   font-size: var(--text-xs);
   font-weight: 600;
   text-align: center;
+}
+
+.offline-data-banner--overlay {
+  position: absolute;
+  inset-inline: 0;
+  top: var(--safe-top);
+  z-index: var(--z-header);
+}
+
+.offline-data-banner--inline {
+  margin-bottom: var(--space-6);
+  border-radius: var(--radius-md);
 }
 
 /* A shared ziyarat list arrived via ?list= — a card, not a strip: it asks

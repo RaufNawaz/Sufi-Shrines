@@ -25,6 +25,7 @@ import type { Lang } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 /**
  * One place, and what the archive records in it.
  *
@@ -266,7 +267,7 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
 
 export default function PlacePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { shrines, loading } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
   const { lang, t } = useLang();
   const isRtl = isRtlLang(lang);
 
@@ -294,6 +295,11 @@ export default function PlacePage() {
           <span aria-hidden="true"> › </span>
           <span>{t('placesTitle')}</span>
         </nav>
+
+        {/* In the outer component, which is the one holding the data: the article
+            below is a child that receives an already-resolved place. Self-hides
+            unless a live fetch has actually failed — see OfflineDataBanner. */}
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
 
         {loading && shrines.length === 0 ? (
           <p className="coverage-loading page-loading-reserve">{t('loading')}</p>

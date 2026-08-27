@@ -46,6 +46,7 @@ import { langAttr } from '../lib/i18n/languages';
 import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
 
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -58,7 +59,20 @@ function SkeletonPage() {
   );
 }
 
-function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shrine[] }) {
+function ShrineContent({
+  shrine,
+  allShrines,
+  offline,
+  sourceTimestamp,
+}: {
+  shrine: Shrine;
+  allShrines: Shrine[];
+  /* Passed down rather than read from a second `useShrineData()` call: the hook
+     shares module state, but two subscriptions on one page is two re-renders
+     for one change. */
+  offline: boolean;
+  sourceTimestamp: number | null;
+}) {
   const { lang, t, localizeField, fmtNum } = useLang();
   const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
   const { navItems } = useArticleContent(shrine);
@@ -110,6 +124,11 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
       lang={langAttr(lang)}
       ref={revealRef}
     >
+      {/* The date of what the reader is looking at. An entry rendered from cache
+          is a provenance claim as much as the map is — see OfflineDataBanner.
+          Self-hides unless a live fetch has actually failed. */}
+      <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
+
       {/* Breadcrumb */}
       <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
         <ol>
@@ -404,7 +423,7 @@ function ShrineContent({ shrine, allShrines }: { shrine: Shrine; allShrines: Shr
 
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { shrines, loading, error } = useShrineData();
+  const { shrines, loading, error, offline, sourceTimestamp } = useShrineData();
   const { t, lang } = useLang();
 
   const shrine = useMemo(() => {
@@ -436,7 +455,14 @@ export default function ShrinePage() {
 
       {error && !shrine && <div className="shrine-page-error">{t('errorLoadingData')}</div>}
 
-      {shrine && <ShrineContent shrine={shrine} allShrines={shrines} />}
+      {shrine && (
+        <ShrineContent
+          shrine={shrine}
+          allShrines={shrines}
+          offline={offline}
+          sourceTimestamp={sourceTimestamp}
+        />
+      )}
 
       <ScrollToTop />
     </div>

@@ -432,7 +432,7 @@ export default function MapPage() {
         </ol>
       </nav>
 
-      <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
+      <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} variant="overlay" />
 
       {/* A shared ziyarat list arrived via ?list= — receiving one writes
           nothing; the reader chooses to add it to their own device list. */}

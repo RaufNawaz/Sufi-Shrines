@@ -18,6 +18,7 @@ import { PUBLICATION, archiveCitation, entryCitation } from '../lib/data/citatio
 import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 /**
  * What this archive is, who made it, how to reuse it, and how to cite it.
  *
@@ -99,7 +100,7 @@ function traditionsCovered(coverage: CoverageReport): number {
 
 export default function AboutPage() {
   const { lang, t, fmtNum } = useLang();
-  const { shrines, loading } = useShrineData();
+  const { shrines, loading, offline, sourceTimestamp } = useShrineData();
   const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
@@ -188,6 +189,9 @@ export default function AboutPage() {
         lang={isRtl ? 'ur' : undefined}
         dir={isRtl ? 'rtl' : undefined}
       >
+        {/* The date of what the reader is looking at. Self-hides unless a live
+            fetch has actually failed — see OfflineDataBanner. */}
+        <OfflineDataBanner offline={offline} sourceTimestamp={sourceTimestamp} />
         <h1 ref={headingRef} className="entity-title">
           {t('aboutTitle')}
         </h1>
