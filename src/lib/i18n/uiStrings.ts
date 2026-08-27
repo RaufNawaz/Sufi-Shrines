@@ -284,6 +284,17 @@ const UI_TEXT_EN = {
   almanacHonestyHeading: 'What this calendar can and cannot tell you',
   almanacApproximateNote:
     'Dates in the Hijri calendar are shown with their approximate Gregorian equivalent. The ʿurs begins on the local moon sighting, so the actual day can fall one or two days either side. Confirm with the shrine before travelling.',
+  /* ── Almanac facets ────────────────────────────────────────────────────
+     The filter narrows the *sites* the almanac is built from, so the calendar,
+     the listings and the coverage counts all describe the same selection and
+     cannot disagree. `filterAll`, `clearFilters` and `ariaFilterByCategory` are
+     the map's, reused deliberately: two surfaces that filter by tradition
+     should not word it two ways. */
+  filterByPlace: 'Place',
+  ariaFilterByPlace: 'Filter by place',
+  almanacMorePlaces: (n: number) => `${n} more`,
+  almanacFewerPlaces: 'Fewer',
+  almanacFilterEmpty: 'No site in the archive matches these filters.',
   almanacUpcoming: 'Coming up',
   almanacNext12Months: 'The next twelve months',
   almanacApproximate: 'approximate',
@@ -818,6 +829,7 @@ export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
 export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
 export function tFn(lang: Lang, key: 'orderUrsUndatedCount', n: number): string;
+export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
@@ -894,6 +906,7 @@ export function tFn(
     | 'orderSpanOne'
     | 'lineageChainRemove'
     | 'orderUrsUndatedCount'
+    | 'almanacMorePlaces'
     | 'almanacCalendarPlaced'
     | 'almanacCalendarDayCount'
     | 'graphFigureFilterCount'

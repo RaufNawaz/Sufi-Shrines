@@ -293,6 +293,11 @@ export const UI_TEXT_UR: UiStrings = {
   almanacHonestyHeading: 'یہ تقویم کیا بتا سکتی ہے اور کیا نہیں',
   almanacApproximateNote:
     'ہجری تاریخوں کے ساتھ عیسوی تاریخ تخمینی طور پر دی گئی ہے۔ عرس کا آغاز مقامی رویتِ ہلال پر ہوتا ہے، اس لیے اصل دن ایک دو دن آگے پیچھے ہو سکتا ہے۔ سفر سے پہلے مزار سے تصدیق کر لیں۔',
+  filterByPlace: 'مقام',
+  ariaFilterByPlace: 'مقام کے اعتبار سے چھانٹیں',
+  almanacMorePlaces: (n: number) => `${n} مزید`,
+  almanacFewerPlaces: 'کم دکھائیں',
+  almanacFilterEmpty: 'اِن شرائط پر آرکائیو کا کوئی مقام پورا نہیں اترتا۔',
   almanacUpcoming: 'آنے والے',
   almanacNext12Months: 'آئندہ بارہ مہینے',
   almanacApproximate: 'تخمینی',

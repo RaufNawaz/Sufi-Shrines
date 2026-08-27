@@ -504,6 +504,105 @@
   margin-block: 0;
 }
 
+/* ── The two facets ───────────────────────────────────────────────────────
+   Chips, in the map sidebar's own idiom (`.filter-chips` / `.filter-chip`), so
+   the two surfaces that filter this archive by tradition look and behave alike.
+   What is local is the layout around them and the count each chip carries. */
+
+.almanac-facets {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-block: var(--space-3) var(--space-4);
+  padding-block-end: var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.almanac-facet-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* The disclosure carries a caret so it reads as one, and the caret turns rather
+   than swapping glyphs — a rotation survives both scripts, where "▸/▾" in a
+   mirrored layout points the wrong way. */
+.almanac-facet-toggle::after {
+  content: '';
+  display: inline-block;
+  inline-size: 0.4em;
+  block-size: 0.4em;
+  margin-inline-start: var(--space-2);
+  border-inline-end: 1.5px solid currentcolor;
+  border-block-end: 1.5px solid currentcolor;
+  transform: rotate(45deg) translate(-0.1em, -0.1em);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.almanac-facet-toggle[aria-expanded='true']::after {
+  transform: rotate(225deg) translate(-0.1em, -0.1em);
+}
+
+.almanac-facet-active {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .almanac-facet-active {
+  font-family: var(--font-urdu);
+}
+
+.almanac-facet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  width: 100%;
+}
+
+/* `.filter-chips` is sized for the sidebar: `flex-shrink: 0` so a chip row
+   never squeezes the panel, and a `--space-4` inset matching the panel's
+   gutter. Both are wrong in an article column — the row refused to shrink and
+   ran the last three places off the edge of the page, and the inset put the
+   chips out of line with every heading above them. Overridden here rather than
+   changed there: the sidebar's reasons are still the sidebar's. */
+.almanac-facet .filter-chips {
+  flex: 1 1 20rem;
+  min-width: 0;
+  padding: 0;
+}
+
+/* Tabular so a column of two-digit counts does not jitter as the chips wrap,
+   and quiet enough that the place name stays the thing being read. */
+.almanac-facet-count {
+  margin-inline-start: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* An `active` chip inverts its ground, so a muted count on it drops below
+   contrast. It follows the chip's own text instead. */
+.filter-chip.active .almanac-facet-count {
+  color: inherit;
+  opacity: 0.75;
+}
+
+[dir='rtl'] .almanac-facet-count {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* The disclosure that opens the long tail of places. Deliberately a chip and
+   deliberately not styled as one of the values: it is dashed, so a reader
+   scanning the row can see that the last pill is a control rather than a
+   fifty-fourth place. */
+.almanac-facet-more {
+  border-style: dashed;
+}
+
 /* The denominator, kept on the first screen.
 
    Coverage used to be the page's opening block, on the argument that a reader
