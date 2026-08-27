@@ -3786,6 +3786,37 @@ as **A14** rather than chosen here.
   `npx lhci autorun --upload.target=filesystem --upload.outputDir=<dir>`. The configured
   `temporary-public-storage` wants a network round trip to lhci's servers.
 
+### Added 27 August 2026 — the Urdu edition had no citations on 98 entries, and now does
+
+The 26 August finding ("96 of 167 Urdu articles carry no bibliography") was right and understated
+what it meant on the page. Re-measured 27 August against the shipped snapshot: **98 of 169 entries
+carry a bibliography in English and none in Urdu.** 70 carry both. One carries neither, and it is
+the entry that cites nothing in any language.
+
+What an Urdu reader actually got was worse than "no citations". The English article carries the
+bibliography, and the Urdu content **replaces** it — so on those 98 entries the citations render,
+and then vanish about two seconds later when the 1 MB Urdu chunk lands. Measured on
+`/shrine/bari-imam?lang=ur`: 2 citations at t=1.5s, 0 from t=3s onward.
+
+**Closed by falling back to the English bibliography**, which is not a workaround: i18n rule 7 (20
+August 2026) permits a Latin bibliography *precisely so* an Urdu reader chasing a source gets the
+exact search string, because a citation is a search string and not a sentence. The fallback is
+narrow on purpose — only the bibliography, only when the Urdu side has none, only from the
+Description the entry already carries. No other section falls back, because every other section is
+prose, and untranslated prose is what rule 7 forbids in the same breath.
+
+Two things worth carrying forward:
+
+- **`data-latin` per line, on the evidence.** Data Darbar's citations are genuinely Urdu.
+  Declaring every citation line would claim a leak that is not there and inflate the budget that
+  counts the real ones.
+- **`urdu-no-leak` was testing the one shrine that could not show this.** Its single shrine route
+  was Data Darbar, which is one of the 70 whose Urdu article has its own bibliography — so the
+  behaviour of the other 98 was invisible to the guard. A second route
+  (`shrine:urdu-bibliography-fallback`, Bari Imam) is in the matrix now. **When a guard samples one
+  member of a set, check which member**: this is the same shape as the `a` exemption that hid 328
+  leaks on the map route, and as the light-only a11y sweep found the same night.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing

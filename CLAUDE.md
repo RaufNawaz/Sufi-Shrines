@@ -198,7 +198,11 @@ rules:
    `text-align: start`), `<bdi>` around mixed Latin/number runs (e.g. an unreviewed English
    source note shown in the Urdu view), locale-aware `localeCompare(…, 'ur')`.
 
-7. **Citations may be Latin; prose may not.** (Decided 20 August 2026.) A bibliography entry
+7. **Citations may be Latin; prose may not.** (Decided 20 August 2026; acted on 27 August, when
+   it turned out **98 of 169 entries showed an Urdu reader no citations at all** — the Urdu
+   article has no bibliography and it *replaced* the English one. The Urdu view now falls back to
+   the English bibliography where the Urdu article has none, which is what this rule exists to
+   permit.) A bibliography entry
    carries the source's real title, publisher and URL, because an archive whose distinguishing
    claim is provenance must leave the reader an exact search string. Everything *before* the
    first bibliography heading (`## کتابیات` / `## حوالہ جات` / `## حوالے`) must be Urdu:
