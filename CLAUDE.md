@@ -265,9 +265,14 @@ outside citations/URLs/coordinates/`<bdi>`.
   checked from the repository. Treat the 18 as of unknown date until someone with the media
   drive re-counts it.
 - Mauj Darya Bukhari lost all 12 media files (verified 404s). Data Darbar and Bibi Pak Daman
-  photos are WhatsApp-compressed. All need re-shooting. ⚠ *Not re-measured* — the 404s need a
-  live network check, which this environment cannot make (every external host is blocked
-  through the agent proxy; see HANDOVER §9.53).
+  photos are WhatsApp-compressed. All need re-shooting. **The "cannot be checked here" caveat
+  this line used to carry is wrong and is removed:** external hosts are reachable from this
+  environment, and `pipeline/check_image_liveness.py` fetched all 242 of the sheet's image URLs
+  on *27 August 2026*. What that shows is that the 12 lost files are **not the same thing as the
+  sheet's images** — the sheet holds one image for Mauj Darya Bukhari and it is alive, as are all
+  nine across Data Darbar and Bibi Pak Daman. The 12 were media-drive paths, so they are still
+  unverifiable from the repository, and the re-shoot case rests on compression and coverage
+  rather than on those 404s.
 
 Full detail, plus a list of previously-confident-but-wrong diagnoses, in `docs/HANDOVER.md`.
 
