@@ -227,6 +227,69 @@ body.lang-rtl,
   --text-4xl: calc(2.25rem * var(--font-scale-urdu));
 }
 
+/* ── Reading size ─────────────────────────────────────────────────────────
+   The reader's text-size preference (`lib/textSizePreference.ts`), applied to
+   the archive's *reading* surfaces and to nothing else.
+
+   Not on `:root`. The type tokens are in `rem`, so scaling the root would scale
+   the tab bar, the map controls and the filter chips too — all of which are laid
+   out at 390px with an overflow guard over them, and none of which the reader
+   asked to resize. Browser zoom already does that job. This is a reading size.
+
+   Redefining the tokens rather than a single multiplier, because that is what
+   actually works: a custom property's `var()` references are substituted where
+   the property is *declared*, so `--text-base: calc(1rem * var(--scale))`
+   declared on `:root` resolves against `:root`'s scale and inherits already
+   resolved. Setting `--scale` deeper would change nothing. Declaring the tokens
+   on the same element that carries the scale is what makes the subtree see it.
+
+   `--font-scale-urdu` is preserved in the RTL half rather than overwritten: the
+   two scales compose, because an Urdu reader who asks for large type wants
+   large Nastaliq, not Latin metrics. */
+
+:is(.shrine-page, .entity-page) {
+  /* The container takes the scaled base itself, and this line is the one that
+     makes the whole thing work. `body` sets `font-size: var(--text-base)`,
+     resolved against `:root`, and prose paragraphs carry no font-size of their
+     own — they *inherit* body's computed 16px, which no amount of redefining
+     tokens on a descendant can change. Declaring it here gives the subtree a
+     scaled value to inherit. At `medium` the scale is 1 and this computes to
+     exactly what body already set, so the default rendering is unchanged. */
+  font-size: var(--text-base);
+  --text-xs: calc(0.75rem * var(--reading-scale));
+  --text-sm: calc(0.875rem * var(--reading-scale));
+  --text-base: calc(1rem * var(--reading-scale));
+  --text-lg: calc(1.125rem * var(--reading-scale));
+  --text-xl: calc(1.25rem * var(--reading-scale));
+  --text-2xl: calc(1.5rem * var(--reading-scale));
+  --text-3xl: calc(1.875rem * var(--reading-scale));
+  --text-4xl: calc(2.25rem * var(--reading-scale));
+}
+
+[dir='rtl'] :is(.shrine-page, .entity-page) {
+  --text-xs: calc(0.75rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-sm: calc(0.875rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-base: calc(1rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-lg: calc(1.125rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-xl: calc(1.25rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-2xl: calc(1.5rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-3xl: calc(1.875rem * var(--font-scale-urdu) * var(--reading-scale));
+  --text-4xl: calc(2.25rem * var(--font-scale-urdu) * var(--reading-scale));
+}
+
+/* One step down and one step up: 15px and 18px against a 16px base. Small
+   enough steps that a heading does not change its relationship to the prose
+   around it, which a bigger jump does — the scale is proportional, so the
+   4xl page title moves with the paragraph. `medium` has no rule, because it
+   writes no attribute. */
+[data-text-size='small'] :is(.shrine-page, .entity-page) {
+  --reading-scale: 0.9375;
+}
+
+[data-text-size='large'] :is(.shrine-page, .entity-page) {
+  --reading-scale: 1.125;
+}
+
 /* Latin display metrics don't fit Nastaliq: negative tracking breaks the
    connected script, and tight Latin heading leading clips the ascender and
    diacritic stacks (the serif faces set both; the remap above keeps their

@@ -38,6 +38,13 @@ export const UI_TEXT_UR: UiStrings = {
   settingsNumeralsWestern: 'مغربی (123)',
   settingsNumeralsUrduOnly: 'اردو ایڈیشن پر لاگو ہوتا ہے۔',
   settingsAppearanceSection: 'ظاہری شکل',
+  settingsTextSizeLabel: 'مطالعے کا حجم',
+  settingsTextSizeHelp:
+    'اندراجات اور فہرست صفحات کی تحریر کا حجم۔ نقشہ اور رہنما فہرست اپنے حجم پر رہتے ہیں، جنہیں براؤزر کا زوم پہلے ہی بدل دیتا ہے۔',
+  settingsTextSizeSmall: 'چھوٹا',
+  settingsTextSizeMedium: 'درمیانہ',
+  settingsTextSizeLarge: 'بڑا',
+  settingsTextSizeSample: 'مزار وہاں ہے جہاں راستہ دریا کی طرف مڑتا ہے۔',
   settingsThemeLabel: 'رنگ',
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
   settingsThemeLight: 'روشن',

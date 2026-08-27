@@ -14,6 +14,12 @@ import {
   type DirectoryMode,
 } from '../lib/directoryPreference';
 import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
+import {
+  applyTextSize,
+  readTextSize,
+  writeTextSize,
+  type TextSize,
+} from '../lib/textSizePreference';
 import type { Lang, Theme } from '../types/shrine';
 
 /**
@@ -104,10 +110,20 @@ export default function SettingsPage() {
      provider neither of them needed. */
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   const [toursEnabled, setToursEnabled] = useState<boolean>(readToursEnabled);
+  const [textSize, setTextSize] = useState<TextSize>(readTextSize);
 
   const chooseDirectoryMode = (mode: DirectoryMode) => {
     setDirectoryMode(mode);
     writeDirectoryMode(mode);
+  };
+
+  const chooseTextSize = (size: TextSize) => {
+    setTextSize(size);
+    writeTextSize(size);
+    /* Applied straight to the document rather than waiting for a reload: the
+       sample line below is set in the archive's reading type, so the reader
+       sees the choice in the thing being chosen. */
+    applyTextSize(size, document.documentElement);
   };
 
   const chooseTours = (enabled: boolean) => {
@@ -215,6 +231,35 @@ export default function SettingsPage() {
           <h2 id="settings-appearance" className="settings-section-heading">
             {t('settingsAppearanceSection')}
           </h2>
+
+          <SettingsGroup legend={t('settingsTextSizeLabel')} help={t('settingsTextSizeHelp')}>
+            <SettingsRadio<TextSize>
+              name="text-size"
+              value="small"
+              current={textSize}
+              label={t('settingsTextSizeSmall')}
+              onChoose={chooseTextSize}
+            />
+            <SettingsRadio<TextSize>
+              name="text-size"
+              value="medium"
+              current={textSize}
+              label={t('settingsTextSizeMedium')}
+              onChoose={chooseTextSize}
+            />
+            <SettingsRadio<TextSize>
+              name="text-size"
+              value="large"
+              current={textSize}
+              label={t('settingsTextSizeLarge')}
+              onChoose={chooseTextSize}
+            />
+            {/* A line of prose set in the archive's own reading type, so the
+                choice is visible in the thing being chosen rather than only in
+                the page around it. Its own class so it takes body type rather
+                than the smaller help size. */}
+            <p className="settings-sample">{t('settingsTextSizeSample')}</p>
+          </SettingsGroup>
 
           <SettingsGroup legend={t('settingsThemeLabel')} help={t('settingsThemeHelp')}>
             <SettingsRadio<Theme>

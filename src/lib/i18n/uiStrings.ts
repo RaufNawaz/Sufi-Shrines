@@ -34,6 +34,13 @@ const UI_TEXT_EN = {
   settingsNumeralsWestern: 'Western (123)',
   settingsNumeralsUrduOnly: 'Applies to the Urdu edition.',
   settingsAppearanceSection: 'Appearance',
+  settingsTextSizeLabel: 'Reading size',
+  settingsTextSizeHelp:
+    'The size of the text in entries and index pages. The map and the navigation keep their own size, which browser zoom already changes.',
+  settingsTextSizeSmall: 'Small',
+  settingsTextSizeMedium: 'Medium',
+  settingsTextSizeLarge: 'Large',
+  settingsTextSizeSample: 'The shrine stands where the road bends toward the river.',
   settingsThemeLabel: 'Theme',
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
   settingsThemeLight: 'Light',

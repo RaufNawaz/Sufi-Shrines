@@ -143,3 +143,22 @@
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
+
+/* A line of the archive's reading type, shown under the size control so the
+   reader sees the choice in the thing being chosen. Body font and body leading
+   — a sample set in the UI's own smaller face would be a sample of the wrong
+   thing. */
+.settings-sample {
+  margin: var(--space-3) 0 0;
+  padding-top: var(--space-3);
+  border-top: var(--hairline) solid var(--color-border-light);
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+[dir='rtl'] .settings-sample {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}

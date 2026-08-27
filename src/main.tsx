@@ -23,6 +23,7 @@ import './styles/almanac.css';
 import './styles/tabbar.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
+import { applyTextSize, readTextSize } from './lib/textSizePreference';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { loadUiStrings } from './lib/i18n/uiStrings';
@@ -38,6 +39,12 @@ const theme =
       ? 'dark'
       : 'light';
 document.documentElement.setAttribute('data-theme', theme);
+
+/* Reading size, before paint for the same reason as the theme: applied from an
+   effect it is a reflow of every paragraph on the page, which the reader
+   watches happen. `medium` writes no attribute, so the default DOM is the
+   default preference. */
+applyTextSize(readTextSize(), document.documentElement);
 
 initTelemetry();
 

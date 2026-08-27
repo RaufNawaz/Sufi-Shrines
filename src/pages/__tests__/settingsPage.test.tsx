@@ -19,6 +19,7 @@ import { renderWithProviders } from '../../test/utils';
 import {
   DIRECTORY_MODE_STORAGE_KEY,
   NUMERALS_STORAGE_KEY,
+  TEXT_SIZE_STORAGE_KEY,
   THEME_STORAGE_KEY,
   TOURS_STORAGE_KEY,
 } from '../../lib/storageKeys';
@@ -27,7 +28,10 @@ import { UI_TEXT } from '../../lib/i18n/uiStrings';
 const en = UI_TEXT.en;
 
 describe('SettingsPage', () => {
-  beforeEach(() => localStorage.clear());
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.removeAttribute('data-text-size');
+  });
 
   it('renders every section', () => {
     renderWithProviders(<SettingsPage />, { route: '/settings' });
@@ -96,6 +100,27 @@ describe('SettingsPage', () => {
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark');
     await user.click(screen.getByRole('radio', { name: en.settingsThemeLight }));
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
+  });
+
+  it('persists the reading size and puts it on the document', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsTextSizeLarge }));
+    expect(localStorage.getItem(TEXT_SIZE_STORAGE_KEY)).toBe('large');
+    /* Applied immediately, not on the next reload: the sample line under the
+       control is set in the archive's reading type, so the reader is meant to
+       see the choice in the thing being chosen. */
+    expect(document.documentElement.getAttribute('data-text-size')).toBe('large');
+    await user.click(screen.getByRole('radio', { name: en.settingsTextSizeMedium }));
+    expect(localStorage.getItem(TEXT_SIZE_STORAGE_KEY)).toBe('medium');
+    expect(document.documentElement.hasAttribute('data-text-size')).toBe(false);
+  });
+
+  it('shows a sample of the reading type beside the size control', () => {
+    /* Three radios labelled Small/Medium/Large tell the reader the names of
+       three sizes and nothing about the sizes. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByText(en.settingsTextSizeSample)).toBeInTheDocument();
   });
 
   it('reflects what is already stored instead of showing defaults', () => {

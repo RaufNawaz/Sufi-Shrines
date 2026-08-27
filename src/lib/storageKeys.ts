@@ -27,6 +27,11 @@ export const DIRECTORY_MODE_STORAGE_KEY = 'shrines_directory_mode';
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
 
+/** Reading size for the archive's prose ('small' | 'medium' | 'large') — read
+ * pre-paint in main.tsx, like the theme, so a larger size is never applied
+ * after the first paint. */
+export const TEXT_SIZE_STORAGE_KEY = 'shrines_text_size';
+
 /** The reader's saved shrines — a personal ziyarat list (JSON array of
  * slugs, see savedShrines.ts). */
 export const SAVED_SHRINES_STORAGE_KEY = 'shrines_saved';

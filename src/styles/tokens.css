@@ -242,6 +242,14 @@
      infobox 36% taller than the English one for identical content. */
   --leading-urdu-ui: 1.7;
   --font-scale-urdu: 1.11;
+  /* The reader's own reading-size step, from `lib/textSizePreference.ts`. One
+     by default and overridden per `[data-text-size]` in global.css, where it
+     multiplies the type scale on reading surfaces only. Declared here with its
+     default rather than left to a `var(--reading-scale, 1)` fallback at each
+     use: a fallback on an undeclared token is a second place the value 1 is
+     written down, and `cssTokensDefined.test.ts` is right that the second one
+     keeps working after the first moves. */
+  --reading-scale: 1;
 
   /* Spacing */
   --space-1: 0.25rem;
