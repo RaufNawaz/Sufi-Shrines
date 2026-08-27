@@ -185,7 +185,6 @@ const BUDGET: Record<string, number> = {
   // other two saint routes measured exactly their pre-existing numbers:
   // multi-order 23, lineage-only 24 (the latter's figure has no site in the app,
   // so the section correctly does not render).
-  saint: 19,
   'saint:multi-order': 23,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
@@ -215,7 +214,25 @@ const BUDGET: Record<string, number> = {
   'order:naqshbandiyya': 32,
   'order:qalandariyya': 11,
   graph: 122,
-  almanac: 39,
+  /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
+     default view, so `/almanac?lang=ur` now settles on one month's cards rather
+     than all thirteen month listings, and five of the recorded `Events` strings
+     that used to be on the page are a scroll and a click away instead. Lowered
+     rather than left, because a budget that no longer describes the page is a
+     budget that will absorb the next real leak in silence — which is the whole
+     failure mode this file was written against. The debt itself is unchanged:
+     the same observance cells are still untranslated, still declared, and still
+     counted on whichever month the reader opens. */
+  almanac: 34,
+  /* 19 → 20, 26 August 2026. A9's "Where this figure rests" (`a725488`) prints
+     the site's recorded `Location` verbatim — "Lahore, Punjab" on Data Ganj
+     Bakhsh — and the commit that added it did not move this number, so the gate
+     has been red on this branch since. The run is a correct one: a Location is
+     the surveyor's own string, and paraphrasing it into Urdu would be inventing
+     a place name (RULE 2). The same string was already declared one section
+     below in `.order-site-location`; what is new is that the figure's page now
+     says where the figure rests before it lists the site. */
+  saint: 20,
   'saint:lineage-only': 24,
   about: 74,
   place: 36,
