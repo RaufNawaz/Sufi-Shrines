@@ -3344,6 +3344,33 @@ npm run build:e2e && npm run e2e   # 89 specs, hermetic (no network)
    oral/video media publishing (F3/F8/F9). See `docs/EDITORIAL_DECISIONS_PENDING.md` §6 for
    every ruling, verbatim.
 
+### Added 26 August 2026 (evening, last) — the Urdu articles are missing their bibliographies
+
+Both of these came out of scoping task A10 (put the entry's biographical section on the figure's
+page). Neither is about A10 and both outlive it.
+
+- **96 of 167 Urdu articles carry no bibliography section at all, where 166 of 167 English
+  articles do.** Measured from `src/data/urdu-content.json` against the shipped snapshot, by
+  `## ` heading (`کتابیات` / `حوالہ جات` / `حوالے` on the Urdu side; Bibliography / References /
+  Sources / Citations / Works Cited on the English). 70 have one on both sides. This is a
+  **provenance-parity gap, not a translation gap**: the 20 August ruling (i18n rule 7) says
+  citations may stay Latin precisely so an Urdu reader chasing a source gets the exact search
+  string — and for 96 entries the Urdu reader gets no citations at all. It sits beside "0 of 168
+  Urdu articles human-read" as an Urdu-side risk, and unlike that one it is countable and
+  closable per entry. **Nothing was changed**; this is a measurement.
+- **The Urdu article is the English article minus its bibliography, section for section.**
+  For all 32 entries with a biographical heading, dropping bibliography-aliased headings from
+  both sides makes the section counts match exactly, 32 of 32 — where a naive positional match
+  succeeded on only 7. That is what makes it safe for a surface to show "the Urdu version of
+  *this* section" without anyone hand-authoring an English→Urdu heading map (which would be a
+  translation judgement, and `localizeHeading` does not cover these headings). The pairings the
+  corpus itself yields: "The Life of the Saint" → بزرگ کی زندگی (19) or ولی کی زندگی (7); "The
+  Life of the Poet-Saint" → شاعر بزرگ کی زندگی (3) or شاعر ولی کی زندگی (1); "The Saint and the
+  Tradition" → بزرگ اور روایت (2). Two Urdu renderings of the same English heading is exactly
+  why deriving beats declaring here.
+  **Any surface using this must fail closed** — if the counts do not match after dropping
+  bibliographies, show nothing rather than the wrong section.
+
 ### Added 26 August 2026 (evening, later) — coordinate precision, measured
 
 - **Twelve rows are pinned at two decimal places or coarser; two at one.** A degree of latitude

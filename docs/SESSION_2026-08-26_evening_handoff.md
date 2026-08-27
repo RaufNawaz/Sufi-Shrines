@@ -14,6 +14,9 @@ on branch `claude/website-explorer-improvements-f5bwgk`. Nothing has been pushed
 | `657e7a5` | **Live-sheet sync check + the import-ready CSV**, and two new data findings |
 | `b99dbaa` | This handoff, the plan's new tasks, four HANDOVER §9 measurements |
 | `12c5553` | **A9 (part)** — figure pages say where the figure rests and what days are kept |
+| `a725488` | **A9 complete** — the site photographed on the shrine rows, and "what the archive does not record" |
+| `1233381` `0005258` `3578445` | The Udasi, Muslim and Sikh image hunts, with their negatives written down |
+| `7c7f6fa` | Coordinate precision measured — 12 rows at ≤2dp, Raharki looks wrong |
 
 Every front-end change was reviewed at http://localhost:5173 in **both languages**, driven with
 Playwright. `npm run typecheck`, `npm run lint`, `npm run test` (**955 passing, 3 skipped**) and
@@ -107,7 +110,13 @@ and a row is never recorded unless the source names the site**; license exactly 
 row; no AI imagery; deity images tagged `tradition-review required`; an empty result recorded as
 a row saying so, so the next session does not re-search it.
 
-**First result in (Sikh gurdwaras, 18 targets, `candidates_sikh.tsv` committed):** 2 targets got
+**Three of four sets are in and committed. Totals so far: 2 of 42 targets got any candidate at
+all**, and every one of those 5 image rows is `identification: uncertain`. The Hindu/Jain set
+(9 targets) was still running at the pause — it is the one with the best prospects (Panj Tirath
+is a protected heritage site; the demolished Jain Mandir on Lytton Road should have historical
+photography), so do not read the totals as final.
+
+**Sikh (18 targets):** 2 targets got
 candidates, 16 got an explicit empty row with the searches recorded. All 5 image rows are
 `identification: uncertain` — **not one openly licensed image anywhere names any of these 18
 sites in its own caption.** That is the finding, not a failure, and the empty rows are what stop
@@ -140,9 +149,30 @@ The row markup now lives in `src/components/kg/RecordedObservanceList.tsx` and t
 in `src/lib/data/recordedObservances.ts`, shared with the order pages. **Use them for anything
 else that lists observances** — that is the `ObservanceCard` argument again.
 
-**Still open — A9 items 3 and 4, and A10:** the site's photograph and facts on the
-associated-shrine rows; an explicit "what the archive does not record"; and the entry's
-biographical section on the figure's page, where the misattribution guard *is* the task.
+**A9 is complete** (`a725488` added the site's photograph on the shrine rows and the
+"What the archive does not record" list). `/saint/baba-pir-ratan-nath` now carries seven
+sections where it carried three.
+
+**A10 is scoped and NOT built — start here.** The measurement is done and it changes the design:
+
+- 32 entries carry a biographical section (`## The Life of the Saint` ×26, `## The Life of the
+  Poet-Saint` ×4, `## The Saint and the Tradition` ×2).
+- **The misattribution guard never fires on today's data**: all 32 of those entries have exactly
+  one figure `buried_at`. Build it anyway and assert that it currently never fires, so the day it
+  does is a test failure and not a wrong biography on someone's page.
+- **The Urdu side works, via a derived rule, not a hand-written heading map.** Drop
+  bibliography-aliased headings from both the English and Urdu article, and the section counts
+  match 32 of 32 (a naive positional match gets 7). `localizeHeading` does not cover these
+  headings, and hand-mapping them would be a translation judgement — the corpus yields two
+  different Urdu renderings of "The Life of the Saint" on its own. **Fail closed**: counts
+  unequal → render nothing.
+- `ProseParagraphs` in `src/components/shrine/ShrineArticle.tsx` is the renderer to reuse (it
+  handles the verse couplets these sections contain). It is not exported yet; move it to its own
+  file rather than exporting from the big component module.
+
+Full detail in `docs/HANDOVER.md` §9, "Added 26 August 2026 (evening, last)" — which also records
+the unrelated finding that fell out of this scoping: **96 of 167 Urdu articles carry no
+bibliography at all**, against 166 of 167 English ones.
 
 The table below is why those are worth doing — it is what the archive held for that one figure
 before this commit, and items 3 and 4 are the rows still unticked.
