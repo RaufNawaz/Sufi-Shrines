@@ -150,6 +150,20 @@ const UI_TEXT_EN = {
   orderUndated: (n: number) => `${n} undated`,
   orderUndatedHelp:
     'Figures the record places in the Hijri calendar only, or in no year at all. The span is not computed for them \u2014 converting a Hijri year here would be this archive inventing a date.',
+  /* ── Order pages: the members on a century axis ────────────────────────
+     Every string here has to hold one line: a mark on an axis is a claim, and
+     the archive cannot place everyone. The heading names people rather than
+     the drawing ("When these figures lived", not "Timeline") because what the
+     reader is looking at is lives, and the note says where the numbers behind
+     the bars come from and where the dates themselves are. */
+  orderTimelineHeading: 'When these figures lived',
+  orderTimelineNote:
+    'Each bar runs from the year the record gives for a birth to the year it gives for a death; each dot is a figure the record dates once. Positions are read off those years only \u2014 nothing here is converted from the Hijri calendar, and the dates themselves, with the hedges the sources wrote, are in the list below.',
+  orderTimelinePointHelp:
+    'The record gives one year for this figure. The mark is that year, not a lifespan \u2014 drawing a bar would mean inventing the other end.',
+  orderTimelineUnplacedLabel: 'Not on the axis',
+  orderTimelineContradictoryHelp:
+    'The two years recorded for this figure cannot both be true \u2014 the birth comes after the death. The archive shows neither on the axis rather than choosing one or quietly reversing them.',
   orderCompareHeading: 'The silsilas at a glance',
   orderCompareNote:
     'Every figure, century span and place below is counted from the graph on load, so this table cannot go stale the way a sentence can. Each row is what the archive holds, not what the order is.',

@@ -7,6 +7,7 @@ import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { placesForShrine } from '../lib/data/places';
 import { centurySpan } from '../lib/data/figureDates';
+import { axisPosition, buildFigureTimeline, labelledCenturies } from '../lib/data/figureTimeline';
 import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 import { CENTURY_ORDINAL } from '../lib/data/era';
 import { readRecordedObservances } from '../lib/data/recordedObservances';
@@ -227,6 +228,25 @@ export default function OrderPage() {
      date (RULE 2). */
   const span = useMemo(() => centurySpan(members.map(({ saint }) => saint)), [members]);
 
+  /* The same members on a century axis.
+   *
+   * `span` above reduces them to two numbers — "12th–20th c." — which is the
+   * fact a reader most wants and the shape they cannot see. This is the shape:
+   * one row per placeable member, ordered by when they died, so the reader can
+   * watch a silsila thicken and thin across nine hundred years instead of
+   * reconstructing it from twenty-three date lines.
+   *
+   * Everything that could go wrong here is a date being drawn that the record
+   * does not support, so none of the judgement is in this file:
+   * `buildFigureTimeline` decides who can be placed and how, and
+   * `figureTimeline.test.ts` holds it to the three refusals. What the view adds
+   * is a percentage and a colour. */
+  const timeline = useMemo(() => buildFigureTimeline(members.map(({ saint }) => saint)), [members]);
+  const timelineTicks = useMemo(
+    () => (timeline ? labelledCenturies(timeline.centuries) : []),
+    [timeline],
+  );
+
   const branchCount = new Set(
     members.map((m) => m.membership?.branch).filter((b): b is string => Boolean(b)),
   ).size;
@@ -337,6 +357,160 @@ export default function OrderPage() {
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('description')}</h2>
                 <p>{description}</p>
+              </section>
+            )}
+
+            {/* ── The order in time ───────────────────────────────────────
+                Above the member list rather than below it: it is a summary of
+                exactly those rows, and a summary that arrives after what it
+                summarises is a footnote. The bars are aria-hidden — every date
+                behind them is printed verbatim a section down, and a screen
+                reader is better served by that than by a percentage read
+                aloud. What it does get from this section is the one thing the
+                alphabetical member list destroys: chronological order. */}
+            {timeline && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('orderTimelineHeading')}</h2>
+                <p className="kg-section-note">{t('orderTimelineNote')}</p>
+
+                <div
+                  className="order-timeline"
+                  style={
+                    {
+                      '--timeline-century-width': `${100 / timeline.centuries.length}%`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <div className="order-timeline-scale" aria-hidden="true">
+                    <span className="order-timeline-scale-label" />
+                    <span className="order-timeline-scale-track">
+                      {timelineTicks.map((century, i) => (
+                        <span
+                          key={century}
+                          /* The final label is anchored to the end of the axis
+                             rather than to its own gridline. "۲۰ویں" is 40px of
+                             Nastaliq and the last century's band is 38px, so
+                             anchoring it like the others put it 2px outside the
+                             track — the exact "a string that is longer in Urdu"
+                             overflow `e2e/no-overflow.spec.ts` exists to catch,
+                             and invisible in English, where "20th" is 26px. The
+                             axis ends where that century ends, so flush is also
+                             what the span chip above already says. */
+                          className={
+                            i === timelineTicks.length - 1
+                              ? 'order-timeline-tick order-timeline-tick--end'
+                              : 'order-timeline-tick'
+                          }
+                          style={
+                            {
+                              '--timeline-at': `${axisPosition(timeline, (century - 1) * 100 + 1)}%`,
+                            } as React.CSSProperties
+                          }
+                        >
+                          {fmtNum(centuryLabel(century, lang))}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+
+                  <ol className="order-timeline-rows">
+                    {timeline.rows.map((row) => {
+                      const saint = row.figure;
+                      const precision = figurePrecisionMarker(saint);
+                      /* The recorded strings, verbatim, as the row's tooltip.
+                         Not as text: one member's `born` is a 200-character
+                         sentence weighing a 2026 field survey against the
+                         existing sourcing, and the derived year that positions
+                         the bar (1643) drops the "c." the source wrote. A
+                         tooltip can carry the whole sentence; a table cell
+                         cannot, and a bare 1643 beside a name is precisely the
+                         over-claim `figurePrecision.ts` exists to stop. */
+                      const recorded = [
+                        saint.born ? `${t('born')}: ${saint.born}` : null,
+                        saint.died ? `${t('died')}: ${saint.died}` : null,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ');
+                      return (
+                        <li key={saint.slug} className="order-timeline-row">
+                          <span className="order-timeline-name">
+                            <Link to={`/saint/${saint.slug}`}>
+                              {fmtNum(localizeFigureName(saint, lang))}
+                            </Link>
+                            {precision && (
+                              <span
+                                className="entity-date-precision"
+                                title={t('figurePrecisionHelp')}
+                              >
+                                {t(precision.labelKey)}
+                              </span>
+                            )}
+                          </span>
+                          <span className="order-timeline-track" aria-hidden="true">
+                            <span
+                              className={
+                                row.point
+                                  ? 'order-timeline-mark order-timeline-mark--point'
+                                  : 'order-timeline-mark'
+                              }
+                              title={
+                                row.point ? t('orderTimelinePointHelp') : recorded || undefined
+                              }
+                              /* The tooltip is the recorded date, verbatim, and a
+                                 recorded date is often Latin in the Urdu view —
+                                 "8 Muharram 1040 AH / 8 August 1630 CE" is a hedged
+                                 phrase the dictionary cannot carry without
+                                 paraphrasing it (RULE 2). Declared here rather than
+                                 on the row's link, deliberately: this span holds no
+                                 text, so declaring it buys no exemption for the
+                                 figure's *name*, which must stay translated.
+                                 `e2e/urdu-accessible-names.spec.ts` reads `title`
+                                 and would otherwise call it an English accessible
+                                 name. */
+                              {...(!row.point && /[A-Za-z]/.test(recorded)
+                                ? { 'data-latin': '' }
+                                : {})}
+                              style={
+                                {
+                                  '--timeline-at': `${axisPosition(timeline, row.from)}%`,
+                                  '--timeline-to': `${axisPosition(timeline, row.to)}%`,
+                                } as React.CSSProperties
+                              }
+                            />
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+
+                {/* Named, not summed. The page's meta row already carries the
+                    count; what a reader cannot get from a number is *which*
+                    figures the axis leaves out, and those are exactly the ones
+                    whose dating someone could go and fix. */}
+                {timeline.unplaced.length > 0 && (
+                  <p className="order-timeline-unplaced">
+                    <span className="order-timeline-unplaced-label">
+                      {t('orderTimelineUnplacedLabel')}
+                    </span>
+                    {timeline.unplaced.map(({ figure, reason }, i) => (
+                      <React.Fragment key={figure.slug}>
+                        {i > 0 && <span aria-hidden="true">·</span>}
+                        <Link
+                          to={`/saint/${figure.slug}`}
+                          className="order-timeline-unplaced-name"
+                          title={
+                            reason === 'contradictory'
+                              ? t('orderTimelineContradictoryHelp')
+                              : t('orderUndatedHelp')
+                          }
+                        >
+                          {fmtNum(localizeFigureName(figure, lang))}
+                        </Link>
+                      </React.Fragment>
+                    ))}
+                  </p>
+                )}
               </section>
             )}
 

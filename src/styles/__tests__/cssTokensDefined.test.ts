@@ -34,6 +34,22 @@ const STYLES = join(__dirname, '..');
  */
 const SET_AT_RUNTIME: Record<string, string> = {
   '--stagger-index': 'per-item index, set inline by list components (see motion.css)',
+  /* The order page's century strip. Every position on it is computed by
+     `src/lib/data/figureTimeline.ts` and written inline by `OrderPage.tsx`,
+     which is the point: a percentage that a stylesheet could declare would be a
+     position the tests cannot hold. The fallbacks collapse each mark to the
+     start of the axis rather than dropping the declaration and letting it
+     inherit — a mark in the wrong place is visible, a mark that quietly became
+     `auto` is not. */
+  /* The sticky page header's measured height. `--header-height` is a 56px
+     guess that describes no header in the app; this is what `EntityPageHeader`
+     measures with a ResizeObserver and writes on the document element, so a
+     sticky offset can be right on a phone as well as a desktop. */
+  '--page-header-height': 'measured header height, published by EntityPageHeader.tsx',
+  '--timeline-at': 'axis position of a mark, set inline by OrderPage.tsx',
+  '--timeline-to': 'axis position of a bar’s end, set inline by OrderPage.tsx',
+  '--timeline-century-width':
+    'one century as a percentage of the axis, set inline by OrderPage.tsx',
 };
 
 /** Every `.ts`/`.tsx` under `src/`, so an exemption can be checked against the

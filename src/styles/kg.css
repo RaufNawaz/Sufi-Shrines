@@ -226,6 +226,251 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* ── An order in time ──────────────────────────────────────────────────────
+   A century axis with one row per placeable member. Hairlines and two marks,
+   no chart library and no fill: the grid is `repeating-linear-gradient` at one
+   century's width, which is the only measurement the view makes — every
+   position comes from `figureTimeline.ts`, where a test can hold it.
+
+   The marks are firozi, not cobalt. Cobalt is this interface's interactive
+   colour and nothing else may borrow it; a bar is a datum. The row's *name* is
+   the link, and it is cobalt, which keeps the distinction where a reader can
+   act on it. */
+
+.order-timeline {
+  margin-block-start: var(--space-3);
+}
+
+.order-timeline-scale,
+.order-timeline-row {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* The scale follows the reader down.
+   A silsila can run to twenty rows, and a century axis whose labels are only at
+   the top is unreadable from row six onward — the bars stay where they are and
+   the reader loses what the columns mean. Sticky under the page header, on the
+   page ground so the rows do not show through it. The offset is the header's
+   *measured* height, published by `EntityPageHeader`: the `--header-height`
+   token says 56px and the header is 71px on a desktop viewport and 93px on a
+   phone, so sticking at the token would park the scale behind the bar on every
+   narrow screen — which is exactly what it did until it was measured. The token
+   is the fallback for the frame before the measurement lands. */
+.order-timeline-scale {
+  position: sticky;
+  inset-block-start: var(--page-header-height, var(--header-height));
+  z-index: 1;
+  margin-block-end: var(--space-1);
+  padding-block: var(--space-1);
+  background-color: var(--color-bg);
+}
+
+.order-timeline-scale-track {
+  position: relative;
+  display: block;
+  block-size: 1rem;
+}
+
+/* Positioned from the century's first year, so a label sits at the gridline it
+   names rather than floating in the middle of a band. `inset-inline-start`
+   rather than `left`: in the Urdu view the whole axis mirrors, earliest at the
+   right, and the labels have to mirror with it or they name the wrong bands. */
+.order-timeline-tick {
+  position: absolute;
+  inset-inline-start: var(--timeline-at, 0%);
+  inset-block-start: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* See the note at the call site: the last label is flush with the end of the
+   axis, because the alternative is a 40px Nastaliq ordinal hanging 2px outside
+   a 38px band. Logical, so the mirrored axis pins it to the left instead. */
+.order-timeline-tick--end {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
+[dir='rtl'] .order-timeline-tick {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+.order-timeline-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.order-timeline-row {
+  min-block-size: 1.75rem;
+}
+
+.order-timeline-name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  min-width: 0;
+  font-size: var(--text-sm);
+}
+
+.order-timeline-name a {
+  color: var(--color-primary);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.order-timeline-name a:hover,
+.order-timeline-name a:focus-visible {
+  text-decoration: underline;
+}
+
+[dir='rtl'] .order-timeline-name {
+  font-family: var(--font-urdu);
+  font-size: var(--text-base);
+}
+
+/* The century grid. One gradient rather than N absolutely-positioned rules:
+   the same declaration draws nine centuries or three, and the width comes from
+   the row count so the two can never disagree. */
+.order-timeline-track {
+  position: relative;
+  display: block;
+  block-size: 1.5rem;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-border-light) 0 var(--hairline),
+    transparent var(--hairline) var(--timeline-century-width, 100%)
+  );
+}
+
+/* The gradient's direction is physical, so the mirrored axis needs the
+   mirrored gradient — otherwise the gridlines drift off the ticks by up to a
+   century's width on any span the century count does not divide evenly. */
+[dir='rtl'] .order-timeline-track {
+  background-image: repeating-linear-gradient(
+    to left,
+    var(--color-border-light) 0 var(--hairline),
+    transparent var(--hairline) var(--timeline-century-width, 100%)
+  );
+}
+
+.order-timeline-mark {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: var(--timeline-at, 0%);
+  inline-size: calc(var(--timeline-to, 0%) - var(--timeline-at, 0%));
+  block-size: 4px;
+  /* A life of a few years is a sliver at this scale; a minimum keeps it
+     visible without widening it enough to misstate the span. */
+  min-inline-size: 3px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary);
+  transform: translateY(-50%);
+}
+
+/* One recorded year. Round and the same height as the bar is tall is
+   deliberately *not* enough on its own — the shape is the only difference, so
+   it is a full dot rather than a short bar, which reads as a different kind of
+   mark rather than as a very short life. */
+.order-timeline-mark--point {
+  inline-size: 8px;
+  min-inline-size: 8px;
+  block-size: 8px;
+  border-radius: 50%;
+  /* Centred on its year: `translateX` is physical and would push the dot the
+     wrong way in the mirrored axis, so the shift is a logical margin. */
+  margin-inline-start: -4px;
+  background-color: transparent;
+  border: 2px solid var(--color-secondary);
+}
+
+.order-timeline-unplaced {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  margin-block: var(--space-3) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.order-timeline-unplaced-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .order-timeline-unplaced,
+[dir='rtl'] .order-timeline-unplaced-label {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+[dir='rtl'] .order-timeline-unplaced-label {
+  font-size: var(--text-sm);
+}
+
+.order-timeline-unplaced-name {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+.order-timeline-unplaced-name:hover,
+.order-timeline-unplaced-name:focus-visible {
+  color: var(--color-primary);
+}
+
+/* Nastaliq runs through an underline, so the Urdu view marks these the way the
+   rest of the archive does — a border on its own line rather than a rule
+   through the descenders (HANDOVER §9.48). */
+[dir='rtl'] .order-timeline-unplaced-name {
+  text-decoration: none;
+  border-block-end: 1px solid var(--color-border);
+}
+
+/* On a phone a 13rem label column leaves four centuries' worth of track. The
+   name takes its own line and the axis takes the full width beneath it; the
+   scale's empty label cell collapses with it, so the ticks stay over the
+   gridlines they name. */
+@media (max-width: 640px) {
+  .order-timeline-scale,
+  .order-timeline-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    align-items: stretch;
+  }
+
+  .order-timeline-scale-label {
+    display: none;
+  }
+
+  /* Stacked, the name and its own track have to read as one row. The gap
+     inside a row is 2px and the gap between rows is eight times that, which is
+     the only thing saying which bar belongs to which name once the label column
+     is gone. */
+  .order-timeline-row {
+    margin-block-end: var(--space-4);
+  }
+
+  .order-timeline-name a {
+    white-space: normal;
+  }
+}
+
 .order-site-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));

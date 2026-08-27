@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { useArchiveSearch } from '../search/ArchiveSearchProvider';
@@ -36,10 +36,51 @@ import { LanguageToggle } from './LanguageToggle';
  * project has already lost an hour to exactly that (HANDOVER §9.46). The entry
  * animation is a transform only.
  */
+/** What the observer uses before the first measurement lands — the token's
+ * value, so the behaviour before paint is the behaviour this file replaced
+ * rather than nothing at all. */
+const FALLBACK_HEADER_HEIGHT = 56;
+
 export function EntityPageHeader({ title }: { title?: string }) {
   const { t } = useLang();
   const search = useArchiveSearch();
   const [collapsed, setCollapsed] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(FALLBACK_HEADER_HEIGHT);
+
+  /* The header's actual height, measured and published.
+   *
+   * `--header-height` is 56px and this header is not: it measures 71px on a
+   * desktop viewport and 93px on a phone, because the action row wraps and its
+   * controls grow to a 44px touch target. Nothing had noticed, for a reason
+   * worth writing down — the three things that offset themselves against the
+   * token (`.contents-nav`, `.shrine-infobox`, `.entity-infobox`) all add
+   * `--space-4` to it, and 56 + 16 = 72 happens to clear a 71px header by a
+   * pixel. The number was wrong and the sum was right, on desktop, by
+   * coincidence. Those three are desktop-only layouts and are left alone; what
+   * the coincidence does not survive is a phone, which is where the first
+   * sticky element on a narrow screen found it (the order page's century
+   * scale).
+   *
+   * So the height is measured rather than assumed, in a layout effect so it is
+   * written before paint, and republished by a ResizeObserver because the thing
+   * that changes it — the action row wrapping — is a resize. Guarded for the
+   * prerenderer, which has no ResizeObserver. */
+  useLayoutEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const publish = () => {
+      const measured = Math.round(el.getBoundingClientRect().height);
+      if (measured <= 0) return;
+      document.documentElement.style.setProperty('--page-header-height', `${measured}px`);
+      setHeaderHeight(measured);
+    };
+    publish();
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(publish);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!title) return;
@@ -51,15 +92,18 @@ export function EntityPageHeader({ title }: { title?: string }) {
     if (!heading || typeof IntersectionObserver === 'undefined') return;
     const observer = new IntersectionObserver(
       (entries) => setCollapsed(!entries[0].isIntersecting),
-      // The header's height, so the swap lands as the title goes behind the bar.
-      { rootMargin: '-56px 0px 0px 0px' },
+      /* The header's own height, so the swap lands exactly as the title passes
+         behind the bar. This was the literal `-56px`, which on a phone fired
+         37px late — the title had been behind an opaque bar for most of a
+         thumb-flick before the bar admitted to holding it. */
+      { rootMargin: `-${headerHeight}px 0px 0px 0px` },
     );
     observer.observe(heading);
     return () => observer.disconnect();
-  }, [title]);
+  }, [title, headerHeight]);
 
   return (
-    <header className="shrine-page-header no-print">
+    <header ref={headerRef} className="shrine-page-header no-print">
       <Link to="/" className="back-link" aria-label={t('backToMap')}>
         <svg
           width="16"
