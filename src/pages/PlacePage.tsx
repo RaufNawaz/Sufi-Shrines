@@ -296,7 +296,7 @@ export default function PlacePage() {
         </nav>
 
         {loading && shrines.length === 0 ? (
-          <p className="coverage-loading">{t('loading')}</p>
+          <p className="coverage-loading page-loading-reserve">{t('loading')}</p>
         ) : place ? (
           <PlaceContent place={place} lang={lang} />
         ) : (

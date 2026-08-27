@@ -406,6 +406,29 @@
   color: var(--color-text-muted);
 }
 
+/* Hold the viewport open while a page is waiting for the sheet.
+ *
+ * The site footer is rendered *inside* the article, not after the page
+ * wrapper, so `.entity-page-wrapper`'s own `min-height: 100svh` does not keep
+ * it out of the reader's first screen: on a page whose only content is the word
+ * "Loading" the footer lands at y=232 on `/place/:slug` and y=435 on
+ * `/review`, is the only thing on screen, and is then pushed twelve thousand
+ * pixels down when the data arrives. Measured 27 August 2026:
+ * **CLS 0.1048 on /place/lahore, all of it the footer** — reproduce with
+ * `node scripts/measure-cls.mjs --sections --route /place/lahore`.
+ *
+ * This is the one part of A14 with no trade in it. It reserves nothing for the
+ * content that is coming — whose height is unknowable, which is what makes the
+ * rest of A14 a decision — it only says the footer must not be the first thing
+ * a reader sees.
+ *
+ * svh rather than vh, for the same reason `.entity-page-wrapper` uses it: the
+ * smallest the viewport gets, so the reserve is exactly enough on the paint
+ * that matters and adds no phantom scroll once the URL bar hides. */
+.page-loading-reserve {
+  min-height: 100svh;
+}
+
 [dir='rtl'] .coverage-intro,
 [dir='rtl'] .coverage-stat-label,
 [dir='rtl'] .coverage-bar-label,

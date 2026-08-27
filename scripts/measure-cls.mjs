@@ -51,6 +51,7 @@
  *   node scripts/measure-cls.mjs --route /saint/data-ganj-bakhsh
  *   node scripts/measure-cls.mjs --json out.json
  *   node scripts/measure-cls.mjs --sections --route /saint/data-ganj-bakhsh
+ *   node scripts/measure-cls.mjs --check         # the invariant; exits non-zero
  */
 
 import { writeFileSync } from 'node:fs';
@@ -87,7 +88,14 @@ const DEFAULT_ROUTES = [
 ];
 
 function parseArgs(argv) {
-  const opts = { base: 'http://localhost:5173', runs: 1, routes: [], json: null, sections: false };
+  const opts = {
+    base: 'http://localhost:5173',
+    runs: 1,
+    routes: [],
+    json: null,
+    sections: false,
+    check: false,
+  };
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--base') opts.base = argv[++i];
@@ -95,6 +103,7 @@ function parseArgs(argv) {
     else if (arg === '--route') opts.routes.push(argv[++i]);
     else if (arg === '--json') opts.json = argv[++i];
     else if (arg === '--sections') opts.sections = true;
+    else if (arg === '--check') opts.check = true;
     else if (arg === '--help' || arg === '-h') opts.help = true;
     else throw new Error(`unknown argument: ${arg}`);
   }
@@ -346,11 +355,92 @@ async function measureSections(browser, base, route) {
   }
 }
 
+/* ── --check: the footer is not the first thing a reader sees ────────────────
+ *
+ * The invariant behind the one part of A14 that had no trade in it. The site
+ * footer is rendered *inside* each page's article rather than after the page
+ * wrapper, so a page still waiting for the sheet is shorter than the viewport
+ * and puts its footer on screen — and then the data arrives and moves it
+ * thousands of pixels down. `/place/lahore` measured CLS 0.1048, all of it the
+ * footer at y=232.
+ *
+ * Checked by stalling the CSV rather than by racing it, because the loading
+ * state is the thing under test and on a fast connection it is gone before a
+ * screenshot. Aborting after the stall also exercises the path a reader on a
+ * dead connection takes.
+ */
+/* Every route that renders a footer and reads the sheet. The 404 is
+   deliberately absent: its footer is high — y=598 — but nothing on that page is
+   data-dependent, so the footer has nowhere to be pushed to. A route belongs
+   here when its content arrives after first paint. */
+const CHECK_ROUTES = [
+  '/',
+  '/saint/data-ganj-bakhsh',
+  '/order/qadiriyya',
+  '/place/lahore',
+  '/shrine/data-darbar',
+  '/almanac',
+  '/about',
+  '/graph',
+  '/typology',
+];
+
+const CSV_GLOB = '**/*output=csv*';
+const STALL_MS = 6000;
+
+async function checkLoadingFooter(browser, base) {
+  const offenders = [];
+  console.log(`\nLoading-state footer — ${base}, ${VIEWPORT.width}×${VIEWPORT.height}\n`);
+
+  for (const route of CHECK_ROUTES) {
+    const context = await browser.newContext({ viewport: VIEWPORT });
+    const page = await context.newPage();
+    await page.route(CSV_GLOB, async (route_) => {
+      await new Promise((resolve) => setTimeout(resolve, STALL_MS));
+      await route_.abort();
+    });
+    await page
+      .goto(`${base}${route}`, { waitUntil: 'domcontentloaded', timeout: 45_000 })
+      .catch(() => {});
+    await page.waitForTimeout(1500);
+    const footerTop = await page.evaluate(() => {
+      const footer = document.querySelector('footer.site-footer');
+      return footer ? Math.round(footer.getBoundingClientRect().top + window.scrollY) : null;
+    });
+    await context.close();
+
+    if (footerTop === null) {
+      console.log(`  ok    ${route.padEnd(28)} no footer while loading`);
+      continue;
+    }
+    if (footerTop >= VIEWPORT.height) {
+      console.log(`  ok    ${route.padEnd(28)} footer at ${footerTop}px, below the fold`);
+      continue;
+    }
+    console.log(`  FAIL  ${route.padEnd(28)} footer at ${footerTop}px, inside the first viewport`);
+    offenders.push({ route, footerTop });
+  }
+
+  if (offenders.length > 0) {
+    console.error(
+      `\n${offenders.length} route(s) show the footer inside the first viewport while the` +
+        ` dataset is loading.\nIt will be pushed thousands of pixels down when the data arrives,` +
+        ` and that is a layout shift of\nthe only element the reader can see. Add` +
+        ` \`page-loading-reserve\` to the loading branch (see components.css), or take the` +
+        `\nroute out of CHECK_ROUTES with the reason its footer cannot move.\n`,
+    );
+    return 1;
+  }
+  console.log('\nNo route shows the footer inside the first viewport while loading.\n');
+  return 0;
+}
+
 async function main() {
   const opts = parseArgs(process.argv);
   if (opts.help) {
     console.log(
-      'node scripts/measure-cls.mjs [--base URL] [--runs N] [--route PATH] [--json FILE] [--sections]',
+      'node scripts/measure-cls.mjs [--base URL] [--runs N] [--route PATH] [--json FILE]' +
+        ' [--sections] [--check]',
     );
     return;
   }
@@ -365,6 +455,12 @@ async function main() {
   }
 
   const browser = await chromium.launch();
+
+  if (opts.check) {
+    const code = await checkLoadingFooter(browser, opts.base);
+    await browser.close();
+    process.exit(code);
+  }
 
   if (opts.sections) {
     for (const route of opts.routes) {
