@@ -660,80 +660,6 @@ export default function SaintPage() {
               </section>
             )}
 
-            {/* Where this figure rests — place, then the Location as recorded. */}
-            {restingPlaces.length > 0 && (
-              <section className="kg-section">
-                <h2 className="kg-section-heading">{t('saintPlaceHeading')}</h2>
-                <p className="kg-section-note">{t('saintPlaceNote')}</p>
-                <ul className="saint-place-list">
-                  {restingPlaces.map(({ shrine, places }) => (
-                    <li key={shrine.slug} className="saint-place-row">
-                      {places.length > 0 && (
-                        <div className="order-place-list">
-                          {places.map((place) => (
-                            <Link
-                              key={place.slug}
-                              to={`/place/${place.slug}`}
-                              className="order-place-tag hover-lift"
-                            >
-                              <bdi>{isRtl ? translatePlaceName(place.name) : place.name}</bdi>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                      {shrine.location && (
-                        /* The survey's own words. Often still English, and often
-                           a paragraph of qualification rather than an address —
-                           declared rather than tidied (RULE 2). */
-                        <p className="saint-place-recorded" data-latin>
-                          <span className="order-urs-recorded-label">
-                            {t('almanacSourceLabel')}:{' '}
-                          </span>
-                          <bdi>{shrine.location}</bdi>
-                        </p>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {/* ── The life, in the entry's own words ──────────────────────
-                Attributed to the entry it came from, visibly and by link, and
-                keeping that entry's own heading: "The Life of the Poet-Saint"
-                is the archive's wording, and flattening it to "Biography" would
-                throw away the one thing that says who wrote it and about
-                whom. */}
-            {biographies.length > 0 && (
-              <section className="kg-section">
-                <h2 className="kg-section-heading">{t('saintBiographyHeading')}</h2>
-                <p className="kg-section-note">{t('saintBiographyNote')}</p>
-                {biographies.map((entry) => (
-                  <article key={`${entry.shrine.slug}-${entry.heading}`} className="figure-life">
-                    <h3 className="figure-life-heading">{entry.heading}</h3>
-                    {/* The whole attribution is the link's text, not "From" plus
-                        a name: where the phrase's operands sit is a fact about
-                        the language, and `noSentenceFragments.test.ts` is right
-                        to refuse the assembled version. */}
-                    <Link to={`/shrine/${entry.shrine.slug}`} className="figure-life-source">
-                      {tFn(lang, 'saintBiographyFrom', localizeShrineName(entry.shrine, lang))}
-                    </Link>
-                    <div className="figure-life-prose">
-                      {/* The same digit localization the shrine article gives
-                          this exact prose. Without it the Urdu view reads
-                          "1722" mid-Nastaliq — the one place Eastern numerals
-                          never reached, and the reason `localizeProseDigits`
-                          exists. URLs, DOIs and ISBNs keep Western digits. */}
-                      <ProseParagraphs
-                        text={entry.content}
-                        localize={(text) => localizeProseDigits(text, lang, numerals === 'eastern')}
-                      />
-                    </div>
-                  </article>
-                ))}
-              </section>
-            )}
-
             {/* Days kept for this figure — all of them, dated or not. */}
             {observances.length > 0 && (
               <section className="kg-section">
@@ -816,6 +742,102 @@ export default function SaintPage() {
                     <LineageChainView chain={chain} />
                   </>
                 )}
+              </section>
+            )}
+
+            {/* ── The two sections below are the ones that wait for the sheet ──
+
+                Everything above this point renders from the bundled knowledge
+                graph at first paint. These two cannot: `restingPlaces` needs the
+                shrine rows behind `saint.shrines`, and the biography needs their
+                Description prose, so both arrive with the CSV about two seconds
+                in. They used to sit fourth and fifth, at y=564 and y=790 in an
+                844px viewport, and appearing there pushed three sections the
+                reader was already looking at down by 1,486px — CLS 0.5687
+                against a 0.1 budget, of which the 1,186px biography was 81%.
+
+                Placed after the lineage, there is enough graph-derived content
+                above them that they arrive below the fold and move nothing that
+                is on screen. Measured, not assumed:
+                `node scripts/measure-cls.mjs --sections --route /saint/<slug>`.
+
+                This is a reading-order decision as much as a performance one,
+                and it was made on the argument that the entry's account of a
+                life is a quotation from another page, attributed — supporting
+                material, which sits better beside Sources than above the
+                silsila. The gaps section stays after all three, for the reason
+                written above it. Reordering back is safe and costs 0.57 CLS. */}
+            {/* Where this figure rests — place, then the Location as recorded. */}
+            {restingPlaces.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintPlaceHeading')}</h2>
+                <p className="kg-section-note">{t('saintPlaceNote')}</p>
+                <ul className="saint-place-list">
+                  {restingPlaces.map(({ shrine, places }) => (
+                    <li key={shrine.slug} className="saint-place-row">
+                      {places.length > 0 && (
+                        <div className="order-place-list">
+                          {places.map((place) => (
+                            <Link
+                              key={place.slug}
+                              to={`/place/${place.slug}`}
+                              className="order-place-tag hover-lift"
+                            >
+                              <bdi>{isRtl ? translatePlaceName(place.name) : place.name}</bdi>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                      {shrine.location && (
+                        /* The survey's own words. Often still English, and often
+                           a paragraph of qualification rather than an address —
+                           declared rather than tidied (RULE 2). */
+                        <p className="saint-place-recorded" data-latin>
+                          <span className="order-urs-recorded-label">
+                            {t('almanacSourceLabel')}:{' '}
+                          </span>
+                          <bdi>{shrine.location}</bdi>
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* ── The life, in the entry's own words ──────────────────────
+                Attributed to the entry it came from, visibly and by link, and
+                keeping that entry's own heading: "The Life of the Poet-Saint"
+                is the archive's wording, and flattening it to "Biography" would
+                throw away the one thing that says who wrote it and about
+                whom. */}
+            {biographies.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('saintBiographyHeading')}</h2>
+                <p className="kg-section-note">{t('saintBiographyNote')}</p>
+                {biographies.map((entry) => (
+                  <article key={`${entry.shrine.slug}-${entry.heading}`} className="figure-life">
+                    <h3 className="figure-life-heading">{entry.heading}</h3>
+                    {/* The whole attribution is the link's text, not "From" plus
+                        a name: where the phrase's operands sit is a fact about
+                        the language, and `noSentenceFragments.test.ts` is right
+                        to refuse the assembled version. */}
+                    <Link to={`/shrine/${entry.shrine.slug}`} className="figure-life-source">
+                      {tFn(lang, 'saintBiographyFrom', localizeShrineName(entry.shrine, lang))}
+                    </Link>
+                    <div className="figure-life-prose">
+                      {/* The same digit localization the shrine article gives
+                          this exact prose. Without it the Urdu view reads
+                          "1722" mid-Nastaliq — the one place Eastern numerals
+                          never reached, and the reason `localizeProseDigits`
+                          exists. URLs, DOIs and ISBNs keep Western digits. */}
+                      <ProseParagraphs
+                        text={entry.content}
+                        localize={(text) => localizeProseDigits(text, lang, numerals === 'eastern')}
+                      />
+                    </div>
+                  </article>
+                ))}
               </section>
             )}
 
