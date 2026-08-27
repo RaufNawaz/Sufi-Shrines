@@ -3853,6 +3853,29 @@ contents. This is content work, not engineering; it is recorded here because "0 
 articles human-read" is the known Urdu risk and *this* is a different one — two entries where
 there is nothing to read.
 
+**The silence is fixed even though the content is not** (`904bd2c`). The page now says the Urdu
+text has not been written, above the English article it falls back to, and `ShrineArticle`
+declares that article. **What is still undeclared on such a page**, and what has to be done before
+the route can join the no-leak matrix:
+
+| component | what leaks |
+|---|---|
+| `ContentsNav` | the table of contents — seven English headings |
+| `.shrine-category-kicker` | the recorded `category`, see below |
+| `.shrine-summary-meta-item` | the recorded Location, a paragraph of English survey note |
+| the infobox | `site_type_note`, the silsila note, and four recorded Hijri dates |
+
+The category one is a **data bug, not a display bug**: `Darbar Abul Muali Qadri`'s `category` is
+`"Islam"`, which is not one of the schema's six values, so `CATEGORY_LABELS` has no entry and it
+renders untranslated in both the kicker and the breadcrumb. It is the only off-schema category
+value in the snapshot, and one further row has an empty `category` and falls back to the legacy
+`Category` column. Fix the sheet rather than the dictionary.
+
+There is also a third piece of evidence that the data build is overdue:
+**`src/data/urdu-content.json` contains an article for `darbar-hazrat-shah-gohar-peer`, a slug the
+snapshot does not have.** The Urdu work is running ahead of the snapshot in one direction while
+the sheet runs ahead of it in the other.
+
 #### The committed snapshot has drifted from the live sheet, and no gate can see it
 
 **The live sheet has 171 rows; `src/data/shrines-fallback.json` has 169.** The two extra are
