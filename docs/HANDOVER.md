@@ -4540,6 +4540,76 @@ grepped for consumers outside the type and the model. **There are no more dead o
 because the absence is the answer, and the next person wondering can read this instead of running
 it again.
 
+### Added 27 August 2026 — production has three off-schema categories and four rows with prose in `status`
+
+**A general sweep of the site found nothing wrong with the site, and something wrong with the
+data.** Every route in both languages was walked for console errors, page errors, same-origin
+4xx, duplicate DOM ids, h1 counts and links with no accessible name. The only recurring finding
+was the already-known 403 on the dead heritageofpakistan.org image. No duplicate ids, no missing
+or doubled h1, no inaccessible links. Recorded because the absence is the answer.
+
+The 417 distinct internal link targets were then validated against the data — and two did not
+resolve. **That turned out to be the instrument, not the site**: the validator used the
+169-row snapshot while the app renders the live sheet's 171. Which is the finding.
+
+#### The gap: every gate reads the snapshot, production is the sheet
+
+    committed snapshot   169 rows, 1 category outside the schema
+    live sheet           171 rows, 3 categories outside the schema
+
+    ✗ "Islam"                 ← Darbar Abul Muali Qadri        (known, patch pending since 21 Aug)
+    ✗ "Islam"                 ← Darbar Hazrat Shah Gohar Peer  (new)
+    ✗ "Sufi shrine (Islam)"   ← Darbar Mian Qurban Ali Shah    (new)
+
+`validate.mjs`'s category guard exists, is correct, and its own comment names this failure — and
+it cannot see either new row, because both arrived after the snapshot was built. On the live site
+each loses its map colour, drops out of the category filter, and is excluded from every tradition
+count. **The overnight handoff recorded "one row's category is Islam"; that is right for the
+snapshot and understates production by two.**
+
+`npm run data:check:live` (`scripts/data/check-live-sheet.mjs`) asks production directly. It reads
+the sheet URL out of `src/lib/data/constants.ts` rather than carrying a copy, diffs the row set
+against the snapshot, and exits non-zero on an off-schema category or a **removed** row — removal
+being the serious direction, since the published photo URLs and every external link to
+`/shrine/<slug>` ride on those slugs. It is **not** in `npm run verify`: it needs the network and
+reads a document that changes without us, and a gate that can go red because someone edited a
+spreadsheet mid-build is a gate people learn to skip.
+
+#### What the "report, don't validate" half found
+
+It validates `category` and only *reports* `status`, `support_level`, `info_level` and
+`site_type` — counted, most common first — because those vocabularies live in TypeScript it
+cannot import and a hardcoded copy would be a third source of truth. The counted list immediately
+showed something no enum check was looking for:
+
+    128  Active
+     17  Occasional
+     13  Heritage
+      7  Ruin
+      1  Active; in use daily, construction ongoing
+      1  Active; deteriorating fabric
+      1  Active; physically constrained. Reported as occupying a small area reduced by … (212 chars)
+      1  Active, in regular use; reconstructed 2022
+      1  Destroyed
+      1  (blank)
+
+**Four rows carry prose in `status`**, where the schema section of CLAUDE.md says prose belongs in
+`status_note`. A fifth (Shaktipeeth Shri Hinglaj Mata Mandir) has no status at all — a gap to
+report, not to fill.
+
+#### The patch
+
+`data/patch_schema_hygiene_2026-08-27.csv`, for a human to import (RULE 3). Four rows, columns
+`Name, category, status, status_note`; a blank cell means leave that column alone, matching
+`patch_data_hygiene_2026-08-21.csv`, which is still pending and already covers one of the three
+categories.
+
+Generated from the live sheet rather than retyped, and **verified lossless**: rebuilding
+`status + "; " + status_note` reproduces the original string for all four rows, and every
+`status_note` was empty beforehand, so nothing is overwritten. The two `"Islam"` values and the
+one `"Sufi shrine (Islam)"` map to `Muslim Shrine` — the schema's own category for a Sufi darbar —
+which is a proposal for review, not an import that has been made.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
