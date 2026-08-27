@@ -28,6 +28,7 @@ import { applyMotionPreference, readMotionPreference } from './lib/motionPrefere
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { loadUiStrings } from './lib/i18n/uiStrings';
+import { prefetchCsvText } from './lib/data/csvPrefetch';
 
 // Prevent FOUC by setting data-theme before paint. An explicit choice
 // (the moon button) pins the theme; otherwise follow the device — a phone
@@ -63,6 +64,20 @@ initTelemetry();
 const initialLang = detectInitialLang();
 
 void ensureUrduSeedForLang(initialLang);
+
+/*
+ * The sheet, requested now rather than when React mounts.
+ *
+ * The first render is gated on `loadUiStrings` below, so without this line the
+ * request for the archive's own data waits behind the interface strings, the
+ * Nastaliq faces and the Urdu content payload. Measured on a preview build at
+ * 390px, 4× CPU, slow 4G: on `/?lang=ur` the CSV did not start until 3,790ms.
+ * `lib/data/csvPrefetch.ts` carries the full measurement, and the reason it is
+ * a separate module holding bytes rather than a call into the data hook: the
+ * first version imported the hook here and put PapaParse into the entry chunk,
+ * which is every route's eager cost.
+ */
+prefetchCsvText();
 
 /*
  * The interface strings for the reader's language, *awaited* before the first

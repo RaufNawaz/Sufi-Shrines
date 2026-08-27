@@ -1,7 +1,7 @@
 import Papa from 'papaparse';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Shrine, ShrineDataState, ShrineRow } from '../types/shrine';
-import { CSV_URL } from '../lib/data/constants';
+import { fetchCsvText, takeCsvText } from '../lib/data/csvPrefetch';
 import { normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
 import {
@@ -92,16 +92,18 @@ async function fetchShrines(): Promise<Shrine[]> {
   const lang = detectInitialLang();
   const urduReady = Promise.all([ensureUrduContentForLang(lang), ensureUrduSeedForLang(lang)]);
 
-  const parsed = new Promise<ShrineRow[]>((resolve, reject) => {
-    Papa.parse(CSV_URL, {
-      download: true,
+  /* The bytes, from `main.tsx`'s prefetch if it is still going spare, otherwise
+     a fresh request. `Papa.parse` used to do the download itself
+     (`download: true`), and it could not start until React mounted — which on
+     `/?lang=ur` was 3,790ms in, because the first render waits for the Urdu
+     interface strings. `csvPrefetch` starts it at module scope instead; parsing
+     stays here, so the parser stays out of the entry chunk. */
+  const parsed = (takeCsvText() ?? fetchCsvText()).then((text) => {
+    const results = Papa.parse<Record<string, unknown>>(text, {
       header: true,
       skipEmptyLines: true,
-      complete: (results) => {
-        resolve((results.data as Record<string, unknown>[]).map(normalizeRow) as ShrineRow[]);
-      },
-      error: reject,
     });
+    return results.data.map(normalizeRow) as ShrineRow[];
   });
 
   const [rows] = await Promise.all([parsed, urduReady]);
@@ -206,6 +208,12 @@ export function useShrineData(): ShrineDataState {
   const load = useCallback(async (force = false) => {
     const token = ++refreshRef.current;
 
+    /* The page-load request if it is still going spare, otherwise a new one.
+       Uniform across all three paths below, because every one of them fetches
+       the sheet — the cache and fast paths do it in the background — and the
+       prefetch should satisfy whichever gets there first. */
+    const nextCsv = () => fetchShrinesShared();
+
     const applyCsv = (fresh: Shrine[]) => {
       const adopted = adoptCsvResult(fresh);
       if (token !== refreshRef.current) return;
@@ -223,7 +231,7 @@ export function useShrineData(): ShrineDataState {
       setSourceTimestamp(sharedSourceTimestamp);
       setError(null);
       setLoading(false);
-      fetchShrinesShared()
+      nextCsv()
         .then(applyCsv)
         .catch(() => {
           if (token === refreshRef.current) setOffline(true);
@@ -242,7 +250,7 @@ export function useShrineData(): ShrineDataState {
       setSourceTimestamp(cached.timestamp);
       setLoading(false);
       // Still refresh in background
-      fetchShrinesShared()
+      nextCsv()
         .then(applyCsv)
         .catch(() => {
           if (token === refreshRef.current) setOffline(true);
@@ -251,7 +259,7 @@ export function useShrineData(): ShrineDataState {
     }
 
     try {
-      const fresh = await fetchShrinesShared();
+      const fresh = await nextCsv();
       if (token !== refreshRef.current) return;
       applyCsv(fresh);
     } catch (err) {
