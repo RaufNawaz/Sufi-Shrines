@@ -4271,6 +4271,104 @@ sites), `noSentenceFragments.test.ts` ("On"/"Off" as radio labels), and
 Reaching for the provider first is the mistake to avoid: it is a re-render in place of a
 stylesheet.
 
+### Added 27 August 2026 — the map's blocking time was the sheet arriving late, and `maplibre` is not 8,484ms of anything
+
+**A new instrument, committed: `scripts/measure-blocking.mjs.`** It reports FCP, LCP and its
+element, TBT by Lighthouse's definition, and **self time per script from a V8 CPU profile**, over
+a preview build under 4× CPU and slow 4G. It exists because B4's attribution came from
+Lighthouse, and `.lighthouserc.cjs` records an environment where Lighthouse cannot run — a number
+nothing can reproduce is a number that drifts, which is the same argument
+`scripts/measure-cls.mjs` was written for.
+
+**Its own first version was wrong and is worth recording as the instrument lesson.** It applied
+the 4× CPU throttle and threw away the network half of Lighthouse's mobile preset. It then
+reported LCP 484ms on `/` against a recorded 6,735ms, and `vendor-maplibre` at 368ms against a
+recorded 8,484ms — on a laptop LAN the scripts arrive so fast that the thing under test barely
+happens. Both throttles are on by default now, and `--no-network-throttle` prints a header saying
+the numbers are not comparable to anything here.
+
+#### The fix: TBT 1,301ms → 138ms on `/`
+
+Three runs each side, same machine, same pipeline:
+
+    before   TBT 1386 / 1385 / 1253 ms   longest task 706–813ms
+    after    TBT  180 /  102 /  110 ms   longest task 105–146ms
+
+The front door goes from 4.5× over the 300ms budget to inside it.
+
+**The cause was not slow code — the request had not been made.** `main.tsx` gates the first
+render on `loadUiStrings(lang)` so an Urdu reader never sees a frame of English chrome, so React
+does not mount until that chunk lands, so the fetch inside `useShrineData` could not begin.
+Measured: the CSV request on `/?lang=ur` started at **3,790ms**, behind the interface strings,
+both Nastaliq faces and the 253 KB Urdu content payload. `src/lib/data/csvPrefetch.ts` starts it
+at module scope.
+
+**This is the link `cbba48e` missed.** That commit removed a real serialisation *inside*
+`fetchShrines` and reported the Urdu LCP unmoved, and its note said to start from `maplibre-gl`
+next. The wait was never inside the fetch; it was in front of it.
+
+#### The work did not get cheaper, it got un-collided — and only the task timings show it
+
+    before   82ms@1949  68ms@2828  154ms@2897  709ms@12348  153ms@13099  366ms@13253  99ms@13764  70ms@13869
+    after    93ms@1937  66ms@2906  129ms@2974   (nothing after 3.0s)
+
+The first three tasks are React booting and are identical. What disappears is the sheet landing
+at 12.3s **in the middle of the map's own startup** — maplibre evaluating, tiles rendering, fonts
+swapping — where under 4× throttling it concatenated into 700ms tasks. Arriving at 2.4s on an
+otherwise idle main thread, the same parse and build fit in 68ms + 133ms. That is why the script
+now records every long task's start, not just a count: two runs with equal TBT can be one 700ms
+task during mount or seven 90ms tasks spread out, and only one of them is a page that answers a
+tap.
+
+#### Correcting §9's maplibre attribution
+
+The B4 note says **"`maplibre-gl` is 88% of it"** at 8,484ms of bootup, and tells the next person
+to start there. Measured here, with both throttles on, `vendor-maplibre`'s **self time is
+216–397ms** on `/` and `/?lang=ur`. The largest single entry is `(program)` — V8 parse and
+compile — at 795–1,642ms.
+
+The two are not measuring the same thing: Lighthouse's bootup audit attributes a script's
+*total* time, including everything it calls into, while this is self time from profiler samples.
+Both are legitimate. **What the 8,484ms does not support is the conclusion drawn from it** — that
+maplibre is where the map's blocking time lives. It was not; the sheet's arrival was. Treat that
+line as a number from another instrument, not as a direction.
+
+Where maplibre *does* cost is **bandwidth**: 279 KB on the critical path, starting at 3,792ms on
+`/?lang=ur` and finishing at 7,917ms, contending with the CSV.
+
+#### The Urdu LCP is bandwidth-bound, not evaluation-bound
+
+Unmoved by this change, ~8.7s. The measured critical chain on `/?lang=ur`, resources finishing
+before LCP:
+
+    3,534ms   NotoNastaliqUrdu-400.woff2   156 KB
+    5,056ms   NotoNastaliqUrdu-600.woff2   161 KB
+    7,445ms   urdu-content.js              253 KB
+    7,917ms   vendor-maplibre.js           279 KB
+    8,310ms   the sheet                    837 KB
+    8,519ms   MapTiler style.json
+    8,722ms   search.worker.js
+
+That is roughly 1.7 MB before the largest element can paint, on a 1.6 Mbps link, and the profile
+shows **18.2s idle against 1.1s of program time** — the route is waiting, not computing. The
+overnight note's "script-evaluation-bound, not fetch-bound" was read off Lighthouse's render-delay
+figure and does not survive this measurement.
+
+**The next lead, and it is a good one: `urdu-content.js` is 253 KB of shrine *article* text on
+the critical path of a route that displays no articles.** The map needs names, which come from
+the dictionary, not Descriptions. `useShrineData` already has `onUrduContentLoaded` →
+`rebuildWithUrduContent` for the reader who switches language mid-session, so the machinery to
+adopt it late exists. The trade is a visible re-render on a shrine page, so it wants to be
+route-aware rather than unconditional.
+
+#### One more thing the trace showed, unrelated to the fix
+
+**Markers do not appear until 10.7s, while the sheet has been parsed since 2.4s.** They wait on
+the map, not on the data: the maplibre chunk finishes at 7.9s and the style at 8.5s. A marker
+layer that rendered over the keyless raster fallback while the vector basemap loads would put 169
+pins on screen roughly eight seconds earlier. Not attempted here — `DefaultBasemap` deliberately
+avoids showing two basemaps in sequence, and changing that is a visual decision.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
