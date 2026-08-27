@@ -307,6 +307,18 @@ const UI_TEXT_EN = {
      postposition takes its operands in the opposite order, so the fragments
      reassembled into a claim about the wrong numbers — see the ur entry. */
   almanacCoverageTotal: (dated: number, total: number) => `${dated} of ${total} sites`,
+  /* ── Place pages: who is commemorated here, and when ───────────────────
+     Both sections are joins over data the graph already held and no page
+     rendered. The notes say where the join comes from, because a reader who
+     sees a figure listed under "Lahore" is owed the reason the archive puts
+     them there — it is the site's own recorded Location, not a claim about
+     where anyone lived or died. */
+  placeFiguresHeading: 'Figures commemorated here',
+  placeFiguresNote:
+    'Each figure is here because a site in this place is recorded as commemorating them. Where the same figure is kept at more than one site, they are named once and the sites are listed beside them.',
+  placeObservancesHeading: 'Days observed here',
+  placeObservancesNote:
+    'Every observance the archive records at a site in this place — not only the ones with a date. Dates appear exactly as they were written down; nothing here is projected onto the Gregorian calendar.',
   /* ── Places (Track B) ─────────────────────────────────────────────────── */
   placesTitle: 'Places',
   placeKicker: 'Place',

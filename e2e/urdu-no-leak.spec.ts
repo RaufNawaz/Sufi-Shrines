@@ -235,7 +235,20 @@ const BUDGET: Record<string, number> = {
   saint: 20,
   'saint:lineage-only': 24,
   about: 74,
-  place: 36,
+  /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
+     cell. The place page gained "Days observed here" (A3), which prints each
+     site's own observance sentence verbatim beside whatever date can be read
+     out of it — the same rows, the same reader and the same component the order
+     and figure pages already use, so the debt is the same debt arriving on a
+     third surface rather than a new one. "Eid Milad-un-Nabi (principal
+     gathering)" has no dictionary entry and stays as the surveyor wrote it
+     (RULE 2: a visibly untranslated observance beats a confidently wrong one),
+     and the number falls as `urdu-i18n/build_dictionary.py` gains entries.
+     Hiding the cell from an Urdu reader would have cost nothing here and made
+     the Urdu view the one that cannot check the archive's arithmetic. The
+     figures section added none: a figure's recorded name is in the dictionary
+     for all 169 rows, and the site tags beside it were already on the page. */
+  place: 59,
 };
 
 /* All five orders, not one: they came from the sweep this file replaced

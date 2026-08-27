@@ -11,6 +11,13 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 
 import { buildPlaces, type PlaceRecord } from '../lib/data/places';
+import { figuresAtShrines } from '../lib/data/placeFigures';
+import { readRecordedObservances } from '../lib/data/recordedObservances';
+import {
+  ObservanceGapNote,
+  RecordedObservanceList,
+  type RecordedObservanceRow,
+} from '../components/kg/RecordedObservanceList';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
@@ -46,6 +53,67 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
     () => place.shrines.filter((s) => s.imageUrl).slice(0, 5),
     [place.shrines],
   );
+
+  /* The figures this place holds, and the days kept for them.
+   *
+   * Both are joins the graph has been able to make since the place vocabulary
+   * landed, and neither reached a page: `/place/:slug` could say a place had 35
+   * sites and four traditions without naming one person or one day. The sites
+   * list beneath already links every shrine; what these add is the other two
+   * kinds of entity the archive knows about the same rows.
+   *
+   * `buried_at` is 169 rule-derived edges over 169 sites, so no row here
+   * carries an unreviewed marking — there is no `reviewed` flag on those edges
+   * to inherit, and marking them would invent a doubt the record does not have.
+   * A lineage-only figure cannot appear here at all: by definition they have no
+   * site for a place to hold.
+   *
+   * The join is `placeFigures.ts`, not `getSaintsForShrine`, and the difference
+   * is 305 KB — see that file. In short: the *link target* comes from the 11 KB
+   * shrine → figure index, and the *name* comes from the sheet row this page
+   * already has, which is the pattern the almanac's cards have used since the
+   * graph landed. */
+  const figures = React.useMemo(() => figuresAtShrines(place.shrines), [place.shrines]);
+
+  const shrineBySlug = React.useMemo(
+    () => new Map(place.shrines.map((s) => [s.slug, s])),
+    [place.shrines],
+  );
+
+  /* One row per site, not per event.
+   *
+   * The recorded cell is a property of the *site* — "Annual urs (18-20 Safar);
+   * Thursday qawwali" is one string covering everything that site keeps — so a
+   * row per event would print the same sentence twice for the seven sites whose
+   * graph holds two event nodes. The figure named on the row is the one the
+   * site commemorates, which is what turns a list of dates into a list of
+   * gatherings. Sites the archive records no observance for are absent rather
+   * than listed as blank: the almanac's undated list is where that gap is
+   * counted, by name, and duplicating it here would double the archive's
+   * account of its own silence. */
+  const observances = React.useMemo<RecordedObservanceRow[]>(() => {
+    const rows: RecordedObservanceRow[] = [];
+    for (const shrine of place.shrines) {
+      const recorded = readRecordedObservances(shrine);
+      if (!recorded.recorded) continue;
+      const figure = figures.find((f) => f.shrineSlugs.includes(shrine.slug));
+      rows.push({
+        key: shrine.slug,
+        ...(figure
+          ? {
+              figure: {
+                slug: figure.slug,
+                name: localizeRecordedName(figure.recordedName, lang),
+              },
+            }
+          : {}),
+        shrineSlug: shrine.slug,
+        shrineLabel: localizeShrineName(shrine, lang),
+        ...recorded,
+      });
+    }
+    return rows;
+  }, [place.shrines, figures, lang]);
 
   useDocumentTitle(`${displayName} — ${t('siteTitle')}`);
 
@@ -115,6 +183,54 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
               </li>
             ))}
           </ul>
+        </section>
+      )}
+
+      {figures.length > 0 && (
+        <section className="kg-section">
+          <h2 className="kg-section-heading">{t('placeFiguresHeading')}</h2>
+          <p className="kg-section-note">{t('placeFiguresNote')}</p>
+          <ul className="place-figure-list">
+            {figures.map(({ slug: figureSlug, recordedName, shrineSlugs }) => (
+              <li key={figureSlug} className="place-figure">
+                <Link to={`/saint/${figureSlug}`} className="place-figure-name">
+                  {fmtNum(localizeRecordedName(recordedName, lang))}
+                </Link>
+                {/* No connector word between the name and its sites. "at" on
+                    its own is a fragment, and `noSentenceFragments.test.ts` is
+                    right to refuse it: where a preposition goes is a fact about
+                    the language, not about the layout, and Urdu's postposition
+                    would need the operands in the other order. The section note
+                    says the sites are listed beside the name, and the order
+                    page's member list already shows shrine tags with no label
+                    at all. */}
+                <span className="place-figure-sites">
+                  {shrineSlugs.map((shrineSlug) => {
+                    const shrine = shrineBySlug.get(shrineSlug);
+                    if (!shrine) return null;
+                    return (
+                      <Link
+                        key={shrineSlug}
+                        to={`/shrine/${shrineSlug}`}
+                        className="entity-saint-shrine-tag"
+                      >
+                        <bdi>{localizeShrineName(shrine, lang)}</bdi>
+                      </Link>
+                    );
+                  })}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {observances.length > 0 && (
+        <section className="kg-section">
+          <h2 className="kg-section-heading">{t('placeObservancesHeading')}</h2>
+          <p className="kg-section-note">{t('placeObservancesNote')}</p>
+          <ObservanceGapNote rows={observances} />
+          <RecordedObservanceList rows={observances} />
         </section>
       )}
 

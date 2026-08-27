@@ -317,6 +317,12 @@ export const UI_TEXT_UR: UiStrings = {
        out of 32", which is not clumsy phrasing but a false number. */
   almanacCoverageTotal: (dated: number, total: number) => `${total} میں سے ${dated} مقامات`,
   /* ── Places (Track B) — drafts, not reviewed by a fluent speaker ──────── */
+  placeFiguresHeading: 'یہاں جن ہستیوں کی یاد منائی جاتی ہے',
+  placeFiguresNote:
+    'ہر ہستی یہاں اِس لیے درج ہے کہ اِس مقام کے کسی مقام و مزار کے ریکارڈ میں اُن کی یادگاری موجود ہے۔ جہاں ایک ہی ہستی کی یاد ایک سے زیادہ مقامات پر منائی جاتی ہے، وہاں نام ایک بار آتا ہے اور مقامات اُس کے ساتھ درج ہوتے ہیں۔',
+  placeObservancesHeading: 'یہاں منائے جانے والے دن',
+  placeObservancesNote:
+    'اِس مقام کے مزارات پر آرکائیو میں درج ہر تقریب — صرف وہ نہیں جن کی تاریخ معلوم ہے۔ تاریخیں بعینہٖ اُسی طرح دی گئی ہیں جیسے لکھی گئی تھیں؛ یہاں کچھ بھی گریگورین تقویم پر منتقل نہیں کیا گیا۔',
   placesTitle: 'مقامات',
   placeKicker: 'مقام',
   placeIntro:

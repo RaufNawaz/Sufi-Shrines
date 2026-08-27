@@ -126,7 +126,13 @@ const BUDGETS_KB = {
      three. provenance.json stays a dynamic import inside the page; if this
      number jumps by ~170 KB, that is what went static. */
   'src/pages/AboutPage.tsx': 335, // measured 313 on 26 Aug 2026
-  'src/pages/PlacePage.tsx': 315, // measured 292 on 26 Aug 2026
+  /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
+     observances (A3). The first draft of that feature measured **608 KB**: the
+     join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the
+     426 KB graph onto a route that had never carried it. It now uses the 11 KB
+     shrine → figure index, so the growth is the two sections and nothing else.
+     If this line ever jumps by ~300 KB, that is what came back. */
+  'src/pages/PlacePage.tsx': 335, // measured 312 on 26 Aug 2026
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   'src/pages/TypologyPage.tsx': 310, // measured 288 on 26 Aug 2026

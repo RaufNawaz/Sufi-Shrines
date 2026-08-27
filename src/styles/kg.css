@@ -726,6 +726,63 @@
   color: var(--color-primary);
 }
 
+/* ── A place's figures ─────────────────────────────────────────────────────
+   A name and the sites in this place that keep it. Rows rather than a tag
+   cloud: the site tags are the informative half — a place page's whole job is
+   tying a person to a location — and a wrapped run of pills loses which site
+   belongs to which figure the moment a name is long, which in this archive is
+   most of them. */
+
+.place-figure-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place-figure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  padding-block: var(--space-2);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.place-figure:last-child {
+  border-block-end: none;
+}
+
+.place-figure-name {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.place-figure-name:hover,
+.place-figure-name:focus-visible {
+  text-decoration: underline;
+}
+
+/* Nastaliq runs through an underline; the archive marks an Urdu link with its
+   own border instead (HANDOVER §9.48). */
+[dir='rtl'] .place-figure-name {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .place-figure-name:hover,
+[dir='rtl'] .place-figure-name:focus-visible {
+  text-decoration: none;
+  border-block-end: 1px solid currentcolor;
+}
+
+.place-figure-sites {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  min-width: 0;
+}
+
 /* ── Entity infobox ──────────────────────────────────────────────────────── */
 
 .entity-infobox {
