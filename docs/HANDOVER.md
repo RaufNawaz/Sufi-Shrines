@@ -3817,6 +3817,54 @@ Two things worth carrying forward:
   member of a set, check which member**: this is the same shape as the `a` exemption that hid 328
   leaks on the map route, and as the light-only a11y sweep found the same night.
 
+### Added 27 August 2026 — the wider Urdu sweep: 7 of 23 routes leaking, and the snapshot has drifted
+
+Tonight produced the same finding three times — the a11y sweep ran in one theme, the no-leak guard
+tested the one shrine that could not exhibit the bibliography gap, and Lighthouse measured two
+routes of thirteen until someone widened it. So the walker was pointed at **23 Urdu routes instead
+of its usual 14**: one shrine of each of the six categories, the longest name in the archive, three
+entries with no photograph, a lineage-only figure, a figure with disputed dates, a deity, the
+smallest order, a one-site place, and every route the matrix skips.
+
+**7 of the 23 carried undeclared English.** Three were code and are fixed (`04e0c19`); the other
+four are the interesting ones.
+
+#### Two shrines render an entirely English page to an Urdu reader
+
+`Darbar Abul Muali Qadri` (98 undeclared runs) and `Darbar Malik Ahmad Ayaz` (52). They have **no
+Urdu article at all** — 168 entries in `src/data/urdu-content.json` against 169 in the snapshot,
+and these are the ones missing. Everything falls back: the headings, the prose, the table of
+contents. This is content work, not engineering; it is recorded here because "0 of 168 Urdu
+articles human-read" is the known Urdu risk and *this* is a different one — two entries where
+there is nothing to read.
+
+#### The committed snapshot has drifted from the live sheet, and no gate can see it
+
+**The live sheet has 171 rows; `src/data/shrines-fallback.json` has 169.** The two extra are
+`Darbar Hazrat Shah Gohar Peer` and `Darbar Mian Qurban Ali Shah`, and their names render in Latin
+for an Urdu reader — because `src/data/urdu-seed.json`, the name dictionary, is **generated from
+the snapshot**, so a row the snapshot does not have gets no Urdu name.
+
+The structural point is worth more than the two names:
+
+> **Every gate in this repository runs against the committed snapshot. The live site runs against
+> the sheet. Anything added to the sheet since the last `npm run data:build` is invisible to all of
+> them** — the e2e fixture is generated from the snapshot, the Urdu dictionary is generated from
+> the snapshot, the coverage figures on `/about` are computed from it, and `data:validate` reads
+> it.
+
+That is not a bug in any check; it is the shape of the whole gate system, and it follows directly
+from RULE 3 (the sheet is production, and it deploys with no review step). **`npm run data:build`
+is due**, and after it the two names need dictionary entries and the two entries need Urdu
+articles.
+
+#### And one negative result worth keeping
+
+The same wider sweep was run for **overflow** — 27 routes at 390px in Urdu, the harshest
+combination — and found **zero**. `e2e/no-overflow.spec.ts`'s eight-route sample is, empirically,
+representative today. Recorded because the absence is the answer: that guard does not need
+widening, and the next person wondering can read this instead of running it again.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
