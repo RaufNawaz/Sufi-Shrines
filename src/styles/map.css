@@ -1685,11 +1685,39 @@
   white-space: nowrap;
 }
 
-/* Urdu segment uses Naskh for the inline label */
+/* The Urdu segment's label — اردو — and the one place in this archive that
+ * deliberately does not ask for Nastaliq.
+ *
+ * This rule used to set `var(--font-urdu)`, whose first family is Noto Nastaliq
+ * Urdu, while the comment above it said "uses Naskh". The comment was the
+ * intent and the code was not, and the cost was measured on 27 August 2026:
+ * **an English reader downloaded 154 KB of NotoNastaliqUrdu-700 for these four
+ * letters**, which were the only Arabic-script text painted on the entire page.
+ *
+ * That defeats the gating in index.html, whose whole argument is that
+ * preloading the face unconditionally "would cost every English-first visitor
+ * ~154KB they don't need" — and whose e2e spec states that a reader who paints
+ * no Arabic glyph "now fetches neither face". A reader of the English map paints
+ * exactly one, here.
+ *
+ * So the English interface renders the label in whatever Arabic face the system
+ * already has. No webfont family may appear in this stack: font matching is
+ * per-character, so naming a webfont after `system-ui` would download it anyway
+ * for the one glyph `system-ui` cannot draw. Zero bytes, at the cost of a naskh
+ * rather than nastaliq shape on two words of chrome.
+ *
+ * `e2e/font-preload.spec.ts` now asserts the byte cost rather than only the
+ * preload tags. */
 .lang-seg[lang='ur'] {
-  font-family: var(--font-urdu);
+  font-family: system-ui, sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0;
+}
+
+/* In the Urdu view the face is loaded regardless and i18n rule 4 requires it on
+   every control, so the segment reads in Nastaliq like everything around it. */
+[dir='rtl'] .lang-seg[lang='ur'] {
+  font-family: var(--font-urdu);
 }
 
 .lang-seg:first-child {

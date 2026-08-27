@@ -12,7 +12,20 @@ import { test, expect } from './fixtures';
  * detectInitialLang() (LanguageContext.tsx).
  *
  * The @font-face rules carry a unicode-range, so an English reader who never
- * paints an Arabic-script glyph now fetches neither face.
+ * paints an Arabic-script glyph fetches neither face.
+ *
+ * **That last sentence was false for three days and nothing here noticed**, which
+ * is why this file now measures requests as well as tags. The language toggle
+ * renders its own name — اردو — on every page in both languages, and
+ * `.lang-seg[lang='ur']` asked for `var(--font-urdu)`, whose first family is
+ * Nastaliq. So an English reader painted exactly one Arabic-script run and paid
+ * **154 KB** for it: the only Nastaliq text on the entire English map, and the
+ * whole cost the gating above exists to avoid. Measured 27 August 2026 with a
+ * CPU profile and a response listener; fixed in `map.css`, where the English
+ * interface now renders those four letters in whatever Arabic face the system
+ * already has.
+ *
+ * A preload tag is an intention. A request is the cost.
  */
 test.describe('Urdu font preload', () => {
   for (const weight of ['400', '700'] as const) {
@@ -48,6 +61,41 @@ test.describe('Urdu font preload', () => {
       const response = await request.get(url);
       expect(response.status(), `preloaded font 404s: ${url}`).toBe(200);
     }
+  });
+
+  test('an English load requests no Nastaliq at all, not merely no preload', async ({ page }) => {
+    /* The assertion the docstring's premise always implied and nothing made.
+       Both of the tests above pass on a page that fetches the face anyway —
+       "does not preload" and "does not download" are different claims, and only
+       one of them is the 154 KB. */
+    const requested: string[] = [];
+    page.on('request', (request) => {
+      if (/NotoNastaliqUrdu.*\.woff2/.test(request.url())) requested.push(request.url());
+    });
+
+    await page.goto('/');
+    // The toggle is the element that used to trigger it, so wait for it to be
+    // painted rather than for an arbitrary timeout.
+    await page.locator(".lang-seg[lang='ur']").first().waitFor();
+    await page.waitForTimeout(1500);
+
+    expect(
+      requested,
+      'an English reader downloaded a Nastaliq face. Something on the English page is ' +
+        'painting Arabic-script text in a family that names Noto Nastaliq Urdu — see the ' +
+        "`.lang-seg[lang='ur']` note in map.css.",
+    ).toEqual([]);
+  });
+
+  test('the Urdu segment still reads in Nastaliq inside the Urdu view', async ({ page }) => {
+    /* The other half of the same change: i18n rule 4 requires Nastaliq on every
+       control in the Urdu view, and the fix above must not have taken it off
+       this one. */
+    await page.goto('/?lang=ur');
+    const segment = page.locator(".lang-seg[lang='ur']").first();
+    await expect(segment).toBeVisible();
+    const family = await segment.evaluate((el) => getComputedStyle(el).fontFamily);
+    expect(family).toMatch(/Nastaliq/i);
   });
 
   test('an Urdu page still renders in Nastaliq, not a fallback face', async ({ page }) => {
