@@ -3491,6 +3491,39 @@ Urdu view, and both are worth knowing before building the next axis, table or gr
   bars are `aria-hidden` because every date behind them is printed verbatim in the member list
   directly below; the tooltip is a sighted-reader convenience over a redundant graphic.
 
+### Added 26 August 2026 (night, A3) — the sheet's figure name is not the graph's figure identity
+
+**86 of 169 figure slugs and 90 of 169 figure names diverge between the sheet's `principal_figure`
+column and the knowledge graph's canonical entity.** Measured 26 August 2026 by slugifying the
+snapshot's `principal_figure` and comparing against the `buried_at` subject for the same site.
+
+The graph normalises parentheticals and merges variants, which is correct and which nothing on
+the front end should try to reproduce:
+
+| sheet `principal_figure` | graph slug |
+|---|---|
+| `Sayyid Abdul Latif Kazmi (Bari Imam)` | `bari-imam` |
+| `Shiva (Mahadev)`, `Shiva (associated)` | both `shiva` |
+| `Durga (Mata)` | `goddess-durga` |
+| `Syed Rakhyal Shah` | `syed-rakhyal-shah-sufi-al-qadri` |
+| `Khwaja Muhammad Sulaiman Taunsvi` | `khawaja-shah-muhammad-sulaiman-taunsvi` |
+
+**Why this matters beyond A3.** `slugify(principal_figure)` is the obvious way to link a sheet row
+to a figure page without paying for the 426 KB graph, and it is wrong for more than half the
+archive — producing links to `/saint/` pages that do not exist, every one of them plausible
+enough to survive a spot check. The correct cheap path already exists and is now used by three
+surfaces: **identity from `data/kg-shrine-figures.json` (11 KB), wording from the sheet row.**
+`src/lib/__tests__/placeFigures.test.ts` holds the divergence as a bounded counter-assertion, so
+the shortcut cannot quietly become safe (or quietly become worse) without a test moving.
+
+Related and worth knowing before adding any KG-derived section to a route that does not already
+have one: **`src/lib/i18n/localizeKgName.ts` is a second door onto the same 426 KB** — it imports
+`slugToLabel` from `../lib/kg` for one six-line pure function with no data dependency at all.
+`localizeRecordedName.ts` exists as the graph-free equivalent and is what a non-graph route must
+use. Moving `slugToLabel` into its own module would close the trap permanently; it is a
+five-minute change with no consumer needing it today, which is why it is written down here
+instead of done.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing

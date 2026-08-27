@@ -148,7 +148,17 @@ hide-when-empty, same bilingual strings, same unreviewed-inherits-marking rule.
 
 Done when: both sections computed from relations (no new data), unit-tested joins,
 verify green, reviewed at localhost:5173.
-> Status: open.
+> **Done 26 August 2026, `bc126d2`.** `src/lib/data/placeFigures.ts` +
+> `placeFigures.test.ts` (8 assertions). Two things the task did not anticipate.
+> **The dedup is the feature**: six of Nankana Sahib's seven gurdwaras name Guru Nanak, so a row
+> per `buried_at` edge would have reported six figures. **And the obvious join costs 305 KB** —
+> `getSaintsForShrine` pulls `src/lib/kg.ts`, which statically imports the 426 KB graph onto a
+> route that never carried it; the place page measured 608 KB against 292 and the build refused
+> it. Use the `kgShrineFigures.ts` pattern on any route that is not already graph-bearing: link
+> target from the 11 KB index, display name from the sheet row. Do **not** slugify
+> `principal_figure` instead — 86 of 169 slugs diverge from the graph (HANDOVER §9, this date).
+> The unreviewed-marking rule turned out not to apply: `buried_at` has no `reviewed` flag,
+> because all 169 edges are rule-derived, and marking them would have invented a doubt.
 
 ### A4 — The field audit: every KG field, where does it render?
 
