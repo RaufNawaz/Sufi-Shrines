@@ -4099,6 +4099,56 @@ that `check_image_liveness.py` found dead on the same day by a different method.
   CPU throttle Lighthouse applies and this script does not. Do not quote the dev number for it.
 - The `aside` shift on `/shrine` at ~3s was the hero and is gone. Nothing else on that page moves.
 
+### Added 27 August 2026 — every remaining layout shift in the archive is the same one, and it is a font
+
+With A14 closed, all fifteen routes measured are inside the 0.1 CLS budget. What is left is not
+fifteen small problems; it is **one cause, appearing on almost every route at the same moment.**
+
+    /saint/data-ganj-bakhsh   0.0441 @796ms    three prose blocks re-wrap, everything below moves up 76px
+    /                         0.0370 @841ms    the Leaflet attribution control
+    /graph                    0.0368 @786ms    filter chips resize
+    /almanac                  0.0211 @761ms    the intro paragraph re-wraps
+    /order/chishtiyya         0.0195 @765ms    the header meta row
+    /review?team=1            0.0042 @822ms    verdict labels
+
+Six routes, six different elements, all between **760ms and 841ms**, and every one of them is
+text changing the number of lines it occupies. That is the webfont swap: `index.html` loads
+Merriweather, Source Sans 3 and Noto Naskh Arabic from Google Fonts with `display=swap`, so every
+page renders in a fallback face and then re-flows when the real one lands. No loading strategy for
+the *data* touches it, which is why it survived A14 unchanged, and it is the reason `/saint` is
+0.0704 rather than 0.0263.
+
+**Two fixes, and the cheap one is a trap.**
+
+*Fallback metric overrides* (`size-adjust`, `ascent-override`) are the usual answer and cannot be
+done honestly here: the override has to be tuned against a specific fallback face, and
+`--font-serif` falls back to Georgia while `--font-sans` falls back to `system-ui`. Georgia is
+absent on Linux and Android, and `system-ui` is a different font with different metrics on every
+platform. Numbers measured on this laptop would be wrong for a reader in Lahore on Android, and
+wrong in a way nothing here would catch.
+
+*Self-hosting the Latin faces* is the real fix and the project has already made the argument:
+Noto Nastaliq Urdu is self-hosted in `public/fonts/` with its OFL, and the comment says why — "it's
+the primary reading face for the whole Urdu experience, so it doesn't depend on a third-party CDN
+being reachable." That reasoning does not stop at Nastaliq. Self-hosted and preloaded, the faces
+arrive before first paint and there is no swap to shift; it also removes two DNS/TLS handshakes and
+a render-blocking stylesheet from in front of **the Urdu route's 15.1s LCP**, which is
+render-blocked rather than fetch-blocked and is the worst number in the archive.
+
+**Do it with a script that copies Google's own CSS rather than by hand.** The `unicode-range`
+declarations must be preserved verbatim: this archive's prose carries ʿ, ā, ī and similar marks,
+some of which fall outside Google's `latin` and `latin-ext` subsets, and a hand-written
+`@font-face` that drops a subset renders tofu in exactly the transliterations the archive is
+careful about. Copy the blocks, download the woff2 each one points at, rewrite only the `src`.
+
+**And measure it against a production build, not the dev server.** This is the boundary of what
+`scripts/measure-cls.mjs` can honestly answer. In dev the fonts would be served from disk in a few
+milliseconds and CLS would read 0 whatever the strategy — a green number that says nothing about a
+reader on 4G. Throttling dev does not rescue it either: dev ships hundreds of unbundled modules, so
+a throttled dev run measures the module waterfall. The same boundary is why `/order`'s dev CLS
+(0.0196) disagrees with Lighthouse's (0.219), and why the map's TBT work cannot start here:
+`vendor-maplibre` is 8,484ms of *script evaluation*, and dev neither bundles nor minifies it.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
