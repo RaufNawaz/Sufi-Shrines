@@ -4361,13 +4361,13 @@ the dictionary, not Descriptions. `useShrineData` already has `onUrduContentLoad
 adopt it late exists. The trade is a visible re-render on a shrine page, so it wants to be
 route-aware rather than unconditional.
 
-#### One more thing the trace showed, unrelated to the fix
+#### One more thing the trace showed — and the reading of it was wrong, corrected below
 
-**Markers do not appear until 10.7s, while the sheet has been parsed since 2.4s.** They wait on
-the map, not on the data: the maplibre chunk finishes at 7.9s and the style at 8.5s. A marker
-layer that rendered over the keyless raster fallback while the vector basemap loads would put 169
-pins on screen roughly eight seconds earlier. Not attempted here — `DefaultBasemap` deliberately
-avoids showing two basemaps in sequence, and changing that is a visual decision.
+**Markers do not appear until 10.7s, while the sheet's *headers* arrived at 2.4s.** The first
+version of this note said they were waiting on the map, because in one run the marker and the
+maplibre canvas appeared 1ms apart. That was a coincidence and the note was wrong; the correction
+is in the next section. Markers wait on the sheet's **body**, which is a separate thing from its
+headers.
 
 ### Added 27 August 2026 — the language toggle was buying an English reader 154 KB of Nastaliq
 
@@ -4422,6 +4422,78 @@ weight, so `.tabbar-label` resolves to 600 through CSS font matching (for a targ
 algorithm checks upward first). That is neither a download nor synthetic bolding, so it is left
 alone — but a stylesheet asking for a weight the type system does not have is worth knowing about
 before someone adds a fourth face to satisfy it.
+
+### Added 27 August 2026 — what time-to-first-marker is actually made of, and two dead fields worth 775 KB
+
+Written after the note above claimed markers were gated on the basemap. **They are not**, and the
+sequence of measurements that established it is worth keeping, because three plausible readings
+were wrong on the way.
+
+    1,098ms   #root has children
+    2,072ms   sidebar, leaflet container, welcome card
+    2,347ms   CSV response — headers
+    3,107ms   maplibre canvas
+   10,928ms   first marker, all 169 markers, marker pane populated
+
+The canvas is up at 3.1s and the markers are not there at 10.9s, so the basemap is not the gate.
+`ShrineMarkers` renders straight from `shrines`, so the gate is when that state populates — and
+that is when the CSV **body** finishes, not when its headers arrive. Playwright's `response`
+event, and the eye reading it, fire at response start.
+
+#### The CSV, measured properly
+
+    uncompressed          856,607 bytes
+    gzip (Google serves it when asked)   296,223 bytes
+    cache-control         private, max-age=300
+
+**Google does compress it**, so the 289 KB is what a browser gets — the 837 KB figure is the
+decoded size and should not be quoted as a transfer cost.
+
+    in isolation, slow 4G      headers 1,167ms · body complete 2,727ms
+    inside the app, slow 4G    starts 991ms · completes 10,198ms
+
+So ~7 of those seconds are not the sheet's size. Total encoded bytes finished before the first
+marker: **763 KB**, which is 3.9s of transfer at 1.6 Mbps against a 9.4s time-to-marker. **More
+than half of time-to-first-marker on a slow phone is round-trip latency and 4×-throttled CPU
+across a dependency chain, not bytes.** Which also corrects the framing in the note above: the
+*Urdu* route is bandwidth-heavy, but the English front door is not primarily a bandwidth problem.
+
+#### Two fields on every shrine that nothing read
+
+Found while chasing the CPU half. `buildShrine` set **`parsedArticle`** and
+**`articleSections`** on all 169 rows on every page load, and outside `articleParsing.ts` the only
+mentions in the whole repository were the type declaration and the assignment. Every real consumer
+— `useArticleContent`, `ShrinePreview`, `figureBiography` — calls the parser with the row, which
+is the right shape: article structure is wanted one entry at a time and the map wants none of it.
+
+    localStorage cache      1,891 KB → 1,116 KB
+    (program) self time     ~800–1,600ms → 416ms
+    categoryKey.js chunk    218–266ms → 35ms
+
+**The cache number is the one to notice: a 1.9 MB write and read on every visit, ~40% of it an
+article parse nothing looked at.** `parsedArticle` serialised to 1,902 characters per shrine,
+second only to `raw`.
+
+Two attributions in the profile were also misleading and are worth knowing about:
+`categoryKey.js` looked like a hot module at a quarter-second of self time, and the function is
+seven string operations — the bundler had put `articleParsing` in that chunk. And the three
+`(RegExp: …)` frames at 30–40ms each were `normalizeHeading`'s six regexes running over every
+candidate line of 169 Descriptions. Both vanished with the fields. **A chunk name in a profile is
+not a module name.**
+
+Cache key bumped to v6: an older entry reads fine, since extra fields are ignored, but it would
+keep the 1,891 KB version alive for an hour.
+
+#### Still open, in order of size
+
+1. **`urdu-content.js`, 253 KB of shrine article text on the critical path of a route that shows
+   no articles.** Unchanged as the Urdu route's biggest lever. Needs to be route-aware: an
+   unconditional deferral flashes English prose at an Urdu reader.
+2. **The dependency chain itself.** Half of time-to-first-marker is latency and CPU across
+   sequential module loads. Nothing here is one lever; it is the shape of an SPA whose data is a
+   third-party CSV.
+3. A micro-subset Nastaliq face for the language toggle would give real Nastaliq at ~3 KB instead
+   of the system fallback, and needs `fonttools` as a build dependency — a decision, not a tweak.
 
 ### The next agent-executable piece of work
 
