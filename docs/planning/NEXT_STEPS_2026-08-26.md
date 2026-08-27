@@ -170,7 +170,12 @@ surface that shows the datum show its provenance marking?"* Write the table into
 existing section); anything larger becomes a new task appended to this plan.
 
 Done when: the table is in HANDOVER with a date, and this file lists any follow-up tasks.
-> Status: open.
+> **Done 27 August 2026.** Table and findings in HANDOVER §9. **Method warning for the next
+> run:** a property-name grep answers "is this string in a component", which is not the question —
+> it called `datePrecision`, `biographyReviewed`, `biographySource`, `buried_at`, `located_in` and
+> `commemorated_by` unrendered, and all six are read by a `lib/data/` helper whose caller is the
+> page. Hand-verify every hit. Three real gaps found; the parity half came out clean, including on
+> the surfaces A2/A3/A10 added. One of the three is escalated as A12 below.
 
 ### A5 — Sources: give the 464 sources a reachable surface
 
@@ -187,7 +192,17 @@ stop and write why here.
 
 Done when: every source in the about index is addressable by URL fragment; at least the
 saint-page sources link into it; verify green.
-> Status: open.
+> **Done 27 August 2026, `a87442b`.** The anchor approach was right; **the link's source was
+> mis-specified.** `SaintPage`'s "Sources" section is the provenance of the *figure's data* —
+> which dataset row a date was read out of — not a bibliography. The bibliographies are on the
+> shrine pages, and that is where the link now comes from, on the 97 citations whose source is
+> shared. All 464 sources are addressable: the 28 shared ones listed as before, the 436 cited once
+> behind a disclosure that opens itself when the URL asks for a source inside it. Each source now
+> names its entries instead of counting them. Three things worth carrying forward, all in the
+> commit message: truncating the anchor to 60 characters collided 22 times (five volumes of one
+> Tazkirah share their first sixty characters), **`:target` never matches in this app**, and
+> `.coverage-rests-list`'s "one column, always" rule had never applied because `list.css` is
+> imported after `components.css`.
 
 ### A6 — Almanac: filter by tradition and by place
 
@@ -449,6 +464,54 @@ motion, default landing view — and the answer changes the shape of the work en
 of questions first; then build. Design direction is `feedback_design_direction_os_minimal`
 (hairlines not cards, cobalt for interactive only).
 > Status: open, needs scoping.
+
+### A12 — the calendar is not all ʿurs, and says nothing about it
+
+**Found by A4, 27 August 2026.** `KGEvent.eventType` is populated on all 149 events and splits
+**77 `urs` / 72 `observance`**. It reaches no surface. The 72 are Maha Shivratri, Diwali, Cheti
+Chand, Guru Nanak Gurpurab, Vaisakhi, daily prakash, "Hinglaj Yatra halt", "Community worship" —
+**the entire non-Muslim half of the archive's calendar, presented under the heading "The Urs
+Almanac" with nothing marking that it is not an ʿurs.**
+
+An ʿurs is a death anniversary kept as a festival of union. Diwali is not one. In an archive whose
+stated subject is six traditions, and whose own data records the distinction on every row, this is
+a content problem rather than a display nicety.
+
+**Do:** carry `eventType` onto every surface that lists observances — the almanac's cards and
+calendar, `RecordedObservanceList` (order, figure and place pages) — as a marking in the row, in
+the archive's existing chip idiom. Where a surface builds its rows per *site* rather than per
+event (`PlacePage`, since the recorded cell is a property of the site), the join has to reach the
+event for its type; that is the only structural work here.
+
+**Scope this with the reviewer before building**, because two of the decisions are editorial and
+not an agent's:
+
+1. **What a non-ʿurs day is called**, in English and in Urdu. "Observance" is the data's word and
+   is thin; "festival" is wrong for daily prakash; the traditions have their own words.
+2. **Whether the page is still called "The Urs Almanac".** 72 of its 149 entries are not ʿurs.
+   Renaming the archive's most-linked page is the project head's call, and the honest alternatives
+   ("The Calendar", "Days the shrines gather") lose the word the archive is organised around.
+
+Do **not** infer a type where the data does not give one: `eventType` is present on all 149, so
+there is no gap to fill, and there must be no fallback that guesses from the tradition.
+
+Done when: every observance surface shows what the record calls the day; both languages; the
+almanac's counts say how many of each; unit-tested join for the per-site surfaces; verify green.
+> Status: open, needs scoping. Blocked-by: the two editorial decisions above.
+
+### A13 — one place vocabulary, or a decision to keep two
+
+**Found by A4, 27 August 2026.** The knowledge graph holds **94** place nodes and 169 `located_in`
+edges; `getPlaceBySlug` and `getPlaceForShrine` are exported from `src/lib/kg.ts` and called by
+nothing outside it. `/place/:slug` uses `src/lib/data/places.ts` instead — hand-curated, **69
+entries**. The graph's vocabulary is published through the JSON-LD and RDF exports; the site's is
+what readers see. A reader comparing the two would find different place sets.
+
+Neither is wrong. Nothing has decided which is canonical, and that is the task: either the graph's
+place layer becomes the source `places.ts` is generated from (with the drift guard the scripts
+mirror already has), or the graph stops publishing a layer the archive does not stand behind.
+Measure the overlap first — 94 against 69 is not 25 extra places, it is an unknown intersection.
+> Status: open.
 
 ## 5. Explicitly out of scope for this phase
 

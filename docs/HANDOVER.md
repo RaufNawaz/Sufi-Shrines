@@ -3651,6 +3651,61 @@ Two traps in writing that check, both hit first:
 The a11y suite now carries a dark matrix over nine routes. Nine rather than one, because two of
 the three causes are in shared chrome and would have passed on whichever single page was picked.
 
+### Added 27 August 2026 — A4, the field audit: three things the graph knows and no page says
+
+Task A4 of `docs/planning/NEXT_STEPS_2026-08-26.md`, re-run after A2, A3 and A10. For every
+property on `KGSaint`, `KGOrder`, `KGPlace`, the event nodes and every relation type: which page
+renders it, and does every surface that shows it show its provenance marking.
+
+**Method, and its limits.** A grep for each property name across `src/`, then hand-verification of
+every "nothing renders this" — because the grep is wrong in both directions. It called
+`datePrecision`, `biographyReviewed` and `biographySource` unrendered; all three are read by a
+`lib/data/` helper (`figurePrecision.ts`, `figureProvenance.ts`) whose *caller* is the page, so
+the property name never appears in a component. And it called `buried_at`, `located_in` and
+`commemorated_by` unrendered for the same reason. **A property-name grep answers "is this string
+in a component", which is not the question.** Anyone re-running this must check every hit by hand;
+the value is in the shortlist, not the table.
+
+#### The three real gaps
+
+**1. `KGEvent.eventType` is on all 149 events, splits 77 `urs` / 72 `observance`, and reaches no
+surface at all.** This is the substantive one. The 72 are Maha Shivratri, Diwali, Cheti Chand,
+Guru Nanak Gurpurab, Vaisakhi, daily prakash, "Hinglaj Yatra halt", "Community worship" — which is
+to say **the entire non-Muslim half of the archive's calendar is presented under the heading "The
+Urs Almanac" with nothing marking that it is not an ʿurs.** An ʿurs is a death anniversary kept as
+a festival of union; Diwali is not one, and the archive's own data says so on every row. This is
+not a display nicety in an archive whose stated subject is six traditions. Escalated to the plan
+as **A12** rather than fixed here, because it touches four listing surfaces, the page's name, and
+an editorial decision about what a non-ʿurs day should be called in each language.
+
+**2. `KGEvent.saintSlug` is a second copy of the `commemorated_by` edge, and nothing reads it.**
+Present on 149 of 149, and it agrees with the relation on all 149 — measured, no disagreements.
+Every consumer goes through the relation. Harmless today and a hazard tomorrow: two
+representations of one fact, only one of which any code would notice going wrong.
+
+**3. The knowledge graph's place layer is dead.** `kg.places` holds **94** place nodes and
+`located_in` holds 169 edges. `getPlaceBySlug` and `getPlaceForShrine` are exported from
+`src/lib/kg.ts` and called by **nothing outside it**. `/place/:slug` uses a different vocabulary
+entirely — `src/lib/data/places.ts`, hand-curated, **69 entries**. So the archive maintains two
+place vocabularies of different sizes, publishes the graph's one through the JSON-LD and RDF
+exports, and shows the other on its own pages. A reader comparing the export with the site would
+find different place sets. Nothing here is wrong; nothing has decided which is canonical either.
+
+#### The parity half, which came out clean
+
+Only three relation types carry a `reviewed` flag at all — `belongs_to_order` (44 of 64
+unreviewed), `disciple_of` (55 of 60), `successor_of` (25 of 26), all `method:
+machine-extracted`. `buried_at`, `located_in` and `commemorated_by` are `method: rule` on every
+edge and carry no flag. Every surface that renders one of the three marked types shows the
+marking — the order page's member list and its ʿurs list, the figure page's lineage and
+memberships, `LineageView`, `LineageChainView`, `/review`. And the surfaces added since the last
+audit correctly show *no* marking on the rule-derived edges (A3's place figures, A9's and A3's
+observance lists), because inventing a doubt is as wrong as hiding one.
+
+`KGEvent.date` also stays deliberately unread — `recordedObservances.ts` documents why: it is a
+bare month on 16 of 149 nodes, so a page using it would show a date for a sixth of the rows it can
+actually date and look complete.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
