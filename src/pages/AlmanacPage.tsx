@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
@@ -10,143 +10,26 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { localizeObservance } from '../lib/i18n/localizeObservance';
-import { primaryFigureSlug } from '../lib/kgShrineFigures';
+import { ObservanceCard } from '../components/almanac/ObservanceCard';
+import { AlmanacCalendar } from '../components/almanac/AlmanacCalendar';
 import { buildAlmanac, groupByMonth, type AlmanacEntry } from '../lib/data/almanac';
 import { buildIcs } from '../lib/data/almanacIcs';
 import { downloadIcsFile } from '../lib/data/icsDownload';
-import {
-  formatDateWindow,
-  formatSourceDate,
-  gregorianMonthName,
-} from '../lib/i18n/formatDateWindow';
-import type { Season } from '../lib/data/ursDates';
-import type { Lang } from '../types/shrine';
+import { gregorianMonthName, SEASON_LABEL_KEYS } from '../lib/i18n/formatDateWindow';
 
 import { isRtlLang } from '../lib/i18n/languages';
-const SEASON_KEYS = {
-  spring: 'almanacSeasonSpring',
-  summer: 'almanacSeasonSummer',
-  autumn: 'almanacSeasonAutumn',
-  winter: 'almanacSeasonWinter',
-} as const satisfies Record<Season, string>;
 
 /** How many entries the "Coming up" rail shows before the month listing. */
 const UPCOMING_COUNT = 5;
 
-function ObservanceCard({
-  entry,
-  lang,
-  anchorId,
-  index = 0,
-}: {
-  entry: AlmanacEntry;
-  lang: Lang;
-  /** Set on a shrine's first card in the year listing so /almanac#<slug>
-   * (the link on the shrine page) lands here. */
-  anchorId?: string | undefined;
-  /** Position in its list, for the entrance stagger. */
-  index?: number;
-}) {
-  const { t, fmtNum, localizeField } = useLang();
-  const { shrine, observance, window, approximate } = entry;
-  const location = localizeField(shrine.raw, 'Location') || shrine.location;
-  const monthOnly = observance.precision === 'month';
-  // An ʿurs is a death anniversary, so the figure it commemorates is the point
-  // of the entry — and now that the knowledge graph is populated, the reader
-  // can go straight from "whose ʿurs is this week" to that figure's lineage
-  // and order. The name comes from the sheet (the reader's own language via
-  // localizeField); only the link target comes from the graph, via the 11 KB
-  // shrine → figure index rather than the whole graph (see kgShrineFigures.ts).
-  const figureName = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
-  const figureSlug = primaryFigureSlug(shrine.slug);
+/** The two ways the next twelve months can be read. */
+const VIEWS = ['list', 'calendar'] as const;
+type AlmanacView = (typeof VIEWS)[number];
 
-  return (
-    <li
-      className="almanac-entry reveal-rise"
-      id={anchorId}
-      style={{ '--stagger-index': index } as React.CSSProperties}
-    >
-      <div className="almanac-entry-date">
-        <span className="almanac-entry-date-main">
-          {formatDateWindow(window, lang, fmtNum, { monthOnly })}
-        </span>
-        {approximate ? (
-          <span
-            className="almanac-flag almanac-flag--approximate"
-            title={t('almanacApproximateFull')}
-          >
-            {t('almanacApproximate')}
-          </span>
-        ) : null}
-      </div>
-
-      <div className="almanac-entry-body">
-        <h3 className="almanac-entry-name">
-          <Link to={`/shrine/${shrine.slug}`}>
-            <bdi>{localizeShrineName(shrine, lang)}</bdi>
-          </Link>
-        </h3>
-        {location ? (
-          /* The CSS clamps this to two lines because several field-survey rows
-             carry a paragraph of qualification in the Location column rather
-             than a place name. `title` is what makes the clamped remainder
-             reachable — without it the qualification, which is the honest part,
-             was simply unreadable.
-
-             `data-latin` declares the element, not just its visible run. That
-             prose is the survey's own wording and is often still English;
-             <bdi> says so for the text, and the same string is repeated in
-             `title` where <bdi> cannot reach. The accessible-name guard reads
-             `data-latin`, so the attribute has to declare itself the way the
-             text already does — otherwise that guard either misses every
-             untranslated tooltip or fails on all of them. */
-          <p className="almanac-entry-location" title={location} data-latin>
-            <bdi>{location}</bdi>
-          </p>
-        ) : null}
-
-        {figureName ? (
-          <p className="almanac-entry-figure">
-            <span className="almanac-entry-source-label">{t('almanacFigureLabel')}: </span>
-            {figureSlug ? (
-              <Link to={`/saint/${figureSlug}`}>
-                <bdi>{figureName}</bdi>
-              </Link>
-            ) : (
-              <bdi>{figureName}</bdi>
-            )}
-          </p>
-        ) : null}
-
-        {/* What the archive actually recorded, always shown beside what we
-            computed from it — the reader can check our arithmetic. */}
-        <p className="almanac-entry-source">
-          <span className="almanac-entry-source-label">{t('almanacSourceLabel')}: </span>
-          <bdi>
-            {formatSourceDate(
-              observance.calendar,
-              observance.month,
-              observance.monthEnd,
-              observance.dayStart,
-              observance.dayEnd,
-              lang,
-              fmtNum,
-            )}
-          </bdi>
-          {observance.calendar === 'hijri' ? (
-            <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
-          ) : null}
-        </p>
-
-        {observance.ruleBased ? (
-          <p className="almanac-entry-caveat">{t('almanacRule')}</p>
-        ) : monthOnly ? (
-          <p className="almanac-entry-caveat">{t('almanacMonthOnly')}</p>
-        ) : null}
-      </div>
-    </li>
-  );
-}
+const VIEW_LABEL_KEYS = {
+  list: 'almanacViewList',
+  calendar: 'almanacViewCalendar',
+} as const satisfies Record<AlmanacView, string>;
 
 export default function AlmanacPage() {
   const { shrines, loading } = useShrineData();
@@ -165,6 +48,25 @@ export default function AlmanacPage() {
   const almanac = useMemo(() => buildAlmanac(shrines, today), [shrines, today]);
   const months = useMemo(() => groupByMonth(almanac.dated), [almanac.dated]);
   const upcoming = almanac.dated.slice(0, UPCOMING_COUNT);
+
+  /* Which view, in the URL rather than in component state.
+   *
+   * The map's filters are URL-param-backed so a filtered view is shareable, and
+   * the same argument holds here: "look at the calendar for this" is a sentence
+   * someone will want to send. `replace` on the write, so switching views does
+   * not fill the back button with view changes. An unknown value falls back to
+   * the list, which is the view that existed before this one. */
+  const [params, setParams] = useSearchParams();
+  const viewParam = params.get('view');
+  const view: AlmanacView = VIEWS.includes(viewParam as AlmanacView)
+    ? (viewParam as AlmanacView)
+    : 'list';
+  const setView = (next: AlmanacView) => {
+    const updated = new URLSearchParams(params);
+    if (next === 'list') updated.delete('view');
+    else updated.set('view', next);
+    setParams(updated, { replace: true });
+  };
 
   // A shrine's first entry in the year listing carries id=<slug>, so the
   // shrine page's "See it in the Urs Almanac" deep link has somewhere to
@@ -305,66 +207,106 @@ export default function AlmanacPage() {
               </div>
               <p className="almanac-hint">{t('almanacDownloadIcsHint')}</p>
 
+              {/* List or grid. The same records either way — the calendar reads
+                  `almanac.dated` and renders the same card component, so the
+                  approximate flag and the recorded-date line cannot be present
+                  in one view and missing in the other. */}
+              {almanac.dated.length > 0 && (
+                <div
+                  className="filter-chips almanac-view-toggle"
+                  role="group"
+                  aria-label={t('ariaAlmanacView')}
+                >
+                  {VIEWS.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      className={`filter-chip${view === option ? ' active' : ''}`}
+                      onClick={() => setView(option)}
+                      aria-pressed={view === option}
+                    >
+                      {t(VIEW_LABEL_KEYS[option])}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {view === 'calendar' && (
+                <>
+                  <p className="almanac-hint">{t('almanacCalendarNote')}</p>
+                  <AlmanacCalendar entries={almanac.dated} today={today} />
+                </>
+              )}
+
               {/* Twelve month sections is a long scroll to reach next spring.
                   Anchor links rather than a scripted scroller: they work
                   without JavaScript, they are focusable and announced as links,
                   and `scroll-behavior: smooth` on the container gives the
                   motion — which `prefers-reduced-motion` then removes for free,
-                  because the browser honours it for scrolling natively. */}
-              {months.length > 1 && (
-                <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
-                  <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
-                  <ul className="almanac-month-nav-list">
-                    {months.map((group) => (
-                      <li key={`nav-${group.year}-${group.month}`}>
-                        <a href={`#almanac-${group.year}-${group.month}`}>
-                          {gregorianMonthName(group.month, lang)}
-                          {/* A twelve-month window starts and ends in the same
+                  because the browser honours it for scrolling natively.
+
+                  The month rail and the twelve listings belong to the list
+                  view. The calendar paginates a month at a time and carries its
+                  own; rendering both would put two month navigations on one
+                  page pointing at different things. */}
+              {view === 'list' && (
+                <>
+                  {months.length > 1 && (
+                    <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
+                      <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
+                      <ul className="almanac-month-nav-list">
+                        {months.map((group) => (
+                          <li key={`nav-${group.year}-${group.month}`}>
+                            <a href={`#almanac-${group.year}-${group.month}`}>
+                              {gregorianMonthName(group.month, lang)}
+                              {/* A twelve-month window starts and ends in the same
                               month, so two pills read "August" — the year is
                               what tells them apart, and is shown only on the
                               names that actually repeat. */}
-                          {repeatedMonthNames.has(group.month) && (
-                            <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
-                          )}
-                          <span className="almanac-month-nav-count">
-                            {fmtNum(group.entries.length)}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              )}
+                              {repeatedMonthNames.has(group.month) && (
+                                <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
+                              )}
+                              <span className="almanac-month-nav-count">
+                                {fmtNum(group.entries.length)}
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  )}
 
-              {months.length === 0 ? (
-                <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
-              ) : (
-                months.map((group) => (
-                  <div
-                    key={`${group.year}-${group.month}`}
-                    id={`almanac-${group.year}-${group.month}`}
-                    className="almanac-month"
-                  >
-                    <h3 className="almanac-month-heading">
-                      {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
-                    </h3>
-                    <ul className="almanac-list">
-                      {group.entries.map((entry, i) => (
-                        <ObservanceCard
-                          key={`${entry.shrine.slug}-${i}`}
-                          entry={entry}
-                          lang={lang}
-                          anchorId={
-                            anchorEntry.get(entry.shrine.slug) === entry
-                              ? entry.shrine.slug
-                              : undefined
-                          }
-                          index={i}
-                        />
-                      ))}
-                    </ul>
-                  </div>
-                ))
+                  {months.length === 0 ? (
+                    <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
+                  ) : (
+                    months.map((group) => (
+                      <div
+                        key={`${group.year}-${group.month}`}
+                        id={`almanac-${group.year}-${group.month}`}
+                        className="almanac-month"
+                      >
+                        <h3 className="almanac-month-heading">
+                          {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
+                        </h3>
+                        <ul className="almanac-list">
+                          {group.entries.map((entry, i) => (
+                            <ObservanceCard
+                              key={`${entry.shrine.slug}-${i}`}
+                              entry={entry}
+                              lang={lang}
+                              anchorId={
+                                anchorEntry.get(entry.shrine.slug) === entry
+                                  ? entry.shrine.slug
+                                  : undefined
+                              }
+                              index={i}
+                            />
+                          ))}
+                        </ul>
+                      </div>
+                    ))
+                  )}
+                </>
               )}
             </section>
 
@@ -378,7 +320,9 @@ export default function AlmanacPage() {
                   {almanac.seasonal.map((entry, i) => (
                     <li key={`${entry.shrine.slug}-${i}`} className="inset-row inset-row--link">
                       <Link to={`/shrine/${entry.shrine.slug}`}>
-                        <span className="almanac-season-tag">{t(SEASON_KEYS[entry.season])}</span>
+                        <span className="almanac-season-tag">
+                          {t(SEASON_LABEL_KEYS[entry.season])}
+                        </span>
                         <span className="inset-row-label">
                           <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
                         </span>
