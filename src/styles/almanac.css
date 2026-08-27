@@ -42,8 +42,14 @@
 }
 
 /* ── Coverage ─────────────────────────────────────────────────────────────
-   Deliberately at the top of the page. The calendar below it is small; the
-   reason it is small is the more interesting fact. */
+   Five counts and their denominator. This block opened the page until 26
+   August 2026, on the argument that a reader should know the denominator
+   before reading the dates; the calendar has that position now, and what the
+   argument reduces to up there is one line (`.almanac-calendar-denominator`).
+   The full breakdown stayed exactly as it was, one scroll down: the numbers
+   are still computed from the shipped data on every load, so the block cannot
+   go stale, and the two largest of the five are still gaps rather than
+   holdings. */
 .almanac-coverage {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
@@ -172,6 +178,30 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-3);
+}
+
+/* The view switch and the .ics button ride on the heading's own line. They
+   stay a group so that when the row wraps on a narrow screen they wrap
+   together, rather than the .ics button stranding itself on a third line. */
+.almanac-year-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* The page's opening section. Every other section heading is separated from
+   what precedes it by --space-10; the first one is separated from the page's
+   own lede, which already carries its own margin, and 72px of nothing above
+   the grid is exactly the preamble this layout was rearranged to remove. */
+.almanac-lead .almanac-section-heading {
+  margin-block-start: 0;
+}
+
+/* Under the grid rather than over it, so the rule about what a square may hold
+   sits with the unplaced list it explains. */
+.almanac-calendar-rule {
+  margin-block: var(--space-4) 0;
 }
 
 .almanac-month-heading {
@@ -471,7 +501,144 @@
    where there is room, the name; an unmarked day is just a number. */
 
 .almanac-view-toggle {
-  margin-block: var(--space-3) var(--space-2);
+  margin-block: 0;
+}
+
+/* The denominator, kept on the first screen.
+
+   Coverage used to be the page's opening block, on the argument that a reader
+   who sees twenty-odd dates should know they are twenty-odd out of a hundred
+   and seventy. The calendar took that position on 26 August 2026; this line is
+   what the argument reduces to when it has to fit above a grid rather than in
+   front of one. Muted and small — the full breakdown is a scroll away. */
+.almanac-calendar-denominator {
+  margin-block: 0 var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .almanac-calendar-denominator {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+/* ── The calendar's own month rail ────────────────────────────────────────
+   The list view's rail is anchor links down the page; this one is buttons that
+   move the grid. Same pill, deliberately — they do the same job for a reader —
+   with the pressed state the anchors have no need of. */
+.almanac-calendar-months {
+  margin-block-end: var(--space-4);
+  padding-block-end: var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.almanac-calendar-months-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.almanac-calendar-month-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  /* 44px, like every other pill on this page: a real touch target. */
+  min-height: 44px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--easing),
+    border-color var(--duration-fast) var(--easing);
+}
+
+.almanac-calendar-month-btn:hover,
+.almanac-calendar-month-btn:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* The month the grid is showing. Border weight and text colour, not a fill:
+   a filled pill in this palette reads as a category chip, and the border is
+   the distinction the rest of the archive's controls already use. It is never
+   colour alone — `aria-current` says the same thing to a screen reader and the
+   weight change carries it in monochrome. */
+.almanac-calendar-month-btn--current {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.almanac-calendar-month-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.almanac-calendar-month-year {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .almanac-calendar-month-btn,
+[dir='rtl'] .almanac-calendar-month-count,
+[dir='rtl'] .almanac-calendar-month-year {
+  font-family: var(--font-urdu);
+}
+
+[dir='rtl'] .almanac-calendar-month-btn {
+  font-size: var(--text-base);
+}
+
+/* On a phone, thirteen wrapped pills are four rows — 440px of navigation above
+   a grid that is supposed to be the first thing on the page, which is the
+   layout this rearrangement exists to undo. One row that scrolls sideways
+   instead: the months stay in reading order, the grid stays near the top, and
+   the current month is scrolled into view by the browser because it is the
+   focused/`aria-current` control the reader last pressed.
+
+   The three touch declarations are the ones `touchScroll.test.ts` requires of
+   every internally-scrolling region — momentum on older WebKit, overscroll that
+   does not chain to the page, and an explicit `touch-action` so no ancestor
+   narrows it. `pan-x` rather than `pan-y`: this scroller goes sideways, and
+   claiming `pan-y` would eat the vertical drag that scrolls the page. */
+@media (max-width: 640px) {
+  .almanac-calendar-months-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x;
+    scroll-snap-type: inline mandatory;
+    /* Room for the focus ring on the last pill, which a scroller clips. */
+    padding-block-end: 2px;
+    /* Deliberately *not* bled to the screen edge with a negative inline margin.
+       That reads better — a rail that runs off the edge announces itself as
+       scrollable — and `e2e/no-overflow.spec.ts` is right to reject it: it
+       measures an element's rect against the viewport before it asks whether
+       the element is a scroller, so a bled rail is indistinguishable from the
+       fixed-width-sized-for-English bug the check exists to catch. The rail
+       stays inside the page gutter and the last pill's clipped edge is what
+       says there is more. */
+  }
+
+  .almanac-calendar-months-list > li {
+    scroll-snap-align: start;
+  }
+
+  .almanac-calendar-month-btn {
+    white-space: nowrap;
+  }
 }
 
 .almanac-calendar {

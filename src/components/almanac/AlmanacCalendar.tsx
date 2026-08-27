@@ -27,8 +27,15 @@ import { ObservanceCard } from './ObservanceCard';
  *
  * One month at a time rather than twelve stacked grids. Twelve is 3,000-odd
  * pixels of mostly empty squares — 22 of the archive's 169 sites carry a
- * day-precise date — and the list view above already has a month rail for
- * jumping a year ahead. What a grid is for is the shape of one month.
+ * day-precise date — and what a grid is for is the shape of one month.
+ *
+ * That made prev/next enough while the calendar was a view a reader opted into
+ * halfway down the page. It is not enough now that the grid opens the page: a
+ * reader who wants next April should not press "Later" seven times to see it.
+ * So the horizon's months are a rail above the grid, each with the count of
+ * observances that month can actually place — which doubles as the one thing
+ * prev/next could never show, the *shape of the year*: where the ʿurs season
+ * falls and where the archive simply has nothing.
  *
  * A day carrying observances is a button, and pressing it narrows the cards
  * beneath to that day. That is what makes the grid useful on a phone, where the
@@ -51,6 +58,14 @@ export function AlmanacCalendar({
     () => buildCalendarMonths(entries, today, horizonDays),
     [entries, today, horizonDays],
   );
+  /* Month numbers appearing twice across the horizon — the window wraps, so its
+     first and last month share a name and only the year separates them. */
+  const repeatedMonths = useMemo(() => {
+    const counts = new Map<number, number>();
+    for (const m of months) counts.set(m.month, (counts.get(m.month) ?? 0) + 1);
+    return new Set([...counts].filter(([, n]) => n > 1).map(([month]) => month));
+  }, [months]);
+
   const [cursor, setCursor] = useState(0);
   /** ISO day of the selected cell, or null for the whole month. */
   const [selected, setSelected] = useState<string | null>(null);
@@ -77,6 +92,44 @@ export function AlmanacCalendar({
 
   return (
     <div className="almanac-calendar">
+      {/* Every month in the horizon, reachable in one press. Buttons rather
+          than the list view's anchor links: this moves the grid, not the page,
+          so there is nothing to scroll to and an <a href="#…"> would be a lie
+          about what pressing it does. */}
+      {months.length > 1 && (
+        <nav className="almanac-calendar-months" aria-label={t('almanacJumpToMonth')}>
+          <ul className="almanac-calendar-months-list">
+            {months.map((m, i) => (
+              <li key={`${m.year}-${m.month}`}>
+                <button
+                  type="button"
+                  className={[
+                    'almanac-calendar-month-btn',
+                    i === cursor ? 'almanac-calendar-month-btn--current' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  aria-current={i === cursor ? 'true' : undefined}
+                  onClick={() => goTo(i)}
+                >
+                  {gregorianMonthName(m.month, lang)}
+                  {/* A twelve-month window opens and closes in the same month,
+                      so two pills read "August"; the year appears only on the
+                      names that actually repeat, as it does in the list view. */}
+                  {repeatedMonths.has(m.month) && (
+                    <span className="almanac-calendar-month-year">{fmtNum(m.year)}</span>
+                  )}
+                  {/* `placed`, not `placed + monthOnly`: this counts what the
+                      grid beneath will put on a square, and a month-only entry
+                      is deliberately on none of them. */}
+                  <span className="almanac-calendar-month-count">{fmtNum(m.placed)}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
       <div className="almanac-calendar-header">
         <button
           type="button"

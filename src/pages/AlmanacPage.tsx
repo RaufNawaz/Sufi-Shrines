@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { tFn } from '../lib/i18n/uiStrings';
@@ -54,17 +54,32 @@ export default function AlmanacPage() {
    * The map's filters are URL-param-backed so a filtered view is shareable, and
    * the same argument holds here: "look at the calendar for this" is a sentence
    * someone will want to send. `replace` on the write, so switching views does
-   * not fill the back button with view changes. An unknown value falls back to
-   * the list, which is the view that existed before this one. */
+   * not fill the back button with view changes.
+   *
+   * The calendar is the default (26 August 2026, project head): the grid is what
+   * the page is for, and everything else on it — coverage, the moon-sighting
+   * caveat, the month listing, the two lists of what is undated — is below it to
+   * be scrolled to.
+   *
+   * The exception is a deep link. `/almanac#<shrine-slug>` is written by the
+   * shrine page and by the order/figure observance lists, and the anchor it
+   * targets exists only in the month listing; opening those on a calendar would
+   * land the reader at the top of a grid with no sign of why. A hash with no
+   * explicit `?view=` therefore opens the list. An explicit `?view=` always
+   * wins, which is why the toggle writes the parameter in both directions
+   * rather than deleting it for the default. */
   const [params, setParams] = useSearchParams();
+  const { hash } = useLocation();
+  const anchorSlug = hash.startsWith('#') ? hash.slice(1) : '';
   const viewParam = params.get('view');
   const view: AlmanacView = VIEWS.includes(viewParam as AlmanacView)
     ? (viewParam as AlmanacView)
-    : 'list';
+    : anchorSlug
+      ? 'list'
+      : 'calendar';
   const setView = (next: AlmanacView) => {
     const updated = new URLSearchParams(params);
-    if (next === 'list') updated.delete('view');
-    else updated.set('view', next);
+    updated.set('view', next);
     setParams(updated, { replace: true });
   };
 
@@ -80,12 +95,12 @@ export default function AlmanacPage() {
     return first;
   }, [almanac.dated]);
 
-  // Client-side navigation keeps the hash but does not scroll to it.
+  // Client-side navigation keeps the hash but does not scroll to it. Gated on
+  // the list view, because that is the only view that renders the anchor.
   useEffect(() => {
-    const slug = window.location.hash.slice(1);
-    if (!slug || almanac.dated.length === 0) return;
-    document.getElementById(slug)?.scrollIntoView({ block: 'start' });
-  }, [almanac.dated.length]);
+    if (!anchorSlug || view !== 'list' || almanac.dated.length === 0) return;
+    document.getElementById(anchorSlug)?.scrollIntoView({ block: 'start' });
+  }, [anchorSlug, view, almanac.dated.length]);
 
   /* Month numbers appearing more than once across the window — the twelve-month
      span wraps, so its first and last group share a name. */
@@ -104,6 +119,10 @@ export default function AlmanacPage() {
   };
 
   const { counts } = almanac;
+  /* Nothing to show yet: the first paint before the sheet has answered. Coverage
+     and the caveat still render — they are true of the archive rather than of
+     the fetch. */
+  const hasEntries = !(loading && almanac.dated.length === 0);
 
   return (
     <div className="page-enter entity-page-wrapper">
@@ -131,10 +150,187 @@ export default function AlmanacPage() {
         </h1>
         <p className="almanac-intro">{t('almanacIntro')}</p>
 
-        {/* ── The honest header ────────────────────────────────────────────
-            Coverage comes before the calendar, not after it. A reader who
-            sees twenty-odd dates should know immediately that they are
-            twenty-odd out of a hundred and sixty-nine. */}
+        {/* ── The calendar, first ──────────────────────────────────────────
+            This section used to sit third, under the coverage figures and the
+            moon-sighting caveat. The reading order was argued for at the time —
+            know the denominator before you read the dates — and it was wrong in
+            practice: the thing the page is named after was below the fold, and
+            two screens of preamble stood in front of it.
+
+            What that argument was protecting is kept, in one line rather than a
+            block: the "N of M sites" total is printed with the grid, so the
+            denominator still reaches a reader who never scrolls, and the full
+            coverage breakdown is a scroll away rather than a gate. */}
+        {hasEntries && (
+          <section className="almanac-lead" aria-labelledby="almanac-year-heading">
+            {/* Heading, view switch and the .ics button on one line. They were
+                three stacked rows, which is a third of a screen of chrome
+                standing between the page title and the grid — affordable when
+                the grid was halfway down the page, not when it opens it. */}
+            <div className="almanac-year-header">
+              <h2 id="almanac-year-heading" className="almanac-section-heading">
+                {t('almanacNext12Months')}
+              </h2>
+              <div className="almanac-year-controls">
+                {/* List or grid. The same records either way — the calendar
+                    reads `almanac.dated` and renders the same card component,
+                    so the approximate flag and the recorded-date line cannot be
+                    present in one view and missing in the other. */}
+                {almanac.dated.length > 0 && (
+                  <div
+                    className="filter-chips almanac-view-toggle"
+                    role="group"
+                    aria-label={t('ariaAlmanacView')}
+                  >
+                    {VIEWS.map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        className={`filter-chip${view === option ? ' active' : ''}`}
+                        onClick={() => setView(option)}
+                        aria-pressed={view === option}
+                      >
+                        {t(VIEW_LABEL_KEYS[option])}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {almanac.dated.length > 0 && (
+                  <button type="button" className="action-btn" onClick={downloadIcs}>
+                    {t('almanacDownloadIcs')}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {view === 'calendar' && (
+              <>
+                {/* The denominator, carried up from the coverage block below so
+                    that the first screen of the page still says how much of the
+                    archive the grid can speak for. */}
+                <p className="almanac-calendar-denominator">
+                  {fmtNum(
+                    tFn(
+                      lang,
+                      'almanacCoverageTotal',
+                      counts.dayPrecision + counts.monthPrecision,
+                      counts.totalShrines,
+                    ),
+                  )}
+                </p>
+                <AlmanacCalendar entries={almanac.dated} today={today} />
+                {/* Why some observances are on no square. It read above the
+                    grid, where it was a paragraph to get past; it belongs here,
+                    where the unplaced list it describes is directly beneath. */}
+                <p className="almanac-hint almanac-calendar-rule">{t('almanacCalendarNote')}</p>
+              </>
+            )}
+
+            {/* Twelve month sections is a long scroll to reach next spring.
+                Anchor links rather than a scripted scroller: they work
+                without JavaScript, they are focusable and announced as links,
+                and `scroll-behavior: smooth` on the container gives the
+                motion — which `prefers-reduced-motion` then removes for free,
+                because the browser honours it for scrolling natively.
+
+                The month rail and the twelve listings belong to the list
+                view. The calendar carries its own month rail, one that moves
+                the grid rather than the page; rendering both would put two
+                month navigations on one page pointing at different things. */}
+            {view === 'list' && (
+              <>
+                {months.length > 1 && (
+                  <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
+                    <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
+                    <ul className="almanac-month-nav-list">
+                      {months.map((group) => (
+                        <li key={`nav-${group.year}-${group.month}`}>
+                          <a href={`#almanac-${group.year}-${group.month}`}>
+                            {gregorianMonthName(group.month, lang)}
+                            {/* A twelve-month window starts and ends in the same
+                              month, so two pills read "August" — the year is
+                              what tells them apart, and is shown only on the
+                              names that actually repeat. */}
+                            {repeatedMonthNames.has(group.month) && (
+                              <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
+                            )}
+                            <span className="almanac-month-nav-count">
+                              {fmtNum(group.entries.length)}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
+
+                {months.length === 0 ? (
+                  <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
+                ) : (
+                  months.map((group) => (
+                    <div
+                      key={`${group.year}-${group.month}`}
+                      id={`almanac-${group.year}-${group.month}`}
+                      className="almanac-month"
+                    >
+                      <h3 className="almanac-month-heading">
+                        {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
+                      </h3>
+                      <ul className="almanac-list">
+                        {group.entries.map((entry, i) => (
+                          <ObservanceCard
+                            key={`${entry.shrine.slug}-${i}`}
+                            entry={entry}
+                            lang={lang}
+                            anchorId={
+                              anchorEntry.get(entry.shrine.slug) === entry
+                                ? entry.shrine.slug
+                                : undefined
+                            }
+                            index={i}
+                          />
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                )}
+              </>
+            )}
+          </section>
+        )}
+
+        {/* ── What the grid above cannot tell you ──────────────────────────
+            Directly beneath the calendar rather than above it: it caveats the
+            dates the reader has just looked at, which is where a caveat is
+            read. */}
+        <aside className="almanac-note" aria-labelledby="almanac-honesty-heading">
+          <h2 id="almanac-honesty-heading" className="almanac-note-heading">
+            {t('almanacHonestyHeading')}
+          </h2>
+          <p>{t('almanacApproximateNote')}</p>
+        </aside>
+
+        {hasEntries && upcoming.length > 0 && (
+          <section aria-labelledby="almanac-upcoming-heading">
+            <h2 id="almanac-upcoming-heading" className="almanac-section-heading">
+              {t('almanacUpcoming')}
+            </h2>
+            <ul className="almanac-list almanac-list--upcoming stagger-in">
+              {upcoming.map((entry, i) => (
+                <ObservanceCard
+                  key={`${entry.shrine.slug}-${i}`}
+                  entry={entry}
+                  lang={lang}
+                  index={i}
+                />
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* ── The honest accounting ────────────────────────────────────────
+            Still on the page and still computed from the shipped data on every
+            load; no longer the first thing a reader meets. */}
         <section className="almanac-coverage" aria-labelledby="almanac-coverage-heading">
           <h2 id="almanac-coverage-heading" className="almanac-section-heading">
             {t('almanacCoverageHeading')}
@@ -167,149 +363,8 @@ export default function AlmanacPage() {
           </p>
         </section>
 
-        <aside className="almanac-note" aria-labelledby="almanac-honesty-heading">
-          <h2 id="almanac-honesty-heading" className="almanac-note-heading">
-            {t('almanacHonestyHeading')}
-          </h2>
-          <p>{t('almanacApproximateNote')}</p>
-        </aside>
-
-        {loading && almanac.dated.length === 0 ? null : (
+        {hasEntries && (
           <>
-            {upcoming.length > 0 && (
-              <section aria-labelledby="almanac-upcoming-heading">
-                <h2 id="almanac-upcoming-heading" className="almanac-section-heading">
-                  {t('almanacUpcoming')}
-                </h2>
-                <ul className="almanac-list almanac-list--upcoming stagger-in">
-                  {upcoming.map((entry, i) => (
-                    <ObservanceCard
-                      key={`${entry.shrine.slug}-${i}`}
-                      entry={entry}
-                      lang={lang}
-                      index={i}
-                    />
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            <section aria-labelledby="almanac-year-heading">
-              <div className="almanac-year-header">
-                <h2 id="almanac-year-heading" className="almanac-section-heading">
-                  {t('almanacNext12Months')}
-                </h2>
-                {almanac.dated.length > 0 && (
-                  <button type="button" className="action-btn" onClick={downloadIcs}>
-                    {t('almanacDownloadIcs')}
-                  </button>
-                )}
-              </div>
-              <p className="almanac-hint">{t('almanacDownloadIcsHint')}</p>
-
-              {/* List or grid. The same records either way — the calendar reads
-                  `almanac.dated` and renders the same card component, so the
-                  approximate flag and the recorded-date line cannot be present
-                  in one view and missing in the other. */}
-              {almanac.dated.length > 0 && (
-                <div
-                  className="filter-chips almanac-view-toggle"
-                  role="group"
-                  aria-label={t('ariaAlmanacView')}
-                >
-                  {VIEWS.map((option) => (
-                    <button
-                      key={option}
-                      type="button"
-                      className={`filter-chip${view === option ? ' active' : ''}`}
-                      onClick={() => setView(option)}
-                      aria-pressed={view === option}
-                    >
-                      {t(VIEW_LABEL_KEYS[option])}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {view === 'calendar' && (
-                <>
-                  <p className="almanac-hint">{t('almanacCalendarNote')}</p>
-                  <AlmanacCalendar entries={almanac.dated} today={today} />
-                </>
-              )}
-
-              {/* Twelve month sections is a long scroll to reach next spring.
-                  Anchor links rather than a scripted scroller: they work
-                  without JavaScript, they are focusable and announced as links,
-                  and `scroll-behavior: smooth` on the container gives the
-                  motion — which `prefers-reduced-motion` then removes for free,
-                  because the browser honours it for scrolling natively.
-
-                  The month rail and the twelve listings belong to the list
-                  view. The calendar paginates a month at a time and carries its
-                  own; rendering both would put two month navigations on one
-                  page pointing at different things. */}
-              {view === 'list' && (
-                <>
-                  {months.length > 1 && (
-                    <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
-                      <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
-                      <ul className="almanac-month-nav-list">
-                        {months.map((group) => (
-                          <li key={`nav-${group.year}-${group.month}`}>
-                            <a href={`#almanac-${group.year}-${group.month}`}>
-                              {gregorianMonthName(group.month, lang)}
-                              {/* A twelve-month window starts and ends in the same
-                              month, so two pills read "August" — the year is
-                              what tells them apart, and is shown only on the
-                              names that actually repeat. */}
-                              {repeatedMonthNames.has(group.month) && (
-                                <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
-                              )}
-                              <span className="almanac-month-nav-count">
-                                {fmtNum(group.entries.length)}
-                              </span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </nav>
-                  )}
-
-                  {months.length === 0 ? (
-                    <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
-                  ) : (
-                    months.map((group) => (
-                      <div
-                        key={`${group.year}-${group.month}`}
-                        id={`almanac-${group.year}-${group.month}`}
-                        className="almanac-month"
-                      >
-                        <h3 className="almanac-month-heading">
-                          {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
-                        </h3>
-                        <ul className="almanac-list">
-                          {group.entries.map((entry, i) => (
-                            <ObservanceCard
-                              key={`${entry.shrine.slug}-${i}`}
-                              entry={entry}
-                              lang={lang}
-                              anchorId={
-                                anchorEntry.get(entry.shrine.slug) === entry
-                                  ? entry.shrine.slug
-                                  : undefined
-                              }
-                              index={i}
-                            />
-                          ))}
-                        </ul>
-                      </div>
-                    ))
-                  )}
-                </>
-              )}
-            </section>
-
             {almanac.seasonal.length > 0 && (
               <section aria-labelledby="almanac-seasonal-heading">
                 <h2 id="almanac-seasonal-heading" className="almanac-section-heading">
