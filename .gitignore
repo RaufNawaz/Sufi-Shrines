@@ -116,3 +116,9 @@ pipeline/validation_issues.tsv
 
 # Generated side-by-side Urdu review pages — regenerate with urdu-i18n/build_review_queue.py
 urdu-i18n/review/
+
+# Lighthouse CI's local output. `npx lhci autorun` writes reports here on every
+# run; they are a measurement of one machine at one moment, and the numbers
+# worth keeping go into docs/HANDOVER.md with a date on them. Left untracked,
+# they also fail `format:check`, which is how this entry came to exist.
+.lighthouseci/

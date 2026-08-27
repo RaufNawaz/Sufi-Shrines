@@ -1013,6 +1013,23 @@
   flex-wrap: wrap;
   gap: var(--space-1) var(--space-2);
   margin-block-start: var(--space-1);
+  min-width: 0;
+}
+
+/* The entries are *not* the citation, and must not inherit its direction.
+   `.coverage-rests-citation` is forced `direction: ltr` in the Urdu view on
+   purpose — a citation is Latin by design (i18n rule 7) and a Latin paragraph
+   set flush-right is hard to read. These are Urdu shrine names nested inside
+   it, and laying them out LTR pushed each one six pixels past its own box
+   (caught by `e2e/no-overflow.spec.ts` at 390px, Urdu only). */
+[dir='rtl'] .coverage-rests-entries {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] .coverage-rests-entry {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .coverage-rests-entry {

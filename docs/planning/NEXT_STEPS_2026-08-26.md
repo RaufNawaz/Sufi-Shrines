@@ -513,6 +513,31 @@ mirror already has), or the graph stops publishing a layer the archive does not 
 Measure the overlap first — 94 against 69 is not 25 extra places, it is an unknown intersection.
 > Status: open.
 
+### A14 — the entity pages grow 1,455px two seconds after they render
+
+**Found by B4's Lighthouse run, 27 August 2026.** CLS is **0.52 on `/saint`, 0.54 on `/almanac`,
+0.22 on `/order`**, against a 0.1 budget, with zero unsized images. Measured directly at 390px,
+unthrottled and warm: the article settles at 2,163px, then jumps to **3,618px**.
+
+The cause is structural, not a bug in any one page: **the entity pages render their full layout
+from the bundled knowledge graph before the shrine dataset arrives from the CSV.** Every section
+that needs shrine data — "Where this figure rests", the observances, the associated-shrine cards,
+A10's biography — appears about two seconds in. On a phone that is a page and a half moving under
+the reader's thumb mid-sentence.
+
+**Scope this with the reviewer**, because the three fixes trade different things:
+
+1. **Reserve space** for the data-dependent sections. No blank, no jump, but the reserved height
+   is a guess and is wrong for a figure with one shrine and a figure with sixteen.
+2. **Render a skeleton** in those sections while `loading`. Honest and conventional; costs a
+   skeleton design and puts grey boxes on a page whose whole aesthetic is quiet.
+3. **Hold the article until the data arrives.** Zero CLS, and it trades a jump for two seconds of
+   nothing — which on the archive's slowest route is a worse first impression, not a better one.
+
+Whichever is chosen, the measurement to keep is the one above: article height over five seconds at
+390px, and the observed CLS. Both are in HANDOVER §9 with today's numbers to compare against.
+> Status: open, needs scoping.
+
 ## 5. Explicitly out of scope for this phase
 
 - New content authoring (order histories, saint biographies beyond what the sheet/KG

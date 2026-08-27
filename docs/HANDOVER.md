@@ -3706,6 +3706,64 @@ observance lists), because inventing a doubt is as wrong as hiding one.
 bare month on 16 of 149 nodes, so a page using it would show a date for a sixth of the rows it can
 actually date and look complete.
 
+### Added 27 August 2026 — B4: Lighthouse ran, and the entity pages jump a page and a half
+
+`.lighthouserc.cjs` carries a note saying lhci could not be run in the environment where its URL
+list was last extended. **It runs here.** Ten routes, `numberOfRuns: 1`, local preview, default
+mobile throttling (4× CPU, slow 4G), on a laptop also running a dev server — so treat the absolute
+timings as pessimistic and the *ordering* and the CLS as real.
+
+| route | perf | a11y | best-pr. | seo | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|---|
+| `/` | **28** | 100 | 75 | 91 | 4777 | 6735 | **4306** | 0.037 |
+| `/?lang=ur` | 37 | 100 | 75 | 91 | 3087 | **15072** | 1281 | 0.006 |
+| `/saint/data-ganj-bakhsh` | 37 | 100 | 79 | 92 | 2355 | 6466 | 642 | **0.520** |
+| `/shrine/data-darbar` | 47 | 100 | 79 | 92 | 2937 | 7842 | 823 | 0.118 |
+| `/almanac` | 51 | 100 | 100 | 91 | 2710 | 3160 | 649 | **0.539** |
+| `/place/lahore` | 56 | 100 | 100 | 92 | 1979 | 6385 | 656 | 0.105 |
+| `/order/qadiriyya` | 66 | 100 | 79 | 92 | 2284 | 3611 | 436 | **0.219** |
+| `/about` | 72 | 100 | 100 | 91 | 2709 | 3159 | 674 | 0.021 |
+| `/coverage` | 74 | 100 | 100 | 91 | 1893 | 3160 | 719 | 0.021 |
+| `/graph` | **90** | 100 | 100 | 91 | 2128 | 3308 | 35 | 0.013 |
+
+**Accessibility is 100 on all ten.** No `error`-level assertion failed, so this would pass CI.
+Everything below is a `warn`, which is why none of it has ever been looked at.
+
+#### The one that is a defect rather than a number: CLS
+
+`/saint` 0.52, `/almanac` 0.54, `/order` 0.22, against a 0.1 budget. Lighthouse names the shifting
+element as `.entity-article-layout` — the whole article body — and reports **zero unsized images**,
+so it is not the usual cause.
+
+Measured directly, unthrottled, on a warm preview, at 390px:
+
+    article height over 5s: 2239 → 2163 → 2163 → 2163 → 2163 → 3618 → 3618 …
+    observed CLS: 0.5687
+
+**The page renders its full layout from the bundled knowledge graph, and then grows 1,455px when
+the shrine dataset arrives from the CSV.** Every section that needs shrine data — "Where this
+figure rests", the observances, the associated-shrine cards, and A10's biography — appears about
+two seconds in. On a phone that is a page and a half moving under the reader's thumb while they
+are reading the first paragraph.
+
+This is inherent to the runtime-CSV architecture rather than to any one page, and the fix is a
+loading-strategy decision with a real trade in it — reserve space, render a skeleton, or hold the
+article back and show a blank for two seconds. That is the project head's call, so it is escalated
+as **A14** rather than chosen here.
+
+#### The rest, for whoever picks it up
+
+- **The map's TBT is 4,306ms** against a 300ms budget, and its performance score is 28. It is the
+  archive's front door.
+- **`/?lang=ur` has an LCP of 15 seconds.** One run, so treat it as a lead rather than a number,
+  but the Urdu route is the only one over 8s and the Urdu strings and dictionary are two extra
+  chunks on the critical path.
+- **Best practices is 75 on `/` and 79 on the three entity routes**, 100 on the other four. Not
+  investigated.
+- The upload target has to be overridden to run locally:
+  `npx lhci autorun --upload.target=filesystem --upload.outputDir=<dir>`. The configured
+  `temporary-public-storage` wants a network round trip to lhci's servers.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
