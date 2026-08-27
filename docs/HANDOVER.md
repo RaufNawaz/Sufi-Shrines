@@ -3777,9 +3777,24 @@ as **A14** rather than chosen here.
   not evaluation, it is papaparse *running*, parsing the ~1 MB sheet CSV on the main thread. There
   is already a worker in this codebase (`src/lib/search/search.worker.ts`) and no reason the parse
   could not join it.
-- **`/?lang=ur` has an LCP of 15 seconds.** One run, so treat it as a lead rather than a number,
-  but the Urdu route is the only one over 8s and the Urdu strings and dictionary are two extra
-  chunks on the critical path.
+- **`/?lang=ur` has an LCP of 15 seconds, and 14.6s of it is render delay.** The LCP element is a
+  sidebar *button*, and TTFB is 454ms — so this is not a heavy image and not the network. It is
+  the main thread.
+
+  **One hypothesis was tested and was wrong, which is worth more than the change it produced.**
+  `fetchShrines` awaited the 1 MB Urdu article payload, then the Urdu dictionary, and only then
+  started the CSV download — a real round trip to Google, queued behind a megabyte of JSON. That
+  serialisation was real and is now gone (`cbba48e`, all three start together, the build still
+  waits for all three). **It did not move the LCP**: re-measured over two runs, 15,349ms and
+  15,343ms, render delay 14,894ms and 14,890ms — indistinguishable from the 15,072ms before it.
+  TBT did fall, 1,281ms → ~900ms, which is within what two runs can tell apart.
+
+  So the Urdu front door is **script-evaluation-bound, not fetch-bound**, and the fetch ordering
+  was never the thing in front of it. The remaining candidates are the two in the table above:
+  `maplibre-gl` at 8,484ms of evaluation, and papaparse at 730ms parsing the CSV on the main
+  thread. The change was still correct — an avoidable serialisation on the archive's front door is
+  worth removing whether or not it shows up in one metric — but anyone continuing this should
+  start from maplibre and not from the data hook.
 - **Best practices is 75 on `/` and 79 on the three entity routes**, 100 on the other four. Not
   investigated.
 - The upload target has to be overridden to run locally:
