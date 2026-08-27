@@ -37,6 +37,7 @@ export const UI_TEXT_UR: UiStrings = {
   settingsNumeralsEastern: 'مشرقی (۱۲۳)',
   settingsNumeralsWestern: 'مغربی (123)',
   settingsNumeralsUrduOnly: 'اردو ایڈیشن پر لاگو ہوتا ہے۔',
+  almanacProjectedLabel: 'اندازاً',
   settingsAppearanceSection: 'ظاہری شکل',
   settingsTextSizeLabel: 'مطالعے کا حجم',
   settingsTextSizeHelp:
@@ -49,6 +50,14 @@ export const UI_TEXT_UR: UiStrings = {
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
   settingsThemeLight: 'روشن',
   settingsThemeDark: 'تاریک',
+  settingsDatesSection: 'تاریخیں اور ایامِ عرس',
+  settingsCalendarLabel: 'کون سی تقویم پہلے',
+  settingsCalendarHelp:
+    'ہجری تقویم میں درج عرس کی کوئی عیسوی تاریخ نہیں ہوتی، صرف اندازہ ہوتا ہے: مہینہ چاند دیکھنے پر شروع ہوتا ہے۔ دونوں تاریخیں ہمیشہ دکھائی جاتی ہیں — یہاں سے صرف یہ طے ہوتا ہے کہ پہلے کون سی لکھی جائے۔',
+  settingsCalendarGregorian: 'پہلے عیسوی',
+  settingsCalendarHijri: 'پہلے ہجری',
+  settingsCalendarNote:
+    'جو دن آرکائیو نے عیسوی تاریخ کے طور پر درج کیا ہے وہ ویسا ہی رہتا ہے، کیونکہ اس کی کوئی ہجری تاریخ درج نہیں اور خود سے نکالنا تاریخ گھڑنا ہوگا۔',
   settingsMapSection: 'نقشہ اور رہنما دورے',
   settingsDirectoryLabel: 'مزارات کی فہرست',
   settingsDirectoryHelp: 'نقشے پر فہرست کا بٹن کیا کھولے۔',

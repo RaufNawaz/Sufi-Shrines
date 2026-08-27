@@ -10,6 +10,7 @@ import {
 
 import { LanguageProvider, useLang } from './lib/i18n/LanguageContext';
 import { ThemeProvider } from './lib/i18n/ThemeContext';
+import { ReaderPreferencesProvider } from './lib/preferences/ReaderPreferencesContext';
 import { ArchiveSearchProvider } from './components/search/ArchiveSearchProvider';
 import { UpdateToast } from './components/ui/UpdateToast';
 import { TabBar } from './components/nav/TabBar';
@@ -133,131 +134,136 @@ function SkipLinks() {
 export default function App() {
   return (
     <ThemeProvider>
+      {/* Inside LanguageProvider is unnecessary — a calendar preference is not a
+          language — but nesting it here keeps one provider tree instead of two,
+          and every consumer of it is already below both. */}
       <LanguageProvider>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
-          {/* Inside the router (it reads the route to stand down on the map),
+        <ReaderPreferencesProvider>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
+            {/* Inside the router (it reads the route to stand down on the map),
               outside the error boundary and Suspense: ⌘K keeps working while a
               page chunk is still arriving, and search surviving a crashed page
               is a way out of it. */}
-          <ArchiveSearchProvider>
-            <SkipLinks />
-            <RouteAnnouncer />
-            {/* Top-level navigation, phone only (hidden by CSS above 640px).
+            <ArchiveSearchProvider>
+              <SkipLinks />
+              <RouteAnnouncer />
+              {/* Top-level navigation, phone only (hidden by CSS above 640px).
               Outside the Suspense boundary on purpose: the bar is the one thing
               on screen while a lazily-loaded page is still arriving, and a
               navigation that disappears during navigation is worse than none. */}
-            <TabBar />
-            <AppErrorBoundary>
-              <Suspense fallback={<PageFallback />}>
-                <Routes>
-                  <Route path="/" element={<MapPage />} />
-                  <Route path="/shrine/:slug" element={<ShrinePage />} />
-                  <Route path="/saint/:slug" element={<SaintPage />} />
-                  <Route path="/order/:slug" element={<OrderPage />} />
-                  <Route path="/graph" element={<GraphPage />} />
-                  <Route path="/almanac" element={<AlmanacPage />} />
-                  {/* `/coverage` and `/report` were pages; they are sections of
+              <TabBar />
+              <AppErrorBoundary>
+                <Suspense fallback={<PageFallback />}>
+                  <Routes>
+                    <Route path="/" element={<MapPage />} />
+                    <Route path="/shrine/:slug" element={<ShrinePage />} />
+                    <Route path="/saint/:slug" element={<SaintPage />} />
+                    <Route path="/order/:slug" element={<OrderPage />} />
+                    <Route path="/graph" element={<GraphPage />} />
+                    <Route path="/almanac" element={<AlmanacPage />} />
+                    {/* `/coverage` and `/report` were pages; they are sections of
                     `/about` now. They stay as routes because they are published
                     URLs — a merge is not a reason to 404 a link somebody sent —
                     and because check-routes-prerendered.mjs still writes a file
                     for each, so a direct visit resolves on GitHub Pages before
                     any JavaScript runs. Each lands on the section it was sent
                     for rather than the top of a very long page. */}
-                  <Route path="/report" element={<Navigate to="/about#site-status" replace />} />
-                  <Route path="/review" element={<ReviewPage />} />
-                  <Route path="/typology" element={<TypologyPage />} />
-                  <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
-                  <Route path="/about" element={<AboutPage />} />
-                  <Route path="/place/:slug" element={<PlacePage />} />
-                  <Route path="/settings" element={<SettingsPage />} />
-                  {/* Legacy shrine.html?id=N redirect */}
-                  <Route path="/shrine.html" element={<LegacyRedirect />} />
-                  {/* /ur/* — crawler-discovery mirror of the routes above (see
+                    <Route path="/report" element={<Navigate to="/about#site-status" replace />} />
+                    <Route path="/review" element={<ReviewPage />} />
+                    <Route path="/typology" element={<TypologyPage />} />
+                    <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/place/:slug" element={<PlacePage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                    {/* Legacy shrine.html?id=N redirect */}
+                    <Route path="/shrine.html" element={<LegacyRedirect />} />
+                    {/* /ur/* — crawler-discovery mirror of the routes above (see
                     UrPrefixNormalizer); never linked to internally. */}
-                  <Route
-                    path="/ur"
-                    element={
-                      <UrPrefixNormalizer>
-                        <MapPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/shrine/:slug"
-                    element={
-                      <UrPrefixNormalizer>
-                        <ShrinePage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/saint/:slug"
-                    element={
-                      <UrPrefixNormalizer>
-                        <SaintPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/order/:slug"
-                    element={
-                      <UrPrefixNormalizer>
-                        <OrderPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/graph"
-                    element={
-                      <UrPrefixNormalizer>
-                        <GraphPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/almanac"
-                    element={
-                      <UrPrefixNormalizer>
-                        <AlmanacPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  {/* Straight to the Urdu mirror of the merged page, rather than
+                    <Route
+                      path="/ur"
+                      element={
+                        <UrPrefixNormalizer>
+                          <MapPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/shrine/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <ShrinePage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/saint/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <SaintPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/order/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <OrderPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/graph"
+                      element={
+                        <UrPrefixNormalizer>
+                          <GraphPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/almanac"
+                      element={
+                        <UrPrefixNormalizer>
+                          <AlmanacPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    {/* Straight to the Urdu mirror of the merged page, rather than
                     normalising here and redirecting after: two effects racing to
                     rewrite the same URL. `/ur/about` already does this properly. */}
-                  <Route path="/ur/report" element={<Navigate to="/ur/about" replace />} />
-                  <Route path="/ur/coverage" element={<Navigate to="/ur/about" replace />} />
-                  <Route
-                    path="/ur/typology"
-                    element={
-                      <UrPrefixNormalizer>
-                        <TypologyPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/about"
-                    element={
-                      <UrPrefixNormalizer>
-                        <AboutPage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route
-                    path="/ur/place/:slug"
-                    element={
-                      <UrPrefixNormalizer>
-                        <PlacePage />
-                      </UrPrefixNormalizer>
-                    }
-                  />
-                  <Route path="*" element={<NotFoundPage />} />
-                </Routes>
-              </Suspense>
-            </AppErrorBoundary>
-            <UpdateToast />
-          </ArchiveSearchProvider>
-        </BrowserRouter>
+                    <Route path="/ur/report" element={<Navigate to="/ur/about" replace />} />
+                    <Route path="/ur/coverage" element={<Navigate to="/ur/about" replace />} />
+                    <Route
+                      path="/ur/typology"
+                      element={
+                        <UrPrefixNormalizer>
+                          <TypologyPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/about"
+                      element={
+                        <UrPrefixNormalizer>
+                          <AboutPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/place/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <PlacePage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route path="*" element={<NotFoundPage />} />
+                  </Routes>
+                </Suspense>
+              </AppErrorBoundary>
+              <UpdateToast />
+            </ArchiveSearchProvider>
+          </BrowserRouter>
+        </ReaderPreferencesProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

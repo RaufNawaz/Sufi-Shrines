@@ -5,7 +5,8 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { buildAlmanac, type AlmanacEntry } from '../../lib/data/almanac';
 import { buildIcs } from '../../lib/data/almanacIcs';
 import { downloadIcsFile } from '../../lib/data/icsDownload';
-import { formatDateWindow, formatSourceDate } from '../../lib/i18n/formatDateWindow';
+import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 
 interface Props {
   shrine: Shrine;
@@ -24,6 +25,9 @@ export function ShrineObservances({ shrine }: Props) {
 
   const dated: AlmanacEntry[] = useMemo(() => buildAlmanac([shrine], new Date()).dated, [shrine]);
   const next = dated[0] ?? null;
+  /* Above the early return: hooks run in the same order on every render, and
+     this component returns null for a shrine with no dated observance. */
+  const { calendar } = useReaderPreferences();
 
   if (!next) return null;
 
@@ -42,7 +46,10 @@ export function ShrineObservances({ shrine }: Props) {
   // `window` renamed on destructure: the DateWindow would otherwise shadow
   // globalThis.window inside downloadShrineIcs above.
   const { observance, window: dateWindow, approximate } = next;
-  const monthOnly = observance.precision === 'month';
+  /* Same formatter as the almanac's card, on purpose: this panel and that card
+     print the same pair of dates, and the reason the decision is centralised is
+     that a reimplemented pair is how one of them loses the approximate flag. */
+  const dates = observanceDateDisplay(observance, dateWindow, approximate, lang, fmtNum, calendar);
 
   return (
     <aside className="shrine-observances" aria-labelledby="shrine-observances-heading">
@@ -51,9 +58,12 @@ export function ShrineObservances({ shrine }: Props) {
       </h2>
       <p className="shrine-observances-next">
         <span className="shrine-observances-date">
-          {formatDateWindow(dateWindow, lang, fmtNum, { monthOnly })}
+          <bdi>{dates.lead}</bdi>
         </span>
-        {approximate && (
+        {dates.calendarNoteOn === 'lead' && (
+          <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
+        )}
+        {dates.leadIsProjection && (
           <span
             className="almanac-flag almanac-flag--approximate"
             title={t('almanacApproximateFull')}
@@ -63,18 +73,18 @@ export function ShrineObservances({ shrine }: Props) {
         )}
       </p>
       <p className="shrine-observances-source">
-        {t('almanacSourceLabel')}:{' '}
-        <bdi>
-          {formatSourceDate(
-            observance.calendar,
-            observance.month,
-            observance.monthEnd,
-            observance.dayStart,
-            observance.dayEnd,
-            lang,
-            fmtNum,
-          )}
-        </bdi>
+        {t(dates.secondaryLabelKey)}: <bdi>{dates.secondary}</bdi>
+        {dates.calendarNoteOn === 'secondary' && (
+          <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
+        )}
+        {dates.secondaryIsProjection && (
+          <span
+            className="almanac-flag almanac-flag--approximate"
+            title={t('almanacApproximateFull')}
+          >
+            {t('almanacApproximate')}
+          </span>
+        )}
       </p>
       <div className="shrine-observances-actions">
         <button type="button" className="action-btn" onClick={downloadShrineIcs}>

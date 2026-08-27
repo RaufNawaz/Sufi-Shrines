@@ -27,6 +27,10 @@ export const DIRECTORY_MODE_STORAGE_KEY = 'shrines_directory_mode';
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
 
+/** Which calendar leads on an observance ('gregorian' | 'hijri'). See
+ * calendarPreference.ts — it changes emphasis, never the arithmetic. */
+export const CALENDAR_STORAGE_KEY = 'shrines_calendar';
+
 /** Reading size for the archive's prose ('small' | 'medium' | 'large') — read
  * pre-paint in main.tsx, like the theme, so a larger size is never applied
  * after the first paint. */

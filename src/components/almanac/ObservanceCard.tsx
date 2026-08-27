@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { primaryFigureSlug } from '../../lib/kgShrineFigures';
-import { formatDateWindow, formatSourceDate } from '../../lib/i18n/formatDateWindow';
+import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 import type { AlmanacEntry } from '../../lib/data/almanac';
 import type { Lang } from '../../types/shrine';
 
@@ -32,6 +33,11 @@ export function ObservanceCard({
 }) {
   const { t, fmtNum, localizeField } = useLang();
   const { shrine, observance, window, approximate } = entry;
+  const { calendar } = useReaderPreferences();
+  /* Which of the two dates leads is the reader's choice, and the "approximate"
+     flag follows the projection rather than the position — see
+     lib/i18n/observanceDates.ts. */
+  const dates = observanceDateDisplay(observance, window, approximate, lang, fmtNum, calendar);
   const location = localizeField(shrine.raw, 'Location') || shrine.location;
   const monthOnly = observance.precision === 'month';
   // An ʿurs is a death anniversary, so the figure it commemorates is the point
@@ -51,9 +57,12 @@ export function ObservanceCard({
     >
       <div className="almanac-entry-date">
         <span className="almanac-entry-date-main">
-          {formatDateWindow(window, lang, fmtNum, { monthOnly })}
+          <bdi>{dates.lead}</bdi>
         </span>
-        {approximate ? (
+        {dates.calendarNoteOn === 'lead' ? (
+          <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
+        ) : null}
+        {dates.leadIsProjection ? (
           <span
             className="almanac-flag almanac-flag--approximate"
             title={t('almanacApproximateFull')}
@@ -104,20 +113,18 @@ export function ObservanceCard({
         {/* What the archive actually recorded, always shown beside what we
             computed from it — the reader can check our arithmetic. */}
         <p className="almanac-entry-source">
-          <span className="almanac-entry-source-label">{t('almanacSourceLabel')}: </span>
-          <bdi>
-            {formatSourceDate(
-              observance.calendar,
-              observance.month,
-              observance.monthEnd,
-              observance.dayStart,
-              observance.dayEnd,
-              lang,
-              fmtNum,
-            )}
-          </bdi>
-          {observance.calendar === 'hijri' ? (
+          <span className="almanac-entry-source-label">{t(dates.secondaryLabelKey)}: </span>
+          <bdi>{dates.secondary}</bdi>
+          {dates.calendarNoteOn === 'secondary' ? (
             <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
+          ) : null}
+          {dates.secondaryIsProjection ? (
+            <span
+              className="almanac-flag almanac-flag--approximate"
+              title={t('almanacApproximateFull')}
+            >
+              {t('almanacApproximate')}
+            </span>
           ) : null}
         </p>
 

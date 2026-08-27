@@ -33,6 +33,11 @@ const UI_TEXT_EN = {
   settingsNumeralsEastern: 'Eastern (۱۲۳)',
   settingsNumeralsWestern: 'Western (123)',
   settingsNumeralsUrduOnly: 'Applies to the Urdu edition.',
+  /* The label on the computed date, used when the recorded one leads. Its
+     counterpart is `almanacSourceLabel` ("Recorded"), which names the other
+     direction — and naming both is the point: a reader must be able to tell
+     which of the two dates the archive stands behind. */
+  almanacProjectedLabel: 'Projected',
   settingsAppearanceSection: 'Appearance',
   settingsTextSizeLabel: 'Reading size',
   settingsTextSizeHelp:
@@ -45,6 +50,14 @@ const UI_TEXT_EN = {
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
   settingsThemeLight: 'Light',
   settingsThemeDark: 'Dark',
+  settingsDatesSection: 'Dates and observances',
+  settingsCalendarLabel: 'Which calendar leads',
+  settingsCalendarHelp:
+    'An urs recorded in the Hijri calendar has no Gregorian date, only a forecast: the month begins on moon sighting. Both dates are always shown — this chooses which one is printed first.',
+  settingsCalendarGregorian: 'Gregorian first',
+  settingsCalendarHijri: 'Hijri first',
+  settingsCalendarNote:
+    'A day the archive recorded as a Gregorian date is left as it is, because no Hijri date was recorded for it and computing one would be inventing a date.',
   settingsMapSection: 'Map and guided tours',
   /* Its own legend rather than reusing `directoryModeLabel` ("Table button
      opens"), which works above two radios in a popover and reads as a

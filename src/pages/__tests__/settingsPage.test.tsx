@@ -17,6 +17,7 @@ import userEvent from '@testing-library/user-event';
 import SettingsPage from '../SettingsPage';
 import { renderWithProviders } from '../../test/utils';
 import {
+  CALENDAR_STORAGE_KEY,
   DIRECTORY_MODE_STORAGE_KEY,
   NUMERALS_STORAGE_KEY,
   TEXT_SIZE_STORAGE_KEY,
@@ -121,6 +122,23 @@ describe('SettingsPage', () => {
        three sizes and nothing about the sizes. */
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     expect(screen.getByText(en.settingsTextSizeSample)).toBeInTheDocument();
+  });
+
+  it('persists the calendar preference', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsCalendarHijri }));
+    expect(localStorage.getItem(CALENDAR_STORAGE_KEY)).toBe('hijri');
+    await user.click(screen.getByRole('radio', { name: en.settingsCalendarGregorian }));
+    expect(localStorage.getItem(CALENDAR_STORAGE_KEY)).toBe('gregorian');
+  });
+
+  it('says what the calendar preference will not do', () => {
+    /* The note is the honest half: a day recorded as a Gregorian date has no
+       Hijri date in this archive, and the setting has to say so rather than
+       leave the reader wondering why some rows did not change. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByText(en.settingsCalendarNote)).toBeInTheDocument();
   });
 
   it('reflects what is already stored instead of showing defaults', () => {

@@ -8,6 +8,7 @@ import type { RenderResult } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { LanguageProvider } from '../lib/i18n/LanguageContext';
 import { ThemeProvider } from '../lib/i18n/ThemeContext';
+import { ReaderPreferencesProvider } from '../lib/preferences/ReaderPreferencesContext';
 import { LANGUAGE_STORAGE_KEY } from '../lib/storageKeys';
 import type { Lang, ShrineRow } from '../types/shrine';
 
@@ -33,7 +34,12 @@ export function renderWithProviders(
     route === undefined ? ui : <MemoryRouter initialEntries={[route]}>{ui}</MemoryRouter>;
   return render(
     <ThemeProvider>
-      <LanguageProvider>{content}</LanguageProvider>
+      <LanguageProvider>
+        {/* The real tree, so a component reading a reader preference is tested
+            through the provider rather than through the hook's
+            outside-a-provider defaults. */}
+        <ReaderPreferencesProvider>{content}</ReaderPreferencesProvider>
+      </LanguageProvider>
     </ThemeProvider>,
   );
 }

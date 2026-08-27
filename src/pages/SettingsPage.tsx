@@ -20,6 +20,8 @@ import {
   writeTextSize,
   type TextSize,
 } from '../lib/textSizePreference';
+import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
+import type { CalendarPreference } from '../lib/calendarPreference';
 import type { Lang, Theme } from '../types/shrine';
 
 /**
@@ -100,6 +102,7 @@ function SettingsRadio<T extends string>({
 export default function SettingsPage() {
   const { lang, setLang, numerals, setNumerals, t } = useLang();
   const { theme, toggleTheme } = useTheme();
+  const { calendar, setCalendar } = useReaderPreferences();
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
   useDocumentTitle(`${t('settings')} — ${t('siteTitle')}`);
@@ -275,6 +278,33 @@ export default function SettingsPage() {
               current={theme}
               label={t('settingsThemeDark')}
               onChoose={chooseTheme}
+            />
+          </SettingsGroup>
+        </section>
+
+        <section className="settings-section" aria-labelledby="settings-dates">
+          <h2 id="settings-dates" className="settings-section-heading">
+            {t('settingsDatesSection')}
+          </h2>
+
+          <SettingsGroup
+            legend={t('settingsCalendarLabel')}
+            help={t('settingsCalendarHelp')}
+            note={t('settingsCalendarNote')}
+          >
+            <SettingsRadio<CalendarPreference>
+              name="calendar"
+              value="gregorian"
+              current={calendar}
+              label={t('settingsCalendarGregorian')}
+              onChoose={setCalendar}
+            />
+            <SettingsRadio<CalendarPreference>
+              name="calendar"
+              value="hijri"
+              current={calendar}
+              label={t('settingsCalendarHijri')}
+              onChoose={setCalendar}
             />
           </SettingsGroup>
         </section>

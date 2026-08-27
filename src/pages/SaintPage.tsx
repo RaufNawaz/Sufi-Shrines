@@ -44,7 +44,8 @@ import {
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildAlmanac } from '../lib/data/almanac';
-import { formatDateWindow } from '../lib/i18n/formatDateWindow';
+import { observanceDateDisplay } from '../lib/i18n/observanceDates';
+import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
 import { figureGroup, figureGroupLabelSingular, isProseFigureType } from '../lib/data/figureType';
 import { figurePrecisionMarker } from '../lib/data/figurePrecision';
 import { figureProvenance } from '../lib/data/figureProvenance';
@@ -55,6 +56,7 @@ import { isRtlLang } from '../lib/i18n/languages';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, t, fmtNum, localizeField, numerals } = useLang();
+  const { calendar } = useReaderPreferences();
   const headingRef = useFocusHeadingOnMount();
   const { shrines } = useShrineData();
 
@@ -118,6 +120,24 @@ export default function SaintPage() {
     if (own.length === 0) return null;
     return buildAlmanac(own, today).dated[0] ?? null;
   }, [saint, shrines, today]);
+
+  /* The next ʿurs, formatted through the shared pair-formatter so this line,
+     the almanac's card and the shrine page's panel all agree about which date
+     leads and where the "approximate" flag belongs. */
+  const nextUrsDates = useMemo(
+    () =>
+      nextUrs
+        ? observanceDateDisplay(
+            nextUrs.observance,
+            nextUrs.window,
+            nextUrs.approximate,
+            lang,
+            fmtNum,
+            calendar,
+          )
+        : null,
+    [nextUrs, lang, fmtNum, calendar],
+  );
 
   /* The shrine records themselves, not just their names: the place a figure
      rests in, and the observance cell kept there, both live on the row. */
@@ -467,15 +487,14 @@ export default function SaintPage() {
               </Link>
             </span>
           ))}
-          {nextUrs && (
+          {nextUrs && nextUrsDates && (
             <span className="entity-meta-item">
-              {t('saintNextUrs')}:{' '}
-              {formatDateWindow(nextUrs.window, lang, fmtNum, {
-                monthOnly: nextUrs.observance.precision === 'month',
-              })}
+              {t('saintNextUrs')}: <bdi>{nextUrsDates.lead}</bdi>
               {/* A Hijri-derived date moves with the moon sighting. Saying so
-                  is the difference between a date and a forecast. */}
-              {nextUrs.approximate && (
+                  is the difference between a date and a forecast — and which of
+                  the two dates leads here is the reader's choice, so the flag
+                  follows the projection rather than the position. */}
+              {nextUrsDates.leadIsProjection && (
                 <span
                   className="almanac-flag almanac-flag--approximate entity-urs-flag"
                   title={t('almanacApproximateFull')}
