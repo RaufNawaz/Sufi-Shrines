@@ -127,6 +127,47 @@ describe('motion accessibility', () => {
     ).toEqual([]);
   });
 
+  it('the reader can ask for the same thing the OS asks for', () => {
+    /* `lib/motionPreference.ts` writes `data-motion="reduced"` for a reader
+       whose device does not offer the setting. The attribute path is a
+       universal reset rather than a mirror of the named escapes above — the
+       reasoning is in that file — so what is asserted here is that it exists,
+       that it reaches animations and transitions, and that it zeroes the
+       duration tokens the same way the media query does. */
+    const motion = SHEETS.find((s) => s.file === 'motion.css');
+    expect(motion, 'motion.css is gone').toBeTruthy();
+    const css = strip(motion!.css);
+    const block = css.match(/:root\[data-motion='reduced'\][\s\S]*$/);
+    expect(block, 'no reader-controlled motion path at all').toBeTruthy();
+    const text = block![0];
+    expect(text).toMatch(/--duration-fast:\s*0ms/);
+    expect(text).toMatch(/--duration-base:\s*0ms/);
+    expect(text).toMatch(/--duration-slow:\s*0ms/);
+    expect(text).toMatch(/animation-duration:[^;]*!important/);
+    expect(text).toMatch(/transition-duration:[^;]*!important/);
+    expect(text).toMatch(/scroll-behavior:\s*auto/);
+  });
+
+  it('exempts the spinner from the reader path too, not just the OS one', () => {
+    /* Same reason as the exemption list above: a loading spinner frozen
+       mid-turn reads as a hung page rather than a calm one. An exemption that
+       holds on one of two paths is an exemption that will surprise someone. */
+    const motion = SHEETS.find((s) => s.file === 'motion.css')!;
+    const block = strip(motion.css).match(/:root\[data-motion='reduced'\][\s\S]*$/)![0];
+    expect(block).toContain('.spinner');
+  });
+
+  it('offers no way to restore motion against the OS setting', () => {
+    /* There is deliberately no `[data-motion='full']`. Restoring motion would
+       mean un-disabling every escape in this file and seven others, which puts
+       a medical setting one CSS mistake from being ignored. */
+    for (const sheet of SHEETS) {
+      expect(strip(sheet.css), `${sheet.file} re-enables motion`).not.toContain(
+        "data-motion='full'",
+      );
+    }
+  });
+
   it('the exemption list stays short and says why', () => {
     // A growing list of "this one is special" is how an accessibility contract
     // rots. One entry is a decision; five is a habit.

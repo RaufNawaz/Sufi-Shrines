@@ -46,6 +46,11 @@ export const UI_TEXT_UR: UiStrings = {
   settingsTextSizeMedium: 'درمیانہ',
   settingsTextSizeLarge: 'بڑا',
   settingsTextSizeSample: 'مزار وہاں ہے جہاں راستہ دریا کی طرف مڑتا ہے۔',
+  settingsMotionLabel: 'حرکت',
+  settingsMotionHelp:
+    'آرکائیو حصوں کو آتے ہوئے دھیرے سے نمایاں کرتا ہے اور سلسلوں کے خاکوں میں حرکت دکھاتا ہے۔ اگر آپ کا آلہ پہلے ہی کم حرکت کا تقاضا کرتا ہے تو آرکائیو اس کی پیروی کرتا ہے۔',
+  settingsMotionSystem: 'میرے آلے کی پیروی کریں',
+  settingsMotionReduced: 'حرکت کم کریں',
   settingsThemeLabel: 'رنگ',
   settingsThemeHelp: 'جب تک آپ یہاں خود انتخاب نہ کریں، آرکائیو آپ کے آلے کی پیروی کرتا ہے۔',
   settingsThemeLight: 'روشن',

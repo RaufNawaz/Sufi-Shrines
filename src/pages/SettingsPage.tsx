@@ -22,6 +22,12 @@ import {
   type TextSize,
 } from '../lib/textSizePreference';
 import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
+import {
+  applyMotionPreference,
+  readMotionPreference,
+  writeMotionPreference,
+  type MotionPreference,
+} from '../lib/motionPreference';
 import type { CalendarPreference } from '../lib/calendarPreference';
 import type { DistanceUnits } from '../lib/unitsPreference';
 import {
@@ -128,6 +134,7 @@ export default function SettingsPage() {
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   const [toursEnabled, setToursEnabled] = useState<boolean>(readToursEnabled);
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
+  const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
   const saved = useSavedShrines();
   const fileInputRef = useRef<HTMLInputElement>(null);
   /* One line of feedback under the buttons, because an import that silently
@@ -139,6 +146,12 @@ export default function SettingsPage() {
   const chooseDirectoryMode = (mode: DirectoryMode) => {
     setDirectoryMode(mode);
     writeDirectoryMode(mode);
+  };
+
+  const chooseMotion = (next: MotionPreference) => {
+    setMotion(next);
+    writeMotionPreference(next);
+    applyMotionPreference(next, document.documentElement);
   };
 
   const exportSavedList = () => {
@@ -324,6 +337,23 @@ export default function SettingsPage() {
                 the page around it. Its own class so it takes body type rather
                 than the smaller help size. */}
             <p className="settings-sample">{t('settingsTextSizeSample')}</p>
+          </SettingsGroup>
+
+          <SettingsGroup legend={t('settingsMotionLabel')} help={t('settingsMotionHelp')}>
+            <SettingsRadio<MotionPreference>
+              name="motion"
+              value="system"
+              current={motion}
+              label={t('settingsMotionSystem')}
+              onChoose={chooseMotion}
+            />
+            <SettingsRadio<MotionPreference>
+              name="motion"
+              value="reduced"
+              current={motion}
+              label={t('settingsMotionReduced')}
+              onChoose={chooseMotion}
+            />
           </SettingsGroup>
 
           <SettingsGroup legend={t('settingsThemeLabel')} help={t('settingsThemeHelp')}>

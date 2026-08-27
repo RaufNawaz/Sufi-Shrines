@@ -27,6 +27,10 @@ export const DIRECTORY_MODE_STORAGE_KEY = 'shrines_directory_mode';
 /** Per-tour progress + the "Resume tour" pointer (JSON, see tourProgress.ts). */
 export const TOUR_PROGRESS_STORAGE_KEY = 'shrines_tour_progress';
 
+/** Motion preference ('system' | 'reduced') — read pre-paint in main.tsx.
+ * See motionPreference.ts for why there is no 'full'. */
+export const MOTION_STORAGE_KEY = 'shrines_motion';
+
 /** Distance units ('km' | 'mi'). See unitsPreference.ts. */
 export const UNITS_STORAGE_KEY = 'shrines_units';
 

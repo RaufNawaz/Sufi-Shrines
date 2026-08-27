@@ -46,6 +46,11 @@ const UI_TEXT_EN = {
   settingsTextSizeMedium: 'Medium',
   settingsTextSizeLarge: 'Large',
   settingsTextSizeSample: 'The shrine stands where the road bends toward the river.',
+  settingsMotionLabel: 'Motion',
+  settingsMotionHelp:
+    'The archive fades sections in as they arrive and animates the lineage diagrams. If your device already asks for reduced motion, the archive follows it.',
+  settingsMotionSystem: 'Follow my device',
+  settingsMotionReduced: 'Reduce motion',
   settingsThemeLabel: 'Theme',
   settingsThemeHelp: 'Until you choose here, the archive follows your device.',
   settingsThemeLight: 'Light',

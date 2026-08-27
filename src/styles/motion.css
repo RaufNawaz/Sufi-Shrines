@@ -217,3 +217,65 @@
     stroke-dasharray: none;
   }
 }
+
+/* ── The same contract, asked for by the reader ─────────────────────────────
+ *
+ * `lib/motionPreference.ts` lets a reader switch the animations off without an
+ * operating system that offers the setting — a borrowed phone, a shared
+ * machine, an Android build whose accessibility panel does not expose it.
+ *
+ * A universal reset rather than a mirror of the twelve named escapes above and
+ * in seven other stylesheets. The reasoning is in motionPreference.ts: the
+ * named blocks are a precise instrument aimed at a default, and duplicating
+ * them would double the surface and leave the two paths one forgotten edit
+ * apart. This is a blunt instrument aimed at an explicit request, and it
+ * reaches anything a later commit adds before it remembers to add an escape.
+ *
+ * `.spinner` is exempt in both paths, for the reason motion.test.ts already
+ * records: a loading spinner frozen mid-turn reads as a hung page rather than a
+ * calm one.
+ *
+ * There is no `[data-motion='full']`. See motionPreference.ts — restoring
+ * motion against the OS setting would mean un-disabling every escape above,
+ * which would put a medical setting one CSS mistake away from being ignored.
+ */
+
+:root[data-motion='reduced'] {
+  --duration-fast: 0ms;
+  --duration-base: 0ms;
+  --duration-slow: 0ms;
+  /* A whole viewport sliding past is the kind of motion most likely to trigger
+     vestibular symptoms, and it is not an animation any of the escapes above
+     would catch. */
+  scroll-behavior: auto;
+}
+
+:root[data-motion='reduced'] *:not(.spinner):not(.spinner *),
+:root[data-motion='reduced'] *:not(.spinner)::before,
+:root[data-motion='reduced'] *:not(.spinner)::after {
+  /* Not 0s: a zero-duration animation does not fire `animationend`, and the
+     tour autoplay and the palette both wait on transition and animation events
+     to sequence what happens next. 0.01ms is instant to a reader and still a
+     completed animation to the code. */
+  animation-duration: 0.01ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* The two escapes above that are not about timing, kept because a reader who
+   turns motion off must not lose content to it: `.js-reveal` starts at
+   `opacity: 0` and is revealed by an observer, so a page where that observer
+   never fires would be blank rather than static. */
+:root[data-motion='reduced'] .js-reveal,
+:root[data-motion='reduced'] .js-reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* The dash pattern exists only to be animated; left behind it renders every
+   lineage edge as a dotted line. */
+:root[data-motion='reduced'] .network-edge--animated {
+  stroke-dasharray: none;
+}

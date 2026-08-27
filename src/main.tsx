@@ -24,6 +24,7 @@ import './styles/tabbar.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';
 import { applyTextSize, readTextSize } from './lib/textSizePreference';
+import { applyMotionPreference, readMotionPreference } from './lib/motionPreference';
 import { detectInitialLang } from './lib/i18n/detectLang';
 import { ensureUrduSeedForLang } from './lib/i18n/urduFallback';
 import { loadUiStrings } from './lib/i18n/uiStrings';
@@ -45,6 +46,10 @@ document.documentElement.setAttribute('data-theme', theme);
    watches happen. `medium` writes no attribute, so the default DOM is the
    default preference. */
 applyTextSize(readTextSize(), document.documentElement);
+
+/* And the motion preference, for the same reason again: an animation that is
+   switched off after it has started is an animation the reader saw. */
+applyMotionPreference(readMotionPreference(), document.documentElement);
 
 initTelemetry();
 

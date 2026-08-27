@@ -19,6 +19,7 @@ import { renderWithProviders } from '../../test/utils';
 import {
   CALENDAR_STORAGE_KEY,
   DIRECTORY_MODE_STORAGE_KEY,
+  MOTION_STORAGE_KEY,
   NUMERALS_STORAGE_KEY,
   TEXT_SIZE_STORAGE_KEY,
   THEME_STORAGE_KEY,
@@ -33,6 +34,7 @@ describe('SettingsPage', () => {
   beforeEach(() => {
     localStorage.clear();
     document.documentElement.removeAttribute('data-text-size');
+    document.documentElement.removeAttribute('data-motion');
   });
 
   it('renders every section', () => {
@@ -149,6 +151,16 @@ describe('SettingsPage', () => {
     expect(localStorage.getItem(UNITS_STORAGE_KEY)).toBe('mi');
     await user.click(screen.getByRole('radio', { name: en.settingsUnitsKm }));
     expect(localStorage.getItem(UNITS_STORAGE_KEY)).toBe('km');
+  });
+
+  it('persists the motion preference and puts it on the document', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    await user.click(screen.getByRole('radio', { name: en.settingsMotionReduced }));
+    expect(localStorage.getItem(MOTION_STORAGE_KEY)).toBe('reduced');
+    expect(document.documentElement.getAttribute('data-motion')).toBe('reduced');
+    await user.click(screen.getByRole('radio', { name: en.settingsMotionSystem }));
+    expect(document.documentElement.hasAttribute('data-motion')).toBe(false);
   });
 
   it('reflects what is already stored instead of showing defaults', () => {
