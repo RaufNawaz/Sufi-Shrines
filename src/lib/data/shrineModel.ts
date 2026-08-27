@@ -1,5 +1,4 @@
 import type { LatLng, Shrine, ShrineRow } from '../../types/shrine';
-import { buildArticleSections, parsedArticleFromRow } from './articleParsing';
 import { getFieldValue } from './fieldAliasing';
 import { getPrimaryImageCredit, getPrimaryImageUrl, parseGallery } from './galleryParsing';
 import { buildStableSlug, slugify } from './slugify';
@@ -130,8 +129,6 @@ export function buildShrine(row: ShrineRow, id: number): Shrine | null {
     imageUrl: getPrimaryImageUrl(row),
     imageCredit: getPrimaryImageCredit(row),
     gallery: parseGallery(row),
-    parsedArticle: parsedArticleFromRow(row),
-    articleSections: buildArticleSections(row, 'en'),
     raw: row,
   };
 }

@@ -105,8 +105,20 @@ export interface Shrine {
   imageUrl: string | null;
   imageCredit: string;
   gallery: GalleryItem[];
-  parsedArticle: ParsedArticle;
-  articleSections: ArticleSection[];
+  /* No `parsedArticle` / `articleSections` here, deliberately.
+   *
+   * Both were built for all 169 rows on every page load and **read by nothing**:
+   * every real consumer — `useArticleContent`, `ShrinePreview`,
+   * `figureBiography` — calls `lib/data/articleParsing` with the row itself,
+   * which is the right shape, because article structure is needed on one entry
+   * at a time and the map needs none of it.
+   *
+   * The cost was measured on 27 August 2026: the heading pipeline runs six
+   * regexes over every candidate line of every Description, and `parsedArticle`
+   * serialised to **1,902 characters per shrine** inside the localStorage cache
+   * — about 40% of a 1,891 KB write that happens on every visit. If a consumer
+   * ever wants a parsed article on the model, note that the parse belongs
+   * behind a getter or a memo keyed on the row, not eagerly on 169 of them. */
   raw: ShrineRow;
 }
 

@@ -12,9 +12,13 @@ import {
 import { detectInitialLang } from '../lib/i18n/detectLang';
 import { ensureUrduSeedForLang, onUrduSeedLoaded } from '../lib/i18n/urduFallback';
 
-// v5: Shrine gained supportLevel/statusNote and the split date fields —
-// older cached shapes lack them.
-const CACHE_KEY = 'shrines_csv_cache_v5';
+/* v6: `parsedArticle` and `articleSections` came off the model. An older cached
+   shape would still *read* fine — extra fields are ignored — but it would keep a
+   1,891 KB entry alive for up to an hour, about 40% of which was the article
+   parse nothing reads. Bumping trades one re-fetch for a cache less than
+   two-thirds the size.
+   v5: Shrine gained supportLevel/statusNote and the split date fields. */
+const CACHE_KEY = 'shrines_csv_cache_v6';
 const CACHE_MAX_AGE_MS = 1000 * 60 * 60; // 1 hour
 
 type Source = NonNullable<ShrineDataState['source']>;
