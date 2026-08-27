@@ -252,7 +252,13 @@ outside citations/URLs/coordinates/`<bdi>`.
   2026* for the 169; the 534 is an external figure from the register, not computed here.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
-  `/about`, which recomputes it on every load.
+  `/about`, which recomputes it on every load. **But 51 counts a field, not a picture:**
+  `pipeline/check_image_liveness.py` fetched all 242 on *27 August 2026* and found **3 dead**
+  (two 404s on Wikimedia, one 403 on heritageofpakistan.org), two of which are an entry's only
+  image — so the honest figure is **53**, and `/about` cannot see the difference. Re-run the
+  script rather than trusting either number; its docstring records the four instruments that
+  gave wrong answers first, including a browser pass that reports 80 failures from inside a
+  proxied sandbox and is measuring the proxy.
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
   ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
   media directories, which are gitignored and not present in a fresh clone, so this cannot be
