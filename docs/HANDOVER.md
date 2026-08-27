@@ -4495,6 +4495,51 @@ keep the 1,891 KB version alive for an hour.
 3. A micro-subset Nastaliq face for the language toggle would give real Nastaliq at ~3 KB instead
    of the system fallback, and needs `fonttools` as a build dependency — a decision, not a tweak.
 
+### Added 27 August 2026 — the archive does work offline, and for five pages that was the problem
+
+**A claim nothing had tested.** `savedShrines.ts` opens by saying the list "works offline in the
+PWA"; the service worker precaches 4,269 KB; no test, spec or note had ever checked whether the
+archive is usable with the network cut. It is:
+
+    offline /                    169 markers, sidebar, no page errors
+    offline /shrine/data-darbar  title + all 17 article sections
+    offline /settings            renders
+    offline /about /almanac /place/:slug /saint/:slug   all render completely
+
+Recorded as a standing measurement rather than a fix, because the absence of a defect is the
+answer and nobody should have to rediscover it. Method: warm visit, `context.setOffline(true)`,
+reload. Note that `playwright.config.ts` sets `serviceWorkers: 'block'` to keep the CSV intercept
+hermetic, so **the e2e suite cannot see this path at all** — it has to be checked by hand or with
+a probe that leaves the worker alone.
+
+#### What it did find
+
+`OfflineDataBanner` was on the map and nowhere else. Five pages rendered the archive from a cache
+of unknown age and said nothing.
+
+**`/about` is the case that decides it.** That page computes the coverage figures from the shipped
+data on every load *specifically so they cannot go stale* — the standing-findings note above says
+a page "cannot go stale the way a note can", and that is the whole reason those numbers are
+computed rather than written down. Offline it printed **"171 sites"** from cache with nothing to
+qualify it. The exact failure the design was built to avoid, arriving through a door nobody had
+checked.
+
+The banner is now on all eight pages that call `useShrineData`, self-hiding unless a live fetch has
+actually failed — verified absent on five routes online and present on five offline. It gained an
+`overlay`/`inline` variant because the map is a full-height layout with no document flow for a
+banner to sit in; `inline` is the default and the map is the exception.
+
+`src/lib/data/__tests__/offlineDisclosure.test.ts` derives the page list from the source rather
+than listing it, like `siteFooter.test.ts`, because the failure mode is *a new page*: someone adds
+a route, calls `useShrineData`, inherits the gap.
+
+#### One thing the sweep also settled
+
+The Shrine model was checked field by field for others like `parsedArticle` — 29 fields, each
+grepped for consumers outside the type and the model. **There are no more dead ones.** Recorded
+because the absence is the answer, and the next person wondering can read this instead of running
+it again.
+
 ### The next agent-executable piece of work
 
 **Completed 24 August 2026:** `src/data/source-notes.json` now carries the reader-facing
