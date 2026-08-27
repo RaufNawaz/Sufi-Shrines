@@ -27,7 +27,15 @@ rather than emitting a file that violates any of:
   5. Every non-empty `note` is prefixed so it reads unmistakably as an agent's note and
      never as source text.
 
-Run: python3 pipeline/image-hunt/write_candidates.py
+Run: python3 pipeline/image-hunt/write_candidates_sikh.py
+
+NAMED FOR ITS TRADITION ON PURPOSE. This was `write_candidates.py` for about ten
+minutes, which is a generic filename holding Sikh-specific data — the next agent told
+to "land your generator" would have clobbered it silently, and its 21 rows of quoted
+provenance are not reconstructible from a diff. Four of these hunts ran in parallel in
+one working tree; the sibling that noticed the collision risk is the reason this file
+has a suffix. If a fifth tradition is added, give it its own file or make the tradition
+an argument — do not reintroduce the shared name.
 
 -----------------------------------------------------------------------------------------
 TWO TRAPS FOUND WHILE HUNTING THESE 18 SITES — both cost real time, both are silent
