@@ -1,6 +1,42 @@
 import type { Lang } from '../../types/shrine';
 import { GREGORIAN_MONTH_NAMES, HIJRI_MONTH_NAMES } from '../data/ursDates';
+import type { Season } from '../data/ursDates';
 import type { DateWindow } from '../data/hijriCalendar';
+
+/**
+ * The interface key naming each season, for the six observances the archive
+ * records as a season and no month ("Annual urs (spring)").
+ *
+ * Here rather than in a page because two surfaces now render a season the
+ * archive recorded — the almanac's own section and the order pages' ʿurs list —
+ * and a second copy of this map is a second place for a season to go untranslated.
+ */
+export const SEASON_LABEL_KEYS = {
+  spring: 'almanacSeasonSpring',
+  summer: 'almanacSeasonSummer',
+  autumn: 'almanacSeasonAutumn',
+  winter: 'almanacSeasonWinter',
+} as const satisfies Record<Season, string>;
+
+/**
+ * Weekday names, Monday first — the order `buildCalendarMonths` lays a week out
+ * in (ISO 8601, and the working week in Pakistan).
+ *
+ * Written out rather than taken from `Intl.DateTimeFormat`: the Urdu locale's
+ * own short forms are inconsistently available across engines, and a calendar
+ * whose column headings differ between a reader's phone and their laptop is
+ * worse than one that always says the same thing. The long forms carry the
+ * accessible name; the short forms are the column heading.
+ */
+export const WEEKDAY_NAMES_SHORT: Record<Lang, readonly string[]> = {
+  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  ur: ['پیر', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ', 'اتوار'],
+};
+
+export const WEEKDAY_NAMES_LONG: Record<Lang, readonly string[]> = {
+  en: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  ur: ['پیر', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ', 'اتوار'],
+};
 
 /** Gregorian month name in the reader's language. */
 export function gregorianMonthName(month: number, lang: Lang): string {

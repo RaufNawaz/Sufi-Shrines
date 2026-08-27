@@ -189,11 +189,23 @@ const BUDGET: Record<string, number> = {
   // declares fewer runs than the same page a moment later. Every route whose
   // markup this merge did not touch measures exactly its pre-merge number,
   // which is what makes these five trustworthy.
-  order: 66,
-  'order:chishtiyya': 36,
-  'order:suhrawardiyya': 45,
-  'order:naqshbandiyya': 27,
-  'order:qalandariyya': 10,
+  // Raised 26 August 2026 by exactly the ʿurs list's own runs — +11 / +7 / +6 /
+  // +5 / +1, measured route by route with the walker below. The new section
+  // prints each observance's `Events` cell verbatim beside the date read out of
+  // it, the way the almanac's own cards do, and `localizeObservance` translates
+  // that cell segment by segment: "سالانہ عرس؛ نعت اور قوالی؛ روزانہ لنگر"
+  // arrives whole, while "Eid Milad-un-Nabi (principal gathering)" has no
+  // dictionary entry and stays as the surveyor wrote it (RULE 2 — a visibly
+  // untranslated observance beats a confidently wrong one). Each of these is a
+  // segment the observance dictionary does not yet carry, so the number falls as
+  // `urdu-i18n/build_dictionary.py` gains entries. Hiding the cell from an Urdu
+  // reader would have cost nothing here and would have made the Urdu view the
+  // one that cannot check the archive's arithmetic.
+  order: 77,
+  'order:chishtiyya': 43,
+  'order:suhrawardiyya': 51,
+  'order:naqshbandiyya': 32,
+  'order:qalandariyya': 11,
   graph: 122,
   almanac: 39,
   'saint:lineage-only': 24,

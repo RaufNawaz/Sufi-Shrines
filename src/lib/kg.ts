@@ -94,6 +94,60 @@ export function getSaintsInOrder(orderSlug: string): KGSaint[] {
     .filter((s): s is KGSaint => s !== undefined);
 }
 
+/** An observance the graph keeps for one member of an order. */
+export interface OrderObservance {
+  /** The member figure the observance commemorates. */
+  saint: KGSaint;
+  event: KGEvent;
+  /** False when the `belongs_to_order` edge that puts this figure in the order
+   * is machine-read and unread — 44 of the 64 memberships are. The row inherits
+   * whatever marking the member list above it carries; provenance parity
+   * between two surfaces does not happen by itself (HANDOVER §9.85). */
+  membershipReviewed: boolean;
+}
+
+/**
+ * Every observance recorded for a member of this order.
+ *
+ * Two joins the graph has supported all along and no page walked:
+ * `belongs_to_order` gives an order its members, `commemorated_by` gives each
+ * figure the days kept for them. Sixty-three ʿurs across the five orders sat on
+ * the far side of that join — a reader on the Chishtiyya page could see fourteen
+ * names and not one of the days those names are gathered for.
+ *
+ * **The event node is the join's product, not its evidence.** Its `name` is
+ * composed by the builder ("Urs of Bari Imam at Bari Imam") and its `date` is a
+ * bare month lifted from the shrine's own `Events` cell — present on 16 of 149.
+ * So a caller that wants to *show* a date reads it off the shrine record
+ * through `ursDates.ts`, the way the almanac does, and prints the cell verbatim
+ * beside it. Nothing here parses a date, and nothing here projects one.
+ *
+ * Returned in the graph's own order and deduped per (figure, event). Sorting is
+ * the view's business, because a list of people sorts by the reader's language.
+ */
+export function getOrderObservances(orderSlug: string): OrderObservance[] {
+  const byId = new Map(kg.events.map((e) => [e.id, e]));
+  const rows: OrderObservance[] = [];
+  const seen = new Set<string>();
+
+  for (const membership of getRelations({
+    object: `order:${orderSlug}`,
+    type: 'belongs_to_order',
+  })) {
+    const saint = getSaintBySlug(membership.subject.replace(/^saint:/, ''));
+    if (!saint) continue;
+    for (const rel of getRelations({ subject: membership.subject, type: 'commemorated_by' })) {
+      const event = byId.get(rel.object);
+      if (!event) continue;
+      const key = `${saint.slug}:${event.id}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      rows.push({ saint, event, membershipReviewed: membership.reviewed !== false });
+    }
+  }
+  return rows;
+}
+
 export type LineageRelationType = 'disciple_of' | 'successor_of';
 
 export interface LineageLink {

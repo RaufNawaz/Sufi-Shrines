@@ -92,6 +92,15 @@ const UI_TEXT_EN = {
   orderWhereNote:
     'Counted from the Location of every site where one of its figures is commemorated.',
   orderSitesHeading: 'Sites of this order',
+  /* ── Order pages: the order's own calendar ─────────────────────────────── */
+  orderUrsHeading: 'ʿUrs in this order',
+  orderUrsNote:
+    'Every observance the archive records at a site where one of this order’s figures is commemorated. The date is shown exactly as it was written down; nothing here is projected onto the Gregorian calendar — the almanac does that, and says how approximate the result is.',
+  orderUrsUndatedCount: (n: number) => `${n} with no recorded date`,
+  orderUrsNoDate: 'date not recorded',
+  orderUrsAnnual: 'annual',
+  orderUrsMonthly: 'monthly',
+  orderUrsBiannual: 'twice a year',
   activeFiltersCount: (n: number) => `${n} filter${n === 1 ? '' : 's'} active`,
   nearMe: 'Near Me',
   switchToUrdu: 'اردو',
@@ -456,6 +465,25 @@ const UI_TEXT_EN = {
     'Downloads the dated observances. Hijri-based entries carry their approximation in the event notes.',
   almanacRule: 'recurrence recorded, not a fixed date',
   almanacMonthOnly: 'month recorded, day not recorded',
+  /* ── The calendar view ─────────────────────────────────────────────────── */
+  almanacViewList: 'List',
+  almanacViewCalendar: 'Calendar',
+  ariaAlmanacView: 'How to show the next twelve months',
+  almanacCalendarNote:
+    'A square is a day, so only an observance the archive recorded with a day appears on one. Those recorded to a month alone are listed under the grid, unplaced — putting one on the 1st or the 15th would be this archive inventing a date.',
+  almanacCalendarCaption: 'observances with a recorded day',
+  almanacCalendarPrev: 'Earlier',
+  almanacCalendarNext: 'Later',
+  almanacCalendarPlaced: (n: number) =>
+    n === 1
+      ? '1 observance falls on a recorded day this month'
+      : `${n} observances fall on a recorded day this month`,
+  almanacCalendarDayCount: (n: number) => (n === 1 ? '1 observance' : `${n} observances`),
+  almanacCalendarShowMonth: 'Show the whole month',
+  almanacCalendarNoDays: 'No observance falls on a recorded day this month.',
+  almanacCalendarUnplacedHeading: 'This month, day not recorded',
+  almanacCalendarUnplacedNote:
+    'The archive records the month for these and no day, so they sit beside the grid rather than on it. A Hijri month straddles two Gregorian ones, which is why one can appear under both.',
   kmUnit: 'km',
   tourTotalDistance: 'Total distance',
   tourEstDriveTime: 'Est. drive time',
@@ -744,6 +772,9 @@ export function tFn(lang: Lang, key: 'orderBranchCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderMultiCount', n: number): string;
 export function tFn(lang: Lang, key: 'lineageChainForks', n: number): string;
 export function tFn(lang: Lang, key: 'orderUndated', n: number): string;
+export function tFn(lang: Lang, key: 'orderUrsUndatedCount', n: number): string;
+export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
+export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeOrder', order: string, n: number): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeAll', n: number): string;
@@ -817,6 +848,9 @@ export function tFn(
     | 'graphLineageUnaffiliated'
     | 'orderSpanOne'
     | 'lineageChainRemove'
+    | 'orderUrsUndatedCount'
+    | 'almanacCalendarPlaced'
+    | 'almanacCalendarDayCount'
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'

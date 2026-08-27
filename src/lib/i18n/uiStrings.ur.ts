@@ -111,6 +111,14 @@ export const UI_TEXT_UR: UiStrings = {
   orderWhereHeading: 'یہ سلسلہ کہاں ہے',
   orderWhereNote: 'ہر اُس مقام کے خانے سے گنا گیا جہاں اِس سلسلے کے کسی بزرگ کی یادگار ہے۔',
   orderSitesHeading: 'اِس سلسلے کے مقامات',
+  orderUrsHeading: 'اِس سلسلے کے عرس',
+  orderUrsNote:
+    'ہر وہ تقریب جو آرکائیو اُن مقامات پر درج کرتا ہے جہاں اِس سلسلے کی کسی شخصیت کی یادگار ہے۔ تاریخ بعینہٖ اُسی طرح دی گئی ہے جیسے لکھی گئی تھی؛ یہاں کسی تاریخ کو عیسوی تقویم پر منتقل نہیں کیا گیا — یہ کام عرس تقویم کرتی ہے، اور وہ ساتھ یہ بھی بتاتی ہے کہ نتیجہ کتنا تقریبی ہے۔',
+  orderUrsUndatedCount: (n: number) => `${n} کی تاریخ درج نہیں`,
+  orderUrsNoDate: 'تاریخ درج نہیں',
+  orderUrsAnnual: 'سالانہ',
+  orderUrsMonthly: 'ماہانہ',
+  orderUrsBiannual: 'سال میں دو بار',
   activeFiltersCount: (n: number) => `${n} فلٹرز فعال`,
   nearMe: 'میرے قریب',
   switchToUrdu: 'اردو',
@@ -454,6 +462,25 @@ export const UI_TEXT_UR: UiStrings = {
     'متعین تاریخ والی تقریبات ڈاؤن لوڈ ہوتی ہیں۔ ہجری تاریخوں کے ساتھ ان کی تخمینی نوعیت نوٹ میں درج ہوتی ہے۔',
   almanacRule: 'تکرار درج ہے، مقررہ تاریخ نہیں',
   almanacMonthOnly: 'مہینہ درج ہے، دن درج نہیں',
+  /* ── تقویمی منظر — مسودہ، کسی روانی رکھنے والے نے نہیں دیکھا ──────────── */
+  almanacViewList: 'فہرست',
+  almanacViewCalendar: 'تقویم',
+  ariaAlmanacView: 'اگلے بارہ مہینے کس طرح دکھائے جائیں',
+  almanacCalendarNote:
+    'خانہ ایک دن ہے، اِس لیے خانے پر صرف وہ تقریب آتی ہے جس کا دن آرکائیو میں درج ہے۔ جن کا صرف مہینہ درج ہے وہ جدول کے نیچے، بغیر کسی خانے کے، دی گئی ہیں — اُنہیں پہلی یا پندرہ تاریخ پر رکھنا اِس آرکائیو کی طرف سے تاریخ گھڑنا ہوگا۔',
+  almanacCalendarCaption: 'وہ تقاریب جن کا دن درج ہے',
+  almanacCalendarPrev: 'پہلے',
+  almanacCalendarNext: 'بعد',
+  /* تقریب / تقاریب — the broken plural, which Urdu does mark even though it
+     has no -s. A bare "۱ تقاریب" reads as a typo to a native eye. */
+  almanacCalendarPlaced: (n: number) =>
+    n === 1 ? 'اِس مہینے ۱ تقریب کا دن درج ہے' : `اِس مہینے ${n} تقاریب کا دن درج ہے`,
+  almanacCalendarDayCount: (n: number) => (n === 1 ? '۱ تقریب' : `${n} تقاریب`),
+  almanacCalendarShowMonth: 'پورا مہینہ دکھائیں',
+  almanacCalendarNoDays: 'اِس مہینے کسی تقریب کا دن درج نہیں۔',
+  almanacCalendarUnplacedHeading: 'اِس مہینے میں، دن درج نہیں',
+  almanacCalendarUnplacedNote:
+    'آرکائیو اِن کا مہینہ درج کرتا ہے، دن نہیں، اِس لیے یہ جدول پر نہیں بلکہ اُس کے ساتھ دی گئی ہیں۔ ہجری مہینہ دو عیسوی مہینوں پر پھیلتا ہے، اِسی لیے ایک تقریب دونوں کے نیچے آ سکتی ہے۔',
   kmUnit: 'کلومیٹر',
   tourTotalDistance: 'کل فاصلہ',
   tourEstDriveTime: 'ڈرائیو کا تخمینی وقت',

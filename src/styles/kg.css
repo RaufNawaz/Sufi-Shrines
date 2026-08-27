@@ -1869,3 +1869,136 @@
 .graph-century-note {
   margin-block: 0 var(--space-4);
 }
+
+/* ── The order's own ʿurs calendar ───────────────────────────────────────────
+   Hairline rows, not the member list's bordered cards. The two lists sit one
+   under the other and name the same people; giving the calendar the lighter
+   treatment keeps the member list as the page's primary object rather than
+   staging a competition between two boxed lists. */
+
+.order-urs-list {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.order-urs-row {
+  display: grid;
+  /* Name on the leading edge, the recorded date on the trailing one. */
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-3);
+  padding-block: var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.order-urs-figure {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.order-urs-figure a {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.order-urs-figure a:hover,
+.order-urs-figure a:focus-visible {
+  text-decoration: underline;
+}
+
+.order-urs-when {
+  grid-column: 2;
+  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* "18–20 Safar" must not break across the en dash. */
+.order-urs-date {
+  white-space: nowrap;
+}
+
+/* No italic and no colour-only signal: what marks this row is the sentence
+   "date not recorded", which survives monochrome and Nastaliq alike. */
+.order-urs-date--none {
+  color: var(--color-text-muted);
+}
+
+.order-urs-calendar {
+  color: var(--color-text-muted);
+}
+
+.order-urs-frequency {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+/* The cell the dates were read out of. Spans the row because it is the
+   evidence for both columns above it. */
+.order-urs-recorded {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.order-urs-recorded-label {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.order-urs-links {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-block-start: var(--space-1);
+}
+
+/* How many of these rows the archive has no date for — the same fact the
+   almanac gives a whole section to, at the size this page can afford. */
+.order-urs-gap {
+  margin-block: var(--space-1) 0;
+  font-size: var(--text-xs);
+  color: var(--color-rubric);
+}
+
+/* Nastaliq reaches every one of these, and never below --text-sm (i18n rule 4
+   plus the line-height the Urdu face needs to stay legible). */
+[dir='rtl'] .order-urs-when,
+[dir='rtl'] .order-urs-frequency,
+[dir='rtl'] .order-urs-recorded,
+[dir='rtl'] .order-urs-gap {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+}
+
+[dir='rtl'] .order-urs-recorded {
+  line-height: var(--leading-urdu);
+}
+
+@media (max-width: 480px) {
+  /* A recorded date and a long recorded name do not share a phone's line
+     length. The date moves under the name rather than squeezing it. */
+  .order-urs-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .order-urs-when {
+    grid-column: 1;
+    justify-self: start;
+    justify-content: flex-start;
+  }
+}
