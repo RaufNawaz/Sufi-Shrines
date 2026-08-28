@@ -4,6 +4,7 @@ import { useLang } from '../../lib/i18n/LanguageContext';
 import { useArchiveSearch } from '../search/ArchiveSearchProvider';
 import { DarkModeToggle } from './DarkModeToggle';
 import { LanguageToggle } from './LanguageToggle';
+import { SettingsMenu } from './SettingsMenu';
 
 /**
  * The header every article page carries, with the title that arrives on scroll.
@@ -158,6 +159,11 @@ export function EntityPageHeader({ title }: { title?: string }) {
             </svg>
           </button>
         )}
+        {/* The archive's preferences, on the ten pages this header serves. They
+            used to be map chrome plus a footer link, so a reader who arrived on
+            an article from a search engine — which is how most arrive — had to
+            scroll past the whole article to change the reading size. */}
+        <SettingsMenu />
         <DarkModeToggle />
         <LanguageToggle />
       </div>

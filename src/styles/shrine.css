@@ -1140,6 +1140,15 @@
   display: flex;
   gap: var(--space-2);
   align-items: center;
+  /* Containing block for the settings popover, exactly as `.sidebar-actions` is
+     on the map — the row, never the 32px gear. Anchored to the icon, the panel
+     aligns its inline *end* to the inline *start* of the row and leaves the
+     header in whichever direction the language runs (HANDOVER §9.82). Without
+     this rule it would anchor to `.shrine-page-header` instead, which is
+     `position: sticky` and also raises a containing block through
+     `backdrop-filter`, and the panel would sit flush to the viewport edge
+     rather than under the controls it belongs to. */
+  position: relative;
 }
 
 [dir='rtl'] .back-link svg {

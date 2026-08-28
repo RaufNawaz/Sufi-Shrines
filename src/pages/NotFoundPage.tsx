@@ -2,36 +2,22 @@ import React from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
-import { DarkModeToggle } from '../components/ui/DarkModeToggle';
-import { LanguageToggle } from '../components/ui/LanguageToggle';
+/* The shared header, at last. This page carried a hand-written copy of it —
+   the back link and its chevron, the actions row, the two toggles — which is
+   the exact duplication `EntityPageHeader` was extracted to end, and it was
+   left behind because a 404 is nobody's first thought. It stayed wrong in a
+   way that matters: the gear went onto every page through that component, and
+   the one page a reader is most likely to reach from outside would have been
+   the only one without it. No `title` prop — this page's `<h1>` is the 404
+   itself, and a bar that collapses to "Page not found" says nothing twice. */
+import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 
 export default function NotFoundPage() {
   const { t } = useLang();
 
   return (
     <div className="not-found-page page-enter">
-      <header className="shrine-page-header no-print">
-        <Link to="/" className="back-link" aria-label={t('backToMap')}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          {t('backToMap')}
-        </Link>
-        <div className="shrine-page-header-actions">
-          <DarkModeToggle />
-          <LanguageToggle />
-        </div>
-      </header>
+      <EntityPageHeader />
 
       <div className="not-found-content">
         <div className="not-found-icon-wrap" aria-hidden="true">

@@ -231,15 +231,15 @@ for (const viewport of VIEWPORTS) {
       await page.goto(lang === 'ur' ? '/?lang=ur' : '/');
       await page.locator('#sidebar').waitFor();
 
-      await page.locator('.sidebar-settings-trigger').click();
-      await expect(page.locator('.sidebar-settings-panel')).toBeVisible();
+      await page.locator('.settings-menu-trigger').click();
+      await expect(page.locator('.settings-menu-panel')).toBeVisible();
       await settle(page);
 
       const offenders = await findOverflow(page, [...EXEMPT_SELECTORS]);
       expect(
         offenders,
         'The open settings panel pushes past the viewport. It is anchored to ' +
-          '.sidebar-actions, not to .sidebar-settings — check nothing has given the icon ' +
+          '.sidebar-actions, not to .settings-menu — check nothing has given the icon ' +
           'wrapper a containing block of its own.',
       ).toEqual([]);
     });

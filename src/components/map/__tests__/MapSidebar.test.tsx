@@ -101,7 +101,7 @@ describe('MapSidebar — directory preference', () => {
     const openSettings = () => {
       const view = renderSidebar({}, null);
       fireEvent.click(view.getByRole('button', { name: 'Settings' }));
-      expect(document.querySelector('.sidebar-settings-panel')).toBeInTheDocument();
+      expect(document.querySelector('.settings-menu-panel')).toBeInTheDocument();
       return view;
     };
 
@@ -112,7 +112,7 @@ describe('MapSidebar — directory preference', () => {
     it('stays open when a mode is chosen, so a second preference can be set', () => {
       const view = openSettings();
       fireEvent.click(view.getByRole('radio', { name: 'Shrine table' }));
-      expect(document.querySelector('.sidebar-settings-panel')).toBeInTheDocument();
+      expect(document.querySelector('.settings-menu-panel')).toBeInTheDocument();
       // And the choice took effect rather than being swallowed by staying open.
       expect(view.getByRole('radio', { name: 'Shrine table' })).toBeChecked();
     });
@@ -120,17 +120,17 @@ describe('MapSidebar — directory preference', () => {
     it('on Escape, returning focus to the button that opened it', () => {
       const view = openSettings();
       fireEvent.keyDown(document, { key: 'Escape' });
-      expect(document.querySelector('.sidebar-settings-panel')).not.toBeInTheDocument();
+      expect(document.querySelector('.settings-menu-panel')).not.toBeInTheDocument();
       expect(view.getByRole('button', { name: 'Settings' })).toHaveFocus();
     });
 
     it('on a click outside it, but not on a click inside', () => {
       openSettings();
-      fireEvent.pointerDown(document.querySelector('.sidebar-settings-panel')!);
-      expect(document.querySelector('.sidebar-settings-panel')).toBeInTheDocument();
+      fireEvent.pointerDown(document.querySelector('.settings-menu-panel')!);
+      expect(document.querySelector('.settings-menu-panel')).toBeInTheDocument();
 
       fireEvent.pointerDown(document.body);
-      expect(document.querySelector('.sidebar-settings-panel')).not.toBeInTheDocument();
+      expect(document.querySelector('.settings-menu-panel')).not.toBeInTheDocument();
     });
   });
 });

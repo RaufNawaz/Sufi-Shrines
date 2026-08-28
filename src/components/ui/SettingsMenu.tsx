@@ -1,12 +1,17 @@
-import { useId, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import { useLang, type Numerals } from '../../lib/i18n/LanguageContext';
 import { usesEasternNumerals } from '../../lib/i18n/languages';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
 import type { CalendarPreference } from '../../lib/calendarPreference';
 import type { DistanceUnits } from '../../lib/unitsPreference';
-import type { DirectoryMode } from '../../lib/directoryPreference';
+import {
+  readDirectoryMode,
+  writeDirectoryMode,
+  type DirectoryMode,
+} from '../../lib/directoryPreference';
+import { readToursEnabled, writeToursEnabled } from '../../lib/toursPreference';
 import {
   applyTextSize,
   readTextSize,
@@ -21,31 +26,58 @@ import {
 } from '../../lib/motionPreference';
 
 /**
- * The map's settings popover.
+ * The gear, and the preferences behind it — on every page rather than on one.
  *
- * **It used to hold one choice.** The gear beside the theme and language
- * buttons opened a panel offering Spotlight or the shrine table, and nothing
- * else — while `/settings` carried nine preferences. A reader on the map, which
- * is the route this archive opens on, could reach one of them. The rest were
- * behind a page reachable only from a footer that the map does not render.
+ * **It used to be map chrome.** The gear lived in the map sidebar's header and
+ * nowhere else, and it opened a panel offering Spotlight or the shrine table.
+ * Everything else was on `/settings`, linked from `SiteFooter` — which the map
+ * does not render. So the archive's preferences were reachable from a route
+ * that showed one of them, or from a footer on the other ten pages, and a
+ * reader who arrived on `/shrine/data-darbar` from a search engine (which is
+ * how most arrive: all 169 entries are prerendered with their own metadata) had
+ * to scroll to the bottom of an article to change the reading size.
  *
- * So this panel now carries every preference that changes what the map itself
- * does, and links out for the remainder.
+ * This component is that gear, self-contained: the trigger, the popover, and
+ * every way out of it. `EntityPageHeader` renders one, so do the ten pages that
+ * use it; `MapSidebar` renders one; `NotFoundPage` gets one by finally using
+ * the shared header instead of its own copy.
  *
- * **What is deliberately not here.**
- * - *Theme* and *reading language* have their own controls in the very same
- *   header row, one press away. Repeating them inside a panel anchored to that
- *   row is two affordances for one setting, sitting next to each other.
- * - *The saved-list file* — export, import, clear — needs a file picker and a
- *   confirmation, and one of its buttons destroys data. That belongs on a page
- *   the reader navigated to on purpose, not one keystroke from the map.
+ * **The three dismissal lessons are kept, not rewritten** (HANDOVER §9.82–84,
+ * `e2e/directory-mode.spec.ts`):
+ * - Escape, on the *capture* phase, stopping there. `MapPage` also listens for
+ *   Escape, to collapse the sidebar and deselect the shrine. One press should
+ *   shut the thing on top, not the surface behind it as well.
+ * - A pointerdown outside it. The panel hangs over the control it configures,
+ *   so the gear alone is not enough of a way out.
+ * - Focus returns to the trigger, because a panel dismissed by keyboard that
+ *   drops focus to the document leaves a keyboard reader at the top of the page.
  *
- * **Both surfaces write the same modules** (`directoryPreference`,
- * `toursPreference`, `textSizePreference`, `motionPreference`,
- * `ReaderPreferencesContext`), so this panel and `/settings` cannot hold
- * different ideas of the same switch — which is the rule `SettingsPage`'s own
- * header states and the reason nothing here keeps its own storage key.
+ * **It stands down on `/settings`.** A gear opening a seven-row subset of the
+ * page you are already reading is not an affordance, it is a second copy.
  */
+
+/** Where the panel's map-and-tours choices are read from when nothing else owns
+ *  them.
+ *
+ *  On the map they are owned upstream — `MapSidebar` needs `directoryMode` to
+ *  decide what the list button opens, and `MapPage` needs `toursEnabled` to
+ *  decide whether the tour layer exists at all — so both are passed in and the
+ *  panel reports changes back. On every other page nothing owns them, and the
+ *  panel reads and writes the preference modules itself. Either way the write
+ *  goes through the same module `/settings` writes, so no two surfaces can hold
+ *  different ideas of one switch. */
+export interface SettingsMenuProps {
+  /** Map only: the sidebar owns this because the list button's behaviour reads it. */
+  directoryMode?: DirectoryMode;
+  onDirectoryModeChange?: (mode: DirectoryMode) => void;
+  /** Map only: `MapPage` owns this because the tour layer's existence reads it. */
+  toursEnabled?: boolean;
+  onToursToggle?: (enabled: boolean) => void;
+  /** Map only: on a phone the sidebar is a bottom sheet, and at peek height its
+   *  header sits near the foot of the screen — there is only room for the panel
+   *  inside an expanded sheet, so the sheet is expanded first (§9.84). */
+  onBeforeOpen?: () => void;
+}
 
 /** One preference: its name, and its choices on the same line where they fit.
  *
@@ -106,7 +138,7 @@ function SettingRow<T extends string>({
   );
 }
 
-export function SidebarSettingsPanel({
+function SettingsPanel({
   directoryMode,
   onDirectoryModeChange,
   toursEnabled,
@@ -140,7 +172,7 @@ export function SidebarSettingsPanel({
   };
 
   return (
-    <div className="sidebar-settings-panel" role="group" aria-label={t('settings')}>
+    <div className="settings-menu-panel" role="group" aria-label={t('settings')}>
       <div className="msettings-section">
         <h2 className="msettings-heading">{t('settingsMapSection')}</h2>
 
@@ -258,6 +290,117 @@ export function SidebarSettingsPanel({
       <Link className="msettings-all" to="/settings">
         {t('settingsAllOptions')}
       </Link>
+    </div>
+  );
+}
+
+export function SettingsMenu({
+  directoryMode,
+  onDirectoryModeChange,
+  toursEnabled,
+  onToursToggle,
+  onBeforeOpen,
+}: SettingsMenuProps) {
+  const { t } = useLang();
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  /* The fallbacks for the pages that do not own these. Seeded on mount and
+     written through on change; the panel itself is only rendered while `open`,
+     so a change made on `/settings` is already reflected the next time the gear
+     is pressed, with no subscription and no provider these two do not
+     otherwise need. */
+  const [ownDirectoryMode, setOwnDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
+  const [ownToursEnabled, setOwnToursEnabled] = useState<boolean>(readToursEnabled);
+
+  const chooseDirectoryMode = useCallback(
+    (mode: DirectoryMode) => {
+      setOwnDirectoryMode(mode);
+      writeDirectoryMode(mode);
+      onDirectoryModeChange?.(mode);
+    },
+    [onDirectoryModeChange],
+  );
+
+  const chooseTours = useCallback(
+    (enabled: boolean) => {
+      setOwnToursEnabled(enabled);
+      writeToursEnabled(enabled);
+      onToursToggle?.(enabled);
+    },
+    [onToursToggle],
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      e.stopPropagation();
+      e.preventDefault();
+      setOpen(false);
+      triggerRef.current?.focus();
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (rootRef.current?.contains(e.target as Node)) return;
+      setOpen(false);
+    };
+    document.addEventListener('keydown', onKey, true);
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      document.removeEventListener('keydown', onKey, true);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
+  }, [open]);
+
+  /* A route change closes it. Without this the panel outlives the page it was
+     opened from — the link to `/settings` at its foot is inside the panel, so
+     following it left the popover sitting open over the page it had just
+     navigated to. */
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  if (pathname === '/settings' || pathname === '/ur/settings') return null;
+
+  return (
+    <div className="settings-menu" ref={rootRef}>
+      <button
+        type="button"
+        ref={triggerRef}
+        className={`icon-btn settings-menu-trigger${open ? ' active' : ''}`}
+        aria-label={t('settings')}
+        title={t('settings')}
+        aria-expanded={open}
+        onClick={() => {
+          if (!open) onBeforeOpen?.();
+          setOpen((v) => !v);
+        }}
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.15.38.36.72.6 1 .29.34.68.53 1.1.6h.09v4h-.09c-.42.07-.81.26-1.1.6-.24.28-.45.62-.6 1Z" />
+        </svg>
+      </button>
+      {open && (
+        <SettingsPanel
+          directoryMode={directoryMode ?? ownDirectoryMode}
+          onDirectoryModeChange={chooseDirectoryMode}
+          toursEnabled={toursEnabled ?? ownToursEnabled}
+          onToursToggle={chooseTours}
+        />
+      )}
     </div>
   );
 }

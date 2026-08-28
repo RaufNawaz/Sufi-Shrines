@@ -28,12 +28,8 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { dirAttr, usesEasternNumerals } from '../../lib/i18n/languages';
 import { CommandPalette } from './CommandPalette';
 import { ShrineFilters } from './ShrineFilters';
-import { SidebarSettingsPanel } from './SidebarSettingsPanel';
-import {
-  readDirectoryMode,
-  writeDirectoryMode,
-  type DirectoryMode,
-} from '../../lib/directoryPreference';
+import { SettingsMenu } from '../ui/SettingsMenu';
+import { readDirectoryMode, type DirectoryMode } from '../../lib/directoryPreference';
 
 import { highlightMatch, ShrineListSkeleton, sortByRank } from './mapSidebarHelpers';
 
@@ -117,9 +113,6 @@ export function MapSidebar({
   const [showList, setShowList] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const settingsRef = useRef<HTMLDivElement>(null);
-  const settingsTriggerRef = useRef<HTMLButtonElement>(null);
   /* The sidebar's own field and disclosure. Both moved into the overlay on
      the branch that added it; they are back here because the sidebar renders
      the field and ShrineFilters too, and each surface remembers its own
@@ -165,38 +158,6 @@ export function MapSidebar({
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, []);
-
-  /* The settings popover dismisses the way every other overlay here does:
-     Escape, or a click outside it. Without this the only way to shut it is the
-     gear again — and the panel hangs directly over the "Table of Shrines"
-     button it configures, so a reader who changed the setting could not see
-     what they had changed until they found their way back to the gear. */
-  useEffect(() => {
-    if (!settingsOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
-      /* Capture phase, and stop here: MapPage also listens for Escape, to
-         collapse the sidebar and deselect the shrine (MapPage.tsx:278). One
-         Escape should shut the thing on top — the popover — not the surface
-         behind it as well. Registered on the way down because this listener is
-         added when the panel opens, so on the way up MapPage's would already
-         have run. */
-      e.stopPropagation();
-      e.preventDefault();
-      setSettingsOpen(false);
-      settingsTriggerRef.current?.focus();
-    };
-    const onPointerDown = (e: PointerEvent) => {
-      if (settingsRef.current?.contains(e.target as Node)) return;
-      setSettingsOpen(false);
-    };
-    document.addEventListener('keydown', onKey, true);
-    document.addEventListener('pointerdown', onPointerDown);
-    return () => {
-      document.removeEventListener('keydown', onKey, true);
-      document.removeEventListener('pointerdown', onPointerDown);
-    };
-  }, [settingsOpen]);
 
   /* Which shortcut to *show*. Reading the platform is the only way to label a
      modifier key honestly, and getting it wrong ("Ctrl K" on a Mac) is the kind
@@ -310,17 +271,13 @@ export function MapSidebar({
     onEraChange([ERA_MIN, ERA_MAX]);
   }, [onCategoriesChange, onVerifiedOnlyChange, onRegionChange, onEraChange]);
 
+  /* What the sidebar does about the choice, not the persisting of it:
+     `SettingsMenu` writes `directoryPreference` for every surface that renders
+     it, and this mirrors the value the list button reads. Writing here as well
+     would be two writers for one key and a question about which ran last. */
   const chooseDirectoryMode = useCallback((mode: DirectoryMode) => {
     setDirectoryMode(mode);
-    writeDirectoryMode(mode);
     if (mode === 'spotlight') setShowList(false);
-    /* Choosing no longer closes the panel. It did while this was a one-choice
-       popover — "choosing is the whole purpose of the panel" — and that stopped
-       being true when the panel became seven preferences: a reader setting the
-       text size and then the units had to reopen the gear between them, and a
-       reader who wanted to *see* the shrine-list change could dismiss it with
-       Escape, the gear, or a click anywhere outside, all of which already
-       work. */
   }, []);
   const directoryOpen = directoryMode === 'spotlight' ? paletteOpen : showList;
 
@@ -379,57 +336,19 @@ export function MapSidebar({
                 {numerals === 'eastern' ? '۱۲۳' : '123'}
               </button>
             )}
-            {/* A button and a conditional panel, not <details>. Chrome gives
-                ::details-content `content-visibility: hidden`, which implies
-                paint containment and so makes the <details> box the containing
-                block for anything absolutely positioned inside it — a popover
-                anchored there cannot be aligned to the row it belongs to, and
-                hangs off the sidebar instead (HANDOVER §9.82). This is also the
-                pattern the rest of the sidebar already uses. */}
-            <div className="sidebar-settings" ref={settingsRef}>
-              <button
-                type="button"
-                ref={settingsTriggerRef}
-                className={`icon-btn sidebar-settings-trigger${settingsOpen ? ' active' : ''}`}
-                aria-label={t('settings')}
-                title={t('settings')}
-                aria-expanded={settingsOpen}
-                onClick={() => {
-                  /* On a phone the sidebar is a bottom sheet, and at peek
-                     height its header sits near the foot of the screen: the
-                     panel opened downward past the fold, and opening it upward
-                     instead put it outside the sheet's box, where the sheet
-                     clips it and the map is what a finger actually hits. There
-                     is only room for it inside an expanded sheet — so expand
-                     the sheet, exactly as the list button does. §9.84 */
-                  if (!settingsOpen && isMobile && !isOpen) onToggle?.();
-                  setSettingsOpen((v) => !v);
-                }}
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.15.38.36.72.6 1 .29.34.68.53 1.1.6h.09v4h-.09c-.42.07-.81.26-1.1.6-.24.28-.45.62-.6 1Z" />
-                </svg>
-              </button>
-              {settingsOpen && (
-                <SidebarSettingsPanel
-                  directoryMode={directoryMode}
-                  onDirectoryModeChange={chooseDirectoryMode}
-                  toursEnabled={toursEnabled}
-                  onToursToggle={onToursToggle}
-                />
-              )}
-            </div>
+            {/* Every page carries this gear now — `EntityPageHeader` renders
+                the same component — so its placement and dismissal lessons
+                (§9.82–84) live with it rather than here. The sidebar passes the
+                two preferences it owns and expands the bottom sheet first. */}
+            <SettingsMenu
+              directoryMode={directoryMode}
+              onDirectoryModeChange={chooseDirectoryMode}
+              toursEnabled={toursEnabled}
+              onToursToggle={onToursToggle}
+              onBeforeOpen={() => {
+                if (isMobile && !isOpen) onToggle?.();
+              }}
+            />
             <DarkModeToggle />
             <LanguageToggle />
           </div>

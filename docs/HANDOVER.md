@@ -4694,7 +4694,7 @@ table. `/settings` carried the other eight, and it is linked from `SiteFooter` â
 does not render. On the route the archive opens on, one preference in nine was reachable.
 
 It now carries seven: shrine list, guided tours, reading size, motion, numerals, calendar and
-distance units, in `src/components/map/SidebarSettingsPanel.tsx`, with a sticky link out to
+distance units, in `src/components/ui/SettingsMenu.tsx`, with a sticky link out to
 `/settings`. Theme and language are left out because they have their own controls in the same
 header row; the saved-list file is left out because one of its buttons destroys data and it
 needs a picker and a confirmation. Every control writes the module `/settings` writes, so the

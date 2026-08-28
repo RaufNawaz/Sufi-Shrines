@@ -76,7 +76,7 @@ for (const device of DEVICES) {
         await page.locator('#sidebar').waitFor();
 
         await page.getByRole('button', { name: T.settings }).click();
-        const panel = page.locator('.sidebar-settings-panel');
+        const panel = page.locator('.settings-menu-panel');
         await expect(panel).toBeVisible();
         await settle(page);
 
@@ -84,7 +84,7 @@ for (const device of DEVICES) {
         // off the sidebar; the vertical ones because on a phone it opened
         // downward out of a bottom sheet and fell below the fold (§9.84).
         const geometry = await page.evaluate(() => {
-          const p = document.querySelector('.sidebar-settings-panel')!.getBoundingClientRect();
+          const p = document.querySelector('.settings-menu-panel')!.getBoundingClientRect();
           return {
             left: Math.round(p.left),
             right: Math.round(p.right),
@@ -115,7 +115,7 @@ for (const device of DEVICES) {
         const reachable = await page.evaluate(() =>
           [
             ...document.querySelectorAll(
-              '.sidebar-settings-panel input, .sidebar-settings-panel button, .sidebar-settings-panel a',
+              '.settings-menu-panel input, .settings-menu-panel button, .settings-menu-panel a',
             ),
           ].map((el) => {
             const label =
@@ -175,7 +175,7 @@ for (const device of DEVICES) {
         await page.goto(url);
         await page.locator('#sidebar').waitFor();
         const trigger = page.getByRole('button', { name: T.settings });
-        const panel = page.locator('.sidebar-settings-panel');
+        const panel = page.locator('.settings-menu-panel');
 
         await trigger.click();
         await expect(panel).toBeVisible();
