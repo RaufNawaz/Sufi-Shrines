@@ -58,6 +58,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify } from './lib/slugs.mjs';
 import { saintNameKey, findNameKeyCollisions } from './lib/saintIdentity.mjs';
+import { analyseFigureColumns } from './lib/figureColumns.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -284,6 +285,45 @@ for (const [raw, canonical] of Object.entries(mergeVariants)) {
   }
 }
 notes.push(`${checkedTargets} merge target(s) resolve`);
+
+// ── 7. the column analysis must describe the graph that was actually built ───
+/*
+ * `lib/figureColumns.mjs` reads the legacy column the same way `build-kg.mjs`
+ * does, and everything that prices the open `principal_figure` migration —
+ * the measurement script, the reviewer worksheet, the decision brief's numbers —
+ * is downstream of that reading. If the two ever diverge, the migration is being
+ * priced against a graph nobody is serving.
+ *
+ * They did diverge, for four commits on 28 August 2026. The composite-figure fix
+ * removed a `saintMergeVariants` key, the analysis did not know about
+ * `saintCompositeFigures`, and it began deriving three legacy slugs that are not
+ * figure nodes and never were — whole composite cells slugified as if they named
+ * one person. Nothing failed; the wrong numbers simply went on being printed and
+ * were copied into a planning document.
+ *
+ * The structural fix was one shared module. This is the check that says so out
+ * loud: every figure slug the analysis believes the archive publishes today must
+ * be a node in the graph the archive actually publishes. It fails on exactly the
+ * class of drift that produced the phantoms.
+ */
+if (existsSync(SHRINES_JSON)) {
+  const { rows: sheetRows } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
+  const analysis = analyseFigureColumns(sheetRows, seeds);
+  const phantoms = [...analysis.legacyUniverse].filter((slug) => !bySlug.has(slug)).sort();
+  if (phantoms.length) {
+    fail(
+      `figureColumns derives ${phantoms.length} figure slug(s) that are not nodes in ` +
+        `data/kg.json: ${phantoms.join(', ')}. The column analysis and build-kg.mjs ` +
+        `disagree about what the archive publishes, so every number downstream of it ` +
+        `(measure-figure-identity-columns, the reviewer worksheet, the decision brief) ` +
+        `is describing a graph that does not exist.`,
+    );
+  }
+  notes.push(
+    `${analysis.legacyUniverse.size} figure slug(s) from the legacy column` +
+      (phantoms.length ? `, ${phantoms.length} NOT in the graph` : ', all present in the graph'),
+  );
+}
 
 // ── report ───────────────────────────────────────────────────────────────────
 

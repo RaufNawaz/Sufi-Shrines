@@ -14,6 +14,16 @@
  * standing rule is that a measurement without a re-run is a measurement going
  * stale (CLAUDE.md RULE 0, HANDOVER §9).
  *
+ * **Corrected 28 August 2026.** The counting used to live in this file, and four
+ * commits after it was written a data fix invalidated it: the composite-figure
+ * work moved `"Guru Nanak and Bhai Mardana"` out of `saintMergeVariants`, and
+ * this script knew nothing about `saintCompositeFigures`. It went on printing
+ * "50 rows move, 47 slugs vanish" where the truth was 47 and 44 — and three of
+ * the slugs it named were whole composite cells slugified as if they were one
+ * person's name, pages that have never existed. The arithmetic now lives in
+ * `lib/figureColumns.mjs`, shared with the reviewer worksheet, so the two cannot
+ * hold different definitions. That module's header carries the full account.
+ *
  * Reports:
  *   1. rows whose two cells differ as strings;
  *   2. rows whose *figure slug* would move — the number that matters, because a
@@ -31,7 +41,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { slugify } from './lib/slugs.mjs';
+import { analyseFigureColumns } from './lib/figureColumns.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const read = (p) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
@@ -45,81 +55,50 @@ for (const f of ['data/shrines.json', 'data/kg-seeds.json', 'data/kg.json']) {
 
 const { rows } = read('data/shrines.json');
 const seeds = read('data/kg-seeds.json');
-const mergeVariants = seeds.saintMergeVariants ?? {};
+const analysis = analyseFigureColumns(rows, seeds);
+const { totals, perRow, retiring, legacyOnlyMergeKeys } = analysis;
 
-/** Same two steps build-kg.mjs applies: merge map, then drop the parenthetical. */
-const canon = (raw) => (mergeVariants[raw] ?? raw).replace(/\s*\([^)]*\)/g, '').trim();
+console.log(`[figure-columns] ${totals.rows} rows`);
+console.log(`  cells differing as strings     : ${totals.stringDiffs}`);
+console.log(`  principal_figure empty         : ${totals.pfEmpty}`);
+console.log(`  figure slugs from 'Sufi Saint' : ${totals.legacySlugs}`);
+console.log(`  figure slugs from principal_figure : ${totals.pfSlugs}`);
+console.log(`  rows whose figure slug would move  : ${totals.moved}`);
+console.log(`  current figure slugs that would vanish : ${totals.retiring}`);
 
-/** Split on `;` only outside parentheses — `darbar-wasif-ali-wasif` has a
- *  semicolon inside one, and splitting on it yields two non-people. */
-function splitFigures(cell) {
-  const parts = [];
-  let depth = 0;
-  let buf = '';
-  for (const ch of cell) {
-    if (ch === '(') depth += 1;
-    else if (ch === ')') depth = Math.max(0, depth - 1);
-    if (ch === ';' && depth === 0) {
-      parts.push(buf);
-      buf = '';
-    } else buf += ch;
-  }
-  parts.push(buf);
-  return parts.map((s) => s.trim()).filter(Boolean);
+/* Cross-checked against the graph, because the reason this script was wrong for
+   four commits is that it reported slugs no page was ever served from. A slug
+   counted as "retiring" that is not a figure node is a bug in here, not a URL
+   the project owes a redirect to. */
+const kgSlugs = new Set(read('data/kg.json').saints.map((s) => s.slug));
+const phantom = retiring.filter((s) => !kgSlugs.has(s));
+if (phantom.length) {
+  console.log(
+    `\n  !! ${phantom.length} "retiring" slug(s) are not figure nodes in data/kg.json:\n     ` +
+      phantom.join('\n     ') +
+      `\n     That is this instrument disagreeing with the graph — fix it here, do not` +
+      `\n     record the number. See lib/figureColumns.mjs.`,
+  );
 }
-
-const legacySlugs = new Set();
-const pfSlugs = new Set();
-const moved = [];
-let stringDiffs = 0;
-let emptyPf = 0;
-const nestedSemicolon = [];
-
-for (const row of rows) {
-  const legacy = String(row['Sufi Saint'] ?? '').trim();
-  const pf = String(row['principal_figure'] ?? '').trim();
-  if (!pf) emptyPf += 1;
-  if (legacy !== pf) stringDiffs += 1;
-
-  if (pf.includes(';') && splitFigures(pf).length === 1) {
-    nestedSemicolon.push([row.Name, pf]);
-  }
-
-  const a = legacy ? slugify(canon(legacy)) : '';
-  const bs = splitFigures(pf).map((part) => slugify(canon(part))).filter(Boolean);
-  if (a) legacySlugs.add(a);
-  for (const b of bs) pfSlugs.add(b);
-  if (a && bs.length && !bs.includes(a)) moved.push([row.Name, a, bs]);
-}
-
-const vanishing = [...legacySlugs].filter((s) => !pfSlugs.has(s)).sort();
-
-console.log(`[figure-columns] ${rows.length} rows`);
-console.log(`  cells differing as strings     : ${stringDiffs}`);
-console.log(`  principal_figure empty         : ${emptyPf}`);
-console.log(`  figure slugs from 'Sufi Saint' : ${legacySlugs.size}`);
-console.log(`  figure slugs from principal_figure : ${pfSlugs.size}`);
-console.log(`  rows whose figure slug would move  : ${moved.length}`);
-console.log(`  current figure slugs that would vanish : ${vanishing.length}`);
 
 console.log(`\n  ── rows whose figure slug would move ──`);
-for (const [name, a, bs] of moved) console.log(`     ${name}\n        ${a}  ->  ${bs.join(' + ')}`);
+for (const r of perRow.filter((x) => x.moves)) {
+  console.log(`     ${r.name}\n        ${r.legacySlugs.join(' + ')}  ->  ${r.pfSlugs.join(' + ')}`);
+}
 
-const legacyValues = new Set(rows.map((r) => String(r['Sufi Saint'] ?? '').trim()));
-const pfValues = new Set(rows.map((r) => String(r['principal_figure'] ?? '').trim()));
-const legacyOnlyKeys = Object.keys(mergeVariants).filter(
-  (k) => k !== 'comment' && legacyValues.has(k) && !pfValues.has(k),
-);
 console.log(
-  `\n  ── saintMergeVariants keys that exist ONLY in the legacy column (${legacyOnlyKeys.length}) ──`,
+  `\n  ── saintMergeVariants keys that exist ONLY in the legacy column (${legacyOnlyMergeKeys.length}) ──`,
 );
 console.log('     Switching the column stops each of these merging.');
-for (const k of legacyOnlyKeys) console.log(`     ${k}  ->  ${mergeVariants[k]}`);
+const mergeVariants = seeds.saintMergeVariants ?? {};
+for (const k of legacyOnlyMergeKeys) console.log(`     ${k}  ->  ${mergeVariants[k]}`);
 
+const nested = perRow.filter((r) => r.nestedSemicolon);
 console.log(
-  `\n  ── principal_figure cells whose ';' is inside a parenthetical (${nestedSemicolon.length}) ──`,
+  `\n  ── principal_figure cells whose ';' is inside a parenthetical (${nested.length}) ──`,
 );
 console.log('     A naive split on ";" turns each of these into nodes that are not people.');
-for (const [name, pf] of nestedSemicolon) console.log(`     ${name}\n        ${pf}`);
+for (const r of nested) console.log(`     ${r.name}\n        ${r.pfCell}`);
 
-console.log('\n  Decision: docs/planning/DECISION_figure_identity_column.md');
+console.log('\n  Worksheet: npm run data:review:figures  ->  data/review/figure-identity-review.csv');
+console.log('  Decision:  docs/planning/DECISION_figure_identity_column.md');
