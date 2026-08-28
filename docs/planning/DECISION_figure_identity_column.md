@@ -21,14 +21,45 @@ The schema's own column is `principal_figure` (CLAUDE.md § Schema: "Legacy
 *fallback* everywhere else and the primary source here.
 
 **95 of 169 rows** have a `principal_figure` whose string differs from the legacy
-cell. At the level that matters — the slug a figure's page lives at — **49 rows
-would move, and 46 of the current 132 figure slugs would cease to exist.**
+cell. At the level that matters — the slug a figure's page lives at — **47 rows
+would move, and 44 of the current 132 figure slugs would cease to exist.**
 
-*Numbers from `node scripts/data/measure-figure-identity-columns.mjs`. They were
-first written here as 50 and 47, off by one, because the throwaway probe that
-produced them split `;` without regard for parentheses and so counted
-`darbar-wasif-ali-wasif` as a row that moves. It does not. The committed
-instrument splits paren-aware; prefer it over any number quoted from memory.*
+*Numbers from `node scripts/data/measure-figure-identity-columns.mjs`, re-run
+28 August 2026.*
+
+> **This paragraph said 49 and 46 for most of 28 August 2026, and both were
+> wrong by the end of the same day.** They were right when written. Four commits
+> later, `3c6fb1a` moved `"Guru Nanak and Bhai Mardana"` out of
+> `saintMergeVariants` and into `saintCompositeFigures` — the fix that gave Bhai
+> Mardana a node at all — and the measurement script knew about the first map and
+> nothing about the second. From that commit it reported **50 and 47**, and three
+> of the slugs it counted as retiring were whole composite cells slugified as
+> though they named one person:
+>
+> ```
+> guru-nanak-and-bhai-mardana
+> guru-arjan-dev-and-guru-hargobind
+> guru-nanak-dev-ji-associated-with-bhai-lalo
+> ```
+>
+> No page has ever been served from any of them. A document whose purpose is to
+> price a URL migration was pricing three URLs that do not exist.
+>
+> Nobody wrote a wrong number. A correct instrument was invalidated by a correct
+> data fix, which is the sixth time this repository has recorded that shape. The
+> structural fix: the arithmetic now lives in `scripts/data/lib/figureColumns.mjs`
+> and is shared by the measurement script, the reviewer worksheet and
+> `validate-kg-identity.mjs`, so the three cannot hold different definitions.
+> Check 7 of that validator fails if any figure slug the analysis derives is not
+> a node in `data/kg.json` — it was confirmed to exit non-zero by re-creating this
+> exact regression and naming all three phantoms.
+>
+> *An earlier note here claimed the reverse of all this: that 50/47 came from a
+> throwaway probe that split `;` without regard for parentheses, and that the
+> committed instrument's 49/46 should be preferred. The paren-aware point is real
+> and is why `splitFigureCell` exists, but it is not what separated 49 from 50.
+> Removed rather than left standing, because a correction that misidentifies its
+> own cause teaches the next reader to look in the wrong place.*
 
 This is the mechanism behind the "86 of 169 diverge" note recorded on
 26 August (`e605274`). That note described the symptom for consumers; this is
@@ -166,8 +197,29 @@ Deliberately not done here, and the cheap path recorded so nobody re-derives it:
   بھائی لالو are in the dictionary as of 28 August, and
   `figureNameUrduParity.test.ts` holds archive figures at zero Latin titles.
 
-It was left alone because it is a layout decision on a shared component while
-another session held the front end, not because it is hard.
+~~It was left alone because it is a layout decision on a shared component while
+another session held the front end, not because it is hard.~~
+
+**Closed 28 August 2026.** `ShrinePage` now renders one link per named figure for
+the three composite rows, and one for the other 166. The approach differs from
+the cheap path sketched above in one respect worth recording: names do **not**
+come from `slugToLabel`. Deriving a display name from a slug happens to work for
+`guru-arjan-dev` and produces "Shrine Of Baba Shah Kamal" elsewhere, and inventing
+a name is the thing RULE 2 forbids. Instead `build-kg.mjs` emits
+`data/kg-composite-figures.json` — 558 bytes, three shrines, the canonical name
+beside each slug — which is cheaper than the alternative it was weighed against
+(a name column on all 169 rows of `kg-shrine-figures.json` would ship every
+figure's display string *and its Urdu*, undoing the saving that index exists to
+make). `localizeRecordedName` does the Urdu, through the dictionary rather than
+through the graph node's `nameUr`, because the page cannot import the graph.
+
+The summary line shows the canonical names; the sheet's own cell stays verbatim in
+the infobox, under the row's `figure_type` label. That division is deliberate and
+guarded: the summary cannot render `Guru Nanak Dev Ji; associated with Bhai Lalo`
+as two link texts without deciding what "associated with" attaches to, which the
+sheet never said. `src/pages/__tests__/shrineCompositeFigures.test.tsx` fails if
+the infobox ever stops rendering that cell, because at that point the page would
+name these figures only in words the sheet did not use.
 
 ## What was done on 28 August without a decision
 
@@ -178,5 +230,54 @@ another session held the front end, not because it is hard.
 - The composite fan-out, once Rauf ruled on it (above).
 
 None of those needed a decision about the column. **The column question above is
-still open**, and it is the one thing in this document that has not been acted
-on.
+still open**, and it is the one thing in this document that has not been acted on.
+
+---
+
+## The worksheet — 28 August 2026
+
+The reason this question kept not getting answered is not that it is hard in
+principle. It is that answering it requires holding two columns, seventeen
+merge-variant keys, a paren-aware split and 44 retiring URLs in mind at once,
+across 169 rows, before the easy rows can even be recognised as easy.
+
+```bash
+npm run data:review:figures          # build data/review/figure-identity-review.csv
+npm run data:review:figures:check    # fail if the worksheet is missing a row (in data:validate)
+```
+
+169 rows, one per sheet row, ordered so the scarce resource goes where a verdict
+changes the answer. Every consequence on a row is mechanical — which slug the cell
+produces, which URL stops existing, which merge key stops applying, which figure
+splits apart. Nothing in it decides anything; `verdict` is empty in every row.
+
+| priority | rows | what it is |
+|---|---|---|
+| 1 | 15 | Contested. A figure splits or joins, or a merge keyed only on the legacy cell stops applying, or `principal_figure` is empty. **`principal_figure` is not automatically the winner here.** |
+| 2 | 39 | The slug moves. Mechanical, but each retires a published URL. |
+| 3 | 115 | The cells agree, or differ only in wording. Confirm and move on. |
+
+Fill `verdict` with `legacy`, `principal` or `custom`; `chosen_name` carries the
+name when neither column is right. Verdicts are carried across regenerations by
+`id`, whose digest is over both cells — so a recorded verdict survives a sheet
+refresh and stops being carried exactly when the cells it judged have changed.
+
+**The fifteen contested rows**, since they are the whole decision:
+
+- **Kalka Cave Temple** — `kali` → `kalka-devi`, peeling one of Kali's three
+  temples back off. The row where `principal_figure` is worse, and the reason
+  "adopt the better column" is the wrong shape of answer.
+- **Data Darbar** — `data-ganj-bakhsh` → `hazrat-ali-ibn-usman-al-hujwiri`. The
+  archive's most linkable figure page, and the most expensive single redirect.
+- **Tomb of Javindi Bibi** — `jalaluddin-surkh-posh-bukhari` → `bibi-jawindi`.
+  Worth looking at first: the tomb is currently filed under a figure who is not
+  the person buried in it, and `principal_figure` already says so.
+- **Shaktipeeth Shri Hinglaj Mata Mandir** — `principal_figure` is empty. The one
+  row where switching would leave a site with no figure at all.
+- **Darbar Wasif Ali Wasif** — the `;` inside a parenthetical. Both cells are
+  identical and correct; it is here only so nobody splits it later.
+- Plus Bari Imam, Jhulelal ×2, Kali ×2, Odero Lal, Lakhi Shah Saddar, Jalaluddin
+  Surkh-Posh Bukhari, Valmiki, and Gurdwara Chakki Sahib.
+
+The other 154 rows are the reason the worksheet exists: they can be answered in a
+sitting, and until now they were indistinguishable from the fifteen that cannot.

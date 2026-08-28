@@ -5007,9 +5007,105 @@ instrument was checked against a known answer first.**
 `figureProvenance` is back to 154 — but as 98 + 58 − 2 where it began the day as 97 + 60 − 3. Every
 term moved. The arithmetic is kept in the test as the record.
 
-**Still not done, and small:** `ShrinePage` links only the primary figure. The raw cell is the
-visible label, so both names are on screen and nothing is hidden, but only one is clickable. The
-cheap path is written down in the brief (`figureSlugsForShrine` already returns both; names must
-come from a graph-free `slugToLabel` plus `localizeRecordedName`, never from `lib/kg.ts`, which
-would put 426 KB back on the archive's hottest route). Left alone because it is a layout decision
-on a shared component while another session held the front end.
+~~**Still not done, and small:** `ShrinePage` links only the primary figure.~~ **Done later the
+same day** — see the next section. One correction to the cheap path recorded here: names must not
+come from `slugToLabel` either. Deriving a display name from a slug is inventing one, and it only
+looks safe because `guru-arjan-dev` is a flattering example.
+
+---
+
+### Added 28 August 2026 — a correct instrument, invalidated by a correct fix four commits later
+
+The composite-figure work closed with one small item open: `ShrinePage` linked only the primary
+figure. Closing it is the least interesting thing in this section. What closing it turned up is
+that **the numbers pricing the open `principal_figure` migration had been wrong since the same
+afternoon they were written**, and nothing could have caught it.
+
+**The two-link fix, briefly.** Three rows name two people. `build-kg.mjs` now emits
+`data/kg-composite-figures.json` — 558 bytes, three shrines, the canonical name beside each slug —
+and `compositeFiguresForShrine()` reads it. The main `kg-shrine-figures.json` stays slugs-only:
+its own comment says the moment it grows a second field it stops being cheaper than the graph, and
+that is still true, because a name column on all 169 rows means every figure's display string *and
+its Urdu* back on the archive's hottest route. Names are **not** derived from slugs — title-casing
+`guru-arjan-dev` works and `shrine-of-baba-shah-kamal` becomes "Shrine Of Baba Shah Kamal", and
+inventing a display name is what RULE 2 forbids. The summary line shows canonical names; the
+sheet's cell stays verbatim in the infobox, and a test fails if it ever stops.
+
+**Now the part worth reading.** `docs/planning/DECISION_figure_identity_column.md` said 49 rows
+would move and 46 of 132 figure slugs would retire. Re-run on 28 August, the committed instrument
+said **50 and 47**. Neither was right; the answer is **47 and 44**.
+
+The chain, verified rather than reconstructed:
+
+- The brief's 49/46 were **correct when written**.
+- Four commits later, `3c6fb1a` moved `"Guru Nanak and Bhai Mardana"` out of `saintMergeVariants`
+  and into `saintCompositeFigures`. That commit is not a mistake — it is the fix that gave Bhai
+  Mardana a node at all.
+- `measure-figure-identity-columns.mjs` knew about `saintMergeVariants` and nothing about
+  `saintCompositeFigures`. From that commit it began deriving three "figure slugs" that are whole
+  composite cells slugified as though they named one person:
+  `guru-nanak-and-bhai-mardana`, `guru-arjan-dev-and-guru-hargobind`,
+  `guru-nanak-dev-ji-associated-with-bhai-lalo`.
+- **No page has ever been served from any of the three.** A document whose entire purpose is to
+  price a URL migration was pricing three URLs that do not exist.
+
+Nobody wrote a wrong number. Nobody was careless. A correct instrument was invalidated by a
+correct data fix in a different file, and the only thing standing between that and a planning
+decision was somebody happening to re-run a script and notice the output had moved. That is the
+sixth entry of this shape in §9, and it is the first where the *cause* is drift between two
+copies of the same arithmetic rather than a bad measurement.
+
+**So the fix is structural, not editorial.** `scripts/data/lib/figureColumns.mjs` is now the one
+reading of these two columns, shared by the measurement script, the reviewer worksheet and
+`validate-kg-identity.mjs`. Check 7 of that validator fails if any figure slug the analysis
+derives is not a node in `data/kg.json` — re-created the exact regression by emptying
+`saintCompositeFigures`, confirmed it exits 1 naming all three phantoms, restored the file
+byte-identical. A check nobody has seen fail is a note.
+
+Two things the shared module also corrected on the way:
+
+- **`moves` counted a row with no destination.** Shaktipeeth Shri Hinglaj Mata Mandir has an empty
+  `principal_figure`; the worksheet's first version called it a row that moves, giving 48 against
+  the instrument's 47. It moves nowhere — it is a row that would *lose* its figure, which is a
+  different problem and is now flagged as one.
+- **"This figure splits apart" flagged all eighteen Guru Nanak rows.** The first version asked
+  whether rows sharing a legacy slug produce the same row-level set of `principal_figure` slugs.
+  Two of Guru Nanak's rows are composites producing `guru-nanak+bhai-mardana` and
+  `guru-nanak+bhai-lalo`, so they differ from the other seventeen — but Guru Nanak is not splitting
+  there, he is present in all of them with a companion named alongside. Asking the successor
+  question per *figure* instead of per row took priority 1 from 40 rows to **15**, which is the
+  difference between a queue a reviewer can work and a queue that looks like the whole archive.
+
+**What is now waiting on Rauf.** `npm run data:review:figures` writes
+`data/review/figure-identity-review.csv`, 169 rows, `verdict` empty in all of them, wired into
+`data:validate` via `data:review:figures:check`. 115 are confirm-and-move-on, 39 are mechanical
+slug moves, and **15 are genuinely contested** — including Kalka Cave Temple (where
+`principal_figure` is the *worse* column), Data Darbar (`data-ganj-bakhsh` →
+`hazrat-ali-ibn-usman-al-hujwiri`, the archive's most linkable page), and Tomb of Javindi Bibi,
+which is currently filed under Jalaluddin Surkh-Posh Bukhari when `principal_figure` says Bibi
+Jawindi — a site attributed to someone other than the person buried in it.
+
+The KG review worksheet is still **0 verdicts of 255**. It now has a sibling with 0 of 169.
+Both are a reader's job, and both are now one CSV each instead of a research project.
+
+**Two things the merge of the two branches turned up, recorded so they are not re-derived.**
+
+*Three Urdu Latin budgets went +5 each* — `saint:multi-order` 23→28, `order` 77→82,
+`order:chishtiyya` 43→48. `undeclared` stayed **empty** on all three, so nothing is leaking; the
+declared debt grew. +1 on every route is the language toggle's "EN", which the 26–28 August
+settings work put on every page (it was map-only, and the map's budget already counted it). The
+rest is one route's own doing: `saint:multi-order` was repointed on 28 August from
+`/saint/hazrat-wasif-ali-wasif` to `/saint/hazrat-wasif-ali-wasif-awan` when the two nodes turned
+out to be one man, **and the budget was not re-measured with it.** The merged page renders what
+two nodes rendered separately — shrine and ʿurs from one, master and both silsilas from the other.
+23 was the number for half a man. The general rule, now written into the file: **a route repointed
+is a budget invalidated.**
+
+*One a11y flake, not reproduced.* `a11y.spec.ts › Touch targets (390px) › shrine page actions are
+all tappable` failed once in a full 334-test run and passed in isolation and in a second full run
+(334/334). It loads `/shrine/shamsabad`, which is not a composite row, and measures
+`.action-btn`/`.infobox-action-btn`/`.back-link`/`.lang-seg` — none of which this session touched.
+Recorded rather than dismissed: it is measuring rendered geometry under five parallel workers on a
+machine that also had an iCloud indexing storm, and §9's own rule is that a geometry assertion
+taken mid-settle reports a failure that does not exist. If it recurs, suspect the settle, not the
+CSS.
