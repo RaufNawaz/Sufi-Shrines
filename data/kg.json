@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-24T22:03:53.265Z",
+  "generated": "2026-08-28T14:16:52.171Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -114,13 +114,25 @@
       "type": "saint",
       "slug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
       "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "altNames": [],
+      "altNames": [
+        "Hazrat Syed Muhammad Khair ul Deen",
+        "Shah Khairuddin Muhammad",
+        "Abul Ma’ali"
+      ],
       "shrines": [
         "darbar-abul-muali-qadri"
       ],
       "figureType": "Sufi saint / scholar (survey: *Wali Allah*, dervish, perfect scholar, Ahl al-Bayt, Kirmani Sadaat)",
       "born": "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)",
-      "died": "16 Rabi ul Awal 1024 AH (as related in the survey)"
+      "died": "16 Rabi ul Awal 1024 AH (as related in the survey)",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Abul Muali (kunyat)",
+        "Asadullah",
+        "Wali Allah"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-abul-muali-qadri"
     },
     {
       "id": "saint:khwaja-muhammad-qasim",
@@ -2854,44 +2866,10 @@
       "reviewed": false
     },
     {
-      "id": "saint:shah-abul-muali-qadri",
-      "type": "saint",
-      "slug": "shah-abul-muali-qadri",
-      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "altNames": [
-        "Hazrat Syed Muhammad Khair ul Deen",
-        "Shah Khairuddin Muhammad",
-        "Abul Ma’ali"
-      ],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false,
-      "born": "10 Zil Hajj 960 Hijri",
-      "died": "16 Rabi ul Awal 1024 Hijri",
-      "datePrecision": "exact-date",
-      "titles": [
-        "Abul Muali (kunyat)",
-        "Asadullah",
-        "Wali Allah"
-      ],
-      "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-abul-muali-qadri"
-    },
-    {
       "id": "saint:hazrat-shah-sikandar",
       "type": "saint",
       "slug": "hazrat-shah-sikandar",
       "name": "Hazrat Shah Sikandar",
-      "altNames": [],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false
-    },
-    {
-      "id": "saint:hazrat-wasif-ali-wasif",
-      "type": "saint",
-      "slug": "hazrat-wasif-ali-wasif",
-      "name": "Hazrat Wasif Ali Wasif Awan",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -8883,9 +8861,9 @@
       "notes": "Confidence lowered — hedged as \"tradition holds\"; the named master is otherwise undocumented in this corpus."
     },
     {
-      "id": "disciple_of:saint:shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
+      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
       "type": "disciple_of",
-      "subject": "saint:shah-abul-muali-qadri",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
       "object": "saint:daud-bandagi-kirmani",
       "confidence": 0.95,
       "method": "machine-extracted",
@@ -8906,9 +8884,9 @@
       "quote": "For advanced learning he became a disciple (*mureed*) of Hazrat Shah Sikandar, who is credited with giving him the name \"Tahir Bandagi\""
     },
     {
-      "id": "disciple_of:saint:hazrat-wasif-ali-wasif:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
+      "id": "disciple_of:saint:hazrat-wasif-ali-wasif-awan:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
       "type": "disciple_of",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -9816,9 +9794,9 @@
       "asRecorded": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:chishtiyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:chishtiyya",
       "type": "belongs_to_order",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "order:chishtiyya",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -9829,9 +9807,9 @@
       "asRecorded": "Chishti Qadri — the survey states allegiance (bai'at) to \"Hazrat Shah Niyaz Ahmad Chisti Qadri\"; see note on the source wording below"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:qadiriyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:qadiriyya",
       "type": "belongs_to_order",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "order:qadiriyya",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -11450,7 +11428,7 @@
     }
   ],
   "stats": {
-    "saints": 196,
+    "saints": 194,
     "orders": 5,
     "places": 94,
     "events": 149,
@@ -11813,6 +11791,16 @@
       "issue": "name-merge",
       "entityId": "saint:kaka-sahib",
       "details": "\"Kaka Sahib (Syed Kasteer Gul, \"Sheikh Rahmkar\")\" merged into canonical \"Kaka Sahib\" (slug: kaka-sahib). Verify the merge is correct."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "details": "proposal slug \"shah-abul-muali-qadri\" names the same person as \"hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri\" (\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-wasif-ali-wasif-awan",
+      "details": "proposal slug \"hazrat-wasif-ali-wasif\" names the same person as \"hazrat-wasif-ali-wasif-awan\" (\"Hazrat Wasif Ali Wasif Awan\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
     },
     {
       "issue": "seed-note",

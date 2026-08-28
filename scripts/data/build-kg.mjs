@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
+import { saintNameKey } from './lib/saintIdentity.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
 import { bibliographyItems, citationKey } from './lib/bibliography.mjs';
 
@@ -332,6 +333,40 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   }
 }
 
+/* ── one person, one node ──────────────────────────────────────────────────────
+
+   Everything above this line built figure nodes from the sheet. Everything
+   below reads machine proposals, which carry their own slugs — and when a
+   proposal's slug differs from the sheet's for the same man, the loop below
+   used to create him a second time, because its only guard was
+   `saintMap.has(slug)`.
+
+   Two figures were split that way. `hazrat-wasif-ali-wasif-awan` carried Wasif
+   Ali Wasif's shrine and his ʿurs; `hazrat-wasif-ali-wasif` carried his master
+   and both his orders. Same man, same spelling of his name, two pages, neither
+   of them complete. `shah-abul-muali-qadri` and
+   `hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri` were the
+   same story.
+
+   So a proposal slug is resolved against the names already in the graph before
+   it is allowed to mint a node. The test is `saintNameKey` — identical name,
+   nothing looser — and scripts/data/lib/saintIdentity.mjs records at length why
+   anything looser is a trap on this corpus (a similarity matcher scored 2 right
+   out of 21 here, and its misses were master-and-disciple pairs). */
+
+const saintSlugByNameKey = new Map();
+for (const saint of saintMap.values()) {
+  const key = saintNameKey(saint.name);
+  if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, saint.slug);
+}
+
+/* proposal slug → the sheet-derived slug for the same person. */
+const saintSlugAliases = new Map();
+
+function resolveSaintSlug(slug) {
+  return saintSlugAliases.get(slug) ?? slug;
+}
+
 /* Teachers named in the prose who have no shrine in this archive — Hujwiri's
    master al-Khuttali, Mian Mir's Shaikh Siyustani, and 60-odd others. They are
    real graph nodes: without them a lineage stops at the first person who
@@ -344,7 +379,22 @@ for (const p of lineageProposals) {
   for (const side of ['subject', 'object']) {
     const slug = p[`${side}Slug`];
     const name = p[`${side}Name`];
-    if (!slug || saintMap.has(slug)) continue;
+    if (!slug || saintMap.has(slug) || saintSlugAliases.has(slug)) continue;
+
+    const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
+    if (existing && existing !== slug) {
+      saintSlugAliases.set(slug, existing);
+      reviewNeeded.push({
+        issue: 'saint-identity-joined',
+        entityId: `saint:${existing}`,
+        details:
+          `proposal slug "${slug}" names the same person as "${existing}" ` +
+          `("${name}") and was joined to it rather than made a second node. ` +
+          `Identical-name match; see scripts/data/lib/saintIdentity.mjs.`,
+      });
+      continue;
+    }
+
     saintMap.set(slug, {
       id: `saint:${slug}`,
       type: 'saint',
@@ -355,6 +405,8 @@ for (const p of lineageProposals) {
       lineageOnly: true,
       reviewed: false,
     });
+    const key = saintNameKey(name ?? '');
+    if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, slug);
   }
 }
 
@@ -366,7 +418,7 @@ for (const p of lineageProposals) {
    (`blockedFields`) stay withheld — the verifier fails the build if one is ever
    promoted back into a live field. */
 for (const p of dateProposals) {
-  const saint = saintMap.get(p.saintSlug);
+  const saint = saintMap.get(resolveSaintSlug(p.saintSlug));
   if (!saint) continue;
   let touched = false;
 
@@ -415,7 +467,7 @@ const datesDoc = existsSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'))
   ? JSON.parse(readFileSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'), 'utf8'))
   : {};
 for (const d of datesDoc.disputedDates ?? []) {
-  const saint = saintMap.get(d.saintSlug);
+  const saint = saintMap.get(resolveSaintSlug(d.saintSlug));
   if (!saint) continue;
   saint.disputedDates ??= [];
   saint.disputedDates.push({
@@ -622,9 +674,27 @@ for (const rel of lineageRelations) {
    hand-curated seed loop so a seed always wins the id collision below: a human
    reading beats an extraction of the same pair. */
 for (const p of lineageProposals) {
-  const { subjectSlug, relation, objectSlug, confidence, source, quote, notes } = p;
+  const { relation, confidence, source, quote, notes } = p;
+  /* Through the alias map, so an edge extracted about a figure the sheet
+     already names lands on his one node and not on a twin. */
+  const subjectSlug = resolveSaintSlug(p.subjectSlug);
+  const objectSlug = resolveSaintSlug(p.objectSlug);
   if (!subjectSlug || !relation || !objectSlug) continue;
   if (!saintBySlug.has(subjectSlug) || !saintBySlug.has(objectSlug)) continue;
+  /* A joined identity can turn an extracted edge into a self-loop (A is a
+     disciple of A) if both sides resolve to the same person. The relation
+     vocabulary forbids that and the verifier checks for it, so drop it here
+     and say so rather than emitting it. */
+  if (subjectSlug === objectSlug) {
+    reviewNeeded.push({
+      issue: 'lineage-self-loop-after-join',
+      entityId: `saint:${subjectSlug}`,
+      details:
+        `proposal "${relation}" from "${p.subjectSlug}" to "${p.objectSlug}" ` +
+        `became a self-loop once both resolved to "${subjectSlug}". Dropped.`,
+    });
+    continue;
+  }
   const id = `${relation}:saint:${subjectSlug}:saint:${objectSlug}`;
   if (relations.some((r) => r.id === id)) continue;
   relations.push({
@@ -652,7 +722,8 @@ for (const p of lineageProposals) {
    construction (the verifier fails the build if one ever does), so they add no
    edge here; their text belongs on the page, not in the taxonomy. */
 for (const p of orderProposals) {
-  const { saintSlug, parentOrder, parentOrders, branch, asRecorded, confidence, source, quote } = p;
+  const { parentOrder, parentOrders, branch, asRecorded, confidence, source, quote } = p;
+  const saintSlug = resolveSaintSlug(p.saintSlug);
   if (!saintSlug || !saintBySlug.has(saintSlug)) continue;
   const targets = [parentOrder, ...(parentOrders ?? [])].filter(Boolean);
   for (const orderSlug of targets) {

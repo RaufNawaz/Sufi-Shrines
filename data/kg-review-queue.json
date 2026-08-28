@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-24T22:03:53.265Z",
+  "generated": "2026-08-28T14:16:52.171Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -92,10 +92,10 @@
       "evidence": "c9cc6fda"
     },
     {
-      "id": "disciple_of:saint:shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
+      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
       "kind": "disciple_of",
       "subject": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "subjectSlug": "shah-abul-muali-qadri",
+      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
       "object": "Daud Bandagi Kirmani",
       "quote": "named his uncle Dawood Bandgi Kirmani. Astonished, he returned to his uncle",
       "source": "entries/entry_abul_muali_qadri.md",
@@ -112,10 +112,10 @@
       "evidence": "9281aed6"
     },
     {
-      "id": "disciple_of:saint:hazrat-wasif-ali-wasif:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
+      "id": "disciple_of:saint:hazrat-wasif-ali-wasif-awan:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
       "kind": "disciple_of",
       "subject": "Hazrat Wasif Ali Wasif Awan",
-      "subjectSlug": "hazrat-wasif-ali-wasif",
+      "subjectSlug": "hazrat-wasif-ali-wasif-awan",
       "object": "Hazrat Shah Niyaz Ahmad Chisti Qadri",
       "quote": "Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri.\"",
       "source": "data/shrines.csv#darbar-wasif-ali-wasif",
@@ -886,10 +886,10 @@
       "evidence": "51b1067b"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:chishtiyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:chishtiyya",
       "kind": "belongs_to_order",
       "subject": "Hazrat Wasif Ali Wasif Awan",
-      "subjectSlug": "hazrat-wasif-ali-wasif",
+      "subjectSlug": "hazrat-wasif-ali-wasif-awan",
       "object": "Chishtiyya",
       "quote": "Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri.",
       "source": "data/shrines.csv#darbar-wasif-ali-wasif",
@@ -897,10 +897,10 @@
       "evidence": "47044d69"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:qadiriyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:qadiriyya",
       "kind": "belongs_to_order",
       "subject": "Hazrat Wasif Ali Wasif Awan",
-      "subjectSlug": "hazrat-wasif-ali-wasif",
+      "subjectSlug": "hazrat-wasif-ali-wasif-awan",
       "object": "Qadiriyya",
       "quote": "Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri.",
       "source": "data/shrines.csv#darbar-wasif-ali-wasif",
@@ -1279,6 +1279,22 @@
       "died": "1752",
       "source": "data/shrines.csv#bhit-bhit-shah",
       "evidence": "fb62a05d"
+    },
+    {
+      "id": "biography:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "kind": "biography",
+      "subject": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "object": "",
+      "born": "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)",
+      "died": "16 Rabi ul Awal 1024 AH (as related in the survey)",
+      "titles": [
+        "Abul Muali (kunyat)",
+        "Asadullah",
+        "Wali Allah"
+      ],
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "evidence": "88c07ff1"
     },
     {
       "id": "biography:khwaja-muhammad-qasim",
