@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -57,6 +57,10 @@ import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
+  /* The retirement redirect below has to carry these. `?lang=ur` is how the
+     Urdu edition is reached, so dropping the query string would silently bounce
+     an Urdu reader following an old link into the English page. */
+  const { search, hash } = useLocation();
   const { lang, t, fmtNum, localizeField, numerals } = useLang();
   const { calendar } = useReaderPreferences();
   const headingRef = useFocusHeadingOnMount();
@@ -258,7 +262,7 @@ export default function SaintPage() {
      falling back to the map, which for an old address is a soft 404. */
   if (!saint) {
     const moved = slug ? getRetiredSaintTarget(slug) : undefined;
-    if (moved) return <Navigate to={`/saint/${moved}`} replace />;
+    if (moved) return <Navigate to={`/saint/${moved}${search}${hash}`} replace />;
     return <Navigate to="/" replace />;
   }
 
