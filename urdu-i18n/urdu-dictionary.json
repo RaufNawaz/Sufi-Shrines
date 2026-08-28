@@ -11,13 +11,13 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 158,
+      "saints": 160,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "flatSeedEntries": 974
+      "flatSeedEntries": 976
     }
   },
   "categories": {
@@ -556,6 +556,8 @@
     "Guru Nanak (gurdwara-school dedicated to his teachings)": "گرو نانک (اُن کی تعلیمات سے منسوب گوردوارہ-مدرسہ)",
     "Guru Arjan Dev": "گرو ارجن دیو",
     "Guru Nanak and Bhai Mardana": "گرو نانک اور بھائی مردانہ",
+    "Bhai Mardana": "بھائی مردانہ",
+    "Bhai Lalo": "بھائی لالو",
     "Bhai Joga Singh": "بھائی جوگا سنگھ",
     "Bhai Taru": "بھائی تارو",
     "Hinglaj Mata": "ہنگلاج ماتا",

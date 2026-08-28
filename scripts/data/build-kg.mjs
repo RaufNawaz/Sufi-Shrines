@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
+import { saintNameKey } from './lib/saintIdentity.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
 import { bibliographyItems, citationKey } from './lib/bibliography.mjs';
 
@@ -159,6 +160,20 @@ const { rows } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
 const seeds = JSON.parse(readFileSync(SEEDS_JSON, 'utf8'));
 
 const mergeVariants = seeds.saintMergeVariants ?? {};
+/* raw cell → the ordered list of figures it names. First is the primary. */
+const compositeFigures = seeds.saintCompositeFigures ?? {};
+delete compositeFigures.comment;
+
+/** Every figure a raw `Sufi Saint` cell names, primary first. One name for
+ *  almost every row; two for the three that record a site held by two people. */
+function figureNamesFor(rawSaint) {
+  return compositeFigures[rawSaint] ?? [canonicalizeSaintName(rawSaint, mergeVariants)];
+}
+
+/* shrine slug → the raw cell, for the rows that name more than one figure. Kept
+   so the edges can carry the sheet's own wording (RULE 3) instead of leaving the
+   reader to infer why one site sits under two figures. */
+const compositeShrineCell = new Map();
 const seedOrders = seeds.orders ?? [];
 const saintOrders = seeds.saintOrders ?? {};
 delete saintOrders.comment;
@@ -219,117 +234,214 @@ const orderBySlug = new Map(orders.map((o) => [o.slug, o]));
 
 const saintMap = new Map(); // slug → KGSaint (partial, shrines[] grows)
 const reviewNeeded = [];
+/* Figure slugs that used to be their own page and are now somebody else's:
+   retired slug → the canonical slug it was joined into. */
+const retiredSaintSlugs = new Map();
 
 for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const rawSaint = String(row['Sufi Saint'] ?? '').trim();
   if (!rawSaint) continue;
 
-  const canonical = canonicalizeSaintName(rawSaint, mergeVariants);
-  const saintSlug = slugify(canonical);
-  if (!saintSlug) continue;
+  /* Some sites are held by more than one figure, and the archive is supposed to
+     say so. Three rows name two people each — Gurdwara Panjvi Chati Patshahi is
+     the fifth *and* sixth Guruship, Rori Sahib is Guru Nanak *and* Bhai Mardana,
+     Khoohi Bhai Lalo is Guru Nanak *and* Bhai Lalo — and every earlier handling
+     of them lost one of the two. `saintMergeVariants` collapsed Rori Sahib to
+     Guru Nanak, which is why **Bhai Mardana appeared nowhere in this graph at
+     all**; the other two became single nodes named after both people, so their
+     gurdwaras reached neither real figure's page.
 
-  const altNames = extractParenthetical(rawSaint).filter((n) => n !== canonical);
+     `saintCompositeFigures` names them properly. The first figure listed is the
+     one the cell leads with, and it is the only one the row's own figure columns
+     are allowed to describe — see the `isPrimary` gate below, which exists
+     because Rori Sahib's `figure_type` is "Sikh Guru" and Bhai Mardana was not
+     a Guru. */
+  const compositeNames = compositeFigures[rawSaint];
+  const figureNames = figureNamesFor(rawSaint);
+  const primarySlug = slugify(figureNames[0] ?? '');
+  if (!primarySlug) continue;
+  if (compositeNames) compositeShrineCell.set(shrineSlug, rawSaint);
 
-  // figure_type says WHAT this figure is, and the dataset fills it for 168 of
-  // 169 rows: 'Sufi saint' (70), 'Deity' (33), 'Sikh Guru' (28), 'Sant' (17),
-  // 'Historical person' (11), 'Individual', 'Collective', plus two rows whose
-  // value is a hedged sentence rather than a category. It was never carried
-  // into the graph, so every one of these entities was typed `saint` — which
-  // is how the explorer came to list Durga, Kali, Krishna, Guru Nanak and
-  // "Jain Tirthankaras" under a heading reading "All saints". On an archive
-  // that sets out to cover six traditions honestly, that is a terminology
-  // failure, not a cosmetic one (CLAUDE.md: respect the traditions in copy and
-  // terminology). Carried verbatim — RULE 2 — so the two prose values stay
-  // prose and the UI decides how to present them.
-  const figureType = String(row['figure_type'] ?? '').trim();
+  /* Every figure gets a prerendered page and a sitemap entry, so retiring a
+     figure slug retires a published URL — and an unknown `/saint/:slug`
+     redirects to the map, which is a soft 404 for a crawler holding the old
+     address. Recorded here so the route can send it to the figure it became,
+     the way /coverage and /report survive as redirects into /about. A composite
+     row retires to its primary figure, which is the page a reader arriving on
+     the old composite address is most likely to have wanted. */
+  const preMergeSlug = slugify(String(rawSaint).replace(/\s*\([^)]*\)/g, '').trim());
+  if (preMergeSlug && preMergeSlug !== primarySlug) {
+    retiredSaintSlugs.set(preMergeSlug, primarySlug);
+  }
 
-  if (!saintMap.has(saintSlug)) {
-    const qidEntry = qidMap[saintSlug];
-    saintMap.set(saintSlug, {
-      id: `saint:${saintSlug}`,
-      type: 'saint',
-      slug: saintSlug,
-      name: canonical,
-      altNames: [...altNames],
-      shrines: [],
-      ...(figureType ? { figureType } : {}),
-      ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
+  if (compositeNames) {
+    reviewNeeded.push({
+      issue: 'composite-figure-row',
+      entityId: `saint:${primarySlug}`,
+      details:
+        `"${rawSaint}" names ${figureNames.length} figures (${figureNames.join(', ')}); ` +
+        `${shrineSlug} is linked to each. The row's figure_type/figure_born/figure_died ` +
+        `describe only "${figureNames[0]}" and were not copied to the others.`,
     });
   }
 
-  const entity = saintMap.get(saintSlug);
+  for (const [figureIndex, canonical] of figureNames.entries()) {
+    const saintSlug = slugify(canonical);
+    if (!saintSlug) continue;
+    const isPrimary = figureIndex === 0;
 
-  // One canonical figure can be reached from several shrines, and those rows do
-  // not always agree on figure_type (e.g. a Sikh Guru recorded as 'Sikh Guru'
-  // at one gurdwara and 'Historical person' at another). Keep the first and
-  // log the disagreement rather than letting row order decide silently.
-  if (figureType && entity.figureType && entity.figureType !== figureType) {
-    const alreadyLogged = reviewNeeded.some(
-      (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'figure-type-conflict',
-    );
-    if (!alreadyLogged) {
-      reviewNeeded.push({
-        issue: 'figure-type-conflict',
-        entityId: `saint:${saintSlug}`,
-        details: `figure_type differs across this figure's shrines: kept "${entity.figureType}", also saw "${figureType}". Decide which is right in the sheet.`,
+    /* A composite's names are supplied already canonical, so there is no
+       parenthetical to mine — and the raw cell's parenthetical describes the
+       row, not the second figure. */
+    const altNames = compositeNames
+      ? []
+      : extractParenthetical(rawSaint).filter((n) => n !== canonical);
+
+    // figure_type says WHAT this figure is, and the dataset fills it for 168 of
+  // 169 rows: 'Sufi saint' (70), 'Deity' (33), 'Sikh Guru' (28), 'Sant' (17),
+    // 'Historical person' (11), 'Individual', 'Collective', plus two rows whose
+    // value is a hedged sentence rather than a category. It was never carried
+    // into the graph, so every one of these entities was typed `saint` — which
+    // is how the explorer came to list Durga, Kali, Krishna, Guru Nanak and
+    // "Jain Tirthankaras" under a heading reading "All saints". On an archive
+    // that sets out to cover six traditions honestly, that is a terminology
+    // failure, not a cosmetic one (CLAUDE.md: respect the traditions in copy and
+    // terminology). Carried verbatim — RULE 2 — so the two prose values stay
+    // prose and the UI decides how to present them.
+    //
+    // On a composite row it describes the figure the cell leads with and nobody
+    // else: Rori Sahib records 'Sikh Guru', and copying that onto Bhai Mardana
+    // would make the graph assert something the sheet never says.
+    const figureType = isPrimary ? String(row['figure_type'] ?? '').trim() : '';
+
+    if (!saintMap.has(saintSlug)) {
+      const qidEntry = qidMap[saintSlug];
+      saintMap.set(saintSlug, {
+        id: `saint:${saintSlug}`,
+        type: 'saint',
+        slug: saintSlug,
+        name: canonical,
+        altNames: [...altNames],
+        shrines: [],
+        ...(figureType ? { figureType } : {}),
+        ...(qidEntry?.confirmed && qidEntry.qid ? { wikidataQid: qidEntry.qid } : {}),
       });
     }
-  } else if (figureType && !entity.figureType) {
-    entity.figureType = figureType;
-  }
 
-  /* The sheet's own dates. Like figure_type these were never carried, so the
-     graph held ZERO born/died values while `figure_born` is filled for 66 rows
-     and `figure_died` for 71 — saint pages simply showed no dates. Kept
-     verbatim, because the archive's editorial standard treats a hedged date as
-     correct content: "between about 1072 and 1077 CE (465–469 AH)" must not
-     become 1072. These are authoritative; the machine-extracted proposals
-     merged further down only fill what is still empty. */
-  for (const [field, column] of [
-    ['born', 'figure_born'],
-    ['died', 'figure_died'],
-  ]) {
-    const value = String(row[column] ?? '').trim();
-    if (!value) continue;
-    if (entity[field] && entity[field] !== value) {
+    const entity = saintMap.get(saintSlug);
+
+    // One canonical figure can be reached from several shrines, and those rows do
+    // not always agree on figure_type (e.g. a Sikh Guru recorded as 'Sikh Guru'
+    // at one gurdwara and 'Historical person' at another). Keep the first and
+    // log the disagreement rather than letting row order decide silently.
+    if (figureType && entity.figureType && entity.figureType !== figureType) {
       const alreadyLogged = reviewNeeded.some(
-        (r) => r.entityId === `saint:${saintSlug}` && r.issue === `${field}-conflict`,
+        (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'figure-type-conflict',
       );
       if (!alreadyLogged) {
         reviewNeeded.push({
-          issue: `${field}-conflict`,
+          issue: 'figure-type-conflict',
           entityId: `saint:${saintSlug}`,
-          details: `${column} differs across this figure's shrines: kept "${entity[field]}", also saw "${value}".`,
+          details: `figure_type differs across this figure's shrines: kept "${entity.figureType}", also saw "${figureType}". Decide which is right in the sheet.`,
         });
       }
-    } else if (!entity[field]) {
-      entity[field] = value;
+    } else if (figureType && !entity.figureType) {
+      entity.figureType = figureType;
+    }
+
+    /* The sheet's own dates. Like figure_type these were never carried, so the
+       graph held ZERO born/died values while `figure_born` is filled for 66 rows
+       and `figure_died` for 71 — saint pages simply showed no dates. Kept
+       verbatim, because the archive's editorial standard treats a hedged date as
+       correct content: "between about 1072 and 1077 CE (465–469 AH)" must not
+       become 1072. These are authoritative; the machine-extracted proposals
+       merged further down only fill what is still empty.
+
+       Primary figure only, for the same reason as figure_type: a row that names
+       two people gives one pair of dates, and there is nothing in the row to say
+       whose. */
+    for (const [field, column] of isPrimary
+      ? [
+          ['born', 'figure_born'],
+          ['died', 'figure_died'],
+        ]
+      : []) {
+      const value = String(row[column] ?? '').trim();
+      if (!value) continue;
+      if (entity[field] && entity[field] !== value) {
+        const alreadyLogged = reviewNeeded.some(
+          (r) => r.entityId === `saint:${saintSlug}` && r.issue === `${field}-conflict`,
+        );
+        if (!alreadyLogged) {
+          reviewNeeded.push({
+            issue: `${field}-conflict`,
+            entityId: `saint:${saintSlug}`,
+            details: `${column} differs across this figure's shrines: kept "${entity[field]}", also saw "${value}".`,
+          });
+        }
+      } else if (!entity[field]) {
+        entity[field] = value;
+      }
+    }
+
+    if (!entity.shrines.includes(shrineSlug)) {
+      entity.shrines.push(shrineSlug);
+    }
+
+    for (const altName of altNames) {
+      if (!entity.altNames.includes(altName)) {
+        entity.altNames.push(altName);
+      }
+    }
+
+    // Log the merge decision for review
+    if (!compositeNames && rawSaint !== canonical) {
+      const alreadyLogged = reviewNeeded.some(
+        (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'name-merge',
+      );
+      if (!alreadyLogged) {
+        reviewNeeded.push({
+          issue: 'name-merge',
+          entityId: `saint:${saintSlug}`,
+          details: `"${rawSaint}" merged into canonical "${canonical}" (slug: ${saintSlug}). Verify the merge is correct.`,
+        });
+      }
     }
   }
+}
 
-  if (!entity.shrines.includes(shrineSlug)) {
-    entity.shrines.push(shrineSlug);
-  }
+/* ── one person, one node ──────────────────────────────────────────────────────
 
-  for (const altName of altNames) {
-    if (!entity.altNames.includes(altName)) {
-      entity.altNames.push(altName);
-    }
-  }
+   Everything above this line built figure nodes from the sheet. Everything
+   below reads machine proposals, which carry their own slugs — and when a
+   proposal's slug differs from the sheet's for the same man, the loop below
+   used to create him a second time, because its only guard was
+   `saintMap.has(slug)`.
 
-  // Log the merge decision for review
-  if (rawSaint !== canonical) {
-    const alreadyLogged = reviewNeeded.some(
-      (r) => r.entityId === `saint:${saintSlug}` && r.issue === 'name-merge',
-    );
-    if (!alreadyLogged) {
-      reviewNeeded.push({
-        issue: 'name-merge',
-        entityId: `saint:${saintSlug}`,
-        details: `"${rawSaint}" merged into canonical "${canonical}" (slug: ${saintSlug}). Verify the merge is correct.`,
-      });
-    }
-  }
+   Two figures were split that way. `hazrat-wasif-ali-wasif-awan` carried Wasif
+   Ali Wasif's shrine and his ʿurs; `hazrat-wasif-ali-wasif` carried his master
+   and both his orders. Same man, same spelling of his name, two pages, neither
+   of them complete. `shah-abul-muali-qadri` and
+   `hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri` were the
+   same story.
+
+   So a proposal slug is resolved against the names already in the graph before
+   it is allowed to mint a node. The test is `saintNameKey` — identical name,
+   nothing looser — and scripts/data/lib/saintIdentity.mjs records at length why
+   anything looser is a trap on this corpus (a similarity matcher scored 2 right
+   out of 21 here, and its misses were master-and-disciple pairs). */
+
+const saintSlugByNameKey = new Map();
+for (const saint of saintMap.values()) {
+  const key = saintNameKey(saint.name);
+  if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, saint.slug);
+}
+
+/* proposal slug → the sheet-derived slug for the same person. */
+const saintSlugAliases = new Map();
+
+function resolveSaintSlug(slug) {
+  return saintSlugAliases.get(slug) ?? slug;
 }
 
 /* Teachers named in the prose who have no shrine in this archive — Hujwiri's
@@ -344,7 +456,23 @@ for (const p of lineageProposals) {
   for (const side of ['subject', 'object']) {
     const slug = p[`${side}Slug`];
     const name = p[`${side}Name`];
-    if (!slug || saintMap.has(slug)) continue;
+    if (!slug || saintMap.has(slug) || saintSlugAliases.has(slug)) continue;
+
+    const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
+    if (existing && existing !== slug) {
+      saintSlugAliases.set(slug, existing);
+      retiredSaintSlugs.set(slug, existing);
+      reviewNeeded.push({
+        issue: 'saint-identity-joined',
+        entityId: `saint:${existing}`,
+        details:
+          `proposal slug "${slug}" names the same person as "${existing}" ` +
+          `("${name}") and was joined to it rather than made a second node. ` +
+          `Identical-name match; see scripts/data/lib/saintIdentity.mjs.`,
+      });
+      continue;
+    }
+
     saintMap.set(slug, {
       id: `saint:${slug}`,
       type: 'saint',
@@ -355,6 +483,8 @@ for (const p of lineageProposals) {
       lineageOnly: true,
       reviewed: false,
     });
+    const key = saintNameKey(name ?? '');
+    if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, slug);
   }
 }
 
@@ -366,7 +496,7 @@ for (const p of lineageProposals) {
    (`blockedFields`) stay withheld — the verifier fails the build if one is ever
    promoted back into a live field. */
 for (const p of dateProposals) {
-  const saint = saintMap.get(p.saintSlug);
+  const saint = saintMap.get(resolveSaintSlug(p.saintSlug));
   if (!saint) continue;
   let touched = false;
 
@@ -415,7 +545,7 @@ const datesDoc = existsSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'))
   ? JSON.parse(readFileSync(join(ROOT, 'data', 'kg-saint-dates-proposals.json'), 'utf8'))
   : {};
 for (const d of datesDoc.disputedDates ?? []) {
-  const saint = saintMap.get(d.saintSlug);
+  const saint = saintMap.get(resolveSaintSlug(d.saintSlug));
   if (!saint) continue;
   saint.disputedDates ??= [];
   saint.disputedDates.push({
@@ -469,8 +599,12 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const parsed = parseEvent(evText);
   if (!parsed) continue;
 
+  /* The primary figure. `Events` describes one observance — Rori Sahib's cell
+     reads "Guru Nanak Gurpurab; jatha pilgrimage" — so on a row naming two
+     figures the day belongs to the one the cell leads with, and attaching it to
+     both would invent a second observance. */
   const rawSaint = String(row['Sufi Saint'] ?? '').trim();
-  const canonical = rawSaint ? canonicalizeSaintName(rawSaint, mergeVariants) : '';
+  const canonical = rawSaint ? figureNamesFor(rawSaint)[0] : '';
   const saintSlug = canonical ? slugify(canonical) : undefined;
 
   const shrine = row['Name'] || '';
@@ -523,6 +657,7 @@ const relations = [];
 // saint → buried_at → shrine
 for (const saint of saints) {
   for (const shrineSlug of saint.shrines) {
+    const asRecorded = compositeShrineCell.get(shrineSlug);
     relations.push({
       id: `buried_at:${saint.id}:${shrineSlug}`,
       type: 'buried_at',
@@ -530,6 +665,11 @@ for (const saint of saints) {
       object: shrineSlug,
       confidence: 1.0,
       method: 'rule',
+      /* Only on the three sites the sheet gives two figures: the cell says
+         "Guru Arjan Dev (5th) & Guru Hargobind (6th)", and a page showing one
+         figure's link to the site should be able to say so in the sheet's own
+         words rather than presenting a joint dedication as a sole one. */
+      ...(asRecorded ? { asRecorded } : {}),
     });
   }
 }
@@ -622,9 +762,27 @@ for (const rel of lineageRelations) {
    hand-curated seed loop so a seed always wins the id collision below: a human
    reading beats an extraction of the same pair. */
 for (const p of lineageProposals) {
-  const { subjectSlug, relation, objectSlug, confidence, source, quote, notes } = p;
+  const { relation, confidence, source, quote, notes } = p;
+  /* Through the alias map, so an edge extracted about a figure the sheet
+     already names lands on his one node and not on a twin. */
+  const subjectSlug = resolveSaintSlug(p.subjectSlug);
+  const objectSlug = resolveSaintSlug(p.objectSlug);
   if (!subjectSlug || !relation || !objectSlug) continue;
   if (!saintBySlug.has(subjectSlug) || !saintBySlug.has(objectSlug)) continue;
+  /* A joined identity can turn an extracted edge into a self-loop (A is a
+     disciple of A) if both sides resolve to the same person. The relation
+     vocabulary forbids that and the verifier checks for it, so drop it here
+     and say so rather than emitting it. */
+  if (subjectSlug === objectSlug) {
+    reviewNeeded.push({
+      issue: 'lineage-self-loop-after-join',
+      entityId: `saint:${subjectSlug}`,
+      details:
+        `proposal "${relation}" from "${p.subjectSlug}" to "${p.objectSlug}" ` +
+        `became a self-loop once both resolved to "${subjectSlug}". Dropped.`,
+    });
+    continue;
+  }
   const id = `${relation}:saint:${subjectSlug}:saint:${objectSlug}`;
   if (relations.some((r) => r.id === id)) continue;
   relations.push({
@@ -652,7 +810,8 @@ for (const p of lineageProposals) {
    construction (the verifier fails the build if one ever does), so they add no
    edge here; their text belongs on the page, not in the taxonomy. */
 for (const p of orderProposals) {
-  const { saintSlug, parentOrder, parentOrders, branch, asRecorded, confidence, source, quote } = p;
+  const { parentOrder, parentOrders, branch, asRecorded, confidence, source, quote } = p;
+  const saintSlug = resolveSaintSlug(p.saintSlug);
   if (!saintSlug || !saintBySlug.has(saintSlug)) continue;
   const targets = [parentOrder, ...(parentOrders ?? [])].filter(Boolean);
   for (const orderSlug of targets) {
@@ -796,6 +955,15 @@ const stats = {
 
 // ── write output ──────────────────────────────────────────────────────────────
 
+/* Retired figure slugs, minus any that a live figure still answers to — a
+   retirement that shadowed a real node would hide that figure's page behind a
+   redirect, which is worse than the soft 404 this exists to prevent. */
+const retiredSlugs = Object.fromEntries(
+  [...retiredSaintSlugs]
+    .filter(([from, to]) => !saintBySlug.has(from) && saintBySlug.has(to))
+    .sort(([a], [b]) => a.localeCompare(b, 'en')),
+);
+
 const kg = {
   schema_version: '1.0.0',
   generated: new Date().toISOString(),
@@ -805,6 +973,7 @@ const kg = {
   events,
   relations,
   stats,
+  retiredSlugs,
   reviewNeeded,
 };
 

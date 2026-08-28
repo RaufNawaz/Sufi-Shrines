@@ -1,7 +1,6 @@
 {
   "schema_version": "1.0.0",
   "_comment": "Human-curated seed data for the knowledge graph. Edit here, then re-run npm run data:kg.",
-
   "orders": [
     {
       "slug": "chishtiyya",
@@ -53,7 +52,6 @@
       "wikidataNote": "requires human confirmation before release"
     }
   ],
-
   "saintOrders": {
     "comment": "Keys must match the slug generated from the canonical saint name after merge variants are applied.",
     "fariduddin-ganjshakar": "chishtiyya",
@@ -77,24 +75,142 @@
     "shams-ali-qalandar": "qalandariyya",
     "qalandar-baba-auliya": "qalandariyya"
   },
-
   "saintMergeVariants": {
     "comment": "Maps a raw CSV value to its canonical saint name. Applied before slug generation. Add entries when the same saint appears under multiple name forms.",
-    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar",
     "Bari Imam (Shah Abdul Latif Kazmi)": "Bari Imam",
+    "Bhagwan Valmik (Valmiki)": "Valmiki (also revered as Bhagwan Valmik)",
     "Bulleh Shah (Abdullah Shah Qadri)": "Bulleh Shah",
+    "Goddess Kali": "Kali",
+    "Goddess Kali (Kalka Devi)": "Kali (also revered as Kalka Devi)",
+    "Guru Nanak Dev Ji": "Guru Nanak",
     "Hazrat Data Ganj Bakhsh (Ali Hujwiri)": "Data Ganj Bakhsh",
     "Hazrat Shah Daula Daryai": "Shah Daula Daryai",
     "Hazrat Shah Yousuf": "Shah Yousuf",
+    "Jhulelal / Daryalal (Zinda Pir)": "Jhulelal (also revered as Daryalal/Zinda Pir)",
+    "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)": "Laki Shah Saddar",
+    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar",
     "Rahman Baba (Abdur Rahman Mohmand)": "Rahman Baba",
     "Sachal Sarmast (Abdul Wahab Faruqi)": "Sachal Sarmast",
     "Shah Hussain (Madho Lal Hussain)": "Shah Hussain",
-    "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)": "Laki Shah Saddar",
-    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir",
-    "Guru Nanak and Bhai Mardana": "Guru Nanak",
-    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar"
+    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir"
   },
-
+  "_comment_saintDoNotMerge": "Merges this project has decided AGAINST, each with the corpus sentence that forbids it. saintMergeVariants above says which names are one person; this says which look like one person and are not. It exists because the merge is the destructive direction: on this corpus the figures most likely to share a name are father and son, uncle and nephew, master and disciple, so a similarity merge does not merely mis-name someone — it deletes the edge that made the pair worth recording. A honorific-stripping token matcher run on 28 August 2026 proposed 21 merges here and 19 were wrong; those 19 are the reason most of these rows exist. Enforced by scripts/data/validate-kg-identity.mjs, which fails the build if any pair collapses into one node and re-checks every quote byte-for-byte against its source. Adding a row is cheap and permanent; deleting one needs a reason better than \"the names look the same\".",
+  "saintDoNotMerge": [
+    {
+      "slugs": [
+        "khwaja-muhammad-qasim",
+        "khwaja-muhammad-qasim-sadiq"
+      ],
+      "reason": "Pupil and master, not one man. `khwaja-muhammad-qasim` is Zinda Pir of Ghamkol Sharif (1912–1999); `khwaja-muhammad-qasim-sadiq` is the founder of Mohra Sharif (b. c. 1846), who granted him khilafat. Merging them deletes the disciple_of edge that is the reason both are recorded.",
+      "quote": "from his own guide, Baba Ji Muhammad Qasim of Mohra Sharif",
+      "source": "data/shrines.csv#darbar-ghamkol-sharif-zinda-pir"
+    },
+    {
+      "slugs": [
+        "shah-yousuf",
+        "shah-yusaf-gardez"
+      ],
+      "reason": "The entry devotes a section to forbidding this merge. Different centuries, different cities, ~150 km apart; the shared element is the honorific.",
+      "quote": "The two are unrelated: different centuries, different cities, and no source treats them as the same figure.",
+      "source": "data/shrines.csv#shah-yousuf"
+    },
+    {
+      "slugs": [
+        "imam-ali-ul-haq",
+        "bari-imam"
+      ],
+      "reason": "The Sialkot entry opens by insisting on the distinction. Bari Imam is Syed Abdul Latif Shah Kazmi of Nurpur Shahan; the shared element is the honorific \"Imam\".",
+      "quote": "with whom the similar honorific \"Imam\" sometimes causes confusion: the figure venerated at Sialkot is a separate personage belonging to the local history of that city",
+      "source": "data/shrines.csv#shrine-of-imam-ali-ul-haq"
+    },
+    {
+      "slugs": [
+        "shaikh-abdul-latif",
+        "shah-abdul-latif-bhittai"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge on 28 August 2026 and it is wrong. `shaikh-abdul-latif` is the father and first teacher of Khwaja Muhammad Zaman of Luari Sharif, a Naqshbandi; Shah Abdul Latif Bhittai is the Sindhi poet of the Risalo.",
+      "quote": "Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order",
+      "source": "data/shrines.csv#dargah-of-khwaja-muhammad-zaman-luari-sharif"
+    },
+    {
+      "slugs": [
+        "sayyid-shah-inayat",
+        "shah-inayat-qadiri"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge and it is wrong. `sayyid-shah-inayat` is the maternal uncle and murshid of Syed Sakhi Shah Chan Charagh in Sindh; Shah Inayat Qadiri is the Lahore master of Bulleh Shah (b. c. 1643, d. c. 1728).",
+      "quote": "He is said to have been the disciple of his own maternal uncle, Sayyid Shah Inayat",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh"
+    },
+    {
+      "slugs": [
+        "shah-saidan-sarmast",
+        "sachal-sarmast"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge and it is wrong. The shared element is the epithet *Sarmast*. `shah-saidan-sarmast` is the Suhrawardi master of Shah Daula Daryai; Sachal Sarmast is the Sindhi poet of Daraza.",
+      "quote": "he became the disciple of a Suhrawardi *faqir* remembered as Shah Saidan Sarmast",
+      "source": "data/shrines.csv#shrine-of-hazrat-shah-daula-daryai"
+    },
+    {
+      "slugs": [
+        "sayyid-abdul-rahman-of-delhi",
+        "rahman-baba"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge and it is wrong. `sayyid-abdul-rahman-of-delhi` is the Qadiri initiator of Sultan Bahu; Rahman Baba is the Pashto poet Abdur Rahman Mohmand of Peshawar. The shared element is the name Rahman.",
+      "quote": "Bahu received initiation in the Qadiri order at the hand of Sayyid Abdul Rahman of Delhi",
+      "source": "data/shrines.csv#garh-maharaja-shorkot"
+    },
+    {
+      "slugs": [
+        "hazrat-hafiz-muhammad-abdur-rahman",
+        "rahman-baba"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge and it is wrong. `hazrat-hafiz-muhammad-abdur-rahman` is the son and successor of Baba Ji at Eidgah Sharif, Rawalpindi; Rahman Baba is the Pashto poet.",
+      "quote": "Upon Baba Ji's death the spiritual seat passed to his son, *Hazrat Hafiz Muhammad Abdur Rahman*",
+      "source": "data/shrines.csv#eidgah-sharif"
+    },
+    {
+      "slugs": [
+        "khwaja-abdul-haq",
+        "hazrat-syed-abdul-wahab"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge on the shared element \"Abdul\" alone. `khwaja-abdul-haq` is the uncle and initiator of Sachal Sarmast; `hazrat-syed-abdul-wahab` is Akhund Panju Baba of the Pashtun country under Akbar.",
+      "quote": "he was raised and initiated by his uncle and spiritual guide, Khwaja Abdul Haq",
+      "source": "data/shrines.csv#shrine-of-sachal-sarmast"
+    },
+    {
+      "slugs": [
+        "hazrat-syedna-tahir-alauddin-qadiri-gilani",
+        "sheikh-tahir"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge on the shared element \"Tahir\". `hazrat-syedna-tahir-alauddin-qadiri-gilani` is a twentieth-century Qadiri teacher named among Ganj-e-Inayat Sarkar’s teachers; `sheikh-tahir` is the figure of Odero Lal in Sindh.",
+      "quote": "Hazrat Syedna Tahir Alauddin Qadiri Gilani",
+      "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar"
+    },
+    {
+      "slugs": [
+        "maulana-ghulam-ali-okarvi",
+        "khwaja-ghulam-farid"
+      ],
+      "reason": "A honorific-stripping matcher proposed this merge on the shared element \"Ghulam\". `maulana-ghulam-ali-okarvi` is an orator named among Ganj-e-Inayat Sarkar’s teachers; Khwaja Ghulam Farid is the Seraiki poet of Kot Mithan.",
+      "quote": "the renowned orator Maulana Ghulam Ali Okarvi",
+      "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar"
+    }
+  ],
+  "_comment_saintCompositeFigures": "Rows whose figure cell names more than one person, mapped to the figures it names, primary first. Applied instead of saintMergeVariants for these cells, and the reason it has to exist: the schema gives a row one `principal_figure`, but some sites are held by two people and the sheet says so — with a `;` in `principal_figure`, and with \"&\" or \"and\" in the legacy cell. Every earlier handling lost one of the two. \"Guru Nanak and Bhai Mardana\" was a saintMergeVariants entry resolving to \"Guru Nanak\", which is why Bhai Mardana appeared NOWHERE in this graph; the other two became single nodes named after both people, so Gurdwara Panjvi Chati Patshahi reached neither Guru Arjan Dev’s page nor Guru Hargobind’s. The FIRST name listed is the only one the row’s own figure_type / figure_born / figure_died may describe: Rori Sahib records figure_type \"Sikh Guru\" and Bhai Mardana was not a Guru, so copying it across would make the graph assert what the sheet never said (RULE 2). build-kg.mjs enforces that, logs a `composite-figure-row` review item, and carries the raw cell onto each `buried_at` edge as `asRecorded`. Only add a row here where the cell genuinely names separate people: a `;` inside a parenthetical is not one (darbar-wasif-ali-wasif), nor is one deity under two names (\"Jhulelal / Daryalal\"), nor a note about practice (\"...; veneration of Guru Nanak\").",
+  "saintCompositeFigures": {
+    "Guru Arjan Dev (5th) & Guru Hargobind (6th)": [
+      "Guru Arjan Dev",
+      "Guru Hargobind"
+    ],
+    "Guru Nanak Dev Ji; associated with Bhai Lalo": [
+      "Guru Nanak",
+      "Bhai Lalo"
+    ],
+    "Guru Nanak and Bhai Mardana": [
+      "Guru Nanak",
+      "Bhai Mardana"
+    ]
+  },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
     "guru-nanak": {
@@ -143,7 +259,6 @@
       "note": "Requires human confirmation"
     }
   },
-
   "_comment_lineageRelations": "Teacher-disciple/successor claims between two saints who both already have a KG entity, hand-extracted from shrine_entries/*.md. Only pairs where both people appear in this dataset's own saint list are modeled here — many shrine_entries mention teachers/successors (e.g. Nizamuddin Auliya, Khwaja Qutbuddin Bakhtiar Kaki, Mullah Shah Badakhshi) who don't have their own shrine among these 163 sites and so aren't yet KG entities; see docs/KG_VOCABULARY.md.",
   "lineageRelations": [
     {
@@ -199,7 +314,6 @@
       "notes": "Confidence lowered — states initiation \"within the line of\" rather than a direct personal teacher-disciple claim."
     }
   ],
-
   "reviewNeededNotes": [
     "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment.",
     "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review.",

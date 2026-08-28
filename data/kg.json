@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-24T22:03:53.265Z",
+  "generated": "2026-08-28T15:02:45.324Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -114,13 +114,25 @@
       "type": "saint",
       "slug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
       "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "altNames": [],
+      "altNames": [
+        "Hazrat Syed Muhammad Khair ul Deen",
+        "Shah Khairuddin Muhammad",
+        "Abul Ma’ali"
+      ],
       "shrines": [
         "darbar-abul-muali-qadri"
       ],
       "figureType": "Sufi saint / scholar (survey: *Wali Allah*, dervish, perfect scholar, Ahl al-Bayt, Kirmani Sadaat)",
       "born": "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)",
-      "died": "16 Rabi ul Awal 1024 AH (as related in the survey)"
+      "died": "16 Rabi ul Awal 1024 AH (as related in the survey)",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Abul Muali (kunyat)",
+        "Asadullah",
+        "Wali Allah"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-abul-muali-qadri"
     },
     {
       "id": "saint:khwaja-muhammad-qasim",
@@ -390,15 +402,17 @@
       "biographySource": "data/shrines.csv#dargah-pir-ratan-nath-jee"
     },
     {
-      "id": "saint:jhulelal-daryalal",
+      "id": "saint:jhulelal",
       "type": "saint",
-      "slug": "jhulelal-daryalal",
-      "name": "Jhulelal / Daryalal",
+      "slug": "jhulelal",
+      "name": "Jhulelal",
       "altNames": [
-        "Zinda Pir"
+        "Zinda Pir",
+        "Uderolal"
       ],
       "shrines": [
-        "darya-lal-mandir-darya-lal-sankat-mochan-mandir"
+        "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+        "jhollay-lal-mandir"
       ],
       "figureType": "Deity"
     },
@@ -559,8 +573,10 @@
       "shrines": [
         "gurdwara-babay-de-ber",
         "gurdwara-balila-sahib-bal-lila-sahib",
+        "gurdwara-chakki-sahib",
         "gurdwara-choa-sahib",
         "gurdwara-darbar-sahib-kartarpur",
+        "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
         "gurdwara-malji-sahib",
         "gurdwara-panja-sahib",
         "gurdwara-patti-sahib",
@@ -615,7 +631,8 @@
       ],
       "shrines": [
         "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
-        "gurdwara-dera-sahib"
+        "gurdwara-dera-sahib",
+        "gurdwara-panjvi-chati-patshahi"
       ],
       "figureType": "Sikh Guru",
       "born": "1563",
@@ -653,17 +670,6 @@
       "figureType": "Historical person"
     },
     {
-      "id": "saint:guru-nanak-dev-ji",
-      "type": "saint",
-      "slug": "guru-nanak-dev-ji",
-      "name": "Guru Nanak Dev Ji",
-      "altNames": [],
-      "shrines": [
-        "gurdwara-chakki-sahib"
-      ],
-      "figureType": "Sikh Guru"
-    },
-    {
       "id": "saint:guru-hargobind",
       "type": "saint",
       "slug": "guru-hargobind",
@@ -677,6 +683,7 @@
         "gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan",
         "gurdwara-chhevin-patshahi-mozang",
         "gurdwara-chowmala-sahib",
+        "gurdwara-panjvi-chati-patshahi",
         "gurdwara-patshahi-chhevin-hadiara-lahore"
       ],
       "figureType": "Sikh Guru"
@@ -724,28 +731,30 @@
       "biographySource": "data/shrines.csv#gurdwara-guru-ram-das-ji"
     },
     {
-      "id": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
+      "id": "saint:bhai-lalo",
       "type": "saint",
-      "slug": "guru-nanak-dev-ji-associated-with-bhai-lalo",
-      "name": "Guru Nanak Dev Ji; associated with Bhai Lalo",
-      "altNames": [],
+      "slug": "bhai-lalo",
+      "name": "Bhai Lalo",
+      "altNames": [
+        "Bhai Lalu"
+      ],
       "shrines": [
         "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
       ],
-      "figureType": "Sikh Guru"
+      "born": "1452 (\"traditionally said\")",
+      "datePrecision": "year",
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi"
     },
     {
-      "id": "saint:guru-arjan-dev-and-guru-hargobind",
+      "id": "saint:bhai-mardana",
       "type": "saint",
-      "slug": "guru-arjan-dev-and-guru-hargobind",
-      "name": "Guru Arjan Dev & Guru Hargobind",
-      "altNames": [
-        "5th"
-      ],
+      "slug": "bhai-mardana",
+      "name": "Bhai Mardana",
+      "altNames": [],
       "shrines": [
-        "gurdwara-panjvi-chati-patshahi"
-      ],
-      "figureType": "Sikh Guru"
+        "gurdwara-rori-sahib"
+      ]
     },
     {
       "id": "saint:bhai-taru",
@@ -842,40 +851,16 @@
       "figureType": "Deity"
     },
     {
-      "id": "saint:jhulelal",
-      "type": "saint",
-      "slug": "jhulelal",
-      "name": "Jhulelal",
-      "altNames": [
-        "Uderolal"
-      ],
-      "shrines": [
-        "jhollay-lal-mandir"
-      ],
-      "figureType": "Deity"
-    },
-    {
       "id": "saint:kali",
       "type": "saint",
       "slug": "kali",
       "name": "Kali",
       "altNames": [
-        "deity"
-      ],
-      "shrines": [
-        "kalat-kali-temple"
-      ],
-      "figureType": "Deity"
-    },
-    {
-      "id": "saint:goddess-kali",
-      "type": "saint",
-      "slug": "goddess-kali",
-      "name": "Goddess Kali",
-      "altNames": [
+        "deity",
         "Kalka Devi"
       ],
       "shrines": [
+        "kalat-kali-temple",
         "kali-bari-mandir",
         "kalka-cave-temple-asthan-of-kalka-devi"
       ],
@@ -924,6 +909,7 @@
       ],
       "shrines": [
         "lal-kurti-temple-balmiki-mandir-rawalpindi",
+        "valmik-mandir-naqi-road",
         "valmiki-swamiji-mandir-gracy-lines-rawalpindi"
       ],
       "figureType": "Deity"
@@ -2703,19 +2689,6 @@
       "biographySource": "data/shrines.csv#tomb-of-ustad-nuriya"
     },
     {
-      "id": "saint:bhagwan-valmik",
-      "type": "saint",
-      "slug": "bhagwan-valmik",
-      "name": "Bhagwan Valmik",
-      "altNames": [
-        "Valmiki"
-      ],
-      "shrines": [
-        "valmik-mandir-naqi-road"
-      ],
-      "figureType": "Deity"
-    },
-    {
       "id": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
       "type": "saint",
       "slug": "ghazi-syed-shah-fateh-muhammad-bukhari",
@@ -2854,44 +2827,10 @@
       "reviewed": false
     },
     {
-      "id": "saint:shah-abul-muali-qadri",
-      "type": "saint",
-      "slug": "shah-abul-muali-qadri",
-      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "altNames": [
-        "Hazrat Syed Muhammad Khair ul Deen",
-        "Shah Khairuddin Muhammad",
-        "Abul Ma’ali"
-      ],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false,
-      "born": "10 Zil Hajj 960 Hijri",
-      "died": "16 Rabi ul Awal 1024 Hijri",
-      "datePrecision": "exact-date",
-      "titles": [
-        "Abul Muali (kunyat)",
-        "Asadullah",
-        "Wali Allah"
-      ],
-      "biographyReviewed": false,
-      "biographySource": "data/shrines.csv#darbar-abul-muali-qadri"
-    },
-    {
       "id": "saint:hazrat-shah-sikandar",
       "type": "saint",
       "slug": "hazrat-shah-sikandar",
       "name": "Hazrat Shah Sikandar",
-      "altNames": [],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false
-    },
-    {
-      "id": "saint:hazrat-wasif-ali-wasif",
-      "type": "saint",
-      "slug": "hazrat-wasif-ali-wasif",
-      "name": "Hazrat Wasif Ali Wasif Awan",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -4609,7 +4548,7 @@
       "name": "Cheti Chand at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)",
       "eventType": "observance",
       "shrineSlug": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
-      "saintSlug": "jhulelal-daryalal"
+      "saintSlug": "jhulelal"
     },
     {
       "id": "event:urs-data-darbar",
@@ -4723,7 +4662,7 @@
       "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Chakki Sahib",
       "eventType": "observance",
       "shrineSlug": "gurdwara-chakki-sahib",
-      "saintSlug": "guru-nanak-dev-ji"
+      "saintSlug": "guru-nanak"
     },
     {
       "id": "event:observance-gurdwara-chhevin-patshahi-chitti-gatti",
@@ -4798,7 +4737,7 @@
       "name": "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)",
       "eventType": "observance",
       "shrineSlug": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
-      "saintSlug": "guru-nanak-dev-ji-associated-with-bhai-lalo"
+      "saintSlug": "guru-nanak"
     },
     {
       "id": "event:observance-gurdwara-malji-sahib",
@@ -4825,7 +4764,7 @@
       "name": "Occasional pilgrimage at Gurdwara Panjvi Chati Patshahi",
       "eventType": "observance",
       "shrineSlug": "gurdwara-panjvi-chati-patshahi",
-      "saintSlug": "guru-arjan-dev-and-guru-hargobind"
+      "saintSlug": "guru-arjan-dev"
     },
     {
       "id": "event:observance-gurdwara-patshahi-chhevin-hadiara-lahore",
@@ -4989,7 +4928,7 @@
       "name": "Durga Puja at Kali Bari Mandir",
       "eventType": "observance",
       "shrineSlug": "kali-bari-mandir",
-      "saintSlug": "goddess-kali"
+      "saintSlug": "kali"
     },
     {
       "id": "event:observance-kalka-cave-temple-asthan-of-kalka-devi",
@@ -4998,7 +4937,7 @@
       "name": "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)",
       "eventType": "observance",
       "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
-      "saintSlug": "goddess-kali"
+      "saintSlug": "kali"
     },
     {
       "id": "event:observance-katas-raj-temples",
@@ -5815,7 +5754,7 @@
       "name": "Holi at Valmik Mandir (Naqi Road)",
       "eventType": "observance",
       "shrineSlug": "valmik-mandir-naqi-road",
-      "saintSlug": "bhagwan-valmik"
+      "saintSlug": "valmiki"
     },
     {
       "id": "event:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi",
@@ -6073,10 +6012,18 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:jhulelal-daryalal:darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "id": "buried_at:saint:jhulelal:darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "type": "buried_at",
-      "subject": "saint:jhulelal-daryalal",
+      "subject": "saint:jhulelal",
       "object": "darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:jhulelal:jhollay-lal-mandir",
+      "type": "buried_at",
+      "subject": "saint:jhulelal",
+      "object": "jhollay-lal-mandir",
       "confidence": 1,
       "method": "rule"
     },
@@ -6161,6 +6108,14 @@
       "method": "rule"
     },
     {
+      "id": "buried_at:saint:guru-nanak:gurdwara-chakki-sahib",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-chakki-sahib",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
       "id": "buried_at:saint:guru-nanak:gurdwara-choa-sahib",
       "type": "buried_at",
       "subject": "saint:guru-nanak",
@@ -6175,6 +6130,15 @@
       "object": "gurdwara-darbar-sahib-kartarpur",
       "confidence": 1,
       "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:guru-nanak:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "type": "buried_at",
+      "subject": "saint:guru-nanak",
+      "object": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "confidence": 1,
+      "method": "rule",
+      "asRecorded": "Guru Nanak Dev Ji; associated with Bhai Lalo"
     },
     {
       "id": "buried_at:saint:guru-nanak:gurdwara-malji-sahib",
@@ -6214,7 +6178,8 @@
       "subject": "saint:guru-nanak",
       "object": "gurdwara-rori-sahib",
       "confidence": 1,
-      "method": "rule"
+      "method": "rule",
+      "asRecorded": "Guru Nanak and Bhai Mardana"
     },
     {
       "id": "buried_at:saint:guru-nanak:gurdwara-sach-khand-sahib",
@@ -6297,6 +6262,15 @@
       "method": "rule"
     },
     {
+      "id": "buried_at:saint:guru-arjan-dev:gurdwara-panjvi-chati-patshahi",
+      "type": "buried_at",
+      "subject": "saint:guru-arjan-dev",
+      "object": "gurdwara-panjvi-chati-patshahi",
+      "confidence": 1,
+      "method": "rule",
+      "asRecorded": "Guru Arjan Dev (5th) & Guru Hargobind (6th)"
+    },
+    {
       "id": "buried_at:saint:bhai-biba-singh:gurdwara-bhai-beba-singh",
       "type": "buried_at",
       "subject": "saint:bhai-biba-singh",
@@ -6309,14 +6283,6 @@
       "type": "buried_at",
       "subject": "saint:bhai-joga-singh",
       "object": "gurdwara-bhai-joga-singh",
-      "confidence": 1,
-      "method": "rule"
-    },
-    {
-      "id": "buried_at:saint:guru-nanak-dev-ji:gurdwara-chakki-sahib",
-      "type": "buried_at",
-      "subject": "saint:guru-nanak-dev-ji",
-      "object": "gurdwara-chakki-sahib",
       "confidence": 1,
       "method": "rule"
     },
@@ -6353,6 +6319,15 @@
       "method": "rule"
     },
     {
+      "id": "buried_at:saint:guru-hargobind:gurdwara-panjvi-chati-patshahi",
+      "type": "buried_at",
+      "subject": "saint:guru-hargobind",
+      "object": "gurdwara-panjvi-chati-patshahi",
+      "confidence": 1,
+      "method": "rule",
+      "asRecorded": "Guru Arjan Dev (5th) & Guru Hargobind (6th)"
+    },
+    {
       "id": "buried_at:saint:guru-hargobind:gurdwara-patshahi-chhevin-hadiara-lahore",
       "type": "buried_at",
       "subject": "saint:guru-hargobind",
@@ -6377,20 +6352,22 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:guru-nanak-dev-ji-associated-with-bhai-lalo:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "id": "buried_at:saint:bhai-lalo:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "buried_at",
-      "subject": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
+      "subject": "saint:bhai-lalo",
       "object": "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "confidence": 1,
-      "method": "rule"
+      "method": "rule",
+      "asRecorded": "Guru Nanak Dev Ji; associated with Bhai Lalo"
     },
     {
-      "id": "buried_at:saint:guru-arjan-dev-and-guru-hargobind:gurdwara-panjvi-chati-patshahi",
+      "id": "buried_at:saint:bhai-mardana:gurdwara-rori-sahib",
       "type": "buried_at",
-      "subject": "saint:guru-arjan-dev-and-guru-hargobind",
-      "object": "gurdwara-panjvi-chati-patshahi",
+      "subject": "saint:bhai-mardana",
+      "object": "gurdwara-rori-sahib",
       "confidence": 1,
-      "method": "rule"
+      "method": "rule",
+      "asRecorded": "Guru Nanak and Bhai Mardana"
     },
     {
       "id": "buried_at:saint:bhai-taru:gurdwara-shaheed-bhai-taru-singh",
@@ -6449,14 +6426,6 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:jhulelal:jhollay-lal-mandir",
-      "type": "buried_at",
-      "subject": "saint:jhulelal",
-      "object": "jhollay-lal-mandir",
-      "confidence": 1,
-      "method": "rule"
-    },
-    {
       "id": "buried_at:saint:kali:kalat-kali-temple",
       "type": "buried_at",
       "subject": "saint:kali",
@@ -6465,17 +6434,17 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:goddess-kali:kali-bari-mandir",
+      "id": "buried_at:saint:kali:kali-bari-mandir",
       "type": "buried_at",
-      "subject": "saint:goddess-kali",
+      "subject": "saint:kali",
       "object": "kali-bari-mandir",
       "confidence": 1,
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:goddess-kali:kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "buried_at:saint:kali:kalka-cave-temple-asthan-of-kalka-devi",
       "type": "buried_at",
-      "subject": "saint:goddess-kali",
+      "subject": "saint:kali",
       "object": "kalka-cave-temple-asthan-of-kalka-devi",
       "confidence": 1,
       "method": "rule"
@@ -6509,6 +6478,14 @@
       "type": "buried_at",
       "subject": "saint:valmiki",
       "object": "lal-kurti-temple-balmiki-mandir-rawalpindi",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:valmiki:valmik-mandir-naqi-road",
+      "type": "buried_at",
+      "subject": "saint:valmiki",
+      "object": "valmik-mandir-naqi-road",
       "confidence": 1,
       "method": "rule"
     },
@@ -7173,14 +7150,6 @@
       "type": "buried_at",
       "subject": "saint:ustad-nuriya",
       "object": "tomb-of-ustad-nuriya",
-      "confidence": 1,
-      "method": "rule"
-    },
-    {
-      "id": "buried_at:saint:bhagwan-valmik:valmik-mandir-naqi-road",
-      "type": "buried_at",
-      "subject": "saint:bhagwan-valmik",
-      "object": "valmik-mandir-naqi-road",
       "confidence": 1,
       "method": "rule"
     },
@@ -8883,9 +8852,9 @@
       "notes": "Confidence lowered — hedged as \"tradition holds\"; the named master is otherwise undocumented in this corpus."
     },
     {
-      "id": "disciple_of:saint:shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
+      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
       "type": "disciple_of",
-      "subject": "saint:shah-abul-muali-qadri",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
       "object": "saint:daud-bandagi-kirmani",
       "confidence": 0.95,
       "method": "machine-extracted",
@@ -8906,9 +8875,9 @@
       "quote": "For advanced learning he became a disciple (*mureed*) of Hazrat Shah Sikandar, who is credited with giving him the name \"Tahir Bandagi\""
     },
     {
-      "id": "disciple_of:saint:hazrat-wasif-ali-wasif:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
+      "id": "disciple_of:saint:hazrat-wasif-ali-wasif-awan:saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
       "type": "disciple_of",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "saint:hazrat-shah-niyaz-ahmad-chisti-qadri",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -9816,9 +9785,9 @@
       "asRecorded": "Qadri (see year_built_note / Description for a discrepancy in how the survey names his order)"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:chishtiyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:chishtiyya",
       "type": "belongs_to_order",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "order:chishtiyya",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -9829,9 +9798,9 @@
       "asRecorded": "Chishti Qadri — the survey states allegiance (bai'at) to \"Hazrat Shah Niyaz Ahmad Chisti Qadri\"; see note on the source wording below"
     },
     {
-      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif:order:qadiriyya",
+      "id": "belongs_to_order:saint:hazrat-wasif-ali-wasif-awan:order:qadiriyya",
       "type": "belongs_to_order",
-      "subject": "saint:hazrat-wasif-ali-wasif",
+      "subject": "saint:hazrat-wasif-ali-wasif-awan",
       "object": "order:qadiriyya",
       "confidence": 0.7,
       "method": "machine-extracted",
@@ -10417,9 +10386,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:jhulelal-daryalal:event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
+      "id": "commemorated_by:saint:jhulelal:event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "type": "commemorated_by",
-      "subject": "saint:jhulelal-daryalal",
+      "subject": "saint:jhulelal",
       "object": "event:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir",
       "confidence": 0.9,
       "method": "rule"
@@ -10513,9 +10482,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak-dev-ji:event:observance-gurdwara-chakki-sahib",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-chakki-sahib",
       "type": "commemorated_by",
-      "subject": "saint:guru-nanak-dev-ji",
+      "subject": "saint:guru-nanak",
       "object": "event:observance-gurdwara-chakki-sahib",
       "confidence": 0.9,
       "method": "rule"
@@ -10577,9 +10546,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-nanak-dev-ji-associated-with-bhai-lalo:event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "id": "commemorated_by:saint:guru-nanak:event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "type": "commemorated_by",
-      "subject": "saint:guru-nanak-dev-ji-associated-with-bhai-lalo",
+      "subject": "saint:guru-nanak",
       "object": "event:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
       "confidence": 0.9,
       "method": "rule"
@@ -10601,9 +10570,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:guru-arjan-dev-and-guru-hargobind:event:observance-gurdwara-panjvi-chati-patshahi",
+      "id": "commemorated_by:saint:guru-arjan-dev:event:observance-gurdwara-panjvi-chati-patshahi",
       "type": "commemorated_by",
-      "subject": "saint:guru-arjan-dev-and-guru-hargobind",
+      "subject": "saint:guru-arjan-dev",
       "object": "event:observance-gurdwara-panjvi-chati-patshahi",
       "confidence": 0.9,
       "method": "rule"
@@ -10745,17 +10714,17 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-kali:event:observance-kali-bari-mandir",
+      "id": "commemorated_by:saint:kali:event:observance-kali-bari-mandir",
       "type": "commemorated_by",
-      "subject": "saint:goddess-kali",
+      "subject": "saint:kali",
       "object": "event:observance-kali-bari-mandir",
       "confidence": 0.9,
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:goddess-kali:event:observance-kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "commemorated_by:saint:kali:event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "type": "commemorated_by",
-      "subject": "saint:goddess-kali",
+      "subject": "saint:kali",
       "object": "event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "confidence": 0.9,
       "method": "rule"
@@ -11417,9 +11386,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhagwan-valmik:event:observance-valmik-mandir-naqi-road",
+      "id": "commemorated_by:saint:valmiki:event:observance-valmik-mandir-naqi-road",
       "type": "commemorated_by",
-      "subject": "saint:bhagwan-valmik",
+      "subject": "saint:valmiki",
       "object": "event:observance-valmik-mandir-naqi-road",
       "confidence": 0.9,
       "method": "rule"
@@ -11450,13 +11419,27 @@
     }
   ],
   "stats": {
-    "saints": 196,
+    "saints": 190,
     "orders": 5,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 637,
-    "ambiguousMerges": 69
+    "relations": 640,
+    "ambiguousMerges": 65
+  },
+  "retiredSlugs": {
+    "bhagwan-valmik": "valmiki",
+    "goddess-kali": "kali",
+    "guru-arjan-dev-and-guru-hargobind": "guru-arjan-dev",
+    "guru-nanak-and-bhai-mardana": "guru-nanak",
+    "guru-nanak-dev-ji": "guru-nanak",
+    "guru-nanak-dev-ji-associated-with-bhai-lalo": "guru-nanak",
+    "hazrat-data-ganj-bakhsh": "data-ganj-bakhsh",
+    "hazrat-shah-daula-daryai": "shah-daula-daryai",
+    "hazrat-shah-yousuf": "shah-yousuf",
+    "hazrat-wasif-ali-wasif": "hazrat-wasif-ali-wasif-awan",
+    "jhulelal-daryalal": "jhulelal",
+    "shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri"
   },
   "reviewNeeded": [
     {
@@ -11506,8 +11489,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:jhulelal-daryalal",
-      "details": "\"Jhulelal / Daryalal (Zinda Pir)\" merged into canonical \"Jhulelal / Daryalal\" (slug: jhulelal-daryalal). Verify the merge is correct."
+      "entityId": "saint:jhulelal",
+      "details": "\"Jhulelal / Daryalal (Zinda Pir)\" merged into canonical \"Jhulelal\" (slug: jhulelal). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11536,6 +11519,11 @@
     },
     {
       "issue": "name-merge",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak Dev Ji\" merged into canonical \"Guru Nanak\" (slug: guru-nanak). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
       "entityId": "saint:guru-hargobind",
       "details": "\"Guru Hargobind (Sixth Guru)\" merged into canonical \"Guru Hargobind\" (slug: guru-hargobind). Verify the merge is correct."
     },
@@ -11550,14 +11538,19 @@
       "details": "\"Guru Ram Das (4th)\" merged into canonical \"Guru Ram Das\" (slug: guru-ram-das). Verify the merge is correct."
     },
     {
-      "issue": "name-merge",
-      "entityId": "saint:guru-arjan-dev-and-guru-hargobind",
-      "details": "\"Guru Arjan Dev (5th) & Guru Hargobind (6th)\" merged into canonical \"Guru Arjan Dev & Guru Hargobind\" (slug: guru-arjan-dev-and-guru-hargobind). Verify the merge is correct."
+      "issue": "composite-figure-row",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak Dev Ji; associated with Bhai Lalo\" names 2 figures (Guru Nanak, Bhai Lalo); gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Nanak\" and were not copied to the others."
     },
     {
-      "issue": "name-merge",
+      "issue": "composite-figure-row",
+      "entityId": "saint:guru-arjan-dev",
+      "details": "\"Guru Arjan Dev (5th) & Guru Hargobind (6th)\" names 2 figures (Guru Arjan Dev, Guru Hargobind); gurdwara-panjvi-chati-patshahi is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Arjan Dev\" and were not copied to the others."
+    },
+    {
+      "issue": "composite-figure-row",
       "entityId": "saint:guru-nanak",
-      "details": "\"Guru Nanak (First Guru / Pehli Patshahi)\" merged into canonical \"Guru Nanak\" (slug: guru-nanak). Verify the merge is correct."
+      "details": "\"Guru Nanak and Bhai Mardana\" names 2 figures (Guru Nanak, Bhai Mardana); gurdwara-rori-sahib is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Nanak\" and were not copied to the others."
     },
     {
       "issue": "name-merge",
@@ -11576,18 +11569,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:jhulelal",
-      "details": "\"Jhulelal (Uderolal)\" merged into canonical \"Jhulelal\" (slug: jhulelal). Verify the merge is correct."
-    },
-    {
-      "issue": "name-merge",
       "entityId": "saint:kali",
       "details": "\"Kali (deity)\" merged into canonical \"Kali\" (slug: kali). Verify the merge is correct."
-    },
-    {
-      "issue": "name-merge",
-      "entityId": "saint:goddess-kali",
-      "details": "\"Goddess Kali (Kalka Devi)\" merged into canonical \"Goddess Kali\" (slug: goddess-kali). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11806,13 +11789,18 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:bhagwan-valmik",
-      "details": "\"Bhagwan Valmik (Valmiki)\" merged into canonical \"Bhagwan Valmik\" (slug: bhagwan-valmik). Verify the merge is correct."
-    },
-    {
-      "issue": "name-merge",
       "entityId": "saint:kaka-sahib",
       "details": "\"Kaka Sahib (Syed Kasteer Gul, \"Sheikh Rahmkar\")\" merged into canonical \"Kaka Sahib\" (slug: kaka-sahib). Verify the merge is correct."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "details": "proposal slug \"shah-abul-muali-qadri\" names the same person as \"hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri\" (\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-wasif-ali-wasif-awan",
+      "details": "proposal slug \"hazrat-wasif-ali-wasif\" names the same person as \"hazrat-wasif-ali-wasif-awan\" (\"Hazrat Wasif Ali Wasif Awan\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
     },
     {
       "issue": "seed-note",

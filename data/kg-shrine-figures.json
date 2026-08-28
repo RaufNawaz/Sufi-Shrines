@@ -69,7 +69,7 @@
     "sufi-shah-inayat-shaheed"
   ],
   "darya-lal-mandir-darya-lal-sankat-mochan-mandir": [
-    "jhulelal-daryalal"
+    "jhulelal"
   ],
   "data-darbar": [
     "data-ganj-bakhsh"
@@ -111,7 +111,7 @@
     "bhai-joga-singh"
   ],
   "gurdwara-chakki-sahib": [
-    "guru-nanak-dev-ji"
+    "guru-nanak"
   ],
   "gurdwara-chhevin-patshahi-chitti-gatti": [
     "guru-hargobind"
@@ -141,7 +141,8 @@
     "guru-ram-das"
   ],
   "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi": [
-    "guru-nanak-dev-ji-associated-with-bhai-lalo"
+    "guru-nanak",
+    "bhai-lalo"
   ],
   "gurdwara-malji-sahib": [
     "guru-nanak"
@@ -150,7 +151,8 @@
     "guru-nanak"
   ],
   "gurdwara-panjvi-chati-patshahi": [
-    "guru-arjan-dev-and-guru-hargobind"
+    "guru-arjan-dev",
+    "guru-hargobind"
   ],
   "gurdwara-patshahi-chhevin-hadiara-lahore": [
     "guru-hargobind"
@@ -162,7 +164,8 @@
     "guru-nanak"
   ],
   "gurdwara-rori-sahib": [
-    "guru-nanak"
+    "guru-nanak",
+    "bhai-mardana"
   ],
   "gurdwara-sach-khand-sahib": [
     "guru-nanak"
@@ -210,10 +213,10 @@
     "kali"
   ],
   "kali-bari-mandir": [
-    "goddess-kali"
+    "kali"
   ],
   "kalka-cave-temple-asthan-of-kalka-devi": [
-    "goddess-kali"
+    "kali"
   ],
   "katas-raj-temples": [
     "shiva"
@@ -495,7 +498,7 @@
     "shiva"
   ],
   "valmik-mandir-naqi-road": [
-    "bhagwan-valmik"
+    "valmiki"
   ],
   "valmiki-swamiji-mandir-gracy-lines-rawalpindi": [
     "valmiki"

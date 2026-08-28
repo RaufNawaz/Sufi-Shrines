@@ -145,8 +145,25 @@ describe('the shipped graph', () => {
     const flagged = (kg.saints as Record<string, unknown>[]).filter(
       (s) => figureProvenance(s).length > 0,
     );
-    /* 97 sourced biographies + 60 lineage-only nodes − 3 that are both. If this
-       drops without the graph shrinking, a field stopped reaching the page. */
+    /* 98 sourced biographies + 58 lineage-only nodes − 2 that are both. If this
+       drops without the graph shrinking, a field stopped reaching the page.
+
+       The total is 154, as it was before 28 August 2026, but every term in it
+       changed that day and the arithmetic is the record of what happened:
+
+         97 + 60 − 3   two figures were four nodes. `hazrat-wasif-ali-wasif` and
+                       `shah-abul-muali-qadri` were lineage-only twins of
+                       shrine-bearing nodes with identical display names, and
+                       were joined to them (scripts/data/lib/saintIdentity.mjs).
+                       Both counted as lineage-only and one was also sourced.
+         97 + 58 − 2   = 153.
+         98 + 58 − 2   then the three rows naming two figures stopped collapsing
+                       to one, which gave Bhai Lalo a node — and the extractor
+                       already held a sourced birth year for him that had
+                       nowhere to land (`saintCompositeFigures` in
+                       kg-seeds.json). Bhai Mardana gained a node too but the
+                       archive records nothing sourced about him, so he adds to
+                       neither term. */
     expect(flagged.length).toBe(154);
   });
 });

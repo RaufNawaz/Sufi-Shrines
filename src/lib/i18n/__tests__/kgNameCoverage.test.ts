@@ -118,12 +118,15 @@ describe('approximate years translate', () => {
  * pupil, two separate figures here — stay separate (HANDOVER §9.24). A new
  * collision means the normalization has become too aggressive.
  *
- * The one allowed pair is not a matching failure but a real duplicate in the
- * graph: `valmiki` and `bhagwan-valmik` are one figure entered twice. Removing
- * the duplicate is data work (see docs/TODO.md); until then it is named here
- * rather than silently tolerated.
+ * There used to be one allowed pair, which was not a matching failure but a real
+ * duplicate in the graph: `valmiki` and `bhagwan-valmik` were one figure entered
+ * twice, named here rather than silently tolerated while the data work waited.
+ * **The data work is done** — 28 August 2026, `saintMergeVariants` — so the
+ * allowance is gone and this test is now strict. Valmiki's three temples are on
+ * one page. If a pair ever needs allowing again, say which figure and why, and
+ * open it against `docs/planning/DECISION_figure_identity_column.md`.
  */
-const KNOWN_DUPLICATE_FIGURES = [['bhagwan-valmik', 'valmiki']];
+const KNOWN_DUPLICATE_FIGURES: string[][] = [];
 
 describe('normalized name matching does not merge distinct figures', () => {
   it('no two archive figures share an Urdu name', () => {

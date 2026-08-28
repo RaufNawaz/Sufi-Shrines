@@ -656,6 +656,14 @@ SAINTS = {
      "گرو نانک (اُن کی تعلیمات سے منسوب گوردوارہ-مدرسہ)",
  "Guru Arjan Dev": "گرو ارجن دیو",
  "Guru Nanak and Bhai Mardana": "گرو نانک اور بھائی مردانہ",
+ # Both men became figures in their own right on 28 August 2026, when the three
+ # rows whose figure cell names two people stopped collapsing to one. Until then
+ # Bhai Mardana was not in the knowledge graph at all and Bhai Lalo existed only
+ # inside a composite node's name, so neither had a page whose title needed Urdu.
+ # Each rendering is lifted from the compound entry directly above/below rather
+ # than composed: "گرو نانک اور بھائی مردانہ" and "بھائی لالو سے منسوب".
+ "Bhai Mardana": "بھائی مردانہ",
+ "Bhai Lalo": "بھائی لالو",
  "Bhai Joga Singh": "بھائی جوگا سنگھ",
  "Bhai Taru": "بھائی تارو",
  "Hinglaj Mata": "ہنگلاج ماتا",

@@ -297,9 +297,15 @@ const ROUTES = [
      edge and no recorded order; Wasif Ali Wasif holds two silsilas at once and
      his row's own silsila cell is a sentence long — the exact shape that used
      to render as one order and no source wording. */
+  /* Slug note: this was `/saint/hazrat-wasif-ali-wasif` until 28 August 2026,
+     when that node turned out to be a duplicate of this one — the two held his
+     orders and his shrine separately. `hazrat-wasif-ali-wasif` is now a retired
+     slug that redirects here, query string intact, so the old path would still
+     work; pointed at the live slug so this spec tests the page rather than the
+     redirect. */
   {
     name: 'saint:multi-order',
-    path: '/saint/hazrat-wasif-ali-wasif?lang=ur',
+    path: '/saint/hazrat-wasif-ali-wasif-awan?lang=ur',
     ready: 'h1.entity-title',
   },
   /* A third figure, for the page shape neither of the others has: no site in

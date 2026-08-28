@@ -26,6 +26,22 @@ export function getSaintBySlug(slug: string): KGSaint | undefined {
   return kg.saints.find((s) => s.slug === slug);
 }
 
+/**
+ * Where a retired figure slug should send a reader, or `undefined` if the slug
+ * is not a retirement. See `KGStore.retiredSlugs`: joining two figure nodes
+ * retires a URL that was prerendered and listed in the sitemap, and this
+ * route's fallback for an unknown figure is a redirect to the map — so without
+ * this, a merge silently turns a published figure page into a soft 404.
+ *
+ * Only ever returns a slug that is a live figure, so a stale entry cannot bounce
+ * a reader from one dead end to another.
+ */
+export function getRetiredSaintTarget(slug: string): string | undefined {
+  const target = kg.retiredSlugs?.[slug];
+  if (!target || target === slug) return undefined;
+  return kg.saints.some((s) => s.slug === target) ? target : undefined;
+}
+
 export function getOrderBySlug(slug: string): KGOrder | undefined {
   return kg.orders.find((o) => o.slug === slug);
 }

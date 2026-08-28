@@ -4834,3 +4834,182 @@ cannot be done unconditionally. Two of the consumers that would have flashed no 
 Playwright locator for the lead paragraph — which the fix legitimately removes — so it sat in
 retry until timeout and produced a trace with a five-second hole in it. Reading the DOM directly
 in one `evaluate` is what made the before and after comparable.
+---
+
+### Added 28 August 2026 — two figures were four nodes, and the fix that suggests itself is wrong 19 times in 21
+
+Worked as a knowledge-base pass while another session held the front end, on
+`claude/kg-review-enrichment` in a separate worktree, so nothing there raced the tree. **Merged
+into the working branch on 28 August**, once the front-end session had finished and committed;
+the only two files both sides touched were this one and `package.json`, and both conflicts were
+two independent appends.
+
+**Two figures had two nodes each, and each page showed half a man.**
+`hazrat-wasif-ali-wasif-awan` carried Wasif Ali Wasif's shrine and his ʿurs;
+`hazrat-wasif-ali-wasif` carried his master and both his orders. The display name on the two was
+character-for-character identical. `shah-abul-muali-qadri` and
+`hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri` were the same story — shrine
+and ʿurs on one, descent from Daud Bandagi Kirmani on the other.
+
+Cause: the graph builds figure nodes from two sides that never spoke. The sheet side
+canonicalises `principal_figure` through `saintMergeVariants` and slugifies; the proposal side
+takes whatever slug an extractor wrote, and its only guard against minting a duplicate was
+`saintMap.has(slug)`. Proposal slugs now resolve against the names already in the graph first
+(`scripts/data/lib/saintIdentity.mjs`). 196 nodes → 194, all 637 relations kept, and the two
+survivors gained three alt-names, three titles, a date precision and a biography source.
+
+**The instrument lied, and this is the transferable part.** Before finding the exact-name cases I
+ran a token matcher over honorific-stripped names — the obvious way to catch near-identical
+figures. It proposed **21 merges; 2 were right.** The 19 wrong ones were not noise:
+
+- `shaikh-abdul-latif` is Khwaja Muhammad Zaman's **father**, a Naqshbandi of Luari Sharif — not
+  Shah Abdul Latif Bhittai.
+- `sayyid-shah-inayat` is Shah Chan Charagh's **maternal uncle** — not Shah Inayat Qadiri of
+  Lahore, Bulleh Shah's murshid.
+- `shah-saidan-sarmast` is Shah Daula Daryai's **Suhrawardi master** — not Sachal Sarmast.
+- `sai-chanduram` and `sant-baba-asudaram` scored 0.67 sharing **no token at all**.
+
+In a corpus of silsilas the people who share a name are fathers and sons, uncles and nephews,
+masters and disciples. Name similarity here is evidence of standing **one edge away** from
+someone — so a similarity merge does not merely mis-name a figure, it deletes the relation that
+made the pair worth recording. `data/kg-seeds.json` now carries **`saintDoNotMerge`**: 11 merges
+decided against, each with the corpus sentence that forbids it, quoted byte-exact and re-checked
+against its source on every run. Four come from the extractor's own warnings; seven are the false
+positives above, recorded so no later pass re-proposes them.
+
+**Three instruments over-fired in one afternoon**, which is the same lesson as
+`feedback_measure_before_recording` and worth restating with fresh cases. (1) The token matcher,
+2/21. (2) A regex meant to find alt-names that are descriptions rather than names — it flagged
+`Sayyid Abdul Latif Shah`, a perfectly good alt-name. (3) A deliberately *conservative* rewrite of
+the same rule — it flagged `al-Hujwiri` and `Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi`. So
+**no number is recorded here for the alt-name problem**, only the shape of it: `extractParenthetical`
+treats every parenthetical as an alt-name, and some parentheticals are dates (`1713–1775`,
+`1895–1960`), ordinals (`4th`, `5th`), roles (`founder of the Rashidi order`, `master-builder`) or
+whole sentences (`born Muhammad Wasif Awan; "Wasif" was his pen name/takhallus`). Real, unfixed,
+and needing a curated rule rather than a heuristic — the risk of a heuristic is dropping the
+genuine Arabic and Persian name particles it cannot tell apart from prose.
+
+**Five more nodes were one figure twice**, and the archive was dividing their sites between two
+pages: Kali showed **1 temple of 3**, Valmiki **2 of 3**, Jhulelal **1 of 2**, Guru Nanak
+**16 gurdwaras of 17**. Closed with five `saintMergeVariants` entries — 190 nodes now. Not
+guessed: `principal_figure` already said `Kali`, `Valmiki (Bhagwan Valmik)` and `Guru Nanak` for
+exactly the rows whose legacy cell says otherwise. Verified in a browser at each figure's page,
+not just in the JSON.
+
+**Which is the larger finding, and it is a decision, not a patch.** `build-kg.mjs` reads
+`row['Sufi Saint']` — the *legacy* column. 95 of 169 rows have a different `principal_figure`
+string; **49 rows and 46 of 132 figure slugs would move** if the graph read the schema's own
+column. It is mostly the better column, and it is **not uniformly better** (Kalka Cave Temple's
+`Kalka Devi (Kali)` would re-split Kali's temples), ten of seventeen merge-variant keys would stop
+applying, and its `;`-for-two-figures convention cannot be split naively because
+`darbar-wasif-ali-wasif` has a semicolon *inside a parenthetical*. Full analysis, three options
+and a recommendation: **`docs/planning/DECISION_figure_identity_column.md`**.
+
+**A merge retires a published URL — found by opening one, not by reasoning about it.** Every
+figure gets a prerendered page and a sitemap entry (`scripts/prerender.mjs`, `saintSlugs`), and
+`/saint/:slug` answers an unknown figure with a redirect to the map. So all six slugs joined today
+were landing on the map under the site's generic title: a soft 404 for six addresses that worked
+yesterday. `kg.json` now carries `retiredSlugs` and the route consults it before falling back —
+the shape `/coverage` and `/report` already use into `/about`. Built from the merge data rather
+than listed, so the next merge inherits it. **If you merge figure nodes, this is the trap.**
+
+And a second trap inside the first, found by grepping for the retired slugs rather than assuming
+nothing referenced them: `<Navigate to={`/saint/${moved}`} />` carries **neither query string nor
+fragment**. `?lang=ur` is how the Urdu edition is reached, so the first version of the redirect
+sent an Urdu reader to the English page — and `e2e/urdu-no-leak.spec.ts` visits one of the retired
+slugs with `?lang=ur`, so the spec whose whole purpose is to fail on Latin text under
+`[dir='rtl']` would have found none and passed. A guard that stops measuring is worse than one
+that fails. Also spent and now removed: `KNOWN_DUPLICATE_FIGURES` in `kgNameCoverage.test.ts`
+carried `[['bhagwan-valmik','valmiki']]` with a comment saying the fix was data work waiting to be
+done. It was done in `e8e2f7d`, so the allowance is empty and that test is strict again.
+
+**Still standing, deliberately.** `guru-arjan-dev-and-guru-hargobind` and
+`guru-nanak-dev-ji-associated-with-bhai-lalo` are single nodes standing for two people, so
+**Gurdwara Panjvi Chati Patshahi is on neither Guru Arjan Dev's page nor Guru Hargobind's** — it
+is on a page for a man who never existed. Options in the brief. Also untouched: the KG review
+worksheet is still at **0 verdicts of 255**, and recording one is a reader's job, not an agent's
+(`docs/KG_REVIEW_WORKFLOW.md` is explicit about the three judgments a machine cannot make).
+
+**New gate.** `npm run data:validate:kg-identity`, wired into `data:validate`. Fails on: two nodes
+claiming one name; a recorded do-not-merge pair collapsed into one node; a pair whose slug has
+vanished; a do-not-merge quote that no longer matches its source; a retired slug that is itself a
+live figure, points at itself, or targets a non-figure; and a merge target that resolves to
+nothing. **Every one of those was confirmed to exit non-zero** by breaking it on purpose and
+restoring — a check nobody has seen fail is a note, not an invariant.
+
+One thing worth knowing for anyone else using a worktree here: `.gitignore` has `node_modules/`
+with a trailing slash, which matches a directory and **not a symlink**, so a symlinked
+`node_modules` in a worktree shows up as untracked. Never `git add -A` in one.
+
+### Added 28 August 2026 — some sites are held by two people, and one of them was Bhai Mardana
+
+Rauf's ruling on the open figure-identity question: *"just preserve as much information as you
+can because sometimes it is multiple saints."* Acted on the same day. It closes the composite half
+of `docs/planning/DECISION_figure_identity_column.md`; **the column question in that brief is
+still open.**
+
+Three rows name two figures each, and every earlier handling of them lost one:
+
+```
+Gurdwara Panjvi Chati Patshahi   Guru Arjan Dev; Guru Hargobind
+Gurdwara Rori Sahib              Guru Nanak; Bhai Mardana
+Gurdwara Khoohi Bhai Lalo        Guru Nanak; Bhai Lalo
+```
+
+Two had become single nodes named after both people, so they reached neither real figure's page —
+only a page belonging to somebody who never existed. The third was worse: a `saintMergeVariants`
+entry resolved "Guru Nanak and Bhai Mardana" to "Guru Nanak", and **Bhai Mardana appeared nowhere
+in this graph at all.** Guru Nanak's lifelong companion, in an archive holding eighteen of his
+gurdwaras, deleted by a one-line merge map nobody had reason to look at.
+
+`saintCompositeFigures` in `kg-seeds.json` maps each cell to the figures it names, primary first,
+and the sheet loop runs once per figure. Guru Arjan Dev 2 shrines → 3, Guru Hargobind 5 → 6, Guru
+Nanak 17 → 18; Bhai Mardana and Bhai Lalo have pages. Checked in a browser, in both languages.
+
+**What is deliberately not fanned out** — the row's `figure_type`, `figure_born`, `figure_died`
+and `Events`. Rori Sahib records `figure_type: "Sikh Guru"` and Bhai Mardana was not a Guru; Khoohi
+Bhai Lalo's says the same and Bhai Lalo was a carpenter; Rori Sahib's `Events` reads "Guru Nanak
+Gurpurab". They describe the figure the cell leads with, and there is nothing in the row to say
+whose they are otherwise (RULE 2). Each composite row logs a `composite-figure-row` review item
+saying so, and the raw cell rides on every `buried_at` edge as `asRecorded`.
+
+**Two things followed from giving a figure a page, and neither was obvious.**
+
+1. **Bhai Lalo arrived carrying a sourced birth year.** The extractor had held `1452
+   ("traditionally said")` for him all along, byte-exact quote and all, with a note reading *"Bhai
+   Lalo has no saint node of his own."* It landed the moment he had one — a proposal waiting for
+   an entity to attach to. `verify-kg-proposals --reconcile` flipped his now-stale `saintIsNew`.
+   The lesson generalises: **the graph was rejecting evidence it already held, for want of a
+   node.**
+2. **Two new figure pages were titled in Latin in the Urdu edition, and nothing caught it.**
+   `build_dictionary.py --check` validates saint coverage against the raw `Sufi Saint` cells, and
+   neither "Bhai Mardana" nor "Bhai Lalo" is a cell — each is a *part* of one, so coverage read
+   100% while two pages had English titles. Both Urdu forms were already inside this project's own
+   reviewed compound entries, so they are extracted rather than composed: بھائی مردانہ and
+   بھائی لالو. New guard `src/lib/i18n/__tests__/figureNameUrduParity.test.ts` — archive figures at
+   **zero** Latin titles, lineage-only debt capped at its measured **58** so it can only shrink.
+   Confirmed to fail by deleting one name from the seed.
+
+**Guard check 5** covers the new mechanism: a composite naming a figure that is not a node, a
+fan-out that only half happened, a cell present in both identity maps (build-kg lets the composite
+win, so the merge variant reads as live and is not), and a cell the sheet no longer has. All four
+confirmed to exit non-zero.
+
+**And check 5 was wrong first — the fifth instrument to over-report in one day.** It scanned every
+shrine and reported **41 failures**, because all eighteen of Guru Nanak's gurdwaras share a figure
+with two of these rows. A guard that samples the wrong set is the night's recurring lesson pointed
+at itself; it now looks only at the shrines whose own cell it is. Running tally for anyone keeping
+score: honorific token matcher 2 right of 21; two attempts at counting descriptive alt-names, both
+flagging real names like `al-Hujwiri`; a naive `;` split that put a wrong number (50/47 for 49/46)
+into the decision brief; and this. **Every number in this session that survived was one where the
+instrument was checked against a known answer first.**
+
+`figureProvenance` is back to 154 — but as 98 + 58 − 2 where it began the day as 97 + 60 − 3. Every
+term moved. The arithmetic is kept in the test as the record.
+
+**Still not done, and small:** `ShrinePage` links only the primary figure. The raw cell is the
+visible label, so both names are on screen and nothing is hidden, but only one is clickable. The
+cheap path is written down in the brief (`figureSlugsForShrine` already returns both; names must
+come from a graph-free `slugToLabel` plus `localizeRecordedName`, never from `lib/kg.ts`, which
+would put 426 KB back on the archive's hottest route). Left alone because it is a layout decision
+on a shared component while another session held the front end.

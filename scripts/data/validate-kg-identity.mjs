@@ -1,0 +1,296 @@
+#!/usr/bin/env node
+/**
+ * validate-kg-identity.mjs — one person, one node; and two people, never one.
+ *
+ * Figure identity in this graph is decided in two places in data/kg-seeds.json:
+ * `saintMergeVariants` says which names denote one person, and
+ * `saintDoNotMerge` says which names look like one person and are not. This
+ * script is what makes both of them load-bearing rather than advisory.
+ *
+ * It exists because both directions failed silently, in production, and neither
+ * failure showed up in any gate:
+ *
+ *   - **Un-joined.** The graph built figure nodes from the sheet and from
+ *     machine proposals independently, and the proposal side minted a node
+ *     whenever its slug was unfamiliar. So Wasif Ali Wasif had two:
+ *     `hazrat-wasif-ali-wasif-awan` held his shrine and his ʿurs,
+ *     `hazrat-wasif-ali-wasif` held his master and both his orders, the display
+ *     name on the two was character-for-character identical, and no page could
+ *     show a reader both halves of him. Same for Shah Abul Muali Qadri.
+ *     Check 1 fails on any recurrence.
+ *
+ *   - **Over-joined.** The tempting fix is to compare names with honorifics and
+ *     particles stripped. Measured on this corpus on 28 August 2026, that
+ *     proposed 21 merges of which 2 were right. The 19 wrong ones were not
+ *     noise: `shaikh-abdul-latif` is Khwaja Muhammad Zaman's *father*, not Shah
+ *     Abdul Latif Bhittai; `sayyid-shah-inayat` is Shah Chan Charagh's
+ *     *maternal uncle*, not Shah Inayat Qadiri of Lahore. In a corpus of
+ *     silsilas, sharing a name is evidence of standing one edge away from
+ *     someone — father, son, uncle, master, disciple — so a similarity merge
+ *     deletes the very relation that made the pair worth recording.
+ *     Checks 2 and 3 make each such decision a written, quoted, enforced row.
+ *
+ * Checked:
+ *   1. No two saint nodes share a `saintNameKey` (identical name after case,
+ *      punctuation and whitespace folding — and nothing looser).
+ *   2. Every `saintDoNotMerge` pair still exists as that many distinct nodes.
+ *   3. Every `saintDoNotMerge` quote is a byte-exact substring of its source.
+ *   4. Every retired figure slug still resolves: it is not itself a live figure,
+ *      and its target is. A figure's page is prerendered and listed in the
+ *      sitemap, so joining two nodes retires a published URL — and this route's
+ *      fallback for an unknown figure is a redirect to the map, which is a soft
+ *      404 for anyone holding the old address.
+ *   5. Every `saintCompositeFigures` row — the sites the sheet gives two figures
+ *      — still reaches every figure it names, names no figure twice, and does
+ *      not also appear in `saintMergeVariants` (where build-kg lets the
+ *      composite win, leaving a merge variant that reads as live and is not).
+ *   6. Every `saintMergeVariants` target resolves to a node that exists, so a
+ *      typo in a merge target cannot silently stop merging.
+ *
+ * Not checked, because it is not decidable here: whether a pair that shares no
+ * name ought to be merged. That needs a reader (docs/KG_REVIEW_WORKFLOW.md).
+ *
+ * Usage:  node scripts/data/validate-kg-identity.mjs
+ * Or:     npm run data:validate:kg-identity
+ */
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { slugify } from './lib/slugs.mjs';
+import { saintNameKey, findNameKeyCollisions } from './lib/saintIdentity.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '../..');
+const KG_JSON = join(ROOT, 'data', 'kg.json');
+const SEEDS_JSON = join(ROOT, 'data', 'kg-seeds.json');
+const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
+
+const failures = [];
+const notes = [];
+const fail = (msg) => failures.push(msg);
+
+if (!existsSync(KG_JSON)) {
+  console.error('[kg-identity] data/kg.json not found. Run: npm run data:kg');
+  process.exit(1);
+}
+
+const kg = JSON.parse(readFileSync(KG_JSON, 'utf8'));
+const seeds = JSON.parse(readFileSync(SEEDS_JSON, 'utf8'));
+const saints = kg.saints ?? [];
+const bySlug = new Map(saints.map((s) => [s.slug, s]));
+
+// ── 1. no two nodes may claim the same name ───────────────────────────────────
+
+const collisions = findNameKeyCollisions(saints);
+for (const [key, slugs] of collisions) {
+  fail(
+    `two or more figure nodes share the name "${key}": ${slugs.join(', ')}. ` +
+      `Identical names are the one signal this project accepts as proof of the ` +
+      `same person, so either join them (build-kg.mjs resolves proposal slugs ` +
+      `through saintNameKey) or give them the names that tell them apart.`,
+  );
+}
+notes.push(`${saints.length} figure nodes, ${collisions.size} name collision(s)`);
+
+// ── 2 & 3. the decisions against merging ─────────────────────────────────────
+
+const rowsBySlug = new Map();
+/* Raw `Sufi Saint` cell → the shrine slugs whose cell it is. Needed by check 5,
+   which must look at those rows and no others. */
+const shrineSlugsByCell = new Map();
+if (existsSync(SHRINES_JSON)) {
+  const { rows = [] } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
+  for (const row of rows) {
+    const shrineSlug = slugify(row.Name);
+    rowsBySlug.set(shrineSlug, row);
+    const cell = String(row['Sufi Saint'] ?? '').trim();
+    if (!cell) continue;
+    if (!shrineSlugsByCell.has(cell)) shrineSlugsByCell.set(cell, []);
+    shrineSlugsByCell.get(cell).push(shrineSlug);
+  }
+}
+
+/** Resolve a `source` to the text a quote must appear in — same rule as
+ *  verify-kg-proposals.mjs, so the two scripts cannot drift apart on it. */
+function sourceText(source) {
+  if (source.startsWith('data/shrines.csv#')) {
+    const slug = source.slice('data/shrines.csv#'.length).trim();
+    const row = rowsBySlug.get(slug);
+    if (!row) return { ok: false, why: `no shrine row with slug "${slug}"` };
+    return { ok: true, text: Object.values(row).join('\n') };
+  }
+  const path = join(ROOT, source.split('#')[0]);
+  if (!existsSync(path)) return { ok: false, why: `file not found: ${source}` };
+  return { ok: true, text: readFileSync(path, 'utf8') };
+}
+
+const doNotMerge = seeds.saintDoNotMerge ?? [];
+for (const [i, entry] of doNotMerge.entries()) {
+  const label = `saintDoNotMerge[${i}] (${(entry.slugs ?? []).join(' / ')})`;
+
+  const slugs = entry.slugs ?? [];
+  if (slugs.length < 2) {
+    fail(`${label}: needs at least two slugs to forbid a merge between`);
+    continue;
+  }
+
+  const missing = slugs.filter((s) => !bySlug.has(s));
+  if (missing.length) {
+    fail(
+      `${label}: ${missing.join(', ')} no longer exist(s) as a figure node. ` +
+        `A slug disappearing is usually a merge happening — check that these ` +
+        `two were not joined, then update or remove this row deliberately.`,
+    );
+  }
+
+  const ids = new Set(slugs.filter((s) => bySlug.has(s)).map((s) => bySlug.get(s).id));
+  if (ids.size === 1 && slugs.length > 1) {
+    fail(`${label}: FORBIDDEN MERGE HAS HAPPENED — all of these are now one node.`);
+  }
+
+  if (!entry.reason || !String(entry.reason).trim()) {
+    fail(`${label}: missing reason. A row nobody can read is a row nobody can undo.`);
+  }
+
+  if (!entry.quote || !entry.source) {
+    fail(`${label}: missing quote or source — every decision here carries its evidence`);
+    continue;
+  }
+  const resolved = sourceText(entry.source);
+  if (!resolved.ok) {
+    fail(`${label}: ${resolved.why}`);
+  } else if (!resolved.text.includes(entry.quote)) {
+    fail(
+      `${label}: quote is not a byte-exact substring of ${entry.source}. ` +
+        `Either the source changed or the quote was retyped; re-extract it.`,
+    );
+  }
+}
+notes.push(`${doNotMerge.length} recorded decision(s) against merging`);
+
+// ── 4. retired slugs must still resolve ──────────────────────────────────────
+
+const retired = kg.retiredSlugs ?? {};
+for (const [from, to] of Object.entries(retired)) {
+  if (bySlug.has(from)) {
+    fail(
+      `retiredSlugs["${from}"]: that slug is a live figure, so this entry would ` +
+        `hide its own page behind a redirect to "${to}".`,
+    );
+  }
+  if (from === to) {
+    fail(`retiredSlugs["${from}"]: points at itself, which is a redirect loop`);
+  } else if (!bySlug.has(to)) {
+    fail(
+      `retiredSlugs["${from}"] -> "${to}": the target is not a figure, so the old ` +
+        `URL still falls through to the map — the soft 404 this map exists to stop.`,
+    );
+  }
+}
+notes.push(`${Object.keys(retired).length} retired slug(s) still resolve`);
+
+const mergeVariants = seeds.saintMergeVariants ?? {};
+const mergeVariantKeys = new Set(Object.keys(mergeVariants).filter((k) => k !== 'comment'));
+
+// ── 5. a site held by two figures reaches both ───────────────────────────────
+
+/* `saintCompositeFigures` is the mechanism that stopped these rows losing a
+   person. It can fail three quiet ways: a name that resolves to no node (the
+   figure silently vanishes again), a figure that exists but does not carry the
+   shrine (the fan-out half-happened), and a key that is also in
+   saintMergeVariants (two mechanisms claiming one cell, where build-kg lets the
+   composite win — so the merge variant is dead code that reads as live). */
+const composites = seeds.saintCompositeFigures ?? {};
+const shrineFiguresPath = join(ROOT, 'data', 'kg-shrine-figures.json');
+const shrineFigures = existsSync(shrineFiguresPath)
+  ? JSON.parse(readFileSync(shrineFiguresPath, 'utf8'))
+  : {};
+
+let compositeFigureCount = 0;
+for (const [cell, names] of Object.entries(composites)) {
+  if (cell === 'comment') continue;
+  const label = `saintCompositeFigures["${cell}"]`;
+
+  if (!Array.isArray(names) || names.length < 2) {
+    fail(`${label}: must list at least two figures — one figure is a merge variant, not a composite`);
+    continue;
+  }
+  compositeFigureCount += names.length;
+
+  const slugs = names.map((n) => slugify(String(n).replace(/\s*\([^)]*\)/g, '').trim()));
+  for (const [i, slug] of slugs.entries()) {
+    if (!slug) {
+      fail(`${label}: "${names[i]}" slugifies to nothing`);
+    } else if (!bySlug.has(slug)) {
+      fail(
+        `${label}: "${names[i]}" (slug "${slug}") is not a figure node, so this ` +
+          `row has lost that person again — which is the failure this map exists to stop.`,
+      );
+    }
+  }
+
+  if (new Set(slugs).size !== slugs.length) {
+    fail(`${label}: names the same figure twice (${slugs.join(', ')})`);
+  }
+
+  if (mergeVariantKeys.has(cell)) {
+    fail(
+      `${label}: this cell is also a saintMergeVariants key. build-kg lets the ` +
+        `composite win, so the merge variant never applies — remove it.`,
+    );
+  }
+
+  /* Each named figure must carry the shrines whose OWN cell this is — not every
+     shrine that happens to share one of the figures. (The first version of this
+     check scanned all 169 and reported 41 failures, because every one of Guru
+     Nanak's 18 gurdwaras shares `guru-nanak` with two of these rows.) */
+  const ownShrines = shrineSlugsByCell.get(cell) ?? [];
+  if (ownShrines.length === 0) {
+    fail(
+      `${label}: no shrine row has this as its figure cell. The row was edited or ` +
+        `removed in the sheet, so this entry is dead — update or delete it.`,
+    );
+  }
+  for (const shrineSlug of ownShrines) {
+    const figureSlugs = shrineFigures[shrineSlug] ?? [];
+    const missing = slugs.filter((s) => !figureSlugs.includes(s));
+    if (missing.length) {
+      fail(
+        `${label}: ${shrineSlug} reaches ${figureSlugs.join(', ') || '(nobody)'} but not ` +
+          `${missing.join(', ')} — the fan-out only half happened, so that figure ` +
+          `has lost the site again.`,
+      );
+    }
+  }
+}
+notes.push(
+  `${Object.keys(composites).filter((k) => k !== 'comment').length} composite row(s) naming ${compositeFigureCount} figures`,
+);
+
+// ── 6. merge targets must land somewhere ─────────────────────────────────────
+
+let checkedTargets = 0;
+for (const [raw, canonical] of Object.entries(mergeVariants)) {
+  if (raw === 'comment') continue;
+  const target = slugify(String(canonical).replace(/\s*\([^)]*\)/g, '').trim());
+  checkedTargets += 1;
+  if (!target) {
+    fail(`saintMergeVariants["${raw}"]: canonical name "${canonical}" slugifies to nothing`);
+  } else if (!bySlug.has(target)) {
+    fail(
+      `saintMergeVariants["${raw}"] -> "${canonical}" (slug "${target}") has no ` +
+        `figure node. The merge target is wrong, so the merge is not happening.`,
+    );
+  }
+}
+notes.push(`${checkedTargets} merge target(s) resolve`);
+
+// ── report ───────────────────────────────────────────────────────────────────
+
+for (const note of notes) console.log(`[kg-identity] ${note}`);
+if (failures.length) {
+  console.error(`\n[kg-identity] ✗ ${failures.length} failure(s):`);
+  for (const f of failures) console.error(`  - ${f}`);
+  process.exit(1);
+}
+console.log('[kg-identity] ✓ figure identity is consistent');
