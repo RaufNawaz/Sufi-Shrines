@@ -4631,3 +4631,95 @@ open Spotlight directly in either mode.
 The open blue-sky items are N3 (field-kit PWA), N5 (adopt-a-shrine) and the rest of N4 beyond
 its type-level groundwork. `docs/planning/NEXT_STEPS_2026-08-21.md` is the working plan; §9 of
 this file is the trust-calibration list — read it before believing any older note.
+
+### Added 28 August 2026 — two figures were four nodes, and the fix that suggests itself is wrong 19 times in 21
+
+Worked as a knowledge-base pass while another session held the front end. All of it is on
+`claude/kg-review-enrichment`, in a separate worktree, so nothing here raced the tree.
+
+**Two figures had two nodes each, and each page showed half a man.**
+`hazrat-wasif-ali-wasif-awan` carried Wasif Ali Wasif's shrine and his ʿurs;
+`hazrat-wasif-ali-wasif` carried his master and both his orders. The display name on the two was
+character-for-character identical. `shah-abul-muali-qadri` and
+`hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri` were the same story — shrine
+and ʿurs on one, descent from Daud Bandagi Kirmani on the other.
+
+Cause: the graph builds figure nodes from two sides that never spoke. The sheet side
+canonicalises `principal_figure` through `saintMergeVariants` and slugifies; the proposal side
+takes whatever slug an extractor wrote, and its only guard against minting a duplicate was
+`saintMap.has(slug)`. Proposal slugs now resolve against the names already in the graph first
+(`scripts/data/lib/saintIdentity.mjs`). 196 nodes → 194, all 637 relations kept, and the two
+survivors gained three alt-names, three titles, a date precision and a biography source.
+
+**The instrument lied, and this is the transferable part.** Before finding the exact-name cases I
+ran a token matcher over honorific-stripped names — the obvious way to catch near-identical
+figures. It proposed **21 merges; 2 were right.** The 19 wrong ones were not noise:
+
+- `shaikh-abdul-latif` is Khwaja Muhammad Zaman's **father**, a Naqshbandi of Luari Sharif — not
+  Shah Abdul Latif Bhittai.
+- `sayyid-shah-inayat` is Shah Chan Charagh's **maternal uncle** — not Shah Inayat Qadiri of
+  Lahore, Bulleh Shah's murshid.
+- `shah-saidan-sarmast` is Shah Daula Daryai's **Suhrawardi master** — not Sachal Sarmast.
+- `sai-chanduram` and `sant-baba-asudaram` scored 0.67 sharing **no token at all**.
+
+In a corpus of silsilas the people who share a name are fathers and sons, uncles and nephews,
+masters and disciples. Name similarity here is evidence of standing **one edge away** from
+someone — so a similarity merge does not merely mis-name a figure, it deletes the relation that
+made the pair worth recording. `data/kg-seeds.json` now carries **`saintDoNotMerge`**: 11 merges
+decided against, each with the corpus sentence that forbids it, quoted byte-exact and re-checked
+against its source on every run. Four come from the extractor's own warnings; seven are the false
+positives above, recorded so no later pass re-proposes them.
+
+**Three instruments over-fired in one afternoon**, which is the same lesson as
+`feedback_measure_before_recording` and worth restating with fresh cases. (1) The token matcher,
+2/21. (2) A regex meant to find alt-names that are descriptions rather than names — it flagged
+`Sayyid Abdul Latif Shah`, a perfectly good alt-name. (3) A deliberately *conservative* rewrite of
+the same rule — it flagged `al-Hujwiri` and `Sayyid Abul Faiz Qalandar Ali Gilani Suhrawardi`. So
+**no number is recorded here for the alt-name problem**, only the shape of it: `extractParenthetical`
+treats every parenthetical as an alt-name, and some parentheticals are dates (`1713–1775`,
+`1895–1960`), ordinals (`4th`, `5th`), roles (`founder of the Rashidi order`, `master-builder`) or
+whole sentences (`born Muhammad Wasif Awan; "Wasif" was his pen name/takhallus`). Real, unfixed,
+and needing a curated rule rather than a heuristic — the risk of a heuristic is dropping the
+genuine Arabic and Persian name particles it cannot tell apart from prose.
+
+**Five more nodes were one figure twice**, and the archive was dividing their sites between two
+pages: Kali showed **1 temple of 3**, Valmiki **2 of 3**, Jhulelal **1 of 2**, Guru Nanak
+**16 gurdwaras of 17**. Closed with five `saintMergeVariants` entries — 190 nodes now. Not
+guessed: `principal_figure` already said `Kali`, `Valmiki (Bhagwan Valmik)` and `Guru Nanak` for
+exactly the rows whose legacy cell says otherwise. Verified in a browser at each figure's page,
+not just in the JSON.
+
+**Which is the larger finding, and it is a decision, not a patch.** `build-kg.mjs` reads
+`row['Sufi Saint']` — the *legacy* column. 95 of 169 rows have a different `principal_figure`
+string; **50 rows and 47 of 132 figure slugs would move** if the graph read the schema's own
+column. It is mostly the better column, and it is **not uniformly better** (Kalka Cave Temple's
+`Kalka Devi (Kali)` would re-split Kali's temples), ten of seventeen merge-variant keys would stop
+applying, and its `;`-for-two-figures convention cannot be split naively because
+`darbar-wasif-ali-wasif` has a semicolon *inside a parenthetical*. Full analysis, three options
+and a recommendation: **`docs/planning/DECISION_figure_identity_column.md`**.
+
+**A merge retires a published URL — found by opening one, not by reasoning about it.** Every
+figure gets a prerendered page and a sitemap entry (`scripts/prerender.mjs`, `saintSlugs`), and
+`/saint/:slug` answers an unknown figure with a redirect to the map. So all six slugs joined today
+were landing on the map under the site's generic title: a soft 404 for six addresses that worked
+yesterday. `kg.json` now carries `retiredSlugs` and the route consults it before falling back —
+the shape `/coverage` and `/report` already use into `/about`. Built from the merge data rather
+than listed, so the next merge inherits it. **If you merge figure nodes, this is the trap.**
+
+**Still standing, deliberately.** `guru-arjan-dev-and-guru-hargobind` and
+`guru-nanak-dev-ji-associated-with-bhai-lalo` are single nodes standing for two people, so
+**Gurdwara Panjvi Chati Patshahi is on neither Guru Arjan Dev's page nor Guru Hargobind's** — it
+is on a page for a man who never existed. Options in the brief. Also untouched: the KG review
+worksheet is still at **0 verdicts of 255**, and recording one is a reader's job, not an agent's
+(`docs/KG_REVIEW_WORKFLOW.md` is explicit about the three judgments a machine cannot make).
+
+**New gate.** `npm run data:validate:kg-identity`, wired into `data:validate`. Fails on: two nodes
+claiming one name; a recorded do-not-merge pair collapsed into one node; a pair whose slug has
+vanished; a do-not-merge quote that no longer matches its source; a retired slug that is itself a
+live figure, points at itself, or targets a non-figure; and a merge target that resolves to
+nothing. **Every one of those was confirmed to exit non-zero** by breaking it on purpose and
+restoring — a check nobody has seen fail is a note, not an invariant.
+
+One thing worth knowing for anyone else using a worktree here: `.gitignore` has `node_modules/`
+with a trailing slash, which matches a directory and **not a symlink**, so a symlinked
+`node_modules` in a worktree shows up as untracked. Never `git add -A` in one.
