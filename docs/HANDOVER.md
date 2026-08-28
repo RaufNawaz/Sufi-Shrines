@@ -4706,6 +4706,16 @@ yesterday. `kg.json` now carries `retiredSlugs` and the route consults it before
 the shape `/coverage` and `/report` already use into `/about`. Built from the merge data rather
 than listed, so the next merge inherits it. **If you merge figure nodes, this is the trap.**
 
+And a second trap inside the first, found by grepping for the retired slugs rather than assuming
+nothing referenced them: `<Navigate to={`/saint/${moved}`} />` carries **neither query string nor
+fragment**. `?lang=ur` is how the Urdu edition is reached, so the first version of the redirect
+sent an Urdu reader to the English page — and `e2e/urdu-no-leak.spec.ts` visits one of the retired
+slugs with `?lang=ur`, so the spec whose whole purpose is to fail on Latin text under
+`[dir='rtl']` would have found none and passed. A guard that stops measuring is worse than one
+that fails. Also spent and now removed: `KNOWN_DUPLICATE_FIGURES` in `kgNameCoverage.test.ts`
+carried `[['bhagwan-valmik','valmiki']]` with a comment saying the fix was data work waiting to be
+done. It was done in `e8e2f7d`, so the allowance is empty and that test is strict again.
+
 **Still standing, deliberately.** `guru-arjan-dev-and-guru-hargobind` and
 `guru-nanak-dev-ji-associated-with-bhai-lalo` are single nodes standing for two people, so
 **Gurdwara Panjvi Chati Patshahi is on neither Guru Arjan Dev's page nor Guru Hargobind's** — it
