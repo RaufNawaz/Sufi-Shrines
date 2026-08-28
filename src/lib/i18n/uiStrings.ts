@@ -104,6 +104,11 @@ const UI_TEXT_EN = {
      checkbox told the reader the same words twice and nothing about the
      effect. */
   settingsToursToggle: 'Show tours on the map',
+  /* The map popover's way out to the settings *page*. "All" rather than
+     "More": the popover holds seven of the nine preferences, so what the page
+     adds is the two it deliberately leaves out plus the explanation under each
+     control — not a second, deeper tier of options. */
+  settingsAllOptions: 'All settings',
   settingsToursHelp:
     'Curated routes through the archive. Off by default — the map’s own subject is the sites themselves.',
   /* ── Command palette (⌘K search) ─────────────────────────────────────── */

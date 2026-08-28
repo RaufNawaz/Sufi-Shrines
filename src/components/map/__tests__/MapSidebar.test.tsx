@@ -105,10 +105,16 @@ describe('MapSidebar — directory preference', () => {
       return view;
     };
 
-    it('when a mode is chosen', () => {
+    /* Choosing used to close it, and deliberately does not any more: the panel
+       carries seven preferences now, so closing on the first choice made
+       setting a second one a second trip to the gear. The three dismissals
+       below are what a reader has instead, and all three predate the change. */
+    it('stays open when a mode is chosen, so a second preference can be set', () => {
       const view = openSettings();
       fireEvent.click(view.getByRole('radio', { name: 'Shrine table' }));
-      expect(document.querySelector('.sidebar-settings-panel')).not.toBeInTheDocument();
+      expect(document.querySelector('.sidebar-settings-panel')).toBeInTheDocument();
+      // And the choice took effect rather than being swallowed by staying open.
+      expect(view.getByRole('radio', { name: 'Shrine table' })).toBeChecked();
     });
 
     it('on Escape, returning focus to the button that opened it', () => {

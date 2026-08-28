@@ -89,6 +89,7 @@ export const UI_TEXT_UR: UiStrings = {
   settingsDirectoryHelp: 'نقشے پر فہرست کا بٹن کیا کھولے۔',
   settingsToursLabel: 'رہنما دورے',
   settingsToursToggle: 'نقشے پر دورے دکھائیں',
+  settingsAllOptions: 'تمام ترتیبات',
   settingsToursHelp:
     'آرکائیو میں سے منتخب راستے۔ طے شدہ طور پر بند ہیں — نقشے کا اپنا موضوع خود یہ مقامات ہیں۔',
   title: 'صوفی مزارات',

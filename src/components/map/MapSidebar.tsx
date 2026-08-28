@@ -28,6 +28,7 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { dirAttr, usesEasternNumerals } from '../../lib/i18n/languages';
 import { CommandPalette } from './CommandPalette';
 import { ShrineFilters } from './ShrineFilters';
+import { SidebarSettingsPanel } from './SidebarSettingsPanel';
 import {
   readDirectoryMode,
   writeDirectoryMode,
@@ -313,9 +314,13 @@ export function MapSidebar({
     setDirectoryMode(mode);
     writeDirectoryMode(mode);
     if (mode === 'spotlight') setShowList(false);
-    // Choosing is the whole purpose of the panel, so choosing closes it —
-    // otherwise it stays open over the button whose behaviour just changed.
-    setSettingsOpen(false);
+    /* Choosing no longer closes the panel. It did while this was a one-choice
+       popover — "choosing is the whole purpose of the panel" — and that stopped
+       being true when the panel became seven preferences: a reader setting the
+       text size and then the units had to reopen the gear between them, and a
+       reader who wanted to *see* the shrine-list change could dismiss it with
+       Escape, the gear, or a click anywhere outside, all of which already
+       work. */
   }, []);
   const directoryOpen = directoryMode === 'spotlight' ? paletteOpen : showList;
 
@@ -417,31 +422,12 @@ export function MapSidebar({
                 </svg>
               </button>
               {settingsOpen && (
-                <div className="sidebar-settings-panel">
-                  <fieldset>
-                    <legend>{t('directoryModeLabel')}</legend>
-                    <label>
-                      <input
-                        type="radio"
-                        name="directory-mode"
-                        value="spotlight"
-                        checked={directoryMode === 'spotlight'}
-                        onChange={() => chooseDirectoryMode('spotlight')}
-                      />
-                      <span>{t('directoryModeSpotlight')}</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="directory-mode"
-                        value="table"
-                        checked={directoryMode === 'table'}
-                        onChange={() => chooseDirectoryMode('table')}
-                      />
-                      <span>{t('directoryModeTable')}</span>
-                    </label>
-                  </fieldset>
-                </div>
+                <SidebarSettingsPanel
+                  directoryMode={directoryMode}
+                  onDirectoryModeChange={chooseDirectoryMode}
+                  toursEnabled={toursEnabled}
+                  onToursToggle={onToursToggle}
+                />
               )}
             </div>
             <DarkModeToggle />

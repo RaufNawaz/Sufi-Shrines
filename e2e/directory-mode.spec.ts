@@ -101,26 +101,47 @@ for (const device of DEVICES) {
         expect(geometry.top, 'the panel starts above the viewport').toBeGreaterThanOrEqual(0);
         expect(geometry.bottom, 'the panel runs below the fold').toBeLessThanOrEqual(geometry.vh);
 
-        // Every option must be what a tap at its own centre actually reaches.
-        // A point outside the viewport returns null — the failure that matters
-        // most, an option no finger can land on.
-        const reachable = await page.evaluate(
-          (names) =>
-            names.map((name) => {
-              const input = [...document.querySelectorAll('.sidebar-settings-panel input')].find(
-                (i) => i.parentElement?.textContent?.trim() === name,
-              ) as HTMLElement | undefined;
-              if (!input) return { name, ok: false, topmost: 'not found' };
-              const r = input.getBoundingClientRect();
-              const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-              return {
-                name,
-                ok: top === input,
-                topmost: top ? top.tagName.toLowerCase() : 'outside the viewport',
-              };
-            }),
-          [T.directoryModeSpotlight, T.directoryModeTable],
+        /* Every control must be what a tap at its own centre actually reaches.
+           A point outside the viewport returns null — the failure that matters
+           most, an option no finger can land on.
+
+           Over *every* control in the panel rather than the two named ones it
+           used to check. The panel held one preference when this was written
+           and holds seven now, and the bug it is written against — an option
+           below the fold of a bottom sheet — is exactly the bug that arrives
+           when a panel grows. Naming the options would have left the five new
+           rows unguarded, which is this repository's most repeated lesson: a
+           guard that samples one member of a set is blind to the others. */
+        const reachable = await page.evaluate(() =>
+          [
+            ...document.querySelectorAll(
+              '.sidebar-settings-panel input, .sidebar-settings-panel button, .sidebar-settings-panel a',
+            ),
+          ].map((el) => {
+            const label =
+              (el.closest('label') ?? el).textContent?.trim() ||
+              el.getAttribute('aria-label') ||
+              '(unnamed)';
+            /* Scrolled to first, because the panel is a scroll container on a
+               phone: seven preferences do not fit above the tab bar, and a row
+               a reader has not scrolled to yet is not a bug. What this still
+               catches — and it is the bug the file is named for — is a control
+               that is *unreachable after scrolling to it*: one under the tab
+               bar, one off the trailing edge, one whose own hit area is
+               covered. Without the scroll the calendar and units rows reported
+               the sticky footer and the tab bar as topmost, which is a true
+               reading of a false question. */
+            el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+            const r = el.getBoundingClientRect();
+            const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+            return {
+              label,
+              ok: top === el || el.contains(top),
+              topmost: top ? top.tagName.toLowerCase() : 'outside the viewport',
+            };
+          }),
         );
+        expect(reachable.length, 'no controls found in the panel').toBeGreaterThan(2);
         expect(
           reachable.filter((r) => !r.ok),
           `unreachable options: ${JSON.stringify(reachable)}`,
@@ -128,10 +149,17 @@ for (const device of DEVICES) {
 
         await page.getByRole('radio', { name: T.directoryModeTable }).click();
 
-        // Choosing closes the panel: it is sitting on top of the button whose
-        // behaviour just changed.
-        await expect(panel).toHaveCount(0);
+        /* The panel stays open. It closed on a choice while it held one
+           preference; with seven, closing on the first made setting a second a
+           second trip to the gear. Escape, the gear and a click outside all
+           still dismiss it — the test below covers two of them. */
+        await expect(panel).toBeVisible();
         expect(await stored(page)).toBe('table');
+
+        // And it is out of the way of the button it configures, which is the
+        // reason closing-on-choice existed in the first place (§9.82).
+        await page.keyboard.press('Escape');
+        await expect(panel).toHaveCount(0);
 
         await page.locator('.list-toggle-btn').click();
         await expect(page.locator('.shrine-list-panel')).toBeVisible();
