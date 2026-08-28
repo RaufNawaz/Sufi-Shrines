@@ -5,6 +5,9 @@ import { makeShrineRow } from '../../../test/utils';
 
 function shrine(over: Partial<Shrine> & { descriptionUrdu?: string }): Shrine {
   const { descriptionUrdu, ...rest } = over;
+  /* The Name reaches `raw` as well as the model, because the Urdu-article count
+     joins on the row's name (urduArticleIndex.ts) and the two disagreeing is
+     the sort of fixture that tests the harness rather than the code. */
   return {
     id: Math.random(),
     name: 'X',
@@ -12,7 +15,10 @@ function shrine(over: Partial<Shrine> & { descriptionUrdu?: string }): Shrine {
     supportLevel: '',
     infoLevel: '',
     status: '',
-    raw: makeShrineRow(descriptionUrdu ? { 'Description Urdu': descriptionUrdu } : {}),
+    raw: makeShrineRow({
+      ...(descriptionUrdu ? { 'Description Urdu': descriptionUrdu } : {}),
+      ...(over.name ? { Name: over.name } : {}),
+    }),
     ...rest,
   } as Shrine;
 }
@@ -40,11 +46,24 @@ describe('buildArchiveReport', () => {
     expect(r.statuses.ruin).toBe(1);
   });
 
+  /* `makeShrineRow` names every fixture "Data Darbar", and that entry *does*
+     have an Urdu article — so once the count learned to read the in-repo index
+     as well as the row (see urduArticleCountIsLanguageIndependent.test.ts), a
+     fixture meaning "no Urdu here" had to stop borrowing a real entry's name.
+     Both sources are asserted separately now, because they are two ways to be
+     counted and a single number cannot tell you which one fired. */
   it('counts an Urdu article from any of the aliased Urdu columns', () => {
     const r = buildArchiveReport([
-      shrine({ descriptionUrdu: 'مضمون' }),
-      shrine({}), // none
+      shrine({ name: 'Nowhere Sharif', descriptionUrdu: 'مضمون' }),
+      shrine({ name: 'Nowhere Sharif' }), // no Urdu column, and no article in the index
     ]);
+    expect(r.urduDrafted).toBe(1);
+  });
+
+  it('counts an entry whose Urdu article is in the in-repo index, not the sheet', () => {
+    // No `Description Urdu` column anywhere in the sheet; the article for this
+    // slug lives in src/data/urdu-content.json and is listed in the index.
+    const r = buildArchiveReport([shrine({}), shrine({ name: 'Nowhere Sharif' })]);
     expect(r.urduDrafted).toBe(1);
   });
 

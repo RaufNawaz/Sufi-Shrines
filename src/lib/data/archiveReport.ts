@@ -1,5 +1,5 @@
 import type { Shrine } from '../../types/shrine';
-import { getUrduFieldValue } from './fieldAliasing';
+import { hasUrduArticle } from './urduArticleIndex';
 import { supportLevelKey, type SupportLevelKey } from './supportLevel';
 import { infoLevelKey, type InfoLevelKey } from './infoLevel';
 import { siteStatusKey, type SiteStatusKey } from './siteStatus';
@@ -27,7 +27,13 @@ export interface ArchiveReport {
   infoUnknown: number;
   statuses: Record<SiteStatusKey, number>;
   statusUnknown: number;
-  /** Rows carrying an Urdu article (sheet column or in-repo override). */
+  /** Rows carrying an Urdu article (sheet column or in-repo override).
+   *
+   * Counted through `hasUrduArticle`, which consults a 6 KB slug index
+   * rather than the merged row, so this figure is the same for a reader in
+   * either language. Read the row directly and it is not: the override that
+   * populates `Description Urdu` is only fetched for an Urdu reader, and it
+   * is the *only* source of Urdu articles the archive has. */
   urduDrafted: number;
   categories: Array<{ label: string; count: number }>;
 }
@@ -66,7 +72,7 @@ export function buildArchiveReport(shrines: Shrine[]): ArchiveReport {
     if (stk) statuses[stk]++;
     else statusUnknown++;
 
-    if (getUrduFieldValue(s.raw, 'Description')) urduDrafted++;
+    if (hasUrduArticle(s.raw)) urduDrafted++;
 
     const cat = (s.category || '').trim();
     if (cat) categoryCounts.set(cat, (categoryCounts.get(cat) ?? 0) + 1);
