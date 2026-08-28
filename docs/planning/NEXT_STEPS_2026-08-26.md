@@ -25,13 +25,18 @@ head is done**, in one overnight run. A1 · A2 · A3 · A4 · A5 · A6 · A9 · 
 | task | waits on |
 |---|---|
 | A7 / A8 — figure images | Lane B item 5: an editor's accept/reject and the tradition-sensitivity ruling |
-| A11 — settings | one round of scoping questions; "customizations" points at six different features |
 | **A12** — the calendar is not all ʿurs | what a non-ʿurs day is called in each language, and whether the page keeps its title |
 | **A13** — one place vocabulary, or two | a decision about which is canonical; measure the overlap first |
-| **A14** — entity pages jump 1,455px | which of three loading strategies, each trading something different |
 | Lane B (all five) | a human afternoon |
 
-A12, A13 and A14 are new, found by A4 and B4 rather than planned — which is what those two tasks
+**Closed since this table was written, 27–28 August 2026:** **A11** — `/settings` shipped with nine
+preferences, and on 28 August the gear reached every page and the reading size became a slider that
+scales the whole document. **A14** — closed without taking any of its three options; the diagnosis
+went down to *which section* moved, and each route got its own answer. **B4** — Lighthouse ran
+27 August and was re-measured 28 August after the fixes; every route is now inside the CLS budget
+and the map's TBT is 74ms against 4,306ms.
+
+A12, A13 and A14 were new, found by A4 and B4 rather than planned — which is what those two tasks
 were for. Each is written up below with the decision it needs, so the scoping conversation can
 happen without re-deriving the finding.
 
@@ -361,7 +366,11 @@ the others (`PER_GROUP`), each row navigating to `/almanac` (anchor to the obser
 the almanac has ids; add them if not).
 Done when: both verified at localhost:5173 in both languages; entity-search unit tests
 extended; verify green.
-> Status: open.
+> Status: **closed — shipped 27 August 2026, marked here 28 August.** Both halves are in
+> `src/components/search/ArchiveSearch.tsx`: the `<mark>` highlight (the matched segments are
+> split before render, so it is RTL-safe) and the fifth "Days" group, whose rows link to
+> `/almanac#<slug>`. This line said "open" for a day after it was done — the same staleness
+> the struck-through bibliography finding in CLAUDE.md exists to warn about.
 
 ### B2 — The saved list, made visible where it's used
 
@@ -371,7 +380,10 @@ if it already does, this half closes as no-op);
 (b) in `ArchiveSearch`, a saved shrine's row carries a small marker (reuse the existing
 saved iconography), so search doubles as "find the one I saved."
 Done when: verified live; no new colour-only distinction (a11y rule); verify green.
-> Status: open.
+> Status: **closed — shipped 27 August 2026, marked here 28 August.** (a) `ShrinePage` flips the
+> button to `t('savedLabel')` on `isShrineSaved` and carries `aria-pressed`; (b) `ArchiveSearch`
+> marks a saved row with `.archive-search-saved` plus an `sr-only` label — a marker and a name,
+> not colour alone.
 
 ### B3 — e2e coverage for the 26 Aug surfaces
 
@@ -383,8 +395,8 @@ remain. Mind HANDOVER §9.122: in dev, the first-ever palette open reloads once 
 discovering minisearch) — build-based e2e does not hit this.
 Done when: specs pass in the sandbox (`npm run build:e2e` first); verify green.
 > Status: **partly done 26 August 2026.** `e2e/almanac-facets.spec.ts` landed with A6
-> (`cc44976`) and covers the new facets in both languages. `e2e/archive-search.spec.ts` is still
-> open. One thing to know before writing it: **the suite flakes under local parallel load** —
+> (`cc44976`) and covers the new facets in both languages. **`e2e/archive-search.spec.ts` landed
+> 27 August in `7ebec1a` with 8 tests, which closes B3.** What was true before it was written: **the suite flakes under local parallel load** —
 > 1–2 tests fail per full local run and they are different tests each time, because `workers: 1`
 > and `retries: 2` are set only under `CI`. Every one passes in isolation and the failure is
 > always a 30-second timeout rather than a wrong assertion. Re-run a named spec alone before
@@ -411,7 +423,12 @@ axe violations and eager bytes; measure rather than assume.
 > are in HANDOVER §9 and are the more useful half: `urllib` takes 32s a request here, eight
 > workers invented 55 dead Wikimedia images out of 429s, a browser pass from inside this sandbox
 > reports 80 failures that are throttling rather than data, and curl here cannot see an expired
-> certificate. **Lighthouse is what is left of B4.**
+> certificate. ~~**Lighthouse is what is left of B4.**~~ **B4 is closed.** Lighthouse ran 27 August (`7ebec1a`,
+> ten routes, `numberOfRuns: 1`) and was **re-run 28 August after the fixes it prompted** — three
+> runs per route, medians, on a machine measured quiet first. Every CLS is now inside budget and
+> the map's TBT fell 4,306ms → 74ms; the Urdu front door's 15.6s LCP is the one number that did
+> not move, and the 27 August explanation for it is now disproven. Full table and method in
+> HANDOVER §9, 28 August, "the archive got fast while nobody was looking".
 
 ---
 

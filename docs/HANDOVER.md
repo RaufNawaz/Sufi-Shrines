@@ -5109,3 +5109,169 @@ Recorded rather than dismissed: it is measuring rendered geometry under five par
 machine that also had an iCloud indexing storm, and §9's own rule is that a geometry assertion
 taken mid-settle reports a failure that does not exist. If it recurs, suspect the settle, not the
 CSS.
+
+---
+
+### Added 28 August 2026 — the archive got fast, and the one number that did not move disproves its own explanation
+
+**Re-measurement of B4**, against the 27 August table above. That run was `numberOfRuns: 1` on a
+laptop also running a dev server, and it was taken *before* A14's CLS work, the map's TBT work and
+the language-gated payloads — so every fix those entries claim had been verified only by the
+instruments that proposed them. This run is the arbiter's opinion.
+
+**Method**, because the last run's caveats were the useful part. `npm run build:e2e` — **not**
+`npm run build`: the `.lighthouserc.cjs` URLs are root-relative and a default build sets base
+`/Sufi-Shrines/`, so a plain build measures ten 404 pages and reports excellent performance on
+them. Ten routes, **three runs each, medians reported**, Lighthouse 12.6.1 via lhci 0.15.1, default
+mobile preset (4× CPU throttle, slow 4G), served by `npm run preview` — the same server as the
+baseline, deliberately, because changing the server changes the instrument. Upload overridden to
+`--upload.target=filesystem`; the configured `temporary-public-storage` publishes the report.
+
+| route | perf | a11y | best-pr. | seo | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|---|---|
+| `/` | 28 → **71** | 100 | 75 | 91 | 4777 → 2208 | 6735 → 5611 | **4306 → 74** | 0.037 → 0.043 |
+| `/?lang=ur` | 37 → **61** | 100 | 75 | 91 | 3087 → 3382 | 15072 → **15660** | 1281 → **67** | 0.006 → 0.006 |
+| `/saint/data-ganj-bakhsh` | 37 → **84** | 100 | 79 | 92 | 2355 → 2492 | 6466 → 3970 | 642 → **0** | **0.520 → 0.029** |
+| `/shrine/data-darbar` | 47 → **74** | 100 | 79 | 92 | 2937 → 2042 | 7842 → 7474 | 823 → **23** | **0.118 → 0** |
+| `/almanac` | 51 → **87** | 100 | 100 | 91 | 2710 → 1968 | 3160 → 3823 | 649 → **0** | **0.539 → 0.021** |
+| `/place/lahore` | 56 → **78** | 100 | 100 | 92 | 1979 → 1970 | 6385 → 5655 | 656 → **0** | **0.105 → 0.0004** |
+| `/order/qadiriyya` | 66 → **82** | 100 | 79 | 92 | 2284 → 2268 | 3611 → 4425 | 436 → **8** | **0.219 → 0.0002** |
+| `/about` | 72 → **90** | 100 | 100 | 91 | 2709 → 2042 | 3159 → 3368 | 674 → **0** | 0.021 → 0.021 |
+| `/coverage` → `/about#traditions` | 74 → **90** | 100 | 100 | 91 | 1893 → 1895 | 3160 → 3370 | 719 → **0** | 0.021 → 0.021 |
+| `/graph` | 90 → **86** | 100 | 100 | 91 | 2128 → 2118 | 3308 → 3823 | 35 → **4** | 0.013 → 0 |
+
+**Accessibility is still 100 on all ten**, and no `error`-level assertion failed, so this passes CI.
+
+**A14 is confirmed by the instrument that found it.** Every CLS is inside the 0.1 budget. This
+matters more than the numbers: the after-figures in the A14 entry came from
+`scripts/measure-cls.mjs`, which disagreed with Lighthouse by three orders of magnitude on
+`/order` (0.0002 against 0.219) — two instruments with two definitions of one quantity, the exact
+shape that produced this repository's other bad numbers. **State the ruling rather than both
+numbers: Lighthouse is authoritative for CLS, `measure-cls.mjs` is diagnostic.** Lighthouse
+emulates a 390px phone under a 4× CPU throttle and slow 4G, which is the condition under which a
+reader experiences the shift; `measure-cls.mjs` runs unthrottled against a dev server, so it
+answers *which section moved* and not *how bad it is*. Both are honest and only one is about a
+phone.
+
+**The map's front door: TBT 4,306ms → 74ms**, and every route in the archive is now under ~75ms
+against a 300ms budget. `/` went from 28 to 71.
+
+#### The one number that did not move, and what that now rules out
+
+`/?lang=ur` LCP was 15,072ms and is **15,660ms**. Unchanged. But the explanation recorded for it on
+27 August — "script-evaluation-bound, not fetch-bound", pointing the next person at `maplibre-gl`'s
+8,484ms of evaluation and papaparse's 730ms — **is now disproven by its own follow-up.** On this
+run:
+
+- **TBT on that route fell 1,281ms → 67ms** and the LCP did not move at all. Whatever cost the main
+  thread a second has been paid, and it bought nothing here.
+- **Render delay is 97% of the LCP** (15,208ms of 15,660ms). TTFB is 452ms.
+- **All 344 requests finish by 3,626ms.** The last byte of everything arrives 12 seconds before the
+  LCP is recorded.
+
+So it is neither fetch-bound nor evaluation-bound, and the next person should start from neither.
+The LCP element is `div.map-root > aside#sidebar > div.list-toggle-bar > button.list-toggle-btn`,
+label **مزارات کی فہرست** — a sidebar button, 378×73, at y=714. The English front door has the same
+shape at a third the size (in the run diagnosed: render delay 5,038ms of that run's 5,492ms LCP —
+the 5,611ms in the table is the median of three, and the two figures are from different runs), so
+this is not Urdu-specific;
+Urdu is where it is worst. Both routes also report `interactive` at 17–20s with a TBT under 110ms,
+which is a network-quiet-window problem rather than a main-thread one, and is the more promising
+thread to pull.
+
+#### A shift the median hid, a fix that made it worse, and the bug underneath both
+
+Medians hide intermittent defects, so the per-run spread was read. One `/coverage` run in three
+measured **CLS 0.1666** against the 0.1 budget; the other two measured 0.0209. Lighthouse
+attributed that run's shifts exactly:
+
+    0.1457   footer.site-footer
+    0.0209   div.about-contents   (triggered by the Source Sans 3 woff2 landing)
+
+The 0.0209 is the font shift this file already records as the archive's last remaining one; it is
+steady across every run and is not the problem. The 0.1457 looked like A14's own defect on a page
+A14 did not fix: `AboutPage.tsx:214` gates the measured-state block on `!loading || shrines.length
+> 0` and closes it at line 301 with `) : null}`, so while the sheet is in flight the page renders
+nothing there, is shorter than the viewport, puts the footer on screen, and then pushes it down —
+verbatim the `/place/lahore` finding, which A14 fixed with `page-loading-reserve`
+(`min-height: 100svh`). A survey confirmed `/about` was the only page with that shape: AlmanacPage
+and PlacePage carry the reserve, the other five pages have no null loading branch at all.
+
+**So the reserve was applied to `/about`, measured, and reverted, because it made the worst case
+five times worse.** With the reserve in place, three runs of `/coverage` gave
+0.0209 / **0.8895** / 0.0209. The footer shift was gone — `footer-shifts=0` in all six runs across
+both routes — and a larger one had taken its place:
+
+    0.8685   section#cite      ("How to cite")
+    0.0209   div.about-contents (the same font shift)
+
+**Why the obvious fix is wrong here, and it is worth stating because A14's write-up implies the
+opposite.** A14 reserved a viewport on `/place` to keep the footer off screen, and that worked
+because the deferred content there is about a viewport tall. On `/about` the deferred block is
+*much* taller than 100svh, so reserving one viewport does not absorb it — and worse, the reserve
+makes the page tall enough to actually scroll to the hash, which puts more content in view to be
+moved when the real block replaces the placeholder. The reserve converted a small shift of one
+element into a large shift of everything below it. `git checkout` reverted it; `AboutPage.tsx` is
+byte-identical to what produced the 0.1666 figure above, so those numbers still describe the
+shipped code.
+
+**The bug underneath both is not a layout bug.** `/coverage` is
+`<Navigate to="/about#traditions" replace />` (`App.tsx:174`), and `id="traditions"` lives in
+`src/components/archive/ArchiveKnows.tsx:176` — **inside the data-gated block**. So the anchor the
+redirect names does not exist at the moment the redirect is navigated to. A reader following a
+`/coverage` link is promised the traditions section and lands at the top of `/about`, and the
+intermittent CLS is a symptom of the same fact rather than a separate defect. That makes it a
+behaviour question — render the anchor target outside the gate, or defer the scroll until the data
+arrives — which is a decision about where a reader should land, so it is recorded here rather than
+chosen. **Three runs on `/about` alone would never have found any of this**: plain `/about`
+measured 0.0208 / 0.0209 / 0.0208 before the attempt and 0.0208 / 0.0208 / 0.0209 after. A route
+reached by a redirect is a different measurement from the page it redirects to.
+
+#### Chrome sees a dead image that the committed liveness check structurally cannot
+
+Best practices is 75 on the two map routes and 79 on the three entity routes — the same as
+27 August, and the reason is now recorded rather than left as "not investigated". The failing audits
+are `errors-in-console`, `third-party-cookies`, `valid-source-maps` and `inspector-issues`. The
+console errors on the front door are two:
+
+    ERR_CERT_DATE_INVALID   sultan-bahoo.com   (an image the archive hot-links)
+    403                     heritageofpakistan.org/…/Sachal-Sarmast-Shrine-43-of-89.jpg
+
+The 403 is already known. **The expired certificate is the one `pipeline/check_image_liveness.py`'s
+own docstring says curl here cannot see.** So the browser catches a class of dead image the
+committed instrument is blind to by construction — worth a line in that script's docstring, and
+worth knowing before anyone quotes "239 of 242 alive" again. Four `status=-1` requests also appear
+(two Wikimedia `Special:Redirect` lookups, sikhiwiki, and one Google Sheets CSV fetch on a shrine
+route); **those are not recorded as dead**, because §9 already records a browser pass from this
+sandbox reporting 80 failures that were throttling rather than data, and 30 page loads in ten
+minutes is exactly that situation.
+
+#### The measurement environment has a third party in it: iCloud
+
+Not in either session's plan, and it will bite the next person. The repository sits in an
+iCloud-synced Desktop folder (RULE 0), and `dist` is **66 MB across 1,037 files**. Rebuilding it
+hands all of them to iCloud:
+
+    fileproviderd   117%        cloudd   101%        load average   82.7
+
+That is a pinned core arriving *after* `vite build` exits, and it lands directly in a TBT number if
+you measure through it. **A build in this repository is not finished when the build finishes.** This
+run waited for `fileproviderd` to fall under 15% before starting, and re-ran the two routes that
+overlapped a residual spike (`/shrine/data-darbar`, `/graph`): they came back 74/7,474/23 against
+74/7,309/26 and 86/3,823/4 against 87/3,820/5, so the spikes had not moved them — but the check is
+the point, not the result. `.lighthouseci` was also moved out of the repository after the run, so
+its ~40 MB of reports are not handed to iCloud a second time.
+
+**Re-run it with:**
+
+```bash
+npm run build:e2e                       # NOT npm run build — base path
+# wait for fileproviderd < 15% before measuring
+npx lhci autorun --collect.numberOfRuns=3 \
+  --upload.target=filesystem --upload.outputDir=/tmp/lhci
+```
+
+**Not done, deliberately:** the CLS budget in `.lighthouserc.cjs` is still `warn` at 0.1. Promoting
+it to `error` is the RULE 4 move and nine of ten routes have headroom for it — but `/coverage`
+would have been red on one run in three, and an invariant is not worth encoding until it has been
+watched go green. It is gated on the anchor decision above, not on more measurement.
