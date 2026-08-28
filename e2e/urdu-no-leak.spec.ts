@@ -185,7 +185,28 @@ const BUDGET: Record<string, number> = {
   // other two saint routes measured exactly their pre-existing numbers:
   // multi-order 23, lineage-only 24 (the latter's figure has no site in the app,
   // so the section correctly does not render).
-  'saint:multi-order': 23,
+  /* Raised 28 August 2026, +5 on each of three routes, after the figure-identity
+     branch and the front-end branch were merged. Two causes, measured rather
+     than assumed, and `undeclared` stayed **empty** on all three throughout —
+     the archive is not leaking English, it is declaring more of it.
+
+       · +1 on every route: the language toggle's "EN". The 26–28 August settings
+         work put the gear and the EN/اردو control on every page; it used to be
+         on the map alone, and the map's own budget already counted it.
+       · +4 on `saint:multi-order`, and the rest of the +5 elsewhere: this route
+         was repointed on 28 August from `/saint/hazrat-wasif-ali-wasif` to
+         `/saint/hazrat-wasif-ali-wasif-awan` when those two nodes turned out to
+         be one man — and the budget was not re-measured with it. The merged page
+         renders what the two nodes rendered separately: his shrine and ʿurs came
+         from one node, his master and both silsilas from the other. The extra
+         runs are the second node's half, which no page used to show beside the
+         first. That is the merge working; 23 was the number for half a man.
+
+     The lesson for the next person, and it is the same one this file's 26 August
+     note is about: **a route repointed is a budget invalidated.** Changing
+     `path` here without re-running the walker leaves a number describing a page
+     that is no longer being visited. */
+  'saint:multi-order': 28,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine
@@ -208,8 +229,11 @@ const BUDGET: Record<string, number> = {
   // `urdu-i18n/build_dictionary.py` gains entries. Hiding the cell from an Urdu
   // reader would have cost nothing here and would have made the Urdu view the
   // one that cannot check the archive's arithmetic.
-  order: 77,
-  'order:chishtiyya': 43,
+  // +5 each on the two order pages, same two causes as the note above: the
+  // language toggle, and merged figures now carrying the absorbed node's name as
+  // an `altName` in the member list.
+  order: 82,
+  'order:chishtiyya': 48,
   'order:suhrawardiyya': 51,
   'order:naqshbandiyya': 32,
   'order:qalandariyya': 11,
