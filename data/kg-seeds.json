@@ -77,18 +77,23 @@
   },
   "saintMergeVariants": {
     "comment": "Maps a raw CSV value to its canonical saint name. Applied before slug generation. Add entries when the same saint appears under multiple name forms.",
-    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar",
     "Bari Imam (Shah Abdul Latif Kazmi)": "Bari Imam",
+    "Bhagwan Valmik (Valmiki)": "Valmiki (also revered as Bhagwan Valmik)",
     "Bulleh Shah (Abdullah Shah Qadri)": "Bulleh Shah",
+    "Goddess Kali": "Kali",
+    "Goddess Kali (Kalka Devi)": "Kali (also revered as Kalka Devi)",
+    "Guru Nanak and Bhai Mardana": "Guru Nanak",
+    "Guru Nanak Dev Ji": "Guru Nanak",
     "Hazrat Data Ganj Bakhsh (Ali Hujwiri)": "Data Ganj Bakhsh",
     "Hazrat Shah Daula Daryai": "Shah Daula Daryai",
     "Hazrat Shah Yousuf": "Shah Yousuf",
+    "Jhulelal / Daryalal (Zinda Pir)": "Jhulelal (also revered as Daryalal/Zinda Pir)",
+    "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)": "Laki Shah Saddar",
+    "Lal Shahbaz Qalandar (Syed Muhammad Usman)": "Lal Shahbaz Qalandar",
     "Rahman Baba (Abdur Rahman Mohmand)": "Rahman Baba",
     "Sachal Sarmast (Abdul Wahab Faruqi)": "Sachal Sarmast",
     "Shah Hussain (Madho Lal Hussain)": "Shah Hussain",
-    "Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)": "Laki Shah Saddar",
-    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir",
-    "Guru Nanak and Bhai Mardana": "Guru Nanak"
+    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir"
   },
   "_comment_saintDoNotMerge": "Merges this project has decided AGAINST, each with the corpus sentence that forbids it. saintMergeVariants above says which names are one person; this says which look like one person and are not. It exists because the merge is the destructive direction: on this corpus the figures most likely to share a name are father and son, uncle and nephew, master and disciple, so a similarity merge does not merely mis-name someone — it deletes the edge that made the pair worth recording. A honorific-stripping token matcher run on 28 August 2026 proposed 21 merges here and 19 were wrong; those 19 are the reason most of these rows exist. Enforced by scripts/data/validate-kg-identity.mjs, which fails the build if any pair collapses into one node and re-checks every quote byte-for-byte against its source. Adding a row is cheap and permanent; deleting one needs a reason better than \"the names look the same\".",
   "saintDoNotMerge": [
