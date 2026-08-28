@@ -16,6 +16,7 @@ import { t, tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useShareLink } from '../../hooks/useShareLink';
+import { useUrduArticlesReady } from '../../hooks/useUrduArticlesReady';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
@@ -27,11 +28,16 @@ const AUTOPLAY_STOP_DURATION_MS = 12000;
 
 const VISITING_INFO_TITLE = ARTICLE_SECTION_DEFINITIONS.find((d) => d.id === 'visiting')!.title;
 
-function localizedVisitingInfo(shrine: Shrine, lang: Lang): string {
+/** `urduArticlesReady` for the same reason as in ShrinePreview: the English
+ *  fallback is correct for an entry with no Urdu section and wrong for every
+ *  entry in the seconds after a language switch, when they are indistinguishable
+ *  from a row (see `useUrduArticlesReady`). */
+function localizedVisitingInfo(shrine: Shrine, lang: Lang, urduArticlesReady: boolean): string {
   // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only Visiting Info column
   if (lang === 'ur') {
     return (
-      getUrduFieldValue(shrine.raw, 'Visiting Info') || getFieldValue(shrine.raw, 'Visiting Info')
+      getUrduFieldValue(shrine.raw, 'Visiting Info') ||
+      (urduArticlesReady ? getFieldValue(shrine.raw, 'Visiting Info') : '')
     );
   }
   return getFieldValue(shrine.raw, 'Visiting Info');
@@ -135,7 +141,8 @@ export function TourPanel({
   const nextLegKm =
     activePointIdx >= 0 && activePointIdx < points.length - 1 ? legsKm[activePointIdx + 1] : null;
 
-  const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang) : '';
+  const urduArticlesReady = useUrduArticlesReady();
+  const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang, urduArticlesReady) : '';
   const { share, copied } = useShareLink();
   const tourTitle = localizeTourTitle(tour, lang);
   const narrativeText = localizeStopNarrative(stop, lang);

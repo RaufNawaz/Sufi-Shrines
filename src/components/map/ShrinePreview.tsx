@@ -18,6 +18,7 @@ import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
+import { useUrduArticlesReady } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
 
 interface ShrinePreviewProps {
@@ -58,10 +59,18 @@ export function ShrinePreview({
       ? translate(lang as Lang, SITE_STATUS_LABEL_KEYS[statusKey])
       : '';
 
+  /* No English lead while the Urdu one is still downloading.
+     The fallback below is right for the two entries that have no Urdu article
+     at all, and wrong for the seconds after a language switch, when every entry
+     looks like one of those two — see `useUrduArticlesReady`. Falling back then
+     put the entire English lead under an Urdu name for 4.7 measured seconds.
+     Nothing is a truthful empty; English prose is not. */
+  const urduArticlesReady = useUrduArticlesReady();
   const descRaw =
     // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only Description column
     lang === 'ur'
-      ? getUrduFieldValue(shrine.raw, 'Description') || getFieldValue(shrine.raw, 'Description')
+      ? getUrduFieldValue(shrine.raw, 'Description') ||
+        (urduArticlesReady ? getFieldValue(shrine.raw, 'Description') : '')
       : getFieldValue(shrine.raw, 'Description');
   const leadText = descRaw ? extractLeadPreviewText(descRaw) : '';
 
