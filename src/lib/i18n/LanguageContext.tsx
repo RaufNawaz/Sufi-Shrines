@@ -83,7 +83,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
       const params = new URLSearchParams(window.location.search);
       params.set('lang', next);
-      const url = `${window.location.pathname}?${params.toString()}`;
+      /* Carry the hash. Rebuilding from pathname and search alone discards it,
+         and this runs on *every* switch — so a reader partway down a long page
+         at `/about#site-status` who changed language was silently returned to a
+         URL with no anchor in it. Same omission as the `/ur/` normaliser in
+         `App.tsx`, and the reason the two are fixed together. */
+      const url = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
       window.history.replaceState(null, '', url);
     });
   }, []);

@@ -5319,3 +5319,60 @@ four. What must not happen is the decision being taken as a `/coverage` matter.
 by a `<Navigate>` in `App.tsx` must exist in the DOM of its target route *before* that route's data
 resolves. Cheap as a Playwright assertion with the CSV intercept held open; it fails today on three
 of the four and would have failed on the day `/coverage` and `/report` were merged into `/about`.
+
+---
+
+### Added 28 August 2026 — correcting my own entry above: the anchor was never a race, and two lines were throwing the fragment away
+
+**First, the correction, because the wrong version is committed two sections above this one and in
+`adbbae6`.** That entry says a reader following `/coverage` "is promised the traditions section and
+lands at the top of `/about`". **That is false for English, and I should have read the page before
+writing it.** `AboutPage.tsx:130` already carries a scroll effect keyed on `coverage.total` —
+deliberately not run-once, with a comment saying the sections do not exist until the dataset
+arrives — so English `/coverage` and `/report` land where they promise, late but reliably.
+`e2e/about-merge.spec.ts` has asserted exactly that for both routes since the merge, and it passes.
+The intermittent CLS in that entry is real and its numbers stand; the causal story attached to it
+was not.
+
+**What was actually broken was the Urdu half, and not for the reason it looked.** `/ur/coverage`
+and `/ur/report` redirected to a bare `/ur/about` with no fragment, so there was nothing for that
+effect to read. Adding the fragments to the two `<Navigate>`s — the obvious one-line fix — **was
+necessary and did not work**, and watching it fail is what found the real defect:
+
+    /ur/coverage  ->  /ur/about#traditions  ->  observed URL: /about?lang=ur
+
+The fragment was gone by the time the page settled. **Two separate lines rebuild the URL from
+pathname and search and silently drop the hash:**
+
+- `App.tsx`, `UrPrefixNormalizer` — runs once for every `/ur/…` entry. So *any* Urdu deep link into
+  a section of a long page loses its anchor, not only these two redirects.
+- `src/lib/i18n/LanguageContext.tsx:87` — runs on **every language switch, in both directions**. A
+  reader partway down `/about#site-status` who changed language was returned to a URL with no
+  anchor in it. This one has nothing to do with the redirects at all and would have outlived any
+  fix aimed at them.
+
+Both now append `window.location.hash`. Three changes were needed where the finding predicted one,
+which is the transferable part: the redirect was the visible end of a URL-rebuilding habit, and the
+habit is what to grep for. `MapPage` has four more writers of the same shape
+(`${pathname}${qs}`); they are **left alone deliberately** because the map route uses no fragments,
+but they are the same latent bug and are listed here so the next person meets them as a known
+choice rather than a discovery.
+
+**The guard, watched red before it was believed** (the rule this session applied to its own CLS
+budget, and `shrines-project-de` applied to check 7). `e2e/about-merge.spec.ts`'s Urdu case
+previously asserted only that the page rendered RTL — which is precisely how a permanently broken
+promise survived a green suite. It now asserts the landing, in both Urdu routes, like the English
+pair:
+
+    against the unfixed build   2 failed   (received /about?lang=ur, no fragment)
+    against the fixed build     5 passed
+    full suite                  335 passed
+
+**A page that renders in the right direction is not the same as a page that keeps its promise**, and
+only the second is the standard (CLAUDE.md: the Urdu experience must be as complete as English). The
+weaker assertion is the one that let this through, so the lesson is not "add a test" — there was a
+test — it is that an RTL check tests the frame and not the behaviour.
+
+**Still open and unchanged:** the CLS budget in `.lighthouserc.cjs` stays `warn`. The `/coverage`
+outlier is not fixed by any of this — it is content arriving above a scrolled viewport — and the
+attempted viewport reserve remains reverted for the reason recorded above.

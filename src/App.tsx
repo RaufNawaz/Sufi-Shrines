@@ -61,7 +61,19 @@ function UrPrefixNormalizer({ children }: { children: React.ReactNode }) {
     const newPathname = stripUrPrefix(window.location.pathname);
     const params = new URLSearchParams(window.location.search);
     params.set('lang', 'ur');
-    window.history.replaceState(null, '', `${newPathname}?${params.toString()}`);
+    /* The hash has to be carried across. This rebuilt the URL from pathname and
+       search alone, so every `/ur/...#anchor` entry silently lost its fragment —
+       `/ur/coverage` and `/ur/report` name one, and any Urdu link a reader has
+       shared into a section of a long page carries one too. The anchor scroll on
+       /about, /typology and /almanac all read `window.location.hash`, so a
+       dropped fragment is not a cosmetic URL difference: the effect returns
+       early and the reader is left at the top of the page, every time and not as
+       a race. Guarded by the two Urdu cases in `e2e/about-merge.spec.ts`. */
+    window.history.replaceState(
+      null,
+      '',
+      `${newPathname}?${params.toString()}${window.location.hash}`,
+    );
     // Run once on mount only — this route is a one-time entry portal.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -230,8 +242,14 @@ export default function App() {
                     {/* Straight to the Urdu mirror of the merged page, rather than
                     normalising here and redirecting after: two effects racing to
                     rewrite the same URL. `/ur/about` already does this properly. */}
-                    <Route path="/ur/report" element={<Navigate to="/ur/about" replace />} />
-                    <Route path="/ur/coverage" element={<Navigate to="/ur/about" replace />} />
+                    <Route
+                      path="/ur/report"
+                      element={<Navigate to="/ur/about#site-status" replace />}
+                    />
+                    <Route
+                      path="/ur/coverage"
+                      element={<Navigate to="/ur/about#traditions" replace />}
+                    />
                     <Route
                       path="/ur/typology"
                       element={

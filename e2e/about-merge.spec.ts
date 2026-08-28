@@ -53,13 +53,38 @@ test.describe('the merged /about', () => {
     });
   }
 
-  test('the Urdu mirrors of both reach the Urdu page', async ({ page }) => {
-    for (const path of ['/ur/coverage', '/ur/report']) {
-      await page.goto(path);
+  /* The Urdu mirrors must land where the English ones land.
+     This test used to assert only that the page came up in RTL, and that is
+     exactly how the defect it now guards survived: `/ur/coverage` and
+     `/ur/report` redirected to a bare `/ur/about`, with **no fragment at all**.
+     The scroll effect above reads `window.location.hash`, so an empty hash
+     means it returns early every time — an English reader was carried to the
+     section and an Urdu reader never was, permanently, not as a race. A page
+     that renders in the right direction is not the same as a page that keeps
+     its promise, and only the second is the standard here (CLAUDE.md: the Urdu
+     experience must be as complete as English). */
+  for (const { from, section } of [
+    { from: '/ur/coverage', section: 'traditions' },
+    { from: '/ur/report', section: 'site-status' },
+  ]) {
+    test(`${from} lands on the section it was sent for, in Urdu`, async ({ page }) => {
+      await page.goto(from);
       await page.locator('h1.entity-title').waitFor();
       await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-    }
-  });
+      /* The `/ur/` prefix is a one-time entry portal: it normalises to
+         `?lang=ur` on mount. The fragment must survive that rewrite. */
+      await expect(page).toHaveURL(new RegExp(`/about\\?lang=ur#${section}$`));
+
+      const target = page.locator(`#${section}`);
+      await target.waitFor();
+      await expect
+        .poll(() => page.evaluate(() => window.scrollY), { timeout: 10000 })
+        .toBeGreaterThan(0);
+
+      const top = await target.evaluate((el) => el.getBoundingClientRect().top);
+      expect(Math.abs(top)).toBeLessThan(150);
+    });
+  }
 
   test('every contents entry points at a section that exists', async ({ page }) => {
     await page.goto('/about');
