@@ -1,0 +1,32 @@
+{
+  "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi": [
+    {
+      "slug": "guru-nanak",
+      "name": "Guru Nanak"
+    },
+    {
+      "slug": "bhai-lalo",
+      "name": "Bhai Lalo"
+    }
+  ],
+  "gurdwara-panjvi-chati-patshahi": [
+    {
+      "slug": "guru-arjan-dev",
+      "name": "Guru Arjan Dev"
+    },
+    {
+      "slug": "guru-hargobind",
+      "name": "Guru Hargobind"
+    }
+  ],
+  "gurdwara-rori-sahib": [
+    {
+      "slug": "guru-nanak",
+      "name": "Guru Nanak"
+    },
+    {
+      "slug": "bhai-mardana",
+      "name": "Bhai Mardana"
+    }
+  ]
+}

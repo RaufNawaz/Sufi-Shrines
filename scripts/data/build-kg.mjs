@@ -1132,6 +1132,39 @@ writeFileSync(
   'utf8',
 );
 
+// ── names for the rows that name two figures ─────────────────────────
+/*
+ * The three composite rows, and only those — shrine slug → each figure it
+ * names, with the display name beside the slug.
+ *
+ * `kg-shrine-figures.json` above is slugs-only on purpose, and its comment says
+ * the moment it grows a second field it stops being cheaper than the graph.
+ * That is still true, so this does not add a field to it: ShrinePage needs a
+ * *name* only where it must render more than one link, which is three rows out
+ * of 169. As its own file that is ~300 bytes; as a name on all 169 it would be
+ * the display string and its Urdu for every figure in the archive, which is the
+ * saving `kg-shrine-figures.json` exists to make.
+ *
+ * The name is the canonical figure name — the same string as the graph node's
+ * `name`, which is what makes it localizable through the Urdu dictionary. It is
+ * NOT the sheet's raw cell: the raw cell is what the infobox renders verbatim,
+ * and the two are deliberately different renderings of the same fact. See the
+ * comment at ShrinePage's figure row.
+ */
+const compositeShrineFigures = {};
+for (const shrineSlug of [...compositeShrineCell.keys()].sort()) {
+  const rawCell = compositeShrineCell.get(shrineSlug);
+  compositeShrineFigures[shrineSlug] = figureNamesFor(rawCell).map((name) => ({
+    slug: slugify(name),
+    name,
+  }));
+}
+writeFileSync(
+  join(ROOT, 'data', 'kg-composite-figures.json'),
+  JSON.stringify(compositeShrineFigures, null, 2) + '\n',
+  'utf8',
+);
+
 // ── the search index for the whole archive ───────────────────────────────────
 /*
  * Names and aliases only, for every figure and order, so search can reach them
@@ -1226,5 +1259,8 @@ if (reviewNeeded.length > 0) {
 }
 console.log(
   `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,
+);
+console.log(
+  `[kg] ✓ data/kg-composite-figures.json written (${Object.keys(compositeShrineFigures).length} shrines naming more than one figure)`,
 );
 console.log('[kg] ✓ data/kg.json written');

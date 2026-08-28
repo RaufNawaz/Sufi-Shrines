@@ -104,6 +104,57 @@ test.describe('Shrine detail page', () => {
   });
 });
 
+test.describe('A site held by two figures reaches both of them', () => {
+  /* Three rows out of 169 name two people. Rori Sahib is Guru Nanak *and* Bhai
+     Mardana; before 28 August 2026 a merge-variant entry resolved that cell to
+     "Guru Nanak" alone and Bhai Mardana was in the graph nowhere at all. The
+     graph fix landed that day; the summary line kept linking only the first
+     figure until this test existed. */
+  const COMPOSITE_SLUG = 'gurdwara-rori-sahib';
+
+  test('links each named figure to its own page', async ({ page }) => {
+    await page.goto(`/shrine/${COMPOSITE_SLUG}`);
+
+    const figureLinks = page.locator('.shrine-summary-meta-item a.meta-entity-link');
+    await expect(figureLinks).toHaveCount(2);
+    await expect(figureLinks.nth(0)).toHaveAttribute('href', '/saint/guru-nanak');
+    await expect(figureLinks.nth(1)).toHaveAttribute('href', '/saint/bhai-mardana');
+
+    /* The second figure is the one every earlier handling dropped, so follow
+       that one — a link that renders and 404s is the same bug wearing a hat. */
+    await figureLinks.nth(1).click();
+    await expect(page).toHaveURL('/saint/bhai-mardana');
+    await expect(page.locator('h1')).toContainText('Bhai Mardana');
+  });
+
+  test('the recorded cell survives verbatim in the facts panel', async ({ page }) => {
+    /* The summary line shows canonical names because it renders one link per
+       figure; the sheet's own wording has to remain somewhere on the page or
+       the archive is paraphrasing its source (RULE 2). */
+    await page.goto(`/shrine/${COMPOSITE_SLUG}`);
+    await expect(page.locator('.shrine-infobox')).toContainText('Guru Nanak and Bhai Mardana');
+  });
+
+  test('reads in Urdu with both figures named in Urdu', async ({ page }) => {
+    await page.goto(`/shrine/${COMPOSITE_SLUG}?lang=ur`);
+
+    const figureLinks = page.locator('.shrine-summary-meta-item a.meta-entity-link');
+    await expect(figureLinks).toHaveCount(2);
+    /* Not a spot check on one name: the whole reason this file exists is that
+       Bhai Mardana was the figure that kept getting dropped, and he is the one
+       whose dictionary entry is newest. */
+    await expect(figureLinks.nth(0)).toContainText('گرو نانک');
+    await expect(figureLinks.nth(1)).toContainText('بھائی مردانہ');
+  });
+
+  test('an ordinary single-figure row still renders exactly one link', async ({ page }) => {
+    /* The guard on the guard: a change that fanned every row out into multiple
+       links would pass all three tests above. */
+    await page.goto(`/shrine/${TEST_SLUG}`);
+    await expect(page.locator('.shrine-summary-meta-item a.meta-entity-link')).toHaveCount(1);
+  });
+});
+
 test.describe('Nearby Auqaf mosques (women’s prayer access)', () => {
   test('shows survey answers, distance-sorted, the shrine’s own mosque first', async ({ page }) => {
     await page.goto('/shrine/data-darbar');

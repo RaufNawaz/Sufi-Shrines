@@ -35,7 +35,7 @@ import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
-import { primaryFigureSlug } from '../lib/kgShrineFigures';
+import { primaryFigureSlug, compositeFiguresForShrine } from '../lib/kgShrineFigures';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
@@ -85,6 +85,8 @@ function ShrineContent({
   const name = localizeShrineName(shrine, lang);
 
   const primaryFigure = primaryFigureSlug(shrine.slug);
+  /* Non-empty for exactly the three rows that name two people. */
+  const compositeFigures = compositeFiguresForShrine(shrine.slug);
 
   const category =
     categoryDisplayLabel(shrine.category, lang) ??
@@ -222,7 +224,41 @@ function ShrineContent({
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            {primaryFigure ? (
+            {/* Three rows name two figures, and this line has to reach both.
+                It shows the *canonical* names rather than the sheet's cell,
+                because there is one link per figure and the cell is one string
+                spanning both — "Guru Nanak Dev Ji; associated with Bhai Lalo"
+                cannot be cut into two link texts without deciding what
+                "associated with" attaches to, which is a claim the sheet did
+                not make (RULE 2).
+
+                The recorded cell is not lost by that: `Sufi Saint` is an
+                INFOBOX_PRIORITY_KEY and the infobox renders it verbatim,
+                labelled with the row's own `figure_type`. That is the archive's
+                usual division — recorded wording in the fact panel, resolvable
+                entities as links — and it is the same one the place pills below
+                already follow, where `location` is the recorded string and the
+                pills are the vocabulary. `compositeFigureCellIsShown` in
+                src/pages/__tests__/shrineCompositeFigures.test.tsx fails if a
+                change to the infobox ever takes that verbatim rendering away,
+                because at that point this line would be the only thing on the
+                page naming the figures and it would be naming them in words
+                the sheet never used. */}
+            {compositeFigures.length > 1 ? (
+              compositeFigures.map((figure, index) => (
+                <React.Fragment key={figure.slug}>
+                  {/* Decorative, and hidden from assistive tech: the two links
+                      are already separate stops in the tab order, and "middle
+                      dot" announced between them is noise. Unstyled on purpose
+                      — a bare neutral character needs no rule, and a separator
+                      that carried one would have to be mirrored for RTL. */}
+                  {index > 0 && <span aria-hidden="true">{' \u00b7 '}</span>}
+                  <Link to={`/saint/${figure.slug}`} className="meta-entity-link">
+                    <bdi>{localizeRecordedName(figure.name, lang)}</bdi>
+                  </Link>
+                </React.Fragment>
+              ))
+            ) : primaryFigure ? (
               <Link to={`/saint/${primaryFigure}`} className="meta-entity-link">
                 {saint}
               </Link>

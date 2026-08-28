@@ -1,4 +1,5 @@
 import shrineFigures from '../../data/kg-shrine-figures.json';
+import compositeFigures from '../../data/kg-composite-figures.json';
 
 /**
  * Shrine slug → the figures commemorated there, most-principal first.
@@ -19,6 +20,7 @@ import shrineFigures from '../../data/kg-shrine-figures.json';
  * (and its Urdu) back on the wire and undo the saving.
  */
 const INDEX = shrineFigures as Record<string, string[]>;
+const COMPOSITE = compositeFigures as Record<string, CompositeFigure[]>;
 
 /** Figure slugs commemorated at a shrine, in the graph's own order. */
 export function figureSlugsForShrine(shrineSlug: string): string[] {
@@ -28,4 +30,39 @@ export function figureSlugsForShrine(shrineSlug: string): string[] {
 /** The shrine's principal figure, or undefined when the graph records none. */
 export function primaryFigureSlug(shrineSlug: string): string | undefined {
   return INDEX[shrineSlug]?.[0];
+}
+
+/**
+ * A figure named on a shrine's row, with the name the graph knows it by.
+ *
+ * `name` is the canonical figure name, not the sheet's raw cell — see
+ * `compositeFiguresForShrine`.
+ */
+export interface CompositeFigure {
+  readonly slug: string;
+  readonly name: string;
+}
+
+/**
+ * The figures named by a row that names more than one, primary first.
+ *
+ * Three rows out of 169 record a site held by two people: Gurdwara Panjvi Chati
+ * Patshahi is the fifth *and* sixth Guruship, Rori Sahib is Guru Nanak *and*
+ * Bhai Mardana, Khoohi Bhai Lalo is Guru Nanak *and* Bhai Lalo. Every handling
+ * of them before 28 August 2026 lost one of the two, and for Rori Sahib the one
+ * lost was Bhai Mardana, who was consequently absent from the graph entirely.
+ *
+ * Empty for the other 166 rows, which is the signal to render the single link
+ * `primaryFigureSlug` already supports.
+ *
+ * **Why this carries names when `figureSlugsForShrine` deliberately does not.**
+ * A second figure needs a second label, and there is no honest way to derive one
+ * from a slug — title-casing `guru-arjan-dev` happens to work and
+ * `shrine-of-baba-shah-kamal` becomes "Shrine Of Baba Shah Kamal". So the name
+ * is carried, for the three rows that need it and no others: 558 bytes, against
+ * the display string and its Urdu for all 190 figures if the main index grew a
+ * name column.
+ */
+export function compositeFiguresForShrine(shrineSlug: string): readonly CompositeFigure[] {
+  return COMPOSITE[shrineSlug] ?? [];
 }
