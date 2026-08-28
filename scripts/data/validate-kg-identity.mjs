@@ -35,7 +35,12 @@
  *      punctuation and whitespace folding — and nothing looser).
  *   2. Every `saintDoNotMerge` pair still exists as that many distinct nodes.
  *   3. Every `saintDoNotMerge` quote is a byte-exact substring of its source.
- *   4. Every `saintMergeVariants` target resolves to a node that exists, so a
+ *   4. Every retired figure slug still resolves: it is not itself a live figure,
+ *      and its target is. A figure's page is prerendered and listed in the
+ *      sitemap, so joining two nodes retires a published URL — and this route's
+ *      fallback for an unknown figure is a redirect to the map, which is a soft
+ *      404 for anyone holding the old address.
+ *   5. Every `saintMergeVariants` target resolves to a node that exists, so a
  *      typo in a merge target cannot silently stop merging.
  *
  * Not checked, because it is not decidable here: whether a pair that shares no
@@ -149,7 +154,28 @@ for (const [i, entry] of doNotMerge.entries()) {
 }
 notes.push(`${doNotMerge.length} recorded decision(s) against merging`);
 
-// ── 4. merge targets must land somewhere ─────────────────────────────────────
+// ── 4. retired slugs must still resolve ──────────────────────────────────────
+
+const retired = kg.retiredSlugs ?? {};
+for (const [from, to] of Object.entries(retired)) {
+  if (bySlug.has(from)) {
+    fail(
+      `retiredSlugs["${from}"]: that slug is a live figure, so this entry would ` +
+        `hide its own page behind a redirect to "${to}".`,
+    );
+  }
+  if (from === to) {
+    fail(`retiredSlugs["${from}"]: points at itself, which is a redirect loop`);
+  } else if (!bySlug.has(to)) {
+    fail(
+      `retiredSlugs["${from}"] -> "${to}": the target is not a figure, so the old ` +
+        `URL still falls through to the map — the soft 404 this map exists to stop.`,
+    );
+  }
+}
+notes.push(`${Object.keys(retired).length} retired slug(s) still resolve`);
+
+// ── 5. merge targets must land somewhere ─────────────────────────────────────
 
 const mergeVariants = seeds.saintMergeVariants ?? {};
 let checkedTargets = 0;

@@ -220,6 +220,9 @@ const orderBySlug = new Map(orders.map((o) => [o.slug, o]));
 
 const saintMap = new Map(); // slug → KGSaint (partial, shrines[] grows)
 const reviewNeeded = [];
+/* Figure slugs that used to be their own page and are now somebody else's:
+   retired slug → the canonical slug it was joined into. */
+const retiredSaintSlugs = new Map();
 
 for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const rawSaint = String(row['Sufi Saint'] ?? '').trim();
@@ -228,6 +231,16 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const canonical = canonicalizeSaintName(rawSaint, mergeVariants);
   const saintSlug = slugify(canonical);
   if (!saintSlug) continue;
+
+  /* Every figure gets a prerendered page and a sitemap entry, so retiring a
+     figure slug retires a published URL — and an unknown `/saint/:slug`
+     redirects to the map, which is a soft 404 for a crawler holding the old
+     address. Recorded here so the route can send it to the figure it became,
+     the way /coverage and /report survive as redirects into /about. */
+  const preMergeSlug = slugify(String(rawSaint).replace(/\s*\([^)]*\)/g, '').trim());
+  if (preMergeSlug && preMergeSlug !== saintSlug) {
+    retiredSaintSlugs.set(preMergeSlug, saintSlug);
+  }
 
   const altNames = extractParenthetical(rawSaint).filter((n) => n !== canonical);
 
@@ -384,6 +397,7 @@ for (const p of lineageProposals) {
     const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
     if (existing && existing !== slug) {
       saintSlugAliases.set(slug, existing);
+      retiredSaintSlugs.set(slug, existing);
       reviewNeeded.push({
         issue: 'saint-identity-joined',
         entityId: `saint:${existing}`,
@@ -867,6 +881,15 @@ const stats = {
 
 // ── write output ──────────────────────────────────────────────────────────────
 
+/* Retired figure slugs, minus any that a live figure still answers to — a
+   retirement that shadowed a real node would hide that figure's page behind a
+   redirect, which is worse than the soft 404 this exists to prevent. */
+const retiredSlugs = Object.fromEntries(
+  [...retiredSaintSlugs]
+    .filter(([from, to]) => !saintBySlug.has(from) && saintBySlug.has(to))
+    .sort(([a], [b]) => a.localeCompare(b, 'en')),
+);
+
 const kg = {
   schema_version: '1.0.0',
   generated: new Date().toISOString(),
@@ -876,6 +899,7 @@ const kg = {
   events,
   relations,
   stats,
+  retiredSlugs,
   reviewNeeded,
 };
 

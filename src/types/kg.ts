@@ -196,5 +196,16 @@ export interface KGStore {
   sources?: KGSource[];
   relations: KGRelation[];
   stats: KGStats;
+  /**
+   * Figure slugs that used to be their own page, mapped to the figure they were
+   * joined into. Every figure gets a prerendered page and a sitemap entry, so
+   * joining two nodes retires a published URL — and an unknown `/saint/:slug`
+   * redirects to the map, which is a soft 404 for anyone holding the old
+   * address. `/saint/:slug` consults this first, the way `/coverage` and
+   * `/report` survive as redirects into `/about`.
+   *
+   * Optional so an older `kg.json` still type-checks.
+   */
+  retiredSlugs?: Record<string, string>;
   reviewNeeded: KGReviewItem[];
 }

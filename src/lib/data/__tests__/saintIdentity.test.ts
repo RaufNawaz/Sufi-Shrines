@@ -109,6 +109,35 @@ describe('figure identity in the shipped graph', () => {
     expect(problems).toEqual([]);
   });
 
+  it('never lets a retired slug become a dead end', () => {
+    /* Joining two figure nodes retires a URL that was prerendered and listed in
+       the sitemap. `retiredSlugs` is what keeps it resolving; a key that is
+       still a live figure would hide that figure behind a redirect, and a value
+       that is not a live figure would bounce a reader to the map anyway. */
+    const retired = (kg as unknown as { retiredSlugs?: Record<string, string> }).retiredSlugs ?? {};
+    expect(Object.keys(retired).length).toBeGreaterThan(0);
+
+    const shadowing = Object.keys(retired).filter((from) => bySlug.has(from));
+    expect(shadowing).toEqual([]);
+
+    const danglingTargets = Object.entries(retired)
+      .filter(([, to]) => !bySlug.has(to))
+      .map(([from, to]) => `${from} -> ${to}`);
+    expect(danglingTargets).toEqual([]);
+
+    const selfLoops = Object.entries(retired).filter(([from, to]) => from === to);
+    expect(selfLoops).toEqual([]);
+  });
+
+  it('sends the figures joined this session to the figure they became', () => {
+    const retired = (kg as unknown as { retiredSlugs?: Record<string, string> }).retiredSlugs ?? {};
+    expect(retired['goddess-kali']).toBe('kali');
+    expect(retired['bhagwan-valmik']).toBe('valmiki');
+    expect(retired['jhulelal-daryalal']).toBe('jhulelal');
+    expect(retired['guru-nanak-dev-ji']).toBe('guru-nanak');
+    expect(retired['hazrat-wasif-ali-wasif']).toBe('hazrat-wasif-ali-wasif-awan');
+  });
+
   it('carries evidence on every recorded decision', () => {
     for (const entry of seeds.saintDoNotMerge ?? []) {
       expect(entry.reason?.trim(), `${entry.slugs.join('/')} reason`).toBeTruthy();

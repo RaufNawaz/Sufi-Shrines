@@ -13,6 +13,7 @@ import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import {
   getSaintBySlug,
+  getRetiredSaintTarget,
   getOrderMemberships,
   getSaintObservances,
   getSaintsInOrder,
@@ -251,7 +252,15 @@ export default function SaintPage() {
 
   useDocumentTitle(saint ? `${localizeFigureName(saint, lang)} — ${t('siteTitle')}` : null);
 
-  if (!saint) return <Navigate to="/" replace />;
+  /* A slug this graph no longer has may still be a URL somebody holds: every
+     figure is prerendered and listed in the sitemap, so joining two figure
+     nodes retires a published address. Send it to the figure it became before
+     falling back to the map, which for an old address is a soft 404. */
+  if (!saint) {
+    const moved = slug ? getRetiredSaintTarget(slug) : undefined;
+    if (moved) return <Navigate to={`/saint/${moved}`} replace />;
+    return <Navigate to="/" replace />;
+  }
 
   const networkCenter: GraphNode = {
     id: saint.slug,
