@@ -5376,3 +5376,46 @@ test — it is that an RTL check tests the frame and not the behaviour.
 **Still open and unchanged:** the CLS budget in `.lighthouserc.cjs` stays `warn`. The `/coverage`
 outlier is not fixed by any of this — it is content arriving above a scrolled viewport — and the
 attempted viewport reserve remains reverted for the reason recorded above.
+
+---
+
+### Added 28 August 2026 — correcting my own section above: I inferred a behaviour instead of observing it
+
+Two sections up, `4b88a61` states that `/report → /about#site-status` "fails exactly as `/coverage`
+does" and that "an English reader is promised an anchor and misses it by a race." **Both are
+false**, and they are corrected here rather than edited away, because how they got written is worth
+more than the claim was.
+
+`AboutPage.tsx:130` carries a scroll effect keyed on `coverage.total`, with a comment naming these
+exact two redirects and explaining that it is keyed on the data rather than run once *because* the
+sections do not exist on mount. English `/coverage` and `/report` land where they promise — late,
+but reliably — and `e2e/about-merge.spec.ts` has asserted it since the routes were merged. The
+deferred scroll I proposed as one of two candidate fixes had shipped weeks earlier. What was
+genuinely broken was only ever the Urdu half, and its cause was two URL rewrites, not the gate.
+
+**How the wrong claim was produced.** I read `App.tsx` for the redirects and `AboutPage.tsx` around
+lines 214 and 284–303 for the gate, found both anchor hosts inside it, and concluded the redirects
+must fail. The refuting code was in the same file, eighty lines above where I stopped reading. I
+never loaded the route. I never ran `about-merge.spec.ts`, which was green the whole time and is
+named after the exact behaviour I was describing.
+
+So: **in the session whose central finding was an instrument trusted without re-running it, I
+asserted a runtime behaviour from the shape of two files without once observing it.** The structural
+lesson from `figureColumns.mjs` was that two copies of a definition drift with no gate at the seam.
+This is its cheaper cousin and it has no gate at all: reading is not measuring, and a plausible
+mechanism derived from correct facts is still a guess. The tell was available and I walked past it —
+a green test whose name matched my claim should have been the first thing I opened, not something I
+never thought to look for.
+
+**The RULE 4 check proposed in that section was also wrong** and was correctly declined. "Every
+fragment named by a `<Navigate>` must exist in its target route's DOM before that route's data
+resolves" encodes a model the archive deliberately does not use: the anchors legitimately do not
+exist that early, and deferring the scroll is the design. A check built on it would have failed
+correct code and pushed someone to "fix" the deferral. The guard that was right — that the fragment
+*survives the URL rewrites* — is now in `about-merge.spec.ts`.
+
+**What that section got right**, for the record, since not all of it was wrong: the Urdu routes
+carried no fragment and were broken every time rather than by a race; fixing the Urdu half alone
+would have been premature; and "second call site, so it is a pattern rather than an incident" was
+correct and undercounted — it is a URL-rebuilding habit, `${pathname}?${params}`, with two more
+live writers of the same shape in `MapPage` left deliberately.
