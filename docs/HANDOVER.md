@@ -4631,3 +4631,105 @@ open Spotlight directly in either mode.
 The open blue-sky items are N3 (field-kit PWA), N5 (adopt-a-shrine) and the rest of N4 beyond
 its type-level groundwork. `docs/planning/NEXT_STEPS_2026-08-21.md` is the working plan; §9 of
 this file is the trust-calibration list — read it before believing any older note.
+
+---
+
+### Added 28 August 2026 — `/about` reported a different archive to each of its two readers
+
+**Measured on the dev server, both languages, same dataset:**
+
+```
+/about?lang=en     entries with a full Urdu article      0 · 0%
+/about?lang=ur     اندراجات جن کا مکمل اردو مضمون موجود ہے   ۱۶۸ · ۹۸٪
+```
+
+Neither number was stale. That page recomputes everything on load *precisely* so a figure
+cannot go stale the way a note can — it is the answer this project gave itself after the
+struck-through bibliography finding in CLAUDE.md was quoted as current for weeks after it
+stopped being true. The count was something worse than stale: **a function of who was asking.**
+
+**The mechanism.** `buildArchiveReport` asked `getUrduFieldValue(row, 'Description')`. That
+field is filled in by `src/data/urdu-content.json`, and `LanguageContext` fetches that 253 KB
+payload only when `lang === 'ur'` — correctly, because no English surface reads a word of it.
+And **not one row of the sheet carries a `Description Urdu` column**: all 168 Urdu articles live
+in that one file. So for an English reader the field was empty on all 169 rows, and the answer
+was exactly zero.
+
+The field's own doc comment already said what was meant — "Rows carrying an Urdu article (sheet
+column **or in-repo override**)" — so this is not a spec that was ambiguous. It is a value that
+could only be read in one of the two states the app runs in.
+
+**The fix, and why it is a list and not a number.** `scripts/data/build-urdu-article-index.mjs`
+emits `src/data/urdu-article-index.json`: 168 slugs, 6 KB, in the `/about` chunk (nothing else
+imports `archiveReport`, and that route had 22 KB of headroom). `hasUrduArticle` asks the sheet
+first — so a real `Description Urdu` column wins the day one is authored, exactly as it does in
+`mergeUrduContent` — and the index second. A bare count would have been smaller and wrong the
+first time an entry left the sheet: the figure renders as a fraction of `totalShrines`, so it
+would have gone on counting an article for a row that no longer exists. **The list intersects:
+168 against the live sheet, 167 against the committed snapshot** — which is the known 171/169
+drift showing up honestly, not a third answer.
+
+**The invariant is an equality across the payload's load state**, not a literal 168:
+
+```
+src/lib/data/__tests__/urduArticleCountIsLanguageIndependent.test.ts
+```
+
+Asserting `toBe(168)` would have passed in Urdu on the broken build and told us nothing. Verified
+to fail against the old implementation (0 where the fix reports 167) before being kept.
+`--check` is wired into `npm run data:validate` beside the other generated-file gates.
+
+**The class of bug, stated generally, because this file's job is to stop the next one:** any
+value derived from a *language-gated payload* is a value that differs between the two editions
+of this site. `urdu-content.json` and `urdu-seed.json` are both gated. Anything counted, sorted,
+filtered or compared through them needs either a language-independent source or a test shaped
+like the one above. Two places already known to read through the gate are `ShrinePreview`'s lead
+text and `TourPanel`'s visiting info, both on the map route — they fall back to English rather
+than reporting a number, so they degrade instead of lying, but they are the same gate.
+
+### Added 28 August 2026 — the map's settings gear held one preference out of nine
+
+The gear beside the theme and language buttons opened a panel offering Spotlight or the shrine
+table. `/settings` carried the other eight, and it is linked from `SiteFooter` — which the map
+does not render. On the route the archive opens on, one preference in nine was reachable.
+
+It now carries seven: shrine list, guided tours, reading size, motion, numerals, calendar and
+distance units, in `src/components/map/SidebarSettingsPanel.tsx`, with a sticky link out to
+`/settings`. Theme and language are left out because they have their own controls in the same
+header row; the saved-list file is left out because one of its buttons destroys data and it
+needs a picker and a confirmation. Every control writes the module `/settings` writes, so the
+two surfaces cannot disagree, and the tours switch is the same `.tour-toggle` markup the sidebar
+already renders further down — both can be on screen at once.
+
+**Choosing no longer closes the panel.** It did when there was one choice, and the reason was
+sound then (§9.82: the panel sits over the button it configures). At seven preferences it meant
+a second trip to the gear for a second setting. Escape, the gear and an outside click all still
+dismiss it.
+
+#### Two defects, found by widening one guard
+
+`e2e/directory-mode.spec.ts` hit-tested **the two options it named**. Widened to every control
+in the panel — this repository's most repeated lesson, that a guard sampling one member of a set
+is blind to the others — it failed immediately, twice:
+
+1. **The sticky footer occluded the calendar and units rows on both phone widths.**
+   `elementFromPoint` at their centre returned the `<a>`. Not hypothetical and not only about
+   this test: it is what keyboard focus does when tabbing into the last rows of a scroll
+   container with a sticky foot. `scroll-padding-block-end` is the mechanism, and the panel now
+   sets it.
+2. **A viewport-relative height cap that is fine on a laptop runs the panel under the TabBar on
+   a phone**, where it opens part-way down a bottom sheet — the §9.84 bug, arriving again the
+   moment the panel grew. Measured at 390×780: the panel ended at 760 against a tab bar starting
+   at 731, and the first thing it hid was the way out to the rest of the settings.
+
+**One correction to the guard itself, worth recording because the first version was wrong in a
+plausible way.** The widened check flagged four options as unreachable before either fix, and
+kept flagging them after — because a row a reader has not scrolled to yet is not a bug, and
+`elementFromPoint` on it reports whatever is painted there. The check scrolls each control into
+view before measuring now. That is a true reading of a false question, and it cost a round.
+
+**Verified rather than inferred**, all on the dev server: `npm run verify` green; axe reports
+**0 violations inside the open panel** in both languages and both themes; the Urdu panel contains
+no Latin run; and all 13 (English) / 15 (Urdu) controls are reachable at their own centre on
+desktop and phone with the panel wholly on screen in all four. The e2e suite itself was **not**
+run — it needs a build, which this session did not do.
