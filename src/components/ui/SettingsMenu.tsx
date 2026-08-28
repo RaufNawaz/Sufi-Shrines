@@ -12,12 +12,8 @@ import {
   type DirectoryMode,
 } from '../../lib/directoryPreference';
 import { readToursEnabled, writeToursEnabled } from '../../lib/toursPreference';
-import {
-  applyTextSize,
-  readTextSize,
-  writeTextSize,
-  type TextSize,
-} from '../../lib/textSizePreference';
+import { readTextSize, type TextSize } from '../../lib/textSizePreference';
+import { ReadingSizeSlider } from './ReadingSizeSlider';
 import {
   applyMotionPreference,
   readMotionPreference,
@@ -159,12 +155,6 @@ function SettingsPanel({
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
   const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
 
-  const chooseTextSize = (size: TextSize) => {
-    setTextSize(size);
-    writeTextSize(size);
-    applyTextSize(size, document.documentElement);
-  };
-
   const chooseMotion = (next: MotionPreference) => {
     setMotion(next);
     writeMotionPreference(next);
@@ -215,17 +205,20 @@ function SettingsPanel({
       <div className="msettings-section">
         <h2 className="msettings-heading">{t('settingsAppearanceSection')}</h2>
 
-        <SettingRow<TextSize>
-          name="text-size"
-          label={t('settingsTextSizeLabel')}
-          value={textSize}
-          options={[
-            { value: 'small', label: t('settingsTextSizeSmall') },
-            { value: 'medium', label: t('settingsTextSizeMedium') },
-            { value: 'large', label: t('settingsTextSizeLarge') },
-          ]}
-          onChoose={chooseTextSize}
-        />
+        {/* A slider, not a segmented row: five steps do not fit one, and the
+            reason to have five is that a reader asked to be able to *adjust*
+            rather than pick from three names. It writes and applies the step
+            itself, so this only has to remember it for the label. */}
+        <div className="msettings-row msettings-row--stacked">
+          <span className="msettings-row-label" id="msettings-reading-size">
+            {t('settingsTextSizeLabel')}
+          </span>
+          <ReadingSizeSlider
+            value={textSize}
+            onChange={setTextSize}
+            labelledBy="msettings-reading-size"
+          />
+        </div>
 
         <SettingRow<MotionPreference>
           name="motion"

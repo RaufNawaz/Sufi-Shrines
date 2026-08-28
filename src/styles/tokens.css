@@ -185,14 +185,21 @@
   --font-urdu: 'Noto Nastaliq Urdu', 'Source Sans 3', 'Noto Naskh Arabic', serif;
   --font-mono: 'Courier New', monospace;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
+  /* Every one multiplied by the reader's step (`--reading-scale`, declared
+     further down this same `:root` block — custom properties resolve at
+     computed-value time, so the order within the rule does not matter). What
+     does matter is that the multiplication happens *here*, on `:root`: a
+     `var()` reference is substituted where the property is declared, so this is
+     what makes the whole document — chrome included — inherit a scaled value.
+     See the "Reading size" section in global.css for what moved and why. */
+  --text-xs: calc(0.75rem * var(--reading-scale));
+  --text-sm: calc(0.875rem * var(--reading-scale));
+  --text-base: calc(1rem * var(--reading-scale));
+  --text-lg: calc(1.125rem * var(--reading-scale));
+  --text-xl: calc(1.25rem * var(--reading-scale));
+  --text-2xl: calc(1.5rem * var(--reading-scale));
+  --text-3xl: calc(1.875rem * var(--reading-scale));
+  --text-4xl: calc(2.25rem * var(--reading-scale));
 
   /* ── Tracking ────────────────────────────────────────────────────────────
      Optical letter-spacing as tokens, for two reasons that happen to point the
@@ -243,25 +250,39 @@
   --leading-urdu-ui: 1.7;
   --font-scale-urdu: 1.11;
   /* The reader's own reading-size step, from `lib/textSizePreference.ts`. One
-     by default and overridden per `[data-text-size]` in global.css, where it
-     multiplies the type scale on reading surfaces only. Declared here with its
-     default rather than left to a `var(--reading-scale, 1)` fallback at each
-     use: a fallback on an undeclared token is a second place the value 1 is
-     written down, and `cssTokensDefined.test.ts` is right that the second one
-     keeps working after the first moves. */
+     by default and overridden per `[data-text-size]` in global.css. Declared
+     here with its default rather than left to a `var(--reading-scale, 1)`
+     fallback at each use: a fallback on an undeclared token is a second place
+     the value 1 is written down, and `cssTokensDefined.test.ts` is right that
+     the second one keeps working after the first moves.
+
+     The type and spacing tokens above multiply by it. That works wherever in
+     this rule it sits — custom properties are resolved at computed-value time,
+     not in source order — but it must stay on `:root` with them, because a
+     `var()` is substituted where the property is declared and not where it is
+     read. */
   --reading-scale: 1;
 
+  /* How much of the reader's step the *gaps* take.
+     Type at 1.25 and padding at 1.25 is not one preference, it is two, and the
+     second one is the one that pushes a 390px sidebar into a horizontal
+     scrollbar. Two thirds keeps the rhythm — larger type does need more room
+     around it or the page reads tighter as it grows — while a 25% type increase
+     buys 17% more padding rather than 25%. Measured at both extremes on a
+     390px viewport; see the "Reading size" section in global.css. */
+  --spacing-scale: calc(1 + (var(--reading-scale) - 1) * 0.667);
+
   /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
+  --space-1: calc(0.25rem * var(--spacing-scale));
+  --space-2: calc(0.5rem * var(--spacing-scale));
+  --space-3: calc(0.75rem * var(--spacing-scale));
+  --space-4: calc(1rem * var(--spacing-scale));
+  --space-5: calc(1.25rem * var(--spacing-scale));
+  --space-6: calc(1.5rem * var(--spacing-scale));
+  --space-8: calc(2rem * var(--spacing-scale));
+  --space-10: calc(2.5rem * var(--spacing-scale));
+  --space-12: calc(3rem * var(--spacing-scale));
+  --space-16: calc(4rem * var(--spacing-scale));
 
   /* ── Hairline ────────────────────────────────────────────────────────────
      The width of a *separator*, as opposed to an outline.

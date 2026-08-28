@@ -1313,3 +1313,114 @@
   font-size: var(--text-sm);
   font-weight: 600;
 }
+
+/* ── Reading-size slider ──────────────────────────────────────────────────
+   One control on two surfaces: the settings popover on every page, and
+   `/settings`. The ends are marked with a small A and a large A rather than a
+   legend, which is the convention every operating system's own type control
+   uses and the only labelling that survives being read in Nastaliq.
+
+   The track and thumb are drawn rather than left native, because a native range
+   input takes the accent colour on some platforms and the system's grey on
+   others, and this control sits between two segmented rows that are neither. */
+.reading-size {
+  display: flex;
+  min-height: 44px;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Fixed sizes, not tokens: these two glyphs *are* the scale's legend, so they
+   must not grow with the preference they set — a legend that resizes with the
+   thing it labels tells the reader nothing about which end is which. */
+.reading-size-end {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.reading-size-end--min {
+  font-size: 0.75rem;
+}
+
+.reading-size-end--max {
+  font-size: 1.25rem;
+}
+
+.reading-size-input {
+  min-width: 6rem;
+  height: 44px;
+  flex: 1 1 8rem;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.reading-size-input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-full);
+}
+
+/* The track. Both vendor forms are needed and cannot be combined into one
+   selector list: an unrecognised pseudo-element invalidates the whole rule. */
+.reading-size-input::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+
+.reading-size-input::-moz-range-track {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+
+.reading-size-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  /* (track height − thumb height) / 2, so the thumb centres on the track
+     rather than hanging below it — WebKit lays the thumb out from the top of
+     the track box. */
+  margin-top: -8px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.reading-size-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* The step's name. Fixed size for the same reason as the end markers, and a
+   minimum width so the row does not reflow as the word changes length —
+   "Smallest" and "Medium" are three characters apart in English and more in
+   Urdu. */
+.reading-size-value {
+  min-width: 5.5rem;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  text-align: end;
+}
+
+/* A stacked row: the label above, the slider on its own line. The slider needs
+   the full width of the popover, which a label beside it does not leave. */
+.msettings-row--stacked {
+  display: block;
+}
+
+.msettings-row--stacked .msettings-row-label {
+  display: block;
+  margin-bottom: var(--space-1);
+}

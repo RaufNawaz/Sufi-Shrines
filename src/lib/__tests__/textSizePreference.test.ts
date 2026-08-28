@@ -10,9 +10,11 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { TEXT_SIZE_STORAGE_KEY } from '../storageKeys';
 import {
   DEFAULT_TEXT_SIZE,
+  DEFAULT_TEXT_SIZE_INDEX,
   TEXT_SIZES,
   applyTextSize,
   readTextSize,
+  textSizeAt,
   writeTextSize,
 } from '../textSizePreference';
 
@@ -22,10 +24,34 @@ describe('textSizePreference', () => {
     document.documentElement.removeAttribute('data-text-size');
   });
 
-  it('offers three steps and defaults to the middle one', () => {
-    expect([...TEXT_SIZES]).toEqual(['small', 'medium', 'large']);
+  it('offers five steps, smallest first, defaulting to the middle one', () => {
+    /* Order is the contract, not an accident of authoring: the slider reads a
+       choice as an index into this array, so a reordering moves every stored
+       preference by the same amount. */
+    expect([...TEXT_SIZES]).toEqual(['xsmall', 'small', 'medium', 'large', 'xlarge']);
     expect(DEFAULT_TEXT_SIZE).toBe('medium');
+    expect(DEFAULT_TEXT_SIZE_INDEX).toBe(2);
     expect(readTextSize()).toBe('medium');
+  });
+
+  it('still reads the three values it shipped with, so nothing needs migrating', () => {
+    /* The scale went from three steps to five when the control became a slider.
+       A reader who chose `large` last week must still have `large` — the three
+       original names are members of the larger set, which is why there is no
+       migration and why there must never be a rename. */
+    for (const legacy of ['small', 'medium', 'large'] as const) {
+      localStorage.setItem(TEXT_SIZE_STORAGE_KEY, legacy);
+      expect(readTextSize()).toBe(legacy);
+    }
+  });
+
+  it('clamps an index to a real step', () => {
+    expect(textSizeAt(-3)).toBe('xsmall');
+    expect(textSizeAt(0)).toBe('xsmall');
+    expect(textSizeAt(2)).toBe('medium');
+    expect(textSizeAt(4)).toBe('xlarge');
+    expect(textSizeAt(99)).toBe('xlarge');
+    expect(textSizeAt(Number.NaN)).toBe('medium');
   });
 
   it('round-trips every step', () => {

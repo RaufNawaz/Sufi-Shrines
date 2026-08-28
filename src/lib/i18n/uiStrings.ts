@@ -42,9 +42,17 @@ const UI_TEXT_EN = {
   settingsTextSizeLabel: 'Reading size',
   settingsTextSizeHelp:
     'The size of the text in entries and index pages. The map and the navigation keep their own size, which browser zoom already changes.',
+  /* The letter at each end of the reading-size slider, small at one end and
+     large at the other — the specimen glyph every operating system's type
+     control uses. A string and not a literal `A` in the component, because an
+     `A` in the Urdu view is a Latin letter in a Nastaliq interface: the no-leak
+     guard counts it, and it would be right to. The Urdu edition sets alif. */
+  settingsTextSizeScaleMark: 'A',
+  settingsTextSizeXsmall: 'Smallest',
   settingsTextSizeSmall: 'Small',
   settingsTextSizeMedium: 'Medium',
   settingsTextSizeLarge: 'Large',
+  settingsTextSizeXlarge: 'Largest',
   settingsTextSizeSample: 'The shrine stands where the road bends toward the river.',
   settingsMotionLabel: 'Motion',
   settingsMotionHelp:

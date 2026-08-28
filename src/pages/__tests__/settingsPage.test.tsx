@@ -12,7 +12,7 @@
  * handler that sets state without persisting.
  */
 import { describe, it, expect, beforeEach } from 'vitest';
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SettingsPage from '../SettingsPage';
 import { renderWithProviders } from '../../test/utils';
@@ -106,23 +106,44 @@ describe('SettingsPage', () => {
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light');
   });
 
-  it('persists the reading size and puts it on the document', async () => {
-    const user = userEvent.setup();
+  /* A slider since 28 August 2026, over five steps rather than three radios —
+     a reader asked to be able to adjust the size rather than pick from three
+     names. The assertions are the same two that mattered before: it persists,
+     and it reaches the document immediately. */
+  it('persists the reading size and puts it on the document', () => {
     renderWithProviders(<SettingsPage />, { route: '/settings' });
-    await user.click(screen.getByRole('radio', { name: en.settingsTextSizeLarge }));
+    const slider = screen.getByRole('slider', { name: en.settingsTextSizeLabel });
+
+    fireEvent.change(slider, { target: { value: '3' } });
     expect(localStorage.getItem(TEXT_SIZE_STORAGE_KEY)).toBe('large');
     /* Applied immediately, not on the next reload: the sample line under the
        control is set in the archive's reading type, so the reader is meant to
-       see the choice in the thing being chosen. */
+       see the choice in the thing being chosen — and now so is the page around
+       it, which scales too. */
     expect(document.documentElement.getAttribute('data-text-size')).toBe('large');
-    await user.click(screen.getByRole('radio', { name: en.settingsTextSizeMedium }));
+
+    fireEvent.change(slider, { target: { value: '4' } });
+    expect(localStorage.getItem(TEXT_SIZE_STORAGE_KEY)).toBe('xlarge');
+    expect(document.documentElement.getAttribute('data-text-size')).toBe('xlarge');
+
+    fireEvent.change(slider, { target: { value: '2' } });
     expect(localStorage.getItem(TEXT_SIZE_STORAGE_KEY)).toBe('medium');
     expect(document.documentElement.hasAttribute('data-text-size')).toBe(false);
   });
 
+  it('names the step it is on, because a slider position is not a size', () => {
+    /* `aria-valuetext`, or a screen reader announces "4 of 5". The visible
+       label is the same string for the same reason. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    const slider = screen.getByRole('slider', { name: en.settingsTextSizeLabel });
+    expect(slider).toHaveAttribute('aria-valuetext', en.settingsTextSizeMedium);
+    fireEvent.change(slider, { target: { value: '0' } });
+    expect(slider).toHaveAttribute('aria-valuetext', en.settingsTextSizeXsmall);
+  });
+
   it('shows a sample of the reading type beside the size control', () => {
-    /* Three radios labelled Small/Medium/Large tell the reader the names of
-       three sizes and nothing about the sizes. */
+    /* A control labelled with names tells the reader the names of the sizes and
+       nothing about the sizes. */
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     expect(screen.getByText(en.settingsTextSizeSample)).toBeInTheDocument();
   });

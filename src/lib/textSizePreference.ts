@@ -22,14 +22,40 @@
  */
 import { TEXT_SIZE_STORAGE_KEY } from './storageKeys';
 
-export type TextSize = 'small' | 'medium' | 'large';
+export type TextSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
-export const TEXT_SIZES: readonly TextSize[] = ['small', 'medium', 'large'] as const;
+/**
+ * The steps, smallest first. **Order is the contract**: the slider reads a
+ * reader's choice as an index into this array, so anything reordering it moves
+ * every stored preference by the same amount.
+ *
+ * Five rather than the three it began with, because the control became a slider
+ * and a slider with three stops is a worse button row — the reason to reach for
+ * one is finer adjustment than named steps give. The three original values are
+ * still members, so nothing already in `localStorage` needs migrating: a reader
+ * who chose `large` last week still has `large`.
+ */
+export const TEXT_SIZES: readonly TextSize[] = [
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
+] as const;
 
 export const DEFAULT_TEXT_SIZE: TextSize = 'medium';
 
+export const DEFAULT_TEXT_SIZE_INDEX = TEXT_SIZES.indexOf(DEFAULT_TEXT_SIZE);
+
 function isTextSize(value: unknown): value is TextSize {
-  return value === 'small' || value === 'medium' || value === 'large';
+  return TEXT_SIZES.includes(value as TextSize);
+}
+
+/** The step at `index`, clamped — a range input cannot produce an out-of-range
+ *  value, but a stored one from a future build with more steps could. */
+export function textSizeAt(index: number): TextSize {
+  if (!Number.isFinite(index)) return DEFAULT_TEXT_SIZE;
+  return TEXT_SIZES[Math.min(TEXT_SIZES.length - 1, Math.max(0, Math.round(index)))];
 }
 
 export function readTextSize(): TextSize {

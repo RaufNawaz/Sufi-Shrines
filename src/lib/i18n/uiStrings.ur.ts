@@ -42,9 +42,12 @@ export const UI_TEXT_UR: UiStrings = {
   settingsTextSizeLabel: 'مطالعے کا حجم',
   settingsTextSizeHelp:
     'اندراجات اور فہرست صفحات کی تحریر کا حجم۔ نقشہ اور رہنما فہرست اپنے حجم پر رہتے ہیں، جنہیں براؤزر کا زوم پہلے ہی بدل دیتا ہے۔',
+  settingsTextSizeScaleMark: 'ا',
+  settingsTextSizeXsmall: 'سب سے چھوٹا',
   settingsTextSizeSmall: 'چھوٹا',
   settingsTextSizeMedium: 'درمیانہ',
   settingsTextSizeLarge: 'بڑا',
+  settingsTextSizeXlarge: 'سب سے بڑا',
   settingsTextSizeSample: 'مزار وہاں ہے جہاں راستہ دریا کی طرف مڑتا ہے۔',
   settingsMotionLabel: 'حرکت',
   settingsMotionHelp:

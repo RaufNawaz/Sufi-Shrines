@@ -15,12 +15,8 @@ import {
   type DirectoryMode,
 } from '../lib/directoryPreference';
 import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
-import {
-  applyTextSize,
-  readTextSize,
-  writeTextSize,
-  type TextSize,
-} from '../lib/textSizePreference';
+import { readTextSize, type TextSize } from '../lib/textSizePreference';
+import { ReadingSizeSlider } from '../components/ui/ReadingSizeSlider';
 import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
 import {
   applyMotionPreference,
@@ -195,15 +191,6 @@ export default function SettingsPage() {
     setSavedMessage(null);
   };
 
-  const chooseTextSize = (size: TextSize) => {
-    setTextSize(size);
-    writeTextSize(size);
-    /* Applied straight to the document rather than waiting for a reload: the
-       sample line below is set in the archive's reading type, so the reader
-       sees the choice in the thing being chosen. */
-    applyTextSize(size, document.documentElement);
-  };
-
   const chooseTours = (enabled: boolean) => {
     setToursEnabled(enabled);
     writeToursEnabled(enabled);
@@ -311,27 +298,10 @@ export default function SettingsPage() {
           </h2>
 
           <SettingsGroup legend={t('settingsTextSizeLabel')} help={t('settingsTextSizeHelp')}>
-            <SettingsRadio<TextSize>
-              name="text-size"
-              value="small"
-              current={textSize}
-              label={t('settingsTextSizeSmall')}
-              onChoose={chooseTextSize}
-            />
-            <SettingsRadio<TextSize>
-              name="text-size"
-              value="medium"
-              current={textSize}
-              label={t('settingsTextSizeMedium')}
-              onChoose={chooseTextSize}
-            />
-            <SettingsRadio<TextSize>
-              name="text-size"
-              value="large"
-              current={textSize}
-              label={t('settingsTextSizeLarge')}
-              onChoose={chooseTextSize}
-            />
+            {/* The same slider the map's settings menu renders, and the same
+                five steps. Two surfaces offering one preference at different
+                granularities is the drift this page's header warns about. */}
+            <ReadingSizeSlider value={textSize} onChange={setTextSize} id="settings-text-size" />
             {/* A line of prose set in the archive's own reading type, so the
                 choice is visible in the thing being chosen rather than only in
                 the page around it. Its own class so it takes body type rather
