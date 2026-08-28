@@ -5275,3 +5275,47 @@ npx lhci autorun --collect.numberOfRuns=3 \
 it to `error` is the RULE 4 move and nine of ten routes have headroom for it — but `/coverage`
 would have been red on one run in three, and an invariant is not worth encoding until it has been
 watched go green. It is gated on the anchor decision above, not on more measurement.
+
+---
+
+### Added 28 August 2026 — the missing anchor is four routes, not one, and two of them are Urdu
+
+Checked immediately after the section above was written, because a decision taken about one route
+when four are affected is a decision taken on wrong information. The `/coverage → /about#traditions`
+finding is correct and it is **not the whole shape**.
+
+`AboutPage.tsx:214` opens the data gate and `:303` closes it. Inside it sit **both** anchor hosts:
+
+```
+ArchiveKnows  (AboutPage.tsx:288)  →  id="traditions"   ArchiveKnows.tsx:176
+ArchiveState  (AboutPage.tsx:294)  →  id="site-status"  ArchiveState.tsx:139
+```
+
+So `/report → /about#site-status` (`App.tsx:171`) fails exactly as `/coverage` does. Same gate, same
+mechanism, same two-second window. Only `/coverage` was measured, because only `/coverage` was in
+the Lighthouse route list — the defect was never route-specific.
+
+**And the Urdu pair is broken a second, worse way:**
+
+```
+App.tsx:233   /ur/report    →  <Navigate to="/ur/about" replace />
+App.tsx:234   /ur/coverage  →  <Navigate to="/ur/about" replace />
+```
+
+No fragment at all. An English reader is promised an anchor and misses it by a race; **an Urdu
+reader is not promised it in the first place, and misses it every time, including long after the
+data has landed.** That is not a timing bug and no reserve or deferred scroll will fix it. It is
+the same `<Navigate>` fragment trap recorded four sections up — the retired-figure redirect that
+dropped `?lang=ur` and sent Urdu readers to English — appearing again at a different call site,
+which makes it a pattern in this codebase rather than an incident.
+
+**Deliberately not fixed here.** The English half genuinely waits on the open decision (render the
+anchor outside the gate, or defer the scroll until data arrives), and the Urdu half should not be
+"fixed" first: adding `#traditions` to `/ur/coverage` today would only hand Urdu readers the same
+broken promise English readers already have. Decide it once, for all four routes, then fix all
+four. What must not happen is the decision being taken as a `/coverage` matter.
+
+**The check that would have caught it, if anyone wants the RULE 4 version:** every fragment named
+by a `<Navigate>` in `App.tsx` must exist in the DOM of its target route *before* that route's data
+resolves. Cheap as a Playwright assertion with the CSV intercept held open; it fails today on three
+of the four and would have failed on the day `/coverage` and `/report` were merged into `/about`.
