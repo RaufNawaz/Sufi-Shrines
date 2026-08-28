@@ -110,41 +110,64 @@ So the migration is not "adopt the better column". It is a row-by-row
 reconciliation with a per-row winner, which is exactly the shape of work this
 project reserves for a human.
 
-## The composites, which are the same decision one step on
+## The composites — DECIDED 28 August 2026: fan out (option B)
 
-Two figure nodes in the graph are not people:
+**Rauf's ruling:** *"for figure identity just preserve as much information as you
+can because sometimes it is multiple saints."* Implemented the same day; this
+section is kept as the record of what the question was.
+
+Three rows name two figures each, and every earlier handling lost one of the two:
 
 ```
-guru-arjan-dev-and-guru-hargobind             'Guru Arjan Dev & Guru Hargobind'
-guru-nanak-dev-ji-associated-with-bhai-lalo   'Guru Nanak Dev Ji; associated with Bhai Lalo'
+Gurdwara Panjvi Chati Patshahi   Guru Arjan Dev; Guru Hargobind
+Gurdwara Rori Sahib              Guru Nanak; Bhai Mardana
+Gurdwara Khoohi Bhai Lalo        Guru Nanak; Bhai Lalo
 ```
 
-Consequence, checked: **Gurdwara Panjvi Chati Patshahi appears on neither Guru
-Arjan Dev's page (2 shrines) nor Guru Hargobind's (5).** It is on a third page
-belonging to a man who never existed. "Panjvi Chati Patshahi" means *fifth and
-sixth Guruship*; the site commemorates both, and `principal_figure` says so.
+Panjvi Chati Patshahi and Khoohi Bhai Lalo had become single nodes named after
+both people, reaching neither real figure's page. Rori Sahib was worse: a
+`saintMergeVariants` entry resolved "Guru Nanak and Bhai Mardana" to "Guru
+Nanak", so **Bhai Mardana was absent from the graph entirely** — Guru Nanak's
+lifelong companion, in an archive holding eighteen of his gurdwaras.
 
-There is an existing precedent, and it loses information:
-`'Guru Nanak and Bhai Mardana' → 'Guru Nanak'` in `saintMergeVariants` collapses
-a composite to its first figure and drops the second. Following it for these two
-is consistent and cheap. Fanning out instead — one shrine, two `buried_at` edges,
-both figures' pages — is more faithful and `data/kg-shrine-figures.json` already
-maps each shrine to an *array*, so the shape supports it.
+`saintCompositeFigures` in `kg-seeds.json` now maps each cell to the figures it
+names, primary first. Guru Arjan Dev 2 shrines → 3, Guru Hargobind 5 → 6, Guru
+Nanak 17 → 18; Bhai Mardana and Bhai Lalo have their own pages. Enforced by
+check 5 of `validate-kg-identity.mjs`.
 
-`bhai-lalo` would need a node of its own; the corpus gives him a birth year
-(1452), per `nameCollisions` in `data/kg-saint-dates-proposals.json`.
+What is deliberately *not* fanned out, because the row does not say it: the
+`figure_type`, `figure_born` and `figure_died` columns, and the `Events` cell.
+Rori Sahib records `figure_type: "Sikh Guru"` and Bhai Mardana was not a Guru;
+its `Events` reads "Guru Nanak Gurpurab". Those describe the figure the cell
+leads with, and copying them across would assert what the sheet never said
+(RULE 2).
 
-**Three options, in order of cost:**
+### The one piece still open, and it is small
 
-| | what it does | cost |
-|---|---|---|
-| **A** collapse to the first figure | follows the Mardana precedent | 2 lines; loses Hargobind and Bhai Lalo |
-| **B** fan out from a declared composite map | both figures get the shrine | ~80-line loop refactor in `build-kg.mjs`; needs a Bhai Lalo node |
-| **C** leave them | nothing regresses | 2 nodes remain that are not people |
+`ShrinePage` links only the **primary** figure. The visible label is the raw cell,
+so a reader at Gurdwara Panjvi Chati Patshahi *sees* "Guru Arjan Dev (5th) & Guru
+Hargobind (6th)" — no information is hidden — but only Guru Arjan Dev is
+clickable. Guru Hargobind's page does list the gurdwara, so it is one hop less
+direct rather than unreachable.
 
-Recommendation: **B**, and only as part of the `principal_figure` reconciliation
-above — the `;` convention is the sheet asking for it, and doing the two
-separately means parsing the same column twice under two different rules.
+Deliberately not done here, and the cheap path recorded so nobody re-derives it:
+
+- `figureSlugsForShrine(slug)` already returns **both** slugs (the index is
+  `Record<string, string[]>` and three shrines now have two entries), so the data
+  is on the route already.
+- Names must **not** come from `src/lib/kg.ts`. It statically imports the 426 KB
+  graph, and `kg-shrine-figures.json` exists precisely to keep it off the
+  archive's hottest route — measured at 40% of `/shrine/<slug>`'s eager JS.
+- The graph-free path is `slugToLabel` (a six-line pure function with no data
+  dependency, currently living in `lib/kg.ts` — the move that commit `e605274`
+  noted and deferred because nothing needed it) plus `localizeRecordedName`,
+  which ShrinePage already imports and which is graph-free by design.
+- The Urdu side is ready: `Bhai Mardana` → بھائی مردانہ and `Bhai Lalo` →
+  بھائی لالو are in the dictionary as of 28 August, and
+  `figureNameUrduParity.test.ts` holds archive figures at zero Latin titles.
+
+It was left alone because it is a layout decision on a shared component while
+another session held the front end, not because it is hard.
 
 ## What was done on 28 August without a decision
 
@@ -152,5 +175,8 @@ separately means parsing the same column twice under two different rules.
 - Five merge variants for the duplicate deities and Guru Nanak: 196 → 190 nodes.
 - `saintDoNotMerge`: 11 merges decided against, quoted and enforced.
 - `retiredSlugs`: no figure merge can silently retire a published URL again.
+- The composite fan-out, once Rauf ruled on it (above).
 
-None of those needed this decision. Everything above does.
+None of those needed a decision about the column. **The column question above is
+still open**, and it is the one thing in this document that has not been acted
+on.

@@ -4733,3 +4733,76 @@ restoring — a check nobody has seen fail is a note, not an invariant.
 One thing worth knowing for anyone else using a worktree here: `.gitignore` has `node_modules/`
 with a trailing slash, which matches a directory and **not a symlink**, so a symlinked
 `node_modules` in a worktree shows up as untracked. Never `git add -A` in one.
+
+### Added 28 August 2026 — some sites are held by two people, and one of them was Bhai Mardana
+
+Rauf's ruling on the open figure-identity question: *"just preserve as much information as you
+can because sometimes it is multiple saints."* Acted on the same day. It closes the composite half
+of `docs/planning/DECISION_figure_identity_column.md`; **the column question in that brief is
+still open.**
+
+Three rows name two figures each, and every earlier handling of them lost one:
+
+```
+Gurdwara Panjvi Chati Patshahi   Guru Arjan Dev; Guru Hargobind
+Gurdwara Rori Sahib              Guru Nanak; Bhai Mardana
+Gurdwara Khoohi Bhai Lalo        Guru Nanak; Bhai Lalo
+```
+
+Two had become single nodes named after both people, so they reached neither real figure's page —
+only a page belonging to somebody who never existed. The third was worse: a `saintMergeVariants`
+entry resolved "Guru Nanak and Bhai Mardana" to "Guru Nanak", and **Bhai Mardana appeared nowhere
+in this graph at all.** Guru Nanak's lifelong companion, in an archive holding eighteen of his
+gurdwaras, deleted by a one-line merge map nobody had reason to look at.
+
+`saintCompositeFigures` in `kg-seeds.json` maps each cell to the figures it names, primary first,
+and the sheet loop runs once per figure. Guru Arjan Dev 2 shrines → 3, Guru Hargobind 5 → 6, Guru
+Nanak 17 → 18; Bhai Mardana and Bhai Lalo have pages. Checked in a browser, in both languages.
+
+**What is deliberately not fanned out** — the row's `figure_type`, `figure_born`, `figure_died`
+and `Events`. Rori Sahib records `figure_type: "Sikh Guru"` and Bhai Mardana was not a Guru; Khoohi
+Bhai Lalo's says the same and Bhai Lalo was a carpenter; Rori Sahib's `Events` reads "Guru Nanak
+Gurpurab". They describe the figure the cell leads with, and there is nothing in the row to say
+whose they are otherwise (RULE 2). Each composite row logs a `composite-figure-row` review item
+saying so, and the raw cell rides on every `buried_at` edge as `asRecorded`.
+
+**Two things followed from giving a figure a page, and neither was obvious.**
+
+1. **Bhai Lalo arrived carrying a sourced birth year.** The extractor had held `1452
+   ("traditionally said")` for him all along, byte-exact quote and all, with a note reading *"Bhai
+   Lalo has no saint node of his own."* It landed the moment he had one — a proposal waiting for
+   an entity to attach to. `verify-kg-proposals --reconcile` flipped his now-stale `saintIsNew`.
+   The lesson generalises: **the graph was rejecting evidence it already held, for want of a
+   node.**
+2. **Two new figure pages were titled in Latin in the Urdu edition, and nothing caught it.**
+   `build_dictionary.py --check` validates saint coverage against the raw `Sufi Saint` cells, and
+   neither "Bhai Mardana" nor "Bhai Lalo" is a cell — each is a *part* of one, so coverage read
+   100% while two pages had English titles. Both Urdu forms were already inside this project's own
+   reviewed compound entries, so they are extracted rather than composed: بھائی مردانہ and
+   بھائی لالو. New guard `src/lib/i18n/__tests__/figureNameUrduParity.test.ts` — archive figures at
+   **zero** Latin titles, lineage-only debt capped at its measured **58** so it can only shrink.
+   Confirmed to fail by deleting one name from the seed.
+
+**Guard check 5** covers the new mechanism: a composite naming a figure that is not a node, a
+fan-out that only half happened, a cell present in both identity maps (build-kg lets the composite
+win, so the merge variant reads as live and is not), and a cell the sheet no longer has. All four
+confirmed to exit non-zero.
+
+**And check 5 was wrong first — the fifth instrument to over-report in one day.** It scanned every
+shrine and reported **41 failures**, because all eighteen of Guru Nanak's gurdwaras share a figure
+with two of these rows. A guard that samples the wrong set is the night's recurring lesson pointed
+at itself; it now looks only at the shrines whose own cell it is. Running tally for anyone keeping
+score: honorific token matcher 2 right of 21; two attempts at counting descriptive alt-names, both
+flagging real names like `al-Hujwiri`; a naive `;` split that put a wrong number (50/47 for 49/46)
+into the decision brief; and this. **Every number in this session that survived was one where the
+instrument was checked against a known answer first.**
+
+`figureProvenance` is back to 154 — but as 98 + 58 − 2 where it began the day as 97 + 60 − 3. Every
+term moved. The arithmetic is kept in the test as the record.
+
+**Still not done, and small:** `ShrinePage` links only the primary figure. The raw cell is the
+visible label, so both names are on screen and nothing is hidden, but only one is clickable. The
+cheap path is written down in the brief (`figureSlugsForShrine` already returns both; names must
+come from a graph-free `slugToLabel` plus `localizeRecordedName`, never from `lib/kg.ts`, which
+would put 426 KB back on the archive's hottest route). Left alone because it is a layout decision
+on a shared component while another session held the front end.
