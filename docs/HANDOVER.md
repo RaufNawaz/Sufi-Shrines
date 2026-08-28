@@ -4691,7 +4691,7 @@ not just in the JSON.
 
 **Which is the larger finding, and it is a decision, not a patch.** `build-kg.mjs` reads
 `row['Sufi Saint']` — the *legacy* column. 95 of 169 rows have a different `principal_figure`
-string; **50 rows and 47 of 132 figure slugs would move** if the graph read the schema's own
+string; **49 rows and 46 of 132 figure slugs would move** if the graph read the schema's own
 column. It is mostly the better column, and it is **not uniformly better** (Kalka Cave Temple's
 `Kalka Devi (Kali)` would re-split Kali's temples), ten of seventeen merge-variant keys would stop
 applying, and its `;`-for-two-figures convention cannot be split naively because

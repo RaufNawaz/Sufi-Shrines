@@ -1,9 +1,9 @@
 # Decision needed — which column is a figure's identity?
 
-*Measured 28 August 2026 against the 169-row committed snapshot. Nothing in this
-document has been acted on; the three commits of 28 August fixed only what needed
-no decision. Re-measure with `.scratch/measure_pf.mjs`-style probes before
-quoting these numbers, per §9's standing rule.*
+*Measured 28 August 2026 against the 169-row committed snapshot. Re-run with
+`node scripts/data/measure-figure-identity-columns.mjs`. Nothing in this
+document has been acted on; the 28 August commits fixed only what needed no
+decision. Re-measure before quoting these numbers, per §9's standing rule.*
 
 ---
 
@@ -21,8 +21,14 @@ The schema's own column is `principal_figure` (CLAUDE.md § Schema: "Legacy
 *fallback* everywhere else and the primary source here.
 
 **95 of 169 rows** have a `principal_figure` whose string differs from the legacy
-cell. At the level that matters — the slug a figure's page lives at — **50 rows
-would move, and 47 of the current 132 figure slugs would cease to exist.**
+cell. At the level that matters — the slug a figure's page lives at — **49 rows
+would move, and 46 of the current 132 figure slugs would cease to exist.**
+
+*Numbers from `node scripts/data/measure-figure-identity-columns.mjs`. They were
+first written here as 50 and 47, off by one, because the throwaway probe that
+produced them split `;` without regard for parentheses and so counted
+`darbar-wasif-ali-wasif` as a row that moves. It does not. The committed
+instrument splits paren-aware; prefer it over any number quoted from memory.*
 
 This is the mechanism behind the "86 of 169 diverge" note recorded on
 26 August (`e605274`). That note described the symptom for consumers; this is
@@ -58,11 +64,11 @@ what `principal_figure` already said. The column was right and unread.
 Four things break, and the last two are the reason this is a decision and not a
 patch.
 
-**1. 47 figure URLs disappear.** Each is prerendered and in the sitemap. Among
+**1. 46 figure URLs disappear.** Each is prerendered and in the sitemap. Among
 them `data-ganj-bakhsh` → `hazrat-ali-ibn-usman-al-hujwiri`: the archive's
 best-known figure, whose page address is the one most likely to be linked from
 outside. `retiredSlugs` (added 28 August) makes this survivable rather than free —
-every retirement becomes a redirect — but 47 redirects is a migration, not a
+every retirement becomes a redirect — but 46 redirects is a migration, not a
 tidy-up.
 
 **2. Ten of the seventeen `saintMergeVariants` keys stop applying.** They are
@@ -89,7 +95,9 @@ Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; "Wasif" was his pen name/
 `hazrat-wasif-ali-wasif-awan-born-muhammad-wasif-awan` and
 `wasif-was-his-pen-nametakhallus`, two nodes that are not people. Any split must
 be parenthesis-aware, and the guard for it must be a test over all 169 rows
-rather than a spot check.
+rather than a spot check. `measure-figure-identity-columns.mjs` splits
+paren-aware for exactly this reason — and the first, naive version of that probe
+is what put a wrong number (50/47) in the paragraph above.
 
 **4. `principal_figure` is worse in at least one row.** Kalka Cave Temple:
 
