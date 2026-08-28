@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T14:32:11.464Z",
+  "generated": "2026-08-28T15:02:45.324Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -1551,6 +1551,16 @@
       ],
       "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
       "evidence": "049d4f58"
+    },
+    {
+      "id": "biography:bhai-lalo",
+      "kind": "biography",
+      "subject": "Bhai Lalo",
+      "subjectSlug": "bhai-lalo",
+      "object": "",
+      "born": "1452 (\"traditionally said\")",
+      "source": "data/shrines.csv#gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi",
+      "evidence": "07133bf8"
     },
     {
       "id": "biography:bhai-taru",

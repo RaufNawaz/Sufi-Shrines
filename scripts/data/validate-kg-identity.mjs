@@ -40,7 +40,11 @@
  *      sitemap, so joining two nodes retires a published URL — and this route's
  *      fallback for an unknown figure is a redirect to the map, which is a soft
  *      404 for anyone holding the old address.
- *   5. Every `saintMergeVariants` target resolves to a node that exists, so a
+ *   5. Every `saintCompositeFigures` row — the sites the sheet gives two figures
+ *      — still reaches every figure it names, names no figure twice, and does
+ *      not also appear in `saintMergeVariants` (where build-kg lets the
+ *      composite win, leaving a merge variant that reads as live and is not).
+ *   6. Every `saintMergeVariants` target resolves to a node that exists, so a
  *      typo in a merge target cannot silently stop merging.
  *
  * Not checked, because it is not decidable here: whether a pair that shares no
@@ -91,9 +95,19 @@ notes.push(`${saints.length} figure nodes, ${collisions.size} name collision(s)`
 // ── 2 & 3. the decisions against merging ─────────────────────────────────────
 
 const rowsBySlug = new Map();
+/* Raw `Sufi Saint` cell → the shrine slugs whose cell it is. Needed by check 5,
+   which must look at those rows and no others. */
+const shrineSlugsByCell = new Map();
 if (existsSync(SHRINES_JSON)) {
   const { rows = [] } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
-  for (const row of rows) rowsBySlug.set(slugify(row.Name), row);
+  for (const row of rows) {
+    const shrineSlug = slugify(row.Name);
+    rowsBySlug.set(shrineSlug, row);
+    const cell = String(row['Sufi Saint'] ?? '').trim();
+    if (!cell) continue;
+    if (!shrineSlugsByCell.has(cell)) shrineSlugsByCell.set(cell, []);
+    shrineSlugsByCell.get(cell).push(shrineSlug);
+  }
 }
 
 /** Resolve a `source` to the text a quote must appear in — same rule as
@@ -175,9 +189,86 @@ for (const [from, to] of Object.entries(retired)) {
 }
 notes.push(`${Object.keys(retired).length} retired slug(s) still resolve`);
 
-// ── 5. merge targets must land somewhere ─────────────────────────────────────
-
 const mergeVariants = seeds.saintMergeVariants ?? {};
+const mergeVariantKeys = new Set(Object.keys(mergeVariants).filter((k) => k !== 'comment'));
+
+// ── 5. a site held by two figures reaches both ───────────────────────────────
+
+/* `saintCompositeFigures` is the mechanism that stopped these rows losing a
+   person. It can fail three quiet ways: a name that resolves to no node (the
+   figure silently vanishes again), a figure that exists but does not carry the
+   shrine (the fan-out half-happened), and a key that is also in
+   saintMergeVariants (two mechanisms claiming one cell, where build-kg lets the
+   composite win — so the merge variant is dead code that reads as live). */
+const composites = seeds.saintCompositeFigures ?? {};
+const shrineFiguresPath = join(ROOT, 'data', 'kg-shrine-figures.json');
+const shrineFigures = existsSync(shrineFiguresPath)
+  ? JSON.parse(readFileSync(shrineFiguresPath, 'utf8'))
+  : {};
+
+let compositeFigureCount = 0;
+for (const [cell, names] of Object.entries(composites)) {
+  if (cell === 'comment') continue;
+  const label = `saintCompositeFigures["${cell}"]`;
+
+  if (!Array.isArray(names) || names.length < 2) {
+    fail(`${label}: must list at least two figures — one figure is a merge variant, not a composite`);
+    continue;
+  }
+  compositeFigureCount += names.length;
+
+  const slugs = names.map((n) => slugify(String(n).replace(/\s*\([^)]*\)/g, '').trim()));
+  for (const [i, slug] of slugs.entries()) {
+    if (!slug) {
+      fail(`${label}: "${names[i]}" slugifies to nothing`);
+    } else if (!bySlug.has(slug)) {
+      fail(
+        `${label}: "${names[i]}" (slug "${slug}") is not a figure node, so this ` +
+          `row has lost that person again — which is the failure this map exists to stop.`,
+      );
+    }
+  }
+
+  if (new Set(slugs).size !== slugs.length) {
+    fail(`${label}: names the same figure twice (${slugs.join(', ')})`);
+  }
+
+  if (mergeVariantKeys.has(cell)) {
+    fail(
+      `${label}: this cell is also a saintMergeVariants key. build-kg lets the ` +
+        `composite win, so the merge variant never applies — remove it.`,
+    );
+  }
+
+  /* Each named figure must carry the shrines whose OWN cell this is — not every
+     shrine that happens to share one of the figures. (The first version of this
+     check scanned all 169 and reported 41 failures, because every one of Guru
+     Nanak's 18 gurdwaras shares `guru-nanak` with two of these rows.) */
+  const ownShrines = shrineSlugsByCell.get(cell) ?? [];
+  if (ownShrines.length === 0) {
+    fail(
+      `${label}: no shrine row has this as its figure cell. The row was edited or ` +
+        `removed in the sheet, so this entry is dead — update or delete it.`,
+    );
+  }
+  for (const shrineSlug of ownShrines) {
+    const figureSlugs = shrineFigures[shrineSlug] ?? [];
+    const missing = slugs.filter((s) => !figureSlugs.includes(s));
+    if (missing.length) {
+      fail(
+        `${label}: ${shrineSlug} reaches ${figureSlugs.join(', ') || '(nobody)'} but not ` +
+          `${missing.join(', ')} — the fan-out only half happened, so that figure ` +
+          `has lost the site again.`,
+      );
+    }
+  }
+}
+notes.push(
+  `${Object.keys(composites).filter((k) => k !== 'comment').length} composite row(s) naming ${compositeFigureCount} figures`,
+);
+
+// ── 6. merge targets must land somewhere ─────────────────────────────────────
+
 let checkedTargets = 0;
 for (const [raw, canonical] of Object.entries(mergeVariants)) {
   if (raw === 'comment') continue;

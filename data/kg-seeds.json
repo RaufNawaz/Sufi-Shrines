@@ -82,7 +82,6 @@
     "Bulleh Shah (Abdullah Shah Qadri)": "Bulleh Shah",
     "Goddess Kali": "Kali",
     "Goddess Kali (Kalka Devi)": "Kali (also revered as Kalka Devi)",
-    "Guru Nanak and Bhai Mardana": "Guru Nanak",
     "Guru Nanak Dev Ji": "Guru Nanak",
     "Hazrat Data Ganj Bakhsh (Ali Hujwiri)": "Data Ganj Bakhsh",
     "Hazrat Shah Daula Daryai": "Shah Daula Daryai",
@@ -197,6 +196,21 @@
       "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar"
     }
   ],
+  "_comment_saintCompositeFigures": "Rows whose figure cell names more than one person, mapped to the figures it names, primary first. Applied instead of saintMergeVariants for these cells, and the reason it has to exist: the schema gives a row one `principal_figure`, but some sites are held by two people and the sheet says so — with a `;` in `principal_figure`, and with \"&\" or \"and\" in the legacy cell. Every earlier handling lost one of the two. \"Guru Nanak and Bhai Mardana\" was a saintMergeVariants entry resolving to \"Guru Nanak\", which is why Bhai Mardana appeared NOWHERE in this graph; the other two became single nodes named after both people, so Gurdwara Panjvi Chati Patshahi reached neither Guru Arjan Dev’s page nor Guru Hargobind’s. The FIRST name listed is the only one the row’s own figure_type / figure_born / figure_died may describe: Rori Sahib records figure_type \"Sikh Guru\" and Bhai Mardana was not a Guru, so copying it across would make the graph assert what the sheet never said (RULE 2). build-kg.mjs enforces that, logs a `composite-figure-row` review item, and carries the raw cell onto each `buried_at` edge as `asRecorded`. Only add a row here where the cell genuinely names separate people: a `;` inside a parenthetical is not one (darbar-wasif-ali-wasif), nor is one deity under two names (\"Jhulelal / Daryalal\"), nor a note about practice (\"...; veneration of Guru Nanak\").",
+  "saintCompositeFigures": {
+    "Guru Arjan Dev (5th) & Guru Hargobind (6th)": [
+      "Guru Arjan Dev",
+      "Guru Hargobind"
+    ],
+    "Guru Nanak Dev Ji; associated with Bhai Lalo": [
+      "Guru Nanak",
+      "Bhai Lalo"
+    ],
+    "Guru Nanak and Bhai Mardana": [
+      "Guru Nanak",
+      "Bhai Mardana"
+    ]
+  },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
     "guru-nanak": {
