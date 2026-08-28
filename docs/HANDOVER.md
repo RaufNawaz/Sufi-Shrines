@@ -4733,3 +4733,104 @@ view before measuring now. That is a true reading of a false question, and it co
 no Latin run; and all 13 (English) / 15 (Urdu) controls are reachable at their own centre on
 desktop and phone with the panel wholly on screen in all four. The e2e suite itself was **not**
 run — it needs a build, which this session did not do.
+
+### Added 28 August 2026 — the gear moved to every page, and the reading size grew a slider and a wider scope
+
+Three requests from the project head in one session, each of which turned up something
+underneath it.
+
+#### The settings gear is on every page
+
+It was map chrome: the sidebar header, and nowhere else. `/settings` held the other eight
+preferences and is linked from `SiteFooter`, which the map does not render — so a reader who
+arrived on `/shrine/data-darbar` from a search engine had to scroll past the whole entry to
+change the reading size. `src/components/ui/SettingsMenu.tsx` is now the gear, the popover and
+every way out of it; `EntityPageHeader` renders one (ten routes), `MapSidebar` renders one, and
+`NotFoundPage` gets one by finally using the shared header instead of its own copy.
+
+**That copy is the lesson.** `EntityPageHeader` exists because this header had been pasted into
+ten pages and had drifted in three. The 404 kept a hand-written copy anyway, and it only mattered
+today: the gear reaches every page *through* that component, so the page a reader is most likely
+to arrive at from outside would have been the only one without it.
+
+Ownership is split rather than duplicated: the map owns `directoryMode` and `toursEnabled`
+(the list button and the tour layer read them) and passes them in; everywhere else the menu reads
+and writes the preference modules itself. `MapSidebar` no longer writes `directoryPreference` at
+all — two writers for one key is a question about which ran last.
+
+#### Two placement bugs, found by widening one guard
+
+`e2e/directory-mode.spec.ts` hit-tested **the two options it named**. Widened to every control in
+the panel it failed twice, and both are the §9.82–84 family arriving again the moment the panel
+grew from one preference to seven:
+
+1. **The sticky footer occluded the last rows on both phone widths.** `elementFromPoint` at their
+   centre returned the `<a>`. That is also what keyboard focus does when tabbing into the last
+   rows of a scroll container with a sticky foot. `scroll-padding-block-end` is the mechanism.
+2. **A viewport-relative height cap that is fine on a laptop runs the panel under the TabBar** on
+   a phone, where it opens part-way down a bottom sheet. At 390×780 it ended at 760 against a tab
+   bar starting at 731, and the first thing it hid was the way out to the rest of the settings.
+
+The widened guard's own first draft was wrong in a plausible way, and it cost a round: it flagged
+four rows a reader simply had not scrolled to yet. It scrolls each control into view before
+measuring now. **A true reading of a false question.**
+
+#### The reading size: five steps, a slider, and the whole document
+
+Three radios became an `input[type=range]` over five steps (14/15/16/18/20px). The three original
+values are still members of `TEXT_SIZES`, so nothing stored needs migrating — and so they must
+never be renamed. `aria-valuetext` carries the step's name, because a screen reader otherwise
+announces "3 of 5" and 3 is not a reading size.
+
+**And the scope was reversed.** It applied to `.shrine-page` and `.entity-page` only, and
+`src/styles/__tests__/readingScale.test.ts` asserted that it must never do more — the argument
+being that scaling the chrome puts a 390px phone under an overflow guard nobody had measured
+against. That was a guess about what readers want, and the reader asked for the opposite: the
+sidebar is where this archive is read *before* an entry is opened. The test now asserts the new
+mechanism instead of the old decision, and gained two clauses: the CSS steps must be exactly the
+TypeScript steps, and gaps must grow more slowly than type.
+
+**That last clause is what makes the reversal safe.** Type takes the full step; `--spacing-scale`
+takes two thirds. Measured with `no-overflow.spec.ts`'s own exemptions (scrolling ancestors,
+clamped ancestors, Leaflet panes) across **5 sizes × 2 languages × 4 routes at 390px: 0 offenders,
+`scrollWidth` exactly 390 in all 40.** Touch targets and icon boxes stay pixel-fixed on purpose —
+a hit area is an ergonomic minimum, not a typographic one.
+
+**The general finding, worth more than either fix: a token redefined for a language is a token
+that must be re-derived whenever the base gains a factor.** Two blocks in `global.css` redefine
+the whole type scale under `[dir='rtl']`. Moving the reading step to `:root` so the sidebar would
+follow it was silently cancelled by the app-wide one, and an Urdu reader's slider moved nothing
+outside an open entry — `body` computed **17.64px at every setting** against English 14→20px.
+Fixing that exposed a second, older one: `body.lang-rtl` takes a hardcoded `1.05rem`, and Urdu
+prose inherits `body`'s computed size, so the running text still could not move. It multiplies by
+the step now, and **only on `body`, never on `html`** — the root is what every `rem` resolves
+against and the tokens are already scaled, so scaling both applies the step twice (1.5625× at the
+top step). `medium` computes exactly what it did before in both languages.
+
+### Added 28 August 2026 — switching to Urdu showed the English lead for 4.7 seconds
+
+**Measured, with only the Urdu article chunk delayed:** switch the map to Urdu with an entry
+selected, and the preview card's name, category and place turn Urdu at ~1.7s while the prose stays
+English — *"Allo Mahar Sharif is a village in the Daska ʼtehsilʼ of Sialkot District…"* — until
+**4,671ms**. Under an Urdu name, in an Urdu column, in a view whose stated rule is that English
+prose does not appear in it.
+
+`urdu-content.json` is language-gated, so until it lands `getUrduFieldValue(row, 'Description')`
+is empty for all 169 rows. The English fallback beneath it is **correct** for the two entries that
+genuinely have no Urdu article and **wrong** for that window — and from a row the two are the same
+answer. `src/hooks/useUrduArticlesReady.ts` is the missing distinction: not "does this entry have
+an Urdu article" but "has the file that would tell us arrived". `ShrinePreview` and `TourPanel`
+consult it; re-measured after, **0 of 59 samples** show Latin prose in the Urdu view.
+
+**Why no guard caught it.** `e2e/urdu-no-leak.spec.ts` opens `?lang=ur` directly, and on that path
+`fetchShrines` awaits the payload before building a single row, so the window does not exist. The
+window belongs to the *switch*, and no spec walked it.
+
+**This unblocks the biggest remaining front-door lever.** §"Still open, in order of size" names
+deferring that 253 KB off the map's critical path, and names this exact flash as the reason it
+cannot be done unconditionally. Two of the consumers that would have flashed no longer can.
+
+**Instrument note**, in the spirit of the four already recorded: the probe's first version used a
+Playwright locator for the lead paragraph — which the fix legitimately removes — so it sat in
+retry until timeout and produced a trace with a five-second hole in it. Reading the DOM directly
+in one `evaluate` is what made the before and after comparable.
