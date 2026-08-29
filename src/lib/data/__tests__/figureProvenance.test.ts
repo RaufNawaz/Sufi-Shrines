@@ -163,7 +163,16 @@ describe('the shipped graph', () => {
                        nowhere to land (`saintCompositeFigures` in
                        kg-seeds.json). Bhai Mardana gained a node too but the
                        archive records nothing sourced about him, so he adds to
-                       neither term. */
-    expect(flagged.length).toBe(154);
+                       neither term.
+         99 + 58 − 2   = 155, later the same day. Tomb of Javindi Bibi stopped
+                       being filed under Jalaluddin Surkh-Posh Bukhari, whose
+                       cell it carried byte-identically
+                       (`saintFigureByShrine` in kg-seeds.json). Bibi Jawindi is
+                       a new node and the tomb's own entry is her
+                       `biographySource` — prose that was already in the archive
+                       and was attributed to a man it is not about. He does not
+                       drop out of the count: his own shrine still sources him.
+                       So this term rises by one and nothing falls. */
+    expect(flagged.length).toBe(155);
   });
 });

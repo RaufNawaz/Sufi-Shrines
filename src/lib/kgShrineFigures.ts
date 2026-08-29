@@ -1,5 +1,5 @@
 import shrineFigures from '../../data/kg-shrine-figures.json';
-import compositeFigures from '../../data/kg-composite-figures.json';
+import figureLabels from '../../data/kg-shrine-figure-labels.json';
 
 /**
  * Shrine slug → the figures commemorated there, most-principal first.
@@ -20,7 +20,7 @@ import compositeFigures from '../../data/kg-composite-figures.json';
  * (and its Urdu) back on the wire and undo the saving.
  */
 const INDEX = shrineFigures as Record<string, string[]>;
-const COMPOSITE = compositeFigures as Record<string, CompositeFigure[]>;
+const LABELS = figureLabels as Record<string, ShrineFigureLabel[]>;
 
 /** Figure slugs commemorated at a shrine, in the graph's own order. */
 export function figureSlugsForShrine(shrineSlug: string): string[] {
@@ -33,36 +33,43 @@ export function primaryFigureSlug(shrineSlug: string): string | undefined {
 }
 
 /**
- * A figure named on a shrine's row, with the name the graph knows it by.
+ * A figure a shrine commemorates, with the name the graph knows it by.
  *
  * `name` is the canonical figure name, not the sheet's raw cell — see
- * `compositeFiguresForShrine`.
+ * `figureLabelsForShrine`.
  */
-export interface CompositeFigure {
+export interface ShrineFigureLabel {
   readonly slug: string;
   readonly name: string;
 }
 
 /**
- * The figures named by a row that names more than one, primary first.
+ * The figures to render for a shrine whose `Sufi Saint` cell is not a usable
+ * label, primary first. Empty for the 165 rows where the cell is fine.
  *
- * Three rows out of 169 record a site held by two people: Gurdwara Panjvi Chati
- * Patshahi is the fifth *and* sixth Guruship, Rori Sahib is Guru Nanak *and*
- * Bhai Mardana, Khoohi Bhai Lalo is Guru Nanak *and* Bhai Lalo. Every handling
- * of them before 28 August 2026 lost one of the two, and for Rori Sahib the one
- * lost was Bhai Mardana, who was consequently absent from the graph entirely.
+ * Two kinds of row are in here, and they are one problem — the cell does not
+ * name what the page must link to:
  *
- * Empty for the other 166 rows, which is the signal to render the single link
- * `primaryFigureSlug` already supports.
+ *  - **It names two people.** Three rows record a site held by two: Gurdwara
+ *    Panjvi Chati Patshahi is the fifth *and* sixth Guruship, Rori Sahib is Guru
+ *    Nanak *and* Bhai Mardana, Khoohi Bhai Lalo is Guru Nanak *and* Bhai Lalo.
+ *    Every handling of them before 28 August 2026 lost one of the two, and for
+ *    Rori Sahib the one lost was Bhai Mardana, who was absent from the graph
+ *    entirely.
+ *  - **It names somebody else.** Tomb of Javindi Bibi's cell reads "Jalaluddin
+ *    Surkh-Posh Bukhari" — byte-identical to the cell on his own shrine, a
+ *    different monument. `saintFigureByShrine` points the graph at Bibi Jawindi;
+ *    without this the page would print his name over a link to her page, which
+ *    is worse than the error it replaced, because the name and the link agreed
+ *    before and disagree after.
  *
  * **Why this carries names when `figureSlugsForShrine` deliberately does not.**
- * A second figure needs a second label, and there is no honest way to derive one
- * from a slug — title-casing `guru-arjan-dev` happens to work and
- * `shrine-of-baba-shah-kamal` becomes "Shrine Of Baba Shah Kamal". So the name
- * is carried, for the three rows that need it and no others: 558 bytes, against
- * the display string and its Urdu for all 190 figures if the main index grew a
- * name column.
+ * There is no honest way to derive a display name from a slug — title-casing
+ * `guru-arjan-dev` happens to work and `shrine-of-baba-shah-kamal` becomes
+ * "Shrine Of Baba Shah Kamal". So the name is carried, for the four rows that
+ * need it and no others: under a kilobyte, against the display string and its
+ * Urdu for all 191 figures if the main index grew a name column.
  */
-export function compositeFiguresForShrine(shrineSlug: string): readonly CompositeFigure[] {
-  return COMPOSITE[shrineSlug] ?? [];
+export function figureLabelsForShrine(shrineSlug: string): readonly ShrineFigureLabel[] {
+  return LABELS[shrineSlug] ?? [];
 }

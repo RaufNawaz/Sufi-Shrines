@@ -234,7 +234,13 @@ const BUDGET: Record<string, number> = {
   // an `altName` in the member list.
   order: 82,
   'order:chishtiyya': 48,
-  'order:suhrawardiyya': 51,
+  /* 51 -> 53, 28 August 2026. The Suhrawardiyya gained a member: Bibi Jawindi
+     got a node of her own when Tomb of Javindi Bibi stopped being filed under
+     Jalaluddin Surkh-Posh Bukhari, whose `Sufi Saint` cell it carried
+     byte-identically. Her two runs are the site's recorded location and the
+     observance cell, both shown as the survey wrote them. A member arriving is
+     the order page working, and `undeclared` stayed empty. */
+  'order:suhrawardiyya': 53,
   'order:naqshbandiyya': 32,
   'order:qalandariyya': 11,
   graph: 122,

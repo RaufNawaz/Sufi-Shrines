@@ -664,6 +664,11 @@ SAINTS = {
  # than composed: "گرو نانک اور بھائی مردانہ" and "بھائی لالو سے منسوب".
  "Bhai Mardana": "بھائی مردانہ",
  "Bhai Lalo": "بھائی لالو",
+ # Added 28 August 2026 for the same reason: Bibi Jawindi had no node until her
+ # tomb stopped being filed under Jalaluddin Surkh-Posh Bukhari, so no page title
+ # needed her name in Urdu. Not composed — lifted whole from the already reviewed
+ # shrine entry "Tomb of Javindi Bibi" -> "مقبرہ بی بی جاوندی".
+ "Bibi Jawindi": "بی بی جاوندی",
  "Bhai Joga Singh": "بھائی جوگا سنگھ",
  "Bhai Taru": "بھائی تارو",
  "Hinglaj Mata": "ہنگلاج ماتا",

@@ -11,13 +11,13 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 160,
+      "saints": 161,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "flatSeedEntries": 976
+      "flatSeedEntries": 977
     }
   },
   "categories": {
@@ -558,6 +558,7 @@
     "Guru Nanak and Bhai Mardana": "گرو نانک اور بھائی مردانہ",
     "Bhai Mardana": "بھائی مردانہ",
     "Bhai Lalo": "بھائی لالو",
+    "Bibi Jawindi": "بی بی جاوندی",
     "Bhai Joga Singh": "بھائی جوگا سنگھ",
     "Bhai Taru": "بھائی تارو",
     "Hinglaj Mata": "ہنگلاج ماتا",

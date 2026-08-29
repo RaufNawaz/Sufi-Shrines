@@ -147,6 +147,26 @@ test.describe('A site held by two figures reaches both of them', () => {
     await expect(figureLinks.nth(1)).toContainText('بھائی مردانہ');
   });
 
+  test('a cell naming a different monument\u2019s figure does not label the link', async ({
+    page,
+  }) => {
+    /* Tomb of Javindi Bibi's `Sufi Saint` cell reads "Jalaluddin Surkh-Posh
+       Bukhari" — a different monument's figure. The graph points at Bibi
+       Jawindi. If the label came from the cell, this page would print a man's
+       name over a link to a woman's page. */
+    await page.goto('/shrine/tomb-of-javindi-bibi');
+
+    const figureLink = page.locator('.shrine-summary-meta-item a.meta-entity-link');
+    await expect(figureLink).toHaveCount(1);
+    await expect(figureLink).toHaveAttribute('href', '/saint/bibi-jawindi');
+    await expect(figureLink).toContainText('Bibi Jawindi');
+    await expect(figureLink).not.toContainText('Jalaluddin');
+
+    /* The sheet's own wording still has to be on the page somewhere (RULE 2),
+       and the infobox is where it lives. */
+    await expect(page.locator('.shrine-infobox')).toContainText('Jalaluddin Surkh-Posh Bukhari');
+  });
+
   test('an ordinary single-figure row still renders exactly one link', async ({ page }) => {
     /* The guard on the guard: a change that fanned every row out into multiple
        links would pass all three tests above. */

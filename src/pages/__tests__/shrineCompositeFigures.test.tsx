@@ -21,7 +21,7 @@ import { ShrineInfobox } from '../../components/shrine/ShrineInfobox';
 import { buildShrine } from '../../lib/data/shrineModel';
 import { normalizeRow } from '../../lib/data/fieldAliasing';
 import { renderWithProviders } from '../../test/utils';
-import { compositeFiguresForShrine, figureSlugsForShrine } from '../../lib/kgShrineFigures';
+import { figureLabelsForShrine, figureSlugsForShrine } from '../../lib/kgShrineFigures';
 import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 import { loadUrduSeed } from '../../lib/i18n/urduFallback';
 import type { KGSaint } from '../../types/kg';
@@ -30,7 +30,7 @@ import type { Shrine, ShrineRow } from '../../types/shrine';
 const root = join(__dirname, '../../..');
 const readJson = (rel: string) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
 
-const composite = readJson('data/kg-composite-figures.json') as Record<
+const labels = readJson('data/kg-shrine-figure-labels.json') as Record<
   string,
   { slug: string; name: string }[]
 >;
@@ -38,7 +38,11 @@ const mainIndex = readJson('data/kg-shrine-figures.json') as Record<string, stri
 const kg = readJson('data/kg.json') as { saints: KGSaint[] };
 const snapshot = readJson('src/data/shrines-fallback.json') as { rows: ShrineRow[] };
 
-const compositeSlugs = Object.keys(composite);
+const labelSlugs = Object.keys(labels);
+/* The rows in the index because their cell names TWO people, as against the ones
+   in it because their cell names somebody else. Only the first kind can be
+   checked against `figureSlugsForShrine` returning more than one slug. */
+const compositeSlugs = labelSlugs.filter((slug) => labels[slug].length > 1);
 
 beforeEach(() => {
   localStorage.clear();
@@ -71,7 +75,7 @@ describe('the composite index agrees with the graph it was built from', () => {
 
     for (const slug of compositeSlugs) {
       expect(
-        composite[slug].map((f) => f.slug),
+        labels[slug].map((f) => f.slug),
         slug,
       ).toEqual(figureSlugsForShrine(slug));
     }
@@ -84,7 +88,7 @@ describe('the composite index agrees with the graph it was built from', () => {
        how Bhai Mardana and Bhai Lalo first reached the archive, as two figure
        pages titled in Latin that no gate could see. */
     const byslug = new Map(kg.saints.map((s) => [s.slug, s.name]));
-    for (const [shrineSlug, figures] of Object.entries(composite)) {
+    for (const [shrineSlug, figures] of Object.entries(labels)) {
       for (const figure of figures) {
         expect(byslug.get(figure.slug), `${shrineSlug} → ${figure.slug}`).toBe(figure.name);
       }
@@ -95,15 +99,15 @@ describe('the composite index agrees with the graph it was built from', () => {
     /* The empty case is the one that matters: it is what tells ShrinePage to
        keep rendering the single link the other 166 rows have always had. */
     for (const slug of compositeSlugs) {
-      expect(compositeFiguresForShrine(slug)).toEqual(composite[slug]);
+      expect(figureLabelsForShrine(slug)).toEqual(labels[slug]);
     }
-    expect(compositeFiguresForShrine('data-darbar')).toEqual([]);
-    expect(compositeFiguresForShrine('no-such-shrine')).toEqual([]);
+    expect(figureLabelsForShrine('data-darbar')).toEqual([]);
+    expect(figureLabelsForShrine('no-such-shrine')).toEqual([]);
   });
 
   it('resolves every figure to a real graph node', () => {
     const known = new Set(kg.saints.map((s) => s.slug));
-    const missing = Object.values(composite)
+    const missing = Object.values(labels)
       .flat()
       .map((f) => f.slug)
       .filter((slug) => !known.has(slug));
@@ -124,7 +128,7 @@ describe('the Urdu edition reaches both figures too', () => {
        through the dictionary, NOT through the graph node's `nameUr` — so a
        translation that exists only on the node would pass
        figureNameUrduParity.test.ts and still put Latin on the shrine page. */
-    const latin = Object.values(composite)
+    const latin = Object.values(labels)
       .flat()
       .map((f) => ({ slug: f.slug, ur: localizeRecordedName(f.name, 'ur') }))
       .filter((f) => /[A-Za-z]/.test(f.ur))
@@ -155,12 +159,12 @@ describe('compositeFigureCellIsShown — the sheet keeps its own wording', () =>
       bySlug.set(shrine.slug, { shrine, recorded: String(raw['Sufi Saint'] ?? '').trim() });
   }
 
-  it('found every composite shrine in the shipped snapshot', () => {
-    const missing = compositeSlugs.filter((slug) => !bySlug.has(slug));
+  it('found every label-bearing shrine in the shipped snapshot', () => {
+    const missing = labelSlugs.filter((slug) => !bySlug.has(slug));
     expect(missing).toEqual([]);
   });
 
-  for (const slug of compositeSlugs) {
+  for (const slug of labelSlugs) {
     it(`renders ${slug}'s recorded figure cell verbatim`, () => {
       const { shrine, recorded } = bySlug.get(slug)!;
       expect(recorded).not.toBe('');
@@ -174,4 +178,40 @@ describe('compositeFigureCellIsShown — the sheet keeps its own wording', () =>
       expect(screen.getByText(recorded)).toBeInTheDocument();
     });
   }
+});
+
+describe('a cell that names somebody else', () => {
+  /* Tomb of Javindi Bibi's `Sufi Saint` cell reads "Jalaluddin Surkh-Posh
+     Bukhari" — byte-identical to the cell on his own shrine, a different
+     monument. `saintFigureByShrine` points the graph at Bibi Jawindi.
+
+     This is the regression test for the half-fix: correcting the graph and
+     leaving ShrinePage to label the link from the raw cell put a man's name over
+     a link to a woman's page. That is worse than the error it replaced — before,
+     the name and the link agreed and were both wrong; after, they disagreed and
+     only a reader who clicked found out. */
+  const SLUG = 'tomb-of-javindi-bibi';
+
+  it('links the figure the graph records, not the one the cell names', () => {
+    expect(figureSlugsForShrine(SLUG)).toEqual(['bibi-jawindi']);
+  });
+
+  it('labels the link with that figure, so the name and the href agree', () => {
+    const shown = figureLabelsForShrine(SLUG);
+    expect(shown).toEqual([{ slug: 'bibi-jawindi', name: 'Bibi Jawindi' }]);
+    /* The point of the row: the label must NOT be the cell. If this ever passes
+       by the two becoming equal, the sheet was patched and the override in
+       kg-seeds.json should be deleted — validate-kg-identity check 8 says so. */
+    const recorded = String(
+      snapshot.rows.find((r) => String(r.Name ?? '') === 'Tomb of Javindi Bibi')?.['Sufi Saint'] ??
+        '',
+    );
+    expect(recorded).toBe('Jalaluddin Surkh-Posh Bukhari');
+    expect(shown[0]!.name).not.toBe(recorded);
+  });
+
+  it('names her in Urdu, like every other figure a reader can reach', async () => {
+    await loadUrduSeed();
+    expect(localizeRecordedName('Bibi Jawindi', 'ur')).toBe('بی بی جاوندی');
+  });
 });

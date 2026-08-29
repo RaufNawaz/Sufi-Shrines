@@ -35,7 +35,7 @@ import { InfoLevelBadge } from '../components/ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../components/ui/SupportLevelBadge';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../lib/i18n/urduFallback';
-import { primaryFigureSlug, compositeFiguresForShrine } from '../lib/kgShrineFigures';
+import { primaryFigureSlug, figureLabelsForShrine } from '../lib/kgShrineFigures';
 import { hasProjectAccess } from '../lib/projectAccess';
 import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
@@ -85,8 +85,10 @@ function ShrineContent({
   const name = localizeShrineName(shrine, lang);
 
   const primaryFigure = primaryFigureSlug(shrine.slug);
-  /* Non-empty for exactly the three rows that name two people. */
-  const compositeFigures = compositeFiguresForShrine(shrine.slug);
+  /* Non-empty only where the raw `Sufi Saint` cell is not a usable label: the
+     three rows that name two people, and the rows whose cell names a different
+     monument's figure. */
+  const figureLabels = figureLabelsForShrine(shrine.slug);
 
   const category =
     categoryDisplayLabel(shrine.category, lang) ??
@@ -224,13 +226,18 @@ function ShrineContent({
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            {/* Three rows name two figures, and this line has to reach both.
-                It shows the *canonical* names rather than the sheet's cell,
-                because there is one link per figure and the cell is one string
-                spanning both — "Guru Nanak Dev Ji; associated with Bhai Lalo"
-                cannot be cut into two link texts without deciding what
-                "associated with" attaches to, which is a claim the sheet did
-                not make (RULE 2).
+            {/* Four rows out of 169 cannot use the sheet's cell as the label
+                here, and both reasons end the same way — the name on screen
+                would not be the name behind the link.
+
+                Three name two people, and there is one link per figure, so the
+                cell cannot be the text: "Guru Nanak Dev Ji; associated with
+                Bhai Lalo" cannot be cut in two without deciding what
+                "associated with" attaches to, a claim the sheet did not make
+                (RULE 2). The fourth is Tomb of Javindi Bibi, whose cell names
+                Jalaluddin Surkh-Posh Bukhari — a different monument's figure —
+                so printing it would put a man's name over a link to a woman's
+                page.
 
                 The recorded cell is not lost by that: `Sufi Saint` is an
                 INFOBOX_PRIORITY_KEY and the infobox renders it verbatim,
@@ -244,8 +251,8 @@ function ShrineContent({
                 because at that point this line would be the only thing on the
                 page naming the figures and it would be naming them in words
                 the sheet never used. */}
-            {compositeFigures.length > 1 ? (
-              compositeFigures.map((figure, index) => (
+            {figureLabels.length > 0 ? (
+              figureLabels.map((figure, index) => (
                 <React.Fragment key={figure.slug}>
                   {/* Decorative, and hidden from assistive tech: the two links
                       are already separate stops in the tab order, and "middle
