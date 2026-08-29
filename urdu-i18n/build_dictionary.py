@@ -692,6 +692,14 @@ SAINTS = {
  "Hazrat Syed Muhammad Khair ul Deen": "حضرت سید محمد خیر الدین",
  "Data Ganj Bakhsh": "داتا گنج بخش",
  "Shah Daula Daryai": "شاہ دولہ دریائی",
+ # The Gori Temple's legacy cell describes the building, not the figure:
+ # "Jain temple dedicated to Parshvanatha (23rd Tirthankara)". saintDescriptiveCells
+ # now resolves it to the deity. The Urdu here is the one case where the reviewed
+ # string LEADS with the name where the English does not —
+ # "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر" — so the head is the name and
+ # the generic derivation, which requires a trailing parenthetical, correctly
+ # declines it.
+ "Parshvanatha": "پرشو ناتھ",
  "Bhai Joga Singh": "بھائی جوگا سنگھ",
  "Bhai Taru": "بھائی تارو",
  "Hinglaj Mata": "ہنگلاج ماتا",

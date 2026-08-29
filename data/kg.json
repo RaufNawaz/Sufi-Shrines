@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T03:31:13.060Z",
+  "generated": "2026-08-29T03:37:01.157Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -541,12 +541,13 @@
       ]
     },
     {
-      "id": "saint:jain-temple-dedicated-to-parshvanatha",
+      "id": "saint:parshvanatha",
       "type": "saint",
-      "slug": "jain-temple-dedicated-to-parshvanatha",
-      "name": "Jain temple dedicated to Parshvanatha",
+      "slug": "parshvanatha",
+      "name": "Parshvanatha",
       "altNames": [
-        "23rd Tirthankara"
+        "23rd Tirthankara",
+        "Jain temple dedicated to Parshvanatha (23rd Tirthankara)"
       ],
       "shrines": [
         "gori-temple-gori-jo-mandar"
@@ -6130,9 +6131,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:jain-temple-dedicated-to-parshvanatha:gori-temple-gori-jo-mandar",
+      "id": "buried_at:saint:parshvanatha:gori-temple-gori-jo-mandar",
       "type": "buried_at",
-      "subject": "saint:jain-temple-dedicated-to-parshvanatha",
+      "subject": "saint:parshvanatha",
       "object": "gori-temple-gori-jo-mandar",
       "confidence": 1,
       "method": "rule"
@@ -11539,6 +11540,7 @@
     "hazrat-shah-yousuf": "shah-yousuf",
     "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen",
     "hazrat-wasif-ali-wasif": "hazrat-wasif-ali-wasif-awan",
+    "jain-temple-dedicated-to-parshvanatha": "parshvanatha",
     "jhulelal-daryalal": "jhulelal",
     "lava-son-of-rama-and-sita": "lava",
     "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore": "malik-ahmad-ayaz",
@@ -11607,8 +11609,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:jain-temple-dedicated-to-parshvanatha",
-      "details": "\"Jain temple dedicated to Parshvanatha (23rd Tirthankara)\" merged into canonical \"Jain temple dedicated to Parshvanatha\" (slug: jain-temple-dedicated-to-parshvanatha). Verify the merge is correct."
+      "entityId": "saint:parshvanatha",
+      "details": "\"Jain temple dedicated to Parshvanatha (23rd Tirthankara)\" merged into canonical \"Parshvanatha\" (slug: parshvanatha). Verify the merge is correct."
     },
     {
       "issue": "name-merge",

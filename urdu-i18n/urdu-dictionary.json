@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 167,
+      "saints": 168,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 133,
-      "flatSeedEntries": 1116
+      "flatSeedEntries": 1117
     }
   },
   "categories": {
@@ -566,6 +566,7 @@
     "Hazrat Syed Muhammad Khair ul Deen": "حضرت سید محمد خیر الدین",
     "Data Ganj Bakhsh": "داتا گنج بخش",
     "Shah Daula Daryai": "شاہ دولہ دریائی",
+    "Parshvanatha": "پرشو ناتھ",
     "Bhai Joga Singh": "بھائی جوگا سنگھ",
     "Bhai Taru": "بھائی تارو",
     "Hinglaj Mata": "ہنگلاج ماتا",

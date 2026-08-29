@@ -16,8 +16,9 @@ that phrase hides the distinction that decides who can do the work.
 | **evidence** | 388 | Nobody at a keyboard. The archive does not record it. |
 | **human-review** | 125 | A reader with the two worksheets. |
 | **informational** | 17 | Nobody — a proxy with no true positives left. |
-| **unread** | 5 | An agent, today. |
+| **taxonomy** | 2 | A human, in minutes — but read the quoted cell first. |
 | **by-design** | 2 | Nobody. A rule working correctly. |
+| **unread** | 1 | An agent — and it is a reviewer's call, so not tonight. |
 
 **73% of what is missing is missing because nobody recorded it.** Not because
 the pipeline drops it, not because a column is unread, not because a slug is
@@ -44,10 +45,23 @@ live in `data/review/kg-review.csv` (255 rows, 0 verdicts) and
 See `docs/KG_REVIEW_WORKFLOW.md`.
 
 **`unread`** — the value is in the archive and the graph does not read it. This
-is the class an agent can close, and it is now down to **5**: three rows whose
-`silsila` cell the graph did not turn into an edge (all three are prose or an
-order the taxonomy lacks — see below), and two figure names whose Urdu exists
-inside a reviewed string but cannot be lifted mechanically.
+is the class an agent can close, and it is down from 48 to **1**: `Lava`, whose
+Urdu exists inside a reviewed string but cannot be lifted from it mechanically
+(the entry reads `لو (لاوا)، رام اور سیتا کے بیٹے` — the Urdu leads with لو where
+the English leads with Lava, and another reviewed entry uses لاوا for the same
+figure). Which form heads his page is a reviewer's call, not a derivation.
+
+**`taxonomy`** — 2, and the class is coarser than it sounds, so **read the cell
+the report quotes** rather than the label. Both are figures with no order edge
+whose `silsila` cell names nothing the taxonomy has:
+
+- `malik-ahmad-ayaz` — `As recorded: "Ahl e Sunnat - Ghaznavi silsila"`. A name
+  the archive hedges around; adding a Ghaznavi order on that basis would be
+  reading a survey's caveat as a claim.
+- `hazrat-syed-muhammad-khair-ul-deen` — `Not stated as an order. Q5 answers the
+  *silsila* question with descent and personal affiliation…`. **The survey
+  explicitly declines to name an order.** There is nothing to close here; the
+  absence of the edge is the archive being accurate.
 
 **`informational`** — 17 figure slugs of six words or more. The count is a proxy
 for "a slug that swallowed a description", and every true positive is closed
@@ -66,9 +80,9 @@ Bhai Mardana was not a Guru. Listed so nobody "fixes" it.
 | | before | after |
 |---|---|---|
 | figures whose Urdu name resolves to Latin (recorded-name path) | 51 / 133 | 9 / 133 |
-| figure slugs that are a name plus a description | 5 | 0 |
+| figure cells that are a name plus a description | 6 | 0 |
 | figure URLs that are whole sentences | 21 | 17 (all real names) |
-| `unread` gaps | 48 | 5 |
+| `unread` gaps | 48 | 1 |
 
 **Urdu names, 51 → 9.** `build_dictionary.py` now derives the bare name from a
 glossed entry: `Shiva (Mahadev)` → `شیو`. Derived rather than hand-listed so it
@@ -112,14 +126,15 @@ a node.
 
 ## Still open, and what each one needs
 
-- **Four orders the corpus names and the taxonomy lacks** — Azeemia, Malamatiyya,
-  Rashidi, Shattari. Each is a `finding/order` row in the review worksheet with
-  the source's own wording. Adding them needs a naming decision the existing five
-  imply (`-iyya`) but do not settle, and for Rashidi the corpus explicitly
-  declines to name a parent. A human call, small.
-- **Three `silsila` cells the graph does not read** — one is prose that declines
-  to name an order, one is `Ahl e Sunnat - Ghaznavi silsila`, one is `Malamati`.
-  Two of the three become readable the moment the taxonomy above grows.
+- ~~**Four orders the corpus names and the taxonomy lacks**~~ — **closed.**
+  Rashidi, Malamati, Azeemia and Shattari are in the taxonomy, each with a
+  member, Urdu lifted from already-reviewed strings and no invented description.
+  Slugs follow the sheet's own forms rather than the `-iyya` of the existing
+  five, because a sheet value is a join key and a label is cosmetic (RULE 3);
+  `retiredSlugs` makes a change of convention a redirect.
+- **Two `silsila` cells that still produce no edge** — quoted under `taxonomy`
+  above. Neither is a plumbing failure and one is the survey saying there is no
+  order to name.
 - **Two Urdu names that cannot be lifted mechanically** — `Lava`, whose reviewed
   entry leads with لو (Luv) where the English leads with Lava while another entry
   uses لاوا, and `Jain temple dedicated to Parshvanatha`, whose Urdu reverses the

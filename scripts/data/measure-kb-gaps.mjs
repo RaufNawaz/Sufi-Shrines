@@ -91,14 +91,29 @@ const add = (kind, klass, subject, detail) => gaps.push({ kind, class: klass, su
    `unread` only where the row carries a silsila the graph did not turn into an
    edge. Everything else is evidence: the sheet's silsila column is populated on
    52 of 169 rows, so most figures have no order because none was recorded. */
+const orderNames = (kg.orders ?? []).map((o) => String(o.name ?? '').toLowerCase());
 for (const s of archive) {
   if (withOrder.has(s.slug)) continue;
-  const hasSilsila = anyCell(s.slug, 'silsila');
+  const cells = (rowsForFigure.get(s.slug) ?? []).map((r) => cell(r, 'silsila')).filter(Boolean);
+  if (!cells.length) {
+    add('figure-no-order', 'evidence', s.slug, 'no silsila recorded on any row');
+    continue;
+  }
+  /* A populated silsila cell is not the same as a readable one, and calling
+     every one of them `unread` promises work that cannot be done. Three cells
+     remain and none is a plumbing failure: one is prose that declines to name an
+     order at all, one hedges ("As recorded: …") around a name the taxonomy does
+     not have. Only a cell naming an order the graph already knows is genuinely
+     unread. */
+  const names = cells.join(' ').toLowerCase();
+  const namesKnownOrder = orderNames.some((n) => n && names.includes(n));
   add(
     'figure-no-order',
-    hasSilsila ? 'unread' : 'evidence',
+    namesKnownOrder ? 'unread' : 'taxonomy',
     s.slug,
-    hasSilsila ? 'row records a silsila the graph did not read' : 'no silsila recorded on any row',
+    namesKnownOrder
+      ? `row names an order the graph has and the edge is missing: ${cells.join(' | ')}`
+      : `silsila names no order in the taxonomy: ${cells.join(' | ')}`,
   );
 }
 for (const s of lineageOnly) {
