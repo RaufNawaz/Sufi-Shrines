@@ -116,8 +116,19 @@ const BUDGETS_KB = {
   'src/pages/SaintPage.tsx': 675, // measured 632 on 26 Aug 2026
   'src/pages/OrderPage.tsx': 665, // measured 620 on 26 Aug 2026
   'src/pages/GraphPage.tsx': 615, // measured 574 on 26 Aug 2026
-  'src/pages/AlmanacPage.tsx': 340, // measured 316 on 26 Aug 2026
+  /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
+     UI strings, and the English string table is eager on every route, so the
+     whole table moves together. Almanac was simply the one with the least
+     headroom left (341 against 340). This is the same shared-table effect that
+     made all twelve budgets stale on 27 Aug — if several routes go 1–2 KB over
+     at once, look at uiStrings.ts before looking at the routes. */
+  'src/pages/AlmanacPage.tsx': 345, // measured 341 on 28 Aug 2026
   'src/pages/NotFoundPage.tsx': 270, // measured 250 on 26 Aug 2026
+  /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
+     its own ~4 KB of timeline code — no graph, no provenance, no places index.
+     If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
+     src/lib/kg.ts. */
+  'src/pages/ChronologyPage.tsx': 310, // measured 304 on 28 Aug 2026
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two

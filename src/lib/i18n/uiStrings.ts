@@ -865,6 +865,29 @@ const UI_TEXT_EN = {
   precisionCentury: 'century',
   precisionRange: 'range',
   precisionUnknown: 'unknown',
+  /* ── Chronology (/chronology) ───────────────────────────────────────────
+     Track C. A bar's width is how much the archive knows, which is an
+     inversion a reader will not guess: the *vaguer* the date, the *wider* the
+     mark. The legend has to say that outright or the page reads as the false
+     precision the whole track was deferred over. */
+  chronologyTitle: 'The Archive in Time',
+  chronologyIntro:
+    'Every dated place in the archive, drawn across the centuries and banded by tradition. A bar’s width is the archive’s uncertainty, not a building’s lifetime: an exactly dated place is a tick, a place known only to its century is a hundred years wide. Places the archive cannot date are counted below, not guessed at.',
+  chronologyDated: 'on the timeline',
+  chronologyUndated: 'not dated',
+  chronologyLegendHeading: 'How to read a bar',
+  chronologyLegendWidth:
+    'The wider the bar, the less is known. A circa date is drawn as a fifty-year band around the recorded year — a drawing convention, not a figure from the source.',
+  chronologyRangeNote:
+    'The two places recorded as a range each give a single year, so the extent the word refers to is not in the data; they are drawn at the same width as circa.',
+  chronologyUndatedHeading: 'Not on the timeline',
+  chronologyUndatedIntro:
+    'These places are in the archive and have no bar. Nothing here is estimated: a site the survey did not date stays undated, and a date the survey qualified keeps its qualification.',
+  chronologyNoYear: 'no year recorded',
+  chronologyUnknownYear: 'recorded as unknown',
+  chronologyQualified: 'the recorded date is qualified',
+  chronologyEmptyBand: 'no dated places',
+  chronologySpan: (from: string, to: string) => `${from}–${to}`,
   eventYearLabel: 'Event year',
   contributePrompt:
     'We know little about this site. If you know it, we would like to hear from you.',
@@ -981,6 +1004,7 @@ export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
+export function tFn(lang: Lang, key: 'chronologySpan', from: string, to: string): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeOrder', order: string, n: number): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeAll', n: number): string;
 export function tFn(lang: Lang, key: 'graphLineageUnaffiliated', n: number): string;
@@ -1044,6 +1068,7 @@ export function tFn(
   lang: Lang,
   key:
     | 'resultCount'
+    | 'chronologySpan'
     | 'settingsSavedCount'
     | 'settingsSavedImported'
     | 'distanceAwayKm'

@@ -30,6 +30,7 @@ const AlmanacPage = lazy(() => import('./pages/AlmanacPage'));
    Pages serves files rather than routes. See docs/planning/REVIEW_DESK_2026-08-24.md. */
 const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
+const ChronologyPage = lazy(() => import('./pages/ChronologyPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PlacePage = lazy(() => import('./pages/PlacePage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
@@ -183,6 +184,7 @@ export default function App() {
                     <Route path="/report" element={<Navigate to="/about#site-status" replace />} />
                     <Route path="/review" element={<ReviewPage />} />
                     <Route path="/typology" element={<TypologyPage />} />
+                    <Route path="/chronology" element={<ChronologyPage />} />
                     <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/place/:slug" element={<PlacePage />} />
@@ -255,6 +257,14 @@ export default function App() {
                       element={
                         <UrPrefixNormalizer>
                           <TypologyPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/chronology"
+                      element={
+                        <UrPrefixNormalizer>
+                          <ChronologyPage />
                         </UrPrefixNormalizer>
                       }
                     />

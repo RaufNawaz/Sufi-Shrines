@@ -89,6 +89,7 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | [`planning/PROJECT_VISION.md`](planning/PROJECT_VISION.md)                     | Blue-sky roadmap (Track 0 = Urdu parity; Tracks 1–8 = the future)                  |
 | [`planning/DESIGN_VISION.md`](planning/DESIGN_VISION.md)                       | Aesthetic direction (palette, type, marginalia) + blue-sky features F1–F10         |
 | [`planning/SHARED_GROUND_VISION.md`](planning/SHARED_GROUND_VISION.md)         | Sites that share ground across traditions — tracks A–D, and the 3358 m clustering near-miss |
+| [`planning/TRACK_C_CHRONOLOGY.md`](planning/TRACK_C_CHRONOLOGY.md)             | Track C: the archive across the centuries — why the deferral had gone stale, and the rules that keep an uncertain date from reading as a precise one |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                      |
 | [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for cheaper models                  |
 | [`planning/URDU_IMPLEMENTATION_PLAN.md`](planning/URDU_IMPLEMENTATION_PLAN.md) | Phased Urdu-parity plan (implemented — historical reference)                       |

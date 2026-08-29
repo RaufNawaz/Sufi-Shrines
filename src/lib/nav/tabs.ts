@@ -39,7 +39,15 @@ export const TABS: readonly TabDefinition[] = [
   { id: 'map', path: '/', labelKey: 'tabMap', owns: ['/shrine/', '/place/'] },
   { id: 'explore', path: '/graph', labelKey: 'tabExplore', owns: ['/saint/', '/order/'] },
   { id: 'almanac', path: '/almanac', labelKey: 'tabAlmanac', owns: [] },
-  { id: 'atlas', path: '/typology', labelKey: 'tabAtlas', owns: [] },
+  /* The atlas tab owns `/chronology` as well as its own `/typology`: both are
+     ways of seeing the *whole* archive at once rather than one site — by built
+     form, and by century. A reader who opens the timeline should not be shown
+     five unselected tabs.
+
+     Whether the chronology deserves a tab of its own is a design question and
+     not one to settle by adding a sixth item to a five-item bar at midnight; it
+     is recorded in docs/planning/TRACK_C_CHRONOLOGY.md instead. */
+  { id: 'atlas', path: '/typology', labelKey: 'tabAtlas', owns: ['/chronology'] },
   /* `/settings` sits here for the same reason `/coverage` and `/report` do: it
      is a page *about* the archive rather than a part of its content, it is
      linked from the footer beside "About this archive", and a reader who opens

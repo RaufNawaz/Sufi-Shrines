@@ -1099,6 +1099,11 @@ const APP_ROUTES = [
     titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
   },
   {
+    path: 'chronology',
+    titleEn: 'The Archive in Time — Sufi Shrines',
+    titleUr: `صدیوں میں آرکائیو — ${SITE_TITLE_UR}`,
+  },
+  {
     path: 'typology',
     titleEn: 'Atlas of Built Forms — Sufi Shrines',
     titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,

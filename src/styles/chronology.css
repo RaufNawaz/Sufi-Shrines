@@ -1,0 +1,192 @@
+/* Track C — the archive's span.
+ *
+ * Two decisions are load-bearing and neither is decorative:
+ *
+ * 1. **Width is uncertainty.** A bar is as wide as the archive is unsure, so an
+ *    exactly dated place is a hairline tick and a place known only to its
+ *    century is a hundred years wide. That inversion is not guessable, which is
+ *    why the legend states it in words and every bar carries it in its
+ *    accessible name.
+ * 2. **Tradition is a row label, never a hue.** The lanes are distinguished by
+ *    their headings, so nothing here depends on colour to be read (WCAG 1.4.1,
+ *    HANDOVER §9.48). Bars share one token; no per-tradition palette exists to
+ *    go wrong in the dark theme.
+ *
+ * Positioning is entirely logical (`inset-inline-start`, `inline-size`), which
+ * means the timeline runs right-to-left in Urdu without a second code path —
+ * the direction Urdu readers expect time to flow.
+ */
+
+.chronology-lede {
+  max-inline-size: 62ch;
+  color: var(--color-text-secondary);
+}
+
+.chronology-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-block: 0.75rem 1.5rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
+
+.chronology-scale {
+  position: relative;
+  block-size: 1.5rem;
+  border-block-end: var(--hairline) solid var(--color-border-light);
+  margin-block-end: 0.25rem;
+}
+
+.chronology-tick {
+  position: absolute;
+  inset-block: 0;
+  border-inline-start: var(--hairline) solid var(--color-border-light);
+  padding-inline-start: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.chronology-band {
+  margin-block-end: 1.25rem;
+}
+
+.chronology-band-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-end: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.chronology-band-count {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The lane. Its hairline rules are the century gridlines continued down the
+   page, so a bar can be read against the scale without a ruler. */
+.chronology-lane {
+  position: relative;
+  min-block-size: 2.25rem;
+  padding-block: 0.25rem;
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.chronology-lane-empty {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding-block: 0.4rem;
+}
+
+.chronology-mark {
+  position: absolute;
+  block-size: 0.65rem;
+  min-inline-size: 2px;
+  border-radius: 1px;
+  background: var(--color-primary);
+  text-decoration: none;
+}
+
+/* A century-wide mark is mostly unknown, so it reads as lighter and outlined
+   rather than solid — the same information the width already carries, given a
+   second, non-colour channel (fill vs outline). */
+.chronology-mark--century {
+  background: transparent;
+  border: var(--hairline) solid var(--color-primary);
+}
+
+.chronology-mark--circa {
+  opacity: 0.75;
+}
+
+.chronology-mark:hover,
+.chronology-mark:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+.chronology-legend {
+  margin-block: 2rem 1rem;
+  padding-block-start: 1rem;
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.chronology-legend dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  align-items: center;
+  margin: 0;
+  max-inline-size: 52ch;
+}
+
+.chronology-legend dt {
+  inline-size: 6rem;
+}
+
+.chronology-legend dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.chronology-swatch {
+  display: block;
+  block-size: 0.65rem;
+  background: var(--color-primary);
+  border-radius: 1px;
+}
+
+.chronology-swatch--century {
+  background: transparent;
+  border: var(--hairline) solid var(--color-primary);
+}
+
+.chronology-swatch--circa {
+  opacity: 0.75;
+}
+
+.chronology-undated {
+  margin-block-start: 2rem;
+  padding-block-start: 1rem;
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.chronology-undated-reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-block: 0.5rem 1rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.chronology-undated-list {
+  columns: 2 16rem;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chronology-undated-list li {
+  break-inside: avoid;
+  margin-block-end: 0.3rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .chronology-legend dl {
+    grid-template-columns: 1fr;
+  }
+  .chronology-legend dt {
+    inline-size: 100%;
+  }
+}

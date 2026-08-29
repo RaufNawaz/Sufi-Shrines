@@ -121,6 +121,25 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
+  test('chronology page has no critical violations', async ({ page }) => {
+    /* Track C. Its marks are 120 absolutely-positioned links whose only visible
+       content is their width, so every one of them depends on `aria-label` for
+       a name — exactly the shape axe's link-name rule exists to catch. */
+    await page.goto('/chronology');
+    await page.locator('h1.entity-title').waitFor();
+    await page.locator('.chronology-mark').first().waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('settings page has no critical violations', async ({ page }) => {
     /* The densest page of form controls in the archive, and the only one whose
        whole content is native inputs: a fieldset per option, a legend per
@@ -285,6 +304,7 @@ const DARK_ROUTES = [
   '/almanac',
   '/graph',
   '/typology',
+  '/chronology',
   '/about',
   '/settings',
 ];
