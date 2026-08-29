@@ -302,7 +302,6 @@ export function MapSidebar({
           <div className="sheet-handle-pill" aria-hidden="true" />
         </button>
       )}
-
       {/* Header — hidden in embed mode for minimal iframe chrome */}
       {!embed && (
         <div className="sidebar-header">
@@ -354,24 +353,15 @@ export function MapSidebar({
           </div>
         </div>
       )}
-
-      {/* Status bar */}
-      {loading && (
-        <div className="status-bar" role="status" aria-live="polite">
-          <span className="spinner" />
-          <span>{t('loading')}</span>
-        </div>
-      )}
-
-      {error && !loading && (
-        <div className="error-card" role="alert">
-          <p className="error-message">{t('errorLoadingData')}</p>
-          <button className="retry-btn" onClick={onRetry}>
-            {t('retry')}
-          </button>
-        </div>
-      )}
-
+      {/* The toggle sits ABOVE the status bar, and the order is the point. It used to sit below, so
+      when `loading` ended the status bar was removed and everything under it rose 56px. On a 390px
+      phone the collapsed sheet is a fixed 184px, so that 56px is the difference between this button
+      being 10px below the fold and being on screen: measured 29 August 2026 at 4x CPU and slow 4G,
+      the bar sat at y=782..854 from 4,484ms and only rose to 726..817 at 8,562ms, when the sheet's
+      one route into 169 sites finally became visible. It is also the archive's Urdu LCP element —
+      Nastaliq makes this two-line button the largest contentful thing on the viewport — so the same
+      56px was four seconds of largest-contentful-paint (HANDOVER §9, 28 Aug). A transient element
+      must never sit above a permanent one in a fixed-height sheet. */}
       {/* Table-of-shrines toggle — hidden in embed mode */}
       {!error && !embed && (
         <div className="list-toggle-bar">
@@ -417,7 +407,21 @@ export function MapSidebar({
           </button>
         </div>
       )}
-
+      {/* Status bar */}
+      {loading && (
+        <div className="status-bar" role="status" aria-live="polite">
+          <span className="spinner" />
+          <span>{t('loading')}</span>
+        </div>
+      )}
+      {error && !loading && (
+        <div className="error-card" role="alert">
+          <p className="error-message">{t('errorLoadingData')}</p>
+          <button className="retry-btn" onClick={onRetry}>
+            {t('retry')}
+          </button>
+        </div>
+      )}
       {/* List view */}
       {showList ? (
         <>
@@ -762,7 +766,6 @@ export function MapSidebar({
           )}
         </div>
       )}
-
       {/* Printable ziyarat pack (F6): hidden on screen, becomes the page
           under @media print. Mounted only while the saved filter is active
           and no tour is running — the tour itinerary owns printing then,
