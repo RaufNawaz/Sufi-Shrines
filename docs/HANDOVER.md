@@ -5419,3 +5419,71 @@ carried no fragment and were broken every time rather than by a race; fixing the
 would have been premature; and "second call site, so it is a pattern rather than an incident" was
 correct and undercounted — it is a URL-rebuilding habit, `${pathname}?${params}`, with two more
 live writers of the same shape in `MapPage` left deliberately.
+
+---
+
+### Added 28 August 2026 — the Urdu front door's LCP is Nastaliq, and the `/coverage` shift is reproducible now
+
+Both of the questions the B4 re-run left open are answered, and the answer to each is a *sequence*
+that no total could show. `scripts/measure-lcp.mjs` is committed with this entry — it records every
+LCP candidate as it is promoted and every layout-shift entry with the elements it moved, under
+Lighthouse's own emulation (4× CPU, slow 4G, 390px).
+
+#### 1. The Urdu LCP is not a performance defect. It is a typographic one.
+
+Same page, same build, the two front doors side by side:
+
+    /            1092ms   size    552   span.tabbar-label   "Almanac"
+                 2064ms   size   1862   h1.sidebar-title    "Sufi Shrines"      <- wins at 2.1s
+
+    /?lang=ur    2016ms   size    714   span.tabbar-label   "شخصیات"
+                 4068ms   size   2700   span                "ڈیٹا لوڈ ہو رہا ہے..."
+                 8352ms   size   5070   button.list-toggle-btn  "مزارات کی فہرست"  <- wins at 8.4s
+
+**English's largest contentful element is a static heading that is present at first paint. Urdu's
+is a control that does not exist until the sheet resolves.** `div.list-toggle-bar` arrives at
+~8.3s in Urdu and ~9.4s in English — the same lateness in both — but in English it never becomes
+the LCP element, because a bigger element already painted at 2.1s. In Urdu it wins, because
+**Nastaliq makes that button 5,070px² against the English heading's 1,862px²**: the leading this
+script needs (CLAUDE.md: dense at 1.9) makes a two-line button the largest contentful thing on the
+page.
+
+So the Urdu front door's LCP tracks data arrival and the English one is immune to it, on identical
+code. That is why 97% of it is render delay with TBT at 67ms and every request finished by 3.6s —
+the element is not slow to paint, it is *absent* until then. It also retires the last of the
+27 August candidates: `maplibre-gl`'s evaluation and papaparse's parse are both real and neither is
+in front of this.
+
+**Not fixed, because the fix is a product decision and this session has twice been wrong guessing
+one.** The options are to give the Urdu sidebar a large static element that paints immediately
+(the title, at Nastaliq's size), or to render the toggle bar's shell before the data lands — and
+the second means showing a reader a "list of shrines" control for six seconds before there is a
+list. That is a question about what the archive should show while it is empty, not an engineering
+one.
+
+#### 2. The `/coverage` shift is reproducible, and `measure-cls.mjs` was structurally unable to see it
+
+`measure-cls.mjs` reports **CLS 0 across five runs** on `/coverage`, and is not wrong — it runs
+unthrottled, so the sheet lands at or before first paint and the defect cannot occur. Under the new
+instrument, at 4× CPU and slow 4G, it reappears at the same rate Lighthouse found:
+
+    run 1   CLS 0.0000   0 shifts
+    run 2   CLS 0.1164   1 shift   3860ms   footer.site-footer, section#corrections.about-section
+    run 3   CLS 0.0000   0 shifts
+
+One run in three, the same elements Lighthouse named, at the moment the sheet lands. **A defect that
+only exists when data is late needs an instrument that makes data late**, and the archive did not
+have one — which is the general lesson, and the reason this file now holds a third measurement
+script rather than a note saying the two disagreed.
+
+The budget in `.lighthouserc.cjs` therefore **stays `warn`**, unchanged from the earlier entry, and
+the viewport reserve stays reverted for the reason recorded there.
+
+#### The instrument's own caveats, stated because four have lied here already
+
+It is **not** Lighthouse: same throttle, different harness, and it reports 8.4s where Lighthouse
+reports 15.7s on the same route. Compare its *shape* — the order of candidates, which element won,
+what moved — and quote Lighthouse for any number that has a budget. `--settle` must exceed the LCP
+being chased; a 10s settle on the Urdu front door reports a smaller LCP and a clean CLS, which is
+the instrument agreeing with you rather than measuring. And a warm cache hides all of it, so every
+context is fresh.
