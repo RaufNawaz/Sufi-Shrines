@@ -281,3 +281,138 @@ refresh and stops being carried exactly when the cells it judged have changed.
 
 The other 154 rows are the reason the worksheet exists: they can be answered in a
 sitting, and until now they were indistinguishable from the fifteen that cannot.
+
+### The drafts — 28 August 2026
+
+`draft_verdict` and `draft_rationale` are filled for 154 rows; **`verdict` is empty
+in all 169 and `data:review:figures:check` still reports 0.** A machine proposing
+an answer has reviewed nothing, and the two counts are kept in separate columns so
+the queue cannot come to *look* reviewed — the failure `KG_REVIEW_WORKFLOW.md`
+names.
+
+| draft | rows | rule |
+|---|---|---|
+| `principal` | 147 | The slug does not move (115), or it moves and the name is the same: a title or descriptor leaves the slug, the curated cell gives a fuller form of the same name, or it is a respelling (32). |
+| `needs-human` | 7 | The two cells name the figure *differently*. That is an identity claim and the sheet does not argue for it. |
+| *(blank)* | 15 | Contested. Cases below. |
+
+The rule draws on slug **tokens**, never on how similar the strings look. A
+honorific-stripping matcher proposed 21 merges in this corpus and 19 were wrong.
+Four rows the rules would have waved through are held back by name in
+`FORCE_HUMAN`, each with its reason, so a regeneration re-applies the decision.
+
+**The seven `needs-human` rows.** All are the same move — a widely-known epithet
+retired in favour of a formal name — and it is a decision about how a reader finds
+a page, not a normalisation:
+
+```
+kaka-sahib            -> syed-kasteer-gul
+qalandar-baba-auliya  -> sayyid-muhammad-azeem-barkhiya
+ganj-e-inayat-sarkar  -> pir-muhammad-inayat-ahmad-naqshbandi-mujaddidi
+jahaniyan-jahangasht  -> sayyid-jalaluddin
+bibi-pak-daman        -> the-six-bibis
+guru-gurpat           -> baba-gurpat-sahib
+pir-abdul-ul-karim    -> hazrat-hafiz-muhammad-abdul-karim
+```
+
+**`jahaniyan-jahangasht` is a second row where `principal_figure` is worse**, and
+this document previously said there was only one. `Sayyid Jalaluddin` would stand
+one suffix away from `Sayyid Jalaluddin Surkh-Posh Bukhari`, a different man whose
+own row is in the contested fifteen. The legacy slug is unambiguous; the curated
+one invites exactly the confusion the 19 wrong merges were made of.
+
+---
+
+## The fifteen contested rows are six decisions
+
+Read as fifteen rows they look like fifteen judgements. They are not: several are
+a *consequence* of one row elsewhere in the same cluster, and answering the parent
+settles them.
+
+### 1. Does Kalka Devi split off from Kali? — 3 rows
+
+| row | today | under `principal_figure` |
+|---|---|---|
+| Kalka Cave Temple | `kali` | `kalka-devi` |
+| Kali Bari Mandir | `kali` | `kali` |
+| Kalat Kali Temple | `kali` | `kali` |
+
+Only the first moves; the other two are flagged because their figure would lose a
+temple. **For `principal_figure`:** the cell reads `Kalka Devi (Kali)`, and the
+sheet distinguishing a local form from the pan-Indian goddess is a distinction a
+machine should not flatten. **Against:** it undoes a merge made deliberately on
+28 August, and leaves a one-temple figure beside a two-temple one where the
+archive currently shows three together. This is the row the whole column question
+was reserved for a human over.
+
+### 2. Is Jhulelal one figure, and how many names does he have? — 3 rows
+
+| row | today | under `principal_figure` |
+|---|---|---|
+| Darya Lal Mandir | `jhulelal` | `jhulelal-daryalal` |
+| Jhollay Lal Mandir | `jhulelal` | `jhulelal` |
+| Shrine at Odero Lal | `sheikh-tahir` | `sheikh-tahir-udero-lal` |
+
+The first would split Jhulelal's two temples apart on a slug that is two names
+joined (`jhulelal-daryalal`), which is not a form the archive uses anywhere else.
+The third is a separate question the sheet raises itself: the legacy cell says
+Sheikh Tahir is *"also revered as Udero Lal/Jhulelal"*. Whether that makes him the
+same figure is a claim about devotion across two traditions and is exactly what
+RULE 2 says not to resolve by tidying. Recommend deciding 1 and 2 together; both
+turn on how much local variation a figure node should absorb.
+
+### 3. What is the Tomb of Javindi Bibi filed under? — 2 rows
+
+| row | today | under `principal_figure` |
+|---|---|---|
+| Tomb of Javindi Bibi | `jalaluddin-surkh-posh-bukhari` | `bibi-jawindi` |
+| Shrine of Jalaluddin Surkh-Posh Bukhari | `jalaluddin-surkh-posh-bukhari` | `sayyid-jalaluddin-surkh-posh-bukhari` |
+
+**Look at this one first.** The tomb is currently filed under a figure who is not
+the person the tomb is named for; `principal_figure` says `Bibi Jawindi`. That is
+not a naming preference, it is the archive attributing a woman's tomb to a man. If
+any single row justifies the migration, it is this one — and it can be fixed on
+its own, without the column decision, by adding a `saintMergeVariants`-style
+correction for that row alone.
+
+The second row is a plain honorific addition (`Sayyid`) and only appears here
+because it shares the slug being vacated.
+
+### 4. Three formal-name swaps on well-known epithets — 3 rows
+
+```
+Data Darbar               data-ganj-bakhsh  ->  hazrat-ali-ibn-usman-al-hujwiri
+Bari Imam                 bari-imam         ->  sayyid-abdul-latif-kazmi
+Shrine of Lakhi Shah Saddar  laki-shah-saddar -> syed-shah-sadaruddin-lakyari
+```
+
+Same shape as the seven `needs-human` rows, and here because each also drops a
+`saintMergeVariants` key. `data-ganj-bakhsh` is the archive's most linkable figure
+URL. `laki-shah-saddar` is additionally a *misspelling* the curated column fixes
+(the shrine itself is "Lakhi"), so that one has an argument the other two do not.
+**The trade in every case:** the formal name is the better record, the epithet is
+what a reader searches for. `retiredSlugs` makes the old address a redirect rather
+than a 404, so the cost is real but bounded.
+
+### 5. Hinglaj Mata — `principal_figure` is empty — 1 row
+
+The only row where switching leaves a site with **no figure at all**. Shaktipeeth
+Shri Hinglaj Mata Mandir is one of the archive's most significant Hindu sites.
+Whatever is decided about the column, this row needs the cell filled in the sheet
+first; it is a data gap, not a naming question.
+
+### 6. Two rows that need no decision at all — 3 rows
+
+- **Darbar Wasif Ali Wasif** — both cells identical. Flagged only because the `;`
+  sits inside a parenthetical, so it is here to stop a future reader splitting it.
+  Nothing to decide; do not split.
+- **Gurdwara Chakki Sahib** (`Guru Nanak Dev Ji` → `Guru Nanak`) and **Valmik
+  Mandir** (`Bhagwan Valmik (Valmiki)` → `Valmiki (Bhagwan Valmik)`) — the slug is
+  unchanged either way. Both are flagged only because their legacy cell is a
+  `saintMergeVariants` key that would go dead. Adopting the column means deleting
+  those two entries, which is bookkeeping.
+
+**So the real queue is:** one row to look at first (Javindi Bibi), two clusters
+that turn on a single principle (Kali, Jhulelal), one repeated trade-off across
+ten rows (epithet vs formal name), one sheet gap (Hinglaj Mata), and three rows
+that are bookkeeping.

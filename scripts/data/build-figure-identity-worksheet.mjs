@@ -127,10 +127,75 @@ const COLUMNS = [
   'sites_on_legacy_figure',
   'retires_url',
   'flags',
+  'draft_verdict',
+  'draft_rationale',
   'verdict',
   'chosen_name',
   'reviewer_note',
 ];
+
+/*
+ * A drafted verdict is not a verdict, and the two must never share a column.
+ *
+ * `verdict` stays empty in every row this writes, and `data:review:figures:check`
+ * goes on reporting "0 carry a verdict", because that is true — a machine
+ * proposing an answer has reviewed nothing. The draft sits beside it so a reader
+ * confirms or overrides rather than starting from a blank sheet, which is the
+ * difference between an afternoon and a research project. A queue that *looks*
+ * reviewed is the failure `KG_REVIEW_WORKFLOW.md` names, so the counts are kept
+ * apart on purpose.
+ *
+ * Only rows whose answer follows from the data get a draft. Where the two cells
+ * name the figure *differently* — an identity claim rather than a respelling —
+ * the draft is `needs-human` and says why. That distinction is drawn on the slug
+ * tokens, not on how similar the strings look: a honorific-stripping matcher
+ * proposed 21 merges in this corpus on 28 August and 19 were wrong, because in a
+ * silsila a shared name usually means someone standing one edge away.
+ */
+const tokens = (slug) => new Set(slug.split('-').filter(Boolean));
+const isSubset = (a, b) => a.size < b.size && [...a].every((t) => b.has(t));
+/** Cheap string closeness, for the respelling case (Bahoo/Bahu, Yusaf/Yusuf). */
+function closeness(a, b) {
+  const grams = (s) => {
+    const g = new Set();
+    for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2));
+    return g;
+  };
+  const ga = grams(a);
+  const gb = grams(b);
+  if (!ga.size || !gb.size) return 0;
+  let shared = 0;
+  for (const g of ga) if (gb.has(g)) shared += 1;
+  return (2 * shared) / (ga.size + gb.size);
+}
+
+/*
+ * Rows the rules would wave through and must not, each with the reason. Same
+ * shape and same purpose as `saintDoNotMerge` in kg-seeds.json: a decision
+ * against the obvious answer is only worth anything if it is written down where
+ * the next regeneration will re-apply it.
+ */
+const FORCE_HUMAN = {
+  'jahaniyan-jahangasht': 
+    'principal_figure is WORSE here, and this is the second such row after Kalka Cave Temple. ' +
+    '"Sayyid Jalaluddin" would sit one suffix away from "Sayyid Jalaluddin Surkh-Posh Bukhari", ' +
+    'who is a different man and his grandfather. The legacy slug jahaniyan-jahangasht is ' +
+    'unambiguous and the curated one invites exactly the confusion HANDOVER records 19 wrong ' +
+    'merges for.',
+  'bibi-pak-daman':
+    'A named figure becomes a collective ("The six Bibis"). That is a claim about who is buried ' +
+    'there, not a spelling. Note also that bibi-pak-daman is one of the eight protected slugs in ' +
+    'CLAUDE.md — that protection is on the SHRINE slug and this is the FIGURE slug, so nothing ' +
+    'breaks, but do not approve it on the assumption they are unrelated names.',
+  'guru-gurpat':
+    'Changes the honorific class, Guru -> Baba. In Sikh usage "Guru" is reserved, so this may be ' +
+    'the curated column correcting a real error — or it may be flattening a local usage the ' +
+    'survey recorded. A tradition question, not a data one.',
+  'pir-abdul-ul-karim':
+    'The two cells share only "abdul" and "karim". This asserts that Pir Abdul-ul-karim and ' +
+    'Hazrat Hafiz Muhammad Abdul Karim (Baba Ji) are one man. They may well be; the sheet does ' +
+    'not say so, and a name overlap is not evidence in this corpus.',
+};
 
 const worksheet = [];
 for (const r of perRow) {
@@ -180,6 +245,53 @@ for (const r of perRow) {
     .digest('hex')
     .slice(0, 8);
 
+  /* The draft, and only where the answer follows from the data. Priority 1 rows
+     get none: those are the fifteen the whole decision turns on, and each has a
+     written case for both sides in
+     docs/planning/DECISION_figure_identity_column.md rather than a one-line
+     rationale here. */
+  let draftVerdict = '';
+  let draftRationale = '';
+  const forced = r.legacySlugs.map((sl) => FORCE_HUMAN[sl]).find(Boolean);
+  if (forced) {
+    draftVerdict = 'needs-human';
+    draftRationale = forced;
+  } else if (priority === 1) {
+    draftRationale = 'Contested — see the fifteen cases in DECISION_figure_identity_column.md.';
+  } else if (!r.moves) {
+    draftVerdict = 'principal';
+    draftRationale =
+      r.legacyCell === r.pfCell
+        ? 'The two cells are identical. Adopting the schema column changes nothing.'
+        : 'Different wording, same slug. No URL moves and no reader sees a change; ' +
+          'the curated cell is the better record of the name.';
+  } else {
+    const ta = tokens(r.legacySlugs.join('-'));
+    const tb = tokens(r.pfSlugs.join('-'));
+    if (isSubset(tb, ta)) {
+      draftVerdict = 'principal';
+      draftRationale =
+        'A title or descriptor leaves the slug and the name itself is unchanged ' +
+        `(${[...ta].filter((t) => !tb.has(t)).join(', ')}). Retires the old URL, which ` +
+        'retiredSlugs redirects.';
+    } else if (isSubset(ta, tb)) {
+      draftVerdict = 'principal';
+      draftRationale =
+        'The curated cell gives the fuller recorded form of the same name ' +
+        `(adds ${[...tb].filter((t) => !ta.has(t)).join(', ')}). Retires the old URL, which ` +
+        'retiredSlugs redirects.';
+    } else if (closeness(r.legacySlugs.join('-'), r.pfSlugs.join('-')) >= 0.5) {
+      draftVerdict = 'principal';
+      draftRationale =
+        'A respelling of the same name. Retires the old URL, which retiredSlugs redirects.';
+    } else {
+      draftVerdict = 'needs-human';
+      draftRationale =
+        'The two cells name the figure differently rather than spelling it differently. ' +
+        'That is an identity claim and the sheet does not argue for it.';
+    }
+  }
+
   worksheet.push({
     id: `figure-column:${slugify(r.name)}:${digest}`,
     priority,
@@ -194,6 +306,8 @@ for (const r of perRow) {
       .join(' '),
     retires_url: retiring.join(' '),
     flags: flags.join(' '),
+    draft_verdict: draftVerdict,
+    draft_rationale: draftRationale,
     verdict: '',
     chosen_name: '',
     reviewer_note: '',
@@ -273,6 +387,16 @@ console.log(
 console.log(
   `[figure-identity]   ${moves} row(s) would move to a different figure slug; ` +
     `${retiredSlugs.size} current figure URL(s) would retire`,
+);
+const drafted = worksheet.filter((r) => r.draft_verdict === 'principal').length;
+const needsHuman = worksheet.filter((r) => r.draft_verdict === 'needs-human').length;
+const noDraft = worksheet.filter((r) => !r.draft_verdict).length;
+console.log(
+  `[figure-identity]   drafts: ${drafted} 'principal' | ${needsHuman} 'needs-human' | ` +
+    `${noDraft} left blank (contested)`,
+);
+console.log(
+  `[figure-identity]   a draft is not a verdict — 'verdict' is empty in all ${worksheet.length} rows`,
 );
 if (carried) console.log(`[figure-identity]   carried ${carried} existing verdict(s) across by id`);
 console.log('[figure-identity]   decision: docs/planning/DECISION_figure_identity_column.md');
