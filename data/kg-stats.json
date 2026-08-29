@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-28T15:02:45.324Z",
-  "figures": 132,
+  "generated": "2026-08-29T02:54:38.852Z",
+  "figures": 133,
   "lineageOnlyFigures": 58,
   "orders": 5,
   "places": 94,
@@ -8,11 +8,11 @@
   "ursObservances": 77,
   "sources": 464,
   "citations": 533,
-  "titles": 177,
+  "titles": 178,
   "lineageLinks": 86,
   "lineageLinksUnreviewed": 80,
-  "orderMemberships": 64,
-  "orderMembershipsUnreviewed": 44,
-  "biographiesMachineRead": 96,
+  "orderMemberships": 65,
+  "orderMembershipsUnreviewed": 45,
+  "biographiesMachineRead": 97,
   "disputedDateFigures": 11
 }

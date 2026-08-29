@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-28T15:02:45.324Z",
+  "generated": "2026-08-29T02:54:38.852Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -1233,6 +1233,16 @@
       "quote": "the ancient town in Bahawalpur district that was for centuries a great centre of the Suhrawardi order and of the Bukhari Sayyids",
       "source": "data/shrines.csv#tomb-of-bahaal-halim-uch-sharif",
       "evidence": "edf66dfd"
+    },
+    {
+      "id": "belongs_to_order:saint:bibi-jawindi:order:suhrawardiyya",
+      "kind": "belongs_to_order",
+      "subject": "Bibi Jawindi",
+      "subjectSlug": "bibi-jawindi",
+      "object": "Suhrawardiyya",
+      "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness.",
+      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "evidence": "e5e3d927"
     },
     {
       "id": "belongs_to_order:saint:ghazi-syed-shah-fateh-muhammad-bukhari:order:suhrawardiyya",
@@ -2548,6 +2558,18 @@
       ],
       "source": "data/shrines.csv#tomb-of-bahaal-halim-uch-sharif",
       "evidence": "ab321b4c"
+    },
+    {
+      "id": "biography:bibi-jawindi",
+      "kind": "biography",
+      "subject": "Bibi Jawindi",
+      "subjectSlug": "bibi-jawindi",
+      "object": "",
+      "titles": [
+        "Bibi"
+      ],
+      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "evidence": "a8576364"
     },
     {
       "id": "biography:sultan-qutb-ud-din-aibak",

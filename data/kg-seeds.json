@@ -211,6 +211,13 @@
       "Bhai Mardana"
     ]
   },
+  "_comment_saintFigureByShrine": "Shrine slug -> the figure that site actually commemorates, overriding the row's `Sufi Saint` cell. Needed because the cell-keyed maps above structurally cannot express this: two rows can carry the BYTE-IDENTICAL legacy cell and be about different people, and saintMergeVariants/saintCompositeFigures are keyed on the cell, so anything they do to one they do to both. Use this ONLY where the sheet itself already contradicts the legacy cell (a differing `principal_figure`, `figure_type` or date columns) — never to assert a figure the sheet is silent about (RULE 2). Each entry is a bridge, not a destination: the real fix is a CSV patch correcting the sheet, and `validate-kg-identity.mjs` check 8 fails an entry once the sheet catches up, so a stale override cannot sit here unnoticed.",
+  "saintFigureByShrine": {
+    "tomb-of-javindi-bibi": {
+      "figure": "Bibi Jawindi",
+      "why": "The row's `Sufi Saint` cell reads 'Jalaluddin Surkh-Posh Bukhari' — byte-identical to the cell on 'Shrine of Jalaluddin Surkh-Posh Bukhari', a different monument about a different person — so the graph filed a woman's tomb as one of his two shrines. The sheet already disagrees with itself here in three columns: `principal_figure` is 'Bibi Jawindi', `figure_type` is 'Historical person' where his row says 'Sufi saint', and `figure_born`/`figure_died` (1192/1291) appear only on his row. Nothing is invented by this entry; it adopts what the sheet's own newer columns say. Patch to correct the sheet: data/patch_javindi_bibi_figure_2026-08-28.csv."
+    }
+  },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
     "guru-nanak": {

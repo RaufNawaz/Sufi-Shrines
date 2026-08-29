@@ -163,6 +163,9 @@ const mergeVariants = seeds.saintMergeVariants ?? {};
 /* raw cell → the ordered list of figures it names. First is the primary. */
 const compositeFigures = seeds.saintCompositeFigures ?? {};
 delete compositeFigures.comment;
+/* shrine slug -> { figure, why }. The escape hatch for a row whose legacy cell
+   is about somebody else. See the seed's own comment for when it may be used. */
+const figureByShrine = seeds.saintFigureByShrine ?? {};
 
 /** Every figure a raw `Sufi Saint` cell names, primary first. One name for
  *  almost every row; two for the three that record a site held by two people. */
@@ -174,6 +177,9 @@ function figureNamesFor(rawSaint) {
    so the edges can carry the sheet's own wording (RULE 3) instead of leaving the
    reader to infer why one site sits under two figures. */
 const compositeShrineCell = new Map();
+/* shrine slug -> the figure names to show, for rows where the raw cell is not
+   the right label. See kg-shrine-figure-labels.json's emit block below. */
+const shrineFigureLabels = new Map();
 const seedOrders = seeds.orders ?? [];
 const saintOrders = seeds.saintOrders ?? {};
 delete saintOrders.comment;
@@ -239,7 +245,18 @@ const reviewNeeded = [];
 const retiredSaintSlugs = new Map();
 
 for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
-  const rawSaint = String(row['Sufi Saint'] ?? '').trim();
+  /* The legacy cell, unless this shrine is one of the rows whose cell is about a
+     different monument's figure. Two rows can carry a byte-identical
+     `Sufi Saint` string and mean different people — Tomb of Javindi Bibi and
+     Shrine of Jalaluddin Surkh-Posh Bukhari both read
+     "Jalaluddin Surkh-Posh Bukhari" — and every map above this one is keyed on
+     the cell, so none of them can separate the two. Overriding here, before the
+     cell is read for anything, keeps the composite and merge paths working on
+     the corrected value rather than on a string that names the wrong person. */
+  const override = figureByShrine[shrineSlug];
+  const rawSaint = override
+    ? String(override.figure ?? '').trim()
+    : String(row['Sufi Saint'] ?? '').trim();
   if (!rawSaint) continue;
 
   /* Some sites are held by more than one figure, and the archive is supposed to
@@ -261,6 +278,11 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   const primarySlug = slugify(figureNames[0] ?? '');
   if (!primarySlug) continue;
   if (compositeNames) compositeShrineCell.set(shrineSlug, rawSaint);
+  /* Rows whose `Sufi Saint` cell is not a usable label for the figures the site
+     commemorates — it names two people, or (via saintFigureByShrine) it names
+     somebody else entirely. ShrinePage must render these names rather than the
+     cell, or the page prints one person's name over another person's link. */
+  if (compositeNames || override) shrineFigureLabels.set(shrineSlug, figureNames);
 
   /* Every figure gets a prerendered page and a sitemap entry, so retiring a
      figure slug retires a published URL — and an unknown `/saint/:slug`
@@ -1132,36 +1154,46 @@ writeFileSync(
   'utf8',
 );
 
-// ── names for the rows that name two figures ─────────────────────────
+// ── labels for the rows whose figure cell is not the right label ────────────
 /*
- * The three composite rows, and only those — shrine slug → each figure it
- * names, with the display name beside the slug.
+ * Shrine slug -> each figure the site commemorates, with the display name beside
+ * the slug. Two kinds of row land here, and they are the same problem:
+ *
+ *   · the three composite rows, whose cell names two people;
+ *   · any row in `saintFigureByShrine`, whose cell names somebody else.
  *
  * `kg-shrine-figures.json` above is slugs-only on purpose, and its comment says
- * the moment it grows a second field it stops being cheaper than the graph.
- * That is still true, so this does not add a field to it: ShrinePage needs a
- * *name* only where it must render more than one link, which is three rows out
- * of 169. As its own file that is ~300 bytes; as a name on all 169 it would be
- * the display string and its Urdu for every figure in the archive, which is the
- * saving `kg-shrine-figures.json` exists to make.
+ * the moment it grows a second field it stops being cheaper than the graph. That
+ * is still true, so this does not add a field to it: ShrinePage needs a *name*
+ * only where the raw cell cannot serve as one, which is four rows out of 169.
+ * As its own file that is under a kilobyte; as a name on all 169 it would be
+ * every figure's display string and its Urdu, which is the saving
+ * `kg-shrine-figures.json` exists to make.
  *
- * The name is the canonical figure name — the same string as the graph node's
+ * **Why a row with one figure is in here at all.** Tomb of Javindi Bibi's cell
+ * reads "Jalaluddin Surkh-Posh Bukhari" — a different monument's figure. Once
+ * `saintFigureByShrine` pointed the graph at Bibi Jawindi, ShrinePage went on
+ * taking its *label* from the cell and its *href* from the graph, and the page
+ * printed a man's name over a link to a woman's page. Fixing the graph without
+ * fixing the label is worse than fixing neither: before, the name and the link
+ * agreed and were both wrong; after, they disagreed and only a reader who
+ * clicked found out.
+ *
+ * The name is the canonical figure name, the same string as the graph node's
  * `name`, which is what makes it localizable through the Urdu dictionary. It is
  * NOT the sheet's raw cell: the raw cell is what the infobox renders verbatim,
- * and the two are deliberately different renderings of the same fact. See the
- * comment at ShrinePage's figure row.
+ * and the two are deliberately different renderings of the same fact.
  */
-const compositeShrineFigures = {};
-for (const shrineSlug of [...compositeShrineCell.keys()].sort()) {
-  const rawCell = compositeShrineCell.get(shrineSlug);
-  compositeShrineFigures[shrineSlug] = figureNamesFor(rawCell).map((name) => ({
+const shrineFigureLabelIndex = {};
+for (const shrineSlug of [...shrineFigureLabels.keys()].sort()) {
+  shrineFigureLabelIndex[shrineSlug] = shrineFigureLabels.get(shrineSlug).map((name) => ({
     slug: slugify(name),
     name,
   }));
 }
 writeFileSync(
-  join(ROOT, 'data', 'kg-composite-figures.json'),
-  JSON.stringify(compositeShrineFigures, null, 2) + '\n',
+  join(ROOT, 'data', 'kg-shrine-figure-labels.json'),
+  JSON.stringify(shrineFigureLabelIndex, null, 2) + '\n',
   'utf8',
 );
 
@@ -1261,6 +1293,6 @@ console.log(
   `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,
 );
 console.log(
-  `[kg] ✓ data/kg-composite-figures.json written (${Object.keys(compositeShrineFigures).length} shrines naming more than one figure)`,
+  `[kg] ✓ data/kg-shrine-figure-labels.json written (${Object.keys(shrineFigureLabelIndex).length} shrines whose cell is not the label)`,
 );
 console.log('[kg] ✓ data/kg.json written');

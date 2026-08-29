@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-28T15:02:45.324Z",
+  "generated": "2026-08-29T02:54:38.852Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -1977,8 +1977,7 @@
         "Jalaluddin Bukhari"
       ],
       "shrines": [
-        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari",
-        "tomb-of-javindi-bibi"
+        "shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari"
       ],
       "figureType": "Sufi saint",
       "born": "1192",
@@ -2644,6 +2643,25 @@
       ],
       "biographyReviewed": false,
       "biographySource": "data/shrines.csv#tomb-of-bahaal-halim-uch-sharif"
+    },
+    {
+      "id": "saint:bibi-jawindi",
+      "type": "saint",
+      "slug": "bibi-jawindi",
+      "name": "Bibi Jawindi",
+      "altNames": [
+        "Javindi Bibi"
+      ],
+      "shrines": [
+        "tomb-of-javindi-bibi"
+      ],
+      "figureType": "Historical person",
+      "datePrecision": "unrecorded",
+      "titles": [
+        "Bibi"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#tomb-of-javindi-bibi"
     },
     {
       "id": "saint:sultan-qutb-ud-din-aibak",
@@ -6914,14 +6932,6 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:jalaluddin-surkh-posh-bukhari:tomb-of-javindi-bibi",
-      "type": "buried_at",
-      "subject": "saint:jalaluddin-surkh-posh-bukhari",
-      "object": "tomb-of-javindi-bibi",
-      "confidence": 1,
-      "method": "rule"
-    },
-    {
       "id": "buried_at:saint:laki-shah-saddar:shrine-of-lakhi-shah-saddar",
       "type": "buried_at",
       "subject": "saint:laki-shah-saddar",
@@ -7134,6 +7144,14 @@
       "type": "buried_at",
       "subject": "saint:hazrat-bahaal-halim",
       "object": "tomb-of-bahaal-halim-uch-sharif",
+      "confidence": 1,
+      "method": "rule"
+    },
+    {
+      "id": "buried_at:saint:bibi-jawindi:tomb-of-javindi-bibi",
+      "type": "buried_at",
+      "subject": "saint:bibi-jawindi",
+      "object": "tomb-of-javindi-bibi",
       "confidence": 1,
       "method": "rule"
     },
@@ -10202,6 +10220,18 @@
       "asRecorded": "Suhrawardi"
     },
     {
+      "id": "belongs_to_order:saint:bibi-jawindi:order:suhrawardiyya",
+      "type": "belongs_to_order",
+      "subject": "saint:bibi-jawindi",
+      "object": "order:suhrawardiyya",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#tomb-of-javindi-bibi",
+      "quote": "Bibi Jawindi is remembered as a pious woman of the Jalali Bukhari line — by tradition a great-granddaughter of the celebrated saint Makhdoom Jahaniyan Jahangasht — venerated for her holiness.",
+      "asRecorded": "Suhrawardi"
+    },
+    {
       "id": "belongs_to_order:saint:ghazi-syed-shah-fateh-muhammad-bukhari:order:suhrawardiyya",
       "type": "belongs_to_order",
       "subject": "saint:ghazi-syed-shah-fateh-muhammad-bukhari",
@@ -11419,12 +11449,12 @@
     }
   ],
   "stats": {
-    "saints": 190,
+    "saints": 191,
     "orders": 5,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 640,
+    "relations": 641,
     "ambiguousMerges": 65
   },
   "retiredSlugs": {
@@ -11776,11 +11806,6 @@
       "issue": "name-merge",
       "entityId": "saint:hazrat-bahaal-halim",
       "details": "\"Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)\" merged into canonical \"Hazrat Baha'al-Halim\" (slug: hazrat-bahaal-halim). Verify the merge is correct."
-    },
-    {
-      "issue": "figure-type-conflict",
-      "entityId": "saint:jalaluddin-surkh-posh-bukhari",
-      "details": "figure_type differs across this figure's shrines: kept \"Sufi saint\", also saw \"Historical person\". Decide which is right in the sheet."
     },
     {
       "issue": "name-merge",

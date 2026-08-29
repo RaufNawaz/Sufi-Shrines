@@ -325,6 +325,65 @@ if (existsSync(SHRINES_JSON)) {
   );
 }
 
+// ── 8. every shrine-keyed figure override must still be needed ───────────────
+/*
+ * `saintFigureByShrine` overrides a row's `Sufi Saint` cell where that cell is
+ * about somebody else. It exists because the cell-keyed maps cannot express the
+ * case: Tomb of Javindi Bibi and Shrine of Jalaluddin Surkh-Posh Bukhari carry
+ * byte-identical legacy cells and are different monuments about different people.
+ *
+ * Every entry is a bridge to a sheet correction, not a destination, and a bridge
+ * nobody removes becomes a second source of truth. So: the key must be a real
+ * shrine slug, and the override must still *differ* from the sheet. Once the CSV
+ * patch lands and the cell says what the override says, this fails and tells
+ * whoever imported it to delete the entry.
+ */
+if (existsSync(SHRINES_JSON)) {
+  const { rows: sheetRows } = JSON.parse(readFileSync(SHRINES_JSON, 'utf8'));
+  const overrides = seeds.saintFigureByShrine ?? {};
+  const bySlugCell = new Map();
+  for (const row of sheetRows) {
+    bySlugCell.set(slugify(String(row.Name ?? '')), String(row['Sufi Saint'] ?? '').trim());
+  }
+  let checkedOverrides = 0;
+  for (const [shrineSlug, entry] of Object.entries(overrides)) {
+    if (shrineSlug.startsWith('_')) continue;
+    checkedOverrides += 1;
+    const figure = String(entry?.figure ?? '').trim();
+    if (!figure) {
+      fail(`saintFigureByShrine["${shrineSlug}"] has no figure.`);
+      continue;
+    }
+    if (!String(entry?.why ?? '').trim()) {
+      fail(
+        `saintFigureByShrine["${shrineSlug}"] has no "why". An override of the sheet without a ` +
+          `recorded reason is indistinguishable from a mistake.`,
+      );
+    }
+    if (!bySlugCell.has(shrineSlug)) {
+      fail(
+        `saintFigureByShrine["${shrineSlug}"] names no row in the sheet. The shrine was renamed ` +
+          `or removed, so the override is silently doing nothing.`,
+      );
+      continue;
+    }
+    if (bySlugCell.get(shrineSlug) === figure) {
+      fail(
+        `saintFigureByShrine["${shrineSlug}"] is obsolete: the sheet's own Sufi Saint cell now ` +
+          `reads "${figure}". The patch has landed — delete the entry rather than leaving a ` +
+          `second source of truth behind it.`,
+      );
+    }
+  }
+  if (checkedOverrides) {
+    const bad = failures.filter((f) => f.startsWith('saintFigureByShrine')).length;
+    notes.push(
+      `${checkedOverrides} shrine-keyed figure override(s)` +
+        (bad ? `, ${bad} of them broken` : ', all live'),
+    );
+  }
+}
+
 // ── report ───────────────────────────────────────────────────────────────────
 
 for (const note of notes) console.log(`[kg-identity] ${note}`);
