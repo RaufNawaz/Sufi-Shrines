@@ -5607,3 +5607,90 @@ directly rather than through a pipe, because `$?` after `| tail` is `tail`'s.
 other's staged work under the wrong message. The second half of the rule is **`git diff --cached`
 before every commit, and `git commit -o <paths>`**, which commits only the named paths and leaves
 the rest of the index alone. Caught here before it did damage, by the other session, twice.
+
+---
+
+### Added 28 August 2026 (overnight) — "bridge all the gaps", measured before it was attempted
+
+The instruction was to complete and bridge every gap in the knowledge base. The first thing that
+needed establishing is that **most of them cannot be bridged by anyone at a keyboard**, and the
+full account is now `docs/KNOWLEDGE_BASE_GAPS.md` with `scripts/data/measure-kb-gaps.mjs` behind
+it. Classified by what could close it:
+
+```
+evidence       388   the archive does not record it — RULE 2 forbids supplying it
+human-review   125   the two review worksheets
+informational   17   a proxy with no true positives left
+unread          48 -> 5   an agent, and tonight did
+by-design        2   a rule working correctly
+```
+
+**73% of what is missing is missing because nobody recorded it.** That number is the deliverable.
+A report that lumped the classes together would turn a field-research problem into a to-do list,
+and the way an agent completes a to-do list of unrecorded facts is by supplying them from general
+knowledge — which is precisely `docs/allo_mahar_resolution.md`, 700 confident words about the wrong
+man, built out of real sentences about a real saint.
+
+**What actually closed.**
+
+| | before | after |
+|---|---|---|
+| figures whose Urdu name renders Latin (recorded-name path) | 51 / 133 | 9 / 133 |
+| figure cells that are a name plus a description | 5 | 0 |
+| silsilas named by the archive but absent from the taxonomy | 4 | 0 |
+| `unread` gaps | 48 | 5 |
+
+`evidence` did not move, and that is the correct outcome rather than a shortfall.
+
+**Three traps, and each is a rename hazard the next person will meet.**
+
+1. **Shortening five slugs created two duplicate figures.** The proposal path mints nodes
+   independently of the sheet path and joins them by identical name; the proposals carry the *long*
+   name, so shortening broke the join and `bhai-gurdas` existed twice, one node holding the site and
+   the other the lineage. The only symptom was a node count of 192 where 191 was right.
+2. **It silently un-did an existing merge.** `shah-abul-muali-qadri` had been joined to the
+   long-named node *because the names matched*. Both fixed by keying the identity index on
+   `altNames` as well as `name` — still exact-after-normalisation, never similarity.
+3. **`figureColumns.mjs` did not know the new rule** and derived five slugs that had just stopped
+   being nodes. Caught by check 7 of `validate-kg-identity.mjs`, written that morning for exactly
+   this class and firing for the first time that night. A gate that has never fired is a gate
+   nobody knows is wired up.
+
+**And a rename recovered evidence the repository already held.** Malik Ahmad Ayaz's date proposal
+is keyed on the slug `malik-ahmad-ayaz`; his node was
+`malik-ahmad-ayaz-described-in-the-survey-as-slave-of-…`. The two never met, so the proposal
+resolved to nothing and was dropped on every build. He now carries a `biographySource` and a date
+precision that were sitting in the repo unattached — the same shape as Bhai Lalo's birth year.
+
+**The four silsilas were nearly four dead routes.** Rashidi, Malamati, Azeemia and Shattari are
+each named in a `silsila` cell, and `build-kg` drops a membership edge whose parent order is not in
+the taxonomy — which is why Shah Hussain had *no* order edge at all despite his row reading
+"Malamati". The first check, the order-proposals file, showed **no proposal referencing any of the
+four**; adding them on that basis would have published four empty pages. Only the sheet's own cells
+showed the five rows that name them. `saintOrders` also had to learn to hold more than one order,
+because Qalandar Baba Auliya is seeded `qalandariyya` while his row says "Azeemia".
+
+**A fourth instrument-invalidated-by-correct-work, making it the day's pattern rather than three
+incidents.** `kgNameCoverage.test.ts` asserted `translateToUrdu('Data Ganj Bakhsh')` comes back
+unchanged — *because that name had no dictionary entry*. The Urdu derivation gave it one, and the
+test went red with its invariant perfectly intact and its sentinel dead. The tempting fix was to
+delete the entry and re-break a figure's name. It now finds a sentinel at run time and fails loudly
+if none exists rather than passing vacuously. Alongside `measure-figure-identity-columns.mjs` (this
+morning), `measure-label-link-agreement.mjs` (that evening) and this, the rule is:
+**an instrument whose premise is a fact about the data will be invalidated by correct work on the
+data, and it should assert its premise rather than assume it.**
+
+**The Urdu derivation, and why it is narrow.** `build_dictionary.py` now derives the bare name from
+a glossed entry — `Shiva (Mahadev)` → `شیو` — rather than 42 pasted strings, so it keeps working as
+figures arrive. The English key must be exactly `<name> (<gloss>)` *and* the Urdu must itself end in
+a parenthetical. Both guards earn their keep: a looser rule takes `بھگوان والمیک` as the Urdu for
+"Valmiki", pairs "Guru Gobind Singh" with an entry about Bhai Biba Singh, and mangles "Jain temple
+dedicated to Parshvanatha", whose Urdu reverses the word order. Cost: the seed 80,452 → 88,485
+bytes, paid only by Urdu readers. **Note `npm run data:build:urdu` is not enough** — it runs step 1
+of `urdu-i18n/build-all.sh`, and the runtime seed is step 2, a plain `cp` to
+`src/data/urdu-seed.json`. The dictionary said one thing and the app another until that copy ran.
+
+**Still open**, in the order a human can clear them: the two review queues (0 of 255, 0 of 169 with
+154 drafted); three `silsila` cells that are prose or an order still outside the taxonomy; two Urdu
+names that cannot be lifted mechanically (`Lava`, whose reviewed Urdu leads with لو where the
+English leads with Lava); and the 58 lineage-only figures whose Urdu debt is a recorded budget.
