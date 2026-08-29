@@ -5980,3 +5980,63 @@ open a preview on hover *or focus*. Three things that cost, each worth knowing:
 The lazy load then made my own e2e spec flaky — it filtered for pictured nodes on a first paint
 that by design has none, passing alone and failing under five workers. The spec polls now. The lazy
 load is the feature; racing it was the test's bug.
+
+---
+
+### Added 29 August 2026 — the full sweep, and why the CLS budget stays `warn` after all
+
+Eleven routes, three runs each, medians, on a quiet machine — the first sweep since `/chronology`
+shipped and since the two ordering fixes above.
+
+| route | perf | a11y | FCP | LCP | TBT | CLS |
+|---|---|---|---|---|---|---|
+| `/chronology` | **97** | 100 | 1903 | 2300 | **1** | 0.017 |
+| `/about#traditions` | 97 | 100 | 1895 | 2306 | 6 | 0.021 |
+| `/about` | 96 | 100 | 1904 | 2475 | 6 | 0.021 |
+| `/almanac` | 95 | 100 | 1979 | 2603 | 13 | 0.021 |
+| `/graph` | 94 | 100 | 2127 | 2750 | 23 | 0.014 |
+| `/saint/data-ganj-bakhsh` | 90 | 100 | 2355 | 3204 | 0 | 0.029 |
+| `/order/qadiriyya` | 80 | 100 | 2278 | 3201 | 29 | **0.219** |
+| `/place/lahore` | 79 | 100 | 1981 | 5274 | 5 | 0.0004 |
+| `/shrine/data-darbar` | 74 | 100 | 2208 | 7244 | 49 | 0 |
+| `/?lang=ur` | 59 | 100 | 3159 | **8457** | 262 | 0.0004 |
+| `/` | 58 | 100 | 2307 | 3357 | **879** | 0.039 |
+
+**Accessibility is 100 on all eleven**, now including WCAG 2.2. The Urdu LCP fix holds at 8,457ms
+against 15,183ms. `/chronology` is the fastest route in the archive.
+
+#### The CLS budget stays `warn`, and this is the evidence that settles it
+
+I opened that question yesterday and deferred it on the `/coverage` outlier. `/coverage` is fixed
+(0.0000 across five runs) — and promoting the assertion would still be wrong, because
+**`/order/qadiriyya` measures 0.219 on all three runs.**
+
+It is not a regression and it is not the peer's graph work. Lighthouse attributes it exactly, which
+nothing had done before:
+
+    0.2186   div.entity-article-layout   caused by:
+             fonts.gstatic.com/…/sourcesans3…woff2
+             fonts.gstatic.com/…/merriweather…woff2
+
+**It is the web-font reflow this file already calls "the archive's last remaining shift", now
+measured with a score and a cause.** The same route read **0.0002** on the 28 August sweep — three
+consistent runs then, three consistent runs now — so the number depends on whether the font lands
+before or after the first paint, which is an environment property rather than a code one. Both
+figures are honest and neither is the route's "real" CLS.
+
+Two things follow. **An error-level CLS budget would be red or green by luck**, which is worse than
+no gate. And the fix is not a budget: it is `font-display`/metric-matching or the self-hosted fonts
+already staged once and abandoned on a service-worker precache trap. That is a real piece of work
+and not a 4am one.
+
+`scripts/measure-cls.mjs` and `scripts/measure-lcp.mjs` both read ~0 on this route, correctly:
+unthrottled, the fonts arrive before paint. Lighthouse stays authoritative for CLS.
+
+#### One number recorded as unstable rather than as a finding
+
+`/` shows TBT 879ms, and the three runs were **1284 / 879 / 511** — a spread wider than the value.
+Earlier the same night the same route measured 65 / 96 / 63. Something on the map route is
+extremely sensitive to machine state, and **nothing here should be quoted as the map's blocking
+time** until it is re-measured on an idle machine. Recorded because a number this unstable is
+itself the finding: the 74ms figure in the 28 August entry was one sample of a very wide
+distribution.
