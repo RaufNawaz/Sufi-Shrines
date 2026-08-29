@@ -7,6 +7,7 @@ export type KGRelationType =
   | 'belongs_to_order' // saint → order
   | 'located_in' // shrine slug → place
   | 'commemorated_by' // saint → event
+  | 'kin_of' // saint → saint (blood or marriage; always junior → senior)
   | 'attested_in'; // entity/relation id → source
 
 export interface KGEntity {
@@ -158,6 +159,50 @@ export interface KGRelation {
   branch?: string;
   /** belongs_to_order only: the sheet's `silsila` cell verbatim (RULE 3). */
   asRecorded?: string;
+  /** kin_of only: which tie, from a closed vocabulary — `son_of`,
+   * `daughter_of`, `grandson_of`, `descendant_of`, `nephew_of`,
+   * `son_in_law_of`. A string rather than a union for the same reason
+   * `datePrecision` is: it comes from data, and a seventh value must not break
+   * the build. */
+  kinType?: string;
+  /** kin_of only: what to call the OBJECT in relation to the subject, and the
+   * subject in relation to the object — `father`/`son`, `uncleMaternal`/
+   * `nephewMaternal`, and so on. Two labels rather than one predicate because
+   * the edge is read from both figures' pages, and a closed vocabulary rather
+   * than free text because **Urdu splits what English does not**: a paternal
+   * grandfather is دادا and a maternal one نانا, so a single translated
+   * "grandfather" would assert a line the source may never state. Where the
+   * entry says which side, the specific role is used; where it does not, the
+   * `*Unspecified` role keeps both readings. See
+   * `data/kg-seeds.json#_comment_familyRelations`.
+   */
+  elderRole?: string;
+  juniorRole?: string;
+  /** kin_of only: the junior side is a collective, so its role reads plural.
+   * True for exactly one edge — the six women of Bibi Pak Daman. */
+  juniorIsPlural?: boolean;
+  /** kin_of only: the sources agree on descent and disagree on how many
+   * generations. Present rather than resolved (RULE 2). */
+  generationDisputed?: boolean;
+  /** kin_of only: the entry reports this parentage as one of two competing
+   * traditions, not as settled. */
+  contested?: boolean;
+  /** kin_of only: the source's own phrase for the tie, verbatim — "his own
+   * maternal uncle", "the latter's son". English prose, so it is shown only
+   * where a verbatim quote may be (i18n rule 7); the translated role labels
+   * carry the meaning in both languages. */
+  kinWording?: string;
+}
+
+/** Family the archive records without naming the relative on the other end.
+ * Not a relation — there is no second node to point at — but a recorded fact,
+ * and dropping it would lose a real succession. Two of them. */
+export interface KGKinNote {
+  saintSlug: string;
+  wording: string;
+  quote: string;
+  source: string;
+  notes?: string;
 }
 
 export interface KGReviewItem {
@@ -207,5 +252,17 @@ export interface KGStore {
    * Optional so an older `kg.json` still type-checks.
    */
   retiredSlugs?: Record<string, string>;
-  reviewNeeded: KGReviewItem[];
+  /** Optional so an older `kg.json` still type-checks. */
+  kinNotes?: KGKinNote[];
+  /**
+   * Absent from `data/kg.json`, for the same reason `sources` is.
+   *
+   * These are the build's own follow-up notes — 79 of them, 17.6 KB — and no
+   * page has ever read one; the only consumer is
+   * `scripts/data/measure-kb-gaps.mjs`, at build time. They live in
+   * `data/kg-review-needed.json` now. `stats.ambiguousMerges` still counts them.
+   *
+   * Optional so an older `kg.json` still type-checks.
+   */
+  reviewNeeded?: KGReviewItem[];
 }

@@ -815,6 +815,32 @@ SAINTS = {
  # UNREVIEWED DRAFTS. Confidence is high for the Punjabi/Urdu Muslim names and
  # lower for the Sindhi Hindu ones ("Asudaram", "Satramdas"), where more than
  # one spelling is current. See TRANSLATION_LOG.md and docs/TODO.md §0.
+ # ── Figures the kinship pass named, added 29 August 2026 ─────────────────────
+ # Eight people the archive names only as somebody's father, uncle or forebear.
+ # They became graph nodes when `familyRelations` landed, and a new lineage-only
+ # node with no dictionary entry is a figure page titled in Latin in the Urdu
+ # view — the exact regression this block exists to prevent. Adding them here
+ # returns the lineage-only Urdu debt to the 58 recorded on 28 August rather
+ # than raising the ceiling to 66.
+ #
+ # Same practice as the block below: the Perso-Arabic spelling is the ORIGINAL
+ # for seven of these names, so this restores it rather than translating.
+ # "Sri Chand" is the exception — a Punjabi name in its usual Urdu spelling.
+ # UNREVIEWED DRAFTS.
+ "Syed Nasiruddin Mahmud": "سید نصیر الدین محمود",
+ "Sayyid Ahmad Tokhta Tirmidhi": "سید احمد تختہ ترمذی",
+ "Hazrat Peer Syed Abdullah": "حضرت پیر سید عبداللہ",
+ "Sheikh Abdul Qadir Gilani": "شیخ عبدالقادر جیلانی",
+ "Syed Ahmad Shah": "سید احمد شاہ",
+ "Sri Chand": "سری چند",
+ "Hazrat Hafiz Muhammad Abdul Karim": "حضرت حافظ محمد عبدالکریم",
+ "Jamal-ud-Din Gilani": "جمال الدین جیلانی",
+ # Not a new node — he was already in the graph as Baba Ji's successor at Eidgah
+ # Sharif — but the kinship row that now names him reads "‹Latin name› کے والد"
+ # in the Urdu view, so the debt was suddenly sitting inside an Urdu sentence
+ # rather than beside one. Translating him is a line.
+ "Hazrat Hafiz Muhammad Abdur Rahman": "حضرت حافظ محمد عبدالرحمٰن",
+
  "Bhai Waliram": "بھائی والی رام",
  "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri":
      "حضرت سید محمد خیر الدین، معروف بہ شاہ ابو المعالی قادری",

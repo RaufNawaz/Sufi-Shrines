@@ -9,6 +9,7 @@ import {
   localizeOrderName,
   localizeAltName,
 } from '../../lib/i18n/localizeKgName';
+import { renderInlineBold } from '../shrine/inlineFormat';
 
 interface Props {
   order: KGOrder | undefined;
@@ -62,7 +63,7 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
            leave the reader an exact search string (i18n rule 7). `lang`/`dir`
            keep an English sentence's punctuation inside an RTL page. */
         <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
-          {link.quote}
+          {renderInlineBold(link.quote)}
           {link.source && <cite className="graph-lineage-cite">{link.source}</cite>}
         </blockquote>
       )}

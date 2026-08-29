@@ -7,6 +7,7 @@ import type {
   KGEvent,
   KGRelation,
   KGRelationType,
+  KGKinNote,
 } from '../types/kg';
 
 const kg = rawKG as unknown as KGStore;
@@ -233,6 +234,102 @@ export function getDisciplesOf(saintSlug: string): LineageLink[] {
       toLineageLink(r, getSaintBySlug(r.subject.replace(/^saint:/, ''))),
     ),
   ).filter((link): link is LineageLink => link !== null);
+}
+
+/**
+ * One recorded family tie, seen from one figure's page.
+ *
+ * The stored edge always runs junior → senior (subject is the son, grandson,
+ * nephew, son-in-law or descendant of the object), so the same edge has to read
+ * correctly from both ends. `role` is what to call **the other figure** from
+ * where the reader is standing: the object's `elderRole` when this page is the
+ * junior, the subject's `juniorRole` when it is the senior. That is why the
+ * seed carries two labels and not one predicate — "grandson of" is unreadable
+ * on the grandfather's page.
+ */
+export interface KinLink {
+  /** The figure at the other end of the tie. */
+  saint: KGSaint;
+  /** Closed-vocabulary label key for `saint`'s role — `father`, `son`,
+   * `uncleMaternal`, `grandsonUnspecified` … See UI_TEXT `kinRole*`. */
+  role: string;
+  /** The same for the figure whose page this is — the other half of the pair.
+   * A page usually needs only `role` (it names the other person), but a list
+   * that introduces THIS figure to a reader needs to say what they are: the
+   * `/graph` roster of figures with no site here says "father of X", and
+   * without this it could only say "X". */
+  selfRole: string;
+  kinType: string;
+  /** True when the reader's figure is the junior side — i.e. `saint` is the
+   * elder. Lets a page group ties by generation without re-deriving it. */
+  otherIsElder: boolean;
+  /** `saint` is a collective and its role reads plural (the six of Bibi Pak
+   * Daman). */
+  plural: boolean;
+  /** The sources agree on descent and not on how many generations. */
+  generationDisputed: boolean;
+  /** The entry reports this parentage as one of two competing traditions. */
+  contested: boolean;
+  /** The source's own phrase, verbatim. English prose — show it only where a
+   * quote may go (i18n rule 7). */
+  wording?: string;
+  quote?: string;
+  source?: string;
+  confidence: number;
+}
+
+function toKinLink(
+  r: KGRelation,
+  saint: KGSaint | undefined,
+  otherIsElder: boolean,
+): KinLink | null {
+  if (!saint || !r.kinType) return null;
+  const role = otherIsElder ? r.elderRole : r.juniorRole;
+  const selfRole = otherIsElder ? r.juniorRole : r.elderRole;
+  if (!role || !selfRole) return null;
+  return {
+    saint,
+    role,
+    selfRole,
+    kinType: r.kinType,
+    otherIsElder,
+    plural: !otherIsElder && r.juniorIsPlural === true,
+    generationDisputed: r.generationDisputed === true,
+    contested: r.contested === true,
+    confidence: r.confidence,
+    ...(r.kinWording ? { wording: r.kinWording } : {}),
+    ...(r.quote ? { quote: r.quote } : {}),
+    ...(r.source ? { source: r.source } : {}),
+  };
+}
+
+/**
+ * Every family tie recorded for a figure, both directions, elders first.
+ *
+ * Kinship was in the archive's prose and outside its graph until 29 August
+ * 2026: the relation vocabulary knew only `disciple_of` and `successor_of`, so
+ * 28 ties that an extraction pass had already quoted verbatim — Shah Rukn-e-Alam
+ * to Bahauddin Zakariya, Bibi Jawindi to Jahaniyan Jahangasht, thirteen
+ * father-to-son successions of a *sajjada nashin* — were held in a proposals
+ * file and rendered nowhere. In this corpus a seat passes down a family at
+ * least as often as down a chain of initiation, and Bibi Jawindi's only tie to
+ * anything in the graph is a line of descent.
+ */
+export function getKinOf(saintSlug: string): KinLink[] {
+  const asJunior = getRelations({ subject: `saint:${saintSlug}`, type: 'kin_of' }).map((r) =>
+    toKinLink(r, getSaintBySlug(r.object.replace(/^saint:/, '')), true),
+  );
+  const asSenior = getRelations({ object: `saint:${saintSlug}`, type: 'kin_of' }).map((r) =>
+    toKinLink(r, getSaintBySlug(r.subject.replace(/^saint:/, '')), false),
+  );
+  return [...asJunior, ...asSenior].filter((l): l is KinLink => l !== null);
+}
+
+/** Family the archive records for this figure without naming the relative —
+ * a succession with nobody on the other end of it. Two in the whole graph, and
+ * both would simply vanish if the page only rendered edges. */
+export function getKinNotes(saintSlug: string): KGKinNote[] {
+  return (kg.kinNotes ?? []).filter((n) => n.saintSlug === saintSlug);
 }
 
 /** One remove up a chain of transmission. */

@@ -16,7 +16,9 @@ import {
   getLineageOnlyFigures,
   getDisciplesOf,
   getTeachersOf,
+  getKinOf,
 } from '../lib/kg';
+import type { KinLink } from '../lib/kg';
 import {
   FIGURE_GROUP_ORDER,
   figureGroup,
@@ -26,10 +28,12 @@ import {
 import type { FigureGroup } from '../lib/data/figureType';
 import type { KGSaint } from '../types/kg';
 import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
+import { KIN_ROLE_KEYS } from '../lib/data/kinRoles';
+import { renderInlineBold } from '../components/shrine/inlineFormat';
 import { figureImage } from '../lib/kgFigureImages';
 import { useFigureImages } from '../hooks/useFigureImages';
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
-import { tFn } from '../lib/i18n/uiStrings';
+import { t, tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 import { centurySpan, figureCentury } from '../lib/data/figureDates';
 import { CENTURY_ORDINAL } from '../lib/data/era';
@@ -50,11 +54,17 @@ function centuryLabel(century: number, lang: Lang): string {
 }
 
 /**
- * "teacher of X and 3 more", or "disciple of Y".
+ * "teacher of X and 3 more", "disciple of Y", or "father of Z".
  *
- * Both directions, because the graph connects these figures both ways: 43 of the
- * 60 are recorded as somebody's teacher and 17 as somebody's disciple. A
- * function rather than a ternary in the JSX because the four string keys differ
+ * All three directions, because the graph connects these figures three ways and
+ * a note that assumes one leaves the rest of the roster a bare name. That has
+ * now happened twice: the first draft assumed everyone here was somebody's
+ * teacher and left 17 disciples blank, and the kinship pass of 29 August 2026
+ * added eight more who are named as somebody's father, uncle or forebear and
+ * appear in no chain at all — Sri Chand, whom four Udasi darbars in this
+ * archive invoke without one recorded discipleship, among them.
+ *
+ * A function rather than a ternary in the JSX because the six string keys differ
  * in arity, and picking the wrong pair silently renders "teacher of undefined".
  */
 function lineageOnlyNote(lang: Lang, direction: 'teacher' | 'disciple', people: KGSaint[]): string {
@@ -68,6 +78,19 @@ function lineageOnlyNote(lang: Lang, direction: 'teacher' | 'disciple', people: 
   return others > 0
     ? tFn(lang, 'graphLineageOnlyDiscipleOfMore', first, others)
     : tFn(lang, 'graphLineageOnlyDiscipleOf', first);
+}
+
+/** The kin form: what THIS figure is to the person they are recorded with —
+ * `selfRole`, not `role`, which names the other end. */
+function kinOnlyNote(lang: Lang, links: KinLink[]): string | undefined {
+  const [first, ...rest] = links;
+  const roleKey = KIN_ROLE_KEYS[first.selfRole];
+  if (!roleKey) return undefined;
+  const role = t(lang, roleKey);
+  const name = localizeFigureName(first.saint, lang);
+  return rest.length > 0
+    ? tFn(lang, 'graphLineageOnlyKinOfMore', role, name, rest.length)
+    : tFn(lang, 'graphLineageOnlyKinOf', role, name);
 }
 
 export default function GraphPage() {
@@ -270,11 +293,12 @@ export default function GraphPage() {
            entry in an archive of Pakistan. Assuming they were all teachers is
            how the first draft of this left 17 rows with no note at all. */
         const disciples = people(getDisciplesOf(saint.slug));
-        return {
-          saint,
-          disciples,
-          teachers: disciples.length > 0 ? [] : people(getTeachersOf(saint.slug)),
-        };
+        const teachers = disciples.length > 0 ? [] : people(getTeachersOf(saint.slug));
+        /* And the third direction, for the eight who are in no chain at all:
+           named as somebody's family. Read only when the chain gives nothing,
+           so a figure who is both keeps the note a reader is used to. */
+        const kin = disciples.length + teachers.length > 0 ? [] : getKinOf(saint.slug);
+        return { saint, disciples, teachers, kin };
       })
       .sort((a, b) =>
         collator.compare(localizeFigureName(a.saint, lang), localizeFigureName(b.saint, lang)),
@@ -511,7 +535,7 @@ export default function GraphPage() {
                        `data-latin` so the no-leak guard reads it as
                        deliberate rather than untranslated. */
                     <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
-                      {edge.quote}
+                      {renderInlineBold(edge.quote)}
                       {edge.source && <cite className="graph-lineage-cite">{edge.source}</cite>}
                     </blockquote>
                   )}
@@ -664,7 +688,7 @@ export default function GraphPage() {
             </h2>
             <p className="graph-figures-note">{t('graphLineageOnlyNote')}</p>
             <ul className="graph-lineage-only-list inset-list">
-              {lineageOnlyFigures.map(({ saint, disciples, teachers }) => (
+              {lineageOnlyFigures.map(({ saint, disciples, teachers, kin }) => (
                 <li key={saint.slug} className="inset-row inset-row--link">
                   <Link to={`/saint/${saint.slug}`} lang={isRtl ? 'ur' : undefined}>
                     {/* `data-latin` on both: unlike the archive's own figures,
@@ -691,6 +715,11 @@ export default function GraphPage() {
                             ),
                           )}
                         </bdi>
+                      </span>
+                    )}
+                    {!disciples[0] && !teachers[0] && kin[0] && (
+                      <span className="inset-row-note" data-latin>
+                        <bdi>{fmtNum(kinOnlyNote(lang, kin) ?? '')}</bdi>
                       </span>
                     )}
                     <span className="inset-row-chevron" />

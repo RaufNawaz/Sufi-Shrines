@@ -194,6 +194,15 @@ const saintOrders = seeds.saintOrders ?? {};
 delete saintOrders.comment;
 const qidMap = seeds.saintWikidataQids ?? {};
 const lineageRelations = seeds.lineageRelations ?? [];
+/* Kinship the archive states in its own prose — 28 edges the graph held in
+   data/kg-lineage-proposals.json#familyRelations and never read, because the
+   relation vocabulary knew only teaching. In this corpus a seat passes down a
+   family at least as often as down a chain of initiation, so a graph without
+   them was describing half of what the entries say. Decisions (slug, kinType,
+   the two role labels) are human and live in the seed file; the prose beside
+   them is copied, never retyped. See kg-seeds.json#_comment_familyRelations. */
+const familyRelations = seeds.familyRelations ?? [];
+const kinNotes = seeds.kinNotes ?? [];
 
 /* ── machine-extracted proposals ───────────────────────────────────────────────
    data/kg-lineage-proposals.json and data/kg-order-proposals.json are agent
@@ -622,6 +631,53 @@ for (const p of lineageProposals) {
   }
 }
 
+/* The same, for people named only as somebody's father, uncle or forebear.
+   Eight of them, and they are lineage-only for exactly the reason the teachers
+   above are: Sri Chand has four Udasi darbars in this archive that invoke him
+   and no site of his own, and the Qadiriyya's eponym is named by a Jhang entry
+   tracing its saint's descent to him. Without a node the sentence has nothing
+   to point at.
+
+   `objectNodeName` rather than `objectName`: the proposals file writes a
+   combined display form ("Hazrat Hafiz Muhammad Abdul Karim (Baba Ji)") and the
+   parenthetical is an epithet, not part of the name. The alias check is the
+   same one the lineage loop runs — an identical name already in the graph joins
+   rather than growing a twin. */
+for (const f of familyRelations) {
+  for (const side of ['subject', 'object']) {
+    if (!f[`${side}IsNew`]) continue;
+    const slug = f[`${side}Slug`];
+    const name = f[`${side}NodeName`] || f[`${side}Name`];
+    if (!slug || saintMap.has(slug) || saintSlugAliases.has(slug)) continue;
+
+    const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
+    if (existing && existing !== slug) {
+      saintSlugAliases.set(slug, existing);
+      reviewNeeded.push({
+        issue: 'kin-figure-joined',
+        entityId: `saint:${existing}`,
+        details:
+          `familyRelations names "${name}" as a new figure "${slug}", but the ` +
+          `graph already holds that exact name as "${existing}". Joined.`,
+      });
+      continue;
+    }
+
+    saintMap.set(slug, {
+      id: `saint:${slug}`,
+      type: 'saint',
+      slug,
+      name: name || slug,
+      altNames: [],
+      shrines: [],
+      lineageOnly: true,
+      reviewed: false,
+    });
+    const key = saintNameKey(name ?? '');
+    if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, slug);
+  }
+}
+
 /* Biographical anchors — dates, titles, alt-names — read out of the same prose.
    Only fills what is EMPTY: a value already in the sheet is the sheet's to
    change (RULE 3), and 17 of these proposals disagree with a column. Those
@@ -902,6 +958,59 @@ for (const rel of lineageRelations) {
   });
 }
 
+// saint → kin_of → saint (from seeds; always junior → senior)
+for (const f of familyRelations) {
+  const subjectSlug = resolveSaintSlug(f.subjectSlug);
+  const objectSlug = resolveSaintSlug(f.objectSlug);
+  if (!subjectSlug || !objectSlug || !f.kinType) continue;
+  for (const [side, slug] of [
+    ['subject', subjectSlug],
+    ['object', objectSlug],
+  ]) {
+    if (saintBySlug.has(slug)) continue;
+    reviewNeeded.push({
+      issue: 'kin-saint-not-found',
+      entityId: `saint:${slug}`,
+      details: `familyRelations entry has no matching saint entity for ${side}Slug "${slug}".`,
+    });
+  }
+  if (!saintBySlug.has(subjectSlug) || !saintBySlug.has(objectSlug)) continue;
+  if (subjectSlug === objectSlug) {
+    reviewNeeded.push({
+      issue: 'kin-self-loop-after-join',
+      entityId: `saint:${subjectSlug}`,
+      details:
+        `familyRelations "${f.kinType}" from "${f.subjectSlug}" to ` +
+        `"${f.objectSlug}" became a self-loop once both resolved. Dropped.`,
+    });
+    continue;
+  }
+  /* Keyed on the kin type too: one row records two ties at once — Shah Abul
+     Muali is both nephew and son-in-law of Daud Bandagi — and an id without the
+     type would collapse the pair into one fact. */
+  relations.push({
+    id: `kin_of:${f.kinType}:saint:${subjectSlug}:saint:${objectSlug}`,
+    type: 'kin_of',
+    subject: `saint:${subjectSlug}`,
+    object: `saint:${objectSlug}`,
+    confidence: f.confidence ?? 0.9,
+    /* The slug and the two role labels were decided by a human reading the
+       quote; the quote itself came out of an extraction pass. `human` is the
+       honest method for the edge, and the page still shows the sentence. */
+    method: 'human',
+    kinType: f.kinType,
+    ...(f.elderRole ? { elderRole: f.elderRole } : {}),
+    ...(f.juniorRole ? { juniorRole: f.juniorRole } : {}),
+    ...(f.juniorIsPlural ? { juniorIsPlural: true } : {}),
+    ...(f.generationDisputed ? { generationDisputed: true } : {}),
+    ...(f.contested ? { contested: true } : {}),
+    ...(f.wording ? { kinWording: f.wording } : {}),
+    source: f.source,
+    quote: f.quote,
+    ...(f.notes ? { notes: f.notes } : {}),
+  });
+}
+
 /* Verified machine-extracted lineage edges. Deliberately emitted AFTER the
    hand-curated seed loop so a seed always wins the id collision below: a human
    reading beats an extraction of the same pair. */
@@ -1108,6 +1217,27 @@ const retiredSlugs = Object.fromEntries(
     .sort(([a], [b]) => a.localeCompare(b, 'en')),
 );
 
+/* Relation `notes` are stripped on the way out.
+ *
+ * They are an extractor's or an editor's commentary ABOUT a claim — "The
+ * spiritual-heir half of this is already in existing-lineage.json", "Corroborated
+ * independently in shrine_entries/…" — and **no page renders one**. Nor does any
+ * exporter or the prerenderer; the only consumers are
+ * build-review-worksheet.mjs, which reads them from the proposals files, and a
+ * human reading data/kg-seeds.json. Meanwhile `src/lib/kg.ts` imports this file
+ * statically, so 16.8 KB of them were eager JS on every route that touches the
+ * graph — the same shape as the source layer, which was moved out of kg.json in
+ * §9.111 for exactly this reason and for exactly this amount.
+ *
+ * Found on 29 August 2026 when 28 kinship edges pushed five routes past their
+ * bundle budgets. Stripping the notes pays for the feature twice over and loses
+ * nothing: every note is still in kg-seeds.json or one of the three proposals
+ * files, which is where a person reads them (RULE 0).
+ *
+ * If a page ever wants to show one, do what the source layer does — a separate
+ * build-time file — rather than putting them back here. */
+const relationsForApp = relations.map(({ notes, ...rest }) => rest);
+
 const kg = {
   schema_version: '1.0.0',
   generated: new Date().toISOString(),
@@ -1115,13 +1245,32 @@ const kg = {
   orders,
   places,
   events,
-  relations,
+  relations: relationsForApp,
   stats,
   retiredSlugs,
-  reviewNeeded,
+  /* Family the archive records and cannot point at: two rows state a real
+     succession and name nobody on the other end. Kept as notes so the fact
+     survives; see kg-seeds.json#_comment_kinNotes. */
+  kinNotes: kinNotes.map(({ _from, ...rest }) => rest),
 };
 
 writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
+
+/* The build's own diagnostics, likewise out of kg.json.
+ *
+ * 79 items, 17.6 KB, and **nothing in src/ reads them** — `KGStore.reviewNeeded`
+ * was declared in the type and consumed by exactly one build-time instrument,
+ * `measure-kb-gaps.mjs`. The browser was downloading the build's log on every
+ * route that touches the graph. Same finding and same fix as the relation notes
+ * above and the source layer below; found the same way, when the kinship edges
+ * pushed four routes past their budgets and the budgets were right to complain.
+ *
+ * `stats.ambiguousMerges` still counts them, so /about's figure does not move. */
+writeFileSync(
+  join(ROOT, 'data', 'kg-review-needed.json'),
+  JSON.stringify({ generated: kg.generated, reviewNeeded }, null, 2) + '\n',
+  'utf8',
+);
 
 // ── source layer, for the build-time consumers only ──────────────────────────
 /* Out of kg.json on purpose — see the sources section above. The exporters and
@@ -1474,7 +1623,9 @@ writeFileSync(
 console.log(`[kg] ✓ saints: ${stats.saints}  orders: ${stats.orders}  places: ${stats.places}  events: ${stats.events}`);
 console.log(`[kg] ✓ relations: ${stats.relations}  (${stats.ambiguousMerges} merge(s) logged for review)`);
 if (reviewNeeded.length > 0) {
-  console.log(`[kg] ⚠  ${reviewNeeded.length} item(s) need review → see data/kg.json reviewNeeded`);
+  console.log(
+    `[kg] ⚠  ${reviewNeeded.length} item(s) need review → see data/kg-review-needed.json`,
+  );
 }
 console.log(
   `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,

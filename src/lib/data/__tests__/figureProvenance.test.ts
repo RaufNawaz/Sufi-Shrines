@@ -190,7 +190,16 @@ describe('the shipped graph', () => {
                        he had a node. Verified by diffing the node before and
                        after rather than inferred: an earlier draft of this
                        comment blamed a duplicate `bhai-gurdas` node, and no such
-                       duplicate ever existed. */
-    expect(flagged.length).toBe(156);
+                       duplicate ever existed.
+        156 + 8       = 164, 29 August 2026. The kinship pass gave nodes to eight
+                       people the archive names only as somebody's father, uncle
+                       or forebear — Sri Chand, the Qadiriyya's eponym, Baba Ji of
+                       Eidgah Sharif and five more. Every one is `lineageOnly`
+                       with no dates and no sources of its own, so every one is
+                       flagged, and the term is exactly the number of nodes
+                       created. That is the honest direction for this count to
+                       move: the graph did not learn eight biographies, it learnt
+                       eight names it must qualify. */
+    expect(flagged.length).toBe(164);
   });
 });

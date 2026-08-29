@@ -1,5 +1,24 @@
 import type { UiStrings } from './uiStrings';
 
+/** The oblique/possessed form of a kinship role, for "‹possessor› ‹role›"
+ * constructions. See `graphLineageOnlyKinOf` below for why this cannot be the
+ * same string as the `kinRole*` chip. */
+const KIN_GENITIVE: Record<string, string> = {
+  بیٹا: 'کے بیٹے',
+  بیٹی: 'کی بیٹی',
+  بیٹیاں: 'کی بیٹیاں',
+  پوتا: 'کے پوتے',
+  'پوتا/نواسا': 'کے پوتے/نواسے',
+  بھتیجا: 'کے بھتیجے',
+  بھانجا: 'کے بھانجے',
+  'بھتیجا/بھانجا': 'کے بھتیجے/بھانجے',
+  'اولاد میں سے': 'کی اولاد میں سے',
+};
+
+function kinGenitive(role: string): string {
+  return KIN_GENITIVE[role] ?? `کے ${role}`;
+}
+
 /**
  * The Urdu interface strings — 42 KB, in their own module so an English reader
  * never downloads them.
@@ -262,6 +281,40 @@ export const UI_TEXT_UR: UiStrings = {
   lineageChainRemove: (n: number) => `${n} واسطے`,
   discipleOfLabel: 'شاگرد',
   successorOfLabel: 'جانشین',
+  /* ── Family (SaintPage) ───────────────────────────────────────────
+     This is the half of the pair that earns the closed vocabulary. Where the
+     entry says which line the tie runs down, the exact term is used; where it
+     does not, both readings are kept rather than one guessed. */
+  kinHeading: 'ریکارڈ شدہ رشتہ داری',
+  kinNote:
+    'خون اور رشتۂ ازدواج کے تعلقات، جیسے اس آرکائیو کے اپنے اندراجات میں درج ہیں، اور ساتھ وہ جملہ جس سے ہر رشتہ اخذ کیا گیا۔ اس ذخیرے میں گدی جتنی بار سلسلۂ بیعت سے منتقل ہوتی ہے، کم از کم اتنی بار خاندان میں بھی۔',
+  kinRoleFather: 'والد',
+  kinRoleSon: 'بیٹا',
+  kinRoleDaughter: 'بیٹی',
+  kinRoleDaughters: 'بیٹیاں',
+  kinRoleGrandfatherPaternal: 'دادا',
+  kinRoleGrandfatherUnspecified: 'دادا/نانا',
+  kinRoleGrandsonPaternal: 'پوتا',
+  kinRoleGrandsonUnspecified: 'پوتا/نواسا',
+  kinRoleUnclePaternal: 'چچا',
+  kinRoleUncleMaternal: 'ماموں',
+  kinRoleUncleUnspecified: 'چچا/ماموں',
+  kinRoleNephewPaternal: 'بھتیجا',
+  kinRoleNephewMaternal: 'بھانجا',
+  kinRoleNephewUnspecified: 'بھتیجا/بھانجا',
+  kinRoleFatherInLaw: 'سسر',
+  kinRoleSonInLaw: 'داماد',
+  kinRoleAncestor: 'جدِ امجد',
+  kinRoleDescendant: 'اولاد میں سے',
+  kinGenerationDisputed: 'نسل کے شمار پر مآخذ مختلف ہیں',
+  kinGenerationDisputedHelp:
+    'مآخذ نسب پر متفق ہیں اور اس پر مختلف کہ وہ کتنی پشتوں پر محیط ہے۔ دونوں شمار رکھے گئے ہیں، کسی ایک کو منتخب نہیں کیا گیا۔',
+  kinContested: 'دو روایتوں میں سے ایک',
+  kinContestedHelp:
+    'اندراج اس نسب کو ایک ہی شخصیت کے بارے میں دو متقابل روایتوں میں سے ایک کے طور پر بیان کرتا ہے، طے شدہ امر کے طور پر نہیں۔',
+  kinNotesHeading: 'ریکارڈ شدہ، مگر بے نام',
+  kinNoteUnnamed:
+    'آرکائیو اس خاندانی جانشینی کو درج کرتا ہے مگر دوسری طرف کسی کا نام نہیں لیتا، اس لیے یہاں جوڑنے کے لیے دوسری کوئی شخصیت موجود نہیں۔',
   orderMembers: 'اس سلسلے کے ولی',
   orderMemberCount: (n: number) => `${n} ولی`,
   orderBranchCount: (n: number) => `${n} شاخ`,
@@ -336,6 +389,23 @@ export const UI_TEXT_UR: UiStrings = {
   graphLineageOnlyTeacherOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے اُستاد`,
   graphLineageOnlyDiscipleOf: (name: string) => `${name} کے شاگرد`,
   graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `${name} اور ${n} دیگر کے شاگرد`,
+  /* Urdu puts the possessor first and the relation after it — "‹name› کے
+     والد", not English's "father of ‹name›" — and the relation then has to
+     agree with it. That is not a کے/کی coin-flip: a masculine noun ending in
+     -ا goes oblique, so «گرو نانک کے بیٹا» is simply wrong and the form is
+     «کے بیٹے». The honorific plural is used throughout rather than the
+     singular «کا بیٹا», which is both grammatical and the right register for
+     figures the archive venerates — and it is the form the project's own
+     dictionary already uses («رام اور سیتا کے بیٹے»).
+
+     Kept as a table keyed by the finished role label rather than composed,
+     because the chip on a figure's page needs the nominative («بیٹا») and this
+     needs the oblique, and one string cannot be both. A role missing from the
+     table falls back to کے + the label, which is correct for every invariant
+     noun in the set (والد، دادا، چچا، ماموں، سسر، داماد، جدِ امجد). */
+  graphLineageOnlyKinOf: (role: string, name: string) => `${name} ${kinGenitive(role)}`,
+  graphLineageOnlyKinOfMore: (role: string, name: string, n: number) =>
+    `${name} اور ${n} دیگر ${kinGenitive(role)}`,
   graphCenturyNote:
     'صدی شخصیت کے درج شدہ سنِ وفات سے لی گئی ہے، اور جہاں وفات درج نہیں وہاں سنِ پیدائش سے۔ ہجری تقویم سے کوئی تبدیلی نہیں کی گئی۔',
   lineageUnreviewed: 'غیر نظر ثانی شدہ',

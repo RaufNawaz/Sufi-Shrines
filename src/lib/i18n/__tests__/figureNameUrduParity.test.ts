@@ -59,8 +59,17 @@ describe('figure names in the Urdu edition', () => {
   });
 
   it('keeps the lineage-only Urdu debt at or below its recorded size', () => {
-    /* 58 as measured 28 August 2026. An upper bound: translating one of these
-       should fail this test and lower the number, which is the point. */
-    expect(untranslated(lineageOnly).length).toBeLessThanOrEqual(58);
+    /* 58 as measured 28 August 2026; **57 on 29 August**, and the direction of
+       that move is the point. The kinship pass added eight lineage-only nodes,
+       which is eight more names that would have rendered in Latin at the top of
+       an Urdu page — this test went to 66 and the fix was to write the eight
+       into the dictionary, not to raise the ceiling. The ninth is Hafiz
+       Muhammad Abdur Rahman, who was already here and whose Latin name had
+       started appearing *inside* an Urdu sentence on /graph once his father
+       became a node.
+
+       An upper bound: translating one of these lowers the number, and the
+       number should be lowered with it rather than left slack. */
+    expect(untranslated(lineageOnly).length).toBeLessThanOrEqual(57);
   });
 });

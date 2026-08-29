@@ -9,6 +9,7 @@ import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { LineageChainView } from '../components/kg/LineageChainView';
+import { KinView } from '../components/kg/KinView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import type { KGSaint } from '../types/kg';
@@ -20,6 +21,8 @@ import {
   getSaintsInOrder,
   getTeachersOf,
   getDisciplesOf,
+  getKinOf,
+  getKinNotes,
   getLineageChain,
   recordedSilsilas,
 } from '../lib/kg';
@@ -29,6 +32,7 @@ import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { readRecordedObservances } from '../lib/data/recordedObservances';
 import { biographyForFigure } from '../lib/data/figureBiography';
 import { ProseParagraphs } from '../components/shrine/ProseParagraphs';
+import { renderInlineBold } from '../components/shrine/inlineFormat';
 import { localizeProseDigits } from '../lib/i18n/numerals';
 import {
   ObservanceGapNote,
@@ -93,6 +97,12 @@ export default function SaintPage() {
   const orderMembers = useMemo(() => (order ? getSaintsInOrder(order.slug) : []), [order]);
   const teachers = useMemo(() => (slug ? getTeachersOf(slug) : []), [slug]);
   const disciples = useMemo(() => (slug ? getDisciplesOf(slug) : []), [slug]);
+  /* Both directions of every recorded family tie, elders first — `getKinOf`
+     resolves which label each end reads by. Plus the two ties the archive
+     records without naming the relative, which are not edges and would
+     otherwise be the only recorded facts on this page with nowhere to go. */
+  const kin = useMemo(() => (slug ? getKinOf(slug) : []), [slug]);
+  const kinNotes = useMemo(() => (slug ? getKinNotes(slug) : []), [slug]);
   /* The chain above this figure, walked as far as the record goes without
      picking between several recorded masters. 15 figures in the graph have one
      two or more removes deep; the page used to stop at the first hop. */
@@ -682,7 +692,7 @@ export default function SaintPage() {
                             dir="ltr"
                             data-latin
                           >
-                            {membership.quote}
+                            {renderInlineBold(membership.quote)}
                             {membership.source && (
                               <cite className="graph-lineage-cite">{membership.source}</cite>
                             )}
@@ -800,6 +810,19 @@ export default function SaintPage() {
                     <LineageChainView chain={chain} />
                   </>
                 )}
+              </section>
+            )}
+
+            {/* Family — beside the silsila, and deliberately after it. A
+                *sajjada nashin*'s seat passes down a family at least as often
+                as down a chain of initiation in this corpus, but the spiritual
+                lineage is what a reader comes to a saint's page for. Renders
+                from the bundled graph, so it sits on the safe side of the CLS
+                boundary described below. */}
+            {(kin.length > 0 || kinNotes.length > 0) && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('kinHeading')}</h2>
+                <KinView links={kin} notes={kinNotes} />
               </section>
             )}
 

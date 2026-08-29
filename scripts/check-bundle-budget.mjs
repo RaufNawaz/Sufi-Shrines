@@ -123,7 +123,17 @@ const BUDGETS_KB = {
      made all twelve budgets stale on 27 Aug — if several routes go 1–2 KB over
      at once, look at uiStrings.ts before looking at the routes. */
   'src/pages/AlmanacPage.tsx': 345, // measured 341 on 28 Aug 2026
-  'src/pages/NotFoundPage.tsx': 270, // measured 250 on 26 Aug 2026
+  /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
+     describes, arriving exactly as predicted: kinship added ~25 English UI
+     strings, the English table is eager on every route, and the three routes
+     that went over together are the three that **do not import the graph** —
+     so they paid the strings and got none of the offsetting saving. The routes
+     that do import it fell instead: SaintPage 695 → 662 and GraphPage 620 →
+     587, because the same commit took the relation `notes` and the build's
+     `reviewNeeded` log out of kg.json (33 KB of eager JS that no page had ever
+     rendered). Those two budgets are deliberately left where they are — the
+     headroom is real and the next feature should be able to spend it. */
+  'src/pages/NotFoundPage.tsx': 275, // measured 271 on 29 Aug 2026
   /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
@@ -136,7 +146,7 @@ const BUDGETS_KB = {
      reader who wanted the archive's account of itself used to download all
      three. provenance.json stays a dynamic import inside the page; if this
      number jumps by ~170 KB, that is what went static. */
-  'src/pages/AboutPage.tsx': 335, // measured 313 on 26 Aug 2026
+  'src/pages/AboutPage.tsx': 342, // measured 337 on 29 Aug 2026 — see the kinship note above
   /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
      observances (A3). The first draft of that feature measured **608 KB**: the
      join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the
@@ -151,7 +161,7 @@ const BUDGETS_KB = {
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
      open. If this number jumps by ~78 KB, that import went static. */
-  'src/pages/ReviewPage.tsx': 275, // measured 264 on 27 Aug 2026
+  'src/pages/ReviewPage.tsx': 282, // measured 277 on 29 Aug 2026 — see the kinship note above
   /* The settings page, added 27 Aug 2026. 269 KB is the app shell plus a page
      of native form controls, which is why it sits beside NotFoundPage and
      ReviewPage rather than with the routes that carry an index.

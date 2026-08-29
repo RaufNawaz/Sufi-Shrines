@@ -21,7 +21,14 @@
  *   7. No self-loops, and no pair asserting a relation in both directions.
  *   8. `asRecorded` on an order proposal matches the sheet cell byte-for-byte.
  *   9. Every parent order is a real order slug.
- *  10. Every 3-4 digit year appearing in a date proposal's born/died/floruit
+ *  10. Every kinship edge in data/kg-seeds.json#familyRelations quotes its
+ *      source verbatim, uses a closed `kinType` and a closed pair of role
+ *      labels, points at slugs the graph holds, and does not duplicate another
+ *      edge of the same type between the same two figures. The role labels get
+ *      the same treatment as the relation vocabulary because they are not
+ *      cosmetic: `uncleMaternal` renders as ماموں and `unclePaternal` as چچا,
+ *      so a wrong one asserts a line the source never states (RULE 2).
+ *  11. Every 3-4 digit year appearing in a date proposal's born/died/floruit
  *      occurs literally in the source it quotes. This one is the sharpest of
  *      the lot and is not mine — the extraction agent invented it for its own
  *      authoring pass and reported it firing twice on real errors. A date is
@@ -68,6 +75,32 @@ const SEEDS = join(ROOT, 'data', 'kg-seeds.json');
 const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
 
 const RELATIONS = new Set(['disciple_of', 'successor_of']);
+const KIN_TYPES = new Set([
+  'son_of',
+  'daughter_of',
+  'grandson_of',
+  'descendant_of',
+  'nephew_of',
+  'son_in_law_of',
+]);
+/* The elder label and the junior label a kinType may carry. Pairing them here
+   rather than checking two flat lists is the point: `grandson_of` with
+   `elderRole: 'father'` passes two independent vocabulary checks and is
+   nonsense. */
+const KIN_ROLES = {
+  son_of: { elder: ['father'], junior: ['son'] },
+  daughter_of: { elder: ['father'], junior: ['daughter'] },
+  grandson_of: {
+    elder: ['grandfatherPaternal', 'grandfatherUnspecified'],
+    junior: ['grandsonPaternal', 'grandsonUnspecified'],
+  },
+  descendant_of: { elder: ['ancestor'], junior: ['descendant'] },
+  nephew_of: {
+    elder: ['unclePaternal', 'uncleMaternal', 'uncleUnspecified'],
+    junior: ['nephewPaternal', 'nephewMaternal', 'nephewUnspecified'],
+  },
+  son_in_law_of: { elder: ['fatherInLaw'], junior: ['sonInLaw'] },
+};
 const CONFIDENCE_TIERS = new Set([0.95, 0.7]);
 const MAX_QUOTE = 200;
 
@@ -396,6 +429,83 @@ if (existsSync(DATES)) {
   notes.push('dates: no proposals file');
 }
 
+// ── kinship seeds ────────────────────────────────────────────────────────────
+/* These are seeds, not proposals — a human decided each slug and each role
+   label — but the prose beside them was copied out of the extraction pass, and
+   "copied" is a claim a script can check. Everything mechanical about a kin edge
+   is checked here for the same reason the lineage proposals are: the failure
+   this project cannot afford is a plausible sentence about the wrong man. */
+let kinCount = 0;
+const kinSeen = new Set();
+for (const [i, f] of (seeds.familyRelations ?? []).entries()) {
+  const label = `familyRelations[${i}] ${f.subjectSlug} ${f.kinType} ${f.objectSlug}`;
+  kinCount += 1;
+
+  if (!KIN_TYPES.has(f.kinType)) {
+    fail(`${label}: kinType "${f.kinType}" is outside the closed vocabulary`);
+  } else {
+    const roles = KIN_ROLES[f.kinType];
+    if (!roles.elder.includes(f.elderRole)) {
+      fail(`${label}: elderRole "${f.elderRole}" is not one of ${roles.elder.join(' | ')}`);
+    }
+    if (!roles.junior.includes(f.juniorRole)) {
+      fail(`${label}: juniorRole "${f.juniorRole}" is not one of ${roles.junior.join(' | ')}`);
+    }
+  }
+
+  const subjectSlug = resolveSlug(f.subjectSlug);
+  const objectSlug = resolveSlug(f.objectSlug);
+  if (subjectSlug === objectSlug) fail(`${label}: self-loop`);
+  /* Against the whole saint list, not `knownSaints`: a kin edge is allowed to
+     name someone with no shrine here — that is what the eight lineage-only
+     nodes it introduced are — and the build creates them from the `IsNew`
+     flags. What must not happen is a pointer at nobody. */
+  const allSlugs = new Set(kg.saints.map((x) => x.slug));
+  for (const [side, slug] of [
+    ['subject', subjectSlug],
+    ['object', objectSlug],
+  ]) {
+    if (!allSlugs.has(slug)) fail(`${label}: ${side}Slug "${slug}" is not a figure in the graph`);
+  }
+  /* `IsNew` means "this person has no site in the archive", the same assertion
+     the lineage proposals' flag makes, and it is checked the same way. */
+  for (const side of ['subject', 'object']) {
+    const slug = resolveSlug(f[`${side}Slug`]);
+    const declaredNew = f[`${side}IsNew`] === true;
+    if (declaredNew && knownSaints.has(slug)) {
+      fail(`${label}: ${side}IsNew is true but "${slug}" has a site in the archive`);
+    }
+  }
+
+  const key = `${subjectSlug}|${f.kinType}|${objectSlug}`;
+  if (kinSeen.has(key)) fail(`${label}: duplicates an earlier edge`);
+  kinSeen.add(key);
+  /* Both directions of the same tie would render the pair twice on both pages,
+     once as elder and once as junior, and each row would contradict the other. */
+  if (kinSeen.has(`${objectSlug}|${f.kinType}|${subjectSlug}`)) {
+    fail(`${label}: the reverse of this edge is also asserted`);
+  }
+
+  if (!f.source) fail(`${label}: missing source`);
+  else checkQuote(label, f.source, f.quote);
+}
+if (kinCount) notes.push(`kinship: ${kinCount} seed edge(s)`);
+
+/* The notes are the same claim without a second node, so they get the same
+   quote check — a "recorded here so it is not lost" fact that turned out not to
+   be in the source would be the worst kind of loss. */
+let kinNoteCount = 0;
+for (const [i, n] of (seeds.kinNotes ?? []).entries()) {
+  const label = `kinNotes[${i}] ${n.saintSlug}`;
+  kinNoteCount += 1;
+  if (!kg.saints.some((x) => x.slug === resolveSlug(n.saintSlug))) {
+    fail(`${label}: saintSlug is not a figure in the graph`);
+  }
+  if (!n.source) fail(`${label}: missing source`);
+  else checkQuote(label, n.source, n.quote);
+}
+if (kinNoteCount) notes.push(`kinship: ${kinNoteCount} unnameable note(s)`);
+
 // ── report ───────────────────────────────────────────────────────────────────
 
 for (const n of notes) console.log(`[verify-kg-proposals] ${n}`);
@@ -420,7 +530,8 @@ if (failures.length) {
 }
 
 console.log(
-  `[verify-kg-proposals] ✓ ${lineageCount + orderCount + dateCount} proposal(s) — every quote verified ` +
+  `[verify-kg-proposals] ✓ ${lineageCount + orderCount + dateCount} proposal(s) and ` +
+    `${kinCount + kinNoteCount} kinship seed(s) — every quote verified ` +
     `against its source, vocabulary closed, no duplicate or mutually contradictory edges.`,
 );
 console.log(

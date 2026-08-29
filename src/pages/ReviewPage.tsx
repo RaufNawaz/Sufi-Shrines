@@ -265,7 +265,15 @@ export default function ReviewPage() {
                       /* Latin in either language, on purpose: the quote is the
                          entire basis for judging the claim, and paraphrasing it
                          would destroy the thing a reviewer is checking against
-                         (i18n rule 7). */
+                         (i18n rule 7).
+
+                         And deliberately NOT run through `renderInlineBold`,
+                         which the four reader-facing quote sites now are (a
+                         `*sajjada-nashin*` was reaching readers with its
+                         asterisks). This one is the review desk: what is being
+                         adjudicated here is the stored string, and a reviewer
+                         comparing it against the source should see exactly what
+                         is stored. */
                       <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
                         {item.quote}
                       </blockquote>

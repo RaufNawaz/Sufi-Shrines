@@ -1,0 +1,395 @@
+{
+  "generated": "2026-08-29T21:23:22.099Z",
+  "reviewNeeded": [
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shiva",
+      "details": "\"Shiva (Mahadev)\" merged into canonical \"Shiva\" (slug: shiva). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bari-imam",
+      "details": "\"Bari Imam (Shah Abdul Latif Kazmi)\" merged into canonical \"Bari Imam\" (slug: bari-imam). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:goddess-durga",
+      "details": "\"Goddess Durga (Mata)\" merged into canonical \"Goddess Durga\" (slug: goddess-durga). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "details": "\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\" merged into canonical \"Hazrat Syed Muhammad Khair ul Deen\" (slug: hazrat-syed-muhammad-khair-ul-deen). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:khwaja-muhammad-qasim",
+      "details": "\"Khwaja Muhammad Qasim (\"Zinda Pir\")\" merged into canonical \"Khwaja Muhammad Qasim\" (slug: khwaja-muhammad-qasim). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:malik-ahmad-ayaz",
+      "details": "\"Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" merged into canonical \"Malik Ahmad Ayaz\" (slug: malik-ahmad-ayaz). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-wasif-ali-wasif-awan",
+      "details": "\"Hazrat Wasif Ali Wasif Awan (born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus)\" merged into canonical \"Hazrat Wasif Ali Wasif Awan\" (slug: hazrat-wasif-ali-wasif-awan). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:khwaja-muhammad-zaman-sultan-al-aulia",
+      "details": "\"Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)\" merged into canonical \"Khwaja Muhammad Zaman \"Sultan al-Aulia\"\" (slug: khwaja-muhammad-zaman-sultan-al-aulia). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
+      "details": "\"Pir Syed Muhammad Rashid Shah, \"Roze Dhani\" (founder of the Rashidi order)\" merged into canonical \"Pir Syed Muhammad Rashid Shah, \"Roze Dhani\"\" (slug: pir-syed-muhammad-rashid-shah-roze-dhani). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:baba-pir-ratan-nath",
+      "details": "\"Baba Pir Ratan Nath (Nath yogi)\" merged into canonical \"Baba Pir Ratan Nath\" (slug: baba-pir-ratan-nath). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:jhulelal",
+      "details": "\"Jhulelal / Daryalal (Zinda Pir)\" merged into canonical \"Jhulelal\" (slug: jhulelal). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:data-ganj-bakhsh",
+      "details": "\"Hazrat Data Ganj Bakhsh (Ali Hujwiri)\" merged into canonical \"Data Ganj Bakhsh\" (slug: data-ganj-bakhsh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:parshvanatha",
+      "details": "\"Jain temple dedicated to Parshvanatha (23rd Tirthankara)\" merged into canonical \"Parshvanatha\" (slug: parshvanatha). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bebe-nanaki",
+      "details": "\"Bebe Nanaki (elder sister of Guru Nanak)\" merged into canonical \"Bebe Nanaki\" (slug: bebe-nanaki). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-arjan-dev",
+      "details": "\"Guru Arjan Dev (fifth Sikh Guru)\" merged into canonical \"Guru Arjan Dev\" (slug: guru-arjan-dev). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bhai-biba-singh",
+      "details": "\"Bhai Biba (Beba) Singh (Sikh warrior; gurdwara from era of Guru Gobind Singh)\" merged into canonical \"Bhai Biba Singh\" (slug: bhai-biba-singh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak Dev Ji\" merged into canonical \"Guru Nanak\" (slug: guru-nanak). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-hargobind",
+      "details": "\"Guru Hargobind (Sixth Guru)\" merged into canonical \"Guru Hargobind\" (slug: guru-hargobind). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-gobind-singh",
+      "details": "\"Guru Gobind Singh (Dashmesh Pita)\" merged into canonical \"Guru Gobind Singh\" (slug: guru-gobind-singh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-ram-das",
+      "details": "\"Guru Ram Das (4th)\" merged into canonical \"Guru Ram Das\" (slug: guru-ram-das). Verify the merge is correct."
+    },
+    {
+      "issue": "composite-figure-row",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak Dev Ji; associated with Bhai Lalo\" names 2 figures (Guru Nanak, Bhai Lalo); gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Nanak\" and were not copied to the others."
+    },
+    {
+      "issue": "composite-figure-row",
+      "entityId": "saint:guru-arjan-dev",
+      "details": "\"Guru Arjan Dev (5th) & Guru Hargobind (6th)\" names 2 figures (Guru Arjan Dev, Guru Hargobind); gurdwara-panjvi-chati-patshahi is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Arjan Dev\" and were not copied to the others."
+    },
+    {
+      "issue": "composite-figure-row",
+      "entityId": "saint:guru-nanak",
+      "details": "\"Guru Nanak and Bhai Mardana\" names 2 figures (Guru Nanak, Bhai Mardana); gurdwara-rori-sahib is linked to each. The row's figure_type/figure_born/figure_died describe only \"Guru Nanak\" and were not copied to the others."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sikh-women-and-children-martyrs",
+      "details": "\"Sikh women & children martyrs (18th century, Mir Mannu era)\" merged into canonical \"Sikh women & children martyrs\" (slug: sikh-women-and-children-martyrs). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-granth-sahib-sikh-community",
+      "details": "\"Guru Granth Sahib / Sikh community (Singh Sabha congregation; city assoc. w/ Guru Nanak per Tilganji tradition)\" merged into canonical \"Guru Granth Sahib / Sikh community\" (slug: guru-granth-sahib-sikh-community). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:lord-jagannath",
+      "details": "\"Lord Jagannath (Krishna/Vishnu)\" merged into canonical \"Lord Jagannath\" (slug: lord-jagannath). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:kali",
+      "details": "\"Kali (deity)\" merged into canonical \"Kali\" (slug: kali). Verify the merge is correct."
+    },
+    {
+      "issue": "retired-slug-conflict",
+      "entityId": "saint:kali",
+      "details": "two rows strip to the retired slug \"goddess-kali\" but resolve to different figures — \"kali\" (kept, first row wins) and \"kalka-devi\" (ignored). A reader following the old address lands on the first. If that is the wrong one, the fix is in the sheet's cells, not here."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:kalka-devi",
+      "details": "\"Goddess Kali (Kalka Devi)\" merged into canonical \"Kalka Devi\" (slug: kalka-devi). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bhai-gurdas-singh",
+      "details": "\"Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh\" merged into canonical \"Bhai Gurdas Singh\" (slug: bhai-gurdas-singh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:valmiki",
+      "details": "\"Valmiki (Bhagwan Valmik)\" merged into canonical \"Valmiki\" (slug: valmiki). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:lava",
+      "details": "\"Lava (Luv), son of Rama and Sita\" merged into canonical \"Lava\" (slug: lava). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bulleh-shah",
+      "details": "\"Bulleh Shah (Abdullah Shah Qadri)\" merged into canonical \"Bulleh Shah\" (slug: bulleh-shah). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:king-pandu",
+      "details": "\"King Pandu (Mahabharata pilgrimage)\" merged into canonical \"King Pandu\" (slug: king-pandu). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:narasimha",
+      "details": "\"Narasimha (named after Prahlada)\" merged into canonical \"Narasimha\" (slug: narasimha). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:rahman-baba",
+      "details": "\"Rahman Baba (Abdur Rahman Mohmand)\" merged into canonical \"Rahman Baba\" (slug: rahman-baba). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:ramdev-pir",
+      "details": "\"Ramdev Pir (Ramapir)\" merged into canonical \"Ramdev Pir\" (slug: ramdev-pir). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:baba-bankhandi-maharaj",
+      "details": "\"Baba Bankhandi Maharaj (Udasi founder)\" merged into canonical \"Baba Bankhandi Maharaj\" (slug: baba-bankhandi-maharaj). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sain-vali-vilayat-rai",
+      "details": "\"Sain Vali Vilayat Rai (b. 1825)\" merged into canonical \"Sain Vali Vilayat Rai\" (slug: sain-vali-vilayat-rai). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sant-baba-asudaram-sakhi-baba",
+      "details": "\"Sant Baba Asudaram \"Sakhi Baba\" (1895–1960)\" merged into canonical \"Sant Baba Asudaram \"Sakhi Baba\"\" (slug: sant-baba-asudaram-sakhi-baba). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bhagat-kanwar-ram",
+      "details": "\"Bhagat Kanwar Ram (1885–1939)\" merged into canonical \"Bhagat Kanwar Ram\" (slug: bhagat-kanwar-ram). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:satguru-swami-sai-satramdas-sahib",
+      "details": "\"Satguru Swami Sai Satramdas Sahib (1866–1910)\" merged into canonical \"Satguru Swami Sai Satramdas Sahib\" (slug: satguru-swami-sai-satramdas-sahib). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:bhai-gurdas",
+      "details": "\"Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak\" merged into canonical \"Bhai Gurdas\" (slug: bhai-gurdas). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-yousuf",
+      "details": "\"Hazrat Shah Yousuf\" merged into canonical \"Shah Yousuf\" (slug: shah-yousuf). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:goddess-sharada",
+      "details": "\"Goddess Sharada (Saraswati)\" merged into canonical \"Goddess Sharada\" (slug: goddess-sharada). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:lakshmi-narayan",
+      "details": "\"Lakshmi-Narayan (Vishnu & Lakshmi)\" merged into canonical \"Lakshmi-Narayan\" (slug: lakshmi-narayan). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:lord-hanuman",
+      "details": "\"Lord Hanuman (Panchmukhi form)\" merged into canonical \"Lord Hanuman\" (slug: lord-hanuman). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:varuna",
+      "details": "\"Varuna (Varun Dev)\" merged into canonical \"Varuna\" (slug: varuna). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sheikh-tahir",
+      "details": "\"Sheikh Tahir (also revered as Udero Lal/Jhulelal)\" merged into canonical \"Sheikh Tahir\" (slug: sheikh-tahir). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:akhund-darweza-baba",
+      "details": "\"Akhund Darweza Baba (Syed Muhammad, d. 1638)\" merged into canonical \"Akhund Darweza Baba\" (slug: akhund-darweza-baba). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-syed-abdul-wahab",
+      "details": "\"Hazrat Syed Abdul Wahab (Akhund Panju Baba)\" merged into canonical \"Hazrat Syed Abdul Wahab\" (slug: hazrat-syed-abdul-wahab). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:syed-abdul-razzaq",
+      "details": "\"Syed Abdul Razzaq (\"Shah Chiragh\")\" merged into canonical \"Syed Abdul Razzaq\" (slug: syed-abdul-razzaq). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-hafiz-muhammad-jamal-multani",
+      "details": "\"Hazrat Hafiz Muhammad Jamal Multani (Chishti)\" merged into canonical \"Hazrat Hafiz Muhammad Jamal Multani\" (slug: hazrat-hafiz-muhammad-jamal-multani). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-hussain",
+      "details": "\"Shah Hussain (Madho Lal Hussain)\" merged into canonical \"Shah Hussain\" (slug: shah-hussain). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-daula-daryai",
+      "details": "\"Hazrat Shah Daula Daryai\" merged into canonical \"Shah Daula Daryai\" (slug: shah-daula-daryai). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:laki-shah-saddar",
+      "details": "\"Laki Shah Saddar (Syed Shah Sadaruddin Lakyari)\" merged into canonical \"Laki Shah Saddar\" (slug: laki-shah-saddar). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:makhdoom-abdul-rahim-girhori",
+      "details": "\"Makhdoom Abdul Rahim Girhori (1739–1778)\" merged into canonical \"Makhdoom Abdul Rahim Girhori\" (slug: makhdoom-abdul-rahim-girhori). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:makhdoom-nooh",
+      "details": "\"Makhdoom Nooh (Makhdoom Lutufullah / Sarwar Nooh)\" merged into canonical \"Makhdoom Nooh\" (slug: makhdoom-nooh). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-meeran-muhammad-shah-bukhari",
+      "details": "\"Hazrat Meeran Muhammad Shah Bukhari (\"Mauj Darya\")\" merged into canonical \"Hazrat Meeran Muhammad Shah Bukhari\" (slug: hazrat-meeran-muhammad-shah-bukhari). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:mian-muhammad-umar-chamkani",
+      "details": "\"Mian Muhammad Umar Chamkani (Naqshbandi Sufi)\" merged into canonical \"Mian Muhammad Umar Chamkani\" (slug: mian-muhammad-umar-chamkani). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+      "details": "\"Hazrat Syed Azizuddin al-Hassani wal-Hussaini (Peer Makki)\" merged into canonical \"Hazrat Syed Azizuddin al-Hassani wal-Hussaini\" (slug: hazrat-syed-azizuddin-al-hassani-wal-hussaini). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:syed-ali-tirmizi",
+      "details": "\"Syed Ali Tirmizi (Pir Baba)\" merged into canonical \"Syed Ali Tirmizi\" (slug: syed-ali-tirmizi). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:pir-chhatal-shah-noorani",
+      "details": "\"Pir Chhatal Shah Noorani (Pir Chatta)\" merged into canonical \"Pir Chhatal Shah Noorani\" (slug: pir-chhatal-shah-noorani). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:sachal-sarmast",
+      "details": "\"Sachal Sarmast (Abdul Wahab Faruqi)\" merged into canonical \"Sachal Sarmast\" (slug: sachal-sarmast). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:shah-inayat-qadiri",
+      "details": "\"Shah Inayat Qadiri (murshid of Bulleh Shah)\" merged into canonical \"Shah Inayat Qadiri\" (slug: shah-inayat-qadiri). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:syed-shah-jamal-uddin-naqvi-bukhari",
+      "details": "\"Syed Shah Jamal Uddin Naqvi Bukhari (Baba Shah Jamal)\" merged into canonical \"Syed Shah Jamal Uddin Naqvi Bukhari\" (slug: syed-shah-jamal-uddin-naqvi-bukhari). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:swami-dharmdas",
+      "details": "\"Swami Dharmdas (Nanakpanthi sant)\" merged into canonical \"Swami Dharmdas\" (slug: swami-dharmdas). Verify the merge is correct."
+    },
+    {
+      "issue": "figure-type-conflict",
+      "entityId": "saint:guru-gorakhnath",
+      "details": "figure_type differs across this figure's shrines: kept \"Deity\", also saw \"Sant\". Decide which is right in the sheet."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:guru-gorakhnath",
+      "details": "\"Guru Gorakhnath (Nath yogis)\" merged into canonical \"Guru Gorakhnath\" (slug: guru-gorakhnath). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:hazrat-bahaal-halim",
+      "details": "\"Hazrat Baha'al-Halim (Sayyid Baha al-Din Halim)\" merged into canonical \"Hazrat Baha'al-Halim\" (slug: hazrat-bahaal-halim). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:ustad-nuriya",
+      "details": "\"Ustad Nuriya (master-builder)\" merged into canonical \"Ustad Nuriya\" (slug: ustad-nuriya). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:kaka-sahib",
+      "details": "\"Kaka Sahib (Syed Kasteer Gul, \"Sheikh Rahmkar\")\" merged into canonical \"Kaka Sahib\" (slug: kaka-sahib). Verify the merge is correct."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "details": "proposal slug \"shah-abul-muali-qadri\" names the same person as \"hazrat-syed-muhammad-khair-ul-deen\" (\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "saint-identity-joined",
+      "entityId": "saint:hazrat-wasif-ali-wasif-awan",
+      "details": "proposal slug \"hazrat-wasif-ali-wasif\" names the same person as \"hazrat-wasif-ali-wasif-awan\" (\"Hazrat Wasif Ali Wasif Awan\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "seed-note",
+      "details": "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment."
+    },
+    {
+      "issue": "seed-note",
+      "details": "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "sultan-sakhi-sarwar: Order affiliation debated in scholarship (Chishti vs. independent 'Sultani' path) — needs review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "bibi-pak-daman: Appears at two shrines with identical names and identical saint fields — possible duplicate row in the source Sheet; flag for maintainer review."
+    },
+    {
+      "issue": "seed-note",
+      "details": "guru-nanak-and-bhai-mardana: CSV entry references two figures; merged to Guru Nanak as primary; Bhai Mardana not modelled as a separate saint entity yet."
+    }
+  ]
+}

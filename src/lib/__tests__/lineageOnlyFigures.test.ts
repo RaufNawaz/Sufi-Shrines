@@ -1,6 +1,7 @@
 // @vitest-environment node
 /**
- * The 60 figures no index listed.
+ * The figures no index listed — 60 when this was written, 68 since kinship
+ * landed.
  *
  * `getArchiveFigures` excludes `lineageOnly` nodes so that every count
  * describing the archive describes the archive — Hujwiri's master al-Khuttali is
@@ -24,6 +25,7 @@ import {
   getLineageOnlyFigures,
   getDisciplesOf,
   getTeachersOf,
+  getKinOf,
   getKGStore,
 } from '../kg';
 
@@ -57,18 +59,34 @@ describe('the two figure lists', () => {
   });
 });
 
+/* What a lineage-only node has to be connected BY.
+ *
+ * This was `disciple_of`/`successor_of` alone until 29 August 2026, and the
+ * name of the flag is why: every one of them arrived through a lineage
+ * proposal, so "connected to a chain" and "connected to anything" were the same
+ * predicate and nothing distinguished them. Kinship broke the tie. Eight of
+ * these figures are now in the graph because an entry names them as somebody's
+ * father, uncle or forebear and for no other reason — Sri Chand has four Udasi
+ * darbars in this archive that invoke him and not one recorded discipleship —
+ * so the chain-only test called all eight orphans.
+ *
+ * Widening it is the correct reading and not a concession: what justifies the
+ * node was never the *kind* of edge, it was that some entry names the person and
+ * a page would otherwise have nothing to point at. */
+const connections = (slug: string) => [
+  ...getDisciplesOf(slug),
+  ...getTeachersOf(slug),
+  ...getKinOf(slug),
+];
+
 describe('every lineage-only figure is there for a reason', () => {
-  it('is connected to a chain in one direction or the other', () => {
-    /* What justifies their presence in the graph at all: a `lineageOnly` node
-       nobody names is an orphan — no site, no count, and no chain that needs
-       it. */
+  it('is connected to something in one direction or the other', () => {
+    /* A `lineageOnly` node nobody names is an orphan — no site, no count, and
+       no relation that needs it. */
     const orphans = lineageOnly
-      .filter(
-        (saint) =>
-          getDisciplesOf(saint.slug).length === 0 && getTeachersOf(saint.slug).length === 0,
-      )
+      .filter((saint) => connections(saint.slug).length === 0)
       .map((s) => s.slug);
-    expect(orphans, 'a lineage-only figure no chain names has no reason to exist').toEqual([]);
+    expect(orphans, 'a lineage-only figure nothing names has no reason to exist').toEqual([]);
   });
 
   it('is named in both directions across the set, not just as teachers', () => {
@@ -83,16 +101,26 @@ describe('every lineage-only figure is there for a reason', () => {
     const disciples = lineageOnly.filter(
       (s) => getDisciplesOf(s.slug).length === 0 && getTeachersOf(s.slug).length > 0,
     );
+    /* The third population, added with the kinship pass: named as family and
+       never as a link in a chain. Kept as its own term rather than folded into
+       the two above, because a note that says "teacher of X" or "disciple of X"
+       is wrong about all of them. */
+    const kinOnly = lineageOnly.filter(
+      (s) =>
+        getDisciplesOf(s.slug).length === 0 &&
+        getTeachersOf(s.slug).length === 0 &&
+        getKinOf(s.slug).length > 0,
+    );
     expect(teachers.length).toBeGreaterThan(20);
     expect(disciples.length).toBeGreaterThan(5);
-    expect(teachers.length + disciples.length).toBe(lineageOnly.length);
+    expect(kinOnly.length).toBeGreaterThan(0);
+    expect(teachers.length + disciples.length + kinOnly.length).toBe(lineageOnly.length);
   });
 
   it('can always name at least one figure it is connected to', () => {
     /* The row's note. If this were ever empty the list would be bare names. */
     for (const saint of lineageOnly) {
-      const linked = [...getDisciplesOf(saint.slug), ...getTeachersOf(saint.slug)];
-      expect(linked[0]?.saint.name, saint.slug).toBeTruthy();
+      expect(connections(saint.slug)[0]?.saint.name, saint.slug).toBeTruthy();
     }
   });
 });

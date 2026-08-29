@@ -313,6 +313,47 @@ const UI_TEXT_EN = {
   lineageChainRemove: (n: number) => `${n} removed`,
   discipleOfLabel: 'Disciple',
   successorOfLabel: 'Successor',
+  /* ── Family (SaintPage) ──────────────────────────────────────────────────
+     One stored edge is read from both figures' pages, so every tie carries two
+     labels rather than one predicate: "grandson of" is unreadable on the
+     grandfather's page. And the vocabulary is closed because **Urdu splits what
+     English does not** — دادا is a father's father and نانا a mother's, چچا a
+     father's brother and ماموں a mother's — so a single translated "grandfather"
+     would assert a line most of these entries never state. English keeps the
+     plain term throughout, because English has no ambiguity to resolve here and
+     the source's own sentence is shown directly beneath the row; the Urdu is
+     specific where the entry says which side and keeps both readings where it
+     does not. */
+  kinHeading: 'Family recorded',
+  kinNote:
+    'Blood and marriage as this archive’s own entries state them, with the sentence each was read from. In this corpus a seat passes down a family at least as often as down a chain of initiation.',
+  kinRoleFather: 'father',
+  kinRoleSon: 'son',
+  kinRoleDaughter: 'daughter',
+  kinRoleDaughters: 'daughters',
+  kinRoleGrandfatherPaternal: 'grandfather',
+  kinRoleGrandfatherUnspecified: 'grandfather',
+  kinRoleGrandsonPaternal: 'grandson',
+  kinRoleGrandsonUnspecified: 'grandson',
+  kinRoleUnclePaternal: 'uncle',
+  kinRoleUncleMaternal: 'uncle',
+  kinRoleUncleUnspecified: 'uncle',
+  kinRoleNephewPaternal: 'nephew',
+  kinRoleNephewMaternal: 'nephew',
+  kinRoleNephewUnspecified: 'nephew',
+  kinRoleFatherInLaw: 'father-in-law',
+  kinRoleSonInLaw: 'son-in-law',
+  kinRoleAncestor: 'ancestor',
+  kinRoleDescendant: 'descendant',
+  kinGenerationDisputed: 'sources differ on the generation',
+  kinGenerationDisputedHelp:
+    'The sources agree on the descent and disagree on how many generations it runs. Both counts are kept rather than one chosen.',
+  kinContested: 'one of two traditions',
+  kinContestedHelp:
+    'The entry reports this parentage as one of two competing traditions about the same figure, not as settled.',
+  kinNotesHeading: 'Recorded, and unnamed',
+  kinNoteUnnamed:
+    'The archive records this family succession and names nobody on the other side of it, so there is no second figure to link to.',
   shrinesAssociated: 'Associated shrines',
   alsoKnownAs: 'Also known as',
   born: 'Born',
@@ -376,6 +417,14 @@ const UI_TEXT_EN = {
   graphLineageOnlyTeacherOfMore: (name: string, n: number) => `teacher of ${name} and ${n} more`,
   graphLineageOnlyDiscipleOf: (name: string) => `disciple of ${name}`,
   graphLineageOnlyDiscipleOfMore: (name: string, n: number) => `disciple of ${name} and ${n} more`,
+  /* The third way a figure can be in this list and have no site here: named as
+     somebody's family and never as a link in a chain. Eight of them, and
+     without this they were the one population in the roster whose row was a
+     bare name — the same gap that left the 17 disciples blank when the note
+     assumed everyone here was a teacher. `role` arrives already translated. */
+  graphLineageOnlyKinOf: (role: string, name: string) => `${role} of ${name}`,
+  graphLineageOnlyKinOfMore: (role: string, name: string, n: number) =>
+    `${role} of ${name} and ${n} more`,
   graphCenturyNote:
     'Centuries are read from a figure\u2019s recorded death year, or birth year where no death is given. Nothing is converted from the Hijri calendar.',
   lineageUnreviewed: 'unreviewed',
@@ -1041,6 +1090,14 @@ export function tFn(
   name: string,
   n: number,
 ): string;
+export function tFn(lang: Lang, key: 'graphLineageOnlyKinOf', role: string, name: string): string;
+export function tFn(
+  lang: Lang,
+  key: 'graphLineageOnlyKinOfMore',
+  role: string,
+  name: string,
+  n: number,
+): string;
 export function tFn(lang: Lang, key: 'coverageRestsTail', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCoverageTotal', dated: number, total: number): string;
 /* String-valued interpolations. These exist for the same reason the numeric
@@ -1110,6 +1167,8 @@ export function tFn(
     | 'graphLineageOnlyTeacherOfMore'
     | 'graphLineageOnlyDiscipleOf'
     | 'graphLineageOnlyDiscipleOfMore'
+    | 'graphLineageOnlyKinOf'
+    | 'graphLineageOnlyKinOfMore'
     | 'coverageRestsTail'
     | 'almanacCoverageTotal'
     | 'ariaCategoryOf'

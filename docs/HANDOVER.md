@@ -3252,6 +3252,100 @@ both redirects.
       inside an `aria-modal` dialog; `src/hooks/__tests__/useFocusHeadingOnMount.test.tsx`
       pins it.
 
+123. **The archive stated 28 family ties and rendered none of them.** *Built 29 August 2026.*
+    The knowledge graph's relation vocabulary was `disciple_of`, `successor_of`,
+    `belongs_to_order`, `buried_at`, `located_in`, `commemorated_by` — teaching, affiliation,
+    place. No kinship. So when an extraction pass read the corpus and found 28 blood and
+    marriage ties, each with a verbatim quote, they went into
+    `data/kg-lineage-proposals.json#familyRelations` and stopped there. **Nothing read that
+    key.** Not a page, not an exporter, not the JSON-LD.
+
+    In this corpus that is not a footnote. Thirteen of the 28 are a *sajjada nashin*'s seat
+    passing from father to son — the way a gaddi actually descends here — and **Bibi Jawindi's
+    only tie to anything else in the graph is a line of descent** from Jahaniyan Jahangasht.
+    Sri Chand, whom four Udasi/Nanakpanthi darbars in this archive invoke, had no node at all,
+    because he is named as Guru Nanak's elder son and in not one recorded discipleship.
+
+    What landed: a `kin_of` relation type; `data/kg-seeds.json#familyRelations`, where a human
+    decided every slug and label and the prose beside them was **copied, never retyped**;
+    `getKinOf()` reading the same edge from both figures' pages; a "Family recorded" section on
+    `/saint/:slug` carrying the source's own sentence under each row, the way LineageView
+    already does; and eight new `lineageOnly` figures for people the archive names only as
+    somebody's father, uncle or forebear (192 → 200).
+
+    Four things worth keeping:
+
+    - **The `wording` field is not a predicate, and reading it as one would have inverted
+      edges.** It is the source's verbatim phrase, so entry 17 says "his son" about the
+      *subject* and entry 23 says "his father" about the *object*. Direction has to come from
+      the quote, one row at a time. Stored direction is now always junior → senior.
+    - **Urdu forced the vocabulary closed.** دادا is a father's father and نانا a mother's;
+      چچا a father's brother and ماموں a mother's. A single translated "grandfather" asserts a
+      line most of these entries never state, which is RULE 2 in a UI label. So each edge
+      carries two role keys from a closed list, specific where the entry says which side
+      («ماموں» for Shah Chan Charagh's "his own maternal uncle") and `*Unspecified` where it
+      does not («دادا/نانا»). English keeps the plain term — it has no ambiguity to resolve.
+      `verify-kg-proposals.mjs` now checks the role pair against the kin type, because
+      `grandson_of` with `elderRole: 'father'` passes two independent vocabulary checks and is
+      nonsense.
+    - **And Urdu grammar caught a second one, on `/graph`.** The roster note reads "‹name› کے
+      والد", possessor first — and the relation then has to agree. «گرو نانک کے بیٹا» is simply
+      wrong; a masculine noun in -ا goes oblique, so it is «کے بیٹے». The chip on a figure's
+      page needs the nominative and the roster needs the oblique, and one string cannot be
+      both, so `uiStrings.ur.ts` carries a small `KIN_GENITIVE` table. The honorific plural is
+      used throughout, which is also the right register and the form the project's own
+      dictionary already had («رام اور سیتا کے بیٹے»).
+    - **Two rows record a real family succession and name nobody in it** — Khwaja Ghulam
+      Farid's seat passing father → elder brother → him, and a mausoleum raised by an unnamed
+      grandson. They cannot be edges. They are `kg.kinNotes`, rendered under "Recorded, and
+      unnamed", because a page that draws only edges would silently drop them.
+
+124. **Three ways the addition would have broken quietly, and what each cost to find.**
+    *Same day.* None of these were visible on the page.
+
+    - **The `/graph` roster would have listed eight figures with a bare name.** Its note
+      assumes a chain — "teacher of X", "disciple of Y" — and the eight kin-only figures are in
+      no chain. This is the *second* time that assumption has cost the roster its notes: the
+      first draft assumed everyone there was a teacher and left 17 disciples blank
+      (§9.116). Fixed with a third direction rather than a third patch.
+    - **`lineageOnlyFigures.test.ts` called all eight orphans**, and it was right to, given how
+      it was written. Its invariant was "connected to a chain", which had been indistinguishable
+      from "connected to anything" because every lineage-only node had arrived through a lineage
+      proposal. Kinship separated them. The invariant is now "named in some recorded relation",
+      which is what actually justifies a node.
+    - **Eight new figures meant eight Urdu figure pages titled in Latin.** The parity test went
+      from 58 to 66 and the fix was to write the eight names into the dictionary, **not to
+      raise the ceiling** — the bound is now 57, one lower than before this started, because
+      Hafiz Muhammad Abdur Rahman was already here and his Latin name had begun appearing
+      *inside* an Urdu sentence once his father became a node.
+
+    And one instrument confirmed before it was trusted: the new `kinship.test.ts` role-label
+    check was made to fail by deleting a role, then restored (§9.90's rule).
+
+125. **Chasing the bundle budget found 33 KB of eager JS that no page has ever rendered.**
+    *Same day, and this is the more useful finding.* The kinship edges pushed five routes past
+    their budgets, which was the correct complaint and the wrong culprit. Two things were in
+    `data/kg.json` — statically imported by `src/lib/kg.ts`, so on every route that touches the
+    graph — that nothing reads:
+
+    - **Relation `notes`, 16.8 KB.** An extractor's or editor's commentary *about* a claim.
+      Grepped `src/`, `e2e/`, both exporters and the prerenderer: no consumer. The only reader
+      is `build-review-worksheet.mjs`, which takes them from the proposals files.
+    - **`reviewNeeded`, 17.6 KB.** The build's own follow-up log, 79 items. Declared on
+      `KGStore` and consumed by exactly one build-time instrument. The browser was downloading
+      the build's log.
+
+    Both now live where the source layer already went for the same reason (§9.111): the notes
+    stay in `kg-seeds.json` and the proposals files, `reviewNeeded` moved to
+    `data/kg-review-needed.json`. **`kg.json` is 404 KB where it was 419 KB before this session
+    added 28 relations, 8 figures and a new key** — SaintPage 695 → 662, GraphPage 620 → 587.
+
+    Three budgets still went up (About, Review, NotFound, +5–7 KB), and the reason is the one
+    `check-bundle-budget.mjs` already predicts in its own Almanac note: ~25 new English UI
+    strings, the English table is eager on every route, and those three are precisely the
+    routes that **do not import the graph**, so they paid the strings and got none of the
+    saving. The two budgets that gained headroom were deliberately left alone.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

@@ -225,7 +225,12 @@ for (const s of saints) {
 
 /* ── orders the corpus names and the taxonomy lacks ─────────────────────── */
 const orderSlugs = new Set((kg.orders ?? []).map((o) => o.slug));
-for (const item of kg.reviewNeeded ?? []) {
+/* Moved out of kg.json on 29 August 2026 — it was 17.6 KB of the build's own
+   log shipping to every reader. The fallback keeps this instrument working
+   against an older kg.json. */
+const reviewNeeded =
+  readIfPresent('data/kg-review-needed.json')?.reviewNeeded ?? kg.reviewNeeded ?? [];
+for (const item of reviewNeeded) {
   const details = String(item.details ?? '');
   const m = details.match(/newOrdersNeeded|new order/i);
   if (m) add('order-missing-from-taxonomy', 'taxonomy', String(item.entityId ?? ''), details);
