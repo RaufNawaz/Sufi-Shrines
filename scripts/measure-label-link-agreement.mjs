@@ -1,7 +1,23 @@
 #!/usr/bin/env node
 /**
- * measure-label-link-agreement.mjs — does the name a shrine page prints match
- * the person it links to?
+ * measure-label-link-agreement.mjs — where the sheet's legacy figure cell and
+ * the knowledge graph disagree about who a site commemorates.
+ *
+ * ⚠ **ITS PREMISE CHANGED WITHIN HOURS OF BEING WRITTEN, AND THE HEADER IS
+ * CORRECTED RATHER THAN QUIETLY REWRITTEN**, because that is the failure this
+ * file exists to catch. It was written on 28 August 2026 to answer "does the
+ * name a shrine page *prints* match the person it links to". Later the same
+ * evening `ShrinePage` was changed to render the graph's name instead of the
+ * raw `Sufi Saint` cell (`11dfe52`), so the rendered page now always agrees and
+ * this script no longer measures the page at all. **It measures the data seam:
+ * rows where the sheet's legacy cell and the graph name different people.** The
+ * question it was built for is now answered by the page itself.
+ *
+ * Left running, and useful, for one reason: a row it reports is a row whose
+ * sheet cell has not caught up with the graph — i.e. a pending RULE 3 patch, or
+ * an override living in the build. That is exactly what `data/patch_javindi_
+ * bibi_figure_2026-08-28.csv` is waiting for. When the sheet catches up, the
+ * row leaves this list on its own.
  *
  * WHY THIS EXISTS AS A FILE. `/shrine/tomb-of-javindi-bibi` renders the label
  * **"Jalaluddin Surkh-Posh Bukhari"** over the href **`/saint/bibi-jawindi`**:
@@ -20,10 +36,12 @@
  * 2026 over the 169-row committed snapshot: **6 rows disagree, and they are two
  * unrelated defects.**
  *
- *   Kind B — a different person (1 row). Tomb of Javindi Bibi, above. This is
- *   the one that misinforms a reader, and it is *one row*: the wrong-person
- *   case is not systemic and does not wait on the `Sufi Saint` vs
- *   `principal_figure` column decision (docs/planning/DECISION_figure_identity_column.md).
+ *   Kind B — a different person (1 row). Tomb of Javindi Bibi. **Closed at the
+ *   render layer the same evening** (`3998982`/`11dfe52`): the graph override
+ *   points at Bibi Jawindi and the page now prints her name over her link,
+ *   verified in a browser. It still appears in this script's output, correctly,
+ *   because the *sheet cell* still says Jalaluddin Surkh-Posh Bukhari until the
+ *   patch is imported. A row here is a pending import, not a broken page.
  *
  *   Kind A — the same person with a sentence for a slug (5 rows). The label and
  *   the figure are the same human; the slug swallowed a description, e.g.
