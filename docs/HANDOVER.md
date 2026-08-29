@@ -5694,3 +5694,86 @@ of `urdu-i18n/build-all.sh`, and the runtime seed is step 2, a plain `cp` to
 154 drafted); three `silsila` cells that are prose or an order still outside the taxonomy; two Urdu
 names that cannot be lifted mechanically (`Lava`, whose reviewed Urdu leads with لو where the
 English leads with Lava); and the 58 lineage-only figures whose Urdu debt is a recorded budget.
+
+---
+
+### Added 28 August 2026 — Track C shipped, because its blocker was a measurement that had gone stale
+
+`/chronology` is live. It is the last unstarted track of `SHARED_GROUND_VISION.md`, and the
+interesting part is not the page — it is **why it was not built a week ago, and why that reason
+had quietly stopped being true.**
+
+That document deferred Track C on one ground, and the ground was right:
+
+> Track C — last, because it depends on date quality that is not there yet … a timeline must
+> render those as intervals or it launders uncertainty into false precision.
+
+**Re-measured against the 169-row snapshot tonight: `year_built_precision` is populated on 168 of
+169 rows** — exact 44, unknown 43, circa 41, century 35, range 2, three prose sentences, one
+blank. 126 carry a term from the controlled set, which is exactly the input an interval needs.
+`year_built` itself is on 127. **The blocker was never the dates; it was the absence of a column
+saying how much to trust them, and that column has since been filled in.** The deferral was a
+measurement with a date on it and it was quoted as current for a week — the same lesson as the
+struck-through bibliography finding in CLAUDE.md, on a different subject.
+
+#### The rule the page is built around
+
+**A bar's width is how much the archive does not know.** An exactly dated place is a hairline
+tick; a place known only to its century is a hundred years wide. That inversion is not guessable,
+so it is stated in the legend and carried in every mark's accessible name — a mark's only visible
+content is its width, so without the name a screen reader would get no date at all.
+
+The parsing lives in `src/lib/chronology/timeline.ts`, in tested pure functions rather than inside
+the chart, precisely so a layout change cannot quietly alter what the archive is claiming:
+
+    exact    the year               circa    ±25y, a stated drawing convention
+    century  the whole century      range    the circa width — see below
+    unknown / prose / non-CE cell   undated, counted, listed by name, never plotted
+
+Three decisions in there could each have been the dishonest one:
+
+- **`range` is not drawn as a range.** Both `range` rows record a *single* year (1300, 1800); the
+  extent the word refers to is not in the data. Drawing a span would invent it.
+- **Two cells are refused rather than parsed for their digits** — `"1024 AH (as given in the form;
+  not a construction date)"` and `"1041 (as given: 8 August 1041)"`. Converting AH to CE, or
+  trusting a number the cell itself disclaims, would manufacture a date (RULE 2).
+- **Spans are clipped to the present.** A `circa 2015` row otherwise draws to 2040 and the axis to
+  2100 — a heritage archive appearing to document the next century. Clipping states a fact.
+
+**Live figures: 120 places on the timeline, 51 not on it**, and the 51 are listed by name rather
+than tallied. An archive that quietly dropped what it cannot date would render an identical
+picture, which is the whole reason the undated section exists.
+
+What it shows that no row can: **the traditions' building phases interleave.** Hindu from 700,
+Muslim from 748, Jain 1275, Sikh 1700, Nanakpanthi 1712.
+
+#### Bilingual by construction, not by a translation pass
+
+Marks are positioned with `inset-inline-start`, so the timeline runs **right-to-left for an Urdu
+reader with no second code path** — and `e2e/chronology.spec.ts` asserts the earliest century lands
+in the right half of the lane, so a later `left:` cannot silently undo it. Eastern numerals are
+asserted at all three number sites separately (the century scale, the counts, the bar labels),
+because the numeral toggle has been missed at exactly one site before. Tradition is a row label and
+never a hue, so nothing depends on colour; axe is clean in light and dark.
+
+#### Four gates caught it on the way in, and all four were right
+
+Worth listing, because a new route is the case where a repository's checks earn their keep:
+
+1. **No bundle budget** for `/chronology` — the check refuses an unbudgeted route rather than
+   letting one arrive unmeasured.
+2. **Almanac 1 KB over its budget**, and *not* from its own growth: ~14 new UI strings grow the
+   eager English string table that every route shares, and Almanac had the least headroom. **If
+   several routes go 1–2 KB over at once, look at `uiStrings.ts` before looking at the routes** —
+   this is the same shared-table effect that made all twelve budgets stale on 27 August.
+3. **Two files on disk and not in git** (`importsAreTracked`) — a build green here and broken from
+   a clean clone.
+4. **A route no tab owned** — `/chronology` rendered with five unselected tabs.
+
+Plus two style-system rules: a class in JSX with no stylesheet rule, and three separators drawn
+with `--color-border` at `var(--hairline)` when that token pairs only with `--color-border-light`.
+Neither is visible in a 1× screenshot, which is why both are tests.
+
+**Open, and recorded rather than decided:** whether the chronology deserves a tab of its own. It
+currently sits under the atlas tab, which owns "ways of seeing the whole archive at once". Adding a
+sixth item to a five-item bar is a design decision and not one to take at midnight.

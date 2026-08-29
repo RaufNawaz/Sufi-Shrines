@@ -135,16 +135,20 @@ in the snapshot; a `/place/lahore` + `/ur/place/lahore` spot-check in the preren
 `src/styles/__tests__/classNamesStyled.test.ts`, which came out of this track's own mistake —
 two class names written into JSX that existed in no stylesheet.
 
-## Track C — Chronology · not started
+## Track C — Chronology · **SHIPPED 28 Aug 2026** (`/chronology`)
 
 Era parsing exists (`src/lib/data/era.ts`), the map has a time slider, and 69 of 196 figures
 now carry dates — but there is no view in which the archive's whole span is legible. A
 timeline spanning the 7th to the 21st century, banded by tradition, would show something else
 no single row can: that these traditions' building phases interleave.
 
-Prerequisite: dates are still thin and 31 rows have a date column that hardened a hedge the
-prose never made (`docs/TODO.md` §0). A timeline must render "c. 1165" as an interval, not a
-point, or it will launder uncertainty into false precision.
+~~Prerequisite: dates are still thin…~~ **The prerequisite was met before this was written and
+nobody re-measured.** `year_built_precision` is populated on **168 of 169 rows** (measured
+28 August 2026), 126 of them with a term from the controlled set — exactly the input an interval
+needs. The blocker was never the dates; it was the absence of a column saying how much to trust
+them. The interval rule below was kept in full and is what the page enforces: `exact` is a tick,
+`century` is a hundred years wide, and 51 undated places are listed by name rather than plotted.
+See `TRACK_C_CHRONOLOGY.md` and HANDOVER §9, 28 August.
 
 ## Track D — The gaps as a first-class page · **SHIPPED 21 Aug 2026**
 
@@ -200,7 +204,7 @@ an unknown string comes back **unchanged**, never transliterated.
 1. ~~**Track A**~~ — shipped 21 August.
 2. ~~**Track D**~~ — shipped 21 August.
 3. **Track B** — unlocks the named half of A and tidies the region/district mess. ← next
-4. **Track C** — last, because it depends on date quality that is not there yet. The date
+4. ~~**Track C**~~ — **shipped 28 August 2026.** It was deferred on date quality; the date
    hedges are still hedges: `year_built_note` carries readings like "1416 AH is the survey's
    answer to 'in which year was this place built', but may refer to the saint's death rather
    than construction", and a timeline must render those as intervals or it launders uncertainty

@@ -1,6 +1,6 @@
 # Track C — Chronology
 
-**Status:** in progress, 28 August 2026 (overnight). The last unstarted track of
+**Status:** **shipped 28 August 2026** (`bd9ee9c`) — `/chronology`, prerendered in both languages, 120 places plotted and 51 listed as undated. The last unstarted track of
 [`SHARED_GROUND_VISION.md`](SHARED_GROUND_VISION.md).
 
 ---
