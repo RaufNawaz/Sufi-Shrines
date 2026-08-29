@@ -126,7 +126,7 @@
   {
    "subjectSlug": "shah-abul-muali-qadri",
    "subjectName": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-   "subjectIsNew": true,
+   "subjectIsNew": false,
    "relation": "disciple_of",
    "objectSlug": "daud-bandagi-kirmani",
    "objectName": "Daud Bandagi Kirmani (Dawood Bandgi Kirmani)",
@@ -151,7 +151,7 @@
   {
    "subjectSlug": "hazrat-wasif-ali-wasif",
    "subjectName": "Hazrat Wasif Ali Wasif Awan",
-   "subjectIsNew": true,
+   "subjectIsNew": false,
    "relation": "disciple_of",
    "objectSlug": "hazrat-shah-niyaz-ahmad-chisti-qadri",
    "objectName": "Hazrat Shah Niyaz Ahmad Chisti Qadri",

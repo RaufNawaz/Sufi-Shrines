@@ -63,7 +63,7 @@
   {
    "saintSlug": "shah-abul-muali-qadri",
    "saintName": "Shah Abul Muali Qadri (Hazrat Syed Muhammad Khair ul Deen)",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-abul-muali-qadri",
    "born": "10 Zil Hajj 960 Hijri",
    "died": "16 Rabi ul Awal 1024 Hijri",
@@ -208,7 +208,7 @@
   {
    "saintSlug": "malik-ahmad-ayaz",
    "saintName": "Malik Ahmad Ayaz",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-malik-ahmad-ayaz",
    "born": "",
    "died": "8 August 1041 (calendar era unstated in the account)",
@@ -2285,7 +2285,7 @@
   {
    "saintSlug": "bibi-jawindi",
    "saintName": "Bibi Jawindi",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "tomb-of-javindi-bibi",
    "born": "",
    "died": "",

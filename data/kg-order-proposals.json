@@ -153,7 +153,7 @@
   {
    "saintSlug": "hazrat-wasif-ali-wasif",
    "saintName": "Hazrat Wasif Ali Wasif Awan",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-wasif-ali-wasif",
    "parentOrder": null,
    "parentOrders": [
@@ -817,7 +817,7 @@
   {
    "saintSlug": "bibi-jawindi",
    "saintName": "Bibi Jawindi",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "tomb-of-javindi-bibi",
    "parentOrder": "suhrawardiyya",
    "parentOrders": null,

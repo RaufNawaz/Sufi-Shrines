@@ -122,6 +122,33 @@ const kg = JSON.parse(readFileSync(KG, 'utf8'));
    actually asserts is "this person has no shrine in the archive", which is
    stable, and `lineageOnly` is exactly that distinction. */
 const knownSaints = new Set(kg.saints.filter((s) => !s.lineageOnly).map((s) => s.slug));
+
+/* A proposal's slug is a *pointer* to a figure, and the graph renames figures.
+ *
+ * `kg.json.retiredSlugs` already records every rename this build performed —
+ * old slug → the slug it became — and the site's `/saint/:slug` route honours it
+ * so an old address redirects rather than 404s. This checker did not consult it,
+ * so a rename that the published site handles correctly still failed the build
+ * here, and the apparent fix was to hand-edit the pointers in three proposal
+ * files.
+ *
+ * That is worth resisting: the proposals are the extractor's record of what it
+ * read, and the *name* in them is evidence. The slug is not — it is derived from
+ * the name, and derived twice, in two files that nothing recomputes together.
+ * Six figure slugs were shortened on 28 August 2026 and seven references here
+ * went stale in the same commit; hand-editing them would have left the next
+ * rename to find the eighth.
+ *
+ * So the pointer is resolved, not rewritten. `isNew` is still checked against the
+ * resolved slug, because whether a figure already exists is a fact about the
+ * graph, and `--reconcile` still exists for the case where the graph simply grew.
+ */
+const retired = new Map(Object.entries(kg.retiredSlugs ?? {}));
+const resolveSlug = (slug) => {
+  let s = slug;
+  for (let hops = 0; hops < 8 && retired.has(s); hops += 1) s = retired.get(s);
+  return s;
+};
 const knownOrders = new Set(kg.orders.map((o) => o.slug));
 
 const seeds = existsSync(SEEDS) ? JSON.parse(readFileSync(SEEDS, 'utf8')) : {};
@@ -198,7 +225,7 @@ if (existsSync(LINEAGE)) {
         fail(`${label}: missing ${side}Slug`);
         continue;
       }
-      const exists = knownSaints.has(slug);
+      const exists = knownSaints.has(resolveSlug(slug));
       if (isNew === exists) {
         if (RECONCILE) {
           p[`${side}IsNew`] = !exists;
@@ -244,7 +271,7 @@ if (existsSync(ORDERS)) {
     orderCount++;
 
     if (!CONFIDENCE_TIERS.has(p.confidence)) fail(`${label}: confidence ${p.confidence} off-tier`);
-    const saintExists = knownSaints.has(p.saintSlug);
+    const saintExists = knownSaints.has(resolveSlug(p.saintSlug));
     if (Boolean(p.saintIsNew) === saintExists) {
       if (RECONCILE) {
         p.saintIsNew = !saintExists;
@@ -304,7 +331,7 @@ if (existsSync(DATES)) {
 
     if (!CONFIDENCE_TIERS.has(p.confidence)) fail(`${label}: confidence ${p.confidence} off-tier`);
 
-    const saintExists = knownSaints.has(p.saintSlug);
+    const saintExists = knownSaints.has(resolveSlug(p.saintSlug));
     if (Boolean(p.saintIsNew) === saintExists) {
       if (RECONCILE) {
         p.saintIsNew = !saintExists;
