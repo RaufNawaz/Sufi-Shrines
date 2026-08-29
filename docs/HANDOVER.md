@@ -5916,3 +5916,67 @@ React rendered the whole paragraph into the sidebar on every load. It was caught
 no-leak guard*, on a bug that was not Urdu-specific at all — English readers would have seen it
 too. A guard aimed at one class of defect caught another because both surface as unexpected Latin
 text in the DOM. Second time in two days a check caught something outside its stated subject.
+
+---
+
+### Added 29 August 2026 — the graph gets the map's pictures, and a ruling with a constraint nobody saw
+
+**Rauf answered four review questions.** Kali splits (Kalka Devi gets her own page); the epithet
+rows keep their URL and take the formal name as a title; Jhulelal is left for a field expert; the
+255-row KG queue stays a human's. Sixteen verdicts recorded in
+`data/review/figure-identity-review.csv`, which now reports a number other than zero for the first
+time since it was built.
+
+**Two corrections I had to make to my own handling of those answers**, and both are the same
+mistake in different places — treating a decision as broader than the question that produced it.
+
+*Three of the "ten epithet rows" were not epithet rows.* The question was about swapping a
+well-known epithet for a formal name. `pir-abdul-ul-karim` → `Hazrat Hafiz Muhammad Abdul Karim`
+is an identity claim between two cells sharing only "abdul" and "karim"; `guru-gurpat` → `Baba
+Gurpat Sahib` changes an honorific class in a tradition where "Guru" is reserved; `bibi-pak-daman`
+→ `The six Bibis` turns a named figure into a collective. My own worksheet had flagged all three
+as needing a human *for reasons the epithet question does not answer*, and I bundled them in
+anyway when recording the verdict. They are back in the queue, unanswered, with the reason
+attached.
+
+*And the ruling can only be applied where the formal name exists in Urdu.* This is the useful one.
+`localizeFigureName` falls back through `altNames`, and the retitle itself pushes the old epithet
+onto `altNames` — so a figure retitled in English with no Urdu name leaves the English page reading
+"Hazrat Ali ibn Usman al-Hujwiri" and the Urdu page still reading داتا گنج بخش. **Two editions
+titling one figure differently, and every existing gate stays green**: the altName fallback
+satisfies `figureNameUrduParity`, and the no-leak guard visits three saint routes out of 134. Two
+of the seven had reviewed Urdu and were applied; five are held in `_pending_saintDisplayNames`.
+Check 9 of `validate-kg-identity.mjs` now fails any retitle whose title has no Urdu — watched red
+on `data-ganj-bakhsh`, exit 1, restored.
+
+**`saintDisplayNames` is the mechanism the ruling needed and the archive did not have**: a figure
+can now be retitled without being moved. That is RULE 3 read literally — a sheet value is a join
+key, a label is cosmetic, so a better label must never cost a published address. It also dissolves
+the reason `jahaniyan-jahangasht` was the second row where `principal_figure` was worse: keeping
+the slug means "Sayyid Jalaluddin" never lands one suffix from his grandfather.
+
+**A retirement conflict the Kali split exposed.** "Goddess Kali" and "Goddess Kali (Kalka Devi)"
+both strip to the pre-merge slug `goddess-kali`, and `retiredSaintSlugs.set` overwrote — so the
+split silently repointed that redirect from Kali, who holds two temples and whose page the address
+has always served, to a figure with one. First row now wins and a disagreement is *reported*
+rather than overwritten. Caught by `saintIdentity.test.ts`, which asserted the old target.
+
+**And the graph now looks like the map.** Every shrine on the map had a photograph and a preview
+card; the graph drew the same archive's figures as bare coloured discs. Nodes carry a picture and
+open a preview on hover *or focus*. Three things that cost, each worth knowing:
+
+- **An SVG `<title>` is a text node.** Using one for a node's accessible name put a second copy of
+  every Latin figure name in the DOM and turned two Urdu no-leak routes red. `aria-label` names the
+  link just as well and gives a content walker nothing to find.
+- **A figure has no picture of their own.** The archive photographs *places*, so a figure's node
+  shows the site where they rest and the preview captions it with that site's recorded name —
+  without the caption, a face beside a person's name claims a portrait the archive does not have.
+- **26 KB of image urls is not free.** Static import put SaintPage 22 KB and GraphPage 7 KB over
+  budget. Fetched on demand instead, the way `urduFallback` loads the dictionary, both routes come
+  in *under* budget with the feature added and no budget was raised. Rendering before it lands is
+  not a defect: the plain disc is a state 90 of 191 figures have permanently, and the circle is the
+  same size either way.
+
+The lazy load then made my own e2e spec flaky — it filtered for pictured nodes on a first paint
+that by design has none, passing alone and failing under five workers. The spec polls now. The lazy
+load is the feature; racing it was the test's bug.
