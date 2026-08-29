@@ -669,6 +669,29 @@ SAINTS = {
  # needed her name in Urdu. Not composed — lifted whole from the already reviewed
  # shrine entry "Tomb of Javindi Bibi" -> "مقبرہ بی بی جاوندی".
  "Bibi Jawindi": "بی بی جاوندی",
+ # Added 28 August 2026 with `saintDescriptiveCells`, which shortened five figure
+ # cells from "name + description" to the name proper. The long forms were in the
+ # dictionary and the short ones were not, so shortening the slug opened a fresh
+ # Urdu hole in the same commit that closed a URL one. Each is lifted from the
+ # reviewed long entry, never composed:
+ #   "ملک احمد ایاز، سروے کے مطابق…"        -> head before the comma
+ #   "بھائی گرداس (سیوا پنتھی روایت)؛…"      -> head before the parenthesis
+ #   "بھائی گرداس سنگھ (کنہیا لال)،…"        -> head before the parenthesis
+ #   "حضرت سید محمد خیر الدین، معروف بہ…"    -> head before the comma
+ # and two where only the honorific حضرت comes off, because the English name
+ # does not carry it either:
+ #   "حضرت داتا گنج بخش"  ->  "داتا گنج بخش"
+ #   "حضرت شاہ دولہ دریائی" -> "شاہ دولہ دریائی"
+ # NOT added, and left as recorded debt: "Lava". Its reviewed entry reads
+ # "لو (لاوا)، رام اور سیتا کے بیٹے" — the Urdu leads with لو (Luv) where the
+ # English leads with Lava, and "Loh Temple (Lava Temple)" uses لاوا for the same
+ # figure. Which form heads his page is a reviewer's call, not a derivation.
+ "Malik Ahmad Ayaz": "ملک احمد ایاز",
+ "Bhai Gurdas": "بھائی گرداس",
+ "Bhai Gurdas Singh": "بھائی گرداس سنگھ",
+ "Hazrat Syed Muhammad Khair ul Deen": "حضرت سید محمد خیر الدین",
+ "Data Ganj Bakhsh": "داتا گنج بخش",
+ "Shah Daula Daryai": "شاہ دولہ دریائی",
  "Bhai Joga Singh": "بھائی جوگا سنگھ",
  "Bhai Taru": "بھائی تارو",
  "Hinglaj Mata": "ہنگلاج ماتا",
@@ -1216,6 +1239,60 @@ def build(rows, glossary):
     seed.update(locations_map)
     seed.update(glossary)
 
+    # The bare name behind a glossed entry.
+    #
+    # The dictionary is keyed on whole recorded strings, because that is what the
+    # sheet holds: "Shiva (Mahadev)", "Jhulelal (Uderolal)", "Bulleh Shah
+    # (Abdullah Shah Qadri)". The knowledge graph, on the other hand, names its
+    # figure nodes with the *bare* name — the parenthetical is a gloss and
+    # build-kg strips it. So a figure page asked the dictionary for "Shiva",
+    # which was not a key, and rendered a Latin title on an Urdu page. Measured
+    # 28 August 2026: 105 of 191 figures had no Urdu name, and 42 of them were
+    # this exact miss — the Urdu existed and was reviewed, just under a longer key.
+    #
+    # Derived rather than hand-listed, so it keeps working as figures arrive.
+    # Bibi Jawindi is the reason it is not: she was hand-added hours earlier from
+    # "Tomb of Javindi Bibi" -> "مقبرہ بی بی جاوندی", and a rule that only fires
+    # on "<name> (<gloss>)" cannot reach her — her name is a *suffix* of a shrine
+    # title, not the head of a glossed entry. That case stays manual.
+    #
+    # Deliberately narrow, because the loose version is wrong. The English key
+    # must be exactly "<name> (<gloss>)" AND the Urdu must itself end in a
+    # parenthetical, or there is no way to say which part of the Urdu is the
+    # name. Both guards earn their place on real rows:
+    #   · "Jain temple dedicated to Parshvanatha (23rd Tirthankara)" reverses in
+    #     Urdu — "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر" — so the
+    #     parenthetical is in the middle and stripping a tail would take the
+    #     wrong words. The Urdu-side guard rejects it.
+    #   · A substring match instead of a prefix match pairs "Guru Gobind Singh"
+    #     with an entry about Bhai Biba Singh, and takes "Bhagwan Valmik" as the
+    #     Urdu for "Valmiki". Requiring the name at the *head* of the key finds
+    #     the right hosts for both.
+    # An ambiguous bare name — two glossed entries disagreeing about its Urdu —
+    # is skipped rather than guessed.
+    derived, ambiguous = {}, set()
+    trailing_paren = re.compile(r"^(?P<head>.*?)\s*\([^()]*\)\s*$")
+    for key, val in list(seed.items()):
+        m_en = trailing_paren.match(key)
+        if not m_en:
+            continue
+        bare = m_en.group("head").strip()
+        if not bare or bare in seed:
+            continue
+        m_ur = trailing_paren.match(val)
+        if not m_ur:
+            continue
+        ur = m_ur.group("head").strip()
+        if not ur or LATIN.search(ur):
+            continue
+        if bare in derived and derived[bare] != ur:
+            ambiguous.add(bare)
+            continue
+        derived[bare] = ur
+    for bare in ambiguous:
+        derived.pop(bare, None)
+    seed.update(derived)
+
     # structured dictionary (human-readable source of truth)
     structured = {
         "_meta": {
@@ -1238,6 +1315,7 @@ def build(rows, glossary):
         "observances": OBSERVANCES,
         "locations": locations_map,
         "sufiGlossary": glossary,
+        "derivedBareNames": dict(sorted(derived.items())),
     }
     structured["_meta"]["counts"] = {
         "categories": len(CATEGORIES), "traditions": len(TRADITIONS),
@@ -1247,7 +1325,8 @@ def build(rows, glossary):
         "silsilas": len(SILSILAS),
         "foundedPhrases": len(FOUNDED), "observances": len(OBSERVANCES),
         "locations": len(locations_map),
-        "sufiGlossary": len(glossary), "flatSeedEntries": len(seed),
+        "sufiGlossary": len(glossary), "derivedBareNames": len(derived),
+        "flatSeedEntries": len(seed),
     }
     return structured, seed, names_map, loc_unknowns
 

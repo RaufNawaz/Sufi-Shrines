@@ -162,8 +162,38 @@ describe('normalized name matching does not merge distinct figures', () => {
   });
 
   it('translateToUrdu itself is unchanged — no normalized matching there', () => {
-    // Applied to a non-name it would equate a bare status with a qualified one.
-    expect(translateToUrdu('Data Ganj Bakhsh')).toBe('Data Ganj Bakhsh');
+    /* The sentinel is found in the live dictionary, not written down here.
+     *
+     * This assertion used the literal "Data Ganj Bakhsh", chosen because the
+     * sheet writes "Hazrat Data Ganj Bakhsh (Ali Hujwiri)" and the bare form was
+     * therefore absent as a key. On 28 August 2026 a dictionary pass gave the
+     * bare form a real entry — correct work, that figure should have an Urdu
+     * name — and this test went red. The invariant was untouched; its sentinel
+     * had simply stopped being one, and the tempting "fix" was to delete the new
+     * entry and re-break a figure's name.
+     *
+     * Third instance of that shape in one day (see HANDOVER §9), so this one
+     * finds a sentinel at run time and cannot be disarmed by adding entries:
+     * a name that the *normalized* index resolves but that is not itself a key.
+     * If the dictionary ever contains no such name the test fails loudly rather
+     * than passing on a sentinel that no longer tests anything. */
+    const figures = getArchiveFigures();
+    const sentinel = figures
+      .map((f) => f.name)
+      .find(
+        (name) => translateToUrdu(name) === name && !/[A-Za-z]/.test(translateNameToUrdu(name)),
+      );
+    expect(
+      sentinel,
+      'no figure name is resolvable only through the normalized index, so this ' +
+        'test can no longer distinguish exact from normalized matching. Add one, ' +
+        'or delete the test — do not let it pass vacuously.',
+    ).toBeDefined();
+
+    // Exact-only: translateToUrdu leaves it alone …
+    expect(translateToUrdu(sentinel!)).toBe(sentinel);
+    // … while the name path, which normalizes, resolves it.
+    expect(translateNameToUrdu(sentinel!)).not.toBe(sentinel);
     expect(buildUrduFallback('Data Ganj Bakhsh')).not.toMatch(/^حضرت/);
   });
 });
