@@ -104,6 +104,60 @@ the shape of the answer. The manual path, for now:
 
 Once there are enough verdicts to see the shape, that becomes a script. Not before.
 
+## The queue's real shape — measured 28 August 2026
+
+Still **0 verdicts of 255**. Before spending an afternoon on it, three measurements about what
+the 255 actually are, because the row count overstates the work in one direction and understates
+it in another.
+
+**Priority 1 is 89 rows but 66 figures, and 20 of the 89 have nothing to accept.**
+
+```
+89 priority-1 rows  =  69 proposals + 20 finding/* rows
+                       over 66 distinct figures
+```
+
+The `finding/*` rows are not proposals and cannot be accepted or rejected — they record the
+*absence* of a claim (an order the taxonomy lacks, a silsila cell that declines to name one). Six
+figures carry three or more contested rows apiece, and those are worth taking together rather than
+in queue order: `abul-faiz-qalander-ali-suharwardi` (5), then `khawaja-shah-muhammad-sulaiman-taunsvi`,
+`khwaja-muhammad-qasim`, `khwaja-muhammad-qasim-sadiq`, `syed-shah-jamal-uddin-naqvi-bukhari` and
+`akhund-darweza-baba` (3 each).
+
+**No duplicate order proposals survive.** The workflow's note above says five saints have two order
+proposals apiece from different sources; keyed on the evidence digest, zero `(figure, claim)` pairs
+now repeat. Nothing to collapse there.
+
+**The overlap with the figure-identity worksheet is small.** Of the 31 rows flagged
+`nameCollisions` or `nameVariantsSeen`, only **4** name a figure that
+`data/review/figure-identity-review.csv` also leaves open (`bari-imam`, `guru-nanak` ×2,
+`sheikh-tahir`). The two queues were expected to be substantially the same question and they are
+not — answering one does not clear the other.
+
+### A worked `nameCollisions` case, and it resolves against merging
+
+`khwaja-muhammad-qasim` and `khwaja-muhammad-qasim-sadiq` are flagged as possibly one person and
+carry six contested rows between them. They are not one person, and the data says so without any
+judgement being required:
+
+| | `khwaja-muhammad-qasim` | `khwaja-muhammad-qasim-sadiq` |
+|---|---|---|
+| dates | b. 1912, d. 21 March 1999 | b. about 1846 (1263 AH) |
+| alt names | "Zinda Pir" | Khawaja Muhammad Qasim **Moharwi** |
+| order branch | Naqshbandiyya Ghamkolia | Naqshbandi Mujaddidi Qasimiya |
+| recorded master | Baba Ji Muhammad Qasim **of Mohra Sharif** | Khwaja Nizamuddin Aulia of Kahiyan Sharif |
+
+Born sixty-six years apart, so not one man. And the interesting part is the last row: the first is
+recorded as the disciple of a *"Muhammad Qasim of Mohra Sharif"*, and the second's own alt name is
+*"Moharwi"* — of Mohra. The likeliest relation between these two is **master and disciple**, which
+is precisely the edge a merge would delete.
+
+That is the standing warning made concrete: in a silsila corpus a shared name usually means someone
+standing one edge away, and 19 of 21 name-similarity merges proposed here were wrong. This pair is
+the recommended first entry for `saintDoNotMerge` in `kg-seeds.json` — **not added here**, because
+that array requires a byte-exact corpus quote per entry and the quotes should be pulled by whoever
+records the verdict rather than assembled at the end of a session.
+
 ## Rules this workflow is shaped by
 
 - **RULE 2 — never invent.** Dates stay exactly as the source expresses them, calendar and hedge
