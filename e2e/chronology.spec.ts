@@ -37,29 +37,32 @@ test.describe('the chronology', () => {
     expect(counts).toContain(String(undated));
   });
 
-  test('every mark carries its own date and precision as a name', async ({ page }) => {
-    /* A mark's visible content is its width and nothing else, so without an
-       accessible name it is an unlabelled link — and a reader who cannot see it
-       gets no date at all. */
+  test('the picture does not pretend to be an interface', async ({ page }) => {
+    /* The marks were links until Lighthouse scored this page 96 on
+       accessibility: ~10px tall and often 2px wide is 120 targets far under the
+       24px minimum, and a mark cannot be made bigger because its width IS the
+       datum. So the lane is `aria-hidden` and every dated place is reachable
+       from the list under its lane. If someone makes a mark focusable again,
+       this fails. */
     await page.goto('/chronology');
     await page.locator('.chronology-mark').first().waitFor();
 
-    const labels = await page
-      .locator('.chronology-mark')
-      .evaluateAll((els) => els.map((e) => e.getAttribute('aria-label') ?? ''));
+    await expect(page.locator('.chronology-lane').first()).toHaveAttribute('aria-hidden', 'true');
+    expect(await page.locator('.chronology-mark a').count()).toBe(0);
 
-    expect(labels.length).toBeGreaterThan(100);
-    for (const label of labels) {
-      expect(label, 'a mark with no accessible name').not.toBe('');
-      expect(label, `no year span in "${label}"`).toMatch(/\d|[۰-۹]/);
-    }
+    const listed = await page.locator('.chronology-band-list li a').count();
+    const marks = await page.locator('.chronology-mark').count();
+    expect(listed, 'a mark with no way to reach the place it draws').toBe(marks);
   });
 
-  test('a mark leads to the place it marks', async ({ page }) => {
+  test('every dated place is reachable, with its span and precision in text', async ({ page }) => {
     await page.goto('/chronology');
-    const first = page.locator('.chronology-mark').first();
-    await first.waitFor();
-    await expect(first).toHaveAttribute('href', /\/shrine\//);
+    await page.locator('.chronology-band-list li').first().waitFor();
+
+    const first = page.locator('.chronology-band-list li').first();
+    await expect(first.locator('a')).toHaveAttribute('href', /\/shrine\//);
+    const date = (await first.locator('.chronology-band-list-date').textContent()) ?? '';
+    expect(date, 'no span on a listed place').toMatch(/\d|[۰-۹]/);
   });
 
   test('reads as Urdu, right to left, in Eastern numerals', async ({ page }) => {
@@ -79,8 +82,8 @@ test.describe('the chronology', () => {
     const tick = (await page.locator('.chronology-tick').first().textContent()) ?? '';
     expect(tick, 'the century scale is not in Eastern numerals').toMatch(EASTERN);
 
-    const label = (await page.locator('.chronology-mark').first().getAttribute('aria-label')) ?? '';
-    expect(label, 'a bar label is not in Eastern numerals').toMatch(EASTERN);
+    const listed = (await page.locator('.chronology-band-list-date').first().textContent()) ?? '';
+    expect(listed, 'a listed date is not in Eastern numerals').toMatch(EASTERN);
   });
 
   test('the timeline runs right-to-left in Urdu', async ({ page }) => {

@@ -18,7 +18,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -33,7 +33,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -64,7 +64,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -79,7 +79,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -97,7 +97,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -112,7 +112,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -131,7 +131,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(
@@ -151,7 +151,7 @@ test.describe('Accessibility (axe-core)', () => {
 
     const results = await new AxeBuilder({ page })
       .exclude(EXCLUDE_SELECTORS)
-      .withTags(['wcag2a', 'wcag2aa', 'best-practice'])
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
       .analyze();
 
     const criticalOrSerious = results.violations.filter(

@@ -38,6 +38,11 @@ module.exports = {
         'http://localhost:4173/order/qadiriyya',
         'http://localhost:4173/graph',
         'http://localhost:4173/almanac',
+        /* Track C, added with the route on 28 Aug 2026. A new route absent from
+           this list is the same gap the comment above records — the list is the
+           universe, and /chronology draws 120 absolutely-positioned marks, which
+           is the kind of page that costs layout time if anything does. */
+        'http://localhost:4173/chronology',
         'http://localhost:4173/coverage',
         'http://localhost:4173/place/lahore',
         'http://localhost:4173/about',

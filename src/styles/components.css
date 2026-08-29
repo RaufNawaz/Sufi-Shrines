@@ -1060,6 +1060,17 @@
   color: var(--color-text-secondary);
   text-decoration: none;
   border-block-end: 1px solid var(--color-border);
+  /* WCAG 2.2 target-size (2.5.8). These sat at 19px tall with 22.8px between
+     neighbours — 1.2px under the 24px minimum, which no screenshot review
+     would ever surface. Padding the line rather than growing the type keeps the
+     citation row looking the same and moves the *hit area* over the line; the
+     inline-block is what lets the block padding apply at all.
+
+     Found on 28 Aug 2026 by widening the axe scans from wcag2aa to include
+     wcag22aa — the same widening that caught /chronology's 120 undersized
+     marks. Before that, `target-size` was a rule the suite never asked for. */
+  display: inline-block;
+  padding-block: 0.15rem;
 }
 
 .coverage-rests-entry:hover,

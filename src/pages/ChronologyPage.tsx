@@ -80,30 +80,46 @@ function Band({ band, extent }: { band: TraditionBand; extent: { from: number; t
       {band.entries.length === 0 ? (
         <p className="chronology-lane-empty">{t('chronologyEmptyBand')}</p>
       ) : (
-        <div className="chronology-lane">
-          {band.entries.map(({ shrine, placement }) => {
-            const left = ((placement.from - extent.from) / span) * 100;
-            const width = ((placement.to - placement.from) / span) * 100;
-            /* The precision is in the name, not only in the width: a screen
-               reader gets the uncertainty as a word. */
-            const label = `${localizeShrineName(shrine, lang)} — ${tFn(
-              lang,
-              'chronologySpan',
-              fmtNum(placement.from),
-              fmtNum(placement.to),
-            )} (${t(YEAR_PRECISION_LABEL_KEYS[placement.precision])})`;
-            return (
-              <Link
-                key={shrine.slug}
-                to={`/shrine/${shrine.slug}`}
-                className={markClass(placement)}
-                style={{ insetInlineStart: `${left}%`, inlineSize: `${width}%` }}
-                aria-label={label}
-                title={label}
-              />
-            );
-          })}
-        </div>
+        <>
+          {/* The lane is a picture, and only a picture. The marks were links
+              until Lighthouse measured this page at 96 for accessibility: a
+              mark is ~10px tall and often 2px wide, so 120 of them are 120
+              targets far under the 24px minimum — and under this archive's own
+              44px standard. The axe run in e2e could not see it, because
+              `target-size` is a WCAG 2.2 rule and the scan asked for
+              wcag2a/wcag2aa (now widened; see e2e/a11y.spec.ts).
+
+              Shrinking a mark to fit a target size is impossible — the width
+              IS the datum. So the picture stops pretending to be an interface:
+              the marks are presentational, and every dated place is reachable
+              from the list beneath its own lane, where the name, the span and
+              the precision are readable rather than hover-only. That is better
+              for everyone, not only for assistive technology. */}
+          <div className="chronology-lane" aria-hidden="true">
+            {band.entries.map(({ shrine, placement }) => {
+              const left = ((placement.from - extent.from) / span) * 100;
+              const width = ((placement.to - placement.from) / span) * 100;
+              return (
+                <span
+                  key={shrine.slug}
+                  className={markClass(placement)}
+                  style={{ insetInlineStart: `${left}%`, inlineSize: `${width}%` }}
+                />
+              );
+            })}
+          </div>
+          <ul className="chronology-band-list">
+            {band.entries.map(({ shrine, placement }) => (
+              <li key={shrine.slug}>
+                <Link to={`/shrine/${shrine.slug}`}>{localizeShrineName(shrine, lang)}</Link>{' '}
+                <span className="chronology-band-list-date">
+                  {tFn(lang, 'chronologySpan', fmtNum(placement.from), fmtNum(placement.to))} ·{' '}
+                  {t(YEAR_PRECISION_LABEL_KEYS[placement.precision])}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </section>
   );

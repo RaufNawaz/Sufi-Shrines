@@ -105,11 +105,24 @@
   opacity: 0.75;
 }
 
-.chronology-mark:hover,
-.chronology-mark:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  z-index: 2;
+.chronology-band-list {
+  columns: 2 18rem;
+  gap: 1.5rem;
+  padding: 0;
+  margin-block: 0.6rem 0;
+  list-style: none;
+}
+
+.chronology-band-list li {
+  break-inside: avoid;
+  margin-block-end: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.chronology-band-list-date {
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .chronology-legend {
