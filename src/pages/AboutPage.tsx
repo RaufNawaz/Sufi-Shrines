@@ -130,13 +130,63 @@ export default function AboutPage() {
   useEffect(() => {
     const anchor = window.location.hash.slice(1);
     if (!anchor || coverage.total === 0) return;
-    /* `instant`, against the global `scroll-behavior: smooth`. That rule is for
-       an anchor the reader clicked — the contents nav, a skip link — where the
-       motion says where they went. This is an arrival: someone opened
-       /coverage and the app decided to put them four screens down a page they
-       have not seen. Animating that is a long slide through unrelated content,
-       and it leaves the page mid-flight for seconds. */
-    document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'instant' });
+
+    /* Wait for the *last* section, not the first.
+     *
+     * The sheet arriving is not the page settling. `ArchiveState` imports
+     * `provenance.json` dynamically and renders `#how-the-words-were-made` when
+     * it resolves — after this effect's own dependency has already fired.
+     * Scrolling on `coverage.total` alone therefore placed the reader on a page
+     * that was still growing, near enough to its end that the footer was on
+     * screen, and the late section then shoved it down: measured 28 August 2026
+     * as CLS 0.1164 on one `/coverage` load in three, attributed to
+     * `footer.site-footer` and `section#corrections` (HANDOVER §9).
+     *
+     * So: place the reader once, when there is nothing left to arrive. A
+     * MutationObserver rather than a poll, because the wait is usually a few
+     * hundred milliseconds and occasionally zero.
+     *
+     * The timeout is the honest part. `provenance.json` is a fetch and fetches
+     * fail; without a deadline a reader whose network dropped that one file
+     * would never be carried to the section their link named, which is a worse
+     * failure than the shift this removes. */
+    const LAST_SECTION = 'how-the-words-were-made';
+    const DEADLINE_MS = 3000;
+
+    const scroll = () => {
+      /* `instant`, against the global `scroll-behavior: smooth`. That rule is
+         for an anchor the reader clicked — the contents nav, a skip link —
+         where the motion says where they went. This is an arrival: someone
+         opened /coverage and the app decided to put them four screens down a
+         page they have not seen. Animating that is a long slide through
+         unrelated content, and it leaves the page mid-flight for seconds. */
+      document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    };
+
+    if (document.getElementById(LAST_SECTION)) {
+      scroll();
+      return;
+    }
+
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      observer.disconnect();
+      window.clearTimeout(timer);
+      scroll();
+    };
+    const observer = new MutationObserver(() => {
+      if (document.getElementById(LAST_SECTION)) finish();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    const timer = window.setTimeout(finish, DEADLINE_MS);
+
+    return () => {
+      done = true;
+      observer.disconnect();
+      window.clearTimeout(timer);
+    };
   }, [coverage.total]);
 
   /* Twenty sections is a page you scroll past, not one you use. The ids are the
