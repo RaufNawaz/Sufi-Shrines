@@ -5858,3 +5858,61 @@ so the widening costs nothing and is not deferred behind a backlog. If a future 
 `target-size`, that is a real finding on a page nothing was measuring before — the same sentence
 `.lighthouserc.cjs` already carries about its URL list, which `/chronology` has now been added to
 for exactly that reason.
+
+---
+
+### Added 29 August 2026 — the Urdu LCP was a 56px transient sitting above the button, and /coverage's shift was the same shape
+
+Two of the three open loading questions are closed, and both answers were **ordering**, not speed.
+
+#### The Urdu front door: LCP 15,183ms → 8,464ms
+
+The archive's Urdu LCP element is the sidebar's "list of shrines" toggle — Nastaliq makes that
+two-line control the largest contentful thing on a 390px viewport. It painted at 8.4s with **TBT
+at 67ms and every one of 344 requests finished by 3.6s**, which is why three sessions in a row went
+looking for a slow fetch or a slow script. There was neither, and the two previous diagnoses
+(`maplibre` evaluation, then "script-evaluation-bound") were both wrong.
+
+**The loading status bar sat above the toggle in a fixed-height 184px sheet.** Sampled at 4× CPU
+and slow 4G, every 400ms:
+
+    179ms   .list-toggle-bar absent
+    4484ms  y=782..854   — ten pixels below an 844px fold
+    6088ms  y=782..873   — grows to 91px as Nastaliq lands
+    8562ms  y=726..817   — visible, because `loading` ended and 56px was removed above it
+
+So the sheet's **one route into 169 sites spent four seconds off-screen**, and the LCP was
+measuring the moment a transient element got out of the way. The fix is a reorder — the toggle now
+sits above the status bar — and nothing else changed.
+
+    /?lang=ur   LCP 15,183 → 8,464ms    CLS 0.0057 → 0.0002
+    /           LCP  4,604ms unchanged  CLS 0.057  unchanged
+
+TBT measured 201ms in that run against 61ms in the previous one and the performance score is flat
+at 60. That is run-to-run variance on a shared laptop, recorded rather than smoothed: the LCP
+change is 6.7 seconds and far outside it, the TBT change is not.
+
+#### `/coverage`: CLS 0.1164 on one run in three → 0.0000 on five of five
+
+Same shape. The anchor scroll fired on `coverage.total`, but **the sheet arriving is not the page
+settling**: `ArchiveState` imports `provenance.json` dynamically and renders
+`#how-the-words-were-made` afterwards. The reader was carried to `#traditions` on a page short
+enough that the footer was on screen, and the late section then shoved it down. The scroll now
+waits for the last section, via a MutationObserver, with a **3s deadline** — `provenance.json` is a
+fetch and fetches fail, and never carrying a reader to the section their link named would be a
+worse failure than the shift.
+
+#### The rule both of them are instances of
+
+**In a fixed-height container, a transient element must never sit above a permanent one.** The
+permanent one is what a reader needs, and it is the one that moves. Neither defect is visible in a
+screenshot, and neither is a performance problem in the sense anyone was looking for — no byte was
+saved and no script got faster in either fix.
+
+#### One bug this file exists to record
+
+The comment explaining the sidebar reorder first went in **as JSX children without braces**, so
+React rendered the whole paragraph into the sidebar on every load. It was caught by the *Urdu
+no-leak guard*, on a bug that was not Urdu-specific at all — English readers would have seen it
+too. A guard aimed at one class of defect caught another because both surface as unexpected Latin
+text in the DOM. Second time in two days a check caught something outside its stated subject.
