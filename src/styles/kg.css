@@ -2445,3 +2445,120 @@
   font-family: var(--font-urdu);
   line-height: var(--leading-urdu-ui);
 }
+
+/* ── pictures in the graph's nodes, and the preview they open ──────────────────
+   The diagram drew figures as bare coloured discs while every shrine on the map
+   had a photograph and a preview card. Same archive, two standards. These bring
+   the graph up to the map's: the node carries the picture, hovering or focusing
+   it opens a small card.
+
+   Only ~53% of nodes can have one (118 of 169 rows carry an image), so every
+   rule here has to look deliberate on a ring that is half photographs and half
+   plain discs — hence a ring drawn on top of the image rather than a shadow or a
+   glow, which would make an un-pictured node look unfinished beside a pictured
+   one. */
+
+.network-graph {
+  /* The preview is positioned against this box in viewBox percentages. */
+  position: relative;
+}
+
+/* The whole node — shape, picture, ring, label — is one anchor. */
+.network-node-link {
+  cursor: pointer;
+}
+
+.network-node-image {
+  /* The anchor is the hit target; without this the image swallows the pointer
+     and the hover state flickers as it crosses the picture's edge. */
+  pointer-events: none;
+}
+
+/* Redrawn over the clipped picture, because the clip cuts the shape's own
+   stroke off and the outline is what separates a saint from an order. */
+.network-node-ring {
+  fill: none;
+  stroke-width: 2;
+}
+
+.network-node-link:hover .network-node-ring,
+.network-node-link:focus-visible .network-node-ring {
+  stroke-width: 3;
+}
+
+/* Keyboard focus has to be visible on an SVG child, where the usual outline
+   does not paint. */
+.network-node-link:focus-visible {
+  outline: none;
+}
+.network-node-link:focus-visible .network-node,
+.network-node-link:focus-visible .network-node-ring {
+  stroke: var(--color-primary);
+  stroke-width: 3;
+}
+
+.network-preview {
+  position: absolute;
+  z-index: 2;
+  /* Centred on the node horizontally; vertically it flips.
+     A card fixed above the node runs off the top of the diagram for anything
+     near 12 o'clock — on a twelve-node ring that is a third of them — and lands
+     on the heading above. So a node in the upper half opens its card downwards,
+     into the empty middle of the ring. */
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  max-width: 15rem;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  /* A hover card must never eat the pointer: it would sit between the cursor and
+     the node and close itself the instant it opened. */
+  pointer-events: none;
+}
+
+.network-preview--above {
+  transform: translate(-50%, calc(-100% - var(--space-3)));
+}
+
+.network-preview--below {
+  transform: translate(-50%, var(--space-3));
+}
+
+.network-preview-image {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  /* The archive has three known-dead image urls and cannot tell which from
+     here, so a picture that fails to load leaves a plain block rather than a
+     broken-image glyph. */
+  background-color: var(--color-bg-alt);
+}
+
+.network-preview-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.network-preview-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+/* Names the place the photograph shows. Quieter than the name, because it is a
+   caption and not a second title — but present, because without it a picture
+   beside a person's name claims to be a portrait. */
+.network-preview-site {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}

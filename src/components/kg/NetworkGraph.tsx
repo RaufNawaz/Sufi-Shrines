@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useMemo, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { thumbnailUrl } from '../../lib/images/thumbnail';
 
 export type NodeType = 'saint' | 'order' | 'shrine' | 'teacher' | 'disciple';
 
@@ -9,6 +10,21 @@ export interface GraphNode {
   label: string;
   type: NodeType;
   href: string;
+  /**
+   * A photograph to draw inside the node, and the place it is of.
+   *
+   * Optional because the archive is short of pictures: 118 of 169 rows carry an
+   * image, so 90 of 191 figures have none. A node without one keeps the plain
+   * circle the diagram has always drawn — not a placeholder, which reads as an
+   * image still loading, and not a silhouette, which would read as a missing
+   * portrait when what is missing is a photograph of a building.
+   *
+   * `imageOf` is the *place* the photograph shows. It is carried so the preview
+   * can say so: the archive has no portraits, and a picture beside a person's
+   * name silently claims otherwise unless the caption names the site.
+   */
+  imageUrl?: string;
+  imageOf?: string;
 }
 
 interface Props {
@@ -19,6 +35,11 @@ interface Props {
 }
 
 const NODE_R = 16;
+/* Rendered at 3x the drawn radius so the picture stays sharp where the SVG is
+   scaled up on a wide viewport, and because these are the same source images the
+   map already fetches — a second, differently-sized request would miss its
+   cache. */
+const NODE_IMAGE_W = NODE_R * 6;
 const CENTER_R = 22;
 const LABEL_GAP = 8;
 /* Horizontal room reserved on each side for labels that read outward. Without
@@ -99,6 +120,30 @@ function labelPlacement(angle: number, x: number, y: number) {
 
 export function NetworkGraph({ center, connected, legend }: Props) {
   const { t } = useLang();
+  const navigate = useNavigate();
+
+  /* Which node's preview is showing. Driven by hover *and* focus, deliberately:
+     a preview that only appears under a pointer is a preview a keyboard reader
+     and a touch reader never see, and this project treats that as a defect
+     rather than a limitation (CLAUDE.md — accessibility is a requirement). */
+  const [previewId, setPreviewId] = useState<string | null>(null);
+  const clearPreview = useCallback(() => setPreviewId(null), []);
+
+  /* SVG has no react-router Link, and a bare <a href> inside the diagram would
+     full-page-load out of the SPA. So the anchor stays a real anchor — its href
+     is the real URL, so middle-click, right-click and "copy link" all behave —
+     and a plain left-click is intercepted and routed. */
+  const onNodeClick = useCallback(
+    (event: React.MouseEvent<Element>, href: string) => {
+      if (event.defaultPrevented) return;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+      event.preventDefault();
+      navigate(href);
+    },
+    [navigate],
+  );
 
   const geo = useMemo(() => geometry(connected.length), [connected.length]);
 
@@ -115,15 +160,66 @@ export function NetworkGraph({ center, connected, legend }: Props) {
 
   const title = `${center.label} — ${t('networkConnections')}`;
 
+  const preview = previewId ? positions.find((p) => p.node.id === previewId) : undefined;
+
   return (
     <div className="network-graph">
+      {/* The preview card.
+          Positioned as a percentage of the viewBox rather than in pixels, because
+          the SVG scales with its container and a pixel offset computed at render
+          time is wrong the moment the viewport changes. Rendered outside the
+          <svg> so it is ordinary HTML — an image and text inside SVG would need
+          foreignObject, and the map's preview is HTML too, which is what the
+          shared look depends on.
+          `aria-hidden`: everything the card shows is already on the node's own
+          anchor (its accessible name) and in the link list below, so announcing
+          it again would make every node read twice. */}
+      {preview && (
+        <div
+          className={`network-preview network-preview--${
+            preview.y < geo.h / 2 ? 'below' : 'above'
+          }`}
+          aria-hidden="true"
+          style={{
+            left: `${(preview.x / geo.w) * 100}%`,
+            top: `${(preview.y / geo.h) * 100}%`,
+          }}
+        >
+          {preview.node.imageUrl && (
+            <img
+              className="network-preview-image"
+              src={thumbnailUrl(preview.node.imageUrl, 240) || preview.node.imageUrl}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          )}
+          <div className="network-preview-body">
+            <span className="network-preview-name" dir={labelDirection(preview.node.label)}>
+              <bdi>{preview.node.label}</bdi>
+            </span>
+            {/* Names the *place* the photograph shows. The archive holds no
+                portraits, and a picture beside a person's name claims one unless
+                the caption says whose shrine it is. */}
+            {preview.node.imageOf && (
+              <span className="network-preview-site">
+                <bdi data-latin>{preview.node.imageOf}</bdi>
+              </span>
+            )}
+          </div>
+        </div>
+      )}
       <svg
         data-latin
         className="network-graph-svg"
         viewBox={`0 0 ${geo.w} ${geo.h}`}
-        role="img"
+        /* Was role="img" with a single label, which was right while the diagram
+           was decorative and the link list below carried the content. The nodes
+           are links now, so a role that flattens it to one image would hide
+           them from assistive tech entirely. `group` keeps the accessible name
+           and lets the anchors inside be reached. */
+        role="group"
         aria-label={title}
-        focusable="false"
       >
         <title>{title}</title>
 
@@ -152,24 +248,97 @@ export function NetworkGraph({ center, connected, legend }: Props) {
             colour-blindness and print. */}
         {positions.map(({ node, x, y, label }, i) => {
           const dir = labelDirection(node.label);
+          const clipId = `clip-${node.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+          const shape =
+            node.type === 'order' ? (
+              <rect
+                x={x - NODE_R}
+                y={y - NODE_R}
+                width={NODE_R * 2}
+                height={NODE_R * 2}
+                rx={5}
+                className={`network-node network-node--animated network-node--${node.type}`}
+              />
+            ) : (
+              <circle
+                cx={x}
+                cy={y}
+                r={NODE_R}
+                className={`network-node network-node--animated network-node--${node.type}`}
+              />
+            );
           return (
-            <g key={node.id} style={{ '--stagger-index': i } as React.CSSProperties}>
-              {node.type === 'order' ? (
-                <rect
-                  x={x - NODE_R}
-                  y={y - NODE_R}
-                  width={NODE_R * 2}
-                  height={NODE_R * 2}
-                  rx={5}
-                  className={`network-node network-node--animated network-node--${node.type}`}
-                />
-              ) : (
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={NODE_R}
-                  className={`network-node network-node--animated network-node--${node.type}`}
-                />
+            <a
+              key={node.id}
+              href={node.href}
+              className="network-node-link"
+              /* The accessible name, as an attribute rather than an SVG <title>.
+                 A <title> is a text node, so it put a second copy of every node
+                 label into the DOM — and the Urdu no-leak guard walks text nodes,
+                 so a Latin figure name that was declared once was suddenly
+                 undeclared twice. An attribute names the link just as well and
+                 adds nothing for the walker to find. */
+              aria-label={node.label}
+              style={{ '--stagger-index': i } as React.CSSProperties}
+              onClick={(e) => onNodeClick(e, node.href)}
+              onMouseEnter={() => setPreviewId(node.id)}
+              onMouseLeave={clearPreview}
+              onFocus={() => setPreviewId(node.id)}
+              onBlur={clearPreview}
+            >
+              {shape}
+              {/* The photograph, clipped to the node. Drawn *after* the shape so
+                  the shape's fill is the ground an image with transparency sits
+                  on, and drawn only where one exists — see GraphNode.imageUrl on
+                  why a missing picture gets no placeholder. `pointer-events:
+                  none` in CSS keeps the anchor, not the image, as the hit
+                  target. */}
+              {node.imageUrl && (
+                <>
+                  <clipPath id={clipId}>
+                    {node.type === 'order' ? (
+                      <rect
+                        x={x - NODE_R}
+                        y={y - NODE_R}
+                        width={NODE_R * 2}
+                        height={NODE_R * 2}
+                        rx={5}
+                      />
+                    ) : (
+                      <circle cx={x} cy={y} r={NODE_R} />
+                    )}
+                  </clipPath>
+                  <image
+                    href={thumbnailUrl(node.imageUrl, NODE_IMAGE_W) || node.imageUrl}
+                    x={x - NODE_R}
+                    y={y - NODE_R}
+                    width={NODE_R * 2}
+                    height={NODE_R * 2}
+                    preserveAspectRatio="xMidYMid slice"
+                    clipPath={`url(#${clipId})`}
+                    className="network-node-image"
+                  />
+                  {/* Redrawn on top: the clipped image covers the shape's stroke,
+                      and without the ring back the node loses the outline that
+                      distinguishes a saint from an order at a glance. */}
+                  {node.type === 'order' ? (
+                    <rect
+                      x={x - NODE_R}
+                      y={y - NODE_R}
+                      width={NODE_R * 2}
+                      height={NODE_R * 2}
+                      rx={5}
+                      className={`network-node-ring network-node--${node.type}`}
+                    />
+                  ) : (
+                    <circle
+                      cx={x}
+                      cy={y}
+                      r={NODE_R}
+                      className={`network-node-ring network-node--${node.type}`}
+                    />
+                  )}
+                </>
               )}
               <text
                 x={label.x}
@@ -184,7 +353,7 @@ export function NetworkGraph({ center, connected, legend }: Props) {
                   here and in the link list below. */}
                 <title>{node.label}</title>
               </text>
-            </g>
+            </a>
           );
         })}
 

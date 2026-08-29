@@ -224,6 +224,9 @@ const dateProposals = loadProposals('kg-saint-dates-proposals.json');
 
 const shrineSlugs = buildSlugs(rows);
 const shrinesWithSlugs = rows.map((row, i) => ({ row, slug: shrineSlugs[i] }));
+/* Slug -> the sheet row, for the emit blocks at the end of this file that need a
+   column the graph does not carry (currently the figure-image index). */
+const shrineRowBySlug = new Map(shrinesWithSlugs.map(({ row, slug }) => [slug, row]));
 
 // ── extract: orders (from seeds) ─────────────────────────────────────────────
 
@@ -1262,6 +1265,71 @@ writeFileSync(
   'utf8',
 );
 
+// ── a picture for the figures that have one ──────────────────────────────────
+/*
+ * Figure slug -> the photograph of a site that commemorates them, plus which
+ * site it is.
+ *
+ * The knowledge-graph views draw figures as bare coloured circles, which is a
+ * weaker thing than the map, where every shrine has a photograph and a preview.
+ * A figure has no photograph of their own — the archive holds pictures of
+ * *places* — so the honest picture for a figure is the site where they rest,
+ * and the shrine slug travels with the URL so a caller can say which site it is
+ * rather than implying the archive owns a portrait.
+ *
+ * Its own file, like `kg-shrine-figures.json` and `kg-shrine-figure-labels.json`
+ * beside it, so the graph views can show a picture without importing the 426 KB
+ * graph and without the image columns reaching routes that do not draw them.
+ *
+ * Sparse on purpose. 118 of 169 rows carry an `Image 1`, so a good third of
+ * figures will have no entry, and the views must degrade to the plain circle
+ * rather than to a broken image or a placeholder that implies a missing
+ * photograph is a loading one. Three of the sheet's URLs were dead when last
+ * fetched (pipeline/check_image_liveness.py, 27 August 2026) and nothing here
+ * can tell — a URL in this file means the sheet has one, not that it resolves.
+ */
+/* Two maps, and the figure side stores only a POINTER.
+ *
+ * Every one of the 101 figure pictures is a picture of that figure's shrine, so
+ * carrying the url on both sides duplicated all 101 of them — 41 KB of index, of
+ * which SaintPage and GraphPage eagerly loaded every byte, putting both routes
+ * over their bundle budget. Figures now point at a shrine slug and the urls live
+ * once. */
+const figurePictureOf = {};
+for (const [shrineSlug, figs] of Object.entries(sortedShrineFigures)) {
+  const url = String(shrineRowBySlug.get(shrineSlug)?.['Image 1'] ?? '').trim();
+  if (!url) continue;
+  for (const figureSlug of figs) {
+    /* First site wins: a figure with several shrines gets the first the index
+       lists, which is the graph's own order rather than an arbitrary one. */
+    if (!figurePictureOf[figureSlug]) figurePictureOf[figureSlug] = shrineSlug;
+  }
+}
+/* Shrine slug -> its photograph and its recorded name. The name travels so a
+   caption never has to reconstruct one from the slug: `slugToLabel` title-cases
+   every word and yields "Shrine Of Fariduddin Ganjshakar", which is visibly
+   machine-made in the one line whose job is to say honestly what the picture
+   shows. */
+const shrinePictures = {};
+for (const shrineSlug of Object.keys(sortedShrineFigures)) {
+  const row = shrineRowBySlug.get(shrineSlug);
+  const url = String(row?.['Image 1'] ?? '').trim();
+  if (url) shrinePictures[shrineSlug] = { url, name: String(row?.Name ?? '').trim() };
+}
+const sortByKey = (obj) =>
+  Object.fromEntries(
+    Object.keys(obj)
+      .sort()
+      .map((k) => [k, obj[k]]),
+  );
+const sortedFigureImages = sortByKey(figurePictureOf);
+const sortedShrineImages = sortByKey(shrinePictures);
+writeFileSync(
+  join(ROOT, 'data', 'kg-figure-images.json'),
+  JSON.stringify({ figures: sortedFigureImages, shrines: sortedShrineImages }) + '\n',
+  'utf8',
+);
+
 // ── the search index for the whole archive ───────────────────────────────────
 /*
  * Names and aliases only, for every figure and order, so search can reach them
@@ -1356,6 +1424,9 @@ if (reviewNeeded.length > 0) {
 }
 console.log(
   `[kg] ✓ data/kg-shrine-figures.json written (${Object.keys(sortedShrineFigures).length} shrines)`,
+);
+console.log(
+  `[kg] ✓ data/kg-figure-images.json written (${Object.keys(sortedFigureImages).length} figures, ${Object.keys(sortedShrineImages).length} shrines with a picture)`,
 );
 console.log(
   `[kg] ✓ data/kg-shrine-figure-labels.json written (${Object.keys(shrineFigureLabelIndex).length} shrines whose cell is not the label)`,

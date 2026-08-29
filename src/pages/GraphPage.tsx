@@ -26,6 +26,9 @@ import {
 import type { FigureGroup } from '../lib/data/figureType';
 import type { KGSaint } from '../types/kg';
 import { localizeFigureName, localizeOrderName } from '../lib/i18n/localizeKgName';
+import { figureImage } from '../lib/kgFigureImages';
+import { useFigureImages } from '../hooks/useFigureImages';
+import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildFigureIndex, matchFigures } from '../lib/data/figureSearch';
 import { centurySpan, figureCentury } from '../lib/data/figureDates';
@@ -82,6 +85,8 @@ export default function GraphPage() {
   const [lineageScope, setLineageScope] = useState<'order' | 'all'>('order');
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
+  /* Pictures for the diagram's nodes; fetched on demand, re-renders on arrival. */
+  useFigureImages();
 
   const activeOrder = kg.orders.find((o) => o.slug === activeOrderSlug) ?? null;
   const orderDescription =
@@ -100,12 +105,21 @@ export default function GraphPage() {
         href: `/order/${activeOrder.slug}`,
       }
     : null;
-  const connectedNodes: GraphNode[] = orderSaints.map((s) => ({
-    id: s.id,
-    label: localizeFigureName(s, lang),
-    type: 'saint',
-    href: `/saint/${s.slug}`,
-  }));
+  /* The picture is of the figure's *shrine*, not of the figure — the archive
+     holds no portraits — so `imageOf` names the site and the preview says so.
+     101 of 191 figures have one; the rest keep the plain circle. */
+  const connectedNodes: GraphNode[] = orderSaints.map((s) => {
+    const picture = figureImage(s.slug);
+    return {
+      id: s.id,
+      label: localizeFigureName(s, lang),
+      type: 'saint' as const,
+      href: `/saint/${s.slug}`,
+      ...(picture
+        ? { imageUrl: picture.url, imageOf: localizeRecordedName(picture.shrineName, lang) }
+        : {}),
+    };
+  });
 
   const lineageEdges = useMemo(() => getAllLineageEdges(), []);
 

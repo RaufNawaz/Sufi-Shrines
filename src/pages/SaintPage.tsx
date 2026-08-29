@@ -11,6 +11,7 @@ import { LineageView } from '../components/kg/LineageView';
 import { LineageChainView } from '../components/kg/LineageChainView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
+import type { KGSaint } from '../types/kg';
 import {
   getSaintBySlug,
   getRetiredSaintTarget,
@@ -42,6 +43,9 @@ import {
   localizeOrderName,
   localizeShrineSlug,
 } from '../lib/i18n/localizeKgName';
+import { figureImage, shrineImage } from '../lib/kgFigureImages';
+import { useFigureImages } from '../hooks/useFigureImages';
+import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { tFn } from '../lib/i18n/uiStrings';
 import { buildAlmanac } from '../lib/data/almanac';
@@ -101,6 +105,9 @@ export default function SaintPage() {
     for (const s of shrines) m.set(s.slug, localizeShrineName(s, lang));
     return m;
   }, [shrines, lang]);
+
+  /* Pictures for the diagram's nodes; fetched on demand, re-renders on arrival. */
+  useFigureImages();
 
   const shrineLabel = (slug: string) => shrineMap.get(slug) ?? localizeShrineSlug(slug, lang);
 
@@ -297,13 +304,26 @@ export default function SaintPage() {
     });
   };
 
-  const networkConnected: GraphNode[] = [
-    ...uniqueBySlug(teachers).map((link) => ({
-      id: `teacher:${link.saint.slug}`,
+  /* A figure's picture is of the site where they rest, so `imageOf` names it and
+     the preview captions it — the archive holds no portraits and an uncaptioned
+     face beside a name would imply one. A shrine node needs no caption: it IS
+     the place. 101 of 191 figures and 118 of 169 shrines have a picture; the
+     rest keep the plain node. */
+  const figureNode = (link: { saint: KGSaint }, type: 'teacher' | 'disciple') => {
+    const picture = figureImage(link.saint.slug);
+    return {
+      id: `${type}:${link.saint.slug}`,
       label: localizeFigureName(link.saint, lang),
-      type: 'teacher' as const,
+      type,
       href: `/saint/${link.saint.slug}`,
-    })),
+      ...(picture
+        ? { imageUrl: picture.url, imageOf: localizeRecordedName(picture.shrineName, lang) }
+        : {}),
+    };
+  };
+
+  const networkConnected: GraphNode[] = [
+    ...uniqueBySlug(teachers).map((link) => figureNode(link, 'teacher')),
     ...(order
       ? [
           {
@@ -314,18 +334,17 @@ export default function SaintPage() {
           },
         ]
       : []),
-    ...uniqueBySlug(disciples).map((link) => ({
-      id: `disciple:${link.saint.slug}`,
-      label: localizeFigureName(link.saint, lang),
-      type: 'disciple' as const,
-      href: `/saint/${link.saint.slug}`,
-    })),
-    ...saint.shrines.map((s) => ({
-      id: s,
-      label: shrineLabel(s),
-      type: 'shrine' as const,
-      href: `/shrine/${s}`,
-    })),
+    ...uniqueBySlug(disciples).map((link) => figureNode(link, 'disciple')),
+    ...saint.shrines.map((s) => {
+      const url = shrineImage(s);
+      return {
+        id: s,
+        label: shrineLabel(s),
+        type: 'shrine' as const,
+        href: `/shrine/${s}`,
+        ...(url ? { imageUrl: url } : {}),
+      };
+    }),
   ];
 
   /* Only the kinds actually on the ring — a legend row for something absent
