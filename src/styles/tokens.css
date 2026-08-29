@@ -172,9 +172,29 @@
   --color-support-documented: #0e7490;
   --color-support-documented-bg: #ecfeff;
 
-  /* Typography */
-  --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Merriweather', Georgia, serif;
+  /* Typography.
+
+     The `… Fallback …` families are metric-matched stand-ins declared in
+     global.css — the same face the bare name would have picked, scaled so it
+     occupies the width the webfont will need. They sit ahead of the bare names
+     because a face only wins if nothing before it resolved, and each resolves
+     only on the platform that has its `local()`. Putting `Georgia` or
+     `system-ui` first would make every one of them dead code, which
+     fontFallbackMetrics.test.ts refuses. The bare names stay at the end as the
+     floor for a platform none of the faces reach.
+
+     The sans list is the one that matters: the article prose is `--font-sans`,
+     and `--font-serif` is headings. `system-ui` measures within 0.08% of Source
+     Sans 3 on mean advance width and is nonetheless 459px out over an article,
+     because a mean does not predict line breaks — see global.css. */
+  --font-sans:
+    'Source Sans 3', 'Source Sans 3 Fallback Helvetica Neue', 'Source Sans 3 Fallback Roboto',
+    'Source Sans 3 Fallback Arial', 'Source Sans 3 Fallback Liberation Sans', system-ui,
+    -apple-system, sans-serif;
+  --font-serif:
+    'Merriweather', 'Merriweather Fallback Georgia', 'Merriweather Fallback Noto Serif',
+    'Merriweather Fallback Liberation Serif', 'Merriweather Fallback Times New Roman', Georgia,
+    serif;
   /* 'Source Sans 3' sits between the two Arabic faces on purpose. Font
      fallback is per-glyph: Arabic-script characters are found in Nastaliq
      (first) and never reach it, while Latin characters — an untranslated

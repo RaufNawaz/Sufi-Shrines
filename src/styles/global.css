@@ -36,6 +36,176 @@
     U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
 }
 
+/* Metric-matched fallback faces for the two Google-hosted webfonts.
+ *
+ * WHAT THIS IS FOR. Merriweather and Source Sans 3 are fetched from a CDN, so
+ * every page is first typeset in whatever the fallback is and re-typeset when
+ * they land. Where the fallback is a different width the prose re-wraps and
+ * everything below it moves. These faces make the fallback occupy the width the
+ * webfont will need. Measured on `/saint/data-ganj-bakhsh`, fonts held back
+ * 1500ms so the swap is always late, five identical runs each way:
+ * **CLS 0.2058 → 0.0001**, against a 0.1 budget.
+ *
+ * AND FOR THE READER WHOSE FONTS NEVER ARRIVE, which on this archive's evidence
+ * matters more. `index.html` explains why the font stylesheet is deliberately
+ * non-render-blocking: these readers are mostly on a mobile connection in
+ * Pakistan, "where Google's font CDN is periodically slow or unreachable". For
+ * them the fallback is not a flash before the real thing, it is the whole
+ * visit — and with the webfont blocked the page rendered **459px** taller than
+ * designed on `/order/qadiriyya` and **956px** taller on `/shrine/data-darbar`.
+ * With these faces: 1px and 25px. No CLS measurement can see that, because
+ * nothing shifts when nothing arrives.
+ *
+ * THE SANS LIST IS THE ONE THAT MATTERS. The article prose is set in
+ * `--font-sans`; `--font-serif` is headings. Every large number above is the
+ * sans stack.
+ *
+ * A MEASUREMENT THAT WAS TRUE AND MISLEADING, KEPT BECAUSE IT NEARLY WON THE
+ * ARGUMENT. `system-ui` on macOS measures within **0.08%** of Source Sans 3 on
+ * mean advance width, which reads as "SF Pro is already a perfect stand-in,
+ * inserting a face ahead of it can only hurt". These four faces were dropped on
+ * that basis. Then the article was measured, and SF Pro was 459px out while the
+ * adjusted Helvetica face was 1px out. **A mean advance over one sentence does
+ * not predict where lines break**; two faces can agree to a twelfth of a percent
+ * and still wrap a 16,000px article differently. The page is the test. The
+ * reference numbers are kept in `data/font-metrics.json` under `reference`.
+ *
+ * THE KNOWN COST, stated rather than buried: on `/shrine/data-darbar` the
+ * adjusted face puts one badge row 37px from where the webfont puts it — SF Pro
+ * happened to put it exactly right — and that route's CLS goes 0.0004 → 0.0048.
+ * Against 0.2058 removed elsewhere and ~950px of drift, that is the right trade,
+ * but it is a real cost and it is not zero.
+ *
+ * WHY IT IS A RE-WRAP AND NOT A RE-LEADING. `line-height` is a fixed 1.6
+ * inherited from `body`; there is no `line-height: normal` anywhere in `src/`.
+ * The swap cannot change how tall a line is, only how many lines there are. So
+ * `size-adjust` does the work; the three metric overrides matter in the one
+ * place 1.6 does not reach — `<button>` and `<input>`, which take the UA's
+ * `normal`.
+ *
+ * WHERE THE NUMBERS COME FROM. `scripts/measure-font-metrics.mjs`, measured in
+ * Chromium rather than parsed out of the font files, because a font ships three
+ * competing sets of vertical metrics and only the engine knows which pair it
+ * used. Each face was checked by declaring it and re-measuring it: all eight
+ * reproduce their webfont to 0.00% of an em. Two of them — Roboto and
+ * Liberation Sans/Serif — have no local copy on the machine that measured them
+ * and were measured from the Google Fonts cut of the same family, so they are
+ * correct for the family and unverified on the device. The committed
+ * measurement is `data/font-metrics.json`; `fontFallbackMetrics.test.ts` fails
+ * if this block and that file stop agreeing. Do not hand-edit a number here.
+ *
+ * ORDER MATTERS AND IS EASY TO GET WRONG. Each face resolves only where its
+ * `local()` exists, so the chain is one entry per platform and the adjusted face
+ * must come *before* the bare family in the token — put `Georgia` or
+ * `system-ui` first and every rule below is dead code that still parses. The
+ * test asserts that too.
+ *
+ * NOT COVERED, AND SAID RATHER THAN PAPERED OVER: Segoe UI. Microsoft does not
+ * publish it, so it is unmeasurable on any machine here. Windows reaches the
+ * Arial face instead.
+ *
+ * THE `unicode-range` IS NOT DECORATION. `--font-sans` is reachable from the
+ * Urdu view, and a Latin fallback with no range would offer itself for Arabic
+ * script ahead of Noto Naskh Arabic. The range covers Latin and the
+ * transliteration diacritics the archive uses and stops short of U+0600. */
+
+@font-face {
+  font-family: 'Merriweather Fallback Georgia';
+  src: local('Georgia');
+  size-adjust: 108.041%;
+  ascent-override: 91.0765%;
+  descent-override: 25.2682%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Merriweather Fallback Noto Serif';
+  src: local('Noto Serif');
+  size-adjust: 100.4292%;
+  ascent-override: 97.9794%;
+  descent-override: 27.1833%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Merriweather Fallback Liberation Serif';
+  src: local('Liberation Serif');
+  size-adjust: 118.9508%;
+  ascent-override: 82.7233%;
+  descent-override: 22.9507%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Merriweather Fallback Times New Roman';
+  src: local('Times New Roman');
+  size-adjust: 118.9508%;
+  ascent-override: 82.7233%;
+  descent-override: 22.9507%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3 Fallback Helvetica Neue';
+  src: local('Helvetica Neue');
+  size-adjust: 92.4567%;
+  ascent-override: 110.7545%;
+  descent-override: 43.2635%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3 Fallback Roboto';
+  src: local('Roboto');
+  size-adjust: 93.714%;
+  ascent-override: 109.2686%;
+  descent-override: 42.683%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3 Fallback Arial';
+  src: local('Arial');
+  size-adjust: 93.3682%;
+  ascent-override: 109.6733%;
+  descent-override: 42.8411%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3 Fallback Liberation Sans';
+  src: local('Liberation Sans');
+  size-adjust: 93.3682%;
+  ascent-override: 109.6733%;
+  descent-override: 42.8411%;
+  line-gap-override: 0%;
+  unicode-range:
+    U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF,
+    U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF,
+    U+FFFD;
+}
+
 *,
 *::before,
 *::after {

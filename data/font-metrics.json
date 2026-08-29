@@ -1,0 +1,176 @@
+{
+  "measured": "2026-08-29",
+  "instrument": "scripts/measure-font-metrics.mjs",
+  "engine": "Chromium 149.0.7827.55",
+  "note": "Metric-matched fallback faces for the two Google-hosted webfonts. Every value here was measured in Chromium and self-checked by declaring the face and re-measuring it; see the header of the instrument for what the two provenances mean. src/styles/__tests__/fontFallbackMetrics.test.ts asserts global.css still agrees.",
+  "unmeasurable": [
+    "Segoe UI"
+  ],
+  "unicodeRange": "U+0000-024F, U+0259, U+02BB-02BC, U+02BF, U+02C6, U+02DA, U+02DC, U+0300-036F, U+1E00-1EFF, U+2000-206F, U+2070-209F, U+20A0-20BF, U+2122, U+2190-21BB, U+2212, U+2215, U+FB00-FB04, U+FEFF, U+FFFD",
+  "reference": [
+    {
+      "webFont": "Merriweather",
+      "stack": "Georgia",
+      "deltaPct": -7.44
+    },
+    {
+      "webFont": "Merriweather",
+      "stack": "serif",
+      "deltaPct": -16.04
+    },
+    {
+      "webFont": "Source Sans 3",
+      "stack": "system-ui",
+      "deltaPct": -0.08
+    },
+    {
+      "webFont": "Source Sans 3",
+      "stack": "-apple-system",
+      "deltaPct": -2.83
+    },
+    {
+      "webFont": "Source Sans 3",
+      "stack": "sans-serif",
+      "deltaPct": 7.1
+    }
+  ],
+  "notShipped": [],
+  "faces": [
+    {
+      "fallbackFamily": "Merriweather Fallback Georgia",
+      "webFont": "Merriweather",
+      "token": "--font-serif",
+      "local": "Georgia",
+      "provenance": "local",
+      "sizeAdjust": "108.0410%",
+      "ascentOverride": "91.0765%",
+      "descentOverride": "25.2682%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "46.3885%",
+        "localAvgWidth": "42.9360%",
+        "webFontLineBox": "125.7000%",
+        "localLineBox": "113.6000%"
+      }
+    },
+    {
+      "fallbackFamily": "Merriweather Fallback Noto Serif",
+      "webFont": "Merriweather",
+      "token": "--font-serif",
+      "local": "Noto Serif",
+      "provenance": "cdn:Noto+Serif",
+      "sizeAdjust": "100.4292%",
+      "ascentOverride": "97.9794%",
+      "descentOverride": "27.1833%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "46.3885%",
+        "localAvgWidth": "46.1902%",
+        "webFontLineBox": "125.7000%",
+        "localLineBox": "136.2000%"
+      }
+    },
+    {
+      "fallbackFamily": "Merriweather Fallback Liberation Serif",
+      "webFont": "Merriweather",
+      "token": "--font-serif",
+      "local": "Liberation Serif",
+      "provenance": "cdn:Tinos",
+      "sizeAdjust": "118.9508%",
+      "ascentOverride": "82.7233%",
+      "descentOverride": "22.9507%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "46.3885%",
+        "localAvgWidth": "38.9980%",
+        "webFontLineBox": "125.7000%",
+        "localLineBox": "114.9000%"
+      }
+    },
+    {
+      "fallbackFamily": "Merriweather Fallback Times New Roman",
+      "webFont": "Merriweather",
+      "token": "--font-serif",
+      "local": "Times New Roman",
+      "provenance": "local",
+      "sizeAdjust": "118.9508%",
+      "ascentOverride": "82.7233%",
+      "descentOverride": "22.9507%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "46.3885%",
+        "localAvgWidth": "38.9980%",
+        "webFontLineBox": "125.7000%",
+        "localLineBox": "114.9000%"
+      }
+    },
+    {
+      "fallbackFamily": "Source Sans 3 Fallback Helvetica Neue",
+      "webFont": "Source Sans 3",
+      "token": "--font-sans",
+      "local": "Helvetica Neue",
+      "provenance": "local",
+      "sizeAdjust": "92.4567%",
+      "ascentOverride": "110.7545%",
+      "descentOverride": "43.2635%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "40.0839%",
+        "localAvgWidth": "43.3542%",
+        "webFontLineBox": "142.4000%",
+        "localLineBox": "119.3000%"
+      }
+    },
+    {
+      "fallbackFamily": "Source Sans 3 Fallback Roboto",
+      "webFont": "Source Sans 3",
+      "token": "--font-sans",
+      "local": "Roboto",
+      "provenance": "cdn:Roboto",
+      "sizeAdjust": "93.7140%",
+      "ascentOverride": "109.2686%",
+      "descentOverride": "42.6830%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "40.0839%",
+        "localAvgWidth": "42.7726%",
+        "webFontLineBox": "142.4000%",
+        "localLineBox": "117.2000%"
+      }
+    },
+    {
+      "fallbackFamily": "Source Sans 3 Fallback Arial",
+      "webFont": "Source Sans 3",
+      "token": "--font-sans",
+      "local": "Arial",
+      "provenance": "local",
+      "sizeAdjust": "93.3682%",
+      "ascentOverride": "109.6733%",
+      "descentOverride": "42.8411%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "40.0839%",
+        "localAvgWidth": "42.9310%",
+        "webFontLineBox": "142.4000%",
+        "localLineBox": "115.0000%"
+      }
+    },
+    {
+      "fallbackFamily": "Source Sans 3 Fallback Liberation Sans",
+      "webFont": "Source Sans 3",
+      "token": "--font-sans",
+      "local": "Liberation Sans",
+      "provenance": "cdn:Arimo",
+      "sizeAdjust": "93.3682%",
+      "ascentOverride": "109.6733%",
+      "descentOverride": "42.8411%",
+      "lineGapOverride": "0.0000%",
+      "measured": {
+        "webFontAvgWidth": "40.0839%",
+        "localAvgWidth": "42.9310%",
+        "webFontLineBox": "142.4000%",
+        "localLineBox": "115.0000%"
+      }
+    }
+  ]
+}
