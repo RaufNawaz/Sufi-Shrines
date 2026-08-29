@@ -1,4 +1,24 @@
 import { test, expect } from './fixtures';
+import type { Page } from '@playwright/test';
+
+/**
+ * Wait for the picture index to land before selecting a pictured node.
+ *
+ * The index is fetched on demand, not imported, so the first paint has no
+ * images at all. A test that filters for `.network-node-image` immediately
+ * matches nothing, and `.first()` then resolves to something else or times out —
+ * which is exactly how this spec failed once under five parallel workers and
+ * passed alone. The lazy load is the feature; racing it is the test's bug.
+ */
+async function pictured(page: Page) {
+  await expect
+    .poll(() => page.locator('.network-node-image').count(), { timeout: 15_000 })
+    .toBeGreaterThan(0);
+  return page
+    .locator('.network-node-link')
+    .filter({ has: page.locator('.network-node-image') })
+    .first();
+}
 
 /**
  * The knowledge graph drew figures as bare coloured discs while every shrine on
@@ -19,16 +39,16 @@ test.describe('pictures in the knowledge graph', () => {
     const nodes = page.locator('.network-node-link');
     await expect.poll(() => nodes.count()).toBeGreaterThan(4);
     // Most of a Chishtiyya ring is photographed; a floor rather than an exact
-    // count, because the number moves whenever the sheet gains an image.
-    await expect.poll(() => page.locator('.network-node-image').count()).toBeGreaterThan(3);
+    // count, because the number moves whenever the sheet gains an image. Polled
+    // with a generous timeout: the index is fetched, not imported.
+    await expect
+      .poll(() => page.locator('.network-node-image').count(), { timeout: 15_000 })
+      .toBeGreaterThan(3);
   });
 
   test('hovering a node opens a preview naming the place the picture shows', async ({ page }) => {
     await page.goto('/graph');
-    const withPicture = page
-      .locator('.network-node-link')
-      .filter({ has: page.locator('.network-node-image') })
-      .first();
+    const withPicture = await pictured(page);
     await withPicture.scrollIntoViewIfNeeded();
 
     await expect(page.locator('.network-preview')).toHaveCount(0);
@@ -45,10 +65,7 @@ test.describe('pictures in the knowledge graph', () => {
 
   test('the preview is reachable by keyboard, not only by pointer', async ({ page }) => {
     await page.goto('/graph');
-    const withPicture = page
-      .locator('.network-node-link')
-      .filter({ has: page.locator('.network-node-image') })
-      .first();
+    const withPicture = await pictured(page);
     await withPicture.scrollIntoViewIfNeeded();
 
     await withPicture.focus();
@@ -76,9 +93,12 @@ test.describe('pictures in the knowledge graph', () => {
     const graph = page.locator('.network-graph').first();
     await graph.scrollIntoViewIfNeeded();
 
+    await expect
+      .poll(() => page.locator('.network-node-image').count(), { timeout: 15_000 })
+      .toBeGreaterThan(0);
     const total = await page.locator('.network-node-link').count();
-    const pictured = await page.locator('.network-node-image').count();
-    expect(pictured).toBeLessThan(total);
+    const withPictures = await page.locator('.network-node-image').count();
+    expect(withPictures).toBeLessThan(total);
     // Every node still has a shape, pictured or not.
     expect(await page.locator('.network-node').count()).toBeGreaterThanOrEqual(total);
   });
