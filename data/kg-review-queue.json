@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T02:54:38.852Z",
+  "generated": "2026-08-29T03:17:27.865Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -92,10 +92,10 @@
       "evidence": "c9cc6fda"
     },
     {
-      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
+      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen:saint:daud-bandagi-kirmani",
       "kind": "disciple_of",
-      "subject": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "subject": "Hazrat Syed Muhammad Khair ul Deen",
+      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen",
       "object": "Daud Bandagi Kirmani",
       "quote": "named his uncle Dawood Bandgi Kirmani. Astonished, he returned to his uncle",
       "source": "entries/entry_abul_muali_qadri.md",
@@ -702,20 +702,20 @@
       "evidence": "53e14ccd"
     },
     {
-      "id": "disciple_of:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:saint:guru-gobind-singh",
+      "id": "disciple_of:saint:bhai-gurdas-singh:saint:guru-gobind-singh",
       "kind": "disciple_of",
-      "subject": "Bhai Gurdas Singh, disciple of Guru Gobind Singh",
-      "subjectSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "subject": "Bhai Gurdas Singh",
+      "subjectSlug": "bhai-gurdas-singh",
       "object": "Guru Gobind Singh",
       "quote": "It is traditionally held to have been founded by Bhai Gurdas Singh — also remembered by the name Kanhiya Lal — a disciple of Guru Gobind Singh",
       "source": "data/shrines.csv#khatwari-darbar-shikarpur",
       "evidence": "22a0df3d"
     },
     {
-      "id": "disciple_of:saint:bhai-gurdas-veneration-of-guru-nanak:saint:guru-gobind-singh",
+      "id": "disciple_of:saint:bhai-gurdas:saint:guru-gobind-singh",
       "kind": "disciple_of",
-      "subject": "Bhai Gurdas; veneration of Guru Nanak",
-      "subjectSlug": "bhai-gurdas-veneration-of-guru-nanak",
+      "subject": "Bhai Gurdas",
+      "subjectSlug": "bhai-gurdas",
       "object": "Guru Gobind Singh",
       "quote": "the order of devotees descended from Bhai Gurdas, the disciple of Guru Gobind Singh who is said to have carried the Nanakpanthi teaching into Sindh and Balochistan in the eighteenth century",
       "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava",
@@ -1291,10 +1291,10 @@
       "evidence": "fb62a05d"
     },
     {
-      "id": "biography:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "id": "biography:hazrat-syed-muhammad-khair-ul-deen",
       "kind": "biography",
-      "subject": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
-      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "subject": "Hazrat Syed Muhammad Khair ul Deen",
+      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen",
       "object": "",
       "born": "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)",
       "died": "16 Rabi ul Awal 1024 AH (as related in the survey)",
@@ -1304,7 +1304,7 @@
         "Wali Allah"
       ],
       "source": "data/shrines.csv#darbar-abul-muali-qadri",
-      "evidence": "88c07ff1"
+      "evidence": "c92347c9"
     },
     {
       "id": "biography:khwaja-muhammad-qasim",
@@ -1350,6 +1350,17 @@
       ],
       "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "evidence": "15b840be"
+    },
+    {
+      "id": "biography:malik-ahmad-ayaz",
+      "kind": "biography",
+      "subject": "Malik Ahmad Ayaz",
+      "subjectSlug": "malik-ahmad-ayaz",
+      "object": "",
+      "born": "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9).",
+      "died": "8 August 1041, as given in the account; calendar era unstated",
+      "source": "data/shrines.csv#darbar-malik-ahmad-ayaz",
+      "evidence": "96def618"
     },
     {
       "id": "biography:syed-sakhi-shah-chan-charagh",
@@ -1602,16 +1613,16 @@
       "evidence": "87a337e2"
     },
     {
-      "id": "biography:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "id": "biography:bhai-gurdas-singh",
       "kind": "biography",
-      "subject": "Bhai Gurdas Singh, disciple of Guru Gobind Singh",
-      "subjectSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "subject": "Bhai Gurdas Singh",
+      "subjectSlug": "bhai-gurdas-singh",
       "object": "",
       "titles": [
         "Bhai"
       ],
       "source": "data/shrines.csv#khatwari-darbar-shikarpur",
-      "evidence": "9a52633d"
+      "evidence": "d326ee74"
     },
     {
       "id": "biography:lal-shahbaz-qalandar",
@@ -1851,17 +1862,17 @@
       "evidence": "812605c7"
     },
     {
-      "id": "biography:bhai-gurdas-veneration-of-guru-nanak",
+      "id": "biography:bhai-gurdas",
       "kind": "biography",
-      "subject": "Bhai Gurdas; veneration of Guru Nanak",
-      "subjectSlug": "bhai-gurdas-veneration-of-guru-nanak",
+      "subject": "Bhai Gurdas",
+      "subjectSlug": "bhai-gurdas",
       "object": "",
       "titles": [
         "Bhai",
         "a Khalsa saint"
       ],
       "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava",
-      "evidence": "0190fc85"
+      "evidence": "7faba543"
     },
     {
       "id": "biography:syed-bilawal-shah-noorani",

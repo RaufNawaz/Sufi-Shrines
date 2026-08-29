@@ -75,7 +75,13 @@ export function analyseFigureColumns(rows, seeds) {
   const mergeVariants = seeds.saintMergeVariants ?? {};
   const composites = seeds.saintCompositeFigures ?? {};
   const overrides = seeds.saintFigureByShrine ?? {};
-  const canon = (raw) => (mergeVariants[raw] ?? raw).replace(/\s*\([^)]*\)/g, '').trim();
+  const descriptiveCells = seeds.saintDescriptiveCells ?? {};
+  /* Same order build-kg.mjs applies: a descriptive cell resolves before a merge
+     variant, then parentheticals come off. Check 7 of validate-kg-identity fired
+     the moment this was missing — it derived five slugs that had just stopped
+     being nodes. */
+  const canon = (raw) =>
+    (descriptiveCells[raw] ?? mergeVariants[raw] ?? raw).replace(/\s*\([^)]*\)/g, '').trim();
 
   const perRow = rows.map((row) => {
     const name = String(row.Name ?? '').trim();

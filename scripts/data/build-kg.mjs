@@ -29,12 +29,15 @@ const ROOT = join(__dirname, '../..');
 
 // ── saint name normalisation ──────────────────────────────────────────────────
 
-function applySaintMerge(raw, mergeVariants) {
-  return mergeVariants[raw] ?? raw;
+function applySaintMerge(raw, mergeVariants, descriptiveCells = {}) {
+  /* A descriptive cell is a name with a clause attached, not a spelling variant,
+     so it is resolved first and kept in its own map — see the seed's comment.
+     The clause is preserved as an altName by the caller; nothing is discarded. */
+  return descriptiveCells[raw] ?? mergeVariants[raw] ?? raw;
 }
 
-function canonicalizeSaintName(raw, mergeVariants) {
-  const merged = applySaintMerge(raw, mergeVariants);
+function canonicalizeSaintName(raw, mergeVariants, descriptiveCells = {}) {
+  const merged = applySaintMerge(raw, mergeVariants, descriptiveCells);
   return merged.replace(/\s*\([^)]*\)/g, '').trim();
 }
 
@@ -166,11 +169,17 @@ delete compositeFigures.comment;
 /* shrine slug -> { figure, why }. The escape hatch for a row whose legacy cell
    is about somebody else. See the seed's own comment for when it may be used. */
 const figureByShrine = seeds.saintFigureByShrine ?? {};
+/* raw cell -> the name without its descriptive clause. See the seed's comment;
+   the clause survives as an altName. */
+const descriptiveCells = seeds.saintDescriptiveCells ?? {};
+delete descriptiveCells.comment;
 
 /** Every figure a raw `Sufi Saint` cell names, primary first. One name for
  *  almost every row; two for the three that record a site held by two people. */
 function figureNamesFor(rawSaint) {
-  return compositeFigures[rawSaint] ?? [canonicalizeSaintName(rawSaint, mergeVariants)];
+  return (
+    compositeFigures[rawSaint] ?? [canonicalizeSaintName(rawSaint, mergeVariants, descriptiveCells)]
+  );
 }
 
 /* shrine slug → the raw cell, for the rows that name more than one figure. Kept
@@ -319,6 +328,17 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
       ? []
       : extractParenthetical(rawSaint).filter((n) => n !== canonical);
 
+    /* A descriptive cell loses its clause from the name and must not lose it from
+       the record. "Malik Ahmad Ayaz, described in the survey as slave of Mahmud
+       Ghaznavi, minister, and governor of Lahore" becomes the figure `Malik
+       Ahmad Ayaz`, and the sentence the surveyor actually wrote is kept here so
+       the figure's page still carries it and search still finds it. Dropping it
+       would be tidying the record to suit a slug, which is the half of RULE 2
+       that is easiest to break while feeling helpful. */
+    if (descriptiveCells[rawSaint] && rawSaint !== canonical && !altNames.includes(rawSaint)) {
+      altNames.push(rawSaint);
+    }
+
     // figure_type says WHAT this figure is, and the dataset fills it for 168 of
   // 169 rows: 'Sufi saint' (70), 'Deity' (33), 'Sikh Guru' (28), 'Sant' (17),
     // 'Historical person' (11), 'Individual', 'Collective', plus two rows whose
@@ -455,12 +475,47 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
 
 const saintSlugByNameKey = new Map();
 for (const saint of saintMap.values()) {
-  const key = saintNameKey(saint.name);
-  if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, saint.slug);
+  /* A node's recorded alternatives key it too, not just its display name.
+   *
+   * Still `saintNameKey` — identical after normalisation, nothing looser, so the
+   * warning above stands untouched. What changes is the set of names a node
+   * answers to, and it has to, because shortening a descriptive cell moves the
+   * long form out of `name` and into `altNames`. Shah Abul Muali Qadri is the
+   * proof: the 28 August pass joined the proposal node `shah-abul-muali-qadri`
+   * to the sheet node by identical name, because the sheet name was "Hazrat Syed
+   * Muhammad Khair ul Deen, known as Shah Abul Muali Qadri". Shortening that to
+   * the name proper broke the match and the proposal minted him a second node
+   * again — silently undoing a merge, which is the "saintMergeVariants keys stop
+   * applying" hazard from the column brief wearing different clothes.
+   *
+   * First registration wins, as before, so a name already claimed by one figure
+   * is never stolen by another's alternative. */
+  for (const candidate of [saint.name, ...(saint.altNames ?? [])]) {
+    const key = saintNameKey(candidate);
+    if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, saint.slug);
+  }
 }
 
 /* proposal slug → the sheet-derived slug for the same person. */
 const saintSlugAliases = new Map();
+/* A slug this build retired is also an alias of what replaced it.
+ *
+ * Without this, the machine-proposal loop below mints a *second* node for it:
+ * it skips a slug already in `saintMap` or `saintSlugAliases`, and falls back to
+ * an identical-name join — but the proposals were extracted before the sheet
+ * name was shortened, so they carry the long name, the name keys differ, and the
+ * join misses. Shortening five descriptive cells produced two duplicate figures
+ * exactly this way: `bhai-gurdas` and `bhai-gurdas-veneration-of-guru-nanak`
+ * both existed, one holding the site and the other the lineage.
+ *
+ * This is the same failure the 28 August identity pass fixed for Wasif Ali Wasif
+ * — "build-kg builds identities from the sheet *and* from machine proposals
+ * independently" — reappearing through a different door, because that fix taught
+ * the proposal side about *names* and this one changes *slugs*. Seeding the
+ * aliases from the retirements closes the door for any future rename too. */
+for (const [retired, replacement] of retiredSaintSlugs) {
+  if (!saintSlugAliases.has(retired)) saintSlugAliases.set(retired, replacement);
+}
 
 function resolveSaintSlug(slug) {
   return saintSlugAliases.get(slug) ?? slug;

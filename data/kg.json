@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T02:54:38.852Z",
+  "generated": "2026-08-29T03:17:27.865Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -110,12 +110,12 @@
       "figureType": "Deity"
     },
     {
-      "id": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "id": "saint:hazrat-syed-muhammad-khair-ul-deen",
       "type": "saint",
-      "slug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
-      "name": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "slug": "hazrat-syed-muhammad-khair-ul-deen",
+      "name": "Hazrat Syed Muhammad Khair ul Deen",
       "altNames": [
-        "Hazrat Syed Muhammad Khair ul Deen",
+        "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
         "Shah Khairuddin Muhammad",
         "Abul Ma’ali"
       ],
@@ -228,19 +228,25 @@
       "died": "8 Muharram 1040 AH / 8 August 1630 CE"
     },
     {
-      "id": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "id": "saint:malik-ahmad-ayaz",
       "type": "saint",
-      "slug": "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
-      "name": "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore",
+      "slug": "malik-ahmad-ayaz",
+      "name": "Malik Ahmad Ayaz",
       "altNames": [
-        "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\""
+        "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"",
+        "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore",
+        "Malik Ayaz Ahmad",
+        "Malik Ayaz"
       ],
       "shrines": [
         "darbar-malik-ahmad-ayaz"
       ],
       "figureType": "Historical person",
       "born": "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9).",
-      "died": "8 August 1041, as given in the account; calendar era unstated"
+      "died": "8 August 1041, as given in the account; calendar era unstated",
+      "datePrecision": "exact-date",
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-malik-ahmad-ayaz"
     },
     {
       "id": "saint:syed-sakhi-shah-chan-charagh",
@@ -867,13 +873,13 @@
       "figureType": "Deity"
     },
     {
-      "id": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "id": "saint:bhai-gurdas-singh",
       "type": "saint",
-      "slug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh",
-      "name": "Bhai Gurdas Singh, disciple of Guru Gobind Singh",
+      "slug": "bhai-gurdas-singh",
+      "name": "Bhai Gurdas Singh",
       "altNames": [
         "Kanhiya Lal",
-        "Bhai Gurdas Singh",
+        "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh",
         "Bhai Kanya Lal"
       ],
       "shrines": [
@@ -960,12 +966,13 @@
       "biographySource": "data/shrines.csv#langer-makhdoom"
     },
     {
-      "id": "saint:lava-son-of-rama-and-sita",
+      "id": "saint:lava",
       "type": "saint",
-      "slug": "lava-son-of-rama-and-sita",
-      "name": "Lava, son of Rama and Sita",
+      "slug": "lava",
+      "name": "Lava",
       "altNames": [
-        "Luv"
+        "Luv",
+        "Lava (Luv), son of Rama and Sita"
       ],
       "shrines": [
         "loh-temple-lava-temple"
@@ -1367,12 +1374,13 @@
       "biographySource": "data/shrines.csv#sant-satram-dham-raharki-sacho-satram-devri-sahib"
     },
     {
-      "id": "saint:bhai-gurdas-veneration-of-guru-nanak",
+      "id": "saint:bhai-gurdas",
       "type": "saint",
-      "slug": "bhai-gurdas-veneration-of-guru-nanak",
-      "name": "Bhai Gurdas; veneration of Guru Nanak",
+      "slug": "bhai-gurdas",
+      "name": "Bhai Gurdas",
       "altNames": [
         "Sevapanthi tradition",
+        "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak",
         "Bhai Kanya Lal",
         "Kanhiya Lal",
         "Bhai Gurdas Singh"
@@ -4423,10 +4431,10 @@
       "id": "event:urs-darbar-abul-muali-qadri",
       "type": "event",
       "slug": "urs-darbar-abul-muali-qadri",
-      "name": "Urs of Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri at Darbar Abul Muali Qadri",
+      "name": "Urs of Hazrat Syed Muhammad Khair ul Deen at Darbar Abul Muali Qadri",
       "eventType": "urs",
       "shrineSlug": "darbar-abul-muali-qadri",
-      "saintSlug": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri"
+      "saintSlug": "hazrat-syed-muhammad-khair-ul-deen"
     },
     {
       "id": "event:urs-darbar-ghamkol-sharif-zinda-pir",
@@ -4483,10 +4491,10 @@
       "id": "event:urs-darbar-malik-ahmad-ayaz",
       "type": "event",
       "slug": "urs-darbar-malik-ahmad-ayaz",
-      "name": "Urs of Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore at Darbar Malik Ahmad Ayaz",
+      "name": "Urs of Malik Ahmad Ayaz at Darbar Malik Ahmad Ayaz",
       "eventType": "urs",
       "shrineSlug": "darbar-malik-ahmad-ayaz",
-      "saintSlug": "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "saintSlug": "malik-ahmad-ayaz",
       "frequency": "annual"
     },
     {
@@ -4973,7 +4981,7 @@
       "name": "Sikh and Nanakpanthi festivals at Khatwari Darbar, Shikarpur",
       "eventType": "observance",
       "shrineSlug": "khatwari-darbar-shikarpur",
-      "saintSlug": "bhai-gurdas-singh-disciple-of-guru-gobind-singh"
+      "saintSlug": "bhai-gurdas-singh"
     },
     {
       "id": "event:observance-krishna-mandir-kabari-bazar",
@@ -5196,7 +5204,7 @@
       "name": "No regular events documented at Sevapanthi Darbar (Bhai Gurdas), Gandava",
       "eventType": "observance",
       "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
-      "saintSlug": "bhai-gurdas-veneration-of-guru-nanak"
+      "saintSlug": "bhai-gurdas"
     },
     {
       "id": "event:urs-shah-noorani-shrine-syed-bilawal-shah-noorani",
@@ -5918,9 +5926,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:darbar-abul-muali-qadri",
+      "id": "buried_at:saint:hazrat-syed-muhammad-khair-ul-deen:darbar-abul-muali-qadri",
       "type": "buried_at",
-      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen",
       "object": "darbar-abul-muali-qadri",
       "confidence": 1,
       "method": "rule"
@@ -5966,9 +5974,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore:darbar-malik-ahmad-ayaz",
+      "id": "buried_at:saint:malik-ahmad-ayaz:darbar-malik-ahmad-ayaz",
       "type": "buried_at",
-      "subject": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "subject": "saint:malik-ahmad-ayaz",
       "object": "darbar-malik-ahmad-ayaz",
       "confidence": 1,
       "method": "rule"
@@ -6468,9 +6476,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:khatwari-darbar-shikarpur",
+      "id": "buried_at:saint:bhai-gurdas-singh:khatwari-darbar-shikarpur",
       "type": "buried_at",
-      "subject": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "subject": "saint:bhai-gurdas-singh",
       "object": "khatwari-darbar-shikarpur",
       "confidence": 1,
       "method": "rule"
@@ -6532,9 +6540,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:lava-son-of-rama-and-sita:loh-temple-lava-temple",
+      "id": "buried_at:saint:lava:loh-temple-lava-temple",
       "type": "buried_at",
-      "subject": "saint:lava-son-of-rama-and-sita",
+      "subject": "saint:lava",
       "object": "loh-temple-lava-temple",
       "confidence": 1,
       "method": "rule"
@@ -6700,9 +6708,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:bhai-gurdas-veneration-of-guru-nanak:sevapanthi-darbar-bhai-gurdas-gandava",
+      "id": "buried_at:saint:bhai-gurdas:sevapanthi-darbar-bhai-gurdas-gandava",
       "type": "buried_at",
-      "subject": "saint:bhai-gurdas-veneration-of-guru-nanak",
+      "subject": "saint:bhai-gurdas",
       "object": "sevapanthi-darbar-bhai-gurdas-gandava",
       "confidence": 1,
       "method": "rule"
@@ -8870,9 +8878,9 @@
       "notes": "Confidence lowered — hedged as \"tradition holds\"; the named master is otherwise undocumented in this corpus."
     },
     {
-      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:saint:daud-bandagi-kirmani",
+      "id": "disciple_of:saint:hazrat-syed-muhammad-khair-ul-deen:saint:daud-bandagi-kirmani",
       "type": "disciple_of",
-      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen",
       "object": "saint:daud-bandagi-kirmani",
       "confidence": 0.95,
       "method": "machine-extracted",
@@ -9586,9 +9594,9 @@
       "notes": "Confidence lowered — \"came under the influence of\" and \"served\", not a stated formal discipleship. The succession claim (above) is the firmer of the two."
     },
     {
-      "id": "disciple_of:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:saint:guru-gobind-singh",
+      "id": "disciple_of:saint:bhai-gurdas-singh:saint:guru-gobind-singh",
       "type": "disciple_of",
-      "subject": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "subject": "saint:bhai-gurdas-singh",
       "object": "saint:guru-gobind-singh",
       "confidence": 0.95,
       "method": "machine-extracted",
@@ -9598,9 +9606,9 @@
       "notes": "Corroborated in entries/web-research-2026-08/khatwari-darbar-shikarpur.md from Kalhoro: founded by \"Kanhiya Lal, alias Bhai Gurdas, a disciple of Guru Gobind Singh\". Connects two shrines in the archive (khatwari-darbar-shikarpur and gurdwara-dash-mesh-pita)."
     },
     {
-      "id": "disciple_of:saint:bhai-gurdas-veneration-of-guru-nanak:saint:guru-gobind-singh",
+      "id": "disciple_of:saint:bhai-gurdas:saint:guru-gobind-singh",
       "type": "disciple_of",
-      "subject": "saint:bhai-gurdas-veneration-of-guru-nanak",
+      "subject": "saint:bhai-gurdas",
       "object": "saint:guru-gobind-singh",
       "confidence": 0.95,
       "method": "machine-extracted",
@@ -10304,9 +10312,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri:event:urs-darbar-abul-muali-qadri",
+      "id": "commemorated_by:saint:hazrat-syed-muhammad-khair-ul-deen:event:urs-darbar-abul-muali-qadri",
       "type": "commemorated_by",
-      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen",
       "object": "event:urs-darbar-abul-muali-qadri",
       "confidence": 0.9,
       "method": "rule"
@@ -10352,9 +10360,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore:event:urs-darbar-malik-ahmad-ayaz",
+      "id": "commemorated_by:saint:malik-ahmad-ayaz:event:urs-darbar-malik-ahmad-ayaz",
       "type": "commemorated_by",
-      "subject": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
+      "subject": "saint:malik-ahmad-ayaz",
       "object": "event:urs-darbar-malik-ahmad-ayaz",
       "confidence": 0.9,
       "method": "rule"
@@ -10768,9 +10776,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh:event:observance-khatwari-darbar-shikarpur",
+      "id": "commemorated_by:saint:bhai-gurdas-singh:event:observance-khatwari-darbar-shikarpur",
       "type": "commemorated_by",
-      "subject": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
+      "subject": "saint:bhai-gurdas-singh",
       "object": "event:observance-khatwari-darbar-shikarpur",
       "confidence": 0.9,
       "method": "rule"
@@ -10952,9 +10960,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:bhai-gurdas-veneration-of-guru-nanak:event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
+      "id": "commemorated_by:saint:bhai-gurdas:event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
       "type": "commemorated_by",
-      "subject": "saint:bhai-gurdas-veneration-of-guru-nanak",
+      "subject": "saint:bhai-gurdas",
       "object": "event:observance-sevapanthi-darbar-bhai-gurdas-gandava",
       "confidence": 0.9,
       "method": "rule"
@@ -11455,10 +11463,12 @@
     "events": 149,
     "sources": 464,
     "relations": 641,
-    "ambiguousMerges": 65
+    "ambiguousMerges": 66
   },
   "retiredSlugs": {
     "bhagwan-valmik": "valmiki",
+    "bhai-gurdas-singh-disciple-of-guru-gobind-singh": "bhai-gurdas-singh",
+    "bhai-gurdas-veneration-of-guru-nanak": "bhai-gurdas",
     "goddess-kali": "kali",
     "guru-arjan-dev-and-guru-hargobind": "guru-arjan-dev",
     "guru-nanak-and-bhai-mardana": "guru-nanak",
@@ -11467,9 +11477,12 @@
     "hazrat-data-ganj-bakhsh": "data-ganj-bakhsh",
     "hazrat-shah-daula-daryai": "shah-daula-daryai",
     "hazrat-shah-yousuf": "shah-yousuf",
+    "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen",
     "hazrat-wasif-ali-wasif": "hazrat-wasif-ali-wasif-awan",
     "jhulelal-daryalal": "jhulelal",
-    "shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri"
+    "lava-son-of-rama-and-sita": "lava",
+    "malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore": "malik-ahmad-ayaz",
+    "shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen"
   },
   "reviewNeeded": [
     {
@@ -11489,13 +11502,18 @@
     },
     {
       "issue": "name-merge",
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "details": "\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\" merged into canonical \"Hazrat Syed Muhammad Khair ul Deen\" (slug: hazrat-syed-muhammad-khair-ul-deen). Verify the merge is correct."
+    },
+    {
+      "issue": "name-merge",
       "entityId": "saint:khwaja-muhammad-qasim",
       "details": "\"Khwaja Muhammad Qasim (\"Zinda Pir\")\" merged into canonical \"Khwaja Muhammad Qasim\" (slug: khwaja-muhammad-qasim). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore",
-      "details": "\"Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" merged into canonical \"Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" (slug: malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore). Verify the merge is correct."
+      "entityId": "saint:malik-ahmad-ayaz",
+      "details": "\"Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore\" merged into canonical \"Malik Ahmad Ayaz\" (slug: malik-ahmad-ayaz). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11604,8 +11622,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh",
-      "details": "\"Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh\" merged into canonical \"Bhai Gurdas Singh, disciple of Guru Gobind Singh\" (slug: bhai-gurdas-singh-disciple-of-guru-gobind-singh). Verify the merge is correct."
+      "entityId": "saint:bhai-gurdas-singh",
+      "details": "\"Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh\" merged into canonical \"Bhai Gurdas Singh\" (slug: bhai-gurdas-singh). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11614,8 +11632,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:lava-son-of-rama-and-sita",
-      "details": "\"Lava (Luv), son of Rama and Sita\" merged into canonical \"Lava, son of Rama and Sita\" (slug: lava-son-of-rama-and-sita). Verify the merge is correct."
+      "entityId": "saint:lava",
+      "details": "\"Lava (Luv), son of Rama and Sita\" merged into canonical \"Lava\" (slug: lava). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11669,8 +11687,8 @@
     },
     {
       "issue": "name-merge",
-      "entityId": "saint:bhai-gurdas-veneration-of-guru-nanak",
-      "details": "\"Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak\" merged into canonical \"Bhai Gurdas; veneration of Guru Nanak\" (slug: bhai-gurdas-veneration-of-guru-nanak). Verify the merge is correct."
+      "entityId": "saint:bhai-gurdas",
+      "details": "\"Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak\" merged into canonical \"Bhai Gurdas\" (slug: bhai-gurdas). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
@@ -11819,8 +11837,8 @@
     },
     {
       "issue": "saint-identity-joined",
-      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri",
-      "details": "proposal slug \"shah-abul-muali-qadri\" names the same person as \"hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri\" (\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+      "entityId": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "details": "proposal slug \"shah-abul-muali-qadri\" names the same person as \"hazrat-syed-muhammad-khair-ul-deen\" (\"Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
     },
     {
       "issue": "saint-identity-joined",

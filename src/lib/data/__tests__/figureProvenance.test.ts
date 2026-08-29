@@ -172,7 +172,25 @@ describe('the shipped graph', () => {
                        `biographySource` — prose that was already in the archive
                        and was attributed to a man it is not about. He does not
                        drop out of the count: his own shrine still sources him.
-                       So this term rises by one and nothing falls. */
-    expect(flagged.length).toBe(155);
+                       So this term rises by one and nothing falls.
+        100 + 58 − 2  = 156, later still. Five figure cells that were a name plus
+                       a description were shortened to the name proper
+                       (`saintDescriptiveCells`), the survey's own sentence kept as
+                       an altName rather than dropped. Four of the five carried
+                       their provenance across unchanged. The extra term is Malik
+                       Ahmad Ayaz, and it is not bookkeeping: his date proposal in
+                       kg-saint-dates-proposals.json is keyed on the slug
+                       `malik-ahmad-ayaz`, while the sheet node was
+                       `malik-ahmad-ayaz-described-in-the-survey-as-slave-of-…`.
+                       The two never met, so the proposal resolved to nothing and
+                       was dropped on the floor every build. Shortening the slug
+                       reconnected it, and he gained a biographySource and a date
+                       precision the archive had held all along — the same shape
+                       as Bhai Lalo's birth year, which had nowhere to land until
+                       he had a node. Verified by diffing the node before and
+                       after rather than inferred: an earlier draft of this
+                       comment blamed a duplicate `bhai-gurdas` node, and no such
+                       duplicate ever existed. */
+    expect(flagged.length).toBe(156);
   });
 });

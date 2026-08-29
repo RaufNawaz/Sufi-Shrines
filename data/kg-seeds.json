@@ -218,6 +218,14 @@
       "why": "The row's `Sufi Saint` cell reads 'Jalaluddin Surkh-Posh Bukhari' — byte-identical to the cell on 'Shrine of Jalaluddin Surkh-Posh Bukhari', a different monument about a different person — so the graph filed a woman's tomb as one of his two shrines. The sheet already disagrees with itself here in three columns: `principal_figure` is 'Bibi Jawindi', `figure_type` is 'Historical person' where his row says 'Sufi saint', and `figure_born`/`figure_died` (1192/1291) appear only on his row. Nothing is invented by this entry; it adopts what the sheet's own newer columns say. Patch to correct the sheet: data/patch_javindi_bibi_figure_2026-08-28.csv."
     }
   },
+  "_comment_saintDescriptiveCells": "Figure cells that are a name PLUS a description, mapped to the name alone. Distinct from saintMergeVariants, which joins spelling variants of one name: these cells are not variants, they are a name with a clause attached — \"…, described in the survey as slave of Mahmud Ghaznavi\", \"…, disciple of Guru Gobind Singh\", \"…, son of Rama and Sita\". slugify() swallowed the clause, so the archive published figure URLs that are whole sentences; malik-ahmad-ayaz's was seventeen words long, and prerender emits a file for each one. The clause is NOT discarded: build-kg keeps the full recorded cell as an altName, so the survey's own wording is still on the figure's page and searchable (RULE 2). Shortening retires a published URL, which retiredSlugs turns into a redirect. Only add a row here where the extra text describes the figure rather than naming them — a longer name is not a description, and 16 of the archive's 21 six-word-plus slugs are simply long names (Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi) and must be left alone.",
+  "saintDescriptiveCells": {
+    "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore": "Malik Ahmad Ayaz",
+    "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri": "Hazrat Syed Muhammad Khair ul Deen",
+    "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh": "Bhai Gurdas Singh",
+    "Lava (Luv), son of Rama and Sita": "Lava",
+    "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak": "Bhai Gurdas"
+  },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
     "guru-nanak": {
