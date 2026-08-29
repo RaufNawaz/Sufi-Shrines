@@ -123,6 +123,11 @@ describe('the Urdu string table is not in the eager bundle', () => {
    for anyone who did just build. */
 const distUr = join(ROOT, 'dist', 'ur', 'about', 'index.html');
 const distEn = join(ROOT, 'dist', 'about', 'index.html');
+
+/* The chunk's emitted filename, hash and all. Shared by the two assertions
+   below so they cannot drift apart the way this assertion and its copy in
+   `scripts/check-routes-prerendered.mjs` did. */
+const URDU_CHUNK_RE = /uiStrings\.ur-[A-Za-z0-9_-]+\.js/;
 const distManifest = join(ROOT, 'dist', '.vite', 'manifest.json');
 
 /** Change any of these and the built preload can change with it. */
@@ -170,9 +175,41 @@ describe.skipIf(!distIsCurrent)(
     });
 
     it('does not put it on an English page', () => {
-      /* The entire point of the split. An English reader fetching 22 KB of Nastaliq
-       interface copy is the thing this undid. */
-      expect(readFileSync(distEn, 'utf8')).not.toContain('uiStrings.ur');
+      /* The entire point of the split: an English reader must not fetch the
+         Nastaliq interface copy (15.8 KB gzipped, 55.8 KB raw — the "22 KB" in
+         the older comments here and in scripts/prerender.mjs is stale).
+
+         Asserted as "no *static* <link> preloads it", not "the string is
+         absent". Since 28 August the non-/ur documents deliberately carry the
+         chunk's *name* inside a conditional script that appends the link only
+         for a reader resolving to Urdu, because `/ur/…` is a discovery prefix
+         that is rewritten to `?lang=ur` on arrival — so the preload was on the
+         path nobody stays on, and `?lang=ur`, the language toggle and a stored
+         preference all had none.
+
+         This assertion existed in two places, here and in
+         `scripts/check-routes-prerendered.mjs`, and refining one left the other
+         failing the feature — which is the same two-copies-of-one-fact seam
+         that produced tonight's other bugs. If you change one, change both. */
+      const html = readFileSync(distEn, 'utf8');
+      const escaped = URDU_CHUNK_RE.source;
+      expect(
+        new RegExp(`<link[^>]+rel="modulepreload"[^>]+href="[^"]*${escaped}[^"]*"`).test(html),
+        'an English page statically preloads the Urdu string table',
+      ).toBe(false);
+    });
+
+    it('still gives a ?lang=ur reader the head start, from the same page', () => {
+      /* The other direction, and the half that is easy to forget: without this,
+         the conditional tag could vanish and every `?lang=ur` visit would go
+         back to waiting a round trip with nothing on screen, silently. Proven
+         in a browser by `e2e/urdu-preload.spec.ts`; asserted here so a build
+         cannot ship without it. */
+      const html = readFileSync(distEn, 'utf8');
+      expect(html, 'no conditional Urdu preload on an English-served page').toContain(
+        'shrines_language',
+      );
+      expect(URDU_CHUNK_RE.test(html), 'the conditional preload names no chunk').toBe(true);
     });
   },
 );

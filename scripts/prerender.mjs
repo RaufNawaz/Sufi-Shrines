@@ -1237,6 +1237,90 @@ for (const route of APP_ROUTES) {
     const urRoot = join(distDir, 'ur');
     if (existsSync(urRoot)) walk(urRoot);
     console.log(`[prerender] \u2713 modulepreload for the Urdu strings on ${injected} /ur page(s)`);
+
+    /* ── and the same head start for ?lang=ur, which had none ──────────────
+     *
+     * The block above covers `/ur/...` only, and the comment above it explains
+     * why: an English reader must not fetch 22 KB of Nastaliq copy. Correct —
+     * but it leaves the *canonical* Urdu URL uncovered. `/ur/...` is a
+     * prerender-discovery prefix that `UrPrefixNormalizer` immediately rewrites
+     * to `?lang=ur`, the language toggle produces `?lang=ur`, and a returning
+     * reader with the preference stored gets neither prefix nor param. All of
+     * those are served by these non-/ur documents, which carried no preload at
+     * all.
+     *
+     * Measured 28 August 2026 on the map front door: FCP 2,122ms in English
+     * against 4,057ms in Urdu, and `main.tsx` awaits the string table before
+     * the first render — so an Urdu reader at `?lang=ur` pays a full round trip
+     * staring at nothing. `scripts/measure-lcp.mjs` shows the consequence: no
+     * Urdu text is a paint candidate until 2,016ms, where English has its
+     * sidebar title at 1,092ms.
+     *
+     * So the tag is emitted *conditionally*, by a few hundred bytes of inline
+     * script that resolves the language exactly as `detectInitialLang` does
+     * (param, then /ur path, then localStorage, then navigator.language) and
+     * appends the link only for a reader who is actually about to read Urdu.
+     * An English reader runs the branch and fetches nothing, which keeps the
+     * split this file's other comment is defending.
+     *
+     * It is deliberately a copy of that precedence rather than an import: this
+     * is a build script writing a string into a <head>, with no bundler in the
+     * path. `e2e/urdu-preload.spec.ts` holds the copy honest by asserting the
+     * fetch actually starts early for `?lang=ur` and never starts for English.
+     */
+    const conditional = [
+      '    <script>',
+      '      /* Preload the Urdu string table only for a reader about to read Urdu.',
+      '         Mirrors detectInitialLang() in src/lib/i18n/detectLang.ts. */',
+      '      (function () {',
+      '        try {',
+      `          var b = ${JSON.stringify(base)}, c = ${JSON.stringify(urduChunk)}, ur;`,
+      '          var p = new URLSearchParams(location.search).get("lang");',
+      '          if (p === "ur") ur = true;',
+      '          else if (p === "en") ur = false;',
+      '          else {',
+      '            var q = location.pathname;',
+      '            q = q.indexOf(b) === 0 ? "/" + q.slice(b.length) : q;',
+      '            if (/^\\/ur(\\/|$)/.test(q)) ur = true;',
+      '            else {',
+      '              var s = null;',
+      '              try { s = localStorage.getItem("shrines_language"); } catch (e) {}',
+      '              if (s === "ur") ur = true;',
+      '              else if (s === "en") ur = false;',
+      '              else ur = (navigator.language || "").toLowerCase().indexOf("ur") === 0;',
+      '            }',
+      '          }',
+      '          if (!ur) return;',
+      '          var l = document.createElement("link");',
+      '          l.rel = "modulepreload";',
+      '          l.crossOrigin = "";',
+      '          l.href = b + c;',
+      '          document.head.appendChild(l);',
+      '        } catch (e) {}',
+      '      })();',
+      '    </script>',
+    ].join('\n');
+
+    let conditioned = 0;
+    const walkAll = (dir) => {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (full === urRoot) continue; // already has the static tag
+          walkAll(full);
+        } else if (entry.name === 'index.html') {
+          const html = readFileSync(full, 'utf8');
+          if (html.includes(urduChunk)) continue; // /ur page, or already done
+          writeFileSync(full, html.replace('</head>', `${conditional}\n</head>`), 'utf8');
+          conditioned += 1;
+        }
+      }
+    };
+    walkAll(distDir);
+    console.log(
+      `[prerender] \u2713 conditional Urdu preload on ${conditioned} non-/ur page(s) — ` +
+        '?lang=ur and stored-preference visits no longer wait a round trip',
+    );
   }
 }
 

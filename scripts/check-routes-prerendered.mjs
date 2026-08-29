@@ -228,13 +228,36 @@ if (existsSync(sitemapPath)) {
       }
     }
 
-    /* And the point of the whole split: an English reader must not fetch it. */
+    /* And the point of the whole split: an English reader must not fetch it.
+       Asserted as "no *static* link preloads it", not "the filename is absent".
+       Since 28 August the non-/ur documents deliberately carry the chunk's name
+       inside a conditional script that appends the link only for a reader who
+       resolves to Urdu (scripts/prerender.mjs). A substring test cannot tell a
+       preload from a mention, and it failed the conditional preload on the day
+       it was added — the right instinct measured the wrong thing. The behaviour
+       itself is asserted in a browser by e2e/urdu-preload.spec.ts: English
+       fetches the table never, `?lang=ur` fetches it before the entry chunk
+       finishes. */
     const en = join(DIST, 'about', 'index.html');
-    if (existsSync(en) && readFileSync(en, 'utf8').includes(chunk)) {
-      failures.push(
-        'an English page preloads the Urdu string table — the split no longer saves anyone ' +
-          'anything',
-      );
+    if (existsSync(en)) {
+      const html = readFileSync(en, 'utf8');
+      const escaped = chunk.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (new RegExp(`<link[^>]+rel="modulepreload"[^>]+href="[^"]*${escaped}"`).test(html)) {
+        failures.push(
+          'an English page statically preloads the Urdu string table — the split no longer ' +
+            'saves anyone anything',
+        );
+      }
+      /* The other direction, added with the conditional tag: if this disappears,
+         every `?lang=ur` and stored-preference visit silently goes back to
+         waiting a round trip with nothing on screen, and nothing else would say
+         so. */
+      if (!html.includes('shrines_language') || !html.includes(chunk)) {
+        failures.push(
+          'a non-/ur page carries no conditional Urdu preload — `?lang=ur` and returning ' +
+            'Urdu readers wait a round trip before first paint again',
+        );
+      }
     }
   }
 }
