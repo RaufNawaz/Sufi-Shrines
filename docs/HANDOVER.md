@@ -5487,3 +5487,58 @@ what moved — and quote Lighthouse for any number that has a budget. `--settle`
 being chased; a 10s settle on the Urdu front door reports a smaller LCP and a clean CLS, which is
 the instrument agreeing with you rather than measuring. And a warm cache hides all of it, so every
 context is fresh.
+
+---
+
+### Added 28 August 2026 — a man's name on a woman's tomb, and it is one row rather than a pattern
+
+`/shrine/tomb-of-javindi-bibi` ships this, and it was found by opening the page rather than by
+reading the JSON:
+
+    label:  "Jalaluddin Surkh-Posh Bukhari"     ← the row's legacy `Sufi Saint` cell
+    href:   /saint/bibi-jawindi                 ← the knowledge graph's answer
+
+**The correction to the standing description matters.** The handover note that named this as the
+first thing to look at said *the archive is filing a woman's tomb under a man*. It is not: the
+graph already maps `tomb-of-javindi-bibi → bibi-jawindi`, and `saint:bibi-jawindi` exists as its own
+node. What ships is more specific and worse — **the visible name and the link disagree.** A reader
+sees a man's name on a woman's tomb; only a reader who clicks arrives at Bibi Jawindi.
+
+Neither half is a bug alone. `ShrinePage` takes the label from
+`localizeField(shrine.raw, 'Sufi Saint')` and the href from `primaryFigureSlug`, both defensible,
+and **nothing has ever compared them** — the same seam as `figureColumns.mjs` earlier the same day:
+two copies of one fact with no gate where they meet. `scripts/measure-label-link-agreement.mjs` is
+that gate, committed with this entry.
+
+**Measured over all 169 rows: 6 disagree, and they are two unrelated defects.**
+
+*Kind B — a different person. One row.* Javindi Bibi, above.
+
+*Kind A — the same person with a sentence for a slug. Five rows.*
+
+    /saint/malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore
+    /saint/bhai-gurdas-singh-disciple-of-guru-gobind-singh
+    /saint/lava-son-of-rama-and-sita
+    /saint/bhai-gurdas-veneration-of-guru-nanak
+    /saint/bhai-biba-singh
+
+These are `extractParenthetical` treating a role or a whole clause as an alt-name — the problem
+§9 already records as needing a curated rule rather than a heuristic, because both conservative
+regexes tried against it flagged genuine Arabic and Persian name particles. The addition here is
+that **they are published URL surface, not display strings**: `scripts/prerender.mjs` emits a file
+per figure route, so tidying one retires a live URL, at the price `retiredSlugs` already prices.
+
+**Why the count is the useful part.** It says the wrong-person case is **not systemic**. It is one
+row, so it needs no architectural answer and does not wait on the `Sufi Saint` vs
+`principal_figure` decision. Anyone sizing a general "make the label agree with the link" change
+would be buying one real fix and five cosmetic ones — and the five are the ones with no safe rule
+yet.
+
+**The instrument over-fires on purpose**, and that is why five same-person rows are in its output.
+It compares letters-only in both directions and reports anything where neither name contains the
+other. A stricter rule would hide them; a similarity score would be the instrument that proposed
+21 merges of which 2 were right. It is built to hand a human six rows to read rather than to
+publish a number — so read the rows. It exits 0: it would be red today on Kind A, and the rule
+earned twice on 28 August is that an invariant is not encoded until it has been watched go green.
+When the curated parenthetical rule lands, `--check` is one `process.exit(1)` away and belongs in
+`data:validate`.
