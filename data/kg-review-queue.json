@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T06:52:45.519Z",
+  "generated": "2026-08-29T07:26:06.183Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -404,7 +404,7 @@
     {
       "id": "disciple_of:saint:kaka-sahib:saint:qazi-abul-aala",
       "kind": "disciple_of",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "Qazi Abul Aala",
       "quote": "Tradition names his teachers as Qazi Abul Aala, Abdullah Ansari Sultanpuri, Maulana Abdul Lateef Sultanpuri, and Sheikh Akhuddeen Seljuki",
@@ -414,7 +414,7 @@
     {
       "id": "disciple_of:saint:kaka-sahib:saint:abdullah-ansari-sultanpuri",
       "kind": "disciple_of",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "Abdullah Ansari Sultanpuri",
       "quote": "Tradition names his teachers as Qazi Abul Aala, Abdullah Ansari Sultanpuri, Maulana Abdul Lateef Sultanpuri, and Sheikh Akhuddeen Seljuki",
@@ -424,7 +424,7 @@
     {
       "id": "disciple_of:saint:kaka-sahib:saint:maulana-abdul-lateef-sultanpuri",
       "kind": "disciple_of",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "Maulana Abdul Lateef Sultanpuri",
       "quote": "Tradition names his teachers as Qazi Abul Aala, Abdullah Ansari Sultanpuri, Maulana Abdul Lateef Sultanpuri, and Sheikh Akhuddeen Seljuki",
@@ -434,7 +434,7 @@
     {
       "id": "disciple_of:saint:kaka-sahib:saint:sheikh-akhuddeen-seljuki",
       "kind": "disciple_of",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "Sheikh Akhuddeen Seljuki",
       "quote": "Tradition names his teachers as Qazi Abul Aala, Abdullah Ansari Sultanpuri, Maulana Abdul Lateef Sultanpuri, and Sheikh Akhuddeen Seljuki",
@@ -1257,7 +1257,7 @@
     {
       "id": "belongs_to_order:saint:kaka-sahib:order:naqshbandiyya",
       "kind": "belongs_to_order",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "Naqshbandiyya",
       "quote": "an inheritance tradition credits him with carrying forward, though he himself is remembered in the *Uwaisi* style of not naming a personal living guide",
@@ -2195,7 +2195,7 @@
     {
       "id": "biography:laki-shah-saddar",
       "kind": "biography",
-      "subject": "Laki Shah Saddar",
+      "subject": "Syed Shah Sadaruddin Lakyari",
       "subjectSlug": "laki-shah-saddar",
       "object": "",
       "titles": [
@@ -2625,7 +2625,7 @@
     {
       "id": "biography:kaka-sahib",
       "kind": "biography",
-      "subject": "Kaka Sahib",
+      "subject": "Syed Kasteer Gul",
       "subjectSlug": "kaka-sahib",
       "object": "",
       "born": "1575",

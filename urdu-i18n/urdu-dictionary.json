@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 168,
+      "saints": 171,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 133,
-      "flatSeedEntries": 1117
+      "flatSeedEntries": 1120
     }
   },
   "categories": {
@@ -567,6 +567,9 @@
     "Data Ganj Bakhsh": "داتا گنج بخش",
     "Shah Daula Daryai": "شاہ دولہ دریائی",
     "Parshvanatha": "پرشو ناتھ",
+    "Syed Shah Sadaruddin Lakyari": "سید شاہ صدرالدین لکیاری",
+    "Syed Kasteer Gul": "سید کستیر گل",
+    "Kalka Devi": "کالکا دیوی",
     "Bhai Joga Singh": "بھائی جوگا سنگھ",
     "Bhai Taru": "بھائی تارو",
     "Hinglaj Mata": "ہنگلاج ماتا",

@@ -119,7 +119,7 @@
     "Bhagwan Valmik (Valmiki)": "Valmiki (also revered as Bhagwan Valmik)",
     "Bulleh Shah (Abdullah Shah Qadri)": "Bulleh Shah",
     "Goddess Kali": "Kali",
-    "Goddess Kali (Kalka Devi)": "Kali (also revered as Kalka Devi)",
+    "Goddess Kali (Kalka Devi)": "Kalka Devi (Kali)",
     "Guru Nanak Dev Ji": "Guru Nanak",
     "Hazrat Data Ganj Bakhsh (Ali Hujwiri)": "Data Ganj Bakhsh",
     "Hazrat Shah Daula Daryai": "Shah Daula Daryai",
@@ -265,6 +265,11 @@
     "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak": "Bhai Gurdas",
     "Jain temple dedicated to Parshvanatha (23rd Tirthankara)": "Parshvanatha (23rd Tirthankara)"
   },
+  "_comment_saintDisplayNames": "Figure slug -> the name the page should be TITLED with, while the slug itself stays put. Rauf's ruling of 29 August 2026 on the epithet rows: the formal name is the better record and the epithet is what a reader searches for and links to, so the archive keeps both — principal_figure supplies the title, the legacy slug supplies the URL, and the epithet becomes an altName so nothing is lost. This is CLAUDE.md RULE 3 applied literally: a sheet value is a join key and a label is cosmetic, so a better label must never cost a published address. Keyed on the slug rather than on the cell, because the whole point is that the slug does not move. NOT for a row where the two columns name different people, change an honorific class, or turn a person into a collective — three such rows (pir-abdul-ul-karim, guru-gurpat, bibi-pak-daman) were deliberately held out of this ruling and are back in the worksheet unanswered. One thing this quietly fixes: jahaniyan-jahangasht would have become the slug `sayyid-jalaluddin`, one suffix from his grandfather `sayyid-jalaluddin-surkh-posh-bukhari`. Keeping the slug removes the collision that made that row the second place principal_figure was worse. APPLIED TO TWO OF SEVEN so far. The ruling can only be carried out where the formal name exists in URDU: otherwise the English page moves to the formal name and the Urdu page falls back through altNames to the epithet, and the two editions title the same figure differently — which CLAUDE.md's i18n contract forbids and which no gate here would have caught, because the altName fallback keeps the parity test green. Five are waiting on an Urdu name and are listed in _pending_saintDisplayNames; check 9 of validate-kg-identity.mjs fails any entry whose title has no Urdu, so the constraint is now enforced rather than remembered.",
+  "saintDisplayNames": {
+    "laki-shah-saddar": "Syed Shah Sadaruddin Lakyari",
+    "kaka-sahib": "Syed Kasteer Gul"
+  },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
     "guru-nanak": {
@@ -374,5 +379,12 @@
     "sultan-sakhi-sarwar: Order affiliation debated in scholarship (Chishti vs. independent 'Sultani' path) — needs review.",
     "bibi-pak-daman: Appears at two shrines with identical names and identical saint fields — possible duplicate row in the source Sheet; flag for maintainer review.",
     "guru-nanak-and-bhai-mardana: CSV entry references two figures; merged to Guru Nanak as primary; Bhai Mardana not modelled as a separate saint entity yet."
-  ]
+  ],
+  "_pending_saintDisplayNames": {
+    "bari-imam": "Sayyid Abdul Latif Kazmi",
+    "data-ganj-bakhsh": "Hazrat Ali ibn Usman al-Hujwiri",
+    "ganj-e-inayat-sarkar": "Pir Muhammad Inayat Ahmad Naqshbandi Mujaddidi",
+    "jahaniyan-jahangasht": "Sayyid Jalaluddin",
+    "qalandar-baba-auliya": "Sayyid Muhammad Azeem Barkhiya"
+  }
 }

@@ -305,7 +305,28 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
      the old composite address is most likely to have wanted. */
   const preMergeSlug = slugify(String(rawSaint).replace(/\s*\([^)]*\)/g, '').trim());
   if (preMergeSlug && preMergeSlug !== primarySlug) {
-    retiredSaintSlugs.set(preMergeSlug, primarySlug);
+    /* First row wins, and a disagreement is reported rather than overwritten.
+       Two cells can strip to the same pre-merge slug and resolve to different
+       figures: "Goddess Kali" and "Goddess Kali (Kalka Devi)" both reduce to
+       `goddess-kali`, and once Kalka Devi split off on 29 August the second row
+       silently repointed that redirect from Kali — who holds two temples and
+       whose page the address has always served — to a figure with one. A
+       redirect that depends on sheet row order is not a redirect anyone can
+       reason about. */
+    const already = retiredSaintSlugs.get(preMergeSlug);
+    if (already && already !== primarySlug) {
+      reviewNeeded.push({
+        issue: 'retired-slug-conflict',
+        entityId: `saint:${already}`,
+        details:
+          `two rows strip to the retired slug "${preMergeSlug}" but resolve to different ` +
+          `figures — "${already}" (kept, first row wins) and "${primarySlug}" (ignored). ` +
+          `A reader following the old address lands on the first. If that is the wrong one, ` +
+          `the fix is in the sheet's cells, not here.`,
+      });
+    } else if (!already) {
+      retiredSaintSlugs.set(preMergeSlug, primarySlug);
+    }
   }
 
   if (compositeNames) {
@@ -475,6 +496,39 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
    nothing looser — and scripts/data/lib/saintIdentity.mjs records at length why
    anything looser is a trap on this corpus (a similarity matcher scored 2 right
    out of 21 here, and its misses were master-and-disciple pairs). */
+
+/* ── the title a figure's page carries, where it differs from its address ─────
+ *
+ * `saintDisplayNames` renames a figure without moving them. The formal name is
+ * the better record; the epithet is the address a reader searches for and links
+ * to, and CLAUDE.md RULE 3 is explicit that a sheet value is a join key while a
+ * label is cosmetic — so a better label must never cost a published URL.
+ *
+ * Applied here, after every node exists and before the name index is built, so
+ * the identity join below keys on the new title *and* on the old name (which
+ * becomes an altName). Applying it earlier would change the slug, which is the
+ * one thing this must not do.
+ */
+const displayNames = seeds.saintDisplayNames ?? {};
+delete displayNames.comment;
+for (const [slug, rawTitle] of Object.entries(displayNames)) {
+  const saint = saintMap.get(slug);
+  if (!saint) {
+    reviewNeeded.push({
+      issue: 'seed-saint-not-found',
+      entityId: `saint:${slug}`,
+      details: `saintDisplayNames names "${slug}", which is not a figure in the graph.`,
+    });
+    continue;
+  }
+  const title = String(rawTitle).replace(/\s*\([^)]*\)/g, '').trim();
+  if (!title || title === saint.name) continue;
+  /* The name it had is not discarded — it is the epithet the page is still
+     addressed by, and the one most readers know. */
+  saint.altNames ??= [];
+  if (!saint.altNames.includes(saint.name)) saint.altNames.unshift(saint.name);
+  saint.name = title;
+}
 
 const saintSlugByNameKey = new Map();
 for (const saint of saintMap.values()) {

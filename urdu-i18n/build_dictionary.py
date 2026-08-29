@@ -700,6 +700,18 @@ SAINTS = {
  # the generic derivation, which requires a trailing parenthetical, correctly
  # declines it.
  "Parshvanatha": "پرشو ناتھ",
+ # Titles adopted 29 August 2026 under Rauf's epithet ruling — the formal name
+ # heads the page, the epithet stays the URL. Only these two of seven could be
+ # applied, because only these two have an Urdu form already reviewed; the rest
+ # wait in _pending_saintDisplayNames. Both lifted from the parenthetical of the
+ # reviewed entry, never composed:
+ #   "لکی شاہ صدر (سید شاہ صدرالدین لکیاری)"
+ #   "کاکا صاحب (سید کستیر گل، \"شیخ رحمکار\")"
+ "Syed Shah Sadaruddin Lakyari": "سید شاہ صدرالدین لکیاری",
+ "Syed Kasteer Gul": "سید کستیر گل",
+ # Kalka Devi split off from Kali on the same ruling; her Urdu is the
+ # parenthetical of "Goddess Kali (Kalka Devi)" = "دیوی کالی (کالکا دیوی)".
+ "Kalka Devi": "کالکا دیوی",
  "Bhai Joga Singh": "بھائی جوگا سنگھ",
  "Bhai Taru": "بھائی تارو",
  "Hinglaj Mata": "ہنگلاج ماتا",

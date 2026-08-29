@@ -384,6 +384,53 @@ if (existsSync(SHRINES_JSON)) {
   }
 }
 
+// ── 9. a renamed figure must be renamed in both languages ────────────────────
+/*
+ * `saintDisplayNames` retitles a figure while its slug stays put — the formal
+ * name heads the page, the epithet remains the address. The trap is that it can
+ * be applied in English alone.
+ *
+ * `localizeFigureName` falls back through `altNames`, and the epithet the page
+ * used to be titled with is pushed onto `altNames` by the rename itself. So an
+ * entry whose new title has no Urdu leaves the English page reading "Hazrat Ali
+ * ibn Usman al-Hujwiri" and the Urdu page still reading داتا گنج بخش — two
+ * editions titling one figure differently, which CLAUDE.md's i18n contract
+ * forbids — and **every existing gate stays green**, because the fallback finds
+ * Urdu and the no-leak guard visits three saint routes out of 134.
+ *
+ * Five of the seven rows in the 29 August ruling are held back for exactly this
+ * (`_pending_saintDisplayNames`). This is the check that keeps them held rather
+ * than trusting the next person to remember why.
+ */
+{
+  const displayNames = seeds.saintDisplayNames ?? {};
+  const seedPath = join(ROOT, 'src', 'data', 'urdu-seed.json');
+  const urdu = existsSync(seedPath)
+    ? new Set(Object.keys(JSON.parse(readFileSync(seedPath, 'utf8'))).map((k) => k.toLowerCase()))
+    : null;
+  let checkedTitles = 0;
+  for (const [slug, rawTitle] of Object.entries(displayNames)) {
+    if (slug.startsWith('_')) continue;
+    checkedTitles += 1;
+    const title = String(rawTitle)
+      .replace(/\s*\([^)]*\)/g, '')
+      .trim();
+    if (!bySlug.has(slug)) {
+      fail(`saintDisplayNames names "${slug}", which is not a figure in the graph.`);
+      continue;
+    }
+    if (urdu && !urdu.has(title.toLowerCase())) {
+      fail(
+        `saintDisplayNames retitles "${slug}" to "${title}", which has no Urdu name. ` +
+          `The English page would move and the Urdu page would fall back through altNames to the ` +
+          `old epithet, titling one figure two ways. Add the Urdu (lifted from a reviewed entry, ` +
+          `never composed) or move the row to _pending_saintDisplayNames.`,
+      );
+    }
+  }
+  if (checkedTitles) notes.push(`${checkedTitles} retitled figure(s), each named in both languages`);
+}
+
 // ── report ───────────────────────────────────────────────────────────────────
 
 for (const note of notes) console.log(`[kg-identity] ${note}`);

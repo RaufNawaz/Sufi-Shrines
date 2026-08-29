@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T06:52:45.519Z",
+  "generated": "2026-08-29T07:26:06.183Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -863,12 +863,21 @@
       "slug": "kali",
       "name": "Kali",
       "altNames": [
-        "deity",
-        "Kalka Devi"
+        "deity"
       ],
       "shrines": [
         "kalat-kali-temple",
-        "kali-bari-mandir",
+        "kali-bari-mandir"
+      ],
+      "figureType": "Deity"
+    },
+    {
+      "id": "saint:kalka-devi",
+      "type": "saint",
+      "slug": "kalka-devi",
+      "name": "Kalka Devi",
+      "altNames": [],
+      "shrines": [
         "kalka-cave-temple-asthan-of-kalka-devi"
       ],
       "figureType": "Deity"
@@ -2002,8 +2011,9 @@
       "id": "saint:laki-shah-saddar",
       "type": "saint",
       "slug": "laki-shah-saddar",
-      "name": "Laki Shah Saddar",
+      "name": "Syed Shah Sadaruddin Lakyari",
       "altNames": [
+        "Laki Shah Saddar",
         "Syed Shah Sadaruddin Lakyari",
         "Shah Sadaruddin",
         "Laki Shah Sadar",
@@ -2739,10 +2749,10 @@
       "id": "saint:kaka-sahib",
       "type": "saint",
       "slug": "kaka-sahib",
-      "name": "Kaka Sahib",
+      "name": "Syed Kasteer Gul",
       "altNames": [
+        "Kaka Sahib",
         "Syed Kasteer Gul, \"Sheikh Rahmkar\"",
-        "Syed Kasteer Gul",
         "Sheikh Rahmkar",
         "Sheikh Rahm Kar"
       ],
@@ -4992,7 +5002,7 @@
       "name": "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)",
       "eventType": "observance",
       "shrineSlug": "kalka-cave-temple-asthan-of-kalka-devi",
-      "saintSlug": "kali"
+      "saintSlug": "kalka-devi"
     },
     {
       "id": "event:observance-katas-raj-temples",
@@ -5516,7 +5526,7 @@
       "id": "event:urs-shrine-of-lakhi-shah-saddar",
       "type": "event",
       "slug": "urs-shrine-of-lakhi-shah-saddar",
-      "name": "Urs of Laki Shah Saddar at Shrine of Lakhi Shah Saddar",
+      "name": "Urs of Syed Shah Sadaruddin Lakyari at Shrine of Lakhi Shah Saddar",
       "eventType": "urs",
       "shrineSlug": "shrine-of-lakhi-shah-saddar",
       "saintSlug": "laki-shah-saddar",
@@ -5834,7 +5844,7 @@
       "id": "event:urs-ziarat-kaka-sahib",
       "type": "event",
       "slug": "urs-ziarat-kaka-sahib",
-      "name": "Urs of Kaka Sahib at Ziarat Kaka Sahib",
+      "name": "Urs of Syed Kasteer Gul at Ziarat Kaka Sahib",
       "eventType": "urs",
       "shrineSlug": "ziarat-kaka-sahib",
       "saintSlug": "kaka-sahib",
@@ -6497,9 +6507,9 @@
       "method": "rule"
     },
     {
-      "id": "buried_at:saint:kali:kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "buried_at:saint:kalka-devi:kalka-cave-temple-asthan-of-kalka-devi",
       "type": "buried_at",
-      "subject": "saint:kali",
+      "subject": "saint:kalka-devi",
       "object": "kalka-cave-temple-asthan-of-kalka-devi",
       "confidence": 1,
       "method": "rule"
@@ -10821,9 +10831,9 @@
       "method": "rule"
     },
     {
-      "id": "commemorated_by:saint:kali:event:observance-kalka-cave-temple-asthan-of-kalka-devi",
+      "id": "commemorated_by:saint:kalka-devi:event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "type": "commemorated_by",
-      "subject": "saint:kali",
+      "subject": "saint:kalka-devi",
       "object": "event:observance-kalka-cave-temple-asthan-of-kalka-devi",
       "confidence": 0.9,
       "method": "rule"
@@ -11518,13 +11528,13 @@
     }
   ],
   "stats": {
-    "saints": 191,
+    "saints": 192,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
     "relations": 645,
-    "ambiguousMerges": 66
+    "ambiguousMerges": 67
   },
   "retiredSlugs": {
     "bhagwan-valmik": "valmiki",
@@ -11681,6 +11691,16 @@
       "issue": "name-merge",
       "entityId": "saint:kali",
       "details": "\"Kali (deity)\" merged into canonical \"Kali\" (slug: kali). Verify the merge is correct."
+    },
+    {
+      "issue": "retired-slug-conflict",
+      "entityId": "saint:kali",
+      "details": "two rows strip to the retired slug \"goddess-kali\" but resolve to different figures — \"kali\" (kept, first row wins) and \"kalka-devi\" (ignored). A reader following the old address lands on the first. If that is the wrong one, the fix is in the sheet's cells, not here."
+    },
+    {
+      "issue": "name-merge",
+      "entityId": "saint:kalka-devi",
+      "details": "\"Goddess Kali (Kalka Devi)\" merged into canonical \"Kalka Devi\" (slug: kalka-devi). Verify the merge is correct."
     },
     {
       "issue": "name-merge",
