@@ -21,13 +21,16 @@ The schema's own column is `principal_figure` (CLAUDE.md § Schema: "Legacy
 *fallback* everywhere else and the primary source here.
 
 **95 of 169 rows** have a `principal_figure` whose string differs from the legacy
-cell. At the level that matters — the slug a figure's page lives at — **46 rows
-would move, and 44 of the current 133 figure slugs would cease to exist.**
+cell. At the level that matters — the slug a figure's page lives at — **43 rows
+would move, and 41 of the current 133 figure slugs would cease to exist.**
 
-*(47 and 132 until later on 28 August, when Tomb of Javindi Bibi's figure was
-corrected by `saintFigureByShrine` — that row stopped being a mover and Bibi
-Jawindi became a figure slug. Both instruments re-run; see the worksheet's own
-summary line for the live numbers rather than quoting these.)*
+*(47/132 when first measured, then 46/133 when Tomb of Javindi Bibi's figure was
+corrected by `saintFigureByShrine`, then 43/41 when `saintDescriptiveCells`
+shortened five slugs that were a name plus a description — three of those five
+now agree with `principal_figure`, so they stopped being movers. Three
+re-measurements in one day. **Do not quote these numbers; run
+`npm run data:review:figures` and read its summary line**, which is the whole
+reason the worksheet prints one.)*
 
 *Numbers from `node scripts/data/measure-figure-identity-columns.mjs`, re-run
 28 August 2026.*
@@ -259,8 +262,8 @@ splits apart. Nothing in it decides anything; `verdict` is empty in every row.
 | priority | rows | what it is |
 |---|---|---|
 | 1 | 13 | Contested. A figure splits or joins, or a merge keyed only on the legacy cell stops applying, or `principal_figure` is empty. **`principal_figure` is not automatically the winner here.** |
-| 2 | 40 | The slug moves. Mechanical, but each retires a published URL. |
-| 3 | 116 | The cells agree, or differ only in wording. Confirm and move on. |
+| 2 | 37 | The slug moves. Mechanical, but each retires a published URL. |
+| 3 | 119 | The cells agree, or differ only in wording. Confirm and move on. |
 
 Fill `verdict` with `legacy`, `principal` or `custom`; `chosen_name` carries the
 name when neither column is right. Verdicts are carried across regenerations by
@@ -297,7 +300,7 @@ names.
 
 | draft | rows | rule |
 |---|---|---|
-| `principal` | 147 | The slug does not move (115), or it moves and the name is the same: a title or descriptor leaves the slug, the curated cell gives a fuller form of the same name, or it is a respelling (32). |
+| `principal` | 149 | The slug does not move, or it moves and the name is the same: a title or descriptor leaves the slug, the curated cell gives a fuller form of the same name, or it is a respelling. |
 | `needs-human` | 7 | The two cells name the figure *differently*. That is an identity claim and the sheet does not argue for it. |
 | *(blank)* | 13 | Contested. Cases below. |
 
