@@ -21,8 +21,13 @@ The schema's own column is `principal_figure` (CLAUDE.md § Schema: "Legacy
 *fallback* everywhere else and the primary source here.
 
 **95 of 169 rows** have a `principal_figure` whose string differs from the legacy
-cell. At the level that matters — the slug a figure's page lives at — **47 rows
-would move, and 44 of the current 132 figure slugs would cease to exist.**
+cell. At the level that matters — the slug a figure's page lives at — **46 rows
+would move, and 44 of the current 133 figure slugs would cease to exist.**
+
+*(47 and 132 until later on 28 August, when Tomb of Javindi Bibi's figure was
+corrected by `saintFigureByShrine` — that row stopped being a mover and Bibi
+Jawindi became a figure slug. Both instruments re-run; see the worksheet's own
+summary line for the live numbers rather than quoting these.)*
 
 *Numbers from `node scripts/data/measure-figure-identity-columns.mjs`, re-run
 28 August 2026.*
@@ -253,16 +258,16 @@ splits apart. Nothing in it decides anything; `verdict` is empty in every row.
 
 | priority | rows | what it is |
 |---|---|---|
-| 1 | 15 | Contested. A figure splits or joins, or a merge keyed only on the legacy cell stops applying, or `principal_figure` is empty. **`principal_figure` is not automatically the winner here.** |
-| 2 | 39 | The slug moves. Mechanical, but each retires a published URL. |
-| 3 | 115 | The cells agree, or differ only in wording. Confirm and move on. |
+| 1 | 13 | Contested. A figure splits or joins, or a merge keyed only on the legacy cell stops applying, or `principal_figure` is empty. **`principal_figure` is not automatically the winner here.** |
+| 2 | 40 | The slug moves. Mechanical, but each retires a published URL. |
+| 3 | 116 | The cells agree, or differ only in wording. Confirm and move on. |
 
 Fill `verdict` with `legacy`, `principal` or `custom`; `chosen_name` carries the
 name when neither column is right. Verdicts are carried across regenerations by
 `id`, whose digest is over both cells — so a recorded verdict survives a sheet
 refresh and stops being carried exactly when the cells it judged have changed.
 
-**The fifteen contested rows**, since they are the whole decision:
+**The contested rows**, since they are the whole decision:
 
 - **Kalka Cave Temple** — `kali` → `kalka-devi`, peeling one of Kali's three
   temples back off. The row where `principal_figure` is worse, and the reason
@@ -280,7 +285,7 @@ refresh and stops being carried exactly when the cells it judged have changed.
   Surkh-Posh Bukhari, Valmiki, and Gurdwara Chakki Sahib.
 
 The other 154 rows are the reason the worksheet exists: they can be answered in a
-sitting, and until now they were indistinguishable from the fifteen that cannot.
+sitting, and until now they were indistinguishable from the few that cannot.
 
 ### The drafts — 28 August 2026
 
@@ -294,7 +299,7 @@ names.
 |---|---|---|
 | `principal` | 147 | The slug does not move (115), or it moves and the name is the same: a title or descriptor leaves the slug, the curated cell gives a fuller form of the same name, or it is a respelling (32). |
 | `needs-human` | 7 | The two cells name the figure *differently*. That is an identity claim and the sheet does not argue for it. |
-| *(blank)* | 15 | Contested. Cases below. |
+| *(blank)* | 13 | Contested. Cases below. |
 
 The rule draws on slug **tokens**, never on how similar the strings look. A
 honorific-stripping matcher proposed 21 merges in this corpus and 19 were wrong.
@@ -318,14 +323,16 @@ pir-abdul-ul-karim    -> hazrat-hafiz-muhammad-abdul-karim
 **`jahaniyan-jahangasht` is a second row where `principal_figure` is worse**, and
 this document previously said there was only one. `Sayyid Jalaluddin` would stand
 one suffix away from `Sayyid Jalaluddin Surkh-Posh Bukhari`, a different man whose
-own row is in the contested fifteen. The legacy slug is unambiguous; the curated
+own row is in the contested set. The legacy slug is unambiguous; the curated
 one invites exactly the confusion the 19 wrong merges were made of.
 
 ---
 
-## The fifteen contested rows are six decisions
+## The contested rows are five decisions
 
-Read as fifteen rows they look like fifteen judgements. They are not: several are
+*Thirteen rows as of the Javindi Bibi correction; fifteen before it, and decision 3
+below is the one that closed.* Read as a row count they look like thirteen
+judgements. They are not: several are
 a *consequence* of one row elsewhere in the same cluster, and answering the parent
 settles them.
 
@@ -361,22 +368,30 @@ same figure is a claim about devotion across two traditions and is exactly what
 RULE 2 says not to resolve by tidying. Recommend deciding 1 and 2 together; both
 turn on how much local variation a figure node should absorb.
 
-### 3. What is the Tomb of Javindi Bibi filed under? — 2 rows
+### 3. ~~What is the Tomb of Javindi Bibi filed under?~~ — CLOSED 28 August 2026
 
-| row | today | under `principal_figure` |
-|---|---|---|
-| Tomb of Javindi Bibi | `jalaluddin-surkh-posh-bukhari` | `bibi-jawindi` |
-| Shrine of Jalaluddin Surkh-Posh Bukhari | `jalaluddin-surkh-posh-bukhari` | `sayyid-jalaluddin-surkh-posh-bukhari` |
+**Fixed, and it did not need the column decision.** The tomb's `Sufi Saint` cell read
+`Jalaluddin Surkh-Posh Bukhari`, byte-identical to the cell on his own shrine, so
+the graph gave him both monuments and Bibi Jawindi had no node. `saintFigureByShrine`
+in `kg-seeds.json` now points that row at her; `data/patch_javindi_bibi_figure_2026-08-28.csv`
+is the durable fix for the sheet, and check 8 of `validate-kg-identity.mjs` deletes
+the bridge's licence the moment the patch lands.
 
-**Look at this one first.** The tomb is currently filed under a figure who is not
-the person the tomb is named for; `principal_figure` says `Bibi Jawindi`. That is
-not a naming preference, it is the archive attributing a woman's tomb to a man. If
-any single row justifies the migration, it is this one — and it can be fixed on
-its own, without the column decision, by adding a `saintMergeVariants`-style
-correction for that row alone.
+Two things this row taught, both recorded in HANDOVER:
 
-The second row is a plain honorific addition (`Sayyid`) and only appears here
-because it shares the slug being vacated.
+- **The cell-keyed maps could not have fixed it.** `saintMergeVariants` and
+  `saintCompositeFigures` key on the cell, and the two cells are the same string,
+  so anything either does to one it does to both. A shrine-keyed override was a
+  missing mechanism, not a missing entry.
+- **Fixing the graph alone made the page worse.** `ShrinePage` took the label from
+  the cell and the href from the graph, so it printed his name over a link to her
+  page. Before, the name and the link agreed and were both wrong; after, they
+  disagreed and only a reader who clicked found out. `kg-composite-figures.json`
+  became `kg-shrine-figure-labels.json` to carry the corrected label.
+
+Its former partner row — `jalaluddin-surkh-posh-bukhari` →
+`sayyid-jalaluddin-surkh-posh-bukhari`, a plain honorific addition — is no longer
+contested either and now sits at priority 2 with the other slug moves.
 
 ### 4. Three formal-name swaps on well-known epithets — 3 rows
 
@@ -412,7 +427,7 @@ first; it is a data gap, not a naming question.
   `saintMergeVariants` key that would go dead. Adopting the column means deleting
   those two entries, which is bookkeeping.
 
-**So the real queue is:** one row to look at first (Javindi Bibi), two clusters
-that turn on a single principle (Kali, Jhulelal), one repeated trade-off across
-ten rows (epithet vs formal name), one sheet gap (Hinglaj Mata), and three rows
-that are bookkeeping.
+**So the real queue is:** two clusters that turn on a single principle (Kali,
+Jhulelal), one repeated trade-off across ten rows (epithet vs formal name), one
+sheet gap (Hinglaj Mata), and three rows that are bookkeeping. The row that was
+worth looking at first is closed.

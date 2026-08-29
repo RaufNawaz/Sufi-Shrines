@@ -207,6 +207,7 @@ for (const r of perRow) {
   if (r.nestedSemicolon) flags.push('semicolon-inside-parenthetical');
   if (legacyOnlyMergeKeySet.has(r.legacyCell)) flags.push('merge-key-legacy-only');
   if (r.isComposite) flags.push('composite-row');
+  if (r.isOverridden) flags.push('figure-overridden-in-kg-seeds');
 
   for (const slug of r.legacySlugs) {
     if ((outcomesPerLegacySlug.get(slug)?.size ?? 0) > 1) flags.push(`splits-figure:${slug}`);
@@ -256,8 +257,15 @@ for (const r of perRow) {
   if (forced) {
     draftVerdict = 'needs-human';
     draftRationale = forced;
+  } else if (r.isOverridden) {
+    draftVerdict = 'principal';
+    draftRationale =
+      'Already corrected out-of-band: saintFigureByShrine in kg-seeds.json replaces this row\'s ' +
+      'cell, because the cell names a different monument\'s figure. The row appears settled ' +
+      'because it was settled, not because the columns agreed. The durable fix is the CSV patch ' +
+      'named in that seed entry; adopting principal_figure here matches what the graph already does.';
   } else if (priority === 1) {
-    draftRationale = 'Contested — see the fifteen cases in DECISION_figure_identity_column.md.';
+    draftRationale = 'Contested — see the cases in DECISION_figure_identity_column.md.';
   } else if (!r.moves) {
     draftVerdict = 'principal';
     draftRationale =

@@ -5078,8 +5078,9 @@ Two things the shared module also corrected on the way:
 
 **What is now waiting on Rauf.** `npm run data:review:figures` writes
 `data/review/figure-identity-review.csv`, 169 rows, `verdict` empty in all of them, wired into
-`data:validate` via `data:review:figures:check`. 115 are confirm-and-move-on, 39 are mechanical
-slug moves, and **15 are genuinely contested** — including Kalka Cave Temple (where
+`data:validate` via `data:review:figures:check`. 116 are confirm-and-move-on, 40 are mechanical
+slug moves, and **13 are genuinely contested** (15 until the Javindi Bibi correction later the
+same day) — including Kalka Cave Temple (where
 `principal_figure` is the *worse* column), Data Darbar (`data-ganj-bakhsh` →
 `hazrat-ali-ibn-usman-al-hujwiri`, the archive's most linkable page), and Tomb of Javindi Bibi,
 which is currently filed under Jalaluddin Surkh-Posh Bukhari when `principal_figure` says Bibi
@@ -5542,3 +5543,67 @@ publish a number — so read the rows. It exits 0: it would be red today on Kind
 earned twice on 28 August is that an invariant is not encoded until it has been watched go green.
 When the curated parenthetical rule lands, `--check` is one `process.exit(1)` away and belongs in
 `data:validate`.
+
+---
+
+### Added 28 August 2026 — Bibi Jawindi has her own page, and the half-fix that would have been worse
+
+Acting on `cb4bf7a` above. The measurement there is right and the fix needed both halves of it.
+
+**The defect.** Tomb of Javindi Bibi's `Sufi Saint` cell reads `Jalaluddin Surkh-Posh Bukhari` —
+**byte-identical** to the cell on `Shrine of Jalaluddin Surkh-Posh Bukhari`, a different monument
+about a different person. So `build-kg.mjs` gave him both shrines and she had no node at all. The
+sheet already disagreed with that cell in three of its own columns: `principal_figure` is
+`Bibi Jawindi`, `figure_type` is `Historical person` where his row says `Sufi saint`, and
+`figure_born`/`figure_died` (1192/1291) sit on his row only.
+
+**Why none of the existing maps could fix it.** `saintMergeVariants` and `saintCompositeFigures`
+are keyed on the *cell*. The two cells are the same string, so anything either does to one it does
+to both. That is a structural gap, not an oversight, and it is why this needed a new mechanism
+rather than another entry: **`saintFigureByShrine`**, keyed on the shrine slug, applied before the
+cell is read for anything.
+
+**The half-fix, which is the part worth remembering.** Correcting the graph alone made the page
+*worse*. `ShrinePage` takes the figure label from `localizeField(shrine.raw, 'Sufi Saint')` and the
+href from the graph, and nothing made them agree — so the page printed **"Jalaluddin Surkh-Posh
+Bukhari" over a link to `/saint/bibi-jawindi`**. Before the fix the name and the link agreed and
+were both wrong; after it they disagreed and only a reader who clicked found out. A wrong page that
+is self-consistent is easier to spot than a wrong page that is not.
+
+So `kg-composite-figures.json` is now **`kg-shrine-figure-labels.json`** and holds four rows rather
+than three. Both kinds are one problem — *the cell is not a usable label for what the page links
+to* — whether because it names two people or because it names somebody else. The rename is the
+honest half: a file called "composite" holding a single-figure row would have been a small lie in a
+filename, and this repository is where that gets found out later.
+
+**Bibi Jawindi in Urdu.** `بی بی جاوندی`, lifted whole from the already-reviewed shrine entry
+`Tomb of Javindi Bibi` → `مقبرہ بی بی جاوندی`, not composed. A new archive figure with no
+dictionary entry is a Latin title on an Urdu page, which is exactly how Bhai Mardana and Bhai Lalo
+arrived. Note `data:build:urdu` was **not** enough: it runs step 1 of `urdu-i18n/build-all.sh` and
+the runtime seed is step 2, a plain `cp` of `shrine-translations.seed.json` to
+`src/data/urdu-seed.json`. The dictionary said one thing and the app another until that copy ran.
+
+**Counts that moved, each with its arithmetic in the test that asserts it:**
+
+```
+figures                  190 -> 191   she is a new node
+figureProvenance flagged 154 -> 155   99 + 58 − 2; the tomb's own entry is now her
+                                      biographySource. He does not drop out — his
+                                      own shrine still sources him.
+order:suhrawardiyya      51  -> 53    she joins the order; her two runs are the
+                                      recorded location and the observance cell
+```
+
+**The bridge is gated, both ways.** `data/patch_javindi_bibi_figure_2026-08-28.csv` is the real
+fix, under RULE 3. Until it is imported, `saintFigureByShrine` carries the correction — and check 8
+of `validate-kg-identity.mjs` **fails once the sheet catches up**, telling whoever imported it to
+delete the entry rather than leave a second source of truth. It also fails an entry with no `why`,
+and an entry naming no row. Watched red on all three before being believed; exit code 1 confirmed
+directly rather than through a pipe, because `$?` after `| tail` is `tail`'s.
+
+**One process finding, and it is not ours alone.** One working tree means **one git index**.
+"Stage by explicit path, never `git add -A`" is necessary and not sufficient: a second session's
+`git add` stacks onto the same index, and a bare `git commit` from either party sweeps up the
+other's staged work under the wrong message. The second half of the rule is **`git diff --cached`
+before every commit, and `git commit -o <paths>`**, which commits only the named paths and leaves
+the rest of the index alone. Caught here before it did damage, by the other session, twice.

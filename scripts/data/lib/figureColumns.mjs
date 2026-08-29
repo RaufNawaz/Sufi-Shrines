@@ -74,11 +74,21 @@ export function splitFigureCell(cell) {
 export function analyseFigureColumns(rows, seeds) {
   const mergeVariants = seeds.saintMergeVariants ?? {};
   const composites = seeds.saintCompositeFigures ?? {};
+  const overrides = seeds.saintFigureByShrine ?? {};
   const canon = (raw) => (mergeVariants[raw] ?? raw).replace(/\s*\([^)]*\)/g, '').trim();
 
   const perRow = rows.map((row) => {
     const name = String(row.Name ?? '').trim();
-    const legacyCell = String(row['Sufi Saint'] ?? '').trim();
+    /* `saintFigureByShrine` first, exactly as build-kg.mjs applies it, or this
+       module reports the slug a row *would* have rather than the one the site
+       serves. Tomb of Javindi Bibi is the case: its cell names a different
+       monument's figure, the graph is pointed at Bibi Jawindi, and a worksheet
+       that still showed the cell's slug would invite a reviewer to decide
+       something already corrected. */
+    const override = overrides[slugify(name)];
+    const legacyCell = override
+      ? String(override.figure ?? '').trim()
+      : String(row['Sufi Saint'] ?? '').trim();
     const pfCell = String(row['principal_figure'] ?? '').trim();
     const legacySlugs = (composites[legacyCell] ?? (legacyCell ? [canon(legacyCell)] : []))
       .map((n) => slugify(n))
@@ -106,6 +116,10 @@ export function analyseFigureColumns(rows, seeds) {
          collapse two figures into one badly-named node. */
       nestedSemicolon: pfCell.includes(';') && splitFigureCell(pfCell).length === 1,
       isComposite: Boolean(composites[legacyCell]),
+      /* True where the cell was replaced by saintFigureByShrine. The row looks
+         settled because it was settled out-of-band, not because the two columns
+         agreed — a reviewer needs to see the difference. */
+      isOverridden: Boolean(override),
       pfEmpty: pfCell === '',
     };
   });
