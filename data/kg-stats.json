@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-29T03:17:27.865Z",
+  "generated": "2026-08-29T03:31:13.060Z",
   "figures": 133,
   "lineageOnlyFigures": 58,
-  "orders": 5,
+  "orders": 9,
   "places": 94,
   "observances": 149,
   "ursObservances": 77,
@@ -11,7 +11,7 @@
   "titles": 178,
   "lineageLinks": 86,
   "lineageLinksUnreviewed": 80,
-  "orderMemberships": 65,
+  "orderMemberships": 69,
   "orderMembershipsUnreviewed": 45,
   "biographiesMachineRead": 98,
   "disputedDateFigures": 11

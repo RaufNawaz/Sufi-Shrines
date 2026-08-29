@@ -773,8 +773,17 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   }
 }
 
-// saint → belongs_to_order → order (from seeds)
-for (const [saintSlug, orderSlug] of Object.entries(saintOrders)) {
+/* saint → belongs_to_order → order (from seeds)
+ *
+ * A value may be one order slug or several. The machine-extracted path has
+ * emitted one edge per parent order since the compound silsilas turned up
+ * ("Qadri Shattari", "Chishti Qadri"); the hand-authored path could not, so a
+ * figure the sheet places in two orders could only be seeded into one. Qalandar
+ * Baba Auliya is the case that forced it: seeded `qalandariyya`, while his row's
+ * own silsila cell reads "Azeemia", and there was nowhere to put the second
+ * without discarding the first. */
+for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
+  for (const orderSlug of Array.isArray(orderValue) ? orderValue : [orderValue]) {
   if (!saintBySlug.has(saintSlug)) {
     reviewNeeded.push({
       issue: 'seed-saint-not-found',
@@ -799,6 +808,7 @@ for (const [saintSlug, orderSlug] of Object.entries(saintOrders)) {
     confidence: 0.9,
     method: 'human',
   });
+  }
 }
 
 // saint → disciple_of|successor_of → saint (from seeds, hand-extracted from shrine_entries)

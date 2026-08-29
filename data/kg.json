@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T03:17:27.865Z",
+  "generated": "2026-08-29T03:31:13.060Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3427,6 +3427,34 @@
       "founded": "c. 1389",
       "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
       "descriptionUr": "یہ سلسلہ بہاؤالدین نقشبند بخاری سے جا ملتا ہے؛ ذکرِ خفی اور شریعت کی سخت پابندی پر زور دیتا ہے۔"
+    },
+    {
+      "id": "order:rashidi",
+      "type": "order",
+      "slug": "rashidi",
+      "name": "Rashidi",
+      "arabicName": "راشدیہ"
+    },
+    {
+      "id": "order:malamati",
+      "type": "order",
+      "slug": "malamati",
+      "name": "Malamati",
+      "arabicName": "ملامتی"
+    },
+    {
+      "id": "order:azeemia",
+      "type": "order",
+      "slug": "azeemia",
+      "name": "Azeemia",
+      "arabicName": "عظیمیہ"
+    },
+    {
+      "id": "order:shattari",
+      "type": "order",
+      "slug": "shattari",
+      "name": "Shattari",
+      "arabicName": "شطاری"
     }
   ],
   "places": [
@@ -8708,6 +8736,38 @@
       "method": "human"
     },
     {
+      "id": "belongs_to_order:saint:qalandar-baba-auliya:order:azeemia",
+      "type": "belongs_to_order",
+      "subject": "saint:qalandar-baba-auliya",
+      "object": "order:azeemia",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:shah-hussain:order:malamati",
+      "type": "belongs_to_order",
+      "subject": "saint:shah-hussain",
+      "object": "order:malamati",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:shah-inayat-qadiri:order:shattari",
+      "type": "belongs_to_order",
+      "subject": "saint:shah-inayat-qadiri",
+      "object": "order:shattari",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
+      "id": "belongs_to_order:saint:pir-syed-muhammad-rashid-shah-roze-dhani:order:rashidi",
+      "type": "belongs_to_order",
+      "subject": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
+      "object": "order:rashidi",
+      "confidence": 0.9,
+      "method": "human"
+    },
+    {
       "id": "disciple_of:saint:bulleh-shah:saint:shah-inayat-qadiri",
       "type": "disciple_of",
       "subject": "saint:bulleh-shah",
@@ -11458,11 +11518,11 @@
   ],
   "stats": {
     "saints": 191,
-    "orders": 5,
+    "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 641,
+    "relations": 645,
     "ambiguousMerges": 66
   },
   "retiredSlugs": {

@@ -50,6 +50,38 @@
       "descriptionUr": "یہ سلسلہ بہاؤالدین نقشبند بخاری سے جا ملتا ہے؛ ذکرِ خفی اور شریعت کی سخت پابندی پر زور دیتا ہے۔",
       "wikidataQid": null,
       "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "rashidi",
+      "name": "Rashidi",
+      "arabicName": "راشدیہ",
+      "_why": "Named by the corpus as \"the Rashidi Sufi order\", founded by Pir Muhammad Rashid Shah himself. No parent order: the same row separately calls him \"A Qadiri-Naqshbandi saint\" but does not say the Rashidi is a branch of either, so none is asserted.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "malamati",
+      "name": "Malamati",
+      "arabicName": "ملامتی",
+      "_why": "The silsila cell on Shah Hussain's row, verbatim. The prose calls the current \"the Malamatiyya\", \"the Sufis of the 'path of blame'\"; the slug follows the sheet's form because a sheet value is a join key (RULE 3). No parent order is named anywhere.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "azeemia",
+      "name": "Azeemia",
+      "arabicName": "عظیمیہ",
+      "_why": "The silsila cell on Qalandar Baba Auliya's row. A twentieth-century foundation with no parent named; its transmission is given as Qalandar Baba Auliya to Khwaja Shamsuddin Azeemi.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "shattari",
+      "name": "Shattari",
+      "arabicName": "شطاری",
+      "_why": "Named as a silsila in its own right, on a par with the Qadiri, in the one sentence describing Shah Inayat's practice: \"He combined the Qadiri and Shattari silsilas in his own practice.\" A parent-level order in the source, not a Qadiri sub-branch, even though the recorded cell fuses the two as \"Qadri Shattari\".",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
     }
   ],
   "saintOrders": {
@@ -73,7 +105,13 @@
     "syed-rakhyal-shah-sufi-al-qadri": "qadiriyya",
     "lal-shahbaz-qalandar": "qalandariyya",
     "shams-ali-qalandar": "qalandariyya",
-    "qalandar-baba-auliya": "qalandariyya"
+    "qalandar-baba-auliya": [
+      "qalandariyya",
+      "azeemia"
+    ],
+    "shah-hussain": "malamati",
+    "shah-inayat-qadiri": "shattari",
+    "pir-syed-muhammad-rashid-shah-roze-dhani": "rashidi"
   },
   "saintMergeVariants": {
     "comment": "Maps a raw CSV value to its canonical saint name. Applied before slug generation. Add entries when the same saint appears under multiple name forms.",

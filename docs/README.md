@@ -30,6 +30,7 @@ can go stale silently is worse than no index, because it is trusted.
 | [`DATA_RELEASE.md`](DATA_RELEASE.md)                 | Producing a citable data release and minting a DOI (Zenodo / Dataverse) |
 | [`KG_VOCABULARY.md`](KG_VOCABULARY.md)               | The custom `sufi:` vocabulary used in the JSON-LD / RDF exports      |
 | [`KG_REVIEW_WORKFLOW.md`](KG_REVIEW_WORKFLOW.md)     | Reviewing the graph's 235 machine-extracted claims: the queue, what the gates already prove, and what stays a human's job |
+| [`KNOWLEDGE_BASE_GAPS.md`](KNOWLEDGE_BASE_GAPS.md)   | Every hole in the knowledge base, classified by who can close it. 73% is unrecorded evidence no agent may supply; re-run `scripts/data/measure-kb-gaps.mjs` rather than quoting the numbers |
 | [`CORRECTIONS_WORKFLOW.md`](CORRECTIONS_WORKFLOW.md) | How to report and process a factual correction                       |
 | [`Shrines_Schema_and_Remediation_Spec.md`](Shrines_Schema_and_Remediation_Spec.md) | Schema revision and remediation spec        |
 | [`EDITORIAL_DECISIONS_PENDING.md`](EDITORIAL_DECISIONS_PENDING.md) | The `qa_note` backlog — decisions only a human can make |
