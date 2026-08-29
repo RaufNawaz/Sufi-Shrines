@@ -5777,3 +5777,51 @@ Neither is visible in a 1× screenshot, which is why both are tests.
 **Open, and recorded rather than decided:** whether the chronology deserves a tab of its own. It
 currently sits under the atlas tab, which owns "ways of seeing the whole archive at once". Adding a
 sixth item to a five-item bar is a design decision and not one to take at midnight.
+
+---
+
+### Added 29 August 2026 — figure identity is kept in four places, and `verify` is an `&&` chain
+
+Two findings from cleaning up after the overnight rename pass. The second one is a correction to
+something I reported, and it is the more useful of the two.
+
+**Four copies of figure identity, all caught disagreeing within one day.**
+
+```
+1  the sheet cell          Sufi Saint / principal_figure
+2  the graph node          data/kg.json, built by build-kg.mjs
+3  the column analysis     scripts/data/lib/figureColumns.mjs
+4  the proposals           data/kg-{lineage,order,saint-dates}-proposals.json
+```
+
+Shortening six slugs desynchronised 3 (caught by check 7 the same hour) and then 4 (caught by
+`verify-kg-proposals` the next morning, seven stale references: four pointers to slugs that no
+longer exist, three `isNew` flags on figures created that night).
+
+The tempting fix for the fourth was to hand-edit seven pointers. It is the wrong one: **the
+proposals are the extractor's record of what it read, so the name in them is evidence and the slug
+is not** — the slug is derived, in a file nothing recomputes alongside the graph. `kg.json` already
+carries `retiredSlugs`, and `/saint/:slug` already honours it, so the published site survived a
+rename the build could not. The checker now resolves a pointer through that map before asking
+whether the figure exists. Resolution then exposed three *more* stale `isNew` flags that the broken
+pointers had been masking.
+
+If a fifth copy appears, the question to ask is whether it can read `retiredSlugs` instead of
+holding its own opinion about what a figure is called.
+
+**`npm run verify` is `a && b && c && d && e`, and I read a red run as green.**
+
+I reported my own lane green while another session's four unit-test failures were on the tree. They
+were genuinely not mine — but `verify` is `typecheck && lint && format:check && test &&
+data:validate`, so a failing `test` means **`data:validate` never executes at all**. The gate that
+would have caught my seven broken proposal references was not skipped by accident; it was never
+reached, and I read "the only failures are someone else's" as "my work is verified".
+
+It was not. The other session found the seven for me.
+
+The rule, and it costs nothing: **on a shared tree, a red `verify` tells you nothing about the
+gates after the first failure.** When someone else's failure is blocking the chain, run the tail
+yourself — `npm run data:validate` — before claiming a lane is clean. `echo $?` on the whole chain,
+or grepping the log for the last stage's banner, is the cheap way to know which gates actually ran.
+This is the same family as the day's other four instrument failures, one level up: not an
+instrument reporting a wrong answer, but an instrument that never ran being counted as a pass.
