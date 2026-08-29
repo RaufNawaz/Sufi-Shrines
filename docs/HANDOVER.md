@@ -5825,3 +5825,36 @@ yourself — `npm run data:validate` — before claiming a lane is clean. `echo 
 or grepping the log for the last stage's banner, is the cheap way to know which gates actually ran.
 This is the same family as the day's other four instrument failures, one level up: not an
 instrument reporting a wrong answer, but an instrument that never ran being counted as a pass.
+
+---
+
+### Added 29 August 2026 — the axe suite had never asked for WCAG 2.2, and both pages it checked first were failing it
+
+`/chronology` shipped scoring **96 on Lighthouse accessibility** where every other route scores
+100. The failing audit was **`target-size`**: a timeline mark is ~10px tall and often 2px wide, so
+the page had 120 links far under the 24px minimum — and far under this archive's own 44px
+standard, which `e2e/a11y.spec.ts` already asserts for controls.
+
+**The e2e scan could not have caught it.** All eight `AxeBuilder` calls asked for
+`['wcag2a', 'wcag2aa', 'best-practice']`, and `target-size` is a **WCAG 2.2** rule. The tag was
+never in the list, so the rule never ran — not skipped, never requested. That is the same shape as
+the `/coverage` anchor and the RTL-only Urdu assertion: **a check that structurally cannot see the
+defect it appears to cover.** Third instance in two days.
+
+**The fix was not to make the marks bigger, because a mark's width is the datum.** The lane is now
+`aria-hidden` and purely presentational, and every dated place is reachable from a list beneath its
+own lane, where the name, span and precision are readable text rather than a hover title. That is
+better for sighted mouse users too: a 2px target was never usable for anybody. **a11y 96 → 100,
+performance 97, TBT 8ms, CLS 0.017.**
+
+**Widening the tags to `wcag22aa` immediately found a pre-existing defect nothing had looked for.**
+On `/about`, two `.coverage-rests-entry` citation links measure **19px tall with 22.8px between
+neighbours** — 1.2px under the minimum, on a page that has been scanned clean for weeks. Fixed by
+padding the hit area rather than growing the type, so the row looks identical. No screenshot review
+at any resolution would have surfaced 1.2px.
+
+**All eight scans now include `wcag22aa`**, and the full suite is green at **346 passed** with it,
+so the widening costs nothing and is not deferred behind a backlog. If a future route trips
+`target-size`, that is a real finding on a page nothing was measuring before — the same sentence
+`.lighthouserc.cjs` already carries about its URL list, which `/chronology` has now been added to
+for exactly that reason.
