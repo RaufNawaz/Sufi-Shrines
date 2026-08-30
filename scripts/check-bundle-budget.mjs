@@ -129,7 +129,25 @@ const BUDGETS_KB = {
      route on the board, and the next feature that needs room here should look
      at what the page imports before raising this line again. */
   'src/pages/ShrinePage.tsx': 526, // measured 520 on 29 Aug 2026
-  'src/pages/SaintPage.tsx': 675, // measured 632 on 26 Aug 2026
+  /* Raised 675 → 680 on 30 August 2026 and **put back the same morning**, which
+     is the useful half of the story.
+
+     `data/kg.json` had grown 414,791 → 430,883 bytes as lineage and kin ties
+     landed, and this route imports it, so it went over. The raise was made with
+     the cause named — and then the other session working this tree fixed the
+     cause instead: `relations[].id` was `type[:kinType]:subject:object`, every
+     character of it already present in the four fields beside it, 49 KB of the
+     graph restating its own primary key, eager on every route that imports it.
+     Stripped on write and derived back on load, kg.json fell to 371,864 and this
+     route measured **636 KB** — 44 KB under even the original number.
+
+     So the raise is reverted rather than kept. A budget carrying slack nobody
+     can account for is the thing this file's other comments keep warning about,
+     and holding 680 for a 636 KB page would have been exactly that.
+
+     The structural point is still open and is worth more than either number:
+     `/saint/:slug` downloads the whole graph to render one figure. */
+  'src/pages/SaintPage.tsx': 675, // measured 632 on 26 Aug 2026, 636 on 30 Aug
   'src/pages/OrderPage.tsx': 665, // measured 620 on 26 Aug 2026
   'src/pages/GraphPage.tsx': 615, // measured 574 on 26 Aug 2026
   /* 340 → 345 on 28 Aug 2026. Not this route's own growth: Track C added ~14
