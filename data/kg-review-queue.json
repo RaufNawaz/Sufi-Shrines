@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T14:41:34.941Z",
+  "generated": "2026-08-30T14:45:16.299Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -880,6 +880,36 @@
       "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\"",
       "source": "data/shrines.csv#darbar-abul-muali-qadri",
       "evidence": "2aa2ddc4"
+    },
+    {
+      "id": "disciple_of:saint:mehraj-thakur:saint:devchandra-maharaj",
+      "kind": "disciple_of",
+      "subject": "Mehraj Thakur (Mahamati Prannath)",
+      "subjectSlug": "mehraj-thakur",
+      "object": "Devchandra Maharaj",
+      "quote": "the teachings of the *bhakti* saint Devchandra Maharaj and, above all, of his foremost disciple Mehraj Thakur, better known as *Mahamati Prannath*",
+      "source": "data/shrines.csv#parnami-mandir",
+      "evidence": "5c92b135"
+    },
+    {
+      "id": "disciple_of:saint:mir-daryai-tharawi:saint:shah-abdul-karim-bulri",
+      "kind": "disciple_of",
+      "subject": "Mir Daryai Tharawi",
+      "subjectSlug": "mir-daryai-tharawi",
+      "object": "Shah Abdul Karim Bulri",
+      "quote": "His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630",
+      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "evidence": "a264f346"
+    },
+    {
+      "id": "disciple_of:saint:sheikh-fakhr-ud-din-shah-jamali:saint:syed-shah-jamal-uddin-naqvi-bukhari",
+      "kind": "disciple_of",
+      "subject": "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)",
+      "subjectSlug": "sheikh-fakhr-ud-din-shah-jamali",
+      "object": "Syed Shah Jamal Uddin Naqvi Bukhari",
+      "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
+      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "evidence": "138f1110"
     },
     {
       "id": "belongs_to_order:saint:pir-syed-muhammad-channan-shah-nuri:order:naqshbandiyya",

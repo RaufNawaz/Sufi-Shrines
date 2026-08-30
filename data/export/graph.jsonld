@@ -2615,6 +2615,41 @@
     },
     {
       "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mehraj-thakur",
+      "name": "Mehraj Thakur (Mahamati Prannath)",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/devchandra-maharaj"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/devchandra-maharaj",
+      "name": "Devchandra Maharaj"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mir-daryai-tharawi",
+      "name": "Mir Daryai Tharawi",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-abdul-karim-bulri"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-fakhr-ud-din-shah-jamali",
+      "name": "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-shah-jamal-uddin-naqvi-bukhari"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-nasiruddin-mahmud",
       "name": "Syed Nasiruddin Mahmud"
     },

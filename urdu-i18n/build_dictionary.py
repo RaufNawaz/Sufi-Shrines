@@ -1030,6 +1030,10 @@ SAINTS = {
  "Sakhi Shah Sharaf": "سخی شاہ شرف",
  "Syed Jalal ud Deen": "سید جلال الدین",
  "Hazrat Haider Ali Shah": "حضرت حیدر علی شاہ",
+ "Mehraj Thakur (Mahamati Prannath)": "مہراج ٹھاکر (مہامتی پران ناتھ)",
+ "Devchandra Maharaj": "دیوچندر مہاراج",
+ "Mir Daryai Tharawi": "میر دریائی تھراوی",
+ "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)": "شیخ فخر الدین (شاہ جمال کے مرید)",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

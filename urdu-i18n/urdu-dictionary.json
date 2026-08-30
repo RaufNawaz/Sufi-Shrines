@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 275,
+      "saints": 279,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "derivedBareNames": 137,
-      "flatSeedEntries": 1228
+      "derivedBareNames": 139,
+      "flatSeedEntries": 1234
     }
   },
   "categories": {
@@ -788,7 +788,11 @@
     "Qamar Ali Shah": "قمر علی شاہ",
     "Sakhi Shah Sharaf": "سخی شاہ شرف",
     "Syed Jalal ud Deen": "سید جلال الدین",
-    "Hazrat Haider Ali Shah": "حضرت حیدر علی شاہ"
+    "Hazrat Haider Ali Shah": "حضرت حیدر علی شاہ",
+    "Mehraj Thakur (Mahamati Prannath)": "مہراج ٹھاکر (مہامتی پران ناتھ)",
+    "Devchandra Maharaj": "دیوچندر مہاراج",
+    "Mir Daryai Tharawi": "میر دریائی تھراوی",
+    "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)": "شیخ فخر الدین (شاہ جمال کے مرید)"
   },
   "silsilas": {
     "Qadiri": "قادری",
@@ -1242,6 +1246,7 @@
     "Lord Hanuman": "بھگوان ہنومان",
     "Lord Jagannath": "بھگوان جگن ناتھ",
     "Makhdoom Nooh": "مخدوم نوح",
+    "Mehraj Thakur": "مہراج ٹھاکر",
     "Mehta Kalu": "مہتا کالو",
     "Mian Muhammad Umar Chamkani": "میاں محمد عمر چمکنی",
     "Mid–late 19th century": "وسط–اواخر انیسویں صدی",
@@ -1267,6 +1272,7 @@
     "Shah Hussain": "شاہ حسین",
     "Shah Inayat Qadiri": "شاہ عنایت قادری",
     "Shah Noorani Shrine": "مزارِ شاہ نورانی",
+    "Sheikh Fakhr-ud-Din": "شیخ فخر الدین",
     "Sheikh Tahir": "شیخ طاہر",
     "Shiva": "شیو",
     "Shri Laxmi Narayan Mandir": "شری لکشمی نارائن مندر",

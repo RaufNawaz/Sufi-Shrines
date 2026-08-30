@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T14:41:34.941Z",
+  "generated": "2026-08-30T14:45:16.299Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3455,6 +3455,46 @@
       "type": "saint",
       "slug": "hazrat-haider-ali-shah",
       "name": "Hazrat Haider Ali Shah",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:mehraj-thakur",
+      "type": "saint",
+      "slug": "mehraj-thakur",
+      "name": "Mehraj Thakur (Mahamati Prannath)",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:devchandra-maharaj",
+      "type": "saint",
+      "slug": "devchandra-maharaj",
+      "name": "Devchandra Maharaj",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:mir-daryai-tharawi",
+      "type": "saint",
+      "slug": "mir-daryai-tharawi",
+      "name": "Mir Daryai Tharawi",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sheikh-fakhr-ud-din-shah-jamali",
+      "type": "saint",
+      "slug": "sheikh-fakhr-ud-din-shah-jamali",
+      "name": "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -10659,6 +10699,36 @@
       "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\""
     },
     {
+      "type": "disciple_of",
+      "subject": "saint:mehraj-thakur",
+      "object": "saint:devchandra-maharaj",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#parnami-mandir",
+      "quote": "the teachings of the *bhakti* saint Devchandra Maharaj and, above all, of his foremost disciple Mehraj Thakur, better known as *Mahamati Prannath*"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:mir-daryai-tharawi",
+      "object": "saint:shah-abdul-karim-bulri",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+      "quote": "His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:sheikh-fakhr-ud-din-shah-jamali",
+      "object": "saint:syed-shah-jamal-uddin-naqvi-bukhari",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple"
+    },
+    {
       "type": "belongs_to_order",
       "subject": "saint:pir-syed-muhammad-channan-shah-nuri",
       "object": "order:naqshbandiyya",
@@ -12189,12 +12259,12 @@
     }
   ],
   "stats": {
-    "saints": 235,
+    "saints": 239,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 716,
+    "relations": 719,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

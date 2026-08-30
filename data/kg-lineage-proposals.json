@@ -1132,6 +1132,45 @@
    "source": "data/shrines.csv#darbar-abul-muali-qadri",
    "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\"",
    "notes": "0.7, and the hedge is the entry's own: the sentence continues \"whether Haider Ali Shah is one of the eight sons is not stated\", and the survey's Q8 has custodianship pass to \"his sons and then the Gaddi Nasheens\" — two answers that do not quite agree about whether the first custodian was a son. So this is a SUCCESSION edge and deliberately not a kin one; the entry records the uncertainty rather than resolving it, and so does this. He is \"also buried in the shrine\", which is this archive's site, but he has no site of his own."
+  },
+  {
+   "subjectSlug": "mehraj-thakur",
+   "subjectName": "Mehraj Thakur (Mahamati Prannath)",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "devchandra-maharaj",
+   "objectName": "Devchandra Maharaj",
+   "objectIsNew": true,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#parnami-mandir",
+   "quote": "the teachings of the *bhakti* saint Devchandra Maharaj and, above all, of his foremost disciple Mehraj Thakur, better known as *Mahamati Prannath*",
+   "notes": "The two founding figures of the Pranami tradition, which the archive already carries as a tradition (docs/briefs/TRADITION_LAYER.md) and had no figures for. The entry adds that the tradition takes its name from his — \"from whose name the tradition takes its own\" — so the node name carries both forms."
+  },
+  {
+   "subjectSlug": "mir-daryai-tharawi",
+   "subjectName": "Mir Daryai Tharawi",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "shah-abdul-karim-bulri",
+   "objectName": "Shah Abdul Karim Bulri",
+   "objectIsNew": false,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#shrine-of-shah-abdul-karim-bulri",
+   "quote": "His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630",
+   "notes": "The disciple who compiled the *Bayan al-Arifin* seven years after his master's death — the reason anything of Shah Abdul Karim's verse survives, and therefore the reason Shah Abdul Latif Bhittai has a documented forebear at all."
+  },
+  {
+   "subjectSlug": "sheikh-fakhr-ud-din-shah-jamali",
+   "subjectName": "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "syed-shah-jamal-uddin-naqvi-bukhari",
+   "objectName": "Syed Shah Jamal Uddin Naqvi Bukhari (Baba Shah Jamal)",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#shrine-of-shah-jamal",
+   "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
+   "notes": "0.7: the tie is stated plainly but sits inside a miracle story (a cantaloupe given to a childless couple, twin sons following). NOT Fakhr-ud-Din Iraqi, the Persian poet who came to Multan and married into Bahauddin Zakariya's family — a different man three centuries earlier, already in this graph. The slug is disambiguated deliberately; see saintDoNotMerge."
   }
  ],
  "explicitNonRelations": [
@@ -1197,6 +1236,41 @@
    "quote": "Around the age of twenty-five, with his teacher’s permission, Mian Mir came to Lahore",
    "source": "data/shrines.csv#shrine-of-mian-mir",
    "notes": "Not a second teacher and not a new claim. The entry names his master elsewhere — Shaikh Siyustani, already an edge in both directions — and this sentence just refers back to him. Recorded so the scan stops offering it."
+  },
+  {
+   "subjectName": "Allama Muhammad Iqbal",
+   "objectName": "Sayyid Mir Hassan / Sir Thomas Arnold",
+   "quote": "Near the family home the boy was placed in the care of the learned Sayyid Mir Hassan, an imam and teacher of rare gifts, who taught him Arabic, Persian, and Urdu",
+   "source": "data/shrines.csv#tomb-of-allama-iqbal-mazar-e-iqbal",
+   "notes": "Schooling, not initiation, and the distinction is the whole reason this vocabulary is only `disciple_of`/`successor_of`. Mir Hassan taught him languages; Sir Thomas Arnold, in the next paragraph, \"a teacher whose learning and friendship shaped him profoundly\", taught him philosophy at Government College. Both are real and important relationships and neither is a *silsila*. Scholarly education is a relation this graph does not model; if it ever does, these two are where to start."
+  },
+  {
+   "subjectName": "Sant Harnam Das",
+   "objectName": "Baba Bankhandi (at eight removes)",
+   "quote": "built under an eighth successor in the lineage, Sant Harnam Das",
+   "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple",
+   "notes": "A named successor the archive cannot model without lying about the distance. `successor_of` means the seat passed from one to the next; this is the EIGHTH holder, and an edge would compress eight generations into one. The kin layer has `descendant_of` for exactly this at-a-remove case and the lineage vocabulary has no equivalent — the honest note is that the gap is in the vocabulary, not the corpus. Reconsider if a `successor_at_remove` type is ever added."
+  },
+  {
+   "subjectName": "Ahmad Shah Abdali (Durrani)",
+   "objectName": "Mian Umar Baba",
+   "quote": "tradition holds that even Ahmad Shah Abdali (Durrani), the founder of the Afghan kingdom, visited him and became his devotee",
+   "source": "data/shrines.csv#shrine-of-mian-umar-baba-chamkani",
+   "notes": "A devotee, not a disciple, and the sentence is doubly hedged — \"tradition holds that even\". Rulers visiting saints is a topos this corpus repeats; it records reverence, not initiation, and turning it into a `disciple_of` edge would put half the Mughal and Durrani courts into the silsilas."
+  },
+  {
+   "subjectName": "Khwaja Moinuddin Chishti",
+   "objectName": "Ali Hujwiri (Data Ganj Bakhsh)",
+   "quote": "Khwaja Moinuddin Chishti, before he founded his order at Ajmer, kept his forty-day retreat at Data's tomb and sealed his devotion in the famous couplet",
+   "source": "data/shrines.csv#data-darbar",
+   "notes": "The most famous devotional link in Punjabi Sufism and not a teaching tie: the retreat was at the TOMB, more than a century after Hujwiri's death. An Uwaisi-style claim at most, and the entry does not make even that — it says retreat and couplet. The couplet is why every visitor to Data Darbar knows the connection, which is exactly why it needs writing down as a non-tie."
+  },
+  {
+   "subjectName": "Dya Ram",
+   "objectName": "(no student named)",
+   "quote": "whose main chamber housed the *samadhi* of Dya Ram, honoured as the teacher associated with the establishment of the shrine",
+   "source": "data/shrines.csv#parnami-mandir",
+   "notes": "\"Honoured as the teacher\" with nobody named as taught. A real figure the corpus records and an unusable relation, in the same shape as the unnamed disciple of Bhai Gurdas at Gandava."
   }
  ],
  "familyRelations": [

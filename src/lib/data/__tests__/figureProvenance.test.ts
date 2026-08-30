@@ -275,7 +275,16 @@ describe('the shipped graph', () => {
                        Gaddi Nasheen", who is a SUCCESSION edge and deliberately
                        not a kin one: the entry says in the same sentence that
                        "whether Haider Ali Shah is one of the eight sons is not
-                       stated". */
-    expect(flagged.length).toBe(199);
+                       stated".
+        199 + 4       = 203, 30 August 2026, closing the lineage pile. Mir
+                       Daryai Tharawi, who compiled the *Bayan al-Arifin* seven
+                       years after Shah Abdul Karim's death and is therefore the
+                       reason any of that verse survives; a second Sheikh
+                       Fakhr-ud-Din, deliberately not the Persian poet already in
+                       the graph; and Devchandra Maharaj with his foremost
+                       disciple Mehraj Thakur — the two founding figures of the
+                       Pranami tradition, which this archive has carried as a
+                       TRADITION since 29 August with no figures attached to it. */
+    expect(flagged.length).toBe(203);
   });
 });

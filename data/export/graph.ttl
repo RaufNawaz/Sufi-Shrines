@@ -1664,6 +1664,29 @@ saint:hazrat-haider-ali-shah
   sufi:successorOf saint:hazrat-syed-muhammad-khair-ul-deen ;
   .
 
+saint:mehraj-thakur
+  a schema:Person ;
+  schema:name "Mehraj Thakur (Mahamati Prannath)"@en ;
+  sufi:discipleOf saint:devchandra-maharaj ;
+  .
+
+saint:devchandra-maharaj
+  a schema:Person ;
+  schema:name "Devchandra Maharaj"@en ;
+  .
+
+saint:mir-daryai-tharawi
+  a schema:Person ;
+  schema:name "Mir Daryai Tharawi"@en ;
+  sufi:discipleOf saint:shah-abdul-karim-bulri ;
+  .
+
+saint:sheikh-fakhr-ud-din-shah-jamali
+  a schema:Person ;
+  schema:name "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)"@en ;
+  sufi:discipleOf saint:syed-shah-jamal-uddin-naqvi-bukhari ;
+  .
+
 saint:syed-nasiruddin-mahmud
   a schema:Person ;
   schema:name "Syed Nasiruddin Mahmud"@en ;
