@@ -4777,25 +4777,41 @@ both redirects.
     Punjabi Sufism, every visitor to Data Darbar knows the couplet, and it is not a teaching tie.
     A rejection is worth recording exactly in proportion to how obvious the edge looks.
 
-170. **An Urdu reader cannot find a person by their Urdu name. 250 of the 258 search rows carry no
-    Urdu at all.** *Measured 30 August 2026, checking that the session's 51 new figures were
-    reachable.* They are — in English. Typing `Mata Tripta` returns a **FIGURES** group with her in
+170. **An Urdu reader cannot find a PERSON by their Urdu name — 241 of 258 search rows. Orders and
+    traditions are fine, and why they are fine is the fix.** *Measured 30 August 2026, checking
+    that the session's 51 new figures were reachable.* They are — in English. Typing `Mata Tripta` returns a **FIGURES** group with her in
     it. Typing `ماتا ترپتا` returns six shrines whose names contain ماتا or داتا and **no figures
     group at all**, and the same is true of a figure who has been in the archive from the start:
     `بے بے نانکی` returns seven gurdwaras and not Bebe Nanaki.
 
-    **The mechanism exists and is documented; the data never arrives.** `haystacks()` in
-    `src/lib/search/entitySearch.ts` does `if (entity.nameUr) values.push(entity.nameUr)`, under a
-    comment promising that "the Urdu name is indexed in both interfaces, not only the Urdu one".
-    `build-kg.mjs` writes `nameUr` into every row that *has* one. Of 258 rows, **8 do** — the eight
-    traditions, because the tradition seed carries Urdu on the node. Every figure and every order
-    resolves its Urdu through `translateNameToUrdu` at render time and carries no `nameUr` field,
-    so the search index has nothing to copy.
+    **The mechanism exists and is documented; the data never arrives — for figures.** `haystacks()`
+    in `src/lib/search/entitySearch.ts` indexes `entity.nameUr` *and* `entity.aka`, under a comment
+    promising that "the Urdu name is indexed in both interfaces, not only the Urdu one".
+    `build-kg.mjs` copies whatever the node has. So the index splits three ways:
+
+    | rows | Urdu in the index | findable in Urdu |
+    |---|---|---|
+    | 8 traditions | `nameUr`, from the tradition seed | **yes** — `ناتھ` returns the روایات group |
+    | 9 orders | `aka`, from the node's `arabicName` | **yes** — `چشتیہ` returns the صوفی سلسلے group |
+    | **241 figures** | **nothing** | **no** |
+
+    **The first draft of this entry said "every figure and every order", and that was wrong** — it
+    was read off the missing `nameUr` field without checking the other haystack or rendering the
+    page. Orders were fine the whole time. Corrected here rather than quietly, because the error is
+    the instructive part: `aka` is a second Urdu channel, and a claim about searchability read from
+    one field name is not a measurement.
+
+    **And the correction contains the answer.** Orders work because the Urdu name is *on the node* —
+    `arabicName`, nine of them, hand-authored — so the builder has something to copy. Figures have
+    no equivalent field because their Urdu lives in the dictionary and resolves at render time. The
+    difference is not a bug in either half; it is that nine names are small enough to author and 241
+    are not.
 
     Nobody was wrong: the producer copies what exists, the consumer indexes what it is given, and
     the field is genuinely absent from the node. **It is a seam, and the test that would have caught
     it is the one the features session wrote for a different layer the same day** — *the two
-    languages must find the same things, and a difference is never a translation gap*.
+    languages must find the same things, and a difference is never a translation gap*. That spec
+    asks it of a shrine page; nothing asks it of search.
 
     **Do not fix it by putting `nameUr` on every saint in `kg.json`.** That would mean `build-kg`
     mirroring the dictionary resolver — the mirror that produced §9.163's false positive — and would
