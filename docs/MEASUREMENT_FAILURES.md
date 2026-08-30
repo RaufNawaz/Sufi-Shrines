@@ -108,6 +108,33 @@ does not announce that it has.
 agreeing all along, neither saying which. This costs nothing to prevent and reads as a
 disagreement about the data.
 
+**Do not round a figure that is going to a person for a decision.** The two unpublished shrines
+hold 7.5% of the archive's recorded media; one session wrote 8%. Both are the same measurement and
+they behave differently once they leave the page: **7.5 invites the next reader to re-measure and 8
+invites them to quote it.** This archive's whole standing-findings lesson is about numbers that got
+quoted after they stopped being true, and a rounded number is the more quotable one.
+
 **Publish the retraction next to the finding.** `docs/planning/UX_COUNCIL_2026-08-30.md` requires
 its reviewers to list what they got wrong, and eleven of thirty-two findings were withdrawn. That
 list is the reason the other twenty-one are credible.
+
+---
+
+## Before adding a fourth kind
+
+The three above are not a tally that grew to three. **A category earns its place by having its own
+check** — not its own description, which is free.
+
+| Kind | Its check |
+| --- | --- |
+| A stale source read as current | Compare against the artefact you did *not* read |
+| A narrower query than the question | Widen the query and see whether the answer changes |
+| A premise never arranged | Assert the premise before asserting the conclusion |
+
+If a candidate's check is already one of those three, it is a subcase and this document is better
+without it. That is why "never truncate the output you are about to conclude from" is filed as a
+remedy rather than a fourth kind: its check is *widen the query*, and it is a narrow query wearing
+a pipe.
+
+Two kinds would have been a coincidence. Three with distinct tells and non-overlapping checks is a
+diagnostic, and it should stay one.
