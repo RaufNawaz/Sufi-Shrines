@@ -8739,3 +8739,61 @@ paying attention, and absent every other time. Two of four, found within an hour
 two sessions, is not a coincidence about these two checks; it is what "encode invariants, don't rely
 on intentions" costs when nobody re-reads where the invariant is wired.
 
+### Added 31 August 2026 — 44 manifest rows were a field too wide, and 448 MB of media went silent
+
+`pipeline/photo_manifest.tsv` is the join between Google Drive and the archive. **44 of its 206
+rows carried a stray empty field at index 2**, shifting every value right by one: the Drive ID
+landed in `drive_filename`, the filename in `mime_type`, and `join_status` came back as an ISO
+timestamp.
+
+Nothing errored, and the consequence was silence. `download_media.py` reads this with
+`csv.DictReader`, and its first test is `upload_question not in kinds` — `''` on all 44 — so they
+were dropped by `continue` **before reaching the `skipped` list a person reads.** The downloader
+now reports 56 unfetched files where it reported 12. `docs/manifest_report.md` tells a reader to
+find exactly these rows by `join_status = in_drive_not_in_survey`, which worked by `grep` and
+failed through any parser. That is how it survived.
+
+**What is behind them matters more than the shape.** The 44 are media sitting in Drive with no
+survey row — 25 JPEG, 12 PNG, **4 video**, 3 PDF, **448 MB** — and their filenames are bare
+timestamps (`20260621-023848  - saifullah imtiaz`) carrying no shrine identity whatever. The
+archive has 54 entries with no working photograph. **These cannot be matched to shrines by
+filename**, which is precisely the case CLAUDE.md's fourth RULE 4 guard — the RMS pixel comparison —
+was written for, and that guard has no implementation. The open question now has a concrete stake.
+
+`photoManifestShape.test.ts` holds the shape two ways, field count and a closed `join_status`
+vocabulary, because the timestamps were the visible symptom and a future shift might not change a
+width. Verified to fail on the pre-repair file.
+
+**And the repair itself is not retained, which is a RULE 0 question for Rauf.**
+`pipeline/photo_manifest.tsv` is **gitignored** — it sits beside `media/` in `.gitignore` — so the
+44 realigned rows live only on this machine. CLAUDE.md's layout table puts manifests in `pipeline/`
+and RULE 0 says the repo is the only place work is retained, which argues for tracking it; against
+that, its ~200 filenames name the surveyor who took the photographs, and the archive has been
+careful about exactly that elsewhere (four entries had an internal note naming a colleague moved
+out of the public `Location` field on 30 August). **Two reasonable readings, so it is recorded
+rather than decided by whoever happened to touch the file.** The test skips when the file is absent
+rather than throwing, so a fresh clone stays green — but a skipping test is a weaker guard than a
+running one, and that is the cost of leaving this open.
+
+Redoing the repair, if it is lost: drop the field at index 2 from every row with 11 fields. It is
+unambiguous — those rows have an empty index 2, a valid `upload_question` at index 3 and an empty
+index 4, where the 162 well-formed rows have the question at 2 and a numeric `seq` at 3.
+
+#### And the photograph count moved, 53 → 54
+
+`pipeline/check_image_liveness.py` re-run on 31 August: **4 dead of 242**, three entries losing
+every image. The new one is **Garh Maharaja (Shorkot)**, whose host `sultan-bahoo.com` now fails
+certificate validation outright.
+
+That is not a new breakage so much as the script's own warning coming true. Its docstring recorded
+on 27 August that this host served a certificate expired 24 June on one connection and a valid one
+on the next, that curl through this environment reported `206 image/jpeg` regardless, and that the
+image was therefore *"recorded here as alive and is at least intermittently broken for real
+readers."* Four days later curl fails on it too. **An instrument that records what it cannot see is
+worth more than one that is merely right** — the number was wrong on 27 August and the docstring
+said so, which is why the correction took minutes rather than an investigation.
+
+CLAUDE.md's standing finding is updated in place. That is a dated measurement the document itself
+tells you to re-run, which is a different thing from RULE 4's list of guards — that list is still
+Rauf's, and is still flagged for him unedited.
+

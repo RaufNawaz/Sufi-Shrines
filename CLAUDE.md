@@ -263,9 +263,17 @@ outside citations/URLs/coordinates/`<bdi>`.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
   `/about`, which recomputes it on every load. **But 51 counts a field, not a picture:**
-  `pipeline/check_image_liveness.py` fetched all 242 on *27 August 2026* and found **3 dead**
-  (two 404s on Wikimedia, one 403 on heritageofpakistan.org), two of which are an entry's only
-  image — so the honest figure is **53**, and `/about` cannot see the difference. Re-run the
+  `pipeline/check_image_liveness.py` fetched all 242 again on *31 August 2026* and found **4 dead**
+  — the three from 27 August (two 404s on Wikimedia, one 403 on heritageofpakistan.org) plus
+  **Garh Maharaja (Shorkot)**, whose host `sultan-bahoo.com` now fails certificate validation
+  outright. **Three entries lose every image they have**, so the honest figure is **54**, and
+  `/about` cannot see the difference.
+  The new one is the script's own warning coming true rather than a new breakage: its docstring
+  recorded on 27 August that `sultan-bahoo.com` served a certificate expired 24 June on one
+  connection and a valid one on the next, that curl through this environment reported
+  `206 image/jpeg` regardless, and that the image was therefore "recorded here as alive and is at
+  least intermittently broken for real readers." Four days later curl fails on it too. **An
+  instrument that records what it cannot see is worth more than one that is merely right.** Re-run the
   script rather than trusting either number; its docstring records the four instruments that
   gave wrong answers first, including a browser pass that reports 80 failures from inside a
   proxied sandbox and is measuring the proxy. **And note what the script cannot see:** "the file
