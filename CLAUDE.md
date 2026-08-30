@@ -282,11 +282,22 @@ outside citations/URLs/coordinates/`<bdi>`.
   `<img>`; Chrome reports that as a blocked request carrying no response at all, so an instrument
   watching response statuses misses it twice over (§9.145).
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
-  ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
-  media directories, which are gitignored and not present in a fresh clone, so this cannot be
-  checked from the repository. Treat the 18 as of unknown date until someone with the media
-  drive re-counts it.
-- Mauj Darya Bukhari lost all 12 media files (verified 404s). Data Darbar and Bibi Pak Daman
+  **Re-measured and confirmed 31 August 2026 — both numbers exactly.** The "cannot be checked from
+  the repository" caveat is withdrawn: `pipeline/photo_manifest.tsv` types every Drive file, which
+  is a better instrument than the directory listing the original count came from, because it reads
+  a recorded `mime_type` rather than trusting an extension. **18 `video/mp4`, 0 `audio/*`** — 14
+  matched to shrines, 4 sitting in Drive with no survey row.
+  The sharper version of the finding: the survey's video/audio question was answered **20 times**,
+  and every answer was video. It is not that nobody uploaded audio into a silence — it is that
+  twenty people were asked for video *or* audio and none of them gave audio.
+  (The manifest is gitignored, so this is checkable by anyone holding it and not from a fresh
+  clone. Whether it should be tracked is an open question in `docs/SESSION_RESUME.md`.)
+- Mauj Darya Bukhari lost all 12 media files (verified 404s). **Confirmed from the manifest on
+  31 August 2026, and it is now clear what "lost" means:** all 12 of the manifest's
+  `id_not_in_drive` rows — every one in the archive — belong to this single shrine, 10 answering
+  the photo question and 2 the video/audio one. The survey recorded twelve uploads and **Drive no
+  longer resolves any of those file IDs**. Not 404s on a web host: the Drive objects themselves are
+  gone, which is why re-shooting rather than re-linking is the remedy. Data Darbar and Bibi Pak Daman
   photos are WhatsApp-compressed. All need re-shooting. **The "cannot be checked here" caveat
   this line used to carry is wrong and is removed:** external hosts are reachable from this
   environment, and `pipeline/check_image_liveness.py` fetched all 242 of the sheet's image URLs

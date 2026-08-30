@@ -8797,3 +8797,32 @@ CLAUDE.md's standing finding is updated in place. That is a dated measurement th
 tells you to re-run, which is a different thing from RULE 4's list of guards — that list is still
 Rauf's, and is still flagged for him unedited.
 
+### Added 31 August 2026 — repairing the manifest made three standing findings checkable
+
+`photo_manifest.tsv` parsing correctly turned out to be worth more than the 44 rows it recovered.
+Three of CLAUDE.md's standing findings could be re-measured from it, and two of them carried a
+caveat saying they could not.
+
+**"18 video files, zero audio recordings" — confirmed exactly, and the caveat withdrawn.** The
+note said this "cannot be checked from the repository" because the count came from gitignored media
+directories. The manifest is a better instrument than a directory listing: it records a `mime_type`
+per Drive object rather than trusting an extension. **18 `video/mp4`, 0 `audio/*`**, 14 matched to
+shrines and 4 unmatched. The sharper reading is the one worth keeping — the survey's video/audio
+question was answered **twenty times and every answer was video**. Not an absence nobody filled; a
+question twenty people answered without ever choosing audio, in an archive whose stated purpose is
+oral history.
+
+**"Mauj Darya Bukhari lost all 12 media files" — confirmed, and "lost" is more specific than 404.**
+All twelve of the manifest's `id_not_in_drive` rows — every such row in the archive — belong to
+that one shrine: ten answering the photo question, two the video/audio one. The **Drive objects
+themselves no longer resolve by ID**. That is why re-shooting rather than re-linking is the remedy,
+and it is a different failure from the three dead hot-links `check_image_liveness.py` finds.
+
+**And the two unpublished shrines hold 23 media files between them.** Darbar Hazrat Shah Gohar Peer
+has 12 (7 JPEG, 2 PNG, **3 video**) and Darbar Mian Qurban Ali Shah has 11 (10 JPEG, **1 video**),
+all `matched` and all fetchable. So the cost of the 171-vs-169 drift is not two absent pages and
+5,268 + 5,374 characters of prose — it is that **plus 23 photographs and videos**, on an archive
+where 54 entries have no working photograph at all and where four of the eighteen videos in
+existence belong to these two entries. `npm run data:check:unpublished` names the prose; this is
+the rest of the bill.
+
