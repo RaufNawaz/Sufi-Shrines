@@ -112,23 +112,46 @@ cannot do.
   it has an Urdu twin. Renaming a page a reader may have linked is the decision the archive
   rename was, at smaller scale. The archive's own neutral word is already on the page —
   "Figures in the archive".
-- **Three citation strings give three answers.** `LICENSE-data.md` says v1.0.0 / 2026,
-  `citation.ts` says v2.0.0 / 2026, the release README says v1.0.0 / **2025**. A version and a
-  year are facts, so they are recorded rather than picked (HANDOVER §9.172). Related and also
-  deliberately unrenamed: `PUBLICATION.attribution` mirrors the ODbL attribution that
-  `LICENSE-data.md` *requires of people using the data* — changing that is a licence change, not
-  a rename.
+- ~~**Three citation strings give three answers.**~~ **Answered 30 August 2026: v2.0.0 / 2026**
+  (`306e568`). Five files now agree and `citation.test.ts` reads the version out of all five and
+  the year out of four — it had only ever compared `citation.ts` against `CITATION.cff`, and those
+  two happened to agree, so three files drifted in the blind spot beside a green test. Still open
+  and still deliberately unrenamed: `PUBLICATION.attribution` mirrors the ODbL attribution that
+  `LICENSE-data.md` *requires of people using the data*. Changing that is a licence change, not a
+  rename, and it is the one part of this item an agent must not do.
 - **Four patches await import** (RULE 3 — a human imports, agents do not write to the sheet):
   `patch_schema_hygiene_2026-08-27.csv`, `patch_year_built_precision_2026-08-29.csv`,
   `patch_site_type_2026-08-30.csv`, and `patch_location_hygiene_2026-08-30.csv` — the last
   produced 30 August (`68173c4`), moving four entries' "ask Saifullah…" instructions out of the
   public `Location` field into `qa_note` while keeping every caveat. `npm run data:check:location`
   fails until it is imported, by design.
-- **Then `npm run data:build`**, which closes the 171-vs-169 drift (HANDOVER §9.156, §9.148) —
-  two shrines currently invisible to the graph, search, `/about` and the Urdu dictionary, and two
-  figure pages telling readers an entry the archive holds does not exist. Order matters: patches
-  first, then `data:build`, `data:kg`, `data:index`, traditions, and `data:check:live` to confirm
-  zero drift.
+- **Then `npm run data:build`**, which closes the 171-vs-169 drift — two shrines (Darbar Hazrat
+  Shah Gohar Peer, Darbar Mian Qurban Ali Shah) currently invisible to the graph, search, `/about`
+  and the Urdu dictionary. Order matters: patches first, then `data:build`, `data:kg`,
+  `data:index`, traditions, and `data:check:live` to confirm zero drift.
+
+  **The reason this drift existed was wrong for eight days and is corrected (30 August 2026,
+  `d38d57c`).** `.gitignore` said `build-dataset` "drops for having no coordinates" the two rows a
+  live export carries. It does not, and has not since 22 August: `isValidRow` keeps a named row
+  with empty coordinates *on purpose*, and the comment beside it names Shah Gohar Peer — one of the
+  two — as the case that motivated the change. Over the committed 171-row export the current
+  predicate keeps **171 of 171**. The snapshot ships 169 because it **predates the fix**. Nothing
+  rejects those rows, they are **not blocked on coordinates**, and they will ship as honestly
+  unmapped pages. Four instruments had tripped over this drift and all four reported the symptom
+  correctly; none read the predicate, and a dated sentence in a config file stood where the answer
+  should have been.
+- **Twenty-four coordinate verdicts**, in `data/review/coordinate-review-2026-08-30.csv`
+  (30 August 2026, `d38d57c`). 22 shipped rows carry a *placeholder* coordinate — twelve typed to
+  one or two decimal places (~1.1 km), ten sharing a point with another row — plus the two unmapped
+  entries above. All 22 were queried against OpenStreetMap and Wikidata: **six answered, sixteen
+  did not**, and no coordinate was written for those sixteen (RULE 2). Two confirm the current
+  value; four are candidate moves; one is a rejection worth keeping, because the Wikidata entity
+  for Mohra Sharif is the **village** and a name match is not a source. One proposal is annotated
+  as *no more precise than what it would replace*, so no verdict is given on a lateral move by
+  mistake. **Sixteen need a field survey** — this is the half no agent can do.
+  `pipeline/audit_coordinates.py` holds the line meanwhile: it fails when the placeholder count
+  rises above the recorded baseline, and it measures precision, not accuracy.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the
