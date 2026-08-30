@@ -227,6 +227,11 @@ const UI_TEXT_EN = {
      how much of the archive a query just excluded. */
   paletteResultCount: (shown: number, total: number) =>
     shown === total ? `${total} sites` : `${shown} of ${total} sites`,
+  /* The archive-wide search counts more than sites — figures, orders, places
+     and traditions are all in its results — so it cannot borrow
+     `paletteResultCount`'s noun. Announced, not shown: this is what a screen
+     reader is told when a query changes the list. */
+  archiveResultCount: (n: number) => `${n} result${n === 1 ? '' : 's'}`,
   tourCount: (n: number) => `${n} tour${n === 1 ? '' : 's'}`,
   /* ── Order pages: what the archive can say about where an order is ────── */
   orderWhereHeading: 'Where this order stands',
@@ -1241,6 +1246,7 @@ export function tFn(lang: Lang, key: 'distanceApartMi', value: string): string;
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
 export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
+export function tFn(lang: Lang, key: 'archiveResultCount', n: number): string;
 export function tFn(lang: Lang, key: 'tourCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
@@ -1308,6 +1314,7 @@ export function tFn(
     | 'ariaCategoryOf'
     | 'mapLayerFrom'
     | 'paletteResultCount'
+    | 'archiveResultCount'
     | 'tourCount'
     | 'placeSiteCount'
     | 'placeSpan'

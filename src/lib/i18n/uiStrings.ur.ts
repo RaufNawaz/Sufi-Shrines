@@ -221,6 +221,10 @@ export const UI_TEXT_UR: UiStrings = {
        phrasing (the same trap as almanacCoverageTotal). */
   paletteResultCount: (shown: number, total: number) =>
     shown === total ? `${total} مقامات` : `${total} میں سے ${shown} مقامات`,
+  /* Draft, not reviewed by a fluent speaker — same standing as the rest of this
+     section. نتائج is already plural, so the singular takes نتیجہ rather than
+     reading "1 results" in Urdu. */
+  archiveResultCount: (n: number) => (n === 1 ? `${n} نتیجہ` : `${n} نتائج`),
   tourCount: (n: number) => `${n} سفر`,
   /* ── Order pages — drafts, not reviewed by a fluent speaker ──────────── */
   orderWhereHeading: 'یہ سلسلہ کہاں ہے',

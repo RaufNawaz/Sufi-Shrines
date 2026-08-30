@@ -211,8 +211,15 @@ export function CommandPalette({
             type="search"
             className="palette-input search-input"
             role="combobox"
-            aria-expanded="true"
-            aria-controls={listId}
+            /* The same two lies `ArchiveSearch` carried, found by measuring
+               this one as the control while fixing that one. A zero-result
+               query left `aria-expanded` at the literal "true" and
+               `aria-controls` pointing at an id that is not in the document —
+               a screen reader told a popup is open and sent to nothing. axe
+               grades the dangling reference *incomplete* rather than a
+               violation, which is why the zero-serious gate never saw it. */
+            aria-expanded={visible.length > 0}
+            {...(visible.length > 0 ? { 'aria-controls': listId } : {})}
             aria-autocomplete="list"
             aria-activedescendant={
               visible.length > 0 ? `${listId}-option-${activeIndex}` : undefined

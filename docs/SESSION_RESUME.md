@@ -45,6 +45,7 @@ the reason the rest is credible.
 | The seven badge definitions, derived for review | `ce4a0c3` |
 | Filters changed the URL and the list and never the map | `b768cb5` |
 | Four entity routes answered an unknown slug by silently becoming the map | `f95c7ad` |
+| The archive search palette announced nothing, and both comboboxes lied | *this commit* |
 
 ---
 
@@ -52,38 +53,34 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **The archive search palette announces nothing** on every route except the map. No `aria-live`
-   in `ArchiveSearch`; the pattern is twenty lines away in `CommandPalette`. Its combobox also
-   hardcodes `aria-expanded="true"` and points `aria-controls` at a listbox that is not rendered.
-
-2. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
+1. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
    `results.length` rather than what is on screen. **Blocked on a UI string** — reporting
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-3. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
+2. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
    four rule weights, two byte-identical blocks 236 lines apart in one file. `/about` is the
    visible symptom: its rules stop at 767px for nine headings and 1054px for seventeen.
 
-4. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
+3. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
    region is created already populated, which screen readers do not announce.
 
-5. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
+4. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
    `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
    drawn in the tradition palette.
 
-6. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+5. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-7. **A shrine names its order and never links to it** — the only one-way edge in the entity
+6. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-8. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+7. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-9. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+8. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---

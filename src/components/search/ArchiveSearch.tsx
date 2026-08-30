@@ -276,6 +276,10 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
     ];
   }, [debounced, ids, shrines, searchableEntities, places, lang, t, fmtNum, saved]);
 
+  /* Whether the listbox is on screen — the one fact `aria-expanded` and
+     `aria-controls` must both agree with. */
+  const hasResults = rows.length > 0;
+
   /* Group headings are rendered from the row list rather than stored on it, so
      the keyboard walks one flat array and cannot land on a heading. */
   const headingFor = (kind: Row['kind']): string =>
@@ -403,8 +407,14 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
             type="search"
             className="palette-input search-input"
             role="combobox"
-            aria-expanded="true"
-            aria-controls={listId}
+            /* Both of these were lies, and axe grades the second *incomplete*
+               rather than a violation — so the zero-serious gate passed over
+               them. `aria-expanded` was the literal "true" even with the
+               listbox unrendered and no results on screen, and `aria-controls`
+               named an id that does not exist in that state. A screen reader is
+               told a popup is open and pointed at nothing. */
+            aria-expanded={hasResults}
+            {...(hasResults ? { 'aria-controls': listId } : {})}
             aria-autocomplete="list"
             aria-activedescendant={rows.length > 0 ? `${listId}-option-${activeIndex}` : undefined}
             dir={isRtl ? 'rtl' : undefined}
@@ -439,7 +449,23 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        {rows.length > 0 ? (
+        {/*
+          What a screen reader is told when the list changes.
+          `ArchiveSearch` had no live region at all — measured on /about and
+          /graph, typing a query that returned nine results and one that
+          returned none announced nothing either time, so silence was
+          indistinguishable from "still thinking". The map's own palette has
+          done this correctly the whole time, twenty lines away in
+          `CommandPalette`; this is the same treatment.
+
+          Outside the listbox and `aria-atomic`, so the whole sentence is read
+          on each change rather than a diff of it.
+        */}
+        <div className="palette-status" aria-live="polite" aria-atomic="true">
+          {debounced.trim() === '' ? '' : fmtNum(tFn(lang, 'archiveResultCount', rows.length))}
+        </div>
+
+        {hasResults ? (
           <ul
             className="palette-results archive-search-results"
             id={listId}
