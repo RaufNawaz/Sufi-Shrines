@@ -5354,6 +5354,33 @@ both redirects.
     Recorded rather than chosen. **The archive's distinguishing claim is that it says what it does
     and does not know**, and this is a place where it knows something it does not say.
 
+183. **`/graph` calls itself an explorer of "the Sufi orders and saints", and 41% of the figures on
+    it are not Muslim — a description my own day's work made false.** *Measured 30 August 2026.*
+
+    Of the 134 figures with a site: **79 Muslim, 23 Hindu, 13 Nanakpanthi/Udasi, 13 Sikh, 3 secular,
+    2 Jain.** Beside them sit 109 lineage-only figures, and that is now where Guru Nanak's father,
+    mother, sister, son and successor live, along with Devchandra Maharaj and Mehraj Thakur of the
+    Pranami tradition. Most of those arrived today, so `graphExplorerIntro` was defensible in the
+    morning and is not now.
+
+    **The page already contradicts itself, and has for some time.** Its opening line says *"Browse
+    the Sufi orders and saints behind these shrines"*; its figure-type section, further down the
+    same page, says *"The archive covers six traditions, so **not every figure here is a Sufi
+    saint**."* One part of the page has been saying the true thing all along — the third instance
+    today of the same shape, after `CITATION.cff`'s abstract enumerating six traditions under a
+    title that denied them.
+
+    **And the rename missed the footer, which is on every page.** `footerCredit` still reads
+    *"Sufi Shrines of Pakistan · Harvard Research Project"* in English and
+    *"پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ"* in Urdu, confirmed rendered on `/about` in
+    both languages. The Urdu one is the same string deliberately left on `siteTitle` for a fluent
+    reader, and should carry the same annotation rather than looking like an oversight.
+
+    Both live in `uiStrings*`, which the features session had open, so both were **measured against
+    `HEAD` and handed over rather than edited** — the dirty-tree rule applied to a fix rather than
+    to a failure. The `/graph` one is worth flagging as *mine*: the rename did not break it, my
+    figures did.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
