@@ -536,19 +536,36 @@
 
 /* A shrine with a real photo gets a larger thumbnail pin instead of a plain
    dot (see buildDivIcon in ShrineMarkers.tsx, which sets iconSize to 30 and
-   the photo URL as an inline background-image) — the category color moves
+   puts the photograph in an <img> inside the dot) — the category color moves
    to the ring since the fill is now the photo; the plain colored dot above
    stays the no-photo fallback, so identity is still legible either way. */
 .shrine-dot--photo {
   width: 30px;
   height: 30px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-width: 2.5px;
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.4),
     0 0 0 0.5px rgba(0, 0, 0, 0.1);
+}
+
+/* The photograph itself. It was a `background-image` until 30 August 2026, and
+   the swap is not cosmetic: a background that 404s fires no event, so the map
+   had no way to know a picture had rotted. See buildDivIcon.
+
+   `inset: 0` is the padding box, so the photo sits inside the category ring
+   rather than under it, and it is rounded here rather than clipped with
+   `overflow: hidden` on the parent — that would clip the dot's two
+   pseudo-elements too, and one of them is the 44px tap target. */
+.shrine-dot__photo {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  /* Decoration: taps belong to the dot, which is what Leaflet listens on. */
+  pointer-events: none;
 }
 
 .shrine-dot--photo.shrine-dot--muslim {

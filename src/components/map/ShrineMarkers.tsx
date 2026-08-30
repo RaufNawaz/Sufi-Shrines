@@ -38,12 +38,30 @@ function escapeHtml(s: string): string {
   );
 }
 
-/** Escapes a string for safe use inside a double-quoted HTML attribute AND
- * a single-quoted CSS url() within it (marker HTML is injected directly via
- * Leaflet's divIcon, not through React, so this can't rely on JSX escaping). */
+/** Escapes a string for safe use inside a double-quoted HTML attribute
+ * (marker HTML is injected directly via Leaflet's divIcon, not through React,
+ * so this can't rely on JSX escaping). The apostrophe rule is percent-encoding
+ * rather than an entity because every string that reaches this is a URL. */
 function escapeAttr(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '%27');
 }
+
+/**
+ * Marker photographs that the browser could not load.
+ *
+ * Module-level on purpose: the marker layer is rebuilt whenever the language,
+ * the tour or the lens changes, and a dead URL is dead for the whole visit. A
+ * `Set` here means one failed request per URL per page rather than one per
+ * rebuild, and it means a rebuilt marker comes back as the plain dot instead
+ * of flashing a broken photograph again.
+ *
+ * Keyed by the sheet's own URL, not by shrine and not by the thumbnail URL
+ * actually requested: what failed is the address, the sheet points two entries
+ * at one file often enough that the distinction matters, and the sheet's URL is
+ * the one string both sides of this — the icon builder and the error handler —
+ * hold without having to re-derive it through attribute escaping.
+ */
+const deadPhotoUrls = new Set<string>();
 
 function buildDivIcon(
   selected: boolean,
@@ -52,23 +70,38 @@ function buildDivIcon(
   imageUrl?: string | null,
 ): L.DivIcon {
   const catKey = categoryKey(category);
+  // The dot is 30px. Asking for the original here was the single biggest
+  // cost on the map (see lib/images/thumbnail.ts).
+  const thumb =
+    imageUrl && !deadPhotoUrls.has(imageUrl) ? thumbnailUrl(imageUrl, IMAGE_WIDTH.marker) : '';
+  const hasPhoto = thumb !== '';
   const classes = [
     'shrine-dot',
     `shrine-dot--${catKey}`,
-    imageUrl ? 'shrine-dot--photo' : '',
+    hasPhoto ? 'shrine-dot--photo' : '',
     selected ? 'selected' : '',
     dimmed ? 'shrine-dot--dimmed' : '',
   ]
     .filter(Boolean)
     .join(' ');
-  // The dot is 30px. Asking for the original here was the single biggest
-  // cost on the map (see lib/images/thumbnail.ts).
-  const thumb = imageUrl ? thumbnailUrl(imageUrl, IMAGE_WIDTH.marker) : '';
-  const style = thumb ? ` style="background-image: url('${escapeAttr(thumb)}')"` : '';
-  const size = imageUrl ? 30 : 14;
+  /* An <img>, not a CSS background — and this is the whole point of the
+     element. A background that 404s fires no event at all, so a marker whose
+     photograph has rotted keeps its 30px photo size and paints a flat category
+     disc: a large blank circle among photographs, where the 14px dot is what a
+     site with no picture correctly gets. 242 of the sheet's image URLs sit on
+     hosts this project does not control, and an archive built to outlive its
+     author will lose more of them. An <img> reports its own failure, on the
+     one request the marker was going to make anyway.
+
+     alt is empty deliberately: the marker element already carries the shrine's
+     name as its aria-label, and a second name here would announce it twice. */
+  const photo = hasPhoto
+    ? `<img class="shrine-dot__photo" src="${escapeAttr(thumb)}" alt="" decoding="async">`
+    : '';
+  const size = hasPhoto ? 30 : 14;
   return L.divIcon({
     className: '',
-    html: `<div class="${classes}"${style}></div>`,
+    html: `<div class="${classes}">${photo}</div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2 - 3],
@@ -170,6 +203,32 @@ export function ShrineMarkers({
             onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
           }
         });
+
+        /* A photograph that no longer loads demotes its marker to the plain
+           dot. Registered in the capture phase because `error` does not bubble
+           — and on `el` rather than on the <img>, because `setIcon` replaces
+           the icon's innerHTML while Leaflet's DivIcon reuses the outer DIV. A
+           listener on the stable element therefore keeps catching failures
+           through every selection change and rebuild; one on the <img> would
+           be discarded with it. */
+        el.addEventListener(
+          'error',
+          (event: Event) => {
+            const target = event.target as HTMLElement | null;
+            if (!target?.classList.contains('shrine-dot__photo')) return;
+            if (!shrine.imageUrl || deadPhotoUrls.has(shrine.imageUrl)) return;
+            deadPhotoUrls.add(shrine.imageUrl);
+            marker.setIcon(
+              buildDivIcon(
+                shrine.id === selectedIdRef.current,
+                shrine.category,
+                isDimmed(shrine.id),
+                shrine.imageUrl,
+              ),
+            );
+          },
+          true,
+        );
       });
 
       group.addLayer(marker);
