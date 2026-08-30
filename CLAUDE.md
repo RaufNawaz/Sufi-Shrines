@@ -268,7 +268,11 @@ outside citations/URLs/coordinates/`<bdi>`.
   image — so the honest figure is **53**, and `/about` cannot see the difference. Re-run the
   script rather than trusting either number; its docstring records the four instruments that
   gave wrong answers first, including a browser pass that reports 80 failures from inside a
-  proxied sandbox and is measuring the proxy.
+  proxied sandbox and is measuring the proxy. **And note what the script cannot see:** "the file
+  exists" and "a browser can paint it" are different questions. Gurdwara Bhai Joga Singh's
+  photograph serves a 200 and 52 KB of `image/jpeg` to a plain request and is refused to an
+  `<img>`; Chrome reports that as a blocked request carrying no response at all, so an instrument
+  watching response statuses misses it twice over (§9.145).
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
   ⚠ *Not re-measured.* The sheet has no video or audio column at all — the count came from the
   media directories, which are gitignored and not present in a fresh clone, so this cannot be
