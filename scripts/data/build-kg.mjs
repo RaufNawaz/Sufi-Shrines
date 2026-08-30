@@ -192,6 +192,10 @@ const shrineFigureLabels = new Map();
 const seedOrders = seeds.orders ?? [];
 const saintOrders = seeds.saintOrders ?? {};
 delete saintOrders.comment;
+/* Hand-seeded memberships that deliberately disagree with the figure's own
+   silsila cell, each with the evidence for it. Anything not on this list that
+   disagrees is an error — see the loop below and kg-seeds.json's comment. */
+const ordersNotInCell = seeds.saintOrdersNotInCell ?? [];
 const qidMap = seeds.saintWikidataQids ?? {};
 const lineageRelations = seeds.lineageRelations ?? [];
 /* Kinship the archive states in its own prose — 28 edges the graph held in
@@ -266,6 +270,24 @@ const orders = seedOrders.map((o) => ({
 }));
 
 const orderBySlug = new Map(orders.map((o) => [o.slug, o]));
+
+/* How each order's name appears inside a `silsila` cell. Only ever used to ask
+   "does this cell name this order?" — never to derive a membership from a cell,
+   which is the machine-extracted path's job and carries a quote. Spellings are
+   the sheet's, including "Qadri" beside "Qadiri". An order missing from this
+   table is treated as unnamed-in-any-cell, i.e. never flagged, because a silent
+   false accusation is worse than a missed one. */
+const ORDER_CELL_PATTERNS = {
+  chishtiyya: /chisht/i,
+  suhrawardiyya: /suhraward/i,
+  qadiriyya: /qad[ir]{1,2}i?/i,
+  qalandariyya: /qalandar/i,
+  naqshbandiyya: /naqshband/i,
+  rashidi: /rashidi/i,
+  malamati: /malamat/i,
+  azeemia: /azeemia/i,
+  shattari: /shattar/i,
+};
 
 // ── extract: saints ───────────────────────────────────────────────────────────
 
@@ -923,6 +945,56 @@ for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
     });
     continue;
   }
+  /* The sheet's own word for this figure's silsila, carried onto the edge.
+     RULE 3, and it was simply missing: the machine-extracted path has kept
+     `asRecorded` since the compound cells turned up, while this hand-authored
+     path dropped it, so **all 24 seeded memberships rendered with no record of
+     what the sheet actually says** — "Naushahia Qadiri" showed as Qadiriyya and
+     "Sarwari Qadiri" as Qadiriyya, losing the branch in both cases.
+
+     Read only from a row whose `principal_figure` IS this figure: a composite
+     row's cell describes the figure it leads with, and lending it to the second
+     figure named there would be exactly the inference RULE 2 forbids. */
+  const ownCells = [];
+  for (const shrineSlug of saintBySlug.get(saintSlug)?.shrines ?? []) {
+    const row = shrineRowBySlug.get(shrineSlug);
+    const cell = String(row?.silsila ?? '').trim();
+    if (!cell) continue;
+    /* Resolved the way the figure nodes themselves were built — through
+       `figureNamesFor` and the merge-variant aliases — and NOT by comparing the
+       cell's text to the node's display name. That comparison fails exactly
+       where it matters: Ranmal Sharif names "Syed Muhammad Noushah Ganj Bakhsh"
+       and the node is "Syed Muhammad Noushah Qadiri", so his row's
+       "Naushahia Qadiri" was dropped by the very check meant to protect it. */
+    const rawFigure = String(row?.['Sufi Saint'] ?? '').trim();
+    const canonicalName = rawFigure ? figureNamesFor(rawFigure)[0] : '';
+    const principalSlug = canonicalName ? resolveSaintSlug(slugify(canonicalName)) : '';
+    if (principalSlug === saintSlug) ownCells.push(cell);
+  }
+  const asRecorded = [...new Set(ownCells)].length === 1 ? ownCells[0] : undefined;
+
+  /* And the check that the missing `asRecorded` was hiding. A seeded order that
+     the figure's own cell does not name is either a mistake or a decision; the
+     archive now insists it be the second. Two were mistakes when this was first
+     run (29 August 2026) and both were transpositions. */
+  if (asRecorded) {
+    const named = ORDER_CELL_PATTERNS[orderSlug]?.test(asRecorded) ?? true;
+    const declared = ordersNotInCell.some(
+      (d) => d.saintSlug === saintSlug && d.order === orderSlug,
+    );
+    if (!named && !declared) {
+      reviewNeeded.push({
+        issue: 'seeded-order-contradicts-sheet',
+        entityId: `saint:${saintSlug}`,
+        details:
+          `saintOrders seeds "${orderSlug}", but this figure's own silsila cell ` +
+          `reads ${JSON.stringify(asRecorded)} and does not name it. Correct the ` +
+          `seed, or record the disagreement in saintOrdersNotInCell with the ` +
+          `evidence for it.`,
+      });
+    }
+  }
+
   relations.push({
     id: `belongs_to_order:saint:${saintSlug}:order:${orderSlug}`,
     type: 'belongs_to_order',
@@ -930,6 +1002,7 @@ for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
     object: `order:${orderSlug}`,
     confidence: 0.9,
     method: 'human',
+    ...(asRecorded ? { asRecorded } : {}),
   });
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T23:59:35.716Z",
+  "generated": "2026-08-30T00:18:12.138Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -959,16 +959,6 @@
       "evidence": "ee16ce28"
     },
     {
-      "id": "belongs_to_order:saint:waris-shah:order:chishtiyya",
-      "kind": "belongs_to_order",
-      "subject": "Waris Shah",
-      "subjectSlug": "waris-shah",
-      "object": "Chishtiyya",
-      "quote": "belonged in spirit to the Chishti Sufi tradition, tracing his discipleship to the line of the saint Makhdoom of Kasur",
-      "source": "data/shrines.csv#mausoleum-of-waris-shah",
-      "evidence": "d2994140"
-    },
-    {
       "id": "belongs_to_order:saint:khwaja-muhammad-qasim-sadiq:order:naqshbandiyya",
       "kind": "belongs_to_order",
       "subject": "Khwaja Muhammad Qasim Sadiq",
@@ -998,16 +988,6 @@
       "quote": "Qadiri",
       "source": "data/shrines.csv#shamsabad",
       "evidence": "fb07b834"
-    },
-    {
-      "id": "belongs_to_order:saint:daud-bandagi-kirmani:order:qadiriyya",
-      "kind": "belongs_to_order",
-      "subject": "Daud Bandagi Kirmani",
-      "subjectSlug": "daud-bandagi-kirmani",
-      "object": "Qadiriyya",
-      "quote": "a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab",
-      "source": "data/shrines.csv#shergarh",
-      "evidence": "e8148ce5"
     },
     {
       "id": "belongs_to_order:saint:abul-faiz-qalander-ali-suharwardi:order:suhrawardiyya",

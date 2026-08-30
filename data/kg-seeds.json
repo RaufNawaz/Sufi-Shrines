@@ -95,10 +95,9 @@
     }
   ],
   "saintOrders": {
-    "comment": "Keys must match the slug generated from the canonical saint name after merge variants are applied.",
     "fariduddin-ganjshakar": "chishtiyya",
     "khwaja-ghulam-farid": "chishtiyya",
-    "daud-bandagi-kirmani": "chishtiyya",
+    "daud-bandagi-kirmani": "qadiriyya",
     "rahman-baba": "chishtiyya",
     "bahauddin-zakariya": "suhrawardiyya",
     "shah-rukn-e-alam": "suhrawardiyya",
@@ -108,7 +107,7 @@
     "bulleh-shah": "qadiriyya",
     "sultan-bahoo": "qadiriyya",
     "mian-mir": "qadiriyya",
-    "waris-shah": "qadiriyya",
+    "waris-shah": "chishtiyya",
     "sufi-shah-inayat-shaheed": "qadiriyya",
     "sachal-sarmast": "qadiriyya",
     "syed-muhammad-noushah-qadiri": "qadiriyya",
@@ -978,6 +977,18 @@
       "quoteUr": "عربی، فارسی اور دینی علوم میں خوب تعلیم یافتہ، بلھے شاہ ایک روایتی عالم بن سکتے تھے — مگر وہ اس کے بجائے سلگتی ہوئی باطنی راہ کی طرف کھنچے، اور لاہور کے ایک صوفی مرشد شاہ عنایت قادری کے مرید بنے، جو قادری شطاری سلسلے سے تھے اور جو پیشے کے اعتبار سے ایک اعلیٰ نسب سیّد کے بجائے ایک \"اراٴیں\" (کاشتکار باغبان) تھے۔",
       "source": "data/shrines.csv#mazar-of-bulleh-shah",
       "_why": "The second and last mention: the same man named from his disciple’s entry as \"of the Qadiri-Shattari line\"."
+    }
+  ],
+  "_comment_saintOrders": "Hand-authored figure → order memberships. Keys must match the slug generated from the canonical saint name after merge variants are applied. THESE ARE UNSOURCED BY CONSTRUCTION — there is no quote field — and on 29 August 2026 an audit against the sheet found two of the six that could be checked were simply wrong, and wrong in the same way: Daud Bandagi Kirmani was seeded chishtiyya where his row's silsila cell says \"Qadiri\" and his entry calls him \"a revered Qadiri saint\" who \"became a shaykh of the Qadiri order\"; Waris Shah was seeded qadiriyya where his cell says \"Chishti\" and his entry says he \"belonged in spirit to the Chishti Sufi tradition\". A straight transposition. Nothing in the archive supported either seeded value, and because these edges carry method:\"human\" the UI showed the wrong one WITHOUT the unreviewed chip that the correct machine-extracted edge beside it carried. Both corrected to the sheet. The invariant is now enforced: a hand-seeded order that does not match the figure's own silsila cell must be declared in saintOrdersNotInCell with a reason, or the build fails.",
+  "_comment_saintOrdersNotInCell": "Hand-seeded memberships that deliberately do NOT match the figure's own silsila cell. A mismatch is an error unless it is recorded here with the evidence for it — that is the whole point of the list.",
+  "saintOrdersNotInCell": [
+    {
+      "saintSlug": "shams-ali-qalandar",
+      "order": "qalandariyya",
+      "cell": "Qadiri",
+      "reason": "Both readings are the archive's own and neither replaces the other. The silsila cell records his initiatic line, and the graph carries that edge too (qadiriyya, from the cell). The qalandariyya edge records what the entry's own section \"The Qalandar and His Order\" says he WAS. A figure can stand in a tradition and be initiated in a silsila, and this archive reports both rather than choosing.",
+      "quote": "Shams Ali Qalandar stood in the tradition of the *qalandars* — the wandering, often unconventional Sufi ascetics who, from medieval times, chose a path of renunciation and ecstatic devotion that set them apart from the more sober, respectable orders.",
+      "source": "data/shrines.csv#shamsabad"
     }
   ]
 }

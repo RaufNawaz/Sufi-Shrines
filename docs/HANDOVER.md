@@ -3559,6 +3559,61 @@ both redirects.
     spec another session committed a race fix for earlier the same day. Recorded rather than
     ignored, and it is the contention flake §9.129 describes — two agents building in one tree.
 
+130. **The archive was marking its *unsourced* order memberships as the trustworthy ones.**
+    *Audited 29 August 2026.* `kg-seeds.json#saintOrders` is 23 figure → order decisions typed
+    by hand. There is no `quote` field and no citation, so nothing about that file can be
+    structurally wrong and nothing about it had ever been checked. The machine-extracted path
+    beside it carries a verbatim quote and renders with an "unreviewed" chip. **So the sourced
+    edge wore the warning and the unsourced one did not.**
+
+    Six of the 23 figures have a `silsila` cell of their own. Three disagreed with the seed, and
+    two were simply wrong — the same error twice, transposed:
+
+    - **Daud Bandagi Kirmani** seeded `chishtiyya`. His cell says "Qadiri", his entry calls him
+      "a revered Qadiri saint" who "became a shaykh of the Qadiri order", and **nothing anywhere
+      in the corpus mentions him and the Chishtiyya in the same sentence.**
+    - **Waris Shah** seeded `qadiriyya`. Cell "Chishti"; entry: "belonged in spirit to the
+      Chishti Sufi tradition".
+
+    Both were live on `/order/chishtiyya` and `/order/qadiriyya` as members. Both corrected to
+    the sheet — which is not a judgement call: RULE 3 makes the sheet the join key, and there was
+    no evidence on the other side to weigh.
+
+    The third is a real question and is left standing: `qalandar-baba-auliya` is seeded into
+    both `qalandariyya` and `azeemia`. The second is his cell. The first rests on his being
+    "known by the spiritual title *Qalandar Baba Auliya*" — an epithet, not a recorded silsila,
+    and reading an order out of a title is the inference RULE 2 exists to stop. **Rauf's call,
+    not a script's**; it is in `reviewNeeded` as `seeded-order-contradicts-sheet` and pinned in
+    `seededOrders.test.ts`, which fails if the list grows *or* empties.
+
+131. **And the check that found it was only possible because a field had been missing all
+    along.** *Same day.* The hand-authored membership path emitted `belongs_to_order` with **no
+    `asRecorded`** — all 24 of them — while the machine path had carried it since the compound
+    cells turned up. So the sheet's own word for a figure's silsila was thrown away on exactly
+    the edges that had no other evidence, and the audit above had nothing to audit against.
+
+    Two named sub-orders were being lost by it, both with their own founder and their own
+    mother-shrine in this archive:
+
+    - **"Naushahia Qadiri"** (Ranmal Sharif) rendered as a bare Qadiriyya, though its entry calls
+      the site "the mother-shrine of the Naushahia Qadiri order".
+    - **"Sarwari Qadiri"** (Garh Maharaja) likewise, though Sultan Bahu "founded his own branch
+      of the order, the Sarwari Qadiri".
+
+    20 of the 24 now carry the cell, and `/saint/sultan-bahoo` reads "As recorded: Sarwari
+    Qadiri". **The join is the trap here, and it bit once before it worked**: matching the
+    cell's row to the figure by comparing `principal_figure` text to the node's display name
+    fails precisely where it matters — Ranmal Sharif names "Syed Muhammad Noushah Ganj Bakhsh"
+    and the node is "Syed Muhammad Noushah Qadiri", so the check meant to protect that cell was
+    the thing dropping it. It now resolves through `figureNamesFor` and the merge-variant
+    aliases, i.e. the same path that built the figure nodes.
+
+    Related and NOT done: a branch is still not a node. `/order/qadiriyya` shows Sarwari and
+    Naushahia as `asRecorded` text on a member's row, not as sub-orders — which is the
+    deliberate 21 August decision (13 of 64 memberships name a branch, so headings would imply a
+    structure the data does not have). Worth revisiting now that two of them turn out to have
+    founders and mother-shrines documented here.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

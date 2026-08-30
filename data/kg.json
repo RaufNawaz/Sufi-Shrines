@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T23:59:35.716Z",
+  "generated": "2026-08-30T00:18:12.138Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -8687,7 +8687,8 @@
       "subject": "saint:fariduddin-ganjshakar",
       "object": "order:chishtiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Chishti"
     },
     {
       "id": "belongs_to_order:saint:khwaja-ghulam-farid:order:chishtiyya",
@@ -8695,15 +8696,17 @@
       "subject": "saint:khwaja-ghulam-farid",
       "object": "order:chishtiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Chishti"
     },
     {
-      "id": "belongs_to_order:saint:daud-bandagi-kirmani:order:chishtiyya",
+      "id": "belongs_to_order:saint:daud-bandagi-kirmani:order:qadiriyya",
       "type": "belongs_to_order",
       "subject": "saint:daud-bandagi-kirmani",
-      "object": "order:chishtiyya",
+      "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadiri"
     },
     {
       "id": "belongs_to_order:saint:rahman-baba:order:chishtiyya",
@@ -8719,7 +8722,8 @@
       "subject": "saint:bahauddin-zakariya",
       "object": "order:suhrawardiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Suhrawardi"
     },
     {
       "id": "belongs_to_order:saint:shah-rukn-e-alam:order:suhrawardiyya",
@@ -8727,7 +8731,8 @@
       "subject": "saint:shah-rukn-e-alam",
       "object": "order:suhrawardiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Suhrawardi"
     },
     {
       "id": "belongs_to_order:saint:jalaluddin-surkh-posh-bukhari:order:suhrawardiyya",
@@ -8735,7 +8740,8 @@
       "subject": "saint:jalaluddin-surkh-posh-bukhari",
       "object": "order:suhrawardiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Suhrawardi"
     },
     {
       "id": "belongs_to_order:saint:jahaniyan-jahangasht:order:suhrawardiyya",
@@ -8743,7 +8749,8 @@
       "subject": "saint:jahaniyan-jahangasht",
       "object": "order:suhrawardiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Suhrawardi"
     },
     {
       "id": "belongs_to_order:saint:makhdoom-burhan-ud-din:order:suhrawardiyya",
@@ -8759,7 +8766,8 @@
       "subject": "saint:bulleh-shah",
       "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadiri"
     },
     {
       "id": "belongs_to_order:saint:sultan-bahoo:order:qadiriyya",
@@ -8767,7 +8775,8 @@
       "subject": "saint:sultan-bahoo",
       "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Sarwari Qadiri"
     },
     {
       "id": "belongs_to_order:saint:mian-mir:order:qadiriyya",
@@ -8775,15 +8784,17 @@
       "subject": "saint:mian-mir",
       "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadiri"
     },
     {
-      "id": "belongs_to_order:saint:waris-shah:order:qadiriyya",
+      "id": "belongs_to_order:saint:waris-shah:order:chishtiyya",
       "type": "belongs_to_order",
       "subject": "saint:waris-shah",
-      "object": "order:qadiriyya",
+      "object": "order:chishtiyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Chishti"
     },
     {
       "id": "belongs_to_order:saint:sufi-shah-inayat-shaheed:order:qadiriyya",
@@ -8807,7 +8818,8 @@
       "subject": "saint:syed-muhammad-noushah-qadiri",
       "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Naushahia Qadiri"
     },
     {
       "id": "belongs_to_order:saint:syed-rakhyal-shah-sufi-al-qadri:order:qadiriyya",
@@ -8815,7 +8827,8 @@
       "subject": "saint:syed-rakhyal-shah-sufi-al-qadri",
       "object": "order:qadiriyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadiri"
     },
     {
       "id": "belongs_to_order:saint:lal-shahbaz-qalandar:order:qalandariyya",
@@ -8823,7 +8836,8 @@
       "subject": "saint:lal-shahbaz-qalandar",
       "object": "order:qalandariyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qalandari"
     },
     {
       "id": "belongs_to_order:saint:shams-ali-qalandar:order:qalandariyya",
@@ -8831,7 +8845,8 @@
       "subject": "saint:shams-ali-qalandar",
       "object": "order:qalandariyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadiri"
     },
     {
       "id": "belongs_to_order:saint:qalandar-baba-auliya:order:qalandariyya",
@@ -8839,7 +8854,8 @@
       "subject": "saint:qalandar-baba-auliya",
       "object": "order:qalandariyya",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Azeemia"
     },
     {
       "id": "belongs_to_order:saint:qalandar-baba-auliya:order:azeemia",
@@ -8847,7 +8863,8 @@
       "subject": "saint:qalandar-baba-auliya",
       "object": "order:azeemia",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Azeemia"
     },
     {
       "id": "belongs_to_order:saint:shah-hussain:order:malamati",
@@ -8855,7 +8872,8 @@
       "subject": "saint:shah-hussain",
       "object": "order:malamati",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Malamati"
     },
     {
       "id": "belongs_to_order:saint:shah-inayat-qadiri:order:shattari",
@@ -8863,7 +8881,8 @@
       "subject": "saint:shah-inayat-qadiri",
       "object": "order:shattari",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Qadri Shattari"
     },
     {
       "id": "belongs_to_order:saint:pir-syed-muhammad-rashid-shah-roze-dhani:order:rashidi",
@@ -8871,7 +8890,8 @@
       "subject": "saint:pir-syed-muhammad-rashid-shah-roze-dhani",
       "object": "order:rashidi",
       "confidence": 0.9,
-      "method": "human"
+      "method": "human",
+      "asRecorded": "Rashidi"
     },
     {
       "id": "disciple_of:saint:bulleh-shah:saint:shah-inayat-qadiri",
@@ -10396,18 +10416,6 @@
       "asRecorded": "Chishti"
     },
     {
-      "id": "belongs_to_order:saint:waris-shah:order:chishtiyya",
-      "type": "belongs_to_order",
-      "subject": "saint:waris-shah",
-      "object": "order:chishtiyya",
-      "confidence": 0.95,
-      "method": "machine-extracted",
-      "reviewed": false,
-      "source": "data/shrines.csv#mausoleum-of-waris-shah",
-      "quote": "belonged in spirit to the Chishti Sufi tradition, tracing his discipleship to the line of the saint Makhdoom of Kasur",
-      "asRecorded": "Chishti"
-    },
-    {
       "id": "belongs_to_order:saint:khwaja-muhammad-qasim-sadiq:order:naqshbandiyya",
       "type": "belongs_to_order",
       "subject": "saint:khwaja-muhammad-qasim-sadiq",
@@ -10442,18 +10450,6 @@
       "reviewed": false,
       "source": "data/shrines.csv#shamsabad",
       "quote": "Qadiri",
-      "asRecorded": "Qadiri"
-    },
-    {
-      "id": "belongs_to_order:saint:daud-bandagi-kirmani:order:qadiriyya",
-      "type": "belongs_to_order",
-      "subject": "saint:daud-bandagi-kirmani",
-      "object": "order:qadiriyya",
-      "confidence": 0.95,
-      "method": "machine-extracted",
-      "reviewed": false,
-      "source": "data/shrines.csv#shergarh",
-      "quote": "a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab",
       "asRecorded": "Qadiri"
     },
     {
@@ -11960,7 +11956,7 @@
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 673,
+    "relations": 671,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T23:59:35.716Z",
+  "generated": "2026-08-30T00:18:12.138Z",
   "reviewNeeded": [
     {
       "issue": "name-merge",
@@ -370,6 +370,11 @@
       "issue": "saint-identity-joined",
       "entityId": "saint:hazrat-wasif-ali-wasif-awan",
       "details": "proposal slug \"hazrat-wasif-ali-wasif\" names the same person as \"hazrat-wasif-ali-wasif-awan\" (\"Hazrat Wasif Ali Wasif Awan\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "seeded-order-contradicts-sheet",
+      "entityId": "saint:qalandar-baba-auliya",
+      "details": "saintOrders seeds \"qalandariyya\", but this figure's own silsila cell reads \"Azeemia\" and does not name it. Correct the seed, or record the disagreement in saintOrdersNotInCell with the evidence for it."
     },
     {
       "issue": "seed-note",
