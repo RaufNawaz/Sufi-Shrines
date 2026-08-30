@@ -161,6 +161,26 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
+  test('a tradition page has no critical violations', async ({ page }) => {
+    /* Nanakpanthi: nine members, so nine evidence blockquotes in English on a
+       page whose surrounding prose may be Urdu — the densest mix of scripts and
+       directions in the archive, and the shape `lang`/`dir` on a blockquote
+       exists to handle. */
+    await page.goto('/tradition/nanakpanthi');
+    await page.locator('h1.entity-title').waitFor();
+    await page.locator('.tradition-member').first().waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('settings page has no critical violations', async ({ page }) => {
     /* The densest page of form controls in the archive, and the only one whose
        whole content is native inputs: a fieldset per option, a legend per
@@ -327,6 +347,7 @@ const DARK_ROUTES = [
   '/typology',
   '/chronology',
   '/shared-ground',
+  '/tradition/nanakpanthi',
   '/about',
   '/settings',
 ];

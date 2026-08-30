@@ -834,6 +834,101 @@ const placeSlugs = [];
   console.log(`[prerender] ✓ ${placeSlugs.length} place pages (+ /ur mirrors)`);
 }
 
+// ── tradition pages ───────────────────────────────────────────────────────
+/*
+ * The five non-Sufi traditions the corpus names, plus Udasi — six pages
+ * mirroring /order/:slug. Read from data/kg-traditions.json rather than from
+ * kg.json on purpose: the same reason src/lib/data/traditions.ts is not
+ * imported by src/lib/kg.ts (HANDOVER §9.138, and the brief).
+ *
+ * The Urdu name is the layer's own `nameUr`, never translateWordsUr(): these
+ * are the corpus's Urdu, checked verbatim against the Urdu article by
+ * traditions.test.ts, and running them through the dictionary would substitute
+ * a guess for a source.
+ */
+const traditionSlugs = [];
+{
+  const path = join(ROOT, 'data', 'kg-traditions.json');
+  const doc = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : { traditions: [] };
+  for (const tradition of doc.traditions ?? []) {
+    const canonicalUrl = SITE_URL ? `${SITE_URL}/tradition/${tradition.slug}` : '';
+    const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur/tradition/${tradition.slug}` : '';
+    const members = (doc.memberships ?? []).filter((m) => m.traditionSlug === tradition.slug);
+
+    /* The definition's own first sentence, not a summary written here. It is
+       already verbatim from an entry, so a crawler's snippet quotes the archive
+       rather than paraphrasing it. Trimmed to a length a search result shows. */
+    const firstSentence = (text) => {
+      const flat = String(text).replace(/\s+/g, ' ').trim();
+      const cut = flat.slice(0, 260);
+      const stop = cut.lastIndexOf('. ');
+      return stop > 80 ? cut.slice(0, stop + 1) : cut;
+    };
+    const desc = escHtml(firstSentence(tradition.definition));
+    const descUr = escHtml(easternDigits(firstSentence(tradition.definitionUr)));
+
+    const page = (title, description, lang, canonical) => {
+      let out = baseHtml
+        .replace(
+          /<title>[^<]*<\/title>/,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+        )
+        .replace(
+          /<meta\s+name="description"[^>]*>/i,
+          `<meta name="description" content="${description}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:title"[^>]*>/i,
+          `<meta property="og:title" content="${escHtml(title)}" />`,
+        )
+        .replace(
+          /<meta\s+property="og:description"[^>]*>/i,
+          `<meta property="og:description" content="${description}" />`,
+        );
+      if (lang === 'ur') out = out.replace(/<html[^>]*>/, '<html lang="ur" dir="rtl">');
+      out = replaceHreflang(out, canonicalUrl, urCanonicalUrl);
+      const extras = [
+        canonical ? `  <link rel="canonical" href="${escHtml(canonical)}" />` : '',
+        canonical ? `  <meta property="og:url" content="${escHtml(canonical)}" />` : '',
+        /* Organization, as the orders use — a tradition is a body people belong
+           to. `subjectOf` is left out for the same reason place pages omit
+           containsPlace: the page already links every member. */
+        `  <script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': canonical || `${KG_BASE}tradition/${tradition.slug}`,
+          name: lang === 'ur' ? tradition.nameUr : tradition.name,
+          ...(tradition.alsoKnownAs?.length ? { alternateName: tradition.alsoKnownAs } : {}),
+          description: lang === 'ur' ? tradition.definitionUr : tradition.definition,
+          ...(lang === 'ur' ? { inLanguage: 'ur' } : {}),
+        })}</script>`,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      return out.replace('</head>', `${extras}\n</head>`);
+    };
+
+    const outDir = join(distDir, 'tradition', tradition.slug);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(
+      join(outDir, 'index.html'),
+      page(tradition.name, desc, 'en', canonicalUrl),
+      'utf8',
+    );
+
+    const urOutDir = join(distDir, 'ur', 'tradition', tradition.slug);
+    mkdirSync(urOutDir, { recursive: true });
+    writeFileSync(
+      join(urOutDir, 'index.html'),
+      page(tradition.nameUr, descUr, 'ur', urCanonicalUrl),
+      'utf8',
+    );
+
+    traditionSlugs.push({ path: `/tradition/${tradition.slug}`, members: members.length });
+  }
+  console.log(`[prerender] ✓ ${traditionSlugs.length} tradition pages (+ /ur mirrors)`);
+}
+
 // Emits both the English and Urdu <url> entries for a page, each annotated
 // with hreflang alternates pointing at both — the standard bidirectional
 // sitemap+hreflang pattern (see https://developers.google.com/search/docs
@@ -1096,6 +1191,9 @@ if (SITE_URL) {
     ),
     ...placeSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.6'),
+    ),
+    ...traditionSlugs.map((t) =>
+      sitemapUrlPair(`${SITE_URL}${t.path}`, `${SITE_URL}/ur${t.path}`, 'monthly', '0.6'),
     ),
     // The four static pages. They were absent from the sitemap for the same
     // reason they were absent from dist: nothing enumerated them.

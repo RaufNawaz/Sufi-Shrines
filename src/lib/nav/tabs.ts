@@ -39,7 +39,15 @@ export const TABS: readonly TabDefinition[] = [
   /* `/shared-ground` belongs to the map, not to the atlas: it is a statement
      about where sites are, and every row on it leads to a shrine page. */
   { id: 'map', path: '/', labelKey: 'tabMap', owns: ['/shrine/', '/place/', '/shared-ground'] },
-  { id: 'explore', path: '/graph', labelKey: 'tabExplore', owns: ['/saint/', '/order/'] },
+  /* `/tradition/` sits with the explorer for the same reason `/order/` does:
+     both answer "what did this belong to". The orders are the Sufi half of that
+     question and the traditions are the other five. */
+  {
+    id: 'explore',
+    path: '/graph',
+    labelKey: 'tabExplore',
+    owns: ['/saint/', '/order/', '/tradition/'],
+  },
   { id: 'almanac', path: '/almanac', labelKey: 'tabAlmanac', owns: [] },
   /* The atlas tab owns `/chronology` as well as its own `/typology`: both are
      ways of seeing the *whole* archive at once rather than one site — by built

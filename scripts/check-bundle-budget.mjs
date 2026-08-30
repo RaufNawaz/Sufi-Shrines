@@ -112,7 +112,13 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
 const BUDGETS_KB = {
   'index.html': 265, // measured 246 on 26 Aug 2026
   'src/pages/MapPage.tsx': 600, // measured 560 on 26 Aug 2026
-  'src/pages/ShrinePage.tsx': 520, // measured 484 on 26 Aug 2026
+  /* ⚠ 519 against 520 as of 29 Aug 2026 — one kilobyte of headroom, the
+     tightest on the board. The +2 KB is the infobox's tradition row, and the
+     13 KB of tradition data it reads is deliberately NOT in this number (see
+     useShrineTraditions). Anything added to this route now needs a measurement
+     first, and the next feature to need room here should look at what the page
+     imports rather than raise this line. */
+  'src/pages/ShrinePage.tsx': 520, // measured 519 on 29 Aug 2026
   'src/pages/SaintPage.tsx': 675, // measured 632 on 26 Aug 2026
   'src/pages/OrderPage.tsx': 665, // measured 620 on 26 Aug 2026
   'src/pages/GraphPage.tsx': 615, // measured 574 on 26 Aug 2026
@@ -161,6 +167,14 @@ const BUDGETS_KB = {
      something pulled in src/lib/kg.ts; by ~1 MB, the maplibre basemap, which
      would mean a link to the map turned into an embedded one. */
   'src/pages/SharedGroundPage.tsx': 315, // measured 309 on 29 Aug 2026
+  /* The tradition pages, new on 29 Aug 2026. Sibling of the order pages and it
+     loads much the same things, minus the graph. Its own data lives in
+     `data/kg-traditions.json` (17 KB as a chunk) and is *not* here by accident:
+     `ShrineInfobox` wants the same file for a one-line row on 18 of 169 pages
+     and reaches it through a dynamic import, so ShrinePage pays nothing for it.
+     A static import there would have cost 17 KB against 3 KB of headroom.
+     If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
+  'src/pages/TraditionPage.tsx': 332, // measured 326 on 29 Aug 2026
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two

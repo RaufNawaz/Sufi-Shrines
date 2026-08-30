@@ -1007,6 +1007,25 @@ const UI_TEXT_EN = {
      looks unchanged. */
   sharedGroundLensNote:
     'Sites beside another tradition stay lit; the rest dim. The links between them are under 800 m, so zoom in to see them.',
+
+  /* ── The tradition pages (/tradition/:slug) ────────────────────────────
+     `/order/:slug` covers Sufi affiliation and every order in the graph is
+     Sufi. These six are the other traditions the corpus names and describes —
+     Nath, Udasi, Pranami, Swaminarayan, Daduvansi, Shakti Peetha — and the
+     copy has one job the order pages do not: to keep the difference between a
+     *bucket* (the site's category) and a *claim* (what its entry says it
+     belongs to) legible on the same page. */
+  traditionKicker: 'Tradition',
+  traditionSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
+  traditionDefinitionHeading: 'What the archive says',
+  traditionFromEntry: 'From the entry for',
+  traditionSitesHeading: 'Sites recorded in this tradition',
+  traditionSitesNote:
+    'Each of these is a site whose own entry places it in this tradition, with the sentence that says so.',
+  traditionScopeHeading: 'What this does not include',
+  traditionScopeNote:
+    'Only sites whose entry names this tradition are listed. A site is never added because a word matched: the same terms recur with other meanings — a Sikh entry uses ʿudasi\u2019 for Guru Nanak\u2019s journeys, and \u2018jogi\u2019 appears in a poem about Ranjha — and each of those is recorded as a deliberate exclusion rather than counted.',
+  traditionLabel: 'Tradition',
 } as const;
 /**
  * The shape every language's table must have: the English table's keys, with
@@ -1142,6 +1161,7 @@ export function tFn(
   pairs: number,
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundMeetingPairs', n: number): string;
+export function tFn(lang: Lang, key: 'traditionSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
 export function tFn(lang: Lang, key: 'aboutTrustLineage', total: number): string;
@@ -1237,6 +1257,7 @@ export function tFn(
     | 'sharedGroundIntroSame'
     | 'sharedGroundCrossOfPairs'
     | 'sharedGroundMeetingPairs'
+    | 'traditionSiteCount'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'
     | 'aboutTrustLineage'

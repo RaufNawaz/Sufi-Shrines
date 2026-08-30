@@ -2649,3 +2649,73 @@
 .order-description-editorial {
   margin-block-start: var(--space-2);
 }
+
+/* ── Tradition pages (/tradition/:slug) ───────────────────────────────────── */
+
+/*
+ * The five non-Sufi traditions the corpus names, plus Udasi, Nanakpanthi and
+ * Sevapanthi. Sibling of the order pages and styled as one — same `.kg-section`
+ * rhythm, same evidence blockquote — because they answer the same question
+ * ("what did this belong to") for the traditions `/order/:slug` cannot cover.
+ *
+ * The one thing that is not shared: an order page's `description` is a summary
+ * written for this site, and a tradition's `definition` is a passage sliced
+ * verbatim out of an entry. So it is set as reading prose rather than as a
+ * caption, and the entry it came from is named directly underneath.
+ */
+.tradition-aka {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.tradition-aka-label {
+  font-weight: 600;
+}
+
+.tradition-definition {
+  margin: 0 0 var(--space-2);
+  max-inline-size: 62ch;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+.tradition-definition-source {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.tradition-members {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tradition-member {
+  padding-block: var(--space-3);
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.tradition-member:last-child {
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.tradition-member-name {
+  font-weight: 600;
+  margin-block-end: var(--space-2);
+}
+
+/* Nastaliq needs the room, and never below --text-sm. */
+[dir='rtl'] .tradition-aka,
+[dir='rtl'] .tradition-definition,
+[dir='rtl'] .tradition-definition-source {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}
+
+[dir='rtl'] .tradition-aka,
+[dir='rtl'] .tradition-definition-source {
+  font-size: var(--text-sm);
+}

@@ -32,6 +32,7 @@ const ReviewPage = lazy(() => import('./pages/ReviewPage'));
 const TypologyPage = lazy(() => import('./pages/TypologyPage'));
 const ChronologyPage = lazy(() => import('./pages/ChronologyPage'));
 const SharedGroundPage = lazy(() => import('./pages/SharedGroundPage'));
+const TraditionPage = lazy(() => import('./pages/TraditionPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PlacePage = lazy(() => import('./pages/PlacePage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
@@ -187,6 +188,7 @@ export default function App() {
                     <Route path="/typology" element={<TypologyPage />} />
                     <Route path="/chronology" element={<ChronologyPage />} />
                     <Route path="/shared-ground" element={<SharedGroundPage />} />
+                    <Route path="/tradition/:slug" element={<TraditionPage />} />
                     <Route path="/coverage" element={<Navigate to="/about#traditions" replace />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/place/:slug" element={<PlacePage />} />
@@ -275,6 +277,14 @@ export default function App() {
                       element={
                         <UrPrefixNormalizer>
                           <SharedGroundPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/tradition/:slug"
+                      element={
+                        <UrPrefixNormalizer>
+                          <TraditionPage />
                         </UrPrefixNormalizer>
                       }
                     />

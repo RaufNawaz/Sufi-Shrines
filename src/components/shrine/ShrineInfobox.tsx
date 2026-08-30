@@ -18,6 +18,8 @@ import { localizeObservance } from '../../lib/i18n/localizeObservance';
 import type { Lang } from '../../types/shrine';
 
 import { usesLatinScript } from '../../lib/i18n/languages';
+import { isRtlLang } from '../../lib/i18n/languages';
+import { useShrineTraditions } from './useShrineTraditions';
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
 }
@@ -58,6 +60,8 @@ interface Props {
 
 export function ShrineInfobox({ shrine }: Props) {
   const { t, lang, localizeField, fmtNum } = useLang();
+  const isRtl = isRtlLang(lang);
+  const traditions = useShrineTraditions(shrine.slug);
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {
@@ -179,6 +183,34 @@ export function ShrineInfobox({ shrine }: Props) {
                   {t('sourceNoteLabel')}: <bdi>{shrine.siteTypeNote}</bdi>
                 </p>
               )}
+            </dd>
+          </div>
+        )}
+        {/* The tradition the site's own entry places it in — ten sites of 169.
+            Deliberately *below* silsila and not merged with it: a silsila is
+            the Sufi answer to this question and these six are the other five
+            traditions' answer, and one row that sometimes means either would
+            blur exactly the distinction the layer was built to draw.
+
+            Absent for the other 159, and absence is not "none": it means the
+            entry does not name one. It is never filled in from `category`,
+            which is a filing bucket rather than a claim. */}
+        {traditions.length > 0 && (
+          <div className="infobox-row">
+            <dt className="infobox-label">{t('traditionLabel')}</dt>
+            <dd className="infobox-value">
+              {/* Plural: three of the eighteen sites that carry a tradition
+                  carry two, because their entry names both in one sentence.
+                  Both are shown — picking one would be the archive choosing
+                  between two things its own source says. */}
+              {traditions.map((tradition, i) => (
+                <span key={tradition.slug}>
+                  {i > 0 && <span aria-hidden="true"> · </span>}
+                  <Link to={`/tradition/${tradition.slug}`}>
+                    {isRtl ? tradition.nameUr : tradition.name}
+                  </Link>
+                </span>
+              ))}
             </dd>
           </div>
         )}

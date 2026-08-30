@@ -3803,6 +3803,87 @@ both redirects.
     18 sites of a plausible 40 carry a tradition, and that gap is the corpus's, not the
     extraction's: **the number to grow is the number of sentences in which the archive says so.**
 
+138. **The tradition layer gets its pages — and the two bugs it took were both in the *shape*
+    of code, not in a line of it.** *Built 29 August 2026, from the knowledge-base session's
+    `docs/briefs/TRADITION_LAYER.md` and §9.136–137.* `/tradition/:slug`, eight pages in both
+    languages, plus a row in `ShrineInfobox` for the 18 sites the corpus places. To be clear
+    about provenance: **that layer was left unrendered by design, not by neglect** — Rauf chose
+    "data layer plus brief" over one session touching the other's files — so it is *not* a
+    fourth instance of §9.130's held-and-not-rendered pattern. The other three are.
+
+    **Where it went, and why not where the brief suggested.** The brief offered `/typology`,
+    which is already the page about kinds of site. Rauf chose routes instead, and the deciding
+    argument was the destination: a reader who clicks "Nath" in an infobox is asking *what is
+    the Nath tradition*, and an anchor on a page titled "Atlas of Built Forms" is a poor answer.
+    Six thin pages was the objection; `/order/:slug` already ships four orders with a single
+    member, so thin is the existing norm here.
+
+    **Bug one: `.find()` survives its data growing, and lies when it does.** `getTraditionForShrine`
+    returned one tradition — correct against six traditions and ten non-overlapping memberships.
+    The layer then grew to eight and twenty-one, three sites gained a *second* tradition
+    (Khatwari Darbar is Udasi and Nanakpanthi; Guru Gurpat Mandir is both in one sentence;
+    Sevapanthi Darbar is Nanakpanthi and Sevapanthi), and `.find()` does not fail when a second
+    answer appears — it returns the first and drops the rest silently. Nothing would have gone
+    red. **A single-valued accessor over a list is a bet that the data will not grow**, and this
+    one was already lost by the time it was written.
+
+    **Bug two: an optional field that TypeScript could not see was optional.** `Tradition.alsoKnownAs`
+    was typed `string[]`, which is true of seven of the eight records. `daduvansi` has no such
+    key, `tradition.alsoKnownAs.length` threw, and `/tradition/daduvansi` rendered a **blank
+    page**. Typecheck was clean throughout: the JSON is imported, so its inferred type is
+    whatever the file happens to contain, and a field absent from one record of eight does not
+    announce itself. I had probed two pages by hand and both were fine.
+
+    The lesson is the same in both cases and it is about coverage, not care: **a spot check on a
+    generated set of N proves nothing about the other N−1.** `e2e/traditions.spec.ts` now reads
+    the slug list *from the data file* and walks every page in both languages asserting no
+    `pageerror`, so the set cannot grow past its own test. That is the shape to copy for any
+    per-entity route.
+
+    **Payload.** `data/kg-traditions.json` is 17 KB as a chunk and `ShrinePage` had 3 KB of
+    budget headroom. `/tradition/:slug` imports it statically — it is that route's subject —
+    while `useShrineTraditions` reaches it through a **dynamic** import for one infobox row, so
+    Vite gives both callers the same chunk, eager for one and lazy for the other. ShrinePage
+    grew 517 → 519 KB against 520: the row's markup, not its data. **That leaves the tightest
+    headroom on the board, and it is flagged in `check-bundle-budget.mjs` rather than left to be
+    discovered by whoever next adds to a shrine page.**
+
+    **One thing not built on.** The Sevapanthi entry's prose still says it is *"filed here under
+    'Sikh Gurdwara' as the closest of the dataset's three categories"*, while its sheet
+    `category` is now `Nanakpanthi / Udasi Darbar`. The archive is stale about its own filing
+    rather than wrong about the world; the sheet is Rauf's via a patch (RULE 3), and no UI claim
+    rests on that sentence.
+
+139. **A touch-target failure I could not reproduce, and the two explanations that turned out to
+    be wrong.** *Seen once, 29 August 2026.* `a11y.spec.ts` "shrine page actions are all
+    tappable" failed in a full 380-test run at 5 workers, reporting two `.lang-seg` controls
+    (the language toggle) as `49x44` and `53x44` — heights fractionally under the 44px minimum,
+    since `Math.round` displays 43.99 as 44. Recorded rather than fixed, because **I disproved
+    both of my own explanations and shipping a fix for a cause I had ruled out would have been
+    worse than leaving it.**
+
+    - **Not fonts.** The reported width of 49 *does* match the fallback-metrics measurement
+      (48.516 rounds to 49, the webfont state gives 48.281 → 48), so the run was genuinely in a
+      pre-webfont state. But blocking every `woff`/`woff2`/`ttf` and re-measuring gives height
+      **exactly 44**, and `document.fonts.ready` moves nothing. The width clue is real; the
+      height does not follow from it.
+    - **Not animations.** The plausible successor — a measurement taken mid-`page-enter`, the
+      same class as §9.46, where axe folds an ancestor's opacity into a contrast reading — is
+      also wrong. Sampling `getBoundingClientRect().height` on every frame for 88 frames from
+      first paint, with up to **24 animations running**, gives 44 every time and no other value.
+
+    `.lang-seg` is `height: 100%`, so its height is its parent's and not a font metric at all,
+    which is why both theories were the wrong shape. The test passes 6/6 under `--repeat-each`
+    and the language toggle has not been touched since 8 Aug. So: same family as §9.129's
+    contention flake — two agents in one tree, five workers — and the same rule applies. **Do
+    not "fix" this by rounding the measurement**; a control designed to be exactly 44 is the one
+    case where rounding hides a genuine regression, and the assertion is right even though it
+    once fired for a reason nobody has found.
+
+    The clue worth keeping for whoever sees it next: **the failing run was in fallback-font
+    layout.** Anything that reproduces it should start by loading the page with fonts blocked
+    *and* the CPU contended, not with either alone.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

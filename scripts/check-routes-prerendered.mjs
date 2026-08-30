@@ -82,6 +82,11 @@ const SPOT_CHECKS = [
   // …and the Urdu mirror of one, because the /ur tree is written by a separate
   // pass and could fail on its own.
   'ur/place/lahore',
+  // The tradition pages are the newest per-entity loop, and the one whose data
+  // file is separate from kg.json — so its absence would be a missing file
+  // rather than an empty graph, and would not show up in any other check.
+  'tradition/nath',
+  'ur/tradition/nath',
 ];
 for (const rel of SPOT_CHECKS) {
   if (!existsSync(join(DIST, rel, 'index.html'))) {
