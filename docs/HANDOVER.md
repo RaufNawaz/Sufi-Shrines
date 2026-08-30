@@ -4777,6 +4777,40 @@ both redirects.
     Punjabi Sufism, every visitor to Data Darbar knows the couplet, and it is not a teaching tie.
     A rejection is worth recording exactly in proportion to how obvious the edge looks.
 
+170. **An Urdu reader cannot find a person by their Urdu name. 250 of the 258 search rows carry no
+    Urdu at all.** *Measured 30 August 2026, checking that the session's 51 new figures were
+    reachable.* They are — in English. Typing `Mata Tripta` returns a **FIGURES** group with her in
+    it. Typing `ماتا ترپتا` returns six shrines whose names contain ماتا or داتا and **no figures
+    group at all**, and the same is true of a figure who has been in the archive from the start:
+    `بے بے نانکی` returns seven gurdwaras and not Bebe Nanaki.
+
+    **The mechanism exists and is documented; the data never arrives.** `haystacks()` in
+    `src/lib/search/entitySearch.ts` does `if (entity.nameUr) values.push(entity.nameUr)`, under a
+    comment promising that "the Urdu name is indexed in both interfaces, not only the Urdu one".
+    `build-kg.mjs` writes `nameUr` into every row that *has* one. Of 258 rows, **8 do** — the eight
+    traditions, because the tradition seed carries Urdu on the node. Every figure and every order
+    resolves its Urdu through `translateNameToUrdu` at render time and carries no `nameUr` field,
+    so the search index has nothing to copy.
+
+    Nobody was wrong: the producer copies what exists, the consumer indexes what it is given, and
+    the field is genuinely absent from the node. **It is a seam, and the test that would have caught
+    it is the one the features session wrote for a different layer the same day** — *the two
+    languages must find the same things, and a difference is never a translation gap*.
+
+    **Do not fix it by putting `nameUr` on every saint in `kg.json`.** That would mean `build-kg`
+    mirroring the dictionary resolver — the mirror that produced §9.163's false positive — and would
+    add back a slice of the 59 KB §9.167 removed, on the file that is eager on every graph route.
+    The resolution already exists in the app, where the dictionary lives. The fix is three lines in
+    `ArchiveSearch.tsx`: enrich the loaded index with `translateNameToUrdu(entity.name)` before
+    handing it to `matchEntities`, and `haystacks` needs no change at all.
+
+    One design question goes with it and is a reviewer's call rather than an obvious default:
+    `entitySearch`'s comment promises Urdu names are searchable **in both interfaces**, but
+    `translateNameToUrdu` pulls the lazy 88 KB dictionary — free for an Urdu reader who already has
+    it, not free for an English one. Keeping that promise costs English readers a dictionary they
+    otherwise never load; breaking it makes the two search surfaces disagree about which scripts
+    they accept, which that same comment argues is worse than either rule alone.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
