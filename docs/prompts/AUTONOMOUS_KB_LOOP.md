@@ -64,8 +64,16 @@ One git index, one working tree, two agents. Before touching anything:
   work into your commit; it has happened.
 - **Commit with explicit paths**: `git commit -o <path> <path> -m ...` — never `-a`.
 - `npm run build` and `npm run verify` measure the **working tree, not a commit**. A number taken
-  while the other lane is mid-edit describes a state that never existed. Ruling a cause *out* from
-  a dirty tree is safe; ruling one *in* is not.
+  while the other lane is mid-edit describes a state that never existed and will not again.
+  - Ruling a cause *out* from a dirty tree is safe; ruling one *in* is not.
+  - **And a GREEN run on a dirty tree is as untrustworthy as a red one** — it may be green because
+    of the other lane's uncommitted work, which will not be there when your commit is built alone.
+    Both sessions hit this on 30 August: one attributed a bundle failure to the wrong lane, the
+    other passed `verify` twice on states that included the first's uncommitted files. Green
+    attributes no better than red does.
+  - The practical form: **name what you are about to touch before you touch it**, and read
+    `git status` before believing any number. Announcing intent in one line saved both sessions a
+    duplicated file and several wrong attributions.
 - `format:check` and the import-tracking test walk **untracked** files, so either lane's scratch
   file reddens the shared gate. If a failure is in a file you did not touch, say so and move on.
 - Message them rather than fixing their files (`ListAgents`, then `SendMessage`).
