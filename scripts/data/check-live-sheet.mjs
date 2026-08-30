@@ -96,6 +96,60 @@ function tally(rows, column) {
   return [...counts.entries()].sort((a, b) => b[1] - a[1]);
 }
 
+/**
+ * What an added row costs, in the reader's terms rather than in row counts.
+ *
+ * The gap itself has been in this file's header since 27 August 2026 and its
+ * consequences had not been, so it read as bookkeeping. It is not. **Every
+ * artefact this site ships is built from the snapshot**, so a row that is in
+ * the sheet and not in the snapshot is not merely uncounted — it is a shrine
+ * the archive holds and half the site denies.
+ *
+ * The Urdu line is measured, not asserted: `src/data/urdu-seed.json` is built
+ * from the snapshot, so a row that never entered it has no Urdu name, and
+ * `localizeShrineName` falls back to the English string. Checked on the live
+ * map at `?lang=ur` on 30 August 2026: both drifted rows render as English
+ * links in the sidebar, **outside `<bdi>`** — and `e2e/urdu-no-leak.spec.ts`
+ * cannot see them, because its fixture is generated from the same snapshot that
+ * is missing them. A guard built from the snapshot is blind to exactly the rows
+ * that drift from it. That is the shape of the whole gate system (RULE 3), and
+ * it is why this script exists.
+ */
+function reportAddedConsequences(added, live, liveSlugs) {
+  const seedPath = join(ROOT, 'src', 'data', 'urdu-seed.json');
+  let seedText = '';
+  try {
+    seedText = readFileSync(seedPath, 'utf8');
+  } catch {
+    // No seed on disk: skip the Urdu line rather than guess at it.
+  }
+
+  const noUrduName = [];
+  for (const slug of added) {
+    const name = live[liveSlugs.indexOf(slug)]?.Name;
+    if (seedText && name && !seedText.includes(JSON.stringify(name).slice(1, -1))) {
+      noUrduName.push(name);
+    }
+  }
+
+  console.log('\n  What each of those rows is missing until the next data:build:');
+  console.log('    · no page of its own in a fresh clone, and no marker until the CSV lands');
+  console.log('    · no entry in the search index, the knowledge graph, or any /about figure');
+  console.log('    · no figure page: a saint named only by one of these rows builds as');
+  console.log('      lineage-only, and /saint/:slug says "named in a lineage, no entry here"');
+  if (seedText) {
+    console.log(
+      noUrduName.length
+        ? `    · ${noUrduName.length} of ${added.length} have no Urdu name in urdu-seed.json, so the` +
+            ' Urdu\n      interface renders them in English — and e2e/urdu-no-leak.spec.ts cannot' +
+            '\n      see it, because its fixture comes from the same snapshot:'
+        : `    · all ${added.length} already carry an Urdu name in urdu-seed.json`,
+    );
+    for (const name of noUrduName) console.log(`        ${name}`);
+  }
+  console.log();
+}
+
 function main() {
   const jsonIndex = process.argv.indexOf('--json');
   const jsonOut = jsonIndex > -1 ? process.argv[jsonIndex + 1] : null;
@@ -128,6 +182,7 @@ function main() {
       const row = live[liveSlugs.indexOf(slug)];
       console.log(`  + ${slug}   ${row?.Name ?? ''}`);
     }
+    if (added.length) reportAddedConsequences(added, live, liveSlugs);
     for (const slug of removed) {
       /* A removal is the serious direction: the published photo URLs and every
          external link to /shrine/<slug> ride on these slugs (CLAUDE.md's
