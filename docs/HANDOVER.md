@@ -5042,6 +5042,40 @@ both redirects.
     the not-found fallthrough, and there are **19** of them. A fallthrough that catches an unknown
     slug earlier turns nineteen working redirects into nineteen 404s.
 
+175. **A relation type the archive needs twice and does not have: descent at a remove down a
+    SPIRITUAL line.** *Found 30 August 2026, working the kin pile down.* Two entries name a figure
+    and the figure they descend from, both already in the graph, both sentences explicit — and
+    neither vocabulary can hold the claim:
+
+    > built around a Sant revered as a **twelfth-generation descendant**, in the Jagiasi lineage,
+    > **of Guru Nanak** — `guru-gurpat` → `guru-nanak`
+
+    > built under an **eighth successor in the lineage**, Sant Harnam Das — Sadh Belo
+
+    `descendant_of` is in the **kin** layer and means blood. This is not blood: the same entry calls
+    the Jagiasi Sants *"spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line"*,
+    and Nanak's line to the Udasis runs through an ascetic son rather than a family. The **lineage**
+    vocabulary has only `disciple_of` and `successor_of`, and neither survives eight generations,
+    let alone twelve — an edge would compress the whole line into one hop and assert a meeting that
+    never happened.
+
+    So the archive can say *A was B's disciple* and *A descends from B by blood*, and cannot say
+    **A stands twelve generations down B's spiritual line** — which for a Nanakpanthi sant or a
+    *gaddi* succession is the most common thing there is to say. Both instances are recorded as
+    non-ties with the reasoning. The first read as a one-off; **the second is what makes it a gap
+    rather than an oddity.** Rauf's decision, worth taking before a third rediscovery; the shape
+    would be a `descendant_in_lineage_of` beside the existing two, carrying a generation count where
+    the corpus gives one.
+
+    Six adjudications in the same pass, and one of them shows why a class ruling is not enough on
+    its own: the sayyid-descent formula was ruled once already, but **the scanners match on the
+    sentence**, so a class ruling still needs one row per instance. The Chan Charagh entry states
+    the same formula in different words and was being offered back.
+
+    The quote gate caught one of the six on the way in — my quote ended `[House]"` where the corpus
+    has `[House]."`, the period **inside** the closing quote. Third time today it has caught its own
+    author.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
