@@ -9,7 +9,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { categoryKey, categoryDisplayLabel } from '../../lib/data/categoryKey';
 import type { CategoryKey } from '../../lib/data/categoryKey';
-import { supportLevelKey } from '../../lib/data/supportLevel';
+import { filterShrines } from '../../lib/data/shrineFilters';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
 import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
@@ -17,7 +17,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDebounce } from '../../hooks/useDebounce';
 import { useSearch } from '../../lib/search/useSearch';
 import { useSavedShrines } from '../../lib/savedShrines';
-import { parseEra, ERA_MIN, ERA_MAX } from '../../lib/data/era';
+import { ERA_MIN, ERA_MAX } from '../../lib/data/era';
 import type { Tour } from '../../lib/tours/tours';
 import { TourPanel } from './TourPanel';
 import { TourList } from './TourList';
@@ -196,24 +196,25 @@ export function MapSidebar({
   const { copy: copyListLink, copied: listLinkCopied } = useShareLink({ copiedMs: 2000 });
 
   const filtered = useMemo(() => {
-    let result = shrines;
-    if (activeCategories.length)
-      result = result.filter((s) => activeCategories.includes(categoryKey(s.category)));
-    if (verifiedOnly)
-      result = result.filter((s) => supportLevelKey(s.supportLevel) === 'field-verified');
-    if (savedOnly) result = result.filter((s) => savedSlugs.includes(s.slug));
-    // (the print pack below recomputes this from `shrines` so search/era
-    // narrowing never silently drops entries from the printed list)
-    if (sharedSlugs.length) result = result.filter((s) => sharedSlugs.includes(s.slug));
-    if (activeRegion) result = result.filter((s) => s.region === activeRegion);
-    if (hasEraFilter) {
-      result = result.filter((s) => {
-        if (!s.founded) return false;
-        const era = parseEra(s.founded);
-        if (!era) return false;
-        return era.maxCentury >= eraMin && era.minCentury <= eraMax;
-      });
-    }
+    /* The URL-persisted filters come from `lib/data/shrineFilters.ts`, which
+       the map calls too — they used to live here and the map never saw them,
+       so `?category=jain` said "3 of 171 sites" beside 169 pins. Search stays
+       here on purpose: it is not in the URL, so it is not part of what a reader
+       shares, and it must not redraw the map on every keystroke.
+       (The print pack below recomputes from `shrines`, so search and era
+       narrowing never silently drop entries from the printed list.) */
+    let result: Shrine[] = filterShrines(
+      shrines,
+      {
+        categories: activeCategories,
+        verifiedOnly,
+        savedOnly,
+        region: activeRegion,
+        eraMin,
+        eraMax,
+      },
+      { savedSlugs, sharedSlugs, hasEraFilter },
+    );
     if (search.trim()) {
       if (searchIds !== null) {
         // Worker results available (ranked, fuzzy) — filter to matches, then

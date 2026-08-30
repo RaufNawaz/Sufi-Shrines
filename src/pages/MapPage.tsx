@@ -10,6 +10,8 @@ import { ShrineMap } from '../components/map/ShrineMap';
 import { MapSidebar } from '../components/map/MapSidebar';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 import { ERA_MIN, ERA_MAX } from '../lib/data/era';
+import { filterShrines } from '../lib/data/shrineFilters';
+import { useSavedShrines } from '../lib/savedShrines';
 import { CATEGORY_ORDER, categoryKey } from '../lib/data/categoryKey';
 import type { CategoryKey } from '../lib/data/categoryKey';
 import { TOURS } from '../lib/tours/tours';
@@ -226,6 +228,35 @@ export default function MapPage() {
      the front door — the route whose TBT this project spent a session taking
      from 1,386 ms to ~87 ms. Empty array when off, which is also how ShrineMap
      knows the lens is not running. */
+  /*
+   * The shrines the map draws — the filters applied, the search not.
+   *
+   * These filters used to be applied only inside `MapSidebar`, so the map never
+   * saw them. Measured on the running site, 30 August 2026: `/?category=jain`
+   * reported "3 of 171 sites" in the list and drew **169 markers**; so did
+   * every other filter. That is worse than a filter that does nothing, because
+   * `setFiltersInURL` above puts these in the address bar deliberately so a
+   * reader can share the view they are looking at — and what they shared was a
+   * link promising a filter and delivering the whole archive.
+   *
+   * `filterShrines` is the one implementation, called from here and from the
+   * sidebar. Two call sites, one function: the distinction is the whole lesson
+   * of `searchDocs.ts`, which had five tests pinning it while production ran a
+   * second, drifted copy.
+   *
+   * The search query is deliberately not applied here — see shrineFilters.ts.
+   */
+  const savedSlugs = useSavedShrines();
+  const mapShrines = useMemo(
+    () =>
+      filterShrines(shrines, filters, {
+        savedSlugs,
+        sharedSlugs,
+        hasEraFilter: filters.eraMin !== ERA_MIN || filters.eraMax !== ERA_MAX,
+      }),
+    [shrines, filters, savedSlugs, sharedSlugs],
+  );
+
   const crossTradition = useMemo(
     () => (sharedGroundLens ? buildSharedGroundOverview(shrines).crossTradition : []),
     [sharedGroundLens, shrines],
@@ -619,7 +650,7 @@ export default function MapPage() {
         onClick={isMobile && sidebarOpen ? handleSidebarClose : undefined}
       >
         <ShrineMap
-          shrines={shrines}
+          shrines={mapShrines}
           selectedId={selectedId}
           onSelect={handleSelect}
           sidebarOpen={sidebarOpen}
