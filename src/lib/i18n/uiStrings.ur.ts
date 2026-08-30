@@ -120,7 +120,16 @@ export const UI_TEXT_UR: UiStrings = {
      is Urdu content, and RULE 2 plus the i18n rules put authoring it beyond an
      agent. Left saying the wrong thing rather than guessed at, and recorded in
      SESSION_RESUME.md as waiting on a fluent speaker. The two editions disagree
-     about the archive's name until then, and that is the honest state. */
+     about the archive's name until then, and that is the honest state.
+
+     **All three strings below, not only the name.** `siteMetaDescription` is a
+     claim about *contents* rather than a name — it says "an interactive map of
+     Sufi shrines across Pakistan", where its English twin was corrected on the
+     same day to enumerate shrines, temples, gurdwaras and darbars. It is the
+     more clearly wrong of the two and equally out of reach: correcting a
+     factual claim in Urdu still means writing Urdu. Same ruling, same reason,
+     stated here so the next reader does not conclude that only the name was
+     considered. An agent may apply a ruling; it may not extend one. */
   title: 'صوفی مزارات',
   siteTitle: 'پاکستان کے صوفی مزارات',
   siteMetaDescription:

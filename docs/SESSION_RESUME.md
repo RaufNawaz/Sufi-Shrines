@@ -97,13 +97,21 @@ Each item names what a reader loses, so the ranking can be argued with rather th
 All four were put to Rauf on 30 August 2026 and answered. What is left is the half an agent
 cannot do.
 
-- **The archive's Urdu name.** The English rename shipped (`730f045`): it is *Mapping the Shrines
+- **The archive's Urdu name, and its Urdu description.** The English rename shipped (`730f045`): it is *Mapping the Shrines
   of Pakistan*, the name the project has carried in CLAUDE.md all along, and no slug or deploy
   path changed. `UI_TEXT.ur.siteTitle` still reads 'پاکستان کے صوفی مزارات' — "Pakistan's Sufi
   shrines" — which has the same problem the rename fixed. An archive's name in Urdu is Urdu
   content (RULE 2), so it is annotated in place and left saying the wrong thing rather than
   guessed at. **The two editions disagree about the archive's name until a fluent speaker
-  settles it.**
+  settles it.** `siteMetaDescription` on the line below it falls under the same ruling and is
+  the clearer error of the two: it promises "an interactive map of Sufi shrines across Pakistan"
+  where the English now enumerates shrines, temples, gurdwaras and darbars.
+- **Three citation strings give three answers.** `LICENSE-data.md` says v1.0.0 / 2026,
+  `citation.ts` says v2.0.0 / 2026, the release README says v1.0.0 / **2025**. A version and a
+  year are facts, so they are recorded rather than picked (HANDOVER §9.172). Related and also
+  deliberately unrenamed: `PUBLICATION.attribution` mirrors the ODbL attribution that
+  `LICENSE-data.md` *requires of people using the data* — changing that is a licence change, not
+  a rename.
 - **Four patches await import** (RULE 3 — a human imports, agents do not write to the sheet):
   `patch_schema_hygiene_2026-08-27.csv`, `patch_year_built_precision_2026-08-29.csv`,
   `patch_site_type_2026-08-30.csv`, and `patch_location_hygiene_2026-08-30.csv` — the last
