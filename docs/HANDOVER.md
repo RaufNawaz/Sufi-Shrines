@@ -5381,6 +5381,17 @@ both redirects.
     to a failure. The `/graph` one is worth flagging as *mine*: the rename did not break it, my
     figures did.
 
+    **The same question asked of the almanac, and there the archive is already right.** `/almanac`
+    opens by defining an *ʿurs* as "the death anniversary of a saint", and **70 of its 149 events
+    belong to non-Muslim sites** — 30 Sikh gurdwaras, 28 Hindu temples, 10 Nanakpanthi darbars.
+    That looked like the same defect and is not: the events are typed
+    `eventType: 'urs'` only for Muslim shrines, and `eventType: 'observance'` elsewhere, with names
+    the tradition would use. The page renders *"Guru Nanak Gurpurab"*, *"Sikh pilgrimage"* and
+    *"Bebe Nanaki commemoration"* — **no ʿurs framing is applied to a Gurpurab**. The intro sentence
+    leads with the ʿurs because that is what most of the archive holds, and the gap paragraph
+    already says "an ʿurs *or annual observance*". Recorded as checked so nobody spends the hour
+    again.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
