@@ -53,6 +53,9 @@ the reason the rest is credible.
 | Search said 44 matches and showed 40, silently | `d096824` |
 | A shrine named its order and never linked to it — the graph's one one-way edge | `4ba4b8a` |
 | The shrine page overwrote its own clean share snippet with raw markdown | `68c1e35` |
+| `/about` ruled its section headings off at two different x, nine at one and fifteen at the other | (this commit) |
+| The rename missed the footer, which sits under every page and all ~800 prerendered files | (this commit) |
+| `/graph` opened "the Sufi orders and saints" over a list where 64 of 134 figures are neither | (this commit) |
 
 ---
 
@@ -65,11 +68,15 @@ Each item names what a reader loses, so the ranking can be argued with rather th
 
 ---
 
-**Left from the header work, and it is a layout question rather than a heading one:** `/about`
-still shows two right edges — the section rules stop at one x for nine headings and another for
-seventeen, because the two classes sit in containers of different width. The headings are now one
-spec, so what remains is the containers. Same family as `.settings-page`'s dead `max-width`,
-which `.entity-page` beats on import order.
+~~**Left from the header work:** `/about` still shows two right edges.~~ **Closed 31 August
+2026.** Measured before believing the note, and it was nine headings at x=767 against **fifteen**
+at x=1054, not seventeen — the note's own count was a heading out. The cause was not the
+containers as such: `.about-section` carried `max-width: 68ch` and `.coverage-section` carried
+none. The measure moved onto the prose inside the section, so the tables and bar rows keep the
+width they need and all 24 headings now rule off at one x. `e2e/typography.spec.ts` asserts both
+halves — one edge, *and* prose still under 700px — because deleting the measure would have passed
+an edge-only test and given the reader 130-character lines. The `.settings-page` `max-width` this
+note pointed at is a different bug and is still there.
 
 **Left from the share-snippet work, both prerender-side and untouched:** seven index routes
 (`/almanac`, `/chronology`, `/typology`, `/graph`, `/shared-ground`, `/settings`, `/review`) ship
@@ -92,6 +99,18 @@ cannot do.
   settles it.** `siteMetaDescription` on the line below it falls under the same ruling and is
   the clearer error of the two: it promises "an interactive map of Sufi shrines across Pakistan"
   where the English now enumerates shrines, temples, gurdwaras and darbars.
+- **One Urdu noun, swapped and wanting a reader's eye.** `graphExplorerIntro` said "صوفی سلسلوں
+  اور **اولیاء**" over a figure list that is 20 deities and 5 Sikh Gurus. The replacement — شخصیات —
+  is not authored: it is the word `graphExplorerAllFigures` and `graphExplorerFiguresNote` already
+  use, in reviewed Urdu, for this exact set of people. Applying the archive's own term in the same
+  grammatical slot is a substitution, not composition, which is why this moved where
+  `footerCredit` above did not. Worth one glance at the agreement all the same.
+- **`/graph` is titled "Saints & Orders Explorer" and lists 20 deities.** The same overclaim as
+  the intro, deliberately not fixed: a title is a name rather than a claim, it reaches the
+  document title, breadcrumb, welcome card and a hand-synced copy in `scripts/prerender.mjs`, and
+  it has an Urdu twin. Renaming a page a reader may have linked is the decision the archive
+  rename was, at smaller scale. The archive's own neutral word is already on the page —
+  "Figures in the archive".
 - **Three citation strings give three answers.** `LICENSE-data.md` says v1.0.0 / 2026,
   `citation.ts` says v2.0.0 / 2026, the release README says v1.0.0 / **2025**. A version and a
   year are facts, so they are recorded rather than picked (HANDOVER §9.172). Related and also

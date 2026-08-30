@@ -508,8 +508,28 @@
   color: var(--color-text-secondary);
 }
 
+/*
+ * The measure belongs to the prose, not to the section.
+ *
+ * `.about-section` carried `max-width: 68ch` and `.coverage-section` carried
+ * none, so on one page nine heading rules stopped at x=767 and fifteen ran to
+ * x=1054 — same left edge, two right edges, stepping in and out as the reader
+ * scrolled. Both are `<section>`s of one document.
+ *
+ * 68ch is right for reading and wrong for a rule: a heading's rule is a
+ * structural line and should be the same length down the page, while a
+ * paragraph wants ~66 characters whatever is beside it. So the constraint moves
+ * off the container and onto the running text inside it — the tables, charts and
+ * bar rows in the coverage sections keep the width they need, and every heading
+ * now rules off at the same place.
+ */
 .about-section {
   margin-block-end: var(--space-6);
+}
+
+.about-section > p,
+.about-section > ul,
+.about-section > ol {
   max-width: 68ch;
 }
 

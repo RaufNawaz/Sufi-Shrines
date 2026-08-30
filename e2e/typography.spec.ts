@@ -253,3 +253,67 @@ for (const route of URDU_ROUTES) {
     ).toEqual([]);
   });
 }
+
+/**
+ * One page, one right edge.
+ *
+ * `/about` is the archive explaining its own method, and it is two merged pages
+ * — `/coverage` and `/report` folded into it on 24 August 2026. Each brought its
+ * own section class. On 30 August the heading *rules* were made one spec, which
+ * fixed the weight and the border and left the width alone; measured the next
+ * day on the running page, **nine headings ruled off at x=767 and fifteen at
+ * x=1054**, same left edge, stepping in and out as the reader scrolled.
+ *
+ * The cause was a reading measure on the wrong element: `.about-section` carried
+ * `max-width: 68ch` and `.coverage-section` carried none. 68ch is right for a
+ * paragraph and wrong for a rule — a heading's border is structural and should
+ * be the same length down the page, while running text wants ~66 characters
+ * whatever sits beside it. So the measure moved onto the prose inside the
+ * section, and this asserts the result rather than either mechanism.
+ *
+ * Both halves are checked, because fixing the edge by deleting the measure
+ * would pass an edge-only test and give the reader 130-character lines.
+ */
+test('every section heading on /about rules off at the same x', async ({ page }) => {
+  await page.goto('/about');
+  await page.waitForSelector('.about-section-heading, .coverage-section-heading', {
+    timeout: 30_000,
+  });
+
+  const measured = await page.evaluate(() => {
+    const headings = [
+      ...document.querySelectorAll<HTMLElement>(
+        '.about-section-heading, .coverage-section-heading',
+      ),
+    ];
+    const edges: Record<number, string[]> = {};
+    for (const h of headings) {
+      const right = Math.round(h.getBoundingClientRect().right);
+      (edges[right] ??= []).push((h.textContent ?? '').slice(0, 28));
+    }
+    const prose = [...document.querySelectorAll<HTMLElement>('.about-section > p')].map((p) =>
+      Math.round(p.getBoundingClientRect().width),
+    );
+    return { count: headings.length, edges, prose };
+  });
+
+  expect(measured.count, 'no headings found — the page did not render').toBeGreaterThan(10);
+  expect(
+    Object.keys(measured.edges),
+    `/about has ${Object.keys(measured.edges).length} right edges: ` +
+      JSON.stringify(measured.edges) +
+      '. Section headings are one visual spec, so they must also sit in containers ' +
+      'of one width — put the reading measure on the prose, not on the section.',
+  ).toHaveLength(1);
+
+  /* The measure is still doing its job. A paragraph in a 860px column with no
+     max-width renders ~860px; 68ch at this page's body size is ~540. Asserted
+     as "narrower than the column", not as a pixel value, so a type-scale change
+     does not fail it. */
+  expect(measured.prose.length, 'no /about prose found to measure').toBeGreaterThan(2);
+  expect(
+    Math.max(...measured.prose),
+    'the reading measure was deleted rather than moved — /about prose now runs ' +
+      'the full width of the column',
+  ).toBeLessThan(700);
+});
