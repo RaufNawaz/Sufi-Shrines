@@ -190,6 +190,31 @@ surveyor's sentences divide is editorial work on someone else's prose (RULE 2) a
 production (RULE 3). The test fails if the exception ever stops being true, so paragraphing it in
 the sheet will tell you to delete the line.
 
+**The orphaned-guard sweep, finished 31 August 2026 — and the answer is reassuring, which is why
+it is written down.** Two of RULE 4's four named checks turned out to live in hand-run paths, so
+the obvious next question is how much of the rest of the repo is like that. Measured across every
+gate-shaped script (`check-*`, `validate-*`, `verify-*`) in `scripts/`, `scripts/data/` and
+`pipeline/`:
+
+**14 gate-shaped scripts · 9 reached by `verify`, `build`, `e2e` or CI · 5 reachable only by
+hand — and all five for a defensible reason.** Three need the network
+(`validate-images.mjs`, `check_image_liveness.py`, `check-live-sheet.mjs`, which reads production)
+and two need a file a person exports (`validate_shrines.py`, `check_descriptions.py`). None is an
+invariant that could be running automatically and is not. **The two orphans were specific, not
+symptomatic**, and the sweep is recorded so nobody re-derives it.
+
+*Measure the instrument first:* the sweep's first pass reported **16** orphans. It was counting
+`measure-*` scripts — which are instruments, not gates, and correctly manual — and it looked for
+filenames in the CI workflows when CI invokes `npm run <name>`. That alone mislabelled
+`check-production-base.mjs`, which `verify:pages` calls. The corrected pass is the one above.
+
+**One thing the sweep turned up and did not act on:** the newline rule now has **three**
+implementations — `pipeline/append_new_shrines.py` (on append), `pipeline/check_descriptions.py`
+(on a mid-pipeline file) and `scripts/data/validate-description-structure.mjs` (on the dataset,
+in `data:validate`). Left alone deliberately: they guard different artefacts at different moments,
+which is not the same defect as `searchDocs` having two drifting copies of one map. Worth knowing
+before a fourth is written.
+
 ## Waiting on a person, not on an agent
 
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync
