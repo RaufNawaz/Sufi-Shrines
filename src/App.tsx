@@ -304,6 +304,29 @@ export default function App() {
                         </UrPrefixNormalizer>
                       }
                     />
+                    {/* Neither is in the sitemap — a reader's own preferences are
+                    not a document, and the review desk is team-only — but
+                    prerender.mjs emits a /ur file for every APP_ROUTE, and a
+                    published file with no route is worse than either. Both used
+                    to paint an Urdu <title> and then render صفحہ نہیں ملا the
+                    instant React hydrated. check-routes-prerendered.mjs now
+                    fails the build if an emitted /ur file has no route. */}
+                    <Route
+                      path="/ur/settings"
+                      element={
+                        <UrPrefixNormalizer>
+                          <SettingsPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
+                    <Route
+                      path="/ur/review"
+                      element={
+                        <UrPrefixNormalizer>
+                          <ReviewPage />
+                        </UrPrefixNormalizer>
+                      }
+                    />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </Suspense>

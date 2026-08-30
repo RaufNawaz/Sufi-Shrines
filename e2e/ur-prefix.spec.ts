@@ -31,6 +31,32 @@ test.describe('/ur/* prerender-discovery routes', () => {
     await expect(page).toHaveURL(/\/\?lang=ur$/);
   });
 
+  /* Every /ur URL the build publishes as a file, not only the ones anybody
+     thought to link. `/ur/settings` and `/ur/review` were emitted by
+     prerender.mjs and absent from App.tsx's hand-maintained /ur block for nine
+     days, so both painted an Urdu <title> and then rendered the not-found page
+     the instant React hydrated — no 404, no console error, nothing to notice.
+     The build now refuses that combination
+     (scripts/check-routes-prerendered.mjs); this is the browser half, because a
+     source-to-source check cannot see a page that renders the wrong thing.
+
+     Neither is in the sitemap and neither is linked internally, which is why
+     they were the two that drifted — and why the assertion is that they
+     *resolve*, not that they are discoverable. */
+  for (const path of ['/ur/settings', '/ur/review', '/ur/typology', '/ur/chronology']) {
+    test(`${path} resolves to its page, not the not-found page`, async ({ page }) => {
+      await page.goto(path);
+
+      await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+      await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
+      await expect(page).toHaveURL(new RegExp(`${path.replace('/ur', '')}\\?lang=ur$`));
+
+      const h1 = page.locator('h1').first();
+      await expect(h1).toBeVisible();
+      expect(await h1.textContent(), 'rendered the not-found page').not.toContain('صفحہ نہیں ملا');
+    });
+  }
+
   test('switching back to English from a normalized /ur/ page works like any other page', async ({
     page,
   }) => {

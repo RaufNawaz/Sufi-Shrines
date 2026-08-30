@@ -106,8 +106,10 @@ describe('the route table in App.tsx', () => {
        reader can be on needs a tab lit. */
     /* `/review` is team-only and unlisted by design: it is not one of the
        archive's six public surfaces, and lighting a tab for it would advertise
-       a page a reader cannot open. */
-    const EXEMPT = new Set(['*', '/shrine.html', '/review']);
+       a page a reader cannot open. Its `/ur` mirror inherits the exemption for
+       the same reason — `activeTabId` strips the prefix, so the two can never
+       disagree about which tab owns a page, only about whether one does. */
+    const EXEMPT = new Set(['*', '/shrine.html', '/review', '/ur/review']);
     const homeless = paths
       .filter((p) => !EXEMPT.has(p))
       .map((p) => p.replace(/:\w+/g, 'sample'))

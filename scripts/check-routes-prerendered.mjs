@@ -267,6 +267,43 @@ if (existsSync(sitemapPath)) {
   }
 }
 
+/*
+ * The other direction: every /ur file the prerenderer emits must have a route.
+ *
+ * Everything above asks "does this route have a file". `/ur/settings` and
+ * `/ur/review` were the reverse — files with no route. prerender.mjs emits a
+ * /ur mirror for *every* APP_ROUTE, and App.tsx's /ur block was maintained by
+ * hand, so both URLs served a page with an Urdu <title> that rendered
+ * "صفحہ نہیں ملا" the instant React hydrated. Nine days, no error anywhere: the
+ * file exists, so no 404; the route does not, so the catch-all matched, which
+ * is what a catch-all is for.
+ *
+ * Compared source to source rather than against dist, deliberately. This repo
+ * lives in an iCloud-synced folder that leaves duplicate `about 2/` directories
+ * inside dist/, and a check that walked the tree would fail the build on
+ * someone else's sync artefact.
+ */
+{
+  const prerender = readFileSync(join(ROOT, 'scripts/prerender.mjs'), 'utf8');
+  const block = /const APP_ROUTES = \[([\s\S]*?)\n\];/.exec(prerender)?.[1] ?? '';
+  const mirrored = [...block.matchAll(/^\s*path: '([^']+)',/gm)].map((m) => m[1]);
+  if (mirrored.length < 5) {
+    failures.push(
+      `parsed only ${mirrored.length} APP_ROUTES out of prerender.mjs — the list has probably ` +
+        'moved, and this check is looking at nothing',
+    );
+  }
+  const declaredSet = new Set(declared);
+  const orphans = mirrored.filter((p) => !declaredSet.has(`/ur/${p}`));
+  if (orphans.length) {
+    failures.push(
+      `prerender.mjs writes dist/ur/${orphans.join('/, dist/ur/')}/ but App.tsx declares no ` +
+        `/ur/${orphans.join(', /ur/')} route — those URLs paint an Urdu title and then render ` +
+        'the not-found page. Add the route, or stop emitting the file.',
+    );
+  }
+}
+
 /* The fallback itself. Without it an unknown path shows GitHub's 404 rather
    than the app's own NotFoundPage. */
 if (!existsSync(join(DIST, '404.html'))) {
