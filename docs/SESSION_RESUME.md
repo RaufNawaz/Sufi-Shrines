@@ -64,6 +64,9 @@ the reason the rest is credible.
 | The newline invariant RULE 4 names was in a script nothing in the build path calls | (this cycle) |
 | A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
 | RULE 4's asterisk guard ran only where a person was already being careful | *this commit* |
+| 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
+| Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
+| 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
 
 ---
 
@@ -84,8 +87,35 @@ Each item names what a reader loses, so the ranking can be argued with rather th
     That half was considered and declined, and the spec holds the decline in place rather than
     letting it drift.
 
-The queue has nothing else on it that an agent can take without a decision. What is left is in
-"Waiting on a person" below.
+~~The queue has nothing else on it that an agent can take without a decision.~~ **It has
+twenty-three more as of 30 August 2026**, from a second council convened that evening on a
+different brief — the first asked what is broken, this one asked what the archive should *become*.
+Findings, retractions and the ranking are in
+[`docs/planning/UI_COUNCIL_2026-08-30.md`](planning/UI_COUNCIL_2026-08-30.md); the top of it is
+reproduced here so this file stays the one queue.
+
+**Read that document's "the numbers the council got wrong" section before trusting any figure in
+it.** Three headline numbers did not survive re-measurement, one of them inside the finding that
+has already shipped — it said 524 entity pages and 94 places, and it is 459 and 29.
+
+2. **U-1 · The first Urdu page after an English visit renders the English article, and keeps it.**
+   11 of 15 sampled entries. Not a flash — still English at 12 s, and it reproduces after an
+   English *map* visit alone, so it reaches every shared link, bookmark and hard refresh a reader
+   opens after browsing in English. Diagnosed to `fingerprintShrines` hashing the *English*
+   description length, so `adoptCsvResult` discards the freshly Urdu-merged dataset as unchanged.
+   **Every existing Urdu spec starts from a fresh context, which is exactly why this was never
+   seen** — the test has to visit English first.
+3. **J-1 · A phone opens the map with a third of the archive off-screen**, including 14 of 14
+   Nanakpanthi/Udasi darbars and 16 of 36 Hindu temples. Fixed centre and zoom against a portrait
+   viewport plus the sheet. Does not reopen the pin-density ruling: the resting map is unchanged.
+4. **IA-1 · `/chronology` is reachable from nowhere** — 0 links across 81 rendered pages, while
+   prerendered, in the sitemap at priority 0.7, and rendering 171 shrine links. Six e2e specs
+   exercise it and every one arrives by `page.goto`, which is why it survived.
+5. **IA-2 · Desktop has no top-level navigation at all** — `.tabbar` is hidden at ≥641px, and five
+   routes hang off one component that renders only when nothing is selected.
+
+The rest of the ranking, and the items that need Rauf rather than an agent, are in the council
+document. What was already in "Waiting on a person" below still stands.
 
 ---
 
