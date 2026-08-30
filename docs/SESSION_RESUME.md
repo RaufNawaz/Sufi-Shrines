@@ -52,7 +52,7 @@ the reason the rest is credible.
 | The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
 | Search said 44 matches and showed 40, silently | `d096824` |
 | A shrine named its order and never linked to it — the graph's one one-way edge | `4ba4b8a` |
-| The shrine page overwrote its own clean share snippet with raw markdown | *next commit* |
+| The shrine page overwrote its own clean share snippet with raw markdown | `68c1e35` |
 
 ---
 
