@@ -59,6 +59,21 @@ for: `guru-gurpat-mandir-db-80-sirey-ghat` and `sevapanthi-darbar-bhai-gurdas-ga
 carry **two** memberships, because their entries assert two traditions in one sentence — so a
 site is not guaranteed to have at most one.
 
+**Shape contract, added after a rendered page broke on it:** every record carries **every key**,
+including `alsoKnownAs: []` where the archive records no other name. It used to be omitted when
+empty — the omit-empty idiom `build-kg.mjs` uses, which is right for a payload with hundreds of
+records and wrong for a generated file a renderer destructures. `daduvansi` was the one record of
+eight without the key, `alsoKnownAs.length` threw, and `/tradition/daduvansi` rendered a
+TypeError. Typecheck could not see it (a JSON import's element type is whatever the file happens
+to contain) and spot-checking could not either (the other seven were perfect).
+`traditions.test.ts` now fails if the records stop agreeing on their key set.
+
+**A site can have more than one tradition — three do.** `khatwari-darbar-shikarpur`
+(udasi + nanakpanthi), `guru-gurpat-mandir-db-80-sirey-ghat` (nanakpanthi + udasi) and
+`sevapanthi-darbar-bhai-gurdas-gandava` (nanakpanthi + sevapanthi). Each is the archive asserting
+two traditions in one sentence. Read memberships as a list, never with `.find()`, and the spec
+asserts three as a floor so a regeneration cannot silently flatten one.
+
 ## Four things to get right when you render it
 
 1. **Import it statically inside the route that shows it, never via `src/lib/kg.ts`.** That is

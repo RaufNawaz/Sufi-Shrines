@@ -220,7 +220,26 @@ for (const t of TRADITIONS) {
     slug: t.slug,
     name: t.name,
     nameUr: t.nameUr,
-    ...(t.alsoKnownAs.length ? { alsoKnownAs: t.alsoKnownAs } : {}),
+    /* ALWAYS emitted, `[]` and all.
+     *
+     * This was `...(t.alsoKnownAs.length ? {…} : {})` — the omit-empty idiom
+     * `build-kg.mjs` uses throughout, and the right one there: kg.json is a
+     * payload with hundreds of records and a key nobody reads is bytes on every
+     * route. It is the wrong idiom HERE, and it cost a rendered page.
+     *
+     * `daduvansi` was the one record of eight with no other name, so it was the
+     * one record with no `alsoKnownAs` key. A consumer destructured it and
+     * `alsoKnownAs.length` threw, blanking `/tradition/daduvansi` with a
+     * TypeError. **Typecheck could not have caught it**: this file is a JSON
+     * import, so its element type is inferred from whatever the file happens to
+     * contain, and a field missing from one record of eight does not announce
+     * itself. Nor could spot-checking — the other seven pages were perfect.
+     *
+     * A generated file consumed by a renderer should have ONE shape. The 20
+     * bytes are not worth a special case in every reader.
+     * `traditions.test.ts` now fails if the eight records stop agreeing on their
+     * key set. */
+    alsoKnownAs: t.alsoKnownAs,
     category: t.category,
     definition: en,
     definitionUr: ur,

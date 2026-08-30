@@ -123,6 +123,46 @@ describe('the tradition layer', () => {
     expect(drifted, 'a membership must quote the archive saying so').toEqual([]);
   });
 
+  it('gives all eight records the same shape', () => {
+    /* The invariant that would have caught a real blank page.
+     *
+     * `daduvansi` was the one tradition with no other name, so under the
+     * omit-empty idiom it was the one record with no `alsoKnownAs` key. A
+     * consumer destructured it, `alsoKnownAs.length` threw, and
+     * `/tradition/daduvansi` rendered a TypeError. **Typecheck cannot see
+     * this** — the file is a JSON import, so its element type is whatever the
+     * file happens to contain — and **spot-checking cannot either**: the other
+     * seven pages were perfect. A generated file that a renderer consumes gets
+     * one shape, and this is what holds it to that. */
+    const keys = [...new Set(kgt.traditions.flatMap((t) => Object.keys(t)))].sort();
+    for (const t of kgt.traditions) {
+      expect(
+        Object.keys(t).sort(),
+        `${t.slug} does not have the same keys as its siblings`,
+      ).toEqual(keys);
+    }
+  });
+
+  it('keeps the sites that carry more than one tradition', () => {
+    /* Three of the 18, and each is the archive asserting two traditions in one
+       sentence — Khatwari Darbar "belongs to the shared Nanakpanthi and *Udasi*
+       devotional world", the Jagiasi line runs "through Baba Sri Chand's Udasi
+       line", and the Gandava darbar is "a Nanakpanthi–Sevapanthi shrine".
+       Asserted as a floor because a renderer now depends on a site having
+       possibly-many traditions: a regeneration that flattened one to a single
+       value would be silent, and the accessor that reads it would go back to
+       being a `.find()` that quietly drops the second answer. */
+    const bySite = new Map<string, string[]>();
+    for (const m of kgt.memberships) {
+      bySite.set(m.shrineSlug, [...(bySite.get(m.shrineSlug) ?? []), m.traditionSlug]);
+    }
+    const multi = [...bySite.entries()].filter(([, v]) => v.length > 1);
+    expect(
+      multi.length,
+      'a site with two recorded traditions must keep both',
+    ).toBeGreaterThanOrEqual(3);
+  });
+
   it('names only traditions that exist', () => {
     const known = new Set(kgt.traditions.map((t) => t.slug));
     expect(kgt.memberships.filter((m) => !known.has(m.traditionSlug))).toEqual([]);
