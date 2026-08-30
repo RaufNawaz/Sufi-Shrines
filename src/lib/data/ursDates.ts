@@ -349,14 +349,109 @@ export function parseObservances(events: string | null | undefined): Observance[
   });
 }
 
-const OBSERVANCE_RE =
-  /\burs\b|ʿurs|\bmela\b|\bfestival\b|\bcommemorat|\banniversar|\byatra\b|\bgurpurab\b|\bjatra\b|\bshivratri\b|\bgathering/i;
+/**
+ * Words that name an observance, drawn from the archive's own `Events` cells.
+ *
+ * ## Why this list is longer than it was
+ *
+ * It held eleven alternatives — urs, ʿurs, mela, festival, commemorat,
+ * anniversar, yatra, gurpurab, jatra, shivratri, gathering — and on 30 August
+ * 2026 the almanac published *"52 no observance recorded"* while **51 of those
+ * 52 rows had text in the cell**. Broken down by the archive's own `category`:
+ *
+ *     Muslim Shrine                 5 of 79   —  6%
+ *     Sikh Gurdwara                 9 of 33   — 27%
+ *     Nanakpanthi / Udasi Darbar    9 of 14   — 64%
+ *     Hindu Temple                 24 of 36   — 67%
+ *     Jain Temple                   3 of  3   — 100%
+ *
+ * The vocabulary knew ʿurs and mela. It did not know Diwali, Holi,
+ * Janmashtami, Durga Puja, Cheti Chand, Ganesh Chaturthi, Raksha Bandhan,
+ * Jayanti, Akhand Path or prakash. So `Krishna Mandir (Kabari Bazar)`, whose
+ * cell reads *"Holi; Diwali; Janmashtami"* and whose article says the temple
+ * "comes most fully alive at the great festivals of the Hindu year", was
+ * counted among the sites recording nothing — on the page whose purpose is to
+ * say when these places gather, in an archive whose distinguishing claim is
+ * that it covers six traditions. The archive was misreporting its own holdings
+ * along exactly the line it exists to cross.
+ *
+ * **Nothing here is invented (RULE 2).** Every term added below appears
+ * verbatim in an `Events` cell. `gurpurb` is included beside `gurpurab` because
+ * one cell spells it that way, and matching the data as written is not the same
+ * as correcting it.
+ *
+ * ## Two of these were plain bugs rather than vocabulary
+ *
+ * `\bfestival\b` does not match **festivals**, and `\bgurpurab\b` does not
+ * match **Gurpurabs**. Three cells say "festivals" and one says "Gurpurabs".
+ * And `\bmela\b` was present without `\bfair\b`, its English, which four
+ * cells use.
+ */
+const OBSERVANCE_RE = new RegExp(
+  [
+    // Muslim and pan-traditional, as before
+    '\\burs\\b',
+    'ʿurs',
+    '\\bmela\\b',
+    '\\bfairs?\\b',
+    '\\bfestivals?\\b',
+    '\\bcommemorat',
+    '\\banniversar',
+    '\\byatra\\b',
+    '\\bjatra\\b',
+    '\\bgathering',
+    '\\bpilgrim',
+    '\\bmehfil\\b',
+    // Sikh and Nanakpanthi
+    '\\bgurpurabs?\\b',
+    '\\bgurpurb\\b',
+    '\\bprakash\\b',
+    '\\bakhand path\\b',
+    '\\bvaisakhi\\b',
+    '\\bbaisakhi\\b',
+    '\\bmaghi\\b',
+    // Hindu, Jain and Nanakpanthi festival names
+    '\\bshivratri\\b',
+    '\\bdiwali\\b',
+    '\\bholi\\b',
+    '\\bjanmashtami\\b',
+    '\\bdurga puja\\b',
+    '\\bcheti chand\\b',
+    '\\bganesh chaturthi\\b',
+    '\\braksha bandhan\\b',
+    '\\bjayanti\\b',
+    '\\bbasant panchami\\b',
+    '\\bkartik\\b',
+    '\\bnavratri\\b',
+  ].join('|'),
+  'i',
+);
 
 /** A clause that *denies* an observance: "no fixed public festival
  *  documented", "None - abandoned", "no public urs observed". Counting these
  *  as claims would overstate how much the archive knows — and this number is
  *  published on the almanac, so it has to be right. */
 const NEGATED_RE = /\bno\b|\bnone\b|\bnot\b|\bnever\b|\bwithout\b/i;
+
+/**
+ * A clause that places the observance in the past: "Historically a Vaisakhi
+ * fair", "Annual Akhand Path … (historic)", "Historically Kartik bathing".
+ *
+ * Six cells are of this shape, and they are the reason widening the vocabulary
+ * is not simply a matter of adding words. Before this guard they fell into "no
+ * observance recorded", which is wrong — the archive records one. With the
+ * wider vocabulary and *without* this guard they would move to "observed, date
+ * unrecorded", which asserts a current practice four of the six explicitly deny
+ * in their own next clause ("not currently observed", "not in regular
+ * worship", "continuation uncertain").
+ *
+ * Wrong in a new direction is not an improvement, so they keep the bucket they
+ * had. **The honest destination is a state the almanac does not have** — a
+ * historic observance, no longer kept — and adding one is a page change with
+ * new copy in two languages. Recorded in `docs/planning/KB_COUNCIL_2026-08-30.md`
+ * rather than guessed at here.
+ */
+const HISTORIC_RE = /\bhistoric/i;
 
 /**
  * True when the cell names an observance but records no date — the rows the
@@ -371,7 +466,8 @@ export function claimsUndatedObservance(events: string | null | undefined): bool
   if (!text) return false;
   if (parseObservances(text).length > 0) return false;
   return clausesOf(text).some(
-    (clause) => OBSERVANCE_RE.test(clause) && !NEGATED_RE.test(clause),
+    (clause) =>
+      OBSERVANCE_RE.test(clause) && !NEGATED_RE.test(clause) && !HISTORIC_RE.test(clause),
   );
 }
 

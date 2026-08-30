@@ -196,6 +196,16 @@ describe('coverage against the shipped dataset', () => {
    * means the dataset moved and the doc comment in ursDates.ts, plus any copy
    * quoting the figure, needs revisiting — it does not mean the parser should
    * be loosened until the number comes back.
+   *
+   * **Moved 30 August 2026: undated 79 → 100, none 52 → 31.** Not a dataset
+   * change — `OBSERVANCE_RE` was widened. It held eleven alternatives and knew
+   * ʿurs and mela but not Diwali, Holi, Janmashtami, Durga Puja, Cheti Chand,
+   * Ganesh Chaturthi, Raksha Bandhan, Jayanti, Akhand Path or prakash, so the
+   * almanac reported 52 sites as recording no observance while 51 of them had
+   * text in the cell — 6% of Muslim sites against 67% of Hindu and 100% of
+   * Jain. `dated` is unchanged at 38 because date parsing was not touched.
+   * See `observanceVocabulary.test.ts`, which asserts the rule rather than
+   * these numbers, and this pin moving is the point of the pin.
    */
   it('classifies every row in the snapshot into exactly one bucket', async () => {
     const snapshot = (await import('../../../data/shrines-fallback.json')) as unknown as {
@@ -229,8 +239,8 @@ describe('coverage against the shipped dataset', () => {
       day: 22,
       month: 10,
       season: 6,
-      undated: 79,
-      none: 52,
+      undated: 100,
+      none: 31,
     });
   });
 });
