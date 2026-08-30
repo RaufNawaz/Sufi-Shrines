@@ -1794,6 +1794,27 @@
   font-family: var(--font-urdu);
 }
 
+/*
+ * The focus ring, drawn inside the pill because the pill clips.
+ *
+ * `.lang-toggle-segment` sets `overflow: hidden` so the two segments take the
+ * container's rounded ends. The global ring is `outline: 2px` at
+ * `outline-offset: 2px` (global.css), which puts it entirely outside each
+ * segment's box — and therefore entirely inside the clip. Measured in both
+ * themes: tabbing to the inactive segment changed nothing on screen at all, and
+ * tabbing to the active one drew a single cobalt bar down the internal divider,
+ * the only edge not clipped away. That reads as a rendering fault rather than
+ * as "you are here".
+ *
+ * A negative offset draws the ring inside the segment, where nothing clips it.
+ * The language toggle is in the header of every page in the archive, so this is
+ * the most-reachable control on the site and it had no visible focus state.
+ */
+.lang-seg:focus-visible {
+  outline-offset: -3px;
+  border-radius: var(--radius-full);
+}
+
 .lang-seg:first-child {
   border-inline-end: 1px solid var(--color-border);
 }
