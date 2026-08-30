@@ -4036,6 +4036,40 @@ both redirects.
     output needs a person should not be able to block a commit. Re-run it after any sheet
     import — coordinates are the thing an edit can break invisibly.
 
+156. **Two entries exist in production and the archive tells readers they do not.** *Traced
+    29 August 2026.* `check-live-sheet.mjs` has recorded since 27 August that production carries
+    171 rows against the committed snapshot's 169. What nobody had followed is what those two
+    missing rows *do*, and it is worse than a stale count:
+
+    - **`Darbar Hazrat Shah Gohar Peer`** and **`Darbar Mian Qurban Ali Shah`** are real entries
+      in the sheet, with surveys in `entries/`, with finished Urdu articles, and with figures in
+      the knowledge graph.
+    - Because their shrine rows are absent from `data/shrines.json`, both figures are built as
+      **`lineageOnly`** — and `/saint/:slug` renders that as *"named in a lineage, no entry
+      here."* **The archive is telling a reader that an entry it holds does not exist.** That is
+      a false statement on two pages, and it is the only class of error this project treats as
+      unacceptable.
+    - `e2e/urdu-no-leak.spec.ts` uses `/saint/shah-gohar-peer` as its canonical
+      `saint:lineage-only` route, describing it as a figure with "no site in this archive". The
+      spec's own premise is wrong, and the test passes anyway because it is measuring Latin runs.
+    - His Urdu article is in `src/data/urdu-content.json` under `darbar-hazrat-shah-gohar-peer`,
+      a key matching no current slug. **That orphan key is how this was found** — the true Urdu
+      coverage is 166 of 169 entries with an article, not the 168 keys the gate counts.
+    - Everything derived from the snapshot is on 169: the graph, `/about`'s coverage figures, the
+      tradition layer, the source-works rollup (168 sourced entries), the slim map index.
+
+    **The fix is one command — `npm run data:build` — and it was deliberately not run tonight.**
+    It fetches production, so it would pull eight days of unreviewed sheet edits into a release
+    that is about to deploy, change the dataset underneath a parallel session mid-feature, and
+    land three off-schema `category` values (`"Islam"` ×2, `"Sufi shrine (Islam)"`) that
+    `patch_schema_hygiene_2026-08-27.csv` only partly covers. That is a decision to take awake,
+    with the patches applied first, not at four in the morning because a script makes it easy.
+
+    Do it in this order: import the category patches into the sheet → `npm run data:build` →
+    `npm run data:kg` → regenerate the slim index and the tradition layer → re-run
+    `data:check:live` to confirm the drift is zero. Then the two figures stop being lineage-only
+    and the e2e spec needs a genuinely lineage-only route in place of Shah Gohar Peer.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
