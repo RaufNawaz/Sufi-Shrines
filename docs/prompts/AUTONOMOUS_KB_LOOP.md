@@ -1,8 +1,17 @@
 # The resume protocol — how a session with no memory of this one continues the work
 
+> **Read [`docs/SESSION_RESUME.md`](../SESSION_RESUME.md) first.** That is the door: what is in
+> flight, what is next, and what is waiting on a person. **This file is not a second door** — it
+> is the *how* for one lane of that queue, the knowledge-base work. Two files claiming to be where
+> a fresh session starts is the failure `docs/README.md` warns about, and the two were written
+> within minutes of each other on 30 August 2026 by two sessions that could not see each other's
+> uncommitted work. Kept separate rather than merged because they answer different questions:
+> SESSION_RESUME says *what to pick up*, this says *how to do a knowledge-base cycle without
+> rediscovering the traps*.
+
 **This file exists so that clearing the chat costs nothing.** Hand a fresh session this file (or
-let `/loop` re-enter it) and it can orient, pick up the next piece of knowledge-base work, and
-leave the repo in a state the *next* fresh session can continue from.
+let `/loop` re-enter it) and it can pick up the next piece of knowledge-base work and leave the
+repo in a state the *next* fresh session can continue from.
 
 It is written for a reader who knows nothing about what happened yesterday. Nothing here should
 require the previous session to be alive.

@@ -4827,6 +4827,20 @@ both redirects.
     otherwise never load; breaking it makes the two search surfaces disagree about which scripts
     they accept, which that same comment argues is worse than either rule alone.
 
+    **Now a gate rather than a note.** `src/lib/i18n/__tests__/searchUrduReachability.test.ts`
+    measures the index the way `haystacks()` reads it — `name`, `aka`, `nameUr` — and holds three
+    things: orders and traditions are a **plain assertion** (they were already correct, so a
+    regression is a failure, not a budget); figures are a **budget of 241** that fails the moment it
+    grows; and a fourth check fails if figures ever gain `nameUr`, because that would mean the
+    producer-side fix was taken and the warning above went unread.
+
+    A budget rather than a failing test on purpose. The fix is in another lane's live files, and a
+    test that simply failed would have been skipped or deleted by whoever hit it next. A budget
+    cannot be: it records the exact size of the debt, refuses growth, and turns into a permanent
+    assertion the day it reaches zero — the ratchet that took the figure-name debt 58 → 66 → 57 → 0
+    (§9.159). **Adding figures is good; adding figures an Urdu reader cannot search for widens a gap
+    the mission bar forbids**, and until today nothing said so.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
