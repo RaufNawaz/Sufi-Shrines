@@ -4004,6 +4004,38 @@ both redirects.
     such. A standing finding that has been re-measured and did not move is worth as much as one
     that did — §9.45's lesson is that the date on the measurement is the point, not the number.
 
+155. **All 169 coordinates checked three ways for the first time. Nothing is wrong.** *Measured
+    29 August 2026, `scripts/data/measure-coordinate-outliers.mjs`.* A wrong coordinate is this
+    archive's quietest serious failure — prose that is wrong can be read and doubted, but a
+    marker 200 km from the shrine it names looks exactly like a marker — and nothing had ever
+    checked the pins against the `Location` strings.
+
+    - **Outside Pakistan: 0.** A generous bounding box, to catch a transposed sign or a misplaced
+      decimal rather than to have an opinion about borders.
+    - **Sharing a pin to about a metre: 4 groups, all correct.** Four shrines inside Miani Sahib
+      graveyard in Lahore, two tombs on the Uch Sharif Bukhari mound, two in Gandava town, and
+      the Ayaz/Data Darbar pair below. Each group's entries claim one complex, and the surveys
+      give no finer position, so one pin is the honest answer.
+    - **Far from the place it names: 1, and it is correctly pinned.** Mohra Sharif sits 58 km
+      from the Rawalpindi cluster median because its own Location says *Murree Tehsil*, and
+      Murree is up in the hills. The place vocabulary is district-level and districts are large;
+      tightening the threshold until this disappears would also hide a genuine 60 km error
+      somewhere flat, so it stays a question a human answers from the Location line printed
+      beside it.
+
+    **The one pin I expected to be a defect is documented in the data itself.** Darbar Malik
+    Ahmad Ayaz carries Data Darbar's exact coordinate while its Location names Shah Alam Market,
+    about a kilometre away — and that same Location field says, unprompted: *"Pin reuses Data
+    Darbar's own coordinate, since the survey ties this shrine's location directly to it — an
+    approximate landmark, not the shrine's exact position. Ask Saifullah for a precise pin when
+    possible."* The archive had already found it, said so where a reader can see it, and named
+    the person to ask. That is the standard, and it is worth recording that the data met it
+    before the instrument arrived.
+
+    Not a gate, deliberately: two entries sharing a graveyard is not a defect, and a check whose
+    output needs a person should not be able to block a commit. Re-run it after any sheet
+    import — coordinates are the thing an edit can break invisibly.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
