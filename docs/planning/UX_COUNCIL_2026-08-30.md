@@ -170,6 +170,32 @@ and must be written by a person. *(A11Y/IA‑5.)*
 
 ---
 
+## A fifth lens, swept 31 August 2026: what a reader sees where the archive is silent
+
+The council's four lenses never asked this, and it is the archive's own stated value — an entry's
+worth here rests on saying what is *not* known as plainly as what is. Measured against the shipped
+data and the running site.
+
+**Mostly correct, and worth recording as the denominator.** The two extremes behave the way the
+archive claims they do: Data Darbar carries "Fully documented" and sixteen bibliography items;
+*Sant Baba Asudaram Darbar*, the archive's only entry citing nothing, carries "Limited
+information" and no bibliography section at all. No page overstates itself, and `/about`
+publishes the aggregate — 51 of 169 with no photograph — as prominently as the flattering
+figures. **51 photo-less entries omit the gallery silently rather than claiming an empty one**,
+which is defensible; whether they should say "no photograph recorded" is a design call about a
+third of the archive and belongs to Rauf, not here.
+
+**One real defect, shipped:** the newline invariant RULE 4 names existed only in
+`pipeline/append_new_shrines.py`, which nothing in the build path calls — see
+`docs/SESSION_RESUME.md`. It now runs in `data:validate`.
+
+**One trap left in place deliberately.** `UI_TEXT.noImage` reads *"No image found. Add an 'Image
+Link' value in your sheet."* — an instruction to the sheet's owner, sitting in the table a
+**reader-facing** page draws from, with a reviewed Urdu twin saying the same. It is currently
+rendered nowhere, in either locale, which is the only reason no visitor has been told to edit a
+spreadsheet they cannot see. Recorded rather than deleted: the wording is the hazard, not the
+string, and the next person to wire up an empty-gallery state will find it first.
+
 ## What the council checked and found correct
 
 Recorded because it is most of what they found, and because a list of defects with no denominator
