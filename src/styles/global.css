@@ -521,7 +521,32 @@ body.lang-rtl {
 
 /* Form controls don't inherit font-family by default in most browsers'
    UA stylesheets — without this every chip, button, and input renders
-   Urdu in a fallback Naskh/serif instead of Nastaliq. */
+   Urdu in a fallback Naskh/serif instead of Nastaliq.
+ *
+ * The size is here because Nastaliq is illegible at the sizes Latin chrome is
+ * comfortable at — a `--text-xs` label is 12px, and CLAUDE.md's i18n rule 4
+ * exists for exactly that. What it must not be is a **literal**: `1.1rem`
+ * carries no `--reading-scale`, so the reader's reading-size slider moved every
+ * word of Urdu prose and not one Urdu control.
+ *
+ * Measured on `/almanac`, step 0 → step 4, before this line changed:
+ *
+ *     p              18.36 → 26.22px      .filter-chip   18.48 → 18.48px
+ *     .action-btn    18.48 → 18.48px      .tabbar-label  17.64 → 17.64px
+ *
+ * At the smallest step the hierarchy inverted — Urdu controls were *larger*
+ * than Urdu prose. The English side of the same measurement scales correctly,
+ * because every English component reads a token.
+ *
+ * The factor rather than the token, deliberately: this rule flattens whatever
+ * size a control declares, so swapping in `--text-sm` or `--text-base` would
+ * quietly resize every Urdu control on the site by 10-16% in one direction or
+ * the other. The bug is that the slider does nothing, and this fixes that and
+ * nothing else. Making each control read its own token here — so the flattening
+ * goes away entirely — is a real improvement and a separate, visual decision.
+ *
+ * This is the third instance of the shape the block above already records: a
+ * length written as a literal where the token carries a factor. */
 [dir='rtl'] button,
 [dir='rtl'] input,
 [dir='rtl'] select,
@@ -529,7 +554,7 @@ body.lang-rtl {
 [dir='rtl'] .filter-chip,
 [dir='rtl'] .search-input {
   font-family: var(--font-urdu);
-  font-size: 1.1rem;
+  font-size: calc(1.1rem * var(--reading-scale));
 }
 
 /* Focus styles */

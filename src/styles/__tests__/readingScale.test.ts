@@ -25,7 +25,7 @@
  *   replaced by it.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { TEXT_SIZES, DEFAULT_TEXT_SIZE } from '../../lib/textSizePreference';
 
@@ -130,5 +130,69 @@ describe('the reading scale', () => {
        tokens reach nothing: prose carries no font-size and inherits body's
        computed pixels. Measured before that fix: 16px at every setting. */
     expect(rtl![1]).toMatch(/font-size:\s*var\(--text-base\)/);
+  });
+
+  it('gives both page titles the same clamp, and one that moves', () => {
+    /* `.entity-title` read `clamp(1.6rem, 4vw, 2.4rem)` — literals, which carry
+       no `--reading-scale`. Measured 30 August 2026: the <h1> of eleven routes
+       stayed at 38.4px through every step of the slider while its own h2s went
+       18 → 22.5px, so at the largest setting a page title barely outranked its
+       subheadings. It also disagreed with `.shrine-title`, which reads the
+       tokens — 36px against 38.4px at rest, and 51.2 against 38.4 at the top
+       step, an inversion. One clamp for both. */
+    const KG_CSS = readFileSync(join(__dirname, '..', 'kg.css'), 'utf8');
+    const SHRINE_CSS = readFileSync(join(__dirname, '..', 'shrine.css'), 'utf8');
+    const clampOf = (css: string, selector: string) => {
+      const block = new RegExp(`\\.${selector}\\s*\\{([^}]*)\\}`).exec(css);
+      expect(block, `.${selector} is gone`).toBeTruthy();
+      const size = /font-size:\s*([^;]+);/.exec(block![1]);
+      expect(size, `.${selector} sets no font-size`).toBeTruthy();
+      return size![1].trim();
+    };
+    const entity = clampOf(KG_CSS, 'entity-title');
+    const shrine = clampOf(SHRINE_CSS, 'shrine-title');
+    expect(entity, 'the two page titles have drifted apart again').toBe(shrine);
+    expect(entity).toContain('var(--text-');
+    expect(entity, 'a literal length in a title clamp carries no reading scale').not.toMatch(
+      /\d\s*rem/,
+    );
+  });
+
+  it('does not grow the set of font sizes the reader cannot move', () => {
+    /* A ratchet, not an endorsement.
+     *
+     * A `font-size` written as a literal length carries no `--reading-scale`,
+     * so it is type the reading slider cannot move. Twenty-seven of them are on
+     * disk and this test records the count per file so the debt cannot grow in
+     * silence — it is not a claim that any of them is right. Two are certainly
+     * right (the 16px root, which exists to stop iOS zooming a focused input,
+     * and the 9pt print rule); `chronology.css`'s seven are certainly wrong and
+     * are a whole page of chrome that does not respond to the slider.
+     *
+     * Lowering a number here is the good direction and needs no permission.
+     * Raising one means a reader somewhere cannot resize something: say why in
+     * the entry, the way the bundle budgets do. */
+    const LITERAL = /font-size:\s*[0-9.]+(?:rem|px|pt)/g;
+    const BUDGET: Record<string, number> = {
+      'chronology.css': 7, // a page of unscaled chrome — the largest single debt
+      'tours.css': 5,
+      'palette.css': 3,
+      'global.css': 3, // the 16px root and the 9pt print rule are two of these
+      'components.css': 3,
+      'tabbar.css': 2,
+      'map.css': 2,
+      'kg.css': 2,
+    };
+    const actual: Record<string, number> = {};
+    for (const file of readdirSync(join(__dirname, '..')).filter((f) => f.endsWith('.css'))) {
+      const count = (readFileSync(join(__dirname, '..', file), 'utf8').match(LITERAL) ?? []).length;
+      if (count > 0) actual[file] = count;
+    }
+    for (const [file, count] of Object.entries(actual)) {
+      expect(
+        count,
+        `${file} has ${count} unscalable font-size(s); the ledger says ${BUDGET[file] ?? 0}`,
+      ).toBeLessThanOrEqual(BUDGET[file] ?? 0);
+    }
   });
 });

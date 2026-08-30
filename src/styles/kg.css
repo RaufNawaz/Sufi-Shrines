@@ -42,7 +42,16 @@
 
 .entity-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  /* The same clamp `.shrine-title` uses, and for two reasons rather than one.
+     It was `clamp(1.6rem, 4vw, 2.4rem)` — literals, which carry no
+     `--reading-scale`, so the <h1> of eleven routes measured 38.4px at every
+     step of the reading slider while its own h2s went 18 → 22.5px. At the
+     largest setting the title barely outranked its subheadings. And because
+     1.6/2.4 were not the tokens `.shrine-title` reads, the archive had two
+     title sizes: 36px on a shrine entry against 38.4px on a saint, order, place
+     or tradition page — which inverted at the top step, 51.2 against 38.4. One
+     clamp, one title size, and it moves with the reader. */
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
   /* Display sizes want tracking pulled in — the same treatment .shrine-title
      already had, which is why the two titles read differently at the same size.
      Collapses to `normal` in Urdu through the token (global.css), because
