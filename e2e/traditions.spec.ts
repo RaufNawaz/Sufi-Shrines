@@ -1,4 +1,5 @@
 import { test, expect } from './fixtures';
+import type { Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -107,7 +108,7 @@ test.describe('the tradition pages', () => {
  * "Parnami"**, and nobody types "Udasi" when the corpus called it Udasipanth.
  */
 test.describe('finding a tradition', () => {
-  const openPalette = async (page: import('@playwright/test').Page, query: string) => {
+  const openPalette = async (page: Page, query: string) => {
     await page.goto('/graph');
     await page.locator('h1.entity-title').waitFor();
     await page.keyboard.press('Meta+k');
