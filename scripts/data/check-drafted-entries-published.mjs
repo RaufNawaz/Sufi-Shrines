@@ -54,6 +54,41 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const ENTRIES = join(ROOT, 'entries');
 const SHRINES = join(ROOT, 'data', 'shrines.json');
 const KG = join(ROOT, 'data', 'kg.json');
+const MANIFEST = join(ROOT, 'pipeline', 'photo_manifest.tsv');
+
+/**
+ * Media already filed against a shrine, when the manifest is here to say so.
+ *
+ * `pipeline/photo_manifest.tsv` is **gitignored** — it sits beside `media/`, and
+ * its ~200 filenames name the surveyor — so a fresh clone has none of this and
+ * this function returns an empty map rather than failing. The defect is the
+ * missing row either way; the manifest only sharpens what it costs.
+ *
+ * Measured 31 August 2026, with the file present: the two unpublished shrines
+ * hold **23 files between them, every one `matched` and fetchable** — Shah Gohar
+ * Peer 12 (9 images, 3 video) and Mian Qurban Ali Shah 11 (10 images, 1 video,
+ * 365 MB). Against 54 entries with no working photograph, and against 18 video
+ * rows in the whole archive, **four of them belong to these two**.
+ */
+function mediaByShrine() {
+  if (!existsSync(MANIFEST)) return null;
+  const lines = readFileSync(MANIFEST, 'utf8').split('\n').filter(Boolean);
+  const header = lines[0].split('\t');
+  const nameAt = header.indexOf('shrine_name');
+  const mimeAt = header.indexOf('mime_type');
+  if (nameAt < 0) return null;
+  const counts = new Map();
+  for (const line of lines.slice(1)) {
+    const cells = line.split('\t');
+    const name = (cells[nameAt] ?? '').trim();
+    if (!name) continue;
+    const entry = counts.get(name) ?? { files: 0, video: 0 };
+    entry.files += 1;
+    if ((cells[mimeAt] ?? '').startsWith('video')) entry.video += 1;
+    counts.set(name, entry);
+  }
+  return counts;
+}
 
 /**
  * The subject of a drafted entry, taken from its `# ` heading rather than its
@@ -85,6 +120,7 @@ function main() {
       )
     : new Map();
 
+  const media = mediaByShrine();
   const drafts = existsSync(ENTRIES)
     ? readdirSync(ENTRIES).filter((file) => file.startsWith('entry_') && file.endsWith('.md'))
     : [];
@@ -105,7 +141,7 @@ function main() {
       const bare = slug.replace(/[^a-z]/g, '');
       return key.includes(bare) || bare.includes(key.slice(0, 12));
     });
-    unpublished.push({ file, subject, chars: markdown.length, claiming });
+    unpublished.push({ file, subject, chars: markdown.length, claiming, media: media?.get(subject) });
   }
 
   console.log(
@@ -126,6 +162,15 @@ function main() {
     if (item.claiming) {
       console.error(
         `    and /saint/${item.claiming} tells readers "the archive holds no entry of its own"`,
+      );
+    }
+    if (item.media) {
+      /* Only when the manifest is present. A clone has no `pipeline/
+         photo_manifest.tsv` — it is gitignored — and says nothing here rather
+         than guessing at zero. */
+      const video = item.media.video ? `, ${item.media.video} of them video` : '';
+      console.error(
+        `    and ${item.media.files} media file(s) filed against it${video}, which no reader reaches`,
       );
     }
     console.error('');

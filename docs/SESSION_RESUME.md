@@ -256,7 +256,14 @@ problem.
 **`pipeline/photo_manifest.tsv` is gitignored, so a repair to it is not retained** *(raised by the
 other session, 31 August 2026)*. They fixed 44 of 206 rows that were one field too wide — a stray
 empty at index 2 shifting the Drive ID into `drive_filename` — which `csv.DictReader` then dropped
-before they reached the list a person reads. The repair is recorded in HANDOVER with the steps to
+before they reached the list a person reads. **The repair is what made three of CLAUDE.md's
+standing findings checkable**, two of which carried caveats saying they were not: the 18-video/
+zero-audio count, Mauj Darya Bukhari's twelve lost files (all twelve `id_not_in_drive` rows in the
+manifest are that one shrine), and "filenames lie" — `dfdfdfdfd - Saifullah Imtiaz.jpg` is three
+rows, three Drive ids and three byte sizes across two shrines, where CLAUDE.md says one filename
+spans two shrines. **The unfiled-media figure behind the RMS question is 30 files and 223 MB, not
+the 44 and 448 MB first reported** — fourteen were re-uploads of already-matched rows, eleven of
+them Mazar-e-Iqbal, and none of the unfiled objects is a video. The repair is recorded in HANDOVER with the steps to
 redo it, and their test skips when the file is absent so a clone stays green. **Whether to track
 it is a judgement for Rauf:** CLAUDE.md's layout puts manifests in `pipeline/` and RULE 0 argues
 for retaining it; against that, its ~200 filenames name the surveyor, and this archive moved a
@@ -333,6 +340,15 @@ cannot do.
   is a named script rather than part of `verify` for the same reason `data:check:location` is —
   red until a person acts, on a sequenced action, and reddening the shared build helps nobody.
   Verified by adding the two live rows: at 171 it goes green.
+
+  **And the bill is larger than two pages of prose.** Re-measured from the repaired
+  `pipeline/photo_manifest.tsv` on 31 August 2026: the two shrines hold **23 media files between
+  them, every one `matched` and fetchable** — Shah Gohar Peer 12 (9 images, 3 video) and Mian
+  Qurban Ali Shah 11 (10 images, 1 video, **365 MB**). Set that against 54 entries with no working
+  photograph, and against the archive's **18 video rows in total: four of them belong to these two
+  entries**, in an archive whose stated purpose is oral history. The gate reports these when the
+  manifest is present and says nothing when it is not — the file is gitignored, so a clone has
+  none of it, and the defect is the missing row either way.
 
   **The reason this drift existed was wrong for eight days and is corrected (30 August 2026,
   `d38d57c`).** `.gitignore` said `build-dataset` "drops for having no coordinates" the two rows a
