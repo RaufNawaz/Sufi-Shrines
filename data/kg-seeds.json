@@ -1289,5 +1289,100 @@
       "shrineSlug": "shaktipeeth-shri-hinglaj-mata-mandir",
       "why": "\"it features in Nath yogi and Charan bardic traditions alike\" — the site appears IN their lore. That is a relationship worth recording one day, and it is not belonging."
     }
-  ]
+  ],
+  "_comment_sourceWorks": "The WORK behind a citation string, where the archive cites one book under many strings. This changes no citation: the citation index dedupes on the exact string because that string is the reader’s search string, and two entries citing different pages have cited different things (RULE 2). What it adds is the question that index cannot answer — how heavily does the archive lean on any one WORK. Curated by hand, never by similarity, for the reason scripts/data/lib/saintIdentity.mjs gives about people: a matcher that is right most of the time makes errors nobody can find. `match` is a distinctive lowercased substring of the citation; `excludeCitations` holds verbatim citation keys that contain it and are NOT citations of it. Periodicals are deliberately absent: the italic run in a news citation is the publication, not the work, and sixteen Express Tribune articles are sixteen sources. Regenerate the report with scripts/data/measure-source-works.mjs.",
+  "sourceWorks": [
+    {
+      "slug": "tazkirah-awliya-e-pakistan",
+      "title": "Tazkirah Awliya-e-Pakistan",
+      "author": "Alam Faqri",
+      "match": "tazkirah awliya-e-pakistan",
+      "excludeCitations": [
+        "(this saint post-dates the tazkirah awliya-e-pakistan compendium; entry based on established modern accounts.)"
+      ],
+      "_why": "The archive's single heaviest dependency, and the reason this list exists: eleven citation records, of which one is a statement that the book does NOT cover the saint. That one is excluded — a citation saying a source post-dates its subject is evidence of a gap, not of reliance."
+    },
+    {
+      "slug": "historical-sikh-shrines-in-pakistan",
+      "title": "Historical Sikh Shrines in Pakistan",
+      "author": "Iqbal Qaiser",
+      "match": "historical sikh shrines in pakistan",
+      "_why": "Fourteen records, most differing only by page number. Page-specific citation is good practice and the strings stay exactly as recorded; this only says they are one book."
+    },
+    {
+      "slug": "encyclopaedia-of-sikhism",
+      "title": "The Encyclopaedia of Sikhism",
+      "author": "Harbans Singh (ed.)",
+      "match": "the encyclopaedia of sikhism",
+      "_why": "A multi-volume reference cited both as a whole and by named article. One work."
+    },
+    {
+      "slug": "a-history-of-the-sikhs",
+      "title": "A History of the Sikhs",
+      "author": "Khushwant Singh",
+      "match": "a history of the sikhs"
+    },
+    {
+      "slug": "the-sikh-religion-macauliffe",
+      "title": "The Sikh Religion: Its Gurus, Sacred Writings and Authors",
+      "author": "Max Arthur Macauliffe",
+      "match": "the sikh religion: its gurus",
+      "_why": "Matched on the subtitle. The bare title also appears, inside a citation that leads with Khushwant Singh, and is deliberately NOT matched: three common words are too weak a key to assert identity on."
+    },
+    {
+      "slug": "sikh-shrines-in-west-pakistan",
+      "title": "Sikh Shrines in West Pakistan",
+      "author": "Khan Mohammad Waliullah Khan",
+      "match": "sikh shrines in west pakistan"
+    },
+    {
+      "slug": "historic-temples-in-pakistan",
+      "title": "Historic Temples in Pakistan: A Call to Conscience",
+      "author": "Reema Abbasi",
+      "match": "historic temples in pakistan"
+    },
+    {
+      "slug": "gorakhnath-and-the-kanphata-yogis",
+      "title": "Gorakhnath and the Kanphata Yogis",
+      "author": "George Weston Briggs",
+      "match": "gorakhnath and the kanphata yogis"
+    },
+    {
+      "slug": "arguing-sainthood",
+      "title": "Arguing Sainthood: Modernity, Psychoanalysis, and Islam",
+      "author": "Katherine Pratt Ewing",
+      "match": "arguing sainthood"
+    },
+    {
+      "slug": "hinglaj-devi",
+      "title": "Hinglaj Devi: Identity, Change, and Solidification at a Hindu Temple in Pakistan",
+      "author": "Jürgen Schaflechner",
+      "match": "hinglaj devi: identity"
+    },
+    {
+      "slug": "sufi-culture-of-sindh",
+      "title": "Historical Dictionary of the Sufi Culture of Sindh",
+      "author": "Michel Boivin",
+      "match": "historical dictionary of the sufi culture of sindh"
+    },
+    {
+      "slug": "guru-nanak-and-the-sikh-religion",
+      "title": "Guru Nanak and the Sikh Religion",
+      "author": "W. H. McLeod",
+      "match": "guru nanak and the sikh religion"
+    },
+    {
+      "slug": "mystical-dimensions-of-islam",
+      "title": "Mystical Dimensions of Islam",
+      "author": "Annemarie Schimmel",
+      "match": "mystical dimensions of islam"
+    },
+    {
+      "slug": "journey-to-god",
+      "title": "Journey to God: Sufis and Dervishes in Islam",
+      "author": "Jürgen Wasim Frembgen",
+      "match": "journey to god: sufis and dervishes"
+    }
+  ],
+  "_comment_sourceWorksNotDeclared": "Title-keys the candidate scan surfaces that are deliberately NOT works. The Janamsakhi is a GENRE — the birth-narratives of Guru Nanak — and the four citations are to different traditions within it, not to one edition; grouping them would assert a single text nobody named. Everything else on that list is a periodical."
 }

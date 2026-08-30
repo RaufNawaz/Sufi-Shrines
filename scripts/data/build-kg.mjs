@@ -1427,6 +1427,21 @@ writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n',
   );
 }
 
+/* The source-works vocabulary, shipped so /about can compute its own dependency
+   figures at runtime rather than quoting a number that goes stale — the same
+   principle the coverage page already runs on. Small (14 works) and imported by
+   one module, `src/lib/data/sourceWorks.ts`, which only the About side pulls in;
+   `sourceIndex.ts` is on every shrine page and must not grow. */
+{
+  const works = (seeds.sourceWorks ?? []).map(({ _why, ...rest }) => rest);
+  writeFileSync(
+    join(ROOT, 'src', 'data', 'source-works.json'),
+    JSON.stringify({ generated: kg.generated, works }, null, 2) + '\n',
+    'utf8',
+  );
+  console.log(`[kg] \u2713 src/data/source-works.json written (${works.length} work(s))`);
+}
+
 /* The build's own diagnostics, likewise out of kg.json.
  *
  * 79 items, 17.6 KB, and **nothing in src/ reads them** — `KGStore.reviewNeeded`

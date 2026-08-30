@@ -3884,6 +3884,59 @@ both redirects.
     layout.** Anything that reproduces it should start by loading the page with fonts blocked
     *and* the CPU contended, not with either alone.
 
+150. **The archive rests on one book roughly twice as heavily as its own page can show.**
+    *Measured 29 August 2026.* `/about` reports "464 distinct sources" and lists what the archive
+    rests on, most-cited first. The top three rows are **the same book**: Alam Faqri's *Tazkirah
+    Awliya-e-Pakistan* at 25, 11 and 5 entries — and seven more variants of it are scattered
+    through the 436-long tail of sources cited once.
+
+    Counted by **work** instead of by citation string: **48 of the 168 sourced entries, 29%, lean
+    on that one book.** The largest number a reader can see on the page is 25.
+
+    Nothing here is a bug in `buildSourceIndex`. It dedupes on `citationKey` — the citation
+    lowercased and trimmed — and that is right for what it is: the citation string is the
+    reader's search string, and two entries citing different pages of a book have cited different
+    things. Iqbal Qaiser's *Historical Sikh Shrines in Pakistan* is fourteen records that differ
+    mostly by page number, which is good citation practice. The index answers "what does this
+    entry cite". It cannot answer "what does this archive lean on", and that is the question an
+    archive whose distinguishing claim is provenance most needs to be able to answer about
+    itself.
+
+    So there is now a second view over the same data, and **no citation is rewritten** (RULE 2):
+    `data/kg-seeds.json#sourceWorks` (14 works, curated by hand),
+    `scripts/data/measure-source-works.mjs` for the report, `src/data/source-works.json` shipped
+    so `/about` can compute it at runtime rather than quoting a number that goes stale, and
+    `src/lib/data/sourceWorks.ts` for the rollup. Kept out of `sourceIndex.ts` on purpose —
+    that module is on every shrine page and had 7 KB of budget headroom.
+
+151. **Two ways this measurement could have been wrong, and what it cost to avoid each.**
+    *Same day.*
+
+    - **Grouping by the italicised title fuses a newspaper's articles into one "source".** The
+      italic run in `"Nanakpanthi Saints of Sindh," *The Friday Times*, 13 April 2018` is the
+      publication, not the work. A title-key scan proposes fusing **sixteen** Express Tribune
+      articles, nine Friday Times pieces and eleven more across four other papers — an error
+      considerably worse than the one being fixed, because it would invent shared sourcing where
+      there is none. Periodicals are named in the instrument and never proposed; the candidate
+      report lists them separately, under a note saying why.
+    - **A citation can name a work and not be a citation of it.** One of the eleven Tazkirah
+      records reads *"(This saint post-dates the Tazkirah Awliya-e-Pakistan compendium; entry
+      based on established modern accounts.)"* — a statement that the book does **not** cover the
+      saint. Substring matching would have counted a documented gap as reliance, in the one place
+      where getting it backwards matters most. `excludeCitations` holds it verbatim, and
+      `sourceWorks.test.ts` asserts that exact sentence resolves to no work.
+
+    Also refused, and recorded: the **Janamsakhi**. Four citations name it, but it is a *genre* —
+    the birth-narratives of Guru Nanak — and the four are to different traditions within it, not
+    to one edition. Grouping them would assert a single text nobody named.
+
+    The vocabulary is curated by hand and never inferred, for the reason
+    `scripts/data/lib/saintIdentity.mjs` gives at length about people: a matcher that is right
+    most of the time makes errors nobody can find. `--candidates` proposes; a human accepts.
+
+    **Not rendered yet.** `/about` is the other session's surface tonight; `buildWorkRollup()` is
+    ready for it and the finding is theirs to place.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

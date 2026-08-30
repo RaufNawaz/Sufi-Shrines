@@ -1,0 +1,92 @@
+{
+  "generated": "2026-08-30T02:34:49.286Z",
+  "works": [
+    {
+      "slug": "tazkirah-awliya-e-pakistan",
+      "title": "Tazkirah Awliya-e-Pakistan",
+      "author": "Alam Faqri",
+      "match": "tazkirah awliya-e-pakistan",
+      "excludeCitations": [
+        "(this saint post-dates the tazkirah awliya-e-pakistan compendium; entry based on established modern accounts.)"
+      ]
+    },
+    {
+      "slug": "historical-sikh-shrines-in-pakistan",
+      "title": "Historical Sikh Shrines in Pakistan",
+      "author": "Iqbal Qaiser",
+      "match": "historical sikh shrines in pakistan"
+    },
+    {
+      "slug": "encyclopaedia-of-sikhism",
+      "title": "The Encyclopaedia of Sikhism",
+      "author": "Harbans Singh (ed.)",
+      "match": "the encyclopaedia of sikhism"
+    },
+    {
+      "slug": "a-history-of-the-sikhs",
+      "title": "A History of the Sikhs",
+      "author": "Khushwant Singh",
+      "match": "a history of the sikhs"
+    },
+    {
+      "slug": "the-sikh-religion-macauliffe",
+      "title": "The Sikh Religion: Its Gurus, Sacred Writings and Authors",
+      "author": "Max Arthur Macauliffe",
+      "match": "the sikh religion: its gurus"
+    },
+    {
+      "slug": "sikh-shrines-in-west-pakistan",
+      "title": "Sikh Shrines in West Pakistan",
+      "author": "Khan Mohammad Waliullah Khan",
+      "match": "sikh shrines in west pakistan"
+    },
+    {
+      "slug": "historic-temples-in-pakistan",
+      "title": "Historic Temples in Pakistan: A Call to Conscience",
+      "author": "Reema Abbasi",
+      "match": "historic temples in pakistan"
+    },
+    {
+      "slug": "gorakhnath-and-the-kanphata-yogis",
+      "title": "Gorakhnath and the Kanphata Yogis",
+      "author": "George Weston Briggs",
+      "match": "gorakhnath and the kanphata yogis"
+    },
+    {
+      "slug": "arguing-sainthood",
+      "title": "Arguing Sainthood: Modernity, Psychoanalysis, and Islam",
+      "author": "Katherine Pratt Ewing",
+      "match": "arguing sainthood"
+    },
+    {
+      "slug": "hinglaj-devi",
+      "title": "Hinglaj Devi: Identity, Change, and Solidification at a Hindu Temple in Pakistan",
+      "author": "Jürgen Schaflechner",
+      "match": "hinglaj devi: identity"
+    },
+    {
+      "slug": "sufi-culture-of-sindh",
+      "title": "Historical Dictionary of the Sufi Culture of Sindh",
+      "author": "Michel Boivin",
+      "match": "historical dictionary of the sufi culture of sindh"
+    },
+    {
+      "slug": "guru-nanak-and-the-sikh-religion",
+      "title": "Guru Nanak and the Sikh Religion",
+      "author": "W. H. McLeod",
+      "match": "guru nanak and the sikh religion"
+    },
+    {
+      "slug": "mystical-dimensions-of-islam",
+      "title": "Mystical Dimensions of Islam",
+      "author": "Annemarie Schimmel",
+      "match": "mystical dimensions of islam"
+    },
+    {
+      "slug": "journey-to-god",
+      "title": "Journey to God: Sufis and Dervishes in Islam",
+      "author": "Jürgen Wasim Frembgen",
+      "match": "journey to god: sufis and dervishes"
+    }
+  ]
+}
