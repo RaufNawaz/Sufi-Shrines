@@ -5115,6 +5115,47 @@ both redirects.
     | kin | 188 | 77 | 16 | 35 | 60 |
     | lineage | 175 | 67 | 13 | 46 | **49** |
 
+177. **The order layer is complete, and the one thing missing from it is the drift again. Four
+    independent instruments now say the same thing.** *Measured 30 August 2026.* Checked whether the
+    scanner method would find order memberships stated in prose and absent from the graph, the way
+    it found kin ties. It would not: `kg-order-proposals.json` documents an exhaustive sweep — *"every
+    one of the 169 rows … all 52 with a silsila value, and every row whose description matched an
+    order-name/silsila keyword sweep"*, plus `shrine_entries/` and `entries/` — and the claim holds.
+    Of 50 proposed memberships, **49 are edges in the graph.**
+
+    **The one that is not belongs to `hazrat-mian-qurban-ali-shah`**, one of the two rows production
+    holds and the snapshot does not (§9.156). The archive has extracted an order membership for a
+    saint whose entry it cannot see.
+
+    **So the case for the pending `data:build` is now four measurements from four directions**, none
+    of which was looking for it:
+
+    | | says |
+    |---|---|
+    | `check-live-sheet.mjs`, 27 Aug | production 171, snapshot 169 |
+    | §9.156 | both figures build `lineageOnly`, so `/saint/…` tells a reader the archive holds no entry for them |
+    | §9.173 | 5 quotes match no scanned sentence, because the scanners read the corpus and the corpus is missing those rows |
+    | this | 1 of 50 order memberships never becomes an edge |
+
+    And the blast radius, measured rather than estimated: the archive holds **2 kin edges, 4 lineage
+    proposals, 1 order proposal and 2 date proposals** about these two men, **6 of them sourced from
+    `entries/` rather than the corpus** because the corpus has no row to cite — plus a finished Urdu
+    article under the orphan key `darbar-hazrat-shah-gohar-peer`. Everything the archive knows about
+    them is real, verified, and attached to two figures whose own pages say they are not entries here.
+
+    **Nothing here is new evidence that the drift exists** — it was known on 27 August. What is new
+    is that four unrelated instruments have now each tripped over it while measuring something else,
+    which is what a systemic gap looks like from the inside. The order of operations is unchanged
+    and still needs Rauf: import the category patches, then `data:build`, then `data:kg`, then the
+    slim index and traditions, then `data:check:live` to confirm zero drift.
+
+    A note on the measuring, because it took three attempts: the first check compared proposal slugs
+    against graph slugs **without resolving retirements** and reported ten failures; the second
+    resolved them and reported one false one (`hazrat-wasif-ali-wasif`, joined to
+    `…-awan` and correctly built). Only the third was right. **A slug in a proposals file is a
+    pointer, not an address**, and any count that compares the two without `retiredSlugs` in hand is
+    counting its own ignorance.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
