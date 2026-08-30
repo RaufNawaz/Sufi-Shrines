@@ -175,8 +175,10 @@ for (const t of descentTriples(kg.relations)) {
 // Saints
 emit('# ── Saints ────────────────────────────────────────────────────────────────');
 for (const s of kg.saints) {
-  const orderRel  = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
-  const orderSlug = orderRel ? orderRel.object.replace(/^order:/, '') : null;
+  /* `.filter`, not `.find` — see the note in export-jsonld.mjs. Taking the first
+     membership dropped 13 of 67 from this file, all of them compound silsilas. */
+  const orderRels  = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'belongs_to_order');
+  const orderSlugs = orderRels.map((r) => r.object.replace(/^order:/, ''));
   const discipleOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'disciple_of');
   const successorOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'successor_of');
 
@@ -188,7 +190,9 @@ for (const s of kg.saints) {
   }
   if (s.born)       emit(`  schema:birthDate ${lit(s.born, '')} ;`);
   if (s.died)       emit(`  schema:deathDate ${lit(s.died, '')} ;`);
-  if (orderSlug)    emit(`  schema:memberOf order_:${orderSlug} ;`);
+  for (const slug of orderSlugs) {
+    emit(`  schema:memberOf order_:${slug} ;`);
+  }
   for (const r of discipleOfRels) {
     emit(`  sufi:discipleOf saint:${r.object.replace(/^saint:/, '')} ;`);
   }

@@ -178,6 +178,7 @@ saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami
   schema:name "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami"@en ;
   schema:deathDate "November 27, 1981 (Friday)" ;
   schema:memberOf order_:chishtiyya ;
+  schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
   sufi:successorOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
   schema:parent saint:hassan-din ;
@@ -202,6 +203,7 @@ saint:hazrat-tahir-bandagi-qadri
   schema:birthDate "1576 CE, Lahore" ;
   schema:deathDate "8 Muharram 1040 AH / 8 August 1630 CE" ;
   schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:naqshbandiyya ;
   sufi:discipleOf saint:hazrat-shah-sikandar ;
   sufi:discipleOf saint:mujaddid-alf-sani ;
   .
@@ -236,6 +238,7 @@ saint:hazrat-wasif-ali-wasif-awan
   schema:birthDate "15 January 1929" ;
   schema:deathDate "18 January 1993" ;
   schema:memberOf order_:chishtiyya ;
+  schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:hazrat-shah-niyaz-ahmad-chisti-qadri ;
   schema:parent saint:muhammad-arif ;
   .
@@ -279,6 +282,8 @@ saint:pir-syed-muhammad-rashid-shah-roze-dhani
   schema:birthDate "1757" ;
   schema:deathDate "1818" ;
   schema:memberOf order_:rashidi ;
+  schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:naqshbandiyya ;
   .
 
 saint:baba-pir-ratan-nath
@@ -746,6 +751,7 @@ saint:shams-ali-qalandar
   schema:birthDate "1873" ;
   schema:deathDate "1966" ;
   schema:memberOf order_:qalandariyya ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:goddess-sharada
@@ -814,6 +820,7 @@ saint:abul-faiz-qalander-ali-suharwardi
   schema:birthDate "1885" ;
   schema:deathDate "1958" ;
   schema:memberOf order_:suhrawardiyya ;
+  schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:pir-sher-muhammad ;
   sufi:discipleOf saint:pir-meher-ali-shah ;
   sufi:discipleOf saint:ala-hazrat-ahmad-raza-khan ;
@@ -856,6 +863,7 @@ saint:hazrat-baba-shah-kamal
   schema:name "Hazrat Baba Shah Kamal"@en ;
   schema:alternateName "Shah Kamal"@en ;
   schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:suhrawardiyya ;
   schema:parent saint:syed-ahmad-shah ;
   schema:sibling saint:syed-shah-jamal-uddin-naqvi-bukhari ;
   .
@@ -1117,6 +1125,7 @@ saint:pir-sher-muhammad
   schema:birthDate "1865" ;
   schema:deathDate "1928" ;
   schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:chishtiyya ;
   .
 
 saint:qalandar-baba-auliya
@@ -1127,6 +1136,7 @@ saint:qalandar-baba-auliya
   schema:birthDate "1898" ;
   schema:deathDate "1979" ;
   schema:memberOf order_:qalandariyya ;
+  schema:memberOf order_:azeemia ;
   .
 
 saint:sachal-sarmast
@@ -1160,6 +1170,7 @@ saint:shah-inayat-qadiri
   schema:birthDate "c. 1643 (existing sourcing); a 2026 field survey separately gives 1056 AH (~1646 CE) -- the two are consistent within the normal margin of approximate Hijri/Gregorian conversion." ;
   schema:deathDate "c. 1728" ;
   schema:memberOf order_:shattari ;
+  schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:muhammad-ali-raza-shattari ;
   sufi:discipleOf saint:hazrat-shah-raza-qadri-shattari ;
   .
@@ -1172,6 +1183,8 @@ saint:syed-shah-jamal-uddin-naqvi-bukhari
   schema:birthDate "1587" ;
   schema:deathDate "1671" ;
   schema:memberOf order_:suhrawardiyya ;
+  schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:sheikh-khokar-baig-suhrawardi ;
   schema:sibling saint:hazrat-baba-shah-kamal ;
   schema:parent saint:syed-ahmad-shah ;

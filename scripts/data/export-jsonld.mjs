@@ -151,8 +151,16 @@ for (const t of descentTriples(kg.relations)) {
 
 // Saints
 for (const s of kg.saints) {
-  const orderRel = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
-  const orderSlug = orderRel ? orderRel.object.replace(/^order:/, '') : null;
+  /* `.filter`, not `.find`: a compound silsila legitimately yields more than one
+     membership — "whose teaching joined the Qadiri and Chishti ways" is one edge
+     per way — and `getOrderMemberships` in src/lib/kg.ts returns all of them, so
+     the site has always shown them. Taking the first discarded 13 of 67 from both
+     exports, exactly the compound silsilas the archive went to the trouble of
+     recording. `schema:memberOf` is multi-valued in schema.org, so nothing in the
+     vocabulary had to change. The two relations immediately below already used
+     `.filter()`. */
+  const orderRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'belongs_to_order');
+  const orderSlugs = orderRels.map((r) => r.object.replace(/^order:/, ''));
   const discipleOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'disciple_of');
   const successorOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'successor_of');
   const kin = {};
@@ -169,7 +177,9 @@ for (const s of kg.saints) {
     ...(s.description  ? { 'description': s.description } : {}),
     ...(s.born         ? { 'birthDate': s.born } : {}),
     ...(s.died         ? { 'deathDate': s.died } : {}),
-    ...(orderSlug      ? { 'memberOf': { '@id': iri('order', orderSlug) } } : {}),
+    ...(orderSlugs.length
+      ? { 'memberOf': orderSlugs.map((slug) => ({ '@id': iri('order', slug) })) }
+      : {}),
     ...(discipleOfRels.length
       ? { 'sufi:discipleOf': discipleOfRels.map((r) => ({ '@id': iri('saint', r.object.replace(/^saint:/, '')) })) }
       : {}),
