@@ -112,14 +112,54 @@ valid.sort((a, b) => rowSortKey(a).localeCompare(rowSortKey(b)));
 mkdirSync(DATA_DIR, { recursive: true });
 
 const newDigest = rowsDigest(valid);
-const existing = existsSync(SHRINES_JSON)
-  ? (() => { try { return JSON.parse(readFileSync(SHRINES_JSON, 'utf8')); } catch { return null; } })()
-  : null;
-const existingDigest = existing ? rowsDigest(existing.rows ?? []) : null;
 
-if (newDigest === existingDigest) {
+/**
+ * Read one of this script's own outputs and digest the rows in it.
+ *
+ * The digest is over `valid` itself in every writer below — `snapshot.rows` is
+ * the same array object as `canonical.rows` — so a matching digest here means
+ * byte-identical row content, not merely equivalent data.
+ */
+const outputDigest = (path) => {
+  if (!existsSync(path)) return null;
+  try {
+    return rowsDigest(JSON.parse(readFileSync(path, 'utf8')).rows ?? []);
+  } catch {
+    return null;
+  }
+};
+
+/*
+ * The idempotency check used to compare one of the four files it writes.
+ *
+ * `data:validate`'s schema validator reads `data/shrines.json`; the *site* is
+ * built from `src/data/shrines-fallback.json` — prerender, `useShrineData`,
+ * `buildCoverage`, and every unit test that pins a count. So a hand-edit to the
+ * shipped snapshot (testing a badge, applying a patch locally, resolving an
+ * iCloud conflict copy) left the validator reading a clean file and the reader
+ * served a file nothing had validated. Re-running `data:build` to be safe then
+ * printed `Files untouched` — the reassuring line — because the canonical still
+ * matched, and repaired nothing.
+ *
+ * Now the early exit has to be earned by every output: all four present, and
+ * both row-bearing files agreeing with what was just fetched. Anything else
+ * falls through and rewrites the lot, which is the repair.
+ */
+const allOutputsPresent = [SHRINES_JSON, SHRINES_CSV, SNAPSHOT_JSON, INDEX_JSON].every(existsSync);
+const existingDigest = outputDigest(SHRINES_JSON);
+const snapshotDigest = outputDigest(SNAPSHOT_JSON);
+
+if (allOutputsPresent && newDigest === existingDigest && newDigest === snapshotDigest) {
   console.log(`✓ ${valid.length} rows — no changes (digest match). Files untouched.`);
   process.exit(0);
+}
+
+if (newDigest === existingDigest && newDigest !== snapshotDigest) {
+  console.log(
+    `! src/data/shrines-fallback.json disagrees with data/shrines.json — rewriting all outputs.\n` +
+      `  The canonical file was current, so the old check would have exited here and left the\n` +
+      `  shipped snapshot as it was. That snapshot is what every page renders from.`,
+  );
 }
 
 const generated = new Date().toISOString();
