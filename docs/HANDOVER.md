@@ -4227,6 +4227,19 @@ both redirects.
     `urdu-i18n/build_dictionary.py`, and a figure with no rendering anyone can vouch for is a
     reason to record that and say so, not to let the page title itself in the wrong script.
 
+    **What is left, measured on the way out: alt-names.** 206 of the archive's 232 recorded
+    alt-names still render in Latin under `?lang=ur`, across 113 figures — "Madho Lal Hussain"
+    beside Shah Hussain in the Malamati member list is the one a reader meets first. This is a
+    **documented position, not an oversight**: `localizeAltName`'s own comment says these are the
+    sheet's parenthetical variants rather than names the dictionary was built for, and every one
+    of them is declared `data-latin`, so the no-leak guard counts them and no reader is being told
+    they are Urdu.
+
+    It is the next Urdu debt now that the figure names are at zero, and it is **not** the same
+    job: a fair number are not names at all — "associated deity", "with Hoo" — and rendering those
+    as recorded is RULE 2 working, not a gap. Whoever takes it should split the 206 into names and
+    descriptions first, because translating the second group would be the error.
+
 160. **Six more kin ties the corpus states and the layer does not carry — gathered, not built.**
     *Scanned 30 August 2026.* §9.123's 28 edges came from one extraction pass over
     `familyRelations`. A second scan over every Description, for a kinship word beside a
