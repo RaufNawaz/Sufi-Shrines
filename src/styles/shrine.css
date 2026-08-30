@@ -843,14 +843,30 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* RTL gallery fix: don't reverse order in Urdu */
-[dir='rtl'] .gallery-grid {
-  direction: ltr; /* Keep gallery LTR regardless of language */
-}
-
-[dir='rtl'] .gallery-item {
-  direction: rtl; /* Restore RTL inside each item (caption text) */
-}
+/*
+ * The gallery flows with the language, and the override that stopped it is gone.
+ *
+ * It read `[dir='rtl'] .gallery-grid { direction: ltr }` under a comment that
+ * restated the rule — "keep gallery LTR regardless of language" — without ever
+ * giving a reason. Compare the `direction: ltr` in components.css, which is on
+ * a Latin citation and argues its case.
+ *
+ * Removed because **the rest of the component had already decided the other
+ * way**, and the disagreement was visible. Measured on
+ * `/shrine/data-darbar?lang=ur`: the strip ran left-to-right, so image 1 was the
+ * *leftmost* tile — while the lightbox's own arrows were mirrored, putting
+ * "next" (اگلی تصویر) at x=17 on the far left, and `ShrineGallery` swaps the
+ * arrow keys with `step(isRTL ? 1 : -1)` so ArrowLeft advances *forward*. A
+ * reader opened the leftmost picture and found "next" behind them.
+ *
+ * So this was not a design decision that the fix overrides; it was one half of
+ * the component contradicting the other two, and photographs have no reading
+ * direction of their own to appeal to. The per-item `direction: rtl` that undid
+ * it for captions goes with it — captions inherit RTL correctly once the grid
+ * does. Stated rather than observed, deliberately: **no entry in the dataset
+ * carries a gallery caption**, so `.gallery-caption` never renders today and
+ * there was nothing to look at. The rule it protected had no instances.
+ */
 
 .gallery-img {
   width: 100%;

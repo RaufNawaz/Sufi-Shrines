@@ -52,6 +52,42 @@ async function openLightbox(page: Page, lang: 'en' | 'ur') {
   return tiles.count();
 }
 
+test.describe('the photo strip runs the way the page does', () => {
+  /**
+   * Measured on `/shrine/data-darbar?lang=ur` before the fix: the grid was
+   * pinned `direction: ltr`, so image 1 was the **leftmost** tile — while the
+   * lightbox's own arrows were mirrored, putting اگلی تصویر ("next") at x=17 on
+   * the far left, and `ShrineGallery` swaps the arrow keys with
+   * `step(isRTL ? 1 : -1)` so ArrowLeft advances forward. A reader opened the
+   * leftmost picture and found "next" behind them.
+   *
+   * The override carried a comment that restated the rule without a reason, so
+   * this is not a design decision being overridden — it was one half of the
+   * component contradicting the other two.
+   */
+  for (const lang of ['en', 'ur'] as const) {
+    test(`[${lang}] the first tile sits on the side the language starts from`, async ({ page }) => {
+      await page.goto(lang === 'ur' ? `${GALLERY_SHRINE}?lang=ur` : GALLERY_SHRINE);
+      await waitForSheetData(page);
+      const tiles = page.locator('.gallery-item');
+      await tiles.first().waitFor({ timeout: 30_000 });
+      expect(await tiles.count(), 'need two tiles to have an order at all').toBeGreaterThan(1);
+
+      const [first, second] = await page.evaluate(() =>
+        [...document.querySelectorAll('.gallery-item')]
+          .slice(0, 2)
+          .map((el) => Math.round(el.getBoundingClientRect().left)),
+      );
+
+      if (lang === 'ur') {
+        expect(first, 'in Urdu the first image must be the rightmost tile').toBeGreaterThan(second);
+      } else {
+        expect(first, 'in English the first image must be the leftmost tile').toBeLessThan(second);
+      }
+    });
+  }
+});
+
 for (const lang of ['en', 'ur'] as const) {
   test.describe(`gallery lightbox (${lang})`, () => {
     test('walking off either end leaves it open and in range', async ({ page }) => {

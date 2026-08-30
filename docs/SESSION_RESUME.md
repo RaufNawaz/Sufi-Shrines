@@ -49,6 +49,7 @@ the reason the rest is credible.
 | Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
 | The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
+| The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | *next commit* |
 
 ---
 
@@ -61,18 +62,14 @@ Each item names what a reader loses, so the ranking can be argued with rather th
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-2. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
-   keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
-   rule without a reason.
-
-3. **A shrine names its order and never links to it** — the only one-way edge in the entity
+2. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-4. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+3. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-5. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+4. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---
