@@ -46,6 +46,7 @@ the reason the rest is credible.
 | Filters changed the URL and the list and never the map | `b768cb5` |
 | Four entity routes answered an unknown slug by silently becoming the map | `f95c7ad` |
 | The archive search palette announced nothing, and both comboboxes lied | `1093709` |
+| Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
 
 ---
 
