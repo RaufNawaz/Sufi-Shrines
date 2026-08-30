@@ -1594,6 +1594,54 @@
       "quote": "he is remembered as a *sayyid* — a descendant of the Prophet Muhammad — whose lineage is traced through Imam Musa al-Kazim",
       "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
       "notes": "The sayyid-descent class, already ruled once on the Abdullah Shah Ghazi entry. Recorded again because the scanners match on the sentence and this is a different sentence — a class ruling still needs one row per instance to stop the pile re-offering it."
+    },
+    {
+      "subjectName": "the six of Bibi Pak Daman",
+      "objectName": "Sayyida Ruqayya / the Ahl al-Bayt (the Karbala tradition)",
+      "kind": "contested tradition — the entry argues both sides",
+      "quote": "Around this difference old disputes have gathered — over whether the graves are those of Sayyida Ruqayya and the Ahl al-Bayt or of a Punjabi saint",
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "notes": "The Bibi Pak Daman entry is the archive's longest argument with itself: eight separate sentences carry the Karbala parentage, the Tirmidhi parentage, and the case against each — including \"Ali's wife Umm al-Banin is recorded with no daughter\". The graph holds the Tirmidhi reading as `daughter_of` with a `contested` flag, which is the archive taking a position it can defend. Adding the Karbala reading as a second parentage would make the archive assert both, and choosing between them is a reviewer's call, not an agent's. Recorded once for the cluster; the individual sentences stay unread on purpose."
+    },
+    {
+      "subjectName": "Fakhr-ud-Din Iraqi",
+      "objectName": "Bahauddin Zakariya's family",
+      "kind": "marriage, unnamed spouse",
+      "quote": "the poet-saint Fakhr-ud-Din Iraqi, who came to Multan and married into his family",
+      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "notes": "\"Married into his family\" names no wife, so `spouse_of` has nobody to point at and `son_in_law_of` would assert a daughter the corpus never mentions. The real tie in this sentence — Shah Rukn-e-Alam as Bahauddin Zakariya's grandson — is already an edge."
+    },
+    {
+      "subjectName": "Akbar",
+      "objectName": "Humayun",
+      "kind": "real, deliberately not modelled",
+      "quote": "the birthplace, in 1542, of the Mughal emperor *Akbar*, born there while his fugitive father Humayun",
+      "source": "data/shrines.csv#umarkot-amarkot-shiv-mandir",
+      "notes": "Same decision as Dara Shikoh and Aurangzeb: neither man is a figure of this archive, and both would enter the graph solely to be each other's relative. The sentence is here because Umarkot is where Akbar was born, which is a fact about the PLACE."
+    },
+    {
+      "subjectName": "the current sajjada nashin of Shah Jamal",
+      "objectName": "Syed Shah Jamal Uddin Naqvi Bukhari",
+      "kind": "descendant, unnamed",
+      "quote": "the current sajjada nashin, a descendant of the saint, continues to hold Khatam Khawajgan",
+      "source": "data/shrines.csv#shrine-of-shah-jamal",
+      "notes": "An office-holder described by their relation and never named — the custodial class again, in its kin form rather than its lineage one. The archive knows a descendant exists and cannot say who."
+    },
+    {
+      "subjectName": "Shah Chiragh",
+      "objectName": "his father (unnamed)",
+      "kind": "unnamed",
+      "quote": "contains eight graves in total, including those of Shah Chiragh's father and grandfather, making it a multi-generational family shrine",
+      "source": "data/shrines.csv#shrine-of-baba-shah-chiragh",
+      "notes": "The grandfather is named elsewhere in the entry and IS an edge (Hazrat Abdul Qadir Sani). The father is named nowhere, in a sentence that confirms he is buried in this archive's own site — a relative the archive can point at physically and not nominally."
+    },
+    {
+      "subjectName": "Fariduddin Ganjshakar",
+      "objectName": "his mother and grandfather (unnamed)",
+      "kind": "unnamed",
+      "quote": "His mother, remembered as a woman of deep piety, first set him on the path of prayer",
+      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "notes": "One of the three or four entries that describe a mother's influence at length without naming her. Worth noting against the three mothers the archive DOES name (Mata Tripta, Bibi Rasti, Mehtab Bibi): the corpus names a mother when the tradition does, and the silence is the tradition's, not the archive's."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",
