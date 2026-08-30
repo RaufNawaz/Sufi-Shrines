@@ -26,6 +26,30 @@ const FIGURES = [
   { latin: 'Bebe Nanaki', urdu: 'بے بے نانکی', slug: 'bebe-nanaki' },
 ];
 
+/**
+ * The row for a *figure*, not merely a row containing their name.
+ *
+ * `hasText` is a substring match, and the archive contains sites named after the
+ * people in it: «بے بے نانکی» is inside «گوردوارہ بے بے نانکی», so a bare filter
+ * matched both the figure row and the almanac observance for the gurdwara, and
+ * `.first()` took whichever the search had ranked higher *at click time*. In
+ * isolation that was always the figure; in a full parallel run, once — the lazy
+ * 88 KB dictionary landed between the visibility check and the click, the list
+ * re-ranked, and the test followed a `day` row to `/almanac#gurdwara-babay-nanki`
+ * and reported it as a search regression.
+ *
+ * The row's kind is already in the DOM (`archive-search-dot--{kind}`), so the
+ * locator can say which of the six kinds it means. A test that says "some row
+ * with this text" is not asking the question this file exists to ask.
+ */
+function figureRow(page: Page, name: string) {
+  return page
+    .locator('li.palette-result')
+    .filter({ has: page.locator('.archive-search-dot--figure') })
+    .filter({ hasText: name })
+    .first();
+}
+
 async function openPalette(page: Page, lang: 'en' | 'ur', query: string) {
   await page.goto(lang === 'ur' ? '/about?lang=ur' : '/about');
   await page.locator('h1').first().waitFor();
@@ -43,8 +67,9 @@ test.describe('a figure is findable by their Urdu name', () => {
          Urdu-script query is what triggers the fetch, so the figure row appears
          only after it lands and the entity list is re-enriched. */
       /* The rows are `role="option"` list items, not anchors — the palette
-         navigates on commit — so the assertion is on the name it displays. */
-      const row = page.locator('.palette-result-name').filter({ hasText: figure.urdu }).first();
+         navigates on commit — so the assertion is on the name it displays, and
+         on the kind of thing it says it is. */
+      const row = figureRow(page, figure.urdu);
       await expect(row, `«${figure.urdu}» did not reach ${figure.slug}`).toBeVisible({
         timeout: 20_000,
       });
@@ -58,7 +83,7 @@ test.describe('a figure is findable by their Urdu name', () => {
       /* The other half, so a fix for the Urdu side cannot quietly cost the
          Latin one: enriching the index must add a name, never replace one. */
       await openPalette(page, 'en', figure.latin);
-      const row = page.locator('.palette-result-name').filter({ hasText: figure.latin }).first();
+      const row = figureRow(page, figure.latin);
       await expect(row, `"${figure.latin}" did not reach ${figure.slug}`).toBeVisible({
         timeout: 20_000,
       });
