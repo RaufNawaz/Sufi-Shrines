@@ -21,6 +21,12 @@ import type { UiStrings } from '../i18n/uiStrings';
  */
 export const KIN_ROLE_KEYS: Record<string, keyof UiStrings> = {
   father: 'kinRoleFather',
+  /* Added 30 August 2026. Its absence was an oversight rather than a decision —
+     none of the first 28 ties happened to run through a mother, so the parent
+     roles read as a list of fathers and nobody noticed. The corpus names three:
+     Guru Nanak's Mata Tripta, Sultan Bahu's Bibi Rasti, and Khwaja Feroz-ud-Din's
+     Mehtab Bibi. */
+  mother: 'kinRoleMother',
   son: 'kinRoleSon',
   daughter: 'kinRoleDaughter',
   grandfatherPaternal: 'kinRoleGrandfatherPaternal',
@@ -45,6 +51,10 @@ export const KIN_ROLE_KEYS: Record<string, keyof UiStrings> = {
      are simply the words. */
   brother: 'kinRoleBrother',
   sister: 'kinRoleSister',
+  /* Marriage, the second symmetric pair. Urdu has no maternal/paternal split to
+     resolve here either — بیوی and شوہر are simply the words. */
+  wife: 'kinRoleWife',
+  husband: 'kinRoleHusband',
 };
 
 /**

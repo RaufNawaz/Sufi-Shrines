@@ -4559,6 +4559,57 @@ both redirects.
     needing a verdict — the review pipeline already treated a non-relation as a reviewable claim,
     which is the right answer and was not something this change had to arrange.
 
+166. **The kin vocabulary could not say "mother" or "wife", and had not been able to since it was
+    built.** *Found and fixed 30 August 2026, working the scan's reading pile down.* The first
+    kin batch read the sentences that name a figure the graph already holds, because that is the
+    easy signal. This one read the other half — 73 sentences naming **nobody** the graph had — and
+    that is where the parents were. **Eighteen ties, eighteen new figures**, the largest single
+    addition the layer has had.
+
+    Guru Nanak's Mehta Kalu and Mata Tripta. Iqbal's father Sheikh Noor Muhammad and his son Javid.
+    Sultan Bahu's mother Bibi Rasti, "herself remembered as a saint", to whom tradition credits his
+    name. Bhai Taru Singh's sister Bibi Tar Kaur. Mauj Darya's first wife Syedna Bibi Fatima Sani,
+    who "rests in a separate shrine facing his own" — a shrine this archive does not hold.
+
+    **Two vocabulary gaps, and neither was a decision.** `son_of` allowed exactly one elder role,
+    `father`. Nothing in the first 43 edges happened to run through a mother, so the list read as
+    *the* parent role rather than as half of one, and nobody looked. The corpus names three
+    mothers outright. Likewise there was no marriage type at all: `son_in_law_of` existed, so the
+    archive could say a man married someone's daughter but not that he had a wife.
+
+    `mother` joins `father` as an elder role for `son_of`/`daughter_of`, and **`spouse_of`** is the
+    second symmetric type, working exactly like `sibling_of` — stored once, both sides drawn from
+    `wife`/`husband`, the words usually differing because the spouses do. Deliberately **not**
+    `wife_of`: that would force every marriage to be stored from the wife's side and make the
+    direction carry a meaning the corpus does not assign. Urdu: والدہ, بیوی, شوہر — no
+    maternal/paternal split to resolve, unlike چچا/ماموں.
+
+    **The export guard fired on its first real opportunity, which is the best evidence it was worth
+    writing.** §9.162's `kinTriples()` throws on an unmapped `kinType`, and
+    `kinExportCoverage.test.ts` asserts every type *present in the graph* has a mapping. Adding
+    `spouse_of` to the seed turned the suite red within the same minute, naming the type — the
+    check written that morning for a failure of ADDITION catching the first addition. `spouse_of`
+    now goes out as `schema:spouse`, symmetric, from both ends.
+
+    **What was read and deliberately not built**, each recorded rather than left to be re-read:
+
+    - **Eidgah Sharif's fourth generation.** "He is assisted … by his son, *Sahibzada Muhammad
+      Hassan Haseeb-ur-Rehman*, so that the lineage now spans four generations." The antecedent of
+      "He" cannot be pinned: if it is Abdur Rahman the lineage spans three, not four, so the
+      sentence's own arithmetic says the subject is somebody it does not name here.
+    - **Shah Ali Akbar's grandson**, who raised the mausoleum and is unnamed. The same sentence
+      does name a real tie — "the builders Ibrahim and Rajab, sons of the noted architect Musa
+      Lahori" — and three new nodes for a construction credit is not what this layer is for.
+    - **Maharani Datar Kaur as Kharak Singh's mother.** Her sentence says "their son Kharak
+      Singh", which establishes it by joining two other claims rather than stating it. Every mother
+      edge here names a mother outright.
+    - **The Karbala parentage of the six of Bibi Pak Daman** — Sayyida Ruqayya as Hazrat Ali's
+      daughter and Muslim ibn Aqeel's wife. The entry reports this as one of two competing
+      traditions and argues against it at length in its own text ("Ali's wife Umm al-Banin is
+      recorded with no daughter"). The existing `daughter_of` edge already carries the other
+      tradition with a `contested` flag; adding this one needs a reviewer's call about how the
+      archive publishes a dispute it is itself adjudicating, not an agent's.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

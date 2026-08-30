@@ -147,6 +147,7 @@ saint:hazrat-syed-muhammad-khair-ul-deen
   sufi:discipleOf saint:daud-bandagi-kirmani ;
   sufi:nephewOf saint:daud-bandagi-kirmani ;
   sufi:sonInLawOf saint:daud-bandagi-kirmani ;
+  schema:parent saint:syed-rehmatullah-kirmani ;
   .
 
 saint:khwaja-muhammad-qasim
@@ -177,6 +178,8 @@ saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami
   schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
   sufi:successorOf saint:hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami ;
+  schema:parent saint:hassan-din ;
+  schema:parent saint:mehtab-bibi ;
   .
 
 saint:khawaja-shah-muhammad-sulaiman-taunsvi
@@ -228,6 +231,7 @@ saint:hazrat-wasif-ali-wasif-awan
   schema:deathDate "18 January 1993" ;
   schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:hazrat-shah-niyaz-ahmad-chisti-qadri ;
+  schema:parent saint:muhammad-arif ;
   .
 
 saint:sufi-shah-inayat-shaheed
@@ -311,6 +315,7 @@ saint:sultan-bahoo
   schema:deathDate "1691" ;
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:sayyid-abdul-rahman-of-delhi ;
+  schema:parent saint:bibi-rasti ;
   .
 
 saint:pir-meher-ali-shah
@@ -356,6 +361,8 @@ saint:guru-nanak
   schema:birthDate "1469" ;
   schema:deathDate "1539" ;
   schema:sibling saint:bebe-nanaki ;
+  schema:parent saint:mehta-kalu ;
+  schema:parent saint:mata-tripta ;
   schema:sameAs <https://www.wikidata.org/entity/Q309430> ;
   .
 
@@ -437,6 +444,7 @@ saint:bhai-taru
   schema:alternateName "Bhai Taru Singh"@en ;
   schema:birthDate "1720" ;
   schema:deathDate "1745" ;
+  schema:sibling saint:bibi-tar-kaur ;
   .
 
 saint:sikh-women-and-children-martyrs
@@ -654,6 +662,7 @@ saint:maharaja-ranjit-singh
   schema:alternateName "Ranjit Singh"@en ;
   schema:birthDate "1780" ;
   schema:deathDate "1839" ;
+  schema:spouse saint:maharani-datar-kaur ;
   .
 
 saint:sant-baba-asudaram-sakhi-baba
@@ -664,6 +673,8 @@ saint:sant-baba-asudaram-sakhi-baba
   schema:alternateName "Asudaram"@en ;
   schema:birthDate "1895" ;
   schema:deathDate "1960" ;
+  schema:parent saint:bhai-ludhrodmal ;
+  schema:parent saint:chaini-bai ;
   .
 
 saint:sant-baba-bhagat-ram
@@ -800,6 +811,7 @@ saint:abul-faiz-qalander-ali-suharwardi
   sufi:discipleOf saint:ala-hazrat-ahmad-raza-khan ;
   sufi:discipleOf saint:hazrat-ghulam-muhammad-suhrawardi ;
   sufi:grandsonOf saint:jamal-ud-din-gilani ;
+  schema:parent saint:rasool-bakhsh-gilani ;
   .
 
 saint:akhund-darweza-baba
@@ -828,6 +840,7 @@ saint:syed-abdul-razzaq
   schema:deathDate "1657" ;
   schema:memberOf order_:qadiriyya ;
   sufi:descendantOf saint:sheikh-abdul-qadir-gilani ;
+  sufi:grandsonOf saint:hazrat-abdul-qadir-sani ;
   .
 
 saint:hazrat-baba-shah-kamal
@@ -889,6 +902,7 @@ saint:ganj-e-inayat-sarkar
   sufi:discipleOf saint:hazrat-syedna-tahir-alauddin-qadiri-gilani ;
   sufi:discipleOf saint:maulana-ghulam-ali-okarvi ;
   sufi:successorOf saint:hazrat-pir-syed-ismail-shah-bukhari ;
+  schema:parent saint:hazrat-mian-sohbat-ali ;
   .
 
 saint:hazrat-hafiz-muhammad-jamal-multani
@@ -1010,6 +1024,7 @@ saint:hazrat-meeran-muhammad-shah-bukhari
   schema:deathDate "1604" ;
   schema:memberOf order_:suhrawardiyya ;
   sufi:descendantOf saint:jalaluddin-surkh-posh-bukhari ;
+  schema:spouse saint:syedna-bibi-fatima-sani ;
   .
 
 saint:mian-mir
@@ -1213,6 +1228,7 @@ saint:allama-muhammad-iqbal
   schema:alternateName "Sir Muhammad Iqbal"@en ;
   schema:birthDate "1877" ;
   schema:deathDate "1938" ;
+  schema:parent saint:sheikh-noor-muhammad ;
   .
 
 saint:hazrat-bahaal-halim
@@ -1702,6 +1718,101 @@ saint:sadr-ud-din-arif
 saint:qazi-sain-datta
   a schema:Person ;
   schema:name "Qazi Sain Datta"@en ;
+  .
+
+saint:syed-rehmatullah-kirmani
+  a schema:Person ;
+  schema:name "Syed Rehmatullah Kirmani"@en ;
+  .
+
+saint:hassan-din
+  a schema:Person ;
+  schema:name "Hassan Din"@en ;
+  .
+
+saint:mehtab-bibi
+  a schema:Person ;
+  schema:name "Mehtab Bibi"@en ;
+  .
+
+saint:muhammad-arif
+  a schema:Person ;
+  schema:name "Muhammad Arif"@en ;
+  .
+
+saint:kashif-wasif
+  a schema:Person ;
+  schema:name "Kashif Wasif"@en ;
+  schema:parent saint:hazrat-wasif-ali-wasif-awan ;
+  .
+
+saint:bibi-rasti
+  a schema:Person ;
+  schema:name "Bibi Rasti"@en ;
+  .
+
+saint:mehta-kalu
+  a schema:Person ;
+  schema:name "Mehta Kalu (Kalyan Das)"@en ;
+  .
+
+saint:mata-tripta
+  a schema:Person ;
+  schema:name "Mata Tripta"@en ;
+  .
+
+saint:rasool-bakhsh-gilani
+  a schema:Person ;
+  schema:name "Rasool Bakhsh Gilani"@en ;
+  .
+
+saint:hazrat-mian-sohbat-ali
+  a schema:Person ;
+  schema:name "Hazrat Mian Sohbat Ali"@en ;
+  .
+
+saint:sheikh-noor-muhammad
+  a schema:Person ;
+  schema:name "Sheikh Noor Muhammad"@en ;
+  .
+
+saint:javid-iqbal
+  a schema:Person ;
+  schema:name "Javid Iqbal"@en ;
+  schema:parent saint:allama-muhammad-iqbal ;
+  .
+
+saint:bhai-ludhrodmal
+  a schema:Person ;
+  schema:name "Bhai Ludhrodmal"@en ;
+  .
+
+saint:chaini-bai
+  a schema:Person ;
+  schema:name "Chaini Bai"@en ;
+  .
+
+saint:hazrat-abdul-qadir-sani
+  a schema:Person ;
+  schema:name "Hazrat Abdul Qadir Sani"@en ;
+  .
+
+saint:bibi-tar-kaur
+  a schema:Person ;
+  schema:name "Bibi Tar Kaur"@en ;
+  schema:sibling saint:bhai-taru ;
+  .
+
+saint:syedna-bibi-fatima-sani
+  a schema:Person ;
+  schema:name "Syedna Bibi Fatima Sani"@en ;
+  schema:spouse saint:hazrat-meeran-muhammad-shah-bukhari ;
+  .
+
+saint:maharani-datar-kaur
+  a schema:Person ;
+  schema:name "Maharani Datar Kaur"@en ;
+  schema:spouse saint:maharaja-ranjit-singh ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

@@ -42,6 +42,15 @@ export const KIN_EXPORT_PREDICATE = {
   son_of: { schemaOrg: true, term: 'parent' },
   daughter_of: { schemaOrg: true, term: 'parent' },
   sibling_of: { schemaOrg: true, term: 'sibling', symmetric: true },
+  /* Added 30 August 2026, by this module's own guard: `kinTriples` threw and
+     `kinExportCoverage.test.ts` named the type the moment `spouse_of` entered
+     the seed. That is the check working on its first real opportunity — the
+     failure it was written for is a kin type reaching the graph and the site
+     while quietly missing from the data release, which is exactly how `kin_of`
+     itself behaved for a day. schema.org has the exact term and defines it
+     symmetric, so it is emitted from both ends for the same reason
+     `schema:sibling` is. */
+  spouse_of: { schemaOrg: true, term: 'spouse', symmetric: true },
   // No standard term exists; see the note above.
   grandson_of: { schemaOrg: false, term: 'grandsonOf' },
   nephew_of: { schemaOrg: false, term: 'nephewOf' },

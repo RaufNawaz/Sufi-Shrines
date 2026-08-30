@@ -347,6 +347,7 @@ const UI_TEXT_EN = {
   kinNote:
     'Blood and marriage as this archive’s own entries state them, with the sentence each was read from. In this corpus a seat passes down a family at least as often as down a chain of initiation.',
   kinRoleFather: 'father',
+  kinRoleMother: 'mother',
   kinRoleSon: 'son',
   kinRoleDaughter: 'daughter',
   kinRoleDaughters: 'daughters',
@@ -366,6 +367,8 @@ const UI_TEXT_EN = {
   kinRoleDescendant: 'descendant',
   kinRoleBrother: 'brother',
   kinRoleSister: 'sister',
+  kinRoleWife: 'wife',
+  kinRoleHusband: 'husband',
   kinGenerationDisputed: 'sources differ on the generation',
   kinGenerationDisputedHelp:
     'The sources agree on the descent and disagree on how many generations it runs. Both counts are kept rather than one chosen.',

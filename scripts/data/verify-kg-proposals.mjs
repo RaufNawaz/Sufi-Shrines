@@ -95,14 +95,19 @@ const KIN_TYPES = new Set([
   'nephew_of',
   'son_in_law_of',
   'sibling_of',
+  'spouse_of',
 ]);
 /* The elder label and the junior label a kinType may carry. Pairing them here
    rather than checking two flat lists is the point: `grandson_of` with
    `elderRole: 'father'` passes two independent vocabulary checks and is
    nonsense. */
 const KIN_ROLES = {
-  son_of: { elder: ['father'], junior: ['son'] },
-  daughter_of: { elder: ['father'], junior: ['daughter'] },
+  /* `mother` joins `father` on 30 August 2026. The vocabulary had no way to say
+     it, and the corpus names three: Mata Tripta, Bibi Rasti, Mehtab Bibi. The
+     gap was not a decision — nothing in the first 28 edges happened to be a
+     mother, so nobody noticed the list was of fathers rather than of parents. */
+  son_of: { elder: ['father', 'mother'], junior: ['son'] },
+  daughter_of: { elder: ['father', 'mother'], junior: ['daughter'] },
   grandson_of: {
     elder: ['grandfatherPaternal', 'grandfatherUnspecified'],
     junior: ['grandsonPaternal', 'grandsonUnspecified'],
@@ -133,6 +138,15 @@ const KIN_ROLES = {
      contradiction, for a symmetric one it is a duplicate, and either way it must
      not exist. (HANDOVER §9.160.) */
   sibling_of: { elder: ['brother', 'sister'], junior: ['brother', 'sister'] },
+  /* The SECOND symmetric type, and it works exactly like `sibling_of`: stored
+     once, both sides drawn from the same pair, the two words usually differing
+     because the spouses do. The reverse check needs no exception here either.
+
+     Not `wife_of`, which would force the archive to store every marriage from
+     the wife's side and make the direction carry a meaning the corpus does not
+     assign. `spouse_of` with `wife`/`husband` says who each person is without
+     claiming either is the subject of the marriage. */
+  spouse_of: { elder: ['wife', 'husband'], junior: ['wife', 'husband'] },
 };
 const CONFIDENCE_TIERS = new Set([0.95, 0.7]);
 const MAX_QUOTE = 200;

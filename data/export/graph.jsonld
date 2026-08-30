@@ -216,6 +216,11 @@
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani"
         }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rehmatullah-kirmani"
+        }
       ]
     },
     {
@@ -269,6 +274,14 @@
       "sufi:successorOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-khawaja-sheikh-muhammad-mustafa-chishti-nizami"
+        }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hassan-din"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mehtab-bibi"
         }
       ]
     },
@@ -358,6 +371,11 @@
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-niyaz-ahmad-chisti-qadri"
+        }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-arif"
         }
       ]
     },
@@ -486,6 +504,11 @@
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-abdul-rahman-of-delhi"
         }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-rasti"
+        }
       ]
     },
     {
@@ -552,6 +575,14 @@
       "sibling": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bebe-nanaki"
+        }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mehta-kalu"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mata-tripta"
         }
       ],
       "sameAs": "https://www.wikidata.org/entity/Q309430"
@@ -682,7 +713,12 @@
         "Bhai Taru Singh"
       ],
       "birthDate": "1720",
-      "deathDate": "1745"
+      "deathDate": "1745",
+      "sibling": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-tar-kaur"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -991,7 +1027,12 @@
         "Ranjit Singh"
       ],
       "birthDate": "1780",
-      "deathDate": "1839"
+      "deathDate": "1839",
+      "spouse": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharani-datar-kaur"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -1003,7 +1044,15 @@
         "Asudaram"
       ],
       "birthDate": "1895",
-      "deathDate": "1960"
+      "deathDate": "1960",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-ludhrodmal"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/chaini-bai"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -1195,6 +1244,11 @@
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jamal-ud-din-gilani"
         }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rasool-bakhsh-gilani"
+        }
       ]
     },
     {
@@ -1242,6 +1296,11 @@
       "sufi:descendantOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-abdul-qadir-gilani"
+        }
+      ],
+      "sufi:grandsonOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-abdul-qadir-sani"
         }
       ]
     },
@@ -1363,6 +1422,11 @@
       "sufi:successorOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-pir-syed-ismail-shah-bukhari"
+        }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-mian-sohbat-ali"
         }
       ]
     },
@@ -1562,6 +1626,11 @@
       "sufi:descendantOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jalaluddin-surkh-posh-bukhari"
+        }
+      ],
+      "spouse": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syedna-bibi-fatima-sani"
         }
       ]
     },
@@ -1900,7 +1969,12 @@
         "Sir Muhammad Iqbal"
       ],
       "birthDate": "1877",
-      "deathDate": "1938"
+      "deathDate": "1938",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-noor-muhammad"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -2598,6 +2672,121 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qazi-sain-datta",
       "name": "Qazi Sain Datta"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-rehmatullah-kirmani",
+      "name": "Syed Rehmatullah Kirmani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hassan-din",
+      "name": "Hassan Din"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mehtab-bibi",
+      "name": "Mehtab Bibi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/muhammad-arif",
+      "name": "Muhammad Arif"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/kashif-wasif",
+      "name": "Kashif Wasif",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-wasif-ali-wasif-awan"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-rasti",
+      "name": "Bibi Rasti"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mehta-kalu",
+      "name": "Mehta Kalu (Kalyan Das)"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mata-tripta",
+      "name": "Mata Tripta"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/rasool-bakhsh-gilani",
+      "name": "Rasool Bakhsh Gilani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-mian-sohbat-ali",
+      "name": "Hazrat Mian Sohbat Ali"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sheikh-noor-muhammad",
+      "name": "Sheikh Noor Muhammad"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/javid-iqbal",
+      "name": "Javid Iqbal",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/allama-muhammad-iqbal"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-ludhrodmal",
+      "name": "Bhai Ludhrodmal"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/chaini-bai",
+      "name": "Chaini Bai"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-abdul-qadir-sani",
+      "name": "Hazrat Abdul Qadir Sani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bibi-tar-kaur",
+      "name": "Bibi Tar Kaur",
+      "sibling": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/bhai-taru"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syedna-bibi-fatima-sani",
+      "name": "Syedna Bibi Fatima Sani",
+      "spouse": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-meeran-muhammad-shah-bukhari"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharani-datar-kaur",
+      "name": "Maharani Datar Kaur",
+      "spouse": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
+        }
+      ]
     },
     {
       "@type": "Place",

@@ -229,7 +229,23 @@ describe('the shipped graph', () => {
                        rows were swept") and the claim held; the kin pass had
                        not, and did not. The difference between +9 above and +1
                        here is exactly the difference between a pass that wrote
-                       down what it read and one that did not. */
-    expect(flagged.length).toBe(174);
+                       down what it read and one that did not.
+        174 + 18      = 192, 30 August 2026, the second kin batch. Parents, a
+                       wife, a sister and two sons the corpus names and the
+                       graph had no node for: Guru Nanak's Mehta Kalu and Mata
+                       Tripta, Iqbal's father Sheikh Noor Muhammad and his son
+                       Javid, Sultan Bahu's mother Bibi Rasti, Bhai Taru Singh's
+                       sister Bibi Tar Kaur, Mauj Darya's wife Syedna Bibi
+                       Fatima Sani, and ten more.
+
+                       This batch came from reading the sentences that name
+                       NOBODY the graph already held — the half of the kin scan
+                       that the first pass skipped because a known figure on one
+                       end is the easy signal. It is where the parents were, and
+                       it is why the vocabulary gained `mother` and `spouse_of`:
+                       nothing in the first 43 edges ran through a mother or a
+                       marriage, so the role list read as fathers and nobody
+                       noticed it could not say otherwise. */
+    expect(flagged.length).toBe(192);
   });
 });

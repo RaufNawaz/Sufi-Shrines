@@ -304,6 +304,7 @@ export const UI_TEXT_UR: UiStrings = {
   kinNote:
     'خون اور رشتۂ ازدواج کے تعلقات، جیسے اس آرکائیو کے اپنے اندراجات میں درج ہیں، اور ساتھ وہ جملہ جس سے ہر رشتہ اخذ کیا گیا۔ اس ذخیرے میں گدی جتنی بار سلسلۂ بیعت سے منتقل ہوتی ہے، کم از کم اتنی بار خاندان میں بھی۔',
   kinRoleFather: 'والد',
+  kinRoleMother: 'والدہ',
   kinRoleSon: 'بیٹا',
   kinRoleDaughter: 'بیٹی',
   kinRoleDaughters: 'بیٹیاں',
@@ -323,6 +324,8 @@ export const UI_TEXT_UR: UiStrings = {
   kinRoleDescendant: 'اولاد میں سے',
   kinRoleBrother: 'بھائی',
   kinRoleSister: 'بہن',
+  kinRoleWife: 'بیوی',
+  kinRoleHusband: 'شوہر',
   kinGenerationDisputed: 'نسل کے شمار پر مآخذ مختلف ہیں',
   kinGenerationDisputedHelp:
     'مآخذ نسب پر متفق ہیں اور اس پر مختلف کہ وہ کتنی پشتوں پر محیط ہے۔ دونوں شمار رکھے گئے ہیں، کسی ایک کو منتخب نہیں کیا گیا۔',

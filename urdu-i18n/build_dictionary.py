@@ -997,6 +997,28 @@ SAINTS = {
  # holds no site of his; he is here because Kartarpur's entry states that Nanak
  # passed the Guruship to him over his own sons.
  "Guru Angad (Bhai Lehna)": "گرو انگد (بھائی لہنا)",
+ # Eighteen more from the second kin batch (30 August 2026): parents, a wife, a
+ # sister and two sons the corpus names and the graph had no node for. Three of
+ # them are the reason `mother` entered the role vocabulary at all — Mata Tripta,
+ # Bibi Rasti, Mehtab Bibi.
+ "Syed Rehmatullah Kirmani": "سید رحمت اللہ کرمانی",
+ "Hassan Din": "حسن دین",
+ "Mehtab Bibi": "مہتاب بی بی",
+ "Muhammad Arif": "محمد عارف",
+ "Kashif Wasif": "کاشف واصف",
+ "Bibi Rasti": "بی بی راستی",
+ "Mehta Kalu (Kalyan Das)": "مہتا کالو (کلیان داس)",
+ "Mata Tripta": "ماتا ترپتا",
+ "Rasool Bakhsh Gilani": "رسول بخش جیلانی",
+ "Hazrat Mian Sohbat Ali": "حضرت میاں صحبت علی",
+ "Sheikh Noor Muhammad": "شیخ نور محمد",
+ "Javid Iqbal": "جاوید اقبال",
+ "Bhai Ludhrodmal": "بھائی لدھروڈمل",
+ "Chaini Bai": "چینی بائی",
+ "Hazrat Abdul Qadir Sani": "حضرت عبدالقادر ثانی",
+ "Bibi Tar Kaur": "بی بی تار کور",
+ "Syedna Bibi Fatima Sani": "سیدنا بی بی فاطمہ ثانی",
+ "Maharani Datar Kaur": "مہارانی داتار کور",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

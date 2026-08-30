@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 249,
+      "saints": 267,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "derivedBareNames": 136,
-      "flatSeedEntries": 1201
+      "derivedBareNames": 137,
+      "flatSeedEntries": 1220
     }
   },
   "categories": {
@@ -762,7 +762,25 @@
     "Musa Hussain Zanjani": "موسیٰ حسین زنجانی",
     "Sadr-ud-Din Arif": "صدر الدین عارف",
     "Qazi Sain Datta": "قاضی سائیں دتہ",
-    "Guru Angad (Bhai Lehna)": "گرو انگد (بھائی لہنا)"
+    "Guru Angad (Bhai Lehna)": "گرو انگد (بھائی لہنا)",
+    "Syed Rehmatullah Kirmani": "سید رحمت اللہ کرمانی",
+    "Hassan Din": "حسن دین",
+    "Mehtab Bibi": "مہتاب بی بی",
+    "Muhammad Arif": "محمد عارف",
+    "Kashif Wasif": "کاشف واصف",
+    "Bibi Rasti": "بی بی راستی",
+    "Mehta Kalu (Kalyan Das)": "مہتا کالو (کلیان داس)",
+    "Mata Tripta": "ماتا ترپتا",
+    "Rasool Bakhsh Gilani": "رسول بخش جیلانی",
+    "Hazrat Mian Sohbat Ali": "حضرت میاں صحبت علی",
+    "Sheikh Noor Muhammad": "شیخ نور محمد",
+    "Javid Iqbal": "جاوید اقبال",
+    "Bhai Ludhrodmal": "بھائی لدھروڈمل",
+    "Chaini Bai": "چینی بائی",
+    "Hazrat Abdul Qadir Sani": "حضرت عبدالقادر ثانی",
+    "Bibi Tar Kaur": "بی بی تار کور",
+    "Syedna Bibi Fatima Sani": "سیدنا بی بی فاطمہ ثانی",
+    "Maharani Datar Kaur": "مہارانی داتار کور"
   },
   "silsilas": {
     "Qadiri": "قادری",
@@ -1216,6 +1234,7 @@
     "Lord Hanuman": "بھگوان ہنومان",
     "Lord Jagannath": "بھگوان جگن ناتھ",
     "Makhdoom Nooh": "مخدوم نوح",
+    "Mehta Kalu": "مہتا کالو",
     "Mian Muhammad Umar Chamkani": "میاں محمد عمر چمکنی",
     "Mid–late 19th century": "وسط–اواخر انیسویں صدی",
     "Modern building": "جدید عمارت",
