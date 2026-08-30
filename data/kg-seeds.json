@@ -1546,6 +1546,54 @@
       "quote": "the ancestor of the Gilani (Musa Pak) sayyids, one of Multan's most eminent religious families",
       "source": "data/shrines.csv#shrine-of-syed-musa-pak",
       "notes": "Ancestor of a family rather than of a named descendant. The same shape as \"the spiritual ancestor of a line of saints whose shrines dot the valley\" at Akhund Panju Baba — real, and with nobody on the other end of it."
+    },
+    {
+      "subjectName": "Baba Gurpat Sahib",
+      "objectName": "Guru Nanak",
+      "kind": "spiritual descent at a remove — no type holds it",
+      "quote": "built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak",
+      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat",
+      "notes": "Both figures exist and the sentence is explicit, and it is STILL not an edge either vocabulary can hold. `descendant_of` in the kin layer means blood, and this is not: the same entry calls the Jagiasi Sants \"spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line\", and Nanak's line to the Udasis runs through an ascetic son, not a family. The lineage vocabulary has only disciple_of and successor_of, neither of which survives twelve generations. THE SECOND INSTANCE of the gap first recorded at Sant Harnam Das (kg-lineage-proposals.json#explicitNonRelations, \"an eighth successor in the lineage\") — two named figures, two entries, one missing relation type. Worth Rauf's decision now rather than a third rediscovery."
+    },
+    {
+      "subjectName": "(the Hurs / the eighth Pir Pagara)",
+      "objectName": "Pir Syed Muhammad Rashid Shah",
+      "kind": "descendants, collectively, none named",
+      "quote": "From his descendants issued the spiritual and temporal leadership of the Hurs",
+      "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "notes": "A real and historically weighty descent — the Pir Pagara line — with nobody on the other end of it. \"The present (eighth) Pir Pagara\" is an office, not a name. Same shape as Syed Musa Pak's \"ancestor of the Gilani sayyids\"."
+    },
+    {
+      "subjectName": "Amb Temples",
+      "objectName": "its \"sister sites\"",
+      "kind": "idiom — buildings, not people",
+      "quote": "the fortified, elevated character of Amb and its sister sites reflects the insecurity of the age",
+      "source": "data/shrines.csv#amb-temples-amb-sharif",
+      "notes": "\"Sister sites\" are temples. The kinship word list cannot tell a sibling from an architectural comparison, and this corpus makes that comparison often."
+    },
+    {
+      "subjectName": "Guru Gobind Singh",
+      "objectName": "(the Tenth House)",
+      "kind": "title, not a relation",
+      "quote": "its name invoking \"Dashmesh Pita,\" a title of reverence for Guru Gobind Singh, the tenth Sikh Guru, meaning roughly \"father of the Tenth [House].\"",
+      "source": "data/shrines.csv#gurdwara-dash-mesh-pita",
+      "notes": "The entry glosses the honorific itself — \"father of the Tenth House\" is what the gurdwara's NAME means, and the sentence exists to explain it. Reading a title's translation as a parentage claim is the shape that produced allo_mahar_resolution.md."
+    },
+    {
+      "subjectName": "Lava (Luv)",
+      "objectName": "Lord Rama and Sita",
+      "kind": "real, deliberately not modelled",
+      "quote": "Lahore takes its name from Lava (also rendered Luv), twin son of Lord Rama and Sita in the Ramayana",
+      "source": "data/shrines.csv#loh-temple-lava-temple",
+      "notes": "Stated plainly, and not built for the same reason as the Mughal genealogy: Rama and Sita would enter the graph solely to be Lava's parents, and the next clause names his brother Kusha, who would follow. The archive holds Lava because Lahore's name and this temple are about him. Reconsider only if it acquires a site that is about Rama."
+    },
+    {
+      "subjectName": "Sakhi Shah Chan Charagh",
+      "objectName": "the Prophet Muhammad / Imam Musa al-Kazim",
+      "kind": "formula, not a genealogy",
+      "quote": "he is remembered as a *sayyid* — a descendant of the Prophet Muhammad — whose lineage is traced through Imam Musa al-Kazim",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "notes": "The sayyid-descent class, already ruled once on the Abdullah Shah Ghazi entry. Recorded again because the scanners match on the sentence and this is a different sentence — a class ruling still needs one row per instance to stop the pile re-offering it."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",
