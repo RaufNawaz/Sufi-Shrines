@@ -98,13 +98,42 @@ reproduced here so this file stays the one queue.
 it.** Three headline numbers did not survive re-measurement, one of them inside the finding that
 has already shipped — it said 524 entity pages and 94 places, and it is 459 and 29.
 
-2. **U-1 · The first Urdu page after an English visit renders the English article, and keeps it.**
-   11 of 15 sampled entries. Not a flash — still English at 12 s, and it reproduces after an
-   English *map* visit alone, so it reaches every shared link, bookmark and hard refresh a reader
-   opens after browsing in English. Diagnosed to `fingerprintShrines` hashing the *English*
-   description length, so `adoptCsvResult` discards the freshly Urdu-merged dataset as unchanged.
-   **Every existing Urdu spec starts from a fresh context, which is exactly why this was never
-   seen** — the test has to visit English first.
+2. **U-1 · An Urdu reader is served the English article. Two mechanisms fixed, the race still
+   open.** *Partially closed 30 August 2026.*
+
+   Confirmed before believing it, and the council's framing was too narrow. Measured over a
+   12-entry sample: after visiting the English map first, **9 rendered a different article and 8
+   of those rendered materially more English** — Latin share of the article body going from 6–20%
+   on a clean start to 45–79%. `shrine-of-shah-yusaf-gardez` 8% → 53%, `kali-bari-mandir`
+   0% → 70%.
+
+   **Two real defects, both fixed, and they had to be fixed together.** `fingerprintShrines`
+   hashed name, founded and the *English* description length; the Urdu merge writes
+   `Description Urdu`, so a merged dataset and its English source were indistinguishable and
+   `adoptCsvResult` kept the English one as a no-op. Teaching the fingerprint to see Urdu fixes
+   that — **and opens a second hole**, because `fetchShrines` awaits the Urdu *seed* but not the
+   Urdu *article payload*, so a CSV that lands first is built English-only and would then be
+   *adopted* over a merged dataset instead of discarded. `adoptCsvResult` now re-merges against
+   the current payload state before comparing. Held by
+   `src/hooks/__tests__/datasetFingerprint.test.ts`, mutation-checked.
+
+   **What is still wrong, and it is not what the finding said.** The remaining defect does not
+   need an English visit at all. Loaded five times from a *clean* context,
+   `/shrine/darbar-hazrat-tahir-bandagi-qadri?lang=ur` settles into **one of two different
+   articles** — 11,115 characters at 30% Latin, or 4,021 at 55% — and a 15-second floor does not
+   change the split. So the article payload races the dataset build on every load; an English
+   visit only makes the wrong outcome likelier. **Next step: instrument which of the two states
+   the payload subscription is in when the page settles**, rather than measuring the rendered
+   text, which cannot tell a lost merge from a slow one.
+
+   **No e2e spec was added, deliberately.** A browser assertion of "no English after an English
+   visit" would fail intermittently for a reason unrelated to its name, on a suite the other
+   session also runs. The flakiness is the finding, not a reason to encode it.
+
+   *And the standing lesson:* **a suite whose every case starts clean cannot see a defect that
+   needs a dirty start.** Every existing Urdu spec opens a fresh context, which is why this lived
+   this long — the same shape as the gallery specs that asserted against images the browser had
+   never requested.
 3. **J-1 · A phone opens the map with a third of the archive off-screen**, including 14 of 14
    Nanakpanthi/Udasi darbars and 16 of 36 Hindu temples. Fixed centre and zoom against a portrait
    viewport plus the sheet. Does not reopen the pin-density ruling: the resting map is unchanged.

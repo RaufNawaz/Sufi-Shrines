@@ -2,9 +2,13 @@ import Papa from 'papaparse';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Shrine, ShrineDataState, ShrineRow } from '../types/shrine';
 import { fetchCsvText, takeCsvText } from '../lib/data/csvPrefetch';
-import { normalizeRow } from '../lib/data/fieldAliasing';
+import { getFieldValue, normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
-import { applyUrduContentOverrides, onUrduContentLoaded } from '../lib/data/urduContentOverride';
+import {
+  applyUrduContentOverrides,
+  isUrduContentLoaded,
+  onUrduContentLoaded,
+} from '../lib/data/urduContentOverride';
 import { detectInitialLang } from '../lib/i18n/detectLang';
 import { ensureUrduSeedForLang, onUrduSeedLoaded } from '../lib/i18n/urduFallback';
 
@@ -212,9 +216,11 @@ function buildFromRows(rows: ShrineRow[], remember = true): Shrine[] {
  * shrines that were built before the payload existed. Rebuilding from the
  * remembered rows — or, for a dataset restored from localStorage, from each
  * shrine's own `raw` row — avoids re-fetching the sheet just to change
- * language. The fingerprint is unchanged by the merge (it hashes name,
- * founded and English description length), so a background refresh still
- * recognises a no-op.
+ * language.
+ *
+ * This used to add: "the fingerprint is unchanged by the merge, so a background
+ * refresh still recognises a no-op." That was true, and it was the bug — see
+ * `fingerprintShrines`.
  */
 function rebuildWithUrduContent(): Shrine[] | null {
   const rows = sharedRows ?? sharedShrines?.map((shrine) => shrine.raw) ?? null;
@@ -225,12 +231,47 @@ function rebuildWithUrduContent(): Shrine[] | null {
   return rebuilt;
 }
 
-/** Cheap content fingerprint (count + hash of name/founded/description size)
- * — enough to detect real sheet edits without serializing every row. */
-function fingerprintShrines(shrines: Shrine[]): string {
+/**
+ * Cheap content fingerprint — enough to detect real sheet edits without
+ * serializing every row.
+ *
+ * ## Why the Urdu description length is in the key
+ *
+ * It hashed name, founded and the **English** description length only, and
+ * `applyUrduContentOverrides` changes none of those three: it writes
+ * `Description Urdu` and the per-section Urdu fields onto the row. So an
+ * Urdu-merged dataset and the English dataset it was merged from fingerprinted
+ * **identically**, and `adoptCsvResult` — whose whole job is to treat an equal
+ * fingerprint as "nothing changed, keep what we have" — kept the English one
+ * and discarded the freshly-merged Urdu one.
+ *
+ * What that cost a reader, measured on 30 August 2026 across a 12-entry sample:
+ * **9 rendered a different article after an English visit, and 8 of those
+ * rendered materially more English** — the Latin share of the article body
+ * going from 6–20% on a clean start to 45–79% after browsing the English map
+ * first. `shrine-of-shah-yusaf-gardez` went 8% → 53%, `kali-bari-mandir`
+ * 0% → 70%. It is a state, not a flash: the page is still English seconds
+ * later, and it reproduces after an English *map* visit alone, so it reached
+ * every shared link, bookmark and hard refresh a reader opened after browsing
+ * in English.
+ *
+ * Adding the Urdu length is deliberately narrower than a generation counter.
+ * An English reader never loads the payload, so their term is a constant 0 and
+ * a genuine no-op refresh is still recognised as one — no search-index or
+ * marker rebuild. An Urdu reader gets a fingerprint that differs from the
+ * English dataset's and matches another Urdu-merged one, which is exactly the
+ * distinction `adoptCsvResult` needs and never had.
+ */
+/* Exported for `__tests__/datasetFingerprint.test.ts` only. The invariant it
+   holds — that a merged dataset never fingerprints as its English source — is
+   not reachable through the hook without standing up a fetch, a cache and a
+   payload, and a test that elaborate would be testing the scaffold. */
+export function fingerprintShrines(shrines: Shrine[]): string {
   let hash = 0;
   for (const s of shrines) {
-    const key = `${s.name}\0${s.founded}\0${(s.raw.Description ?? '').length}`;
+    const key =
+      `${s.name}\0${s.founded}\0${(s.raw.Description ?? '').length}` +
+      `\0${getFieldValue(s.raw, 'Description Urdu').length}`;
     for (let i = 0; i < key.length; i++) hash = (hash * 31 + key.charCodeAt(i)) | 0;
   }
   return `${shrines.length}:${hash}`;
@@ -253,18 +294,43 @@ function rememberResult(shrines: Shrine[], source: Source, timestamp: number | n
   sharedFingerprint = fingerprintShrines(shrines);
 }
 
-/** Adopt a fetched CSV result. When nothing actually changed, reuse the
- * previous array identity and skip the localStorage write so downstream
- * consumers (search index, markers) don't rebuild for a no-op refresh. */
+/**
+ * Adopt a fetched CSV result. When nothing actually changed, reuse the previous
+ * array identity and skip the localStorage write so downstream consumers
+ * (search index, markers) don't rebuild for a no-op refresh.
+ *
+ * ## Why it re-merges before comparing
+ *
+ * `fetchShrines` awaits the Urdu *seed* (`ensureUrduSeedForLang`) but not the
+ * Urdu *article payload*, and `applyUrduContentOverrides` is a no-op until that
+ * payload resolves. So a CSV that lands first is built English-only, and it can
+ * arrive after `rebuildWithUrduContent` has already merged the dataset on
+ * screen — at which point adopting it verbatim replaces a merged dataset with
+ * the English one it was merged from.
+ *
+ * That race was *masked* while the fingerprint ignored Urdu: the two sides
+ * compared equal, so the stale result was discarded as a no-op by accident.
+ * Teaching the fingerprint to see Urdu (above) fixed the common case and would
+ * have opened this one, which is why the two changes belong in one commit. It
+ * showed up as a residue that flipped between runs — `shrine-of-miran-hussain`
+ * English in one pass and correct in the next — rather than as a clean failure.
+ *
+ * Rebuilding from the rows against the *current* payload state removes the race
+ * rather than re-hiding it: whatever the CSV was built with, what gets adopted
+ * reflects what is loaded now. It costs one rebuild of ~170 rows on a refresh
+ * that was already going to compare them, and when nothing changed the
+ * fingerprint still matches and the previous array identity is still returned.
+ */
 function adoptCsvResult(fresh: Shrine[]): Shrine[] {
-  if (sharedShrines && fingerprintShrines(fresh) === sharedFingerprint) {
+  const current = isUrduContentLoaded() ? buildFromRows(fresh.map((shrine) => shrine.raw)) : fresh;
+  if (sharedShrines && fingerprintShrines(current) === sharedFingerprint) {
     sharedSource = 'csv';
     sharedSourceTimestamp = null;
     return sharedShrines;
   }
-  rememberResult(fresh, 'csv');
-  saveCache(fresh);
-  return fresh;
+  rememberResult(current, 'csv');
+  saveCache(current);
+  return current;
 }
 
 export function useShrineData(): ShrineDataState {
