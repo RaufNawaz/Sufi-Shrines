@@ -8699,3 +8699,43 @@ rather than forgotten, but they are not the reason the site shows 169.
 not a measurement, and this one had a date on it that made it look like one. The afternoon spent
 geocoding two Lahore shrines was spent because a comment said "drops" where the code said "kept".
 
+### Added 31 August 2026 — RULE 4 names four guards; one was live
+
+The other session found that RULE 4's own example — *"refuse-to-write if any long Description has
+lost its newlines"* — lived in `pipeline/append_new_shrines.py`, a script that runs only when a
+person appends shrines by hand. Nothing in `data:build`, `data:validate` or `verify` called it.
+That is worth generalising, because **RULE 4 lists four checks and presents all four as things
+that have worked.** Audited on 31 August 2026:
+
+| Guard | State before today |
+| --- | --- |
+| unbalanced-asterisk before writing a CSV | **Orphaned, and only a warning** |
+| refuse-to-write on newline loss | Orphaned — fixed by the other session (`a38c107`) |
+| marker-count vs row-count after a front-end change | **Live.** CI runs `npm run e2e` |
+| RMS pixel comparison before any media sync | **No implementation anywhere** |
+
+**The asterisk check** is in `scripts/data/snapshot-sheet.mjs`, reachable only through
+`npm run data:restore-point` — a command a person runs by hand before an import — and where it does
+run it does not refuse, it prints `⚠ … Written anyway.` It is now a second invariant inside
+`validate-description-structure.mjs`, in `data:validate`, and it exits non-zero. `*ʿurs*` italics
+are meaningful markdown and bold is `**`, so a well-formed Description always has an even count; an
+odd one means a cell was cut mid-emphasis, which renders as a stray asterisk or silently italicises
+the rest of the article. **Zero rows offend today**, so the allowlist starts empty and a test
+asserts it stays empty — and, because a check whose passing and broken states look identical proves
+nothing, the test also asserts both shapes of the damage are caught, and the guard was run against a
+deliberately damaged copy of the real dataset before being trusted.
+
+**The RMS one has no code.** Not in `scripts/`, not in `pipeline/`, and not in the unversioned
+`~/shrines` legacy directory either. It may have been an ad-hoc comparison a past session ran and
+did not keep — which is precisely the RULE 0 failure that rule was written about, and the same
+directory that swallowed `image_urls.tsv`. It is left alone rather than invented: media lives on a
+gitignored drive that is not present in a fresh clone, so a guard written here could not be tested
+against the thing it guards. **Recorded for Rauf, not fixed.**
+
+**What the pattern actually is.** A guard that runs only where a careful person would already be
+careful protects nothing. Both orphans lived in hand-run paths — one in a manual append script, one
+behind a manual restore-point command — so each was reachable exactly when someone was already
+paying attention, and absent every other time. Two of four, found within an hour of each other by
+two sessions, is not a coincidence about these two checks; it is what "encode invariants, don't rely
+on intentions" costs when nobody re-reads where the invariant is wired.
+

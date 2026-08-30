@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
   unbroken,
+  unbalancedEmphasis,
   LONG_ENOUGH,
   KNOWN,
+  KNOWN_UNBALANCED,
 } from '../../../../scripts/data/validate-description-structure.mjs';
 import shrines from '../../../data/shrines-fallback.json';
 
@@ -87,5 +89,47 @@ describe('the shipped archive', () => {
     /* A share, not a count: the emergency this guards is not "one more entry",
        it is all of them at once. */
     expect(unbroken(rows).length / rows.length).toBeLessThan(0.05);
+  });
+});
+
+/**
+ * The emphasis invariant, added 31 August 2026 when RULE 4's four named guards
+ * were audited after the newline one turned out to be orphaned. This one was
+ * orphaned too, and weaker: it lived in `snapshot-sheet.mjs`, reachable only
+ * through `npm run data:restore-point` — a command a person runs by hand before
+ * an import — and where it did run it only warned, "Written anyway."
+ *
+ * Of the four, `marker-count vs row-count` is genuinely live (CI runs `e2e`),
+ * and `RMS pixel comparison before any media sync` has no implementation in the
+ * repo or in the legacy `~/shrines` pipeline directory at all.
+ */
+describe('emphasis in Descriptions', () => {
+  const rows = (shrines as unknown as { rows: Array<{ Name: string; Description?: string }> })
+    .rows;
+
+  it('pairs up in every entry', () => {
+    /* `*ʿurs*` italics are meaningful markdown and bold is `**`, so a
+       well-formed Description always has an even count. Odd means a cell was cut
+       mid-emphasis. */
+    const odd = unbalancedEmphasis(rows).map((r) => r.Name);
+    expect(odd.filter((name) => !KNOWN_UNBALANCED.has(name))).toEqual([]);
+  });
+
+  it('would catch a truncation, which is the only reason to have it', () => {
+    /* Not a tautology over the real data, which currently has zero offenders —
+       a check whose passing state and whose broken state look identical proves
+       nothing. Both shapes the damage actually takes are asserted. */
+    expect(unbalancedEmphasis([{ Name: 'cut', Description: 'the *urs' }])).toHaveLength(1);
+    expect(
+      unbalancedEmphasis([{ Name: 'stray', Description: 'a **bold** run and a stray *' }]),
+    ).toHaveLength(1);
+    expect(
+      unbalancedEmphasis([{ Name: 'fine', Description: 'the *urs* and **bold**' }]),
+    ).toHaveLength(0);
+  });
+
+  it('starts with an empty allowlist and should stay that way', () => {
+    // Unlike KNOWN, nothing in the archive legitimately carries an odd count.
+    expect(KNOWN_UNBALANCED.size).toBe(0);
   });
 });

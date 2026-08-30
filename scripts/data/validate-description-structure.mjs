@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * validate-description-structure.mjs — the newline invariant, in the build path.
+ * validate-description-structure.mjs — the newline and emphasis invariants,
+ * in the build path.
  *
  * ## The hazard this is for
  *
@@ -92,6 +93,35 @@ function load() {
   return loaded;
 }
 
+/**
+ * Descriptions whose `*` characters do not pair up.
+ *
+ * The second of RULE 4's four named guards, and it was orphaned the same way the
+ * first was — audited on 31 August 2026 after the newline one turned out to live
+ * in a script nothing calls. This one is in `scripts/data/snapshot-sheet.mjs`,
+ * reachable only through `npm run data:restore-point`, which a person runs by
+ * hand before an import. `data:build`, `data:validate` and `verify` never called
+ * it, and where it does run it only WARNS: "Written anyway."
+ *
+ * `*ʿurs*` italics are meaningful markdown that this archive uses throughout, and
+ * bold is `**`, so every well-formed Description has an even count. An odd one
+ * means a string was cut mid-emphasis — the signature of a truncated cell — and
+ * the damage renders as a stray asterisk or as the rest of the article silently
+ * italicised, neither of which errors.
+ *
+ * Zero rows offend as of 31 August 2026, so unlike the newline allowlist this one
+ * starts empty and is expected to stay that way.
+ */
+export function unbalancedEmphasis(rows) {
+  return rows.filter((row) => {
+    const text = String(row.Description ?? row.description ?? '');
+    return (text.match(/\*/g) ?? []).length % 2 !== 0;
+  });
+}
+
+/** Same contract as KNOWN: a claim someone can go and check, not a threshold. */
+export const KNOWN_UNBALANCED = new Map();
+
 export function unbroken(rows) {
   return rows.filter((row) => {
     const text = String(row.Description ?? row.description ?? '').trim();
@@ -118,6 +148,31 @@ function main() {
         `${offenders.length} with no newline (${share}%) · ${unknown.length} unrecorded`,
     );
     if (list) for (const row of offenders) console.log(`    ${row.Name}`);
+
+    /* Emphasis, on the same rows and reported on its own line — a run that says
+       nothing about a check it performed is a run nobody can trust later. */
+    const odd = unbalancedEmphasis(rows).filter((row) => !KNOWN_UNBALANCED.has(row.Name));
+    console.log(
+      `[description-structure] ${label}: ${odd.length} Description(s) with unbalanced '*'`,
+    );
+    if (odd.length > 0) {
+      failed = true;
+      console.error(`\nFAILED — ${odd.length} Description(s) have an odd number of '*':\n`);
+      for (const row of odd) {
+        const text = String(row.Description ?? '').trim();
+        const at = text.lastIndexOf('*');
+        console.error(`  ${row.Name} — ${(text.match(/\*/g) ?? []).length} asterisks`);
+        console.error(`    …${text.slice(Math.max(0, at - 70), at + 30)}…`);
+      }
+      console.error(
+        '\n`*ʿurs*` italics are meaningful markdown and bold is `**`, so a well-formed\n' +
+          'Description always has an even count. An odd one means a cell was cut\n' +
+          'mid-emphasis: it renders as a stray asterisk, or silently italicises the\n' +
+          'rest of the article. Find the truncation — do NOT add an asterisk to\n' +
+          'balance it, which hides the cut instead of repairing it (RULE 4: do not\n' +
+          'edit content to satisfy a failing check).\n',
+      );
+    }
 
     if (unknown.length === 0) continue;
     failed = true;

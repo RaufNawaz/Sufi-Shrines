@@ -63,6 +63,7 @@ the reason the rest is credible.
 | Fourteen pages described the homepage rather than themselves, in English on the Urdu half | `0534a91` |
 | The newline invariant RULE 4 names was in a script nothing in the build path calls | (this cycle) |
 | A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
+| RULE 4's asterisk guard ran only where a person was already being careful | *this commit* |
 
 ---
 
@@ -190,6 +191,19 @@ production (RULE 3). The test fails if the exception ever stops being true, so p
 the sheet will tell you to delete the line.
 
 ## Waiting on a person, not on an agent
+
+- **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync
+  (filenames lie — one filename spans two shrines)" is listed in CLAUDE.md among checks that *have
+  worked*, and there is no code for it in `scripts/`, in `pipeline/`, or in the unversioned
+  `~/shrines` legacy directory. It was probably an ad-hoc comparison a session ran and did not
+  keep — the RULE 0 failure that rule exists for, in the same directory that swallowed
+  `image_urls.tsv`. Deliberately not invented: media lives on a gitignored drive absent from a
+  fresh clone, so a guard written here could not be tested against what it guards. **Two decisions
+  are yours** — whether it should exist as code, and whether CLAUDE.md's RULE 4 list should say so
+  meanwhile. An agent should not quietly edit the operating contract to match what it measured.
+  (The other three are audited in HANDOVER, 31 August 2026: one was live, two were orphaned in
+  hand-run paths, both now in `data:validate`.)
+
 
 All four were put to Rauf on 30 August 2026 and answered. What is left is the half an agent
 cannot do.
