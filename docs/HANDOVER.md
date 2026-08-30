@@ -4870,6 +4870,36 @@ both redirects.
     Proved by pushing an untranslated figure into the index and watching it fail with that figure
     named — the check was not passing because it was looking at nothing.
 
+171. **All 42 figures added on 30 August rendered in both languages. Nothing was wrong, and the
+    check that replaces the sweep costs milliseconds.** *30 August 2026.* This project's own record
+    says **test every page of a generated set** — the tradition pages shipped with a `.find()` and
+    an optional field both failing silently, on pages nobody had opened (§9.136). Forty-two new
+    figures had been spot-checked four at a time, so the whole set went through: **84 pages, every
+    Urdu title in Urdu script, no console errors, no HTTP errors, no empty page.**
+
+    **The sweep did raise a signal, and chasing it down was the point.** Ten figures reported "no
+    kin rows" — and all ten are the ones added through *lineage* proposals rather than kin seeds,
+    so they have `disciple_of`/`successor_of` edges and no `kin_of` at all. The instrument was too
+    crude, not the data. Re-checked against the lineage selector: all ten render their relation
+    with the verbatim quote and an `unreviewed` badge. **A signal from a crude instrument is worth
+    one more query before it is worth a fix.**
+
+    **What survives the sweep is `figurePageHasContent.test.ts`**, because a render pass nobody
+    re-runs protects nothing. A lineage-only figure has no shrine, no dates and usually no
+    biography — 73 of the 107 have exactly one relation and nothing else — so the relation *is* the
+    page, and a figure with none is a published URL that says nothing about anybody. The node and
+    the edge are created at different points in the same build and **have come apart twice**: the
+    §9.161 rename left `bhai-gurdas` existing twice with the lineage on one node and the site on the
+    other, and §9.168's split founder had a page whose only content was a son. Both were found by
+    reading.
+
+    A unit test rather than an e2e spec on purpose: **241 figures × 2 languages is 482 page loads to
+    answer a question the graph answers directly.** It also asks the stricter form for lineage-only
+    figures — that at least one of their claim-type edges carries a quote — because a figure who
+    exists *solely* because of a relation, shown without the sentence it was read from, is
+    `docs/allo_mahar_resolution.md` in miniature. Proved by pushing an orphan node into the graph
+    and watching it fail by name.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
