@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
 import { useShrineData } from '../hooks/useShrineData';
 import { ShrineImage } from '../components/ui/ShrineImage';
@@ -285,7 +286,8 @@ export default function OrderPage() {
 
   useDocumentTitle(order ? `${localizeOrderName(order, lang)} — ${t('siteTitle')}` : null);
 
-  if (!order) return <Navigate to="/" replace />;
+  /* Stays on the URL and says so — see EntityNotFound. */
+  if (!order) return <EntityNotFound />;
 
   const isRtl = isRtlLang(lang);
   const orderName = localizeOrderName(order, lang);

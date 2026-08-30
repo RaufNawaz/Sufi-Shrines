@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
@@ -66,7 +67,8 @@ export default function TraditionPage() {
 
   useDocumentTitle(tradition ? `${displayName} — ${t('siteTitle')}` : null);
 
-  if (!tradition) return <Navigate to="/" replace />;
+  /* Stays on the URL and says so — see EntityNotFound. */
+  if (!tradition) return <EntityNotFound />;
 
   const definition = isRtl ? tradition.definitionUr : tradition.definition;
   const categoryLabel = categoryDisplayLabel(tradition.category, lang) ?? tradition.category;

@@ -15,6 +15,15 @@
   text-align: start;
 }
 
+/* What an entity route shows when the slug names nothing.
+   No box and no icon: it is a sentence on the page where the reader asked, in
+   the same measure as every other entity page, because the point is that the
+   address still holds. The four routes that used to redirect to the map are
+   why this exists — see EntityNotFound.tsx. */
+.entity-not-found {
+  padding-block-start: var(--space-8);
+}
+
 /* ── Entity type kicker ──────────────────────────────────────────────────── */
 
 .entity-type-kicker {

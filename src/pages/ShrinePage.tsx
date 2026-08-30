@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
 import { useShareLink } from '../hooks/useShareLink';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -577,7 +578,10 @@ export default function ShrinePage() {
   }, [slug, shrines]);
 
   if (!loading && articleReady && !shrine && shrines.length > 0) {
-    return <Navigate to="/" replace />;
+    /* Stays on the URL and says so — see EntityNotFound. The guard above is
+       unchanged: this fires only once the sheet has landed and the archive
+       genuinely has no such slug, never while the data is still arriving. */
+    return <EntityNotFound />;
   }
 
   return (

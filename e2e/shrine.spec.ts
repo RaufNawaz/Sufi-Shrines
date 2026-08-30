@@ -82,9 +82,26 @@ test.describe('Shrine detail page', () => {
     await expect(page.locator('.cite-entry')).toBeHidden();
   });
 
-  test('unknown slug redirects to map', async ({ page }) => {
+  test('an unknown slug is answered here, not redirected to the map', async ({ page }) => {
+    /* **This test asserted the opposite until 30 August 2026, and the reversal
+       is the point of this comment.** It pinned `toHaveURL('/')` — the shrine
+       route answering an unknown slug by silently becoming the map, with the
+       address bar rewritten and nothing said.
+
+       That was ranked a defect rather than a behaviour: for an archive whose
+       case rests on citability, a URL that resolves to something else without
+       saying so is worse than a 404, because a reader following a citation
+       cannot tell a typo from a merge from a deletion. `/place/:slug` had
+       always done the right thing and was the model.
+
+       The full contract, across all five entity routes and including the
+       nineteen retired `/saint/` slugs that must still redirect, is in
+       `e2e/entity-not-found.spec.ts`. This case stays here because a spec about
+       the shrine page should say what the shrine page does with a bad slug. */
     await page.goto('/shrine/this-shrine-does-not-exist-xyz123');
-    await expect(page).toHaveURL('/');
+    await expect(page).toHaveURL(/this-shrine-does-not-exist-xyz123/);
+    await expect(page.locator('.leaflet-container')).toHaveCount(0);
+    await expect(page.locator('h1').first()).toBeVisible();
   });
 
   test('clicking a related shrine card lands at the top of the new page', async ({ page }) => {

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -280,7 +281,11 @@ export default function SaintPage() {
   if (!saint) {
     const moved = slug ? getRetiredSaintTarget(slug) : undefined;
     if (moved) return <Navigate to={`/saint/${moved}${search}${hash}`} replace />;
-    return <Navigate to="/" replace />;
+    /* Only the *unknown* slug lands here. The nineteen retired ones are
+       redirected on the line above and must keep being — a fallthrough that
+       caught them earlier would turn nineteen working addresses into nineteen
+       dead ends. `e2e/entity-not-found.spec.ts` asserts both halves. */
+    return <EntityNotFound />;
   }
 
   const networkCenter: GraphNode = {
