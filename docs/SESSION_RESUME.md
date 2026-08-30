@@ -45,7 +45,7 @@ the reason the rest is credible.
 | The seven badge definitions, derived for review | `ce4a0c3` |
 | Filters changed the URL and the list and never the map | `b768cb5` |
 | Four entity routes answered an unknown slug by silently becoming the map | `f95c7ad` |
-| The archive search palette announced nothing, and both comboboxes lied | *this commit* |
+| The archive search palette announced nothing, and both comboboxes lied | `1093709` |
 
 ---
 
