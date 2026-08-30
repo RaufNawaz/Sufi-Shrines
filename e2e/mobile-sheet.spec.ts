@@ -1,4 +1,4 @@
-import { test, expect, settle, setTraditionalDirectory } from './fixtures';
+import { test, expect, settle, setTraditionalDirectory, selectMarker } from './fixtures';
 
 /**
  * The mobile bottom sheet must be the topmost thing in its own band.
@@ -191,7 +191,9 @@ test.describe('mobile bottom sheet — what it is for', () => {
     // ShrineMarkers sets aria-label in the marker's own `add` handler.
     const marker = page.locator('[aria-label="Data Darbar"]');
     await marker.waitFor({ state: 'attached', timeout: 15000 });
-    await marker.evaluate((el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+    /* Two taps' worth, via the helper: Data Darbar sits inside the 66-marker
+       Lahore pile, so the first click fans the pile and the second selects. */
+    await selectMarker(page, marker);
 
     await expect(page.locator('.preview-title')).toContainText('Data Darbar');
     await settle(page);

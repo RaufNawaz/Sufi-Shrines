@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test';
-import { test, expect } from './fixtures';
+import { test, expect, selectMarker } from './fixtures';
 
 /**
  * The map's pin is the archive's primary interaction, and on a phone it is a
@@ -215,7 +215,9 @@ test.describe('the map on a phone', () => {
       21,
     );
 
-    await page.locator('.leaflet-marker-icon').first().tap({ force: true });
+    /* Through the fan if the first marker is in a pile, which at the opening
+       view it is: 161 of 169 markers share their spot with another. */
+    await selectMarker(page, page.locator('.leaflet-marker-icon').first());
     await page.locator('.shrine-dot.selected').waitFor();
     // Let the selection's pan settle: a moving marker reads as a short reach.
     await page.waitForTimeout(1200);

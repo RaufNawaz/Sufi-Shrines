@@ -1,11 +1,22 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { tFn } from '../../lib/i18n/uiStrings';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { categoryKey } from '../../lib/data/categoryKey';
+import { fanPositions, pileAround, type FanPoint } from '../../lib/map/spiderfy';
+
+/**
+ * How close two pin centres have to be before a reader sees one shape.
+ *
+ * One pin diameter. It is the same 30 px the finding used to count the opening
+ * view's 21 blobs, so what fans out is exactly what was measured as a pile —
+ * `docs/planning/MAP_PIN_DENSITY_2026-08-31.md`.
+ */
+const PILE_RADIUS = 30;
 
 interface Props {
   shrines: Shrine[];
@@ -116,7 +127,7 @@ export function ShrineMarkers({
   litIds = null,
 }: Props) {
   const map = useMap();
-  const { lang } = useLang();
+  const { lang, fmtNum } = useLang();
 
   const tourStopSlugSet = useMemo(
     () => (tourStopSlugs ? new Set(tourStopSlugs) : null),
@@ -137,6 +148,159 @@ export function ShrineMarkers({
   const selectedIdRef = useRef<number | null>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
+
+  /* ── Fanning a pile out ──────────────────────────────────────────────────
+     At the opening view the archive's 169 markers form 21 visually distinct
+     shapes; the largest holds 66 sites, and the median distance from a pin
+     centre to its nearest neighbour is 1 px. Tapping that shape opened
+     whichever marker Leaflet had put on top, with no way to reach the other 65.
+
+     Ruled 31 August 2026 from four costed options: fan on tap, and leave the
+     resting map alone. So this does nothing until a reader taps a pile — the
+     first impression of the map is deliberately unchanged, and the half of the
+     problem that fixes (reachability) is not the half it does not (a reader
+     still cannot see that 66 sites are under one mark).
+     Geometry and its tests: `src/lib/map/spiderfy.ts`. */
+  const fanRef = useRef<{
+    ids: number[];
+    /** Where each fanned marker really is, so collapsing is exact rather than
+     *  recomputed — a marker must never drift from its coordinates. */
+    origins: Map<number, L.LatLng>;
+    lines: L.Polyline[];
+  } | null>(null);
+  /** Drives the live region only. Kept in state rather than read off the ref so
+   *  a screen reader hears the fan open; nothing else re-renders on it. */
+  const [fannedCount, setFannedCount] = useState(0);
+
+  const collapseFan = React.useCallback(() => {
+    const fan = fanRef.current;
+    if (!fan) return;
+    for (const [id, latLng] of fan.origins) {
+      const marker = markerMapRef.current.get(id);
+      marker?.setLatLng(latLng);
+      marker?.getElement()?.classList.remove('shrine-dot--fanned');
+    }
+    for (const line of fan.lines) map.removeLayer(line);
+    fanRef.current = null;
+    setFannedCount(0);
+  }, [map]);
+
+  /**
+   * Fan the pile containing `targetId`, if there is one. Returns whether it
+   * did, so the click handler can fall through to selecting a lone marker.
+   */
+  const fanOut = React.useCallback(
+    (targetId: number): boolean => {
+      collapseFan();
+
+      /* Collision is measured in layer points — pixels at the current zoom —
+         because that is the space the reader's finger is in. Comparing
+         latitudes would call two markers separate at z13 and piled at z6 while
+         reporting the same distance. */
+      const positions = new Map<number, FanPoint>();
+      for (const [id, marker] of markerMapRef.current) {
+        const point = map.latLngToLayerPoint(marker.getLatLng());
+        positions.set(id, { x: point.x, y: point.y });
+      }
+
+      const pile = pileAround(positions, targetId, PILE_RADIUS);
+      if (pile.length < 2) return false;
+
+      const anchor = positions.get(targetId);
+      if (!anchor) return false;
+      const offsets = fanPositions(pile.length);
+      const origins = new Map<number, L.LatLng>();
+      const lines: L.Polyline[] = [];
+
+      pile.forEach((id, index) => {
+        const marker = markerMapRef.current.get(id);
+        const offset = offsets[index];
+        if (!marker || !offset) return;
+        const from = marker.getLatLng();
+        origins.set(id, from);
+        const to = map.layerPointToLatLng(
+          L.point(anchor.x + offset.x, anchor.y + offset.y) as L.Point,
+        );
+        /* A leader line from where the site actually is to where its marker has
+           been moved. Without it the fan is a lie about coordinates; with it,
+           it is a labelled detour. `interactive: false` so the lines never
+           swallow a tap meant for a marker, and the overlay pane puts them
+           under the marker pane without any z-index of their own. */
+        const line = L.polyline([from, to], {
+          className: 'shrine-fan-leg',
+          interactive: false,
+        });
+        line.addTo(map);
+        lines.push(line);
+        marker.setLatLng(to);
+        marker.getElement()?.classList.add('shrine-dot--fanned');
+      });
+
+      fanRef.current = { ids: pile, origins, lines };
+      setFannedCount(pile.length);
+
+      /* A pile near an edge fans off the screen — most of the way to useless on
+         a 390 px phone, where a 66-marker spiral is half the viewport wide. Pan
+         the fan into view rather than shrinking it: the reader tapped a place,
+         and moving the map keeps every marker reachable where making the ring
+         tighter would put two back inside one tap target.
+
+         Panning is safe where zooming is not. The offsets were computed in layer
+         points, and a pan does not change them; a zoom does, which is why
+         `zoomstart` collapses and `movestart` does not. */
+      const padding = 48;
+      /* Container points, not layer points. A layer point is already relative to
+         the map's pixel origin, so subtracting `getPixelOrigin()` from one — the
+         first thing this did — double-counts the offset and panned all 66
+         markers clean off the screen. Measured, not reasoned: the probe went
+         from 0 off-screen to 66. `layerPointToContainerPoint` is the conversion
+         and it is one call. */
+      const corners = offsets.map((o) =>
+        map.layerPointToContainerPoint(L.point(anchor.x + o.x, anchor.y + o.y) as L.Point),
+      );
+      const size = map.getSize();
+      const left = Math.min(...corners.map((c) => c.x)) - padding;
+      const right = Math.max(...corners.map((c) => c.x)) + padding;
+      const top = Math.min(...corners.map((c) => c.y)) - padding;
+      const bottom = Math.max(...corners.map((c) => c.y)) + padding;
+      /* Only ever pans toward the fan, and never past it: if the fan is wider
+         than the viewport there is no offset that shows all of it, and pulling
+         one edge in would push the other out. Clamped to zero in that case, so
+         a fan too big for the screen simply stays where the reader tapped. */
+      const dx = Math.min(0, size.x - right) + Math.max(0, -left);
+      const dy = Math.min(0, size.y - bottom) + Math.max(0, -top);
+      if (dx !== 0 || dy !== 0) map.panBy(L.point(-dx, -dy), { animate: false });
+
+      return true;
+    },
+    [map, collapseFan],
+  );
+
+  /* The marker-building effect must not depend on these, or every fan would
+     rebuild all 169 markers and destroy the one it just built. */
+  const fanOutRef = useRef(fanOut);
+  fanOutRef.current = fanOut;
+  const collapseFanRef = useRef(collapseFan);
+  collapseFanRef.current = collapseFan;
+
+  /* Anything that moves the map invalidates the fan, because the offsets were
+     computed in layer points at one zoom. Escape closes it from the keyboard,
+     and a background click closes it the way every other transient thing on
+     this map closes. */
+  React.useEffect(() => {
+    const collapse = () => collapseFanRef.current();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') collapse();
+    };
+    map.on('zoomstart', collapse);
+    map.on('click', collapse);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      map.off('zoomstart', collapse);
+      map.off('click', collapse);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [map]);
 
   // Build layer group + all markers once when shrines/lang/tour state changes.
   // While a tour is active, its stop shrines are skipped — TourRoute renders
@@ -187,6 +351,11 @@ export function ShrineMarkers({
 
       marker.on('click', (e: L.LeafletMouseEvent) => {
         L.DomEvent.stopPropagation(e);
+        /* A tap on a pile fans it; a tap on anything already fanned selects it.
+           Without that second clause the first marker of a fan would re-fan its
+           own pile forever and never open. */
+        const inFan = fanRef.current?.ids.includes(shrine.id) ?? false;
+        if (!inFan && fanOutRef.current(shrine.id)) return;
         onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
       });
 
@@ -200,6 +369,19 @@ export function ShrineMarkers({
         el.addEventListener('keydown', (e: KeyboardEvent) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
+            const inFan = fanRef.current?.ids.includes(shrine.id) ?? false;
+            if (!inFan && fanOutRef.current(shrine.id)) {
+              /* Keyboard only. A fan opened by mouse leaves focus where the
+                 reader put it; a fan opened by keyboard has to hand focus to
+                 something inside itself, or the reader has just scattered 66
+                 markers they cannot get to. Tab order follows the DOM, which is
+                 the order the markers were added, so this is the pile's first
+                 member rather than the nearest one — predictable beats clever
+                 when you cannot see the ring. */
+              const first = markerMapRef.current.get(shrine.id)?.getElement();
+              first?.focus();
+              return;
+            }
             onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
           }
         });
@@ -240,6 +422,11 @@ export function ShrineMarkers({
     markerMapRef.current = newMap;
 
     return () => {
+      /* Before the layer goes: a fan holds Leaflet polylines on the map and
+         `origins` for markers that are about to stop existing. Collapsing first
+         removes the lines; skipping it leaks a leader line per fanned marker
+         every time the language, the tour or a filter changes. */
+      collapseFanRef.current();
       map.removeLayer(group);
       groupRef.current = null;
     };
@@ -271,5 +458,15 @@ export function ShrineMarkers({
     }
   }, [selectedId, shrines, isDimmed]);
 
-  return null;
+  /* The fan is a silent rearrangement of 66 things, so it says how many.
+     `resultCount` rather than a new sentence: it is the archive's own reviewed
+     string in both languages ("66 shrines" / "۶۶ مزار"), and `fmtNum` puts it in
+     Eastern numerals for an Urdu reader. Terse on purpose — an announcement
+     that needed new Urdu prose would have needed a fluent speaker, and the
+     count is the part a reader cannot otherwise get. */
+  return (
+    <span className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      {fannedCount > 1 ? fmtNum(tFn(lang, 'resultCount', fannedCount)) : ''}
+    </span>
+  );
 }

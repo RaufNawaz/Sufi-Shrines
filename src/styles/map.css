@@ -515,6 +515,54 @@
   transform: translate(-50%, -50%) scale(calc(1 / var(--marker-selected-scale)));
 }
 
+/*
+ * A fanned pile.
+ *
+ * The map opens with 169 markers in 21 shapes, the largest holding 66 sites at
+ * a median of 1 px apart. Tapping one fans its pile out so each is reachable
+ * (`src/lib/map/spiderfy.ts`), and these rules are what tell the reader that
+ * what they are looking at is a detour rather than the coordinates.
+ */
+
+/* The leader line, from where the site is to where its marker has been moved.
+ * Drawn in the overlay pane, which sits under the marker pane, so it never
+ * crosses over a pin. `--color-border` rather than the accent: the accent means
+ * "interactive" in this archive and a leader line is not — the same ruling that
+ * took the accent off 120 data marks on 30 August. */
+.shrine-fan-leg {
+  stroke: var(--color-border);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  fill: none;
+  opacity: 0.75;
+}
+
+/* A fanned marker stands away from its own coordinates, so it is marked as
+ * displaced rather than merely selected — a ring in the page's border colour,
+ * not a colour change, because category colour is already carrying meaning on
+ * these pins and the archive never distinguishes by colour alone. */
+.shrine-dot--fanned .shrine-dot,
+.shrine-dot--fanned.shrine-dot {
+  box-shadow:
+    0 0 0 2px var(--color-bg-surface),
+    0 0 0 3px var(--color-border);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shrine-dot--fanned {
+    animation: shrine-fan-in 160ms ease-out;
+  }
+}
+
+@keyframes shrine-fan-in {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .shrine-dot--muslim {
   background-color: var(--color-cat-muslim);
 }

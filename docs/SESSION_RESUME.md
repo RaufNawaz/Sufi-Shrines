@@ -64,8 +64,21 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
-    largest by reader impact and by cost; wants a decision about clustering.
+~~1. **82% of on-screen pins do not receive a tap at their own centre.**~~ **Closed 31 August
+    2026.** Measured before believing it, and it was **90%**, with a median nearest-neighbour
+    distance of **1 px** — 169 markers forming **21 visually distinct shapes**, the largest holding
+    **66 sites**. Put to Rauf as four costed options
+    (`docs/planning/MAP_PIN_DENSITY_2026-08-31.md`); the ruling was **fan on tap, and leave the
+    resting map alone**. Shipped as `src/lib/map/spiderfy.ts` + `e2e/marker-fan.spec.ts`, which
+    asserts both halves — the fan works, *and* no clustering arrived by the back door.
+
+    **What was deliberately not fixed, and is still true:** the map still opens looking like a
+    21-entry collection. A reader has no cue that 66 sites are under one mark until they tap it.
+    That half was considered and declined, and the spec holds the decline in place rather than
+    letting it drift.
+
+The queue has nothing else on it that an agent can take without a decision. What is left is in
+"Waiting on a person" below.
 
 ---
 

@@ -1,4 +1,4 @@
-import type { Page } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
 /**
  * Hermetic Playwright test fixture: every spec imports `test`/`expect` from
  * here instead of '@playwright/test'. The extended context intercepts the
@@ -135,6 +135,34 @@ export { expect };
  * precisely because a half-populated fact table reads as an archive that knows
  * less than it does.
  */
+/**
+ * Select a marker, through the fan if there is one.
+ *
+ * Since 31 August 2026 a tap on a marker that shares its spot with others fans
+ * the pile out instead of selecting — the point being that "whichever pin
+ * Leaflet painted on top" was never a choice the reader made. At the opening
+ * view that is **161 of 169 markers**, so almost every existing spec that
+ * tapped a pin and waited for a preview is now waiting through one extra step.
+ *
+ * Two specs found this the hard way when the feature landed: `mobile-sheet`
+ * dispatching a click on Data Darbar, which sits in the 66-marker Lahore pile,
+ * and `map-touch` tapping the first marker in the DOM. Both are about what
+ * happens *after* a selection, so neither should have to know about fans.
+ *
+ * The second click is on the same element deliberately, not on a neighbour: a
+ * marker inside an open fan selects rather than re-fanning, which is the rule
+ * `marker-fan.spec.ts` pins, and clicking the same thing twice is the shortest
+ * path that exercises it.
+ */
+export async function selectMarker(page: Page, marker: Locator): Promise<void> {
+  const tap = async () =>
+    marker.evaluate((el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+  await tap();
+  /* Only if a fan actually opened. A lone marker is selected by the first tap
+     and a second would deselect it. */
+  if ((await page.locator('.shrine-dot--fanned').count()) > 0) await tap();
+}
+
 export async function waitForSheetData(page: Page): Promise<void> {
   await page.locator('h1.shrine-title').waitFor();
   await page.locator('.infobox-row').first().waitFor({ timeout: 30_000 });
