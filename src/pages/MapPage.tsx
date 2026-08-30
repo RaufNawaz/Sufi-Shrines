@@ -182,6 +182,29 @@ export default function MapPage() {
   const [tourStopIdx, setTourStopIdx] = useState(0);
   const initializedRef = useRef(false);
   const selectedIdRef = useRef<number | null>(null);
+  /**
+   * The slug of the selected shrine — its durable identity.
+   *
+   * `selectedId` is not one. `buildShrines` numbers rows by position
+   * (`.map((row, i) => buildShrine(row, i))`), and this route swaps its dataset
+   * underneath itself twice on a cold load: the slim map index first, then the
+   * sheet. The sheet has 171 rows where the bundled snapshot has 169, and the
+   * two extra rows are not at the end — so **index 24 is Data Darbar in one
+   * array and Dargah of Pir Muhammad Rashid in the other.**
+   *
+   * Measured on a production build before this ref existed:
+   * `/?selected=data-darbar` rendered "Data Darbar" at 0.7s and "Dargah of Pir
+   * Muhammad Rashid (Roze Dhani), Pir Jo Goth" at 2.1s, with the address bar
+   * still reading `data-darbar` and nothing on screen saying anything had
+   * changed. A link someone shared opened a different shrine in a different
+   * province, silently, which for an archive whose case rests on citability is
+   * the worst shape a bug can take.
+   *
+   * `id` cannot simply be made stable: the legacy `/shrine/id-N` URLs resolve
+   * against the sheet's row number and are published. So the id stays a cache
+   * and the slug is the identity, re-resolved whenever the dataset changes.
+   */
+  const selectedSlugRef = useRef<string | null>(null);
   const activeTourIdRef = useRef<string | null>(null);
   const tourStopIdxRef = useRef(0);
 
@@ -207,6 +230,37 @@ export default function MapPage() {
     () => (sharedGroundLens ? buildSharedGroundOverview(shrines).crossTradition : []),
     [sharedGroundLens, shrines],
   );
+
+  /** Set the selection and remember what it *is*, not just where it sat. */
+  const selectShrine = useCallback((shrine: Shrine | null) => {
+    selectedSlugRef.current = shrine?.slug ?? null;
+    setSelectedId(shrine?.id ?? null);
+  }, []);
+
+  /*
+   * Re-point the selection at its own shrine when the dataset is replaced.
+   *
+   * `selectedIdRef` is written here as well as the state, deliberately: the
+   * URL-sync effect below fires on `selectedId !== selectedIdRef.current`, and
+   * this is the one case where the id changes and the URL must not — the reader
+   * is looking at the same shrine they asked for. Writing both leaves that
+   * effect with nothing to do and keeps a dataset swap out of the history.
+   *
+   * A slug that is gone from the new dataset deselects rather than keeping a
+   * stale index, because a stale index is precisely how this route showed the
+   * wrong shrine. What it does *not* do is tell the reader their link is dead;
+   * that silence is a separate defect and its own fix.
+   */
+  useEffect(() => {
+    const slug = selectedSlugRef.current;
+    if (!slug || !shrines.length) return;
+    const shrine = shrines.find((s) => s.slug === slug) ?? null;
+    const nextId = shrine?.id ?? null;
+    if (nextId === selectedIdRef.current) return;
+    if (!shrine) selectedSlugRef.current = null;
+    selectedIdRef.current = nextId;
+    setSelectedId(nextId);
+  }, [shrines]);
 
   // Restore `?tour=<id>&stop=<n>` or `?selected=<slug>` once shrine data has
   // loaded (runs once). A tour deep link takes precedence over `?selected=`.
@@ -236,14 +290,14 @@ export default function MapPage() {
     if (slug) {
       const shrine = shrines.find((s) => s.slug === slug);
       if (shrine) {
-        setSelectedId(shrine.id);
+        selectShrine(shrine);
         if (isMobile) setSidebarOpen(true);
       } else {
         // Slug no longer valid — clean it from the URL silently
         setSelectedSlug(null, false);
       }
     }
-  }, [shrines, isMobile]);
+  }, [shrines, isMobile, selectShrine]);
 
   // Keep the URL in sync with selection/tour state in a single pushState per
   // change — a tour owns `?tour=`/`?stop=` and clears `?selected=` while
@@ -298,44 +352,44 @@ export default function MapPage() {
 
       const slug = getSelectedSlug();
       if (!slug) {
-        setSelectedId(null);
+        selectShrine(null);
         selectedIdRef.current = null;
         return;
       }
       const shrine = shrines.find((s) => s.slug === slug);
       if (shrine && shrine.id !== selectedIdRef.current) {
-        setSelectedId(shrine.id);
+        selectShrine(shrine);
         selectedIdRef.current = shrine.id;
         if (isMobile) setSidebarOpen(true);
       }
     };
     window.addEventListener('popstate', handler);
     return () => window.removeEventListener('popstate', handler);
-  }, [shrines, isMobile]);
+  }, [shrines, isMobile, selectShrine]);
 
   // Escape: collapse sidebar + deselect shrine
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
       if (sidebarOpen) setSidebarOpen(false);
-      setSelectedId(null);
+      selectShrine(null);
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, [sidebarOpen]);
+  }, [sidebarOpen, selectShrine]);
 
   const handleSelect = useCallback(
     (shrine: Shrine | null) => {
-      setSelectedId(shrine?.id ?? null);
+      selectShrine(shrine);
       if (shrine && isMobile) setSidebarOpen(true);
     },
-    [isMobile],
+    [isMobile, selectShrine],
   );
 
   const handleSidebarClose = useCallback(() => {
     setSidebarOpen(false);
-    if (!isMobile) setSelectedId(null);
-  }, [isMobile]);
+    if (!isMobile) selectShrine(null);
+  }, [isMobile, selectShrine]);
 
   const handleSidebarToggle = useCallback(() => {
     setSidebarOpen((v) => !v);
@@ -374,8 +428,8 @@ export default function MapPage() {
 
   // Advance map selection when tour stop changes
   useEffect(() => {
-    if (activeTourShrine) setSelectedId(activeTourShrine.id);
-  }, [activeTourShrine]);
+    if (activeTourShrine) selectShrine(activeTourShrine);
+  }, [activeTourShrine, selectShrine]);
 
   const handleToursToggle = useCallback((enabled: boolean) => {
     setToursEnabled(enabled);
@@ -422,8 +476,8 @@ export default function MapPage() {
     setTourStopIdx(0);
     // Return to the neutral list view (not the last stop's shrine preview)
     // so an in-progress tour's "Resume" offer is actually visible.
-    setSelectedId(null);
-  }, []);
+    selectShrine(null);
+  }, [selectShrine]);
 
   return (
     <div className="map-root">
