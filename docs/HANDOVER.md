@@ -3346,6 +3346,135 @@ both redirects.
     routes that **do not import the graph**, so they paid the strings and got none of the
     saving. The two budgets that gained headroom were deliberately left alone.
 
+126. **An order page could not say what its order was.** *Built 29 August 2026, and it is the
+    same shape as §9.123 one table over.* `/order/:slug` showed a single summary sentence
+    written for this site — and **four of the nine orders had not even that**, so
+    `/order/malamati`, `/order/rashidi`, `/order/azeemia` and `/order/shattari` opened on a
+    member list with no account of the order at all.
+
+    The corpus had the answer the whole time. Its entries carry **whole authored sections about
+    the orders**: "The Suhrawardi Way" and "The Suhrawardi Order in India", "The
+    Naqshbandi-Mujaddidi Way", "The Way of Blame", "The Azeemia Order", "The Qalandar and His
+    Order". No page could reach one of them. `data/kg-seeds.json#orderProse` now holds 15
+    passages covering all nine orders, each **sliced out of `data/shrines.json` by script and
+    never retyped**, each attributed and linked to the entry it came from, rendered by
+    `OrderProse` directly under the summary.
+
+    Three rules the selection turned up, in the order they cost something:
+
+    - **A passage must name its own subject.** Lifted out of its entry, "Through his disciple
+      Nizamuddin Auliya…" and "From his base at Shergarh he taught…" open on a pronoun with no
+      antecedent. Three picks were re-chosen for this, and the archive's prose is not ours to
+      patch with a bracketed name.
+    - **Don't cut the middle out of a quotation.** The first Shattari pick ran first sentence to
+      last and swept in a paragraph about friction with Kasur's ruling family. It is now two
+      quotations from the same entry, in order — which also means the second may open on "He",
+      because the one above it names him two lines up.
+    - **Where two entries word the same fact differently, keep both.** Bahauddin Zakariya's
+      entry says "The Suhrawardi order he founded"; the Abul Faiz entry says the Suhrawardiyya
+      takes its name from Abu Najib and Shihab al-Din of Baghdad and was *carried into* India by
+      Zakariya. Both are on `/order/suhrawardiyya`, unreconciled, which is RULE 2 doing its job
+      rather than an oversight.
+
+127. **Five orders were showing unsourced prose in an archive whose claim is provenance.**
+    *Same day.* The five summaries that did exist are background written for this site: no
+    citation in the seed, no source in the corpus, nothing marking them as different in kind
+    from the archive's own findings. That is exactly the shape §9.45 is about — a sentence that
+    reads as a measurement because nothing says it isn't.
+
+    They are kept, not deleted: they are accurate orientation, and an order page with no summary
+    was the problem, not the solution. What changed is that the page now says which kind of
+    sentence it is — `descriptionIsEditorial` on the order node, a note under the summary in
+    both languages, and `orderProse.test.ts` fails if a summary ever loses the flag. The sourced
+    passages sit directly beneath, so the difference is legible without a reader knowing any of
+    this.
+
+    Two mechanical notes for whoever extends it:
+
+    - **The passages are in `data/kg-order-prose.json`, not `kg.json`, on purpose.**
+      `/order/:slug` is the only page that renders one, and `src/lib/kg.ts` imports `kg.json`
+      statically — putting 10 KB of order prose there would ride it onto every route that
+      touches the graph, which is the trap §9.125 had just taken 33 KB out of. It is a *static*
+      import inside `OrderPage`, so Vite keeps it in that route's chunk: OrderPage 630 → 641 KB
+      against a 665 budget, **and no other route moved**. Verified in the build report, not
+      assumed.
+    - **`verify-kg-proposals.mjs` holds order passages to a different length cap** (`MAX_PROSE`,
+      1200) than evidence quotes (`MAX_QUOTE`, 200), and the difference is the point. A lineage
+      quote is the shortest run that shows a claim is not fabricated. An order passage is the
+      archive quoting *itself*, republished with the entry named — there is no third party to be
+      fair to. The cap is only there to catch a slice that ran away with half a Description,
+      which is precisely what the first Shattari pick did.
+
+128. **The first version of §9.126 shipped English prose as the main content of an Urdu page,
+    and the no-leak guard is the only reason anyone knows.** *Same day.* The passages went in
+    behind `data-latin`, `lang="en"`, on the reasoning that LineageView shows its evidence
+    quotes exactly that way and i18n rule 7 permits Latin for a citation. The guard failed on
+    **seven routes** — `/order`, four order pages, `/graph` and one figure page — because the
+    declared-Latin budget rose, and the budget is what makes "declared" mean something.
+
+    **Raising the budget would have been the wrong fix, and it was the tempting one**: the
+    error message even invites it ("If the debt genuinely grew, raise the number and say why").
+    The reasoning was wrong one step earlier. A lineage quote is Latin because it is *evidence
+    for a claim stated above it in Urdu* — the reader has the claim, and the sentence is there
+    to be checked. An order passage **is** the page's account of the order, and on
+    `/order/malamati`, `/order/rashidi`, `/order/azeemia` and `/order/shattari` it is the only
+    account there is. A paragraph of English in that position is an untranslated sentence,
+    which rule 7 forbids in as many words, and the mission bar is "equally excellent in both
+    languages, not English with an Urdu afterthought".
+
+    **The archive already held every one of them in Urdu.** `src/data/urdu-content.json` carries
+    an Urdu article for all 168 entries, section for section, and the sections these passages
+    came from are there under their own headings — «سلسلہ نقشبندیہ مجددیہ», «ملامت کی راہ»,
+    «سلسلہ عظیمیہ», «قلندر اور ان کا سلسلہ». So `quoteUr` is sliced out of the Urdu article
+    exactly as `quote` is sliced out of the English one, and it is **required**:
+    `verify-kg-proposals.mjs` fails the build if a passage has no Urdu half, if the Urdu drifts
+    from the article, or if it carries a Latin word run, and `orderProse.test.ts` checks the
+    shipped file for the same three.
+
+    The lesson is not about Urdu. It is that **`data-latin` is a declaration, not a permission**
+    — and the question it answers is not "is this a quotation" but "does the reader still have
+    the page in their own language without it".
+
+129. **A no-leak budget is a count of text nodes, not a quantity of English — and on `/graph`
+    the two moved in opposite directions.** *Measured 29 August 2026.* Rendering the archive's
+    own markdown in evidence quotes (§9.123's sweep, so a `*sajjada nashin*` stops showing its
+    asterisks to readers) turns one text node into three. The guard walks text nodes, so four
+    emphasised quotes on `/graph` added **seven** to its declared count without a syllable of new
+    English. In the same commit nine figure names entered the Urdu dictionary and took **three**
+    away. Net +4, 122 → 126.
+
+    So the route **shows an Urdu reader less English than it did, and its number went up.**
+    Both budgets raised here were raised for that kind of reason, and the decomposition is
+    written into `e2e/urdu-no-leak.spec.ts` beside each number rather than left as "the debt
+    grew".
+
+    **The instrument is miscalibrated and is deliberately not being changed here.** Counting per
+    `[data-latin]` ancestor instead of per text node would measure what the file's own prose
+    says it measures. It would also re-baseline every one of the twenty-odd budgets at once, and
+    a re-baseline is exactly the operation under which a real leak slips through unnoticed. It
+    needs its own pass, with each route re-measured and each comment rewritten. Until then:
+    **read these numbers as node counts**, and decompose a rise before raising one.
+
+    *Also worth recording, because it happened twice in one session:* **the Playwright suite gave
+    different answers on the same code across runs.** The `/graph` and `saint:lineage-only` leak
+    failures reached this session only on the **second** run — the first, in §9.123, reported
+    351/351 green with the kinship section already on the page. And a third run failed
+    `palette.spec.ts` "the keyboard drives it", which then passed 6/6 under `--repeat-each` in
+    isolation and 11/11 twice more as a whole file; that one is a contention flake (the suite's
+    own wall-clock went 11s → 33s across three runs while another agent was building in the same
+    tree), and nothing in this session touches the palette.
+
+    The leak pair is the one that matters and I cannot explain it. Written down rather than
+    tidied away — same class as §9.68 and §9.53. The practical rule: **re-run the suite after
+    the commit, not before it**, and do not read one green run as proof.
+
+    **Still open, and worth someone's time:** the same scan found authored sections on
+    traditions that have **no page at all** — "The Nath Tradition", "The Udasi Tradition", "The
+    Pranami Tradition", "The Swaminarayan Tradition", "The Daduvansi Tradition", "The Shakti
+    Peetha Tradition", "The Shrine and the Naushahia Order". The order taxonomy is Sufi-only, so
+    an archive that covers six traditions describes five of them in prose that only a shrine
+    page shows. That is a bigger gap than the one just closed.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

@@ -38,6 +38,12 @@ import {
   localizeShrineSlug,
 } from '../lib/i18n/localizeKgName';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
+import { OrderProse, type OrderProseRow } from '../components/kg/OrderProse';
+/* Static, and static ON PURPOSE: `/order/:slug` is the only importer, so Vite
+   keeps this 10 KB in this route's chunk instead of in the shared graph payload
+   — which is why it is not in kg.json (§9.125). A dynamic import would also
+   work and would arrive late, and this section belongs above the fold. */
+import orderProseData from '../../data/kg-order-prose.json';
 import type { KGSaint } from '../types/kg';
 
 import { isRtlLang } from '../lib/i18n/languages';
@@ -94,6 +100,7 @@ function sortMembers(members: Member[], lang: Lang): Member[] {
 function DateAsRecorded({ value }: { value: string }) {
   const { lang, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
+
   const rendered = fmtNum(isRtl ? translateToUrdu(value) : value);
   if (isRtl && /[A-Za-z]/.test(rendered)) return <bdi data-latin>{rendered}</bdi>;
   return <>{rendered}</>;
@@ -141,6 +148,28 @@ export default function OrderPage() {
   }, [shrines]);
 
   const order = useMemo(() => (slug ? getOrderBySlug(slug) : undefined), [slug]);
+
+  /* The archive's own passages about this order. The label falls back to the
+     slug the same way every other shrine reference on this page does — the
+     sheet rows arrive a beat after the graph, and a passage that renders with
+     no entry name under it is worse than one with a title-cased slug. */
+  const proseRows = useMemo<OrderProseRow[]>(() => {
+    if (!order) return [];
+    const rtl = isRtlLang(lang);
+    return orderProseData.passages
+      .filter((p) => p.orderSlug === order.slug)
+      .map((p) => ({
+        shrineSlug: p.shrineSlug,
+        shrineLabel: shrineNames.get(p.shrineSlug) ?? localizeShrineSlug(p.shrineSlug, lang),
+        /* The Urdu article's own words in the Urdu view. The `?? p.quote`
+           cannot fire on shipped data — verify-kg-proposals.mjs refuses a
+           passage without `quoteUr` — and is here so a hand-edited file
+           degrades to a visible English quote rather than to nothing. */
+        quote: rtl ? (p.quoteUr ?? p.quote) : p.quote,
+        isLatin: !rtl || !p.quoteUr,
+      }));
+  }, [order, shrineNames, lang]);
+
   const saints = useMemo(() => (slug ? getSaintsInOrder(slug) : []), [slug]);
   // Each member's membership record *for this order* — that is where the
   // branch, the verbatim silsila string and the reviewed flag live.
@@ -359,13 +388,30 @@ export default function OrderPage() {
         <div className="entity-article-layout">
           {/* Main content */}
           <div>
-            {/* Description */}
+            {/* Description. Marked for what it is: five of the nine orders
+                carry a summary written for this site with no source in the
+                archive behind it, and the other four carry none at all. An
+                unsourced sentence standing alone on a page of an archive whose
+                distinguishing claim is provenance reads as a finding, so the
+                page says which kind of sentence it is — and the sourced
+                passages below now stand beside it. */}
             {description && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('description')}</h2>
                 <p>{description}</p>
+                {order.descriptionIsEditorial && (
+                  <p className="kg-section-note order-description-editorial">
+                    {t('orderDescriptionEditorial')}
+                  </p>
+                )}
               </section>
             )}
+
+            {/* What the archive itself says about this order — the sections its
+                own entries carry, which no page could reach until now. Directly
+                under the summary, because on four of these pages it is the only
+                account of the order there is. */}
+            <OrderProse rows={proseRows} />
 
             {/* ── The order in time ───────────────────────────────────────
                 Above the member list rather than below it: it is a summary of

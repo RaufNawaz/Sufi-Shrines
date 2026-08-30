@@ -72,6 +72,17 @@ export interface KGOrder extends KGEntity {
   arabicName?: string;
   /** `description` in Urdu, from data/kg-seeds.json. */
   descriptionUr?: string;
+  /**
+   * True where `description` is background written for this site rather than
+   * anything a source in the archive says — which is all five orders that have
+   * one. The other four have no summary at all.
+   *
+   * It is on the entity, and said on the page, because an unsourced sentence
+   * sitting alone on an order page in an archive whose distinguishing claim is
+   * provenance reads as a finding. The sourced passages the corpus does hold
+   * are in `data/kg-order-prose.json`.
+   */
+  descriptionIsEditorial?: boolean;
   founder?: string; // saint slug
   founded?: string;
   parentOrder?: string; // order slug (for sub-orders)
@@ -192,6 +203,30 @@ export interface KGRelation {
    * where a verbatim quote may be (i18n rule 7); the translated role labels
    * carry the meaning in both languages. */
   kinWording?: string;
+}
+
+/**
+ * A passage the archive itself writes about one of its orders, verbatim.
+ *
+ * In `data/kg-order-prose.json` rather than in `kg.json`: `/order/:slug` is the
+ * only page that renders one, and `kg.json` is a static import in
+ * `src/lib/kg.ts`, so 10 KB of order prose there would ride onto every route
+ * that touches the graph.
+ */
+export interface KGOrderProse {
+  orderSlug: string;
+  /** The entry it was read out of — the link under the quote. */
+  shrineSlug: string;
+  shrineName: string;
+  quote: string;
+  /** The same passage from the entry's Urdu article, sliced the same way.
+   * Required, not optional: an English paragraph standing as the main content
+   * of an Urdu order page is an untranslated sentence, which i18n rule 7
+   * forbids — and the no-leak guard caught exactly that on seven routes the
+   * first time this shipped. `verify-kg-proposals.mjs` fails the build if one
+   * is missing, drifts from the Urdu article, or carries a Latin word run. */
+  quoteUr: string;
+  source: string;
 }
 
 /** Family the archive records without naming the relative on the other end.

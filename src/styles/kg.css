@@ -2600,3 +2600,52 @@
   font-size: var(--text-sm);
   white-space: normal;
 }
+
+/* ── What the archive says about an order ────────────────────────────────────
+   The archive's own passages about its orders, quoted. Set as quotations rather
+   than as body prose, so a reader can see at a glance which sentences on this
+   page the archive stands behind and which are this site's own framing — which
+   is the whole point of the section. */
+
+.order-prose-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* The passage itself reads as body text, not as a muted aside: on four of the
+   nine order pages it is the only account of the order there is. The rule down
+   the inline-start edge is what marks it as quoted, and it is logical so the
+   spine sits on the right in Urdu. */
+.order-prose-item {
+  margin: 0;
+}
+
+.order-prose-quote {
+  margin: 0;
+  padding-inline-start: var(--space-3);
+  border-inline-start: 2px solid var(--color-border);
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: 72ch;
+}
+
+.order-prose-cite {
+  margin: var(--space-1) 0 0;
+  padding-inline-start: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+[dir='rtl'] .order-prose-cite {
+  font-size: var(--text-sm);
+}
+
+/* The summary that is this site's own words. Quiet — it is a qualification, not
+   a warning, and the archive would rather label the sentence than delete it. */
+.order-description-editorial {
+  margin-block-start: var(--space-2);
+}

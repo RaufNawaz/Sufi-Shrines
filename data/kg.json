@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-29T21:23:22.099Z",
+  "generated": "2026-08-29T23:59:35.716Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3488,6 +3488,7 @@
       "arabicName": "چشتیہ",
       "founded": "c. 1000",
       "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama).",
+      "descriptionIsEditorial": true,
       "descriptionUr": "برصغیر کے نمایاں ترین صوفی سلسلوں میں سے ایک، جس کی بنیاد خواجہ معین الدین چشتی نے رکھی۔ محبت، رواداری اور سماع پر زور دیتا ہے۔"
     },
     {
@@ -3498,6 +3499,7 @@
       "arabicName": "سہروردیہ",
       "founded": "c. 1100",
       "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya.",
+      "descriptionIsEditorial": true,
       "descriptionUr": "یہ سلسلہ ضیاء الدین ابو النجیب سہروردی سے منسوب ہے؛ بہاؤالدین زکریا کے زمانے میں ملتان اور سندھ میں غالب رہا۔"
     },
     {
@@ -3508,6 +3510,7 @@
       "arabicName": "قادریہ",
       "founded": "c. 1165",
       "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab.",
+      "descriptionIsEditorial": true,
       "descriptionUr": "یہ سلسلہ بغداد کے شیخ عبدالقادر جیلانی سے جا ملتا ہے؛ برصغیر میں کئی سندوں کے ذریعے پہنچا؛ پنجاب میں اس کی موجودگی مضبوط ہے۔"
     },
     {
@@ -3517,6 +3520,7 @@
       "name": "Qalandariyya",
       "arabicName": "قلندریہ",
       "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance.",
+      "descriptionIsEditorial": true,
       "descriptionUr": "قلندروں سے منسوب ایک آزاد رَو صوفی روایت؛ اس کی پہچان سفر، عشقِ الٰہی کی سرمستی اور رسمی مذہبی پابندیوں سے بے نیازی ہے۔"
     },
     {
@@ -3527,6 +3531,7 @@
       "arabicName": "نقشبندیہ",
       "founded": "c. 1389",
       "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
+      "descriptionIsEditorial": true,
       "descriptionUr": "یہ سلسلہ بہاؤالدین نقشبند بخاری سے جا ملتا ہے؛ ذکرِ خفی اور شریعت کی سخت پابندی پر زور دیتا ہے۔"
     },
     {

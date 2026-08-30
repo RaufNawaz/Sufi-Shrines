@@ -243,7 +243,22 @@ const BUDGET: Record<string, number> = {
   'order:suhrawardiyya': 53,
   'order:naqshbandiyya': 32,
   'order:qalandariyya': 11,
-  graph: 122,
+  /* 122 → 126, 29 August 2026 — and the rise is NOT more English. Decomposed by
+     measurement rather than inferred:
+
+       +7  lineage quotes now render the archive's own markdown, so a quote
+           containing `*sajjada nashin*` is three text nodes where it was one.
+           Four quotes on this route carry emphasis and they account for seven
+           extra nodes between them. Not one syllable of new English: the
+           asterisks used to be printed literally to the reader.
+       −3  nine figure names entered the Urdu dictionary with the kinship pass,
+           so runs that used to be Latin here now render in Urdu.
+
+     Net +4. **This route shows an Urdu reader less English than it did, and the
+     number went up**, because the guard counts text nodes and italics split
+     them. Worth knowing before reading any budget in this file as a quantity of
+     English: it is a count of nodes. See HANDOVER §9.129. */
+  graph: 126,
   /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
      default view, so `/almanac?lang=ur` now settles on one month's cards rather
      than all thirteen month listings, and five of the recorded `Events` strings
@@ -278,7 +293,16 @@ const BUDGET: Record<string, number> = {
      counted per text node, and it moves when that entry's citations do. */
   'shrine:urdu-bibliography-fallback': 8,
   saint: 20,
-  'saint:lineage-only': 24,
+  /* 24 → 27, 29 August 2026. Three runs, all in the new "Family recorded"
+     section: his father's name (`Syed Ul Hassan Kabeer`, which the dictionary
+     does not carry), the survey sentence the tie was read out of, and that
+     sentence's `<cite>`. A name, a quotation and a citation — the three things
+     i18n rule 7 permits Latin for, and here the reader already has the claim
+     above them in Urdu, which is what makes the quotation evidence rather than
+     an untranslated sentence. (The order pages got the other answer to that
+     same question on the same day: there the passage IS the page's account, so
+     it is quoted from the Urdu article instead. HANDOVER §9.128.) */
+  'saint:lineage-only': 27,
   about: 74,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each

@@ -10,7 +10,9 @@
       "description": "One of the most prominent Sufi orders of South Asia, founded by Khwaja Moinuddin Chishti. Emphasises love, tolerance, and music (sama).",
       "descriptionUr": "برصغیر کے نمایاں ترین صوفی سلسلوں میں سے ایک، جس کی بنیاد خواجہ معین الدین چشتی نے رکھی۔ محبت، رواداری اور سماع پر زور دیتا ہے۔",
       "wikidataQid": null,
-      "wikidataNote": "requires human confirmation before release"
+      "wikidataNote": "requires human confirmation before release",
+      "descriptionIsEditorial": true,
+      "_whyDescription": "Background written for this site. No source in the archive states it, and the seed carries no citation for it — which in an archive whose distinguishing claim is provenance has to be said on the page rather than left to look like a finding. Kept rather than deleted: it is accurate orientation, and the sourced passages in orderProse now sit beside it."
     },
     {
       "slug": "suhrawardiyya",
@@ -20,7 +22,9 @@
       "description": "Order founded by Diya ud-Din Abu'n-Najib al-Suhrawardi; became dominant in Multan and Sindh under Bahauddin Zakariya.",
       "descriptionUr": "یہ سلسلہ ضیاء الدین ابو النجیب سہروردی سے منسوب ہے؛ بہاؤالدین زکریا کے زمانے میں ملتان اور سندھ میں غالب رہا۔",
       "wikidataQid": null,
-      "wikidataNote": "requires human confirmation before release"
+      "wikidataNote": "requires human confirmation before release",
+      "descriptionIsEditorial": true,
+      "_whyDescription": "Background written for this site. No source in the archive states it, and the seed carries no citation for it — which in an archive whose distinguishing claim is provenance has to be said on the page rather than left to look like a finding. Kept rather than deleted: it is accurate orientation, and the sourced passages in orderProse now sit beside it."
     },
     {
       "slug": "qadiriyya",
@@ -30,7 +34,9 @@
       "description": "Order tracing to Abd al-Qadir Gilani of Baghdad; arrived in South Asia via multiple chains; strong presence in Punjab.",
       "descriptionUr": "یہ سلسلہ بغداد کے شیخ عبدالقادر جیلانی سے جا ملتا ہے؛ برصغیر میں کئی سندوں کے ذریعے پہنچا؛ پنجاب میں اس کی موجودگی مضبوط ہے۔",
       "wikidataQid": null,
-      "wikidataNote": "requires human confirmation before release"
+      "wikidataNote": "requires human confirmation before release",
+      "descriptionIsEditorial": true,
+      "_whyDescription": "Background written for this site. No source in the archive states it, and the seed carries no citation for it — which in an archive whose distinguishing claim is provenance has to be said on the page rather than left to look like a finding. Kept rather than deleted: it is accurate orientation, and the sourced passages in orderProse now sit beside it."
     },
     {
       "slug": "qalandariyya",
@@ -39,7 +45,9 @@
       "description": "Antinomian Sufi tradition named after the qalandars; characterised by wandering, intoxication of divine love, and freedom from formal religious observance.",
       "descriptionUr": "قلندروں سے منسوب ایک آزاد رَو صوفی روایت؛ اس کی پہچان سفر، عشقِ الٰہی کی سرمستی اور رسمی مذہبی پابندیوں سے بے نیازی ہے۔",
       "wikidataQid": null,
-      "wikidataNote": "requires human confirmation before release"
+      "wikidataNote": "requires human confirmation before release",
+      "descriptionIsEditorial": true,
+      "_whyDescription": "Background written for this site. No source in the archive states it, and the seed carries no citation for it — which in an archive whose distinguishing claim is provenance has to be said on the page rather than left to look like a finding. Kept rather than deleted: it is accurate orientation, and the sourced passages in orderProse now sit beside it."
     },
     {
       "slug": "naqshbandiyya",
@@ -49,7 +57,9 @@
       "description": "Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a.",
       "descriptionUr": "یہ سلسلہ بہاؤالدین نقشبند بخاری سے جا ملتا ہے؛ ذکرِ خفی اور شریعت کی سخت پابندی پر زور دیتا ہے۔",
       "wikidataQid": null,
-      "wikidataNote": "requires human confirmation before release"
+      "wikidataNote": "requires human confirmation before release",
+      "descriptionIsEditorial": true,
+      "_whyDescription": "Background written for this site. No source in the archive states it, and the seed carries no citation for it — which in an archive whose distinguishing claim is provenance has to be said on the page rather than left to look like a finding. Kept rather than deleted: it is accurate orientation, and the sourced passages in orderProse now sit beside it."
     },
     {
       "slug": "rashidi",
@@ -830,6 +840,144 @@
       "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
       "notes": "Building patronage by an unnamed grandson; no lineage claim.",
       "_from": "kg-lineage-proposals.json#familyRelations[27]"
+    }
+  ],
+  "_comment_orderProse": "What the archive itself says about each of its nine orders, verbatim. Every passage is SLICED out of data/shrines.json by scripts, never retyped, and attributed to the entry it comes from. This exists because the order pages were showing a one-line summary written for this site and nothing else, while the corpus carried whole authored sections on the same orders — \"The Suhrawardi Way\", \"The Way of Blame\", \"The Azeemia Order\", \"The Naqshbandi-Mujaddidi Way\", \"The Qalandar and His Order\" — that no page could reach. Same shape as the kinship ties: held and not rendered. Selection rules, learned the hard way: a passage must NAME ITS OWN SUBJECT, because lifted out of its entry a sentence opening on \"He\" or \"Through his disciple\" has no antecedent, and the archive’s prose is not ours to patch. Where two entries word the same fact differently, both are kept (see the two Suhrawardi passages) rather than one being silently preferred (RULE 2). Every passage carries `quoteUr`, sliced the same way out of the Urdu article in src/data/urdu-content.json. That is not politeness: an English paragraph standing as the main content of an Urdu order page is an untranslated sentence, which i18n rule 7 forbids and the no-leak guard caught on seven routes the first time this shipped. The archive already held every one of these passages in Urdu — «سلسلہ نقشبندیہ مجددیہ», «ملامت کی راہ», «سلسلہ عظیمیہ» — so the fix was to quote the Urdu article, not to widen the budget.",
+  "orderProse": [
+    {
+      "orderSlug": "chishtiyya",
+      "shrineSlug": "eidgah-sharif",
+      "shrineName": "Eidgah Sharif",
+      "quote": "He is counted within the Chishti order, the *silsila* most closely identified with Punjabi and Indian Sufism through its great early masters — Khwaja Mu'in al-Din Chishti of Ajmer and Khwaja Nizam al-Din Awliya of Delhi — and Eidgah Sharif accordingly stands in the Chishti-Nizami current of devotion, with its characteristic emphasis on love of God, service to the poor and the practice of *sama* (spiritual audition).",
+      "quoteUr": "وہ سلسلہ چشتیہ سے تعلق رکھتے ہیں، وہ سلسلہ جو اپنے عظیم ابتدائی مشائخ — اجمیر کے خواجہ معین الدین چشتی اور دہلی کے خواجہ نظام الدین اولیاء — کے ذریعے پنجابی اور ہندوستانی تصوف سے سب سے زیادہ قریبی طور پر پہچانا جاتا ہے، اور عیدگاہ شریف اسی مطابق سلسلہ چشتیہ نظامیہ کے دھارے میں کھڑا ہے، جس کی خصوصی توجہ اللہ کی محبت، غریبوں کی خدمت، اور سماع کی مشق پر ہے۔",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "_why": "The corpus’s clearest statement of what the Chishti order IS, rather than who belonged to it — masters, current and characteristic practice in one sentence."
+    },
+    {
+      "orderSlug": "chishtiyya",
+      "shrineSlug": "shrine-of-fariduddin-ganjshakar",
+      "shrineName": "Shrine of Fariduddin Ganjshakar",
+      "quote": "At Pakpattan, on the old bank of the Sutlej in southern Punjab, stands the shrine of Hazrat Baba Fariduddin Mas‘ud Ganjshakar (c. 1173–1266) — “Baba Farid,” one of the founding saints of the Chishti order in South Asia and among the most beloved holy figures of the Punjab.",
+      "quoteUr": "پاکپتن میں، جنوبی پنجاب میں دریائے ستلج کے پرانے کنارے پر، حضرت بابا فرید الدین مسعود گنج شکر (تقریباً 1173–1266) کا مزار واقع ہے — \"بابا فرید\"، برصغیر میں سلسلہ چشتیہ کے بانی بزرگوں میں سے ایک اور پنجاب کی سب سے محبوب مقدس ہستیوں میں شمار ہوتے ہیں۔",
+      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "_why": "Names its own subject. The obvious pick was \"the Chishti order he helped root in India became the most widespread of all the Sufi paths of the subcontinent\" — a better sentence and an unusable one, because lifted out of its entry it opens on \"Through his disciple\" with no antecedent. A passage on an order page has to stand alone, and the archive’s prose is not ours to patch."
+    },
+    {
+      "orderSlug": "suhrawardiyya",
+      "shrineSlug": "shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "shrineName": "Shrine of Abul Faiz Qalander Ali Suharwardi",
+      "quote": "The Suhrawardiyya takes its name from Abu Najib al-Suhrawardi and, above all, from his nephew Shaikh Shihab al-Din Umar al-Suhrawardi of Baghdad, whose manual *‘Awarif al-Ma‘arif* became one of the classic guides of the Sufi path. In contrast to some of the more antinomian and ecstatic movements, the Suhrawardi way was known for its sobriety, its insistence on the outward law and on refined manners (*adab*), and its readiness to engage with rulers and society for the good of the community — a temper well suited to a scholar-saint.",
+      "quoteUr": "سہروردیہ اپنا نام ابو نجیب سہروردی سے، اور سب سے بڑھ کر ان کے بھتیجے شیخ شہاب الدین عمر سہروردی بغدادی سے لیتا ہے، جن کی کتاب عوارف المعارف صوفی راہ کی کلاسیکی رہنما کتابوں میں سے ایک بن گئی۔ کچھ زیادہ آزاد اور وجدانی تحریکوں کے برخلاف، سہروردی راہ اپنی سنجیدگی، شریعت اور نفیس آداب پر اصرار، اور برادری کی بھلائی کے لیے حکمرانوں اور معاشرے سے تعامل کی تیاری کے لیے جانی جاتی تھی — ایک ایسا مزاج جو ایک عالم بزرگ کے لیے موزوں تھا۔",
+      "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "_why": "From the archive’s own section \"The Suhrawardi Way\": the order’s name, its founding texts and its temper."
+    },
+    {
+      "orderSlug": "suhrawardiyya",
+      "shrineSlug": "shrine-of-bahauddin-zakariya",
+      "shrineName": "Shrine of Bahauddin Zakariya",
+      "quote": "The Suhrawardi order he founded was marked by strict adherence to the Sharia, sober devotion, learning, and an active engagement with society and state — a pattern that made Multan a hub of both spiritual authority and worldly influence, and that shaped the religious life of the western Punjab and Sindh for centuries.",
+      "quoteUr": "ان کا قائم کردہ سہروردی سلسلہ شریعت کی سخت پابندی، متوازن عبادت، علم، اور معاشرے و ریاست سے فعال رابطے سے ممتاز تھا — ایک ایسا انداز جس نے ملتان کو روحانی اقتدار اور دنیاوی اثر دونوں کا مرکز بنایا، اور جس نے صدیوں تک مغربی پنجاب اور سندھ کی مذہبی زندگی کو تشکیل دیا۔",
+      "source": "data/shrines.csv#shrine-of-bahauddin-zakariya",
+      "_why": "Kept beside the passage above ON PURPOSE, and not reconciled with it. This entry says Zakariya \"founded\" the order; the Abul Faiz entry says the Suhrawardiyya takes its name from Abu Najib and Shihab al-Din of Baghdad and \"was carried into the Indian subcontinent\" by Zakariya. Two entries of this archive word the same relationship differently, and showing both is the archive reporting what it holds rather than picking a winner (RULE 2)."
+    },
+    {
+      "orderSlug": "qadiriyya",
+      "shrineSlug": "shamsabad",
+      "shrineName": "Shamsabad",
+      "quote": "Shams Ali Qalandar stood in the tradition of the *qalandars* — the wandering, often unconventional Sufi ascetics who, from medieval times, chose a path of renunciation and ecstatic devotion that set them apart from the more sober, respectable orders. In the reckoning of his followers he belonged to the *Owaisi Qadiriyya Noshahi* lineage, a branch of the great *Qadiri* order (traced to the twelfth-century saint Abd al-Qadir Jilani of Baghdad) as transmitted through the Noshahi Sufis of the Punjab; the epithet *Owaisi* denotes, in Sufi usage, a spiritual initiation received inwardly rather than from a living master, in the manner of the early devotee Uways al-Qarani.",
+      "quoteUr": "شمس علی قلندر قلندروں کی روایت میں کھڑے تھے — وہ گھومنے پھرنے والے، اکثر غیر روایتی صوفی زاہد جنہوں نے، قرون وسطیٰ سے، ترک دنیا اور وجدانی عقیدت کی ایک ایسی راہ چنی جو انہیں زیادہ سنجیدہ، قابل احترام سلسلوں سے الگ کرتی تھی۔ ان کے پیروکاروں کے حساب سے وہ اویسی قادریہ نوشاہی سلسلے سے تعلق رکھتے تھے، سلسلہ قادریہ کی ایک شاخ (جو بغداد کے بارہویں صدی کے بزرگ عبدالقادر جیلانی تک جاتی ہے) جو پنجاب کے نوشاہی صوفیوں کے ذریعے منتقل ہوئی؛ لقب \"اویسی\" صوفی استعمال میں ایک ایسی روحانی بیعت کی نشاندہی کرتا ہے جو کسی زندہ مرشد کی بجائے باطنی طور پر حاصل کی جاتی ہے، ابتدائی معتقد اویس قرنی کے انداز میں۔",
+      "source": "data/shrines.csv#shamsabad",
+      "_why": "Carries the order’s eponym and date, and defines *Owaisi* — which is also the standing reason no person-to-person lineage edge may be drawn for this figure. Its first sentence is also the Qalandariyya’s passage, deliberately: the same paragraph places this figure in both traditions, which is why the archive records him under both."
+    },
+    {
+      "orderSlug": "qadiriyya",
+      "shrineSlug": "shergarh",
+      "shrineName": "Shergarh",
+      "quote": "At Shergarh, in the Okara district of the Punjab, stands the shrine of Hazrat Daud Bandagi Kirmani (1513–1575) — a revered Qadiri saint of the sixteenth century who did much to spread the Qadiri order in the Punjab.",
+      "quoteUr": "شیرگڑھ میں، پنجاب کے ضلع اوکاڑہ میں، حضرت داؤد بندگی کرمانی (1513–1575) کا مزار واقع ہے — سولہویں صدی کے معزز قادری بزرگ جنہوں نے پنجاب میں سلسلہ قادریہ کے پھیلاؤ میں بہت کچھ کیا۔",
+      "source": "data/shrines.csv#shergarh",
+      "_why": "How the order reached the Punjab, from the entry of a saint who carried it there — and a sentence that names him, which \"From his base at Shergarh he taught\" does not."
+    },
+    {
+      "orderSlug": "qalandariyya",
+      "shrineSlug": "shamsabad",
+      "shrineName": "Shamsabad",
+      "quote": "Shams Ali Qalandar stood in the tradition of the *qalandars* — the wandering, often unconventional Sufi ascetics who, from medieval times, chose a path of renunciation and ecstatic devotion that set them apart from the more sober, respectable orders.",
+      "quoteUr": "شمس علی قلندر قلندروں کی روایت میں کھڑے تھے — وہ گھومنے پھرنے والے، اکثر غیر روایتی صوفی زاہد جنہوں نے، قرون وسطیٰ سے، ترک دنیا اور وجدانی عقیدت کی ایک ایسی راہ چنی جو انہیں زیادہ سنجیدہ، قابل احترام سلسلوں سے الگ کرتی تھی۔",
+      "source": "data/shrines.csv#shamsabad",
+      "_why": "The archive’s own section \"The Qalandar and His Order\", and the only passage in the corpus that defines the qalandari way as such."
+    },
+    {
+      "orderSlug": "naqshbandiyya",
+      "shrineSlug": "shrine-of-ganj-e-inayat-sarkar",
+      "shrineName": "Shrine of Ganj e Inayat Sarkar",
+      "quote": "The Naqshbandiyya takes its name from Khwaja Baha-ud-Din Naqshband of Bukhara (d. 1389), and is distinguished among the Sufi paths by its preference for the silent, hidden remembrance of God (*dhikr-e-khafi*) over audible or ecstatic forms, and by its insistence that the mystical life be lived in strict conformity with the Sharia and in the midst of society rather than in withdrawal from it — expressed in the famous Naqshbandi principle of “solitude within the crowd.” The order was carried into India around 1600 by Khwaja Baqi Billah, and it was his disciple Shaikh Ahmad Sirhindi — revered as the *Mujaddid Alf-e-Sani*, the “Renewer of the Second Millennium” — who reshaped it into the Mujaddidi branch, laying a powerful stress on the purification of belief, the reaffirmation of God’s absolute oneness, and the reform of practice in accordance with the Prophet’s example. From Sirhindi’s Sirhind the Mujaddidi way spread across the subcontinent and beyond, becoming one of the great engines of Islamic renewal in South Asia.",
+      "quoteUr": "نقشبندیہ اپنا نام بخارا کے خواجہ بہاؤالدین نقشبند (وفات 1389) سے لیتا ہے، اور صوفی راستوں میں اپنی خاموش، پوشیدہ ذکر (ذکر خفی) کو باآواز یا وجدانی صورتوں پر ترجیح دینے، اور اس اصرار کے لیے ممتاز ہے کہ صوفیانہ زندگی شریعت کی سخت پابندی کے ساتھ اور معاشرے سے کنارہ کشی کے بجائے اس کے درمیان گزاری جائے — جسے مشہور نقشبندی اصول \"خلوت در انجمن\" میں بیان کیا جاتا ہے۔ یہ سلسلہ تقریباً 1600 میں خواجہ باقی باللہ کے ذریعے ہندوستان لایا گیا، اور ان کے مرید شیخ احمد سرہندی — جنہیں مجدد الف ثانی، \"دوسرے ہزار سال کے مجدد\"، کے طور پر عزت دی جاتی ہے — نے اسے مجددی شاخ میں ڈھالا، عقیدے کی پاکیزگی، اللہ کی مطلق وحدانیت کی توثیق، اور رسول اللہ کی سیرت کے مطابق عمل کی اصلاح پر زبردست زور دیتے ہوئے۔ سرہند سے مجددی راہ برصغیر اور اس سے آگے پھیلی، جنوبی ایشیا میں اسلامی تجدید کے عظیم انجنوں میں سے ایک بن کر۔",
+      "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar",
+      "_why": "From the archive’s section \"The Naqshbandi-Mujaddidi Way\". Covers the eponym, silent dhikr, \"solitude within the crowd\", and the Mujaddidi branch — which is the branch 2 of the 10 memberships actually name."
+    },
+    {
+      "orderSlug": "rashidi",
+      "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "shrineName": "Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth",
+      "quote": "The town of Pir Jo Goth — \"the village of the Pir\" — in the Kingri taluka of Khairpur District, Sindh, grew up around the shrine of Pir Syed Muhammad Rashid Shah (1757–1818), known by his honorific Roze Dhani, \"master of the shrine,\" the founder of the Rashidi Sufi order and an ancestor of the line of Pir Pagara.",
+      "quoteUr": "قصبہ پیر جو گوٹھ — \"پیر کا گاؤں\" — سندھ کے ضلع خیرپور کی کنگری تعلقہ میں، پیر سیّد محمد راشد شاہ (1757–1818) کے مزار کے گرد پروان چڑھا، جو اپنے اعزازی لقب \"روزے دھنی\" یعنی \"مزار کے مالک\" سے معروف ہیں، سلسلہ راشدیہ کے بانی اور پیر پگارا کے سلسلے کے جدِ امجد۔",
+      "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "_why": "The order had NO description at all. This is the corpus naming its founder, its date and its descent — and it is the sentence the seed’s taxonomy note was already quoting where no reader could see it."
+    },
+    {
+      "orderSlug": "rashidi",
+      "shrineSlug": "dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "shrineName": "Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth",
+      "quote": "The dargah is distinguished by an austere discipline unusual among Sufi shrines: devotees are required to enter only with the head covered, the Hur faqirs make pilgrimage at fixed times of the year, and the sacred date of 27 Rajab draws great throngs of mureeds — yet, in contrast to the festive urs kept at most Sufi tombs, the Rashidi tradition is said to observe no public urs here.",
+      "quoteUr": "دربار صوفی مزارات میں ایک غیر معمولی سخت نظم و ضبط سے ممتاز ہے: عقیدت مندوں کے لیے صرف سر ڈھانپ کر داخل ہونا لازم ہے، حُر فقیر سال کے مقررہ اوقات میں زیارت کرتے ہیں، اور 27 رجب کی مقدس تاریخ مریدوں کے بڑے مجمعے کھینچتی ہے — پھر بھی، بیشتر صوفی مزارات پر منائے جانے والے پُرمسرت عرس کے برعکس، کہا جاتا ہے کہ راشدی روایت یہاں کوئی عوامی عرس نہیں مناتی۔",
+      "source": "data/shrines.csv#dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth",
+      "_why": "A practice of the order stated as a practice, and one that contradicts the archive’s own default assumption that a Sufi shrine keeps an urs."
+    },
+    {
+      "orderSlug": "malamati",
+      "shrineSlug": "shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "shrineName": "Shrine of Hazrat Madho Lal Hussain (Shah Hussain Darbar)",
+      "quote": "Hussain belonged, in spirit, to the *Malamatiyya* — the Sufis of the “path of blame,” who deliberately drew the censure of respectable society upon themselves in order to kill the ego’s hunger for esteem, hiding their inner sanctity beneath an outward show of impropriety.",
+      "quoteUr": "حسین روح کے اعتبار سے ملامتیہ سے تعلق رکھتے تھے — \"راہِ ملامت\" کے صوفی، جو جان بوجھ کر باعزت معاشرے کی ملامت اپنے اوپر کھینچتے تھے تاکہ عزت کی انا کی بھوک کو مار سکیں، اپنی باطنی تقدس کو بے حیائی کے ظاہری مظاہرے کے نیچے چھپاتے ہوئے۔",
+      "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "_why": "The archive’s section \"The Way of Blame\". The order had no description; this is the definition the corpus already held."
+    },
+    {
+      "orderSlug": "azeemia",
+      "shrineSlug": "shrine-of-qalandar-baba-auliya",
+      "shrineName": "Shrine of Qalandar Baba Auliya",
+      "quote": "Qalandar Baba Auliya’s lasting legacy is the Azeemia Sufi order, which he founded and which was carried on and spread by his foremost disciple, Khwaja Shamsuddin Azeemi. The order is distinctive for its emphasis on the systematic teaching of Sufi inner science — meditation, spiritual healing, and the understanding of consciousness — presented in a modern idiom, and it has established centres in Pakistan and among the diaspora. The shrine in Karachi is the spiritual centre of this living movement, a place of both devotion and study.",
+      "quoteUr": "قلندر بابا اولیاء کا پائیدار ورثہ سلسلہ عظیمیہ ہے، جسے انہوں نے قائم کیا اور جسے ان کے سب سے بڑے مرید، خواجہ شمس الدین عظیمی نے آگے بڑھایا اور پھیلایا۔ یہ سلسلہ تصوف کے باطنی علم — مراقبہ، روحانی شفا، اور شعور کی تفہیم — کی منظم تعلیم پر زور دینے کی وجہ سے ممتاز ہے، جسے ایک جدید اسلوب میں پیش کیا جاتا ہے، اور اس نے پاکستان اور بیرون ملک مقیم پاکستانیوں میں مراکز قائم کیے ہیں۔ کراچی میں مزار اس زندہ تحریک کا روحانی مرکز ہے، ایک ایسی جگہ جو عقیدت اور علم دونوں کی حامل ہے۔",
+      "source": "data/shrines.csv#shrine-of-qalandar-baba-auliya",
+      "_why": "The archive’s section \"The Azeemia Order\" in full — founder, successor, teaching and seat. A twentieth-century order the archive documents well and the order page showed nothing of."
+    },
+    {
+      "orderSlug": "shattari",
+      "shrineSlug": "shrine-of-shah-inayat-qadiri",
+      "shrineName": "Shrine of Shah Inayat Qadiri",
+      "quote": "Born around 1643 in Kasur into a farming family of the Arain community, Shah Inayat trained under a Shattari Sufi teacher — named in earlier sourcing for this entry as Muhammad Ali Raza Shattari, and named in a 2026 field survey as Hazrat Shah Raza Qadri Shattari; the two names are close but not identical, and neither source has been checked against the other here, so both are recorded rather than one being silently preferred.",
+      "quoteUr": "تقریباً 1643 میں قصور میں آرائیں برادری کے ایک کاشتکار خاندان میں پیدا ہوئے، شاہ عنایت نے ایک شطاری صوفی استاد سے تربیت پائی — اِس اندراج کے پہلے ماخذ میں اُن کا نام محمد علی رضا شطاری بتایا گیا ہے، اور 2026 کے ایک فیلڈ سروے میں حضرت شاہ رضا قادری شطاری؛ دونوں نام قریب ہیں مگر ایک نہیں، اور یہاں کسی ایک ماخذ کو دوسرے کے مقابل جانچا نہیں گیا، لہٰذا دونوں درج کیے جا رہے ہیں بجائے اِس کے کہ خاموشی سے ایک کو ترجیح دی جائے۔",
+      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "_why": "Two quotations from one entry rather than one long one. The obvious span — first sentence to last — swept in a paragraph about friction with Kasur’s ruling family that has nothing to do with the silsila, and cutting the middle out of a quotation is not something this archive does. So the two sentences that ARE about the Shattari are quoted separately and in order. The thinnest of the nine, and left thin. This is the whole of what the corpus says about the Shattari as a silsila: that one man trained under a Shattari teacher and held the two silsilas together in his practice. Started a sentence earlier than the obvious one so the passage names him — and so it carries the archive’s own refusal to choose between two sources that name that teacher differently. Nothing here defines the order, and nothing pretends to."
+    },
+    {
+      "orderSlug": "shattari",
+      "shrineSlug": "shrine-of-shah-inayat-qadiri",
+      "shrineName": "Shrine of Shah Inayat Qadiri",
+      "quote": "He combined the Qadiri and Shattari silsilas in his own practice and authored several Persian works of mystical philosophy, including the *Dastur-ul-Amal* (also independently named in the field survey) and *Lata'if-e-Ghaibiya*.",
+      "quoteUr": "اُنہوں نے اپنی مشق میں سلسلہ قادریہ اور شطاریہ کو یکجا کیا اور عرفانی فلسفے پر کئی فارسی تصانیف لکھیں، جن میں *دستورالعمل* (جس کا نام فیلڈ سروے میں بھی آزادانہ طور پر آیا ہے) اور *لطائفِ غیبیہ* شامل ہیں۔",
+      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "_why": "The other half. Opens on \"He\", which a passage on an order page normally may not — allowed here only because it follows the passage above it, from the same entry, which names him two lines up."
+    },
+    {
+      "orderSlug": "shattari",
+      "shrineSlug": "mazar-of-bulleh-shah",
+      "shrineName": "Mazar of Bulleh Shah",
+      "quote": "Well educated in Arabic and Persian and in the religious sciences, Bulleh Shah might have become a scholar of the orthodox kind — but he was drawn instead to the burning inward path, and became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line, who was by trade an *arain* (a gardener-cultivator) rather than a high-born sayyid.",
+      "quoteUr": "عربی، فارسی اور دینی علوم میں خوب تعلیم یافتہ، بلھے شاہ ایک روایتی عالم بن سکتے تھے — مگر وہ اس کے بجائے سلگتی ہوئی باطنی راہ کی طرف کھنچے، اور لاہور کے ایک صوفی مرشد شاہ عنایت قادری کے مرید بنے، جو قادری شطاری سلسلے سے تھے اور جو پیشے کے اعتبار سے ایک اعلیٰ نسب سیّد کے بجائے ایک \"اراٴیں\" (کاشتکار باغبان) تھے۔",
+      "source": "data/shrines.csv#mazar-of-bulleh-shah",
+      "_why": "The second and last mention: the same man named from his disciple’s entry as \"of the Qadiri-Shattari line\"."
     }
   ]
 }

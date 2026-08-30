@@ -28,7 +28,14 @@
  *      the same treatment as the relation vocabulary because they are not
  *      cosmetic: `uncleMaternal` renders as ماموں and `unclePaternal` as چچا,
  *      so a wrong one asserts a line the source never states (RULE 2).
- *  11. Every 3-4 digit year appearing in a date proposal's born/died/floruit
+ *  11. Every passage in data/kg-seeds.json#orderProse is a verbatim run of the
+ *      entry it cites, its order is in the taxonomy, and no two passages on the
+ *      same order repeat the same text. These are the sentences an order page
+ *      now leads with, and they are quotations — so "verbatim" is the whole of
+ *      what they promise. Whitespace is normalised on both sides before
+ *      comparing, because the seed stores each passage on one line while the
+ *      Description wraps it across paragraphs.
+ *  12. Every 3-4 digit year appearing in a date proposal's born/died/floruit
  *      occurs literally in the source it quotes. This one is the sharpest of
  *      the lot and is not mine — the extraction agent invented it for its own
  *      authoring pass and reported it firing twice on real errors. A date is
@@ -73,6 +80,11 @@ const SEEDS = join(ROOT, 'data', 'kg-seeds.json');
 // cells, and splitting on newlines before a quote-aware parser sees them is a
 // mistake this repo has already made once (docs/HANDOVER.md §8c).
 const SHRINES_JSON = join(ROOT, 'data', 'shrines.json');
+/* The Urdu articles, for the Urdu half of every order passage. An order page in
+   Urdu that falls back to the English paragraph is an untranslated sentence
+   standing as the page's main content, which i18n rule 7 forbids — so the Urdu
+   is required, and required to be verbatim, exactly as the English is. */
+const URDU_CONTENT = join(ROOT, 'src', 'data', 'urdu-content.json');
 
 const RELATIONS = new Set(['disciple_of', 'successor_of']);
 const KIN_TYPES = new Set([
@@ -103,6 +115,16 @@ const KIN_ROLES = {
 };
 const CONFIDENCE_TIERS = new Set([0.95, 0.7]);
 const MAX_QUOTE = 200;
+/* Order passages are held to a different cap, and the difference is not
+   arbitrary. A lineage or date quote is EVIDENCE — the shortest run that shows a
+   claim is not fabricated — and 200 characters is generous for that. An
+   `orderProse` passage is the archive quoting ITSELF: whole paragraphs its own
+   entries wrote about their own orders, republished on the order's page with the
+   entry named and linked. There is no third party to be fair to and no claim
+   being propped up, so the limit is only "a passage, not an entry" — enough to
+   catch a slice that ran away with half a Description, which is exactly what the
+   first Shattari pick did. */
+const MAX_PROSE = 1200;
 
 const RECONCILE = process.argv.includes('--reconcile');
 
@@ -217,13 +239,13 @@ function textFor(source) {
   return sourceCache.get(source);
 }
 
-function checkQuote(label, source, quote) {
+function checkQuote(label, source, quote, maxLength = MAX_QUOTE) {
   if (typeof quote !== 'string' || !quote.trim()) {
     fail(`${label}: missing quote`);
     return;
   }
-  if (quote.length > MAX_QUOTE) {
-    fail(`${label}: quote is ${quote.length} chars (max ${MAX_QUOTE})`);
+  if (quote.length > maxLength) {
+    fail(`${label}: quote is ${quote.length} chars (max ${maxLength})`);
   }
   const resolved = textFor(source);
   if (!resolved.ok) {
@@ -506,6 +528,67 @@ for (const [i, n] of (seeds.kinNotes ?? []).entries()) {
 }
 if (kinNoteCount) notes.push(`kinship: ${kinNoteCount} unnameable note(s)`);
 
+// ── order prose ──────────────────────────────────────────────────────────────
+/* The passages `/order/:slug` now leads with. They are quotations, and the only
+   thing a quotation promises is that the source said it — so that is what is
+   checked, on every build, against data/shrines.json.
+
+   `checkQuote` already normalises whitespace on both sides, which is what makes
+   a multi-paragraph passage stored on one line comparable to the Description it
+   was sliced out of. */
+let proseCount = 0;
+const proseSeen = new Set();
+const urduContent = existsSync(URDU_CONTENT)
+  ? JSON.parse(readFileSync(URDU_CONTENT, 'utf8'))
+  : null;
+for (const [i, p] of (seeds.orderProse ?? []).entries()) {
+  const label = `orderProse[${i}] ${p.orderSlug} ← ${p.shrineSlug}`;
+  proseCount += 1;
+
+  if (!knownOrders.has(p.orderSlug)) {
+    fail(`${label}: "${p.orderSlug}" is not an order in the taxonomy`);
+  }
+  if (!p.source) {
+    fail(`${label}: missing source`);
+  } else {
+    if (p.source !== `data/shrines.csv#${p.shrineSlug}`) {
+      fail(`${label}: source and shrineSlug disagree — "${p.source}"`);
+    }
+    checkQuote(label, p.source, p.quote, MAX_PROSE);
+  }
+  if (!p.quoteUr) {
+    fail(
+      `${label}: no quoteUr. An order page in Urdu cannot lead with an English ` +
+        `paragraph (i18n rule 7) — slice the passage out of the Urdu article too.`,
+    );
+  } else if (p.quoteUr.length > MAX_PROSE) {
+    fail(`${label}: quoteUr is ${p.quoteUr.length} chars (max ${MAX_PROSE})`);
+  } else if (!urduContent) {
+    fail(`${label}: src/data/urdu-content.json missing — cannot verify quoteUr`);
+  } else {
+    const article = urduContent[p.shrineSlug]?.descriptionUr;
+    if (!article) {
+      fail(`${label}: no Urdu article for "${p.shrineSlug}"`);
+    } else if (!norm(article).includes(norm(p.quoteUr))) {
+      fail(
+        `${label}: quoteUr is NOT a substring of the Urdu article for ` +
+          `"${p.shrineSlug}" — "${p.quoteUr.slice(0, 50)}…"`,
+      );
+    }
+    if (/[A-Za-z]{3,}/.test(p.quoteUr)) {
+      fail(`${label}: quoteUr contains a Latin word run — it would leak into the Urdu view`);
+    }
+  }
+  /* Two passages saying the same thing on one order page is a copy-paste, not a
+     second source. Keyed on the order too, because one passage legitimately
+     serves two orders — the Shamsabad paragraph places its figure in both the
+     Qadiriyya and the qalandari tradition. */
+  const key = `${p.orderSlug}|${norm(p.quote)}`;
+  if (proseSeen.has(key)) fail(`${label}: repeats a passage already on this order`);
+  proseSeen.add(key);
+}
+if (proseCount) notes.push(`order prose: ${proseCount} passage(s)`);
+
 // ── report ───────────────────────────────────────────────────────────────────
 
 for (const n of notes) console.log(`[verify-kg-proposals] ${n}`);
@@ -531,7 +614,7 @@ if (failures.length) {
 
 console.log(
   `[verify-kg-proposals] ✓ ${lineageCount + orderCount + dateCount} proposal(s) and ` +
-    `${kinCount + kinNoteCount} kinship seed(s) — every quote verified ` +
+    `${kinCount + kinNoteCount} kinship seed(s) and ${proseCount} order passage(s) — every quote verified ` +
     `against its source, vocabulary closed, no duplicate or mutually contradictory edges.`,
 );
 console.log(

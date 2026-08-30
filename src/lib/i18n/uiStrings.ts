@@ -298,6 +298,17 @@ const UI_TEXT_EN = {
   orderCompareFigures: 'Figures',
   orderCompareSpan: 'Century span',
   orderCompareSites: 'Sites',
+  /* ── What the archive says about an order (OrderPage) ────────────────────
+     Four of the nine orders had no summary at all and the other five had one
+     written for this site. The corpus meanwhile carried whole authored sections
+     on the same orders. These strings frame the difference honestly rather than
+     letting an unsourced sentence pass as the archive's own. */
+  orderProseHeading: 'What the archive says',
+  orderProseNote:
+    'Passages from this archive’s own entries, quoted exactly and linked to the entry each was read from. Where two entries word the same thing differently, both are kept.',
+  orderProseFrom: 'From the entry for',
+  orderDescriptionEditorial:
+    'Background written for this site. No source in the archive states it — unlike the passages below, which are quoted from entries.',
   orderAsRecorded: 'As recorded',
   orderAsRecordedHelp:
     'The silsila exactly as this figure\u2019s own record words it, including where the record contradicts itself. It describes the figure rather than any one of the orders above, so it is shown once.',

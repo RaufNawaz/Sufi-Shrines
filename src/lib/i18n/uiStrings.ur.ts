@@ -266,6 +266,16 @@ export const UI_TEXT_UR: UiStrings = {
   orderCompareFigures: 'شخصیات',
   orderCompareSpan: 'صدیوں کا دورانیہ',
   orderCompareSites: 'مقامات کی تعداد',
+  /* ── What the archive says about an order (OrderPage) ──────────────
+     The passages themselves stay in English: they are quotations with a
+     citation, which is what i18n rule 7 permits Latin for. The framing around
+     them must not be. */
+  orderProseHeading: 'آرکائیو کیا کہتا ہے',
+  orderProseNote:
+    'اسی آرکائیو کے اپنے اندراجات سے اقتباسات، لفظ بہ لفظ، اور ہر اقتباس کے ساتھ وہ اندراج جس سے وہ لیا گیا۔ جہاں دو اندراج ایک ہی بات مختلف الفاظ میں کہتے ہیں، وہاں دونوں رکھے گئے ہیں۔',
+  orderProseFrom: 'اندراج:',
+  orderDescriptionEditorial:
+    'یہ تعارف اسی ویب سائٹ کے لیے لکھا گیا ہے۔ آرکائیو کا کوئی ماخذ اسے بیان نہیں کرتا — نیچے دیے گئے اقتباسات کے برعکس، جو اندراجات سے لفظ بہ لفظ نقل کیے گئے ہیں۔',
   orderAsRecorded: 'ماخذ میں درج',
   orderAsRecordedHelp:
     'سلسلہ بعینہٖ اُن الفاظ میں جو اِس شخصیت کے اپنے ریکارڈ میں لکھے ہیں، بشمول اُس صورت کے جہاں ریکارڈ خود اپنی نفی کرتا ہے۔ یہ اوپر دیے گئے کسی ایک سلسلے کے بجائے خود شخصیت کو بیان کرتا ہے، اِس لیے ایک ہی بار دکھایا جاتا ہے۔',

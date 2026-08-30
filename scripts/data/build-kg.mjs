@@ -202,6 +202,12 @@ const lineageRelations = seeds.lineageRelations ?? [];
    the two role labels) are human and live in the seed file; the prose beside
    them is copied, never retyped. See kg-seeds.json#_comment_familyRelations. */
 const familyRelations = seeds.familyRelations ?? [];
+/* What the archive says about its own orders, verbatim and attributed. Emitted
+   to its own file, not into kg.json: `/order/:slug` is the only page that shows
+   it, and kg.json is a static import in src/lib/kg.ts, so putting 7 KB of order
+   prose there would put it on every route that touches the graph — the trap
+   §9.125 had just taken 33 KB out of. */
+const orderProse = seeds.orderProse ?? [];
 const kinNotes = seeds.kinNotes ?? [];
 
 /* ── machine-extracted proposals ───────────────────────────────────────────────
@@ -247,6 +253,10 @@ const orders = seedOrders.map((o) => ({
   arabicName: o.arabicName,
   founded: o.founded,
   description: o.description,
+  /* True where `description` is background written for this site with no source
+     in the archive behind it — which is all five that have one. The page says
+     so; see kg-seeds.json#_comment_orderProse. */
+  ...(o.descriptionIsEditorial ? { descriptionIsEditorial: true } : {}),
   // The same one-liner in Urdu. English prose in the Urdu view is an
   // untranslated sentence, not a citation, so OrderPage/SaintPage drop the
   // English rather than print it (i18n rule 7) — an order with no
@@ -1255,6 +1265,47 @@ const kg = {
 };
 
 writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n', 'utf8');
+
+/* Order prose, for `/order/:slug` alone — see the note where it is read. Each
+   passage is checked against its source by verify-kg-proposals.mjs, and the
+   shrine it names must still be a slug the archive publishes, or the link under
+   the quote is a 404. */
+{
+  const orderSlugs = new Set(orders.map((o) => o.slug));
+  const shrineSlugSet = new Set(shrineSlugs);
+  const emitted = [];
+  for (const p of orderProse) {
+    if (!orderSlugs.has(p.orderSlug)) {
+      reviewNeeded.push({
+        issue: 'order-prose-unknown-order',
+        entityId: `order:${p.orderSlug}`,
+        details: `orderProse passage names an order that is not in the taxonomy.`,
+      });
+      continue;
+    }
+    if (!shrineSlugSet.has(p.shrineSlug)) {
+      reviewNeeded.push({
+        issue: 'order-prose-unknown-shrine',
+        entityId: `order:${p.orderSlug}`,
+        details:
+          `orderProse passage cites shrine "${p.shrineSlug}", which is not a ` +
+          `slug this build produced. The quote would link nowhere.`,
+      });
+      continue;
+    }
+    const { _why, ...rest } = p;
+    emitted.push(rest);
+  }
+  writeFileSync(
+    join(ROOT, 'data', 'kg-order-prose.json'),
+    JSON.stringify({ generated: kg.generated, passages: emitted }, null, 2) + '\n',
+    'utf8',
+  );
+  console.log(
+    `[kg] \u2713 data/kg-order-prose.json written (${emitted.length} passage(s), ` +
+      `${new Set(emitted.map((p) => p.orderSlug)).size} order(s))`,
+  );
+}
 
 /* The build's own diagnostics, likewise out of kg.json.
  *

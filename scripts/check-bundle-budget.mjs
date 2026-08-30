@@ -153,10 +153,19 @@ const BUDGETS_KB = {
      426 KB graph onto a route that had never carried it. It now uses the 11 KB
      shrine → figure index, so the growth is the two sections and nothing else.
      If this line ever jumps by ~300 KB, that is what came back. */
-  'src/pages/PlacePage.tsx': 335, // measured 312 on 26 Aug 2026
+  'src/pages/PlacePage.tsx': 342, // measured 336 on 29 Aug 2026 — shared-table effect, see below
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
-  'src/pages/TypologyPage.tsx': 310, // measured 288 on 26 Aug 2026
+  /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same
+     reason as About/Review/NotFound above: the order pages gained a sourced
+     "What the archive says" section, that is ~5 more English UI strings, and the
+     English table is eager on every route. **Twice in one session now**, on five
+     routes the features never touched. The pattern is the one the Almanac note
+     states — when several routes go 1–2 KB over at once it is uiStrings.ts, not
+     the routes — and it is worth reading as a standing cost: any feature that
+     adds interface copy taxes all thirteen routes, and the ones with the least
+     headroom fail first regardless of what changed. */
+  'src/pages/TypologyPage.tsx': 317, // measured 312 on 29 Aug 2026
   /* The review desk. 257 KB measured 26 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
