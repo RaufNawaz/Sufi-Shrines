@@ -105,6 +105,38 @@ site is not guaranteed to have at most one.
   a real relationship and it is not belonging, so it is a recorded non-membership rather than an
   eleventh row.
 
+## Two candidates I did not add, and the question they raise
+
+Both are well attested and both were left out on purpose, because adding them would quietly
+change what the word "tradition" means in this taxonomy — and that is Rauf's call, not a
+script's. The evidence is here so nobody has to find it again.
+
+**Valmiki / Balmiki — 3 sites** (`lal-kurti-temple-balmiki-mandir-rawalpindi`,
+`valmiki-swamiji-mandir-gracy-lines-rawalpindi`, `valmik-mandir-naqi-road`). The corpus:
+
+> Completed in 1905 in a Mughal-influenced idiom, the temple is dedicated to the sage-poet
+> *Valmik* (Valmiki), revered as author of the *Ramayana* and venerated especially by the
+> Balmiki community.
+
+**Jhulelal / Darya Lal / Udero Lal — 5 sites** (`shrine-at-odero-lal…`, `darya-lal-mandir…`,
+`jhollay-lal-mandir`, `shri-varun-dev-mandir`, and named at `khatwari-darbar-shikarpur`). The
+corpus:
+
+> Both temples honour Jhulelal (also called Darya Lal or Udero Lal), the Sindhi water-saint
+> revered by Hindus as an incarnation of Varuna…
+
+**The question.** The eight traditions in the file are orders, *sampradayas* and movements —
+things a person or a shrine *belongs to*. These two are a **dedication and a cult**: the archive
+already records Valmiki and Jhulelal as `principal_figure`, so a "tradition" row would restate
+the figure under a second name, and the corpus's own words are "community", "devotion" and
+"cult" rather than order or *panth*. Shakti Peetha is the precedent that muddies it — already in
+the file, and arguably a *class of site* rather than an order.
+
+So: either the vocabulary means "affiliation you belong to" and these stay out, or it means
+"named religious current the archive describes" and both go in, along with a re-reading of
+Shakti Peetha. **Don't decide it in a renderer** — whichever way it goes, it changes what a
+tradition chip on a shrine page is claiming.
+
 ## If you extend it
 
 Add a pick to `TRADITIONS` or `MEMBERSHIPS` in `scripts/data/build-traditions.mjs` — a shrine

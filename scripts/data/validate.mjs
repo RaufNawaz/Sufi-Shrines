@@ -182,6 +182,56 @@ rows.forEach((row, i) => {
   );
 });
 
+// ── figure_type near-miss guard ───────────────────────────────────────────
+/*
+ * `figure_type` degrades gracefully, and that is exactly why it needs a check.
+ *
+ * `figureGroup()` in src/lib/data/figureType.ts maps seven exact values to a
+ * display group and sends everything else to `other`, where the UI renders the
+ * value as recorded prose. That is deliberate and right: two rows in this
+ * archive answer the question with a sentence rather than a category, and one
+ * of them says the figure is *not* a Sufi pir, so bucketing it by its first word
+ * would file it under the thing it denies.
+ *
+ * The cost of that design is that a **typo cannot fail**. "Sufi Saint" with a
+ * capital S is not in the table, so it would silently stop being a Sufi saint
+ * for every count, filter and chip in the archive, and render as a one-word
+ * "sentence" that looks almost right. Nothing anywhere would say so.
+ *
+ * So this warns on an off-vocabulary value that is SHORT — one that was plainly
+ * meant to be a category and missed. Long values are left alone, because those
+ * are the deliberate sentences; both real ones are over 90 characters. The
+ * threshold is the whole rule and it is a judgement, not a measurement: 40
+ * characters is comfortably longer than the longest real category
+ * ("Historical person", 17) and far shorter than the shortest real sentence.
+ *
+ * FIGURE_TYPE_ENUM mirrors `EXACT` in src/lib/data/figureType.ts, which cannot
+ * be imported here (TS, and this is a build script). `figureTypeVocabulary.test.ts`
+ * fails if the two ever disagree — the same drift guard the places vocabulary uses.
+ */
+const FIGURE_TYPE_ENUM = new Set([
+  'Sufi saint',
+  'Deity',
+  'Sikh Guru',
+  'Sant',
+  'Historical person',
+  'Individual',
+  'Collective',
+]);
+const FIGURE_TYPE_PROSE_MIN = 40;
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  const raw = String(row['figure_type'] ?? '').trim();
+  if (!raw || FIGURE_TYPE_ENUM.has(raw)) return;
+  if (raw.length >= FIGURE_TYPE_PROSE_MIN) return; // a deliberate sentence
+  rowWarnings.push(
+    `  ${label}: figure_type ${JSON.stringify(raw)} is not one of ` +
+      `${[...FIGURE_TYPE_ENUM].join(' | ')}, and is too short to be one of the two ` +
+      `deliberate sentences — a near-miss silently drops the figure from every count`,
+  );
+});
+
 // ── provenance validation ─────────────────────────────────────────────────
 
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');

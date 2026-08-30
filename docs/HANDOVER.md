@@ -3738,6 +3738,25 @@ both redirects.
     being wrong, not the data. Check what the repo already writes down before checking the data
     against what you think it says.
 
+    **A second column from the same sweep, added later the same day: `figure_type`.** Seven
+    exact values on 166 rows — Sufi saint 70, Deity 33, Sikh Guru 28, Sant 17, Historical person
+    11, Individual 4, Collective 3 — two deliberate sentences, one empty. Also ungated.
+
+    But this one needed a different guard, and the difference is the interesting part.
+    `figureGroup()` deliberately sends anything it does not recognise to `other`, where the UI
+    renders it as recorded prose — which is right, because two rows answer with a sentence and
+    one of them says the figure is **not** a Sufi pir, so bucketing it by its first word would
+    file it under the thing it denies. The cost of that design is that **a typo cannot fail**:
+    "Sufi Saint" with a capital S silently stops being a Sufi saint for every count, filter and
+    chip in the archive, and renders as a one-word "sentence" that looks almost right.
+
+    So the guard warns only on an off-vocabulary value that is **short** — one plainly meant to
+    be a category and missed — and leaves long values alone. Verified both ways: silent on the
+    real data, and it names the row when a capital S is introduced. The vocabulary is written
+    down twice (the app's `EXACT`, the validator's mirror), so
+    `src/lib/data/__tests__/figureTypeVocabulary.test.ts` fails if they drift, the way the
+    places vocabulary is guarded.
+
     *Numbering note: these three were written as §9.130–132 and renumbered to §9.133–135 on the same day, because a parallel session had committed its own §9.130–132 into the same file within the hour. Commits `efdbea0` and `eec055a` cite the old numbers; this line is how you get from those to here. Two sessions appending to one document is the shared-tree hazard in a form `git` cannot detect — the merge is clean and the document is wrong.*
 
 136. **The archive covers six traditions and the graph had a word for one.** *Built 29 August
