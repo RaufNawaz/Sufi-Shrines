@@ -155,12 +155,24 @@ authored **inline** inside `Description` or in **dedicated columns** (`History`,
 
 ## Do not break these
 
-**Eight slugs carry live photo URLs.** Renaming any of them breaks published images:
+**Fifteen directories under `public/photos/` carry live photo URLs.** Renaming any of them
+breaks published images:
 
 ```
-data-darbar · abul-faiz-qalander-ali-suharwardi · bibi-pak-daman · ganj-e-inayat-sarkar
-madho-lal-hussain · mazar-e-iqbal · peer-makki · shah-jamal
+abul-faiz-qalander-ali-suharwardi · abul-muali-qadri · bibi-pak-daman · data-darbar
+ganj-e-inayat-sarkar · ghazi-ilm-din-shaheed · khawaja-feroz-ud-din-gharib-nawaz
+madho-lal-hussain · malik-ahmad-ayaz · mazar-e-iqbal · peer-makki
+shah-inayat-qadri-shattari · shah-jamal · tahir-bandagi-qadri · wasif-ali-wasif
 ```
+
+*This said **eight** until 30 August 2026 — a count with no date on it, in the section a
+careful agent reads precisely so as not to do this. The seven it omitted serve **67 of the
+134 self-hosted photographs, exactly half**. `src/lib/data/__tests__/publishedPhotos.test.ts`
+now derives the set from the data, checks every URL resolves to a file in the repository, and
+holds this block equal to what it derives — so the list cannot go stale again without the
+build saying so. Note what it does not check: that the file exists is not that a browser can
+paint it. Gurdwara Bhai Joga Singh's photograph serves 200 and 52 KB to a plain request and is
+refused to an `<img>`.*
 
 **MapTiler "Invalid key" tiles** are *not* an origin restriction, and not localhost-only —
 that was this file's standing diagnosis until 18 August 2026, when it was actually measured.
