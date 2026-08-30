@@ -4735,6 +4735,48 @@ both redirects.
     deletion into a two-minute fix** — and an index-match into a JSON file must be scoped to the
     array it means, which the repair now does.
 
+169. **Where the two relation piles finished, and the one instrument bug that was inflating one of
+    them.** *30 August 2026.* The kin scanner had never been given `rowSubjects` — the row-context
+    fix written for the lineage scanner earlier the same day and not carried across to its sibling.
+    It was therefore requiring both ends of an edge to be **named** in a corpus that writes "his
+    father, Pratab Rai" about the figure whose entry it is. One omission, 40 sentences: `covered`
+    went 22 → 62 and the pile 126 → 86, all of it ties the archive already held. **The instrument
+    was measuring something adjacent to the question**, which is the same shape as the payload
+    finding above and worth noticing as a recurring failure rather than two unrelated ones.
+
+    | | total | carried | ruled out | names nobody | to read |
+    |---|---|---|---|---|---|
+    | kin | 192 | 62 | 9 | 35 | 86 |
+    | lineage | 177 | 60 | 10 | 47 | 60 |
+
+    **Final relation counts: kin 28 → 66, lineage 86 → 93, figures 190 → 239.** Every new figure
+    carries an Urdu name, because §9.159 made that an assertion rather than a budget.
+
+    **Two candidates were already covered and both looked missing for the same reason** — a name
+    the graph knows under a different form. "Karman Wali Sarkar" is an altName of
+    `hazrat-pir-syed-ismail-shah-bukhari`, who already had both edges; Swami Dharmdas → Sant Bhai
+    Wasan Shah existed. Checking the *slug pair* before writing an edge, rather than trusting the
+    scan's "uncovered" mark, caught both. **The scan proposes; only the graph can confirm.**
+
+    **Two `saintDoNotMerge` rows were written BEFORE the figures they protect**, which is the
+    order that matters: `sakhi-shah-raza` against Shah Inayat Qadiri's master
+    `hazrat-shah-raza-qadri-shattari`, and `sheikh-fakhr-ud-din-shah-jamali` against the Persian
+    poet `fakhr-ud-din-iraqi`. Both pairs share a name, sit three centuries apart, and are in the
+    graph precisely for the relation a merge would destroy.
+
+    **A gap in the lineage vocabulary, found by a figure it could not hold.** Sadh Belo's entry
+    names Sant Harnam Das as *"an eighth successor in the lineage"*. `successor_of` means the seat
+    passed from one to the next, so an edge would compress eight generations into one — and the kin
+    vocabulary has `descendant_of` for exactly this at-a-remove case while the lineage vocabulary
+    has no equivalent. Recorded as a non-tie whose note says the gap is in the vocabulary rather
+    than the corpus, so the next person meets the decision instead of the absence.
+
+    **What the non-ties are really for.** Ten of them now, and the most useful is the one nobody
+    would think to write down: Khwaja Moinuddin Chishti's forty-day retreat at Data Ganj Bakhsh's
+    **tomb**, more than a century after Hujwiri died. It is the most famous devotional link in
+    Punjabi Sufism, every visitor to Data Darbar knows the couplet, and it is not a teaching tie.
+    A rejection is worth recording exactly in proportion to how obvious the edge looks.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
