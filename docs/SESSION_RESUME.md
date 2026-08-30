@@ -548,6 +548,35 @@ cannot do.
   (RULE 2) — the withdrawal notice is among the most honest sentences in the archive. Whichever
   way it goes, the copy lands in `uiStrings` and needs Urdu.
 
+- **The citable release calls itself "a bilingual (English/Urdu) dataset" and contains no Urdu.**
+  *Measured 30 August 2026 (KB4-7). The contents-table half is fixed (`a1d7fbc`); this half is
+  yours.* `scripts/data/release.mjs` bundles fifteen files. Arabic-script character counts across
+  all of them: the 1,192 in `shrines.json` are Urdu *terms inside English prose*, and
+  `grep -o '@en\|@ur' data/export/graph.ttl` gives **2,088 `@en` and zero `@ur`**.
+
+  Not in the bundle: `src/data/urdu-content.json` (433,765 Urdu characters, **168 full Urdu
+  articles**), `src/data/urdu-seed.json` (the data dictionary), `src/data/source-notes.json` (the
+  bilingual "where the source contradicts itself" disclosures — 131 notes, none with an empty
+  `ur`), `data/kg-traditions.json` and `src/data/tours.json` (8 tours, 46 of 46 stops with a
+  `narrativeUr`).
+
+  `CITATION.cff` — the file the release exists to be cited by — opens *"A bilingual
+  (English/Urdu), schema-validated, open dataset…"*; `codemeta.json` repeats it; `/about` says
+  *"The Urdu edition is a first-class edition, not a translation layer."* A researcher who follows
+  `DATA_RELEASE.md` to the DOI, cites it, and works from the deposit has the English half of a
+  bilingual archive and a citation record saying otherwise. The 168 Urdu articles are the largest
+  body of original work in the repository after the English prose.
+
+  **Two ways to close it and they are not equivalent.** Add the Urdu artefacts to `DATA_FILES` —
+  a three-line change, and that every Urdu article is an unreviewed draft is already the archive's
+  stated position on `/about` ("of them read and signed off by a human reader — 0"), so it belongs
+  in the release README rather than being a reason to withhold. Or amend `CITATION.cff` and
+  `codemeta.json` to stop claiming bilingual. Publishing is the better answer, and it is a
+  licensing-adjacent decision about what the archive distributes, so it is yours.
+
+  A third, mechanical part needs no ruling and is not done: both exporters emit `@en` on 2,088
+  literals with no Urdu path, and adding `@ur` where `urdu-seed.json` has a name is wiring.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the
