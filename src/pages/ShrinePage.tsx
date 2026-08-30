@@ -466,7 +466,24 @@ function ShrineContent({
 
 export default function ShrinePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { shrines, loading, error, offline, sourceTimestamp } = useShrineData();
+  const { shrines, loading, error, offline, sourceTimestamp, source } = useShrineData();
+  /*
+   * The slim map index has no `Description`, so a shrine found in it is a real
+   * row that is silent about the article — and an article page rendered from
+   * one is an empty page, which reads as a broken record rather than a loading
+   * one. The map wants those rows the moment they exist (they are what makes
+   * the first marker land in ~1.5s instead of 5s); this route wants the sheet.
+   *
+   * So the page keeps the skeleton it already showed. Nothing here regresses:
+   * before the index existed, this route waited for the CSV too.
+   *
+   * Worth doing better one day: the index carries name, location, category and
+   * the photograph, which is the whole masthead. Rendering that immediately and
+   * skeletoning only the article would beat both. It is a bigger change to this
+   * file than tonight's measurement justifies, and it is written down rather
+   * than done.
+   */
+  const articleReady = source !== 'index';
   const { t, lang } = useLang();
 
   const shrine = useMemo(() => {
@@ -481,7 +498,7 @@ export default function ShrinePage() {
     return shrines.find((s) => s.slug === slug) ?? null;
   }, [slug, shrines]);
 
-  if (!loading && !shrine && shrines.length > 0) {
+  if (!loading && articleReady && !shrine && shrines.length > 0) {
     return <Navigate to="/" replace />;
   }
 
@@ -494,11 +511,13 @@ export default function ShrinePage() {
           shrine it has not got is worse than a bare bar. */}
       <EntityPageHeader {...(shrine ? { title: localizeShrineName(shrine, lang) } : {})} />
 
-      {loading && !shrine && <SkeletonPage />}
+      {(loading || !articleReady) && !shrine && <SkeletonPage />}
 
       {error && !shrine && <div className="shrine-page-error">{t('errorLoadingData')}</div>}
 
-      {shrine && (
+      {shrine && !articleReady && <SkeletonPage />}
+
+      {shrine && articleReady && (
         <ShrineContent
           shrine={shrine}
           allShrines={shrines}

@@ -136,7 +136,16 @@ export interface ShrineDataState {
   shrines: Shrine[];
   loading: boolean;
   error: string | null;
-  source: 'csv' | 'cache' | 'snapshot' | null;
+  /**
+   * Where the rows on screen came from.
+   *
+   * `'index'` is the slim map index (`src/data/shrines-index.json`): ten
+   * columns, no `Description`, shown while the full sheet is still in flight.
+   * A surface that renders article prose must treat it as *not yet loaded* —
+   * the rows are real and complete for what they carry, and silent about
+   * everything else.
+   */
+  source: 'csv' | 'cache' | 'snapshot' | 'index' | null;
   /** When source is 'cache' or 'snapshot', when that data was captured (ms
    * since epoch) — drives the "showing cached data from …" banner. Null for
    * a live 'csv' load. */

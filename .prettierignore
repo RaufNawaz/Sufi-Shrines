@@ -61,3 +61,11 @@ CLAUDE.md
 Awqaf/
 # Throwaway probe scripts — see .gitignore
 .scratch/
+
+# Scratch measurement harnesses. Both sessions working on this repo write
+# throwaway Playwright scripts as root-level dotfiles; `format:check` walks
+# untracked files, so one left behind turns the shared gate red for whoever
+# runs `npm run verify` next — which is how this entry came to exist.
+# Deleting them after use is still the rule; this stops a forgotten one from
+# failing someone else's build.
+/.*.mjs

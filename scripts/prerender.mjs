@@ -1328,6 +1328,64 @@ for (const route of APP_ROUTES) {
   writeFileSync(join(distDir, '404.html'), notFoundHtml, 'utf8');
 }
 
+// ── modulepreload for the slim shrine index, on the map's own documents ────
+/*
+ * The map's first marker was gated by a dependency chain, not by a payload.
+ *
+ * Measured on a phone at slow 4G with a 4× CPU throttle, after the slim index
+ * landed: the index chunk itself downloads in **182 ms** — but its request does
+ * not *start* until 2,432 ms, because `useShrineData` cannot run until MapPage's
+ * bundle has parsed, and that cannot start until the entry chunk has. Entry
+ * finishes at ~1,000 ms, MapPage and Leaflet at ~2,000 ms, and only then does
+ * anything ask for the data.
+ *
+ * A `modulepreload` in the document starts it at ~200 ms instead, in parallel
+ * with the entry chunk, so the rows are already in memory when the hook first
+ * asks. Same trick, and the same reasoning, as the Urdu string table below.
+ *
+ * **Only the map's own documents.** `/` and `/ur` are where the win is: every
+ * other route either does not draw markers or, like `/shrine/:slug`, waits for
+ * the full sheet regardless because the index carries no `Description`. Sending
+ * 13 KB to a reader opening `/settings` would be the mistake the Urdu split
+ * below exists to avoid, in a different costume.
+ *
+ * Correctness does not depend on this. If the manifest key moves the tag stops
+ * being emitted, the hook fetches the chunk itself as it did before, and the
+ * only casualty is a second of someone's evening.
+ */
+{
+  const manifestPath = join(distDir, '.vite', 'manifest.json');
+  const indexChunk = existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, 'utf8'))['src/data/shrines-index.json']?.file
+    : undefined;
+
+  if (!indexChunk) {
+    console.log(
+      '[prerender]   ! no shrines-index chunk in the manifest — the map fetches it after ' +
+        'MapPage parses, which is ~1.2s later than it needs to be.',
+    );
+  } else {
+    /* The base comes out of the document for the same reason it does below: a
+       preload whose base has drifted from the entry script's points at a 404
+       while looking like it worked. */
+    const entrySrc = /<script[^>]+type="module"[^>]+src="([^"]+)"/.exec(baseHtml)?.[1];
+    const base = entrySrc ? entrySrc.slice(0, entrySrc.indexOf('assets/')) : '/';
+    const tag = `    <link rel="modulepreload" crossorigin href="${base}${indexChunk}">`;
+    let injected = 0;
+    for (const rel of ['index.html', join('ur', 'index.html')]) {
+      const full = join(distDir, rel);
+      if (!existsSync(full)) continue;
+      const html = readFileSync(full, 'utf8');
+      if (html.includes(indexChunk)) continue;
+      writeFileSync(full, html.replace('</head>', `${tag}\n</head>`), 'utf8');
+      injected += 1;
+    }
+    console.log(
+      `[prerender] \u2713 modulepreload for the shrine index on ${injected} map document(s)`,
+    );
+  }
+}
+
 // ── modulepreload for the Urdu interface strings, on /ur pages only ─────────
 /*
  * The Urdu string table is its own 22 KB chunk, and `main.tsx` awaits it before

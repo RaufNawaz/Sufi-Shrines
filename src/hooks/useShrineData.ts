@@ -71,6 +71,51 @@ async function loadSnapshot(): Promise<{ shrines: Shrine[]; generated: number | 
 }
 
 /**
+ * The slim index: enough to draw the map, while the sheet is still arriving.
+ *
+ * ## The measurement this exists for
+ *
+ * On a phone at slow 4G with a 4× CPU throttle, the first marker took
+ * **5,059 ms** against a 1,200 ms first contentful paint. Nothing was slow
+ * about the request: the sheet is 837 KB, of which **672 KB (80.3%) is
+ * `Description`** — article prose the map never renders. The four fields a pin
+ * actually needs are 12 KB, 1.4% of the payload. The front door was spending
+ * its entire data budget on content that route does not show.
+ *
+ * `src/data/shrines-index.json` is ten columns and ~13 KB gzipped against the
+ * CSV's 295 KB. It carries `Image 1`, `Location` and both provenance badges as
+ * well as the map's four, because the sidebar renders those — an index without
+ * them would paint 169 photo-less cards and then pop 118 photographs in, which
+ * is a worse "fills in a second later" than the one it was meant to prevent.
+ *
+ * ## Why it is not simply the fallback snapshot
+ *
+ * Measured, because it was the obvious first idea: `shrines-fallback.json` is
+ * **294 KB gzipped** and the live CSV is **295 KB**. Serving the snapshot first
+ * transfers the same bytes and buys only a warm same-origin connection. The
+ * saving here comes from the payload being small, not from it being local.
+ *
+ * ## What a consumer must not do with it
+ *
+ * These rows have **no `Description`**, so anything rendering article prose has
+ * to keep waiting — `ShrinePage` checks `source === 'index'` and holds its
+ * skeleton. The rows are not partial *shrines*; they are complete for the ten
+ * fields they carry and silent about the rest, and the distinction matters: a
+ * page that renders an empty article reads as a broken record rather than as a
+ * loading one.
+ */
+async function loadIndex(): Promise<Shrine[]> {
+  const lang = detectInitialLang();
+  const [{ default: indexData }] = await Promise.all([
+    import('../data/shrines-index.json'),
+    ensureUrduContentForLang(lang),
+    ensureUrduSeedForLang(lang),
+  ]);
+  const rows = (indexData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
+  return buildFromRows(rows);
+}
+
+/**
  * The sheet, and the two Urdu payloads the first build needs.
  *
  * **All three start at once; the build waits for all three.** The invariant is
@@ -262,11 +307,35 @@ export function useShrineData(): ShrineDataState {
       return;
     }
 
+    /* Nothing cached: draw the archive from the slim index while the sheet is
+       in flight, rather than showing an empty map for three and a half seconds.
+       Started before the CSV is awaited and applied only if it wins the race —
+       a late index must never overwrite real data, which is what `csvLanded`
+       guards. Failure here is silent on purpose: the index is an optimisation,
+       and the CSV (or, if that fails too, the snapshot) is still the answer. */
+    let csvLanded = false;
+    if (!force) {
+      void loadIndex()
+        .then((rows) => {
+          if (csvLanded || token !== refreshRef.current || rows.length === 0) return;
+          rememberResult(rows, 'index', null);
+          setShrines(rows);
+          setSource('index');
+          setSourceTimestamp(null);
+          setLoading(false);
+        })
+        .catch(() => {
+          /* The sheet is still coming. */
+        });
+    }
+
     try {
       const fresh = await nextCsv();
+      csvLanded = true;
       if (token !== refreshRef.current) return;
       applyCsv(fresh);
     } catch (err) {
+      csvLanded = true;
       if (token !== refreshRef.current) return;
       setOffline(true);
       if (cached) {
