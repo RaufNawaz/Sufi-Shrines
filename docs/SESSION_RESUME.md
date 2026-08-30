@@ -215,6 +215,20 @@ in `data:validate`). Left alone deliberately: they guard different artefacts at 
 which is not the same defect as `searchDocs` having two drifting copies of one map. Worth knowing
 before a fourth is written.
 
+**Checked independently, and the conclusion holds — but the reason is sharper than "different
+artefacts", and matters if anyone tries to harmonise them.** The three use *different thresholds*,
+and each is right for its own input. `validate-description-structure.mjs` needs
+`LONG_ENOUGH = 600` and an allowlist because it runs over the whole dataset, which legitimately
+contains short entries and one long unbroken one. `append_new_shrines.py:155` asserts
+`"\n" in desc` unconditionally, with no threshold — correct there, because its inputs are the four
+hand-authored `entries/entry_*.md` files, measured at 8,923–18,373 characters with 113–141 newlines
+apiece. A markdown entry of that size with zero newlines is unambiguously damaged; a 39-character
+row in the dataset is not.
+
+**So do not give the append script a length threshold to "match".** It would pass a TSV-stripped
+short entry that the unconditional assert catches. I set out to report these two as disagreeing and
+they do not — the difference is the point.
+
 ## Waiting on a person, not on an agent
 
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync
