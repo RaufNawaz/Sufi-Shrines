@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "project": "Sufi Shrines of Pakistan",
+    "project": "Mapping the Shrines of Pakistan",
     "purpose": "Authoritative English->Urdu dictionary for UI data localization.",
     "note": "Numbers are kept in Western digits; convert to Eastern (۰-۹) at render time via the numeral toggle. Do not bake Eastern digits here.",
     "counts": {

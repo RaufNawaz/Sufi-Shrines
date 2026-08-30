@@ -53,7 +53,7 @@ describe('publication metadata', () => {
     // unverifiable.
     const line = entryCitation('Data Darbar', 'data-darbar', new Date('2026-08-21T10:00:00Z'));
     expect(line).toContain('"Data Darbar"');
-    expect(line).toContain('Sufi Shrines of Pakistan');
+    expect(line).toContain('Mapping the Shrines of Pakistan');
     expect(line).toContain('/shrine/data-darbar');
     expect(line).toContain('accessed 2026-08-21');
   });

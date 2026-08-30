@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-build_dictionary.py — assembles the Sufi Shrines Urdu dictionary.
+build_dictionary.py — assembles the Urdu dictionary for Mapping the Shrines of Pakistan.
 
 Author (human-quality) Urdu is defined below. The script:
   1. Composes the 123 compound location strings from a place-token map.
@@ -1490,7 +1490,7 @@ def build(rows, glossary):
     # structured dictionary (human-readable source of truth)
     structured = {
         "_meta": {
-            "project": "Sufi Shrines of Pakistan",
+            "project": "Mapping the Shrines of Pakistan",
             "purpose": "Authoritative English->Urdu dictionary for UI data localization.",
             "note": "Numbers are kept in Western digits; convert to Eastern (۰-۹) "
                     "at render time via the numeral toggle. Do not bake Eastern digits here.",

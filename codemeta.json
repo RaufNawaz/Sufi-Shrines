@@ -1,10 +1,10 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "name": "Sufi Shrines of Pakistan",
+  "name": "Mapping the Shrines of Pakistan",
   "version": "2.0.0",
-  "description": "Bilingual (English/Urdu) interactive map and scholarly archive of 163 sacred sites across Pakistan — Sufi shrines, Hindu temples, and Sikh gurdwaras — with provenance-tracked sources. Built with Vite 5, React 18, and TypeScript; data licensed ODbL-1.0; code licensed MIT.",
-  "abstract": "This project combines a schema-validated Frictionless Data Package (163 sites; coordinates, descriptions, provenance) with a static-site web application featuring bilingual EN/Urdu support, RTL layout, dark mode, and an interactive Leaflet map. Designed for Harvard computational humanities research and Zenodo/Dataverse deposit.",
+  "description": "Bilingual (English/Urdu) interactive map and scholarly archive of 169 sacred sites across Pakistan — Muslim Sufi shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi/Udasi darbars, Jain temples and secular memorials — with provenance-tracked sources. Built with Vite 5, React 18, and TypeScript; data licensed ODbL-1.0; code licensed MIT.",
+  "abstract": "This project combines a schema-validated Frictionless Data Package (169 sites; coordinates, descriptions, provenance) with a static-site web application featuring bilingual EN/Urdu support, RTL layout, dark mode, and an interactive Leaflet map. Designed for Harvard computational humanities research and Zenodo/Dataverse deposit.",
   "codeRepository": "https://github.com/raufnawaz/sufi-shrines",
   "url": "https://github.com/raufnawaz/sufi-shrines",
   "issueTracker": "https://github.com/raufnawaz/sufi-shrines/issues",

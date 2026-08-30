@@ -1,7 +1,7 @@
 {
   "profile": "tabular-data-package",
   "name": "sufi-shrines",
-  "title": "Sufi Shrines of Pakistan",
+  "title": "Mapping the Shrines of Pakistan",
   "description": "A citable, schema-validated dataset of Sufi shrines and sacred sites across Pakistan, covering Muslim, Hindu, and Sikh traditions. Built from a Google Sheets source, normalized at build time, and versioned in git.",
   "version": "1.0.0",
   "homepage": "https://github.com/raufnawaz/sufi-shrines",

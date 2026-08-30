@@ -4927,6 +4927,47 @@ both redirects.
     lineage prose sitting *after* a bibliography heading found **0 rows** across all 169. Truncating
     a field at its bibliography loses nothing this corpus actually says.
 
+172. **The rename reached the site and not the citation. The string an outside scholar copies still
+    named the archive something it had stopped being.** *30 August 2026, following `730f045`.* The
+    features session renamed the archive to *Mapping the Shrines of Pakistan* on Rauf's ruling and
+    swept the UI thoroughly. What a UI sweep does not reach is the **citation and deposit
+    metadata**, and that is the half that leaves the building:
+
+    | file | was | why it matters |
+    |---|---|---|
+    | `CITATION.cff` | `title: 'Sufi Shrines of Pakistan'` | the canonical academic citation |
+    | `codemeta.json` | old name, **163 sites**, three categories | the Zenodo/Dataverse deposit record |
+    | `data/datapackage.json` | old title | the Frictionless descriptor shipped in the release |
+    | `scripts/data/release.mjs` | old name in the README and its citation line | every future data release |
+    | `src/lib/data/citation.ts` | old name in `archiveCitation`, `entryCitation` | **the app's own "cite this", copied into readers' bibliographies** |
+    | `urdu-i18n/*` | old name in the docstring and `_meta.project` | internal |
+
+    **`CITATION.cff` was contradicting itself and had been for months.** Its title said "Sufi
+    Shrines of Pakistan" while its own abstract, three lines below, enumerated "Muslim Sufi shrines
+    … Hindu temples … Sikh gurdwaras … Jain temples and secular memorials". The abstract already
+    knew what the title denied.
+
+    **And the rename exposed a second staleness nobody was looking for.** `codemeta.json` claimed
+    **163 sacred sites**, twice, against a shipped snapshot of 169, and listed three categories where
+    the schema has six. Corrected to 169 with the full list.
+
+    **What was deliberately NOT renamed, and this is the load-bearing part.** `citation.ts` holds
+    two kinds of string and they serve different masters:
+
+    - `archiveCitation()` / `entryCitation()` are **academic** citations. They follow `CITATION.cff`,
+      which `LICENSE-data.md` itself points readers at. Renamed.
+    - `PUBLICATION.attribution` is **the ODbL attribution the licence prescribes**, mirroring
+      `LICENSE-data.md` verbatim. **Changing what a licence requires of the people using the data is
+      not a rename, it is a licence change.** Left saying the old name, annotated in place, waiting
+      on Rauf — the same call the features session made about the Urdu `siteTitle`, for the same
+      reason: an agent may apply a ruling, not extend it.
+
+    **Three citation strings, one archive, three answers** — found while checking that.
+    `LICENSE-data.md` says v1.0.0 and 2026; `citation.ts` says v2.0.0 and 2026; the release README
+    says v1.0.0 and **2025**. The version and the year are facts and RULE 2 has no exception for
+    metadata, so they are recorded rather than reconciled. That is a decision for Rauf, now written
+    where the next person will meet it.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

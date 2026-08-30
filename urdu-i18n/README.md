@@ -1,4 +1,4 @@
-# urdu-i18n — Urdu translations for Sufi Shrines
+# urdu-i18n — Urdu translations for Mapping the Shrines of Pakistan
 
 Authoritative English→Urdu translations for the app's **data layer** (names, places,
 saints, categories, tour facets, dates) plus the **Urdu article content** pipeline. The

@@ -28,7 +28,22 @@ export const PUBLICATION = {
   repository: 'https://github.com/RaufNawaz/Sufi-Shrines',
   siteUrl: 'https://raufnawaz.github.io/Sufi-Shrines',
   /** The exact wording LICENSE-data.md says satisfies ODbL attribution. Not
-   * paraphrased: the licence prescribes it. */
+   * paraphrased: the licence prescribes it.
+   *
+   * DELIBERATELY NOT RENAMED on 30 August 2026 when the archive became "Mapping
+   * the Shrines of Pakistan". The two citation strings in this file serve
+   * different masters: `archiveCitation` and `entryCitation` are ACADEMIC
+   * citations and follow `CITATION.cff`, which LICENSE-data.md itself points at
+   * ("For academic citations use the CITATION.cff file"); this one is the
+   * **ODbL attribution the licence prescribes**, and changing what a licence
+   * requires of the people using the data is not a rename, it is a licence
+   * change. It stays until LICENSE-data.md does, and that is Rauf's call.
+   *
+   * It also already disagrees with the licence about the version — LICENSE-data.md
+   * says v1.0.0 and this says v2.0.0 — and the release README says year 2025
+   * where both of these say 2026. Three strings, one archive, three answers.
+   * Recorded rather than reconciled: a version and a year are facts, and RULE 2
+   * has no exception for metadata. */
   attribution:
     'Nawaz, Rauf. Sufi Shrines of Pakistan (v2.0.0). Harvard University, 2026. https://github.com/raufnawaz/sufi-shrines',
 } as const;
@@ -36,7 +51,7 @@ export const PUBLICATION = {
 /** A citation line for the archive as a whole. */
 export function archiveCitation(year: number = 2026): string {
   return (
-    `${PUBLICATION.author}. ${'Sufi Shrines of Pakistan'} (v${PUBLICATION.version}). ` +
+    `${PUBLICATION.author}. ${'Mapping the Shrines of Pakistan'} (v${PUBLICATION.version}). ` +
     `${PUBLICATION.affiliation}, ${year}. ${PUBLICATION.siteUrl}`
   );
 }
@@ -54,7 +69,7 @@ export function entryCitation(
 ): string {
   const iso = accessed.toISOString().slice(0, 10);
   return (
-    `"${shrineName}". In ${PUBLICATION.author}, Sufi Shrines of Pakistan (v${PUBLICATION.version}). ` +
+    `"${shrineName}". In ${PUBLICATION.author}, Mapping the Shrines of Pakistan (v${PUBLICATION.version}). ` +
     `${PUBLICATION.affiliation}, ${year}. ${PUBLICATION.siteUrl}/shrine/${slug} (accessed ${iso}).`
   );
 }

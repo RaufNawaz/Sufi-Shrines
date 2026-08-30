@@ -100,7 +100,7 @@ console.log('\n  ✓ VERSION.json');
 
 // ── dist-data/README.md ───────────────────────────────────────────────────────
 
-const releaseReadme = `# Sufi Shrines of Pakistan — Data Release
+const releaseReadme = `# Mapping the Shrines of Pakistan — Data Release
 
 ## Contents
 
@@ -130,7 +130,7 @@ console.log(shrines.rows[0]);   // first shrine object
 
 See \`CITATION.cff\` for the full citation or use:
 
-> Nawaz, Rauf. *Sufi Shrines of Pakistan* (v1.0.0). Harvard University, 2025.
+> Nawaz, Rauf. *Mapping the Shrines of Pakistan* (v1.0.0). Harvard University, 2025.
 > <https://github.com/raufnawaz/sufi-shrines>
 
 ## License
