@@ -52,6 +52,7 @@ the reason the rest is credible.
 | The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
 | Search said 44 matches and showed 40, silently | `d096824` |
 | A shrine named its order and never linked to it — the graph's one one-way edge | `4ba4b8a` |
+| The shrine page overwrote its own clean share snippet with raw markdown | *next commit* |
 
 ---
 
@@ -59,11 +60,7 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
-    description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
-    alternates appear on one prerendered page out of ~800.
-
-2. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+1. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---
@@ -73,6 +70,13 @@ still shows two right edges — the section rules stop at one x for nine heading
 seventeen, because the two classes sit in containers of different width. The headings are now one
 spec, so what remains is the containers. Same family as `.settings-page`'s dead `max-width`,
 which `.entity-page` beats on import order.
+
+**Left from the share-snippet work, both prerender-side and untouched:** seven index routes
+(`/almanac`, `/chronology`, `/typology`, `/graph`, `/shared-ground`, `/settings`, `/review`) ship
+the map's blurb as their description rather than one about the page; and `hreflang` alternates
+appear on `dist/index.html` only — **zero on the ~800 other prerendered pages** — so the `/ur`
+mirror that exists purely so crawlers find the Urdu edition is never declared as its alternate.
+Both are `scripts/prerender.mjs`.
 
 ## Waiting on a person, not on an agent
 

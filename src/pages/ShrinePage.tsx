@@ -28,6 +28,7 @@ import { ReadingProgressBar } from '../components/shrine/ReadingProgressBar';
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { getFieldValue } from '../lib/data/fieldAliasing';
+import { metaDescription } from '../lib/data/articleParsing';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { infoLevelKey } from '../lib/data/infoLevel';
 import { siteStatusKey, SITE_STATUS_LABEL_KEYS } from '../lib/data/siteStatus';
@@ -143,10 +144,17 @@ function ShrineContent({
 
   useDocumentTitle(`${name} — ${t('siteTitle')}`);
 
+  /* The prerendered file already carries a clean description; this exists for
+     client-side navigation, where no new document is fetched. It used to write
+     `Description.slice(0, 160)` raw, and 123 of the archive's 171 descriptions
+     open with a markdown heading — so the live DOM said "## Overview\n\nAllo
+     Mahar Sharif is a village in the Daska *tehsil* of…", which is what a
+     JavaScript-rendering crawler indexes. Nothing renders a meta tag, so the
+     two implementations were never compared. */
   useEffect(() => {
     const meta = document.querySelector('meta[name="description"]');
-    const desc = getFieldValue(shrine.raw, 'Description');
-    if (meta && desc) meta.setAttribute('content', desc.slice(0, 160));
+    const desc = metaDescription(getFieldValue(shrine.raw, 'Description'));
+    if (meta && desc) meta.setAttribute('content', desc);
   }, [shrine.raw]);
 
   /* Article sections arrive as the reader reaches them. Attached here rather

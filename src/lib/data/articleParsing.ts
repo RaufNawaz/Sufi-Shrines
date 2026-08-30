@@ -1,4 +1,5 @@
 import type { ArticleSection, InlineSection, ParsedArticle, ShrineRow } from '../../types/shrine';
+import { stripInlineBoldMarkup } from '../../components/shrine/inlineFormat';
 import {
   ARTICLE_SECTION_DEFINITIONS,
   LEAD_PARAGRAPH_KEYS,
@@ -62,6 +63,33 @@ function detectHeading(line: string): { matched: boolean; inlineContent: string 
   }
 
   return null;
+}
+
+/**
+ * The `<meta name="description">` for a shrine — its lead, without markdown.
+ *
+ * `ShrinePage` used to set `Description.slice(0, 160)` straight from the sheet,
+ * and 123 of the archive's 171 descriptions open with a markdown heading. So the
+ * live DOM description for `/shrine/allo-mahar` read **"## Overview\n\nAllo
+ * Mahar Sharif is a village in the Daska *tehsil* of…"** — which is what a
+ * JavaScript-rendering crawler indexes.
+ *
+ * `scripts/prerender.mjs` had always written a clean one into the file, so the
+ * card a messaging app shows was right and the runtime then overwrote it. The
+ * two were never compared, because nothing renders a meta tag.
+ *
+ * Kept as an assertion about the output rather than a mirror of the
+ * prerenderer's `stripMarkdownLead`: a third copy of the same string-munging is
+ * how the copies start disagreeing, and what actually matters is testable
+ * directly — no heading, no emphasis markers, and a length a card will show.
+ */
+export function metaDescription(text: string): string {
+  const lead = stripInlineBoldMarkup(extractLeadPreviewText(text))
+    .replace(/[_`~]/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return lead.length > 200 ? `${lead.slice(0, 197)}…` : lead;
 }
 
 export function extractLeadPreviewText(text: string): string {
