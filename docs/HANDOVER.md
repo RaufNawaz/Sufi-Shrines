@@ -8818,6 +8818,24 @@ that one shrine: ten answering the photo question, two the video/audio one. The 
 themselves no longer resolve by ID**. That is why re-shooting rather than re-linking is the remedy,
 and it is a different failure from the three dead hot-links `check_image_liveness.py` finds.
 
+**Correction to the figure in `41f9d73`, made by looking harder at the same file.** That commit
+said 44 unfiled files and 448 MB. **Fourteen of the 44 (225 MB) are re-uploads** — same filename,
+same byte count and same mime type as a row already `matched`, with a different Drive id, which is
+one file uploaded to Drive twice. Eleven of those belong to Mazar-e-Iqbal. So the genuinely unfiled
+figure is **30 files and 223 MB**, and **none of them is a video**: all four unmatched videos are
+duplicates of videos already filed. The RMS case survives — thirty files with timestamp filenames
+still need visual identification — but it is thirty, not forty-four, and I published forty-four
+first.
+
+**"Filenames lie" is verified, and it is worse than the phrase suggests.** 15 filenames in the
+manifest are used more than once, across 31 rows. The sharpest is
+`dfdfdfdfd - Saifullah Imtiaz.jpg`: **three rows, three distinct Drive ids, three distinct byte
+sizes, spanning two shrines** — Darbar Hazrat Shah Gohar Peer and Darbar Mian Qurban Ali Shah.
+CLAUDE.md says "one filename spans two shrines"; it spans two shrines *and three different files*.
+Every other collision is the duplicate-upload pattern above, where filename and size match and only
+the Drive id differs — which is how the two classes can be told apart at all without opening a
+single image.
+
 **And the two unpublished shrines hold 23 media files between them.** Darbar Hazrat Shah Gohar Peer
 has 12 (7 JPEG, 2 PNG, **3 video**) and Darbar Mian Qurban Ali Shah has 11 (10 JPEG, **1 video**),
 all `matched` and all fetchable. So the cost of the 171-vs-169 drift is not two absent pages and

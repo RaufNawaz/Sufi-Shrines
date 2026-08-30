@@ -297,8 +297,15 @@ outside citations/URLs/coordinates/`<bdi>`.
   `id_not_in_drive` rows — every one in the archive — belong to this single shrine, 10 answering
   the photo question and 2 the video/audio one. The survey recorded twelve uploads and **Drive no
   longer resolves any of those file IDs**. Not 404s on a web host: the Drive objects themselves are
-  gone, which is why re-shooting rather than re-linking is the remedy. Data Darbar and Bibi Pak Daman
-  photos are WhatsApp-compressed. All need re-shooting. **The "cannot be checked here" caveat
+  gone, which is why re-shooting rather than re-linking is the remedy. Data Darbar and Bibi Pak Daman photos are WhatsApp-compressed.
+  **Confirmed from the manifest, 31 August 2026, and one shrine should be added.** Bibi Pak Daman's
+  six are named `IMG-20260615-WA0116`–`WA0121`, which is WhatsApp's own convention, at 160–206 KB;
+  Data Darbar's one is literally `WhatsApp Image …` at 129 KB. Against a **3,346 KB median** for
+  every other image in the archive, so the compression is a factor of ~19, not a nuance.
+  **Darbar Hazrat Shah Gohar Peer belongs on this list too** — 259 KB median across nine images —
+  though its filenames are placeholder mash (`dfdfdfd`, `ffdfdf`), so the *cause* is unattributed
+  there rather than WhatsApp. Those three are the only shrines under 400 KB median of the twelve
+  the manifest sizes. All need re-shooting. **The "cannot be checked here" caveat
   this line used to carry is wrong and is removed:** external hosts are reachable from this
   environment, and `pipeline/check_image_liveness.py` fetched all 242 of the sheet's image URLs
   on *27 August 2026*. What that shows is that the 12 lost files are **not the same thing as the
