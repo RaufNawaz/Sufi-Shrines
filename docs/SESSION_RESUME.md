@@ -48,7 +48,7 @@ the reason the rest is credible.
 | The archive search palette announced nothing, and both comboboxes lied | `1093709` |
 | Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
-| The accent that means "interactive" painted 120 data marks and a chart bar | *next commit* |
+| The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
 
 ---
 
@@ -129,6 +129,10 @@ cannot do.
   never `git add -A`. Their lane: `data/`, `scripts/data/`, `urdu-i18n/`, `src/lib/kg.ts`,
   `src/lib/data/`, `src/lib/i18n/uiStrings*`. Mine: `src/pages/`, `src/components/`, `src/hooks/`,
   `src/lib/search/`, `src/styles/`, `e2e/`, `docs/planning/`.
+- **iCloud makes conflict copies of files you are editing** — `components 2.css`, `kg 2.css`,
+  `GraphPage 2.tsx` all appeared mid-session on 30 August. They redden `repoHygiene` directly and
+  `readingScale` as collateral, because a duplicate stylesheet double-counts what that test walks.
+  `find src e2e scripts docs -name "* [0-9].*" -delete` before committing a run of style edits.
 - **Never leave a scratch file in the tree.** `prettier --check .` walks untracked files, so a
   stray file turns `npm run verify` red for both sessions and reads as the other one's failure.
 - **`npm run build:e2e` and `npm run e2e` must be one chained command** — the other session
