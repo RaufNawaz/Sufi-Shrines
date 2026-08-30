@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 282,
+      "saints": 283,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 139,
-      "flatSeedEntries": 1237
+      "flatSeedEntries": 1238
     }
   },
   "categories": {
@@ -795,7 +795,8 @@
     "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)": "شیخ فخر الدین (شاہ جمال کے مرید)",
     "Abu Najib al-Suhrawardi": "ابو نجیب السہروردی",
     "Sayyid Ali Makki ibn Abbas Mousavi": "سید علی مکی بن عباس موسوی",
-    "Meerak Mohammad Lahori": "میرک محمد لاہوری"
+    "Meerak Mohammad Lahori": "میرک محمد لاہوری",
+    "Taleh Mand": "طالع مند"
   },
   "silsilas": {
     "Qadiri": "قادری",

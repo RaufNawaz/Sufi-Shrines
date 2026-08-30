@@ -170,6 +170,7 @@ saint:ghazi-ilm-din-shaheed
   schema:alternateName "Ghazi Ilam Din"@en ;
   schema:birthDate "4 December 1908, Lahore" ;
   schema:deathDate "31 October 1929 (executed at Mianwali Jail)" ;
+  schema:parent saint:taleh-mand ;
   .
 
 saint:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami
@@ -1902,6 +1903,11 @@ saint:abu-najib-al-suhrawardi
 saint:sayyid-ali-makki-ibn-abbas-mousavi
   a schema:Person ;
   schema:name "Sayyid Ali Makki ibn Abbas Mousavi"@en ;
+  .
+
+saint:taleh-mand
+  a schema:Person ;
+  schema:name "Taleh Mand"@en ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

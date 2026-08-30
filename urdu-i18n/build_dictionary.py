@@ -1037,6 +1037,7 @@ SAINTS = {
  "Abu Najib al-Suhrawardi": "ابو نجیب السہروردی",
  "Sayyid Ali Makki ibn Abbas Mousavi": "سید علی مکی بن عباس موسوی",
  "Meerak Mohammad Lahori": "میرک محمد لاہوری",
+ "Taleh Mand": "طالع مند",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

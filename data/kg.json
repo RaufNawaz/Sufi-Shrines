@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T17:16:41.831Z",
+  "generated": "2026-08-30T17:25:01.213Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3919,6 +3919,16 @@
       "type": "saint",
       "slug": "sayyid-ali-makki-ibn-abbas-mousavi",
       "name": "Sayyid Ali Makki ibn Abbas Mousavi",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:taleh-mand",
+      "type": "saint",
+      "slug": "taleh-mand",
+      "name": "Taleh Mand",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -9899,6 +9909,19 @@
       "quote": "local accounts trace his ancestry to a forebear, Sayyid Ali Makki ibn Abbas Mousavi, said to have come originally from Samarra in Iraq"
     },
     {
+      "type": "kin_of",
+      "subject": "saint:ghazi-ilm-din-shaheed",
+      "object": "saint:taleh-mand",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "son_of",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "kinWording": "his father's name is given as",
+      "source": "data/shrines.csv#darbar-ghazi-ilm-din-shaheed",
+      "quote": "his father's name is given as Taleh Mand."
+    },
+    {
       "type": "disciple_of",
       "subject": "saint:data-ganj-bakhsh",
       "object": "saint:abul-fadl-muhammad-al-khuttali",
@@ -12349,12 +12372,12 @@
     }
   ],
   "stats": {
-    "saints": 242,
+    "saints": 243,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 722,
+    "relations": 723,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

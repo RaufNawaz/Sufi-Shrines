@@ -259,7 +259,12 @@
         "Ghazi Ilam Din"
       ],
       "birthDate": "4 December 1908, Lahore",
-      "deathDate": "31 October 1929 (executed at Mianwali Jail)"
+      "deathDate": "31 October 1929 (executed at Mianwali Jail)",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/taleh-mand"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -2934,6 +2939,11 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-ali-makki-ibn-abbas-mousavi",
       "name": "Sayyid Ali Makki ibn Abbas Mousavi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/taleh-mand",
+      "name": "Taleh Mand"
     },
     {
       "@type": "Place",

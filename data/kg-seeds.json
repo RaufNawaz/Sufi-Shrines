@@ -1453,6 +1453,22 @@
       "source": "data/shrines.csv#shrine-of-lakhi-shah-saddar",
       "notes": "A NAMED forebear, which is what separates this from the sayyid-descent formula ruled out beside it: the entry does not say \"a descendant of the Prophet\", it names a man and a city he came from. The number of generations is not given, which is what `descendant_of` is for.",
       "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "ghazi-ilm-din-shaheed",
+      "subjectName": "Ghazi Ilm Din Shaheed",
+      "kinType": "son_of",
+      "objectSlug": "taleh-mand",
+      "objectName": "Taleh Mand",
+      "objectIsNew": true,
+      "objectNodeName": "Taleh Mand",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "wording": "his father's name is given as",
+      "quote": "his father's name is given as Taleh Mand.",
+      "source": "data/shrines.csv#darbar-ghazi-ilm-din-shaheed",
+      "notes": "Found only after the sentence splitter stopped gluing `## Family and Early Life` to the front of this sentence (§9.180) — the heading noise had been burying it in a filter meant to surface exactly this shape. The same entry quotes Allama Iqbal at the graveside saying \"this carpenter's son has surpassed us all\", which is the family trade the sentence names and not a second parentage claim.",
+      "_from": "scan-kin-statements.mjs"
     }
   ],
   "_comment_kinAdjudicated": "Kin sentences a human has read and deliberately did NOT make an edge, each with the verbatim sentence and the reason. Two different reasons live here and the notes say which, because collapsing them would be dishonest: a sentence that only LOOKS like a family tie (\"a son of Peshawar\", \"the father of the Punjabi kafi\" — idiom and metaphor, and the corpus is full of both because it writes about poets), and a tie the corpus really does state that this archive deliberately does not model. The list exists so `scripts/data/scan-kin-statements.mjs` can mark a sentence read-and-ruled-out instead of offering it forever: without it every adjudication pass re-reads every rejection the last one made. Quotes are checked against the corpus by verify-kg-proposals.mjs, exactly as an edge's quote is — a drifted quote silently stops matching and the sentence returns to the unread pile.",
@@ -1705,6 +1721,16 @@
       ],
       "source": "data/shrines.csv#shrine-of-mian-mir",
       "notes": "The last three sentences of the Mughal-family cluster already ruled on twice in this file — Jahanara as Dara Shikoh's sister, Aurangzeb as his brother, Nadira Begum as his wife, all buried around Mian Mir. Every one is true and every one would put a court into the graph to be each other's relatives. Dara Shikoh and Jahanara are figures here ONLY because they were Mullah Shah's disciples, which is a relation this archive is about; being somebody's sibling at the Mughal court is not."
+    },
+    {
+      "subjectName": "Fariduddin Ganjshakar",
+      "objectName": "his grandfather (unnamed)",
+      "kind": "unnamed",
+      "quotes": [
+        "his grandfather is said to have come from Kabul in the upheavals of the age"
+      ],
+      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "notes": "A grandfather with an origin and no name — the entry is precise about Kabul and silent about him. Alongside Farid's unnamed mother, already recorded: this entry describes three generations and names none of them but Farid."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",

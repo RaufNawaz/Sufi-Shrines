@@ -318,7 +318,14 @@ describe('the shipped graph', () => {
                        one of Mian Mir's disciples the entry names. That page
                        described a circle at length — a monument refused, a
                        chewed betel-leaf, the Mughal court — and carried one
-                       master and one successor and not a single disciple. */
-    expect(flagged.length).toBe(209);
+                       master and one successor and not a single disciple.
+        209 + 1       = 210, 30 August 2026. Taleh Mand, Ghazi Ilm Din's father,
+                       and he is here because of an instrument fix rather than a
+                       new reading: §9.180 stopped the sentence splitter gluing
+                       `## Family and Early Life` to the front of the sentence
+                       that names him, and he surfaced immediately in a filter
+                       built to find exactly this shape. Heading noise had been
+                       burying a named father in the list meant to reveal one. */
+    expect(flagged.length).toBe(210);
   });
 });
