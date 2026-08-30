@@ -18,6 +18,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './data/lib/slugs.mjs';
 import { countPlaces, locationOfRow } from './data/lib/places.mjs';
+import { ROUTE_DESCRIPTIONS } from './lib/routeDescriptions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -157,6 +158,29 @@ function buildShrineRecords(rows) {
 }
 
 // ── HTML injection helpers ─────────────────────────────────────────────────
+/**
+ * The opening of a description, short enough for a `<meta>` tag.
+ *
+ * Sentences are taken until at least 80 characters have accumulated, and the
+ * sentence that crosses is kept whole. Two reasons for the shape: a first
+ * sentence can be very short — `almanacIntro` opens "When the shrines gather."
+ * at 24 characters, which is an opening line and not a description — and
+ * cutting mid-sentence at a character count puts an ellipsis in a search
+ * result. Whole sentences, always.
+ *
+ * `۔` is the Urdu full stop (U+06D4), so the same rule applies to both
+ * editions without a language argument.
+ */
+function leadSentences(text) {
+  const parts = String(text).match(/[^.\u06D4]+[.\u06D4]|[^.\u06D4]+$/g) ?? [text];
+  let out = '';
+  for (const part of parts) {
+    out += part;
+    if (out.trim().length >= 80) break;
+  }
+  return out.trim();
+}
+
 function escHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;')
@@ -995,20 +1019,12 @@ function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
  * showing GitHub's 404.
  */
 const STATIC_PAGES = [
-  {
-    path: '/graph',
-    titleEn: 'Saints & Orders Explorer',
-    titleUr: 'اولیا و سلاسل کا نقشہ',
-    descEn:
-      'The lineages and Sufi orders recorded in this archive: who taught whom, which silsila each figure held, and which claims are still unreviewed.',
-  },
-  {
-    path: '/almanac',
-    titleEn: 'The Urs Almanac',
-    titleUr: 'عرس تقویم',
-    descEn:
-      'When the ʿurs gatherings fall across the year, computed from the dates each entry records, with the Hijri readings shown alongside.',
-  },
+  /* `/graph` and `/almanac` were here, each with a `descEn` written for it, and
+     neither ever reached a reader: the APP_ROUTES loop below runs afterwards,
+     writes the same two files, and — until 31 August 2026 — set no description
+     at all, so both were overwritten by the homepage's. Removed rather than
+     left looking effective. Their descriptions now come from the page's own
+     intro string, in both languages, via `lib/routeDescriptions.mjs`. */
   /* A redirect, since 24 August 2026 — its sections are part of /about. The
      file still has to exist (GitHub Pages serves files, and this URL is
      published), but `canonicalPath` sends a crawler to the page it lands on
@@ -1288,12 +1304,30 @@ for (const route of APP_ROUTES) {
   const canonicalUrl = SITE_URL ? `${SITE_URL}${canonicalPath}` : '';
   const urCanonicalUrl = SITE_URL ? `${SITE_URL}/ur${canonicalPath}` : '';
 
+  /* The page's own opening sentence, or the site's if this route has none.
+     Seven of these routes shipped the homepage's description — a search result
+     for the lineage graph described the map — and two of them had a description
+     written for them that this very loop was overwriting. */
+  const desc = ROUTE_DESCRIPTIONS[route.path];
+
   let html = baseHtml
     .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(route.titleEn)}</title>`)
     .replace(
       /<meta\s+property="og:title"[^>]*>/i,
       `<meta property="og:title" content="${escHtml(route.titleEn)}" />`,
     );
+  if (desc) {
+    const lead = leadSentences(desc.en);
+    html = html
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${escHtml(lead)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${escHtml(lead)}" />`,
+      );
+  }
   html = replaceHreflang(html, canonicalUrl, urCanonicalUrl);
   if (canonicalUrl) {
     html = html
@@ -1314,6 +1348,21 @@ for (const route of APP_ROUTES) {
       /<meta\s+property="og:title"[^>]*>/i,
       `<meta property="og:title" content="${escHtml(route.titleUr)}" />`,
     );
+  /* The Urdu edition described itself in English on every one of these routes.
+     It can stop doing so here because the sentence already exists in reviewed
+     Urdu — the page's own intro — rather than because anything was translated. */
+  if (desc) {
+    const leadUr = leadSentences(desc.ur);
+    htmlUr = htmlUr
+      .replace(
+        /<meta\s+name="description"[^>]*>/i,
+        `<meta name="description" content="${escHtml(leadUr)}" />`,
+      )
+      .replace(
+        /<meta\s+property="og:description"[^>]*>/i,
+        `<meta property="og:description" content="${escHtml(leadUr)}" />`,
+      );
+  }
   htmlUr = replaceHreflang(htmlUr, canonicalUrl, urCanonicalUrl);
   if (urCanonicalUrl) {
     htmlUr = htmlUr

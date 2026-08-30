@@ -118,12 +118,32 @@ and `staticTemplateCopy.test.ts` ties `index.html`'s description to
 `/Sufi-Shrines/`, which is the repository name and would have taken the site down if a sweep had
 banned the string outright.
 
-**Still open, and smaller than it looked:** the seven routes inherit the root's description rather
-than carrying one about the page. Now that the root's is accurate this is a quality gap, not an
-error. **And the whole Urdu edition ships an ENGLISH description** — `/ur`, `/ur/graph` and the
-rest all carry the English string, which the no-leak guard cannot see because it reads rendered
-text under `[dir='rtl']` and this is in `<head>`. That is the same ruling as `siteMetaDescription`
-below: Urdu content, so it waits for a fluent speaker.
+~~**Still open:** the seven routes inherit the root's description, and the Urdu edition ships an
+English one.~~ **Both closed the same day, and the cause was a third thing again.**
+
+Two of the seven *already had* a description. `STATIC_PAGES` carried a `descEn` for `/graph` and
+`/almanac`, written for exactly this; the `APP_ROUTES` loop runs afterwards, writes the same two
+files, and set no description at all — so it overwrote both. **The defect was a second writer
+silently discarding the first**, which is the third time in two days that the answer was a
+mechanism rather than a missing value. Those two entries are deleted rather than superseded: a
+dead entry that looks effective is how this happened.
+
+**The Urdu half needed no fluent speaker after all, and that is the part worth keeping.** Every
+one of these pages already opens with a reviewed sentence saying what it is, in both languages —
+`almanacIntro`, `graphExplorerIntro`, `chronologyIntro`, `sharedGroundPageLede`, `typologyIntro`,
+`settingsIntro`, `reviewIntro`. Quoting seven reviewed Urdu sentences is not authoring seven, so
+all fourteen pages now describe themselves in the reader's own language. `scripts/lib/
+routeDescriptions.mjs` holds them verbatim and `routeDescriptions.test.ts` asserts
+character-for-character equality with the UI strings, so a quote cannot drift from the page it
+quotes. `leadSentences()` shortens them for a `<meta>` tag on whole sentences, never mid-clause.
+
+**The rule this generalises to, and it is worth reaching for before writing new copy:** the page
+already says what it is, in both languages, and a description that is not the page's own words is
+a second place for the archive to describe itself from.
+
+Still English-only, and genuinely Rauf's: `/about` and `/coverage`, whose descriptions are not
+built from a UI string. `/report` keeps the site blurb deliberately — it is a redirect stub whose
+canonical points at `/about`.
 
 ## Waiting on a person, not on an agent
 
