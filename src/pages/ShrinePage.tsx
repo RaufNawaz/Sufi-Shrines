@@ -59,14 +59,46 @@ function SkeletonPage() {
   );
 }
 
+/**
+ * The article column, while the sheet is still arriving.
+ *
+ * Distinct from `SkeletonPage`, which stands in for the whole route. This one
+ * stands in for the *prose* only: the masthead above it is real — name,
+ * category, location and the photograph all come from the slim index — so what
+ * is missing is the article, and that is what should look pending.
+ */
+function ArticleSkeleton() {
+  return (
+    <div className="shrine-loading" aria-hidden="true">
+      <div className="skeleton skeleton-text skeleton-text--90" />
+      <div className="skeleton skeleton-text skeleton-text--80" />
+      <div className="skeleton skeleton-text" />
+      <div className="skeleton skeleton-text skeleton-text--90" />
+      <div className="skeleton skeleton-text skeleton-text--80" />
+    </div>
+  );
+}
+
 function ShrineContent({
   shrine,
   allShrines,
   offline,
   sourceTimestamp,
+  articleReady,
 }: {
   shrine: Shrine;
   allShrines: Shrine[];
+  /**
+   * False while the rows on screen came from the slim map index, which carries
+   * no `Description`.
+   *
+   * **It must be this flag and not `shrine.description`.** `buildShrines` gives
+   * an index row an *empty* description rather than a missing one, so a check on
+   * emptiness renders "no description recorded" — a claim about the archive, and
+   * a false one. Same shape as the `alsoKnownAs` bug in §9.138: a value
+   * legitimately absent for one reason being read as absent for another.
+   */
+  articleReady: boolean;
   /* Passed down rather than read from a second `useShrineData()` call: the hook
      shares module state, but two subscriptions on one page is two re-renders
      for one change. */
@@ -394,14 +426,23 @@ function ShrineContent({
             </p>
           )}
         </div>
-        {navItems.length >= 2 && (
+        {articleReady && navItems.length >= 2 && (
           <div className="contents-nav-rail">
             <ContentsNav items={navItems} />
           </div>
         )}
         <div className="shrine-article-main">
-          <ShrineArticle shrine={shrine} />
-          <ShrineObservances shrine={shrine} />
+          {/* The masthead above is already real; only the prose is pending.
+              `ShrineObservances` waits with it — its days come from the sheet's
+              Events column, which the index does not carry. */}
+          {articleReady ? (
+            <>
+              <ShrineArticle shrine={shrine} />
+              <ShrineObservances shrine={shrine} />
+            </>
+          ) : (
+            <ArticleSkeleton />
+          )}
           {shrine.latLng ? (
             <LocationMap latLng={shrine.latLng} name={name} />
           ) : (
@@ -444,7 +485,11 @@ function ShrineContent({
           )}
         </div>
         <aside>
-          <ShrineInfobox shrine={shrine} />
+          {/* Held for the same reason: the infobox is a table of the row's own
+              fields, and an index row has ten of the sheet's forty-four. A
+              half-populated fact table reads as an archive that knows less than
+              it does. */}
+          {articleReady && <ShrineInfobox shrine={shrine} />}
         </aside>
       </div>
 
@@ -474,14 +519,17 @@ export default function ShrinePage() {
    * one. The map wants those rows the moment they exist (they are what makes
    * the first marker land in ~1.5s instead of 5s); this route wants the sheet.
    *
-   * So the page keeps the skeleton it already showed. Nothing here regresses:
-   * before the index existed, this route waited for the CSV too.
+   * So the masthead renders from the index the moment it lands — name,
+   * category, location, the photograph and the summary meta are all in its ten
+   * columns — and the *article column* keeps the skeleton until the sheet
+   * arrives. A reader opening a shared link sees which shrine they are looking
+   * at in ~1.5s instead of a blank page for five seconds.
    *
-   * Worth doing better one day: the index carries name, location, category and
-   * the photograph, which is the whole masthead. Rendering that immediately and
-   * skeletoning only the article would beat both. It is a bigger change to this
-   * file than tonight's measurement justifies, and it is written down rather
-   * than done.
+   * Held with the prose, and each for its own reason: `ShrineObservances`
+   * (its days are the sheet's Events column), `ContentsNav` (built from article
+   * sections), and `ShrineInfobox` (a table of the row's own fields, and an
+   * index row has ten of forty-four — a half-populated fact table reads as an
+   * archive that knows less than it does).
    */
   const articleReady = source !== 'index';
   const { t, lang } = useLang();
@@ -515,12 +563,11 @@ export default function ShrinePage() {
 
       {error && !shrine && <div className="shrine-page-error">{t('errorLoadingData')}</div>}
 
-      {shrine && !articleReady && <SkeletonPage />}
-
-      {shrine && articleReady && (
+      {shrine && (
         <ShrineContent
           shrine={shrine}
           allShrines={shrines}
+          articleReady={articleReady}
           offline={offline}
           sourceTimestamp={sourceTimestamp}
         />
