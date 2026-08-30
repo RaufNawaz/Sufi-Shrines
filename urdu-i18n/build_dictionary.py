@@ -827,6 +827,87 @@ SAINTS = {
  # for seven of these names, so this restores it rather than translating.
  # "Sri Chand" is the exception — a Punjabi name in its usual Urdu spelling.
  # UNREVIEWED DRAFTS.
+ # ── The lineage-only figures, 30 August 2026 ────────────────────────────────
+ # 57 people who appear in someone else's recorded lineage and have no shrine in
+ # this archive. Each has a page, and each page was titled in Latin script in the
+ # Urdu view — the largest single block of Urdu debt left, and the one
+ # figureNameUrduParity.test.ts has been holding at a ceiling rather than
+ # closing.
+ #
+ # For all but a handful this is RESTORATION, not translation: the names are
+ # Arabic, Persian or Urdu in origin and the Perso-Arabic spelling is the
+ # original. Where the recorded name carries an English connective — "of
+ # Delhi", "known as", "the princess" — that part is translated, following the
+ # same rule as the glossed entries below.
+ #
+ # UNREVIEWED DRAFTS. Confidence is high across the Muslim names and lower for
+ # the second group, where more than one spelling is current; both groups are
+ # marked so a reviewer knows where to look first. See TRANSLATION_LOG.md.
+ "Abdullah Ansari Sultanpuri": "عبداللہ انصاری سلطان پوری",
+ "Abu\u2019l-Fadl Muhammad al-Khuttali": "ابوالفضل محمد الخُتَّلی",
+ "Ala Hazrat Ahmad Raza Khan of Bareilly": "اعلیٰ حضرت احمد رضا خان بریلوی",
+ "Baba Jango Pir Shah Suhrawardi": "بابا جنگو پیر شاہ سہروردی",
+ "Bahadur Baba": "بہادر بابا",
+ "Bahlol (Bahlol Daryai)": "بہلول (بہلول دریائی)",
+ "Fakhr-ud-Din Iraqi": "فخر الدین عراقی",
+ "Haji Tufail": "حاجی طفیل",
+ "Hazrat Abu al-Barakat Syed Muhammad Ahmad": "حضرت ابو البرکات سید محمد احمد",
+ "Hazrat Ghulam Muhammad Suhrawardi": "حضرت غلام محمد سہروردی",
+ "Hazrat Khawaja Sheikh Muhammad Mustafa Chishti-Nizami":
+     "حضرت خواجہ شیخ محمد مصطفیٰ چشتی نظامی",
+ "Hazrat Mian Fazal Deen": "حضرت میاں فضل دین",
+ "Hazrat Mian Qurban Ali Shah Sarkar": "حضرت میاں قربان علی شاہ سرکار",
+ "Hazrat Pir Syed Ismail Shah Bukhari (Karman Wali Sarkar)":
+     "حضرت پیر سید اسماعیل شاہ بخاری (کرمانوالی سرکار)",
+ "Hazrat Shah Niyaz Ahmad Chisti Qadri": "حضرت شاہ نیاز احمد چشتی قادری",
+ "Hazrat Shah Raza Qadri Shattari": "حضرت شاہ رضا قادری شطاری",
+ "Hazrat Shah Sikandar": "حضرت شاہ سکندر",
+ "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer":
+     "حضرت صوفی پیر سید گوہر علی شاہ (سید علی گوہر)، معروف بہ شاہ گوہر پیر",
+ "Hazrat Syedna Tahir Alauddin Qadiri Gilani": "حضرت سیدنا طاہر علاؤالدین قادری گیلانی",
+ "Khwaja Abdul Haq": "خواجہ عبدالحق",
+ "Khwaja Abul Masakin": "خواجہ ابو المساکین",
+ "Khwaja Nizamuddin Aulia of Kahiyan Sharif": "خواجہ نظام الدین اولیاء کہیاں شریف",
+ "Khwaja Noor Muhammad Maharvi": "خواجہ نور محمد مہاروی",
+ "Khwaja Pir Muhammad Zahid Khan": "خواجہ پیر محمد زاہد خان",
+ "Khwaja Qutbuddin Bakhtiar Kaki": "خواجہ قطب الدین بختیار کاکی",
+ "Khwaja Shamsuddin Azeemi": "خواجہ شمس الدین عظیمی",
+ "Makhdoom of Kasur": "مخدومِ قصور",
+ "Maulana Abdul Lateef Sultanpuri": "مولانا عبداللطیف سلطان پوری",
+ "Maulana Ghulam Ali Okarvi": "مولانا غلام علی اوکاڑوی",
+ "Miraj-ud-Din Gilani Suhrawardi": "معراج الدین گیلانی سہروردی",
+ "Muhammad Ali Raza Shattari": "محمد علی رضا شطاری",
+ "Mullah Shah Badakhshi": "ملا شاہ بدخشی",
+ "Nizamuddin Auliya": "نظام الدین اولیاء",
+ "Pir Sayyid Badshah": "پیر سید بادشاہ",
+ "Prince Dara Shikoh": "شہزادہ دارا شکوہ",
+ "Qazi Abul Aala": "قاضی ابو العلاء",
+ "Rasool Shah Gilani Suhrawardi": "رسول شاہ گیلانی سہروردی",
+ "Sahibzada Muhammad Umar Naqshbandi": "صاحبزادہ محمد عمر نقشبندی",
+ "Sayyid Abdul Rahman of Delhi": "سید عبدالرحمٰن دہلوی",
+ "Sayyid Shah Inayat": "سید شاہ عنایت",
+ "Shah Maroof Khushabi": "شاہ معروف خوشابی",
+ "Shah Saidan Sarmast": "شاہ سیدان سرمست",
+ "Shahid Rasool Shah Gilani Suhrawardi": "شہید رسول شاہ گیلانی سہروردی",
+ "Shaikh Abdul Latif": "شیخ عبداللطیف",
+ "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi":
+     "شیخ شہاب الدین ابو حفص عمر سہروردی",
+ "Shaikh Siyustani": "شیخ سیوستانی",
+ "Sheikh Abu al-Fazal Khatil": "شیخ ابو الفضل خطیل",
+ "Sheikh Akhuddeen Seljuki": "شیخ اخی الدین سلجوقی",
+ "Sheikh Khokar Baig Suhrawardi": "شیخ کھوکھر بیگ سہروردی",
+ "Syed Ul Hassan Kabeer": "سید الحسن کبیر",
+ "the princess Jahanara": "شہزادی جہاں آرا",
+ # Lower confidence — more than one spelling is current for each, and for the
+ # Sindhi Hindu sant names in particular. Same caveat the 20 August block
+ # records for "Asudaram" and "Satramdas". A reviewer should start here.
+ "Guru Amar Das": "گرو امر داس",
+ "Matsyendranath": "متسیندر ناتھ",
+ "Sai Chanduram": "سائیں چندو رام",
+ "Sain Jiwat Singh": "سائیں جیوت سنگھ",
+ "Sant Bhai Wasan Shah of Rohri": "سنت بھائی واسن شاہ روہڑی",
+ "Vishandas": "وشن داس",
+
  # Rama's sons, and a case the derivation rule above explicitly cannot reach —
  # it is the reversal the rule's own comment warns about. The reviewed entry is
  # "Lava (Luv), son of Rama and Sita" -> "لو (لاوا)، رام اور سیتا کے بیٹے":

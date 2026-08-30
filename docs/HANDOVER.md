@@ -4198,6 +4198,35 @@ both redirects.
     resolved it in its notes, and additionally fails on any finding row whose subject is an array
     index. A quietly sinking row would be worse than the problem.
 
+159. **Every figure in the archive now has an Urdu name. The debt is zero.** *Closed 30 August
+    2026.* `figureNameUrduParity.test.ts` has held a *budget* for the lineage-only figures since
+    28 August — the 60-odd people who appear in someone else's recorded lineage and have no
+    shrine here. Each has a reachable page, and each page was titled in **Latin script in the
+    Urdu view**, which nothing else catches: `localizeFigureName` returns its input unchanged for
+    a name the dictionary does not carry, by design (i18n rule 3 — never transliterate character
+    by character), so the failure is silent and looks like a name.
+
+    The budget ratcheted 58 → 66 (the kinship pass added eight figures) → 57 (those eight
+    written in) → **0**. All 66 now carry an Urdu name, so the assertion is `toEqual([])` and both
+    populations — archive figures and lineage-only ones — are held to the same rule for the first
+    time.
+
+    **For all but six this was restoration, not translation.** The names are Arabic, Persian or
+    Urdu in origin and the Perso-Arabic spelling is the original: al-Khuttali, Fakhr-ud-Din
+    Iraqi, Shihab-ud-Din Abu Hafs Umar al-Suhrawardi, Qutbuddin Bakhtiar Kaki. Where the recorded
+    name carries an English connective the connective is *translated* — "of Delhi" → دہلوی,
+    "the princess Jahanara" → شہزادی جہاں آرا, "known as Shah Gohar Peer" → معروف بہ شاہ گوہر
+    پیر — following the same rule the glossed entries already used.
+
+    **Six are flagged lower-confidence in the source, and a reviewer should start there:** Guru
+    Amar Das, Matsyendranath, Sai Chanduram, Sain Jiwat Singh, Sant Bhai Wasan Shah of Rohri and
+    Vishandas. More than one spelling is current for each, which is the same caveat the
+    20 August block records for "Asudaram" and "Satramdas". All 57 are marked UNREVIEWED DRAFTS.
+
+    Zero tolerance is now deliberate rather than strict: the fix for a new figure is one line in
+    `urdu-i18n/build_dictionary.py`, and a figure with no rendering anyone can vouch for is a
+    reason to record that and say so, not to let the page title itself in the wrong script.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

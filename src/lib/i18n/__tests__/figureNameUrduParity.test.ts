@@ -18,14 +18,15 @@
  *
  * Two populations, deliberately held to different standards:
  *
+ * Two populations, held to different standards **until 30 August 2026**, when
+ * the second caught up with the first:
+ *
  *  - **Archive figures** (they have a shrine here, so a reader reaches them from
- *    a site page): zero tolerance.
+ *    a site page): zero tolerance, always.
  *  - **Lineage-only figures** (teachers named in someone's prose, no site in this
- *    archive — Hujwiri's master al-Khuttali and 57 others): a recorded budget.
- *    They are real graph nodes and their names are genuinely untranslated; that
- *    is known Urdu debt, not a regression. The budget is asserted as an upper
- *    bound so the debt can only shrink, and a *drop* is expected to fail this
- *    test — update the number and say what you translated.
+ *    archive — Hujwiri's master al-Khuttali and 65 others): a recorded budget
+ *    that ratcheted 58 → 66 → 57 → **0**. All 66 now carry an Urdu name, so the
+ *    budget is an assertion and both populations are held to the same rule.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -58,18 +59,23 @@ describe('figure names in the Urdu edition', () => {
     expect(untranslated(archiveFigures)).toEqual([]);
   });
 
-  it('keeps the lineage-only Urdu debt at or below its recorded size', () => {
-    /* 58 as measured 28 August 2026; **57 on 29 August**, and the direction of
-       that move is the point. The kinship pass added eight lineage-only nodes,
-       which is eight more names that would have rendered in Latin at the top of
-       an Urdu page — this test went to 66 and the fix was to write the eight
-       into the dictionary, not to raise the ceiling. The ninth is Hafiz
-       Muhammad Abdur Rahman, who was already here and whose Latin name had
-       started appearing *inside* an Urdu sentence on /graph once his father
-       became a node.
-
-       An upper bound: translating one of these lowers the number, and the
-       number should be lowered with it rather than left slack. */
-    expect(untranslated(lineageOnly).length).toBeLessThanOrEqual(57);
+  it('leaves no lineage-only figure titled in Latin either — the debt is closed', () => {
+    /* This was a BUDGET for two weeks: 58 on 28 August, 66 when the kinship pass
+       added eight figures, back to 57 once those eight were written into the
+       dictionary. On 30 August the remaining 57 were done and the number is
+       **zero**, so the budget becomes an assertion.
+     *
+     * Zero tolerance now applies to both populations, and the asymmetry the
+     * original docstring described is gone. That is deliberate rather than
+     * strict: the fix for a new figure is one line in
+     * `urdu-i18n/build_dictionary.py`, and the failure it prevents is a Latin
+     * name at the top of an otherwise Urdu page, which nothing else catches
+     * because `localizeFigureName` returns its input unchanged by design
+     * (i18n rule 3 — never transliterate character by character).
+     *
+     * If a figure genuinely has no Urdu rendering anyone can vouch for, that is
+     * a reason to record it and say so, not to let the page title itself in the
+     * wrong script. */
+    expect(untranslated(lineageOnly)).toEqual([]);
   });
 });
