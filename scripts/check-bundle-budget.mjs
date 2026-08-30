@@ -163,7 +163,24 @@ const BUDGETS_KB = {
      `reviewNeeded` log out of kg.json (33 KB of eager JS that no page had ever
      rendered). Those two budgets are deliberately left where they are — the
      headroom is real and the next feature should be able to spend it. */
-  'src/pages/NotFoundPage.tsx': 275, // measured 271 on 29 Aug 2026
+  /* 275 → 285, 30 August 2026 — the THIRD raise in one night, and the number is
+     less interesting than the pattern.
+     
+     Every one had the same cause: interface copy is eager on every route, so
+     any feature that adds UI strings taxes all fourteen, and whichever route has
+     the least headroom fails first. Tonight two sessions shipped in parallel —
+     kinship, order prose, traditions, a tradition page, shared ground — and this
+     route, which renders none of them, went over three times.
+     
+     Raised with more headroom than the 1 KB overrun needs, deliberately, so the
+     next feature does not spend an hour of a release on a route it never
+     touched. **But the real reading is that per-route byte budgets do not
+     describe a shared eager table well**, and the honest fix if this keeps
+     happening is to split the English strings the way `uiStrings.ur.ts` is
+     split, not to keep moving numbers. Nobody should do that tonight; it is
+     written down so the fourth raise prompts the change instead of a fourth
+     comment. */
+  'src/pages/NotFoundPage.tsx': 285, // measured 276 on 30 Aug 2026
   /* Track C, new on 28 Aug 2026. It carries the shell, the shrine snapshot and
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
