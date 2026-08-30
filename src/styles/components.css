@@ -678,7 +678,27 @@
   font-size: var(--text-xs);
   line-height: 1.35;
   text-align: start;
-  /* Two lines, then ellipsis — some names are long and the tile is small. */
+  overflow: hidden;
+}
+
+/*
+ * Two lines, then an ellipsis — some names are long and the tile is small.
+ *
+ * **The clamp is on the inner `<bdi>`, not on the caption, and it has to be.**
+ * The caption is `position: absolute`, and an absolutely positioned box is
+ * *blockified*: `display: -webkit-box` computes to `flow-root`, which silently
+ * destroys `-webkit-line-clamp`. The three clamp properties sat on
+ * `.place-photo-caption` and did nothing at all — measured on
+ * `/place/lahore` at 390px, where the archive's longest name
+ * ("Darbar Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami") rendered
+ * three lines into a two-line box: `overflow: hidden` cut the third one in
+ * half, so the tile read as a rendering fault rather than as a truncation.
+ *
+ * Nothing reported it because a clamp that does not apply looks like a clamp
+ * that had nothing to clamp — every shorter caption was, and still is, fine.
+ * The `<bdi>` is a static inline child, so it takes `-webkit-box` unchanged.
+ */
+.place-photo-caption > bdi {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

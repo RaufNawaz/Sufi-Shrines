@@ -118,3 +118,59 @@ test.describe('places', () => {
     await expect(page.locator('.shrine-place-tag').first()).toHaveText('لاہور');
   });
 });
+
+test.describe('the photo captions clamp', () => {
+  /*
+   * A long shrine name must be truncated to two lines with an ellipsis, not cut
+   * in half by `overflow: hidden`.
+   *
+   * The three clamp properties sat on `.place-photo-caption` from the day it
+   * shipped and **never applied**: the caption is `position: absolute`, an
+   * absolutely positioned box is blockified, and `display: -webkit-box`
+   * computes to `flow-root` — which silently disables `-webkit-line-clamp`. The
+   * archive's longest name rendered three lines into a two-line box and the
+   * third was sliced through the middle, so the tile read as a rendering fault
+   * rather than as a truncation.
+   *
+   * Nothing reported it because **a clamp that does not apply looks exactly
+   * like a clamp with nothing to clamp** — every shorter caption was fine, and
+   * still is. This asserts the mechanism rather than the appearance, because
+   * the appearance is correct for 4 of the 5 captions either way.
+   */
+  test('a name too long for its tile is clamped, not sliced', async ({ page }) => {
+    await page.goto('/place/lahore');
+    await page.locator('.place-photo-caption').first().waitFor();
+
+    const captions = await page.evaluate(() =>
+      [...document.querySelectorAll('.place-photo-caption')].map((caption) => {
+        const inner = caption.querySelector('bdi');
+        return {
+          text: (caption.textContent ?? '').trim().slice(0, 40),
+          /* The symptom: content taller than its own box means the caption is
+             being cut rather than clamped. */
+          captionOverflows: caption.scrollHeight > caption.clientHeight + 1,
+          /* The mechanism: a clamped element *is* shorter than its content —
+             that is what clamping means — so on a name too long for two lines
+             this must be true. If the clamp stops applying it goes false and
+             `captionOverflows` goes true in the same move. */
+          innerIsClamped: inner ? inner.scrollHeight > inner.clientHeight + 1 : false,
+        };
+      }),
+    );
+
+    expect(captions.length).toBeGreaterThan(0);
+    expect(
+      captions.filter((c) => c.captionOverflows),
+      'a caption is being sliced by overflow:hidden instead of clamped',
+    ).toEqual([]);
+    /* Asserted on the *behaviour*, not on `getComputedStyle(...).display`:
+       Chrome reports `-webkit-box` back as `flow-root`, so a style check here
+       fails against working code and would have to be weakened into
+       meaninglessness. Lahore's longest name is three lines in a two-line box,
+       so at least one caption must be actively clamping. */
+    expect(
+      captions.some((c) => c.innerIsClamped),
+      'no caption is clamping, so the longest name is not being truncated at all',
+    ).toBe(true);
+  });
+});
