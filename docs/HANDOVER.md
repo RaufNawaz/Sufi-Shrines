@@ -4657,6 +4657,79 @@ both redirects.
     aborts exactly one image URL against the hermetic fixture and asserts exactly one demotion;
     it fails, 117 against an expected 116, when the handler is removed.
 
+146. **The search-document builder with the tests on it was not the one that ran.** *30 August
+    2026 — commit `7fe1b2a`.* `src/lib/search/searchDocs.ts` has existed since 21 August with
+    five unit tests pinning how the Urdu half of the index is built. `useSearch` kept an inlined
+    copy of the same `map`, and production ran the copy. The two had drifted in both directions:
+    the copy had two fields the module lacked (`urduCategory`, and a name-aware lookup for
+    `urduSaint`), and the module had a guard the copy lacked.
+
+    **The guard is the part a reader could feel.** `translateToUrdu` returns its input unchanged
+    when it has no translation, so on the English front door — where the dictionary chunk has not
+    been fetched — every Urdu field was filled with the *English* string. `urduName` carries
+    boost 4, the same as `name`, so each name was indexed twice at the top weight. Ranking for
+    one query therefore depended on whether the dictionary happened to be loaded: different on a
+    first visit and on a return visit (the persisted `localStorage` cache supplies real hits with
+    `SEED` still null), and different before and after the reader's first Urdu query, which
+    triggers the fetch. Nothing looked wrong on screen, which is why it lasted nine days.
+
+    **Why nothing caught it, and the invariant that now does.** MiniSearch indexes a field that
+    is missing from a document as `undefined` and ignores a field it was never configured for.
+    Neither half throws, warns, or fails a test — a drifted document set simply searches
+    differently. `search.worker.ts` now exports `INDEX_FIELDS`, the index config reads it, and
+    `searchDocs.test.ts` asserts the builder emits exactly `id` plus those keys. Removing
+    `urduCategory` from the builder fails two tests; before this it failed nothing.
+
+    **A performance finding that was retracted, and how.** The same investigation started from
+    468 `[urdu] missing translation` warnings on the English front door, and a dev-server
+    measurement of the document build: **59ms, then 34ms** at 4× CPU, on the route §9.140 had
+    just taken from 5,059ms to 2,648ms. A `requestIdleCallback` deferral was written, built and
+    measured five runs each way: **median time-to-first-marker 2,439ms → 2,410ms, against a
+    spread of ~100ms.** Nothing. The reason is in the second measurement: on a *production*
+    build at 4× CPU and slow 4G the build costs **14ms, once** — not 59ms and not three times —
+    because dev ships hundreds of unbundled modules and the slim-index/CSV upgrade satisfies the
+    effect fewer times than dev's re-renders do. `scripts/measure-blocking.mjs` carries this
+    warning in its header about chunk evaluation; **it applies to application code too**, and I
+    nearly shipped a deferral on a number from the wrong program. The measurement is recorded in
+    the code at the call site, so the next person reaches for the same idea and finds the answer.
+
+    A second idea killed before it was written: skipping the Urdu lookups when
+    `isUrduSeedLoaded()` is false. It is wrong — `loadSeedTranslations()` merges a persisted
+    `localStorage` cache, so a returning English reader has real translations available with
+    `SEED` still null, and skipping would drop them from the index.
+
+147. **Two Urdu URLs published a file the router could not resolve.** *30 August 2026 — commit
+    `287ef2a`.* `prerender.mjs` writes a `/ur` mirror for **every** `APP_ROUTES` entry.
+    App.tsx's `/ur` block is maintained by hand and had two fewer. Measured on a preview build:
+
+    ```
+    /ur/settings/   title "ترتیبات — پاکستان کے صوفی مزارات"   h1 "صفحہ نہیں ملا"   URL /ur/settings/
+    /ur/review/     title "جانچ ڈیسک — …"                      h1 "صفحہ نہیں ملا"   URL /ur/review/
+    /ur/about/      title "اِس آرکائیو کے بارے میں — …"          h1 "اِس آرکائیو کے بارے میں"   URL /about/?lang=ur
+    ```
+
+    Both served a real prerendered Urdu document and then rendered the not-found page the instant
+    React hydrated, and neither normalised its URL the way a working mirror does. **Nothing could
+    have caught it**: the file exists, so no 404; the route does not, so the catch-all matched,
+    which is what a catch-all is for.
+
+    These two are exactly the pages *not* in the sitemap — a reader's preferences are not a
+    document, the review desk is team-only — which is why they were the pair that drifted. Not
+    being advertised is not a reason for a published URL to lie.
+
+    `check-routes-prerendered.mjs` has always asked "does this route have a file". It now also
+    asks **"does this file have a route"**, comparing `APP_ROUTES` in prerender.mjs to the route
+    table in App.tsx **source to source**. Deliberately not by walking `dist/`: this repository
+    sits in an iCloud-synced folder that leaves duplicate `about 2/` directories inside the build
+    output, and a tree walk would fail the build on someone else's sync artefact. `ur-prefix.spec.ts`
+    adds the browser half over four `/ur` URLs, because a source check cannot see a page that
+    renders the wrong thing.
+
+    One thing worth noting about the fix: `tabs.test.ts` — an invariant written for a different
+    purpose, that every route a reader can be on lights a tab — failed on the new `/ur/review`
+    within a minute of it being added. That is the second time in one session that a check
+    written for something else did the work.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
