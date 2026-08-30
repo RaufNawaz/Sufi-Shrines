@@ -21,10 +21,30 @@
  * deliberately narrow — a check that tried to validate every figure in every
  * document would be unmaintainable, and this is the one number that appears in
  * the places a stranger reads first.
+ *
+ * ## The narrowness cost one number, so it widened by exactly one paragraph
+ *
+ * On 30 August 2026 the fourth bullet above — CLAUDE.md's bibliography standing
+ * finding — was computed rather than read, and **"107 of them citing three or
+ * more sources" was 103**. The other three figures in the same sentence (533
+ * citations, 168 of 169 entries, exactly one citing nothing) were all correct.
+ *
+ * What makes it worth guarding rather than just correcting is where it sat: four
+ * lines below that paragraph's own explanation of the 544→533 drift, inside the
+ * sentence whose point is that *"a standing finding is a measurement with a date
+ * on it"*, in a note that goes on to say `/about` recomputes these figures
+ * "because a page cannot go stale the way a note can". The note went stale
+ * anyway. A paragraph cannot be inoculated by being about staleness.
+ *
+ * So the second block below ties that one paragraph's four numbers to
+ * `buildCoverage()` — the same function `/about` calls — and no further. Still
+ * narrow, one paragraph wider.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { buildShrines } from '../shrineModel';
+import { buildCoverage } from '../coverage';
 
 const ROOT = join(__dirname, '../../../..');
 const snapshot = JSON.parse(readFileSync(join(ROOT, 'src/data/shrines-fallback.json'), 'utf8'));
@@ -76,5 +96,64 @@ describe('stated site counts match the shipped data', () => {
       Number(m![1]),
       `${file} says ${m![1]} sites; the shipped snapshot has ${ROWS}`,
     ).toBe(ROWS);
+  });
+});
+
+/**
+ * CLAUDE.md's bibliography standing finding, number by number.
+ *
+ * Each pattern anchors on the words around the figure, so a reworded sentence
+ * fails loudly rather than silently stopping being checked. The expected value
+ * comes from `buildCoverage()` — the function `/about` calls — so the paragraph
+ * and the page can never give a reader two different answers.
+ */
+const BIBLIOGRAPHY_CLAIMS: {
+  label: string;
+  pattern: RegExp;
+  actual: (c: ReturnType<typeof buildCoverage>) => number;
+}[] = [
+  {
+    label: 'entries carrying a bibliography',
+    pattern: /(\d+) of \d+ entries now carry a bibliography/,
+    actual: (c) => c.bibliography.withAny,
+  },
+  {
+    label: 'citations in total',
+    pattern: /\*\*(\d+)\*\* citations in total/,
+    actual: (c) => c.bibliography.items,
+  },
+  {
+    label: 'entries citing three or more sources',
+    pattern: /\*\*(\d+)\*\* of\s*\n?\s*them citing three or more sources/,
+    actual: (c) => c.bibliography.withThreeOrMore,
+  },
+];
+
+describe("CLAUDE.md's bibliography figures match buildCoverage", () => {
+  const coverage = buildCoverage(buildShrines(snapshot.rows ?? snapshot));
+  const claudeMd = readFileSync(join(ROOT, 'CLAUDE.md'), 'utf8');
+
+  it.each(BIBLIOGRAPHY_CLAIMS)('$label', ({ pattern, actual, label }) => {
+    const m = pattern.exec(claudeMd);
+    expect(
+      m,
+      `could not find "${label}" in CLAUDE.md's standing findings. If the wording changed, ` +
+        'update the pattern — do not delete the entry. An unchecked number in that paragraph ' +
+        'is exactly how 107 survived as 103.',
+    ).not.toBeNull();
+    expect(
+      Number(m![1]),
+      `CLAUDE.md says ${m![1]} for "${label}"; buildCoverage computes ${actual(coverage)}. ` +
+        '/about shows the computed one, so the two are telling a reader different things.',
+    ).toBe(actual(coverage));
+  });
+
+  it('still finds exactly one entry citing nothing, as the paragraph claims', () => {
+    expect(
+      coverage.bibliography.withNone,
+      'CLAUDE.md says "Exactly one entry cites nothing (Sant Baba Asudaram Darbar)". If this ' +
+        'moved, the sentence needs rewriting rather than the number nudging — it names the entry.',
+    ).toBe(1);
+    expect(claudeMd).toContain('Exactly one entry cites nothing');
   });
 });

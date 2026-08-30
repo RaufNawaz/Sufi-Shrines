@@ -248,9 +248,13 @@ outside citations/URLs/coordinates/`<bdi>`.
 - ~~**49 of 167 entries (29%) have no bibliography at all.**~~ **Closed — re-measured
   21 August 2026; count corrected 24 August.** 168 of 169 entries now carry a bibliography,
   **533** citations in total (544 until the counting rule was fixed — one regex matched twice
-  inside any citation ending in a URL, and nine do), 107 of
+  inside any citation ending in a URL, and nine do), **103** of
   them citing three or more sources. Exactly one entry cites nothing (Sant Baba Asudaram
-  Darbar). The enrichment passes since this note was written closed it. Kept struck through
+  Darbar). *That 103 read 107 until 30 August 2026, when this sentence's four numbers were
+  computed rather than quoted for the first time. Three were right; the fourth had drifted —
+  four lines below this paragraph's own account of the 544→533 drift.
+  `siteCountConsistency.test.ts` now holds all four against `buildCoverage()`.* The
+  enrichment passes since this note was written closed it. Kept struck through
   rather than deleted, because the note itself is the lesson: **a standing finding is a
   measurement with a date on it, and this one was quoted as current for weeks after it stopped
   being true.** That is why `/about` now computes these figures from the shipped data on
