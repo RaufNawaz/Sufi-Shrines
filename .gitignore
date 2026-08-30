@@ -94,9 +94,19 @@ data/*.csv
 # A fetched live-sheet export and the import file built from it. Deliberately
 # NOT named snapshot_* : that glob means "a dated snapshot of the app dataset",
 # and snapshotFidelity.test.ts asserts the newest one matches the shipped 169
-# rows field for field. A live export is 171 rows — it carries the two rows
-# build-dataset drops for having no coordinates — so filing it under snapshot_*
+# rows field for field. A live export is 171 rows, so filing it under snapshot_*
 # made a passing invariant fail on a file that was correct.
+#
+# THE REASON GIVEN HERE FOR THE TWO EXTRA ROWS WAS WRONG and is corrected on
+# 30 August 2026. This said build-dataset "drops for having no coordinates" the
+# two rows a live export carries. It does not, and has not since 22 August:
+# `isValidRow` keeps a named row with empty coordinates on purpose — the comment
+# there names Shah Gohar Peer as the case that motivated the change, and he is
+# one of the two. Run over the committed 171-row export, the current predicate
+# keeps all 171. The snapshot ships 169 because it PREDATES that fix, not because
+# anything rejects them, and `npm run data:build` is the whole of the remedy.
+# The wrong reason cost a session an afternoon of geocoding two shrines that were
+# never blocked on a coordinate.
 !data/live_sheet_*.csv
 !data/import_*.csv
 docs/prompts/PROMPT_post_import.md

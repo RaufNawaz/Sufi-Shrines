@@ -8630,3 +8630,72 @@ which is now known to be `/saint`, not `/order`.
 this machine; their metrics were measured from the Google Fonts cut of the same family, which is
 correct for the family and unchecked against what a given Android or Linux build ships. Segoe UI
 is unmeasurable anywhere — Microsoft does not publish it — so Windows reaches the Arial face.
+
+### Added 30 August 2026 — every entry has coordinates, and 22 of them are not locations
+
+Asked which entries lack coordinates, every check said none: 169 rows, all with a latitude and a
+longitude, all inside Pakistan, nothing empty, nothing zero. That answer is true and it is useless.
+
+What the archive holds is **22 rows whose coordinate is a placeholder** — a value that passes every
+emptiness test and does not point at the site. Twelve carry one or two decimal places, and two
+decimals is about 1.1 km at this latitude, which in a dense quarter of Lahore is several hundred
+buildings. Ten share a point with another row.
+
+**Not all sharing is an error, and saying so is the point.** Four saints buried in Miani Sahib
+Graveyard share 31.5498,74.317, and that is the graveyard — a real place, coarse rather than wrong.
+The first draft of this note called it "Lahore city centre" and was corrected before it was written
+down. But **Data Darbar and Darbar Malik Ahmad Ayaz sit on the same point** while Ayaz's own
+`Location` cell reads "Shah Alam Market". The archive contradicts itself in another column, which
+is the fourth time in two days one part of it knew what another denied.
+
+**Uch Sharif is the clearest case.** The Tomb of Baha'al-Halim and the Tomb of Javindi Bibi share
+29.238,71.064. Wikidata holds them as two entities, **49 m apart and 1.16–1.18 km from the
+archive's value**. Two independent records agree with each other and disagree with us by more than
+a kilometre.
+
+**What research could and could not answer.** All 22 were queried against OpenStreetMap (name plus
+location, then name alone) and Wikidata. **Six answered. Sixteen did not**, and no coordinate was
+written for any of them, because RULE 2 does not have a clause for coordinates that would be
+convenient. Of the six: two confirm the current value (Gurdwara Chakki Sahib at 3 m, Sharada Peeth
+at 24 m), four are candidate moves, and one is a rejection worth keeping — the Wikidata entity for
+Mohra Sharif is the **village**, not the khanqah, and a name match is not a source. Every proposal
+is in `data/coordinate-review-2026-08-30.csv` with its source id, its URL, its distance, and a
+blank verdict column; one carries a note that the proposed value is no more precise than what it
+would replace, so a verdict is not given on a lateral move by mistake.
+
+**The instrument is `pipeline/audit_coordinates.py`**, and it fails non-zero when the placeholder
+count rises above a recorded baseline — verified to fail, not assumed to. It measures *precision*
+and cannot measure accuracy: six decimals of a guess is still a guess. What it prevents is the
+archive quietly acquiring more coordinates nobody surveyed.
+
+**Sixteen entries need a field survey or a better source than the open web has.** That is the
+honest state, and it is a larger number than the one this session started with.
+
+#### And the 171-vs-169 drift is closed, by reading rather than by geocoding
+
+This began as a coordinate question and ended somewhere else. Chasing it, `.gitignore` turned out
+to carry the explanation everyone had been working from: a live export is 171 rows because it
+"carries the two rows build-dataset drops for having no coordinates". **That is wrong, and it had
+been wrong since 22 August 2026.**
+
+`isValidRow` in `scripts/data/build-dataset.mjs` keeps a named row with empty coordinates *on
+purpose* — and the comment beside it names **Shah Gohar Peer** as the case that motivated the
+change, because dropping him had made his finished Urdu article invisible. He is one of the two.
+Run over the committed 171-row export, the current predicate keeps **171 of 171**.
+
+So the snapshot ships 169 because it **predates that fix**, not because anything rejects those
+rows. `npm run data:build` is the whole of the remedy. Four instruments had independently tripped
+over this drift and every one of them reported the symptom correctly; none of them read the
+predicate, and the stale sentence in `.gitignore` was standing where the answer should have been.
+It is corrected there now, in place, with the reason.
+
+The two rows are **not blocked on coordinates** — they will ship as honestly unmapped pages, which
+is what the 22 August ruling decided they should do. Neither can be geocoded from the open web
+anyway: OSM and Wikidata return nothing for either name, and nothing for the "Mint Stop" landmark
+the second one is filed under. Both are in the review CSV so the survey is recorded as needed
+rather than forgotten, but they are not the reason the site shows 169.
+
+**The lesson is the one this project keeps relearning.** A confident sentence in a config file is
+not a measurement, and this one had a date on it that made it look like one. The afternoon spent
+geocoding two Lahore shrines was spent because a comment said "drops" where the code said "kept".
+
