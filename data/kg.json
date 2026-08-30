@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T16:39:34.364Z",
+  "generated": "2026-08-30T17:16:41.831Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3519,6 +3519,16 @@
       "type": "saint",
       "slug": "sheikh-fakhr-ud-din-shah-jamali",
       "name": "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:meerak-mohammad-lahori",
+      "type": "saint",
+      "slug": "meerak-mohammad-lahori",
+      "name": "Meerak Mohammad Lahori",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -10799,6 +10809,16 @@
       "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple"
     },
     {
+      "type": "disciple_of",
+      "subject": "saint:meerak-mohammad-lahori",
+      "object": "saint:mian-mir",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "quote": "His disciples cherished their own intimate wonders: Meerak Mohammad Lahori relates how, having taken up and chewed a discarded betel-leaf from the saint"
+    },
+    {
       "type": "belongs_to_order",
       "subject": "saint:pir-syed-muhammad-channan-shah-nuri",
       "object": "order:naqshbandiyya",
@@ -12329,12 +12349,12 @@
     }
   ],
   "stats": {
-    "saints": 241,
+    "saints": 242,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 721,
+    "relations": 722,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

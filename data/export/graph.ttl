@@ -1692,6 +1692,12 @@ saint:sheikh-fakhr-ud-din-shah-jamali
   sufi:discipleOf saint:syed-shah-jamal-uddin-naqvi-bukhari ;
   .
 
+saint:meerak-mohammad-lahori
+  a schema:Person ;
+  schema:name "Meerak Mohammad Lahori"@en ;
+  sufi:discipleOf saint:mian-mir ;
+  .
+
 saint:syed-nasiruddin-mahmud
   a schema:Person ;
   schema:name "Syed Nasiruddin Mahmud"@en ;

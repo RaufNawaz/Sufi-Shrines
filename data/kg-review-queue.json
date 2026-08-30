@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T16:39:34.364Z",
+  "generated": "2026-08-30T17:16:41.831Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -910,6 +910,16 @@
       "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
       "source": "data/shrines.csv#shrine-of-shah-jamal",
       "evidence": "138f1110"
+    },
+    {
+      "id": "disciple_of:saint:meerak-mohammad-lahori:saint:mian-mir",
+      "kind": "disciple_of",
+      "subject": "Meerak Mohammad Lahori",
+      "subjectSlug": "meerak-mohammad-lahori",
+      "object": "Mian Mir",
+      "quote": "His disciples cherished their own intimate wonders: Meerak Mohammad Lahori relates how, having taken up and chewed a discarded betel-leaf from the saint",
+      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "evidence": "2fd30b0e"
     },
     {
       "id": "belongs_to_order:saint:pir-syed-muhammad-channan-shah-nuri:order:naqshbandiyya",

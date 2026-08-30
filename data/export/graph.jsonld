@@ -2665,6 +2665,16 @@
     },
     {
       "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/meerak-mohammad-lahori",
+      "name": "Meerak Mohammad Lahori",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mian-mir"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-nasiruddin-mahmud",
       "name": "Syed Nasiruddin Mahmud"
     },

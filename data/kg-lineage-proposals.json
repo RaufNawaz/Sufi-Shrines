@@ -1171,6 +1171,19 @@
    "source": "data/shrines.csv#shrine-of-shah-jamal",
    "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
    "notes": "0.7: the tie is stated plainly but sits inside a miracle story (a cantaloupe given to a childless couple, twin sons following). NOT Fakhr-ud-Din Iraqi, the Persian poet who came to Multan and married into Bahauddin Zakariya's family — a different man three centuries earlier, already in this graph. The slug is disambiguated deliberately; see saintDoNotMerge."
+  },
+  {
+   "subjectSlug": "meerak-mohammad-lahori",
+   "subjectName": "Meerak Mohammad Lahori",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "mian-mir",
+   "objectName": "Mian Mir",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#shrine-of-mian-mir",
+   "quote": "His disciples cherished their own intimate wonders: Meerak Mohammad Lahori relates how, having taken up and chewed a discarded betel-leaf from the saint",
+   "notes": "0.7 because the sentence establishes it by construction rather than declaring it: it opens on \"His disciples\", names Meerak as the one who relates the wonder, and the man carried into ecstasy by the betel-leaf is Meerak himself. A first-person witness inside a class the sentence has just named is a disciple; it is still not the same as \"X was a disciple of Y\". Mian Mir's page previously showed one master and one successor and none of the disciples the entry describes at length."
   }
  ],
  "explicitNonRelations": [
@@ -1306,6 +1319,52 @@
    "quote": "The shrine is maintained, per the survey, by his special disciples (*mureedeen-e-khas*) and their descendants",
    "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
    "notes": "Representative of a whole class in this corpus: the custodial sentences. \"His disciples built his shrine\", \"the current Gaddi Nasheen\", \"his special disciples and their descendants\" — every entry with a living custodial family has two or three, and none of them names anybody. Real relations, unbuildable, and numerous enough that the pile would look full of candidates forever without this row."
+  },
+  {
+   "subjectName": "Hazrat Tahir Bandagi Qadri (the custodial sentences)",
+   "objectName": "his Gaddi Nasheen and disciples (unnamed)",
+   "quotes": [
+    "## Overview In Lahore's Miani Sahib Graveyard -- by local report the largest graveyard in Asia -- the oldest seat belongs not to the dead in general but to one man in particular:",
+    "When Hazrat Tahir Bandagi died, his resting place beside this mosque became his shrine, and rulers and disciples of the period are said to have kept it under careful",
+    "The current custodians (*Gaddi Nasheen*) describe Hazrat Tahir Bandagi as someone who did not care for drumming (*dhol*) or ecstatic dance (*dhamal*), and say the Urs is kept",
+    "## Custodianship The shrine is overseen today by its Gaddi Nasheen (current custodians), with several people formally employed as staff who, per the survey, consider caring for"
+   ],
+   "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+   "notes": "Four sentences about a living custodial family and not one name among them: \"rulers and disciples of the period\", \"the current custodians (Gaddi Nasheen)\", \"several people formally employed as staff\". The representative case for the class already recorded at Khawaja Feroz-ud-Din — every entry with a functioning darbar produces two to four of these, they are real relations, and none can ever be an edge."
+  },
+  {
+   "subjectName": "Ganj e Inayat Sarkar (order description and an unnamed son)",
+   "objectName": "the Naqshbandiyya / his successor",
+   "quotes": [
+    "Annual urs (27-28 Sha'ban); weekly Saturday gathering; langar ## Overview In the busy heart of modern Lahore, at Firdous Market in Gulberg — a quarter once known by the older name",
+    "A Naqshbandi-Mujaddidi scholar-saint, orator, and author, Ganj-e-Inayat Sarkar drew thousands into his spiritual fold, and his line continues unbroken under his son and successor.",
+    "His father, Hazrat Mian Sohbat Ali, was himself a man of religion and a spiritual disciple in the line of Batala Sharif, and his parents — simple and devout — raised their son with care.",
+    "1389), and is distinguished among the Sufi paths by its preference for the silent, hidden remembrance of God (*dhikr-e-khafi*) over audible or ecstatic forms, and by its"
+   ],
+   "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar",
+   "notes": "Three of the four describe the ORDER rather than a person — dhikr-e-khafi, the Mujaddidi branch, Baqi Billah and Sirhindi as the line's founders — which is order prose and already published as such on /order/naqshbandiyya. The fourth says his line \"continues unbroken under his son and successor\", and that son IS an edge: sahibzada-muhammad-umar-naqshbandi successor_of ganj-e-inayat-sarkar. Nothing unbuilt here."
+  },
+  {
+   "subjectName": "Mian Mir (the remaining three)",
+   "objectName": "his disciples, Mullah Shah, the Mughal court",
+   "quotes": [
+    "Tradition records that when his disciples spoke of raising a fitting monument over his resting place, he forbade any dome or mausoleum, and is said to have uttered a Persian",
+    "## The Mystical Court: Dara Shikoh and Jahanara The circle that formed around Mian Mir and his successor Mullah Shah became, for one brief and luminous generation, the spiritual",
+    "His disciples shaped the spiritual life of the Mughal court; his friendship with the Sikh Gurus became a legend of tolerance that Punjab still cherishes; his forty-day retreat at"
+   ],
+   "source": "data/shrines.csv#shrine-of-mian-mir",
+   "notes": "The fourth sentence of this cluster yielded a real edge — Meerak Mohammad Lahori, proposed separately. These three do not: unnamed disciples forbidding a dome, the succession to Mullah Shah which is already an edge, and a summary sentence about disciples shaping the Mughal court. The entry describes a circle at length and names exactly one member of it."
+  },
+  {
+   "subjectName": "Guru Nanak (the schooling cluster)",
+   "objectName": "the maulvi of Patti",
+   "quotes": [
+    "## The Schooling of Guru Nanak In the Punjab of the fifteenth century, a *patti* was the smooth wooden board on which a pupil, using a reed pen and home-made ink, would practise",
+    "The alternative name Maulvi Patti preserves the memory of this Muslim teacher, and of a schooling that crossed the community lines of the age.",
+    "## Legacy Patti Sahib enshrines one of the tenderest and most characteristic of the Guru Nanak narratives: the schoolboy who taught his teacher, whose first recorded verses were a"
+   ],
+   "source": "data/shrines.csv#gurdwara-patti-sahib",
+   "notes": "Three more sentences on the schooling already ruled out once in this file: it is education rather than initiation, and the teacher is \"named in some tellings Qutbuddin\", which is the corpus declining to settle the name. Recorded together because the entry returns to the same story three times — a *patti* board, the acrostic that amazed the master, and the Legacy paragraph — and the answer does not change."
   }
  ],
  "familyRelations": [

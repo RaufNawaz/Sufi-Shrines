@@ -313,7 +313,12 @@ describe('the shipped graph', () => {
                        was missing. A dead proposal and an applied one are
                        indistinguishable from outside unless you check.
                        `verify-kg-proposals.mjs` now refuses a date proposal
-                       whose slug resolves to nobody. */
-    expect(flagged.length).toBe(208);
+                       whose slug resolves to nobody.
+        208 + 1       = 209, 30 August 2026. Meerak Mohammad Lahori, the only
+                       one of Mian Mir's disciples the entry names. That page
+                       described a circle at length — a monument refused, a
+                       chewed betel-leaf, the Mughal court — and carried one
+                       master and one successor and not a single disciple. */
+    expect(flagged.length).toBe(209);
   });
 });
