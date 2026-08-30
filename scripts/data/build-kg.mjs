@@ -1325,7 +1325,23 @@ const retiredSlugs = Object.fromEntries(
  *
  * If a page ever wants to show one, do what the source layer does — a separate
  * build-time file — rather than putting them back here. */
-const relationsForApp = relations.map(({ notes, ...rest }) => rest);
+
+/* `id` is stripped too, and it is the largest single field in the file.
+ *
+ * A relation id is `type[:kinType]:subject:object` — every character of it is
+ * already in the four fields beside it, so the graph was shipping **49 KB of
+ * pure restatement**, more than all its quotes put together. `src/lib/kg.ts`
+ * derives it back on load with `relationId()`, and `kgRelationIds.test.ts`
+ * asserts the two agree for every relation in the file. Nothing downstream
+ * notices: no page reads a relation id, and everything that does reads it
+ * through `getKGStore()`.
+ *
+ * Found on 30 August 2026 when a kin batch pushed SaintPage and OrderPage over
+ * budget for the third time in two days. HANDOVER §9.142 says the third raise is
+ * a prompt to look at the cause rather than the number, and this is what looking
+ * found. It is the same move as the `notes` strip above and pays for several
+ * batches rather than this one. */
+const relationsForApp = relations.map(({ notes, id, ...rest }) => rest);
 
 const kg = {
   schema_version: '1.0.0',

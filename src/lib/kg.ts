@@ -10,7 +10,43 @@ import type {
   KGKinNote,
 } from '../types/kg';
 
-const kg = rawKG as unknown as KGStore;
+/**
+ * A relation's stable id, derived rather than shipped.
+ *
+ * `data/kg.json` no longer carries `relations[].id`, because every character of
+ * one is already in the four fields beside it — `type[:kinType]:subject:object`
+ * — and the restatement was **49 KB of eager JS on every route that touches the
+ * graph**, the largest single field in the file and more than all its quotes
+ * together. It was removed on 30 August 2026 when a kin batch pushed SaintPage
+ * and OrderPage over budget for the third time in two days; HANDOVER §9.142 says
+ * the third raise is a prompt to look at the cause, and the cause was that the
+ * graph ships its own primary key.
+ *
+ * The format is unchanged and must stay unchanged: `data/kg-sources.json` is
+ * keyed on these strings, and `scripts/data/build-kg.mjs` builds that file from
+ * the ids it holds internally. `kgRelationIds.test.ts` asserts this function and
+ * that script still agree, for every relation, so the two cannot drift apart in
+ * silence — which is the one way this change could go wrong.
+ */
+export function relationId(r: {
+  type: string;
+  kinType?: string | undefined;
+  subject: string;
+  object: string;
+}): string {
+  return r.kinType
+    ? `${r.type}:${r.kinType}:${r.subject}:${r.object}`
+    : `${r.type}:${r.subject}:${r.object}`;
+}
+
+const rawStore = rawKG as unknown as Omit<KGStore, 'relations'> & {
+  relations: Omit<KGRelation, 'id'>[];
+};
+
+const kg: KGStore = {
+  ...rawStore,
+  relations: rawStore.relations.map((r) => ({ ...r, id: relationId(r) }) as KGRelation),
+};
 
 /** Fallback display label for a KG slug (e.g. "data-darbar" → "Data Darbar")
  * when the entity's real name isn't available. */

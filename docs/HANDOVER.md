@@ -4610,6 +4610,56 @@ both redirects.
       tradition with a `contested` flag; adding this one needs a reviewer's call about how the
       archive publishes a dispute it is itself adjudicating, not an agent's.
 
+167. **The graph was shipping its own primary key: 49 KB of `relations[].id`, derivable from the
+    four fields beside it.** *Found and removed 30 August 2026, prompted by the features session
+    flagging a red build.* Two kin batches in one day pushed `SaintPage` and `OrderPage` past their
+    bundle budgets, and the features session — which had already raised SaintPage 675 → 680 an hour
+    earlier for the same cause — declined to raise them again, correctly: **§9.142 says the third
+    raise is a prompt to look at the cause rather than the number.** This is what looking found.
+
+    A relation id is `type[:kinType]:subject:object`. Every character of it is already in the four
+    fields beside it. `data/kg.json` is imported statically by `src/lib/kg.ts`, so those ids were
+    **eager JS on every route that touches the graph** — the largest single field in the file, at
+    49 KB more than all its quotes put together.
+
+    Stripped on the way out, exactly as relation `notes` were in the same file for the same reason,
+    and derived back by `relationId()` on load. **430,883 → 371,864 bytes, −59 KB.**
+
+    | route | before | after | budget |
+    |---|---|---|---|
+    | `SaintPage` | 686 KB (**FAIL**) | **636 KB** | 680 |
+    | `OrderPage` | 674 KB (**FAIL**) | **623 KB** | 665 |
+    | `GraphPage` | 611 KB | **560 KB** | 615 |
+
+    **So the features session's 675 → 680 raise is now obsolete** — the page is 44 KB under even the
+    original 675 — and a budget with unexplained slack is the thing budgets exist to prevent. Their
+    file, their call, flagged to them rather than reverted.
+
+    **Verified rather than argued:** the 707 ids derived from the stripped file are set-identical
+    to the 707 that shipped in the file before it. That comparison is against a git revision and so
+    cannot be a permanent test; `kgRelationIds.test.ts` covers what has to keep holding — no ids in
+    the file, every relation gets one, all distinct, the **format pinned to two literal strings**
+    copied from the pre-strip graph, and no field containing the separator that would make an id
+    ambiguous.
+
+    **A risk that turned out not to exist, recorded because the next person will suspect it too.**
+    `data/kg-sources.json` is also keyed on strings that look like relation ids, and a drift between
+    the build's format and `relationId()` would silently unjoin the source layer from the graph —
+    citations vanishing with no error, in an archive whose distinguishing claim is provenance. It
+    does not join: all 533 attestations are `attested_in:…`, a relation type that lives only in that
+    file and never in `kg.json#relations`. **The assertion written against that join passed
+    vacuously**, filtering 533 rows to none, and was deleted rather than kept as false comfort.
+
+    **`ChronologyPage` is 1 KB over and is not this.** It does not import the graph at all (0
+    matches for `lib/kg`), and it did not move by a byte while `kg.json` fell 59 KB. The most this
+    lane contributes to it is **130 bytes** of new UI-string keys. Left for the lane whose in-flight
+    edits to `useShrineData`, `LanguageContext` and `main.tsx` every page imports.
+
+    **The real point stands and is not fixed here.** `/saint/:slug` still downloads the entire graph
+    to render one figure, which is why these budgets are a recurring tax on data work. This buys
+    several batches of headroom, not a solution; the solution is per-entity data, and it is the same
+    "lazy is not conditional" shape as the source-notes and Urdu-article payloads.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
