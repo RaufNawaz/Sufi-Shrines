@@ -53,9 +53,10 @@ the reason the rest is credible.
 | Search said 44 matches and showed 40, silently | `d096824` |
 | A shrine named its order and never linked to it — the graph's one one-way edge | `4ba4b8a` |
 | The shrine page overwrote its own clean share snippet with raw markdown | `68c1e35` |
-| `/about` ruled its section headings off at two different x, nine at one and fifteen at the other | (this commit) |
-| The rename missed the footer, which sits under every page and all ~800 prerendered files | (this commit) |
-| `/graph` opened "the Sufi orders and saints" over a list where 64 of 134 figures are neither | (this commit) |
+| `/about` ruled its section headings off at two different x, nine at one and fifteen at the other | `870db33` |
+| The rename missed the footer, which sits under every page and all ~800 prerendered files | `73ee903` |
+| `/graph` opened "the Sufi orders and saints" over a list where 64 of 134 figures are neither | `73ee903` |
+| A figure-search assertion followed a gurdwara to the almanac, because `hasText` is a substring | `639e069` |
 
 ---
 
@@ -150,7 +151,14 @@ cannot do.
 - **Never leave a scratch file in the tree.** `prettier --check .` walks untracked files, so a
   stray file turns `npm run verify` red for both sessions and reads as the other one's failure.
 - **`npm run build:e2e` and `npm run e2e` must be one chained command** — the other session
-  commits every few minutes and the stale-dist guard fires on any gap.
+  commits every few minutes and the stale-dist guard fires on any gap. And the guard fires
+  *between* runs too: on 31 August a `data/` write landed after a full suite finished, so the
+  next isolated run of an unrelated spec aborted in `global-setup` with a message about a stale
+  dist. It reads like a failure of the spec you are looking at. **A red spec on a shared tree is
+  worth exactly one rebuild-and-retry before you believe it** — that turned 1 failed into 480
+  passed with nothing else changed.
+- **`git commit -o` cannot take an untracked path.** `git add <that one path>` first — never
+  `-A`, never `.` — then `-o` the full list. A new test file is the usual case.
 - **A budget failure is not automatically yours.** Check `data/kg.json`'s size against the last
   commit before touching `check-bundle-budget.mjs`.
 - Run the whole `npm run verify` before every commit, and mutation-check every new test by
