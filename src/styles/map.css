@@ -616,6 +616,34 @@
   pointer-events: none;
 }
 
+/*
+ * And the size has to be won back from Leaflet, which sizes every image in the
+ * marker pane itself: `.leaflet-container .leaflet-marker-pane img { width: auto }`,
+ * specificity 0,2,1, against the `inline-size: 100%` above at 0,1,0. Leaflet wins.
+ *
+ * So from the swap to an `<img>` until this rule existed, the width of a marker
+ * photograph came from the photograph rather than from the frame. `block-size`
+ * still resolved to the 26px padding box; `width: auto` on a replaced element
+ * then followed the intrinsic aspect ratio; and `border-radius: 50%` drew the
+ * result as an **ellipse**. `object-fit: cover` could not save it, because a box
+ * that already has the image's own aspect ratio has nothing left to crop.
+ *
+ * Measured on the map at 1280×900: of 116 photo pins, 112 had loaded, and
+ * **111 of those 112 were not square**. 91 spilled outside their 30px pin — the
+ * widest 54.73×26px in a 30px circle, nearly double the frame. The other
+ * direction is just as wrong and less visible: a portrait photograph rendered
+ * 14.64px wide, a sliver sitting inside a ring built for a circle.
+ *
+ * The selector names the rule it overrides on purpose. It is exactly one class
+ * more specific, and it stops matching in precisely the case where Leaflet's own
+ * rule stops matching, so the two cannot come apart in a version bump.
+ * `e2e/marker-photo-frame.spec.ts` holds it.
+ */
+.leaflet-container .leaflet-marker-pane img.shrine-dot__photo {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
 .shrine-dot--photo.shrine-dot--muslim {
   border-color: var(--color-cat-muslim);
 }
