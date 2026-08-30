@@ -26,6 +26,26 @@ import { test, expect, settle } from './fixtures';
  * grow: a new `data-latin` is a decision to ship English to an Urdu reader, and
  * that should cost a line in a test rather than nothing at all.
  *
+ * ## The almanac's two budgets grew by 13 each, and it is not new English
+ *
+ * `almanac` 34 -> 47 and `almanac:list` 39 -> 52, on 30 August 2026. The cause is
+ * the other session's `216829d`, which widened `OBSERVANCE_RE` in
+ * `src/lib/data/ursDates.ts` from eleven alternatives to a vocabulary that also
+ * knows Diwali, Holi, Janmashtami, Durga Puja, Cheti Chand, Ganesh Chaturthi,
+ * Raksha Bandhan, Jayanti, Akhand Path and prakash. The page had been reporting
+ * 52 sites as recording no observance while **51 of them had text in the cell**.
+ *
+ * So these 13 runs are **not thirteen new decisions to ship English to an Urdu
+ * reader**, which is what this budget exists to make expensive. They are English
+ * the archive was already holding and the page was silently dropping, because a
+ * regex did not recognise the festival names. Rendering it is the honest
+ * direction, and the growth is the cost of that honesty.
+ *
+ * What it does do is make the Urdu council's U-2 finding larger and more
+ * concrete: the observance segments are 51%-translated in the data, and every
+ * newly-recognised festival name arrives untranslated. The budget going up here
+ * is a measurement of that debt, not a licence for it.
+ *
  * ## Nine budgets moved on 30 August 2026, and two of them moved *down*
  *
  * "Cite this entry" reached the four non-shrine entity families that day, so a
@@ -322,13 +342,13 @@ const BUDGET: Record<string, number> = {
      failure mode this file was written against. The debt itself is unchanged:
      the same observance cells are still untranslated, still declared, and still
      counted on whichever month the reader opens. */
-  almanac: 34,
+  almanac: 47,
   /* The month listing, which the calendar-default route never renders: twelve
      months of cards, each printing its site's recorded `Events` cell verbatim.
      The same debt as `almanac`'s 34 seen at full extent rather than one month
      at a time, and it falls as `urdu-i18n/build_dictionary.py` gains observance
      entries. */
-  'almanac:list': 39,
+  'almanac:list': 52,
   /* Recorded `site_type` prose — the survey's own words for a built form,
      "Shrine complex (tomb, mosque, graveyard…)" — plus the Location on each
      card. Both are source data shown as recorded (RULE 2); what changed is that
