@@ -175,6 +175,16 @@ the cadence is a preference, the resumability is the design.
 
 - **Measure the instrument before believing it.** Several of this project's worst hours came from
   a tool that was measuring something adjacent to the question and answering confidently.
+- **`| head` is an instrument too, and it lies by omission.** On 30 August it produced four
+  near-false findings in one session: a search palette "returning no figures" (the FIGURES group
+  was below the cut), a `grep` "proving" a function had no callers (the caller sorted after the
+  cut), and two more. Truncating output is fine for looking; it is not fine for concluding. If a
+  claim rests on something being **absent**, count it rather than eyeballing a truncated list.
+- **An exit code from a pipeline is the last command's, not yours.** `script | tail` reports
+  `tail`'s success. Redirect to a file and check `$?`, or you will report a working gate as broken
+  — which nearly went out to the other session today.
+- **Empty string is not a value.** `p.born != null` is true for `""`, which turned a 3-item finding
+  into a 36-item one before anybody looked at it.
 - **A false positive in a report is worse than a missing check** — it sends someone to fix
   something that is already right, or to "complete" a fact the archive never recorded.
 - **Verify a fix by re-running the thing that failed.** More than once the fix was wrong and only
