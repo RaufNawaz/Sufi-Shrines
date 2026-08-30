@@ -1,7 +1,7 @@
 import type { Shrine } from '../../types/shrine';
 import { getFieldValue } from '../data/fieldAliasing';
 import { localizeShrineName } from '../i18n/localizeShrineName';
-import { translateToUrdu } from '../i18n/urduFallback';
+import { translateNameToUrdu, translateToUrdu } from '../i18n/urduFallback';
 
 /** The document shape indexed by search.worker.ts. Kept here (not in the
  * worker) so the builder below and its tests never need a Worker context. */
@@ -14,6 +14,7 @@ export interface ShrineSearchDoc {
   saint: string;
   urduSaint: string;
   category: string;
+  urduCategory: string;
   description: string;
 }
 
@@ -27,9 +28,22 @@ function urduVariant(english: string): string {
   return ur !== english ? ur : '';
 }
 
+/** As above, for a person's name: `translateNameToUrdu` also consults the
+ * figure-name index, which `translateToUrdu` alone does not. */
+function urduNameVariant(english: string): string {
+  if (!english) return '';
+  const ur = translateNameToUrdu(english);
+  return ur !== english ? ur : '';
+}
+
 /**
- * Search documents for the worker index — extracted from useSearch so the
- * Urdu side is unit-testable.
+ * Search documents for the worker index — **the one builder**, and the reason
+ * that emphasis is here: this module existed from 21 August 2026 with tests
+ * pinning its behaviour, while `useSearch` kept an inlined copy of the same
+ * map that had quietly diverged from it. The tested builder was not the one
+ * that ran. See HANDOVER §9.146; the divergence is what the guard below is
+ * about, and it changed search ranking for a reader depending on whether the
+ * Urdu dictionary happened to have loaded yet.
  *
  * The Urdu fields index the same strings the UI *displays*: the sheet's Urdu
  * Name column when it exists, else the seed dictionary via
@@ -51,8 +65,9 @@ export function buildSearchDocs(shrines: Shrine[]): ShrineSearchDoc[] {
       location: s.location || '',
       urduLocation: urduVariant(s.location || ''),
       saint: s.sufiSaint || '',
-      urduSaint: urduVariant(s.sufiSaint || ''),
+      urduSaint: urduNameVariant(s.sufiSaint || ''),
       category: s.category || '',
+      urduCategory: urduVariant(s.category || ''),
       description: getFieldValue(s.raw, 'Description').slice(0, 500), // cap length
     };
   });

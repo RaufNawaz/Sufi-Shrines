@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import MiniSearch from 'minisearch';
 import type { Shrine } from '../../../types/shrine';
 import { buildSearchDocs } from '../searchDocs';
-import { processTerm } from '../search.worker';
+import { processTerm, INDEX_FIELDS } from '../search.worker';
 import { makeShrineRow } from '../../../test/utils';
 
 /** Only the fields buildSearchDocs reads; everything else is irrelevant to
@@ -57,6 +57,22 @@ describe('buildSearchDocs — the Urdu side of the index', () => {
     // maps (the dictionary build gates on 100% coverage of dataset values).
     expect(doc.urduLocation).toMatch(/[؀-ۿ]/);
     expect(doc.urduSaint).toMatch(/[؀-ۿ]/);
+  });
+
+  it('emits exactly the fields the worker indexes, and no others', () => {
+    /* The invariant that would have caught §9.146. Production built its
+       documents from a second, inlined copy of this builder for nine days, and
+       nothing could see the difference: MiniSearch indexes a missing field as
+       undefined and ignores an unknown one, so a drifted document set neither
+       throws nor logs — it just searches differently. Both halves now read one
+       list. */
+    const [doc] = buildSearchDocs([makeShrine({})]);
+    expect(Object.keys(doc).sort()).toEqual(['id', ...INDEX_FIELDS].sort());
+  });
+
+  it('leaves urduCategory empty rather than duplicating the English category', () => {
+    const [doc] = buildSearchDocs([makeShrine({ category: 'Zz Nonexistent Category' })]);
+    expect(doc.urduCategory).toBe('');
   });
 
   it('an Urdu-script query finds the shrine through the same index config the worker uses', () => {

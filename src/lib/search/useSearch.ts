@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Shrine } from '../../types/shrine';
-import { getFieldValue } from '../data/fieldAliasing';
-import { localizeShrineName } from '../i18n/localizeShrineName';
-import {
-  translateNameToUrdu,
-  translateToUrdu,
-  isUrduSeedLoaded,
-  loadUrduSeed,
-  onUrduSeedLoaded,
-} from '../i18n/urduFallback';
+import { buildSearchDocs } from './searchDocs';
+import { isUrduSeedLoaded, loadUrduSeed, onUrduSeedLoaded } from '../i18n/urduFallback';
 
 interface SearchState {
   ids: number[] | null; // null = "no query / show all"; otherwise ranked best-match-first
@@ -88,6 +81,12 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
      * has unit tests for `داتا دربار`. Those tests build their own index from
      * hand-written docs, so they passed while production indexed empty strings.
      *
+     * The mapping itself lives in `searchDocs.ts` — one builder, the one its
+     * tests cover. It was inlined here as well until 30 August 2026, and the
+     * copies had drifted: this one indexed the *English* string in every Urdu
+     * field whenever the dictionary had not loaded, which the module's guard
+     * exists to prevent. See HANDOVER §9.146.
+     *
      * These are dictionary lookups, and the dictionary is now loaded on demand
      * (see the header of urduFallback.ts). This effect re-runs on `dictGen`, so
      * the index is rebuilt with real Urdu fields the moment it arrives — for an
@@ -97,19 +96,20 @@ export function useSearch(shrines: Shrine[], query: string): SearchState {
      * it is a 1 MB lazily-loaded chunk (see urduContentOverride.ts) and pulling
      * it in here would put it back on every route's critical path.
      */
-    const docs = shrines.map((s) => ({
-      id: s.id,
-      name: s.name,
-      urduName: localizeShrineName(s, 'ur'),
-      location: s.location || '',
-      urduLocation: s.location ? translateToUrdu(s.location) : '',
-      saint: s.sufiSaint || '',
-      urduSaint: s.sufiSaint ? translateNameToUrdu(s.sufiSaint) : '',
-      category: s.category || '',
-      urduCategory: s.category ? translateToUrdu(s.category) : '',
-      description: getFieldValue(s.raw, 'Description').slice(0, 500), // cap length
-    }));
-    worker.postMessage({ type: 'init', docs });
+    /* Built here, in this tick, and measured rather than assumed: on a
+       production build at 4× CPU and slow 4G this is **14ms, once**, about 48ms
+       before the first marker appears at ~2.4s. Deferring it to
+       `requestIdleCallback` was written, built and measured — five runs each
+       way — and moved the median time-to-first-marker by 29ms against a spread
+       of ~100ms, which is nothing. It is not deferred because there is nothing
+       to defer.
+
+       The number that suggested otherwise came from the **dev server**: 59ms,
+       then 34ms, on two passes. Dev ships hundreds of unbundled modules and is
+       a different program — the same warning `scripts/measure-blocking.mjs`
+       carries in its header, and it applies to application code and not only to
+       chunk evaluation. */
+    worker.postMessage({ type: 'init', docs: buildSearchDocs(shrines) });
 
     return () => {
       worker.terminate();

@@ -49,6 +49,40 @@ export function processTerm(term: string): string {
     .toLowerCase();
 }
 
+/**
+ * The indexed fields, and the boost each carries — exported so the document
+ * builder and this index cannot drift apart. `searchDocs.test.ts` asserts that
+ * `buildSearchDocs` emits exactly `id` plus these keys, because the two halves
+ * *had* drifted once: production built its documents from a second, inlined
+ * copy of the builder (HANDOVER §9.146), and nothing could see the difference.
+ * A field listed here and absent from a document is indexed as undefined; a
+ * field on a document and missing here is simply never searched. Neither
+ * throws.
+ */
+export const INDEX_FIELDS = [
+  'name',
+  'urduName',
+  'location',
+  'urduLocation',
+  'saint',
+  'urduSaint',
+  'category',
+  'urduCategory',
+  'description',
+] as const;
+
+const BOOSTS: Record<(typeof INDEX_FIELDS)[number], number> = {
+  name: 4,
+  urduName: 4,
+  location: 2,
+  urduLocation: 2,
+  saint: 2,
+  urduSaint: 2,
+  category: 1,
+  urduCategory: 1,
+  description: 1,
+};
+
 let ms: MiniSearch<ShrineDoc> | null = null;
 
 self.onmessage = (e: MessageEvent<InMsg>) => {
@@ -62,33 +96,13 @@ self.onmessage = (e: MessageEvent<InMsg>) => {
          may well type a Latin name they saw in a citation, and a reader in the
          English one may paste Urdu. Indexing both costs one pass and removes
          the question. */
-      fields: [
-        'name',
-        'urduName',
-        'location',
-        'urduLocation',
-        'saint',
-        'urduSaint',
-        'category',
-        'urduCategory',
-        'description',
-      ],
+      fields: [...INDEX_FIELDS],
       storeFields: [],
       processTerm,
       searchOptions: {
         fuzzy: 0.2,
         prefix: true,
-        boost: {
-          name: 4,
-          urduName: 4,
-          location: 2,
-          urduLocation: 2,
-          saint: 2,
-          urduSaint: 2,
-          category: 1,
-          urduCategory: 1,
-          description: 1,
-        },
+        boost: BOOSTS,
         combineWith: 'OR',
       },
     });
