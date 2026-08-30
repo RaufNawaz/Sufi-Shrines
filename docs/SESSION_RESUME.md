@@ -79,12 +79,35 @@ halves — one edge, *and* prose still under 700px — because deleting the meas
 an edge-only test and given the reader 130-character lines. The `.settings-page` `max-width` this
 note pointed at is a different bug and is still there.
 
-**Left from the share-snippet work, both prerender-side and untouched:** seven index routes
-(`/almanac`, `/chronology`, `/typology`, `/graph`, `/shared-ground`, `/settings`, `/review`) ship
-the map's blurb as their description rather than one about the page; and `hreflang` alternates
-appear on `dist/index.html` only — **zero on the ~800 other prerendered pages** — so the `/ur`
-mirror that exists purely so crawlers find the Urdu edition is never declared as its alternate.
-Both are `scripts/prerender.mjs`.
+~~**Left from the share-snippet work:** seven index routes ship the map's blurb as their
+description; and `hreflang` appears on `dist/index.html` only, zero on the ~800 other prerendered
+pages.~~ **One half fixed, the other half retracted — 31 August 2026.**
+
+**The `hreflang` half was never true.** It was measured against a local `npm run build`, and
+`replaceHreflang()` *strips* all three alternates when `enUrl` is falsy, which it is whenever
+`SITE_URL` is unset. Re-run with `SITE_URL` set, **941 of 942** files carry their alternates, and
+`.github/workflows/deploy-pages.yml` sets it on every deploy. The deployed site has always been
+correct. **A local build produces different `<head>` output from the deploy** — no canonical, no
+hreflang, an empty sitemap — so any head-level measurement taken locally is measuring the wrong
+artefact. The build says so in one line that is easy to read past.
+
+**The description half was real, and the cause was not the seven routes.** `index.html` is the
+template every prerendered page starts from, and its `<head>` still said "An interactive map of
+**Sufi shrines** across Pakistan" — the string the 30 August rename had already corrected in
+`UI_TEXT.en.siteMetaDescription` and not here. So eight routes and their Urdu mirrors described
+the archive as Sufi shrines, `/graph` among them, whose own intro had just been corrected for
+making that exact claim about that exact data. Both template strings now match the shipped ones,
+and `staticTemplateCopy.test.ts` ties `index.html`'s description to
+`UI_TEXT.en.siteMetaDescription` so they cannot drift apart again — while explicitly permitting
+`/Sufi-Shrines/`, which is the repository name and would have taken the site down if a sweep had
+banned the string outright.
+
+**Still open, and smaller than it looked:** the seven routes inherit the root's description rather
+than carrying one about the page. Now that the root's is accurate this is a quality gap, not an
+error. **And the whole Urdu edition ships an ENGLISH description** — `/ur`, `/ur/graph` and the
+rest all carry the English string, which the no-leak guard cannot see because it reads rendered
+text under `[dir='rtl']` and this is in `<head>`. That is the same ruling as `siteMetaDescription`
+below: Urdu content, so it waits for a fluent speaker.
 
 ## Waiting on a person, not on an agent
 
