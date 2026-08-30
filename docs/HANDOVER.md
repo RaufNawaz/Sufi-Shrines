@@ -5189,6 +5189,23 @@ both redirects.
     at three. **An empty string is not a value and a slug is not an address** — and a check that has
     not been run against a known answer is a rumour.
 
+    **The sweep that found them is now a test, because a sweep done once is done never again.**
+    `seedPointersResolve.test.ts` walks every slug pointer in the seeds and proposals —
+    `familyRelations`, `lineageRelations`, `kinNotes`, `saintOrders`, `saintDisplayNames`,
+    `saintRetiredSlugs`, `orderProse` (both ends), `traditionMemberships`, and the date proposals —
+    and asserts each resolves to a live figure, order or shrine. Every one is checked **through
+    `retiredSlugs`**, because a proposal naming a since-merged figure is not stale: it points at an
+    address that still forwards, and a check ignoring that reports a merge as a defect, which is
+    exactly what the first draft did ten times over.
+
+    Three families are deliberately **not** in it, and the reason is worth stating so nobody adds
+    them as an oversight: `saintWikidataQids` carries a `comment` key, `saintFigureByShrine` holds
+    objects rather than slugs, and `saintCompositeFigures` is keyed by the **raw sheet cell** rather
+    than a slug. All three read as failures to a naive sweep and are correct as they stand.
+
+    Proved by pointing a date proposal at `zzz-does-not-exist` and watching it fail by name.
+    Result of the full sweep: **three dead pointers in the dates family, zero everywhere else.**
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
