@@ -4314,6 +4314,38 @@ both redirects.
       everything else, both avoid probing a URL twice. The second is the structurally honest
       fix and is a real change to `ShrineMarkers`.
 
+142. **Four bundle budgets were raised in one night, all blamed on the eager English strings —
+    and the fix that diagnosis implies would be a regression.** *Analysed 30 August 2026, not
+    acted on.* Almanac, ShrinePage, AboutPage and NotFoundPage all went over between the two
+    sessions, each by 1–8 KB, and none of the four renders the feature that pushed it. The
+    standing diagnosis in `check-bundle-budget.mjs` is right about the cause: `uiStrings.ts` is
+    **76 KB of source, inlined into the 105 KB entry chunk**, so it is eager on all fourteen
+    routes and any feature's copy taxes every one of them.
+
+    The suggested fix — split the English table the way `uiStrings.ur.ts` is already split —
+    **should not be done, and the reason is in `main.tsx`.** The first render is *gated* on
+    `loadUiStrings`, deliberately: an Urdu reader must never see a frame of English chrome. The
+    Urdu table can be a lazy 65 KB chunk precisely because Urdu is the non-default language, so
+    the round trip falls on readers who are being gated anyway — and it still cost enough that a
+    `modulepreload` had to be added to claw it back (§9.98 and the `?lang=ur` block in
+    `prerender.mjs`).
+
+    Doing the same to English makes **every** reader wait a round trip before first paint, on
+    the route this same night took from 5,059 ms to 2,648 ms. That trades a measured
+    front-door win for a bundle number.
+
+    **The option worth costing instead is route-scoped strings**: each page imports its own copy
+    and the entry chunk keeps only shared chrome — the tab bar, the language toggle, the
+    breadcrumb. No first-paint cost, because a route's strings arrive with the route's own
+    chunk, which the reader is already waiting for. It is a real refactor across ~880 keys and
+    every call site, and it wants a quiet morning and a decision from Rauf, not a fourth budget
+    raise at four in the morning.
+
+    Written down at the point of the *fourth* raise rather than the fifth, so the next person
+    reaching for this table finds the analysis instead of repeating the diagnosis. The budget
+    numbers themselves are fine; what they cannot express is that fourteen routes share one
+    growing dependency.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
