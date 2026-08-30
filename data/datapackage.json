@@ -19,7 +19,14 @@
       "organization": "Harvard University"
     }
   ],
-  "keywords": ["shrines", "sufi", "pakistan", "sacred-sites", "south-asia", "computational-humanities"],
+  "keywords": [
+    "shrines",
+    "sufi",
+    "pakistan",
+    "sacred-sites",
+    "south-asia",
+    "computational-humanities"
+  ],
   "resources": [
     {
       "name": "shrines",
@@ -32,7 +39,9 @@
           {
             "name": "Name",
             "type": "string",
-            "constraints": { "required": true },
+            "constraints": {
+              "required": true
+            },
             "description": "Primary English name of the shrine or sacred site."
           },
           {
@@ -44,20 +53,31 @@
             "name": "Category",
             "type": "string",
             "constraints": {
-              "enum": ["Muslim Shrine", "Hindu Temple", "Sikh Gurdwara", "Christian Church", "Other", ""]
+              "enum": [
+                "Muslim Shrine",
+                "Hindu Temple",
+                "Sikh Gurdwara",
+                "Christian Church",
+                "Other",
+                ""
+              ]
             },
             "description": "Faith tradition of the site."
           },
           {
             "name": "Latitude",
             "type": "string",
-            "constraints": { "required": true },
+            "constraints": {
+              "required": true
+            },
             "description": "Decimal latitude as a string; valid range 20–42 (Pakistan region)."
           },
           {
             "name": "Longitude",
             "type": "string",
-            "constraints": { "required": true },
+            "constraints": {
+              "required": true
+            },
             "description": "Decimal longitude as a string; valid range 55–82 (Pakistan region)."
           },
           {
@@ -89,6 +109,188 @@
             "name": "Description",
             "type": "string",
             "description": "Main prose description of the shrine."
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "Stable row identifier. Also the directory name under `public/photos/` for self-hosted images. Not the URL slug — that is derived from `Name`."
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "description": "Faith tradition of the site, in the current vocabulary: Muslim Shrine, Hindu Temple, Sikh Gurdwara, Nanakpanthi / Udasi Darbar, Jain Temple, Secular / Memorial. Supersedes the legacy `Category` column, which is still read as a fallback."
+          },
+          {
+            "name": "site_type",
+            "type": "string",
+            "description": "The built form of the site, as a short term. Qualifying prose belongs in `site_type_note`."
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "description": "Whether the site is in use: Active, Occasional, Heritage, Ruin or Destroyed. Qualifying prose belongs in `status_note`."
+          },
+          {
+            "name": "support_level",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Field-verified",
+                "Source-documented",
+                "Source-seeded",
+                "Web-compiled",
+                ""
+              ]
+            },
+            "description": "How well the entry is evidenced."
+          },
+          {
+            "name": "info_level",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Full",
+                "Moderate",
+                "Low",
+                ""
+              ]
+            },
+            "description": "How complete the entry is."
+          },
+          {
+            "name": "principal_figure",
+            "type": "string",
+            "description": "The figure the site is dedicated to or associated with. Supersedes the legacy `Sufi Saint` column. A row may name more than one figure."
+          },
+          {
+            "name": "figure_type",
+            "type": "string",
+            "description": "What kind of figure `principal_figure` is, in the vocabulary: Sufi saint, Deity, Sikh Guru, Sant, Historical person, Individual, Collective. A small number of rows carry a longer qualifying phrase instead, which the archive keeps rather than flattening."
+          },
+          {
+            "name": "silsila",
+            "type": "string",
+            "description": "The Sufi order or spiritual lineage of the site’s figure, as the archive’s source states it — including where the source answers with descent or personal affiliation rather than with an order."
+          },
+          {
+            "name": "year_built",
+            "type": "string",
+            "description": "Year the site was built, where the archive records one."
+          },
+          {
+            "name": "year_built_precision",
+            "type": "string",
+            "description": "How exact `year_built` is — typically exact, circa, century, range or unknown. A few rows carry a longer qualification instead."
+          },
+          {
+            "name": "year_built_note",
+            "type": "string",
+            "description": "Qualifying prose about `year_built`, including where the archive’s sources disagree or where the recorded year may refer to something other than construction."
+          },
+          {
+            "name": "figure_born",
+            "type": "string",
+            "description": "Birth year of the principal figure, where recorded."
+          },
+          {
+            "name": "figure_died",
+            "type": "string",
+            "description": "Death year of the principal figure, where recorded."
+          },
+          {
+            "name": "event_year",
+            "type": "string",
+            "description": "Year of a dated event associated with the site."
+          },
+          {
+            "name": "event_note",
+            "type": "string",
+            "description": "Qualifying prose about `event_year`."
+          },
+          {
+            "name": "qa_note",
+            "type": "string",
+            "description": "Free prose recording what is uncertain, contested or unverified about the entry."
+          },
+          {
+            "name": "needs_review",
+            "type": "string",
+            "description": "A short code naming an unresolved question about the row, such as `figure_unresolved` or `events_placeholder`."
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Semicolon-separated processing markers recorded by the data pipeline, such as `DATE_SPLIT` or `NEW_FROM_FIELD_SURVEY`. Editorial bookkeeping, not a claim about the site."
+          },
+          {
+            "name": "Image 3",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 4",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 5",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 6",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 7",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 8",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 9",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 10",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 11",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 12",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 13",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 14",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 15",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
+          },
+          {
+            "name": "Image 16",
+            "type": "string",
+            "description": "Additional image URL (http/https or empty)."
           }
         ]
       }
@@ -101,17 +303,218 @@
       "description": "CSV mirror of shrines.json rows. Same fields, same row order. Regenerated by npm run data:build.",
       "schema": {
         "fields": [
-          { "name": "Name", "type": "string", "constraints": { "required": true } },
-          { "name": "Location", "type": "string" },
-          { "name": "Category", "type": "string", "constraints": { "enum": ["Muslim Shrine", "Hindu Temple", "Sikh Gurdwara", "Christian Church", "Other", ""] } },
-          { "name": "Latitude", "type": "string", "constraints": { "required": true } },
-          { "name": "Longitude", "type": "string", "constraints": { "required": true } },
-          { "name": "Founded/Opened", "type": "string" },
-          { "name": "Sufi Saint", "type": "string" },
-          { "name": "Image 1", "type": "string" },
-          { "name": "Image 2", "type": "string" },
-          { "name": "Events", "type": "string" },
-          { "name": "Description", "type": "string" }
+          {
+            "name": "Name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "Location",
+            "type": "string"
+          },
+          {
+            "name": "Category",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Muslim Shrine",
+                "Hindu Temple",
+                "Sikh Gurdwara",
+                "Christian Church",
+                "Other",
+                ""
+              ]
+            }
+          },
+          {
+            "name": "Latitude",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "Longitude",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "Founded/Opened",
+            "type": "string"
+          },
+          {
+            "name": "Sufi Saint",
+            "type": "string"
+          },
+          {
+            "name": "Image 1",
+            "type": "string"
+          },
+          {
+            "name": "Image 2",
+            "type": "string"
+          },
+          {
+            "name": "Events",
+            "type": "string"
+          },
+          {
+            "name": "Description",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "type": "string"
+          },
+          {
+            "name": "site_type",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "support_level",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Field-verified",
+                "Source-documented",
+                "Source-seeded",
+                "Web-compiled",
+                ""
+              ]
+            }
+          },
+          {
+            "name": "info_level",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "Full",
+                "Moderate",
+                "Low",
+                ""
+              ]
+            }
+          },
+          {
+            "name": "principal_figure",
+            "type": "string"
+          },
+          {
+            "name": "figure_type",
+            "type": "string"
+          },
+          {
+            "name": "silsila",
+            "type": "string"
+          },
+          {
+            "name": "year_built",
+            "type": "string"
+          },
+          {
+            "name": "year_built_precision",
+            "type": "string"
+          },
+          {
+            "name": "year_built_note",
+            "type": "string"
+          },
+          {
+            "name": "figure_born",
+            "type": "string"
+          },
+          {
+            "name": "figure_died",
+            "type": "string"
+          },
+          {
+            "name": "event_year",
+            "type": "string"
+          },
+          {
+            "name": "event_note",
+            "type": "string"
+          },
+          {
+            "name": "qa_note",
+            "type": "string"
+          },
+          {
+            "name": "needs_review",
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "type": "string"
+          },
+          {
+            "name": "Image 3",
+            "type": "string"
+          },
+          {
+            "name": "Image 4",
+            "type": "string"
+          },
+          {
+            "name": "Image 5",
+            "type": "string"
+          },
+          {
+            "name": "Image 6",
+            "type": "string"
+          },
+          {
+            "name": "Image 7",
+            "type": "string"
+          },
+          {
+            "name": "Image 8",
+            "type": "string"
+          },
+          {
+            "name": "Image 9",
+            "type": "string"
+          },
+          {
+            "name": "Image 10",
+            "type": "string"
+          },
+          {
+            "name": "Image 11",
+            "type": "string"
+          },
+          {
+            "name": "Image 12",
+            "type": "string"
+          },
+          {
+            "name": "Image 13",
+            "type": "string"
+          },
+          {
+            "name": "Image 14",
+            "type": "string"
+          },
+          {
+            "name": "Image 15",
+            "type": "string"
+          },
+          {
+            "name": "Image 16",
+            "type": "string"
+          }
         ]
       }
     }

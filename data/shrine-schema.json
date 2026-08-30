@@ -4,7 +4,11 @@
   "title": "ShrineRow",
   "description": "A single shrine record as stored in the canonical dataset (data/shrines.json).",
   "type": "object",
-  "required": ["Name", "Latitude", "Longitude"],
+  "required": [
+    "Name",
+    "Latitude",
+    "Longitude"
+  ],
   "additionalProperties": true,
   "properties": {
     "Name": {
@@ -18,7 +22,14 @@
     },
     "Category": {
       "type": "string",
-      "enum": ["Muslim Shrine", "Hindu Temple", "Sikh Gurdwara", "Christian Church", "Other", ""],
+      "enum": [
+        "Muslim Shrine",
+        "Hindu Temple",
+        "Sikh Gurdwara",
+        "Christian Church",
+        "Other",
+        ""
+      ],
       "description": "Faith tradition of the site."
     },
     "Latitude": {
@@ -54,6 +65,151 @@
     "Description": {
       "type": "string",
       "description": "Main prose description of the shrine."
+    },
+    "id": {
+      "type": "string",
+      "description": "Stable row identifier. Also the directory name under `public/photos/` for self-hosted images. Not the URL slug — that is derived from `Name`."
+    },
+    "category": {
+      "type": "string",
+      "description": "Faith tradition of the site, in the current vocabulary: Muslim Shrine, Hindu Temple, Sikh Gurdwara, Nanakpanthi / Udasi Darbar, Jain Temple, Secular / Memorial. Supersedes the legacy `Category` column, which is still read as a fallback."
+    },
+    "site_type": {
+      "type": "string",
+      "description": "The built form of the site, as a short term. Qualifying prose belongs in `site_type_note`."
+    },
+    "status": {
+      "type": "string",
+      "description": "Whether the site is in use: Active, Occasional, Heritage, Ruin or Destroyed. Qualifying prose belongs in `status_note`."
+    },
+    "support_level": {
+      "type": "string",
+      "description": "How well the entry is evidenced.",
+      "enum": [
+        "Field-verified",
+        "Source-documented",
+        "Source-seeded",
+        "Web-compiled",
+        ""
+      ]
+    },
+    "info_level": {
+      "type": "string",
+      "description": "How complete the entry is.",
+      "enum": [
+        "Full",
+        "Moderate",
+        "Low",
+        ""
+      ]
+    },
+    "principal_figure": {
+      "type": "string",
+      "description": "The figure the site is dedicated to or associated with. Supersedes the legacy `Sufi Saint` column. A row may name more than one figure."
+    },
+    "figure_type": {
+      "type": "string",
+      "description": "What kind of figure `principal_figure` is, in the vocabulary: Sufi saint, Deity, Sikh Guru, Sant, Historical person, Individual, Collective. A small number of rows carry a longer qualifying phrase instead, which the archive keeps rather than flattening."
+    },
+    "silsila": {
+      "type": "string",
+      "description": "The Sufi order or spiritual lineage of the site’s figure, as the archive’s source states it — including where the source answers with descent or personal affiliation rather than with an order."
+    },
+    "year_built": {
+      "type": "string",
+      "description": "Year the site was built, where the archive records one."
+    },
+    "year_built_precision": {
+      "type": "string",
+      "description": "How exact `year_built` is — typically exact, circa, century, range or unknown. A few rows carry a longer qualification instead."
+    },
+    "year_built_note": {
+      "type": "string",
+      "description": "Qualifying prose about `year_built`, including where the archive’s sources disagree or where the recorded year may refer to something other than construction."
+    },
+    "figure_born": {
+      "type": "string",
+      "description": "Birth year of the principal figure, where recorded."
+    },
+    "figure_died": {
+      "type": "string",
+      "description": "Death year of the principal figure, where recorded."
+    },
+    "event_year": {
+      "type": "string",
+      "description": "Year of a dated event associated with the site."
+    },
+    "event_note": {
+      "type": "string",
+      "description": "Qualifying prose about `event_year`."
+    },
+    "qa_note": {
+      "type": "string",
+      "description": "Free prose recording what is uncertain, contested or unverified about the entry."
+    },
+    "needs_review": {
+      "type": "string",
+      "description": "A short code naming an unresolved question about the row, such as `figure_unresolved` or `events_placeholder`."
+    },
+    "flags": {
+      "type": "string",
+      "description": "Semicolon-separated processing markers recorded by the data pipeline, such as `DATE_SPLIT` or `NEW_FROM_FIELD_SURVEY`. Editorial bookkeeping, not a claim about the site."
+    },
+    "Image 3": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 4": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 5": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 6": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 7": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 8": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 9": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 10": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 11": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 12": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 13": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 14": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 15": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
+    },
+    "Image 16": {
+      "type": "string",
+      "description": "Additional image URL (http/https or empty)."
     }
   }
 }
