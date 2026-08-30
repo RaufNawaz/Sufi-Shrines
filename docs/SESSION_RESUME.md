@@ -39,7 +39,9 @@ the reason the rest is credible.
 | The pin that had a tap target was exactly the pin that did not | `1d39105` |
 | The search-document builder with the tests on it was not the one that ran | `7fe1b2a` |
 | Two Urdu URLs published a file the router could not resolve | `287ef2a` |
-| An Urdu reader could not find a figure by their Urdu name | `HEAD` |
+| An Urdu reader could not find a figure by their Urdu name | `0fb1a10` |
+| The archive called itself something 88 of its 171 sites are not (English half) | `730f045` |
+| Four entries published a note addressed to a colleague in a public field | `68173c4` |
 
 ---
 
@@ -94,17 +96,33 @@ Each item names what a reader loses, so the ranking can be argued with rather th
 
 ## Waiting on a person, not on an agent
 
-- **The archive calls itself "Sufi Shrines" and 88 of its 171 sites are not Sufi shrines.** Four
-  string constants and a prerender suffix once the name is chosen; no slug and no deploy path
-  change. The name is an editorial decision.
-- **Four entries publish an internal to-do naming a colleague in the reader-facing `Location`
-  field** — *"ask Saifullah for a precise pin"*, one opening with the literal token `FLAG:`.
-  Needs a CSV patch and a human import (RULE 3). The reader-facing caveats stay; the instruction
-  moves to `qa_note`, which already never renders.
-- **Seven sentences defining the trust vocabulary** the badges already print. 31% of entries say
-  "Source-seeded" and nothing on the site says what that means.
-- **The 171-vs-169 dataset drift** (HANDOVER §9.156, §9.148) still needs `npm run data:build`
-  after the category patches are imported.
+All four were put to Rauf on 30 August 2026 and answered. What is left is the half an agent
+cannot do.
+
+- **The archive's Urdu name.** The English rename shipped (`730f045`): it is *Mapping the Shrines
+  of Pakistan*, the name the project has carried in CLAUDE.md all along, and no slug or deploy
+  path changed. `UI_TEXT.ur.siteTitle` still reads 'پاکستان کے صوفی مزارات' — "Pakistan's Sufi
+  shrines" — which has the same problem the rename fixed. An archive's name in Urdu is Urdu
+  content (RULE 2), so it is annotated in place and left saying the wrong thing rather than
+  guessed at. **The two editions disagree about the archive's name until a fluent speaker
+  settles it.**
+- **Four patches await import** (RULE 3 — a human imports, agents do not write to the sheet):
+  `patch_schema_hygiene_2026-08-27.csv`, `patch_year_built_precision_2026-08-29.csv`,
+  `patch_site_type_2026-08-30.csv`, and `patch_location_hygiene_2026-08-30.csv` — the last
+  produced 30 August (`68173c4`), moving four entries' "ask Saifullah…" instructions out of the
+  public `Location` field into `qa_note` while keeping every caveat. `npm run data:check:location`
+  fails until it is imported, by design.
+- **Then `npm run data:build`**, which closes the 171-vs-169 drift (HANDOVER §9.156, §9.148) —
+  two shrines currently invisible to the graph, search, `/about` and the Urdu dictionary, and two
+  figure pages telling readers an entry the archive holds does not exist. Order matters: patches
+  first, then `data:build`, `data:kg`, `data:index`, traditions, and `data:check:live` to confirm
+  zero drift.
+- **The badge glossary's wording.** The seven definitions are derived and written up in
+  `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
+  `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the
+  wording, whether to publish the Moderate rule's 150-word threshold, and the Urdu. **The English
+  half is ready to ship the moment there is an Urdu half** — shipping it English-only would put
+  seven English paragraphs into the Urdu view.
 
 ---
 
