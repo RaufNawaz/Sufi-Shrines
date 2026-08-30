@@ -46,6 +46,41 @@ export function localizeObservance(text: string | undefined | null, lang: Lang):
   // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: the observance segment dictionary is Urdu-only
   if (!raw || lang !== 'ur') return raw;
 
+  /*
+   * Try the whole cell before splitting it.
+   *
+   * `SPECIAL_URDU_PHRASES` in `urduFallback.ts` holds 170 hand-translated
+   * *whole* `Events` cells, and `ShrineInfobox` reaches them because it looks
+   * the entire cell up first. Every other caller — `/almanac` in both views,
+   * `RecordedObservanceList` (so all 9 order pages, all 64 place pages and 143
+   * saint pages) and the archive search — passed the raw English cell, and this
+   * function split on `;` before any lookup. **A whole-cell entry was
+   * unreachable from four surfaces.**
+   *
+   * Measured 30 August 2026 over the 170 live cells: the whole-cell path
+   * resolves 168, the segment path 88. **80 cells had a reviewed Urdu
+   * translation sitting in the repository that four surfaces never asked for.**
+   * On `/almanac` — the page whose entire subject is when the gatherings happen
+   * — 32 of 80 rows read half in English, and some read as
+   * `Annual urs (۱۸-۲۰ Safar)`, which is worse than plain English because the
+   * Eastern digits make it look translated.
+   *
+   * Fixed here rather than at the three call sites so the fourth caller cannot
+   * forget it. Nothing is authored: these are the existing reviewed strings.
+   */
+  const whole = translateToUrdu(raw);
+  if (whole && whole !== raw && !/[A-Za-z]/.test(whole)) {
+    /* The separator still has to be normalised. None of the 170 hand-translated
+       whole-cell entries carries an ASCII semicolon — 112 already use `؛` — but
+       `translateToUrdu` also composes results of its own, and one of those comes
+       back as `سالانہ عرس; قوالی`: fully Urdu around a Latin punctuation mark.
+       Returning it verbatim would have skipped the normalisation the segment
+       path below does, so the whole-cell path would have fixed 80 cells and
+       quietly broken the punctuation of others. Caught by an existing
+       assertion. */
+    return whole.replace(/;\s*/g, '؛ ').trimEnd();
+  }
+
   const parts = raw.split(';');
   if (parts.length === 0) return raw;
 
