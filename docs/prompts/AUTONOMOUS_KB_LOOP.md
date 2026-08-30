@@ -147,17 +147,26 @@ A cycle is not finished when the code works. It is finished when a stranger coul
 
 ## 6. If you are running as a `/loop`
 
-**Cadence: ~600 seconds (10 minutes).** Set by Rauf on 30 August 2026, replacing 25 minutes, and it
-applies to every session he has running rather than to this project alone. A cycle takes several
-minutes of real work, so at ten minutes the loop reads as *resume shortly after finishing* rather
-than *wait around*. The runtime clamps to 60–3600s; do not go near the floor, because a wakeup that
-fires while the last cycle's thinking is still warm buys nothing and costs a turn.
+**The loop is a restart mechanism, not a work schedule.** Rauf's instruction, 30 August 2026:
+*long, big development sessions — and when they stop, a loop to start them again.* A scheduled
+wakeup only fires while the session is **idle**, so the interval is not "how much work fits in a
+slice", it is "how long a stopped session stays stopped". Short is right for that, and it says
+nothing about how long a working stretch should be.
 
-**A shorter cadence makes the shared tree more dangerous, not less.** `npm run build` and
-`npm run verify` measure the **working tree**, so a number taken while the other session is
-mid-edit describes a state that never existed. At twenty-five minutes that was rare; at ten it is
-routine. The rule from §2 holds and matters more: **ruling a cause OUT from a dirty tree is safe,
-ruling one IN is not.**
+**So: do not stop after one item to report.** Work the queue continuously — finish a piece, commit
+it, take the next, keep going. Report when there is something a person needs, not as punctuation
+between units. A session that lands eight commits in one stretch and one summary at the end is what
+this is for; eight short cycles each ending in a status message is the failure mode, and it was
+mine before this note existed.
+
+**Cadence: ~600 seconds (10 minutes)**, replacing 25. Not because work should arrive every ten
+minutes, but because a session that has genuinely stopped should not stay stopped for longer than
+that. The runtime clamps to 60–3600s; do not go near the floor.
+
+**A shorter restart interval makes the shared tree more dangerous, not less.** `npm run build` and
+`npm run verify` measure the **working tree**, so a number taken while the other session is mid-edit
+describes a state that never existed. At twenty-five minutes that was rare; at ten it is routine.
+See §2 — and note that *green* attributes no better than red.
 
 The loop is session-only and dies with the session. That is what §5 and this whole file are for:
 the cadence is a preference, the resumability is the design.
