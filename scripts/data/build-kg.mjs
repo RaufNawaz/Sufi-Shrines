@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
+import { ORDER_CELL_PATTERNS } from './lib/silsila.mjs';
 import { saintNameKey } from './lib/saintIdentity.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
 import { bibliographyItems, citationKey } from './lib/bibliography.mjs';
@@ -283,17 +284,10 @@ const orderBySlug = new Map(orders.map((o) => [o.slug, o]));
    the sheet's, including "Qadri" beside "Qadiri". An order missing from this
    table is treated as unnamed-in-any-cell, i.e. never flagged, because a silent
    false accusation is worse than a missed one. */
-const ORDER_CELL_PATTERNS = {
-  chishtiyya: /chisht/i,
-  suhrawardiyya: /suhraward/i,
-  qadiriyya: /qad[ir]{1,2}i?/i,
-  qalandariyya: /qalandar/i,
-  naqshbandiyya: /naqshband/i,
-  rashidi: /rashidi/i,
-  malamati: /malamat/i,
-  azeemia: /azeemia/i,
-  shattari: /shattar/i,
-};
+/* Moved to `lib/silsila.mjs`, which mirrors `src/lib/data/silsila.ts` — the app
+   needs these to link a shrine's silsila row to its order page, and nine
+   regexes copied into a component is how two tables start disagreeing.
+   `silsilaSync.test.ts` refuses drift between the two. */
 
 // ── extract: saints ───────────────────────────────────────────────────────────
 

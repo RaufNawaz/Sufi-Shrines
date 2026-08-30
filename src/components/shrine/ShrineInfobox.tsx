@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { orderSlugForSilsila } from '../../lib/data/silsila';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { siteTypeDisplayLabel, siteTypeKey } from '../../lib/data/siteType';
@@ -222,15 +223,33 @@ export function ShrineInfobox({ shrine }: Props) {
             // silsila_note (22 Aug ruling) qualifies the value — or stands
             // alone when the survey recorded no order at all.
             const silsilaValue = localizeField(shrine.raw, 'silsila') || shrine.silsila;
+            /* Linked when the *recorded* cell names exactly one of the nine
+               orders — resolved from `shrine.silsila`, not from the localized
+               display value, because the patterns are written against what the
+               sheet holds and the Urdu rendering is a different string.
+
+               This row was the entity graph's one one-way edge:
+               `/order/qadiriyya` links out to 90 shrines and not one linked
+               back, while "Built form" and "Tradition" directly above it are
+               both links. A cell naming two orders stays plain text — "Chishti
+               Nizamia Qadria" is a real dual affiliation, and picking one would
+               assert something the sheet declines to (RULE 2). */
+            const orderSlug = orderSlugForSilsila(shrine.silsila ?? '');
+            const silsilaText = silsilaValue && (
+              <bdi lang={isUntranslatedInUrdu(lang, silsilaValue) ? 'en' : undefined}>
+                {silsilaValue}
+              </bdi>
+            );
             return (
               <div className="infobox-row">
                 <dt className="infobox-label">{t('fieldSilsila')}</dt>
                 <dd className="infobox-value">
-                  {silsilaValue && (
-                    <bdi lang={isUntranslatedInUrdu(lang, silsilaValue) ? 'en' : undefined}>
-                      {silsilaValue}
-                    </bdi>
-                  )}
+                  {silsilaValue &&
+                    (orderSlug ? (
+                      <Link to={`/order/${orderSlug}`}>{silsilaText}</Link>
+                    ) : (
+                      silsilaText
+                    ))}
                   {shrine.silsilaNote && (
                     <p className="infobox-note">
                       {t('sourceNoteLabel')}: <bdi>{shrine.silsilaNote}</bdi>
