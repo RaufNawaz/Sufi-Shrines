@@ -43,7 +43,8 @@ the reason the rest is credible.
 | The archive called itself something 88 of its 171 sites are not (English half) | `730f045` |
 | Four entries published a note addressed to a colleague in a public field | `68173c4` |
 | The seven badge definitions, derived for review | `ce4a0c3` |
-| Filters changed the URL and the list and never the map | `HEAD` |
+| Filters changed the URL and the list and never the map | `b768cb5` |
+| Four entity routes answered an unknown slug by silently becoming the map | `f95c7ad` |
 
 ---
 
@@ -51,43 +52,38 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **Four of five entity routes answer an unknown slug by silently becoming the map.**
-   `/shrine/zzz`, `/saint/zzz`, `/order/zzz`, `/tradition/zzz` end at `/` with the URL rewritten.
-   `/place/zzz` does the right thing and is the model to copy. Merging two figure nodes retires a
-   published `/saint/` URL, so this is live risk.
-
-2. **The archive search palette announces nothing** on every route except the map. No `aria-live`
+1. **The archive search palette announces nothing** on every route except the map. No `aria-live`
    in `ArchiveSearch`; the pattern is twenty lines away in `CommandPalette`. Its combobox also
    hardcodes `aria-expanded="true"` and points `aria-controls` at a listbox that is not rendered.
 
-3. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
+2. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
    `results.length` rather than what is on screen. **Blocked on a UI string** — reporting
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-4. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
+3. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
    four rule weights, two byte-identical blocks 236 lines apart in one file. `/about` is the
    visible symptom: its rules stop at 767px for nine headings and 1054px for seventeen.
 
-5. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
+4. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
    region is created already populated, which screen readers do not announce.
 
-6. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
+5. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
    `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
    drawn in the tradition palette.
 
-7. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+6. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-8. **A shrine names its order and never links to it** — the only one-way edge in the entity
+7. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-9. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+8. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-10. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+9. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---
@@ -146,3 +142,8 @@ cannot do.
   commit before touching `check-bundle-budget.mjs`.
 - Run the whole `npm run verify` before every commit, and mutation-check every new test by
   reverting the fix and watching it fail.
+- **`palette.spec.ts` and `traditions.spec.ts` flake under full-suite parallel load** — three
+  times on 30 August, always `.palette-input` not visible or an `aria-selected` that has not
+  settled, always green on `--repeat-each=3` in isolation. Re-run the file before believing it.
+- **A `HEAD` placeholder in the table above is a bug in this file**: write the real hash after
+  committing, or the row records nothing. It has happened once.
