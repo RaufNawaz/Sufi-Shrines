@@ -4594,6 +4594,69 @@ both redirects.
     false`, so they accept no taps at all and navigation runs through the tour panel. Measured
     reach 0, correctly. A marker is not a control because it looks like one.
 
+145. **§9.141 closed: the four unexplained demotions were four real failures, and the instrument
+    that could not see them was counting responses.** *30 August 2026 — commit `49e5527`.*
+    §9.141 measured **118 photo markers without an image probe, 113 with it**, against a network
+    log showing *exactly one* failed image request, could not explain the gap after three
+    contradictory attempts, and correctly reverted rather than ship it. The gap is now measured
+    and it is not a gap.
+
+    **The instrument.** Chrome's **Opaque Response Blocking** refuses a cross-origin no-cors
+    response whose body is not the media type it was requested as. An HTML error page returned
+    for an `<img>` is exactly that, so Chrome blocks it and surfaces it as a `requestfailed`
+    with `net::ERR_BLOCKED_BY_ORB` and **no response object at all**. A probe listening on
+    `response` and testing `status() >= 400` therefore sees *one* failure — the single dead URL
+    whose body was `text/plain` and got through as a response — where five occurred. Watch
+    `requestfailed` as well as `response`, or the count is wrong in the safe-looking direction.
+
+    **What the five actually are**, each checked twice: as an `<img>` from the app's origin, and
+    through Playwright's request API, which is not subject to ORB and so reports the status the
+    server really sent.
+
+    | URL | as an `<img>` | what the server sent |
+    |---|---|---|
+    | heritageofpakistan.org, Sachal Sarmast | fails | **403** `text/plain` |
+    | api.salampakistan.gov.pk, Shah Yousuf | fails | **500** `text/html` |
+    | sikhiwiki.org, Gurdwara Bhai Joga Singh | fails | **200 `image/jpeg`, 52 KB** |
+    | commons.wikimedia.org, Tomb of Qutb-ud-Din Aibak | fails | **429**, `Retry-After: 100` |
+    | commons.wikimedia.org, Gurdwara Sacha Sauda | fails | **429**, `Retry-After: 100` |
+
+    Three of these are genuinely broken *for a reader*: two are dead, and the sikhiwiki file
+    serves a perfectly good JPEG to a plain request and refuses it to a browser — which is why
+    `pipeline/check_image_liveness.py` calls it alive and is right to. **A liveness check run
+    from a script cannot answer the question a marker is asking.** They are different questions:
+    "does this file exist" and "can this browser paint it".
+
+    **The two Wikimedia 429s are this machine, not the archive.** The response carries
+    `x-client-ip: 65.112.8.19` — the sandbox's shared egress — and it reproduces cold, with no
+    burst before it, so it is not the map's own hundred requests. This is the fourth time an
+    instrument in this project has measured its own environment; see the note on
+    `check_image_liveness.py`'s docstring and `feedback_measure_before_recording`.
+
+    **The exposure that is real, and is worth a decision.** **80 of the 118 marker photographs
+    are Wikimedia** (61 `commons`, 19 `upload`), 14 are self-hosted on the project's own Pages
+    domain, and the rest are scattered across a dozen third parties. A reader whose address is
+    rate-limited — a university NAT, a carrier CGNAT, which is not exotic for readers in
+    Pakistan — now sees plain dots where the archive holds pictures. Before this change they saw
+    eighty blank 30px discs, which is worse-looking and equally untrue. **The fix that removes
+    the exposure rather than choosing which way to be wrong is to self-host the marker
+    thumbnails**: 118 images at 120px is a few hundred kilobytes in `public/`, it ends the
+    dependence on hosts this project does not control for the one surface every visit begins on,
+    and it is the same argument that put 14 of them there already.
+
+    **Why demote at all, rather than leave the disc.** `ShrineImage` already falls back to the
+    category placeholder everywhere else in the archive, so a demoted pin and the shrine page
+    now agree about what loaded; the blank disc agreed with nothing. The demotion is remembered
+    by the sheet's own URL for the visit, so a marker rebuild — language, tour, lens — neither
+    re-requests a dead file nor flashes a broken one.
+
+    Mechanically: the listener sits on the **marker element in the capture phase**, because
+    `error` does not bubble and Leaflet's `DivIcon` reuses the outer DIV while replacing its
+    innerHTML — a listener on the `<img>` is discarded by the next selection change, which is
+    the kind of thing that works in a test and rots in a session. `e2e/marker-photo.spec.ts`
+    aborts exactly one image URL against the hermetic fixture and asserts exactly one demotion;
+    it fails, 117 against an expected 116, when the handler is removed.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
