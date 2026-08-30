@@ -4227,6 +4227,38 @@ both redirects.
     `urdu-i18n/build_dictionary.py`, and a figure with no rendering anyone can vouch for is a
     reason to record that and say so, not to let the page title itself in the wrong script.
 
+160. **Six more kin ties the corpus states and the layer does not carry — gathered, not built.**
+    *Scanned 30 August 2026.* §9.123's 28 edges came from one extraction pass over
+    `familyRelations`. A second scan over every Description, for a kinship word beside a
+    capitalised name, on shrines that pass had not touched, turns up six the archive asserts
+    plainly:
+
+    | tie | the sentence |
+    |---|---|
+    | Vali Vilayat Rai **son of** Pratab Rai | "Its founder, Vali Vilayat Rai, was born in 1825 …; his father, Pratab Rai, had served as a *munshi*…" |
+    | Kharak Singh **son of** Ranjit Singh | "Construction began the following month under his son Kharak Singh…" |
+    | Duleep Singh **son of** Ranjit Singh | "…largely completed by 1848 under his youngest son, Duleep Singh…" |
+    | Sheikh Abdul Haleem **son of** Kaka Sahib | "His white mausoleum, raised by his son Sheikh Abdul Haleem around 1661…" |
+    | Syed Habibullah **son of** Syed Ali Tirmizi | "…which also holds the grave of his son Syed Habibullah…" |
+    | Musa Hussain Zanjani **brother of** Miran Hussain Zanjani | "…was buried alongside his brother, Hazrat Musa Hussain Zanjani, whose own shrine lies nearby." |
+
+    **Deliberately not built tonight, hours before a deploy.** Every counterpart is a new
+    `lineageOnly` node — none of the six is a figure yet — and adding six figures moves pinned
+    counts in `figureProvenance.test.ts` (164), the two lineage-only lists, `/about`'s figure
+    figures and the `/graph` roster. It would also need six Urdu names, because §9.159 made that
+    a hard assertion rather than a budget. That is a good hour's work with a clean blast radius
+    on a quiet morning and a poor use of the hour before a release.
+
+    **The sibling is the interesting one and needs a decision, not just typing.** Every kin type
+    in the layer is asymmetric — the edge runs junior → senior and each end reads a different
+    role. `sibling_of` is symmetric: both ends read "brother". The existing shape handles it
+    (`elderRole` and `juniorRole` both `brother`, and the "never assert the reverse" check still
+    holds because there is still one edge), but the type's documented direction would gain its
+    first exception, and that should be written down rather than discovered later.
+
+    Everything needed is above: the quotes are verbatim from `data/shrines.json` and the picks
+    go in `scripts/data/build-kg.mjs`'s `familyRelations` seed the same way the first 28 did.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
