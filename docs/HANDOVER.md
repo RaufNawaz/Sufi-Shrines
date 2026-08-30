@@ -4841,6 +4841,35 @@ both redirects.
     (§9.159). **Adding figures is good; adding figures an Urdu reader cannot search for widens a gap
     the mission bar forbids**, and until today nothing said so.
 
+    **Closed the same day, and the gate had to be re-aimed rather than lowered.** The features
+    session took the consumer-side fix (`0fb1a10`): `ArchiveSearch` enriches each row through
+    `localizeFigureName(entity, 'ur')`. Verified on the dev server — `ماتا ترپتا` and
+    `بے بے نانکی` now return a شخصیات group with the figure in it.
+
+    That made the budget measure the wrong thing, and **the budget still passed**, which is the
+    part worth keeping. It counted index rows; the index is unchanged and correctly so — 241
+    figures still carry no `nameUr`. A number that passes for a reason unrelated to the question is
+    the same defect as §9.163's vacuous assertion, arrived at from the opposite direction: there,
+    a check filtered its input to nothing; here, the world moved and the check did not notice.
+    **Both pass. Neither means anything.** The features session spotted it and deliberately did not
+    edit the file — the right call, and the reason it got fixed rather than quietly kept.
+
+    Re-aimed at what now actually decides the answer, which is **dictionary coverage**: a figure
+    whose name has no seed entry falls back to its Latin string and is unfindable again. The budget
+    is deleted and the assertion is zero.
+
+    **It is deliberately stricter than `figureNameUrduParity`, and the difference is a real seam.**
+    That test asks the question of the **graph node**, which carries `altNames`, so
+    `translateNameToUrdu` gets a second chance through them. `ArchiveSearch` calls the same resolver
+    with a **search-index row**, which has `aka` but no `altNames` — **search sees strictly less
+    than the page does**. A figure resolving only through an alt-name would pass there and fail
+    here. Measured: none does today, by either path. The test is what keeps that true, and its
+    message says not to "fix" a future failure by passing altNames, which would hide the gap behind
+    a second chance search does not have.
+
+    Proved by pushing an untranslated figure into the index and watching it fail with that figure
+    named — the check was not passing because it was looking at nothing.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
