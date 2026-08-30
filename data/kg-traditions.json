@@ -1,0 +1,155 @@
+{
+  "generated": "2026-08-30T00:36:40.491Z",
+  "traditions": [
+    {
+      "slug": "nath",
+      "name": "Nath",
+      "nameUr": "ناتھ",
+      "alsoKnownAs": [
+        "Nath sampradaya",
+        "Kanphata yogis"
+      ],
+      "category": "Hindu Temple",
+      "definition": "The Naths, who flourished across northern India, Nepal, and the north-western frontier from roughly the early medieval centuries, practised a rigorous discipline of yoga and *hatha* austerity and revered Shiva as the *adi-nath*, the first lord and archetypal yogi.",
+      "definitionUr": "ناتھ، جو قرون وسطیٰ کے ابتدائی صدیوں سے شمالی ہندوستان، نیپال، اور شمال مغربی سرحد بھر میں پروان چڑھے، یوگا اور ہٹھ ریاضت کا ایک سخت نظم و ضبط اپناتے تھے اور شیو کو آدی ناتھ، پہلا آقا اور نمونہ یوگی، کے طور پر پوجتے تھے۔",
+      "definitionShrine": "dargah-pir-ratan-nath-jee",
+      "source": "data/shrines.csv#dargah-pir-ratan-nath-jee"
+    },
+    {
+      "slug": "udasi",
+      "name": "Udasi",
+      "nameUr": "اداسی",
+      "alsoKnownAs": [
+        "Udasipanth"
+      ],
+      "category": "Nanakpanthi / Udasi Darbar",
+      "definition": "The distinctive character of Sadh Belo flows from its rootedness in the *Udasipanth*. This religious and ascetic movement grew from the teachings of Sri Chand, the elder son of Guru Nanak, and blended devotional streams in a manner that resists neat sectarian classification, honouring Sikh scripture and Hindu deities alike, and cultivating a tradition of renunciation, pilgrimage and hospitality.",
+      "definitionUr": "سادھ بیلو کا منفرد کردار اس کے \"اداسی پنتھ\" میں جڑ پکڑنے سے پھوٹتا ہے۔ یہ مذہبی اور سنیاسی تحریک گرو نانک کے بڑے بیٹے سری چند کی تعلیمات سے پروان چڑھی، اور اس نے عقیدتی دھاروں کو ایسے انداز میں ملایا جو کسی صاف ستھری فرقہ وارانہ درجہ بندی میں نہیں آتا، سکھ صحیفے اور ہندو دیوتاؤں دونوں کا احترام کرتی، اور ترک، زیارت اور مہمان نوازی کی روایت پروان چڑھاتی ہے۔",
+      "definitionShrine": "sadh-belo-sadh-belo-island-temple",
+      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
+    },
+    {
+      "slug": "pranami",
+      "name": "Pranami",
+      "nameUr": "پرنامی",
+      "alsoKnownAs": [
+        "Parnami",
+        "Dhami",
+        "Nijananda"
+      ],
+      "category": "Hindu Temple",
+      "definition": "The Pranami *sampradaya* — also called *Dhami* or *Nijananda* — is a Vaishnava tradition within Hinduism centred on the worship of *Krishna*. It emerged in western India in the seventeenth century from the teachings of the *bhakti* saint Devchandra Maharaj and, above all, of his foremost disciple Mehraj Thakur, better known as *Mahamati Prannath*, from whose name the tradition takes its own. Its adherents \"bow\" (*pranam*) in devotion — hence the name Pranami — and its teaching, gathered in a scripture called the *Tartam Sagar*, is notable for a strongly monotheistic emphasis and for language that sought common ground between Hindu and Islamic conceptions of the divine.",
+      "definitionUr": "پرنامی سمپردایہ — جسے دھامی یا نجانند بھی کہا جاتا ہے — ہندومت کے اندر ایک وشنو روایت ہے جو کرشن کی پوجا پر مرکوز ہے۔ یہ سترہویں صدی میں مغربی ہندوستان میں بھکتی بزرگ دیوچندر مہاراج، اور سب سے بڑھ کر، ان کے سب سے بڑے شاگرد مہراج ٹھاکر، جو مہاماتی پرن ناتھ کے نام سے زیادہ معروف ہیں، کی تعلیمات سے ابھرا، جن کے نام سے یہ روایت اپنا نام لیتی ہے۔ اس کے پیروکار عقیدت میں \"پرنام\" کرتے ہیں — اسی سے پرنامی نام آیا — اور اس کی تعلیم، تارتم ساگر نامی صحیفے میں جمع، ایک زبردست توحیدی زور اور ایسی زبان کے لیے قابل ذکر ہے جو الٰہی کے ہندو اور اسلامی تصورات کے درمیان مشترکہ زمین تلاش کرتی تھی۔",
+      "definitionShrine": "parnami-mandir",
+      "source": "data/shrines.csv#parnami-mandir"
+    },
+    {
+      "slug": "swaminarayan",
+      "name": "Swaminarayan",
+      "nameUr": "سوامی نارائن",
+      "alsoKnownAs": [
+        "Swaminarayan Sampradaya"
+      ],
+      "category": "Hindu Temple",
+      "definition": "The Swaminarayan movement takes its name from *Swaminarayan* (Sahajanand Swami, 1781–1830), the reformer and teacher who gathered a large following across Gujarat and Kutch and preached a disciplined, devotional Hinduism centred on the worship of Narayana, ethical conduct, and service.",
+      "definitionUr": "سوامی نارائن تحریک اپنا نام سوامی نارائن (سہجانند سوامی، 1781–1830) سے لیتی ہے، وہ مصلح اور استاد جنہوں نے گجرات اور کچھ بھر میں ایک وسیع پیروکاری جمع کی اور نارائن کی پوجا، اخلاقی طرز عمل، اور خدمت پر مرکوز ایک منظم، عقیدت مندانہ ہندومت کی تبلیغ کی۔",
+      "definitionShrine": "shri-swaminarayan-mandir-karachi",
+      "source": "data/shrines.csv#shri-swaminarayan-mandir-karachi"
+    },
+    {
+      "slug": "daduvansi",
+      "name": "Daduvansi",
+      "nameUr": "دادووَنسی",
+      "category": "Nanakpanthi / Udasi Darbar",
+      "definition": "Local tradition associates the shrine with a *sant* named Bhagat Ram, remembered as one of a line of Hindu holy men active in and around Dadu, sometimes described as belonging to a *Daduvansi* lineage — literally the \"line\" or descendants of a saintly founder.",
+      "definitionUr": "مقامی روایت مزار کو بھگت رام نامی ایک سنت سے جوڑتی ہے، جنہیں دادو اور اس کے گرد و نواح میں فعال ہندو بزرگوں کے ایک سلسلے میں سے ایک کے طور پر یاد کیا جاتا ہے، بعض اوقات ایک \"دادووَنسی\" سلسلے سے تعلق رکھنے والے کے طور پر بیان کیا جاتا ہے — لفظی طور پر ایک متبرک بانی کی \"لائن\" یا اولاد۔",
+      "definitionShrine": "sant-baba-bhagat-ram-darbar-mandir",
+      "source": "data/shrines.csv#sant-baba-bhagat-ram-darbar-mandir"
+    },
+    {
+      "slug": "shakti-peetha",
+      "name": "Shakti Peetha",
+      "nameUr": "شکتی پیٹھ",
+      "alsoKnownAs": [
+        "Shaktipeeth"
+      ],
+      "category": "Hindu Temple",
+      "definition": "The sanctity of Hinglaj is rooted in the pan-Indian legend of the *Shakti Peethas*. According to tradition, the goddess Sati, wife of Shiva, immolated herself in grief and outrage when her father Daksha insulted her husband. The bereaved Shiva, cradling her corpse, began the cosmic dance of destruction, the *tandava*, threatening the universe itself. To end his frenzy, Vishnu released his discus, the *Sudarshana Chakra*, which dismembered Sati's body; wherever a part fell to earth, a *Shakti Peetha* arose, charged with the presence of the goddess.",
+      "definitionUr": "ہنگلاج کی تقدس شکتی پیٹھوں کی عالمگیر ہندوستانی روایت میں جڑی ہے۔ روایت کے مطابق، شیو کی اہلیہ دیوی ستی نے اُس وقت غم و غضب میں خود کو آگ کے حوالے کر دیا جب ان کے والد دکش نے ان کے شوہر کی توہین کی۔ سوگوار شیو نے ان کی نعش کو اٹھائے ہوئے تباہی کا کائناتی رقص \"تانڈو\" شروع کر دیا، جس سے خود کائنات کو خطرہ لاحق ہو گیا۔ ان کے جنون کو ختم کرنے کے لیے وشنو نے اپنا چکر \"سدرشن چکر\" چلایا، جس نے ستی کے جسم کے ٹکڑے کر دیے؛ جہاں جہاں کوئی حصہ زمین پر گرا، وہاں ایک شکتی پیٹھ وجود میں آیا، جو دیوی کی موجودگی سے معمور ہوا۔",
+      "definitionShrine": "shaktipeeth-shri-hinglaj-mata-mandir",
+      "source": "data/shrines.csv#shaktipeeth-shri-hinglaj-mata-mandir"
+    }
+  ],
+  "memberships": [
+    {
+      "traditionSlug": "nath",
+      "shrineSlug": "dargah-pir-ratan-nath-jee",
+      "shrineName": "Dargah Pir Ratan Nath Jee",
+      "quote": "The temple's saint, Ratan Nath, belongs to the *Nath sampradaya*, the order of *kanphata* (\"split-eared\") yogis who trace their lineage to Gorakhnath and, before him, to Matsyendranath, the semi-legendary founder of the sect.",
+      "source": "data/shrines.csv#dargah-pir-ratan-nath-jee"
+    },
+    {
+      "traditionSlug": "nath",
+      "shrineSlug": "gorakhnath-goraknath-temple",
+      "shrineName": "Gorakhnath (Goraknath) Temple",
+      "quote": "The temple honours Guru Gorakhnath, one of the most influential figures of medieval Indian spirituality, traditionally held to have lived somewhere between the ninth and twelfth centuries CE and revered as a *mahasiddha* and the founder of the *Nath* order of *yogis*.",
+      "source": "data/shrines.csv#gorakhnath-goraknath-temple"
+    },
+    {
+      "traditionSlug": "nath",
+      "shrineSlug": "tilla-jogian",
+      "shrineName": "Tilla Jogian",
+      "quote": "It became the principal seat of the *Kanphata* yogis — the \"split-eared\" ascetics, so called from the great rings inserted through the cartilage of their ears at initiation — an order that looked to Gorakhnath as its master.",
+      "source": "data/shrines.csv#tilla-jogian"
+    },
+    {
+      "traditionSlug": "udasi",
+      "shrineSlug": "sadh-belo-sadh-belo-island-temple",
+      "shrineName": "Sadh Belo (Sadh Belo Island Temple)",
+      "quote": "One of the most important living centres of Hindu worship in the province, it is intimately bound to the *Udasi* tradition, the ascetic order that traces its lineage to Sri Chand, elder son of Guru Nanak",
+      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple"
+    },
+    {
+      "traditionSlug": "udasi",
+      "shrineSlug": "khatwari-darbar-shikarpur",
+      "shrineName": "Khatwari Darbar, Shikarpur",
+      "quote": "The darbar belongs to the shared Nanakpanthi and *Udasi* devotional world of Sindh, in which Sindhi Hindus and Sikhs venerated the Gurus together.",
+      "source": "data/shrines.csv#khatwari-darbar-shikarpur"
+    },
+    {
+      "traditionSlug": "pranami",
+      "shrineSlug": "parnami-mandir",
+      "shrineName": "Parnami Mandir",
+      "quote": "At Malka Hans, a historic village of the Pakpattan district in southern Punjab, stands the crumbling but still imposing *Parnami* (or *Pranami*) temple, one of the most significant surviving monuments of a distinctive Hindu devotional tradition in Pakistan.",
+      "source": "data/shrines.csv#parnami-mandir"
+    },
+    {
+      "traditionSlug": "swaminarayan",
+      "shrineSlug": "shri-swaminarayan-mandir-karachi",
+      "shrineName": "Shri Swaminarayan Mandir, Karachi",
+      "quote": "Jinnah Road in the heart of Karachi, is the principal Hindu temple of Pakistan's largest city and the only surviving temple of the *Swaminarayan Sampradaya* — the devotional tradition founded in early nineteenth-century Gujarat — in the country.",
+      "source": "data/shrines.csv#shri-swaminarayan-mandir-karachi"
+    },
+    {
+      "traditionSlug": "daduvansi",
+      "shrineSlug": "sant-baba-bhagat-ram-darbar-mandir",
+      "shrineName": "Sant Baba Bhagat Ram Darbar Mandir",
+      "quote": "Local tradition associates the shrine with a *sant* named Bhagat Ram, remembered as one of a line of Hindu holy men active in and around Dadu, sometimes described as belonging to a *Daduvansi* lineage — literally the \"line\" or descendants of a saintly founder.",
+      "source": "data/shrines.csv#sant-baba-bhagat-ram-darbar-mandir"
+    },
+    {
+      "traditionSlug": "shakti-peetha",
+      "shrineSlug": "shaktipeeth-shri-hinglaj-mata-mandir",
+      "shrineName": "Shaktipeeth Shri Hinglaj Mata Mandir",
+      "quote": "It is one of the fifty-one *Shakti Peethas* venerated across the subcontinent, and one of only two situated in present-day Pakistan.",
+      "source": "data/shrines.csv#shaktipeeth-shri-hinglaj-mata-mandir"
+    },
+    {
+      "traditionSlug": "shakti-peetha",
+      "shrineSlug": "sharada-peeth",
+      "shrineName": "Sharada Peeth",
+      "quote": "Simultaneously a temple, a fabled university, and one of the great *Shakti Peethas*, Sharada Peeth occupies a singular place in the cultural and religious memory of Kashmir.",
+      "source": "data/shrines.csv#sharada-peeth"
+    }
+  ]
+}

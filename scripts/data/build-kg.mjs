@@ -212,6 +212,12 @@ const familyRelations = seeds.familyRelations ?? [];
    prose there would put it on every route that touches the graph — the trap
    §9.125 had just taken 33 KB out of. */
 const orderProse = seeds.orderProse ?? [];
+/* The six non-Sufi traditions and the sites the corpus places in them. Same
+   sidecar treatment as the order prose, and for a sharper reason: 90 of the 169
+   sites are not Muslim shrines and the graph had no affiliation vocabulary for
+   any of them. See scripts/data/build-traditions.mjs. */
+const traditions = seeds.traditions ?? [];
+const traditionMemberships = seeds.traditionMemberships ?? [];
 const kinNotes = seeds.kinNotes ?? [];
 
 /* ── machine-extracted proposals ───────────────────────────────────────────────
@@ -1377,6 +1383,47 @@ writeFileSync(join(ROOT, 'data', 'kg.json'), JSON.stringify(kg, null, 2) + '\n',
   console.log(
     `[kg] \u2713 data/kg-order-prose.json written (${emitted.length} passage(s), ` +
       `${new Set(emitted.map((p) => p.orderSlug)).size} order(s))`,
+  );
+}
+
+/* Traditions, for whichever page renders them — out of kg.json for the same
+   reason the order prose is: a static import in src/lib/kg.ts puts it on every
+   route that touches the graph (§9.125). */
+{
+  const traditionSlugs = new Set(traditions.map((t) => t.slug));
+  const shrineSlugSet = new Set(shrineSlugs);
+  const emitted = [];
+  for (const m of traditionMemberships) {
+    if (!traditionSlugs.has(m.traditionSlug)) {
+      reviewNeeded.push({
+        issue: 'tradition-unknown',
+        entityId: `tradition:${m.traditionSlug}`,
+        details: 'a membership names a tradition that is not in the taxonomy.',
+      });
+      continue;
+    }
+    if (!shrineSlugSet.has(m.shrineSlug)) {
+      reviewNeeded.push({
+        issue: 'tradition-unknown-shrine',
+        entityId: `tradition:${m.traditionSlug}`,
+        details: `membership cites shrine "${m.shrineSlug}", which is not a slug this build produced.`,
+      });
+      continue;
+    }
+    emitted.push(m);
+  }
+  writeFileSync(
+    join(ROOT, 'data', 'kg-traditions.json'),
+    JSON.stringify(
+      { generated: kg.generated, traditions, memberships: emitted },
+      null,
+      2,
+    ) + '\n',
+    'utf8',
+  );
+  console.log(
+    `[kg] \u2713 data/kg-traditions.json written (${traditions.length} tradition(s), ` +
+      `${emitted.length} membership(s))`,
   );
 }
 

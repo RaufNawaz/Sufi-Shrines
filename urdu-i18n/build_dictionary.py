@@ -827,6 +827,15 @@ SAINTS = {
  # for seven of these names, so this restores it rather than translating.
  # "Sri Chand" is the exception — a Punjabi name in its usual Urdu spelling.
  # UNREVIEWED DRAFTS.
+ # Rama's sons, and a case the derivation rule above explicitly cannot reach —
+ # it is the reversal the rule's own comment warns about. The reviewed entry is
+ # "Lava (Luv), son of Rama and Sita" -> "لو (لاوا)، رام اور سیتا کے بیٹے":
+ # English leads with Lava and glosses Luv, the Urdu leads with لو and glosses
+ # لاوا. So the bare Urdu for "Lava" is the PARENTHETICAL, not the head, and a
+ # rule that strips a tail would title his page لو. Both spellings are in the
+ # reviewed entry; both are keyed here, each to its own half.
+ "Lava": "لاوا",
+ "Luv": "لو",
  "Syed Nasiruddin Mahmud": "سید نصیر الدین محمود",
  "Sayyid Ahmad Tokhta Tirmidhi": "سید احمد تختہ ترمذی",
  "Hazrat Peer Syed Abdullah": "حضرت پیر سید عبداللہ",

@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 180,
+      "saints": 182,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 133,
-      "flatSeedEntries": 1129
+      "flatSeedEntries": 1131
     }
   },
   "categories": {
@@ -650,6 +650,8 @@
     "Khwaja Muhammad Zaman \"Sultan al-Aulia\" (1713–1775)": "خواجہ محمد زمان \"سلطان الاولیاء\" (1713ء–1775ء)",
     "Guru Hargobind (Sixth Guru)": "گرو ہرگوبند (چھٹے گرو)",
     "Jain temple dedicated to Parshvanatha (23rd Tirthankara)": "پرشو ناتھ (23ویں تیرتھنکر) سے منسوب جین مندر",
+    "Lava": "لاوا",
+    "Luv": "لو",
     "Syed Nasiruddin Mahmud": "سید نصیر الدین محمود",
     "Sayyid Ahmad Tokhta Tirmidhi": "سید احمد تختہ ترمذی",
     "Hazrat Peer Syed Abdullah": "حضرت پیر سید عبداللہ",
