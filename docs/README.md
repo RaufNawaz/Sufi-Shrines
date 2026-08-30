@@ -135,6 +135,7 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 
 | Doc                                                              | Purpose                                              |
 | ---------------------------------------------------------------- | ---------------------------------------------------- |
+| [`prompts/AUTONOMOUS_KB_LOOP.md`](prompts/AUTONOMOUS_KB_LOOP.md) | **The resume protocol.** How a session with no memory of the last one orients, picks up the knowledge-base work, and leaves the repo resumable. Written so clearing the chat costs nothing |
 | [`prompts/pipeline_prompts.md`](prompts/pipeline_prompts.md)     | Generation-pipeline prompt specification             |
 | [`prompts/PROMPT_media_pipeline.md`](prompts/PROMPT_media_pipeline.md) | Generalising the image pipeline to all shrines |
 
