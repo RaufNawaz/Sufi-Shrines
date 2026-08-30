@@ -4262,12 +4262,30 @@ both redirects.
     a hard assertion rather than a budget. That is a good hour's work with a clean blast radius
     on a quiet morning and a poor use of the hour before a release.
 
-    **The sibling is the interesting one and needs a decision, not just typing.** Every kin type
-    in the layer is asymmetric — the edge runs junior → senior and each end reads a different
-    role. `sibling_of` is symmetric: both ends read "brother". The existing shape handles it
-    (`elderRole` and `juniorRole` both `brother`, and the "never assert the reverse" check still
-    holds because there is still one edge), but the type's documented direction would gain its
-    first exception, and that should be written down rather than discovered later.
+    **The sibling needed a decision rather than typing, and here it is: store it ONCE.**
+
+    Every other kin type is asymmetric — the edge runs junior → senior and each end reads a
+    different role. `sibling_of` is symmetric: both ends read "brother". The features session
+    asked the sharp version of the question — should a symmetric edge be stored once or twice,
+    given that `verify-kg-proposals.mjs` rejects the reverse of an edge as a duplicate?
+
+    One row. Three reasons, and the third is the one that decides it:
+
+    1. **One recorded sentence is one claim.** The corpus says it once — "buried alongside his
+       brother, Hazrat Musa Hussain Zanjani" — and two rows would be the archive asserting a fact
+       twice because of a shape, which is how counts start lying.
+    2. **`getKinOf` already reads both directions**, resolving a figure as subject *or* object,
+       so one row surfaces on both pages with no change to the accessor.
+    3. **The reverse-rejection guard needs no exception — it becomes the enforcement.** For an
+       asymmetric type a reverse edge is a contradiction ("A son_of B" and "B son_of A"); for a
+       symmetric one it is a duplicate. Either way it must not exist, so the same check does both
+       jobs and the rule stays "a tie appears once".
+
+    `elderRole` and `juniorRole` both carry `brother`. The field *names* become imprecise for
+    this one type — they mean "role of the object" and "role of the subject", which for a sibling
+    are equal — and that is worth a line in the type rather than a rename, because renaming them
+    would touch six asymmetric types to accommodate one symmetric one. Urdu: بھائی for both ends,
+    with no maternal/paternal split to worry about, unlike چچا/ماموں.
 
     Everything needed is above: the quotes are verbatim from `data/shrines.json` and the picks
     go in `scripts/data/build-kg.mjs`'s `familyRelations` seed the same way the first 28 did.
