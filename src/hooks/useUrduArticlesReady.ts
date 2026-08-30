@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { isUrduContentLoaded, onUrduContentLoaded } from '../lib/data/urduContentOverride';
+import {
+  ensureUrduContentForLang,
+  isUrduContentLoaded,
+  onUrduContentLoaded,
+} from '../lib/data/urduContentOverride';
+import { useLang } from '../lib/i18n/LanguageContext';
 
 /**
  * Whether the Urdu article payload is in memory yet.
@@ -35,5 +40,36 @@ export function useUrduArticlesReady(): boolean {
     if (ready) return;
     return onUrduContentLoaded(() => setReady(true));
   }, [ready]);
+  return ready;
+}
+
+/**
+ * Ask for the Urdu article payload, and report whether it has arrived.
+ *
+ * The difference from `useUrduArticlesReady` above is the asking, and it is the
+ * whole point. The payload used to be fetched by `LanguageContext` and awaited
+ * by `useShrineData` on **every** route, because the gate was on the reader's
+ * language. Measured on a production build, 30 August 2026: 258,872 gzipped
+ * bytes of shrine article prose downloaded on `/almanac`, `/graph`,
+ * `/place/:slug`, `/about` and the map front door, none of which renders a word
+ * of it (docs/planning/URDU_ARTICLE_PAYLOAD.md).
+ *
+ * Three surfaces read a merged Urdu article field, and each one mounts only
+ * when it is actually needed: the preview card when a shrine is selected, the
+ * tour panel when a tour is running, the article when a shrine page is open. So
+ * the gate moves here — the components that need the file ask for it, and a
+ * reader looking at the calendar does not.
+ *
+ * Idempotent: concurrent callers share one chunk request, and a language that
+ * is not Urdu resolves immediately without one.
+ */
+export function useUrduArticles(): boolean {
+  const { lang } = useLang();
+  const ready = useUrduArticlesReady();
+
+  useEffect(() => {
+    void ensureUrduContentForLang(lang);
+  }, [lang]);
+
   return ready;
 }

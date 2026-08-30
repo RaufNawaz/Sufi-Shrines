@@ -18,7 +18,7 @@ import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
-import { useUrduArticlesReady } from '../../hooks/useUrduArticlesReady';
+import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
 
 interface ShrinePreviewProps {
@@ -65,7 +65,7 @@ export function ShrinePreview({
      looks like one of those two — see `useUrduArticlesReady`. Falling back then
      put the entire English lead under an Urdu name for 4.7 measured seconds.
      Nothing is a truthful empty; English prose is not. */
-  const urduArticlesReady = useUrduArticlesReady();
+  const urduArticlesReady = useUrduArticles();
   const descRaw =
     // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: getUrduFieldValue reads the sheet's Urdu-only Description column
     lang === 'ur'

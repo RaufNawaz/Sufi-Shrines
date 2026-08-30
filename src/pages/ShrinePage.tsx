@@ -47,6 +47,7 @@ import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLe
 
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { useUrduArticles } from '../hooks/useUrduArticlesReady';
 function SkeletonPage() {
   return (
     <div className="shrine-loading">
@@ -85,6 +86,7 @@ function ShrineContent({
   offline,
   sourceTimestamp,
   articleReady,
+  proseReady,
 }: {
   shrine: Shrine;
   allShrines: Shrine[];
@@ -99,6 +101,10 @@ function ShrineContent({
    * legitimately absent for one reason being read as absent for another.
    */
   articleReady: boolean;
+  /** As above, and also waiting on the Urdu article payload when the reader is
+   *  reading Urdu. Gates the prose and the contents nav; the infobox uses
+   *  `articleReady`, because its fields come from the sheet. */
+  proseReady: boolean;
   /* Passed down rather than read from a second `useShrineData()` call: the hook
      shares module state, but two subscriptions on one page is two re-renders
      for one change. */
@@ -426,7 +432,7 @@ function ShrineContent({
             </p>
           )}
         </div>
-        {articleReady && navItems.length >= 2 && (
+        {proseReady && navItems.length >= 2 && (
           <div className="contents-nav-rail">
             <ContentsNav items={navItems} />
           </div>
@@ -435,7 +441,7 @@ function ShrineContent({
           {/* The masthead above is already real; only the prose is pending.
               `ShrineObservances` waits with it — its days come from the sheet's
               Events column, which the index does not carry. */}
-          {articleReady ? (
+          {proseReady ? (
             <>
               <ShrineArticle shrine={shrine} />
               <ShrineObservances shrine={shrine} />
@@ -534,6 +540,30 @@ export default function ShrinePage() {
   const articleReady = source !== 'index';
   const { t, lang } = useLang();
 
+  /*
+   * The Urdu articles are a separate arrival, and the prose waits for them too.
+   *
+   * This page is one of only three surfaces that read a merged Urdu article
+   * field, so it is now one of the three that *ask* for the payload rather than
+   * having it fetched on every route in the site
+   * (docs/planning/URDU_ARTICLE_PAYLOAD.md). Asking means it can be in flight
+   * while this renders, and an absent payload is indistinguishable from an
+   * absent translation when read off a row — so without this gate the page
+   * would render the English article under `articleUrduMissing`, telling an
+   * Urdu reader that all 168 translated entries are untranslated. A false
+   * claim, and a worse failure than the 4.7-second English flash that
+   * `useUrduArticlesReady` was written for.
+   *
+   * Held separately from `articleReady` rather than folded into it: the infobox
+   * is a table of the row's own sheet fields and owes the Urdu articles
+   * nothing, so it should not blink while they land.
+   */
+  const urduArticlesReady = useUrduArticles();
+  const proseReady =
+    articleReady &&
+    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: asks whether the Urdu-only article payload applies, a fact about that one file
+    (lang !== 'ur' || urduArticlesReady);
+
   const shrine = useMemo(() => {
     if (!slug || !shrines.length) return null;
     // Handle legacy id-N slugs
@@ -568,6 +598,7 @@ export default function ShrinePage() {
           shrine={shrine}
           allShrines={shrines}
           articleReady={articleReady}
+          proseReady={proseReady}
           offline={offline}
           sourceTimestamp={sourceTimestamp}
         />

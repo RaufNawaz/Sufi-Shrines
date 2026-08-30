@@ -15,7 +15,6 @@ import {
 import { localizeDigits } from './numerals';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
 import { detectInitialLang } from './detectLang';
-import { loadUrduContent } from '../data/urduContentOverride';
 import type { ShrineRow } from '../../types/shrine';
 
 export type Numerals = 'eastern' | 'western';
@@ -93,19 +92,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // The Urdu article payload (~1 MB) is not in the eager bundle; an English
-  // reader never downloads it. Request it as soon as the language is Urdu —
-  // on first paint for a /ur/ or ?lang=ur visit, or the moment the reader
-  // switches. useShrineData re-merges the rows when it arrives.
-  useEffect(() => {
-    /* `lang === 'ur'` and not `isRtlLang(lang)`: this asks whether the *Urdu*
-       content payload applies, which is a fact about that one payload rather
-       than about direction. A future Shahmukhi edition would load its own file
-       here, not this one. Kept as a literal deliberately — see
-       docs/planning/LANGUAGE_LAYER_2026-08-24.md phase 2. */
-    // eslint-disable-next-line no-restricted-syntax -- Urdu-specific: this loads the Urdu content payload, a fact about that one file
-    if (lang === 'ur') void loadUrduContent();
-  }, [lang]);
+  /*
+   * The Urdu article payload is **not** requested here any more.
+   *
+   * It was, on every Urdu visit — and `useShrineData` awaited it before it
+   * built a single row, so the gate was on the reader's language and not on
+   * whether anything on screen would use the file. Measured on a production
+   * build, 30 August 2026: 258,872 gzipped bytes of shrine article prose
+   * downloaded on `/almanac`, `/graph`, `/place/:slug`, `/about` and the map
+   * front door, none of which renders a word of it.
+   *
+   * The three surfaces that read a merged Urdu article field now ask for it
+   * themselves — `useUrduArticles`, used by `ShrinePreview` when a shrine is
+   * selected, `TourPanel` when a tour is running, and `ShrinePage`, which is
+   * also prefetched at module scope in `main.tsx` so a direct Urdu shrine link
+   * is no slower than it was. `docs/planning/URDU_ARTICLE_PAYLOAD.md` holds the
+   * measurements.
+   *
+   * The mid-session switch this effect existed for still works, and by the same
+   * machinery: `onUrduContentLoaded` re-merges the rows already on screen, and
+   * every consumer renders a truthful empty rather than English until it lands.
+   */
 
   /* Same arrangement for the dictionary (80 KB): requested when the language is
      Urdu, and never for an English reader. `main.tsx` starts the request before

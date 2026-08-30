@@ -4,11 +4,7 @@ import type { Shrine, ShrineDataState, ShrineRow } from '../types/shrine';
 import { fetchCsvText, takeCsvText } from '../lib/data/csvPrefetch';
 import { normalizeRow } from '../lib/data/fieldAliasing';
 import { buildShrines } from '../lib/data/shrineModel';
-import {
-  applyUrduContentOverrides,
-  ensureUrduContentForLang,
-  onUrduContentLoaded,
-} from '../lib/data/urduContentOverride';
+import { applyUrduContentOverrides, onUrduContentLoaded } from '../lib/data/urduContentOverride';
 import { detectInitialLang } from '../lib/i18n/detectLang';
 import { ensureUrduSeedForLang, onUrduSeedLoaded } from '../lib/i18n/urduFallback';
 
@@ -61,7 +57,6 @@ async function loadSnapshot(): Promise<{ shrines: Shrine[]; generated: number | 
   const lang = detectInitialLang();
   const [{ default: snapshotData }] = await Promise.all([
     import('../data/shrines-fallback.json'),
-    ensureUrduContentForLang(lang),
     ensureUrduSeedForLang(lang),
   ]);
   const rows = (snapshotData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
@@ -108,7 +103,6 @@ async function loadIndex(): Promise<Shrine[]> {
   const lang = detectInitialLang();
   const [{ default: indexData }] = await Promise.all([
     import('../data/shrines-index.json'),
-    ensureUrduContentForLang(lang),
     ensureUrduSeedForLang(lang),
   ]);
   const rows = (indexData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
@@ -118,13 +112,22 @@ async function loadIndex(): Promise<Shrine[]> {
 /**
  * The sheet, and the two Urdu payloads the first build needs.
  *
- * **All three start at once; the build waits for all three.** The invariant is
- * unchanged and is the reason this function ever awaited anything: rows are
- * built exactly once, and the search index is built from them, so an index
- * built before the Urdu dictionary lands has an empty `urduName` on all 169
- * documents — the "Urdu query finds nothing" bug that
- * `e2e/search-bilingual.spec.ts` exists for. The Urdu articles are the same
- * argument for the article text: arriving late means a visible re-render.
+ * **Both start at once; the build waits for both.** The invariant is unchanged
+ * and is the reason this function ever awaited anything: rows are built exactly
+ * once, and the search index is built from them, so an index built before the
+ * Urdu dictionary lands has an empty `urduName` on all 169 documents — the
+ * "Urdu query finds nothing" bug that `e2e/search-bilingual.spec.ts` exists for.
+ *
+ * **It was three, and the Urdu *articles* are no longer among them.** They were
+ * awaited on the same argument — arriving late means a visible re-render — and
+ * the cost of applying that argument here was that every Urdu route, the map
+ * and the calendar included, downloaded 258,872 gzipped bytes of shrine prose
+ * that nothing on those routes reads. The three surfaces that do read it ask
+ * for it themselves now (`useUrduArticles`), and the re-render argument is
+ * answered where it actually applies: each of those surfaces renders a truthful
+ * empty rather than English until the payload lands, and
+ * `onUrduContentLoaded` below re-merges the rows already on screen.
+ * `docs/planning/URDU_ARTICLE_PAYLOAD.md` carries the measurements.
  *
  * What changed is that the waiting used to be *serial and in front of the
  * network*: two `await`s, then `Papa.parse(CSV_URL, { download: true })`. So
@@ -134,12 +137,12 @@ async function loadIndex(): Promise<Shrine[]> {
  * render delay, not network.** Starting the download first costs nothing and
  * removes the whole Urdu payload from in front of it.
  *
- * An English reader is unaffected either way — both `ensure…` calls return an
- * already-resolved promise when the language is not Urdu.
+ * An English reader is unaffected either way — `ensureUrduSeedForLang` returns
+ * an already-resolved promise when the language is not Urdu.
  */
 async function fetchShrines(): Promise<Shrine[]> {
   const lang = detectInitialLang();
-  const urduReady = Promise.all([ensureUrduContentForLang(lang), ensureUrduSeedForLang(lang)]);
+  const urduReady = ensureUrduSeedForLang(lang);
 
   /* The bytes, from `main.tsx`'s prefetch if it is still going spare, otherwise
      a fresh request. `Papa.parse` used to do the download itself

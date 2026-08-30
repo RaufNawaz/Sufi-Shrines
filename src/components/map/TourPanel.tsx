@@ -16,7 +16,7 @@ import { t, tFn } from '../../lib/i18n/uiStrings';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useShareLink } from '../../hooks/useShareLink';
-import { useUrduArticlesReady } from '../../hooks/useUrduArticlesReady';
+import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
@@ -141,7 +141,7 @@ export function TourPanel({
   const nextLegKm =
     activePointIdx >= 0 && activePointIdx < points.length - 1 ? legsKm[activePointIdx + 1] : null;
 
-  const urduArticlesReady = useUrduArticlesReady();
+  const urduArticlesReady = useUrduArticles();
   const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang, urduArticlesReady) : '';
   const { share, copied } = useShareLink();
   const tourTitle = localizeTourTitle(tour, lang);
