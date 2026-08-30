@@ -232,6 +232,45 @@ rows.forEach((row, i) => {
   );
 });
 
+// ── site_type is a term, not a sentence ───────────────────────────────────
+/*
+ * CLAUDE.md's schema is explicit: **`site_type` is the built form — a short
+ * term; prose belongs in `site_type_note`.** 165 of the 169 rows keep to it,
+ * with a vocabulary that emerged rather than being declared: Temple 38,
+ * Complex 34, Dargah/Mazar 31, Gurdwara 31, Mausoleum/Memorial 15, Khanqah 10
+ * and five singletons. Four rows put a whole clause there instead and leave
+ * `site_type_note` empty.
+ *
+ * Not cosmetic: a category of one cannot be grouped, filtered or counted, so
+ * those rows drop out of every breakdown by built form — which is the whole
+ * subject of `/typology`, the "Atlas of Built Forms".
+ *
+ * Length rather than a closed vocabulary, deliberately. The vocabulary is
+ * descriptive and still growing ("Cave shrine", "Natural sacred site" and
+ * "Martyr's grave/shrine" each appear once and are all correct), so an enum
+ * would reject good new terms. What is reliably wrong is a *sentence*, and 40
+ * characters is comfortably longer than the longest real term
+ * ("Mausoleum/Memorial", 18) and shorter than the shortest offender (71).
+ *
+ * `data/patch_site_type_2026-08-30.csv` proposes the fix. One of the four is
+ * also **truncated at source** — Shah Gohar Peer's ends mid-phrase, "in a
+ * residential area beside a" — and that is flagged in the patch's
+ * INSTRUCTIONS rather than silently completed.
+ */
+const SITE_TYPE_TERM_MAX = 40;
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  const raw = String(row['site_type'] ?? '').trim();
+  if (!raw || raw.length <= SITE_TYPE_TERM_MAX) return;
+  const hasNote = String(row['site_type_note'] ?? '').trim() !== '';
+  rowWarnings.push(
+    `  ${label}: site_type is ${raw.length} chars — a clause, not a built form. ` +
+      `Move the prose to site_type_note${hasNote ? '' : ' (which is empty)'} and leave a term, ` +
+      `or the row is a category of one in every breakdown by type`,
+  );
+});
+
 // ── provenance validation ─────────────────────────────────────────────────
 
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');

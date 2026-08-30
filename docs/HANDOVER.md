@@ -4070,6 +4070,106 @@ both redirects.
     `data:check:live` to confirm the drift is zero. Then the two figures stop being lineage-only
     and the e2e spec needs a genuinely lineage-only route in place of Shah Gohar Peer.
 
+157. **`site_type` holds a whole clause on four rows, and one of them is cut off mid-sentence.**
+    *Found 30 August 2026, while checking the last ungated schema column.* CLAUDE.md is explicit
+    that `site_type` is the built form — a short term, with prose belonging in `site_type_note`.
+    165 rows keep to it. Four put a clause there and leave `site_type_note` **empty**:
+
+        77  Darbar Abul Muali Qadri        Shrine complex (tomb, mosque, graveyard; originated…
+        71  Darbar Hazrat Shah Gohar Peer  Shrine (*darbār*) with adjoining mosque, in a resid…
+        72  Darbar Malik Ahmad Ayaz        Tomb shrine (*mazār*/*darbār*) with an associated m…
+       103  Darbar Mian Qurban Ali Shah    Tomb-shrine with adjoining mosque in the same court…
+
+    Not cosmetic: **a category of one cannot be grouped, filtered or counted**, so those four
+    drop out of every breakdown by built form — which is the entire subject of `/typology`, the
+    "Atlas of Built Forms".
+
+    **And Shah Gohar Peer's ends mid-phrase**: *"…in a residential area beside a"*. Not a display
+    truncation — 71 characters in the sheet and the same 71 in
+    `entries/entry_shah_gohar_peer.md` line 87, so the loss happened when the entry was drafted,
+    before any import. The archive holds what it was going to say: the survey transcript says the
+    shrine's surroundings are "a residential area **and a graveyard**", and the entry's own prose
+    says "residential area and graveyard surround the site". So the missing word is almost
+    certainly *graveyard* — and the patch carries the truncated text through **unchanged**,
+    because completing someone's half-finished sentence is authoring and RULE 2 is explicit. The
+    evidence is in the INSTRUCTIONS for Rauf to finish or to leave flagged.
+
+    `data/patch_site_type_2026-08-30.csv` moves each clause verbatim into `site_type_note` and
+    leaves a term. `validate.mjs` now warns on a `site_type` longer than 40 characters —
+    **length rather than an enum, deliberately**: the vocabulary is descriptive and still growing
+    ("Cave shrine", "Natural sacred site", "Martyr's grave/shrine" each appear once and are all
+    correct), so an enum would reject good new terms, while a *sentence* is reliably wrong. 40 is
+    comfortably above the longest real term (18) and below the shortest offender (71).
+
+    Two of the four rows are the ones missing from the snapshot entirely (§9.156), so this patch
+    and the category patch should be imported together, before the `data:build` that fixes both.
+
+140. **The front door spent its whole data budget on prose it does not render: 5,059 ms to
+    2,648 ms.** *Measured and fixed 29 August 2026, on a phone at slow 4G (1.6 Mbps, 150 ms RTT)
+    with a 4× CPU throttle.* The map is where most of this archive's readers arrive, and the
+    first marker took five seconds against a **1,200 ms first contentful paint** — four seconds
+    of looking at an empty map.
+
+    Nothing was slow about the request. It was the size of it:
+
+        rows 171 · 44 columns · 837 KB  (~295 KB gzipped)
+           672 KB  80.3%  Description
+            56 KB   6.7%  qa_note
+            12 KB   1.4%  ← Name + Latitude + Longitude + category
+
+    **The map downloaded every article in the archive to place a pin.** The knowledge-base
+    session generated `src/data/shrines-index.json` — ten columns, 13 KB gzipped — and this is
+    the reading half. Full reasoning in `docs/planning/FRONT_DOOR_PAYLOAD.md`.
+
+    **Two plausible fixes that measurement killed, recorded so nobody re-proposes them:**
+
+    - *Serve the bundled snapshot first.* The obvious stale-while-revalidate move.
+      `shrines-fallback.json` is **294 KB gzipped**; the CSV is **295 KB**. Identical weight. The
+      saving here comes from the payload being small, not from it being local.
+    - *Start the CSV fetch earlier.* Real, worth ~900 ms, and deliberately not taken:
+      `csvPrefetch.ts`'s own docstring weighed a version of it and was right to be wary, since a
+      preload that fails to match the later `fetch()` pulls a megabyte **twice** on a metered
+      phone.
+
+    **The fix needed two halves, and the second is the interesting one.** Wiring the hook alone
+    gave 3,158 ms, not the sub-2 s expected. The index downloads in **182 ms** — but its request
+    did not *start* until 2,432 ms, because `useShrineData` cannot run until MapPage's bundle
+    parses, which cannot start until the entry chunk lands. The payload was fixed and the
+    *chain* was still the gate. A `modulepreload` in the map's own two documents starts it at
+    219 ms, in parallel with the entry:
+
+        entry + react + css     218 →   984 ms
+        shrines-index (13 KB)   219 →   628 ms    (was 2,432 → 2,614)
+        MapPage + leaflet     1,150 → 2,022 ms
+        first marker                  2,648 ms
+
+    What still gates it is MapPage and Leaflet parsing — open item #2, the dependency chain,
+    unchanged and now the whole of the remainder.
+
+    **The constraint that shaped the data, and it came from the rendering side.** A slim row has
+    to be a *whole* row for every surface that renders before the CSV lands. The sidebar paints
+    a category-coloured empty thumbnail when a shrine has no picture, so an index without
+    `Image 1` would show 169 photo-less cards and then pop 118 photographs in — a worse "fills
+    in a second later" than the one the index was meant to prevent. Hence ten columns, not four.
+
+    **And the surface that must *not* take it.** Index rows have no `Description`, so
+    `ShrinePage` holds its skeleton while `source === 'index'`: a page rendering an empty article
+    reads as a broken record rather than a loading one. Shrine pages therefore behave exactly as
+    before and nothing regresses. **The better version is written down rather than built** — the
+    index carries name, location, category and the photograph, which is the entire masthead, so
+    rendering that immediately and skeletoning only the article would beat both.
+
+    **Two things about the measurement itself.** The index ships 169 rows while the live sheet
+    serves 171 (§9.156), so two markers arrive only with the CSV — a delta that would read as a
+    bug in the preload if you did not know. And the first instrument was wrong: a naive
+    "element extends past the viewport" overflow probe flagged `/graph` and `/almanac`, and
+    re-measuring against scrollable ancestors showed **no page scrolls horizontally at all** and
+    the existing `no-overflow.spec.ts` was right. Three findings that night were retracted the
+    same way — the tab bar's 10px labels (Urdu already steps up to 12px Nastaliq), the iOS
+    viewport hazards (`100dvh`, safe-area tokens and a 16px input floor were all already
+    handled), and that overflow. **Check the instrument before believing the finding** is the
+    only reason the ones that survived are worth anything.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
