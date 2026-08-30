@@ -5206,6 +5206,40 @@ both redirects.
     Proved by pointing a date proposal at `zzz-does-not-exist` and watching it fail by name.
     Result of the full sweep: **three dead pointers in the dates family, zero everywhere else.**
 
+179. **`npm run verify` does not run e2e, so a day of data work moved an e2e budget with every gate
+    green.** *30 August 2026.* The features session found `urdu-no-leak` red —
+    `saint:multi-order declares 29 Latin runs against a budget of 28` — and attributed it to §9.178
+    by timing. Measured against the live page rather than inferred from the diff: **29 declared,
+    `undeclared` still empty.** The archive is not leaking English, it is disclosing more of what it
+    holds, which is what every previous raise in that file concluded.
+
+    The whole +1 is one string: **`shaheed (as popular belief, not a formal ruling — per the
+    survey)`** — the title recovered when a dead date proposal was repointed. Declared rather than
+    translated, on that file's own precedent for the hedged dates two entries below: *shaheed* alone
+    is شہید, but "as popular belief, not a formal ruling" is the half the dictionary cannot carry
+    without deciding something the survey declined to decide.
+
+    **The finding is the gap, not the number.** `verify` is deliberately a superset of CI and
+    deliberately excludes e2e, which needs a build and takes minutes — so **data work can move a
+    rendered-page budget invisibly**, and did, for a whole session. The protocol now says: when a
+    change adds or recovers text that reaches a page — a title, an alt-name, a quote — run
+    `build:e2e && playwright test e2e/urdu-no-leak.spec.ts` before committing. Cheapest e2e spec,
+    and the one data work actually moves.
+
+    **The full suite was then run to see what else had drifted: nothing.** 465 passed, `urdu-no-leak`
+    green at 29, and one failure — `tours.spec.ts` on a `beforeEach` click that resolved, was
+    visible, enabled and stable, then timed out — which passes **38/38 on `--repeat-each=2` in
+    isolation. A parallel-load flake**, the same shape as the recorded palette one. It could not
+    have been attributed cleanly in any case: that build included the other lane's uncommitted
+    `TourPanel.tsx`.
+
+    **And four iCloud conflict copies had appeared under `src/styles/`** while the other lane worked
+    there, reddening `repoHygiene` directly and `readingScale` as collateral — an extra copy of a
+    stylesheet double-counts the font sizes it walks. Deleted after diffing each: three
+    byte-identical, and `components 2.css` was the **older** version, so nothing live was in the
+    duplicate. Untracked, so nothing to revert. It will happen again to whoever is next in
+    `src/styles/`.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
