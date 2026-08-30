@@ -1331,8 +1331,13 @@ nothing errored.
     candid thing in the repository, no reader could see any of them, and they go stale: §9.40's
     entry and CLAUDE.md's "49 of 167 entries have no bibliography" were both quoted as current
     long after they stopped being true (168 of 169 now carry one; 533 citations — 544 until the
-    counting rule was corrected on 24 August; 107 citing three
+    counting rule was corrected on 24 August; 103 citing three
     or more). A page computed from the shipped data cannot drift from it.
+
+    *That "103" read 107 until 30 August 2026 — this sentence, whose subject is a number quoted
+    after it stopped being true, was quoting a number after it stopped being true. It is the
+    third place the 544→533 correction had to be applied, after CLAUDE.md and `docs/TODO.md`,
+    and it was applied to the citation total here and not to the figure beside it.*
 
     **A standing finding is a measurement with a date on it.** Anything in §9 without one should
     be re-measured before it is repeated.

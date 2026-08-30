@@ -108,10 +108,29 @@ describe('stated site counts match the shipped data', () => {
  * and the page can never give a reader two different answers.
  */
 const BIBLIOGRAPHY_CLAIMS: {
+  file?: string;
   label: string;
   pattern: RegExp;
   actual: (c: ReturnType<typeof buildCoverage>) => number;
 }[] = [
+  {
+    file: 'docs/HANDOVER.md',
+    label: '§1 — entries citing three or more sources',
+    pattern: /counting rule was corrected on 24 August; (\d+) citing three/,
+    actual: (c) => c.bibliography.withThreeOrMore,
+  },
+  {
+    file: 'docs/TODO.md',
+    label: 'citations in total',
+    pattern: /168 of 169 now carry one, (\d+) citations/,
+    actual: (c) => c.bibliography.items,
+  },
+  {
+    file: 'docs/TODO.md',
+    label: 'entries citing three or more sources',
+    pattern: /(\d+) citing three or more/,
+    actual: (c) => c.bibliography.withThreeOrMore,
+  },
   {
     label: 'entries carrying a bibliography',
     pattern: /(\d+) of \d+ entries now carry a bibliography/,
@@ -129,21 +148,22 @@ const BIBLIOGRAPHY_CLAIMS: {
   },
 ];
 
-describe("CLAUDE.md's bibliography figures match buildCoverage", () => {
+describe('bibliography figures written in prose match buildCoverage', () => {
   const coverage = buildCoverage(buildShrines(snapshot.rows ?? snapshot));
-  const claudeMd = readFileSync(join(ROOT, 'CLAUDE.md'), 'utf8');
 
-  it.each(BIBLIOGRAPHY_CLAIMS)('$label', ({ pattern, actual, label }) => {
-    const m = pattern.exec(claudeMd);
+  it.each(BIBLIOGRAPHY_CLAIMS)('$file $label', ({ file, pattern, actual, label }) => {
+    const where = file ?? 'CLAUDE.md';
+    const text = readFileSync(join(ROOT, where), 'utf8');
+    const m = pattern.exec(text);
     expect(
       m,
-      `could not find "${label}" in CLAUDE.md's standing findings. If the wording changed, ` +
-        'update the pattern — do not delete the entry. An unchecked number in that paragraph ' +
-        'is exactly how 107 survived as 103.',
+      `could not find "${label}" in ${where}. If the wording changed, update the pattern — do ` +
+        'not delete the entry. An unchecked number in that paragraph is exactly how 107 ' +
+        'survived as 103 in three files.',
     ).not.toBeNull();
     expect(
       Number(m![1]),
-      `CLAUDE.md says ${m![1]} for "${label}"; buildCoverage computes ${actual(coverage)}. ` +
+      `${where} says ${m![1]} for "${label}"; buildCoverage computes ${actual(coverage)}. ` +
         '/about shows the computed one, so the two are telling a reader different things.',
     ).toBe(actual(coverage));
   });
@@ -154,6 +174,8 @@ describe("CLAUDE.md's bibliography figures match buildCoverage", () => {
       'CLAUDE.md says "Exactly one entry cites nothing (Sant Baba Asudaram Darbar)". If this ' +
         'moved, the sentence needs rewriting rather than the number nudging — it names the entry.',
     ).toBe(1);
-    expect(claudeMd).toContain('Exactly one entry cites nothing');
+    expect(readFileSync(join(ROOT, 'CLAUDE.md'), 'utf8')).toContain(
+      'Exactly one entry cites nothing',
+    );
   });
 });

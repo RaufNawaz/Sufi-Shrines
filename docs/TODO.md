@@ -438,7 +438,7 @@ archive and hiding the row would imply there is no such case.
 
 It immediately earned its place twice: it exposed the category violation above, and it
 established that **CLAUDE.md's standing finding "49 of 167 entries have no bibliography at all"
-is closed** — 168 of 169 now carry one, 544 citations, 107 citing three or more. That note had
+is closed** — 168 of 169 now carry one, 533 citations, 103 citing three or more. That note had
 been quoted as current for weeks after it stopped being true. It is struck through in CLAUDE.md
 rather than deleted, because the note is the lesson: **a standing finding is a measurement with
 a date on it.** A page computed from the data cannot go stale that way.
