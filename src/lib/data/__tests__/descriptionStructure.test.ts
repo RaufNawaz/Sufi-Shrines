@@ -1,0 +1,91 @@
+import { describe, it, expect } from 'vitest';
+import {
+  unbroken,
+  LONG_ENOUGH,
+  KNOWN,
+} from '../../../../scripts/data/validate-description-structure.mjs';
+import shrines from '../../../data/shrines-fallback.json';
+
+/**
+ * The guard that stands between the archive and its worst recorded accident.
+ *
+ * `CLAUDE.md` RULE 3 warns that Sheets' **TSV** export silently strips newlines
+ * inside cells. One wrong export flattens every `## History` heading, every
+ * bibliography item and every paragraph break in all 169 entries at once, and
+ * nothing errors — the site loads, the pages render, and the archive becomes
+ * 169 walls of text. RULE 4 names the guard: refuse to write if a long
+ * Description has lost its newlines.
+ *
+ * The guard existed and was **not in the build path**. It lives in
+ * `pipeline/append_new_shrines.py`, which runs only when a person appends
+ * shrines by hand; `data:build`, `data:validate` and `verify` never called it.
+ * Measured 31 August 2026: one entry has already lost its newlines, and nothing
+ * noticed. One is invisible. This is here for the day it is 169.
+ *
+ * These test the predicate rather than the script's output, because the script
+ * is the gate and the gate's own logic is the thing that must not quietly
+ * invert. `validate-description-structure.mjs` is now in `npm run data:validate`.
+ */
+
+const long = (n: number) => 'a'.repeat(n);
+
+describe('unbroken description detection', () => {
+  it('flags a long description with no line break', () => {
+    expect(unbroken([{ Name: 'x', Description: long(LONG_ENOUGH + 1) }])).toHaveLength(1);
+  });
+
+  it('leaves a long description that keeps its structure', () => {
+    expect(
+      unbroken([{ Name: 'x', Description: `${long(800)}\n\n## History\n\n${long(800)}` }]),
+    ).toHaveLength(0);
+  });
+
+  it('leaves a short entry alone — brief is not damaged', () => {
+    /* The distinction the threshold exists for. A one-paragraph stub is a small
+       entry; a 1,300-character block is a lost structure. */
+    expect(unbroken([{ Name: 'x', Description: long(LONG_ENOUGH - 1) }])).toHaveLength(0);
+  });
+
+  it('reads the lowercase field too', () => {
+    /* The canonical dataset uses `Description`; some shapes carry `description`.
+       A guard that sees only one of them is a guard that passes on the wrong
+       file, which is exactly how the 171-vs-169 drift went unnoticed. */
+    expect(unbroken([{ Name: 'x', description: long(700) }])).toHaveLength(1);
+  });
+
+  it('does not count a trailing newline as structure', () => {
+    /* The predicate trims before it looks, so a block that merely *ends* in a
+       newline is still a block. Worth pinning: a CSV round-trip can leave one
+       on a cell it flattened, and a guard that accepted it would pass on the
+       exact damage it exists to catch. */
+    expect(unbroken([{ Name: 'x', Description: `${long(700)}\n` }])).toHaveLength(1);
+    expect(unbroken([{ Name: 'x', Description: `${long(350)}\n${long(350)}` }])).toHaveLength(0);
+  });
+});
+
+describe('the shipped archive', () => {
+  const rows = (shrines as unknown as { rows: Array<{ Name: string; Description?: string }> }).rows;
+
+  it('has exactly the recorded exceptions and no others', () => {
+    /* The assertion that matters. If this ever reports more, either an import
+       lost structure or an entry was written without it — and RULE 4 forbids the
+       shortcut of widening the threshold to make it pass. */
+    const offenders = unbroken(rows).map((r) => r.Name);
+    expect(offenders.filter((name) => !KNOWN.has(name))).toEqual([]);
+  });
+
+  it('keeps every recorded exception real', () => {
+    /* An allowlist that outlives its entries is a lie about the data. When
+       someone paragraphs Sant Baba Asudaram in the sheet, this fails and tells
+       them to delete the line rather than leaving a stale excuse in the tree. */
+    const offenders = new Set(unbroken(rows).map((r) => r.Name));
+    for (const name of KNOWN.keys())
+      expect(offenders.has(name), `${name} no longer needs its exception — remove it`).toBe(true);
+  });
+
+  it('is nowhere near the catastrophic shape', () => {
+    /* A share, not a count: the emergency this guards is not "one more entry",
+       it is all of them at once. */
+    expect(unbroken(rows).length / rows.length).toBeLessThan(0.05);
+  });
+});

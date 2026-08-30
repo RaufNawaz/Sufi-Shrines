@@ -60,6 +60,8 @@ the reason the rest is credible.
 | The rename missed `index.html`, so ~940 prerendered pages still said "Sufi shrines" | `b9e04f3` |
 | Three routes' bundle budgets sat at exactly zero headroom, six more under 3 KB | `4e655bb` |
 | The kin reading pile held nine relatives the archive records and never names | `400a250` |
+| Fourteen pages described the homepage rather than themselves, in English on the Urdu half | `0534a91` |
+| The newline invariant RULE 4 names was in a script nothing in the build path calls | (this cycle) |
 | A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
 
 ---
@@ -166,6 +168,26 @@ a vocabulary.
 may not supply it — **135 by human review**, 20 informational (long slugs, and renaming one breaks
 a published URL), and 4 that already carry a written adjudication. There is no pile left that
 reading harder would move.
+
+**Found 31 August 2026 while looking for what a reader sees where the archive is silent:** the
+guard RULE 4 names — *"refuse-to-write if any long Description has lost its newlines"* — exists
+and **was not in the build path**. It lives at `pipeline/append_new_shrines.py:155`, which runs
+only when a person appends shrines by hand. `data:build`, `data:validate` and `verify` never
+called it, so the archive had no standing protection against the single most destructive thing
+that can happen to its prose: a TSV export, which strips newlines inside cells silently and
+flattens every heading, bibliography item and paragraph break in all 169 entries at once. Nothing
+errors. The site loads. Now `scripts/data/validate-description-structure.mjs`, in
+`npm run data:validate`, with a distinct message for the one-entry case and the 169-entry one —
+they are different emergencies and must not read alike.
+
+**One entry has already lost them, and it needs a person.** *Sant Baba Asudaram Darbar (Panno
+Aqil)* is 1,339 characters in a single unbroken block — the archive's only entry with no
+bibliography and its only entry with no paragraph break. Whether an import flattened it or it was
+written that way cannot be told from the data, which is precisely the problem: the failure leaves
+no mark. It is recorded as a named exception rather than fixed, because deciding where a
+surveyor's sentences divide is editorial work on someone else's prose (RULE 2) and the sheet is
+production (RULE 3). The test fails if the exception ever stops being true, so paragraphing it in
+the sheet will tell you to delete the line.
 
 ## Waiting on a person, not on an agent
 
