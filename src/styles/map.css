@@ -1187,6 +1187,24 @@
   flex-wrap: wrap;
 }
 
+/* The principal figure, and what kind of figure it is.
+   A word, not a glyph: this row carried a mosque emoji in front of every
+   site's figure, including Guru Nanak and Shiva. The label is set in the
+   muted ink of the row it sits in and separated by space rather than by a
+   colon or a rule — it is an apposition, not a form field. */
+.preview-figure-row {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  min-inline-size: 0;
+}
+
+.preview-figure-label {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 /* Non-Active site status ("Festival-only", "Ruin", …) — plain wording so a
    visitor doesn't travel expecting a functioning site. */
 .preview-status-note {

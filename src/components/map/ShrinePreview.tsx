@@ -7,6 +7,7 @@ import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { resolveFoundedDate } from '../../lib/i18n/urduFallback';
 import { extractLeadPreviewText } from '../../lib/data/articleParsing';
 import { categoryDisplayLabel } from '../../lib/data/categoryKey';
+import { figureTypeDisplayLabel } from '../../lib/data/figureType';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { infoLevelKey } from '../../lib/data/infoLevel';
 import { supportLevelKey } from '../../lib/data/supportLevel';
@@ -36,7 +37,7 @@ export function ShrinePreview({
   toursEnabled,
   onStartTour,
 }: ShrinePreviewProps) {
-  const { fmtNum } = useLang();
+  const { fmtNum, t } = useLang();
   const { copy, copied } = useShareLink({ copiedMs: 2000 });
   const isShrineSaved = useSavedShrines().includes(shrine.slug);
 
@@ -51,6 +52,19 @@ export function ShrinePreview({
     categoryDisplayLabel(shrine.category, lang as Lang) ??
     (localizeField(shrine.raw, 'Category') || shrine.category);
   const saint = localizeField(shrine.raw, 'Sufi Saint') || shrine.sufiSaint;
+  /* What kind of figure this is, in words, where the sheet records it.
+     This row used to be `🕌 {saint}` — a mosque, the only emoji in `src/`,
+     printed in front of the principal figure of **every** site. 88 of the
+     archive's 171 entries are not Muslim shrines, so it labelled Guru Nanak,
+     Bebe Nanaki, Guru Hargobind and Shiva with a mosque, in a preview card
+     opening from a gurdwara or a mandir pin — while the shrine page's own
+     infobox, two taps away, correctly said "Sikh Guru" or "Deity". The archive
+     contradicted itself between a page and its preview.
+
+     `ShrineInfobox` already solved this: ولی names a Muslim saint specifically
+     and must not label Shiva or Guru Nanak. Same call, same fallback. */
+  const figureLabel =
+    figureTypeDisplayLabel(shrine.figureType ?? '', lang as Lang) ?? t('saintLabel');
   const founded = resolveFoundedDate(shrine.raw, lang as Lang);
 
   const statusKey = siteStatusKey(shrine.status);
@@ -108,7 +122,10 @@ export function ShrinePreview({
       </div>
       {saint && (
         <div className="preview-meta-row">
-          <span>🕌 {saint}</span>
+          <span className="preview-figure-row">
+            <span className="preview-figure-label">{figureLabel}</span>
+            <bdi>{saint}</bdi>
+          </span>
         </div>
       )}
       {(infoLevelKey(shrine.infoLevel) || supportLevelKey(shrine.supportLevel)) && (
