@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify, buildSlugs } from './lib/slugs.mjs';
+import { isPlaceholderSource } from './lib/sourceKind.mjs';
 import { ORDER_CELL_PATTERNS } from './lib/silsila.mjs';
 import { saintNameKey } from './lib/saintIdentity.mjs';
 import { resolveCategory, NON_MUSLIM_TRADITIONS } from './lib/category.mjs';
@@ -1395,6 +1396,14 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
         slug,
         name: item,
         ...(BARE_URL.test(item.trim()) ? { sourceType: 'website' } : {}),
+        /* The archive's own distinction, carried onto the node so a consumer
+           can tell a citation from a placeholder without re-implementing the
+           rule. `/about` counts all 464 as "distinct sources" today; 57 of them
+           point at a body of literature rather than at something a reader could
+           find, and one is a notice that a source was withdrawn. Tagged rather
+           than filtered — RULE 2: the lines belong on the page, counted as what
+           they are. */
+        ...(isPlaceholderSource(item) ? { placeholder: true } : {}),
       };
       sourceByKey.set(key, source);
       sources.push(source);

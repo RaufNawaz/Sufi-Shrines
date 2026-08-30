@@ -1,17 +1,19 @@
 {
-  "generated": "2026-08-30T19:39:25.695Z",
+  "generated": "2026-08-30T23:42:23.407Z",
   "sources": [
     {
       "id": "source:387e8ef241bd",
       "type": "source",
       "slug": "387e8ef241bd",
-      "name": "Pending. Prior source attribution for this entry has been withdrawn as unreliable."
+      "name": "Pending. Prior source attribution for this entry has been withdrawn as unreliable.",
+      "placeholder": true
     },
     {
       "id": "source:5be939d956b0",
       "type": "source",
       "slug": "5be939d956b0",
-      "name": "\"Amb Temples,\" in reference encyclopaedias, for the complex's dating, architecture, and Hindu Shahi context."
+      "name": "\"Amb Temples,\" in reference encyclopaedias, for the complex's dating, architecture, and Hindu Shahi context.",
+      "placeholder": true
     },
     {
       "id": "source:7af1292e490e",
@@ -29,7 +31,8 @@
       "id": "source:cffd677dc6b5",
       "type": "source",
       "slug": "cffd677dc6b5",
-      "name": "Comparative literature on the Katas Raj and Tilla Jogian sites of the Salt Range."
+      "name": "Comparative literature on the Katas Raj and Tilla Jogian sites of the Salt Range.",
+      "placeholder": true
     },
     {
       "id": "source:39b56f78b1c1",
@@ -41,7 +44,8 @@
       "id": "source:c9072bfa43f1",
       "type": "source",
       "slug": "c9072bfa43f1",
-      "name": "General established histories and traditions of Bari Imam and Nurpur Shahan."
+      "name": "General established histories and traditions of Bari Imam and Nurpur Shahan.",
+      "placeholder": true
     },
     {
       "id": "source:fdd412eb6719",
@@ -65,7 +69,8 @@
       "id": "source:61d053652ab3",
       "type": "source",
       "slug": "61d053652ab3",
-      "name": "General literature on the Hindu communities of Sindh and eastern Balochistan and their migration to Karachi and Mumbai."
+      "name": "General literature on the Hindu communities of Sindh and eastern Balochistan and their migration to Karachi and Mumbai.",
+      "placeholder": true
     },
     {
       "id": "source:0e877a3184af",
@@ -101,7 +106,8 @@
       "id": "source:81daef888445",
       "type": "source",
       "slug": "81daef888445",
-      "name": "General established histories of Sindhi literature and Sufism."
+      "name": "General established histories of Sindhi literature and Sufism.",
+      "placeholder": true
     },
     {
       "id": "source:cc06aadd95f9",
@@ -137,7 +143,8 @@
       "id": "source:df5aac8a98b5",
       "type": "source",
       "slug": "df5aac8a98b5",
-      "name": "\"Churrio Jabal Durga Mata Temple,\" in reference encyclopaedias, for the site, its name, and its festivals."
+      "name": "\"Churrio Jabal Durga Mata Temple,\" in reference encyclopaedias, for the site, its name, and its festivals.",
+      "placeholder": true
     },
     {
       "id": "source:1abe0c9d1a65",
@@ -203,7 +210,8 @@
       "id": "source:ab5850648bb4",
       "type": "source",
       "slug": "ab5850648bb4",
-      "name": "General established histories of the Chishti revival in nineteenth-century Punjab."
+      "name": "General established histories of the Chishti revival in nineteenth-century Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:14a5d76f3b66",
@@ -233,13 +241,15 @@
       "id": "source:b7b754ae5da4",
       "type": "source",
       "slug": "b7b754ae5da4",
-      "name": "Local hagiographical (*malfuzat* and *tazkira*) traditions concerning Sayyid Shah Zaman \"Chan Charagh\" and his lineage."
+      "name": "Local hagiographical (*malfuzat* and *tazkira*) traditions concerning Sayyid Shah Zaman \"Chan Charagh\" and his lineage.",
+      "placeholder": true
     },
     {
       "id": "source:448785757ec5",
       "type": "source",
       "slug": "448785757ec5",
-      "name": "General studies of Sufi shrine culture and Muharram devotion in the Pothohar region of Punjab."
+      "name": "General studies of Sufi shrine culture and Muharram devotion in the Pothohar region of Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:2696d938f87e",
@@ -251,7 +261,8 @@
       "id": "source:0377661c8a23",
       "type": "source",
       "slug": "0377661c8a23",
-      "name": "General established histories of Sufism in Sindh and of the Jhok movement."
+      "name": "General established histories of Sufism in Sindh and of the Jhok movement.",
+      "placeholder": true
     },
     {
       "id": "source:b7f08f14373d",
@@ -275,7 +286,8 @@
       "id": "source:969047947460",
       "type": "source",
       "slug": "969047947460",
-      "name": "\"Rakhyal Shah,\" *Wikipedia* (citing Boivin and contemporary press coverage)."
+      "name": "\"Rakhyal Shah,\" *Wikipedia* (citing Boivin and contemporary press coverage).",
+      "placeholder": true
     },
     {
       "id": "source:386ebefbf7f4",
@@ -305,7 +317,8 @@
       "id": "source:112c0ff2dbd1",
       "type": "source",
       "slug": "112c0ff2dbd1",
-      "name": "Contemporary press coverage of Peshawar's surviving Hindu temples (Dawn, The Express Tribune)."
+      "name": "Contemporary press coverage of Peshawar's surviving Hindu temples (Dawn, The Express Tribune).",
+      "placeholder": true
     },
     {
       "id": "source:a71bade55b3d",
@@ -395,7 +408,8 @@
       "id": "source:68a1374510d8",
       "type": "source",
       "slug": "68a1374510d8",
-      "name": "General histories of the Chishti order in South Asia, e.g. K. A. Nizami, *The Life and Times of Shaikh Nizam-ud-din Auliya* and studies of the Chishti-Nizami *silsila*."
+      "name": "General histories of the Chishti order in South Asia, e.g. K. A. Nizami, *The Life and Times of Shaikh Nizam-ud-din Auliya* and studies of the Chishti-Nizami *silsila*.",
+      "placeholder": true
     },
     {
       "id": "source:62de8127e447",
@@ -419,7 +433,8 @@
       "id": "source:1a41be362da0",
       "type": "source",
       "slug": "1a41be362da0",
-      "name": "General established histories of the Qadiri order and Punjabi Sufi poetry."
+      "name": "General established histories of the Qadiri order and Punjabi Sufi poetry.",
+      "placeholder": true
     },
     {
       "id": "source:b03de6ef6534",
@@ -431,7 +446,8 @@
       "id": "source:9f5705219998",
       "type": "source",
       "slug": "9f5705219998",
-      "name": "General established histories of the Chishti order in modern Punjab."
+      "name": "General established histories of the Chishti order in modern Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:b2ef28fbad6d",
@@ -599,7 +615,8 @@
       "id": "source:7e99e7baf657",
       "type": "source",
       "slug": "7e99e7baf657",
-      "name": "Contemporary press coverage of the 2016 reopening (*The Express Tribune*, *Scroll.in*, SBS)."
+      "name": "Contemporary press coverage of the 2016 reopening (*The Express Tribune*, *Scroll.in*, SBS).",
+      "placeholder": true
     },
     {
       "id": "source:2c917233b17d",
@@ -1115,7 +1132,8 @@
       "id": "source:6f5d713e742a",
       "type": "source",
       "slug": "6f5d713e742a",
-      "name": "General accounts of the Jagiasi/Udasi Nanakpanthi tradition in Sindh."
+      "name": "General accounts of the Jagiasi/Udasi Nanakpanthi tradition in Sindh.",
+      "placeholder": true
     },
     {
       "id": "source:828018e1576b",
@@ -1151,7 +1169,8 @@
       "id": "source:636bf416e9b5",
       "type": "source",
       "slug": "636bf416e9b5",
-      "name": "Community and press accounts of Hindu temple grants in Sialkot under the Pervaiz Elahi provincial government (2007) and subsequent renovation (2017)."
+      "name": "Community and press accounts of Hindu temple grants in Sialkot under the Pervaiz Elahi provincial government (2007) and subsequent renovation (2017).",
+      "placeholder": true
     },
     {
       "id": "source:6d526ca18098",
@@ -1199,7 +1218,8 @@
       "id": "source:8703d44784a2",
       "type": "source",
       "slug": "8703d44784a2",
-      "name": "General accounts of Sindhi Hindu Cheti Chand observance and the Jhulelal/Udero Lal tradition."
+      "name": "General accounts of Sindhi Hindu Cheti Chand observance and the Jhulelal/Udero Lal tradition.",
+      "placeholder": true
     },
     {
       "id": "source:b4da85ea9890",
@@ -1415,7 +1435,8 @@
       "id": "source:ad041a40206c",
       "type": "source",
       "slug": "ad041a40206c",
-      "name": "General established histories of the qalandari tradition and of Sehwan Sharif."
+      "name": "General established histories of the qalandari tradition and of Sehwan Sharif.",
+      "placeholder": true
     },
     {
       "id": "source:ce8e0b87a476",
@@ -1445,7 +1466,8 @@
       "id": "source:cac9dd8b015e",
       "type": "source",
       "slug": "cac9dd8b015e",
-      "name": "Local hagiographical tradition concerning Hazrat Makhdoom Burhan-ud-din (to be used with due caution)."
+      "name": "Local hagiographical tradition concerning Hazrat Makhdoom Burhan-ud-din (to be used with due caution).",
+      "placeholder": true
     },
     {
       "id": "source:a08a1083e51a",
@@ -1475,7 +1497,8 @@
       "id": "source:7aeb603e0bcb",
       "type": "source",
       "slug": "7aeb603e0bcb",
-      "name": "General established histories of Punjabi literature."
+      "name": "General established histories of Punjabi literature.",
+      "placeholder": true
     },
     {
       "id": "source:a2103c3d9de4",
@@ -1487,7 +1510,8 @@
       "id": "source:c86e6ffc7401",
       "type": "source",
       "slug": "c86e6ffc7401",
-      "name": "General established histories of Punjabi Sufi poetry."
+      "name": "General established histories of Punjabi Sufi poetry.",
+      "placeholder": true
     },
     {
       "id": "source:a261e0d236eb",
@@ -1499,7 +1523,8 @@
       "id": "source:5699f49c7bb7",
       "type": "source",
       "slug": "5699f49c7bb7",
-      "name": "General established histories of Seraiki literature and Chishti Sufism."
+      "name": "General established histories of Seraiki literature and Chishti Sufism.",
+      "placeholder": true
     },
     {
       "id": "source:4d282ad746ab",
@@ -1595,13 +1620,15 @@
       "id": "source:40dd16c8dddc",
       "type": "source",
       "slug": "40dd16c8dddc",
-      "name": "General literature on the *bhakti* movements of western India and their spread into Sindh and the Punjab."
+      "name": "General literature on the *bhakti* movements of western India and their spread into Sindh and the Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:911925b99e5d",
       "type": "source",
       "slug": "911925b99e5d",
-      "name": "\"Prahladpuri Temple\" and \"Multan Fort,\" in reference encyclopaedias, for the temple's location, history, and destruction."
+      "name": "\"Prahladpuri Temple\" and \"Multan Fort,\" in reference encyclopaedias, for the temple's location, history, and destruction.",
+      "placeholder": true
     },
     {
       "id": "source:e86040da1318",
@@ -1655,7 +1682,8 @@
       "id": "source:eb911502f8be",
       "type": "source",
       "slug": "eb911502f8be",
-      "name": "General established histories of Pashto literature and Sufism."
+      "name": "General established histories of Pashto literature and Sufism.",
+      "placeholder": true
     },
     {
       "id": "source:a9652d0c0402",
@@ -1685,7 +1713,8 @@
       "id": "source:31d6d55afb19",
       "type": "source",
       "slug": "31d6d55afb19",
-      "name": "Contemporary press coverage of the annual Ramapir Mela (Dawn, The Express Tribune)."
+      "name": "Contemporary press coverage of the annual Ramapir Mela (Dawn, The Express Tribune).",
+      "placeholder": true
     },
     {
       "id": "source:768aa2534496",
@@ -1703,7 +1732,8 @@
       "id": "source:862d762304b3",
       "type": "source",
       "slug": "862d762304b3",
-      "name": "General established histories of the Qadiri/Naushahia order in the Punjab."
+      "name": "General established histories of the Qadiri/Naushahia order in the Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:1dbc67c9263a",
@@ -1739,7 +1769,8 @@
       "id": "source:42ee3c429e54",
       "type": "source",
       "slug": "42ee3c429e54",
-      "name": "General established histories of the Sakhi Sarwar cult and the shared religious culture of the Punjab."
+      "name": "General established histories of the Sakhi Sarwar cult and the shared religious culture of the Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:f50b8f7870f9",
@@ -1835,7 +1866,8 @@
       "id": "source:bb9ab76cb514",
       "type": "source",
       "slug": "bb9ab76cb514",
-      "name": "General established accounts of the Shah Noorani shrine and the Lahut Lamakan valley."
+      "name": "General established accounts of the Shah Noorani shrine and the Lahut Lamakan valley.",
+      "placeholder": true
     },
     {
       "id": "source:5ccee079acd4",
@@ -1853,7 +1885,8 @@
       "id": "source:f7e74894f8b6",
       "type": "source",
       "slug": "f7e74894f8b6",
-      "name": "Local histories of Shahpur town, for contrast with its separately documented founding figure, Syed Shams Shah Shirazi."
+      "name": "Local histories of Shahpur town, for contrast with its separately documented founding figure, Syed Shams Shah Shirazi.",
+      "placeholder": true
     },
     {
       "id": "source:600d4bcdc013",
@@ -1871,7 +1904,8 @@
       "id": "source:ea14fb9baae4",
       "type": "source",
       "slug": "ea14fb9baae4",
-      "name": "Contemporary press coverage of the 2019 restoration (Dawn, The Express Tribune, and international agencies)."
+      "name": "Contemporary press coverage of the 2019 restoration (Dawn, The Express Tribune, and international agencies).",
+      "placeholder": true
     },
     {
       "id": "source:8263869272d0",
@@ -1979,7 +2013,8 @@
       "id": "source:d29ac93c8775",
       "type": "source",
       "slug": "d29ac93c8775",
-      "name": "General established histories of the Qadiri order in the Punjab."
+      "name": "General established histories of the Qadiri order in the Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:5efbfe24902f",
@@ -2057,7 +2092,8 @@
       "id": "source:fb9b2148aa74",
       "type": "source",
       "slug": "fb9b2148aa74",
-      "name": "Contemporary press reporting (Arab News, Dawn, The Express Tribune) on the temple and the 2019 discoveries."
+      "name": "Contemporary press reporting (Arab News, Dawn, The Express Tribune) on the temple and the 2019 discoveries.",
+      "placeholder": true
     },
     {
       "id": "source:e498b21796ce",
@@ -2093,7 +2129,8 @@
       "id": "source:3f0dbc4c8d0b",
       "type": "source",
       "slug": "3f0dbc4c8d0b",
-      "name": "Contemporary press reporting (Dawn, The Express Tribune) on Karachi's Hindu heritage and festivals."
+      "name": "Contemporary press reporting (Dawn, The Express Tribune) on Karachi's Hindu heritage and festivals.",
+      "placeholder": true
     },
     {
       "id": "source:c3c6fa20ebeb",
@@ -2117,7 +2154,8 @@
       "id": "source:61a3e7f8037e",
       "type": "source",
       "slug": "61a3e7f8037e",
-      "name": "Contemporary press reporting (Dawn, Youlin Magazine, The Express Tribune) on Manora and its temple."
+      "name": "Contemporary press reporting (Dawn, Youlin Magazine, The Express Tribune) on Manora and its temple.",
+      "placeholder": true
     },
     {
       "id": "source:886d9e2e6149",
@@ -2135,7 +2173,8 @@
       "id": "source:847b42291725",
       "type": "source",
       "slug": "847b42291725",
-      "name": "\"Shrine at Odero Lal,\" in reference encyclopaedias, for the dual Hindu-Muslim character of the site."
+      "name": "\"Shrine at Odero Lal,\" in reference encyclopaedias, for the dual Hindu-Muslim character of the site.",
+      "placeholder": true
     },
     {
       "id": "source:54da55809198",
@@ -2159,7 +2198,8 @@
       "id": "source:7b475d312b81",
       "type": "source",
       "slug": "7b475d312b81",
-      "name": "General established histories and traditions of Karachi's patron saint."
+      "name": "General established histories and traditions of Karachi's patron saint.",
+      "placeholder": true
     },
     {
       "id": "source:a11af7fef00f",
@@ -2213,7 +2253,8 @@
       "id": "source:9cf20af00b48",
       "type": "source",
       "slug": "9cf20af00b48",
-      "name": "General established histories of the Suhrawardi order and of Multan."
+      "name": "General established histories of the Suhrawardi order and of Multan.",
+      "placeholder": true
     },
     {
       "id": "source:285b13d4cd97",
@@ -2273,7 +2314,8 @@
       "id": "source:b8f4e190b157",
       "type": "source",
       "slug": "b8f4e190b157",
-      "name": "General established histories of the Chishti order and of Pakpattan."
+      "name": "General established histories of the Chishti order and of Pakpattan.",
+      "placeholder": true
     },
     {
       "id": "source:b0a8dd559505",
@@ -2375,7 +2417,8 @@
       "id": "source:2d2fb1e4e621",
       "type": "source",
       "slug": "2d2fb1e4e621",
-      "name": "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, and general histories of Mughal-era Punjabi Sufism, for the life and cult of the saint."
+      "name": "Alam Faqri, *Tazkirah Awliya-e-Pakistan*, and general histories of Mughal-era Punjabi Sufism, for the life and cult of the saint.",
+      "placeholder": true
     },
     {
       "id": "source:8e27f12ced60",
@@ -2399,7 +2442,8 @@
       "id": "source:9bf5dd25ab9a",
       "type": "source",
       "slug": "9bf5dd25ab9a",
-      "name": "General studies of the Islamisation of the Punjab and of warrior-saint (*ghazi*/*shahid*) cults in South Asian Islam."
+      "name": "General studies of the Islamisation of the Punjab and of warrior-saint (*ghazi*/*shahid*) cults in South Asian Islam.",
+      "placeholder": true
     },
     {
       "id": "source:3311d822b0b8",
@@ -2411,7 +2455,8 @@
       "id": "source:685e097eb0bb",
       "type": "source",
       "slug": "685e097eb0bb",
-      "name": "General established histories of the Suhrawardi order and of Uch Sharif."
+      "name": "General established histories of the Suhrawardi order and of Uch Sharif.",
+      "placeholder": true
     },
     {
       "id": "source:94e993951ce2",
@@ -2495,13 +2540,15 @@
       "id": "source:fac5ddc4aa3e",
       "type": "source",
       "slug": "fac5ddc4aa3e",
-      "name": "General established accounts of Mangho Pir, its crocodiles and springs, and the Sheedi community."
+      "name": "General established accounts of Mangho Pir, its crocodiles and springs, and the Sheedi community.",
+      "placeholder": true
     },
     {
       "id": "source:a050bca7b6fd",
       "type": "source",
       "slug": "a050bca7b6fd",
-      "name": "General established histories of the Qadiri-Chishti tradition in modern Punjab."
+      "name": "General established histories of the Qadiri-Chishti tradition in modern Punjab.",
+      "placeholder": true
     },
     {
       "id": "source:6f2d84610779",
@@ -2531,7 +2578,8 @@
       "id": "source:97ad4b876617",
       "type": "source",
       "slug": "97ad4b876617",
-      "name": "General established histories of Sindhi Sufi poetry."
+      "name": "General established histories of Sindhi Sufi poetry.",
+      "placeholder": true
     },
     {
       "id": "source:45f6b03645fb",
@@ -2549,31 +2597,36 @@
       "id": "source:c9bd9ee554b9",
       "type": "source",
       "slug": "c9bd9ee554b9",
-      "name": "General established histories of the Suhrawardi order and studies of the architecture of Multan."
+      "name": "General established histories of the Suhrawardi order and studies of the architecture of Multan.",
+      "placeholder": true
     },
     {
       "id": "source:66d435c68316",
       "type": "source",
       "slug": "66d435c68316",
-      "name": "General established histories and legends of the saints of Multan."
+      "name": "General established histories and legends of the saints of Multan.",
+      "placeholder": true
     },
     {
       "id": "source:4bd04a7d32f0",
       "type": "source",
       "slug": "4bd04a7d32f0",
-      "name": "General established histories of Multan and its saints."
+      "name": "General established histories of Multan and its saints.",
+      "placeholder": true
     },
     {
       "id": "source:c4143388fe5a",
       "type": "source",
       "slug": "c4143388fe5a",
-      "name": "General established histories of the Qadiri-Gilani sayyids of Multan."
+      "name": "General established histories of the Qadiri-Gilani sayyids of Multan.",
+      "placeholder": true
     },
     {
       "id": "source:0c01d32a0939",
       "type": "source",
       "slug": "0c01d32a0939",
-      "name": "\"Tilla Jogian,\" in reference encyclopaedias, for the site's geography, history, and Nath associations."
+      "name": "\"Tilla Jogian,\" in reference encyclopaedias, for the site's geography, history, and Nath associations.",
+      "placeholder": true
     },
     {
       "id": "source:a666a88a0b9c",
@@ -2627,7 +2680,8 @@
       "id": "source:d0f0df38455d",
       "type": "source",
       "slug": "d0f0df38455d",
-      "name": "For life and dates, standard biographies of Iqbal (the 2026 field survey preserves some variant dates, noted above)."
+      "name": "For life and dates, standard biographies of Iqbal (the 2026 field survey preserves some variant dates, noted above).",
+      "placeholder": true
     },
     {
       "id": "source:2a1ab364c7bd",
@@ -2657,7 +2711,8 @@
       "id": "source:9d94f7dfe1ea",
       "type": "source",
       "slug": "9d94f7dfe1ea",
-      "name": "General established histories and heritage/conservation studies of the monuments of Uch Sharif."
+      "name": "General established histories and heritage/conservation studies of the monuments of Uch Sharif.",
+      "placeholder": true
     },
     {
       "id": "source:d9dde2f53dd6",
@@ -2705,7 +2760,8 @@
       "id": "source:81ba5eb3eba9",
       "type": "source",
       "slug": "81ba5eb3eba9",
-      "name": "Contemporary press reporting (Dawn, \"The thriving Shiva festival in Umarkot\") on Maha Shivaratri at the temple."
+      "name": "Contemporary press reporting (Dawn, \"The thriving Shiva festival in Umarkot\") on Maha Shivaratri at the temple.",
+      "placeholder": true
     },
     {
       "id": "source:bdb3818e4310",
@@ -2717,7 +2773,8 @@
       "id": "source:6f21cfb141af",
       "type": "source",
       "slug": "6f21cfb141af",
-      "name": "Local histories of Umarkot (Amarkot) and the birth of Akbar."
+      "name": "Local histories of Umarkot (Amarkot) and the birth of Akbar.",
+      "placeholder": true
     },
     {
       "id": "source:fdf6af5d4004",

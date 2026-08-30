@@ -516,6 +516,38 @@ cannot do.
   it currently reads *"Machine-extracted claims … are marked unreviewed wherever they appear"* and
   ties the chip to machine extraction. That rewording needs Urdu.
 
+- **`/about` says the archive rests on "464 distinct sources"; 57 of those are placeholders.**
+  *Measured 30 August 2026 (KB1-2). The classification now reaches the data; what the page says
+  about it is yours.* The archive's own `GENERIC` rule in
+  `pipeline/build_sources_registry.py` defines a placeholder — "General established histories of
+  the Chishti revival in nineteenth-century Punjab", "Local hagiographical tradition … to be used
+  with due caution" — and **one of the 57 is a withdrawal notice**: *"Pending. Prior source
+  attribution for this entry has been withdrawn as unreliable."* It holds a source id and a slug
+  and is counted among the archive's distinct sources. 59 of 533 citations point at one.
+
+  The separation is documented as load-bearing in three places — `build_sources_registry.py`'s
+  docstring ("until they are separated you cannot tell a sourced claim from an unsourced one"),
+  HANDOVER §3, and `BADGE_GLOSSARY.md` ("without that separation the badge would be flattering
+  rather than honest"). It was applied to the **badge**, in Python, offline, writing TSVs that
+  nothing ships — and never to the **count**.
+
+  **Two of the 57 are in the prominent shared list, and a reader can walk to one.** `SourceReach`
+  links any citation shared by two or more entries to `/about#source-…`, so following "also cited
+  by 1" under a Uch Sharif bibliography lands on "General established histories of the Suhrawardi
+  order and of Uch Sharif."
+
+  Done here: the rule is ported to `src/lib/data/sourceKind.ts` and
+  `scripts/data/lib/sourceKind.mjs`, `kg-sources.json` tags all 57, `buildSourceIndex` returns
+  `placeholders`, and `sourceKindSync.test.ts` runs all three implementations — including the
+  Python — over every one of the 464 names and requires identical answers.
+
+  **Nothing renders it, because the choice is a wording one and it is yours.** Three options,
+  and they say different things: leave the headline at 464 and mark the 57 in the list; drop the
+  headline to 407 and say "distinct citable sources"; or publish both, the way `/about` already
+  publishes "of them read and signed off by a human reader — 0". **Do not delete the lines**
+  (RULE 2) — the withdrawal notice is among the most honest sentences in the archive. Whichever
+  way it goes, the copy lands in `uiStrings` and needs Urdu.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the

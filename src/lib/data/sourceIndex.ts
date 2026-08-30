@@ -1,4 +1,5 @@
 import type { Shrine } from '../../types/shrine';
+import { isPlaceholderSource } from './sourceKind';
 import { getFieldValue } from './fieldAliasing';
 import { bibliographyItems, citationKey } from './bibliography';
 
@@ -31,6 +32,12 @@ export interface IndexedSource {
   key: string;
   /** The entries citing it, in the order encountered. */
   shrines: { slug: string; name: string }[];
+  /**
+   * True when the line points at a body of literature rather than at something
+   * a reader could go and find — the archive's own `GENERIC` rule, which had
+   * been applied to the provenance badge and never to this count.
+   */
+  placeholder: boolean;
 }
 
 export interface SourceIndex {
@@ -46,6 +53,16 @@ export interface SourceIndex {
   triangulated: number;
   /** Entries citing nothing at all. */
   uncited: number;
+  /**
+   * How many of `sources` are placeholders rather than citations.
+   *
+   * 57 of 464 when this was added (30 August 2026), including one notice that a
+   * source had been *withdrawn*. Exposed rather than subtracted: the lines
+   * belong on the page (RULE 2), and whether the headline should read 464, or
+   * 407, or 464-with-57-marked is a wording decision recorded for Rauf in
+   * `docs/SESSION_RESUME.md`. Nothing renders this yet.
+   */
+  placeholders: number;
 }
 
 /**
@@ -118,7 +135,7 @@ export function buildSourceIndex(shrines: readonly Shrine[]): SourceIndex {
       distinctHere.add(key);
       let source = byKey.get(key);
       if (!source) {
-        source = { name: item, key, shrines: [] };
+        source = { name: item, key, shrines: [], placeholder: isPlaceholderSource(item) };
         byKey.set(key, source);
       }
       if (!source.shrines.some((s) => s.slug === shrine.slug)) {
@@ -139,6 +156,7 @@ export function buildSourceIndex(shrines: readonly Shrine[]): SourceIndex {
     sources,
     citations,
     shared: sources.filter((s) => s.shrines.length > 1).length,
+    placeholders: sources.filter((s) => s.placeholder).length,
     singleSourced,
     triangulated,
     uncited,
