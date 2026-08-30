@@ -137,7 +137,24 @@ A cycle is not finished when the code works. It is finished when a stranger coul
 
 ---
 
-## 6. The standing lessons, because they keep costing sessions
+## 6. If you are running as a `/loop`
+
+**Cadence: ~600 seconds (10 minutes).** Set by Rauf on 30 August 2026, replacing 25 minutes, and it
+applies to every session he has running rather than to this project alone. A cycle takes several
+minutes of real work, so at ten minutes the loop reads as *resume shortly after finishing* rather
+than *wait around*. The runtime clamps to 60–3600s; do not go near the floor, because a wakeup that
+fires while the last cycle's thinking is still warm buys nothing and costs a turn.
+
+**A shorter cadence makes the shared tree more dangerous, not less.** `npm run build` and
+`npm run verify` measure the **working tree**, so a number taken while the other session is
+mid-edit describes a state that never existed. At twenty-five minutes that was rare; at ten it is
+routine. The rule from §2 holds and matters more: **ruling a cause OUT from a dirty tree is safe,
+ruling one IN is not.**
+
+The loop is session-only and dies with the session. That is what §5 and this whole file are for:
+the cadence is a preference, the resumability is the design.
+
+## 7. The standing lessons, because they keep costing sessions
 
 - **Measure the instrument before believing it.** Several of this project's worst hours came from
   a tool that was measuring something adjacent to the question and answering confidently.
