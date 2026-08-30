@@ -39,11 +39,13 @@ export const PUBLICATION = {
    * requires of the people using the data is not a rename, it is a licence
    * change. It stays until LICENSE-data.md does, and that is Rauf's call.
    *
-   * It also already disagrees with the licence about the version — LICENSE-data.md
-   * says v1.0.0 and this says v2.0.0 — and the release README says year 2025
-   * where both of these say 2026. Three strings, one archive, three answers.
-   * Recorded rather than reconciled: a version and a year are facts, and RULE 2
-   * has no exception for metadata. */
+   * The version and year disagreement this comment used to record — LICENSE-data.md
+   * at v1.0.0, this at v2.0.0, the release README at year 2025 — was settled by
+   * Rauf on 30 August 2026 in favour of **v2.0.0 / 2026**, and the other four
+   * files were moved to match. `datasetVersionsAgree.test.ts` now fails if they
+   * ever drift again, because three strings and three answers is not a thing a
+   * reader can be asked to adjudicate. The archive NAME is still unreconciled and
+   * is still deliberate — see the paragraph above. */
   attribution:
     'Nawaz, Rauf. Sufi Shrines of Pakistan (v2.0.0). Harvard University, 2026. https://github.com/raufnawaz/sufi-shrines',
 } as const;

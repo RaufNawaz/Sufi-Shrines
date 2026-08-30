@@ -64,3 +64,45 @@ describe('publication metadata', () => {
     expect(line).toContain(PUBLICATION.siteUrl);
   });
 });
+
+/**
+ * Five files state the dataset's version and four state its year. Until
+ * 30 August 2026 they gave THREE different answers — LICENSE-data.md v1.0.0,
+ * citation.ts v2.0.0, the release README v1.0.0 and year 2025 — and every one of
+ * them was reachable by a reader who wanted to cite the archive correctly. The
+ * test above only ever compared citation.ts against CITATION.cff, so the other
+ * three drifted in a blind spot for as long as they liked.
+ *
+ * A version and a year are facts about a release, so this is a RULE 2 matter and
+ * not a formatting one. The invariant is cheap; the blind spot was not.
+ */
+describe('every file that states a version states the same one', () => {
+  const SOURCES: Array<{ file: string; re: RegExp }> = [
+    { file: 'CITATION.cff', re: /^version:\s*'([^']+)'/m },
+    { file: 'codemeta.json', re: /"version":\s*"([^"]+)"/ },
+    { file: 'data/datapackage.json', re: /"version":\s*"([^"]+)"/ },
+    { file: 'LICENSE-data.md', re: /\(v(\d+\.\d+\.\d+)\)/ },
+    { file: 'scripts/data/release.mjs', re: /dataset_version:\s*'([^']+)'/ },
+  ];
+
+  it.each(SOURCES)('$file agrees with PUBLICATION.version', ({ file, re }) => {
+    const found = re.exec(read(file))?.[1];
+    expect(found, `no version found in ${file}`).toBeTruthy();
+    expect(found, `${file} disagrees with citation.ts`).toBe(PUBLICATION.version);
+  });
+
+  it('the release README template does not still say 2025', () => {
+    // It did, for the whole time the archive claimed 2026 everywhere else.
+    const release = read('scripts/data/release.mjs');
+    const cited = /Harvard University, (\d{4})\./.exec(release)?.[1];
+    expect(cited, 'no citation year in release.mjs').toBeTruthy();
+    expect(cited).toBe('2026');
+  });
+
+  it('the year is the same in the licence, the citation file and codemeta', () => {
+    expect(read('LICENSE-data.md')).toContain('Harvard University, 2026.');
+    expect(read('CITATION.cff')).toContain("date-released: '2026-");
+    expect(read('codemeta.json')).toContain('"copyrightYear": 2026');
+    expect(archiveCitation()).toContain('2026');
+  });
+});

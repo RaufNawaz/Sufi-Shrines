@@ -90,7 +90,7 @@ const shrinesJson = JSON.parse(readFileSync(join(ROOT, 'data/shrines.json'), 'ut
 const version = {
   name:           'sufi-shrines',
   schema_version: shrinesJson.schema_version,
-  dataset_version: '1.0.0',
+  dataset_version: '2.0.0',
   shrine_count:   shrinesJson.count,
   source_updated: shrinesJson.generated,
 };
@@ -130,7 +130,7 @@ console.log(shrines.rows[0]);   // first shrine object
 
 See \`CITATION.cff\` for the full citation or use:
 
-> Nawaz, Rauf. *Mapping the Shrines of Pakistan* (v1.0.0). Harvard University, 2025.
+> Nawaz, Rauf. *Mapping the Shrines of Pakistan* (v2.0.0). Harvard University, 2026.
 > <https://github.com/raufnawaz/sufi-shrines>
 
 ## License

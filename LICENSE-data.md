@@ -15,7 +15,7 @@ SPDX identifier: `ODbL-1.0`
 When you use this dataset, you must credit the source. The following attribution
 satisfies the ODbL's Attribution requirement:
 
-> Nawaz, Rauf. _Sufi Shrines of Pakistan_ (v1.0.0). Harvard University, 2026.
+> Nawaz, Rauf. _Sufi Shrines of Pakistan_ (v2.0.0). Harvard University, 2026.
 > <https://github.com/raufnawaz/sufi-shrines>
 
 For academic citations use the `CITATION.cff` file at the repository root.
