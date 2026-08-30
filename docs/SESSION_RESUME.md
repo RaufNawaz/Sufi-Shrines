@@ -50,7 +50,7 @@ the reason the rest is credible.
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
 | The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
 | The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
-| Search said 44 matches and showed 40, silently | *next commit* |
+| Search said 44 matches and showed 40, silently | `d096824` |
 
 ---
 
@@ -134,6 +134,11 @@ cannot do.
   commit before touching `check-bundle-budget.mjs`.
 - Run the whole `npm run verify` before every commit, and mutation-check every new test by
   reverting the fix and watching it fail.
+- **`innerText()` is rendered text; `textContent` is source text.** A locator on anything with
+  `text-transform: uppercase` — `.palette-status`, `.settings-section-heading`, the entity
+  kickers — reads back in capitals. A lowercase pattern against it matches nothing, and the
+  failure looks like the value never arriving rather than like a case mismatch. It cost two
+  failures from one cause on 30 August, one loud and one silent.
 
 ## How the session is meant to run
 
