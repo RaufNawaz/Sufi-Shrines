@@ -249,6 +249,15 @@ for (const p of dates.proposals) {
  * place to record the resolution, which for several of them will be "needs a
  * field visit".
  */
+/* The orders the taxonomy actually holds, for detecting a finding that has
+   already been acted on. Read from the built graph rather than the seeds, so it
+   reflects what shipped. */
+const knownOrderSlugs = new Set(
+  (JSON.parse(readFileSync(join(ROOT, 'data', 'kg.json'), 'utf8')).orders ?? []).map(
+    (o) => o.slug,
+  ),
+);
+
 const FINDING_BUCKETS = [
   ['lineage', lineage, ['explicitNonRelations']],
   ['order', orders, ['newOrdersNeeded', 'proseValuedSilsila']],
@@ -261,13 +270,25 @@ for (const [kind, doc, buckets] of FINDING_BUCKETS) {
     const items = doc[bucket];
     if (!Array.isArray(items)) continue;
     for (const [i, item] of items.entries()) {
+      /* `subjectName`/`objectName` before the positional fallback.
+         `explicitNonRelations` items carry no slug at all — they are a refusal
+         to relate two NAMES — so all six landed on `${bucket}-${i}` and the
+         reviewer saw six priority-1 rows reading "explicitNonRelations-0"
+         through "-5", with the finding itself only in the notes column. A
+         review row whose subject is an array index is a row nobody opens. */
+      const named =
+        item.subjectName && item.objectName
+          ? `${item.subjectName} ↛ ${item.objectName}`
+          : (item.subjectName ?? '');
       const subject =
         item.canonicalSlug ??
         item.proposedSlug ??
         item.saintSlug ??
         item.shrineSlug ??
         item.subjectSlug ??
-        (Array.isArray(item.slugs) ? item.slugs.join(' + ') : `${bucket}-${i}`);
+        (Array.isArray(item.slugs) ? item.slugs.join(' + ') : '') ??
+        '';
+      const label = subject || named || `${bucket}-${i}`;
       /* The bucket's own explanation, under whichever key it chose. Verbatim —
          these sentences are the finding. */
       const why =
@@ -277,11 +298,31 @@ for (const [kind, doc, buckets] of FINDING_BUCKETS) {
         item.reason ??
         item.note ??
         '';
+      /* A finding the archive has since acted on is not an open question, and
+         leaving it at priority 1 spends the reviewer's scarcest attention on
+         work already done. Four of the `newOrdersNeeded` rows are exactly that:
+         azeemia, malamati, rashidi and shattari were added to the taxonomy on
+         28 August, and all four still sat at the top of the queue.
+
+         Matched on a prefix in EITHER direction, because the proposal writes the
+         name it read ("malamatiyya") and the seed chose the sheet's form
+         ("malamati") — RULE 3, a sheet value is the join key. Narrow on purpose,
+         and it prints what it matched so the claim column says so out loud
+         rather than a row quietly vanishing. */
+      const resolvedBy =
+        bucket === 'newOrdersNeeded' && subject
+          ? [...knownOrderSlugs].find(
+              (slug) => slug.startsWith(subject) || subject.startsWith(slug),
+            )
+          : undefined;
+
       rows.push({
-        id: `finding:${kind}:${bucket}:${subject}`,
+        id: `finding:${kind}:${bucket}:${label}`,
         kind: `finding/${kind}`,
-        priority: 1,
-        claim: `${subject} — ${bucket}`,
+        priority: resolvedBy ? 3 : 1,
+        claim: resolvedBy
+          ? `${label} — ${bucket} — RESOLVED: in the taxonomy as "${resolvedBy}"`
+          : `${named || label} — ${bucket}`,
         as_recorded: verbatim(item.asRecorded ?? item.principalFigure ?? ''),
         confidence: '',
         flags: bucket,
@@ -290,7 +331,12 @@ for (const [kind, doc, buckets] of FINDING_BUCKETS) {
           Array.isArray(item.quotes) ? item.quotes.join('\n\n') : (item.quote ?? ''),
         ),
         source: verbatim(item.source ?? item.shrineSlug ?? ''),
-        notes: verbatim(why),
+        notes: verbatim(
+          resolvedBy
+            ? `RESOLVED — the order now exists in data/kg.json as "${resolvedBy}", so there is ` +
+                `nothing left to decide here. Original finding: ${why}`
+            : why,
+        ),
         verdict: '',
         reviewer_note: '',
       });

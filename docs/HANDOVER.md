@@ -4170,6 +4170,34 @@ both redirects.
     handled), and that overflow. **Check the instrument before believing the finding** is the
     only reason the ones that survived are worth anything.
 
+158. **The review queue's top tier had ten rows that were either already done or unreadable.**
+    *Found 30 August 2026, looking for why a well-built queue has 255 rows and 0 verdicts.* The
+    machinery is good — priority tiers, flags, verbatim quotes, a `/review` desk, an applier — so
+    the bottleneck is a person's attention, and the queue was spending it badly at the exact point
+    where attention is scarcest.
+
+    - **Four `newOrdersNeeded` rows asked a question answered on 28 August.** Should the Azeemia,
+      Malamati, Rashidi and Shattari become orders? All four are in the taxonomy. All four still
+      sat at priority 1, which is what a reviewer opens first. The generator now checks the
+      built graph and demotes them, saying so in the claim: *"RESOLVED: in the taxonomy as
+      'malamati'"*. Matched on a prefix in either direction, because the proposal writes the name
+      it read (`malamatiyya`) and the seed took the sheet's form (`malamati`) — RULE 3.
+    - **Six `explicitNonRelations` rows read `explicitNonRelations-0` through `-5`.** Those items
+      carry no slug — they are a refusal to relate two *names* — and the generator's fallback
+      chain had no name in it, so the finding lived only in the notes column. They now read
+      *"Syed Kasteer Gul (Kaka Sahib) ↛ Akhund Panju Baba"*. **A priority-1 row whose subject is
+      an array index is a row nobody opens.**
+
+    Priority 1: 89 → 85, and six of the survivors became legible.
+
+    **The invariant this broke was worth restating rather than exempting.**
+    `reviewWorksheet.test.ts` asserted "every flagged row is priority 1", which my demotion
+    violated. The rule it was reaching for is *"a flag means an open conflict, and open conflicts
+    come first"* — and a finding the archive has acted on is not an open conflict. The test now
+    says that, requires a demoted row to announce `RESOLVED:` in its claim and record what
+    resolved it in its notes, and additionally fails on any finding row whose subject is an array
+    index. A quietly sinking row would be worse than the problem.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

@@ -137,12 +137,41 @@ describe('every conflict bucket reaches the queue', () => {
     });
   }
 
-  it('puts every flagged row at the front of the queue', () => {
-    for (const row of rows) {
-      if ((row.flags ?? '').trim()) {
-        expect(row.priority, `${row.id} is flagged but not priority 1`).toBe('1');
-      }
+  it('puts every flagged row at the front of the queue, unless it is already resolved', () => {
+    /* The rule is "a flag means an open conflict, and open conflicts come
+       first". The exemption is not a loophole in it — it is the same rule
+       stated properly: a finding the archive has since ACTED ON is not an open
+       conflict, and leaving it at priority 1 spends the reviewer's scarcest
+       attention on work already done.
+
+       Four rows earn it today. `newOrdersNeeded` asked whether the Azeemia,
+       Malamati, Rashidi and Shattari should become orders; all four were added
+       to the taxonomy on 28 August, and all four were still sitting at the top
+       of a queue with 0 verdicts on it. The generator detects that against the
+       built graph and says so in the claim, so a demoted row announces why
+       rather than quietly sinking. */
+    const resolved = rows.filter((row) => (row.claim ?? '').includes('RESOLVED:'));
+    expect(resolved.length, 'a resolved row must say so in its claim').toBeGreaterThan(0);
+    for (const row of resolved) {
+      expect(row.priority, `${row.id} is resolved but still at the front`).not.toBe('1');
+      expect(row.notes, `${row.id} must record what resolved it`).toContain('RESOLVED');
     }
+    for (const row of rows) {
+      if (!(row.flags ?? '').trim()) continue;
+      if ((row.claim ?? '').includes('RESOLVED:')) continue;
+      expect(row.priority, `${row.id} is flagged but not priority 1`).toBe('1');
+    }
+  });
+
+  it('never leaves a finding row with an array index for a subject', () => {
+    /* Six `explicitNonRelations` rows read "explicitNonRelations-0" through
+       "-5", because those items carry no slug — they are a refusal to relate two
+       NAMES — and the generator's fallback chain had no name in it. A priority-1
+       review row whose subject is an array index is a row nobody opens. */
+    const placeholders = rows
+      .filter((row) => /—\s*\w+-\d+\s*$|^\w+-\d+\s/.test(row.claim ?? ''))
+      .map((row) => row.claim);
+    expect(placeholders).toEqual([]);
   });
 });
 
