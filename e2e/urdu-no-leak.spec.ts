@@ -213,7 +213,33 @@ const BUDGET: Record<string, number> = {
      note is about: **a route repointed is a budget invalidated.** Changing
      `path` here without re-running the walker leaves a number describing a page
      that is no longer being visited. */
-  'saint:multi-order': 28,
+  /* 28 → 29 on 30 August 2026, and the whole increase is one string:
+
+       shaheed (as popular belief, not a formal ruling — per the survey)
+
+     It is a `title` that had been sitting in a date proposal pointing at a
+     short-form slug (`wasif-ali-wasif`) which resolves to nobody, so `build-kg`
+     dropped the proposal silently and the page never rendered it. Repointing it
+     at `hazrat-wasif-ali-wasif-awan` (§9.178) recovered the title, along with
+     `Sakhi Lajpal`, `Gharib Nawaz` and `wali-e-kamil` on two other figures.
+
+     Declared rather than translated, on this file's own precedent for the dates
+     two entries below: it is the survey's hedge about whether a man is called a
+     martyr, and paraphrasing a hedge is exactly what RULE 2 forbids. "shaheed"
+     alone is شہید; "as popular belief, not a formal ruling" is the part the
+     dictionary cannot carry without deciding something the survey declined to.
+
+     Measured against the live page rather than inferred from the diff: **29
+     declared, `undeclared` still empty.** The archive is not leaking English, it
+     is disclosing more of what it holds — the same conclusion every previous
+     raise in this file reached, and the reason `undeclared` is the assertion
+     while these numbers are only budgets.
+
+     A process note, because this drifted for a whole session before anyone saw
+     it: `npm run verify` does NOT run e2e. A day of data work can move an e2e
+     budget with every gate green. The features session found this one by
+     running the suite, not by a gate firing. */
+  'saint:multi-order': 29,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine

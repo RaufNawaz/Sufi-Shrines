@@ -125,6 +125,14 @@ npm run data:review
 npm run verify
 ```
 
+**`npm run verify` does NOT run e2e.** That is deliberate — e2e needs a build and takes minutes —
+but it means a day of *data* work can move an **e2e budget** with every gate green. It happened on
+30 August: recovering three figures' titles pushed `urdu-no-leak`'s `saint:multi-order` from 28 to
+29, and nothing said so until the other session ran the suite. If a change adds or recovers text
+that reaches a rendered page — a title, an alt-name, a quote — run
+`npm run build:e2e && npx playwright test e2e/urdu-no-leak.spec.ts` before committing. It is the
+cheapest of the e2e specs and the one data work actually moves.
+
 `figureProvenance.test.ts` pins the figure count; update it **with a sentence saying what the new
 figures are**, in the style of the entries above it. The pin moving is the point of the pin.
 
