@@ -107,8 +107,32 @@ export function rowText(row) {
     .join('\n');
 }
 
+/**
+ * Split prose into sentences, treating a markdown heading as its own unit.
+ *
+ * A heading has no terminating full stop, so a plain split on `[.!?]` glues it
+ * to the sentence after it: `## The Life of the Saint Born at Uch in 1308 into
+ * the Bukhari sayyid family founded by his grandfather Surkh-Posh…`. That is
+ * one string as far as everything downstream is concerned, and it costs twice.
+ *
+ * It corrupts the **names** list, because the capitalised-run matcher reads
+ * "Saint Born", "Guru Before", "Tent-Tree The" and "Family Shah Inayat" as
+ * people — several of which survived into a shortlist of "sentences naming
+ * someone not in the graph", which is exactly the list a reader is meant to
+ * trust. And it makes every quote in the pile start with a heading, which is
+ * why several adjudication quotes recorded today begin `## Overview` or
+ * `## The Life of the Saint`.
+ *
+ * Splitting on the heading rather than deleting it: a heading names a section
+ * and is worth seeing when `--all` prints the pile, and it will simply never
+ * contain a relation word beside two capitalised names.
+ */
 export function sentencesOf(text) {
-  return text.split(/(?<=[.!?])\s+/).map(norm).filter(Boolean);
+  return text
+    .split(/(?<=[.!?])\s+|(?=^#{2,}\s)|(?<=^#{2,}[^\n]*)\n/gm)
+    .flatMap((chunk) => chunk.split(/(?<=^#{2,}[^\n]{0,120}?)(?=[A-Z][a-z]+ )/m))
+    .map(norm)
+    .filter(Boolean);
 }
 
 /**

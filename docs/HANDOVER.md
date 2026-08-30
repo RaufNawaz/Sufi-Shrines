@@ -5250,6 +5250,42 @@ both redirects.
     duplicate. Untracked, so nothing to revert. It will happen again to whoever is next in
     `src/styles/`.
 
+180. **A markdown heading has no full stop, so the sentence splitter was gluing it to the sentence
+    after it — and inventing people.** *Found 30 August 2026, filtering the reading piles for
+    sentences naming somebody not yet in the graph.* That filter is meant to be the high-yield one:
+    a fresh name beside a relation word is where an unbuilt tie lives. Instead it returned
+    **"Saint Born"**, **"Guru Before"**, **"Tent-Tree The"** and **"Family Shah Inayat"** — none of
+    them people, all of them the tail of a `## Heading` fused to the first words of the paragraph
+    below it:
+
+    > `## The Life of the Saint` + `Born at Uch in 1308 into the Bukhari sayyid family…`
+
+    The capitalised-run matcher then read "Saint Born" as a name. **A list a reader is meant to
+    trust, seeded with people who do not exist** — the same failure mode as the report that called a
+    solved thing unfixable (§9.163), reached from the other direction: not a false negative hiding
+    work, a false positive inventing it.
+
+    It cost twice. Every adjudication quote recorded from a paragraph-opening sentence began
+    `## Overview` or `## The Life of the Saint`, which is why several look odd in
+    `kinAdjudicated` — they were quoting a heading as though it were prose.
+
+    `sentencesOf` now treats a heading as its own unit rather than deleting it: a heading names a
+    section and is worth seeing when `--all` prints the pile, and it will never contain a relation
+    word beside two capitalised names.
+
+    **The change invalidated eight quotes already recorded**, because a stored quote that begins
+    with a heading no longer matches any sentence — the ruled-out counts fell from 43 and 27 to 41
+    and 21 the moment it landed. Repaired by re-deriving each against the new units rather than by
+    hand. Four remain unmatchable and are *correct as they are*: one is sourced from `entries/`
+    rather than the corpus, and the rest span a sentence boundary. They still verify against their
+    source, because `checkQuote` normalises whitespace and the source really does contain them.
+
+    **The lesson is about instrument changes, not about headings.** A splitter change reaches every
+    recorded quote in the archive, and the only reason the loss was visible at all is that the
+    scanners print a `read and ruled out` count next to the pile. **A number that moves for a reason
+    you did not intend is the cheapest bug report there is** — and it was two lines lower than the
+    number I was actually looking at.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

@@ -1324,10 +1324,10 @@
    "subjectName": "Hazrat Tahir Bandagi Qadri (the custodial sentences)",
    "objectName": "his Gaddi Nasheen and disciples (unnamed)",
    "quotes": [
-    "## Overview In Lahore's Miani Sahib Graveyard -- by local report the largest graveyard in Asia -- the oldest seat belongs not to the dead in general but to one man in particular:",
+    "In Lahore's Miani Sahib Graveyard -- by local report the largest graveyard in Asia -- the oldest seat belongs not to the dead in general but to one man in particular:",
     "When Hazrat Tahir Bandagi died, his resting place beside this mosque became his shrine, and rulers and disciples of the period are said to have kept it under careful",
     "The current custodians (*Gaddi Nasheen*) describe Hazrat Tahir Bandagi as someone who did not care for drumming (*dhol*) or ecstatic dance (*dhamal*), and say the Urs is kept",
-    "## Custodianship The shrine is overseen today by its Gaddi Nasheen (current custodians), with several people formally employed as staff who, per the survey, consider caring for"
+    "The shrine is overseen today by its Gaddi Nasheen (current custodians), with several people formally employed as staff who, per the survey, consider caring for"
    ],
    "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
    "notes": "Four sentences about a living custodial family and not one name among them: \"rulers and disciples of the period\", \"the current custodians (Gaddi Nasheen)\", \"several people formally employed as staff\". The representative case for the class already recorded at Khawaja Feroz-ud-Din — every entry with a functioning darbar produces two to four of these, they are real relations, and none can ever be an edge."
@@ -1336,7 +1336,7 @@
    "subjectName": "Ganj e Inayat Sarkar (order description and an unnamed son)",
    "objectName": "the Naqshbandiyya / his successor",
    "quotes": [
-    "Annual urs (27-28 Sha'ban); weekly Saturday gathering; langar ## Overview In the busy heart of modern Lahore, at Firdous Market in Gulberg — a quarter once known by the older name",
+    "In the busy heart of modern Lahore, at Firdous Market in Gulberg — a quarter once known by the older name",
     "A Naqshbandi-Mujaddidi scholar-saint, orator, and author, Ganj-e-Inayat Sarkar drew thousands into his spiritual fold, and his line continues unbroken under his son and successor.",
     "His father, Hazrat Mian Sohbat Ali, was himself a man of religion and a spiritual disciple in the line of Batala Sharif, and his parents — simple and devout — raised their son with care.",
     "1389), and is distinguished among the Sufi paths by its preference for the silent, hidden remembrance of God (*dhikr-e-khafi*) over audible or ecstatic forms, and by its"
@@ -1349,7 +1349,7 @@
    "objectName": "his disciples, Mullah Shah, the Mughal court",
    "quotes": [
     "Tradition records that when his disciples spoke of raising a fitting monument over his resting place, he forbade any dome or mausoleum, and is said to have uttered a Persian",
-    "## The Mystical Court: Dara Shikoh and Jahanara The circle that formed around Mian Mir and his successor Mullah Shah became, for one brief and luminous generation, the spiritual",
+    "The circle that formed around Mian Mir and his successor Mullah Shah became, for one brief and luminous generation, the spiritual",
     "His disciples shaped the spiritual life of the Mughal court; his friendship with the Sikh Gurus became a legend of tolerance that Punjab still cherishes; his forty-day retreat at"
    ],
    "source": "data/shrines.csv#shrine-of-mian-mir",
@@ -1359,9 +1359,9 @@
    "subjectName": "Guru Nanak (the schooling cluster)",
    "objectName": "the maulvi of Patti",
    "quotes": [
-    "## The Schooling of Guru Nanak In the Punjab of the fifteenth century, a *patti* was the smooth wooden board on which a pupil, using a reed pen and home-made ink, would practise",
+    "In the Punjab of the fifteenth century, a *patti* was the smooth wooden board on which a pupil, using a reed pen and home-made ink, would practise",
     "The alternative name Maulvi Patti preserves the memory of this Muslim teacher, and of a schooling that crossed the community lines of the age.",
-    "## Legacy Patti Sahib enshrines one of the tenderest and most characteristic of the Guru Nanak narratives: the schoolboy who taught his teacher, whose first recorded verses were a"
+    "Patti Sahib enshrines one of the tenderest and most characteristic of the Guru Nanak narratives: the schoolboy who taught his teacher, whose first recorded verses were a"
    ],
    "source": "data/shrines.csv#gurdwara-patti-sahib",
    "notes": "Three more sentences on the schooling already ruled out once in this file: it is education rather than initiation, and the teacher is \"named in some tellings Qutbuddin\", which is the corpus declining to settle the name. Recorded together because the entry returns to the same story three times — a *patti* board, the acrostic that amazed the master, and the Legacy paragraph — and the answer does not change."
