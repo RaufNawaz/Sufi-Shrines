@@ -286,6 +286,21 @@ cannot do.
   and the Urdu dictionary. Order matters: patches first, then `data:build`, `data:kg`,
   `data:index`, traditions, and `data:check:live` to confirm zero drift.
 
+  **This costs more than two absent pages, measured 31 August 2026 — it publishes a false claim
+  about the archive's own holdings.** Both figures have `/saint/` pages: prerendered, in the
+  sitemap, in both languages. The knowledge graph is built from the same 169-row snapshot, so both
+  are marked `lineageOnly`, and both pages therefore tell a reader *"The archive holds no entry of
+  its own for this figure."* The archive holds **5,268 and 5,374 characters** about them, live in
+  the sheet right now, and **8,923 and 12,875 characters** of drafted entry in `entries/`. On the
+  one surface whose whole claim is provenance, that is not a gap — it is a misstatement.
+
+  `npm run data:check:unpublished` now asks the question RULE 0 implies and never checked: does the
+  finished work in this repository reach a reader? It exits 1 until `data:build` runs, names both
+  entries with their character counts, and names the `/saint/` page each one is contradicting. It
+  is a named script rather than part of `verify` for the same reason `data:check:location` is —
+  red until a person acts, on a sequenced action, and reddening the shared build helps nobody.
+  Verified by adding the two live rows: at 171 it goes green.
+
   **The reason this drift existed was wrong for eight days and is corrected (30 August 2026,
   `d38d57c`).** `.gitignore` said `build-dataset` "drops for having no coordinates" the two rows a
   live export carries. It does not, and has not since 22 August: `isValidRow` keeps a named row

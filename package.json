@@ -47,6 +47,7 @@
     "data:validate:images": "node scripts/data/validate-images.mjs",
     "data:check:live": "node scripts/data/check-live-sheet.mjs",
     "data:check:location": "node scripts/data/build-location-hygiene-patch.mjs --check",
+    "data:check:unpublished": "node scripts/data/check-drafted-entries-published.mjs",
     "urdu:build": "bash urdu-i18n/build-all.sh",
     "data:snapshot": "node scripts/data/build-dataset.mjs",
     "data:kg": "npm run data:validate && node scripts/data/build-kg.mjs",
