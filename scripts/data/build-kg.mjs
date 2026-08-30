@@ -199,6 +199,13 @@ delete saintOrders.comment;
 const ordersNotInCell = seeds.saintOrdersNotInCell ?? [];
 const qidMap = seeds.saintWikidataQids ?? {};
 const lineageRelations = seeds.lineageRelations ?? [];
+/* Spiritual descent at a remove — see kg-seeds.json#_comment_lineageDescents.
+   Kept separate from lineageRelations because the two carry different fields
+   and, more to the point, a different claim: a lineageRelations edge says the
+   seat passed from this person to that one, and these say only that one stands
+   N steps below the other in a line. Folding them together would let a reader
+   of the seed file mistake twelve generations for a succession. */
+const lineageDescents = seeds.lineageDescents ?? [];
 /* Kinship the archive states in its own prose — 28 edges the graph held in
    data/kg-lineage-proposals.json#familyRelations and never read, because the
    relation vocabulary knew only teaching. In this corpus a seat passes down a
@@ -729,6 +736,50 @@ for (const f of familyRelations) {
   }
 }
 
+/* A figure named ONLY in a descent seed is a real graph node and not an archive
+   entry — the same treatment lineage proposals get above, for the same reason:
+   without it the edge points at nobody and renders a blank row. Sant Harnam Das
+   is the whole of this case today. He is named in one sentence of one entry, as
+   the eighth successor under whom a temple was built, and there is no separate
+   record of him to promote. */
+for (const d of lineageDescents) {
+  for (const side of ['subject', 'object']) {
+    const slug = d[`${side}Slug`];
+    const name = d[`${side}Name`];
+    if (!slug || saintMap.has(slug) || saintSlugAliases.has(slug)) continue;
+
+    const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
+    if (existing && existing !== slug) {
+      /* Same join-and-retire the other two creation paths do. A descent seed
+         must not be the one place a second node for an existing person can be
+         created by naming them slightly differently. */
+      saintSlugAliases.set(slug, existing);
+      retiredSaintSlugs.set(slug, existing);
+      reviewNeeded.push({
+        issue: 'descent-figure-joined',
+        entityId: `saint:${existing}`,
+        details:
+          `lineageDescents names "${name}" as "${slug}", but the graph already ` +
+          `holds that name as "${existing}". Joined, and "${slug}" retired to it.`,
+      });
+      continue;
+    }
+
+    saintMap.set(slug, {
+      id: `saint:${slug}`,
+      type: 'saint',
+      slug,
+      name: name || slug,
+      altNames: [],
+      shrines: [],
+      lineageOnly: true,
+      reviewed: false,
+    });
+    const key = saintNameKey(name ?? '');
+    if (key && !saintSlugByNameKey.has(key)) saintSlugByNameKey.set(key, slug);
+  }
+}
+
 /* Biographical anchors — dates, titles, alt-names — read out of the same prose.
    Only fills what is EMPTY: a value already in the sheet is the sheet's to
    change (RULE 3), and 17 of these proposals disagree with a column. Those
@@ -1057,6 +1108,40 @@ for (const rel of lineageRelations) {
     source,
     quote,
     ...(notes ? { notes } : {}),
+  });
+}
+
+// saint → descendant_in_lineage_of → saint (from seeds; always junior → senior,
+// like kin_of, so a page can group by generation without re-deriving direction)
+for (const d of lineageDescents) {
+  const subjectSlug = resolveSaintSlug(d.subjectSlug);
+  const objectSlug = resolveSaintSlug(d.objectSlug);
+  if (!subjectSlug || !objectSlug) continue;
+
+  let missing = null;
+  if (!saintBySlug.has(subjectSlug)) missing = subjectSlug;
+  else if (!saintBySlug.has(objectSlug)) missing = objectSlug;
+  if (missing) {
+    reviewNeeded.push({
+      issue: 'seed-saint-not-found',
+      entityId: `saint:${missing}`,
+      details: `lineageDescents entry has no matching saint entity for "${missing}".`,
+    });
+    continue;
+  }
+
+  relations.push({
+    id: `descendant_in_lineage_of:saint:${subjectSlug}:saint:${objectSlug}`,
+    type: 'descendant_in_lineage_of',
+    subject: `saint:${subjectSlug}`,
+    object: `saint:${objectSlug}`,
+    confidence: d.confidence ?? 0.8,
+    method: 'human',
+    source: d.source,
+    quote: d.quote,
+    ...(typeof d.generations === 'number' ? { generations: d.generations } : {}),
+    ...(d.removeWording ? { removeWording: d.removeWording } : {}),
+    ...(d.notes ? { notes: d.notes } : {}),
   });
 }
 

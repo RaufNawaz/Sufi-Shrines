@@ -11,6 +11,7 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { LineageView } from '../components/kg/LineageView';
 import { LineageChainView } from '../components/kg/LineageChainView';
 import { KinView } from '../components/kg/KinView';
+import { DescentView } from '../components/kg/DescentView';
 import { NetworkGraph } from '../components/kg/NetworkGraph';
 import type { GraphNode } from '../components/kg/NetworkGraph';
 import type { KGSaint } from '../types/kg';
@@ -24,6 +25,7 @@ import {
   getDisciplesOf,
   getKinOf,
   getKinNotes,
+  getDescentsOf,
   getLineageChain,
   recordedSilsilas,
 } from '../lib/kg';
@@ -104,6 +106,11 @@ export default function SaintPage() {
      otherwise be the only recorded facts on this page with nowhere to go. */
   const kin = useMemo(() => (slug ? getKinOf(slug) : []), [slug]);
   const kinNotes = useMemo(() => (slug ? getKinNotes(slug) : []), [slug]);
+  /* Both directions, like the kin ties: the ancestor's page must show the
+     descent too, or half of every one of these is invisible — and the missing
+     half would be Guru Nanak's, the figure a reader is far more likely to
+     reach. */
+  const descents = useMemo(() => (slug ? getDescentsOf(slug) : []), [slug]);
   /* The chain above this figure, walked as far as the record goes without
      picking between several recorded masters. 15 figures in the graph have one
      two or more removes deep; the page used to stop at the first hop. */
@@ -828,6 +835,18 @@ export default function SaintPage() {
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('kinHeading')}</h2>
                 <KinView links={kin} notes={kinNotes} />
+              </section>
+            )}
+
+            {/* Descent in a lineage — after family, because it is the rarer and
+                the more qualified claim: two edges in the whole graph, and both
+                say only that a figure stands some way down a spiritual line.
+                Bundled graph, so it stays on the safe side of the CLS boundary
+                below. */}
+            {descents.length > 0 && (
+              <section className="kg-section">
+                <h2 className="kg-section-heading">{t('descentHeading')}</h2>
+                <DescentView links={descents} />
               </section>
             )}
 

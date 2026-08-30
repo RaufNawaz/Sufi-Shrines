@@ -20,6 +20,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
 import { kinTriples } from './lib/kinExport.mjs';
+import { assertRelationTypesKnown, descentTriples } from './lib/relationExport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -160,6 +161,17 @@ for (const t of kinTriples(kg.relations)) {
   kinBySubject.get(t.subjectSlug).push(t);
 }
 
+/* Same guard the JSON-LD export runs, for the same reason: this file names each
+   relation type it handles, so one it does not name leaves no trace and no
+   error. See scripts/data/lib/relationExport.mjs. */
+assertRelationTypesKnown(kg.relations);
+
+const descentBySubject = new Map();
+for (const t of descentTriples(kg.relations)) {
+  if (!descentBySubject.has(t.subjectSlug)) descentBySubject.set(t.subjectSlug, []);
+  descentBySubject.get(t.subjectSlug).push(t);
+}
+
 // Saints
 emit('# ── Saints ────────────────────────────────────────────────────────────────');
 for (const s of kg.saints) {
@@ -185,6 +197,13 @@ for (const s of kg.saints) {
   }
   for (const t of kinBySubject.get(s.slug) ?? []) {
     emit(`  ${t.schemaOrg ? 'schema' : 'sufi'}:${t.predicate} saint:${t.objectSlug} ;`);
+  }
+  /* The number of removes is not emitted here either — see the note in the
+     JSON-LD exporter. Both formats state the relation and neither states the
+     distance, which is the one thing worse than losing it: the two exports
+     disagreeing about the same graph. */
+  for (const t of descentBySubject.get(s.slug) ?? []) {
+    emit(`  sufi:descendantInLineageOf saint:${t.objectSlug} ;`);
   }
   if (s.wikidataQid) emit(`  schema:sameAs ${wdIri(s.wikidataQid)} ;`);
   emit('  .');

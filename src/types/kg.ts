@@ -8,6 +8,7 @@ export type KGRelationType =
   | 'located_in' // shrine slug → place
   | 'commemorated_by' // saint → event
   | 'kin_of' // saint → saint (blood or marriage; always junior → senior)
+  | 'descendant_in_lineage_of' // saint → saint (N removes down a spiritual line)
   | 'attested_in'; // entity/relation id → source
 
 export interface KGEntity {
@@ -174,12 +175,18 @@ export interface KGRelation {
    *   `reviewed` absent, `method: 'human'`  — an agent adjudicated it from a quote. 67 kin edges.
    *   `reviewed: false`                     — machine-extracted, nobody adjudicated it. 135 edges.
    *
-   * `LineageView` badges the third state "unreviewed"; `KinView` does not read
-   * this field at all. On `/saint/guru-nanak` that shows as "Mata Tripta ·
-   * mother" beside "Guru Angad · Disciple · unreviewed", both with a verbatim
-   * quote from the same corpus. Whether the middle state deserves its own
-   * disclosure is an editorial question about how this archive states its own
-   * confidence, recorded in HANDOVER §9.182 for Rauf rather than decided here.
+   * `LineageView` badges the third state "unreviewed". `KinView` did not read
+   * this field at all until 30 August 2026 — so kin was the one link type that
+   * could not express the third state, and the first machine-extracted kin edge
+   * would have rendered as a hand-ruled seed. It reads it now, and the branch is
+   * dead by design while all 67 kin edges remain human.
+   *
+   * The middle state keeping no badge is deliberate and was checked, not
+   * assumed: an agent adjudicating a slug and a direction from a verbatim quote
+   * is the same act for kin as for the 7 human `disciple_of`/`successor_of`
+   * edges and the 24 human `belongs_to_order` edges, none of which are badged
+   * either. The rule is `method`, not relation type. (HANDOVER §9.182 recorded
+   * this as an open question on a premise that turned out to be wrong.)
    */
   reviewed?: boolean;
   source?: string; // citation, e.g. a shrine_entries/*.md file
@@ -226,6 +233,23 @@ export interface KGRelation {
    * where a verbatim quote may be (i18n rule 7); the translated role labels
    * carry the meaning in both languages. */
   kinWording?: string;
+  /** descendant_in_lineage_of only: how many removes the source states, where it
+   * states a number. Read from an explicit numeral in the quote ("a
+   * twelfth-generation descendant", "an eighth successor") and never inferred —
+   * absent is the correct value for "descended from, distance unstated". */
+  generations?: number;
+  /** descendant_in_lineage_of only: the source's own phrase, verbatim.
+   *
+   * This carries the whole reason the type exists. Two entries state descent
+   * down a spiritual line at a distance, and they use DIFFERENT words for it:
+   * Guru Gurpat is "a twelfth-generation descendant, in the Jagiasi lineage, of
+   * Guru Nanak", while Sant Harnam Das is "an eighth successor in the lineage"
+   * of Baba Bankhandi. One is worded as descent, one as succession, and
+   * flattening either into the other would assert something the source did not.
+   * The edge says "N removes down a spiritual line"; this field says which word
+   * the archive used. English prose — show it only where a quote may go
+   * (i18n rule 7). */
+  removeWording?: string;
 }
 
 /**

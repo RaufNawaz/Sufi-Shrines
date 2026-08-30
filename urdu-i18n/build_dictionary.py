@@ -719,6 +719,12 @@ SAINTS = {
  "Shiva (Mahadev)": "شیو (مہادیو)",
  "Goddess Sharada (Saraswati)": "دیوی شاردا (سرسوتی)",
  "Baba Bankhandi Maharaj (Udasi founder)": "بابا بن کھنڈی مہاراج (اداسی بانی)",
+    # Named once in the whole archive — "an eighth successor in the lineage",
+    # the figure under whom Sadh Belo was built — and in the graph only because
+    # descent-at-a-remove became expressible on 30 August 2026. Without this
+    # line an Urdu reader searching his name gets the Latin string back, which
+    # i18n rule 3 exists to prevent.
+    "Sant Harnam Das": "سنت ہرنام داس",
  "Bhagwan Swaminarayan": "بھگوان سوامی نارائن",
  "Lord Hanuman (Panchmukhi form)": "بھگوان ہنومان (پنچمکھی روپ)",
  "Varuna (Varun Dev)": "ورونا (ورون دیو)",

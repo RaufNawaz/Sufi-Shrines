@@ -472,6 +472,7 @@ saint:guru-gurpat
   schema:alternateName "Baba Gurpat Sahib"@en ;
   schema:birthDate "1807" ;
   schema:deathDate "1877" ;
+  sufi:descendantInLineageOf saint:guru-nanak ;
   .
 
 saint:lord-jagannath
@@ -1908,6 +1909,12 @@ saint:sayyid-ali-makki-ibn-abbas-mousavi
 saint:taleh-mand
   a schema:Person ;
   schema:name "Taleh Mand"@en ;
+  .
+
+saint:sant-harnam-das
+  a schema:Person ;
+  schema:name "Sant Harnam Das"@en ;
+  sufi:descendantInLineageOf saint:baba-bankhandi-maharaj ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

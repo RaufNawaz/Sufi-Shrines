@@ -763,7 +763,12 @@
         "Baba Gurpat Sahib"
       ],
       "birthDate": "1807",
-      "deathDate": "1877"
+      "deathDate": "1877",
+      "sufi:descendantInLineageOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -2944,6 +2949,16 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/taleh-mand",
       "name": "Taleh Mand"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sant-harnam-das",
+      "name": "Sant Harnam Das",
+      "sufi:descendantInLineageOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/baba-bankhandi-maharaj"
+        }
+      ]
     },
     {
       "@type": "Place",

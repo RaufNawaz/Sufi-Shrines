@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T17:25:01.213Z",
+  "generated": "2026-08-30T18:27:52.186Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3929,6 +3929,16 @@
       "type": "saint",
       "slug": "taleh-mand",
       "name": "Taleh Mand",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sant-harnam-das",
+      "type": "saint",
+      "slug": "sant-harnam-das",
+      "name": "Sant Harnam Das",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -9048,6 +9058,28 @@
       "quote": "The field survey names Waris Shah as a second prominent disciple from this period"
     },
     {
+      "type": "descendant_in_lineage_of",
+      "subject": "saint:guru-gurpat",
+      "object": "saint:guru-nanak",
+      "confidence": 0.9,
+      "method": "human",
+      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat",
+      "quote": "built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak",
+      "generations": 12,
+      "removeWording": "a twelfth-generation descendant, in the Jagiasi lineage"
+    },
+    {
+      "type": "descendant_in_lineage_of",
+      "subject": "saint:sant-harnam-das",
+      "object": "saint:baba-bankhandi-maharaj",
+      "confidence": 0.9,
+      "method": "human",
+      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple",
+      "quote": "built under an eighth successor in the lineage, Sant Harnam Das",
+      "generations": 8,
+      "removeWording": "an eighth successor in the lineage"
+    },
+    {
       "type": "kin_of",
       "subject": "saint:shah-rukn-e-alam",
       "object": "saint:bahauddin-zakariya",
@@ -12372,12 +12404,12 @@
     }
   ],
   "stats": {
-    "saints": 243,
+    "saints": 244,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 723,
+    "relations": 725,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

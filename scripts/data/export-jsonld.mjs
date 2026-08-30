@@ -24,6 +24,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
 import { kinTriples } from './lib/kinExport.mjs';
+import { assertRelationTypesKnown, descentTriples } from './lib/relationExport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -136,6 +137,18 @@ for (const t of kinTriples(kg.relations)) {
   kinBySubject.get(t.subjectSlug).push(t);
 }
 
+/* Refuse to write an export that quietly drops a relation type. This file names
+   each type it handles, so an unnamed one leaves no trace and no error — which
+   is exactly what happened to `descendant_in_lineage_of` on the day it was
+   added. See scripts/data/lib/relationExport.mjs. */
+assertRelationTypesKnown(kg.relations);
+
+const descentBySubject = new Map();
+for (const t of descentTriples(kg.relations)) {
+  if (!descentBySubject.has(t.subjectSlug)) descentBySubject.set(t.subjectSlug, []);
+  descentBySubject.get(t.subjectSlug).push(t);
+}
+
 // Saints
 for (const s of kg.saints) {
   const orderRel = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
@@ -164,6 +177,21 @@ for (const s of kg.saints) {
       ? { 'sufi:successorOf': successorOfRels.map((r) => ({ '@id': iri('saint', r.object.replace(/^saint:/, '')) })) }
       : {}),
     ...kin,
+    ...(descentBySubject.has(s.slug)
+      ? {
+          /* A plain reference, and the number is deliberately NOT here. The
+             first draft emitted `{'@id': nanak, 'sufi:generationsRemoved': 12}`,
+             which in JSON-LD attaches the distance to GURU NANAK — it states
+             that Nanak is twelve generations removed, from nothing. Qualifying
+             the relation instead needs reification this export does not ship,
+             and inventing one for two edges would put a private scheme in a
+             consumer's graph. The distance stays in kg.json and on the page.
+             See relationExport.mjs. */
+          'sufi:descendantInLineageOf': descentBySubject
+            .get(s.slug)
+            .map((t) => ({ '@id': iri('saint', t.objectSlug) })),
+        }
+      : {}),
     ...(s.wikidataQid  ? { 'sameAs': wdIri(s.wikidataQid) } : {}),
   });
 }

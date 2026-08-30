@@ -279,7 +279,17 @@ const BUDGETS_KB = {
      the settings does not fetch the sheet. If this number grows by ~90 KB, a
      preference started reading shrine data; if by ~426 KB, something on it
      imported `lib/kg.ts`. */
-  'src/pages/SettingsPage.tsx': 285, // measured 269 on 27 Aug 2026
+  /* Raised 285 → 291 on 30 August 2026 by five UI strings for a relation type
+     that this page does not render and never will (`descentHeading` and four
+     others, for descent in a lineage on SaintPage). Exactly the tax the note
+     above describes, and measured rather than assumed: with the five strings
+     removed this page builds at 285 KB against a 285 KB budget — **zero
+     headroom** — so the failure was not that the feature was large, it was that
+     the budget had been set to the measured value and the next byte of interface
+     copy from any hand was going to fail here.
+     ReviewPage (282/282) and index.html (265/265) are sitting at zero the same
+     way. The 291 is deliberate slack, not a measurement. */
+  'src/pages/SettingsPage.tsx': 291, // measured 286 on 30 Aug 2026 (269 on 27 Aug)
 };
 
 /**

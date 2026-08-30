@@ -26,6 +26,7 @@ import {
   getDisciplesOf,
   getTeachersOf,
   getKinOf,
+  getDescentsOf,
   getKGStore,
 } from '../kg';
 
@@ -72,11 +73,21 @@ describe('the two figure lists', () => {
  *
  * Widening it is the correct reading and not a concession: what justifies the
  * node was never the *kind* of edge, it was that some entry names the person and
- * a page would otherwise have nothing to point at. */
+ * a page would otherwise have nothing to point at.
+ *
+ * Widened a second time on 30 August 2026, for `descendant_in_lineage_of`, and
+ * the sentence above is why it needed no argument: Sant Harnam Das is in the
+ * graph because one entry names him as the eighth successor under whom Sadh Belo
+ * was built, which is the same kind of reason Sri Chand is there. A predicate
+ * that must be extended once per relation type is listing the wrong thing — but
+ * the alternative, "has any edge at all", would pass a figure connected only by
+ * `attested_in`, which is a citation and not a reason to exist. Enumerated on
+ * purpose. */
 const connections = (slug: string) => [
   ...getDisciplesOf(slug),
   ...getTeachersOf(slug),
   ...getKinOf(slug),
+  ...getDescentsOf(slug),
 ];
 
 describe('every lineage-only figure is there for a reason', () => {
@@ -111,10 +122,29 @@ describe('every lineage-only figure is there for a reason', () => {
         getTeachersOf(s.slug).length === 0 &&
         getKinOf(s.slug).length > 0,
     );
+    /* The fourth population, added with descent-at-a-remove on 30 August 2026.
+       Sant Harnam Das is the whole of it: no chain, no family, named once as
+       "an eighth successor in the lineage" under whom Sadh Belo was built. All
+       three notes above are wrong about him — he is nobody's teacher, nobody's
+       disciple and nobody's relative — which is the same argument that made
+       `kinOnly` its own term rather than a rounding error in another. */
+    const descentOnly = lineageOnly.filter(
+      (s) =>
+        getDisciplesOf(s.slug).length === 0 &&
+        getTeachersOf(s.slug).length === 0 &&
+        getKinOf(s.slug).length === 0 &&
+        getDescentsOf(s.slug).length > 0,
+    );
     expect(teachers.length).toBeGreaterThan(20);
     expect(disciples.length).toBeGreaterThan(5);
     expect(kinOnly.length).toBeGreaterThan(0);
-    expect(teachers.length + disciples.length + kinOnly.length).toBe(lineageOnly.length);
+    expect(descentOnly.length).toBeGreaterThan(0);
+    /* The sum is the real assertion: a figure in NONE of the four is one the
+       explorer would list with a blank note, and adding a relation type without
+       a matching note is exactly how that happens. */
+    expect(teachers.length + disciples.length + kinOnly.length + descentOnly.length).toBe(
+      lineageOnly.length,
+    );
   });
 
   it('can always name at least one figure it is connected to', () => {

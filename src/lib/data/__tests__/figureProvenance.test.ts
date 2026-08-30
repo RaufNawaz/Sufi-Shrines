@@ -325,7 +325,23 @@ describe('the shipped graph', () => {
                        `## Family and Early Life` to the front of the sentence
                        that names him, and he surfaced immediately in a filter
                        built to find exactly this shape. Heading noise had been
-                       burying a named father in the list meant to reveal one. */
-    expect(flagged.length).toBe(210);
+                       burying a named father in the list meant to reveal one.
+        210 + 1       = 211, 30 August 2026. Sant Harnam Das, and he is here
+                       because a relation type was added rather than because a
+                       new sentence was read: the archive has named him since
+                       the Sadh Belo entry was written — "an eighth successor in
+                       the lineage" — and the graph had no edge that could hold
+                       eight removes without asserting a direct succession. He
+                       was filed as a non-relation, twice, in two different
+                       files. `descendant_in_lineage_of` (Rauf's ruling, 30
+                       August 2026) is what let a figure the corpus already
+                       named become a figure the graph could carry.
+
+                       Worth keeping in view when this number is read as
+                       coverage: three of the last four increments came from
+                       fixing an instrument or widening a vocabulary, not from
+                       reading more prose. The corpus was not quieter than the
+                       count suggested; the count was. */
+    expect(flagged.length).toBe(211);
   });
 });

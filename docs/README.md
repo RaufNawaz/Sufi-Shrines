@@ -106,6 +106,7 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | [`planning/AUQAF_INTEGRATION_PLAN.md`](planning/AUQAF_INTEGRATION_PLAN.md)     | Auqaf ↔ Shrines integration plan (Bibi Pak Daman demo)                            |
 | [`planning/PROJECT_HEAD_FEEDBACK_PLAN.md`](planning/PROJECT_HEAD_FEEDBACK_PLAN.md) | Triage and plan for the project head's feedback                               |
 | [`planning/TODO.md`](planning/TODO.md)                                         | ⚠ **Superseded snapshot (12 July 2026).** Kept for history. The live checklist is [`TODO.md`](TODO.md). |
+| [`planning/MAP_PIN_DENSITY_2026-08-31.md`](planning/MAP_PIN_DENSITY_2026-08-31.md) | Measured: the opening map view renders 169 sites as 21 shapes |
 
 
 ## Proposals, status and correspondence

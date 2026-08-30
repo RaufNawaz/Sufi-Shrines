@@ -381,6 +381,69 @@ export function getKinNotes(saintSlug: string): KGKinNote[] {
   return (kg.kinNotes ?? []).filter((n) => n.saintSlug === saintSlug);
 }
 
+/**
+ * A figure standing some way down a spiritual line from an earlier one.
+ *
+ * The relation the archive stated twice and the graph could hold neither time.
+ * `successor_of` says the seat passed from one person to the next, which is
+ * false at twelve generations; `kin_of`'s `descendant_of` says blood, which is
+ * also false — the entry calls the Jagiasi Sants "spiritual descendants of Guru
+ * Nanak through Baba Sri Chand's Udasi line", and that line runs through an
+ * ascetic son rather than a family. Both cases were filed as non-relations, in
+ * two different files, before the type was added on 30 August 2026.
+ */
+export interface DescentLink {
+  /** The figure at the other end. */
+  saint: KGSaint;
+  /** True when `saint` is the earlier figure — this page's figure descends from
+   * them. False on the ancestor's own page, where the row reads downward. */
+  otherIsElder: boolean;
+  /** How many removes the source states, where it states a number. Absent means
+   * "descended from, distance unstated", which is a different claim from zero. */
+  generations?: number;
+  /** The source's own phrase. The two edges do not use the same word — one says
+   * descendant, one says successor — so the phrase is kept and not normalised
+   * (RULE 2). English prose; render only where a quote may go (i18n rule 7). */
+  removeWording?: string;
+  quote?: string;
+  source?: string;
+  confidence: number;
+  reviewed: boolean;
+}
+
+function toDescentLink(
+  r: KGRelation,
+  saint: KGSaint | undefined,
+  otherIsElder: boolean,
+): DescentLink | null {
+  if (!saint) return null;
+  return {
+    saint,
+    otherIsElder,
+    confidence: r.confidence,
+    reviewed: r.reviewed !== false,
+    ...(typeof r.generations === 'number' ? { generations: r.generations } : {}),
+    ...(r.removeWording ? { removeWording: r.removeWording } : {}),
+    ...(r.quote ? { quote: r.quote } : {}),
+    ...(r.source ? { source: r.source } : {}),
+  };
+}
+
+/** Both directions, like `getKinOf` — the ancestor's page must show the descent
+ * too, or half of every one of these is invisible, and the missing half is Guru
+ * Nanak's, the figure a reader is far more likely to arrive at. */
+export function getDescentsOf(saintSlug: string): DescentLink[] {
+  const asDescendant = getRelations({
+    subject: `saint:${saintSlug}`,
+    type: 'descendant_in_lineage_of',
+  }).map((r) => toDescentLink(r, getSaintBySlug(r.object.replace(/^saint:/, '')), true));
+  const asAncestor = getRelations({
+    object: `saint:${saintSlug}`,
+    type: 'descendant_in_lineage_of',
+  }).map((r) => toDescentLink(r, getSaintBySlug(r.subject.replace(/^saint:/, '')), false));
+  return [...asDescendant, ...asAncestor].filter((l): l is DescentLink => l !== null);
+}
+
 /** One remove up a chain of transmission. */
 export interface LineageChainStep {
   /** The teacher at this remove. */

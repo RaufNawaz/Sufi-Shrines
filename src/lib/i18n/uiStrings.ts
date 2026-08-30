@@ -399,6 +399,19 @@ const UI_TEXT_EN = {
   kinContested: 'one of two traditions',
   kinContestedHelp:
     'The entry reports this parentage as one of two competing traditions about the same figure, not as settled.',
+  /* ── Descent in a lineage (SaintPage) ────────────────────────────────
+     The relation the archive stated twice and could hold neither time: a
+     figure standing N removes down a spiritual line. Deliberately worded to
+     exclude BOTH readings it is not — "not a direct succession" rules out
+     successor_of, "not blood" rules out kin_of's descendant_of — because the
+     whole reason the type exists is that either would have been a false
+     claim. */
+  descentHeading: 'Descent in a lineage',
+  descentNote:
+    'Recorded as standing some way down a spiritual line — not a direct succession, and not blood.',
+  descentAncestor: 'earlier in the lineage',
+  descentDescendant: 'later in the lineage',
+  descentRemoves: 'generations removed',
   kinNotesHeading: 'Recorded, and unnamed',
   kinNoteUnnamed:
     'The archive records this family succession and names nobody on the other side of it, so there is no second figure to link to.',

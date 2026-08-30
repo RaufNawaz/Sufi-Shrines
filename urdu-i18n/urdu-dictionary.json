@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 283,
+      "saints": 284,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 139,
-      "flatSeedEntries": 1238
+      "flatSeedEntries": 1239
     }
   },
   "categories": {
@@ -577,6 +577,7 @@
     "Shiva (Mahadev)": "شیو (مہادیو)",
     "Goddess Sharada (Saraswati)": "دیوی شاردا (سرسوتی)",
     "Baba Bankhandi Maharaj (Udasi founder)": "بابا بن کھنڈی مہاراج (اداسی بانی)",
+    "Sant Harnam Das": "سنت ہرنام داس",
     "Bhagwan Swaminarayan": "بھگوان سوامی نارائن",
     "Lord Hanuman (Panchmukhi form)": "بھگوان ہنومان (پنچمکھی روپ)",
     "Varuna (Varun Dev)": "ورونا (ورون دیو)",

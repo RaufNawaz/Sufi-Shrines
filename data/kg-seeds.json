@@ -423,6 +423,33 @@
       "notes": "0.7, not 0.95, and the hedge is in the same sentence: it continues \"alongside Hazrat Hafiz Tabraiz, Maulana Jami, Deewan-e-Hafiz, and Deewan-e-Shams — without further detail on the nature of the latter connections\". Waris Shah is the one the survey calls a disciple outright; the other four are listed and explicitly not characterised, so they are NOT edges. \"A second prominent disciple\" is second after Bulleh Shah, whose edge to the same master is already here. Waris Shah's other master, the Makhdoom of Kasur, is already an edge and this does not replace it — the corpus states both."
     }
   ],
+  "_comment_lineageDescents": "Spiritual descent at a remove — the relation neither vocabulary could hold. Two entries state that a figure stands N steps down a line from a much earlier one, and until 30 August 2026 the graph had to drop both. `successor_of` means the seat passed from one person to the next, which is false at twelve generations; `kin_of`'s `descendant_of` means blood, which is also false — the Jagiasi Sants are called “spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line”, and that line runs through an ascetic son, not a family. Recorded as non-relations twice (kg-lineage-proposals.json#rejected, #explicitNonRelations, and kinAdjudicated below) before Rauf ruled on 30 August 2026 to add the type rather than keep rediscovering the gap. `removeWording` holds the source's own phrase because the two entries do not use the same word — one says descendant, one says successor — and the edge asserts only the shared claim: N removes down a spiritual line. `generations` is read from an explicit numeral and is absent where the source gives none.",
+  "lineageDescents": [
+    {
+      "subjectSlug": "guru-gurpat",
+      "subjectName": "Guru Gurpat",
+      "objectSlug": "guru-nanak",
+      "objectName": "Guru Nanak",
+      "generations": 12,
+      "removeWording": "a twelfth-generation descendant, in the Jagiasi lineage",
+      "confidence": 0.9,
+      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat",
+      "quote": "built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak",
+      "notes": "The entry also calls the Jagiasi Sants “spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line”, which is why this is not kin_of: the descent is through an ascetic son and a tradition, not a family line."
+    },
+    {
+      "subjectSlug": "sant-harnam-das",
+      "subjectName": "Sant Harnam Das",
+      "objectSlug": "baba-bankhandi-maharaj",
+      "objectName": "Baba Bankhandi Maharaj",
+      "generations": 8,
+      "removeWording": "an eighth successor in the lineage",
+      "confidence": 0.9,
+      "source": "data/shrines.csv#sadh-belo-sadh-belo-island-temple",
+      "quote": "built under an eighth successor in the lineage, Sant Harnam Das",
+      "notes": "Worded as succession, not descent, and kept that way in removeWording. Sant Harnam Das is named only here, so the figure is created lineageOnly — he is not an archive entry."
+    }
+  ],
   "reviewNeededNotes": [
     "data-ganj-bakhsh: Ali Hujwiri predates the Chishtiyya and Qadiriyya formal orders; associated with Junaydiyya silsila — order affiliation needs scholarly review before assignment.",
     "shah-abdul-latif-bhittai: Independent Sindhi Sufi; influenced by multiple silsilas but not formally affiliated — order affiliation marked for review.",
