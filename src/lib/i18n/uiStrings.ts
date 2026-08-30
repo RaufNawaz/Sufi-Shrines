@@ -1,14 +1,28 @@
 import type { Lang } from '../../types/shrine';
 
 const UI_TEXT_EN = {
-  title: 'Sufi Shrines',
-  siteTitle: 'Sufi Shrines of Pakistan',
+  /* The archive's own name, renamed 30 August 2026. It called itself "Sufi
+     Shrines" on every page while 88 of its 171 sites are not Sufi shrines —
+     79 Muslim shrines against 35 Hindu temples, 33 Sikh gurdwaras, 14
+     Nanakpanthi/Udasi darbars, 3 Jain temples and 3 secular memorials. A
+     reader arriving at a gurdwara was told they were inside a Sufi collection,
+     and a shared link to Guru Nanak previewed as "Guru Nanak — Sufi Shrines".
+     Only /about named all six.
+
+     The name is the one the project has carried in CLAUDE.md from the start,
+     so this is the archive agreeing with itself rather than a rebrand. No slug
+     changes and the /Sufi-Shrines/ deploy path is untouched: a URL that is in
+     the world stays in the world.
+
+     `UI_TEXT.ur` is deliberately NOT renamed in the same commit — see there. */
+  title: 'Mapping the Shrines',
+  siteTitle: 'Mapping the Shrines of Pakistan',
   siteMetaDescription:
-    'An interactive map of Sufi shrines across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu.',
+    'An interactive map of shrines, temples, gurdwaras and darbars across Pakistan. Explore histories, architecture, rituals, and visitor information in English and Urdu.',
   loading: 'Loading data...',
   loadingShrine: 'Loading shrine details...',
   noSelection: 'No shrine selected yet. Click a marker to view details.',
-  exploreTitle: 'Explore Sufi Shrines',
+  exploreTitle: 'Explore the Shrines',
   exploreHint: 'Use the list button above to browse all shrines.',
   tableButton: 'Table of Shrines',
   settings: 'Settings',

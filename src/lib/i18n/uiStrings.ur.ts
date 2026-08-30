@@ -114,6 +114,13 @@ export const UI_TEXT_UR: UiStrings = {
   settingsAllOptions: 'تمام ترتیبات',
   settingsToursHelp:
     'آرکائیو میں سے منتخب راستے۔ طے شدہ طور پر بند ہیں — نقشے کا اپنا موضوع خود یہ مقامات ہیں۔',
+  /* NOT renamed alongside the English on 30 August 2026, deliberately.
+     'پاکستان کے صوفی مزارات' says "Pakistan's Sufi shrines" and carries exactly
+     the same problem the English rename fixed — but an archive's name in Urdu
+     is Urdu content, and RULE 2 plus the i18n rules put authoring it beyond an
+     agent. Left saying the wrong thing rather than guessed at, and recorded in
+     SESSION_RESUME.md as waiting on a fluent speaker. The two editions disagree
+     about the archive's name until then, and that is the honest state. */
   title: 'صوفی مزارات',
   siteTitle: 'پاکستان کے صوفی مزارات',
   siteMetaDescription:

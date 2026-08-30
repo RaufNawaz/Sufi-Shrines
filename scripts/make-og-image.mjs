@@ -52,11 +52,24 @@ const SITES = rows.length;
 const TRADITIONS = 6;
 
 /* Titles come from the same table the UI reads, so the card can never say
-   something the site does not. */
-const uiStrings = readFileSync(join(ROOT, 'src/lib/i18n/uiStrings.ts'), 'utf8');
+   something the site does not.
+ *
+ * **Both files.** This read only `uiStrings.ts` and expected to find two
+ * `siteTitle`s in it, which stopped being true when the Urdu table was split
+ * into `uiStrings.ur.ts` so an English reader would not download 42 KB of
+ * Nastaliq copy. `npm run og:image` has thrown "could not read both siteTitle
+ * values" ever since, and nothing noticed: the card is a committed PNG and its
+ * lock file kept the test green against a card generated before the split. The
+ * command was only run again when the archive was renamed. `socialCard.test.ts`
+ * already reads both paths and its comment says why — this is the same fix on
+ * the producer side of the same pair. */
+const uiStrings = ['src/lib/i18n/uiStrings.ts', 'src/lib/i18n/uiStrings.ur.ts']
+  .map((rel) => readFileSync(join(ROOT, rel), 'utf8'))
+  .join('\n');
 function siteTitle(nth) {
   const all = [...uiStrings.matchAll(/siteTitle:\s*'([^']+)'/g)].map((m) => m[1]);
-  if (all.length < 2) throw new Error('could not read both siteTitle values from uiStrings.ts');
+  if (all.length < 2)
+    throw new Error('could not read both siteTitle values from the uiStrings tables');
   return all[nth];
 }
 const TITLE_EN = siteTitle(0);

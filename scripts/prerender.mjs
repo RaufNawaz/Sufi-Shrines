@@ -68,6 +68,20 @@ function leadText(row) {
 // ── Urdu variant helpers (see LanguageContext.tsx / urduFallback.ts for the
 // runtime equivalents this mirrors — same seed dictionary, same "leave
 // untranslated content in its original script rather than guess" rule) ────
+/**
+ * The archive's own name, in one place per language.
+ *
+ * It was the literal 'Sufi Shrines' in seventeen places in this file, and
+ * 88 of the archive's 171 sites are not Sufi shrines — so a link to Guru
+ * Nanak's page previewed as "Guru Nanak — Sufi Shrines". Renamed 30 August 2026
+ * on Rauf's ruling, to the name the project has always carried in CLAUDE.md.
+ *
+ * `SITE_TITLE_UR` is deliberately unchanged: it says "Pakistan's Sufi shrines"
+ * and has the same problem, and an Urdu name is Urdu content — RULE 2, and the
+ * i18n rules put it beyond an agent. It is in SESSION_RESUME.md's list of
+ * things waiting on a person.
+ */
+const SITE_TITLE = 'Mapping the Shrines of Pakistan';
 const SITE_TITLE_UR = 'پاکستان کے صوفی مزارات';
 let urduSeed = {};
 let urduContentBySlug = {};
@@ -267,14 +281,14 @@ function buildShrineHead(shrine, baseHtml) {
 
   // Replace title and existing meta og:title/og:description/twitter:card blocks
   let html = baseHtml
-    .replace(/<title>[^<]*<\/title>/, `<title>${name} — Sufi Shrines</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${name} — ${SITE_TITLE}</title>`)
     .replace(
       /<meta\s+name="description"[^>]*>/i,
       `<meta name="description" content="${escHtml(desc)}" />`,
     )
     .replace(
       /<meta\s+property="og:title"[^>]*>/i,
-      `<meta property="og:title" content="${name} — Sufi Shrines" />`,
+      `<meta property="og:title" content="${name} — ${SITE_TITLE}" />`,
     )
     .replace(
       /<meta\s+property="og:description"[^>]*>/i,
@@ -560,11 +574,11 @@ if (kgData) {
         : {}),
     });
     let html = baseHtml
-      .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(saint.name)} — Sufi Shrines</title>`)
+      .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(saint.name)} — ${SITE_TITLE}</title>`)
       .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${desc}" />`)
       .replace(
         /<meta\s+property="og:title"[^>]*>/i,
-        `<meta property="og:title" content="${escHtml(saint.name)} — Sufi Shrines" />`,
+        `<meta property="og:title" content="${escHtml(saint.name)} — ${SITE_TITLE}" />`,
       )
       .replace(
         /<meta\s+property="og:description"[^>]*>/i,
@@ -668,11 +682,11 @@ if (kgData) {
       ...(order.founded ? { foundingDate: order.founded } : {}),
     });
     let html = baseHtml
-      .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(order.name)} — Sufi Shrines</title>`)
+      .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(order.name)} — ${SITE_TITLE}</title>`)
       .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${desc}" />`)
       .replace(
         /<meta\s+property="og:title"[^>]*>/i,
-        `<meta property="og:title" content="${escHtml(order.name)} — Sufi Shrines" />`,
+        `<meta property="og:title" content="${escHtml(order.name)} — ${SITE_TITLE}" />`,
       )
       .replace(
         /<meta\s+property="og:description"[^>]*>/i,
@@ -775,7 +789,7 @@ const placeSlugs = [];
       let out = baseHtml
         .replace(
           /<title>[^<]*<\/title>/,
-          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : SITE_TITLE}</title>`,
         )
         .replace(
           /<meta\s+name="description"[^>]*>/i,
@@ -871,7 +885,7 @@ const traditionSlugs = [];
       let out = baseHtml
         .replace(
           /<title>[^<]*<\/title>/,
-          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+          `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : SITE_TITLE}</title>`,
         )
         .replace(
           /<meta\s+name="description"[^>]*>/i,
@@ -1028,7 +1042,7 @@ for (const page of STATIC_PAGES) {
     let out = baseHtml
       .replace(
         /<title>[^<]*<\/title>/,
-        `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : 'Sufi Shrines'}</title>`,
+        `<title>${escHtml(title)} — ${lang === 'ur' ? SITE_TITLE_UR : SITE_TITLE}</title>`,
       )
       .replace(
         /<meta\s+name="description"[^>]*>/i,
@@ -1101,13 +1115,13 @@ console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
 const APP_ROUTES = [
   {
     path: 'almanac',
-    titleEn: 'The Urs Almanac — Sufi Shrines',
+    titleEn: `The Urs Almanac — ${SITE_TITLE}`,
     titleUr: `عرس تقویم — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'weekly', priority: '0.8' },
   },
   {
     path: 'graph',
-    titleEn: 'Saints & Orders Explorer — Sufi Shrines',
+    titleEn: `Saints & Orders Explorer — ${SITE_TITLE}`,
     titleUr: `اولیاء اور سلسلے — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'monthly', priority: '0.6' },
   },
@@ -1116,25 +1130,25 @@ const APP_ROUTES = [
   {
     path: 'report',
     canonicalPath: '/about',
-    titleEn: 'State of the Archive — Sufi Shrines',
+    titleEn: `State of the Archive — ${SITE_TITLE}`,
     titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'weekly', priority: '0.7' },
   },
   {
     path: 'chronology',
-    titleEn: 'The Archive in Time — Sufi Shrines',
+    titleEn: `The Archive in Time — ${SITE_TITLE}`,
     titleUr: `صدیوں میں آرکائیو — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   {
     path: 'shared-ground',
-    titleEn: 'Shared Ground — Sufi Shrines',
+    titleEn: `Shared Ground — ${SITE_TITLE}`,
     titleUr: `مشترکہ زمین — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
   {
     path: 'typology',
-    titleEn: 'Atlas of Built Forms — Sufi Shrines',
+    titleEn: `Atlas of Built Forms — ${SITE_TITLE}`,
     titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
     sitemap: { changefreq: 'monthly', priority: '0.7' },
   },
@@ -1142,7 +1156,7 @@ const APP_ROUTES = [
     /* No `sitemap`: a reader's own preferences are not a document, and a
        crawler indexing them would put a control panel in a search result. */
     path: 'settings',
-    titleEn: 'Settings — Sufi Shrines',
+    titleEn: `Settings — ${SITE_TITLE}`,
     titleUr: `ترتیبات — ${SITE_TITLE_UR}`,
   },
   /* Team-only in the UI, but it still needs a file: GitHub Pages serves files,
@@ -1152,7 +1166,7 @@ const APP_ROUTES = [
     /* No `sitemap`: team-only, and a worksheet of unresolved questions is not
        something to publish to search. */
     path: 'review',
-    titleEn: 'Review desk — Sufi Shrines',
+    titleEn: `Review desk — ${SITE_TITLE}`,
     titleUr: `جانچ ڈیسک — ${SITE_TITLE_UR}`,
   },
 ];
