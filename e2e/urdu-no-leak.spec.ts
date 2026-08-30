@@ -145,7 +145,14 @@ const NOT_OURS = ['.leaflet-control-attribution', '.leaflet-control-layers'];
  *   source's real title, publisher and edition, and it is the exact string a
  *   reader needs in order to go and check. Far more than 28 runs because the
  *   emphasis inside a citation is rendered rather than printed as asterisks, so
- *   "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore)" is three runs: the
+ *   **74 → 102 on 30 August 2026, and the rise decomposes exactly.** "Counted
+ *   by book" lists the 14 works behind those citations, each as a title and an
+ *   author: 14 × 2 = 28, and 74 + 28 = 102. Not a syllable of new English —
+ *   they are the same books already printed in the citations below them, named
+ *   once more so the page can say that 48 of the 168 sourced entries lean on
+ *   one of them. Same rule-7 reasoning as the 67 below: a book's title is the
+ *   string a reader needs in order to go and find it.
+ * *   "Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore)" is three runs: the
  *   author, the italicised title, and the rest. Splitting it that way is what
  *   makes a book title read as a book title.
  * - `map` (7) / `shrine` (2) — the Location column, which on several
@@ -303,7 +310,7 @@ const BUDGET: Record<string, number> = {
      same question on the same day: there the passage IS the page's account, so
      it is quoted from the Urdu article instead. HANDOVER §9.128.) */
   'saint:lineage-only': 27,
-  about: 74,
+  about: 102,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
      site's own observance sentence verbatim beside whatever date can be read

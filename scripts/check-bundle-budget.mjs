@@ -192,7 +192,15 @@ const BUDGETS_KB = {
      reader who wanted the archive's account of itself used to download all
      three. provenance.json stays a dynamic import inside the page; if this
      number jumps by ~170 KB, that is what went static. */
-  'src/pages/AboutPage.tsx': 342, // measured 337 on 29 Aug 2026 — see the kinship note above
+  /* 342 → 350 on 30 Aug 2026. The citations counted by *work* rather than by
+     citation string — `sourceWorks.ts` plus its 3 KB of curated works — which
+     is what lets the page say that 48 of the 168 sourced entries lean on one
+     book. The per-citation list can only ever show that book's largest slice,
+     25, because it appears under ten different citation strings.
+
+     The module is imported by `ArchiveKnows` and nothing else, deliberately:
+     `sourceIndex.ts` is on every shrine page and this is not. */
+  'src/pages/AboutPage.tsx': 350, // measured 345 on 30 Aug 2026 — see the kinship note above
   /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
      observances (A3). The first draft of that feature measured **608 KB**: the
      join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the

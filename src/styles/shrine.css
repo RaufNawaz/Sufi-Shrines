@@ -2122,3 +2122,39 @@
   line-height: var(--leading-urdu);
   border-radius: var(--radius-sm);
 }
+
+/* ── /about: the citations counted by work ────────────────────────────────── */
+
+/*
+ * Sits above the per-citation list and is deliberately quieter than it. The
+ * citation list is the archive's actual bibliography; this is an observation
+ * *about* that list, and styling it as the louder of the two would present it
+ * as a correction rather than as a second question.
+ */
+.coverage-works {
+  margin-block-end: var(--space-6);
+}
+
+.coverage-work-title {
+  font-weight: 600;
+}
+
+.coverage-work-author {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* The count of citation strings one book hides behind — the number that
+   explains why the list below never shows it whole. */
+.coverage-work-records {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+[dir='rtl'] .coverage-work-records {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  line-height: var(--leading-urdu);
+}

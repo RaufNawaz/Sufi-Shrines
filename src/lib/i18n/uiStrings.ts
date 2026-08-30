@@ -699,6 +699,17 @@ const UI_TEXT_EN = {
      than "this entry", so 436 of the 533 citations stay unadorned. */
   sourceAlsoCitedBy: (n: number) =>
     n === 1 ? 'also cited by 1 other entry' : `also cited by ${n} other entries`,
+  /* ── The same citations, counted by book ───────────────────────────────
+     The list below counts *citation strings*, and that is the right unit for
+     "what does this entry cite" — the string is the reader's search string, and
+     two entries citing different pages of one book have cited different things.
+     It is the wrong unit for "what does this archive lean on", because one book
+     appears as many sources. Both questions are real and the copy has to say so
+     rather than present either as a correction of the other. */
+  coverageWorksHeading: 'Counted by book',
+  coverageWorksNote:
+    'The list below counts citations, which is what an entry actually cites. Counted instead by the work behind them, the archive leans much harder on a few books than any single row can show — one appears under ten different citations.',
+  coverageWorksRecords: (n: number) => `across ${n} citation${n === 1 ? '' : 's'}`,
   coverageRestsTop: 'The sources most of it rests on',
   coverageRestsEntryCount: (n: number) => `${n} ${n === 1 ? 'entry' : 'entries'}`,
   coverageRestsTail: (n: number) =>
@@ -1164,6 +1175,7 @@ export function tFn(lang: Lang, key: 'sharedGroundMeetingPairs', n: number): str
 export function tFn(lang: Lang, key: 'traditionSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
+export function tFn(lang: Lang, key: 'coverageWorksRecords', n: number): string;
 export function tFn(lang: Lang, key: 'aboutTrustLineage', total: number): string;
 export function tFn(lang: Lang, key: 'aboutTrustMemberships', total: number): string;
 export function tFn(lang: Lang, key: 'graphLineageOnlyTeacherOf', name: string): string;
@@ -1260,6 +1272,7 @@ export function tFn(
     | 'traditionSiteCount'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'
+    | 'coverageWorksRecords'
     | 'aboutTrustLineage'
     | 'aboutTrustMemberships'
     | 'graphLineageOnlyTeacherOf'

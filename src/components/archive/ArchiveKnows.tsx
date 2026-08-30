@@ -8,6 +8,7 @@ import { SUPPORT_LEVEL_LABEL_KEYS } from '../../lib/data/supportLevel';
 import { INFO_LEVEL_LABEL_KEYS } from '../../lib/data/infoLevel';
 import { CATEGORY_LABELS } from '../../lib/data/categoryKey';
 import { buildPlaces } from '../../lib/data/places';
+import { buildWorkRollup } from '../../lib/data/sourceWorks';
 import {
   buildSourceIndex,
   sourceAnchorId,
@@ -127,6 +128,21 @@ export function ArchiveKnows({
      memory — same extractor, same dedupe key, and sourceIndex.test.ts asserts
      the two arrive at the same numbers. */
   const restsOn = useMemo(() => buildSourceIndex(shrines), [shrines]);
+
+  /* The same citations, rolled up by the work behind them.
+   *
+   * `buildSourceIndex` dedupes on the citation string, which is correct for the
+   * question it answers — the string is the reader's search string, and two
+   * entries citing different pages of one book have cited different things. It
+   * simply cannot answer the other question. Alam Faqri's *Tazkirah
+   * Awliya-e-Pakistan* is ten citation records: its three largest show below as
+   * separate rows of 25, 11 and 5, and seven more sit in the 436-long tail of
+   * sources cited once. Counted by work, 48 of the 168 sourced entries lean on
+   * that one book — and the largest number the list below can show a reader is
+   * 25.
+   *
+   * Both counts are true. Neither corrects the other, and the copy says so. */
+  const works = useMemo(() => buildWorkRollup(restsOn), [restsOn]);
   /* The index for /place/:slug. It lives among the limits because "35 sites in
      Lahore, 1 in Chiniot" is where the archive is thin, stated by geography. It
      is also the only inbound link to the place pages — a route reachable only by
@@ -226,6 +242,49 @@ export function ArchiveKnows({
             <Fact value={restsOn.shared} label={t('coverageRestsShared')} noun="" />
             <Fact value={restsOn.singleSourced} label={t('coverageRestsSingle')} noun="" />
           </ul>
+
+          {works.length > 0 && (
+            <div className="coverage-works">
+              <h3 className="inset-list-header">{t('coverageWorksHeading')}</h3>
+              <p className="coverage-note">{t('coverageWorksNote')}</p>
+              <ul className="inset-list">
+                {works.map(({ work, entries, citationRecords }) => (
+                  <li key={work.slug} className="inset-row">
+                    {/* `inset-row-label`, the class the citation rows beside
+                        this one use — not an invented `inset-row-main`, which
+                        is what the first draft had and which
+                        `classNamesStyled.test.ts` caught before it could ship
+                        unstyled. */}
+                    <span className="inset-row-label">
+                      <span className="coverage-work-title">
+                        {/* The work's own title and author, which is what a
+                            reader would search for. Latin in both views for the
+                            same reason a bibliography is (i18n rule 7). */}
+                        <bdi data-latin>{work.title}</bdi>
+                        {work.author && (
+                          <span className="coverage-work-author">
+                            {' · '}
+                            <bdi data-latin>{work.author}</bdi>
+                          </span>
+                        )}
+                      </span>
+                      {/* How many citation strings this one book hides behind —
+                          the number that explains why the list below never
+                          shows it whole. */}
+                      {citationRecords > 1 && (
+                        <span className="coverage-work-records">
+                          {fmtNum(tFn(lang, 'coverageWorksRecords', citationRecords))}
+                        </span>
+                      )}
+                    </span>
+                    <span className="inset-row-note">
+                      {fmtNum(tFn(lang, 'coverageRestsEntryCount', entries.length))}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <h3 className="inset-list-header">{t('coverageRestsTop')}</h3>
           <SourceList sources={shared} targeted={wanted} />

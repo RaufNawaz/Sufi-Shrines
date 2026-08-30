@@ -633,6 +633,10 @@ export const UI_TEXT_UR: UiStrings = {
   coverageRestsShow: 'سب دکھائیں',
   coverageRestsHide: 'چھپائیں',
   sourceAlsoCitedBy: (n: number) => `${n} دیگر اندراجات میں بھی درج`,
+  coverageWorksHeading: 'کتاب کے اعتبار سے شمار',
+  coverageWorksNote:
+    'نیچے دی گئی فہرست حوالوں کو گنتی ہے، اور یہی وہ چیز ہے جو کوئی اندراج دراصل نقل کرتا ہے۔ مگر اُن کے پیچھے موجود کتابوں کے اعتبار سے گنیں تو آرکائیو چند کتابوں پر اُس سے کہیں زیادہ انحصار کرتا ہے جو کوئی ایک سطر دکھا سکے — ایک کتاب دس مختلف حوالوں کے تحت آتی ہے۔',
+  coverageWorksRecords: (n: number) => `${n} حوالوں میں`,
   coverageRestsTop: 'وہ مآخذ جن پر اِس کا بڑا حصہ قائم ہے',
   coverageRestsEntryCount: (n: number) => `${n} اندراج`,
   coverageRestsTail: (n: number) =>
