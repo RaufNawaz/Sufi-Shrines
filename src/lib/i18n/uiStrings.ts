@@ -444,8 +444,24 @@ const UI_TEXT_EN = {
   networkConnections: 'Network connections',
   description: 'Description',
   graphExplorerTitle: 'Saints & Orders Explorer',
+  /* "and saints" was "and Sufi saints" by implication and the page says so
+     itself, eleven lines down: `graphExplorerFiguresNote` reads "not every
+     figure here is a Sufi saint." Measured on the running page, 31 August 2026,
+     from its own grouping: **70 of 134 figures are Sufi saints**. The other 64
+     are 20 deities, 16 sants, 15 historical figures, 5 Sikh Gurus, 5 recorded
+     differently and 3 communities. One part of the page already knew what the
+     other denied — the third time in two days that shape has turned up here.
+
+     "Sufi orders" stays: all nine orders the page lists are Sufi silsilas, and
+     narrowing that would be a different error. Only the figures were overclaimed.
+
+     The page's *title* is still "Saints & Orders Explorer", which excludes a
+     deity the same way. Left alone deliberately — it is a name rather than a
+     claim, it reaches the document title, breadcrumb, welcome card and a
+     hand-synced copy in `scripts/prerender.mjs`, and renaming a page a reader
+     may have linked is the same kind of decision as renaming the archive was. */
   graphExplorerIntro:
-    'Browse the Sufi orders and saints behind these shrines, and how they connect to one another.',
+    'Browse the Sufi orders and the figures behind these shrines, and how they connect to one another.',
   graphExplorerOrders: 'Sufi orders',
   graphExplorerAllFigures: 'Figures in the archive',
   graphFigureFilterLabel: 'Find a figure',
@@ -838,7 +854,13 @@ const UI_TEXT_EN = {
   latitudeLabel: 'Latitude',
   longitudeLabel: 'Longitude',
   imageLabel: 'Image',
-  footerCredit: 'Sufi Shrines of Pakistan · Harvard Research Project',
+  /* Renamed with `siteTitle`, and the last site the rename missed — found on
+     31 August 2026, on every page of the archive. The rename swept the title,
+     the meta description and the manifest, and stopped at the strings a reader
+     *arrives* by; the footer is the string a reader *leaves* by, and it sat
+     under all 800 prerendered pages still saying the old name. A rename is a
+     sweep, not an edit — `uiStringsName.test.ts` now holds the sweep open. */
+  footerCredit: 'Mapping the Shrines of Pakistan · Harvard Research Project',
   citeTitle: 'Cite this entry',
   citeTextLabel: 'Text',
   citeCopy: 'Copy',

@@ -411,7 +411,14 @@ export const UI_TEXT_UR: UiStrings = {
   description: 'توضیح',
   graphExplorerTitle: 'اولیاء اور سلسلے',
   graphExplorerIntro:
-    'ان مزارات کے پیچھے صوفی سلسلوں اور اولیاء کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
+    /* اولیاء → شخصیات: one noun, replaced with the noun this file already uses
+       for exactly this set of people — `graphExplorerAllFigures` ("آرکائیو کی
+       شخصیات") and `graphExplorerFiguresNote` ("یہاں ہر شخصیت صوفی ولی نہیں")
+       are both reviewed Urdu and both already call them شخصیات. Applying the
+       archive's own reviewed term in the same grammatical slot, not authoring a
+       sentence — which is why this one moved and `footerCredit` above did not.
+       Flagged for a reader's eye on the agreement all the same. */
+    'ان مزارات کے پیچھے صوفی سلسلوں اور شخصیات کو دیکھیں، اور جانیں کہ وہ ایک دوسرے سے کیسے جڑے ہیں۔',
   graphExplorerOrders: 'صوفی سلسلے',
   graphExplorerAllFigures: 'آرکائیو کی شخصیات',
   graphFigureFilterLabel: 'شخصیت تلاش کریں',
@@ -761,6 +768,12 @@ export const UI_TEXT_UR: UiStrings = {
   latitudeLabel: 'عرض بلد',
   longitudeLabel: 'طول بلد',
   imageLabel: 'تصویر',
+  /* The fourth string under the `siteTitle` ruling at the top of this file, and
+     the one on every page. Same value, same reason, stated here so the next
+     reader does not conclude only the three near the top were considered: the
+     English twin became "Mapping the Shrines of Pakistan" on 31 August 2026 and
+     this cannot follow it without writing Urdu. Awaiting the archive's Urdu
+     name — see `docs/SESSION_RESUME.md`, "Waiting on a person". */
   footerCredit: 'پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ',
   citeTitle: 'اس اندراج کا حوالہ',
   citeTextLabel: 'متن',
