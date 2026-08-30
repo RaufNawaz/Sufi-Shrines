@@ -72,6 +72,7 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | Doc                                                                            | Purpose                                                                           |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
 | [`planning/TODO.md`](planning/TODO.md)                                         | Live working checklist for the dataset and app                                    |
+| [`planning/FRONT_DOOR_PAYLOAD.md`](planning/FRONT_DOOR_PAYLOAD.md)             | **The map downloads 672 KB of prose to draw 169 dots.** Measured front-door payload, the two fixes ruled out by measuring, and the slim index that fixes it |
 | [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |
 | [`planning/NEXT_STEPS_2026-08-26.md`](planning/NEXT_STEPS_2026-08-26.md)       | **Current working plan**: display-enrichment phase (order/place/almanac surfaces from data the KG already holds) + feature polish, specced for a cheaper model |

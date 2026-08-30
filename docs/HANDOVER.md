@@ -3956,6 +3956,54 @@ both redirects.
     because the instinct it corrects is a reasonable one. The assertion is in the instrument's
     output rather than only here, so it is re-checked on every run rather than believed.
 
+153. **The map's slim index: 169 dots no longer cost 672 KB of prose.** *Built 29 August 2026,
+    from the features session's measurement in `docs/planning/FRONT_DOOR_PAYLOAD.md`.* A phone at
+    slow 4G with 4× CPU throttle paints in 1.2 s and then watches an empty map for **four more
+    seconds** while the CSV arrives — 837 KB raw, 295 KB gzipped, of which **80.3% is
+    `Description`** and the map renders 1.4%.
+
+    `src/data/shrines-index.json` is the same rows with everything the front door does not render
+    taken out: **63 KB raw, ~13 KB gzipped, a 22× reduction.**
+
+    Three decisions worth keeping, because each has a reason that is not obvious:
+
+    - **It is fatter than the map needs, on purpose.** Four columns draw the map and cost 4 KB
+      gzipped. The index carries ten, because the sidebar card has to be *whole* — a card that
+      fills its holes a second later reads as breakage, not as loading. `Image 1` earns its 3 KB
+      twice over: the list renders a category-coloured empty slot for a shrine with no picture,
+      so omitting it would show all 169 cards as photo-less and then pop 118 photographs in.
+    - **`Description` is absent and it is 80% of the payload.** The preview panel shows a snippet
+      of it, but that panel is a click away and the CSV has landed by then.
+    - **It is not a static import**, which would be instant and would also add ~63 KB of eager JS
+      to every route touching shrine data — MapPage had 18 KB of headroom. Loaded the way
+      `shrines-fallback.json` already is, as a dynamic import, it is a separate chunk arriving in
+      ~200 ms against the CSV's 3,372 ms, and costs no route a byte of its budget.
+
+    **Two generators write it, and that is deliberate.** `build-dataset.mjs` emits it from the
+    same in-memory rows it writes the snapshot from, so a live build cannot produce an index that
+    disagrees with the dataset — the guard that matters, because **a slim index that drifts puts
+    a pin where the entry does not claim to be**, and no reader could tell.
+    `scripts/data/build-shrine-index.mjs` writes the identical projection from
+    `data/shrines.json` so it can be regenerated offline, and its `--check` runs in
+    `npm run verify`. `shrinesIndex.test.ts` asserts row-for-row field identity, that both
+    generators declare the same columns, and that the slim rows derive the **same slugs** — a
+    reordered index would send every marker to a different page.
+
+    The rendering half — a third path in `useShrineData` above the cache path — is the features
+    session's, and `adoptCsvResult` already exists so the CSV can supersede the index without
+    rebuilding the search index for a no-op.
+
+154. **The image-liveness survey re-run: unchanged, and worth the hour to know that.** *Re-run
+    29 August 2026.* CLAUDE.md says to re-run `pipeline/check_image_liveness.py` rather than
+    trust either photograph figure, so it was re-run: **239 alive, 3 dead, 6 unknown**, and the
+    three dead are the same three as 27 August — two Wikimedia 404s and a heritageofpakistan.org
+    403. Two entries still lose their only image, so "51 entries carry no photograph" remains 53.
+
+    The six unknowns are all `429 Too Many Requests` and are **not** losses; the script reports
+    them separately for exactly that reason and its own docstring warns against recording them as
+    such. A standing finding that has been re-measured and did not move is worth as much as one
+    that did — §9.45's lesson is that the date on the measurement is the point, not the number.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
