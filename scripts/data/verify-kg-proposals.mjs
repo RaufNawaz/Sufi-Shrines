@@ -212,6 +212,10 @@ const kg = JSON.parse(readFileSync(KG, 'utf8'));
    actually asserts is "this person has no shrine in the archive", which is
    stable, and `lineageOnly` is exactly that distinction. */
 const knownSaints = new Set(kg.saints.filter((s) => !s.lineageOnly).map((s) => s.slug));
+/* Every figure, lineage-only included. `knownSaints` answers "does this person
+   have a site here", which is what `IsNew` means; this answers "is there anybody
+   at this slug at all", which is what a date proposal needs. */
+const allSaintSlugs = new Set(kg.saints.map((s) => s.slug));
 
 /* A proposal's slug is a *pointer* to a figure, and the graph renames figures.
  *
@@ -431,6 +435,30 @@ if (existsSync(DATES)) {
       } else {
         fail(`${label}: saint "${p.saintSlug}" not in the graph and not marked new`);
       }
+    }
+
+    /* A date must land on somebody, and unlike a kin or lineage proposal it
+       cannot mint the somebody. `build-kg.mjs` does `const saint =
+       saintMap.get(resolveSaintSlug(p.saintSlug)); if (!saint) continue;` — a
+       proposal whose slug resolves to no figure is **silently dropped**, with no
+       node created and no warning logged.
+       
+       That is the right behaviour (a birth year is not a reason for a page) and
+       it needs a gate, because `saintIsNew: true` makes a dangling slug legal to
+       the check above: the slug resolves to nothing, so "not a known saint" is
+       true and the proposal passes while doing nothing at all.
+
+       Found on 30 August 2026 with three of them — `wasif-ali-wasif`,
+       `tahir-bandagi-qadri`, `khawaja-feroz-ud-din-gharib-nawaz`, all short forms
+       of slugs that exist in longer shapes. Harmless in that instance because the
+       sheet already carried every one of those dates, which is exactly why
+       nobody had noticed: a dead proposal and an applied one look identical from
+       outside. */
+    if (!allSaintSlugs.has(resolveSlug(p.saintSlug))) {
+      fail(
+        `${label}: "${p.saintSlug}" resolves to no figure in the graph, so build-kg drops this ` +
+          `proposal silently. A date cannot create the person it belongs to.`,
+      );
     }
 
     checkQuote(label, p.source, p.quote);

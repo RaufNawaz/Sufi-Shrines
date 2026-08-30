@@ -5156,6 +5156,39 @@ both redirects.
     pointer, not an address**, and any count that compares the two without `retiredSlugs` in hand is
     counting its own ignorance.
 
+178. **Three date proposals pointed at slugs that resolve to nobody, and `build-kg` dropped them
+    silently — taking honorifics and a provenance disclosure with them.** *Found 30 August 2026,
+    running the §9.177 check across the dates layer.* `build-kg.mjs` applies a date proposal with
+    `const saint = saintMap.get(resolveSaintSlug(p.saintSlug)); if (!saint) continue;` — **no node
+    created, no warning logged.** Three of the 105 proposals used short-form slugs
+    (`wasif-ali-wasif`, `tahir-bandagi-qadri`, `khawaja-feroz-ud-din-gharib-nawaz`) for figures that
+    exist under longer ones, so all three were dead letters.
+
+    **They were not empty, which is the part worth having.** Between them they carried
+    `datePrecision`, `titles` — *Sakhi Lajpal*, *Gharib Nawaz*, *wali-e-kamil* — `altNames`, and a
+    `biographySource` with `biographyReviewed: false`. Three figure pages were missing their
+    honorifics **and** the disclosure that part of their biography is an unreviewed reading. The
+    provenance count therefore goes **205 → 208, upward**, which is the honest direction: three
+    figures now admit something they had been quietly not admitting.
+
+    **Nobody noticed because the dates themselves were already right.** The sheet carried every one
+    of them, so the most visible field on each page looked correct while everything around it was
+    missing. **A dead proposal and an applied one are indistinguishable from outside** unless
+    something checks — and nothing did, because `saintIsNew: true` made a dangling slug *legal*:
+    the slug resolves to nothing, so "this person is not a known saint" is true, and the proposal
+    passed while doing nothing at all.
+
+    `verify-kg-proposals.mjs` now refuses a date proposal whose slug resolves to no figure, with the
+    reason spelled out: **a date cannot create the person it belongs to**, which is exactly why this
+    family needs a check the kin and lineage families do not — those mint a node from `IsNew` and so
+    can never dangle.
+
+    **Two false alarms on the way, both mine, both from the same habit.** The first pass compared
+    proposal slugs to graph slugs without resolving retirements and reported ten failures; the
+    second treated `born: ""` as a proposed date and reported thirty-six. Only the third was right,
+    at three. **An empty string is not a value and a slug is not an address** — and a check that has
+    not been run against a known answer is a rumour.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

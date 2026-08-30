@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T16:01:06.958Z",
+  "generated": "2026-08-30T16:39:34.364Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -1428,6 +1428,20 @@
       "evidence": "96aaa1f2"
     },
     {
+      "id": "biography:hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "kind": "biography",
+      "subject": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
+      "subjectSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "object": "",
+      "died": "November 27, 1981 (Friday)",
+      "titles": [
+        "Sakhi Lajpal",
+        "Gharib Nawaz"
+      ],
+      "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "evidence": "17702c4d"
+    },
+    {
       "id": "biography:khawaja-shah-muhammad-sulaiman-taunsvi",
       "kind": "biography",
       "subject": "Khawaja Shah Muhammad Sulaiman Taunsvi",
@@ -1440,6 +1454,21 @@
       ],
       "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "evidence": "15b840be"
+    },
+    {
+      "id": "biography:hazrat-tahir-bandagi-qadri",
+      "kind": "biography",
+      "subject": "Hazrat Tahir Bandagi Qadri",
+      "subjectSlug": "hazrat-tahir-bandagi-qadri",
+      "object": "",
+      "born": "1576 CE, Lahore",
+      "died": "8 Muharram 1040 AH / 8 August 1630 CE",
+      "titles": [
+        "Tahir Bandagi (name conferred by Hazrat Shah Sikandar)",
+        "wali-e-kamil"
+      ],
+      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "evidence": "be876c4b"
     },
     {
       "id": "biography:malik-ahmad-ayaz",
@@ -1465,6 +1494,20 @@
       ],
       "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
       "evidence": "fc3f023f"
+    },
+    {
+      "id": "biography:hazrat-wasif-ali-wasif-awan",
+      "kind": "biography",
+      "subject": "Hazrat Wasif Ali Wasif Awan",
+      "subjectSlug": "hazrat-wasif-ali-wasif-awan",
+      "object": "",
+      "born": "15 January 1929",
+      "died": "18 January 1993",
+      "titles": [
+        "shaheed (as popular belief, not a formal ruling — per the survey)"
+      ],
+      "source": "data/shrines.csv#darbar-wasif-ali-wasif",
+      "evidence": "cb5a268e"
     },
     {
       "id": "biography:sufi-shah-inayat-shaheed",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T16:01:06.958Z",
+  "generated": "2026-08-30T16:39:34.364Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -191,7 +191,14 @@
         "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
       ],
       "figureType": "Individual",
-      "died": "November 27, 1981 (Friday)"
+      "died": "November 27, 1981 (Friday)",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Sakhi Lajpal",
+        "Gharib Nawaz"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami"
     },
     {
       "id": "saint:khawaja-shah-muhammad-sulaiman-taunsvi",
@@ -219,13 +226,22 @@
       "type": "saint",
       "slug": "hazrat-tahir-bandagi-qadri",
       "name": "Hazrat Tahir Bandagi Qadri",
-      "altNames": [],
+      "altNames": [
+        "Tahir Bandagi"
+      ],
       "shrines": [
         "darbar-hazrat-tahir-bandagi-qadri"
       ],
       "figureType": "Individual",
       "born": "1576 CE, Lahore",
-      "died": "8 Muharram 1040 AH / 8 August 1630 CE"
+      "died": "8 Muharram 1040 AH / 8 August 1630 CE",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Tahir Bandagi (name conferred by Hazrat Shah Sikandar)",
+        "wali-e-kamil"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri"
     },
     {
       "id": "saint:malik-ahmad-ayaz",
@@ -289,14 +305,22 @@
       "slug": "hazrat-wasif-ali-wasif-awan",
       "name": "Hazrat Wasif Ali Wasif Awan",
       "altNames": [
-        "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"
+        "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus",
+        "Muhammad Wasif Awan",
+        "Wasif (takhallus / pen name)"
       ],
       "shrines": [
         "darbar-wasif-ali-wasif"
       ],
       "figureType": "Individual",
       "born": "15 January 1929",
-      "died": "18 January 1993"
+      "died": "18 January 1993",
+      "datePrecision": "exact-date",
+      "titles": [
+        "shaheed (as popular belief, not a formal ruling — per the survey)"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "data/shrines.csv#darbar-wasif-ali-wasif"
     },
     {
       "id": "saint:sufi-shah-inayat-shaheed",

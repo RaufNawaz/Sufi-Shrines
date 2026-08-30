@@ -289,7 +289,31 @@ describe('the shipped graph', () => {
                        al-Suhrawardi — the archive carried the Suhrawardi order
                        while holding no relation between the two men it is named
                        for — and Lakhi Shah Saddar's named forebear Sayyid Ali
-                       Makki ibn Abbas Mousavi. */
-    expect(flagged.length).toBe(205);
+                       Makki ibn Abbas Mousavi.
+        205 + 3       = 208, 30 August 2026, and this term goes UP because three
+                       figures started disclosing something they had been
+                       quietly not disclosing. Three date proposals pointed at
+                       SHORT-FORM slugs — `wasif-ali-wasif`,
+                       `tahir-bandagi-qadri`,
+                       `khawaja-feroz-ud-din-gharib-nawaz` — that resolve to no
+                       figure, so `build-kg` dropped them at
+                       `if (!saint) continue;` with no node created and no
+                       warning.
+
+                       They were not empty. Between them they carried
+                       `datePrecision`, `titles` (Sakhi Lajpal, Gharib Nawaz,
+                       wali-e-kamil), `altNames`, and a `biographySource` with
+                       `biographyReviewed: false`. Three figure pages were
+                       missing their honorifics AND the disclosure that part of
+                       their biography is an unreviewed reading.
+
+                       Nobody noticed because **the dates themselves were
+                       already right** — the sheet carried them, so the most
+                       visible field looked correct while everything around it
+                       was missing. A dead proposal and an applied one are
+                       indistinguishable from outside unless you check.
+                       `verify-kg-proposals.mjs` now refuses a date proposal
+                       whose slug resolves to nobody. */
+    expect(flagged.length).toBe(208);
   });
 });

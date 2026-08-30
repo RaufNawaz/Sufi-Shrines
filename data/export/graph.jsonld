@@ -315,6 +315,9 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-tahir-bandagi-qadri",
       "name": "Hazrat Tahir Bandagi Qadri",
+      "alternateName": [
+        "Tahir Bandagi"
+      ],
       "birthDate": "1576 CE, Lahore",
       "deathDate": "8 Muharram 1040 AH / 8 August 1630 CE",
       "memberOf": {
@@ -367,7 +370,9 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-wasif-ali-wasif-awan",
       "name": "Hazrat Wasif Ali Wasif Awan",
       "alternateName": [
-        "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"
+        "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus",
+        "Muhammad Wasif Awan",
+        "Wasif (takhallus / pen name)"
       ],
       "birthDate": "15 January 1929",
       "deathDate": "18 January 1993",

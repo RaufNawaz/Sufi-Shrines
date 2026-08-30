@@ -197,6 +197,7 @@ saint:khawaja-shah-muhammad-sulaiman-taunsvi
 saint:hazrat-tahir-bandagi-qadri
   a schema:Person ;
   schema:name "Hazrat Tahir Bandagi Qadri"@en ;
+  schema:alternateName "Tahir Bandagi"@en ;
   schema:birthDate "1576 CE, Lahore" ;
   schema:deathDate "8 Muharram 1040 AH / 8 August 1630 CE" ;
   schema:memberOf order_:qadiriyya ;
@@ -229,6 +230,8 @@ saint:hazrat-wasif-ali-wasif-awan
   a schema:Person ;
   schema:name "Hazrat Wasif Ali Wasif Awan"@en ;
   schema:alternateName "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"@en ;
+  schema:alternateName "Muhammad Wasif Awan"@en ;
+  schema:alternateName "Wasif (takhallus / pen name)"@en ;
   schema:birthDate "15 January 1929" ;
   schema:deathDate "18 January 1993" ;
   schema:memberOf order_:chishtiyya ;

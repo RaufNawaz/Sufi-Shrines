@@ -142,9 +142,9 @@
    "source": "data/shrines.csv#darbar-ghazi-ilm-din-shaheed"
   },
   {
-   "saintSlug": "khawaja-feroz-ud-din-gharib-nawaz",
+   "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
    "saintName": "Hazrat Khawaja Feroz-ud-Din Gharib Nawaz Chishti Nizami",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
    "born": "",
    "died": "Friday, 27 November 1981",
@@ -184,9 +184,9 @@
    "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
   },
   {
-   "saintSlug": "tahir-bandagi-qadri",
+   "saintSlug": "hazrat-tahir-bandagi-qadri",
    "saintName": "Hazrat Tahir Bandagi Qadri",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-hazrat-tahir-bandagi-qadri",
    "born": "1576 CE",
    "died": "8 Muharram 1040 AH, which the survey gives as 8 August 1630 CE",
@@ -226,9 +226,9 @@
    "source": "data/shrines.csv#darbar-malik-ahmad-ayaz"
   },
   {
-   "saintSlug": "wasif-ali-wasif",
+   "saintSlug": "hazrat-wasif-ali-wasif-awan",
    "saintName": "Hazrat Wasif Ali Wasif",
-   "saintIsNew": true,
+   "saintIsNew": false,
    "shrineSlug": "darbar-wasif-ali-wasif",
    "born": "15 January 1929",
    "died": "18 January 1993",
