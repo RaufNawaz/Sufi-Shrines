@@ -18,6 +18,10 @@ sufi:buriedAt      rdfs:subPropertyOf schema:location ;
 sufi:commemorates  rdfs:subPropertyOf schema:about ;
                    rdfs:label "commemorates"@en .
 sufi:silsila       rdfs:label "spiritual lineage (silsila)"@en .
+sufi:grandsonOf    rdfs:label "grandson of"@en .
+sufi:nephewOf      rdfs:label "nephew of"@en .
+sufi:sonInLawOf    rdfs:label "son-in-law of"@en .
+sufi:descendantOf  rdfs:label "descendant of"@en .
 
 # ── Sufi Orders ───────────────────────────────────────────────────────────
 order_:chishtiyya
@@ -57,6 +61,30 @@ order_:naqshbandiyya
   schema:alternateName "نقشبندیہ"@ar ;
   schema:description """Order tracing to Baha ud-Din Naqshband Bukhari; emphasises silent dhikr and close adherence to shari'a."""@en ;
   schema:foundingDate "c. 1389" ;
+  .
+
+order_:rashidi
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Rashidi"@en ;
+  schema:alternateName "راشدیہ"@ar ;
+  .
+
+order_:malamati
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Malamati"@en ;
+  schema:alternateName "ملامتی"@ar ;
+  .
+
+order_:azeemia
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Azeemia"@en ;
+  schema:alternateName "عظیمیہ"@ar ;
+  .
+
+order_:shattari
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Shattari"@en ;
+  schema:alternateName "شطاری"@ar ;
   .
 
 # ── Saints ────────────────────────────────────────────────────────────────
@@ -99,6 +127,7 @@ saint:shah-abdul-latif-bhittai
   schema:name "Shah Abdul Latif Bhittai"@en ;
   schema:birthDate "1689" ;
   schema:deathDate "1752" ;
+  sufi:descendantOf saint:shah-abdul-karim-bulri ;
   .
 
 saint:goddess-durga
@@ -107,11 +136,17 @@ saint:goddess-durga
   schema:alternateName "Mata"@en ;
   .
 
-saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri
+saint:hazrat-syed-muhammad-khair-ul-deen
   a schema:Person ;
-  schema:name "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"@en ;
+  schema:name "Hazrat Syed Muhammad Khair ul Deen"@en ;
+  schema:alternateName "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"@en ;
+  schema:alternateName "Shah Khairuddin Muhammad"@en ;
+  schema:alternateName "Abul Ma’ali"@en ;
   schema:birthDate "10 Zil Hajj 960 AH, Kirman, Iran (as related in the survey)" ;
   schema:deathDate "16 Rabi ul Awal 1024 AH (as related in the survey)" ;
+  sufi:discipleOf saint:daud-bandagi-kirmani ;
+  sufi:nephewOf saint:daud-bandagi-kirmani ;
+  sufi:sonInLawOf saint:daud-bandagi-kirmani ;
   .
 
 saint:khwaja-muhammad-qasim
@@ -164,10 +199,13 @@ saint:hazrat-tahir-bandagi-qadri
   sufi:discipleOf saint:hazrat-shah-sikandar ;
   .
 
-saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore
+saint:malik-ahmad-ayaz
   a schema:Person ;
-  schema:name "Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"@en ;
+  schema:name "Malik Ahmad Ayaz"@en ;
   schema:alternateName "also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\""@en ;
+  schema:alternateName "Malik Ahmad Ayaz (also given as \"Malik Ayaz Ahmad\" and \"Malik Ayaz\"), described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore"@en ;
+  schema:alternateName "Malik Ayaz Ahmad"@en ;
+  schema:alternateName "Malik Ayaz"@en ;
   schema:birthDate "Not given. The only early date is \"educated in Georgia in 993 AD\" (Q9)." ;
   schema:deathDate "8 August 1041, as given in the account; calendar era unstated" ;
   .
@@ -179,6 +217,7 @@ saint:syed-sakhi-shah-chan-charagh
   schema:alternateName "Sayyid Shah Zaman"@en ;
   schema:alternateName "Sakhi Shah Chan Charagh"@en ;
   sufi:discipleOf saint:sayyid-shah-inayat ;
+  sufi:nephewOf saint:sayyid-shah-inayat ;
   .
 
 saint:hazrat-wasif-ali-wasif-awan
@@ -187,6 +226,8 @@ saint:hazrat-wasif-ali-wasif-awan
   schema:alternateName "born Muhammad Wasif Awan; \"Wasif\" was his pen name/takhallus"@en ;
   schema:birthDate "15 January 1929" ;
   schema:deathDate "18 January 1993" ;
+  schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:hazrat-shah-niyaz-ahmad-chisti-qadri ;
   .
 
 saint:sufi-shah-inayat-shaheed
@@ -217,6 +258,7 @@ saint:khwaja-muhammad-zaman-sultan-al-aulia
   schema:memberOf order_:naqshbandiyya ;
   sufi:discipleOf saint:khwaja-abul-masakin ;
   sufi:discipleOf saint:shaikh-abdul-latif ;
+  schema:parent saint:shaikh-abdul-latif ;
   .
 
 saint:pir-syed-muhammad-rashid-shah-roze-dhani
@@ -226,7 +268,7 @@ saint:pir-syed-muhammad-rashid-shah-roze-dhani
   schema:alternateName "Pir Syed Muhammad Rashid Shah"@en ;
   schema:birthDate "1757" ;
   schema:deathDate "1818" ;
-  schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:rashidi ;
   .
 
 saint:baba-pir-ratan-nath
@@ -236,10 +278,11 @@ saint:baba-pir-ratan-nath
   schema:alternateName "Ratan Nath"@en ;
   .
 
-saint:jhulelal-daryalal
+saint:jhulelal
   a schema:Person ;
-  schema:name "Jhulelal / Daryalal"@en ;
+  schema:name "Jhulelal"@en ;
   schema:alternateName "Zinda Pir"@en ;
+  schema:alternateName "Uderolal"@en ;
   .
 
 saint:data-ganj-bakhsh
@@ -290,10 +333,11 @@ saint:guru-gorakhnath
   sufi:discipleOf saint:matsyendranath ;
   .
 
-saint:jain-temple-dedicated-to-parshvanatha
+saint:parshvanatha
   a schema:Person ;
-  schema:name "Jain temple dedicated to Parshvanatha"@en ;
+  schema:name "Parshvanatha"@en ;
   schema:alternateName "23rd Tirthankara"@en ;
+  schema:alternateName "Jain temple dedicated to Parshvanatha (23rd Tirthankara)"@en ;
   .
 
 saint:sant-gurdas-ram
@@ -311,6 +355,7 @@ saint:guru-nanak
   schema:alternateName "Nanak"@en ;
   schema:birthDate "1469" ;
   schema:deathDate "1539" ;
+  schema:sibling saint:bebe-nanaki ;
   schema:sameAs <https://www.wikidata.org/entity/Q309430> ;
   .
 
@@ -321,6 +366,7 @@ saint:bebe-nanaki
   schema:alternateName "Bibi Nanaki"@en ;
   schema:birthDate "1464" ;
   schema:deathDate "1518" ;
+  schema:sibling saint:guru-nanak ;
   .
 
 saint:guru-arjan-dev
@@ -330,6 +376,8 @@ saint:guru-arjan-dev
   schema:alternateName "Guru Arjan"@en ;
   schema:birthDate "1563" ;
   schema:deathDate "1606" ;
+  schema:parent saint:guru-ram-das ;
+  sufi:grandsonOf saint:guru-amar-das ;
   .
 
 saint:bhai-biba-singh
@@ -343,17 +391,13 @@ saint:bhai-joga-singh
   schema:name "Bhai Joga Singh"@en ;
   .
 
-saint:guru-nanak-dev-ji
-  a schema:Person ;
-  schema:name "Guru Nanak Dev Ji"@en ;
-  .
-
 saint:guru-hargobind
   a schema:Person ;
   schema:name "Guru Hargobind"@en ;
   schema:alternateName "Sixth Guru"@en ;
   schema:alternateName "Sixth Guru / Chhevin Patshahi"@en ;
   sufi:successorOf saint:guru-arjan-dev ;
+  schema:parent saint:guru-arjan-dev ;
   .
 
 saint:guru-gobind-singh
@@ -372,17 +416,19 @@ saint:guru-ram-das
   schema:deathDate "1581" ;
   sufi:discipleOf saint:guru-amar-das ;
   sufi:successorOf saint:guru-amar-das ;
+  sufi:sonInLawOf saint:guru-amar-das ;
   .
 
-saint:guru-nanak-dev-ji-associated-with-bhai-lalo
+saint:bhai-lalo
   a schema:Person ;
-  schema:name "Guru Nanak Dev Ji; associated with Bhai Lalo"@en ;
+  schema:name "Bhai Lalo"@en ;
+  schema:alternateName "Bhai Lalu"@en ;
+  schema:birthDate "1452 (\"traditionally said\")" ;
   .
 
-saint:guru-arjan-dev-and-guru-hargobind
+saint:bhai-mardana
   a schema:Person ;
-  schema:name "Guru Arjan Dev & Guru Hargobind"@en ;
-  schema:alternateName "5th"@en ;
+  schema:name "Bhai Mardana"@en ;
   .
 
 saint:bhai-taru
@@ -424,29 +470,22 @@ saint:jain-tirthankaras
   schema:name "Jain Tirthankaras"@en ;
   .
 
-saint:jhulelal
-  a schema:Person ;
-  schema:name "Jhulelal"@en ;
-  schema:alternateName "Uderolal"@en ;
-  .
-
 saint:kali
   a schema:Person ;
   schema:name "Kali"@en ;
   schema:alternateName "deity"@en ;
   .
 
-saint:goddess-kali
+saint:kalka-devi
   a schema:Person ;
-  schema:name "Goddess Kali"@en ;
-  schema:alternateName "Kalka Devi"@en ;
+  schema:name "Kalka Devi"@en ;
   .
 
-saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh
+saint:bhai-gurdas-singh
   a schema:Person ;
-  schema:name "Bhai Gurdas Singh, disciple of Guru Gobind Singh"@en ;
+  schema:name "Bhai Gurdas Singh"@en ;
   schema:alternateName "Kanhiya Lal"@en ;
-  schema:alternateName "Bhai Gurdas Singh"@en ;
+  schema:alternateName "Bhai Gurdas Singh (Kanhiya Lal), disciple of Guru Gobind Singh"@en ;
   schema:alternateName "Bhai Kanya Lal"@en ;
   sufi:discipleOf saint:guru-gobind-singh ;
   .
@@ -481,10 +520,11 @@ saint:makhdoom-burhan-ud-din
   schema:memberOf order_:suhrawardiyya ;
   .
 
-saint:lava-son-of-rama-and-sita
+saint:lava
   a schema:Person ;
-  schema:name "Lava, son of Rama and Sita"@en ;
+  schema:name "Lava"@en ;
   schema:alternateName "Luv"@en ;
+  schema:alternateName "Lava (Luv), son of Rama and Sita"@en ;
   .
 
 saint:waris-shah
@@ -492,7 +532,7 @@ saint:waris-shah
   schema:name "Waris Shah"@en ;
   schema:birthDate "1722" ;
   schema:deathDate "1798" ;
-  schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:chishtiyya ;
   sufi:discipleOf saint:makhdoom-of-kasur ;
   .
 
@@ -598,6 +638,7 @@ saint:sain-vali-vilayat-rai
   schema:alternateName "b. 1825"@en ;
   schema:alternateName "Vali Vilayat Rai"@en ;
   schema:birthDate "1825" ;
+  schema:parent saint:pratab-rai ;
   .
 
 saint:sultan-sakhi-sarwar
@@ -649,10 +690,11 @@ saint:satguru-swami-sai-satramdas-sahib
   schema:deathDate "1910" ;
   .
 
-saint:bhai-gurdas-veneration-of-guru-nanak
+saint:bhai-gurdas
   a schema:Person ;
-  schema:name "Bhai Gurdas; veneration of Guru Nanak"@en ;
+  schema:name "Bhai Gurdas"@en ;
   schema:alternateName "Sevapanthi tradition"@en ;
+  schema:alternateName "Bhai Gurdas (Sevapanthi tradition); veneration of Guru Nanak"@en ;
   schema:alternateName "Bhai Kanya Lal"@en ;
   schema:alternateName "Kanhiya Lal"@en ;
   schema:alternateName "Bhai Gurdas Singh"@en ;
@@ -699,7 +741,7 @@ saint:daud-bandagi-kirmani
   schema:alternateName "Syed Dawood Bandgi Kirmani"@en ;
   schema:birthDate "1513" ;
   schema:deathDate "1575" ;
-  schema:memberOf order_:chishtiyya ;
+  schema:memberOf order_:qadiriyya ;
   .
 
 saint:lakshmi-narayan
@@ -756,6 +798,7 @@ saint:abul-faiz-qalander-ali-suharwardi
   sufi:discipleOf saint:pir-meher-ali-shah ;
   sufi:discipleOf saint:ala-hazrat-ahmad-raza-khan ;
   sufi:discipleOf saint:hazrat-ghulam-muhammad-suhrawardi ;
+  sufi:grandsonOf saint:jamal-ud-din-gilani ;
   .
 
 saint:akhund-darweza-baba
@@ -783,6 +826,7 @@ saint:syed-abdul-razzaq
   schema:alternateName "Baba Shah Chiragh"@en ;
   schema:deathDate "1657" ;
   schema:memberOf order_:qadiriyya ;
+  sufi:descendantOf saint:sheikh-abdul-qadir-gilani ;
   .
 
 saint:hazrat-baba-shah-kamal
@@ -790,6 +834,8 @@ saint:hazrat-baba-shah-kamal
   schema:name "Hazrat Baba Shah Kamal"@en ;
   schema:alternateName "Shah Kamal"@en ;
   schema:memberOf order_:qadiriyya ;
+  schema:parent saint:syed-ahmad-shah ;
+  schema:sibling saint:syed-shah-jamal-uddin-naqvi-bukhari ;
   .
 
 saint:bahauddin-zakariya
@@ -813,6 +859,7 @@ saint:bibi-pak-daman
   schema:alternateName "Bibi Gauhar"@en ;
   schema:alternateName "Bibi Shahbaz (or Shahnaz)"@en ;
   schema:alternateName "Sayyida Ruqayya bint Ali (in the Karbala tradition)"@en ;
+  schema:parent saint:sayyid-ahmad-tokhta-tirmidhi ;
   .
 
 saint:fariduddin-ganjshakar
@@ -862,6 +909,7 @@ saint:shah-hussain
   schema:alternateName "Lal Hussain"@en ;
   schema:birthDate "1538" ;
   schema:deathDate "1599" ;
+  schema:memberOf order_:malamati ;
   sufi:discipleOf saint:bahlol-daryai ;
   .
 
@@ -876,6 +924,7 @@ saint:hazrat-shah-ali-akbar-shamsi
   a schema:Person ;
   schema:name "Hazrat Shah Ali Akbar Shamsi"@en ;
   schema:alternateName "Shah Ali Akbar"@en ;
+  sufi:descendantOf saint:shah-shams-ud-din-sabzwari ;
   .
 
 saint:shah-daula-daryai
@@ -906,7 +955,8 @@ saint:jalaluddin-surkh-posh-bukhari
 
 saint:laki-shah-saddar
   a schema:Person ;
-  schema:name "Laki Shah Saddar"@en ;
+  schema:name "Syed Shah Sadaruddin Lakyari"@en ;
+  schema:alternateName "Laki Shah Saddar"@en ;
   schema:alternateName "Syed Shah Sadaruddin Lakyari"@en ;
   schema:alternateName "Shah Sadaruddin"@en ;
   schema:alternateName "Laki Shah Sadar"@en ;
@@ -935,6 +985,7 @@ saint:jahaniyan-jahangasht
   schema:deathDate "1384" ;
   schema:memberOf order_:suhrawardiyya ;
   sufi:discipleOf saint:hazrat-bahaal-halim ;
+  sufi:grandsonOf saint:jalaluddin-surkh-posh-bukhari ;
   .
 
 saint:makhdoom-nooh
@@ -957,6 +1008,7 @@ saint:hazrat-meeran-muhammad-shah-bukhari
   schema:birthDate "1533" ;
   schema:deathDate "1604" ;
   schema:memberOf order_:suhrawardiyya ;
+  sufi:descendantOf saint:jalaluddin-surkh-posh-bukhari ;
   .
 
 saint:mian-mir
@@ -969,6 +1021,7 @@ saint:mian-mir
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:shaikh-siyustani ;
   sufi:successorOf saint:shaikh-siyustani ;
+  schema:parent saint:qazi-sain-datta ;
   .
 
 saint:mian-muhammad-umar-chamkani
@@ -990,6 +1043,7 @@ saint:syed-miran-hussain-zanjani
   schema:birthDate "958" ;
   schema:deathDate "1042" ;
   sufi:discipleOf saint:sheikh-abu-al-fazal-khatil ;
+  schema:sibling saint:musa-hussain-zanjani ;
   .
 
 saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini
@@ -999,6 +1053,7 @@ saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini
   schema:alternateName "Azizuddin"@en ;
   schema:birthDate "1132" ;
   schema:deathDate "1215" ;
+  schema:parent saint:hazrat-peer-syed-abdullah ;
   .
 
 saint:syed-ali-tirmizi
@@ -1058,6 +1113,7 @@ saint:sachal-sarmast
   schema:deathDate "1827" ;
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:khwaja-abdul-haq ;
+  sufi:nephewOf saint:khwaja-abdul-haq ;
   .
 
 saint:shah-abdul-karim-bulri
@@ -1078,7 +1134,7 @@ saint:shah-inayat-qadiri
   schema:alternateName "Shah Inayat"@en ;
   schema:birthDate "c. 1643 (existing sourcing); a 2026 field survey separately gives 1056 AH (~1646 CE) -- the two are consistent within the normal margin of approximate Hijri/Gregorian conversion." ;
   schema:deathDate "c. 1728" ;
-  schema:memberOf order_:qadiriyya ;
+  schema:memberOf order_:shattari ;
   sufi:discipleOf saint:muhammad-ali-raza-shattari ;
   sufi:discipleOf saint:hazrat-shah-raza-qadri-shattari ;
   .
@@ -1092,6 +1148,8 @@ saint:syed-shah-jamal-uddin-naqvi-bukhari
   schema:deathDate "1671" ;
   schema:memberOf order_:suhrawardiyya ;
   sufi:discipleOf saint:sheikh-khokar-baig-suhrawardi ;
+  schema:sibling saint:hazrat-baba-shah-kamal ;
+  schema:parent saint:syed-ahmad-shah ;
   .
 
 saint:shah-rukn-e-alam
@@ -1103,6 +1161,8 @@ saint:shah-rukn-e-alam
   schema:deathDate "1335" ;
   schema:memberOf order_:suhrawardiyya ;
   sufi:successorOf saint:bahauddin-zakariya ;
+  sufi:grandsonOf saint:bahauddin-zakariya ;
+  schema:parent saint:sadr-ud-din-arif ;
   .
 
 saint:shah-shams-ud-din-sabzwari
@@ -1164,6 +1224,14 @@ saint:hazrat-bahaal-halim
   schema:memberOf order_:suhrawardiyya ;
   .
 
+saint:bibi-jawindi
+  a schema:Person ;
+  schema:name "Bibi Jawindi"@en ;
+  schema:alternateName "Javindi Bibi"@en ;
+  schema:memberOf order_:suhrawardiyya ;
+  sufi:descendantOf saint:jahaniyan-jahangasht ;
+  .
+
 saint:sultan-qutb-ud-din-aibak
   a schema:Person ;
   schema:name "Sultan Qutb ud-Din Aibak"@en ;
@@ -1180,24 +1248,19 @@ saint:ustad-nuriya
   schema:alternateName "Ustead"@en ;
   .
 
-saint:bhagwan-valmik
-  a schema:Person ;
-  schema:name "Bhagwan Valmik"@en ;
-  schema:alternateName "Valmiki"@en ;
-  .
-
 saint:ghazi-syed-shah-fateh-muhammad-bukhari
   a schema:Person ;
   schema:name "Ghazi Syed Shah Fateh Muhammad Bukhari"@en ;
   schema:alternateName "Ghazi Baba"@en ;
   schema:memberOf order_:suhrawardiyya ;
+  sufi:descendantOf saint:syed-nasiruddin-mahmud ;
   .
 
 saint:kaka-sahib
   a schema:Person ;
-  schema:name "Kaka Sahib"@en ;
+  schema:name "Syed Kasteer Gul"@en ;
+  schema:alternateName "Kaka Sahib"@en ;
   schema:alternateName "Syed Kasteer Gul, \"Sheikh Rahmkar\""@en ;
-  schema:alternateName "Syed Kasteer Gul"@en ;
   schema:alternateName "Sheikh Rahmkar"@en ;
   schema:alternateName "Sheikh Rahm Kar"@en ;
   schema:birthDate "1575" ;
@@ -1207,6 +1270,7 @@ saint:kaka-sahib
   sufi:discipleOf saint:abdullah-ansari-sultanpuri ;
   sufi:discipleOf saint:maulana-abdul-lateef-sultanpuri ;
   sufi:discipleOf saint:sheikh-akhuddeen-seljuki ;
+  schema:parent saint:bahadur-baba ;
   .
 
 saint:abul-fadl-muhammad-al-khuttali
@@ -1252,27 +1316,9 @@ saint:sheikh-khokar-baig-suhrawardi
   schema:name "Sheikh Khokar Baig Suhrawardi"@en ;
   .
 
-saint:shah-abul-muali-qadri
-  a schema:Person ;
-  schema:name "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri"@en ;
-  schema:alternateName "Hazrat Syed Muhammad Khair ul Deen"@en ;
-  schema:alternateName "Shah Khairuddin Muhammad"@en ;
-  schema:alternateName "Abul Ma’ali"@en ;
-  schema:birthDate "10 Zil Hajj 960 Hijri" ;
-  schema:deathDate "16 Rabi ul Awal 1024 Hijri" ;
-  sufi:discipleOf saint:daud-bandagi-kirmani ;
-  .
-
 saint:hazrat-shah-sikandar
   a schema:Person ;
   schema:name "Hazrat Shah Sikandar"@en ;
-  .
-
-saint:hazrat-wasif-ali-wasif
-  a schema:Person ;
-  schema:name "Hazrat Wasif Ali Wasif Awan"@en ;
-  schema:memberOf order_:chishtiyya ;
-  sufi:discipleOf saint:hazrat-shah-niyaz-ahmad-chisti-qadri ;
   .
 
 saint:hazrat-shah-niyaz-ahmad-chisti-qadri
@@ -1420,6 +1466,7 @@ saint:shahid-rasool-shah-gilani-suhrawardi
   a schema:Person ;
   schema:name "Shahid Rasool Shah Gilani Suhrawardi"@en ;
   sufi:successorOf saint:rasool-shah-gilani-suhrawardi ;
+  schema:parent saint:rasool-shah-gilani-suhrawardi ;
   .
 
 saint:hazrat-pir-syed-ismail-shah-bukhari
@@ -1446,12 +1493,14 @@ saint:sahibzada-muhammad-umar-naqshbandi
   a schema:Person ;
   schema:name "Sahibzada Muhammad Umar Naqshbandi"@en ;
   sufi:successorOf saint:ganj-e-inayat-sarkar ;
+  schema:parent saint:ganj-e-inayat-sarkar ;
   .
 
 saint:hazrat-hafiz-muhammad-abdur-rahman
   a schema:Person ;
   schema:name "Hazrat Hafiz Muhammad Abdur Rahman"@en ;
   sufi:successorOf saint:pir-abdul-ul-karim ;
+  schema:parent saint:hazrat-hafiz-muhammad-abdul-karim ;
   .
 
 saint:khwaja-nizamuddin-aulia-of-kahiyan-sharif
@@ -1463,12 +1512,14 @@ saint:khwaja-pir-muhammad-zahid-khan
   a schema:Person ;
   schema:name "Khwaja Pir Muhammad Zahid Khan"@en ;
   sufi:successorOf saint:khwaja-muhammad-qasim-sadiq ;
+  schema:parent saint:khwaja-muhammad-qasim-sadiq ;
   .
 
 saint:pir-sayyid-badshah
   a schema:Person ;
   schema:name "Pir Sayyid Badshah"@en ;
   sufi:successorOf saint:khwaja-muhammad-qasim ;
+  schema:parent saint:khwaja-muhammad-qasim ;
   .
 
 saint:shah-gohar-peer
@@ -1481,6 +1532,7 @@ saint:shah-gohar-peer
   schema:deathDate "21 Ramzan 825 AH" ;
   sufi:discipleOf saint:syed-ul-hassan-kabeer ;
   sufi:successorOf saint:syed-ul-hassan-kabeer ;
+  schema:parent saint:syed-ul-hassan-kabeer ;
   .
 
 saint:syed-ul-hassan-kabeer
@@ -1495,6 +1547,7 @@ saint:mian-qurban-ali-shah
   schema:birthDate "1341 AH (c. 1922–23 CE by calendar conversion)" ;
   schema:deathDate "25 Rabīʿ al-Thānī; year not stated in the survey" ;
   sufi:discipleOf saint:hazrat-mian-fazal-deen ;
+  schema:parent saint:hazrat-mian-fazal-deen ;
   .
 
 saint:hazrat-mian-fazal-deen
@@ -1540,12 +1593,107 @@ saint:sai-chanduram
   a schema:Person ;
   schema:name "Sai Chanduram"@en ;
   sufi:successorOf saint:sant-baba-asudaram-sakhi-baba ;
+  schema:parent saint:sant-baba-asudaram-sakhi-baba ;
   .
 
 saint:khwaja-shamsuddin-azeemi
   a schema:Person ;
   schema:name "Khwaja Shamsuddin Azeemi"@en ;
   sufi:discipleOf saint:qalandar-baba-auliya ;
+  .
+
+saint:syed-nasiruddin-mahmud
+  a schema:Person ;
+  schema:name "Syed Nasiruddin Mahmud"@en ;
+  .
+
+saint:sayyid-ahmad-tokhta-tirmidhi
+  a schema:Person ;
+  schema:name "Sayyid Ahmad Tokhta Tirmidhi"@en ;
+  schema:alternateName "Sayyid Ahmad Tirmidhi"@en ;
+  schema:deathDate "around 602 AH" ;
+  .
+
+saint:hazrat-peer-syed-abdullah
+  a schema:Person ;
+  schema:name "Hazrat Peer Syed Abdullah"@en ;
+  .
+
+saint:sheikh-abdul-qadir-gilani
+  a schema:Person ;
+  schema:name "Sheikh Abdul Qadir Gilani"@en ;
+  .
+
+saint:syed-ahmad-shah
+  a schema:Person ;
+  schema:name "Syed Ahmad Shah"@en ;
+  .
+
+saint:sri-chand
+  a schema:Person ;
+  schema:name "Sri Chand"@en ;
+  schema:parent saint:guru-nanak ;
+  .
+
+saint:hazrat-hafiz-muhammad-abdul-karim
+  a schema:Person ;
+  schema:name "Hazrat Hafiz Muhammad Abdul Karim"@en ;
+  .
+
+saint:jamal-ud-din-gilani
+  a schema:Person ;
+  schema:name "Jamal-ud-Din Gilani"@en ;
+  .
+
+saint:pratab-rai
+  a schema:Person ;
+  schema:name "Pratab Rai"@en ;
+  .
+
+saint:kharak-singh
+  a schema:Person ;
+  schema:name "Kharak Singh"@en ;
+  schema:parent saint:maharaja-ranjit-singh ;
+  .
+
+saint:duleep-singh
+  a schema:Person ;
+  schema:name "Duleep Singh"@en ;
+  schema:parent saint:maharaja-ranjit-singh ;
+  .
+
+saint:sheikh-abdul-haleem
+  a schema:Person ;
+  schema:name "Sheikh Abdul Haleem"@en ;
+  schema:parent saint:kaka-sahib ;
+  .
+
+saint:syed-habibullah
+  a schema:Person ;
+  schema:name "Syed Habibullah"@en ;
+  schema:parent saint:syed-ali-tirmizi ;
+  .
+
+saint:musa-hussain-zanjani
+  a schema:Person ;
+  schema:name "Musa Hussain Zanjani"@en ;
+  schema:sibling saint:syed-miran-hussain-zanjani ;
+  .
+
+saint:nau-nihal-singh
+  a schema:Person ;
+  schema:name "Nau Nihal Singh"@en ;
+  sufi:grandsonOf saint:maharaja-ranjit-singh ;
+  .
+
+saint:sadr-ud-din-arif
+  a schema:Person ;
+  schema:name "Sadr-ud-Din Arif"@en ;
+  .
+
+saint:qazi-sain-datta
+  a schema:Person ;
+  schema:name "Qazi Sain Datta"@en ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────
@@ -2641,9 +2789,9 @@ event_:observance-churrio-jabal-durga-mata-temple
 
 event_:urs-darbar-abul-muali-qadri
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri at Darbar Abul Muali Qadri"@en ;
+  schema:name "Urs of Hazrat Syed Muhammad Khair ul Deen at Darbar Abul Muali Qadri"@en ;
   schema:location shrine:darbar-abul-muali-qadri ;
-  schema:about saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri ;
+  schema:about saint:hazrat-syed-muhammad-khair-ul-deen ;
   .
 
 event_:urs-darbar-ghamkol-sharif-zinda-pir
@@ -2704,9 +2852,9 @@ event_:urs-darbar-hazrat-tahir-bandagi-qadri
 
 event_:urs-darbar-malik-ahmad-ayaz
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Malik Ahmad Ayaz, described in the survey as slave of Mahmud Ghaznavi, minister, and governor of Lahore at Darbar Malik Ahmad Ayaz"@en ;
+  schema:name "Urs of Malik Ahmad Ayaz at Darbar Malik Ahmad Ayaz"@en ;
   schema:location shrine:darbar-malik-ahmad-ayaz ;
-  schema:about saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore ;
+  schema:about saint:malik-ahmad-ayaz ;
   schema:eventSchedule [
     a schema:Schedule ;
     schema:repeatFrequency "P1Y"^^xsd:string
@@ -2788,7 +2936,7 @@ event_:observance-darya-lal-mandir-darya-lal-sankat-mochan-mandir
   a schema:Event ;
   schema:name "Cheti Chand at Darya Lal Mandir (Darya Lal Sankat Mochan Mandir)"@en ;
   schema:location shrine:darya-lal-mandir-darya-lal-sankat-mochan-mandir ;
-  schema:about saint:jhulelal-daryalal ;
+  schema:about saint:jhulelal ;
   .
 
 event_:urs-data-darbar
@@ -2893,7 +3041,7 @@ event_:observance-gurdwara-chakki-sahib
   a schema:Event ;
   schema:name "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Chakki Sahib"@en ;
   schema:location shrine:gurdwara-chakki-sahib ;
-  schema:about saint:guru-nanak-dev-ji ;
+  schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-chhevin-patshahi-chitti-gatti
@@ -2961,7 +3109,7 @@ event_:observance-gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi
   a schema:Event ;
   schema:name "Sikh pilgrimage, especially Guru Nanak's Gurpurab at Gurdwara Khoohi Bhai Lalo (Bhai Lalo di Khooi)"@en ;
   schema:location shrine:gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi ;
-  schema:about saint:guru-nanak-dev-ji-associated-with-bhai-lalo ;
+  schema:about saint:guru-nanak ;
   .
 
 event_:observance-gurdwara-malji-sahib
@@ -2982,7 +3130,7 @@ event_:observance-gurdwara-panjvi-chati-patshahi
   a schema:Event ;
   schema:name "Occasional pilgrimage at Gurdwara Panjvi Chati Patshahi"@en ;
   schema:location shrine:gurdwara-panjvi-chati-patshahi ;
-  schema:about saint:guru-arjan-dev-and-guru-hargobind ;
+  schema:about saint:guru-arjan-dev ;
   .
 
 event_:observance-gurdwara-patshahi-chhevin-hadiara-lahore
@@ -3116,14 +3264,14 @@ event_:observance-kali-bari-mandir
   a schema:Event ;
   schema:name "Durga Puja at Kali Bari Mandir"@en ;
   schema:location shrine:kali-bari-mandir ;
-  schema:about saint:goddess-kali ;
+  schema:about saint:kali ;
   .
 
 event_:observance-kalka-cave-temple-asthan-of-kalka-devi
   a schema:Event ;
   schema:name "First Monday of each month at Kalka Cave Temple (Asthan of Kalka Devi)"@en ;
   schema:location shrine:kalka-cave-temple-asthan-of-kalka-devi ;
-  schema:about saint:goddess-kali ;
+  schema:about saint:kalka-devi ;
   .
 
 event_:observance-katas-raj-temples
@@ -3137,7 +3285,7 @@ event_:observance-khatwari-darbar-shikarpur
   a schema:Event ;
   schema:name "Sikh and Nanakpanthi festivals at Khatwari Darbar, Shikarpur"@en ;
   schema:location shrine:khatwari-darbar-shikarpur ;
-  schema:about saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh ;
+  schema:about saint:bhai-gurdas-singh ;
   .
 
 event_:observance-krishna-mandir-kabari-bazar
@@ -3359,7 +3507,7 @@ event_:observance-sevapanthi-darbar-bhai-gurdas-gandava
   a schema:Event ;
   schema:name "No regular events documented at Sevapanthi Darbar (Bhai Gurdas), Gandava"@en ;
   schema:location shrine:sevapanthi-darbar-bhai-gurdas-gandava ;
-  schema:about saint:bhai-gurdas-veneration-of-guru-nanak ;
+  schema:about saint:bhai-gurdas ;
   .
 
 event_:urs-shah-noorani-shrine-syed-bilawal-shah-noorani
@@ -3645,7 +3793,7 @@ event_:urs-shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari
 
 event_:urs-shrine-of-lakhi-shah-saddar
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Laki Shah Saddar at Shrine of Lakhi Shah Saddar"@en ;
+  schema:name "Urs of Syed Shah Sadaruddin Lakyari at Shrine of Lakhi Shah Saddar"@en ;
   schema:location shrine:shrine-of-lakhi-shah-saddar ;
   schema:about saint:laki-shah-saddar ;
   schema:eventSchedule [
@@ -3951,7 +4099,7 @@ event_:observance-valmik-mandir-naqi-road
   a schema:Event ;
   schema:name "Holi at Valmik Mandir (Naqi Road)"@en ;
   schema:location shrine:valmik-mandir-naqi-road ;
-  schema:about saint:bhagwan-valmik ;
+  schema:about saint:valmiki ;
   .
 
 event_:observance-valmiki-swamiji-mandir-gracy-lines-rawalpindi
@@ -3974,7 +4122,7 @@ event_:urs-wadpagga-sharif
 
 event_:urs-ziarat-kaka-sahib
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Kaka Sahib at Ziarat Kaka Sahib"@en ;
+  schema:name "Urs of Syed Kasteer Gul at Ziarat Kaka Sahib"@en ;
   schema:location shrine:ziarat-kaka-sahib ;
   schema:about saint:kaka-sahib ;
   schema:eventSchedule [
@@ -6755,7 +6903,7 @@ A general compendium of Pakistani Sufi saints, consulted independently of the fi
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:district ;
-  schema:about saint:hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri ;
+  schema:about saint:hazrat-syed-muhammad-khair-ul-deen ;
   schema:citation source_:43479728f7a0 ;
   schema:citation source_:78d2023e84a3 ;
   .
@@ -7066,7 +7214,7 @@ The shrine is under the supervision of the Department of Auqaf (Government Mehka
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:district ;
-  schema:about saint:malik-ahmad-ayaz-described-in-the-survey-as-slave-of-mahmud-ghaznavi-minister-and-governor-of-lahore ;
+  schema:about saint:malik-ahmad-ayaz ;
   schema:citation source_:a4718caf798d ;
   .
 
@@ -7417,7 +7565,7 @@ The Darya Lal Mandir remains an active centre of worship for the Hindus of Karac
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:saddar-town ;
-  schema:about saint:jhulelal-daryalal ;
+  schema:about saint:jhulelal ;
   schema:citation source_:cd8b2a8ab1e1 ;
   schema:citation source_:06fe60ec25c0 ;
   schema:citation source_:79d8503538dc ;
@@ -7743,7 +7891,7 @@ A heritage-preservation survey by the Endowment Fund Trust for the Heritage of S
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:tharparkar-district ;
-  schema:about saint:jain-temple-dedicated-to-parshvanatha ;
+  schema:about saint:parshvanatha ;
   schema:citation source_:309a5ce2076c ;
   schema:citation source_:8c67e1e3f6ec ;
   schema:citation source_:963e48538a22 ;
@@ -8093,7 +8241,7 @@ Iqbal Qaiser's 1998 survey records that fourteen *ghumaon* of land remain attach
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:gujranwala-district ;
-  schema:about saint:guru-nanak-dev-ji ;
+  schema:about saint:guru-nanak ;
   schema:citation source_:7125812806e9 ;
   schema:citation source_:3000015d5298 ;
   schema:citation source_:37b45535702b ;
@@ -8480,7 +8628,8 @@ Iqbal Qaiser's 1998 survey identifies Bhai Lalo as “a carpenter of *Getaura* c
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:gujranwala-district ;
-  schema:about saint:guru-nanak-dev-ji-associated-with-bhai-lalo ;
+  schema:about saint:guru-nanak ;
+  schema:about saint:bhai-lalo ;
   schema:citation source_:0c36abd6317c ;
   schema:citation source_:ae1c32a6cd9f ;
   .
@@ -8601,7 +8750,8 @@ Since 1947 the gurdwara, like its neighbours, has stood without a local congrega
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:punjab ;
-  schema:about saint:guru-arjan-dev-and-guru-hargobind ;
+  schema:about saint:guru-arjan-dev ;
+  schema:about saint:guru-hargobind ;
   schema:citation source_:f1b747c39d2b ;
   schema:citation source_:7eebb5391dad ;
   schema:citation source_:75da21a1f02a ;
@@ -8751,6 +8901,7 @@ Gurdwara Rori Sahib endures as a quiet monument to the earliest chapter of the S
   ] ;
   schema:containedInPlace place:punjab ;
   schema:about saint:guru-nanak ;
+  schema:about saint:bhai-mardana ;
   schema:citation source_:a7a82553161c ;
   schema:citation source_:1dd201be997e ;
   schema:citation source_:95a8af56df3a ;
@@ -9440,7 +9591,7 @@ The Kali Bari Mandir stands as a quiet emblem of continuity in a city where Hind
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:khyber-pakhtunkhwa ;
-  schema:about saint:goddess-kali ;
+  schema:about saint:kali ;
   schema:citation source_:ceeffe1031a3 ;
   schema:citation source_:add9dbabaab6 ;
   schema:citation source_:a83ef74e776d ;
@@ -9489,7 +9640,7 @@ As a living shrine of undoubted antiquity, the Kalka Devi Cave Temple is among t
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:sukkur-district ;
-  schema:about saint:goddess-kali ;
+  schema:about saint:kalka-devi ;
   schema:citation source_:5bdb12e02128 ;
   schema:citation source_:dbd14c04b719 ;
   schema:citation source_:69196a042d09 ;
@@ -9578,7 +9729,7 @@ Local tradition, as recorded by the anthropologist Zulfiqar Ali Kalhoro, adds a 
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:old-city ;
-  schema:about saint:bhai-gurdas-singh-disciple-of-guru-gobind-singh ;
+  schema:about saint:bhai-gurdas-singh ;
   schema:citation source_:d929dfce3336 ;
   schema:citation source_:a15cad40188b ;
   schema:citation source_:40bbfbeeacbf ;
@@ -9855,7 +10006,7 @@ Visiting in 2018, a Dawn correspondent found the then-unrestored temple littered
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:lahore ;
-  schema:about saint:lava-son-of-rama-and-sita ;
+  schema:about saint:lava ;
   schema:citation source_:a08a1083e51a ;
   schema:citation source_:072dceca1b10 ;
   schema:citation source_:a9c9d14cb452 ;
@@ -10773,7 +10924,7 @@ shrine:sevapanthi-darbar-bhai-gurdas-gandava
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:jhal-magsi-district ;
-  schema:about saint:bhai-gurdas-veneration-of-guru-nanak ;
+  schema:about saint:bhai-gurdas ;
   schema:citation source_:a15cad40188b ;
   schema:citation source_:d929dfce3336 ;
   schema:citation source_:4a1ad10a6062 ;
@@ -13534,7 +13685,7 @@ As the resting place of a holy woman of the revered Bukhari line, Bibi Jawindi�
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:uch-sharif ;
-  schema:about saint:jalaluddin-surkh-posh-bukhari ;
+  schema:about saint:bibi-jawindi ;
   schema:citation source_:28df59c4f52c ;
   schema:citation source_:9d94f7dfe1ea ;
   .
@@ -13691,7 +13842,7 @@ For a city whose Hindu heritage survives largely in ruined *havelis*, disused sh
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:lahore ;
-  schema:about saint:bhagwan-valmik ;
+  schema:about saint:valmiki ;
   schema:citation source_:fdf6af5d4004 ;
   schema:citation source_:de3489e64b11 ;
   schema:citation source_:da1ad0c1e6da ;

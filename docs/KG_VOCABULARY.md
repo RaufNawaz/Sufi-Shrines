@@ -68,9 +68,43 @@ symmetric role would print "sister" on Guru Nanak's page.
 For the six asymmetric types those names are accurate; for `sibling_of` they are a carried-over
 convention, kept because renaming them would touch six types to accommodate one.
 
-**Not yet exported.** `sufi:kinOf` is in the graph and on the site, and neither
-`export-jsonld.mjs` nor `export-rdf.mjs` emits it — only `discipleOf` and `successorOf` reach the
-data release. Recorded here as a known gap rather than left to be rediscovered.
+### How kinship leaves the archive
+
+`kin_of` shipped on 29 August 2026 and reached **neither export** until 30 August: both exporters
+filtered the relation list for `disciple_of` and `successor_of` by name, so a third type was never
+invited. Nothing reported it — the exporters ran green, the graph was complete, the site rendered
+every tie, and only the data release was missing 43 relations.
+
+The mapping now lives in one place, `scripts/data/lib/kinExport.mjs`, imported by both exporters,
+because two copies of one table eventually disagree and neither format validates against the
+other:
+
+| `kinType` | emitted on the subject as |
+| --- | --- |
+| `son_of`, `daughter_of` | `schema:parent` |
+| `sibling_of` | `schema:sibling` — **from both ends**, see below |
+| `grandson_of` | `sufi:grandsonOf` |
+| `nephew_of` | `sufi:nephewOf` |
+| `son_in_law_of` | `sufi:sonInLawOf` |
+| `descendant_of` | `sufi:descendantOf` |
+
+Two types have exact schema.org equivalents and go out as schema.org, so they are legible to
+anything that reads schema.org at all. The other five have no standard term — schema.org models
+the nuclear family and stops — and take a `sufi:` sub-property rather than being flattened into
+`schema:relatedTo`, which would lose the distinction the archive spent the effort to record. The
+inverse (`schema:children`) is not emitted: it is derivable, and an export that states each fact
+once is easier to trust than one that states it twice.
+
+**`sibling_of` is exported from both ends although it is stored once, and that is not a reversal
+of the store-once decision.** `schema:sibling` is defined as symmetric, but RDF consumers do not
+infer symmetry unless an ontology declares it and this export ships no OWL — so a consumer asking
+"who are Guru Nanak's siblings?" would get nothing for the figure the tie is stored *against*.
+Emitting both triples restates one claim in a format that cannot express it once. 43 edges become
+**46 triples** in both formats.
+
+`kinTriples()` **throws** on a `kinType` with no mapping rather than skipping it, and
+`kinExportCoverage.test.ts` asserts that every type present in the built graph has one. Deciding
+how a relation leaves the archive is part of adding it.
 
 ## Standard properties reused
 

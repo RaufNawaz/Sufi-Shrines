@@ -4368,6 +4368,60 @@ both redirects.
     change, because §9.159 turned that budget into an assertion — which is exactly what a closed
     debt is supposed to do to the next batch.
 
+162. **The data release had been quietly wrong twice over: it never carried kinship, and it was
+    four figures and four orders behind the graph.** *Found and fixed 30 August 2026, while
+    writing §9.161 up in `docs/KG_VOCABULARY.md`.* Two separate defects, both found by asking a
+    documentation question — "what URI does `kin_of` export as?" — rather than by any gate.
+
+    **1. `kin_of` reached neither export.** `export-jsonld.mjs` and `export-rdf.mjs` each pick
+    relations out by name, `disciple_of` and `successor_of`, so a third relation type was not
+    dropped by a bug so much as **never invited**. Nothing reported it, and nothing could have:
+    both exporters exit 0, the graph is complete, `/saint/…` renders every tie, and the only
+    casualty is the file whose entire purpose is to be read by somebody else. From the day the
+    kin layer shipped until this fix, an outside consumer of this archive could see its
+    initiation chains and none of its families — in a corpus where a *gaddi* passes down a family
+    at least as often as down a chain of initiation.
+
+    The mapping now lives once, in `scripts/data/lib/kinExport.mjs`, imported by both exporters,
+    because two copies of one table drift and neither format validates against the other.
+    `son_of`/`daughter_of` → `schema:parent` and `sibling_of` → `schema:sibling`; the other four
+    have no standard term (schema.org models the nuclear family and stops) and take a `sufi:`
+    sub-property rather than being flattened into `schema:relatedTo`, which would discard the
+    distinction the archive spent the effort to record. 43 edges → **46 triples**, agreeing in
+    both formats.
+
+    **`sibling_of` is exported from both ends although it is stored once, and that is not a
+    reversal of §9.160.** `schema:sibling` is symmetric by definition, but RDF consumers do not
+    infer symmetry without an ontology and this export ships no OWL — so "who are Guru Nanak's
+    siblings?" would return nothing for the figure the row is stored *against*. Emitting both
+    triples restates one claim in a format that cannot state it once; it does not assert a second
+    fact. Store-once was about the archive not asserting a fact twice, which is a different
+    question from what a serialisation has to spell out.
+
+    `kinTriples()` **throws** on an unmapped `kinType` rather than skipping it, and
+    `kinExportCoverage.test.ts` asserts that every type *present in the built graph* has a
+    mapping — not that the current seven do. The next relation type will arrive exactly the way
+    this one did, so the assertion is written against the failure mode of ADDITION.
+
+    **2. And then the counts did not add up, which found the second defect.** The export went
+    from 196 Person nodes to 209 — but only nine figures had been added. The committed exports
+    were **stale**: 196 Persons against a graph of 200, and 5 orders against 9, unchanged since
+    before the overnight session, with every gate green the whole time. `data:export` is not in
+    `verify`, not in `data:validate`, and not in `data:kg`, so the one artifact in this repo that
+    exists to be consumed by outsiders was the one artifact nothing checked.
+
+    Both exporters now take `--check` — regenerate in memory, compare to disk, exit non-zero —
+    and both are in `data:validate`. Verified the way RULE 4 wants: the gate was pointed at the
+    actual stale file from `34829d5` and made to fail, then at the current one and made to pass.
+    `npm run data:export` still runs clean end-to-end (its own `data:validate` step checks the
+    pre-rebuild state, which is consistent, then rewrites).
+
+    **The lesson worth keeping is where these came from.** Neither was found by a test, a gate, or
+    a review. The first was found by writing down what the vocabulary *is*, and the second by not
+    accepting a diff whose numbers were bigger than the change that caused it. §9.161's
+    instrument came from the same move — re-reading rows a previous pass had already read. Three
+    findings in one session, all from checking a thing that was assumed rather than measured.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

@@ -7,13 +7,19 @@
  * No external RDF library is required; the Turtle is hand-serialised.
  *
  * Usage:  node scripts/data/export-rdf.mjs
+ *         node scripts/data/export-rdf.mjs --check   # verify, write nothing
  * Or:     npm run data:export    (chains data:kg, export-jsonld, then this)
+ *
+ * `--check` exists for the reason given at the top of export-jsonld.mjs: both
+ * exports are committed artifacts that had drifted behind the graph with every
+ * gate green.
  */
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
+import { kinTriples } from './lib/kinExport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -121,6 +127,15 @@ emit(`                   rdfs:label "buried at"@en .`);
 emit(`sufi:commemorates  rdfs:subPropertyOf schema:about ;`);
 emit(`                   rdfs:label "commemorates"@en .`);
 emit(`sufi:silsila       rdfs:label "spiritual lineage (silsila)"@en .`);
+/* Kinship. `son_of`/`daughter_of` and `sibling_of` go out as schema.org's own
+   `parent` and `sibling`; these four have no standard equivalent and are
+   declared here so a consumer can at least read what they mean. Turtle carries
+   no OWL in this export, so `schema:sibling` is emitted from both ends rather
+   than left to be inferred — see scripts/data/lib/kinExport.mjs. */
+emit(`sufi:grandsonOf    rdfs:label "grandson of"@en .`);
+emit(`sufi:nephewOf      rdfs:label "nephew of"@en .`);
+emit(`sufi:sonInLawOf    rdfs:label "son-in-law of"@en .`);
+emit(`sufi:descendantOf  rdfs:label "descendant of"@en .`);
 emit();
 
 // Orders
@@ -135,6 +150,14 @@ for (const o of kg.orders) {
   if (o.wikidataQid) emit(`  schema:sameAs ${wdIri(o.wikidataQid)} ;`);
   emit('  .');
   emit();
+}
+
+/* Kinship, expanded once and grouped by the figure the triple is emitted on —
+   a symmetric tie produces one for the figure that is not the stored subject. */
+const kinBySubject = new Map();
+for (const t of kinTriples(kg.relations)) {
+  if (!kinBySubject.has(t.subjectSlug)) kinBySubject.set(t.subjectSlug, []);
+  kinBySubject.get(t.subjectSlug).push(t);
 }
 
 // Saints
@@ -159,6 +182,9 @@ for (const s of kg.saints) {
   }
   for (const r of successorOfRels) {
     emit(`  sufi:successorOf saint:${r.object.replace(/^saint:/, '')} ;`);
+  }
+  for (const t of kinBySubject.get(s.slug) ?? []) {
+    emit(`  ${t.schemaOrg ? 'schema' : 'sufi'}:${t.predicate} saint:${t.objectSlug} ;`);
   }
   if (s.wikidataQid) emit(`  schema:sameAs ${wdIri(s.wikidataQid)} ;`);
   emit('  .');
@@ -274,8 +300,23 @@ for (const { row, slug } of shrinesWithSlugs) {
 // ── write ─────────────────────────────────────────────────────────────────────
 
 mkdirSync(EXPORT_DIR, { recursive: true });
-writeFileSync(join(EXPORT_DIR, 'graph.ttl'), lines.join('\n'), 'utf8');
+const serialized = lines.join('\n');
+const OUT_PATH = join(EXPORT_DIR, 'graph.ttl');
 
 const shrineCount = shrinesWithSlugs.length;
 const totalTriples = lines.filter((l) => l.trim() && !l.startsWith('#') && !l.startsWith('@')).length;
-console.log(`[rdf] ✓ data/export/graph.ttl — ${shrineCount} shrines, ~${totalTriples} statements`);
+
+if (process.argv.includes('--check')) {
+  const current = existsSync(OUT_PATH) ? readFileSync(OUT_PATH, 'utf8') : null;
+  if (current !== serialized) {
+    console.error(
+      '[rdf] data/export/graph.ttl is stale — the committed data release does not match ' +
+        'the graph it is exported from. Run: npm run data:export',
+    );
+    process.exit(1);
+  }
+  console.log(`[rdf] OK — data/export/graph.ttl matches the graph (~${totalTriples} statements).`);
+} else {
+  writeFileSync(OUT_PATH, serialized, 'utf8');
+  console.log(`[rdf] ✓ data/export/graph.ttl — ${shrineCount} shrines, ~${totalTriples} statements`);
+}

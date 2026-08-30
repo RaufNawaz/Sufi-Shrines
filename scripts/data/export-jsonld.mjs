@@ -7,13 +7,23 @@
  * for silsila (Sufi orders) and urs events.
  *
  * Usage:  node scripts/data/export-jsonld.mjs
+ *         node scripts/data/export-jsonld.mjs --check   # verify, write nothing
  * Or:     npm run data:export    (chains data:kg first)
+ *
+ * `--check` exists because this file is a COMMITTED ARTIFACT that nothing
+ * regenerated. On 30 August 2026 the checked-in export held 196 Person nodes
+ * and 5 orders while the graph held 200 and 9 — four figures and four orders
+ * behind, for an unknown number of days, with every gate green. An export is
+ * the one thing in this repo whose whole purpose is to be read by somebody
+ * else, so it is the worst possible place for silent drift. Now in
+ * `data:validate`.
  */
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlugs } from './lib/slugs.mjs';
+import { kinTriples } from './lib/kinExport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '../..');
@@ -38,6 +48,15 @@ const CONTEXT = [
     silsila:      { '@id': `${VOCAB}silsila` },
     commemorates: { '@id': `${VOCAB}commemorates`, '@type': '@id' },
     buriedAt:     { '@id': `${VOCAB}buriedAt`,     '@type': '@id' },
+    /* Kinship. `son_of`/`daughter_of` and `sibling_of` leave as schema.org's
+       own `parent` and `sibling` and need no term here. These four have no
+       standard equivalent — schema.org models the nuclear family and stops —
+       so they are sub-properties of the archive's own vocabulary rather than
+       being flattened into `relatedTo`. See scripts/data/lib/kinExport.mjs. */
+    grandsonOf:   { '@id': `${VOCAB}grandsonOf`,   '@type': '@id' },
+    nephewOf:     { '@id': `${VOCAB}nephewOf`,     '@type': '@id' },
+    sonInLawOf:   { '@id': `${VOCAB}sonInLawOf`,   '@type': '@id' },
+    descendantOf: { '@id': `${VOCAB}descendantOf`, '@type': '@id' },
   },
 ];
 
@@ -107,12 +126,27 @@ for (const o of kg.orders) {
   });
 }
 
+/* Kinship, expanded once for the whole graph and grouped by the figure it is
+   emitted on. Not read off `relBySubject` like the other relations, because a
+   symmetric tie produces a triple for a figure that is not the stored subject —
+   see scripts/data/lib/kinExport.mjs. */
+const kinBySubject = new Map();
+for (const t of kinTriples(kg.relations)) {
+  if (!kinBySubject.has(t.subjectSlug)) kinBySubject.set(t.subjectSlug, []);
+  kinBySubject.get(t.subjectSlug).push(t);
+}
+
 // Saints
 for (const s of kg.saints) {
   const orderRel = (relBySubject.get(s.id) ?? []).find((r) => r.type === 'belongs_to_order');
   const orderSlug = orderRel ? orderRel.object.replace(/^order:/, '') : null;
   const discipleOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'disciple_of');
   const successorOfRels = (relBySubject.get(s.id) ?? []).filter((r) => r.type === 'successor_of');
+  const kin = {};
+  for (const t of kinBySubject.get(s.slug) ?? []) {
+    const key = t.schemaOrg ? t.predicate : `sufi:${t.predicate}`;
+    (kin[key] ??= []).push({ '@id': iri('saint', t.objectSlug) });
+  }
 
   graph.push({
     '@type': 'Person',
@@ -129,6 +163,7 @@ for (const s of kg.saints) {
     ...(successorOfRels.length
       ? { 'sufi:successorOf': successorOfRels.map((r) => ({ '@id': iri('saint', r.object.replace(/^saint:/, '')) })) }
       : {}),
+    ...kin,
     ...(s.wikidataQid  ? { 'sameAs': wdIri(s.wikidataQid) } : {}),
   });
 }
@@ -240,10 +275,20 @@ for (const { row, slug } of shrinesWithSlugs) {
 mkdirSync(EXPORT_DIR, { recursive: true });
 
 const document = { '@context': CONTEXT, '@graph': graph };
-writeFileSync(
-  join(EXPORT_DIR, 'graph.jsonld'),
-  JSON.stringify(document, null, 2) + '\n',
-  'utf8',
-);
+const serialized = JSON.stringify(document, null, 2) + '\n';
+const OUT_PATH = join(EXPORT_DIR, 'graph.jsonld');
 
-console.log(`[jsonld] ✓ data/export/graph.jsonld — ${graph.length} nodes`);
+if (process.argv.includes('--check')) {
+  const current = existsSync(OUT_PATH) ? readFileSync(OUT_PATH, 'utf8') : null;
+  if (current !== serialized) {
+    console.error(
+      '[jsonld] data/export/graph.jsonld is stale — the committed data release does not ' +
+        'match the graph it is exported from. Run: npm run data:export',
+    );
+    process.exit(1);
+  }
+  console.log(`[jsonld] OK — data/export/graph.jsonld matches the graph (${graph.length} nodes).`);
+} else {
+  writeFileSync(OUT_PATH, serialized, 'utf8');
+  console.log(`[jsonld] ✓ data/export/graph.jsonld — ${graph.length} nodes`);
+}
