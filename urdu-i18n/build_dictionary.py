@@ -1034,6 +1034,8 @@ SAINTS = {
  "Devchandra Maharaj": "دیوچندر مہاراج",
  "Mir Daryai Tharawi": "میر دریائی تھراوی",
  "Sheikh Fakhr-ud-Din (disciple of Shah Jamal)": "شیخ فخر الدین (شاہ جمال کے مرید)",
+ "Abu Najib al-Suhrawardi": "ابو نجیب السہروردی",
+ "Sayyid Ali Makki ibn Abbas Mousavi": "سید علی مکی بن عباس موسوی",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

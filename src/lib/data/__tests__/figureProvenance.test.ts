@@ -284,7 +284,12 @@ describe('the shipped graph', () => {
                        the graph; and Devchandra Maharaj with his foremost
                        disciple Mehraj Thakur — the two founding figures of the
                        Pranami tradition, which this archive has carried as a
-                       TRADITION since 29 August with no figures attached to it. */
-    expect(flagged.length).toBe(203);
+                       TRADITION since 29 August with no figures attached to it.
+        203 + 2       = 205, 30 August 2026, closing the kin pile. Abu Najib
+                       al-Suhrawardi — the archive carried the Suhrawardi order
+                       while holding no relation between the two men it is named
+                       for — and Lakhi Shah Saddar's named forebear Sayyid Ali
+                       Makki ibn Abbas Mousavi. */
+    expect(flagged.length).toBe(205);
   });
 });

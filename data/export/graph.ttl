@@ -979,6 +979,7 @@ saint:laki-shah-saddar
   schema:alternateName "Shah Sadaruddin"@en ;
   schema:alternateName "Laki Shah Sadar"@en ;
   schema:alternateName "Lakhi Shah Saddar"@en ;
+  sufi:descendantOf saint:sayyid-ali-makki-ibn-abbas-mousavi ;
   .
 
 saint:makhdoom-abdul-rahim-girhori
@@ -1369,6 +1370,7 @@ saint:makhdoom-of-kasur
 saint:shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi
   a schema:Person ;
   schema:name "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi"@en ;
+  sufi:nephewOf saint:abu-najib-al-suhrawardi ;
   .
 
 saint:fakhr-ud-din-iraqi
@@ -1881,6 +1883,16 @@ saint:kharak-singh
 saint:syed-jalal-ud-deen
   a schema:Person ;
   schema:name "Syed Jalal ud Deen"@en ;
+  .
+
+saint:abu-najib-al-suhrawardi
+  a schema:Person ;
+  schema:name "Abu Najib al-Suhrawardi"@en ;
+  .
+
+saint:sayyid-ali-makki-ibn-abbas-mousavi
+  a schema:Person ;
+  schema:name "Sayyid Ali Makki ibn Abbas Mousavi"@en ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

@@ -1552,6 +1552,11 @@
         "Shah Sadaruddin",
         "Laki Shah Sadar",
         "Lakhi Shah Saddar"
+      ],
+      "sufi:descendantOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-ali-makki-ibn-abbas-mousavi"
+        }
       ]
     },
     {
@@ -2174,7 +2179,12 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi",
-      "name": "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi"
+      "name": "Shaikh Shihab-ud-Din Abu Hafs Umar al-Suhrawardi",
+      "sufi:nephewOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abu-najib-al-suhrawardi"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -2899,6 +2909,16 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-jalal-ud-deen",
       "name": "Syed Jalal ud Deen"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/abu-najib-al-suhrawardi",
+      "name": "Abu Najib al-Suhrawardi"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sayyid-ali-makki-ibn-abbas-mousavi",
+      "name": "Sayyid Ali Makki ibn Abbas Mousavi"
     },
     {
       "@type": "Place",

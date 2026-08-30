@@ -1410,6 +1410,39 @@
       "notes": "The SECOND of the two uncles this sentence names. The first, Daud Bandagi Kirmani, has had two edges since the first kin pass; this one had none, and the sentence names them in the same breath. \"His father's brothers\" is why both are `unclePaternal` rather than the unspecified role — the corpus states the line, so Urdu can say چچا rather than چچا/ماموں.",
       "_why": "The survey places his shrine in Sindh, so he is a saint with a site — just not one this archive holds. Lineage-only here.",
       "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi",
+      "subjectName": "Shaikh Shihab al-Din Abu Hafs Umar al-Suhrawardi",
+      "kinType": "nephew_of",
+      "objectSlug": "abu-najib-al-suhrawardi",
+      "objectName": "Abu Najib al-Suhrawardi",
+      "objectIsNew": true,
+      "objectNodeName": "Abu Najib al-Suhrawardi",
+      "elderRole": "uncleUnspecified",
+      "juniorRole": "nephewUnspecified",
+      "wording": "his nephew",
+      "quote": "The Suhrawardiyya takes its name from Abu Najib al-Suhrawardi and, above all, from his nephew Shaikh Shihab al-Din Umar al-Suhrawardi of Baghdad",
+      "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "notes": "The two men the Suhrawardi order is named for, and the archive carries that order while holding no relation between its eponyms. The uncle enters the graph here for the first time.",
+      "_why": "`*Unspecified` because the entry says only \"his nephew\" — Urdu would have to choose بھتیجا or بھانجا, and the corpus does not.",
+      "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "laki-shah-saddar",
+      "subjectName": "Syed Shah Sadaruddin Lakyari (Lakhi Shah Saddar)",
+      "kinType": "descendant_of",
+      "objectSlug": "sayyid-ali-makki-ibn-abbas-mousavi",
+      "objectName": "Sayyid Ali Makki ibn Abbas Mousavi",
+      "objectIsNew": true,
+      "objectNodeName": "Sayyid Ali Makki ibn Abbas Mousavi",
+      "elderRole": "ancestor",
+      "juniorRole": "descendant",
+      "wording": "a forebear",
+      "quote": "local accounts trace his ancestry to a forebear, Sayyid Ali Makki ibn Abbas Mousavi, said to have come originally from Samarra in Iraq",
+      "source": "data/shrines.csv#shrine-of-lakhi-shah-saddar",
+      "notes": "A NAMED forebear, which is what separates this from the sayyid-descent formula ruled out beside it: the entry does not say \"a descendant of the Prophet\", it names a man and a city he came from. The number of generations is not given, which is what `descendant_of` is for.",
+      "_from": "scan-kin-statements.mjs"
     }
   ],
   "_comment_kinAdjudicated": "Kin sentences a human has read and deliberately did NOT make an edge, each with the verbatim sentence and the reason. Two different reasons live here and the notes say which, because collapsing them would be dishonest: a sentence that only LOOKS like a family tie (\"a son of Peshawar\", \"the father of the Punjabi kafi\" — idiom and metaphor, and the corpus is full of both because it writes about poets), and a tie the corpus really does state that this archive deliberately does not model. The list exists so `scripts/data/scan-kin-statements.mjs` can mark a sentence read-and-ruled-out instead of offering it forever: without it every adjudication pass re-reads every rejection the last one made. Quotes are checked against the corpus by verify-kg-proposals.mjs, exactly as an edge's quote is — a drifted quote silently stops matching and the sentence returns to the unread pile.",
@@ -1485,6 +1518,30 @@
       "quote": "Sayyida Ruqayya was the wife of Muslim ibn Aqeel, the cousin and emissary whom Imam Hussain had sent ahead to Kufa",
       "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
       "notes": "Not a rejection — a referral. The entry reports the Karbala identification of the six as ONE OF TWO traditions and then argues against it in its own text (\"Ali's wife Umm al-Banin is recorded with no daughter\"). The archive already carries the other tradition as `bibi-pak-daman daughter_of sayyid-ahmad-tokhta-tirmidhi` with a `contested` flag. Publishing both means deciding how an archive renders a dispute it is itself adjudicating, and that is Rauf's call, not an agent's."
+    },
+    {
+      "subjectName": "Abdullah Shah Ghazi (and the sayyid entries generally)",
+      "objectName": "Imam Hasan / the Prophet's house",
+      "kind": "formula, not a genealogy",
+      "quote": "He is remembered as a Sayyid of the family of the Prophet — by the usual account a descendant of Imam Hasan",
+      "source": "data/shrines.csv#shrine-of-abdullah-shah-ghazi",
+      "notes": "A CLASS decision, recorded once. Descent from the Prophet's house through Imam Hasan, Imam Hussain, Imam Musa al-Kazim or Imam Zain al-Abideen is asserted in a dozen entries — Abdullah Shah Ghazi, Sakhi Shah Chan Charagh, Miran Hussain Zanjani, Sayyid Ahmad Tokhta Tirmidhi and more. It is what *sayyid* means, and the entries state it as an attestation of standing rather than as a traceable line: \"by the usual account\", with no generations counted and no intervening name. Building it would put the Ahl al-Bayt into the graph as the ancestor of a third of the archive, on a formula. Where an entry names an actual forebear and a place — Lakhi Shah Saddar's Sayyid Ali Makki ibn Abbas Mousavi, added as an edge beside this — that is a different claim and is built."
+    },
+    {
+      "subjectName": "Bibi Haj and Bibi Taj",
+      "objectName": "Sayyid Ahmad Tokhta Tirmidhi",
+      "kind": "already carried, as a collective",
+      "quote": "Of his daughters, two — Bibi Haj and Bibi Taj — are described as having married, while the others lived as lifelong ascetics",
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "notes": "Not missing. The six women of Bibi Pak Daman are ONE collective node, which answers to both names, and it already carries `daughter_of sayyid-ahmad-tokhta-tirmidhi` with the plural role flag — the single edge in the graph that renders \"daughters\" rather than \"daughter\". Giving two of the six their own nodes would assert the same parentage twice and split a figure the archive deliberately keeps whole."
+    },
+    {
+      "subjectName": "Syed Musa Pak",
+      "objectName": "the Gilani (Musa Pak) sayyids",
+      "kind": "a family, not a person",
+      "quote": "the ancestor of the Gilani (Musa Pak) sayyids, one of Multan's most eminent religious families",
+      "source": "data/shrines.csv#shrine-of-syed-musa-pak",
+      "notes": "Ancestor of a family rather than of a named descendant. The same shape as \"the spiritual ancestor of a line of saints whose shrines dot the valley\" at Akhund Panju Baba — real, and with nobody on the other end of it."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T14:45:16.299Z",
+  "generated": "2026-08-30T14:54:32.720Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3865,6 +3865,26 @@
       "type": "saint",
       "slug": "syed-jalal-ud-deen",
       "name": "Syed Jalal ud Deen",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:abu-najib-al-suhrawardi",
+      "type": "saint",
+      "slug": "abu-najib-al-suhrawardi",
+      "name": "Abu Najib al-Suhrawardi",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sayyid-ali-makki-ibn-abbas-mousavi",
+      "type": "saint",
+      "slug": "sayyid-ali-makki-ibn-abbas-mousavi",
+      "name": "Sayyid Ali Makki ibn Abbas Mousavi",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -9819,6 +9839,32 @@
       "quote": "Two of his father's brothers are named: Sheikh Dawood Bandgi Kirmani, whose shrine the survey places at Shergarh, and Syed Jalal ud Deen, whose shrine it places in Sindh."
     },
     {
+      "type": "kin_of",
+      "subject": "saint:shaikh-shihab-ud-din-abu-hafs-umar-al-suhrawardi",
+      "object": "saint:abu-najib-al-suhrawardi",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "nephew_of",
+      "elderRole": "uncleUnspecified",
+      "juniorRole": "nephewUnspecified",
+      "kinWording": "his nephew",
+      "source": "data/shrines.csv#shrine-of-abul-faiz-qalander-ali-suharwardi",
+      "quote": "The Suhrawardiyya takes its name from Abu Najib al-Suhrawardi and, above all, from his nephew Shaikh Shihab al-Din Umar al-Suhrawardi of Baghdad"
+    },
+    {
+      "type": "kin_of",
+      "subject": "saint:laki-shah-saddar",
+      "object": "saint:sayyid-ali-makki-ibn-abbas-mousavi",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "descendant_of",
+      "elderRole": "ancestor",
+      "juniorRole": "descendant",
+      "kinWording": "a forebear",
+      "source": "data/shrines.csv#shrine-of-lakhi-shah-saddar",
+      "quote": "local accounts trace his ancestry to a forebear, Sayyid Ali Makki ibn Abbas Mousavi, said to have come originally from Samarra in Iraq"
+    },
+    {
       "type": "disciple_of",
       "subject": "saint:data-ganj-bakhsh",
       "object": "saint:abul-fadl-muhammad-al-khuttali",
@@ -12259,12 +12305,12 @@
     }
   ],
   "stats": {
-    "saints": 239,
+    "saints": 241,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 719,
+    "relations": 721,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {
