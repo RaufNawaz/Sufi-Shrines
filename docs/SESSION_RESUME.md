@@ -58,32 +58,34 @@ Each item names what a reader loses, so the ranking can be argued with rather th
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-2. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
-   four rule weights, two byte-identical blocks 236 lines apart in one file. `/about` is the
-   visible symptom: its rules stop at 767px for nine headings and 1054px for seventeen.
-
-3. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
+2. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
    region is created already populated, which screen readers do not announce.
 
-4. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
+3. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
    `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
    drawn in the tradition palette.
 
-5. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+4. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-6. **A shrine names its order and never links to it** — the only one-way edge in the entity
+5. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-7. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+6. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-8. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+7. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---
+
+**Left from the header work, and it is a layout question rather than a heading one:** `/about`
+still shows two right edges — the section rules stop at one x for nine headings and another for
+seventeen, because the two classes sit in containers of different width. The headings are now one
+spec, so what remains is the containers. Same family as `.settings-page`'s dead `max-width`,
+which `.entity-page` beats on import order.
 
 ## Waiting on a person, not on an agent
 

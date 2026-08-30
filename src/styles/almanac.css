@@ -22,13 +22,9 @@
   line-height: var(--leading-urdu);
 }
 
+/* Shared spec in components.css; only the rhythm is this page's own. */
 .almanac-section-heading {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  color: var(--color-text);
   margin: var(--space-10) 0 var(--space-3);
-  padding-block-end: var(--space-2);
-  border-block-end: 1px solid var(--color-border);
 }
 
 [dir='rtl'] .almanac-section-heading {

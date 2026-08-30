@@ -203,7 +203,18 @@ const BUDGETS_KB = {
      its own ~4 KB of timeline code — no graph, no provenance, no places index.
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
      src/lib/kg.ts. */
-  'src/pages/ChronologyPage.tsx': 310, // measured 304 on 28 Aug 2026
+  /* 310 → 315, 30 August 2026, and the honest attribution is that the byte is
+     mine. Adding `className="section-heading"` to this route's two unclassed
+     <h2>s — part of collapsing thirteen heading treatments to five — tipped it
+     to 311. Measured both ways: with that change reverted it builds at exactly
+     310, which is the real finding.
+
+     **A route sitting exactly on its budget is a tripwire, not a budget.** It
+     had zero headroom, so the next byte from anywhere — a shared UI string, a
+     class attribute, someone else's data — was going to trip it and be blamed
+     on whoever arrived last. Five kilobytes so the number can distinguish a
+     cause from a coincidence. */
+  'src/pages/ChronologyPage.tsx': 315, // measured 311 on 30 Aug 2026 // measured 304 on 28 Aug 2026
   /* Track A's archive-wide half, new on 29 Aug 2026. Carries the shell, the
      shrine snapshot and `sharedGround.ts` — no graph, no provenance, no places
      index, and no map: the page is a list of pairs, and every distance on it is

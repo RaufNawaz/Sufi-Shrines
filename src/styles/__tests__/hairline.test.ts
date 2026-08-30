@@ -94,6 +94,47 @@ describe('separators and outlines do not swap treatments', () => {
     ).toEqual([]);
   });
 
+  it('rules a heading off with a hairline, never a structural border', () => {
+    /*
+     * **The direction this file was missing.** The two cases above pair the
+     * token with the colour — "if you use `--color-border-light`, use
+     * `--hairline`" and its converse — and neither of them can see a separator
+     * drawn in the *structural* colour at a literal width. So a heading ruled
+     * `2px solid var(--color-border)` passed every time.
+     *
+     * Measured across twelve routes on 30 August 2026: thirteen distinct `<h2>`
+     * treatments and three different rules under them.
+     * `.kg-section-heading` drew 2px — four device pixels on a retina screen —
+     * against `.article-section-heading`'s one, on pages a reader moves between
+     * in two clicks. `.about-section-heading` and `.coverage-section-heading`
+     * were byte-identical blocks 236 lines apart and both render on `/about`.
+     *
+     * Scoped to headings deliberately. A control's own edge is a real 1px
+     * border and there are 77 of those; a rule *under a heading* is a
+     * separator, and separators are what `--hairline` exists for.
+     */
+    const offenders: string[] = [];
+    for (const { name, css } of sheets) {
+      /* Rule blocks whose selector list mentions a heading, and the border
+         declarations inside them. */
+      for (const match of code(css).matchAll(/([^{}]*heading[^{}]*)\{([^}]*)\}/gi)) {
+        const [, selector, body] = match;
+        for (const decl of body.split(';')) {
+          if (!/border-(?:bottom|block-end)\s*:/.test(decl)) continue;
+          if (/var\(--hairline\)/.test(decl)) continue;
+          if (/\bnone\b/.test(decl)) continue;
+          offenders.push(`${name}: ${selector.trim().split('\n').pop()} { ${decl.trim()} }`);
+        }
+      }
+    }
+    expect(
+      offenders,
+      'A rule under a heading is a separator, so it takes var(--hairline) and ' +
+        '--color-border-light. Drawn at a literal width it is 2–4 device pixels, and ' +
+        'the archive then has three different rules for one kind of object.',
+    ).toEqual([]);
+  });
+
   it('actually uses the hairline somewhere (or the pairing proves nothing)', () => {
     const uses = sheets.reduce(
       (n, { css }) => n + (code(css).match(/var\(--hairline\)/g)?.length ?? 0),

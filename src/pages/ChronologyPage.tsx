@@ -195,7 +195,9 @@ export default function ChronologyPage() {
             ))}
 
             <section className="chronology-legend" aria-labelledby="chronology-legend-heading">
-              <h2 id="chronology-legend-heading">{t('chronologyLegendHeading')}</h2>
+              <h2 className="section-heading" id="chronology-legend-heading">
+                {t('chronologyLegendHeading')}
+              </h2>
               <p className="chronology-lede">{t('chronologyLegendWidth')}</p>
               <dl>
                 <dt>
@@ -221,7 +223,9 @@ export default function ChronologyPage() {
             </section>
 
             <section className="chronology-undated" aria-labelledby="chronology-undated-heading">
-              <h2 id="chronology-undated-heading">{t('chronologyUndatedHeading')}</h2>
+              <h2 className="section-heading" id="chronology-undated-heading">
+                {t('chronologyUndatedHeading')}
+              </h2>
               <p className="chronology-lede">{t('chronologyUndatedIntro')}</p>
               <p className="chronology-undated-reasons">
                 <span>

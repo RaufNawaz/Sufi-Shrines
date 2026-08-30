@@ -74,11 +74,12 @@
   margin-block-end: var(--space-10);
 }
 
+/* Shared spec in components.css. This was the archive's only section heading
+   set in the sans stack and with no rule at all — on a page whose neighbours
+   are ruled Merriweather. */
 .sg-section-heading {
   margin-block: 0 var(--space-2);
-  font-size: var(--text-xl);
   line-height: var(--leading-snug);
-  color: var(--color-text);
 }
 
 .sg-section-note {

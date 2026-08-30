@@ -352,7 +352,7 @@ export default function GraphPage() {
             the archive covers five silsilas needs to see them beside each other
             before being asked to pick one. */}
         <section className="graph-page-section">
-          <h2>{t('orderCompareHeading')}</h2>
+          <h2 className="section-heading">{t('orderCompareHeading')}</h2>
           <p className="graph-figures-note">{t('orderCompareNote')}</p>
           <div className="order-compare-scroll">
             <table className="order-compare-table">
@@ -440,7 +440,7 @@ export default function GraphPage() {
 
         {lineageEdges.length > 0 && (
           <section className="graph-page-section">
-            <h2>{t('graphLineageHeading')}</h2>
+            <h2 className="section-heading">{t('graphLineageHeading')}</h2>
             <p className="graph-figures-note">
               {t('graphLineageNote')} {fmtNum(scopedLineageEdges.length)}
               {' · '}
@@ -546,7 +546,7 @@ export default function GraphPage() {
         )}
 
         <section className="graph-page-section">
-          <h2>{t('graphExplorerAllFigures')}</h2>
+          <h2 className="section-heading">{t('graphExplorerAllFigures')}</h2>
           <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
 
           {/* 136 names under seven headings is a list you scroll past, not one
@@ -682,7 +682,7 @@ export default function GraphPage() {
             single count. */}
         {lineageOnlyFigures.length > 0 && (
           <section className="graph-page-section">
-            <h2>
+            <h2 className="section-heading">
               {t('graphLineageOnlyHeading')}{' '}
               <span className="graph-figure-group-count">{fmtNum(lineageOnlyFigures.length)}</span>
             </h2>
