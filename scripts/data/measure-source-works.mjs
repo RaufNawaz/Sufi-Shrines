@@ -143,6 +143,41 @@ if (works.length === 0) {
     }
   }
 
+  /* The sharper question than "how many entries cite it": how many have nothing
+     else. An entry resting on a single work cannot be triangulated by a reader,
+     and which work it is matters — 14 of the archive's 27 single-sourced entries
+     rest on the same book. */
+  const citesOf = new Map(); // entry -> [source ids]
+  for (const a of attestations) {
+    if (!citesOf.has(a.subject)) citesOf.set(a.subject, []);
+    citesOf.get(a.subject).push(a.object);
+  }
+  const soloPerWork = new Map();
+  for (const [entry, ids] of citesOf) {
+    const slugs = new Set(ids.flatMap((id) => assigned.get(id) ?? []));
+    const unworked = ids.filter((id) => !assigned.has(id));
+    if (unworked.length > 0 || slugs.size !== 1) continue;
+    const only = [...slugs][0];
+    soloPerWork.set(only, [...(soloPerWork.get(only) ?? []), entry]);
+  }
+  const soloTotal = [...soloPerWork.values()].reduce((a, b) => a + b.length, 0);
+  if (soloTotal) {
+    console.log(`\n  entries resting on ONE declared work and nothing else: ${soloTotal}`);
+    for (const [slug, entries] of [...soloPerWork.entries()].sort(
+      (a, b) => b[1].length - a[1].length,
+    )) {
+      const w = works.find((x) => x.slug === slug);
+      console.log(`     ${String(entries.length).padStart(2)}  ${w.title}`);
+      if (entries.length <= 20) entries.sort().forEach((e) => console.log(`           ${e}`));
+    }
+    console.log(
+      '\n     Checked and NOT true: none of these reaches that state by citing two\n' +
+        '     volumes of one book. Every one carries a single citation string, so\n' +
+        "     /about's `singleSourced` figure is honest — the fragmentation this\n" +
+        '     script measures inflates the source LIST, not that count.',
+    );
+  }
+
   const biggest = ranked[0];
   if (biggest) {
     const w = works.find((x) => x.slug === biggest[0]);

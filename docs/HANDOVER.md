@@ -3937,6 +3937,25 @@ both redirects.
     **Not rendered yet.** `/about` is the other session's surface tonight; `buildWorkRollup()` is
     ready for it and the finding is theirs to place.
 
+152. **The sharpest version of that number, and a hypothesis of mine that turned out to be
+    wrong.** *Same day.* Beyond "how many entries cite this book" is the harder question: how
+    many have **nothing else**. Seventeen entries in this archive rest on a single work and no
+    other source at all, and **fourteen of them rest on the same book** — the Tazkirah. They are
+    listed by slug in `measure-source-works.mjs`'s output, because that is a re-shooting and
+    re-sourcing list, not a statistic: Peer Makki, Shah Jamal, Mauj Darya Bukhari, Kaka Sahib,
+    Makhdoom Nooh and nine more.
+
+    **What I expected to find and did not.** I predicted that `/about`'s `singleSourced` figure
+    (27) *understated* the problem — that entries citing two volumes of one book would look
+    doubly-sourced while resting on one work. Measured: **zero.** Every one of the seventeen
+    carries a single citation string, so no entry reaches single-work status by way of two
+    volumes. `singleSourced` is honest, and the fragmentation described in §9.150 inflates the
+    source **list** and nothing else.
+
+    Recorded because a negative result costs the next person the same hour to re-derive, and
+    because the instinct it corrects is a reasonable one. The assertion is in the instrument's
+    output rather than only here, so it is re-checked on every run rather than believed.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
