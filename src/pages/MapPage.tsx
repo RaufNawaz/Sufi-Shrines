@@ -507,7 +507,20 @@ export default function MapPage() {
                     404'd on the live site. No test could catch it: `build:e2e`
                     builds with base `/`, which is exactly the configuration
                     where the bug does not exist. */}
-                <Link to={`/shrine/${s.slug}`}>
+                {/* `tabIndex={-1}`: reachable, not tabbable.
+                    These 171 links are the first thing a keyboard reader meets
+                    on the front door — tab stops 3 through 173, before a single
+                    visible control. The container is `sr-only`, whose `clip`
+                    applies to the whole subtree, so each focused link is
+                    invisible and the page appears frozen while focus travels;
+                    measured at **174 tab presses to cross the map**, the first
+                    visible stop being "Settings".
+
+                    Removing them from the tab order costs a screen-reader
+                    reader nothing: this landmark exists to be *browsed* — with
+                    a reading cursor, a rotor, or the skip link that targets the
+                    nav itself — and none of those use the Tab sequence. */}
+                <Link to={`/shrine/${s.slug}`} tabIndex={-1}>
                   {localizeShrineName(s, lang)}
                   {/* The Location column is often still an English survey note.
                       <bdi> isolates the Latin run so the surrounding Urdu does

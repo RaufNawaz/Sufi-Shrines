@@ -265,7 +265,7 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
 }
 
 export function ShrineGallery({ items, category = '' }: Props) {
-  const { t, lang } = useLang();
+  const { t, lang, fmtNum } = useLang();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   if (items.length === 0) return null;
@@ -282,7 +282,13 @@ export function ShrineGallery({ items, category = '' }: Props) {
             className="gallery-item"
             role="listitem"
             onClick={() => setLightboxIdx(i)}
-            aria-label={item.caption || tFn(lang, 'galleryImageLabel', i + 1, t('imageExpand'))}
+            /* `fmtNum` around the whole string, the same treatment the
+               lightbox's own alt text at the top of this file already gets:
+               the index is interpolated into the label, so without it an Urdu
+               reader is told "تصویر 1" in Western digits. */
+            aria-label={
+              item.caption || fmtNum(tFn(lang, 'galleryImageLabel', i + 1, t('imageExpand')))
+            }
           >
             <ShrineImage
               src={item.imageUrl}

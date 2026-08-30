@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { localizeProseDigits } from '../../lib/i18n/numerals';
 
 interface NavItem {
   id: string;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 export function ContentsNav({ items }: Props) {
-  const { t, fmtNum } = useLang();
+  const { t, fmtNum, lang, numerals } = useLang();
   const [activeId, setActiveId] = useState(items[0]?.id || '');
 
   useEffect(() => {
@@ -51,7 +52,11 @@ export function ContentsNav({ items }: Props) {
                 setActiveId(item.id);
               }}
             >
-              {fmtNum(i + 1)}. {item.label}
+              {/* The label too, not only the list number: these entries are
+                  the same headings the article renders, so a digit inside one
+                  ("2010 کا دھماکہ…") appeared Western here and Eastern in the
+                  heading it links to. */}
+              {fmtNum(i + 1)}. {localizeProseDigits(item.label, lang, numerals === 'eastern')}
             </a>
           </li>
         ))}

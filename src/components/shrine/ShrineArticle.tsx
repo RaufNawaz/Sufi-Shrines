@@ -75,8 +75,13 @@ function ArticleSection({
 
   return (
     <section ref={revealRef} className="article-section" id={id} aria-labelledby={`${id}-heading`}>
+      {/* `localize(heading)`, not `{heading}` — the same call the body four
+          lines below already makes. Ten entries carry a digit in an Urdu `##`
+          heading ("2010 کا دھماکہ…"), so the year rendered Western in the
+          heading and Eastern in the paragraph directly beneath it: one year,
+          two numeral systems, one screen. */}
       <h2 className="article-section-heading" id={`${id}-heading`}>
-        {heading}
+        {localize(heading)}
       </h2>
       {isSources ? (
         <ul className="article-prose article-sources-list">

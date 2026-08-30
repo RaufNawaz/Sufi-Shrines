@@ -90,7 +90,7 @@ export default function TypologyPage() {
         dir={isRtl ? 'rtl' : undefined}
       >
         <ScrollToTop />
-        <nav className="shrine-breadcrumb" aria-label="Breadcrumb">
+        <nav className="shrine-breadcrumb" aria-label={t('ariaBreadcrumb')}>
           <ol>
             <li>
               <Link to="/">{t('mapBreadcrumb')}</Link>

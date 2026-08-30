@@ -74,6 +74,7 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | [`planning/TODO.md`](planning/TODO.md)                                         | Live working checklist for the dataset and app                                    |
 | [`planning/FRONT_DOOR_PAYLOAD.md`](planning/FRONT_DOOR_PAYLOAD.md)             | **The map downloads 672 KB of prose to draw 169 dots.** Measured front-door payload, the two fixes ruled out by measuring, and the slim index that fixes it |
 | [`planning/URDU_ARTICLE_PAYLOAD.md`](planning/URDU_ARTICLE_PAYLOAD.md)         | **Every Urdu route downloads the same 253 KB of article prose**, on routes with no article on them. Measured per-route payload against a production build |
+| [`planning/UX_COUNCIL_2026-08-30.md`](planning/UX_COUNCIL_2026-08-30.md)     | **Four reviewers, one lens each, thirty-two findings and eleven retractions.** What shipped, what is queued and ranked by what it costs a reader, and the three decisions that need a person |
 | [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |
 | [`planning/NEXT_STEPS_2026-08-26.md`](planning/NEXT_STEPS_2026-08-26.md)       | **Current working plan**: display-enrichment phase (order/place/almanac surfaces from data the KG already holds) + feature polish, specced for a cheaper model |

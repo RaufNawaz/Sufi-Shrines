@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { localizeProseDigits } from '../../lib/i18n/numerals';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { primaryFigureSlug } from '../../lib/kgShrineFigures';
 import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
@@ -31,7 +32,7 @@ export function ObservanceCard({
   /** Position in its list, for the entrance stagger. */
   index?: number;
 }) {
-  const { t, fmtNum, localizeField } = useLang();
+  const { t, fmtNum, localizeField, numerals } = useLang();
   const { shrine, observance, window, approximate } = entry;
   const { calendar } = useReaderPreferences();
   /* Which of the two dates leads is the reader's choice, and the "approximate"
@@ -100,12 +101,15 @@ export function ObservanceCard({
         {figureName ? (
           <p className="almanac-entry-figure">
             <span className="almanac-entry-source-label">{t('almanacFigureLabel')}: </span>
+            {/* A figure's name often carries their dates — "(1866ء–1910ء)" —
+                and those digits reached the Urdu page Western while every other
+                number on the card was Eastern. */}
             {figureSlug ? (
               <Link to={`/saint/${figureSlug}`}>
-                <bdi>{figureName}</bdi>
+                <bdi>{localizeProseDigits(figureName, lang, numerals === 'eastern')}</bdi>
               </Link>
             ) : (
-              <bdi>{figureName}</bdi>
+              <bdi>{localizeProseDigits(figureName, lang, numerals === 'eastern')}</bdi>
             )}
           </p>
         ) : null}
