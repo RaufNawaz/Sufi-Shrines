@@ -149,7 +149,24 @@ after **475px of scrolling inside the sidebar** — three deliberate actions wit
 `site_type` **0**, `year_built` **0**, `"Field-verified"` **0** — against 14 occurrences in
 `data/shrines.json`. `datapackage.json` declares **11 fields for a 44-column dataset**. A
 researcher cannot select by evidence in the RDF, which is the one thing this archive's data is
-*for*. *(Export scripts are the other session's lane — hand it over.)*
+*for*.
+
+> **Corroborated independently and taken, 30 August 2026.** The other session's invariants
+> reviewer measured the published descriptors from a different direction and found the same hole
+> wider than the RDF: `data/datapackage.json` *and* `data/shrine-schema.json` describe **11 of 44
+> fields**, and **26 of the 33 undocumented ones are populated** — `support_level` 169/169,
+> `info_level` 169/169, `category` 168/169, plus `site_type`, `status`, `principal_figure`,
+> `silsila` and the split date fields. So it is not only that the RDF drops the provenance
+> columns; **the descriptor a downstream consumer validates against never declared them.** They
+> are taking it as one item — a coverage test tying every key in `data/shrines.json` to both
+> descriptors — rather than patching the exports alone.
+>
+> **And one correction that cuts the other way, worth keeping because it is the kind this council
+> exists to catch.** Their reviewer also called the descriptors' five-value `Category` enum stale,
+> and part-retracted it: that enum describes the **legacy** `Category` column, which really does
+> hold only those values — 76 Muslim Shrine, 50 Hindu Temple, 37 Sikh Gurdwara, 6 blank, nothing
+> else. A six-value enum there would have described a column that has never held five of them.
+> **The defect is the omission, not the enum.**
 
 ### 11–24, in order
 
@@ -159,7 +176,6 @@ researcher cannot select by evidence in the RDF, which is the one thing this arc
 | S‑5 | 456 of 464 sources leave the reader nothing to click | **8 of 464 citations contain a URL (2%)**; no DOI, no ISBN | S · AGENT |
 | IA‑3 | Tab bar and breadcrumb disagree about where 37 pages live | 12 routes render a breadcrumb, **every one a single crumb**; `/place/:slug` uses a different root label and a dead "Places" crumb | M · AGENT |
 | IA‑4 | Eight tradition pages, no index | `/about` links **all 29** places and **0 of 8** traditions; 18 shrine infoboxes are the only inbound anchors | S · AGENT |
-| S‑4 | Coordinate uncertainty is understated to the reader | `/about` says **8**; `audit_coordinates.py` records **22** (12 at ≤2 decimals, 10 sharing a point). Two instruments, one published | M · AGENT + PERSON |
 | U‑4 | Urdu search is a smaller instrument than English search | English indexes 5 fields incl. 500 chars of prose; Urdu indexes 4 and no prose. `entitySearch` does not fold ي→ی though its comment claims parity. Eastern digits match nothing | S/M · AGENT |
 | U‑5 | 168 Urdu articles, 0 reviewed, and not one page says so | `reviewed.json` is `{}`; **0 of 169 Urdu pages carry a status marker**, while `/about` promises in Urdu that drafts are marked | S · AGENT + one glance |
 | J‑7 | The archive's name is clipped in the header at every width but one | `.sidebar-title` 161/134 even at 1920; only 768 is unclipped | S · AGENT (CSS) |
@@ -176,6 +192,16 @@ researcher cannot select by evidence in the RDF, which is the one thing this arc
   (2026‑08‑18), no `doi:` in `CITATION.cff`, `PUBLICATION.version` frozen at a string. The
   agent-buildable half is printing the data's vintage on every page that carries a citation; the
   DOI is an afternoon of yours.
+- **S‑4 · What `/about` should say about coordinate uncertainty.** Reframed on 30 August 2026,
+  and the reframing is the finding. This was ranked as "understated to the reader" — `/about` says
+  **8 entries whose own text says the pin is approximate**, `pipeline/audit_coordinates.py` records
+  **22**. But the two numbers are not a contradiction: `coverage.ts` greps prose for the archive's
+  own admission, and the audit measures *decimal precision and shared points*. They answer
+  different questions and both are correct. Deciding which one `/about` should publish — or how to
+  publish both without the stricter number reading as "these pins are wrong", which the audit's own
+  docstring warns against because **precision is not accuracy** — is an editorial claim about the
+  archive's honesty, not a mechanical fix. The render site is this session's lane and the
+  computation is the other's; whichever way it is ruled, the wording is yours first.
 - **The vocabulary collision on "tradition"** — it names both the six-value `category` facet and the
   eight sampradayas. Editorial.
 - **The 40 English gloss sentences** in figure titles, and the untranslated observance segments.
@@ -218,8 +244,14 @@ researcher cannot select by evidence in the RDF, which is the one thing this arc
 
 **Incidental, and worth someone's attention:**
 
-- CLAUDE.md says "**107** of them citing three or more sources". The shipped snapshot and the live
-  `/about` both give **103**. The same drift class the 544→533 note already warns about.
+- ~~CLAUDE.md says "**107** of them citing three or more sources". The shipped snapshot and the live
+  `/about` both give **103**.~~ **Closed 30 August 2026 (`070f0ab`), with a guard.** Computed
+  through `buildCoverage()`, three of that sentence's four numbers were right and the fourth had
+  drifted. Where it sat is the point: four lines below the same paragraph's account of the 544→533
+  drift, inside the sentence whose lesson is that *a standing finding is a measurement with a date
+  on it*. `siteCountConsistency.test.ts` already existed for this and its docstring even names
+  CLAUDE.md's bibliography sentence as one of the stale numbers — then checked a different number
+  in it. It now holds all four against the computation.
 - Five route families render **two** skip links to `#main-content` — `App`'s plus a page-level copy.
 - There is **no `tradition` route in the Urdu Latin-run budget table**, so the eight tradition pages
   are outside that guard entirely.
