@@ -2,6 +2,10 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './e2e',
+  /* Refuses to run against a `dist/` built for the wrong base path — see
+     e2e/global-setup.ts. A plain `npm run build` leaves one, `npm run e2e` does
+     not build, and the resulting run exits 0 while testing nothing. */
+  globalSetup: './e2e/global-setup.ts',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

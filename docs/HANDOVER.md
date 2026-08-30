@@ -3700,6 +3700,44 @@ both redirects.
     section (21 Aug), `/shared-ground` (§9.130) and the lens. It was marked SHIPPED with two of
     its three experiences unbuilt for eight days.
 
+132. **The e2e suite reported `7 passed` and exited 0 while testing a bundle that never
+    booted.** *Found 29 August 2026, by disbelieving a green number.* `playwright.config.ts`
+    serves `dist/` through `vite preview` at `localhost:4173`, and `npm run e2e` is
+    `playwright test` — it does not build. There are two possible `dist/`s:
+
+        npm run build      → assets at /Sufi-Shrines/assets/…   (GitHub Pages base)
+        npm run build:e2e  → assets at /assets/…                (the preview root)
+
+    Run the suite after a plain `npm run build` — which is exactly what you do to check the
+    bundle budgets — and every page serves an index.html whose script tags 404. Nothing throws.
+    The run took 32 minutes instead of 3, reported **7 passed**, and **exited 0**, forty
+    minutes after an identical suite reported 358 passed against the right bundle. Both numbers
+    are green-shaped; only one was a test of anything.
+
+    **The tell was the shape of the number, not any error.** Two things nearly hid it: the exit
+    code was 0, and the run had been piped through `tail -12`, which discarded the part of
+    Playwright's summary that would have said what happened to the other 359. **Do not truncate
+    a test run's output before reading it** — capture to a file and grep it.
+
+    `e2e/global-setup.ts` now reads `dist/index.html` before a browser opens and refuses to run
+    when the entry script is not root-relative, naming `npm run build:e2e` in the message.
+    Verified in both directions: it fires on a production-base `dist` and passes on an e2e one.
+
+    Two limits, stated because a guard that overstates itself is worse than none:
+
+    - **It checks the base path, not freshness.** Whether `dist` is stale relative to `src` is a
+      harder question and this does not pretend to answer it.
+    - **It cannot catch a missing `dist` at all.** `webServer` starts *before* `globalSetup`
+      here — verified by deleting `dist` and watching the run die with "Timed out waiting
+      60000ms from config.webServer" while the setup file never executed. A branch for that case
+      was written, found unreachable, and deleted rather than left in place looking useful. An
+      absent `dist` fails loudly on its own; the case worth gating is the one that comes back
+      green.
+
+    The corrected run, against a `build:e2e` bundle: **366 passed, 2.3 minutes, no failures and
+    no flakes** — including `graph-node-pictures.spec.ts`, whose failure in §9.130 was the
+    contention flake §9.129 describes and did not recur.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
