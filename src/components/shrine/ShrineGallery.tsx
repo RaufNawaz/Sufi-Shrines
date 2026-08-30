@@ -7,6 +7,40 @@ import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
 
 const SWIPE_THRESHOLD_PX = 50;
 
+/**
+ * Gallery photographs the browser could not load.
+ *
+ * ## What a reader got before this
+ *
+ * Measured 31 August 2026 on `/shrine/gurdwara-sacha-sauda`, whose only
+ * photograph 404s: the gallery rendered **one tile, and the tile was a
+ * `<button>` labelled "Image 1: Open image"** wrapping a category-tinted
+ * placeholder. Clicking it opened the lightbox full-screen over a broken image
+ * with **no text in it at all**. A screen-reader user was offered a picture that
+ * does not exist and then given an empty dialog.
+ *
+ * Three entries are in that state today — Gurdwara Sacha Sauda, Shrine of Sachal
+ * Sarmast and Garh Maharaja — each with exactly one image field and a dead URL.
+ * It is not a fixed list: `pipeline/check_image_liveness.py` went from 53 to 54
+ * dead in four days when a host's certificate expired, so any entry can arrive
+ * here without anything changing in this repository.
+ *
+ * ## Why they disappear rather than explain themselves
+ *
+ * 51 entries carry no photograph and their pages have **no gallery section at
+ * all** — `items.length === 0` returns null below. An entry whose only
+ * photograph cannot be fetched is in exactly that position, so it renders
+ * exactly that way. The alternative, a tile saying "photograph unavailable",
+ * would mean authoring the sentence in Urdu (RULE 2) to say something the
+ * archive already reports honestly in aggregate on `/about`.
+ *
+ * Module-level and keyed by the sheet's own URL, both for the reasons
+ * `deadPhotoUrls` in `ShrineMarkers.tsx` gives: a dead URL is dead for the whole
+ * visit, and the sheet points two entries at one file often enough that the
+ * address is the right key rather than the entry.
+ */
+const deadImageUrls = new Set<string>();
+
 interface Props {
   items: GalleryItem[];
   category?: string;
@@ -267,8 +301,34 @@ function Lightbox({ items, initialIndex, onClose }: LightboxProps) {
 export function ShrineGallery({ items, category = '' }: Props) {
   const { t, lang, fmtNum } = useLang();
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  /* Bumped when an image fails, purely to re-render. The set is the state; this
+     is the signal that it changed. */
+  const [deadSeen, setDeadSeen] = useState(0);
 
-  if (items.length === 0) return null;
+  const shown = items.filter((item) => !item.imageUrl || !deadImageUrls.has(item.imageUrl));
+
+  /* Capture phase, because `error` does not bubble — the same reason the marker
+     layer registers its listener the same way. One handler on the grid rather
+     than one per tile: the tiles are replaced whenever this re-renders, and a
+     listener on the container outlives them. */
+  /* Told by the image, not inferred from an event.
+     Two earlier attempts failed here and both are worth naming. A listener on
+     the grid never fired: `error` does not bubble, and React delegates media
+     events by binding them to the element, so nothing on an ancestor hears it.
+     Then matching the failed `<img>` back to its row by URL prefix marked the
+     wrong one dead — every Wikimedia Commons URL in this archive opens with the
+     same 43 characters, so an entry with one broken photograph and one good one
+     lost the good one. `ShrineImage` already knows which `src` failed, so it
+     says so. */
+  const markDead = useCallback((url: string) => {
+    if (!url || deadImageUrls.has(url)) return;
+    deadImageUrls.add(url);
+    setDeadSeen((n) => n + 1);
+  }, []);
+  void deadSeen;
+
+  /* Both the "no photograph" case and the "no photograph we can fetch" case. */
+  if (shown.length === 0) return null;
 
   return (
     <section className="article-section" id="gallery" aria-labelledby="gallery-heading">
@@ -276,7 +336,7 @@ export function ShrineGallery({ items, category = '' }: Props) {
         {t('gallery')}
       </h2>
       <div className="gallery-grid" role="list">
-        {items.map((item, i) => (
+        {shown.map((item, i) => (
           <button
             key={item.index}
             className="gallery-item"
@@ -297,6 +357,7 @@ export function ShrineGallery({ items, category = '' }: Props) {
               className="gallery-img"
               loading="lazy"
               width={IMAGE_WIDTH.gallery}
+              onLoadError={() => markDead(item.imageUrl)}
             />
             {(item.caption || item.credit) && (
               <div className="gallery-caption">
@@ -313,7 +374,11 @@ export function ShrineGallery({ items, category = '' }: Props) {
       </div>
 
       {lightboxIdx !== null && (
-        <Lightbox items={items} initialIndex={lightboxIdx} onClose={() => setLightboxIdx(null)} />
+        /* `shown`, not `items`. The grid indexes into the filtered list, so
+           handing the lightbox the unfiltered one opens a different photograph
+           than the tile the reader pressed as soon as anything is filtered —
+           and the whole point of the filtering is that something is. */
+        <Lightbox items={shown} initialIndex={lightboxIdx} onClose={() => setLightboxIdx(null)} />
       )}
     </section>
   );

@@ -229,6 +229,39 @@ row in the dataset is not.
 short entry that the unconditional assert catches. I set out to report these two as disagreeing and
 they do not — the difference is the point.
 
+**A photograph that cannot be fetched used to offer itself anyway — closed 31 August 2026.**
+Measured on `/shrine/gurdwara-sacha-sauda`, whose only image 404s: the gallery rendered one tile,
+the tile was a `<button>` announcing *"Image 1: Open image"*, and pressing it opened the lightbox
+full-screen over a broken image with **no text in it at all**. A sighted reader was invited to
+open a picture that does not exist; a screen-reader user was told there was one and then handed an
+empty dialog. Three entries were in that state, and it is not a fixed list — `check_image_liveness.py`
+went 53 → 54 in four days when a host's certificate expired.
+
+A photograph that cannot be fetched is now treated as a photograph the archive does not have,
+which is what it is, and which is how the **51 entries with no photograph already render**: no
+gallery section at all. No new sentence, so no Urdu to author. `e2e/gallery-dead-image.spec.ts`
+injects the failures rather than pointing at a URL that is dead today.
+
+*Three drafts of that spec asserted against a page whose images had never been requested.* Gallery
+images are `loading="lazy"` below a long article, so on an untouched page the browser never asks
+for them — nothing is fetched, nothing can fail, and the fix reads as broken. **Anything testing
+image failure has to scroll the gallery into view first.** Two earlier implementations were wrong
+the same way and are recorded at the code: a listener on the grid never fired (`error` does not
+bubble, and React binds media events to the element), and matching a failed `<img>` back to its row
+by URL prefix marked the wrong one dead — every Wikimedia Commons URL here shares 43 leading
+characters, so an entry with one broken photograph and one good one lost the good one.
+`ShrineImage` now reports its own failure through an `onLoadError` callback, which has neither
+problem.
+
+**`pipeline/photo_manifest.tsv` is gitignored, so a repair to it is not retained** *(raised by the
+other session, 31 August 2026)*. They fixed 44 of 206 rows that were one field too wide — a stray
+empty at index 2 shifting the Drive ID into `drive_filename` — which `csv.DictReader` then dropped
+before they reached the list a person reads. The repair is recorded in HANDOVER with the steps to
+redo it, and their test skips when the file is absent so a clone stays green. **Whether to track
+it is a judgement for Rauf:** CLAUDE.md's layout puts manifests in `pipeline/` and RULE 0 argues
+for retaining it; against that, its ~200 filenames name the surveyor, and this archive moved a
+colleague's name out of a public field on 30 August. It belongs beside the RMS question.
+
 ## Waiting on a person, not on an agent
 
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync

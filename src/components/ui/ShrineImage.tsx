@@ -15,6 +15,18 @@ interface ShrineImageProps {
    *  API are asked for roughly this size instead of the original — see
    *  lib/images/thumbnail.ts for why that matters here. Omit for full size. */
   width?: number;
+  /**
+   * Called once when the browser cannot fetch `src`.
+   *
+   * This component already falls back to a placeholder on its own, which is the
+   * right thing for a marker or a thumbnail. A caller that has to make a
+   * *structural* decision — the gallery, which must stop offering a picture it
+   * cannot show — needs to know it happened, and asking the image is the only
+   * reliable way: `error` does not bubble, so a listener on any ancestor never
+   * hears it, and matching a failed `<img>` back to its row by URL is a second
+   * chance to be wrong. Both were tried here first.
+   */
+  onLoadError?: () => void;
 }
 
 export function ShrineImage({
@@ -25,6 +37,7 @@ export function ShrineImage({
   placeholderClassName = '',
   loading = 'lazy',
   width,
+  onLoadError,
 }: ShrineImageProps) {
   const [errored, setErrored] = useState(false);
   const catKey = categoryKey(category);
@@ -60,7 +73,10 @@ export function ShrineImage({
          before; see lib/images/imageShape.ts for why a miss is the safe
          outcome. */
       {...(shape ? { width: shape.width, height: shape.height } : {})}
-      onError={() => setErrored(true)}
+      onError={() => {
+        setErrored(true);
+        onLoadError?.();
+      }}
     />
   );
 }
