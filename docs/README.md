@@ -83,6 +83,7 @@ Roadmaps and runbooks; several are kept for history after implementation.
 | [`planning/kb-council-2026-08-30/kb2-graph.md`](planning/kb-council-2026-08-30/kb2-graph.md) | KB council, raw report — the knowledge graph: 8 findings, 6 killed by re-measuring |
 | [`planning/kb-council-2026-08-30/kb3-invariants.md`](planning/kb-council-2026-08-30/kb3-invariants.md) | KB council, raw report — schema hygiene and invariant coverage: 7 findings, 11 retractions |
 | [`planning/kb-council-2026-08-30/kb4-publication.md`](planning/kb-council-2026-08-30/kb4-publication.md) | KB council, raw report — what is published vs held: 7 findings, 1 withdrawn, 7 killed |
+| [`planning/kb-council-2026-08-30/kb5-urdu.md`](planning/kb-council-2026-08-30/kb5-urdu.md) | KB council, raw report — Urdu knowledge parity: 5 findings, 16 retractions, three of them instrument errors from measuring the slim index |
 | [`planning/BADGE_GLOSSARY.md`](planning/BADGE_GLOSSARY.md)                     | **The seven definitions the trust badges never gave a reader**, derived from the rule that computes them rather than authored. Wording, the 150-word threshold and the Urdu are open |
 | [`planning/DELEGATED_EXECUTION_PLAN.md`](planning/DELEGATED_EXECUTION_PLAN.md) | Bounded Urdu-aesthetic + feature tasks specced for GPT-Codex-class/cheaper models |
 | [`planning/EXECUTION_PLAN.md`](planning/EXECUTION_PLAN.md)                     | Ordered milestones threading the backlog and roadmap together                     |

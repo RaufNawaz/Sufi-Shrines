@@ -1,4 +1,4 @@
-# The knowledge-base council, 30 August 2026 — five lenses, twenty-nine findings
+# The knowledge-base council, 30 August 2026 — five lenses, thirty-four findings
 
 Five reviewers were briefed in parallel against the repository and the running site, each with
 one lens and no overlap: **provenance and citation integrity**; **the knowledge graph — what it
@@ -22,7 +22,7 @@ them produced.
 
 ## Why the retraction requirement is the load-bearing part
 
-Between them the reviewers **killed at least sixteen findings by re-measuring**, and several of
+Between them the reviewers **killed at least twenty-six findings by re-measuring** — the Urdu lens alone retracted sixteen, and several of
 those retractions are worth more than the findings that survived. Four are worth reading before
 anything below is believed.
 
@@ -57,6 +57,18 @@ loop — two identical readings a second apart — it has 15 groups with counts 
 `src/data/shrines-index.json` is a 169-row, 10-column index with no `site_type`; it paints first
 and the live sheet replaces it. A fixed `wait(5s)` was measuring the placeholder.
 
+**And a whole lens nearly reported the archive as missing knowledge it has.** The Urdu reviewer's
+first three findings — `/typology` collapsed to one group, `/almanac` missing three sections,
+observance cells half-translated on shrine pages — were all the same instrument error, and all
+three are false. `src/data/shrines-index.json` is a 169-row, 10-column slim index with no
+`site_type` and no `Events`; it paints first and the live 171-row sheet replaces it. A fixed
+`wait(5s)`, or a probe that stops at the first two identical readings, measures the placeholder.
+Every number in that report was re-taken after a settle loop requiring ten samples and four
+consecutive identical readings. **Sixteen retractions from one lens**, including "28 of 94 graph
+places have no Urdu name" (true of `kg.json`, and `/place/:slug` is driven by a different closed
+vocabulary whose 64 titles all render in Urdu) and "all 149 event names render in Latin"
+(`event.name` is never rendered anywhere).
+
 Two more, briefly. The exports were **not** stale — both `--check` modes exit 0, which made the
 memberships finding a live bug rather than a stale file, a worse answer and a different remedy.
 And the JSON-LD `@context` "omitting `discipleOf`" omits only the *alias*; the exporter emits the
@@ -69,7 +81,7 @@ The findings below are worth acting on **because** those were not.
 
 ## Shipped from the council
 
-Eleven commits, all mutation-checked, `npm run verify` green at each.
+Seventeen commits, all mutation-checked, `npm run verify` green at each.
 
 | # | Finding | Commit |
 |---|---|---|
@@ -85,6 +97,11 @@ Eleven commits, all mutation-checked, `npm run verify` green at each.
 | KB2‑1 | `.find()` flattened eleven compound silsilas out of the data release | `372709e` |
 | KB1‑5 | The 544→533 correction reached one file of three, twice | `3801d99` |
 | KB4‑1 | "Already withheld from every page" was never true of the payload | `48d355c` |
+| KB4‑6 | The almanac said 52 sites record no observance; 51 of them do | `216829d` |
+| KB4‑2 | Four contradiction disclosures were keyed to a slug the site does not use | `fbf29bb` |
+| KB1‑1 | The four unsourced order memberships were the four the guard could not see | `a53b350` |
+| KB1‑2 | 57 of the "464 distinct sources" are lines the archive calls placeholders | `4f6b103` |
+| KB5‑2 | 80 observance cells had reviewed Urdu the almanac never asked for | `dea67b2` |
 
 Three of these were found by two lenses independently: the published-descriptor hole (this
 council's invariants lens measured the descriptor; the other session's measured the same gap from
@@ -188,7 +205,45 @@ These are real and land in `src/pages/`, `src/components/`, `e2e/` or `src/style
   measured on the rendered page. The sheet has no `*_ur` column for them, so this is a translation
   question and not only a wiring one. *(KB5‑A.)*
 - **`/about` tells a reader both "170 entries with a bibliography" and "articles carrying at least
-  one citation — 22 · 13%".** *(KB4‑2.)*
+  one citation — 22 · 13%".** *(KB4‑5.)*
+- **All 64 place pages are unreachable from an Urdu search query.** Typing `لاہور` returns shrines
+  and no Lahore; typing `Lahore` returns the place. `ArchiveSearch.tsx:227` builds the place
+  candidates without `nameUr`, and **all 64 already have a reviewed Urdu name** — every one of the
+  64 page titles renders in Urdu today. `localizeRecordedName` is already imported in that file and
+  already used three lines below to *display* the row. The 30 August figure fix (`0fb1a10`) closed
+  this exact seam one entity type over. *(KB5‑3 — mechanical, no Urdu authoring.)*
+- **239 of 239 shrine locations on figure and order pages are English, and 163 have a reviewed Urdu
+  translation the archive shows everywhere else.** `RelatedShrines.tsx:36` uses
+  `localizeField(s.raw, 'Location')`; `SaintPage.tsx:794` and `OrderPage.tsx:810` render
+  `{shrine.location}` raw. The 8 that genuinely stay Latin are the long survey-qualification
+  paragraphs RULE 2 protects. *(KB5‑4 — mechanical, no Urdu authoring.)*
+
+## The Urdu half: what is wiring and what is authoring
+
+The Urdu lens's five findings split cleanly, and the split is the useful part — three of them
+needed no fluent speaker at all, because the reviewed Urdu was already in the repository and only
+the lookup was missing.
+
+**Wiring, and one is shipped.** 80 observance cells (KB5‑2, `dea67b2`); the 64 place pages missing
+from Urdu search (KB5‑3); the 239 English locations on figure and order pages (KB5‑4). Together
+these are the largest Urdu improvement available right now and not one of them requires a word to
+be composed.
+
+**Authoring, and therefore a person's.** **Every recorded qualification about *when* a site was
+built reaches an Urdu reader only in English** — 139 rendered notes across 161 entries, 147 and 20
+distinct strings, and the sheet has no `*_ur` column for them. This is the archive's most honest
+content: `/shrine/darbar-malik-ahmad-ayaz?lang=ur` shows the founding year `۱۰۴۱` in Eastern
+numerals and, directly beneath it in English, the sentence explaining that 1041 is
+character-for-character the saint's death date. `/shrine/darbar-mian-qurban-ali-shah?lang=ur`
+carries the exact sentence CLAUDE.md RULE 2 holds up as the model of correct editorial practice —
+in English only. **11 of the 119 resolve through the existing dictionary** and can be split off
+mechanically; the rest is a countable, shrinking queue. *(KB5‑1.)*
+
+And one word wants a fluent reader: `searchGroupSites` and `placesTitle` are **both** `مقامات`, so
+an Urdu search shows two groups under one heading and the archive's places read as a second list of
+shrines. The archive's own `مزارات` is already used for the shrine count in the same component's
+place rows, which makes it a substitution rather than a composition — but confirming that
+`مقامات` is a collision and not an accepted overload is a reader's call. *(KB5‑5.)*
 
 ---
 

@@ -504,6 +504,18 @@ Everything checked that turned out fine, and every finding formed and then kille
 
 ### Killed by re-measuring
 
+- **"Two of the thirteen `id` slugs resolve after all."** `/shrine/bibi-pak-daman` and
+  `/shrine/mazar-e-iqbal` came back with `document.title === "Mapping the Shrines of Pakistan"`
+  rather than "Page not found", which read as a redirect. Captured the body text instead: both
+  render *"Page not found — The page you're looking for doesn't exist or has been moved."* The
+  title had simply not been rewritten yet when I sampled it. **A document title is set by an
+  effect and a 404 body is not; reading the title is reading the earlier of the two.** All 13
+  404.
+- **KB4-8 was withdrawn mid-review** because another session found it independently and put the
+  same measurement into the tree while I was writing. See the struck-through entry in Section 1.
+  On a shared working directory, re-read `git status` before writing a finding up, not only
+  before starting.
+
 - **"The source-notes disclosure is missing from `/shrine/darbar-malik-ahmad-ayaz`."** It is on
   line 153 of a 178-line browser dump and I had piped the dump through `head -120`. The exact trap
   `docs/MEASUREMENT_FAILURES.md` §2 names, hit inside a review that quotes it. Every subsequent
