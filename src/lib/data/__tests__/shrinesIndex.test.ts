@@ -16,7 +16,6 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildShrines } from '../shrineModel';
-import { INDEX_COLUMNS } from '../../../../scripts/data/build-shrine-index.mjs';
 
 const ROOT = join(__dirname, '..', '..', '..', '..');
 const read = (p: string) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
@@ -48,16 +47,29 @@ describe('the map’s slim index', () => {
     expect(drift, 'a slim row that disagrees can put a pin in the wrong place').toEqual([]);
   });
 
-  it('agrees with the generator that writes it during a live build', () => {
-    /* build-dataset.mjs emits this file from the rows it has just fetched, and
-       build-shrine-index.mjs re-projects it from data/shrines.json. Two writers
-       of one file must not hold two ideas of its shape. */
-    const liveGenerator = readFileSync(join(ROOT, 'scripts/data/build-dataset.mjs'), 'utf8');
-    const block = /const INDEX_COLUMNS = \[([\s\S]*?)\];/.exec(liveGenerator);
-    expect(block, 'INDEX_COLUMNS vanished from build-dataset.mjs').not.toBeNull();
-    const declared = [...block![1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
-    expect(declared).toEqual(INDEX_COLUMNS);
-    expect(slim.columns).toEqual(INDEX_COLUMNS);
+  it('agrees with both generators about which columns it carries', () => {
+    /* Two writers of one file must not hold two ideas of its shape:
+       `build-dataset.mjs` emits it from rows it has just fetched, and
+       `build-shrine-index.mjs` re-projects it from `data/shrines.json`.
+
+       Both lists are read out of their SOURCE as text rather than imported.
+       Importing the `.mjs` is the obvious move and it broke `npm run typecheck`
+       for everyone on the branch — a script outside `tsconfig` has no
+       declaration file, and TS7016 is an error, not a warning. That matters more
+       than it sounds: `npm run build:e2e` runs `tsc` first, so a red typecheck
+       aborts the build and `dist/` silently keeps the PREVIOUS bundle, turning
+       every e2e run into a test of whatever was built last. Reading the text
+       also tests the real source of truth rather than a re-export of it. */
+    const declaredIn = (path: string) => {
+      const source = readFileSync(join(ROOT, path), 'utf8');
+      const block = /const INDEX_COLUMNS = \[([\s\S]*?)\];/.exec(source);
+      expect(block, `INDEX_COLUMNS vanished from ${path}`).not.toBeNull();
+      return [...block![1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
+    };
+    const live = declaredIn('scripts/data/build-dataset.mjs');
+    const offline = declaredIn('scripts/data/build-shrine-index.mjs');
+    expect(live).toEqual(offline);
+    expect(slim.columns).toEqual(live);
   });
 
   it('produces real shrines, with the card’s fields present', () => {

@@ -51,9 +51,13 @@ const OUT = join(ROOT, 'src', 'data', 'shrines-index.json');
  * CSV has landed by then; the card behind it is complete without it.
  *
  * Keep this list in step with `INDEX_COLUMNS` in build-dataset.mjs —
- * `shrinesIndex.test.ts` fails if the two ever disagree.
+ * `shrinesIndex.test.ts` reads BOTH lists out of their source as text and fails
+ * if they disagree. It reads rather than imports on purpose: importing this
+ * `.mjs` from a file inside `tsconfig`'s `include` is TS7016, which is an error
+ * and not a warning, and a red typecheck aborts `build:e2e` and leaves `dist/`
+ * holding the previous bundle.
  */
-export const INDEX_COLUMNS = [
+const INDEX_COLUMNS = [
   'Name',
   'Latitude',
   'Longitude',
