@@ -132,6 +132,30 @@ const TRADITIONS = [
     urFrom: 'ہنگلاج کی تقدس شکتی پیٹھوں',
     urTo: 'دیوی کی موجودگی سے معمور ہوا۔',
   },
+  {
+    slug: 'nanakpanthi',
+    name: 'Nanakpanthi',
+    nameUr: 'نانک پنتھی',
+    alsoKnownAs: ['Nanak-panthi'],
+    category: 'Nanakpanthi / Udasi Darbar',
+    shrine: 'swami-dharmdas-darbar-larkana-kennedy-market',
+    from: 'In the Nanakpanthi manner, such darbars',
+    to: 'without a firm confessional boundary.',
+    urFrom: 'نانک پنتھی انداز میں، ایسے دربار',
+    urTo: 'کسی سخت مسلکی حد کے بغیر کرتے ہیں۔',
+  },
+  {
+    slug: 'sevapanthi',
+    name: 'Sevapanthi',
+    nameUr: 'سیوا پنتھی',
+    alsoKnownAs: ['Sewapanthi'],
+    category: 'Nanakpanthi / Udasi Darbar',
+    shrine: 'sevapanthi-darbar-bhai-gurdas-gandava',
+    from: 'In the heart of Gandava',
+    to: 'Balochistan in the eighteenth century.',
+    urFrom: 'گنڈاوا کے قلب میں',
+    urTo: 'سندھ اور بلوچستان تک پہنچایا۔',
+  },
 ];
 
 /** Site memberships. Each quotes the archive saying it. */
@@ -146,6 +170,19 @@ const MEMBERSHIPS = [
   ['daduvansi', 'sant-baba-bhagat-ram-darbar-mandir', 'Local tradition associates the shrine', 'descendants of a saintly founder.'],
   ['shakti-peetha', 'shaktipeeth-shri-hinglaj-mata-mandir', 'It is one of the fifty-one', 'in present-day Pakistan.'],
   ['shakti-peetha', 'sharada-peeth', 'Simultaneously a temple, a fabled university', 'religious memory of Kashmir.'],
+  ['nanakpanthi', 'bhai-waliram-darbar', 'In Digano Mahesar, a small village', 'Swami Dharmdas of Larkana.'],
+  ['nanakpanthi', 'gurdwara-pehli-patshahi-jind-pir-sukkur', 'Its first custodian is said to have been', 'without a firm confessional boundary.'],
+  ['nanakpanthi', 'gurdwara-sach-khand-sahib', "Shikarpur's only functioning Sikh gurdwara", 'this historic Sindhi trading city.'],
+  ['nanakpanthi', 'guru-gurpat-mandir-db-80-sirey-ghat', 'On a plot known as DB-80', 'in the Jagiasi lineage, of Guru Nanak.'],
+  ['nanakpanthi', 'khatwari-darbar-shikarpur', 'The Khatwari Darbar is among the most celebrated', 'the wealth of its merchant houses.'],
+  ['nanakpanthi', 'sain-vali-vilayat-rai-darbar-kambar', 'The darbar of Sain Vali Vilayat Rai stands in the', 'Nanakpanthi *darbar* in the district.'],
+  ['nanakpanthi', 'sant-baba-asudaram-darbar-panno-aqil', 'The Darbar of Sant Baba Asudaram at Panno Aqil', '(Nanakpanthi) tradition.'],
+  ['nanakpanthi', 'sevapanthi-darbar-bhai-gurdas-gandava', 'Filed here under', 'Sindh–Balochistan borderland.'],
+  ['nanakpanthi', 'swami-dharmdas-darbar-larkana-kennedy-market', 'The darbar of Swami Dharmdas at Larkana is one of the', "region's Hindu–Sikh saints."],
+  ['sevapanthi', 'sevapanthi-darbar-bhai-gurdas-gandava', 'In the heart of Gandava', 'Balochistan in the eighteenth century.'],
+  /* Both, and the entry says so in one breath: the Jagiasi line runs "through
+     Baba Sri Chand's Udasi line". Two traditions, one sentence, two rows. */
+  ['udasi', 'guru-gurpat-mandir-db-80-sirey-ghat', "According to the darbar's own tradition", 'in the early nineteenth century.'],
 ];
 
 /** Term matches that are NOT memberships, and why. Kept because each one is a
@@ -157,6 +194,7 @@ const REJECTED = [
   { tradition: 'nath', shrineSlug: 'mausoleum-of-waris-shah', why: '"Ranjha, the herdsman who becomes a jogi for her sake" — a character in the Heer legend.' },
   { tradition: 'nath', shrineSlug: 'shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar', why: 'A passing "*jogi* (a Hindu ascetic) dwelt" in the account of the grave being moved.' },
   { tradition: 'nath', shrineSlug: 'gurdwara-bhai-beba-singh', why: '"the Jogiwara locality" — a place name in Peshawar.' },
+  { tradition: 'nanakpanthi', shrineSlug: 'bhai-sant-thawan-das-mandir', why: 'The entry hedges and must be allowed to: "presumably a locally venerated Nanakpanthi or Sindhi Hindu holy figure". A membership asserted on the archive\'s own "presumably" would be firmer than the archive is.' },
   { tradition: 'nath', shrineSlug: 'shaktipeeth-shri-hinglaj-mata-mandir', why: '"it features in Nath yogi and Charan bardic traditions alike" — the site appears IN their lore. That is a relationship worth recording one day, and it is not belonging.' },
 ];
 

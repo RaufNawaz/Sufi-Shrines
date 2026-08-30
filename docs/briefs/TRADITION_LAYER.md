@@ -23,7 +23,7 @@ prose only a shrine page shows.
 |---|---|
 | `scripts/data/build-traditions.mjs` | picks + slicer. `--check` runs in `npm run data:validate` |
 | `data/kg-seeds.json` | `traditions`, `traditionMemberships`, `traditionNonMemberships` |
-| `data/kg-traditions.json` | **the file to render from** — 12.8 KB, 6 traditions, 10 memberships |
+| `data/kg-traditions.json` | **the file to render from** — 8 traditions, 21 memberships across 18 sites |
 | `src/lib/__tests__/traditions.test.ts` | verbatim, Urdu-present, category-valid, non-memberships kept |
 
 Shape:
@@ -50,6 +50,14 @@ Shape:
   }]
 }
 ```
+
+**Updated 29 August 2026, after the brief was first written:** grown from 6 traditions / 10
+memberships to **8 / 21**, by adding **Nanakpanthi** (9 sites — the largest, and the tradition
+the archive's own category name pairs with Udasi) and **Sevapanthi** (1). The shape did not
+change, so anything written against the earlier file still holds. Two rows are worth designing
+for: `guru-gurpat-mandir-db-80-sirey-ghat` and `sevapanthi-darbar-bhai-gurdas-gandava` each
+carry **two** memberships, because their entries assert two traditions in one sentence — so a
+site is not guaranteed to have at most one.
 
 ## Four things to get right when you render it
 

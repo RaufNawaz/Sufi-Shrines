@@ -3740,6 +3740,50 @@ both redirects.
 
     *Numbering note: these three were written as §9.130–132 and renumbered to §9.133–135 on the same day, because a parallel session had committed its own §9.130–132 into the same file within the hour. Commits `efdbea0` and `eec055a` cite the old numbers; this line is how you get from those to here. Two sessions appending to one document is the shared-tree hazard in a form `git` cannot detect — the merge is clean and the document is wrong.*
 
+136. **The archive covers six traditions and the graph had a word for one.** *Built 29 August
+    2026.* `belongs_to_order` is the graph's only affiliation vocabulary and every order in it is
+    Sufi. **90 of the 169 sites are not Muslim shrines, and exactly one of those 90 carries a
+    `silsila` cell** — so for the other 89 the graph knew a tradition only as `category`, a
+    six-value bucket, while the entries themselves carry dedicated authored sections naming and
+    describing specific traditions: "The Nath Tradition", "The Udasi Tradition and the Island
+    Complex", "The Pranami Tradition", "The Swaminarayan Tradition", "Sant Baba Bhagat Ram and
+    the Daduvansi Tradition", "The Shakti Peetha Tradition and the Falling of the Head". No page
+    could reach one of them.
+
+    `data/kg-traditions.json` now holds **8 traditions and 21 memberships across 18 sites** —
+    the six above plus **Nanakpanthi** (9 sites, the largest, and the one the archive's own
+    category name pairs with Udasi) and **Sevapanthi**. Every definition and every membership is
+    sliced verbatim out of `data/shrines.json`; every definition also carries `definitionUr`
+    sliced from the entry's Urdu article, because a definition is a page's account and English
+    there is an untranslated sentence (§9.128). Built by `scripts/data/build-traditions.mjs`,
+    `--check` in `data:validate`, spec in `src/lib/__tests__/traditions.test.ts`. **Deliberately
+    unrendered**: Rauf chose "data layer + brief" over "and render it too" to keep two parallel
+    sessions out of each other's files, so `docs/briefs/TRADITION_LAYER.md` is the handoff.
+
+137. **A term match is not evidence, and on this corpus the false positives are not the ones you
+    would guess.** *Same day, and this is the part worth keeping.* The obvious way to populate a
+    tradition layer is to search the corpus for the tradition's name. Done here, it returns
+    mostly wrong answers:
+
+    - **`udasi` is also the word for Guru Nanak's four great journeys.** Two gurdwara entries say
+      "during his third journey (*udasi*)" and mean travel. Nothing about the ascetic order.
+    - **Nankana Sahib names Udasi *mahants*** — in an account of the movement to *remove* them
+      from the historic gurdwaras. A mention in an anti-Udasi context is not a membership.
+    - **`jogi` catches Ranjha**, who becomes one for love of Heer in Waris Shah's poem, and a
+      passing Hindu ascetic in the Madho Lal Hussain legend.
+    - **`Jogiwara` is a street in Peshawar.**
+    - Hinglaj Mata "features in Nath yogi and Charan bardic traditions alike" — appearing in
+      someone's lore is a real relationship and it is **not belonging**.
+    - Bhai Sant Thawan Das is "**presumably** a locally venerated Nanakpanthi or Sindhi Hindu
+      holy figure". A membership asserted on the archive's own "presumably" would be firmer than
+      the archive is.
+
+    All eight are recorded in `kg-seeds.json#traditionNonMemberships` **with the reason**, and
+    `traditions.test.ts` fails if one is ever also asserted as a membership. They are kept
+    because each is a trap a scan walks straight into, and the next person will run that scan.
+    18 sites of a plausible 40 carry a tradition, and that gap is the corpus's, not the
+    extraction's: **the number to grow is the number of sentences in which the archive says so.**
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

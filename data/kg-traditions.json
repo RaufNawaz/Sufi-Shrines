@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T00:36:40.491Z",
+  "generated": "2026-08-30T01:48:57.198Z",
   "traditions": [
     {
       "slug": "nath",
@@ -78,6 +78,32 @@
       "definitionUr": "ہنگلاج کی تقدس شکتی پیٹھوں کی عالمگیر ہندوستانی روایت میں جڑی ہے۔ روایت کے مطابق، شیو کی اہلیہ دیوی ستی نے اُس وقت غم و غضب میں خود کو آگ کے حوالے کر دیا جب ان کے والد دکش نے ان کے شوہر کی توہین کی۔ سوگوار شیو نے ان کی نعش کو اٹھائے ہوئے تباہی کا کائناتی رقص \"تانڈو\" شروع کر دیا، جس سے خود کائنات کو خطرہ لاحق ہو گیا۔ ان کے جنون کو ختم کرنے کے لیے وشنو نے اپنا چکر \"سدرشن چکر\" چلایا، جس نے ستی کے جسم کے ٹکڑے کر دیے؛ جہاں جہاں کوئی حصہ زمین پر گرا، وہاں ایک شکتی پیٹھ وجود میں آیا، جو دیوی کی موجودگی سے معمور ہوا۔",
       "definitionShrine": "shaktipeeth-shri-hinglaj-mata-mandir",
       "source": "data/shrines.csv#shaktipeeth-shri-hinglaj-mata-mandir"
+    },
+    {
+      "slug": "nanakpanthi",
+      "name": "Nanakpanthi",
+      "nameUr": "نانک پنتھی",
+      "alsoKnownAs": [
+        "Nanak-panthi"
+      ],
+      "category": "Nanakpanthi / Udasi Darbar",
+      "definition": "In the Nanakpanthi manner, such darbars house a copy of the *Guru Granth Sahib* alongside images of Hindu deities, and honour Baba Guru Nanak without a firm confessional boundary.",
+      "definitionUr": "نانک پنتھی انداز میں، ایسے دربار گرو گرنتھ صاحب کا ایک نسخہ ہندو دیوتاؤں کی تصویروں کے ساتھ رکھتے ہیں، اور بابا گرو نانک کی تعظیم کسی سخت مسلکی حد کے بغیر کرتے ہیں۔",
+      "definitionShrine": "swami-dharmdas-darbar-larkana-kennedy-market",
+      "source": "data/shrines.csv#swami-dharmdas-darbar-larkana-kennedy-market"
+    },
+    {
+      "slug": "sevapanthi",
+      "name": "Sevapanthi",
+      "nameUr": "سیوا پنتھی",
+      "alsoKnownAs": [
+        "Sewapanthi"
+      ],
+      "category": "Nanakpanthi / Udasi Darbar",
+      "definition": "In the heart of Gandava — the old headquarters town of the Jhal Magsi District on the Kachhi (Kach Gandava) plain of Balochistan — stands a *darbar* of the *Sevapanthi* tradition, the order of devotees descended from Bhai Gurdas, the disciple of Guru Gobind Singh who is said to have carried the Nanakpanthi teaching into Sindh and Balochistan in the eighteenth century.",
+      "definitionUr": "گنڈاوا کے قلب میں — بلوچستان کے کچھی (کچھ گنڈاوا) میدان پر ضلع جھل مگسی کا پرانا صدر مقام — سیوا پنتھی روایت کا ایک *دربار* واقع ہے، بھائی گرداس کی اولاد سے معتقدین کا سلسلہ، گرو گوبند سنگھ کے مرید جن کے بارے میں کہا جاتا ہے کہ انہوں نے اٹھارہویں صدی میں نانک پنتھی تعلیم کو سندھ اور بلوچستان تک پہنچایا۔",
+      "definitionShrine": "sevapanthi-darbar-bhai-gurdas-gandava",
+      "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava"
     }
   ],
   "memberships": [
@@ -150,6 +176,83 @@
       "shrineName": "Sharada Peeth",
       "quote": "Simultaneously a temple, a fabled university, and one of the great *Shakti Peethas*, Sharada Peeth occupies a singular place in the cultural and religious memory of Kashmir.",
       "source": "data/shrines.csv#sharada-peeth"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "bhai-waliram-darbar",
+      "shrineName": "Bhai Waliram Darbar",
+      "quote": "In Digano Mahesar, a small village in Miro Khan taluka of Qambar–Shahdadkot District in upper Sindh, stands the darbar of Bhai Waliram, a Nanakpanthi sant remembered locally as a contemporary of the better-documented Vali Vilayat Rai of Kambar and Swami Dharmdas of Larkana.",
+      "source": "data/shrines.csv#bhai-waliram-darbar"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "gurdwara-pehli-patshahi-jind-pir-sukkur",
+      "shrineName": "Gurdwara Pehli Patshahi (Jind Pir), Sukkur",
+      "quote": "Its first custodian is said to have been an Udasi *sadhu* of the Jhulelal devotion, and the shrine passed into the keeping of the Nanakpanthi community of Sindh — Hindus and Sikhs together — who honour Guru Nanak without a firm confessional boundary.",
+      "source": "data/shrines.csv#gurdwara-pehli-patshahi-jind-pir-sukkur"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "gurdwara-sach-khand-sahib",
+      "shrineName": "Gurdwara Sach Khand Sahib",
+      "quote": "Shikarpur's only functioning Sikh gurdwara today is known locally as Gurdwara Sach Khand Sahib, sometimes rendered Gurdwara Sachkhand Hazoor Sahib — a modest, comparatively recent building serving the small Nanakpanthi Sikh community of this historic Sindhi trading city.",
+      "source": "data/shrines.csv#gurdwara-sach-khand-sahib"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
+      "shrineName": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "quote": "On a plot known as DB-80 in the Sirey Ghat quarter of Hyderabad, Sindh, stands the Guru Gurpat Mandir — also called the Darbar of Baba Gurpat Sahib — a Nanakpanthi shrine, registered with Pakistan's Evacuee Trust Property Board as a functional mandir, built around a Sant revered as a twelfth-generation descendant, in the Jagiasi lineage, of Guru Nanak.",
+      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "khatwari-darbar-shikarpur",
+      "shrineName": "Khatwari Darbar, Shikarpur",
+      "quote": "The Khatwari Darbar is among the most celebrated of the historic Sikh and Nanakpanthi shrines of Shikarpur, the north-Sindh town once known as the \"Paris of Sindh\" for the wealth of its merchant houses.",
+      "source": "data/shrines.csv#khatwari-darbar-shikarpur"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "sain-vali-vilayat-rai-darbar-kambar",
+      "shrineName": "Sain Vali Vilayat Rai Darbar, Kambar",
+      "quote": "The darbar of Sain Vali Vilayat Rai stands in the *Shivalo* quarter of Kambar (Qambar), the headquarters town of the Qambar–Shahdadkot District of upper Sindh, and is described by the anthropologist Zulfiqar Ali Kalhoro as the largest Nanakpanthi *darbar* in the district.",
+      "source": "data/shrines.csv#sain-vali-vilayat-rai-darbar-kambar"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "sant-baba-asudaram-darbar-panno-aqil",
+      "shrineName": "Sant Baba Asudaram Darbar (Panno Aqil)",
+      "quote": "The Darbar of Sant Baba Asudaram at Panno Aqil (Pano Akil), a town of the Sukkur District some forty kilometres north of Sukkur city, is among the surviving *sant* shrines of the Sindhi Hindu (Nanakpanthi) tradition.",
+      "source": "data/shrines.csv#sant-baba-asudaram-darbar-panno-aqil"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
+      "shrineName": "Sevapanthi Darbar (Bhai Gurdas), Gandava",
+      "quote": "Filed here under \"Sikh Gurdwara\" as the closest of the dataset's three categories, the darbar is more precisely a Nanakpanthi–Sevapanthi shrine of the kind once common among the Hindu mercantile communities of the Sindh–Balochistan borderland.",
+      "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava"
+    },
+    {
+      "traditionSlug": "nanakpanthi",
+      "shrineSlug": "swami-dharmdas-darbar-larkana-kennedy-market",
+      "shrineName": "Swami Dharmdas Darbar, Larkana (Kennedy Market)",
+      "quote": "The darbar of Swami Dharmdas at Larkana is one of the *Nanakpanthi* shrines of the Larkana country of upper Sindh, recorded by the anthropologist Zulfiqar Ali Kalhoro in his survey of the region's Hindu–Sikh saints.",
+      "source": "data/shrines.csv#swami-dharmdas-darbar-larkana-kennedy-market"
+    },
+    {
+      "traditionSlug": "sevapanthi",
+      "shrineSlug": "sevapanthi-darbar-bhai-gurdas-gandava",
+      "shrineName": "Sevapanthi Darbar (Bhai Gurdas), Gandava",
+      "quote": "In the heart of Gandava — the old headquarters town of the Jhal Magsi District on the Kachhi (Kach Gandava) plain of Balochistan — stands a *darbar* of the *Sevapanthi* tradition, the order of devotees descended from Bhai Gurdas, the disciple of Guru Gobind Singh who is said to have carried the Nanakpanthi teaching into Sindh and Balochistan in the eighteenth century.",
+      "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava"
+    },
+    {
+      "traditionSlug": "udasi",
+      "shrineSlug": "guru-gurpat-mandir-db-80-sirey-ghat",
+      "shrineName": "Guru Gurpat Mandir (DB-80 Sirey Ghat)",
+      "quote": "According to the darbar's own tradition, Gurpat Sahib was born into the Jagiasi lineage of Nanakpanthi Sants — spiritual descendants of Guru Nanak through Baba Sri Chand's Udasi line — in Punjab, and travelled to Sindh in the early nineteenth century.",
+      "source": "data/shrines.csv#guru-gurpat-mandir-db-80-sirey-ghat"
     }
   ]
 }
