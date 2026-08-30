@@ -2,6 +2,7 @@ import type { LatLng } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { useShareLink } from '../../hooks/useShareLink';
+import { formatLatLng } from '../../lib/map/formatCoordinates';
 
 interface Props {
   latLng: LatLng;
@@ -23,7 +24,7 @@ export function LocationMap({ latLng, name }: Props) {
   const { t, lang } = useLang();
   const { share, copy, copied } = useShareLink({ copiedMs: 2000 });
 
-  const coords = `${latLng.lat.toFixed(5)}, ${latLng.lng.toFixed(5)}`;
+  const coords = formatLatLng(latLng.lat, latLng.lng);
   const embedSrc = `https://maps.google.com/maps?q=${latLng.lat},${latLng.lng}&z=15&output=embed`;
 
   return (

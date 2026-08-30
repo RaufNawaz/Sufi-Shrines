@@ -6,6 +6,7 @@ import { categoryDisplayLabel } from '../../lib/data/categoryKey';
 import { buildAlmanac } from '../../lib/data/almanac';
 import { formatDateWindow } from '../../lib/i18n/formatDateWindow';
 import type { Lang } from '../../types/shrine';
+import { formatLatLng } from '../../lib/map/formatCoordinates';
 
 interface Props {
   /** The reader's saved shrines, in list order. */
@@ -56,9 +57,7 @@ export function ZiyaratPrintPack({ shrines }: Props) {
                   unmapped rows print without a coordinate line. */}
               {s.latLng && (
                 <p className="ziyarat-print-coords">
-                  <bdi>
-                    {s.latLng.lat.toFixed(4)}, {s.latLng.lng.toFixed(4)}
-                  </bdi>
+                  <bdi>{formatLatLng(s.latLng.lat, s.latLng.lng, 4)}</bdi>
                 </p>
               )}
               {when && (

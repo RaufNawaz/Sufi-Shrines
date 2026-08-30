@@ -89,6 +89,7 @@ Ranked queue, four decisions for Rauf and the five raw reports:
 | The four unsourced order memberships were the four the guard could not see | `a53b350` |
 | An Urdu reader who browsed English first got the English article, permanently | `fc453b9` |
 | The infobox withheld the date note whenever the year was missing — 28 entries | `0a02e72` |
+| A two-decimal locality guess was printed as a five-decimal coordinate | *this commit* |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
