@@ -27,6 +27,16 @@ list, or plain to fail non-zero when the count rises above the baseline.
 Sources for a real fix are recorded beside this in
 data/coordinate-review-2026-08-30.csv — OSM and Wikidata answered for 6 of the
 22 and could not answer for 16, which is the honest state of it.
+
+WHERE IT RUNS, AND WHY THAT SENTENCE IS HERE. `npm run data:check:coordinates`,
+inside `npm run data:validate`, and therefore inside `npm run verify`. It was
+written as a gate — a baseline, a rising-count comparison and a non-zero exit —
+and for its first day nothing ran it. Three documents said it "holds the line"
+and it held nothing. It was invisible to the orphaned-guard sweep of 30 August
+2026 because that sweep filtered on `check-*`, `validate-*` and `verify-*`, and
+this file is `audit_*`: the filter was built from the names that existed and
+then used to answer a question about names that might not. If you add a gate
+here, either name it `check_`/`validate_`/`verify_` or wire it the same day.
 """
 from __future__ import annotations
 import argparse, collections, json, math, sys
