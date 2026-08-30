@@ -48,6 +48,7 @@ the reason the rest is credible.
 | The archive search palette announced nothing, and both comboboxes lied | `1093709` |
 | Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
+| The accent that means "interactive" painted 120 data marks and a chart bar | *next commit* |
 
 ---
 
@@ -60,22 +61,18 @@ Each item names what a reader loses, so the ranking can be argued with rather th
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-2. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
-   `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
-   drawn in the tradition palette.
-
-3. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+2. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-4. **A shrine names its order and never links to it** — the only one-way edge in the entity
+3. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-5. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+4. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-6. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+5. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---

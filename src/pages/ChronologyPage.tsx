@@ -81,7 +81,10 @@ function Band({ band, extent }: { band: TraditionBand; extent: { from: number; t
         : 'chronology-mark chronology-mark--circa';
 
   return (
-    <section className="chronology-band" aria-labelledby={`band-${band.key}`}>
+    <section
+      className={`chronology-band chronology-band--${band.key}`}
+      aria-labelledby={`band-${band.key}`}
+    >
       <h2 className="chronology-band-heading" id={`band-${band.key}`}>
         {CATEGORY_LABELS[band.key][lang]}
         <span className="chronology-band-count">

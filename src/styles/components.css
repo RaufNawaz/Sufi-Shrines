@@ -317,8 +317,19 @@
 
 /* Field-verified is the standard the archive is working towards, so it is the
    one bar that earns emphasis. */
+/*
+ * The field-verified bar, in the archive's own "Full" green rather than the
+ * interactive blue.
+ *
+ * `--color-primary` means *interactive* everywhere on this site, and this bar
+ * is a data series sitting directly beneath six bars drawn in the tradition
+ * palette — two colour logics on one page. `--color-info-full` is not a taste
+ * call: `pipeline/build_sources_registry.py` computes `info_level = Full` from
+ * `support_level = Field-verified`, so the two are the same fact and the chart
+ * can say so in the colour the badges already use for it.
+ */
 .coverage-bar-fill--strong {
-  background-color: var(--color-primary);
+  background-color: var(--color-info-full);
 }
 
 /* Tradition bars wear the tradition's own colour, the same palette the map and

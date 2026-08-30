@@ -103,7 +103,7 @@
   block-size: 0.65rem;
   min-inline-size: 2px;
   border-radius: 1px;
-  background: var(--color-primary);
+  background: var(--color-mark);
   text-decoration: none;
 }
 
@@ -112,7 +112,45 @@
    second, non-colour channel (fill vs outline). */
 .chronology-mark--century {
   background: transparent;
-  border: var(--hairline) solid var(--color-primary);
+  border: var(--hairline) solid var(--color-mark);
+}
+
+/*
+ * Each band's marks in that band's tradition colour.
+ *
+ * All 120 dated sites were painted in `--color-primary` — the colour that means
+ * *interactive* everywhere else on this site, on marks that are links to a
+ * shrine but read as a data series, in a chart whose six bands are the six
+ * traditions. So the page that plots the archive across the centuries said
+ * nothing about which tradition a mark belonged to, and said "clickable" in a
+ * colour the reader has been taught elsewhere to read that way.
+ *
+ * The bands are `CATEGORY_LABELS[band.key]`, so the colours already exist and
+ * are already the ones the map draws each pin in. One custom property per band,
+ * which the three mark rules above then read — rather than six copies of each
+ * rule.
+ */
+.chronology-band {
+  --color-mark: var(--color-text-secondary);
+}
+
+.chronology-band--muslim {
+  --color-mark: var(--color-cat-muslim);
+}
+.chronology-band--hindu {
+  --color-mark: var(--color-cat-hindu);
+}
+.chronology-band--sikh {
+  --color-mark: var(--color-cat-sikh);
+}
+.chronology-band--nanakpanthi {
+  --color-mark: var(--color-cat-nanakpanthi);
+}
+.chronology-band--jain {
+  --color-mark: var(--color-cat-jain);
+}
+.chronology-band--secular {
+  --color-mark: var(--color-cat-secular);
 }
 
 .chronology-mark--circa {
@@ -164,16 +202,19 @@
   color: var(--color-text-secondary);
 }
 
+/* The legend's swatches. These stand for *kinds of mark* — exact date, century,
+   circa — not for a tradition, so they take the neutral ink rather than any
+   band's colour; the bands carry the colour and the legend explains the shape. */
 .chronology-swatch {
   display: block;
   block-size: 0.65rem;
-  background: var(--color-primary);
+  background: var(--color-text-secondary);
   border-radius: 1px;
 }
 
 .chronology-swatch--century {
   background: transparent;
-  border: var(--hairline) solid var(--color-primary);
+  border: var(--hairline) solid var(--color-text-secondary);
 }
 
 .chronology-swatch--circa {
