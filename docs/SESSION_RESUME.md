@@ -49,7 +49,7 @@ the reason the rest is credible.
 | Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
 | The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
-| The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | *next commit* |
+| The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
 
 ---
 
