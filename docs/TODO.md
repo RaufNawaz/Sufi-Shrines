@@ -4,6 +4,59 @@
 > — three lanes: agent-executable next steps, the queue waiting on you, and the refreshed
 > blue-sky line. This file remains the session-by-session log.
 
+## 0b. Session log — 29–30 August 2026, overnight: the knowledge-base lane
+
+Two sessions ran in parallel against this one tree, on split lanes Rauf set: this one on the
+**knowledge base and research**, the other on **features**, merging into `1.7` together. Full
+detail is in `HANDOVER.md` §9.150–158 (this session holds the §9.150–169 block; the features
+session holds §9.138–149).
+
+**Layers added — each one the archive's own prose, held and rendered by nothing:**
+
+| | |
+|---|---|
+| **Kinship** | 28 blood and marriage ties the graph had no relation type for. Thirteen are a *sajjada nashin*'s seat passing father to son. |
+| **Order prose** | 15 passages, all nine orders, EN + UR. Four order pages previously showed *nothing at all* about their order. |
+| **Traditions** | 8 non-Sufi traditions, 21 memberships over 18 sites. 90 of 169 sites are not Muslim shrines and exactly one carries a `silsila` cell. |
+| **Source works** | 14 works. The archive rests on **one book for 48 of 168 sourced entries**, shown as 25 on `/about` because the index counts citation strings. |
+| **Slim map index** | 63 KB against the CSV's 837. First marker **5,059 → 2,648 ms** once the features session wired and preloaded it. |
+
+**Corrections to things that were wrong:**
+
+- Two hand-seeded order memberships were simply wrong, and transposed — Daud Bandagi Kirmani
+  filed as Chishti where every source in the archive says Qadiri, Waris Shah the reverse. They
+  carried `method: "human"`, so the UI showed the **unsourced** edge without the "unreviewed"
+  chip that the correct machine-extracted one beside it carried.
+- `asRecorded` was missing from all 24 hand-seeded memberships, losing two named sub-orders
+  outright: "Naushahia Qadiri" and "Sarwari Qadiri" both rendered as a bare Qadiriyya.
+- Eight live `/tradition/:slug` pages were unreachable from search.
+- Ten of the review queue's 89 priority-1 rows were already resolved or unreadable.
+
+**New gates:** `year_built_precision`, `figure_type` (near-miss only — the field degrades so
+gracefully that a typo cannot fail), `site_type` length, the slim index's row-for-row drift
+guard, and `--check` modes for the order-prose and tradition generators.
+
+**Measured and found sound**, recorded so nobody re-derives it: all 169 coordinates (three
+ways, zero errors); image liveness (239 alive / 3 dead / 6 rate-limited, unchanged since
+27 August, so "51 entries carry no photograph" is still 53); `qa_note` never reaches a page.
+
+### What needs Rauf, in order
+
+1. **`data/shrines.json` is eight days stale and production has two entries it does not.**
+   Shah Gohar Peer and Mian Qurban Ali Shah exist in the sheet; because their rows are absent
+   from the snapshot both figures build as `lineageOnly`, so **two figure pages tell a reader
+   that an entry the archive holds does not exist.** `npm run data:build` fixes it and was
+   deliberately not run overnight — it would pull eight days of unreviewed sheet edits into a
+   release hours from deploying. §9.156 has the ordering.
+2. **Three patches await import**, and they want importing together, before that `data:build`:
+   `patch_schema_hygiene_2026-08-27.csv` (off-schema categories),
+   `patch_year_built_precision_2026-08-29.csv`, `patch_site_type_2026-08-30.csv`.
+3. **One sentence is truncated at source** — Shah Gohar Peer's `site_type` ends "in a
+   residential area beside a". The survey says the missing word is almost certainly
+   *graveyard*; the patch carries the truncation through unchanged because finishing someone's
+   half-written sentence is authoring. Your call.
+4. **The review queue still has 0 verdicts on 255 rows**, 85 of them priority 1.
+
 ## 0a⁵. Session log — 22 August 2026, sixth session: every pending decision, decided
 
 Rauf answered the whole Lane B queue in-session (reviews explicitly skipped — "ignore them
