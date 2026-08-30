@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T18:27:52.186Z",
+  "generated": "2026-08-30T19:29:17.800Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -12447,6 +12447,69 @@
       "quote": "it is said to have been raised by the saint's grandson, who is himself buried within the complex",
       "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
       "notes": "Building patronage by an unnamed grandson; no lineage claim."
+    },
+    {
+      "saintSlug": "hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "wording": "followed his father's trade as a shoemaker",
+      "quote": "He never left his father's trade: the survey describes him working as a shoemaker in Rang Mahal Bazaar for the whole of his life, making and selling shoes, while living with deliberate simplicity.",
+      "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+      "notes": "The father is never named, and the fact recorded is not descent but inheritance of a trade — he kept his father's work for life. No second node to point at."
+    },
+    {
+      "saintSlug": "hazrat-wasif-ali-wasif-awan",
+      "wording": "sent by his father to his maternal grandfather in Jhang",
+      "quote": "His father then sent him to his maternal grandfather in Jhang, a move the survey describes as transformative: his grandfather had been associated with the Muslim League",
+      "source": "data/shrines.csv#darbar-wasif-ali-wasif",
+      "notes": "Two unnamed relatives in one sentence, and the grandfather carries the detail the entry cares about — a Muslim League association. Urdu splits paternal and maternal grandfather (دادا/نانا), which is why the entry saying 'maternal' matters even with no name to attach it to."
+    },
+    {
+      "saintSlug": "pir-abdul-ul-karim",
+      "wording": "an unbroken father-to-son succession at Eidgah Sharif",
+      "quote": "This unbroken chain of father-to-son succession, rooted in scholarship as much as in inherited *baraka* (spiritual blessing), is central to the identity of Eidgah Sharif.",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "notes": "A succession pattern rather than one relationship, and no generation is named. The same shape as the Ghulam Farid note above: real, recorded, and impossible to draw."
+    },
+    {
+      "saintSlug": "bulleh-shah",
+      "wording": "his father a learned man, an imam and teacher",
+      "quote": "Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher, and the family settled in the Kasur region of the Punjab.",
+      "source": "data/shrines.csv#mazar-of-bulleh-shah",
+      "notes": "The father's occupation and learning are recorded; his name is not. The entry treats it as the context his poetry came out of."
+    },
+    {
+      "saintSlug": "shah-inayat-qadiri",
+      "wording": "buried alongside two of his sons",
+      "quote": "Shah Inayat died around 1728 and is buried at Mozang alongside two of his sons, per existing sourcing for this entry.",
+      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "notes": "Two sons, neither named, and the fact is a burial arrangement rather than a lineage claim."
+    },
+    {
+      "saintSlug": "ganj-e-inayat-sarkar",
+      "wording": "passed the living succession to his son",
+      "quote": "above all in the living succession he passed to his son",
+      "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar",
+      "notes": "A sajjada-nashin succession the entry states plainly and never names. In this corpus a seat passes down a family at least as often as down a chain of initiation, so a graph without this is missing the more common case."
+    },
+    {
+      "saintSlug": "kaka-sahib",
+      "wording": "mausoleum built by his son",
+      "quote": "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653",
+      "source": "data/shrines.csv#ziarat-kaka-sahib",
+      "notes": "Quoted from the `Founded/Opened` FIELD rather than from prose — the sentence splitter glues that field to the paragraph after it, and a mangled quote is worse than a field citation. Distinct from his father Bahadur Baba, who IS named and carries a kin edge."
+    },
+    {
+      "saintSlug": "syed-musa-pak",
+      "wording": "ancestor of the Gilani (Musa Pak) sayyids",
+      "quote": "a revered Qadiri saint of the sixteenth century and the ancestor of the Gilani (Musa Pak) sayyids",
+      "source": "data/shrines.csv#shrine-of-syed-musa-pak",
+      "notes": "Ancestor of a named FAMILY, not of a named person. The Gilani sayyids are not a node and should not become one on the strength of this."
+    },
+    {
+      "saintSlug": "abdullah-shah-ghazi",
+      "wording": "descent from the Prophet through the line of Imam Hasan",
+      "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan",
+      "source": "data/shrines.csv#shrine-of-abdullah-shah-ghazi",
+      "notes": "A sayyid descent claim, attributed to tradition by the entry itself. Neither the Prophet nor Imam Hasan is a figure in this archive — it holds sites in Pakistan — so there is nothing to point at, and inventing the nodes to draw an edge would be the wrong fix."
     }
   ]
 }

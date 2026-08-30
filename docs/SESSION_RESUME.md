@@ -57,6 +57,9 @@ the reason the rest is credible.
 | The rename missed the footer, which sits under every page and all ~800 prerendered files | `73ee903` |
 | `/graph` opened "the Sufi orders and saints" over a list where 64 of 134 figures are neither | `73ee903` |
 | A figure-search assertion followed a gurdwara to the almanac, because `hasText` is a substring | `639e069` |
+| The rename missed `index.html`, so ~940 prerendered pages still said "Sufi shrines" | `b9e04f3` |
+| Three routes' bundle budgets sat at exactly zero headroom, six more under 3 KB | `4e655bb` |
+| The kin reading pile held nine relatives the archive records and never names | *this commit* |
 
 ---
 
