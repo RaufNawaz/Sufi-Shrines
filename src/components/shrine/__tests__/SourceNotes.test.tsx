@@ -5,6 +5,7 @@ import { SourceNotes } from '../SourceNotes';
 import { renderWithProviders } from '../../../test/utils';
 import sourceNotes from '../../../data/source-notes.json';
 import shrineSnapshot from '../../../data/shrines-fallback.json';
+import { SOURCE_NOTE_SLUGS } from '../../../data/sourceNoteSlugs';
 
 const table = sourceNotes as unknown as Record<string, Array<{ en: string; ur: string }> | string>;
 
@@ -20,6 +21,20 @@ describe('source-notes content contract', () => {
       .sort();
 
     expect(actual).toEqual(expected);
+  });
+
+  it('the slug index names exactly the entries that have notes', () => {
+    /* The index decides whether a shrine page downloads 92.6 KB or nothing, so
+       a slug missing from it is a disclosure a reader silently never sees —
+       a failure with no symptom, which is why it is asserted in both
+       directions rather than by length. Regeneration command is in the header
+       of src/data/sourceNoteSlugs.ts. */
+    const withNotes = Object.entries(table)
+      .filter(([slug, items]) => !slug.startsWith('_') && Array.isArray(items) && items.length > 0)
+      .map(([slug]) => slug)
+      .sort();
+
+    expect([...SOURCE_NOTE_SLUGS].sort()).toEqual(withNotes);
   });
 
   it('every entry is bilingual, and the Urdu side carries no Latin', () => {

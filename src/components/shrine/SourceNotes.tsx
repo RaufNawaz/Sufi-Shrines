@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
+import { SOURCE_NOTE_SLUG_SET } from '../../data/sourceNoteSlugs';
 import type { Lang } from '../../types/shrine';
 
 interface SourceNoteItem {
@@ -20,10 +21,18 @@ export function SourceNotes({ slug }: { slug: string }) {
   const { lang, t, fmtNum } = useLang();
   const [items, setItems] = useState<SourceNoteItem[] | null>(null);
 
+  const hasNotes = SOURCE_NOTE_SLUG_SET.has(slug);
+
   useEffect(() => {
+    /* The 92.6 KB of notes are fetched only where there is something to read.
+       They were always a lazy chunk, and lazy was not the same as conditional:
+       measured on a production build, /shrine/data-darbar pulled all 92,640
+       bytes and rendered nothing from them, as did 117 of 169 entries. The slug
+       list is small enough to ride along in this page's own chunk, so the two
+       thirds of the archive with no disclosure now fetch nothing at all. */
+    if (!hasNotes) return;
+
     let cancelled = false;
-    // Lazy chunk: most entries have no notes, and none of this belongs on
-    // the critical path.
     import('../../data/source-notes.json').then((m) => {
       if (cancelled) return;
       const table = m.default as Record<string, SourceNoteItem[] | string>;
@@ -33,7 +42,7 @@ export function SourceNotes({ slug }: { slug: string }) {
     return () => {
       cancelled = true;
     };
-  }, [slug]);
+  }, [slug, hasNotes]);
 
   if (!items || items.length === 0) return null;
 
