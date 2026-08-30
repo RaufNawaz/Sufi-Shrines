@@ -111,11 +111,31 @@ function load() {
  *
  * Zero rows offend as of 31 August 2026, so unlike the newline allowlist this one
  * starts empty and is expected to stay that way.
+ *
+ * ## Why the run lengths are counted separately
+ *
+ * This began as a parity count over every `*` in the cell, which is what
+ * `snapshot-sheet.mjs` does, and **a truncated `**bold` passes it**: the opening
+ * run is two asterisks, the total stays even, and the exact damage the check
+ * exists to name goes through. Measured on the shipped data before changing it —
+ * only 2 of 169 rows use `**` at all against 3,224 single asterisks, so the hole
+ * is narrow, and closing it flags **no** real row. A narrow hole in a guard whose
+ * whole purpose is a signature is still a hole: the truncation that produces
+ * `*ʿurs` produces `**Data Darbar` just as easily, and one of those was invisible.
+ *
+ * So `*` and `**` are counted as separate runs and each must pair. Escapes are
+ * removed first — `\*` is a literal asterisk, not emphasis, and counting it
+ * would make a correctly-escaped cell fail.
  */
 export function unbalancedEmphasis(rows) {
   return rows.filter((row) => {
-    const text = String(row.Description ?? row.description ?? '');
-    return (text.match(/\*/g) ?? []).length % 2 !== 0;
+    const text = String(row.Description ?? row.description ?? '').replace(/\\\*/g, '');
+    /* Longest-run-first: matching `*` before `**` would read one bold marker as
+       two italics and call every bold cell balanced. */
+    const runs = text.match(/\*{1,2}/g) ?? [];
+    const bold = runs.filter((run) => run === '**').length;
+    const italic = runs.filter((run) => run === '*').length;
+    return bold % 2 !== 0 || italic % 2 !== 0;
   });
 }
 
@@ -153,11 +173,17 @@ function main() {
        nothing about a check it performed is a run nobody can trust later. */
     const odd = unbalancedEmphasis(rows).filter((row) => !KNOWN_UNBALANCED.has(row.Name));
     console.log(
-      `[description-structure] ${label}: ${odd.length} Description(s) with unbalanced '*'`,
+      `[description-structure] ${label}: ${odd.length} Description(s) with an unpaired emphasis marker`,
     );
     if (odd.length > 0) {
       failed = true;
-      console.error(`\nFAILED — ${odd.length} Description(s) have an odd number of '*':\n`);
+      /* "unpaired run", not "odd number of asterisks" — since the runs are counted
+         separately, a failing cell can have an even total, and telling someone to
+         go and count asterisks would send them looking for something that is not
+         there. `**Data Darbar` is the case. */
+      console.error(
+        `\nFAILED — ${odd.length} Description(s) leave an emphasis marker unpaired:\n`,
+      );
       for (const row of odd) {
         const text = String(row.Description ?? '').trim();
         const at = text.lastIndexOf('*');

@@ -128,6 +128,32 @@ describe('emphasis in Descriptions', () => {
     ).toHaveLength(0);
   });
 
+  it('catches a truncated bold run, which a parity count cannot', () => {
+    /* The case that motivated counting `*` and `**` as separate runs. A cell cut
+       inside a bold marker leaves `**Data Darbar` — two asterisks, an even total,
+       and a parity check over every `*` calls it well-formed. It is the same
+       truncation that produces `*ʿurs`, and one of the two was invisible.
+
+       Narrow in this corpus — 2 of 169 rows use `**` at all, against 3,224 single
+       asterisks — and that is the point: a guard whose whole job is to recognise a
+       signature cannot be allowed to miss half of it because the half is rare. */
+    expect(unbalancedEmphasis([{ Name: 'cut-bold', Description: 'the **Data Darbar' }])).toHaveLength(
+      1,
+    );
+    expect(
+      unbalancedEmphasis([{ Name: 'cut-bold-mid', Description: 'a **bold claim about *urs*' }]),
+    ).toHaveLength(1);
+  });
+
+  it('does not fail a correctly escaped literal asterisk', () => {
+    /* `\\*` is a literal, not emphasis. Counting it would make an escaped cell
+       fail a check about damage — the shape RULE 4 warns against, where the
+       cheapest way to green is to edit correct content. */
+    expect(
+      unbalancedEmphasis([{ Name: 'escaped', Description: 'rated 5\\* and 3\\* by two surveys' }]),
+    ).toHaveLength(0);
+  });
+
   it('starts with an empty allowlist and should stay that way', () => {
     // Unlike KNOWN, nothing in the archive legitimately carries an odd count.
     expect(KNOWN_UNBALANCED.size).toBe(0);
