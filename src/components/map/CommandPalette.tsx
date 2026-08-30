@@ -317,8 +317,17 @@ export function CommandPalette({
           </div>
         )}
 
+        {/* Both numbers when the list is capped, not one in place of the other.
+            It reported `results.length` — "44 of 171 sites" — while rendering
+            `MAX_RESULTS` of them, so four matching sites were unreachable
+            through search and nothing said so. Reporting `visible.length`
+            instead would have been a different falsehood: the reader would be
+            told 40 sites match when 44 do. */}
         <div className="palette-status" aria-live="polite" aria-atomic="true">
           {fmtNum(tFn(lang, 'paletteResultCount', results.length, total))}
+          {visible.length < results.length
+            ? ` · ${fmtNum(tFn(lang, 'paletteShowingFirst', visible.length))}`
+            : ''}
         </div>
 
         {visible.length === 0 ? (

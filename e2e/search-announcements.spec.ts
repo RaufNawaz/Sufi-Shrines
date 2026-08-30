@@ -40,6 +40,69 @@ async function openPalette(page: Page, route: string, query: string) {
 
 const ROUTES = ['/about', '/graph', '/'];
 
+test.describe('a capped list says it is capped', () => {
+  /**
+   * Measured on the map's palette: typing "lahore" reported **"44 of 171
+   * sites"** and rendered **40**. `MAX_RESULTS = 40` — a deliberate cap, so the
+   * open animation stays at 60fps on a phone — but the status line reported
+   * `results.length`, so four matching sites were unreachable through search and
+   * nothing said so.
+   *
+   * Reporting `visible.length` instead would have been a different falsehood:
+   * the reader would be told 40 sites match when 44 do. Both numbers, or the
+   * count stops meaning anything.
+   *
+   * The assertion is the relationship rather than 44 or 40 — the fixture's
+   * match counts move whenever the archive does, and revising a hardcoded
+   * number is exactly when someone revises away the check.
+   */
+  test('the map palette names both numbers when it truncates', async ({ page }) => {
+    await openPalette(page, '/', 'lahore');
+
+    /* Wait for the worker, not for the keystroke. An earlier version of this
+       measurement read the status 1.5s in and saw the *unfiltered* list — the
+       archive total with no "N of" in front of it — before the ranked results
+       arrived. The instrument was too fast, and it looked exactly like a bug in
+       the app. So the wait is for the shape "N of M", which only appears once a
+       query has actually narrowed something.
+
+       Case-insensitive, and that is not defensive: `.palette-status` is
+       `text-transform: uppercase`, and **`innerText()` returns rendered text**,
+       so it reads "42 OF 169 SITES" where `textContent` reads "42 of 169
+       sites". A lowercase pattern against `innerText` matched nothing and timed
+       out for twenty seconds, which looked exactly like the count never
+       arriving. */
+    await expect
+      .poll(async () => /\d+\s+of\s+\d+/i.test(await page.locator('.palette-status').innerText()), {
+        timeout: 20_000,
+      })
+      .toBe(true);
+    await page.waitForTimeout(2_000);
+
+    const status = (await page.locator('.palette-status').innerText()).trim();
+    const rendered = await page.locator('.palette-result').count();
+    /* `/i` here too, and for the same reason as the poll above — this is the
+       rendered, uppercased text. Without it the parse silently fell through to
+       `rendered`, which made a truncated list look untruncated and sent the
+       assertion down the wrong branch. One cause, two failures, ten minutes
+       apart. */
+    const matched = Number(/(\d+)\s+of\s+(\d+)/i.exec(status)?.[1] ?? rendered);
+
+    expect(rendered, 'nothing rendered, so this asserts nothing').toBeGreaterThan(0);
+
+    if (matched > rendered) {
+      expect(
+        status,
+        `the list shows ${rendered} of ${matched} matches and the status does not say so: "${status}"`,
+      ).toContain(String(rendered));
+    } else {
+      /* Not truncated: the status must not claim a truncation that did not
+         happen. */
+      expect(status).not.toMatch(/showing first/i);
+    }
+  });
+});
+
 test.describe('a search says how many results it found', () => {
   for (const route of ROUTES) {
     test(`${route} announces a non-empty result count`, async ({ page }) => {

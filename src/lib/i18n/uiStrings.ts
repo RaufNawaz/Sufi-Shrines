@@ -232,6 +232,11 @@ const UI_TEXT_EN = {
      `paletteResultCount`'s noun. Announced, not shown: this is what a screen
      reader is told when a query changes the list. */
   archiveResultCount: (n: number) => `${n} result${n === 1 ? '' : 's'}`,
+  /* Appended to the count above when the list is capped. Reporting `shown`
+     instead of `matched` would be a different falsehood — the reader would be
+     told 40 sites match when 44 do — so both numbers are stated rather than one
+     replaced. */
+  paletteShowingFirst: (n: number) => `showing first ${n}`,
   tourCount: (n: number) => `${n} tour${n === 1 ? '' : 's'}`,
   /* ── Order pages: what the archive can say about where an order is ────── */
   orderWhereHeading: 'Where this order stands',
@@ -1247,6 +1252,7 @@ export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
 export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
 export function tFn(lang: Lang, key: 'archiveResultCount', n: number): string;
+export function tFn(lang: Lang, key: 'paletteShowingFirst', n: number): string;
 export function tFn(lang: Lang, key: 'tourCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'placeSpan', from: number, to: number): string;
@@ -1315,6 +1321,7 @@ export function tFn(
     | 'mapLayerFrom'
     | 'paletteResultCount'
     | 'archiveResultCount'
+    | 'paletteShowingFirst'
     | 'tourCount'
     | 'placeSiteCount'
     | 'placeSpan'

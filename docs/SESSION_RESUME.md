@@ -50,6 +50,7 @@ the reason the rest is credible.
 | Starting a guided tour dropped focus to `<body>` and announced nothing | `38e6eca` |
 | The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
 | The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
+| Search said 44 matches and showed 40, silently | *next commit* |
 
 ---
 
@@ -57,19 +58,14 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
-   `results.length` rather than what is on screen. **Blocked on a UI string** — reporting
-   `visible.length` instead would be a different falsehood, so it needs a truncation string in
-   `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
-
-2. **A shrine names its order and never links to it** — the only one-way edge in the entity
+1. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-3. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+2. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-4. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+3. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---

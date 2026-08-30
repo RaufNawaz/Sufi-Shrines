@@ -225,6 +225,8 @@ export const UI_TEXT_UR: UiStrings = {
      section. نتائج is already plural, so the singular takes نتیجہ rather than
      reading "1 results" in Urdu. */
   archiveResultCount: (n: number) => (n === 1 ? `${n} نتیجہ` : `${n} نتائج`),
+  /* Draft, not reviewed by a fluent speaker — same standing as this section. */
+  paletteShowingFirst: (n: number) => `پہلے ${n} دکھائے جا رہے ہیں`,
   tourCount: (n: number) => `${n} سفر`,
   /* ── Order pages — drafts, not reviewed by a fluent speaker ──────────── */
   orderWhereHeading: 'یہ سلسلہ کہاں ہے',
