@@ -3475,6 +3475,90 @@ both redirects.
     an archive that covers six traditions describes five of them in prose that only a shrine
     page shows. That is a bigger gap than the one just closed.
 
+130. **A function was exported, tested, and called by nothing for eight days — and the number
+    it would have corrected was being quoted the whole time.** *Built and measured 29 August
+    2026.* `crossTraditionAdjacencies()` shipped in `src/lib/data/sharedGround.ts` on 21 August
+    with two unit tests. Nothing imported it. The per-shrine "Shared ground" section uses
+    `findSharedGround()`; the archive-wide half of Track A — "an overview route listing the
+    cross-tradition adjacencies, each with its distance", written into
+    `docs/planning/SHARED_GROUND_VISION.md` — was never built, and the track was recorded as
+    **SHIPPED**.
+
+    That is now the third instance in three days of the same shape: the 28 family ties
+    (§9.123), the order prose (§9.127), and this. In all three the data layer was finished and
+    the page was the missing half, and in all three the gap was invisible because everything
+    that existed was green. **The check that would find the next one is "which exported
+    function has no importer", and it does not exist here.** Worth building before the fourth.
+
+    **What the missing page revealed.** `/shared-ground` computes its figures on each render,
+    and they disagree with the ones the repository had been quoting:
+
+    | | *20 Aug 2026* | *29 Aug 2026* |
+    |---|---|---|
+    | Sites within 800 m of another | 62 of 169 | 62 of 169 |
+    | Pairs within 800 m | **65** | **74** |
+    | Cross-tradition pairs | **8** | **40**, over 42 sites |
+    | Traditions in at least one such pair | — | **all six** |
+
+    Same snapshot, counted again. "In eight places" was in `CLAUDE.md`,
+    `SHARED_GROUND_VISION.md`, `PROJECT_VISION.md`, `sharedGround.ts`, `SharedGround.tsx` and
+    `shrine.css` — six copies, all corrected now, each carrying a date. The guarding test said
+    `expect(pairs.length).toBeGreaterThanOrEqual(8)`, so it passed at 8 and at 40 alike; the
+    floors now sit just under the measured values, which is the difference between a test that
+    notices a collapse and one that merely permits everything.
+
+    **Two defects the page found in itself, both the same rule one level up.** The rule is "a
+    distance this archive did not measure must never be displayed as one it did", and both
+    breaches were in a *summary* rather than a row — which is where the rule is easy to forget
+    because the number looks like an aggregate rather than a claim:
+
+    - the "which traditions meet" table printed `21 m` and `0 m` as the nearest distance for two
+      tradition pairs whose closest members **share a recorded pin**, while the list ten pixels
+      below correctly read "same recorded location". `TraditionMeeting.nearestSamePin` now
+      carries the flag and a unit test asserts it against the real snapshot, where two such
+      pairs exist.
+    - `"1 pairings"` — and in Urdu the noun inflects too (جوڑا / جوڑے), which the count key now
+      handles per language.
+
+    Neither was visible in the JSX, in typecheck, or in any test. Both were visible in a
+    screenshot, which is the argument for looking at a page in both languages before believing
+    it.
+
+    **The bundle-budget note is now a rule, not a coincidence.** Almanac went 343 → 346 KB
+    against a 345 budget. It is the third time in three days that one page's UI strings pushed
+    an unrelated route over: the English table is eager on every route, so ~15 new strings cost
+    **+3 KB on all fourteen entries**, and Almanac is simply the route with the least headroom.
+    Measured both ways in a detached worktree at HEAD rather than guessed —
+    `git worktree add --detach`, symlink `node_modules`, `vite build`, read the numbers — which
+    is worth knowing as a technique, because `git stash` in a tree another agent is working in
+    is not safe and did not in fact succeed here. If a fourth route does this, the fix is that
+    `UI_TEXT.en` should split lazily the way `UI_TEXT.ur` already does, not a fourth bump.
+
+    **Two things found in `scripts/prerender.mjs` on the way past.** `/chronology` had shipped
+    on 28 August prerendered, linked and **absent from `sitemap.xml`** — the sitemap hand-listed
+    four app-route paths beside the loop that emits the files, so adding a route to one list and
+    not the other was silent. The sitemap is now derived from `APP_ROUTES`, each entry carrying
+    its own `changefreq`/`priority`, and omitting that field is what keeps a route out
+    (`/settings` and `/review` do). Deriving it also exposed that `/graph` and `/almanac` were
+    listed **twice**, being in both `APP_ROUTES` and `STATIC_PAGES`; `sitemapUrlPair` now
+    dedupes, first writer wins. One trap in doing this: `APP_ROUTES` was declared *below* the
+    sitemap emitter, and `const` hoists into the temporal dead zone, so the first version threw
+    a `ReferenceError` at build time. The declaration is moved up with a comment saying why.
+
+    **Environment, and this will cost the next session an hour.** `/usr/bin/git` and
+    `/usr/bin/python3` both refuse to run on this machine — *"You have not agreed to the Xcode
+    license agreements"* — because `xcode-select -p` points at `/Applications/Xcode.app`.
+    Prefixing `DEVELOPER_DIR=/Library/Developer/CommandLineTools` works around it with no sudo
+    and no state change. It matters for more than convenience: `npm run data:validate` shells
+    out to `python3` twice, so `npm run verify` cannot pass without either that prefix or
+    someone running `sudo xcodebuild -license` once.
+
+    **One e2e failure, not this change's.** `graph-node-pictures.spec.ts` "hovering a node opens
+    a preview" failed in the full 359-test run and passed 5/5 in isolation immediately after.
+    Nothing in this change touches the graph, the kg layer or node previews, and it is the same
+    spec another session committed a race fix for earlier the same day. Recorded rather than
+    ignored, and it is the contention flake §9.129 describes — two agents building in one tree.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

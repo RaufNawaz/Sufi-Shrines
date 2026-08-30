@@ -122,7 +122,21 @@ const BUDGETS_KB = {
      headroom left (341 against 340). This is the same shared-table effect that
      made all twelve budgets stale on 27 Aug — if several routes go 1–2 KB over
      at once, look at uiStrings.ts before looking at the routes. */
-  'src/pages/AlmanacPage.tsx': 345, // measured 341 on 28 Aug 2026
+  /* 345 → 350 on 29 Aug 2026, and this is the **third** instance of the effect
+     the paragraph above describes, so it is worth stating as a rule rather than
+     a coincidence: /shared-ground added ~15 English UI strings — four of them
+     the long method paragraphs the page exists to be honest with — and every
+     route grew by exactly 3 KB. Measured both ways in a detached worktree at
+     HEAD: 343 without the page, 346 with it, and the same +3 KB on all
+     fourteen entries including index.html.
+
+     Almanac was again the one route with under 3 KB of headroom; nothing about
+     the almanac changed. If a fourth route's strings do this, the fix is not a
+     fourth bump — it is that a page's own copy should not be eager on every
+     other page, and `UI_TEXT.en` should split the way `UI_TEXT.ur` already
+     lazily does. That is a design change, not a budget edit, which is why it is
+     written here rather than done at the same time as the feature. */
+  'src/pages/AlmanacPage.tsx': 350, // measured 346 on 29 Aug 2026
   /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
      describes, arriving exactly as predicted: kinship added ~25 English UI
      strings, the English table is eager on every route, and the three routes
@@ -139,6 +153,14 @@ const BUDGETS_KB = {
      If this jumps by ~170 KB something pulled provenance.json in; by ~420 KB,
      src/lib/kg.ts. */
   'src/pages/ChronologyPage.tsx': 310, // measured 304 on 28 Aug 2026
+  /* Track A's archive-wide half, new on 29 Aug 2026. Carries the shell, the
+     shrine snapshot and `sharedGround.ts` — no graph, no provenance, no places
+     index, and no map: the page is a list of pairs, and every distance on it is
+     computed from coordinates the snapshot already holds. Sits alongside
+     ChronologyPage because they load the same things. If this jumps by ~420 KB
+     something pulled in src/lib/kg.ts; by ~1 MB, the maplibre basemap, which
+     would mean a link to the map turned into an embedded one. */
+  'src/pages/SharedGroundPage.tsx': 315, // measured 309 on 29 Aug 2026
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two

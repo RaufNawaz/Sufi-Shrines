@@ -21,6 +21,7 @@ import './styles/shrine.css';
 import './styles/kg.css';
 import './styles/almanac.css';
 import './styles/chronology.css';
+import './styles/shared-ground.css';
 import './styles/tabbar.css';
 import { initTelemetry } from './lib/telemetry';
 import { THEME_STORAGE_KEY } from './lib/storageKeys';

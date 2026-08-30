@@ -1888,8 +1888,8 @@
 /*
  * Which other sites — and which other traditions — stand within walking
  * distance. The archive's own coordinates say that 62 of 169 sites have a
- * neighbour inside 800 m and that in eight places the neighbour belongs to a
- * different tradition; nothing in the interface could show that before.
+ * neighbour inside 800 m and that 40 of those pairings cross a tradition
+ * (re-measured 29 August 2026; this line said "eight places" until then).
  */
 .shared-ground-intro {
   margin: 0 0 var(--space-3);
@@ -1990,6 +1990,13 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   line-height: var(--leading-normal);
+}
+
+/* The way out to /shared-ground. Cobalt because it is interactive, and the
+   only interactive thing in this block that is not a site name. */
+.shared-ground-more {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
 }
 
 [dir='rtl'] .shared-ground-tradition,

@@ -15,11 +15,16 @@ import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesCon
  *
  * This archive documents six traditions and, until now, showed each site as an
  * island. Its own coordinates say otherwise: 62 of 169 sites are within 800 m
- * of another, and in eight places the neighbour belongs to a different
- * tradition. Data Darbar is 222 m from Gurdwara Chowmala Sahib. Dargah Pir
- * Ratan Nath is 100 m from Gurdwara Bhai Beba Singh, 208 m from Panj Tirath and
- * 411 m from the Gorakhnath Temple. For much of Punjab and Sindh that adjacency
- * *is* the heritage. See `docs/planning/SHARED_GROUND_VISION.md`.
+ * of another, and 40 of those pairings cross a tradition. Data Darbar is 222 m
+ * from Gurdwara Chowmala Sahib. Dargah Pir Ratan Nath is 100 m from Gurdwara
+ * Bhai Beba Singh, 208 m from Panj Tirath and 411 m from the Gorakhnath Temple.
+ * For much of Punjab and Sindh that adjacency *is* the heritage. See
+ * `docs/planning/SHARED_GROUND_VISION.md`.
+ *
+ * "In eight places" stood here until 29 August 2026, when the archive-wide page
+ * this section now links to computed the number instead of quoting it. See
+ * `buildSharedGroundOverview` for what was measured and where the eight came
+ * from.
  *
  * Distinct from `NearbyShrines`, which lists the five nearest sites wherever
  * they are. This section appears only when there is genuinely shared ground,
@@ -100,6 +105,15 @@ export function SharedGround({ shrine, all }: { shrine: Shrine; all: Shrine[] })
       </ul>
 
       <p className="shared-ground-note">{fmtNum(t('sharedGroundNote'))}</p>
+
+      {/* Out to the archive-wide view. This section can only ever show one
+          site's neighbours, so a reader who finds the fact interesting here has
+          nowhere to go with it — and the 62 sites that have neighbours are the
+          only pages that can carry this link, which is exactly the set of
+          readers it is for. */}
+      <p className="shared-ground-more">
+        <Link to="/shared-ground">{t('sharedGroundFromShrine')}</Link>
+      </p>
     </section>
   );
 }

@@ -17,11 +17,26 @@ island. Every page is about one entity. Every list is a list of one kind of thin
 
 But the coordinates say something the pages never do. Measured across the 169-row snapshot:
 
-| | |
-|---|---|
-| Sites within 800 m of at least one other site | **62 of 169 (37%)** |
-| Pairs within 800 m | **65** |
-| Places where sites of **different traditions** stand within 800 m | **8** |
+| | *20 Aug 2026* | *29 Aug 2026* |
+|---|---|---|
+| Sites within 800 m of at least one other site | **62 of 169 (37%)** | **62 of 169 (37%)** |
+| Pairs within 800 m | **65** | **74** |
+| Cross-tradition pairs | **8** | **40**, over **42** sites |
+| Traditions appearing in at least one such pair | — | **all six** |
+
+**The second column is not new data — it is the same snapshot counted again**, and the gap
+between the columns is the point. "Eight places" was written here on 20 August and then quoted
+as current in `CLAUDE.md`, in `PROJECT_VISION.md`, in `sharedGround.ts`, in `SharedGround.tsx`
+and in `shrine.css` for nine days. The unit test that guards these numbers asserted
+`pairs.length >= 8`, so it passed the whole time and would have passed at 8, at 40, or at 9.
+
+Nobody was careless. The figure was correct when written; what it lacked was anything that
+recomputed it. **This is the third standing finding in this repository to go stale while being
+quoted** (see the struck-through bibliography count in `CLAUDE.md`), and the answer is the same
+one `/about` already applies: `/shared-ground` computes every figure on this page from the
+shipped data on each render, and the floors in `sharedGround.test.ts` now sit just under the
+measured values rather than far below them, so a collapse is visible and a correction is
+forced rather than optional.
 
 Concretely: **Data Darbar is 222 m from Gurdwara Chowmala Sahib** and 576 m from the shrine of
 Peer Makki. **Dargah Pir Ratan Nath is 100 m from Gurdwara Bhai Beba Singh**, 208 m from Panj
@@ -62,9 +77,27 @@ claim about proximity that has not been checked.
 
 ---
 
-## Track A — Shared ground (experience + relations) · **SHIPPED 21 Aug 2026**
+## Track A — Shared ground (experience + relations) · **SHIPPED 21 Aug 2026; completed 29 Aug 2026**
 
-`src/lib/data/sharedGround.ts` + the section on each shrine page. The honesty fix it forced is
+`src/lib/data/sharedGround.ts` + the section on each shrine page, and — from 29 August 2026 —
+`/shared-ground`, the archive-wide view this section promised below and never got.
+
+**What was missing for eight days, and how.** Of the three experiences listed under
+*Experience*, only the first shipped. The second ("an overview route listing the
+cross-tradition adjacencies, each with its distance") was written, tested and left unrendered:
+`crossTraditionAdjacencies()` was exported from `sharedGround.ts` on 21 August, covered by two
+unit tests, and **called by nothing**. So the fact this whole phase exists to show could only
+be seen one shrine at a time, by a reader who already knew which shrine to open. The same
+"held and not rendered" shape as the 28 family ties and the order prose — worth noticing that
+it is now the archive's most common failure mode, and that in all three cases the data layer
+was finished and the page was the missing half.
+
+The third — a shared-ground lens on the map — is **still not built**, and the honest reason to
+be wary of it is scale: every pair here is under 800 m, which at the zoom that shows Pakistan
+is well under one pixel. A lens would need a treatment that survives zoom (a halo at a
+locality, resolving into lines as you approach), not a polyline layer. That is a design
+question, not an afternoon's work.
+ The honesty fix it forced is
 in: `NearbyShrines` shows metres below a kilometre, and for the four identical-pin groups it
 shows "same recorded location" rather than a distance the archive never measured.
 

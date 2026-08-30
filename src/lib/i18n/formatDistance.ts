@@ -48,8 +48,10 @@ import type { DistanceUnits } from '../unitsPreference';
 const MILES_PER_KM = 0.621371;
 
 export interface FormatDistanceOptions {
-  /** `away` reads "3 km away"; `bare` reads "3 km", for a leg of a route. */
-  style: 'away' | 'bare';
+  /** `away` reads "3 km away"; `bare` reads "3 km", for a leg of a route;
+   *  `apart` reads "3 km apart", for a pair of sites with no vantage point
+   *  between them (the shared-ground list names two sites, not a here). */
+  style: 'away' | 'bare' | 'apart';
   /** One decimal where sites share a complex; whole units elsewhere. */
   decimals?: 0 | 1;
   /** How to render a distance under one unit. Default: round it like any
@@ -68,7 +70,12 @@ export function formatDistance(
 
   if (value < 1 && below) {
     if (below === 'metres' && units === 'km') {
-      return tFn(lang, 'distanceAwayMetres', fmtNum(Math.round(km * 1000)));
+      // Branched rather than a ternary key: tFn's overloads are per literal
+      // key, so a union of two of them resolves to neither.
+      const metres = fmtNum(Math.round(km * 1000));
+      return style === 'apart'
+        ? tFn(lang, 'distanceApartMetres', metres)
+        : tFn(lang, 'distanceAwayMetres', metres);
     }
     if (below === 'lessThanOne') {
       return unitPhrase(style, units, lang, fmtNum('< 1'));
@@ -82,13 +89,18 @@ export function formatDistance(
 }
 
 function unitPhrase(
-  style: 'away' | 'bare',
+  style: 'away' | 'bare' | 'apart',
   units: DistanceUnits,
   lang: Lang,
   value: string,
 ): string {
   if (style === 'bare') {
     return units === 'mi' ? tFn(lang, 'distanceBareMi', value) : tFn(lang, 'distanceBareKm', value);
+  }
+  if (style === 'apart') {
+    return units === 'mi'
+      ? tFn(lang, 'distanceApartMi', value)
+      : tFn(lang, 'distanceApartKm', value);
   }
   return units === 'mi' ? tFn(lang, 'distanceAwayMi', value) : tFn(lang, 'distanceAwayKm', value);
 }

@@ -185,6 +185,11 @@ export const UI_TEXT_UR: UiStrings = {
   distanceAwayMi: (value: string) => `${value} میل دور`,
   distanceBareKm: (value: string) => `${value} کلومیٹر`,
   distanceBareMi: (value: string) => `${value} میل`,
+  /* «کے فاصلے پر» is "away from" — it wants a vantage point. A pair has none,
+     so these read as a plain measurement between the two. */
+  distanceApartMetres: (value: string) => `${value} میٹر کا فاصلہ`,
+  distanceApartKm: (value: string) => `${value} کلومیٹر کا فاصلہ`,
+  distanceApartMi: (value: string) => `${value} میل کا فاصلہ`,
   noImage: 'تصویر نہیں ملی۔ اپنی شیٹ میں "Image Link" شامل کریں۔',
   imageLoadFailed: 'تصویر لوڈ نہیں ہوئی۔',
   notFound: 'مزار نہیں ملا۔',
@@ -886,4 +891,32 @@ export const UI_TEXT_UR: UiStrings = {
   stopOf: (current: number, total: number) => `${current} / ${total}`,
   nextIn: (seconds: number) => `اگلا مقام ${seconds} سیکنڈ میں`,
   photoOf: (current: number, total: number) => `تصویر ${current} از ${total}`,
+
+  /* ── مشترکہ زمین، پورے آرکائیو میں (/shared-ground) ───────────── */
+  sharedGroundPageTitle: 'مشترکہ زمین',
+  sharedGroundPageLede:
+    'یہ آرکائیو چھ روایات کو درج کرتا ہے اور ہر مقام کو اس کا اپنا صفحہ دیتا ہے۔ اس کے درج شدہ مقامات وہ بات کہتے ہیں جو کوئی ایک صفحہ نہیں کہ سکتا۔ پنجاب اور سندھ کے بڑے حصے میں یہ برادریاں الگ الگ جگہوں پر آباد نہیں ہوئیں — وہ ایک ہی گلی کوچے میں بسیں، اور آج بھی وہیں ساتھ کھڑی ہیں۔',
+  sharedGroundStatAdjacent: 'مقامات کسی دوسرے مقام سے پیدل فاصلے پر',
+  sharedGroundStatPairs: 'پڑوسی مقامات کے جوڑے',
+  sharedGroundStatCrossSites: 'مقامات کسی دوسری روایت کے پہلو میں',
+  sharedGroundCrossOfPairs: (cross: number, pairs: number) =>
+    `ان ${pairs} جوڑوں میں سے ${cross} دو مختلف روایات کو ملاتے ہیں۔`,
+  sharedGroundMeetingsHeading: 'کون سی روایات ساتھ کھڑی ہیں',
+  sharedGroundMeetingsNote:
+    'اس آرکائیو میں درج ہر روایت کہیں نہ کہیں کسی دوسری روایت سے پیدل فاصلے پر موجود ہے۔ یہ نیچے دیے گئے جوڑوں سے گنا گیا ہے، فرض نہیں کیا گیا۔',
+  sharedGroundMeetingPairs: (n: number) => `${n} ${n === 1 ? 'جوڑا' : 'جوڑے'}`,
+  sharedGroundNearestLabel: 'قریب ترین',
+  sharedGroundPairsHeading: 'ہر ملاپ، قریب ترین پہلے',
+  sharedGroundMethodHeading: 'یہ کیسے ناپا گیا',
+  sharedGroundMethodRadius:
+    'دو مقامات یہاں مشترکہ زمین پر شمار ہوتے ہیں جب ان کے درج شدہ مقامات ایک دوسرے سے 800 میٹر کے اندر ہوں — یعنی تقریباً دس منٹ کی پیدل مسافت۔',
+  sharedGroundMethodStraight:
+    'فاصلہ دو درج شدہ نقطوں کے درمیان سیدھی لکیر ہے۔ یہ پیدل راستہ نہیں، اور ان کے درمیان کسی گلی کی جانچ نہیں کی گئی۔',
+  sharedGroundMethodNoClusters:
+    'یہاں کوئی زنجیر نہیں بنائی گئی۔ جوڑا جوڑا ہی رہتا ہے؛ آرکائیو ایسے مقامات کو ایک ہی احاطے میں نہیں جوڑتا جہاں پہلا دوسرے سے 800 میٹر اور دوسرا تیسرے سے 800 میٹر پر ہو۔ ایک بار ایسا کرنے پر 15 مقامات کا ایک ہی گروہ 3358 میٹر پر پھیل گیا تھا — پورا اندرون لاہور، جسے ایک صحن کہا جا رہا تھا۔',
+  sharedGroundMethodSamePin:
+    'چند اندراجات کے لیے سروے الگ مقام نہیں دیتا، اس لیے وہ ایک ہی درج مقام رکھتے ہیں اور انہیں اسی طرح دکھایا گیا ہے۔ جو فاصلہ اس آرکائیو نے نہیں ناپا، اسے کبھی ناپے ہوئے فاصلے کے طور پر نہیں دکھایا جاتا۔',
+  sharedGroundEmpty: 'مختلف روایات کے دو مقامات پیدل فاصلے پر درج نہیں۔',
+  sharedGroundToMap: 'نقشہ کھولیں',
+  sharedGroundFromShrine: 'پورے آرکائیو کی مشترکہ زمین',
 };

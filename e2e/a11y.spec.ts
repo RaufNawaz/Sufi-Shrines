@@ -140,6 +140,27 @@ test.describe('Accessibility (axe-core)', () => {
     expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
   });
 
+  test('shared ground page has no critical violations', async ({ page }) => {
+    /* Forty rows, each two links and three tradition names, where the tradition
+       name is the one thing on the row carrying a per-tradition colour. That is
+       the shape of WCAG 1.4.1 (HANDOVER §9.48): a name distinguished from the
+       prose around it by hue alone. It is not a link here — it sits beside one
+       — which is why the check is worth running rather than assumed. */
+    await page.goto('/shared-ground');
+    await page.locator('h1.entity-title').waitFor();
+    await page.locator('.crossing').first().waitFor();
+
+    const results = await new AxeBuilder({ page })
+      .exclude(EXCLUDE_SELECTORS)
+      .withTags(['wcag2a', 'wcag2aa', 'wcag22aa', 'best-practice'])
+      .analyze();
+
+    const criticalOrSerious = results.violations.filter(
+      (v) => v.impact === 'critical' || v.impact === 'serious',
+    );
+    expect(criticalOrSerious, formatViolations(criticalOrSerious)).toHaveLength(0);
+  });
+
   test('settings page has no critical violations', async ({ page }) => {
     /* The densest page of form controls in the archive, and the only one whose
        whole content is native inputs: a fieldset per option, a legend per
@@ -305,6 +326,7 @@ const DARK_ROUTES = [
   '/graph',
   '/typology',
   '/chronology',
+  '/shared-ground',
   '/about',
   '/settings',
 ];

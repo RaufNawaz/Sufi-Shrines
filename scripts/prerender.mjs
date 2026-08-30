@@ -838,7 +838,22 @@ const placeSlugs = [];
 // with hreflang alternates pointing at both — the standard bidirectional
 // sitemap+hreflang pattern (see https://developers.google.com/search/docs
 // /specialty/international/localized-versions#sitemap).
+/* A URL belongs in a sitemap once.
+ *
+ * `/graph` and `/almanac` are in both STATIC_PAGES (for their descriptions) and
+ * APP_ROUTES (for their files), so both were emitted twice — invisible while the
+ * app routes were hand-listed beside the loop, and obvious the moment the list
+ * became the source. A duplicate `<loc>` is not fatal, but a sitemap is a claim
+ * about what exists, and making it twice is the kind of small wrongness this
+ * archive's gates exist to keep out.
+ *
+ * First writer wins, which is deliberate: APP_ROUTES runs first and carries the
+ * per-route changefreq and priority, while STATIC_PAGES has neither. */
+const sitemapSeen = new Set();
+
 function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
+  if (sitemapSeen.has(enLoc)) return '';
+  sitemapSeen.add(enLoc);
   const altLinks = [
     `    <xhtml:link rel="alternate" hreflang="en" href="${enLoc}" />`,
     `    <xhtml:link rel="alternate" hreflang="ur" href="${urLoc}" />`,
@@ -969,6 +984,84 @@ for (const page of STATIC_PAGES) {
 }
 console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
 
+/* Declared above the sitemap rather than beside the loop that writes the
+ * files, because the sitemap now reads it. `const` is hoisted into the
+ * temporal dead zone, not initialised, so the previous order threw a
+ * ReferenceError at build time the moment the emitter stopped hand-listing
+ * its paths. */
+// ── App-route pages GitHub Pages can actually serve ─────────────────────────
+// Each entry may carry `sitemap: { changefreq, priority }`. Omitting it keeps
+// the route out of sitemap.xml, which must be a decision — the sitemap used to
+// hand-list four of these paths beside the loop that emitted the files, and
+// `/chronology` shipped in August 2026 prerendered, linked and absent from the
+// sitemap for exactly that reason. One list now does both.
+//
+// GH Pages has no SPA rewrite: `_redirects` is a Netlify convention it
+// ignores, so any route without a real file 404s on direct navigation,
+// refresh, or a shared link. /almanac and /graph (and their /ur mirrors) are
+// linked from the welcome card and from every shrine page's urs block —
+// they must exist as files. Titles mirror uiStrings.ts
+// (almanacTitle / graphExplorerTitle); keep them in sync by hand, the same
+// contract as SITE_TITLE_UR above.
+const APP_ROUTES = [
+  {
+    path: 'almanac',
+    titleEn: 'The Urs Almanac — Sufi Shrines',
+    titleUr: `عرس تقویم — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'weekly', priority: '0.8' },
+  },
+  {
+    path: 'graph',
+    titleEn: 'Saints & Orders Explorer — Sufi Shrines',
+    titleUr: `اولیاء اور سلسلے — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'monthly', priority: '0.6' },
+  },
+  /* A redirect since 24 August 2026 — see the /coverage entry in STATIC_PAGES
+     above for why the file still has to exist. */
+  {
+    path: 'report',
+    canonicalPath: '/about',
+    titleEn: 'State of the Archive — Sufi Shrines',
+    titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'weekly', priority: '0.7' },
+  },
+  {
+    path: 'chronology',
+    titleEn: 'The Archive in Time — Sufi Shrines',
+    titleUr: `صدیوں میں آرکائیو — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  {
+    path: 'shared-ground',
+    titleEn: 'Shared Ground — Sufi Shrines',
+    titleUr: `مشترکہ زمین — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  {
+    path: 'typology',
+    titleEn: 'Atlas of Built Forms — Sufi Shrines',
+    titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
+    sitemap: { changefreq: 'monthly', priority: '0.7' },
+  },
+  {
+    /* No `sitemap`: a reader's own preferences are not a document, and a
+       crawler indexing them would put a control panel in a search result. */
+    path: 'settings',
+    titleEn: 'Settings — Sufi Shrines',
+    titleUr: `ترتیبات — ${SITE_TITLE_UR}`,
+  },
+  /* Team-only in the UI, but it still needs a file: GitHub Pages serves files,
+     not routes, and check-routes-prerendered.mjs parses the route table out of
+     App.tsx and would fail the build without one. */
+  {
+    /* No `sitemap`: team-only, and a worksheet of unresolved questions is not
+       something to publish to search. */
+    path: 'review',
+    titleEn: 'Review desk — Sufi Shrines',
+    titleUr: `جانچ ڈیسک — ${SITE_TITLE_UR}`,
+  },
+];
+
 // Also emit a sitemap
 const sitemapLines = [
   '<?xml version="1.0" encoding="UTF-8"?>',
@@ -991,10 +1084,16 @@ if (SITE_URL) {
     ...orderSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.7'),
     ),
-    sitemapUrlPair(`${SITE_URL}/almanac`, `${SITE_URL}/ur/almanac`, 'weekly', '0.8'),
-    sitemapUrlPair(`${SITE_URL}/graph`, `${SITE_URL}/ur/graph`, 'monthly', '0.6'),
-    sitemapUrlPair(`${SITE_URL}/report`, `${SITE_URL}/ur/report`, 'weekly', '0.7'),
-    sitemapUrlPair(`${SITE_URL}/typology`, `${SITE_URL}/ur/typology`, 'monthly', '0.7'),
+    // Every app route that declared a sitemap intent, from the one list that
+    // also emits its file. See the note on APP_ROUTES.
+    ...APP_ROUTES.filter((r) => r.sitemap).map((r) =>
+      sitemapUrlPair(
+        `${SITE_URL}/${r.path}`,
+        `${SITE_URL}/ur/${r.path}`,
+        r.sitemap.changefreq,
+        r.sitemap.priority,
+      ),
+    ),
     ...placeSlugs.map((p) =>
       sitemapUrlPair(`${SITE_URL}${p}`, `${SITE_URL}/ur${p}`, 'monthly', '0.6'),
     ),
@@ -1006,7 +1105,8 @@ if (SITE_URL) {
   );
 }
 sitemapLines.push('</urlset>');
-writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
+// Filtered: a suppressed duplicate contributes an empty string, not a blank line.
+writeFileSync(join(distDir, 'sitemap.xml'), sitemapLines.filter(Boolean).join('\n'), 'utf8');
 
 /*
  * GitHub Pages serves 404.html for any path it has no file for, and the SPA
@@ -1070,58 +1170,6 @@ if (SITE_URL) {
   mkdirSync(urHomeOutDir, { recursive: true });
   writeFileSync(join(urHomeOutDir, 'index.html'), homeHtmlUr, 'utf8');
 }
-
-// ── App-route pages GitHub Pages can actually serve ─────────────────────────
-// GH Pages has no SPA rewrite: `_redirects` is a Netlify convention it
-// ignores, so any route without a real file 404s on direct navigation,
-// refresh, or a shared link. /almanac and /graph (and their /ur mirrors) are
-// linked from the welcome card and from every shrine page's urs block —
-// they must exist as files. Titles mirror uiStrings.ts
-// (almanacTitle / graphExplorerTitle); keep them in sync by hand, the same
-// contract as SITE_TITLE_UR above.
-const APP_ROUTES = [
-  {
-    path: 'almanac',
-    titleEn: 'The Urs Almanac — Sufi Shrines',
-    titleUr: `عرس تقویم — ${SITE_TITLE_UR}`,
-  },
-  {
-    path: 'graph',
-    titleEn: 'Saints & Orders Explorer — Sufi Shrines',
-    titleUr: `اولیاء اور سلسلے — ${SITE_TITLE_UR}`,
-  },
-  /* A redirect since 24 August 2026 — see the /coverage entry in STATIC_PAGES
-     above for why the file still has to exist. */
-  {
-    path: 'report',
-    canonicalPath: '/about',
-    titleEn: 'State of the Archive — Sufi Shrines',
-    titleUr: `آرکائیو کا حال — ${SITE_TITLE_UR}`,
-  },
-  {
-    path: 'chronology',
-    titleEn: 'The Archive in Time — Sufi Shrines',
-    titleUr: `صدیوں میں آرکائیو — ${SITE_TITLE_UR}`,
-  },
-  {
-    path: 'typology',
-    titleEn: 'Atlas of Built Forms — Sufi Shrines',
-    titleUr: `تعمیری صورتوں کا اٹلس — ${SITE_TITLE_UR}`,
-  },
-  {
-    path: 'settings',
-    titleEn: 'Settings — Sufi Shrines',
-    titleUr: `ترتیبات — ${SITE_TITLE_UR}`,
-  },
-  /* Team-only in the UI, but it still needs a file: GitHub Pages serves files,
-     not routes, and check-routes-prerendered.mjs parses the route table out of
-     App.tsx and would fail the build without one. */
-  {
-    path: 'review',
-    titleEn: 'Review desk — Sufi Shrines',
-    titleUr: `جانچ ڈیسک — ${SITE_TITLE_UR}`,
-  },
-];
 
 for (const route of APP_ROUTES) {
   const canonicalPath = route.canonicalPath ?? `/${route.path}`;

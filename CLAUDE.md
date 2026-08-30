@@ -389,4 +389,7 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `urdu-i18n/README.md` — dictionary files, coverage, regeneration.
 - `docs/planning/PROJECT_VISION.md` — blue-sky roadmap.
 - `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
-  of another and in eight places across traditions. Track A shipped; D in progress.
+  of another, and **40** of those pairings cross a tradition, over 42 sites, with all six
+  traditions represented (*re-measured 29 August 2026; this line said "eight places" for nine
+  days, and the number is now computed on `/shared-ground` rather than quoted*). Tracks A and
+  B shipped; D in progress; the map lens is the one piece of A still unbuilt.

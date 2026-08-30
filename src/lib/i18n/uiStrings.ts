@@ -191,6 +191,14 @@ const UI_TEXT_EN = {
   distanceAwayMi: (value: string) => `${value} mi away`,
   distanceBareKm: (value: string) => `${value} km`,
   distanceBareMi: (value: string) => `${value} mi`,
+  /* "apart", not "away": a shared-ground row names two sites and no vantage
+     point, so "222 m away" would be measured from a place the reader is not.
+     Three keys rather than a number plus " apart" — see the header of
+     formatDistance.ts, and noSentenceFragments.test.ts for what a fragment
+     does to a language that puts the unit somewhere else. */
+  distanceApartMetres: (value: string) => `${value} m apart`,
+  distanceApartKm: (value: string) => `${value} km apart`,
+  distanceApartMi: (value: string) => `${value} mi apart`,
   noImage: 'No image found. Add an "Image Link" value in your sheet.',
   imageLoadFailed: 'Image failed to load.',
   notFound: 'Shrine not found.',
@@ -955,6 +963,43 @@ const UI_TEXT_EN = {
   stopOf: (current: number, total: number) => `Stop ${current} of ${total}`,
   nextIn: (seconds: number) => `Next in ${seconds}s`,
   photoOf: (current: number, total: number) => `Photo ${current} of ${total}`,
+
+  /* ── Shared ground, archive-wide (/shared-ground) ──────────────────────
+     The per-site section on a shrine page answers "who else is here"; this page
+     answers "where does this archive's subject matter overlap", which is a
+     question no single row can. The method strings are not boilerplate — the
+     page shows a distance for every pair it lists, and each of those four
+     sentences is a limit on what that distance means. */
+  sharedGroundPageTitle: 'Shared Ground',
+  sharedGroundPageLede:
+    'This archive documents six traditions and gives every site a page of its own. Its coordinates say something no single page can. For much of Punjab and Sindh these communities did not build in separate places — they built on the same streets, and they still stand there together.',
+  sharedGroundStatAdjacent: 'sites stand within walking distance of another',
+  sharedGroundStatPairs: 'pairs of neighbouring sites',
+  sharedGroundStatCrossSites: 'sites stand beside another tradition',
+  sharedGroundCrossOfPairs: (cross: number, pairs: number) =>
+    `${cross} of those ${pairs} pairings cross a tradition.`,
+  sharedGroundMeetingsHeading: 'Which traditions stand together',
+  sharedGroundMeetingsNote:
+    'Every tradition this archive documents stands within walking distance of another one somewhere in it. Counted from the pairs below, not asserted.',
+  /* A count, not a label after a number: "1 pairings" shipped in the first
+     draft of this page, and Urdu inflects the noun too (جوڑا / جوڑے). Each
+     language writes the whole phrase — noSentenceFragments.test.ts. */
+  sharedGroundMeetingPairs: (n: number) => `${n} pairing${n === 1 ? '' : 's'}`,
+  sharedGroundNearestLabel: 'nearest',
+  sharedGroundPairsHeading: 'Every crossing, nearest first',
+  sharedGroundMethodHeading: 'How this is measured',
+  sharedGroundMethodRadius:
+    'Two sites share ground here when their recorded coordinates are within 800 m of each other — roughly ten minutes on foot.',
+  sharedGroundMethodStraight:
+    'The distance is the straight line between two recorded points. It is not a walking route, and no street between them has been checked.',
+  sharedGroundMethodNoClusters:
+    'Nothing is chained. A pair stays a pair: the archive does not join a site 800 m from a second, and that second 800 m from a third, into one complex. Doing exactly that produced a single group of 15 sites measuring 3,358 m across — the whole of central Lahore, called a courtyard.',
+  sharedGroundMethodSamePin:
+    'A few records share one recorded position because the survey gives no separate one, and are shown as sharing it. A distance this archive did not measure is never displayed as one it did.',
+  sharedGroundEmpty:
+    'No two sites of different traditions are recorded within walking distance of each other.',
+  sharedGroundToMap: 'Open the map',
+  sharedGroundFromShrine: 'Shared ground across the archive',
 } as const;
 /**
  * The shape every language's table must have: the English table's keys, with
@@ -1083,6 +1128,13 @@ export function tFn(
   traditions: number,
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundIntroSame', sites: number): string;
+export function tFn(
+  lang: Lang,
+  key: 'sharedGroundCrossOfPairs',
+  cross: number,
+  pairs: number,
+): string;
+export function tFn(lang: Lang, key: 'sharedGroundMeetingPairs', n: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
 export function tFn(lang: Lang, key: 'aboutTrustLineage', total: number): string;
@@ -1122,6 +1174,9 @@ export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): strin
 export function tFn(lang: Lang, key: 'distanceAwayMi', value: string): string;
 export function tFn(lang: Lang, key: 'distanceBareKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceBareMi', value: string): string;
+export function tFn(lang: Lang, key: 'distanceApartMetres', value: string): string;
+export function tFn(lang: Lang, key: 'distanceApartKm', value: string): string;
+export function tFn(lang: Lang, key: 'distanceApartMi', value: string): string;
 export function tFn(lang: Lang, key: 'ariaCategoryOf', category: string): string;
 export function tFn(lang: Lang, key: 'mapLayerFrom', name: string, provider: string): string;
 export function tFn(lang: Lang, key: 'paletteResultCount', shown: number, total: number): string;
@@ -1144,6 +1199,9 @@ export function tFn(
     | 'distanceAwayMi'
     | 'distanceBareKm'
     | 'distanceBareMi'
+    | 'distanceApartMetres'
+    | 'distanceApartKm'
+    | 'distanceApartMi'
     | 'stopOf'
     | 'nextIn'
     | 'photoOf'
@@ -1170,6 +1228,8 @@ export function tFn(
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'
+    | 'sharedGroundCrossOfPairs'
+    | 'sharedGroundMeetingPairs'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'
     | 'aboutTrustLineage'

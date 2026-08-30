@@ -10,7 +10,8 @@ Claude Code can execute. Read alongside `CLAUDE.md` (conventions) and
 >
 > **20 Aug 2026:** [`SHARED_GROUND_VISION.md`](SHARED_GROUND_VISION.md) argues for one idea
 > none of these tracks contain — that 37% of the archive's sites stand within 800 m of
-> another, and in eight places across different traditions — and sizes it against measured
+> another, and 40 of those pairings across different traditions (*re-measured 29 August 2026;
+> this said "eight places"*) — and sizes it against measured
 > data. Its Track A is in progress.
 
 ---

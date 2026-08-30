@@ -1,0 +1,247 @@
+/* Shared ground, archive-wide (/shared-ground).
+ *
+ * The page is a list of measurements, so it is typeset as one: hairline rules
+ * between rows, no cards, and the distance in tabular figures on its own edge
+ * so a reader can scan the column from "one recorded position" outwards. The
+ * only colour that carries meaning is the tradition name's, and it is the same
+ * palette the map markers and the shrine page's shared-ground list already use,
+ * so a reader who has learned it once does not need a legend here.
+ *
+ * The tradition chips themselves are NOT redefined here. `.shared-ground-
+ * tradition--*` lives in shrine.css and this page reuses it verbatim: two
+ * copies of a six-colour palette is how the map and an article end up
+ * disagreeing about what "Nanakpanthi" looks like.
+ *
+ * Everything positional is logical (`margin-inline`, `border-inline`,
+ * `text-align: start`), so the Urdu edition needs no second code path.
+ */
+
+.sg-lede {
+  max-inline-size: 62ch;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.sg-empty {
+  margin-block: var(--space-6);
+  color: var(--color-text-muted);
+}
+
+/* ── The three counts ─────────────────────────────────────────────────────
+   A <dl>, because each one is a number and its meaning — and the number is the
+   term, not the description, which is why the value is the <dt>. */
+.sg-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+  margin-block: var(--space-6) var(--space-3);
+  padding-block-end: var(--space-5);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.sg-stat {
+  flex: 1 1 12ch;
+  min-inline-size: 12ch;
+}
+
+.sg-stat-value {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.sg-stat-label {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-text-muted);
+  max-inline-size: 26ch;
+}
+
+.sg-headline {
+  margin-block: 0 var(--space-8);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+  max-inline-size: 46ch;
+}
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+
+.sg-section {
+  margin-block-end: var(--space-10);
+}
+
+.sg-section-heading {
+  margin-block: 0 var(--space-2);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+.sg-section-note {
+  margin-block: 0 var(--space-4);
+  max-inline-size: 62ch;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+/* ── Which traditions meet ────────────────────────────────────────────────── */
+
+.sg-meetings,
+.sg-crossings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sg-meeting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+  padding-block: var(--space-3);
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.sg-meeting:last-child {
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.sg-meeting-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  flex: 1 1 22ch;
+}
+
+/* The pair count is the sortable fact, so it gets the figures and the weight;
+   the nearest distance is context and stays muted. */
+.sg-meeting-count {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sg-meeting-nearest {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin-inline-start: auto;
+}
+
+/* Same treatment as the row below it: not a number, so not typeset as one. */
+.sg-meeting-nearest--same {
+  font-style: italic;
+  cursor: help;
+}
+
+/* ── Every crossing ───────────────────────────────────────────────────────── */
+
+.crossing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+  padding-block: var(--space-3);
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+.crossing:last-child {
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+/* Fixed inline-size so the distances form a column the eye can run down; the
+   list is sorted by it, and a ragged left edge would hide that. */
+.crossing-distance {
+  flex: 0 0 auto;
+  min-inline-size: 11ch;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Not a number, and deliberately not styled like one: these two records share
+   one recorded position because the survey gives no separate one. */
+.crossing-distance--same {
+  font-style: italic;
+  color: var(--color-text-muted);
+  cursor: help;
+}
+
+.crossing-sites {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  flex: 1 1 24ch;
+}
+
+.crossing-site {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.crossing-join {
+  color: var(--color-text-muted);
+}
+
+.sg-map-link {
+  margin-block: var(--space-4) 0;
+  font-size: var(--text-sm);
+}
+
+/* ── Method ───────────────────────────────────────────────────────────────── */
+
+/* The limits on every distance above. Set at reading width and at the small
+   size the archive uses for its own caveats, but never below --text-sm, which
+   is the floor Nastaliq stays legible at. */
+.sg-method p {
+  max-inline-size: 62ch;
+  margin-block: 0 var(--space-3);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+/* ── Urdu ─────────────────────────────────────────────────────────────────── */
+
+/* Nastaliq needs the room its descenders take and does not survive --text-xs,
+   so the two smallest sizes on this page step up one and the leading opens.
+   Same treatment the shared-ground list on a shrine page already gets. */
+[dir='rtl'] .sg-lede,
+[dir='rtl'] .sg-empty,
+[dir='rtl'] .sg-headline,
+[dir='rtl'] .sg-stat-label,
+[dir='rtl'] .sg-section-note,
+[dir='rtl'] .sg-method p,
+[dir='rtl'] .sg-meeting-count,
+[dir='rtl'] .sg-meeting-nearest,
+[dir='rtl'] .crossing-distance {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu);
+}
+
+[dir='rtl'] .sg-meeting-nearest,
+[dir='rtl'] .sg-stat-label,
+[dir='rtl'] .sg-section-note,
+[dir='rtl'] .sg-method p,
+[dir='rtl'] .crossing-distance {
+  font-size: var(--text-sm);
+}
+
+/* The numerals are Eastern in Urdu and Nastaliq draws them, so the count keeps
+   the reading face rather than falling back to the sans stack mid-figure. */
+[dir='rtl'] .sg-stat-value {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-heading);
+}

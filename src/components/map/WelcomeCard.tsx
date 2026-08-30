@@ -32,6 +32,11 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
           <Link to="/almanac">{t('almanacTitle')}</Link>
           <Link to="/graph">{t('graphExplorerTitle')}</Link>
           <Link to="/typology">{t('typologyTitle')}</Link>
+          {/* Five now. The "four, not six" above was about three names for one
+              page; this is a fifth destination, not a fifth name — and it is
+              the only one of these that is about the map's own subject, which
+              is where sites are in relation to each other. */}
+          <Link to="/shared-ground">{t('sharedGroundPageTitle')}</Link>
           <Link to="/about">{t('aboutTitle')}</Link>
         </nav>
       )}

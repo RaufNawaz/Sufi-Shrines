@@ -36,7 +36,9 @@ export interface TabDefinition {
 }
 
 export const TABS: readonly TabDefinition[] = [
-  { id: 'map', path: '/', labelKey: 'tabMap', owns: ['/shrine/', '/place/'] },
+  /* `/shared-ground` belongs to the map, not to the atlas: it is a statement
+     about where sites are, and every row on it leads to a shrine page. */
+  { id: 'map', path: '/', labelKey: 'tabMap', owns: ['/shrine/', '/place/', '/shared-ground'] },
   { id: 'explore', path: '/graph', labelKey: 'tabExplore', owns: ['/saint/', '/order/'] },
   { id: 'almanac', path: '/almanac', labelKey: 'tabAlmanac', owns: [] },
   /* The atlas tab owns `/chronology` as well as its own `/typology`: both are

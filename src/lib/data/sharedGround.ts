@@ -1,5 +1,5 @@
 import type { Shrine } from '../../types/shrine';
-import { categoryKey, type CategoryKey } from './categoryKey';
+import { CATEGORY_ORDER, categoryKey, type CategoryKey } from './categoryKey';
 import { haversineKm } from './shrineModel';
 
 /**
@@ -7,13 +7,22 @@ import { haversineKm } from './shrineModel';
  * traditions are among them.
  *
  * The archive documents six traditions and presents each site as an island.
- * The coordinates say otherwise: 62 of 169 sites are within 800 m of another,
- * and in eight places those neighbours belong to a different tradition. Data
- * Darbar is 222 m from Gurdwara Chowmala Sahib; Dargah Pir Ratan Nath is 100 m
- * from Gurdwara Bhai Beba Singh. For much of Punjab and Sindh that adjacency
- * *is* the heritage — these communities built on the same streets — and until
- * now nothing in the interface could show it. See
+ * The coordinates say otherwise: 62 of the 169 sites are within 800 m of
+ * another, and 40 of those pairings cross a tradition. Data Darbar is 222 m
+ * from Gurdwara Chowmala Sahib; Dargah Pir Ratan Nath is 100 m from Gurdwara
+ * Bhai Beba Singh. For much of Punjab and Sindh that adjacency *is* the
+ * heritage — these communities built on the same streets — and until now
+ * nothing in the interface could show it. See
  * `docs/planning/SHARED_GROUND_VISION.md`.
+ *
+ * **The 40 is a re-measurement, and the number it replaces is why this sentence
+ * carries a date.** This docstring, `SharedGround.tsx`'s, the vision doc and
+ * `CLAUDE.md` all said "in eight places" — written 20 August 2026 and quoted as
+ * current for nine days. Measured 29 August 2026 against
+ * `src/data/shrines-fallback.json`: 74 pairs inside 800 m, 40 of them
+ * cross-tradition, over 42 distinct sites, and all six traditions appear in at
+ * least one. `buildSharedGroundOverview` exists so no view ever has to trust a
+ * number written in a comment, this one included.
  *
  * **Exact, never chained.** The tempting model is a cluster: single-link
  * everything within the radius and call each component a complex. Measured,
@@ -116,6 +125,11 @@ export function findSharedGround(
 export interface CrossTraditionAdjacency {
   a: Shrine;
   b: Shrine;
+  /** `a`'s tradition. Never 'default' — an unrecognised category cannot be
+   *  asserted to differ from anything (see `otherTradition` above). */
+  traditionA: Exclude<CategoryKey, 'default'>;
+  /** `b`'s tradition. */
+  traditionB: Exclude<CategoryKey, 'default'>;
   distanceM: number;
   samePin: boolean;
 }
@@ -124,7 +138,7 @@ export interface CrossTraditionAdjacency {
  * Every pair of sites from *different* traditions standing within `radiusM` of
  * each other, nearest first. Each pair appears once.
  *
- * This is the archive-wide view of the same fact: eight places where the
+ * This is the archive-wide view of the same fact: the places where the
  * traditions it documents share a street.
  */
 export function crossTraditionAdjacencies(
@@ -146,10 +160,151 @@ export function crossTraditionAdjacencies(
       pairs.push({
         a,
         b,
+        traditionA,
+        traditionB,
         distanceM: Math.round(distanceM),
         samePin: distanceM <= SAME_PIN_THRESHOLD_M,
       });
     }
   }
   return pairs.sort((p, q) => p.distanceM - q.distanceM);
+}
+
+/** How often two given traditions stand within the radius of each other. */
+export interface TraditionMeeting {
+  /** The pair, in CATEGORY_ORDER, so `muslim + sikh` is never also `sikh + muslim`. */
+  traditions: [Exclude<CategoryKey, 'default'>, Exclude<CategoryKey, 'default'>];
+  /** Adjacent pairs of sites with exactly these two traditions. */
+  pairs: number;
+  /**
+   * The closest of them, in metres — meaningless, and not to be displayed,
+   * when `nearestSamePin`.
+   */
+  nearestM: number;
+  /**
+   * True when the closest of these pairs shares one recorded position rather
+   * than being a measured distance apart.
+   *
+   * Without this the summary row contradicts the list it summarises: two of the
+   * cross-tradition pairs share a pin, and this column printed "21 m" and "0 m"
+   * for them while the rows below correctly said "same recorded location". Same
+   * defect the whole feature exists to prevent, one level up — a summary is
+   * still a display, and the rule does not stop applying because the number got
+   * smaller. Any pair at or under SAME_PIN_THRESHOLD_M is flagged, and the list
+   * is sorted by distance, so the first pair seen for a meeting is its nearest.
+   */
+  nearestSamePin: boolean;
+}
+
+export interface SharedGroundOverview {
+  /** Sites carrying coordinates. The denominator that means something: an
+   *  unmapped row has no ground to share, and counting it as "not adjacent"
+   *  would report a gap in the survey as a fact about the geography. */
+  mappedSites: number;
+  /** Sites with at least one other site inside the radius, of any tradition. */
+  sitesWithNeighbours: number;
+  /** All adjacent pairs, cross-tradition or not. */
+  pairs: number;
+  /** The cross-tradition subset, nearest first. */
+  crossTradition: CrossTraditionAdjacency[];
+  /** Distinct sites appearing in at least one cross-tradition pair. */
+  crossTraditionSites: number;
+  /** Which traditions meet which, most frequent first. */
+  meetings: TraditionMeeting[];
+  /** Distinct traditions appearing in any cross-tradition pair, canonical order. */
+  traditions: Exclude<CategoryKey, 'default'>[];
+  /** Cross-tradition pairs that share a recorded pin rather than a measured
+   *  distance. Surfaced rather than buried: a view that prints "40 pairs, the
+   *  nearest 0 m apart" without saying two of them are one recorded position
+   *  is reporting an approximation as a measurement. */
+  samePinPairs: number;
+  /** The radius these numbers were computed at, so a view never has to assume
+   *  the default. */
+  radiusM: number;
+}
+
+/**
+ * Everything the archive can say about shared ground without naming a place.
+ *
+ * Deliberately no grouping. `docs/planning/SHARED_GROUND_VISION.md` records
+ * what happened when adjacency was chained into clusters: single-linking
+ * everything within 800 m produced one "cluster" of 15 sites whose extent was
+ * 3358 m — transitive closure had strung together the whole of central Lahore
+ * and called it a courtyard. The units here are the two that survive scrutiny:
+ * a pair with a measured distance, and a count of pairs. Neither can be read as
+ * a claim about a place the archive never measured.
+ *
+ * Every figure is computed from the data on each render for the reason `/about`
+ * computes its own: a number in a document goes stale silently, and this one
+ * already has — the vision doc, this file's own header and two component
+ * docstrings all said "eight places", written 20 August 2026 and quoted as
+ * current afterwards. Measured 29 August 2026 against the shipped snapshot,
+ * the cross-tradition pair count is 40.
+ */
+export function buildSharedGroundOverview(
+  all: readonly Shrine[],
+  radiusM: number = SHARED_GROUND_RADIUS_M,
+): SharedGroundOverview {
+  const mapped = all.filter((s) => s.latLng);
+
+  let pairs = 0;
+  const withNeighbours = new Set<number>();
+  for (let i = 0; i < mapped.length; i++) {
+    const a = mapped[i]!;
+    for (let j = i + 1; j < mapped.length; j++) {
+      const b = mapped[j]!;
+      if (haversineKm(a.latLng!, b.latLng!) * 1000 > radiusM) continue;
+      pairs += 1;
+      withNeighbours.add(a.id);
+      withNeighbours.add(b.id);
+    }
+  }
+
+  const crossTradition = crossTraditionAdjacencies(all, radiusM);
+
+  const meetingByKey = new Map<string, TraditionMeeting>();
+  const sites = new Set<number>();
+  for (const pair of crossTradition) {
+    sites.add(pair.a.id);
+    sites.add(pair.b.id);
+    // CATEGORY_ORDER, not alphabetical: the pair is a label the reader will see
+    // beside the category chips, and it should read in the same order they do.
+    const ordered = CATEGORY_ORDER.filter(
+      (k) => k === pair.traditionA || k === pair.traditionB,
+    ) as [Exclude<CategoryKey, 'default'>, Exclude<CategoryKey, 'default'>];
+    const key = ordered.join('+');
+    const existing = meetingByKey.get(key);
+    if (existing) existing.pairs += 1;
+    else
+      meetingByKey.set(key, {
+        traditions: ordered,
+        pairs: 1,
+        nearestM: pair.distanceM,
+        nearestSamePin: pair.samePin,
+      });
+  }
+
+  const meetings = [...meetingByKey.values()].sort(
+    (m, n) =>
+      n.pairs - m.pairs ||
+      // A shared pin is as close as two records get, so it leads its tier —
+      // and its `nearestM` is not a number to compare against a measured one.
+      Number(n.nearestSamePin) - Number(m.nearestSamePin) ||
+      m.nearestM - n.nearestM,
+  );
+
+  const present = new Set<Exclude<CategoryKey, 'default'>>();
+  for (const meeting of meetings) for (const key of meeting.traditions) present.add(key);
+
+  return {
+    mappedSites: mapped.length,
+    sitesWithNeighbours: withNeighbours.size,
+    pairs,
+    crossTradition,
+    crossTraditionSites: sites.size,
+    meetings,
+    traditions: CATEGORY_ORDER.filter((k) => present.has(k)),
+    samePinPairs: crossTradition.filter((p) => p.samePin).length,
+    radiusM,
+  };
 }
