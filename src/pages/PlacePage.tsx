@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams } from 'react-router-dom';
 import { useShrineData } from '../hooks/useShrineData';
@@ -261,6 +262,13 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           ))}
         </ul>
       </section>
+
+      <CiteThisEntry
+        kind="place"
+        slug={place.slug}
+        englishName={place.name}
+        localizedName={displayName}
+      />
     </>
   );
 }

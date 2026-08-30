@@ -15,7 +15,31 @@ import { UI_TEXT } from './i18n/uiStrings';
  * the same words differently.
  */
 
+/**
+ * The five entity families the archive publishes a page for. A citation needs
+ * this because a slug is only unique *within* a family: `bari-imam`,
+ * `lal-shahbaz-qalandar` and `shah-yousuf` are each both a shrine and a saint
+ * here, and an unqualified BibTeX key would silently merge the two entries in
+ * a reader's bibliography.
+ */
+export type CiteKind = 'shrine' | 'saint' | 'order' | 'place' | 'tradition';
+
+/**
+ * The BibTeX entry key.
+ *
+ * Shrines keep the unqualified `shrines-<slug>` they have always had. A key is
+ * an identifier a reader may already have pasted into a `.bib` file, and
+ * renaming every existing one to gain symmetry would be a churn with no reader
+ * on the other side of it. The four families that had no citation until now
+ * take the qualified form, which is what removes the three collisions above.
+ */
+export function citeKey(kind: CiteKind, slug: string): string {
+  return kind === 'shrine' ? `shrines-${slug}` : `shrines-${kind}-${slug}`;
+}
+
 export interface CiteInput {
+  /** Which family of entity this is — see `citeKey`. */
+  kind: CiteKind;
   slug: string;
   /** Display name in the citing language. */
   name: string;
@@ -66,7 +90,7 @@ export function buildBibtex(input: Omit<CiteInput, 'name'> & { englishName: stri
     .filter(Boolean)
     .join('. ');
   return [
-    `@misc{shrines-${input.slug},`,
+    `@misc{${citeKey(input.kind, input.slug)},`,
     `  title = {${escapeBibtex(input.englishName)}},`,
     `  howpublished = {${escapeBibtex(`${UI_TEXT.en.siteTitle} (${UI_TEXT.en.citeArchive})`)}},`,
     `  url = {${input.url}},`,

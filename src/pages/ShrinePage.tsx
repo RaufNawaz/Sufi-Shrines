@@ -471,7 +471,13 @@ function ShrineContent({
 
           <RelatedShrines shrine={shrine} all={allShrines} />
           <NearbyShrines shrine={shrine} all={allShrines} />
-          <CiteThisEntry shrine={shrine} />
+          <CiteThisEntry
+            kind="shrine"
+            slug={shrine.slug}
+            englishName={shrine.name}
+            localizedName={name}
+            supportLevel={shrine.supportLevel}
+          />
           {/* Print-only provenance footer: a printed page is a handout that
               has left the site, so it must carry its own source line. The
               <details> citation block cannot be forced open by print CSS,

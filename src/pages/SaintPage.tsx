@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams, Navigate, useLocation } from 'react-router-dom';
@@ -1118,6 +1119,16 @@ export default function SaintPage() {
             </div>
           </aside>
         </div>
+
+        {/* A figure page carries the archive's "what it does not record"
+            section, which is among the most citable things here. No support
+            level: that is a property of a surveyed site, not of a person. */}
+        <CiteThisEntry
+          kind="saint"
+          slug={saint.slug}
+          englishName={localizeFigureName(saint, 'en')}
+          localizedName={displayName}
+        />
 
         <SiteFooter />
       </article>

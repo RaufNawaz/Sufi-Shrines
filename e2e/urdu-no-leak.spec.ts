@@ -25,6 +25,27 @@ import { test, expect, settle } from './fixtures';
  * budget below is the current debt, route by route. It may shrink. It may not
  * grow: a new `data-latin` is a decision to ship English to an Urdu reader, and
  * that should cost a line in a test rather than nothing at all.
+ *
+ * ## Nine budgets moved on 30 August 2026, and two of them moved *down*
+ *
+ * "Cite this entry" reached the four non-shrine entity families that day, so a
+ * saint, order, place and tradition page each gained a citation block. Its
+ * contents are Latin by nature and by ruling — i18n rule 7: a bibliography
+ * entry carries the source's real title and URL, because an archive whose claim
+ * is provenance must leave the reader an exact search string — and a BibTeX
+ * entry is a machine format that breaks outright when it is bidi. So the debt
+ * on those routes genuinely grew, by 2 declared runs each (4 on `saint:*`,
+ * which renders one more Latin field), and the six budgets that had no headroom
+ * failed and are raised here.
+ *
+ * The instructive half is the other three. Re-measured at the same time,
+ * `saint` was **20 against an actual 16**, `saint:lineage-only` **27 against
+ * 16**, and `order:chishtiyya` **48 against 47** — headroom of 4, 11 and 1 that
+ * absorbed this addition in silence and would have absorbed the next real leak
+ * the same way. They are lowered to what the pages actually declare, which is
+ * what the paragraph above asks for and what nobody had done since the routes
+ * were added. A budget with slack in it is not a stricter test than no test; it
+ * is a test that reports the wrong thing later.
  */
 
 /**
@@ -239,7 +260,7 @@ const BUDGET: Record<string, number> = {
      it: `npm run verify` does NOT run e2e. A day of data work can move an e2e
      budget with every gate green. The features session found this one by
      running the suite, not by a gate firing. */
-  'saint:multi-order': 29,
+  'saint:multi-order': 33,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine
@@ -265,17 +286,17 @@ const BUDGET: Record<string, number> = {
   // +5 each on the two order pages, same two causes as the note above: the
   // language toggle, and merged figures now carrying the absorbed node's name as
   // an `altName` in the member list.
-  order: 82,
-  'order:chishtiyya': 48,
+  order: 84,
+  'order:chishtiyya': 47,
   /* 51 -> 53, 28 August 2026. The Suhrawardiyya gained a member: Bibi Jawindi
      got a node of her own when Tomb of Javindi Bibi stopped being filed under
      Jalaluddin Surkh-Posh Bukhari, whose `Sufi Saint` cell it carried
      byte-identically. Her two runs are the site's recorded location and the
      observance cell, both shown as the survey wrote them. A member arriving is
      the order page working, and `undeclared` stayed empty. */
-  'order:suhrawardiyya': 53,
-  'order:naqshbandiyya': 32,
-  'order:qalandariyya': 11,
+  'order:suhrawardiyya': 55,
+  'order:naqshbandiyya': 34,
+  'order:qalandariyya': 13,
   /* 122 → 126, 29 August 2026 — and the rise is NOT more English. Decomposed by
      measurement rather than inferred:
 
@@ -325,7 +346,7 @@ const BUDGET: Record<string, number> = {
      route's note. The number is the size of one entry's English bibliography,
      counted per text node, and it moves when that entry's citations do. */
   'shrine:urdu-bibliography-fallback': 8,
-  saint: 20,
+  saint: 16,
   /* 24 → 27, 29 August 2026. Three runs, all in the new "Family recorded"
      section: his father's name (`Syed Ul Hassan Kabeer`, which the dictionary
      does not carry), the survey sentence the tie was read out of, and that
@@ -335,7 +356,7 @@ const BUDGET: Record<string, number> = {
      an untranslated sentence. (The order pages got the other answer to that
      same question on the same day: there the passage IS the page's account, so
      it is quoted from the Urdu article instead. HANDOVER §9.128.) */
-  'saint:lineage-only': 27,
+  'saint:lineage-only': 16,
   about: 102,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
@@ -350,7 +371,7 @@ const BUDGET: Record<string, number> = {
      the Urdu view the one that cannot check the archive's arithmetic. The
      figures section added none: a figure's recorded name is in the dictionary
      for all 169 rows, and the site tags beside it were already on the page. */
-  place: 59,
+  place: 61,
   /* Two, and they are the only two Latin runs on the page a reader can
      legitimately meet: `EN` in the masthead's language segment, and `English`
      as the name of the English option in the reading-language group. A language

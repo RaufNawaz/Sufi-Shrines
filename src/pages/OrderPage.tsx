@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link, useParams } from 'react-router-dom';
@@ -872,6 +873,13 @@ export default function OrderPage() {
             </div>
           </aside>
         </div>
+
+        <CiteThisEntry
+          kind="order"
+          slug={order.slug}
+          englishName={localizeOrderName(order, 'en')}
+          localizedName={orderName}
+        />
 
         <SiteFooter />
       </article>

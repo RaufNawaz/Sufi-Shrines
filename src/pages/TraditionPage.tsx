@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
@@ -208,6 +209,15 @@ export default function TraditionPage() {
             </section>
           </div>
         </div>
+
+        {tradition && (
+          <CiteThisEntry
+            kind="tradition"
+            slug={tradition.slug}
+            englishName={tradition.name}
+            localizedName={displayName}
+          />
+        )}
 
         <SiteFooter />
       </article>

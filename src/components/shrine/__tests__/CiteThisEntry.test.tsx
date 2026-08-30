@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { screen } from '@testing-library/react';
 import type { Shrine } from '../../../types/shrine';
 import { CiteThisEntry } from '../CiteThisEntry';
-import { buildBibtex, buildPlainCitation, escapeBibtex } from '../../../lib/cite';
+import { buildBibtex, buildPlainCitation, citeKey, escapeBibtex } from '../../../lib/cite';
 import { renderWithProviders, findLatinLeaks, makeShrineRow } from '../../../test/utils';
 
 function makeShrine(overrides: Partial<Shrine> = {}): Shrine {
@@ -19,6 +19,7 @@ function makeShrine(overrides: Partial<Shrine> = {}): Shrine {
 
 describe('citation builders', () => {
   const input = {
+    kind: 'shrine' as const,
     slug: 'data-darbar',
     name: 'Data Darbar',
     englishName: 'Data Darbar',
@@ -62,6 +63,28 @@ describe('citation builders', () => {
     expect(bib.split('{').length).toBe(bib.split('}').length);
   });
 
+  it('keys the four non-shrine families by kind, because three slugs collide', () => {
+    /* `bari-imam`, `lal-shahbaz-qalandar` and `shah-yousuf` are each both a
+       shrine and a saint in this archive (measured against the prerendered
+       route list, 30 August 2026). Unqualified, the two entries would share a
+       BibTeX key and silently merge in a reader's bibliography. */
+    expect(citeKey('shrine', 'bari-imam')).toBe('shrines-bari-imam');
+    expect(citeKey('saint', 'bari-imam')).toBe('shrines-saint-bari-imam');
+    expect(citeKey('shrine', 'bari-imam')).not.toBe(citeKey('saint', 'bari-imam'));
+    for (const kind of ['saint', 'order', 'place', 'tradition'] as const) {
+      expect(buildBibtex({ ...input, kind })).toMatch(
+        new RegExp(`^@misc\\{shrines-${kind}-data-darbar,`),
+      );
+    }
+  });
+
+  it('leaves the shrine key unqualified — it is an identifier already in the wild', () => {
+    /* A BibTeX key may already sit in someone's .bib file. Renaming every
+       existing one for symmetry would be churn with no reader on the other
+       side of it, so only the four new families take the qualified form. */
+    expect(buildBibtex(input)).toMatch(/^@misc\{shrines-data-darbar,/);
+  });
+
   it('escapes LaTeX specials so a production-sheet edit cannot break the entry', () => {
     // The slug schema itself anticipates '&' in names (SLUG_REPLACEMENTS);
     // the sheet has no review step, so any of these can arrive any day.
@@ -70,6 +93,7 @@ describe('citation builders', () => {
     expect(escapeBibtex('a\\b')).toBe('a\\textbackslash{}b');
     expect(escapeBibtex('{lone')).toBe('\\{lone');
     const bib = buildBibtex({
+      kind: 'shrine' as const,
       slug: 's',
       englishName: 'A & B {broken',
       url: 'https://example.test/s',
@@ -81,15 +105,42 @@ describe('citation builders', () => {
   });
 });
 
+function shrineProps(shrine = makeShrine()) {
+  return {
+    kind: 'shrine' as const,
+    slug: shrine.slug,
+    englishName: shrine.name,
+    localizedName: shrine.name,
+    supportLevel: shrine.supportLevel,
+  };
+}
+
 describe('<CiteThisEntry>', () => {
   it('renders both formats behind a quiet disclosure', () => {
-    renderWithProviders(<CiteThisEntry shrine={makeShrine()} />);
+    renderWithProviders(<CiteThisEntry {...shrineProps()} />);
     expect(screen.getByText('Cite this entry')).toBeInTheDocument();
     expect(screen.getByText('BibTeX')).toBeInTheDocument();
   });
 
+  it('an entity with no support level cites without asserting a blank one', () => {
+    /* Support level is a property of a surveyed site. A saint, an order, a
+       place and a tradition have none, and the citation must omit the clause
+       rather than print an empty one — RULE 2 in the smallest possible form. */
+    renderWithProviders(
+      <CiteThisEntry
+        kind="saint"
+        slug="data-ganj-bakhsh"
+        englishName="Data Ganj Bakhsh"
+        localizedName="Data Ganj Bakhsh"
+      />,
+    );
+    const text = screen.getAllByText(/Data Ganj Bakhsh/).map((n) => n.textContent ?? '');
+    expect(text.some((t) => t.includes('shrines-saint-data-ganj-bakhsh'))).toBe(true);
+    expect(text.every((t) => !t.includes('Support level'))).toBe(true);
+  });
+
   it('leaks no Latin outside <bdi> in the Urdu view', () => {
-    const { container } = renderWithProviders(<CiteThisEntry shrine={makeShrine()} />, {
+    const { container } = renderWithProviders(<CiteThisEntry {...shrineProps()} />, {
       lang: 'ur',
     });
     // The citation strings (URL, BibTeX) are Latin by nature — the guard
