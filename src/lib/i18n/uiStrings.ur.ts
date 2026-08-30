@@ -321,6 +321,8 @@ export const UI_TEXT_UR: UiStrings = {
   kinRoleSonInLaw: 'داماد',
   kinRoleAncestor: 'جدِ امجد',
   kinRoleDescendant: 'اولاد میں سے',
+  kinRoleBrother: 'بھائی',
+  kinRoleSister: 'بہن',
   kinGenerationDisputed: 'نسل کے شمار پر مآخذ مختلف ہیں',
   kinGenerationDisputedHelp:
     'مآخذ نسب پر متفق ہیں اور اس پر مختلف کہ وہ کتنی پشتوں پر محیط ہے۔ دونوں شمار رکھے گئے ہیں، کسی ایک کو منتخب نہیں کیا گیا۔',

@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 239,
+      "saints": 248,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 135,
-      "flatSeedEntries": 1190
+      "flatSeedEntries": 1199
     }
   },
   "categories": {
@@ -752,7 +752,16 @@
     "Satguru Swami Sai Satramdas Sahib (1866–1910)": "ستگرو سوامی سائیں ست رام داس صاحب (1866ء–1910ء)",
     "Shiva (associated deity)": "شیو (متعلقہ دیوتا)",
     "Swami Dharmdas (Nanakpanthi sant)": "سوامی دھرم داس (نانک پنتھی سنت)",
-    "Valmiki (Bhagwan Valmik)": "والمیکی (بھگوان والمیک)"
+    "Valmiki (Bhagwan Valmik)": "والمیکی (بھگوان والمیک)",
+    "Pratab Rai": "پرتاب رائے",
+    "Kharak Singh": "کھڑک سنگھ",
+    "Duleep Singh": "دلیپ سنگھ",
+    "Nau Nihal Singh": "نو نہال سنگھ",
+    "Sheikh Abdul Haleem": "شیخ عبدالحلیم",
+    "Syed Habibullah": "سید حبیب اللہ",
+    "Musa Hussain Zanjani": "موسیٰ حسین زنجانی",
+    "Sadr-ud-Din Arif": "صدر الدین عارف",
+    "Qazi Sain Datta": "قاضی سائیں دتہ"
   },
   "silsilas": {
     "Qadiri": "قادری",

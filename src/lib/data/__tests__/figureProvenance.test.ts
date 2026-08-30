@@ -199,7 +199,28 @@ describe('the shipped graph', () => {
                        flagged, and the term is exactly the number of nodes
                        created. That is the honest direction for this count to
                        move: the graph did not learn eight biographies, it learnt
-                       eight names it must qualify. */
-    expect(flagged.length).toBe(164);
+                       eight names it must qualify.
+        164 + 9       = 173, 30 August 2026. The second kinship pass, and the
+                       same shape again: the archive names nine more people only
+                       as somebody's father, son, brother or grandson — Ranjit
+                       Singh's sons Kharak and Duleep and his grandson Nau Nihal,
+                       Rukn-e-Alam's father Sadr-ud-Din Arif, Mian Mir's father
+                       Qazi Sain Datta, Kaka Sahib's son Sheikh Abdul Haleem, Pir
+                       Baba's son Syed Habibullah, Miran Hussain Zanjani's
+                       brother Musa, and Vali Vilayat Rai's father Pratab Rai.
+                       Every one is `lineageOnly` with no dates and no sources of
+                       its own, so every one is flagged, and the term is again
+                       exactly the number of nodes created.
+
+                       Six of the fifteen new ties cost NO node, because both
+                       ends were already figures — Kaka Sahib's own father
+                       Bahadur Baba, Bebe Nanaki and Guru Nanak, Shah Kamal and
+                       Shah Jamal, Shah Jamal's father, Guru Hargobind and Guru
+                       Arjan Dev, Shah Ali Akbar's ancestor. That is worth
+                       reading off this number: a kin pass is not priced in new
+                       nodes, and the ties this graph was missing between figures
+                       it already held were the ones nobody thought to look
+                       for. */
+    expect(flagged.length).toBe(173);
   });
 });

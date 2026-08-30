@@ -94,6 +94,7 @@ const KIN_TYPES = new Set([
   'descendant_of',
   'nephew_of',
   'son_in_law_of',
+  'sibling_of',
 ]);
 /* The elder label and the junior label a kinType may carry. Pairing them here
    rather than checking two flat lists is the point: `grandson_of` with
@@ -112,6 +113,26 @@ const KIN_ROLES = {
     junior: ['nephewPaternal', 'nephewMaternal', 'nephewUnspecified'],
   },
   son_in_law_of: { elder: ['fatherInLaw'], junior: ['sonInLaw'] },
+  /* The one SYMMETRIC type, and the only one where `elder`/`junior` do not mean
+     what they say. Every other tie runs junior → senior and each end reads a
+     different word; a sibling tie reads the same relationship from both sides,
+     so the fields mean strictly "role of the object" and "role of the subject"
+     — which is what `toKinLink` has always done with them (`role` is the
+     elder's label seen from the subject's page). The names are kept rather than
+     generalised because renaming them would touch six asymmetric types to
+     accommodate one symmetric one.
+
+     Both lists are the same pair on purpose: the *sides* are interchangeable,
+     the *words* are not. Bebe Nanaki is Guru Nanak's sister and he is her
+     brother, so the two ends carry different labels while neither is senior.
+     Two brothers carry `brother` twice. What this must never become is a single
+     shared role, which would print "sister" on Guru Nanak's page.
+
+     Stored ONCE, never in both directions — see the reverse check below, which
+     needs no exception for this type: for an asymmetric tie a reverse edge is a
+     contradiction, for a symmetric one it is a duplicate, and either way it must
+     not exist. (HANDOVER §9.160.) */
+  sibling_of: { elder: ['brother', 'sister'], junior: ['brother', 'sister'] },
 };
 const CONFIDENCE_TIERS = new Set([0.95, 0.7]);
 const MAX_QUOTE = 200;

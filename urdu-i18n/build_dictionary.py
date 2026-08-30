@@ -978,6 +978,21 @@ SAINTS = {
  "Shiva (associated deity)": "شیو (متعلقہ دیوتا)",
  "Swami Dharmdas (Nanakpanthi sant)": "سوامی دھرم داس (نانک پنتھی سنت)",
  "Valmiki (Bhagwan Valmik)": "والمیکی (بھگوان والمیک)",
+ # Nine figures the kinship scan of 30 August 2026 gave nodes to: each is named
+ # in the archive's prose only as somebody's father, son, brother or grandson,
+ # and none has a site here. They are added at the same time as the edges,
+ # because `figureNameUrduParity.test.ts` stopped being a budget and became an
+ # assertion — a new lineage-only figure with no Urdu name now fails the suite
+ # rather than nudging a number, which is the whole point of closing a debt.
+ "Pratab Rai": "پرتاب رائے",
+ "Kharak Singh": "کھڑک سنگھ",
+ "Duleep Singh": "دلیپ سنگھ",
+ "Nau Nihal Singh": "نو نہال سنگھ",
+ "Sheikh Abdul Haleem": "شیخ عبدالحلیم",
+ "Syed Habibullah": "سید حبیب اللہ",
+ "Musa Hussain Zanjani": "موسیٰ حسین زنجانی",
+ "Sadr-ud-Din Arif": "صدر الدین عارف",
+ "Qazi Sain Datta": "قاضی سائیں دتہ",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

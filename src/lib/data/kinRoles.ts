@@ -37,6 +37,14 @@ export const KIN_ROLE_KEYS: Record<string, keyof UiStrings> = {
   sonInLaw: 'kinRoleSonInLaw',
   ancestor: 'kinRoleAncestor',
   descendant: 'kinRoleDescendant',
+  /* The symmetric pair. Both ends of a `sibling_of` tie are drawn from these
+     two, because the sides are interchangeable and the words are not: two
+     brothers read `brother` twice, while Bebe Nanaki reads `sister` and Guru
+     Nanak `brother` off the same single stored edge. Urdu has no
+     maternal/paternal split to resolve here, unlike چچا/ماموں — بھائی and بہن
+     are simply the words. */
+  brother: 'kinRoleBrother',
+  sister: 'kinRoleSister',
 };
 
 /**

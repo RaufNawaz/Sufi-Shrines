@@ -364,6 +364,8 @@ const UI_TEXT_EN = {
   kinRoleSonInLaw: 'son-in-law',
   kinRoleAncestor: 'ancestor',
   kinRoleDescendant: 'descendant',
+  kinRoleBrother: 'brother',
+  kinRoleSister: 'sister',
   kinGenerationDisputed: 'sources differ on the generation',
   kinGenerationDisputedHelp:
     'The sources agree on the descent and disagree on how many generations it runs. Both counts are kept rather than one chosen.',
