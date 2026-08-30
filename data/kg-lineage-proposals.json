@@ -1271,6 +1271,41 @@
    "quote": "whose main chamber housed the *samadhi* of Dya Ram, honoured as the teacher associated with the establishment of the shrine",
    "source": "data/shrines.csv#parnami-mandir",
    "notes": "\"Honoured as the teacher\" with nobody named as taught. A real figure the corpus records and an unusable relation, in the same shape as the unnamed disciple of Bhai Gurdas at Gandava."
+  },
+  {
+   "subjectName": "Guru Nanak",
+   "objectName": "the maulvi of Patti (named in some tellings Qutbuddin)",
+   "quote": "his study of Punjabi and accounts, of Sanskrit with a Hindu *pandit*, and of Persian with a Muslim *maulvi*, named in some tellings Qutbuddin",
+   "source": "data/shrines.csv#gurdwara-patti-sahib",
+   "notes": "Ruled out twice over, and the second reason is the one that matters. First: schooling, not initiation — the same line drawn for Iqbal's Sayyid Mir Hassan and Thomas Arnold, and the whole gurdwara's point is that the pupil out-taught the teacher. Second: \"named in SOME TELLINGS Qutbuddin\" is the corpus declining to settle the name, and an edge would settle it. The site is called Maulvi Patti after him, so the relationship is real and remembered; it is the naming and the KIND that the archive will not commit to."
+  },
+  {
+   "subjectName": "Shah Abul Muali Qadri (or Dara Shikoh)",
+   "objectName": "Sheikh Imam Niyamat Ali",
+   "quote": "he once accompanied Shah Abul Muali to the court of his teacher Sheikh Imam Niyamat Ali",
+   "source": "data/shrines.csv#darbar-abul-muali-qadri",
+   "notes": "A NAMED teacher and an unresolvable antecedent: \"his teacher\" can be Dara Shikoh's or Shah Abul Muali's, and the sentence gives nothing to decide with. The entry's own QA notes flag that the accounts of the Dara Shikoh connection differ between the survey and the tazkira, so this is not a passage to resolve by reading harder. Two candidate subjects and no way to choose is exactly the shape that produced allo_mahar_resolution.md."
+  },
+  {
+   "subjectName": "Khwaja Moinuddin Chishti",
+   "objectName": "Ali Hujwiri (Data Ganj Bakhsh) — second sentence",
+   "quote": "on his way into the subcontinent kept a forty-day retreat (*chilla*) at the foot of Hujwiri's tomb in Lahore",
+   "source": "data/shrines.csv#data-darbar",
+   "notes": "The same non-tie already recorded from this entry's other sentence, and it needs its own row because THE SCANNERS MATCH ON THE SENTENCE — a ruling recorded against one wording does not silence another. A retreat at a TOMB, more than a century after the man died, is not a teaching tie however famous the couplet."
+  },
+  {
+   "subjectName": "Shah Muhammad Sulaiman Taunsvi",
+   "objectName": "Sial Sharif and Golra Sharif (lines, not people)",
+   "quote": "the Chishti revival of the nineteenth-century Punjab, including the lines that led to Sial Sharif and Golra Sharif, owes much to his khanqah",
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
+   "notes": "Names two khanqahs and a debt, not two people and a transmission. The archive already holds the person-to-person chain this sentence is summarising — Pir Meher Ali Shah of Golra through Shamsuddin Sialvi — as edges, so building this one would double-count a line it already draws properly."
+  },
+  {
+   "subjectName": "Hazrat Tahir Bandagi Qadri / Khawaja Feroz-ud-Din",
+   "objectName": "their disciples and Gaddi Nasheen (unnamed)",
+   "quote": "The shrine is maintained, per the survey, by his special disciples (*mureedeen-e-khas*) and their descendants",
+   "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
+   "notes": "Representative of a whole class in this corpus: the custodial sentences. \"His disciples built his shrine\", \"the current Gaddi Nasheen\", \"his special disciples and their descendants\" — every entry with a living custodial family has two or three, and none of them names anybody. Real relations, unbuildable, and numerous enough that the pile would look full of candidates forever without this row."
   }
  ],
  "familyRelations": [

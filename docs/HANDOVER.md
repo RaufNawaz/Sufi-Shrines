@@ -5076,6 +5076,45 @@ both redirects.
     has `[House]."`, the period **inside** the closing quote. Third time today it has caught its own
     author.
 
+176. **The lineage pile has no ties left in it, and proving that is different from believing it.**
+    *30 August 2026.* Reading the residue to the end found **zero** buildable relations and five
+    judgments worth recording, which is the honest outcome of a pile that has been worked properly:
+    what remains is not a backlog, it is a set of decisions already made and not yet written down.
+
+    Two needed real adjudication rather than a glance:
+
+    - **Guru Nanak's schoolmaster at Patti Sahib.** Ruled out twice over, and the second reason
+      matters more: it is schooling rather than initiation (the line already drawn for Iqbal's
+      teachers), *and* the corpus says he was **"named in some tellings Qutbuddin"** — declining to
+      settle the name. An edge would settle it. The gurdwara is called Maulvi Patti after the man,
+      so the relationship is real and remembered; it is the naming and the KIND the archive will not
+      commit to.
+    - **"the court of his teacher Sheikh Imam Niyamat Ali."** A named teacher and an unresolvable
+      antecedent — "his" can be Dara Shikoh's or Shah Abul Muali's, and the entry's own QA notes say
+      the accounts of that connection differ between the survey and the tazkira. **Two candidate
+      subjects and no way to choose** is precisely the shape that produced
+      `docs/allo_mahar_resolution.md`.
+
+    One row stands for a whole class: the **custodial sentences**. "His disciples built his shrine",
+    "the current Gaddi Nasheen", "his special disciples and their descendants" — every entry with a
+    living custodial family has two or three, and not one of them names anybody. Real relations,
+    unbuildable, and numerous enough that without a recorded verdict the pile looks full of
+    candidates forever.
+
+    And a rule confirmed rather than assumed: **a class ruling still needs one row per sentence.**
+    Khwaja Moinuddin Chishti's *chilla* at Data's tomb had already been ruled a non-tie from one
+    wording, and the entry's other wording was still being offered. The scanners match sentences,
+    not claims.
+
+    Two of the five failed the quote gate on the way in — one on a period inside a closing quote,
+    one on a slug where `(R.A)` strips to `ra` rather than `r-a`. **Both were mine, both caught,
+    neither reached the file.**
+
+    | | total | carried | ruled out | names nobody | to read |
+    |---|---|---|---|---|---|
+    | kin | 188 | 77 | 16 | 35 | 60 |
+    | lineage | 175 | 67 | 13 | 46 | **49** |
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
