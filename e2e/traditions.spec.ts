@@ -96,3 +96,57 @@ test.describe('the tradition pages', () => {
     await expect(page.locator('.tradition-member')).not.toHaveCount(0);
   });
 });
+
+/**
+ * Reaching a tradition from search.
+ *
+ * The eight pages shipped before the search index knew about them, so for a few
+ * hours typing "Nath" into ⌘K returned four *figures* with Nath in their name
+ * and never the tradition. The index rows carry `alsoKnownAs`, which is what
+ * makes this worth having: **nobody types "Pranami" when the temple is signed
+ * "Parnami"**, and nobody types "Udasi" when the corpus called it Udasipanth.
+ */
+test.describe('finding a tradition', () => {
+  const openPalette = async (page: import('@playwright/test').Page, query: string) => {
+    await page.goto('/graph');
+    await page.locator('h1.entity-title').waitFor();
+    await page.keyboard.press('Meta+k');
+    await expect(page.locator('.palette-input')).toBeVisible();
+    await page.locator('.palette-input').fill(query);
+    // The result list is debounced; wait for the tradition group to appear.
+    await expect(page.locator('.palette-results')).toBeVisible();
+  };
+
+  for (const [query, slug] of [
+    ['Kanphata', 'nath'],
+    ['Udasipanth', 'udasi'],
+    ['Sewapanthi', 'sevapanthi'],
+  ] as const) {
+    test(`"${query}" reaches /tradition/${slug}`, async ({ page }) => {
+      await openPalette(page, query);
+      /* By its alias, not its name — the whole point. Each of these is a
+         spelling the corpus itself uses for the tradition it is filed under. */
+      const row = page.locator('.palette-results').getByText(/./).first();
+      await expect(row).toBeVisible();
+      await page
+        .locator(
+          `.palette-results >> text=/^${slug === 'nath' ? 'Nath' : slug === 'udasi' ? 'Udasi' : 'Sevapanthi'}$/i`,
+        )
+        .first()
+        .click();
+      await expect(page).toHaveURL(new RegExp(`/tradition/${slug}$`));
+      await expect(page.locator('h1.entity-title')).toBeVisible();
+    });
+  }
+
+  test('an Urdu reader finds it in the script they typed', async ({ page }) => {
+    /* The index rows carry `nameUr` for all eight, and `localizeOrderName`
+       reads it first — so «ناتھ» matches without the reader transliterating. */
+    await page.goto('/graph?lang=ur');
+    await page.locator('h1.entity-title').waitFor();
+    await page.keyboard.press('Meta+k');
+    await expect(page.locator('.palette-input')).toBeVisible();
+    await page.locator('.palette-input').fill('ناتھ');
+    await expect(page.locator('.palette-results')).toContainText('ناتھ');
+  });
+});

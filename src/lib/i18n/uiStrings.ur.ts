@@ -927,6 +927,7 @@ export const UI_TEXT_UR: UiStrings = {
     'جو مقامات کسی دوسری روایت کے پہلو میں ہیں وہ روشن رہتے ہیں، باقی مدھم پڑ جاتے ہیں۔ ان کے درمیان کے رابطے 800 میٹر سے کم ہیں، اس لیے انہیں دیکھنے کے لیے قریب جائیں۔',
 
   /* ── روایت کے صفحات (/tradition/:slug) ────────────────────────────── */
+  searchGroupTraditions: 'روایات',
   traditionKicker: 'روایت',
   traditionSiteCount: (n: number) => `${n} مقامات`,
   traditionDefinitionHeading: 'آرکائیو کیا کہتا ہے',

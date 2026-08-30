@@ -44,14 +44,17 @@ import type { Shrine } from '../../types/shrine';
 
 /** Per group, so no single kind can crowd out the others. A reader searching
  *  "chishti" wants the order, the figures and the sites — not eight figures. */
-const PER_GROUP = { shrine: 6, figure: 5, order: 3, place: 4, day: 4 } as const;
+/* Three traditions, the same slice the orders get: they answer the same
+   question for the five non-Sufi traditions, and a search that returned eight
+   of anything would push the shrines off the first screen on a phone. */
+const PER_GROUP = { shrine: 6, figure: 5, order: 3, tradition: 3, place: 4, day: 4 } as const;
 
 /* `| undefined` on the optional fields, not just `?`: this project runs
    `exactOptionalPropertyTypes`, under which `meta?: string` refuses an explicit
    `undefined` — and every one of these is computed from data that may not be
    there. */
 type Row = {
-  kind: 'shrine' | 'figure' | 'order' | 'place' | 'day';
+  kind: 'shrine' | 'figure' | 'order' | 'tradition' | 'place' | 'day';
   key: string;
   name: string;
   meta?: string | undefined;
@@ -135,7 +138,12 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
         saved: saved.has(shrine.slug),
       }));
 
-    const byType = (type: 'figure' | 'order') =>
+    /* The route each entity type lives at. A map rather than a ternary chain:
+       the third type was added by widening this function, and a nested
+       conditional would have sent a tradition to `/order/nath`. */
+    const ROUTE_FOR = { figure: 'saint', order: 'order', tradition: 'tradition' } as const;
+
+    const byType = (type: 'figure' | 'order' | 'tradition') =>
       matchEntities(
         entities.filter((e) => e.type === type),
         q,
@@ -143,6 +151,9 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       ).map(({ entity }) => ({
         kind: type,
         key: `${type}:${entity.slug}`,
+        /* `localizeOrderName` reads `nameUr` first, and the tradition rows carry
+           one for all eight — so a reader typing «ناتھ» reaches the page in the
+           script they typed. */
         name:
           type === 'figure' ? localizeFigureName(entity, lang) : localizeOrderName(entity, lang),
         /* A lineage-only figure has a page but is not an entry of this archive,
@@ -152,7 +163,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
           : entity.note
             ? localizeOrderName({ name: entity.note }, lang)
             : undefined,
-        to: `/${type === 'figure' ? 'saint' : 'order'}/${entity.slug}`,
+        to: `/${ROUTE_FOR[type]}/${entity.slug}`,
       }));
 
     const placeRows: Row[] = matchEntities(
@@ -198,7 +209,14 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       .filter((row) => row !== null)
       .slice(0, PER_GROUP.day);
 
-    return [...shrineRows, ...byType('figure'), ...byType('order'), ...placeRows, ...dayRows];
+    return [
+      ...shrineRows,
+      ...byType('figure'),
+      ...byType('order'),
+      ...byType('tradition'),
+      ...placeRows,
+      ...dayRows,
+    ];
   }, [debounced, ids, shrines, entities, places, lang, t, fmtNum, saved]);
 
   /* Group headings are rendered from the row list rather than stored on it, so
@@ -210,9 +228,11 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
         ? t('tabExplore')
         : kind === 'order'
           ? t('sufiOrders')
-          : kind === 'place'
-            ? t('placesTitle')
-            : t('searchGroupDays');
+          : kind === 'tradition'
+            ? t('searchGroupTraditions')
+            : kind === 'place'
+              ? t('placesTitle')
+              : t('searchGroupDays');
 
   useEffect(() => setActiveIndex(0), [rows]);
 

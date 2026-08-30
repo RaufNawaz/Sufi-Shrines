@@ -1026,6 +1026,9 @@ const UI_TEXT_EN = {
      copy has one job the order pages do not: to keep the difference between a
      *bucket* (the site's category) and a *claim* (what its entry says it
      belongs to) legible on the same page. */
+  /* The search group heading. Plural, unlike `traditionKicker`, which labels
+     one page. */
+  searchGroupTraditions: 'Traditions',
   traditionKicker: 'Tradition',
   traditionSiteCount: (n: number) => `${n} site${n === 1 ? '' : 's'}`,
   traditionDefinitionHeading: 'What the archive says',
