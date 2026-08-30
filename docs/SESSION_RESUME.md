@@ -59,7 +59,8 @@ the reason the rest is credible.
 | A figure-search assertion followed a gurdwara to the almanac, because `hasText` is a substring | `639e069` |
 | The rename missed `index.html`, so ~940 prerendered pages still said "Sufi shrines" | `b9e04f3` |
 | Three routes' bundle budgets sat at exactly zero headroom, six more under 3 KB | `4e655bb` |
-| The kin reading pile held nine relatives the archive records and never names | *this commit* |
+| The kin reading pile held nine relatives the archive records and never names | `400a250` |
+| A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
 
 ---
 
@@ -144,6 +145,27 @@ a second place for the archive to describe itself from.
 Still English-only, and genuinely Rauf's: `/about` and `/coverage`, whose descriptions are not
 built from a UI string. `/report` keeps the site blurb deliberately — it is a redirect stub whose
 canonical points at `/about`.
+
+## The corpus scanners are worked out
+
+Both reading piles were taken to the end on 31 August 2026, and the result is a negative worth
+recording so nobody re-reads them looking for edges.
+
+**Kin: 30 to read → no unrecorded edge.** Every candidate was already in the graph — Bahadur Baba
+as Kaka Sahib's father, Shah Kamal and Shah Jamal as brothers, Shah Ali Akbar eight generations
+from Shams Sabzwari, Bhittai from Shah Abdul Karim Bulri, Bebe Nanaki and Guru Nanak. What the
+pile held was family the archive states and *cannot name*, and `kinNotes` had two entries in it.
+It has twelve.
+
+**Lineage: 36 to read → one finding, and it is a non-relation.** A *pir-bhai* is a fellow disciple
+of the same master, which no relation type here holds. Recorded, not acted on: one sighting is not
+a vocabulary.
+
+**And what is left is not agent-work.** `scripts/data/measure-kb-gaps.mjs`, run after both piles:
+**434 gaps closeable only by evidence** — the archive does not record it, and RULE 2 says an agent
+may not supply it — **135 by human review**, 20 informational (long slugs, and renaming one breaks
+a published URL), and 4 that already carry a written adjudication. There is no pile left that
+reading harder would move.
 
 ## Waiting on a person, not on an agent
 
