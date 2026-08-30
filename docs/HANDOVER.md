@@ -4290,6 +4290,84 @@ both redirects.
     Everything needed is above: the quotes are verbatim from `data/shrines.json` and the picks
     go in `scripts/data/build-kg.mjs`'s `familyRelations` seed the same way the first 28 did.
 
+    **Built 30 August 2026, along with nine more — see §9.161.** The scan that found the extra
+    nine also found that this list was incomplete in a way worth recording, so the entry above is
+    kept as written rather than edited.
+
+161. **The kin layer went from 28 edges to 43, and the useful finding is that a hand scan misses
+    ties inside rows it has already read.** *Built 30 August 2026.* §9.160's six were correct and
+    ready; before typing them in I re-read their six source rows in full, and two more ties were
+    sitting in them — one of them **in the sentence immediately after one of that scan's own
+    picks**:
+
+    > Adjoining smaller samadhis honour his son Kharak Singh and **grandson Nau Nihal Singh**.
+
+    A pass whose misses are inside the rows it read is not a pass, it is a sample. So the third
+    pass was made an instrument instead: **`scripts/data/scan-kin-statements.mjs`** reads every
+    sentence in `data/shrines.json` that uses a kinship word, marks the ones an existing edge
+    already accounts for, and prints the rest for a human. It reports **192 kin sentences across
+    the 169 rows, of which 13 were covered by one of the 28 edges.** That is the number that
+    justifies the instrument: the archive talks about family constantly, and the layer was reading
+    a fraction of it.
+
+    The script **does not emit edges, and must not be changed to.** It has no idea which end is
+    junior, and for this corpus that is the whole difficulty — Urdu needs دادا or نانا and the
+    sentence usually declines to say which. Direction, role and slug stay human decisions; the
+    script's job is to make the reading pile finite. Re-run it after any `data:build`; `--all`
+    prints the covered ones too, which is what an audit should use, because "covered" is a
+    deliberately weak test (both ends named in one sentence) and a sentence wrongly marked covered
+    is a miss. Two real examples of that weakness, both harmless and both instructive: Sakhi Shah
+    Chan Charagh's uncle edge exists but its sentence says "He", and the six of Bibi Pak Daman are
+    a collective node whose name is not the name in the prose.
+
+    **Fifteen edges added. Six of them cost no new node** — both ends were already figures the
+    graph held and nobody had connected: Kaka Sahib to his own father Bahadur Baba (stated twice,
+    in two entries), Bebe Nanaki to Guru Nanak, Shah Kamal to Shah Jamal, Shah Jamal to the father
+    the archive already recorded for his brother, Guru Hargobind to Guru Arjan Dev, Shah Ali Akbar
+    to Shah Shams Sabzwari. **That is the finding to carry forward: a kin pass is not priced in new
+    nodes.** The nine new `lineageOnly` figures move `figureProvenance.test.ts` from 164 to 173,
+    and the count is again exactly the number of nodes created.
+
+    **`sibling_of` shipped, and §9.160's decision needed one amendment.** Stored once, exactly as
+    that entry settled it — `getKinOf` reads both directions, and the reverse-edge check needs no
+    exception because a reverse edge is a duplicate for a symmetric type and a contradiction for an
+    asymmetric one. What §9.160 got wrong was "**both roles carry `brother`**". That is true of the
+    two it was looking at (Musa and Miran Hussain Zanjani) and false in general: **Bebe Nanaki is
+    Guru Nanak's sister and he is her brother.** One stored row, two different words. So
+    `KIN_ROLES.sibling_of` allows `['brother', 'sister']` on *both* sides — the sides are
+    interchangeable, the words are not — and a single shared symmetric role would have printed
+    "sister" on Guru Nanak's page. Verified by rendering both pages, not by reading the type.
+
+    `elderRole`/`juniorRole` keep their names and mean "role of the object" / "role of the
+    subject", which is what `toKinLink` has always done with them. For a sibling the subject/object
+    order carries **no seniority claim** — Bebe Nanaki is the elder of the two and is the subject.
+
+    **Three things deliberately not done, each because the corpus does not state them:**
+
+    - **Sadr-ud-Din Arif `son_of` Bahauddin Zakariya.** The sentence says Rukn-e-Alam is "the
+      grandson of Baha-ud-Din Zakariya and son of Sadr-ud-Din Arif". The third edge follows
+      logically and is not written down, so it is not here. (Rukn-e-Alam `son_of` Sadr-ud-Din Arif
+      **is** — the existing `grandson_of` edge's own notes had flagged the intervening father as
+      "recorded here only for the blood link", and then never gave him the node.)
+    - **Nau Nihal Singh typed `grandsonPaternal`.** Kharak Singh is named as a son in the same
+      sentence, so the patriline is nearly certain. Nearly certain is what `*Unspecified` is for.
+    - **The Mughal genealogy.** Dara Shikoh and Aurangzeb are brothers, Jahanara is Shah Jahan's
+      daughter, and both sentences are in the Mian Mir entry. They are context for a shrine, not
+      figures of this archive, and adding them starts a genealogy with no edge.
+
+    **The trap this batch came closest to.** The Miran Hussain Zanjani entry names three similar
+    people: Miran Hussain Zanjani, his blood brother **Musa** Hussain Zanjani, and — in the Data
+    Ganj Bakhsh foundation story — a "**pir-brother**", Hazrat **Shaikh** Hussain Zanjani. The last
+    is a spiritual brotherhood, not blood. The caution is written into the edge's `notes` because
+    the next person to merge figures here will see three near-identical names and a `sibling_of`
+    edge already asserted.
+
+    Gates: `verify-kg-proposals.mjs` checks all 43 quotes verbatim against source and passes;
+    `validate-kg-identity.mjs` reports 209 figures and 0 name collisions; the 1,268 unit tests and
+    the Urdu no-leak e2e specs are green. The nine new figures were given Urdu names in the same
+    change, because §9.159 turned that budget into an assertion — which is exactly what a closed
+    debt is supposed to do to the next batch.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
@@ -4399,6 +4477,68 @@ both redirects.
     as `feedback_measure_before_recording`, applied to a UI rather than to data. The findings
     that survived it (§9.140's front door, the iOS input zoom, the 14px pins, these three) are
     worth something precisely because four others did not.
+
+144. **The pin that had a 44px tap target was exactly the pin that did not.** *Found, fixed and
+    mutation-checked 30 August 2026 — commit `1d39105`.* The tap area added in §9.143's sweep
+    (`.shrine-dot::after`, 44px, centred with `translate(-50%, -50%)`) and the selected pin's
+    pulse ring were **the same pseudo-element**, and the ring won: its `inset: -6px` moved the
+    touch square off the dot, and its `transform: scale(0.9 → 2.2)` *replaced* the centring
+    translate, because **a CSS animation outranks a normal author declaration in the cascade.**
+
+    Measured on one plain pin, the same marker both ways, by holding the pre-fix rules over the
+    fixed build with an injected stylesheet so nothing but the cascade differed:
+
+    | | tap reach from the dot's centre | ring box |
+    |---|---|---|
+    | unselected pin | steady **21px** | — |
+    | selected, pre-fix | **45 → 90px**, on a two-second loop | 44px (on a 22px dot) |
+    | selected, fixed | steady **21px** | 22px |
+
+    **What a reader felt.** A selected pin sits above its neighbours (`zIndexOffset: 1000`) and
+    the walled city puts thirty-five sites inside a few hundred metres. An invisible target
+    180px across swallows the taps meant for them, so tapping the next shrine along *deselected
+    the current one* instead of opening it — and whether it did depended on where a decorative
+    animation happened to be at the moment of the tap. That is the worst shape a bug can take on
+    a phone: intermittent, invisible, and blamed on the finger.
+
+    The fix moves the ring to `::before` with `pointer-events: none`, and counter-scales the hit
+    area by the dot's own selected scale — now `--marker-selected-scale`, a token, because two
+    rules have to agree on it — so 44px means 44px whether or not a pin is selected, rather than
+    68px reaching over the pins beside it. Hover (1.35) is deliberately left alone: it is a
+    pointer state, it cannot fire on the taps this protects, and a target that grows under a
+    cursor already on it is the one case where growing is right.
+
+    **The half-fix that would have been worse, and the test that did not catch it.** The first
+    mutation check renamed the ring back to `::after` but kept `pointer-events: none` — and the
+    new test *passed*. That combination stops the tap-stealing and destroys the tap target with
+    it, and it passed because a selected photo pin is 47px wide on its own body, which clears a
+    `reach >= 21` assertion without any hit area at all. **The assertion that catches this class
+    of bug is the spread over a pulse cycle, not the size**: a fixed target of the wrong size is
+    a different defect from a target that changes while you reach for it. Against the faithful
+    pre-fix cascade the test fails with `(79,79,79,79,35,38,52,67,74,77,79,79)`, spread 44.
+
+    **The hit probe, third attempt, and the first that works.** `map-touch.spec.ts` records two
+    earlier ones as deliberately abandoned: one asked whether a point landed on *a* marker (on a
+    map of 169, it always did), the other used `elementFromPoint` — singular — which returns only
+    the topmost element, so a neighbour painted over the target read as a miss at the target's
+    own centre. `elementsFromPoint`, **plural**, tested by identity against one dot, is immune to
+    both: a neighbour can neither satisfy it nor hide it. Two things make it read correctly, and
+    both cost time to find:
+
+    - **Probe for the dot, never for the Leaflet icon.** The pseudo-element overflows the icon's
+      own 14px box, so past that box the hit list holds the dot and *not* its icon ancestor —
+      ancestors appear only where they are themselves hit. My first run asked for the icon,
+      read reach 0 on a working 44px target, and would have been recorded as "the tap-target fix
+      does nothing" if it had gone unchecked. The tap is fine either way: the event fires on the
+      dot and bubbles to the icon Leaflet bound its handler to.
+    - **Validated against a known answer first** — a bare 14px div carrying this exact `::after`
+      reads 21, and 0 with the rule removed — before any number above was believed.
+
+    **One finding retracted before it was recorded.** The same sweep flagged the guided tour's
+    numbered stop markers as 26px targets, under the same 44px minimum, and reachable on every
+    tour. They are not a defect: `TourRoute` builds them with `interactive: false, keyboard:
+    false`, so they accept no taps at all and navigation runs through the tour panel. Measured
+    reach 0, correctly. A marker is not a control because it looks like one.
 
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
