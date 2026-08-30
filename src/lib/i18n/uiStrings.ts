@@ -413,8 +413,7 @@ const UI_TEXT_EN = {
   descentDescendant: 'later in the lineage',
   descentRemoves: 'generations removed',
   kinNotesHeading: 'Recorded, and unnamed',
-  kinNoteUnnamed:
-    'The archive records this family tie and names nobody on the other side of it, so there is no second figure to link to.',
+  kinNoteUnnamed: 'The archive records this family tie and has no second figure to link it to.',
   shrinesAssociated: 'Associated shrines',
   alsoKnownAs: 'Also known as',
   born: 'Born',

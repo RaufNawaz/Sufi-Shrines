@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T19:29:17.800Z",
+  "generated": "2026-08-30T19:39:25.695Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -12510,6 +12510,13 @@
       "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan",
       "source": "data/shrines.csv#shrine-of-abdullah-shah-ghazi",
       "notes": "A sayyid descent claim, attributed to tradition by the entry itself. Neither the Prophet nor Imam Hasan is a figure in this archive — it holds sites in Pakistan — so there is nothing to point at, and inventing the nodes to draw an edge would be the wrong fix."
+    },
+    {
+      "saintSlug": "syed-miran-hussain-zanjani",
+      "wording": "family descent from Imam Musa Kazim through the Zanjan line",
+      "quote": "traces his family's descent from Imam Musa Kazim through the Zanjan line",
+      "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
+      "notes": "Same shape as Abdullah Shah Ghazi's descent through Imam Hasan: a named ancestor who is not a figure in this archive, because the archive holds sites in Pakistan. Nothing to point at, and creating the node to draw the edge would be the wrong fix."
     }
   ]
 }
