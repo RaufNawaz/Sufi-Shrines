@@ -367,6 +367,10 @@
   /* The invisible square that carries a map marker's touch. 44px is the
      platform minimum every other control in this archive meets; the dot itself
      stays 14px because a map at country zoom cannot afford 44px discs. */
+  /* The edge shadow on a horizontally scrollable region, telling a reader
+     there is more to the side. Defined per theme because it sits on the page
+     ground: a shadow tuned for cream is invisible on the dark one. */
+  --color-scroll-shadow: rgba(60, 44, 26, 0.22);
   --marker-hit-size: 44px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -446,6 +450,7 @@
   --color-bg-alt: #211b16;
   --color-bg-surface: #2a221c;
   --color-bg-overlay: rgba(23, 19, 16, 0.96);
+  --color-scroll-shadow: rgba(0, 0, 0, 0.55);
 
   /* Glass, after dark. Alpha slightly higher: the dark ground is closer in
      value to the map tiles behind it, so the same 0.82 read as murky rather

@@ -1949,11 +1949,43 @@
    own scroll container so a narrow phone scrolls the table and not the page —
    the five-column body is wider than 360px and always will be. */
 
+/*
+ * The comparison table scrolls sideways on a phone, and until now nothing said
+ * so. At 390px the table's 30rem minimum leaves about 90px off-screen, so a
+ * reader saw the century column cut mid-word — "1 undat" — with no scrollbar,
+ * no fade and no reason to think swiping would do anything. A table that scrolls
+ * and does not look scrollable is a table whose last column does not exist.
+ *
+ * Stacking the rows into cards below a breakpoint was the other option and is
+ * the wrong one here: this table's whole purpose is *comparison* across orders,
+ * and a stack destroys the column the eye runs down.
+ *
+ * The shadows are the standard four-gradient technique. The two `local` layers
+ * are painted in the page's own ground and scroll *with* the content, so they
+ * sit over the shadows at each extreme and hide them; the two `scroll` layers
+ * stay put. The effect is a shadow that appears only on the side that has more
+ * to show — no JavaScript, no scroll listener, and it degrades to a plain
+ * scroller wherever the layering is unsupported.
+ *
+ * `--color-bg` rather than a literal: this ground flips with the theme, and a
+ * hardcoded cream cover would paint a pale rectangle over the dark page
+ * (`styles/__tests__/themeFlippingGrounds.test.ts` exists for that class of
+ * mistake).
+ */
 .order-compare-scroll {
   overflow-x: auto;
   margin-block-start: var(--space-3);
   /* Keeps a focus ring on the last column from being clipped by the scroller. */
   padding-block-end: 2px;
+  background:
+    linear-gradient(to right, var(--color-bg) 30%, rgba(0, 0, 0, 0)) left center / 2.5rem 100%
+      no-repeat local,
+    linear-gradient(to left, var(--color-bg) 30%, rgba(0, 0, 0, 0)) right center / 2.5rem 100%
+      no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--color-scroll-shadow), rgba(0, 0, 0, 0)) left
+      center / 0.9rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--color-scroll-shadow), rgba(0, 0, 0, 0)) right
+      center / 0.9rem 100% no-repeat scroll;
 }
 
 .order-compare-table {
