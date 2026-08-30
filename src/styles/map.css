@@ -593,7 +593,23 @@
   padding-inline-start: 2.25rem;
   padding-inline-end: 2rem;
   text-align: start;
-  font-size: var(--text-base); /* 16px — prevents iOS auto-zoom */
+  /* The 16px floor is load-bearing on iOS, and `var(--text-base)` alone stopped
+     clearing it.
+     
+     Safari zooms the viewport when a focused text input is under 16px, and does
+     not zoom back out afterwards — on the map that leaves the reader stranded
+     at a zoom level they did not choose. This line used to be `var(--text-base)`
+     annotated "16px", which was true when written. It stopped being
+     true on 28 August 2026, when the reading-size slider was deliberately
+     widened to scale the whole document (`--reading-scale` on `:root`): at the
+     `xsmall` step `--text-base` is 1rem × 0.875 = **14px**, and at `small`,
+     15px. Two of the five reading sizes silently reintroduced the zoom the
+     comment claimed to prevent.
+     
+     `max()` keeps both intentions — the field still grows with the reader's
+     chosen size, and never falls through the platform's threshold. Measured at
+     every step by `e2e/mobile-input-zoom.spec.ts`. */
+  font-size: max(16px, var(--text-base));
   border: 1.5px solid var(--color-border-light);
   border-radius: var(--radius-full);
   background: var(--color-bg-surface);

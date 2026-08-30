@@ -98,7 +98,13 @@
   background: none;
   padding: var(--space-1) 0;
   font-family: inherit;
-  font-size: var(--text-lg);
+  /* Floored at 16px for the same reason as `.search-input`: below it, iOS zooms
+     the viewport on focus and stays there. `--text-lg` is 18px at the default
+     reading size and **15.75px at `xsmall`** — a quarter of a pixel under the
+     threshold, which Safari treats as strictly under. This is the field a
+     phone reader actually searches from, since the sidebar's own input is
+     desktop-only. */
+  font-size: max(16px, var(--text-lg));
   color: var(--color-text);
   min-height: 44px;
   /* This element also carries `.search-input`, which paints a 1.5px pill border,
