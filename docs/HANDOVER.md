@@ -4900,6 +4900,33 @@ both redirects.
     `docs/allo_mahar_resolution.md` in miniature. Proved by pushing an orphan node into the graph
     and watching it fail by name.
 
+    **And the same question, asked of the reading piles, found the scanners reading two things that
+    can never be claims.** With the real ties taken out, what remained was readable enough to
+    notice the shape of the noise:
+
+    - **Image columns.** A row has up to thirteen, each a long string, so `rowText()` was
+      concatenating `Image 1..13` into the prose and splitting the result into "sentences". That is
+      why the pile held entries like *"Darbar Ghazi Ilm Din Shaheed {spiritual guide}"* followed by
+      a wall of `.jpg` URLs — a filename sitting next to a kinship word in the joined blob. Now
+      skipped by **measuring** whether a field is mostly URLs rather than by column name, because
+      the sheet's headers have changed before and a rule about content survives that.
+    - **Bibliographies.** A citation is a reference to a work, not an assertion about a person, and
+      this corpus cites *"Bhagat Kanwar died for Sindh, says son"* and *"Tomb of Shah Ali Akbar &
+      His Mother, Multan"*. Read as prose those are a son and a mother; read correctly they are a
+      newspaper headline and a monument listing. **A careless pass could have turned one into an
+      edge** — the exact failure `docs/allo_mahar_resolution.md` records. Cut at the first
+      bibliography heading, on the same split `validate-urdu-leak.mjs` and `urdu_content_qa.py`
+      already enforce, so there is no fourth spelling of the rule to keep in sync.
+
+    Small in count — 192 → 188 kin sentences, 177 → 175 — because most citations do not happen to
+    contain a kinship word. The point is the **class** is gone: every future citation is excluded
+    for free, and the piles went to 77 and 59 with **zero citation lines left in either**.
+
+    **Checked for the harm the cut could do, rather than assumed:** `carried by an existing edge`
+    was unchanged at 65 and 60, so no evidenced sentence was lost, and a sweep for kinship or
+    lineage prose sitting *after* a bibliography heading found **0 rows** across all 169. Truncating
+    a field at its bibliography loses nothing this corpus actually says.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

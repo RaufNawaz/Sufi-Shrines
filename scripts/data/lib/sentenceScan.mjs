@@ -58,11 +58,52 @@ export function extractNames(sentence) {
   );
 }
 
-/** The long text fields of a row, which is where the archive's prose lives. */
+/* Where a Description stops being prose and starts being a reading list. The
+   archive's own convention is `## Bibliography`; the Urdu articles use
+   کتابیات / حوالہ جات / حوالے, and `validate-urdu-leak.mjs` and
+   `pipeline/urdu_content_qa.py` already split on exactly these, so a third
+   spelling of the rule would be a fourth thing to keep in sync. */
+const BIBLIOGRAPHY_HEADING =
+  /^##\s*(Bibliography|Sources|References|کتابیات|حوالہ\s*جات|حوالے)\s*$/im;
+
+/**
+ * The long text fields of a row, which is where the archive's PROSE lives.
+ *
+ * Two things are cut, and both were found by reading what the scanners were
+ * still offering after the real ties had been taken out of them.
+ *
+ * **Image columns.** A row has up to thirteen of them and each is a long
+ * string, so `Image 1..13` were being concatenated into the text and split into
+ * "sentences". That is why the pile contained entries like *"Darbar Ghazi Ilm
+ * Din Shaheed {spiritual guide}"* followed by a wall of `.jpg` URLs: a filename
+ * happened to sit next to a kinship word in the joined blob. Nothing there can
+ * ever be a claim.
+ *
+ * **Bibliographies.** A citation is a *reference to* a work, not an assertion
+ * about a person, and this corpus cites titles like *"Bhagat Kanwar died for
+ * Sindh, says son"* and *"Tomb of Shah Ali Akbar & His Mother, Multan"*. Read as
+ * prose those are a son and a mother; read correctly they are a newspaper
+ * headline and a monument listing. Offering them forever is how a reading pile
+ * loses a reader's trust — and worse, a careless pass could turn one into an
+ * edge, which is the failure `docs/allo_mahar_resolution.md` records.
+ *
+ * The cut is per FIELD, not per row, because an article's sections live in
+ * separate columns and only the one carrying the bibliography should lose its
+ * tail.
+ */
 export function rowText(row) {
   return Object.entries(row)
     .filter(([, v]) => typeof v === 'string' && v.length > 60)
-    .map(([, v]) => v)
+    .map(([, v]) => {
+      /* A field that is mostly URLs is a media column, not prose. Measured
+         rather than keyed on the column name, because the sheet's headers have
+         changed before and a rule about content survives that. */
+      const urls = v.match(/https?:\/\/\S+/g) ?? [];
+      if (urls.join('').length > v.length / 2) return '';
+      const cut = v.search(BIBLIOGRAPHY_HEADING);
+      return cut === -1 ? v : v.slice(0, cut);
+    })
+    .filter(Boolean)
     .join('\n');
 }
 
