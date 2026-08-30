@@ -997,8 +997,18 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
  * Baba Auliya is the case that forced it: seeded `qalandariyya`, while his row's
  * own silsila cell reads "Azeemia", and there was nowhere to put the second
  * without discarding the first. */
-for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
-  for (const orderSlug of Array.isArray(orderValue) ? orderValue : [orderValue]) {
+for (const [saintSlug, rawOrderValue] of Object.entries(saintOrders)) {
+  /* A seed may be a bare slug, a list of them, or an object carrying the
+     evidence: { order, source, note }. The object form exists so the four
+     unsupported seeds below can be closed by naming a source rather than by
+     deleting the edge — the shape `kinNotes`, `saintOrdersNotInCell` and
+     `orderProse` already use in this same file. */
+  const seedEntries = (Array.isArray(rawOrderValue) ? rawOrderValue : [rawOrderValue]).map(
+    (v) => (typeof v === 'string' ? { order: v } : v),
+  );
+  for (const seedEntry of seedEntries) {
+    const orderSlug = seedEntry.order;
+    const seedSource = seedEntry.source;
   if (!saintBySlug.has(saintSlug)) {
     reviewNeeded.push({
       issue: 'seed-saint-not-found',
@@ -1047,11 +1057,12 @@ for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
      the figure's own cell does not name is either a mistake or a decision; the
      archive now insists it be the second. Two were mistakes when this was first
      run (29 August 2026) and both were transpositions. */
+  const declared = ordersNotInCell.some(
+    (d) => d.saintSlug === saintSlug && d.order === orderSlug,
+  );
+
   if (asRecorded) {
     const named = ORDER_CELL_PATTERNS[orderSlug]?.test(asRecorded) ?? true;
-    const declared = ordersNotInCell.some(
-      (d) => d.saintSlug === saintSlug && d.order === orderSlug,
-    );
     if (!named && !declared) {
       reviewNeeded.push({
         issue: 'seeded-order-contradicts-sheet',
@@ -1063,6 +1074,31 @@ for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
           `evidence for it.`,
       });
     }
+  } else if (!declared && !seedSource) {
+    /* The case the `if (asRecorded)` above was structurally unable to question.
+       A seed whose figure has no silsila cell at all was not checked against
+       anything — so the four seeds with no basis in the archive were exactly the
+       four this guard could not reach. Measured 30 August 2026: rahman-baba →
+       chishtiyya, makhdoom-burhan-ud-din → suhrawardiyya, sufi-shah-inayat-
+       shaheed → qadiriyya, sachal-sarmast → qadiriyya. All four are widely
+       attested in the general literature and **that is not this archive saying
+       so** (RULE 2); none of their Descriptions names the order either.
+
+       They render worse than unmarked: `getOrderMemberships` reads
+       `reviewed: r.reviewed !== false`, and `reviewed` is absent on every
+       hand-seeded edge, so the four appear with no "unreviewed" chip while the
+       43 machine-extracted memberships beside them carry one *and* a verbatim
+       quote. The presentation inverts the truth. */
+    reviewNeeded.push({
+      issue: 'seeded-order-has-no-basis',
+      entityId: `saint:${saintSlug}`,
+      details:
+        `saintOrders seeds "${orderSlug}" for a figure whose silsila cell is empty, ` +
+        `so nothing in the archive supports it. Give the seed a source — ` +
+        `{ "order": "${orderSlug}", "source": "…", "note": "…" } — or record it in ` +
+        `saintOrdersNotInCell with the evidence. Supplying the affiliation from ` +
+        `general knowledge is what RULE 2 forbids.`,
+    });
   }
 
   relations.push({
@@ -1073,6 +1109,8 @@ for (const [saintSlug, orderValue] of Object.entries(saintOrders)) {
     confidence: 0.9,
     method: 'human',
     ...(asRecorded ? { asRecorded } : {}),
+    ...(seedSource ? { source: seedSource } : {}),
+    ...(seedEntry.note ? { note: seedEntry.note } : {}),
   });
   }
 }

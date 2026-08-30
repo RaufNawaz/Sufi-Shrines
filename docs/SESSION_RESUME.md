@@ -465,6 +465,31 @@ cannot do.
   the cleaned, attributed form the 22 August ruling created for exactly this material, which is
   currently in neither the release bundle nor the descriptor. Under (a) or (c) the sensitive block
   still wants reading by a person before anything ships.
+- **Four order memberships have no basis in the archive, and render as *more* settled than the
+  sourced ones.** *Measured 30 August 2026 by the KB council (KB1-1); the guard is in, the
+  reader-facing half is yours.* `rahman-baba → chishtiyya`, `makhdoom-burhan-ud-din →
+  suhrawardiyya`, `sufi-shah-inayat-shaheed → qadiriyya`, `sachal-sarmast → qadiriyya`. Their only
+  basis is a bare `slug → orderSlug` line in `kg-seeds.json#saintOrders`. All four shrine rows'
+  `silsila` cell is empty and none of the four Descriptions names the order.
+
+  **The presentation inverts the truth.** `getOrderMemberships` reads `reviewed: r.reviewed !==
+  false`, and `reviewed` is *absent* on every hand-seeded edge, so it resolves to `true` and the
+  chip never shows. The four unsourced claims are bare order badges; the 43 machine-extracted
+  memberships beside them carry a chip, a verbatim quote and a citation.
+
+  Done here: `build-kg.mjs` now reports `seeded-order-has-no-basis` — its
+  `seeded-order-contradicts-sheet` check was nested inside `if (asRecorded)`, so the four seeds
+  with no sheet cell were exactly the four it could not question. `saintOrders` now accepts
+  `{ "order", "source", "note" }` so a seed can be closed by naming a work. And
+  `orderMembershipBasis.test.ts` fails on a fifth.
+
+  **Two ways to close it, and both are yours.** Name a source the archive holds for each — all
+  four are well attested in the general literature, and *that is not this archive saying so*
+  (RULE 2), so it has to be an entry, a survey or a work in the collection. Or mark the four
+  `reviewed: false` so the chip appears — which also needs `/about`'s sentence reworded, because
+  it currently reads *"Machine-extracted claims … are marked unreviewed wherever they appear"* and
+  ties the chip to machine extraction. That rewording needs Urdu.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the

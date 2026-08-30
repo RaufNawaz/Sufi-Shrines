@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T19:39:25.695Z",
+  "generated": "2026-08-30T23:28:55.960Z",
   "reviewNeeded": [
     {
       "issue": "name-merge",
@@ -370,6 +370,26 @@
       "issue": "saint-identity-joined",
       "entityId": "saint:hazrat-wasif-ali-wasif-awan",
       "details": "proposal slug \"hazrat-wasif-ali-wasif\" names the same person as \"hazrat-wasif-ali-wasif-awan\" (\"Hazrat Wasif Ali Wasif Awan\") and was joined to it rather than made a second node. Identical-name match; see scripts/data/lib/saintIdentity.mjs."
+    },
+    {
+      "issue": "seeded-order-has-no-basis",
+      "entityId": "saint:rahman-baba",
+      "details": "saintOrders seeds \"chishtiyya\" for a figure whose silsila cell is empty, so nothing in the archive supports it. Give the seed a source — { \"order\": \"chishtiyya\", \"source\": \"…\", \"note\": \"…\" } — or record it in saintOrdersNotInCell with the evidence. Supplying the affiliation from general knowledge is what RULE 2 forbids."
+    },
+    {
+      "issue": "seeded-order-has-no-basis",
+      "entityId": "saint:makhdoom-burhan-ud-din",
+      "details": "saintOrders seeds \"suhrawardiyya\" for a figure whose silsila cell is empty, so nothing in the archive supports it. Give the seed a source — { \"order\": \"suhrawardiyya\", \"source\": \"…\", \"note\": \"…\" } — or record it in saintOrdersNotInCell with the evidence. Supplying the affiliation from general knowledge is what RULE 2 forbids."
+    },
+    {
+      "issue": "seeded-order-has-no-basis",
+      "entityId": "saint:sufi-shah-inayat-shaheed",
+      "details": "saintOrders seeds \"qadiriyya\" for a figure whose silsila cell is empty, so nothing in the archive supports it. Give the seed a source — { \"order\": \"qadiriyya\", \"source\": \"…\", \"note\": \"…\" } — or record it in saintOrdersNotInCell with the evidence. Supplying the affiliation from general knowledge is what RULE 2 forbids."
+    },
+    {
+      "issue": "seeded-order-has-no-basis",
+      "entityId": "saint:sachal-sarmast",
+      "details": "saintOrders seeds \"qadiriyya\" for a figure whose silsila cell is empty, so nothing in the archive supports it. Give the seed a source — { \"order\": \"qadiriyya\", \"source\": \"…\", \"note\": \"…\" } — or record it in saintOrdersNotInCell with the evidence. Supplying the affiliation from general knowledge is what RULE 2 forbids."
     },
     {
       "issue": "seeded-order-contradicts-sheet",
