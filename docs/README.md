@@ -16,6 +16,7 @@ can go stale silently is worse than no index, because it is trusted.
 | Doc                                | Purpose                                                                       |
 | ---------------------------------- | ----------------------------------------------------------------------------- |
 | [`HANDOVER.md`](HANDOVER.md)       | **Full project state**: what this is, where everything lives, trust calibration (§9 — read it), risks, how to resume. The most important document here. |
+| [`SESSION_RESUME.md`](SESSION_RESUME.md)                                       | **Read this first with no conversation history.** The standing work queue, ranked by what each item costs a reader, plus what is waiting on a person and the agreements for a shared tree |
 | [`TODO.md`](TODO.md)               | **The live working log.** Session-by-session record of what was done and what is next. |
 | [`SESSION_CHECKPOINT_2026-08-21.md`](SESSION_CHECKPOINT_2026-08-21.md) | **Start here in a new session.** What is on the branch vs live, what shipped on 21 August, what to pick up, and the gotchas that cost an hour each. |
 | [`BRANCHING.md`](BRANCHING.md)     | **What each branch is for, and the fact that Pages does not deploy from `main`.** Per-branch disposition with measurements, and how to cut a version branch. |
