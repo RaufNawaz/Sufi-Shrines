@@ -132,9 +132,21 @@ export function mentions(sentence, name) {
 /**
  * Walk the corpus and return one finding per sentence matching `wordRe`.
  *
- * `edges` is `[{ a, b, label }]` of what the graph already asserts. A sentence
- * counts as covered when both ends of some edge are accounted for — either
- * NAMED in the sentence, or supplied by `rowSubjects`.
+ * `edges` is `[{ a, b, label, quote }]` of what the graph already asserts, and
+ * there are two ways a sentence can be covered.
+ *
+ * **By quote — exact, and it should be tried first.** Every edge in this archive
+ * stores the verbatim sentence it was read from, and `verify-kg-proposals.mjs`
+ * checks that quote against the corpus on every build. So a sentence CONTAINING
+ * an edge's quote is not heuristically covered, it is the sentence that edge
+ * came from. That was sitting unused while the report offered ties back to the
+ * reader that it already held the evidence for — an instrument ignoring the one
+ * exact signal available to it in favour of a fuzzy one.
+ *
+ * **By name — the fallback.** Both ends accounted for, either NAMED in the
+ * sentence or supplied by `rowSubjects`. Still needed: an edge's quote is a
+ * *slice* of its sentence, so a neighbouring sentence in the same passage
+ * restating the same tie carries no quote of its own.
  *
  * WHY `rowSubjects` EXISTS, AND WHAT IT COST TO LEARN. The first version of
  * this test required both ends to be named outright. On kinship that was merely
@@ -184,9 +196,12 @@ export function scanCorpus({ rows, wordRe, edges, figureNames, rowSubjects, nonT
         coveredBy: edges
           .filter(
             (e) =>
-              /* At least one end must be named outright; the row's own figure
-                 may supply the other. Letting BOTH come from the row would mark
-                 every sentence in an entry covered by any edge that entry's
+              /* Exact first: this sentence contains the verbatim run the edge
+                 was read from, so it IS that edge's source. */
+              (e.quote && sentence.includes(e.quote)) ||
+              /* Otherwise: at least one end must be named outright; the row's own
+                 figure may supply the other. Letting BOTH come from the row would
+                 mark every sentence in an entry covered by any edge that entry's
                  figure appears in, which is not evidence of anything. */
               (mentions(sentence, e.a) && accounted(sentence, e.b)) ||
               (mentions(sentence, e.b) && accounted(sentence, e.a)),

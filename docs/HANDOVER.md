@@ -4968,6 +4968,42 @@ both redirects.
     metadata, so they are recorded rather than reconciled. That is a decision for Rauf, now written
     where the next person will meet it.
 
+173. **The scanners held the exact answer and were using a fuzzy one.** *30 August 2026.* Every
+    relation in this archive stores the **verbatim sentence it was read from**, and
+    `verify-kg-proposals.mjs` checks that quote against the corpus on every build. So a sentence
+    *containing* an edge's quote is not heuristically covered — **it is the sentence that edge came
+    from.** The coverage test was matching on names instead, and the quotes sat unused while the
+    report handed ties back to a reader that the archive already held the evidence for.
+
+    | | covered before | covered after | left to read |
+    |---|---|---|---|
+    | kin | 65 | **77** | 77 → **65** |
+    | lineage | 60 | **67** | 59 → **52** |
+
+    Nineteen sentences that were never open questions. **An instrument ignoring the one exact signal
+    available to it in favour of a fuzzy one** — the third instrument defect of the day, after the
+    vacuous assertion (§9.163) and the stale budget (§9.170), and the only one where the better
+    signal was already in the file being read.
+
+    The name match stays as the fallback, and has to: an edge's quote is a *slice* of its sentence,
+    so a neighbouring sentence restating the same tie carries no quote of its own.
+
+    **Both directions of the risk were measured rather than assumed.** False positives: the shortest
+    quote in the corpus is 38 characters (*"was succeeded by his son Sai Chanduram"*), median 117,
+    and that shortest one appears in exactly **one** field across all 169 rows — these are specific
+    verbatim runs, not common phrases. False negatives: of 157 quotes, **12 match no scanned
+    sentence, and all 12 are explained** — 9 are sourced from `entries/` rather than
+    `data/shrines.csv`, which the scanner correctly does not read, and 3 span a sentence boundary
+    where the splitter divides them. **Zero unexplained.**
+
+    **And it produced a third independent signal of the 171-vs-169 drift.** Five of those nine
+    `entries/`-sourced quotes belong to `shah-gohar-peer` and `mian-qurban-ali-shah` — the two rows
+    §9.156 says production holds and the snapshot does not. Their edges verify because
+    `verify-kg-proposals` reads the cited `entries/survey_*.md`; the scanners cannot see them at all,
+    because the corpus file they read is missing those rows. **The archive's own instruments are
+    blind to two entries it holds**, and that is one more reason the `data:build` waiting on Rauf is
+    worth doing.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

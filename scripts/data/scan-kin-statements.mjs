@@ -86,6 +86,7 @@ const findings = scanCorpus({
     a: norm(f.subjectName ?? ''),
     b: norm(f.objectName ?? ''),
     label: `${norm(f.subjectName ?? '').toLowerCase()} ${f.kinType} ${norm(f.objectName ?? '').toLowerCase()}`,
+    quote: f.quote,
   })),
 });
 

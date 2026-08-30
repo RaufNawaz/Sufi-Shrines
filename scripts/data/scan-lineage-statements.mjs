@@ -69,16 +69,19 @@ const edges = [
       a: norm(byId.get(r.subject)?.name ?? ''),
       b: norm(byId.get(r.object)?.name ?? ''),
       label: `${byId.get(r.subject)?.slug ?? '?'} ${r.type} ${byId.get(r.object)?.slug ?? '?'}`,
+      quote: r.quote,
     })),
   ...(proposals.proposals ?? []).map((p) => ({
     a: norm(p.subjectName ?? ''),
     b: norm(p.objectName ?? ''),
     label: `proposal: ${p.subjectSlug} ${p.relation} ${p.objectSlug}`,
+    quote: p.quote,
   })),
   ...(seeds.lineageRelations ?? []).map((l) => ({
     a: norm(byId.get(`saint:${l.subjectSlug}`)?.name ?? l.subjectSlug),
     b: norm(byId.get(`saint:${l.objectSlug}`)?.name ?? l.objectSlug),
     label: `seed: ${l.subjectSlug} ${l.relation} ${l.objectSlug}`,
+    quote: l.quote,
   })),
 ];
 
