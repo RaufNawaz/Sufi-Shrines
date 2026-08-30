@@ -301,7 +301,12 @@ const saintMap = new Map(); // slug → KGSaint (partial, shrines[] grows)
 const reviewNeeded = [];
 /* Figure slugs that used to be their own page and are now somebody else's:
    retired slug → the canonical slug it was joined into. */
-const retiredSaintSlugs = new Map();
+/* Seeded with the retirements a human declared, then added to as the build
+   derives more. Declared ones exist because not every merge leaves a trace the
+   build can find: a `saintDisplayNames` retitle joins two nodes by name and the
+   losing slug then appears in no input at all. See
+   kg-seeds.json#_comment_saintRetiredSlugs. */
+const retiredSaintSlugs = new Map(Object.entries(seeds.saintRetiredSlugs ?? {}));
 
 for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
   /* The legacy cell, unless this shrine is one of the rows whose cell is about a
@@ -691,12 +696,26 @@ for (const f of familyRelations) {
     const existing = saintSlugByNameKey.get(saintNameKey(name ?? ''));
     if (existing && existing !== slug) {
       saintSlugAliases.set(slug, existing);
+      /* Retire the slug as well as alias it, which this branch did not do while
+         the identical branch for lineage proposals (above) always has.
+         `saintSlugAliases` only tells THIS BUILD where the edges go;
+         `retiredSaintSlugs` is what reaches `kg.json` and what `/saint/:slug`
+         reads to redirect an old address instead of falling through to the map.
+         Aliasing without retiring joins the data and abandons the URL.
+
+         Found on 30 August 2026 by the merge in §9.168, which took a figure that
+         had a page and left nothing answering at its old address. That instance
+         was never deployed, but the asymmetry was real and general: the same
+         join, expressed as a kin seed rather than a lineage proposal, silently
+         dropped a published URL. */
+      retiredSaintSlugs.set(slug, existing);
       reviewNeeded.push({
         issue: 'kin-figure-joined',
         entityId: `saint:${existing}`,
         details:
           `familyRelations names "${name}" as a new figure "${slug}", but the ` +
-          `graph already holds that exact name as "${existing}". Joined.`,
+          `graph already holds that exact name as "${existing}". Joined, and ` +
+          `"${slug}" retired to it so the old address still resolves.`,
       });
       continue;
     }

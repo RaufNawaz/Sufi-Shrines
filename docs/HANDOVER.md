@@ -5004,6 +5004,44 @@ both redirects.
     blind to two entries it holds**, and that is one more reason the `data:build` waiting on Rauf is
     worth doing.
 
+174. **My own merge yesterday abandoned a URL, and the mechanism that should have caught it was
+    asymmetric.** *Found and fixed 30 August 2026, prompted by the features session announcing it
+    would touch `SaintPage`'s fallthrough.* §9.168 joined Baba Ji's two nodes with
+    `saintDisplayNames`, and that entry says it "keeps the published slug (no URL retires)". True of
+    the slug that survived. **The other one just stopped existing.**
+    `hazrat-hafiz-muhammad-abdul-karim` had a page at the start of the session and answered nothing
+    by the end of it, with no redirect and no error.
+
+    **The general defect behind it.** `build-kg.mjs` joins a figure named by a *lineage proposal*
+    and a figure named by a *kin seed* in two nearly identical branches — and only the lineage one
+    called `retiredSaintSlugs.set()`. The kin branch set `saintSlugAliases` alone, which tells the
+    current build where edges go and **reaches nothing that ships**: `retiredSlugs` is what lands in
+    `kg.json` and what `/saint/:slug` reads to redirect. **Aliasing without retiring joins the data
+    and abandons the address.** The same merge, expressed as a kin seed rather than a lineage
+    proposal, silently dropped a published URL. Fixed, so the two branches now agree.
+
+    **That fix alone would not have covered this case, which is the more interesting half.** Both
+    branches only run for a slug some input still *names*. A `saintDisplayNames` merge joins two
+    nodes by name, after which **no input mentions the losing slug at all** — the build cannot
+    retire what it can never see. So retirements are now seedable:
+    `kg-seeds.json#saintRetiredSlugs`, declared by a human, merged with the derived ones.
+    `validate-kg-identity` already asserts every retirement resolves to a live figure, which is what
+    stops a declared list becoming redirects to nowhere.
+
+    Two wrong turns on the way, both instructive. Repointing the kin seed at the surviving slug
+    removes the evidence that a merge happened; repointing it back at the retired one with
+    `objectIsNew: true` made the verifier object, **correctly** — `IsNew` means "this person has no
+    site in the archive", and the slug now resolves to one that has a shrine. A retirement is not an
+    `IsNew` flag and should not be smuggled through one.
+
+    Verified in the browser, not just in the data: `/saint/hazrat-hafiz-muhammad-abdul-karim` now
+    lands on `/saint/pir-abdul-ul-karim` and renders "Hazrat Hafiz Muhammad Abdul Karim".
+
+    **Relevant to whoever fixes the soft 404s** (`/shrine/zzz`, `/saint/zzz` and friends currently
+    end at `/` with the URL rewritten): the retired-slug redirect on `/saint/:slug` runs *before*
+    the not-found fallthrough, and there are **19** of them. A fallthrough that catches an unknown
+    slug earlier turns nineteen working redirects into nineteen 404s.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
