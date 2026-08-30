@@ -69,32 +69,6 @@ const initialLang = detectInitialLang();
 void ensureUrduSeedForLang(initialLang);
 
 /*
- * The Urdu article payload, on the one route that always needs it.
- *
- * It used to be requested for every Urdu visit, from `LanguageContext`, and
- * awaited by `useShrineData` before it built a single row — so an Urdu reader
- * downloaded 258,872 gzipped bytes of shrine prose to look at the calendar, the
- * graph or the map. The three surfaces that read it now ask for it themselves
- * (`useUrduArticles`), which takes it off every other route.
- *
- * A shrine page, though, needs it to render its main content, and asking from
- * inside the component would put a chunk request behind React's first pass and
- * the route's own lazy chunk. At module scope it is in flight immediately, as
- * it effectively was before — so the page a direct Urdu link opens is no slower
- * than it was, and nothing else pays for it. Same argument, and the same shape,
- * as the CSV prefetch below.
- */
-/* `includes`, not an anchored pattern: production serves from `/Sufi-Shrines/`,
-   so an expression anchored at `^/shrine/` matches on the dev server and never
-   in production — the failure would be invisible locally and permanent live.
-   Matching the segment covers `/shrine/x`, `/Sufi-Shrines/shrine/x` and both
-   `/ur` mirrors, and its worst case is a payload fetched on a route that did
-   not need it, which is the direction that costs a reader nothing. */
-if (window.location.pathname.includes('/shrine/')) {
-  void ensureUrduContentForLang(initialLang);
-}
-
-/*
  * The sheet, requested now rather than when React mounts.
  *
  * The first render is gated on `loadUiStrings` below, so without this line the
@@ -107,6 +81,38 @@ if (window.location.pathname.includes('/shrine/')) {
  * which is every route's eager cost.
  */
 prefetchCsvText();
+
+/*
+ * The Urdu article payload, on the one route that always needs it.
+ *
+ * It used to be requested for every Urdu visit, from `LanguageContext`, and
+ * awaited by `useShrineData` before it built a single row — so an Urdu reader
+ * downloaded 258,872 gzipped bytes of shrine prose to look at the calendar, the
+ * graph or the map. The three surfaces that read it now ask for it themselves
+ * (`useUrduArticles`), which takes it off every other route.
+ *
+ * A shrine page, though, needs it to render its main content, and asking from
+ * inside the component would put a chunk request behind React's first pass and
+ * the route's own lazy chunk. At module scope it is in flight immediately.
+ *
+ * **Below `prefetchCsvText()`, and that ordering is the whole of it.** Placed
+ * above, this starts a 1 MB import in front of the request for the archive's
+ * own data — the exact mistake `csvPrefetch.ts` was written to undo, whose
+ * comment names the Urdu content payload as one of the things the CSV used to
+ * wait behind. Measured: with this block first, `/shrine/data-darbar?lang=ur`
+ * held its rows on the ten-column slim index long enough that the gallery had
+ * one tile instead of nine, and four lightbox cases and one infobox case failed
+ * in Urdu and passed in English. Moving it two lines down fixed all five.
+ */
+/* `includes`, not an anchored pattern: production serves from `/Sufi-Shrines/`,
+   so an expression anchored at `^/shrine/` matches on the dev server and never
+   in production — the failure would be invisible locally and permanent live.
+   Matching the segment covers `/shrine/x`, `/Sufi-Shrines/shrine/x` and both
+   `/ur` mirrors, and its worst case is a payload fetched on a route that did
+   not need it, which is the direction that costs a reader nothing. */
+if (window.location.pathname.includes('/shrine/')) {
+  void ensureUrduContentForLang(initialLang);
+}
 
 /*
  * The interface strings for the reader's language, *awaited* before the first

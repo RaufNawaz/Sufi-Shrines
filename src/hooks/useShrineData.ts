@@ -106,7 +106,9 @@ async function loadIndex(): Promise<Shrine[]> {
     ensureUrduSeedForLang(lang),
   ]);
   const rows = (indexData.rows as ShrineRow[]).map(normalizeRow) as ShrineRow[];
-  return buildFromRows(rows);
+  /* Not remembered here — only in the `csvLanded` guard below, once this has
+     actually won the race. See buildFromRows. */
+  return buildFromRows(rows, false);
 }
 
 /**
@@ -176,9 +178,29 @@ let inflightFetch: Promise<Shrine[]> | null = null;
 // Urdu can re-merge the (lazily loaded) Urdu articles without a second fetch.
 let sharedRows: ShrineRow[] | null = null;
 
-/** The single place rows become shrines. Also remembers the rows. */
-function buildFromRows(rows: ShrineRow[]): Shrine[] {
-  sharedRows = rows;
+/**
+ * The single place rows become shrines. Also remembers the rows — except for
+ * the slim index, which remembers them only if it wins the race.
+ *
+ * `remember` exists because of a bug the `csvLanded` guard below *looks* like it
+ * already covers and does not. That guard stops a late index overwriting real
+ * data on screen; it cannot stop `loadIndex` reaching this function first, and
+ * this function is where `sharedRows` is set. So a late index left the ten
+ * column index rows remembered underneath a full CSV dataset — harmless until
+ * something rebuilt from them.
+ *
+ * `rebuildWithUrduContent` is that something, and after the Urdu article payload
+ * stopped being awaited by every loader (30 August 2026) it became reachable on
+ * the ordinary path: the payload lands, the rows are re-merged **from the index**
+ * and the CSV dataset is replaced by a downgraded one. Measured on the hermetic
+ * fixture, `/shrine/data-darbar?lang=ur` against the same page in English:
+ * **1 infobox row against 7, and 1 gallery tile against 2**, permanently, while
+ * the article read correctly because its prose comes from the Urdu payload
+ * rather than from the sheet. Nothing threw; four lightbox cases and one infobox
+ * case failed in Urdu and passed in English, which is what pointed at it.
+ */
+function buildFromRows(rows: ShrineRow[], remember = true): Shrine[] {
+  if (remember) sharedRows = rows;
   return buildShrines(applyUrduContentOverrides(rows));
 }
 
@@ -322,6 +344,10 @@ export function useShrineData(): ShrineDataState {
         .then((rows) => {
           if (csvLanded || token !== refreshRef.current || rows.length === 0) return;
           rememberResult(rows, 'index', null);
+          /* The index won, so its rows are the dataset a later re-merge should
+             rebuild from. Set here rather than in `buildFromRows`, which runs
+             before this guard and cannot know whether the CSV beat it. */
+          sharedRows = rows.map((shrine) => shrine.raw);
           setShrines(rows);
           setSource('index');
           setSourceTimestamp(null);

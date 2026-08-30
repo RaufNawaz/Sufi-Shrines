@@ -30,6 +30,38 @@ import type { Page } from '@playwright/test';
 
 const px = (value: string) => Number.parseFloat(value);
 
+/**
+ * Wait for the thing these tests actually measure.
+ *
+ * They used to wait for `.article-section-heading`, which is not the article:
+ * **seven components emit that class and six of them render outside the prose**
+ * — the location map, the gallery, related and nearby shrines, shared ground,
+ * nearby mosques. All six need only the slim index row, so they are on screen
+ * long before the sheet arrives with a word of prose.
+ *
+ * Traced on a production build, `/shrine/shamsabad`, polling every 100ms:
+ *
+ *     en    0ms  {h:3, p:0}   1200ms  {h:10, p:6}
+ *     ur    0ms  {h:3, p:0}    100ms  {h:10, p:6}
+ *
+ * So the wait has always been able to resolve in the `p:0` state and the next
+ * line has always been able to read `null` — in either language. It passed for
+ * as long as it did because the measurement usually landed after the second
+ * state, not because the wait guaranteed it. A timing change elsewhere is all
+ * it took to lose the toss, which is the definition of a test that was passing
+ * by luck.
+ */
+async function waitForArticleProse(page: Page) {
+  await page.waitForFunction(
+    () =>
+      [...document.querySelectorAll('.article-prose p')].some(
+        (el) => (el.textContent ?? '').length > 80,
+      ),
+    undefined,
+    { timeout: 30_000 },
+  );
+}
+
 async function typeScale(page: Page) {
   return page.evaluate(() => {
     const size = (sel: string) => {
@@ -56,7 +88,7 @@ for (const lang of ['en', 'ur'] as const) {
   test(`[${lang}] the shrine page has a real heading hierarchy`, async ({ page }) => {
     await page.goto(`/shrine/shamsabad?lang=${lang}`);
     await expect(page.locator('h1.shrine-title')).toBeVisible();
-    await page.waitForSelector('.article-section-heading');
+    await waitForArticleProse(page);
 
     const scale = await typeScale(page);
     expect(scale.h1, 'no h1').not.toBeNull();
@@ -79,7 +111,7 @@ test('the two languages keep the same typographic proportions', async ({ page })
   const ratios: Record<string, number> = {};
   for (const lang of ['en', 'ur'] as const) {
     await page.goto(`/shrine/shamsabad?lang=${lang}`);
-    await page.waitForSelector('.article-section-heading');
+    await waitForArticleProse(page);
     const s = await typeScale(page);
     ratios[lang] = px(s.h1!) / px(s.body!);
   }

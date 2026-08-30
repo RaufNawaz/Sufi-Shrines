@@ -115,6 +115,32 @@ export const test = base.extend({
 export { expect };
 
 /**
+ * Wait until a shrine page is showing the **sheet's** row, not the slim index's.
+ *
+ * The masthead renders from `src/data/shrines-index.json` so a reader sees which
+ * shrine they opened in ~1.5s instead of a blank page — ten columns of a
+ * forty-four column row. So `h1.shrine-title` being visible says nothing about
+ * whether the article, the infobox or the gallery have their data yet, and a
+ * spec that waits for the title and then counts anything from the sheet is
+ * racing.
+ *
+ * Three specs were written that way and passed for weeks, because the window is
+ * usually short. On 30 August 2026 a change to when the Urdu article payload
+ * loads moved the timing by a few hundred milliseconds and all three began
+ * failing in Urdu and passing in English — reporting things like "the fixture
+ * shrine has no gallery tiles to open", which is a true statement about a page
+ * that is still loading and a misleading one about the fixture.
+ *
+ * The infobox is the signal: `ShrinePage` holds it until `source !== 'index'`
+ * precisely because a half-populated fact table reads as an archive that knows
+ * less than it does.
+ */
+export async function waitForSheetData(page: Page): Promise<void> {
+  await page.locator('h1.shrine-title').waitFor();
+  await page.locator('.infobox-row').first().waitFor({ timeout: 30_000 });
+}
+
+/**
  * Wait until the page stops animating.
  *
  * Two separate checks have now measured a transient animated state and reported

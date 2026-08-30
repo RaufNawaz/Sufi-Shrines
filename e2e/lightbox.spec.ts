@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, waitForSheetData } from './fixtures';
 import type { Page } from '@playwright/test';
 
 /**
@@ -32,10 +32,20 @@ const GALLERY_SHRINE = '/shrine/data-darbar';
 
 async function openLightbox(page: Page, lang: 'en' | 'ur') {
   await page.goto(lang === 'ur' ? `${GALLERY_SHRINE}?lang=ur` : GALLERY_SHRINE);
-  await page.locator('h1.shrine-title').waitFor();
+  /* The sheet, not the masthead — the masthead comes from the slim index and
+     carries one image where the row has several (see waitForSheetData). */
+  await waitForSheetData(page);
   const tiles = page.locator('.gallery-item');
-  // Asserting the fixture actually has a gallery: without this the whole file
-  // would pass vacuously the day the fixture changes.
+  /* Wait for the gallery itself, then count. `waitForSheetData` returns when the
+     infobox has the sheet's fields, and the gallery mounts a commit later —
+     traced on the fixture at 0ms/100ms, 0 tiles then 2. Counting on the earlier
+     tick reported "the fixture shrine has no gallery tiles to open", which is a
+     true statement about a page mid-render and a false one about the fixture.
+
+     The vacuity guard this replaces is kept, not weakened: a fixture shrine with
+     exactly one image still fails the assertion below, and one with none fails
+     this wait with a clearer message than a zero count. */
+  await tiles.first().waitFor({ timeout: 30_000 });
   expect(await tiles.count(), 'the fixture shrine has no gallery tiles to open').toBeGreaterThan(1);
   await tiles.first().click();
   await expect(page.locator('[role="dialog"]')).toBeVisible();
