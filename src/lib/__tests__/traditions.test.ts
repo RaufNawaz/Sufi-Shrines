@@ -21,6 +21,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { buildStableSlug } from '../data/slugify';
 
 const ROOT = join(__dirname, '..', '..', '..');
 const read = (p: string) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
@@ -55,10 +56,19 @@ const CATEGORIES = new Set([
   'Secular / Memorial',
 ]);
 
-const descriptionFor = (slug: string, name?: string) => {
-  const row = rows.find((r) => r.Name === name) ?? rows.find((r) => norm(r.Name ?? '') === slug);
-  return row ? String(row.Description ?? '') : '';
-};
+/* Slug → row, through the app's OWN slug builder.
+ *
+ * The first draft of this helper compared `norm(r.Name)` to the slug — but
+ * `norm` collapses whitespace and nothing else, so "Dargah Pir Ratan Nath Jee"
+ * never equals "dargah-pir-ratan-nath-jee" and it returned '' for every
+ * tradition. Any assertion resting on it would have passed vacuously, which is
+ * worse than no assertion: the docstring above would have been claiming a check
+ * that never ran. Caught by a reviewer, and it is the reason this now resolves
+ * the row by slug FIRST and then looks for the quote in it.
+ *
+ * Resolving the other way round — find the row that contains the quote, then
+ * assert the quote is in that row — is circular and always passes. */
+const rowBySlug = new Map(rows.map((r) => [buildStableSlug(String(r.Name ?? '')), r]));
 
 describe('the tradition layer', () => {
   it('has traditions and memberships to check', () => {
@@ -82,10 +92,22 @@ describe('the tradition layer', () => {
 
   it('quotes its definition verbatim from the entry it cites, in both languages', () => {
     for (const t of kgt.traditions) {
+      /* The English half, which is the half that matters most in a provenance
+         archive and the half this test used to check only the LENGTH of — an
+         English definition could have been paraphrased or drifted and nothing
+         here would have said so. */
+      const row = rowBySlug.get(t.definitionShrine);
+      expect(row, `${t.slug}: no entry with slug "${t.definitionShrine}"`).toBeTruthy();
+      const description = String(row?.Description ?? '');
+      expect(t.definition.trim().length, `${t.slug}: empty definition`).toBeGreaterThan(60);
+      expect(
+        norm(description).includes(norm(t.definition)),
+        `${t.slug}: the English definition is not verbatim in ${t.definitionShrine}`,
+      ).toBe(true);
+
       const article = urdu[t.definitionShrine]?.descriptionUr ?? '';
       expect(article, `${t.slug}: no Urdu article for ${t.definitionShrine}`).toBeTruthy();
       expect(norm(article).includes(norm(t.definitionUr)), `${t.slug}: Urdu drifted`).toBe(true);
-      expect(t.definition.trim().length, `${t.slug}: empty definition`).toBeGreaterThan(60);
       expect(/[A-Za-z]{3,}/.test(t.definitionUr), `${t.slug}: Latin in the Urdu`).toBe(false);
     }
   });

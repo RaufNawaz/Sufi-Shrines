@@ -3559,95 +3559,6 @@ both redirects.
     spec another session committed a race fix for earlier the same day. Recorded rather than
     ignored, and it is the contention flake §9.129 describes — two agents building in one tree.
 
-130. **The archive was marking its *unsourced* order memberships as the trustworthy ones.**
-    *Audited 29 August 2026.* `kg-seeds.json#saintOrders` is 23 figure → order decisions typed
-    by hand. There is no `quote` field and no citation, so nothing about that file can be
-    structurally wrong and nothing about it had ever been checked. The machine-extracted path
-    beside it carries a verbatim quote and renders with an "unreviewed" chip. **So the sourced
-    edge wore the warning and the unsourced one did not.**
-
-    Six of the 23 figures have a `silsila` cell of their own. Three disagreed with the seed, and
-    two were simply wrong — the same error twice, transposed:
-
-    - **Daud Bandagi Kirmani** seeded `chishtiyya`. His cell says "Qadiri", his entry calls him
-      "a revered Qadiri saint" who "became a shaykh of the Qadiri order", and **nothing anywhere
-      in the corpus mentions him and the Chishtiyya in the same sentence.**
-    - **Waris Shah** seeded `qadiriyya`. Cell "Chishti"; entry: "belonged in spirit to the
-      Chishti Sufi tradition".
-
-    Both were live on `/order/chishtiyya` and `/order/qadiriyya` as members. Both corrected to
-    the sheet — which is not a judgement call: RULE 3 makes the sheet the join key, and there was
-    no evidence on the other side to weigh.
-
-    The third is a real question and is left standing: `qalandar-baba-auliya` is seeded into
-    both `qalandariyya` and `azeemia`. The second is his cell. The first rests on his being
-    "known by the spiritual title *Qalandar Baba Auliya*" — an epithet, not a recorded silsila,
-    and reading an order out of a title is the inference RULE 2 exists to stop. **Rauf's call,
-    not a script's**; it is in `reviewNeeded` as `seeded-order-contradicts-sheet` and pinned in
-    `seededOrders.test.ts`, which fails if the list grows *or* empties.
-
-131. **And the check that found it was only possible because a field had been missing all
-    along.** *Same day.* The hand-authored membership path emitted `belongs_to_order` with **no
-    `asRecorded`** — all 24 of them — while the machine path had carried it since the compound
-    cells turned up. So the sheet's own word for a figure's silsila was thrown away on exactly
-    the edges that had no other evidence, and the audit above had nothing to audit against.
-
-    Two named sub-orders were being lost by it, both with their own founder and their own
-    mother-shrine in this archive:
-
-    - **"Naushahia Qadiri"** (Ranmal Sharif) rendered as a bare Qadiriyya, though its entry calls
-      the site "the mother-shrine of the Naushahia Qadiri order".
-    - **"Sarwari Qadiri"** (Garh Maharaja) likewise, though Sultan Bahu "founded his own branch
-      of the order, the Sarwari Qadiri".
-
-    20 of the 24 now carry the cell, and `/saint/sultan-bahoo` reads "As recorded: Sarwari
-    Qadiri". **The join is the trap here, and it bit once before it worked**: matching the
-    cell's row to the figure by comparing `principal_figure` text to the node's display name
-    fails precisely where it matters — Ranmal Sharif names "Syed Muhammad Noushah Ganj Bakhsh"
-    and the node is "Syed Muhammad Noushah Qadiri", so the check meant to protect that cell was
-    the thing dropping it. It now resolves through `figureNamesFor` and the merge-variant
-    aliases, i.e. the same path that built the figure nodes.
-
-    Related and NOT done: a branch is still not a node. `/order/qadiriyya` shows Sarwari and
-    Naushahia as `asRecorded` text on a member's row, not as sub-orders — which is the
-    deliberate 21 August decision (13 of 64 memberships name a branch, so headings would imply a
-    structure the data does not have). Worth revisiting now that two of them turn out to have
-    founders and mother-shrines documented here.
-
-132. **A schema column nobody had ever declared or checked.** *Swept 29 August 2026.* Running
-    every schema-constrained column against its vocabulary turned up one real hole, and it was
-    not where I expected. `category`, `status`, `support_level` and `info_level` are all
-    guarded — `category`'s guard even carries a comment recording that its own first draft
-    wrongly accused Hinglaj Mata of having no category, which is the same mistake I made
-    independently ten minutes earlier with the same row, and for the same reason: reading
-    `row.category` without the legacy `Category` fallback.
-
-    **`year_built_precision` had neither.** CLAUDE.md lists the column and stops; neither
-    validator mentioned it; the only place any value is written down is
-    `pipeline/append_new_shrines.py`, which defaults new rows to `"unknown"`. So the column's
-    vocabulary existed only as a habit.
-
-    Counted, it is a clean five: **exact 44 · unknown 43 · circa 41 · century 35 · range 2** —
-    165 of 169 rows. `scripts/data/validate.mjs` now declares exactly those and warns on
-    anything else. Nothing was added: `disputed` would be the obvious sixth and is deliberately
-    absent, because a vocabulary the data never uses is a promise the data does not keep
-    (§9.106).
-
-    The three rows that fail are **not** sloppiness, and the fix is not to flatten them. Each
-    holds a sentence where a code belongs — "Uncertain — field value is a Hijri day-and-year,
-    not a building date" — and each already carries that same explanation, at greater length, in
-    `year_built_note`, which is the column for it. So the qualification is safe either way, and
-    what the duplicate costs is every grouping and count over precision, where it is a category
-    of one. `data/patch_year_built_precision_2026-08-29.csv` proposes the three codes, with an
-    INSTRUCTIONS.md that says what to check before importing and offers the alternative
-    (add `disputed`, and widen the guard) if Rauf prefers it.
-
-    *An instrument note, since this is the third time in two days:* my first sweep reported **46**
-    off-vocabulary values, because I supplied the vocabulary from memory of the *figure*
-    `datePrecision` doc and it excluded `unknown`. The 43 "unknown" rows were the instrument
-    being wrong, not the data. Check what the repo already writes down before checking the data
-    against what you think it says.
-
 131. **The map lens: the answer to "how do you draw an 800 m relation on a map of Pakistan" was
     not to draw it.** *Built 29 August 2026, hours after §9.130 recorded it as a design
     question.* Every cross-tradition pair is under 800 m, which at national zoom is under one
@@ -3737,6 +3648,97 @@ both redirects.
     The corrected run, against a `build:e2e` bundle: **366 passed, 2.3 minutes, no failures and
     no flakes** — including `graph-node-pictures.spec.ts`, whose failure in §9.130 was the
     contention flake §9.129 describes and did not recur.
+
+133. **The archive was marking its *unsourced* order memberships as the trustworthy ones.**
+    *Audited 29 August 2026.* `kg-seeds.json#saintOrders` is 23 figure → order decisions typed
+    by hand. There is no `quote` field and no citation, so nothing about that file can be
+    structurally wrong and nothing about it had ever been checked. The machine-extracted path
+    beside it carries a verbatim quote and renders with an "unreviewed" chip. **So the sourced
+    edge wore the warning and the unsourced one did not.**
+
+    Six of the 23 figures have a `silsila` cell of their own. Three disagreed with the seed, and
+    two were simply wrong — the same error twice, transposed:
+
+    - **Daud Bandagi Kirmani** seeded `chishtiyya`. His cell says "Qadiri", his entry calls him
+      "a revered Qadiri saint" who "became a shaykh of the Qadiri order", and **nothing anywhere
+      in the corpus mentions him and the Chishtiyya in the same sentence.**
+    - **Waris Shah** seeded `qadiriyya`. Cell "Chishti"; entry: "belonged in spirit to the
+      Chishti Sufi tradition".
+
+    Both were live on `/order/chishtiyya` and `/order/qadiriyya` as members. Both corrected to
+    the sheet — which is not a judgement call: RULE 3 makes the sheet the join key, and there was
+    no evidence on the other side to weigh.
+
+    The third is a real question and is left standing: `qalandar-baba-auliya` is seeded into
+    both `qalandariyya` and `azeemia`. The second is his cell. The first rests on his being
+    "known by the spiritual title *Qalandar Baba Auliya*" — an epithet, not a recorded silsila,
+    and reading an order out of a title is the inference RULE 2 exists to stop. **Rauf's call,
+    not a script's**; it is in `reviewNeeded` as `seeded-order-contradicts-sheet` and pinned in
+    `seededOrders.test.ts`, which fails if the list grows *or* empties.
+
+134. **And the check that found it was only possible because a field had been missing all
+    along.** *Same day.* The hand-authored membership path emitted `belongs_to_order` with **no
+    `asRecorded`** — all 24 of them — while the machine path had carried it since the compound
+    cells turned up. So the sheet's own word for a figure's silsila was thrown away on exactly
+    the edges that had no other evidence, and the audit above had nothing to audit against.
+
+    Two named sub-orders were being lost by it, both with their own founder and their own
+    mother-shrine in this archive:
+
+    - **"Naushahia Qadiri"** (Ranmal Sharif) rendered as a bare Qadiriyya, though its entry calls
+      the site "the mother-shrine of the Naushahia Qadiri order".
+    - **"Sarwari Qadiri"** (Garh Maharaja) likewise, though Sultan Bahu "founded his own branch
+      of the order, the Sarwari Qadiri".
+
+    20 of the 24 now carry the cell, and `/saint/sultan-bahoo` reads "As recorded: Sarwari
+    Qadiri". **The join is the trap here, and it bit once before it worked**: matching the
+    cell's row to the figure by comparing `principal_figure` text to the node's display name
+    fails precisely where it matters — Ranmal Sharif names "Syed Muhammad Noushah Ganj Bakhsh"
+    and the node is "Syed Muhammad Noushah Qadiri", so the check meant to protect that cell was
+    the thing dropping it. It now resolves through `figureNamesFor` and the merge-variant
+    aliases, i.e. the same path that built the figure nodes.
+
+    Related and NOT done: a branch is still not a node. `/order/qadiriyya` shows Sarwari and
+    Naushahia as `asRecorded` text on a member's row, not as sub-orders — which is the
+    deliberate 21 August decision (13 of 64 memberships name a branch, so headings would imply a
+    structure the data does not have). Worth revisiting now that two of them turn out to have
+    founders and mother-shrines documented here.
+
+135. **A schema column nobody had ever declared or checked.** *Swept 29 August 2026.* Running
+    every schema-constrained column against its vocabulary turned up one real hole, and it was
+    not where I expected. `category`, `status`, `support_level` and `info_level` are all
+    guarded — `category`'s guard even carries a comment recording that its own first draft
+    wrongly accused Hinglaj Mata of having no category, which is the same mistake I made
+    independently ten minutes earlier with the same row, and for the same reason: reading
+    `row.category` without the legacy `Category` fallback.
+
+    **`year_built_precision` had neither.** CLAUDE.md lists the column and stops; neither
+    validator mentioned it; the only place any value is written down is
+    `pipeline/append_new_shrines.py`, which defaults new rows to `"unknown"`. So the column's
+    vocabulary existed only as a habit.
+
+    Counted, it is a clean five: **exact 44 · unknown 43 · circa 41 · century 35 · range 2** —
+    165 of 169 rows. `scripts/data/validate.mjs` now declares exactly those and warns on
+    anything else. Nothing was added: `disputed` would be the obvious sixth and is deliberately
+    absent, because a vocabulary the data never uses is a promise the data does not keep
+    (§9.106).
+
+    The three rows that fail are **not** sloppiness, and the fix is not to flatten them. Each
+    holds a sentence where a code belongs — "Uncertain — field value is a Hijri day-and-year,
+    not a building date" — and each already carries that same explanation, at greater length, in
+    `year_built_note`, which is the column for it. So the qualification is safe either way, and
+    what the duplicate costs is every grouping and count over precision, where it is a category
+    of one. `data/patch_year_built_precision_2026-08-29.csv` proposes the three codes, with an
+    INSTRUCTIONS.md that says what to check before importing and offers the alternative
+    (add `disputed`, and widen the guard) if Rauf prefers it.
+
+    *An instrument note, since this is the third time in two days:* my first sweep reported **46**
+    off-vocabulary values, because I supplied the vocabulary from memory of the *figure*
+    `datePrecision` doc and it excluded `unknown`. The 43 "unknown" rows were the instrument
+    being wrong, not the data. Check what the repo already writes down before checking the data
+    against what you think it says.
+
+    *Numbering note: these three were written as §9.130–132 and renumbered to §9.133–135 on the same day, because a parallel session had committed its own §9.130–132 into the same file within the hour. Commits `efdbea0` and `eec055a` cite the old numbers; this line is how you get from those to here. Two sessions appending to one document is the shared-tree hazard in a form `git` cannot detect — the merge is clean and the document is wrong.*
 
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
