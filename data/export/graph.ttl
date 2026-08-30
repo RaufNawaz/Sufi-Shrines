@@ -148,6 +148,7 @@ saint:hazrat-syed-muhammad-khair-ul-deen
   sufi:nephewOf saint:daud-bandagi-kirmani ;
   sufi:sonInLawOf saint:daud-bandagi-kirmani ;
   schema:parent saint:syed-rehmatullah-kirmani ;
+  sufi:nephewOf saint:syed-jalal-ud-deen ;
   .
 
 saint:khwaja-muhammad-qasim
@@ -1657,6 +1658,12 @@ saint:sakhi-shah-sharaf
   sufi:discipleOf saint:syed-sakhi-shah-chan-charagh ;
   .
 
+saint:hazrat-haider-ali-shah
+  a schema:Person ;
+  schema:name "Hazrat Haider Ali Shah"@en ;
+  sufi:successorOf saint:hazrat-syed-muhammad-khair-ul-deen ;
+  .
+
 saint:syed-nasiruddin-mahmud
   a schema:Person ;
   schema:name "Syed Nasiruddin Mahmud"@en ;
@@ -1846,6 +1853,11 @@ saint:kharak-singh
   schema:name "Kharak Singh"@en ;
   schema:parent saint:maharani-datar-kaur ;
   schema:parent saint:maharaja-ranjit-singh ;
+  .
+
+saint:syed-jalal-ud-deen
+  a schema:Person ;
+  schema:name "Syed Jalal ud Deen"@en ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────

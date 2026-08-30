@@ -39,8 +39,10 @@
  *   node scripts/data/scan-kin-statements.mjs --json
  */
 import { loadCorpus, scanCorpus, figureNameSet, report, norm } from './lib/sentenceScan.mjs';
+import { buildSlugs } from './lib/slugs.mjs';
 
-const { rows, kg, seeds } = loadCorpus();
+const { rows, kg, seeds, readJson } = loadCorpus();
+const shrineFigures = readJson('data/kg-shrine-figures.json');
 
 /* The kinship words the corpus actually uses. Deliberately NOT including
    "descendants" plural on its own — "under the care of his descendants" names
@@ -64,10 +66,21 @@ const nonTies = (seeds.kinAdjudicated ?? []).map((n) => ({
   why: `${n.subjectName} ↛ ${n.objectName} (${n.kind})`,
 }));
 
+/* The figures a row is about, so "his father, Pratab Rai" can match an edge
+   whose subject the sentence never names. Added to this scanner after it was
+   added to the lineage one, where it took `covered` from 14 to 55 — the kin
+   corpus writes in the third person just as much, and 100 of the sentences
+   below were pointing at ties the archive already carried. */
+const bySlug = new Map((kg.saints ?? []).map((x) => [x.slug, x]));
+const slugByRow = new Map(buildSlugs(rows).map((slug, i) => [rows[i], slug]));
+const rowSubjects = (row) =>
+  (shrineFigures[slugByRow.get(row)] ?? []).map((slug) => bySlug.get(slug)?.name).filter(Boolean);
+
 const findings = scanCorpus({
   rows,
   wordRe: new RegExp(`\\b(${KIN_WORDS.join('|')})\\b`, 'i'),
   figureNames: figureNameSet(kg),
+  rowSubjects,
   nonTies,
   edges: (seeds.familyRelations ?? []).map((f) => ({
     a: norm(f.subjectName ?? ''),

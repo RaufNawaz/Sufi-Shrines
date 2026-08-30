@@ -1028,6 +1028,8 @@ SAINTS = {
  "Sakhi Shah Raza": "سخی شاہ رضا",
  "Qamar Ali Shah": "قمر علی شاہ",
  "Sakhi Shah Sharaf": "سخی شاہ شرف",
+ "Syed Jalal ud Deen": "سید جلال الدین",
+ "Hazrat Haider Ali Shah": "حضرت حیدر علی شاہ",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

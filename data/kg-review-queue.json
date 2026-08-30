@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T14:35:57.090Z",
+  "generated": "2026-08-30T14:41:34.941Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -870,6 +870,16 @@
       "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
       "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
       "evidence": "740161f6"
+    },
+    {
+      "id": "successor_of:saint:hazrat-haider-ali-shah:saint:hazrat-syed-muhammad-khair-ul-deen",
+      "kind": "successor_of",
+      "subject": "Hazrat Haider Ali Shah",
+      "subjectSlug": "hazrat-haider-ali-shah",
+      "object": "Hazrat Syed Muhammad Khair ul Deen",
+      "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\"",
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "evidence": "2aa2ddc4"
     },
     {
       "id": "belongs_to_order:saint:pir-syed-muhammad-channan-shah-nuri:order:naqshbandiyya",

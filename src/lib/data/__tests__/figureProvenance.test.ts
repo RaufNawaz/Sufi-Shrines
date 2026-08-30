@@ -267,7 +267,15 @@ describe('the shipped graph', () => {
                        throughout, correctly: the two names are not textually
                        similar, and an identity check on STRINGS cannot see
                        this. Only reading the sentence can. That is worth
-                       remembering the next time this count moves DOWN. */
-    expect(flagged.length).toBe(197);
+                       remembering the next time this count moves DOWN.
+        197 + 2       = 199, 30 August 2026. The second of the two uncles the
+                       Darbar Abul Muali entry names in one breath — the first
+                       has had two edges since the first kin pass and this one
+                       had none — and Hazrat Haider Ali Shah, its "very first
+                       Gaddi Nasheen", who is a SUCCESSION edge and deliberately
+                       not a kin one: the entry says in the same sentence that
+                       "whether Haider Ali Shah is one of the eight sons is not
+                       stated". */
+    expect(flagged.length).toBe(199);
   });
 });

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T14:35:57.090Z",
+  "generated": "2026-08-30T14:41:34.941Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3451,6 +3451,16 @@
       "reviewed": false
     },
     {
+      "id": "saint:hazrat-haider-ali-shah",
+      "type": "saint",
+      "slug": "hazrat-haider-ali-shah",
+      "name": "Hazrat Haider Ali Shah",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
       "id": "saint:syed-nasiruddin-mahmud",
       "type": "saint",
       "slug": "syed-nasiruddin-mahmud",
@@ -3805,6 +3815,16 @@
       "type": "saint",
       "slug": "kharak-singh",
       "name": "Kharak Singh",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:syed-jalal-ud-deen",
+      "type": "saint",
+      "slug": "syed-jalal-ud-deen",
+      "name": "Syed Jalal ud Deen",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -9746,6 +9766,19 @@
       "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh"
     },
     {
+      "type": "kin_of",
+      "subject": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "object": "saint:syed-jalal-ud-deen",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "nephew_of",
+      "elderRole": "unclePaternal",
+      "juniorRole": "nephewPaternal",
+      "kinWording": "his father's brother",
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "quote": "Two of his father's brothers are named: Sheikh Dawood Bandgi Kirmani, whose shrine the survey places at Shergarh, and Syed Jalal ud Deen, whose shrine it places in Sindh."
+    },
+    {
       "type": "disciple_of",
       "subject": "saint:data-ganj-bakhsh",
       "object": "saint:abul-fadl-muhammad-al-khuttali",
@@ -10614,6 +10647,16 @@
       "reviewed": false,
       "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
       "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf"
+    },
+    {
+      "type": "successor_of",
+      "subject": "saint:hazrat-haider-ali-shah",
+      "object": "saint:hazrat-syed-muhammad-khair-ul-deen",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\""
     },
     {
       "type": "belongs_to_order",
@@ -12146,12 +12189,12 @@
     }
   ],
   "stats": {
-    "saints": 233,
+    "saints": 235,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 714,
+    "relations": 716,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

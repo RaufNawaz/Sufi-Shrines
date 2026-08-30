@@ -1119,6 +1119,19 @@
    "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
    "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
    "notes": "0.7. The same sentence goes on to name a fourth, Kochak Ali Sultan, \"a Mughal prince who ... abandoned a life of ease for the path of the dervish\" — a devotee in a story rather than a disciple in the list of three, so he is not proposed."
+  },
+  {
+   "subjectSlug": "hazrat-haider-ali-shah",
+   "subjectName": "Hazrat Haider Ali Shah",
+   "subjectIsNew": true,
+   "relation": "successor_of",
+   "objectSlug": "hazrat-syed-muhammad-khair-ul-deen",
+   "objectName": "Hazrat Syed Muhammad Khair ul Deen (Shah Abul Muali Qadri)",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-abul-muali-qadri",
+   "quote": "Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\"",
+   "notes": "0.7, and the hedge is the entry's own: the sentence continues \"whether Haider Ali Shah is one of the eight sons is not stated\", and the survey's Q8 has custodianship pass to \"his sons and then the Gaddi Nasheens\" — two answers that do not quite agree about whether the first custodian was a son. So this is a SUCCESSION edge and deliberately not a kin one; the entry records the uncertainty rather than resolving it, and so does this. He is \"also buried in the shrine\", which is this archive's site, but he has no site of his own."
   }
  ],
  "explicitNonRelations": [

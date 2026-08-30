@@ -1387,6 +1387,23 @@
       "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
       "notes": "A second sentence in the Gurdwara Guru Ram Das Ji entry states the same tie independently and dates his birth: \"the celebrations that attended the birth of their son Kharak Singh in 1801\". That same sentence is now also his mother's edge.",
       "_from": "docs/HANDOVER.md#9.160"
+    },
+    {
+      "subjectSlug": "hazrat-syed-muhammad-khair-ul-deen",
+      "subjectName": "Hazrat Syed Muhammad Khair ul Deen, known as Shah Abul Muali Qadri",
+      "kinType": "nephew_of",
+      "objectSlug": "syed-jalal-ud-deen",
+      "objectName": "Syed Jalal ud Deen",
+      "objectIsNew": true,
+      "objectNodeName": "Syed Jalal ud Deen",
+      "elderRole": "unclePaternal",
+      "juniorRole": "nephewPaternal",
+      "wording": "his father's brother",
+      "quote": "Two of his father's brothers are named: Sheikh Dawood Bandgi Kirmani, whose shrine the survey places at Shergarh, and Syed Jalal ud Deen, whose shrine it places in Sindh.",
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "notes": "The SECOND of the two uncles this sentence names. The first, Daud Bandagi Kirmani, has had two edges since the first kin pass; this one had none, and the sentence names them in the same breath. \"His father's brothers\" is why both are `unclePaternal` rather than the unspecified role — the corpus states the line, so Urdu can say چچا rather than چچا/ماموں.",
+      "_why": "The survey places his shrine in Sindh, so he is a saint with a site — just not one this archive holds. Lineage-only here.",
+      "_from": "scan-kin-statements.mjs"
     }
   ],
   "_comment_kinAdjudicated": "Kin sentences a human has read and deliberately did NOT make an edge, each with the verbatim sentence and the reason. Two different reasons live here and the notes say which, because collapsing them would be dishonest: a sentence that only LOOKS like a family tie (\"a son of Peshawar\", \"the father of the Punjabi kafi\" — idiom and metaphor, and the corpus is full of both because it writes about poets), and a tie the corpus really does state that this archive deliberately does not model. The list exists so `scripts/data/scan-kin-statements.mjs` can mark a sentence read-and-ruled-out instead of offering it forever: without it every adjudication pass re-reads every rejection the last one made. Quotes are checked against the corpus by verify-kg-proposals.mjs, exactly as an edge's quote is — a drifted quote silently stops matching and the sentence returns to the unread pile.",

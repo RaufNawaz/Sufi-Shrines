@@ -210,6 +210,9 @@
       "sufi:nephewOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/daud-bandagi-kirmani"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-jalal-ud-deen"
         }
       ],
       "sufi:sonInLawOf": [
@@ -2602,6 +2605,16 @@
     },
     {
       "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-haider-ali-shah",
+      "name": "Hazrat Haider Ali Shah",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-syed-muhammad-khair-ul-deen"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-nasiruddin-mahmud",
       "name": "Syed Nasiruddin Mahmud"
     },
@@ -2846,6 +2859,11 @@
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
         }
       ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-jalal-ud-deen",
+      "name": "Syed Jalal ud Deen"
     },
     {
       "@type": "Place",

@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 273,
+      "saints": 275,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 137,
-      "flatSeedEntries": 1226
+      "flatSeedEntries": 1228
     }
   },
   "categories": {
@@ -786,7 +786,9 @@
     "Hazrat Mujaddid Alf Sani": "حضرت مجدد الف ثانی",
     "Sakhi Shah Raza": "سخی شاہ رضا",
     "Qamar Ali Shah": "قمر علی شاہ",
-    "Sakhi Shah Sharaf": "سخی شاہ شرف"
+    "Sakhi Shah Sharaf": "سخی شاہ شرف",
+    "Syed Jalal ud Deen": "سید جلال الدین",
+    "Hazrat Haider Ali Shah": "حضرت حیدر علی شاہ"
   },
   "silsilas": {
     "Qadiri": "قادری",
