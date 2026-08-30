@@ -1680,6 +1680,31 @@
       ],
       "source": "data/shrines.csv#darbar-abul-muali-qadri",
       "notes": "Seven sentences circling three facts the archive already handles. (1) Custodianship passing to \"his sons and then the Gaddi Nasheens\" — the sons are never named, and Haider Ali Shah is now a `successor_of` edge at 0.7 with the entry's own hedge that \"whether Haider Ali Shah is one of the eight sons is not stated\". (2) Two marriages, both wives identified only as somebody's daughter — a daughter of Dawood Bandgi Kirmani and a daughter of \"Emperor Shah Jahangir\" — so `spouse_of` has nobody to point at. (3) The uncle Dawood Bandgi, already two edges. What is left is the entry's QA apparatus quoting its own survey back at itself, which is exactly the honesty this archive is for and exactly what a relation extractor should not mine."
+    },
+    {
+      "subjectName": "Shah Hussain (the kafi cluster)",
+      "objectName": "the Punjabi kafi / a mother / a daughter",
+      "kind": "metaphor and quoted verse",
+      "quotes": [
+        "Within it rest Shah Hussain (1538–1599), the great Malamati Sufi and father of the Punjabi *kafi*, and Madho Lal, the Hindu youth he loved and whose name he joined for ever to his own.",
+        "## The Life of Shah Hussain Hussain was born in Lahore in 1538 into a family of weavers — his father, by tradition, a craftsman who stitched uniforms for the army of the Emperor Humayun.",
+        "In his best-loved kafi the soul cries out in the voice of a daughter to her mother: مائے نی میں کینوں آکھاں، دردِ وچھوڑے دا حال نی [“O mother, to whom shall I tell the anguish of",
+        "In choosing to sing in Punjabi rather than the Persian of the court, and in the voice of a woman rather than that of the scholar, Hussain did something momentous: he made the"
+      ],
+      "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "notes": "Four sentences, no kin among them, and the reason is the entry's subject rather than an accident. Shah Hussain is \"father of the Punjabi kafi\" twice over; his own father is a weaver the corpus never names; and the remaining two are the KAFI ITSELF — a soul crying \"in the voice of a daughter to her mother\", and Hussain choosing to sing \"in the voice of a woman rather than that of the scholar\". A kinship word inside quoted verse is the poem's grammar, not the archive's claim. This corpus writes about poets constantly, so the class is large and worth naming once."
+    },
+    {
+      "subjectName": "Mian Mir (the Mughal circle)",
+      "objectName": "Jahanara, Aurangzeb, Dara Shikoh, Nadira Begum",
+      "kind": "real, deliberately not modelled",
+      "quotes": [
+        "His sister, the princess Jahanara — Shah Jahan’s best-loved daughter — was herself a disciple of Mullah Shah and set down her own spiritual journey in the *Risala-i-Sahibiya*, one",
+        "When the throne passed, in blood, to the austere and orthodox Aurangzeb rather than to his mystically minded elder brother, Dara Shikoh was condemned as a heretic and put to death in 1659.",
+        "It grew into a dignified monument in the Mughal manner, its chambers finished in fine stone, and around it, in time, were gathered the graves of others of the imperial circle who"
+      ],
+      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "notes": "The last three sentences of the Mughal-family cluster already ruled on twice in this file — Jahanara as Dara Shikoh's sister, Aurangzeb as his brother, Nadira Begum as his wife, all buried around Mian Mir. Every one is true and every one would put a court into the graph to be each other's relatives. Dara Shikoh and Jahanara are figures here ONLY because they were Mullah Shah's disciples, which is a relation this archive is about; being somebody's sibling at the Mughal court is not."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",
