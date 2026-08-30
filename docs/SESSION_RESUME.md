@@ -139,6 +139,19 @@ cannot do.
   commit before touching `check-bundle-budget.mjs`.
 - Run the whole `npm run verify` before every commit, and mutation-check every new test by
   reverting the fix and watching it fail.
+
+## How the session is meant to run
+
+**Long sessions, not frequent small ones.** Work continuously through this queue — finish an
+item, commit it, strike it off, take the next one, keep going. Do not end a turn because one item
+is done; end it when there is nothing left you can do without a decision from Rauf.
+
+The `/loop` wakeup is a **restart net, not a metronome**. Its job is to bring the session back if
+it stops, so the delay should be long (an hour) rather than short. A ten-minute tick was tried on
+30 August 2026 and was the wrong shape: it paced the work instead of resuming it, and turned a
+development session into a series of small ones. Corrected the same day, by Rauf.
+
+One item per commit is still right — that is about coherent history, not about stopping.
 - **`palette.spec.ts` and `traditions.spec.ts` flake under full-suite parallel load** — three
   times on 30 August, always `.palette-input` not visible or an `aria-selected` that has not
   settled, always green on `--repeat-each=3` in isolation. Re-run the file before believing it.
