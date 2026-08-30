@@ -1,3 +1,4 @@
+import type { Page } from '@playwright/test';
 import { test, expect } from './fixtures';
 
 /**
@@ -23,6 +24,50 @@ import { test, expect } from './fixtures';
  * than a line added to the a11y spec.
  */
 test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+
+/**
+ * How far from a dot's centre a tap still reaches that same dot, in CSS pixels.
+ *
+ * The first test below records two hit-probes that were written and thrown
+ * away, and both asked the wrong question. The first asked whether a point
+ * landed on *a* marker — on a map holding 169 of them it did, at any hit size.
+ * The second used `elementFromPoint`, singular, which returns only the topmost
+ * element, so a neighbouring pin painted over the target read as a miss at the
+ * target's own centre.
+ *
+ * `elementsFromPoint` — plural — returns every element hit at that point, and
+ * membership is checked by identity against one specific dot. A neighbour
+ * cannot satisfy it, and a neighbour on top cannot hide it.
+ *
+ * Two things about it that are worth knowing before trusting a reading:
+ *
+ * - **Probe for the dot, never for the Leaflet icon.** The hit area is a
+ *   pseudo-element that overflows the icon's own 14px box, so past that box
+ *   the list contains the dot and not its icon ancestor. Asking for the icon
+ *   reads 0 and looks like a broken tap target. The tap is fine: the event
+ *   fires on the dot and bubbles to the icon Leaflet bound its handler to.
+ * - **Validated against a known answer** before any number here was believed:
+ *   a bare 14px div with this exact 44px `::after` reads 21, and reads 0 with
+ *   the rule removed.
+ */
+async function tapReach(page: Page, selector: string): Promise<number> {
+  return page.evaluate((sel) => {
+    const dot = document.querySelector(sel);
+    if (!dot) return -1;
+    const r = dot.getBoundingClientRect();
+    const cy = r.top + r.height / 2;
+    // Probe towards whichever side has room; a pin near the right edge would
+    // otherwise report a short reach because the viewport ended, not the dot.
+    const cx = r.left + r.width / 2;
+    const dir = cx + 120 < window.innerWidth ? 1 : -1;
+    let reach = 0;
+    for (let d = 0; d <= 200; d += 1) {
+      if (document.elementsFromPoint(cx + dir * d, cy).includes(dot)) reach = d;
+      else break;
+    }
+    return reach;
+  }, selector);
+}
 
 test.describe('the map on a phone', () => {
   test('a pin accepts a tap 44px wide, not 14px', async ({ page }) => {
@@ -139,5 +184,58 @@ test.describe('the map on a phone', () => {
     expect(paint!.bg === 'rgba(0, 0, 0, 0)' || paint!.bg === 'transparent').toBe(true);
     expect(paint!.bgImage).toBe('none');
     expect(paint!.borderWidth).toBe('0px');
+  });
+
+  test('a selected pin keeps a steady target instead of breathing with the pulse', async ({
+    page,
+  }) => {
+    /* The tap target and the selected pin's pulse were one `::after` between
+       them, and the pulse won: its `inset: -6px` moved the touch square off
+       the dot and its `transform: scale(0.9 → 2.2)` replaced the centring
+       translate — an animation outranks a normal author declaration — so the
+       square breathed. Measured on one plain pin, same marker both ways:
+       **reach 45→90px on a two-second loop before, a steady 21px after.**
+
+       Why that mattered to a reader: a selected pin sits above its neighbours
+       (zIndexOffset 1000), and in the walled city thirty-five sites stand
+       inside a few hundred metres. A pin whose invisible target is 180px
+       across swallows the taps meant for them, so tapping the next shrine
+       along deselected the current one instead of opening it — and whether it
+       did depended on where a decorative animation happened to be.
+
+       The assertion is the *spread*, not the size: a fixed target of the wrong
+       size is a different bug from a target that changes while you reach for
+       it, and only the spread catches the pseudo-element collision. */
+    await page.goto('/');
+    await page.locator('.shrine-dot').first().waitFor();
+    await page.waitForTimeout(600);
+
+    const unselected = await tapReach(page, '.shrine-dot');
+    expect(unselected, 'an unselected pin no longer reaches 44px across').toBeGreaterThanOrEqual(
+      21,
+    );
+
+    await page.locator('.leaflet-marker-icon').first().tap({ force: true });
+    await page.locator('.shrine-dot.selected').waitFor();
+    // Let the selection's pan settle: a moving marker reads as a short reach.
+    await page.waitForTimeout(1200);
+
+    // Twelve samples at 180ms covers a full 2s pulse cycle.
+    const samples: number[] = [];
+    for (let i = 0; i < 12; i += 1) {
+      samples.push(await tapReach(page, '.shrine-dot.selected'));
+      await page.waitForTimeout(180);
+    }
+    const min = Math.min(...samples);
+    const max = Math.max(...samples);
+
+    expect(
+      min,
+      `a selected pin's target fell under 44px (${samples.join(',')})`,
+    ).toBeGreaterThanOrEqual(21);
+    expect(
+      max - min,
+      `a selected pin's tap target changes size as the pulse animates (${samples.join(',')})`,
+    ).toBeLessThanOrEqual(2);
   });
 });

@@ -372,6 +372,10 @@
      ground: a shadow tuned for cream is invisible on the dark one. */
   --color-scroll-shadow: rgba(60, 44, 26, 0.22);
   --marker-hit-size: 44px;
+  /* How much a selected pin grows. Named because two rules must agree on it:
+     the dot scales up, and its hit area scales *down* by the same factor so
+     the touch square stays --marker-hit-size in every state. */
+  --marker-selected-scale: 1.55;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);

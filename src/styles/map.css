@@ -504,6 +504,17 @@
   /* No background, no border: this is a hit area, not a halo. */
 }
 
+/* A selected dot scales up, and a transform scales its pseudo-elements with
+   it — so the touch square would grow to 68px and start covering the pins
+   beside it. Undo exactly the dot's own scale: 44px stays 44px, selected or
+   not, which is what `--marker-hit-size` claims. Hover (1.35) is deliberately
+   left alone: it is a pointer state, it cannot fire on the walled-city taps
+   this protects, and a target that grows under a cursor already on it is the
+   one case where growing is right. */
+.shrine-dot.selected::after {
+  transform: translate(-50%, -50%) scale(calc(1 / var(--marker-selected-scale)));
+}
+
 .shrine-dot--muslim {
   background-color: var(--color-cat-muslim);
 }
@@ -576,20 +587,41 @@
 
 .shrine-dot.selected {
   background-color: var(--color-marker-selected);
-  transform: scale(1.55);
+  transform: scale(var(--marker-selected-scale));
   box-shadow:
     0 3px 12px rgba(200, 137, 10, 0.45),
     0 0 0 1px rgba(200, 137, 10, 0.25);
 }
 
+/*
+ * The pulse on the selected pin — and the reason it is `::before`.
+ *
+ * It used to be `::after`, which is the tap target above. One pseudo-element
+ * cannot be both: the ring's `inset: -6px` moved the touch square off the dot,
+ * and its `transform: scale(0.9 → 2.2)` *replaced* the centring translate, so
+ * the invisible square breathed instead of sitting still. Measured on a
+ * selected pin, tap reach from its centre ran **36px → 79px on a two-second
+ * loop** where an unselected pin's is a steady 21px. The marker that had a tap
+ * target was exactly the marker that did not.
+ *
+ * What a reader felt: at walled-city density — thirty-five sites inside a few
+ * hundred metres — the selected pin sits above its neighbours (zIndexOffset
+ * 1000) and swallows taps meant for them, so tapping the next shrine along
+ * deselected the current one instead of opening it. Whether it did depended on
+ * where a decorative animation happened to be.
+ *
+ * `pointer-events: none` is belt and braces: a ring that grows to twice the
+ * pin is never a control, whichever pseudo-element it lands on.
+ */
 @media (prefers-reduced-motion: no-preference) {
-  .shrine-dot.selected::after {
+  .shrine-dot.selected::before {
     content: '';
     position: absolute;
     inset: -6px;
     border-radius: 50%;
     border: 2px solid var(--color-marker-selected);
     opacity: 0.55;
+    pointer-events: none;
     animation: pulse-ring 2s var(--easing) infinite;
   }
 }
