@@ -141,6 +141,47 @@ rows.forEach((row, i) => {
   }
 });
 
+// ── year_built_precision vocabulary guard ─────────────────────────────────
+/*
+ * How well the archive knows a building date, and until 29 August 2026 **no
+ * document declared its values and no check read them.** CLAUDE.md lists the
+ * column in the schema and stops there; neither validator mentioned it; the
+ * only place a value is written down is `pipeline/append_new_shrines.py`, which
+ * defaults new rows to "unknown".
+ *
+ * The vocabulary below is therefore descriptive, not invented — it is what 165
+ * of the 169 rows actually use, counted:
+ *
+ *     exact 44 · unknown 43 · circa 41 · century 35 · range 2
+ *
+ * Nothing was added to it. `disputed` would be the obvious sixth (the figure
+ * dates already use it) and is deliberately absent, because declaring a value
+ * the data never uses is a promise the data does not keep — the same reason the
+ * event vocabulary was cut from four values to two (HANDOVER §9.106).
+ *
+ * The three rows that fail are not sloppiness and must not be "tidied": each
+ * carries a sentence where a code belongs — "Uncertain — field value is a Hijri
+ * day-and-year, not a building date" — and each ALSO carries the same
+ * explanation in `year_built_note`, where it belongs. So the fix is to set the
+ * code, not to delete the sentence, and the sentence is already safe. A patch
+ * proposing exactly that is in data/patch_year_built_precision_2026-08-29.csv.
+ *
+ * Warning, not an error, for the reason the file's header gives: the backlog is
+ * a sheet edit a human makes, and this exists to stop it growing.
+ */
+const PRECISION_ENUM = new Set(['exact', 'circa', 'century', 'range', 'unknown']);
+
+rows.forEach((row, i) => {
+  const label = `Row ${i} (${String(row['Name'] ?? '').trim() || '(no name)'})`;
+  const raw = String(row['year_built_precision'] ?? '').trim();
+  if (!raw) return; // unrecorded is honest; the empty-field warnings cover it
+  if (PRECISION_ENUM.has(raw)) return;
+  rowWarnings.push(
+    `  ${label}: year_built_precision ${JSON.stringify(raw.slice(0, 60))} is not one of ` +
+      `${[...PRECISION_ENUM].join(' | ')} — a sentence here belongs in year_built_note`,
+  );
+});
+
 // ── provenance validation ─────────────────────────────────────────────────
 
 const PROVENANCE_JSON = join(ROOT, 'data', 'provenance.json');

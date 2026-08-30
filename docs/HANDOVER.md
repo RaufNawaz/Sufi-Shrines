@@ -3614,6 +3614,40 @@ both redirects.
     structure the data does not have). Worth revisiting now that two of them turn out to have
     founders and mother-shrines documented here.
 
+132. **A schema column nobody had ever declared or checked.** *Swept 29 August 2026.* Running
+    every schema-constrained column against its vocabulary turned up one real hole, and it was
+    not where I expected. `category`, `status`, `support_level` and `info_level` are all
+    guarded — `category`'s guard even carries a comment recording that its own first draft
+    wrongly accused Hinglaj Mata of having no category, which is the same mistake I made
+    independently ten minutes earlier with the same row, and for the same reason: reading
+    `row.category` without the legacy `Category` fallback.
+
+    **`year_built_precision` had neither.** CLAUDE.md lists the column and stops; neither
+    validator mentioned it; the only place any value is written down is
+    `pipeline/append_new_shrines.py`, which defaults new rows to `"unknown"`. So the column's
+    vocabulary existed only as a habit.
+
+    Counted, it is a clean five: **exact 44 · unknown 43 · circa 41 · century 35 · range 2** —
+    165 of 169 rows. `scripts/data/validate.mjs` now declares exactly those and warns on
+    anything else. Nothing was added: `disputed` would be the obvious sixth and is deliberately
+    absent, because a vocabulary the data never uses is a promise the data does not keep
+    (§9.106).
+
+    The three rows that fail are **not** sloppiness, and the fix is not to flatten them. Each
+    holds a sentence where a code belongs — "Uncertain — field value is a Hijri day-and-year,
+    not a building date" — and each already carries that same explanation, at greater length, in
+    `year_built_note`, which is the column for it. So the qualification is safe either way, and
+    what the duplicate costs is every grouping and count over precision, where it is a category
+    of one. `data/patch_year_built_precision_2026-08-29.csv` proposes the three codes, with an
+    INSTRUCTIONS.md that says what to check before importing and offers the alternative
+    (add `disputed`, and widen the guard) if Rauf prefers it.
+
+    *An instrument note, since this is the third time in two days:* my first sweep reported **46**
+    off-vocabulary values, because I supplied the vocabulary from memory of the *figure*
+    `datePrecision` doc and it excluded `unknown`. The 43 "unknown" rows were the instrument
+    being wrong, not the data. Check what the repo already writes down before checking the data
+    against what you think it says.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
