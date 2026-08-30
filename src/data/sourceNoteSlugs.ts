@@ -20,11 +20,14 @@ export const SOURCE_NOTE_SLUGS: readonly string[] = [
   "chandragup-baba-chandragup",
   "darbar-abul-muali-qadri",
   "darbar-ghamkol-sharif-zinda-pir",
+  "darbar-ghazi-ilm-din-shaheed",
+  "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
   "darbar-hazrat-shah-gohar-peer",
+  "darbar-hazrat-tahir-bandagi-qadri",
   "darbar-malik-ahmad-ayaz",
   "darbar-mian-qurban-ali-shah",
+  "darbar-wasif-ali-wasif",
   "dargah-of-khwaja-muhammad-zaman-luari-sharif",
-  "ghazi-ilm-din-shaheed",
   "gori-temple-gori-jo-mandar",
   "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore",
   "gurdwara-chakki-sahib",
@@ -39,7 +42,6 @@ export const SOURCE_NOTE_SLUGS: readonly string[] = [
   "jain-mandir-lahore",
   "kalat-kali-temple",
   "khatwari-darbar-shikarpur",
-  "khawaja-feroz-ud-din-gharib-nawaz",
   "lal-kurti-temple-balmiki-mandir-rawalpindi",
   "loh-temple-lava-temple",
   "mohra-sharif-khanqah",
@@ -62,12 +64,10 @@ export const SOURCE_NOTE_SLUGS: readonly string[] = [
   "shrine-of-shah-abdul-karim-bulri",
   "shrine-of-shah-inayat-qadiri",
   "swami-dharmdas-darbar-larkana-kennedy-market",
-  "tahir-bandagi-qadri",
   "tomb-of-javindi-bibi",
   "tomb-of-qutbuddin-aibak",
   "tomb-of-ustad-nuriya",
   "valmiki-swamiji-mandir-gracy-lines-rawalpindi",
-  "wasif-ali-wasif"
 ];
 
 /** Set form, built once — SourceNotes asks this on every shrine render. */

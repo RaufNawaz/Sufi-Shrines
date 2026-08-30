@@ -1,5 +1,25 @@
 {
   "_readme": "Reader-facing source notes (22 Aug 2026 ruling, EDITORIAL_DECISIONS_PENDING.md §6): a cleaned per-entry disclosure of where the source contradicts itself. Every item RESTATES what the sheet's internal qa_note records, attributed to the survey or named research source as appropriate — nothing is resolved, nothing invented, nothing withheld (the sensitive-content ruling). The raw qa_note stays internal. Keyed by route slug; items are bilingual and drafted only from the qa_note's recorded evidence.",
+  "bhai-waliram-darbar": [
+    {
+      "en": "The only independently verified source, Zulfiqar Ali Kalhoro's “Nanakpanthi Saints of Sindh” (The Friday Times, 13 April 2018), confirms Bhai Waliram's Nanakpanthi identity and the village and taluka location. It does not verify the Qambar–Shahdadkot district attribution, and no second source has yet corroborated the entry.",
+      "ur": "واحد آزادانہ طور پر تصدیق شدہ ماخذ، ذوالفقار علی کلہوڑو کا مضمون «سندھ کے نانک پنتھی سنت» جو ۱۳ اپریل ۲۰۱۸ کو فرائیڈے ٹائمز میں شائع ہوا، بھائی ولی رام کی نانک پنتھی شناخت اور گاؤں و تعلقے کے مقام کی تصدیق کرتا ہے۔ یہ ضلع قمبر شہدادکوٹ کی نسبت کی تصدیق نہیں کرتا، اور کسی دوسرے ماخذ سے ابھی اندراج کی تائید نہیں ہوئی۔"
+    }
+  ],
+  "chandragup-baba-chandragup": [
+    {
+      "en": "Sources give sharply different measurements for Chandragup: The Express Tribune reports a height of 330 feet and a diameter of 49 feet, while Dawn describes the region's mud volcanoes as 800–1,550 feet high and this crater as about 450 feet across. The figures are not reconciled.",
+      "ur": "ماخذ چندرگپ کے بہت مختلف پیمانے دیتے ہیں: ایکسپریس ٹریبیون بلندی ۳۳۰ فٹ اور قطر ۴۹ فٹ بتاتا ہے، جبکہ ڈان خطے کے مٹی کے آتش فشانوں کی بلندی ۸۰۰ سے ۱٬۵۵۰ فٹ اور اِس دہانے کا قطر تقریباً ۴۵۰ فٹ لکھتا ہے۔ اِن اعداد میں تطبیق نہیں کی گئی۔"
+    },
+    {
+      "en": "National Geographic reported more than 40,000 Hinglaj Yatra pilgrims in 2019; Dawn reported around 200,000 over three days in 2025. Because the years and possible counting bases differ, both figures are reported without treating them as directly comparable.",
+      "ur": "نیشنل جیوگرافک نے ۲۰۱۹ء میں ہنگلاج یاترا کے چالیس ہزار سے زیادہ زائرین بتائے؛ ڈان نے ۲۰۲۵ء میں تین دن کے دوران تقریباً دو لاکھ۔ برس اور ممکنہ طریقۂ شمار مختلف ہونے کے باعث دونوں اعداد درج ہیں مگر براہِ راست تقابل نہیں کیا گیا۔"
+    },
+    {
+      "en": "The epithet “Baba Chandragup” in the entry's title was not corroborated by the established press or academic sources checked. It was traced only to Wikipedia, whose cited source fell below the archive's reliability standard, so the epithet remains unverified.",
+      "ur": "اندراج کے عنوان میں لقب «بابا چندرگپ» کی پڑتال کیے گئے معتبر اخباری یا علمی ماخذ سے تصدیق نہیں ہوئی۔ یہ صرف ویکیپیڈیا تک پہنچا، جس کا حوالہ آرکائیو کے معیارِ اعتبار سے کم تھا؛ اس لیے لقب غیر مصدقہ ہے۔"
+    }
+  ],
   "darbar-abul-muali-qadri": [
     {
       "en": "Asked for the saint's Sufi order, the survey answers with descent and a personal bond — \"Lineage of Hazrat Ali (R.A), Kirmani Sadaat, Affiliation with Syed Dawood Bandgi Kirmani\" — and names no order anywhere. The shrine's own name carries \"Qadri\", but this entry does not infer an affiliation from a name.",
@@ -28,6 +48,56 @@
     {
       "en": "The survey reports that the land for Dyal Singh College in Lahore \"was also given by his descendants\". The claim is undated and unevidenced in the survey; it appears here strictly as the survey's statement.",
       "ur": "سروے بتاتا ہے کہ لاہور کے دیال سنگھ کالج کی زمین «اُن کی اولاد نے دی تھی»۔ سروے میں اِس دعوے کی نہ تاریخ ہے نہ سند؛ یہ یہاں صرف سروے کے بیان کے طور پر درج ہے۔"
+    }
+  ],
+  "darbar-ghamkol-sharif-zinda-pir": [
+    {
+      "en": "The entry dates the darbar's founding to 1952, matching the affiliated UK Central Jamia Mosque Ghamkol Sharif's statement that its charity's roots go back to 1952. Pnina Werbner's 2009 academic conference paper instead dates Zinda Pir's seclusion and founding of the cult centre to 1948, when legend says he first secluded himself in a cave on Ghamkol hill. The two dates are not reconciled.",
+      "ur": "اندراج دربار کی تاسیس ۱۹۵۲ میں رکھتا ہے، جو برطانیہ کی وابستہ مرکزی جامع مسجد غمکول شریف کے اِس بیان سے میل کھاتا ہے کہ اس کے خیراتی ادارے کی جڑیں ۱۹۵۲ تک جاتی ہیں۔ پنینا وربنر کا ۲۰۰۹ کا علمی کانفرنس مقالہ اس کے بجائے زندہ پیر کی خلوت اور مرکزِ ارادت کی تاسیس ۱۹۴۸ میں رکھتا ہے، جب روایت کے مطابق اُنہوں نے پہلی بار غمکول کی پہاڑی کے ایک غار میں خلوت اختیار کی۔ دونوں تاریخوں میں تطبیق نہیں کی گئی۔"
+    }
+  ],
+  "darbar-ghazi-ilm-din-shaheed": [
+    {
+      "en": "The account of the 1929 case, trial and execution is the field survey's retelling and was not cross-checked against historical sources for this entry.",
+      "ur": "۱۹۲۹ء کے مقدمے، عدالتی کارروائی اور پھانسی کا بیان فیلڈ سروے کی اپنی روایت ہے؛ اِس اندراج کے لیے اسے دوسرے تاریخی ماخذ سے نہیں جانچا گیا۔"
+    },
+    {
+      "en": "The survey locates the shrine only in Lahore. Miani Sahib Graveyard was added from published press accounts, and the coordinate marks the graveyard approximately rather than the grave itself; a precise pin is still awaited from Saifullah.",
+      "ur": "سروے درگاہ کا مقام صرف لاہور بتاتا ہے۔ میانی صاحب قبرستان کا تعین شائع شدہ اخباری بیانات سے شامل ہوا، اور محدد قبر کے بجائے قبرستان کا تخمینی نشان ہے؛ درست نشان کے لیے سیف اللہ کی اطلاع اب بھی درکار ہے۔"
+    }
+  ],
+  "darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami": [
+    {
+      "en": "The survey says he was born “in the latter part of the 1900s (19th century).” The “1900s” and the “19th century” are different periods, and the survey gives no other birth year; the date remains unresolved rather than being guessed.",
+      "ur": "سروے لکھتا ہے کہ وہ «انیس سو کی دہائی کے آخری حصے میں، انیسویں صدی» پیدا ہوئے۔ «انیس سو کی دہائی» اور «انیسویں صدی» الگ ادوار ہیں، اور سروے کوئی دوسرا سنِ پیدائش نہیں دیتا؛ اندازہ لگانے کے بجائے تاریخ غیر متعین رکھی گئی ہے۔"
+    }
+  ],
+  "darbar-hazrat-shah-gohar-peer": [
+    {
+      "en": "The survey says Sultan Mahmud Ghaznavi built the shrine after the saint died in 825 AH, about 1422 CE. Mahmud died in 1030 CE, roughly four centuries earlier, so the attribution and death date cannot both hold chronologically. Both remain recorded as the survey's tradition; its separate mention of a Lahore locality called Mahmood Booti is not treated as an explanation, and 825 AH is treated as the death year rather than a construction date.",
+      "ur": "سروے کہتا ہے کہ سلطان محمود غزنوی نے بزرگ کی ۸۲۵ ہجری، تقریباً ۱۴۲۲ عیسوی، میں وفات کے بعد مزار بنایا۔ محمود ۱۰۳۰ عیسوی میں، تقریباً چار صدیاں پہلے، وفات پا چکے تھے؛ اس لیے نسبت اور تاریخِ وفات زمانی طور پر دونوں درست نہیں ہو سکتیں۔ دونوں کو سروے کی روایت کے طور پر درج رکھا گیا ہے؛ لاہور کے ایک الگ مقام محمود بوٹی کے ذکر کو وضاحت نہیں مانا گیا، اور ۸۲۵ ہجری کو سنِ تعمیر نہیں بلکہ سالِ وفات سمجھا گیا ہے۔"
+    },
+    {
+      "en": "The sect-and-lineage answer combines “Ahl e Sunnat” with “Ismaili Sadaat of Uch Sharif” and a genealogy to Imam Hussain. Sunni and Ismaili are distinct traditions, and the survey offers no reconciliation; the lineage is reported as given and no Sufi order is inferred.",
+      "ur": "مسلک اور نسب کا جواب «اہلِ سنت» کو «اُچ شریف کے اسماعیلی سادات» اور امام حسینؓ تک شجرۂ نسب کے ساتھ جمع کرتا ہے۔ سنی اور اسماعیلی الگ روایات ہیں اور سروے اُن میں تطبیق نہیں کرتا؛ نسب ویسے ہی درج ہے جیسے دیا گیا، اور کوئی صوفی سلسلہ اخذ نہیں کیا گیا۔"
+    },
+    {
+      "en": "The tree said to have been planted by the saint is called a Sukh Chain (Pongamia) in one answer and a banyan (bor) in another. The survey does not say whether these are two trees or two descriptions of one.",
+      "ur": "بزرگ کے ہاتھ سے لگایا گیا درخت ایک جواب میں سکھ چین اور دوسرے میں برگد، یعنی بوڑ، بتایا گیا ہے۔ سروے یہ نہیں کہتا کہ یہ دو درخت ہیں یا ایک ہی درخت کی دو مختلف شناختیں۔"
+    },
+    {
+      "en": "No source beyond the field survey was consulted. The survey says later saints wrote books about Shah Gohar Peer but names none, and its export records “No book available,” so the archive cites no such work.",
+      "ur": "میدانی سروے کے سوا کوئی ماخذ استعمال نہیں ہوا۔ سروے کہتا ہے کہ بعد کے بزرگوں نے شاہ گوہر پیر پر کتابیں لکھیں مگر کسی کا نام نہیں دیتا، اور برآمد شدہ ریکارڈ «کوئی کتاب دستیاب نہیں» کہتا ہے؛ اس لیے آرکائیو ایسی کسی تصنیف کا حوالہ نہیں دیتا۔"
+    }
+  ],
+  "darbar-hazrat-tahir-bandagi-qadri": [
+    {
+      "en": "Asked for sect or order, the survey opens with Chishti Nizamia Qadria. Its substantive life-story answers connect Tahir Bandagi only to the Qadri order through Hazrat Shah Sikandar and the Naqshbandi order through Mujaddid Alf Sani; no other answer mentions a Chishti or Nizami connection. The discrepancy is reported without resolution.",
+      "ur": "مسلک یا سلسلے کے سوال پر سروے ابتدا میں چشتی نظامیہ قادریہ لکھتا ہے۔ سوانح کے تفصیلی جوابات طاہر بندگی کو صرف حضرت شاہ سکندر کے ذریعے قادری سلسلے اور مجدد الف ثانی کے ذریعے نقشبندی سلسلے سے جوڑتے ہیں؛ کسی دوسرے جواب میں چشتی یا نظامی نسبت نہیں آتی۔ اختلاف درج ہے مگر حل نہیں کیا گیا۔"
+    },
+    {
+      "en": "Surveyed visitors are divided on whether jinn are actually present at the shrine. Both positions are reported; the archive does not decide between them.",
+      "ur": "سروے میں شامل زائرین اِس بارے میں منقسم ہیں کہ مزار پر واقعی جنات موجود ہیں یا نہیں۔ دونوں آرا درج ہیں؛ آرکائیو کسی ایک کا فیصلہ نہیں کرتا۔"
     }
   ],
   "darbar-malik-ahmad-ayaz": [
@@ -102,154 +172,26 @@
       "ur": "جمعرات کے ہفتہ وار اجتماع کے لیے سروے کہتا ہے کہ «ایک مقرر تعداد» شریک ہوتی ہے مگر تعداد نہیں بتاتا۔ روزانہ اور سالانہ عرس کے اندازے الگ درج ہیں؛ اُن سے ہفتہ وار عدد اخذ نہیں کیا گیا۔"
     }
   ],
-  "darbar-hazrat-shah-gohar-peer": [
+  "darbar-wasif-ali-wasif": [
     {
-      "en": "The survey says Sultan Mahmud Ghaznavi built the shrine after the saint died in 825 AH, about 1422 CE. Mahmud died in 1030 CE, roughly four centuries earlier, so the attribution and death date cannot both hold chronologically. Both remain recorded as the survey's tradition; its separate mention of a Lahore locality called Mahmood Booti is not treated as an explanation, and 825 AH is treated as the death year rather than a construction date.",
-      "ur": "سروے کہتا ہے کہ سلطان محمود غزنوی نے بزرگ کی ۸۲۵ ہجری، تقریباً ۱۴۲۲ عیسوی، میں وفات کے بعد مزار بنایا۔ محمود ۱۰۳۰ عیسوی میں، تقریباً چار صدیاں پہلے، وفات پا چکے تھے؛ اس لیے نسبت اور تاریخِ وفات زمانی طور پر دونوں درست نہیں ہو سکتیں۔ دونوں کو سروے کی روایت کے طور پر درج رکھا گیا ہے؛ لاہور کے ایک الگ مقام محمود بوٹی کے ذکر کو وضاحت نہیں مانا گیا، اور ۸۲۵ ہجری کو سنِ تعمیر نہیں بلکہ سالِ وفات سمجھا گیا ہے۔"
-    },
-    {
-      "en": "The sect-and-lineage answer combines “Ahl e Sunnat” with “Ismaili Sadaat of Uch Sharif” and a genealogy to Imam Hussain. Sunni and Ismaili are distinct traditions, and the survey offers no reconciliation; the lineage is reported as given and no Sufi order is inferred.",
-      "ur": "مسلک اور نسب کا جواب «اہلِ سنت» کو «اُچ شریف کے اسماعیلی سادات» اور امام حسینؓ تک شجرۂ نسب کے ساتھ جمع کرتا ہے۔ سنی اور اسماعیلی الگ روایات ہیں اور سروے اُن میں تطبیق نہیں کرتا؛ نسب ویسے ہی درج ہے جیسے دیا گیا، اور کوئی صوفی سلسلہ اخذ نہیں کیا گیا۔"
-    },
-    {
-      "en": "The tree said to have been planted by the saint is called a Sukh Chain (Pongamia) in one answer and a banyan (bor) in another. The survey does not say whether these are two trees or two descriptions of one.",
-      "ur": "بزرگ کے ہاتھ سے لگایا گیا درخت ایک جواب میں سکھ چین اور دوسرے میں برگد، یعنی بوڑ، بتایا گیا ہے۔ سروے یہ نہیں کہتا کہ یہ دو درخت ہیں یا ایک ہی درخت کی دو مختلف شناختیں۔"
-    },
-    {
-      "en": "No source beyond the field survey was consulted. The survey says later saints wrote books about Shah Gohar Peer but names none, and its export records “No book available,” so the archive cites no such work.",
-      "ur": "میدانی سروے کے سوا کوئی ماخذ استعمال نہیں ہوا۔ سروے کہتا ہے کہ بعد کے بزرگوں نے شاہ گوہر پیر پر کتابیں لکھیں مگر کسی کا نام نہیں دیتا، اور برآمد شدہ ریکارڈ «کوئی کتاب دستیاب نہیں» کہتا ہے؛ اس لیے آرکائیو ایسی کسی تصنیف کا حوالہ نہیں دیتا۔"
+      "en": "The survey's sect-and-lineage response — \"Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri\" — is not fully grammatical as recorded. It is retained without editorial repair, and the family's claimed descent from Hazrat Ali is presented only as the family's own account, not as independently verified.",
+      "ur": "سروے کا فرقے اور نسب سے متعلق جواب درج شدہ صورت میں نحوی طور پر نامکمل اور غیر واضح ہے؛ اِس میں کندان قبیلہ، اہلِ سنت، حضرت علیؓ، اور حضرت شاہ نیاز احمد چشتی قادری کا ذکر آتا ہے، مگر عبارت کی خاموش اصلاح یا تعبیر نہیں کی گئی۔ حضرت علیؓ سے نسب کا دعویٰ خاندان کا اپنا بیان ہے اور آزادانہ طور پر تصدیق شدہ نہیں۔"
     }
   ],
-  "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi": [
+  "dargah-of-khwaja-muhammad-zaman-luari-sharif": [
     {
-      "en": "Two Express Tribune reports from 2019 date the mausoleum to 1585. The Punjab Directorate General of Archaeology's official listing instead says it may be attributed to the seventeenth century. The sources directly conflict, and the review does not choose between them.",
-      "ur": "ایکسپریس ٹریبیون کی سنہ ۲۰۱۹ کی دو رپورٹیں مقبرے کی تعمیر ۱۵۸۵ عیسوی بتاتی ہیں۔ پنجاب کے محکمۂ آثارِ قدیمہ کا سرکاری اندراج اِسے ممکنہ طور پر سترھویں صدی عیسوی سے منسوب کرتا ہے۔ دونوں مآخذ براہِ راست متعارض ہیں؛ جائزہ کسی ایک کو ترجیح نہیں دیتا۔"
-    },
-    {
-      "en": "The press reports call the saint Hazrat Shah Ali Akbar and describe him as an eighth-generation descendant of Hazrat Shamsuddin Sabzwari. The official listing instead calls him the Ismaili saint Sultan Ali Akbar, says local tradition credits him with erecting the tomb, and does not repeat the Sabzwari descent claim. The difference in naming, identity, and lineage remains unresolved.",
-      "ur": "اخباری رپورٹیں اُنہیں حضرت شاہ علی اکبر اور حضرت شمس الدین سبزواری کی آٹھویں پشت کا وارث بتاتی ہیں۔ سرکاری اندراج اس کے بجائے اُن کا نام اسماعیلی بزرگ سلطان علی اکبر لکھتا ہے، مقامی روایت کے مطابق مقبرہ اُن ہی کا تعمیر کردہ بتاتا ہے، اور سبزواری نسب کا دعویٰ نہیں دہراتا۔ نام، شناخت اور نسب کا یہ اختلاف حل نہیں کیا گیا۔"
-    },
-    {
-      "en": "The May 2019 report gives the conservation project's cost as Rs 30 million; the November 2019 report gives Rs 27.104 million. Neither article explains whether this is a revised cost for one project or a different phase, and the archive adopts neither explanation.",
-      "ur": "مئی ۲۰۱۹ کی رپورٹ تحفظ کے منصوبے کی لاگت ۳۰ ملین روپے اور نومبر ۲۰۱۹ کی رپورٹ ۲۷ اعشاریہ ۱۰۴ ملین روپے بتاتی ہے۔ کوئی رپورٹ واضح نہیں کرتی کہ یہ ایک ہی منصوبے کی نظرِ ثانی شدہ لاگت ہے یا کوئی الگ مرحلہ؛ آرکائیو کسی توضیح کو اختیار نہیں کرتا۔"
-    },
-    {
-      "en": "Because the two press reports use nearly identical wording, the review says they may derive from the same government press-office material. No independent corroboration was found; especially given their date conflict with the official custodial body, this addition remains partial rather than settled.",
-      "ur": "دونوں اخباری مضامین کی تقریباً یکساں عبارت کے باعث جائزہ امکان ظاہر کرتا ہے کہ وہ ایک ہی سرکاری پریس دفتر کے مواد سے ماخوذ ہوں۔ آزاد تصدیق نہیں ملی؛ بالخصوص سرکاری نگہبان ادارے سے تاریخ کے اختلاف کی وجہ سے یہ اضافہ جزوی ہے، حتمی نہیں۔"
+      "en": "These coordinates locate Luari Sharif town, where the dargah stands; they are gazetteer-level and should be read only as village-level accuracy.",
+      "ur": "یہ نقاطِ مقام لواری شریف قصبے کے ہیں، جہاں درگاہ واقع ہے؛ یہ گزٹیئر درجے کے ہیں اور اِنہیں صرف گاؤں کی سطح تک درست سمجھا جائے۔"
     }
   ],
-  "tomb-of-ustad-nuriya": [
+  "gori-temple-gori-jo-mandar": [
     {
-      "en": "The coordinates are approximate. The internal review places the tomb on the same mound as several other monuments, including Bibi Jawindi and Baha'al-Halim.",
-      "ur": "مختصات تقریبی ہیں۔ اندرونی جائزہ مقبرے کو اسی ٹیلے پر رکھتا ہے جہاں کئی دوسرے آثار، ازجملہ بی بی جیوندی اور بہاء الحلیم، واقع ہیں۔"
+      "en": "No source checked in this research pass supports the entry's precise 1375–1376 CE founding date. Dawn gives only “around the 16th century”, the Endowment Fund Trust gives no date, and Wikipedia carries both an uncited 1375–1376 date and a legend of construction in 300 CE. The founding date remains unsettled.",
+      "ur": "اِس تحقیقی مرحلے میں پڑتال کیا گیا کوئی ماخذ اندراج کی معین تاریخِ تاسیس ۱۳۷۵–۱۳۷۶ء کی تائید نہیں کرتا۔ ڈان صرف «تقریباً سولہویں صدی» کہتا ہے، انڈومنٹ فنڈ ٹرسٹ کوئی تاریخ نہیں دیتا، اور ویکیپیڈیا بے حوالہ ۱۳۷۵–۱۳۷۶ء کے ساتھ ۳۰۰ء میں تعمیر کی روایت بھی درج کرتا ہے۔ تاریخِ تاسیس غیر طے شدہ ہے۔"
     },
     {
-      "en": "The internal review identifies this as the tomb of an architect and records that it was included under Muslim Shrine as part of the wider Sufi-shrine ensemble.",
-      "ur": "اندرونی جائزہ اِسے ایک معمار کا مقبرہ قرار دیتا ہے اور درج کرتا ہے کہ وسیع تر صوفی مزاراتی مجموعے کا حصہ ہونے کے باعث اِسے مسلم مزار کے زمرے میں شامل کیا گیا تھا۔"
-    },
-    {
-      "en": "The review found a dedicated Wikimedia Commons category for the shrine but had not confirmed a specific file as an exact image of this tomb. Exact image identification remained outstanding.",
-      "ur": "جائزے میں مزار کے لیے ویکی میڈیا کامنز کا مخصوص زمرہ ملا، مگر کسی متعین فائل کی اِسی مقبرے کی درست تصویر کے طور پر تصدیق نہیں ہوئی۔ تصویر کی قطعی شناخت باقی تھی۔"
-    },
-    {
-      "en": "Punjab's archaeology register files the tomb under the Early Muslim Period, eighth to twelfth century. That conflicts with the late-fifteenth-century dating elsewhere: the sheet gives 1493, while the cited academic source places it in the era of Bibi Jawindi's shrine, which the 1908 Bahawalpur Gazetteer dates to 900 AH / 1494 AD. The conflict is unresolved.",
-      "ur": "پنجاب کے آثارِ قدیمہ کے اندراج میں یہ مقبرہ ابتدائی مسلم دور، آٹھویں سے بارہویں صدی، کے تحت درج ہے۔ یہ دوسری جگہ موجود پندرھویں صدی کے اواخر کی تاریخ سے متعارض ہے: جدول ۱۴۹۳ دیتا ہے، جبکہ حوالہ شدہ علمی ماخذ اسے بی بی جیوندی کے مزار کے عہد میں رکھتا ہے، جسے بہاولپور کے ۱۹۰۸ کے گزٹیئر نے ۹۰۰ ہجری، یعنی ۱۴۹۴ عیسوی، قرار دیا ہے۔ اختلاف حل نہیں ہوا۔"
-    },
-    {
-      "en": "The 1908 Bahawalpur State Gazetteer gives a detailed named list of Uch's shrines and tombs but includes neither Ustad Nuriya nor a tomb attributed to an architect. None of the checked sources explains this documentary gap.",
-      "ur": "ریاستِ بہاولپور کا ۱۹۰۸ کا گزٹیئر اُچ کے مزارات اور مقبروں کی مفصل نام وار فہرست دیتا ہے، مگر نہ استاد نوریہ کا نام شامل کرتا ہے نہ کسی معمار سے منسوب مقبرہ۔ جانچے گئے مآخذ میں سے کوئی اِس دستاویزی خلا کی وضاحت نہیں کرتا۔"
-    },
-    {
-      "en": "The addition relies substantially on one academic paper of uneven editorial quality, published by a Textile Design department rather than a specialist history or archaeology journal. The review found no independent corroboration and treats the material as partial and unconfirmed.",
-      "ur": "یہ اضافہ بڑی حد تک ایک ایسے علمی مقالے پر منحصر ہے جس کا اداری معیار غیر یکساں ہے اور جو تاریخ یا آثارِ قدیمہ کے تخصصی جریدے کے بجائے شعبۂ پارچہ ڈیزائن کی اشاعت ہے۔ جائزے کو آزاد تائید نہیں ملی، اس لیے یہ مواد جزوی اور غیر مصدقہ سمجھا گیا ہے۔"
-    }
-  ],
-  "tomb-of-qutbuddin-aibak": [
-    {
-      "en": "Punjab's official archaeology page says the department built the present tomb in 1990. Dawn dates the reconstruction to 1972, ordered by Prime Minister Z. A. Bhutto with architect Kamil Khan Mumtaz heading the design, while Daily Times places it generally in the 1970s. The roughly two-decade gap remains unresolved; no source explicitly says that one date marks the order or design and the other completion.",
-      "ur": "پنجاب کے محکمۂ آثارِ قدیمہ کا سرکاری صفحہ کہتا ہے کہ محکمے نے موجودہ مقبرہ ۱۹۹۰ میں تعمیر کیا۔ ڈان کے مطابق تعمیرِ نو ۱۹۷۲ میں وزیرِ اعظم بھٹو کے حکم پر ہوئی اور ڈیزائن کی سربراہی معمار کامل خان ممتاز نے کی، جبکہ ڈیلی ٹائمز اسے عمومی طور پر ۱۹۷۰ کی دہائی میں رکھتا ہے۔ تقریباً دو دہائیوں کا فرق حل نہیں ہوا؛ کوئی ماخذ صراحت سے نہیں کہتا کہ ایک تاریخ حکم یا ڈیزائن اور دوسری تکمیل کی ہے۔"
-    },
-    {
-      "en": "Only the Archaeology Department's page says that a marble tomb once stood over the grave and was pulled down by Ranjit Singh. No other checked source corroborates or elaborates on that claim.",
-      "ur": "صرف محکمۂ آثارِ قدیمہ کا صفحہ کہتا ہے کہ قبر پر کبھی سنگِ مرمر کا مقبرہ تھا جسے رنجیت سنگھ نے منہدم کر دیا۔ کوئی دوسرا جانچا گیا ماخذ اِس دعوے کی تائید یا مزید وضاحت نہیں کرتا۔"
-    }
-  ],
-  "shrine-of-hazrat-muhammad-ayub-shah-bukhari": [
-    {
-      "en": "Dawn (22 December 2019) is the only source independently verified here: it confirms a tomb of this name among Gandava's heritage sites. No second verified source corroborates the entry.",
-      "ur": "۲۲ دسمبر ۲۰۱۹ کی ڈان کی رپورٹ یہاں واحد آزادانہ طور پر تصدیق شدہ ماخذ ہے: یہ گنداوا کے ورثہ مقامات میں اِس نام کے ایک مقبرے کی موجودگی کی تصدیق کرتی ہے۔ کسی دوسرے تصدیق شدہ ماخذ سے اِس اندراج کی تائید نہیں ہوئی۔"
-    },
-    {
-      "en": "A sibling researcher's file reports that an archived Jhal Magsi District Government heritage listing also names \"Muhammad Ayub Shah Bukhari (Gandawah).\" The cited Wayback Machine snapshot could not be fetched again, so the listing is not counted as verified.",
-      "ur": "ایک دوسرے محقق کی فائل کے مطابق ضلع جھل مگسی حکومت کے محفوظ شدہ ورثہ اندراج میں بھی «محمد ایوب شاہ بخاری، گنداوا» کا نام ہے۔ مذکورہ ویبیک مشین عکس دوبارہ حاصل نہ ہو سکا، اِس لیے اِس اندراج کو تصدیق شدہ نہیں مانا گیا۔"
-    },
-    {
-      "en": "An uncitable English Wikipedia article describes a same-named shrine in Gulshan-e-Maymar, Gadap Town, Karachi, and associates it with a January 2014 killing of six people — three custodians and three others — claimed by Tehrik-e-Taliban Pakistan. Its cited UCA News, Indian Express archive, and South Asia Terrorism Portal pages could not be fetched or verified, so neither the incident nor any link to the Gandawah entry is treated as confirmed; whether the two sites concern the same figure remains open.",
-      "ur": "انگریزی ویکیپیڈیا کا ناقابلِ حوالہ مضمون گلشنِ معمار، گڈاپ ٹاؤن، کراچی میں اِسی نام کی ایک درگاہ بیان کرتا ہے اور اُسے جنوری ۲۰۱۴ میں چھ افراد — تین متولی اور تین دیگر — کے قتل سے جوڑتے ہوئے لکھتا ہے کہ ذمہ داری تحریک طالبان پاکستان نے قبول کی۔ اُس کے حوالہ شدہ یو سی اے نیوز، انڈین ایکسپریس کے محفوظ صفحے، اور ساؤتھ ایشیا ٹیررازم پورٹل کے صفحات حاصل یا تصدیق نہ ہو سکے؛ اِس لیے نہ واقعہ مصدقہ مانا گیا ہے، نہ گنداوا کے اندراج سے کوئی تعلق۔ دونوں مقامات ایک ہی شخصیت سے متعلق ہیں یا نہیں، یہ سوال کھلا ہے۔"
-    }
-  ],
-  "gurdwara-sahib-saidpur-guru-nanak-dev-ji": [
-    {
-      "en": "The Express Tribune (2020) and Arab News PK (2020) describe a gurdwara built \"probably\" in the twentieth century by the Sikh community, with an attached school devoted to Guru Nanak's teachings. Neither source ties Guru Nanak personally to the site, nor names a specific founding year or builder; the connection implied by the entry's title and the precise date remain unverified, so the entry is only partly corroborated.",
-      "ur": "ایکسپریس ٹریبیون اور عرب نیوز پاکستان کی ۲۰۲۰ کی رپورٹیں ایک ایسے گوردوارے کا ذکر کرتی ہیں جو سکھ برادری نے «غالباً» بیسویں صدی میں بنایا اور جس کے ساتھ گرو نانک کی تعلیمات کے لیے ایک اسکول تھا۔ کوئی ماخذ گرو نانک کو ذاتی طور پر اِس مقام سے نہیں جوڑتا اور نہ کوئی معین سنِ تاسیس یا بانی بتاتا ہے؛ اندراج کے عنوان سے ظاہر ہونے والی نسبت اور درست تاریخ ابھی غیر مصدقہ ہیں، اِس لیے اندراج کی تائید صرف جزوی ہے۔"
-    },
-    {
-      "en": "The recorded coordinates identify this as Saidpur Village, Islamabad (33.7425, 73.0671), which the record says matches this dataset's Ram Mandir, Saidpur entry. It is distinct from historical Saidpur, another name for Eminabad in Gujranwala District; the two should not be conflated.",
-      "ur": "درج نقاطِ مقام اِسے سعیدپور گاؤں، اسلام آباد (33.7425, 73.0671) میں رکھتے ہیں، جو ریکارڈ کے مطابق اِسی مجموعۂ معلومات کے رام مندر، سعیدپور اندراج سے ملتے ہیں۔ یہ تاریخی سعیدپور سے الگ ہے، جو ضلع گوجرانوالہ کے ایمن آباد کا دوسرا نام ہے؛ دونوں کو ایک نہ سمجھا جائے۔"
-    }
-  ],
-  "ram-mandir-saidpur-ram-kund-mandir": [
-    {
-      "en": "Dawn (2016) attributes an annual fair at the Ram Kund pond to the 1893–94 Rawalpindi Gazetteer. A direct search of the Internet Archive full-text scan on 16 August 2026 found none of the searched place-name variants and only an unrelated reference to \"chemr\" trees under \"Saidpur.\" A different edition, printing, or text-recognition gap may explain this, but the citation remains unverified.",
-      "ur": "ڈان کی ۲۰۱۶ کی رپورٹ رام کنڈ کے تالاب پر سالانہ میلے کی روایت کو ۱۸۹۳–۹۴ کے راولپنڈی گزٹیئر سے منسوب کرتی ہے۔ ۱۶ اگست ۲۰۲۶ کو انٹرنیٹ آرکائیو کے مکمل متنی عکس میں براہِ راست تلاش سے مقام کے تلاش کردہ کسی نام کا ذکر نہیں ملا؛ صرف «سعیدپور» کے تحت چیمر درختوں کا ایک غیر متعلقہ حوالہ ملا۔ ممکن ہے سبب کوئی دوسرا ایڈیشن، طباعت، یا متن خوانی کا خلا ہو، مگر حوالہ اب بھی غیر مصدقہ ہے۔"
-    },
-    {
-      "en": "The precise founding date is unsettled: Dawn names Raja Man Singh as the builder but gives no year; a source that was neither independently fetched nor verified gives \"around 1580\"; and Arab News corroborates only the sixteenth century.",
-      "ur": "درست سنِ تاسیس طے نہیں: ڈان راجا مان سنگھ کو بانی بتاتی ہے مگر کوئی سال نہیں دیتی؛ ایک ایسا ماخذ جو نہ آزادانہ طور پر حاصل ہوا نہ تصدیق شدہ ہے «تقریباً ۱۵۸۰» بتاتا ہے؛ اور عرب نیوز صرف سولہویں صدی کی تائید کرتی ہے۔"
-    },
-    {
-      "en": "The fetched sources do not establish whether \"Ram Kund\" names the temple itself or only the adjacent pond; Dawn treats the temple and pond as distinct.",
-      "ur": "حاصل شدہ ماخذ یہ طے نہیں کرتے کہ «رام کنڈ» خود مندر کا نام ہے یا صرف ساتھ والے تالاب کا؛ ڈان مندر اور تالاب کو الگ الگ بیان کرتی ہے۔"
-    },
-    {
-      "en": "Dawn (2016) and Arab News (2020) independently corroborate the builder attribution, the Rama exile legend, broad sixteenth-century dating, and post-1947 secular reuse. The entry remains only partly corroborated because the Gazetteer-based fair claim could not be verified.",
-      "ur": "ڈان کی ۲۰۱۶ اور عرب نیوز کی ۲۰۲۰ کی رپورٹیں بانی کی نسبت، رام کی جلاوطنی کی روایت، سولہویں صدی کی عمومی تاریخ، اور ۱۹۴۷ کے بعد غیر مذہبی استعمال کی آزادانہ تائید کرتی ہیں۔ گزٹیئر پر مبنی میلے کے دعوے کی تصدیق نہ ہو سکنے کے باعث اندراج کی تائید اب بھی صرف جزوی ہے۔"
-    }
-  ],
-  "sevapanthi-darbar-bhai-gurdas-gandava": [
-    {
-      "en": "The specific identification of the Gandava site as a Sevapanthi darbar linked to Bhai Gurdas comes from one author, Zulfiqar Ali Kalhoro, in two publications. An independent Dawn report confirms only an unnamed Hindu temple in Gandava; no second independent source found in this research pass corroborates the specific identification.",
-      "ur": "گنداوا کے مقام کی سیواپنتھی دربار اور بھائی گرداس سے وابستہ شناخت صرف ایک مصنف، ذوالفقار علی کلہوڑو، کی دو تحریروں سے آتی ہے۔ ڈان کی ایک آزاد رپورٹ گنداوا میں صرف ایک بے نام ہندو مندر کی تصدیق کرتی ہے؛ اس تحقیقی مرحلے میں ملنے والے کسی دوسرے آزاد ماخذ نے اس مخصوص شناخت کی توثیق نہیں کی۔"
-    },
-    {
-      "en": "Kalhoro's later account records that some believed Bhai Gurdas preached first in Gandava before Shikarpur. The sources do not settle which darbar has priority in this tradition.",
-      "ur": "کلہوڑو کی بعد کی تحریر درج کرتی ہے کہ بعض لوگوں کے خیال میں بھائی گرداس نے شکارپور سے پہلے گنداوا میں تبلیغ کی۔ ماخذ یہ طے نہیں کرتے کہ اس روایت میں کس دربار کو زمانی اولیت حاصل ہے۔"
-    },
-    {
-      "en": "The sources do not say whether the \"Sevapanthi darbar\" described in 2018 and the \"Khatwari Darbar of Gandava\" described in 2024 are the same building. Their town, author, and wood-carving descriptions overlap, but neither source explicitly identifies them as one site.",
-      "ur": "ماخذ یہ نہیں بتاتے کہ ۲۰۱۸ء میں بیان کردہ «سیواپنتھی دربار» اور ۲۰۲۴ء میں بیان کردہ «گنداوا کا کھٹواڑی دربار» ایک ہی عمارت ہیں یا نہیں۔ دونوں کا شہر، مصنف اور لکڑی کی کندہ کاری کی تفصیل مشترک ہے، مگر کسی ماخذ نے صریحاً دونوں کو ایک مقام نہیں کہا۔"
-    },
-    {
-      "en": "An uncited and unverified Wikipedia passage gives the water-carrier founding legend to Bhai Kanhaiya, the historical founder of the Sewapanthi sect; Kalhoro gives the same story to \"Bhai Gurdas (alias Kanhiya/Kanya Lal).\" The fetched sources do not establish whether these names refer to one person.",
-      "ur": "ویکی پیڈیا کی ایک بے حوالہ اور غیر مصدقہ عبارت پانی پلانے سے متعلق بانی کی روایت سیواپنتھی سلسلے کے تاریخی بانی بھائی کنہیا سے منسوب کرتی ہے؛ کلہوڑو یہی کہانی «بھائی گرداس، عرف کنہیا یا کنیا لال» سے منسوب کرتے ہیں۔ دستیاب ماخذ یہ طے نہیں کرتے کہ یہ نام ایک ہی شخص کے ہیں۔"
-    }
-  ],
-  "khatwari-darbar-shikarpur": [
-    {
-      "en": "The detailed architectural and biographical account rests chiefly on two articles by Zulfiqar Ali Kalhoro. An independent 2013 Dawn report corroborates only that the darbar exists and houses the Guru Granth Sahib.",
-      "ur": "تفصیلی تعمیراتی اور سوانحی بیان بنیادی طور پر ذوالفقار علی کلہوڑو کی دو تحریروں پر قائم ہے۔ ۲۰۱۳ء کی ڈان کی ایک آزاد رپورٹ صرف دربار کے وجود اور وہاں گرو گرنتھ صاحب کے موجود ہونے کی تصدیق کرتی ہے۔"
-    },
-    {
-      "en": "Kalhoro spells the founder's original name \"Kanya Lal\" in 2018 and \"Kanhiya Lal\" in 2024. The sources do not resolve which form is intended.",
-      "ur": "کلہوڑو ۲۰۱۸ء میں بانی کا اصل نام «کنیا لال» اور ۲۰۲۴ء میں «کنہیا لال» لکھتے ہیں۔ ماخذ یہ طے نہیں کرتے کہ کون سی صورت مقصود ہے۔"
-    },
-    {
-      "en": "Kalhoro's 2024 account also records an alternative tradition that Bhai Gurdas first preached in Gandava, not Shikarpur. The source does not resolve the place of his first preaching.",
-      "ur": "کلہوڑو کی ۲۰۲۴ء کی تحریر ایک متبادل روایت بھی درج کرتی ہے کہ بھائی گرداس نے پہلی تبلیغ شکارپور میں نہیں بلکہ گنداوا میں کی۔ ماخذ اُن کی پہلی تبلیغ کا مقام طے نہیں کرتا۔"
-    },
-    {
-      "en": "An unverified Wikipedia passage instead describes the darbar as dedicated to Bhai Kanhaiya, the Sewapanthi founder, whose water-carrier story resembles but is distinct from Kalhoro's account of Bhai Gurdas. This research pass could not establish the relationship between the two figures.",
-      "ur": "ویکی پیڈیا کی ایک غیر مصدقہ عبارت اس کے برعکس دربار کو سیواپنتھی روایت کے بانی بھائی کنہیا سے منسوب کرتی ہے؛ اُن کی پانی پلانے والی روایت کلہوڑو کے بھائی گرداس کے بیان سے مشابہ مگر الگ ہے۔ اس تحقیقی مرحلے میں دونوں شخصیات کا باہمی تعلق طے نہیں ہو سکا۔"
+      "en": "Sources also disagree on the cause of historic damage. The Endowment Fund Trust attributes it to Sindhi troops, fire and gunpowder, with repairs in 1715; Dawn instead attributes wall destruction to an earthquake and British demolition. Neither account is selected as the resolution.",
+      "ur": "تاریخی نقصان کے سبب پر بھی ماخذ مختلف ہیں۔ انڈومنٹ فنڈ ٹرسٹ اسے سندھی فوجیوں، آگ اور بارود سے منسوب کرتا اور ۱۷۱۵ء میں مرمت بتاتا ہے؛ ڈان دیواروں کی تباہی کو زلزلے اور برطانوی انہدام سے جوڑتا ہے۔ کسی ایک بیان کو فیصلہ کن نہیں مانا گیا۔"
     }
   ],
   "gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore": [
@@ -270,6 +212,46 @@
       "ur": "باقی ماندہ عمارت کے بیانات بھی وقت کے ساتھ مختلف ہیں: قیصر ۱۹۹۸ء میں مقام کو پہلے ہی دکانوں کے ساتھ ایک چھوٹے باغ تک محدود بتاتے ہیں؛ ڈان کی ۲۰۱۵ء کی رپورٹ کھلی جگہ میں محض ایک چھوٹا دہانہ اور کنویں تک محدود رسائی بتاتی ہے؛ ڈان کی ۲۰۱۸ء کی رپورٹ الگ سے گردوارے کے منہدم کیے جانے کا ذکر کرتی ہے، جس سے باؤلی سے بڑھ کر انہدام کا اشارہ ملتا ہے۔ اِن رپورٹوں سے نقصان کی حد اور ترتیب طے نہیں ہوتی۔"
     }
   ],
+  "gurdwara-chakki-sahib": [
+    {
+      "en": "Iqbal Qaiser's Historical Sikh Shrines in Pakistan (1998), page 56, dates Babur's capture of Saidpur to Samvat 1578 without converting it to a Gregorian year. The Encyclopaedia of Sikhism instead says Babur sacked Eminabad in 1521. The date difference is reported without reconciliation.",
+      "ur": "اقبال قیصر کی ۱۹۹۸ کی کتاب پاکستان میں تاریخی سکھ مزارات، صفحہ ۵۶، بابر کے ہاتھوں سیدپور کی فتح کو سموت ۱۵۷۸ میں رکھتی ہے مگر عیسوی سال میں تبدیل نہیں کرتی۔ دائرۃ المعارفِ سکھ مت اس کے بجائے کہتا ہے کہ بابر نے ایمن آباد کو ۱۵۲۱ میں تاراج کیا۔ تاریخی فرق درج ہے مگر تطبیق نہیں کی گئی۔"
+    },
+    {
+      "en": "The Department of Archaeology's 1962 memoir has Babur personally hold a discourse with Guru Nanak before releasing all of Saidpur's captives. Qaiser's account instead emphasizes officials reporting the miracle through the chain of command. The two versions are not resolved.",
+      "ur": "محکمۂ آثارِ قدیمہ کی ۱۹۶۲ کی یادداشت میں بابر خود گرو نانک سے گفتگو کرتا ہے اور پھر سیدپور کے تمام قیدی آزاد کرتا ہے۔ اقبال قیصر کا بیان اس کے بجائے حکام کے معجزے کی خبر درجہ بہ درجہ اعلیٰ حکام تک پہنچانے پر زور دیتا ہے۔ دونوں روایتوں میں تطبیق نہیں کی گئی۔"
+    }
+  ],
+  "gurdwara-chhevin-patshahi-chitti-gatti": [
+    {
+      "en": "The coordinate is approximate and adjacent to Shiv Mandir Chiti Ghati because the two sites are co-located. This is distinct from the Sixth-Padshahi gurdwara at Hadiara in Lahore district.",
+      "ur": "محدد تخمینی ہے اور شیو مندر چٹی گھاٹی کے قریب رکھا گیا ہے کیونکہ دونوں مقامات ایک ہی جگہ واقع ہیں۔ یہ ضلع لاہور کے ہڈیارہ والے چھٹی پادشاہی گردوارے سے الگ ہے۔"
+    },
+    {
+      "en": "Iqbal Qaiser's 1998 account is the only independently checked source for the descriptive detail; the 1962 archaeology register merely lists the site. Reports of a 2021 Mansehra restoration concern the unrelated Sri Guru Singh Sabha, not this shrine.",
+      "ur": "تفصیلی بیان کے لیے اقبال قیصر کا ۱۹۹۸ء کا کام واحد آزادانہ طور پر جانچا گیا ماخذ ہے؛ ۱۹۶۲ء کا آثارِ قدیمہ رجسٹر صرف مقام درج کرتا ہے۔ مانسہرہ میں ۲۰۲۱ء کی بحالی کی خبریں ایک الگ سری گرو سنگھ سبھا سے متعلق ہیں، اِس درگاہ سے نہیں۔"
+    }
+  ],
+  "gurdwara-choa-sahib": [
+    {
+      "en": "Iqbal Qaiser's Historical Sikh Shrines in Pakistan (1998), page 178, places the gurdwara outside Rohtas Fort's Kabuli Gate. The Ministry of Religious Affairs and Interfaith Harmony instead places it near the fort's Talaqi Gate. The two locations are not reconciled.",
+      "ur": "اقبال قیصر کی ۱۹۹۸ کی کتاب پاکستان میں تاریخی سکھ مزارات، صفحہ ۱۷۸، گرودوارے کو قلعہ روہتاس کے کابلی دروازے سے باہر رکھتی ہے۔ وزارتِ مذہبی امور و بین المذاہب ہم آہنگی اس کے بجائے اسے قلعے کے طلاقی دروازے کے قریب رکھتی ہے۔ دونوں مقامات میں تطبیق نہیں کی گئی۔"
+    },
+    {
+      "en": "The ministry page closely mirrors the English Wikipedia article. The source review therefore treats it as corroboration of the standard account, not as independent research.",
+      "ur": "وزارت کے صفحے کی عبارت انگریزی ویکی پیڈیا کے مضمون سے بہت قریب ہے۔ اس لیے ماخذی جائزہ اِسے مروجہ بیان کی تائید سمجھتا ہے، آزاد تحقیق نہیں۔"
+    }
+  ],
+  "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi": [
+    {
+      "en": "The Gujranwala district government's page assigns Eminabad's Bhai-Lalo tradition to neighbouring Gurdwara Rori Sahib, while Iqbal Qaiser's survey treats Rori Sahib and Khoohi Bhai Lalo as separate structures. This entry does not decide which shrine the tradition belongs to.",
+      "ur": "ضلع گوجرانوالہ کی سرکاری تحریر ایمن آباد کی بھائی لالو روایت کو ہمسایہ گردوارہ روڑی صاحب سے منسوب کرتی ہے، جبکہ اقبال قیصر کا سروے روڑی صاحب اور کھوہئی بھائی لالو کو الگ عمارتیں مانتا ہے۔ یہ اندراج فیصلہ نہیں کرتا کہ روایت کس درگاہ سے متعلق ہے۔"
+    },
+    {
+      "en": "Khooi, Khoi and Khuhi are recorded as alternate transliterations of the Punjabi word for a well, not necessarily as different places. The site's descriptive and restoration details still rest on Qaiser alone.",
+      "ur": "کھوئی، کھوہئی اور کھوہی کنویں کے پنجابی لفظ کے مختلف املا کے طور پر درج ہیں، لازماً الگ مقامات کے طور پر نہیں۔ مقام اور بحالی کی تفصیل اب بھی صرف قیصر کے بیان پر قائم ہے۔"
+    }
+  ],
   "gurdwara-malji-sahib": [
     {
       "en": "The 1962 register is the only independently verified source for this addition; no second citable source has yet corroborated it.",
@@ -284,14 +266,34 @@
       "ur": "اسی ۱۹۶۲ کے رجسٹر میں تقریباً ۶۵ کلومیٹر دور کنگن پور، ضلع قصور، کا ایک الگ اور غیر متعلق گرودوارہ مال جی صاحب بھی درج ہے۔ رجسٹر دونوں کو ایک ہی نام والے الگ درخت اور الگ مقامات سمجھتا ہے؛ اِنہیں ایک مقام نہیں سمجھنا چاہیے۔"
     }
   ],
-  "shrine-of-pir-chhatal-shah-noorani": [
+  "gurdwara-patshahi-chhevin-hadiara-lahore": [
     {
-      "en": "Travel blogs and social-media accounts often describe the shrine as roughly 900 years old. That age appears in neither Salman Rashid's Dawn account nor the Jhal Magsi district government's heritage listing, the two citable sources verified for this entry, so it is not treated as established.",
-      "ur": "سفری بلاگ اور سماجی ذرائع اکثر مزار کو تقریباً ۹۰۰ برس پرانا بتاتے ہیں۔ یہ عمر نہ سلمان راشد کے ڈان میں شائع شدہ بیان میں آتی ہے نہ ضلع جھل مگسی کی سرکاری فہرستِ آثار میں، جو اِس اندراج کے لیے تصدیق شدہ دو قابلِ حوالہ مآخذ ہیں؛ اس لیے یہ عمر ثابت شدہ نہیں مانی گئی۔"
+      "en": "July 2026 reports of a Lahore-district gurdwara reopening after 79 years concern the separate Amar Sidhu shrine, not this Hadiara gurdwara. Qaiser's survey lists the two separately.",
+      "ur": "جولائی ۲۰۲۶ء میں ضلع لاہور کے ایک گردوارے کے اناسی برس بعد دوبارہ کھلنے کی خبریں الگ امر سدھو درگاہ سے متعلق ہیں، اِس ہڈیارہ گردوارے سے نہیں۔ قیصر کا سروے دونوں کو الگ درج کرتا ہے۔"
     },
     {
-      "en": "The district government places the shrine specifically near Kotra. Rashid instead locates it relative to Gandava, the Moola Pass, and the Kirthar range without mentioning Kotra. The accounts are not necessarily contradictory, but the exact position remains approximate pending a map cross-check.",
-      "ur": "ضلعی حکومت مزار کو خاص طور پر کوٹرا کے قریب رکھتی ہے۔ سلمان راشد اس کے بجائے مقام کو گنداوا، درۂ مولا اور سلسلۂ کیرتھر کے حوالے سے بیان کرتے ہیں اور کوٹرا کا ذکر نہیں کرتے۔ دونوں بیانات لازماً متعارض نہیں، مگر نقشے سے تقابل ہونے تک درست مقام تقریبی ہے۔"
+      "en": "The Hadiara account rests on Qaiser as its sole independently checked source and has not yet been corroborated by a second source.",
+      "ur": "ہڈیارہ کا بیان آزادانہ طور پر جانچے گئے واحد ماخذ، قیصر، پر قائم ہے اور ابھی کسی دوسرے ماخذ سے اس کی تائید نہیں ہوئی۔"
+    }
+  ],
+  "gurdwara-pehli-patshahi-jind-pir-sukkur": [
+    {
+      "en": "Qaiser places a Sikh gurdwara called Pehli Patshahi, Jind Pir on the Sukkur bank. Alice Albinia describes a similarly named Hindu-Muslim shrine and a later Hindu shrine on that bank, but mentions neither Sikhs nor Guru Nanak. Whether the accounts identify the same physical site remains unresolved.",
+      "ur": "قیصر پہلی پادشاہی جند پیر نامی سکھ گردوارہ سکھر کے کنارے پر بتاتے ہیں۔ ایلس البینیا ملتے جلتے نام کی ہندو مسلم درگاہ اور بعد میں اسی کنارے پر ہندو درگاہ کا ذکر کرتی ہیں، مگر سکھوں یا گرو نانک کا نہیں۔ دونوں بیانات ایک ہی مقام کے ہیں یا نہیں، یہ طے نہیں ہوا۔"
+    },
+    {
+      "en": "Qaiser remains the only independently checked source that specifically confirms the Sikh gurdwara.",
+      "ur": "خصوصاً سکھ گردوارے کی تصدیق کرنے والا آزادانہ طور پر جانچا گیا واحد ماخذ اب بھی قیصر ہیں۔"
+    }
+  ],
+  "gurdwara-sahib-saidpur-guru-nanak-dev-ji": [
+    {
+      "en": "The Express Tribune (2020) and Arab News PK (2020) describe a gurdwara built \"probably\" in the twentieth century by the Sikh community, with an attached school devoted to Guru Nanak's teachings. Neither source ties Guru Nanak personally to the site, nor names a specific founding year or builder; the connection implied by the entry's title and the precise date remain unverified, so the entry is only partly corroborated.",
+      "ur": "ایکسپریس ٹریبیون اور عرب نیوز پاکستان کی ۲۰۲۰ کی رپورٹیں ایک ایسے گوردوارے کا ذکر کرتی ہیں جو سکھ برادری نے «غالباً» بیسویں صدی میں بنایا اور جس کے ساتھ گرو نانک کی تعلیمات کے لیے ایک اسکول تھا۔ کوئی ماخذ گرو نانک کو ذاتی طور پر اِس مقام سے نہیں جوڑتا اور نہ کوئی معین سنِ تاسیس یا بانی بتاتا ہے؛ اندراج کے عنوان سے ظاہر ہونے والی نسبت اور درست تاریخ ابھی غیر مصدقہ ہیں، اِس لیے اندراج کی تائید صرف جزوی ہے۔"
+    },
+    {
+      "en": "The recorded coordinates identify this as Saidpur Village, Islamabad (33.7425, 73.0671), which the record says matches this dataset's Ram Mandir, Saidpur entry. It is distinct from historical Saidpur, another name for Eminabad in Gujranwala District; the two should not be conflated.",
+      "ur": "درج نقاطِ مقام اِسے سعیدپور گاؤں، اسلام آباد (33.7425, 73.0671) میں رکھتے ہیں، جو ریکارڈ کے مطابق اِسی مجموعۂ معلومات کے رام مندر، سعیدپور اندراج سے ملتے ہیں۔ یہ تاریخی سعیدپور سے الگ ہے، جو ضلع گوجرانوالہ کے ایمن آباد کا دوسرا نام ہے؛ دونوں کو ایک نہ سمجھا جائے۔"
     }
   ],
   "gurdwara-sri-tilganji-sahib": [
@@ -308,66 +310,42 @@
       "ur": "یہ اضافہ اقبال قیصر کے سروے پر اپنے واحد آزادانہ طور پر تصدیق شدہ ماخذ کی حیثیت سے منحصر ہے۔ تحقیقی جائزے میں کوئی دوسرا آزاد ماخذ، یا سینڈیمن اسکول کے تنازع اور گرودوارے کی قانونی حیثیت کا کوئی اور قابلِ حوالہ بیان، نہیں ملا۔"
     }
   ],
-  "gurdwara-chakki-sahib": [
+  "jain-mandir-lahore": [
     {
-      "en": "Iqbal Qaiser's Historical Sikh Shrines in Pakistan (1998), page 56, dates Babur's capture of Saidpur to Samvat 1578 without converting it to a Gregorian year. The Encyclopaedia of Sikhism instead says Babur sacked Eminabad in 1521. The date difference is reported without reconciliation.",
-      "ur": "اقبال قیصر کی ۱۹۹۸ کی کتاب پاکستان میں تاریخی سکھ مزارات، صفحہ ۵۶، بابر کے ہاتھوں سیدپور کی فتح کو سموت ۱۵۷۸ میں رکھتی ہے مگر عیسوی سال میں تبدیل نہیں کرتی۔ دائرۃ المعارفِ سکھ مت اس کے بجائے کہتا ہے کہ بابر نے ایمن آباد کو ۱۵۲۱ میں تاراج کیا۔ تاریخی فرق درج ہے مگر تطبیق نہیں کی گئی۔"
+      "en": "Dawn dates construction specifically to 1940, while Youlin Magazine gives the broader late-1930s or early-1940s period. Neither source names the woman credited with funding it, so the difference remains unresolved.",
+      "ur": "ڈان تعمیر کا سال خاص طور پر ۱۹۴۰ء بتاتا ہے، جبکہ یولن میگزین ۱۹۳۰ء کی آخری یا ۱۹۴۰ء کی ابتدائی دہائی کہتا ہے۔ دونوں میں سے کوئی تعمیر کی مالی سرپرست خاتون کا نام نہیں بتاتا، اس لیے فرق حل نہیں ہوا۔"
     },
     {
-      "en": "The Department of Archaeology's 1962 memoir has Babur personally hold a discourse with Guru Nanak before releasing all of Saidpur's captives. Qaiser's account instead emphasizes officials reporting the miracle through the chain of command. The two versions are not resolved.",
-      "ur": "محکمۂ آثارِ قدیمہ کی ۱۹۶۲ کی یادداشت میں بابر خود گرو نانک سے گفتگو کرتا ہے اور پھر سیدپور کے تمام قیدی آزاد کرتا ہے۔ اقبال قیصر کا بیان اس کے بجائے حکام کے معجزے کی خبر درجہ بہ درجہ اعلیٰ حکام تک پہنچانے پر زور دیتا ہے۔ دونوں روایتوں میں تطبیق نہیں کی گئی۔"
+      "en": "An April 2022 report said restoration was over 70 percent complete and expected around May. No checked source confirmed that estimate, so this pass did not independently verify the June 2022 reopening date stated elsewhere in the entry.",
+      "ur": "اپریل ۲۰۲۲ء کی ایک خبر میں بحالی ستر فیصد سے زیادہ مکمل اور مئی کے آس پاس ختم ہونے کی توقع تھی۔ کسی جانچے گئے ماخذ نے اِس اندازے کی تصدیق نہیں کی، اس لیے اندراج میں کہیں اور درج جون ۲۰۲۲ء کی دوبارہ افتتاحی تاریخ کی آزادانہ توثیق نہیں ہوئی۔"
     }
   ],
-  "shrine-of-baba-shah-kamal": [
+  "kalat-kali-temple": [
     {
-      "en": "Beauty of Pakistan, a travel-content aggregator excluded by the archive's citation standard, describes a hilltop Shrine of Baba Kamal Chishti on Ferozepur Road in Kasur. Its Chishti affiliation and hilltop setting differ from this entry's Suhrawardi or Qadiri-Suhrawardi affiliation and urban Ichhra tomb. The source review says this may be an unrelated saint with a similar name; the site is flagged for awareness, not verified or reconciled.",
-      "ur": "بیوٹی آف پاکستان نامی سفری مواد جمع کرنے والی ویب گاہ، جسے آرکائیو کے حوالہ جاتی معیار کے تحت خارج کیا گیا ہے، قصور کی فیروزپور روڈ پر پہاڑی چوٹی کے بابا کمال چشتی مزار کا ذکر کرتی ہے۔ اس کی چشتی نسبت اور پہاڑی مقام اِس اندراج کی سہروردی یا قادری سہروردی نسبت اور شہری اچھرہ کے مقبرے سے مختلف ہیں۔ ماخذی جائزے کے مطابق یہ ملتے جلتے نام والا کوئی غیر متعلق بزرگ ہو سکتا ہے؛ مقام صرف آگاہی کے لیے نشان زد ہے، تصدیق یا تطبیق نہیں کی گئی۔"
-    }
-  ],
-  "shrine-of-baba-shah-chiragh": [
-    {
-      "en": "An English-language academic paper supports the existing claim that Aurangzeb built the shrine, but the extracted text preserved only its footnote and not the paper's front matter. The exact author, title, and year still need to be recovered from the original document.",
-      "ur": "انگریزی زبان کا ایک علمی مقالہ مزار کی تعمیر اورنگ زیب سے منسوب کرنے والے موجودہ دعوے کی تائید کرتا ہے، مگر اخذ شدہ متن میں صرف حاشیے کی عبارت محفوظ رہی، مقالے کے ابتدائی صفحات نہیں۔ درست مصنف، عنوان اور سال اب بھی اصل دستاویز سے اخذ کرنا باقی ہیں۔"
+      "en": "The checked colonial survey and press reports do not confirm the existing Sewa-dynasty origin or 1,500-year age claims; those remain devotional traditions rather than established history.",
+      "ur": "جانچے گئے نوآبادیاتی سروے اور اخباری بیانات پہلے سے درج سیوا خاندان کی نسبت یا پندرہ سو برس عمر کی تصدیق نہیں کرتے؛ یہ مستند تاریخ کے بجائے عقیدتی روایات ہیں۔"
     },
     {
-      "en": "A general Urdu tazkira says that Mauj Darya Bukhari's shrine stands within the Baba Shah Chiragh complex. This is reported as that source's statement.",
-      "ur": "ایک عمومی اردو تذکرہ کہتا ہے کہ موج دریا بخاری کا مزار بابا شاہ چراغ کے احاطے کے اندر واقع ہے۔ یہ بات اسی ماخذ کے بیان کے طور پر درج ہے۔"
+      "en": "The claim that Kalat was named for a Hindu ruler called Kalat Seva comes from a single 2017 interview with a local priest and was not corroborated. It is recorded as a second unresolved naming tradition.",
+      "ur": "یہ دعویٰ کہ قلات کا نام قلات سیوا نامی ہندو حکمران سے نکلا، ۲۰۱۷ء میں مقامی پجاری کے ایک ہی انٹرویو سے آیا اور اس کی تائید نہیں ہوئی۔ اسے نام کی دوسری غیر طے شدہ روایت کے طور پر درج کیا گیا ہے۔"
+    }
+  ],
+  "khatwari-darbar-shikarpur": [
+    {
+      "en": "The detailed architectural and biographical account rests chiefly on two articles by Zulfiqar Ali Kalhoro. An independent 2013 Dawn report corroborates only that the darbar exists and houses the Guru Granth Sahib.",
+      "ur": "تفصیلی تعمیراتی اور سوانحی بیان بنیادی طور پر ذوالفقار علی کلہوڑو کی دو تحریروں پر قائم ہے۔ ۲۰۱۳ء کی ڈان کی ایک آزاد رپورٹ صرف دربار کے وجود اور وہاں گرو گرنتھ صاحب کے موجود ہونے کی تصدیق کرتی ہے۔"
     },
     {
-      "en": "The original paragraph's specific architectural claims—eight graves, cusped-arch niches, a mosque addition in 1716, and a Directorate General of Archaeology listing—predate this research pass and still have no traceable citations.",
-      "ur": "اصل پیراگراف کے مخصوص تعمیراتی دعوے — آٹھ قبریں، کنگرہ دار محرابی طاق، ۱۷۱۶ میں مسجد کا اضافہ، اور محکمۂ آثارِ قدیمہ کی فہرست میں اندراج — اِس تحقیقی جائزے سے پہلے کے ہیں اور اب بھی اِن کے قابلِ سراغ حوالے موجود نہیں۔"
-    }
-  ],
-  "darbar-ghamkol-sharif-zinda-pir": [
-    {
-      "en": "The entry dates the darbar's founding to 1952, matching the affiliated UK Central Jamia Mosque Ghamkol Sharif's statement that its charity's roots go back to 1952. Pnina Werbner's 2009 academic conference paper instead dates Zinda Pir's seclusion and founding of the cult centre to 1948, when legend says he first secluded himself in a cave on Ghamkol hill. The two dates are not reconciled.",
-      "ur": "اندراج دربار کی تاسیس ۱۹۵۲ میں رکھتا ہے، جو برطانیہ کی وابستہ مرکزی جامع مسجد غمکول شریف کے اِس بیان سے میل کھاتا ہے کہ اس کے خیراتی ادارے کی جڑیں ۱۹۵۲ تک جاتی ہیں۔ پنینا وربنر کا ۲۰۰۹ کا علمی کانفرنس مقالہ اس کے بجائے زندہ پیر کی خلوت اور مرکزِ ارادت کی تاسیس ۱۹۴۸ میں رکھتا ہے، جب روایت کے مطابق اُنہوں نے پہلی بار غمکول کی پہاڑی کے ایک غار میں خلوت اختیار کی۔ دونوں تاریخوں میں تطبیق نہیں کی گئی۔"
-    }
-  ],
-  "valmiki-swamiji-mandir-gracy-lines-rawalpindi": [
-    {
-      "en": "The Express Tribune reported in December 2025 that Rawalpindi's three remaining functional Hindu temples, including this one, were over a century old. Dawn described this temple in August 2014 as 79 years old and built in 1935; Arab News likewise reported in August 2025 that custodian Budh Raj gave 1935 as its construction year. A 1935 date would make it roughly 90, not over 100, years old in 2025. The age conflict is unresolved.",
-      "ur": "ایکسپریس ٹریبیون نے دسمبر ۲۰۲۵ میں راولپنڈی کے باقی تینوں فعال ہندو مندروں، جن میں یہ مندر بھی شامل ہے، کو ایک صدی سے زیادہ پرانا بتایا۔ ڈان نے اگست ۲۰۱۴ میں اِسے ۷۹ برس پرانا اور ۱۹۳۵ میں تعمیر شدہ لکھا؛ عرب نیوز نے بھی اگست ۲۰۲۵ میں نگہبان بدھ راج کے حوالے سے ۱۹۳۵ کو سنِ تعمیر بتایا۔ سنہ ۱۹۳۵ کی تاریخ کے مطابق یہ مندر ۲۰۲۵ میں تقریباً ۹۰ برس پرانا بنتا ہے، ایک صدی سے زیادہ نہیں۔ عمر کا اختلاف حل نہیں ہوا۔"
-    }
-  ],
-  "gurdwara-choa-sahib": [
-    {
-      "en": "Iqbal Qaiser's Historical Sikh Shrines in Pakistan (1998), page 178, places the gurdwara outside Rohtas Fort's Kabuli Gate. The Ministry of Religious Affairs and Interfaith Harmony instead places it near the fort's Talaqi Gate. The two locations are not reconciled.",
-      "ur": "اقبال قیصر کی ۱۹۹۸ کی کتاب پاکستان میں تاریخی سکھ مزارات، صفحہ ۱۷۸، گرودوارے کو قلعہ روہتاس کے کابلی دروازے سے باہر رکھتی ہے۔ وزارتِ مذہبی امور و بین المذاہب ہم آہنگی اس کے بجائے اسے قلعے کے طلاقی دروازے کے قریب رکھتی ہے۔ دونوں مقامات میں تطبیق نہیں کی گئی۔"
+      "en": "Kalhoro spells the founder's original name \"Kanya Lal\" in 2018 and \"Kanhiya Lal\" in 2024. The sources do not resolve which form is intended.",
+      "ur": "کلہوڑو ۲۰۱۸ء میں بانی کا اصل نام «کنیا لال» اور ۲۰۲۴ء میں «کنہیا لال» لکھتے ہیں۔ ماخذ یہ طے نہیں کرتے کہ کون سی صورت مقصود ہے۔"
     },
     {
-      "en": "The ministry page closely mirrors the English Wikipedia article. The source review therefore treats it as corroboration of the standard account, not as independent research.",
-      "ur": "وزارت کے صفحے کی عبارت انگریزی ویکی پیڈیا کے مضمون سے بہت قریب ہے۔ اس لیے ماخذی جائزہ اِسے مروجہ بیان کی تائید سمجھتا ہے، آزاد تحقیق نہیں۔"
-    }
-  ],
-  "tahir-bandagi-qadri": [
-    {
-      "en": "Asked for sect or order, the survey opens with Chishti Nizamia Qadria. Its substantive life-story answers connect Tahir Bandagi only to the Qadri order through Hazrat Shah Sikandar and the Naqshbandi order through Mujaddid Alf Sani; no other answer mentions a Chishti or Nizami connection. The discrepancy is reported without resolution.",
-      "ur": "مسلک یا سلسلے کے سوال پر سروے ابتدا میں چشتی نظامیہ قادریہ لکھتا ہے۔ سوانح کے تفصیلی جوابات طاہر بندگی کو صرف حضرت شاہ سکندر کے ذریعے قادری سلسلے اور مجدد الف ثانی کے ذریعے نقشبندی سلسلے سے جوڑتے ہیں؛ کسی دوسرے جواب میں چشتی یا نظامی نسبت نہیں آتی۔ اختلاف درج ہے مگر حل نہیں کیا گیا۔"
+      "en": "Kalhoro's 2024 account also records an alternative tradition that Bhai Gurdas first preached in Gandava, not Shikarpur. The source does not resolve the place of his first preaching.",
+      "ur": "کلہوڑو کی ۲۰۲۴ء کی تحریر ایک متبادل روایت بھی درج کرتی ہے کہ بھائی گرداس نے پہلی تبلیغ شکارپور میں نہیں بلکہ گنداوا میں کی۔ ماخذ اُن کی پہلی تبلیغ کا مقام طے نہیں کرتا۔"
     },
     {
-      "en": "Surveyed visitors are divided on whether jinn are actually present at the shrine. Both positions are reported; the archive does not decide between them.",
-      "ur": "سروے میں شامل زائرین اِس بارے میں منقسم ہیں کہ مزار پر واقعی جنات موجود ہیں یا نہیں۔ دونوں آرا درج ہیں؛ آرکائیو کسی ایک کا فیصلہ نہیں کرتا۔"
+      "en": "An unverified Wikipedia passage instead describes the darbar as dedicated to Bhai Kanhaiya, the Sewapanthi founder, whose water-carrier story resembles but is distinct from Kalhoro's account of Bhai Gurdas. This research pass could not establish the relationship between the two figures.",
+      "ur": "ویکی پیڈیا کی ایک غیر مصدقہ عبارت اس کے برعکس دربار کو سیواپنتھی روایت کے بانی بھائی کنہیا سے منسوب کرتی ہے؛ اُن کی پانی پلانے والی روایت کلہوڑو کے بھائی گرداس کے بیان سے مشابہ مگر الگ ہے۔ اس تحقیقی مرحلے میں دونوں شخصیات کا باہمی تعلق طے نہیں ہو سکا۔"
     }
   ],
   "lal-kurti-temple-balmiki-mandir-rawalpindi": [
@@ -376,78 +354,48 @@
       "ur": "جانچے گئے مآخذ میں اِس اندراج کے متعلق کوئی اختلاف نہیں ملا۔ قیصر شیرازی کی ایکسپریس ٹریبیون میں ۲۳ جنوری ۲۰۲۳ کو شائع شدہ رپورٹ راولپنڈی کے پرانا قلعہ میں ملتے جلتے نام کے ایک الگ گرو بالمیک سوامی جی مندر کا ذکر کرتی ہے، جو ۱۸۸۰ میں بنا تھا اور اب اجڑ چکا ہے جبکہ اس پر دکانیں تعمیر ہو گئی ہیں۔ وہ ویران مقام فعال لال کرتی یا بالمیکی مندر سے غیر متعلق ہے اور دونوں کو ایک نہیں سمجھنا چاہیے۔"
     }
   ],
-  "swami-dharmdas-darbar-larkana-kennedy-market": [
+  "loh-temple-lava-temple": [
     {
-      "en": "Zulfiqar Ali Kalhoro's 2018 article in The Friday Times is the only independently verified source for this entry; no second source has yet corroborated it.",
-      "ur": "ذوالفقار علی کلہوڑو کا ۲۰۱۸ میں فرائیڈے ٹائمز میں شائع ہونے والا مضمون اِس اندراج کا واحد آزادانہ طور پر تصدیق شدہ ماخذ ہے؛ کسی دوسرے ماخذ سے ابھی اِس کی تائید نہیں ہوئی۔"
+      "en": "Sources give three stages for conservation without reconciling them: Dawn found the temple neglected in 2018; the Walled City of Lahore Authority says it conserved the site in 2021; and a 2026 report calls a conservation project newly completed while describing the 2018 work as only partial restoration. The archive does not collapse these into a single completion date.",
+      "ur": "ماخذ تحفظ کے تین مراحل بتاتے ہیں مگر اُن میں تطبیق نہیں کرتے: ڈان نے ۲۰۱۸ء میں مندر کو خستہ اور نظر انداز شدہ پایا؛ والڈ سٹی آف لاہور اتھارٹی کہتی ہے کہ اُس نے ۲۰۲۱ء میں مقام کا تحفظ کیا؛ اور ۲۰۲۶ء کی ایک خبر ایک منصوبے کو تازہ مکمل شدہ بتاتے ہوئے ۲۰۱۸ء کے کام کو صرف جزوی بحالی کہتی ہے۔ آرکائیو اِنہیں ایک ہی تاریخِ تکمیل میں نہیں سمیٹتا۔"
     },
     {
-      "en": "A non-citable Wikipedia pointer dates the naming of Kennedy Market to 1964. No citable source found establishes whether the darbar predates that market name or was founded afterward; the sequence remains open.",
-      "ur": "ویکیپیڈیا کا ایک ناقابلِ حوالہ اشارہ کینیڈی مارکیٹ کے نام رکھے جانے کی تاریخ ۱۹۶۴ بتاتا ہے۔ کوئی دستیاب قابلِ حوالہ ماخذ یہ طے نہیں کرتا کہ دربار اِس نام سے پہلے موجود تھا یا بعد میں قائم ہوا؛ ترتیب کا سوال کھلا ہے۔"
+      "en": "Dawn explicitly says no source confirms who built the temple, when it was built, or whether it was ever used for worship. This is a deeper uncertainty than the entry's Sikh-period construction and legendary-origin framings, and it remains unresolved.",
+      "ur": "ڈان واضح طور پر کہتا ہے کہ کوئی ماخذ یہ ثابت نہیں کرتا کہ مندر کس نے اور کب بنایا، یا آیا اسے کبھی عبادت کے لیے استعمال بھی کیا گیا۔ یہ غیر یقینی اندراج میں دی گئی سکھ عہد کی تعمیر اور روایتی ابتدا کی تعبیر سے بھی بنیادی ہے، اور حل نہیں کی گئی۔"
     }
   ],
-  "wasif-ali-wasif": [
+  "mohra-sharif-khanqah": [
     {
-      "en": "The survey's sect-and-lineage response — \"Kandan Kabila, Ahl e Sunnat, Awaz belong in past with Hazrat Ali (R.A), Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri\" — is not fully grammatical as recorded. It is retained without editorial repair, and the family's claimed descent from Hazrat Ali is presented only as the family's own account, not as independently verified.",
-      "ur": "سروے کا فرقے اور نسب سے متعلق جواب درج شدہ صورت میں نحوی طور پر نامکمل اور غیر واضح ہے؛ اِس میں کندان قبیلہ، اہلِ سنت، حضرت علیؓ، اور حضرت شاہ نیاز احمد چشتی قادری کا ذکر آتا ہے، مگر عبارت کی خاموش اصلاح یا تعبیر نہیں کی گئی۔ حضرت علیؓ سے نسب کا دعویٰ خاندان کا اپنا بیان ہے اور آزادانہ طور پر تصدیق شدہ نہیں۔"
-    }
-  ],
-  "shrine-of-mian-umar-baba-chamkani": [
-    {
-      "en": "Alam Faqri's Tazkirah Awliya-e-Pakistan, volume 2, records the saint's death in Rajab 1119 AH (approximately 1707–1708 CE). That is roughly seven decades earlier than the entry's existing 1776 death year and traditional 1671–1776 lifespan; the dates conflict, and neither has been preferred pending further sourcing.",
-      "ur": "عالم فقری کا تذکرۂ اولیائے پاکستان، جلد دوم، ولی کی وفات رجب ۱۱۱۹ ہجری، یعنی تقریباً ۱۷۰۷–۱۷۰۸ عیسوی، میں درج کرتا ہے۔ یہ اندراج کے موجودہ سنِ وفات ۱۷۷۶ اور روایتی مدتِ حیات ۱۶۷۱–۱۷۷۶ سے تقریباً سات دہائیاں پہلے ہے؛ تاریخیں متضاد ہیں اور مزید ماخذ ملنے تک کسی ایک کو ترجیح نہیں دی گئی۔"
-    }
-  ],
-  "bhai-waliram-darbar": [
-    {
-      "en": "The only independently verified source, Zulfiqar Ali Kalhoro's “Nanakpanthi Saints of Sindh” (The Friday Times, 13 April 2018), confirms Bhai Waliram's Nanakpanthi identity and the village and taluka location. It does not verify the Qambar–Shahdadkot district attribution, and no second source has yet corroborated the entry.",
-      "ur": "واحد آزادانہ طور پر تصدیق شدہ ماخذ، ذوالفقار علی کلہوڑو کا مضمون «سندھ کے نانک پنتھی سنت» جو ۱۳ اپریل ۲۰۱۸ کو فرائیڈے ٹائمز میں شائع ہوا، بھائی ولی رام کی نانک پنتھی شناخت اور گاؤں و تعلقے کے مقام کی تصدیق کرتا ہے۔ یہ ضلع قمبر شہدادکوٹ کی نسبت کی تصدیق نہیں کرتا، اور کسی دوسرے ماخذ سے ابھی اندراج کی تائید نہیں ہوئی۔"
-    }
-  ],
-  "shrine-of-hafiz-muhammad-jamal-multani": [
-    {
-      "en": "An independently checked tazkira supports only two claims: that this figure first established the Chishti order in Multan, and the location of his shrine. The recorded birth year, authorship of a Siharfi, and preservation of wall paintings predate this source check, and none has a traceable citation of its own.",
-      "ur": "آزادانہ طور پر جانچا گیا تذکرہ صرف دو دعووں کی تائید کرتا ہے: یہ کہ اِس شخصیت نے ملتان میں پہلی بار چشتی سلسلہ قائم کیا، اور درگاہ کا مقام۔ درج شدہ سنِ پیدائش، سی حرفی کی تصنیف، اور دیواری نقاشی کے محفوظ ہونے کی تفصیلات اِس ماخذی جانچ سے پہلے موجود تھیں اور اِن میں سے کسی کا اپنا قابلِ سراغ حوالہ نہیں۔"
-    }
-  ],
-  "shrine-of-makhdoom-nooh-hala": [
-    {
-      "en": "An independent tazkira gives the same personal name, Lutfullah, and an age at death of 87, consistent with the entry's estimated birth and death years.",
-      "ur": "ایک آزاد تذکرہ وہی ذاتی نام، لطف اللہ، اور وفات کے وقت ۸۷ برس عمر بتاتا ہے، جو اندراج کے تخمینی سنینِ پیدائش و وفات سے مطابقت رکھتے ہیں۔"
+      "en": "The founder, order and succession details rely mainly on the khanqah's own website. Two January 2026 press reports confirm the shrine, its approximate age and current custodian, but not its founding history; no independent scholarly corroboration was found.",
+      "ur": "بانی، سلسلے اور جانشینی کی تفصیل زیادہ تر خانقاہ کی اپنی ویب گاہ پر منحصر ہے۔ جنوری ۲۰۲۶ء کی دو اخباری خبریں درگاہ، اس کی تخمینی عمر اور موجودہ سجادہ نشین کی تصدیق کرتی ہیں مگر تاریخِ تاسیس کی نہیں؛ کوئی آزاد علمی تائید نہیں ملی۔"
     },
     {
-      "en": "The reported relocations to Mula Sanwani in 1601 and to new Hala in 1777, and the Sarwari/Uwaisi lineage detail, predate this source check, and none has a traceable citation of its own.",
-      "ur": "ملا سنوانی کی طرف ۱۶۰۱ میں اور نئے ہالا کی طرف ۱۷۷۷ میں منتقلی کے بیانات، نیز سروری اور اویسی نسبت کی تفصیل، اِس ماخذی جانچ سے پہلے موجود تھے اور اِن میں سے کسی کا اپنا قابلِ سراغ حوالہ نہیں۔"
+      "en": "The khanqah's site gives the founder's death as 20 November 1943, while Wikipedia contains conflicting birth and death years within the same article. The underlying sources could not be checked, so the discrepancy remains open.",
+      "ur": "خانقاہ کی ویب گاہ بانی کی وفات ۲۰ نومبر ۱۹۴۳ء بتاتی ہے، جبکہ ویکیپیڈیا کے ایک ہی مضمون میں پیدائش اور وفات کے متضاد برس ہیں۔ بنیادی ماخذ جانچے نہیں جا سکے، اس لیے اختلاف برقرار ہے۔"
     }
   ],
-  "shrine-of-shah-abdul-karim-bulri": [
+  "ram-mandir-saidpur-ram-kund-mandir": [
     {
-      "en": "The sources disagree by one generation: the entry's existing source calls Shah Abdul Latif Bhittai the saint's great-great-grandson, four generations later, while Alam Faqri's tazkira calls the saint Bhittai's great-grandfather, three generations earlier. Both accounts are reported; neither is preferred.",
-      "ur": "ماخذوں میں ایک نسل کا اختلاف ہے: اندراج کا موجودہ ماخذ شاہ عبداللطیف بھٹائی کو ولی سے چار نسل بعد کا پوتا بتاتا ہے، جبکہ عالم فقری کا تذکرہ ولی کو بھٹائی سے تین نسل پہلے کا جد بتاتا ہے۔ دونوں بیانات درج ہیں؛ کسی ایک کو ترجیح نہیں دی گئی۔"
-    }
-  ],
-  "khawaja-feroz-ud-din-gharib-nawaz": [
+      "en": "Dawn (2016) attributes an annual fair at the Ram Kund pond to the 1893–94 Rawalpindi Gazetteer. A direct search of the Internet Archive full-text scan on 16 August 2026 found none of the searched place-name variants and only an unrelated reference to \"chemr\" trees under \"Saidpur.\" A different edition, printing, or text-recognition gap may explain this, but the citation remains unverified.",
+      "ur": "ڈان کی ۲۰۱۶ کی رپورٹ رام کنڈ کے تالاب پر سالانہ میلے کی روایت کو ۱۸۹۳–۹۴ کے راولپنڈی گزٹیئر سے منسوب کرتی ہے۔ ۱۶ اگست ۲۰۲۶ کو انٹرنیٹ آرکائیو کے مکمل متنی عکس میں براہِ راست تلاش سے مقام کے تلاش کردہ کسی نام کا ذکر نہیں ملا؛ صرف «سعیدپور» کے تحت چیمر درختوں کا ایک غیر متعلقہ حوالہ ملا۔ ممکن ہے سبب کوئی دوسرا ایڈیشن، طباعت، یا متن خوانی کا خلا ہو، مگر حوالہ اب بھی غیر مصدقہ ہے۔"
+    },
     {
-      "en": "The survey says he was born “in the latter part of the 1900s (19th century).” The “1900s” and the “19th century” are different periods, and the survey gives no other birth year; the date remains unresolved rather than being guessed.",
-      "ur": "سروے لکھتا ہے کہ وہ «انیس سو کی دہائی کے آخری حصے میں، انیسویں صدی» پیدا ہوئے۔ «انیس سو کی دہائی» اور «انیسویں صدی» الگ ادوار ہیں، اور سروے کوئی دوسرا سنِ پیدائش نہیں دیتا؛ اندازہ لگانے کے بجائے تاریخ غیر متعین رکھی گئی ہے۔"
+      "en": "The precise founding date is unsettled: Dawn names Raja Man Singh as the builder but gives no year; a source that was neither independently fetched nor verified gives \"around 1580\"; and Arab News corroborates only the sixteenth century.",
+      "ur": "درست سنِ تاسیس طے نہیں: ڈان راجا مان سنگھ کو بانی بتاتی ہے مگر کوئی سال نہیں دیتی؛ ایک ایسا ماخذ جو نہ آزادانہ طور پر حاصل ہوا نہ تصدیق شدہ ہے «تقریباً ۱۵۸۰» بتاتا ہے؛ اور عرب نیوز صرف سولہویں صدی کی تائید کرتی ہے۔"
+    },
+    {
+      "en": "The fetched sources do not establish whether \"Ram Kund\" names the temple itself or only the adjacent pond; Dawn treats the temple and pond as distinct.",
+      "ur": "حاصل شدہ ماخذ یہ طے نہیں کرتے کہ «رام کنڈ» خود مندر کا نام ہے یا صرف ساتھ والے تالاب کا؛ ڈان مندر اور تالاب کو الگ الگ بیان کرتی ہے۔"
+    },
+    {
+      "en": "Dawn (2016) and Arab News (2020) independently corroborate the builder attribution, the Rama exile legend, broad sixteenth-century dating, and post-1947 secular reuse. The entry remains only partly corroborated because the Gazetteer-based fair claim could not be verified.",
+      "ur": "ڈان کی ۲۰۱۶ اور عرب نیوز کی ۲۰۲۰ کی رپورٹیں بانی کی نسبت، رام کی جلاوطنی کی روایت، سولہویں صدی کی عمومی تاریخ، اور ۱۹۴۷ کے بعد غیر مذہبی استعمال کی آزادانہ تائید کرتی ہیں۔ گزٹیئر پر مبنی میلے کے دعوے کی تصدیق نہ ہو سکنے کے باعث اندراج کی تائید اب بھی صرف جزوی ہے۔"
     }
   ],
   "sain-vali-vilayat-rai-darbar-kambar": [
     {
       "en": "Zulfiqar Ali Kalhoro's “Nanakpanthi Saints of Sindh” (The Friday Times, 13 April 2018) is the only independently verified source for this entry; no second citable source has yet corroborated it.",
       "ur": "ذوالفقار علی کلہوڑو کا مضمون «سندھ کے نانک پنتھی سنت» جو ۱۳ اپریل ۲۰۱۸ کو فرائیڈے ٹائمز میں شائع ہوا، اِس اندراج کا واحد آزادانہ طور پر تصدیق شدہ ماخذ ہے؛ کسی دوسرے قابلِ حوالہ ماخذ سے ابھی اِس کی تائید نہیں ہوئی۔"
-    }
-  ],
-  "tomb-of-javindi-bibi": [
-    {
-      "en": "The corrected coordinates (29.238, 71.064) locate Bibi Jawindi's tomb on the Uch Sharif Bukhari mound. The previous coordinates (29.14, 71.04) lay about 11 kilometres from the Uch Sharif monument cluster.",
-      "ur": "درست شدہ نقاطِ مقام (29.238, 71.064) بی بی جویندی کے مقبرے کو اُچ شریف کے بخاری ٹیلے پر رکھتے ہیں۔ سابقہ نقاط (29.14, 71.04) اُچ شریف کے آثار کے مجموعے سے تقریباً ۱۱ کلومیٹر دور تھے۔"
-    }
-  ],
-  "dargah-of-khwaja-muhammad-zaman-luari-sharif": [
-    {
-      "en": "These coordinates locate Luari Sharif town, where the dargah stands; they are gazetteer-level and should be read only as village-level accuracy.",
-      "ur": "یہ نقاطِ مقام لواری شریف قصبے کے ہیں، جہاں درگاہ واقع ہے؛ یہ گزٹیئر درجے کے ہیں اور اِنہیں صرف گاؤں کی سطح تک درست سمجھا جائے۔"
     }
   ],
   "samadhi-of-maharaja-ranjit-singh": [
@@ -478,118 +426,22 @@
       "ur": "اندراج کا موجودہ متن سالانہ یادگار اجتماع ۲ نومبر کو رکھتا ہے، مگر دونوں معتبر اخباری ماخذ قتل اور رک ریلوے اسٹیشن کے سالانہ اجتماع کی تاریخ یکم نومبر بتاتے ہیں۔ ایک دن کا یہ فرق درج ہے، خاموشی سے درست نہیں کیا گیا۔"
     }
   ],
-  "loh-temple-lava-temple": [
+  "sevapanthi-darbar-bhai-gurdas-gandava": [
     {
-      "en": "Sources give three stages for conservation without reconciling them: Dawn found the temple neglected in 2018; the Walled City of Lahore Authority says it conserved the site in 2021; and a 2026 report calls a conservation project newly completed while describing the 2018 work as only partial restoration. The archive does not collapse these into a single completion date.",
-      "ur": "ماخذ تحفظ کے تین مراحل بتاتے ہیں مگر اُن میں تطبیق نہیں کرتے: ڈان نے ۲۰۱۸ء میں مندر کو خستہ اور نظر انداز شدہ پایا؛ والڈ سٹی آف لاہور اتھارٹی کہتی ہے کہ اُس نے ۲۰۲۱ء میں مقام کا تحفظ کیا؛ اور ۲۰۲۶ء کی ایک خبر ایک منصوبے کو تازہ مکمل شدہ بتاتے ہوئے ۲۰۱۸ء کے کام کو صرف جزوی بحالی کہتی ہے۔ آرکائیو اِنہیں ایک ہی تاریخِ تکمیل میں نہیں سمیٹتا۔"
+      "en": "The specific identification of the Gandava site as a Sevapanthi darbar linked to Bhai Gurdas comes from one author, Zulfiqar Ali Kalhoro, in two publications. An independent Dawn report confirms only an unnamed Hindu temple in Gandava; no second independent source found in this research pass corroborates the specific identification.",
+      "ur": "گنداوا کے مقام کی سیواپنتھی دربار اور بھائی گرداس سے وابستہ شناخت صرف ایک مصنف، ذوالفقار علی کلہوڑو، کی دو تحریروں سے آتی ہے۔ ڈان کی ایک آزاد رپورٹ گنداوا میں صرف ایک بے نام ہندو مندر کی تصدیق کرتی ہے؛ اس تحقیقی مرحلے میں ملنے والے کسی دوسرے آزاد ماخذ نے اس مخصوص شناخت کی توثیق نہیں کی۔"
     },
     {
-      "en": "Dawn explicitly says no source confirms who built the temple, when it was built, or whether it was ever used for worship. This is a deeper uncertainty than the entry's Sikh-period construction and legendary-origin framings, and it remains unresolved.",
-      "ur": "ڈان واضح طور پر کہتا ہے کہ کوئی ماخذ یہ ثابت نہیں کرتا کہ مندر کس نے اور کب بنایا، یا آیا اسے کبھی عبادت کے لیے استعمال بھی کیا گیا۔ یہ غیر یقینی اندراج میں دی گئی سکھ عہد کی تعمیر اور روایتی ابتدا کی تعبیر سے بھی بنیادی ہے، اور حل نہیں کی گئی۔"
-    }
-  ],
-  "chandragup-baba-chandragup": [
-    {
-      "en": "Sources give sharply different measurements for Chandragup: The Express Tribune reports a height of 330 feet and a diameter of 49 feet, while Dawn describes the region's mud volcanoes as 800–1,550 feet high and this crater as about 450 feet across. The figures are not reconciled.",
-      "ur": "ماخذ چندرگپ کے بہت مختلف پیمانے دیتے ہیں: ایکسپریس ٹریبیون بلندی ۳۳۰ فٹ اور قطر ۴۹ فٹ بتاتا ہے، جبکہ ڈان خطے کے مٹی کے آتش فشانوں کی بلندی ۸۰۰ سے ۱٬۵۵۰ فٹ اور اِس دہانے کا قطر تقریباً ۴۵۰ فٹ لکھتا ہے۔ اِن اعداد میں تطبیق نہیں کی گئی۔"
+      "en": "Kalhoro's later account records that some believed Bhai Gurdas preached first in Gandava before Shikarpur. The sources do not settle which darbar has priority in this tradition.",
+      "ur": "کلہوڑو کی بعد کی تحریر درج کرتی ہے کہ بعض لوگوں کے خیال میں بھائی گرداس نے شکارپور سے پہلے گنداوا میں تبلیغ کی۔ ماخذ یہ طے نہیں کرتے کہ اس روایت میں کس دربار کو زمانی اولیت حاصل ہے۔"
     },
     {
-      "en": "National Geographic reported more than 40,000 Hinglaj Yatra pilgrims in 2019; Dawn reported around 200,000 over three days in 2025. Because the years and possible counting bases differ, both figures are reported without treating them as directly comparable.",
-      "ur": "نیشنل جیوگرافک نے ۲۰۱۹ء میں ہنگلاج یاترا کے چالیس ہزار سے زیادہ زائرین بتائے؛ ڈان نے ۲۰۲۵ء میں تین دن کے دوران تقریباً دو لاکھ۔ برس اور ممکنہ طریقۂ شمار مختلف ہونے کے باعث دونوں اعداد درج ہیں مگر براہِ راست تقابل نہیں کیا گیا۔"
+      "en": "The sources do not say whether the \"Sevapanthi darbar\" described in 2018 and the \"Khatwari Darbar of Gandava\" described in 2024 are the same building. Their town, author, and wood-carving descriptions overlap, but neither source explicitly identifies them as one site.",
+      "ur": "ماخذ یہ نہیں بتاتے کہ ۲۰۱۸ء میں بیان کردہ «سیواپنتھی دربار» اور ۲۰۲۴ء میں بیان کردہ «گنداوا کا کھٹواڑی دربار» ایک ہی عمارت ہیں یا نہیں۔ دونوں کا شہر، مصنف اور لکڑی کی کندہ کاری کی تفصیل مشترک ہے، مگر کسی ماخذ نے صریحاً دونوں کو ایک مقام نہیں کہا۔"
     },
     {
-      "en": "The epithet “Baba Chandragup” in the entry's title was not corroborated by the established press or academic sources checked. It was traced only to Wikipedia, whose cited source fell below the archive's reliability standard, so the epithet remains unverified.",
-      "ur": "اندراج کے عنوان میں لقب «بابا چندرگپ» کی پڑتال کیے گئے معتبر اخباری یا علمی ماخذ سے تصدیق نہیں ہوئی۔ یہ صرف ویکیپیڈیا تک پہنچا، جس کا حوالہ آرکائیو کے معیارِ اعتبار سے کم تھا؛ اس لیے لقب غیر مصدقہ ہے۔"
-    }
-  ],
-  "gori-temple-gori-jo-mandar": [
-    {
-      "en": "No source checked in this research pass supports the entry's precise 1375–1376 CE founding date. Dawn gives only “around the 16th century”, the Endowment Fund Trust gives no date, and Wikipedia carries both an uncited 1375–1376 date and a legend of construction in 300 CE. The founding date remains unsettled.",
-      "ur": "اِس تحقیقی مرحلے میں پڑتال کیا گیا کوئی ماخذ اندراج کی معین تاریخِ تاسیس ۱۳۷۵–۱۳۷۶ء کی تائید نہیں کرتا۔ ڈان صرف «تقریباً سولہویں صدی» کہتا ہے، انڈومنٹ فنڈ ٹرسٹ کوئی تاریخ نہیں دیتا، اور ویکیپیڈیا بے حوالہ ۱۳۷۵–۱۳۷۶ء کے ساتھ ۳۰۰ء میں تعمیر کی روایت بھی درج کرتا ہے۔ تاریخِ تاسیس غیر طے شدہ ہے۔"
-    },
-    {
-      "en": "Sources also disagree on the cause of historic damage. The Endowment Fund Trust attributes it to Sindhi troops, fire and gunpowder, with repairs in 1715; Dawn instead attributes wall destruction to an earthquake and British demolition. Neither account is selected as the resolution.",
-      "ur": "تاریخی نقصان کے سبب پر بھی ماخذ مختلف ہیں۔ انڈومنٹ فنڈ ٹرسٹ اسے سندھی فوجیوں، آگ اور بارود سے منسوب کرتا اور ۱۷۱۵ء میں مرمت بتاتا ہے؛ ڈان دیواروں کی تباہی کو زلزلے اور برطانوی انہدام سے جوڑتا ہے۔ کسی ایک بیان کو فیصلہ کن نہیں مانا گیا۔"
-    }
-  ],
-  "ghazi-ilm-din-shaheed": [
-    {
-      "en": "The account of the 1929 case, trial and execution is the field survey's retelling and was not cross-checked against historical sources for this entry.",
-      "ur": "۱۹۲۹ء کے مقدمے، عدالتی کارروائی اور پھانسی کا بیان فیلڈ سروے کی اپنی روایت ہے؛ اِس اندراج کے لیے اسے دوسرے تاریخی ماخذ سے نہیں جانچا گیا۔"
-    },
-    {
-      "en": "The survey locates the shrine only in Lahore. Miani Sahib Graveyard was added from published press accounts, and the coordinate marks the graveyard approximately rather than the grave itself; a precise pin is still awaited from Saifullah.",
-      "ur": "سروے درگاہ کا مقام صرف لاہور بتاتا ہے۔ میانی صاحب قبرستان کا تعین شائع شدہ اخباری بیانات سے شامل ہوا، اور محدد قبر کے بجائے قبرستان کا تخمینی نشان ہے؛ درست نشان کے لیے سیف اللہ کی اطلاع اب بھی درکار ہے۔"
-    }
-  ],
-  "gurdwara-chhevin-patshahi-chitti-gatti": [
-    {
-      "en": "The coordinate is approximate and adjacent to Shiv Mandir Chiti Ghati because the two sites are co-located. This is distinct from the Sixth-Padshahi gurdwara at Hadiara in Lahore district.",
-      "ur": "محدد تخمینی ہے اور شیو مندر چٹی گھاٹی کے قریب رکھا گیا ہے کیونکہ دونوں مقامات ایک ہی جگہ واقع ہیں۔ یہ ضلع لاہور کے ہڈیارہ والے چھٹی پادشاہی گردوارے سے الگ ہے۔"
-    },
-    {
-      "en": "Iqbal Qaiser's 1998 account is the only independently checked source for the descriptive detail; the 1962 archaeology register merely lists the site. Reports of a 2021 Mansehra restoration concern the unrelated Sri Guru Singh Sabha, not this shrine.",
-      "ur": "تفصیلی بیان کے لیے اقبال قیصر کا ۱۹۹۸ء کا کام واحد آزادانہ طور پر جانچا گیا ماخذ ہے؛ ۱۹۶۲ء کا آثارِ قدیمہ رجسٹر صرف مقام درج کرتا ہے۔ مانسہرہ میں ۲۰۲۱ء کی بحالی کی خبریں ایک الگ سری گرو سنگھ سبھا سے متعلق ہیں، اِس درگاہ سے نہیں۔"
-    }
-  ],
-  "gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi": [
-    {
-      "en": "The Gujranwala district government's page assigns Eminabad's Bhai-Lalo tradition to neighbouring Gurdwara Rori Sahib, while Iqbal Qaiser's survey treats Rori Sahib and Khoohi Bhai Lalo as separate structures. This entry does not decide which shrine the tradition belongs to.",
-      "ur": "ضلع گوجرانوالہ کی سرکاری تحریر ایمن آباد کی بھائی لالو روایت کو ہمسایہ گردوارہ روڑی صاحب سے منسوب کرتی ہے، جبکہ اقبال قیصر کا سروے روڑی صاحب اور کھوہئی بھائی لالو کو الگ عمارتیں مانتا ہے۔ یہ اندراج فیصلہ نہیں کرتا کہ روایت کس درگاہ سے متعلق ہے۔"
-    },
-    {
-      "en": "Khooi, Khoi and Khuhi are recorded as alternate transliterations of the Punjabi word for a well, not necessarily as different places. The site's descriptive and restoration details still rest on Qaiser alone.",
-      "ur": "کھوئی، کھوہئی اور کھوہی کنویں کے پنجابی لفظ کے مختلف املا کے طور پر درج ہیں، لازماً الگ مقامات کے طور پر نہیں۔ مقام اور بحالی کی تفصیل اب بھی صرف قیصر کے بیان پر قائم ہے۔"
-    }
-  ],
-  "gurdwara-patshahi-chhevin-hadiara-lahore": [
-    {
-      "en": "July 2026 reports of a Lahore-district gurdwara reopening after 79 years concern the separate Amar Sidhu shrine, not this Hadiara gurdwara. Qaiser's survey lists the two separately.",
-      "ur": "جولائی ۲۰۲۶ء میں ضلع لاہور کے ایک گردوارے کے اناسی برس بعد دوبارہ کھلنے کی خبریں الگ امر سدھو درگاہ سے متعلق ہیں، اِس ہڈیارہ گردوارے سے نہیں۔ قیصر کا سروے دونوں کو الگ درج کرتا ہے۔"
-    },
-    {
-      "en": "The Hadiara account rests on Qaiser as its sole independently checked source and has not yet been corroborated by a second source.",
-      "ur": "ہڈیارہ کا بیان آزادانہ طور پر جانچے گئے واحد ماخذ، قیصر، پر قائم ہے اور ابھی کسی دوسرے ماخذ سے اس کی تائید نہیں ہوئی۔"
-    }
-  ],
-  "gurdwara-pehli-patshahi-jind-pir-sukkur": [
-    {
-      "en": "Qaiser places a Sikh gurdwara called Pehli Patshahi, Jind Pir on the Sukkur bank. Alice Albinia describes a similarly named Hindu-Muslim shrine and a later Hindu shrine on that bank, but mentions neither Sikhs nor Guru Nanak. Whether the accounts identify the same physical site remains unresolved.",
-      "ur": "قیصر پہلی پادشاہی جند پیر نامی سکھ گردوارہ سکھر کے کنارے پر بتاتے ہیں۔ ایلس البینیا ملتے جلتے نام کی ہندو مسلم درگاہ اور بعد میں اسی کنارے پر ہندو درگاہ کا ذکر کرتی ہیں، مگر سکھوں یا گرو نانک کا نہیں۔ دونوں بیانات ایک ہی مقام کے ہیں یا نہیں، یہ طے نہیں ہوا۔"
-    },
-    {
-      "en": "Qaiser remains the only independently checked source that specifically confirms the Sikh gurdwara.",
-      "ur": "خصوصاً سکھ گردوارے کی تصدیق کرنے والا آزادانہ طور پر جانچا گیا واحد ماخذ اب بھی قیصر ہیں۔"
-    }
-  ],
-  "jain-mandir-lahore": [
-    {
-      "en": "Dawn dates construction specifically to 1940, while Youlin Magazine gives the broader late-1930s or early-1940s period. Neither source names the woman credited with funding it, so the difference remains unresolved.",
-      "ur": "ڈان تعمیر کا سال خاص طور پر ۱۹۴۰ء بتاتا ہے، جبکہ یولن میگزین ۱۹۳۰ء کی آخری یا ۱۹۴۰ء کی ابتدائی دہائی کہتا ہے۔ دونوں میں سے کوئی تعمیر کی مالی سرپرست خاتون کا نام نہیں بتاتا، اس لیے فرق حل نہیں ہوا۔"
-    },
-    {
-      "en": "An April 2022 report said restoration was over 70 percent complete and expected around May. No checked source confirmed that estimate, so this pass did not independently verify the June 2022 reopening date stated elsewhere in the entry.",
-      "ur": "اپریل ۲۰۲۲ء کی ایک خبر میں بحالی ستر فیصد سے زیادہ مکمل اور مئی کے آس پاس ختم ہونے کی توقع تھی۔ کسی جانچے گئے ماخذ نے اِس اندازے کی تصدیق نہیں کی، اس لیے اندراج میں کہیں اور درج جون ۲۰۲۲ء کی دوبارہ افتتاحی تاریخ کی آزادانہ توثیق نہیں ہوئی۔"
-    }
-  ],
-  "kalat-kali-temple": [
-    {
-      "en": "The checked colonial survey and press reports do not confirm the existing Sewa-dynasty origin or 1,500-year age claims; those remain devotional traditions rather than established history.",
-      "ur": "جانچے گئے نوآبادیاتی سروے اور اخباری بیانات پہلے سے درج سیوا خاندان کی نسبت یا پندرہ سو برس عمر کی تصدیق نہیں کرتے؛ یہ مستند تاریخ کے بجائے عقیدتی روایات ہیں۔"
-    },
-    {
-      "en": "The claim that Kalat was named for a Hindu ruler called Kalat Seva comes from a single 2017 interview with a local priest and was not corroborated. It is recorded as a second unresolved naming tradition.",
-      "ur": "یہ دعویٰ کہ قلات کا نام قلات سیوا نامی ہندو حکمران سے نکلا، ۲۰۱۷ء میں مقامی پجاری کے ایک ہی انٹرویو سے آیا اور اس کی تائید نہیں ہوئی۔ اسے نام کی دوسری غیر طے شدہ روایت کے طور پر درج کیا گیا ہے۔"
-    }
-  ],
-  "mohra-sharif-khanqah": [
-    {
-      "en": "The founder, order and succession details rely mainly on the khanqah's own website. Two January 2026 press reports confirm the shrine, its approximate age and current custodian, but not its founding history; no independent scholarly corroboration was found.",
-      "ur": "بانی، سلسلے اور جانشینی کی تفصیل زیادہ تر خانقاہ کی اپنی ویب گاہ پر منحصر ہے۔ جنوری ۲۰۲۶ء کی دو اخباری خبریں درگاہ، اس کی تخمینی عمر اور موجودہ سجادہ نشین کی تصدیق کرتی ہیں مگر تاریخِ تاسیس کی نہیں؛ کوئی آزاد علمی تائید نہیں ملی۔"
-    },
-    {
-      "en": "The khanqah's site gives the founder's death as 20 November 1943, while Wikipedia contains conflicting birth and death years within the same article. The underlying sources could not be checked, so the discrepancy remains open.",
-      "ur": "خانقاہ کی ویب گاہ بانی کی وفات ۲۰ نومبر ۱۹۴۳ء بتاتی ہے، جبکہ ویکیپیڈیا کے ایک ہی مضمون میں پیدائش اور وفات کے متضاد برس ہیں۔ بنیادی ماخذ جانچے نہیں جا سکے، اس لیے اختلاف برقرار ہے۔"
+      "en": "An uncited and unverified Wikipedia passage gives the water-carrier founding legend to Bhai Kanhaiya, the historical founder of the Sewapanthi sect; Kalhoro gives the same story to \"Bhai Gurdas (alias Kanhiya/Kanya Lal).\" The fetched sources do not establish whether these names refer to one person.",
+      "ur": "ویکی پیڈیا کی ایک بے حوالہ اور غیر مصدقہ عبارت پانی پلانے سے متعلق بانی کی روایت سیواپنتھی سلسلے کے تاریخی بانی بھائی کنہیا سے منسوب کرتی ہے؛ کلہوڑو یہی کہانی «بھائی گرداس، عرف کنہیا یا کنیا لال» سے منسوب کرتے ہیں۔ دستیاب ماخذ یہ طے نہیں کرتے کہ یہ نام ایک ہی شخص کے ہیں۔"
     }
   ],
   "shrine-of-akhund-panju-baba": [
@@ -602,10 +454,94 @@
       "ur": "نیا شامل شدہ حوالہ صرف مصری پورہ کے مواد کی تائید کرتا ہے۔ اندراج میں پہلے سے موجود بہادر بابا، کاکا صاحب کے نسب اور مغلیہ دور کی مسجد کی تفصیلات کا اب بھی قابلِ سراغ حوالہ نہیں۔"
     }
   ],
+  "shrine-of-baba-shah-chiragh": [
+    {
+      "en": "An English-language academic paper supports the existing claim that Aurangzeb built the shrine, but the extracted text preserved only its footnote and not the paper's front matter. The exact author, title, and year still need to be recovered from the original document.",
+      "ur": "انگریزی زبان کا ایک علمی مقالہ مزار کی تعمیر اورنگ زیب سے منسوب کرنے والے موجودہ دعوے کی تائید کرتا ہے، مگر اخذ شدہ متن میں صرف حاشیے کی عبارت محفوظ رہی، مقالے کے ابتدائی صفحات نہیں۔ درست مصنف، عنوان اور سال اب بھی اصل دستاویز سے اخذ کرنا باقی ہیں۔"
+    },
+    {
+      "en": "A general Urdu tazkira says that Mauj Darya Bukhari's shrine stands within the Baba Shah Chiragh complex. This is reported as that source's statement.",
+      "ur": "ایک عمومی اردو تذکرہ کہتا ہے کہ موج دریا بخاری کا مزار بابا شاہ چراغ کے احاطے کے اندر واقع ہے۔ یہ بات اسی ماخذ کے بیان کے طور پر درج ہے۔"
+    },
+    {
+      "en": "The original paragraph's specific architectural claims—eight graves, cusped-arch niches, a mosque addition in 1716, and a Directorate General of Archaeology listing—predate this research pass and still have no traceable citations.",
+      "ur": "اصل پیراگراف کے مخصوص تعمیراتی دعوے — آٹھ قبریں، کنگرہ دار محرابی طاق، ۱۷۱۶ میں مسجد کا اضافہ، اور محکمۂ آثارِ قدیمہ کی فہرست میں اندراج — اِس تحقیقی جائزے سے پہلے کے ہیں اور اب بھی اِن کے قابلِ سراغ حوالے موجود نہیں۔"
+    }
+  ],
+  "shrine-of-baba-shah-kamal": [
+    {
+      "en": "Beauty of Pakistan, a travel-content aggregator excluded by the archive's citation standard, describes a hilltop Shrine of Baba Kamal Chishti on Ferozepur Road in Kasur. Its Chishti affiliation and hilltop setting differ from this entry's Suhrawardi or Qadiri-Suhrawardi affiliation and urban Ichhra tomb. The source review says this may be an unrelated saint with a similar name; the site is flagged for awareness, not verified or reconciled.",
+      "ur": "بیوٹی آف پاکستان نامی سفری مواد جمع کرنے والی ویب گاہ، جسے آرکائیو کے حوالہ جاتی معیار کے تحت خارج کیا گیا ہے، قصور کی فیروزپور روڈ پر پہاڑی چوٹی کے بابا کمال چشتی مزار کا ذکر کرتی ہے۔ اس کی چشتی نسبت اور پہاڑی مقام اِس اندراج کی سہروردی یا قادری سہروردی نسبت اور شہری اچھرہ کے مقبرے سے مختلف ہیں۔ ماخذی جائزے کے مطابق یہ ملتے جلتے نام والا کوئی غیر متعلق بزرگ ہو سکتا ہے؛ مقام صرف آگاہی کے لیے نشان زد ہے، تصدیق یا تطبیق نہیں کی گئی۔"
+    }
+  ],
+  "shrine-of-hafiz-muhammad-jamal-multani": [
+    {
+      "en": "An independently checked tazkira supports only two claims: that this figure first established the Chishti order in Multan, and the location of his shrine. The recorded birth year, authorship of a Siharfi, and preservation of wall paintings predate this source check, and none has a traceable citation of its own.",
+      "ur": "آزادانہ طور پر جانچا گیا تذکرہ صرف دو دعووں کی تائید کرتا ہے: یہ کہ اِس شخصیت نے ملتان میں پہلی بار چشتی سلسلہ قائم کیا، اور درگاہ کا مقام۔ درج شدہ سنِ پیدائش، سی حرفی کی تصنیف، اور دیواری نقاشی کے محفوظ ہونے کی تفصیلات اِس ماخذی جانچ سے پہلے موجود تھیں اور اِن میں سے کسی کا اپنا قابلِ سراغ حوالہ نہیں۔"
+    }
+  ],
+  "shrine-of-hazrat-muhammad-ayub-shah-bukhari": [
+    {
+      "en": "Dawn (22 December 2019) is the only source independently verified here: it confirms a tomb of this name among Gandava's heritage sites. No second verified source corroborates the entry.",
+      "ur": "۲۲ دسمبر ۲۰۱۹ کی ڈان کی رپورٹ یہاں واحد آزادانہ طور پر تصدیق شدہ ماخذ ہے: یہ گنداوا کے ورثہ مقامات میں اِس نام کے ایک مقبرے کی موجودگی کی تصدیق کرتی ہے۔ کسی دوسرے تصدیق شدہ ماخذ سے اِس اندراج کی تائید نہیں ہوئی۔"
+    },
+    {
+      "en": "A sibling researcher's file reports that an archived Jhal Magsi District Government heritage listing also names \"Muhammad Ayub Shah Bukhari (Gandawah).\" The cited Wayback Machine snapshot could not be fetched again, so the listing is not counted as verified.",
+      "ur": "ایک دوسرے محقق کی فائل کے مطابق ضلع جھل مگسی حکومت کے محفوظ شدہ ورثہ اندراج میں بھی «محمد ایوب شاہ بخاری، گنداوا» کا نام ہے۔ مذکورہ ویبیک مشین عکس دوبارہ حاصل نہ ہو سکا، اِس لیے اِس اندراج کو تصدیق شدہ نہیں مانا گیا۔"
+    },
+    {
+      "en": "An uncitable English Wikipedia article describes a same-named shrine in Gulshan-e-Maymar, Gadap Town, Karachi, and associates it with a January 2014 killing of six people — three custodians and three others — claimed by Tehrik-e-Taliban Pakistan. Its cited UCA News, Indian Express archive, and South Asia Terrorism Portal pages could not be fetched or verified, so neither the incident nor any link to the Gandawah entry is treated as confirmed; whether the two sites concern the same figure remains open.",
+      "ur": "انگریزی ویکیپیڈیا کا ناقابلِ حوالہ مضمون گلشنِ معمار، گڈاپ ٹاؤن، کراچی میں اِسی نام کی ایک درگاہ بیان کرتا ہے اور اُسے جنوری ۲۰۱۴ میں چھ افراد — تین متولی اور تین دیگر — کے قتل سے جوڑتے ہوئے لکھتا ہے کہ ذمہ داری تحریک طالبان پاکستان نے قبول کی۔ اُس کے حوالہ شدہ یو سی اے نیوز، انڈین ایکسپریس کے محفوظ صفحے، اور ساؤتھ ایشیا ٹیررازم پورٹل کے صفحات حاصل یا تصدیق نہ ہو سکے؛ اِس لیے نہ واقعہ مصدقہ مانا گیا ہے، نہ گنداوا کے اندراج سے کوئی تعلق۔ دونوں مقامات ایک ہی شخصیت سے متعلق ہیں یا نہیں، یہ سوال کھلا ہے۔"
+    }
+  ],
+  "shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi": [
+    {
+      "en": "Two Express Tribune reports from 2019 date the mausoleum to 1585. The Punjab Directorate General of Archaeology's official listing instead says it may be attributed to the seventeenth century. The sources directly conflict, and the review does not choose between them.",
+      "ur": "ایکسپریس ٹریبیون کی سنہ ۲۰۱۹ کی دو رپورٹیں مقبرے کی تعمیر ۱۵۸۵ عیسوی بتاتی ہیں۔ پنجاب کے محکمۂ آثارِ قدیمہ کا سرکاری اندراج اِسے ممکنہ طور پر سترھویں صدی عیسوی سے منسوب کرتا ہے۔ دونوں مآخذ براہِ راست متعارض ہیں؛ جائزہ کسی ایک کو ترجیح نہیں دیتا۔"
+    },
+    {
+      "en": "The press reports call the saint Hazrat Shah Ali Akbar and describe him as an eighth-generation descendant of Hazrat Shamsuddin Sabzwari. The official listing instead calls him the Ismaili saint Sultan Ali Akbar, says local tradition credits him with erecting the tomb, and does not repeat the Sabzwari descent claim. The difference in naming, identity, and lineage remains unresolved.",
+      "ur": "اخباری رپورٹیں اُنہیں حضرت شاہ علی اکبر اور حضرت شمس الدین سبزواری کی آٹھویں پشت کا وارث بتاتی ہیں۔ سرکاری اندراج اس کے بجائے اُن کا نام اسماعیلی بزرگ سلطان علی اکبر لکھتا ہے، مقامی روایت کے مطابق مقبرہ اُن ہی کا تعمیر کردہ بتاتا ہے، اور سبزواری نسب کا دعویٰ نہیں دہراتا۔ نام، شناخت اور نسب کا یہ اختلاف حل نہیں کیا گیا۔"
+    },
+    {
+      "en": "The May 2019 report gives the conservation project's cost as Rs 30 million; the November 2019 report gives Rs 27.104 million. Neither article explains whether this is a revised cost for one project or a different phase, and the archive adopts neither explanation.",
+      "ur": "مئی ۲۰۱۹ کی رپورٹ تحفظ کے منصوبے کی لاگت ۳۰ ملین روپے اور نومبر ۲۰۱۹ کی رپورٹ ۲۷ اعشاریہ ۱۰۴ ملین روپے بتاتی ہے۔ کوئی رپورٹ واضح نہیں کرتی کہ یہ ایک ہی منصوبے کی نظرِ ثانی شدہ لاگت ہے یا کوئی الگ مرحلہ؛ آرکائیو کسی توضیح کو اختیار نہیں کرتا۔"
+    },
+    {
+      "en": "Because the two press reports use nearly identical wording, the review says they may derive from the same government press-office material. No independent corroboration was found; especially given their date conflict with the official custodial body, this addition remains partial rather than settled.",
+      "ur": "دونوں اخباری مضامین کی تقریباً یکساں عبارت کے باعث جائزہ امکان ظاہر کرتا ہے کہ وہ ایک ہی سرکاری پریس دفتر کے مواد سے ماخوذ ہوں۔ آزاد تصدیق نہیں ملی؛ بالخصوص سرکاری نگہبان ادارے سے تاریخ کے اختلاف کی وجہ سے یہ اضافہ جزوی ہے، حتمی نہیں۔"
+    }
+  ],
   "shrine-of-makhdoom-abdul-rahim-girhori": [
     {
       "en": "Two checked press sources place Girhor Sharif in different administrative areas: one says west of Pithoro taluka in Umarkot district, while the other says Sindhri taluka and reports from Mirpurkhas. The archive reports both and does not choose between them.",
       "ur": "دو جانچے گئے اخباری ماخذ گرہوڑ شریف کو مختلف انتظامی علاقوں میں رکھتے ہیں: ایک ضلع عمرکوٹ کی پتھورو تحصیل کے مغرب میں، دوسرا تحصیل سندھڑی بتاتا اور میرپورخاص سے خبر دیتا ہے۔ آرکائیو دونوں درج کرتا ہے اور کسی ایک کو منتخب نہیں کرتا۔"
+    }
+  ],
+  "shrine-of-makhdoom-nooh-hala": [
+    {
+      "en": "An independent tazkira gives the same personal name, Lutfullah, and an age at death of 87, consistent with the entry's estimated birth and death years.",
+      "ur": "ایک آزاد تذکرہ وہی ذاتی نام، لطف اللہ، اور وفات کے وقت ۸۷ برس عمر بتاتا ہے، جو اندراج کے تخمینی سنینِ پیدائش و وفات سے مطابقت رکھتے ہیں۔"
+    },
+    {
+      "en": "The reported relocations to Mula Sanwani in 1601 and to new Hala in 1777, and the Sarwari/Uwaisi lineage detail, predate this source check, and none has a traceable citation of its own.",
+      "ur": "ملا سنوانی کی طرف ۱۶۰۱ میں اور نئے ہالا کی طرف ۱۷۷۷ میں منتقلی کے بیانات، نیز سروری اور اویسی نسبت کی تفصیل، اِس ماخذی جانچ سے پہلے موجود تھے اور اِن میں سے کسی کا اپنا قابلِ سراغ حوالہ نہیں۔"
+    }
+  ],
+  "shrine-of-mian-umar-baba-chamkani": [
+    {
+      "en": "Alam Faqri's Tazkirah Awliya-e-Pakistan, volume 2, records the saint's death in Rajab 1119 AH (approximately 1707–1708 CE). That is roughly seven decades earlier than the entry's existing 1776 death year and traditional 1671–1776 lifespan; the dates conflict, and neither has been preferred pending further sourcing.",
+      "ur": "عالم فقری کا تذکرۂ اولیائے پاکستان، جلد دوم، ولی کی وفات رجب ۱۱۱۹ ہجری، یعنی تقریباً ۱۷۰۷–۱۷۰۸ عیسوی، میں درج کرتا ہے۔ یہ اندراج کے موجودہ سنِ وفات ۱۷۷۶ اور روایتی مدتِ حیات ۱۶۷۱–۱۷۷۶ سے تقریباً سات دہائیاں پہلے ہے؛ تاریخیں متضاد ہیں اور مزید ماخذ ملنے تک کسی ایک کو ترجیح نہیں دی گئی۔"
+    }
+  ],
+  "shrine-of-pir-chhatal-shah-noorani": [
+    {
+      "en": "Travel blogs and social-media accounts often describe the shrine as roughly 900 years old. That age appears in neither Salman Rashid's Dawn account nor the Jhal Magsi district government's heritage listing, the two citable sources verified for this entry, so it is not treated as established.",
+      "ur": "سفری بلاگ اور سماجی ذرائع اکثر مزار کو تقریباً ۹۰۰ برس پرانا بتاتے ہیں۔ یہ عمر نہ سلمان راشد کے ڈان میں شائع شدہ بیان میں آتی ہے نہ ضلع جھل مگسی کی سرکاری فہرستِ آثار میں، جو اِس اندراج کے لیے تصدیق شدہ دو قابلِ حوالہ مآخذ ہیں؛ اس لیے یہ عمر ثابت شدہ نہیں مانی گئی۔"
+    },
+    {
+      "en": "The district government places the shrine specifically near Kotra. Rashid instead locates it relative to Gandava, the Moola Pass, and the Kirthar range without mentioning Kotra. The accounts are not necessarily contradictory, but the exact position remains approximate pending a map cross-check.",
+      "ur": "ضلعی حکومت مزار کو خاص طور پر کوٹرا کے قریب رکھتی ہے۔ سلمان راشد اس کے بجائے مقام کو گنداوا، درۂ مولا اور سلسلۂ کیرتھر کے حوالے سے بیان کرتے ہیں اور کوٹرا کا ذکر نہیں کرتے۔ دونوں بیانات لازماً متعارض نہیں، مگر نقشے سے تقابل ہونے تک درست مقام تقریبی ہے۔"
     }
   ],
   "shrine-of-pir-lakha-aab-e-shifa-jhal-magsi": [
@@ -618,6 +554,12 @@
       "ur": "لہٰذا یہ اضافہ ایک ہی آزادانہ طور پر جانچے گئے ماخذ پر قائم ہے اور ابھی اس کی تائید نہیں ہوئی۔"
     }
   ],
+  "shrine-of-shah-abdul-karim-bulri": [
+    {
+      "en": "The sources disagree by one generation: the entry's existing source calls Shah Abdul Latif Bhittai the saint's great-great-grandson, four generations later, while Alam Faqri's tazkira calls the saint Bhittai's great-grandfather, three generations earlier. Both accounts are reported; neither is preferred.",
+      "ur": "ماخذوں میں ایک نسل کا اختلاف ہے: اندراج کا موجودہ ماخذ شاہ عبداللطیف بھٹائی کو ولی سے چار نسل بعد کا پوتا بتاتا ہے، جبکہ عالم فقری کا تذکرہ ولی کو بھٹائی سے تین نسل پہلے کا جد بتاتا ہے۔ دونوں بیانات درج ہیں؛ کسی ایک کو ترجیح نہیں دی گئی۔"
+    }
+  ],
   "shrine-of-shah-inayat-qadiri": [
     {
       "en": "The 2026 field survey names the teacher as Hazrat Shah Raza Qadri Shattari, while the older web-compiled text says Muhammad Ali Raza Shattari. Neither source was checked against the other, so both names are retained without reconciliation.",
@@ -626,6 +568,64 @@
     {
       "en": "The survey itself alternates Anayat/Shartari in its heading with Inayat/Shattari in its substantive answers. This entry keeps the established Inayat/Qadiri spelling rather than resolving the survey's variation.",
       "ur": "سروے اپنے عنوان میں عنایت اور شطاری کے املا کو اصل جوابات کے املا سے مختلف لکھتا ہے۔ یہ اندراج سروے کے فرق کا فیصلہ کرنے کے بجائے پہلے سے قائم عنایت اور قادری املا برقرار رکھتا ہے۔"
+    }
+  ],
+  "swami-dharmdas-darbar-larkana-kennedy-market": [
+    {
+      "en": "Zulfiqar Ali Kalhoro's 2018 article in The Friday Times is the only independently verified source for this entry; no second source has yet corroborated it.",
+      "ur": "ذوالفقار علی کلہوڑو کا ۲۰۱۸ میں فرائیڈے ٹائمز میں شائع ہونے والا مضمون اِس اندراج کا واحد آزادانہ طور پر تصدیق شدہ ماخذ ہے؛ کسی دوسرے ماخذ سے ابھی اِس کی تائید نہیں ہوئی۔"
+    },
+    {
+      "en": "A non-citable Wikipedia pointer dates the naming of Kennedy Market to 1964. No citable source found establishes whether the darbar predates that market name or was founded afterward; the sequence remains open.",
+      "ur": "ویکیپیڈیا کا ایک ناقابلِ حوالہ اشارہ کینیڈی مارکیٹ کے نام رکھے جانے کی تاریخ ۱۹۶۴ بتاتا ہے۔ کوئی دستیاب قابلِ حوالہ ماخذ یہ طے نہیں کرتا کہ دربار اِس نام سے پہلے موجود تھا یا بعد میں قائم ہوا؛ ترتیب کا سوال کھلا ہے۔"
+    }
+  ],
+  "tomb-of-javindi-bibi": [
+    {
+      "en": "The corrected coordinates (29.238, 71.064) locate Bibi Jawindi's tomb on the Uch Sharif Bukhari mound. The previous coordinates (29.14, 71.04) lay about 11 kilometres from the Uch Sharif monument cluster.",
+      "ur": "درست شدہ نقاطِ مقام (29.238, 71.064) بی بی جویندی کے مقبرے کو اُچ شریف کے بخاری ٹیلے پر رکھتے ہیں۔ سابقہ نقاط (29.14, 71.04) اُچ شریف کے آثار کے مجموعے سے تقریباً ۱۱ کلومیٹر دور تھے۔"
+    }
+  ],
+  "tomb-of-qutbuddin-aibak": [
+    {
+      "en": "Punjab's official archaeology page says the department built the present tomb in 1990. Dawn dates the reconstruction to 1972, ordered by Prime Minister Z. A. Bhutto with architect Kamil Khan Mumtaz heading the design, while Daily Times places it generally in the 1970s. The roughly two-decade gap remains unresolved; no source explicitly says that one date marks the order or design and the other completion.",
+      "ur": "پنجاب کے محکمۂ آثارِ قدیمہ کا سرکاری صفحہ کہتا ہے کہ محکمے نے موجودہ مقبرہ ۱۹۹۰ میں تعمیر کیا۔ ڈان کے مطابق تعمیرِ نو ۱۹۷۲ میں وزیرِ اعظم بھٹو کے حکم پر ہوئی اور ڈیزائن کی سربراہی معمار کامل خان ممتاز نے کی، جبکہ ڈیلی ٹائمز اسے عمومی طور پر ۱۹۷۰ کی دہائی میں رکھتا ہے۔ تقریباً دو دہائیوں کا فرق حل نہیں ہوا؛ کوئی ماخذ صراحت سے نہیں کہتا کہ ایک تاریخ حکم یا ڈیزائن اور دوسری تکمیل کی ہے۔"
+    },
+    {
+      "en": "Only the Archaeology Department's page says that a marble tomb once stood over the grave and was pulled down by Ranjit Singh. No other checked source corroborates or elaborates on that claim.",
+      "ur": "صرف محکمۂ آثارِ قدیمہ کا صفحہ کہتا ہے کہ قبر پر کبھی سنگِ مرمر کا مقبرہ تھا جسے رنجیت سنگھ نے منہدم کر دیا۔ کوئی دوسرا جانچا گیا ماخذ اِس دعوے کی تائید یا مزید وضاحت نہیں کرتا۔"
+    }
+  ],
+  "tomb-of-ustad-nuriya": [
+    {
+      "en": "The coordinates are approximate. The internal review places the tomb on the same mound as several other monuments, including Bibi Jawindi and Baha'al-Halim.",
+      "ur": "مختصات تقریبی ہیں۔ اندرونی جائزہ مقبرے کو اسی ٹیلے پر رکھتا ہے جہاں کئی دوسرے آثار، ازجملہ بی بی جیوندی اور بہاء الحلیم، واقع ہیں۔"
+    },
+    {
+      "en": "The internal review identifies this as the tomb of an architect and records that it was included under Muslim Shrine as part of the wider Sufi-shrine ensemble.",
+      "ur": "اندرونی جائزہ اِسے ایک معمار کا مقبرہ قرار دیتا ہے اور درج کرتا ہے کہ وسیع تر صوفی مزاراتی مجموعے کا حصہ ہونے کے باعث اِسے مسلم مزار کے زمرے میں شامل کیا گیا تھا۔"
+    },
+    {
+      "en": "The review found a dedicated Wikimedia Commons category for the shrine but had not confirmed a specific file as an exact image of this tomb. Exact image identification remained outstanding.",
+      "ur": "جائزے میں مزار کے لیے ویکی میڈیا کامنز کا مخصوص زمرہ ملا، مگر کسی متعین فائل کی اِسی مقبرے کی درست تصویر کے طور پر تصدیق نہیں ہوئی۔ تصویر کی قطعی شناخت باقی تھی۔"
+    },
+    {
+      "en": "Punjab's archaeology register files the tomb under the Early Muslim Period, eighth to twelfth century. That conflicts with the late-fifteenth-century dating elsewhere: the sheet gives 1493, while the cited academic source places it in the era of Bibi Jawindi's shrine, which the 1908 Bahawalpur Gazetteer dates to 900 AH / 1494 AD. The conflict is unresolved.",
+      "ur": "پنجاب کے آثارِ قدیمہ کے اندراج میں یہ مقبرہ ابتدائی مسلم دور، آٹھویں سے بارہویں صدی، کے تحت درج ہے۔ یہ دوسری جگہ موجود پندرھویں صدی کے اواخر کی تاریخ سے متعارض ہے: جدول ۱۴۹۳ دیتا ہے، جبکہ حوالہ شدہ علمی ماخذ اسے بی بی جیوندی کے مزار کے عہد میں رکھتا ہے، جسے بہاولپور کے ۱۹۰۸ کے گزٹیئر نے ۹۰۰ ہجری، یعنی ۱۴۹۴ عیسوی، قرار دیا ہے۔ اختلاف حل نہیں ہوا۔"
+    },
+    {
+      "en": "The 1908 Bahawalpur State Gazetteer gives a detailed named list of Uch's shrines and tombs but includes neither Ustad Nuriya nor a tomb attributed to an architect. None of the checked sources explains this documentary gap.",
+      "ur": "ریاستِ بہاولپور کا ۱۹۰۸ کا گزٹیئر اُچ کے مزارات اور مقبروں کی مفصل نام وار فہرست دیتا ہے، مگر نہ استاد نوریہ کا نام شامل کرتا ہے نہ کسی معمار سے منسوب مقبرہ۔ جانچے گئے مآخذ میں سے کوئی اِس دستاویزی خلا کی وضاحت نہیں کرتا۔"
+    },
+    {
+      "en": "The addition relies substantially on one academic paper of uneven editorial quality, published by a Textile Design department rather than a specialist history or archaeology journal. The review found no independent corroboration and treats the material as partial and unconfirmed.",
+      "ur": "یہ اضافہ بڑی حد تک ایک ایسے علمی مقالے پر منحصر ہے جس کا اداری معیار غیر یکساں ہے اور جو تاریخ یا آثارِ قدیمہ کے تخصصی جریدے کے بجائے شعبۂ پارچہ ڈیزائن کی اشاعت ہے۔ جائزے کو آزاد تائید نہیں ملی، اس لیے یہ مواد جزوی اور غیر مصدقہ سمجھا گیا ہے۔"
+    }
+  ],
+  "valmiki-swamiji-mandir-gracy-lines-rawalpindi": [
+    {
+      "en": "The Express Tribune reported in December 2025 that Rawalpindi's three remaining functional Hindu temples, including this one, were over a century old. Dawn described this temple in August 2014 as 79 years old and built in 1935; Arab News likewise reported in August 2025 that custodian Budh Raj gave 1935 as its construction year. A 1935 date would make it roughly 90, not over 100, years old in 2025. The age conflict is unresolved.",
+      "ur": "ایکسپریس ٹریبیون نے دسمبر ۲۰۲۵ میں راولپنڈی کے باقی تینوں فعال ہندو مندروں، جن میں یہ مندر بھی شامل ہے، کو ایک صدی سے زیادہ پرانا بتایا۔ ڈان نے اگست ۲۰۱۴ میں اِسے ۷۹ برس پرانا اور ۱۹۳۵ میں تعمیر شدہ لکھا؛ عرب نیوز نے بھی اگست ۲۰۲۵ میں نگہبان بدھ راج کے حوالے سے ۱۹۳۵ کو سنِ تعمیر بتایا۔ سنہ ۱۹۳۵ کی تاریخ کے مطابق یہ مندر ۲۰۲۵ میں تقریباً ۹۰ برس پرانا بنتا ہے، ایک صدی سے زیادہ نہیں۔ عمر کا اختلاف حل نہیں ہوا۔"
     }
   ]
 }

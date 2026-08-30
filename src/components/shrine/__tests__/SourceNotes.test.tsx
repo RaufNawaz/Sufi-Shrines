@@ -6,14 +6,37 @@ import { renderWithProviders } from '../../../test/utils';
 import sourceNotes from '../../../data/source-notes.json';
 import shrineSnapshot from '../../../data/shrines-fallback.json';
 import { SOURCE_NOTE_SLUGS } from '../../../data/sourceNoteSlugs';
+import { buildShrines } from '../../../lib/data/shrineModel';
+import type { ShrineRow } from '../../../types/shrine';
 
 const table = sourceNotes as unknown as Record<string, Array<{ en: string; ur: string }> | string>;
 
 describe('source-notes content contract', () => {
   it('covers every shrine with an internal QA note, plus the two unmapped survey rows', () => {
+    /*
+     * The expectation is built from the route slug, not from `row.id`.
+     *
+     * It used to read `.map((row) => row.id)` and compare that to
+     * `Object.keys(table)` — and the table was keyed by `id` too, so both sides
+     * were the same column and the assertion could not fail. Six keys were not
+     * routes and four of them were live pages publishing no disclosure at all
+     * (Tahir Bandagi Qadri, Wasif Ali Wasif, Khawaja Feroz-ud-Din Gharib Nawaz,
+     * Ghazi Ilm Din Shaheed). `ShrinePage` looks the table up by `shrine.slug`,
+     * so the slug is the only side that can disagree with it.
+     *
+     * See `src/lib/data/__tests__/sourceNoteKeys.test.ts` for the same
+     * invariant asserted against `buildSlugs`, and for why the two survey rows
+     * below are still exceptions.
+     */
+    /* Keyed on Name, because `Shrine.id` is the row index rather than the
+       sheet's `id` column — the same distinction that made a shared
+       `?selected=` link open a different shrine. */
+    const slugByName = new Map(
+      buildShrines(shrineSnapshot.rows as unknown as ShrineRow[]).map((s) => [s.name, s.slug]),
+    );
     const expected = shrineSnapshot.rows
       .filter((row) => row.qa_note?.trim())
-      .map((row) => row.id)
+      .map((row) => slugByName.get(row.Name) ?? row.id)
       .concat(['darbar-mian-qurban-ali-shah', 'darbar-hazrat-shah-gohar-peer'])
       .sort();
     const actual = Object.keys(table)
