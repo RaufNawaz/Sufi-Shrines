@@ -33,7 +33,7 @@ describe('fanPositions', () => {
   });
 
   /* The whole point. 66 is the archive's real worst case — the Lahore pile
-     measured on 31 August 2026 — and 169 is every marker at once, which cannot
+     measured on 30 August 2026 — and 169 is every marker at once, which cannot
      happen today but is one bad filter away from happening. */
   it.each([2, 3, 4, 5, 8, 9, 10, 12, 30, 66, 169])(
     'keeps %i markers a full tap target apart',

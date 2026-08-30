@@ -1,6 +1,6 @@
 # The front door shows 169 sites as 21 shapes
 
-*Measured 31 August 2026 against the dev server, at the opening view, before any change.*
+*Measured 30 August 2026 against the dev server, at the opening view, before any change.*
 
 The map is the archive's front door and its main claim: 169 sites, six traditions, across
 Pakistan. At the view it opens on, a reader cannot see that.

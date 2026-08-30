@@ -1021,7 +1021,7 @@ function sitemapUrlPair(enLoc, urLoc, changefreq, priority) {
 const STATIC_PAGES = [
   /* `/graph` and `/almanac` were here, each with a `descEn` written for it, and
      neither ever reached a reader: the APP_ROUTES loop below runs afterwards,
-     writes the same two files, and — until 31 August 2026 — set no description
+     writes the same two files, and — until 30 August 2026 — set no description
      at all, so both were overwritten by the homepage's. Removed rather than
      left looking effective. Their descriptions now come from the page's own
      intro string, in both languages, via `lib/routeDescriptions.mjs`. */

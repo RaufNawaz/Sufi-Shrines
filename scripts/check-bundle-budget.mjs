@@ -110,7 +110,7 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * file exists for.
  *
  * HEADROOM IS DELIBERATE, and this paragraph replaces a claim that had stopped
- * being true. It said "headroom stays ~7%"; measured on 31 August 2026 the table
+ * being true. It said "headroom stays ~7%"; measured on 30 August 2026 the table
  * had **three routes at exactly zero** (SettingsPage, ReviewPage, index.html) and
  * **six more under 3 KB**, MapPage at 1 KB. Every one of those had been set to
  * the measured value, which the note above already calls a landmine rather than a
@@ -125,7 +125,7 @@ const MANIFEST = join(DIST, '.vite', 'manifest.json');
  * the whole table when features ship, and keep the slack when you do.
  */
 const BUDGETS_KB = {
-  /* 265 → 272 on 31 August 2026. Measured 265 against a 265 budget, which this
+  /* 265 → 272 on 30 August 2026. Measured 265 against a 265 budget, which this
      file's own header calls a landmine rather than a pass — and index.html is
      the worst place to leave one, because every route's shell is in it, so it
      goes red for a change made anywhere. Third and last of the zero-headroom
@@ -291,7 +291,7 @@ const BUDGETS_KB = {
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
      open. If this number jumps by ~78 KB, that import went static. */
-  /* 282 → 288 on 31 August 2026, and the six bytes are the point rather than the
+  /* 282 → 288 on 30 August 2026, and the six bytes are the point rather than the
      page. This sat at exactly 282/282 — the measured value, with zero slack —
      which means the next UI string anyone adds fails HERE, on a route that
      string will never reach, and the person who added it reasonably concludes

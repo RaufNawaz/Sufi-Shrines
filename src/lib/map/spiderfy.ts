@@ -3,7 +3,7 @@
  *
  * ## The measurement this exists for
  *
- * At the map's opening view, on 31 August 2026, the archive's 169 markers
+ * At the map's opening view, on 30 August 2026, the archive's 169 markers
  * formed **21 visually distinct shapes**. The median distance between a pin's
  * centre and its nearest neighbour's was **1 pixel**; 152 of 169 had another
  * pin's centre inside their own 22 px tap radius. Eight pins stood alone. The
@@ -11,11 +11,11 @@
  *
  * A reader who tapped that shape got whichever of 66 markers Leaflet had put on
  * top, with no way to reach the other 65 and no way to know they were there.
- * Full numbers in `docs/planning/MAP_PIN_DENSITY_2026-08-31.md`.
+ * Full numbers in `docs/planning/MAP_PIN_DENSITY_2026-08-30.md`.
  *
  * ## What was chosen, and what it does not fix
  *
- * Ruled 31 August 2026, by Rauf, from four costed options: **fan on tap, and
+ * Ruled 30 August 2026, by Rauf, from four costed options: **fan on tap, and
  * leave the resting map alone.** The map still opens looking like a 21-entry
  * collection — that half was considered and declined, and this module does not
  * quietly do it anyway. What it fixes is reachability: after a tap, all 66 are

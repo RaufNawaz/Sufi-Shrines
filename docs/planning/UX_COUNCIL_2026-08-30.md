@@ -170,7 +170,7 @@ and must be written by a person. *(A11Y/IA‑5.)*
 
 ---
 
-## A fifth lens, swept 31 August 2026: what a reader sees where the archive is silent
+## A fifth lens, swept 30 August 2026: what a reader sees where the archive is silent
 
 The council's four lenses never asked this, and it is the archive's own stated value — an entry's
 worth here rests on saying what is *not* known as plainly as what is. Measured against the shipped

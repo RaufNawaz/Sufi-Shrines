@@ -4,13 +4,13 @@ import { test, expect, MAPPED_SHRINE_COUNT } from './fixtures';
 /**
  * A pile of markers, and what a tap on it is worth.
  *
- * Measured at the opening view on 31 August 2026, before this existed: the
+ * Measured at the opening view on 30 August 2026, before this existed: the
  * archive's 169 markers formed **21 visually distinct shapes**. The median
  * distance from a pin centre to its nearest neighbour was **1 px**; 152 of 169
  * had another pin's centre inside their own 22 px tap radius. The largest single
  * shape held **66 sites** — 39% of the archive — over Lahore. A reader who
  * tapped it opened whichever marker Leaflet had drawn last, with no route to
- * the other 65. Full figures in `docs/planning/MAP_PIN_DENSITY_2026-08-31.md`.
+ * the other 65. Full figures in `docs/planning/MAP_PIN_DENSITY_2026-08-30.md`.
  *
  * Ruled from four costed options: **fan on tap, and leave the resting map
  * alone.** These tests therefore assert both halves — that a tap reaches every

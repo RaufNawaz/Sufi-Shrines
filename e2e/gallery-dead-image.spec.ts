@@ -6,7 +6,7 @@ import { test, expect } from './fixtures';
  *
  * ## What a reader got before this
  *
- * Measured 31 August 2026 on the running site, at `/shrine/gurdwara-sacha-sauda`,
+ * Measured 30 August 2026 on the running site, at `/shrine/gurdwara-sacha-sauda`,
  * whose only photograph 404s. The gallery rendered **one tile, and the tile was a
  * `<button>` announcing itself as "Image 1: Open image"**, wrapping a
  * category-tinted placeholder. Pressing it opened the lightbox full-screen over a

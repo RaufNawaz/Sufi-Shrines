@@ -12,7 +12,7 @@ const SWIPE_THRESHOLD_PX = 50;
  *
  * ## What a reader got before this
  *
- * Measured 31 August 2026 on `/shrine/gurdwara-sacha-sauda`, whose only
+ * Measured 30 August 2026 on `/shrine/gurdwara-sacha-sauda`, whose only
  * photograph 404s: the gallery rendered **one tile, and the tile was a
  * `<button>` labelled "Image 1: Open image"** wrapping a category-tinted
  * placeholder. Clicking it opened the lightbox full-screen over a broken image

@@ -14,7 +14,7 @@ import { fanPositions, pileAround, type FanPoint } from '../../lib/map/spiderfy'
  *
  * One pin diameter. It is the same 30 px the finding used to count the opening
  * view's 21 blobs, so what fans out is exactly what was measured as a pile —
- * `docs/planning/MAP_PIN_DENSITY_2026-08-31.md`.
+ * `docs/planning/MAP_PIN_DENSITY_2026-08-30.md`.
  */
 const PILE_RADIUS = 30;
 
@@ -155,7 +155,7 @@ export function ShrineMarkers({
      centre to its nearest neighbour is 1 px. Tapping that shape opened
      whichever marker Leaflet had put on top, with no way to reach the other 65.
 
-     Ruled 31 August 2026 from four costed options: fan on tap, and leave the
+     Ruled 30 August 2026 from four costed options: fan on tap, and leave the
      resting map alone. So this does nothing until a reader taps a pile — the
      first impression of the map is deliberately unchanged, and the half of the
      problem that fixes (reachability) is not the half it does not (a reader

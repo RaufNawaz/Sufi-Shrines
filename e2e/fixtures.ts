@@ -138,7 +138,7 @@ export { expect };
 /**
  * Select a marker, through the fan if there is one.
  *
- * Since 31 August 2026 a tap on a marker that shares its spot with others fans
+ * Since 30 August 2026 a tap on a marker that shares its spot with others fans
  * the pile out instead of selecting — the point being that "whichever pin
  * Leaflet painted on top" was never a choice the reader made. At the opening
  * view that is **161 of 169 markers**, so almost every existing spec that
