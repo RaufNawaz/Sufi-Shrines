@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,9 +26,8 @@ const INDEX = join(ROOT, 'dist', 'index.html');
  * whatever I last built for the suite") that nothing cheaply checked — so it is
  * checked here, before a single browser opens, and it names the command to run.
  *
- * The check is on the *base path*, not on freshness. Whether `dist` is stale
- * relative to `src` is a different question and a much harder one to answer
- * without lying; this one is exact.
+ * There are two checks here, and the second one was added the hard way — see
+ * `assertNotStale` below.
  *
  * **It deliberately does not check that `dist/` exists.** `webServer` starts
  * before `globalSetup` here — verified by removing `dist` and watching the run
@@ -37,6 +36,74 @@ const INDEX = join(ROOT, 'dist', 'index.html');
  * `dist` fails loudly anyway. What this catches is the case that comes back
  * *green*, which is the only one worth a gate.
  */
+/**
+ * Refuse to run against a `dist/` older than the source it was built from.
+ *
+ * This file's first version said freshness was "a different question and a much
+ * harder one to answer without lying", and left it. Within the hour it cost two
+ * mutation checks: a CSS rule was broken on purpose, `npm run build:e2e` was
+ * run, the spec passed — and the conclusion drawn was "the assertion is weak".
+ * It was not. **The build had failed** (a red `tsc` on an unrelated committed
+ * file), `vite build` never ran, and Playwright served the previous, correct
+ * bundle. A failed rebuild leaves the last good `dist` in place, so the suite
+ * goes green against code that is no longer on disk.
+ *
+ * That is the same family as the base-path bug above and worse, because it
+ * produces a *pass*. `npm run build:e2e` chains `tsc && vite build && …`, so any
+ * red typecheck anywhere in the repo silently turns every e2e run on the branch
+ * into a test of whatever was built last.
+ *
+ * The comparison is deliberately coarse — newest mtime under the inputs that
+ * reach the bundle, against `dist/index.html`. It is allowed to be conservative:
+ * a false "rebuild first" costs a build, and a false pass costs a wrong belief
+ * about whether the code works. Test files are excluded because editing a spec
+ * does not change the bundle, and that is by far the most common edit made
+ * between runs.
+ */
+const BUNDLE_INPUTS = ['src', 'data', 'public', 'index.html', 'vite.config.ts'];
+
+function newestMtime(path: string): number {
+  let stat;
+  try {
+    stat = statSync(path);
+  } catch {
+    return 0; // an input that does not exist cannot make dist stale
+  }
+  if (!stat.isDirectory()) return stat.mtimeMs;
+  let newest = 0;
+  for (const entry of readdirSync(path, { withFileTypes: true })) {
+    // A spec or a fixture does not reach the bundle, and editing one between
+    // runs is the normal case.
+    if (/^__tests__$/.test(entry.name) || /\.(test|spec)\./.test(entry.name)) continue;
+    if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+    newest = Math.max(newest, newestMtime(join(path, entry.name)));
+  }
+  return newest;
+}
+
+function assertNotStale(): void {
+  const built = statSync(INDEX).mtimeMs;
+  let newestInput = 0;
+  let culprit = '';
+  for (const input of BUNDLE_INPUTS) {
+    const at = newestMtime(join(ROOT, input));
+    if (at > newestInput) {
+      newestInput = at;
+      culprit = input;
+    }
+  }
+  if (newestInput <= built) return;
+  const ageSec = Math.round((newestInput - built) / 1000);
+  throw new Error(
+    `e2e: dist/ is older than the source it was built from — "${culprit}" changed ${ageSec}s ` +
+      'after the last build, so this run would test the previous bundle and could pass ' +
+      'against code that is no longer on disk.\n' +
+      '     A failed `npm run build:e2e` leaves the last good dist in place, so check for a ' +
+      'red tsc before assuming this is just a missed rebuild.\n' +
+      '     Run:  npm run build:e2e',
+  );
+}
+
 export default function globalSetup(): void {
   const html = readFileSync(INDEX, 'utf8');
   const entry = /<script[^>]+src="([^"]+\.js)"/.exec(html);
@@ -57,4 +124,6 @@ export default function globalSetup(): void {
         '     Run:  npm run build:e2e',
     );
   }
+
+  assertNotStale();
 }

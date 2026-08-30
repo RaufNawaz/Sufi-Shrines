@@ -467,6 +467,43 @@
   position: relative;
 }
 
+/*
+ * The tap target, which is not the dot.
+ *
+ * A pin is the map's primary interaction and this archive's readers are
+ * overwhelmingly on phones. The dot is **14px** — 30px for a site with a
+ * photograph — against the 44px minimum every other control here is held to and
+ * `e2e/a11y.spec.ts` tests four selectors for. Markers were not among them, so
+ * 51 of the 169 sites had a target a third of the required size, and the ones
+ * that are hardest to hit are exactly the entries with no photograph: the
+ * thinnest records, which most need a reader to reach them.
+ *
+ * The dot cannot simply grow. It is a *map*: the walled city puts thirty-five
+ * sites inside a few hundred metres, and at that density a 44px disc is a blob
+ * rather than a place. So the visual stays and an invisible square carries the
+ * touch — the standard separation of what a control looks like from what it
+ * accepts.
+ *
+ * Two things this deliberately does not do:
+ * - **It does not stop the map panning.** A drag that begins on a marker still
+ *   scrolls the map, because Leaflet's drag handler is on the container and
+ *   this element sets no `touch-action` of its own. Asserted in
+ *   `e2e/map-touch.spec.ts`, because it is the failure that would make the map
+ *   feel broken rather than merely fiddly.
+ * - **It does not enlarge the *hover* surface**, since it carries no paint and
+ *   the tooltip is bound to the marker either way.
+ */
+.shrine-dot::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: var(--marker-hit-size);
+  block-size: var(--marker-hit-size);
+  transform: translate(-50%, -50%);
+  /* No background, no border: this is a hit area, not a halo. */
+}
+
 .shrine-dot--muslim {
   background-color: var(--color-cat-muslim);
 }
