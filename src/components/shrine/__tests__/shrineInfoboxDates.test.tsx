@@ -90,3 +90,81 @@ describe('ShrineInfobox — internal pipeline columns never reach a visitor', ()
     expect(text).not.toContain('allo-mahar');
   });
 });
+
+/**
+ * A qualifying note is not a footnote to a year — it is often the only thing
+ * the archive knows about a date, and it used to be withheld exactly when it
+ * mattered most.
+ *
+ * `year_built_note` rendered only inside `{shrine.yearBuilt && …}`, and
+ * `event_note` only inside `{shrine.eventYear && …}`. Measured against the
+ * shipped snapshot on 30 August 2026: **158 entries carry a `year_built_note`
+ * and 40 of them have no `year_built`.** Of those 40, 36 still showed the
+ * legacy `Founded/Opened` row — which repeats the note verbatim on 6 and is
+ * richer on 2, so **28 lost something real** — and **4 showed nothing about
+ * their date at all**, the note being the only thing there was to show. Two
+ * more entries lose an `event_note` the same way.
+ *
+ * Ten of the 28 are the sharp case: a bare year on the page with the sentence
+ * disputing it hidden. *Mazar of Bulleh Shah* displayed **1757** and withheld
+ * "Shrine developed after the saint's death". The rest hide something else
+ * again — Shah Jamal's "Tomb enclosed within a modern single-domed mosque" —
+ * so `year_built_note` is not reliably a date-only field, which is worth
+ * knowing before anyone narrows it.
+ *
+ * This is a RULE 2 failure in the direction the project cares about most: the
+ * archive held the qualification, `/about` counted it in "entries whose date
+ * carries a written qualification", and the page did not show it.
+ */
+describe('ShrineInfobox — a qualifying note survives a missing year', () => {
+  it('shows the note beside a legacy year, and does not duplicate the Founded row', () => {
+    /* The 28-entry case, in the shape of Mazar of Bulleh Shah: a legacy year,
+       no `year_built`, and a note that disputes what the year implies. */
+    const shrine = buildShrine(
+      makeShrineRow({
+        'Founded/Opened': '1757',
+        year_built_note: "Shrine developed after the saint's death",
+      }),
+      0,
+    )!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
+
+    expect(screen.getByText(/1757/)).toBeInTheDocument();
+    expect(container.querySelector('.infobox-note')?.textContent).toContain(
+      "Shrine developed after the saint's death",
+    );
+    /* The dates block takes the row over from the legacy list rather than
+       rendering beside it — otherwise fixing the note prints Founded twice. */
+    const foundedLabels = [...container.querySelectorAll('.infobox-label')].filter(
+      (el) => el.textContent === 'Founded',
+    );
+    expect(foundedLabels).toHaveLength(1);
+  });
+
+  it('shows the note when there is no year of any kind — the 4-entry case', () => {
+    /* Jhollay Lal Mandir, Sant Baba Bhagat Ram Darbar Mandir, Shrine of Lakhi
+       Shah Saddar, Valmik Mandir. Nothing rendered at all before: `hasDates`
+       was false, so the whole block was skipped. */
+    const shrine = buildShrine(
+      makeShrineRow({ year_built_note: 'Founding date undocumented' }),
+      0,
+    )!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
+    expect(container.querySelector('.infobox-note')?.textContent).toContain(
+      'Founding date undocumented',
+    );
+  });
+
+  it('shows an event note with no event year — the same defect, twice over', () => {
+    /* Darbar Hazrat Khawaja Feroz-ud-Din and Darbar Hazrat Tahir Bandagi
+       Qadri. `event_note` sits inside `{shrine.eventYear && …}` exactly as the
+       year note sat inside `{shrine.yearBuilt && …}`. */
+    const shrine = buildShrine(
+      makeShrineRow({ event_note: 'Annual Urs held 7th-9th Muharram; no single founding year' }),
+      0,
+    )!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
+    const notes = [...container.querySelectorAll('.infobox-note')].map((n) => n.textContent ?? '');
+    expect(notes.some((n) => n.includes('7th-9th Muharram'))).toBe(true);
+  });
+});

@@ -76,9 +76,12 @@ export function ShrineInfobox({ shrine }: Props) {
     // `Category` itself when the new column is blank) — a plain fact row
     // repeating the same value right underneath it is pure redundancy.
     if (key === 'Category') return false;
-    // The dedicated dates block below owns Founded once year_built is
-    // present — otherwise this legacy row is still the only source for it.
-    if (shrine.yearBuilt && isFoundedKey(key)) return false;
+    // The dedicated dates block below owns Founded once year_built *or* a
+    // year_built_note is present — otherwise this legacy row is still the only
+    // source for it. The note half matters: 36 entries have a note and no
+    // `year_built`, so the block used to skip the row, this one rendered the
+    // legacy value alone, and the qualification never reached the page.
+    if ((shrine.yearBuilt || shrine.yearBuiltNote) && isFoundedKey(key)) return false;
     if (isUrduVariantKey(key)) return false;
     if (key === 'Name' || key === 'Slug') return false;
     return true;
@@ -117,8 +120,17 @@ export function ShrineInfobox({ shrine }: Props) {
   }
 
   const rows = [...priorityRows, ...remainingRows].slice(0, MAX_INFOBOX_ROWS);
+  /* Notes count. Four entries hold a `year_built_note` and no year of any
+     kind, and two hold an `event_note` with no `event_year`; without the note
+     terms here their whole date block is absent and the archive silently
+     withholds the only thing it knows about their date. */
   const hasDates = Boolean(
-    shrine.yearBuilt || shrine.figureBorn || shrine.figureDied || shrine.eventYear,
+    shrine.yearBuilt ||
+    shrine.yearBuiltNote ||
+    shrine.figureBorn ||
+    shrine.figureDied ||
+    shrine.eventYear ||
+    shrine.eventNote,
   );
 
   const siteTypeLabel = shrine.siteType ? siteTypeDisplayLabel(shrine.siteType, lang) : null;
@@ -266,12 +278,12 @@ export function ShrineInfobox({ shrine }: Props) {
         // The notes are unreviewed source prose, so they're wrapped in
         // <bdi> rather than translated (no-English-leak guard exemption).
         <dl className="infobox-list infobox-dates">
-          {shrine.yearBuilt && (
+          {(shrine.yearBuilt || shrine.yearBuiltNote) && (
             <div className="infobox-row">
               <dt className="infobox-label">{t('founded')}</dt>
               <dd className="infobox-value">
                 <bdi>
-                  {fmtNum(shrine.yearBuilt)}
+                  {fmtNum(shrine.yearBuilt || resolveFoundedDate(shrine.raw, lang))}
                   {(() => {
                     if (!shrine.yearBuiltPrecision) return '';
                     // Known precision vocabulary localizes; free-form
@@ -304,7 +316,7 @@ export function ShrineInfobox({ shrine }: Props) {
               </dd>
             </div>
           )}
-          {shrine.eventYear && (
+          {(shrine.eventYear || shrine.eventNote) && (
             <div className="infobox-row">
               <dt className="infobox-label">{t('eventYearLabel')}</dt>
               <dd className="infobox-value">
