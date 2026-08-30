@@ -4422,6 +4422,49 @@ both redirects.
     instrument came from the same move — re-reading rows a previous pass had already read. Three
     findings in one session, all from checking a thing that was assumed rather than measured.
 
+163. **The gap report was calling a solved thing unfixable, and truncating its own JSON at 64 KB.**
+    *Found and fixed 30 August 2026, by re-running `measure-kb-gaps.mjs` after the kin layer moved
+    and asking why one number had not gone to zero.* Two defects in the instrument, in the report
+    whose entire job is to separate what somebody could fix from what nobody can.
+
+    **1. `figure-no-urdu-name` was a false positive, in the worst direction.** The check asked
+    whether the whole name appeared in `urdu-seed.json`. That is one of the **three** paths
+    `translateNameToUrdu` actually takes, and not the one that resolves most figures. So
+    `bhai-biba-singh` was reported as class `evidence` — *nobody at a keyboard can close this, the
+    archive does not record it* — while the archive records the name as `Bhai Biba (Beba) Singh`,
+    the resolver's `normalizeNameKey` drops parentheticals, and the Urdu page has read
+    بھائی بیبا سنگھ since it existed.
+
+    A false positive here is worse than a missing check. `docs/KNOWLEDGE_BASE_GAPS.md` opens by
+    warning that the way an agent "completes" a to-do list of unrecorded facts is by supplying them
+    from general knowledge — and the report was putting a *solved* item on that list.
+
+    **Two wrong guesses on the way to the fix, both worth recording.** First I assumed the missing
+    path was `buildUrduFallback`'s word map and mirrored that; the parse found 71 entries and none
+    of them was `bhai`, `biba` or `singh`, so the number did not move. Only then did I trace the
+    real path — the normalised name index. **The lesson is the one this repo keeps relearning: I
+    verified the fix by re-running the report, and the report still said 1, which is the only
+    reason the wrong mirror did not ship.** Both paths are now mirrored, since both are real.
+
+    Mirrors drift, so `src/lib/i18n/__tests__/kbGapsUrduAgreement.test.ts` asserts **set equality**
+    between the report's verdict and `localizeFigureName`'s — in both directions, because a mirror
+    that is too permissive hides a real gap and one that is too strict invents one. Proved by
+    breaking the mirror deliberately and watching it fail with the right name in the message.
+    `figureNameUrduParity.test.ts` had been green and right the whole time; the two instruments now
+    have to agree.
+
+    **2. `--json` silently truncated at exactly 65,536 bytes** of a ~92 KB document. The branch
+    ended `console.log(…)` then `process.exit(0)`, and **`process.stdout` is asynchronous when it
+    is a pipe and synchronous when it is a file** — so `--json > file` was complete and
+    `--json | jq` was cut off mid-string, with exit code 0 both times. The redirect is the form a
+    person types by hand, so the defect could only surface in automation, and it surfaced as a JSON
+    parse error nowhere near its cause. Fixed by deleting the `process.exit`; the agreement test
+    consumes the pipe, so it cannot return quietly.
+
+    The other six `process.exit(0)` calls under `scripts/data/` were checked and are safe — each
+    prints one short line, far below the pipe buffer. **Safe by size, not by design**, which is why
+    the note lives in the file rather than only here.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

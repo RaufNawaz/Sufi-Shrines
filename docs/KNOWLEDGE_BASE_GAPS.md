@@ -1,9 +1,10 @@
 # What is missing from the knowledge base, and who can close it
 
-_Measured 28 August 2026. Re-run with `node scripts/data/measure-kb-gaps.mjs`
-(`--json` for the machine-readable form). **Do not quote the numbers below
-without re-running** — three of them moved twice in the session that produced
-this file._
+_Measured 28 August 2026; **re-measured 30 August 2026**, and the instrument was
+wrong twice. Re-run with `node scripts/data/measure-kb-gaps.mjs` (`--json` for
+the machine-readable form). **Do not quote the numbers below without
+re-running** — three of them moved twice in the session that produced this file,
+and the whole `unread` class has since gone to zero._
 
 The instruction that produced this document was "complete and bridge all the
 gaps in the knowledge base". The first honest answer is a measurement, because
@@ -11,14 +12,53 @@ that phrase hides the distinction that decides who can do the work.
 
 ## The headline
 
-| class | count | who can close it |
-|---|---|---|
-| **evidence** | 388 | Nobody at a keyboard. The archive does not record it. |
-| **human-review** | 125 | A reader with the two worksheets. |
-| **informational** | 17 | Nobody — a proxy with no true positives left. |
-| **taxonomy** | 2 | A human, in minutes — but read the quoted cell first. |
-| **by-design** | 2 | Nobody. A rule working correctly. |
-| **unread** | 1 | An agent — and it is a reviewer's call, so not tonight. |
+| class | 28 Aug | **30 Aug** | who can close it |
+|---|---|---|---|
+| **evidence** | 388 | **365** | Nobody at a keyboard. The archive does not record it. |
+| **human-review** | 125 | **123** | A reader with the two worksheets. |
+| **informational** | 17 | **17** | Nobody — a proxy with no true positives left. |
+| **taxonomy** | 2 | **2** | A human, in minutes — but read the quoted cell first. |
+| **by-design** | 2 | **2** | Nobody. A rule working correctly. |
+| **unread** | 1 | **0** | Closed. |
+
+## The instrument was wrong twice, and both are recorded before the numbers
+
+This document's own warning — *do not quote the numbers without re-running* —
+turned out to understate the problem. Re-running on 30 August found two defects
+in `measure-kb-gaps.mjs` itself, and one of them had been **reporting a solved
+thing as unfixable**, which is the exact failure this document exists to prevent.
+
+**1. `figure-no-urdu-name` was a false positive.** The check asked whether the
+whole name appeared in `urdu-seed.json`. That is one of the *three* paths
+`translateNameToUrdu` actually takes, and not the one that resolves most
+figures. `bhai-biba-singh` was reported as class `evidence` — *nobody at a
+keyboard can close this* — while the archive records the name as
+`Bhai Biba (Beba) Singh`, the resolver drops parentheticals when it normalises,
+and the Urdu page has read بھائی بیبا سنگھ the whole time.
+
+The script now mirrors all three paths (exact lookup → word-level
+`WORD_URDU_MAP` composition → the normalised name index), reading the constants
+out of `urduFallback.ts` as text because a script outside `tsconfig` cannot
+import from inside it. Mirrors drift, so
+`src/lib/i18n/__tests__/kbGapsUrduAgreement.test.ts` asserts **set equality**
+between this report's verdict and `localizeFigureName`'s, in both directions: a
+mirror that is too permissive hides a real gap, one that is too strict invents
+one. The class is now **0**, agreeing with `figureNameUrduParity.test.ts`, which
+had been green the whole time and was right.
+
+**2. `--json` silently truncated at 65,536 bytes.** The JSON branch ended with
+`console.log(...)` then `process.exit(0)`. `process.stdout` is asynchronous when
+it is a **pipe** and synchronous when it is a **file**, so
+`measure-kb-gaps.mjs --json > file` wrote all ~92 KB while
+`measure-kb-gaps.mjs --json | jq` got a document cut off mid-string — with exit
+code 0. The redirect is what a person types by hand, so the failure could only
+appear in automation, and it appeared as a JSON parse error a long way from its
+cause. Fixed by removing the `process.exit`; the agreement test consumes the
+pipe, so it cannot come back quietly.
+
+**Neither was found by a gate.** Both were found by asking why a number had
+changed. That is the same move that produced the two other findings of the same
+session (HANDOVER §9.161, §9.162).
 
 **73% of what is missing is missing because nobody recorded it.** Not because
 the pipeline drops it, not because a column is unread, not because a slug is
@@ -45,11 +85,12 @@ live in `data/review/kg-review.csv` (255 rows, 0 verdicts) and
 See `docs/KG_REVIEW_WORKFLOW.md`.
 
 **`unread`** — the value is in the archive and the graph does not read it. This
-is the class an agent can close, and it is down from 48 to **1**: `Lava`, whose
-Urdu exists inside a reviewed string but cannot be lifted from it mechanically
-(the entry reads `لو (لاوا)، رام اور سیتا کے بیٹے` — the Urdu leads with لو where
-the English leads with Lava, and another reviewed entry uses لاوا for the same
-figure). Which form heads his page is a reviewer's call, not a derivation.
+is the class an agent can close, and it went 48 → 1 → **0**. The last was
+`Lava`, whose Urdu existed inside a reviewed string and could not be lifted from
+it mechanically (the entry reads `لو (لاوا)، رام اور سیتا کے بیٹے` — the Urdu
+leads with لو where the English leads with Lava, and another reviewed entry uses
+لاوا for the same figure). That was a reviewer's call rather than a derivation,
+and it has since been made.
 
 **`taxonomy`** — 2, and the class is coarser than it sounds, so **read the cell
 the report quotes** rather than the label. Both are figures with no order edge

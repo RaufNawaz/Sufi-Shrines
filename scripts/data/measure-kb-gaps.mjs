@@ -54,6 +54,113 @@ const shrineFigures = read('data/kg-shrine-figures.json');
 const seed = existsSync(join(ROOT, 'src/data/urdu-seed.json')) ? read('src/data/urdu-seed.json') : {};
 const seedLower = new Map(Object.entries(seed).map(([k, v]) => [k.toLowerCase(), v]));
 
+/* Whether a figure's name resolves to Urdu — mirroring `translateNameToUrdu`,
+ * which is what the page actually calls.
+ *
+ * WHY A MIRROR AND NOT A SEED LOOKUP. This report used to decide the question
+ * with a single case-insensitive lookup of the whole name in `urdu-seed.json`.
+ * That is only the first of the resolver's paths, and it produced a false
+ * positive that is a good illustration of the cost: `bhai-biba-singh` was
+ * reported as `evidence` — *nobody at a keyboard can close this, the archive
+ * does not record it*. The archive records it as "Bhai Biba (Beba) Singh", the
+ * resolver's `normalizeNameKey` drops parentheticals, and the page has always
+ * read بھائی بیبا سنگھ.
+ *
+ * A false positive here is worse than a missing check, because this report's
+ * entire job is to separate what somebody could fix from what nobody can, and
+ * it was filing a solved thing under "unfixable" — the exact failure that
+ * `docs/KNOWLEDGE_BASE_GAPS.md` warns its own reader about.
+ *
+ * The three paths, in the resolver's order:
+ *   1. exact / case-insensitive seed lookup;
+ *   2. `buildUrduFallback` — tokenise into WORDS and translate each from
+ *      `WORD_URDU_MAP` (a table of whole words, NOT the character-level
+ *      transliteration i18n rule 3 forbids);
+ *   3. the name index — `normalizeNameKey` on both sides, tried for the name
+ *      and each altName. This is the one that resolves most of them.
+ *
+ * Reading TS constants as text is the repo's existing move: a script outside
+ * `tsconfig` cannot import from inside it, and the reverse is a TS7016 error.
+ * The drift that introduces is closed by `kbGapsUrduAgreement.test.ts`, which
+ * asserts this file's verdict equals `localizeFigureName`'s for every figure in
+ * the graph — so if these mirrors fall behind, a test says so rather than a
+ * reader believing a number. */
+const URDU_FALLBACK_TS = readFileSync(join(ROOT, 'src/lib/i18n/urduFallback.ts'), 'utf8');
+
+function sliceConst(marker, what) {
+  const start = URDU_FALLBACK_TS.indexOf(marker);
+  if (start === -1) {
+    console.error(`[kb-gaps] ${what} not found in urduFallback.ts — the Urdu-name check would misreport.`);
+    process.exit(1);
+  }
+  return URDU_FALLBACK_TS.slice(start, URDU_FALLBACK_TS.indexOf('\n};', start));
+}
+
+const WORD_URDU_MAP = new Map(
+  [...sliceConst('const WORD_URDU_MAP: Record<string, string> = {', 'WORD_URDU_MAP').matchAll(
+    /^\s*'?([A-Za-z][\w'-]*)'?:\s*'([^']*)',/gm,
+  )].map((m) => [m[1].toLowerCase(), m[2]]),
+);
+
+const NAME_HONORIFICS = (() => {
+  const m = URDU_FALLBACK_TS.match(/const NAME_HONORIFICS\s*=\s*\n?\s*(\/\^.*\/);/);
+  if (!m) {
+    console.error('[kb-gaps] NAME_HONORIFICS not found in urduFallback.ts — the Urdu-name check would misreport.');
+    process.exit(1);
+  }
+  return new RegExp(m[1].slice(1, m[1].lastIndexOf('/')));
+})();
+
+const hasLatin = (t) => /[A-Za-z]/.test(t);
+
+/** Mirror of `normalizeNameKey`. */
+function normalizeNameKey(raw) {
+  let s = String(raw)
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, '')
+    .replace(/["\u201c\u201d'\u2019]/g, '')
+    .replace(/[-\u2013\u2014]/g, ' ')
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  let previous = '';
+  while (previous !== s) {
+    previous = s;
+    s = s.replace(NAME_HONORIFICS, '');
+  }
+  return s.trim();
+}
+
+/** Mirror of `buildUrduFallback`'s word path. */
+function composesToUrdu(name) {
+  const raw = String(name ?? '').trim();
+  if (!raw || !hasLatin(raw)) return Boolean(raw);
+  const tokens = raw.match(/[A-Za-z]+|\d+|[^A-Za-z\d]+/g) || [];
+  const out = tokens.map((t) => (hasLatin(t) ? (WORD_URDU_MAP.get(t.toLowerCase()) ?? t) : t)).join('');
+  return !hasLatin(out);
+}
+
+/** Mirror of `getNameIndex` — first non-Latin value per normalized key wins. */
+const nameIndex = (() => {
+  const idx = new Map();
+  for (const [k, v] of Object.entries(seed)) {
+    if (typeof v !== 'string' || hasLatin(v)) continue;
+    const n = normalizeNameKey(k);
+    if (n && !idx.has(n)) idx.set(n, v);
+  }
+  return idx;
+})();
+
+/** Mirror of `translateNameToUrdu` — true when the figure reads in Urdu. */
+function resolvesToUrdu(name, altNames = []) {
+  const raw = String(name ?? '').trim();
+  if (!raw) return false;
+  if (!hasLatin(raw)) return true;
+  const direct = seedLower.get(raw.toLowerCase());
+  if (direct && !hasLatin(direct)) return true;
+  if (composesToUrdu(raw)) return true;
+  return [raw, ...altNames].some((c) => nameIndex.has(normalizeNameKey(c)));
+}
 const saints = kg.saints ?? [];
 const relations = kg.relations ?? [];
 const rowBySlug = new Map(rows.map((r) => [slugify(String(r.Name ?? '')), r]));
@@ -181,7 +288,7 @@ for (const s of archive) {
 const urduFor = (name) => seedLower.get(String(name).toLowerCase());
 const translatedStrings = [...seedLower.entries()];
 for (const s of saints) {
-  if (urduFor(s.name)) continue;
+  if (resolvesToUrdu(s.name, s.altNames ?? [])) continue;
   const host = translatedStrings.find(([k]) => k.includes(String(s.name).toLowerCase()));
   const where = (s.shrines?.length ?? 0) > 0 ? 'archive' : 'lineage-only';
   add(
@@ -250,12 +357,30 @@ for (const g of gaps) {
 }
 const classTotals = gaps.reduce((a, g) => ((a[g.class] = (a[g.class] ?? 0) + 1), a), {});
 
+/* NO `process.exit(0)` HERE, and that is the whole point of this comment.
+ *
+ * This block used to end with one, and it silently truncated its own output at
+ * **exactly 65,536 bytes** — the report is ~92 KB. `process.stdout` is
+ * asynchronous when it is a pipe and synchronous when it is a file, so
+ * `node measure-kb-gaps.mjs --json > file` was complete and correct while
+ * `node measure-kb-gaps.mjs --json | jq` got a truncated document, cut mid-string.
+ * The exit code was 0 both times.
+ *
+ * That is the worst shape a bug can have in this repo: the redirect form is the
+ * one a person types when debugging, so the failure appears only in the
+ * automated form, and it fails as INVALID JSON rather than as missing data — so
+ * a consumer either crashes on a parse error nowhere near the cause, or, if it
+ * is lenient, reads a report that stops a third of the way through.
+ *
+ * `kbGapsUrduAgreement.test.ts` consumes this output over a pipe, which is what
+ * keeps the bug from coming back. The other `process.exit(0)` calls in
+ * `scripts/data/` were checked and are safe: each prints a single short line,
+ * far below the pipe buffer. Safe by size, not by design — so if any of them
+ * grows a large payload, this is the note that explains what happened. */
 if (asJson) {
   console.log(JSON.stringify({ generated: kg.generated, classTotals, gaps }, null, 2));
-  process.exit(0);
-}
-
-console.log(`[kb-gaps] ${saints.length} figures (${archive.length} with a site, ${lineageOnly.length} lineage-only), ${(kg.orders ?? []).length} orders, ${rows.length} rows\n`);
+} else {
+  console.log(`[kb-gaps] ${saints.length} figures (${archive.length} with a site, ${lineageOnly.length} lineage-only), ${(kg.orders ?? []).length} orders, ${rows.length} rows\n`);
 for (const [kind, list] of [...byKind].sort((a, b) => b[1].length - a[1].length)) {
   const byClass = list.reduce((a, g) => ((a[g.class] = (a[g.class] ?? 0) + 1), a), {});
   const parts = Object.entries(byClass)
@@ -273,8 +398,9 @@ console.log('\n  by what could close it:');
 for (const [c, n] of Object.entries(classTotals).sort((a, b) => b[1] - a[1])) {
   console.log(`    ${c.padEnd(14)} ${String(n).padStart(5)}`);
 }
-console.log(
-  '\n  unread / taxonomy / structural are closeable at a keyboard.\n' +
-    '  evidence is not: the archive does not record it, and RULE 2 says an agent\n' +
-    '  may not supply it. Those need field work or a source, not a session.',
-);
+  console.log(
+    '\n  unread / taxonomy / structural are closeable at a keyboard.\n' +
+      '  evidence is not: the archive does not record it, and RULE 2 says an agent\n' +
+      '  may not supply it. Those need field work or a source, not a session.',
+  );
+}
