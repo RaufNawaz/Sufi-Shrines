@@ -312,6 +312,18 @@ export interface KinLink {
   quote?: string;
   source?: string;
   confidence: number;
+  /** False when the tie was machine-extracted and no editor has read it —
+   * the same rule the other three link types use (`r.reviewed !== false`, so an
+   * absent flag means human-decided and trusted).
+   *
+   * Today this is `true` for all 67 kin edges, because every one is a
+   * human-adjudicated seed. It is here because it was MISSING, and missing is
+   * not the same as true: `toKinLink` never read `r.reviewed`, so the first
+   * machine-extracted kin edge to reach the graph would have been rendered with
+   * the same authority as a seed Rauf ruled on by hand. Lineage, order
+   * membership and event links all carry the flag; kin was the one that did
+   * not. */
+  reviewed: boolean;
 }
 
 function toKinLink(
@@ -333,6 +345,7 @@ function toKinLink(
     generationDisputed: r.generationDisputed === true,
     contested: r.contested === true,
     confidence: r.confidence,
+    reviewed: r.reviewed !== false,
     ...(r.kinWording ? { wording: r.kinWording } : {}),
     ...(r.quote ? { quote: r.quote } : {}),
     ...(r.source ? { source: r.source } : {}),

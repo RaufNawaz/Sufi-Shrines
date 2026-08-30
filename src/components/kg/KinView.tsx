@@ -49,6 +49,15 @@ function KinItem({ link }: { link: KinLink }) {
             {t('kinContested')}
           </span>
         )}
+        {/* Renders nothing today: all 67 kin edges are human-adjudicated seeds,
+            so this is a hole being closed rather than a label being added. The
+            same marker LineageView shows, deliberately — the reader learns one
+            vocabulary for "not yet read by an editor", not one per section. */}
+        {!link.reviewed && (
+          <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+            {t('lineageUnreviewed')}
+          </span>
+        )}
       </div>
       {link.quote && (
         /* Latin in either language, on the same ground LineageView stands on:

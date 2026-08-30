@@ -140,3 +140,68 @@ describe('the kinship layer', () => {
     }
   });
 });
+
+/**
+ * The review marker, and the premise that turned out to be false.
+ *
+ * On 30 August 2026 this was reported to Rauf as an inconsistency: 67 kin edges
+ * showed no review marker while 92 of 99 lineage edges showed "unreviewed", and
+ * the report said the two rested on identical evidence. **They do not.** Every
+ * relation type in this graph follows one rule — `method: 'machine-extracted'`
+ * carries `reviewed: false` and is badged; `method: 'human'` omits the flag and
+ * is not — and all 67 kin edges are human-adjudicated seeds, exactly like the
+ * 7 human `disciple_of`/`successor_of` edges and the 24 human `belongs_to_order`
+ * edges that are also, correctly, unbadged. The absence of a marker on kin was
+ * the rule working.
+ *
+ * What was actually wrong is narrower and the opposite shape: `KinLink` had no
+ * `reviewed` field at all and `toKinLink` never read it, so kin was the one link
+ * type that could not express the distinction. The first machine-extracted kin
+ * edge to reach the graph would have rendered with a hand-ruled seed's
+ * authority. These tests hold the rule from both ends, so the badge stays dead
+ * exactly as long as it should.
+ */
+describe('kin edges carry the same review marker as every other link type', () => {
+  it('the whole graph follows one rule: machine-extracted is flagged, human is not', () => {
+    // Floors first. This assertion filters a list, and a filter over an empty
+    // list passes while proving nothing — the way the kg-sources check once
+    // narrowed 533 rows to none and reported success (HANDOVER §9.60).
+    const machine = kg.relations.filter((r) => r.method === 'machine-extracted');
+    const human = kg.relations.filter((r) => r.method === 'human');
+    expect(machine.length).toBeGreaterThan(50);
+    expect(human.length).toBeGreaterThan(50);
+
+    const wrong = kg.relations
+      .filter((r) =>
+        r.method === 'machine-extracted' ? r.reviewed !== false : r.reviewed === false,
+      )
+      .map((r) => `${r.type} ${r.subject}->${r.object} method=${r.method} reviewed=${r.reviewed}`);
+    expect(wrong, 'a relation whose method and review flag disagree').toEqual([]);
+  });
+
+  it('every kin edge today is human-decided, so no badge is the honest render', () => {
+    expect(kinEdges.every((r) => r.method === 'human')).toBe(true);
+    const links = kinEdges.flatMap((r) => getKinOf(r.subject.replace(/^saint:/, '')));
+    expect(links.length).toBeGreaterThan(0);
+    expect(links.every((l) => l.reviewed)).toBe(true);
+  });
+
+  it('KinLink can express an unreviewed tie at all — the hole this closes', () => {
+    // Not a tautology: before this field existed the expression below was
+    // `undefined`, and KinView had no branch that could ever show the marker.
+    const sample = getKinOf(kinEdges[0].subject.replace(/^saint:/, ''))[0];
+    expect(sample).toBeDefined();
+    expect(typeof sample.reviewed).toBe('boolean');
+  });
+
+  it('reuses the lineage marker rather than inventing a second vocabulary', () => {
+    // A reader should learn "unreviewed" once. Both languages must have it,
+    // because a chip with no string renders as nothing and looks finished.
+    expect(UI_TEXT.en.lineageUnreviewed).toBeTruthy();
+    expect(UI_TEXT_UR.lineageUnreviewed).toBeTruthy();
+    expect(UI_TEXT.en.lineageUnreviewedHelp).toBeTruthy();
+    expect(UI_TEXT_UR.lineageUnreviewedHelp).toBeTruthy();
+    // The help text must not name lineage, or it lies on a kin row.
+    expect(UI_TEXT.en.lineageUnreviewedHelp.toLowerCase()).not.toContain('lineage');
+  });
+});
