@@ -187,8 +187,19 @@ export function figureNameSet(kg) {
  */
 export function report({ findings, all, json, rowCount, tag }) {
   const covered = findings.filter((f) => f.coveredBy.length > 0);
-  const ruledOut = findings.filter((f) => f.coveredBy.length === 0 && f.adjudicated?.length);
-  const unread = findings.filter((f) => f.coveredBy.length === 0 && !f.adjudicated?.length);
+  const rest = findings.filter((f) => f.coveredBy.length === 0);
+  const ruledOut = rest.filter((f) => f.adjudicated?.length);
+  const open = rest.filter((f) => !f.adjudicated?.length);
+  /* A fourth bucket, and it is structural rather than a verdict: a sentence
+     that names NOBODY cannot become an edge, because an edge needs two ends and
+     the corpus has given one. "his father was an official of the Mughal
+     administration", "raised by his widowed mother", "under the care of his
+     descendants" — all real, all unusable, and all forever. Recording 60-odd
+     individual rejections for them would be theatre; they are counted and
+     hidden, and `--all` still prints them. This is the difference between a
+     reading pile a person will finish and one they will abandon. */
+  const anonymous = open.filter((f) => f.names.length === 0);
+  const unread = open.filter((f) => f.names.length > 0);
   const shown = all ? findings : unread;
   if (json) {
     console.log(
@@ -197,6 +208,7 @@ export function report({ findings, all, json, rowCount, tag }) {
           total: findings.length,
           covered: covered.length,
           adjudicated: ruledOut.length,
+          namesNobody: anonymous.length,
           unread: unread.length,
           findings: shown,
         },
@@ -221,6 +233,6 @@ export function report({ findings, all, json, rowCount, tag }) {
   console.log(
     `\n${findings.length} ${tag} sentence(s) across ${rowCount} rows; ` +
       `${covered.length} carried by an existing edge, ${ruledOut.length} read and ruled out, ` +
-      `${unread.length} unread.`,
+      `${anonymous.length} naming nobody (never an edge), ${unread.length} to read.`,
   );
 }

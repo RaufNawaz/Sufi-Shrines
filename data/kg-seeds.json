@@ -1400,6 +1400,46 @@
       "quote": "became the spiritual guide of Prince Dara Shikoh and, through him, of the emperor Shah Jahan’s brilliant daughter, the princess Jahanara",
       "source": "data/shrines.csv#shrine-of-mian-mir",
       "notes": "Same decision as the Aurangzeb row, and the same sentence carries a real lineage tie that IS modelled: Jahanara disciple_of Mullah Shah Badakhshi. Her father is named only to place her."
+    },
+    {
+      "subjectName": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
+      "objectName": "(his father, not identifiable here)",
+      "kind": "ambiguous antecedent",
+      "quote": "He is assisted in the work of the shrine and its teaching mission by his son, *Sahibzada Muhammad Hassan Haseeb-ur-Rehman*, so that the lineage now spans four generations of a single family.",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "notes": "A real tie the entry states and this archive cannot pin. Who \"He\" is decides it, and the sentence's own arithmetic rules out the obvious reading: if He were Hazrat Hafiz Muhammad Abdur Rahman — the son named in the previous sentence — the lineage would span three generations, not the four it claims. So the subject is a custodian the entry does not name here. Build it only when a source names him."
+    },
+    {
+      "subjectName": "(an unnamed grandson)",
+      "objectName": "Hazrat Shah Ali Akbar Shamsi",
+      "kind": "unnamed",
+      "quote": "it is said to have been raised by the saint's grandson, who is himself buried within the complex",
+      "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
+      "notes": "A grandson who built the mausoleum and is buried in it, and the corpus never names him. The same sentence DOES name a real tie — \"the builders Ibrahim and Rajab, sons of the noted architect Musa Lahori\" — and that is deliberately not built either: three new figures for a construction credit is not what this layer is for. Reconsider if the archive ever takes builders as figures; Ustad Nuriya is already in the dictionary, so the question is open rather than settled."
+    },
+    {
+      "subjectName": "Kharak Singh",
+      "objectName": "Maharani Datar Kaur",
+      "kind": "real, inferred rather than stated",
+      "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801",
+      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "notes": "\"Their son\" makes her his mother by joining two other claims — she is Ranjit Singh's wife, Kharak Singh is Ranjit Singh's son — rather than by stating it. Every `mother` edge in this seed names a mother outright. Both of the claims it joins ARE edges here, so a reader still sees the whole family; the archive just does not assert the third as though the corpus had."
+    },
+    {
+      "subjectName": "Jahan Ara Begum",
+      "objectName": "Emperor Shah Jahan",
+      "kind": "real, deliberately not modelled",
+      "quote": "in 1641 Jahan Ara Begum, the daughter of Emperor Shah Jahan, built a grand caravanserai here",
+      "source": "data/shrines.csv#gorakhnath-goraknath-temple",
+      "notes": "The same person and the same decision as the Mian Mir entry's \"the emperor Shah Jahan's brilliant daughter, the princess Jahanara\", recorded separately because it is a different entry and the scan reads sentences, not people. She is a figure here only as Mullah Shah's disciple; her father would enter the graph solely to be her father."
+    },
+    {
+      "subjectName": "Sayyida Ruqayya",
+      "objectName": "Muslim ibn Aqeel / Hazrat Ali",
+      "kind": "contested tradition — reviewer's call",
+      "quote": "Sayyida Ruqayya was the wife of Muslim ibn Aqeel, the cousin and emissary whom Imam Hussain had sent ahead to Kufa",
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "notes": "Not a rejection — a referral. The entry reports the Karbala identification of the six as ONE OF TWO traditions and then argues against it in its own text (\"Ali's wife Umm al-Banin is recorded with no daughter\"). The archive already carries the other tradition as `bibi-pak-daman daughter_of sayyid-ahmad-tokhta-tirmidhi` with a `contested` flag. Publishing both means deciding how an archive renders a dispute it is itself adjudicating, and that is Rauf's call, not an agent's."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",

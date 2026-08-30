@@ -4650,15 +4650,34 @@ both redirects.
     file and never in `kg.json#relations`. **The assertion written against that join passed
     vacuously**, filtering 533 rows to none, and was deleted rather than kept as false comfort.
 
-    **`ChronologyPage` is 1 KB over and is not this.** It does not import the graph at all (0
-    matches for `lib/kg`), and it did not move by a byte while `kg.json` fell 59 KB. The most this
-    lane contributes to it is **130 bytes** of new UI-string keys. Left for the lane whose in-flight
-    edits to `useShrineData`, `LanguageContext` and `main.tsx` every page imports.
+    **`ChronologyPage` read 311/310 during this work and was never over budget — a measurement
+    taken in a shared tree mid-edit.** The reasoning about it was right and the number was not. It
+    does not import the graph (0 matches for `lib/kg`), it did not move a byte while `kg.json` fell
+    59 KB, and this lane contributes at most **130 bytes** of UI-string keys to it — so it was
+    correctly ruled out as this change's doing. But it was not the other lane's growth either: on
+    the settled tree it measures **310 / 310**, exactly at budget. The 311 came from building while
+    that session's `useShrineData` / `LanguageContext` / `main.tsx` edits were half-applied around
+    me; those have since landed (`9a4f227`) and remove an eager dependency rather than add one.
+
+    **The trap, since two sessions will keep sharing this tree:** `npm run build` measures the
+    working tree, not a commit, so a bundle number taken while someone else is mid-edit is a number
+    for a state that never existed and will never exist again. Attribute a budget failure to a
+    *commit* — or re-measure once the tree is quiet — before writing the cause down. Ruling a cause
+    OUT from a dirty tree is safe (that reasoning held); ruling one IN is not.
 
     **The real point stands and is not fixed here.** `/saint/:slug` still downloads the entire graph
     to render one figure, which is why these budgets are a recurring tax on data work. This buys
     several batches of headroom, not a solution; the solution is per-entity data, and it is the same
     "lazy is not conditional" shape as the source-notes and Urdu-article payloads.
+
+    **Four instances of that shape were found in one day**, by two sessions working separately, and
+    the list is worth keeping together because the next one will look like none of them: 49 KB of a
+    graph restating its own primary key; 92 KB of source notes fetched by the 117 shrine pages that
+    have none; 253 KB gzipped of Urdu article prose on every Urdu route, including the map and the
+    calendar; and the whole graph on a page that renders one figure. Measurements for the middle two
+    are in `docs/planning/URDU_ARTICLE_PAYLOAD.md`. **A chunk being lazy says when it loads, not
+    whether this page needs it** — and every one of these passed every gate, because a budget
+    measures the total and never asks what the total is for.
 
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
