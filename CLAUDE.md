@@ -263,7 +263,7 @@ outside citations/URLs/coordinates/`<bdi>`.
 - **51 of 169 entries carry no photograph at all**, and 242 image fields are populated across
   the other 118. *Measured 21 August 2026 from `src/data/shrines-fallback.json`.* Also on
   `/about`, which recomputes it on every load. **But 51 counts a field, not a picture:**
-  `pipeline/check_image_liveness.py` fetched all 242 again on *31 August 2026* and found **4 dead**
+  `pipeline/check_image_liveness.py` fetched all 242 again on *30 August 2026* and found **4 dead**
   — the three from 27 August (two 404s on Wikimedia, one 403 on heritageofpakistan.org) plus
   **Garh Maharaja (Shorkot)**, whose host `sultan-bahoo.com` now fails certificate validation
   outright. **Three entries lose every image they have**, so the honest figure is **54**, and
@@ -282,7 +282,7 @@ outside citations/URLs/coordinates/`<bdi>`.
   `<img>`; Chrome reports that as a blocked request carrying no response at all, so an instrument
   watching response statuses misses it twice over (§9.145).
 - 18 video files, **zero audio recordings**, despite oral history being the stated purpose.
-  **Re-measured and confirmed 31 August 2026 — both numbers exactly.** The "cannot be checked from
+  **Re-measured and confirmed 30 August 2026 — both numbers exactly.** The "cannot be checked from
   the repository" caveat is withdrawn: `pipeline/photo_manifest.tsv` types every Drive file, which
   is a better instrument than the directory listing the original count came from, because it reads
   a recorded `mime_type` rather than trusting an extension. **18 `video/mp4`, 0 `audio/*`** — 14
@@ -293,12 +293,12 @@ outside citations/URLs/coordinates/`<bdi>`.
   (The manifest is gitignored, so this is checkable by anyone holding it and not from a fresh
   clone. Whether it should be tracked is an open question in `docs/SESSION_RESUME.md`.)
 - Mauj Darya Bukhari lost all 12 media files (verified 404s). **Confirmed from the manifest on
-  31 August 2026, and it is now clear what "lost" means:** all 12 of the manifest's
+  30 August 2026, and it is now clear what "lost" means:** all 12 of the manifest's
   `id_not_in_drive` rows — every one in the archive — belong to this single shrine, 10 answering
   the photo question and 2 the video/audio one. The survey recorded twelve uploads and **Drive no
   longer resolves any of those file IDs**. Not 404s on a web host: the Drive objects themselves are
   gone, which is why re-shooting rather than re-linking is the remedy. Data Darbar and Bibi Pak Daman photos are WhatsApp-compressed.
-  **Confirmed from the manifest, 31 August 2026, and one shrine should be added.** Bibi Pak Daman's
+  **Confirmed from the manifest, 30 August 2026, and one shrine should be added.** Bibi Pak Daman's
   six are named `IMG-20260615-WA0116`–`WA0121`, which is WhatsApp's own convention, at 160–206 KB;
   Data Darbar's one is literally `WhatsApp Image …` at 129 KB. Against a **3,346 KB median** for
   every other image in the archive, so the compression is a factor of ~19, not a nuance.

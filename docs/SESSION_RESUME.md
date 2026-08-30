@@ -75,7 +75,7 @@ Each item names what a reader loses, so the ranking can be argued with rather th
     2026.** Measured before believing it, and it was **90%**, with a median nearest-neighbour
     distance of **1 px** — 169 markers forming **21 visually distinct shapes**, the largest holding
     **66 sites**. Put to Rauf as four costed options
-    (`docs/planning/MAP_PIN_DENSITY_2026-08-31.md`); the ruling was **fan on tap, and leave the
+    (`docs/planning/MAP_PIN_DENSITY_2026-08-30.md`); the ruling was **fan on tap, and leave the
     resting map alone**. Shipped as `src/lib/map/spiderfy.ts` + `e2e/marker-fan.spec.ts`, which
     asserts both halves — the fan works, *and* no clustering arrived by the back door.
 
@@ -101,7 +101,7 @@ note pointed at is a different bug and is still there.
 
 ~~**Left from the share-snippet work:** seven index routes ship the map's blurb as their
 description; and `hreflang` appears on `dist/index.html` only, zero on the ~800 other prerendered
-pages.~~ **One half fixed, the other half retracted — 31 August 2026.**
+pages.~~ **One half fixed, the other half retracted — 30 August 2026.**
 
 **The `hreflang` half was never true.** It was measured against a local `npm run build`, and
 `replaceHreflang()` *strips* all three alternates when `enUrl` is falsy, which it is whenever
@@ -151,7 +151,7 @@ canonical points at `/about`.
 
 ## The corpus scanners are worked out
 
-Both reading piles were taken to the end on 31 August 2026, and the result is a negative worth
+Both reading piles were taken to the end on 30 August 2026, and the result is a negative worth
 recording so nobody re-reads them looking for edges.
 
 **Kin: 30 to read → no unrecorded edge.** Every candidate was already in the graph — Bahadur Baba
@@ -170,7 +170,7 @@ may not supply it — **135 by human review**, 20 informational (long slugs, and
 a published URL), and 4 that already carry a written adjudication. There is no pile left that
 reading harder would move.
 
-**Found 31 August 2026 while looking for what a reader sees where the archive is silent:** the
+**Found 30 August 2026 while looking for what a reader sees where the archive is silent:** the
 guard RULE 4 names — *"refuse-to-write if any long Description has lost its newlines"* — exists
 and **was not in the build path**. It lives at `pipeline/append_new_shrines.py:155`, which runs
 only when a person appends shrines by hand. `data:build`, `data:validate` and `verify` never
@@ -190,7 +190,7 @@ surveyor's sentences divide is editorial work on someone else's prose (RULE 2) a
 production (RULE 3). The test fails if the exception ever stops being true, so paragraphing it in
 the sheet will tell you to delete the line.
 
-**The orphaned-guard sweep, finished 31 August 2026 — and the answer is reassuring, which is why
+**The orphaned-guard sweep, finished 30 August 2026 — and the answer is reassuring, which is why
 it is written down.** Two of RULE 4's four named checks turned out to live in hand-run paths, so
 the obvious next question is how much of the rest of the repo is like that. Measured across every
 gate-shaped script (`check-*`, `validate-*`, `verify-*`) in `scripts/`, `scripts/data/` and
@@ -229,7 +229,7 @@ row in the dataset is not.
 short entry that the unconditional assert catches. I set out to report these two as disagreeing and
 they do not — the difference is the point.
 
-**A photograph that cannot be fetched used to offer itself anyway — closed 31 August 2026.**
+**A photograph that cannot be fetched used to offer itself anyway — closed 30 August 2026.**
 Measured on `/shrine/gurdwara-sacha-sauda`, whose only image 404s: the gallery rendered one tile,
 the tile was a `<button>` announcing *"Image 1: Open image"*, and pressing it opened the lightbox
 full-screen over a broken image with **no text in it at all**. A sighted reader was invited to
@@ -254,7 +254,7 @@ characters, so an entry with one broken photograph and one good one lost the goo
 problem.
 
 **`pipeline/photo_manifest.tsv` is gitignored, so a repair to it is not retained** *(raised by the
-other session, 31 August 2026)*. They fixed 44 of 206 rows that were one field too wide — a stray
+other session, 30 August 2026)*. They fixed 44 of 206 rows that were one field too wide — a stray
 empty at index 2 shifting the Drive ID into `drive_filename` — which `csv.DictReader` then dropped
 before they reached the list a person reads. **The repair is what made three of CLAUDE.md's
 standing findings checkable**, two of which carried caveats saying they were not: the 18-video/
@@ -280,7 +280,7 @@ colleague's name out of a public field on 30 August. It belongs beside the RMS q
   fresh clone, so a guard written here could not be tested against what it guards. **Two decisions
   are yours** — whether it should exist as code, and whether CLAUDE.md's RULE 4 list should say so
   meanwhile. An agent should not quietly edit the operating contract to match what it measured.
-  (The other three are audited in HANDOVER, 31 August 2026: one was live, two were orphaned in
+  (The other three are audited in HANDOVER, 30 August 2026: one was live, two were orphaned in
   hand-run paths, both now in `data:validate`.)
 
 
@@ -326,7 +326,7 @@ cannot do.
   and the Urdu dictionary. Order matters: patches first, then `data:build`, `data:kg`,
   `data:index`, traditions, and `data:check:live` to confirm zero drift.
 
-  **This costs more than two absent pages, measured 31 August 2026 — it publishes a false claim
+  **This costs more than two absent pages, measured 30 August 2026 — it publishes a false claim
   about the archive's own holdings.** Both figures have `/saint/` pages: prerendered, in the
   sitemap, in both languages. The knowledge graph is built from the same 169-row snapshot, so both
   are marked `lineageOnly`, and both pages therefore tell a reader *"The archive holds no entry of
@@ -342,7 +342,7 @@ cannot do.
   Verified by adding the two live rows: at 171 it goes green.
 
   **And the bill is larger than two pages of prose.** Re-measured from the repaired
-  `pipeline/photo_manifest.tsv` on 31 August 2026: the two shrines hold **23 media files between
+  `pipeline/photo_manifest.tsv` on 30 August 2026: the two shrines hold **23 media files between
   them, every one `matched` and fetchable** — Shah Gohar Peer 12 (9 images, 3 video) and Mian
   Qurban Ali Shah 11 (10 images, 1 video, 348 MiB). Set that against 54 entries with no working
   photograph, and against the archive's **18 video rows in total: four of them belong to these two

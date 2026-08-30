@@ -1784,7 +1784,7 @@
       "quote": "He never left his father's trade: the survey describes him working as a shoemaker in Rang Mahal Bazaar for the whole of his life, making and selling shoes, while living with deliberate simplicity.",
       "source": "data/shrines.csv#darbar-hazrat-khawaja-feroz-ud-din-gharib-nawaz-chishti-nizami",
       "notes": "The father is never named, and the fact recorded is not descent but inheritance of a trade — he kept his father's work for life. No second node to point at.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "hazrat-wasif-ali-wasif-awan",
@@ -1792,7 +1792,7 @@
       "quote": "His father then sent him to his maternal grandfather in Jhang, a move the survey describes as transformative: his grandfather had been associated with the Muslim League",
       "source": "data/shrines.csv#darbar-wasif-ali-wasif",
       "notes": "Two unnamed relatives in one sentence, and the grandfather carries the detail the entry cares about — a Muslim League association. Urdu splits paternal and maternal grandfather (دادا/نانا), which is why the entry saying 'maternal' matters even with no name to attach it to.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "pir-abdul-ul-karim",
@@ -1800,7 +1800,7 @@
       "quote": "This unbroken chain of father-to-son succession, rooted in scholarship as much as in inherited *baraka* (spiritual blessing), is central to the identity of Eidgah Sharif.",
       "source": "data/shrines.csv#eidgah-sharif",
       "notes": "A succession pattern rather than one relationship, and no generation is named. The same shape as the Ghulam Farid note above: real, recorded, and impossible to draw.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "bulleh-shah",
@@ -1808,7 +1808,7 @@
       "quote": "Bulleh Shah was born around 1680, into a respected Sayyid family; his father was a learned and pious man, an imam and teacher, and the family settled in the Kasur region of the Punjab.",
       "source": "data/shrines.csv#mazar-of-bulleh-shah",
       "notes": "The father's occupation and learning are recorded; his name is not. The entry treats it as the context his poetry came out of.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "shah-inayat-qadiri",
@@ -1816,7 +1816,7 @@
       "quote": "Shah Inayat died around 1728 and is buried at Mozang alongside two of his sons, per existing sourcing for this entry.",
       "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
       "notes": "Two sons, neither named, and the fact is a burial arrangement rather than a lineage claim.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "ganj-e-inayat-sarkar",
@@ -1824,7 +1824,7 @@
       "quote": "above all in the living succession he passed to his son",
       "source": "data/shrines.csv#shrine-of-ganj-e-inayat-sarkar",
       "notes": "A sajjada-nashin succession the entry states plainly and never names. In this corpus a seat passes down a family at least as often as down a chain of initiation, so a graph without this is missing the more common case.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "kaka-sahib",
@@ -1832,7 +1832,7 @@
       "quote": "c. 1661 (mausoleum, built by his son); saint traditionally born 1575 CE, died 1653",
       "source": "data/shrines.csv#ziarat-kaka-sahib",
       "notes": "Quoted from the `Founded/Opened` FIELD rather than from prose — the sentence splitter glues that field to the paragraph after it, and a mangled quote is worse than a field citation. Distinct from his father Bahadur Baba, who IS named and carries a kin edge.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "syed-musa-pak",
@@ -1840,7 +1840,7 @@
       "quote": "a revered Qadiri saint of the sixteenth century and the ancestor of the Gilani (Musa Pak) sayyids",
       "source": "data/shrines.csv#shrine-of-syed-musa-pak",
       "notes": "Ancestor of a named FAMILY, not of a named person. The Gilani sayyids are not a node and should not become one on the strength of this.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "abdullah-shah-ghazi",
@@ -1848,7 +1848,7 @@
       "quote": "Tradition places him in the eighth century and holds him to be a descendant of the Prophet through the line of Imam Hasan",
       "source": "data/shrines.csv#shrine-of-abdullah-shah-ghazi",
       "notes": "A sayyid descent claim, attributed to tradition by the entry itself. Neither the Prophet nor Imam Hasan is a figure in this archive — it holds sites in Pakistan — so there is nothing to point at, and inventing the nodes to draw an edge would be the wrong fix.",
-      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-kin-statements.mjs — the to-read pile, 30 August 2026"
     },
     {
       "saintSlug": "syed-miran-hussain-zanjani",
@@ -1856,7 +1856,7 @@
       "quote": "traces his family's descent from Imam Musa Kazim through the Zanjan line",
       "source": "data/shrines.csv#shrine-of-miran-hussain-zanjani-zanjani-sahib",
       "notes": "Same shape as Abdullah Shah Ghazi's descent through Imam Hasan: a named ancestor who is not a figure in this archive, because the archive holds sites in Pakistan. Nothing to point at, and creating the node to draw the edge would be the wrong fix.",
-      "_from": "scripts/data/scan-lineage-statements.mjs — the to-read pile, 31 August 2026"
+      "_from": "scripts/data/scan-lineage-statements.mjs — the to-read pile, 30 August 2026"
     }
   ],
   "_comment_orderProse": "What the archive itself says about each of its nine orders, verbatim. Every passage is SLICED out of data/shrines.json by scripts, never retyped, and attributed to the entry it comes from. This exists because the order pages were showing a one-line summary written for this site and nothing else, while the corpus carried whole authored sections on the same orders — \"The Suhrawardi Way\", \"The Way of Blame\", \"The Azeemia Order\", \"The Naqshbandi-Mujaddidi Way\", \"The Qalandar and His Order\" — that no page could reach. Same shape as the kinship ties: held and not rendered. Selection rules, learned the hard way: a passage must NAME ITS OWN SUBJECT, because lifted out of its entry a sentence opening on \"He\" or \"Through his disciple\" has no antecedent, and the archive’s prose is not ours to patch. Where two entries word the same fact differently, both are kept (see the two Suhrawardi passages) rather than one being silently preferred (RULE 2). Every passage carries `quoteUr`, sliced the same way out of the Urdu article in src/data/urdu-content.json. That is not politeness: an English paragraph standing as the main content of an Urdu order page is an untranslated sentence, which i18n rule 7 forbids and the no-leak guard caught on seven routes the first time this shipped. The archive already held every one of these passages in Urdu — «سلسلہ نقشبندیہ مجددیہ», «ملامت کی راہ», «سلسلہ عظیمیہ» — so the fix was to quote the Urdu article, not to widen the budget.",

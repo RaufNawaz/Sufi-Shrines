@@ -43,7 +43,7 @@ const TABLES = { en: UI_TEXT.en, ur: UI_TEXT_UR } as const;
  * `graphExplorerIntro` opened "Browse the Sufi orders and saints…" while
  * `graphExplorerFiguresNote`, eleven lines below it in the same object and
  * rendered on the same page, read "not every figure here is a Sufi saint."
- * Measured on the running page, 31 August 2026, from its own grouping: **70 of
+ * Measured on the running page, 30 August 2026, from its own grouping: **70 of
  * 134 figures are Sufi saints.** The other 64 are 20 deities, 16 sants, 15
  * historical figures, 5 Sikh Gurus, 5 recorded differently, 3 communities.
  *

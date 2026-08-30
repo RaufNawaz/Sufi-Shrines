@@ -1,6 +1,6 @@
 # How measurements go wrong here
 
-*Written 31 August 2026, from about fifteen wrong measurements made by two sessions over two days.
+*Written 30 August 2026, from about fifteen wrong measurements made by two sessions over two days.
 Read this before trusting a number you just produced — including, especially, a number that
 confirms what you expected.*
 

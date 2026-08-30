@@ -46,7 +46,7 @@ describe('every prerendered route quotes its own page', () => {
   >;
 
   it('covers the routes that had no description of their own', () => {
-    /* The seven measured on 31 August 2026. Pinned as a set rather than a
+    /* The seven measured on 30 August 2026. Pinned as a set rather than a
        count, so removing one and adding another does not pass silently. */
     expect(routes.map(([path]) => path).sort()).toEqual([
       'almanac',

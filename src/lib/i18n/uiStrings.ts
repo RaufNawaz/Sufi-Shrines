@@ -458,7 +458,7 @@ const UI_TEXT_EN = {
   graphExplorerTitle: 'Saints & Orders Explorer',
   /* "and saints" was "and Sufi saints" by implication and the page says so
      itself, eleven lines down: `graphExplorerFiguresNote` reads "not every
-     figure here is a Sufi saint." Measured on the running page, 31 August 2026,
+     figure here is a Sufi saint." Measured on the running page, 30 August 2026,
      from its own grouping: **70 of 134 figures are Sufi saints**. The other 64
      are 20 deities, 16 sants, 15 historical figures, 5 Sikh Gurus, 5 recorded
      differently and 3 communities. One part of the page already knew what the
@@ -867,7 +867,7 @@ const UI_TEXT_EN = {
   longitudeLabel: 'Longitude',
   imageLabel: 'Image',
   /* Renamed with `siteTitle`, and the last site the rename missed — found on
-     31 August 2026, on every page of the archive. The rename swept the title,
+     30 August 2026, on every page of the archive. The rename swept the title,
      the meta description and the manifest, and stopped at the strings a reader
      *arrives* by; the footer is the string a reader *leaves* by, and it sat
      under all 800 prerendered pages still saying the old name. A rename is a

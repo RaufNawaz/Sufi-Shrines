@@ -11,7 +11,7 @@
  * exist. That is the exact failure RULE 0 was written about, one step later:
  * not work that was lost, but work that was kept and never arrived.
  *
- * ## What it found on 31 August 2026
+ * ## What it found on 30 August 2026
  *
  * Two of four drafted entries — **Darbar Hazrat Shah Gohar Peer** (8,923
  * characters) and **Darbar Mian Qurban Ali Shah** (12,875) — are absent from
@@ -64,7 +64,7 @@ const MANIFEST = join(ROOT, 'pipeline', 'photo_manifest.tsv');
  * this function returns an empty map rather than failing. The defect is the
  * missing row either way; the manifest only sharpens what it costs.
  *
- * Measured 31 August 2026, with the file present: the two unpublished shrines
+ * Measured 30 August 2026, with the file present: the two unpublished shrines
  * hold **23 files between them, every one `matched` and fetchable** — Shah Gohar
  * Peer 12 (9 images, 3 video) and Mian Qurban Ali Shah 11 (10 images, 1 video,
  * 365 MB). Against 54 entries with no working photograph, and against 18 video
@@ -176,7 +176,7 @@ function main() {
     console.error('');
   }
   console.error(
-    'Check the live sheet before assuming these are unwritten: as of 31 August 2026 both\n' +
+    'Check the live sheet before assuming these are unwritten: as of 30 August 2026 both\n' +
       'were present in production and missing only from the local dataset, which predates\n' +
       'the isValidRow fix that keeps a named row with no coordinates.\n' +
       '\nThe remedy is `npm run data:build`, and it is sequenced — import the pending CSV\n' +

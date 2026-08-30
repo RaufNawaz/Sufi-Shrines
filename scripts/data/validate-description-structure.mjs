@@ -17,10 +17,10 @@
  * `pipeline/append_new_shrines.py:155` asserts it — and that script runs only
  * when a person is appending new shrines by hand. `npm run data:build`,
  * `npm run data:validate` and `npm run verify` never checked it, so between the
- * guard being written and 31 August 2026 the archive had no standing protection
+ * guard being written and 30 August 2026 the archive had no standing protection
  * against the single most destructive thing that can happen to its prose.
  *
- * Measured on 31 August 2026, which is why this exists: **one entry has already
+ * Measured on 30 August 2026, which is why this exists: **one entry has already
  * lost them.** Whether it was a TSV round-trip or was authored that way cannot
  * be told from the data, and that is exactly the problem — the failure leaves no
  * mark. One entry is invisible; the guard is here for the day it is 169.
@@ -67,7 +67,7 @@ export const LONG_ENOUGH = 600;
 export const KNOWN = new Map([
   [
     'Sant Baba Asudaram Darbar (Panno Aqil)',
-    '1,339 characters in one block, measured 31 August 2026. The archive’s only ' +
+    '1,339 characters in one block, measured 30 August 2026. The archive’s only ' +
       'entry with no bibliography, and its only unbroken one. Needs a person to ' +
       'paragraph it in the sheet — where the divisions fall is an editorial call ' +
       'on a surveyor’s prose, and the sheet is production (RULE 3).',
@@ -97,7 +97,7 @@ function load() {
  * Descriptions whose `*` characters do not pair up.
  *
  * The second of RULE 4's four named guards, and it was orphaned the same way the
- * first was — audited on 31 August 2026 after the newline one turned out to live
+ * first was — audited on 30 August 2026 after the newline one turned out to live
  * in a script nothing calls. This one is in `scripts/data/snapshot-sheet.mjs`,
  * reachable only through `npm run data:restore-point`, which a person runs by
  * hand before an import. `data:build`, `data:validate` and `verify` never called
@@ -109,7 +109,7 @@ function load() {
  * the damage renders as a stray asterisk or as the rest of the article silently
  * italicised, neither of which errors.
  *
- * Zero rows offend as of 31 August 2026, so unlike the newline allowlist this one
+ * Zero rows offend as of 30 August 2026, so unlike the newline allowlist this one
  * starts empty and is expected to stay that way.
  *
  * ## Why the run lengths are counted separately

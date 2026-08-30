@@ -21,7 +21,7 @@ import shrines from '../../../data/shrines-fallback.json';
  * The guard existed and was **not in the build path**. It lives in
  * `pipeline/append_new_shrines.py`, which runs only when a person appends
  * shrines by hand; `data:build`, `data:validate` and `verify` never called it.
- * Measured 31 August 2026: one entry has already lost its newlines, and nothing
+ * Measured 30 August 2026: one entry has already lost its newlines, and nothing
  * noticed. One is invisible. This is here for the day it is 169.
  *
  * These test the predicate rather than the script's output, because the script
@@ -93,7 +93,7 @@ describe('the shipped archive', () => {
 });
 
 /**
- * The emphasis invariant, added 31 August 2026 when RULE 4's four named guards
+ * The emphasis invariant, added 30 August 2026 when RULE 4's four named guards
  * were audited after the newline one turned out to be orphaned. This one was
  * orphaned too, and weaker: it lived in `snapshot-sheet.mjs`, reachable only
  * through `npm run data:restore-point` — a command a person runs by hand before

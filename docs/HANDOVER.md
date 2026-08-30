@@ -5392,6 +5392,59 @@ both redirects.
     already says "an ʿurs *or annual observance*". Recorded as checked so nobody spends the hour
     again.
 
+184. **Forty-eight measurements were dated a day that had not happened, in the documents whose
+    whole value is that their numbers are dated.** *Measured 30 August 2026 — this commit.*
+
+    `date` said 2026-08-30 17:25 EDT. `git log --all --since="2026-08-31 00:00"` returned **zero
+    commits**, and every commit that introduced the string `31 August 2026` was itself stamped
+    2026-08-30. 17:25 EDT is 21:25 UTC, so not even a timezone rollover explains it. Two sessions
+    wrote **48 occurrences across 23 files** in one afternoon, all retrospective — "Measured",
+    "Ruled", "Added", "Confirmed", "closed", "as of", "since" — so every one asserted that work
+    had been done on a date still in the future.
+
+    **What it reached.** `CLAUDE.md`'s standing findings (4). `docs/HANDOVER.md`'s own §9 headings
+    (4). `docs/SESSION_RESUME.md` (9). The docstrings of two gates written that day. And
+    `docs/MEASUREMENT_FAILURES.md` — the catalogue of about fifteen wrong measurements, written
+    that afternoon to stop exactly this class of error — **was wrong in its own dateline**.
+
+    **Ten of the 48 were in `data/kg-seeds.json`**, in the `_from` strings recording which scanner
+    produced a kin candidate and when. Provenance claims, in a data file. The first scan scoped
+    itself to prose directories on the reasoning that "data files hold content, not claims", and
+    would have left them; they were found only because a `git grep` over the whole tree disagreed
+    with the scan's own count. **That is the finding inside the finding** — the same shape as the
+    accent sweep that scoped itself to `main *` and reported zero.
+
+    **Why nothing could have caught it.** An agent writing prose has no reliable sense of the date
+    and no reason to check one. The number looks right, reads right, and is wrong forever. Nothing
+    errors, nothing renders differently, and every later session computing "how stale is this
+    finding?" gets the wrong answer by a day.
+
+    **The guard is `src/test/datedClaims.test.ts`, and it is one-directional on purpose.** It fails
+    only on dates *later than today*. A wrong past date is undecidable from here — 12 August and
+    13 August are equally plausible and nothing in the repository separates them — but a future
+    date is arithmetic, not judgement, and no retrospective claim can honestly carry one. So the
+    check never goes stale, never needs re-baselining, and cannot rot into a false positive: an
+    allowed future date stops being flagged the day it arrives.
+
+    **The first design was narrower and worse.** It matched claim-shaped frames ("measured
+    &lt;date&gt;", "as of &lt;date&gt;"). The frames are open-ended, so it would have missed most of the 48
+    while looking thorough. Matching *every* date and naming the exceptions is the honest way
+    round. There are thirteen legitimate future dates and all are quotations: three projected ʿurs
+    windows, a TLS certificate expiry, a deadline in `DECISION_oral_histories.md`, and
+    `almanac.test.ts`, whose subject *is* future observance windows.
+
+    **Two instrument failures on the way, both worth keeping.** `git grep -E` silently ignores
+    `\b` — a word-boundary pattern returned **zero matches**, which reads as "clean" rather than as
+    "your regex is unsupported". And a first sweep for future dates matched `20[3-9][0-9]`, which
+    found a surveyor's phone number (`03008842077`) and a CSS unicode-range (`U+2070-209F`) and
+    reported them as years.
+
+    **The other lane corrected its own seventeen** (`4d3a82b`) rather than having them edited
+    across the lane boundary, including the rename of `MAP_PIN_DENSITY_2026-08-31.md`. The
+    handover list this test shipped with is therefore already deleted; it existed for about twenty
+    minutes.
+
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
@@ -8699,13 +8752,13 @@ rather than forgotten, but they are not the reason the site shows 169.
 not a measurement, and this one had a date on it that made it look like one. The afternoon spent
 geocoding two Lahore shrines was spent because a comment said "drops" where the code said "kept".
 
-### Added 31 August 2026 — RULE 4 names four guards; one was live
+### Added 30 August 2026 — RULE 4 names four guards; one was live
 
 The other session found that RULE 4's own example — *"refuse-to-write if any long Description has
 lost its newlines"* — lived in `pipeline/append_new_shrines.py`, a script that runs only when a
 person appends shrines by hand. Nothing in `data:build`, `data:validate` or `verify` called it.
 That is worth generalising, because **RULE 4 lists four checks and presents all four as things
-that have worked.** Audited on 31 August 2026:
+that have worked.** Audited on 30 August 2026:
 
 | Guard | State before today |
 | --- | --- |
@@ -8739,7 +8792,7 @@ paying attention, and absent every other time. Two of four, found within an hour
 two sessions, is not a coincidence about these two checks; it is what "encode invariants, don't rely
 on intentions" costs when nobody re-reads where the invariant is wired.
 
-### Added 31 August 2026 — 44 manifest rows were a field too wide, and 448 MB of media went silent
+### Added 30 August 2026 — 44 manifest rows were a field too wide, and 448 MB of media went silent
 
 `pipeline/photo_manifest.tsv` is the join between Google Drive and the archive. **44 of its 206
 rows carried a stray empty field at index 2**, shifting every value right by one: the Drive ID
@@ -8797,7 +8850,7 @@ CLAUDE.md's standing finding is updated in place. That is a dated measurement th
 tells you to re-run, which is a different thing from RULE 4's list of guards — that list is still
 Rauf's, and is still flagged for him unedited.
 
-### Added 31 August 2026 — repairing the manifest made three standing findings checkable
+### Added 30 August 2026 — repairing the manifest made three standing findings checkable
 
 `photo_manifest.tsv` parsing correctly turned out to be worth more than the 44 rows it recovered.
 Three of CLAUDE.md's standing findings could be re-measured from it, and two of them carried a

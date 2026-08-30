@@ -777,7 +777,7 @@ export const UI_TEXT_UR: UiStrings = {
   /* The fourth string under the `siteTitle` ruling at the top of this file, and
      the one on every page. Same value, same reason, stated here so the next
      reader does not conclude only the three near the top were considered: the
-     English twin became "Mapping the Shrines of Pakistan" on 31 August 2026 and
+     English twin became "Mapping the Shrines of Pakistan" on 30 August 2026 and
      this cannot follow it without writing Urdu. Awaiting the archive's Urdu
      name — see `docs/SESSION_RESUME.md`, "Waiting on a person". */
   footerCredit: 'پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ',

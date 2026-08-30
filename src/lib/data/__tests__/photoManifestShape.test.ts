@@ -21,7 +21,7 @@ import { join } from 'node:path';
  * tells a reader to find them by `join_status = in_drive_not_in_survey`, which
  * worked by `grep` and failed through any parser.
  *
- * Repaired on 31 August 2026 by dropping the stray field, which is unambiguous:
+ * Repaired on 30 August 2026 by dropping the stray field, which is unambiguous:
  * the 162 well-formed rows put `upload_question` at index 2 from a closed
  * vocabulary and a numeric `seq` at index 3, and all 44 had an empty index 2, the
  * question value at index 3 and an empty index 4. The downloader now reports 56
