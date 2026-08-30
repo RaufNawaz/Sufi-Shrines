@@ -192,6 +192,58 @@ These are real and land in `src/pages/`, `src/components/`, `e2e/` or `src/style
 
 ---
 
+## One ambiguity, three bugs: `id` is not the slug
+
+This deserves its own heading because it is now the most expensive thing in the repository, and
+none of the three defects looks like the other two.
+
+The archive has two identifier spaces and the codebase calls both of them "slug" or "id" in
+different places:
+
+| | value | what it addresses |
+|---|---|---|
+| **URL slug** | `shrine-of-bibi-pak-daman` | `/shrine/:slug`, the prerendered filename, every graph relation, `source-notes.json` lookups |
+| **`id` column** | `bibi-pak-daman` | the `public/photos/` directory name, and the protected list in CLAUDE.md |
+| **`Shrine.id`** | `47` | the **row index** in the built array |
+
+Three shipped defects, from three different lenses, all of them this:
+
+1. **A shared `?selected=` link opened a different shrine in a different province** (UX council,
+   `492b747`) — `Shrine.id` is a row index and the dataset is swapped twice on load.
+2. **Four contradiction disclosures never rendered** (KB4‑2, `fbf29bb`) — `source-notes.json` was
+   keyed by the `id` column while `ShrinePage` looks up by the URL slug. And its test compared
+   `id` against `id`, so it could not fail in either direction.
+3. **Three separate investigations reported a dramatic false result** by joining on `id` — 14
+   graph slugs "missing", 14 provenance records "orphaned", 16 shrines with "no Urdu article". All
+   three are zero.
+
+There is a fourth cost, in the release rather than the code: `data/shrines.json` and the Zenodo
+bundle carry `id` and **no slug column at all**, so the only identifier a downstream researcher
+has fails to address the page for 13 of 171 rows.
+
+The repository has absorbed this three times and re-derived it a fourth. `graphDatasetParity.test.ts`
+and `sourceNoteKeys.test.ts` now pin the distinction where it bit; a `slug` column in the export
+would close the fourth. Renaming `Shrine.id` to `Shrine.rowIndex` is the change that would stop the
+first, and it is not an agent's to make unilaterally.
+
+## `year_built_note` is not a date field
+
+Recorded because it changes what the published descriptor may say about it, and because both
+sessions reached it from different directions on the same afternoon.
+
+158 rows carry a `year_built_note`. **25 of them contain no temporal content whatever** — they
+describe the structure, its patron, or its institutional role: *"Raised platform, no dome"*,
+*"Blue kashi tilework"*, *"Sacred crocodile pool and sulphur springs"*, *"Centre of the Azeemia
+order"*, *"Shrine complex includes the Hazrat Pir Makki Masjid"*, *"Built by Diwan Kaura Mal;
+renovated under Ranjit Singh"*.
+
+The column is doing double duty. That matters twice over: the descriptor work (KB3‑4) had
+described it as "qualifying prose about `year_built`", which is now corrected in
+`datapackage.json` and `shrine-schema.json`; and the infobox fix that renders it must not file it
+under a "Founded" heading, or a description of a building appears as a date qualification.
+
+---
+
 ## Waiting on Rauf, not on an agent
 
 1. **Does the archive publish its own raw QA notes?** Recorded in full in

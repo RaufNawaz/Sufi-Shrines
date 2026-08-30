@@ -185,7 +185,7 @@
           {
             "name": "year_built_note",
             "type": "string",
-            "description": "Qualifying prose about `year_built`, including where the archive’s sources disagree or where the recorded year may refer to something other than construction."
+            "description": "Prose about the site's dating **and its built fabric**. Most values qualify `year_built` — recording where sources disagree, or that the year is the saint's death rather than the construction. But 25 of 158 carry no temporal content at all and describe the structure, its patron or its institutional role instead (\"Raised platform, no dome\"; \"Blue kashi tilework\"; \"Centre of the Azeemia order\"). The column does double duty; do not read it as a date qualifier alone."
           },
           {
             "name": "figure_born",

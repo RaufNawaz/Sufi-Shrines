@@ -64,6 +64,31 @@ the reason the rest is credible.
 | The newline invariant RULE 4 names was in a script nothing in the build path calls | (this cycle) |
 | A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
 | RULE 4's asterisk guard ran only where a person was already being careful | *this commit* |
+
+### From the knowledge-base council (30 August 2026)
+
+Ranked queue, four decisions for Rauf and the five raw reports:
+[`docs/planning/KB_COUNCIL_2026-08-30.md`](planning/KB_COUNCIL_2026-08-30.md).
+
+| Finding | Commit |
+| --- | --- |
+| 48 measurements dated a day that had not happened, the catalogue of wrong measurements included | `0c72998` |
+| The coordinate gate had a baseline, an exit code and no caller | `3206a7e` |
+| The schema gates read one dataset file and the site ships another | `9552e47` |
+| Three closed vocabularies enforced by nothing; `/about` is two active sites short | `910b907` |
+| The only hard error on a category rejected three the archive uses | `692ef14` |
+| Every kg guard compared the graph to another kg artefact, never to the dataset | `0debf21` |
+| CLAUDE.md's "107 citing three or more sources" was 103 | `070f0ab` |
+| "Eight slugs carry live photo URLs" — fifteen do, and seven served half the photographs | `df318c3` |
+| The published schema described 11 of 44 columns and omitted every provenance one | `0c6cc49` |
+| `.find()` flattened eleven compound silsilas out of the data release | `372709e` |
+| The 544→533 correction reached one file of three, twice | `3801d99` |
+| "Already withheld from every page" was never true of the payload | `48d355c` |
+| The almanac said 52 sites record no observance; 51 of them do | `216829d` |
+| Four contradiction disclosures were keyed to a slug the site does not use | `fbf29bb` |
+| The four unsourced order memberships were the four the guard could not see | `a53b350` |
+| An Urdu reader who browsed English first got the English article, permanently | `fc453b9` |
+| The infobox withheld the date note whenever the year was missing — 28 entries | `0a02e72` |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
