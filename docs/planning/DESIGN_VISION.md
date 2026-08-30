@@ -15,13 +15,31 @@ Every proposal is written to be independently shippable in small, verifiable ste
 > | Migration 1 — chrome/tradition token split (kashi cobalt) | **Shipped** `e6052f8` |
 > | Migration 2 — bilingual Nastaliq masthead | **Shipped** `e6052f8` |
 > | Migration 3 — dark mode as lamp-light | **Shipped** `e6052f8` |
-> | Migration 4 — marginalia rail | **Blocked** on the `qa_note` editorial ruling (`../EDITORIAL_DECISIONS_PENDING.md` §1) |
+> | Migration 4 — marginalia rail | **Unblocked 22 Aug 2026, not started** — see the note below the table |
 > | Migration 5 — kashi tile markers / empty-state tiles | Not started |
 > | Migration 6 — type trials (Spectral, Gulzar) | Not started; needs eyes on real pages, not a decision from a doc |
 > | Visual-regression guard in Playwright | **Shipped** `e2e/typography.spec.ts` — as layout/type invariants rather than pixel diffs, see below |
 > | F1 — Urs Almanac | **Shipped** `26ed561`, at 19% coverage (see below) |
 > | F7 prerequisite — `provenance.json` staleness | **Fixed** `26ed561` / `0da15d3`, 163 → 167 → 169 entries |
 > | F2–F6, F8–F10 | Not started |
+>
+> **Migration 4's blocker is gone, and this table said otherwise for eight days.**
+> It was blocked on the `qa_note` editorial ruling. That ruling was made on **22 August 2026**
+> and shipped on the 24th: `src/data/source-notes.json` carries a cleaned, bilingual,
+> reader-facing "Where the source contradicts itself" disclosure for **all 52 entries** with an
+> internal contradiction — **131 items**, 14 entries with one, 21 with two, and a tail up to ten.
+> `SourceNotes.tsx` renders them. So the apparatus this migration wanted to set in the margin
+> now exists as published content, and the migration is a design and engineering task rather
+> than a blocked one. *(Recorded 30 Aug 2026. A status table is a measurement with a date on
+> it — this project's standing findings carry the same warning for the same reason.)*
+>
+> **One part of the proposal is not buildable from the data as it stands.** The rail was
+> specified as notes "hanging in the margin beside the exact paragraph they qualify". A
+> source-note item is `{ en, ur }` and carries **no anchor** to a paragraph, so pairing note to
+> paragraph would mean asserting a relationship the archive does not record — RULE 2. What is
+> buildable honestly is an entry-level apparatus column: the disclosure set in the margin
+> alongside the article rather than folded into a `<details>` at its foot, which is where it
+> renders today. Anchoring would need an anchor added to the data by whoever wrote the notes.
 >
 > **The visual guard asserts relationships, not pixels.** `e2e/typography.spec.ts`
 > checks that h1 outranks h2 outranks body in both languages, that the two
