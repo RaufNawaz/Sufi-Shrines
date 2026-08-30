@@ -1,5 +1,5 @@
 /**
- * Matching figures and orders by the strings a person would actually type.
+ * Matching figures, orders and traditions by the strings a person would type.
  *
  * The shrine index is a MiniSearch worker over full entries — description,
  * location, the saint's name — and it stays that. This is deliberately smaller:
@@ -12,7 +12,12 @@
  * opaque score is not worth the sentence it would take to explain.
  */
 export interface SearchEntity {
-  type: 'figure' | 'order';
+  /* `tradition` was added 29 August 2026, when eight live `/tradition/:slug`
+     pages turned out to be unreachable from search — the index carried figures
+     and orders only, so "Nath" found four figures and never the tradition.
+     A row of a type nothing asks for is inert, not broken: `ArchiveSearch`
+     selects by type, so these sit unused until it adds a group for them. */
+  type: 'figure' | 'order' | 'tradition';
   slug: string;
   name: string;
   nameUr?: string;

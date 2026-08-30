@@ -120,7 +120,12 @@ asserts three as a floor so a regeneration cannot silently flatten one.
   a real relationship and it is not belonging, so it is a recorded non-membership rather than an
   eleventh row.
 
-## Two candidates I did not add, and the question they raise
+## Two candidates, and Rauf's ruling — **settled, do not reopen**
+
+**Ruled 29 August 2026: they stay out. The vocabulary means "an affiliation a shrine belongs
+to".** Valmiki and Jhulelal remain `principal_figure` and nothing else. Shakti Peetha stays in,
+on the reading that a Peetha *is* something a site belongs to. The evidence is kept below so
+nobody has to re-find it, not as an open question.
 
 Both are well attested and both were left out on purpose, because adding them would quietly
 change what the word "tradition" means in this taxonomy — and that is Rauf's call, not a
@@ -140,17 +145,16 @@ corpus:
 > Both temples honour Jhulelal (also called Darya Lal or Udero Lal), the Sindhi water-saint
 > revered by Hindus as an incarnation of Varuna…
 
-**The question.** The eight traditions in the file are orders, *sampradayas* and movements —
+**The reasoning that was put to him.** The eight traditions in the file are orders, *sampradayas*
+and movements —
 things a person or a shrine *belongs to*. These two are a **dedication and a cult**: the archive
 already records Valmiki and Jhulelal as `principal_figure`, so a "tradition" row would restate
 the figure under a second name, and the corpus's own words are "community", "devotion" and
 "cult" rather than order or *panth*. Shakti Peetha is the precedent that muddies it — already in
 the file, and arguably a *class of site* rather than an order.
 
-So: either the vocabulary means "affiliation you belong to" and these stay out, or it means
-"named religious current the archive describes" and both go in, along with a re-reading of
-Shakti Peetha. **Don't decide it in a renderer** — whichever way it goes, it changes what a
-tradition chip on a shrine page is claiming.
+He took the first reading. So a tradition chip on a shrine page claims **affiliation**, uniformly,
+on every page it appears — which is what makes it safe to render the same way everywhere.
 
 ## If you extend it
 

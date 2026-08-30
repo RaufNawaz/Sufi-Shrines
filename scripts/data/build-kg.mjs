@@ -1776,6 +1776,20 @@ writeFileSync(
         ? { aka: aliases(order, order.arabicName ? [order.arabicName] : []) }
         : {}),
     })),
+    /* Traditions. Eight live `/tradition/:slug` pages that search could not
+       reach: the index carried `figure` and `order` only, so typing "Nath"
+       found four *figures* and never the tradition they belong to.
+       `alsoKnownAs` is the alias list here — "Nath sampradaya", "Kanphata
+       yogis", "Parnami", "Udasipanth" are what a reader is likely to type. */
+    ...traditions.map((tradition) => ({
+      type: 'tradition',
+      slug: tradition.slug,
+      name: tradition.name,
+      ...(tradition.nameUr ? { nameUr: tradition.nameUr } : {}),
+      ...(aliases(tradition, tradition.alsoKnownAs ?? []).length
+        ? { aka: aliases(tradition, tradition.alsoKnownAs ?? []) }
+        : {}),
+    })),
   ].sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
 
   writeFileSync(
