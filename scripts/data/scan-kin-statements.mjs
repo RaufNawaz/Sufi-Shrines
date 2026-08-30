@@ -62,7 +62,7 @@ const KIN_WORDS = [
    archive chooses not to model. Without this the next pass re-reads every
    rejection the last one made. */
 const nonTies = (seeds.kinAdjudicated ?? []).map((n) => ({
-  quote: n.quote,
+  quotes: [n.quote, ...(n.quotes ?? [])].filter(Boolean),
   why: `${n.subjectName} ↛ ${n.objectName} (${n.kind})`,
 }));
 

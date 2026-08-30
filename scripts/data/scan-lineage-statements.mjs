@@ -102,7 +102,7 @@ const rowSubjects = (row) =>
    not a teacher — and it has carried the verbatim sentence since it was
    written, which is exactly what this scan needs to stop re-proposing it. */
 const nonTies = (proposals.explicitNonRelations ?? []).map((n) => ({
-  quote: n.quote,
+  quotes: [n.quote, ...(n.quotes ?? [])].filter(Boolean),
   why: `${n.subjectName} ↛ ${n.objectName}`,
 }));
 

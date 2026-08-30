@@ -278,6 +278,10 @@ function textFor(source) {
   return sourceCache.get(source);
 }
 
+/* A ruling may settle several sentences at once — `quote` for one, `quotes` for
+   many — and every one is checked. See the note in lib/sentenceScan.mjs. */
+const quotesOf = (n) => [n.quote, ...(n.quotes ?? [])].filter((q) => typeof q === 'string' && q.trim());
+
 function checkQuote(label, source, quote, maxLength = MAX_QUOTE) {
   if (typeof quote !== 'string' || !quote.trim()) {
     fail(`${label}: missing quote`);
@@ -533,7 +537,8 @@ for (const [i, n] of (lineageDoc?.explicitNonRelations ?? []).entries()) {
   const label = `explicitNonRelations[${i}] ${n.subjectName} ↛ ${n.objectName}`;
   nonRelCount += 1;
   if (!n.source) fail(`${label}: missing source`);
-  else checkQuote(label, n.source, n.quote);
+  else for (const [j, q] of quotesOf(n).entries()) checkQuote(`${label} quote[${j}]`, n.source, q);
+  if (!quotesOf(n).length) fail(`${label}: no quote — a ruling must name the sentence it settles`);
   if (!String(n.notes ?? '').trim()) {
     fail(`${label}: no notes — a non-relation is only useful if it says WHY`);
   }
@@ -614,7 +619,8 @@ for (const [i, n] of (seeds.kinAdjudicated ?? []).entries()) {
   const label = `kinAdjudicated[${i}] ${n.subjectName} ↛ ${n.objectName}`;
   kinRuledOutCount += 1;
   if (!n.source) fail(`${label}: missing source`);
-  else checkQuote(label, n.source, n.quote);
+  else for (const [j, q] of quotesOf(n).entries()) checkQuote(`${label} quote[${j}]`, n.source, q);
+  if (!quotesOf(n).length) fail(`${label}: no quote — a ruling must name the sentence it settles`);
   if (!String(n.kind ?? '').trim()) fail(`${label}: missing kind`);
   if (!String(n.notes ?? '').trim()) fail(`${label}: no notes — say why it is not an edge`);
 }

@@ -252,13 +252,19 @@
       "source": "data/shrines.csv#eidgah-sharif"
     },
     {
-      "slugs": ["sakhi-shah-raza", "hazrat-shah-raza-qadri-shattari"],
+      "slugs": [
+        "sakhi-shah-raza",
+        "hazrat-shah-raza-qadri-shattari"
+      ],
       "reason": "Two different Shah Razas, and the graph is about to hold both. `sakhi-shah-raza` is one of the circle of disciples the Sakhi Shah Chan Charagh entry names in the Pothohar; `hazrat-shah-raza-qadri-shattari` is Shah Inayat Qadiri's own master in Lahore, and therefore Bulleh Shah's spiritual grandfather. Recorded before the first is added, not after, because this is the exact shape of the failure this project keeps naming: a plausible sentence about the wrong man.",
       "quote": "among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
       "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh"
     },
     {
-      "slugs": ["sheikh-fakhr-ud-din-shah-jamali", "fakhr-ud-din-iraqi"],
+      "slugs": [
+        "sheikh-fakhr-ud-din-shah-jamali",
+        "fakhr-ud-din-iraqi"
+      ],
       "reason": "Two Fakhr-ud-Dins, three centuries and a language apart. `fakhr-ud-din-iraqi` is the Persian poet-saint who came to Multan and married into Bahauddin Zakariya's family; `sheikh-fakhr-ud-din-shah-jamali` is a Lahore businessman's son whom Shah Jamal named and who became his lifelong disciple. Recorded before the second was added, not after — an identity matcher would join them on the shared name, and both are in the graph for a discipleship the merge would destroy.",
       "quote": "one of whom, named Sheikh Fakhr-ud-Din by Shah Jamal himself, became a devoted lifelong disciple",
       "source": "data/shrines.csv#shrine-of-shah-jamal"
@@ -431,7 +437,7 @@
     "jahaniyan-jahangasht": "Sayyid Jalaluddin",
     "qalandar-baba-auliya": "Sayyid Muhammad Azeem Barkhiya"
   },
-  "_comment_familyRelations": "Kinship the archive states in its own prose. 43 edges. The first 28 (over 26 rows) were copied verbatim (name, wording, quote, source) from data/kg-lineage-proposals.json#familyRelations, where an extraction pass recorded them and NOTHING read them: the graph knew only disciple_of and successor_of, so blood and marriage — which is how a gaddi actually passes in this corpus — were held and not rendered. The remaining 15 were added on 30 August 2026: six gathered by a hand scan (HANDOVER §9.160) and nine found by scripts/data/scan-kin-statements.mjs, which reads EVERY sentence in the corpus that uses a kinship word rather than sampling rows. That instrument exists because the hand scan missed ties inside rows it had already read — Nau Nihal Singh is named as a grandson one sentence after one of its own picks, and Kaka Sahib\u2019s father was already a node in the graph. Six of the fifteen joined two figures that both already existed, which is the finding: a kin pass is not priced in new nodes. Slugs, kinType and the two role labels are decisions made here by a human; the prose fields are not retyped. Direction is junior \u2192 senior for every ASYMMETRIC type: the subject is the son, grandson, nephew, son-in-law or descendant of the object. `sibling_of` is the one symmetric type — subject and object are interchangeable and carry no seniority claim, the tie is stored ONCE (getKinOf reads both directions, and the reverse-edge check enforces it), and the two role words still differ where the siblings do: Bebe Nanaki reads \u0628\u06c1\u0646 and Guru Nanak \u0628\u06be\u0627\u0626\u06cc off one row. `elderRole`/`juniorRole` come from a closed vocabulary because Urdu splits what English does not — a paternal grandfather is \u062f\u0627\u062f\u0627 and a maternal one \u0646\u0627\u0646\u0627 — and a label that picks a side the source never states is an invented fact (RULE 2). Where the entry says which line, the specific term is used; where it does not, the *Unspecified role keeps both readings. Two rows in the proposals file record a real family succession and name nobody on the other end; they are in `kinNotes` below, as notes rather than edges, so they are not lost.",
+  "_comment_familyRelations": "Kinship the archive states in its own prose. 43 edges. The first 28 (over 26 rows) were copied verbatim (name, wording, quote, source) from data/kg-lineage-proposals.json#familyRelations, where an extraction pass recorded them and NOTHING read them: the graph knew only disciple_of and successor_of, so blood and marriage — which is how a gaddi actually passes in this corpus — were held and not rendered. The remaining 15 were added on 30 August 2026: six gathered by a hand scan (HANDOVER §9.160) and nine found by scripts/data/scan-kin-statements.mjs, which reads EVERY sentence in the corpus that uses a kinship word rather than sampling rows. That instrument exists because the hand scan missed ties inside rows it had already read — Nau Nihal Singh is named as a grandson one sentence after one of its own picks, and Kaka Sahib’s father was already a node in the graph. Six of the fifteen joined two figures that both already existed, which is the finding: a kin pass is not priced in new nodes. Slugs, kinType and the two role labels are decisions made here by a human; the prose fields are not retyped. Direction is junior → senior for every ASYMMETRIC type: the subject is the son, grandson, nephew, son-in-law or descendant of the object. `sibling_of` is the one symmetric type — subject and object are interchangeable and carry no seniority claim, the tie is stored ONCE (getKinOf reads both directions, and the reverse-edge check enforces it), and the two role words still differ where the siblings do: Bebe Nanaki reads بہن and Guru Nanak بھائی off one row. `elderRole`/`juniorRole` come from a closed vocabulary because Urdu splits what English does not — a paternal grandfather is دادا and a maternal one نانا — and a label that picks a side the source never states is an invented fact (RULE 2). Where the entry says which line, the specific term is used; where it does not, the *Unspecified role keeps both readings. Two rows in the proposals file record a real family succession and name nobody on the other end; they are in `kinNotes` below, as notes rather than edges, so they are not lost.",
   "familyRelations": [
     {
       "subjectSlug": "shah-rukn-e-alam",
@@ -861,7 +867,7 @@
       "notes": "Pratab Rai is named only as the founder's father and a munshi to the Talpur Mirs. No date, no site, no order.",
       "_from": "docs/HANDOVER.md#9.160"
     },
-        {
+    {
       "subjectSlug": "duleep-singh",
       "subjectName": "Duleep Singh",
       "subjectIsNew": true,
@@ -1499,7 +1505,7 @@
       "source": "data/shrines.csv#shrine-of-mian-mir",
       "notes": "Same decision as the Aurangzeb row, and the same sentence carries a real lineage tie that IS modelled: Jahanara disciple_of Mullah Shah Badakhshi. Her father is named only to place her."
     },
-        {
+    {
       "subjectName": "(an unnamed grandson)",
       "objectName": "Hazrat Shah Ali Akbar Shamsi",
       "kind": "unnamed",
@@ -1507,7 +1513,7 @@
       "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
       "notes": "A grandson who built the mausoleum and is buried in it, and the corpus never names him. The same sentence DOES name a real tie — \"the builders Ibrahim and Rajab, sons of the noted architect Musa Lahori\" — and that is deliberately not built either: three new figures for a construction credit is not what this layer is for. Reconsider if the archive ever takes builders as figures; Ustad Nuriya is already in the dictionary, so the question is open rather than settled."
     },
-        {
+    {
       "subjectName": "Jahan Ara Begum",
       "objectName": "Emperor Shah Jahan",
       "kind": "real, deliberately not modelled",
@@ -1642,6 +1648,38 @@
       "quote": "His mother, remembered as a woman of deep piety, first set him on the path of prayer",
       "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
       "notes": "One of the three or four entries that describe a mother's influence at length without naming her. Worth noting against the three mothers the archive DOES name (Mata Tripta, Bibi Rasti, Mehtab Bibi): the corpus names a mother when the tradition does, and the silence is the tradition's, not the archive's."
+    },
+    {
+      "subjectName": "the six of Bibi Pak Daman (the whole debate)",
+      "objectName": "Sayyida Ruqayya / Sayyid Ahmad Tokhta Tirmidhi",
+      "kind": "contested tradition — one ruling, seven sentences",
+      "quotes": [
+        "The older and by far the more popular tradition — the one held by most pilgrims, and reflected in the shrine’s traditional founding date of about 63 AH, in the first century of",
+        "The raja, disturbed, sent his son — remembered as Raja Kumar Bikrama Sahay — with soldiers to discover who these strangers were.",
+        "He is said to have died around 602 AH — near the beginning of the reign of Sultan Qutb al-Din Aibak — and to be buried in the Lahore quarter still called Chilla Bibiyan, which",
+        "In this account it was during the Mongol onslaught — when the army of Chingez Khan, pursuing the fugitive Jalaluddin Khwarazm Shah, sacked Lahore and its people fought for two",
+        "They observe that, according to the standard histories, the wife of Hazrat Ali who bore Abbas — Umm al-Banin — had four sons and no daughter at all, so that Ruqayya cannot have",
+        "## Legacy Whether one honours the six Bibis as women of the Prophet’s household who carried the memory of Karbala to the edge of the Muslim world, or as the daughters of a Punjabi",
+        "The Description's own 'Long Debate' section lays out the case against the Karbala dating (Islam did not reach Lahore until Mahmud of Ghazni, 11th century CE; Ali's wife Umm"
+      ],
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "notes": "This entry is the archive arguing with itself, and it does so across SEVEN sentences: the Karbala identification, the Tirmidhi parentage, a raja's son, a Mongol dating, \"Ali's wife Umm al-Banin ... had four sons and no daughter at all\", and the Description's own 'Long Debate' section. The answer is the same for every one of them, so this is one decision carrying all seven rather than seven copies of the same paragraph — the seventh copy is always the one nobody updates. The graph holds the Tirmidhi reading as `daughter_of` with a `contested` flag, which is the archive taking a position it can defend and labelling it. Publishing the Karbala reading as a second parentage would make the archive assert both sides of a dispute it is itself adjudicating, and that is Rauf's call."
+    },
+    {
+      "subjectName": "Shah Abul Muali Qadri (the custodianship question)",
+      "objectName": "his sons / Hazrat Haider Ali Shah / two unnamed wives",
+      "kind": "unnamed or already recorded — one ruling, seven sentences",
+      "quotes": [
+        "The survey traces custodianship from the saint to his sons and then to the hereditary custodians, names the first custodian as Hazrat Haider Ali Shah — also buried in the shrine —",
+        "Two marriages are recorded: the first to a daughter of Dawood Bandgi Kirmani, who died some time after the marriage, and the second to a daughter of Emperor Shah Jahangir, whose",
+        "On the way he spoke with a *majzūb* (a spiritually absorbed person) sitting by the road, who told him that the one he was wandering in search of was in his own home, and named his",
+        "The site's own name and the saint's own name carry \"Qadri,\" and the biography and legends give him an intense attachment to Sheikh Abdul Qadir Jilani — but the survey never states",
+        "The survey places the saint's death \"in 1024 Hijri, during the reign of Shah Jahan\"; makes his second wife a daughter of \"Emperor Shah Jahangir\"; and has Dara Shikoh — styled \"the",
+        "(b) Q8 has custodianship pass to \"his sons and then the Gaddi Nasheens,\" while Q16 names Hazrat Haider Ali Shah as \"his very first Gaddi Nasheen\"; whether Haider Ali Shah is one",
+        "Four items, all reported neutrally in the account's own terms and none omitted: (a) the conversion claim, \"Because of him, millions of people entered the fold of Islam\"; (b) the"
+      ],
+      "source": "data/shrines.csv#darbar-abul-muali-qadri",
+      "notes": "Seven sentences circling three facts the archive already handles. (1) Custodianship passing to \"his sons and then the Gaddi Nasheens\" — the sons are never named, and Haider Ali Shah is now a `successor_of` edge at 0.7 with the entry's own hedge that \"whether Haider Ali Shah is one of the eight sons is not stated\". (2) Two marriages, both wives identified only as somebody's daughter — a daughter of Dawood Bandgi Kirmani and a daughter of \"Emperor Shah Jahangir\" — so `spouse_of` has nobody to point at. (3) The uncle Dawood Bandgi, already two edges. What is left is the entry's QA apparatus quoting its own survey back at itself, which is exactly the honesty this archive is for and exactly what a relation extractor should not mine."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",

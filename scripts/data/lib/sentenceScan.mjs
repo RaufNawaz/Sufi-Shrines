@@ -189,10 +189,19 @@ export function scanCorpus({ rows, wordRe, edges, figureNames, rowSubjects, nonT
         sentence,
         names,
         knownFigures: names.filter((n) => figureNames.has(n.toLowerCase())),
-        /* Sentences a human has already read and ruled NOT a tie. Matched on the
-           recorded quote, which is verbatim from this same corpus and checked by
-           verify-kg-proposals. See the note on `nonTies` in `report`. */
-        adjudicated: nonTies.filter((n) => n.quote && sentence.includes(n.quote)).map((n) => n.why),
+        /* Sentences a human has already read and ruled NOT a tie.
+        
+           Matched on the recorded quotes — PLURAL, because one decision often
+           disposes of several sentences. The Bibi Pak Daman entry argues with
+           itself across seven of them and the answer is the same each time; the
+           Abul Muali entry restates its custodianship question in seven more.
+           Writing the reasoning out seven times would make the seventh copy the
+           one nobody updates. So a ruling carries every sentence it settles,
+           each verbatim and each checked against the corpus by
+           verify-kg-proposals exactly as an edge's quote is. */
+        adjudicated: nonTies
+          .filter((n) => (n.quotes ?? []).some((q) => q && sentence.includes(q)))
+          .map((n) => n.why),
         coveredBy: edges
           .filter(
             (e) =>
