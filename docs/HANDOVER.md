@@ -4730,6 +4730,34 @@ both redirects.
     within a minute of it being added. That is the second time in one session that a check
     written for something else did the work.
 
+148. **The dataset drift has a consequence in the Urdu edition, and the guard for it is
+    structurally blind.** *Measured 30 August 2026 — commit `1560a9a`; extends §9.156, which is
+    still the thing to act on first.* Production holds 171 rows and the snapshot 169. Every
+    artefact ships from the snapshot, `src/data/urdu-seed.json` included — so the two drifted
+    rows have **no Urdu name**, and `localizeShrineName` falls back to the English string.
+
+    Measured on the live map at `?lang=ur`, listing every visible Latin text node under
+    `[dir='rtl']`: fourteen, of which eleven are sanctioned (`<bdi>`-wrapped English source
+    notes, the `EN` toggle, the map attribution) and **two are bare `<a>` elements reading
+    "Darbar Hazrat Shah Gohar Peer" and "Darbar Mian Qurban Ali Shah"** — English shrine names,
+    outside `<bdi>`, in the Urdu sidebar.
+
+    **`e2e/urdu-no-leak.spec.ts` cannot catch this, and no amount of tightening it would.** Its
+    fixture is generated from `shrines-fallback.json` — the same snapshot that is missing the two
+    rows. A guard built from the snapshot is blind to exactly the rows that drift from it, which
+    is the shape of the whole gate system under RULE 3 rather than a flaw in that spec.
+    `check-live-sheet.mjs` is the one instrument that looks at production, so the consequence
+    belongs in its output; it now prints what each added row is missing — page, search index,
+    graph, `/about` figure, figure page, Urdu name — instead of only how many there are.
+
+    The wider sweep this came out of: `[urdu] missing translation` warnings across twelve routes
+    in Urdu, **140 distinct strings**. Almost all are observance and status phrases on `/almanac`
+    and `/place/:slug` ("weekly Thursday devotional gathering", "Annual urs (18–20 Safar)") and
+    figure epithets on `/saint/:slug` ("Ganj Bakhsh", "teacher of teachers"). They are *dictionary
+    misses*, not proven leaks — many are consumed by `buildSearchDocs` and never rendered — and
+    the rendered-text probe above is what separates the two. Worth a pass in `urdu-i18n/` by
+    someone who can review the translations (RULE 2: not drafted here).
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
