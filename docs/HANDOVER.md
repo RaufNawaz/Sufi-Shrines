@@ -4465,6 +4465,61 @@ both redirects.
     prints one short line, far below the pipe buffer. **Safe by size, not by design**, which is why
     the note lives in the file rather than only here.
 
+164. **The same scan pointed at the lineage layer found almost nothing — and that is the useful
+    result.** *Measured 30 August 2026.* §9.161's instrument raised an obvious question: if the kin
+    layer was reading a fraction of the sentences that state a family tie, what about
+    `disciple_of`/`successor_of` — 86 edges on the archive's actual subject? So
+    `scripts/data/scan-lineage-statements.mjs` was written as its sibling, over a shared
+    `scripts/data/lib/sentenceScan.mjs` (the kin script was refactored onto it and its output
+    verified **byte-identical** first).
+
+    **The answer is two.** Two ties missing across 177 lineage sentences: Waris Shah as a disciple
+    of Shah Inayat Qadiri, and Guru Angad — the second Sikh Guru — as both disciple and successor
+    of Guru Nanak.
+
+    **Why the difference, and it is not luck.** `data/kg-lineage-proposals.json` carries a `method`
+    field that says what its pass actually did: *"All 169 rows of the corpus were swept for lineage
+    vocabulary (disciple/murid/khalifa/khilafat/successor/murshid/bai'at/initiation/teacher/
+    spiritual guide/heir/gaddi/sajjada)"*, then the `shrine_entries` and `entries/` drafts. The kin
+    pass wrote down no such thing, and could not have — it was a by-product of the same sweep. **A
+    pass that documents its coverage turns out to have had it.** This scan is the first
+    independent check of that claim in the file, and the claim holds.
+
+    That is worth stating plainly because the tempting generalisation after §9.161 — *the layers
+    are all under-read, go scan everything* — is false, and acting on it would have meant a large
+    adjudication pass for two edges.
+
+    **The instrument lied to me first, and the number was nearly acted on.** The coverage marker
+    required both ends of an edge to be NAMED in the sentence. On kinship that is merely
+    conservative. On lineage it is catastrophic, because the corpus writes about the figure whose
+    entry it is in the third person: the archetypal sentence is *"he became a disciple (mureed) of
+    Hazrat Shah Sikandar"* — one name, not two. The first run reported **163 of 177 uncovered**,
+    which reads as a layer barely built. Hand-checking the first thirty found almost every one
+    **already an edge**. `scanCorpus` now accepts `rowSubjects`, so a sentence inside a shrine's
+    row may use that row's own figures as the unnamed end; 14 covered became 55, and the residue
+    was small enough to read to the end. Two of the remaining 122 were real.
+
+    **The bias stays one-directional on purpose**: at least one end must still be named outright,
+    because letting both come from the row would mark every sentence in an entry as covered by any
+    edge that entry's figure appears in, which is evidence of nothing. A sentence wrongly marked
+    covered is a miss, so `--all` remains what an audit should use.
+
+    **Traps the lineage vocabulary carries that kinship does not**, all now in the script's header:
+    a **"pir-brother"** is a fellow disciple, not a brother and not a teacher (the Miran Hussain
+    Zanjani entry has one *beside* a real blood brother); ***sajjada-nashin*** is an office that is
+    sometimes hereditary and sometimes not, so an administrative succession is not initiatic
+    descent; and **"Uwaisi"** describes a saint who names no living guide at all — a sentence about
+    an Uwaisi master asserts that a teaching tie does **not** exist, which Kaka Sahib's entry does.
+
+    **Three sentences that look like ties and are not, recorded so they are not re-read:** Makhdoom
+    Abdul Rahim Girhori's memory "forms part of the wider Naqshbandi devotional network that the
+    disciples of Khwaja Muhammad Zaman spread" — a network, not a discipleship; the Gandava darbar
+    "was founded by one of Bhai Gurdas's disciples", who is unnamed; and Mian Mir travelling "with
+    his teacher's permission", where the teacher is not named in that sentence. The four names
+    listed after Waris Shah are excluded for the reason the entry itself gives — *"without further
+    detail on the nature of the latter connections"* — which is why his edge is 0.7 and theirs do
+    not exist.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

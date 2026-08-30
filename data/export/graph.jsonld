@@ -811,6 +811,9 @@
       },
       "sufi:discipleOf": [
         {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-inayat-qadiri"
+        },
+        {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/makhdoom-of-kasur"
         }
       ]
@@ -2454,6 +2457,21 @@
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qalandar-baba-auliya"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-angad",
+      "name": "Guru Angad (Bhai Lehna)",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/guru-nanak"
         }
       ]
     },

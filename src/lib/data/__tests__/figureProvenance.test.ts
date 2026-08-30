@@ -220,7 +220,16 @@ describe('the shipped graph', () => {
                        reading off this number: a kin pass is not priced in new
                        nodes, and the ties this graph was missing between figures
                        it already held were the ones nobody thought to look
-                       for. */
-    expect(flagged.length).toBe(173);
+                       for.
+        173 + 1       = 174, 30 August 2026, later the same day. Guru Angad, the
+                       second Sikh Guru — one of only two ties that
+                       `scan-lineage-statements.mjs` found missing from the
+                       lineage layer across 177 lineage sentences. That layer's
+                       extraction pass had documented its own coverage ("all 169
+                       rows were swept") and the claim held; the kin pass had
+                       not, and did not. The difference between +9 above and +1
+                       here is exactly the difference between a pass that wrote
+                       down what it read and one that did not. */
+    expect(flagged.length).toBe(174);
   });
 });

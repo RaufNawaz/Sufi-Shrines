@@ -389,6 +389,15 @@
       "source": "shrine_entries/Sial Sharif (Shamsuddin Sialvi).md",
       "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age",
       "notes": "Confidence lowered — states initiation \"within the line of\" rather than a direct personal teacher-disciple claim."
+    },
+    {
+      "subjectSlug": "waris-shah",
+      "relation": "disciple_of",
+      "objectSlug": "shah-inayat-qadiri",
+      "confidence": 0.7,
+      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "quote": "The field survey names Waris Shah as a second prominent disciple from this period",
+      "notes": "0.7, not 0.95, and the hedge is in the same sentence: it continues \"alongside Hazrat Hafiz Tabraiz, Maulana Jami, Deewan-e-Hafiz, and Deewan-e-Shams \\u2014 without further detail on the nature of the latter connections\". Waris Shah is the one the survey calls a disciple outright; the other four are listed and explicitly not characterised, so they are NOT edges. \"A second prominent disciple\" is second after Bulleh Shah, whose edge to the same master is already here. Waris Shah's other master, the Makhdoom of Kasur, is already an edge and this does not replace it \\u2014 the corpus states both."
     }
   ],
   "reviewNeededNotes": [

@@ -533,6 +533,7 @@ saint:waris-shah
   schema:birthDate "1722" ;
   schema:deathDate "1798" ;
   schema:memberOf order_:chishtiyya ;
+  sufi:discipleOf saint:shah-inayat-qadiri ;
   sufi:discipleOf saint:makhdoom-of-kasur ;
   .
 
@@ -1600,6 +1601,13 @@ saint:khwaja-shamsuddin-azeemi
   a schema:Person ;
   schema:name "Khwaja Shamsuddin Azeemi"@en ;
   sufi:discipleOf saint:qalandar-baba-auliya ;
+  .
+
+saint:guru-angad
+  a schema:Person ;
+  schema:name "Guru Angad (Bhai Lehna)"@en ;
+  sufi:discipleOf saint:guru-nanak ;
+  sufi:successorOf saint:guru-nanak ;
   .
 
 saint:syed-nasiruddin-mahmud

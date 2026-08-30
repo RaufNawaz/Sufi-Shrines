@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T12:34:26.901Z",
+  "generated": "2026-08-30T13:51:53.028Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -3383,6 +3383,16 @@
       "type": "saint",
       "slug": "khwaja-shamsuddin-azeemi",
       "name": "Khwaja Shamsuddin Azeemi",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:guru-angad",
+      "type": "saint",
+      "slug": "guru-angad",
+      "name": "Guru Angad (Bhai Lehna)",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -9044,6 +9054,16 @@
       "quote": "He was initiated in the Chishti order and became a spiritual heir within the line of Khwaja Sulaiman Taunsvi, rising to be among the foremost Chishti shaykhs of his age"
     },
     {
+      "id": "disciple_of:saint:waris-shah:saint:shah-inayat-qadiri",
+      "type": "disciple_of",
+      "subject": "saint:waris-shah",
+      "object": "saint:shah-inayat-qadiri",
+      "confidence": 0.7,
+      "method": "human",
+      "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
+      "quote": "The field survey names Waris Shah as a second prominent disciple from this period"
+    },
+    {
       "id": "kin_of:grandson_of:saint:shah-rukn-e-alam:saint:bahauddin-zakariya",
       "type": "kin_of",
       "subject": "saint:shah-rukn-e-alam",
@@ -10527,6 +10547,28 @@
       "reviewed": false,
       "source": "data/shrines.csv#shrine-of-qalandar-baba-auliya",
       "quote": "which he founded and which was carried on and spread by his foremost disciple, Khwaja Shamsuddin Azeemi"
+    },
+    {
+      "id": "disciple_of:saint:guru-angad:saint:guru-nanak",
+      "type": "disciple_of",
+      "subject": "saint:guru-angad",
+      "object": "saint:guru-nanak",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru"
+    },
+    {
+      "id": "successor_of:saint:guru-angad:saint:guru-nanak",
+      "type": "successor_of",
+      "subject": "saint:guru-angad",
+      "object": "saint:guru-nanak",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+      "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru"
     },
     {
       "id": "belongs_to_order:saint:pir-syed-muhammad-channan-shah-nuri:order:naqshbandiyya",
@@ -12251,12 +12293,12 @@
     }
   ],
   "stats": {
-    "saints": 209,
+    "saints": 210,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 686,
+    "relations": 689,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

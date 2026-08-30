@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 248,
+      "saints": 249,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
-      "derivedBareNames": 135,
-      "flatSeedEntries": 1199
+      "derivedBareNames": 136,
+      "flatSeedEntries": 1201
     }
   },
   "categories": {
@@ -761,7 +761,8 @@
     "Syed Habibullah": "سید حبیب اللہ",
     "Musa Hussain Zanjani": "موسیٰ حسین زنجانی",
     "Sadr-ud-Din Arif": "صدر الدین عارف",
-    "Qazi Sain Datta": "قاضی سائیں دتہ"
+    "Qazi Sain Datta": "قاضی سائیں دتہ",
+    "Guru Angad (Bhai Lehna)": "گرو انگد (بھائی لہنا)"
   },
   "silsilas": {
     "Qadiri": "قادری",
@@ -1183,6 +1184,7 @@
     "Gurdwara Chhevin Patshahi, Jhalian": "گوردوارہ چھیویں پاتشاہی، جھلیاں",
     "Gurdwara Khoohi Bhai Lalo": "گوردوارہ کھوہی بھائی لالو",
     "Gurdwara Sahib Saidpur": "گوردوارہ صاحب سید پور",
+    "Guru Angad": "گرو انگد",
     "Guru Arjan Dev (5th) & Guru Hargobind": "گرو ارجن دیو (پنجم) اور گرو ہرگوبند",
     "Guru Gobind Singh": "گرو گوبند سنگھ",
     "Guru Granth Sahib / Sikh community": "گرو گرنتھ صاحب / سکھ برادری",

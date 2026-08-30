@@ -993,6 +993,10 @@ SAINTS = {
  "Musa Hussain Zanjani": "موسیٰ حسین زنجانی",
  "Sadr-ud-Din Arif": "صدر الدین عارف",
  "Qazi Sain Datta": "قاضی سائیں دتہ",
+ # The second Sikh Guru, added with the lineage tie that names him. The archive
+ # holds no site of his; he is here because Kartarpur's entry states that Nanak
+ # passed the Guruship to him over his own sons.
+ "Guru Angad (Bhai Lehna)": "گرو انگد (بھائی لہنا)",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

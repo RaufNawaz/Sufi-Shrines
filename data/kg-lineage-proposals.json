@@ -1028,6 +1028,32 @@
    "source": "data/shrines.csv#shrine-of-qalandar-baba-auliya",
    "quote": "which he founded and which was carried on and spread by his foremost disciple, Khwaja Shamsuddin Azeemi",
    "notes": "Reverse-direction phrasing in the source (the disciple is named as the object of \"his\"), so the subject here is Azeemi."
+  },
+  {
+   "subjectSlug": "guru-angad",
+   "subjectName": "Guru Angad (Bhai Lehna)",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "guru-nanak",
+   "objectName": "Guru Nanak",
+   "objectIsNew": false,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+   "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru",
+   "notes": "Found on 30 August 2026 by scripts/data/scan-lineage-statements.mjs, which reads every lineage sentence in the corpus. One of only TWO this file's original sweep missed across 177 such sentences — that sweep's `method` claims all 169 rows, and the scan is the first check of the claim. One sentence states both relations: \"a devoted disciple\" and \"installed as the second Guru\"."
+  },
+  {
+   "subjectSlug": "guru-angad",
+   "subjectName": "Guru Angad (Bhai Lehna)",
+   "subjectIsNew": true,
+   "relation": "successor_of",
+   "objectSlug": "guru-nanak",
+   "objectName": "Guru Nanak",
+   "objectIsNew": false,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
+   "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru",
+   "notes": "The succession half of the same sentence, as a separate edge because the corpus distinguishes them and the entry's whole point is that the two came apart here: Nanak passed the Guruship over his own sons, \"founding the line of succession by spiritual merit rather than heredity\". The archive's other Sikh succession, Guru Arjan Dev to Guru Hargobind, ran father to son."
   }
  ],
  "explicitNonRelations": [
