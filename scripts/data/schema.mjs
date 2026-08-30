@@ -8,10 +8,42 @@ import { z } from 'zod';
 
 // ── Controlled vocabularies ───────────────────────────────────────────────
 
+/**
+ * What the **legacy** `Category` column may hold — the union of two
+ * vocabularies, on purpose.
+ *
+ * `Category` is the legacy column (CLAUDE.md § Schema: "Legacy `Category`,
+ * `Sufi Saint`, `Founded/Opened` are still read as fallbacks"). Its historical
+ * vocabulary was five values, and the 169 shipped rows still use only three of
+ * them: 76 Muslim Shrine, 50 Hindu Temple, 37 Sikh Gurdwara, 6 blank. So the
+ * five-value list was accurate for the data and wrong about the future.
+ *
+ * **It rejected the correct fix.** 20 rows carry a legacy `Category` that
+ * disagrees with the modern `category` beside it — `Gori Temple` is
+ * `Jain Temple` in one column and `Hindu Temple` in the other; 14 Nanakpanthi
+ * darbars are filed as Hindu or Sikh. Bringing those cells into line is the
+ * obvious hygiene job, and doing it made `npm run data:validate` **exit 1**,
+ * with a message naming `Christian Church` and `Other` as the permitted values.
+ * This archive holds no Christian church and abolished `Other`. A check that
+ * punishes the correct action and directs the operator to undo it is the
+ * "a poet of note:" pattern RULE 4 was written about.
+ *
+ * The union is the migration-safe answer: a legacy cell may keep its old value
+ * or take the modern one, and neither is an error while the two columns
+ * coexist. The modern `category` column has its own six-value list in
+ * `scripts/data/lib/category.mjs`, and `categoryVocabulary.test.ts` holds this
+ * list as a superset of it, so this can never again be the narrower of the two.
+ */
 export const CATEGORY_VALUES = [
+  // The six the modern `category` column uses.
   'Muslim Shrine',
   'Hindu Temple',
   'Sikh Gurdwara',
+  'Nanakpanthi / Udasi Darbar',
+  'Jain Temple',
+  'Secular / Memorial',
+  // Legacy-only, retained so an old export still validates. No shipped row
+  // uses either.
   'Christian Church',
   'Other',
   '',
