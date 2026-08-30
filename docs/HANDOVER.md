@@ -5229,9 +5229,19 @@ both redirects.
     **The full suite was then run to see what else had drifted: nothing.** 465 passed, `urdu-no-leak`
     green at 29, and one failure — `tours.spec.ts` on a `beforeEach` click that resolved, was
     visible, enabled and stable, then timed out — which passes **38/38 on `--repeat-each=2` in
-    isolation. A parallel-load flake**, the same shape as the recorded palette one. It could not
-    have been attributed cleanly in any case: that build included the other lane's uncommitted
-    `TourPanel.tsx`.
+    isolation**.
+
+    **That was written up as "a parallel-load flake" and the label is stronger than the evidence.**
+    The features session put the correction better than the original claim: *isolation passing rules
+    out determinism, not causation.* A failure that disappears under `--repeat-each` has been shown
+    not to be reproducible on demand; it has not been shown to be unrelated to what changed. They
+    hit four such failures in one run, **two of which looked exactly like regressions from the
+    change they had in flight**, and all 112 passed in isolation a minute later.
+
+    So the honest label here is **unattributable**, and it would have been even if the failure had
+    persisted: that build included the other lane's uncommitted `TourPanel.tsx`, so no result from
+    it attributes to either lane. "Possibly mine, possibly yours, unattributable" is a real third
+    answer and belongs beside "rule a cause out from a dirty tree, never in".
 
     **And four iCloud conflict copies had appeared under `src/styles/`** while the other lane worked
     there, reddening `repoHygiene` directly and `readingScale` as collateral — an extra copy of a

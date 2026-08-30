@@ -74,6 +74,17 @@ One git index, one working tree, two agents. Before touching anything:
   - The practical form: **name what you are about to touch before you touch it**, and read
     `git status` before believing any number. Announcing intent in one line saved both sessions a
     duplicated file and several wrong attributions.
+  - **"Unattributable" is a real answer.** When a test fails on a tree containing someone else's
+    uncommitted work, neither "mine" nor "theirs" is supportable. Say so rather than picking.
+  - **Isolation passing rules out determinism, not causation.** A failure that vanishes under
+    `--repeat-each` has been shown not to reproduce on demand — not to be unrelated to what
+    changed. Re-run in isolation *especially* when a failure looks like your own regression, and
+    still do not call it a flake on that evidence alone.
+- **iCloud makes ` 2.css` / ` 2.tsx` conflict copies while a session edits a directory.** They
+  redden `repoHygiene`, and `readingScale` as collateral, because an extra stylesheet copy
+  double-counts the font sizes it walks. Before committing a run of edits:
+  `find src e2e scripts docs -name "* [0-9].*" -delete`. Diff first if a copy differs in size — the
+  copy is usually the older one, but "usually" is not "always".
 - `format:check` and the import-tracking test walk **untracked** files, so either lane's scratch
   file reddens the shared gate. If a failure is in a file you did not touch, say so and move on.
 - Message them rather than fixing their files (`ListAgents`, then `SendMessage`).
