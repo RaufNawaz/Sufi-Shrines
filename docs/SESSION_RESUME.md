@@ -344,9 +344,15 @@ cannot do.
   **And the bill is larger than two pages of prose.** Re-measured from the repaired
   `pipeline/photo_manifest.tsv` on 31 August 2026: the two shrines hold **23 media files between
   them, every one `matched` and fetchable** — Shah Gohar Peer 12 (9 images, 3 video) and Mian
-  Qurban Ali Shah 11 (10 images, 1 video, **365 MB**). Set that against 54 entries with no working
+  Qurban Ali Shah 11 (10 images, 1 video, 348 MiB). Set that against 54 entries with no working
   photograph, and against the archive's **18 video rows in total: four of them belong to these two
-  entries**, in an archive whose stated purpose is oral history. The gate reports these when the
+  entries**, in an archive whose stated purpose is oral history.
+
+  **The line worth putting in front of Rauf is the share, not the count.** The two entries hold
+  **360 MiB of the manifest's 4,782 — 7.5% of all the media the archive has recorded** — and the
+  site says neither of them exists. *(Two sessions measured this independently and reported 365
+  and 347 for the same file: decimal MB against binary MiB, agreeing all along and neither saying
+  which. Units stated here for that reason.)* The gate reports these when the
   manifest is present and says nothing when it is not — the file is gitignored, so a clone has
   none of it, and the defect is the missing row either way.
 

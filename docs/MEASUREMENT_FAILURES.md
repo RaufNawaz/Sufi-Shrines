@@ -98,6 +98,16 @@ happened twice in one day: 44 unfiled media files became 30 by looking harder at
 and the 171-vs-169 drift was closed by reading a predicate nobody had opened. The file you already
 have is the one least likely to get re-read.
 
+**Never truncate the output you are about to draw a conclusion from.** Three of the fifteen were
+this and one of them was reading a gate's own report through `head -14` and concluding a line was
+missing — it was line 15. Capture to a file and grep it. A pipe that hides the interesting line
+does not announce that it has.
+
+**State the unit, especially when someone else is measuring the same file.** Two sessions reported
+348 and 365 for one shrine's media and spent a message resolving it: binary MiB against decimal MB,
+agreeing all along, neither saying which. This costs nothing to prevent and reads as a
+disagreement about the data.
+
 **Publish the retraction next to the finding.** `docs/planning/UX_COUNCIL_2026-08-30.md` requires
 its reviewers to list what they got wrong, and eleven of thirty-two findings were withdrawn. That
 list is the reason the other twenty-one are credible.
