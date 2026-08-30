@@ -4364,6 +4364,42 @@ both redirects.
     numbers themselves are fine; what they cannot express is that fourteen routes share one
     growing dependency.
 
+143. **Three smaller phone findings from the same sweep, and what the sweep taught about
+    sweeping.** *30 August 2026.*
+
+    - **`/chronology` rocked the page 6px sideways at 390px** (§9.140's method, its own commit).
+      The century scale's last tick was anchored at 100%, so its digits ran off the axis.
+      `OrderPage`'s timeline had already hit and fixed exactly this and left a comment saying
+      why — **the same defect shipped twice because the fix lived in a component rather than in
+      a rule.** Invisible at 768px and up. `/chronology`, `/typology`, `/shared-ground` and
+      `/tradition/:slug` — every content route added since the matrix was written — are now in
+      `no-overflow.spec.ts`.
+    - **Eight tradition pages shipped that search could not reach.** Typing "Nath" returned four
+      *figures* and never the tradition. The aliases are what make the fix worth having rather
+      than tidy: nobody types "Pranami" when the temple is signed *Parnami*, and nobody types
+      "Udasi" when the corpus says *Udasipanth*. Widening `byType` from two entity kinds to
+      three also moved the route from a ternary to a `ROUTE_FOR` map — a nested conditional
+      widened by one would have sent every tradition to `/order/nath`.
+    - **The silsila comparison table scrolls 122px on a phone and nothing said so** — no
+      scrollbar, no fade, the century column cut mid-word at "1 undat". A table that scrolls and
+      does not look scrollable has no last column. Edge shadows, four gradients, no JavaScript.
+      Stacking into cards was rejected: this table's purpose is *comparison across orders*, and
+      a stack destroys the column the eye runs down.
+
+    **What the sweep taught.** Nine phone routes were audited and **four findings were retracted
+    by checking the instrument** — a naive overflow probe that ignored scrollable ancestors
+    (`/graph` and `/almanac` were fine and the existing spec was right); 10px tab labels (Urdu
+    already steps up to 12px Nastaliq); an iOS hazard sweep where `100dvh`, the safe-area tokens
+    and a 16px input floor were *all already handled*; and the marker fix of §9.141. Scroll is a
+    flat 60 fps at 4× CPU throttle with zero long tasks on every route measured.
+
+    That ratio is the point. **A mobile audit of a mature codebase is mostly a list of things
+    that turn out to be fine**, and the discipline that makes the remainder trustworthy is
+    checking each instrument against a known answer before believing its reading — the same rule
+    as `feedback_measure_before_recording`, applied to a UI rather than to data. The findings
+    that survived it (§9.140's front door, the iOS input zoom, the 14px pins, these three) are
+    worth something precisely because four others did not.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
