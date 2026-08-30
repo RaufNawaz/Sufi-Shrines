@@ -39,6 +39,7 @@ the reason the rest is credible.
 | The pin that had a tap target was exactly the pin that did not | `1d39105` |
 | The search-document builder with the tests on it was not the one that ran | `7fe1b2a` |
 | Two Urdu URLs published a file the router could not resolve | `287ef2a` |
+| An Urdu reader could not find a figure by their Urdu name | `HEAD` |
 
 ---
 
@@ -46,58 +47,47 @@ the reason the rest is credible.
 
 Each item names what a reader loses, so the ranking can be argued with rather than just followed.
 
-1. **An Urdu reader cannot find a figure by their Urdu name.** `ماتا ترپتا` returns six shrines
-   and no figures; `بے بے نانکی` returns seven gurdwaras and not Bebe Nanaki. 8 traditions carry
-   `nameUr` and 9 orders carry `aka`, so both are findable; **241 figures carry neither**, because
-   their Urdu resolves from the dictionary at render time and the index has nothing to copy.
-   Fix on the **consumer** side (~3 lines in `ArchiveSearch.tsx`: enrich the loaded index with
-   `translateNameToUrdu(entity.name)` before `matchEntities`) — *not* the producer side, which
-   would mean `build-kg.mjs` mirroring the dictionary resolver and adding back a slice of the
-   59 KB just removed from a file eager on every graph route. One judgment call comes with it:
-   `translateNameToUrdu` pulls the lazy 88 KB dictionary, which an English reader does not
-   otherwise load. HANDOVER §9.170 has the measurements.
-
-2. **Filters change the URL and the list and never the map.** Pick "Jain Temple", see "3 of 171
+1. **Filters change the URL and the list and never the map.** Pick "Jain Temple", see "3 of 171
    sites", and all 171 pins remain — and that URL is shareable. `MapPage` passes the unfiltered
    array to both `ShrineMap` and `MapSidebar`.
 
-3. **Four of five entity routes answer an unknown slug by silently becoming the map.**
+2. **Four of five entity routes answer an unknown slug by silently becoming the map.**
    `/shrine/zzz`, `/saint/zzz`, `/order/zzz`, `/tradition/zzz` end at `/` with the URL rewritten.
    `/place/zzz` does the right thing and is the model to copy. Merging two figure nodes retires a
    published `/saint/` URL, so this is live risk.
 
-4. **The archive search palette announces nothing** on every route except the map. No `aria-live`
+3. **The archive search palette announces nothing** on every route except the map. No `aria-live`
    in `ArchiveSearch`; the pattern is twenty lines away in `CommandPalette`. Its combobox also
    hardcodes `aria-expanded="true"` and points `aria-controls` at a listbox that is not rendered.
 
-5. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
+4. **Search says 44 matches and shows 40.** `MAX_RESULTS = 40`; the status line reports
    `results.length` rather than what is on screen. **Blocked on a UI string** — reporting
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-6. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
+5. **A section header is drawn sixteen ways** across twelve routes — six sizes, two typefaces,
    four rule weights, two byte-identical blocks 236 lines apart in one file. `/about` is the
    visible symptom: its rules stop at 767px for nine headings and 1054px for seventeen.
 
-7. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
+6. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
    region is created already populated, which screen readers do not announce.
 
-8. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
+7. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
    `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
    drawn in the tradition palette.
 
-9. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+8. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-10. **A shrine names its order and never links to it** — the only one-way edge in the entity
+9. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-11. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+10. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-12. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+11. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---

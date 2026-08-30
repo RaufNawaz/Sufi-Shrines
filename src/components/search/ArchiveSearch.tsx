@@ -9,6 +9,7 @@ import { useDebounce } from '../../hooks/useDebounce';
 import { matchEntities, type SearchEntity } from '../../lib/search/entitySearch';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { localizeFigureName, localizeOrderName } from '../../lib/i18n/localizeKgName';
+import { isUrduSeedLoaded, loadUrduSeed, onUrduSeedLoaded } from '../../lib/i18n/urduFallback';
 import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { buildPlaces } from '../../lib/data/places';
@@ -120,6 +121,62 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
   const savedSlugs = useSavedShrines();
   const saved = useMemo(() => new Set(savedSlugs), [savedSlugs]);
 
+  /*
+   * An Urdu reader could not find a person by their Urdu name.
+   *
+   * Measured 30 August 2026 on the running site: «ماتا ترپتا» returned six
+   * shrines whose names contain ماتا or داتا and no figure at all; «بے بے نانکی»
+   * returned seven gurdwaras and not Bebe Nanaki. «چشتیہ» worked. The split is
+   * in the index, and it is exact — of its 258 rows, the **8 traditions** carry
+   * `nameUr` from the tradition seed and the **9 orders** carry their Urdu name
+   * in `aka` from the node's `arabicName`, so both are searchable. The **241
+   * figures** carry neither, because a figure's Urdu name is not a field: it
+   * resolves from the dictionary at render time, which is why the row two
+   * hundred lines below can display it and the matcher above cannot find it.
+   *
+   * Fixed on the consumer side rather than the producer side. Putting `nameUr`
+   * on 241 saints in `kg.json` would mean the builder mirroring the dictionary
+   * resolver in `.mjs` — the same mirror that produced a false positive in the
+   * gap report this morning — and would add back a slice of the 59 KB just
+   * removed from a file that is eager on every graph route. Nine hand-authored
+   * `arabicName`s scale; 241 dictionary lookups do not.
+   *
+   * The dictionary is lazy and 88 KB, so it is not pulled for an English reader
+   * who never types Urdu. The rule is the one `useSearch` already uses for the
+   * same reason on the map: fetch it the moment a query contains Urdu letters,
+   * and rebuild when it lands. That keeps the promise `entitySearch`'s own
+   * comment makes — Urdu names are searchable *in both* interfaces — without
+   * making the two search surfaces disagree about which scripts they accept.
+   */
+  const [dictGen, setDictGen] = useState(() => (isUrduSeedLoaded() ? 1 : 0));
+  useEffect(() => onUrduSeedLoaded(() => setDictGen((n) => n + 1)), []);
+  useEffect(() => {
+    if (isUrduSeedLoaded() || !/[\u0600-\u06FF]/.test(debounced)) return;
+    void loadUrduSeed();
+  }, [debounced]);
+
+  /* The Urdu name each row already displays, put where the matcher can see it.
+     Recomputed when the dictionary arrives, and never in the English view
+     unless the reader has typed Urdu — `localizeFigureName` returns the Latin
+     name for `lang !== 'ur'`, so the resolver is asked in Urdu regardless of
+     the interface. */
+  const searchableEntities = useMemo(
+    () =>
+      entities.map((entity) =>
+        entity.nameUr
+          ? entity
+          : {
+              ...entity,
+              nameUr:
+                entity.type === 'figure'
+                  ? localizeFigureName(entity, 'ur')
+                  : localizeOrderName(entity, 'ur'),
+            },
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- dictGen is the signal that the resolver's answers changed
+    [entities, dictGen],
+  );
+
   const rows = useMemo<Row[]>(() => {
     const q = debounced.trim();
     if (!q) return [];
@@ -145,7 +202,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
 
     const byType = (type: 'figure' | 'order' | 'tradition') =>
       matchEntities(
-        entities.filter((e) => e.type === type),
+        searchableEntities.filter((e) => e.type === type),
         q,
         PER_GROUP[type],
       ).map(({ entity }) => ({
@@ -217,7 +274,7 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       ...placeRows,
       ...dayRows,
     ];
-  }, [debounced, ids, shrines, entities, places, lang, t, fmtNum, saved]);
+  }, [debounced, ids, shrines, searchableEntities, places, lang, t, fmtNum, saved]);
 
   /* Group headings are rendered from the row list rather than stored on it, so
      the keyboard walks one flat array and cannot land on a heading. */
