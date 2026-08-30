@@ -51,7 +51,7 @@ the reason the rest is credible.
 | The accent that means "interactive" painted 120 data marks and a chart bar | `1db5eca` |
 | The photo strip ran left-to-right in Urdu while its own arrows ran right-to-left | `571607a` |
 | Search said 44 matches and showed 40, silently | `d096824` |
-| A shrine named its order and never linked to it — the graph's one one-way edge | *next commit* |
+| A shrine named its order and never linked to it — the graph's one one-way edge | `4ba4b8a` |
 
 ---
 
