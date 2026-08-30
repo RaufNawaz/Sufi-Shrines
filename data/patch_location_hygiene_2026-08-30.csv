@@ -1,0 +1,210 @@
+"Name","Location","qa_note"
+"Darbar Abul Muali Qadri","Lahore. The survey places the saint's mosque and seminary near Mochi Darwaza and states the shrine was built at that seminary; it also notes Dyal Singh College is ""right near his shrine."" No province, district, address or coordinates given in the survey. Pin is Mochi Gate's own coordinate (an approximate landmark, not the shrine's exact position).","10. SECOND SOURCE FOUND. A general tazkira independently corroborates the real name (Shah Khairuddin Muhammad / Hazrat Syed Muhammad Khair ul Deen) and the kunyat Abul Ma'ali, and adds a Dara Shikoh connection framed slightly differently from the field survey's own account (murshid of a companion, vs. direct personal contact) — see the new Description section.
+
+1. SILSILA ANSWER NOT A SILSILA. Q5 (sect/silsila) answers with descent and a personal
+   bond: ""Lineage of Hazrat Ali (R.A), Kirmani Sadaat, Affiliation with Syed Dawood Bandgi
+   Kirmani."" No Sufi order is named anywhere in the survey. The site's own name and the
+   saint's own name carry ""Qadri,"" and the biography and legends give him an intense
+   attachment to Sheikh Abdul Qadir Jilani — but the survey never states a Qādirī
+   affiliation, and the allegiance it does record was given to his uncle Dawood Bandgi
+   Kirmani, not through a named chain. Left as ""not stated."" Editorial decision needed on
+   whether to infer Qādirī from the name; the entry does not.
+
+2. FOUNDING YEAR IS THE DEATH DATE. Q6 gives the founding as ""16 Rabi ul Awal 1024
+   Hijri,"" which Q9 gives as the saint's date of death and Q13 as the middle day of the
+   *ʿurs*. Not copied into year_built as a construction date; see year_built_note.
+
+3. 980 AH USED TWO WAYS, AND CONFLICTS WITH THE AGE GIVEN. Q8 says he migrated to Lahore
+   and settled at this spot in 980 Hijri. Q9 says he studied with his uncle ""until the age
+   of 30"" and only then migrated to Lahore at his uncle's command — from a birth of 960 AH
+   that gives roughly 990 AH, not 980. Q9 separately dates the Delhi journey and the
+   *majzūb* encounter to 980, placing it after his arrival at Lahore. Both dates are
+   reported as the survey gives them; no resolution invented.
+
+4. STATED LIFESPAN DOES NOT MATCH THE DATES. Birth 10 Zil Hajj 960 AH to death 16 Rabi ul
+   Awal 1024 AH is about 63 years and 3 months, but the survey says ""He lived a life of 65
+   years."" All three figures reported as given.
+
+5. THREE INCOMPATIBLE-LOOKING MUGHAL ATTACHMENTS. The survey places the saint's death ""in
+   1024 Hijri, during the reign of Shah Jahan""; makes his second wife a daughter of
+   ""Emperor Shah Jahangir""; and has Dara Shikoh — styled ""the Mughal emperor"" — personally
+   accompanying him, receiving a rosary and a turban from his hand, and writing about it.
+   The survey supplies no reign dates and these three cannot be reconciled from within it.
+   Reported in the account's own terms; needs a historian's check.
+
+6. ""WAR AGAINST THE SIKHS"" AND THE CHRONOLOGY. Q16 says one of his eight sons ""was
+   martyred while fighting in a war against the Sikhs."" The survey gives no date for this,
+   and it sits uneasily with a saint who died in 1024 AH with sons buried beside him.
+   Also flagged as sensitive: see item 9.
+
+7. THE HAKIM CAME TO A ""SHRINE"" WHILE THE SAINT WAS ALIVE. In the rain incident, Q10 says
+   ""Hakim Afzal Agha came to his shrine and invited him to join the congregational
+   prayer,"" and the saint then speaks and declines. The entry renders this as the Hakim
+   coming to him. Probably the surveyor using darbār/shrine for the living saint's
+   seminary-residence, but the term is inconsistent with the survey's own account of the
+   tomb being built after his death.
+
+8. SMALLER INCONSISTENCIES OF NAME AND EPITHET. (a) Dawood Bandgi Kirmani is ""Syed"" in Q5
+   and ""Sheikh"" in Q9. (b) Q8 has custodianship pass to ""his sons and then the Gaddi
+   Nasheens,"" while Q16 names Hazrat Haider Ali Shah as ""his very first Gaddi Nasheen"";
+   whether Haider Ali Shah is one of the eight sons is not stated. (c) Q19's list of
+   epithets includes ""Sakki Sarwar,"" whose reference here is unclear; reproduced only
+   within the survey's own list, not as a separate title in the entry.
+
+9. SENSITIVE — EDITORIAL DECISION NEEDED. Four items, all reported neutrally in the
+   account's own terms and none omitted: (a) the conversion claim, ""Because of him,
+   millions of people entered the fold of Islam""; (b) the claim of a son martyred ""fighting
+   in a war against the Sikhs,"" naming a religious community in a conflict claim; (c) the
+   claim that the land for Dyal Singh College, a named existing institution in Lahore, ""was
+   also given by his descendants"" — a property-origin claim that could be contested and
+   which the survey does not date or evidence; (d) shared custodianship between the
+   Government Auqaf Department and the hereditary custodians' descendants, who are also
+   described as living on site and giving *dum* to visitors — a living-authority
+   arrangement of a kind that is often disputed. Asserted as present-day institutional
+   fact because the survey reports it as such, but flagged.
+
+Moved from the public Location field, 30 August 2026: ask Saifullah for a precise pin when possible."
+"Darbar Hazrat Shah Gohar Peer","Lahore (no locality, address or coordinates recorded in the survey).","1. **Builder and death date are chronologically irreconcilable.** The survey states that
+   after the saint's death his shrine was built by Sultan Mahmud Ghaznavi, and elsewhere
+   gives his death as 21 Ramzan 825 AH (c. 1422 CE). Mahmud of Ghazni died in 1030 CE,
+   roughly four centuries earlier, so he cannot have built a shrine for a saint who died in
+   825 AH. The attribution is recorded here as tradition, not repeated as fact, and no
+   resolution is proposed. Note only that the same account also mentions a Lahore locality
+   called Mahmood Booti as a place where the saint briefly stayed; both names appear in the
+   survey, and nothing in the survey connects them or explains one by the other. The
+   founding-year field (""825 Hijri"") has been treated as the death year, not a construction
+   date, and `year_built` left unknown.
+2. **The sect/lineage answer combines two distinct traditions.** The field reads ""Ahl e
+   Sunnat - Ismaili Sadaat Uch Shareef - Shajra e nasab Hazrat Imam Hussain (R.A)"", and the
+   life account likewise says his family lineage was from the Ismaili Sadaat of Uch Sharif.
+   Ahl-e-Sunnat (Sunni) and Ismaili are different traditions, and the survey does not
+   reconcile them. The lineage is recorded exactly as given; no choice has been made between
+   the two, and no silsila has been inferred.
+3. **Minor internal variance (not resolved).** The hand-planted tree is described as a Sukh
+   Chain (Pongamia) in the answer on the saint's life and as a banyan (*bor*) in the
+   additional-information answer. Both descriptions are reported; the survey gives no basis
+   for preferring either, and it is unclear whether one tree or two is meant.
+4. No other source was consulted. The survey reports that later saints wrote books about
+   the saint, but names none, and the export column records ""No book available"", so no work
+   is cited. Nine photographs and three audio/video files were uploaded with the survey and
+   are held as Google Drive links in the source record.
+
+Moved from the public Location field, 30 August 2026: FLAG: this row has no landmark to approximate from at all; ask Saifullah for a precise pin or at least a nearby landmark."
+"Darbar Malik Ahmad Ayaz","Shah Alam Market; the survey places the mazar near Darbar Ali Hajveri Ganj Bakhsh (Data Darbar). No city, district, tehsil or province is stated anywhere in the survey for the shrine itself. Pin reuses Data Darbar's own coordinate, since the survey ties this shrine's location directly to it — an approximate landmark, not the shrine's exact position.","Items below are for editorial decision and are deliberately excluded from the public prose.
+
+1. **""8 August 1041"" — what it refers to.** The founding-year answer (Q6) is identical to the death date in the life answer (Q9). The survey supplies no construction date of its own: the history answer (Q8) says only that the tomb was built ""after the death of Malik Ayaz"" by the Ghaznavi Sultanate. The founding field is therefore a death date, not a foundation date, and `year_built` should not be treated as an attested building date.
+
+2. **""8 August 1041"" — Hijri or Gregorian? Not determinable from the survey.** The survey attaches no era marker to 1041. Two internal cues pull toward a Gregorian reading — the other absolute date in the same answer is marked ""993 AD"", and the day-month form ""8 August"" is Gregorian, whereas the survey uses a Hijri month name where it intends Hijri (""12th, 13th and 14th Zil Hajj""). But no statement in the survey establishes it, and 1041 AH and 1041 CE are roughly six centuries apart. **The archive should not choose on the survey's authority.** Flagged for a documentary decision; also note that a Gregorian reading places the death 48 years after the ""993 AD"" education, which is internally coherent, while a Hijri reading is not reconcilable with ""993 AD"" at all. This is recorded as an internal tension, not a correction.
+
+3. **Location: ""this village"" versus Shah Alam Market.** Q8 states that ""only this small place remained in your share in this village"", while Q9 and Q16 place the shrine in Shah Alam Market, described as the largest market in Asia with ""overwhelming rush"". A village and a dense metropolitan bazaar are not compatible descriptions of one setting. Unresolved; both are reported.
+
+4. **No city or province is stated for the shrine.** Lahore appears in the survey only as the city the figure governed and rebuilt. The archive should not silently supply a city, district or province for the site.
+
+5. **""Raja Maharaja"" versus Ranjit Singh.** Q8 says the Darbar ""was later maintained in good condition by Raja Maharaja"" and then that the site was ""spoiled by Sikh Raja Ranjit Singh"". Whether ""Raja Maharaja"" is a separate unnamed ruler, a generic term, or the same figure later blamed for the damage is not determinable. If it is the same figure, the answer credits and blames one party in consecutive clauses.
+
+6. **Garbled stretch at the zero-width-space location.** The transcriber records two zero-width-space characters between ""the area of"" and ""crop"" in Q8. The surrounding clause reads, as written: ""the area of crop was stolen for the special place of your Darbar which was spoiled by Sikh Raja Ranjit Singh"". The intended meaning — land seizure, crop revenue, endowment loss, or something else — cannot be recovered and has not been guessed at.
+
+7. **Other unclear or garbled passages, quoted as-is and not interpreted.** Q11: ""it was the brave birthday of Allah who along with the king fought a war with many infidels"" (the word rendered ""birthday"" is not recoverable). Q9: ""Mgr Malik Ayaz became very surprised""; ""the people of your IRD guard told Ghaznavi to accept him""; ""I demonstrated the cruelty of the king and the slave by staring at the love, slavery and rule of the ruler and set a prime example that his secrets are cruel""; ""After his death, he considered everything of his to be his king Mehmood Ghaznavi"" (referent of ""his death"" ambiguous). Q10: ""a king wanting to fill his slave with the people of his family""; ""all these sayings and stories of his and many other races will be remembered in the table of Islam"". Q9 also shifts into first person in the midnight-test passage (""I said that you people did not consider Malik Ahmad Ayaz good""), apparently voicing the king; the speaker is not marked. The temple in Q9 is given as the ""Onkay temple"", a spelling not otherwise identifiable from the survey.
+
+8. **Order of deaths is contradictory.** Q9 places the transfer of power at the end of *Ayaz's* life (""In his last days, Mahmood Ghaznavi wanted to give his place to Malik Ayaz""), after which Ayaz governs Lahore and dies — implying Mahmud outlived him or was still reigning. Q11 states that ""Malik Ahmad Ayaz left his residence after the death of Mahmood Ghaznavi"", implying the reverse sequence. Not reconcilable as recorded.
+
+9. **Name form varies.** ""Malik Ahmad Ayaz"" (Q1, Q7, Q10), ""Malik Ayaz Ahmad"" (opening of Q9), ""Malik Ayaz"" (Q8 and later in Q9). Headword taken from Q1.
+
+10. **Cause of death given two ways within one answer.** Q9 reports both that ""Malik Ayaz was poisoned"" out of resentment, and that ""in some places it is said that he died a natural death"". The survey itself presents these as alternatives; retained as such.
+
+11. **Cross-tradition vocabulary at a Muslim shrine.** Q12 records that ""diyas and prasad are also given on a daily basis"" — both terms belonging to Hindu ritual vocabulary — and Q13 describes activities including ""eating food at the temple"", using ""temple"" for the site. Whether the enumerator is describing genuinely shared or syncretic practice, or is using loose vocabulary for lamp-lighting and food distribution (*langar*), is not determinable. The archive should decide whether to gloss, retain, or query these terms; they have been retained in the prose in the survey's own words. Note also that ""bathing"" in Q13 is unspecified — visitors' ablution, ritual washing of the grave, or something else.
+
+12. **""Ghaznavi silsila"" (Q5).** Given in the *silsila* field, but Ghaznavi is a dynastic rather than an initiatic designation, and the account describes political and military service, not spiritual affiliation. Recorded verbatim; needs an editorial ruling on whether it belongs in the `silsila` field at all.
+
+13. **Sensitive content — reported in the account's own terms, flagged for editorial decision.**
+    - *Conquest and religious warfare.* The account states that Mahmud Ghaznavi ""fought almost 17 battles with Hindus"" with Malik Ayaz as ""the mastermind"", and repeatedly uses ""infidels"" for non-Muslims, including for those said to have attacked the figure's homeland and enslaved him.
+    - *Temple destruction.* The ""Onkay temple"" story has the figure advising the demolition of the temple walls to bring down the idol, presented in the account as an act of intelligence rewarded by the king.
+    - *Religious change.* Q11 credits the figure with having ""instilled the spirit of Islam in the people"".
+    - *Named community and named ruler in a property claim.* Q8 and Q16 attribute the loss of shrine land to ""the Sikh era"" and specifically to ""Sikh Raja Ranjit Singh"". Q16 attributes further loss to the surrounding market.
+    - *Slavery.* The narrative centres on enslavement and sale, with the account observing that ""at that time, selling and buying slaves was the norm"".
+    - *Framing of the central relationship.* Q10 characterises the bond between Mahmud Ghaznavi and Malik Ahmad Ayaz as ""love and romance"". Reported as given; presentation needs an editorial decision.
+    - *Property/custody.* Present custodianship by the Department of Auqaf, and the reported reduction of the site's ground, are recorded as institutional facts; any land-status claim beyond the survey's wording should not be inferred.
+
+14. **Unanswered questions.** Q20 (books or pamphlets) and Q21 (what a first-time visitor should understand) are blank, as are the trailing export columns `Status` and `Column 1`. Q16 names Allama Iqbal and ""Kaniya Lal"" as authors who wrote about the figure, but no titles are given and no work has been cited; the bibliography accordingly lists the field survey only.
+
+Moved from the public Location field, 30 August 2026: Ask Saifullah for a precise pin when possible."
+"Darbar Mian Qurban Ali Shah","Mint Stop, Lahore (as given in the survey; no province, street address or coordinates are recorded).","Internal contradictions and gaps in the source. None of these are resolved in the public
+prose above; none should be silently harmonised by a later editor.
+
+1. FOUNDING YEAR vs NARRATIVE. Q6 (""year founded"") = ""1416 Hijri"", c. 1995-96 CE. But Q8
+   and Q9 both state the shrine was built after the saint's death, by others. 1416 AH is
+   exactly 75 lunar years after the stated birth year of 1341 AH (Q9), and no death year
+   is given anywhere in the survey — only the day, 25 Rabi-ul-Sani. The most economical
+   reading is that the respondent answered the ""founded"" question with the death year.
+   Flagged rather than resolved: the survey does not say so.
+
+2. NO DEATH YEAR AT ALL. Q9 gives ""25 Rabi-ul-Sani"" with no year. The entry therefore
+   carries a death day and no death year. The urs dates (24-26 Rabi-ul-Sani, Q13) do
+   bracket the stated death day consistently — that is the one date check in this survey
+   that passes cleanly.
+
+3. WHO BUILT THE SHRINE — two different answers. Q8: ""His disciples built a beautiful
+   shrine, and alongside the shrine, a mosque was also constructed in his name."" Q9: ""The
+   wealthy people of that era took responsibility for his shrine and constructed a
+   beautiful shrine along with a mosque."" Same building event, two different patrons
+   (disciples / wealthy notables). The prose above attributes the construction to neither
+   and says only that it was built after his death.
+
+4. LENGTH OF RESIDENCE AT MINT STOP — two different answers. Q8: he ""established his
+   final camp at this location of Mint Stop, Lahore, where he spent the remaining part of
+   his life."" Q9: he ""arrived at this area of Mint Stop in Lahore and stayed for a short
+   while, but made this very place his final abode."" A short stay and the remainder of a
+   life are not the same claim.
+
+5. SUCCESSION — singular vs plural. Q9: ""he passed on his spiritual seat (gaddi) to his
+   special disciples"" (plural). Q16: ""he passed on his spiritual seat (gaddi) to his
+   successor disciple, Haji Tufail"" (a single named successor). One or more successors is
+   left open above.
+
+6. CUSTODIANSHIP — two answers standing in tension. Q15 (custodian question): ""Government
+   Mehkama Auqaaf"", flat. Q16: after Haji Tufail's death ""his sons hold the position of
+   managing it"". Q8 adds that although Auqaf took charge in 2005, ""most of the maintenance
+   and decoration is taken care of by his devotees themselves"". Both the Auqaf answer and
+   the hereditary-management answer are reported above, side by side, without deciding
+   which body actually controls the site. The devotee-maintenance detail is retained as
+   given: it is the nearest thing to a maintenance-shortfall report in this survey, and
+   has not been softened.
+
+7. THE BOOK — asserted and denied within the same submission. Q16: ""A short while ago, his
+   disciple published a discourse on his life, which became a source of great popularity
+   among the people."" Q20 (upload a book or pamphlet): blank. Trailing export column
+   ""Column 1"": ""No book available"". Reported above only as a claim of the tradition, with
+   no title and no citation, per instruction.
+
+8. ""SHAH"" — honorific or Sayyid descent? Q9 explains the name as an honorific earned by
+   learning: ""His original name was Qurban Ali, but later, on account of his knowledge,
+   people began calling him by the name of Mian Qurban Ali Shah."" Q19 instead attributes
+   to him ""spiritual majesty and nobility (Sadaat character)"", i.e. implies Sayyid
+   descent. The entry makes no descent claim and uses ""Hazrat"" throughout, never ""Sayyid"".
+
+9. SILSILA UNSUPPORTED BY THE BIOGRAPHY. Q5 answers ""Naqshbandi Majdadi - Ahl e Sunnat"",
+   but nothing in Q8, Q9, Q10, Q11, Q16 or Q19 mentions a Naqshbandi affiliation, a
+   Naqshbandi chain, or any Naqshbandi practice. All spiritual authority in the biography
+   descends from his father, Hazrat Mian Fazal Deen, whose own affiliation is never given.
+   The silsila field therefore rests on the one-line Q5 answer alone. Note also that the
+   Q5 answer mixes a silsila (Naqshbandi Mujaddidi) with a sect (Ahl-e Sunnat); the survey
+   spelling is ""Majdadi"" and has been normalised to Mujaddidī in the entry.
+
+10. MIGRATION UNDATED. Birth is placed at Malerkotla, India (Q9); life, death and shrine
+    at Lahore. The survey never dates or explains the move, and no context has been
+    supplied for it here.
+
+11. WEEKLY ATTENDANCE FIGURE WITHHELD. Q12 says the Thursday gathering has ""a specific
+    number of people"" participating but never states the number. Daily and urs figures are
+    given (Q14) and are reported.
+
+12. REGISTER NOTE, NOT A CONTRADICTION. Q19 is written in the second person, addressing the
+    saint directly (""your father"", ""you became a scholar"", ""you included thousands""). A
+    reader skimming the transcript could mistake these for statements about the surveyor.
+    All Q19 material has been converted to third person above.
+
+13. QAWWALI. Not reported at this site. Q12 lists mosque prayers, and a Thursday gathering
+    with Zikr, Naat and langar; Q13 lists dhol at the urs. The absence is stated in the
+    entry so that a later editor does not read it as an omission.
+
+Moved from the public Location field, 30 August 2026: FLAG: 'Mint Stop' did not resolve to one confident location (candidates found: a 'Pakistan Mint' railway/metro stop and a separate 'Akhri Mint' bus stop, in different parts of the city) — left blank rather than guess between them. Ask Saifullah which stop he meant, or for a precise pin."
