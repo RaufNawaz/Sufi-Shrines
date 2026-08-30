@@ -5316,6 +5316,44 @@ both redirects.
     243**, every new figure named in Urdu, and **73 recorded rulings** — 29 kin, 23 lineage, plus
     the plural-quote form that lets one decision dispose of every sentence it settles.
 
+182. **Two flags, three states: 67 kin edges are shown without the qualification 135 lineage edges
+    carry, and their evidence is identical.** *Measured 30 August 2026. An editorial question for
+    Rauf, not a defect to fix silently.*
+
+    On `/saint/guru-nanak`, four kin rows read *"Mata Tripta · mother"* with a quote and a source.
+    Two lineage rows on the same page read *"Guru Angad · Disciple · **unreviewed**"* with a quote
+    and a source. **Both were read out of the same corpus by an agent, and both quotes are checked
+    verbatim by the same script.** Only one says so.
+
+    The graph holds three states in a field with two values:
+
+    | | meaning | count |
+    |---|---|---|
+    | `reviewed` absent, `method: 'rule'` | the sheet said it; nothing to sign off | most of 723 |
+    | `reviewed` absent, `method: 'human'` | **an agent adjudicated it from a quote** | **67 kin** |
+    | `reviewed: false` | machine-extracted, nobody adjudicated it | 135 |
+
+    `LineageView` badges the third; `KinView` does not read the field at all. The middle state is
+    genuinely different from both — a person did not sign it off, but an agent *did* decide the
+    slug, the direction and the role pair, and recorded why in `_why` on many of the seeds. It is
+    not "the sheet said it" and it is not "nobody looked".
+
+    **What was fixed here is only the documentation**, which described something false: `reviewed?`
+    said absent means "derived by rule from the sheet", and 67 edges have it absent while being
+    nothing of the kind. **What is not fixed is the badge**, because adding one changes what the
+    archive tells readers about 67 claims, and how an archive states its own confidence is an
+    editorial decision. Three options, none of them obviously right:
+
+    - Leave it. The quote and source are on every kin row already, which is the disclosure that
+      matters; a badge would imply parity with unadjudicated extractions.
+    - Badge them the same. Simple, honest about the absence of human sign-off, and loses the real
+      distinction between adjudicated and not.
+    - A third label — *"read, not reviewed"* against *"unreviewed"*. Most accurate, most words, and
+      a vocabulary a reader has to learn.
+
+    Recorded rather than chosen. **The archive's distinguishing claim is that it says what it does
+    and does not know**, and this is a place where it knows something it does not say.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

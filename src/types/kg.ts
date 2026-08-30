@@ -156,8 +156,31 @@ export interface KGRelation {
    * confirmed the `quote` is verbatim in `source` — so it is provably not
    * fabricated, but nobody has read it. Those carry `reviewed: false`. */
   method: 'human' | 'rule' | 'ml' | 'machine-extracted';
-  /** False on anything no human has signed off (RULE 2). Absent means the edge
-   * is derived by rule from the sheet and needs no sign-off. */
+  /**
+   * False on anything no human has signed off (RULE 2).
+   *
+   * **Absent means one of two different things, and the difference is not
+   * currently visible to a reader.** It was written to mean "derived by rule
+   * from the sheet, so there is nothing to sign off" — a `buried_at` or
+   * `located_in` edge, where the sheet's own cell is the claim. But all 67
+   * `kin_of` edges also carry it absent, and they are not derived by rule: an
+   * agent read each out of the corpus's prose and decided the slug, the
+   * direction and the role pair, from a quote `verify-kg-proposals.mjs` checks
+   * verbatim.
+   *
+   * So the graph actually holds three states with two flags:
+   *
+   *   `reviewed` absent, `method: 'rule'`   — the sheet said it. Nothing to review.
+   *   `reviewed` absent, `method: 'human'`  — an agent adjudicated it from a quote. 67 kin edges.
+   *   `reviewed: false`                     — machine-extracted, nobody adjudicated it. 135 edges.
+   *
+   * `LineageView` badges the third state "unreviewed"; `KinView` does not read
+   * this field at all. On `/saint/guru-nanak` that shows as "Mata Tripta ·
+   * mother" beside "Guru Angad · Disciple · unreviewed", both with a verbatim
+   * quote from the same corpus. Whether the middle state deserves its own
+   * disclosure is an editorial question about how this archive states its own
+   * confidence, recorded in HANDOVER §9.182 for Rauf rather than decided here.
+   */
   reviewed?: boolean;
   source?: string; // citation, e.g. a shrine_entries/*.md file
   quote?: string; // verbatim supporting text from source
