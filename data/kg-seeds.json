@@ -397,7 +397,7 @@
       "confidence": 0.7,
       "source": "data/shrines.csv#shrine-of-shah-inayat-qadiri",
       "quote": "The field survey names Waris Shah as a second prominent disciple from this period",
-      "notes": "0.7, not 0.95, and the hedge is in the same sentence: it continues \"alongside Hazrat Hafiz Tabraiz, Maulana Jami, Deewan-e-Hafiz, and Deewan-e-Shams \\u2014 without further detail on the nature of the latter connections\". Waris Shah is the one the survey calls a disciple outright; the other four are listed and explicitly not characterised, so they are NOT edges. \"A second prominent disciple\" is second after Bulleh Shah, whose edge to the same master is already here. Waris Shah's other master, the Makhdoom of Kasur, is already an edge and this does not replace it \\u2014 the corpus states both."
+      "notes": "0.7, not 0.95, and the hedge is in the same sentence: it continues \"alongside Hazrat Hafiz Tabraiz, Maulana Jami, Deewan-e-Hafiz, and Deewan-e-Shams — without further detail on the nature of the latter connections\". Waris Shah is the one the survey calls a disciple outright; the other four are listed and explicitly not characterised, so they are NOT edges. \"A second prominent disciple\" is second after Bulleh Shah, whose edge to the same master is already here. Waris Shah's other master, the Makhdoom of Kasur, is already an edge and this does not replace it — the corpus states both."
     }
   ],
   "reviewNeededNotes": [
@@ -1060,6 +1060,57 @@
       "source": "data/shrines.csv#shrine-of-mian-mir",
       "notes": "The entry adds that he \"died while he was still a child\" and that the family traced its line to the caliph Umar al-Farooq — a descent claim through a figure who is not in this graph, so it stays prose rather than becoming an edge.",
       "_from": "scan-kin-statements.mjs"
+    }
+  ],
+  "_comment_kinAdjudicated": "Kin sentences a human has read and deliberately did NOT make an edge, each with the verbatim sentence and the reason. Two different reasons live here and the notes say which, because collapsing them would be dishonest: a sentence that only LOOKS like a family tie (\"a son of Peshawar\", \"the father of the Punjabi kafi\" — idiom and metaphor, and the corpus is full of both because it writes about poets), and a tie the corpus really does state that this archive deliberately does not model. The list exists so `scripts/data/scan-kin-statements.mjs` can mark a sentence read-and-ruled-out instead of offering it forever: without it every adjudication pass re-reads every rejection the last one made. Quotes are checked against the corpus by verify-kg-proposals.mjs, exactly as an edge's quote is — a drifted quote silently stops matching and the sentence returns to the unread pile.",
+  "kinAdjudicated": [
+    {
+      "subjectName": "Bhai Joga Singh",
+      "objectName": "Peshawar",
+      "kind": "idiom",
+      "quote": "a devoted Sikh, *Bhai Joga Singh*, a son of Peshawar who served in the presence of *Guru Gobind Singh*",
+      "source": "data/shrines.csv#gurdwara-bhai-joga-singh",
+      "notes": "\"A son of Peshawar\" means a native of it. The sentence names a real relationship in its other half — he served in Guru Gobind Singh's presence — and that is a lineage question, not a kin one."
+    },
+    {
+      "subjectName": "Khwaja Ghulam Farid",
+      "objectName": "(his mother-tongue)",
+      "kind": "metaphor",
+      "quote": "the poet who raised his mother-tongue to the summit of mystical expression",
+      "source": "data/shrines.csv#mithankot-kot-mithan",
+      "notes": "\"Mother-tongue\" trips the kinship word list on every poet in the archive, and there are many. Recorded once here rather than re-read."
+    },
+    {
+      "subjectName": "Fariduddin Ganjshakar",
+      "objectName": "(Punjabi literature)",
+      "kind": "metaphor",
+      "quote": "through his Punjabi poetry he became a father of the language’s literature",
+      "source": "data/shrines.csv#shrine-of-fariduddin-ganjshakar",
+      "notes": "Paternity of a literature, not of a person. The same sentence carries a real lineage tie — \"his disciple Nizamuddin Auliya\" — which is already an edge."
+    },
+    {
+      "subjectName": "Shah Hussain",
+      "objectName": "(the Punjabi kafi)",
+      "kind": "metaphor",
+      "quote": "He is honoured as the father of the Punjabi kafi",
+      "source": "data/shrines.csv#shrine-of-hazrat-madho-lal-hussain-shah-hussain-darbar",
+      "notes": "Metaphor, and the archive's most-repeated one: the kafi's paternity is claimed for him in three separate sentences of this entry."
+    },
+    {
+      "subjectName": "Dara Shikoh",
+      "objectName": "Aurangzeb",
+      "kind": "real, deliberately not modelled",
+      "quote": "when Dara Shikoh was defeated and put to death by his brother Aurangzeb in the war of succession",
+      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "notes": "TRUE, and not an edge. Dara Shikoh is a figure here because he was Mullah Shah's disciple; Aurangzeb is not a figure and would enter the graph solely to be his brother. The Mughal succession is context for this shrine, not a lineage the archive holds — and once Aurangzeb is a node, the next sentence wants Shah Jahan and Jahanara too. Reconsider only if the archive acquires a site that is about one of them."
+    },
+    {
+      "subjectName": "Princess Jahanara",
+      "objectName": "Shah Jahan",
+      "kind": "real, deliberately not modelled",
+      "quote": "became the spiritual guide of Prince Dara Shikoh and, through him, of the emperor Shah Jahan’s brilliant daughter, the princess Jahanara",
+      "source": "data/shrines.csv#shrine-of-mian-mir",
+      "notes": "Same decision as the Aurangzeb row, and the same sentence carries a real lineage tie that IS modelled: Jahanara disciple_of Mullah Shah Badakhshi. Her father is named only to place her."
     }
   ],
   "_comment_kinNotes": "Family the archive records without naming the relative. Not edges — there is no second node to point at — but real recorded facts, shown on the figure’s own page.",

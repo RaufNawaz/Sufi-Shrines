@@ -4520,6 +4520,45 @@ both redirects.
     detail on the nature of the latter connections"* — which is why his edge is 0.7 and theirs do
     not exist.
 
+165. **A scan that cannot get quieter will not be re-run, so the scanners now have three states
+    instead of two.** *Built 30 August 2026, immediately after §9.164.* The lineage scan left 122
+    sentences unread, and reading them was mostly re-deriving verdicts: a saint described as a
+    "Qur'an-teacher", Guru Nanak's schoolboy story, a bibliography line. All correctly rejected —
+    and with nowhere to put the rejection, so the next person reads them again. The same is true of
+    kin, where the corpus writes about poets and therefore says *"the father of the Punjabi kafi"*,
+    *"a father of the language's literature"*, *"a son of Peshawar"*.
+
+    A sentence is now **covered** (an edge carries it), **adjudicated** (read, and recorded as not
+    an edge), or **unread**, and only the third prints by default. The verdicts go where the
+    archive already kept that kind of record — `kg-lineage-proposals.json#explicitNonRelations`,
+    which has carried a verbatim quote since it was written, and a new
+    `kg-seeds.json#kinAdjudicated`. Kin: 166 unread → 6 ruled out. Lineage: 118 → 6.
+
+    **Two reasons live in `kinAdjudicated` and the `kind` field keeps them apart**, because
+    collapsing them would be dishonest. Most are idiom or metaphor — not ties at all. Two are ties
+    the corpus really does state and this archive **deliberately does not model**: Dara Shikoh and
+    Aurangzeb are brothers, and Jahanara is Shah Jahan's daughter. Dara Shikoh and Jahanara are
+    figures here only because they were Mullah Shah's disciples; Aurangzeb would enter the graph
+    solely to be somebody's brother, and once he is a node the next sentence wants Shah Jahan too.
+    The note says to reconsider only if the archive acquires a site about one of them.
+
+    **The quotes are load-bearing now, so `verify-kg-proposals.mjs` checks them** — both lists,
+    against the corpus, exactly as it checks an edge's quote. Neither had been checked before:
+    `explicitNonRelations` predates this session and was never verified, though a non-relation
+    makes the same kind of claim about the corpus as a relation does. And the new failure mode is
+    quiet: a drifted quote stops matching, the sentence rejoins the unread pile, and somebody
+    re-decides a settled question with no error anywhere.
+
+    **The gate caught two of its author's own quotes within a minute of existing.** Both carried a
+    literal `\u2019` instead of the character — a Python escaping slip, invisible in the JSON, and
+    it would have silently un-adjudicated two sentences. Nine more of the same escape were then
+    found in the notes and comment prose around them. That is the entire argument for RULE 4 in one
+    incident: the check was written *for* this class of error and caught it in its author's hand.
+
+    `build-review-worksheet.mjs` picked the three new non-relations up on its own, as findings
+    needing a verdict — the review pipeline already treated a non-relation as a reviewable claim,
+    which is the right answer and was not something this change had to arrange.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the

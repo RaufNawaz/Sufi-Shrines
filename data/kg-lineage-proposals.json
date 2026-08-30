@@ -1098,6 +1098,27 @@
    "quote": "the phrasing as recorded is not fully grammatical and is reproduced here rather than silently cleaned up, since resolving it further would mean guessing at what the surveyor meant",
    "source": "data/shrines.csv#darbar-wasif-ali-wasif",
    "notes": "Not a denial, but a standing warning attached to the one Wasif Ali Wasif proposal (0.7): the bai'at reading of \"Baithi Hazrat Shah Niyaz Ahmad Chisti Qadri\" is the entry's own cautious gloss, not the survey's words."
+  },
+  {
+   "subjectName": "Makhdoom Abdul Rahim Girhori",
+   "objectName": "Khwaja Muhammad Zaman",
+   "quote": "His memory forms part of the wider Naqshbandi devotional network that the disciples of Khwaja Muhammad Zaman spread across Sindh in the eighteenth century.",
+   "source": "data/shrines.csv#shrine-of-makhdoom-abdul-rahim-girhori",
+   "notes": "Reads as a discipleship at a glance and is not one. The sentence places his MEMORY inside a network that Khwaja Muhammad Zaman's disciples spread — it does not say he was one of them, and the two men's dates are not compared anywhere in the entry. Ruled out 30 August 2026 during the scan-lineage-statements pass."
+  },
+  {
+   "subjectName": "(an unnamed disciple)",
+   "objectName": "Bhai Gurdas",
+   "quote": "the Gandava darbar was founded by one of Bhai Gurdas's disciples",
+   "source": "data/shrines.csv#sevapanthi-darbar-bhai-gurdas-gandava",
+   "notes": "A real discipleship the archive states and cannot model: the disciple is not named. The same shape as the two entries in kg-seeds.json#kinNotes — a recorded relation with nobody on one end of it. Kept here rather than as an edge to nowhere."
+  },
+  {
+   "subjectName": "Mian Mir",
+   "objectName": "(his teacher, unnamed in this sentence)",
+   "quote": "Around the age of twenty-five, with his teacher’s permission, Mian Mir came to Lahore",
+   "source": "data/shrines.csv#shrine-of-mian-mir",
+   "notes": "Not a second teacher and not a new claim. The entry names his master elsewhere — Shaikh Siyustani, already an edge in both directions — and this sentence just refers back to him. Recorded so the scan stops offering it."
   }
  ],
  "familyRelations": [

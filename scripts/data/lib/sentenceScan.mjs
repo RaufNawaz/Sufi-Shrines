@@ -115,7 +115,7 @@ export function mentions(sentence, name) {
  * wrongly marked covered is a MISS, so `--all` prints everything and is what an
  * audit should use.
  */
-export function scanCorpus({ rows, wordRe, edges, figureNames, rowSubjects }) {
+export function scanCorpus({ rows, wordRe, edges, figureNames, rowSubjects, nonTies = [] }) {
   const findings = [];
   for (const row of rows) {
     const name = row.Name ?? '(unnamed row)';
@@ -136,6 +136,10 @@ export function scanCorpus({ rows, wordRe, edges, figureNames, rowSubjects }) {
         sentence,
         names,
         knownFigures: names.filter((n) => figureNames.has(n.toLowerCase())),
+        /* Sentences a human has already read and ruled NOT a tie. Matched on the
+           recorded quote, which is verbatim from this same corpus and checked by
+           verify-kg-proposals. See the note on `nonTies` in `report`. */
+        adjudicated: nonTies.filter((n) => n.quote && sentence.includes(n.quote)).map((n) => n.why),
         coveredBy: edges
           .filter(
             (e) =>
@@ -164,12 +168,41 @@ export function figureNameSet(kg) {
   return set;
 }
 
+/**
+ * Three states, not two, and the third is what makes the scan worth re-running.
+ *
+ * A sentence is **covered** (an edge already carries it), **adjudicated** (a
+ * human read it and recorded that it is NOT a tie), or **unread**. Without the
+ * middle state a scan reports the same pile forever: the 122 lineage sentences
+ * left after the first pass include a saint described as a "Qur'an-teacher",
+ * Guru Nanak's schoolboy story, and a bibliography line — read once, correctly
+ * rejected, and with nowhere to put the verdict, so the next person reads them
+ * again. `explicitNonRelations` and `kinNonTies` are where the verdict goes,
+ * each with the verbatim sentence, and `verify-kg-proposals.mjs` checks those
+ * quotes against the corpus exactly as it checks an edge's.
+ *
+ * By default only unread sentences print. `--all` prints every sentence with
+ * its state, which is what an audit should use, because both of the other two
+ * states are claims that could be wrong.
+ */
 export function report({ findings, all, json, rowCount, tag }) {
-  const uncovered = findings.filter((f) => f.coveredBy.length === 0);
-  const shown = all ? findings : uncovered;
+  const covered = findings.filter((f) => f.coveredBy.length > 0);
+  const ruledOut = findings.filter((f) => f.coveredBy.length === 0 && f.adjudicated?.length);
+  const unread = findings.filter((f) => f.coveredBy.length === 0 && !f.adjudicated?.length);
+  const shown = all ? findings : unread;
   if (json) {
     console.log(
-      JSON.stringify({ total: findings.length, uncovered: uncovered.length, findings: shown }, null, 2),
+      JSON.stringify(
+        {
+          total: findings.length,
+          covered: covered.length,
+          adjudicated: ruledOut.length,
+          unread: unread.length,
+          findings: shown,
+        },
+        null,
+        2,
+      ),
     );
     return;
   }
@@ -183,9 +216,11 @@ export function report({ findings, all, json, rowCount, tag }) {
     if (f.names.length) console.log(`      names: ${f.names.join(' · ')}`);
     if (f.knownFigures.length) console.log(`      already figures: ${f.knownFigures.join(' · ')}`);
     if (f.coveredBy.length) console.log(`      covered by: ${f.coveredBy.join(' ; ')}`);
+    if (f.adjudicated?.length) console.log(`      ruled out: ${f.adjudicated.join(' ; ')}`);
   }
   console.log(
     `\n${findings.length} ${tag} sentence(s) across ${rowCount} rows; ` +
-      `${findings.length - uncovered.length} covered by an existing edge, ${uncovered.length} not.`,
+      `${covered.length} carried by an existing edge, ${ruledOut.length} read and ruled out, ` +
+      `${unread.length} unread.`,
   );
 }

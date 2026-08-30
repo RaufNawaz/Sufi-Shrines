@@ -472,6 +472,32 @@ if (existsSync(DATES)) {
   notes.push('dates: no proposals file');
 }
 
+/* ── explicit NON-relations ──────────────────────────────────────────────────
+   "This looks like a lineage tie and is not." An Uwaisi saint who names no
+   living guide, a court relationship that is not a *silsila*, a contemporary
+   who was met but was not a teacher.
+
+   These were unchecked until 30 August 2026, and two things changed that. The
+   first is principle: a non-relation makes the same kind of claim about the
+   corpus as a relation does — *the entry says this* — and RULE 4 does not care
+   which direction the claim runs. The second is that they are now LOAD-BEARING.
+   `scan-lineage-statements.mjs` matches these quotes to mark a sentence as read
+   and ruled out, so a quote that has drifted from the corpus silently stops
+   matching and the sentence returns to the unread pile, where somebody
+   re-adjudicates a question that was already settled. That fails quietly, which
+   is the kind this repo checks. */
+let nonRelCount = 0;
+for (const [i, n] of (lineageDoc?.explicitNonRelations ?? []).entries()) {
+  const label = `explicitNonRelations[${i}] ${n.subjectName} ↛ ${n.objectName}`;
+  nonRelCount += 1;
+  if (!n.source) fail(`${label}: missing source`);
+  else checkQuote(label, n.source, n.quote);
+  if (!String(n.notes ?? '').trim()) {
+    fail(`${label}: no notes — a non-relation is only useful if it says WHY`);
+  }
+}
+if (nonRelCount) notes.push(`lineage: ${nonRelCount} explicit non-relation(s)`);
+
 // ── kinship seeds ────────────────────────────────────────────────────────────
 /* These are seeds, not proposals — a human decided each slug and each role
    label — but the prose beside them was copied out of the extraction pass, and
@@ -533,6 +559,24 @@ for (const [i, f] of (seeds.familyRelations ?? []).entries()) {
   else checkQuote(label, f.source, f.quote);
 }
 if (kinCount) notes.push(`kinship: ${kinCount} seed edge(s)`);
+
+/* Kin sentences read and deliberately not made edges. Checked for the same
+   reason `explicitNonRelations` is: the quote is load-bearing for
+   `scan-kin-statements.mjs`, which uses it to mark a sentence read-and-ruled-out.
+   A drifted quote stops matching, the sentence rejoins the unread pile, and
+   somebody re-decides a settled question — silently. The `kind` field is free
+   text on purpose (it says *why* in the reviewer's own words) but must exist,
+   because a rejection with no reason is indistinguishable from an oversight. */
+let kinRuledOutCount = 0;
+for (const [i, n] of (seeds.kinAdjudicated ?? []).entries()) {
+  const label = `kinAdjudicated[${i}] ${n.subjectName} ↛ ${n.objectName}`;
+  kinRuledOutCount += 1;
+  if (!n.source) fail(`${label}: missing source`);
+  else checkQuote(label, n.source, n.quote);
+  if (!String(n.kind ?? '').trim()) fail(`${label}: missing kind`);
+  if (!String(n.notes ?? '').trim()) fail(`${label}: no notes — say why it is not an edge`);
+}
+if (kinRuledOutCount) notes.push(`kinship: ${kinRuledOutCount} read-and-ruled-out sentence(s)`);
 
 /* The notes are the same claim without a second node, so they get the same
    quote check — a "recorded here so it is not lost" fact that turned out not to

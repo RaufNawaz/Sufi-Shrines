@@ -93,12 +93,23 @@ const slugByRow = new Map(buildSlugs(rows).map((slug, i) => [rows[i], slug]));
 const rowSubjects = (row) =>
   (shrineFigures[slugByRow.get(row)] ?? []).map((slug) => bySlug.get(slug)?.name).filter(Boolean);
 
+/* Sentences a human has already read and ruled out. `explicitNonRelations` is
+   where the archive records "this looks like a tie and is not" — an Uwaisi
+   saint who names no living guide, a court relationship, a contemporary who was
+   not a teacher — and it has carried the verbatim sentence since it was
+   written, which is exactly what this scan needs to stop re-proposing it. */
+const nonTies = (proposals.explicitNonRelations ?? []).map((n) => ({
+  quote: n.quote,
+  why: `${n.subjectName} ↛ ${n.objectName}`,
+}));
+
 const findings = scanCorpus({
   rows,
   wordRe: new RegExp(`\\b(${LINEAGE_WORDS.join('|')})\\b`, 'i'),
   figureNames: figureNameSet(kg),
   edges,
   rowSubjects,
+  nonTies,
 });
 
 report({

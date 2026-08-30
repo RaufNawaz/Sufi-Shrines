@@ -54,10 +54,21 @@ const KIN_WORDS = [
   'father-in-law', 'descendant', 'forebear', 'forefathers', 'ancestor',
 ];
 
+/* Sentences already read and deliberately not made edges — idiom ("a son of
+   Peshawar"), metaphor ("the father of the Punjabi kafi", which this corpus
+   produces constantly because it writes about poets), and a few true ties the
+   archive chooses not to model. Without this the next pass re-reads every
+   rejection the last one made. */
+const nonTies = (seeds.kinAdjudicated ?? []).map((n) => ({
+  quote: n.quote,
+  why: `${n.subjectName} ↛ ${n.objectName} (${n.kind})`,
+}));
+
 const findings = scanCorpus({
   rows,
   wordRe: new RegExp(`\\b(${KIN_WORDS.join('|')})\\b`, 'i'),
   figureNames: figureNameSet(kg),
+  nonTies,
   edges: (seeds.familyRelations ?? []).map((f) => ({
     a: norm(f.subjectName ?? ''),
     b: norm(f.objectName ?? ''),
