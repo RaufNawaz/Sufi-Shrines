@@ -408,6 +408,34 @@ cannot do.
   `pipeline/audit_coordinates.py` holds the line meanwhile: it fails when the placeholder count
   rises above the recorded baseline, and it measures precision, not accuracy.
 
+
+- **Does the archive publish its own raw QA notes?** *Measured 30 August 2026 by the KB council
+  (KB4-1); the decision is yours and nothing has been changed.* `qa_note` holds **50,009
+  characters across 50 of 169 rows** — internal deliberation, including a block headed
+  *"9. SENSITIVE — EDITORIAL DECISION NEEDED"* discussing a conversion claim, a conflict claim
+  naming the Sikh community, and an undated property-origin claim about a named existing Lahore
+  institution. It is not rendered on any page, and it **is published three times over**: in
+  `src/data/shrines-fallback.json`, which builds to a 925 KB chunk listed in the Workbox precache
+  manifest and therefore fetched in the background on every first visit; in this public
+  repository; and in the Zenodo bundle, via `data/shrines.json` in `release.mjs`'s `DATA_FILES`.
+
+  **Two files reasoned from the premise that it was withheld, and it never was.**
+  `validate-publication-safety.mjs` exempted the internal columns because they "are already
+  withheld from every page by `INTERNAL_ONLY_KEYS`" — that constant feeds `NON_DETAIL_KEYS`,
+  whose only consumer filters the infobox's row iteration. And `build-location-hygiene-patch.mjs`
+  moved four colleague-directed notes into `qa_note` on 30 August because it "already never
+  renders", so those notes are in the public bundle now. **Both premises are corrected in place;
+  the behaviour is not changed**, because whether a provenance archive should publish its own
+  doubts is an editorial question and a good archive might answer yes.
+
+  Three ways to go, and they are not equivalent: **(a)** strip `INTERNAL_ONLY_KEYS` from the
+  snapshot in `build-dataset.mjs`, which covers the bundle, the repo and the release in one
+  filter and costs the release its `qa_note` column; **(b)** keep publishing and say so, in
+  `datapackage.json`'s field description and in `DATA_RELEASE.md`, so a downstream reader knows
+  what they have; **(c)** publish the *reviewed bilingual* `src/data/source-notes.json` instead —
+  the cleaned, attributed form the 22 August ruling created for exactly this material, which is
+  currently in neither the release bundle nor the descriptor. Under (a) or (c) the sensitive block
+  still wants reading by a person before anything ships.
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the

@@ -19,7 +19,17 @@
  * inside a public one.
  *
  * Ruled on 30 August 2026: **move the instruction, keep the caveat, lose no
- * words.** The instruction goes to `qa_note`, which already never renders.
+ * words.** The instruction goes to `qa_note`, which never renders on a page.
+ *
+ * *Correction, same day: "never renders" was the whole of the reasoning and it
+ * is not enough. `qa_note` is not rendered and it **is** published — it is in
+ * `src/data/shrines-fallback.json`, which ships as a 925 KB precached chunk to
+ * every visitor, is committed in a public repository, and goes into the Zenodo
+ * bundle via `data/shrines.json`. So this patch moved the notes out of a field a
+ * reader sees into a field a reader can download. That is still an improvement,
+ * and it is not the removal it was described as. Whether raw QA notes belong in
+ * the published data is recorded for Rauf in `docs/SESSION_RESUME.md`; see the
+ * corrected note at the top of `validate-publication-safety.mjs`.*
  *
  * ## The cut, and why it is mechanical
  *

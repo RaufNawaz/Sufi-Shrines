@@ -24,10 +24,30 @@
  * person, and no task markers". Anything broader would delete the archive's
  * provenance, which is the last thing it can afford.
  *
- * Internal columns (`qa_note`, `flags`, `needs_review`, `id`) are exempt: they
- * are already withheld from every page by INTERNAL_ONLY_KEYS in
- * src/lib/data/constants.ts, and they are the correct home for exactly this
- * kind of note.
+ * Internal columns (`qa_note`, `flags`, `needs_review`, `id`) are exempt from
+ * that rule, and the reason this file used to give for it was **false**.
+ *
+ * It said they "are already withheld from every page by INTERNAL_ONLY_KEYS in
+ * src/lib/data/constants.ts". `INTERNAL_ONLY_KEYS` feeds `NON_DETAIL_KEYS`,
+ * whose only consumer is `ShrineInfobox.tsx:71` — it filters the infobox's row
+ * iteration. **It withholds nothing from the payload.** Measured 30 August 2026:
+ * `src/data/shrines-fallback.json` carries 50,009 characters of `qa_note` across
+ * 50 of 169 rows; the built chunk is 925 KB, it is listed in the Workbox
+ * precache manifest in `dist/sw.js`, so it is fetched in the background on a
+ * first visit rather than on demand; the same file is committed in a public
+ * repository; and `data/shrines.json`, which carries the same 44 columns, is in
+ * `DATA_FILES` in `scripts/data/release.mjs` — the Zenodo bundle.
+ *
+ * **Not rendered is not the same as not published.** Among what ships is a block
+ * headed "9. SENSITIVE — EDITORIAL DECISION NEEDED", verbatim.
+ *
+ * The exemption itself is kept, because whether the archive should publish its
+ * own raw QA deliberation is Rauf's call and not this gate's — a provenance
+ * archive may well want to. What is removed is the *reason*, so that no future
+ * decision rests on a premise that was never true. `build-location-hygiene-patch
+ * .mjs` already made one: it moved four colleague-directed notes into `qa_note`
+ * on the stated grounds that it "already never renders". Those notes are in the
+ * public bundle.
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
