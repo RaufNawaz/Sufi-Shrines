@@ -5286,6 +5286,36 @@ both redirects.
     you did not intend is the cheapest bug report there is** — and it was two lines lower than the
     number I was actually looking at.
 
+181. **Where the reading piles finished, and what a worked-out pile looks like.** *30 August 2026.*
+
+    | | total | carried by an edge | read and ruled out | names nobody | left |
+    |---|---|---|---|---|---|
+    | kin | 188 | 77 | 44 | 37 | **30** |
+    | lineage | 175 | 68 | 27 | 44 | **36** |
+
+    From 192 and 177 unread at the start of the day. **The last thirty sentences of each are not a
+    backlog** — they name only authorities, publications and places (*Alam Faqri's Tazkirah*, the
+    Directorate General of Archaeology, the Express Tribune), or a relative the corpus never names,
+    or a tie already carried whose sentence uses a pronoun. They are a long tail a person can skim,
+    not a queue.
+
+    **The yield curve is the useful record.** The first pass over the kin pile produced 15 ties, the
+    second 18, the third 2, and the last two produced **one each** — Meerak Mohammad Lahori and
+    Taleh Mand. Both were found by a *filter*, not by reading further: sentences naming somebody the
+    graph does not hold, beside a relation word. That filter is what makes the tail cheap to
+    re-check after any future `data:build`, and it is the thing to run first next time rather than
+    reading from the top.
+
+    **Both late finds are arguments for fixing instruments before mining harder.** Meerak surfaced
+    only once the quote-matching used the archive's own stored quotes (§9.173) and Taleh Mand only
+    once headings stopped being glued to sentences (§9.180). **Two ties that four passes of careful
+    reading had walked past**, recovered by two changes to how the text was cut up. The reading was
+    not the bottleneck.
+
+    What the archive gained across the day: **kin 28 → 67 edges, lineage 86 → 93, figures 190 →
+    243**, every new figure named in Urdu, and **73 recorded rulings** — 29 kin, 23 lineage, plus
+    the plural-quote form that lets one decision dispose of every sentence it settles.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
