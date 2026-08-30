@@ -13,6 +13,54 @@ async function startTour(page: Page, tourTitle: string) {
   await page.getByRole('button', { name: UI_TEXT.en.tourStartButton }).click();
 }
 
+test.describe('starting a tour tells a screen reader it started', () => {
+  /**
+   * Measured 30 August 2026: deep-linking into `/?tour=…&stop=0` left focus on
+   * `<body>` and announced nothing, and pressing "Start tour" was the same —
+   * the button that had focus unmounts with the tour list and nothing takes its
+   * place, so a screen-reader reader is returned to the top of the document
+   * with no idea a tour began.
+   *
+   * The panel's live region does not cover it. `.tour-step-badge` is **created
+   * already populated** with "Stop 1 of 6", and a region that arrives with
+   * content is not announced — which is why *advancing* a stop has always
+   * worked and starting one never did. Both cases are asserted, because the
+   * one that worked is what made the other easy to miss.
+   */
+  const focusDescription = (page: Page) =>
+    page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return 'BODY (focus lost)';
+      return `${el.tagName.toLowerCase()}.${
+        typeof el.className === 'string' ? el.className.split(' ')[0] : ''
+      }`;
+    });
+
+  test('a deep link into a tour focuses the stop, not the document', async ({ page }) => {
+    await page.goto(`/?tour=${INDUS.id}&stop=0`);
+    await page.locator('.tour-stop-name').waitFor();
+    expect(await focusDescription(page)).toBe('h3.tour-stop-name');
+  });
+
+  test('starting a tour from the list focuses the stop', async ({ page }) => {
+    await page.goto('/');
+    await startTour(page, INDUS.title);
+    await page.locator('.tour-stop-name').waitFor();
+    expect(await focusDescription(page)).toBe('h3.tour-stop-name');
+  });
+
+  test('advancing a stop keeps focus on the control that advanced it', async ({ page }) => {
+    /* The half that already worked, pinned so a fix for the other half cannot
+       cost it: a reader stepping through a tour must not be thrown back to the
+       heading on every press. */
+    await page.goto(`/?tour=${INDUS.id}&stop=0`);
+    await page.locator('.tour-stop-name').waitFor();
+    await page.getByRole('button', { name: UI_TEXT.en.nextStopAriaLabel }).click();
+    await expect(page.locator('.tour-step-badge')).toContainText('2');
+    expect(await focusDescription(page)).toBe('button.tour-nav-btn');
+  });
+});
+
 test.describe('Guided tours on the map — Phase 1 (route on the map)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');

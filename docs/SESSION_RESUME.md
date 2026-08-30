@@ -47,6 +47,7 @@ the reason the rest is credible.
 | Four entity routes answered an unknown slug by silently becoming the map | `f95c7ad` |
 | The archive search palette announced nothing, and both comboboxes lied | `1093709` |
 | Thirteen section-header treatments, and six headings with no class at all | `c472ce7` |
+| Starting a guided tour dropped focus to `<body>` and announced nothing | *next commit* |
 
 ---
 
@@ -59,25 +60,22 @@ Each item names what a reader loses, so the ranking can be argued with rather th
    `visible.length` instead would be a different falsehood, so it needs a truncation string in
    `uiStrings.ts`/`.ur.ts`, which the other session has been editing. Coordinate before taking it.
 
-2. **Starting a guided tour drops focus to `<body>`** and announces nothing; the panel's live
-   region is created already populated, which screen readers do not announce.
-
-3. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
+2. **Cobalt means "interactive" everywhere except the archive's own data graphics** —
    `/chronology`'s 120 bars and one of `/about`'s two charts, which sits directly beneath six bars
    drawn in the tradition palette.
 
-4. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
+3. **The photo grid is forced left-to-right in Urdu** while its arrows are mirrored and its arrow
    keys swapped. Wants a decision, not a deletion: the override carries a comment restating the
    rule without a reason.
 
-5. **A shrine names its order and never links to it** — the only one-way edge in the entity
+4. **A shrine names its order and never links to it** — the only one-way edge in the entity
     graph. 48 of 54 `silsila` values resolve to exactly one order page.
 
-6. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
+5. **The shrine page overwrites its own clean share snippet with raw markdown**, so the live DOM
     description begins `## Overview`; seven index routes ship the map's blurb; `hreflang`
     alternates appear on one prerendered page out of ~800.
 
-7. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
+6. **82% of on-screen pins do not receive a tap at their own centre** at the opening view. The
     largest by reader impact and by cost; wants a decision about clustering.
 
 ---
@@ -155,8 +153,11 @@ it stops, so the delay should be long (an hour) rather than short. A ten-minute 
 development session into a series of small ones. Corrected the same day, by Rauf.
 
 One item per commit is still right — that is about coherent history, not about stopping.
-- **`palette.spec.ts` and `traditions.spec.ts` flake under full-suite parallel load** — three
-  times on 30 August, always `.palette-input` not visible or an `aria-selected` that has not
-  settled, always green on `--repeat-each=3` in isolation. Re-run the file before believing it.
+- **The full suite flakes under parallel load, and the rate rose as the day went on.** A run on
+  30 August produced four failures across `no-overflow`, `a11y`, `search-announcements` and
+  `tabbar` — and all 112 of those tests passed in isolation immediately after. Two sessions
+  building and testing on one machine is the likely cause. **A single full-suite failure is not
+  evidence; re-run the file.** Do not skip that step because a failure looks like yours — two of
+  those four looked exactly like regressions from the change in flight.
 - **A `HEAD` placeholder in the table above is a bug in this file**: write the real hash after
   committing, or the row records nothing. It has happened once.

@@ -17,6 +17,7 @@ import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { useShareLink } from '../../hooks/useShareLink';
 import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
+import { useFocusHeadingOnMount } from '../../hooks/useFocusHeadingOnMount';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Shrine, Lang } from '../../types/shrine';
 import { langAttr } from '../../lib/i18n/languages';
@@ -142,6 +143,26 @@ export function TourPanel({
     activePointIdx >= 0 && activePointIdx < points.length - 1 ? legsKm[activePointIdx + 1] : null;
 
   const urduArticlesReady = useUrduArticles();
+  /*
+   * Focus the stop's name when the panel appears.
+   *
+   * Measured 30 August 2026, deep-linking into `/?tour=…&stop=0`: focus was on
+   * `<body>` and nothing was announced. Choosing a tour and pressing "Start
+   * tour" was the same — the button that had focus unmounts with the tour list,
+   * and nothing takes its place, so a screen-reader reader is returned to the
+   * top of the document with no idea a tour began.
+   *
+   * The live region above does not cover it: `.tour-step-badge` is **created
+   * already populated** with "Stop 1 of 6", and a region that arrives with
+   * content is not announced. That is why *advancing* a stop works — by then
+   * the region exists and only its text changes — while starting one does not.
+   * Focusing the heading answers both halves at once: the reader is told the
+   * stop's name, which is the thing they actually wanted to know.
+   *
+   * The hook declines when focus is inside an `aria-modal`, so opening a tour
+   * from the command palette does not yank the caret out of the search field.
+   */
+  const stopHeadingRef = useFocusHeadingOnMount<HTMLHeadingElement>();
   const visitingInfo = shrine ? localizedVisitingInfo(shrine, lang, urduArticlesReady) : '';
   const { share, copied } = useShareLink();
   const tourTitle = localizeTourTitle(tour, lang);
@@ -255,7 +276,7 @@ export function TourPanel({
         width={IMAGE_WIDTH.preview}
       />
 
-      <h3 className="tour-stop-name" lang={langAttr(lang)}>
+      <h3 className="tour-stop-name" lang={langAttr(lang)} ref={stopHeadingRef}>
         {shrineName}
       </h3>
 
