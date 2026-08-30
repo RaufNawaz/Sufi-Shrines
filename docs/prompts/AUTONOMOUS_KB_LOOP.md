@@ -53,6 +53,13 @@ memory directory carries cross-session facts; the newest project memory names th
 this project's standing lesson is that a measurement quoted after it stopped being true is worse
 than no measurement. Re-run the instrument.
 
+**And distrust the instrument before you distrust the archive.** `docs/MEASUREMENT_FAILURES.md`
+catalogues about fifteen wrong measurements two sessions made over two days, sorted into the three
+kinds they turned out to be — a stale source read as current, a narrower query than the question,
+and a premise never arranged. In every one the symptom was real and no tool misbehaved, which is
+exactly why they survived long enough to be written into commit messages. Read it before recording
+a number, and especially before recording one that confirms what you expected.
+
 ---
 
 ## 2. There is probably another session in this same working tree
