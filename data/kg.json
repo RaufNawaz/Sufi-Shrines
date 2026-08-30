@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T14:15:19.603Z",
+  "generated": "2026-08-30T14:35:57.090Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -453,8 +453,10 @@
       "id": "saint:pir-abdul-ul-karim",
       "type": "saint",
       "slug": "pir-abdul-ul-karim",
-      "name": "Pir Abdul-ul-karim",
-      "altNames": [],
+      "name": "Hazrat Hafiz Muhammad Abdul Karim",
+      "altNames": [
+        "Pir Abdul-ul-karim"
+      ],
       "shrines": [
         "eidgah-sharif"
       ],
@@ -3399,6 +3401,56 @@
       "reviewed": false
     },
     {
+      "id": "saint:pir-muhammad-naqib-ur-rahman",
+      "type": "saint",
+      "slug": "pir-muhammad-naqib-ur-rahman",
+      "name": "Pir Muhammad Naqib-ur-Rahman",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:mujaddid-alf-sani",
+      "type": "saint",
+      "slug": "mujaddid-alf-sani",
+      "name": "Hazrat Mujaddid Alf Sani",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sakhi-shah-raza",
+      "type": "saint",
+      "slug": "sakhi-shah-raza",
+      "name": "Sakhi Shah Raza",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:qamar-ali-shah",
+      "type": "saint",
+      "slug": "qamar-ali-shah",
+      "name": "Qamar Ali Shah",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sakhi-shah-sharaf",
+      "type": "saint",
+      "slug": "sakhi-shah-sharaf",
+      "name": "Sakhi Shah Sharaf",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
       "id": "saint:syed-nasiruddin-mahmud",
       "type": "saint",
       "slug": "syed-nasiruddin-mahmud",
@@ -3469,16 +3521,6 @@
       "reviewed": false
     },
     {
-      "id": "saint:hazrat-hafiz-muhammad-abdul-karim",
-      "type": "saint",
-      "slug": "hazrat-hafiz-muhammad-abdul-karim",
-      "name": "Hazrat Hafiz Muhammad Abdul Karim",
-      "altNames": [],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false
-    },
-    {
       "id": "saint:jamal-ud-din-gilani",
       "type": "saint",
       "slug": "jamal-ud-din-gilani",
@@ -3493,16 +3535,6 @@
       "type": "saint",
       "slug": "pratab-rai",
       "name": "Pratab Rai",
-      "altNames": [],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false
-    },
-    {
-      "id": "saint:kharak-singh",
-      "type": "saint",
-      "slug": "kharak-singh",
-      "name": "Kharak Singh",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -3753,6 +3785,26 @@
       "type": "saint",
       "slug": "maharani-datar-kaur",
       "name": "Maharani Datar Kaur",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:sahibzada-muhammad-hassan-haseeb-ur-rehman",
+      "type": "saint",
+      "slug": "sahibzada-muhammad-hassan-haseeb-ur-rehman",
+      "name": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
+      "altNames": [],
+      "shrines": [],
+      "lineageOnly": true,
+      "reviewed": false
+    },
+    {
+      "id": "saint:kharak-singh",
+      "type": "saint",
+      "slug": "kharak-singh",
+      "name": "Kharak Singh",
       "altNames": [],
       "shrines": [],
       "lineageOnly": true,
@@ -5005,7 +5057,7 @@
       "id": "event:urs-eidgah-sharif",
       "type": "event",
       "slug": "urs-eidgah-sharif",
-      "name": "Urs of Pir Abdul-ul-karim at Eidgah Sharif",
+      "name": "Urs of Hazrat Hafiz Muhammad Abdul Karim at Eidgah Sharif",
       "eventType": "urs",
       "shrineSlug": "eidgah-sharif",
       "saintSlug": "pir-abdul-ul-karim",
@@ -9150,7 +9202,7 @@
     {
       "type": "kin_of",
       "subject": "saint:hazrat-hafiz-muhammad-abdur-rahman",
-      "object": "saint:hazrat-hafiz-muhammad-abdul-karim",
+      "object": "saint:pir-abdul-ul-karim",
       "confidence": 0.9,
       "method": "human",
       "kinType": "son_of",
@@ -9250,19 +9302,6 @@
       "kinWording": "his father",
       "source": "data/shrines.csv#sain-vali-vilayat-rai-darbar-kambar",
       "quote": "Its founder, Vali Vilayat Rai, was born in 1825 into a prosperous Hindu family of Old Hala; his father, Pratab Rai, had served as a *munshi* (secretary) to the Talpur Mirs of Hyderabad."
-    },
-    {
-      "type": "kin_of",
-      "subject": "saint:kharak-singh",
-      "object": "saint:maharaja-ranjit-singh",
-      "confidence": 0.9,
-      "method": "human",
-      "kinType": "son_of",
-      "elderRole": "father",
-      "juniorRole": "son",
-      "kinWording": "his son",
-      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
-      "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh"
     },
     {
       "type": "kin_of",
@@ -9666,6 +9705,45 @@
       "kinWording": "his wife",
       "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
       "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801"
+    },
+    {
+      "type": "kin_of",
+      "subject": "saint:kharak-singh",
+      "object": "saint:maharani-datar-kaur",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "son_of",
+      "elderRole": "mother",
+      "juniorRole": "son",
+      "kinWording": "their son",
+      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801"
+    },
+    {
+      "type": "kin_of",
+      "subject": "saint:sahibzada-muhammad-hassan-haseeb-ur-rehman",
+      "object": "saint:pir-muhammad-naqib-ur-rahman",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "son_of",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "kinWording": "his son",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "quote": "He is assisted in the work of the shrine and its teaching mission by his son, *Sahibzada Muhammad Hassan Haseeb-ur-Rehman*"
+    },
+    {
+      "type": "kin_of",
+      "subject": "saint:kharak-singh",
+      "object": "saint:maharaja-ranjit-singh",
+      "confidence": 0.9,
+      "method": "human",
+      "kinType": "son_of",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "kinWording": "his son",
+      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
+      "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh"
     },
     {
       "type": "disciple_of",
@@ -10486,6 +10564,56 @@
       "reviewed": false,
       "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
       "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru"
+    },
+    {
+      "type": "successor_of",
+      "subject": "saint:pir-muhammad-naqib-ur-rahman",
+      "object": "saint:hazrat-hafiz-muhammad-abdur-rahman",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#eidgah-sharif",
+      "quote": "From him the custodianship descended to the present head of the *darbar*, *Pir Muhammad Naqib-ur-Rahman*"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:hazrat-tahir-bandagi-qadri",
+      "object": "saint:mujaddid-alf-sani",
+      "confidence": 0.95,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "quote": "formally became Mujaddid Alf Sani's disciple as well -- later teaching Mujaddid Alf Sani's own children"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:sakhi-shah-raza",
+      "object": "saint:syed-sakhi-shah-chan-charagh",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:qamar-ali-shah",
+      "object": "saint:syed-sakhi-shah-chan-charagh",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf"
+    },
+    {
+      "type": "disciple_of",
+      "subject": "saint:sakhi-shah-sharaf",
+      "object": "saint:syed-sakhi-shah-chan-charagh",
+      "confidence": 0.7,
+      "method": "machine-extracted",
+      "reviewed": false,
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf"
     },
     {
       "type": "belongs_to_order",
@@ -12018,12 +12146,12 @@
     }
   ],
   "stats": {
-    "saints": 228,
+    "saints": 233,
     "orders": 9,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 707,
+    "relations": 714,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

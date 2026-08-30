@@ -320,6 +320,9 @@
       "sufi:discipleOf": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-shah-sikandar"
+        },
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mujaddid-alf-sani"
         }
       ]
     },
@@ -483,7 +486,10 @@
     {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim",
-      "name": "Pir Abdul-ul-karim",
+      "name": "Hazrat Hafiz Muhammad Abdul Karim",
+      "alternateName": [
+        "Pir Abdul-ul-karim"
+      ],
       "memberOf": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/chishtiyya"
       }
@@ -2363,7 +2369,7 @@
       ],
       "parent": [
         {
-          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-hafiz-muhammad-abdul-karim"
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-abdul-ul-karim"
         }
       ]
     },
@@ -2551,6 +2557,51 @@
     },
     {
       "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-muhammad-naqib-ur-rahman",
+      "name": "Pir Muhammad Naqib-ur-Rahman",
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-hafiz-muhammad-abdur-rahman"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/mujaddid-alf-sani",
+      "name": "Hazrat Mujaddid Alf Sani"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sakhi-shah-raza",
+      "name": "Sakhi Shah Raza",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/qamar-ali-shah",
+      "name": "Qamar Ali Shah",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sakhi-shah-sharaf",
+      "name": "Sakhi Shah Sharaf",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-sakhi-shah-chan-charagh"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-nasiruddin-mahmud",
       "name": "Syed Nasiruddin Mahmud"
     },
@@ -2590,11 +2641,6 @@
     },
     {
       "@type": "Person",
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-hafiz-muhammad-abdul-karim",
-      "name": "Hazrat Hafiz Muhammad Abdul Karim"
-    },
-    {
-      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/jamal-ud-din-gilani",
       "name": "Jamal-ud-Din Gilani"
     },
@@ -2602,16 +2648,6 @@
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pratab-rai",
       "name": "Pratab Rai"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/kharak-singh",
-      "name": "Kharak Singh",
-      "parent": [
-        {
-          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
-        }
-      ]
     },
     {
       "@type": "Person",
@@ -2783,6 +2819,29 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharani-datar-kaur",
       "name": "Maharani Datar Kaur",
       "spouse": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/sahibzada-muhammad-hassan-haseeb-ur-rehman",
+      "name": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-muhammad-naqib-ur-rahman"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/kharak-singh",
+      "name": "Kharak Singh",
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharani-datar-kaur"
+        },
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/maharaja-ranjit-singh"
         }
@@ -4196,7 +4255,7 @@
         "UrsEvent"
       ],
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-eidgah-sharif",
-      "name": "Urs of Pir Abdul-ul-karim at Eidgah Sharif",
+      "name": "Urs of Hazrat Hafiz Muhammad Abdul Karim at Eidgah Sharif",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/eidgah-sharif"
       },

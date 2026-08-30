@@ -245,7 +245,29 @@ describe('the shipped graph', () => {
                        it is why the vocabulary gained `mother` and `spouse_of`:
                        nothing in the first 43 edges ran through a mother or a
                        marriage, so the role list read as fathers and nobody
-                       noticed it could not say otherwise. */
-    expect(flagged.length).toBe(192);
+                       noticed it could not say otherwise.
+        192 + 6 - 1   = 197, 30 August 2026. Six from the third batch — Eidgah
+                       Sharif's two living custodians, Tahir Bandagi's second
+                       master, and the three disciples the Sakhi Shah Chan
+                       Charagh entry names by tradition — **minus one, and the
+                       minus is the interesting half.**
+
+                       The founder of Eidgah Sharif existed as two figures. The
+                       sheet's cell says "Pir Abdul-ul-karim"; the entry's own
+                       prose says "The founder of Eidgah Sharif is remembered as
+                       Hazrat Hafiz Muhammad Abdul Karim, affectionately styled
+                       Baba Ji". The kinship seed named him as the prose does,
+                       matched nothing, and minted a second node — so ONE
+                       sentence produced two edges about two people: the
+                       succession hung off the node with the shrine, the son off
+                       the node without one, and that second page told a reader
+                       Baba Ji had no site in an archive that holds it.
+
+                       `validate-kg-identity` reported zero collisions
+                       throughout, correctly: the two names are not textually
+                       similar, and an identity check on STRINGS cannot see
+                       this. Only reading the sentence can. That is worth
+                       remembering the next time this count moves DOWN. */
+    expect(flagged.length).toBe(197);
   });
 });

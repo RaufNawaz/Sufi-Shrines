@@ -1054,6 +1054,71 @@
    "source": "data/shrines.csv#gurdwara-darbar-sahib-kartarpur",
    "quote": "Guru Nanak set aside his own sons in favour of a devoted disciple, Bhai Lehna, whom he renamed Angad — \"of my own limb\" — and installed as the second Guru",
    "notes": "The succession half of the same sentence, as a separate edge because the corpus distinguishes them and the entry's whole point is that the two came apart here: Nanak passed the Guruship over his own sons, \"founding the line of succession by spiritual merit rather than heredity\". The archive's other Sikh succession, Guru Arjan Dev to Guru Hargobind, ran father to son."
+  },
+  {
+   "subjectSlug": "pir-muhammad-naqib-ur-rahman",
+   "subjectName": "Pir Muhammad Naqib-ur-Rahman",
+   "subjectIsNew": true,
+   "relation": "successor_of",
+   "objectSlug": "hazrat-hafiz-muhammad-abdur-rahman",
+   "objectName": "Hazrat Hafiz Muhammad Abdur Rahman",
+   "objectIsNew": true,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#eidgah-sharif",
+   "quote": "From him the custodianship descended to the present head of the *darbar*, *Pir Muhammad Naqib-ur-Rahman*",
+   "notes": "\"From him\" is Abdur Rahman, the subject of the sentence before. The entry then calls the whole sequence \"This unbroken chain of father-to-son succession\", which would make this a son_of edge as well — recorded here rather than built, because the sentence that characterises the chain names nobody, and every son_of edge in this archive names its parent outright."
+  },
+  {
+   "subjectSlug": "hazrat-tahir-bandagi-qadri",
+   "subjectName": "Hazrat Tahir Bandagi Qadri",
+   "subjectIsNew": false,
+   "relation": "disciple_of",
+   "objectSlug": "mujaddid-alf-sani",
+   "objectName": "Hazrat Mujaddid Alf Sani",
+   "objectIsNew": true,
+   "confidence": 0.95,
+   "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+   "quote": "formally became Mujaddid Alf Sani's disciple as well -- later teaching Mujaddid Alf Sani's own children",
+   "notes": "\"As well\" — a SECOND master, not a replacement: his edge to Hazrat Shah Sikandar stands. The node is named as the entry names him, by the title Mujaddid Alf Sani, and deliberately not merged with Shaikh Ahmad Sirhindi, whom the Ganj-e-Inayat entry names in full while describing the Mujaddidi branch. They are one man historically; no sentence in this corpus says so, so the archive does not."
+  },
+  {
+   "subjectSlug": "sakhi-shah-raza",
+   "subjectName": "Sakhi Shah Raza",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "syed-sakhi-shah-chan-charagh",
+   "objectName": "Syed Sakhi Shah Chan Charagh",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+   "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+   "notes": "0.7: \"is said to have been\" and \"tradition names\". NOT the same man as Hazrat Shah Raza Qadri Shattari, Shah Inayat Qadiri's master — see saintDoNotMerge."
+  },
+  {
+   "subjectSlug": "qamar-ali-shah",
+   "subjectName": "Qamar Ali Shah",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "syed-sakhi-shah-chan-charagh",
+   "objectName": "Syed Sakhi Shah Chan Charagh",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+   "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+   "notes": "0.7, same hedged sentence as the other two of the circle."
+  },
+  {
+   "subjectSlug": "sakhi-shah-sharaf",
+   "subjectName": "Sakhi Shah Sharaf",
+   "subjectIsNew": true,
+   "relation": "disciple_of",
+   "objectSlug": "syed-sakhi-shah-chan-charagh",
+   "objectName": "Syed Sakhi Shah Chan Charagh",
+   "objectIsNew": false,
+   "confidence": 0.7,
+   "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+   "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+   "notes": "0.7. The same sentence goes on to name a fourth, Kochak Ali Sultan, \"a Mughal prince who ... abandoned a life of ease for the path of the dervish\" — a devotee in a story rather than a disciple in the list of three, so he is not proposed."
   }
  ],
  "explicitNonRelations": [

@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 169,
-      "saints": 267,
+      "saints": 273,
       "silsilas": 14,
       "foundedPhrases": 116,
       "observances": 33,
       "locations": 150,
       "sufiGlossary": 49,
       "derivedBareNames": 137,
-      "flatSeedEntries": 1220
+      "flatSeedEntries": 1226
     }
   },
   "categories": {
@@ -780,7 +780,13 @@
     "Hazrat Abdul Qadir Sani": "حضرت عبدالقادر ثانی",
     "Bibi Tar Kaur": "بی بی تار کور",
     "Syedna Bibi Fatima Sani": "سیدنا بی بی فاطمہ ثانی",
-    "Maharani Datar Kaur": "مہارانی داتار کور"
+    "Maharani Datar Kaur": "مہارانی داتار کور",
+    "Pir Muhammad Naqib-ur-Rahman": "پیر محمد نقیب الرحمٰن",
+    "Sahibzada Muhammad Hassan Haseeb-ur-Rehman": "صاحبزادہ محمد حسن حسیب الرحمٰن",
+    "Hazrat Mujaddid Alf Sani": "حضرت مجدد الف ثانی",
+    "Sakhi Shah Raza": "سخی شاہ رضا",
+    "Qamar Ali Shah": "قمر علی شاہ",
+    "Sakhi Shah Sharaf": "سخی شاہ شرف"
   },
   "silsilas": {
     "Qadiri": "قادری",

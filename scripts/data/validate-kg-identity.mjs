@@ -144,8 +144,15 @@ for (const [i, entry] of doNotMerge.entries()) {
     );
   }
 
+  /* Only meaningful when every slug still resolves. `ids` is built from the
+     survivors, so a pair with ONE slug retired collapses to a single id and
+     fired this — the loudest message in the file — for a merge that had not
+     happened, one line after the check above had already reported the real
+     situation accurately. Two contradictory failures for one cause, the second
+     of them false, sending the reader to look for a join that does not exist.
+     Found 30 August 2026 by retiring exactly one slug of a pair. */
   const ids = new Set(slugs.filter((s) => bySlug.has(s)).map((s) => bySlug.get(s).id));
-  if (ids.size === 1 && slugs.length > 1) {
+  if (missing.length === 0 && ids.size === 1 && slugs.length > 1) {
     fail(`${label}: FORBIDDEN MERGE HAS HAPPENED — all of these are now one node.`);
   }
 

@@ -244,12 +244,18 @@
     },
     {
       "slugs": [
-        "hazrat-hafiz-muhammad-abdul-karim",
+        "pir-abdul-ul-karim",
         "shah-abdul-karim-bulri"
       ],
-      "reason": "Both are \"Abdul Karim\" and they are three centuries and a province apart. `hazrat-hafiz-muhammad-abdul-karim` is Baba Ji of Eidgah Sharif, Rawalpindi, whose seat passed to his son Hafiz Muhammad Abdur Rahman; Shah Abdul Karim Bulri is the Sindhi poet of Bulri, forebear of Shah Abdul Latif Bhittai. Recorded when the kinship pass added the first as a lineage-only node, because a similarity matcher would join them and both men are in this graph precisely for a father-son edge that the merge would delete.",
+      "reason": "Both are \"Abdul Karim\" and they are three centuries and a province apart. `hazrat-hafiz-muhammad-abdul-karim` is Baba Ji of Eidgah Sharif, Rawalpindi, whose seat passed to his son Hafiz Muhammad Abdur Rahman; Shah Abdul Karim Bulri is the Sindhi poet of Bulri, forebear of Shah Abdul Latif Bhittai. Recorded when the kinship pass added the first as a lineage-only node, because a similarity matcher would join them and both men are in this graph precisely for a father-son edge that the merge would delete. Updated 30 August 2026: the first slug read `hazrat-hafiz-muhammad-abdul-karim` until Baba Ji's two nodes were joined into the one that carries his shrine. The decision is unchanged; the surviving slug is now named, because a do-not-merge row pointing at a retired slug guards nothing.",
       "quote": "Upon Baba Ji's death the spiritual seat passed to his son, *Hazrat Hafiz Muhammad Abdur Rahman*",
       "source": "data/shrines.csv#eidgah-sharif"
+    },
+    {
+      "slugs": ["sakhi-shah-raza", "hazrat-shah-raza-qadri-shattari"],
+      "reason": "Two different Shah Razas, and the graph is about to hold both. `sakhi-shah-raza` is one of the circle of disciples the Sakhi Shah Chan Charagh entry names in the Pothohar; `hazrat-shah-raza-qadri-shattari` is Shah Inayat Qadiri's own master in Lahore, and therefore Bulleh Shah's spiritual grandfather. Recorded before the first is added, not after, because this is the exact shape of the failure this project keeps naming: a plausible sentence about the wrong man.",
+      "quote": "among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh"
     }
   ],
   "_comment_saintCompositeFigures": "Rows whose figure cell names more than one person, mapped to the figures it names, primary first. Applied instead of saintMergeVariants for these cells, and the reason it has to exist: the schema gives a row one `principal_figure`, but some sites are held by two people and the sheet says so — with a `;` in `principal_figure`, and with \"&\" or \"and\" in the legacy cell. Every earlier handling lost one of the two. \"Guru Nanak and Bhai Mardana\" was a saintMergeVariants entry resolving to \"Guru Nanak\", which is why Bhai Mardana appeared NOWHERE in this graph; the other two became single nodes named after both people, so Gurdwara Panjvi Chati Patshahi reached neither Guru Arjan Dev’s page nor Guru Hargobind’s. The FIRST name listed is the only one the row’s own figure_type / figure_born / figure_died may describe: Rori Sahib records figure_type \"Sikh Guru\" and Bhai Mardana was not a Guru, so copying it across would make the graph assert what the sheet never said (RULE 2). build-kg.mjs enforces that, logs a `composite-figure-row` review item, and carries the raw cell onto each `buried_at` edge as `asRecorded`. Only add a row here where the cell genuinely names separate people: a `;` inside a parenthetical is not one (darbar-wasif-ali-wasif), nor is one deity under two names (\"Jhulelal / Daryalal\"), nor a note about practice (\"...; veneration of Guru Nanak\").",
@@ -286,7 +292,8 @@
   "_comment_saintDisplayNames": "Figure slug -> the name the page should be TITLED with, while the slug itself stays put. Rauf's ruling of 29 August 2026 on the epithet rows: the formal name is the better record and the epithet is what a reader searches for and links to, so the archive keeps both — principal_figure supplies the title, the legacy slug supplies the URL, and the epithet becomes an altName so nothing is lost. This is CLAUDE.md RULE 3 applied literally: a sheet value is a join key and a label is cosmetic, so a better label must never cost a published address. Keyed on the slug rather than on the cell, because the whole point is that the slug does not move. NOT for a row where the two columns name different people, change an honorific class, or turn a person into a collective — three such rows (pir-abdul-ul-karim, guru-gurpat, bibi-pak-daman) were deliberately held out of this ruling and are back in the worksheet unanswered. One thing this quietly fixes: jahaniyan-jahangasht would have become the slug `sayyid-jalaluddin`, one suffix from his grandfather `sayyid-jalaluddin-surkh-posh-bukhari`. Keeping the slug removes the collision that made that row the second place principal_figure was worse. APPLIED TO TWO OF SEVEN so far. The ruling can only be carried out where the formal name exists in URDU: otherwise the English page moves to the formal name and the Urdu page falls back through altNames to the epithet, and the two editions title the same figure differently — which CLAUDE.md's i18n contract forbids and which no gate here would have caught, because the altName fallback keeps the parity test green. Five are waiting on an Urdu name and are listed in _pending_saintDisplayNames; check 9 of validate-kg-identity.mjs fails any entry whose title has no Urdu, so the constraint is now enforced rather than remembered.",
   "saintDisplayNames": {
     "laki-shah-saddar": "Syed Shah Sadaruddin Lakyari",
-    "kaka-sahib": "Syed Kasteer Gul"
+    "kaka-sahib": "Syed Kasteer Gul",
+    "pir-abdul-ul-karim": "Hazrat Hafiz Muhammad Abdul Karim"
   },
   "saintWikidataQids": {
     "comment": "Wikidata QIDs. All require human confirmation before inclusion in a citable release (B2). Set confirmed:true only after manual verification.",
@@ -736,10 +743,8 @@
       "subjectSlug": "hazrat-hafiz-muhammad-abdur-rahman",
       "subjectName": "Hazrat Hafiz Muhammad Abdur Rahman",
       "kinType": "son_of",
-      "objectSlug": "hazrat-hafiz-muhammad-abdul-karim",
+      "objectSlug": "pir-abdul-ul-karim",
       "objectName": "Hazrat Hafiz Muhammad Abdul Karim (Baba Ji)",
-      "objectIsNew": true,
-      "objectNodeName": "Hazrat Hafiz Muhammad Abdul Karim",
       "elderRole": "father",
       "juniorRole": "son",
       "wording": "his son",
@@ -846,23 +851,7 @@
       "notes": "Pratab Rai is named only as the founder's father and a munshi to the Talpur Mirs. No date, no site, no order.",
       "_from": "docs/HANDOVER.md#9.160"
     },
-    {
-      "subjectSlug": "kharak-singh",
-      "subjectName": "Kharak Singh",
-      "subjectIsNew": true,
-      "subjectNodeName": "Kharak Singh",
-      "kinType": "son_of",
-      "objectSlug": "maharaja-ranjit-singh",
-      "objectName": "Maharaja Ranjit Singh",
-      "elderRole": "father",
-      "juniorRole": "son",
-      "wording": "his son",
-      "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh",
-      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
-      "notes": "A second sentence in the Gurdwara Guru Ram Das Ji entry states the same tie independently and dates his birth: \"the celebrations that attended the birth of their son Kharak Singh in 1801\".",
-      "_from": "docs/HANDOVER.md#9.160"
-    },
-    {
+        {
       "subjectSlug": "duleep-singh",
       "subjectName": "Duleep Singh",
       "subjectIsNew": true,
@@ -1349,6 +1338,55 @@
       "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
       "notes": "The same sentence is already the corroborating source for Kharak Singh's parentage, and it makes her his mother — \"their son\". That edge is NOT added: the sentence establishes it by joining two other claims rather than stating it, and the mother edges here all name a mother outright.",
       "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "kharak-singh",
+      "subjectName": "Kharak Singh",
+      "kinType": "son_of",
+      "objectSlug": "maharani-datar-kaur",
+      "objectName": "Maharani Datar Kaur",
+      "elderRole": "mother",
+      "juniorRole": "son",
+      "wording": "their son",
+      "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801",
+      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
+      "notes": "This was RULED OUT earlier the same day and the ruling was wrong, so it is recorded rather than quietly reversed. The reasoning was that \"their son\" establishes maternity by joining two other claims — she is his wife, Kharak Singh is his son — rather than stating it. It does not: \"their son Kharak Singh\" IS the corpus naming both parents of a named child, in one clause, about two people it has just named. The over-conservative reading would also have thrown away the Eidgah succession, where an entry characterises a chain it has just narrated.",
+      "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "sahibzada-muhammad-hassan-haseeb-ur-rehman",
+      "subjectName": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
+      "subjectIsNew": true,
+      "subjectNodeName": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
+      "kinType": "son_of",
+      "objectSlug": "pir-muhammad-naqib-ur-rahman",
+      "objectName": "Pir Muhammad Naqib-ur-Rahman",
+      "objectIsNew": true,
+      "objectNodeName": "Pir Muhammad Naqib-ur-Rahman",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "wording": "his son",
+      "quote": "He is assisted in the work of the shrine and its teaching mission by his son, *Sahibzada Muhammad Hassan Haseeb-ur-Rehman*",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "notes": "Also ruled out earlier the same day, on the grounds that \"He\" could not be pinned, and that was a failure to read the whole passage rather than a real ambiguity. The entry names four custodians in order — Abdul Karim (Baba Ji), his son Abdur Rahman, then \"From him the custodianship descended to the present head of the darbar, Pir Muhammad Naqib-ur-Rahman\", then this sentence — and closes \"so that the lineage now spans four generations\". Four named men, four generations: \"He\" is Naqib-ur-Rahman, and the arithmetic that seemed to forbid it is what fixes it.",
+      "_why": "The fourth generation of the only father-to-son chain the archive follows to the present day.",
+      "_from": "scan-kin-statements.mjs"
+    },
+    {
+      "subjectSlug": "kharak-singh",
+      "subjectName": "Kharak Singh",
+      "subjectIsNew": true,
+      "subjectNodeName": "Kharak Singh",
+      "kinType": "son_of",
+      "objectSlug": "maharaja-ranjit-singh",
+      "objectName": "Maharaja Ranjit Singh",
+      "elderRole": "father",
+      "juniorRole": "son",
+      "wording": "his son",
+      "quote": "Construction began the following month under his son Kharak Singh and was largely completed by 1848 under his youngest son, Duleep Singh",
+      "source": "data/shrines.csv#samadhi-of-maharaja-ranjit-singh",
+      "notes": "A second sentence in the Gurdwara Guru Ram Das Ji entry states the same tie independently and dates his birth: \"the celebrations that attended the birth of their son Kharak Singh in 1801\". That same sentence is now also his mother's edge.",
+      "_from": "docs/HANDOVER.md#9.160"
     }
   ],
   "_comment_kinAdjudicated": "Kin sentences a human has read and deliberately did NOT make an edge, each with the verbatim sentence and the reason. Two different reasons live here and the notes say which, because collapsing them would be dishonest: a sentence that only LOOKS like a family tie (\"a son of Peshawar\", \"the father of the Punjabi kafi\" — idiom and metaphor, and the corpus is full of both because it writes about poets), and a tie the corpus really does state that this archive deliberately does not model. The list exists so `scripts/data/scan-kin-statements.mjs` can mark a sentence read-and-ruled-out instead of offering it forever: without it every adjudication pass re-reads every rejection the last one made. Quotes are checked against the corpus by verify-kg-proposals.mjs, exactly as an edge's quote is — a drifted quote silently stops matching and the sentence returns to the unread pile.",
@@ -1401,15 +1439,7 @@
       "source": "data/shrines.csv#shrine-of-mian-mir",
       "notes": "Same decision as the Aurangzeb row, and the same sentence carries a real lineage tie that IS modelled: Jahanara disciple_of Mullah Shah Badakhshi. Her father is named only to place her."
     },
-    {
-      "subjectName": "Sahibzada Muhammad Hassan Haseeb-ur-Rehman",
-      "objectName": "(his father, not identifiable here)",
-      "kind": "ambiguous antecedent",
-      "quote": "He is assisted in the work of the shrine and its teaching mission by his son, *Sahibzada Muhammad Hassan Haseeb-ur-Rehman*, so that the lineage now spans four generations of a single family.",
-      "source": "data/shrines.csv#eidgah-sharif",
-      "notes": "A real tie the entry states and this archive cannot pin. Who \"He\" is decides it, and the sentence's own arithmetic rules out the obvious reading: if He were Hazrat Hafiz Muhammad Abdur Rahman — the son named in the previous sentence — the lineage would span three generations, not the four it claims. So the subject is a custodian the entry does not name here. Build it only when a source names him."
-    },
-    {
+        {
       "subjectName": "(an unnamed grandson)",
       "objectName": "Hazrat Shah Ali Akbar Shamsi",
       "kind": "unnamed",
@@ -1417,15 +1447,7 @@
       "source": "data/shrines.csv#shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi",
       "notes": "A grandson who built the mausoleum and is buried in it, and the corpus never names him. The same sentence DOES name a real tie — \"the builders Ibrahim and Rajab, sons of the noted architect Musa Lahori\" — and that is deliberately not built either: three new figures for a construction credit is not what this layer is for. Reconsider if the archive ever takes builders as figures; Ustad Nuriya is already in the dictionary, so the question is open rather than settled."
     },
-    {
-      "subjectName": "Kharak Singh",
-      "objectName": "Maharani Datar Kaur",
-      "kind": "real, inferred rather than stated",
-      "quote": "at the request of his wife Maharani Datar Kaur, during the celebrations that attended the birth of their son Kharak Singh in 1801",
-      "source": "data/shrines.csv#gurdwara-guru-ram-das-ji",
-      "notes": "\"Their son\" makes her his mother by joining two other claims — she is Ranjit Singh's wife, Kharak Singh is Ranjit Singh's son — rather than by stating it. Every `mother` edge in this seed names a mother outright. Both of the claims it joins ARE edges here, so a reader still sees the whole family; the archive just does not assert the third as though the corpus had."
-    },
-    {
+        {
       "subjectName": "Jahan Ara Begum",
       "objectName": "Emperor Shah Jahan",
       "kind": "real, deliberately not modelled",

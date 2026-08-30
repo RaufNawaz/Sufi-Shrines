@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T14:08:28.723Z",
+  "generated": "2026-08-30T14:35:57.090Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -566,7 +566,7 @@
       "kind": "successor_of",
       "subject": "Hazrat Hafiz Muhammad Abdur Rahman",
       "subjectSlug": "hazrat-hafiz-muhammad-abdur-rahman",
-      "object": "Pir Abdul-ul-karim",
+      "object": "Hazrat Hafiz Muhammad Abdul Karim",
       "quote": "Upon Baba Ji's death the spiritual seat passed to his son, *Hazrat Hafiz Muhammad Abdur Rahman*",
       "source": "data/shrines.csv#eidgah-sharif",
       "evidence": "27c7176d"
@@ -822,6 +822,56 @@
       "evidence": "346decd4"
     },
     {
+      "id": "successor_of:saint:pir-muhammad-naqib-ur-rahman:saint:hazrat-hafiz-muhammad-abdur-rahman",
+      "kind": "successor_of",
+      "subject": "Pir Muhammad Naqib-ur-Rahman",
+      "subjectSlug": "pir-muhammad-naqib-ur-rahman",
+      "object": "Hazrat Hafiz Muhammad Abdur Rahman",
+      "quote": "From him the custodianship descended to the present head of the *darbar*, *Pir Muhammad Naqib-ur-Rahman*",
+      "source": "data/shrines.csv#eidgah-sharif",
+      "evidence": "f44cc671"
+    },
+    {
+      "id": "disciple_of:saint:hazrat-tahir-bandagi-qadri:saint:mujaddid-alf-sani",
+      "kind": "disciple_of",
+      "subject": "Hazrat Tahir Bandagi Qadri",
+      "subjectSlug": "hazrat-tahir-bandagi-qadri",
+      "object": "Hazrat Mujaddid Alf Sani",
+      "quote": "formally became Mujaddid Alf Sani's disciple as well -- later teaching Mujaddid Alf Sani's own children",
+      "source": "data/shrines.csv#darbar-hazrat-tahir-bandagi-qadri",
+      "evidence": "4d841703"
+    },
+    {
+      "id": "disciple_of:saint:sakhi-shah-raza:saint:syed-sakhi-shah-chan-charagh",
+      "kind": "disciple_of",
+      "subject": "Sakhi Shah Raza",
+      "subjectSlug": "sakhi-shah-raza",
+      "object": "Syed Sakhi Shah Chan Charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "evidence": "740161f6"
+    },
+    {
+      "id": "disciple_of:saint:qamar-ali-shah:saint:syed-sakhi-shah-chan-charagh",
+      "kind": "disciple_of",
+      "subject": "Qamar Ali Shah",
+      "subjectSlug": "qamar-ali-shah",
+      "object": "Syed Sakhi Shah Chan Charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "evidence": "740161f6"
+    },
+    {
+      "id": "disciple_of:saint:sakhi-shah-sharaf:saint:syed-sakhi-shah-chan-charagh",
+      "kind": "disciple_of",
+      "subject": "Sakhi Shah Sharaf",
+      "subjectSlug": "sakhi-shah-sharaf",
+      "object": "Syed Sakhi Shah Chan Charagh",
+      "quote": "The saint's spiritual legacy is said to have been carried forward by a circle of disciples, among whom tradition names Sakhi Shah Raza, Qamar Ali Shah, and Sakhi Shah Sharaf",
+      "source": "data/shrines.csv#darbar-sakhi-shah-chan-charagh",
+      "evidence": "740161f6"
+    },
+    {
       "id": "belongs_to_order:saint:pir-syed-muhammad-channan-shah-nuri:order:naqshbandiyya",
       "kind": "belongs_to_order",
       "subject": "Pir Syed Muhammad Channan Shah Nuri",
@@ -960,7 +1010,7 @@
     {
       "id": "belongs_to_order:saint:pir-abdul-ul-karim:order:chishtiyya",
       "kind": "belongs_to_order",
-      "subject": "Pir Abdul-ul-karim",
+      "subject": "Hazrat Hafiz Muhammad Abdul Karim",
       "subjectSlug": "pir-abdul-ul-karim",
       "object": "Chishtiyya",
       "quote": "He is counted within the Chishti order, the *silsila* most closely identified with Punjabi and Indian Sufism",

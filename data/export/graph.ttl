@@ -200,6 +200,7 @@ saint:hazrat-tahir-bandagi-qadri
   schema:deathDate "8 Muharram 1040 AH / 8 August 1630 CE" ;
   schema:memberOf order_:qadiriyya ;
   sufi:discipleOf saint:hazrat-shah-sikandar ;
+  sufi:discipleOf saint:mujaddid-alf-sani ;
   .
 
 saint:malik-ahmad-ayaz
@@ -303,7 +304,8 @@ saint:data-ganj-bakhsh
 
 saint:pir-abdul-ul-karim
   a schema:Person ;
-  schema:name "Pir Abdul-ul-karim"@en ;
+  schema:name "Hazrat Hafiz Muhammad Abdul Karim"@en ;
+  schema:alternateName "Pir Abdul-ul-karim"@en ;
   schema:memberOf order_:chishtiyya ;
   .
 
@@ -1517,7 +1519,7 @@ saint:hazrat-hafiz-muhammad-abdur-rahman
   a schema:Person ;
   schema:name "Hazrat Hafiz Muhammad Abdur Rahman"@en ;
   sufi:successorOf saint:pir-abdul-ul-karim ;
-  schema:parent saint:hazrat-hafiz-muhammad-abdul-karim ;
+  schema:parent saint:pir-abdul-ul-karim ;
   .
 
 saint:khwaja-nizamuddin-aulia-of-kahiyan-sharif
@@ -1626,6 +1628,35 @@ saint:guru-angad
   sufi:successorOf saint:guru-nanak ;
   .
 
+saint:pir-muhammad-naqib-ur-rahman
+  a schema:Person ;
+  schema:name "Pir Muhammad Naqib-ur-Rahman"@en ;
+  sufi:successorOf saint:hazrat-hafiz-muhammad-abdur-rahman ;
+  .
+
+saint:mujaddid-alf-sani
+  a schema:Person ;
+  schema:name "Hazrat Mujaddid Alf Sani"@en ;
+  .
+
+saint:sakhi-shah-raza
+  a schema:Person ;
+  schema:name "Sakhi Shah Raza"@en ;
+  sufi:discipleOf saint:syed-sakhi-shah-chan-charagh ;
+  .
+
+saint:qamar-ali-shah
+  a schema:Person ;
+  schema:name "Qamar Ali Shah"@en ;
+  sufi:discipleOf saint:syed-sakhi-shah-chan-charagh ;
+  .
+
+saint:sakhi-shah-sharaf
+  a schema:Person ;
+  schema:name "Sakhi Shah Sharaf"@en ;
+  sufi:discipleOf saint:syed-sakhi-shah-chan-charagh ;
+  .
+
 saint:syed-nasiruddin-mahmud
   a schema:Person ;
   schema:name "Syed Nasiruddin Mahmud"@en ;
@@ -1659,11 +1690,6 @@ saint:sri-chand
   schema:parent saint:guru-nanak ;
   .
 
-saint:hazrat-hafiz-muhammad-abdul-karim
-  a schema:Person ;
-  schema:name "Hazrat Hafiz Muhammad Abdul Karim"@en ;
-  .
-
 saint:jamal-ud-din-gilani
   a schema:Person ;
   schema:name "Jamal-ud-Din Gilani"@en ;
@@ -1672,12 +1698,6 @@ saint:jamal-ud-din-gilani
 saint:pratab-rai
   a schema:Person ;
   schema:name "Pratab Rai"@en ;
-  .
-
-saint:kharak-singh
-  a schema:Person ;
-  schema:name "Kharak Singh"@en ;
-  schema:parent saint:maharaja-ranjit-singh ;
   .
 
 saint:duleep-singh
@@ -1813,6 +1833,19 @@ saint:maharani-datar-kaur
   a schema:Person ;
   schema:name "Maharani Datar Kaur"@en ;
   schema:spouse saint:maharaja-ranjit-singh ;
+  .
+
+saint:sahibzada-muhammad-hassan-haseeb-ur-rehman
+  a schema:Person ;
+  schema:name "Sahibzada Muhammad Hassan Haseeb-ur-Rehman"@en ;
+  schema:parent saint:pir-muhammad-naqib-ur-rahman ;
+  .
+
+saint:kharak-singh
+  a schema:Person ;
+  schema:name "Kharak Singh"@en ;
+  schema:parent saint:maharani-datar-kaur ;
+  schema:parent saint:maharaja-ranjit-singh ;
   .
 
 # ── Places ────────────────────────────────────────────────────────────────
@@ -3072,7 +3105,7 @@ event_:urs-data-darbar
 
 event_:urs-eidgah-sharif
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Pir Abdul-ul-karim at Eidgah Sharif"@en ;
+  schema:name "Urs of Hazrat Hafiz Muhammad Abdul Karim at Eidgah Sharif"@en ;
   schema:location shrine:eidgah-sharif ;
   schema:about saint:pir-abdul-ul-karim ;
   schema:eventSchedule [

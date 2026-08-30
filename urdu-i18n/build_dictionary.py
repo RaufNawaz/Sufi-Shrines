@@ -1019,6 +1019,15 @@ SAINTS = {
  "Bibi Tar Kaur": "بی بی تار کور",
  "Syedna Bibi Fatima Sani": "سیدنا بی بی فاطمہ ثانی",
  "Maharani Datar Kaur": "مہارانی داتار کور",
+ # Third batch: the Eidgah Sharif custodial line's living generations, a second
+ # master for Tahir Bandagi, and the three disciples the Sakhi Shah Chan Charagh
+ # entry names by tradition.
+ "Pir Muhammad Naqib-ur-Rahman": "پیر محمد نقیب الرحمٰن",
+ "Sahibzada Muhammad Hassan Haseeb-ur-Rehman": "صاحبزادہ محمد حسن حسیب الرحمٰن",
+ "Hazrat Mujaddid Alf Sani": "حضرت مجدد الف ثانی",
+ "Sakhi Shah Raza": "سخی شاہ رضا",
+ "Qamar Ali Shah": "قمر علی شاہ",
+ "Sakhi Shah Sharaf": "سخی شاہ شرف",
 }
 
 # ─────────────────────────────────────────────────────────────────────────────

@@ -4679,6 +4679,62 @@ both redirects.
     whether this page needs it** — and every one of these passed every gate, because a budget
     measures the total and never asks what the total is for.
 
+168. **The founder of Eidgah Sharif was two figures, and no identity check could have seen it.**
+    *Found and merged 30 August 2026, while reading the lineage scan's pile.* The sheet's figure
+    cell says **"Pir Abdul-ul-karim"**. The entry's own prose says *"The founder of Eidgah Sharif is
+    remembered as **Hazrat Hafiz Muhammad Abdul Karim**, affectionately styled 'Baba Ji'"*. The
+    kinship seed named him as the prose does, matched nothing, and minted him a second node — so
+    **one sentence produced two edges about two people**:
+
+    > Upon Baba Ji's death the spiritual seat passed to his son, *Hazrat Hafiz Muhammad Abdur Rahman*
+
+    …became `abdur-rahman successor_of pir-abdul-ul-karim` **and**
+    `abdur-rahman kin_of hazrat-hafiz-muhammad-abdul-karim`. The shrine, the Chishti order and the
+    urs hung off one node; the son hung off the other, whose page told a reader Baba Ji has no site
+    in an archive that holds it — §9.156's defect in miniature, self-inflicted.
+
+    **`validate-kg-identity` reported zero name collisions the whole time, and was right to.** The
+    two names are not textually similar. An identity check on *strings* cannot see this; only
+    reading the sentence can. Worth remembering the next time the figure count moves **down**.
+
+    Fixed with the mechanism that already existed for it: `saintDisplayNames` retitles the node to
+    the prose name and pushes the sheet's form into `altNames`, which also makes the node answer to
+    both in the identity index — so the seed joins instead of minting. The published slug is
+    unchanged, so no URL retires, and the sheet's value stays a join key (RULE 3).
+
+    **The merge broke a `saintDoNotMerge` row, and that check then lied about how.** The row
+    forbidding `hazrat-hafiz-muhammad-abdul-karim` from joining `shah-abdul-karim-bulri` — two
+    Abdul Karims three centuries and a province apart — named the slug that had just been retired.
+    It reported that accurately, and then fired **`FORBIDDEN MERGE HAS HAPPENED — all of these are
+    now one node`** for a merge that had not happened: `ids` was built from the surviving slugs
+    only, so a pair with one slug retired collapses to a single id. Two contradictory failures for
+    one cause, the second of them false and the loudest in the file. Guarded on
+    `missing.length === 0`; the row now names the surviving slug, because a do-not-merge pointing
+    at a retired slug guards nothing.
+
+    **Two rejections from earlier the same day were reversed, and the reversals are recorded rather
+    than quietly made**, because both were the same error — refusing a fact the corpus states in a
+    construction that refers back to people it has just named:
+
+    - **Kharak Singh's mother.** "at the request of his wife Maharani Datar Kaur … the birth of
+      **their son** Kharak Singh" was ruled out as establishing maternity by joining two claims. It
+      does not join anything: "their son Kharak Singh" is the corpus naming both parents of a named
+      child, in one clause, about two people it has just named.
+    - **Eidgah Sharif's fourth generation.** Ruled out because "He is assisted … by **his son**,
+      Sahibzada Muhammad Hassan Haseeb-ur-Rehman" had an unpinnable antecedent — and the entry's
+      arithmetic was quoted as the reason. Reading the whole passage settles it: four custodians are
+      named in order, the entry closes "so that the lineage now spans four generations", and the
+      arithmetic that seemed to forbid the reading is what fixes it. **The ambiguity was a failure
+      to read the passage, not a property of it.**
+
+    **And a self-inflicted near-miss worth one line.** Removing the second of those rejections by
+    string-matching `"subjectName": "Kharak Singh"` deleted the wrong object: that string occurs in
+    `familyRelations` *before* it occurs in `kinAdjudicated`, so the edit silently removed the
+    Kharak Singh → Ranjit Singh **edge**. Caught by counting the array afterwards and finding 62
+    where 63 was expected. **A count that is checked after every write is what turns a silent
+    deletion into a two-minute fix** — and an index-match into a JSON file must be scoped to the
+    array it means, which the repair now does.
+
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
     reasoning was sound, and the fix was still wrong — and because the next person will have the
