@@ -48,6 +48,20 @@
   white-space: nowrap;
 }
 
+/* The final century's label, flush with the end of the axis. Anchored like the
+   others it starts at 100% and its digits run past the edge — 22px at 390px,
+   which pushes the document 6px wide and makes the page rock. The axis ends
+   where that century ends, so flush is also what the span above already says.
+   Mirrors `.order-timeline-tick--end`. */
+.chronology-tick--end {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+  /* No leading gap: the border-inline-start that separates the other ticks
+     would sit inside the axis rather than on a gridline. */
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
 .chronology-band {
   margin-block-end: 1.25rem;
 }

@@ -53,6 +53,20 @@ const ROUTES = [
   { name: 'almanac', path: '/almanac', ready: 'h1' },
   { name: 'graph', path: '/graph', ready: 'h1.entity-title' },
   { name: 'about', path: '/about', ready: 'h1.entity-title' },
+  /* Added 30 August 2026, after `/chronology` was found rocking the document
+     6px sideways at 390px — its final century label was anchored to its own
+     gridline at 100%, so the digits ran off the axis. `OrderPage`'s timeline
+     had already hit and fixed exactly that; the chronology scale never got the
+     treatment, and the route was not in this list to catch it.
+   
+     The four routes below are every content route added since this matrix was
+     written. A route that ships without a line here is a route nobody is
+     checking, which is how a horizontal scroll survives on the one form factor
+     most of this archive's readers use. */
+  { name: 'chronology', path: '/chronology', ready: 'h1.entity-title' },
+  { name: 'typology', path: '/typology', ready: 'h1.entity-title' },
+  { name: 'shared-ground', path: '/shared-ground', ready: 'h1.entity-title' },
+  { name: 'tradition', path: '/tradition/nanakpanthi', ready: 'h1.entity-title' },
 ] as const;
 
 /**

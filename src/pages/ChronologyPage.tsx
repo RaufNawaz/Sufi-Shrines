@@ -43,11 +43,24 @@ function Scale({ from, to }: { from: number; to: number }) {
 
   return (
     <div className="chronology-scale" aria-hidden="true">
-      {ticks.map((year) => (
+      {ticks.map((year, i) => (
         <span
           key={year}
-          className="chronology-tick"
-          style={{ insetInlineStart: `${((year - from) / span) * 100}%` }}
+          /* The last label is anchored to the end of the axis rather than to its
+             own gridline — the same fix `order-timeline-tick--end` carries, for
+             the same reason. A tick at 100% *starts* at the right edge and its
+             text runs off it: measured at 390px, the scale overflowed its box by
+             22px and rocked the whole document 6px sideways. Invisible at 768px
+             and up, which is why it survived, and `/chronology` was not in
+             `no-overflow.spec.ts`'s route list until now. */
+          className={
+            i === ticks.length - 1 ? 'chronology-tick chronology-tick--end' : 'chronology-tick'
+          }
+          style={
+            i === ticks.length - 1
+              ? undefined
+              : { insetInlineStart: `${((year - from) / span) * 100}%` }
+          }
         >
           {fmtNum(year)}
         </span>
