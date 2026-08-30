@@ -4272,6 +4272,48 @@ both redirects.
     Everything needed is above: the quotes are verbatim from `data/shrines.json` and the picks
     go in `scripts/data/build-kg.mjs`'s `familyRelations` seed the same way the first 28 did.
 
+141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
+    *Attempted and reverted 30 August 2026.* Written down because the defect is real, the
+    reasoning was sound, and the fix was still wrong — and because the next person will have the
+    same idea.
+
+    **The defect.** Every photograph in the archive goes through `ShrineImage`, which has an
+    `onError` and falls back to the tradition's glyph. A map marker cannot: Leaflet's `divIcon`
+    takes an HTML string, the photograph is a `background-image`, and **a CSS background that
+    404s fires no event at all**. The marker keeps its 30px photo size and paints the flat
+    category colour — a large blank disc among photographs, where a 14px dot is what a site
+    without a picture correctly gets. One of the three known-dead URLs loads on the front door.
+
+    The general case is what made it look worth doing: **242 of the sheet's image URLs are on
+    hosts this project does not control**, and an archive built to outlive its author will lose
+    more of them.
+
+    **The fix, and why it is not in the tree.** Probe each photo URL with `new Image()` and
+    demote the marker on error. Measured A/B against the same build: **118 photo markers without
+    the probe, 113 with it** — while the network log recorded **exactly one** failed image
+    request, the known 403. So it demoted four markers whose photographs are alive, to correct
+    one that is dead. A retry 1.5s apart, added for Wikimedia's burst rate-limiting, changed
+    nothing, so they are failing persistently rather than being throttled.
+
+    **I could not explain the four**, and three attempts to identify them contradicted each
+    other: a listing by marker `alt` against the index found *zero* mismatches, while the class
+    count kept saying five. Somewhere in that gap is the real mechanism. Reverting an
+    unexplained net-negative beat shipping it and beat spending the night on it, and this
+    project has a §-numbered entry for the alternative (§9.139, where two explanations were
+    disproved and the fix was correctly not shipped).
+
+    **What is worth keeping for whoever tries again:**
+
+    - The A/B is the measurement that matters. Counting demotions *within* a page's life is
+      unreliable — the probes resolve before an early snapshot can see them, which is what made
+      two of my three instruments disagree.
+    - Only one image genuinely 4xxs. Any approach demoting more than one marker is wrong,
+      and that is a cheap check to run first.
+    - A `<link rel="preload" as="image">` with an `onerror`, or moving the marker's photograph
+      into an `<img>` inside the `divIcon` so it can use the same `ShrineImage` path as
+      everything else, both avoid probing a URL twice. The second is the structurally honest
+      fix and is a real change to `ShrineMarkers`.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its
