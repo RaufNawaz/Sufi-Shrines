@@ -19,6 +19,7 @@ import { recordTourStop, recordTourCompleted } from '../lib/tours/tourProgress';
 // about what counts as "on".
 import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
 import { parseSharedList, importSharedList } from '../lib/sharedList';
+import { buildSharedGroundOverview } from '../lib/data/sharedGround';
 
 /** Drop the one-shot ?list= param after the reader acts on the banner. */
 function clearListParam(): void {
@@ -77,6 +78,30 @@ function setTourParams(tourId: string | null, stopIdx: number, push: boolean): v
 /** `?embed=1` renders the tour with minimal chrome, suitable for an iframe. */
 function isEmbedMode(): boolean {
   return new URLSearchParams(window.location.search).get('embed') === '1';
+}
+
+/**
+ * `?lens=shared-ground` opens the map with the shared-ground lens on.
+ *
+ * A param rather than a stored preference, and deliberately: the lens answers
+ * one question, and a reader who arrives at the map tomorrow expecting their
+ * archive should not find two thirds of it greyed out because they turned
+ * something on last week. It is in the URL so `/shared-ground` can hand the
+ * reader straight to it, and so that view is linkable — which is the whole
+ * reason the tour and the filters are in the URL too.
+ */
+const SHARED_GROUND_LENS = 'shared-ground';
+
+function getLensFromURL(): boolean {
+  return new URLSearchParams(window.location.search).get('lens') === SHARED_GROUND_LENS;
+}
+
+function setLensInURL(on: boolean): void {
+  const p = new URLSearchParams(window.location.search);
+  if (on) p.set('lens', SHARED_GROUND_LENS);
+  else p.delete('lens');
+  const qs = p.toString();
+  window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
 }
 
 interface FilterState {
@@ -151,6 +176,7 @@ export default function MapPage() {
   const [sharedSlugs, setSharedSlugs] = useState<string[]>(() =>
     parseSharedList(window.location.search),
   );
+  const [sharedGroundLens, setSharedGroundLens] = useState(getLensFromURL);
   const [toursEnabled, setToursEnabled] = useState(readToursEnabled);
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourStopIdx, setTourStopIdx] = useState(0);
@@ -165,6 +191,22 @@ export default function MapPage() {
   useEffect(() => {
     setFiltersInURL(filters);
   }, [filters]);
+
+  // Same treatment as the filters: replaceState, so toggling a lens on and off
+  // does not fill the reader's back button with map states.
+  useEffect(() => {
+    setLensInURL(sharedGroundLens);
+  }, [sharedGroundLens]);
+
+  /* One sweep, two consumers: the map draws these and the sidebar counts them.
+     Gated on the lens because it is ~0.6 ms per load on a laptop and the map is
+     the front door — the route whose TBT this project spent a session taking
+     from 1,386 ms to ~87 ms. Empty array when off, which is also how ShrineMap
+     knows the lens is not running. */
+  const crossTradition = useMemo(
+    () => (sharedGroundLens ? buildSharedGroundOverview(shrines).crossTradition : []),
+    [sharedGroundLens, shrines],
+  );
 
   // Restore `?tour=<id>&stop=<n>` or `?selected=<slug>` once shrine data has
   // loaded (runs once). A tour deep link takes precedence over `?selected=`.
@@ -466,6 +508,9 @@ export default function MapPage() {
       )}
 
       <MapSidebar
+        sharedGroundLens={sharedGroundLens}
+        onSharedGroundLensChange={setSharedGroundLens}
+        crossingCount={crossTradition.length}
         shrines={shrines}
         selectedId={selectedId}
         loading={loading}
@@ -514,6 +559,7 @@ export default function MapPage() {
           isRTL={isRTL}
           activeTour={activeTour}
           activeTourStop={tourStopIdx}
+          crossTradition={crossTradition}
         />
       </main>
 

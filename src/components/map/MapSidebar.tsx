@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
@@ -44,6 +45,19 @@ interface Props {
   onRetry: () => void;
   isOpen: boolean;
   onToggle?: () => void;
+  /**
+   * The shared-ground lens — a *lens*, not a filter, and the distinction is the
+   * reason it sits above the filter chips with its own heading rather than
+   * among them. A filter removes sites; this one removes nothing and changes
+   * what is emphasised. Putting it in `ShrineFilters` would have been less code
+   * and would have taught the reader the wrong thing about what it does — and
+   * would have buried it behind the command palette's filters button too.
+   */
+  sharedGroundLens: boolean;
+  onSharedGroundLensChange: (on: boolean) => void;
+  /** Cross-tradition pairs currently drawn. Zero while the lens is off, because
+   *  MapPage does not sweep for a layer nobody asked for. */
+  crossingCount: number;
   /** Additive category selection (CategoryKey values); empty = all shown. */
   activeCategories: CategoryKey[];
   onCategoriesChange: (categories: CategoryKey[]) => void;
@@ -83,6 +97,9 @@ export function MapSidebar({
   onRetry,
   isOpen,
   onToggle,
+  sharedGroundLens,
+  onSharedGroundLensChange,
+  crossingCount,
   activeCategories,
   onCategoriesChange,
   verifiedOnly,
@@ -724,6 +741,54 @@ export function MapSidebar({
       ) : (
         /* Detail view */
         <div className="sidebar-detail">
+          {/* The shared-ground lens.
+              Here rather than beside the filter chips, and the placement is the
+              second attempt: the chips live inside the sidebar's *list* view,
+              which is opt-in behind a button and closed by default, so the lens
+              rendered nowhere a reader would find it. Verified by looking —
+              `.filter-section` count was 0 on a fresh load.
+
+              This is the sidebar's default state, and it is above the tour list
+              for the same reason it is not in `ShrineFilters`: it is a way of
+              seeing the whole archive at once, which is what the reader is
+              looking at when they land here. It stays mounted while a shrine is
+              selected only if nothing else claims the panel — see below. */}
+          {!activeTour && (
+            <div className="lens-section">
+              <button
+                type="button"
+                className={`lens-toggle${sharedGroundLens ? ' active' : ''}`}
+                onClick={() => onSharedGroundLensChange(!sharedGroundLens)}
+                aria-pressed={sharedGroundLens}
+              >
+                <span className="lens-toggle-label">{t('sharedGroundHeading')}</span>
+                {/* The count appears only once the lens is on, because until
+                    then nothing has counted: the sweep is gated in MapPage. A
+                    placeholder would be a number the archive has not computed. */}
+                {sharedGroundLens && (
+                  <span className="lens-toggle-count">{fmtNum(crossingCount)}</span>
+                )}
+              </button>
+              {sharedGroundLens && (
+                /* Said plainly, because it is a real limit rather than a hint:
+                   at the zoom that shows Pakistan every one of these lines is
+                   under a pixel long. What the reader can read from here is
+                   which pins stay lit. */
+                <p className="lens-note">{t('sharedGroundLensNote')}</p>
+              )}
+              {/* Only while the lens is on, and for two reasons: the welcome
+                  card below already lists this page among the archive's
+                  destinations, so with the lens off this was the same link
+                  twice in one panel — and with it on, "40" is exactly the
+                  moment a reader wants to see which forty. */}
+              {sharedGroundLens && (
+                <p className="lens-link">
+                  <Link to="/shared-ground">{t('sharedGroundFromShrine')}</Link>
+                </p>
+              )}
+            </div>
+          )}
+
           {activeTour ? (
             <TourPanel
               tour={activeTour}

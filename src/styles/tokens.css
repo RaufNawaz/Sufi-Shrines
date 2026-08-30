@@ -139,7 +139,11 @@
   --color-tour-marker-text: var(--color-accent);
   --color-tour-marker-active-bg: var(--color-accent);
   --color-tour-marker-active-text: var(--color-text-inverse);
-  --opacity-tour-dim: 0.35;
+  /* How far a map marker recedes when something else on the map is the
+     subject. Named for the effect rather than the feature since 29 Aug 2026:
+     it was `--opacity-tour-dim` while a tour was the only thing that dimmed a
+     marker, and the shared-ground lens is the second. */
+  --opacity-map-dim: 0.35;
 
   /* Category colors — used for markers, chips and legends ONLY. None of
      these may be aliased into the chrome tokens above. */

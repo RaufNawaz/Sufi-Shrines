@@ -6,8 +6,12 @@
    keyframes used by the active stop marker are defined in map.css. */
 
 /* Non-tour shrines recede while a guided tour is active */
+/* Two callers now: a running tour dims every non-stop, and the shared-ground
+   lens dims every site that stands beside no other tradition. The rule stays
+   here rather than moving to map.css because tours.css already loads on the map
+   route and splitting it would mean the same declaration in two sheets. */
 .shrine-dot--dimmed {
-  opacity: var(--opacity-tour-dim);
+  opacity: var(--opacity-map-dim);
 }
 
 /* Guided tour route line + numbered stop markers */

@@ -3648,6 +3648,58 @@ both redirects.
     being wrong, not the data. Check what the repo already writes down before checking the data
     against what you think it says.
 
+131. **The map lens: the answer to "how do you draw an 800 m relation on a map of Pakistan" was
+    not to draw it.** *Built 29 August 2026, hours after §9.130 recorded it as a design
+    question.* Every cross-tradition pair is under 800 m, which at national zoom is under one
+    pixel, so a polyline layer on its own shows nothing. The guess written into the vision doc
+    that morning was "a halo at a locality, resolving into lines as you approach" — and a halo
+    over a locality **is a group**, the one construct that document exists to forbid.
+
+    What works needs no new geometry: **the lens dims.** 42 sites keep full opacity, 127
+    recede, and a marker has a minimum size at every zoom where a line does not. The lines are
+    still drawn and are what the walled city resolves into as you approach — the reward for
+    zooming rather than the thing carrying the lens. Worth generalising: *when a relation is
+    too small to draw, draw its endpoints differently.*
+
+    **Four things that had to be right, and are asserted in `e2e/shared-ground.spec.ts`:**
+
+    - **`links + rings === 40`.** Two of the forty pairs share a recorded pin, so their
+      polyline has zero length and would silently not exist — and those two are the documented
+      approximations, the pairs that must least of all disappear. They get a dashed ring, which
+      is visibly *not* a line, so the lens never draws a distance the archive did not measure.
+    - **`total - dimmed === 42`.** A marker missing from the lit set is the archive telling a
+      reader that a site stands beside no other tradition. That is a claim, so it is tested.
+    - **The lens stands down while a tour runs.** A tour already dims every non-stop and draws
+      its own route; two systems competing for the map's emphasis is one too many.
+    - **The count appears only once the lens is on**, because the 169×169 sweep is gated on it
+      — showing a placeholder would be a number the archive has not computed.
+
+    **Two things found by looking rather than by testing.** The first version put the toggle
+    beside the category chips in `ShrineFilters`, which is wrong twice over: a lens is not a
+    filter (it removes nothing), and — measured, not guessed — those chips live inside the
+    sidebar's **list view, which is opt-in and closed by default**, so `.filter-section` count
+    on a fresh load was **0** and the control rendered nowhere a reader would find it. It now
+    sits in the sidebar's default panel. The second: with the lens off, the panel linked to
+    `/shared-ground` twice — once from the lens block and once from the welcome card — so that
+    link now appears only while the lens is on, which is also the moment "40" makes a reader
+    want to see which forty.
+
+    **A token renamed on the way past.** `--opacity-tour-dim` had one caller and now has two, so
+    it is `--opacity-map-dim`: named for the effect rather than for whichever feature happened
+    to need it first. Same reason `ShrineMarkers` gained a per-marker `isDimmed()` instead of
+    the layer-wide boolean it had — a tour dims everything that is not a stop, a lens dims
+    everything it does not light, and both reasons now compose through one function rather than
+    two flags that could disagree about a marker.
+
+    **Cost:** MapPage 585 → 589 KB against a 600 KB budget. The sweep is ~0.6 ms over 169 rows
+    on a laptop, computed once in `MapPage` and shared by the map and the sidebar's count, and
+    gated on the lens so the front door — the route whose TBT went from 1,386 ms to ~87 ms —
+    does not pay for a layer nobody asked for.
+
+    **Track A of `docs/planning/SHARED_GROUND_VISION.md` is now actually complete**: the shrine
+    section (21 Aug), `/shared-ground` (§9.130) and the lens. It was marked SHIPPED with two of
+    its three experiences unbuilt for eight days.
+
 ### Added 26 August 2026 — the weekly sync's baseline is a dead lineage, and three enrichments are orphaned in it
 
 The scheduled responses-sync task still describes the master sheet as 25 columns and says its

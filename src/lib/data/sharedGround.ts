@@ -308,3 +308,21 @@ export function buildSharedGroundOverview(
     radiusM,
   };
 }
+
+/**
+ * The sites taking part in at least one cross-tradition pair.
+ *
+ * Ids, not slugs, because the map keys its markers by id and a lens that has to
+ * translate between the two on every render is a lens that will eventually
+ * translate one of them wrong.
+ */
+export function crossTraditionParticipants(
+  pairs: readonly CrossTraditionAdjacency[],
+): Set<number> {
+  const ids = new Set<number>();
+  for (const pair of pairs) {
+    ids.add(pair.a.id);
+    ids.add(pair.b.id);
+  }
+  return ids;
+}

@@ -241,8 +241,11 @@ export default function SharedGroundPage() {
                   <Crossing key={`${pair.a.id}-${pair.b.id}`} pair={pair} />
                 ))}
               </ul>
+              {/* Straight into the lens, not just the map: a reader who has
+                  read forty crossings should land on the view that draws them,
+                  and `?lens=` is in the URL precisely so this link can exist. */}
               <p className="sg-map-link">
-                <Link to="/">{t('sharedGroundToMap')}</Link>
+                <Link to="/?lens=shared-ground">{t('sharedGroundToMap')}</Link>
               </p>
             </section>
 

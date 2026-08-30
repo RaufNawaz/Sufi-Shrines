@@ -391,5 +391,6 @@ Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:
 - `docs/planning/SHARED_GROUND_VISION.md` — the current phase: 37% of sites stand within 800 m
   of another, and **40** of those pairings cross a tradition, over 42 sites, with all six
   traditions represented (*re-measured 29 August 2026; this line said "eight places" for nine
-  days, and the number is now computed on `/shared-ground` rather than quoted*). Tracks A and
-  B shipped; D in progress; the map lens is the one piece of A still unbuilt.
+  days, and the number is now computed on `/shared-ground` rather than quoted*). **Track A is
+  complete** as of 29 August 2026 — the shrine section, `/shared-ground`, and the map lens;
+  B shipped; D in progress.

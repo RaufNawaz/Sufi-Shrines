@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest';
 import {
   buildSharedGroundOverview,
   crossTraditionAdjacencies,
+  crossTraditionParticipants,
   findSharedGround,
   SAME_PIN_THRESHOLD_M,
   SHARED_GROUND_RADIUS_M,
@@ -341,5 +342,46 @@ describe('the overview against the shipped snapshot', () => {
       expect(meeting.nearestM).toBeGreaterThan(SAME_PIN_THRESHOLD_M);
     }
     expect(overview.meetings.some((m) => m.nearestSamePin)).toBe(true);
+  });
+});
+
+describe('crossTraditionParticipants', () => {
+  /*
+   * The set the map lens lights. Everything not in it dims, so an id missing
+   * here is a site the reader is told stands beside no other tradition — which
+   * is a claim, not a rendering detail.
+   */
+  it('collects both ends of every pair, without duplicates', () => {
+    const shrines = buildShrines([
+      row({ Name: 'Shrine', Category: 'Muslim Shrine', Latitude: '31.5000' }),
+      row({ Name: 'Gurdwara', Category: 'Sikh Gurdwara', Latitude: '31.5018' }),
+      row({ Name: 'Temple', Category: 'Hindu Temple', Latitude: '31.5036' }),
+    ]);
+    const ids = crossTraditionParticipants(crossTraditionAdjacencies(shrines));
+    // Three pairs over three sites — each site is in two pairs and appears once.
+    expect(ids.size).toBe(3);
+  });
+
+  it('leaves out a site whose only neighbours share its tradition', () => {
+    const shrines = buildShrines([
+      row({ Name: 'Shrine', Category: 'Muslim Shrine', Latitude: '31.5000' }),
+      row({ Name: 'Another shrine', Category: 'Muslim Shrine', Latitude: '31.5018' }),
+      row({ Name: 'Far gurdwara', Category: 'Sikh Gurdwara', Latitude: '31.6000' }), // ~11 km
+    ]);
+    expect(crossTraditionParticipants(crossTraditionAdjacencies(shrines)).size).toBe(0);
+  });
+
+  it('lights 42 of the archive\'s sites and no more', async () => {
+    const snapshot = (await import('../../../data/shrines-fallback.json')).default as {
+      rows: ShrineRow[];
+    };
+    const shrines = buildShrines(snapshot.rows);
+    const overview = buildSharedGroundOverview(shrines);
+    const lit = crossTraditionParticipants(overview.crossTradition);
+    // The lens dims everything else, so this is also the count of dimmed
+    // markers the map should show: 169 - 42 = 127.
+    expect(lit.size).toBe(overview.crossTraditionSites);
+    expect(lit.size).toBeGreaterThanOrEqual(40);
+    expect(lit.size).toBeLessThan(shrines.length);
   });
 });

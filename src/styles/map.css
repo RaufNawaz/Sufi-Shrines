@@ -1865,3 +1865,114 @@
   display: flex;
   align-items: center;
 }
+
+/* ── The shared-ground lens ───────────────────────────────────────────────── */
+
+/*
+ * A lens, not a filter, and the sidebar has to say so before the reader clicks
+ * it. It sits above the filter chips, carries a heading rather than a chip
+ * shape, and removes nothing from the list beneath it.
+ *
+ * What it draws on the map is in `SharedGroundLayer.tsx`, and the one thing to
+ * know here is that every link it draws is under 800 m — sub-pixel at national
+ * zoom. The visible signal at that zoom is which markers keep full opacity, so
+ * the lines are styled to survive being short (round caps, a weight that reads
+ * as a mark when the length collapses) rather than to be the main event.
+ */
+/* Its own padding: it used to sit inside a `.filter-section`, which supplied
+   the inline gutter, and it does not any more. The detail panel's children set
+   their own. */
+.lens-section {
+  padding: var(--space-3) var(--space-4);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.lens-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  inline-size: 100%;
+  min-block-size: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: start;
+  cursor: pointer;
+}
+
+.lens-toggle:hover {
+  border-color: var(--color-primary);
+}
+
+/* Cobalt is interactive-only, and an engaged lens is the clearest case of it.
+   The foreground is the inverse token rather than a literal white: this ground
+   changes with the theme (styles/__tests__/themeFlippingGrounds.test.ts). */
+.lens-toggle.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.lens-toggle-label {
+  flex: 1 1 auto;
+}
+
+.lens-toggle-count {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-xs);
+  opacity: 0.85;
+}
+
+.lens-note {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.lens-link {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+}
+
+/* The link between two sites of different traditions. Deliberately not the
+   tour's dashed accent: a tour is a route someone walks in order, this is an
+   adjacency that has always been there. Solid, thin, and the same cobalt the
+   rest of the interface uses for "this is a relation the archive is drawing". */
+.shared-ground-link {
+  stroke: var(--color-primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-opacity: 0.75;
+  fill: none;
+}
+
+/* Two records at one recorded position. A ring, because a line of length zero
+   draws nothing and these two pairs are the documented approximations — the
+   ones that must not silently vanish. It is visibly not a line, so the lens
+   never renders a distance the archive did not measure. */
+.shared-ground-pin-ring {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  stroke-dasharray: 3 3;
+  stroke-opacity: 0.8;
+  fill: none;
+}
+
+[dir='rtl'] .lens-toggle,
+[dir='rtl'] .lens-note,
+[dir='rtl'] .lens-link {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+/* Nastaliq is unreadable at --text-xs; the two smallest here step up. */
+[dir='rtl'] .lens-note,
+[dir='rtl'] .lens-link,
+[dir='rtl'] .lens-toggle-count {
+  font-size: var(--text-sm);
+}

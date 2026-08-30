@@ -17,6 +17,17 @@ interface Props {
    * marker instead — and every other shrine is dimmed.
    */
   tourStopSlugs?: string[] | null;
+  /**
+   * Ids to keep lit while the shared-ground lens is on; everything else dims.
+   * Null when no lens is active.
+   *
+   * Dimming was a single boolean for the whole layer until this arrived, which
+   * is fine for a tour — where every non-stop is dimmed — and wrong for a lens,
+   * where the point is the *difference* between two sets of markers. The
+   * per-marker decision is `isDimmed()` below, and both callers go through it
+   * so the two reasons to dim can never disagree about a marker.
+   */
+  litIds?: ReadonlySet<number> | null;
 }
 
 /** Leaflet tooltip content is injected as HTML — escape sheet-sourced text. */
@@ -64,13 +75,27 @@ function buildDivIcon(
   });
 }
 
-export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = null }: Props) {
+export function ShrineMarkers({
+  shrines,
+  selectedId,
+  onSelect,
+  tourStopSlugs = null,
+  litIds = null,
+}: Props) {
   const map = useMap();
   const { lang } = useLang();
 
   const tourStopSlugSet = useMemo(
     () => (tourStopSlugs ? new Set(tourStopSlugs) : null),
     [tourStopSlugs],
+  );
+
+  /* One marker, two reasons it might be dimmed, and they compose: a tour dims
+     everything that is not a stop, a lens dims everything it does not light. A
+     marker dimmed by either stays dimmed. */
+  const isDimmed = React.useCallback(
+    (id: number) => tourStopSlugSet !== null || (litIds !== null && !litIds.has(id)),
+    [tourStopSlugSet, litIds],
   );
 
   // Stable refs so the selectedId effect never needs to rebuild all markers
@@ -103,7 +128,7 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const localName = localizeShrineName(shrine, lang);
 
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
-        icon: buildDivIcon(isSelected, shrine.category, tourStopSlugSet !== null, shrine.imageUrl),
+        icon: buildDivIcon(isSelected, shrine.category, isDimmed(shrine.id), shrine.imageUrl),
         title: localName,
         alt: localName,
         zIndexOffset: isSelected ? 1000 : 0,
@@ -159,19 +184,18 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       map.removeLayer(group);
       groupRef.current = null;
     };
-  }, [shrines, map, lang, tourStopSlugSet]); // selectedId intentionally excluded — handled separately below
+  }, [shrines, map, lang, tourStopSlugSet, isDimmed]); // selectedId intentionally excluded — handled separately below
 
   // Update only the two affected markers when selection changes
   React.useEffect(() => {
     const prevId = selectedIdRef.current;
     selectedIdRef.current = selectedId;
-    const dimmed = tourStopSlugSet !== null;
 
     if (prevId !== null) {
       const marker = markerMapRef.current.get(prevId);
       const shrine = shrines.find((s) => s.id === prevId);
       if (marker && shrine) {
-        marker.setIcon(buildDivIcon(false, shrine.category, dimmed, shrine.imageUrl));
+        marker.setIcon(buildDivIcon(false, shrine.category, isDimmed(prevId), shrine.imageUrl));
         marker.setZIndexOffset(0);
         marker.getElement()?.setAttribute('aria-pressed', 'false');
       }
@@ -181,12 +205,12 @@ export function ShrineMarkers({ shrines, selectedId, onSelect, tourStopSlugs = n
       const marker = markerMapRef.current.get(selectedId);
       const shrine = shrines.find((s) => s.id === selectedId);
       if (marker && shrine) {
-        marker.setIcon(buildDivIcon(true, shrine.category, dimmed, shrine.imageUrl));
+        marker.setIcon(buildDivIcon(true, shrine.category, isDimmed(selectedId), shrine.imageUrl));
         marker.setZIndexOffset(1000);
         marker.getElement()?.setAttribute('aria-pressed', 'true');
       }
     }
-  }, [selectedId, shrines, tourStopSlugSet]);
+  }, [selectedId, shrines, isDimmed]);
 
   return null;
 }

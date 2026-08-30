@@ -13,6 +13,11 @@ import type { Tour } from '../../lib/tours/tours';
 import { DEFAULT_CENTER, DEFAULT_ZOOM, SIDEBAR_WIDTH } from '../../lib/data/constants';
 import { ShrineMarkers } from './ShrineMarkers';
 import { TourRoute } from './TourRoute';
+import { SharedGroundLayer } from './SharedGroundLayer';
+import {
+  crossTraditionParticipants,
+  type CrossTraditionAdjacency,
+} from '../../lib/data/sharedGround';
 import { flyToOrSetView } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
@@ -121,6 +126,16 @@ interface Props {
   isRTL: boolean;
   activeTour: Tour | null;
   activeTourStop: number;
+  /**
+   * The cross-tradition pairs to draw, or an empty array when the lens is off.
+   *
+   * Passed in rather than computed here so the sidebar's count and the map's
+   * lines come from one sweep. It is ~0.6 ms over 169 rows on a laptop, which is
+   * nothing once and not nothing on a route whose TBT was fought from 1,386 ms
+   * to ~87 ms — so MapPage gates it on the lens and both consumers share the
+   * result.
+   */
+  crossTradition: CrossTraditionAdjacency[];
 }
 
 /** How many failed MapTiler tiles before giving up on it for the session.
@@ -401,6 +416,7 @@ export function ShrineMap({
   isRTL,
   activeTour,
   activeTourStop,
+  crossTradition,
 }: Props) {
   const { theme } = useTheme();
   const { lang, t } = useLang();
@@ -409,6 +425,15 @@ export function ShrineMap({
   const tourStopSlugs = useMemo(
     () => (activeTour ? activeTour.stops.map((s) => s.shrineSlug) : null),
     [activeTour],
+  );
+
+  /* A tour owns the map's emphasis while it runs, so the lens stands down
+     rather than dimming half the stops the tour is trying to show. */
+  const lensActive = crossTradition.length > 0 && !activeTour;
+
+  const litIds = useMemo(
+    () => (lensActive ? crossTraditionParticipants(crossTradition) : null),
+    [lensActive, crossTradition],
   );
 
   return (
@@ -523,7 +548,13 @@ export function ShrineMap({
         selectedId={selectedId}
         onSelect={onSelect}
         tourStopSlugs={tourStopSlugs}
+        litIds={litIds}
       />
+
+      {/* Under the markers in z-order by virtue of mounting after them? No —
+          Leaflet keeps vectors in their own pane below marker icons, which is
+          what this wants: a line is context, a marker is the interface. */}
+      {lensActive && <SharedGroundLayer pairs={crossTradition} />}
 
       {activeTour && (
         <TourRoute

@@ -92,11 +92,26 @@ be seen one shrine at a time, by a reader who already knew which shrine to open.
 it is now the archive's most common failure mode, and that in all three cases the data layer
 was finished and the page was the missing half.
 
-The third — a shared-ground lens on the map — is **still not built**, and the honest reason to
-be wary of it is scale: every pair here is under 800 m, which at the zoom that shows Pakistan
-is well under one pixel. A lens would need a treatment that survives zoom (a halo at a
-locality, resolving into lines as you approach), not a polyline layer. That is a design
-question, not an afternoon's work.
+The third — a shared-ground lens on the map — **shipped later the same day**, and the scale
+problem that made it a design question is worth recording because the answer was not the one
+this paragraph predicted. Every pair is under 800 m, which at the zoom that shows Pakistan is
+well under one pixel, so a polyline layer alone is a layer of nothing. The guess written here
+was "a halo at a locality, resolving into lines as you approach" — and a halo over a locality
+is a group, which is the one thing this document says never to draw.
+
+What works instead needs no new geometry at all: **the lens dims.** The 42 sites that stand
+beside another tradition keep full opacity and the other 127 recede, and a marker has a minimum
+size at every zoom, so the signal survives where a line does not. The lines are still drawn,
+and they are what the walled city resolves *into* as you approach — but they are the reward for
+zooming, not the thing carrying the lens. Nothing is grouped, and the unit is still a pair.
+
+Two details that are not decoration:
+
+- **Two of the forty pairs share a recorded pin**, so their line has zero length and would
+  silently not exist. They get a dashed ring at the shared point instead — visibly not a line,
+  because a line would be a distance the archive never measured.
+- **The lens stands down while a guided tour is running.** A tour already dims every non-stop
+  and draws its own route; two things competing for the map's emphasis is one too many.
  The honesty fix it forced is
 in: `NearbyShrines` shows metres below a kilometre, and for the four identical-pin groups it
 shows "same recorded location" rather than a distance the archive never measured.

@@ -1000,6 +1000,13 @@ const UI_TEXT_EN = {
     'No two sites of different traditions are recorded within walking distance of each other.',
   sharedGroundToMap: 'Open the map',
   sharedGroundFromShrine: 'Shared ground across the archive',
+  /* The lens's own limit, stated rather than hinted. Every line it draws is
+     under 800 m, which at the zoom that shows Pakistan is under one pixel — so
+     the thing the reader can actually read at that zoom is which pins stay
+     lit, and the copy says so instead of leaving them to wonder why the map
+     looks unchanged. */
+  sharedGroundLensNote:
+    'Sites beside another tradition stay lit; the rest dim. The links between them are under 800 m, so zoom in to see them.',
 } as const;
 /**
  * The shape every language's table must have: the English table's keys, with

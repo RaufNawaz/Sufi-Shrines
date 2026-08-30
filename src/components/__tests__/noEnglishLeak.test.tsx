@@ -94,6 +94,9 @@ describe('no English leaks in ?lang=ur', () => {
         onSavedOnlyChange={noop}
         sharedSlugs={[]}
         isOpen={true}
+        sharedGroundLens={false}
+        onSharedGroundLensChange={() => {}}
+        crossingCount={0}
         activeCategories={[]}
         onCategoriesChange={noop}
         verifiedOnly={false}

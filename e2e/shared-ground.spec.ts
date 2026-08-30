@@ -187,3 +187,107 @@ test.describe('/shared-ground', () => {
     expect(leaks).toEqual([]);
   });
 });
+
+/**
+ * The lens on the map — the third of Track A's three experiences, and the one
+ * that was deferred as a design question because of the problem these tests
+ * pin down: **every link it draws is under 800 m, which at the zoom that shows
+ * Pakistan is under one pixel.** A layer of forty sub-pixel lines is a layer of
+ * nothing, so what carries the lens at national zoom is which markers keep full
+ * opacity, and that is what most of these assert.
+ */
+test.describe('the shared-ground lens', () => {
+  test('is off by default and dims nothing', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('.shrine-dot').first().waitFor();
+    await expect(page.locator('.shrine-dot--dimmed')).toHaveCount(0);
+    await expect(page.locator('.shared-ground-link')).toHaveCount(0);
+    await expect(page.locator('.lens-toggle')).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  test('lights the sites that stand beside another tradition and dims the rest', async ({
+    page,
+  }) => {
+    await page.goto('/?lens=shared-ground');
+    await page.locator('.shrine-dot').first().waitFor();
+
+    const total = await page.locator('.shrine-dot').count();
+    const dimmed = await page.locator('.shrine-dot--dimmed').count();
+
+    // Every marker is either lit or dimmed — no third state, and the lens never
+    // removes a marker: it is a lens, not a filter.
+    expect(dimmed).toBeGreaterThan(0);
+    expect(dimmed).toBeLessThan(total);
+    expect(total - dimmed).toBe(42);
+  });
+
+  test('draws a link per measured pair and a ring per shared pin', async ({ page }) => {
+    await page.goto('/?lens=shared-ground');
+    await page.locator('.shrine-dot').first().waitFor();
+
+    const links = await page.locator('.shared-ground-link').count();
+    const rings = await page.locator('.shared-ground-pin-ring').count();
+
+    /* The ring is not decoration. Two of the forty pairs share one recorded
+       position, so their line has zero length and would draw nothing at all —
+       and those two are the documented approximations, the pairs that must
+       least of all disappear. Ring plus link must account for every pair. */
+    expect(rings).toBeGreaterThan(0);
+    expect(links + rings).toBe(40);
+  });
+
+  test('the toggle carries the count, and only once it has counted', async ({ page }) => {
+    await page.goto('/');
+    const toggle = page.locator('.lens-toggle');
+    await expect(toggle.locator('.lens-toggle-count')).toHaveCount(0);
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    await expect(toggle.locator('.lens-toggle-count')).toHaveText('40');
+    await expect(page).toHaveURL(/lens=shared-ground/);
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    await expect(page.locator('.shrine-dot--dimmed')).toHaveCount(0);
+    await expect(page).not.toHaveURL(/lens=/);
+  });
+
+  test('stands down while a tour is running', async ({ page }) => {
+    /* A tour dims every non-stop and renders its own numbered markers. Two
+       things competing for the map's emphasis is one too many, so the lens
+       yields — and its lines have to go with it, or a tour route would be
+       crossed by forty adjacency links it never asked for. */
+    await page.goto('/?lens=shared-ground&tour=multan-city-of-saints&stop=0');
+    await page.locator('.tour-stop-marker').first().waitFor();
+    await expect(page.locator('.shared-ground-link')).toHaveCount(0);
+  });
+
+  test('/shared-ground hands the reader straight to the lens', async ({ page }) => {
+    await page.goto('/shared-ground');
+    await page.locator('.sg-map-link a').click();
+    await page.locator('.shrine-dot').first().waitFor();
+    await expect(page.locator('.lens-toggle')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.shrine-dot--dimmed')).not.toHaveCount(0);
+  });
+
+  test('reads in Urdu, count in Eastern numerals', async ({ page }) => {
+    await page.goto('/?lens=shared-ground&lang=ur');
+    await page.locator('.shrine-dot').first().waitFor();
+    await expect(page.locator('.lens-toggle-count')).toHaveText('۴۰');
+
+    const leaks = await page.locator('.lens-section').evaluate((root) => {
+      const allowed = '.coords, a, bdi, [data-latin]';
+      const found: string[] = [];
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      let node: Node | null;
+      while ((node = walker.nextNode())) {
+        const text = (node.textContent || '').trim();
+        if (!text || !/[A-Za-z]/.test(text)) continue;
+        if ((node.parentElement as Element | null)?.closest(allowed)) continue;
+        found.push(text.slice(0, 60));
+      }
+      return [...new Set(found)];
+    });
+    expect(leaks).toEqual([]);
+  });
+});
