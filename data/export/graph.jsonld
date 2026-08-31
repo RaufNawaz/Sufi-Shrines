@@ -235,7 +235,6 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/khwaja-muhammad-qasim",
       "name": "Khwaja Muhammad Qasim",
       "alternateName": [
-        "\"Zinda Pir\"",
         "Zinda Pir"
       ],
       "birthDate": "1912",
@@ -1383,7 +1382,7 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-abdul-razzaq",
       "name": "Syed Abdul Razzaq",
       "alternateName": [
-        "\"Shah Chiragh\"",
+        "Shah Chiragh",
         "Baba Shah Chiragh"
       ],
       "deathDate": "1657",
@@ -1745,9 +1744,8 @@
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-meeran-muhammad-shah-bukhari",
       "name": "Hazrat Meeran Muhammad Shah Bukhari",
       "alternateName": [
-        "\"Mauj Darya\"",
-        "Miran Muhammad Shah",
-        "Mauj Darya"
+        "Mauj Darya",
+        "Miran Muhammad Shah"
       ],
       "birthDate": "1533",
       "deathDate": "1604",

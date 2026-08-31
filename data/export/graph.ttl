@@ -159,7 +159,6 @@ saint:hazrat-syed-muhammad-khair-ul-deen
 saint:khwaja-muhammad-qasim
   a schema:Person ;
   schema:name "Khwaja Muhammad Qasim"@en ;
-  schema:alternateName "\"Zinda Pir\""@en ;
   schema:alternateName "Zinda Pir"@en ;
   schema:birthDate "1912" ;
   schema:deathDate "1999" ;
@@ -855,7 +854,7 @@ saint:hazrat-syed-abdul-wahab
 saint:syed-abdul-razzaq
   a schema:Person ;
   schema:name "Syed Abdul Razzaq"@en ;
-  schema:alternateName "\"Shah Chiragh\""@en ;
+  schema:alternateName "Shah Chiragh"@en ;
   schema:alternateName "Baba Shah Chiragh"@en ;
   schema:deathDate "1657" ;
   schema:memberOf order_:qadiriyya ;
@@ -1039,9 +1038,8 @@ saint:makhdoom-nooh
 saint:hazrat-meeran-muhammad-shah-bukhari
   a schema:Person ;
   schema:name "Hazrat Meeran Muhammad Shah Bukhari"@en ;
-  schema:alternateName "\"Mauj Darya\""@en ;
-  schema:alternateName "Miran Muhammad Shah"@en ;
   schema:alternateName "Mauj Darya"@en ;
+  schema:alternateName "Miran Muhammad Shah"@en ;
   schema:birthDate "1533" ;
   schema:deathDate "1604" ;
   schema:memberOf order_:suhrawardiyya ;

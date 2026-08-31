@@ -236,7 +236,21 @@ Still English-only, and genuinely Rauf's: `/about` and `/coverage`, whose descri
 built from a UI string. `/report` keeps the site blurb deliberately — it is a redirect stub whose
 canonical points at `/about`.
 
-## The corpus scanners are worked out
+## The corpus scanners are worked out — of one of the archive's two prose corpora
+
+**Scope correction, 30 August 2026 (KB2-8).** The sentence below says the piles are worked out, and
+that is true of `data/shrines.json` and **unmeasured for the markdown corpus**.
+`scripts/data/lib/sentenceScan.mjs` reads `data/shrines.json` rows and nothing else. The archive
+also holds **48 hand-written prose entries** — 39 in `shrine_entries/`, 9 in `entries/` — and it
+already treats them as evidence: **17 relations in `data/kg.json` cite 10 of those files as their
+`source`.** A pass that does not read a corpus the graph cites is a pass with a named gap, which is
+the same shape as HANDOVER §9.161's lesson that a scanner missing ties inside its own rows is a
+sample rather than a pass.
+
+**The yield is low and that is measured, not assumed.** The council reviewer read all 45 candidate
+sentences that corpus offers and found **one** ambiguous case — no new edge. So this is a
+correction to the *claim*, not a queue item: nobody should re-read those 45, and nobody should
+repeat "the piles are worked out" without the qualifier.
 
 Both reading piles were taken to the end on 30 August 2026, and the result is a negative worth
 recording so nobody re-reads them looking for edges.

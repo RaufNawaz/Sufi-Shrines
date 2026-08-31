@@ -22,6 +22,20 @@
  * right most of the time produces errors nobody can find — the argument
  * `scripts/data/lib/saintIdentity.mjs` already makes at length about people.
  */
+/*
+ * SCOPE: this reads `data/shrines.json` rows and nothing else.
+ *
+ * The archive holds a second prose corpus — 39 files in `shrine_entries/` and 9
+ * in `entries/` — and already treats it as evidence: 17 relations in
+ * `data/kg.json` cite 10 of those files as their `source`. Nothing here reads
+ * them, so "the reading piles are worked out" is a statement about the sheet's
+ * Descriptions only.
+ *
+ * Measured 30 August 2026: that corpus offers 45 candidate sentences and they
+ * were all read by hand, yielding one ambiguous case and no new edge — so
+ * widening the scanner is low-value, not merely undone. Said here because the
+ * next person to trust this module's coverage will read this file first.
+ */
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
