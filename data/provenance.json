@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated": "2026-07-12",
+  "updated": "2026-08-30",
   "shrines": [
     {
       "shrineSlug": "allo-mahar",
@@ -21,7 +21,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         }
       }
@@ -32,7 +31,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -50,7 +48,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -68,7 +65,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -86,7 +82,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -104,7 +99,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -122,7 +116,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -140,7 +133,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -158,7 +150,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -187,7 +178,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -235,7 +225,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -252,7 +241,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -269,7 +257,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -287,7 +274,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -315,7 +301,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -333,7 +318,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -350,7 +334,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -368,7 +351,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -386,7 +368,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -404,7 +385,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -422,7 +402,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -440,7 +419,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -474,7 +452,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -492,7 +469,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -509,7 +485,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -527,7 +502,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -545,7 +519,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -562,7 +535,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -580,7 +552,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -598,7 +569,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -616,7 +586,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -634,7 +603,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -682,7 +650,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -700,7 +667,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -718,7 +684,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -736,7 +701,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -754,7 +718,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -772,7 +735,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -790,7 +752,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -808,7 +769,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -826,7 +786,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -844,7 +803,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -861,7 +819,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -879,7 +836,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -896,7 +852,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -914,7 +869,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -932,7 +886,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -949,7 +902,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -966,7 +918,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1015,7 +966,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1033,7 +983,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1081,7 +1030,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1099,7 +1047,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1144,7 +1091,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1162,7 +1108,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1180,7 +1125,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1198,7 +1142,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1216,7 +1159,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1234,7 +1176,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1252,7 +1193,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1300,7 +1240,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1318,7 +1257,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1367,7 +1305,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1385,7 +1322,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1402,7 +1338,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1420,7 +1355,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1437,7 +1371,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1455,7 +1388,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1473,7 +1405,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1491,7 +1422,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1509,7 +1439,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1526,7 +1455,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1544,7 +1472,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1562,7 +1489,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1580,7 +1506,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1598,7 +1523,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1616,7 +1540,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1634,7 +1557,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1651,7 +1573,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1669,7 +1590,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1687,7 +1607,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1705,7 +1624,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1723,7 +1641,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1772,7 +1689,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1790,7 +1706,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1808,7 +1723,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1826,7 +1740,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1844,7 +1757,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1862,7 +1774,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1880,7 +1791,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1898,7 +1808,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1916,7 +1825,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1933,7 +1841,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1951,7 +1858,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1969,7 +1875,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -1986,7 +1891,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2004,7 +1908,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2022,7 +1925,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2040,7 +1942,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2058,7 +1959,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2076,7 +1976,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2094,7 +1993,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2112,7 +2010,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2130,7 +2027,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2147,7 +2043,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2165,7 +2060,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2182,7 +2076,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2200,7 +2093,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2218,7 +2110,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2264,7 +2155,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2313,7 +2203,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2358,7 +2247,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2407,7 +2295,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2454,7 +2341,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2472,7 +2358,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2490,7 +2375,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2508,7 +2392,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2557,7 +2440,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2604,7 +2486,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2621,7 +2502,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2638,7 +2518,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2656,7 +2535,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2674,7 +2552,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2692,7 +2569,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2710,7 +2586,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2757,7 +2632,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2775,7 +2649,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2793,7 +2666,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2811,7 +2683,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2828,7 +2699,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2845,7 +2715,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2863,7 +2732,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2881,7 +2749,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2899,7 +2766,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2917,7 +2783,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2935,7 +2800,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2952,7 +2816,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -2970,7 +2833,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3018,7 +2880,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3035,7 +2896,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3052,7 +2912,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3099,7 +2958,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3117,7 +2975,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3135,7 +2992,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3153,7 +3009,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3171,7 +3026,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3189,7 +3043,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3207,7 +3060,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3225,7 +3077,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3242,7 +3093,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3259,7 +3109,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3277,7 +3126,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3295,7 +3143,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3313,7 +3160,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3331,7 +3177,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3349,7 +3194,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3367,7 +3211,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3416,7 +3259,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3434,7 +3276,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3483,7 +3324,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3501,7 +3341,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3518,7 +3357,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3567,7 +3405,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3585,7 +3422,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3603,7 +3439,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3621,7 +3456,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {
@@ -3639,7 +3473,6 @@
         "Description Urdu": {
           "source": "In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)",
           "method": "llm",
-          "date": "2026-07-11",
           "notes": "Native-prose AI translation of the English Description, not yet reviewed by a fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md."
         },
         "Description": {

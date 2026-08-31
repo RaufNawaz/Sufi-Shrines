@@ -43,10 +43,30 @@ const provenance = existsSync(PROVENANCE_JSON)
 
 const bySlug = new Map(provenance.shrines.map((entry) => [entry.shrineSlug, entry]));
 
+/**
+ * The record written for any slug that has an Urdu description and no provenance
+ * for it.
+ *
+ * **It carried `date: '2026-07-11'` and no longer does.** That field is a
+ * per-entry factual claim, and this is a constant — so it asserted the same
+ * translation date for all 167 records that have one, which is a guess for every
+ * entry and **demonstrably false for four**: Darbar Ghazi Ilm Din Shaheed,
+ * Darbar Hazrat Khawaja Feroz-ud-Din, Darbar Hazrat Tahir Bandagi Qadri and
+ * Darbar Wasif Ali Wasif were added to the archive in August and their records
+ * claimed an Urdu translation made in July, a month before the English they
+ * translate existed.
+ *
+ * A wrong date is worse than none (RULE 2), and `date` is optional in
+ * `src/types/provenance.ts` and rendered nowhere — so removing it costs a reader
+ * nothing and stops a published artefact stating something untrue.
+ * `data/provenance.json` ships in the Zenodo bundle.
+ *
+ * `source` keeps its date because it describes *the pass*, which did happen on
+ * that day, rather than asserting that this entry was in it.
+ */
 const BASELINE_URDU_DESCRIPTION_PROVENANCE = {
   source: 'In-repo AI translation (overnight Urdu enrichment pass, 2026-07-11)',
   method: 'llm',
-  date: '2026-07-11',
   notes:
     'Native-prose AI translation of the English Description, not yet reviewed by a ' +
     'fluent Urdu speaker. See src/data/urdu-content.json and CHANGELOG.md.',

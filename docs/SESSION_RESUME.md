@@ -663,6 +663,32 @@ cannot do.
   `khwaja-muhammad-qasim` carries both `Zinda Pir` and `"Zinda Pir"` — the same alt-name twice,
   once with literal quote characters in the string.
 
+- **62 entries have a substantively different Description under an unchanged provenance record.**
+  *Measured 30 August 2026 (KB1-3). The fabricated dates are removed (`this commit`); the
+  re-tiering is yours.* `data/provenance.json` is frozen at its `updated` stamp by design —
+  `build-provenance.mjs` is additive-only and never revisits a record when the text it describes
+  changes, and there is no digest of that text. Diffed against the 12 July commit, normalising the
+  known `=====` separator artefact and smart quotes and requiring the **word count** to have moved:
+  **62 changed, 51 of them having gained an entire bibliography.** 43 are still recorded as
+  *"Automated enrichment pipeline … Claude-assisted web research"*, `method: llm`,
+  `confidence: 0.6`.
+
+  Six `Field-verified` / `Full` entries added in August — every one citing the Shrines Project
+  field survey in its own prose — are recorded as *"Pre-existing sheet content … origin inferred by
+  elimination, not independently confirmed"*, which renders to a reader as **"pre-existing
+  entry"**. The panel is behind `hasProjectAccess()`, so its audience is the project team, which is
+  exactly who consults it to decide whether a sentence needs re-checking.
+
+  **Re-tiering is not an agent's.** `contentTier` is a claim about how a passage was written, and
+  the store's own note calls `sheet-original` "inferred by elimination". Deriving it afresh from
+  today's text would be inventing provenance (RULE 2). The six field-survey entries are the
+  exception — their tier is answerable from survey records the project already holds.
+
+  **The guard that would catch the next 62 is a digest** of the described text stored beside
+  `contentTier`, failing when a shipped Description no longer matches its record. Not written here
+  on purpose: stamping today's digest onto a record that describes yesterday's text would bless the
+  drift rather than find it, so the first digests have to be written by whoever re-tiers.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the
