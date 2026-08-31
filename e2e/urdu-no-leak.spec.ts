@@ -26,25 +26,34 @@ import { test, expect, settle } from './fixtures';
  * grow: a new `data-latin` is a decision to ship English to an Urdu reader, and
  * that should cost a line in a test rather than nothing at all.
  *
- * ## The almanac's two budgets grew by 13 each, and it is not new English
+ * ## The almanac went 34 -> 47 -> 3 in one day, and the middle number was a lie
  *
- * `almanac` 34 -> 47 and `almanac:list` 39 -> 52, on 30 August 2026. The cause is
- * the other session's `216829d`, which widened `OBSERVANCE_RE` in
- * `src/lib/data/ursDates.ts` from eleven alternatives to a vocabulary that also
- * knows Diwali, Holi, Janmashtami, Durga Puja, Cheti Chand, Ganesh Chaturthi,
- * Raksha Bandhan, Jayanti, Akhand Path and prakash. The page had been reporting
- * 52 sites as recording no observance while **51 of them had text in the cell**.
+ * Worth reading before trusting any number in this table, because it is the
+ * clearest case the file has of a budget describing something other than what
+ * its note claimed.
  *
- * So these 13 runs are **not thirteen new decisions to ship English to an Urdu
- * reader**, which is what this budget exists to make expensive. They are English
- * the archive was already holding and the page was silently dropping, because a
- * regex did not recognise the festival names. Rendering it is the honest
- * direction, and the growth is the cost of that honesty.
+ * **34 -> 47.** `216829d` widened `OBSERVANCE_RE` from eleven alternatives to
+ * one that also knows Diwali, Holi, Janmashtami, Durga Puja, Cheti Chand,
+ * Ganesh Chaturthi, Raksha Bandhan, Jayanti, Akhand Path and prakash. The page
+ * had been reporting 52 sites as recording no observance while **51 of them had
+ * text in the cell**. So the 13 new runs were not new English: they were English
+ * the archive already held and the page was dropping. The budget was raised, and
+ * the note said this was a measurement of a translation debt.
  *
- * What it does do is make the Urdu council's U-2 finding larger and more
- * concrete: the observance segments are 51%-translated in the data, and every
- * newly-recognised festival name arrives untranslated. The budget going up here
- * is a measurement of that debt, not a licence for it.
+ * **47 -> 3.** It was not a translation debt. `dea67b2` found that
+ * `localizeObservance` split each cell on `;` *before* consulting
+ * `SPECIAL_URDU_PHRASES`, which is keyed by the whole cell — so **80 of 168
+ * cells had reviewed Urdu that four surfaces never asked for**. The almanac,
+ * `RecordedObservanceList` on 9 order, 64 place and 143 saint pages, and the
+ * archive search all rendered English that was already translated, sitting in
+ * the repo, one lookup away.
+ *
+ * **The lesson, and it applies to every number below.** A Latin-run budget
+ * cannot tell *"nobody has translated this"* from *"nobody wired up the
+ * translation"*, and for 80 cells it confidently reported the first. Twelve
+ * hours separated the note asserting that from the commit disproving it. When
+ * one of these numbers is high, the question to ask first is whether the Urdu
+ * already exists somewhere the render path is not looking.
  *
  * ## Nine budgets moved on 30 August 2026, and two of them moved *down*
  *
@@ -298,25 +307,33 @@ const BUDGET: Record<string, number> = {
   // that cell segment by segment: "سالانہ عرس؛ نعت اور قوالی؛ روزانہ لنگر"
   // arrives whole, while "Eid Milad-un-Nabi (principal gathering)" has no
   // dictionary entry and stays as the surveyor wrote it (RULE 2 — a visibly
-  // untranslated observance beats a confidently wrong one). Each of these is a
-  // segment the observance dictionary does not yet carry, so the number falls as
-  // `urdu-i18n/build_dictionary.py` gains entries. Hiding the cell from an Urdu
+  // untranslated observance beats a confidently wrong one).
+  //
+  // This note used to add "each of these is a segment the observance dictionary
+  // does not yet carry". **That was wrong, and the correction is the useful
+  // part**: for 80 of the 168 cells the dictionary carried the *whole cell* in
+  // reviewed Urdu and only the lookup shape differed — `localizeObservance`
+  // split on `;` before consulting `SPECIAL_URDU_PHRASES`, which is keyed by the
+  // whole cell. These budgets were measuring a **wiring** debt and reporting it
+  // as a translation one. Fixed in `dea67b2`; what remains here really is
+  // missing vocabulary, and falls as `urdu-i18n/build_dictionary.py` gains
+  // entries. Hiding the cell from an Urdu
   // reader would have cost nothing here and would have made the Urdu view the
   // one that cannot check the archive's arithmetic.
   // +5 each on the two order pages, same two causes as the note above: the
   // language toggle, and merged figures now carrying the absorbed node's name as
   // an `altName` in the member list.
-  order: 84,
-  'order:chishtiyya': 47,
+  order: 74,
+  'order:chishtiyya': 40,
   /* 51 -> 53, 28 August 2026. The Suhrawardiyya gained a member: Bibi Jawindi
      got a node of her own when Tomb of Javindi Bibi stopped being filed under
      Jalaluddin Surkh-Posh Bukhari, whose `Sufi Saint` cell it carried
      byte-identically. Her two runs are the site's recorded location and the
      observance cell, both shown as the survey wrote them. A member arriving is
      the order page working, and `undeclared` stayed empty. */
-  'order:suhrawardiyya': 55,
-  'order:naqshbandiyya': 34,
-  'order:qalandariyya': 13,
+  'order:suhrawardiyya': 49,
+  'order:naqshbandiyya': 29,
+  'order:qalandariyya': 12,
   /* 122 → 126, 29 August 2026 — and the rise is NOT more English. Decomposed by
      measurement rather than inferred:
 
@@ -332,7 +349,7 @@ const BUDGET: Record<string, number> = {
      number went up**, because the guard counts text nodes and italics split
      them. Worth knowing before reading any budget in this file as a quantity of
      English: it is a count of nodes. See HANDOVER §9.129. */
-  graph: 126,
+  graph: 46,
   /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
      default view, so `/almanac?lang=ur` now settles on one month's cards rather
      than all thirteen month listings, and five of the recorded `Events` strings
@@ -342,13 +359,13 @@ const BUDGET: Record<string, number> = {
      failure mode this file was written against. The debt itself is unchanged:
      the same observance cells are still untranslated, still declared, and still
      counted on whichever month the reader opens. */
-  almanac: 47,
+  almanac: 3,
   /* The month listing, which the calendar-default route never renders: twelve
      months of cards, each printing its site's recorded `Events` cell verbatim.
      The same debt as `almanac`'s 34 seen at full extent rather than one month
      at a time, and it falls as `urdu-i18n/build_dictionary.py` gains observance
      entries. */
-  'almanac:list': 52,
+  'almanac:list': 8,
   /* Recorded `site_type` prose — the survey's own words for a built form,
      "Shrine complex (tomb, mosque, graveyard…)" — plus the Location on each
      card. Both are source data shown as recorded (RULE 2); what changed is that
@@ -366,7 +383,7 @@ const BUDGET: Record<string, number> = {
      route's note. The number is the size of one entry's English bibliography,
      counted per text node, and it moves when that entry's citations do. */
   'shrine:urdu-bibliography-fallback': 8,
-  saint: 16,
+  saint: 15,
   /* 24 → 27, 29 August 2026. Three runs, all in the new "Family recorded"
      section: his father's name (`Syed Ul Hassan Kabeer`, which the dictionary
      does not carry), the survey sentence the tie was read out of, and that
@@ -391,7 +408,7 @@ const BUDGET: Record<string, number> = {
      the Urdu view the one that cannot check the archive's arithmetic. The
      figures section added none: a figure's recorded name is in the dictionary
      for all 169 rows, and the site tags beside it were already on the page. */
-  place: 61,
+  place: 38,
   /* Two, and they are the only two Latin runs on the page a reader can
      legitimately meet: `EN` in the masthead's language segment, and `English`
      as the name of the English option in the reading-language group. A language
