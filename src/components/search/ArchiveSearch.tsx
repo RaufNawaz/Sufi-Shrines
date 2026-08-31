@@ -177,6 +177,36 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
     [entities, dictGen],
   );
 
+  /* The same seam, one entity type over.
+   *
+   * Figures and orders got their Urdu names put where the matcher can see them
+   * in `0fb1a10`; places did not, and the candidates below were built with a
+   * `name` and nothing else. Measured on the running site: typing «لاہور»
+   * returned two groups — sites and figures — and **no Places group at all**,
+   * while `Lahore` returned three and surfaced Lahore itself. All 64 place
+   * pages were unreachable by an Urdu query, and **all 64 already have a
+   * reviewed Urdu name** — it is why their page titles render in Urdu, and why
+   * the row three lines below can already display one.
+   *
+   * `localizeRecordedName` is asked in Urdu regardless of the interface, for the
+   * reason `searchableEntities` gives above: an English reader who types Urdu
+   * should still find the page. Keyed on `dictGen` so the names arrive when the
+   * lazy dictionary does. */
+  const searchablePlaces = useMemo(
+    () =>
+      places.map((place) => ({
+        /* `matchEntities` takes a discriminated entity and this list is never
+           mixed with another type, so the tag is a formality — the fields it
+           actually reads are `name`, `nameUr` and `aka`. */
+        type: 'order' as const,
+        slug: place.slug,
+        name: place.name,
+        nameUr: localizeRecordedName(place.name, 'ur'),
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- dictGen is the signal that the resolver's answers changed
+    [places, dictGen],
+  );
+
   const rows = useMemo<Row[]>(() => {
     const q = debounced.trim();
     if (!q) return [];
@@ -223,20 +253,18 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
         to: `/${ROUTE_FOR[type]}/${entity.slug}`,
       }));
 
-    const placeRows: Row[] = matchEntities(
-      places.map((place) => ({ type: 'order' as const, slug: place.slug, name: place.name })),
-      q,
-      PER_GROUP.place,
-    ).map(({ entity }) => {
-      const place = places.find((p) => p.slug === entity.slug)!;
-      return {
-        kind: 'place' as const,
-        key: `place:${place.slug}`,
-        name: localizeRecordedName(place.name, lang),
-        meta: fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length)),
-        to: `/place/${place.slug}`,
-      };
-    });
+    const placeRows: Row[] = matchEntities(searchablePlaces, q, PER_GROUP.place).map(
+      ({ entity }) => {
+        const place = places.find((p) => p.slug === entity.slug)!;
+        return {
+          kind: 'place' as const,
+          key: `place:${place.slug}`,
+          name: localizeRecordedName(place.name, lang),
+          meta: fmtNum(tFn(lang, 'placeSiteCount', place.shrines.length)),
+          to: `/place/${place.slug}`,
+        };
+      },
+    );
 
     /* Days. The archive knows 149 observances and none of them was searchable:
        "Shivratri" found the temple that keeps it only if the word happened to be
@@ -274,7 +302,18 @@ export function ArchiveSearch({ onClose }: { onClose: () => void }) {
       ...placeRows,
       ...dayRows,
     ];
-  }, [debounced, ids, shrines, searchableEntities, places, lang, t, fmtNum, saved]);
+  }, [
+    debounced,
+    ids,
+    shrines,
+    searchableEntities,
+    searchablePlaces,
+    places,
+    lang,
+    t,
+    fmtNum,
+    saved,
+  ]);
 
   /* Whether the listbox is on screen — the one fact `aria-expanded` and
      `aria-controls` must both agree with. */

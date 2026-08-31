@@ -89,7 +89,9 @@ Ranked queue, four decisions for Rauf and the five raw reports:
 | The four unsourced order memberships were the four the guard could not see | `a53b350` |
 | An Urdu reader who browsed English first got the English article, permanently | `fc453b9` |
 | The infobox withheld the date note whenever the year was missing — 28 entries | `0a02e72` |
-| A two-decimal locality guess was printed as a five-decimal coordinate | *this commit* |
+| A two-decimal locality guess was printed as a five-decimal coordinate | `60ddb15` |
+| Sixteen Latin budgets re-measured; the almanac's went 47 to 3 | `4fbd727` |
+| All 64 place pages were unreachable by an Urdu search query | *this commit* |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
@@ -576,6 +578,38 @@ cannot do.
 
   A third, mechanical part needs no ruling and is not done: both exporters emit `@en` on 2,088
   literals with no Urdu path, and adding `@ur` where `urdu-seed.json` has a name is wiring.
+
+- **Two Urdu group headings are the same word, and one of them is now visible.**
+  *Found 30 August 2026 while wiring Urdu place search; needs a fluent speaker.*
+  `searchGroupSites` and `placesTitle` are both `مقامات`, while English
+  distinguishes "Sites" from "Places". An Urdu query now returns three groups
+  headed **«مقامات | شخصیات | مقامات»**. The collision is in the strings and
+  predates the wiring — it was invisible only because the Places group never
+  appeared in Urdu.
+
+  **Which of the two is wrong is already settled by the archive's own usage:**
+  reviewed Urdu uses مقامات for *sites* consistently (`sharedGroundIntro` — "پیدل
+  فاصلے پر N دیگر مقامات"; `sharedGroundSamePin` — "ایک ہی درج مقام"). So
+  `searchGroupSites` is idiomatic and `placesTitle` is the ambiguous one. There
+  is **no reviewed Urdu term for a locality anywhere in the repo** to substitute,
+  so choosing one is composition rather than substitution, and it is yours.
+  Shipped ambiguous rather than held: unreachable is worse than
+  ambiguously-labelled, and the place rows are distinguishable by their
+  site-count meta even while the headings are not.
+
+- **The Urdu UI calls every site a shrine, which is the overclaim the English
+  rename corrected.** *Found the same way, and it is the larger of the two.*
+  Three reviewed strings render English "site" as **مزارات** (shrines/tombs):
+  `placeSitesHeading` — English "Sites recorded here", Urdu "یہاں درج مزارات";
+  `placeSiteCount` — "N sites" against "N مزارات"; `placesUnplaced` — likewise.
+
+  On 30 August the archive was renamed *away* from "Sufi shrines" in English
+  precisely because **88 of its 171 sites are not shrines** — they are temples,
+  gurdwaras, darbars, a Jain complex and a memorial. The Urdu edition still makes
+  that claim on every place page, in the reviewed strings. It is the same defect
+  as `UI_TEXT.ur.siteTitle` already recorded above, in a place nobody had looked.
+  `src/lib/i18n/uiStrings.ur.ts`, and it is Urdu content (RULE 2) — annotated
+  here rather than guessed at.
 
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
