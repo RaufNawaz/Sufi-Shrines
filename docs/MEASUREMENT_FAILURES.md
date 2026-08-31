@@ -63,8 +63,17 @@ You asked something answerable and it was not the thing you wanted to know.
   the very slug-drift you went looking for. **If a field is read through a function anywhere in the
   app, measure it through that function.**
 
-**The tell:** a query that returns *few* results and confirms a hypothesis. **The check:** ask what
-a false negative would look like, and construct one. Every guard in this repo that asserts "both
+- **A guard that counted bare occurrences of `sufi:discipleOf` in the TTL** read the fix's own
+  vocabulary *declaration* as a 71st statement against 70 edges — so the instrument written to
+  protect the property **reported the repair as a regression**. It could not tell a use of the
+  predicate from a mention of it. This is the mirror of every other example here: the query matched
+  more than it meant, rather than less.
+
+**The tell:** a query that returns *few* results and confirms a hypothesis — or, in the mirror
+case, one that returns *one more* than it should and reports a failure. **The check:** ask what
+a false negative would look like, and construct one — **and the same for a false positive**, which
+is the half this document had not said. A pattern that matches a thing and also matches a *mention*
+of that thing is answering a different question in the other direction. Every guard in this repo that asserts "both
 shapes of the damage" earned that phrasing here — and note that writing *"both"* is not evidence
 there are two: an emphasis guard once asserted both damage shapes and both were the same shape.
 
@@ -150,3 +159,17 @@ a pipe.
 
 Two kinds would have been a coincidence. Three with distinct tells and non-overlapping checks is a
 diagnostic, and it should stay one.
+
+**One candidate was put to this test on 30 August 2026 and filed as a subcase**, which is recorded
+because the adjudication is more useful than the outcome. A guard counting bare occurrences of a
+predicate read that predicate's own vocabulary *declaration* as an extra statement, and reported a
+fix as a regression — an instrument unable to distinguish a claim from a mention of the claim. It
+was proposed as a fourth kind by the session that spotted it, on the grounds that every other
+failure here is an instrument measuring the wrong *surface* and this one measures the right surface
+wrongly.
+
+It does not earn a row, because its check is kind 2's: *construct a false positive*. What it did
+earn is the discovery that kind 2's check was only half-written — the document said "ask what a
+false negative would look like" and stopped, so the mirror case had no stated remedy despite being
+the same defect. **The candidate improved the taxonomy without joining it**, which is the outcome
+this gate is for.
