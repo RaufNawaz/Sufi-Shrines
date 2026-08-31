@@ -1118,8 +1118,14 @@ console.log(`[prerender] ✓ ${staticCount} static pages (+ /ur mirrors)`);
 // Each entry may carry `sitemap: { changefreq, priority }`. Omitting it keeps
 // the route out of sitemap.xml, which must be a decision — the sitemap used to
 // hand-list four of these paths beside the loop that emitted the files, and
-// `/chronology` shipped in August 2026 prerendered, linked and absent from the
-// sitemap for exactly that reason. One list now does both.
+// `/chronology` shipped in August 2026 prerendered and absent from the sitemap
+// for exactly that reason. One list now does both.
+//
+// That sentence used to read "prerendered, linked and absent from the sitemap",
+// and the middle word was never true: `git log -S 'to="/chronology"'` returns no
+// commit that ever added one. It shipped reachable by URL and by crawler and by
+// nothing a reader could click, and stayed that way until 30 August 2026, when
+// the welcome card gained the link.
 //
 // GH Pages has no SPA rewrite: `_redirects` is a Netlify convention it
 // ignores, so any route without a real file 404s on direct navigation,
