@@ -132,3 +132,6 @@ urdu-i18n/review/
 # worth keeping go into docs/HANDOVER.md with a date on them. Left untracked,
 # they also fail `format:check`, which is how this entry came to exist.
 .lighthouseci/
+
+# Claude Code session-local settings and task locks — per-machine, not shared.
+.claude/
