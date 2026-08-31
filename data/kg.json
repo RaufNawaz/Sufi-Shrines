@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-30T19:39:25.695Z",
+  "generated": "2026-08-31T00:47:56.281Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -140,7 +140,6 @@
       "slug": "khwaja-muhammad-qasim",
       "name": "Khwaja Muhammad Qasim",
       "altNames": [
-        "\"Zinda Pir\"",
         "Zinda Pir"
       ],
       "shrines": [
@@ -1726,7 +1725,7 @@
       "slug": "syed-abdul-razzaq",
       "name": "Syed Abdul Razzaq",
       "altNames": [
-        "\"Shah Chiragh\"",
+        "Shah Chiragh",
         "Baba Shah Chiragh"
       ],
       "shrines": [
@@ -2135,9 +2134,8 @@
       "slug": "hazrat-meeran-muhammad-shah-bukhari",
       "name": "Hazrat Meeran Muhammad Shah Bukhari",
       "altNames": [
-        "\"Mauj Darya\"",
-        "Miran Muhammad Shah",
-        "Mauj Darya"
+        "Mauj Darya",
+        "Miran Muhammad Shah"
       ],
       "shrines": [
         "shrine-of-mauj-darya-bukhari"

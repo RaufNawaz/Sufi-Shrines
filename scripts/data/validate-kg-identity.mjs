@@ -227,6 +227,29 @@ for (const [key, claims] of altCollisions) {
 notes.push(
   `${altCollisions.size} name/altName collision(s) across nodes, ${altAwaiting} awaiting a verdict`,
 );
+
+/* An alias is not a quoted alias. Three arrived from the sheet's parentheticals
+   entirely wrapped in quote marks, and `altNames[0]` is the subtitle rendered
+   beside a figure in the lineage, order and related-figure lists — so a reader
+   saw the punctuation, and `khwaja-muhammad-qasim` carried the same alias twice,
+   once each way. `build-kg.mjs` unwraps them now.
+
+   Only a pair wrapping the whole string is wrong. Five alt-names carry quotes
+   mid-string and must keep them, because there the quotes are doing work:
+   `Bahu ("with Hoo")`, `born Muhammad Wasif Awan; "Wasif" was his pen
+   name/takhallus`. This checks the first shape and not the second. */
+for (const saint of saints) {
+  for (const alt of saint.altNames ?? []) {
+    if (/^"[^"]+"$/.test(String(alt).trim())) {
+      fail(
+        `saint:${saint.slug} has the alt-name ${JSON.stringify(alt)}, wrapped entirely in quote ` +
+          `marks. That is a quoted alias, not an alias containing quotes — and altNames[0] is ` +
+          `rendered as the figure's subtitle. build-kg.mjs unwraps these; a new one means the ` +
+          `unwrap was bypassed or the seed carries it verbatim.`,
+      );
+    }
+  }
+}
 notes.push(`${doNotMerge.length} recorded decision(s) against merging`);
 
 // ── 4. retired slugs must still resolve ──────────────────────────────────────

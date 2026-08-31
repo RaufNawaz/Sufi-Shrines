@@ -402,9 +402,29 @@ for (const { row, slug: shrineSlug } of shrinesWithSlugs) {
     /* A composite's names are supplied already canonical, so there is no
        parenthetical to mine — and the raw cell's parenthetical describes the
        row, not the second figure. */
-    const altNames = compositeNames
-      ? []
-      : extractParenthetical(rawSaint).filter((n) => n !== canonical);
+    /* An alt-name entirely wrapped in quote marks is a quoted alias, not an
+       alias whose name contains quotes. Three arrived that way from the sheet's
+       parentheticals — `"Zinda Pir"`, `"Shah Chiragh"`, `"Mauj Darya"` — and
+       `altNames[0]` is the subtitle rendered beside a figure in the lineage,
+       order and related-figure lists, so a reader saw the punctuation. It also
+       gave `khwaja-muhammad-qasim` the same alias twice, once each way.
+
+       Only a pair wrapping the *whole* string is stripped. Five others carry
+       quotes mid-string and keep them, because there the quotes are doing work:
+       `Bahu ("with Hoo")`, `born Muhammad Wasif Awan; "Wasif" was his pen
+       name/takhallus`. Stripping those would edit the surveyor's sentence. */
+    const unwrapQuoted = (n) => {
+      const m = /^"([^"]+)"$/.exec(n.trim());
+      return m ? m[1] : n;
+    };
+    const altNames = [
+      ...new Set(
+        (compositeNames
+          ? []
+          : extractParenthetical(rawSaint).filter((n) => n !== canonical)
+        ).map(unwrapQuoted),
+      ),
+    ].filter((n) => n !== canonical);
 
     /* A descriptive cell loses its clause from the name and must not lose it from
        the record. "Malik Ahmad Ayaz, described in the survey as slave of Mahmud
