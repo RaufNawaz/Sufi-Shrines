@@ -68,6 +68,8 @@ export function saintNameKey(name) {
  * Group slugs by identical name key. Returns only the groups with more than one
  * member — i.e. the places where two nodes claim the same name.
  *
+ * Reads `name` only. `findAltNameCollisions` below is the other half.
+ *
  * @param {Array<{slug: string, name: string}>} nodes
  * @returns {Map<string, string[]>} name key → slugs, in input order
  */
@@ -80,4 +82,60 @@ export function findNameKeyCollisions(nodes) {
     byKey.get(key).push(node.slug);
   }
   return new Map([...byKey].filter(([, slugs]) => slugs.length > 1));
+}
+
+/**
+ * The same identical-name test, applied to `altNames` as well as `name`.
+ *
+ * ## Why this exists separately
+ *
+ * `findNameKeyCollisions` iterates `node.name` and nothing else, and the rule it
+ * enforces — stated in its caller — is *"Identical names are the one signal this
+ * project accepts as proof of the same person."* **An `altName` is a name.**
+ * With it read, the archive has five cross-node collisions where the gate
+ * reported zero, and `saintDoNotMerge` records a decision on none of them:
+ *
+ *     "bhai gurdas singh"  bhai-gurdas-singh (name)  ·  bhai-gurdas (alt)
+ *     "kanhiya lal"        bhai-gurdas-singh (alt)   ·  bhai-gurdas (alt)
+ *     "bhai kanya lal"     bhai-gurdas-singh (alt)   ·  bhai-gurdas (alt)
+ *     "jhulelal"           jhulelal (name)           ·  sheikh-tahir (alt)
+ *     "zinda pir"          khwaja-muhammad-qasim (alt) · jhulelal (alt)
+ *
+ * ## What it must not do
+ *
+ * **Decide.** `docs/KG_REVIEW_WORKFLOW.md` records that 19 of 21
+ * name-similarity merges attempted here were wrong, and RULE 2 forbids settling
+ * an identity from general knowledge. Two nodes sharing three names is a
+ * question, not an answer — and the more likely reading is two correct pages
+ * each carrying the other's names in its "also known as" list, which is its own
+ * defect: a reader at `/saint/bhai-gurdas` sees "Bhai Gurdas Singh" as an alias
+ * with no way to learn that a different figure holds it as a name.
+ *
+ * So this reports a pair for adjudication. The verdict — merge, or a
+ * `saintDoNotMerge` entry with a quote and a source — is a person's.
+ *
+ * @param {Array<{slug: string, name: string, altNames?: string[]}>} nodes
+ * @returns {Map<string, Array<{slug: string, value: string, field: 'name'|'altName'}>>}
+ */
+export function findAltNameCollisions(nodes) {
+  const byKey = new Map();
+  for (const node of nodes) {
+    const claims = [
+      { value: node.name, field: 'name' },
+      ...(node.altNames ?? []).map((value) => ({ value, field: 'altName' })),
+    ];
+    for (const { value, field } of claims) {
+      const key = saintNameKey(value);
+      if (!key) continue;
+      if (!byKey.has(key)) byKey.set(key, []);
+      byKey.get(key).push({ slug: node.slug, value, field });
+    }
+  }
+  /* Only where two *different* nodes claim the key. One node listing a name and
+     a punctuated variant of it — `khwaja-muhammad-qasim` carries both
+     `Zinda Pir` and `"Zinda Pir"`, quotes included — is a data-hygiene matter for
+     `altNames` and not an identity question. */
+  return new Map(
+    [...byKey].filter(([, claims]) => new Set(claims.map((c) => c.slug)).size > 1),
+  );
 }

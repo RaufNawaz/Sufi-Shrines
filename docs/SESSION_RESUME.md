@@ -611,6 +611,58 @@ cannot do.
   `src/lib/i18n/uiStrings.ur.ts`, and it is Urdu content (RULE 2) — annotated
   here rather than guessed at.
 
+  **Measured 30 August 2026, and the wording is not merely imprecise.** Of the
+  **29 published place pages, 25 show "یہاں درج مزارات" above at least one site
+  that is not a Muslim Shrine, and on 13 of them there is no Muslim Shrine under
+  it at all** — Dadu 3 of 3, Qambar-Shahdadkot 2 of 2, Hingol 2 of 2, Karachi 8
+  of 11. On those thirteen the heading contradicts every item beneath it.
+
+  **Why the obvious substitution is not available, which is the decision.** The
+  archive's own reviewed word for a site is مقامات, so swapping it in looks like
+  the `graphExplorerIntro` substitution that needed no fluent speaker. It is not
+  the same case: **that replacement word was idle, and this one is already
+  doing another job.** `placesTitle` is also مقامات, and it renders on *every*
+  place page as the breadcrumb crumb (`PlacePage.tsx:304`) and on `/about`
+  directly above the per-place counts (`ArchiveKnows.tsx:369` over `:379`). So
+  substituting would put مقامات in two senses on one page, on two surfaces.
+  The two strings have to be settled together, as one question: **what is the
+  Urdu for a locality, and does مقامات then belong to sites alone?**
+
+- **Five figure pairs claim the same name and the identity gate reported zero.** *Measured
+  30 August 2026 (KB2-5); the gate now sees them, the verdicts are yours.* `saintNameKey` is the
+  archive's identical-name test and `validate-kg-identity.mjs` states the rule it enforces —
+  *"identical names are the one signal this project accepts as proof of the same person."*
+  `findNameKeyCollisions` read `node.name` and nothing else. **An `altName` is a name.**
+
+      "bhai gurdas singh"   bhai-gurdas-singh (name)     ·  bhai-gurdas (alt)
+      "kanhiya lal"         bhai-gurdas-singh (alt)      ·  bhai-gurdas (alt)
+      "bhai kanya lal"      bhai-gurdas-singh (alt)      ·  bhai-gurdas (alt)
+      "jhulelal"            jhulelal (name)              ·  sheikh-tahir (alt)
+      "zinda pir"           khwaja-muhammad-qasim (alt)  ·  jhulelal (alt)
+
+  **Three of the five are the same two nodes**, and they are otherwise near-identical: both typed
+  `Sant`, both titled "Bhai", both `disciple_of guru-gobind-singh`, differing in their shrine
+  (Balochistan vs Sindh). Both came out of composite cells — the retired slugs
+  `bhai-gurdas-veneration-of-guru-nanak` and `bhai-gurdas-singh-disciple-of-guru-gobind-singh` say
+  so — which is the process that produced this archive's known splits *and* its known false
+  merges.
+
+  **Not decided here, and deliberately.** `docs/KG_REVIEW_WORKFLOW.md` records that **19 of 21**
+  name-similarity merges attempted in this project were wrong, so a shared name is a question and
+  RULE 2 forbids answering it from general knowledge. The likelier reading is not that they are
+  one man but that they are two correct pages each carrying the other's names in its "also known
+  as" list — which is its own defect: a reader at `/saint/bhai-gurdas` sees "Bhai Gurdas Singh"
+  as an alias and has no way to learn a different figure holds it as a name.
+
+  Each pair is cleared the same way any decision here is: merge them, or add a `saintDoNotMerge`
+  entry with the verbatim quote and its source. The five are allowed **by name**, so a sixth fails
+  while these wait and clearing one does not license another. `saintDoNotMerge` currently holds 14
+  entries and a decision on none of these.
+
+  *One is data hygiene rather than identity and can go without a ruling:*
+  `khwaja-muhammad-qasim` carries both `Zinda Pir` and `"Zinda Pir"` — the same alt-name twice,
+  once with literal quote characters in the string.
+
 - **The badge glossary's wording.** The seven definitions are derived and written up in
   `docs/planning/BADGE_GLOSSARY.md` — not authored: each is the rule
   `pipeline/build_sources_registry.py` already applies. Three things are open and are yours: the

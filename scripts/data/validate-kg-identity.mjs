@@ -57,7 +57,11 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { slugify } from './lib/slugs.mjs';
-import { saintNameKey, findNameKeyCollisions } from './lib/saintIdentity.mjs';
+import {
+  saintNameKey,
+  findNameKeyCollisions,
+  findAltNameCollisions,
+} from './lib/saintIdentity.mjs';
 import { analyseFigureColumns } from './lib/figureColumns.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -174,6 +178,55 @@ for (const [i, entry] of doNotMerge.entries()) {
     );
   }
 }
+
+/* ── 1b. and the same test applied to altNames ────────────────────────────────
+ *
+ * Check 1 reads `node.name` only, and the rule it states is that identical
+ * names are the one signal this project accepts as proof of the same person.
+ * An altName is a name. Reading them, five cross-node collisions appear where
+ * this gate reported zero — three of them between the same two nodes.
+ *
+ * Reported, never decided: KG_REVIEW_WORKFLOW records that 19 of 21
+ * name-similarity merges attempted here were wrong, so a shared name is a
+ * question and RULE 2 forbids answering it from general knowledge. A pair is
+ * cleared by a `saintDoNotMerge` entry carrying a quote and a source — the same
+ * evidence any other decision here needs — or by being merged.
+ *
+ * The five are allowed by name rather than by count, so a sixth fails while
+ * these await a verdict, and clearing one does not silently license another.
+ */
+const ALT_COLLISIONS_AWAITING_VERDICT = new Set([
+  'bhai gurdas singh',
+  'kanhiya lal',
+  'bhai kanya lal',
+  'jhulelal',
+  'zinda pir',
+]);
+
+const altCollisions = findAltNameCollisions(saints);
+let altAwaiting = 0;
+for (const [key, claims] of altCollisions) {
+  const slugs = [...new Set(claims.map((c) => c.slug))];
+  const cleared = doNotMerge.some((entry) => {
+    const pair = new Set(entry.slugs ?? []);
+    return slugs.every((slug) => pair.has(slug));
+  });
+  if (cleared) continue;
+  if (ALT_COLLISIONS_AWAITING_VERDICT.has(key)) {
+    altAwaiting += 1;
+    continue;
+  }
+  fail(
+    `figure nodes ${slugs.join(' and ')} both claim the name "${key}" ` +
+      `(${claims.map((c) => `${c.slug}:${c.field}`).join(', ')}). An altName is a name, and ` +
+      `identical names are the one signal this project accepts as proof of the same person. ` +
+      `Decide it: merge them, or record a saintDoNotMerge entry with the quote and source that ` +
+      `show they are two people. Do not settle it from general knowledge (RULE 2).`,
+  );
+}
+notes.push(
+  `${altCollisions.size} name/altName collision(s) across nodes, ${altAwaiting} awaiting a verdict`,
+);
 notes.push(`${doNotMerge.length} recorded decision(s) against merging`);
 
 // ── 4. retired slugs must still resolve ──────────────────────────────────────
