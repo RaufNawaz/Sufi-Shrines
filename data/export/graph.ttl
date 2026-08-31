@@ -18,6 +18,11 @@ sufi:buriedAt      rdfs:subPropertyOf schema:location ;
 sufi:commemorates  rdfs:subPropertyOf schema:about ;
                    rdfs:label "commemorates"@en .
 sufi:silsila       rdfs:label "spiritual lineage (silsila)"@en .
+sufi:discipleOf    rdfs:subPropertyOf schema:knows ;
+                   rdfs:label "disciple of"@en .
+sufi:successorOf   rdfs:label "successor of (khalifa)"@en .
+sufi:descendantInLineageOf rdfs:subPropertyOf sufi:descendantOf ;
+                   rdfs:label "descendant in the spiritual lineage of"@en .
 sufi:grandsonOf    rdfs:label "grandson of"@en .
 sufi:nephewOf      rdfs:label "nephew of"@en .
 sufi:sonInLawOf    rdfs:label "son-in-law of"@en .

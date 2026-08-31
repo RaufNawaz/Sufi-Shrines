@@ -128,6 +128,22 @@ emit(`                   rdfs:label "buried at"@en .`);
 emit(`sufi:commemorates  rdfs:subPropertyOf schema:about ;`);
 emit(`                   rdfs:label "commemorates"@en .`);
 emit(`sufi:silsila       rdfs:label "spiritual lineage (silsila)"@en .`);
+/* The three the graph actually uses, which this block did not declare.
+   Measured 30 August 2026: `sufi:discipleOf` (70 statements),
+   `sufi:successorOf` (29) and `sufi:descendantInLineageOf` are emitted below
+   and appeared in no vocabulary — so a consumer reading the release could
+   resolve `sufi:grandsonOf`, which the archive uses four times, and not
+   `sufi:discipleOf`, which is the most-used relation it has. The block declared
+   three others it never emits (`buriedAt`, `commemorates`, `silsila`); those are
+   left alone, because `buried_at` is bound up with a naming decision that is
+   Rauf's and pruning half a vocabulary while that is open would be worse than
+   leaving it whole. `relationExportCoverage.test.ts` counts the statements;
+   this makes them readable. */
+emit(`sufi:discipleOf    rdfs:subPropertyOf schema:knows ;`);
+emit(`                   rdfs:label "disciple of"@en .`);
+emit(`sufi:successorOf   rdfs:label "successor of (khalifa)"@en .`);
+emit(`sufi:descendantInLineageOf rdfs:subPropertyOf sufi:descendantOf ;`);
+emit(`                   rdfs:label "descendant in the spiritual lineage of"@en .`);
 /* Kinship. `son_of`/`daughter_of` and `sibling_of` go out as schema.org's own
    `parent` and `sibling`; these four have no standard equivalent and are
    declared here so a consumer can at least read what they mean. Turtle carries
