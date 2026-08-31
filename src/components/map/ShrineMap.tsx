@@ -11,6 +11,12 @@ import L from 'leaflet';
 import type { Shrine } from '../../types/shrine';
 import type { Tour } from '../../lib/tours/tours';
 import { DEFAULT_CENTER, DEFAULT_ZOOM, SIDEBAR_WIDTH } from '../../lib/data/constants';
+import {
+  boundsOfPoints,
+  fitPadding,
+  isNarrowViewport,
+  sheetPeekHeight,
+} from '../../lib/map/openingView';
 import { ShrineMarkers } from './ShrineMarkers';
 import { TourRoute } from './TourRoute';
 import { SharedGroundLayer } from './SharedGroundLayer';
@@ -301,17 +307,77 @@ function LayersControlTitle({ title }: { title: string }) {
   return null;
 }
 
+/**
+ * The opening view for the current viewport, or `null` to keep the default.
+ *
+ * Returns `null` on desktop deliberately — that view measures 0 markers outside
+ * the visible rectangle, and recomputing a view that is already right buys
+ * nothing and risks something. See `lib/map/openingView.ts` for the counts.
+ */
+function fittedOpeningView(shrines: Shrine[]) {
+  if (typeof window === 'undefined' || !isNarrowViewport(window.innerWidth)) return null;
+  const points = shrines
+    .filter((s) => s.latLng)
+    .map((s) => ({ lat: s.latLng!.lat, lng: s.latLng!.lng }));
+  const corners = boundsOfPoints(points);
+  if (!corners) return null;
+  const sheet = sheetPeekHeight((name) =>
+    getComputedStyle(document.documentElement).getPropertyValue(name),
+  );
+  return { bounds: L.latLngBounds(corners), options: fitPadding(sheet) };
+}
+
+/**
+ * Fit the archive into the *unoccluded* map rectangle on a narrow viewport.
+ *
+ * Runs once, on the first dataset that has coordinates — markers arrive in two
+ * passes (slim index, then CSV) and re-fitting on the second would move the map
+ * under a reader who had already started panning.
+ *
+ * Skipped entirely when a tour is running or a shrine is selected: both own the
+ * camera, `?selected=` deep links are the case the council warned must still
+ * win, and a fit racing a `flyTo` is how a deep link would land somewhere else.
+ */
+function OpeningView({
+  shrines,
+  selectedId,
+  tourActive,
+}: {
+  shrines: Shrine[];
+  selectedId: number | null;
+  tourActive: boolean;
+}) {
+  const map = useMap();
+  const fitted = useRef(false);
+
+  useEffect(() => {
+    if (fitted.current || tourActive || selectedId !== null) return;
+    const view = fittedOpeningView(shrines);
+    if (!view) return;
+    fitted.current = true;
+    map.fitBounds(view.bounds, { ...view.options, animate: false });
+  }, [map, shrines, selectedId, tourActive]);
+
+  return null;
+}
+
 // Reset-view Leaflet control (bottom-right, above zoom)
 function ResetViewControl({
   onSelect,
   title,
   label,
+  shrines,
 }: {
   onSelect: (s: Shrine | null) => void;
   title: string;
   label: string;
+  shrines: Shrine[];
 }) {
   const map = useMap();
+  /* Held in a ref so the dataset arriving does not tear down and re-add a
+     Leaflet control; the handler reads the current value when pressed. */
+  const shrinesRef = useRef(shrines);
+  shrinesRef.current = shrines;
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any -- @types/leaflet doesn't type Control.extend()
@@ -332,7 +398,14 @@ function ResetViewControl({
           L.DomEvent.preventDefault(e);
           onSelect(null);
           const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if (reduced) {
+          /* The same computation as the opening view, deliberately: a reset
+             that returned to a view the map never opened at would be a second
+             answer to "where does this map start". */
+          const view = fittedOpeningView(shrinesRef.current);
+          if (view) {
+            if (reduced) map.fitBounds(view.bounds, { ...view.options, animate: false });
+            else map.flyToBounds(view.bounds, { ...view.options, duration: 0.9 });
+          } else if (reduced) {
             map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
           } else {
             map.flyTo(DEFAULT_CENTER, DEFAULT_ZOOM, { duration: 0.9 });
@@ -451,10 +524,12 @@ export function ShrineMap({
         zoomInTitle={t('mapZoomIn')}
         zoomOutTitle={t('mapZoomOut')}
       />
+      <OpeningView shrines={shrines} selectedId={selectedId} tourActive={activeTour !== null} />
       <ResetViewControl
         onSelect={onSelect}
         title={t('mapResetView')}
         label={t('mapResetViewLabel')}
+        shrines={shrines}
       />
       <MapClickDeselect onSelect={onSelect} />
 

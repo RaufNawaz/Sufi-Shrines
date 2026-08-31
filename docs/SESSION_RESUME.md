@@ -63,7 +63,7 @@ the reason the rest is credible.
 | Fourteen pages described the homepage rather than themselves, in English on the Urdu half | `0534a91` |
 | The newline invariant RULE 4 names was in a script nothing in the build path calls | (this cycle) |
 | A pir-brother is not a teacher; both scanner piles worked out | `9c4eeb3` |
-| RULE 4's asterisk guard ran only where a person was already being careful | *this commit* |
+| RULE 4's asterisk guard ran only where a person was already being careful | `827068b` |
 
 ### From the knowledge-base council (30 August 2026)
 
@@ -91,7 +91,9 @@ Ranked queue, four decisions for Rauf and the five raw reports:
 | The infobox withheld the date note whenever the year was missing — 28 entries | `0a02e72` |
 | A two-decimal locality guess was printed as a five-decimal coordinate | `60ddb15` |
 | Sixteen Latin budgets re-measured; the almanac's went 47 to 3 | `4fbd727` |
-| All 64 place pages were unreachable by an Urdu search query | *this commit* |
+| All 64 place pages were unreachable by an Urdu search query | `1db2775` |
+| `/chronology` was reachable from nowhere in the application | `f6823ec` |
+| A phone opened the map with a third of the archive off-screen | *this commit* |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
