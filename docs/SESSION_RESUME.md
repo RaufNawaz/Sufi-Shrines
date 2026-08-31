@@ -93,7 +93,7 @@ Ranked queue, four decisions for Rauf and the five raw reports:
 | Sixteen Latin budgets re-measured; the almanac's went 47 to 3 | `4fbd727` |
 | All 64 place pages were unreachable by an Urdu search query | `1db2775` |
 | `/chronology` was reachable from nowhere in the application | `f6823ec` |
-| A phone opened the map with a third of the archive off-screen | *this commit* |
+| A phone opened the map with a third of the archive off-screen | `ff5b185` |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |
@@ -164,12 +164,17 @@ has already shipped — it said 524 entity pages and 94 places, and it is 459 an
    needs a dirty start.** Every existing Urdu spec opens a fresh context, which is why this lived
    this long — the same shape as the gallery specs that asserted against images the browser had
    never requested.
-3. **J-1 · A phone opens the map with a third of the archive off-screen**, including 14 of 14
-   Nanakpanthi/Udasi darbars and 16 of 36 Hindu temples. Fixed centre and zoom against a portrait
-   viewport plus the sheet. Does not reopen the pin-density ruling: the resting map is unchanged.
-4. **IA-1 · `/chronology` is reachable from nowhere** — 0 links across 81 rendered pages, while
-   prerendered, in the sitemap at priority 0.7, and rendering 171 shrine links. Six e2e specs
-   exercise it and every one arrives by `page.goto`, which is why it survived.
+~~3. **J-1 · A phone opens the map with a third of the archive off-screen**, including 14 of 14
+    Nanakpanthi/Udasi darbars and 16 of 36 Hindu temples.~~ **Closed 30 August 2026**, `ff5b185`.
+    Fixed centre and zoom against a portrait viewport plus the sheet. Does not reopen the
+    pin-density ruling: the resting map is unchanged.
+
+~~4. **IA-1 · `/chronology` is reachable from nowhere** — 0 links across 81 rendered pages, while
+    prerendered, in the sitemap at priority 0.7, and rendering 171 shrine links.~~ **Closed
+    30 August 2026**, `f6823ec`. Six e2e specs exercised it and every one arrived by `page.goto`,
+    which is why it survived that long — the standing lesson being that a route reached only by
+    `goto` in its own tests has no evidence a reader can reach it at all.
+
 5. **IA-2 · Desktop has no top-level navigation at all** — `.tabbar` is hidden at ≥641px, and five
    routes hang off one component that renders only when nothing is selected.
 
