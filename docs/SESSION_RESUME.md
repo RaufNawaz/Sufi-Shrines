@@ -94,6 +94,7 @@ Ranked queue, four decisions for Rauf and the five raw reports:
 | All 64 place pages were unreachable by an Urdu search query | `1db2775` |
 | `/chronology` was reachable from nowhere in the application | `f6823ec` |
 | A phone opened the map with a third of the archive off-screen | `ff5b185` |
+| Seven graph links 404'd in production only, and left-click hid it | *this commit* |
 | 111 of 112 marker photographs were ellipses, and Leaflet was sizing them | `071a870` |
 | Seventeen measurements in the UI lane were dated a day that had not happened | `4d3a82b` |
 | 290 of the archive's 459 entity pages could not be cited | `2357fd3` |

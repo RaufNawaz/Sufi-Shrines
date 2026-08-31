@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHref, useNavigate } from 'react-router-dom';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { thumbnailUrl } from '../../lib/images/thumbnail';
 
@@ -133,6 +133,27 @@ export function NetworkGraph({ center, connected, legend }: Props) {
      full-page-load out of the SPA. So the anchor stays a real anchor — its href
      is the real URL, so middle-click, right-click and "copy link" all behave —
      and a plain left-click is intercepted and routed. */
+
+  /* ...but "the real URL" is not the route path. The router is mounted with a
+     basename and production is served from /Sufi-Shrines/, so a raw
+     `href="/saint/foo"` points at raufnawaz.github.io/saint/foo and 404s — in
+     production only, which is the whole reason `npm run verify:pages` exists
+     (HANDOVER §9.58). It caught this one on the deploy of 31 August 2026: five
+     links on /graph and two on every saint page. The three behaviours the
+     anchor was kept for — middle-click, right-click, copy link — were exactly
+     the three that were broken, and a left-click hid it, because navigate()
+     applies the basename itself and so was always right.
+
+     `useHref` is the router's own answer. Called once for the root (rules of
+     hooks: one call, not one per node) it yields the prefix every node href
+     needs, read from the live basename rather than re-derived from
+     import.meta.env. */
+  const basePrefix = useHref('/');
+  const hrefFor = useCallback(
+    (routePath: string) => `${basePrefix.replace(/\/$/, '')}${routePath}`,
+    [basePrefix],
+  );
+
   const onNodeClick = useCallback(
     (event: React.MouseEvent<Element>, href: string) => {
       if (event.defaultPrevented) return;
@@ -270,7 +291,7 @@ export function NetworkGraph({ center, connected, legend }: Props) {
           return (
             <a
               key={node.id}
-              href={node.href}
+              href={hrefFor(node.href)}
               className="network-node-link"
               /* The accessible name, as an attribute rather than an SVG <title>.
                  A <title> is a text node, so it put a second copy of every node

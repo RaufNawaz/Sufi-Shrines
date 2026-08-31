@@ -8902,3 +8902,54 @@ where 54 entries have no working photograph at all and where four of the eightee
 existence belong to these two entries. `npm run data:check:unpublished` names the prose; this is
 the rest of the bill.
 
+
+### Added 31 August 2026 — the deploy gate caught seven links that only exist as bugs in production
+
+The push of `4ff7476` to `1.7` failed at **Verify the production base path**, the last step before
+the artifact uploads. Nothing else was red: `npm run verify` was green locally, and the deploy
+job's own typecheck/lint/test/data step passed on the same commit. The site did not deploy, and
+production stayed on the 26 August build until the fix below went up.
+
+**What it found.** `check-production-base.mjs` reported two routes:
+
+```
+✗ /graph      href="/saint/fariduddin-ganjshakar" has no /Sufi-Shrines prefix
+              (and four more saint links)
+✗ /saint/data-ganj-bakhsh
+              href="/saint/abul-fadl-muhammad-al-khuttali"
+              href="/shrine/data-darbar"
+```
+
+All seven come from one element: the `<a>` in `src/components/kg/NetworkGraph.tsx`, which draws
+each node of the knowledge-graph diagram. It is a real anchor rather than a `<Link>` on purpose —
+SVG has no react-router `Link`, and the comment above it says the href is kept real "so
+middle-click, right-click and *copy link* all behave". It was carrying the raw route path, which
+the router's basename never touches, so on Pages at `/Sufi-Shrines/` every one of them pointed a
+level too high.
+
+**Why it survived every other check, and this is the part worth keeping.** The three behaviours the
+anchor was kept for are exactly the three that were broken. A plain left-click was always correct,
+because `onNodeClick` calls `navigate()`, and `navigate()` applies the basename itself. So the
+diagram worked for anyone who clicked it — including every Playwright test — and failed only for
+someone opening a node in a new tab or copying its address. A defect whose blast radius is precisely
+the interactions no automated pass performs.
+
+It was also invisible to the guard written for this class of bug. `internalLinks.test.ts` greps
+`.tsx` source for literal `href="/shrine/…"` strings; this one is `href={node.href}`, a variable,
+and no static scrape of the source text can resolve it.
+
+**Fixed** by joining the router's own basename onto the attribute — `useHref('/')` once, per rules
+of hooks, rather than re-deriving the prefix from `import.meta.env` — and left `navigate(node.href)`
+alone, since it was never wrong.
+
+**The invariant** is `src/components/kg/__tests__/networkGraphHref.test.tsx`: it renders the
+component under a `MemoryRouter` with a basename and asserts the *rendered attribute*, which is the
+thing the static guard cannot see. Mutation-checked — reverting the one-line fix fails two of its
+three cases. This moves the check from deploy time to `npm run verify`, which matters because the
+deploy gate can only fail *after* a red commit has already reached the version branch.
+
+**And one note on writing the guard itself.** Its first run reported zero anchors, which read
+exactly like the bug — a `MemoryRouter` whose location does not start with its basename renders
+`null`. The initial entry has to sit inside the basename. A guard failing for the wrong reason is
+indistinguishable from one that works until the fix fails to silence it, so the test carries that
+in a comment.
