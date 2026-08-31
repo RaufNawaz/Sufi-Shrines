@@ -100,7 +100,13 @@ describe('relations reach the data release edge by edge', () => {
     const edges = kg.relations.filter((r) => r.type === type).length;
     expect(edges, `no ${type} edges in the graph — this row is measuring nothing`).toBeGreaterThan(0);
 
-    const inTtl = (ttl.match(new RegExp(ttlPredicate.replace(':', '\\:'), 'g')) ?? []).length;
+    /* Anchored on the two-space indent that marks a *statement* inside a
+       subject block. Counting bare occurrences also counts the `# ── Vocabulary`
+       declaration at column 0, which made this test read edges+1 the moment
+       `sufi:discipleOf` was finally declared — a fix reported as a regression. */
+    const inTtl = (
+      ttl.match(new RegExp(`^ {2}${ttlPredicate.replace(':', '\\:')}\\b`, 'gm')) ?? []
+    ).length;
     const inJsonld = countJsonldValues(jsonld, jsonldKey);
 
     const explain =

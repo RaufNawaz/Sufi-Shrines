@@ -51,6 +51,18 @@ You asked something answerable and it was not the thing you wanted to know.
   against this is already written down (`feedback_never_truncate_test_output`), which is the point:
   knowing the rule is not the same as applying it under momentum.
 
+- **A raw key lookup against a resolver-backed field.** This one produced **four** near-findings in
+  a single day and is the most convincing shape in this document, because it fails exactly the way
+  a real gap does. Three reviewers and I joined on the `id` column where the app resolves through
+  `buildStableSlug(Name)` — "14 graph slugs missing from the dataset", "14 entries with no
+  provenance record", "16 shrines with no Urdu article", all of them zero. Then, tracing something
+  else, I checked `kg.saints[].name` as a raw key in `urdu-seed.json` and reported one figure with
+  no Urdu name; the guard resolves through `localizeFigureName` and the name is reachable. What
+  sold it was a near-miss in the data itself: the shrine is *"Gurdwara Bhai **Beba** Singh"* and the
+  figure is *"Bhai **Biba** Singh"*, so the lookup fails on a spelling difference that looks like
+  the very slug-drift you went looking for. **If a field is read through a function anywhere in the
+  app, measure it through that function.**
+
 **The tell:** a query that returns *few* results and confirms a hypothesis. **The check:** ask what
 a false negative would look like, and construct one. Every guard in this repo that asserts "both
 shapes of the damage" earned that phrasing here — and note that writing *"both"* is not evidence
