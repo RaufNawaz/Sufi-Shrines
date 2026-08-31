@@ -245,6 +245,36 @@ shrines. The archive's own `مزارات` is already used for the shrine count i
 place rows, which makes it a substitution rather than a composition — but confirming that
 `مقامات` is a collision and not an accepted overload is a reader's call. *(KB5‑5.)*
 
+## A Latin-run budget drifts downward, and the commit that pays the debt is not the one that re-measures it
+
+Traced 30 August 2026, after the parallel session re-measured sixteen budgets in
+`e2e/urdu-no-leak.spec.ts` and found **eleven carrying slack** — `almanac` 47 → 3, `graph`
+126 → 46, `place` 61 → 38. The `graph` drop of 80 runs was on a route neither session had been
+working on, and the obvious suspect was the observance fix (`dea67b2`). **It is not:** `/graph`
+never calls `localizeObservance`.
+
+The real cause is three hours of 29 August. `5c2eeb9` set `graph: 126` at 20:05. At 23:23
+`d73baa1` — *"i18n: every figure in the archive now has an Urdu name"* — gave Urdu names to the
+last 57 lineage-only figures, and `/graph` is the page that lists exactly that population. Nobody
+re-measured the budget for a day.
+
+So the number was never a translation debt. It was **a debt that had already been paid, still
+being carried**, and the commit that paid it announced as much in its own subject line.
+
+**The general form, and it is the second time today this shape has appeared.** A Latin-run budget
+on a data-driven route falls every time the dictionary grows. Nothing fails when it does — a
+budget is a maximum — so slack accumulates silently, and slack is precisely where the next real
+leak hides. The parallel session made the same point from the other direction earlier the same
+day, finding `saint` budgeted 20 against an actual 16 and `saint:lineage-only` 27 against 16. A
+budget that is not re-measured on the commit that changes the data underneath it stops measuring
+anything.
+
+*Retraction, mine, in the middle of this.* I first reported one figure still lacking an Urdu name
+(`bhai-biba-singh`) by looking its `kg.saints[].name` up as a raw key in `urdu-seed.json`. The
+guard uses `localizeFigureName`, a resolver — the name is reachable, the guard is green, and the
+gap is zero. The third time in one day that reading a data file measured a surface the resolver
+does not use.
+
 ---
 
 ## One ambiguity, three bugs: `id` is not the slug
