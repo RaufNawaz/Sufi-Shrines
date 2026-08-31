@@ -55,6 +55,26 @@ import { test, expect, settle } from './fixtures';
  * one of these numbers is high, the question to ask first is whether the Urdu
  * already exists somewhere the render path is not looking.
  *
+ * ## And a third thing a budget cannot tell, traced 30 August 2026
+ *
+ * *"Somebody already translated this and nobody re-measured."*
+ *
+ * `graph` was budgeted **126** against an actual **46**. The 80-run gap was not
+ * this session's doing and not the observance work either — `/graph` never calls
+ * `localizeObservance`. `5c2eeb9` set 126 at 20:05 on 29 August; three hours
+ * later `d73baa1` gave Urdu names to the last **57 lineage-only figures**, which
+ * is precisely the population `/graph` lists, plus the notes beside them
+ * ("teacher of X", "father of X") that carry figure names too. The debt was paid
+ * that night and carried in this file for a day, by a commit whose own subject
+ * line announced it.
+ *
+ * **This is structural, not an oversight.** A budget is a maximum, so it falls
+ * silently every time the dictionary grows and *nothing fails when it does*.
+ * Slack accumulates by design. The same shape turned up from the other direction
+ * the next morning with `saint` budgeted 20 against an actual 16. So: re-measure
+ * the whole table after any commit that widens Urdu coverage, rather than
+ * waiting for a red one to point at a single route.
+ *
  * ## Nine budgets moved on 30 August 2026, and two of them moved *down*
  *
  * "Cite this entry" reached the four non-shrine entity families that day, so a
