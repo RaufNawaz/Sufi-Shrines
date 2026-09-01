@@ -8953,3 +8953,31 @@ exactly like the bug — a `MemoryRouter` whose location does not start with its
 `null`. The initial entry has to sit inside the basename. A guard failing for the wrong reason is
 indistinguishable from one that works until the fix fails to silence it, so the test carries that
 in a comment.
+
+### Added 1 September 2026 — the fan stopped being a gesture, and two Leaflet facts worth an hour
+
+Rauf amended the pin-density ruling: **the tap-to-fan gesture went.** A tap on a pile now flies
+the map toward it (`flyToBounds`, capped at fan depth), and whatever depth cannot separate fans
+out on its own at `AUTO_FAN_ZOOM` (z16 — chosen from the dataset: 19 of 169 sites have a
+neighbour within 60 m, 10 share exact coordinates, median nearest-neighbour gap 1.8 km).
+Zooming out gathers it; nothing else dismisses it. Full ruling appended to
+`docs/planning/MAP_PIN_DENSITY_2026-08-30.md`; contract held by the rewritten
+`e2e/marker-fan.spec.ts`.
+
+Two things learned doing it, both the kind that read as bugs:
+
+- **`map.flyTo` fires `zoomstart` even when the zoom does not change.** Leaflet's `flyTo` calls
+  `_moveStart(true, …)` unconditionally — the `true` is `zoomChanged`. So selecting a marker
+  inside an open fan (selection flies at `max(zoom, 13)`, i.e. the *same* zoom at fan depth)
+  still collapses every fan at `zoomstart` and re-fans at `zoomend`. That accident is what makes
+  selection-inside-a-fan work at all; if it ever looks like the fan "flickers" on selection, that
+  is the collapse/re-fan round trip, not a defect. The spec asserts the fan survives selection.
+
+- **A CSS transition on a marker's `transform` must be outward-only.** The fanned glide is one
+  rule on `.shrine-dot--fanned` transitioning `transform` — Leaflet positions markers with
+  `translate3d`, so the transition animates `setLatLng` for free. But a collapse happens at
+  `zoomstart`, and a marker still gliding home while the zoom animation scales the pane is drawn
+  at neither place. The fix is ordering, not more CSS: remove the class *first*, then
+  `setLatLng`, and the return is instant because both land in the same style recalc. The
+  outward glide needs the opposite ordering plus one forced layout flush between class-add and
+  the moves (one flush total, not one per marker — reading layout in the loop is a thrash).

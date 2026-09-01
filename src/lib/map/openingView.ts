@@ -34,7 +34,8 @@
  * recomputing.
  *
  * This does not reopen the pin-density ruling (`MAP_PIN_DENSITY_2026-08-30.md`,
- * *fan on tap, and leave the resting map alone*). That decision was about not
+ * *leave the resting map alone* — the tap half was amended 1 September 2026 to
+ * zoom-then-auto-fan; see `spiderfy.ts`). That decision was about not
  * clustering or redrawing the markers; this changes where the camera starts on
  * a phone, draws every pin exactly as before, and adds no cluster bubble.
  */

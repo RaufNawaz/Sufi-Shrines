@@ -4,20 +4,23 @@ import { test, expect, MAPPED_SHRINE_COUNT } from './fixtures';
 /**
  * A pile of markers, and what a tap on it is worth.
  *
- * Measured at the opening view on 30 August 2026, before this existed: the
- * archive's 169 markers formed **21 visually distinct shapes**. The median
+ * Measured at the opening view on 30 August 2026, before any of this existed:
+ * the archive's 169 markers formed **21 visually distinct shapes**. The median
  * distance from a pin centre to its nearest neighbour was **1 px**; 152 of 169
- * had another pin's centre inside their own 22 px tap radius. The largest single
- * shape held **66 sites** — 39% of the archive — over Lahore. A reader who
- * tapped it opened whichever marker Leaflet had drawn last, with no route to
- * the other 65. Full figures in `docs/planning/MAP_PIN_DENSITY_2026-08-30.md`.
+ * had another pin's centre inside their own 22 px tap radius. The largest
+ * single shape held **66 sites** — 39% of the archive — over Lahore. A reader
+ * who tapped it opened whichever marker Leaflet had drawn last, with no route
+ * to the other 65. Full figures in `docs/planning/MAP_PIN_DENSITY_2026-08-30.md`.
  *
  * Ruled from four costed options: **fan on tap, and leave the resting map
- * alone.** These tests therefore assert both halves — that a tap reaches every
- * marker in a pile, *and* that nothing about the untouched map changed. The
- * second is not a formality: the option that redrew the opening view was
- * considered and declined, and a test suite that only checked the fan would let
- * it arrive later by accident.
+ * alone.** Amended by Rauf on 1 September 2026 — the tap gesture went. A tap
+ * on a pile now *flies the map toward it*; everything a zoom can separate
+ * separates on the way, and whatever it cannot — ten sites share exact
+ * coordinates — fans out on its own at fan depth, gathering again on the way
+ * back out. The resting-map half of the ruling stands, and this suite still
+ * asserts it: the option that redrew the opening view was considered and
+ * declined, and a suite that only checked the fan would let it arrive later by
+ * accident.
  *
  * `src/lib/map/__tests__/spiderfy.test.ts` holds the geometry. This holds the
  * behaviour, in a browser, on the built bundle.
@@ -51,6 +54,14 @@ async function pins(page: Page): Promise<Pin[]> {
   );
 }
 
+/** Only the pins a reader can currently see. The tap-until-fanned walk clicks
+ *  what it measures, and after the first flight most of the archive is off the
+ *  edges of the viewport — a "densest point" computed over those is a point
+ *  the mouse cannot reach. */
+function onScreen(all: Pin[], width: number, height: number): Pin[] {
+  return all.filter((p) => p.x >= 0 && p.y >= 0 && p.x <= width && p.y <= height);
+}
+
 /** The screen point with the most pin centres within one pin diameter — the
  *  pile a reader's thumb finds first. Computed rather than hardcoded, because
  *  the fixture's coordinates are data and data changes. */
@@ -68,33 +79,16 @@ function densestPoint(all: Pin[]): { point: Pin; size: number } {
 }
 
 /**
- * Wait for a fan to finish opening, not to start.
- *
- * `waitForFunction(fanned.length > 1)` returns on the *second* marker of sixty-
- * six — mid-loop, with most of the pile still sitting on the anchor. Measuring
- * there reports several markers at identical coordinates and a closest pair of
- * 0.13 px, which is indistinguishable from a broken spiral. The geometry was
- * fine at every size from 2 to 200; the instrument was early.
- *
- * So this waits for the shape to stop changing: two samples, one animation
- * frame apart, with the same count and the same positions. A leader line per
- * fanned marker is the other half of "finished" — the lines are added inside the
- * same loop, so a mismatch means it is still running.
- */
-/**
  * Wait until the map itself stops moving.
  *
  * The marker count settles well before the view does — the opening view is
- * animated, so for a while after all 168 markers exist every one of them is
- * still sliding. Clicking into that computes the fan against a moving map: the
- * offsets are right relative to an anchor that has since moved, and the read
- * that follows catches several markers still short of their positions. It
- * reports as four pairs of duplicate coordinates and a closest pair of 0.18 px,
- * which looks exactly like a broken spiral and is not one.
+ * animated, so for a while after all markers exist every one of them is still
+ * sliding. Measuring against a moving map has twice produced readings — four
+ * pairs of duplicate coordinates, a closest pair of 0.18 px — that look
+ * exactly like a broken spiral and are a mid-animation frame of a working one.
  *
- * Two identical frames of marker positions is the same test `settle()` in
- * `fixtures.ts` applies to animations, for the same reason: this project has
- * twice recorded a mid-animation state and filed it as a defect.
+ * Two identical samples of marker positions, a time gap apart, is the same
+ * test `settle()` in `fixtures.ts` applies to animations, for the same reason.
  */
 async function waitForMapStill(page: Page): Promise<void> {
   await page.waitForFunction(
@@ -120,6 +114,17 @@ async function waitForMapStill(page: Page): Promise<void> {
   );
 }
 
+/**
+ * Wait for a fan to finish opening, not to start.
+ *
+ * `waitForFunction(fanned.length > 1)` returns on the first marker to get its
+ * class — with the rest of the pile mid-glide, since the fan now *animates*
+ * outward over 300 ms. Measuring there reports markers at near-identical
+ * coordinates, which is indistinguishable from a broken spiral. So this waits
+ * for the shape to stop changing: two samples, 250 ms apart, with the same
+ * count and the same positions. A leader line per fanned marker is the other
+ * half of "finished" — the lines land in the same pass.
+ */
 async function waitForFan(page: Page): Promise<void> {
   await page.waitForFunction(
     () =>
@@ -153,20 +158,59 @@ function closestPair(points: Pin[]): number {
 }
 
 /**
+ * A flight is 900 ms and the fan's glide 300 ms. `waitForMapStill` alone is
+ * not enough to wait one out: under parallel workers with tiles decoding, two
+ * samples 250 ms apart matched while a flight was a third done — a stalled
+ * frame reads exactly like arrival — and the walk below spent its taps
+ * interrupting its own flights. The fixed floor carries the wait past the
+ * whole animation; the still-check then handles stretched frames.
+ */
+async function waitOutFlight(page: Page): Promise<void> {
+  await page.waitForTimeout(1_500);
+  await waitForMapStill(page);
+}
+
+/**
+ * Ride the taps down to fan depth: tap the densest visible pile, wait out the
+ * flight, repeat. Each tap below fan depth is spent on a flight (it neither
+ * fans nor selects — separate tests hold both); the first sight of a fanned
+ * marker is the auto-fan taking over. Ten taps is generous — the opening view
+ * sits ten zoom levels above fan depth and every flight covers several.
+ *
+ * The fan check comes before the "nothing to tap" check on purpose: once the
+ * fan opens, the fanned markers stand a tap radius apart by design, so the
+ * densest visible point reads size 1 — reversing the two reads a working fan
+ * as an empty map.
+ */
+async function tapUntilFanned(page: Page): Promise<void> {
+  for (let i = 0; i < 10; i += 1) {
+    if ((await page.locator('.shrine-dot--fanned').count()) > 0) {
+      await waitForFan(page);
+      return;
+    }
+    const view = page.viewportSize()!;
+    const visible = onScreen(await pins(page), view.width, view.height);
+    const { point, size } = densestPoint(visible);
+    if (size < 2)
+      throw new Error('every visible pin stands alone, and no fan has opened — nothing to tap');
+    await page.mouse.click(point.x, point.y);
+    await waitOutFlight(page);
+  }
+  if ((await page.locator('.shrine-dot--fanned').count()) > 0) {
+    await waitForFan(page);
+    return;
+  }
+  throw new Error('no fan opened after ten taps on the densest pile');
+}
+
+/**
  * Wait for the marker layer to stop being rebuilt.
  *
  * Not a `waitForTimeout`, and the first draft of this file learned why. Markers
  * arrive in two passes — the slim index, then the CSV dataset — and the second
- * pass **rebuilds the whole layer**. A fan opened during the gap is collapsed by
- * that rebuild's cleanup, so a spec that tapped at a fixed 1200 ms measured a
- * map mid-swap: old fanned elements still in the DOM at their fan positions,
- * new ones already drawn at true coordinates, and two markers reported 0.13 px
- * apart. It reads exactly like a geometry bug, and the geometry was fine at
- * every size from 2 to 200.
- *
- * The settled count is the signal, so this waits for it. `MAPPED_SHRINE_COUNT`
- * is the fixture's own answer to "how many rows have coordinates", which is
- * what the second pass converges on.
+ * pass **rebuilds the whole layer**. The settled count is the signal, so this
+ * waits for it. `MAPPED_SHRINE_COUNT` is the fixture's own answer to "how many
+ * rows have coordinates", which is what the second pass converges on.
  */
 async function loadMap(page: Page, url = '/') {
   await page.goto(url);
@@ -176,7 +220,7 @@ async function loadMap(page: Page, url = '/') {
   await waitForMapStill(page);
 }
 
-test.describe('a pile of markers fans out on tap', () => {
+test.describe('a pile of markers: tap to fly toward it, and overlap fans at depth', () => {
   test('the opening view really does pile them up', async ({ page }) => {
     /* The premise, asserted rather than assumed. If a future dataset or default
        zoom separates the pins, every test below stops meaning anything and this
@@ -189,15 +233,36 @@ test.describe('a pile of markers fans out on tap', () => {
     );
   });
 
-  test('every marker in the pile becomes separately tappable', async ({ page }) => {
+  test('a tap on a pile flies the map toward it — no fan, no selection', async ({ page }) => {
     await loadMap(page);
-    const { point } = densestPoint(await pins(page));
+    const before = await pins(page);
+    const { point, size } = densestPoint(before);
 
     await page.mouse.click(point.x, point.y);
-    await waitForFan(page);
+    await waitOutFlight(page);
+
+    /* The tap was spent on the flight and nothing else: the opening pile spans
+       a city, so the flight lands far above fan depth. */
+    await expect(page.locator('.shrine-dot--fanned')).toHaveCount(0);
+    await expect(page.locator('.shrine-fan-leg')).toHaveCount(0);
+    await expect(page.locator('.leaflet-marker-icon[aria-pressed="true"]')).toHaveCount(0);
+
+    /* And it worked: the pile the reader tapped is looser on screen than it
+       was. The flight fits the pile's bounds to the viewport, so its members
+       must spread. */
+    const view = page.viewportSize()!;
+    const after = densestPoint(onScreen(await pins(page), view.width, view.height));
+    expect(after.size, 'the flight did not loosen the pile it was aimed at').toBeLessThan(size);
+  });
+
+  test('what depth cannot separate fans out on its own, every marker tappable', async ({
+    page,
+  }) => {
+    await loadMap(page);
+    await tapUntilFanned(page);
 
     const fanned = (await pins(page)).filter((p) => p.fanned);
-    expect(fanned.length).toBeGreaterThan(5);
+    expect(fanned.length).toBeGreaterThan(1);
 
     /* The point of the whole feature: no two of them share a tap target. */
     expect(
@@ -207,98 +272,83 @@ test.describe('a pile of markers fans out on tap', () => {
 
     /* And a leader line each, so the fan does not silently misreport where a
        site is. */
-    await expect(page.locator('.shrine-fan-leg')).toHaveCount(fanned.length);
-
-    const offscreen = await page.evaluate(
-      () =>
-        [...document.querySelectorAll('.shrine-dot--fanned')].filter((el) => {
-          const b = el.getBoundingClientRect();
-          const x = b.left + b.width / 2;
-          const y = b.top + b.height / 2;
-          return x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight;
-        }).length,
+    await expect(page.locator('.shrine-fan-leg')).toHaveCount(
+      await page.locator('.shrine-dot--fanned').count(),
     );
-    expect(offscreen, 'the fan hangs off the viewport').toBe(0);
   });
 
-  test('Escape puts every marker back exactly where it was', async ({ page }) => {
+  test('zooming out gathers the fan, and coming back re-opens it exactly', async ({ page }) => {
     await loadMap(page);
-    const before = await pins(page);
-    const { point } = densestPoint(before);
+    await tapUntilFanned(page);
+    const before = (await pins(page)).filter((p) => p.fanned);
 
-    await page.mouse.click(point.x, point.y);
-    await waitForFan(page);
-    await page.keyboard.press('Escape');
+    /* Keyboard zoom on the focused map container: one press is exactly one
+       zoom level, which is what makes the return trip land on the same zoom
+       and the two fans comparable. */
+    await page.locator('.leaflet-container').focus();
+    await page.keyboard.press('-');
+    await waitOutFlight(page);
     await expect(page.locator('.shrine-dot--fanned')).toHaveCount(0);
     await expect(page.locator('.shrine-fan-leg')).toHaveCount(0);
 
-    /* Exactly, not approximately. A marker is a coordinate; a fan that leaves
-       one a few pixels from where it started has quietly moved a site.
-       Measured relative to the first marker rather than to the viewport,
-       because opening a fan near an edge deliberately pans the map to keep it
-       on screen and does not pan back — so absolute screen positions are
-       expected to differ by up to the whole pan (79 px, when this was written
-       against the fixture) while the constellation must be identical. */
-    await waitForMapStill(page);
-    const after = await pins(page);
-    expect(after).toHaveLength(before.length);
+    await page.keyboard.press('+');
+    await waitOutFlight(page);
+    await waitForFan(page);
+    const after = (await pins(page)).filter((p) => p.fanned);
 
-    /* Paired by accessible name, and measured relative to one named marker
-       rather than to the viewport. Both matter: DOM order is not identity, and
-       opening a fan near an edge pans the map on purpose and does not pan back,
-       so every absolute position is expected to have shifted by the same
-       amount while the constellation must be unchanged. */
-    const originOf = (list: Pin[]) => list.find((p) => p.label === before[0]!.label);
-    const wasOrigin = originOf(before);
-    const nowOrigin = originOf(after);
-    expect(wasOrigin && nowOrigin, 'lost the reference marker between snapshots').toBeTruthy();
-
+    /* Exactly, not approximately: same zoom, same piles, same offsets — so the
+       whole constellation must reproduce. A drift here means the collapse put
+       a marker back somewhere other than its own coordinates, which is the
+       fan quietly moving a site. Measured relative to one named marker rather
+       than to the viewport, because the zoom round-trip may leave the camera
+       centred slightly elsewhere; paired by accessible name, because DOM order
+       is not identity. */
+    expect(after.length, 'the fan did not re-open with the same members').toBe(before.length);
+    const wasOrigin = before[0]!;
+    const nowOrigin = after.find((p) => p.label === wasOrigin.label);
+    expect(nowOrigin, 'lost the reference marker between snapshots').toBeTruthy();
     const byLabel = new Map(after.map((p) => [p.label, p]));
     let drift = 0;
     for (const was of before) {
       const now = byLabel.get(was.label);
-      if (!now) continue;
+      expect(now, `marker "${was.label}" fell out of the fan`).toBeTruthy();
       drift = Math.max(
         drift,
         Math.hypot(
-          now.x - nowOrigin!.x - (was.x - wasOrigin!.x),
-          now.y - nowOrigin!.y - (was.y - wasOrigin!.y),
+          now!.x - nowOrigin!.x - (was.x - wasOrigin.x),
+          now!.y - nowOrigin!.y - (was.y - wasOrigin.y),
         ),
       );
     }
-    expect(drift, 'markers did not return to their coordinates').toBeLessThan(1);
+    expect(drift, 'the re-opened fan is not the fan that closed').toBeLessThan(1);
   });
 
-  test('a marker inside an open fan opens, rather than re-fanning', async ({ page }) => {
+  test('a marker inside a fan opens, and the fan survives the selection', async ({ page }) => {
     await loadMap(page);
-    const { point } = densestPoint(await pins(page));
-    await page.mouse.click(point.x, point.y);
-    await waitForFan(page);
+    await tapUntilFanned(page);
 
-    const target = (await pins(page)).filter((p) => p.fanned)[3];
-    expect(target, 'fan too small to pick a fourth marker').toBeTruthy();
+    const target = (await pins(page)).filter((p) => p.fanned)[1];
+    expect(target, 'fan too small to pick a second marker').toBeTruthy();
     await page.mouse.click(target!.x, target!.y);
 
-    /* Selection is what a tap on a lone marker has always done, and a tap
-       inside an open fan must do the same rather than re-fanning the pile it is
-       already part of — without that clause the first marker of a fan would
-       re-open its own pile forever and never open its entry. */
+    /* Selection is what a tap on a lone marker has always done, and a marker
+       standing in a fan is exactly that — individually reachable. */
     await expect(page.locator('.leaflet-marker-icon[aria-pressed="true"]')).toHaveCount(1, {
       timeout: 10_000,
     });
 
-    /* And the fan is gone afterwards, because selecting flies the map to the
-       shrine (`flyToOrSetView` in ShrineMap) and every fan collapses on
-       `zoomstart`. That is not incidental: the offsets were computed in layer
-       points at one zoom, so a fan that survived a flight would be pointing at
-       the wrong places. Asserted so the coupling is visible — if selection ever
-       stops moving the map, this test says so instead of the fan silently
-       becoming stale. */
-    await expect(page.locator('.shrine-dot--fanned')).toHaveCount(0, { timeout: 10_000 });
-    await expect(page.locator('.shrine-fan-leg')).toHaveCount(0);
+    /* And the fan is still there afterwards. Selecting flies the map to the
+       shrine (`flyToOrSetView` in ShrineMap), which collapses every fan at
+       `zoomstart` — and `zoomend` re-fans what the depth still cannot
+       separate, selected marker included. The fan stopped being a transient
+       the moment it stopped being a gesture: at fan depth it is simply how
+       the map presents overlap, so a selection must not dismiss it. */
+    await waitOutFlight(page);
+    await waitForFan(page);
+    expect(await page.locator('.shrine-dot--fanned').count()).toBeGreaterThan(1);
   });
 
-  test('the keyboard can open a fan and lands inside it', async ({ page }) => {
+  test('the keyboard can ride the same taps down, and never loses focus', async ({ page }) => {
     await loadMap(page);
     const { point } = densestPoint(await pins(page));
     /* Focus the marker under the pile the same way a reader would reach it,
@@ -311,20 +361,29 @@ test.describe('a pile of markers fans out on tap', () => {
       },
       [point.x, point.y],
     );
-    await page.keyboard.press('Enter');
 
-    await expect(page.locator('.shrine-dot--fanned').first()).toBeVisible({ timeout: 10_000 });
-    const focusIsFanned = await page.evaluate(() =>
-      Boolean(document.activeElement?.classList.contains('shrine-dot--fanned')),
-    );
-    expect(focusIsFanned, 'the keyboard scattered the pile and left focus outside it').toBe(true);
+    /* Enter on a piled marker flies toward its pile; the marker element
+       survives the flight, so focus needs no hand-off and the next Enter goes
+       deeper. The walk ends in one of exactly two states — the focused marker
+       fanned, or standing alone and selected — and either way the reader was
+       never dropped. */
+    for (let i = 0; i < 10; i += 1) {
+      await page.keyboard.press('Enter');
+      await waitOutFlight(page);
+      const state = await page.evaluate(() => ({
+        focusedIsMarker: Boolean(document.activeElement?.classList.contains('leaflet-marker-icon')),
+        focusedFanned: Boolean(document.activeElement?.classList.contains('shrine-dot--fanned')),
+        focusedPressed: document.activeElement?.getAttribute('aria-pressed') === 'true',
+      }));
+      expect(state.focusedIsMarker, 'the flight dropped keyboard focus').toBe(true);
+      if (state.focusedFanned || state.focusedPressed) return;
+    }
+    throw new Error('ten Enters and the focused marker neither fanned nor selected');
   });
 
-  test('an Urdu reader is told how many, in Eastern numerals', async ({ page }) => {
+  test('an Urdu reader is told how many fanned, in Eastern numerals', async ({ page }) => {
     await loadMap(page, '/?lang=ur');
-    const { point } = densestPoint(await pins(page));
-    await page.mouse.click(point.x, point.y);
-    await waitForFan(page);
+    await tapUntilFanned(page);
 
     const announced = await page.locator('.sr-only[role="status"]').innerText();
     expect(announced.trim(), 'the fan announced nothing').not.toBe('');
@@ -337,9 +396,10 @@ test.describe('a pile of markers fans out on tap', () => {
   test('the resting map is unchanged — no clustering arrived by the back door', async ({
     page,
   }) => {
-    /* The declined option, held declined. Before any interaction the map draws
-       one marker per mapped shrine and nothing else: no cluster bubbles, no
-       counts, no fanned markers, no leader lines. */
+    /* The declined option, held declined — and now also the guard that the
+       auto-fan respects its depth: at the opening view, ten zoom levels above
+       fan depth, the map draws one marker per mapped shrine and nothing else.
+       No cluster bubbles, no counts, no fanned markers, no leader lines. */
     await loadMap(page);
     await expect(page.locator('.shrine-dot--fanned')).toHaveCount(0);
     await expect(page.locator('.shrine-fan-leg')).toHaveCount(0);

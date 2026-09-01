@@ -69,10 +69,31 @@ correct. Cheapest, and it accepts that the map's job is orientation rather than 
 the number. It is also the only option that makes the opening view *state* the collection's
 density rather than merely permit a reader to discover it.
 
-## Not yet decided
+## Not yet decided *(it since was — the ruling follows)*
 
 This is the archive's most visible surface and the choice changes its character, so it is Rauf's.
 Measurements above are reproducible from
 `scripts/` — the probe is the DOM read described at the top of this file, and it should be turned
 into an e2e assertion **once a target is chosen**, not before: a check that fails by design is a
 note with a non-zero exit code, and RULE 4 asks for the opposite.
+
+## Ruled — 30 August 2026; amended 1 September 2026
+
+Rauf ruled **B — fan on tap, and leave the resting map alone** on 30 August 2026. Shipped as
+`src/lib/map/spiderfy.ts` plus the fan logic in `src/components/map/ShrineMarkers.tsx`, held by
+`e2e/marker-fan.spec.ts`, which asserts both halves.
+
+**Amended by Rauf on 1 September 2026: the tap gesture went.** A tap on a pile now **flies the
+map toward it** (`flyToBounds`, capped at fan depth), and whatever depth cannot separate fans out
+**on its own** at `AUTO_FAN_ZOOM` (z16), gathering again on the way back out. Measured against the
+dataset the day of the amendment: **19 of 169 sites have a neighbour within 60 m** — the pile
+radius at z16 over Lahore — **10 of them sharing exact coordinates** that no zoom could ever
+separate (four at 31.5498, 74.3170 alone); the **median nearest-neighbour distance is 1.8 km**, so
+everything else stands apart well before fan depth and is never fanned at all. The fan animates —
+a 300 ms transform glide with the leader line fading in over the same window, both under
+`prefers-reduced-motion: no-preference` — and it stopped being a transient: nothing dismisses it
+but zooming away. Not Escape, not a background tap, and not selecting a marker inside it; at fan
+depth the fan is simply how the map presents overlap.
+
+The resting-map half of the 30 August ruling **stands**: the opening view sits ten zoom levels
+above fan depth, and `e2e/marker-fan.spec.ts` still holds the declined option declined.

@@ -16,10 +16,15 @@
  * ## What was chosen, and what it does not fix
  *
  * Ruled 30 August 2026, by Rauf, from four costed options: **fan on tap, and
- * leave the resting map alone.** The map still opens looking like a 21-entry
- * collection — that half was considered and declined, and this module does not
- * quietly do it anyway. What it fixes is reachability: after a tap, all 66 are
- * individually tappable, keyboard-reachable and announced.
+ * leave the resting map alone.** Amended by Rauf on 1 September 2026: the tap
+ * gesture went. A tap on a pile now flies the map toward it, and whatever
+ * depth cannot separate — ten of these sites share exact coordinates — fans
+ * out on its own at fan depth (`AUTO_FAN_ZOOM` in ShrineMarkers), gathering
+ * again on the way back out. The resting-map half of the ruling stands: the
+ * map still opens looking like a 21-entry collection, that half was considered
+ * and declined, and this module does not quietly do it anyway. What it fixes
+ * is reachability: at depth, every site is individually tappable,
+ * keyboard-reachable and announced.
  *
  * ## Why the geometry is here and not in the component
  *

@@ -112,6 +112,11 @@ Each item names what a reader loses, so the ranking can be argued with rather th
     (`docs/planning/MAP_PIN_DENSITY_2026-08-30.md`); the ruling was **fan on tap, and leave the
     resting map alone**. Shipped as `src/lib/map/spiderfy.ts` + `e2e/marker-fan.spec.ts`, which
     asserts both halves — the fan works, *and* no clustering arrived by the back door.
+    **Amended by Rauf, 1 September 2026: the tap gesture went.** A tap on a pile now flies the
+    map toward it, and whatever depth cannot separate (10 sites share exact coordinates) fans out
+    on its own at z16, animated, gathering on the way back out. Ruling and the measurements
+    behind the threshold are appended to the density doc; the spec was rewritten to hold the new
+    contract, and `selectMarker` in `e2e/fixtures.ts` now taps until a tap lands as a selection.
 
     **What was deliberately not fixed, and is still true:** the map still opens looking like a
     21-entry collection. A reader has no cue that 66 sites are under one mark until they tap it.

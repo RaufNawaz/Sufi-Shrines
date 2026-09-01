@@ -136,31 +136,45 @@ export { expect };
  * less than it does.
  */
 /**
- * Select a marker, through the fan if there is one.
+ * Select a marker, through however many flights it takes.
  *
- * Since 30 August 2026 a tap on a marker that shares its spot with others fans
- * the pile out instead of selecting — the point being that "whichever pin
- * Leaflet painted on top" was never a choice the reader made. At the opening
- * view that is **161 of 169 markers**, so almost every existing spec that
- * tapped a pin and waited for a preview is now waiting through one extra step.
+ * Since 30 August 2026 a tap on a marker that shares its spot with others does
+ * not select — the point being that "whichever pin Leaflet painted on top" was
+ * never a choice the reader made. At the opening view that is **161 of 169
+ * markers**. The tap's meaning changed on 1 September 2026: it used to fan the
+ * pile in place, it now flies the map toward the pile, and whatever depth
+ * cannot separate fans out on its own at fan depth (`marker-fan.spec.ts` pins
+ * all of this). So a spec that wants a *selection* keeps tapping the same
+ * element until the tap lands as one — each earlier tap having been spent on a
+ * flight.
  *
- * Two specs found this the hard way when the feature landed: `mobile-sheet`
- * dispatching a click on Data Darbar, which sits in the 66-marker Lahore pile,
- * and `map-touch` tapping the first marker in the DOM. Both are about what
- * happens *after* a selection, so neither should have to know about fans.
+ * Two specs needed this when the fan first landed: `mobile-sheet` dispatching
+ * a click on Data Darbar, which sits in the 66-marker Lahore pile, and
+ * `map-touch` tapping the first marker in the DOM. Both are about what happens
+ * *after* a selection, so neither should have to know about piles.
  *
- * The second click is on the same element deliberately, not on a neighbour: a
- * marker inside an open fan selects rather than re-fanning, which is the rule
- * `marker-fan.spec.ts` pins, and clicking the same thing twice is the shortest
- * path that exercises it.
+ * Always the same element, never a neighbour: the marker node survives every
+ * flight, and `aria-pressed` on it is the selection signal the markers
+ * themselves publish.
  */
 export async function selectMarker(page: Page, marker: Locator): Promise<void> {
   const tap = async () =>
     marker.evaluate((el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true })));
+  /* Eight attempts is generous: the opening view sits ten zoom levels above
+     fan depth and every flight covers several of them. */
+  for (let attempt = 0; attempt < 7; attempt += 1) {
+    await tap();
+    try {
+      /* 2.5 s covers a full 0.9 s flight plus the fan's 300 ms glide. A tap
+         that has not selected by then was spent on a flight — tap again. */
+      await expect(marker).toHaveAttribute('aria-pressed', 'true', { timeout: 2_500 });
+      return;
+    } catch {
+      /* Still flying toward the pile — the next tap goes deeper. */
+    }
+  }
   await tap();
-  /* Only if a fan actually opened. A lone marker is selected by the first tap
-     and a second would deselect it. */
-  if ((await page.locator('.shrine-dot--fanned').count()) > 0) await tap();
+  await expect(marker).toHaveAttribute('aria-pressed', 'true');
 }
 
 export async function waitForSheetData(page: Page): Promise<void> {
