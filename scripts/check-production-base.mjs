@@ -135,6 +135,33 @@ const ROUTES = [
 
 const csvBody = readFileSync(join(ROOT, 'e2e/fixtures/shrines.csv'), 'utf8');
 
+/**
+ * Make each context hermetic: the sheet answered from the e2e fixture, and
+ * every other third-party request aborted.
+ *
+ * The abort is not fussiness. This gate waits for the `load` event, which
+ * waits on every subresource — including 100+ marker photographs on hosts
+ * this project does not control. Measured 1 September 2026: a single image
+ * request to api.salampakistan.gov.pk neither completed nor failed from the
+ * local sandbox, so `load` never fired and the gate timed out having verified
+ * nothing. External hosts were never part of what this asserts — the
+ * response listener below already ignores anything off-origin, and
+ * pipeline/check_image_liveness.py owns third-party liveness — so aborting
+ * them removes the one nondeterministic input without weakening a single
+ * assertion. Aborted photos also exercise the marker layer's own
+ * dead-photograph demotion, which is production behaviour, not an artifact.
+ */
+async function stubExternal(context) {
+  await context.route('**/*', (r) => {
+    const url = new URL(r.request().url());
+    if (url.origin === ORIGIN) return r.continue();
+    if (/(^|\.)docs\.google\.com$/.test(url.hostname)) {
+      return r.fulfill({ status: 200, contentType: 'text/csv; charset=utf-8', body: csvBody });
+    }
+    return r.abort();
+  });
+}
+
 await new Promise((resolve) => server.listen(PORT, resolve));
 
 const browser = await chromium.launch(
@@ -150,10 +177,9 @@ try {
   for (const route of ROUTES) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     // The published sheet is unreachable from CI and from a sandbox; serve the
-    // same deterministic fixture the e2e suite uses.
-    await context.route(/docs\.google\.com/, (r) =>
-      r.fulfill({ status: 200, contentType: 'text/csv; charset=utf-8', body: csvBody }),
-    );
+    // same deterministic fixture the e2e suite uses, and abort every other
+    // third-party request — see stubExternal on why.
+    await stubExternal(context);
     const page = await context.newPage();
     const problems = [];
     page.on('pageerror', (e) => problems.push(`page error: ${e.message.split('\n')[0]}`));
@@ -196,9 +222,7 @@ try {
 
   /* One client-side navigation: a correct-looking link can still route wrong. */
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-  await context.route(/docs\.google\.com/, (r) =>
-    r.fulfill({ status: 200, contentType: 'text/csv; charset=utf-8', body: csvBody }),
-  );
+  await stubExternal(context);
   const page = await context.newPage();
   await page.goto(`${ORIGIN}${BASE}/shrine/data-darbar`, { waitUntil: 'load' });
   await page.locator('h1.shrine-title').waitFor({ timeout: 20_000 });
