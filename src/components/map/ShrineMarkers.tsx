@@ -525,31 +525,56 @@ export function ShrineMarkers({
     };
   }, [shrines, map, lang, tourStopSlugSet, isDimmed]); // selectedId intentionally excluded — handled separately below
 
-  // Update only the two affected markers when selection changes
+  /**
+   * Selection toggles a class; it does not rebuild an icon.
+   *
+   * This called `setIcon` with an icon that differed from the one already on
+   * screen by the single `selected` class — size, anchor and photograph
+   * identical. `setIcon` goes through `DivIcon.createIcon`, which does two
+   * things that were both unwanted here, verified in the running app on
+   * 4 September 2026 (performance council):
+   *
+   * - It assigns `div.innerHTML = options.html`, **re-creating the `<img>`**.
+   *   The photograph is decoded again and the marker shows an empty ring for a
+   *   frame — on the one interaction where the reader is looking straight at
+   *   that marker.
+   * - `_setIconStyles` then assigns the element's `className` wholesale
+   *   (`'leaflet-marker-' + name + ' ' + (options.className || '')`), which
+   *   **silently stripped `shrine-dot--fanned`** — the class the fan adds to say
+   *   "this pin is not at its own coordinates". Selecting a fanned pin quietly
+   *   erased the one marking that made the fan honest rather than a lie about
+   *   position. That is a correctness bug, not only a cost.
+   *
+   * `selected` lives on the inner `.shrine-dot`, `shrine-dot--fanned` and
+   * `aria-pressed` on the outer element Leaflet owns, so toggling the class
+   * directly leaves both untouched. The dimmed class is not handled here on
+   * purpose: `isDimmed` is in the rebuild effect's dependencies above, so a
+   * change to it rebuilds every marker anyway.
+   *
+   * `setIcon` is still right for the dead-photograph demotion, which really does
+   * change the icon's geometry (30px photo to a 14px dot).
+   */
   React.useEffect(() => {
     const prevId = selectedIdRef.current;
     selectedIdRef.current = selectedId;
 
+    const setSelected = (id: number, on: boolean) => {
+      const element = markerMapRef.current.get(id)?.getElement();
+      if (!element) return;
+      element.firstElementChild?.classList.toggle('selected', on);
+      element.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+
     if (prevId !== null) {
-      const marker = markerMapRef.current.get(prevId);
-      const shrine = shrines.find((s) => s.id === prevId);
-      if (marker && shrine) {
-        marker.setIcon(buildDivIcon(false, shrine.category, isDimmed(prevId), shrine.imageUrl));
-        marker.setZIndexOffset(0);
-        marker.getElement()?.setAttribute('aria-pressed', 'false');
-      }
+      setSelected(prevId, false);
+      markerMapRef.current.get(prevId)?.setZIndexOffset(0);
     }
 
     if (selectedId !== null) {
-      const marker = markerMapRef.current.get(selectedId);
-      const shrine = shrines.find((s) => s.id === selectedId);
-      if (marker && shrine) {
-        marker.setIcon(buildDivIcon(true, shrine.category, isDimmed(selectedId), shrine.imageUrl));
-        marker.setZIndexOffset(1000);
-        marker.getElement()?.setAttribute('aria-pressed', 'true');
-      }
+      setSelected(selectedId, true);
+      markerMapRef.current.get(selectedId)?.setZIndexOffset(1000);
     }
-  }, [selectedId, shrines, isDimmed]);
+  }, [selectedId]);
 
   /* The fan is a silent rearrangement of 66 things, so it says how many.
      `resultCount` rather than a new sentence: it is the archive's own reviewed
