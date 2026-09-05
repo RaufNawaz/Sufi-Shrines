@@ -8981,3 +8981,57 @@ Two things learned doing it, both the kind that read as bugs:
   `setLatLng`, and the return is instant because both land in the same style recalc. The
   outward glide needs the opposite ordering plus one forced layout flush between class-add and
   the moves (one flush total, not one per marker — reading layout in the loop is a thrash).
+
+### Added 5 September 2026 — "never merged" was three entries missing a citation, not three entries missing their content
+
+The Shrine Information Form was reconciled against production for the first time since 26 August.
+**No new responses: 28 submissions, 11 marked `Delete`, 19 live, newest 11 August 2026 07:11:01.**
+That part is a null result. What came out of the run is a correction and three instrument notes.
+
+**The correction.** `docs/responses_sync_2026-08-26.md` recorded Shah Jamal, Peer Makki and Mauj
+Darya Bukhari as responses that "never received their survey enrichment". Read against the actual
+Descriptions, that is half wrong. Shah Jamal's Damdama and the princess who wanted it lowered,
+Mauj Darya's cook sitting unharmed in the burning cauldron, and all three shrines' daily and
+*ʿurs* visitor counts are in production, fact for fact — rewritten editorially at some point
+before 16 August. What never arrived is the **attribution**: no `Shrines Project field survey`
+line, and `support_level` still `Source-seeded`. Three entries were publishing a named
+fieldworker's account as if it came from nowhere, in the archive whose distinguishing claim is
+provenance. Only Peer Makki's content gap was real, and it is large: a 9,627-character survey
+biography against a 3,724-character entry. Patch: `data/patch_field_survey_orphans_2026-09-05.csv`
+(+ full-sheet `data/import_2026-09-05.csv`), built by `pipeline/build_survey_orphan_patch.py`.
+
+**Three instrument notes, in the order they mattered.**
+
+1. **Verbatim n-gram overlap cannot tell you whether a survey was merged.** The obvious instrument
+   — sample 6-grams from each response field, look for them in the Description — reported ~0 %
+   coverage for *every one of the nineteen* live responses, including the sixteen that carry a
+   survey citation and are demonstrably merged. It measures whether prose was *copied*, and this
+   archive never copies its prose. Trusted, it would have reported nineteen unmerged responses
+   instead of three. What worked was three cheap instruments that agreed exactly: rows carrying a
+   `Shrines Project field survey` bibliography line (16), rows at `support_level = Field-verified`
+   (16), rows at `info_level = Full` (16) — **the same 16 rows**, 16 of the 19 live responses.
+   Three coarse instruments agreeing beat one fine instrument alone.
+
+2. **Drive `modifiedTime` on a form-response sheet is not a freshness signal.** It says the
+   responses sheet was last modified 12 August (consistent with the row data, by luck) and says
+   the **Shrine Book Form (Responses)** was last modified 29 July — while that sheet holds rows
+   submitted on 13 and 18 August. A form submission does not reliably bump the sheet's
+   `modifiedTime`. Read the rows.
+
+3. **Both sheets export as real CSV from this environment**, and that is the instrument to use:
+   `https://docs.google.com/spreadsheets/d/<id>/export?format=csv&gid=<gid>`. The Drive MCP reader
+   returns a markdown table — underscores escaped as `\_`, long cells liable to be cut, and only
+   the first tab. The CSV export of the master sheet is byte-identical to the published CSV the
+   site fetches (856,607 B, 171 × 44), so the published feed is not lagging. The **Shrine Book
+   Form** sheet is *not* publicly exportable (401) and can only be read through the MCP reader.
+
+**And a books correction that closes an open ask.** The 26 August note flagged the Shah Jamaal
+survey's "Book uploaded" claim as unfulfilled and put a re-upload request on Saifullah's list. He
+had already uploaded it — through the *other* form, on 29 July: `Sawaneh Mubarak Hazrat Syed Shah
+Jamal-ul-Bahr`, 2,274,011 B. **Do not cite it yet**: its opening pages describe a Syed Shah Jamal
+titled *Ma'shuq-e-Rabbani*, born in Baghdad, of the line of Abdul Qadir Jilani, with a fort of
+Warangal among its sources — which does not obviously describe the Shah Jamal of Ichhra, and may
+be a different saint of the same name. That is a question for a reader of Urdu. In the same
+folder, `2015.398396.Tareeq-Lahore` is **70,388,397 B** — the exact size recorded in
+`books/links.txt` for *Tarikh-e-Lahore* (1884), Kanhaiya Lal, one of the two books missing from
+local `books/` since 9 August. Same file, second file id; still needs a network-capable machine.

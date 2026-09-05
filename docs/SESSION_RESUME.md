@@ -385,6 +385,23 @@ colleague's name out of a public field on 30 August. It belongs beside the RMS q
 
 ## Waiting on a person, not on an agent
 
+- **A patch is pending import: three entries cite no field survey.** Built 5 September 2026 from a
+  live read of both sheets. The Shrine Information Form has had **no new responses since 11 August**
+  (28 submissions, 11 `Delete`, 19 live) — but Shah Jamal, Peer Makki and Mauj Darya Bukhari publish
+  survey-derived content with no `Shrines Project field survey` line and at `Source-seeded` /
+  `Moderate`, while the sixteen surveyed entries beside them are `Field-verified` / `Full`. Import
+  `data/import_2026-09-05.csv` (whole sheet) or `data/patch_field_survey_orphans_2026-09-05.csv`
+  (three rows) — see `data/patch_field_survey_orphans_2026-09-05.INSTRUCTIONS.md`, and
+  `docs/responses_sync_2026-09-05.md` for the full reconciliation. Then `npm run data:build &&
+  npm run data:validate`. **Three things in it are yours, not an agent's:** whether Shah Jamal's and
+  Peer Makki's `year_built` should carry the survey's answers (1671 and 612 AH — both are the
+  saints' *death* years, so they are left blank); whether the Shah Jamaal book uploaded on 29 July
+  is even the right saint (its opening pages read like a Baghdad-born *Ma'shuq-e-Rabbani*, not the
+  Shah Jamal of Ichhra — nothing should cite it until someone opens it); and the Mauj Darya photo
+  fetch, which is ten mapped photographs that only a network-capable machine can pull.
+
+
+
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync
   (filenames lie — one filename spans two shrines)" is listed in CLAUDE.md among checks that *have
   worked*, and there is no code for it in `scripts/`, in `pipeline/`, or in the unversioned
