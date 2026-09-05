@@ -282,6 +282,32 @@ const SCENARIOS = [
 
 const chosen = ONLY.length ? SCENARIOS.filter((s) => ONLY.includes(s.name)) : SCENARIOS;
 
+/**
+ * Refuse to start against a base URL that is not serving.
+ *
+ * Without this the script is slowest exactly when it is useless: every scenario
+ * pays a 60 s `page.goto` timeout on every run, so a dead preview server turns a
+ * three-scenario, nine-run pass into **thirty minutes of nothing** and then
+ * writes a results file whose rows all say `ERROR`. That happened on
+ * 5 September 2026, and the wasted half hour was not the worst of it — a results
+ * file was produced, with a plausible name and a real timestamp, that contained
+ * no measurements at all. An instrument that fails silently into an artefact is
+ * how a wrong number gets quoted later.
+ *
+ * `npm run preview` must be running and serving the build under test. It is
+ * checked here, once, loudly.
+ */
+const preflight = await fetch(BASE, { method: 'GET' }).catch(() => null);
+if (!preflight?.ok) {
+  console.error(
+    `\n  measure-interaction: nothing is serving ${BASE}.\n` +
+      `  Start it first — npm run build:e2e && npm run preview — and check the port.\n` +
+      `  Refusing to run: every scenario would time out and the results file would\n` +
+      `  look like a measurement without containing one.\n`,
+  );
+  process.exit(1);
+}
+
 const browser = await chromium.launch();
 const results = [];
 
@@ -335,11 +361,7 @@ console.log(`\n  base ${BASE} · ${CPU}× CPU · median of ${RUNS} runs · ${tod
 if (OUT) {
   writeFileSync(
     OUT,
-    JSON.stringify(
-      { base: BASE, cpu: CPU, runs: RUNS, at: new Date().toISOString(), results },
-      null,
-      2,
-    ),
+    JSON.stringify({ base: BASE, cpu: CPU, runs: RUNS, date: todayLocal(), results }, null, 2),
   );
   console.log(`  written to ${OUT}`);
 }
