@@ -42,6 +42,32 @@ import { SettingsMenu } from './SettingsMenu';
  * rather than nothing at all. */
 const FALLBACK_HEADER_HEIGHT = 56;
 
+/**
+ * The last height this header measured, kept across navigations.
+ *
+ * ## The measurement
+ *
+ * `getBoundingClientRect()` in a `useLayoutEffect` forces a synchronous layout
+ * of a document React rebuilt milliseconds earlier. Profiled at **36 ms of self
+ * time — the second-heaviest node in a route navigation after the GL basemap
+ * teardown, and over half of the 63 ms that arriving at an article page costs**
+ * (performance council, 4 September 2026). It repeated on all ten article
+ * routes, on every navigation, to re-derive a number that had not changed.
+ *
+ * It has not changed because it cannot have: this header renders identically on
+ * every route that carries it, so its height is a function of the viewport
+ * alone. Between two article pages at one viewport the second measurement is
+ * always the first one again.
+ *
+ * So the first mount of a session measures as before and every later mount
+ * seeds from this, publishing the token without reading layout. The measurement
+ * is not skipped — it is moved off the commit path into a frame callback, where
+ * a reflow costs the reader nothing — and the `ResizeObserver` below still owns
+ * the case that genuinely changes the height, the action row wrapping at a new
+ * viewport width.
+ */
+let lastMeasuredHeaderHeight: number | null = null;
+
 export function EntityPageHeader({ title }: { title?: string }) {
   const { t } = useLang();
   const search = useArchiveSearch();
@@ -73,14 +99,40 @@ export function EntityPageHeader({ title }: { title?: string }) {
     const publish = () => {
       const measured = Math.round(el.getBoundingClientRect().height);
       if (measured <= 0) return;
+      lastMeasuredHeaderHeight = measured;
       document.documentElement.style.setProperty('--page-header-height', `${measured}px`);
-      setHeaderHeight(measured);
+      /* Guarded: unguarded, every navigation re-set the same number, and the
+         re-render that caused tore down and rebuilt the IntersectionObserver
+         below, whose dependency list includes `headerHeight`. A no-op that
+         costs a render and an observer is worse than no-op. */
+      setHeaderHeight((current) => (current === measured ? current : measured));
     };
-    publish();
-    if (typeof ResizeObserver === 'undefined') return;
+
+    let frame = 0;
+    if (lastMeasuredHeaderHeight === null) {
+      // First header of the session: nothing to seed from, so measure now.
+      publish();
+    } else {
+      document.documentElement.style.setProperty(
+        '--page-header-height',
+        `${lastMeasuredHeaderHeight}px`,
+      );
+      setHeaderHeight(lastMeasuredHeaderHeight);
+      /* Verify off the commit path. If the viewport changed while another route
+         was mounted, this corrects it a frame later; the ResizeObserver cannot,
+         because it fires on resizes of an element that did not exist then. */
+      frame = requestAnimationFrame(publish);
+    }
+
+    if (typeof ResizeObserver === 'undefined') {
+      return () => cancelAnimationFrame(frame);
+    }
     const observer = new ResizeObserver(publish);
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
