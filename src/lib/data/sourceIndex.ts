@@ -111,7 +111,48 @@ export function sourceAnchorId(nameOrKey: string): string {
   return `source-${head}-${digest(key)}`;
 }
 
+/**
+ * One index per dataset, not one per caller.
+ *
+ * ## The measurement
+ *
+ * `SourceReach` renders **once per bibliography line** (`ShrineArticle.tsx`),
+ * and each instance held its own `useMemo(() => buildSourceIndex(shrines))`.
+ * A `useMemo` is per component *instance*, so it memoized nothing across
+ * siblings: a median entry rebuilt this three times and Data Darbar seven,
+ * on every navigation. Each rebuild walks all 169 `Description` fields —
+ * 672 KB of prose — re-runs `citationKey` and `isPlaceholderSource` over all
+ * 533 citations, and `localeCompare`-sorts 464 sources. Profiled at 4× CPU
+ * over five client-side navigations to `/shrine/data-darbar`, the duplicated
+ * work was **~44 ms of a 273 ms navigation, roughly 85% of it redundant**
+ * (performance council, 4 September 2026).
+ *
+ * ## Why the cache lives here rather than at the call site
+ *
+ * Lifting the index into `ShrineArticle` and threading it down as a prop would
+ * fix this one caller and leave the property depending on every future caller
+ * remembering to do the same — and there is already a second caller,
+ * `ArchiveKnows`, computing the identical index for `/about`. Caching on the
+ * function makes "one index per dataset" true by construction, which is what
+ * RULE 4 asks for: encode the invariant rather than rely on intentions.
+ *
+ * Keyed on the **array identity**, which is the correct key and not merely a
+ * convenient one: `useShrineData` returns the previous `shrines` array when a
+ * refresh changes nothing, and mints a new one when the data actually changes,
+ * so identity already means precisely "the dataset this was computed from".
+ * A `WeakMap` holds no dataset alive after the app drops it.
+ */
+const indexCache = new WeakMap<readonly Shrine[], SourceIndex>();
+
 export function buildSourceIndex(shrines: readonly Shrine[]): SourceIndex {
+  const cached = indexCache.get(shrines);
+  if (cached) return cached;
+  const built = computeSourceIndex(shrines);
+  indexCache.set(shrines, built);
+  return built;
+}
+
+function computeSourceIndex(shrines: readonly Shrine[]): SourceIndex {
   const byKey = new Map<string, IndexedSource>();
   let citations = 0;
   let singleSourced = 0;
