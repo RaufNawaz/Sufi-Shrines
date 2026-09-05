@@ -283,25 +283,60 @@ const SCENARIOS = [
 const chosen = ONLY.length ? SCENARIOS.filter((s) => ONLY.includes(s.name)) : SCENARIOS;
 
 /**
- * Refuse to start against a base URL that is not serving.
+ * Refuse to start unless the app at `BASE` actually boots.
  *
- * Without this the script is slowest exactly when it is useless: every scenario
- * pays a 60 s `page.goto` timeout on every run, so a dead preview server turns a
- * three-scenario, nine-run pass into **thirty minutes of nothing** and then
- * writes a results file whose rows all say `ERROR`. That happened on
- * 5 September 2026, and the wasted half hour was not the worst of it — a results
- * file was produced, with a plausible name and a real timestamp, that contained
- * no measurements at all. An instrument that fails silently into an artefact is
- * how a wrong number gets quoted later.
+ * ## Two failures this has already caught, both of which produced a results file
  *
- * `npm run preview` must be running and serving the build under test. It is
- * checked here, once, loudly.
+ * **Nothing serving.** Every scenario paid a 60 s `page.goto` timeout on every
+ * run, so a seven-scenario, nine-run pass became half an hour of nothing and
+ * then wrote a results file whose every row said `ERROR` — with a plausible name
+ * and a real timestamp.
+ *
+ * **Serving, but broken.** The first version of this check asked for HTTP 200
+ * and got it while the application was entirely dead. This repository is worked
+ * in by more than one agent at a time against **one shared working tree**, and
+ * `dist/` is shared state: a build run as `npm run build` writes asset paths
+ * under `/Sufi-Shrines/`, a build run as `npm run build:e2e` writes them under
+ * `/`. Serve one from the other's root and the document returns 200 while every
+ * asset 404s. No app, no markers, seven scenarios timing out on
+ * `waitForSelector`, and a results file again.
+ *
+ * So 200 on the document is not the question. The question is whether the
+ * document's own first script resolves, which is what actually differs between
+ * those two builds, and it is checked here rather than discovered thirty minutes
+ * later.
  */
-const preflight = await fetch(BASE, { method: 'GET' }).catch(() => null);
-if (!preflight?.ok) {
+async function preflight() {
+  const res = await fetch(BASE).catch(() => null);
+  if (!res?.ok) {
+    return `nothing is serving ${BASE}. Start it: npm run build:e2e && npm run preview`;
+  }
+  const html = await res.text().catch(() => '');
+  const script = html.match(/<script[^>]+src="([^"]+)"/)?.[1];
+  if (!script) return null; // Nothing to check against; let the run proceed.
+  const assetUrl = new URL(script, BASE).href;
+  /* GET and check the content type, not HEAD and check the status. `vite
+     preview` answers an unmatched path with the SPA fallback — index.html, 200 —
+     so a HEAD probe reports success for a script that does not exist, while the
+     browser's own request for the same URL 404s. The first version of this check
+     did exactly that and let a dead app through. What distinguishes the two is
+     that the fallback is HTML where a module must be JavaScript. */
+  const asset = await fetch(assetUrl).catch(() => null);
+  const type = asset?.headers.get('content-type') ?? '';
+  if (asset?.ok && /javascript|ecmascript/i.test(type)) return null;
+  return (
+    `${BASE} serves a document, but its first script does not load:\n    ${assetUrl}\n` +
+    `  That is a base-path mismatch — dist/ was built for a different root than it is\n` +
+    `  being served from. \`npm run build\` writes /Sufi-Shrines/, \`npm run build:e2e\`\n` +
+    `  writes /. Rebuild with build:e2e, or point --base at the right prefix.\n` +
+    `  (dist/ is shared state in this repo: another session may have rebuilt it.)`
+  );
+}
+
+const problem = await preflight();
+if (problem) {
   console.error(
-    `\n  measure-interaction: nothing is serving ${BASE}.\n` +
-      `  Start it first — npm run build:e2e && npm run preview — and check the port.\n` +
+    `\n  measure-interaction: ${problem}\n` +
       `  Refusing to run: every scenario would time out and the results file would\n` +
       `  look like a measurement without containing one.\n`,
   );

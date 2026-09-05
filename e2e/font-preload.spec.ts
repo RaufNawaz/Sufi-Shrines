@@ -28,7 +28,13 @@ import { test, expect } from './fixtures';
  * A preload tag is an intention. A request is the cost.
  */
 test.describe('Urdu font preload', () => {
-  for (const weight of ['400', '700'] as const) {
+  /* All three declared weights. `global.css` declares 400, 600 and 700, and a
+     trace of a language switch caught all three arriving (+169ms, +285-398ms,
+     +317-426ms) — but 600 was the one never preloaded, so even an Urdu-first
+     reader paid a full-tree relayout when it swapped in. Added 4 September 2026;
+     this list said ['400', '700'] until then, and the count assertion below said
+     two. */
+  for (const weight of ['400', '600', '700'] as const) {
     test(`preloads the ${weight} weight when Urdu is the initial language`, async ({ page }) => {
       await page.goto('/?lang=ur');
       const link = page.locator(`link[rel="preload"][href*="NotoNastaliqUrdu-${weight}"]`);
@@ -53,7 +59,7 @@ test.describe('Urdu font preload', () => {
     const hrefs = await page
       .locator('link[rel="preload"][href*="NotoNastaliqUrdu"]')
       .evaluateAll((links) => links.map((l) => (l as HTMLLinkElement).getAttribute('href') ?? ''));
-    expect(hrefs.length, 'expected both Nastaliq weights to be preloaded').toBe(2);
+    expect(hrefs.length, 'expected all three Nastaliq weights to be preloaded').toBe(3);
 
     const base = await page.evaluate(() => document.baseURI);
     for (const href of hrefs) {

@@ -166,6 +166,52 @@ export function ShrineMarkers({
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
 
+  /* The current rows, by id. The build effect no longer re-runs when the
+     dataset object changes without changing anything a marker draws, so its
+     handlers would otherwise close over rows that are one merge out of date and
+     hand a stale `Shrine` to `onSelect`. Every handler resolves through this. */
+  const shrinesByIdRef = useRef<Map<number, Shrine>>(new Map());
+  shrinesByIdRef.current = useMemo(
+    () => new Map(shrines.map((shrine) => [shrine.id, shrine])),
+    [shrines],
+  );
+
+  /**
+   * What the marker layer actually draws, as a string.
+   *
+   * ## Why the effect is keyed on this and not on `shrines`
+   *
+   * A language toggle does not change one thing about a marker's geometry, and
+   * it used to rebuild all 169 of them twice. Removing `lang` from the build
+   * effect's dependencies removed only the first rebuild: the Urdu merge mints a
+   * **new `Shrine[]`** when the dictionary lands (`rebuildWithUrduContent`), and
+   * that identity change re-ran the effect on its `shrines` dependency and threw
+   * the layer away regardless. Measured with a `MutationObserver` on the marker
+   * pane: 169 removed and re-added at +88–210 ms, and again at +514–612 ms
+   * (performance council, 4 September 2026).
+   *
+   * So the dependency is what a marker is *made of* — id, position, category and
+   * photograph — rather than the identity of the array carrying it. A merge that
+   * changes only names and prose produces the same signature and rebuilds
+   * nothing; a filter, which changes which ids are present, produces a different
+   * one and rebuilds, which is correct because the set really did change.
+   *
+   * The names live outside the signature on purpose: they are the one
+   * language-dependent thing on a marker, and they are updated in place by the
+   * relabelling effect below.
+   */
+  const markerSignature = useMemo(
+    () =>
+      shrines
+        .map((s) =>
+          s.latLng
+            ? `${s.id}:${s.latLng.lat},${s.latLng.lng}:${s.category}:${s.imageUrl ?? ''}`
+            : `${s.id}:-`,
+        )
+        .join('|'),
+    [shrines],
+  );
+
   /* ── Fanning piles of markers out ────────────────────────────────────────
      At the opening view the archive's 169 markers form 21 visually distinct
      shapes; the largest holds 66 sites, and the median distance from a pin
@@ -457,7 +503,8 @@ export function ShrineMarkers({
            the tap on a flight to where the reader already is. */
         const inFan = fanRef.current?.ids.has(shrine.id) ?? false;
         if (!inFan && zoomIntoPileRef.current(shrine.id)) return;
-        onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
+        const live = shrinesByIdRef.current.get(shrine.id) ?? shrine;
+        onSelectRef.current(shrine.id === selectedIdRef.current ? null : live);
       });
 
       marker.on('add', () => {
@@ -477,7 +524,8 @@ export function ShrineMarkers({
                individually reachable. */
             const inFan = fanRef.current?.ids.has(shrine.id) ?? false;
             if (!inFan && zoomIntoPileRef.current(shrine.id)) return;
-            onSelectRef.current(shrine.id === selectedIdRef.current ? null : shrine);
+            const live = shrinesByIdRef.current.get(shrine.id) ?? shrine;
+            onSelectRef.current(shrine.id === selectedIdRef.current ? null : live);
           }
         });
 
@@ -531,10 +579,11 @@ export function ShrineMarkers({
       map.removeLayer(group);
       groupRef.current = null;
     };
-    /* `lang` is deliberately absent: a language change relabels these markers
-       rather than rebuilding them (see below). `selectedId` likewise — handled
-       by its own effect. */
-  }, [shrines, map, tourStopSlugSet, isDimmed]);
+    /* Keyed on `markerSignature`, not `shrines` — see its definition above.
+       `lang` and `selectedId` are deliberately absent; both are handled by their
+       own effects, in place. */
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `shrines` is read through the signature that summarises it; depending on the array as well would reinstate the rebuild this exists to remove.
+  }, [markerSignature, map, tourStopSlugSet, isDimmed]);
 
   /**
    * A language change relabels the markers; it does not rebuild them.
