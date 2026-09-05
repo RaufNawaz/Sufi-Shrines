@@ -5449,6 +5449,69 @@ both redirects.
     handover list this test shipped with is therefore already deleted; it existed for about twenty
     minutes.
 
+185. **The archive feels slow in two places, and neither is where the load budgets look.**
+    *Measured 4 September 2026 — performance council, `docs/planning/PERF_COUNCIL_2026-09-04.md`.*
+
+    Every performance instrument in this repository — `measure-lcp`, `measure-cls`,
+    `measure-blocking`, `check-bundle-budget` — answers *how fast does the page arrive*. None
+    answered *how does it feel to use*, and that is the region the complaint was about. A route
+    can pass every load budget here and still freeze, because the cost is not in the download.
+    `scripts/measure-interaction.mjs` (`npm run perf:interaction`) is the instrument for the
+    second question: seven scripted interactions, preview build, 4x CPU, per-interaction blocking,
+    longest task, worst frame gap and event-timing latency.
+
+    **The result is unusually concentrated.** Filter presses, search typing and article scrolling
+    produce **no long task at all**. The felt cost is two interactions: navigating away from the
+    map, and the language toggle. A diffuse optimisation pass would have been busy-work, and the
+    instrument is what said so.
+
+    **Route navigation was the map *leaving*, not the shrine page arriving.** A counterfactual
+    matrix settles it: map to shrine 340ms, `/about` to shrine 63ms, map to `/settings` 267ms,
+    shrine to shrine **0ms**. `maplibregl.Map#remove()` was running synchronously inside React's
+    commit phase — 330ms of self time in the frame that should have been painting the article.
+
+    **The language toggle rebuilt the entire vector basemap** for a change that only affects label
+    text: 27 non-image requests, style, sprite, tiles and glyphs, the basemap visibly blanking and
+    redrawing under the pins about a second after the press. Nothing in a MapTiler style is
+    language-dependent except `text-field`, which `localizeStyle` already expresses as data.
+
+    **And the headline number this council published was corrected by the council itself.** The
+    baseline reported the toggle at 696ms from 7 runs; seat 3 re-ran it at 9 and got **272ms
+    (241-362)**, with a task over 600ms appearing roughly **1 in 15**. The honest description is a
+    ~272ms interaction with an occasional tail. What the median got wrong, the printed range
+    `(241-838)` got right — flagged as "two code paths, not noise" before anyone went looking, and
+    it was two code paths. **That is the argument for printing the spread beside every median**,
+    and this scenario now carries a "needs >=9 runs" note.
+
+    **Three instrument facts worth more than most findings**, each learned the hard way:
+
+    - **A V8 CPU profile taken under `Emulation.setCPUThrottlingRate` cannot attribute anything.**
+      Seven profiles put 1,616-2,184ms of a ~1,700ms window into `(program)`, because the
+      throttle's busy-pause is charged there. Use `Tracing.start` with `devtools.timeline`.
+    - **Filter trace `RunTask` events to `CrRendererMain`.** Unfiltered, the biggest "tasks" are
+      646-782ms `GPUTask` entries on the GPU process, which look exactly like the freeze being
+      hunted and are not on the main thread.
+    - **The harness's map-pan number is an upper bound, not a phone measurement.** It pans with
+      `page.mouse`, and the per-marker `mouseover` -> `setZIndexOffset` -> `Marker.update()` that
+      causes does not happen under a finger.
+
+    **Null results, recorded so they are not re-proposed.** `backdrop-filter` was measured rather
+    than reasoned about — 7 paired interleaved samples per arm — and the two nested blurs over the
+    live GL basemap are **free**: INP was exactly 72ms in all 28 samples across four arms, which is
+    frame cadence under a 4x throttle, not a paint cost. Same null for the tabbar, sidebar-header,
+    zoom-button and attribution blurs against a pan. `palette.css`'s own warning that "stacking
+    backdrop-filters is expensive" is true in general and not true here. Also retracted after
+    benchmarking: the `sr-only` 171-link directory (43% of the map page's DOM nodes, memoizing it
+    buys nothing measurable) and `parseEra`'s 21 uncached regexes (0.174ms for a full 169-row pass).
+
+    **And the contamination lesson, which cost three separate re-measurements.** Two council seats
+    and the synthesiser all measured while other agents were running: load average reached **21.5**
+    with 20 node processes, and one arm of a counterfactual read 4,818ms of blocking. A throttled
+    interaction benchmark competes for the very cores it is measuring, and both runs come out wrong
+    in the same believable direction. The script header says so now. **Run it alone, or do not
+    quote it.**
+
+
 
 141. **A map marker cannot report a dead photograph, and the obvious fix cost four live ones.**
     *Attempted and reverted 30 August 2026.* Written down because the defect is real, the

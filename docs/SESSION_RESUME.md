@@ -12,6 +12,17 @@ CLAUDE.md's standing findings carry a warning about.
 
 ## Where the work comes from
 
+**Newest first: [`docs/planning/PERF_COUNCIL_2026-09-04.md`](planning/PERF_COUNCIL_2026-09-04.md)**
+— five lenses on *why the archive feels slow to use*, which is the one question every existing
+instrument here was blind to. Eight findings shipped on 4-5 September 2026, eight ranked and open,
+two council proposals measured and deliberately **not** taken, and a set of null results recorded
+so they are not re-proposed. **Read its section 2 first**: the council corrected the headline
+number its own baseline had published, and the correction is the most useful thing in it.
+
+Run `npm run perf:interaction` against a preview build to reproduce any figure —
+**on an idle machine**, alone. It throttles the CPU to a quarter and then measures main-thread
+busy time, so anything running beside it corrupts the result in a believable direction.
+
 `docs/planning/UX_COUNCIL_2026-08-30.md` — four reviewers, one lens each (visual craft;
 interaction and mobile flows; information architecture and editorial presentation; accessibility
 and Urdu parity), thirty-two findings, eleven of them retracted by re-measuring. The queue below
@@ -183,6 +194,49 @@ has already shipped — it said 524 entity pages and 94 places, and it is 459 an
 
 5. **IA-2 · Desktop has no top-level navigation at all** — `.tabbar` is hidden at ≥641px, and five
    routes hang off one component that renders only when nothing is selected.
+
+### From the performance council (4 September 2026)
+
+Ranked by what a reader feels; full evidence and the measured null results in the council document.
+
+6. **Every language, filter and lens change destroys all 169 markers and builds 169 new ones**
+   (`ShrineMarkers.tsx`) — ~2,700 listener registrations and 114 `<img>` re-created, measured floor
+   16.8 ms at 4× for the DOM half alone. Only the tooltip and three attributes are
+   language-dependent. Wants reconciliation against `markerMapRef` rather than a layer-group
+   teardown. **The largest remaining item.**
+7. **The browse directory renders all 171 rows unwindowed and unmemoized** (`MapSidebar.tsx`) — a
+   filter press costs 99–218 ms in table mode against 72 ms with the list closed, on a path the
+   reader chooses deliberately from `/settings`.
+8. **The sidebar animates `width` and `height`**, neither of which can be composited — the phone
+   sheet animates height 184→641 px over 250 ms, re-laying out up to 169 rows ~15 times per gesture.
+9. **124 KB of provenance JSON ships on every shrine navigation** for a panel behind `?team=1`.
+   Zero CPU cost — it is bytes, not milliseconds, so it is ranked here rather than higher.
+10. **Nothing warms the `ShrinePage` chunk** before a tap the marker preview has already made
+    unambiguous — ~196 KB across 15 chunks requested *after* the tap.
+11. **38 of 114 marker photographs are fetched at full resolution to paint a 30 px circle**; 14 are
+    this repository's own, totalling 4.7 MB. `thumbnailUrl` only rewrites Wikimedia URLs.
+12. **Zero `contain` / `content-visibility` in 14,145 lines of CSS.** Explicitly unmeasured — the
+    list scenario it would affect is not yet in the harness. Add the scenario before acting.
+
+### Waiting on Rauf, from the same council
+
+**The marker flight duration.** One tap fires **34 `zoom` events**, each reaching **170 listeners**
+(169 markers plus the GL basemap) — so ~5,750 `Marker.update()` calls and 34 unthrottled
+`jumpTo()` per tap. Halving `duration: 0.9` to ~0.45 halves both fan-outs, and a shorter flight
+plausibly reads as *more* responsive rather than less. **Not done, because it is a design decision
+and you made it on 1 September** ("tap flies, depth fans, motion glides"); halving a motion
+constant you tuned last week is a design change wearing a performance argument. Related and
+uncontroversial either way: the duration is written at **four sites** rather than once in
+`mapMotion.ts`.
+
+**A citation can be dated a day that has not happened.** Found while measuring, out of that
+council's brief and not fixed. `src/components/shrine/CiteThisEntry.tsx:70` and
+`src/lib/data/citation.ts:71` build the *accessed* date with `toISOString().slice(0, 10)`. The
+archive's primary audience is UTC+5, where **every visit between 00:00 and 05:00 local cites
+yesterday**. `CiteThisEntry` is worse than inconsistent — line 70 takes the date in UTC and line 74
+takes `now.getFullYear()` in local time, so on 1 January the year and the date inside one citation
+can disagree. It matters here more than it would elsewhere: the accessed date exists *because* the
+sheet is live and can change under the reader, so it is the field carrying the provenance claim.
 
 The rest of the ranking, and the items that need Rauf rather than an agent, are in the council
 document. What was already in "Waiting on a person" below still stands.
@@ -399,7 +453,6 @@ colleague's name out of a public field on 30 August. It belongs beside the RMS q
   is even the right saint (its opening pages read like a Baghdad-born *Ma'shuq-e-Rabbani*, not the
   Shah Jamal of Ichhra — nothing should cite it until someone opens it); and the Mauj Darya photo
   fetch, which is ten mapped photographs that only a network-capable machine can pull.
-
 
 
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync
