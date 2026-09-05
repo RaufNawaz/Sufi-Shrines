@@ -109,9 +109,10 @@ appears there without anyone editing a number.
 
 ## Still open after this
 
-- **Mauj Darya Bukhari's photographs.** The survey supplied ten; `data/new-photos-manifest.json`
-  maps them; `public/photos/mauj-darya-bukhari/` does not exist. The row still publishes a single
-  Wikimedia image. Needs a human run of `tools/fetch_shrine_photos.py` then
-  `tools/swap_photo_urls.py` — no agent can do it from behind the proxy.
+- **Mauj Darya Bukhari's photographs cannot be fetched by anyone.** The survey recorded ten;
+  every Drive id returns not-found to an authenticated read, `pipeline/photo_manifest.tsv` already
+  typed all twelve `id_not_in_drive`, and `data/new-photos-manifest.json` says so in its own
+  `_deprecated` note. The `qa_note` in this patch records it. **The remedy is re-shooting**, and
+  the row keeps its single Wikimedia image until then.
 - **Peer Makki's `silsila` is empty** while its prose names the Junaidi lineage. Left alone: the
   survey's answer to the sect question is "Syed - Ahl e Sunnat", which is not a *silsila*.

@@ -9098,3 +9098,55 @@ be a different saint of the same name. That is a question for a reader of Urdu. 
 folder, `2015.398396.Tareeq-Lahore` is **70,388,397 B** — the exact size recorded in
 `books/links.txt` for *Tarikh-e-Lahore* (1884), Kanhaiya Lal, one of the two books missing from
 local `books/` since 9 August. Same file, second file id; still needs a network-capable machine.
+
+### Added 5 September 2026 — the photo fetch that could never have worked, and the file that said so in its first key
+
+Same day, later: `docs/SESSION_RESUME.md` had been carrying "run the Mauj Darya photo fetch" as a
+task blocked on a human with a network. It was run. **All ten downloads fail because the files do
+not exist** — and `data/new-photos-manifest.json` has said so since **10 August 2026**, in its
+first key:
+
+> `_deprecated` … "every mauj-darya-bukhari Drive ID returns not-found — those photos are gone and
+> the shrine needs re-shooting. **Do not fetch from this file.**"
+
+`docs/responses_sync_2026-08-26.md` cited that same file as the source of "the full
+`mauj-darya-bukhari` set of 10 — the replacement for the entry whose 12 original files 404'd", and
+this session's first draft of `docs/responses_sync_2026-09-05.md` repeated it, into an
+`INSTRUCTIONS`, a `qa_note` and the standing queue, before anyone ran it. **Two reconciliations
+quoted a file and neither read its first key.** The ten "replacement" ids are ten of the twelve
+dead ones, which `pipeline/photo_manifest.tsv` had already typed `id_not_in_drive`.
+
+**What settled it, with a control.** An authenticated Drive read (as Rauf — not anonymous `gdown`)
+answers *Requested entity was not found* for four ids sampled across the set, while a control from
+the same upload folder, the same uploader and the same weeks — `1zaqu6yHeioCmYdh4diT7DPeUORfeclcT`,
+a Peer Makki photograph, 2,165,477 B — resolves normally. Listing that folder across the whole
+29–31 July window returns exactly ten files, and they are the **Malik Ahmad Ayaz** batch, id for
+id. Nothing of Mauj Darya's was left behind under another id.
+
+**Three ways the tool made a dead end look like an environment problem**, all now fixed in
+`tools/fetch_shrine_photos.py`:
+
+- It **created the target directory before downloading**, so ten failures left an empty
+  `public/photos/mauj-darya-bukhari/` — the exact shape of a shrine whose photos *had* been
+  fetched. Downloads now stage in a temp file and move on success only.
+- It **invoked `gdown` as a console script**, and this repo's `.venv/bin/gdown` has a shebang
+  pointing at an interpreter path that no longer exists (`/Users/rauf/Desktop/Harvard/Shrines
+  Project/.venv/bin/python3.12` — the venv predates the current directory name). The `exec: …
+  cannot execute` came out as an unreadable stderr tail under a `FAILED <drive id>` heading. It is
+  now `sys.executable -m gdown`.
+- It told you to **"save the failed files by hand"**, which is bad advice for a file that does not
+  exist. Drive answers *missing* and *private* identically, so the failure line now says that and
+  points at `photo_manifest.tsv`'s `join_status`.
+
+It also now **refuses outright** when the manifest carries a `_deprecated` note, unless `--force`.
+A file that knows it is wrong should be able to stop you.
+
+**And one on reading exit codes.** The first run appeared to exit 0 while reporting ten failures —
+because it was piped through `tail`, so `$?` was the pipe's. CLAUDE.md's verification habits name
+this exact mistake, in this session, by an agent that had quoted them an hour earlier.
+
+**One incidental find.** Malik Ahmad Ayaz's seventh "photograph" in the form is a 26 MB gzipped
+database backup uploaded into the photo question by mistake
+(`1muLtMfn_NggoRa7hNEf1vBKSmtzG1JYh`). It never reached `public/photos/malik-ahmad-ayaz/`, whose
+nine files are real JPEGs from a different pass — but a manifest built mechanically from that
+column would publish it, and `data/new-photos-manifest.json` maps it to `malik-ayaz-07.jpg`.

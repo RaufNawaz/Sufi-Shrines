@@ -451,8 +451,11 @@ colleague's name out of a public field on 30 August. It belongs beside the RMS q
   Peer Makki's `year_built` should carry the survey's answers (1671 and 612 AH — both are the
   saints' *death* years, so they are left blank); whether the Shah Jamaal book uploaded on 29 July
   is even the right saint (its opening pages read like a Baghdad-born *Ma'shuq-e-Rabbani*, not the
-  Shah Jamal of Ichhra — nothing should cite it until someone opens it); and the Mauj Darya photo
-  fetch, which is ten mapped photographs that only a network-capable machine can pull.
+  Shah Jamal of Ichhra — nothing should cite it until someone opens it); and whether Mauj Darya
+  Bukhari gets **re-shot**, which is now the only remedy — the ten photographs the survey recorded
+  are gone from Drive (authenticated read, 5 September 2026), the manifest's own `_deprecated` note
+  has said so since 10 August, and `tools/fetch_shrine_photos.py` now refuses rather than failing
+  ten times in a way that reads like a permissions problem.
 
 
 - **RULE 4's fourth guard has no implementation.** "RMS pixel comparison before any media sync

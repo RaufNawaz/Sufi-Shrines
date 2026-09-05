@@ -117,12 +117,40 @@ batches are Adil's academic library (Schimmel, Eaton, Ernst & Lawrence, Rizvi, S
 Qureshi, Boivin, Khalid). None of that has been triaged against `out/ocr/` here, and the folder
 listing is a single instrument — one Drive search, unverified against a second reading.
 
-## Photos
+## Photos — the outstanding fetch does not exist, and never did
 
-Unchanged and still blocking: `data/new-photos-manifest.json` maps every outstanding batch,
-including Mauj Darya Bukhari's replacement set of ten. `public/photos/mauj-darya-bukhari/` still
-does not exist and that row still publishes a single Wikimedia image. Needs a human run of
-`tools/fetch_shrine_photos.py` then `tools/swap_photo_urls.py`.
+**Retracted, same session.** The paragraph that stood here said Mauj Darya Bukhari's ten
+photographs were mapped in `data/new-photos-manifest.json` and waiting on a human with a network.
+Then the fetch was actually run. All ten fail, and not for the reason five documents assumed:
+
+- `pipeline/photo_manifest.tsv` types all twelve of that shrine's Drive ids `id_not_in_drive`.
+- An **authenticated** Drive read (as Rauf, not anonymous `gdown`) answers *Requested entity was
+  not found* for four ids sampled across the set — while a control id from the same folder, same
+  uploader and the same weeks (`1zaqu6yHeioCmYdh4diT7DPeUORfeclcT`, Peer Makki, 2,165,477 B)
+  resolves fine. The instrument distinguishes; the files are gone.
+- Listing the form's upload folder for the whole 29–31 July window returns exactly ten files, and
+  they are the **Malik Ahmad Ayaz** batch, id for id. Nothing of Mauj Darya's was left behind.
+
+**And the manifest said so all along.** Its first key is `_deprecated`, dated 10 August 2026:
+"every mauj-darya-bukhari Drive ID returns not-found — those photos are gone and the shrine needs
+re-shooting. **Do not fetch from this file.**" `docs/responses_sync_2026-08-26.md` cited that file
+as the source of the outstanding batch without reading its first key, and this document repeated
+it. The claim survived two reconciliations because both quoted the same file and neither ran it.
+
+`tools/fetch_shrine_photos.py` now refuses a manifest carrying a `_deprecated` note unless forced,
+runs `gdown` as `sys.executable -m gdown` (this repo's `.venv/bin/gdown` has a dead shebang, which
+the old code surfaced as an unreadable stderr tail), and no longer creates the target directory
+before a download succeeds — ten failures had left an empty `public/photos/mauj-darya-bukhari/`
+behind, which is exactly the shape of a shrine whose photos *had* been fetched.
+
+**The remedy is re-shooting, not fetching.** It is the only entry in the archive in that
+position, and it is on the standing list in CLAUDE.md.
+
+One more thing the fetch turned up: Malik Ahmad Ayaz's seventh "photograph" in the form is a
+26 MB gzipped database backup (`backup_2026-07-23-0630_Versatile_Consultants…gz`) uploaded into
+the photo question by mistake. It never reached `public/photos/malik-ahmad-ayaz/`, whose nine
+files are all real JPEGs from a different pass — so nothing is broken, but a manifest built
+mechanically from that column would publish it.
 
 ## Decisions needed from a human
 
@@ -130,6 +158,8 @@ does not exist and that row still publishes a single Wikimedia image. Needs a hu
 2. Decide whether Shah Jamal's and Peer Makki's `year_built` should carry the survey's answers —
    1671 and 612 AH — which are the saints' **death** years. Left blank by the patch.
 3. Open the Shah Jamaal book and say whether it is the right saint before anything cites it.
-4. Run the Mauj Darya photo fetch, and download *Tarikh-e-Lahore* while a network is available.
+4. Decide whether Mauj Darya Bukhari gets **re-shot** — its ten photographs are gone from Drive
+   and no fetch will bring them back. Separately, download *Tarikh-e-Lahore* while a network is
+   available.
 5. The weekly-sync scheduled task is still stale in the way 26 August described — its baseline
    (`shrines_updated*.tsv`) is dead. Nothing here revives it; this run was done by hand.
