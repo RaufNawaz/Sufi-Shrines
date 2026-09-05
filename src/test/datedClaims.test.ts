@@ -151,6 +151,10 @@ export const DATE_FIXTURE_FILES = new Set([
  */
 export const KNOWN_FUTURE = new Map<string, string>([
   [
+    'src/lib/data/__tests__/localIsoDate.test.ts::2026-12-31',
+    "Not a claim: a constructed New Year's Eve fixture. localIsoDate took the date from UTC and the year from the local clock, so on 31 December those two halves of one citation could name different years — and a test for that has to build the boundary it is testing.",
+  ],
+  [
     'docs/DECISION_oral_histories.md::31 December 2026',
     'A deliberate deadline: "if three consented recordings do not exist by 31 December 2026, adopt B". Forward-looking by design.',
   ],

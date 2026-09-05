@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { t as tGlobal } from '../../lib/i18n/uiStrings';
 import { buildBibtex, buildPlainCitation, type CiteKind } from '../../lib/cite';
+import { localIsoDate } from '../../lib/data/citation';
 import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../../lib/data/supportLevel';
 import { useShareLink } from '../../hooks/useShareLink';
 
@@ -67,7 +68,10 @@ export function CiteThisEntry({ kind, slug, englishName, localizedName, supportL
     const supportLabel = key ? t(SUPPORT_LEVEL_LABEL_KEYS[key]) : '';
     const supportLabelEn = key ? tGlobal('en', SUPPORT_LEVEL_LABEL_KEYS[key]) : '';
     const now = new Date();
-    const iso = now.toISOString().slice(0, 10); // YYYY-MM-DD — unambiguous in both languages
+    /* The reader's calendar date, not UTC's — see `localIsoDate`. This line
+       and the `now.getFullYear()` below used to disagree about which clock they
+       were reading, so on 1 January one citation could carry two dates. */
+    const iso = localIsoDate(now); // YYYY-MM-DD — unambiguous in both languages
     const url =
       typeof window !== 'undefined' && window.location
         ? `${window.location.origin}${window.location.pathname}`

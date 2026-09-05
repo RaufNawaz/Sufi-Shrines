@@ -59,6 +59,36 @@ export function archiveCitation(year: number = 2026): string {
 }
 
 /**
+ * The reader's own calendar date, as `YYYY-MM-DD`.
+ *
+ * **Not `toISOString().slice(0, 10)`**, which is the obvious spelling and is
+ * wrong for exactly the readers this archive is for. `toISOString()` converts to
+ * UTC first, so the date it yields is the reader's only where the offset happens
+ * to be zero. This archive's primary audience is in Pakistan at **UTC+5**, where
+ * **every visit between 00:00 and 05:00 local time cited yesterday**; a reader in
+ * the Americas after 20:00 cited tomorrow.
+ *
+ * It matters more here than it would in most places. The accessed date exists
+ * *because* the site reads a live sheet that can change under the reader — it is
+ * the field carrying the provenance claim, on an archive whose distinguishing
+ * claim is provenance. A citation that misdates its own access by a day is
+ * wrong about the one thing it was added to be right about.
+ *
+ * `CiteThisEntry` was worse than merely off: it took the date in UTC and the
+ * *year* from `getFullYear()`, which is local, so on 1 January the two halves of
+ * one citation could disagree.
+ *
+ * Found 4 September 2026 while checking a measurement script for the same
+ * defect, and fixed on the 5th. The same shape as
+ * `src/test/datedClaims.test.ts`'s subject — that guard defines "today" from the
+ * local getters for this reason.
+ */
+export function localIsoDate(date: Date): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+/**
  * A citation line for one entry. Scholarly practice cites the item and the
  * database it sits in, so both appear — and the accessed date, because this
  * archive reads a live sheet and can change under the reader.
@@ -69,7 +99,7 @@ export function entryCitation(
   accessed: Date,
   year: number = 2026,
 ): string {
-  const iso = accessed.toISOString().slice(0, 10);
+  const iso = localIsoDate(accessed);
   return (
     `"${shrineName}". In ${PUBLICATION.author}, Mapping the Shrines of Pakistan (v${PUBLICATION.version}). ` +
     `${PUBLICATION.affiliation}, ${year}. ${PUBLICATION.siteUrl}/shrine/${slug} (accessed ${iso}).`
