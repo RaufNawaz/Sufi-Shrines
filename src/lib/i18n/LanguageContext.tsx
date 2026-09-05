@@ -13,6 +13,7 @@ import {
   onUrduSeedLoaded,
 } from './urduFallback';
 import { localizeDigits } from './numerals';
+import { warmUrduFonts } from './urduFonts';
 import { LANGUAGE_STORAGE_KEY, NUMERALS_STORAGE_KEY } from '../storageKeys';
 import { detectInitialLang } from './detectLang';
 import type { ShrineRow } from '../../types/shrine';
@@ -64,6 +65,35 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 
   const setLang = useCallback((next: Lang) => {
+    /*
+     * Two requests started at the press, neither awaited.
+     *
+     * Measured (performance council, 4 September 2026): the dictionary was not
+     * requested until *after* the flip had already rendered — `uiStrings.ur`
+     * went out at +38–58 ms but `urdu-seed` only at +131–301 ms, because the
+     * effect that asks for it is keyed on `lang` and so cannot run until `lang`
+     * has changed. A `MutationObserver` on the marker pane caught what that
+     * costs the reader: **169 markers removed and re-added at +88–210 ms when
+     * the language flipped, and all 169 removed and re-added again at
+     * +514–612 ms when the dictionary landed.** One press, the whole map drawn
+     * twice, half a second apart.
+     *
+     * The council's proposal was to *await* the dictionary before flipping, and
+     * it measured that: the two rebuilds do collapse into one, and blocking got
+     * **worse** (302 ms to 367 ms median) because the work concentrates into a
+     * single longer task. It would also delay the visible answer to a tap by up
+     * to 300 ms, which is a regression in precisely the responsiveness this
+     * cycle is about. So the request is started here and *not* awaited: it goes
+     * out ~130 ms earlier, which narrows the gap between the two paints without
+     * making the reader wait for the first one.
+     *
+     * The fonts are the same shape of problem — see `warmUrduFonts`.
+     */
+    if (isRtlLang(next)) {
+      void ensureUrduSeedForLang(next);
+      warmUrduFonts();
+    }
+
     /*
      * The strings first, then the switch.
      *

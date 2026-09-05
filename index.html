@@ -133,8 +133,15 @@
           // Vite rewrites href attributes in this file but not string literals
           // inside a script, so the static <link> these replaced worked while
           // the script-injected one silently did not.
+          // All three declared weights, not two. The 600 face is declared in
+          // global.css and does render — a trace of a language switch caught
+          // all three arriving (+169ms, +285-398ms, +317-426ms) — but it was
+          // the one weight never preloaded, so an Urdu-first reader waited for
+          // the font matcher to discover it and paid a full-tree relayout on
+          // the swap. Measured 4 September 2026.
           [
             '%BASE_URL%fonts/NotoNastaliqUrdu-400.woff2',
+            '%BASE_URL%fonts/NotoNastaliqUrdu-600.woff2',
             '%BASE_URL%fonts/NotoNastaliqUrdu-700.woff2',
           ].forEach(function (href) {
             var link = document.createElement('link');
