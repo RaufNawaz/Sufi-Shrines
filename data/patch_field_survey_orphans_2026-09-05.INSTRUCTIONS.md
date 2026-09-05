@@ -91,9 +91,14 @@ It is worth recording that this **reverses an earlier reading**:
 `data/kg-order-proposals.json` declined to give this figure an order at all — *"The row states the
 affiliation it does have as 'its tradition is Syed and Ahl-e-Sunnat' — a sect and a descent claim,
 not a silsila"* — and separately declined a "Junaidiya" order node proposed from Bibi Pak Daman's
-prose. Naming the lineage the entry's own prose already names does not contradict either: the KG
-holds no Junaidi order, so this cell records an affiliation rather than joining one. If the intent
-is for him to appear on an order page, that needs a Junaidi order node and is a separate decision.
+prose. Naming the lineage the entry's own prose already names does not contradict either.
+
+**That second decision has since been taken** (`f40db17`): the archive now holds a **Junaidi**
+order (جنیدیہ) with two members — Peer Makki's figure, and Sayyid Ahmad Tokhta Tirmidhi from Bibi
+Pak Daman's entry — and `/order/junaidi` carries two sourced passages in both languages. The
+`junaidi` pattern is in both mirrored `SILSILA_PATTERNS` tables, so once this patch is imported the
+cell will *corroborate* the seeded edge rather than trip the `seeded-order-contradicts-sheet`
+check, and the machine-extracted path dedups on the same relation id, so no second edge appears.
 
 ## What the numbers say after import
 
