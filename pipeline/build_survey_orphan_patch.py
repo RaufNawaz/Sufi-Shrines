@@ -83,7 +83,101 @@ DEFAULT_IN = os.path.join(REPO, "data", "live_sheet_2026-09-05.csv")
 FULL_OUT = os.path.join(REPO, "data", "import_2026-09-05.csv")
 PATCH_OUT = os.path.join(REPO, "data", "patch_field_survey_orphans_2026-09-05.csv")
 
-PATCH_COLS = ["Name", "id", "Description", "qa_note", "info_level", "support_level"]
+PATCH_COLS = [
+    "Name",
+    "id",
+    "Description",
+    "qa_note",
+    "info_level",
+    "support_level",
+    "silsila",
+    "year_built",
+    "year_built_precision",
+    "year_built_note",
+]
+
+# Columns each row is allowed to change. Anything else moving is a bug, and the
+# script exits rather than writing it (invariant 2b).
+CHANGED_COLS = {
+    "shah-jamal": {
+        "Description", "qa_note", "info_level", "support_level",
+        "year_built", "year_built_precision", "year_built_note",
+    },
+    "peer-makki": {
+        "Description", "qa_note", "info_level", "support_level", "silsila",
+        "year_built", "year_built_precision", "year_built_note",
+    },
+    "shrine-of-mauj-darya-bukhari": {
+        "Description", "qa_note", "info_level", "support_level",
+    },
+}
+
+# ── The date columns, per Rauf's ruling of 5 September 2026 ──────────────────
+#
+# All three surveys answer "in which year was this place built" with the saint's
+# **death** year. Asked whether to fill `year_built` anyway, the ruling was: fill
+# it, with the qualification carried in `year_built_precision`.
+#
+# The shape below is not invented for this patch — it is what four rows in the
+# sheet already do with the same problem (`darbar-malik-ahmad-ayaz`,
+# `darbar-abul-muali-qadri`, `darbar-mian-qurban-ali-shah`, `bibi-pak-daman`):
+# the value carries its own qualification inline, `year_built_precision` holds a
+# sentence rather than a vocabulary term, and `year_built_note` explains. Mauj
+# Darya already carries 1604 and is left alone.
+#
+# `year_built_note` on these rows currently holds a *built-form* sentence rather
+# than a date one — a mixed use of the column across the sheet. The date
+# explanation is prepended and the existing sentence kept, so nothing is lost.
+DATES = {
+    "shah-jamal": {
+        "year_built": '1671 (as given: "English Calendar Date : 1671"; '
+        "the saint's death year, not a construction date)",
+        "year_built_precision": "Uncertain — date derived from the figure's death date",
+        "year_built_note": 'The survey\'s founding-year answer, "English Calendar Date : 1671", '
+        "is the year this entry already records as the saint's death, on 4 Rabi-ul-Sani; his "
+        "grave was raised over the collapsed chilla cell inside the Damdama he had built in his "
+        "own lifetime, so the answer dates the tomb rather than the structure, and 1649 also "
+        "appears in the sources. Tomb enclosed within a modern single-domed mosque.",
+    },
+    "peer-makki": {
+        # NB: the Hijri figure is named in words here and given as a numeral only in
+        # the note, deliberately. `firstGregorianYear` in src/lib/data/places.ts
+        # **skips any date cell containing "AH"** — Hijri is not comparable without
+        # conversion — so "1215 CE / 612 AH ..." would have contributed nothing to
+        # this shrine's place span, while "1215 CE ..." contributes 1215.
+        #
+        # (An earlier draft of this comment blamed `parseEra`, which collects every
+        # 3-4 digit run in a string and would indeed have read 612 as a 7th-century
+        # year. It never sees this column: `shrineFilters.ts` calls it on `founded`,
+        # the legacy `Founded/Opened` cell, which this patch does not touch. The
+        # hazard was real in the wrong file.)
+        "year_built": "1215 CE (as given in the form as a Hijri year; "
+        "the saint's death year, not a construction date)",
+        "year_built_precision": "Uncertain — date derived from the figure's death date",
+        "year_built_note": 'The survey\'s founding-year answer, "612 Hijri", is the year this '
+        "entry already records as the saint's death (612 AH / 1215 CE). The survey itself says "
+        "he settled in a mosque that was already standing and that the shrine was built after he "
+        "was buried there, so the answer dates neither. Shrine complex includes the Hazrat Pir "
+        "Makki Masjid.",
+    },
+}
+
+# Peer Makki's `silsila` cell, per the same ruling: Junaidi, bracketed with the
+# survey's own sect answer. Both halves are sourced — "Junaidi" is this entry's
+# own prose ("the esoteric path of the Junaidi Sufi lineage, tracing back to the
+# classical Baghdad master Junayd"), "Ahl e Sunnat" is the survey's answer to the
+# sect question. Prose in this column is established: eight rows carry a
+# qualifying clause, one of them in exactly this bracketed form.
+#
+# Recorded because it reverses an earlier reading, not because it is wrong to:
+# `data/kg-order-proposals.json` declined to give this figure an order at all —
+# "The row states the affiliation it does have as 'its tradition is Syed and
+# Ahl-e-Sunnat' — a sect and a descent claim, not a silsila" — and declined a
+# "Junaidiya" order node proposed from Bibi Pak Daman's prose. Neither is
+# contradicted by naming the lineage the entry's own prose already names; the KG
+# has no Junaidi order to join, so this cell adds a recorded affiliation, not an
+# order edge.
+PEER_MAKKI_SILSILA = "Junaidi (Ahl-e-Sunnat)"
 
 CITATION = {
     "shah-jamal": "- Shrines Project field survey, Darbar Shah Jamal responses "
@@ -200,18 +294,24 @@ QA_NOTES = {
         "carried most of its content unattributed. Two accounts of the family now stand side by "
         "side and are not reconciled here: this entry's Hussaini Syed descent from Jalaluddin "
         "Surkh-Posh Bukhari, and the survey's migration from Kashmir to Sialkot to Lahore under "
-        "the father Syed Ahmad Shah. The survey's answer to the founding-year question is 1671, "
-        "which is the saint's death year, so year_built is left blank. The survey's epithet "
-        "Sakhi Sarwar is also the name of a separate saint and shrine in this archive "
-        "(sakhi-sarwar)."
+        "the father Syed Ahmad Shah. year_built now carries the survey's founding-year answer, "
+        "1671, which is the saint's death year — filled per a ruling of 5 September 2026 with "
+        "the qualification in year_built_precision, following four rows in the sheet that "
+        "already answer this problem that way. The survey's epithet Sakhi Sarwar is also the "
+        "name of a separate saint and shrine in this archive (sakhi-sarwar)."
     ),
     "peer-makki": (
         "Field-survey response of 23 July 2026 folded in on 5 September 2026; the survey's "
         "biography is the longest in the response set and most of it was not in this entry. The "
         "survey dates the Auqaf Department's charge of the shrine to 1958; the Shah Jamal entry "
         "gives 1960 for the same department taking charge there, and neither date is "
-        "independently checked here. The survey's answer to the founding-year question is 612 "
-        "AH, which is the saint's death year, so year_built is left blank."
+        "independently checked here. year_built now carries the survey's founding-year answer, "
+        "612 AH / 1215 CE, which is the saint's death year — filled per a ruling of 5 September "
+        "2026 with the qualification in year_built_precision. silsila, empty until now, reads "
+        "Junaidi (Ahl-e-Sunnat) per the same ruling: Junaidi from this entry's own prose, "
+        "Ahl-e-Sunnat as the survey's sect answer. data/kg-order-proposals.json had declined to "
+        "give this figure an order at all; the archive holds no Junaidi order, so this records "
+        "an affiliation rather than joining one."
     ),
     "shrine-of-mauj-darya-bukhari": (
         "Field-survey response of 29 July 2026 folded in on 5 September 2026; the entry already "
@@ -360,6 +460,29 @@ def main():
         row["qa_note"] = QA_NOTES[sid]
         row["info_level"] = "Full"
         row["support_level"] = "Field-verified"
+
+        for col, value in DATES.get(sid, {}).items():
+            if col == "year_built" and originals[sid][col].strip():
+                fail("%s: year_built is not empty (%r) — refusing to overwrite"
+                     % (sid, originals[sid][col]))
+            # `year_built_note` is rewritten rather than replaced: the sentence the
+            # sheet already holds must survive inside the new one, or the sheet has
+            # been edited since this text was written and the edit would be lost.
+            if col == "year_built_note":
+                kept = originals[sid][col].strip().rstrip(".")
+                if kept and kept not in value:
+                    fail("%s: the existing year_built_note (%r) is not carried into the new one"
+                         % (sid, originals[sid][col]))
+            row[col] = value
+        if sid == "peer-makki":
+            if originals[sid]["silsila"].strip():
+                fail("peer-makki: silsila is not empty — refusing to overwrite")
+            row["silsila"] = PEER_MAKKI_SILSILA
+
+        # Invariant 2b — this row changed exactly the columns it is allowed to.
+        moved = {k for k in row if row[k] != originals[sid][k]}
+        if moved != CHANGED_COLS[sid]:
+            fail("%s changed %s; expected %s" % (sid, sorted(moved), sorted(CHANGED_COLS[sid])))
         changed.append(sid)
 
     if sorted(changed) != sorted(BUILDERS):
