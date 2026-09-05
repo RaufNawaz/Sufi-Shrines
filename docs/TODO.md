@@ -1595,9 +1595,16 @@ them one by one is no longer necessary if you use the consolidated CSV.
       coordinate), explicitly labelled as approximate in each row's Location field. A real pin
       from Saifullah would improve all 8 (the 8th being Ghazi Ilm Din Shaheed, added 16 Aug).
 - [ ] Still outstanding from before this session (see `docs/HANDOVER.md` §5, §8): Mauj Darya
-      Bukhari needs re-shooting (all 12 original media files verified 404); Data Darbar and
+      Bukhari needs re-shooting — **corrected 5 September: "verified 404" was the wrong
+      diagnosis.** All 12 files were removed from *Drive itself* (authenticated read returns
+      not-found), not from a web host, so **the cheap move is Adil's Drive trash, then
+      Saifullah's phone, and only then a trip** — that order is now in
+      `docs/message_to_saifullah_2026-08-16.md` §3 with a shot list. Also: Data Darbar and
       Bibi Pak Daman photos are WhatsApp-compressed and need re-shooting, sent as files not
-      chat images; delete the stray database backup from the shared photo folder.
+      chat images (Shah Gohar Peer is in the same condition); delete the stray database
+      backup from the shared photo folder — it is
+      `backup_2026-07-23-0630_Versatile_Consultants…gz`, uploaded 29 July into the Malik
+      Ahmad Ayaz photo answer.
 
 ## 3. Needs a human editorial call — **briefed 18 August**
 
