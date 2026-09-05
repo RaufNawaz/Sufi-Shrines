@@ -9150,3 +9150,45 @@ database backup uploaded into the photo question by mistake
 (`1muLtMfn_NggoRa7hNEf1vBKSmtzG1JYh`). It never reached `public/photos/malik-ahmad-ayaz/`, whose
 nine files are real JPEGs from a different pass — but a manifest built mechanically from that
 column would publish it, and `data/new-photos-manifest.json` maps it to `malik-ayaz-07.jpg`.
+
+### Added 5 September 2026 — the survey→shrine map exists as a file now, and a gate reads it
+
+The third piece of the same day. A missing citation has no symptom, so it gets a check (RULE 4).
+
+**`pipeline/survey_response_map.tsv`** — 28 rows, one per form response, each carrying the
+production `shrine_id` it describes, its `live`/`Delete` status and its upload counts. The mapping
+is **not mechanical**: nine of the nineteen live responses name their shrine differently from the
+sheet ("Darbar Sufi Aziz ul Deen Peer Makki Sarkar" → `peer-makki`, "Darbar Meera Mouj Darya
+Bhukari" → `shrine-of-mauj-darya-bukhari`), and token-overlap matching gets four wrong, including
+sending "Darbar Modho Laal Hussain" to Data Darbar. It had been done by hand at least three times
+without ever being written down — RULE 0's exact failure. It supersedes
+`pipeline/legacy-exports/survey_canonical.tsv`, which covered 14 of the 28 and carried no id.
+
+**`scripts/data/validate-survey-provenance.mjs`**, now in `npm run data:validate`: every shrine
+with a live response must carry a `Shrines Project field survey` line *and* read `Field-verified`.
+Both, not either — the two have been the same 16 rows every time anyone has counted, so a row with
+one and not the other is the interesting case. The three rows this patch fixes are on a dated
+`KNOWN` list, and **the gate fails on its own allowlist once they pass**, telling the operator to
+delete the entries. Mutation-checked both ways: dropping a `KNOWN` entry exits 1 as an unrecorded
+failure, adding one for a healthy row exits 1 as a stale exception, and both messages name the row.
+Nine unit tests in `src/lib/data/__tests__/surveyProvenance.test.ts`, in the house pattern of
+`descriptionStructure.test.ts` — they test the predicate, not the script's output.
+
+**Two things this gate cannot see, and says so in its own header.** A response nobody has added to
+the TSV is invisible to it. And two mapped shrines — `darbar-hazrat-shah-gohar-peer`,
+`darbar-mian-qurban-ali-shah` — are not in the dataset at all, because they have no coordinates and
+`buildShrine()` drops what it cannot place; they are reported and skipped, not failed.
+
+**And a correction the map produced by existing.** Every document in this project, including this
+session's own, said the nineteen live responses were "all by surveyor Saifullah Imtiaz". Eighteen
+are. The Mian Mir response of 18 March is **Muhammad Rizwan's**, and the Mian Mir entry's own
+bibliography has said so in production all along. Nobody checked because a count is easier to copy
+than to re-derive — which is the whole argument for the file.
+
+**One bug worth keeping, found in the gate itself.** Its first run exited 0 having printed nothing.
+The main-guard was ``import.meta.url === `file://${process.argv[1]}` ``, and **this repository's
+path contains spaces and a curly apostrophe**, so `import.meta.url` is percent-encoded and that
+comparison is false forever. A gate that silently checks nothing is worse than no gate, and it is
+the same failure this one was written to catch. `validate-description-structure.mjs` matches on the
+filename instead, and now so does this. Any new script under `scripts/` should do the same — RULE 1's
+path trap has a second edge.

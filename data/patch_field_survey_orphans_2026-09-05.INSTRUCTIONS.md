@@ -145,6 +145,15 @@ npm run data:build && npm run data:validate
 npm run data:check:live      # expect zero row drift
 ```
 
+**`data:validate` will fail, on purpose, and the failure is the last step of this import.**
+`scripts/data/validate-survey-provenance.mjs` asserts that every shrine with a live field-survey
+response carries its citation and reads `Field-verified`. The three rows in this patch are on its
+`KNOWN` list *because they still fail*; once the import lands they pass, and the gate then fails
+on the stale allowlist entries and tells you to delete them. **Delete all three entries from
+`KNOWN` in that file.** That is the whole maintenance burden, and it is deliberate: a recorded
+exception that no longer describes a real failure outlives everyone who remembers why it was
+written — which is how the 26 August note stayed wrong for three weeks.
+
 Then `/about` recomputes its own coverage figures from the shipped data, so the 16 → 19 change
 appears there without anyone editing a number.
 

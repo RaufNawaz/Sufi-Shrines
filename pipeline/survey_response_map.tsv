@@ -1,0 +1,51 @@
+# survey_response_map.tsv — which production row each field-survey response describes.
+#
+# Derived 5 September 2026 from the Shrine Information Form (Responses) sheet,
+# 1zf7byAFp2Uf-LXNh2_wL3zazfZsuaUKn2t7Lr9S2oWw, single tab gid=1290048597, read as CSV via
+# .../export?format=csv (not the Drive reader, which escapes underscores and can cut long cells).
+#
+# Why this file exists: the mapping is not mechanical. Nine of the nineteen live responses name
+# their shrine differently from the sheet — "Darbar Sufi Aziz ul Deen Peer Makki Sarkar" is
+# `peer-makki`, "Darbar Shah Anayat Qadri Shartari" is `shrine-of-shah-inayat-qadiri`, "Darbar
+# Meera Mouj Darya Bhukari" is `shrine-of-mauj-darya-bukhari` — and token-overlap matching gets
+# four of them wrong, including sending "Darbar Modho Laal Hussain" to Data Darbar. It was done by
+# hand, and until 5 September it had been done by hand at least three times without being written
+# down (RULE 0). `scripts/data/validate-survey-provenance.mjs` reads this file.
+#
+# `shrine_id` on a Delete row is the shrine its superseded draft describes, carried from the live
+# row of the same name; it is not a claim that the draft was ever published.
+#
+# **When a new response arrives, add its row here by hand and check the id.** The gate cannot
+# tell the difference between a response nobody has mapped and a response that does not exist.
+#
+# Supersedes pipeline/legacy-exports/survey_canonical.tsv, which covered 14 of the 28 and carried
+# no shrine id.
+timestamp	shrine_name_as_written	surveyor	status	shrine_id	n_photos	n_media
+16/03/2026 15:13:08	Data Darbar	Saifullah Imtiaz	Delete	data-darbar	1	0
+18/03/2026 05:56:53	Shrine of Hazrat Mian Mir R.A	Muhammad rizwan	Delete	shrine-of-mian-mir	1	0
+15/06/2026 16:37:56	Data Darbar	Saifullah Imtiaz	live	data-darbar	1	0
+15/06/2026 16:53:03	Shrine of Hazrat Mian Mir R.A	Muhammad rizwan	live	shrine-of-mian-mir	0	0
+15/06/2026 17:22:24	Darbar Modho Laal Hussain	Saifullah	Delete	madho-lal-hussain	10	2
+17/06/2026 16:17:08	Darbar Bibi Pak Daman	Saifullah Imtiaz	Delete	bibi-pak-daman	7	0
+18/06/2026 16:27:52	Darbar Hazrat Gunj Anayat Sarkar	Saifullah Imtiaz	Delete	ganj-e-inayat-sarkar	9	1
+20/06/2026 04:32:09	Darbar Modho Laal Hussain	saifullah	Delete	madho-lal-hussain	10	2
+20/06/2026 04:39:24	Darbar Bibi Pak Daman	saifullah	Delete	bibi-pak-daman	7	0
+20/06/2026 04:45:10	Darbar Hazrat Gunj Anayat Sarkar	saifullah	Delete	ganj-e-inayat-sarkar	9	1
+22/06/2026 17:34:57	Mazar-e-Iqbal	Saifullah Imtiaz	Delete	mazar-e-iqbal	10	1
+29/06/2026 08:59:57	Darbar Modho Laal Hussain	saifullah	live	madho-lal-hussain	10	2
+29/06/2026 11:37:38	Darbar Bibi Pak Daman	Saifullah	live	bibi-pak-daman	7	0
+29/06/2026 11:45:02	Darbar Hazrat Gunj Anayat Sarkar	saifullah	live	ganj-e-inayat-sarkar	9	1
+29/06/2026 11:54:05	Darbar Abul Faiz Qalandari Gilani Soharwardi	saifullah	live	abul-faiz-qalander-ali-suharwardi	10	2
+29/06/2026 12:02:05	Mazar-e-Iqbal	saifullah	live	mazar-e-iqbal	10	1
+14/07/2026 17:58:05	Darbar Hazrat Shah Gohar Peer	Saifullah	live	darbar-hazrat-shah-gohar-peer	9	3
+14/07/2026 18:23:32	Darbar Mian Qurban Ali Shah	Saifullah	live	darbar-mian-qurban-ali-shah	10	1
+14/07/2026 18:32:32	Darbar Shah Jamaal	saifullah	live	shah-jamal	10	1
+23/07/2026 07:54:57	Darbar Sufi Aziz ul Deen Peer Makki Sarkar	Saifullah	live	peer-makki	10	1
+23/07/2026 08:44:33	Darbar Abul Muali Qadri	Saifullah	live	darbar-abul-muali-qadri	9	1
+29/07/2026 17:49:31	Darbar Malik Ahmad Ayaz	Saifullah	live	darbar-malik-ahmad-ayaz	10	1
+29/07/2026 17:58:08	Darbar Meera Mouj Darya Bhukari	Saifullah	live	shrine-of-mauj-darya-bukhari	10	2
+11/08/2026 06:24:45	Darbar Wasif Ali Wasif	Saifullah	live	wasif-ali-wasif	10	1
+11/08/2026 06:36:11	Darbar Hazrat Khawaja Feroz ud din Gareeb Nawaz Chisti Nizami	Saifullah	live	khawaja-feroz-ud-din-gharib-nawaz	9	1
+11/08/2026 06:48:40	Darbar Hazrat Tahir bandagi Qadri Naqshbandi Majdadi	Saifullah	live	tahir-bandagi-qadri	10	1
+11/08/2026 07:00:58	Darbar Ghazi ilam Deen Shaheed Ghazi Milat Ummah Fakhr e Ummah	Saifullah	live	ghazi-ilm-din-shaheed	10	1
+11/08/2026 07:11:01	Darbar Shah Anayat Qadri Shartari	Saifullah	live	shrine-of-shah-inayat-qadiri	10	1

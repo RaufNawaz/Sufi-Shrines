@@ -15,8 +15,11 @@ that is now a patch: `data/patch_field_survey_orphans_2026-09-05.csv`.
 ## The responses sheet, read in full
 
 28 submissions, 16 March – 11 August 2026. 11 marked `Delete` (superseded drafts). **19 live
-responses covering 19 shrines**, every one of them surveyed by Saifullah Imtiaz. Newest
-submission 11 August 2026, 07:11:01. Every figure here is identical to the 26 August run's, which
+responses covering 19 shrines**, eighteen of them surveyed by Saifullah Imtiaz and one — Mian Mir,
+18 March — by **Muhammad Rizwan**. (This paragraph said "every one of them" until the mapping was
+written down as a file; the 26 August note said the same, and the Mian Mir entry's own bibliography
+has named Rizwan all along. A count is easier to copy than to check.) Newest submission
+11 August 2026, 07:11:01. Every figure here is identical to the 26 August run's, which
 is the point: nothing has arrived in three weeks.
 
 The sheet has exactly one tab. Both sheets export cleanly over
