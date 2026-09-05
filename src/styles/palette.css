@@ -36,7 +36,17 @@
   background: rgba(26, 12, 8, 0.58);
   backdrop-filter: blur(10px) saturate(120%);
   -webkit-backdrop-filter: blur(10px) saturate(120%);
-  animation: palette-backdrop-in var(--duration-base) var(--easing) both;
+  /* `backwards`, not `both`, here and at the three other palette animations
+     below. Every one of them ends at the element's natural resting state, so
+     the fill mode is visually identical — but a forwards-filled animation
+     *retains* its final `transform`, and a non-`none` transform makes the
+     element a stacking context and a containing block for any `position: fixed`
+     descendant. `global.css` records that hazard against `.page-enter`, where it
+     anchored the gallery lightbox to the page instead of the viewport; these
+     four had diverged from it. `palette-row-in` is the one that counts: it runs
+     on all 40 result rows, so `both` left 40 retained transforms behind every
+     time the palette opened. */
+  animation: palette-backdrop-in var(--duration-base) var(--easing) backwards;
 }
 
 .palette {
@@ -60,7 +70,7 @@
     inset 0 1px 0 var(--glass-sheen),
     0 32px 72px -16px rgba(26, 12, 8, 0.55),
     0 2px 10px rgba(26, 12, 8, 0.22);
-  animation: palette-in var(--duration-base) var(--easing-spring) both;
+  animation: palette-in var(--duration-base) var(--easing-spring) backwards;
 }
 
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -267,7 +277,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   touch-action: pan-y;
-  animation: palette-drawer-in var(--duration-base) var(--easing) both;
+  animation: palette-drawer-in var(--duration-base) var(--easing) backwards;
 }
 
 .palette-filters-clear {
@@ -334,7 +344,7 @@
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   cursor: pointer;
-  animation: palette-row-in var(--duration-base) var(--easing) both;
+  animation: palette-row-in var(--duration-base) var(--easing) backwards;
   /* Staggered, but capped at 12 rows in the component: a 40th row waiting
      400ms to appear reads as jank, not choreography. */
   animation-delay: calc(var(--stagger-index, 0) * 18ms);
