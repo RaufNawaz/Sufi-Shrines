@@ -92,9 +92,27 @@
       "_why": "Named as a silsila in its own right, on a par with the Qadiri, in the one sentence describing Shah Inayat's practice: \"He combined the Qadiri and Shattari silsilas in his own practice.\" A parent-level order in the source, not a Qadiri sub-branch, even though the recorded cell fuses the two as \"Qadri Shattari\".",
       "wikidataQid": null,
       "wikidataNote": "requires human confirmation before release"
+    },
+    {
+      "slug": "junaidi",
+      "name": "Junaidi",
+      "arabicName": "جنیدیہ",
+      "_why": "Named in the archive's own prose of two different figures, one of them a shrine's principal figure. Peer Makki's entry has him teaching \"the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd\"; Bibi Pak Daman's names the Bibis' father as \"a sayyid of the Junaidiya Sufi line\". Created 5 September 2026 on Rauf's ruling. It reverses kg-order-proposals.json, which declined a \"Junaidiya\" node on the ground that it was named once and of a figure who is not a shrine's principal figure - true of the Bibi Pak Daman occurrence, which was the only one that proposal weighed. The Peer Makki occurrence is of a principal figure and was not considered. No parent order: both sources name it as a line in its own right, tracing to Junayd of Baghdad rather than branching from a South Asian order.",
+      "wikidataQid": null,
+      "wikidataNote": "requires human confirmation before release"
     }
   ],
   "saintOrders": {
+    "hazrat-syed-azizuddin-al-hassani-wal-hussaini": {
+      "order": "junaidi",
+      "source": "data/shrines.csv#shrine-of-peer-makki",
+      "note": "The entry's own prose: he \"remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd\". His silsila cell was empty when this edge was seeded; data/patch_field_survey_orphans_2026-09-05.csv sets it to \"Junaidi (Ahl-e-Sunnat)\", which ORDER_CELL_PATTERNS.junaidi matches, so the cell will corroborate the seed rather than contradict it once the patch is imported."
+    },
+    "sayyid-ahmad-tokhta-tirmidhi": {
+      "order": "junaidi",
+      "source": "data/shrines.csv#bibi-pak-daman",
+      "note": "Named of the Bibis' father, who is a lineage-only figure with no shrine of his own and therefore no silsila cell: the six were \"the daughters of Sayyid Ahmad Tokhta Tirmidhi, a sayyid of the Junaidiya Sufi line whose spiritual descent is traced, through several generations, back to Imam Zain al-Abideen\". This is the occurrence kg-order-proposals.json weighed and declined; it is admitted here as the second witness to an order created on the first, not as the reason for creating it."
+    },
     "fariduddin-ganjshakar": "chishtiyya",
     "khwaja-ghulam-farid": "chishtiyya",
     "daud-bandagi-kirmani": "qadiriyya",
@@ -1995,6 +2013,24 @@
       "quoteUr": "عربی، فارسی اور دینی علوم میں خوب تعلیم یافتہ، بلھے شاہ ایک روایتی عالم بن سکتے تھے — مگر وہ اس کے بجائے سلگتی ہوئی باطنی راہ کی طرف کھنچے، اور لاہور کے ایک صوفی مرشد شاہ عنایت قادری کے مرید بنے، جو قادری شطاری سلسلے سے تھے اور جو پیشے کے اعتبار سے ایک اعلیٰ نسب سیّد کے بجائے ایک \"اراٴیں\" (کاشتکار باغبان) تھے۔",
       "source": "data/shrines.csv#mazar-of-bulleh-shah",
       "_why": "The second and last mention: the same man named from his disciple’s entry as \"of the Qadiri-Shattari line\"."
+    },
+    {
+      "orderSlug": "junaidi",
+      "shrineSlug": "shrine-of-peer-makki",
+      "shrineName": "Shrine of Peer Makki",
+      "quote": "Standing close to the great mausoleum of Data Ganj Bakhsh, in the Walled City's Bhati Gate quarter, the shrine of Peer Makki commemorates Hazrat Syed Azizuddin al-Hassani wal-Hussaini, a scholar-mystic born in Baghdad — the son of Hazrat Peer Syed Abdullah, of a Hasani-Hussaini family of religious scholars that counted Junaid Baghdadi, Imam Ahmad bin Hanbal and Sheikh Abdul Qadir Jilani among its kin. He is said to have migrated to Mecca in 562 AH, at about the age of thirty, and to have spent twelve years there in ascetic seclusion — hence his popular title \"Makki\" — before journeying overland to India. Hagiographical accounts hold that he arrived in Lahore in 575 AH (around 1178 CE) by what tradition describes as divine instruction, and remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd.",
+      "quoteUr": "داتا گنج بخش کے عظیم مقبرے کے قریب، اندرونِ شہر کے بھاٹی گیٹ کے علاقے میں، پیر مکی کا مزار حضرت سید عزیز الدین الحسنی والحسینی کی یاد مناتا ہے — بغداد میں پیدا ہونے والے ایک عالم و صوفی، حضرت پیر سید عبد اللہ کے فرزند، ایک ایسے حسنی حسینی علمی خانوادے سے جس کے قرابت داروں میں جنید بغدادی، امام احمد بن حنبل اور شیخ عبد القادر جیلانی شمار کیے جاتے ہیں۔ کہا جاتا ہے کہ وہ 562 ہجری میں، تقریباً تیس برس کی عمر میں، مکہ ہجرت کر گئے اور وہاں بارہ سال زاہدانہ گوشہ نشینی میں گزارے — اِسی لیے اُن کا عوامی لقب \"مکی\" ہوا — اور اِس کے بعد خشکی کے راستے ہندوستان روانہ ہوئے۔ سوانحی روایات کے مطابق وہ 575 ہجری (تقریباً 1178 عیسوی) میں لاہور پہنچے، اُس ہدایت پر جسے روایت الہامی بتاتی ہے، اور تقریباً چھتیس سال تک وہاں مقیم رہے — اسلامی فقہ کے ظاہری علوم اور جنیدی صوفی سلسلے کی باطنی راہ، جو بغداد کے کلاسیکی استاد جنید سے جا ملتی ہے، دونوں کے استاد کی حیثیت سے۔",
+      "source": "data/shrines.csv#shrine-of-peer-makki",
+      "_why": "The order was created on 5 September 2026 and had nothing on its page. This is the corpus naming it, of a shrine’s principal figure, and saying what he taught of it. Runs from the entry’s first sentence rather than from the sentence that names the order, because that one opens \"Hagiographical accounts hold that he arrived\" — a pronoun with no antecedent once lifted out (rule 1) — and the middle of a quotation is not ours to cut (rule 2). At 945 characters it is the second longest of the passages, behind the Naqshbandi one, and that length is the price of both rules holding at once."
+    },
+    {
+      "orderSlug": "junaidi",
+      "shrineSlug": "shrine-of-bibi-pak-daman",
+      "shrineName": "Shrine of Bibi Pak Daman",
+      "quote": "The custodial and scholarly tradition tells a different, and no less devout, story. It holds that the six were the daughters of Sayyid Ahmad Tokhta Tirmidhi, a sayyid of the Junaidiya Sufi line whose spiritual descent is traced, through several generations, back to Imam Zain al-Abideen, and whose family had come from Tirmiz in Central Asia by way of Kech Makran to settle at last in Lahore.",
+      "quoteUr": "متولی اور علمی روایت ایک مختلف، اور اتنی ہی دیندار، کہانی سناتی ہے۔ یہ مانتی ہے کہ یہ چھ عظیم بزرگ سیّد احمد توختہ ترمذی کی بیٹیاں تھیں، جنیدیہ صوفی سلسلے کے ایک سیّد جن کا روحانی نسب، کئی نسلوں کے ذریعے، امام زین العابدین تک جاتا ہے، اور جن کا خاندان وسطی ایشیا کے ترمذ سے کیچ مکران کے راستے آ کر بالآخر لاہور میں آباد ہوا۔",
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman",
+      "_why": "The second witness, and the one kg-order-proposals.json weighed when it declined a Junaidiya node — named of the Bibis’ father, who has no shrine of his own. Kept because the archive says it, and because it is the whole of what the corpus records about this line besides the Peer Makki passage. Opens on the tradition rather than on the man, which is how the entry itself introduces him."
     }
   ],
   "_comment_saintOrders": "Hand-authored figure → order memberships. Keys must match the slug generated from the canonical saint name after merge variants are applied. THESE ARE UNSOURCED BY CONSTRUCTION — there is no quote field — and on 29 August 2026 an audit against the sheet found two of the six that could be checked were simply wrong, and wrong in the same way: Daud Bandagi Kirmani was seeded chishtiyya where his row's silsila cell says \"Qadiri\" and his entry calls him \"a revered Qadiri saint\" who \"became a shaykh of the Qadiri order\"; Waris Shah was seeded qadiriyya where his cell says \"Chishti\" and his entry says he \"belonged in spirit to the Chishti Sufi tradition\". A straight transposition. Nothing in the archive supported either seeded value, and because these edges carry method:\"human\" the UI showed the wrong one WITHOUT the unreviewed chip that the correct machine-extracted edge beside it carried. Both corrected to the sheet. The invariant is now enforced: a hand-seeded order that does not match the figure's own silsila cell must be declared in saintOrdersNotInCell with a reason, or the build fails.",

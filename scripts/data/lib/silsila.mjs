@@ -26,6 +26,7 @@ export const SILSILA_PATTERN_SOURCES = [
   ['malamati', 'malamat'],
   ['azeemia', 'azeemia'],
   ['shattari', 'shattar'],
+  ['junaidi', 'junaid'],
 ];
 
 /** Order slug → RegExp, rebuilt case-insensitive and non-global. */

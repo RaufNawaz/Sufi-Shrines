@@ -52,9 +52,10 @@ export function localizeFigureName(saint: NamedEntity, lang: Lang): string {
 }
 
 interface NamedOrder extends NamedEntity {
-  /** The silsila's name in Arabic script — which for all five orders in the
+  /** The silsila's name in Arabic script — which for all ten orders in the
    * archive *is* its Urdu name (قادریہ, چشتیہ, …), so it is used before the
-   * dictionary rather than after it. */
+   * dictionary rather than after it. (Five when this was written; the count is
+   * `kg.orders.length` and `searchUrduReachability.test.ts` holds it.) */
   arabicName?: string | undefined;
 }
 

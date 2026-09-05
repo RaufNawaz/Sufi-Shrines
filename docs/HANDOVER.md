@@ -9192,3 +9192,49 @@ comparison is false forever. A gate that silently checks nothing is worse than n
 the same failure this one was written to catch. `validate-description-structure.mjs` matches on the
 filename instead, and now so does this. Any new script under `scripts/` should do the same — RULE 1's
 path trap has a second edge.
+
+### Added 5 September 2026 — a tenth order, and two Urdu order pages that had been titled in English
+
+Rauf's ruling: create the Junaidi order, so that Peer Makki's new `silsila` cell has something to
+join. Ten orders now, and the work is a fair map of what adding one costs.
+
+**The order and its two members.** `data/kg-seeds.json` gains `junaidi` (جنیدیہ) plus two
+`saintOrders` entries, each in the object form that carries its evidence rather than the bare-slug
+form: `hazrat-syed-azizuddin-al-hassani-wal-hussaini`, from Peer Makki's own entry — "a teacher of
+both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage" — and
+`sayyid-ahmad-tokhta-tirmidhi`, the Bibis' father, from Bibi Pak Daman's — "a sayyid of the
+Junaidiya Sufi line". Both are lifted from the shipped prose, not from general knowledge.
+
+**It reverses a recorded decision, and the seed says so.** `data/kg-order-proposals.json` had
+declined a "Junaidiya" node because it was named once, of a figure who is not a shrine's principal
+figure. That was true of the Bibi Pak Daman occurrence — the only one that proposal weighed. The
+Peer Makki occurrence *is* of a principal figure and was not considered. A reversal with the older
+reasoning quoted beside it is worth more than a silent overwrite.
+
+**Both pattern tables, or neither.** `SILSILA_PATTERNS` lives in `src/lib/data/silsila.ts` and is
+mirrored for the scripts in `scripts/data/lib/silsila.mjs`, held equal by `silsilaSync.test.ts`.
+`junaidi` → `/junaid/i` went into both. After the pending sheet import Peer Makki's cell will read
+`Junaidi (Ahl-e-Sunnat)`, which that pattern matches — so the cell will corroborate the seeded edge
+rather than trip `seeded-order-contradicts-sheet`.
+
+**An order with no passage shows a reader nothing**, and `orderProse.test.ts` enforces it. Two
+picks added to `scripts/data/build-order-prose.mjs`, sliced (never retyped) from
+`data/shrines.json` and `src/data/urdu-content.json`. The Peer Makki one runs from the entry's
+first sentence, 945 characters, because the sentence that names the order opens "Hagiographical
+accounts hold that **he** arrived" — a pronoun with no antecedent once lifted out — and the middle
+of a quotation is not ours to cut. Both of that script's selection rules, pulling against each
+other, and the length is what it costs.
+
+**And the defect the new page exposed, which was never about the new page.** `/ur/order/shattari`
+had an English `<title>`, `og:title` and JSON-LD `name` — and the other eight read
+`قادریہ (قادریہ)`, the same Urdu name printed twice. `scripts/prerender.mjs` resolved the Urdu order
+name through the dictionary alone and then appended `arabicName` as a parenthetical regardless,
+where the app's own `localizeOrderName` prefers `arabicName` and falls back to the dictionary. The
+parenthetical was designed to sit beside a *Latin* name. Fixed to resolve it the way the app does;
+the parenthetical is gone, because on an Urdu page the Arabic-script name is the name. **Two of ten
+order pages were shipping an English title in the Urdu edition and no guard saw it** — the no-leak
+e2e guard reads text nodes, and a `<title>` is not one.
+
+`npm run verify` green, `npm run build` green, 22 routes + `/order/junaidi` and `/ur/order/junaidi`
+prerendered, and both confirmed in a real browser against the dev server: 2 saints, 13th c., both
+passages rendering, and no Latin run anywhere in the Urdu page's text.

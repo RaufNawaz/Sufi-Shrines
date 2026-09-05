@@ -122,6 +122,13 @@ const PICKS = [
   { order: 'shattari', shrine: 'Mazar of Bulleh Shah',
     from: 'Well educated in Arabic and Persian', to: 'rather than a high-born sayyid.',
     why: 'The second and last mention: the same man named from his disciple’s entry as "of the Qadiri-Shattari line".' },
+
+  { order: 'junaidi', shrine: 'Shrine of Peer Makki',
+    from: 'Standing close to the great mausoleum of Data Ganj Bakhsh', to: 'tracing back to the classical Baghdad master Junayd.',
+    why: 'The order was created on 5 September 2026 and had nothing on its page. This is the corpus naming it, of a shrine’s principal figure, and saying what he taught of it. Runs from the entry’s first sentence rather than from the sentence that names the order, because that one opens "Hagiographical accounts hold that he arrived" — a pronoun with no antecedent once lifted out (rule 1) — and the middle of a quotation is not ours to cut (rule 2). At 945 characters it is the second longest of the passages, behind the Naqshbandi one, and that length is the price of both rules holding at once.' },
+  { order: 'junaidi', shrine: 'Shrine of Bibi Pak Daman',
+    from: 'The custodial and scholarly tradition tells a different', to: 'to settle at last in Lahore.',
+    why: 'The second witness, and the one kg-order-proposals.json weighed when it declined a Junaidiya node — named of the Bibis’ father, who has no shrine of his own. Kept because the archive says it, and because it is the whole of what the corpus records about this line besides the Peer Makki passage. Opens on the tradition rather than on the man, which is how the entry itself introduces him.' },
 ];
 /* The Urdu half. Positional against PICKS — [orderSlug, shrineSlug, from, to] —
    so a reordering of the picks fails loudly rather than silently pairing a
@@ -141,7 +148,9 @@ const URDU_MARKS = [
  ["azeemia","shrine-of-qalandar-baba-auliya","قلندر بابا اولیاء کا پائیدار ورثہ","عقیدت اور علم دونوں کی حامل ہے۔"],
  ["shattari","shrine-of-shah-inayat-qadiri","تقریباً 1643 میں قصور میں","خاموشی سے ایک کو ترجیح دی جائے۔"],
  ["shattari","shrine-of-shah-inayat-qadiri","اُنہوں نے اپنی مشق میں سلسلہ قادریہ","*لطائفِ غیبیہ* شامل ہیں۔"],
- ["shattari","mazar-of-bulleh-shah","عربی، فارسی اور دینی علوم میں","(کاشتکار باغبان) تھے۔"]
+ ["shattari","mazar-of-bulleh-shah","عربی، فارسی اور دینی علوم میں","(کاشتکار باغبان) تھے۔"],
+ ["junaidi","shrine-of-peer-makki","داتا گنج بخش کے عظیم مقبرے کے قریب","دونوں کے استاد کی حیثیت سے۔"],
+ ["junaidi","shrine-of-bibi-pak-daman","متولی اور علمی روایت ایک مختلف","بالآخر لاہور میں آباد ہوا۔"]
 ];
 
 const problems = [];

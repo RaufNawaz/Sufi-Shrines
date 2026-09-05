@@ -734,11 +734,25 @@ if (kgData) {
     orderSlugs.push(`/order/${order.slug}`);
 
     // ── Urdu mirror (/ur/order/<slug>) ──
-    const nameUr = escHtml(translateWordsUr(order.name));
+    /* Resolved the way the app resolves it — `localizeOrderName` in
+       src/lib/i18n/localizeKgName.ts prefers `arabicName`, "which for all ten
+       orders in the archive *is* its Urdu name", and falls back to the
+       dictionary. This block used the dictionary alone and then appended
+       `arabicName` as a parenthetical regardless, which was wrong twice over
+       and measurable in dist/ on 5 September 2026:
+
+         · `Shattari (شطاری)` — an order whose name the dictionary does not
+           carry kept its **Latin** name in the Urdu <title>, og:title and
+           JSON-LD. Two of the ten were in that state (shattari, junaidi).
+         · `قادریہ (قادریہ)` — the other eight printed the same Urdu name twice,
+           because the parenthetical was designed to sit beside a Latin name.
+
+       The parenthetical goes: on an Urdu page the Arabic-script name is the
+       name, and a Latin one beside it is the leak i18n rule 7 forbids. */
+    const orderNameUr = order.arabicName || translateWordsUr(order.name);
+    const nameUr = escHtml(orderNameUr);
     const descUr = escHtml(
-      easternDigits(
-        `${translateWordsUr(order.name)}${order.arabicName ? ` (${order.arabicName})` : ''} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`,
-      ),
+      easternDigits(`${orderNameUr} — پاکستان میں ${memberCount} بزرگوں پر مشتمل صوفی سلسلہ۔`),
     );
     let htmlUr = baseHtml
       .replace(/<html[^>]*>/, `<html lang="ur" dir="rtl">`)
@@ -763,7 +777,7 @@ if (kgData) {
     const extrasUr = [
       urCanonicalUrl ? `  <link rel="canonical" href="${escHtml(urCanonicalUrl)}" />` : '',
       urCanonicalUrl ? `  <meta property="og:url" content="${escHtml(urCanonicalUrl)}" />` : '',
-      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(orderJsonLd), '@id': urCanonicalUrl || `${KG_BASE}order/${order.slug}`, name: translateWordsUr(order.name), inLanguage: 'ur' })}</script>`,
+      `  <script type="application/ld+json">${JSON.stringify({ ...JSON.parse(orderJsonLd), '@id': urCanonicalUrl || `${KG_BASE}order/${order.slug}`, name: orderNameUr, alternateName: order.name, inLanguage: 'ur' })}</script>`,
     ]
       .filter(Boolean)
       .join('\n');

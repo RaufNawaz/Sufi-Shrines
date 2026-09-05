@@ -130,6 +130,15 @@
       "alternateName": "شطاری"
     },
     {
+      "@type": [
+        "Organization",
+        "SufiOrder"
+      ],
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/junaidi",
+      "name": "Junaidi",
+      "alternateName": "جنیدیہ"
+    },
+    {
       "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/pir-syed-muhammad-channan-shah-nuri",
       "name": "Pir Syed Muhammad Channan Shah Nuri",
@@ -1844,6 +1853,11 @@
       ],
       "birthDate": "1132",
       "deathDate": "1215",
+      "memberOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/junaidi"
+        }
+      ],
       "parent": [
         {
           "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-peer-syed-abdullah"
@@ -2840,7 +2854,12 @@
       "alternateName": [
         "Sayyid Ahmad Tirmidhi"
       ],
-      "deathDate": "around 602 AH"
+      "deathDate": "around 602 AH",
+      "memberOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/order/junaidi"
+        }
+      ]
     },
     {
       "@type": "Person",

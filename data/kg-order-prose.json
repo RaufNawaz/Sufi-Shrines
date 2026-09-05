@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T19:39:25.695Z",
+  "generated": "2026-09-05T19:39:22.673Z",
   "passages": [
     {
       "orderSlug": "chishtiyya",
@@ -120,6 +120,22 @@
       "quote": "Well educated in Arabic and Persian and in the religious sciences, Bulleh Shah might have become a scholar of the orthodox kind — but he was drawn instead to the burning inward path, and became the disciple of Shah Inayat Qadiri, a Sufi master of Lahore of the Qadiri-Shattari line, who was by trade an *arain* (a gardener-cultivator) rather than a high-born sayyid.",
       "quoteUr": "عربی، فارسی اور دینی علوم میں خوب تعلیم یافتہ، بلھے شاہ ایک روایتی عالم بن سکتے تھے — مگر وہ اس کے بجائے سلگتی ہوئی باطنی راہ کی طرف کھنچے، اور لاہور کے ایک صوفی مرشد شاہ عنایت قادری کے مرید بنے، جو قادری شطاری سلسلے سے تھے اور جو پیشے کے اعتبار سے ایک اعلیٰ نسب سیّد کے بجائے ایک \"اراٴیں\" (کاشتکار باغبان) تھے۔",
       "source": "data/shrines.csv#mazar-of-bulleh-shah"
+    },
+    {
+      "orderSlug": "junaidi",
+      "shrineSlug": "shrine-of-peer-makki",
+      "shrineName": "Shrine of Peer Makki",
+      "quote": "Standing close to the great mausoleum of Data Ganj Bakhsh, in the Walled City's Bhati Gate quarter, the shrine of Peer Makki commemorates Hazrat Syed Azizuddin al-Hassani wal-Hussaini, a scholar-mystic born in Baghdad — the son of Hazrat Peer Syed Abdullah, of a Hasani-Hussaini family of religious scholars that counted Junaid Baghdadi, Imam Ahmad bin Hanbal and Sheikh Abdul Qadir Jilani among its kin. He is said to have migrated to Mecca in 562 AH, at about the age of thirty, and to have spent twelve years there in ascetic seclusion — hence his popular title \"Makki\" — before journeying overland to India. Hagiographical accounts hold that he arrived in Lahore in 575 AH (around 1178 CE) by what tradition describes as divine instruction, and remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd.",
+      "quoteUr": "داتا گنج بخش کے عظیم مقبرے کے قریب، اندرونِ شہر کے بھاٹی گیٹ کے علاقے میں، پیر مکی کا مزار حضرت سید عزیز الدین الحسنی والحسینی کی یاد مناتا ہے — بغداد میں پیدا ہونے والے ایک عالم و صوفی، حضرت پیر سید عبد اللہ کے فرزند، ایک ایسے حسنی حسینی علمی خانوادے سے جس کے قرابت داروں میں جنید بغدادی، امام احمد بن حنبل اور شیخ عبد القادر جیلانی شمار کیے جاتے ہیں۔ کہا جاتا ہے کہ وہ 562 ہجری میں، تقریباً تیس برس کی عمر میں، مکہ ہجرت کر گئے اور وہاں بارہ سال زاہدانہ گوشہ نشینی میں گزارے — اِسی لیے اُن کا عوامی لقب \"مکی\" ہوا — اور اِس کے بعد خشکی کے راستے ہندوستان روانہ ہوئے۔ سوانحی روایات کے مطابق وہ 575 ہجری (تقریباً 1178 عیسوی) میں لاہور پہنچے، اُس ہدایت پر جسے روایت الہامی بتاتی ہے، اور تقریباً چھتیس سال تک وہاں مقیم رہے — اسلامی فقہ کے ظاہری علوم اور جنیدی صوفی سلسلے کی باطنی راہ، جو بغداد کے کلاسیکی استاد جنید سے جا ملتی ہے، دونوں کے استاد کی حیثیت سے۔",
+      "source": "data/shrines.csv#shrine-of-peer-makki"
+    },
+    {
+      "orderSlug": "junaidi",
+      "shrineSlug": "shrine-of-bibi-pak-daman",
+      "shrineName": "Shrine of Bibi Pak Daman",
+      "quote": "The custodial and scholarly tradition tells a different, and no less devout, story. It holds that the six were the daughters of Sayyid Ahmad Tokhta Tirmidhi, a sayyid of the Junaidiya Sufi line whose spiritual descent is traced, through several generations, back to Imam Zain al-Abideen, and whose family had come from Tirmiz in Central Asia by way of Kech Makran to settle at last in Lahore.",
+      "quoteUr": "متولی اور علمی روایت ایک مختلف، اور اتنی ہی دیندار، کہانی سناتی ہے۔ یہ مانتی ہے کہ یہ چھ عظیم بزرگ سیّد احمد توختہ ترمذی کی بیٹیاں تھیں، جنیدیہ صوفی سلسلے کے ایک سیّد جن کا روحانی نسب، کئی نسلوں کے ذریعے، امام زین العابدین تک جاتا ہے، اور جن کا خاندان وسطی ایشیا کے ترمذ سے کیچ مکران کے راستے آ کر بالآخر لاہور میں آباد ہوا۔",
+      "source": "data/shrines.csv#shrine-of-bibi-pak-daman"
     }
   ]
 }

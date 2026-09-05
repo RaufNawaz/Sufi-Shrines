@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-08-31T00:47:56.281Z",
+  "generated": "2026-09-05T19:39:22.673Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -4025,6 +4025,13 @@
       "slug": "shattari",
       "name": "Shattari",
       "arabicName": "شطاری"
+    },
+    {
+      "id": "order:junaidi",
+      "type": "order",
+      "slug": "junaidi",
+      "name": "Junaidi",
+      "arabicName": "جنیدیہ"
     }
   ],
   "places": [
@@ -8806,6 +8813,24 @@
     },
     {
       "type": "belongs_to_order",
+      "subject": "saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini",
+      "object": "order:junaidi",
+      "confidence": 0.9,
+      "method": "human",
+      "source": "data/shrines.csv#shrine-of-peer-makki",
+      "note": "The entry's own prose: he \"remained for some thirty-six years as a teacher of both the exoteric sciences of Islamic law and the esoteric path of the Junaidi Sufi lineage, tracing back to the classical Baghdad master Junayd\". His silsila cell was empty when this edge was seeded; data/patch_field_survey_orphans_2026-09-05.csv sets it to \"Junaidi (Ahl-e-Sunnat)\", which ORDER_CELL_PATTERNS.junaidi matches, so the cell will corroborate the seed rather than contradict it once the patch is imported."
+    },
+    {
+      "type": "belongs_to_order",
+      "subject": "saint:sayyid-ahmad-tokhta-tirmidhi",
+      "object": "order:junaidi",
+      "confidence": 0.9,
+      "method": "human",
+      "source": "data/shrines.csv#bibi-pak-daman",
+      "note": "Named of the Bibis' father, who is a lineage-only figure with no shrine of his own and therefore no silsila cell: the six were \"the daughters of Sayyid Ahmad Tokhta Tirmidhi, a sayyid of the Junaidiya Sufi line whose spiritual descent is traced, through several generations, back to Imam Zain al-Abideen\". This is the occurrence kg-order-proposals.json weighed and declined; it is admitted here as the second witness to an order created on the first, not as the reason for creating it."
+    },
+    {
+      "type": "belongs_to_order",
       "subject": "saint:fariduddin-ganjshakar",
       "object": "order:chishtiyya",
       "confidence": 0.9,
@@ -12403,11 +12428,11 @@
   ],
   "stats": {
     "saints": 244,
-    "orders": 9,
+    "orders": 10,
     "places": 94,
     "events": 149,
     "sources": 464,
-    "relations": 725,
+    "relations": 727,
     "ambiguousMerges": 67
   },
   "retiredSlugs": {

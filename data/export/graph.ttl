@@ -92,6 +92,12 @@ order_:shattari
   schema:alternateName "شطاری"@ar ;
   .
 
+order_:junaidi
+  a schema:Organization, sufi:SufiOrder ;
+  schema:name "Junaidi"@en ;
+  schema:alternateName "جنیدیہ"@ar ;
+  .
+
 # ── Saints ────────────────────────────────────────────────────────────────
 saint:pir-syed-muhammad-channan-shah-nuri
   a schema:Person ;
@@ -1089,6 +1095,7 @@ saint:hazrat-syed-azizuddin-al-hassani-wal-hussaini
   schema:alternateName "Azizuddin"@en ;
   schema:birthDate "1132" ;
   schema:deathDate "1215" ;
+  schema:memberOf order_:junaidi ;
   schema:parent saint:hazrat-peer-syed-abdullah ;
   .
 
@@ -1726,6 +1733,7 @@ saint:sayyid-ahmad-tokhta-tirmidhi
   schema:name "Sayyid Ahmad Tokhta Tirmidhi"@en ;
   schema:alternateName "Sayyid Ahmad Tirmidhi"@en ;
   schema:deathDate "around 602 AH" ;
+  schema:memberOf order_:junaidi ;
   .
 
 saint:hazrat-peer-syed-abdullah

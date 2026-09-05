@@ -48,6 +48,7 @@ export const SILSILA_PATTERNS: ReadonlyArray<readonly [string, RegExp]> = [
   ['malamati', /malamat/i],
   ['azeemia', /azeemia/i],
   ['shattari', /shattar/i],
+  ['junaidi', /junaid/i],
 ];
 
 /** Every order a cell names, in table order. */
