@@ -4,7 +4,13 @@ import L from 'leaflet';
 import * as maplibregl from 'maplibre-gl';
 import '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { localizeStyle, maptilerStyleUrl, type MapStyle } from '../../lib/map/localizeStyle';
+import {
+  labelExpression,
+  localizeStyle,
+  maptilerStyleUrl,
+  referencesName,
+  type MapStyle,
+} from '../../lib/map/localizeStyle';
 import { warmDarkStyle } from '../../lib/map/warmDarkStyle';
 import type { Lang } from '../../types/shrine';
 
@@ -72,11 +78,71 @@ interface GlLayer extends L.Layer {
   getMaplibreMap: () => maplibregl.Map;
 }
 
+/**
+ * Destroy the GL map *after* the next paint, not inside React's commit.
+ *
+ * ## The measurement
+ *
+ * Navigating from the map to a shrine page cost a **323 ms long task and a
+ * 333 ms frozen frame** at 4x CPU (performance council, 4 September 2026). A CPU
+ * profile put 330 ms of self time in one frame — `maplibregl.Map#remove()` —
+ * reached from this effect's cleanup through the plugin's `onRemove`, inside
+ * React's commit phase. A counterfactual matrix separated the two halves:
+ *
+ * | navigation | longest task |
+ * | --- | --- |
+ * | map -> shrine | 340 ms |
+ * | `/about` -> shrine (no map) | 63 ms |
+ * | map -> `/settings` (no shrine page) | 267 ms |
+ * | shrine -> shrine | 0 ms |
+ *
+ * So the freeze was never the shrine page arriving. It was **the map leaving** —
+ * WebGL context loss, worker termination and painter teardown, all in the frame
+ * that should have been painting the article the reader had just asked for.
+ *
+ * ## Why deferring is safe here
+ *
+ * On unmount React has already detached this component's DOM, so the canvas is
+ * gone from the screen whether or not the GL map has been destroyed; the pane is
+ * a detached node and the plugin's `removeChild` still succeeds against it. The
+ * layer reference is captured in a local and `layerRef.current` cleared before
+ * the handle is scheduled, so a remount that builds a new layer cannot have it
+ * torn down by the previous one's pending destroy — and at most two GL contexts
+ * are alive, for one frame, well inside every browser's limit.
+ *
+ * `requestAnimationFrame` then `setTimeout` is the after-paint idiom: the frame
+ * callback runs before the paint, the timeout it schedules runs in a task after
+ * it. A bare `setTimeout(0)` can still land in the same frame.
+ */
+function destroyAfterPaint(layer: GlLayer): void {
+  const destroy = () => {
+    try {
+      layer.remove();
+    } catch {
+      /* The map was already torn down (a remount racing an unmount). Nothing
+         to release, and throwing here would surface as an unhandled error in a
+         path the reader has already navigated away from. */
+    }
+  };
+  if (typeof requestAnimationFrame !== 'function') {
+    destroy();
+    return;
+  }
+  requestAnimationFrame(() => {
+    setTimeout(destroy, 0);
+  });
+}
+
 export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
   const map = useMap();
   const layerRef = useRef<GlLayer | null>(null);
   // Guards against a slow fetch resolving after the component has moved on.
   const generationRef = useRef(0);
+  /* Read by the build effect, which must not re-run when the language changes
+     (see relabelling below) but must still localize to whatever language is
+     current at the moment its style fetch resolves. */
+  const langRef = useRef<Lang>(lang);
+  langRef.current = lang;
 
   useEffect(() => {
     if (!MAPTILER_KEY) {
@@ -105,9 +171,10 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
 
       // Dark mode is lamp-light, not a cool UI dark; the built-in dark style
       // is navy and clashes with the warm page ground. See warmDarkStyle.
+      const buildLang = langRef.current;
       const localized = isDark
-        ? warmDarkStyle(localizeStyle(style, lang))
-        : localizeStyle(style, lang);
+        ? warmDarkStyle(localizeStyle(style, buildLang))
+        : localizeStyle(style, buildLang);
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- the plugin augments L at runtime
       const layer = (L as any).maplibreGL({
@@ -142,12 +209,82 @@ export function MapLibreBasemap({ isDark, lang, onFailure }: Props) {
 
     return () => {
       cancelled = true;
-      if (layerRef.current) {
-        layerRef.current.remove();
-        layerRef.current = null;
+      const layer = layerRef.current;
+      layerRef.current = null;
+      if (layer) destroyAfterPaint(layer);
+    };
+    /* `lang` is deliberately not a dependency — see the relabelling effect. */
+  }, [map, isDark, onFailure]);
+
+  /**
+   * A language change relabels the live map; it does not rebuild it.
+   *
+   * ## The measurement
+   *
+   * `lang` used to sit in the build effect's dependencies, so pressing the
+   * language toggle destroyed the GL map and re-fetched everything: style.json,
+   * tiles.json, the sprite sheet and its JSON, all six vector tiles and five
+   * glyph ranges. Observed in 8 of 8 runs at +127 to +1064 ms after the press.
+   * An A/B over 7 runs each, identical but for aborting `api.maptiler.com` so
+   * the raster fallback stood in, isolated the cost (performance council,
+   * 4 September 2026):
+   *
+   * | arm | blocked | non-image requests after the toggle |
+   * | --- | --- | --- |
+   * | rebuilding the vector basemap | 187 ms (183–218) | 27 |
+   * | MapTiler aborted | 101 ms (81–140) | 6 |
+   *
+   * What the reader saw: the basemap blanked and redrew underneath the pins,
+   * six hundred to a thousand milliseconds after a press whose only real effect
+   * is the language of the label text.
+   *
+   * ## Why relabelling is enough
+   *
+   * The language decision is entirely `text-field`, and it is already expressed
+   * as data — `localizeStyle` rewrites each symbol layer's `text-field` to a
+   * `coalesce` chain over `name:xx` fields that the vector tiles already carry.
+   * Nothing else in the style is language-dependent, so setting the new
+   * expression on the layers that have one is the whole change. The tiles
+   * already in memory are re-labelled from fields they already hold; only the
+   * glyphs for a script not yet drawn are fetched, which is unavoidable and
+   * correct.
+   *
+   * `referencesName` is reused rather than a list of layer ids being hardcoded:
+   * it is the same predicate that decided which layers to rewrite in the first
+   * place, and it recognises the `coalesce` expression it produced. A style
+   * whose layers it does not recognise is left alone, which is the same
+   * conservative failure this module already chose.
+   */
+  useEffect(() => {
+    const glMap = layerRef.current?.getMaplibreMap();
+    if (!glMap) return;
+
+    const expression = labelExpression(lang);
+    const relabel = () => {
+      for (const layer of glMap.getStyle().layers ?? []) {
+        if (layer.type !== 'symbol') continue;
+        const textField = (layer as { layout?: Record<string, unknown> }).layout?.['text-field'];
+        if (!referencesName(textField)) continue;
+        glMap.setLayoutProperty(layer.id, 'text-field', expression);
       }
     };
-  }, [map, isDark, lang, onFailure]);
+
+    /* `setLayoutProperty` throws on a style that has not finished arriving, and
+       it can be mid-flight here: this effect and the build effect race on the
+       first render after a language change. Returning early would be wrong
+       rather than merely cautious — a reader who switches to Urdu while the
+       basemap is still loading would be left with an English map, which is
+       exactly the half-translated view i18n rule 1 exists to prevent. So wait
+       for the style instead of skipping. */
+    if (glMap.isStyleLoaded()) {
+      relabel();
+      return;
+    }
+    glMap.once('styledata', relabel);
+    return () => {
+      glMap.off('styledata', relabel);
+    };
+  }, [lang]);
 
   return null;
 }
