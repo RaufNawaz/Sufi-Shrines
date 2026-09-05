@@ -8,6 +8,7 @@ import { tFn } from '../../lib/i18n/uiStrings';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { categoryKey } from '../../lib/data/categoryKey';
 import { fanPositions, pileAround, type FanPoint } from '../../lib/map/spiderfy';
+import { FLIGHT_DURATION_S } from './mapMotion';
 
 /**
  * How close two pin centres have to be before a reader sees one shape.
@@ -138,6 +139,12 @@ export function ShrineMarkers({
 }: Props) {
   const map = useMap();
   const { lang, fmtNum } = useLang();
+
+  /* Read by the build effect, which must not re-run when the language changes.
+     Only three things about a marker are language-dependent and they are
+     updated in place — see the relabelling effect below. */
+  const langRef = React.useRef(lang);
+  langRef.current = lang;
 
   const tourStopSlugSet = useMemo(
     () => (tourStopSlugs ? new Set(tourStopSlugs) : null),
@@ -358,11 +365,12 @@ export function ShrineMarkers({
       if (fitZoom > current) {
         const options = { padding, maxZoom: AUTO_FAN_ZOOM };
         if (reduced) map.fitBounds(bounds, { ...options, animate: false });
-        else map.flyToBounds(bounds, { ...options, duration: 0.9, easeLinearity: 0.25 });
+        else
+          map.flyToBounds(bounds, { ...options, duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
       } else {
         const target = Math.min(current + 2, AUTO_FAN_ZOOM);
         if (reduced) map.setView(tapped, target);
-        else map.flyTo(tapped, target, { duration: 0.9, easeLinearity: 0.25 });
+        else map.flyTo(tapped, target, { duration: FLIGHT_DURATION_S, easeLinearity: 0.25 });
       }
       return true;
     },
@@ -414,7 +422,7 @@ export function ShrineMarkers({
       if (!shrine.latLng) continue;
 
       const isSelected = shrine.id === selectedIdRef.current;
-      const localName = localizeShrineName(shrine, lang);
+      const localName = localizeShrineName(shrine, langRef.current);
 
       const marker = L.marker([shrine.latLng.lat, shrine.latLng.lng], {
         icon: buildDivIcon(isSelected, shrine.category, isDimmed(shrine.id), shrine.imageUrl),
@@ -523,7 +531,54 @@ export function ShrineMarkers({
       map.removeLayer(group);
       groupRef.current = null;
     };
-  }, [shrines, map, lang, tourStopSlugSet, isDimmed]); // selectedId intentionally excluded — handled separately below
+    /* `lang` is deliberately absent: a language change relabels these markers
+       rather than rebuilding them (see below). `selectedId` likewise — handled
+       by its own effect. */
+  }, [shrines, map, tourStopSlugSet, isDimmed]);
+
+  /**
+   * A language change relabels the markers; it does not rebuild them.
+   *
+   * ## The measurement
+   *
+   * `lang` sat in the build effect's dependency list, so every language toggle
+   * — and every filter and lens change, which alter `shrines` — tore down the
+   * layer group and constructed 169 fresh markers: 169 `L.marker`, 169 `divIcon`
+   * HTML parses, 169 `bindTooltip`, ~2,700 listener registrations and 114
+   * `<img>` elements re-created. Measured floor at 4x CPU for the DOM half
+   * alone, with the marker objects already built: **16.8 ms for
+   * `removeLayer` + `addLayer`** (performance council, 4 September 2026).
+   *
+   * ## What actually depends on the language
+   *
+   * Three things, and they were the reason for all of it: the tooltip, the
+   * `title` attribute and the `aria-label`. Position, icon geometry, category
+   * colour, photograph and every handler are identical in both languages.
+   *
+   * `alt` is not set here although the build passes it, and that is not an
+   * oversight: Leaflet assigns `alt` only when an icon's element is an `<img>`
+   * (`Marker._initIcon`), and a `DivIcon` produces a `<div>`. Setting it would
+   * be writing an attribute no assistive technology reads on that element,
+   * while the `aria-label` beside it is the one that is actually announced.
+   */
+  React.useEffect(() => {
+    if (!markerMapRef.current.size) return;
+    /* By id rather than `shrines.find` per marker: that is 169 scans of a
+       169-row array on a path whose whole purpose is to be cheaper than the
+       rebuild it replaces. */
+    const byId = new Map(shrines.map((shrine) => [shrine.id, shrine]));
+    for (const [id, marker] of markerMapRef.current) {
+      const shrine = byId.get(id);
+      if (!shrine) continue;
+      const localName = localizeShrineName(shrine, lang);
+      marker.options.title = localName;
+      marker.setTooltipContent(escapeHtml(localName));
+      const el = marker.getElement();
+      if (!el) continue;
+      el.title = localName;
+      el.setAttribute('aria-label', localName);
+    }
+  }, [lang, shrines]);
 
   /**
    * Selection toggles a class; it does not rebuild an icon.

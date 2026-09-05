@@ -24,7 +24,7 @@ import {
   crossTraditionParticipants,
   type CrossTraditionAdjacency,
 } from '../../lib/data/sharedGround';
-import { flyToOrSetView } from './mapMotion';
+import { flyToOrSetView, FLIGHT_DURATION_S } from './mapMotion';
 import { useTheme } from '../../lib/i18n/ThemeContext';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
@@ -404,11 +404,11 @@ function ResetViewControl({
           const view = fittedOpeningView(shrinesRef.current);
           if (view) {
             if (reduced) map.fitBounds(view.bounds, { ...view.options, animate: false });
-            else map.flyToBounds(view.bounds, { ...view.options, duration: 0.9 });
+            else map.flyToBounds(view.bounds, { ...view.options, duration: FLIGHT_DURATION_S });
           } else if (reduced) {
             map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
           } else {
-            map.flyTo(DEFAULT_CENTER, DEFAULT_ZOOM, { duration: 0.9 });
+            map.flyTo(DEFAULT_CENTER, DEFAULT_ZOOM, { duration: FLIGHT_DURATION_S });
           }
         });
 
