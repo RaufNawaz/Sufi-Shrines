@@ -28,6 +28,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lighthouse": "lhci autorun",
+    "perf:interaction": "node scripts/measure-interaction.mjs",
     "data:build": "node scripts/data/build-dataset.mjs",
     "data:index": "node scripts/data/build-shrine-index.mjs",
     "data:build:urdu": "python3 urdu-i18n/build_dictionary.py",
