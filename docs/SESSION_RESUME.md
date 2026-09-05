@@ -195,6 +195,35 @@ has already shipped — it said 524 entity pages and 94 places, and it is 459 an
 5. **IA-2 · Desktop has no top-level navigation at all** — `.tabbar` is hidden at ≥641px, and five
    routes hang off one component that renders only when nothing is selected.
 
+### Performance council — what shipped, and the one thing still unmeasured
+
+**Twelve commits, 4–5 September 2026.** Eight council findings plus four defects found while
+fixing them. `npm run verify` green (178 files, 1504 tests); `npm run e2e` 519 passed, 3 failed —
+**and those 3 fail identically at the pre-session commit `35bb63d`**, verified in an isolated
+worktree, so they are environmental and not from this work. (The map route's `load` event never
+fires here; the app renders, but a subresource hangs, almost certainly MapTiler being unreachable
+from this network.)
+
+**Still open, and it is the timing comparison itself.** Four attempts produced no usable
+before/after numbers — two contaminated by concurrent builds in this session, one by a stale
+`dist/` another session had rebuilt under a different base path, one blocked by that session's CPU
+load. **The instrument is fine; the machine was never free.** Re-run
+`npm run perf:interaction -- --only lang-toggle,route-nav,select-marker` against
+`npm run build:e2e && npm run preview`, **alone**, when nothing else is working in this tree.
+Baseline to compare against is in the council document's table.
+
+**What is verified regardless of timing**, by evidence contention cannot distort:
+MapTiler requests on a language toggle **27 → 5** (0 style.json, 0 sprite, same GL canvas);
+**168 of 168 markers survive** a language change, asserted by element identity; the citation date
+guard fails 3-of-4 under `TZ=Asia/Karachi` before the fix and passes 4-of-4 after; both caches
+mutation-checked.
+
+**The lesson this cycle paid for twice, now encoded in the harness:** a preflight that asks for
+HTTP 200 will get it from a completely dead application. `dist/` is shared state here, and
+`vite preview` answers an unmatched path with the SPA fallback, so both the document *and* a HEAD
+probe for a missing script return 200. The check now fetches the first script and requires a
+JavaScript content type.
+
 ### From the performance council (4 September 2026)
 
 Ranked by what a reader feels; full evidence and the measured null results in the council document.
@@ -218,7 +247,20 @@ Ranked by what a reader feels; full evidence and the measured null results in th
 12. **Zero `contain` / `content-visibility` in 14,145 lines of CSS.** Explicitly unmeasured — the
     list scenario it would affect is not yet in the harness. Add the scenario before acting.
 
-### Waiting on Rauf, from the same council
+### Decided by Rauf, 5 September 2026
+
+**The marker flight duration — shown before deciding.** Centralised as `FLIGHT_DURATION_S` in
+`src/components/map/mapMotion.ts` (it was a bare `0.9` at four call sites) and **left at 0.9**.
+Rauf compares 0.9 / 0.65 / 0.45 on the dev server, which hot-reloads on that one constant, and
+rules afterwards. The measurement is recorded beside it.
+
+~~**A citation can be dated a day that has not happened.**~~ **Fixed 5 September 2026** (`2ddacb6`)
+— `localIsoDate` in `src/lib/data/citation.ts`, mutation-checked under `TZ=Asia/Karachi`.
+`AlmanacCalendar` and `OfflineDataBanner` use the same call and were **deliberately left**: the
+almanac compares two values that both go through it, so it may be internally consistent, and
+deciding that is separate work.
+
+### Superseded — the original framing
 
 **The marker flight duration.** One tap fires **34 `zoom` events**, each reaching **170 listeners**
 (169 markers plus the GL basemap) — so ~5,750 `Marker.update()` calls and 34 unthrottled
