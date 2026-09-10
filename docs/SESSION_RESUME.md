@@ -481,6 +481,34 @@ colleague's name out of a public field on 30 August. It belongs beside the RMS q
 
 ## Waiting on a person, not on an agent
 
+**Deployed 10 September 2026 — `4e2bf8d` on `1.7`, run 34499356983, build and deploy both green.**
+Twenty-four commits reached production, nine days after the previous deploy (`35bb63d`,
+1 September): the performance council's eight, the kinship/order work, RULE 5 itself, the three
+research instruments and both web-research passes. Gate run before pushing was
+`verify` (1504 tests / 178 files) + `build` + `verify:pages` (13/13 routes at `/Sufi-Shrines`),
+all exit 0. Confirmed live rather than assumed: `/order/junaidi/` returns 200 — it did not exist
+in the previous deploy — and `/ur/order/shattari/` now serves `<title>شطاری …</title>` where it
+served an English one.
+
+**What that deploy did *not* change is the archive's content, and cannot.** `npm run data:check:live`
+exits 1 today: **live sheet 171 rows, committed snapshot 169**. The code is current; the data is
+not, and closing that is a sheet edit (RULE 3), not a push.
+
+> **`data/import_2026-09-05.csv` is a mirror of the un-patched sheet — importing it fixes no
+> schema problem.** Measured 10 September 2026. It carries `category` = `Islam` for Darbar Abul
+> Muali Qadri and Darbar Hazrat Shah Gohar Peer, and `Sufi shrine (Islam)` for Darbar Mian Qurban
+> Ali Shah — verbatim, the same three off-schema values `data:check:live` fails on. The line below
+> offers it as the whole-sheet route to the field-survey-orphan fix, which it is; it is *not* a
+> consolidated current state, and a "Replace current sheet" import of it silently applies none of
+> the other five pending patches. `data/patch_schema_hygiene_2026-08-27.csv` is the file that holds
+> the corrected values (`Muslim Shrine`, `status` `Active`) for exactly those three rows.
+>
+> Also measured: `data/provenance.json` covers **169** shrines and contains **zero** entries for
+> either drift row, so `npm run data:build` alone would reproduce the 18 August failure — refresh
+> means `data:build` *and* `data:build:provenance`, `data:kg`, `data:index`, traditions, then
+> `data:check:live` to confirm zero drift.
+
+
 - **A patch is pending import: three entries cite no field survey.** Built 5 September 2026 from a
   live read of both sheets. The Shrine Information Form has had **no new responses since 11 August**
   (28 submissions, 11 `Delete`, 19 live) — but Shah Jamal, Peer Makki and Mauj Darya Bukhari publish
