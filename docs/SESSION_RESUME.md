@@ -517,9 +517,10 @@ not, and closing that is a sheet edit (RULE 3), not a push.
   `data/import_2026-09-05.csv` (whole sheet) or `data/patch_field_survey_orphans_2026-09-05.csv`
   (three rows) — see `data/patch_field_survey_orphans_2026-09-05.INSTRUCTIONS.md`, and
   `docs/responses_sync_2026-09-05.md` for the full reconciliation. Then `npm run data:build &&
-  npm run data:validate`. **Three things in it are yours, not an agent's:** whether Shah Jamal's and
-  Peer Makki's `year_built` should carry the survey's answers (1671 and 612 AH — both are the
-  saints' *death* years, so they are left blank); whether the Shah Jamaal book uploaded on 29 July
+  npm run data:validate`. **Two things in it are yours, not an agent's** (the third,
+  `year_built`, was ruled on 5 September — *fill it, with the qualification carried in
+  `year_built_precision`* — and this line said "left blank" for five days after it stopped being
+  true): whether the Shah Jamaal book uploaded on 29 July
   is even the right saint (its opening pages read like a Baghdad-born *Ma'shuq-e-Rabbani*, not the
   Shah Jamal of Ichhra — nothing should cite it until someone opens it); and **sending the Saifullah message**, which is
   updated and ready — `docs/message_to_saifullah_2026-08-16.md`. Mauj Darya Bukhari's twelve survey
@@ -574,12 +575,38 @@ cannot do.
   and still deliberately unrenamed: `PUBLICATION.attribution` mirrors the ODbL attribution that
   `LICENSE-data.md` *requires of people using the data*. Changing that is a licence change, not a
   rename, and it is the one part of this item an agent must not do.
-- **Four patches await import** (RULE 3 — a human imports, agents do not write to the sheet):
-  `patch_schema_hygiene_2026-08-27.csv`, `patch_year_built_precision_2026-08-29.csv`,
-  `patch_site_type_2026-08-30.csv`, and `patch_location_hygiene_2026-08-30.csv` — the last
-  produced 30 August (`68173c4`), moving four entries' "ask Saifullah…" instructions out of the
-  public `Location` field into `qa_note` while keeping every caveat. `npm run data:check:location`
-  fails until it is imported, by design.
+- **The pending patches are now ONE file: `data/import_2026-09-10.csv`** (171 rows x **47**
+  columns), built 10 September by `pipeline/build_consolidated_import.py` against a live fetch,
+  with `data/import_2026-09-10.INSTRUCTIONS.md` beside it. One "Replace current sheet" import
+  instead of six. It folds in `patch_schema_and_truncation`, `patch_data_hygiene_2026-08-21`,
+  `patch_location_notes_2026-08-26`, `patch_schema_hygiene_2026-08-27`,
+  `patch_javindi_bibi_figure_2026-08-28`, `patch_site_type_2026-08-30`,
+  `patch_location_hygiene_2026-08-30` and `patch_field_survey_orphans_2026-09-05` — 9 rows,
+  47 cells, no `Description` touched. `npm run data:check:location` fails until it is imported,
+  by design. The independent instrument agrees: `pipeline/validate_shrines.py` goes from
+  **6 errors to 3** on it, `category_not_in_schema` to zero, WARN and INFO unchanged.
+
+  **The file adds three columns the sheet does not have** — `site_type_note`, `status_note`,
+  `silsila_note`. `shrineModel.ts` and `constants.ts` already read all three. That absence is
+  *why* those patches were never importable as value-only edits, and it is the answer to why
+  they sat since August.
+
+  **`patch_year_built_precision_2026-08-29.csv` is excluded, and that is the finding.** It sets
+  `year_built_precision` to the bare token `unknown` on three rows that hold a real
+  qualification — *"Uncertain — field value is a Hijri day-and-year, not a building date"*,
+  *"Uncertain — date derived from the figure's death date; calendar era not stated"*,
+  *"uncertain / referent disputed"*. RULE 2 forbids tidying those; `yearPrecision.ts` renders
+  free-form values verbatim **by design** and names one of them in its docstring; and the
+  5 September ruling writes prose into that same column while citing one of these three rows as
+  its model. The 29 August patch would have deleted the model the later ruling was built on.
+  `INV-11` in the builder now refuses this shape of write generally — tested both ways, since
+  its first version wrongly failed the `site_type` and `status` patches, whose whole purpose is
+  to move prose into a note column (RULE 4: fix the check).
+
+  `patch_provenance_badges.csv` stays excluded for the reason `build_final_import.py` recorded on
+  16 August. **Shaktipeeth Shri Hinglaj Mata Mandir still has no `status` and no `site_type`
+  after this import** — no patch supplies either and none is invented (RULE 2). That one needs a
+  source or a ruling.
 - **Then `npm run data:build`**, which closes the 171-vs-169 drift — two shrines (Darbar Hazrat
   Shah Gohar Peer, Darbar Mian Qurban Ali Shah) currently invisible to the graph, search, `/about`
   and the Urdu dictionary. Order matters: patches first, then `data:build`, `data:kg`,
