@@ -41,6 +41,10 @@ same task. Do not finish a task by describing a file that only exists in your re
 learn something that would cost the next person an hour to rediscover, append it to
 `docs/HANDOVER.md` §9 and say that you did.
 
+**But a decision is not one of these things — see RULE 5.** Everything in the table above is
+work product, and work product belongs in the repo. A question that is Rauf's to answer belongs
+in the chat, and writing it into `docs/` instead is how this rule gets misread.
+
 **Why this rule exists:** work has repeatedly been produced in scratch locations, then lost or
 re-derived. A `image_urls.tsv` reported as written could not be found afterwards. Multiple
 sessions rediscovered the same directory trap. The fix is not better memory, it is putting
@@ -124,6 +128,37 @@ saying "be careful here".
 And: **do not edit content to satisfy a failing check.** A linter once flagged the phrase "a
 poet of note:" as a generation artefact, and a session responded by editing the prose. The
 linter was wrong. Fix the check.
+
+---
+
+## RULE 5 — A decision is asked in the chat, never parked in a doc
+
+**If there is a decision to be made, ask it in the chat, in the turn you find it.** Standing
+instruction from Rauf, 5 September 2026. This is the one thing RULE 0 does *not* cover: RULE 0
+is about **work** — findings, scripts, measurements, drafts — and it is right that all of that
+lands in the repository. A decision is not work product. It is a question addressed to a
+person, and **a question filed in `docs/` has not been asked.**
+
+Write the decision down as well. But the document is the *record* of the question, with the
+answer added when it comes. It is never the act of asking.
+
+**This rule exists because the decisions were piling up.** `docs/EDITORIAL_DECISIONS_PENDING.md`
+opens by diagnosing exactly this failure one level down — 52 entries carrying flagged
+contradictions in `qa_note`, an internal column no visitor ever sees, so that the most careful
+writing in the archive "become[s] a private archive of doubts." That document then became the
+next place the same doubts sat. Beside it: six decisions parked out of the 30 August KB
+council, A12/A13/A14 left awaiting a ruling after the 27 August overnight run, two KG review
+CSVs awaiting verdicts, `docs/DECISION_oral_histories.md`. Each was individually reasonable.
+Together they meant the project's open questions lived somewhere Rauf had to go looking.
+
+**How to apply:**
+
+- Ask when you find it, not in an end-of-session summary.
+- Do everything that does not depend on the answer first, then ask. Only a decision where
+  proceeding under *any* assumption would be unsafe, or would make the work useless if wrong,
+  should stop delivery.
+- A `qa_note`, a `needs_review` flag, a `data/review/` CSV, or a "parked for Rauf" line is
+  evidence that a decision exists. Surface it; do not add to the pile.
 
 ---
 
