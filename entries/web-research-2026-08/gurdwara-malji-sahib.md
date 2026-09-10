@@ -61,3 +61,14 @@ site as a real, distinct place with its own foundation legend, separate from the
 gurdwara of the same name. Not yet corroborated by a second independent source — the
 buffalo/cattle-grazing legend already circulating in non-citable web sources now matches a
 citable one, but no second citable source has confirmed it independently.
+
+---
+
+## Follow-up: further citable source check for Nankana Sahib's Malji Sahib — 5 September 2026
+
+**No further citable source was found — but this session's tools were more constrained than August's, so this is not a clean exhaustion.** The Punjab Directorate General of Archaeology's monument page (`https://archaeology.punjab.gov.pk/religious_monuments`), which was fetchable in August and used successfully as a citable source for `samadhi-of-maharaja-ranjit-singh` in this same batch, returned **HTTP 403 Forbidden** on every attempt this session — a new access problem on the site's side, not a content one, and worth re-trying in a future session before concluding the page has nothing on Malji Sahib. The ETPB Shrines Branch page and the Nankana Sahib district government pages were not re-fetched, since the original file already confirmed directly (quoting both) that neither lists a "Malji Sahib" under any name. No web search was available for new candidate sources partway through this task (session search-query budget was exhausted); this means the negative result below should be read as "nothing found among already-known candidates," not "no further source exists."
+
+**The distinction from the Kanganpur gurdwara is reinforced, not just repeated.** This session independently confirmed (for the Hadiara/Amar Sadhu pair, see that file's follow-up) that this exact same 1962 register routinely gives geographically distant, same-named gurdwaras their own separate serial numbers, plates, and location anchors — which is exactly the pattern already on file here (entry 22/Plate 20 for the Nankana Sahib tree, versus Qaiser's separate Kanganpur chapter). The register's own Nankana Sahib entry already states outright, in the quote already on file, that "the tree under which the Guru stayed in Kanganpur, Tahsil Chuniyan, is also called Mal Ji Sahib" — i.e., the compiler was aware of both trees and treated them as distinct when writing the entry. No new source was needed to reinforce this; it follows from a pattern now confirmed across two separate pairs in this same batch (Malji Sahib/Kanganpur, and Hadiara/Amar Sadhu).
+
+### Revised verdict
+**PARTIAL — unchanged.** No new citable source located this session; the search was constrained (one promising lead blocked by a fresh 403, no web search available) rather than exhausted, so this remains open for a future pass rather than closed.

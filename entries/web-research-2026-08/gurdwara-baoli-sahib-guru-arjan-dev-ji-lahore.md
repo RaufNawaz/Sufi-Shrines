@@ -63,3 +63,76 @@ gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore / researched 16 August 2026 / batc
 ## Verdict
 
 **STRONG** — three independent verified sources (Qaiser 1998 full-text scan; two Dawn/Majid Sheikh articles, 2015 and 2018; the 1962 Department of Archaeology memoir full-text scan), with a genuine, reported (not resolved) conflict on the mosque-conversion history.
+
+---
+
+## Follow-up: *Gazetteer of the Lahore District, 1893-94* (`in.ernet.dli.2015.105616`) — attempted, unreachable — 5 September 2026
+
+**This lead could not be pursued to a conclusion; it remains an unread source, not a checked-and-silent one.** Baoli Sahib and Dabbi Bazaar sit in the gazetteer's Chapter VI ("Towns, Municipalities and Cantonments"), Section A "Ancient Lahore" (p. 264) and Section B "Modern Lahore" (p. 281) — confirmed by fetching the book's own table of contents. Three separate scans of this same 1893-94 gazetteer were tried (`in.ernet.dli.2015.105616`, the named acquisition-list identifier; `in.gov.ignca.30664`; and `gazetteer-lahore-1893`), by two methods each:
+
+- **Full-text download (`_djvu.txt`)**: in every one of the three scans, the fetch tool's content limit cut the text off in Chapter II ("History"), around page 25 — well short of page 264. Confirmed by literally asking the tool to report the last sentence it could see each time (e.g. one attempt ended mid-word at "the Afghans, having formed an allianco with th…"). A direct, targeted search of what *was* reachable for "Baoli", "Dabbi", "Chajju", "Sonehri", "Jhalian", and "Dhilwan" found none of these strings — but this is not evidence the gazetteer is silent on them, since the relevant chapter was never reached.
+- **Archive.org's full-text search-inside API** (which returned real, literal-index results for other sources in this pass, e.g. the Qaiser and 1962-register searches above): unavailable for all three of these scans, returning `{"error": "No hOCR or Abbyy file present"}` even for the one scan (`gazetteer-lahore-1893`) whose file listing does include an `_hocr.html` derivative. This appears to be an indexing gap on archive.org's side for these particular digitizations (the "in.ernet.dli." and "in.gov.ignca." prefixed items generally, based on the same failure recurring for the Sialkot gazetteers below), not something fixable from this end.
+
+No citation, quote, or negative finding can responsibly be recorded for this source given the above — reporting "not mentioned" would misrepresent an unreached chapter as a searched one. **Next step for a human:** download the PDF or DjVu directly and read pp. 264–281 (Ancient/Modern Lahore), specifically the Dabbi Bazaar / Rang Mahal Bazaar area, rather than relying on an automated fetch of this scan — the tool used this session cannot get past roughly the first tenth of the book regardless of method tried.
+
+### Revised verdict
+**STRONG — unchanged.** No new source was added or ruled out; the gazetteer lead is still open, now for a documented reason (a genuine tool-reach limitation) rather than an unattempted one.
+
+---
+
+## Re-verification against the complete text — 5 September 2026
+
+The "attempted, unreachable" follow-up above was produced with a fetch tool that silently
+truncates around page 25 of a large scan; that ceiling does not apply to
+`pipeline/fetch_archive_text.py`, which retrieved the complete book: **1,126,974 bytes**
+(`in.ernet.dli.2015.105616`).
+
+A literal search of the full text for `Baoli`, `Dabbi`, `Chajju`/`Chhajju`, `Sonehri`/`Sunehri`,
+and `Rang Mahal` found: one unrelated `Baoli` hit ("Baoli Laima Singh," a village/estate name in
+a land-revenue table on p. ~590 of the OCR — a near-miss ruled out explicitly, not the shrine);
+zero for `Dabbi` (fuzzy `Chajj`/`Dabi`/`Dubbi`/`Rangmahal` also zero); but **three real hits for
+`Golden Mosque`**, which is the landmark this file's own verified finding #1 places Baoli Sahib
+directly behind ("at the back of the Sonehri (Golden) Mosque"). Reading the passage around those
+hits reached the actual descriptive section — Chapter VI, "Towns, Municipalities and
+Cantonments," Section B "Modern Lahore," subsection "Wazir Khan's Mosque and neighbouring
+buildings," printed page 292 — which the book's own contents place squarely inside the p.
+264–281+ range this file's earlier follow-up correctly predicted but could not reach:
+
+> "Behind the mosque is a bdoli or large well, with steps descending to the water's edge. The
+> well is said to have been dug by Arjan, the fifth Sikh Guru; the superstructure was built by
+> Ranjit Singh."
+
+This independently corroborates the site's existence, its location directly behind the Golden
+Mosque, its digging by Guru Arjan, and its superstructure's construction under Ranjit Singh —
+three of the same facts already established by Qaiser (1998) and the 1962 Department of
+Archaeology memoir (verified findings #1 and #7). It is a **fourth independent source**, and the
+earliest one yet found (1893-94, i.e. contemporary with or predating all three already on file).
+
+It does **not** use the proper nouns "Baoli Sahib," "Dabbi Bazaar," or "Chajju Bhagat" — the book
+calls it only "a bdoli or large well" without a name, and gives no funding story — so those
+specific terms genuinely do not occur in this gazetteer under any spelling tried; that absence is
+now a checked negative rather than an unreached chapter, though the site itself is present and
+identifiable by its description.
+
+**This also bears on, without resolving, the file's existing Conflicts entry on the
+mosque-conversion history.** The 1962 memoir describes a cycle — baoli filled in, mosque built
+over the site during Guru Har Gobind's time, later demolished and the baoli re-opened by Ranjit
+Singh in 1834. This 1893-94 gazetteer instead describes the Golden Mosque (built 1753 by Bikhari
+Khan) and the baoli as **two separate, simultaneously standing features** — "the domes are
+pretty... behind the mosque is a bdoli" — with no mention of the mosque ever having stood on the
+baoli's own site or having been demolished. A third, differing account, reported rather than
+adjudicated.
+
+Citation: *Gazetteer of the Lahore District, 1893-94* (Punjab Government), Chapter VI, Section B
+"Modern Lahore," "Wazir Khan's Mosque and neighbouring buildings," p. 292, full text via Internet
+Archive, https://archive.org/details/in.ernet.dli.2015.105616, accessed 5 September 2026
+(1,126,974 bytes, complete text confirmed via `pipeline/fetch_archive_text.py --list`).
+
+### Revised verdict
+**STRONG — strengthened.** A fourth independent source is now confirmed: the 1893-94 Lahore
+District Gazetteer describes the baoli behind the Golden Mosque, its digging by Guru Arjan, and
+Ranjit Singh's superstructure — the earliest source yet found for this site — while adding a
+third, differing account of the mosque/baoli relationship to the existing, unresolved conflict.
+The proper nouns "Baoli Sahib," "Dabbi Bazaar," and "Chajju Bhagat" are now confirmed absent from
+this particular gazetteer (a real negative, not an unreached chapter), which does not weaken the
+site's identification given the descriptive match.

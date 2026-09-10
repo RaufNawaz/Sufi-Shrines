@@ -51,3 +51,54 @@ kalat-kali-temple / researched 16 August 2026 / batch D (Hindu temples/sacred si
 ## Verdict
 
 PARTIAL — one strong colonial-era primary source (Bray 1913) independently corroborated by established press (Dawn 2017, Express Tribune 2023) on the temple's antiquity, community, and festival, but the specific founding date/dynasty and statue-size claims circulating online remain unverified against any source fetched in this pass.
+
+---
+
+## Follow-up: Denys Bray, *Ethnographic Survey of Baluchistan*, Vol. 1 (1913) — 5 September 2026
+
+Fetched the full text (archive.org `in.ernet.dli.2015.529529`, file `2015.529529.ethnographic-survey_djvu.txt`, via https://archive.org/download/in.ernet.dli.2015.529529/2015.529529.ethnographic-survey_djvu.txt) and searched it in full for "Kalat," "Kali," and "Devi."
+
+The title page settles the volume's actual scope, narrower than "Baluchistan" in general:
+
+"ETHNOGRAPHIC SURVEY OF BALUCHISTAN ... Volume I. Mari Baloch, Khetran Baloch, Mandokhel Pathans, Dumar Pathans."
+
+Citation: Denys Bray, *Ethnographic Survey of Baluchistan*, Vol. 1 (Bombay: The Times Press, 1913), title page, full text via Internet Archive, https://archive.org/details/in.ernet.dli.2015.529529, accessed 5 September 2026.
+
+"Kalat" itself appears repeatedly, always as the state/city named in passing while discussing the Mari and other tribes — e.g. "pressed by the Khan of Kalat for compensation for a raid," and, in a passage on evil spirits: "Their pet haunts are the Mard-i-ghaib mosque near Kalat, the Lakri graveyard close by, and places... which have been used by Hindus as burning-grounds." That second passage is the volume's only link between Kalat and Hindu religious practice at all, and it names a Muslim shrine and a Hindu cremation ground, not a temple. A full-text search (not a spot check) confirms neither "Kali" nor "Devi" appears anywhere in the file.
+
+Citation: Bray, *Ethnographic Survey of Baluchistan*, Vol. 1 (as above), accessed 5 September 2026.
+
+This is a genuine checked-and-silent result, for a documented reason: Vol. 1 is a monograph on four named Baloch/Pathan tribal groups, not a description of Kalat town or its Hindu community. It is not a chronological-scope miss the way the 1919 Sukkur gazetteer was for other entries in this batch — Vol. 1 is contemporary with the temple (Bray's own Vol. 2 covers it, per the existing file) — it is simply a different subject. Vol. 2 remains the relevant volume.
+
+### Revised verdict
+PARTIAL — unchanged. This closes the acquisition lead: Vol. 1 has now been read in full and confirmed not to mention the Kali temple, Kali, or Devi, for a documented reason (its subject is four specific tribal groups, not Kalat town or its Hindu community). No new fact, conflict, or corroboration for the temple itself; the founding date/dynasty and statue-size claims remain unverified against any fetched source.
+
+---
+
+## Re-verification against the complete text — 5 September 2026
+
+Re-fetched Denys Bray, *Ethnographic Survey of Baluchistan*, Vol. 1, with
+`pipeline/fetch_archive_text.py`: **357,173 bytes** — the complete book (consistent with the
+184-page volume the existing file already records; this is not a truncated fragment).
+
+A full-text search for `\bKali\b` and `\bDevi\b` (word-bounded, to avoid matching inside other
+words) returned **zero hits for both**, confirming the previous follow-up's finding with a
+verified byte count this time. `Kalat` itself occurs repeatedly and legibly throughout ("pressed
+by the Khan of Kalat for compensation for a raid"; a passage on evil spirits whose "pet haunts
+are the Mard-i-ghaib mosque near Kalat, the Lakri graveyard close by, and places... which have
+been used by Hindus as burning-grounds"; "whom 2,941 were found in Kalat" in a population table)
+— so the OCR is legible enough on this proper noun to trust the negative on the two specific
+terms searched.
+
+Citation: Denys Bray, *Ethnographic Survey of Baluchistan*, Vol. 1 (Bombay: The Times Press,
+1913), full text via Internet Archive, https://archive.org/details/in.ernet.dli.2015.529529,
+accessed 5 September 2026 (357,173 bytes, complete text confirmed via
+`pipeline/fetch_archive_text.py --list`).
+
+### Revised verdict
+PARTIAL — unchanged, and the negative is now doubly confirmed: 357,173 bytes of complete text
+searched, zero occurrences of "Kali" or "Devi," for the same documented reason as before (Vol. 1
+covers four named Baloch/Pathan tribal groups, not Kalat town's Hindu community). This closes the
+Vol. 1 lead for good — the next person should not re-fetch it expecting a different result. Vol.
+2, already quoted in this file's verified finding #1, remains the relevant volume for the temple
+itself.

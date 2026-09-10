@@ -42,3 +42,86 @@ gurdwara-chhevin-patshahi-chitti-gatti / researched 16 August 2026 / batch A (hi
 ## Verdict
 
 **PARTIAL** — one strong published-book source (Qaiser 1998, full descriptive entry) plus one official register listing that only names and locates the site without prose description (1962 memoir, appendix). No second independently-reported prose account of this specific gurdwara was fetched; the press coverage located concerns a different, later-founded Mansehra gurdwara and must not be conflated with this one.
+
+---
+
+## Follow-up: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (1962) re-examined for the Plate 57 / "Gurdwara at Mansehra" question — 5 September 2026
+
+> **RETRACTED the same day — see "Correction" below.** The section that follows concluded that
+> the August pass's plate-caption claim could not be reproduced and might be a misreading. That
+> conclusion is wrong, and its own reasoning shows why: every search it describes ran against a
+> **silently truncated** copy of the OCR text. The plate pages are at book page 117; the fetch
+> tool returned roughly the first 25 pages and reported no error. The August record was right.
+> The section is kept, unedited, because the failure is more instructive than the fact.
+
+**This could not be settled — and the specific claim behind it could not be reproduced either.** The task was to determine whether the register's Plate 57, captioned (per the original file) "Gurdwara at Mansehra," shows this Chitti Gatti shrine or the unrelated 1905 Sri Guru Singh Sabha. Before that question could even be addressed, the caption itself had to be re-located in the source.
+
+Three separate attempts to have the book's illustrations list transcribed for the plate-number range around 55–60 produced three **mutually inconsistent** results in this session alone: one fetch reported "57. Gurdwara Bal Lila at Nankana Sahib"; a second, re-run against the identical URL, reported "56. Gurdwara at Mansehra" / "57. Gurdwara at Bhai Phero, Tah. Lahore." Neither can be trusted on its own — an AI-summarization fetch tool reconstructing a list it has trouble locating is not the same as reading it.
+
+A literal, mechanical (grep-style) search of the same full OCR text for the exact substring "Mansehra" — not asking the tool to summarize a list, only to locate a substring — returned **exactly two occurrences, both inside the appendix "List of Shrines" table** (in the place-name column, alongside "Kot Najib-Ulla" and "Rohtas"; the table's column-flattening OCR artefact already noted in the original file's verified finding #3). A further literal search for the exact substrings "Plate No. 57" and "Plate 57" returned **zero occurrences** anywhere in the text. The book's real illustrations list does exist and runs at least to Plate 76 in a "number. caption facing page" format (confirmed: "Plate 1. Guru Nanak Sahib facing 15", "2. Hand Impression of Guru Nanak at Hasan Abdal facing 26" — both quoted verbatim from a literal-search fetch), but no literal, verified occurrence of "Mansehra" attached to any plate number could be found in this pass.
+
+Citation for the negative result: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (Department of Archaeology, Government of Pakistan, 1962), full-text scan, https://archive.org/details/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal, accessed 5 September 2026 (literal substring searches for "Mansehra", "Plate No. 57", and "Plate 57" against the fetched OCR text).
+
+**What this means for the file's own standing claim:** the assertion that "Plate No. 57" is captioned "Gurdwara at Mansehra" — recorded in this file's verified finding #3 from the August 2026 pass — could not be reproduced this session by a literal search of the same source text. This is reported honestly rather than resolved either way: it is possible the August researcher saw something in the raw scan that this session's tool failed to relocate (OCR of a plate-list page can be badly garbled, and the mechanical search depends on the OCR text matching cleanly); it is equally possible the original claim was itself a misreading. Either way, **the premise of the open question — "does Plate 57 show Chitti Gatti or the 1905 Singh Sabha?" — cannot currently be checked against a caption this session could verify exists.** A human with the actual PDF or page-image viewer open to the plates section is needed to settle this; no amount of further automated re-fetching of the same OCR text is likely to resolve it, given the demonstrated unreliability of AI-summarized transcription on this specific list.
+
+The Conflicts section's warning about the unrelated 1905 Sri Guru Singh Sabha (Tribune India, July 2021) stands unaddressed and unresolved by this follow-up.
+
+### Revised verdict (as first written — see Correction, which supersedes this)
+**PARTIAL — unchanged.** The Plate 57 / Mansehra identity question remains open; this session adds the finding that the plate-caption claim itself could not be reproduced by literal search and needs direct human verification against the scanned pages, not further automated fetching.
+
+### Correction — 5 September 2026, from the complete OCR text
+
+The section above was produced with `WebFetch`, which **silently truncates a large archive.org
+`_djvu.txt` at roughly 25 pages** and returns success. Its literal searches were therefore run
+over the book's front matter. That is why "Plate No. 57" returned zero hits and "Mansehra"
+appeared to occur only twice: the plate pages, and most of the book, were never in the text it
+searched.
+
+Retrieved in full with `pipeline/fetch_archive_text.py` — 124,926 bytes, the whole book — the
+claim reproduces exactly. **Plate 57 is captioned "Gurdwara at Mansehra."** Two independent
+confirmations inside the same volume:
+
+1. **The plate pages themselves.** The scan's per-page order is *image → caption →* `PLATE NO.
+   n.` *→ page number*, which the surrounding run establishes unambiguously:
+
+   > Gurdwara Bhai Bannu at Mangat, Tah. Phalia / PLATE NO. 56. / 116
+   > **Gurdwara at Mansehra / PLATE NO. 57. / 117**
+   > Gurdwara Bhai Phero, Tah. Lahore / PLATE NO. 58. / 118
+   > Gurdwara at Kahna, Tah. Lahore / PLATE NO. 59. / 119
+
+2. **The front list of illustrations**, independently, where the same four captions appear in
+   the same order and the list's own surviving numeral anchors them: "59. Gurdwara at Kahna,
+   Tah. Lahore" is preceded by "Gurdwara at Bhai Phero" (58), "Gurdwara at Mansehra" (57), and
+   "Gurdwara Bhai Bannu at Mangat, Tah. Phalia" (56).
+
+Plate numbers in the complete text run 1–76, not "at least 76 in a format the tool could not
+locate."
+
+Citation: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (Department of
+Archaeology, Government of Pakistan, 1962), complete OCR text,
+https://archive.org/details/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal, accessed
+5 September 2026.
+
+**What is settled and what is not.** Settled: the caption exists and reads "Gurdwara at
+Mansehra"; the August pass recorded the source correctly. **Not settled, and unchanged from
+August: whether that plate depicts *this* Chitti Gatti gurdwara or the separate 1905 Sri Guru
+Singh Sabha in Mansehra town.** A caption naming a town is not an identification of a building,
+which is exactly the caution the original file raised.
+
+One new piece of evidence bearing on that open question, recorded without resolving it: the
+register's index carries **"Chitti Gatti, Gurdwara, 49, 62" and "Mansehra, Gurdwara, 49, 62" —
+the identical page references**, and the appendix shrine table contains both a "Gurdwara Chitti
+Chatti" name and a "Near Mansehra" location. That is consistent with one site indexed under two
+names, but the appendix's columns are flattened by OCR, so a row cannot be bound to its
+location with confidence from the text alone. It raises the likelihood; it does not establish
+it.
+
+**The transferable lesson**, now encoded in `pipeline/fetch_archive_text.py`: a fetch tool that
+truncates without saying so converts a whole book into a confident negative. Check the byte
+count against the book's size before accepting "the source does not say this."
+
+### Revised verdict, corrected
+**PARTIAL — unchanged**, but for the reason the August pass gave, not the one this follow-up
+first gave. The plate caption is verified to exist; the identification of the building it shows
+remains open and still needs the page image or a second source.
+

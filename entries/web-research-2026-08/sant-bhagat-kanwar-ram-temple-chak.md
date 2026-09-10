@@ -56,3 +56,45 @@ sant-bhagat-kanwar-ram-temple-chak / researched 16 August 2026 / batch F
 ## Verdict
 
 **STRONG** — three independently bylined, established-press sources (*The Friday Times* 2023, *The News on Sunday* 2020, *The Nation* 2016, plus *Dawn* 2008 on a related but distinct commemoration) converge on Kanwar Ram's biography and murder, and one of them (*The Friday Times*, 2023) gives a directly sourced, detailed account of the Chak temple itself — its founding, 2006 rebuilding, and present-day managers.
+
+---
+
+## Follow-up: Naseem Mughal, *Shikarpur Heritage* (2012) — 5 September 2026
+
+Fetched the full text (archive.org `shikarpurheritage`, file `SHIKARPUR HERITAGE_djvu.txt`, via https://archive.org/download/shikarpurheritage/SHIKARPUR%20HERITAGE_djvu.txt, 8,303 lines) and searched it in full for "Chak," "Kanwar"/"Kunwar," "Bhagat," "Jarwar," "Lakhi," and "Ruk." None of these appear in connection with this site (the only "Lakhi" hits are "Lakhidar," an old-city gate and neighbourhood name inside Shikarpur city itself, unrelated to Lakhi Ghulam Shah taluka or Chak town).
+
+The book's own contents and Chapter 7 ("City of Saints and Sufis," pp.49–58 — read in full) explain why: despite its subtitle ("An Illustrated Journey Through History"), the book is a heritage inventory of Shikarpur *city* specifically. Part Two is organized as an "Inventory of Old Building[s]" by the city's own Union Councils (UC-1 through UC-8), and Chapter 7 names roughly two dozen Sufi saints, every one located by city muhalla, street, or bazaar (e.g. "His shrine is located south of Mukhtiarkar Office," "opposite the Police Station Lakhidar") — none in a village, none Hindu or Nanakpanthi, none near Chak.
+
+Quote (the book's own account of its administrative scope): "Shikarpur taluka is the headquarter of the district which is part of the Larkana region... It has four talukas - Shikarpur, Garhi Yaseen, Khanpur and Lakhi."
+
+Citation: Naseem Mughal, *Shikarpur Heritage: An Illustrated Journey Through History* (Karachi: Sindh Archives, Information & Archives Department, Government of Sindh, 2012), full text via Internet Archive, https://archive.org/details/shikarpurheritage, accessed 5 September 2026. Reliability class: official/heritage body publication (Sindh Archives).
+
+### Revised verdict
+STRONG — unchanged. This closes the acquisition lead: the book administratively covers Lakhi taluka (where Chak sits), but its actual content — confirmed by reading Chapter 7 and searching the full text — is confined to Shikarpur city's own streets and buildings and never reaches Chak or any Hindu/Nanakpanthi site. A genuine checked-and-silent negative, for the reason given, not evidence against anything already in the file.
+
+---
+
+## Re-verification against the complete text — 5 September 2026
+
+Re-fetched Naseem Mughal, *Shikarpur Heritage*, with `pipeline/fetch_archive_text.py` (not the
+raw download URL the previous follow-up used): **183,913 bytes** — the complete book. This
+confirms the previous follow-up's own 8,303-line download was not a WebFetch-truncation
+artifact; both retrievals are the same complete text.
+
+Re-ran the literal terms with word boundaries this time (`\bChak\b`, `Kanwar`, `Kunwar`,
+`Bhagat`, `Jarwar`, `\bLakhi\b`, `\bRuk\b`) — zero hits for every one except `Lakhi`, which
+occurs three times, all administrative ("It has four talukas - Shikarpur, Garhi Yaseen, Khanpur
+and Lakhi"; a note on the Mahar-Daudpota tribal history of the Lakhi area) — consistent with the
+previous follow-up's own account and adding nothing new. No fuzzy variant was needed: this scan's
+OCR is clean, plain English at full resolution.
+
+Citation: Naseem Mughal, *Shikarpur Heritage: An Illustrated Journey Through History* (Karachi:
+Sindh Archives, Information & Archives Department, Government of Sindh, 2012), full text via
+Internet Archive, https://archive.org/details/shikarpurheritage, accessed 5 September 2026
+(183,913 bytes, complete text confirmed via `pipeline/fetch_archive_text.py --list`).
+
+### Revised verdict
+STRONG — unchanged. This is now doubly confirmed: 183,913 bytes of complete, cleanly-OCR'd text,
+zero mentions of Chak, Kanwar Ram, Bhagat, or Jarwar, for the documented reason already on file
+(the book's actual coverage is Shikarpur city's own streets, not Lakhi taluka's villages). A
+genuine checked-and-silent negative with no remaining doubt about the fetch's completeness.

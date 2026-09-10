@@ -65,3 +65,20 @@ Pointer note: the English Wikipedia article "Gurdwara Chowa Sahib" (https://en.w
 ## Verdict
 
 **STRONG** — three independent verified sources (Qaiser 1998 full-text scan; Dawn 2 Jan 2019; The Tribune 2 Aug 2019) plus a Government of Pakistan (MORA) page that corroborates but mirrors Wikipedia wording.
+
+---
+
+## Follow-up: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (1962), checked specifically for Choa Sahib — 5 September 2026
+
+The acquisition list flagged this register as "not yet checked: Choa Sahib specifically," although it had already been used for three other entries in this batch. It was fetched this session (full OCR text, via https://archive.org/download/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal/ → redirected to https://dn710201.ca.archive.org/0/items/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal/…_djvu.txt) and confirmed by a literal, mechanical (grep-style) search for the substring "CHOA SAHIB", which returned exactly one occurrence:
+
+> "JHELUM DISTRICT / 6. GURDWARA CHOA SAHIB AT ROHTAS / A spring used to flow close to the fortification wall of Rohtas Fort. Guru Nanak is said to have ordered the spring to emerge and flow for the public use. A gurdwara was built close to the spring during the Sikh period. The gurdwara was extended and renovated recently."
+
+Citation: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan*, Memoir of the Department of Archaeology in Pakistan No. 3 (Karachi: Department of Archaeology, Ministry of Education & Information, Government of Pakistan, 1962), entry 6, "Gurdwara Choa Sahib at Rohtas," Jhelum District section. Full-text scan: https://archive.org/details/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal, accessed 5 September 2026. Reliability class: official government publication (full-text scan, verified by literal substring search, not by AI summary reconstruction — see caution below).
+
+This is a genuine independent, official-body corroboration of the site's existence, its location (Jhelum District, outside Rohtas Fort), and the Guru Nanak spring-founding legend already reported by Qaiser 1998 and the two Sikh-Sahib newspaper pieces. It does **not** add a construction date — no "1834" or any other date appears in this entry — and no plate number is attached to it (unlike, e.g., Baoli Sahib's Plate No. 32 or Malji Sahib's Plate No. 20). No mosque-conversion, endowment, or fair detail is given either; the entry is three short sentences only.
+
+**Instrument caution, recorded for the whole batch:** an earlier, less literal attempt to have this same document's plate-list transcribed (for the Chitti Gatti lead, see that file's follow-up) produced three mutually inconsistent AI-reconstructed answers before a literal grep-style search resolved it. The quote above was obtained by the same literal method and is consistent across repeated fetches; it should be trusted, but any future re-use of this scan via a "summarize this section" style prompt should be re-verified by literal substring search before being cited.
+
+### Revised verdict
+**STRONG — unchanged.** A fourth independent source now corroborates the location and founding legend, but adds no new fact (no date, no plate) beyond what Qaiser 1998 and the press coverage already established.

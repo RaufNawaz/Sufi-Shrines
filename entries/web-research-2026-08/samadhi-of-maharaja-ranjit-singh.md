@@ -148,3 +148,32 @@ STRONG — at least four independent, citable sources verified directly (Latif 1
 1998, the Punjab Directorate General of Archaeology's monument listing, and Dawn/Bushra Shehzad
 2012), with genuine, reported (not resolved) conflicts on the baradari-origin and
 ashes-disposition claims found in a fifth, less rigorously-sourced outlet (Dunya News).
+
+---
+
+## Follow-up: Nadhra Shahbaz Khan (2018) — partial excerpt obtained; Latif (1892) further extraction attempted — 5 September 2026
+
+**A real, quotable, but non-scholarly excerpt of the Khan book was obtained; the scholarly excerpt itself remains unreadable, and the peer-reviewed review article remains paywalled.**
+
+1. **Publisher's (EB-Verlag) own description page** was fetched successfully this session and yields specific, checkable content rather than jacket-copy generalities:
+
+   > "The outstanding Sikh ruler Maharaja Ranjit Singh (r. 1799–1839) died ten years before the British annexation of the Punjab in 1849."
+
+   and, on the monument itself:
+
+   > "the last state funded project of the Lahore Darbār"
+
+   and, on its decorative technique:
+
+   > "carving in red sandstone, white marble and wood, inlay in white marble, mirror mosaic and frescoes"
+
+   Citation: EB-Verlag, book description for Nadhra Shahbaz Khan, *The Samadhi of Maharaja Ranjit Singh in Lahore: A Summation of Sikh Architectural and Decorative Practices* (Berlin: EB-Verlag, 2018), https://www.ebv-berlin.de/Volume-5-The-Samadhi-of-Maharaja-Ranjit-Singh-in-Lahore/en, accessed 5 September 2026. Reliability class: publisher's own description of a citable scholarly monograph — stronger than a bookseller listing, weaker than an independent review; used here only for the specific factual claims quoted, not as an endorsement of the book's arguments. The "last state funded project of the Lahore Darbār" characterization is new information not previously on this file and is not corroborated elsewhere here.
+
+2. **The excerpt PDF** (https://www.ioa.uni-bonn.de/aik/de/forschung/publikationen/medien/leseprobe_khan_saac_5.pdf) was re-fetched and remains **not extractable as readable text** — confirmed again this session as an image/font-embedded PDF (InDesign-produced, embedded CharisSIL/Myriad Pro/Zurich fonts) that the fetch tool cannot OCR. Same result as August; this is a genuine tool limitation, not a content gap — a human opening the PDF directly in a viewer would very likely be able to read it.
+
+3. **Gurharpal Singh, "Reconsidering Sikh Architecture: The Samādhi of Maharaja Ranjit Singh in Lahore," *Sikh Formations* 17(4), 2021** — attempted at its Taylor & Francis DOI page (10.1080/17448727.2021.1886403); returned **HTTP 403 Forbidden** (paywalled, as expected for this publisher). Abstract not accessible via this tool.
+
+4. **Latif (1892), further extraction attempted:** the archive.org full-text search-inside API (which worked cleanly for the Qaiser and 1962-register sources used elsewhere in this pass) is **unavailable for this item** — `in.ernet.dli.2015.107067` returns `{"error": "No hOCR or Abbyy file present"}` despite an `_abbyy.gz` file existing in its file listing, the same structural gap already documented for the Sialkot and Lahore gazetteers in this batch's other follow-ups. No additional Latif text beyond what is already quoted on this file (p. 129) was extracted this session.
+
+### Revised verdict
+**STRONG — unchanged.** No new independent verified source was added (the publisher description is not itself a fifth citable source of new historical fact, only a partial, real excerpt of the one already flagged as unread); the two most promising unread items (Khan's own text, Singh's peer-reviewed article) remain genuinely inaccessible via the tools available this session.

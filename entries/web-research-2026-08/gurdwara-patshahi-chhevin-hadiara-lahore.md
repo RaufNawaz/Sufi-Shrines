@@ -36,3 +36,40 @@ Sheet location on file: Hadiara village, Lahore District, Punjab, Pakistan (31.4
 ## Verdict
 
 PARTIAL — one independent, directly-quoting published-book source (Qaiser) confirms the gurdwara's existence, Guru Hargobind association, and post-Partition occupation; a second citable source (Tribune India) is strong on its own topic but appears to describe a related, differently-located gurdwara (Amar Sidhu) rather than this one, so it does not independently corroborate this entry — it instead surfaces an important naming conflict that needs resolving before use.
+
+---
+
+## Follow-up: 1962 Department of Archaeology register (both Hadiara and Amar Sadhu entries) + Qaiser's own Amar Saddhu section + Butalia (2025) re-attempted — 5 September 2026
+
+**The Hadiara / Amar Sadhu naming conflict is now settled: they are two distinct gurdwaras, independently confirmed by both of this batch's core sources.**
+
+**1. The 1962 register has its own, separate entry for Hadiara**, found by a literal (grep-style) search for "HADIARA"/"HADYARA" against the full OCR text:
+
+> "LAHORE DISTRICT / 8. GURDWARA AT HADYARAH, POLICE STATION BARKI; (Pl. No. 45) / This gurdwara has been built over a place where Guru Har Gobind halted during his journey to Lahore."
+
+Citation: Khan Mohammad Waliullah Khan, *Sikh Shrines in West Pakistan* (Department of Archaeology, Government of Pakistan, 1962), entry 8, "Gurdwara at Hadyarah, Police Station Barki," Lahore District section, Plate No. 45. Full-text scan: https://archive.org/details/furg-sikh-shrines-in-west-pakistan-by-khan-mohammad-wal, accessed 5 September 2026. Reliability class: official government publication.
+
+This is a **second independent verified source for Hadiara itself** (previously the file had only Qaiser as a directly-quoting citable source, with Wikipedia used only as a pointer and Tribune India ruled out as describing a different site). It corroborates the Guru Har Gobind association and gives an independent narrative detail (a halt during a journey to Lahore) that is not identical to Qaiser's ("visited this place in recognition of the affection of the Sikh Sangat") — a minor, reportable difference in the story, not a contradiction of the core facts.
+
+**2. The same register has a separate entry for Amar Sadhu, under a different serial number, different plate, and a different location anchor:**
+
+> "LAHORE DISTRICT / 4. GURDWARA AT AMAR SIDHO, NEAR RAILWAY STATION KOT LAKHPAT; (Pl. No. 42) / On his way from Mozang to Amritsar Guru Har Gobind visited this place after leaving Mangat. A gurdwara was later built in commemoration of his visit."
+
+Citation: same source, entry 4, "Gurdwara at Amar Sidho, near Railway Station Kot Lakhpat," Lahore District section, Plate No. 42, accessed 5 September 2026.
+
+**3. Qaiser's own dedicated Amar Saddhu chapter** (not previously quoted in this file — only its heading was noted) was retrieved this session via archive.org's full-text search-inside API (a literal index of the OCR, not an AI reconstruction), which returned the actual page-296 text directly:
+
+> "GURDWARA SIXTH GURU AT AMAR SADDHU DISTRICT LAHORE" — "Amar Saddhu is a very big bus stop on the Lahore-Ferozpur road. The railway station is Kot Lakhpat. The sacred shrine of Guru Hargohind is located in the eastern side of the village. It is also known as Gurdwara Bibi Kaulan."
+
+Citation: Iqbal Qaiser, *Historical Sikh Shrines in Pakistan* (Lahore: Punjabi History Board, 1998), p. 296, "Gurdwara Sixth Guru at Amar Saddhu District Lahore." Full-text scan: https://archive.org/details/HistoricalSikhShrinesInPakistan, accessed 5 September 2026 (retrieved via the archive.org full-text search-inside index for this item).
+
+**Cross-corroboration:** Qaiser's Amar Saddhu entry independently names "Kot Lakhpat" as the railway station — exactly matching the 1962 register's "NEAR RAILWAY STATION KOT LAKHPAT" for the same-named site. Both sources place Amar Sadhu/Sidho at Kot Lakhpat, which is nowhere near Hadiara (a village on, per Qaiser's own Hadiara entry already in this file, "the Lahore-Ghawindi road," and per the 1962 register, "Police Station Barki" — both pointing toward the Lahore-Kasur border side of the district, not Kot Lakhpat). Two independent sources agreeing on two different locations for two differently-numbered, differently-plated register entries is about as strong as this kind of identity question gets without a site visit.
+
+**This resolves the naming conflict the original file could not:** the July 2026 reopening reported by Tribune India ("Gurdwara Patshahi Chhevin at Amar Sidhu, a historic village on the Lahore-Kasur road") concerns this separate Kot-Lakhpat-area gurdwara — real, independently attested, and distinct from Hadiara in both citable sources — not the sheet's Hadiara entry. The two should not be conflated, and the Tribune India piece remains **not** a source for this entry.
+
+(One residual, unresolved detail, reported not resolved: Qaiser's 1998 Amar Saddhu entry places it on "the Lahore-Ferozpur road," while Tribune India's 2026 piece places it on "the Lahore-Kasur road." Both could describe the same general area near a road junction, but this was not independently checked.)
+
+**4. Tarunjit Singh Butalia (ed.), *Sikh Historical Shrines in Pakistan: Lahore District* (2025)** — re-attempted this session at the same URL as August: https://jeevaysanjhapunjab.com/wp-content/uploads/2025/04/Sikh-Historical-Shrines-in-Pakistan-Lahore-District.pdf. Fetch failed again with "maxContentLength size of 10485760 exceeded" — the file still exceeds the fetch tool's ~10 MB limit. This lead remains genuinely unreachable via WebFetch; a human would need to download it directly.
+
+### Revised verdict
+**Upgraded: STRONG** (was PARTIAL). The 1962 Department of Archaeology register is a second independent, directly-quoting citable source for Hadiara specifically (not just a corroboration of the naming-conflict question), meeting the README's "≥2 independent verified sources" bar. The Hadiara/Amar Sadhu identity question is settled — they are two distinct gurdwaras, confirmed by both Qaiser 1998 and the 1962 register agreeing independently on Amar Sadhu's separate Kot Lakhpat location.

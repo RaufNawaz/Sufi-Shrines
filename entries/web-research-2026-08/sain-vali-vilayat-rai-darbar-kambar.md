@@ -57,3 +57,53 @@ None found. All facts trace to a single fetched article; no second citable sourc
 ## Verdict
 
 **PARTIAL** — one detailed, internally consistent, established-press article (Kalhoro/*The Friday Times*, 2018) supplies every verified fact above; no second independent citable source was found to corroborate it, so this falls short of the ≥2-independent-source bar for STRONG.
+
+---
+
+## Follow-up: *Gazetteer of the Province of Sind*, Larkana District volume (archive.org `in.gov.ignca.30452`) — 5 September 2026
+
+Fetched the full text (file `30452_djvu.txt`, via https://archive.org/download/in.gov.ignca.30452/30452_djvu.txt, 22,499 lines). The title page confirms this is the correct book — the specific Larkana "B" volume this file's own acquisition leads named as the next target once the general 1907 gazetteer and the 1919 Sukkur volume were both confirmed to be the wrong scope:
+
+"Gazetteer ol thA Province of Siu(i ... Volume ... Liirkrtija District" [OCR-garbled rendering of "Gazetteer of the Province of Sind ... Volume ... Larkana District"]
+
+Citation: *Gazetteer of the Province of Sind*, Larkana District volume (Bombay: Government Central Press, 1927), title page, full text via Internet Archive, https://archive.org/details/in.gov.ignca.30452, accessed 5 September 2026.
+
+The scan's OCR quality is severely degraded throughout (confirmed by three separate body-text samples, not only the title page). A direct keyword search for "Vilayat," "Wilayat," "Kambar/Qambar," "Shivalo," "Jiwat Singh," and "Vishandas" returned zero matches. A follow-up AI-assisted fuzzy read of the same text, asked specifically whether any garbled passage plausibly matched Vali Vilayat Rai's darbar in Kambar's Shivalo locality (built c.1887, successors Jiwat Singh and Vishandas), also came back negative, qualified as: "the sections on Kambar town and religious sites are too heavily corrupted by OCR errors to reliably identify this darbar or these names." Archive.org's own search-inside index is unavailable for this item (`"error":"No hOCR or Abbyy file present"`).
+
+This is an **unreachable lead, not a checked-and-silent one**: the correct volume has been identified and downloaded, but cannot be read reliably enough to confirm or rule out any mention of Vali Vilayat Rai, Kambar, or the Shivalo darbar. (The acquisition list's HathiTrust catalog record for the same volume, https://catalog.hathitrust.org/Record/012154441, was not checked in this pass and may hold a cleaner scan.)
+
+### Revised verdict
+PARTIAL — unchanged. The Larkana volume was located and confirmed as the correct book, but could not actually be read; recorded here so it is not re-attempted blind.
+
+---
+
+## Re-verification against the complete text — 5 September 2026
+
+Re-fetched `in.gov.ignca.30452` with `pipeline/fetch_archive_text.py`: **151,574 bytes**, matching
+the previous follow-up's own 22,499-line download of the same identifier. **This is not a
+WebFetch-truncation case** — both sessions retrieved the complete text.
+
+Re-ran the literal terms (`Vilayat`, `Wilayat`, `Kambar`, `Qambar`, `Shivalo`, `Jiwat Singh`,
+`Vishandas`) — zero hits, confirmed again — and added fuzzy fragments: `ilaya`, `ilay`, `ivalo`,
+`jiwa`, `ishan`. All zero or noise-only (the one `jiwa` hit is inside "fcti ilwvi- MW bee!," an
+unrelated garbled run). Consistent with the other two Larkana-district entries checked this
+session, a loosened pattern for the taluka name itself *does* recover fragments — `amb`/`kam`
+surfaces "Kambat," "Kamhjir," "Kamdii," and one further OCR line containing both a "Kambat
+laluka" fragment and other characters too garbled to transcribe with confidence — while a
+parallel check for baseline religious vocabulary (`Nanak`, `Guru`, `dharam`, `sadhu`, `yogi`,
+`tapedar`, `Hindu`, `Sikh`, `darbar`) returned **zero clean hits for every one of these**. No
+attempt is made here to guess at what the rest of that line says: per Rule 2, an unreadable OCR
+string is reported as unreadable, not reconstructed. It is recorded as a lead for a cleaner scan,
+not as a finding.
+
+Citation: *Gazetteer of the Province of Sind*, Larkana District volume (Bombay: Government
+Central Press, 1927), full text via Internet Archive, https://archive.org/details/in.gov.ignca.30452,
+accessed 5 September 2026 (151,574 bytes, complete text confirmed via
+`pipeline/fetch_archive_text.py --list`).
+
+### Revised verdict
+PARTIAL — unchanged, but reclassified. Confirmed **not** a truncation artifact: the full
+151,574-byte text was searched. The scan-quality dead end stands as before, with one specific
+loose end for a future pass: an OCR line containing a "Kambat laluka" fragment alongside other
+characters too garbled to transcribe, worth a look if a cleaner scan is ever located, but not
+itself a reportable finding.
