@@ -1,0 +1,30 @@
+id: shrine-of-hafiz-muhammad-jamal-multani
+name: Shrine of Hafiz Muhammad Jamal Multani
+location: Near Aam Khas Bagh, outside Daulat Gate, Multan City, Punjab, Pakistan
+category: Muslim Shrine
+site_type: Mausoleum/Memorial   status: Active
+principal_figure: Hafiz Muhammad Jamal Multani   figure_type: Sufi saint   silsila: Chishti
+year_built: 1811 (circa)   note: Preserves original Mughal-era wall paintings
+figure_born: 1747   figure_died: 1811
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 252   citations: 1
+
+--- CURRENT Description ---
+## Overview
+
+The shrine of *Hafiz Muhammad Jamal Multani* is among the most historically important Sufi mausolea of Multan, the "city of saints", and marks the resting place of the man traditionally credited with establishing the *Chishti* order firmly in the city. Born at Multan around 1747 (1160 AH) and dying in 1811, Hafiz Jamal was a disciple of *Khwaja Noor Muhammad Maharvi*, a leading Chishti master of the region, and became a renowned teacher and poet in his own right, composing in Arabic, Persian and Siraiki; his *Siharfi*, an acrostic poem of the Punjabi–Siraiki tradition, is his best-known literary work. His tomb, near the Aam Khas Bagh outside the historic Daulat Gate, is a fine piece of late-Mughal funerary architecture: a square chamber rising to a twelve-sided drum and a hemispherical dome. It is especially valued because it preserves original Mughal-era wall paintings — a rarity, since the murals of most such monuments have been lost to whitewash and renovation. The shrine remains an active centre of devotion, with an annual *urs* commemorating the saint and continuous visitation by those seeking blessing, and it forms part of the dense sacred geography of Multan alongside the great shrines of Bahauddin Zakariya, Shah Rukn-e-Alam and Shah Shams Sabzwari.
+
+## Corroborating Source
+
+A general compendium of Pakistani Sufi saints independently corroborates this entry's central claim, stating plainly that Hafiz Muhammad Jamal Multani was "the first elder to lay the foundation of the Chishtia order" in Multan, and confirms his shrine's location in the city.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+Added an independent citation corroborating the existing claim that this figure first established the Chishti order in Multan. The specific biographical/architectural detail (birth year, Siharfi authorship, wall-painting preservation) predates this session and has no traceable citation of its own; the tazkira supports only the Chishti-founding claim and the shrine's location.
+
+--- CURRENT flags ---
+DATE_SPLIT

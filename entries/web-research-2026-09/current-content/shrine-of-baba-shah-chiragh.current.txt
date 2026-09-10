@@ -1,0 +1,31 @@
+id: shrine-of-baba-shah-chiragh
+name: Shrine of Baba Shah Chiragh
+location: The Mall (near Lahore High Court), Lahore, Punjab, Pakistan
+category: Muslim Shrine
+site_type: Mausoleum/Memorial   status: Active
+principal_figure: Syed Abdul Razzaq (Shah Chiragh)   figure_type: Sufi saint   silsila: Qadiri
+year_built: 1660 (circa)   note: Built by order of Aurangzeb; mosque added 1716
+figure_born:    figure_died: 1657
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 418   citations: 2
+
+--- CURRENT Description ---
+## Overview
+
+Set beside the Lahore High Court on The Mall, in the shadow of the colonial-era Aiwan-e-Auqaf building that now bears its name, the shrine of Baba Shah Chiragh commemorates Syed Abdul Razzaq, a Sufi of the Qadiri lineage who traced his descent to Sheikh Abdul Qadir Gilani of Baghdad and whose family originated from Uch in what is now Bahawalpur. Given the honorific "Chiragh," meaning lamp, by his grandfather Hazrat Abdul Qadir Sani, he flourished during the reign of the Mughal emperor Shah Jahan and died in 1657 CE. His mausoleum was constructed by imperial order of Aurangzeb, and an adjoining mosque was added later, in 1716, under the patronage of Lahore's Mughal viceroy Zakariya Khan during the reign of Muhammad Shah Rangeela. The mausoleum, built of limestone on a square plan in restrained Mughal style, contains eight graves in total, including those of Shah Chiragh's father and grandfather, making it a multi-generational family shrine rather than a single tomb. Its façades feature cusped-arch niches and panelled cartouches, while the interior retains traces of floral fresco decoration. In the late nineteenth century the surrounding precinct was absorbed into the grand Indo-Saracenic Aiwan-e-Auqaf complex, built by the British administration between 1875 and 1880, which today houses the offices and library of the Auqaf Department — the same body that has administered the shrine since 1973. Though it lacks the international renown of some of Lahore's other Sufi sites, the shrine is formally catalogued as a protected heritage monument by the Punjab Directorate General of Archaeology, and its distinctive Mughal fabric, set incongruously amid the bureaucratic buildings of modern Lahore, makes it a quietly significant survival from the city's seventeenth-century religious landscape.
+
+## Corroborating Sources
+
+An independent English-language academic study of Sufis and pre-colonial Muslim rulers in India, consulted separately from the tazkira below, states in passing that "Aurangzeb gave importance to some other Shari minded Qadri sufi, like Shah Chiragh whose tomb was constructed by Aurangzeb" — corroborating, from an independent scholarly source, this entry's existing claim that Aurangzeb ordered the mausoleum built. (The paper's own full citation details were not recoverable from the OCR text at hand; this should be verified against the original PDF before being treated as a fully resolved citation.) A general compendium of Pakistani Sufi saints separately notes, in its entry on the nearby shrine of Mauj Darya Bukhari, that Mauj Darya Bukhari's own grave lies inside Shah Chiragh's mausoleum complex — a detail about the physical site not previously recorded here.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+- Academic study of Sufis and pre-colonial Muslim rulers of India (full citation to be confirmed from source PDF) — corroborates the Aurangzeb construction date.
+
+--- CURRENT qa_note ---
+Two new sources found and added: an English-language academic paper corroborating the existing Aurangzeb-construction claim (its exact author/title/year need pulling from the original PDF — the OCR text only preserved the footnote text, not the paper's front matter), and a general Urdu tazkira noting that Mauj Darya Bukhari's shrine sits inside this complex. All the specific architectural detail in the original paragraph (eight graves, cusped-arch niches, 1716 mosque addition, Directorate General of Archaeology listing) predates this session and still has no traceable citation of its own.
+
+--- CURRENT flags ---
+DATE_SPLIT

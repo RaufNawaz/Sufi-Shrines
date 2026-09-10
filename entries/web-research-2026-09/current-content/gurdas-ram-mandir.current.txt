@@ -1,0 +1,36 @@
+id: gurdas-ram-mandir
+name: Gurdas Ram Mandir
+location: Radhan Town, Tehsil Mehar, Dadu District, Sindh, Pakistan
+category: Nanakpanthi / Udasi Darbar
+site_type: Temple   status: Active
+principal_figure: Sant Gurdas Ram   figure_type: Sant   silsila: 
+year_built:  (unknown)   note: Undocumented
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 269   citations: 3
+
+--- CURRENT Description ---
+## Overview
+
+In Radhan Town, a small settlement and railway stop in Mehar Taluka of Dadu District, Sindh, stands the Gurdas Ram Mandir — a Hindu temple named for a locally venerated Sant, Gurdas Ram, about whom almost no biographical or historical record survives. Pakistan's Evacuee Trust Property Board lists the mandir as currently functional; a separate Wikipedia listing of Hindu temples in Pakistan describes a "Bhai Gurdas Ram Mandir" in Dadu District as non-functional, a discrepancy that may reflect the same site under changed circumstances, or simply an outdated secondary source, and is noted here without resolution.
+
+## An Undocumented Namesake — Distinct from Shikarpur's Bhai Gurdas
+
+This mandir's eponymous Gurdas Ram should not be confused with the better-documented "Bhai Gurdas," an Udasi-Sevapanthi founder-figure associated with Shikarpur, some 150 kilometres away, whose career has been covered in recent academic and journalistic writing on Sindh's Nanakpanthi saints. No source connects the two figures, and the Radhan Gurdas Ram appears to be a separate, purely local namesake. The mandir belongs to the same wider cluster of small, similarly obscure Dadu–Mehar sant-shrines as the neighbouring Bhai Sant Thawan Das Mandir (Mehar) and the Sant Baba Bhagat Ram Darbar Mandir (Dadu), all ETPB-registered but lacking any preserved biography for their namesakes.
+
+## Present State
+
+Beyond its precise location and its listed (if disputed) functional status, nothing about the mandir's founding date, architecture, or present congregation has been documented in any source located for this entry. It is recorded here as an active, if little-known, site of Hindu worship in rural Dadu District, with its history awaiting a reliable local or gazetteer source.
+
+## Bibliography
+
+- Evacuee Trust Property Board (Pakistan), Functional Mandirs register.
+- Wikipedia, "List of Hindu temples in Pakistan."
+- Zulfiqar Ali Kalhoro, published writing on Sindh's Nanakpanthi saints, including the distinct Bhai Gurdas of Shikarpur (for contrast only).
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+CAT_CHANGED

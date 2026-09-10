@@ -1,0 +1,30 @@
+id: shrine-of-akhund-panju-baba
+name: Shrine of Akhund Panju Baba
+location: Akbarpura, Nowshera District, Khyber Pakhtunkhwa, Pakistan
+category: Muslim Shrine
+site_type: Complex   status: Active
+principal_figure: Hazrat Syed Abdul Wahab (Akhund Panju Baba)   figure_type: Sufi saint   silsila: 
+year_built: 1600 (century)   note: Mughal-era mosque, c. 400 years old
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 393   citations: 1
+
+--- CURRENT Description ---
+## Overview
+
+The shrine of Akhund Panju Baba stands at Akbarpura, a town in Nowshera District of Khyber Pakhtunkhwa, in the historic Peshawar valley. It honours *Hazrat Syed Abdul Wahab*, known to all as *Akhund Panju Baba*, a Sufi and preacher remembered as one of the great teachers of Islam in the Pashtun country during the reign of the Mughal emperor Akbar (1556-1605). Tradition holds that many were guided to Islam through him, and that his circle of disciples included some of the most notable saints of the region — among them, it is said, *Bahadur Baba*, the father of the celebrated *Kaka Sahib* of Nowshera, so that Akhund Panju Baba stands near the head of a whole genealogy of Pashtun Sufi teachers. His tomb at Akbarpura, together with the historic mosque associated with him — a Mughal-era foundation reckoned to be some four centuries old — forms a shrine complex attended by thousands of devotees, who gather especially at the annual *urs* to seek his blessing. Set amid the fields and orchards of the Nowshera plain, the shrine is a characteristic example of the Sufi *ziyarat* of Khyber Pakhtunkhwa, where the memory of the early preacher-saints remains woven into the devotional life of the surrounding villages. Its enduring draw testifies to the reverence in which Akhund Panju Baba is held as a founder of the region's Islamic learning and as the spiritual ancestor of a line of saints whose shrines dot the valley.
+
+## A Second Source, a Different Locality
+
+A general compendium of Pakistani Sufi saints separately records an "Akhund Panju Baba" whose shrine it places at Misri Pura, in Peshawar Sadar — a different named locality from Akbarpura, Nowshera District, where this entry's other sourcing places the shrine. That compendium gives a specific origin for the name: it states that opponents mockingly nicknamed him "Panju" ("five") for his insistence on preaching the five pillars of Islam, and that the name stuck. It does not give his birth name, and does not mention Bahadur Baba or Kaka Sahib. Whether this is the same saint remembered with a variant locality tradition, or a distinct Pashtun preacher who happened to share the same by-name — "Akhund [X] Baba" is a common honorific pattern in the region — is not resolvable from these two sources alone, and is reported here rather than silently merged.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+A second source (a general tazkira/compendium of Pakistani saints) describes an "Akhund Panju Baba" at Misri Pura, Peshawar Sadar, with a different name-origin story (a mocking nickname for preaching the five pillars of Islam) than this entry's existing sourcing (Akbarpura, Nowshera District; real name Hazrat Syed Abdul Wahab). The two accounts do not name the same locality and do not corroborate each other's specific details. Not resolved as the same or different individuals — reported as an open question. All pre-existing detail in this entry (Bahadur Baba/Kaka Sahib lineage, Mughal-era mosque dating, etc.) predates this session and has no traceable citation of its own; the tazkira citation added here supports only the Misri Pura material in the new second section.
+
+--- CURRENT flags ---
+

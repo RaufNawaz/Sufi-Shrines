@@ -1,0 +1,26 @@
+id: dargah-of-khwaja-muhammad-zaman-luari-sharif
+name: Dargah of Khwaja Muhammad Zaman (Luari Sharif)
+location: Luari Sharif, Shaheed Fazil Rahu Taluka, Badin District, Sindh, Pakistan
+category: Muslim Shrine
+site_type: Khanqah   status: Active
+principal_figure: Khwaja Muhammad Zaman (Sultan al-Aulia)   figure_type: Sufi saint   silsila: Naqshbandi
+year_built: 1737 (exact)   note: Khanqah founded 1737
+figure_born: 1713   figure_died: 1775
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 354   citations: 1
+
+--- CURRENT Description ---
+The dargah of Luari Sharif, some fifteen kilometres from the town of Badin in the far south of Sindh, is the shrine of Khwaja Muhammad Zaman (1713–1775), one of the most revered Naqshbandi Sufis and Sindhi mystic poets of the eighteenth century. Born into a family of the Siddiqi lineage that claimed descent from the caliph Abu Bakr and had settled in Sindh in earlier centuries, Muhammad Zaman received his first instruction from his father, Shaikh Abdul Latif, a follower of the Naqshbandi order, before studying at Thatta, then the great seat of learning in Sindh. There he came under the influence of the Sufi master Khwaja Abul Masakin, whose disciple he became and from whom, tradition records, he received the honorific Sultan al-Aulia, "master of the saints". Settling at Luari, he made the khanqah he established there — traditionally dated to 1737 — the foremost Naqshbandi centre of eighteenth-century Sindh after Thatta, a place of study from which his khalifas carried the order's teaching across the province. He was also a poet of note; a body of mystical verse in Sindhi is attributed to him, of which some eighty-five poems are said to survive. He died in January 1775 and was buried at Luari, where his tomb and the vaulted chambers of his successors form the shrine complex. An annual urs commemorates him and draws devotees from across the region, though the complex has at times been subject to restricted access, with a police post maintained at its entrance since the 1980s. Luari Sharif is counted among the oldest and most important Sufi sites of southern Sindh.
+
+A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently corroborates the saint's identity and location — recording him as Makhdoom Muhammad Zaman Naqshbandi, known by the title Khwaja Kalan, with his shrine at Luari Sharif, Badin, Sindh — and adds a detail not previously in this entry: that he founded a new town, also named Luari, after the original settlement became uninhabitable. The tazkira gives a year of death, but its digits are illegible in the OCR scan and are not reproduced here.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+coordinates are those of Luari Sharif town (gazetteer-level), where the dargah is situated; treat as accurate to village level.
+
+--- CURRENT flags ---
+DATE_SPLIT;NOTE_STRIPPED

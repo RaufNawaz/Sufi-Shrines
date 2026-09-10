@@ -1,0 +1,44 @@
+id: jhollay-lal-mandir
+name: Jhollay Lal Mandir
+location: Darya Lal Street, Jodia Bazaar, Karachi, Sindh, Pakistan
+category: Hindu Temple
+site_type: Temple   status: Active
+principal_figure: Jhulelal (Uderolal)   figure_type: Deity   silsila: 
+year_built:  (unknown)   note: Founding date undocumented
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 343   citations: 3
+
+--- CURRENT Description ---
+## Overview
+
+On Darya Lal Street in Jodia Bazaar, in Karachi's old commercial quarter near Sarafa Bazaar, stands a modest Hindu temple known locally as the Jhulay Lal Mandir (or Jhollay Lal Mandir) — a shrine distinct from, though dedicated to the same venerated figure as, the larger and better-known Darya Lal Sankat Mochan Mandir near the Custom House and Native Jetty, several kilometres away in Saddar. Both temples honour Jhulelal (also called Darya Lal or Udero Lal), the Sindhi water-saint revered by Hindus as an incarnation of Varuna, but they are separate buildings on separate streets, serving separate congregations.
+
+## A Lasi Community Shrine
+
+The Jodia Bazaar temple has historically been maintained by Karachi's Lasi Hindu community — families whose origins lie in Lasbela district, Balochistan — distinct from the fisherfolk congregation of Mohalla Mahigir associated with the Custom House temple. It is a comparatively small, square structure housing a hall and devotional images, with a rooftop swing (*jhula*) from which the deity's popular name is drawn, evoking the swing on which the saint is depicted in devotional imagery.
+
+## Rites and Observance
+
+Like other Jhulelal shrines across Sindh and the Sindhi diaspora, the temple's principal occasion is Cheti Chand, the spring new-year festival marking Jhulelal's birth, when the Lasi community and other Sindhi Hindus gather for prayer, a procession, and veneration of the *baharana sahib*, the ritual water vessel.
+
+## Distinguishing from the Custom House Temple
+
+Because "Jhulelal," "Darya Lal," and "Udero Lal" are used interchangeably for the same venerated figure, and because Karachi's most heavily documented Jhulelal shrine is the Darya Lal Sankat Mochan Mandir near the Custom House, the Jodia Bazaar temple is easily overlooked or conflated with it. Field documentation of Karachi's Hindu temples, however, records them as two separate buildings on two separate streets, each with its own congregation.
+
+## Present State
+
+Documentation of the temple's founding date and building history is thin; what is recorded is its continued use by the Lasi community and its part, alongside the Custom House temple, in Karachi's Cheti Chand observances.
+
+## Bibliography
+
+- Udero Lal Research Project, field documentation of Karachi's Jhulelal temples — Jodia Bazaar and Custom House sites (2016).
+- Wikipedia, "Darya Lal Mandir," for contrast with the Custom House site.
+- General accounts of Sindhi Hindu Cheti Chand observance and the Jhulelal/Udero Lal tradition.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+EVENTS_FILLED

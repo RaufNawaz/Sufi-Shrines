@@ -1,0 +1,24 @@
+id: ziarat-kaka-sahib
+name: Ziarat Kaka Sahib
+location: Ziarat Kaka Sahib, Nowshera District, Khyber Pakhtunkhwa, Pakistan
+category: Muslim Shrine
+site_type: Mausoleum/Memorial   status: Active
+principal_figure: Syed Kasteer Gul (Kaka Sahib)   figure_type: Sufi saint   silsila: Naqshbandi
+year_built: 1661 (circa)   note: Built by his son Sheikh Abdul Haleem
+figure_born: 1575   figure_died: 1653
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 352   citations: 1
+
+--- CURRENT Description ---
+Ziarat Kaka Sahib, set among rugged hills roughly twelve kilometres south of Nowshera city in Khyber Pakhtunkhwa, is the shrine of the sixteenth-century Sufi saint *Kaka Sahib*, whose given name was *Syed Kasteer Gul* and who is also remembered by the honorific *Sheikh Rahmkar*. Born, by tradition, on the first of Ramazan in 1575 (sometimes given as 1576), he received his religious education from his Sufi father and from the scholars of his day, and his forefathers are remembered as affiliated with all four of the great Sufi orders — the *Naqshbandi*, *Suhrawardi*, *Chishti*, and *Qadiri* — an inheritance tradition credits him with carrying forward, though he himself is remembered in the *Uwaisi* style of not naming a personal living guide. Tradition names his teachers as Qazi Abul Aala, Abdullah Ansari Sultanpuri, Maulana Abdul Lateef Sultanpuri, and Sheikh Akhuddeen Seljuki; the nearby saint Akhund Panju Baba was a respected contemporary he is said to have met, rather than a personal teacher — Panju Baba's own disciple, by tradition, was Kaka Sahib's father, Bahadur Baba. A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently corroborates his name (there rendered Sheikh Rahm Kar) and adds a specific detail of place: at the time of his birth, his father was living in forest roughly six miles south of the site later known as Ziarat Kaka Sahib. So great was his renown for piety that his resting place became one of the most frequented religious sites of the province, and the town that grew around it took his name. His white mausoleum, raised by his son Sheikh Abdul Haleem around 1661, is a fine example of Mughal-era funerary architecture, richly ornamented within by mosaic work, floral patterns, and painted stucco decoration. The descendants of his teacher and of the saint's own line have long lived in the settlement, tending the shrine and its traditions. Today Ziarat Kaka Sahib remains a much-visited place of pilgrimage, its annual observances drawing devotees from across Khyber Pakhtunkhwa who come to seek blessing at the tomb of a saint whose memory has endured for more than four centuries.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

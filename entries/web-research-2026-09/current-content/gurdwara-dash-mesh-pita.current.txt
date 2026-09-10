@@ -1,0 +1,36 @@
+id: gurdwara-dash-mesh-pita
+name: Gurdwara Dash Mesh Pita
+location: Sukkur, Sindh, Pakistan
+category: Sikh Gurdwara
+site_type: Gurdwara   status: Active
+principal_figure: Guru Gobind Singh   figure_type: Sikh Guru   silsila: 
+year_built:  (unknown)   note: Undocumented
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 274   citations: 3
+
+--- CURRENT Description ---
+## Overview
+
+Among Sukkur's small number of surviving Sikh institutions stands the Gurdwara Dash Mesh Pita — its name invoking "Dashmesh Pita," a title of reverence for Guru Gobind Singh, the tenth Sikh Guru, meaning roughly "father of the Tenth [House]." Pakistan's Evacuee Trust Property Board lists it as a currently functional gurdwara occupying a plot of some 300 square yards in Sukkur. It is a distinct site from Sukkur's two much better-documented gurdwaras — Sadhu Bela, on its island in the Indus, and Gurdwara Pehli Patshahi (Jind Pir) near the Sukkur–Rohri bridge — both of which have detailed, independently recorded histories tied to Guru Nanak's travels, whereas Dash Mesh Pita's own founding story has not survived in any source located for this entry.
+
+## An Unresolved History
+
+No published account explains when the gurdwara was built, who established it, or what specific event or visit it commemorates; the honorific naming after Guru Gobind Singh suggests some historical or devotional association with the tenth Guru, but nothing more specific can currently be stated. A differently named gurdwara, "Dashmesh Darbar Singh Sabha," is documented at Jacobabad, roughly 100 kilometres away in a different district — a separate institution that should not be conflated with this Sukkur site, though the similarity of naming may be a source of past confusion.
+
+## Present State
+
+As with several of Sindh's smallest gurdwaras, what can be confirmed rests on the Evacuee Trust Property Board's official register alone: the gurdwara's name, its location in Sukkur, and its functional status. Its history, founding date, and the size and character of its present congregation remain undocumented pending a local or community source.
+
+## Bibliography
+
+- Evacuee Trust Property Board (Pakistan), Functional Gurdwaras register.
+- SikhiWiki, "Gurdwara Pehli Patshahi (Jind Pir)" (for contrast with Sukkur's better-documented gurdwaras).
+- AllAboutSikhs, "Gurudwara Sadhu Bela, Sukkur" (for contrast).
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+

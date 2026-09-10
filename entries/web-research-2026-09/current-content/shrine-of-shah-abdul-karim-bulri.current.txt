@@ -1,0 +1,24 @@
+id: shrine-of-shah-abdul-karim-bulri
+name: Shrine of Shah Abdul Karim Bulri
+location: Bulri Shah Karim, Tando Muhammad Khan District, Sindh, Pakistan
+category: Muslim Shrine
+site_type: Complex   status: Active
+principal_figure: Shah Abdul Karim Bulri   figure_type: Sufi saint   silsila: 
+year_built: 1741 (exact)   note: 1154 AH; three-domed mosque
+figure_born: 1536   figure_died: 1623
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 266   citations: 1
+
+--- CURRENT Description ---
+The Shrine of Shah Abdul Karim stands at Bulri, the town in Tando Muhammad Khan district that bears his name — Bulri Shah Karim — and honours one of the earliest and most influential of the Sindhi Sufi poets. Shah Abdul Karim (1536–1623) was born into a Sayyid family of Matiari but spent most of his life at Bulri, from which he takes his epithet. He is remembered as a mystic of simple, laborious life and as a pioneer of Sindhi devotional verse: he was among the first to weave the folk romances of the land — *Sasui and Punhun*, *Sohni and Mehar*, *Umar and Marui*, *Leela and Chanesar* — into poetry expressing the soul's longing for the Divine, a method later brought to its summit by his celebrated great-great-grandson, Shah Abdul Latif Bhittai. A separate source, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, instead calls him Bhittai's great-grandfather (three generations, not four) and adds that he was himself a disciple (*murid*) of Makhdoom Nooh of Hala before settling and preaching at Bulri — the two sources are recorded here as given, without picking one generational count over the other. His sayings and verses were first gathered by a disciple, Mir Daryai Tharawi, in the Persian work *Bayan al-Arifin*, completed in 1630, seven years after the poet's death. Tradition holds that Shah Abdul Latif Bhittai himself stayed two years at Bulri and supervised the building of the shrine complex, laying the foundation of the tomb and its three-domed mosque about 1741 (1154 AH). The dargah remains a vibrant place of devotion, and its annual *urs* draws thousands of pilgrims.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+Generational-distance conflict between sources, not resolved: this entry's existing sourcing calls Shah Abdul Latif Bhittai the saint's great-great-grandson (4 generations); Alam Faqri's tazkira instead calls the saint Bhittai's great-grandfather (3 generations). Both are stated in the Description rather than one being silently preferred.
+
+--- CURRENT flags ---
+DATE_SPLIT

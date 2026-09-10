@@ -1,0 +1,30 @@
+id: shrine-of-makhdoom-nooh-hala
+name: Shrine of Makhdoom Nooh (Hala)
+location: Hala, Matiari District, Sindh, Pakistan
+category: Muslim Shrine
+site_type: Dargah/Mazar   status: Active
+principal_figure: Makhdoom Nooh (Makhdoom Lutufullah)   figure_type: Sufi saint   silsila: Suhrawardi
+year_built: 1777 (exact)   note: Remains relocated twice by the shifting Indus; present site 1777
+figure_born: 1500   figure_died: 1590
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 284   citations: 1
+
+--- CURRENT Description ---
+## Overview
+
+The Shrine of Makhdoom Nooh at Hala, a town some fifty-six kilometres north-east of Hyderabad in Sindh, honours one of the most revered saints and scholars of the province. Makhdoom Lutufullah, universally known as Makhdoom Nooh — and often as Makhdoom Sarwar Nooh — is generally dated to the sixteenth century, with tradition placing his birth around 1500-1505 and his death about 1590. A Sufi of the *Suhrawardi* order, honoured also with an Uwaisi spiritual lineage, he is remembered as the founder of the *Sarwari* branch of the order in Sindh, and above all as the first religious scholar of the region to render the Holy Quran into Persian, an achievement that secured his lasting fame. He was buried near his native village close to Halakandi, but the shifting of the Indus twice compelled the relocation of his remains — to Mula Sanwani about 1601, and again, in 1777, to the site of new Hala, where his mausoleum now stands. The shrine is the spiritual heart of Hala, a town long associated with the *Makhdoom* saintly lineage, with Sufi devotional music and with the celebrated blue-and-white *Kashi* pottery of the region. It draws devotees throughout the year and hosts an annual *urs* in the saint's memory.
+
+## Corroborating Source
+
+A general compendium of Pakistani Sufi saints independently confirms his real name as Lutfullah and his title as Makhdoom Nooh, and states that he died at the age of 87 — consistent with this entry's existing dating (birth c.1500-1505, death c.1590, which implies an age of roughly 85-90). It describes his shrine at "Hala Kandi" as a major place of pilgrimage, matching this entry's account of the saint's original burial place near Halakandi.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+Added a corroborating citation: an independent tazkira gives the same real name (Lutfullah) and an age at death (87) consistent with this entry's existing birth/death year estimates. The relocation history (to Mula Sanwani 1601, to new Hala 1777) and the Sarwari/Uwaisi lineage detail predate this session and have no traceable citation of their own.
+
+--- CURRENT flags ---
+DATE_SPLIT

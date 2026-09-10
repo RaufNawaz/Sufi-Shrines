@@ -1,0 +1,35 @@
+id: bhai-sant-thawan-das-mandir
+name: Bhai Sant Thawan Das Mandir
+location: Old Shahi Bazar, Mehar, Dadu District, Sindh, Pakistan
+category: Nanakpanthi / Udasi Darbar
+site_type: Temple   status: Active
+principal_figure: Sant Thawan Das   figure_type: Sant   silsila: 
+year_built:  (unknown)   note: Undocumented
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 273   citations: 2
+
+--- CURRENT Description ---
+## Overview
+
+In the Old Shahi Bazar of Mehar, a market town of Dadu District in Sindh, stands the Bhai Sant Thawan Das Mandir, a Hindu temple registered with Pakistan's Evacuee Trust Property Board as a currently functional mandir. It takes its name from a Sant Thawan Das, presumably a locally venerated Nanakpanthi or Sindhi Hindu holy figure of the kind commemorated in numerous small sant-shrines across the Dadu–Mehar belt — but almost nothing about his life, era, or teachings has survived in any accessible published source.
+
+## An Undocumented Namesake
+
+This mandir belongs to a wider cluster of similarly named, similarly obscure Nanakpanthi and sant-devotional shrines scattered across Mehar Taluka and neighbouring Dadu District — among them the Gurdas Ram Mandir at nearby Radhan Town and the Sant Baba Bhagat Ram Darbar Mandir at Dadu itself, both likewise ETPB-registered functional mandirs bearing the names of local sants whose biographies have not been preserved in writing. Zulfiqar Ali Kalhoro, the principal scholar to have surveyed Sindh's Nanakpanthi sant-shrines in recent years, does not appear to have published on this particular site or figure, and no other academic, journalistic, or gazetteer source naming "Thawan Das" specifically has been located.
+
+## Present State
+
+What can be stated with confidence, on the strength of the Evacuee Trust Property Board's official register, is the mandir's precise location in Mehar's Old Shahi Bazar and its continuing function as an active place of worship maintained by the town's Hindu community. Everything about its founding, its architecture, and the identity and dates of Thawan Das himself remains, for now, undocumented, and no claim about them should be treated as established.
+
+## Bibliography
+
+- Evacuee Trust Property Board (Pakistan), Functional Mandirs register.
+- Zulfiqar Ali Kalhoro, published surveys of Nanakpanthi saints and shrines of Sindh (for wider regional context; this specific site is not covered).
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+CAT_CHANGED

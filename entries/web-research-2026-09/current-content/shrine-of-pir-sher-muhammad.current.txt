@@ -1,0 +1,39 @@
+id: shrine-of-pir-sher-muhammad
+name: Shrine of Pir Sher Muhammad
+location: Sharaqpur, Sharaqpur, Punjab
+category: Muslim Shrine
+site_type: Khanqah   status: Active
+principal_figure: Mian Pir Sher Muhammad Sharaqpuri   figure_type: Sufi saint   silsila: Qadiri
+year_built: 1928 (exact)   note: 
+figure_born: 1865   figure_died: 1928
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 370   citations: 2
+
+--- CURRENT Description ---
+## Overview
+
+At Sharaqpur Sharif, north-west of Lahore, stands the shrine of Hazrat Mian Pir Sher Muhammad Sharaqpuri (1865–1928) — a widely revered Sufi master of the Qadiri-Chishti tradition and one of the notable saints of the Punjab in the late nineteenth and early twentieth centuries. Known for his piety, his learning, and the great number of disciples he guided, Pir Sher Muhammad made Sharaqpur a centre of devotion and religious teaching, and his darbar remains an important place of pilgrimage in central Punjab.
+
+## The Life of the Saint
+
+Mian Sher Muhammad was born in 1865 at Sharaqpur into a devout family, and from his youth turned to the religious sciences and the Sufi path. Trained in both the outward learning of the seminary and the inward discipline of the orders, he became a spiritual guide of great reputation, uniting the Qadiri and Chishti lineages, and drew disciples from across the Punjab and beyond. He was among the teachers whose light shaped the next generation of Punjabi Sufis — the saint Abul Faiz Qalandar Ali Suhrawardi of Lahore, for instance, is remembered as having received knowledge from him. He is remembered for a life of prayer, austerity, and service, and for the reforming, sober devotion he taught. He died in 1928 and was buried at Sharaqpur.
+
+## The Shrine and its Devotion
+
+The shrine of Pir Sher Muhammad at Sharaqpur Sharif is a large complex kept by his successors, and a busy centre of pilgrimage. It maintains the five daily prayers, gatherings of *naat* and qawwali, and the free kitchen, and its annual urs draws great crowds of devotees who come to honour the saint and seek his blessing. The town of Sharaqpur Sharif takes its very identity from the darbar, and the saint’s line has continued as its custodians and as respected religious figures.
+
+## Legacy
+
+Pir Sher Muhammad Sharaqpuri is remembered as one of the influential Sufi masters of modern Punjab — a guide of many thousands whose teaching joined the Qadiri and Chishti ways and whose disciples carried his influence onward. His shrine at Sharaqpur Sharif remains a centre of the devotion he inspired, and his memory endures among the notable saints of the Lahore region.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan* (Lahore) — compendium of the saints of Pakistan.
+- General established histories of the Qadiri-Chishti tradition in modern Punjab.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

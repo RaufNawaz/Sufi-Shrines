@@ -1,0 +1,30 @@
+n	name	file_slug	id	prose_words	cites	imgs	support_level	location
+1	Shrine of Shah Rukn-e-Alam	shrine-of-shah-rukn-e-alam	shrine-of-shah-rukn-e-alam	485	2	1	Source-seeded	Multan City, Multan, Punjab
+2	Shrine of Shah Shams-ud-Din Sabzwari	shrine-of-shah-shams-ud-din-sabzwari	shrine-of-shah-shams-ud-din-sabzwari	417	2	1	Source-seeded	Multan, Punjab
+3	Shrine of Shah Yusaf Gardez	shrine-of-shah-yusaf-gardez	shrine-of-shah-yusaf-gardez	384	2	1	Source-seeded	Multan, Punjab
+4	Shrine of Syed Musa Pak	shrine-of-syed-musa-pak	shrine-of-syed-musa-pak	352	2	1	Source-seeded	Multan, Multan, Punjab
+5	Shrine of Hafiz Muhammad Jamal Multani	shrine-of-hafiz-muhammad-jamal-multani	shrine-of-hafiz-muhammad-jamal-multani	252	1	1	Source-seeded	Near Aam Khas Bagh, outside Daulat Gate, Multan City, Punjab, Pakistan
+6	Shrine of Makhdoom Jahaniyan Jahangasht	shrine-of-makhdoom-jahaniyan-jahangasht	shrine-of-makhdoom-jahaniyan-jahangasht	479	2	1	Source-seeded	Uch Sharif, Bahawalpur District, Punjab, Pakistan
+7	Tomb of Javindi Bibi	tomb-of-javindi-bibi	tomb-of-javindi-bibi	463	2	1	Source-seeded	Mohalla Bukhari, Uch Sharif, Punjab
+8	Sial Sharif	sial-sharif	sial-sharif	357	2	1	Source-seeded	Sial Sharif, Sial Sharif (Sargodha District), Punjab
+9	Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)	darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a	darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a	381	2	1	Source-seeded	Taunsa, Taunsa Sharif, Punjab
+10	Shrine of Pir Sher Muhammad	shrine-of-pir-sher-muhammad	shrine-of-pir-sher-muhammad	370	2	1	Source-seeded	Sharaqpur, Sharaqpur, Punjab
+11	Sakhi Sarwar	sakhi-sarwar	sakhi-sarwar	418	2	1	Source-seeded	Sakhi Sarwar, Dera Ghazi Khan, Punjab
+12	Shrine of Shah Abdul Karim Bulri	shrine-of-shah-abdul-karim-bulri	shrine-of-shah-abdul-karim-bulri	266	1	1	Source-seeded	Bulri Shah Karim, Tando Muhammad Khan District, Sindh, Pakistan
+13	Shrine of Makhdoom Nooh (Hala)	shrine-of-makhdoom-nooh-hala	shrine-of-makhdoom-nooh-hala	284	1	0	Source-seeded	Hala, Matiari District, Sindh, Pakistan
+14	Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth	322	1	1	Source-seeded	Pir Jo Goth, Kingri Taluka, Khairpur District, Sindh, Pakistan
+15	Dargah of Khwaja Muhammad Zaman (Luari Sharif)	dargah-of-khwaja-muhammad-zaman-luari-sharif	dargah-of-khwaja-muhammad-zaman-luari-sharif	354	1	1	Source-seeded	Luari Sharif, Shaheed Fazil Rahu Taluka, Badin District, Sindh, Pakistan
+16	Dargah / Roza Sufi Shah Inayat Shaheed	dargah-roza-sufi-shah-inayat-shaheed	dargah-roza-sufi-shah-inayat-shaheed	444	2	1	Source-seeded	Jhok Sharif (Jhok), Sindh, Pakistan
+17	Gurdas Ram Mandir	gurdas-ram-mandir	gurdas-ram-mandir	269	3	0	Source-seeded	Radhan Town, Tehsil Mehar, Dadu District, Sindh, Pakistan
+18	Bhai Sant Thawan Das Mandir	bhai-sant-thawan-das-mandir	bhai-sant-thawan-das-mandir	273	2	0	Source-seeded	Old Shahi Bazar, Mehar, Dadu District, Sindh, Pakistan
+19	Gurdwara Dash Mesh Pita	gurdwara-dash-mesh-pita	gurdwara-dash-mesh-pita	274	3	0	Source-seeded	Sukkur, Sindh, Pakistan
+20	Jhollay Lal Mandir	jhollay-lal-mandir	jhollay-lal-mandir	343	3	0	Source-seeded	Darya Lal Street, Jodia Bazaar, Karachi, Sindh, Pakistan
+21	Gurdwara Sach Khand Sahib	gurdwara-sach-khand-sahib	gurdwara-sach-khand-sahib	405	4	0	Source-documented	Shikarpur, Sindh, Pakistan
+22	Shah Noorani Shrine (Syed Bilawal Shah Noorani)	shah-noorani-shrine-syed-bilawal-shah-noorani	shah-noorani-shrine-syed-bilawal-shah-noorani	392	2	1	Source-seeded	Lahoot Lamakan valley, Khuzdar District, Balochistan, Pakistan
+23	Shrine of Pir Baba (Syed Ali Tirmizi)	shrine-of-pir-baba-syed-ali-tirmizi	shrine-of-pir-baba-syed-ali-tirmizi	315	1	2	Source-seeded	Pacha Kalay, Buner District, Khyber Pakhtunkhwa, Pakistan
+24	Shrine of Akhund Darweza Baba	shrine-of-akhund-darweza-baba	shrine-of-akhund-darweza-baba	346	1	0	Source-seeded	Hazarkhwani, Peshawar, Khyber Pakhtunkhwa, Pakistan
+25	Shrine of Mian Umar Baba (Chamkani)	shrine-of-mian-umar-baba-chamkani	shrine-of-mian-umar-baba-chamkani	296	1	1	Source-seeded	Chamkani, Peshawar, Khyber Pakhtunkhwa, Pakistan
+26	Ziarat Kaka Sahib	ziarat-kaka-sahib	ziarat-kaka-sahib	352	1	0	Source-seeded	Ziarat Kaka Sahib, Nowshera District, Khyber Pakhtunkhwa, Pakistan
+27	Shrine of Akhund Panju Baba	shrine-of-akhund-panju-baba	shrine-of-akhund-panju-baba	393	1	0	Source-seeded	Akbarpura, Nowshera District, Khyber Pakhtunkhwa, Pakistan
+28	Gurdwara Chowmala Sahib	gurdwara-chowmala-sahib	gurdwara-chowmala-sahib	164	2	0	Source-seeded	Chowmala Mohalla, inside Bhati Gate, Walled City, Lahore, Punjab, Pakistan
+29	Gurdwara Chhevin Patshahi, Mozang	gurdwara-chhevin-patshahi-mozang	gurdwara-chhevin-patshahi-mozang	218	2	0	Source-documented	Temple Road, Mozang, Lahore, Punjab, Pakistan

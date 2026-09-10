@@ -1,0 +1,31 @@
+id: gurdwara-chowmala-sahib
+name: Gurdwara Chowmala Sahib
+location: Chowmala Mohalla, inside Bhati Gate, Walled City, Lahore, Punjab, Pakistan
+category: Sikh Gurdwara
+site_type: Gurdwara   status: Heritage
+principal_figure: Guru Hargobind   figure_type: Sikh Guru   silsila: 
+year_built: 1915 (exact)   note: Hall enlarged 1915; original structure may not survive
+figure_born:    figure_died: 
+event_year: 1620   event_note: Guru Hargobind's visit; Bhai Jiwan's house converted
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 164   citations: 2
+
+--- CURRENT Description ---
+## Overview
+
+Within the Chowmala mohalla of Lahore's Walled City, close to Bhati Gate, stands Gurdwara Chowmala Sahib, one of several sites in the city associated with a visit by Guru Hargobind, the sixth Sikh Guru. Sikh tradition holds that the Guru was received here in the seventeenth century by a resident named Bhai Jiwan, who converted his own house into a gurdwara following the visit; the hall is recorded as having been enlarged in 1915.
+
+## Present State
+
+As with several of Lahore's smaller, intramural gurdwaras, Chowmala Sahib's post-Partition history is thinly documented. Older sources record an annual fair once held around Basant Panchami, though whether this observance has continued is uncertain, and some reports suggest that the original structure associated with the site may no longer survive intact within the dense fabric of the Walled City. It is distinguished from Lahore's other Chhevin Patshahi ("Sixth Sovereignty") gurdwaras at Mozang and elsewhere, each of which marks a separate stop in Guru Hargobind's travels.
+
+## Bibliography
+
+- SikhiWiki and Sikh pilgrimage literature on the Guru Hargobind gurdwaras of Lahore.
+- Gazetteer and heritage-survey references to the Walled City's Sikh-era sites.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

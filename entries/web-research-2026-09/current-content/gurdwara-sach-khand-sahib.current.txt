@@ -1,0 +1,41 @@
+id: gurdwara-sach-khand-sahib
+name: Gurdwara Sach Khand Sahib
+location: Shikarpur, Sindh, Pakistan
+category: Sikh Gurdwara
+site_type: Gurdwara   status: Active
+principal_figure: Guru Nanak   figure_type: Sikh Guru   silsila: 
+year_built: 2015 (circa)   note: Recent build replacing an unlocated pre-Partition gurdwara
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-documented
+images: 0   prose words: 405   citations: 4
+
+--- CURRENT Description ---
+## Overview
+
+Shikarpur's only functioning Sikh gurdwara today is known locally as Gurdwara Sach Khand Sahib, sometimes rendered Gurdwara Sachkhand Hazoor Sahib — a modest, comparatively recent building serving the small Nanakpanthi Sikh community of this historic Sindhi trading city. It should not be confused with the much larger and more famous "Sach Khand" gurdwara of the Punjab, near Farooqabad/Chuharkana, which commemorates Guru Nanak's celebrated sugar-miracle with Bhai Mardana — a wholly different site, wrongly linked to Shikarpur in some casual accounts.
+
+## Rebuilding After Partition
+
+Like almost every gurdwara in Sindh, whatever pre-Partition Sikh place of worship once stood in Shikarpur was lost when the city's substantial Sikh and Hindu populations departed for India in 1947; its exact location and fate went unrecorded. The present gurdwara is a recent structure, built only within the last decade or so by the city's much-reduced Sikh community, and registered with the Evacuee Trust Property Board as a functional gurdwara on a plot of just over 3,000 square feet.
+
+## Congregation and Practice
+
+Shikarpur's resident Khalsa Sikh population numbers only a handful of families; the wider congregation drawing on the gurdwara is composed mainly of Nanakpanthi Sehajdhari Sikhs — Sindhi Hindus devoted to Guru Nanak who have long formed part of the region's syncretic religious landscape, and who learn Gurmukhi in order to read the Guru Granth Sahib. The Guru Granth Sahib is given daily *Prakash* (ceremonial opening) at the gurdwara, and a round-the-clock *langar* is maintained — a continuation of the communal-kitchen tradition central to Sikh gurdwaras everywhere. As of the mid-2010s the gurdwara's president and principal *sewadar*/granthi was Vikash Singh Khalsa, a Nanakpanthi convert to the Khalsa; under his leadership the gurdwara took part in a March 2017 meeting at Kandhkot that established the All Sindh Balochistan Gurdwara Management Committee, linking Shikarpur into the wider network of Sindh's surviving Sikh institutions.
+
+## A Possible Second Site
+
+Some sources also describe a separate or possibly older Shikarpur site called Gurdwara Sri Guru Nanak Sahib — locally rendered "Puj Udasian Samadha Ashram" — featuring a red-painted wooden *baradari*, the samadhs of past Udasi ascetics, and a banyan tree linked to a Guru Nanak legend. Whether this represents the same building as Sach Khand Sahib under an older name, an adjoining shrine within the same compound, or a genuinely separate site nearby is not clearly resolved in the available sources, and the question is noted here rather than resolved.
+
+## Bibliography
+
+- SikhNet, "Guru Nanak in Shikarpur, Sindh" (news report).
+- DiscoverSikhism, "Gurdwara Sri Guru Nanak Sahib, Shikarpur."
+- Asia Samachar, coverage of the March 2017 All Sindh Balochistan Gurdwara Management Committee meeting, Kandhkot.
+- Evacuee Trust Property Board (Pakistan), Functional Gurdwaras register.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+EVENTS_FILLED

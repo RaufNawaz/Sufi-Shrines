@@ -1,0 +1,41 @@
+id: gurdwara-panjvi-chati-patshahi
+name: Gurdwara Panjvi Chati Patshahi
+location: Nankana Sahib, Punjab, Pakistan
+category: Sikh Gurdwara
+site_type: Gurdwara   status: Occasional
+principal_figure: Guru Arjan Dev; Guru Hargobind   figure_type: Sikh Guru   silsila: 
+year_built:  (unknown)   note: 
+figure_born:    figure_died: 
+event_year: 1613   event_note: Guru Hargobind's visit returning from Kashmir
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 484   citations: 4
+
+--- CURRENT Description ---
+## Overview
+
+Gurdwara Panjvin and Chhevin Patshahi — the gurdwara "of the Fifth and Sixth Kingships" — stands in Nankana Sahib near Gurdwara Tambu Sahib, on the road leading to the central shrine of Janam Asthan. Unlike most of the town's shrines, which commemorate the boyhood of *Guru Nanak Dev Ji*, this gurdwara honours two of his successors: the fifth Guru, *Arjan Dev*, and the sixth Guru, *Hargobind*, whose visits to the birthplace of the founder are remembered here. It is thus a reminder that Nankana Sahib drew not only the devotion of later pilgrims but the presence of the living Gurus themselves.
+
+## The Visits of the Fifth and Sixth Gurus
+
+The gurdwara marks the tradition that both Guru Arjan Dev and Guru Hargobind came to the town of Guru Nanak's birth. Guru Hargobind — revered as the master of *miri* and *piri*, the union of temporal and spiritual authority — is remembered to have visited Nankana Sahib in the month of *Har* in Samvat 1670, corresponding to 1613 CE, while returning from a journey to Kashmir. In memory of his stay, his followers are said to have established a *Gur Mela*, a fair, at the very spot where he had rested, and the site came in time to honour the fifth Guru as well. Within the enclosure there are accordingly two shrines: that of Guru Arjan Dev, built plainly and without a dome, and that of Guru Hargobind, surmounted by a dome, the two standing together within a common boundary wall.
+
+## The Gurdwara
+
+The paired shrines of the fifth and sixth Gurus form one of the quieter corners of the Nankana Sahib complex, less frequented than the great shrine of Janam Asthan but valued by pilgrims who make the full round of the town's sacred sites. Their situation beside Tambu Sahib places them within the compact eastern cluster of gurdwaras, and their modest architecture — the domeless sanctum of Guru Arjan set beside the domed sanctum of Guru Hargobind — gives visible form to the succession of the Gurus. As with the other shrines of Nankana Sahib, the *Guru Granth Sahib* is installed within, and the site is cared for by the bodies charged with Sikh heritage in Pakistan.
+
+## Legacy
+
+Since 1947 the gurdwara, like its neighbours, has stood without a local congregation, coming to life chiefly when pilgrim *jathas* arrive for the great anniversaries. Its dedication to the fifth and sixth Gurus lends the sacred geography of Nankana Sahib a fuller shape: the town is not only the cradle of Guru Nanak but a place touched by the later Gurus who carried his message forward — Arjan Dev, the compiler of the scripture and the first martyr of the faith, and Hargobind, who first girded the sword of temporal power. In honouring their visits, Gurdwara Panjvin and Chhevin Patshahi joins the beginning of the Sikh story to its unfolding.
+
+## Bibliography
+
+- "Nankana Sahib," in *The Encyclopaedia of Sikhism* (Harbans Singh, ed.) and Sikh reference works, for the shrines of the fifth and sixth Gurus.
+- Accounts of Guru Hargobind's return from Kashmir and his visit to Nankana Sahib (Samvat 1670 / 1613 CE).
+- Shiromani Gurdwara Parbandhak Committee and Evacuee Trust Property Board listings of the Nankana gurdwaras.
+- Pilgrimage guides to the historic gurdwaras of Nankana Sahib.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT;EVENTS_FILLED

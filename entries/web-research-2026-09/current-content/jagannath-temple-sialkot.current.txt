@@ -1,0 +1,40 @@
+id: jagannath-temple-sialkot
+name: Jagannath Temple, Sialkot
+location: Paris Road, Mohallah Puran Nagar, Sialkot, Punjab, Pakistan
+category: Hindu Temple
+site_type: Temple   status: Active
+principal_figure: Lord Jagannath   figure_type: Deity   silsila: 
+year_built: 2007 (exact)   note: Renovated 2017
+figure_born:    figure_died: 
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-documented
+images: 0   prose words: 320   citations: 3
+
+--- CURRENT Description ---
+## Overview
+
+On Paris Road, in the Mohallah Puran Nagar area of Sialkot's commercial quarter, stands a Hindu temple referred to locally as the Jagannath Temple — a considerably more recent structure than, and a separate building from, the ancient Shivala (Shawala) Teja Singh Temple in Sialkot's Mohallah Dharowal. The two are sometimes conflated in secondary sources — an English Wikipedia article titled "Jagannath Temple, Sialkot" redirects to the Teja Singh temple's page — but the facts recorded for each, location, founding circumstances, and history, do not overlap, and this entry treats them as distinct pending stronger evidence otherwise.
+
+## Founding
+
+Community and press accounts describe the Paris Road temple as built, or substantially re-established, in early 2007, with a grant of roughly Rs 200,000 from the Punjab provincial government under then-Chief Minister Chaudhry Pervaiz Elahi. The grant is reported to have been channelled through a minority-seat provincial legislator, Joseph Hakim Din, at the advocacy of Hakem Ratan Lal Bhagat of Sialkot's District Peace Committee, on behalf of the city's Hindu residents. A further renovation, funded by a roughly Rs 2,000,000 Punjab government grant, is reported for 2017.
+
+## Community and Use
+
+The temple serves Sialkot's small resident Hindu community as a place of worship in a city whose Hindu population, once substantial, was overwhelmingly displaced at Partition. Its modern, grant-funded origins make it emblematic of the more recent, state-assisted rebuilding of minority worship spaces in Punjab's cities, distinct from older survivors like Shivala Teja Singh that predate 1947.
+
+## A Note on the Sources
+
+Much of what is reported about this temple circulates through a small number of near-identical web accounts rather than independent documentation, and no primary institutional record — comparable to the Evacuee Trust Property Board's role at Shivala Teja Singh — has been located confirming its founding or administration. The dates and figures above should be treated as provisional until corroborated by a more authoritative source.
+
+## Bibliography
+
+- Community and press accounts of Hindu temple grants in Sialkot under the Pervaiz Elahi provincial government (2007) and subsequent renovation (2017).
+- Odishabytes, "There's a Jagannath Temple in Pakistan (and Bangladesh) too."
+- Wikipedia, "Shivala Teja Singh temple," for contrast; the redirect from "Jagannath Temple, Sialkot" reflects an unresolved identification, not a confirmed identity between the two sites.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+EVENTS_FILLED

@@ -1,0 +1,26 @@
+id: dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
+name: Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth
+location: Pir Jo Goth, Kingri Taluka, Khairpur District, Sindh, Pakistan
+category: Muslim Shrine
+site_type: Dargah/Mazar   status: Active
+principal_figure: Pir Syed Muhammad Rashid Shah (Roze Dhani)   figure_type: Sufi saint   silsila: Rashidi
+year_built: 1818 (circa)   note: 
+figure_born: 1757   figure_died: 1818
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 1   prose words: 322   citations: 1
+
+--- CURRENT Description ---
+The town of Pir Jo Goth — "the village of the Pir" — in the Kingri taluka of Khairpur District, Sindh, grew up around the shrine of Pir Syed Muhammad Rashid Shah (1757–1818), known by his honorific Roze Dhani, "master of the shrine," the founder of the Rashidi Sufi order and an ancestor of the line of Pir Pagara. A Qadiri–Naqshbandi saint of great influence, his teaching is said to have spread through Sindh, the Punjab, Balochistan, Rajasthan, and beyond. From his descendants issued the spiritual and temporal leadership of the Hurs, the community of devoted faqirs whose ancestors, under the later Pir Pagaras, waged a celebrated resistance against British rule in Sindh in the nineteenth and twentieth centuries; the present (eighth) Pir Pagara draws his authority from this shrine complex. The dargah is distinguished by an austere discipline unusual among Sufi shrines: devotees are required to enter only with the head covered, the Hur faqirs make pilgrimage at fixed times of the year, and the sacred date of 27 Rajab draws great throngs of mureeds — yet, in contrast to the festive urs kept at most Sufi tombs, the Rashidi tradition is said to observe no public urs here. The complex, entered through an imposing Shahi (royal) gate, remains the devotional and political heart of the Hur community and one of the most distinctive shrines of upper Sindh.
+
+A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently places the saint's shrine at Goth Reem Dino, also known as Pir Goth, Sindh, and confirms his descent within the Piran Pagara lineage — consistent with this entry's own account of Pir Jo Goth and the Pir Pagara succession. It also gives a fuller explanation of the epithet "Roze Dhani": tradition holds that as an infant he stopped nursing during the daylight hours of Ramadan, and that the name was later reinforced when a dome (*roza*) was built over his grave.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

@@ -1,0 +1,35 @@
+id: gurdwara-chhevin-patshahi-mozang
+name: Gurdwara Chhevin Patshahi, Mozang
+location: Temple Road, Mozang, Lahore, Punjab, Pakistan
+category: Sikh Gurdwara
+site_type: Gurdwara   status: Heritage
+principal_figure: Guru Hargobind   figure_type: Sikh Guru   silsila: 
+year_built: 1926 (exact)   note: Original under Ranjit Singh; rebuilt 1926 by Sardar Mehar Singh
+figure_born:    figure_died: 
+event_year: 1619   event_note: Visit of Guru Hargobind
+info_level: Moderate   support_level: Source-documented
+images: 0   prose words: 218   citations: 2
+
+--- CURRENT Description ---
+## Overview
+
+On Temple Road in the Mozang locality of Lahore stands Gurdwara Chhevin Patshahi, one of several Lahore-area shrines commemorating a visit by Guru Hargobind, the sixth Sikh Guru — hence "Chhevin Patshahi," the "Sixth Sovereignty." The site is bound up in Sikh tradition with the memory of Mata Kaulan (also remembered as Bibi Kaulan), a devoted follower associated with the Guru whose story is preserved in the devotional literature of the Mozang gurdwara tradition.
+
+## History
+
+The event commemorated here is traditionally dated to 1619. An original structure is recorded as having been raised under Maharaja Ranjit Singh in the early nineteenth century, and the building seen today was rebuilt in 1926 under the patronage of Sardar Mehar Singh. In the pre-1947 period the gurdwara sustained daily congregational worship, and it is recorded as having observed an annual Akhand Path, the unbroken reading of the Guru Granth Sahib, around Guru Hargobind's birth anniversary (Gurpurb).
+
+## Present State
+
+Since Partition the gurdwara has been maintained, like most of Lahore's Sikh shrines, as part of Pakistan's protected Sikh heritage rather than as a site of resident congregational worship, though it remains distinguished among the city's several Chhevin Patshahi gurdwaras — including those at Chowmala/Bhati Gate and at Jhalian — each marking a separate halt in Guru Hargobind's travels.
+
+## Bibliography
+
+- Sikh pilgrimage literature and gazetteer references to the Mozang gurdwara and the Mata Kaulan tradition.
+- Records of Sardar Mehar Singh's 1926 reconstruction, as preserved in Sikh heritage surveys of Lahore.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

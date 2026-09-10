@@ -1,0 +1,26 @@
+id: shrine-of-miran-hussain-zanjani-zanjani-sahib
+name: Shrine of Miran Hussain Zanjani (Zanjani Sahib)
+location: Chah Miran, Lahore, Punjab, Pakistan
+category: Muslim Shrine
+site_type: Dargah/Mazar   status: Active
+principal_figure: Syed Miran Hussain Zanjani   figure_type: Sufi saint   silsila: 
+year_built:  (unknown)   note: Raised platform, no dome
+figure_born: 958   figure_died: 1042
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 2   prose words: 379   citations: 1
+
+--- CURRENT Description ---
+In the old riverside locality of Chah Miran, named directly in his honour, stands the tomb of Syed Miran Hussain Zanjani, one of the earliest Muslim missionary figures associated with Lahore. A Hussaini Syed born in 958 CE in Zanjan, in present-day Iran, he travelled to Lahore around 998 CE on the instruction of his spiritual master, Sheikh Abu al-Fazal Khatil, and is remembered to have preached in the city for some thirty-six years, converting large numbers of its inhabitants to Islam well before the Ghaznavid and later Mughal periods reshaped the region's religious landscape. He died in 1042 CE and was buried alongside his brother, Hazrat Musa Hussain Zanjani, whose own shrine lies nearby. The tomb, unusually for a site of such antiquity, rests on a simple raised platform without a dome, standing within what was once a dedicated garden named for the saint — a modest architectural footprint that belies its historical significance as one of Lahore's oldest surviving Islamic devotional sites, predating by centuries the grander Mughal-era shrines for which the city is more widely known. The shrine is formally recognised and maintained by the Punjab Auqaf and Religious Affairs Department, and continues to host an annual urs drawing local devotees, alongside its role as the namesake and spiritual anchor of the surrounding Chah Miran neighbourhood on the historic bank of the River Ravi near the old walled city. As one of the earliest attested Sufi graves in the Lahore region, the shrine offers valuable testimony to the gradual, missionary-led spread of Islam in Punjab in the centuries before the Delhi Sultanate and Mughal empire.
+
+A substantial chapter devoted to the saint in Alam Faqri's *Tazkirah Awliya-e-Pakistan* traces his family's descent from Imam Musa Kazim through the Zanjan line, and preserves one of Lahore's best-known early Sufi foundation stories: that Ali Hujwiri (Data Ganj Bakhsh) was instructed by his own pir to travel to Lahore and preach, and replied that his senior "pir-brother," Hazrat Shaikh Hussain Zanjani, was already established in the city — only to arrive and find Zanjani's funeral procession already under way. The tazkira's account casts Zanjani as the elder of the two missionary saints credited with Lahore's early Islamization, his death preceding the arrival of the more widely celebrated Data Ganj Bakhsh.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

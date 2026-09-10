@@ -1,0 +1,26 @@
+id: shrine-of-akhund-darweza-baba
+name: Shrine of Akhund Darweza Baba
+location: Hazarkhwani, Peshawar, Khyber Pakhtunkhwa, Pakistan
+category: Muslim Shrine
+site_type: Dargah/Mazar   status: Active
+principal_figure: Akhund Darweza (Syed Muhammad)   figure_type: Sufi saint   silsila: 
+year_built:  (unknown)   note: Buried in the Hazarkhwani graveyard
+figure_born: 1533   figure_died: 1638
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 0   prose words: 346   citations: 1
+
+--- CURRENT Description ---
+The shrine of Akhund Darweza Baba lies in the Hazarkhwani area of Peshawar, a short way south of the Ganj gate of the old walled city, where the saint was buried in the historic Hazarkhwani graveyard. *Akhund Darweza* (traditionally 1533-1638) was one of the most influential religious figures of the Pashtun country in the age of the Mughals — a Sufi and a formidable scholar of the outward religious sciences, a poet in both Pashto and Persian, and a disciple of *Sayyid Ali Tirmizi*, the saint known as *Pir Baba* of Buner (himself honoured at a shrine in this collection). He is best remembered for his learned and combative opposition to the *Roshani* movement of Bayazid Ansari (Pir Roshan), against whose teachings he wrote and preached, and for his religious works, among them the *Makhzan al-Islam* and the *Tazkirat al-Abrar wa'l-Ashrar*, which remain landmarks of early Pashto and Indo-Persian religious literature. He died in the reign of Shah Jahan and was laid to rest at Peshawar, where his tomb became, and remains, a place of pilgrimage for those who seek his blessing. The shrine is a characteristic Peshawar *ziyarat*, its custodianship and its customs handed down over the centuries, and it stands as a memorial to a saint who shaped the religious identity of the Pashtuns as both teacher and defender of orthodox belief. Its situation in the crowded graveyards east of the old city ties it to the deep Islamic heritage of Peshawar, the ancient meeting-place of Central Asia and the subcontinent.
+
+A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, independently corroborates both the shrine's location — giving it as Hazarkhwani, Peshawar, matching this entry — and the saint's discipleship: it names him a *khalifa* (successor) of "Mir Syed Ali," i.e. Syed Ali Ghawwas Tirmizi, the saint venerated as Pir Baba of Buner elsewhere in this archive, confirming the teacher-student relationship already recorded above from the other side at that entry. The tazkira gives a year of death, but its digits are illegible in the OCR scan and are not reproduced here.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 2 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT

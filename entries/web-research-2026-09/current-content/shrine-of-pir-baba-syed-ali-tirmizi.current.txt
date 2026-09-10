@@ -1,0 +1,24 @@
+id: shrine-of-pir-baba-syed-ali-tirmizi
+name: Shrine of Pir Baba (Syed Ali Tirmizi)
+location: Pacha Kalay, Buner District, Khyber Pakhtunkhwa, Pakistan
+category: Muslim Shrine
+site_type: Complex   status: Active
+principal_figure: Syed Ali Tirmizi (Pir Baba)   figure_type: Sufi saint   silsila: 
+year_built: 1600 (century)   note: Shrine developed after 1583; mosque c. 1938-1965
+figure_born: 1502   figure_died: 1583
+event_year:    event_note: 
+info_level: Moderate   support_level: Source-seeded
+images: 2   prose words: 315   citations: 1
+
+--- CURRENT Description ---
+The Shrine of Pir Baba at Pacha Kalay, in the mountainous Buner District of Khyber Pakhtunkhwa, honours *Syed Ali Tirmizi* (c. 1502–1583), the Sufi saint universally known as *Pir Baba*, one of the most revered holy figures of the Pashtun lands. Of *Sayyid* descent, he was traditionally said to have been born at Tirmiz in Central Asia (in present-day Uzbekistan) — though some accounts instead give Fergana as his birthplace — and, according to tradition, came to the region in the train of the Mughal advance, settling at Pacha in Buner around the middle of the sixteenth century. From there his spiritual influence spread widely, and he is remembered as a supporter of the early Mughals — the emperor Humayun is said to have granted him lands in Kunar — and as an opponent of the heterodox teacher Bayazid Ansari, the "Pir Roshan." A separate compendium of Pakistani Sufi saints, Alam Faqri's *Tazkirah Awliya-e-Pakistan*, gives his fuller name as Syed Ali Ghawwas Tirmizi and names Akhund Darweza — the Peshawar-based Chishti saint venerated at the Shrine of Akhund Darweza Baba elsewhere in this archive — as his most renowned khalifa (successor). His green-domed mausoleum, which also holds the grave of his son Syed Habibullah, became the nucleus of a devotional complex; an adjoining mosque was raised in the twentieth century, between about 1938 and 1965, under the care of his descendants. The shrine draws great crowds of pilgrims, above all at the annual *urs* commemorating the saint, held from 24 to 26 of the Islamic month of Rajab. Its prominence made it a target during the militancy that afflicted the region: in December 2008 militants attacked the shrine, destroying religious inscriptions and hoardings, and in 2009 it was briefly closed when Taliban fighters seized control of Buner, before being reopened as security was restored. It remains among the most important Sufi shrines of Khyber Pakhtunkhwa.
+
+## Bibliography
+
+- Alam Faqri, *Tazkirah Awliya-e-Pakistan*, vol. 1 (Lahore) — compendium of the saints of Pakistan.
+
+--- CURRENT qa_note ---
+
+
+--- CURRENT flags ---
+DATE_SPLIT
