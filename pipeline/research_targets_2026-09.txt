@@ -1,0 +1,44 @@
+# Directed web-research batch, 5 September 2026.
+# Exact `Name` values from the live sheet — these are the join keys.
+# Selected by pipeline/build_research_batch.py --rank: the thinnest entries in the
+# archive that the August 2026 pass (entries/web-research-2026-08/targets.tsv) did
+# NOT already cover. Grouped so that one researcher's sources compound.
+
+# --- Batch A · Multan ---
+Shrine of Shah Rukn-e-Alam
+Shrine of Shah Shams-ud-Din Sabzwari
+Shrine of Shah Yusaf Gardez
+Shrine of Syed Musa Pak
+Shrine of Hafiz Muhammad Jamal Multani
+
+# --- Batch B · Uch Sharif and the west-Punjab khanqahs ---
+Shrine of Makhdoom Jahaniyan Jahangasht
+Tomb of Javindi Bibi
+Sial Sharif
+Darbar Hazrat Khawaja Shah Muhammad Sulaiman Taunsvi (R.A)
+Shrine of Pir Sher Muhammad
+Sakhi Sarwar
+
+# --- Batch C · Sindh Sufi ---
+Shrine of Shah Abdul Karim Bulri
+Shrine of Makhdoom Nooh (Hala)
+Dargah of Pir Muhammad Rashid (Roze Dhani), Pir Jo Goth
+Dargah of Khwaja Muhammad Zaman (Luari Sharif)
+Dargah / Roza Sufi Shah Inayat Shaheed
+
+# --- Batch D · Sindh Hindu / Nanakpanthi / Sikh, and Balochistan ---
+Gurdas Ram Mandir
+Bhai Sant Thawan Das Mandir
+Gurdwara Dash Mesh Pita
+Jhollay Lal Mandir
+Gurdwara Sach Khand Sahib
+Shah Noorani Shrine (Syed Bilawal Shah Noorani)
+
+# --- Batch E · Khyber Pakhtunkhwa, and two Lahore gurdwaras ---
+Shrine of Pir Baba (Syed Ali Tirmizi)
+Shrine of Akhund Darweza Baba
+Shrine of Mian Umar Baba (Chamkani)
+Ziarat Kaka Sahib
+Shrine of Akhund Panju Baba
+Gurdwara Chowmala Sahib
+Gurdwara Chhevin Patshahi, Mozang

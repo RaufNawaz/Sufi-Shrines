@@ -1,0 +1,22 @@
+# Directed web-research batch, 5 September 2026 — WAVE 2.
+# The rest of the never-researched tail: every entry under 500 prose words that
+# neither the August 2026 pass nor wave 1 covers. Below this cut the archive's
+# entries carry 500+ words on 4-5 citations, which is not the same problem.
+# Exact `Name` values from the live sheet — these are the join keys.
+
+# --- Batch F · Karachi ---
+Shrine of Abdullah Shah Ghazi
+Shrine of Pir Mangho
+Shrine of Qalandar Baba Auliya
+
+# --- Batch G · Lahore and Islamabad ---
+Shrine of Baba Shah Chiragh
+Shrine of Miran Hussain Zanjani (Zanjani Sahib)
+Bari Imam
+
+# --- Batch H · Punjab villages, Nankana Sahib, Sialkot ---
+Shergarh
+Ranmal Sharif
+Shah Yousuf
+Gurdwara Panjvi Chati Patshahi
+Jagannath Temple, Sialkot
