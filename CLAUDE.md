@@ -220,6 +220,30 @@ measurements and the "if it recurs" probe in `docs/FRONTEND_NOTES.md` §6. Never
 
 ---
 
+## Public view and team view
+
+Since 11 September 2026 the site has two shapes behind one soft gate, `hasProjectAccess()` in
+`src/lib/projectAccess.ts` (`?team=1` once, persisted). **The public reads a clean page; the team
+reads every qualification.** Team-only today: the measured self-account on `/about` (eighteen
+sections and the contents nav), the founded row's precision qualifier and `year_built_note`, every
+"approximate" pill on Hijri projections, `SourcesProvenance`, `/review`. The data is untouched —
+RULE 2 still holds in the sheet and in the team view; the gate decides only what a visitor is
+shown. Tests that need the team view set `localStorage` `shrines_team_access` = `'1'`; a
+`<Navigate>` redirect drops `?team=1`. Full list in `docs/HANDOVER.md` §9.183.
+
+**Credit and citation are two names and the website, nothing else** (Rauf, 11 September 2026):
+"Rauf Nawaz and Adil Ahsan" — no institution, no address, anywhere public.
+`src/lib/data/__tests__/citation.test.ts` greps `CITATION.cff`, `codemeta.json`,
+`LICENSE-data.md` and `data/datapackage.json` for an institution name and an e-mail and fails on
+either. `CONTACT_EMAIL` is empty until there is a project address that is not a person's.
+
+**Display labels are not sheet values** (RULE 3). `support_level` renders as *Field documented ·
+Book verified · Text documented · Web compiled*; the sheet still says `Field-verified` etc. The
+mapping and the rules behind each badge are in `docs/planning/BADGE_GLOSSARY.md`. Likewise the
+route `/almanac` is titled **Urs Calendar** and the sidebar's list button is **Search**.
+
+---
+
 ## Internationalization — READ BEFORE TOUCHING URDU
 
 The Urdu experience must be **as complete and native-feeling as English**. The full plan is in

@@ -34,6 +34,83 @@ the reason the rest is credible.
 
 ---
 
+## 11 September 2026 — Rauf's fourteen items, and the next session's first move
+
+**Read this section first if you are resuming after the usage reset.** Rauf gave a fourteen-item
+list on 11 September (recorded in `feedback_direction_2026-09-11` in memory and summarised here),
+then three amendments in the same sitting: **Urdu is the main thing**, the books can come last,
+and — after seeing the new calendar — **"make the calendar theme different, and in general the
+brownish theme looks bland for the website."** Everything below shipped on branch
+`claude/website-explorer-improvements-f5bwgk`; nothing was pushed or deployed.
+
+### The next session's first move: the palette
+
+The whole site sits on warm beige — `--color-bg: #f9f6f0`, `--color-bg-alt: #f0ebe0`, sand
+borders, brown-black ink (`src/styles/tokens.css`, 117 colour tokens, dark block from line 466).
+Rauf's verdict is that it reads bland, and the calendar in particular should not look like the
+rest of the page. The change is a token edit, not a redesign, and the guards already exist:
+`themeFlippingGrounds`, `textColorTokens`, `cssTokensDefined`, `hairline` in
+`src/styles/__tests__/`, plus `e2e/a11y.spec.ts` in light **and** dark. Proposed direction, to be
+confirmed by Rauf in chat before starting (RULE 5): a cool paper ground (near-white, neutral grey
+hairlines, true black ink), Kashi cobalt kept as the one interactive colour, and the six tradition
+colours (`--color-cat-*`, already tokens) carrying the site's chroma — which is exactly what the
+new calendar's bars use, so the calendar becomes the most coloured surface on the site by design.
+Screenshot both themes at 400 and 1280 before and after; the shot script pattern is in this
+session's scratch and is trivial to recreate (fresh browser context per route, or the language
+preference leaks between routes — that cost one round of screenshots today).
+
+### What shipped (one commit per row unless noted)
+
+| Item | What changed | Commit |
+| --- | --- | --- |
+| 2 Urdu spacing | `--leading-urdu` 1.9→2.05, word-spacing token 0.12em reaching root **and** form controls, `.article-prose` RTL rule (the prose had been getting 1.75 all along), infobox value `--text-base`, badge leading; `urduSpacing.test.ts`; `docs/URDU_TYPOGRAPHY_2026-09-11.md` | `a3b219d` |
+| 3, 4 citation | Two authors, no institution, no address, in `citation.ts`, `CITATION.cff`, `LICENSE-data.md`, `LICENSE`, `codemeta.json`, `datapackage.json`, README, release README; `citation.test.ts` greps for both; footer credit dropped "Harvard Research Project" | `a3b219d` |
+| 3, 6 About | Public shape: lede, byline, Scope, four counts, How it is built, Licence, Cite, Corrections. Team shape (`?team=1`): everything it had. `about-merge.spec` runs as the team and adds a public test | `a3b219d` |
+| 7 Urs Calendar | Renamed (route kept); month grid with spanning bars, lanes, +N more, popover, phone day-list; Coming-up removed; coverage one row; undated behind `<details>`; `docs/URS_CALENDAR_2026-09-11.md` | `36cf7cf` |
+| 8 Search | "Table of Shrines" → "Search" (تلاش); list is one alphabetical list, no category pools; one badge per row | `a3b219d` |
+| 9 preview | Location > 60 chars → place vocabulary, else region, else absent; figure clamped to two lines | `a3b219d` |
+| 10 labels | Field documented · Book verified · Text documented · Web compiled (values unchanged; `BADGE_GLOSSARY.md` records the mapping) | `a3b219d` |
+| 11 tail | Nearby grid removed; Related is four, same order first then nearest (`findRelatedShrines`, tested) | `a3b219d` |
+| 12 events | Infobox Events row is bullets, one per `;` segment, `*ʿurs*` rendered as italics | `a3b219d` |
+| 13, 14 qualifiers | Founded precision + note, and every "approximate" pill (calendar cards, popover, shrine observances) are team-only | `a3b219d`, `36cf7cf` |
+| 5 domains | `docs/DOMAIN_AND_HOSTING_2026-09-11.md` — every shortlisted name free in .com/.org/.pk; Cloudflare or Porkbun; stay on GitHub Pages with a CNAME | this commit |
+| books | `pipeline/books_manifest_2026-09-11.tsv` (45 files, 3 dupes, 42 to fetch, 1,357 MB), `tools/setup_ocr_machine.{sh,ps1}`, `tools/run_new_books_ocr.sh`, `docs/OCR_NEW_MACHINE_RUNBOOK.md`. **Nothing downloaded: all 42 files are private to Rauf's Drive** (0 public / 42 private, probed anonymously) | this commit |
+
+Verified before committing: `npm run verify` green after the two test rewrites the gate caused;
+`npm run build:e2e` green; Playwright on the twelve specs the changes touch — result recorded in
+the commit message of this commit.
+
+### Still open from the list
+
+- **1 (direction)** is a steer, not a task: prefer work that raises epistemic value (orders,
+  chronology, provenance) over gadgets (tours). Recorded in memory; apply it when ranking.
+- **Urdu beyond spacing.** 168 Urdu articles, **0 reviewed**; two pages still fall back to English
+  prose in the Urdu view (`darbar-abul-muali-qadri`, `darbar-malik-ahmad-ayaz`), measured by a
+  probe over all 169 `/ur/shrine/` pages. The 15 `urdu-content.json` keys that do not match a
+  current id **do** resolve at runtime (that probe is the proof) — do not "fix" them.
+- **`Location` prose on the shrine page infobox.** The preview no longer prints a 340-character
+  survey paragraph; the infobox still does (Malik Ahmad Ayaz). Not asked for; noted.
+- **`e2e/urdu-no-leak.spec.ts` budgets** for `about` (102) and `almanac` (3) are now generous —
+  the public About and the calendar without "Coming up" carry fewer Latin runs. Re-measure and
+  lower them (the file's own rule: a budget with slack is not a stricter test than none).
+
+### Decisions for Rauf — asked in chat on 11 September, recorded here
+
+1. **Author order.** Item 3 said "Adil Ahsan and Rauf Nawaz", item 4 said "Rauf Nawaz Adil Ahsan".
+   Shipped as **Rauf Nawaz and Adil Ahsan**; one-line change in `citation.ts`, `CITATION.cff`,
+   `LICENSE-data.md`, `codemeta.json`, `datapackage.json`, README, `release.mjs` if reversed.
+2. **A contact address.** `CONTACT_EMAIL` is now empty (it was the college address); the GitHub
+   issue form is the only correction channel. A project address (not a person's) brings the
+   mailto links back with no code change.
+3. **`LICENSE` copyright line** now reads "Rauf Nawaz" alone (Harvard removed). Adding Adil there
+   is a copyright statement, not a credit, so it was not done without asking.
+4. **Urdu spelling of the names** on `/ur/about`: رؤف نواز اور عادل احسن — confirm.
+5. **Domain** — the three decisions at the top of `docs/DOMAIN_AND_HOSTING_2026-09-11.md`
+   (which name; whether to buy the .pk; whether to keep the GitHub redirect).
+6. **Books** — either set the Drive folder to "anyone with the link" or run the download from a
+   logged-in browser per `docs/OCR_NEW_MACHINE_RUNBOOK.md` §4 (cookies).
+7. **Palette direction** — see the first move above.
+
 ## Done (30 August 2026)
 
 | Finding | Commit |

@@ -9238,3 +9238,51 @@ e2e guard reads text nodes, and a `<title>` is not one.
 `npm run verify` green, `npm run build` green, 22 routes + `/order/junaidi` and `/ur/order/junaidi`
 prerendered, and both confirmed in a real browser against the dev server: 2 saints, 13th c., both
 passages rendering, and no Latin run anywhere in the Urdu page's text.
+
+### Added 11 September 2026 — Rauf's fourteen items; five things the next person would otherwise rediscover
+
+**§9.181 — The Urdu prose never received the leading the token promised.** `--leading-urdu` has
+said 1.9 since Phase 1, and the article paragraphs measured **1.75**: `.article-prose` sets
+`line-height: var(--leading-relaxed)` for the Latin face and, at (0,1,0), outranks the `[dir='rtl']`
+body rule. Word-spacing was 0 on every Urdu surface, and Chrome's UA stylesheet resets it on
+`button`/`input`, so even a root bump would not have reached the sidebar rows (each is a
+`<button>`). Rauf's "words flowing into one another" was both at once. Now: `--leading-urdu` 2.05,
+`--word-spacing-urdu` 0.12em consumed on the RTL root **and** on RTL form controls, an explicit
+`[dir='rtl'] .article-prose` rule, and `src/styles/__tests__/urduSpacing.test.ts` holding all of it.
+Full before/after in `docs/URDU_TYPOGRAPHY_2026-09-11.md`. **A token nobody consumes is a note,
+not a rule** — the same lesson as §9.29 in a stylesheet.
+
+**§9.182 — `urdu-content.json` is keyed by fifteen slugs the dataset no longer uses, and that is
+not a fallback bug.** `shrine-of-bibi-pak-daman`, `tomb-of-allama-iqbal-mazar-e-iqbal`, thirteen
+more — none is a current `id`. A probe that opened all 169 `/ur/shrine/` pages and counted
+Arabic-script against Latin characters in the article found **exactly two** English fallbacks
+(`darbar-abul-muali-qadri`, `darbar-malik-ahmad-ayaz`, which have no Urdu article at all). The
+fifteen resolve through the slug aliases at runtime. Renaming the keys to "fix" the mismatch would
+change nothing a reader sees and might break the alias path. Measure the page, not the file.
+
+**§9.183 — `hasProjectAccess()` now gates content, not only the provenance panel.** Since today the
+public/team split (`?team=1`, persisted in `localStorage` as `shrines_team_access`) decides:
+the eighteen team sections of `/about` and its contents nav; the founded row's precision qualifier
+and `year_built_note` in the infobox; every "approximate" pill (calendar chips and popover,
+`ObservanceCard`, `ShrineObservances`); plus `SourcesProvenance` and `/review` as before. Three
+test files set the flag in `beforeEach`/`addInitScript` to reach the team view
+(`shrineInfoboxDates`, `ShrineObservances`, `e2e/about-merge`). **A `<Navigate>` redirect drops
+`?team=1`**, which is why the e2e sets the storage key instead of the query. The data under the
+gate is untouched: RULE 2's qualifications are still in the sheet and still in the team view.
+
+**§9.184 — RDAP through `rdap.org` answers 302 to everything.** `curl -s -o /dev/null -w "%{http_code}"`
+without `-L` reported 302 for twenty domains and looked like twenty "taken" — it is the bootstrap
+redirect to the registry's own server. With `-L`: 404 = unregistered, 200 = registered, **429 =
+rate-limited** (not "taken"; sleep and retry). `.pk` has no RDAP server, so rdap.org's 404 there
+means nothing; PKNIC's `whois -h whois.pknic.net.pk` is the instrument, and `dargah.pk` is a
+registered positive control. Both were verified against a known answer before a number was written
+down (`feedback_measure_before_recording`). Results in `docs/DOMAIN_AND_HOSTING_2026-09-11.md`.
+
+**§9.185 — The Drive intake folder is private; the manifest is not.** All 42 unique books in the
+Form's "(File responses)" folder redirect an anonymous fetch to a Google sign-in
+(`tools/download_books.py --check`: 0 public / 42 private). The Drive MCP connector can *list* the
+folder (that is how `pipeline/books_drive_listing_2026-09-11.json` exists) but is not a transfer
+path for 100 MB PDFs. The manifest, links file, routing (17 UTRNet / 23 text-layer or Tesseract
+`eng` / 1 EPUB / 1 hold) and the new-machine scripts are all in place; the download step needs a
+logged-in session or a sharing change. `docs/OCR_NEW_MACHINE_RUNBOOK.md` §4. Also recorded there:
+`finalize_books.py` silently ignores any book absent from its hard-coded `BOOKS_INFO`.

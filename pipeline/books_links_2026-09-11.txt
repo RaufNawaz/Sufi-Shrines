@@ -1,0 +1,92 @@
+# Book uploads from the Google Form's file-response folder, captured 2026-09-11.
+# Built by tools/books_manifest.py from pipeline/books_drive_listing_2026-09-11.json —
+# duplicates (same size + title) and anything already in books/ are left out.
+# Download:  python3 tools/download_books.py --links pipeline/books_links_2026-09-11.txt \
+#                --out books/incoming-2026-09-11 [--cookies ~/Downloads/cookies.txt]
+# The files are private to the project Drive: anonymous download was refused on
+# 2026-09-11 (every id redirected to a Google sign-in), so --cookies is required.
+
+# Sawaneh Mubarak Hazrat Syed Shah Jamal-ul-Bahr - saifullah imtiaz.pdf  (2.3 MB, Urdu (scan))
+https://drive.google.com/open?id=1yD4ryBbDg-6LYu6nv8g26WRlaD8QTLDz
+# Essays on Islam and Indian History{Richard M. Eaton}(2003, Oxford University Press){106081397} libgen.li - Adil Ahsan.pdf  (15.5 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1zr2hYBg93eBEXazYOvIKdu8o7os_zGFt
+# Pnina Werbner, Helene Basu - Embodying Charisma_ Modernity, Locality and the Performance of Emotion in Sufi Cults (1998) - libgen.li - Adil Ahsan.pdf  (2.0 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=19-rGCa8tJ12kn4YlcL8u7ai1cN9cEbXV
+# Robert Rozehnal (auth.) - Islamic Sufism Unbound_ Politics and Piety in Twenty-First Century Pakistan (2007, Palgrave Macmillan) [10.1007_978-0-230-60572-5] - libgen.li - Adil Ahsan.pdf  (3.1 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1ZD2f32TIT1teWgAJ4mH1kK0VLc3djiEQ
+# Omar Kasmani - Queer Companions_ Religion, Public Intimacy, and Saintly Affects in Pakistan (2022, Duke University Press) [10.1515_9781478022657] - libgen.li - Adil Ahsan.pdf  (6.2 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1ClLsmSc25Z0MKczyXZms-9RmP1WcOf8F
+# Annemarie Schimmel - Pain and Grace_ A Study of Two Mystical Writers of Eighteenth-Century Muslim India (Numen Book) (1997) - libgen.li - Adil Ahsan.pdf  (16.3 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1kCeNzCci1sQbDXs8ld6N_o-Re9ROTw_e
+# Shemeem B. Abbas - The Female Voice in Sufi Ritual_ Devotional Practices of Pakistan and India (2003, University of Texas Press) - libgen.li - Adil Ahsan.pdf  (3.8 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1kO1Dvqt8NIsOKHxwqCJhyQI9ZiwybrCh
+# Madho Lal Hussein - Verses of a Lowly Fakir (2015, Penguin Group) - libgen.li - Adil Ahsan.pdf  (0.7 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1sgY7CunXSiXbDW6y5YJAjNKa-j0c-3tX
+# Bullhe ShÄh_ Taufiq Rafat - Bulleh Shah, A Selection _ Rendered into English Verse (1982, Vanguard Publications) - libgen.li - Adil Ahsan.pdf  (8.5 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1ACBUCtUWX3a8ETa5ftjkyp2XiIQvHsDw
+# Annemarie Schimmel - Mystical Dimensions of Islam (2011, The University of North Carolina Press) - libgen.li - Adil Ahsan.pdf  (30.4 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1S1qJw8iPYRtvqvIImEGSXyuvuKyqf8Gz
+# KHALID, HAROON - A WHITE TRAIL_A JOURNEY INTO THE HEART OF PAKISTAN'S RELIGIOUS MINORITIES (2013, Westland Ltd) - libgen.li - Adil Ahsan.pdf  (1.9 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1QCHhPdv7ESVf1HB-UXO8_G5p8OYjYnRP
+# Haroon Khalid - Walking with Nanak (2016, Tranquebar Press) - libgen.li - Adil Ahsan.pdf  (146.2 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=17W9pXJOz_xnN3cBV2EpjYwsjADkMoQ7O
+# Harish Dhillon - Janamsakhis - Ageless Stories, Timeless Values (2015, Hay House Publishers) - libgen.li - Adil Ahsan.pdf  (26.1 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=190a-yVMivfCACExriGuVKC9xXjJf1dpA
+# Schaflechner, Jurgen_ - Hinglaj Devi (2017, Oxford University Press USA - OSO) - libgen.li - Adil Ahsan.pdf  (6.5 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1Wr2qwGyzxDaYbqAEtAHtmf0uyNrQYqb2
+# Haroon Khalid - In Search of Shiva_ A Study of Folk Religious Practices in Pakistan (2015, Rupa Publications) - libgen.li - Adil Ahsan.epub  (0.3 MB, English (EPUB, born-digital))
+https://drive.google.com/open?id=1mozUcRAuvsWx0rgC_uCsx__lrIXnSlQn
+# 00523_Tazkirah-Awliya-e-Pak-o-Hind - saifullah imtiaz.pdf  (48.5 MB, Urdu (scan))
+https://drive.google.com/open?id=1MW2mcyWAPyueeH5HKKrc2frElrBOCle9
+# Qatra Qatra Qulzam By Wasif Ali Wasif UrduShairi.com - Saifullah Imtiaz.pdf  (13.2 MB, Urdu print (scan))
+https://drive.google.com/open?id=1DwDz3lGMZ5zVEYkTNGHIs9Ns7HlqRyFh
+# Urdu- Wasifyat واصفیات #- By Wasif Ali Wasif Non Shia Scholar - Saifullah Imtiaz.pdf  (9.6 MB, Urdu print (scan))
+https://drive.google.com/open?id=1IACyGbj108LpeuI69GWEPtYuYaLEEBmO
+# Dil Darya Samunder By Wasif Ali Wasif - Saifullah Imtiaz.pdf  (18.9 MB, Urdu print (scan))
+https://drive.google.com/open?id=1QNgSjMpj_IVU-1oUJKamdVLqRo9m9riJ
+# Kiran Kiran Sooraj By Wasif Ali Wasif - Saifullah Imtiaz.pdf  (8.0 MB, Urdu print (scan))
+https://drive.google.com/open?id=1IB2Ht1NWr7fgvLI_D8oASLlBnuXa4vCD
+# 2015.315235.Tahqiqaat-Chishti - saifullah imtiaz.pdf  (49.2 MB, Urdu (scan))
+https://drive.google.com/open?id=1S8x6w5VZDii20AP2wH_qxzuG9vtPJHrq
+# 2015.398396.Tareeq-Lahore - saifullah imtiaz.pdf  (70.4 MB, Urdu (scan))
+https://drive.google.com/open?id=1LTUSOKbpfNmAUyQbyXAWal2qdwMRMmlO
+# 00396_HADEEQAT-UL-AULIA-ur - saifullah imtiaz.pdf  (56.0 MB, Urdu (scan))
+https://drive.google.com/open?id=1dJskYqvmOFng1bh-luO3RnWvw_L0SzcR
+# Khulasat Ut Tawarikh - saifullah imtiaz.pdf  (55.0 MB, Persian chronicle, or its Urdu translation)
+https://drive.google.com/open?id=13hdNjxoScg14Hmq7KvBHXDXpWYp9wjit
+# revisedtranslati00nizauoft - saifullah imtiaz.pdf  (16.4 MB, UNKNOWN)
+https://drive.google.com/open?id=1SVMG7jvddqPS023S7ZKC9p6cOgpMm3Eh
+# Masnavi_01 - saifullah imtiaz.pdf  (79.7 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1In1VRutqcMUMNzfhNUv_txgwb6_iQ7li
+# Masnavi_02 - saifullah imtiaz.pdf  (68.8 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1McUeImnPrMTSzgf1WgdCpvA_ME9Y1w22
+# Masnavi_03 - saifullah imtiaz.pdf  (61.6 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1-MoGde0b5kj64eqWyWwnw8SvTC58bFfj
+# Masnavi_04 - saifullah imtiaz.pdf  (50.3 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1wF4S4x3fJWWk2rB26zg0oaU4l2Oc5N3R
+# Masnavi_05 - saifullah imtiaz.pdf  (65.8 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1pZidZh9YBH4sLE-IsEP3NTRxEFBYiMra
+# Masnavi_06 - saifullah imtiaz.pdf  (99.0 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=1TohYqvUr6KSA6zOdAj7jpXmqvpx2FRBX
+# Masnavi_01_text - saifullah imtiaz.pdf  (104.6 MB, Persian (Rumi's Masnavi))
+https://drive.google.com/open?id=18FL3A3QYu_VLtsVIAYgAWJwAXiyK6Ya9
+# [Murty Classical Library of India - Murty Classical Library of India] The Risalo of Shah Abdul Latif_ Sufi Poetry from Sindh{Shah Abdul Latif (author)_ Christopher Shackle (translator)}(2025, Harvard University Press)[10.4159_9780674303751] - Adil Ahsan.pdf  (0.8 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1HOEtLylAPFcrkmL5SfOBZnriOl4qMZjW
+# Carl W. Ernst, Bruce B. Lawrence (auth.) - Sufi Martyrs of Love_ Chishti Sufism in South Asia and Beyond (2002, Palgrave Macmillan) [10.1007_978-1-137-09581-7] - libgen.li - Adil Ahsan.pdf  (34.7 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1avgacvNooyBffw3v_0rXyMyj7gsu_AtU
+# Saiyid Athar Abbas Rizvi - A History of Sufism in India 1 (1978, Munshiram Manoharlal Publishers) - libgen.li - Adil Ahsan.pdf  (91.9 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1aJf2vNcAAWPSoINpWMRR42iM3uBhkn5X
+# [Islamic Civilization and Muslim Networks] Scott A. Kugle - Sufis and Saints' Bodies_ Mysticism, Corporeality, and Sacred Power in Islam (2007, University of North Carolina Press) - libgen.li - Adil Ahsan.pdf  (21.7 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1vQiNFiv6YQ0kqOxKvU9WJgDi_JNSZqPT
+# Regula B Qureshi - Sufi Music of India and Pakistan_ Sound, Context and Meaning in Qawwali (1995, University of Chicago Press) - libgen.li - Adil Ahsan.pdf  (24.2 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1D6cB0SpPqCtxJdxxOt0Mtg1KOvqHqGtv
+# H.T. Sorley - Shah Abdul Latif of Bhit [Sindh, Pakistan]_ His Poetry, Life And Times (1967, Oxford University Press) - libgen.li - Adil Ahsan.pdf  (12.3 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1880IcdhwrUkMkQO8-8tSbkhPcESZAz4u
+# Boivin, Michel - The Hindu Sufis of South Asia_ Partition, Shrine Culture and the Sindhis in India (2019, I.B. TAURIS) [10.5040_9781788319584] - libgen.li - Adil Ahsan.pdf  (10.4 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1MIdN-SNGkzPqoOXw1VEycOU271YqEfy-
+# [Murty Classical Library of India] Bullhe Shah_ Christopher Shackle - Sufi Lyrics_ Selections from a World Classic (2021, Harvard University Press) - libgen.li - Adil Ahsan.pdf  (2.0 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1AZk36CU-_OD7Q-VazyXmcoWAbxxPzgUy
+# Waris Shah - The Adventures of Hir and Ranjha (2004, Peter Owen Publishers) - libgen.li - Adil Ahsan.pdf  (0.5 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=1pqycmjzu9vGraHSuRwJfemUBK1qIwRiZ
+# Annemarie Schimmel - As Through a Veil_ Mystical Poetry in Islam (American Lectures on the History of Religions) (1982, Columbia University Press) - libgen.li - Adil Ahsan.pdf  (14.0 MB, English print (academic / literary translation))
+https://drive.google.com/open?id=17B97C_ui3YgAGF9dX_71zNOErJWRV61I

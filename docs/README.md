@@ -46,6 +46,8 @@ can go stale silently is worse than no index, because it is trusted.
 | -------------------------------------- | -------------------------------------------------------------------------- |
 | [`FRONTEND_NOTES.md`](FRONTEND_NOTES.md) | How the front end reads and renders the sheet — including §6, the MapTiler basemap measurements |
 | [`REVIEW_ur_prefix_routing.md`](REVIEW_ur_prefix_routing.md) | Review gate for the `/ur/*` prerendered routes       |
+| [`URDU_TYPOGRAPHY_2026-09-11.md`](URDU_TYPOGRAPHY_2026-09-11.md) | The Urdu spacing pass — what was measured, what changed, before/after in px |
+| [`URS_CALENDAR_2026-09-11.md`](URS_CALENDAR_2026-09-11.md) | The Urs Calendar month grid — layout algorithm, and what is deliberately not on it |
 
 ## OCR guides (Urdu book pipeline)
 
@@ -57,6 +59,7 @@ can go stale silently is worse than no index, because it is trusted.
 | [`LOCAL_OCR_QUICKSTART_MAC.md`](LOCAL_OCR_QUICKSTART_MAC.md) | Short "run OCR on a PDF now" recipe — macOS                  |
 | [`LIBRARY_OCR_SETUP.md`](LIBRARY_OCR_SETUP.md)               | Setting up the library workstation OCR kit                   |
 | [`NEW_LAPTOP_OCR_RUNBOOK.md`](NEW_LAPTOP_OCR_RUNBOOK.md)     | Move, OCR, translate, photos — walkthrough on a fresh laptop  |
+| [`OCR_NEW_MACHINE_RUNBOOK.md`](OCR_NEW_MACHINE_RUNBOOK.md)   | The 42 new books (Sept 2026): copy the folder, run three commands; download is blocked on a private Drive folder |
 | [`CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md`](CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md) | Measured comparison: reading OCR'd Urdu directly vs the LibreTranslate pipeline |
 
 ## Media and archiving
@@ -126,6 +129,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 | Doc                                                            | Purpose                                                    |
 | -------------------------------------------------------------- | ---------------------------------------------------------- |
 | [`PROPOSAL_Shrines_Data_Quality.md`](PROPOSAL_Shrines_Data_Quality.md) | Data-quality proposal                               |
+| [`DOMAIN_AND_HOSTING_2026-09-11.md`](DOMAIN_AND_HOSTING_2026-09-11.md) | Domain names (availability measured), registrars, hosting for a static site; three decisions for Rauf at the top |
 | [`STATUS_AND_ROADMAP.md`](STATUS_AND_ROADMAP.md)               | Status and roadmap write-up                                |
 | [`OPERATING_PLAN.md`](OPERATING_PLAN.md)                       | Operating plan                                             |
 | [`POST_DATA_LAYER_ROADMAP.md`](POST_DATA_LAYER_ROADMAP.md)     | What comes after the data layer                             |

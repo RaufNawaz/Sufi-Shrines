@@ -1,0 +1,12 @@
+# The web stack the UTRNet app (abdur75648/End-To-End-Urdu-OCR-WebApp) actually
+# runs under. Its own requirements.txt is unpinned and the app's code does not
+# work with current Gradio, so these are force-reinstalled on top of it. Same
+# pins as docs/BOOK_OCR_WORKFLOW.md "Pin the web stack" (working since 2026-07).
+# Read by tools/setup_ocr_machine.sh and tools/setup_ocr_machine.ps1.
+gradio==4.16.0
+gradio_client==0.8.1
+huggingface_hub==0.20.3
+fastapi==0.109.0
+starlette==0.35.1
+uvicorn==0.27.0.post1
+jinja2==3.1.3
