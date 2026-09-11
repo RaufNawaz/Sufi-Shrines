@@ -18,7 +18,12 @@
  */
 import { describe, it, expect } from 'vitest';
 import { buildAlmanac } from '../almanac';
-import { buildCalendarMonths, monthEntries } from '../almanacCalendar';
+import {
+  buildCalendarMonths,
+  hiddenInColumn,
+  layoutWeek,
+  monthEntries,
+} from '../almanacCalendar';
 import { buildShrines } from '../shrineModel';
 import { makeShrineRow } from '../../../test/utils';
 import type { ShrineRow } from '../../../types/shrine';
@@ -208,6 +213,86 @@ describe('against the shipped snapshot', () => {
     for (const entry of almanac.dated) {
       if (entry.observance.precision !== 'day') continue;
       expect(placed.has(entry), `${entry.shrine.slug} was projected but never drawn`).toBe(true);
+    }
+  });
+});
+
+describe('layoutWeek — bars and lanes', () => {
+  /** A dated entry with a hand-set window, the way the boundary test above
+   *  builds one. Names are what the lane sort falls back to. */
+  const entryOn = (name: string, start: [number, number, number], end: [number, number, number]) =>
+    ({
+      shrine: { slug: name.toLowerCase(), name },
+      observance: { precision: 'day', calendar: 'gregorian' },
+      window: { start: new Date(Date.UTC(...start)), end: new Date(Date.UTC(...end)) },
+      approximate: false,
+    }) as unknown as ReturnType<typeof buildAlmanac>['dated'][number];
+
+  /* 13 June 2026 is a Saturday: 13–15 June crosses the Sunday/Monday week edge,
+     so it must become two bars — cols 5–6 in one week, col 0 in the next. */
+  const crossing = entryOn('Crossing', [2026, 5, 13], [2026, 5, 15]);
+  const june = buildCalendarMonths([crossing], JUNE, 365)[0]!;
+
+  it('draws a multi-day window as one bar per week it touches', () => {
+    const [week1, week2, week3] = june.weeks;
+    expect(layoutWeek(week1!).spans).toEqual([]);
+    const a = layoutWeek(week2!).spans;
+    expect(a.length).toBe(1);
+    expect([a[0]!.startCol, a[0]!.endCol]).toEqual([5, 6]);
+    expect(a[0]!.continuesBefore).toBe(false);
+    expect(a[0]!.continuesAfter).toBe(true);
+    const b = layoutWeek(week3!).spans;
+    expect(b.length).toBe(1);
+    expect([b[0]!.startCol, b[0]!.endCol]).toEqual([0, 0]);
+    expect(b[0]!.continuesBefore).toBe(true);
+    expect(b[0]!.continuesAfter).toBe(false);
+  });
+
+  it('stacks overlapping windows in separate lanes and lets disjoint ones share', () => {
+    const long = entryOn('Long', [2026, 5, 2], [2026, 5, 4]); // Tue–Thu
+    const inside = entryOn('Inside', [2026, 5, 3], [2026, 5, 3]); // Wed
+    const later = entryOn('Later', [2026, 5, 6], [2026, 5, 6]); // Sat
+    const week = buildCalendarMonths([long, inside, later], JUNE, 365)[0]!.weeks[0]!;
+    const layout = layoutWeek(week);
+    const lane = (name: string) => layout.spans.find((s) => s.entry.shrine.name === name)!.lane;
+    // Earliest start, longest first, takes the top lane.
+    expect(lane('Long')).toBe(0);
+    expect(lane('Inside')).toBe(1);
+    // Saturday is free in lane 0 again.
+    expect(lane('Later')).toBe(0);
+    expect(layout.lanes).toBe(2);
+  });
+
+  it('counts what a column cannot show, including bars passing through it', () => {
+    const a = entryOn('A', [2026, 5, 2], [2026, 5, 4]);
+    const b = entryOn('B', [2026, 5, 2], [2026, 5, 2]);
+    const c = entryOn('C', [2026, 5, 3], [2026, 5, 3]);
+    const week = buildCalendarMonths([a, b, c], JUNE, 365)[0]!.weeks[0]!;
+    const layout = layoutWeek(week);
+    // With one visible lane, Tuesday hides B and Wednesday hides C; A shows.
+    expect(hiddenInColumn(layout, 1, 1)).toBe(1);
+    expect(hiddenInColumn(layout, 2, 1)).toBe(1);
+    expect(hiddenInColumn(layout, 3, 1)).toBe(0);
+    // With two lanes nothing is hidden anywhere.
+    for (let col = 0; col < 7; col++) expect(hiddenInColumn(layout, col, 2)).toBe(0);
+  });
+
+  it('never assigns two spans to one lane over a shared column (shipped data)', () => {
+    const shrines = buildShrines((snapshot as { rows: ShrineRow[] }).rows);
+    const months = buildCalendarMonths(buildAlmanac(shrines, JUNE).dated, JUNE);
+    for (const month of months) {
+      for (const week of month.weeks) {
+        const layout = layoutWeek(week);
+        const seen = new Set<string>();
+        for (const span of layout.spans) {
+          expect(span.lane).toBeGreaterThanOrEqual(0);
+          for (let c = span.startCol; c <= span.endCol; c++) {
+            const key = `${span.lane}:${c}`;
+            expect(seen.has(key), `lane ${span.lane} col ${c} used twice`).toBe(false);
+            seen.add(key);
+          }
+        }
+      }
     }
   });
 });

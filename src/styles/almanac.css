@@ -47,31 +47,33 @@
    go stale, and the two largest of the five are still gaps rather than
    holdings. */
 .almanac-coverage {
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-6);
+  padding-block: var(--space-4);
   margin-bottom: var(--space-6);
+  border-block: var(--hairline) solid var(--color-border-light);
 }
 
+/* One row, since 11 September 2026. The five tiles were a third of a screen
+   for five numbers; the denominator sentence leads and the breakdown follows
+   it on one wrapping line, each count still on its own coloured rule. */
 .almanac-coverage .almanac-section-heading {
-  margin-block-start: 0;
+  margin-block: 0 var(--space-2);
+  font-size: var(--text-base);
 }
 
 .almanac-coverage-list {
   list-style: none;
-  margin: 0;
+  margin: var(--space-3) 0 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-  gap: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
 }
 
 .almanac-coverage-item {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding-inline-start: var(--space-3);
+  align-items: baseline;
+  gap: var(--space-2);
+  padding-inline-start: var(--space-2);
   border-inline-start: 3px solid var(--color-border);
 }
 
@@ -92,10 +94,11 @@
 }
 
 .almanac-coverage-count {
-  font-size: var(--text-2xl);
+  font-size: var(--text-base);
   font-weight: 700;
   font-family: var(--font-serif);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
   color: var(--color-text);
 }
 
@@ -111,9 +114,10 @@
 }
 
 .almanac-coverage-total {
-  margin: var(--space-4) 0 0;
+  margin: 0;
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
 /* ── The approximation notice ────────────────────────────────────────────── */
@@ -194,12 +198,6 @@
   margin-block-start: 0;
 }
 
-/* Under the grid rather than over it, so the rule about what a square may hold
-   sits with the unplaced list it explains. */
-.almanac-calendar-rule {
-  margin-block: var(--space-4) 0;
-}
-
 .almanac-month-heading {
   font-family: var(--font-serif);
   font-size: var(--text-base);
@@ -235,10 +233,6 @@
   gap: var(--space-4);
   padding: var(--space-4) 0;
   border-block-end: var(--hairline) solid var(--color-border-light);
-}
-
-.almanac-list--upcoming .almanac-entry:first-child {
-  border-block-start: 2px solid var(--color-primary);
 }
 
 @media (max-width: 639.98px) {
@@ -599,200 +593,157 @@
   border-style: dashed;
 }
 
-/* The denominator, kept on the first screen.
+/* ── The month grid ────────────────────────────────────────────────────────
+   Google Calendar's shape, since 11 September 2026: a toolbar (Today, ‹ ›, the
+   month), a full-width seven-column table, day numbers in the top-start corner,
+   today's in a filled accent circle, and every observance a coloured bar across
+   the days it covers. What is drawn is decided in `almanacCalendar.ts` — a bar
+   is one *recorded* window, in lanes so overlapping bars stack — and what is
+   refused (month-only observances, seasons) is refused there too.
 
-   Coverage used to be the page's opening block, on the argument that a reader
-   who sees twenty-odd dates should know they are twenty-odd out of a hundred
-   and seventy. The calendar took that position on 26 August 2026; this line is
-   what the argument reduces to when it has to fit above a grid rather than in
-   front of one. Muted and small — the full breakdown is a scroll away. */
-.almanac-calendar-denominator {
-  margin-block: 0 var(--space-3);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  font-variant-numeric: tabular-nums;
+   Bars are absolutely positioned inside the cell they *start* in and extend
+   `--span` cells to the inline-end, which works because the table is
+   `table-layout: fixed`: every column is the same width, so N × 100% of one
+   cell is N cells. The row reserves `--lanes` of height so every cell in a week
+   lines up; `--lane-h` is the lane pitch, taller in Urdu because Nastaliq
+   needs the ascent. */
+
+.almanac-calendar {
+  --lane-h: 24px;
+  position: relative;
+  margin-block-start: var(--space-2);
 }
 
-[dir='rtl'] .almanac-calendar-denominator {
-  font-family: var(--font-urdu);
-  font-size: var(--text-sm);
+[dir='rtl'] .almanac-calendar {
+  --lane-h: 30px;
 }
 
-/* ── The calendar's own month rail ────────────────────────────────────────
-   The list view's rail is anchor links down the page; this one is buttons that
-   move the grid. Same pill, deliberately — they do the same job for a reader —
-   with the pressed state the anchors have no need of. */
-.almanac-calendar-months {
-  margin-block-end: var(--space-4);
-  padding-block-end: var(--space-3);
-  border-block-end: var(--hairline) solid var(--color-border-light);
-}
-
-.almanac-calendar-months-list {
+.almanac-cal-toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-block-end: var(--space-3);
 }
 
-.almanac-calendar-month-btn {
-  display: inline-flex;
+.almanac-cal-nav {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-1);
-  /* 44px, like every other pill on this page: a real touch target. */
+}
+
+.almanac-cal-today {
   min-height: 44px;
   padding-inline: var(--space-3);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  background-color: var(--color-bg-surface);
-  color: var(--color-text-secondary);
-  font-family: inherit;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  font: inherit;
   font-size: var(--text-sm);
+  font-weight: 500;
   cursor: pointer;
   transition:
     color var(--duration-fast) var(--easing),
     border-color var(--duration-fast) var(--easing);
 }
 
-.almanac-calendar-month-btn:hover,
-.almanac-calendar-month-btn:focus-visible {
+.almanac-cal-today:hover,
+.almanac-cal-today:focus-visible {
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
-/* The month the grid is showing. Border weight and text colour, not a fill:
-   a filled pill in this palette reads as a category chip, and the border is
-   the distinction the rest of the archive's controls already use. It is never
-   colour alone — `aria-current` says the same thing to a screen reader and the
-   weight change carries it in monochrome. */
-.almanac-calendar-month-btn--current {
-  border-color: var(--color-primary);
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.almanac-calendar-month-count {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.almanac-calendar-month-year {
-  font-size: var(--text-xs);
-  color: var(--color-text-secondary);
-  font-variant-numeric: tabular-nums;
-}
-
-[dir='rtl'] .almanac-calendar-month-btn,
-[dir='rtl'] .almanac-calendar-month-count,
-[dir='rtl'] .almanac-calendar-month-year {
-  font-family: var(--font-urdu);
-}
-
-[dir='rtl'] .almanac-calendar-month-btn {
-  font-size: var(--text-base);
-}
-
-/* On a phone, thirteen wrapped pills are four rows — 440px of navigation above
-   a grid that is supposed to be the first thing on the page, which is the
-   layout this rearrangement exists to undo. One row that scrolls sideways
-   instead: the months stay in reading order, the grid stays near the top, and
-   the current month is scrolled into view by the browser because it is the
-   focused/`aria-current` control the reader last pressed.
-
-   The three touch declarations are the ones `touchScroll.test.ts` requires of
-   every internally-scrolling region — momentum on older WebKit, overscroll that
-   does not chain to the page, and an explicit `touch-action` so no ancestor
-   narrows it. `pan-x` rather than `pan-y`: this scroller goes sideways, and
-   claiming `pan-y` would eat the vertical drag that scrolls the page. */
-@media (max-width: 640px) {
-  .almanac-calendar-months-list {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-inline: contain;
-    touch-action: pan-x;
-    scroll-snap-type: inline mandatory;
-    /* Room for the focus ring on the last pill, which a scroller clips. */
-    padding-block-end: 2px;
-    /* Deliberately *not* bled to the screen edge with a negative inline margin.
-       That reads better — a rail that runs off the edge announces itself as
-       scrollable — and `e2e/no-overflow.spec.ts` is right to reject it: it
-       measures an element's rect against the viewport before it asks whether
-       the element is a scroller, so a bled rail is indistinguishable from the
-       fixed-width-sized-for-English bug the check exists to catch. The rail
-       stays inside the page gutter and the last pill's clipped edge is what
-       says there is more. */
-  }
-
-  .almanac-calendar-months-list > li {
-    scroll-snap-align: start;
-  }
-
-  .almanac-calendar-month-btn {
-    white-space: nowrap;
-  }
-}
-
-.almanac-calendar {
-  margin-block-start: var(--space-4);
-}
-
-.almanac-calendar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-  margin-block-end: var(--space-1);
-}
-
-.almanac-calendar-month {
-  margin: 0;
-  font-size: var(--text-lg);
-  font-weight: 600;
-  text-align: center;
-}
-
-[dir='rtl'] .almanac-calendar-month {
-  font-family: var(--font-urdu);
-  line-height: var(--leading-urdu-heading);
-}
-
-/* The step buttons keep their width when disabled rather than disappearing, so
-   the month name does not slide sideways at the ends of the horizon. */
-.almanac-calendar-step[disabled] {
+/* Disabled controls keep their width, so the month name does not slide
+   sideways at the ends of the horizon. */
+.almanac-cal-today[disabled],
+.almanac-cal-step[disabled] {
   opacity: 0.4;
   cursor: default;
 }
 
-.almanac-calendar-count {
-  margin-block: 0 var(--space-3);
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  text-align: center;
+.almanac-cal-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
 }
 
-[dir='rtl'] .almanac-calendar-count {
+.almanac-cal-step:hover:not([disabled]) {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.almanac-cal-step:focus-visible,
+.almanac-cal-today:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+/* "Previous" points to the inline start. The glyph is drawn for LTR and
+   mirrored under RTL, so the pair never points into the wrong month. */
+.almanac-cal-chevron--prev,
+.almanac-cal-chevron--next {
+  display: block;
+}
+
+[dir='rtl'] .almanac-cal-chevron {
+  transform: scaleX(-1);
+}
+
+.almanac-cal-title {
+  margin: 0;
+  margin-inline-start: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+[dir='rtl'] .almanac-cal-title {
   font-family: var(--font-urdu);
-  font-size: var(--text-sm);
+  line-height: var(--leading-urdu-heading);
+}
+
+.almanac-cal-toolbar-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* The count of active filters, on the Filters control itself. */
+.almanac-facet-badge {
+  margin-inline-start: var(--space-1);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
 }
 
 .almanac-calendar-grid {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  border: 1px solid var(--color-border);
 }
 
 .almanac-calendar-grid th {
-  padding-block: var(--space-1);
+  padding-block: var(--space-2);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--color-text-secondary);
   text-align: center;
+  border-block-end: 1px solid var(--color-border);
 }
 
 [dir='rtl'] .almanac-calendar-grid th {
@@ -800,6 +751,25 @@
   font-size: var(--text-sm);
   letter-spacing: normal;
   text-transform: none;
+  padding-inline: 0;
+}
+
+/* Seven columns in 400px is ~52px each, and جمعرات at text-sm needs 55: the
+   header overflowed its cell by 3px in the Urdu phone view (e2e/no-overflow).
+   The weekday names have no Urdu abbreviations, so the header steps down one
+   size on a phone — the one place Nastaliq is allowed below text-sm, and only
+   for a single word in a heading row. */
+@media (max-width: 640px) {
+  [dir='rtl'] .almanac-calendar-grid th {
+    font-size: var(--text-xs);
+    word-spacing: 0;
+  }
+}
+
+/* `--lanes` is written inline on each <tr> by AlmanacCalendar.tsx from
+   `layoutWeek`; this is the value a row has before React does. */
+.almanac-calendar-grid tr {
+  --lanes: 0;
 }
 
 .almanac-calendar-cell {
@@ -808,93 +778,360 @@
   border: var(--hairline) solid var(--color-border-light);
 }
 
-/* Padding cells belong to the neighbouring month and hold nothing. Quieter
-   ground rather than an invisible cell, so the month's own shape reads. */
+/* Padding cells belong to the neighbouring month. Quieter ground rather than
+   an invisible cell, so the month's own shape reads. */
 .almanac-calendar-cell--outside {
   background: var(--color-bg-alt);
-  border-color: transparent;
 }
 
-.almanac-calendar-day {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 2px;
-  width: 100%;
-  /* 44px is the touch-target floor; the cells run taller than that on a
-     desktop because they carry names. */
-  min-height: 44px;
-  padding: var(--space-1);
-  border: 0;
-  background: none;
-  font: inherit;
-  color: inherit;
-  text-align: start;
-}
-
-.almanac-calendar-day-number {
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
+.almanac-calendar-cell--outside .almanac-cal-daynum {
   color: var(--color-text-muted);
 }
 
-/* A day with something on it. The dot is the signal that survives a narrow
-   screen, monochrome, and a name too long to show — never colour alone. */
-.almanac-calendar-cell--marked .almanac-calendar-day-number {
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.almanac-calendar-day-names {
+.almanac-cal-cell {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  font-size: var(--text-xs);
-  line-height: var(--leading-snug);
+  min-height: max(6rem, calc(2rem + var(--lanes) * var(--lane-h) + 1.75rem));
+  padding-block-end: var(--space-1);
+}
+
+.almanac-cal-daynum {
+  display: flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 3px var(--space-1) 0;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
   color: var(--color-text-secondary);
 }
 
-.almanac-calendar-day-names > span {
-  /* Two lines of a shrine name, then an ellipsis. The cards beneath the grid
-     carry the full record, so a clipped name here loses nothing. */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.almanac-calendar-cell--marked .almanac-cal-daynum {
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-[dir='rtl'] .almanac-calendar-day-names {
-  font-family: var(--font-urdu);
-  font-size: var(--text-sm);
-  line-height: var(--leading-urdu-ui);
-}
-
-.almanac-calendar-dot {
-  width: 6px;
-  height: 6px;
-  margin-block-start: auto;
+/* Today. A filled circle on the number, the convention every calendar app
+   shares — and `aria-current="date"` on the cell says the same to a screen
+   reader, so it is never colour alone. `--color-on-accent`, not white: the
+   accent is a light gold in both themes (themeFlippingGrounds.test.ts). */
+.almanac-cal-daynum-today {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding-inline: 0.3rem;
   border-radius: var(--radius-full);
-  background: var(--color-primary);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 700;
 }
 
 .almanac-calendar-cell--today {
-  /* The day the page was built for. An inset ring rather than a border, so it
-     does not fight the grid's hairlines. */
-  box-shadow: inset 0 0 0 2px var(--color-accent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+.almanac-cal-lanes {
+  position: relative;
+  height: calc(var(--lanes) * var(--lane-h));
+}
+
+/* One bar. Drawn once, in the cell its window starts in this week, and
+   `--span` cells wide. The category's pale ground and its solid colour on the
+   leading edge — the map legend, carried over — with the page's own text
+   colour on top, which is what keeps it legible in both themes. */
+.almanac-cal-chip {
+  /* `--lane` and `--span` are written inline per bar by AlmanacCalendar.tsx;
+     the edge and ground come from the category modifier below. */
+  --lane: 0;
+  --span: 1;
+  --inset-start: 2px;
+  --inset-end: 2px;
+  position: absolute;
+  top: calc(var(--lane) * var(--lane-h) + 2px);
+  inset-inline-start: var(--inset-start);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: calc(var(--span) * 100% - var(--inset-start) - var(--inset-end));
+  height: calc(var(--lane-h) - 4px);
+  min-width: 0;
+  padding-inline: var(--space-2) var(--space-1);
+  border: 1px solid transparent;
+  border-inline-start: 3px solid var(--chip-edge);
+  border-radius: var(--radius-sm);
+  background: var(--chip-ground);
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: start;
+  cursor: pointer;
+}
+
+.almanac-cal-chip:hover,
+.almanac-cal-chip[aria-expanded='true'] {
+  box-shadow: inset 0 0 0 1px var(--chip-edge);
+}
+
+.almanac-cal-chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  z-index: 2;
+}
+
+.almanac-cal-chip-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+[dir='rtl'] .almanac-cal-chip-name {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.almanac-cal-chip--muslim {
+  --chip-edge: var(--color-cat-muslim);
+  --chip-ground: var(--color-cat-muslim-pale);
+}
+.almanac-cal-chip--hindu {
+  --chip-edge: var(--color-cat-hindu);
+  --chip-ground: var(--color-cat-hindu-pale);
+}
+.almanac-cal-chip--sikh {
+  --chip-edge: var(--color-cat-sikh);
+  --chip-ground: var(--color-cat-sikh-pale);
+}
+.almanac-cal-chip--nanakpanthi {
+  --chip-edge: var(--color-cat-nanakpanthi);
+  --chip-ground: var(--color-cat-nanakpanthi-pale);
+}
+.almanac-cal-chip--jain {
+  --chip-edge: var(--color-cat-jain);
+  --chip-ground: var(--color-cat-jain-pale);
+}
+.almanac-cal-chip--secular {
+  --chip-edge: var(--color-cat-secular);
+  --chip-ground: var(--color-cat-secular-pale);
+}
+.almanac-cal-chip--default {
+  --chip-edge: var(--color-text-muted);
+  --chip-ground: var(--color-bg-alt);
+}
+
+/* A Hijri projection is a forecast, and the bar says so without a word: a
+   dashed outline where a Gregorian date's is solid. The caveat under the grid
+   (`.almanac-cal-caveat`) carries the same dash as its key. */
+.almanac-cal-chip--approximate {
+  border-style: dashed;
+  border-color: var(--chip-edge);
+  border-inline-start-style: solid;
+}
+
+/* A bar continuing from the previous week (or month) starts square and flush,
+   with the thin edge rather than the thick one — one observance, not two. */
+.almanac-cal-chip--from {
+  --inset-start: 0px;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-inline-start-width: 1px;
+}
+
+.almanac-cal-chip--to {
+  --inset-end: 0px;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+/* Bars past the third lane fold into this. It is a control — it opens the
+   day's full list — and is coloured as one. */
+.almanac-cal-more {
+  align-self: flex-start;
+  margin: 2px 2px 0;
+  min-height: 24px;
+  padding: 0 var(--space-1);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.almanac-cal-more:hover {
+  background: var(--color-bg-alt);
+}
+
+.almanac-cal-more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+/* The phone's control: the whole day. Hidden on a desktop, where the chips are
+   the controls — `display: none` takes it out of the accessibility tree too, so
+   no day ever has two. */
+.almanac-cal-daybtn {
+  display: none;
+}
+
+.almanac-cal-dots {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.almanac-cal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: var(--dot);
+}
+
+.almanac-cal-dot--approximate {
+  background: transparent;
+  border: 1.5px dashed var(--dot);
+}
+
+.almanac-cal-dot--muslim {
+  --dot: var(--color-cat-muslim);
+}
+.almanac-cal-dot--hindu {
+  --dot: var(--color-cat-hindu);
+}
+.almanac-cal-dot--sikh {
+  --dot: var(--color-cat-sikh);
+}
+.almanac-cal-dot--nanakpanthi {
+  --dot: var(--color-cat-nanakpanthi);
+}
+.almanac-cal-dot--jain {
+  --dot: var(--color-cat-jain);
+}
+.almanac-cal-dot--secular {
+  --dot: var(--color-cat-secular);
+}
+.almanac-cal-dot--default {
+  --dot: var(--color-text-muted);
 }
 
 .almanac-calendar-cell--selected {
-  background: var(--color-bg-surface);
   box-shadow: inset 0 0 0 2px var(--color-primary);
 }
 
-.almanac-calendar-day:focus-visible {
+/* The moon-sighting caveat, once, with the dashed swatch as its key. The team
+   view prints a pill on each projected date instead (ObservanceCard). */
+.almanac-cal-caveat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.almanac-cal-caveat::before {
+  content: '';
+  flex-shrink: 0;
+  display: inline-block;
+  width: 1.4em;
+  height: 0.7em;
+  border: 1px dashed var(--color-text-muted);
+  border-radius: 2px;
+  transform: translateY(0.05em);
+}
+
+[dir='rtl'] .almanac-cal-caveat {
+  font-family: var(--font-urdu);
+  font-size: var(--text-sm);
+  line-height: var(--leading-urdu);
+}
+
+/* ── The popover a chip opens ─────────────────────────────────────────── */
+.almanac-pop {
+  /* Written inline by ObservancePopover.tsx from the chip's rect. */
+  --pop-top: 0px;
+  --pop-left: 0px;
+  position: absolute;
+  top: var(--pop-top);
+  left: var(--pop-left);
+  z-index: var(--z-modal);
+  width: min(22rem, 100%);
+  padding: var(--space-2) var(--space-4) var(--space-2);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.almanac-pop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.almanac-pop-title {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .almanac-pop-title {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+.almanac-pop-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: calc(-1 * var(--space-2));
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.almanac-pop-close:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.almanac-pop-close:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: -2px;
 }
 
-.almanac-calendar-day:hover .almanac-calendar-day-number {
-  color: var(--color-primary);
+/* The card, stacked rather than in its register columns — 22rem has no room
+   for a 13rem date column. */
+.almanac-pop-list .almanac-entry {
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  border-block-end: 0;
+}
+
+.almanac-pop-list .almanac-entry + .almanac-entry {
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+/* The phone's day list, under the grid. */
+.almanac-cal-day-list {
+  margin-block-start: var(--space-3);
 }
 
 .almanac-calendar-selection {
@@ -902,7 +1139,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
-  margin-block: var(--space-4) var(--space-2);
+  margin-block: var(--space-2);
 }
 
 .almanac-calendar-selection-label {
@@ -932,38 +1169,122 @@
   line-height: var(--leading-urdu-heading);
 }
 
+/* ── The undated list, behind a disclosure ───────────────────────────── */
+.almanac-undated-summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  list-style: none;
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.almanac-undated-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The same turning caret the filter disclosure uses, so the two read as one
+   kind of control. */
+.almanac-undated-summary::after {
+  content: '';
+  display: inline-block;
+  inline-size: 0.4em;
+  block-size: 0.4em;
+  margin-inline-start: var(--space-2);
+  border-inline-end: 1.5px solid currentcolor;
+  border-block-end: 1.5px solid currentcolor;
+  transform: rotate(45deg) translate(-0.1em, -0.1em);
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.almanac-undated[open] > .almanac-undated-summary::after {
+  transform: rotate(225deg) translate(-0.1em, -0.1em);
+}
+
+.almanac-undated-summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.almanac-undated > .inset-list {
+  margin-block-start: var(--space-2);
+}
+
+[dir='rtl'] .almanac-undated-summary {
+  font-family: var(--font-urdu);
+}
+
+/* ── Phone ───────────────────────────────────────────────────────────────
+   Seven columns in 400px is ~55px a cell. A name cannot live there, so the
+   bars go, the day becomes a button, and category dots say who gathers; the
+   day's records list beneath the grid. The popover, were it to open at this
+   width, becomes a bottom sheet — with the three touch declarations
+   `touchScroll.test.ts` requires of every internally scrolling region. */
 @media (max-width: 640px) {
-  /* Seven columns on a phone leaves ~45px a cell. A name cannot live there, so
-     the dot carries the day and the cards beneath carry the record. The names
-     stay in the DOM — they are part of the button's accessible name. */
-  .almanac-calendar-day-names {
+  .almanac-cal-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .almanac-cal-nav {
+    justify-content: flex-start;
+  }
+
+  .almanac-cal-title {
+    font-size: var(--text-lg);
+  }
+
+  .almanac-cal-lanes,
+  .almanac-cal-more {
+    display: none;
+  }
+
+  .almanac-cal-cell {
+    min-height: 3.5rem;
+    padding-block-end: 0;
+  }
+
+  .almanac-cal-daynum {
+    justify-content: center;
+    padding: var(--space-1) 0 0;
+    min-height: 1.5rem;
+    pointer-events: none;
+  }
+
+  .almanac-cal-daybtn {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .almanac-calendar-day {
+    inset: 0;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: flex-end;
+    padding-block-end: 6px;
+    border: 0;
+    background: none;
+    cursor: pointer;
   }
 
-  .almanac-calendar-dot {
-    margin-inline: auto;
+  .almanac-cal-daybtn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
   }
-}
 
-/* A day with nothing on it is a <span>, not a <button>. It shares the cell
-   layout and drops the pointer affordance — `.almanac-calendar-day:hover` would
-   otherwise offer a hover state on a cell that does not respond. */
-.almanac-calendar-day--empty {
-  cursor: default;
-}
-
-.almanac-calendar-day--empty:hover .almanac-calendar-day-number {
-  color: var(--color-text-muted);
+  .almanac-pop {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    max-height: 70vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding-block-end: calc(var(--space-4) + env(safe-area-inset-bottom));
+  }
 }

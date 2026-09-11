@@ -23,9 +23,7 @@ import type { CategoryKey } from '../lib/data/categoryKey';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
-
-/** How many entries the "Coming up" rail shows before the month listing. */
-const UPCOMING_COUNT = 5;
+import { hasProjectAccess } from '../lib/projectAccess';
 
 /** URL keys for the two facets. Short, because they end up in a shared link. */
 const CATEGORY_PARAM = 'cat';
@@ -168,7 +166,10 @@ export default function AlmanacPage() {
 
   const almanac = useMemo(() => buildAlmanac(filteredShrines, today), [filteredShrines, today]);
   const months = useMemo(() => groupByMonth(almanac.dated), [almanac.dated]);
-  const upcoming = almanac.dated.slice(0, UPCOMING_COUNT);
+  /* The public view withholds the per-date "approximate" pill and prints the
+     moon-sighting caveat once instead (11 September 2026); the project team
+     keeps the pills. Not security — see projectAccess.ts. */
+  const teamAccess = hasProjectAccess();
 
   /* Which view, in the URL rather than in component state.
    *
@@ -328,264 +329,266 @@ export default function AlmanacPage() {
 
         {hasEntries && (
           <section className="almanac-lead" aria-labelledby="almanac-year-heading">
-            {/* Heading, view switch and the .ics button on one line. They were
-                three stacked rows, which is a third of a screen of chrome
-                standing between the page title and the grid — affordable when
-                the grid was halfway down the page, not when it opens it. */}
-            <div className="almanac-year-header">
-              <h2 id="almanac-year-heading" className="almanac-section-heading">
-                {t('almanacNext12Months')}
-              </h2>
-              <div className="almanac-year-controls">
-                {/* List or grid. The same records either way — the calendar
-                    reads `almanac.dated` and renders the same card component,
-                    so the approximate flag and the recorded-date line cannot be
-                    present in one view and missing in the other. */}
-                {almanac.dated.length > 0 && (
-                  <div
-                    className="filter-chips almanac-view-toggle"
-                    role="group"
-                    aria-label={t('ariaAlmanacView')}
-                  >
-                    {VIEWS.map((option) => (
-                      <button
-                        key={option}
-                        type="button"
-                        className={`filter-chip${view === option ? ' active' : ''}`}
-                        onClick={() => setView(option)}
-                        aria-pressed={view === option}
-                      >
-                        {t(VIEW_LABEL_KEYS[option])}
-                      </button>
-                    ))}
-                  </div>
-                )}
-                {almanac.dated.length > 0 && (
-                  <button type="button" className="action-btn" onClick={downloadIcs}>
-                    {t('almanacDownloadIcs')}
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* ── The two facets ─────────────────────────────────────────
-                Above the calendar and the listing both, because they narrow
-                what the whole section shows. Additive within a row and
-                intersecting across the two, the same semantics the map's
-                sidebar uses. */}
-            {(categoryFacet.length > 1 || placeFacet.length > 1) && (
-              <div className="almanac-facets">
-                <div className="almanac-facet-bar">
-                  <button
-                    type="button"
-                    className="action-btn almanac-facet-toggle"
-                    onClick={() => setFiltersOpen((v) => !v)}
-                    aria-expanded={filtersOpen || filtersActive}
-                  >
-                    {t('filtersLabel')}
-                  </button>
-                  {filtersActive && (
-                    <span className="almanac-facet-active">
-                      {fmtNum(
-                        tFn(
-                          lang,
-                          'activeFiltersCount',
-                          activeCategories.length + activePlaces.length,
-                        ),
-                      )}
-                    </span>
+            {(() => {
+              /* One toolbar for both views: view switch, .ics, and the filter
+                 disclosure. In the calendar view it rides on the grid's own
+                 toolbar, Google-style; the list view renders it on its heading. */
+              const controls = (
+                <>
+                  {almanac.dated.length > 0 && (
+                    <div
+                      className="filter-chips almanac-view-toggle"
+                      role="group"
+                      aria-label={t('ariaAlmanacView')}
+                    >
+                      {VIEWS.map((option) => (
+                        <button
+                          key={option}
+                          type="button"
+                          className={`filter-chip${view === option ? ' active' : ''}`}
+                          onClick={() => setView(option)}
+                          aria-pressed={view === option}
+                        >
+                          {t(VIEW_LABEL_KEYS[option])}
+                        </button>
+                      ))}
+                    </div>
                   )}
-                  {filtersActive && (
-                    <button type="button" className="action-btn" onClick={clearAllFacets}>
-                      {t('clearFilters')}
+                  {almanac.dated.length > 0 && (
+                    <button type="button" className="action-btn" onClick={downloadIcs}>
+                      {t('almanacDownloadIcs')}
                     </button>
                   )}
-                </div>
-
-                {(filtersOpen || filtersActive) && categoryFacet.length > 1 && (
-                  <div className="almanac-facet">
-                    <span className="filter-section-label" aria-hidden="true">
-                      {t('categoryLabel')}
-                    </span>
-                    <div
-                      className="filter-chips"
-                      role="group"
-                      aria-label={t('ariaFilterByCategory')}
+                  {(categoryFacet.length > 1 || placeFacet.length > 1) && (
+                    <button
+                      type="button"
+                      className={`action-btn almanac-facet-toggle${filtersActive ? ' action-btn--active' : ''}`}
+                      onClick={() => setFiltersOpen((v) => !v)}
+                      aria-expanded={filtersOpen || filtersActive}
                     >
-                      <button
-                        type="button"
-                        className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
-                        onClick={() => clearFacet(CATEGORY_PARAM)}
-                        aria-pressed={activeCategories.length === 0}
-                      >
-                        {t('filterAll')}
-                      </button>
-                      {categoryFacet.map(({ key, count }) => (
-                        <button
-                          key={key}
-                          type="button"
-                          className={`filter-chip${activeCategories.includes(key) ? ' active' : ''}`}
-                          onClick={() => toggleFacet(CATEGORY_PARAM, key, activeCategories)}
-                          aria-pressed={activeCategories.includes(key)}
-                        >
-                          {CATEGORY_LABELS[key][lang]}
-                          <span className="almanac-facet-count">{fmtNum(count)}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {(filtersOpen || filtersActive) && placeFacet.length > 1 && (
-                  <div className="almanac-facet">
-                    <span className="filter-section-label" aria-hidden="true">
-                      {t('filterByPlace')}
-                    </span>
-                    <div className="filter-chips" role="group" aria-label={t('ariaFilterByPlace')}>
-                      <button
-                        type="button"
-                        className={`filter-chip${activePlaces.length === 0 ? ' active' : ''}`}
-                        onClick={() => clearFacet(PLACE_PARAM)}
-                        aria-pressed={activePlaces.length === 0}
-                      >
-                        {t('filterAll')}
-                      </button>
-                      {visiblePlaces.map(({ slug: placeSlug, name, count }) => (
-                        <button
-                          key={placeSlug}
-                          type="button"
-                          className={`filter-chip${activePlaces.includes(placeSlug) ? ' active' : ''}`}
-                          onClick={() => toggleFacet(PLACE_PARAM, placeSlug, activePlaces)}
-                          aria-pressed={activePlaces.includes(placeSlug)}
-                        >
-                          <bdi>{localizeRecordedName(name, lang)}</bdi>
-                          <span className="almanac-facet-count">{fmtNum(count)}</span>
-                        </button>
-                      ))}
-                      {placeFacet.length > visiblePlaces.length || allPlacesShown ? (
-                        <button
-                          type="button"
-                          className="filter-chip almanac-facet-more"
-                          onClick={() => setAllPlacesShown((v) => !v)}
-                          aria-expanded={allPlacesShown}
-                        >
-                          {allPlacesShown
-                            ? t('almanacFewerPlaces')
-                            : fmtNum(
-                                tFn(
-                                  lang,
-                                  'almanacMorePlaces',
-                                  placeFacet.length - visiblePlaces.length,
-                                ),
-                              )}
-                        </button>
-                      ) : null}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Every section below hides when empty, so a filter matching
-                nothing would leave a heading, two controls and a blank page.
-                Said out loud instead. */}
-            {filtersActive && filteredShrines.length === 0 && (
-              <p className="almanac-empty">{t('almanacFilterEmpty')}</p>
-            )}
-
-            {view === 'calendar' && (
-              <>
-                {/* The denominator, carried up from the coverage block below so
-                    that the first screen of the page still says how much of the
-                    archive the grid can speak for. */}
-                <p className="almanac-calendar-denominator">
-                  {fmtNum(
-                    tFn(
-                      lang,
-                      'almanacCoverageTotal',
-                      counts.dayPrecision + counts.monthPrecision,
-                      counts.totalShrines,
-                    ),
+                      {t('filtersLabel')}
+                      {filtersActive && (
+                        <span className="almanac-facet-badge">
+                          {fmtNum(activeCategories.length + activePlaces.length)}
+                        </span>
+                      )}
+                    </button>
                   )}
-                </p>
-                <AlmanacCalendar entries={almanac.dated} today={today} />
-                {/* Why some observances are on no square. It read above the
-                    grid, where it was a paragraph to get past; it belongs here,
-                    where the unplaced list it describes is directly beneath. */}
-                <p className="almanac-hint almanac-calendar-rule">{t('almanacCalendarNote')}</p>
-              </>
-            )}
+                </>
+              );
 
-            {/* Twelve month sections is a long scroll to reach next spring.
-                Anchor links rather than a scripted scroller: they work
-                without JavaScript, they are focusable and announced as links,
-                and `scroll-behavior: smooth` on the container gives the
-                motion — which `prefers-reduced-motion` then removes for free,
-                because the browser honours it for scrolling natively.
+              /* ── The two facets ─────────────────────────────────────────
+                  Between the toolbar and the grid, because they narrow what the
+                  whole section shows. Additive within a row and intersecting
+                  across the two, the same semantics the map's sidebar uses. */
+              const facets =
+                (filtersOpen || filtersActive) &&
+                (categoryFacet.length > 1 || placeFacet.length > 1) ? (
+                  <div className="almanac-facets">
+                    {filtersActive && (
+                      <div className="almanac-facet-bar">
+                        <span className="almanac-facet-active">
+                          {fmtNum(
+                            tFn(
+                              lang,
+                              'activeFiltersCount',
+                              activeCategories.length + activePlaces.length,
+                            ),
+                          )}
+                        </span>
+                        <button type="button" className="action-btn" onClick={clearAllFacets}>
+                          {t('clearFilters')}
+                        </button>
+                      </div>
+                    )}
 
-                The month rail and the twelve listings belong to the list
-                view. The calendar carries its own month rail, one that moves
-                the grid rather than the page; rendering both would put two
-                month navigations on one page pointing at different things. */}
-            {view === 'list' && (
-              <>
-                {months.length > 1 && (
-                  <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
-                    <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
-                    <ul className="almanac-month-nav-list">
-                      {months.map((group) => (
-                        <li key={`nav-${group.year}-${group.month}`}>
-                          <a href={`#almanac-${group.year}-${group.month}`}>
-                            {gregorianMonthName(group.month, lang)}
-                            {/* A twelve-month window starts and ends in the same
-                              month, so two pills read "August" — the year is
-                              what tells them apart, and is shown only on the
-                              names that actually repeat. */}
-                            {repeatedMonthNames.has(group.month) && (
-                              <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
-                            )}
-                            <span className="almanac-month-nav-count">
-                              {fmtNum(group.entries.length)}
-                            </span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                )}
+                    {categoryFacet.length > 1 && (
+                      <div className="almanac-facet">
+                        <span className="filter-section-label" aria-hidden="true">
+                          {t('categoryLabel')}
+                        </span>
+                        <div
+                          className="filter-chips"
+                          role="group"
+                          aria-label={t('ariaFilterByCategory')}
+                        >
+                          <button
+                            type="button"
+                            className={`filter-chip${activeCategories.length === 0 ? ' active' : ''}`}
+                            onClick={() => clearFacet(CATEGORY_PARAM)}
+                            aria-pressed={activeCategories.length === 0}
+                          >
+                            {t('filterAll')}
+                          </button>
+                          {categoryFacet.map(({ key, count }) => (
+                            <button
+                              key={key}
+                              type="button"
+                              className={`filter-chip${activeCategories.includes(key) ? ' active' : ''}`}
+                              onClick={() => toggleFacet(CATEGORY_PARAM, key, activeCategories)}
+                              aria-pressed={activeCategories.includes(key)}
+                            >
+                              {CATEGORY_LABELS[key][lang]}
+                              <span className="almanac-facet-count">{fmtNum(count)}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                {months.length === 0 ? (
-                  <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
-                ) : (
-                  months.map((group) => (
-                    <div
-                      key={`${group.year}-${group.month}`}
-                      id={`almanac-${group.year}-${group.month}`}
-                      className="almanac-month"
-                    >
-                      <h3 className="almanac-month-heading">
-                        {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
-                      </h3>
-                      <ul className="almanac-list">
-                        {group.entries.map((entry, i) => (
-                          <ObservanceCard
-                            key={`${entry.shrine.slug}-${i}`}
-                            entry={entry}
-                            lang={lang}
-                            anchorId={
-                              anchorEntry.get(entry.shrine.slug) === entry
-                                ? entry.shrine.slug
-                                : undefined
-                            }
-                            index={i}
-                          />
+                    {placeFacet.length > 1 && (
+                      <div className="almanac-facet">
+                        <span className="filter-section-label" aria-hidden="true">
+                          {t('filterByPlace')}
+                        </span>
+                        <div
+                          className="filter-chips"
+                          role="group"
+                          aria-label={t('ariaFilterByPlace')}
+                        >
+                          <button
+                            type="button"
+                            className={`filter-chip${activePlaces.length === 0 ? ' active' : ''}`}
+                            onClick={() => clearFacet(PLACE_PARAM)}
+                            aria-pressed={activePlaces.length === 0}
+                          >
+                            {t('filterAll')}
+                          </button>
+                          {visiblePlaces.map(({ slug: placeSlug, name, count }) => (
+                            <button
+                              key={placeSlug}
+                              type="button"
+                              className={`filter-chip${activePlaces.includes(placeSlug) ? ' active' : ''}`}
+                              onClick={() => toggleFacet(PLACE_PARAM, placeSlug, activePlaces)}
+                              aria-pressed={activePlaces.includes(placeSlug)}
+                            >
+                              <bdi>{localizeRecordedName(name, lang)}</bdi>
+                              <span className="almanac-facet-count">{fmtNum(count)}</span>
+                            </button>
+                          ))}
+                          {placeFacet.length > visiblePlaces.length || allPlacesShown ? (
+                            <button
+                              type="button"
+                              className="filter-chip almanac-facet-more"
+                              onClick={() => setAllPlacesShown((v) => !v)}
+                              aria-expanded={allPlacesShown}
+                            >
+                              {allPlacesShown
+                                ? t('almanacFewerPlaces')
+                                : fmtNum(
+                                    tFn(
+                                      lang,
+                                      'almanacMorePlaces',
+                                      placeFacet.length - visiblePlaces.length,
+                                    ),
+                                  )}
+                            </button>
+                          ) : null}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : null;
+
+              /* Every section below hides when empty, so a filter matching
+                 nothing would leave a heading, two controls and a blank page.
+                 Said out loud instead. */
+              const empty =
+                filtersActive && filteredShrines.length === 0 ? (
+                  <p className="almanac-empty">{t('almanacFilterEmpty')}</p>
+                ) : null;
+
+              if (view === 'calendar') {
+                return (
+                  <AlmanacCalendar
+                    entries={almanac.dated}
+                    today={today}
+                    headingId="almanac-year-heading"
+                    toolbarEnd={controls}
+                    showApproximateFlags={teamAccess}
+                  >
+                    {facets}
+                    {empty}
+                  </AlmanacCalendar>
+                );
+              }
+
+              return (
+                <>
+                  <div className="almanac-year-header">
+                    <h2 id="almanac-year-heading" className="almanac-section-heading">
+                      {t('almanacNext12Months')}
+                    </h2>
+                    <div className="almanac-year-controls">{controls}</div>
+                  </div>
+                  {facets}
+                  {empty}
+
+                  {/* Twelve month sections is a long scroll to reach next
+                      spring. Anchor links rather than a scripted scroller: they
+                      work without JavaScript, they are focusable and announced
+                      as links, and `scroll-behavior: smooth` on the container
+                      gives the motion — which `prefers-reduced-motion` then
+                      removes for free. */}
+                  {months.length > 1 && (
+                    <nav className="almanac-month-nav" aria-label={t('almanacJumpToMonth')}>
+                      <span className="almanac-month-nav-label">{t('almanacJumpToMonth')}</span>
+                      <ul className="almanac-month-nav-list">
+                        {months.map((group) => (
+                          <li key={`nav-${group.year}-${group.month}`}>
+                            <a href={`#almanac-${group.year}-${group.month}`}>
+                              {gregorianMonthName(group.month, lang)}
+                              {/* A twelve-month window starts and ends in the
+                                  same month, so two pills read "August" — the
+                                  year is what tells them apart, and is shown
+                                  only on the names that actually repeat. */}
+                              {repeatedMonthNames.has(group.month) && (
+                                <span className="almanac-month-nav-year">{fmtNum(group.year)}</span>
+                              )}
+                              <span className="almanac-month-nav-count">
+                                {fmtNum(group.entries.length)}
+                              </span>
+                            </a>
+                          </li>
                         ))}
                       </ul>
-                    </div>
-                  ))
-                )}
-              </>
-            )}
+                    </nav>
+                  )}
+
+                  {months.length === 0 ? (
+                    <p className="almanac-empty">{t('almanacNothingUpcoming')}</p>
+                  ) : (
+                    months.map((group) => (
+                      <div
+                        key={`${group.year}-${group.month}`}
+                        id={`almanac-${group.year}-${group.month}`}
+                        className="almanac-month"
+                      >
+                        <h3 className="almanac-month-heading">
+                          {gregorianMonthName(group.month, lang)} {fmtNum(group.year)}
+                        </h3>
+                        <ul className="almanac-list">
+                          {group.entries.map((entry, i) => (
+                            <ObservanceCard
+                              key={`${entry.shrine.slug}-${i}`}
+                              entry={entry}
+                              lang={lang}
+                              anchorId={
+                                anchorEntry.get(entry.shrine.slug) === entry
+                                  ? entry.shrine.slug
+                                  : undefined
+                              }
+                              index={i}
+                              showApproximateFlag={teamAccess}
+                            />
+                          ))}
+                        </ul>
+                      </div>
+                    ))
+                  )}
+                </>
+              );
+            })()}
           </section>
         )}
 
@@ -600,31 +603,24 @@ export default function AlmanacPage() {
           <p>{t('almanacApproximateNote')}</p>
         </aside>
 
-        {hasEntries && upcoming.length > 0 && (
-          <section aria-labelledby="almanac-upcoming-heading">
-            <h2 id="almanac-upcoming-heading" className="almanac-section-heading">
-              {t('almanacUpcoming')}
-            </h2>
-            <ul className="almanac-list almanac-list--upcoming stagger-in">
-              {upcoming.map((entry, i) => (
-                <ObservanceCard
-                  key={`${entry.shrine.slug}-${i}`}
-                  entry={entry}
-                  lang={lang}
-                  index={i}
-                />
-              ))}
-            </ul>
-          </section>
-        )}
-
         {/* ── The honest accounting ────────────────────────────────────────
-            Still on the page and still computed from the shipped data on every
-            load; no longer the first thing a reader meets. */}
+            One row, not five tiles: still computed from the shipped data on
+            every load, still the denominator a reader needs, no longer a third
+            of a screen. */}
         <section className="almanac-coverage" aria-labelledby="almanac-coverage-heading">
           <h2 id="almanac-coverage-heading" className="almanac-section-heading">
             {t('almanacCoverageHeading')}
           </h2>
+          <p className="almanac-coverage-total">
+            {fmtNum(
+              tFn(
+                lang,
+                'almanacCoverageTotal',
+                counts.dayPrecision + counts.monthPrecision,
+                counts.totalShrines,
+              ),
+            )}
+          </p>
           <ul className="almanac-coverage-list">
             {(
               [
@@ -641,16 +637,6 @@ export default function AlmanacPage() {
               </li>
             ))}
           </ul>
-          <p className="almanac-coverage-total">
-            {fmtNum(
-              tFn(
-                lang,
-                'almanacCoverageTotal',
-                counts.dayPrecision + counts.monthPrecision,
-                counts.totalShrines,
-              ),
-            )}
-          </p>
         </section>
 
         {hasEntries && (
@@ -683,7 +669,9 @@ export default function AlmanacPage() {
                 This section is the point of the feature as much as the
                 calendar is: 79 shrines hold an observance nobody wrote a
                 date for, and listing them by name is what turns a silence
-                into something a reader can help fix. */}
+                into something a reader can help fix. Behind a disclosure now,
+                with the count on it — 79 rows is two screens, and the count
+                is the finding; the names are for the reader who wants them. */}
             {almanac.undated.length > 0 && (
               <section aria-labelledby="almanac-undated-heading">
                 <h2 id="almanac-undated-heading" className="almanac-section-heading">
@@ -691,37 +679,36 @@ export default function AlmanacPage() {
                   <span className="almanac-section-count">({fmtNum(almanac.undated.length)})</span>
                 </h2>
                 <p className="almanac-hint">{t('almanacUndatedNote')}</p>
-                <ul className="almanac-list almanac-list--plain almanac-list--undated inset-list">
-                  {almanac.undated.map((entry) => (
-                    <li key={entry.shrine.slug} className="inset-row inset-row--link">
-                      <Link to={`/shrine/${entry.shrine.slug}`}>
-                        <span className="inset-row-label inset-row-label--stacked">
-                          <span className="inset-row-title">
-                            <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                <details className="almanac-undated">
+                  <summary className="almanac-undated-summary">
+                    {fmtNum(tFn(lang, 'almanacShowList', almanac.undated.length))}
+                  </summary>
+                  <ul className="almanac-list almanac-list--plain almanac-list--undated inset-list">
+                    {almanac.undated.map((entry) => (
+                      <li key={entry.shrine.slug} className="inset-row inset-row--link">
+                        <Link to={`/shrine/${entry.shrine.slug}`}>
+                          <span className="inset-row-label inset-row-label--stacked">
+                            <span className="inset-row-title">
+                              <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                            </span>
+                            {/* The observance as the sheet records it — "Annual
+                                urs", "Maha Shivratri", "Sikh pilgrimage; Guru
+                                Nanak Gurpurab". Semicolon-joined, so
+                                localizeObservance translates it segment by
+                                segment and leaves an unknown segment exactly as
+                                written (RULE 2). `data-latin` declares whatever
+                                is left, so e2e/urdu-no-leak.spec.ts counts the
+                                remaining debt rather than waving it through. */}
+                            <span className="almanac-plain-source inset-row-sub" data-latin>
+                              <bdi>{fmtNum(localizeObservance(entry.sourceText, lang))}</bdi>
+                            </span>
                           </span>
-                          {/* The observance as the sheet records it — "Annual urs",
-                          "Maha Shivratri", "Sikh pilgrimage; Guru Nanak
-                          Gurpurab". Semicolon-joined, so localizeObservance
-                          translates it segment by segment and leaves an unknown
-                          segment exactly as written (RULE 2 — show what the
-                          source says). `data-latin` declares whatever is left,
-                          so e2e/urdu-no-leak.spec.ts counts the remaining debt
-                          rather than waving it through. */}
-                          <span className="almanac-plain-source inset-row-sub" data-latin>
-                            {/* fmtNum, like every other number site: a translated
-                            observance carries the recorded dates with it
-                            ("سالانہ عرس (18-20 صفر)"), and Western digits inside
-                            Nastaliq is the i18n rule 5 gap this render site had.
-                            The infobox's own Events row has always gone through
-                            fmtNum; this one did not. */}
-                            <bdi>{fmtNum(localizeObservance(entry.sourceText, lang))}</bdi>
-                          </span>
-                        </span>
-                        <span className="inset-row-chevron" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                          <span className="inset-row-chevron" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
                 <p className="almanac-contribute">{t('almanacContribute')}</p>
               </section>
             )}

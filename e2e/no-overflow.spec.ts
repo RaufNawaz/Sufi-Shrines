@@ -89,6 +89,19 @@ const EXEMPT_SELECTORS = [
   '.leaflet-map-pane',
   '.leaflet-tile-container',
   '.sr-only',
+  /* The Urs Calendar's spanning bars (11 September 2026). A multi-day
+     observance is drawn ONCE, in the cell where it starts, at `--span × 100%`
+     of that cell — so a three-day ʿurs is a bar three cells wide that
+     deliberately runs across its two right-hand siblings, the way a
+     Google-Calendar event does. To this probe that is a cell whose content is
+     297px wider than its box. It is not sideways scroll: the table is
+     `table-layout: fixed` inside the page's own width, and the page-level
+     `scrollWidth` assertion above this list still runs on the almanac and
+     still catches a real overflow. Exempted at the three boxes the bar passes
+     through, and nowhere else on the page. */
+  '.almanac-calendar-cell',
+  '.almanac-cal-cell',
+  '.almanac-cal-lanes',
 ];
 
 interface Offender {

@@ -23,6 +23,7 @@ export function ObservanceCard({
   lang,
   anchorId,
   index = 0,
+  showApproximateFlag = true,
 }: {
   entry: AlmanacEntry;
   lang: Lang;
@@ -31,6 +32,12 @@ export function ObservanceCard({
   anchorId?: string | undefined;
   /** Position in its list, for the entrance stagger. */
   index?: number;
+  /** The per-card "approximate" pill. Off in the public view (11 September
+   *  2026, project head): the calendar prints the moon-sighting caveat once,
+   *  under the grid, instead of on every projected date. The flag still
+   *  travels in the .ics notes and shows for the project team, and the
+   *  projection itself is unchanged — only the badge is withheld. */
+  showApproximateFlag?: boolean;
 }) {
   const { t, fmtNum, localizeField, numerals } = useLang();
   const { shrine, observance, window, approximate } = entry;
@@ -63,7 +70,7 @@ export function ObservanceCard({
         {dates.calendarNoteOn === 'lead' ? (
           <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
         ) : null}
-        {dates.leadIsProjection ? (
+        {dates.leadIsProjection && showApproximateFlag ? (
           <span
             className="almanac-flag almanac-flag--approximate"
             title={t('almanacApproximateFull')}
@@ -122,7 +129,7 @@ export function ObservanceCard({
           {dates.calendarNoteOn === 'secondary' ? (
             <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
           ) : null}
-          {dates.secondaryIsProjection ? (
+          {dates.secondaryIsProjection && showApproximateFlag ? (
             <span
               className="almanac-flag almanac-flag--approximate"
               title={t('almanacApproximateFull')}

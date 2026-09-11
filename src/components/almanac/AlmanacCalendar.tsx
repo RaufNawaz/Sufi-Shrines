@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import {
@@ -7,160 +7,208 @@ import {
   WEEKDAY_NAMES_SHORT,
 } from '../../lib/i18n/formatDateWindow';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
+import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
+import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
+import { categoryKey } from '../../lib/data/categoryKey';
 import {
   buildCalendarMonths,
-  monthEntries,
+  hiddenInColumn,
+  layoutWeek,
   type CalendarDay,
 } from '../../lib/data/almanacCalendar';
 import type { AlmanacEntry } from '../../lib/data/almanac';
 import { ObservanceCard } from './ObservanceCard';
+import { ObservancePopover } from './ObservancePopover';
 
 /**
- * The almanac on a month grid.
+ * The Urs Calendar as a month grid — the shape a reader knows from Google
+ * Calendar, with the archive's honesty kept in the layout rather than in prose.
  *
- * A list can leave a date vague; a square cannot. So the honesty this page
- * already carries in prose is carried here by the layout instead, and the rule
- * lives in `almanacCalendar.ts` where it can be tested: **only an observance
- * recorded with a day gets a day.** The ten recorded to a month alone are listed
- * under the grid, unplaced, because the honest position of an undated ʿurs is
- * not the 1st and not the 15th — it is off the grid.
+ * **What is drawn.** A day-precise observance is a bar across the days its
+ * projected window covers; "18–20 Safar" is one bar over three squares, and a
+ * bar that reaches the edge of a week continues on the next row with its start
+ * squared off, so it reads as one thing. Overlapping observances stack in
+ * lanes (`layoutWeek`, tested). A cell with more bars than fit shows "+N more".
+ * Bars are coloured by tradition, with the pale category ground and a solid
+ * edge in the category's own colour — the map's legend, carried over.
  *
- * One month at a time rather than twelve stacked grids. Twelve is 3,000-odd
- * pixels of mostly empty squares — 22 of the archive's 169 sites carry a
- * day-precise date — and what a grid is for is the shape of one month.
+ * **What is not drawn, and why.** The rule from `almanacCalendar.ts`: a square
+ * is a day, so only an observance the archive recorded with a day occupies one.
+ * Month-only observances sit in a strip beneath the grid, unplaced. And a Hijri
+ * projection is a forecast: those bars are dashed, and the public view prints
+ * the moon-sighting caveat once under the grid rather than a badge on every
+ * projected date (11 September 2026). The project team still sees the badges.
  *
- * That made prev/next enough while the calendar was a view a reader opted into
- * halfway down the page. It is not enough now that the grid opens the page: a
- * reader who wants next April should not press "Later" seven times to see it.
- * So the horizon's months are a rail above the grid, each with the count of
- * observances that month can actually place — which doubles as the one thing
- * prev/next could never show, the *shape of the year*: where the ʿurs season
- * falls and where the archive simply has nothing.
+ * **Navigation.** Today, previous and next — the twelve-month horizon starts in
+ * the current month, so "Today" is the first grid. The thirteen-pill month rail
+ * this replaced was 440px of chrome on a phone above the thing the page is for.
  *
- * A day carrying observances is a button, and pressing it narrows the cards
- * beneath to that day. That is what makes the grid useful on a phone, where the
- * cells are too narrow to name anything: the grid says *when*, the cards say
- * *what*, and the two are the same records rather than two renderings of them.
+ * **On a phone** the cells are ~50px wide: a name cannot live there, so each day
+ * carries category dots and is a button, and pressing one lists that day's
+ * observances beneath the grid. On a desktop the chips are the buttons and open
+ * a popover; the day button is not rendered there (CSS `display: none` removes
+ * it from the accessibility tree too), so no day ever has two controls.
  */
+
+/** Bars a desktop cell shows before folding the rest into "+N more". */
+const MAX_LANES = 3;
+
+const isoOf = (date: Date) => date.toISOString().slice(0, 10);
+
 export function AlmanacCalendar({
   entries,
   today,
   horizonDays,
+  headingId,
+  toolbarEnd,
+  showApproximateFlags,
+  children,
 }: {
   /** `almanac.dated` — projected, ordered, already honest about approximation. */
   entries: AlmanacEntry[];
   /** Injected, not read from the clock, so this is prerenderable and testable. */
   today: Date;
   horizonDays?: number | undefined;
+  /** The id the page's section is labelled by; it goes on the month heading. */
+  headingId?: string;
+  /** View switch, .ics and filter controls, rendered at the toolbar's far end. */
+  toolbarEnd?: React.ReactNode;
+  /** Per-entry "approximate" pills on cards; false for the public view. */
+  showApproximateFlags: boolean;
+  /** Rendered between the toolbar and the grid — the filter panel. */
+  children?: React.ReactNode;
 }) {
   const { lang, t, fmtNum } = useLang();
+  const { calendar } = useReaderPreferences();
+  const rootRef = useRef<HTMLDivElement>(null);
+
   const months = useMemo(
     () => buildCalendarMonths(entries, today, horizonDays),
     [entries, today, horizonDays],
   );
-  /* Month numbers appearing twice across the horizon — the window wraps, so its
-     first and last month share a name and only the year separates them. */
-  const repeatedMonths = useMemo(() => {
-    const counts = new Map<number, number>();
-    for (const m of months) counts.set(m.month, (counts.get(m.month) ?? 0) + 1);
-    return new Set([...counts].filter(([, n]) => n > 1).map(([month]) => month));
-  }, [months]);
 
   const [cursor, setCursor] = useState(0);
-  /** ISO day of the selected cell, or null for the whole month. */
+  /** ISO day of the phone-selected cell, or null. */
   const [selected, setSelected] = useState<string | null>(null);
+  /** The open popover: what it lists, its title, and the control that opened it. */
+  const [detail, setDetail] = useState<{
+    entries: AlmanacEntry[];
+    title: string;
+    anchor: HTMLElement;
+  } | null>(null);
+
+  const closeDetail = useCallback(() => setDetail(null), []);
 
   const month = months[Math.min(cursor, months.length - 1)];
+  const monthName = month ? gregorianMonthName(month.month, lang) : '';
+
+  /* A new month, or new data under the grid, invalidates both selections —
+     a popover anchored to a chip that no longer exists is anchored to nothing. */
+  useEffect(() => {
+    setDetail(null);
+    setSelected(null);
+  }, [cursor, entries]);
+
   if (!month) return null;
 
-  const monthName = gregorianMonthName(month.month, lang);
-  const shown = monthEntries(month);
-  const selectedCell = selected
-    ? month.weeks.flat().find((cell) => cell.date.toISOString().slice(0, 10) === selected)
-    : undefined;
-  const cards = selectedCell ? selectedCell.entries : shown;
+  const goTo = (next: number) => setCursor(Math.max(0, Math.min(next, months.length - 1)));
 
-  const goTo = (next: number) => {
-    setCursor(next);
-    // A day selected in August means nothing in September.
-    setSelected(null);
+  const dateTitle = (cell: CalendarDay) => `${fmtNum(cell.day)} ${monthName} ${fmtNum(month.year)}`;
+
+  /** What a screen reader hears on a phone day button: the date, then the count. */
+  const dayLabel = (cell: CalendarDay) =>
+    `${dateTitle(cell)} — ${fmtNum(tFn(lang, 'almanacCalendarDayCount', cell.entries.length))}`;
+
+  const leadDate = (entry: AlmanacEntry) =>
+    observanceDateDisplay(entry.observance, entry.window, entry.approximate, lang, fmtNum, calendar)
+      .lead;
+
+  const openDetail = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    list: AlmanacEntry[],
+    title: string,
+  ) => {
+    const anchor = e.currentTarget;
+    setDetail((current) => (current?.anchor === anchor ? null : { entries: list, title, anchor }));
   };
 
-  /** What a screen reader hears on a day button: the date, then the count. */
-  const dayLabel = (cell: CalendarDay) =>
-    `${fmtNum(cell.day)} ${monthName} — ${fmtNum(tFn(lang, 'almanacCalendarDayCount', cell.entries.length))}`;
+  const selectedCell = selected
+    ? month.weeks.flat().find((cell) => isoOf(cell.date) === selected)
+    : undefined;
+
+  const anyProjected = entries.some((entry) => entry.approximate);
 
   return (
-    <div className="almanac-calendar">
-      {/* Every month in the horizon, reachable in one press. Buttons rather
-          than the list view's anchor links: this moves the grid, not the page,
-          so there is nothing to scroll to and an <a href="#…"> would be a lie
-          about what pressing it does. */}
-      {months.length > 1 && (
-        <nav className="almanac-calendar-months" aria-label={t('almanacJumpToMonth')}>
-          <ul className="almanac-calendar-months-list">
-            {months.map((m, i) => (
-              <li key={`${m.year}-${m.month}`}>
-                <button
-                  type="button"
-                  className={[
-                    'almanac-calendar-month-btn',
-                    i === cursor ? 'almanac-calendar-month-btn--current' : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  aria-current={i === cursor ? 'true' : undefined}
-                  onClick={() => goTo(i)}
-                >
-                  {gregorianMonthName(m.month, lang)}
-                  {/* A twelve-month window opens and closes in the same month,
-                      so two pills read "August"; the year appears only on the
-                      names that actually repeat, as it does in the list view. */}
-                  {repeatedMonths.has(m.month) && (
-                    <span className="almanac-calendar-month-year">{fmtNum(m.year)}</span>
-                  )}
-                  {/* `placed`, not `placed + monthOnly`: this counts what the
-                      grid beneath will put on a square, and a month-only entry
-                      is deliberately on none of them. */}
-                  <span className="almanac-calendar-month-count">{fmtNum(m.placed)}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
-
-      <div className="almanac-calendar-header">
-        <button
-          type="button"
-          className="action-btn almanac-calendar-step"
-          onClick={() => goTo(cursor - 1)}
-          disabled={cursor === 0}
-        >
-          {t('almanacCalendarPrev')}
-        </button>
-        <h3 className="almanac-calendar-month" aria-live="polite">
-          {monthName} {fmtNum(month.year)}
-        </h3>
-        <button
-          type="button"
-          className="action-btn almanac-calendar-step"
-          onClick={() => goTo(cursor + 1)}
-          disabled={cursor >= months.length - 1}
-        >
-          {t('almanacCalendarNext')}
-        </button>
+    <div className="almanac-calendar" ref={rootRef}>
+      <div className="almanac-cal-toolbar">
+        <div className="almanac-cal-nav" role="group" aria-label={t('almanacJumpToMonth')}>
+          <button
+            type="button"
+            className="almanac-cal-today"
+            onClick={() => goTo(0)}
+            disabled={cursor === 0}
+          >
+            {t('almanacToday')}
+          </button>
+          <button
+            type="button"
+            className="almanac-cal-step"
+            aria-label={t('almanacCalendarPrev')}
+            onClick={() => goTo(cursor - 1)}
+            disabled={cursor === 0}
+          >
+            <svg
+              className="almanac-cal-chevron almanac-cal-chevron--prev"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className="almanac-cal-step"
+            aria-label={t('almanacCalendarNext')}
+            onClick={() => goTo(cursor + 1)}
+            disabled={cursor >= months.length - 1}
+          >
+            <svg
+              className="almanac-cal-chevron almanac-cal-chevron--next"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+          <h2 id={headingId} className="almanac-cal-title" aria-live="polite">
+            {monthName} {fmtNum(month.year)}
+          </h2>
+        </div>
+        {toolbarEnd ? <div className="almanac-cal-toolbar-end">{toolbarEnd}</div> : null}
       </div>
 
-      <p className="almanac-calendar-count">
-        {fmtNum(tFn(lang, 'almanacCalendarPlaced', month.placed))}
-      </p>
+      {children}
 
       {/* A real table: a calendar is tabular data, and a screen reader reading
           "Wednesday, 14" out of a grid of divs depends on markup nobody wrote. */}
       <table className="almanac-calendar-grid">
         <caption className="sr-only">
-          {monthName} {fmtNum(month.year)} — {t('almanacCalendarCaption')}
+          {monthName} {fmtNum(month.year)} — {t('almanacCalendarCaption')}.{' '}
+          {fmtNum(tFn(lang, 'almanacCalendarPlaced', month.placed))}
         </caption>
         <thead>
           <tr>
@@ -172,90 +220,173 @@ export function AlmanacCalendar({
           </tr>
         </thead>
         <tbody>
-          {month.weeks.map((week, w) => (
-            <tr key={w}>
-              {week.map((cell) => {
-                const iso = cell.date.toISOString().slice(0, 10);
-                const marked = cell.entries.length > 0;
-                return (
-                  <td
-                    key={iso}
-                    // The ring marking today is a visual convention; this is
-                    // what says so to a screen reader.
-                    aria-current={cell.isToday ? 'date' : undefined}
-                    className={[
-                      'almanac-calendar-cell',
-                      cell.inMonth ? '' : 'almanac-calendar-cell--outside',
-                      cell.isToday ? 'almanac-calendar-cell--today' : '',
-                      marked ? 'almanac-calendar-cell--marked' : '',
-                      selected === iso ? 'almanac-calendar-cell--selected' : '',
-                    ]
-                      .filter(Boolean)
-                      .join(' ')}
-                  >
-                    {!cell.inMonth ? null : marked ? (
-                      <button
-                        type="button"
-                        className="almanac-calendar-day"
-                        aria-label={dayLabel(cell)}
-                        aria-pressed={selected === iso}
-                        onClick={() => setSelected(selected === iso ? null : iso)}
-                      >
-                        <span className="almanac-calendar-day-number">{fmtNum(cell.day)}</span>
-                        {/* The names, where there is room for them. Hidden by
-                            CSS on a narrow screen, where the dot and the cards
-                            beneath carry it instead — never removed from the
-                            DOM, because that would take them out of the
-                            accessible name too. */}
-                        <span className="almanac-calendar-day-names">
-                          {cell.entries.map((entry, i) => (
-                            <span key={`${entry.shrine.slug}-${i}`}>
-                              <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
-                            </span>
-                          ))}
+          {month.weeks.map((week, w) => {
+            const layout = layoutWeek(week);
+            const lanes = Math.min(layout.lanes, MAX_LANES);
+            return (
+              <tr key={w} style={{ '--lanes': lanes } as React.CSSProperties}>
+                {week.map((cell, col) => {
+                  const iso = isoOf(cell.date);
+                  const marked = cell.entries.length > 0;
+                  const starting = layout.spans.filter(
+                    (span) => span.startCol === col && span.lane < MAX_LANES,
+                  );
+                  const hidden = hiddenInColumn(layout, col, MAX_LANES);
+                  return (
+                    <td
+                      key={iso}
+                      // The ring marking today is a visual convention; this is
+                      // what says so to a screen reader.
+                      aria-current={cell.isToday ? 'date' : undefined}
+                      className={[
+                        'almanac-calendar-cell',
+                        cell.inMonth ? '' : 'almanac-calendar-cell--outside',
+                        cell.isToday ? 'almanac-calendar-cell--today' : '',
+                        marked ? 'almanac-calendar-cell--marked' : '',
+                        selected === iso ? 'almanac-calendar-cell--selected' : '',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                    >
+                      <div className="almanac-cal-cell">
+                        <span className="almanac-cal-daynum">
+                          <span className={cell.isToday ? 'almanac-cal-daynum-today' : undefined}>
+                            {fmtNum(cell.day)}
+                          </span>
                         </span>
-                        <span className="almanac-calendar-dot" aria-hidden="true" />
-                      </button>
-                    ) : (
-                      <span className="almanac-calendar-day almanac-calendar-day--empty">
-                        <span className="almanac-calendar-day-number">{fmtNum(cell.day)}</span>
-                      </span>
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+                        {cell.inMonth && marked ? (
+                          <>
+                            {/* Desktop: the bars. Each is drawn once, in the
+                                cell where it starts, and extends across the
+                                cells it covers (`--span`); the row reserves
+                                `--lanes` of height so every cell in the week
+                                lines up. */}
+                            <div className="almanac-cal-lanes">
+                              {starting.map((span) => {
+                                const { entry } = span;
+                                const cat = categoryKey(entry.shrine.category);
+                                const isOpen =
+                                  detail?.entries[0] === entry && detail.entries.length === 1;
+                                return (
+                                  <button
+                                    key={`${entry.shrine.slug}-${isoOf(entry.window.start)}`}
+                                    type="button"
+                                    data-almanac-chip
+                                    className={[
+                                      'almanac-cal-chip',
+                                      `almanac-cal-chip--${cat}`,
+                                      entry.approximate ? 'almanac-cal-chip--approximate' : '',
+                                      span.continuesBefore ? 'almanac-cal-chip--from' : '',
+                                      span.continuesAfter ? 'almanac-cal-chip--to' : '',
+                                    ]
+                                      .filter(Boolean)
+                                      .join(' ')}
+                                    style={
+                                      {
+                                        '--span': span.endCol - span.startCol + 1,
+                                        '--lane': span.lane,
+                                      } as React.CSSProperties
+                                    }
+                                    aria-expanded={isOpen}
+                                    onClick={(e) => openDetail(e, [entry], dateTitle(cell))}
+                                  >
+                                    <span className="almanac-cal-chip-name">
+                                      <bdi>{localizeShrineName(entry.shrine, lang)}</bdi>
+                                    </span>
+                                    <span className="sr-only">, {leadDate(entry)}</span>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            {hidden > 0 ? (
+                              <button
+                                type="button"
+                                data-almanac-chip
+                                className="almanac-cal-more"
+                                onClick={(e) => openDetail(e, cell.entries, dateTitle(cell))}
+                              >
+                                {fmtNum(tFn(lang, 'almanacCalendarMore', hidden))}
+                              </button>
+                            ) : null}
+                            {/* Phone: the whole day is the control, and the
+                                dots say which traditions gather. */}
+                            <button
+                              type="button"
+                              className="almanac-cal-daybtn"
+                              aria-label={dayLabel(cell)}
+                              aria-pressed={selected === iso}
+                              onClick={() => setSelected(selected === iso ? null : iso)}
+                            >
+                              <span className="almanac-cal-dots" aria-hidden="true">
+                                {cell.entries.slice(0, 3).map((entry, i) => (
+                                  <span
+                                    key={`${entry.shrine.slug}-${i}`}
+                                    className={`almanac-cal-dot almanac-cal-dot--${categoryKey(entry.shrine.category)}${entry.approximate ? ' almanac-cal-dot--approximate' : ''}`}
+                                  />
+                                ))}
+                              </span>
+                            </button>
+                          </>
+                        ) : null}
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
-      {selectedCell && (
-        <div className="almanac-calendar-selection">
-          <p className="almanac-calendar-selection-label">
-            {fmtNum(selectedCell.day)} {monthName} {fmtNum(month.year)}
-          </p>
-          <button type="button" className="action-btn" onClick={() => setSelected(null)}>
-            {t('almanacCalendarShowMonth')}
-          </button>
-        </div>
-      )}
+      {/* The caveat, once. In the team view the cards carry it per date. */}
+      {!showApproximateFlags && anyProjected ? (
+        <p className="almanac-cal-caveat">{t('almanacProjectedCaveat')}</p>
+      ) : null}
 
-      {cards.length > 0 ? (
-        <ul className="almanac-list">
-          {cards.map((entry, i) => (
-            <ObservanceCard key={`${entry.shrine.slug}-${i}`} entry={entry} lang={lang} index={i} />
-          ))}
-        </ul>
-      ) : (
-        <p className="almanac-empty">{t('almanacCalendarNoDays')}</p>
-      )}
+      {detail && rootRef.current ? (
+        <ObservancePopover
+          entries={detail.entries}
+          title={detail.title}
+          anchor={detail.anchor}
+          container={rootRef.current}
+          lang={lang}
+          showApproximateFlag={showApproximateFlags}
+          onClose={closeDetail}
+        />
+      ) : null}
+
+      {selectedCell ? (
+        <div className="almanac-cal-day-list">
+          <div className="almanac-calendar-selection">
+            <p className="almanac-calendar-selection-label">{dateTitle(selectedCell)}</p>
+            <button type="button" className="action-btn" onClick={() => setSelected(null)}>
+              {t('almanacCalendarShowMonth')}
+            </button>
+          </div>
+          {selectedCell.entries.length > 0 ? (
+            <ul className="almanac-list">
+              {selectedCell.entries.map((entry, i) => (
+                <ObservanceCard
+                  key={`${entry.shrine.slug}-${i}`}
+                  entry={entry}
+                  lang={lang}
+                  index={i}
+                  showApproximateFlag={showApproximateFlags}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p className="almanac-empty">{t('almanacCalendarNoDays')}</p>
+          )}
+        </div>
+      ) : null}
 
       {/* ── Recorded to the month, and therefore on no square ─────────────── */}
       {month.monthOnly.length > 0 && (
         <section className="almanac-calendar-unplaced" aria-labelledby={`unplaced-${month.month}`}>
-          <h4 id={`unplaced-${month.month}`} className="almanac-calendar-unplaced-heading">
+          <h3 id={`unplaced-${month.month}`} className="almanac-calendar-unplaced-heading">
             {t('almanacCalendarUnplacedHeading')}
-          </h4>
+          </h3>
           <p className="almanac-hint">{t('almanacCalendarUnplacedNote')}</p>
           <ul className="almanac-list">
             {month.monthOnly.map((entry, i) => (
@@ -264,6 +395,7 @@ export function AlmanacCalendar({
                 entry={entry}
                 lang={lang}
                 index={i}
+                showApproximateFlag={showApproximateFlags}
               />
             ))}
           </ul>
