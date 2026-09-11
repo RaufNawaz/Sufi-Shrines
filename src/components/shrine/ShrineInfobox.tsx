@@ -21,6 +21,8 @@ import type { Lang } from '../../types/shrine';
 import { usesLatinScript } from '../../lib/i18n/languages';
 import { isRtlLang } from '../../lib/i18n/languages';
 import { useShrineTraditions } from './useShrineTraditions';
+import { hasProjectAccess } from '../../lib/projectAccess';
+import { renderInlineBold } from './inlineFormat';
 function isFoundedKey(key: string): boolean {
   return key === 'Founded' || key === 'Founded/Opened';
 }
@@ -30,6 +32,17 @@ function isFoundedKey(key: string): boolean {
    of special case as Founded above. */
 function isEventsKey(key: string): boolean {
   return key === 'Events';
+}
+
+/* The Events cell is semicolon-joined by convention (107 of 168 populated
+   cells carry a `;`), so the bullets are exactly the sheet's own segments —
+   nothing is re-punctuated or re-ordered. A cell with one segment is one line,
+   not a one-item list. */
+function splitEvents(value: string): string[] {
+  return value
+    .split(';')
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 function resolveFieldValue(
@@ -63,6 +76,12 @@ export function ShrineInfobox({ shrine }: Props) {
   const { t, lang, localizeField, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   const traditions = useShrineTraditions(shrine.slug);
+  /* The founded row's precision qualifier and source note are team-facing
+     (project head, 11 September 2026: "remove the notes in the founded" and
+     "remove the approximate etc badges in the public-facing"). The data is
+     untouched and the team view still shows every word of it; the public reads
+     the year. Same soft gate as the provenance block on the page (`?team=1`). */
+  const showQualifiers = hasProjectAccess();
 
   // Build ordered rows: priority keys first, then remaining, up to max
   const allEntries = Object.entries(shrine.raw).filter(([key, value]) => {
@@ -163,6 +182,23 @@ export function ShrineInfobox({ shrine }: Props) {
                   <a href={normalizeUrl(value) ?? value} target="_blank" rel="noopener noreferrer">
                     {value.replace(/^https?:\/\//, '')}
                   </a>
+                ) : isEventsKey(key) && splitEvents(value).length > 1 ? (
+                  // Bullets, one per recorded observance (project head, 11 Sep
+                  // 2026). renderInlineBold turns the sheet's *ʿurs* italics
+                  // into <em> instead of printing the asterisks.
+                  <ul className="infobox-bullets">
+                    {splitEvents(value).map((part, i) => (
+                      <li key={i}>
+                        <bdi lang={isUntranslatedInUrdu(lang, part) ? 'en' : undefined}>
+                          {renderInlineBold(fmtNum(part))}
+                        </bdi>
+                      </li>
+                    ))}
+                  </ul>
+                ) : isEventsKey(key) ? (
+                  <bdi lang={isUntranslatedInUrdu(lang, value) ? 'en' : undefined}>
+                    {renderInlineBold(fmtNum(value))}
+                  </bdi>
                 ) : (
                   // <bdi> so an untranslated Latin fallback value can't
                   // garble the surrounding RTL layout (same treatment as
@@ -285,14 +321,14 @@ export function ShrineInfobox({ shrine }: Props) {
                 <bdi>
                   {fmtNum(shrine.yearBuilt || resolveFoundedDate(shrine.raw, lang))}
                   {(() => {
-                    if (!shrine.yearBuiltPrecision) return '';
+                    if (!showQualifiers || !shrine.yearBuiltPrecision) return '';
                     // Known precision vocabulary localizes; free-form
                     // qualifiers render verbatim, like the source notes.
                     const pk = yearPrecisionKey(shrine.yearBuiltPrecision);
                     return ` (${pk ? t(YEAR_PRECISION_LABEL_KEYS[pk]) : shrine.yearBuiltPrecision})`;
                   })()}
                 </bdi>
-                {shrine.yearBuiltNote && (
+                {showQualifiers && shrine.yearBuiltNote && (
                   <p className="infobox-note" data-latin>
                     {t('sourceNoteLabel')}: <bdi>{shrine.yearBuiltNote}</bdi>
                   </p>

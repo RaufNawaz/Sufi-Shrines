@@ -75,7 +75,7 @@ function renderSidebar(
 }
 
 describe('MapSidebar — directory preference', () => {
-  it('opens Spotlight search from Table of Shrines by default', () => {
+  it('opens Spotlight search from the Search button by default', () => {
     renderSidebar({}, null);
 
     fireEvent.click(document.querySelector('.list-toggle-btn')!);
@@ -96,7 +96,7 @@ describe('MapSidebar — directory preference', () => {
   });
 
   /**
-   * The panel hangs directly over the "Table of Shrines" button it configures,
+   * The panel hangs directly over the "Search" button it configures,
    * so a panel that will not shut hides the effect of the choice just made.
    * All three dismissals are the ones every other overlay here offers.
    */
@@ -286,16 +286,26 @@ describe('MapSidebar — six-category filters', () => {
     expect(document.querySelector('.info-level-badge')).not.toBeInTheDocument();
   });
 
-  it('shows the info-level badge on list rows when info_level is set', () => {
+  it('does not put the info-level badge on list rows — one badge per row since 11 Sep 2026', () => {
+    /* Every row carried both badges and "Documented from sources" beside
+       "Book verified" read as one fact said twice. The list keeps provenance
+       (support_level); depth (info_level) is on the entry's page. */
     renderSidebar({
-      shrines: [buildShrine(makeShrineRow({ Name: 'Verified Row', info_level: 'Full' }), 0)!],
+      shrines: [
+        buildShrine(
+          makeShrineRow({
+            Name: 'Verified Row',
+            info_level: 'Full',
+            support_level: 'Field-verified',
+          }),
+          0,
+        )!,
+      ],
     });
     fireEvent.click(document.querySelector('.list-toggle-btn')!);
 
-    const badge = document.querySelector('.info-level-badge--full')!;
-    expect(badge).toBeInTheDocument();
-    expect(badge.textContent).toBe('Fully documented');
-    expect(badge.getAttribute('title')).toBeTruthy();
+    expect(document.querySelector('.info-level-badge')).not.toBeInTheDocument();
+    expect(document.querySelector('.support-level-badge--field-verified')).toBeInTheDocument();
   });
 
   it('shows the support-level badge on list rows when support_level is set', () => {
@@ -308,7 +318,7 @@ describe('MapSidebar — six-category filters', () => {
 
     const badge = document.querySelector('.support-level-badge--field-verified')!;
     expect(badge).toBeInTheDocument();
-    expect(badge.textContent).toBe('Field-verified');
+    expect(badge.textContent).toBe('Field documented');
     expect(badge.getAttribute('title')).toBeTruthy();
   });
 });
@@ -334,7 +344,7 @@ describe('MapSidebar — provenance (support-level) filter (More filters)', () =
     const toggle = document.querySelector<HTMLButtonElement>(
       '[aria-label="Filter by provenance"] .filter-chip',
     )!;
-    expect(toggle.textContent).toBe('Field-verified only');
+    expect(toggle.textContent).toBe('Field documented only');
     fireEvent.click(toggle);
     expect(onVerifiedOnlyChange).toHaveBeenCalledWith(true);
   });

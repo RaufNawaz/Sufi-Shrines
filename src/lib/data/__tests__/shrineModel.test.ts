@@ -1,6 +1,12 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest';
-import { buildShrine, buildShrines, haversineKm, findNearbyShrines } from '../shrineModel';
+import {
+  buildShrine,
+  buildShrines,
+  haversineKm,
+  findNearbyShrines,
+  findRelatedShrines,
+} from '../shrineModel';
 import { makeShrineRow } from '../../../test/utils';
 import type { ShrineRow } from '../../../types/shrine';
 
@@ -113,6 +119,42 @@ describe('haversineKm', () => {
     // ~1030 km expected (haversine great-circle)
     expect(dist).toBeGreaterThan(950);
     expect(dist).toBeLessThan(1100);
+  });
+});
+
+describe('findRelatedShrines', () => {
+  // Order first, then distance (project head, 11 September 2026). The anchor
+  // is a Qadiri site in Lahore. A Qadiri site 400 km away must outrank a
+  // Chishti neighbour 2 km away; among the rest, closer wins; and the list is
+  // four long, however many candidates there are.
+  const rows: ShrineRow[] = [
+    { ...baseRow, Name: 'Anchor', Latitude: '31.52', Longitude: '74.36', silsila: 'Qadiri' },
+    { ...baseRow, Name: 'Chishti next door', Latitude: '31.53', Longitude: '74.37', silsila: 'Chishti' },
+    { ...baseRow, Name: 'Qadiri far', Latitude: '28.4', Longitude: '70.3', silsila: 'Qadiri' },
+    { ...baseRow, Name: 'Unaffiliated mid', Latitude: '31.7', Longitude: '74.5', silsila: '' },
+    { ...baseRow, Name: 'Unaffiliated near', Latitude: '31.55', Longitude: '74.40', silsila: '' },
+    { ...baseRow, Name: 'Unaffiliated farther', Latitude: '32.5', Longitude: '74.5', silsila: '' },
+    { ...baseRow, Name: 'Karachi', Latitude: '24.86', Longitude: '67.00', silsila: '' },
+  ];
+  const shrines = buildShrines(rows);
+  const anchor = shrines.find((s) => s.name === 'Anchor')!;
+
+  it('puts the same order first, then the nearest, and stops at four', () => {
+    const related = findRelatedShrines(anchor, shrines);
+    expect(related).toHaveLength(4);
+    expect(related[0].name).toBe('Qadiri far');
+    expect(related.slice(1).map((s) => s.name)).toEqual([
+      'Chishti next door',
+      'Unaffiliated near',
+      'Unaffiliated mid',
+    ]);
+    expect(related.find((s) => s.id === anchor.id)).toBeUndefined();
+  });
+
+  it('ranks by distance alone when the anchor records no order', () => {
+    const noOrder = shrines.find((s) => s.name === 'Unaffiliated near')!;
+    const related = findRelatedShrines(noOrder, shrines);
+    expect(related[0].name).toBe('Chishti next door');
   });
 });
 

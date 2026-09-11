@@ -2,6 +2,7 @@ import type { LatLng, Shrine, ShrineRow } from '../../types/shrine';
 import { getFieldValue } from './fieldAliasing';
 import { getPrimaryImageCredit, getPrimaryImageUrl, parseGallery } from './galleryParsing';
 import { buildStableSlug, slugify } from './slugify';
+import { orderSlugForSilsila } from './silsila';
 
 export function parseLatLng(row: ShrineRow): LatLng | null {
   const lat = parseFloat(row?.Latitude || '');
@@ -186,19 +187,42 @@ export function haversineKm(from: LatLng, to: LatLng): number {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 5): Shrine[] {
+/**
+ * The four entries a reader is most likely to want next: the same Sufi order
+ * first, then whatever is closest.
+ *
+ * Until 11 September 2026 this weighted category and the raw `Location` string
+ * ahead of distance, and the page also carried a second, purely geographic
+ * "Nearby shrines" grid of five. The two lists overlapped, and neither answered
+ * the question the project head actually asked for — *the most similar order,
+ * and the closest*. So: one list, four cards, order first. A recorded order is
+ * resolved with `orderSlugForSilsila`, which links exactly the nine orders the
+ * archive has pages for and returns null for a dual affiliation, so a cell
+ * naming two orders matches nothing rather than half of something (RULE 2).
+ *
+ * Distance is a penalty rather than a filter, capped so that an unmapped row
+ * (22 Aug ruling) is treated as "far" instead of being excluded: it can still
+ * appear on order similarity alone. 150 km costs one point; the same order is
+ * worth four, so a same-order site within ~600 km outranks any other-order
+ * neighbour, and beyond that the neighbour wins — which is the trade-off the
+ * sentence "most similar order and the closest" describes.
+ */
+export function findRelatedShrines(shrine: Shrine, all: Shrine[], limit = 4): Shrine[] {
   const from = shrine.latLng;
+  const order = orderSlugForSilsila(shrine.silsila ?? '');
+  const FAR_KM = 1200;
+  const KM_PER_POINT = 150;
   return all
     .filter((s) => s.id !== shrine.id)
-    .map((s) => ({
-      shrine: s,
-      score:
-        (s.category && s.category === shrine.category ? 3 : 0) +
-        (s.location && s.location === shrine.location ? 2 : 0) -
-        // Unmapped rows (22 Aug ruling) contribute no distance signal —
-        // similarity alone ranks them.
-        (from && s.latLng ? haversineKm(from, s.latLng) / 500 : 0),
-    }))
+    .map((s) => {
+      const distanceKm = from && s.latLng ? Math.min(haversineKm(from, s.latLng), FAR_KM) : FAR_KM / 2;
+      const sameOrder = order !== null && orderSlugForSilsila(s.silsila ?? '') === order;
+      const score =
+        (sameOrder ? 4 : 0) +
+        (s.category && s.category === shrine.category ? 1.5 : 0) -
+        distanceKm / KM_PER_POINT;
+      return { shrine: s, score };
+    })
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map((r) => r.shrine);

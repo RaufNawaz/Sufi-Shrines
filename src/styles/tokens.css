@@ -260,19 +260,33 @@
   --leading-loose: 2;
   /* Nastaliq stacks diacritics above and hangs descenders well below the
      baseline, so running text needs more leading than a Latin face at the
-     same size — but not much more. 2.1 read as a sprawling diary rather
-     than set prose (Urdu print sets Nastaliq dense); 1.9 keeps the diacritic
-     room while giving paragraphs real texture. Headings need even less: at
-     display sizes the glyphs already have the room, and loose leading leaves
-     a title floating unmoored in white space. Two tokens, because one number
-     cannot serve both. */
-  --leading-urdu: 1.9;
-  --leading-urdu-heading: 1.45;
-  /* Compact UI/data rows: infobox facts, chips, badges. Body leading (2.1)
-     is for running prose; applied to a label/value pair it made the Urdu
-     infobox 36% taller than the English one for identical content. */
-  --leading-urdu-ui: 1.7;
-  --font-scale-urdu: 1.11;
+     same size. This read 1.9 until 11 September 2026, with a note that 2.1
+     "read as a sprawling diary" — and the article prose never actually got
+     it: `.article-prose` set `--leading-relaxed` (1.75) on its own and won,
+     so measured Urdu body text ran 18.6px on a 32.6px line, and Rauf's
+     verdict was that the words flow into one another. 2.05 is the ruling now
+     (docs/URDU_TYPOGRAPHY_2026-09-11.md has the before/after numbers), and
+     shrine.css carries the RTL prose rule that makes this token reach the
+     article. Headings need less: at display sizes the glyphs already have
+     the room, and loose leading leaves a title floating — but 1.45 let the
+     tail of a گ or ش sit on the hairline beneath. Two tokens, because one
+     number cannot serve both. */
+  --leading-urdu: 2.05;
+  --leading-urdu-heading: 1.55;
+  /* Compact UI/data rows: infobox facts, chips, badges. Body leading is for
+     running prose; applied to a label/value pair it made the Urdu infobox
+     36% taller than the English one for identical content. 1.7 clipped the
+     descender of a value against the row below it; 1.85 is the least that
+     does not. */
+  --leading-urdu-ui: 1.85;
+  --font-scale-urdu: 1.15;
+  /* Nastaliq words lean, and a word's tail runs under the head of the next
+     one, so the inter-word space that reads as a gap in Latin reads as a
+     collision here. A small positive word-spacing is the only spacing a
+     connected script tolerates: letter-spacing prises joined glyphs apart
+     (see the tracking tokens above), and this touches the spaces alone.
+     Latin runs inside the Urdu view reset it (global.css). */
+  --word-spacing-urdu: 0.12em;
   /* The reader's own reading-size step, from `lib/textSizePreference.ts`. One
      by default and overridden per `[data-text-size]` in global.css. Declared
      here with its default rather than left to a `var(--reading-scale, 1)`

@@ -31,20 +31,36 @@ describe('publication metadata', () => {
     expect(PUBLICATION.codeLicense).toBe('MIT');
   });
 
-  it('the author and affiliation match CITATION.cff', () => {
+  it('the authors match CITATION.cff, and no file names an institution or an address', () => {
     const cff = read('CITATION.cff');
     expect(cff).toContain("family-names: 'Nawaz'");
     expect(cff).toContain("given-names: 'Rauf'");
-    expect(cff).toContain("affiliation: 'Harvard University'");
-    expect(PUBLICATION.author).toBe('Rauf Nawaz');
-    expect(PUBLICATION.affiliation).toBe('Harvard University');
+    expect(cff).toContain("family-names: 'Ahsan'");
+    expect(cff).toContain("given-names: 'Adil'");
+    expect(PUBLICATION.authors).toEqual(['Rauf Nawaz', 'Adil Ahsan']);
+    expect(PUBLICATION.author).toBe('Rauf Nawaz and Adil Ahsan');
+    /* Project head, 11 September 2026: names and the website, nothing that
+       locates the authors. The affiliation and the college address had been in
+       five files; a grep is what keeps them out. */
+    for (const file of ['CITATION.cff', 'codemeta.json', 'LICENSE-data.md', 'data/datapackage.json']) {
+      expect(read(file), `${file} names an institution`).not.toMatch(/Harvard/);
+      // An address, not a JSON-LD `@type` key.
+      expect(read(file), `${file} carries an e-mail address`).not.toMatch(/[\w.+-]+@[\w-]+\.\w+/);
+    }
+    expect(archiveCitation()).not.toMatch(/Harvard/);
   });
 
   it('the attribution string carries the version the archive claims', () => {
     // ODbL prescribes the attribution wording; a stale version in it would
     // credit the wrong release.
     expect(PUBLICATION.attribution).toContain(`v${PUBLICATION.version}`);
-    expect(PUBLICATION.attribution).toContain('Nawaz, Rauf');
+    expect(PUBLICATION.attribution).toContain('Nawaz, Rauf and Adil Ahsan');
+    // LICENSE-data.md prescribes this wording; the site must quote, not paraphrase.
+    const prescribed = read('LICENSE-data.md')
+      .replace(/^> ?/gm, '') // the blockquote markers
+      .replace(/[_*]/g, '') // markdown emphasis around the title
+      .replace(/\s+/g, ' ');
+    expect(prescribed).toContain(PUBLICATION.attribution.replace(/\s+/g, ' '));
   });
 
   it('an entry citation names the item, the database and the accessed date', () => {
@@ -94,13 +110,13 @@ describe('every file that states a version states the same one', () => {
   it('the release README template does not still say 2025', () => {
     // It did, for the whole time the archive claimed 2026 everywhere else.
     const release = read('scripts/data/release.mjs');
-    const cited = /Harvard University, (\d{4})\./.exec(release)?.[1];
+    const cited = /\(v\d+\.\d+\.\d+\), (\d{4})\./.exec(release)?.[1];
     expect(cited, 'no citation year in release.mjs').toBeTruthy();
     expect(cited).toBe('2026');
   });
 
   it('the year is the same in the licence, the citation file and codemeta', () => {
-    expect(read('LICENSE-data.md')).toContain('Harvard University, 2026.');
+    expect(read('LICENSE-data.md')).toContain('(v2.0.0), 2026.');
     expect(read('CITATION.cff')).toContain("date-released: '2026-");
     expect(read('codemeta.json')).toContain('"copyrightYear": 2026');
     expect(archiveCitation()).toContain('2026');

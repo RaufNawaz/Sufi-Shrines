@@ -16,9 +16,15 @@
 export const PUBLICATION = {
   /** From CITATION.cff `version`. */
   version: '2.0.0',
-  /** From CITATION.cff `authors` / `affiliation`. */
-  author: 'Rauf Nawaz',
-  affiliation: 'Harvard University',
+  /** From CITATION.cff `authors`, in file order, joined the way a citation
+   * names two authors. **No institution and no address** anywhere in the
+   * public record (project head, 11 September 2026): the archive is published
+   * under its two authors' names and its own URL, and nothing else — the
+   * Harvard affiliation, the college e-mail and the "Harvard Research Project"
+   * footer credit were all removed the same day. `citation.test.ts` holds this
+   * against CITATION.cff so the two cannot drift apart again. */
+  authors: ['Rauf Nawaz', 'Adil Ahsan'],
+  author: 'Rauf Nawaz and Adil Ahsan',
   /** From LICENSE — applies to the site and pipeline code. */
   codeLicense: 'MIT',
   codeLicenseUrl: 'https://opensource.org/licenses/MIT',
@@ -44,17 +50,25 @@ export const PUBLICATION = {
    * Rauf on 30 August 2026 in favour of **v2.0.0 / 2026**, and the other four
    * files were moved to match. `datasetVersionsAgree.test.ts` now fails if they
    * ever drift again, because three strings and three answers is not a thing a
-   * reader can be asked to adjudicate. The archive NAME is still unreconciled and
-   * is still deliberate — see the paragraph above. */
+   * reader can be asked to adjudicate.
+   *
+   * Changed on 11 September 2026 after all, and on Rauf's instruction: the
+   * citation is to carry the two authors' names and the website and nothing
+   * more, and the attribution string is a citation the licence prescribes.
+   * Since the string had to be rewritten to drop the institution, the archive
+   * NAME was aligned with CITATION.cff in the same edit — one rewrite rather
+   * than two — and points at the site rather than the repository, because the
+   * site is the thing a reuser's readers can open. LICENSE-data.md carries the
+   * identical wording. */
   attribution:
-    'Nawaz, Rauf. Sufi Shrines of Pakistan (v2.0.0). Harvard University, 2026. https://github.com/raufnawaz/sufi-shrines',
+    'Nawaz, Rauf and Adil Ahsan. Mapping the Shrines of Pakistan (v2.0.0), 2026. https://raufnawaz.github.io/Sufi-Shrines',
 } as const;
 
 /** A citation line for the archive as a whole. */
 export function archiveCitation(year: number = 2026): string {
   return (
-    `${PUBLICATION.author}. ${'Mapping the Shrines of Pakistan'} (v${PUBLICATION.version}). ` +
-    `${PUBLICATION.affiliation}, ${year}. ${PUBLICATION.siteUrl}`
+    `${PUBLICATION.author}. Mapping the Shrines of Pakistan (v${PUBLICATION.version}), ` +
+    `${year}. ${PUBLICATION.siteUrl}`
   );
 }
 
@@ -101,7 +115,7 @@ export function entryCitation(
 ): string {
   const iso = localIsoDate(accessed);
   return (
-    `"${shrineName}". In ${PUBLICATION.author}, Mapping the Shrines of Pakistan (v${PUBLICATION.version}). ` +
-    `${PUBLICATION.affiliation}, ${year}. ${PUBLICATION.siteUrl}/shrine/${slug} (accessed ${iso}).`
+    `"${shrineName}". In ${PUBLICATION.author}, Mapping the Shrines of Pakistan (v${PUBLICATION.version}), ` +
+    `${year}. ${PUBLICATION.siteUrl}/shrine/${slug} (accessed ${iso}).`
   );
 }

@@ -21,6 +21,8 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
 import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
+import { placesForShrine } from '../../lib/data/places';
+import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
 
 interface ShrinePreviewProps {
   shrine: Shrine;
@@ -47,7 +49,27 @@ export function ShrinePreview({
 
   const name = localizeShrineName(shrine, lang);
 
-  const location = localizeField(shrine.raw, 'Location') || shrine.location;
+  /* A place, not a paragraph. Several field-survey rows carry the survey's
+     whole account of where the site is in the Location column — Darbar Malik
+     Ahmad Ayaz's runs to 340 characters and ends "Ask Saifullah for a precise
+     pin" — and the preview printed it all, so one card was three times the
+     height of every other. When the recorded value is longer than a place name
+     can be, the card shows the closed place vocabulary the entry already
+     resolves to (the same `placesForShrine` behind `/place/:slug`), and the
+     full wording stays on the shrine page where it belongs. Nothing is
+     invented: the place is derived from that same column. When not even a
+     place resolves — Malik Ahmad Ayaz's column names a market and another
+     shrine, and says outright that no city or province was recorded — the
+     recorded region stands in, and failing that the row is simply absent. A
+     card is a summary; the absence of a place name in it is not a claim. */
+  const rawLocation = localizeField(shrine.raw, 'Location') || shrine.location;
+  const LOCATION_MAX_CHARS = 60;
+  const placeNames = placesForShrine(shrine).map((p) => localizeRecordedName(p.name, lang as Lang));
+  const location =
+    rawLocation.length > LOCATION_MAX_CHARS
+      ? placeNames.join(' · ') ||
+        (shrine.region ? localizeRecordedName(shrine.region, lang as Lang) : '')
+      : rawLocation;
   const category =
     categoryDisplayLabel(shrine.category, lang as Lang) ??
     (localizeField(shrine.raw, 'Category') || shrine.category);
@@ -117,14 +139,24 @@ export function ShrinePreview({
       </h2>
       <div className="preview-meta-row">
         {category && <span>{category}</span>}
-        {location && <span>· {location}</span>}
+        {location && (
+          <span className="preview-clamp" title={rawLocation}>
+            · {location}
+          </span>
+        )}
         {founded && <span>· {fmtNum(founded)}</span>}
       </div>
       {saint && (
         <div className="preview-meta-row">
           <span className="preview-figure-row">
             <span className="preview-figure-label">{figureLabel}</span>
-            <bdi>{saint}</bdi>
+            {/* Clamped to two lines for the same reason as the location: the
+                survey's figure cell can carry a sentence of qualification
+                ("also given as …, described in the survey as …"). The full
+                text is one tap away and in `title`. */}
+            <bdi className="preview-clamp" title={saint}>
+              {saint}
+            </bdi>
           </span>
         </div>
       )}

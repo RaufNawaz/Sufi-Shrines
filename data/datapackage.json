@@ -15,8 +15,11 @@
   "contributors": [
     {
       "title": "Rauf Nawaz",
-      "role": "author",
-      "organization": "Harvard University"
+      "role": "author"
+    },
+    {
+      "title": "Adil Ahsan",
+      "role": "author"
     }
   ],
   "keywords": [

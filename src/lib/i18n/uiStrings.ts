@@ -24,9 +24,9 @@ const UI_TEXT_EN = {
   noSelection: 'No shrine selected yet. Click a marker to view details.',
   exploreTitle: 'Explore the Shrines',
   exploreHint: 'Use the list button above to browse all shrines.',
-  tableButton: 'Table of Shrines',
+  tableButton: 'Search',
   settings: 'Settings',
-  directoryModeLabel: 'Table button opens',
+  directoryModeLabel: 'Search button opens',
   directoryModeSpotlight: 'Spotlight search',
   directoryModeTable: 'Shrine table',
   /* ── Settings page (/settings) ─────────────────────────────────────────
@@ -120,7 +120,7 @@ const UI_TEXT_EN = {
      opens"), which works above two radios in a popover and reads as a
      fragment above a paragraph explaining the same thing. */
   settingsDirectoryLabel: 'Shrine list',
-  settingsDirectoryHelp: 'What the list button on the map opens.',
+  settingsDirectoryHelp: 'What the Search button on the map opens.',
   settingsToursLabel: 'Guided tours',
   /* The switch says what turning it on does. Repeating the legend beside the
      checkbox told the reader the same words twice and nothing about the
@@ -154,7 +154,7 @@ const UI_TEXT_EN = {
   /* ── Tab bar (phone) ─────────────────────────────────────────────────── */
   tabMap: 'Map',
   tabExplore: 'Figures',
-  tabAlmanac: 'Almanac',
+  tabAlmanac: 'Calendar',
   tabAtlas: 'Atlas',
   tabAbout: 'Archive',
   tabBarLabel: 'Archive sections',
@@ -176,7 +176,6 @@ const UI_TEXT_EN = {
   locationMap: 'Location Map',
   getDirections: 'Get Directions',
   relatedShrines: 'Related Shrines',
-  nearbyShrines: 'Nearby Shrines',
   sharedGroundHeading: 'Shared ground',
   sharedGroundIntro: (sites: number, traditions: number) =>
     `${sites} other site${sites === 1 ? '' : 's'} within walking distance, ` +
@@ -246,7 +245,7 @@ const UI_TEXT_EN = {
   /* ── Order pages: the order's own calendar ─────────────────────────────── */
   orderUrsHeading: 'ʿUrs in this order',
   orderUrsNote:
-    'Every observance the archive records at a site where one of this order’s figures is commemorated. The date is shown exactly as it was written down; nothing here is projected onto the Gregorian calendar — the almanac does that, and says how approximate the result is.',
+    'Every observance the archive records at a site where one of this order’s figures is commemorated. The date is shown exactly as it was written down; nothing here is projected onto the Gregorian calendar — the Urs Calendar does that, and says how approximate the result is.',
   orderUrsUndatedCount: (n: number) => `${n} with no recorded date`,
   orderUrsNoDate: 'date not recorded',
   orderUrsAnnual: 'annual',
@@ -535,7 +534,7 @@ const UI_TEXT_EN = {
      fall back to. Says the thing rather than letting the reader discover it. */
   articleUrduMissing:
     'The Urdu text of this entry has not been written yet. The article below is the English one, shown as recorded rather than withheld.',
-  almanacTitle: 'The Urs Almanac',
+  almanacTitle: 'Urs Calendar',
   almanacIntro:
     'When the shrines gather. An ʿurs is the death anniversary of a saint, kept as a festival of union — and for most of these places it is the one day of the year the whole community returns.',
   almanacHonestyHeading: 'What this calendar can and cannot tell you',
@@ -563,7 +562,7 @@ const UI_TEXT_EN = {
     'The archive records a season for these observances but not a month, so they cannot be placed on the calendar.',
   almanacUndatedHeading: 'Observed, but the date is not recorded',
   almanacUndatedNote:
-    'These shrines hold an ʿurs or annual observance. Nobody has written down when. This is the largest gap in the almanac, and it is the easiest one to help close.',
+    'These shrines hold an ʿurs or annual observance. Nobody has written down when. This is the largest gap in the calendar, and it is the easiest one to help close.',
   almanacNoObservanceHeading: 'No observance recorded',
   almanacCoverageHeading: 'Coverage',
   almanacCoverageDayPrecision: 'with a day and month',
@@ -664,6 +663,9 @@ const UI_TEXT_EN = {
   aboutTitle: 'About this archive',
   aboutLede:
     'A public, bilingual record of sacred sites across Pakistan — Muslim shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi and Udasi darbars, Jain temples and secular memorials — built to be cited, and to be honest about what it does not yet know.',
+  /* Two names, no institution, no address — the whole of the public credit
+     (project head, 11 September 2026). */
+  aboutCredit: 'By Rauf Nawaz and Adil Ahsan',
   aboutStateHeading: 'What this archive holds',
   aboutStateNote:
     'Every number in this section is counted from the data this page just loaded, so it cannot drift from the archive the way a sentence can. Each one describes what the archive records \u2014 never an estimate of what is out there.',
@@ -790,7 +792,7 @@ const UI_TEXT_EN = {
   coverageWhy:
     'An archive is only as useful as its account of its own limits. A note in a repository goes stale; a page computed from the data cannot. If a figure here looks low, that is the gap, stated plainly rather than smoothed over.',
   saintNextUrs: 'Next ʿurs',
-  saintNextUrsLink: 'See the almanac',
+  saintNextUrsLink: 'See the calendar',
   almanacNothingUpcoming: 'No dated observance falls in the next twelve months.',
   almanacSeasonSpring: 'Spring',
   almanacSeasonSummer: 'Summer',
@@ -805,13 +807,24 @@ const UI_TEXT_EN = {
   almanacMonthOnly: 'month recorded, day not recorded',
   /* ── The calendar view ─────────────────────────────────────────────────── */
   almanacViewList: 'List',
-  almanacViewCalendar: 'Calendar',
+  almanacViewCalendar: 'Month',
   ariaAlmanacView: 'How to show the next twelve months',
   almanacCalendarNote:
     'A square is a day, so only an observance the archive recorded with a day appears on one. Those recorded to a month alone are listed under the grid, unplaced — putting one on the 1st or the 15th would be this archive inventing a date.',
   almanacCalendarCaption: 'observances with a recorded day',
-  almanacCalendarPrev: 'Earlier',
-  almanacCalendarNext: 'Later',
+  almanacCalendarPrev: 'Previous month',
+  almanacCalendarNext: 'Next month',
+  almanacToday: 'Today',
+  /* The bars a cell cannot show, folded into one control that opens the
+     day's full list. */
+  almanacCalendarMore: (n: number) => `+${n} more`,
+  almanacCalendarClose: 'Close',
+  /* Printed once under the grid in the public view, where the per-date
+     "approximate" pill is withheld (11 September 2026). The dashed bar is
+     its key. */
+  almanacProjectedCaveat:
+    'Dashed dates are projected from the Hijri calendar. An ʿurs begins on the local moon sighting, so the day can fall one or two days either side of what is shown.',
+  almanacShowList: (n: number) => `Show all ${n}`,
   almanacCalendarPlaced: (n: number) =>
     n === 1
       ? '1 observance falls on a recorded day this month'
@@ -872,7 +885,7 @@ const UI_TEXT_EN = {
      *arrives* by; the footer is the string a reader *leaves* by, and it sat
      under all 800 prerendered pages still saying the old name. A rename is a
      sweep, not an edit — `uiStringsName.test.ts` now holds the sweep open. */
-  footerCredit: 'Mapping the Shrines of Pakistan · Harvard Research Project',
+  footerCredit: 'Mapping the Shrines of Pakistan',
   citeTitle: 'Cite this entry',
   citeTextLabel: 'Text',
   citeCopy: 'Copy',
@@ -880,7 +893,7 @@ const UI_TEXT_EN = {
   citeRetrieved: 'Retrieved',
   citeSupportLevel: 'Support level',
   obsHeading: 'Urs & observances',
-  obsViewAlmanac: 'See it in the Urs Almanac',
+  obsViewAlmanac: 'See it in the Urs Calendar',
   fieldSiteType: 'Built form',
   locationNotRecorded: 'Location not recorded — this entry is not on the map yet.',
   srcNotesHeading: 'Where the source contradicts itself',
@@ -987,13 +1000,13 @@ const UI_TEXT_EN = {
     'How thoroughly we have documented this site so far. It reflects our records only — never the site’s significance.',
   infoLevelFilterLabel: 'Information level',
   provenanceFilterLabel: 'Provenance',
-  supportLevelFieldVerified: 'Field-verified',
-  supportLevelSourceDocumented: 'Source-documented',
-  supportLevelSourceSeeded: 'Source-seeded',
-  supportLevelWebCompiled: 'Web-compiled',
+  supportLevelFieldVerified: 'Field documented',
+  supportLevelSourceDocumented: 'Book verified',
+  supportLevelSourceSeeded: 'Text documented',
+  supportLevelWebCompiled: 'Web compiled',
   supportLevelTooltip:
     'How this entry’s information was gathered — a field survey, a cited source, or a web compilation. It reflects our research process only — never the site’s significance.',
-  verifiedOnlyFilter: 'Field-verified only',
+  verifiedOnlyFilter: 'Field documented only',
   statusActive: 'Active',
   statusOccasional: 'Festival-only',
   statusHeritage: 'Heritage site — worship discontinued',
@@ -1211,6 +1224,8 @@ export function tFn(lang: Lang, key: 'saintBiographyFrom', entry: string): strin
 export function tFn(lang: Lang, key: 'almanacMorePlaces', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarPlaced', n: number): string;
 export function tFn(lang: Lang, key: 'almanacCalendarDayCount', n: number): string;
+export function tFn(lang: Lang, key: 'almanacCalendarMore', n: number): string;
+export function tFn(lang: Lang, key: 'almanacShowList', n: number): string;
 export function tFn(lang: Lang, key: 'orderSpan', from: string, to: string): string;
 export function tFn(lang: Lang, key: 'chronologySpan', from: string, to: string): string;
 export function tFn(lang: Lang, key: 'graphLineageScopeOrder', order: string, n: number): string;
@@ -1332,6 +1347,8 @@ export function tFn(
     | 'almanacMorePlaces'
     | 'almanacCalendarPlaced'
     | 'almanacCalendarDayCount'
+    | 'almanacCalendarMore'
+    | 'almanacShowList'
     | 'graphFigureFilterCount'
     | 'sharedGroundIntro'
     | 'sharedGroundIntroSame'

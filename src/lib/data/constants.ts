@@ -31,8 +31,14 @@ export const NON_DETAIL_KEYS = new Set([
 ]);
 
 /** Contact address for the "we would like to hear from you" prompt on
- * low-information shrine pages. */
-export const CONTACT_EMAIL = 'raufnawaz@college.harvard.edu';
+ * low-information shrine pages and the corrections section of /about.
+ *
+ * Empty since 11 September 2026. It held a college address, and the project
+ * head's instruction that day was that the public record carries the two
+ * authors' names and the website and nothing that locates them. Every consumer
+ * renders the GitHub issue link alone while this is empty; set a project
+ * address here (one that is not a person's) and the mailto links return. */
+export const CONTACT_EMAIL = '';
 
 /** Public GitHub repo — used to build the "Report a correction" link (see
  * .github/ISSUE_TEMPLATE/data-correction.yml, docs/CORRECTIONS_WORKFLOW.md). */

@@ -502,10 +502,18 @@
 
 .about-lede {
   max-width: 60ch;
-  margin: 0 0 var(--space-6);
+  margin: 0 0 var(--space-4);
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
+}
+
+/* The two authors' names under the lede. Muted and small: a byline, not a
+   heading. Inherits the page font, so Nastaliq reaches it in the Urdu view. */
+.about-credit {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 /*
@@ -674,6 +682,23 @@
 
 [dir='rtl'] .about-citation-label {
   letter-spacing: normal;
+}
+
+/* Same paragraph rhythm as the article prose (shrine.css): at Nastaliq leading
+   the Latin paragraph gap vanishes into the lines. */
+[dir='rtl'] .about-section p {
+  margin-bottom: var(--space-4);
+}
+
+/* Badge text at `--text-xs` on a 1.5 line is Latin sizing. Nastaliq at 14px
+   inside a pill lost its descenders below the pill's edge (the sidebar rows
+   showed the tails of شدہ cut). The Nastaliq floor is `--text-sm`, and the
+   line box has to hold the tail. */
+[dir='rtl'] .info-level-badge,
+[dir='rtl'] .support-level-badge {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  padding-block: 0;
 }
 
 /* ── Place pages (Track B) ──────────────────────────────────────────────────

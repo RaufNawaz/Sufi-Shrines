@@ -135,8 +135,8 @@ console.log(shrines.rows[0]);   // first shrine object
 
 See \`CITATION.cff\` for the full citation or use:
 
-> Nawaz, Rauf. *Mapping the Shrines of Pakistan* (v2.0.0). Harvard University, 2026.
-> <https://github.com/raufnawaz/sufi-shrines>
+> Nawaz, Rauf and Adil Ahsan. *Mapping the Shrines of Pakistan* (v2.0.0), 2026.
+> <https://raufnawaz.github.io/Sufi-Shrines>
 
 ## License
 

@@ -24,14 +24,14 @@ describe('citation builders', () => {
     name: 'Data Darbar',
     englishName: 'Data Darbar',
     url: 'https://example.test/shrine/data-darbar',
-    supportLevelLabel: 'Field-verified',
+    supportLevelLabel: 'Field documented',
     retrieved: '2026-08-21',
     year: 2026,
   };
 
   it('plain citation carries the support level — the honesty travels with the footnote', () => {
     const cite = buildPlainCitation('en', input);
-    expect(cite).toContain('Support level: Field-verified');
+    expect(cite).toContain('Support level: Field documented');
     expect(cite).toContain('"Data Darbar."');
     expect(cite).toContain(input.url);
   });
@@ -58,7 +58,7 @@ describe('citation builders', () => {
     expect(bib).toMatch(/^@misc\{shrines-data-darbar,/);
     expect(bib).toContain('title = {Data Darbar}');
     expect(bib).toContain('year = {2026}');
-    expect(bib).toContain('note = {Support level: Field-verified. Retrieved 2026-08-21}');
+    expect(bib).toContain('note = {Support level: Field documented. Retrieved 2026-08-21}');
     // Balanced braces — an unbalanced BibTeX entry breaks the consuming tool
     expect(bib.split('{').length).toBe(bib.split('}').length);
   });

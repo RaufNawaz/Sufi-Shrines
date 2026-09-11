@@ -2684,6 +2684,11 @@
   color: var(--color-text-muted);
 }
 
+/* The quote's 1.7 is Latin leading; Nastaliq verse and prose take the token. */
+[dir='rtl'] .order-prose-quote {
+  line-height: var(--leading-urdu);
+}
+
 [dir='rtl'] .order-prose-cite {
   font-size: var(--text-sm);
 }

@@ -26,9 +26,11 @@ import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesCon
  * `buildSharedGroundOverview` for what was measured and where the eight came
  * from.
  *
- * Distinct from `NearbyShrines`, which lists the five nearest sites wherever
- * they are. This section appears only when there is genuinely shared ground,
- * and it is about the traditions rather than the distances.
+ * Distinct from `RelatedShrines`, which ranks by order and then distance. This
+ * section appears only when there is genuinely shared ground, and it is about
+ * the traditions rather than the distances. (A purely geographic "Nearby
+ * shrines" grid also stood on the page until 11 September 2026; it duplicated
+ * this list and was removed.)
  */
 export function SharedGround({ shrine, all }: { shrine: Shrine; all: Shrine[] }) {
   const { lang, t, fmtNum } = useLang();

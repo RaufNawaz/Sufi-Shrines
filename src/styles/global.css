@@ -339,8 +339,19 @@ body.lang-rtl,
      it. What it must not stay is *unscaled*; see the rule directly below. */
   font-size: 1.05rem;
   letter-spacing: normal;
-  /* No word-spacing bump: Nastaliq's connected words already carry their own
-     rhythm, and extra space between them reads as sprawl, not clarity. */
+  /* This said `word-spacing: normal` — "Nastaliq's connected words already
+     carry their own rhythm" — until 11 September 2026, when Rauf read the
+     Urdu pages against the English ones and said the words flow into one
+     another. Measured: every Urdu surface ran at 0px word-spacing. The token
+     is in tokens.css beside the leading it belongs with. */
+  word-spacing: var(--word-spacing-urdu);
+}
+
+/* The bump is for Nastaliq. A Latin run inside the Urdu view — an
+   untranslated source note, a citation — is set in Source Sans and already
+   spaced for that face; inheriting 0.12em would loosen it for no reason a
+   reader could name. (Coordinates carry no spaces, so they need no reset.) */
+[dir='rtl'] :is([lang='en'], [data-latin]) {
   word-spacing: normal;
 }
 
@@ -555,6 +566,11 @@ body.lang-rtl {
 [dir='rtl'] .search-input {
   font-family: var(--font-urdu);
   font-size: calc(1.1rem * var(--reading-scale));
+  /* Chrome's UA stylesheet resets `word-spacing: normal` on form controls, so
+     the RTL root's bump above never reached a chip, a list row (each is a
+     <button>) or the search field. Measured before this line: 0px on every
+     chip and every sidebar row while the prose beside them had 2.1px. */
+  word-spacing: var(--word-spacing-urdu);
 }
 
 /* Focus styles */

@@ -38,7 +38,7 @@ interface Props {
  * two that must not disappear. They get a ring at the shared point instead,
  * which is also visibly *not* a line, so the lens never draws a distance the
  * archive did not measure (`docs/planning/SHARED_GROUND_VISION.md`, and the
- * same rule `NearbyShrines` and `/shared-ground` follow).
+ * same rule `SharedGround` and `/shared-ground` follow).
  *
  * Non-interactive throughout. The markers underneath are the interface — a
  * line that swallowed a click would put a dead zone over two shrines.

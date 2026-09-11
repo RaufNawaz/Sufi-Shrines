@@ -26,6 +26,23 @@ import { test, expect } from './fixtures';
  */
 
 test.describe('the merged /about', () => {
+  /* The team view. Since 11 September 2026 `/about` has two shapes behind the
+     same soft gate as the shrine page's provenance block: a visitor reads six
+     short sections, the team reads twenty-four. The redirects below land in
+     team-only sections, so every test in this block opens the page as the team
+     does. A `?team=1` query cannot be used here — `<Navigate>` drops it — so
+     the persisted flag is set before the page loads, which is exactly what a
+     `?team=1` visit does on its first load (src/lib/projectAccess.ts). */
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        window.localStorage.setItem('shrines_team_access', '1');
+      } catch {
+        // private mode — the test will fail on the section, loudly
+      }
+    });
+  });
+
   /* Landing means scrolled to, not merely a matching hash in the address bar.
      Client-side navigation keeps a hash and does nothing with it, so a redirect
      that "works" by URL can still drop the reader at the top of a page four
@@ -106,5 +123,36 @@ test.describe('the merged /about', () => {
       if ((await page.locator(`#${id}`).count()) === 0) missing.push(id);
     }
     expect(missing, `contents entries with no section: ${missing.join(', ')}`).toEqual([]);
+  });
+});
+
+/**
+ * And the public view, which is the one almost everyone sees.
+ *
+ * Six sections, no contents nav, no measured self-account — "what this is, who
+ * made it, what it holds, how to cite it, the licence, where to send a
+ * correction". The assertions are about presence and absence rather than copy:
+ * a team-only section leaking into the public view is the regression this
+ * guards, and the contents nav returning is how it would be noticed first.
+ */
+test.describe('the public /about', () => {
+  test('shows the short page and none of the team sections', async ({ page }) => {
+    await page.goto('/about');
+    await page.locator('h1.entity-title').waitFor();
+    await page.locator('#cite').waitFor();
+    await page.locator('#holds').waitFor();
+
+    await expect(page.locator('.about-credit')).toContainText('Rauf Nawaz');
+    await expect(page.locator('.about-credit')).toContainText('Adil Ahsan');
+    await expect(page.locator('.about-contents')).toHaveCount(0);
+    for (const teamOnly of ['graph', 'trust', 'traditions', 'site-status', 'why']) {
+      await expect(page.locator(`#${teamOnly}`), `#${teamOnly} is team-only`).toHaveCount(0);
+    }
+    for (const publicSection of ['scope', 'holds', 'method', 'licence', 'cite', 'corrections']) {
+      await expect(page.locator(`#${publicSection}`)).toHaveCount(1);
+    }
+    /* No institution and no address anywhere on the public page. */
+    await expect(page.locator('main, article').first()).not.toContainText(/Harvard/);
+    await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
   });
 });

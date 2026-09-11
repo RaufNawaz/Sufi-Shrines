@@ -7,11 +7,10 @@ import { LanguageToggle } from '../ui/LanguageToggle';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
 import { thumbnailUrl, IMAGE_WIDTH } from '../../lib/images/thumbnail';
-import { categoryKey, categoryDisplayLabel } from '../../lib/data/categoryKey';
+import { categoryKey } from '../../lib/data/categoryKey';
 import type { CategoryKey } from '../../lib/data/categoryKey';
 import { filterShrines } from '../../lib/data/shrineFilters';
 import { ShrineGlyph } from '../ui/ShrineGlyph';
-import { InfoLevelBadge } from '../ui/InfoLevelBadge';
 import { SupportLevelBadge } from '../ui/SupportLevelBadge';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDebounce } from '../../hooks/useDebounce';
@@ -266,15 +265,20 @@ export function MapSidebar({
     if (search.trim()) {
       return filtered.length > 0 ? ([['__search__', filtered]] as [string, Shrine[]][]) : [];
     }
-    const groups = new Map<string, Shrine[]>();
-    for (const shrine of filtered) {
-      const cat = shrine.category || t('uncategorized');
-      const group = groups.get(cat) || [];
-      group.push(shrine);
-      groups.set(cat, group);
-    }
-    return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b, lang));
-  }, [filtered, t, lang, search]);
+    /* One alphabetical list, not six pools.
+       Until 11 September 2026 the browse list was bucketed under sticky
+       category headings — MUSLIM SHRINE, HINDU TEMPLE, … — so 80-odd rows sat
+       under one heading and a reader looking for a name had to know its
+       tradition first. The project head asked for the pooling to go. The
+       category chips in the filters still narrow the list; the list itself is
+       now sorted by the name the reader sees, in the reader's language. The
+       `[key, rows][]` shape is kept so the listbox markup below is unchanged. */
+    if (filtered.length === 0) return [];
+    const sorted = [...filtered].sort((a, b) =>
+      localizeName(a).localeCompare(localizeName(b), lang),
+    );
+    return [['__all__', sorted]] as [string, Shrine[]][];
+  }, [filtered, lang, search, localizeName]);
 
   const selectedShrine = useMemo(
     () => (selectedId !== null ? shrines.find((s) => s.id === selectedId) : null),
@@ -648,37 +652,12 @@ export function MapSidebar({
                   )}
                 </div>
               )}
+              {/* A single group since 11 September 2026 — the per-category
+                  pools and their sticky headings are gone (see `grouped`). The
+                  group wrapper stays because a listbox may own only option and
+                  group children, and `aria-label` names the whole list. */}
               {grouped.map(([cat, items]) => (
-                <div
-                  key={cat}
-                  role="group"
-                  aria-label={
-                    grouped.length > 1
-                      ? tFn(
-                          lang,
-                          'ariaCategoryOf',
-                          categoryDisplayLabel(items[0].category, lang) ??
-                            localizeField(items[0].raw, 'Category') ??
-                            cat,
-                        )
-                      : t('ariaShrineList')
-                  }
-                >
-                  {grouped.length > 1 && (
-                    /* One label, used for both the visible heading and the
-                       accessible name. They used to diverge: the heading was
-                       localised and the aria-label interpolated the raw English
-                       `cat`, so a screen reader announced the English category
-                       over the Urdu the page was showing. */
-                    /* `aria-hidden` because the group above now carries this
-                       same string as its accessible name — announcing it twice
-                       is worse than once, and a bare div inside a listbox is
-                       not an allowed child. */
-                    <div className="shrine-list-group-heading" aria-hidden="true">
-                      {categoryDisplayLabel(items[0].category, lang) ??
-                        (localizeField(items[0].raw, 'Category') || cat)}
-                    </div>
-                  )}
+                <div key={cat} role="group" aria-label={t('ariaShrineList')}>
                   {items.map((shrine) => {
                     const name = localizeName(shrine);
                     const location = localizeField(shrine.raw, 'Location') || shrine.location;
@@ -720,11 +699,13 @@ export function MapSidebar({
                         <div className="shrine-list-info">
                           <div className="shrine-list-name">{highlightMatch(name, search)}</div>
                           {location && <div className="shrine-list-meta">{location}</div>}
+                          {/* One badge, not two. Every row carried both the
+                              depth badge and the provenance badge, and
+                              "Documented from sources" beside "Book verified"
+                              read as the same fact said twice. The list keeps
+                              how the entry was established; how deep it goes
+                              is on the entry's own page. */}
                           <div className="shrine-list-badges">
-                            <InfoLevelBadge
-                              level={shrine.infoLevel}
-                              className="shrine-list-badge"
-                            />
                             <SupportLevelBadge
                               level={shrine.supportLevel}
                               className="shrine-list-badge"

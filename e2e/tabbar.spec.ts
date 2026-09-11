@@ -26,7 +26,7 @@ const PHONE = { width: 390, height: 844 };
 const ROUTES = [
   { name: 'map', path: '/', ready: '#sidebar', tab: 'Map' },
   { name: 'explore', path: '/graph', ready: 'h1.entity-title', tab: 'Figures' },
-  { name: 'almanac', path: '/almanac', ready: 'h1', tab: 'Almanac' },
+  { name: 'almanac', path: '/almanac', ready: 'h1', tab: 'Calendar' },
   { name: 'atlas', path: '/typology', ready: 'h1', tab: 'Atlas' },
   { name: 'about', path: '/about', ready: 'h1.entity-title', tab: 'Archive' },
   { name: 'shrine', path: '/shrine/data-darbar', ready: 'h1.shrine-title', tab: 'Map' },
@@ -116,9 +116,9 @@ test.describe('on a phone', () => {
   test('a tab navigates', async ({ page }) => {
     await page.goto('/');
     await page.locator('#sidebar').waitFor();
-    await page.locator('.tabbar-link', { hasText: 'Almanac' }).click();
+    await page.locator('.tabbar-link', { hasText: 'Calendar' }).click();
     await expect(page).toHaveURL(/\/almanac/);
-    await expect(page.locator('.tabbar-link[aria-current="page"]')).toContainText('Almanac');
+    await expect(page.locator('.tabbar-link[aria-current="page"]')).toContainText('Calendar');
   });
 
   test('the Urdu bar carries no Latin', async ({ page }) => {

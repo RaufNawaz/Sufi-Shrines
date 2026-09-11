@@ -126,12 +126,19 @@ test('the Urdu infobox stays a compact list, not running prose', async ({ page }
     await page.waitForSelector('.shrine-infobox');
     heights[lang] = (await page.locator('.shrine-infobox').boundingBox())!.height;
   }
-  // Urdu is set larger, so some growth is expected and correct; 30% is the
-  // line between "bigger type" and "prose leading applied to a data table".
+  /* Urdu is set larger, so some growth is expected and correct. The line was
+     30% until 11 September 2026, when the typography pass gave the Urdu value
+     a size step above its label (`--text-base` over `--text-sm`) — the English
+     panel carries that hierarchy in `--text-xs`/`--text-sm`, and Nastaliq
+     cannot go below text-sm, so the only way to get it back was up. Measured
+     at 1.42 after the change with the row leading still at the UI value
+     (1.85), not the prose value (2.05). 50% is the new line between "bigger
+     type with a hierarchy" and "prose leading applied to a data table";
+     `src/styles/__tests__/urduSpacing.test.ts` holds the leadings themselves. */
   expect(
     heights.ur / heights.en,
     `Urdu infobox ${Math.round(heights.ur)}px vs English ${Math.round(heights.en)}px`,
-  ).toBeLessThan(1.3);
+  ).toBeLessThan(1.5);
 });
 
 // The filter sections above the list are the failure mode (HANDOVER §9.9):
@@ -275,6 +282,17 @@ for (const route of URDU_ROUTES) {
  * would pass an edge-only test and give the reader 130-character lines.
  */
 test('every section heading on /about rules off at the same x', async ({ page }) => {
+  /* The team view: the public /about has six headings since 11 September 2026
+     and the two-container defect this guards (about-section vs
+     coverage-section) only exists on the long page. `?team=1` cannot survive
+     a redirect, so the persisted flag is set instead (see about-merge.spec). */
+  await page.addInitScript(() => {
+    try {
+      window.localStorage.setItem('shrines_team_access', '1');
+    } catch {
+      // private mode — the count assertion fails loudly below
+    }
+  });
   await page.goto('/about');
   await page.waitForSelector('.about-section-heading, .coverage-section-heading', {
     timeout: 30_000,

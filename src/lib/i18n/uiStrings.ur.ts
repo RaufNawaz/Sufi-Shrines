@@ -108,7 +108,7 @@ export const UI_TEXT_UR: UiStrings = {
     'جو دن آرکائیو نے عیسوی تاریخ کے طور پر درج کیا ہے وہ ویسا ہی رہتا ہے، کیونکہ اس کی کوئی ہجری تاریخ درج نہیں اور خود سے نکالنا تاریخ گھڑنا ہوگا۔',
   settingsMapSection: 'نقشہ اور رہنما دورے',
   settingsDirectoryLabel: 'مزارات کی فہرست',
-  settingsDirectoryHelp: 'نقشے پر فہرست کا بٹن کیا کھولے۔',
+  settingsDirectoryHelp: 'نقشے پر تلاش کا بٹن کیا کھولے۔',
   settingsToursLabel: 'رہنما دورے',
   settingsToursToggle: 'نقشے پر دورے دکھائیں',
   settingsAllOptions: 'تمام ترتیبات',
@@ -139,9 +139,9 @@ export const UI_TEXT_UR: UiStrings = {
   noSelection: 'ابھی کوئی مزار منتخب نہیں ہوا۔ تفصیل کے لیے مارکر پر کلک کریں۔',
   exploreTitle: 'مزارات دریافت کریں',
   exploreHint: 'مزارات کی مکمل فہرست دیکھنے کے لیے اوپر والا بٹن استعمال کریں۔',
-  tableButton: 'مزارات کی فہرست',
+  tableButton: 'تلاش',
   settings: 'ترتیبات',
-  directoryModeLabel: 'مزارات کی فہرست کا بٹن کھولے',
+  directoryModeLabel: 'تلاش کا بٹن کھولے',
   directoryModeSpotlight: 'فوری تلاش',
   directoryModeTable: 'مزارات کی روایتی فہرست',
   /* ── Command palette (⌘K search) — drafts, not reviewed by a fluent
@@ -185,7 +185,6 @@ export const UI_TEXT_UR: UiStrings = {
   locationMap: 'موقع کا نقشہ',
   getDirections: 'راستہ حاصل کریں',
   relatedShrines: 'متعلقہ مزارات',
-  nearbyShrines: 'قریبی مزارات',
   sharedGroundHeading: 'مشترکہ زمین',
   sharedGroundIntro: (sites: number, traditions: number) =>
     `پیدل فاصلے پر ${sites} دیگر مقامات، جن میں سے ${traditions} کسی اور روایت سے تعلق رکھتے ہیں۔`,
@@ -590,6 +589,7 @@ export const UI_TEXT_UR: UiStrings = {
   aboutTitle: 'اِس آرکائیو کے بارے میں',
   aboutLede:
     'پاکستان بھر کے مقدس مقامات کا ایک عوامی، دو لسانی ریکارڈ — مسلم مزارات، ہندو مندر، سکھ گوردوارے، نانک پنتھی و اُداسی دربار، جین مندر اور سیکولر یادگاریں — اِس نیت سے مرتب کیا گیا کہ اِس کا حوالہ دیا جا سکے، اور یہ بھی صاف بتایا جا سکے کہ ابھی کیا معلوم نہیں۔',
+  aboutCredit: 'رؤف نواز اور عادل احسن',
   aboutStateHeading: 'اِس آرکائیو کے پاس کیا ہے',
   aboutStateNote:
     'اِس حصے کا ہر عدد اُسی ڈیٹا سے شمار ہوتا ہے جو ابھی اِس صفحے نے پڑھا ہے، اِس لیے یہ آرکائیو سے اُس طرح جدا نہیں ہو سکتا جیسے کوئی جملہ ہو جاتا ہے۔ ہر عدد بتاتا ہے کہ آرکائیو میں کیا درج ہے \u2014 یہ اندازہ نہیں کہ باہر کیا موجود ہے۔',
@@ -715,13 +715,20 @@ export const UI_TEXT_UR: UiStrings = {
   almanacMonthOnly: 'مہینہ درج ہے، دن درج نہیں',
   /* ── تقویمی منظر — مسودہ، کسی روانی رکھنے والے نے نہیں دیکھا ──────────── */
   almanacViewList: 'فہرست',
-  almanacViewCalendar: 'تقویم',
+  almanacViewCalendar: 'مہینہ',
   ariaAlmanacView: 'اگلے بارہ مہینے کس طرح دکھائے جائیں',
   almanacCalendarNote:
     'خانہ ایک دن ہے، اِس لیے خانے پر صرف وہ تقریب آتی ہے جس کا دن آرکائیو میں درج ہے۔ جن کا صرف مہینہ درج ہے وہ جدول کے نیچے، بغیر کسی خانے کے، دی گئی ہیں — اُنہیں پہلی یا پندرہ تاریخ پر رکھنا اِس آرکائیو کی طرف سے تاریخ گھڑنا ہوگا۔',
   almanacCalendarCaption: 'وہ تقاریب جن کا دن درج ہے',
-  almanacCalendarPrev: 'پہلے',
-  almanacCalendarNext: 'بعد',
+  almanacCalendarPrev: 'پچھلا مہینہ',
+  almanacCalendarNext: 'اگلا مہینہ',
+  almanacToday: 'آج',
+  almanacCalendarMore: (n: number) => `+${n} مزید`,
+  almanacCalendarClose: 'بند کریں',
+  /* مسودہ — کسی روانی رکھنے والے نے نہیں دیکھا۔ */
+  almanacProjectedCaveat:
+    'نقطوں والی تاریخیں ہجری تقویم سے تخمینی طور پر نکالی گئی ہیں۔ عرس مقامی رویتِ ہلال سے شروع ہوتا ہے، اِس لیے دن دکھائی گئی تاریخ سے ایک دو دن آگے پیچھے ہو سکتا ہے۔',
+  almanacShowList: (n: number) => `تمام ${n} دکھائیں`,
   /* تقریب / تقاریب — the broken plural, which Urdu does mark even though it
      has no -s. A bare "۱ تقاریب" reads as a typo to a native eye. */
   almanacCalendarPlaced: (n: number) =>
@@ -780,7 +787,7 @@ export const UI_TEXT_UR: UiStrings = {
      English twin became "Mapping the Shrines of Pakistan" on 30 August 2026 and
      this cannot follow it without writing Urdu. Awaiting the archive's Urdu
      name — see `docs/SESSION_RESUME.md`, "Waiting on a person". */
-  footerCredit: 'پاکستان کے صوفی مزارات · ہارورڈ ریسرچ پراجیکٹ',
+  footerCredit: 'پاکستان کے صوفی مزارات',
   citeTitle: 'اس اندراج کا حوالہ',
   citeTextLabel: 'متن',
   citeCopy: 'کاپی کریں',
@@ -895,13 +902,13 @@ export const UI_TEXT_UR: UiStrings = {
     'یہ نشان بتاتا ہے کہ ہم نے اس مقام کو اب تک کس حد تک دستاویز کیا ہے۔ اس کا تعلق صرف ہمارے ریکارڈ سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
   infoLevelFilterLabel: 'معلومات کی سطح',
   provenanceFilterLabel: 'ماخذ',
-  supportLevelFieldVerified: 'میدانی تصدیق شدہ',
-  supportLevelSourceDocumented: 'ماخذات سے دستاویز شدہ',
-  supportLevelSourceSeeded: 'ماخذ سے شروع کردہ',
+  supportLevelFieldVerified: 'میدانی دستاویز شدہ',
+  supportLevelSourceDocumented: 'کتابی تصدیق شدہ',
+  supportLevelSourceSeeded: 'متنی دستاویز شدہ',
   supportLevelWebCompiled: 'ویب سے مرتب شدہ',
   supportLevelTooltip:
     'یہ نشان بتاتا ہے کہ اس اندراج کی معلومات کیسے حاصل کی گئیں — میدانی سروے، حوالہ شدہ ماخذ، یا ویب سے مرتب کردہ۔ اس کا تعلق صرف ہمارے تحقیقی عمل سے ہے — مقام کی اہمیت سے ہرگز نہیں۔',
-  verifiedOnlyFilter: 'صرف میدانی تصدیق شدہ',
+  verifiedOnlyFilter: 'صرف میدانی دستاویز شدہ',
   statusActive: 'فعال',
   statusOccasional: 'صرف تہواروں پر',
   statusHeritage: 'ورثہ مقام — عبادت منقطع',

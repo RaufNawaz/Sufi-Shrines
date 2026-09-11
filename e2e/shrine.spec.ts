@@ -39,6 +39,16 @@ test.describe('Shrine detail page', () => {
   });
 
   test('the urs block deep-links into the almanac at this shrine', async ({ page }) => {
+    /* The approximate pill is team-only since 11 September 2026 (the public
+       reads the dates and the calendar page's single caveat), so this test
+       runs as the team to hold both halves: the flag, and the deep link. */
+    await page.addInitScript(() => {
+      try {
+        window.localStorage.setItem('shrines_team_access', '1');
+      } catch {
+        // private mode — the flag assertion fails loudly below
+      }
+    });
     await page.goto('/shrine/data-darbar');
     // Data Darbar's Events carry a day-precise Hijri urs (18-20 Safar), so
     // the block must render, flag the projection approximate, and land the

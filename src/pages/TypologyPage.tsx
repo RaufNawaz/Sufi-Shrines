@@ -141,8 +141,8 @@ export default function TypologyPage() {
                     />
                     <div className="related-card-body">
                       <div className="related-card-name">{name}</div>
-                      {/* The recorded Location, declared. `RelatedShrines` and
-                          `NearbyShrines` render the identical value with
+                      {/* The recorded Location, declared. `RelatedShrines`
+                          renders the identical value with
                           `<bdi data-latin>` — the column often carries a survey
                           qualification in English rather than a place name —
                           and this copy of the card did not, which put 14

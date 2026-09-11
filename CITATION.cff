@@ -10,17 +10,11 @@ abstract: >-
   temples (mandirs), Sikh gurdwaras, Nanakpanthi/Udasi darbars, Jain temples
   and secular memorials, with structured provenance tracking,
   a Frictionless Data Package descriptor, and a companion interactive web map.
-  Built for Harvard computational humanities research.
 authors:
   - family-names: 'Nawaz'
     given-names: 'Rauf'
-    email: 'raufnawaz@college.harvard.edu'
-    affiliation: 'Harvard University'
-contact:
-  - family-names: 'Nawaz'
-    given-names: 'Rauf'
-    email: 'raufnawaz@college.harvard.edu'
-    affiliation: 'Harvard University'
+  - family-names: 'Ahsan'
+    given-names: 'Adil'
 version: '2.0.0'
 date-released: '2026-06-29'
 license: 'ODbL-1.0'

@@ -19,6 +19,7 @@ import { CONTACT_EMAIL, correctionIssueUrl } from '../lib/data/constants';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
+import { hasProjectAccess } from '../lib/projectAccess';
 /**
  * What this archive is, who made it, how to reuse it, and how to cite it.
  *
@@ -57,6 +58,19 @@ import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
  * statistics, held to each other by
  * `src/lib/data/__tests__/archiveStatsAgree.test.ts`. An archive whose claim is
  * candour cannot say "14 field-verified" on one page and "13" on another.
+ *
+ * **Two readers, one page (11 September 2026).** The merged page ran to
+ * twenty-four sections, and the project head's verdict was that it "says too
+ * much but at the same time not saying anything at all". The measured
+ * self-account — graph counts, trust ledger, every coverage breakdown, the
+ * Urdu mirror's progress, what was lost — is the team's instrument, not a
+ * visitor's answer to "what is this?". So the page now has two shapes behind
+ * the same soft gate the shrine page's provenance block uses
+ * (`hasProjectAccess`, `?team=1`): the public reads what the archive is, who
+ * made it, what it holds, how to cite it, the licence and where to send a
+ * correction; the team reads all of that and then everything it always did.
+ * `/coverage` and `/report` still redirect into the team sections, and
+ * `e2e/about-merge.spec.ts` opens them with the flag set.
  */
 
 /** A citation the reader can copy without selecting it by hand. */
@@ -104,6 +118,7 @@ export default function AboutPage() {
   const coverage = useMemo(() => buildCoverage(shrines), [shrines]);
   const isRtl = isRtlLang(lang);
   const headingRef = useFocusHeadingOnMount();
+  const teamView = hasProjectAccess();
 
   useDocumentTitle(`${t('aboutTitle')} — ${t('siteTitle')}`);
 
@@ -246,10 +261,15 @@ export default function AboutPage() {
           {t('aboutTitle')}
         </h1>
         <p className="about-lede">{t('aboutLede')}</p>
+        {/* Who made it: two names and nothing that locates them. */}
+        <p className="about-credit">{t('aboutCredit')}</p>
 
-        <div className="about-contents">
-          <ContentsNav items={contents} />
-        </div>
+        {/* Six short sections need no contents; twenty-four do. */}
+        {teamView && (
+          <div className="about-contents">
+            <ContentsNav items={contents} />
+          </div>
+        )}
 
         <section className="about-section" id="scope">
           <h2 className="about-section-heading">{t('aboutScopeHeading')}</h2>
@@ -265,7 +285,7 @@ export default function AboutPage() {
           <>
             <section className="about-section" id="holds">
               <h2 className="about-section-heading">{t('aboutStateHeading')}</h2>
-              <p className="about-note">{t('aboutStateNote')}</p>
+              {teamView && <p className="about-note">{t('aboutStateNote')}</p>}
               <div className="coverage-stat-grid">
                 <Stat value={coverage.total} label={t('aboutStateSites')} />
                 <Stat value={coverage.bibliography.items} label={t('aboutStateSources')} />
@@ -276,10 +296,15 @@ export default function AboutPage() {
                   register and an external figure, not something this archive
                   computed — which is exactly why it is a sentence under the count
                   rather than a statistic beside it. */}
-              <p className="about-note">{registerNote}</p>
+              {/* fmtNum: the sentence carries three numbers (534, 32%, 2026) and
+                  they reached the Urdu page in Western digits while the four
+                  tiles above them were Eastern. */}
+              <p className="about-note">{fmtNum(registerNote)}</p>
             </section>
 
-            {/* The graph's own state, from data/kg-stats.json.
+            {teamView && (
+              <>
+                {/* The graph's own state, from data/kg-stats.json.
                 The section above counts the archive's *sites*; this counts the
                 people, silsilas and links behind them — and then counts how much
                 of that a person has actually checked. An archive that publishes
@@ -288,65 +313,71 @@ export default function AboutPage() {
                 half. The numbers come from a ~400-byte build artefact rather than
                 from the graph itself, because `src/lib/kg.ts` imports kg.json
                 statically and six counts are not worth 426 KB. */}
-            <section className="about-section" id="graph">
-              <h2 className="about-section-heading">{t('aboutGraphHeading')}</h2>
-              <p className="about-note">{t('aboutGraphNote')}</p>
-              <div className="coverage-stat-grid">
-                <Stat value={graph.figures} label={t('aboutGraphFigures')} />
-                <Stat value={graph.orders} label={t('aboutGraphOrders')} />
-                <Stat value={graph.lineageLinks} label={t('aboutGraphLineageLinks')} />
-                <Stat value={graph.observances} label={t('aboutGraphObservances')} />
-                <Stat value={graph.sources} label={t('aboutGraphSources')} />
-                <Stat value={graph.titles} label={t('aboutGraphTitles')} />
-                <Stat value={graph.places} label={t('aboutGraphPlaces')} />
-                <Stat value={graph.lineageOnlyFigures} label={t('aboutGraphLineageOnly')} />
-              </div>
-            </section>
+                <section className="about-section" id="graph">
+                  <h2 className="about-section-heading">{t('aboutGraphHeading')}</h2>
+                  <p className="about-note">{t('aboutGraphNote')}</p>
+                  <div className="coverage-stat-grid">
+                    <Stat value={graph.figures} label={t('aboutGraphFigures')} />
+                    <Stat value={graph.orders} label={t('aboutGraphOrders')} />
+                    <Stat value={graph.lineageLinks} label={t('aboutGraphLineageLinks')} />
+                    <Stat value={graph.observances} label={t('aboutGraphObservances')} />
+                    <Stat value={graph.sources} label={t('aboutGraphSources')} />
+                    <Stat value={graph.titles} label={t('aboutGraphTitles')} />
+                    <Stat value={graph.places} label={t('aboutGraphPlaces')} />
+                    <Stat value={graph.lineageOnlyFigures} label={t('aboutGraphLineageOnly')} />
+                  </div>
+                </section>
 
-            <section className="about-section" id="trust">
-              <h2 className="about-section-heading">{t('aboutTrustHeading')}</h2>
-              <p className="about-note">{t('aboutTrustNote')}</p>
-              <ul className="coverage-facts">
-                <Fact
-                  value={graph.biographiesMachineRead}
-                  label={t('aboutTrustBiographies')}
-                  noun=""
-                />
-                {/* "80 of 86", not "80 … (86)" — a bare count of unreviewed
+                <section className="about-section" id="trust">
+                  <h2 className="about-section-heading">{t('aboutTrustHeading')}</h2>
+                  <p className="about-note">{t('aboutTrustNote')}</p>
+                  <ul className="coverage-facts">
+                    <Fact
+                      value={graph.biographiesMachineRead}
+                      label={t('aboutTrustBiographies')}
+                      noun=""
+                    />
+                    {/* "80 of 86", not "80 … (86)" — a bare count of unreviewed
                     links says nothing without its denominator, and the
                     denominator belongs *inside* the sentence: Urdu puts it in a
                     different place, which is precisely what tFn is for. The
                     ratio is the fact here — most of this graph's lineage is
                     machine-read. */}
-                <Fact
-                  value={graph.lineageLinksUnreviewed}
-                  label={fmtNum(tFn(lang, 'aboutTrustLineage', graph.lineageLinks))}
-                  noun=""
-                />
-                <Fact
-                  value={graph.orderMembershipsUnreviewed}
-                  label={fmtNum(tFn(lang, 'aboutTrustMemberships', graph.orderMemberships))}
-                  noun=""
-                />
-                <Fact value={graph.disputedDateFigures} label={t('aboutTrustDisputed')} noun="" />
-              </ul>
-            </section>
+                    <Fact
+                      value={graph.lineageLinksUnreviewed}
+                      label={fmtNum(tFn(lang, 'aboutTrustLineage', graph.lineageLinks))}
+                      noun=""
+                    />
+                    <Fact
+                      value={graph.orderMembershipsUnreviewed}
+                      label={fmtNum(tFn(lang, 'aboutTrustMemberships', graph.orderMemberships))}
+                      noun=""
+                    />
+                    <Fact
+                      value={graph.disputedDateFigures}
+                      label={t('aboutTrustDisputed')}
+                      noun=""
+                    />
+                  </ul>
+                </section>
 
-            {/* Everything `/coverage` was. The support and info breakdowns used to
+                {/* Everything `/coverage` was. The support and info breakdowns used to
                 appear here in summary and again in full one route away; they
                 appear once now, in full. */}
-            <ArchiveKnows shrines={shrines} coverage={coverage} />
+                <ArchiveKnows shrines={shrines} coverage={coverage} />
 
-            {/* Everything `/report` was, minus the three breakdowns it drew a
+                {/* Everything `/report` was, minus the three breakdowns it drew a
                 second time from a second builder. What is left is what only it
                 had: the state of the sites, how the prose was made, the Urdu
                 mirror's progress, and the two ledgers. */}
-            <ArchiveState shrines={shrines} />
+                <ArchiveState shrines={shrines} />
 
-            <section className="about-section coverage-why" id="why">
-              <h2 className="about-section-heading">{t('coverageWhyHeading')}</h2>
-              <p>{t('coverageWhy')}</p>
-            </section>
+                <section className="about-section coverage-why" id="why">
+                  <h2 className="about-section-heading">{t('coverageWhyHeading')}</h2>
+                  <p>{t('coverageWhy')}</p>
+                </section>
+              </>
+            )}
           </>
         ) : null}
 
@@ -395,10 +426,16 @@ export default function AboutPage() {
           <h2 className="about-section-heading">{t('aboutCorrectionsHeading')}</h2>
           <p>{t('aboutCorrectionsBody')}</p>
           <p className="about-contact">
-            <a href={`mailto:${CONTACT_EMAIL}`}>
-              <bdi data-latin>{CONTACT_EMAIL}</bdi>
-            </a>
-            {' · '}
+            {/* The mailto returns when CONTACT_EMAIL is a project address again —
+                see constants.ts. Until then the issue form is the channel. */}
+            {CONTACT_EMAIL && (
+              <>
+                <a href={`mailto:${CONTACT_EMAIL}`}>
+                  <bdi data-latin>{CONTACT_EMAIL}</bdi>
+                </a>
+                {' · '}
+              </>
+            )}
             <a href={correctionIssueUrl('')} target="_blank" rel="noopener noreferrer">
               {t('reportCorrection')}
             </a>

@@ -651,6 +651,19 @@
   line-height: var(--leading-urdu-ui);
 }
 
+/* Label and value were the same size in Urdu (both `--text-sm`, because the
+   English label's `--text-xs` is below the Nastaliq floor), so the hierarchy
+   the English panel carries in size was carried in colour alone. The value is
+   the fact; it takes the body size, and the row gets the breathing room the
+   two lines of Nastaliq then need between them. */
+[dir='rtl'] .infobox-row {
+  gap: var(--space-2);
+}
+
+[dir='rtl'] .infobox-value {
+  font-size: var(--text-base);
+}
+
 /* An untranslated Latin fallback value inside the Nastaliq infobox reads as
    a glitch at full size — mark it visually secondary instead of hiding it
    (RULE 2: report the gap, don't disguise it). */
@@ -668,6 +681,22 @@
 
 /* The source's own explanatory note for a contradictory/uncertain date —
    deliberately kept visible rather than hidden in a tooltip. */
+/* The Events row, one bullet per recorded observance. Padding rather than a
+   margin so the disc sits inside the row's own inline edge in both directions. */
+.infobox-bullets {
+  margin: 0;
+  padding-inline-start: 1.1em;
+  list-style: disc;
+}
+
+.infobox-bullets li {
+  margin-block: var(--space-1);
+}
+
+.infobox-bullets li::marker {
+  color: var(--color-text-muted);
+}
+
 .infobox-note {
   margin: var(--space-2) 0 0;
   font-size: var(--text-xs);
@@ -761,6 +790,34 @@
 
 .article-prose p:last-child {
   margin-bottom: 0;
+}
+
+/* The Urdu article sets its own leading, and this rule is why the token in
+   tokens.css reaches it at all. `.article-prose` above declares
+   `--leading-relaxed` (1.75) for the Latin face, and at (0,1,0) it beat the
+   `[dir='rtl']` body rule that carries `--leading-urdu` — so the Urdu prose
+   never received the Nastaliq leading the token was written for. Measured
+   11 September 2026: 18.6px type on a 32.6px line, 1.75, which is why the
+   ascenders of one line met the descenders of the one above. The paragraph
+   gap grows with it: at 2.05 leading a 16px gap disappears into the line
+   rhythm and paragraphs read as one block. */
+[dir='rtl'] .article-prose {
+  line-height: var(--leading-urdu);
+}
+
+[dir='rtl'] .article-prose p {
+  margin: 0 0 var(--space-5);
+}
+
+[dir='rtl'] .article-prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* A Nastaliq heading needs more air beneath it than a Latin one: its
+   descenders reach the hairline, and the first prose line's ascenders reach
+   back up. */
+[dir='rtl'] .article-section-heading {
+  margin: 0 0 var(--space-5);
 }
 
 /* A quoted couplet set as verse: centred with one line per hemistich, the

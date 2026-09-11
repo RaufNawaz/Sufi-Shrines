@@ -7,6 +7,7 @@ import { buildIcs } from '../../lib/data/almanacIcs';
 import { downloadIcsFile } from '../../lib/data/icsDownload';
 import { observanceDateDisplay } from '../../lib/i18n/observanceDates';
 import { useReaderPreferences } from '../../lib/preferences/ReaderPreferencesContext';
+import { hasProjectAccess } from '../../lib/projectAccess';
 
 interface Props {
   shrine: Shrine;
@@ -28,6 +29,10 @@ export function ShrineObservances({ shrine }: Props) {
   /* Above the early return: hooks run in the same order on every render, and
      this component returns null for a shrine with no dated observance. */
   const { calendar } = useReaderPreferences();
+  /* The per-date "approximate" pill is team-facing since 11 September 2026
+     (same rule as the calendar page); the public reads the projected dates and
+     the calendar page's single moon-sighting caveat. */
+  const showFlags = hasProjectAccess();
 
   if (!next) return null;
 
@@ -63,7 +68,7 @@ export function ShrineObservances({ shrine }: Props) {
         {dates.calendarNoteOn === 'lead' && (
           <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
         )}
-        {dates.leadIsProjection && (
+        {showFlags && dates.leadIsProjection && (
           <span
             className="almanac-flag almanac-flag--approximate"
             title={t('almanacApproximateFull')}
@@ -77,7 +82,7 @@ export function ShrineObservances({ shrine }: Props) {
         {dates.calendarNoteOn === 'secondary' && (
           <span className="almanac-entry-calendar"> ({t('almanacHijriLabel')})</span>
         )}
-        {dates.secondaryIsProjection && (
+        {showFlags && dates.secondaryIsProjection && (
           <span
             className="almanac-flag almanac-flag--approximate"
             title={t('almanacApproximateFull')}

@@ -20,7 +20,6 @@ import { ContentsNav } from '../components/shrine/ContentsNav';
 import { useArticleContent } from '../components/shrine/useArticleContent';
 import { LocationMap } from '../components/shrine/LocationMap';
 import { RelatedShrines } from '../components/shrine/RelatedShrines';
-import { NearbyShrines } from '../components/shrine/NearbyShrines';
 import { SharedGround } from '../components/shrine/SharedGround';
 import { SourcesProvenance } from '../components/shrine/SourcesProvenance';
 import { SourceNotes } from '../components/shrine/SourceNotes';
@@ -469,8 +468,13 @@ function ShrineContent({
           <SharedGround shrine={shrine} all={allShrines} />
           <NearbyMosques shrine={shrine} />
 
+          {/* One list of four, order-first — see `findRelatedShrines`. The
+              purely geographic "Nearby shrines" grid that followed it was
+              removed on 11 September 2026: `SharedGround` above already names
+              the sites within walking distance, and two grids of similar
+              cards at the foot of every page were the thing readers scrolled
+              past. */}
           <RelatedShrines shrine={shrine} all={allShrines} />
-          <NearbyShrines shrine={shrine} all={allShrines} />
           <CiteThisEntry
             kind="shrine"
             slug={shrine.slug}
@@ -498,7 +502,12 @@ function ShrineContent({
               <p>{t('contributePrompt')}</p>
               <a
                 className="contribute-note-link"
-                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Information about ${shrine.name}`)}`}
+                href={
+                  CONTACT_EMAIL
+                    ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Information about ${shrine.name}`)}`
+                    : correctionIssueUrl(shrine.slug)
+                }
+                {...(CONTACT_EMAIL ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {t('contributeAction')}
               </a>

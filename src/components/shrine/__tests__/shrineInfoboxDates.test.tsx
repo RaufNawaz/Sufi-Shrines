@@ -9,6 +9,16 @@ beforeEach(() => {
   localStorage.clear();
 });
 
+/* The founded row's precision qualifier and source note are team-facing since
+   11 September 2026 (project head: "remove the notes in the founded" and "the
+   approximate etc badges" from the public view). The data is unchanged and the
+   team view — `?team=1`, persisted as this flag — shows every word, so the
+   tests that hold the note to the page run as the team. One test below holds
+   the other half: the public reads the year and nothing else. */
+function asTeam() {
+  localStorage.setItem('shrines_team_access', '1');
+}
+
 describe('ShrineInfobox — split date fields (year_built/figure_born/figure_died/event_year)', () => {
   const rowWithDates = makeShrineRow({
     'Founded/Opened': '1416 AH', // legacy value — must not also render once year_built exists
@@ -22,7 +32,8 @@ describe('ShrineInfobox — split date fields (year_built/figure_born/figure_die
     event_note: 'Auqaf takeover, per the survey.',
   });
 
-  it('renders the year_built precision qualifier and does not hide the note', () => {
+  it('renders the year_built precision qualifier and does not hide the note (team view)', () => {
+    asTeam();
     const shrine = buildShrine(rowWithDates, 0)!;
     const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
     expect(screen.getByText(/1416 AH \(uncertain \/ referent disputed\)/)).toBeInTheDocument();
@@ -30,6 +41,19 @@ describe('ShrineInfobox — split date fields (year_built/figure_born/figure_die
     expect(container.querySelector('.infobox-note')?.textContent).toContain(
       'most probably the year of death, not construction',
     );
+  });
+
+  it('shows the public the year alone — no qualifier, no founded note', () => {
+    const shrine = buildShrine(rowWithDates, 0)!;
+    const { container } = renderWithProviders(<ShrineInfobox shrine={shrine} />);
+    const founded = [...container.querySelectorAll('.infobox-row')].find(
+      (row) => row.querySelector('.infobox-label')?.textContent === 'Founded',
+    )!;
+    expect(founded).toBeTruthy();
+    expect(founded.querySelector('.infobox-value')?.textContent?.trim()).toBe('1416 AH');
+    expect(founded.querySelector('.infobox-note')).toBeNull();
+    /* The event note is not part of the ruling and stays. */
+    expect(container.textContent).toContain('Auqaf takeover, per the survey.');
   });
 
   it('renders Born, Died, and Event year with the event note visible', () => {
@@ -51,6 +75,7 @@ describe('ShrineInfobox — split date fields (year_built/figure_born/figure_die
   });
 
   it('applies Eastern numerals to the year_built/born/died/event_year values in Urdu', () => {
+    asTeam();
     const shrine = buildShrine(rowWithDates, 0)!;
     renderWithProviders(<ShrineInfobox shrine={shrine} />, { lang: 'ur' });
     // The values convert to Eastern digits — the (unreviewed, English) source
@@ -118,6 +143,7 @@ describe('ShrineInfobox — internal pipeline columns never reach a visitor', ()
  */
 describe('ShrineInfobox — a qualifying note survives a missing year', () => {
   it('shows the note beside a legacy year, and does not duplicate the Founded row', () => {
+    asTeam();
     /* The 28-entry case, in the shape of Mazar of Bulleh Shah: a legacy year,
        no `year_built`, and a note that disputes what the year implies. */
     const shrine = buildShrine(
@@ -142,6 +168,7 @@ describe('ShrineInfobox — a qualifying note survives a missing year', () => {
   });
 
   it('shows the note when there is no year of any kind — the 4-entry case', () => {
+    asTeam();
     /* Jhollay Lal Mandir, Sant Baba Bhagat Ram Darbar Mandir, Shrine of Lakhi
        Shah Saddar, Valmik Mandir. Nothing rendered at all before: `hasDates`
        was false, so the whole block was skipped. */

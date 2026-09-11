@@ -27,6 +27,15 @@ decision left is **wording**: whether a reader is told the rule in these words.
 
 ## `support_level` — how the information was gathered
 
+> **Display labels changed on 11 September 2026** (project head): the sheet values are
+> unchanged join keys — `Field-verified`, `Source-documented`, `Source-seeded`, `Web-compiled` —
+> and only the *rendered* words moved, in `uiStrings.ts`/`uiStrings.ur.ts`:
+> Field-verified → **Field documented** (میدانی دستاویز شدہ) · Source-documented →
+> **Book verified** (کتابی تصدیق شدہ) · Source-seeded → **Text documented** (متنی دستاویز شدہ) ·
+> Web-compiled → **Web compiled** (ویب سے مرتب شدہ). The rules in the table below are what the
+> new words mean. RULE 3: labels are cosmetic, values are keys.
+
+
 | Badge | The rule, as the code applies it | Share |
 | --- | --- | --- |
 | **Field-verified** | An enumerator visited the site; a field survey is cited. | — |
