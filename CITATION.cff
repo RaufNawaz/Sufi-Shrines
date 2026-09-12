@@ -11,10 +11,10 @@ abstract: >-
   and secular memorials, with structured provenance tracking,
   a Frictionless Data Package descriptor, and a companion interactive web map.
 authors:
-  - family-names: 'Nawaz'
-    given-names: 'Rauf'
   - family-names: 'Ahsan'
     given-names: 'Adil'
+  - family-names: 'Nawaz'
+    given-names: 'Rauf'
 version: '2.0.0'
 date-released: '2026-06-29'
 license: 'ODbL-1.0'

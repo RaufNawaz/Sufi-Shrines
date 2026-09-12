@@ -2,7 +2,7 @@
 
 An interactive, bilingual (English / Urdu) map and citable open dataset of **169 sacred
 sites across Pakistan** — Muslim Sufi shrines, Hindu temples, Sikh gurdwaras,
-Nanakpanthi/Udasi darbars, Jain temples and secular memorials — by Rauf Nawaz and Adil Ahsan.
+Nanakpanthi/Udasi darbars, Jain temples and secular memorials — by Adil Ahsan and Rauf Nawaz.
 Browse shrine histories, architecture, rituals, guided pilgrimage tours, a saints/orders
 knowledge graph, an ʿurs almanac, and visitor information.
 

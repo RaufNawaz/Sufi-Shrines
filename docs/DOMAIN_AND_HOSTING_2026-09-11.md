@@ -221,3 +221,34 @@ they record what was true when they were written.
 - GitHub Pages: docs.github.com — managing a custom domain; about custom domains; GitHub Pages limits (fetched 11 Sep 2026).
 - Cloudflare Pages limits: developers.cloudflare.com/pages/platform/limits (fetched 11 Sep 2026).
 - Netlify credits model: netli.fyi, flexprice (2026). Vercel Hobby terms: vercel.com/docs/plans/hobby, fair-use guidelines.
+
+---
+
+## Addendum, 12 September 2026 — Rauf's answer, and "the cheapest and best hosting"
+
+Rauf's ruling on the name: **wait for now**, and research where the cheapest and best hosting is.
+So the domain purchase is parked; what follows is the hosting answer on its own, for a site that
+is a folder of static files (React build + prerendered HTML + photos, no server code, data read
+from a published Google Sheet at runtime).
+
+| Option | Monthly cost | Bandwidth / limits that matter here | Custom domain + HTTPS | What it adds over today | Verdict |
+| --- | --- | --- | --- | --- | --- |
+| **GitHub Pages** (today) | **$0** | 1 GB site, soft 100 GB/month, 10 builds/hour (verified in §3) | yes, free, automatic cert | nothing — it is what runs now, with `verify:pages` already built for it | **Cheapest. Good enough until traffic is measured.** |
+| **Cloudflare Pages** | **$0** (Free plan) | unlimited bandwidth and requests; 500 builds/month; 25 MB per file (the largest photo is well under) | yes, free, automatic cert; Cloudflare DNS | edge cache in Karachi/Lahore PoPs, real server-side 301s (`/coverage` → `/about` without a JS hop), `_headers` for cache-control, analytics without a script | **Best for the money, and the money is zero.** |
+| Netlify Free | $0 up to a monthly credit cap (≈ 15 GB — §3) | hard cap, site goes dark past it | yes | similar to Cloudflare, smaller free ceiling | fine, but the cap is the wrong shape for a public archive |
+| Vercel Hobby | $0 | non-commercial use only; 100 GB | yes | good previews | licence term is the risk, not the price |
+| GoDaddy "Web Hosting" (Economy) | ≈ $6–10/month after year one (third-party, unverified) | PHP/MySQL hosting the site cannot use; FTP deploys | yes, cert often paid | nothing this site needs | **Do not buy.** Paying for a server a static site never touches. |
+| A small VPS (Hetzner CX22 / DigitalOcean basic) | ≈ $4–6/month | plenty | yes, but you run nginx, certbot, updates | full control | more work, no benefit for a static build |
+
+**Recommendation.** Stay on GitHub Pages while the domain is undecided — nothing to do. When
+the domain is bought, put **Cloudflare** in front: register there (at-cost, free WHOIS
+redaction, §2), and either keep GitHub Pages as origin with Cloudflare DNS/CDN, or move the
+build to **Cloudflare Pages** (free, one GitHub-connected project, `npm run build` as the build
+command, `dist/` as the output). Both cost $0/month; the Pages move buys server-side redirects
+and Pakistan-local edge caching, which is the one thing GitHub Pages cannot give a reader in
+Lahore. The repo checklist for either move is §4 above.
+
+**What still needs measuring before any of this matters:** actual monthly traffic. GitHub's
+soft 100 GB/month is roughly 30,000 full page views with photos; there is no analytics on the
+site today, so nobody knows whether the archive is at 1% or 90% of that. Cloudflare's free
+analytics would answer it without adding a tracking script.

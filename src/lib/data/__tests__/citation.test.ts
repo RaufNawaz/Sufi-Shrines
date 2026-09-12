@@ -37,8 +37,10 @@ describe('publication metadata', () => {
     expect(cff).toContain("given-names: 'Rauf'");
     expect(cff).toContain("family-names: 'Ahsan'");
     expect(cff).toContain("given-names: 'Adil'");
-    expect(PUBLICATION.authors).toEqual(['Rauf Nawaz', 'Adil Ahsan']);
-    expect(PUBLICATION.author).toBe('Rauf Nawaz and Adil Ahsan');
+    /* Order ruled by Rauf on 11 September 2026 (second answer, after the two
+       messages that day disagreed): Adil first. */
+    expect(PUBLICATION.authors).toEqual(['Adil Ahsan', 'Rauf Nawaz']);
+    expect(PUBLICATION.author).toBe('Adil Ahsan and Rauf Nawaz');
     /* Project head, 11 September 2026: names and the website, nothing that
        locates the authors. The affiliation and the college address had been in
        five files; a grep is what keeps them out. */
@@ -54,7 +56,7 @@ describe('publication metadata', () => {
     // ODbL prescribes the attribution wording; a stale version in it would
     // credit the wrong release.
     expect(PUBLICATION.attribution).toContain(`v${PUBLICATION.version}`);
-    expect(PUBLICATION.attribution).toContain('Nawaz, Rauf and Adil Ahsan');
+    expect(PUBLICATION.attribution).toContain('Ahsan, Adil and Rauf Nawaz');
     // LICENSE-data.md prescribes this wording; the site must quote, not paraphrase.
     const prescribed = read('LICENSE-data.md')
       .replace(/^> ?/gm, '') // the blockquote markers

@@ -23,8 +23,8 @@ export const PUBLICATION = {
    * Harvard affiliation, the college e-mail and the "Harvard Research Project"
    * footer credit were all removed the same day. `citation.test.ts` holds this
    * against CITATION.cff so the two cannot drift apart again. */
-  authors: ['Rauf Nawaz', 'Adil Ahsan'],
-  author: 'Rauf Nawaz and Adil Ahsan',
+  authors: ['Adil Ahsan', 'Rauf Nawaz'],
+  author: 'Adil Ahsan and Rauf Nawaz',
   /** From LICENSE — applies to the site and pipeline code. */
   codeLicense: 'MIT',
   codeLicenseUrl: 'https://opensource.org/licenses/MIT',
@@ -61,7 +61,7 @@ export const PUBLICATION = {
    * site is the thing a reuser's readers can open. LICENSE-data.md carries the
    * identical wording. */
   attribution:
-    'Nawaz, Rauf and Adil Ahsan. Mapping the Shrines of Pakistan (v2.0.0), 2026. https://raufnawaz.github.io/Sufi-Shrines',
+    'Ahsan, Adil and Rauf Nawaz. Mapping the Shrines of Pakistan (v2.0.0), 2026. https://raufnawaz.github.io/Sufi-Shrines',
 } as const;
 
 /** A citation line for the archive as a whole. */

@@ -94,7 +94,16 @@ the commit message of this commit.
   the public About and the calendar without "Coming up" carry fewer Latin runs. Re-measure and
   lower them (the file's own rule: a budget with slack is not a stricter test than none).
 
-### Decisions for Rauf — asked in chat on 11 September, recorded here
+### Decisions for Rauf — asked in chat on 11 September, **answered 12 September**
+
+Answers, in the order asked: **1** Adil Ahsan and Rauf Nawaz (reversed and shipped). **2** GitHub
+issue form only; no address. **3** Yes — both names on the MIT copyright line (done). **4** Urdu
+spelling confirmed: عادل احسن اور رؤف نواز. **5** Domain: **wait for now**; research the cheapest
+and best hosting instead (addendum at the end of `docs/DOMAIN_AND_HOSTING_2026-09-11.md`:
+GitHub Pages now, Cloudflare Pages when the domain is bought, both $0). **6** Books: Rauf set the
+folder to "anyone with the link" on 12 September; the download ran the same day. **7** Palette:
+**cool paper + tradition colours**, confirmed — in progress. The original questions follow.
+
 
 1. **Author order.** Item 3 said "Adil Ahsan and Rauf Nawaz", item 4 said "Rauf Nawaz Adil Ahsan".
    Shipped as **Rauf Nawaz and Adil Ahsan**; one-line change in `citation.ts`, `CITATION.cff`,

@@ -665,7 +665,7 @@ const UI_TEXT_EN = {
     'A public, bilingual record of sacred sites across Pakistan — Muslim shrines, Hindu temples, Sikh gurdwaras, Nanakpanthi and Udasi darbars, Jain temples and secular memorials — built to be cited, and to be honest about what it does not yet know.',
   /* Two names, no institution, no address — the whole of the public credit
      (project head, 11 September 2026). */
-  aboutCredit: 'By Rauf Nawaz and Adil Ahsan',
+  aboutCredit: 'By Adil Ahsan and Rauf Nawaz',
   aboutStateHeading: 'What this archive holds',
   aboutStateNote:
     'Every number in this section is counted from the data this page just loaded, so it cannot drift from the archive the way a sentence can. Each one describes what the archive records \u2014 never an estimate of what is out there.',

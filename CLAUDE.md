@@ -232,7 +232,7 @@ shown. Tests that need the team view set `localStorage` `shrines_team_access` = 
 `<Navigate>` redirect drops `?team=1`. Full list in `docs/HANDOVER.md` §9.183.
 
 **Credit and citation are two names and the website, nothing else** (Rauf, 11 September 2026):
-"Rauf Nawaz and Adil Ahsan" — no institution, no address, anywhere public.
+"Adil Ahsan and Rauf Nawaz" (that order, ruled 11 September 2026) — no institution, no address, anywhere public.
 `src/lib/data/__tests__/citation.test.ts` greps `CITATION.cff`, `codemeta.json`,
 `LICENSE-data.md` and `data/datapackage.json` for an institution name and an e-mail and fails on
 either. `CONTACT_EMAIL` is empty until there is a project address that is not a person's.
