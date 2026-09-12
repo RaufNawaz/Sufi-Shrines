@@ -24,6 +24,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 import time
@@ -158,7 +159,60 @@ def download_one(file_id: str, work_dir: Path, retries: int, quiet: bool) -> Pat
             last_error = exc
         if attempt < retries:
             time.sleep(min(2 ** (attempt + 1), 10))
+    # gdown gives up on some public files that a plain fetch serves fine:
+    # 7 of the 42 September 2026 books (every one with brackets or braces in
+    # its title) failed here with "Gdown can't" while `curl -L` on the same id
+    # returned 200 and the right byte count. So the last attempt is curl,
+    # honouring Content-Disposition (-J) so the saved name is the upload's own.
+    fetched = download_with_curl(file_id, work_dir)
+    if fetched is not None:
+        return fetched
     raise RuntimeError(str(last_error))
+
+
+def download_with_curl(file_id: str, work_dir: Path) -> Path | None:
+    """Fallback fetch through curl. Returns the saved path, or None if curl is
+    absent, fails, or serves an HTML page (a sign-in or quota interstitial)
+    instead of the file.
+
+    Not `-J -O`: Drive's Content-Disposition carries the upload's whole title,
+    and one of the September 2026 books has a 236-character one that made curl
+    exit 56 ("Failure writing output to destination") before a byte was saved.
+    So the body goes to a fixed temp name, the headers to a file, and the
+    original name is read back from them and shortened to something a
+    filesystem accepts — the caller re-slugs it to 40 characters anyway."""
+    if shutil.which("curl") is None:
+        return None
+    body = work_dir / f"{file_id}.download"
+    headers = work_dir / f"{file_id}.headers"
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    result = subprocess.run(
+        ["curl", "-sSL", "--max-time", "1800", "-o", str(body), "-D", str(headers), url],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0 or not body.exists():
+        return None
+    head = body.read_bytes()[:512].lstrip().lower()
+    if head.startswith(b"<!doctype html") or head.startswith(b"<html"):
+        body.unlink(missing_ok=True)
+        headers.unlink(missing_ok=True)
+        return None
+    original = ""
+    try:
+        for line in headers.read_text(encoding="utf-8", errors="replace").splitlines():
+            match = re.match(r'(?i)content-disposition:.*?filename="?([^";]+)"?', line.strip())
+            if match:
+                original = match.group(1).strip()
+    finally:
+        headers.unlink(missing_ok=True)
+    if not original:
+        return body
+    stem, ext = os.path.splitext(original)
+    safe_stem = safe_filename_part(stem, fallback=file_id[:10], max_len=120, min_len=3)
+    target = work_dir / f"{safe_stem}{ext.lower() if ext else ''}"
+    body.replace(target)
+    return target
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:

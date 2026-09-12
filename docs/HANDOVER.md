@@ -9286,3 +9286,11 @@ path for 100 MB PDFs. The manifest, links file, routing (17 UTRNet / 23 text-lay
 `eng` / 1 EPUB / 1 hold) and the new-machine scripts are all in place; the download step needs a
 logged-in session or a sharing change. `docs/OCR_NEW_MACHINE_RUNBOOK.md` §4. Also recorded there:
 `finalize_books.py` silently ignores any book absent from its hard-coded `BOOKS_INFO`.
+
+**§9.186 — gdown's refusal is not Drive's refusal.** Once the intake folder was shared, gdown
+downloaded 35 of the 42 books and failed 7 with its permissions message — and the 7 were exactly
+the titles with square brackets or braces in them. `curl -L` on the same ids returned 200 with the
+listed byte counts, first try. Measured 12 September 2026 on the Waris Shah PDF (505,994 bytes both
+ways) and then on all seven. `tools/download_books.py` now tries curl after gdown; the instrument
+that says "permission" was the one with the bug. Same family as §9.184: read the message the tool
+gives you as a claim about the tool until a second instrument agrees.

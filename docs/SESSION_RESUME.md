@@ -43,7 +43,14 @@ and — after seeing the new calendar — **"make the calendar theme different, 
 brownish theme looks bland for the website."** Everything below shipped on branch
 `claude/website-explorer-improvements-f5bwgk`; nothing was pushed or deployed.
 
-### The next session's first move: the palette
+### ~~The next session's first move: the palette~~ — **done 12 September 2026, `c04df25`**
+
+Rauf chose "cool paper + tradition colours" from four options asked in chat. Light ground
+`#fbfbfa`, neutral hairlines, black ink; dark near-neutral `#151413`; cobalt and the six
+tradition colours unchanged; the dark basemap retint dropped to a 6% saturation ceiling. Screenshots
+before/after in the session scratch (light + dark, 1280 + 400). Every style guard and the a11y,
+palette-legibility and accent-is-interactive suites green. The paragraph below is the brief as it
+stood before the ruling, kept for the reasoning.
 
 The whole site sits on warm beige — `--color-bg: #f9f6f0`, `--color-bg-alt: #f0ebe0`, sand
 borders, brown-black ink (`src/styles/tokens.css`, 117 colour tokens, dark block from line 466).
@@ -73,8 +80,8 @@ preference leaks between routes — that cost one round of screenshots today).
 | 11 tail | Nearby grid removed; Related is four, same order first then nearest (`findRelatedShrines`, tested) | `a3b219d` |
 | 12 events | Infobox Events row is bullets, one per `;` segment, `*ʿurs*` rendered as italics | `a3b219d` |
 | 13, 14 qualifiers | Founded precision + note, and every "approximate" pill (calendar cards, popover, shrine observances) are team-only | `a3b219d`, `36cf7cf` |
-| 5 domains | `docs/DOMAIN_AND_HOSTING_2026-09-11.md` — every shortlisted name free in .com/.org/.pk; Cloudflare or Porkbun; stay on GitHub Pages with a CNAME | this commit |
-| books | `pipeline/books_manifest_2026-09-11.tsv` (45 files, 3 dupes, 42 to fetch, 1,357 MB), `tools/setup_ocr_machine.{sh,ps1}`, `tools/run_new_books_ocr.sh`, `docs/OCR_NEW_MACHINE_RUNBOOK.md`. **Nothing downloaded: all 42 files are private to Rauf's Drive** (0 public / 42 private, probed anonymously) | this commit |
+| 5 domains | `docs/DOMAIN_AND_HOSTING_2026-09-11.md` — every shortlisted name free in .com/.org/.pk; Cloudflare or Porkbun; stay on GitHub Pages with a CNAME | `a3b4562` |
+| books | `pipeline/books_manifest_2026-09-11.tsv` (45 files, 3 dupes, 42 to fetch, 1,357 MB), `tools/setup_ocr_machine.{sh,ps1}`, `tools/run_new_books_ocr.sh`, `docs/OCR_NEW_MACHINE_RUNBOOK.md`. ~~Nothing downloaded: all 42 files were private~~ **Downloaded 12 September after Rauf shared the folder: 42 of 42 verified, sorted into the Urdu and English intake folders** (gdown refused 7; a curl fallback in `download_books.py` fetched them) | `a3b4562`, 12 Sep commit |
 
 Verified before committing: `npm run verify` green after the two test rewrites the gate caused;
 `npm run build:e2e` green; Playwright on the twelve specs the changes touch — result recorded in
@@ -90,9 +97,9 @@ the commit message of this commit.
   current id **do** resolve at runtime (that probe is the proof) — do not "fix" them.
 - **`Location` prose on the shrine page infobox.** The preview no longer prints a 340-character
   survey paragraph; the infobox still does (Malik Ahmad Ayaz). Not asked for; noted.
-- **`e2e/urdu-no-leak.spec.ts` budgets** for `about` (102) and `almanac` (3) are now generous —
-  the public About and the calendar without "Coming up" carry fewer Latin runs. Re-measure and
-  lower them (the file's own rule: a budget with slack is not a stricter test than none).
+- ~~**`e2e/urdu-no-leak.spec.ts` budgets** for `about` (102) and `almanac` (3) are now generous~~
+  **Done 12 September, `4db8815`:** re-measured by zeroing the budgets — about 6, almanac 1,
+  almanac:list 6.
 
 ### Decisions for Rauf — asked in chat on 11 September, **answered 12 September**
 
