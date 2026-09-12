@@ -379,13 +379,15 @@ const BUDGET: Record<string, number> = {
      failure mode this file was written against. The debt itself is unchanged:
      the same observance cells are still untranslated, still declared, and still
      counted on whichever month the reader opens. */
-  almanac: 3,
+  /* 3 → 1 on 12 September 2026: the calendar redesign removed the "Coming up"
+     cards, which carried the Location runs. Re-measured, not estimated. */
+  almanac: 1,
   /* The month listing, which the calendar-default route never renders: twelve
      months of cards, each printing its site's recorded `Events` cell verbatim.
      The same debt as `almanac`'s 34 seen at full extent rather than one month
      at a time, and it falls as `urdu-i18n/build_dictionary.py` gains observance
      entries. */
-  'almanac:list': 8,
+  'almanac:list': 6, // 8 → 6, re-measured 12 September 2026
   /* Recorded `site_type` prose — the survey's own words for a built form,
      "Shrine complex (tomb, mosque, graveyard…)" — plus the Location on each
      card. Both are source data shown as recorded (RULE 2); what changed is that
@@ -414,7 +416,10 @@ const BUDGET: Record<string, number> = {
      same question on the same day: there the passage IS the page's account, so
      it is quoted from the Urdu article instead. HANDOVER §9.128.) */
   'saint:lineage-only': 16,
-  about: 102,
+  /* 102 → 6 on 12 September 2026. The public /about is six sections; the
+     ninety-odd runs were the team-only coverage and source ledgers, which
+     now render behind `?team=1` and are not on the page this measures. */
+  about: 6,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
      site's own observance sentence verbatim beside whatever date can be read
