@@ -1,15 +1,18 @@
 import type { MapStyle } from './localizeStyle';
 
 /**
- * Recasting MapTiler's dark basemap as lamp-light.
+ * Recasting MapTiler's dark basemap to sit beside the archive's dark chrome.
  *
- * The archive's dark mode is deliberately not "the same site with the lights
- * off" — it is a shrine courtyard after dark, so the page ground is a warm
- * near-black (#171310) and the gold accent does more work
- * (docs/planning/DESIGN_VISION.md, Part 2). `streets-v2-dark` does not agree:
- * its background is `hsl(216, 37%, 24%)` and its landcover fills sit at hue
- * 198–217, a cool navy that reads as a different product sitting next to the
- * warm sidebar.
+ * Until 12 September 2026 the page ground was a warm near-black (#171310,
+ * "lamp-light") and this module rotated the basemap's cool hues to a brick
+ * hue at up to 18% saturation to match. The ground is now near-neutral
+ * (#151413 — see tokens.css), and the same retint at that strength read as a
+ * brown map beside a grey page. The hue is kept (one step of warmth, like the
+ * ground) and the saturation ceiling dropped to 6%, which is "not navy"
+ * rather than "brick". `streets-v2-dark` itself still does not agree with
+ * either ground: its background is `hsl(216, 37%, 24%)` and its landcover
+ * fills sit at hue 198–217, a cool navy that reads as a different product
+ * sitting next to the sidebar.
  *
  * The other built-in dark styles are no better for this: `basic-v2-dark` and
  * `dataviz-dark` are pure neutral grey (`hsl(0, 0%, 16–17%)`), which loses the
@@ -30,11 +33,13 @@ import type { MapStyle } from './localizeStyle';
 const COOL_MIN = 180;
 const COOL_MAX = 285;
 
-/** Lamp-lit brick — the hue family of --color-bg in dark mode. */
+/** The hue family of --color-bg in dark mode — a step warmer than neutral. */
 const WARM_HUE = 26;
-/** Cool casts are strong (37–56%); warmth at that strength would look sunburnt. */
-const SATURATION_FACTOR = 0.3;
-const SATURATION_CEILING = 18;
+/** Cool casts are strong (37–56%); at 12 September 2026's near-neutral ground
+ *  anything above a few percent of warmth reads as brown, so the retint keeps
+ *  only enough to stop the map from being navy. */
+const SATURATION_FACTOR = 0.12;
+const SATURATION_CEILING = 6;
 
 /** Layers whose colour must stay cool so water stays legible as water. */
 const WATER_LAYER = /water|river|ocean|sea\b|lake|stream|canal|waterway|bathymetry/i;

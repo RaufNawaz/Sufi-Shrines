@@ -4,10 +4,12 @@ import { warmDarkStyle, warmColorString } from '../warmDarkStyle';
 import type { MapStyle } from '../localizeStyle';
 
 describe('warmColorString', () => {
+  /* Expected values moved on 12 September 2026 with the near-neutral dark
+     ground: the ceiling fell from 18% to 6% (see warmDarkStyle.ts). */
   it('rotates the navy background to a warm hue and drops its saturation', () => {
     // streets-v2-dark's actual background colour.
     const out = warmColorString('hsl(216, 37%, 24%)');
-    expect(out).toBe('hsl(26, 11%, 24%)');
+    expect(out).toBe('hsl(26, 4%, 24%)');
   });
 
   it('keeps lightness untouched so the style keeps its own contrast order', () => {
@@ -29,7 +31,7 @@ describe('warmColorString', () => {
 
   it('rewrites every colour in a string, not just the first', () => {
     const out = warmColorString('hsl(216, 37%, 24%) hsl(198, 53%, 22%)');
-    expect(out).toBe('hsl(26, 11%, 24%) hsl(26, 16%, 22%)');
+    expect(out).toBe('hsl(26, 4%, 24%) hsl(26, 6%, 22%)');
   });
 });
 
@@ -63,8 +65,8 @@ describe('warmDarkStyle', () => {
   const byId = (id: string) => out.layers!.find((l) => l.id === id)!;
 
   it('warms the background and land fills', () => {
-    expect(byId('Background').paint!['background-color']).toBe('hsl(26, 11%, 24%)');
-    expect(byId('Crop').paint!['fill-color']).toBe('hsl(26, 17%, 22%)');
+    expect(byId('Background').paint!['background-color']).toBe('hsl(26, 4%, 24%)');
+    expect(byId('Crop').paint!['fill-color']).toBe('hsl(26, 6%, 22%)');
   });
 
   it('leaves water cool so rivers and lakes stay legible', () => {
@@ -79,7 +81,7 @@ describe('warmDarkStyle', () => {
       ['linear'],
       ['zoom'],
       6,
-      'hsl(26, 9%, 30%)',
+      'hsl(26, 4%, 30%)',
       14,
       'hsl(0, 0%, 40%)',
     ]);

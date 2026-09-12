@@ -136,6 +136,11 @@ describe.each([
 });
 
 describe('dark mode is lamp-light, not teal-dark', () => {
+  /* Since 12 September 2026 the dark ground is near-neutral (#151413) rather
+     than the warm brown-black it was; the project head found the brownish
+     theme bland in both modes. The assertion is unchanged on purpose: "never
+     colder than neutral" is still the rule, and one step of red over blue is
+     what keeps a neutral near-black from drifting into generic teal-dark. */
   it('the dark ground is warm (red channel above blue)', () => {
     const bg = resolve('--color-bg', DARK).replace('#', '');
     const [r, , b] = [0, 2, 4].map((i) => parseInt(bg.slice(i, i + 2), 16));

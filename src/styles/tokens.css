@@ -6,13 +6,23 @@
                      docked floating desktop layout at ≥769px (map.css)
    ≥1340px           wide: contents nav moves into the margin rail (shrine.css) */
 
-/* Design tokens — light mode defaults */
+/* Design tokens — light mode defaults
+
+   Cool paper, since 12 September 2026. The ground was cream (#f9f6f0) with
+   sand hairlines and brown-black ink from the first commit, and the project
+   head's verdict on seeing the new calendar was that the brownish theme reads
+   bland. Ruled in chat the next morning: a near-white neutral ground, true
+   black ink, grey hairlines; Kashi cobalt stays the one interactive colour;
+   and the six tradition colours below carry the site's chroma — which is what
+   the calendar's bars, the pins and the badges already use, so the calendar
+   becomes the most coloured surface by design rather than by exception.
+   Every text pair is still held to 4.5:1 by tokenSplit.test.ts. */
 :root {
   /* Colors */
-  --color-bg: #f9f6f0;
-  --color-bg-alt: #f0ebe0;
+  --color-bg: #fbfbfa;
+  --color-bg-alt: #f2f2f0;
   --color-bg-surface: #ffffff;
-  --color-bg-overlay: rgba(249, 246, 240, 0.95);
+  --color-bg-overlay: rgba(251, 251, 250, 0.95);
 
   /* ── Glass: the archive's floating chrome ─────────────────────────────────
      One treatment, three tokens, so every surface that floats over the map or
@@ -34,7 +44,7 @@
      an opaque panel rather than an unreadable one. */
   --glass-bg: rgba(255, 255, 255, 0.82);
   --glass-blur: blur(16px) saturate(150%);
-  --glass-border: rgba(214, 207, 192, 0.7);
+  --glass-border: rgba(196, 196, 192, 0.7);
 
   /* ── A second material, for a panel that floats over arbitrary content ────
      The 0.82 above is right for *chrome* — a zoom control, a sticky header —
@@ -60,14 +70,14 @@
        happen to be the same value, and it works because it does not depend on
        what is behind the panel at all. */
   --glass-bg-strong: rgba(255, 255, 255, 0.94);
-  --glass-edge: rgba(90, 79, 58, 0.3);
+  --glass-edge: rgba(60, 60, 58, 0.28);
   --glass-sheen: rgba(255, 255, 255, 0.8);
-  --color-border: #d6cfc0;
-  --color-border-light: #e8e2d6;
+  --color-border: #d2d2ce;
+  --color-border-light: #e6e6e3;
 
-  --color-text: #1a1208;
-  --color-text-secondary: #5a4f3a;
-  --color-text-muted: #6b5e4b;
+  --color-text: #141414;
+  --color-text-secondary: #4b4b4f;
+  --color-text-muted: #66666b;
   --color-text-inverse: #ffffff;
 
   /* ── Chrome belongs to no tradition ───────────────────────────────────
@@ -87,8 +97,8 @@
   --color-primary: var(--color-kashi-cobalt);
   --color-primary-dark: #1e3872;
   --color-primary-light: #4a6fc4;
-  --color-primary-pale: #e7ecf8;
-  --color-primary-bg: #f2f5fc;
+  --color-primary-pale: #e9eefa;
+  --color-primary-bg: #f3f6fc;
 
   --color-secondary: var(--color-kashi-firozi);
   --color-secondary-dark: #0b5f5b;
@@ -129,7 +139,7 @@
 
   /* Unknown/empty category marker — must read as neutral, not as any one
      tradition's color (it previously duplicated --color-cat-muslim). */
-  --color-marker-default: #8a8171;
+  --color-marker-default: #85857f;
   --color-marker-selected: #c8890a;
 
   /* Guided tour route + stop markers on the map */
@@ -167,7 +177,7 @@
   --color-info-moderate: #92400e;
   --color-info-moderate-bg: #fef3c7;
   --color-info-low: #57534e;
-  --color-info-low-bg: #eceae6;
+  --color-info-low-bg: #ececea;
 
   /* Provenance/support-level badges (how the info was gathered, never the
      site's importance): Field-verified reuses info-full's green,
@@ -457,38 +467,39 @@
   }
 }
 
-/* Dark mode — "Thursday night", not "the same site with the lights off".
-   The ground is a warm near-black (lamp-lit brick, not a teal-dark UI
-   chrome), the gold accent does more work because that is what a shrine
-   courtyard looks like after dark, and the kashi blues desaturate to the
-   value glaze takes under lamplight. All pairs below are >= 4.5:1 against
-   the ground; see the contrast assertions in tokenSplit.test.ts. */
+/* Dark mode — since 12 September 2026 a near-neutral near-black, to match
+   the cool paper above. It was a warm brown-black (#171310, "lamp-lit brick")
+   and the same verdict applied to it. The ground keeps a hair of warmth
+   (red channel one step above blue) so it never reads as the teal-dark of
+   generic UI chrome — tokenSplit.test.ts holds exactly that — and the gold
+   accent still does more work here than in the light theme. All pairs below
+   are >= 4.5:1 against the ground; see the contrast assertions in that test. */
 [data-theme='dark'] {
-  --color-bg: #171310;
-  --color-bg-alt: #211b16;
-  --color-bg-surface: #2a221c;
-  --color-bg-overlay: rgba(23, 19, 16, 0.96);
+  --color-bg: #151413;
+  --color-bg-alt: #1d1c1b;
+  --color-bg-surface: #262523;
+  --color-bg-overlay: rgba(21, 20, 19, 0.96);
   --color-scroll-shadow: rgba(0, 0, 0, 0.55);
 
   /* Glass, after dark. Alpha slightly higher: the dark ground is closer in
      value to the map tiles behind it, so the same 0.82 read as murky rather
      than translucent. */
-  --glass-bg: rgba(42, 34, 28, 0.86);
+  --glass-bg: rgba(38, 37, 35, 0.86);
   --glass-blur: blur(16px) saturate(140%);
-  --glass-border: rgba(58, 47, 38, 0.8);
+  --glass-border: rgba(64, 62, 60, 0.8);
   /* Dark mode inverts which direction the edge has to go: a warm dark border on
      a warm dark panel is the invisible case, so the edge is a light hairline and
      the sheen is barely-there rather than bright. */
-  --glass-bg-strong: rgba(38, 31, 26, 0.95);
+  --glass-bg-strong: rgba(30, 29, 28, 0.95);
   --glass-edge: rgba(255, 255, 255, 0.18);
   --glass-sheen: rgba(255, 255, 255, 0.07);
-  --color-border: #3a2f26;
-  --color-border-light: #2e251e;
+  --color-border: #3a3936;
+  --color-border-light: #2c2b29;
 
-  --color-text: #f0ebe0;
-  --color-text-secondary: #c8b89a;
-  --color-text-muted: #b0a08a;
-  --color-text-inverse: #171310;
+  --color-text: #f1f1ee;
+  --color-text-secondary: #c3c2bd;
+  --color-text-muted: #a5a49f;
+  --color-text-inverse: #151413;
 
   --color-kashi-cobalt: #8aa8e8;
   --color-kashi-firozi: #4fc9c2;
@@ -496,21 +507,21 @@
   --color-primary: var(--color-kashi-cobalt);
   --color-primary-dark: #6d8fd8;
   --color-primary-light: #a8c0f0;
-  /* Tinted *surfaces* stay in the warm family even though the chrome they
-     are named after is cobalt. In lamp-light these read as a lit wall, not
-     as a blue panel — a navy card sitting on the warm sidebar and beside the
-     warmed basemap was the one thing still announcing "generic UI dark".
-     The cobalt itself stays cobalt for links, borders and focus rings. */
-  --color-primary-pale: #26201a;
-  --color-primary-bg: #221b15;
+  /* Tinted *surfaces* are near-neutral with a cool cast (12 September 2026),
+     matching the ground. They were warm ("a lit wall") while the dark theme
+     was lamp-light; on a neutral near-black a warm panel is the one thing that
+     would read as brown. The cobalt itself stays cobalt for links, borders and
+     focus rings. */
+  --color-primary-pale: #202329;
+  --color-primary-bg: #1c1e23;
 
   --color-secondary: var(--color-kashi-firozi);
   --color-secondary-dark: #35a9a3;
-  --color-secondary-pale: #23201a;
+  --color-secondary-pale: #1b2423;
 
   --color-accent: #e8a82a;
   --color-accent-light: #f5d78e;
-  --color-accent-pale: #2a2010;
+  --color-accent-pale: #282216;
   --color-accent-text: var(--color-accent);
 
   --color-rubric: #e8907f;
@@ -524,7 +535,7 @@
   --color-success: #4ade80;
   --color-success-bg: #052e16;
 
-  --color-marker-default: #9c9284;
+  --color-marker-default: #8f8e89;
   --color-marker-selected: #e8a82a;
 
   --color-cat-muslim: #4db39a;
@@ -545,7 +556,7 @@
   --color-info-moderate: #fbbf24;
   --color-info-moderate-bg: #2a2010;
   --color-info-low: #a8a29e;
-  --color-info-low-bg: #26292c;
+  --color-info-low-bg: #262728;
 
   --color-support-documented: #22d3ee;
   --color-support-documented-bg: #0d2b31;

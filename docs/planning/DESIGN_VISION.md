@@ -142,6 +142,18 @@ Rules that make this principled rather than cosmetic:
   being "the same site with the lights off" and becomes the shrine after dark — which is
   when the dhamal happens.
 
+> **Palette ruling, 12 September 2026 — the paper did not stay.** The table above kept the cream
+> ground (`#f9f6f0`) and moved only the chrome. Rauf's verdict on 11 September, on seeing the new
+> Urs Calendar, was that "in general the brownish theme looks bland", and the next morning he chose
+> **cool paper + tradition colours** from four options: `--color-bg #fbfbfa`, `--color-bg-alt
+> #f2f2f0`, neutral hairlines `#d2d2ce` / `#e6e6e3`, ink `#141414`, muted `#66666b`; Kashi cobalt
+> unchanged as the one interactive colour; the six `--color-cat-*` tokens unchanged and now the
+> site's only chroma (calendar bars, pins, badges). Dark mode moved with it to a near-neutral
+> `#151413` / `#1d1c1b` / `#262523` — one step of red over blue is kept so `tokenSplit.test.ts`'s
+> "not teal-dark" assertion still describes it. All text pairs re-measured ≥ 4.5:1 by that test.
+> Migration 3's "lamp-light" framing is therefore historical; the gold accent survives, the brown
+> ground does not.
+
 ### Typography — Urdu as identity, not as a mode
 
 The single highest-leverage typographic move costs no new fonts:
