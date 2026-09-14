@@ -26,9 +26,24 @@ test.describe('Nastaliq metrics (?lang=ur)', () => {
     await page.goto('/shrine/data-darbar?lang=ur');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
 
+    /* Attached, not visible. The kicker is `display: none` in the Urdu view
+       from 14 September 2026 — with Nastaliq stripping the small caps and the
+       tracking that make it a distinct object in English, it printed the same
+       words as the breadcrumb crumb thirty pixels above it, and Rauf ruled the
+       trail survives (shrine.css). It is still measured: the declaration has
+       to stay correct for the day someone shows it again, and a rule that is
+       only wrong when it becomes visible is the worst kind. */
     const kicker = page.locator('.shrine-category-kicker');
-    await expect(kicker).toBeVisible();
+    await expect(kicker).toBeAttached();
     expect(await letterSpacing(kicker)).toBe('normal');
+
+    /* And a *painted* element carrying the same risk, so this test keeps
+       measuring something a reader can see. `.infobox-title` is the closest
+       equivalent: uppercase and `--tracking-wide` in its base rule, neither of
+       which an h1-h4 remap would ever have reached. */
+    const infoboxTitle = page.locator('.infobox-title').first();
+    await expect(infoboxTitle).toBeVisible();
+    expect(await letterSpacing(infoboxTitle)).toBe('normal');
 
     const badge = page.locator('.infobox-category-badge');
     if (await badge.count()) {

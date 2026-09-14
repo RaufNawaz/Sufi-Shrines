@@ -116,18 +116,27 @@
    kicker renders the (translated) category label, not always-English UI
    chrome, so it needs the same reset the global h1-h4 remap gives headings.
  *
- * Worth knowing, and deliberately *not* acted on here: with that reset the
- * kicker and the breadcrumb's category crumb become the same string in the
- * same script, 30px apart. In English they read as two different objects — a
- * small-caps genre label at 0.1em tracking, and a sentence-case trail at 12px
- * — and Nastaliq has neither case nor tracking to tell them apart with, so in
- * the Urdu view it is simply "سکھ گردوارہ" printed twice above the title.
- * Hiding the kicker in RTL was tried on 13 September 2026 and reverted:
- * `e2e/nastaliq-metrics.spec.ts` asserts it is visible in the Urdu view, and
- * whether an Urdu reader keeps the genre label or the trail is Rauf's call,
- * not a stylesheet's. */
+ * And with that reset the kicker becomes a duplicate, so in the Urdu view it
+ * is hidden. In English it is a small-caps genre label at 0.1em tracking and
+ * the breadcrumb crumb beside it is sentence case at 12px: the same words
+ * twice, but two obviously different objects. Nastaliq has neither case nor
+ * tracking, so both collapse to the same string in the same script thirty
+ * pixels apart — "مسلم مزار", then "مسلم مزار", above the title.
+ *
+ * **Ruled by Rauf, 14 September 2026: the breadcrumb survives.** It is the
+ * trail, it carries the category on every other page too, and it is the one
+ * doing work; the kicker is decoration once the two cues that distinguish it
+ * are gone. Nothing leaves the accessibility tree that the crumb does not
+ * already carry, and the masthead loses ~41px with it.
+ *
+ * The `letter-spacing` reset stays and is not redundant: the rule below still
+ * has to be correct for the English view's sibling, and
+ * `e2e/nastaliq-metrics.spec.ts` still measures this element — it asserts the
+ * kicker is *attached* rather than visible now, and reads `.infobox-title`
+ * for the painted half of the same guarantee. */
 [dir='rtl'] .shrine-category-kicker {
   letter-spacing: normal;
+  display: none;
 }
 
 .shrine-title {

@@ -871,6 +871,54 @@
   font-weight: 600;
 }
 
+/* ── The entity panel joins the Urdu idiom ────────────────────────────────
+ * The shrine page's fact panel was de-boxed on 14 September 2026 and this one
+ * was not, so an Urdu reader met two different objects doing the same job: a
+ * bare list of facts on `/shrine/:slug` and a bordered card with a grey title
+ * bar on `/saint`, `/order` and the rest. Found by sweeping the Urdu surfaces
+ * after the shrine page was signed off, which is the only reason it was found
+ * — nothing tests that two panels look alike.
+ *
+ * Same treatment, same reasoning (shrine.css): no border, no fill, no radius,
+ * and the row hairlines this panel already had are the whole of its structure.
+ * English keeps the card — Rauf's ruling of 14 September was that the two
+ * languages diverge here rather than converge, because Nastaliq is what needs
+ * the furniture removed.
+ *
+ * The title keeps its size and weight, because unlike the shrine panel's
+ * generic "Shrine facts" label it *is* the entity's name. It loses the grey
+ * fill and the accent bar: the bar is positioned at `inset-inline-start: 0`
+ * and the padding that used to hold it off the text is gone, so it would print
+ * through the first letter. One hairline under the name says the same thing. */
+[dir='rtl'] .entity-infobox {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  overflow: visible;
+}
+
+[dir='rtl'] .entity-infobox-title {
+  padding-inline: 0;
+  background-color: transparent;
+  border-bottom-color: var(--color-border-light);
+}
+
+[dir='rtl'] .entity-infobox-title::before {
+  content: none;
+}
+
+[dir='rtl'] .entity-infobox-body {
+  padding-inline: 0;
+}
+
+/* Matching the shrine panel's rhythm: the label sits on its value and the
+   rows are pushed apart, so the hairline lands in open space rather than
+   under a descender. */
+[dir='rtl'] .entity-infobox-row {
+  gap: 0;
+  padding-block: var(--space-3);
+}
+
 .entity-infobox-value {
   color: var(--color-text);
   overflow-wrap: break-word;
