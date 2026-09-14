@@ -55,9 +55,13 @@ if [ -d "$REPO_ROOT/out/ocr" ]; then
 else
   warn "out/ocr/ is missing. It is gitignored, so a git clone does not bring it: copy the WHOLE folder, or every finished book is redone."
 fi
+NEW_PDFS=0
 if [ -d "$REPO_ROOT/$INCOMING" ] || [ -d "$REPO_ROOT/$INCOMING_EN" ]; then
-  n=$(find "$REPO_ROOT/$INCOMING" "$REPO_ROOT/$INCOMING_EN" -maxdepth 1 -name '*.pdf' 2>/dev/null | wc -l | tr -d ' ')
-  ok "$n new PDF(s) waiting in $INCOMING{,-english}"
+  NEW_PDFS=$(find "$REPO_ROOT/$INCOMING" "$REPO_ROOT/$INCOMING_EN" -maxdepth 1 -name '*.pdf' 2>/dev/null | wc -l | tr -d ' ')
+  ok "$NEW_PDFS new PDF(s) waiting in $INCOMING{,-english}"
+  if [ -f "$REPO_ROOT/$INCOMING/manifest.json" ]; then
+    ok "download manifest present — the books came across with the folder; runbook step 4 (download) is done"
+  fi
 else
   warn "$INCOMING/ not present yet — download step still to do (runbook step 4)"
 fi
@@ -141,6 +145,21 @@ else
   if [ -d "$UTRNET_DIR/.git" ]; then ok "repo cloned"; else
     miss "repo clone"; [ "$DRY_RUN" = 1 ] || run git clone "$UTRNET_REPO" "$UTRNET_DIR"
   fi
+  # The batch talks to a PATCHED app: /predict returns the joined text only (upstream returns
+  # an image and the text), recognition is batched, and torch.load is told the 2024 checkpoint
+  # is trusted. A fresh clone has none of that, and the Air's working copy was the only place
+  # the changes lived until 13 September 2026. tools/utrnet/local-changes.patch is that diff
+  # (app.py, read.py, and a pinned requirements.txt) — it must land BEFORE pip reads
+  # requirements.txt below. A folder copied from the Air, or unzipped from the bundle, is
+  # already patched and reads OK here.
+  if grep -q text_recognizer_batch "$UTRNET_DIR/app.py" 2>/dev/null; then ok "local patch applied (app.py has text_recognizer_batch)"; else
+    miss "local patch — tools/utrnet/local-changes.patch on app.py, read.py, requirements.txt"
+    if [ "$DRY_RUN" = 0 ] && [ -d "$UTRNET_DIR/.git" ]; then
+      run git -C "$UTRNET_DIR" apply "$REPO_ROOT/tools/utrnet/local-changes.patch"
+      run cp "$REPO_ROOT/tools/utrnet/batch_ocr.py" "$REPO_ROOT/tools/utrnet/README_MAC.md" "$UTRNET_DIR/"
+      grep -q text_recognizer_batch "$UTRNET_DIR/app.py" || die "the patch did not apply — upstream has moved; apply tools/utrnet/local-changes.patch by hand"
+    fi
+  fi
   if [ -x "$UTRNET_DIR/.venv/bin/python" ]; then ok "UTRNet .venv exists"; else
     miss "UTRNet .venv"
     if [ "$DRY_RUN" = 0 ]; then
@@ -189,6 +208,13 @@ if [ "$MISSING" -gt 0 ]; then
 else
   echo "All prerequisites present."
 fi
+if [ -f "$REPO_ROOT/$INCOMING/manifest.json" ] && [ "$NEW_PDFS" -gt 0 ]; then
+  DOWNLOAD_STEP="  # the books are already here ($NEW_PDFS PDFs; downloaded and verified 12 Sep 2026) — download, sort and verify are done, go straight to the OCR"
+else
+  DOWNLOAD_STEP="  python tools/download_books.py --links pipeline/books_links_2026-09-11.txt --out $INCOMING --cookies ~/Downloads/cookies.txt
+  python tools/books_manifest.py --sort-downloaded      # English PDFs → $INCOMING_EN
+  python tools/books_manifest.py --verify               # sizes + sha256 into the manifest TSV"
+fi
 cat <<CMDS
 
 ── Run the batch ────────────────────────────────────────────────────────────────
@@ -198,9 +224,8 @@ Terminal 1 — the OCR model server (leave it running):
 
 Terminal 2 — the books:
   cd "$REPO_ROOT" && source .venv/bin/activate
-  python tools/download_books.py --links pipeline/books_links_2026-09-11.txt --out $INCOMING --cookies ~/Downloads/cookies.txt
-  python tools/books_manifest.py --sort-downloaded      # English PDFs → $INCOMING_EN
-  python tools/books_manifest.py --verify               # sizes + sha256 into the manifest TSV
+$DOWNLOAD_STEP
+  bash tools/run_new_books_ocr.sh --max-pages 3          # smoke test: three pages of every book
   bash tools/run_new_books_ocr.sh                        # UTRNet on the Urdu/Persian scans, text-layer/Tesseract on the English, EPUB extraction
 
 Progress:  python tools/ocr_status.py   (writes out/ocr/STATUS.md)

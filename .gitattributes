@@ -14,3 +14,6 @@
 *.zip binary
 *.traineddata binary
 *.pth binary
+
+# A patch against a checkout whose files carry CRLF: convert its line endings and it stops applying.
+tools/utrnet/local-changes.patch -text

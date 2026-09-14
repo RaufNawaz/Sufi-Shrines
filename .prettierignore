@@ -69,3 +69,7 @@ Awqaf/
 # Deleting them after use is still the rule; this stops a forgotten one from
 # failing someone else's build.
 /.*.mjs
+
+# Verbatim copies of files from the sibling UTRNet checkout (tools/utrnet/): formatting them
+# here would make the patch/copies diverge from the working copy they mirror.
+tools/utrnet

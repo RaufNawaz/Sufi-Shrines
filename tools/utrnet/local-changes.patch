@@ -1,0 +1,196 @@
+diff --git a/app.py b/app.py
+index 9c374f2..a2e44fd 100644
+--- a/app.py
++++ b/app.py
+@@ -1,10 +1,18 @@
+-import torch
++﻿import torch
++
++_original_torch_load = torch.load
++
++def torch_load_trusted_checkpoint(*args, **kwargs):
++    kwargs.setdefault("weights_only", False)
++    return _original_torch_load(*args, **kwargs)
++
++torch.load = torch_load_trusted_checkpoint
++
+ import gradio as gr
+-from read import text_recognizer
++from read import text_recognizer_batch
+ from model import Model
+ from utils import CTCLabelConverter
+ from ultralytics import YOLO
+-from PIL import ImageDraw
+ 
+ """ vocab / character number configuration """
+ file = open("UrduGlyphs.txt","r",encoding="utf-8")
+@@ -25,44 +33,36 @@ examples = ["1.jpg","2.jpg","3.jpg"]
+ 
+ input = gr.Image(type="pil",image_mode="RGB", label="Input Image")
+ 
+-def predict(input):
+-    "Line Detection"
+-    detection_results = detection_model.predict(source=input, conf=0.2, imgsz=1280, save=False, nms=True, device=device)
++
++def detect_line_crops(image):
++    with torch.inference_mode():
++        detection_results = detection_model.predict(
++            source=image,
++            conf=0.2,
++            imgsz=1280,
++            save=False,
++            nms=True,
++            device=device,
++            verbose=False,
++        )
+     bounding_boxes = detection_results[0].boxes.xyxy.cpu().numpy().tolist()
+     bounding_boxes.sort(key=lambda x: x[1])
+-    
+-    "Draw the bounding boxes"
+-    draw = ImageDraw.Draw(input)
+-    for box in bounding_boxes:
+-        # draw rectangle outline with random color and width=5
+-        from numpy import random
+-        draw.rectangle(box, fill=None, outline=tuple(random.randint(0,255,3)), width=5)
+-    
+-    "Crop the detected lines"
+-    cropped_images = []
+-    for box in bounding_boxes:
+-        cropped_images.append(input.crop(box))
+-    len(cropped_images)
+-    
+-    "Recognize the text"
+-    texts = []
+-    for img in cropped_images:
+-        texts.append(text_recognizer(img, recognition_model, converter, device))
+-    
+-    "Join the text"
+-    text = "\n".join(texts)
+-    
+-    "Return the image with bounding boxes and the text"
+-    return input,text
++    return [image.crop(box) for box in bounding_boxes]
++
++
++def predict(input):
++    cropped_images = detect_line_crops(input)
++    texts = text_recognizer_batch(cropped_images, recognition_model, converter, device)
++    return "\n".join(texts)
++
+ 
+-output_image = gr.Image(type="pil",image_mode="RGB",label="Detected Lines")
+ output_text = gr.Textbox(label="Recognized Text",interactive=True,show_copy_button=True)
+ 
+ iface = gr.Interface(predict,
+                      inputs=input,
+-                     outputs=[output_image,output_text],
++                     outputs=output_text,
+                      title="End-to-End Urdu OCR",
+                      description="Demo Web App For UTRNet\n(https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition)",
+                      examples=examples,
+                      allow_flagging="never")
+-iface.launch()
+\ No newline at end of file
++iface.launch()
+diff --git a/read.py b/read.py
+index 7fca918..21eedb6 100644
+--- a/read.py
++++ b/read.py
+@@ -1,4 +1,4 @@
+-# A simplified version of the original code - https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition
++﻿# A simplified version of the original code - https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition
+ import math
+ import torch
+ from PIL import Image
+@@ -8,32 +8,41 @@ from utils import NormalizePAD
+ import warnings
+ warnings.filterwarnings("ignore", category=UserWarning)
+ 
+-def text_recognizer(img_cropped, model, converter, device):
+-    """ Image processing """
++
++def prepare_line_image(img_cropped):
+     img = img_cropped.convert('L')
+     img = img.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+     w, h = img.size
+     ratio = w / float(h)
+-    if math.ceil(32 * ratio) > 400:
+-        resized_w = 400
+-    else:
+-        resized_w = math.ceil(32 * ratio)
++    resized_w = min(math.ceil(32 * ratio), 400)
+     img = img.resize((resized_w, 32), Image.Resampling.BICUBIC)
+     transform = NormalizePAD((1, 32, 400))
+-    img = transform(img)
+-    img = img.unsqueeze(0)
+-    batch_size = 1
+-    img = img.to(device)
+-    
+-    """ Prediction """
+-    preds = model(img)
+-    preds_size = torch.IntTensor([preds.size(1)] * batch_size)
+-    _, preds_index = preds.max(2)
+-    preds_str = converter.decode(preds_index.data, preds_size.data)[0]
+-    return preds_str
++    return transform(img)
++
++
++def text_recognizer_batch(img_crops, model, converter, device, batch_size=32):
++    if not img_crops:
++        return []
++
++    texts = []
++    for start in range(0, len(img_crops), batch_size):
++        batch_crops = img_crops[start:start + batch_size]
++        images = torch.stack([prepare_line_image(img) for img in batch_crops], dim=0).to(device)
++
++        with torch.inference_mode():
++            preds = model(images)
++            preds_size = torch.IntTensor([preds.size(1)] * images.size(0))
++            _, preds_index = preds.max(2)
++            texts.extend(converter.decode(preds_index.cpu(), preds_size))
++
++    return texts
++
++
++def text_recognizer(img_cropped, model, converter, device):
++    return text_recognizer_batch([img_cropped], model, converter, device, batch_size=1)[0]
+ 
+ # if __name__ == '__main__':
+ #     image_path = "test.jpg"
+ #     img_cropped = Image.open(image_path)
+ #     preds_str = text_recognizer(img_cropped)
+-#     print(preds_str)
+\ No newline at end of file
++#     print(preds_str)
+diff --git a/requirements.txt b/requirements.txt
+index 1ddc1f7..6c5cbe6 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,13 +1,13 @@
+-torch==2.0.1
+-torchvision==0.15.2
+-PyArabic==0.6.15
+-arabic-reshaper==3.0.0
+-six==1.16.0
+-numpy==1.23.5
+-pillow==10.2.0
+-tqdm==4.66.1
+-opencv-python==4.9.0.80
+-opencv-contrib-python==4.9.0.80
+-ultralytics==8.1.8
+-gradio==4.16.0
++torch==2.0.1
++torchvision==0.15.2
++PyArabic==0.6.15
++arabic-reshaper==3.0.0
++six==1.16.0
++numpy==1.23.5
++pillow==10.2.0
++tqdm==4.66.1
++opencv-python==4.9.0.80
++opencv-contrib-python==4.9.0.80
++ultralytics==8.1.8
++gradio==4.16.0
+ spaces==0.22.0
+\ No newline at end of file

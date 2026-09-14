@@ -1,9 +1,16 @@
-# OCR on a new machine — copy the folder, run three commands
+# OCR on a new machine — unzip the bundle, run three commands
 
 **Written 11 September 2026** for the 42 new books Adil Ahsan and Saifullah Imtiaz uploaded
 through the Google Form between 29 July and 17 August 2026. The MacBook Air thermal-throttles,
 so the OCR batch moves to a machine with more memory and a GPU. This is the whole procedure, in
 order. Everything it refers to is in the repository; nothing has to be remembered.
+
+**Since 13 September 2026 the transfer is one file.** `bash tools/make_ocr_bundle.sh` on the Air
+builds `~/Desktop/shrines-ocr-bundle-<date>.zip` — the project tree, the 42 downloaded books, the
+30 finished transcriptions, the Tesseract data, and the UTRNet server with its weights and local
+patch — refusing to build if any of those is missing or the wrong size, and then unzipping its own
+output somewhere else to prove the setup script sees everything (§1). Unzip it on the new machine
+and start at §2; §4 (download) is already done and the setup script says so.
 
 It supersedes `NEW_LAPTOP_OCR_RUNBOOK.md` (9 August 2026, written for two books and the M1 Pro)
 for the *OCR* part. The two older references still hold for every flag:
@@ -58,6 +65,43 @@ cookies needed. Two things the run taught, both now in the script:
 and none of the 30 finished transcriptions, so the batch would redo all 6,357 pages of July.
 Copy the folder.
 
+**The way to do it (13 September 2026 on):**
+
+```bash
+cd ~/shrines-repo          # the symlink from CLAUDE.md RULE 1
+bash tools/make_ocr_bundle.sh              # → ~/Desktop/shrines-ocr-bundle-<date>.zip, then self-checks it
+bash tools/make_ocr_bundle.sh --out /Volumes/<DRIVE>   # or straight onto the drive
+```
+
+What the zip holds, and why each part is there:
+
+| In the zip | Why |
+| --- | --- |
+| `Shrines Project/` — the tracked tree (79 MB) | the tools, docs, `requirements.txt`, `tools/utrnet-pins.txt` |
+| `Shrines Project/books/incoming-2026-09-11*/` — 17 + 24 PDFs, 1 EPUB, 1.3 GB | the 42 books, verified against Drive's byte counts before zipping |
+| `Shrines Project/out/` — 35 MB | the 30 finished transcriptions; the batch skips a book that has one |
+| `Shrines Project/tessdata/` — urd, fas | gitignored, so a clone lacks it; Tesseract's Urdu/Persian fallback needs it |
+| `End-To-End-Urdu-OCR-WebApp/` — 98 MB | the UTRNet server **with** `best_norm_ED.pth`, `yolov8m_UrduDoc.pt` and the local patch (below); minus its venvs, which are machine-specific |
+| `START_HERE.txt`, `BUNDLE_SHA256SUMS.txt`, `verify_bundle.sh` | the commands in order; every file's hash; the check that runs it on the far side |
+
+Left out on purpose: `.git` (438 MB), `node_modules`, `dist`, `media-source` (536 MB), `media/`
+(312 MB), `Awqaf/` (a separate project), and the 30 July scans in `books/*.pdf` (1.2 GB — already
+transcribed; `out/ocr/` is what the batch needs). The script refuses to stage more than 1.7 GB of
+project folder, so a new large gitignored directory cannot creep in unnoticed — the first run
+staged 1.8 GB for exactly that reason.
+
+**The sibling's local patch is now in the repository.** `End-To-End-Urdu-OCR-WebApp/` on the Air
+is a modified checkout of upstream commit `2260969`: `/predict` returns the joined text only
+(upstream returns an image and the text), recognition is batched (`text_recognizer_batch`), and
+`torch.load` is told the 2024 checkpoint is trusted. `tools/process_books.py` depends on that
+shape, and until 13 September the changes lived only in that working copy. They are now
+`tools/utrnet/local-changes.patch` (applies cleanly to upstream — checked with `patch --dry-run`),
+plus `tools/utrnet/batch_ocr.py` and `README_MAC.md`. The setup script applies the patch after a
+fresh clone, before pip reads the pinned `requirements.txt`, and reports `local patch applied` in
+its dry-run. A folder unzipped from the bundle is already patched.
+
+<details><summary>The pre-bundle way, kept for reference (rsync the folder)</summary>
+
 ```bash
 cd ~/Harvard    # or wherever the project lives; see CLAUDE.md RULE 1 for the two look-alike folders
 du -sh "Shrines Project"/books "Shrines Project"/out      # 11 Sep 2026: 1.2G and 35M
@@ -65,9 +109,10 @@ rsync -avh --progress --exclude node_modules --exclude .venv --exclude dist \
   "Shrines Project"/ /Volumes/<DRIVE>/"Shrines Project"/
 ```
 
-Optional, saves a 95 MB download and a clone: also copy the sibling
-`End-To-End-Urdu-OCR-WebApp/` folder (the UTRNet server with its weights already in it). Its
-`.venv` is machine-specific and the setup script rebuilds it.
+Also copy the sibling `End-To-End-Urdu-OCR-WebApp/` folder (the UTRNet server with its weights
+and the local patch). Its `.venv` is machine-specific and the setup script rebuilds it.
+
+</details>
 
 Commit first if anything in the repo is uncommitted (`git status --short`); the copy carries the
 working tree, but the commit is what makes it recoverable.
@@ -117,9 +162,15 @@ cd ../End-To-End-Urdu-OCR-WebApp && source .venv/bin/activate && python app.py
 
 ---
 
-## 4. Download the books (second terminal)
+## 4. Download the books — **done on the Air, 12 September 2026; the bundle carries them**
 
-The files are private, so give `gdown` a logged-in session once. In a browser signed in to the
+If you unzipped the bundle, skip this section: `books/incoming-2026-09-11/manifest.json` is
+present, the setup script prints "download manifest present … runbook step 4 (download) is done",
+and its run-the-batch block omits the download commands. `bash verify_bundle.sh` at the zip root
+is the check that the copy is intact. The rest of this section is how the download was done and
+how to redo it if the books ever have to be fetched again.
+
+The files were private, so `gdown` needed a logged-in session once. In a browser signed in to the
 account that can open the Drive folder, install a "Get cookies.txt LOCALLY"-type extension and
 export `cookies.txt` for `drive.google.com`. Then:
 
@@ -204,13 +255,23 @@ translation drafts, `tools/summarize_books.py` — see `BOOK_OCR_WORKFLOW.md` §
 
 ## 7. Known gaps, stated rather than hidden
 
-- **Nothing was downloaded on 11 September 2026.** All 42 files are private to the Drive
-  account; anonymous `curl` and `gdown` both land on a sign-in page. Step 4 is the first thing
-  the new machine does.
+- ~~**Nothing was downloaded on 11 September 2026.**~~ Closed 12 September: 42 of 42 down and
+  verified on the Air; the bundle carries them (§1). The manifest TSV's `saved_as` column had the
+  pre-sort paths for the 24 English files until `--verify` was re-run on 13 September — the TSV in
+  git now names the `-english` folder.
 - **`setup_ocr_machine.ps1` is untested on Windows.** `bash -n` and a real `--dry-run` were run
-  for the shell twin only.
-- **`revisedtranslati00nizauoft`** is unidentified until someone opens it.
-- **Page counts are an estimate** until `pdfinfo` runs on the downloaded files.
-- The UTRNet weights come from a third-party HuggingFace Space that could disappear. If the
-  sibling folder was copied from the Air in step 1, the weights are already present and the
-  script skips the download.
+  for the shell twin only (13 September: the dry-run on the Air reads every bundle-carried item OK
+  and reports exactly the machine-specific gaps — Poppler, Python 3.10, the two venvs). The
+  PowerShell patch step mirrors the shell one and has the same untested status.
+- ~~**`revisedtranslati00nizauoft`** is unidentified until someone opens it.~~ Identified from its
+  archive.org metadata on 12 September (Browne 1921, English); it is in the `-english` folder.
+- **Page counts are an estimate** until `pdfinfo` runs on the downloaded files — Poppler is not
+  installed on the Air, so this is still the new machine's first measurement.
+- The UTRNet weights come from a third-party HuggingFace Space that could disappear. The bundle
+  carries both model files, so the far side never downloads them; the setup script only fetches
+  a weight that is missing or under 40 MB.
+- **`make_ocr_bundle.sh` checks sizes, not hashes, before zipping** — `books_manifest.py --verify`
+  is the sha256 instrument and was run the same day; the zip's own `BUNDLE_SHA256SUMS.txt` covers
+  the transfer. A `read`-based TSV parse was the first version's bug: a tab is whitespace to
+  `read`, so empty columns collapse and every later field shifts left — 45 "downloaded files", each
+  with its sha256 where its path should be. It parses with `awk -F'\t'` now.

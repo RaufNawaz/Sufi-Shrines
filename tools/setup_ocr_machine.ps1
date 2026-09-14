@@ -93,6 +93,21 @@ if ($SkipUtrnet) {
   if ($py310) { Ok "py -3.10 ($(& py -3.10 --version)) — the app's torch/gradio pins need exactly 3.10" }
   else { Miss "Python 3.10 (the UTRNet app is pinned to it)"; if (-not $DryRun) { Run "py" @("install","3.10") } }
   if (Test-Path (Join-Path $UtrnetDir ".git")) { Ok "repo cloned" } else { Miss "repo clone"; if (-not $DryRun) { Run "git" @("clone",$UtrnetRepo,$UtrnetDir) } }
+  # Same as the shell twin: the batch needs the LOCAL PATCH (tools\utrnet\local-changes.patch —
+  # text-only batched /predict, trusted torch.load, pinned requirements.txt) on a fresh clone,
+  # and it must land before pip reads requirements.txt. A folder copied from the Air or unzipped
+  # from the bundle is already patched.
+  $appPy = Join-Path $UtrnetDir "app.py"
+  if ((Test-Path $appPy) -and (Select-String -Path $appPy -Pattern "text_recognizer_batch" -Quiet)) { Ok "local patch applied (app.py has text_recognizer_batch)" }
+  else {
+    Miss "local patch - tools\utrnet\local-changes.patch on app.py, read.py, requirements.txt"
+    if ((-not $DryRun) -and (Test-Path (Join-Path $UtrnetDir ".git"))) {
+      Run "git" @("-C",$UtrnetDir,"apply",(Join-Path $RepoRoot "tools\utrnet\local-changes.patch"))
+      Copy-Item (Join-Path $RepoRoot "tools\utrnet\batch_ocr.py") $UtrnetDir -Force
+      Copy-Item (Join-Path $RepoRoot "tools\utrnet\README_MAC.md") $UtrnetDir -Force
+      if (-not (Select-String -Path $appPy -Pattern "text_recognizer_batch" -Quiet)) { Die "the patch did not apply - upstream has moved; apply tools\utrnet\local-changes.patch by hand" }
+    }
+  }
   $upy = Join-Path $UtrnetDir ".venv\Scripts\python.exe"
   if (Test-Path $upy) { Ok "UTRNet .venv exists" } else { Miss "UTRNet .venv"; if (-not $DryRun) { Run "py" @("-3.10","-m","venv",(Join-Path $UtrnetDir ".venv")) } }
   if (-not $DryRun) {
@@ -130,10 +145,14 @@ PowerShell 1 - the OCR model server (leave it running):
 
 PowerShell 2 - the books:
   cd "$RepoRoot"; .\.venv\Scripts\Activate.ps1
-  python tools\download_books.py --links pipeline\books_links_2026-09-11.txt --out $Incoming --cookies "`$env:USERPROFILE\Downloads\cookies.txt"
+$(if ((Test-Path (Join-Path $RepoRoot "$Incoming\manifest.json")) -and ($pdfs.Count -gt 0)) {
+"  # the books are already here ($($pdfs.Count) PDFs; downloaded and verified 12 Sep 2026) - download, sort and verify are done, go straight to the OCR"
+} else {
+"  python tools\download_books.py --links pipeline\books_links_2026-09-11.txt --out $Incoming --cookies `"`$env:USERPROFILE\Downloads\cookies.txt`"
   python tools\books_manifest.py --sort-downloaded      # English PDFs -> $IncomingEn
-  python tools\books_manifest.py --verify               # sizes + sha256 into the manifest TSV
-  python tools\extract_epub_text.py $Incoming            # the one EPUB (no OCR)
+  python tools\books_manifest.py --verify               # sizes + sha256 into the manifest TSV"
+})
+  python tools\extract_epub_text.py $IncomingEn          # the one EPUB (no OCR) - it sorted into the English folder
   python tools\ocr_all_books.py --books-dir $Incoming --utrnet-url http://127.0.0.1:7860
   `$env:TESSERACT_LANG = "eng"; python tools\ocr_all_books.py --books-dir $IncomingEn --ocr-engine tesseract
 
