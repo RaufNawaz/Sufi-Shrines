@@ -9294,3 +9294,110 @@ listed byte counts, first try. Measured 12 September 2026 on the Waris Shah PDF 
 ways) and then on all seven. `tools/download_books.py` now tries curl after gdown; the instrument
 that says "permission" was the one with the bug. Same family as §9.184: read the message the tool
 gives you as a claim about the tool until a second instrument agrees.
+
+### Added 13 September 2026 — the OCR bundle, the sibling's patch, and the last two Urdu articles
+
+**§9.187 — The UTRNet server the batch talks to is a patched checkout, and the patch lived in one
+working copy.** `../End-To-End-Urdu-OCR-WebApp/` is upstream `2260969` with `app.py` and `read.py`
+rewritten: `/predict` returns the joined text only (upstream returns an image *and* the text),
+recognition is batched (`text_recognizer_batch`), `torch.load` is told the 2024 checkpoint is
+trusted, and `requirements.txt` is pinned. `tools/process_books.py` is written against that shape.
+`setup_ocr_machine.sh` checked `[ -d .git ]` and said "repo cloned" — a fresh clone would have
+passed the check and then failed the batch. The diff is now `tools/utrnet/local-changes.patch`
+(applies to upstream — `patch --dry-run` against `git archive 2260969`), with `batch_ocr.py` and
+`README_MAC.md` beside it; both setup scripts apply it after a clone, *before* pip reads the pinned
+requirements, and report `local patch applied` in a dry-run. The other eleven files upstream shows
+as modified differ only in whitespace (`git diff --ignore-all-space --stat`: 3 files, not 14).
+
+**§9.188 — `tools/make_ocr_bundle.sh` is the transfer.** One zip on the Desktop
+(`shrines-ocr-bundle-2026-09-13.zip`, 1.4 GB, 1,653 files): the tracked tree, the 42 books,
+`out/ocr/`, `tessdata/`, the patched UTRNet folder with both model files, `START_HERE.txt`, and
+`BUNDLE_SHA256SUMS.txt` with a `verify_bundle.sh` that checks it. It refuses to build unless every
+one of the 42 `saved_as` files exists at the byte count Drive listed, `out/ocr` holds 30 finished
+transcriptions, both weights are over 40 MB, `app.py` carries the patch and tessdata is present —
+then unzips its own output into a scratch folder and runs `setup_ocr_machine.sh --dry-run` there,
+requiring the lines that prove each part arrived. Two things the first two runs taught:
+
+- **A tab is whitespace to `read`.** `while IFS=$'\t' read -r a b c …` over the manifest TSV
+  collapsed the empty `duplicate_of`/`note` columns, so every later field shifted left and the
+  script counted 45 "downloaded files" whose paths were sha256 hashes. Parse TSVs with
+  `awk -F'\t'`, never `read`.
+- **The gitignore hides a gigabyte that is not the repo's business.** The first staging was
+  1.8 GB: `media/` (312 MB), `Awqaf/` (117 MB — the separate project RULE 1 says not to touch,
+  sitting *inside* this folder, ignored via `.git/info/exclude`), `archive/`, `chunks/`,
+  `storybook-static/`. Now excluded, and the script dies if the staged project exceeds 1.7 GB, so
+  the next such folder announces itself.
+
+Also corrected in passing: `pipeline/books_manifest_2026-09-11.tsv` had the pre-sort
+`books/incoming-2026-09-11/` path for all 24 English files; `--verify` on 13 September rewrote
+them to the `-english` folder, which is where they have been since 12 September.
+
+**§9.189 — The two shrines with no Urdu article have one; 170 of 171 rows now do.**
+`darbar-abul-muali-qadri` (8,214 chars, 8 sections) and `darbar-malik-ahmad-ayaz` (6,361 chars,
+6 sections), drafted section for section from the English `Description`, `reviewed=false` like
+the other 168. Measured on the dev server after `npm run urdu:build`: Latin share of the rendered
+Urdu article 12.8% and 12.6%, against 13.4% for the hand-drafted Tahir Bandagi article — the
+Latin is citations, coordinates and the shared chrome. `urdu-i18n/_english_descriptions.json`
+gained both rows so the log can show their English. Spellings the drafter flagged for the
+reviewer, so nobody re-derives the list: "millions" → لاکھوں (idiomatic; under-translates);
+Shergarh → شیر گڑھ (the dictionary's spacing); Karishmi → کرشمی and Niyamat → نعمت (back-formed
+from Latin, unverified); Hakim → حاکم (ruler, per "was ruling"), not حکیم; turban → دستار;
+"mastermind" → ماسٹر مائنڈ inside a survey quotation; *diyas* → دیے (visually the verb; دِیے is
+an option); Zil Hajj → ذی الحجہ; "figure" → شخصیت throughout the Ayaz article because the English
+deliberately avoids calling him a saint. The English's parenthetical glosses of Urdu-native
+terms (*majzūb*, *dum*, *niyāz*…) were not carried into the Urdu — they explain Urdu words to
+English readers. The one row still without an article is whatever `TRANSLATION_LOG.md`'s
+Remaining table names (its universe is the 171-row import CSV, not the 169-row app snapshot).
+
+**§9.190 — The entity pages joined the public/team split, and the report that drove it came from
+one council seat out of five.** A council was convened on 13 September 2026 over the saint, order,
+place, graph, tradition, chronology, shared-ground and typology pages (48 screenshots, both
+languages, 400 and 1280). Four seats were terminated by the account's usage limit before
+reporting; the fifth — public vs team apparatus — counted what an anonymous reader was shown:
+**28** `unreviewed` chips on `/order/qadiriyya` and "14 unreviewed" in its header, **18**
+repository paths (`shrine_entries/….md`, `data/shrines.csv#…`) printed as citations on `/graph`,
+an `approximate` pill, a Sources & Provenance block and the raw `silsila` cell on
+`/saint/shah-hussain`, and **37** raw `Location` paragraphs (one of 397 characters) on
+`/place/lahore`. None of those pages imported `hasProjectAccess`. Rauf's instruction the same
+afternoon was to limit agents from then on, so the sweep was implemented from that one report and
+own measurement (`feedback_limit_agents_for_usage`).
+
+What moved behind `hasProjectAccess()` (§9.183's gate), the public keeping every claim and the
+sentence it rests on: the `unreviewed` chip at **ten** render sites — `LineageView`, `KinView`,
+`DescentView`, `LineageChainView`, `RecordedObservanceList` (each now takes `showReviewState`),
+the saint page's membership rows and provenance block, the order page's header count and member
+rows, the graph's section note and edge rows; the `<cite>` file path under every evidence quote
+(seven sites, tradition page included); the "approximate" pill on a saint's next ʿurs; the
+"as recorded" silsila cell; "What the archive does not record"; the figure Sources & Provenance
+block; the order description's "written for this site" note; KinView's "recorded, and unnamed"
+notes. The raw `Location` under a site row now goes through `publicLocation()`
+(`src/lib/data/publicLocation.ts`, the rule the map preview adopted on 11 September, extracted so
+the saint, order and place pages share it): short recorded values as recorded, otherwise the
+place vocabulary, then the region, then nothing — and never the page's own place name.
+`e2e/entity-team-gate.spec.ts` holds both halves: the public sees none of seven selectors on
+four routes and no list row longer than a place name; the team sees the chips, the paths and
+the provenance block.
+
+Two things the report did not have and the probe did: **the first pass left 14 chips on the
+public order page and one on the saint page.** `RecordedObservanceList` (observance rows on
+saint, order and place pages) and `LineageChainView` (the silsila chain) render the same class
+and were not in the seat's eight sites. *Grep the class name, not the report* — a render-site
+list is a claim about the code, and the probe after the change is the check. Second, the
+Urdu-leak budgets re-measured by zeroing (the documented method): `saint` 15→**12**,
+`saint:lineage-only` 16→**12**, `saint:multi-order` 33→**23**, `order` 74→**52**,
+`order:chishtiyya` 40→**27**, `order:suhrawardiyya` 49→**34**, `order:naqshbandiyya` 29→**19**,
+`order:qalandariyya` 12→**9**, `graph` 46→**28**, `place` 38→**3** — every one is Latin the
+public no longer reads, mostly the file paths and the survey paragraphs. A route for
+`/shrine/darbar-abul-muali-qadri?lang=ur` was tried in the same matrix now that its article
+exists and **failed on 9 undeclared runs that are not the article**: the off-schema `category`
+"Islam" (twice), the masthead Location (twice), `site_type`, `silsila`, three infobox dates. The
+route stays out; the note in the spec says why.
+
+**Decision put to Rauf in the chat, not settled here:** the evidence *quotes* themselves — the
+English sentence under a lineage, kin or membership row — are still public on every page. The
+seat recommended gating them on saint/order/graph and keeping them on `/tradition/:slug`, where
+the quote is the whole content of each row. Left public pending the ruling: RULE 5.
+
+Also from the phone probe over 18 route × language combinations at 400 px: no horizontal
+overflow anywhere (`scrollWidth` 400 on all), so the mobile seat's lane has at least that
+negative result recorded. `/typology` renders 54,000–59,000 px tall at that width; not acted on.

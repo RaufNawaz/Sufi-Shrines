@@ -34,14 +34,47 @@ the reason the rest is credible.
 
 ---
 
+## 13 September 2026 — deployed, bundled, the last two Urdu articles, the entity-page sweep
+
+**Read this first if you are resuming.** Rauf's four-item list for the day, and where each stands:
+
+| # | Asked | State |
+| --- | --- | --- |
+| — | Merge into `1.7` and push | **Done.** `a62af8f` fast-forwarded to `1.7`; run 34775610348 green; production serves the new citation order and the cool-paper palette. `main` was **not** pushed — the push to a shared branch was refused by the session's permission classifier; run `git push origin claude/website-explorer-improvements-f5bwgk:main` by hand so `main` does not sit 7 behind `1.7`. |
+| 1 | Complete the OCR setup, one zip for the other machine | **Done.** `~/Desktop/shrines-ocr-bundle-2026-09-13.zip`, 1.4 GB, 1,653 files, self-checked (`tools/make_ocr_bundle.sh`; HANDOVER §9.187–188). The UTRNet sibling's local patch is now in the repo and the setup scripts apply it. |
+| 2 | Merge and deploy (again, after the day's work) | The day's commits (bundle, articles, sweep) are on the branch; the second deploy is the last step of the session — see the end of this section. |
+| 3 | Sweep the remaining pages (saint/order/place/graph…) | **Done** from the one council seat that survived the usage limit, plus own probes. HANDOVER §9.190; `e2e/entity-team-gate.spec.ts`. |
+| 4 | Generate the articles for them | Read as the two shrines with no Urdu article: **done**, `urdu-i18n/content/darbar-abul-muali-qadri.md` and `darbar-malik-ahmad-ayaz.md`, `reviewed=false` (§9.189). 170 of 171 rows now carry one. |
+
+**Decisions for Rauf — asked in the chat on 13 September, unanswered:**
+
+1. **Evidence quotes on the public entity pages.** The English sentence under every lineage, kin,
+   descent and membership row (and every row of `/tradition/:slug`) is still public; the chips
+   and file paths beneath it are now team-only. Gate the quotes too on saint/order/graph and keep
+   them on the tradition pages (the seat's recommendation), or keep them public everywhere as
+   "the sentence the claim rests on"? Left public until ruled.
+2. **`main`** — push it yourself (command above), or leave `main` as a waypoint that lags.
+
+**Standing instruction from the day (memory `feedback_limit_agents_for_usage`):** limit agents to
+control usage. The five-seat council cost four terminated seats; run councils lean or not at all.
+
+**Next, in order:** OCR the 42 books on the other machine (unzip, `START_HERE.txt`); a human read
+of the 170 Urdu drafts, the two new ones first (spellings to check listed in §9.189); the sheet's
+off-schema `category` "Islam" on Abul Muali Qadri, which is what keeps that page out of the leak
+matrix; `darbar-mian-qurban-ali-shah` sits in the pending import CSVs and not in the sheet — it
+needs an Urdu article only once it is imported.
+
+---
+
 ## 11 September 2026 — Rauf's fourteen items, and the next session's first move
 
-**Read this section first if you are resuming after the usage reset.** Rauf gave a fourteen-item
+Rauf gave a fourteen-item
 list on 11 September (recorded in `feedback_direction_2026-09-11` in memory and summarised here),
 then three amendments in the same sitting: **Urdu is the main thing**, the books can come last,
 and — after seeing the new calendar — **"make the calendar theme different, and in general the
 brownish theme looks bland for the website."** Everything below shipped on branch
-`claude/website-explorer-improvements-f5bwgk`; nothing was pushed or deployed.
+`claude/website-explorer-improvements-f5bwgk`; ~~nothing was pushed or deployed~~ **deployed
+13 September 2026** (see above).
 
 ### ~~The next session's first move: the palette~~ — **done 12 September 2026, `c04df25`**
 
@@ -91,7 +124,8 @@ the commit message of this commit.
 
 - **1 (direction)** is a steer, not a task: prefer work that raises epistemic value (orders,
   chronology, provenance) over gadgets (tours). Recorded in memory; apply it when ranking.
-- **Urdu beyond spacing.** 168 Urdu articles, **0 reviewed**; two pages still fall back to English
+- **Urdu beyond spacing.** ~~168~~ **170** Urdu articles (the last two drafted 13 September 2026,
+  HANDOVER §9.189), **0 reviewed**; ~~two pages still fall back to English~~ no page falls back to English
   prose in the Urdu view (`darbar-abul-muali-qadri`, `darbar-malik-ahmad-ayaz`), measured by a
   probe over all 169 `/ur/shrine/` pages. The 15 `urdu-content.json` keys that do not match a
   current id **do** resolve at runtime (that probe is the proof) — do not "fix" them.
