@@ -42,7 +42,7 @@ the reason the rest is credible.
 | --- | --- | --- |
 | — | Merge into `1.7` and push | **Done.** `a62af8f` fast-forwarded to `1.7`; run 34775610348 green; production serves the new citation order and the cool-paper palette. `main` was **not** pushed — the push to a shared branch was refused by the session's permission classifier; run `git push origin claude/website-explorer-improvements-f5bwgk:main` by hand so `main` does not sit 7 behind `1.7`. |
 | 1 | Complete the OCR setup, one zip for the other machine | **Done.** `~/Desktop/shrines-ocr-bundle-2026-09-13.zip`, 1.4 GB, 1,653 files, self-checked (`tools/make_ocr_bundle.sh`; HANDOVER §9.187–188). The UTRNet sibling's local patch is now in the repo and the setup scripts apply it. |
-| 2 | Merge and deploy (again, after the day's work) | The day's commits (bundle, articles, sweep) are on the branch; the second deploy is the last step of the session — see the end of this section. |
+| 2 | Merge and deploy (again, after the day's work) | **Done.** `63bd487` (bundle, articles, sweep, docs) fast-forwarded to `1.7`; run 34792150717 green; production's prerendered `/saint/shah-hussain/` carries zero `unreviewed` chips and zero file-path citations. `main` still needs the by-hand push above. |
 | 3 | Sweep the remaining pages (saint/order/place/graph…) | **Done** from the one council seat that survived the usage limit, plus own probes. HANDOVER §9.190; `e2e/entity-team-gate.spec.ts`. |
 | 4 | Generate the articles for them | Read as the two shrines with no Urdu article: **done**, `urdu-i18n/content/darbar-abul-muali-qadri.md` and `darbar-malik-ahmad-ayaz.md`, `reviewed=false` (§9.189). 170 of 171 rows now carry one. |
 
