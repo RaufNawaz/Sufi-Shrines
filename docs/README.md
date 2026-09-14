@@ -48,6 +48,7 @@ can go stale silently is worse than no index, because it is trusted.
 | [`REVIEW_ur_prefix_routing.md`](REVIEW_ur_prefix_routing.md) | Review gate for the `/ur/*` prerendered routes       |
 | [`URDU_TYPOGRAPHY_2026-09-11.md`](URDU_TYPOGRAPHY_2026-09-11.md) | The Urdu spacing pass — what was measured, what changed, before/after in px |
 | [`URDU_TYPOGRAPHY_2026-09-14.md`](URDU_TYPOGRAPHY_2026-09-14.md) | The Urdu minimalism pass — why the spacing pass above could not have worked (Noto Nastaliq's own box is 2.50em), the change of reading face to Mehr Nastaliq Web, and the furniture that came off |
+| [`ADIL_FEEDBACK_IMPLEMENTATION.md`](ADIL_FEEDBACK_IMPLEMENTATION.md) | Adil's fourteen items, each checked against the code on 14 September 2026 — what shipped, where it lives, and the five things still open |
 | [`URS_CALENDAR_2026-09-11.md`](URS_CALENDAR_2026-09-11.md) | The Urs Calendar month grid — layout algorithm, and what is deliberately not on it |
 
 ## OCR guides (Urdu book pipeline)
