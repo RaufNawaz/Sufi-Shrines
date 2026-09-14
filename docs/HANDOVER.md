@@ -9503,7 +9503,12 @@ between a value and an unreviewed source note.
 row against 17px between rows *reads as evenly spaced* when the line boxes are 39 and 45px tall.
 The label sits on its value now (gap 0) with `--space-3` between rows: about 5px against 33px.
 It could not be fixed by shrinking the label — Nastaliq's floor is `--text-sm`, the label is
-already there, and Mehr has one weight.
+already there, and Mehr has one weight. **And proximity alone still was not enough**: asked a
+second time, the row hairlines went back. The argument that a rule cuts Nastaliq's tails holds
+for a rule tight under text and not for one 12px below a line box that already contains the
+descenders. The transferable part is that **"these two are closer together" is a judgement the
+reader has to make and a rule is a fact** — at two lines of Nastaliq per row, proximity is the
+wrong instrument. The panel is still de-boxed; one hairline per row is all of its structure.
 
 **Chrome measured in ems looked fine and looked wrong on screen.** In multiples of its own body
 text the Urdu chrome was ~10% looser than the English (masthead 17.0em vs 15.3em; contents

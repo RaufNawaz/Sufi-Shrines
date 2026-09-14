@@ -838,13 +838,32 @@
  * there, and `--text-xs` at this face's scale computes to the optical
  * equivalent of 13.8px of Noto. The other is weight, and Mehr has one. So the
  * cue has to be spatial, which is what Urdu print does anyway. */
+/* The row rules come back, and the third attempt is the right one.
+ *
+ * They were dropped with the card on the reasoning that a horizontal hairline
+ * every 60px cuts across the tails of the Nastaliq line above it. That is true
+ * of a rule sitting tight under a line of text, and it is not true of this
+ * one: at `--space-3` the rule is 12px below the value's line box, which
+ * already contains the descenders (Mehr draws 1.79em into a 1.85em box).
+ *
+ * What replaced them was proximity alone — label on its value, `--space-3`
+ * between rows — and Rauf's verdict, twice, was that it is not enough to tell
+ * a title from its information. It was the wrong tool for this panel: with
+ * every row two lines of Nastaliq at 21 and 24px, "closer together" is a
+ * judgement the reader has to make, and a rule is a fact. Proximity still does
+ * the grouping *inside* a row (`gap: 0`); the rule marks where one fact ends.
+ *
+ * This is "hairlines, not cards" doing what it says — the panel keeps no
+ * border, no fill and no radius, and one hairline per row is the whole of its
+ * structure. `.infobox-row:last-child` already suppresses the final one, so
+ * the list ends on space rather than a line. */
 [dir='rtl'] .infobox-row {
   padding-inline: 0;
   /* `--space-4` first, then trimmed: once the label sits *on* its value the
-     grouping no longer needs a wide row gap to be unambiguous, and `--space-3`
-     still gives about 33px between rows against about 5px inside one. */
+     grouping no longer needs a wide row gap, and `--space-3` gives about 33px
+     between rows against about 5px inside one — with the rule sitting in the
+     middle of that 33px, clear of the ink on both sides. */
   padding-block: var(--space-3);
-  border-bottom: none;
   gap: 0;
 }
 

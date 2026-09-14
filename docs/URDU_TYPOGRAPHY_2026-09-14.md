@@ -214,12 +214,24 @@ Urdu: full size, full colour, right-aligned, 329px of the panel. It is declared 
 guard reported clean for as long as it has existed. A third shrine route is added.
 **This file's routes are shapes, not pages; a shape with no route is a shape with no guard.**
 
-**3. De-boxing went too far.** With the row rules gone, proximity was the only thing saying
+**3. De-boxing went too far — twice, and the second correction reversed the first.** With the row rules gone, proximity was the only thing saying
 which value belonged to which label, and the ratio was wrong: 4px inside a row against 17px
 between rows, on line boxes 39 and 45px tall. A label sits *on* its value now (gap 0) with
 `--space-3` between rows — about 5px against 33px. The label could not simply be made smaller:
 Nastaliq's floor is `--text-sm`, it is already there, and Mehr has one weight, so the cue had to
 be spatial.
+
+  **And spatial was still not enough.** Asked a second time — *"add some lines or some way to
+  make it so that you can distinguish"* — the row hairlines went back in. The original argument
+  against them was that a horizontal rule every 60px cuts across the tails of the Nastaliq line
+  above it; that is true of a rule sitting tight under text and false of this one, which sits
+  12px below a line box that already contains the descenders (Mehr draws 1.79em into a 1.85em
+  box). The real lesson is about the tool, not the pixels: **with every row two lines of
+  Nastaliq at 21 and 24px, "these two are closer together" is a judgement the reader has to
+  make, and a rule is a fact.** Proximity still groups *inside* a row (`gap: 0`); the hairline
+  says where a fact ends. The panel keeps no border, no fill and no radius — one hairline per
+  row is the whole of its structure, which is what "hairlines, not cards" was always supposed to
+  mean.
 
 **4. The chrome was too airy, and the fix was gaps rather than type.** Measured in multiples of
 its own body text the Urdu chrome was only ~10% looser than the English (masthead 17.0em against
