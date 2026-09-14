@@ -34,6 +34,47 @@ the reason the rest is credible.
 
 ---
 
+## 14 September 2026 — the Urdu reads like Rekhta: a new face, and the furniture off
+
+**Read this first if you are resuming.** Rauf, in four messages: the Urdu still does not look
+minimalistic; use `rekhta.org/?lang=ur` as the template; everything at the end should look like
+it too; **use the fonts etc from rekhta as well.**
+
+Full record, with every measurement: [`docs/URDU_TYPOGRAPHY_2026-09-14.md`](URDU_TYPOGRAPHY_2026-09-14.md).
+The one-paragraph version, because it explains three days of failed spacing work:
+
+> **Noto Nastaliq Urdu's own content box is 2.50em.** `--leading-urdu: 2.05`, set on
+> 11 September to stop the lines touching, was *below the face's natural line* — the ink of one
+> line necessarily entered the box of the next, and no value under 2.5 could have fixed it.
+> Rekhta's face, **Mehr Nastaliq Web**, draws inside **1.79em**. Same leading, real air.
+
+What shipped:
+
+| | |
+| --- | --- |
+| Reading face | **Mehr Nastaliq Web** (CSaLT, Information Technology University of the Punjab, Lahore; CC BY 4.0, credited on `/about` and in `public/fonts/MehrNastaliqWeb-LICENSE.txt`) |
+| Urdu critical path | 481 KB of font → **43 KB**; service-worker precache 481 KB → 202 KB for *every* visitor. `NotoNastaliqUrdu-600/700.woff2` deleted; `-400` kept, unpreloaded, as the per-glyph fallback |
+| `--font-scale-urdu` | 1.15 → **1.44**, derived (Noto draws 1.27× larger ink at the same nominal size), so the optical size and the line breaks are unchanged |
+| Bold | gone — Mehr has one weight and claims 100–900 so nothing is synthesised. Heading hierarchy moved to size (`--font-scale-urdu-heading`) |
+| Furniture | the fact panel de-boxed, the status note de-filled, the bibliography de-bulleted and set LTR, the contents rail widened so all seven entries fit one line |
+| Two bugs equally wrong in English | the breadcrumb had **never** drawn an ellipsis (`text-overflow` is inert on a flex container) and cut names mid-word in both languages; the trust badges wrapped one-per-line |
+
+**Watch for:** three codepoints — `ݨ` (Bulleh Shah's Punjabi), `٭` (a Persian hemistich
+separator), `ڀ` (Shah Abdul Latif's Sindhi) — are absent from Mehr and fall back to Noto
+per-glyph, which breaks the Nastaliq join mid-word. All three sit in quoted verse.
+`src/styles/__tests__/nastaliqCoverage.test.ts` fails on a fourth; regenerate its manifest with
+`python3 pipeline/build_nastaliq_coverage.py` after any font change.
+
+**Decision for Rauf — asked in the chat on 14 September, unanswered:**
+
+1. **The category kicker duplicates the breadcrumb in the Urdu view.** In English they are a
+   small-caps genre label and a 12px trail — two obviously different objects. Nastaliq has
+   neither case nor tracking, so both render as `سکھ گردوارہ`, twice, thirty pixels apart, above
+   the title. Hiding the kicker in RTL was tried and reverted (`e2e/nastaliq-metrics.spec.ts`
+   asserts it is visible). Which one should an Urdu reader keep?
+
+---
+
 ## 13 September 2026 — deployed, bundled, the last two Urdu articles, the entity-page sweep
 
 **Read this first if you are resuming.** Rauf's four-item list for the day, and where each stands:

@@ -9401,3 +9401,73 @@ the quote is the whole content of each row. Left public pending the ruling: RULE
 Also from the phone probe over 18 route × language combinations at 400 px: no horizontal
 overflow anywhere (`scrollWidth` 400 on all), so the mobile seat's lane has at least that
 negative result recorded. `/typology` renders 54,000–59,000 px tall at that width; not acted on.
+
+**§9.191 — The Urdu edition changed typeface, and the number that mattered was in the font's own
+metrics rather than in any stylesheet.** Rauf, 14 September 2026: *"the urdu still does not look
+minimalistic"*, with `rekhta.org/?lang=ur` as the template and *"use the fonts etc from rekhta as
+well."* Full record and every measurement in `docs/URDU_TYPOGRAPHY_2026-09-14.md`.
+
+The finding worth keeping, because it explains why the 11 September spacing pass did not settle
+the same complaint: **Noto Nastaliq Urdu's own content box is 2.500em** (hhea ascent 1.904em,
+descent −0.596em, units/em 1000). `--leading-urdu: 2.05` — raised that day precisely to stop the
+lines touching — was therefore *below the face's natural line*, and the ink of one line entered
+the box of the next as a matter of arithmetic. No value under 2.5 could have fixed it, and 2.5
+would have made prose a ladder. Nobody had read the metrics; the whole pass had been reasoning
+about the leading token.
+
+Mehr Nastaliq Web, the face Rekhta sets, draws inside **1.792em**. The same 2.05 now leaves about
+9px of clearance per line at reading size. It is also 43 KB against 481 KB for the three Noto
+weights it replaces (600 and 700 are deleted; 400 stays as the per-glyph fallback, unpreloaded),
+which takes the service-worker precache from 481 KB to 202 KB for *every* visitor, English
+readers included — `globPatterns` in `vite.config.ts` takes every woff2.
+
+Three things to know before touching this again:
+
+1. **`--font-scale-urdu` belongs to the face, not to taste.** Measured with `canvas.measureText`
+   at a common nominal size, Noto draws **1.243× wider and 1.273× taller ink** than Mehr. The
+   token went 1.15 → **1.44** to hold the optical size, and because advance widths scale with it,
+   the line breaks came back too (a sample line: 247.9px in Noto at the old size, 249.3px in Mehr
+   at the new one). Re-derive it if the face changes again.
+2. **There is no bold any more, and that is deliberate.** Mehr ships one weight. Its `@font-face`
+   claims `font-weight: 100 900` so that a `700` heading selects real outlines instead of a
+   browser-synthesised smear, which on a connected script thickens the joins into blots. Heading
+   hierarchy moved to size (`--font-scale-urdu-heading`).
+3. **Mehr maps 108 codepoints; the corpus uses 71 and three are missing** — `ݨ` (Bulleh Shah's
+   Punjabi), `٭` (a Persian hemistich separator), `ڀ` (Shah Abdul Latif's Sindhi), all inside
+   quoted verse. They fall back to Noto per glyph, which in a connected script breaks the join
+   *inside the word* without producing a missing-glyph box — invisible to every instrument that
+   watches for errors. `src/styles/__tests__/nastaliqCoverage.test.ts` holds the corpus against
+   `pipeline/nastaliq_coverage.json` in both directions and SHA-256s the shipped font files;
+   regenerate with `python3 pipeline/build_nastaliq_coverage.py`.
+
+**Two guards were wrong rather than the code, and both had been passing for months.**
+
+- `e2e/typography.spec.ts`'s "the Urdu infobox stays a compact list" asserted a raw **pixel**
+  ratio (`ur / en < 1.5`). A pixel ratio only means anything while both languages set type at
+  comparable nominal sizes, and the font swap ended that: every px in the Urdu column grew 25%
+  for a change that made the panel *tighter*. Measured — English 692px; Urdu on Noto 979px
+  (ratio 1.415); Urdu on Mehr 1040px (ratio 1.503, failing) — while the same three panels in
+  multiples of **their own body text** read 43.3, 50.7 and **43.0 lines**. The guard now measures
+  lines, which is face-independent and is what "compact" means.
+- `src/styles/__tests__/fontFallbackMetrics.test.ts` asserted "all three Noto weights are
+  declared". The count and the family were incidental to its own docstring, which is about a face
+  that is declared but never *selected* — the failure where the whole Urdu edition silently
+  changes typeface and nothing throws. It now asserts that every declared Nastaliq face covers
+  Arabic **and** is reachable from `--font-urdu`, and that the first family in that stack is one
+  of them: strictly stronger than the count it replaced.
+
+**A defect that had shipped in both languages for as long as the component has existed:** the
+breadcrumb never drew an ellipsis. `.shrine-breadcrumb-current` carried `text-overflow: ellipsis`
+while `.shrine-breadcrumb li` set `display: flex`, and text-overflow applies to a block
+container's inline content, not to a flex container's anonymous item — so names were cut by
+`overflow: hidden` with nothing marking the cut (*"Gurdwara Balila Sahib (Bal Li"*). The
+`max-width: 24ch` beside it fired at 810px of free space, because `ch` is the "0" advance and in
+Nastaliq that is nothing like 24 Urdu letters. **A declaration that has no effect is not a
+harmless one**: it reads as a working feature to everyone who greps for it.
+
+**Decision put to Rauf in the chat, not settled here (RULE 5):** the category kicker and the
+breadcrumb's category crumb print the same words in the Urdu view — small caps and tracking are
+what distinguish them in English, and Nastaliq has neither, so it is `سکھ گردوارہ` twice, thirty
+pixels apart, above the title. Hiding the kicker in RTL was tried and reverted;
+`e2e/nastaliq-metrics.spec.ts` asserts it is visible there, and which one an Urdu reader keeps is
+a call about the page.
