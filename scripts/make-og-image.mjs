@@ -156,9 +156,11 @@ const dots = points
 
 /* ── The card ────────────────────────────────────────────────────────────── */
 
-const nastaliq = readFileSync(join(ROOT, 'public/fonts/NotoNastaliqUrdu-700.woff2')).toString(
-  'base64',
-);
+/* The card's Urdu is set in the same face the site reads in. This was
+   NotoNastaliqUrdu-700 until 14 September 2026; that file is no longer
+   shipped, because Mehr Nastaliq Web's single face covers every weight (see
+   the @font-face block in src/styles/global.css). */
+const nastaliq = readFileSync(join(ROOT, 'public/fonts/MehrNastaliqWeb.woff2')).toString('base64');
 
 const html = `<!doctype html>
 <html lang="en">
@@ -169,8 +171,8 @@ const html = `<!doctype html>
   href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" />
 <style>
   @font-face {
-    font-family: 'Noto Nastaliq Urdu';
-    font-weight: 700;
+    font-family: 'Mehr Nastaliq Web';
+    font-weight: 100 900;
     font-display: block;
     src: url(data:font/woff2;base64,${nastaliq}) format('woff2');
   }
@@ -215,7 +217,7 @@ const html = `<!doctype html>
     color: ${TEXT};
   }
   .title-ur {
-    font-family: 'Noto Nastaliq Urdu', serif; font-weight: 700;
+    font-family: 'Mehr Nastaliq Web', serif; font-weight: 700;
     direction: rtl; text-align: start; /* logical: start === right under rtl */
     /* Nastaliq needs vertical room: its strokes descend well below the
        baseline and a tight line-height clips them. */
@@ -254,7 +256,7 @@ const html = `<!doctype html>
         <span class="sep">·</span>
         <span><strong>${TRADITIONS}</strong> traditions</span>
         <span class="sep">·</span>
-        <span>English &amp; <span style="font-family:'Noto Nastaliq Urdu',serif">اردو</span></span>
+        <span>English &amp; <span style="font-family:'Mehr Nastaliq Web',serif">اردو</span></span>
       </div>
       <div class="foot">raufnawaz.github.io/Sufi-Shrines</div>
     </div>
@@ -287,7 +289,7 @@ try {
     [
       ['Merriweather', '700 76px Merriweather'],
       ['Source Sans 3', '600 20px "Source Sans 3"'],
-      ['Noto Nastaliq Urdu', '700 46px "Noto Nastaliq Urdu"'],
+      ['Mehr Nastaliq Web', '700 46px "Mehr Nastaliq Web"'],
     ]
       .filter(([, spec]) => !document.fonts.check(spec))
       .map(([name]) => name),

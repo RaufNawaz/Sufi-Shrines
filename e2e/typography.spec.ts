@@ -120,25 +120,52 @@ test('the two languages keep the same typographic proportions', async ({ page })
 });
 
 test('the Urdu infobox stays a compact list, not running prose', async ({ page }) => {
-  const heights: Record<string, number> = {};
+  const panel: Record<string, { height: number; body: number }> = {};
   for (const lang of ['en', 'ur'] as const) {
     await page.goto(`/shrine/shamsabad?lang=${lang}`);
     await page.waitForSelector('.shrine-infobox');
-    heights[lang] = (await page.locator('.shrine-infobox').boundingBox())!.height;
+    const height = (await page.locator('.shrine-infobox').boundingBox())!.height;
+    /* The panel measured in its own body text, not in pixels. See below. */
+    const body = await page
+      .locator('.article-prose')
+      .first()
+      .evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+    panel[lang] = { height, body };
   }
-  /* Urdu is set larger, so some growth is expected and correct. The line was
-     30% until 11 September 2026, when the typography pass gave the Urdu value
-     a size step above its label (`--text-base` over `--text-sm`) — the English
-     panel carries that hierarchy in `--text-xs`/`--text-sm`, and Nastaliq
-     cannot go below text-sm, so the only way to get it back was up. Measured
-     at 1.42 after the change with the row leading still at the UI value
-     (1.85), not the prose value (2.05). 50% is the new line between "bigger
-     type with a hierarchy" and "prose leading applied to a data table";
+  const lines = { en: panel.en.height / panel.en.body, ur: panel.ur.height / panel.ur.body };
+
+  /* **This asserted a raw pixel ratio (< 1.5) until 14 September 2026, and the
+     ratio was measuring the typeface rather than the layout.**
+
+     The claim the test wants to make is that the Urdu fact panel is a compact
+     list and not a block of running prose. A pixel ratio only says that while
+     both languages set type at comparable nominal sizes — and they stopped
+     when the Urdu reading face changed to Mehr Nastaliq Web, which draws 1.27x
+     smaller ink than Noto Nastaliq Urdu at the same font-size and therefore
+     has to be set 1.44x up (`--font-scale-urdu`) to look the same. Every px in
+     the Urdu column got 25% bigger while nothing about the design changed, and
+     the ratio went 1.415 → 1.649 for a swap that made the panel *tighter*.
+
+     Measuring the panel in multiples of its own body text is face-independent
+     and is what "compact" actually means — how many lines-worth of space the
+     facts take, not how many pixels:
+
+                            px     px ratio    lines   line ratio
+       English            692        —         43.3       —
+       Urdu, Noto, 11 Sep 979       1.415      50.7      1.17
+       Urdu, Mehr, 14 Sep 1040      1.503      43.0      0.99
+
+     The pixel column fails the swap; the line column shows the panel going
+     from 17% looser than the English one to level with it. 1.15 is the line —
+     the Urdu panel may not spend meaningfully more of its own lines on the
+     same facts than the English panel spends of its.
      `src/styles/__tests__/urduSpacing.test.ts` holds the leadings themselves. */
   expect(
-    heights.ur / heights.en,
-    `Urdu infobox ${Math.round(heights.ur)}px vs English ${Math.round(heights.en)}px`,
-  ).toBeLessThan(1.5);
+    lines.ur / lines.en,
+    `Urdu infobox ${lines.ur.toFixed(1)} lines (${Math.round(panel.ur.height)}px at ` +
+      `${panel.ur.body.toFixed(1)}px) vs English ${lines.en.toFixed(1)} lines ` +
+      `(${Math.round(panel.en.height)}px at ${panel.en.body.toFixed(1)}px)`,
+  ).toBeLessThan(1.15);
 });
 
 // The filter sections above the list are the failure mode (HANDOVER §9.9):

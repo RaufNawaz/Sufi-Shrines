@@ -272,6 +272,24 @@
   letter-spacing: var(--tracking-tight);
 }
 
+/* Nastaliq carries no bold, so the weight step that separates a heading from
+   its prose in the English view does nothing in the Urdu one — see
+   `--font-scale-urdu-heading` in tokens.css. The size step replaces it, and
+   the hairline underneath does the rest. */
+[dir='rtl']
+  :is(
+    .section-heading,
+    .article-section-heading,
+    .about-section-heading,
+    .coverage-section-heading,
+    .almanac-section-heading,
+    .typology-group-heading,
+    .kg-section-heading,
+    .sg-section-heading
+  ) {
+  font-size: calc(var(--text-xl) * var(--font-scale-urdu-heading));
+}
+
 .coverage-section-heading {
   margin: 0 0 var(--space-3);
 }

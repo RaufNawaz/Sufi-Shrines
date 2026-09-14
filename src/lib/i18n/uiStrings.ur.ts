@@ -638,6 +638,7 @@ export const UI_TEXT_UR: UiStrings = {
   aboutLicenceHeading: 'لائسنس اور دوبارہ استعمال',
   aboutLicenceData: 'ڈیٹا سیٹ',
   aboutLicenceCode: 'سائٹ اور پائپ لائن کا کوڈ',
+  aboutLicenceTypeface: 'اردو خط',
   aboutLicenceAttributionLabel: 'ڈیٹا دوبارہ استعمال کرتے وقت لازمی حوالہ',
   aboutCiteHeading: 'حوالہ کیسے دیں',
   aboutCiteArchive: 'مکمل آرکائیو',

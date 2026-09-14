@@ -418,8 +418,25 @@ const BUDGET: Record<string, number> = {
   'saint:lineage-only': 12,
   /* 102 → 6 on 12 September 2026. The public /about is six sections; the
      ninety-odd runs were the team-only coverage and source ledgers, which
-     now render behind `?team=1` and are not on the page this measures. */
-  about: 6,
+     now render behind `?team=1` and are not on the page this measures.
+
+     6 → 8 on 14 September 2026, and this is the one kind of raise this file
+     should never argue with: the Urdu edition changed typeface to **Mehr
+     Nastaliq Web**, which is CC BY 4.0, and attribution is the entire licence.
+     The two runs are the credit line ("Mehr Nastaliq Web — Nasrullah Mehr and
+     Zeeshan Nasar, CSaLT, Information Technology University of the Punjab,
+     Lahore") and the licence identifier that links to the deed. Both sit in
+     the same `<dl>` as, and take exactly the same form as, the ODbL and MIT
+     rows already counted here — a licence identifier and the name of the thing
+     it covers are search strings, which is what i18n rule 7 permits Latin for.
+
+     What is *not* claimed: that the credit could not be written in Urdu. It
+     could, and a fluent reader should — but transliterating two people's names
+     is not a thing to guess at (RULE 2), and the licence has to be honoured
+     today. Turning these two runs into Urdu is the kind of item the
+     translation review exists for; until then they are debt, declared and
+     counted, which is what this number is for. */
+  about: 8,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
      site's own observance sentence verbatim beside whatever date can be read

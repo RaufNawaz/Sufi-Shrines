@@ -209,14 +209,21 @@
     'Merriweather', 'Merriweather Fallback Georgia', 'Merriweather Fallback Noto Serif',
     'Merriweather Fallback Liberation Serif', 'Merriweather Fallback Times New Roman', Georgia,
     serif;
-  /* 'Source Sans 3' sits between the two Arabic faces on purpose. Font
-     fallback is per-glyph: Arabic-script characters are found in Nastaliq
-     (first) and never reach it, while Latin characters — an untranslated
-     source note, a URL, a Gregorian month — are absent from Nastaliq and
-     would otherwise be drawn by Noto Naskh Arabic's generic Latin, which
-     looks like nothing else on the site. This routes them to the same face
-     the English view uses. */
-  --font-urdu: 'Noto Nastaliq Urdu', 'Source Sans 3', 'Noto Naskh Arabic', serif;
+  /* Four families, and every position is load-bearing.
+     **Mehr Nastaliq Web** is the reading face (see the @font-face block in
+     global.css for the metrics that chose it and the licence that permits it).
+     **Noto Nastaliq Urdu** is not a redundant fallback: Mehr maps 108
+     codepoints, Noto 333, and per-glyph fallback is what draws the ݨ, ٭ and ڀ
+     of the archive's Punjabi, Persian and Sindhi verse in a Nastaliq rather
+     than in a Naskh.
+     **'Source Sans 3' sits between the Nastaliq faces and Noto Naskh on
+     purpose.** Arabic-script characters are found above and never reach it,
+     while Latin characters — an untranslated source note, a URL, a Gregorian
+     month — are absent from both Nastaliq faces and would otherwise be drawn
+     by Noto Naskh Arabic's generic Latin, which looks like nothing else on the
+     site. This routes them to the same face the English view uses. */
+  --font-urdu:
+    'Mehr Nastaliq Web', 'Noto Nastaliq Urdu', 'Source Sans 3', 'Noto Naskh Arabic', serif;
   --font-mono: 'Courier New', monospace;
 
   /* Every one multiplied by the reader's step (`--reading-scale`, declared
@@ -282,6 +289,15 @@
      tail of a گ or ش sit on the hairline beneath. Two tokens, because one
      number cannot serve both. */
   --leading-urdu: 2.05;
+  /* Postscript, 14 September 2026 — the number survived a change of face and
+     the *reasoning above did not*. Everything in that paragraph assumes the
+     collisions were a leading problem. They were not: Noto Nastaliq Urdu's own
+     content box is 2.50em, so 2.05 was below the face's natural line and the
+     ink of one line entered the box of the next as a matter of arithmetic. No
+     value under 2.5 would have fixed it. The reading face is Mehr Nastaliq Web
+     now, whose box is 1.79em, and 2.05 finally means what it was meant to.
+     Kept because the history is the lesson (docs/URDU_TYPOGRAPHY_2026-09-14.md
+     §2). */
   --leading-urdu-heading: 1.55;
   /* Compact UI/data rows: infobox facts, chips, badges. Body leading is for
      running prose; applied to a label/value pair it made the Urdu infobox
@@ -289,7 +305,38 @@
      descender of a value against the row below it; 1.85 is the least that
      does not. */
   --leading-urdu-ui: 1.85;
-  --font-scale-urdu: 1.15;
+  /* 1.15 until 14 September 2026, when the reading face changed. The number
+     is not a taste setting — it is the size at which Nastaliq reads as
+     comfortably as the Latin face beside it, and it therefore belongs to the
+     *face*. Measured on a canvas at a common nominal size (the probe is in
+     docs/URDU_TYPOGRAPHY_2026-09-14.md): Noto Nastaliq Urdu draws **1.24x
+     wider and 1.27x taller ink** than Mehr Nastaliq Web at the same
+     font-size. So Mehr at 1.15 was a quarter smaller on screen than the face
+     the token was calibrated for.
+
+     1.15 x 1.25 = 1.44 restores the optical size exactly, and — because the
+     advance widths scale with it too — restores the line breaks with it: the
+     probe's sample line measured 247.9px in Noto at the old size and 249.3px
+     in Mehr at the new one. What does *not* come back is the crowding. Mehr's
+     content box is 1.79em against Noto's 2.50em, so the same 2.05 leading now
+     holds ink that fits inside it instead of ink that overflows into the line
+     below.
+
+     If the reading face changes again, re-run the probe and re-derive this.
+     Nothing can check that this number matches the face — but
+     `src/styles/__tests__/nastaliqCoverage.test.ts` SHA-256s the shipped font
+     files, so a swap cannot happen quietly enough for the question not to be
+     asked. */
+  --font-scale-urdu: 1.44;
+  /* Nastaliq has no bold. Mehr ships one weight, and the @font-face claims the
+     whole 100-900 range on purpose so that a `font-weight: 700` heading uses
+     the real outlines rather than a synthesised smear (global.css explains
+     why that matters on a connected script). The weight step therefore cannot
+     carry heading hierarchy in the Urdu view, so size does: a section heading
+     takes this factor on top of its token. In English the heading is 1.25x the
+     body and 700 against 400; in Urdu it is 1.5x the body and the same weight
+     as everything else, which is how Urdu print has always done it. */
+  --font-scale-urdu-heading: 1.2;
   /* Nastaliq words lean, and a word's tail runs under the head of the next
      one, so the inter-word space that reads as a gap in Latin reads as a
      collision here. A small positive word-spacing is the only spacing a

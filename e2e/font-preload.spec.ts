@@ -28,25 +28,33 @@ import { test, expect } from './fixtures';
  * A preload tag is an intention. A request is the cost.
  */
 test.describe('Urdu font preload', () => {
-  /* All three declared weights. `global.css` declares 400, 600 and 700, and a
-     trace of a language switch caught all three arriving (+169ms, +285-398ms,
-     +317-426ms) — but 600 was the one never preloaded, so even an Urdu-first
-     reader paid a full-tree relayout when it swapped in. Added 4 September 2026;
-     this list said ['400', '700'] until then, and the count assertion below said
-     two. */
-  for (const weight of ['400', '600', '700'] as const) {
-    test(`preloads the ${weight} weight when Urdu is the initial language`, async ({ page }) => {
-      await page.goto('/?lang=ur');
-      const link = page.locator(`link[rel="preload"][href*="NotoNastaliqUrdu-${weight}"]`);
-      await expect(link).toHaveCount(1);
-    });
+  /* One face. This looped over Noto Nastaliq's 400/600/700 until 14 September
+     2026 — 481 KB, all three preloaded, and the loop was correct for as long
+     as Noto was the reading face. Mehr Nastaliq Web replaced it: 43 KB, one
+     file, every weight (its @font-face claims 100-900 so nothing is
+     synthesised — see global.css). Noto Nastaliq 400 is still *declared*, as
+     the per-glyph fallback for the three codepoints Mehr does not map, and is
+     deliberately not preloaded; the test below holds that distinction, which
+     is the one this file was written to make. */
+  test('preloads the Nastaliq reading face when Urdu is the initial language', async ({ page }) => {
+    await page.goto('/?lang=ur');
+    await expect(page.locator('link[rel="preload"][href*="MehrNastaliqWeb"]')).toHaveCount(1);
+  });
 
-    test(`does not preload the ${weight} weight for a default English load`, async ({ page }) => {
-      await page.goto('/');
-      const link = page.locator(`link[rel="preload"][href*="NotoNastaliqUrdu-${weight}"]`);
-      await expect(link).toHaveCount(0);
-    });
-  }
+  test('does not preload the reading face for a default English load', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('link[rel="preload"][href*="MehrNastaliqWeb"]')).toHaveCount(0);
+  });
+
+  test('does not preload the fallback face, which serves three codepoints', async ({ page }) => {
+    /* A preload is a promise that the file is on the critical path. Noto is
+       not: it draws ݨ, ٭ and ڀ, which appear in quoted verse on a handful of
+       entries (src/styles/__tests__/nastaliqCoverage.test.ts holds the list).
+       Preloading 159 KB for that would cost every Urdu reader more than it
+       costs the few pages that need it. */
+    await page.goto('/?lang=ur');
+    await expect(page.locator('link[rel="preload"][href*="NotoNastaliqUrdu"]')).toHaveCount(0);
+  });
 
   test('the preloaded font URLs actually resolve', async ({ page, request }) => {
     // A preload that 404s is worse than no preload: it costs a request, logs
@@ -57,9 +65,9 @@ test.describe('Urdu font preload', () => {
     // Vite does rewrite) kept working. The bug was invisible in the app.
     await page.goto('/?lang=ur');
     const hrefs = await page
-      .locator('link[rel="preload"][href*="NotoNastaliqUrdu"]')
+      .locator('link[rel="preload"][as="font"]')
       .evaluateAll((links) => links.map((l) => (l as HTMLLinkElement).getAttribute('href') ?? ''));
-    expect(hrefs.length, 'expected all three Nastaliq weights to be preloaded').toBe(3);
+    expect(hrefs.length, 'expected exactly the Nastaliq reading face to be preloaded').toBe(1);
 
     const base = await page.evaluate(() => document.baseURI);
     for (const href of hrefs) {
@@ -76,7 +84,8 @@ test.describe('Urdu font preload', () => {
        one of them is the 154 KB. */
     const requested: string[] = [];
     page.on('request', (request) => {
-      if (/NotoNastaliqUrdu.*\.woff2/.test(request.url())) requested.push(request.url());
+      if (/(NotoNastaliqUrdu|MehrNastaliqWeb).*\.woff2/.test(request.url()))
+        requested.push(request.url());
     });
 
     await page.goto('/');
@@ -88,8 +97,8 @@ test.describe('Urdu font preload', () => {
     expect(
       requested,
       'an English reader downloaded a Nastaliq face. Something on the English page is ' +
-        'painting Arabic-script text in a family that names Noto Nastaliq Urdu — see the ' +
-        "`.lang-seg[lang='ur']` note in map.css.",
+        'painting Arabic-script text in a family that names one of the Nastaliq faces — ' +
+        "see the `.lang-seg[lang='ur']` note in map.css.",
     ).toEqual([]);
   });
 

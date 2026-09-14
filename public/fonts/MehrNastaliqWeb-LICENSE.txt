@@ -1,0 +1,38 @@
+Mehr Nastaliq Web
+=================
+
+Family:      Mehr Nastaliq Web (Regular, v1.00, 7 January 2017)
+Calligraphy: Nasrullah Mehr
+Design:      Zeeshan Nasar
+Developed:   Center for Speech and Language Technologies (CSaLT),
+             Information Technology University of the Punjab,
+             Lahore, Pakistan
+Source:      the file served by rekhta.org as MehrNastaliqWeb.ttf,
+             converted to WOFF2 with fontTools (no glyph or table edits).
+
+Licence
+-------
+Copyright (c) 2017 by Center for Speech and Language Technologies (CSaLT),
+Information Technology University of the Punjab, Lahore, Pakistan.
+
+Licensed under the Creative Commons Attribution 4.0 International licence
+(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+You may distribute, remix, tweak and build upon the work, including
+commercially, provided you credit the original creation. The credit this
+archive gives is on /about, in the colophon, and in this file.
+
+Coverage note (measured 14 September 2026)
+------------------------------------------
+Mehr Nastaliq Web maps 108 codepoints; Noto Nastaliq Urdu maps 333. Three
+codepoints used by this archive's Urdu content are absent from Mehr and are
+served by Noto Nastaliq Urdu, which stays in the stack directly behind it:
+
+  U+0768  ݨ  ARABIC LETTER NOON WITH SMALL TAH   (Punjabi/Saraiki)
+  U+066D  ٭  ARABIC FIVE POINTED STAR            (hemistich separator)
+  U+0680  ڀ  ARABIC LETTER BEHEH                 (Sindhi)
+
+All three occur only inside quoted verse — Bulleh Shah's Punjabi kafi, a
+Persian couplet of Lal Shahbaz Qalandar, and a Sindhi bait of Shah Abdul
+Latif. src/styles/__tests__/nastaliqCoverage.test.ts holds this list against
+the shipped Urdu corpus and fails if a fourth appears.

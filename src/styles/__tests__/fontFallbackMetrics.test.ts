@@ -197,15 +197,36 @@ describe('metric-matched font fallbacks', () => {
    * not the cause was ever identified.
    */
   describe('the self-hosted Nastaliq faces', () => {
+    /* This asserted "all three are declared", naming Noto Nastaliq Urdu and the
+       weights 400/600/700, until 14 September 2026. The count and the family
+       were both incidental — the reading face is Mehr Nastaliq Web now, one
+       file claiming 100-900, with Noto 400 kept behind it for the codepoints
+       Mehr does not map. What the docstring above actually describes is a face
+       that is declared but never *selected*, and that is what is asserted here
+       instead: every self-hosted Nastaliq face must cover Arabic script and
+       must be reachable from `--font-urdu`. It is the stronger claim — the old
+       one said nothing about whether the faces were in the stack at all. */
     const NASTALIQ = [...GLOBAL_CSS.matchAll(/@font-face\s*\{([\s\S]*?)\}/g)]
       .map((m) => m[1])
-      .filter((body) => /font-family:\s*'Noto Nastaliq Urdu'/.test(body));
+      .filter((body) => /font-family:\s*'[^']*Nastaliq[^']*'/.test(body));
 
-    it('are all three still declared', () => {
-      expect(NASTALIQ).toHaveLength(3);
-      for (const weight of [400, 600, 700]) {
-        expect(NASTALIQ.some((b) => new RegExp(`font-weight:\\s*${weight}`).test(b))).toBe(true);
+    const familyOf = (body: string) => /font-family:\s*'([^']+)'/.exec(body)![1];
+
+    it('are declared, and every one of them is in --font-urdu', () => {
+      expect(NASTALIQ.length).toBeGreaterThan(0);
+      const stack = token('--font-urdu');
+      for (const body of NASTALIQ) {
+        const family = familyOf(body);
+        expect(stack, `${family} is declared but nothing can select it`).toContain(`'${family}'`);
       }
+    });
+
+    it('the first family in --font-urdu is a declared Nastaliq face', () => {
+      /* The reading face. If the stack ever leads with something else, every
+         Urdu surface changes typeface and no other test in the repo notices. */
+      const first = /^\s*'([^']+)'/.exec(token('--font-urdu'))![1];
+      expect(first).toMatch(/Nastaliq/);
+      expect(NASTALIQ.map(familyOf)).toContain(first);
     });
 
     it('each still cover Arabic script, which is the only reason they exist', () => {
@@ -216,7 +237,7 @@ describe('metric-matched font fallbacks', () => {
           const end = hi ? Number.parseInt(hi, 16) : start;
           return start <= 0x0600 && end >= 0x06ff;
         });
-        expect(coversArabic, `a Nastaliq face no longer covers U+0600–06FF`).toBe(true);
+        expect(coversArabic, `${familyOf(body)} no longer covers U+0600–06FF`).toBe(true);
       }
     });
   });

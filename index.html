@@ -133,17 +133,21 @@
           // Vite rewrites href attributes in this file but not string literals
           // inside a script, so the static <link> these replaced worked while
           // the script-injected one silently did not.
-          // All three declared weights, not two. The 600 face is declared in
-          // global.css and does render — a trace of a language switch caught
-          // all three arriving (+169ms, +285-398ms, +317-426ms) — but it was
-          // the one weight never preloaded, so an Urdu-first reader waited for
-          // the font matcher to discover it and paid a full-tree relayout on
-          // the swap. Measured 4 September 2026.
-          [
-            '%BASE_URL%fonts/NotoNastaliqUrdu-400.woff2',
-            '%BASE_URL%fonts/NotoNastaliqUrdu-600.woff2',
-            '%BASE_URL%fonts/NotoNastaliqUrdu-700.woff2',
-          ].forEach(function (href) {
+          // One face, not three. This preloaded all three Noto Nastaliq
+          // weights — 481 KB — until 14 September 2026, when the reading face
+          // became Mehr Nastaliq Web: 43 KB, one file, and every weight,
+          // because its @font-face claims 100-900 (global.css says why a
+          // single-weight Nastaliq must). Noto Nastaliq 400 is still declared
+          // and is deliberately NOT here: it now draws three codepoints in the
+          // whole archive, and three characters are not worth 159 KB on the
+          // critical path of every Urdu reader.
+          //
+          // The reason the old list had all three is still the right reason
+          // and still applies to whatever *is* preloaded: a declared weight
+          // that is not preloaded is one the font matcher discovers late, and
+          // the reader pays a full-tree relayout when it swaps in. Measured
+          // 4 September 2026.
+          ['%BASE_URL%fonts/MehrNastaliqWeb.woff2'].forEach(function (href) {
             var link = document.createElement('link');
             link.rel = 'preload';
             link.href = href;

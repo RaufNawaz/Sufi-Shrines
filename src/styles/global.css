@@ -1,36 +1,86 @@
 /* Latin fonts (Merriweather, Source Sans 3, Noto Naskh Arabic) are loaded
    via <link> in index.html — a remote @import here would delay the font CSS
-   until after the bundled stylesheet downloads. Noto Nastaliq Urdu is
-   self-hosted below (URDU_IMPLEMENTATION_PLAN.md Phase 1): it's the primary
-   reading face for the whole Urdu experience, so it doesn't depend on a
-   third-party CDN being reachable. Arabic-script subset only — this file
+   until after the bundled stylesheet downloads. The Nastaliq faces are
+   self-hosted below (URDU_IMPLEMENTATION_PLAN.md Phase 1): Nastaliq is the
+   primary reading face for the whole Urdu experience, so it doesn't depend on
+   a third-party CDN being reachable. Arabic-script subset only — this file
    set has no Latin glyphs. */
+
+/* ── Mehr Nastaliq Web — the Urdu reading face ────────────────────────────
+ * Rauf, 14 September 2026: "use the fonts etc from rekhta as well." This is
+ * the face rekhta.org sets its Urdu in, and the reason to take it is not that
+ * Rekhta uses it — it is what the metrics say.
+ *
+ *                       ink box     one weight costs
+ *   Noto Nastaliq Urdu   2.50em     157-165 KB × 3 = 481 KB
+ *   Mehr Nastaliq Web    1.79em      43 KB × 1
+ *
+ * The first column is most of why the Urdu pages read as crowded no matter
+ * what the leading token said. Noto Nastaliq's own content box is **2.50em**,
+ * so `--leading-urdu: 2.05` was not generous — it was *below the face's
+ * natural line*, and the ink of one line necessarily entered the box of the
+ * next. Every collision the 11 September pass chased (see
+ * docs/URDU_TYPOGRAPHY_2026-09-11.md) was that. Mehr draws inside 1.79em, so
+ * the same 2.05 finally leaves real air, and Rekhta's flat 2.0 leading looks
+ * calm on Rekhta for a reason that has nothing to do with restraint.
+ *
+ * The second column is the Urdu reader's critical path going from 481 KB of
+ * font to 43 KB.
+ *
+ * Provenance: calligraphy by Nasrullah Mehr, design by Zeeshan Nasar,
+ * developed at CSaLT, Information Technology University of the Punjab,
+ * Lahore. CC BY 4.0 — see public/fonts/MehrNastaliqWeb-LICENSE.txt for the
+ * licence and the credit it requires.
+ *
+ * `font-weight: 100 900` on a single-weight face is deliberate and is the one
+ * thing here that is not free. Mehr ships Regular only. Declared at 400 alone,
+ * a `font-weight: 700` heading would match no face and the browser would
+ * *synthesise* bold by smearing the outlines — which on a connected script
+ * thickens the joins into blots. Claiming the whole range means the real
+ * outlines are used at every weight and nothing is faked; the Urdu hierarchy
+ * is therefore carried by size, which is what `--font-scale-urdu-heading`
+ * below exists for.
+ *
+ * Noto Nastaliq Urdu stays declared and stays in the stack behind it: Mehr
+ * maps 108 codepoints to Noto's 333, and three of the archive's own — the ݨ
+ * of Bulleh Shah's Punjabi, the ٭ dividing a Persian couplet's hemistichs,
+ * the ڀ of Shah Abdul Latif's Sindhi — are Mehr's gaps. Per-glyph fallback
+ * covers them. `src/styles/__tests__/nastaliqCoverage.test.ts` fails if a
+ * fourth appears, because a gap inside a *word* would break the join. */
+@font-face {
+  font-family: 'Mehr Nastaliq Web';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/MehrNastaliqWeb.woff2') format('woff2');
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+/* Noto Nastaliq Urdu — no longer the reading face, and no longer three
+ * weights. It is declared for one job: the codepoints Mehr does not map (the
+ * ݨ, ٭ and ڀ of the archive's Punjabi, Persian and Sindhi verse), which
+ * per-glyph fallback draws from here so they stay Nastaliq instead of dropping
+ * to Naskh.
+ *
+ * The 600 and 700 faces are gone with the swap, 322 KB of them. They existed
+ * to supply Nastaliq *weights*, and Mehr's single face claims 100-900, so a
+ * bold Urdu heading never reaches this family at all — the only way either
+ * file could still have been fetched is one of those three characters
+ * appearing in a bold run, and none of them does. They were also precached by
+ * the service worker for every visitor, English readers included
+ * (`globPatterns` in vite.config.ts takes every woff2).
+ *
+ * Not preloaded either, unlike Mehr: three characters across 170 entries are
+ * not worth 159 KB on anyone's critical path, and `font-display: swap` means
+ * the verse paints in the fallback for one frame rather than blocking. */
 @font-face {
   font-family: 'Noto Nastaliq Urdu';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/NotoNastaliqUrdu-400.woff2') format('woff2');
-  unicode-range:
-    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
-    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
-}
-@font-face {
-  font-family: 'Noto Nastaliq Urdu';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/NotoNastaliqUrdu-600.woff2') format('woff2');
-  unicode-range:
-    U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
-    U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
-}
-@font-face {
-  font-family: 'Noto Nastaliq Urdu';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/NotoNastaliqUrdu-700.woff2') format('woff2');
   unicode-range:
     U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
     U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;

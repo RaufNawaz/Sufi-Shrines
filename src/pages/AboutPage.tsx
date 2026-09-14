@@ -410,6 +410,31 @@ export default function AboutPage() {
                 <bdi data-latin>MIT</bdi>
               </a>
             </dd>
+            {/* Not decoration and not a courtesy: Mehr Nastaliq Web is CC BY 4.0,
+                and attribution is the whole of what that licence asks for, so
+                this row is the condition on which the Urdu edition is set in the
+                face it is set in. Latin, and declared as such, for the same
+                reason the two rows above are — a typeface name and a licence
+                identifier are the strings someone would search for.
+
+                The archive's own credit rule (CLAUDE.md: two names and the
+                website, no institution) is about who made *this*; naming ITU
+                Punjab here is crediting someone else's work, which is the
+                opposite concern. */}
+            <dt>{t('aboutLicenceTypeface')}</dt>
+            <dd>
+              <bdi data-latin>
+                Mehr Nastaliq Web — Nasrullah Mehr and Zeeshan Nasar, CSaLT, Information Technology
+                University of the Punjab, Lahore
+              </bdi>{' '}
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <bdi data-latin>(CC BY 4.0)</bdi>
+              </a>
+            </dd>
           </dl>
           {/* The ODbL prescribes this wording; it is quoted, not paraphrased. */}
           <Citable label={t('aboutLicenceAttributionLabel')} text={PUBLICATION.attribution} />

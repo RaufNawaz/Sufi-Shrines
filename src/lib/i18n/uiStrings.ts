@@ -715,6 +715,7 @@ const UI_TEXT_EN = {
   aboutLicenceHeading: 'Licence and reuse',
   aboutLicenceData: 'Dataset',
   aboutLicenceCode: 'Site and pipeline code',
+  aboutLicenceTypeface: 'Urdu typeface',
   aboutLicenceAttributionLabel: 'Required attribution when reusing the data',
   aboutCiteHeading: 'How to cite',
   aboutCiteArchive: 'The archive',
