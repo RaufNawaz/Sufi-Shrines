@@ -114,7 +114,18 @@
 
 /* Latin-tuned tracking breaks Nastaliq's connected letterforms — this
    kicker renders the (translated) category label, not always-English UI
-   chrome, so it needs the same reset the global h1-h4 remap gives headings. */
+   chrome, so it needs the same reset the global h1-h4 remap gives headings.
+ *
+ * Worth knowing, and deliberately *not* acted on here: with that reset the
+ * kicker and the breadcrumb's category crumb become the same string in the
+ * same script, 30px apart. In English they read as two different objects — a
+ * small-caps genre label at 0.1em tracking, and a sentence-case trail at 12px
+ * — and Nastaliq has neither case nor tracking to tell them apart with, so in
+ * the Urdu view it is simply "سکھ گردوارہ" printed twice above the title.
+ * Hiding the kicker in RTL was tried on 13 September 2026 and reverted:
+ * `e2e/nastaliq-metrics.spec.ts` asserts it is visible in the Urdu view, and
+ * whether an Urdu reader keeps the genre label or the trail is Rauf's call,
+ * not a stylesheet's. */
 [dir='rtl'] .shrine-category-kicker {
   letter-spacing: normal;
 }
@@ -166,10 +177,15 @@
    masthead's metrics directly instead of the Latin serif's. */
 .shrine-title--nastaliq {
   font-family: var(--font-urdu);
-  /* 700 to match the English title's weight — the archive ships a real
-     NotoNastaliqUrdu-700 face (preloaded for Urdu readers), so this is a
-     drawn bold, not a synthesised one. At 400 the Urdu title carried less
-     weight than the section headings below it. */
+  /* 700 to match the English title's weight. This used to be a *drawn* bold —
+     the archive shipped NotoNastaliqUrdu-700 — and since 14 September 2026 it
+     is not: Mehr Nastaliq Web ships one weight and claims 100-900, so this
+     declaration selects the same outlines as the body text and is neither
+     bolder nor synthesised (global.css explains why faking it would be worse).
+     The line it used to hold — "at 400 the Urdu title carried less weight than
+     the section headings below it" — is now held by size alone, and the margin
+     is wide: the title is 2.25x the body, exactly the English ratio, and
+     `e2e/typography.spec.ts` measures it. */
   font-weight: 700;
   /* NOT --leading-urdu-heading (1.45): that fits single-line section
      headings, but at masthead size Noto Nastaliq's ink box is ~2.57em, so
@@ -198,6 +214,13 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+}
+
+/* The trust pair, kept together on the wrap (see ShrinePage.tsx). */
+.shrine-summary-trust {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .shrine-summary-badge {
@@ -238,6 +261,18 @@
   background: var(--color-accent-pale);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
+}
+
+/* The masthead is where the Urdu page reads busiest — a kicker with a rule, a
+   title, two lines of meta in three colours, an outlined place pill and then
+   a filled amber panel, all inside 400px. The warning itself has to stay
+   ("Festival-only" is why somebody does not drive to a locked gate), so what
+   goes is the fill, not the wording: the accent bar carries it, which is the
+   same "hairlines, not cards" the rest of this pass applies. */
+[dir='rtl'] .shrine-status-note {
+  background: transparent;
+  border-radius: 0;
+  padding-block: 0;
 }
 
 /* ── Place links in the masthead (Track B) ───────────────────────────────────
@@ -380,6 +415,16 @@
   color: var(--color-primary);
   font-size: var(--text-sm);
   font-weight: 600;
+}
+
+/* No underline in the Urdu view: Nastaliq's descenders hang far below the
+   baseline, so the rule is drawn *through* the word rather than under it —
+   CLAUDE.md's "never fix that with an underline on a line that can be Urdu"
+   (HANDOVER §9.48). This is a standalone action sitting beside a button, not
+   a link inside a sentence, so WCAG 1.4.1 is not what the underline was
+   carrying: its position in an actions row is. */
+[dir='rtl'] .shrine-observances-link {
+  text-decoration: none;
 }
 
 /* "Cite this entry" — a quiet scholarly appendix in the de-carded idiom:
@@ -555,12 +600,26 @@
   }
 
   .contents-nav-rail {
+    --rail-width: 220px;
     grid-area: auto;
     position: absolute;
     top: 0;
     bottom: 0;
-    inset-inline-start: calc(-220px - var(--space-6));
-    width: 220px;
+    inset-inline-start: calc(-1 * var(--rail-width) - var(--space-6));
+    width: var(--rail-width);
+  }
+
+  /* The rail lives in the page's outer margin here, so its width costs the
+     article nothing — and 220px is a Latin measure. The same seven headings
+     set in Nastaliq at 1.15x wrapped four of them, in a 166px text column,
+     which is what made this rail read as a sprawl rather than a list.
+     Everything above 1340px is spent up to 264px, and the clamp is what keeps
+     it honest: the margin is (100vw - 860px) / 2, less a 32px gutter so the
+     rail never ends up flush against the window edge. At exactly 1340px that
+     resolves to 220px — the Latin width — and the rail can never be pushed
+     off-screen at any viewport. */
+  [dir='rtl'] .contents-nav-rail {
+    --rail-width: clamp(220px, calc((100vw - 860px) / 2 - var(--space-8)), 264px);
   }
 
   .contents-nav {
@@ -654,14 +713,69 @@
 /* Label and value were the same size in Urdu (both `--text-sm`, because the
    English label's `--text-xs` is below the Nastaliq floor), so the hierarchy
    the English panel carries in size was carried in colour alone. The value is
-   the fact; it takes the body size, and the row gets the breathing room the
-   two lines of Nastaliq then need between them. */
-[dir='rtl'] .infobox-row {
-  gap: var(--space-2);
-}
+   the fact, so it takes the body size. (The row gap that came with this on
+   11 September is set in the de-boxing block above, and is now `--space-1` —
+   that block records why.) */
 
 [dir='rtl'] .infobox-value {
   font-size: var(--text-base);
+}
+
+/* ── The Urdu fact panel is a list, not a card ────────────────────────────
+ * Rauf, 14 September 2026, with rekhta.org as the reference: the Urdu page
+ * has to read as *minimal*. Rekhta sets Nastaliq as black text on white with
+ * double leading and no furniture at all — no rules, no fills, no boxes —
+ * and that is not a house style, it is what the script needs. Nastaliq is
+ * drawn on a descending diagonal; a horizontal hairline every 60px cuts
+ * across the tails of the line above it, and six of them stacked read as a
+ * ledger.
+ *
+ * So in the Urdu view the panel loses its border, its fill, its corner
+ * radius and every row rule, keeping one hairline under the title to say
+ * where the panel starts. What separates the facts is space.
+ *
+ * The inline padding goes with them, and that is the part that pays for
+ * itself: the rail is 220px, the row was padded 16px on each side, and the
+ * location value ("ننکانہ صاحب، پنجاب، پاکستان") wrapped to **three** lines
+ * inside 186px of text width. Dropping the padding gives the same words 218px
+ * and two lines, so the de-boxed panel is also the shorter one — which is
+ * what keeps `e2e/typography.spec.ts`'s Urdu-vs-English height ratio inside
+ * its guard while the rows gain air. */
+[dir='rtl'] .shrine-infobox {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+[dir='rtl'] .infobox-title {
+  padding-inline: 0;
+  padding-block: 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+[dir='rtl'] .infobox-row {
+  padding-inline: 0;
+  padding-block: var(--space-2);
+  border-bottom: none;
+  /* `--space-2` until the reading face changed on 14 September 2026, when it
+     stopped paying for anything. That gap was added on 11 September to keep
+     the descenders of a Noto Nastaliq label off the ascenders of the value
+     below it — Noto draws 2.50em of ink into a 1.85em line box, so the two
+     lines of a row genuinely collided and only an explicit gap separated
+     them. Mehr draws 1.79em into the same box: the slack is inside the line
+     now, and a second gap on top of it just made the panel taller. */
+  gap: var(--space-1);
+}
+
+/* The dates are a second list under the same panel; without the row rules the
+   one hairline that still earns its place is the one that says a new list has
+   started. */
+[dir='rtl'] .infobox-dates {
+  border-top: var(--hairline) solid var(--color-border-light);
+  margin-block-start: var(--space-2);
+  padding-block-start: var(--space-2);
 }
 
 /* An untranslated Latin fallback value inside the Nastaliq infobox reads as
@@ -744,7 +858,9 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  /* The gap has to beat the leading *inside* an entry, or a two-line entry
+     reads as two entries. See the leading below. */
+  gap: var(--space-2);
 }
 
 .contents-nav-item a {
@@ -757,6 +873,21 @@
     color var(--duration-fast),
     border-color var(--duration-fast);
   border-inline-start: 2px solid transparent;
+  /* Entries are numbered, and the number is inline text ("3. The Shrine and
+     Its Sacred Tank"), so a wrapped second line used to start under the digit
+     and the reader had to count to work out where an entry ended. The number
+     hangs in the margin now and the label keeps one edge. */
+  text-indent: -1.55em;
+  padding-inline-start: calc(var(--space-3) + 1.55em);
+  /* Nothing sits on the far side of the label, and the hanging indent has
+     already taken 1.55em out of a narrow rail — don't spend more on a margin
+     that only makes the wrap worse. */
+  padding-inline-end: var(--space-1);
+  /* And its own leading, tighter than the document's: this is a list of
+     labels, not running prose, and it inherited 1.75 (Latin) / 2.05 (Urdu)
+     from the body — which is more air between the two halves of one entry
+     than this list has between separate entries. */
+  line-height: var(--leading-snug);
 }
 
 .contents-nav-item a:hover {
@@ -766,6 +897,20 @@
 .contents-nav-item a.active {
   color: var(--color-primary);
   border-inline-start-color: var(--color-primary);
+}
+
+/* Nastaliq needs more room between the two lines of a wrapped entry than a
+   Latin face does — its descenders reach into the line beneath — but it must
+   still be less than the gap between entries, which is the whole point of the
+   rule above. `--leading-urdu-ui` (1.85) is the compact-row value; at
+   `--text-sm` that is a 29.8px line against a 24px + 8px gap, so an entry
+   still holds together as one object. */
+[dir='rtl'] .contents-nav-item a {
+  line-height: var(--leading-urdu-ui);
+}
+
+[dir='rtl'] .contents-nav-list {
+  gap: var(--space-3);
 }
 
 /* Article sections */
@@ -820,6 +965,15 @@
   margin: 0 0 var(--space-5);
 }
 
+/* And more air *between* sections, for the same reason one step up. At 2.05
+   leading a section's last line already sits close to its own box edge, so a
+   32px gap put the descenders of one section into the ascenders of the next
+   section's heading — visible where the observances block meets "موقع کا
+   نقشہ". The English column is set at 1.75 and does not need it. */
+[dir='rtl'] .article-section {
+  margin-bottom: var(--space-10);
+}
+
 /* A quoted couplet set as verse: centred with one line per hemistich, the
    way Urdu print sets poetry — not a Latin left-bar blockquote. The ample
    vertical margin is what separates it from the prose; no border, no fill. */
@@ -866,6 +1020,48 @@
 
 .article-sources-list li:last-child {
   margin-bottom: 0;
+}
+
+/* ── The bibliography in the Urdu view ────────────────────────────────────
+ * A citation keeps the source's real title, publisher and URL (CLAUDE.md i18n
+ * rule 7 — an archive whose claim is provenance has to leave the reader an
+ * exact search string), so on most entries this list is a run of Latin
+ * sentences inside an RTL block. Left as inherited, that produced the one
+ * genuinely *broken* thing on the Urdu page rather than merely a busy one:
+ *
+ *   .Surinder Singh Johar, Guru Nanak: A Biography
+ *   ...University, Patiala).
+ *
+ * The full stop is bidi-neutral, so at the logical end of a Latin run inside
+ * an RTL paragraph it resolves to the paragraph's direction and is painted at
+ * the far left — every citation appeared to *begin* with a period. And a
+ * wrapped citation's second line was right-aligned, so an English sentence
+ * broke across two lines that did not line up on either edge.
+ *
+ * A Latin citation line is therefore its own LTR block: isolated, so nothing
+ * around it can reorder it, and aligned to the left the way any bilingual
+ * bibliography sets its Latin entries. Lines that are genuinely Urdu (Data
+ * Darbar's are) carry no `data-latin` and keep the RTL treatment.
+ *
+ * The discs go with them. They are the last list furniture on the page, a
+ * bibliography does not need them, and a hanging indent — which is the actual
+ * bibliographic convention — says "one entry" more clearly than a marker on
+ * the wrong side of a reordered line ever did. */
+[dir='rtl'] .article-sources-list {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+[dir='rtl'] .article-sources-list li {
+  margin-bottom: var(--space-3);
+  padding-inline-start: 1.5em;
+  text-indent: -1.5em;
+}
+
+[dir='rtl'] .article-sources-list li[data-latin] {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
 }
 
 /* Gallery */
@@ -1087,9 +1283,20 @@
   transform: scaleX(-1);
 }
 
-/* Location section */
+/* Location section.
+ *
+ * The top margin is not symmetry — it is a collision. `.shrine-observances`
+ * ends in an actions row and declares no bottom margin, so this section's
+ * heading sat **12px** below it in the Urdu view and the tails of "تقویم میں
+ * شامل کریں" ran into the ascenders of "موقع کا نقشہ". English gets away with
+ * it because the actions row's 44px minimum leaves slack around a Latin
+ * x-height; Nastaliq fills that slack with ink. */
 .location-section {
-  margin-bottom: var(--space-8);
+  margin-block: var(--space-8);
+}
+
+[dir='rtl'] .location-section {
+  margin-block: var(--space-10);
 }
 
 .location-map-embed {
@@ -1349,15 +1556,24 @@
   margin: 0;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  /* nowrap so the trail is one line and the *current* crumb is the only thing
+     that can give — see .shrine-breadcrumb-current for why that matters. */
+  flex-wrap: nowrap;
+  min-width: 0;
   gap: 0;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
 
-.shrine-breadcrumb li {
+/* The ancestors are short, sit on one line with their separator, and must
+   never be the ones abbreviated. Scoped off the last item deliberately: a flex
+   container makes `text-overflow` inert, and the last item is the one that has
+   to ellipsis. */
+.shrine-breadcrumb li:not(:last-child) {
   display: flex;
   align-items: center;
+  flex: none;
+  white-space: nowrap;
 }
 
 .shrine-breadcrumb li:not(:last-child)::after {
@@ -1377,12 +1593,32 @@
   text-decoration: underline;
 }
 
+/* `display: block`, and that is the whole fix rather than a preference.
+ *
+ * This rule has always carried `text-overflow: ellipsis`, and until now it
+ * had never once drawn one: `.shrine-breadcrumb li` set `display: flex` for
+ * every item, and text-overflow applies to a *block container's* inline
+ * content, not to a flex container's anonymous item. (That rule is scoped to
+ * `:not(:last-child)` above now, which is what lets this one work at all.)
+ * So the name was cut with `overflow:
+ * hidden` and nothing marked the cut — "Gurdwara Balila Sahib (Bal Li",
+ * "گوردوارہ بالیلا صاحب (بال لیلا ص". It reads as a rendering fault, and in
+ * Nastaliq, where a clipped word loses its final connected form, it reads as
+ * a worse one.
+ *
+ * `max-width: 24ch` went with it: 24 `ch` is measured on the "0" advance,
+ * which in Noto Nastaliq Urdu is nothing like the width of 24 Urdu letters,
+ * so the cap fired at 810px of free space in both languages. The crumb is a
+ * flex item now — it takes the room the trail leaves and abbreviates, with a
+ * visible ellipsis, only when there genuinely is none. */
 .shrine-breadcrumb-current {
+  display: block;
+  flex: 0 1 auto;
+  min-width: 0;
   color: var(--color-text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 24ch;
 }
 
 /* Hero: hide decorative siblings once a real image renders — but never the
@@ -1495,6 +1731,19 @@
 
 .infobox-action-btn:hover {
   background: var(--color-primary-pale);
+}
+
+/* The de-boxed Urdu panel has no card for this to sit inside, so it aligns
+   with the facts above it instead of centring in a column of its own. The
+   hairline stays: with the row rules gone it is the only thing saying the
+   facts have ended and an action has begun. */
+[dir='rtl'] .infobox-actions {
+  padding-inline: 0;
+}
+
+[dir='rtl'] .infobox-action-btn {
+  justify-content: flex-start;
+  padding-inline: 0;
 }
 
 /* ── 404 page ──────────────────────────────────────────────────────────────── */
@@ -2166,12 +2415,23 @@
   color: var(--color-primary);
 }
 
-/* An underline runs through the descenders of Nastaliq (HANDOVER §9.48). */
+/* An underline runs through the descenders of Nastaliq (HANDOVER §9.48) —
+   and so did the border that replaced it. A border-block-end is painted at
+   the bottom of the *inline box*, which is set by the font's descent metric,
+   and Noto Nastaliq's tails are drawn below it: measured on this page, the
+   rule crossed the tails of "بھی" and "درج". Padding moves the box edge down
+   without moving the text, which is the only property here that can. */
 [dir='rtl'] .article-source-reach {
   font-family: var(--font-urdu);
   font-size: var(--text-sm);
   text-decoration: none;
   border-block-end: 1px solid var(--color-border);
+  padding-block-end: 0.28em;
+  /* An RTL island inside an LTR citation. Without the isolate the strong-RTL
+     run reaches back through the bidi-neutral tail of the sentence it is
+     appended to and reorders it: Macauliffe's "(Oxford, ۱۹۰۹)." rendered
+     "(Oxford.(۱۹۰۹ ,". */
+  unicode-bidi: isolate;
 }
 
 /* An entry whose Urdu article has not been written. The note sits above the

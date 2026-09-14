@@ -320,8 +320,18 @@ function ShrineContent({
             )}
           </span>
         )}
-        <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
-        <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
+        {/* The two trust badges as one group, so they wrap together.
+            Individually they are two more flex items in a row that fits on one
+            line in English and does not in Urdu, where Nastaliq is set 1.15x
+            larger — so the row broke between them and left "کتابی تصدیق شدہ"
+            alone on a second line, reading as overflow rather than structure.
+            Grouped, the pair moves to its own line as a pair when it has to,
+            and nothing changes in the English view, where the whole row still
+            fits. */}
+        <span className="shrine-summary-trust">
+          <InfoLevelBadge level={shrine.infoLevel} className="shrine-summary-badge" />
+          <SupportLevelBadge level={shrine.supportLevel} className="shrine-summary-badge" />
+        </span>
       </div>
 
       {/* The places this site is recorded in — often two, a town and its
