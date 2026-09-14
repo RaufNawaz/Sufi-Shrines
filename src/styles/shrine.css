@@ -2295,6 +2295,37 @@
   line-height: var(--leading-urdu);
 }
 
+/* A mosque's name is English survey data, and in the Urdu view it was the
+ * largest thing on the page.
+ *
+ * Nothing here is Nastaliq: the name is Latin, drawn by Source Sans 3 down the
+ * `--font-urdu` fallback stack. What it inherited was Nastaliq's *metrics* —
+ * the `--font-scale-urdu` bump (1.44) that exists because Nastaliq needs more
+ * size to read as comfortably, and `--leading-urdu` (2.05) that exists because
+ * it has a steeply sloping baseline. Measured on `/shrine/data-darbar?lang=ur`,
+ * 14 September 2026: **24.19px on 49.59px leading, against the English view's
+ * 16px on 25.6px** — a 461px name in a 499px card, one per line, edge to edge,
+ * and wrapping to two right-aligned lines on a phone.
+ *
+ * So the run is given its own face's metrics back, and made its own LTR line the
+ * way `.article-sources-list li[data-latin]` above already sets a Latin
+ * citation, for the reason given there: a wrapped Latin line inside an RTL
+ * paragraph lines up on neither edge. Dividing the bump out rather than writing
+ * `1rem` keeps the reader's size step, which `--text-base` carries and a literal
+ * would drop.
+ *
+ * The scale reset is on the link alone, not the row: `.nearby-mosque-own` beside
+ * it is Urdu, and it keeps the leading its script needs. */
+[dir='rtl'] .nearby-mosque-name {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir='rtl'] .nearby-mosque-name > a {
+  font-size: calc(var(--text-base) / var(--font-scale-urdu));
+  line-height: var(--leading-normal);
+}
+
 /* Unmapped entries (22 Aug ruling): the honest absence where the map went. */
 .location-not-recorded {
   color: var(--color-text-secondary);
