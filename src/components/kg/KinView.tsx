@@ -24,7 +24,7 @@ import { kinRoleKey } from '../../lib/data/kinRoles';
  * reader can judge the claim without leaving the page.
  */
 
-function KinItem({ link }: { link: KinLink }) {
+function KinItem({ link, showReviewState }: { link: KinLink; showReviewState: boolean }) {
   const { lang, t } = useLang();
   const key = kinRoleKey(link);
 
@@ -53,7 +53,7 @@ function KinItem({ link }: { link: KinLink }) {
             so this is a hole being closed rather than a label being added. The
             same marker LineageView shows, deliberately — the reader learns one
             vocabulary for "not yet read by an editor", not one per section. */}
-        {!link.reviewed && (
+        {showReviewState && !link.reviewed && (
           <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
             {t('lineageUnreviewed')}
           </span>
@@ -64,10 +64,13 @@ function KinItem({ link }: { link: KinLink }) {
            this sentence is the entire basis for the row above it, and an archive
            whose distinguishing claim is provenance must leave the reader an
            exact search string (i18n rule 7). `lang`/`dir` keep an English
-           sentence's punctuation inside an RTL page. */
+           sentence's punctuation inside an RTL page. The file path is team-only,
+           as in LineageView. */
         <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
           {renderInlineBold(link.quote)}
-          {link.source && <cite className="graph-lineage-cite">{link.source}</cite>}
+          {showReviewState && link.source && (
+            <cite className="graph-lineage-cite">{link.source}</cite>
+          )}
         </blockquote>
       )}
     </li>
@@ -77,9 +80,14 @@ function KinItem({ link }: { link: KinLink }) {
 interface Props {
   links: KinLink[];
   notes: KGKinNote[];
+  /** Team view: the `unreviewed` chips, the repository paths under the quotes,
+   * and the "recorded, and unnamed" notes — a list of what a contributor could
+   * still fill in, which is the desk's reading list rather than the public's
+   * (same split as LineageView; Rauf, 11 September 2026). */
+  showReviewState?: boolean;
 }
 
-export function KinView({ links, notes }: Props) {
+export function KinView({ links, notes, showReviewState = false }: Props) {
   const { t } = useLang();
 
   return (
@@ -98,11 +106,15 @@ export function KinView({ links, notes }: Props) {
               mistake LineageView had to fix for the 13 pairs recorded both
               `disciple_of` and `successor_of`. */}
           {links.map((link) => (
-            <KinItem key={`${link.saint.slug}:${link.kinType}`} link={link} />
+            <KinItem
+              key={`${link.saint.slug}:${link.kinType}`}
+              link={link}
+              showReviewState={showReviewState}
+            />
           ))}
         </ul>
       )}
-      {notes.length > 0 && (
+      {showReviewState && notes.length > 0 && (
         <div className="lineage-chain-section kin-notes">
           <h3 className="lineage-chain-heading">{t('kinNotesHeading')}</h3>
           <p className="kg-section-note">{t('kinNoteUnnamed')}</p>

@@ -40,6 +40,7 @@ import { CENTURY_ORDINAL } from '../lib/data/era';
 import type { Lang } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { hasProjectAccess } from '../lib/projectAccess';
 /**
  * A standalone knowledge-graph explorer: browse every Sufi order, see its
  * saints as a network (reusing the same NetworkGraph used on SaintPage),
@@ -96,6 +97,11 @@ function kinOnlyNote(lang: Lang, links: KinLink[]): string | undefined {
 export default function GraphPage() {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
+  /* Public vs team view (HANDOVER §9.183): the `unreviewed` chips, their count
+     in the section note, and the repository path under each quote are the
+     desk's apparatus. The quotes themselves stay — they are what a reader
+     checks a lineage against. */
+  const teamView = hasProjectAccess();
   const headingRef = useFocusHeadingOnMount();
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
@@ -443,9 +449,13 @@ export default function GraphPage() {
             <h2 className="section-heading">{t('graphLineageHeading')}</h2>
             <p className="graph-figures-note">
               {t('graphLineageNote')} {fmtNum(scopedLineageEdges.length)}
-              {' · '}
-              {fmtNum(scopedLineageEdges.filter((e) => !e.reviewed).length)}{' '}
-              {t('lineageUnreviewed')}
+              {teamView && (
+                <>
+                  {' · '}
+                  {fmtNum(scopedLineageEdges.filter((e) => !e.reviewed).length)}{' '}
+                  {t('lineageUnreviewed')}
+                </>
+              )}
             </p>
 
             {/* Two buttons rather than a dropdown: there are two choices and both
@@ -519,7 +529,7 @@ export default function GraphPage() {
                     {/* An edge nobody has read yet says so. The archive's claim is
                         honesty about provenance, so a lineage drawn from
                         machine-extracted prose must not look like a reviewed one. */}
-                    {!edge.reviewed && (
+                    {teamView && !edge.reviewed && (
                       <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
                         {t('lineageUnreviewed')}
                       </span>
@@ -536,7 +546,9 @@ export default function GraphPage() {
                        deliberate rather than untranslated. */
                     <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
                       {renderInlineBold(edge.quote)}
-                      {edge.source && <cite className="graph-lineage-cite">{edge.source}</cite>}
+                      {teamView && edge.source && (
+                        <cite className="graph-lineage-cite">{edge.source}</cite>
+                      )}
                     </blockquote>
                   )}
                 </li>

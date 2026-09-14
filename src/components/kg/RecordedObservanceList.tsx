@@ -86,7 +86,15 @@ function RecordedDate({ observance }: { observance: Observance }) {
  * provenance, and a reimplemented row is how one of them quietly loses the
  * "date not recorded" that is the honest half of this feature.
  */
-export function RecordedObservanceList({ rows }: { rows: RecordedObservanceRow[] }) {
+export function RecordedObservanceList({
+  rows,
+  showReviewState = false,
+}: {
+  rows: RecordedObservanceRow[];
+  /** Team view (`hasProjectAccess()`): show the `unreviewed` chip on a row
+   * whose figure edge nobody has read yet. Same split as LineageView. */
+  showReviewState?: boolean;
+}) {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
   if (rows.length === 0) return null;
@@ -118,7 +126,7 @@ export function RecordedObservanceList({ rows }: { rows: RecordedObservanceRow[]
             {/* The edge, not the observance, is what is unread — and it is the
                 edge that put this row on this page, so the row carries its
                 marking. */}
-            {row.unreviewed && (
+            {showReviewState && row.unreviewed && (
               <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
                 {t('lineageUnreviewed')}
               </span>

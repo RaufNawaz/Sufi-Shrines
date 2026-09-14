@@ -22,10 +22,12 @@ import {
 import { ShrineImage } from '../components/ui/ShrineImage';
 import { IMAGE_WIDTH } from '../lib/images/thumbnail';
 import { CATEGORY_LABELS } from '../lib/data/categoryKey';
-import type { Lang } from '../types/shrine';
+import type { Lang, Shrine } from '../types/shrine';
 
 import { isRtlLang } from '../lib/i18n/languages';
 import { localizeRecordedName } from '../lib/i18n/localizeRecordedName';
+import { hasProjectAccess } from '../lib/projectAccess';
+import { publicLocation } from '../lib/data/publicLocation';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 /**
  * One place, and what the archive records in it.
@@ -41,9 +43,21 @@ import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
  */
 
 function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
-  const { t, fmtNum } = useLang();
+  const { t, fmtNum, localizeField } = useLang();
   const headingRef = useFocusHeadingOnMount();
   const displayName = localizeRecordedName(place.name, lang);
+  /* Public vs team view (HANDOVER §9.183). The sub-line under each site was
+     the raw Location cell — 37 survey paragraphs on /place/lahore, one of 397
+     characters. The team keeps the cell; the public reads a short recorded
+     value as recorded, and otherwise the *other* places the entry resolves to
+     (this page's own name would only repeat the heading). */
+  const teamView = hasProjectAccess();
+  const rowLocation = (shrine: Shrine): string =>
+    teamView
+      ? shrine.location
+      : publicLocation(localizeField(shrine.raw, 'Location') || shrine.location, shrine, lang, [
+          place.slug,
+        ]);
 
   /* Up to five photographs from the place's own sites.
    *
@@ -232,7 +246,7 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
           <h2 className="kg-section-heading">{t('placeObservancesHeading')}</h2>
           <p className="kg-section-note">{t('placeObservancesNote')}</p>
           <ObservanceGapNote rows={observances} />
-          <RecordedObservanceList rows={observances} />
+          <RecordedObservanceList rows={observances} showReviewState={teamView} />
         </section>
       )}
 
@@ -250,11 +264,14 @@ function PlaceContent({ place, lang }: { place: PlaceRecord; lang: Lang }) {
                   <span className="inset-row-title">
                     <bdi>{localizeShrineName(shrine, lang)}</bdi>
                   </span>
-                  {/* The Location column, as recorded. Often an English survey
-                      qualification rather than a place name, hence data-latin. */}
-                  <span className="inset-row-sub" data-latin>
-                    <bdi>{shrine.location}</bdi>
-                  </span>
+                  {/* The Location column — as recorded for the team, a place
+                      name for the public (`publicLocation`). Often still an
+                      English value either way, hence data-latin. */}
+                  {rowLocation(shrine) && (
+                    <span className="inset-row-sub" data-latin>
+                      <bdi>{rowLocation(shrine)}</bdi>
+                    </span>
+                  )}
                 </span>
                 <span className="inset-row-chevron" />
               </Link>

@@ -20,6 +20,12 @@ interface Props {
   teachers?: LineageLink[];
   /** Saints recorded as this saint's disciple/successor. */
   disciples?: LineageLink[];
+  /** Team view (`hasProjectAccess()`): show the `unreviewed` chip and the
+   * repository path each quote was read from. The public reads the claim and
+   * the sentence it rests on; "not yet read by an editor" and
+   * `data/shrines.csv#…` are the desk's business (Rauf, 11 September 2026 —
+   * the same split the shrine page and /about already make). */
+  showReviewState?: boolean;
 }
 
 /**
@@ -33,7 +39,13 @@ interface Props {
  * a page that shows the name and hides both is asserting more than the archive
  * knows.
  */
-function LineageLinkItem({ link }: { link: LineageLink }) {
+function LineageLinkItem({
+  link,
+  showReviewState,
+}: {
+  link: LineageLink;
+  showReviewState: boolean;
+}) {
   const { lang, t } = useLang();
   const saint = link.saint;
   const relationLabel = t(
@@ -50,7 +62,7 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
           <bdi>{localizeFigureName(saint, lang)}</bdi>
         </Link>
         <span className="lineage-relation-tag">{relationLabel}</span>
-        {!link.reviewed && (
+        {showReviewState && !link.reviewed && (
           <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
             {t('lineageUnreviewed')}
           </span>
@@ -61,17 +73,29 @@ function LineageLinkItem({ link }: { link: LineageLink }) {
            it: this sentence is the entire basis for trusting an unreviewed
            claim, and an archive whose distinguishing claim is provenance must
            leave the reader an exact search string (i18n rule 7). `lang`/`dir`
-           keep an English sentence's punctuation inside an RTL page. */
+           keep an English sentence's punctuation inside an RTL page. The
+           file path under it is for the team: a public reader cannot open
+           `shrine_entries/…md`, and the entry's own bibliography is one link
+           away. */
         <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
           {renderInlineBold(link.quote)}
-          {link.source && <cite className="graph-lineage-cite">{link.source}</cite>}
+          {showReviewState && link.source && (
+            <cite className="graph-lineage-cite">{link.source}</cite>
+          )}
         </blockquote>
       )}
     </li>
   );
 }
 
-export function LineageView({ order, members, currentSlug, teachers, disciples }: Props) {
+export function LineageView({
+  order,
+  members,
+  currentSlug,
+  teachers,
+  disciples,
+  showReviewState = false,
+}: Props) {
   const { lang, t } = useLang();
   const isOrderCurrent = order?.slug === currentSlug;
 
@@ -86,7 +110,11 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
                 keyed on the slug alone React saw a duplicate and dropped one of
                 the two recorded facts. */}
             {teachers.map((link) => (
-              <LineageLinkItem key={`${link.saint.slug}:${link.relation}`} link={link} />
+              <LineageLinkItem
+                key={`${link.saint.slug}:${link.relation}`}
+                link={link}
+                showReviewState={showReviewState}
+              />
             ))}
           </ul>
         </div>
@@ -150,7 +178,11 @@ export function LineageView({ order, members, currentSlug, teachers, disciples }
           <h3 className="lineage-chain-heading">{t('disciplesHeading')}</h3>
           <ul className="lineage-relation-list">
             {disciples.map((link) => (
-              <LineageLinkItem key={`${link.saint.slug}:${link.relation}`} link={link} />
+              <LineageLinkItem
+                key={`${link.saint.slug}:${link.relation}`}
+                link={link}
+                showReviewState={showReviewState}
+              />
             ))}
           </ul>
         </div>

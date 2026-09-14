@@ -49,6 +49,8 @@ import orderProseData from '../../data/kg-order-prose.json';
 import type { KGSaint } from '../types/kg';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { hasProjectAccess } from '../lib/projectAccess';
+import { publicLocation } from '../lib/data/publicLocation';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 interface Member {
   saint: KGSaint;
@@ -117,9 +119,18 @@ function centuryLabel(century: number, lang: Lang): string {
 
 export default function OrderPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { lang, t, fmtNum } = useLang();
+  const { lang, t, fmtNum, localizeField } = useLang();
   const headingRef = useFocusHeadingOnMount();
   const { shrines, offline, sourceTimestamp } = useShrineData();
+  /* Public vs team view (HANDOVER §9.183). Team-only on this page: the
+     `unreviewed` count in the header and chip on each member, the note that a
+     description was written for this site, and the raw Location cell under
+     each site card. The sourced passages and the members are the public's. */
+  const teamView = hasProjectAccess();
+  const siteLocation = (shrine: Shrine): string =>
+    teamView
+      ? shrine.location
+      : publicLocation(localizeField(shrine.raw, 'Location') || shrine.location, shrine, lang);
 
   /*
    * Real shrine names, from the live dataset.
@@ -381,7 +392,7 @@ export default function OrderPage() {
               {fmtNum(tFn(lang, 'orderMultiCount', multiOrderCount))}
             </span>
           )}
-          {unreviewedCount > 0 && (
+          {teamView && unreviewedCount > 0 && (
             <span className="entity-meta-item" title={t('lineageUnreviewedHelp')}>
               {fmtNum(unreviewedCount)} {t('lineageUnreviewed')}
             </span>
@@ -402,7 +413,7 @@ export default function OrderPage() {
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('description')}</h2>
                 <p>{description}</p>
-                {order.descriptionIsEditorial && (
+                {teamView && order.descriptionIsEditorial && (
                   <p className="kg-section-note order-description-editorial">
                     {t('orderDescriptionEditorial')}
                   </p>
@@ -635,7 +646,7 @@ export default function OrderPage() {
                             <bdi>{membership.branch}</bdi>
                           </span>
                         )}
-                        {membership && !membership.reviewed && (
+                        {teamView && membership && !membership.reviewed && (
                           <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
                             {t('lineageUnreviewed')}
                           </span>
@@ -759,7 +770,7 @@ export default function OrderPage() {
                     the calendar is; the order page is too small for a second
                     list, so the count carries it. */}
                 <ObservanceGapNote rows={observances} />
-                <RecordedObservanceList rows={observances} />
+                <RecordedObservanceList rows={observances} showReviewState={teamView} />
               </section>
             )}
 
@@ -806,9 +817,9 @@ export default function OrderPage() {
                         <span className="order-site-name">
                           <bdi>{shrineNames.get(shrine.slug) ?? shrine.name}</bdi>
                         </span>
-                        {shrine.location && (
+                        {siteLocation(shrine) && (
                           <span className="order-site-location" data-latin>
-                            <bdi>{shrine.location}</bdi>
+                            <bdi>{siteLocation(shrine)}</bdi>
                           </span>
                         )}
                       </span>
@@ -821,7 +832,7 @@ export default function OrderPage() {
             {/* Spiritual lineage */}
             <section className="kg-section">
               <h2 className="kg-section-heading">{t('spiritualLineage')}</h2>
-              <LineageView order={order} members={saints} />
+              <LineageView order={order} members={saints} showReviewState={teamView} />
             </section>
           </div>
 

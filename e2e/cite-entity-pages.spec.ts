@@ -9,8 +9,10 @@ import { test, expect } from './fixtures';
  * — so of the **459 entity pages this archive publishes per language**
  * (169 shrines, 244 saints, 29 places, 9 orders, 8 traditions, counted from the
  * prerendered route directories), **169 were citable and 290 were not**. A
- * `/saint/` page carries the archive's "what it does not record" section, which
- * is among the most citable things here, and offered a reader no way to cite it.
+ * `/saint/` page carries the archive's lineage rows with the sentence each
+ * rests on, which is among the most citable things here, and offered a reader
+ * no way to cite it. (Its "what it does not record" section, cited here
+ * originally, has been team-only since 13 September 2026 — HANDOVER §9.190.)
  *
  * That matters more for this archive than for most. Its stated claim is to be a
  * *citable scholarly resource*: it ships `CITATION.cff`, an ODbL data licence,

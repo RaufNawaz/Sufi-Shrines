@@ -309,7 +309,7 @@ const BUDGET: Record<string, number> = {
      it: `npm run verify` does NOT run e2e. A day of data work can move an e2e
      budget with every gate green. The features session found this one by
      running the suite, not by a gate firing. */
-  'saint:multi-order': 33,
+  'saint:multi-order': 23,
   // The order pages gained two things from the same merge: each member's dates
   // rendered verbatim ("8 Muharram 1040 AH / 8 August 1630 CE" — a hedged phrase
   // the dictionary cannot carry without paraphrasing it, RULE 2), and shrine
@@ -343,17 +343,17 @@ const BUDGET: Record<string, number> = {
   // +5 each on the two order pages, same two causes as the note above: the
   // language toggle, and merged figures now carrying the absorbed node's name as
   // an `altName` in the member list.
-  order: 74,
-  'order:chishtiyya': 40,
+  order: 52,
+  'order:chishtiyya': 27,
   /* 51 -> 53, 28 August 2026. The Suhrawardiyya gained a member: Bibi Jawindi
      got a node of her own when Tomb of Javindi Bibi stopped being filed under
      Jalaluddin Surkh-Posh Bukhari, whose `Sufi Saint` cell it carried
      byte-identically. Her two runs are the site's recorded location and the
      observance cell, both shown as the survey wrote them. A member arriving is
      the order page working, and `undeclared` stayed empty. */
-  'order:suhrawardiyya': 49,
-  'order:naqshbandiyya': 29,
-  'order:qalandariyya': 12,
+  'order:suhrawardiyya': 34,
+  'order:naqshbandiyya': 19,
+  'order:qalandariyya': 9,
   /* 122 → 126, 29 August 2026 — and the rise is NOT more English. Decomposed by
      measurement rather than inferred:
 
@@ -369,7 +369,7 @@ const BUDGET: Record<string, number> = {
      number went up**, because the guard counts text nodes and italics split
      them. Worth knowing before reading any budget in this file as a quantity of
      English: it is a count of nodes. See HANDOVER §9.129. */
-  graph: 46,
+  graph: 28,
   /* 39 → 34, 26 August 2026. Not a translation: the calendar became the route's
      default view, so `/almanac?lang=ur` now settles on one month's cards rather
      than all thirteen month listings, and five of the recorded `Events` strings
@@ -405,7 +405,7 @@ const BUDGET: Record<string, number> = {
      route's note. The number is the size of one entry's English bibliography,
      counted per text node, and it moves when that entry's citations do. */
   'shrine:urdu-bibliography-fallback': 8,
-  saint: 15,
+  saint: 12,
   /* 24 → 27, 29 August 2026. Three runs, all in the new "Family recorded"
      section: his father's name (`Syed Ul Hassan Kabeer`, which the dictionary
      does not carry), the survey sentence the tie was read out of, and that
@@ -415,7 +415,7 @@ const BUDGET: Record<string, number> = {
      an untranslated sentence. (The order pages got the other answer to that
      same question on the same day: there the passage IS the page's account, so
      it is quoted from the Urdu article instead. HANDOVER §9.128.) */
-  'saint:lineage-only': 16,
+  'saint:lineage-only': 12,
   /* 102 → 6 on 12 September 2026. The public /about is six sections; the
      ninety-odd runs were the team-only coverage and source ledgers, which
      now render behind `?team=1` and are not on the page this measures. */
@@ -433,7 +433,7 @@ const BUDGET: Record<string, number> = {
      the Urdu view the one that cannot check the archive's arithmetic. The
      figures section added none: a figure's recorded name is in the dictionary
      for all 169 rows, and the site tags beside it were already on the page. */
-  place: 38,
+  place: 3,
   /* Two, and they are the only two Latin runs on the page a reader can
      legitimately meet: `EN` in the masthead's language segment, and `English`
      as the name of the English option in the reading-language group. A language
@@ -503,16 +503,19 @@ const ROUTES = [
      calendar, which shows one month's cards, so the twelve month listings were
      never scanned. Found by running the walker below over 23 Urdu routes
      instead of 14; the wider sweep is in HANDOVER §9. */
-  /* **Not here yet, deliberately: `/shrine/darbar-abul-muali-qadri?lang=ur`.**
-     That entry has no Urdu article, so its whole page falls back to English.
-     `ShrineArticle` now says so and declares the article it renders, but the
-     table of contents, the category kicker, the masthead's recorded Location
-     and four recorded dates in the infobox are all still undeclared — four more
-     components, one of them showing an off-schema `category` value ("Islam")
-     that has no dictionary entry because it is not one of the archive's six.
-     Adding the route with a budget before those are declared would mean
-     exempting them wholesale, which is the exemption creep this file exists
-     against. The remaining list is in HANDOVER §9. */
+  /* **Still not here, and the reason moved: `/shrine/darbar-abul-muali-qadri?lang=ur`.**
+     Until 13 September 2026 that entry had no Urdu article and its whole page
+     fell back to English. It has one now (HANDOVER §9.189), and the route was
+     added here at budget 0 to measure — and failed on **9 undeclared runs that
+     are not the article**: the off-schema `category` value "Islam" in the
+     kicker and the summary list (not one of the archive's six, so no dictionary
+     entry; a sheet correction awaiting import), the masthead's recorded
+     Location paragraph (twice), `site_type`, the `silsila` cell, and the three
+     recorded dates in the infobox. Exactly the four components the note that
+     stood here named. Adding the route with a budget would exempt them
+     wholesale, which is the exemption creep this file exists against; declaring
+     them is a decision to show an Urdu reader that English, one component at a
+     time. */
   { name: 'typology', path: '/typology?lang=ur', ready: 'h1.entity-title' },
   { name: 'almanac:list', path: '/almanac?view=list&lang=ur', ready: 'h1.entity-title' },
   { name: 'about', path: '/about?lang=ur', ready: 'h1.entity-title' },

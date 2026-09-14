@@ -24,7 +24,7 @@ import { renderInlineBold } from '../shrine/inlineFormat';
  * says *descendant* and the other says *successor* and normalising either into
  * the other would put a word in the archive's mouth (RULE 2).
  */
-function DescentItem({ link }: { link: DescentLink }) {
+function DescentItem({ link, showReviewState }: { link: DescentLink; showReviewState: boolean }) {
   const { lang, t, fmtNum } = useLang();
 
   return (
@@ -50,7 +50,7 @@ function DescentItem({ link }: { link: DescentLink }) {
         {/* Dead today — both edges are human-adjudicated seeds — and present for
             the reason KinView's is: the type is new, and the first
             machine-extracted descent must not inherit a seed's authority. */}
-        {!link.reviewed && (
+        {showReviewState && !link.reviewed && (
           <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
             {t('lineageUnreviewed')}
           </span>
@@ -60,17 +60,27 @@ function DescentItem({ link }: { link: DescentLink }) {
         /* Latin in either language, on the ground i18n rule 7 gives: this
            sentence is the entire basis for the row above it, and an archive
            whose distinguishing claim is provenance must leave the reader an
-           exact search string. */
+           exact search string. The file path is team-only, as in LineageView. */
         <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
           {renderInlineBold(link.quote)}
-          {link.source && <cite className="graph-lineage-cite">{link.source}</cite>}
+          {showReviewState && link.source && (
+            <cite className="graph-lineage-cite">{link.source}</cite>
+          )}
         </blockquote>
       )}
     </li>
   );
 }
 
-export function DescentView({ links }: { links: DescentLink[] }) {
+export function DescentView({
+  links,
+  showReviewState = false,
+}: {
+  links: DescentLink[];
+  /** Team view: the `unreviewed` chip and the repository path under the quote
+   * (same split as LineageView and KinView). */
+  showReviewState?: boolean;
+}) {
   const { t } = useLang();
   if (links.length === 0) return null;
 
@@ -83,7 +93,11 @@ export function DescentView({ links }: { links: DescentLink[] }) {
             would drop a recorded fact — the mistake KinView had to fix for the
             row that records two ties at once. */}
         {links.map((link) => (
-          <DescentItem key={`${link.saint.slug}:${link.otherIsElder}`} link={link} />
+          <DescentItem
+            key={`${link.saint.slug}:${link.otherIsElder}`}
+            link={link}
+            showReviewState={showReviewState}
+          />
         ))}
       </ul>
     </>

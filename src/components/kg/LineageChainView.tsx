@@ -25,7 +25,15 @@ import { isRtlLang } from '../../lib/i18n/languages';
  * `Teachers` on the same page, and a chain of four with four blockquotes
  * interleaved stops reading as a chain.
  */
-export function LineageChainView({ chain }: { chain: LineageChain }) {
+export function LineageChainView({
+  chain,
+  showReviewState = false,
+}: {
+  chain: LineageChain;
+  /** Team view: mark the steps whose links nobody has read yet (same split as
+   * LineageView; the chain itself is public). */
+  showReviewState?: boolean;
+}) {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
 
@@ -63,7 +71,7 @@ export function LineageChainView({ chain }: { chain: LineageChain }) {
               {/* Per link, not per chain. One unreviewed step in the middle is
                   the thing a reader needs to see, and it is invisible in any
                   summary. */}
-              {step.links.some((link) => !link.reviewed) && (
+              {showReviewState && step.links.some((link) => !link.reviewed) && (
                 <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
                   {t('lineageUnreviewed')}
                 </span>

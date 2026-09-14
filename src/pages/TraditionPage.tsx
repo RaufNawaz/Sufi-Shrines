@@ -13,6 +13,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useFocusHeadingOnMount } from '../hooks/useFocusHeadingOnMount';
 import { localizeShrineName } from '../lib/i18n/localizeShrineName';
 import { isRtlLang } from '../lib/i18n/languages';
+import { hasProjectAccess } from '../lib/projectAccess';
 import { categoryDisplayLabel } from '../lib/data/categoryKey';
 import { renderInlineBold } from '../components/shrine/inlineFormat';
 import { alsoKnownAsFor, getTraditionBySlug, getTraditionMembers } from '../lib/data/traditions';
@@ -53,6 +54,9 @@ export default function TraditionPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
+  /* The evidence quote is the page's content and stays public; the repository
+     path under it is team-only, as on every lineage row (HANDOVER §9.183). */
+  const teamView = hasProjectAccess();
   const headingRef = useFocusHeadingOnMount();
   const { shrines, offline, sourceTimestamp } = useShrineData();
 
@@ -189,7 +193,7 @@ export default function TraditionPage() {
                             language on purpose — see the header. */}
                         <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
                           {renderInlineBold(member.quote)}
-                          <cite className="graph-lineage-cite">{member.source}</cite>
+                          {teamView && <cite className="graph-lineage-cite">{member.source}</cite>}
                         </blockquote>
                       </li>
                     );

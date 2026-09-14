@@ -21,8 +21,7 @@ import { useShareLink } from '../../hooks/useShareLink';
 import { useSavedShrines, toggleSaved } from '../../lib/savedShrines';
 import { useUrduArticles } from '../../hooks/useUrduArticlesReady';
 import { langAttr } from '../../lib/i18n/languages';
-import { placesForShrine } from '../../lib/data/places';
-import { localizeRecordedName } from '../../lib/i18n/localizeRecordedName';
+import { publicLocation } from '../../lib/data/publicLocation';
 
 interface ShrinePreviewProps {
   shrine: Shrine;
@@ -61,15 +60,11 @@ export function ShrinePreview({
      place resolves — Malik Ahmad Ayaz's column names a market and another
      shrine, and says outright that no city or province was recorded — the
      recorded region stands in, and failing that the row is simply absent. A
-     card is a summary; the absence of a place name in it is not a claim. */
+     card is a summary; the absence of a place name in it is not a claim.
+     Since 13 September 2026 the rule is `publicLocation()`, shared with the
+     saint, order and place pages, which printed the raw cell under every row. */
   const rawLocation = localizeField(shrine.raw, 'Location') || shrine.location;
-  const LOCATION_MAX_CHARS = 60;
-  const placeNames = placesForShrine(shrine).map((p) => localizeRecordedName(p.name, lang as Lang));
-  const location =
-    rawLocation.length > LOCATION_MAX_CHARS
-      ? placeNames.join(' · ') ||
-        (shrine.region ? localizeRecordedName(shrine.region, lang as Lang) : '')
-      : rawLocation;
+  const location = publicLocation(rawLocation, shrine, lang as Lang);
   const category =
     categoryDisplayLabel(shrine.category, lang as Lang) ??
     (localizeField(shrine.raw, 'Category') || shrine.category);

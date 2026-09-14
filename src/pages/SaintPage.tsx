@@ -66,6 +66,9 @@ import { disputedFieldLabelKey } from '../lib/data/figureDates';
 import { localizeRecordedDate } from '../lib/i18n/localizeRecordedDate';
 
 import { isRtlLang } from '../lib/i18n/languages';
+import { hasProjectAccess } from '../lib/projectAccess';
+import { publicLocation } from '../lib/data/publicLocation';
+import type { Shrine } from '../types/shrine';
 import { OfflineDataBanner } from '../components/ui/OfflineDataBanner';
 export default function SaintPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -74,6 +77,29 @@ export default function SaintPage() {
      an Urdu reader following an old link into the English page. */
   const { search, hash } = useLocation();
   const { lang, t, fmtNum, localizeField, numerals } = useLang();
+  /* Public vs team view (HANDOVER §9.183), the sweep the shrine page and
+     /about had on 11 September 2026 and this page did not. Team-only here: the
+     `unreviewed` chips and repository paths on every lineage, kin, descent and
+     membership row; the "approximate" pill on the next ʿurs; the silsila cell
+     "as recorded"; the raw Location under each site; the list of what the
+     archive does not record; and the Sources & Provenance block. What the
+     public keeps is every claim and the sentence each rests on. */
+  const teamView = hasProjectAccess();
+  const siteLocation = (shrine: Shrine | undefined): string =>
+    !shrine
+      ? ''
+      : teamView
+        ? shrine.location
+        : publicLocation(localizeField(shrine.raw, 'Location') || shrine.location, shrine, lang);
+  const restingLocation = (shrine: Shrine, places: readonly { slug: string }[]): string =>
+    teamView
+      ? shrine.location
+      : publicLocation(
+          localizeField(shrine.raw, 'Location') || shrine.location,
+          shrine,
+          lang,
+          places.map((p) => p.slug),
+        );
   const { calendar } = useReaderPreferences();
   const headingRef = useFocusHeadingOnMount();
   const { shrines, offline, sourceTimestamp } = useShrineData();
@@ -556,7 +582,7 @@ export default function SaintPage() {
                   is the difference between a date and a forecast — and which of
                   the two dates leads here is the reader's choice, so the flag
                   follows the projection rather than the position. */}
-              {nextUrsDates.leadIsProjection && (
+              {teamView && nextUrsDates.leadIsProjection && (
                 <span
                   className="almanac-flag almanac-flag--approximate entity-urs-flag"
                   title={t('almanacApproximateFull')}
@@ -689,7 +715,7 @@ export default function SaintPage() {
                               <bdi>{membership.branch}</bdi>
                             </span>
                           )}
-                          {!membership.reviewed && (
+                          {teamView && !membership.reviewed && (
                             <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
                               {t('lineageUnreviewed')}
                             </span>
@@ -706,7 +732,7 @@ export default function SaintPage() {
                             data-latin
                           >
                             {renderInlineBold(membership.quote)}
-                            {membership.source && (
+                            {teamView && membership.source && (
                               <cite className="graph-lineage-cite">{membership.source}</cite>
                             )}
                           </blockquote>
@@ -721,7 +747,7 @@ export default function SaintPage() {
                     Description for a discrepancy in how the survey names his
                     order)", and that parenthesis is better content than the
                     clean badge above it. */}
-                {recorded.length > 0 && (
+                {teamView && recorded.length > 0 && (
                   <p className="entity-order-as-recorded">
                     <span
                       className="entity-order-as-recorded-label"
@@ -747,7 +773,7 @@ export default function SaintPage() {
                 <h2 className="kg-section-heading">{t('saintObservancesHeading')}</h2>
                 <p className="kg-section-note">{t('saintObservancesNote')}</p>
                 <ObservanceGapNote rows={observances} />
-                <RecordedObservanceList rows={observances} />
+                <RecordedObservanceList rows={observances} showReviewState={teamView} />
               </section>
             )}
 
@@ -789,10 +815,11 @@ export default function SaintPage() {
                           <span className="order-site-name">
                             <bdi>{shrineLabel(shrineSlug)}</bdi>
                           </span>
-                          {shrine?.location && (
-                            /* The survey's own wording, often still English. */
+                          {siteLocation(shrine) && (
+                            /* The survey's own wording for the team; a place
+                               name for the public. Often still English. */
                             <span className="order-site-location" data-latin>
-                              <bdi>{shrine.location}</bdi>
+                              <bdi>{siteLocation(shrine)}</bdi>
                             </span>
                           )}
                         </span>
@@ -813,6 +840,7 @@ export default function SaintPage() {
                   currentSlug={saint.slug}
                   teachers={teachers}
                   disciples={disciples}
+                  showReviewState={teamView}
                 />
                 {/* The chain, after the neighbourhood. A silsila read from the
                     inside is "who linked whom to whom", and only the first link
@@ -820,7 +848,7 @@ export default function SaintPage() {
                 {chain && chain.steps.length > 0 && (
                   <>
                     <h3 className="lineage-chain-heading">{t('lineageChainHeading')}</h3>
-                    <LineageChainView chain={chain} />
+                    <LineageChainView chain={chain} showReviewState={teamView} />
                   </>
                 )}
               </section>
@@ -832,10 +860,10 @@ export default function SaintPage() {
                 lineage is what a reader comes to a saint's page for. Renders
                 from the bundled graph, so it sits on the safe side of the CLS
                 boundary described below. */}
-            {(kin.length > 0 || kinNotes.length > 0) && (
+            {(kin.length > 0 || (teamView && kinNotes.length > 0)) && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('kinHeading')}</h2>
-                <KinView links={kin} notes={kinNotes} />
+                <KinView links={kin} notes={kinNotes} showReviewState={teamView} />
               </section>
             )}
 
@@ -847,7 +875,7 @@ export default function SaintPage() {
             {descents.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('descentHeading')}</h2>
-                <DescentView links={descents} />
+                <DescentView links={descents} showReviewState={teamView} />
               </section>
             )}
 
@@ -879,34 +907,43 @@ export default function SaintPage() {
                 <h2 className="kg-section-heading">{t('saintPlaceHeading')}</h2>
                 <p className="kg-section-note">{t('saintPlaceNote')}</p>
                 <ul className="saint-place-list">
-                  {restingPlaces.map(({ shrine, places }) => (
-                    <li key={shrine.slug} className="saint-place-row">
-                      {places.length > 0 && (
-                        <div className="order-place-list">
-                          {places.map((place) => (
-                            <Link
-                              key={place.slug}
-                              to={`/place/${place.slug}`}
-                              className="order-place-tag hover-lift"
-                            >
-                              <bdi>{isRtl ? translatePlaceName(place.name) : place.name}</bdi>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                      {shrine.location && (
-                        /* The survey's own words. Often still English, and often
-                           a paragraph of qualification rather than an address —
-                           declared rather than tidied (RULE 2). */
-                        <p className="saint-place-recorded" data-latin>
-                          <span className="order-urs-recorded-label">
-                            {t('almanacSourceLabel')}:{' '}
-                          </span>
-                          <bdi>{shrine.location}</bdi>
-                        </p>
-                      )}
-                    </li>
-                  ))}
+                  {restingPlaces
+                    .filter(
+                      ({ shrine, places }) => places.length > 0 || restingLocation(shrine, places),
+                    )
+                    .map(({ shrine, places }) => (
+                      <li key={shrine.slug} className="saint-place-row">
+                        {places.length > 0 && (
+                          <div className="order-place-list">
+                            {places.map((place) => (
+                              <Link
+                                key={place.slug}
+                                to={`/place/${place.slug}`}
+                                className="order-place-tag hover-lift"
+                              >
+                                <bdi>{isRtl ? translatePlaceName(place.name) : place.name}</bdi>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                        {restingLocation(shrine, places) && (
+                          /* The survey's own words, for the team: often still
+                           English, and often a paragraph of qualification rather
+                           than an address — declared rather than tidied
+                           (RULE 2). The public reads a recorded value only when
+                           it is short enough to be a place, and never the
+                           "Recorded as" label, which describes the cell. */
+                          <p className="saint-place-recorded" data-latin>
+                            {teamView && (
+                              <span className="order-urs-recorded-label">
+                                {t('almanacSourceLabel')}:{' '}
+                              </span>
+                            )}
+                            <bdi>{restingLocation(shrine, places)}</bdi>
+                          </p>
+                        )}
+                      </li>
+                    ))}
                 </ul>
               </section>
             )}
@@ -949,7 +986,7 @@ export default function SaintPage() {
 
             {/* What the archive does not record. Deliberately *after* everything
                 it does — a reader should meet the record before its gaps. */}
-            {gaps.length > 0 && (
+            {teamView && gaps.length > 0 && (
               <section className="kg-section">
                 <h2 className="kg-section-heading">{t('saintGapsHeading')}</h2>
                 <p className="kg-section-note">{t('saintGapsNote')}</p>
@@ -969,7 +1006,7 @@ export default function SaintPage() {
                 place. Nothing renders for the 42 figures whose values were
                 typed in from the survey; absence here means hand-entered,
                 which is the strongest provenance the archive has. */}
-            {provenance.length > 0 && (
+            {teamView && provenance.length > 0 && (
               <section className="kg-section figure-provenance">
                 <h2 className="kg-section-heading">{t('sourcesHeading')}</h2>
                 {provenance.map((note) =>
