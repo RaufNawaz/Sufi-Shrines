@@ -65,6 +65,26 @@ per-glyph, which breaks the Nastaliq join mid-word. All three sit in quoted vers
 `src/styles/__tests__/nastaliqCoverage.test.ts` fails on a fourth; regenerate its manifest with
 `python3 pipeline/build_nastaliq_coverage.py` after any font change.
 
+**Second round, same day** (`97b8095`), after Rauf read the result — HANDOVER §9.192 and
+`URDU_TYPOGRAPHY_2026-09-14.md` §5a:
+
+- **A recorded value can be an English sentence.** Five `year_built` values are prose, not
+  dates; Bibi Pak Daman's rendered as 329px of undeclared, right-aligned English in the fact
+  panel. `looksLikeProse` in `ShrineInfobox.tsx` now tells a sentence from a date — *a word
+  next to a number is a unit; three words next to each other are a sentence* — and only the
+  sentence is demoted to a secondary LTR block. Prose keeps Western digits; a date takes
+  Eastern.
+- **`urdu-no-leak.spec.ts` had never seen that shape**, because its two shrine routes both
+  carry bare years. A third is added. *Its routes are shapes, not pages.*
+- **De-boxing overshot**: 4px inside a row against 17px between them is not grouping when the
+  line boxes are 39 and 45px. Label sits on its value; rows take `--space-3`.
+- **Chrome gaps halved.** Masthead 412 → 379px, rail 842 → 660px, panel 1037 → ~975px.
+- **`--header-height` (56px) has never been the header's height** — 71px English, 95px Urdu.
+  Every desktop sticky offset now reads the measured `--page-header-height`. The fact panel had
+  been sticking *underneath* the header.
+- **Left for someone's queue, measured not fixed:** the *English* contents-rail links are 27px
+  against the project's 44px minimum. The Urdu ones are 45px.
+
 **Decision for Rauf — asked in the chat on 14 September, unanswered:**
 
 1. **The category kicker duplicates the breadcrumb in the Urdu view.** In English they are a
