@@ -9530,3 +9530,67 @@ the measured value now, which also corrects English's one-pixel margin.
 **Measured in passing and deliberately not fixed:** the **English** contents-rail links are
 **27px** tall, against this project's 44px target minimum. Not Urdu, not new, and not this
 session's ask — the Urdu ones are 45px. Worth a line in someone's queue.
+
+---
+
+### Added 14 September 2026 — the entry page's two optional sections, and a Latin run wearing Nastaliq's metrics
+
+Rauf, on the Urdu shrine page: *"there is english overflowing here … for the time being remove the
+shared ground section in the shrine page and then also remove the auqaf mosque and make it so that
+these 2 are toggles that can be turned on and off in the settings."*
+
+**§9.193 — A Latin run inside the Urdu view inherits Nastaliq's metrics, and nothing was watching
+the size.** The mosque names in `NearbyMosques` are English survey data — sanctioned Latin, wrapped
+in `<bdi lang="en" data-latin>`, drawn by Source Sans 3 because Arabic-script glyphs are found above
+it in the `--font-urdu` stack and Latin ones are not. The *face* was therefore right all along.
+What was wrong is everything around it. Measured on `/shrine/data-darbar?lang=ur`:
+
+| | Urdu view, before | English view |
+| --- | --- | --- |
+| mosque name | **24.19px** on **49.59px** leading | 16px on 25.6px |
+| run width in its card | 461px of 499px | 305px of 534px |
+
+Two tokens did it, and both are correct for what they were written for: `--font-scale-urdu` (1.44,
+because Nastaliq needs more size to read as comfortably) and `--leading-urdu` (2.05, because it has
+a steeply sloping baseline). A Latin run picks both up by inheritance. The result was a name larger
+than the section's own body text, filling its card edge to edge, and wrapping to two right-aligned
+lines on a phone — Rauf's "overflowing", and a fair description even though nothing exceeded a
+scroll width. `[dir='rtl'] .nearby-mosque-name > a` now divides the bump back out
+(`calc(var(--text-base) / var(--font-scale-urdu))`, which keeps the reader's size step where a
+literal `1rem` would drop it) and takes `--leading-normal`; the row becomes its own LTR line, the
+way `.article-sources-list li[data-latin]` already sets a Latin citation and for the reason recorded
+there — a wrapped Latin line inside an RTL paragraph lines up on neither edge.
+
+**The general shape, which is worth more than the fix: the no-leak guard cannot see this class of
+defect at all.** `urdu-no-leak.spec.ts` asks whether a Latin run is *declared*, and this one was,
+correctly, for years. Declaring a run says a reader will see English there. It says nothing about
+whether the English is set at a size the page can hold. Every `[data-latin]` and `[lang='en']` run
+in the Urdu view carries the same inheritance, and the only one measured so far is this one.
+`e2e/entry-sections.spec.ts` asserts the ratio rather than a number — the name must be *smaller*
+than the Urdu beside it and led under 1.8 — because the point is the relationship, not the pixel.
+
+**§9.194 — Both sections are off by default now, and "off" had to be shown to cost nothing.**
+`src/lib/shrineSectionPreferences.ts`, two keys (`shrines_section_shared_ground`,
+`shrines_section_mosques`), same shape as `toursPreference.ts`: read, write, explicit `'off'` on the
+way down, fail closed on a value the module did not write, every access wrapped. `/settings` gains
+an **Entry pages** section with a switch each. What the switches do *not* touch is the point of
+half the tests: `/shared-ground`, the map's shared-ground lens and the Awqaf site are unchanged —
+**the switch removes a block from an entry, never a fact from the archive.**
+
+Two things found while wiring it, both cheap and both invisible from the component:
+
+- **Gating at the call site rather than inside the component is not a style choice.**
+  `NearbyMosques` fetches a *second* Google Sheet on mount, so a component that mounts in order to
+  decide it should not render has already made the request. `entry-sections.spec.ts` counts requests
+  carrying the Awqaf publish token and requires zero — asserted by counting rather than by mocking,
+  because the fixture fulfils that URL and a regression would otherwise look exactly like a pass.
+- **`shrine`'s declared-Latin budget in `urdu-no-leak.spec.ts` falls 10 → 6.** Measured at 4 with
+  the section off, `undeclared` empty. The four runs that went are the three mosque names and a
+  city. A reader who switches the section back on sees 8 — not a leak, and deliberately not measured
+  there, because a budget that moves with a preference is a budget that means nothing.
+
+**And a bundle budget that failed on a route the feature never touches.** Twelve new English UI
+strings are ~1 KB, `uiStrings.ts` is eager on all thirteen routes, and `PlacePage` had the least
+headroom. That is the third time this file has recorded the same pattern, so this time
+`AlmanacPage` and `TraditionPage` — which the same kilobyte left sitting at exactly 355/355 and
+335/335 — were given slack as well rather than left to misattribute the next person's string.

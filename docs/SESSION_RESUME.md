@@ -34,6 +34,34 @@ the reason the rest is credible.
 
 ---
 
+## 14 September 2026 — the entry page's two optional sections come off, behind switches
+
+**Read this first if you are resuming.** Rauf: *"there is english overflowing here and then also,
+for the time being remove the shared ground section in the shrtine page and then also remove the
+auqaf mosque and make it so that these 2 are toggles that can be turned on and off in the
+settings."* Shipped; HANDOVER §9.193–194.
+
+- **Both sections are off by default.** `src/lib/shrineSectionPreferences.ts`, two keys, same shape
+  as `toursPreference.ts`. `/settings` has an **Entry pages** section with a switch each.
+- **Nothing else moved.** `/shared-ground`, the map's shared-ground lens and the Awqaf site are
+  untouched — *the switch removes a block from an entry, never a fact from the archive*, and
+  `e2e/entry-sections.spec.ts` asserts that half as hard as it asserts the switches.
+- **The "overflowing" English was a Latin run wearing Nastaliq's metrics.** The mosque names
+  computed **24.19px on 49.59px leading** against the English view's 16px on 25.6px, because
+  `--font-scale-urdu` (1.44) and `--leading-urdu` (2.05) are inherited by a run that is neither.
+  **The no-leak guard cannot see this:** it asks whether Latin is *declared*, and this was, for
+  years. Every other `[data-latin]` run in the Urdu view carries the same inheritance and only this
+  one has been measured.
+- **Off has to cost nothing.** `NearbyMosques` fetches a second Google Sheet on mount, so the switch
+  is read at the call site; the spec counts requests carrying the Awqaf token and requires zero.
+- **Three specs opt in** through `showSharedGroundSection` / `showNearbyMosquesSection` in
+  `e2e/fixtures.ts`. `shrine`'s declared-Latin budget in `urdu-no-leak.spec.ts` falls 10 → 6.
+- **Pre-existing and not from this work, verified by stashing and re-running on the baseline:**
+  `places.spec.ts` ×2 (the `/about` places index builds no links) and `urdu.spec.ts`'s "State of the
+  Archive reads fully in Urdu" (`.report-ledger-text` never appears). Someone's queue.
+
+---
+
 ## 14 September 2026 — the Urdu reads like Rekhta: a new face, and the furniture off
 
 **Read this first if you are resuming.** Rauf, in four messages: the Urdu still does not look
