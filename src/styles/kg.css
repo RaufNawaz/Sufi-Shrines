@@ -802,7 +802,9 @@
 
 .entity-infobox {
   position: sticky;
-  top: calc(var(--header-height) + var(--space-4));
+  /* The measured header, for the reason shrine.css's `.shrine-infobox` gives:
+     the token is 56px and this header is 71px in English and 95px in Urdu. */
+  top: calc(var(--page-header-height, var(--header-height)) + var(--space-4));
   height: fit-content;
   background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border);

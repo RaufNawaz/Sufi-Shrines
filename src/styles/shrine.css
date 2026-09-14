@@ -210,6 +210,40 @@
   margin-bottom: var(--space-4);
 }
 
+/* ── The masthead's rhythm in the Urdu view ───────────────────────────────
+ * Seven stacked blocks, each separated by a Latin-tuned `--space-4`, each set
+ * in line boxes half again as tall as the English ones. Measured on Data
+ * Darbar at 1440px: the masthead ran **412px against English's 244px**, and
+ * Rauf's reading was that the prose is right and everything around it is "too
+ * much".
+ *
+ * The gaps are what gives, not the type. In multiples of its own body text the
+ * Urdu masthead was only 11% looser than the English one (17.0em against
+ * 15.3em) — proportionally almost the same design, which is why nothing looked
+ * *wrong* in isolation. What a reader sees is absolute space, and 1.44x type
+ * with the same px gaps puts a third of a screen between the breadcrumb and
+ * the photograph. Halving the gaps costs nothing that Nastaliq's own leading
+ * is not already providing. */
+[dir='rtl'] :is(.shrine-breadcrumb, .shrine-summary-meta, .shrine-place-links) {
+  margin-bottom: var(--space-2);
+}
+
+[dir='rtl'] .shrine-category-kicker {
+  margin-bottom: var(--space-1);
+}
+
+[dir='rtl'] .shrine-title--nastaliq {
+  margin-bottom: var(--space-2);
+}
+
+[dir='rtl'] .shrine-status-note {
+  margin-bottom: var(--space-3);
+}
+
+[dir='rtl'] .shrine-actions {
+  margin-bottom: var(--space-4);
+}
+
 .shrine-summary-meta-item {
   display: flex;
   align-items: center;
@@ -576,6 +610,12 @@
 @media (min-width: 640px) {
   .shrine-article-layout {
     grid-template-columns: minmax(0, 1fr) 220px;
+    /* 220px is a Latin measure. The Urdu column sets type 1.44x up, so the
+       same rail held about nine characters a line and wrapped "سالانہ عرس؛
+       جمعرات کی رات محفل؛ محرم کے معمولات (سب سے زیادہ حاضری)" over three.
+       The 30px comes out of the article, and that is the right side to take it
+       from: the Urdu prose measured 82 characters a line at 564px, which is
+       long, and 534px brings it to 77. */
     grid-template-rows: auto auto 1fr;
     grid-template-areas:
       'hero infobox'
@@ -586,6 +626,10 @@
   .contents-nav-rail {
     display: block;
     grid-area: toc;
+  }
+
+  [dir='rtl'] .shrine-article-layout {
+    grid-template-columns: minmax(0, 1fr) 250px;
   }
 }
 
@@ -624,7 +668,8 @@
 
   .contents-nav {
     position: sticky;
-    top: calc(var(--header-height) + var(--space-4));
+    /* Measured header, not the token — see the note on `.shrine-infobox`. */
+    top: calc(var(--page-header-height, var(--header-height)) + var(--space-4));
   }
 }
 
@@ -636,7 +681,23 @@
   background: var(--color-bg-surface);
   height: fit-content;
   position: sticky;
-  top: calc(var(--header-height) + var(--space-4));
+  /* `--page-header-height` (measured and published by EntityPageHeader.tsx),
+     not the `--header-height` token, and the difference finally has teeth.
+     That component's own comment, written when it started measuring itself,
+     recorded that the three sticky offsets on desktop — this one, the
+     contents nav and the entity infobox — "all add `--space-4` to it, and
+     56 + 16 = 72 happens to clear a 71px header by a pixel. The number was
+     wrong and the sum was right, on desktop, by coincidence." It left them
+     alone.
+
+     The coincidence died on 14 September 2026 with the change of Urdu reading
+     face: the header sets its own chrome in Nastaliq, so it measures **95px**
+     in the Urdu view against 71px in English, and this panel stuck 22px
+     *underneath* it — the fact panel's title was sliced in half by the
+     header's own background. Nothing about the Urdu page caused it; the token
+     was simply never the header's height, and the Urdu view is where the gap
+     grew past the slack. */
+  top: calc(var(--page-header-height, var(--header-height)) + var(--space-4));
 }
 
 .infobox-title {
@@ -705,7 +766,6 @@
    made every row 34px tall against the English 22px, and the panel 837px
    against 615px for exactly the same content. */
 [dir='rtl'] .infobox-row,
-[dir='rtl'] .infobox-label,
 [dir='rtl'] .infobox-value {
   line-height: var(--leading-urdu-ui);
 }
@@ -750,23 +810,49 @@
 
 [dir='rtl'] .infobox-title {
   padding-inline: 0;
-  padding-block: 0 var(--space-2);
+  /* Not `0` at the top: Nastaliq paints its ascenders above the line box, and
+     with the panel stuck directly beneath the header that ink had nothing to
+     sit in. */
+  padding-block: var(--space-2);
   color: var(--color-text-muted);
   font-weight: 600;
 }
 
+/* The row rules are gone, so **proximity is the only thing left saying which
+ * value belongs to which label** — and the first cut of this got the ratio
+ * wrong. Measured on Bibi Pak Daman: 4px between a label and its value, 17px
+ * between one row and the next, on line boxes 39 and 45px tall. Rauf's verdict
+ * was that you cannot tell the titles from the information, and the numbers
+ * agree: once each line box's own slack is counted the perceived gaps were
+ * about 13px and 27px, a 2:1 ratio at a scale where 2:1 reads as "evenly
+ * spaced".
+ *
+ * A label sits *on* its value now (no gap at all — the line boxes already
+ * carry more air than a Latin face would), and the rows are pushed apart to
+ * `--space-4`. That is roughly 5px against 43px: not a ratio a reader has to
+ * measure.
+ *
+ * Note what is deliberately *not* the fix. The obvious one is to make the
+ * label smaller, and it is unavailable: Nastaliq's legibility floor is
+ * `--text-sm` (the design ruling of 19 August 2026), the label is already
+ * there, and `--text-xs` at this face's scale computes to the optical
+ * equivalent of 13.8px of Noto. The other is weight, and Mehr has one. So the
+ * cue has to be spatial, which is what Urdu print does anyway. */
 [dir='rtl'] .infobox-row {
   padding-inline: 0;
-  padding-block: var(--space-2);
+  /* `--space-4` first, then trimmed: once the label sits *on* its value the
+     grouping no longer needs a wide row gap to be unambiguous, and `--space-3`
+     still gives about 33px between rows against about 5px inside one. */
+  padding-block: var(--space-3);
   border-bottom: none;
-  /* `--space-2` until the reading face changed on 14 September 2026, when it
-     stopped paying for anything. That gap was added on 11 September to keep
-     the descenders of a Noto Nastaliq label off the ascenders of the value
-     below it — Noto draws 2.50em of ink into a 1.85em line box, so the two
-     lines of a row genuinely collided and only an explicit gap separated
-     them. Mehr draws 1.79em into the same box: the slack is inside the line
-     now, and a second gap on top of it just made the panel taller. */
-  gap: var(--space-1);
+  gap: 0;
+}
+
+/* A label is one short line and does not need the compact-row leading the
+   value takes (it was in that rule until now); pulling it down onto its value
+   is the other half of the grouping above. */
+[dir='rtl'] .infobox-label {
+  line-height: var(--leading-urdu-heading);
 }
 
 /* The dates are a second list under the same panel; without the row rules the
@@ -779,11 +865,36 @@
 }
 
 /* An untranslated Latin fallback value inside the Nastaliq infobox reads as
-   a glitch at full size — mark it visually secondary instead of hiding it
-   (RULE 2: report the gap, don't disguise it). */
+ * a glitch at full size — mark it visually secondary instead of hiding it
+ * (RULE 2: report the gap, don't disguise it).
+ *
+ * And set it as what it is: an English run, left to right, on its own line.
+ * Five of the 127 recorded `year_built` values are English sentences rather
+ * than dates — Bibi Pak Daman's is "681 CE / c. 63 AH (popular tradition) —
+ * see note; second tradition dates the events to the early 13th century CE",
+ * which is the archive at its most honest and was also, until 14 September
+ * 2026, four lines of English right-aligned inside an Urdu fact panel with
+ * nothing saying it was quoted. Same treatment the bibliography got the same
+ * day, and for the same reason: an isolated LTR block cannot be reordered by
+ * the panel around it, and a left edge is where an English sentence's second
+ * line belongs. */
 [dir='rtl'] .infobox-value bdi[lang='en'] {
   font-size: 0.85em;
   color: var(--color-text-secondary);
+}
+
+/* A recorded value that is an English *sentence* rather than a date — see
+   `looksLikeProse` in ShrineInfobox.tsx for the rule and the five rows it
+   sorts. Set as its own left-to-right block, isolated so the panel around it
+   cannot reorder it and left-aligned because that is where an English
+   sentence's second line belongs. Scoped to the prose case deliberately: a
+   date carrying a Latin unit ("1416 AH") is the row's primary fact and must
+   not be demoted to a grey block for having two Latin letters in it. */
+[dir='rtl'] .infobox-value .infobox-value-prose {
+  display: block;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
 }
 
 /* Split date fields (year_built/figure_born/figure_died/event_year) — a
@@ -909,8 +1020,23 @@
   line-height: var(--leading-urdu-ui);
 }
 
+/* `--space-3` for one day, on 14 September 2026, and it was too much: with a
+   39px line box under it each entry occupied 60px and thirteen of them ran
+   842px — the rail filled the viewport, which is Rauf's "this sidebar takes
+   the entire length of the screen". The gap was sized when entries could wrap
+   and needed to out-separate their own wrapped lines; the rail is wide enough
+   now that they rarely do, and the line box already carries more air than a
+   Latin list would. */
 [dir='rtl'] .contents-nav-list {
-  gap: var(--space-3);
+  gap: 0;
+}
+
+/* The padding *is* the gap, and it is 3px rather than 0 for one reason: at
+   `--text-sm` the line box is 39px, and a 39px link is below the 44px target
+   minimum this project holds every control to. 3px each side makes it 45px,
+   which is both the separation between entries and a legal target. */
+[dir='rtl'] .contents-nav-item a {
+  padding-block: 3px;
 }
 
 /* Article sections */

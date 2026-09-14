@@ -130,9 +130,9 @@ was equally wrong in both.
 | --- | --- | --- |
 | **Fact panel** | bordered card, fill, radius, a hairline under every one of six rows, 16px inline padding | no border, no fill, one hairline under the title and one above the dates and the action; rows separated by space |
 | Panel row width | 186px of text inside a 220px rail — `ننکانہ صاحب، پنجاب، پاکستان` wrapped to **three** lines | 218px, two lines |
-| Row gap | `--space-2` between label and value | `--space-1` — the gap existed to keep Noto's ink apart, and Mehr's slack is inside the line box now |
+| Row gap | `--space-2` between label and value | **`0`** — the gap existed to keep Noto's ink apart and Mehr's slack is inside the line box now, so it was spent on separating *rows* instead (§5a.3) |
 | **Status note** | filled amber panel | accent bar and the words |
-| **Contents rail** | 220px, four of seven entries wrapped, wrapped lines set at the document's 2.05 leading so a two-line entry read as two entries | up to 264px (clamped to the page's own margin, so it can never be pushed off-screen), hanging indent under the number, `--leading-urdu-ui` inside an entry against a larger gap between them — **all seven entries now sit on one line** |
+| **Contents rail** | 220px, four of seven entries wrapped, wrapped lines set at the document's 2.05 leading so a two-line entry read as two entries | up to 264px (clamped to the page's own margin, so it can never be pushed off-screen), hanging indent under the number, `--leading-urdu-ui` inside an entry — **all seven entries now sit on one line**. The inter-entry gap was `--space-3` for one day and is now the item's own 3px padding; see §5a.4 |
 | **Bibliography** | `disc` markers; Latin citations inheriting RTL, so the closing full stop was painted at the far left and every entry appeared to *begin* with a period; wrapped lines right-aligned | no markers; each Latin line an isolated LTR block, left-aligned, hanging indent — the bibliographic convention |
 | **"Also cited by" note** | `border-block-end` drawn through the tails of `بھی` and `درج`, and an un-isolated RTL island that reordered the citation's tail (`(Oxford, ۱۹۰۹).` → `(Oxford.(۱۹۰۹ ,`) | padded clear of the descenders, `unicode-bidi: isolate` |
 | **Section rhythm** | 32px between sections; the observances links sat **12px** above the next heading and their descenders met its ascenders | `--space-10`; the gap is 54px |
@@ -178,6 +178,73 @@ was equally wrong in both.
   stronger than the count it replaced.
 - **`e2e/font-preload.spec.ts`** — preloads the reading face and asserts the fallback face is
   *not* preloaded, which is the distinction that file exists to make.
+
+---
+
+## 5a. The second round, same day — what the first pass got wrong
+
+Rauf, on the result: *"the sidebars on both sides look weird and there is english leaking on the
+left one"*, then *"you cannot distinguish between the titles and the information"*, then
+*"the spacing and stuff is good in the description but everywhere else it seems too much"* and
+*"this sidebar takes the entire length of the screen"*.
+
+Four separate defects, three of them mine:
+
+**1. An English sentence in the fact panel, undeclared.** Five of the 127 rows carrying a
+`year_built` hold English prose in it rather than a date — Bibi Pak Daman's is
+`681 CE / c. 63 AH (popular tradition) — see note; second tradition dates the events to the
+early 13th century CE`, which RULE 2 keeps verbatim. It rendered as though it were translated
+Urdu: full size, full colour, right-aligned, 329px of the panel. It is declared now
+(`data-latin` + `lang="en"`) and set as its own left-to-right block.
+
+  The discriminator matters and the first attempt got it wrong. "Contains a Latin letter" also
+  catches `1416 AH`, which is a date with a unit, and demoting *that* to a grey left-aligned
+  block is a regression — `shrineInfoboxDates.test` caught it, correctly. The rule is now
+  `looksLikeProse`: **a word standing next to a number is a unit; three or more words standing
+  next to each other are a sentence.** Measured against the shipped snapshot it sorts the five
+  as date/date/date/PROSE/PROSE, and the one edge (`1041 (as given: "8 August 1041")`, two
+  words) stays inline as intended.
+
+  Prose keeps Western digits; a date takes Eastern ones. Not an exception to i18n rule 5 — the
+  archive already draws that line, in that a `year_built_note` is left Western by design. A
+  value that is a note behaves like one.
+
+**2. The guard could not see it.** `urdu-no-leak.spec.ts` tests `data-darbar` (whose
+`year_built` is `1072`) and `bari-imam` (a bare year), so no route exercised the shape and the
+guard reported clean for as long as it has existed. A third shrine route is added.
+**This file's routes are shapes, not pages; a shape with no route is a shape with no guard.**
+
+**3. De-boxing went too far.** With the row rules gone, proximity was the only thing saying
+which value belonged to which label, and the ratio was wrong: 4px inside a row against 17px
+between rows, on line boxes 39 and 45px tall. A label sits *on* its value now (gap 0) with
+`--space-3` between rows — about 5px against 33px. The label could not simply be made smaller:
+Nastaliq's floor is `--text-sm`, it is already there, and Mehr has one weight, so the cue had to
+be spatial.
+
+**4. The chrome was too airy, and the fix was gaps rather than type.** Measured in multiples of
+its own body text the Urdu chrome was only ~10% looser than the English (masthead 17.0em against
+15.3em; contents entries 2.48em against 2.38em) — proportionally almost the same design, which
+is why nothing looked wrong in isolation. What a reader sees is absolute space, and 1.44x type
+with Latin-tuned px gaps fills a screen:
+
+| | before | after | English |
+| --- | --- | --- | --- |
+| masthead | 412px | 379px | 244px |
+| contents rail (13 entries) | 842px | 660px | 536px |
+| fact panel | 1037px | ~975px | 704px |
+
+  The rail's entries are 45px, not less: at `--text-sm` the line box is 39px and a 39px link is
+  below the 44px target minimum. (Measured in passing and **not** fixed, because it is neither
+  Urdu nor new: the *English* rail's links are **27px**.)
+
+**5. Every sticky element sat under the header in Urdu.** `--header-height` is a 56px token and
+the page header is not: 71px in English, **95px in Urdu**, because it sets its own chrome in
+Nastaliq. `EntityPageHeader.tsx` had already measured this and published
+`--page-header-height`, and its own comment recorded that the three desktop sticky offsets
+"all add `--space-4` to it, and 56 + 16 = 72 happens to clear a 71px header by a pixel … The
+number was wrong and the sum was right, on desktop, by coincidence" — and left them alone. The
+coincidence died with the change of face: the fact panel's title was sliced in half by the
+header's own background. All three now read the measured value.
 
 ---
 

@@ -9471,3 +9471,57 @@ what distinguish them in English, and Nastaliq has neither, so it is `سکھ گ�
 pixels apart, above the title. Hiding the kicker in RTL was tried and reverted;
 `e2e/nastaliq-metrics.spec.ts` asserts it is visible there, and which one an Urdu reader keeps is
 a call about the page.
+
+
+**§9.192 — The same day's second round: what the de-boxing broke, and a sticky offset that had
+been wrong in both languages for months.** Rauf, on the result of §9.191: *"the sidebars on both
+sides look weird and there is english leaking on the left one"*, then *"you cannot distinguish
+between the titles and the information"*, then *"the spacing … everywhere else it seems too
+much"* and *"this sidebar takes the entire length of the screen"*. Detail and every measurement
+in `docs/URDU_TYPOGRAPHY_2026-09-14.md` §5a; the parts worth carrying:
+
+**A recorded value can be an English sentence, and nothing was watching for it.** Five of the
+127 rows with a `year_built` hold prose rather than a date — Bibi Pak Daman's is
+`681 CE / c. 63 AH (popular tradition) — see note; second tradition dates the events to the
+early 13th century CE`, kept verbatim under RULE 2 — and it rendered as though translated: full
+size, full colour, right-aligned, 329px of the Urdu fact panel. `urdu-no-leak.spec.ts` tests
+`data-darbar` (`year_built` = `1072`) and `bari-imam` (a bare year), so **no route exercised the
+shape and the guard had reported clean for as long as it has existed.** A third shrine route is
+added. *This file's routes are shapes, not pages; a shape with no route is a shape with no
+guard.*
+
+**The discriminator is the interesting part.** "Contains a Latin letter" is not "is a sentence":
+it also catches `1416 AH`, a date with a unit, and demoting that to a grey left-aligned block is
+a regression — `shrineInfoboxDates.test` caught it on the first attempt, correctly. The rule in
+`looksLikeProse` (ShrineInfobox.tsx) is now: **a word standing next to a number is a unit; three
+or more words standing next to each other are a sentence.** Measured against the shipped
+snapshot it sorts the five date/date/date/PROSE/PROSE. Prose keeps Western digits and a date
+takes Eastern ones — not an exception to i18n rule 5, but the line the archive already draws
+between a value and an unreviewed source note.
+
+**Proximity has to beat the line box, not the pixel gap.** With the row rules gone, 4px inside a
+row against 17px between rows *reads as evenly spaced* when the line boxes are 39 and 45px tall.
+The label sits on its value now (gap 0) with `--space-3` between rows: about 5px against 33px.
+It could not be fixed by shrinking the label — Nastaliq's floor is `--text-sm`, the label is
+already there, and Mehr has one weight.
+
+**Chrome measured in ems looked fine and looked wrong on screen.** In multiples of its own body
+text the Urdu chrome was ~10% looser than the English (masthead 17.0em vs 15.3em; contents
+entries 2.48em vs 2.38em) — nearly the same design, which is why nothing was obviously wrong.
+A reader sees absolute space, and 1.44x type against Latin-tuned px gaps filled a screen:
+masthead 412 → 379px, contents rail 842 → 660px, fact panel 1037 → ~975px (English: 244, 536,
+704). **An em-normalised metric can be right while the page is unusable; check both.**
+
+**`--header-height` has never been the header's height.** The token is 56px; the page header
+measures **71px in English and 95px in Urdu**, because it sets its own chrome in Nastaliq.
+`EntityPageHeader.tsx` already measured and published `--page-header-height`, and its own
+comment recorded that the three desktop sticky offsets "all add `--space-4` to it, and
+56 + 16 = 72 happens to clear a 71px header by a pixel. The number was wrong and the sum was
+right, on desktop, by coincidence" — and left them alone. The change of reading face killed the
+coincidence: the fact panel stuck 22px *underneath* the header and its title was sliced in half
+by the header's own background. `.shrine-infobox`, `.contents-nav` and `.entity-infobox` read
+the measured value now, which also corrects English's one-pixel margin.
+
+**Measured in passing and deliberately not fixed:** the **English** contents-rail links are
+**27px** tall, against this project's 44px target minimum. Not Urdu, not new, and not this
+session's ask — the Urdu ones are 45px. Worth a line in someone's queue.

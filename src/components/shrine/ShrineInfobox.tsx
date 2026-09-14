@@ -68,6 +68,39 @@ function isUntranslatedInUrdu(lang: Lang, value: string): boolean {
   return !usesLatinScript(lang) && /[A-Za-z]/.test(value);
 }
 
+/** Does a recorded value read as an English *sentence* rather than a date?
+ *
+ * The two are not the same question as "does it contain Latin", and treating
+ * them as one is what broke `shrineInfoboxDates.test` on 14 September 2026:
+ * its fixture is "1416 AH", which is a date, and the coarse rule demoted it to
+ * a grey left-aligned block for having two Latin letters in it.
+ *
+ * Five of the 127 rows carrying a `year_built` have Latin in it. How this rule
+ * sorts them, measured against the shipped snapshot rather than guessed:
+ *
+ *     date   November 27, 1981 CE / 1402 AH
+ *     date   1630 CE (8 Muharram 1040 AH)
+ *     date   1041 (as given: "8 August 1041")
+ *     PROSE  1024 AH (as given in the form; not a construction date)
+ *     PROSE  681 CE / c. 63 AH (popular tradition) — see note; second
+ *              tradition dates the events to the early 13th century CE
+ *
+ * A word standing next to a number is a *unit*; three or more words standing
+ * next to each other are a *sentence*. That is the whole rule and it needs no
+ * threshold anyone has to defend.
+ *
+ * The third row is the honest edge: "as given" is two words, so a 33-character
+ * parenthetical stays inline as a date. That is the intended side of the line —
+ * what this exists to catch is the 110-character fifth row, which was four
+ * lines of right-aligned English in the middle of the Urdu fact panel.
+ *
+ * It decides presentation only — whether the value is demoted to a secondary
+ * left-to-right block. Every Latin run is declared either way. */
+function looksLikeProse(value: string): boolean {
+  const runs = value.match(/[A-Za-z]{2,}(?:\s+[A-Za-z]{2,})*/g) ?? [];
+  return runs.some((run) => run.split(/\s+/).length >= 3);
+}
+
 interface Props {
   shrine: Shrine;
 }
@@ -318,16 +351,84 @@ export function ShrineInfobox({ shrine }: Props) {
             <div className="infobox-row">
               <dt className="infobox-label">{t('founded')}</dt>
               <dd className="infobox-value">
-                <bdi>
-                  {fmtNum(shrine.yearBuilt || resolveFoundedDate(shrine.raw, lang))}
-                  {(() => {
+                {(() => {
+                  const recorded = String(shrine.yearBuilt || resolveFoundedDate(shrine.raw, lang));
+                  /* Five of the 127 rows that carry a `year_built` carry an
+                     English *sentence* in it, because that is what the source
+                     says and RULE 2 keeps it: Bibi Pak Daman's reads "681 CE /
+                     c. 63 AH (popular tradition) — see note; second tradition
+                     dates the events to the early 13th century CE". Rendered
+                     as though it were a translated value it was the largest
+                     block of undeclared English on the Urdu page — 329px of
+                     the fact panel, at full size and full colour.
+
+                     Declared per row on the evidence, the same way
+                     ShrineArticle declares a bibliography line: `data-latin`
+                     so the no-leak guard counts it, `lang='en'` so the RTL
+                     rule in shrine.css sets it as the secondary, untranslated,
+                     left-to-right run it is, and a screen reader switches
+                     voice for it.
+
+                     Numerals follow the same split, and the first cut of this
+                     got it wrong by skipping `fmtNum` for anything with a
+                     Latin letter in it. `shrineInfoboxDates.test` caught that
+                     and the test is right: "contains a Latin letter" cannot
+                     tell "1416 AH", where the Latin is a *unit* and i18n
+                     rule 5 wants ۱۴۱۶, from a sentence. So a **date** takes
+                     Eastern digits and **prose** keeps Western — which is not
+                     an exception to rule 5 but the line this archive already
+                     draws between a value and an unreviewed source note.
+                     `looksLikeProse` above is what tells them apart. */
+                  const isLatinRun = isUntranslatedInUrdu(lang, recorded);
+                  const isProse = isLatinRun && looksLikeProse(recorded);
+                  const qualifier = (() => {
                     if (!showQualifiers || !shrine.yearBuiltPrecision) return '';
                     // Known precision vocabulary localizes; free-form
                     // qualifiers render verbatim, like the source notes.
                     const pk = yearPrecisionKey(shrine.yearBuiltPrecision);
                     return ` (${pk ? t(YEAR_PRECISION_LABEL_KEYS[pk]) : shrine.yearBuiltPrecision})`;
-                  })()}
-                </bdi>
+                  })();
+                  if (isProse) {
+                    /* The qualifier stays outside the isolate: it is Urdu, and
+                       an Urdu phrase inside a `direction: ltr` block reads
+                       backwards. */
+                    return (
+                      <>
+                        {/* Western digits, and not an exception to i18n rule 5
+                            but the existing reading of it. This archive
+                            already draws the line the rule needs: a *value*
+                            takes Eastern numerals, and an unreviewed English
+                            source *note* keeps Western ones
+                            (`shrineInfoboxDates.test` states it in as many
+                            words, and `.infobox-note` below renders that way).
+                            A `year_built` that is an English sentence is a
+                            note that the sheet happens to have put in the
+                            value column, and it reads like one: "the early
+                            ۱۳th century CE" is the alternative. */}
+                        <bdi lang="en" data-latin className="infobox-value-prose">
+                          {recorded}
+                        </bdi>
+                        {qualifier}
+                      </>
+                    );
+                  }
+                  /* A date, Latin unit or not: one run, unchanged in
+                     appearance. `data-latin` where there is Latin to declare,
+                     because until now there was none and the no-leak guard was
+                     counting these as undeclared on any route that had one —
+                     it had none. */
+                  return isLatinRun ? (
+                    <bdi data-latin>
+                      {fmtNum(recorded)}
+                      {qualifier}
+                    </bdi>
+                  ) : (
+                    <bdi>
+                      {fmtNum(recorded)}
+                      {qualifier}
+                    </bdi>
+                  );
+                })()}
                 {showQualifiers && shrine.yearBuiltNote && (
                   <p className="infobox-note" data-latin>
                     {t('sourceNoteLabel')}: <bdi>{shrine.yearBuiltNote}</bdi>

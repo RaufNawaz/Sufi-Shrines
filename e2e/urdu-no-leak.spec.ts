@@ -436,6 +436,14 @@ const BUDGET: Record<string, number> = {
      today. Turning these two runs into Urdu is the kind of item the
      translation review exists for; until then they are debt, declared and
      counted, which is what this number is for. */
+  /* Measured at 5 on 14 September 2026 with `undeclared` empty, which is the
+     assertion that matters: the recorded `year_built` sentence that prompted
+     the route is now declared rather than passing as translated text, and the
+     rest are the recorded names this page already showed — the Jamia Masjid
+     entries `NearbyMosques` prints verbatim, and the survey's own note on
+     where it locates the shrine. Recorded strings, shown as recorded (RULE 2),
+     each one a decision rather than an exemption. */
+  'shrine:latin-recorded-date': 5,
   about: 8,
   /* 36 → 59, 26 August 2026, and every one of the 23 is a recorded `Events`
      cell. The place page gained "Days observed here" (A3), which prints each
@@ -476,6 +484,24 @@ const ROUTES = [
   {
     name: 'shrine:urdu-bibliography-fallback',
     path: '/shrine/bari-imam?lang=ur',
+    ready: 'h1.shrine-title',
+  },
+  /* A third shrine, added 14 September 2026 because the two above could not
+     see the thing that had been shipping: **a recorded value that is itself an
+     English sentence.** Five of the 127 rows carrying a `year_built` have one
+     — Bibi Pak Daman's is "681 CE / c. 63 AH (popular tradition) — see note;
+     second tradition dates the events to the early 13th century CE", which
+     RULE 2 keeps verbatim and which rendered undeclared, at full size, as four
+     right-aligned lines in the middle of the Urdu fact panel. Data Darbar's
+     `year_built` is "1072" and Bari Imam's is a bare year, so neither route
+     exercised the shape, and the guard reported clean for as long as it has
+     existed.
+
+     The general point, worth more than the fix: this file's routes are
+     *shapes*, not pages. A shape with no route is a shape with no guard. */
+  {
+    name: 'shrine:latin-recorded-date',
+    path: '/shrine/shrine-of-bibi-pak-daman?lang=ur',
     ready: 'h1.shrine-title',
   },
   { name: 'saint', path: '/saint/data-ganj-bakhsh?lang=ur', ready: 'h1.entity-title' },
