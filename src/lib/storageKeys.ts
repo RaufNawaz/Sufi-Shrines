@@ -46,3 +46,10 @@ export const TEXT_SIZE_STORAGE_KEY = 'shrines_text_size';
 /** The reader's saved shrines — a personal ziyarat list (JSON array of
  * slugs, see savedShrines.ts). */
 export const SAVED_SHRINES_STORAGE_KEY = 'shrines_saved';
+
+/** The two optional sections on an entry page, each 'on' | 'off' and each off
+ * by default (Rauf, 14 September 2026). Two keys rather than one JSON value:
+ * they are independent switches, and a reader who turns one on should not be
+ * able to lose the other to a parse failure. See shrineSectionPreferences.ts. */
+export const SHARED_GROUND_SECTION_STORAGE_KEY = 'shrines_section_shared_ground';
+export const NEARBY_MOSQUES_SECTION_STORAGE_KEY = 'shrines_section_mosques';

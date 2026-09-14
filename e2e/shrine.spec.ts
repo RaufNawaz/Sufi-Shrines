@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, showNearbyMosquesSection } from './fixtures';
 import { UI_TEXT } from '../src/lib/i18n/uiStrings';
 
 const TEST_SLUG = 'data-darbar';
@@ -203,6 +203,12 @@ test.describe('A site held by two figures reaches both of them', () => {
 });
 
 test.describe('Nearby Auqaf mosques (women’s prayer access)', () => {
+  /* Off for every reader since 14 September 2026 — see entry-sections.spec.ts
+     for the default, and `src/lib/shrineSectionPreferences.ts` for why. */
+  test.beforeEach(async ({ page }) => {
+    await showNearbyMosquesSection(page);
+  });
+
   test('shows survey answers, distance-sorted, the shrine’s own mosque first', async ({ page }) => {
     await page.goto('/shrine/data-darbar');
     const block = page.locator('.nearby-mosques');

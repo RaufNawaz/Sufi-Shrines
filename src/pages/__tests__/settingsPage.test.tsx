@@ -20,7 +20,9 @@ import {
   CALENDAR_STORAGE_KEY,
   DIRECTORY_MODE_STORAGE_KEY,
   MOTION_STORAGE_KEY,
+  NEARBY_MOSQUES_SECTION_STORAGE_KEY,
   NUMERALS_STORAGE_KEY,
+  SHARED_GROUND_SECTION_STORAGE_KEY,
   TEXT_SIZE_STORAGE_KEY,
   THEME_STORAGE_KEY,
   TOURS_STORAGE_KEY,
@@ -43,6 +45,7 @@ describe('SettingsPage', () => {
       en.settingsLanguageSection,
       en.settingsAppearanceSection,
       en.settingsMapSection,
+      en.settingsEntrySection,
     ]) {
       expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument();
     }
@@ -89,6 +92,35 @@ describe('SettingsPage', () => {
     expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('on');
     await user.click(screen.getByRole('checkbox', { name: en.turnOffTours }));
     expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('off');
+  });
+
+  it('persists each entry-page section switch, independently', async () => {
+    /* Two switches over two keys, and the thing worth asserting is that they are
+       two: a single JSON blob holding both would pass a test that only ever
+       flips one. Off is the default (Rauf, 14 September 2026), so the first
+       click on each is the one that writes 'on'. */
+    const user = userEvent.setup();
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+
+    await user.click(screen.getByRole('checkbox', { name: en.turnOnSharedGround }));
+    expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('on');
+    expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBeNull();
+
+    await user.click(screen.getByRole('checkbox', { name: en.turnOnMosques }));
+    expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBe('on');
+    expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('on');
+
+    await user.click(screen.getByRole('checkbox', { name: en.turnOffSharedGround }));
+    expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('off');
+    expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBe('on');
+  });
+
+  it('shows both entry-page sections unchecked on a browser that has never chosen', () => {
+    /* The default is the whole point of the change, so it is asserted where a
+       reader meets it rather than only in the module that declares it. */
+    renderWithProviders(<SettingsPage />, { route: '/settings' });
+    expect(screen.getByRole('checkbox', { name: en.turnOnSharedGround })).not.toBeChecked();
+    expect(screen.getByRole('checkbox', { name: en.turnOnMosques })).not.toBeChecked();
   });
 
   it('persists the theme, and choosing the theme already shown is a no-op', async () => {
@@ -219,7 +251,7 @@ describe('SettingsPage', () => {
   it('gives every option row a 44px target and the whole label as the hit area', () => {
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     const options = document.querySelectorAll('.settings-option');
-    expect(options.length).toBeGreaterThanOrEqual(9);
+    expect(options.length).toBeGreaterThanOrEqual(11);
     for (const option of options) {
       // The control is inside its own label, so the label is the hit area
       // rather than the 18px box — asserted structurally because jsdom has no

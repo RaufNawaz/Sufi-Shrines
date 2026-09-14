@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
 import { EntityNotFound } from '../components/ui/EntityNotFound';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
@@ -42,6 +42,7 @@ import { CiteThisEntry } from '../components/shrine/CiteThisEntry';
 import { ShrineObservances } from '../components/shrine/ShrineObservances';
 import { NearbyMosques } from '../components/shrine/NearbyMosques';
 import { useSavedShrines, toggleSaved } from '../lib/savedShrines';
+import { readNearbyMosquesSection, readSharedGroundSection } from '../lib/shrineSectionPreferences';
 import type { Shrine } from '../types/shrine';
 import { langAttr } from '../lib/i18n/languages';
 import { supportLevelKey, SUPPORT_LEVEL_LABEL_KEYS } from '../lib/data/supportLevel';
@@ -116,6 +117,12 @@ function ShrineContent({
   const shrinePlaces = React.useMemo(() => placesForShrine(shrine), [shrine]);
   const { navItems } = useArticleContent(shrine);
   const { share, copied } = useShareLink();
+  /* Read once on mount, like the tours switch and for the same reason: the only
+     place either of these changes is `/settings`, which is a different route, so
+     reaching this page at all means the component has just mounted. A context
+     here would be a re-render in place of a `localStorage.getItem`. */
+  const [showSharedGround] = useState(readSharedGroundSection);
+  const [showNearbyMosques] = useState(readNearbyMosquesSection);
   const saved = useSavedShrines();
   const isShrineSaved = saved.includes(shrine.slug);
   // Move focus to the heading so screen readers announce the shrine name on navigation
@@ -472,11 +479,16 @@ function ShrineContent({
           ) : (
             <p className="location-not-recorded">{t('locationNotRecorded')}</p>
           )}
-          {/* Directly under the map, because it is a fact about this ground:
-              which other sites — and which other traditions — stand within
-              walking distance. Renders nothing when there are none. */}
-          <SharedGround shrine={shrine} all={allShrines} />
-          <NearbyMosques shrine={shrine} />
+          {/* Two adjacent facts — the ground this site shares with its
+              neighbours, and what the companion Auqaf survey records about the
+              mosques around it — both off unless the reader has asked for them
+              in `/settings` (Rauf, 14 September 2026). Each still renders
+              nothing when there is nothing to show, so the switch decides
+              whether the section is *offered*, not whether it has content.
+              `NearbyMosques` fetches the Awqaf CSV on mount, so gating at the
+              call site rather than inside it also spares the request. */}
+          {showSharedGround && <SharedGround shrine={shrine} all={allShrines} />}
+          {showNearbyMosques && <NearbyMosques shrine={shrine} />}
 
           {/* One list of four, order-first — see `findRelatedShrines`. The
               purely geographic "Nearby shrines" grid that followed it was

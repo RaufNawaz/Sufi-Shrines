@@ -114,6 +114,18 @@ export const UI_TEXT_UR: UiStrings = {
   settingsAllOptions: 'تمام ترتیبات',
   settingsToursHelp:
     'آرکائیو میں سے منتخب راستے۔ طے شدہ طور پر بند ہیں — نقشے کا اپنا موضوع خود یہ مقامات ہیں۔',
+  settingsEntrySection: 'اندراج کے صفحات',
+  /* The legends repeat the sections' own headings word for word —
+     `sharedGroundHeading` and `mosquesHeading` — so the switch and the thing it
+     switches are named the same in the Urdu view as in the English one. */
+  settingsSharedGroundLabel: 'مشترکہ زمین',
+  settingsSharedGroundHelp:
+    'جو اندراج پڑھا جا رہا ہے اس سے پیدل فاصلے پر موجود دیگر مقامات، اور ان میں سے کتنے کسی دوسری روایت سے ہیں۔ طے شدہ طور پر بند؛ پورے آرکائیو کا مشترکہ زمین والا صفحہ بہرحال جوں کا توں رہتا ہے۔',
+  settingsSharedGroundToggle: 'اندراج پر مشترکہ زمین دکھائیں',
+  settingsMosquesLabel: 'قریبی اوقاف مساجد',
+  settingsMosquesHelp:
+    'اوقاف مساجد کا ساتھی سروے کسی اندراج کے گردونواح میں جو کچھ درج کرتا ہے، بشمول خواتین کی نماز کی سہولت کا جواب۔ طے شدہ طور پر بند — یہ کسی اور منصوبے کا سروے ہے جو اس آرکائیو کے اپنے صفحات کے ساتھ دکھایا جاتا ہے۔',
+  settingsMosquesToggle: 'اندراج پر قریبی مساجد دکھائیں',
   /* NOT renamed alongside the English on 30 August 2026, deliberately.
      'پاکستان کے صوفی مزارات' says "Pakistan's Sufi shrines" and carries exactly
      the same problem the English rename fixed — but an archive's name in Urdu
@@ -874,6 +886,10 @@ export const UI_TEXT_UR: UiStrings = {
   guidedToursHint: 'ایک دورہ شروع کریں اور نقشے پر مزارات کی سیر کریں',
   turnOnTours: 'رہنما دورے چالو کریں',
   turnOffTours: 'رہنما دورے بند کریں',
+  turnOnSharedGround: 'مشترکہ زمین چالو کریں',
+  turnOffSharedGround: 'مشترکہ زمین بند کریں',
+  turnOnMosques: 'قریبی اوقاف مساجد چالو کریں',
+  turnOffMosques: 'قریبی اوقاف مساجد بند کریں',
   endTourAriaLabel: 'دورہ ختم کریں',
   endTour: 'ختم کریں',
   previousStopAriaLabel: 'پچھلا مقام',

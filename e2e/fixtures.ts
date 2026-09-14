@@ -23,7 +23,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test as base, expect } from '@playwright/test';
 import type { Tour } from '../src/lib/tours/tours';
-import { DIRECTORY_MODE_STORAGE_KEY } from '../src/lib/storageKeys';
+import {
+  DIRECTORY_MODE_STORAGE_KEY,
+  NEARBY_MOSQUES_SECTION_STORAGE_KEY,
+  SHARED_GROUND_SECTION_STORAGE_KEY,
+} from '../src/lib/storageKeys';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -75,6 +79,28 @@ export async function setTraditionalDirectory(page: Page): Promise<void> {
   await page.addInitScript(
     ([key, value]) => window.localStorage.setItem(key, value),
     [DIRECTORY_MODE_STORAGE_KEY, 'table'],
+  );
+}
+
+/**
+ * Opt a test into one of the entry page's two optional sections.
+ *
+ * Both are off for every reader since 14 September 2026
+ * (`src/lib/shrineSectionPreferences.ts`), so a spec that asserts what a section
+ * *contains* has to ask for it first. A spec that asserts what the default page
+ * shows must not call these — that is what `entry-sections.spec.ts` is for.
+ */
+export async function showSharedGroundSection(page: Page): Promise<void> {
+  await page.addInitScript(
+    ([key, value]) => window.localStorage.setItem(key, value),
+    [SHARED_GROUND_SECTION_STORAGE_KEY, 'on'],
+  );
+}
+
+export async function showNearbyMosquesSection(page: Page): Promise<void> {
+  await page.addInitScript(
+    ([key, value]) => window.localStorage.setItem(key, value),
+    [NEARBY_MOSQUES_SECTION_STORAGE_KEY, 'on'],
   );
 }
 

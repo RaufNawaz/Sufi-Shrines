@@ -133,6 +133,19 @@ const UI_TEXT_EN = {
   settingsAllOptions: 'All settings',
   settingsToursHelp:
     'Curated routes through the archive. Off by default — the map’s own subject is the sites themselves.',
+  /* ── Entry pages: the two optional sections (14 September 2026) ──────
+     Named for what the reader is looking at rather than for the components:
+     "entry" is what this archive calls one of its 169 pages, in the citation
+     block and in the coverage figures both. */
+  settingsEntrySection: 'Entry pages',
+  settingsSharedGroundLabel: 'Shared ground',
+  settingsSharedGroundHelp:
+    'The other sites within walking distance of the entry being read, and how many of them belong to another tradition. Off by default; the archive-wide view at /shared-ground is unaffected either way.',
+  settingsSharedGroundToggle: 'Show shared ground on an entry',
+  settingsMosquesLabel: 'Auqaf mosques nearby',
+  settingsMosquesHelp:
+    'What the companion Auqaf mosque survey records around an entry, including its answer on women’s prayer access. Off by default — it is another project’s survey shown beside this archive’s own pages.',
+  settingsMosquesToggle: 'Show nearby mosques on an entry',
   /* ── Command palette (⌘K search) ─────────────────────────────────────── */
   paletteTitle: 'Search the archive',
   paletteOpen: 'Search and filter',
@@ -972,6 +985,10 @@ const UI_TEXT_EN = {
   guidedToursHint: 'Follow a curated route through related shrines',
   turnOnTours: 'Turn on guided tours',
   turnOffTours: 'Turn off guided tours',
+  turnOnSharedGround: 'Turn on shared ground',
+  turnOffSharedGround: 'Turn off shared ground',
+  turnOnMosques: 'Turn on nearby Auqaf mosques',
+  turnOffMosques: 'Turn off nearby Auqaf mosques',
   endTourAriaLabel: 'End tour',
   endTour: 'End tour',
   previousStopAriaLabel: 'Previous stop',

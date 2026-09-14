@@ -191,7 +191,7 @@ const BUDGETS_KB = {
      other page, and `UI_TEXT.en` should split the way `UI_TEXT.ur` already
      lazily does. That is a design change, not a budget edit, which is why it is
      written here rather than done at the same time as the feature. */
-  'src/pages/AlmanacPage.tsx': 355, // measured 346 on 29 Aug 2026
+  'src/pages/AlmanacPage.tsx': 360, // measured 355 on 14 Sep 2026 — see the PlacePage note
   /* 29 Aug 2026, and it is the shared-table effect the Almanac note above
      describes, arriving exactly as predicted: kinship added ~25 English UI
      strings, the English table is eager on every route, and the three routes
@@ -251,7 +251,7 @@ const BUDGETS_KB = {
      and reaches it through a dynamic import, so ShrinePage pays nothing for it.
      A static import there would have cost 17 KB against 3 KB of headroom.
      If this route ever jumps by ~420 KB, something pulled in src/lib/kg.ts. */
-  'src/pages/TraditionPage.tsx': 335, // measured 326 on 29 Aug 2026
+  'src/pages/TraditionPage.tsx': 340, // measured 335 on 14 Sep 2026 — see the PlacePage note
   /* Absorbed /coverage and /report on 24 Aug 2026, so it carries what those two
      routes used to: the source index, the places index and the archive report.
      278 KB before the merge, 308 after — and the 281 KB and 279 KB those two
@@ -274,7 +274,21 @@ const BUDGETS_KB = {
      426 KB graph onto a route that had never carried it. It now uses the 11 KB
      shrine → figure index, so the growth is the two sections and nothing else.
      If this line ever jumps by ~300 KB, that is what came back. */
-  'src/pages/PlacePage.tsx': 346, // measured 336 on 29 Aug 2026 — shared-table effect, see below
+  /* 346 → 352, 14 September 2026, and it is the shared-table effect this file
+     already has two notes about: the entry page's two optional sections brought
+     twelve English UI strings — two legends, two help sentences, two switch
+     labels and six accessible names — and `uiStrings.ts` is eager on every
+     route. ~1 KB on all thirteen; this is the one with the least headroom, so
+     it is the one that failed, on a route that renders neither section.
+
+     Raised past the measurement rather than to it, for the reason the
+     ReviewPage note gives: a budget set to the measured value fails the next
+     person who adds a string, on a page their string never reaches, and they
+     reasonably conclude the failure is theirs. The same +1 KB put
+     AlmanacPage and TraditionPage at exactly 355/355 and 335/335 — passing
+     today and set up to misattribute tomorrow — so both are given the same
+     slack here. */
+  'src/pages/PlacePage.tsx': 352, // measured 347 on 14 Sep 2026 — shared-table effect, see below
   // Added 23 Aug 2026 when the two branches merged: this route was built on the
   // other line, so this table had never seen it.
   /* 310 → 317, 29 August 2026, with PlacePage on the same day and for the same

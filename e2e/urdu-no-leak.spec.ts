@@ -253,7 +253,22 @@ const BUDGET: Record<string, number> = {
   // Neither is interface copy, and neither is prose. What *was* interface copy —
   // the print footer's raw "Field-verified" — is now translated through
   // SUPPORT_LEVEL_LABEL_KEYS rather than declared.
-  shrine: 10,
+  //
+  // **10 → 6 on 14 September 2026**, lowered rather than left, per this file's
+  // own instruction. The nearby-mosques block is off for every reader now
+  // (`src/lib/shrineSectionPreferences.ts`), so the four runs it contributed —
+  // three mosque names and a city, read from a second sheet this project does
+  // not translate — are not on the page an Urdu reader gets. Measured at **4**
+  // with the section off and `undeclared` empty; 6 keeps this route's habitual
+  // two of slack.
+  //
+  // Worth knowing before raising it back: the mosque names are the *only*
+  // declared Latin here that a preference can restore, so a reader who turns
+  // the section on in `/settings` sees 8, not 4. That is not a leak and it is
+  // not measured here — entry-sections.spec.ts is where the section's own Urdu
+  // behaviour is asserted, including that the names keep Latin metrics rather
+  // than Nastaliq's.
+  shrine: 6,
   // 17 -> 19, raised 26 August 2026: the figure pages gained "Where this figure
   // rests", and its second line is the site's recorded Location verbatim —
   // "Jhanda Bazar, Peshawar, Khyber Pakhtunkhwa, Pakistan", and for several rows

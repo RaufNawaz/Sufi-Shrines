@@ -15,6 +15,12 @@ import {
   type DirectoryMode,
 } from '../lib/directoryPreference';
 import { readToursEnabled, writeToursEnabled } from '../lib/toursPreference';
+import {
+  readNearbyMosquesSection,
+  readSharedGroundSection,
+  writeNearbyMosquesSection,
+  writeSharedGroundSection,
+} from '../lib/shrineSectionPreferences';
 import { readTextSize, type TextSize } from '../lib/textSizePreference';
 import { ReadingSizeSlider } from '../components/ui/ReadingSizeSlider';
 import { useReaderPreferences } from '../lib/preferences/ReaderPreferencesContext';
@@ -129,6 +135,8 @@ export default function SettingsPage() {
      provider neither of them needed. */
   const [directoryMode, setDirectoryMode] = useState<DirectoryMode>(readDirectoryMode);
   const [toursEnabled, setToursEnabled] = useState<boolean>(readToursEnabled);
+  const [sharedGroundSection, setSharedGroundSection] = useState<boolean>(readSharedGroundSection);
+  const [mosquesSection, setMosquesSection] = useState<boolean>(readNearbyMosquesSection);
   const [textSize, setTextSize] = useState<TextSize>(readTextSize);
   const [motion, setMotion] = useState<MotionPreference>(readMotionPreference);
   const saved = useSavedShrines();
@@ -194,6 +202,16 @@ export default function SettingsPage() {
   const chooseTours = (enabled: boolean) => {
     setToursEnabled(enabled);
     writeToursEnabled(enabled);
+  };
+
+  const chooseSharedGroundSection = (enabled: boolean) => {
+    setSharedGroundSection(enabled);
+    writeSharedGroundSection(enabled);
+  };
+
+  const chooseMosquesSection = (enabled: boolean) => {
+    setMosquesSection(enabled);
+    writeNearbyMosquesSection(enabled);
   };
 
   /* `useTheme` exposes a toggle rather than a setter, because until this page
@@ -430,6 +448,47 @@ export default function SettingsPage() {
                 aria-label={toursEnabled ? t('turnOffTours') : t('turnOnTours')}
               />
               <span className="settings-option-label">{t('settingsToursToggle')}</span>
+            </label>
+          </SettingsGroup>
+        </section>
+
+        <section className="settings-section" aria-labelledby="settings-entry">
+          <h2 id="settings-entry" className="settings-section-heading">
+            {t('settingsEntrySection')}
+          </h2>
+
+          {/* Two switches rather than two sets of radios, for the reason the
+              tours switch already gives: a boolean's own state is the answer,
+              and "On"/"Off" beside it are the sentence fragments
+              noSentenceFragments.test refuses. Both are off by default — see
+              `lib/shrineSectionPreferences.ts` for why that is an editorial
+              position rather than an unfinished feature. */}
+          <SettingsGroup
+            legend={t('settingsSharedGroundLabel')}
+            help={t('settingsSharedGroundHelp')}
+          >
+            <label className="settings-option">
+              <input
+                type="checkbox"
+                checked={sharedGroundSection}
+                onChange={(event) => chooseSharedGroundSection(event.target.checked)}
+                aria-label={
+                  sharedGroundSection ? t('turnOffSharedGround') : t('turnOnSharedGround')
+                }
+              />
+              <span className="settings-option-label">{t('settingsSharedGroundToggle')}</span>
+            </label>
+          </SettingsGroup>
+
+          <SettingsGroup legend={t('settingsMosquesLabel')} help={t('settingsMosquesHelp')}>
+            <label className="settings-option">
+              <input
+                type="checkbox"
+                checked={mosquesSection}
+                onChange={(event) => chooseMosquesSection(event.target.checked)}
+                aria-label={mosquesSection ? t('turnOffMosques') : t('turnOnMosques')}
+              />
+              <span className="settings-option-label">{t('settingsMosquesToggle')}</span>
             </label>
           </SettingsGroup>
         </section>

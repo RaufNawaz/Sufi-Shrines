@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures';
+import { test, expect, showSharedGroundSection } from './fixtures';
 
 /**
  * Shared ground, and the one rule it must never break.
@@ -16,6 +16,14 @@ import { test, expect } from './fixtures';
  * Those rows must read "same recorded location", not "0 m" and not "< 1 km".
  */
 test.describe('shared ground', () => {
+  /* The section is off for every reader since 14 September 2026, so these tests
+     ask for it. What the *default* entry page shows is asserted in
+     entry-sections.spec.ts instead — here the subject is the section's content,
+     and it cannot be checked on a page that is right not to render it. */
+  test.beforeEach(async ({ page }) => {
+    await showSharedGroundSection(page);
+  });
+
   test('names the neighbouring sites and how many cross traditions', async ({ page }) => {
     await page.goto('/shrine/data-darbar');
     const section = page.locator('#shared-ground');
@@ -158,6 +166,8 @@ test.describe('/shared-ground', () => {
   });
 
   test('is reachable from a shrine that has shared ground, and from the map', async ({ page }) => {
+    // The shrine half of this needs the optional section; the map half does not.
+    await showSharedGroundSection(page);
     await page.goto('/shrine/data-darbar');
     await page.locator('#shared-ground a[href$="/shared-ground"]').click();
     await expect(page.locator('h1.entity-title')).toBeVisible();
