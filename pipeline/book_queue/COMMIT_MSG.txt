@@ -1,0 +1,43 @@
+ocr: three books summarized, and the findings script was reading one line in four
+
+Completes the notes stage for the first three books of the cloud queue and
+consolidates each into entries/book_takeaways/<slug>.md (Pass 2 of
+TAKEAWAYS_PROTOCOL.md), marked summarized in state.json:
+
+  hadeeqat_ul_aulia   32/32 chunk notes, 52 archive rows informed
+  eaton_essays…       20/20 chunk notes, Baba Farid plus the cross cutting argument
+  sawaneh_shah_jamal   1/1
+
+compile_findings.py was folding each bullet to its FIRST LINE only. These notes
+are hard wrapped at about 100 characters and a bullet routinely runs to six
+lines, so every continuation line was dropped: most of the text, and with it the
+dates, folios and Urdu quotations that happened to wrap. Four consolidation
+workers independently reported their input arriving truncated mid sentence
+before the cause was found, and the first four part files had to be rewritten.
+The parser now folds continuation lines into the bullet, and reports how much of
+the notes text reached the CSV, failing under --min-coverage (default 85%).
+Coverage is now 98% of non blank characters, against roughly a third before, and
+findings attached to an archive row went from 1,036 across 47 shrines to 1,171
+across 55. This is RULE 4: the check that could not see the notes it was checking
+now says so out loud.
+
+Three findings worth a human's attention, all recorded in the takeaways files:
+
+  * The archive's figure_died for data-darbar, shrine-of-bahauddin-zakariya and
+    darbar-malik-ahmad-ayaz each match the reading this edition's own editor
+    rejects. Both readings are kept side by side (RULE 2); the choice is Rauf's.
+  * madho-lal-hussain is one archive row, but the book treats Shah Husain and
+    Madho as two saints, with separate entries, appendix rows and index lines,
+    and the editor doubts Madho's historicity.
+  * sawaneh_shah_jamal is NOT a life of Shah Jamal of Ichhra. Its title page
+    gives Shah Jamal al-Bahr of Warangal, Deccan, compiled by Muhammad Ali Khan
+    Mujaddidi, Hyderabad Deccan. The manifest's mapping to shah-jamal is
+    unsupported and the manifest needs correcting.
+
+Also folio arithmetic: the folio markers for pp. 176-197 read ten too high,
+raised by nine separate workers, so folios cited from chunks 016-018 need ten
+subtracted.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01M1vx88BD7sHniPDPRvvSqt
+

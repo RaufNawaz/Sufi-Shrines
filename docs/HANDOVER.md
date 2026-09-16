@@ -5876,6 +5876,40 @@ snapshot. Three things fell in the gap and are documented, with the recommended 
   column 21 is empty and the Drive book folder's newest upload is 29 June. One for the next
   message to Saifullah.
 
+### 9.195 — 16 September 2026: the notes stage is the front, and the notes were filed where the tooling cannot see them
+
+The cloud queue's transcription stage is largely done (29 of 42 books, 8,377 of 13,926 pages). The
+work that remains is the **notes stage**, and a session resuming this queue should not go looking for
+pages to transcribe. Two things cost time on 16 September and are worth writing down.
+
+**The `cloud-ocr-queue` branch was never pushed.** `git ls-remote` on GitHub shows no such branch, so
+the queue's scripts, `state.json` and every transcription exist **only in this working copy on the
+Mac**. The cloud container cannot push either: the git proxy answers
+`RaufNawaz/Sufi-Shrines is not in this session's authorized repository set` with a 403. So the Mac is
+the single copy of several thousand pages of transcription. That is the risk §10 should carry until
+Rauf either pushes the branch or attaches the repo to the cloud session.
+
+**The path trap in the notes stage.** `out/` is gitignored, so an earlier session sensibly wrote the
+chunk notes to the committed location `entries/book_takeaways/<slug>/chunk_NNN.notes.md`. But
+`queue.py notes-status` and `compile_findings.py` both read notes from
+`out/ocr/<slug>/chunks/chunk_NNN.notes.md`. The result: 32 real notes files existed on disk and
+`notes-status` reported `{"chunks": 0, "notes_missing": []}` — a clean bill of health for a book whose
+notes it could not see, which is the most dangerous shape a check can take (RULE 4). Until the scripts
+are fixed, **write every note into both locations**, and copy `entries/book_takeaways/<slug>/` into
+`out/ocr/<slug>/chunks/` before trusting `notes-status`. `queue.py chunk` also has to be re-run with
+the same `--words` size recorded in that book's state log (hadeeqat 4000, tareekh_lahore 5000,
+tazkirah 5000, eaton 6000, most English books 8000) or the regenerated chunks will not line up with
+the notes already written against them.
+
+**Done this session:** hadeeqat_ul_aulia chunk notes 023, 025, 027, 028, 029, 031;
+eaton_essays_islam_indian_history 011, 012, 013; sawaneh_shah_jamal 001. All ten mirrored into
+`entries/book_takeaways/`.
+
+**Still open:** 407 chunk notes across 28 books, 29 consolidated `entries/book_takeaways/<slug>.md`
+files (none exists yet), 4,050 pages still to transcribe (the seven ingested Masnavi/Khulasat volumes
+plus the tahqiqat_chishti remainder), and then the integration stage into `shrine_entries/`. A
+scheduled task now resumes one batch of this every three hours.
+
 ## 10. Risks if this is left unattended
 
 1. **`~/shrines` is unversioned and unbacked-up.** The termbase, the photo manifest and every

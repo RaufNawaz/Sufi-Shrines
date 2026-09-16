@@ -1,0 +1,2410 @@
+{
+  "version": 1,
+  "created": "2026-09-14T16:07:35Z",
+  "books": {
+    "sawaneh_shah_jamal": {
+      "status": "summarized",
+      "priority": 10,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/sawaneh_shah_jamal.pdf",
+      "pdf_bytes": 2274011,
+      "pdf_sha256_head": "e34b3741d977b150",
+      "pages": 16,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "1-16",
+      "leases": {},
+      "assembled_file": "out/ocr/sawaneh_shah_jamal/p001-end_2026-09-14_1748_transcribed.txt",
+      "takeaways_file": "entries/book_takeaways/sawaneh_shah_jamal.md",
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:32Z",
+          "msg": "ingested: 16 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:48:10Z",
+          "msg": "assembled p001-end_2026-09-14_1748_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 1 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-16T02:53:23Z",
+          "msg": "chunked into 1 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-16T12:25:48Z",
+          "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 16,
+        "images_per_page": 1.0,
+        "median_width": 679,
+        "median_height": 1080,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 1
+    },
+    "hadeeqat_ul_aulia": {
+      "status": "summarized",
+      "priority": 20,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/hadeeqat_ul_aulia.pdf",
+      "pdf_bytes": 55958523,
+      "pdf_sha256_head": "49c9a87dc6bf2828",
+      "pages": 361,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "1-361",
+      "leases": {},
+      "assembled_file": "out/ocr/hadeeqat_ul_aulia/p001-end_2026-09-15_1126_transcribed.txt",
+      "takeaways_file": "entries/book_takeaways/hadeeqat_ul_aulia.md",
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:36Z",
+          "msg": "ingested: 361 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:53:33Z",
+          "msg": "rendered pages 1-100 at scale 1568 (100 new; native 100, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-14T18:04:43Z",
+          "msg": "rendered pages 101-361 at scale 1568 (261 new; native 260, rerendered 1, split=False)"
+        },
+        {
+          "t": "2026-09-14T23:09:51Z",
+          "msg": "lease 124-125 released"
+        },
+        {
+          "t": "2026-09-14T23:09:51Z",
+          "msg": "lease 148-150 released"
+        },
+        {
+          "t": "2026-09-14T23:09:51Z",
+          "msg": "lease 174-175 released"
+        },
+        {
+          "t": "2026-09-14T23:09:51Z",
+          "msg": "lease 198-222 released"
+        },
+        {
+          "t": "2026-09-15T11:26:03Z",
+          "msg": "assembled p001-end_2026-09-15_1126_transcribed.txt"
+        },
+        {
+          "t": "2026-09-15T13:54:01Z",
+          "msg": "chunked into 32 chunks of ~4000 words"
+        },
+        {
+          "t": "2026-09-16T02:53:23Z",
+          "msg": "chunked into 32 chunks of ~4000 words"
+        },
+        {
+          "t": "2026-09-16T12:25:48Z",
+          "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 941,
+        "median_height": 1630,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 260,
+        "rerendered": 1,
+        "split_spreads": false,
+        "keep_color": false
+      },
+      "chunks": 32,
+      "folio_offsets": {
+        "12": "14-35,37-337,339-352"
+      }
+    },
+    "tahqiqat_chishti": {
+      "status": "transcribing",
+      "priority": 30,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/tahqiqat_chishti.pdf",
+      "pdf_bytes": 49185299,
+      "pdf_sha256_head": "934705d8ba63633c",
+      "pages": 873,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 2000,
+      "pages_done": "1-25",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:32Z",
+          "msg": "ingested: 873 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T18:11:26Z",
+          "msg": "rendered pages 1-873 at scale 2000 (873 new; native 873, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T11:31:23Z",
+          "msg": "rendered pages 26-873 at scale 2000 (848 new; native 848, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T12:06:40Z",
+          "msg": "marked transcribing: 15 Sep: Opus workers cannot read this scribal lithograph (one stopped itself after 3 pages, calling its output invented); pages 26-75 from Opus moved to opus_firstpass/ as a noisy reference, not counted. Hold for Fable or a Gemini pass; decision asked of Rauf."
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1700,
+        "median_height": 3039,
+        "color": "gray",
+        "bpc": 1,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 848,
+        "rerendered": 0,
+        "split_spreads": false,
+        "halves": true,
+        "keep_color": false
+      }
+    },
+    "tareekh_lahore": {
+      "status": "transcribed",
+      "priority": 40,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/tareekh_lahore.pdf",
+      "pdf_bytes": 70388397,
+      "pdf_sha256_head": "5cb83b40444e0dc7",
+      "pages": 463,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 2000,
+      "pages_done": "1-463",
+      "leases": {},
+      "assembled_file": "out/ocr/tareekh_lahore/p001-end_2026-09-16_0129_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:36Z",
+          "msg": "ingested: 463 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T18:46:38Z",
+          "msg": "rendered pages 1-463 at scale 1568 (463 new; native 463, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T13:40:00Z",
+          "msg": "render_scale reset: pages 26-463 redone as 2000 px halves after the Opus test at 1568 single pages found the body text unreadable (pages 26-50 moved to opus_firstpass/)"
+        },
+        {
+          "t": "2026-09-15T13:59:16Z",
+          "msg": "rendered pages 26-463 at scale 2000 (438 new; native 438, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T16:31:25Z",
+          "msg": "lease 26-50 expired (worker tareekh-opus-w2)"
+        },
+        {
+          "t": "2026-09-15T16:31:25Z",
+          "msg": "lease 51-75 expired (worker tareekh-halves-w3)"
+        },
+        {
+          "t": "2026-09-15T16:31:25Z",
+          "msg": "lease 76-100 expired (worker tareekh-halves-w4)"
+        },
+        {
+          "t": "2026-09-15T18:30:00Z",
+          "msg": "folio-check: pages 7-25 (front matter and the four contents tables) sit at offset +5 and pages 3-5 at +1, against +3 for the 275 body pages. Left as the workers read them: front matter in this book may carry its own numbering and the contents tables print their own page-number column, so this is a review question, not a known error."
+        },
+        {
+          "t": "2026-09-15T23:50:00Z",
+          "msg": "folio offset breaks at page 314 (+3 -> +7); printed folios 317-320 missing from the scan; recorded in folio_note"
+        },
+        {
+          "t": "2026-09-16T00:56:00Z",
+          "msg": "lease 420-441 expired (worker tareekh-w21)"
+        },
+        {
+          "t": "2026-09-16T00:56:00Z",
+          "msg": "lease 442-463 expired (worker tareekh-w22)"
+        },
+        {
+          "t": "2026-09-16T01:29:45Z",
+          "msg": "assembled p001-end_2026-09-16_0129_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T01:29:46Z",
+          "msg": "chunked into 32 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-09-16T12:37:17Z",
+          "msg": "chunked into 32 chunks of ~5000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 2992,
+        "median_height": 5014,
+        "color": "gray",
+        "bpc": 1,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 438,
+        "rerendered": 0,
+        "split_spreads": false,
+        "halves": true,
+        "keep_color": false
+      },
+      "folio_offsets": {
+        "-3": "26-313",
+        "-7": "314-460,462",
+        "5": "7-25",
+        "1": "3-5"
+      },
+      "folio_note": "Two offsets, both real. Folio = PDF index + 3 for pages 26-313, then + 7 for 314 onward. The break is a gap in the source scan, not a misreading: p0313 (folio 316) ends mid description of Mazar Shah Jamal Suhrawardi and p0314 (folio 321) opens mid sentence on Jangli Chiragh Shah, a saint never introduced, so printed folios 317-320 (four leaves) are absent from the PDF. Three workers read + 7 independently across pages 314-375 with clean tens digit transitions. Front matter (pages 3-25, the four contents tables) sits at other offsets and is a separate question. ACTION for Rauf: check whether the Drive PDF is missing leaves or the DLI scan itself is defective.",
+      "chunks": 32
+    },
+    "tazkirah_awliya_pak_o_hind": {
+      "status": "transcribed",
+      "priority": 50,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/tazkirah_awliya_pak_o_hind.pdf",
+      "pdf_bytes": 48468612,
+      "pdf_sha256_head": "210c884d54ce7768",
+      "pages": 392,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "1-392",
+      "leases": {},
+      "assembled_file": "out/ocr/tazkirah_awliya_pak_o_hind/p001-end_2026-09-15_1322_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:36Z",
+          "msg": "ingested: 392 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T18:39:40Z",
+          "msg": "rendered pages 1-392 at scale 1568 (392 new; native 392, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T13:22:32Z",
+          "msg": "assembled p001-end_2026-09-15_1322_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:01Z",
+          "msg": "chunked into 20 chunks of ~5000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 950,
+        "median_height": 1626,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 392,
+        "rerendered": 0,
+        "split_spreads": false,
+        "keep_color": false
+      },
+      "folio_offsets": {
+        "4": "21-29,31,33-87,89,91-143,145-201,203,205-245,247,249-309,311,313-343,345,347-375,377-388"
+      },
+      "chunks": 20
+    },
+    "khulasat_ut_tawarikh": {
+      "status": "ingested",
+      "priority": 190,
+      "group": "urdu_shrine",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/khulasat_ut_tawarikh.pdf",
+      "pdf_bytes": 55014513,
+      "pdf_sha256_head": "cfeb1f6c13b0b87a",
+      "pages": 610,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 668,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 550,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:59Z",
+          "msg": "ingested: 610 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 2488,
+        "median_height": 3840,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "wasif_qatra_qatra_qulzam": {
+      "status": "skipped",
+      "priority": 70,
+      "group": "urdu_shrine",
+      "route_planned": "text_probe",
+      "language": "arabic",
+      "pdf_path": "books/wasif_qatra_qatra_qulzam.pdf",
+      "pdf_bytes": 13187219,
+      "pdf_sha256_head": "d232d1e1b62339c8",
+      "pages": 230,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "1-5",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:59:38Z",
+          "msg": "ingested: 230 pages, route=vision"
+        },
+        {
+          "t": "2026-09-15T12:08:23Z",
+          "msg": "rendered pages 1-230 at scale 1568 (230 new; native 0, rerendered 230, split=False)"
+        },
+        {
+          "t": "2026-09-15T13:22:32Z",
+          "msg": "lease 1-25 released"
+        },
+        {
+          "t": "2026-09-15T16:20:00Z",
+          "msg": "source stamp recorded; two workers stopped over the rights notice before Rauf confirmed permission (15 Sep) and the protocol was changed to record stamps rather than strip them"
+        },
+        {
+          "t": "2026-09-15T16:31:25Z",
+          "msg": "lease 4-33 expired (worker wasif-w1)"
+        },
+        {
+          "t": "2026-09-15T16:31:25Z",
+          "msg": "lease 34-63 expired (worker wasif-w2)"
+        },
+        {
+          "t": "2026-09-15T17:13:31Z",
+          "msg": "marked skipped: HELD 15 Sep 2026, not abandoned. Four workers in a row declined full text transcription: the scans are a third party digitisation (IqbalCyberLibrary.net 'All rights reserved' (c)2002-2006 / www.Nayaab.Net 2006 internet edition, recorded in source_stamp) of an in print, in copyright book (Wasif d. 1993, published by Al-Faisal), and Rauf's blanket 'we have approval to use all these books' does not on its face cover reproducing someone else's scan of an in print title in full. Front matter and p0005 transcribed and kept. Narrow question put to Rauf: full text, or notes and quotations for the wasif-ali-wasif entry only. Also recorded: this scan prints NO folio numbers on the body pages, so citations for these titles must use PDF indices."
+        },
+        {
+          "t": "2026-09-15T23:45:56Z",
+          "msg": "lease 5-34 expired (worker wasif-w5)"
+        },
+        {
+          "t": "2026-09-15T23:45:56Z",
+          "msg": "lease 35-64 expired (worker wasif-w6)"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 450,
+        "median_height": 900,
+        "color": "index",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 0,
+        "rerendered": 230,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
+      },
+      "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
+    },
+    "wasif_dil_darya_samundar": {
+      "status": "skipped",
+      "priority": 71,
+      "group": "urdu_shrine",
+      "route_planned": "text_probe",
+      "language": "arabic",
+      "pdf_path": "books/wasif_dil_darya_samundar.pdf",
+      "pdf_bytes": 18947212,
+      "pdf_sha256_head": "3c06f5105e668ce5",
+      "pages": 248,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:59:40Z",
+          "msg": "ingested: 248 pages, route=vision"
+        },
+        {
+          "t": "2026-09-15T12:13:09Z",
+          "msg": "rendered pages 1-248 at scale 1568 (248 new; native 248, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T16:20:00Z",
+          "msg": "source stamp recorded; two workers stopped over the rights notice before Rauf confirmed permission (15 Sep) and the protocol was changed to record stamps rather than strip them"
+        },
+        {
+          "t": "2026-09-15T17:13:31Z",
+          "msg": "marked skipped: HELD 15 Sep 2026, not abandoned. Four workers in a row declined full text transcription: the scans are a third party digitisation (IqbalCyberLibrary.net 'All rights reserved' (c)2002-2006 / www.Nayaab.Net 2006 internet edition, recorded in source_stamp) of an in print, in copyright book (Wasif d. 1993, published by Al-Faisal), and Rauf's blanket 'we have approval to use all these books' does not on its face cover reproducing someone else's scan of an in print title in full. Front matter and p0005 transcribed and kept. Narrow question put to Rauf: full text, or notes and quotations for the wasif-ali-wasif entry only. Also recorded: this scan prints NO folio numbers on the body pages, so citations for these titles must use PDF indices."
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 844,
+        "median_height": 1203,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 248,
+        "rerendered": 0,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
+      },
+      "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
+    },
+    "wasif_kiran_kiran_sooraj": {
+      "status": "skipped",
+      "priority": 72,
+      "group": "urdu_shrine",
+      "route_planned": "text_probe",
+      "language": "arabic",
+      "pdf_path": "books/wasif_kiran_kiran_sooraj.pdf",
+      "pdf_bytes": 7970590,
+      "pdf_sha256_head": "e93c6b59495d544a",
+      "pages": 145,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 476,
+        "replacement_chars": 0,
+        "arabic_chars": 160,
+        "latin_chars": 160,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:59:44Z",
+          "msg": "ingested: 145 pages, route=vision"
+        },
+        {
+          "t": "2026-09-15T12:15:06Z",
+          "msg": "rendered pages 1-145 at scale 1568 (145 new; native 145, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T16:20:00Z",
+          "msg": "source stamp recorded; two workers stopped over the rights notice before Rauf confirmed permission (15 Sep) and the protocol was changed to record stamps rather than strip them"
+        },
+        {
+          "t": "2026-09-15T17:13:31Z",
+          "msg": "marked skipped: HELD 15 Sep 2026, not abandoned. Four workers in a row declined full text transcription: the scans are a third party digitisation (IqbalCyberLibrary.net 'All rights reserved' (c)2002-2006 / www.Nayaab.Net 2006 internet edition, recorded in source_stamp) of an in print, in copyright book (Wasif d. 1993, published by Al-Faisal), and Rauf's blanket 'we have approval to use all these books' does not on its face cover reproducing someone else's scan of an in print title in full. Front matter and p0005 transcribed and kept. Narrow question put to Rauf: full text, or notes and quotations for the wasif-ali-wasif entry only. Also recorded: this scan prints NO folio numbers on the body pages, so citations for these titles must use PDF indices."
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1127,
+        "median_height": 1756,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 145,
+        "rerendered": 0,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
+      },
+      "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
+    },
+    "wasif_wasifyat": {
+      "status": "skipped",
+      "priority": 73,
+      "group": "urdu_shrine",
+      "route_planned": "text_probe",
+      "language": "arabic",
+      "pdf_path": "books/wasif_wasifyat.pdf",
+      "pdf_bytes": 9582676,
+      "pdf_sha256_head": "7bdd42d1198daad2",
+      "pages": 465,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 398,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 310,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": 1568,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:59:44Z",
+          "msg": "ingested: 465 pages, route=vision"
+        },
+        {
+          "t": "2026-09-15T12:16:17Z",
+          "msg": "rendered pages 1-465 at scale 1568 (465 new; native 465, rerendered 0, split=False)"
+        },
+        {
+          "t": "2026-09-15T16:20:00Z",
+          "msg": "source stamp recorded; two workers stopped over the rights notice before Rauf confirmed permission (15 Sep) and the protocol was changed to record stamps rather than strip them"
+        },
+        {
+          "t": "2026-09-15T17:13:31Z",
+          "msg": "marked skipped: HELD 15 Sep 2026, not abandoned. Four workers in a row declined full text transcription: the scans are a third party digitisation (IqbalCyberLibrary.net 'All rights reserved' (c)2002-2006 / www.Nayaab.Net 2006 internet edition, recorded in source_stamp) of an in print, in copyright book (Wasif d. 1993, published by Al-Faisal), and Rauf's blanket 'we have approval to use all these books' does not on its face cover reproducing someone else's scan of an in print title in full. Front matter and p0005 transcribed and kept. Narrow question put to Rauf: full text, or notes and quotations for the wasif-ali-wasif entry only. Also recorded: this scan prints NO folio numbers on the body pages, so citations for these titles must use PDF indices."
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.08,
+        "median_width": 978,
+        "median_height": 1650,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 465,
+        "rerendered": 0,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
+      },
+      "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
+    },
+    "shackle_risalo_shah_abdul_latif": {
+      "status": "transcribed",
+      "priority": 100,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/shackle_risalo_shah_abdul_latif.pdf",
+      "pdf_bytes": 824333,
+      "pdf_sha256_head": "9e7c42d1592576c3",
+      "pages": 351,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 8045,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 5434,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-351",
+      "leases": {},
+      "assembled_file": "out/ocr/shackle_risalo_shah_abdul_latif/p001-end_2026-09-14_1707_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:07Z",
+          "msg": "ingested: 351 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:07:48Z",
+          "msg": "extracted text layer for 351 pages"
+        },
+        {
+          "t": "2026-09-14T17:07:48Z",
+          "msg": "assembled p001-end_2026-09-14_1707_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 10 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 1,
+        "images_per_page": 1.0,
+        "median_width": 954,
+        "median_height": 1500,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 10
+    },
+    "sorley_shah_abdul_latif_of_bhit": {
+      "status": "transcribed",
+      "priority": 101,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/sorley_shah_abdul_latif_of_bhit.pdf",
+      "pdf_bytes": 12267347,
+      "pdf_sha256_head": "064ad8973ab33c54",
+      "pages": 442,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 11121,
+        "replacement_chars": 24,
+        "arabic_chars": 0,
+        "latin_chars": 7402,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-442",
+      "leases": {},
+      "assembled_file": "out/ocr/sorley_shah_abdul_latif_of_bhit/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:07Z",
+          "msg": "ingested: 442 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:05Z",
+          "msg": "extracted text layer for 442 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:05Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 24 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 11.95,
+        "median_width": 101,
+        "median_height": 290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 9,
+        "spread_fraction": 0.23
+      },
+      "chunks": 24
+    },
+    "schimmel_pain_and_grace": {
+      "status": "transcribed",
+      "priority": 102,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/schimmel_pain_and_grace.pdf",
+      "pdf_bytes": 16349463,
+      "pdf_sha256_head": "c7bd0bfb1e1ca94c",
+      "pages": 310,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "tesseract",
+      "render_scale": null,
+      "pages_done": "1-310",
+      "leases": {},
+      "assembled_file": "out/ocr/schimmel_pain_and_grace/p001-end_2026-09-14_2309_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:07Z",
+          "msg": "ingested: 310 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:01:29Z",
+          "msg": "ingested: 310 pages, route=tesseract"
+        },
+        {
+          "t": "2026-09-14T23:09:05Z",
+          "msg": "assembled p001-end_2026-09-14_2309_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 16 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 2104,
+        "median_height": 3400,
+        "color": "gray",
+        "bpc": 1,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 16
+    },
+    "shackle_bulleh_shah_sufi_lyrics": {
+      "status": "transcribed",
+      "priority": 103,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/shackle_bulleh_shah_sufi_lyrics.pdf",
+      "pdf_bytes": 1997198,
+      "pdf_sha256_head": "f2ec606695374b6d",
+      "pages": 209,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 7247,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 5033,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-209",
+      "leases": {},
+      "assembled_file": "out/ocr/shackle_bulleh_shah_sufi_lyrics/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:07Z",
+          "msg": "ingested: 209 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:09Z",
+          "msg": "extracted text layer for 209 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:10Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 7 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 1,
+        "images_per_page": 1.0,
+        "median_width": 1575,
+        "median_height": 2400,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 7
+    },
+    "rafat_bulleh_shah_selection": {
+      "status": "transcribed",
+      "priority": 104,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/rafat_bulleh_shah_selection.pdf",
+      "pdf_bytes": 8456393,
+      "pdf_sha256_head": "4c903c2f51477f71",
+      "pages": 263,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "tesseract",
+      "render_scale": null,
+      "pages_done": "1-263",
+      "leases": {},
+      "assembled_file": "out/ocr/rafat_bulleh_shah_selection/p001-end_2026-09-14_2309_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:08Z",
+          "msg": "ingested: 263 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:01:29Z",
+          "msg": "ingested: 263 pages, route=tesseract"
+        },
+        {
+          "t": "2026-09-14T23:09:05Z",
+          "msg": "assembled p001-end_2026-09-14_2309_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 4 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1020,
+        "median_height": 1583,
+        "color": "gray",
+        "bpc": 2,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 4
+    },
+    "waris_shah_hir_ranjha": {
+      "status": "transcribed",
+      "priority": 105,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/waris_shah_hir_ranjha.pdf",
+      "pdf_bytes": 505994,
+      "pdf_sha256_head": "2576259404b907e3",
+      "pages": 57,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 58209,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 32075,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-57",
+      "leases": {},
+      "assembled_file": "out/ocr/waris_shah_hir_ranjha/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:08Z",
+          "msg": "ingested: 57 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:11Z",
+          "msg": "extracted text layer for 57 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:11Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 7 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 0,
+        "note": "no embedded images: born digital or vector PDF"
+      },
+      "chunks": 7
+    },
+    "madho_lal_hussein_verses_lowly_fakir": {
+      "status": "transcribed",
+      "priority": 106,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/madho_lal_hussein_verses_lowly_fakir.pdf",
+      "pdf_bytes": 663175,
+      "pdf_sha256_head": "15a449fa916b15c5",
+      "pages": 190,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 12158,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 9252,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-190",
+      "leases": {},
+      "assembled_file": "out/ocr/madho_lal_hussein_verses_lowly_fakir/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:08Z",
+          "msg": "ingested: 190 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:14Z",
+          "msg": "extracted text layer for 190 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:14Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 3 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 6,
+        "images_per_page": 1.0,
+        "median_width": 67,
+        "median_height": 95,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 2,
+        "spread_fraction": 0.33
+      },
+      "chunks": 3
+    },
+    "kugle_sufis_and_saints_bodies": {
+      "status": "transcribed",
+      "priority": 107,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/kugle_sufis_and_saints_bodies.pdf",
+      "pdf_bytes": 21723945,
+      "pdf_sha256_head": "aa32e0f22828002f",
+      "pages": 368,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 17495,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 5165,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-368",
+      "leases": {},
+      "assembled_file": "out/ocr/kugle_sufis_and_saints_bodies/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:08Z",
+          "msg": "ingested: 368 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:26Z",
+          "msg": "extracted text layer for 368 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:26Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:02Z",
+          "msg": "chunked into 22 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.15,
+        "median_width": 1582,
+        "median_height": 2642,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 4,
+        "spread_fraction": 0.1
+      },
+      "chunks": 22
+    },
+    "eaton_essays_islam_indian_history": {
+      "status": "summarized",
+      "priority": 108,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/eaton_essays_islam_indian_history.pdf",
+      "pdf_bytes": 15470336,
+      "pdf_sha256_head": "dd880ea8d8340c3c",
+      "pages": 292,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 6385,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 2971,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-292",
+      "leases": {},
+      "assembled_file": "out/ocr/eaton_essays_islam_indian_history/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": "entries/book_takeaways/eaton_essays_islam_indian_history.md",
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:22Z",
+          "msg": "ingested: 292 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:41Z",
+          "msg": "extracted text layer for 292 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:42Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-15T13:54:01Z",
+          "msg": "chunked into 20 chunks of ~6000 words"
+        },
+        {
+          "t": "2026-09-16T02:53:23Z",
+          "msg": "chunked into 20 chunks of ~6000 words"
+        },
+        {
+          "t": "2026-09-16T12:25:48Z",
+          "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.98,
+        "median_width": 1728,
+        "median_height": 2868,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 20
+    },
+    "ernst_lawrence_sufi_martyrs_of_love": {
+      "status": "transcribed",
+      "priority": 109,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/ernst_lawrence_sufi_martyrs_of_love.pdf",
+      "pdf_bytes": 34734966,
+      "pdf_sha256_head": "9c031a3f4d02b966",
+      "pages": 250,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 5939,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 3459,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-250",
+      "leases": {},
+      "assembled_file": "out/ocr/ernst_lawrence_sufi_martyrs_of_love/p001-end_2026-09-14_1708_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:24Z",
+          "msg": "ingested: 250 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:08:55Z",
+          "msg": "extracted text layer for 250 pages"
+        },
+        {
+          "t": "2026-09-14T17:08:55Z",
+          "msg": "assembled p001-end_2026-09-14_1708_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:02Z",
+          "msg": "chunked into 17 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 1,
+        "images_per_page": 1.0,
+        "median_width": 1218,
+        "median_height": 1850,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 17
+    },
+    "rizvi_history_of_sufism_india_1": {
+      "status": "transcribed",
+      "priority": 110,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/rizvi_history_of_sufism_india_1.pdf",
+      "pdf_bytes": 91922717,
+      "pdf_sha256_head": "c1138d1012275162",
+      "pages": 491,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "tesseract",
+      "render_scale": null,
+      "pages_done": "1-491",
+      "leases": {},
+      "assembled_file": "out/ocr/rizvi_history_of_sufism_india_1/p001-end_2026-09-15_1602_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:24Z",
+          "msg": "ingested: 491 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:01:29Z",
+          "msg": "ingested: 491 pages, route=tesseract"
+        },
+        {
+          "t": "2026-09-15T16:02:22Z",
+          "msg": "tesseract pages 1-491 (26 new)"
+        },
+        {
+          "t": "2026-09-15T16:02:24Z",
+          "msg": "assembled p001-end_2026-09-15_1602_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 28 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1137,
+        "median_height": 1684,
+        "color": "icc",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 28
+    },
+    "kasmani_queer_companions": {
+      "status": "transcribed",
+      "priority": 111,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/kasmani_queer_companions.pdf",
+      "pdf_bytes": 6240866,
+      "pdf_sha256_head": "409308e57b9b27ae",
+      "pages": 225,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 3603,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 2329,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-225",
+      "leases": {},
+      "assembled_file": "out/ocr/kasmani_queer_companions/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:24Z",
+          "msg": "ingested: 225 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:01Z",
+          "msg": "extracted text layer for 225 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:01Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 12 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 3,
+        "images_per_page": 1.33,
+        "median_width": 719,
+        "median_height": 689,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 1,
+        "spread_fraction": 0.33
+      },
+      "chunks": 12
+    },
+    "boivin_hindu_sufis_south_asia": {
+      "status": "transcribed",
+      "priority": 112,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/boivin_hindu_sufis_south_asia.pdf",
+      "pdf_bytes": 10357331,
+      "pdf_sha256_head": "22e6f7015102be45",
+      "pages": 253,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 10233,
+        "replacement_chars": 0,
+        "arabic_chars": 30,
+        "latin_chars": 4806,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-253",
+      "leases": {},
+      "assembled_file": "out/ocr/boivin_hindu_sufis_south_asia/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:25Z",
+          "msg": "ingested: 253 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:11Z",
+          "msg": "extracted text layer for 253 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:12Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 13 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 3,
+        "images_per_page": 1.0,
+        "median_width": 945,
+        "median_height": 1262,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 1,
+        "spread_fraction": 0.33
+      },
+      "chunks": 13
+    },
+    "schaflechner_hinglaj_devi": {
+      "status": "transcribed",
+      "priority": 113,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/schaflechner_hinglaj_devi.pdf",
+      "pdf_bytes": 6515343,
+      "pdf_sha256_head": "070973c35add6d0e",
+      "pages": 364,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 10227,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 7538,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-364",
+      "leases": {},
+      "assembled_file": "out/ocr/schaflechner_hinglaj_devi/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:25Z",
+          "msg": "ingested: 364 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:20Z",
+          "msg": "extracted text layer for 364 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:20Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 19 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 5,
+        "images_per_page": 1.2,
+        "median_width": 563,
+        "median_height": 522,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 3,
+        "spread_fraction": 0.6
+      },
+      "chunks": 19
+    },
+    "werbner_basu_embodying_charisma": {
+      "status": "transcribed",
+      "priority": 114,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/werbner_basu_embodying_charisma.pdf",
+      "pdf_bytes": 2035111,
+      "pdf_sha256_head": "563370fecf0baa0d",
+      "pages": 254,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 11348,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 6700,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-254",
+      "leases": {},
+      "assembled_file": "out/ocr/werbner_basu_embodying_charisma/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:25Z",
+          "msg": "ingested: 254 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:25Z",
+          "msg": "extracted text layer for 254 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:25Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 15 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 2,
+        "images_per_page": 1.0,
+        "median_width": 900,
+        "median_height": 1350,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 15
+    },
+    "abbas_female_voice_sufi_ritual": {
+      "status": "transcribed",
+      "priority": 115,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/abbas_female_voice_sufi_ritual.pdf",
+      "pdf_bytes": 3800703,
+      "pdf_sha256_head": "b35455fb06e4a59b",
+      "pages": 240,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 24511,
+        "replacement_chars": 0,
+        "arabic_chars": 37,
+        "latin_chars": 5331,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-240",
+      "leases": {},
+      "assembled_file": "out/ocr/abbas_female_voice_sufi_ritual/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:25Z",
+          "msg": "ingested: 240 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:30Z",
+          "msg": "extracted text layer for 240 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:30Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 11 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 5,
+        "images_per_page": 1.0,
+        "median_width": 648,
+        "median_height": 501,
+        "color": "gray",
+        "bpc": 8,
+        "spread_pages": 3,
+        "spread_fraction": 0.6
+      },
+      "chunks": 11
+    },
+    "qureshi_sufi_music_qawwali": {
+      "status": "transcribed",
+      "priority": 116,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/qureshi_sufi_music_qawwali.pdf",
+      "pdf_bytes": 24233756,
+      "pdf_sha256_head": "62d43d53d1169da8",
+      "pages": 290,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 15244,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 5835,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-290",
+      "leases": {},
+      "assembled_file": "out/ocr/qureshi_sufi_music_qawwali/p001-end_2026-09-14_1709_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:28Z",
+          "msg": "ingested: 290 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:09:58Z",
+          "msg": "extracted text layer for 290 pages"
+        },
+        {
+          "t": "2026-09-14T17:09:58Z",
+          "msg": "assembled p001-end_2026-09-14_1709_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 15 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.93,
+        "median_width": 1958,
+        "median_height": 2929,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 15
+    },
+    "rozehnal_islamic_sufism_unbound": {
+      "status": "transcribed",
+      "priority": 117,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/rozehnal_islamic_sufism_unbound.pdf",
+      "pdf_bytes": 3146230,
+      "pdf_sha256_head": "e3ae15bf3661ec20",
+      "pages": 281,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 6102,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 3923,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-281",
+      "leases": {},
+      "assembled_file": "out/ocr/rozehnal_islamic_sufism_unbound/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:30Z",
+          "msg": "ingested: 281 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:10:13Z",
+          "msg": "extracted text layer for 281 pages"
+        },
+        {
+          "t": "2026-09-14T17:10:13Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 18 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 4,
+        "images_per_page": 1.0,
+        "median_width": 677,
+        "median_height": 722,
+        "color": "icc",
+        "bpc": 8,
+        "spread_pages": 2,
+        "spread_fraction": 0.5
+      },
+      "chunks": 18
+    },
+    "schimmel_as_through_a_veil": {
+      "status": "transcribed",
+      "priority": 118,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/schimmel_as_through_a_veil.pdf",
+      "pdf_bytes": 14033557,
+      "pdf_sha256_head": "803b145548e14470",
+      "pages": 382,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 5960,
+        "replacement_chars": 4,
+        "arabic_chars": 0,
+        "latin_chars": 4297,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-382",
+      "leases": {},
+      "assembled_file": "out/ocr/schimmel_as_through_a_veil/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:30Z",
+          "msg": "ingested: 382 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:10:22Z",
+          "msg": "extracted text layer for 382 pages"
+        },
+        {
+          "t": "2026-09-14T17:10:22Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 16 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 25,
+        "images_per_page": 1.28,
+        "median_width": 16,
+        "median_height": 16,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 7,
+        "spread_fraction": 0.28
+      },
+      "chunks": 16
+    },
+    "schimmel_mystical_dimensions_of_islam": {
+      "status": "transcribed",
+      "priority": 119,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/schimmel_mystical_dimensions_of_islam.pdf",
+      "pdf_bytes": 30389548,
+      "pdf_sha256_head": "e674592cf1d91f9e",
+      "pages": 543,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 4796,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 3515,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-543",
+      "leases": {},
+      "assembled_file": "out/ocr/schimmel_mystical_dimensions_of_islam/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:30Z",
+          "msg": "ingested: 543 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:10:38Z",
+          "msg": "extracted text layer for 543 pages"
+        },
+        {
+          "t": "2026-09-14T17:10:38Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 29 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1603,
+        "median_height": 2577,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 7,
+        "spread_fraction": 0.17
+      },
+      "chunks": 29
+    },
+    "khalid_walking_with_nanak": {
+      "status": "transcribed",
+      "priority": 120,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/khalid_walking_with_nanak.pdf",
+      "pdf_bytes": 146236729,
+      "pdf_sha256_head": "9457e3128b25aef0",
+      "pages": 324,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "tesseract",
+      "render_scale": null,
+      "pages_done": "1-324",
+      "leases": {},
+      "assembled_file": "out/ocr/khalid_walking_with_nanak/p001-end_2026-09-15_1704_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:30Z",
+          "msg": "ingested: 324 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:01:29Z",
+          "msg": "ingested: 324 pages, route=tesseract"
+        },
+        {
+          "t": "2026-09-15T17:04:47Z",
+          "msg": "tesseract pages 1-324 (324 new)"
+        },
+        {
+          "t": "2026-09-15T17:04:47Z",
+          "msg": "assembled p001-end_2026-09-15_1704_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:03Z",
+          "msg": "chunked into 14 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 1832,
+        "median_height": 3152,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 14
+    },
+    "dhillon_janamsakhis": {
+      "status": "transcribed",
+      "priority": 121,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/dhillon_janamsakhis.pdf",
+      "pdf_bytes": 26149590,
+      "pdf_sha256_head": "f1e37731e2ab3209",
+      "pages": 271,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 8244,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 4873,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-271",
+      "leases": {},
+      "assembled_file": "out/ocr/dhillon_janamsakhis/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:31Z",
+          "msg": "ingested: 271 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:10:44Z",
+          "msg": "extracted text layer for 271 pages"
+        },
+        {
+          "t": "2026-09-14T17:10:44Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 9 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 1.0,
+        "median_width": 794,
+        "median_height": 1255,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 9
+    },
+    "khalid_a_white_trail": {
+      "status": "transcribed",
+      "priority": 122,
+      "group": "english",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/khalid_a_white_trail.pdf",
+      "pdf_bytes": 1940070,
+      "pdf_sha256_head": "7d37ff5cb2b6de8c",
+      "pages": 236,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 9572,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 7372,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-236",
+      "leases": {},
+      "assembled_file": "out/ocr/khalid_a_white_trail/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:31Z",
+          "msg": "ingested: 236 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:10:48Z",
+          "msg": "extracted text layer for 236 pages"
+        },
+        {
+          "t": "2026-09-14T17:10:48Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:04Z",
+          "msg": "chunked into 13 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 15,
+        "images_per_page": 1.0,
+        "median_width": 60,
+        "median_height": 11,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 13,
+        "spread_fraction": 0.87
+      },
+      "chunks": 13
+    },
+    "khalid_in_search_of_shiva": {
+      "status": "transcribed",
+      "priority": 123,
+      "group": "english",
+      "route_planned": "epub",
+      "language": "latin",
+      "pdf_path": "books/khalid_in_search_of_shiva.epub",
+      "pdf_bytes": 318481,
+      "pdf_sha256_head": "f776971167fc8310",
+      "pages": 21,
+      "text_layer": true,
+      "route_used": "epub",
+      "render_scale": null,
+      "pages_done": "1-21",
+      "leases": {},
+      "assembled_file": "out/ocr/khalid_in_search_of_shiva/p001-end_2026-09-14_1710_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:31Z",
+          "msg": "ingested EPUB"
+        },
+        {
+          "t": "2026-09-14T17:10:49Z",
+          "msg": "extracted EPUB: 21 sections as pages"
+        },
+        {
+          "t": "2026-09-14T17:10:49Z",
+          "msg": "assembled p001-end_2026-09-14_1710_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 9 chunks of ~8000 words"
+        }
+      ],
+      "chunks": 9
+    },
+    "masnavi_01": {
+      "status": "skipped",
+      "priority": 200,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_01.pdf",
+      "pdf_bytes": 79684588,
+      "pdf_sha256_head": "99f353dca48bcfa9",
+      "pages": 416,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:57:59Z",
+          "msg": "ingested: 416 pages, route=vision"
+        },
+        {
+          "t": "2026-09-14T17:07:29Z",
+          "msg": "marked skipped: duplicate of masnavi_01_text (same edition, lower resolution scan); pilot p.50 identical"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_01_text": {
+      "status": "ingested",
+      "priority": 201,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_01_text.pdf",
+      "pdf_bytes": 104565039,
+      "pdf_sha256_head": "4293789056cb8930",
+      "pages": 416,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 49,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 21,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T16:59:22Z",
+          "msg": "ingested: 416 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 4200,
+        "median_height": 6601,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_02": {
+      "status": "ingested",
+      "priority": 202,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_02.pdf",
+      "pdf_bytes": 68771377,
+      "pdf_sha256_head": "b0be2369b837a6e5",
+      "pages": 366,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 366 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_03": {
+      "status": "ingested",
+      "priority": 203,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_03.pdf",
+      "pdf_bytes": 61550056,
+      "pdf_sha256_head": "8878b01b50c603ff",
+      "pages": 462,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 462 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_04": {
+      "status": "ingested",
+      "priority": 204,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_04.pdf",
+      "pdf_bytes": 50303358,
+      "pdf_sha256_head": "0e463c34151916ac",
+      "pages": 374,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 374 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_05": {
+      "status": "ingested",
+      "priority": 205,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_05.pdf",
+      "pdf_bytes": 65843250,
+      "pdf_sha256_head": "e1aa09bf58ac7e58",
+      "pages": 432,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 432 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "masnavi_06": {
+      "status": "ingested",
+      "priority": 206,
+      "group": "urdu_other",
+      "route_planned": "vision",
+      "language": "arabic",
+      "pdf_path": "books/masnavi_06.pdf",
+      "pdf_bytes": 99004993,
+      "pdf_sha256_head": "7ac329e2c96fc5e3",
+      "pages": 542,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 0,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 0,
+        "script_matches": false,
+        "usable": false
+      },
+      "route_used": "vision",
+      "render_scale": null,
+      "pages_done": "",
+      "leases": {},
+      "assembled_file": null,
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 542 pages, route=vision"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 1050,
+        "median_height": 1290,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      }
+    },
+    "nizami_revised_translation": {
+      "status": "transcribed",
+      "priority": 210,
+      "group": "urdu_other",
+      "route_planned": "text_probe",
+      "language": "latin",
+      "pdf_path": "books/nizami_revised_translation.pdf",
+      "pdf_bytes": 16426440,
+      "pdf_sha256_head": "f260569692d5f201",
+      "pages": 208,
+      "text_layer": {
+        "probe_pages": 10,
+        "chars": 8010,
+        "replacement_chars": 0,
+        "arabic_chars": 0,
+        "latin_chars": 3224,
+        "script_matches": true,
+        "usable": true
+      },
+      "route_used": "text_layer",
+      "render_scale": null,
+      "pages_done": "1-208",
+      "leases": {},
+      "assembled_file": "out/ocr/nizami_revised_translation/p001-end_2026-09-14_1711_transcribed.txt",
+      "takeaways_file": null,
+      "integrated_into": [],
+      "log": [
+        {
+          "t": "2026-09-14T17:00:06Z",
+          "msg": "ingested: 208 pages, route=text_layer"
+        },
+        {
+          "t": "2026-09-14T17:11:00Z",
+          "msg": "extracted text layer for 208 pages"
+        },
+        {
+          "t": "2026-09-14T17:11:00Z",
+          "msg": "assembled p001-end_2026-09-14_1711_transcribed.txt"
+        },
+        {
+          "t": "2026-09-16T00:51:05Z",
+          "msg": "chunked into 13 chunks of ~8000 words"
+        }
+      ],
+      "scan_images": {
+        "pages_sampled": 40,
+        "images_per_page": 2.0,
+        "median_width": 2054,
+        "median_height": 3528,
+        "color": "rgb",
+        "bpc": 8,
+        "spread_pages": 0,
+        "spread_fraction": 0.0
+      },
+      "chunks": 13
+    }
+  },
+  "updated": "2026-09-16T12:37:17Z"
+}
