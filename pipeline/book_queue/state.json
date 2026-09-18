@@ -8,7 +8,7 @@
       "group": "urdu_shrine",
       "route_planned": "vision",
       "language": "arabic",
-      "pdf_path": "books/sawaneh_shah_jamal.pdf",
+      "pdf_path": "books/incoming-2026-09-11/01_Sawaneh-Mubarak-Hazrat-Syed-Shah-Jamal-u.pdf",
       "pdf_bytes": 2274011,
       "pdf_sha256_head": "e34b3741d977b150",
       "pages": 16,
@@ -68,7 +68,7 @@
       "group": "urdu_shrine",
       "route_planned": "vision",
       "language": "arabic",
-      "pdf_path": "books/hadeeqat_ul_aulia.pdf",
+      "pdf_path": "books/incoming-2026-09-11/23_00396_HADEEQAT-UL-AULIA-ur-saifullah-imt.pdf",
       "pdf_bytes": 55958523,
       "pdf_sha256_head": "49c9a87dc6bf2828",
       "pages": 361,
@@ -175,8 +175,8 @@
         "usable": false
       },
       "route_used": "vision",
-      "render_scale": 2000,
-      "pages_done": "1-25",
+      "render_scale": 3000,
+      "pages_done": "1-66",
       "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
@@ -197,6 +197,86 @@
         {
           "t": "2026-09-15T12:06:40Z",
           "msg": "marked transcribing: 15 Sep: Opus workers cannot read this scribal lithograph (one stopped itself after 3 pages, calling its output invented); pages 26-75 from Opus moved to opus_firstpass/ as a noisy reference, not counted. Hold for Fable or a Gemini pass; decision asked of Rauf."
+        },
+        {
+          "t": "2026-09-17T10:42:50Z",
+          "msg": "rendered pages 26-31 at scale 2000 (5 new; native 0, rerendered 5, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:43:42Z",
+          "msg": "rendered pages 32-37 at scale 3000 (6 new; native 0, rerendered 6, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:46:56Z",
+          "msg": "rendered pages 1-200 at scale 3000 (200 new; native 0, rerendered 200, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:49:22Z",
+          "msg": "rendered pages 201-400 at scale 3000 (200 new; native 0, rerendered 200, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:51:10Z",
+          "msg": "rendered pages 401-600 at scale 3000 (200 new; native 0, rerendered 200, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:53:02Z",
+          "msg": "rendered pages 601-800 at scale 3000 (200 new; native 0, rerendered 200, split=False)"
+        },
+        {
+          "t": "2026-09-17T10:53:48Z",
+          "msg": "rendered pages 801-873 at scale 3000 (73 new; native 0, rerendered 73, split=False)"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 1-12 released"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 13-24 released"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 25-36 released"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 37-48 released"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 49-60 released"
+        },
+        {
+          "t": "2026-09-17T11:23:55Z",
+          "msg": "lease 61-72 released"
+        },
+        {
+          "t": "2026-09-18T01:28:27Z",
+          "msg": "marked transcribing: 18 Sep: pp. 1-66 transcribed by six workers from 4-band renders at scale 4400 (2462 px); folio-check 48/48 agree on offset +7. Re-measured over 66 pages, the band render gives +12% characters read but UNCHANGED [illegible] density per character (40.2 -> 40.1 per 1000) vs the 1679 px pass; worker mean ~48%. 807 pages remain; whether they run on this rendering is a decision asked of Rauf (HANDOVER 9.201)."
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 67-77 released"
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 78-88 released"
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 89-99 released"
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 100-110 released"
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 111-121 released"
+        },
+        {
+          "t": "2026-09-18T15:39:34Z",
+          "msg": "lease 122-132 released"
         }
       ],
       "scan_images": {
@@ -210,20 +290,23 @@
         "spread_fraction": 0.0
       },
       "render_mode": {
-        "native_extract": 848,
-        "rerendered": 0,
+        "native_extract": 0,
+        "rerendered": 73,
         "split_spreads": false,
         "halves": true,
         "keep_color": false
+      },
+      "folio_offsets": {
+        "7": "10-11,14-22,24-29,31-32,35,37-48,50,52-66"
       }
     },
     "tareekh_lahore": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 40,
       "group": "urdu_shrine",
       "route_planned": "vision",
       "language": "arabic",
-      "pdf_path": "books/tareekh_lahore.pdf",
+      "pdf_path": "books/incoming-2026-09-11/22_2015.398396.Tareeq-Lahore-saifullah-imti.pdf",
       "pdf_bytes": 70388397,
       "pdf_sha256_head": "5cb83b40444e0dc7",
       "pages": 463,
@@ -241,7 +324,7 @@
       "pages_done": "1-463",
       "leases": {},
       "assembled_file": "out/ocr/tareekh_lahore/p001-end_2026-09-16_0129_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/tareekh_lahore.md",
       "integrated_into": [],
       "log": [
         {
@@ -299,6 +382,10 @@
         {
           "t": "2026-09-16T12:37:17Z",
           "msg": "chunked into 32 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-09-16T22:06:23Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -328,12 +415,12 @@
       "chunks": 32
     },
     "tazkirah_awliya_pak_o_hind": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 50,
       "group": "urdu_shrine",
       "route_planned": "vision",
       "language": "arabic",
-      "pdf_path": "books/tazkirah_awliya_pak_o_hind.pdf",
+      "pdf_path": "books/incoming-2026-09-11/16_00523_Tazkirah-Awliya-e-Pak-o-Hind-saifu.pdf",
       "pdf_bytes": 48468612,
       "pdf_sha256_head": "210c884d54ce7768",
       "pages": 392,
@@ -351,7 +438,7 @@
       "pages_done": "1-392",
       "leases": {},
       "assembled_file": "out/ocr/tazkirah_awliya_pak_o_hind/p001-end_2026-09-15_1322_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/tazkirah_awliya_pak_o_hind.md",
       "integrated_into": [],
       "log": [
         {
@@ -369,6 +456,18 @@
         {
           "t": "2026-09-16T00:51:01Z",
           "msg": "chunked into 20 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-09-16T21:47:45Z",
+          "msg": "chunked into 20 chunks of ~5000 words"
+        },
+        {
+          "t": "2026-09-17T04:37:38Z",
+          "msg": "marked summarized"
+        },
+        {
+          "t": "2026-09-17T04:48:07Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -393,7 +492,7 @@
       "chunks": 20
     },
     "khulasat_ut_tawarikh": {
-      "status": "ingested",
+      "status": "transcribing",
       "priority": 190,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -412,9 +511,14 @@
         "usable": false
       },
       "route_used": "vision",
-      "render_scale": null,
-      "pages_done": "",
-      "leases": {},
+      "render_scale": 1568,
+      "pages_done": "1-16,49-230",
+      "leases": {
+        "17-38": {
+          "worker": "HOLD-vsplit-index-errata",
+          "since": "2026-09-18T06:05:18Z"
+        }
+      },
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
@@ -422,6 +526,26 @@
         {
           "t": "2026-09-14T16:57:59Z",
           "msg": "ingested: 610 pages, route=vision"
+        },
+        {
+          "t": "2026-09-17T11:43:20Z",
+          "msg": "rendered pages 300-310 at scale 1568 (11 new; native 0, rerendered 11, split=False)"
+        },
+        {
+          "t": "2026-09-18T06:05:18Z",
+          "msg": "lease 17-38,49-58 released"
+        },
+        {
+          "t": "2026-09-18T06:05:18Z",
+          "msg": "lease 300-309 released"
+        },
+        {
+          "t": "2026-09-18T10:39:08Z",
+          "msg": "lease 300-310 released"
+        },
+        {
+          "t": "2026-09-18T10:39:40Z",
+          "msg": "rendered pages 99-100 at scale 1568 (2 new; native 0, rerendered 2, split=False)"
         }
       ],
       "scan_images": {
@@ -433,6 +557,197 @@
         "bpc": 8,
         "spread_pages": 0,
         "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 0,
+        "rerendered": 2,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
+      },
+      "folio_offsets": {
+        "-491": "49",
+        "-489": "50",
+        "-487": "51",
+        "-485": "52",
+        "-483": "53",
+        "-481": "54",
+        "-479": "55",
+        "-477": "56",
+        "-475": "57",
+        "-473": "58",
+        "-471": "59",
+        "-469": "60",
+        "-467": "61",
+        "-465": "62",
+        "-463": "63",
+        "-461": "64",
+        "-459": "65",
+        "-457": "66",
+        "-455": "67",
+        "-453": "68",
+        "-451": "69",
+        "-449": "70",
+        "-447": "71",
+        "-445": "72",
+        "-443": "73",
+        "-441": "74",
+        "-439": "75",
+        "-437": "76",
+        "-435": "77",
+        "-433": "78",
+        "-431": "79",
+        "-429": "80",
+        "-427": "81",
+        "-425": "82",
+        "-423": "83",
+        "-421": "84",
+        "-419": "85",
+        "-417": "86",
+        "-415": "87",
+        "-413": "88",
+        "-411": "89",
+        "-409": "90",
+        "-407": "91",
+        "-405": "92",
+        "-403": "93",
+        "-401": "94",
+        "-399": "95",
+        "-397": "96",
+        "-395": "97",
+        "-393": "98",
+        "-391": "99",
+        "-389": "100",
+        "-387": "101",
+        "-385": "102",
+        "-383": "103",
+        "-381": "104",
+        "-379": "105",
+        "-377": "106",
+        "-375": "107",
+        "-373": "108",
+        "-371": "109",
+        "-369": "110",
+        "-367": "111",
+        "-365": "112",
+        "-363": "113",
+        "-361": "114",
+        "-359": "115",
+        "-357": "116",
+        "-355": "117",
+        "-353": "118",
+        "-351": "119",
+        "-349": "120",
+        "-347": "121",
+        "-345": "122",
+        "-343": "123",
+        "-341": "124",
+        "-339": "125",
+        "-337": "126",
+        "-335": "127",
+        "-333": "128",
+        "-331": "129",
+        "-329": "130",
+        "-327": "131",
+        "-325": "132",
+        "-323": "133",
+        "-321": "134",
+        "-319": "135",
+        "-317": "136",
+        "-315": "137",
+        "-313": "138",
+        "-311": "139",
+        "-309": "140",
+        "-307": "141",
+        "-305": "142",
+        "-303": "143",
+        "-301": "144",
+        "-299": "145",
+        "-297": "146",
+        "-295": "147",
+        "-293": "148",
+        "-291": "149",
+        "-289": "150",
+        "-287": "151",
+        "-285": "152",
+        "-283": "153",
+        "-281": "154",
+        "-279": "155",
+        "-277": "156",
+        "-275": "157",
+        "-273": "158",
+        "-271": "159",
+        "-269": "160",
+        "-267": "161",
+        "-265": "162",
+        "-263": "163",
+        "-261": "164",
+        "-259": "165",
+        "-257": "166",
+        "-255": "167",
+        "-253": "168",
+        "-251": "169",
+        "-249": "170",
+        "-247": "171",
+        "-245": "172",
+        "-243": "173",
+        "-241": "174",
+        "-239": "175",
+        "-237": "176",
+        "-235": "177",
+        "-233": "178",
+        "-231": "179",
+        "-229": "180",
+        "-227": "181",
+        "-225": "182",
+        "-223": "183",
+        "-221": "184",
+        "-219": "185",
+        "-217": "186",
+        "-215": "187",
+        "-213": "188",
+        "-211": "189",
+        "-209": "190",
+        "-207": "191",
+        "-205": "192",
+        "-203": "193",
+        "-201": "194",
+        "-199": "195",
+        "-197": "196",
+        "-195": "197",
+        "-193": "198",
+        "-191": "199",
+        "-189": "200",
+        "-187": "201",
+        "-185": "202",
+        "-183": "203",
+        "-181": "204",
+        "-179": "205",
+        "-177": "206",
+        "-175": "207",
+        "-173": "208",
+        "-171": "209",
+        "-169": "210",
+        "-167": "211",
+        "-165": "212",
+        "-163": "213",
+        "-161": "214",
+        "-159": "215",
+        "-157": "216",
+        "-155": "217",
+        "-153": "218",
+        "-151": "219",
+        "-149": "220",
+        "-147": "221",
+        "-145": "222",
+        "-143": "223",
+        "-141": "224",
+        "-139": "225",
+        "-137": "226",
+        "-135": "227",
+        "-133": "228",
+        "-131": "229",
+        "-129": "230"
       }
     },
     "wasif_qatra_qatra_qulzam": {
@@ -441,7 +756,7 @@
       "group": "urdu_shrine",
       "route_planned": "text_probe",
       "language": "arabic",
-      "pdf_path": "books/wasif_qatra_qatra_qulzam.pdf",
+      "pdf_path": "books/incoming-2026-09-11/17_Qatra-Qatra-Qulzam-By-Wasif-Ali-Wasif-Ur.pdf",
       "pdf_bytes": 13187219,
       "pdf_sha256_head": "d232d1e1b62339c8",
       "pages": 230,
@@ -524,7 +839,7 @@
       "group": "urdu_shrine",
       "route_planned": "text_probe",
       "language": "arabic",
-      "pdf_path": "books/wasif_dil_darya_samundar.pdf",
+      "pdf_path": "books/incoming-2026-09-11/19_Dil-Darya-Samunder-By-Wasif-Ali-Wasif-Sa.pdf",
       "pdf_bytes": 18947212,
       "pdf_sha256_head": "3c06f5105e668ce5",
       "pages": 248,
@@ -587,7 +902,7 @@
       "group": "urdu_shrine",
       "route_planned": "text_probe",
       "language": "arabic",
-      "pdf_path": "books/wasif_kiran_kiran_sooraj.pdf",
+      "pdf_path": "books/incoming-2026-09-11/20_Kiran-Kiran-Sooraj-By-Wasif-Ali-Wasif-Sa.pdf",
       "pdf_bytes": 7970590,
       "pdf_sha256_head": "e93c6b59495d544a",
       "pages": 145,
@@ -650,7 +965,7 @@
       "group": "urdu_shrine",
       "route_planned": "text_probe",
       "language": "arabic",
-      "pdf_path": "books/wasif_wasifyat.pdf",
+      "pdf_path": "books/incoming-2026-09-11/18_Urdu-Wasifyat-By-Wasif-Ali-Wasif-Non-Shi.pdf",
       "pdf_bytes": 9582676,
       "pdf_sha256_head": "7bdd42d1198daad2",
       "pages": 465,
@@ -708,12 +1023,12 @@
       "source_stamp": "Third party digitisation: IqbalCyberLibrary.net watermark (\"All rights reserved\", (c)2002-2006) and a www.Nayaab.Net internet edition imprint (انٹرنیٹ ایڈیشن دوم سال 2006). Observed by workers on wasif_qatra_qatra_qulzam p0034/p0005 on 15 Sep 2026; the other three Wasif scans are from the same uploader and likely the same source. No edition or publisher of record, so cite the book with this caveat."
     },
     "shackle_risalo_shah_abdul_latif": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 100,
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/shackle_risalo_shah_abdul_latif.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/33_Murty-Classical-Library-of-India-Murty-C.pdf",
       "pdf_bytes": 824333,
       "pdf_sha256_head": "9e7c42d1592576c3",
       "pages": 351,
@@ -731,7 +1046,7 @@
       "pages_done": "1-351",
       "leases": {},
       "assembled_file": "out/ocr/shackle_risalo_shah_abdul_latif/p001-end_2026-09-14_1707_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/shackle_risalo_shah_abdul_latif.md",
       "integrated_into": [],
       "log": [
         {
@@ -749,6 +1064,14 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 10 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-17T04:39:29Z",
+          "msg": "chunked into 10 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-17T10:14:49Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -769,7 +1092,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/sorley_shah_abdul_latif_of_bhit.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/38_H.T.-Sorley-Shah-Abdul-Latif-of-Bhit-Sin.pdf",
       "pdf_bytes": 12267347,
       "pdf_sha256_head": "064ad8973ab33c54",
       "pages": 442,
@@ -805,6 +1128,10 @@
         {
           "t": "2026-09-16T00:51:03Z",
           "msg": "chunked into 24 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-17T04:49:17Z",
+          "msg": "chunked into 24 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -825,7 +1152,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/schimmel_pain_and_grace.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/06_Annemarie-Schimmel-Pain-and-Grace_-A-Stu.pdf",
       "pdf_bytes": 16349463,
       "pdf_sha256_head": "c7bd0bfb1e1ca94c",
       "pages": 310,
@@ -861,6 +1188,10 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 16 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-17T17:32:43Z",
+          "msg": "chunked into 16 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -881,7 +1212,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/shackle_bulleh_shah_sufi_lyrics.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/40_Murty-Classical-Library-of-India-Bullhe.pdf",
       "pdf_bytes": 1997198,
       "pdf_sha256_head": "f2ec606695374b6d",
       "pages": 209,
@@ -917,6 +1248,10 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 7 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T03:02:08Z",
+          "msg": "chunked into 7 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -937,7 +1272,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/rafat_bulleh_shah_selection.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/09_Bullhe-ShA-h_-Taufiq-Rafat-Bulleh-Shah-A.pdf",
       "pdf_bytes": 8456393,
       "pdf_sha256_head": "4c903c2f51477f71",
       "pages": 263,
@@ -973,6 +1308,10 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 4 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T06:07:41Z",
+          "msg": "chunked into 4 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -993,7 +1332,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/waris_shah_hir_ranjha.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/41_Waris-Shah-The-Adventures-of-Hir-and-Ran.pdf",
       "pdf_bytes": 505994,
       "pdf_sha256_head": "2576259404b907e3",
       "pages": 57,
@@ -1029,6 +1368,10 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 7 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T07:07:27Z",
+          "msg": "chunked into 7 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -1044,7 +1387,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/madho_lal_hussein_verses_lowly_fakir.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/08_Madho-Lal-Hussein-Verses-of-a-Lowly-Faki.pdf",
       "pdf_bytes": 663175,
       "pdf_sha256_head": "15a449fa916b15c5",
       "pages": 190,
@@ -1080,6 +1423,10 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 3 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T08:08:11Z",
+          "msg": "chunked into 3 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -1100,7 +1447,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/kugle_sufis_and_saints_bodies.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/36_Islamic-Civilization-and-Muslim-Networks.pdf",
       "pdf_bytes": 21723945,
       "pdf_sha256_head": "aa32e0f22828002f",
       "pages": 368,
@@ -1136,6 +1483,10 @@
         {
           "t": "2026-09-16T00:51:02Z",
           "msg": "chunked into 22 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T08:18:08Z",
+          "msg": "chunked into 22 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -1156,7 +1507,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/eaton_essays_islam_indian_history.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/02_Essays-on-Islam-and-Indian-History-Richa.pdf",
       "pdf_bytes": 15470336,
       "pdf_sha256_head": "dd880ea8d8340c3c",
       "pages": 292,
@@ -1220,7 +1571,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/ernst_lawrence_sufi_martyrs_of_love.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/34_Carl-W.-Ernst-Bruce-B.-Lawrence-auth.-Su.pdf",
       "pdf_bytes": 34734966,
       "pdf_sha256_head": "9c031a3f4d02b966",
       "pages": 250,
@@ -1256,6 +1607,10 @@
         {
           "t": "2026-09-16T00:51:02Z",
           "msg": "chunked into 17 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-18T12:07:56Z",
+          "msg": "chunked into 17 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -1276,7 +1631,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/rizvi_history_of_sufism_india_1.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/35_Saiyid-Athar-Abbas-Rizvi-A-History-of-Su.pdf",
       "pdf_bytes": 91922717,
       "pdf_sha256_head": "c1138d1012275162",
       "pages": 491,
@@ -1336,7 +1691,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/kasmani_queer_companions.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/05_Omar-Kasmani-Queer-Companions_-Religion.pdf",
       "pdf_bytes": 6240866,
       "pdf_sha256_head": "409308e57b9b27ae",
       "pages": 225,
@@ -1392,7 +1747,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/boivin_hindu_sufis_south_asia.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/39_Boivin-Michel-The-Hindu-Sufis-of-South-A.pdf",
       "pdf_bytes": 10357331,
       "pdf_sha256_head": "22e6f7015102be45",
       "pages": 253,
@@ -1448,7 +1803,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/schaflechner_hinglaj_devi.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/14_Schaflechner-Jurgen_-Hinglaj-Devi-2017-O.pdf",
       "pdf_bytes": 6515343,
       "pdf_sha256_head": "070973c35add6d0e",
       "pages": 364,
@@ -1504,7 +1859,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/werbner_basu_embodying_charisma.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/03_Pnina-Werbner-Helene-Basu-Embodying-Char.pdf",
       "pdf_bytes": 2035111,
       "pdf_sha256_head": "563370fecf0baa0d",
       "pages": 254,
@@ -1560,7 +1915,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/abbas_female_voice_sufi_ritual.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/07_Shemeem-B.-Abbas-The-Female-Voice-in-Suf.pdf",
       "pdf_bytes": 3800703,
       "pdf_sha256_head": "b35455fb06e4a59b",
       "pages": 240,
@@ -1616,7 +1971,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/qureshi_sufi_music_qawwali.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/37_Regula-B-Qureshi-Sufi-Music-of-India-and.pdf",
       "pdf_bytes": 24233756,
       "pdf_sha256_head": "62d43d53d1169da8",
       "pages": 290,
@@ -1672,7 +2027,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/rozehnal_islamic_sufism_unbound.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/04_Robert-Rozehnal-auth.-Islamic-Sufism-Unb.pdf",
       "pdf_bytes": 3146230,
       "pdf_sha256_head": "e3ae15bf3661ec20",
       "pages": 281,
@@ -1728,7 +2083,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/schimmel_as_through_a_veil.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/42_Annemarie-Schimmel-As-Through-a-Veil_-My.pdf",
       "pdf_bytes": 14033557,
       "pdf_sha256_head": "803b145548e14470",
       "pages": 382,
@@ -1784,7 +2139,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/schimmel_mystical_dimensions_of_islam.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/10_Annemarie-Schimmel-Mystical-Dimensions-o.pdf",
       "pdf_bytes": 30389548,
       "pdf_sha256_head": "e674592cf1d91f9e",
       "pages": 543,
@@ -1840,7 +2195,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/khalid_walking_with_nanak.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/12_Haroon-Khalid-Walking-with-Nanak-2016-Tr.pdf",
       "pdf_bytes": 146236729,
       "pdf_sha256_head": "9457e3128b25aef0",
       "pages": 324,
@@ -1900,7 +2255,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/dhillon_janamsakhis.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/13_Harish-Dhillon-Janamsakhis-Ageless-Stori.pdf",
       "pdf_bytes": 26149590,
       "pdf_sha256_head": "f1e37731e2ab3209",
       "pages": 271,
@@ -1956,7 +2311,7 @@
       "group": "english",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/khalid_a_white_trail.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/11_KHALID-HAROON-A-WHITE-TRAIL_A-JOURNEY-IN.pdf",
       "pdf_bytes": 1940070,
       "pdf_sha256_head": "7d37ff5cb2b6de8c",
       "pages": 236,
@@ -2012,7 +2367,7 @@
       "group": "english",
       "route_planned": "epub",
       "language": "latin",
-      "pdf_path": "books/khalid_in_search_of_shiva.epub",
+      "pdf_path": "books/incoming-2026-09-11-english/15_Haroon-Khalid-In-Search-of-Shiva_-A-Stud.epub",
       "pdf_bytes": 318481,
       "pdf_sha256_head": "f776971167fc8310",
       "pages": 21,
@@ -2050,7 +2405,7 @@
       "group": "urdu_other",
       "route_planned": "vision",
       "language": "arabic",
-      "pdf_path": "books/masnavi_01.pdf",
+      "pdf_path": "books/incoming-2026-09-11/26_Masnavi_01-saifullah-imtiaz.pdf",
       "pdf_bytes": 79684588,
       "pdf_sha256_head": "99f353dca48bcfa9",
       "pages": 416,
@@ -2092,7 +2447,7 @@
       }
     },
     "masnavi_01_text": {
-      "status": "ingested",
+      "status": "transcribing",
       "priority": 201,
       "group": "urdu_other",
       "route_planned": "vision",
@@ -2111,7 +2466,7 @@
         "usable": false
       },
       "route_used": "vision",
-      "render_scale": null,
+      "render_scale": 1568,
       "pages_done": "",
       "leases": {},
       "assembled_file": null,
@@ -2121,6 +2476,14 @@
         {
           "t": "2026-09-14T16:59:22Z",
           "msg": "ingested: 416 pages, route=vision"
+        },
+        {
+          "t": "2026-09-17T11:43:51Z",
+          "msg": "rendered pages 120-121 at scale 1568 (2 new; native 0, rerendered 2, split=False)"
+        },
+        {
+          "t": "2026-09-18T08:21:49Z",
+          "msg": "lease 120-121 released"
         }
       ],
       "scan_images": {
@@ -2132,10 +2495,17 @@
         "bpc": 8,
         "spread_pages": 0,
         "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 0,
+        "rerendered": 2,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
       }
     },
     "masnavi_02": {
-      "status": "ingested",
+      "status": "rendering",
       "priority": 202,
       "group": "urdu_other",
       "route_planned": "vision",
@@ -2154,7 +2524,7 @@
         "usable": false
       },
       "route_used": "vision",
-      "render_scale": null,
+      "render_scale": 1568,
       "pages_done": "",
       "leases": {},
       "assembled_file": null,
@@ -2164,6 +2534,10 @@
         {
           "t": "2026-09-14T17:00:06Z",
           "msg": "ingested: 366 pages, route=vision"
+        },
+        {
+          "t": "2026-09-17T11:43:54Z",
+          "msg": "rendered pages 120-121 at scale 1568 (2 new; native 0, rerendered 2, split=False)"
         }
       ],
       "scan_images": {
@@ -2175,6 +2549,13 @@
         "bpc": 8,
         "spread_pages": 0,
         "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 0,
+        "rerendered": 2,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
       }
     },
     "masnavi_03": {
@@ -2307,7 +2688,7 @@
       }
     },
     "masnavi_06": {
-      "status": "ingested",
+      "status": "rendering",
       "priority": 206,
       "group": "urdu_other",
       "route_planned": "vision",
@@ -2326,7 +2707,7 @@
         "usable": false
       },
       "route_used": "vision",
-      "render_scale": null,
+      "render_scale": 1568,
       "pages_done": "",
       "leases": {},
       "assembled_file": null,
@@ -2336,6 +2717,10 @@
         {
           "t": "2026-09-14T17:00:06Z",
           "msg": "ingested: 542 pages, route=vision"
+        },
+        {
+          "t": "2026-09-17T11:43:57Z",
+          "msg": "rendered pages 120-121 at scale 1568 (2 new; native 0, rerendered 2, split=False)"
         }
       ],
       "scan_images": {
@@ -2347,6 +2732,13 @@
         "bpc": 8,
         "spread_pages": 0,
         "spread_fraction": 0.0
+      },
+      "render_mode": {
+        "native_extract": 0,
+        "rerendered": 2,
+        "split_spreads": false,
+        "halves": false,
+        "keep_color": false
       }
     },
     "nizami_revised_translation": {
@@ -2355,7 +2747,7 @@
       "group": "urdu_other",
       "route_planned": "text_probe",
       "language": "latin",
-      "pdf_path": "books/nizami_revised_translation.pdf",
+      "pdf_path": "books/incoming-2026-09-11-english/25_revisedtranslati00nizauoft-saifullah-imt.pdf",
       "pdf_bytes": 16426440,
       "pdf_sha256_head": "f260569692d5f201",
       "pages": 208,
@@ -2406,5 +2798,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-09-16T12:37:17Z"
+  "updated": "2026-09-18T17:22:51Z"
 }

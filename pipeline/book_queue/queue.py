@@ -423,8 +423,18 @@ def cmd_render(args: argparse.Namespace) -> None:
     last = min(last, b["pages"])
     pdir = pages_dir(args.slug)
     pdir.mkdir(parents=True, exist_ok=True)
+    # Intermediates live OUTSIDE the repository. A cloud Cowork session mounts this folder with
+    # unlink(2) blocked, so a `_tmp*.png` written next to the output could never be removed and
+    # `render` died with PermissionError on its own scratch file (measured 17 Sep 2026). The finished
+    # pNNNN.png still lands in pdir; only the scratch moved.
+    import tempfile, shutil
+    tdir = Path(tempfile.mkdtemp(prefix=f"bq_render_{args.slug}_"))
     halves = args.halves
-    if halves:
+    if getattr(args, "redo", False):
+        # Overwrite whatever is there. Needed to change scale or halves mode for a range: on a mount
+        # where unlink is blocked the old files cannot be removed first, and a write overwrites in place.
+        todo = list(range(first, last + 1))
+    elif halves:
         # a page already prepared as a single image is redone as halves; a page with halves is kept
         todo = [n for n in range(first, last + 1) if len(page_images(args.slug, n)) != 2]
     else:
@@ -433,13 +443,13 @@ def cmd_render(args: argparse.Namespace) -> None:
     native = not args.rerender  # default: extract the embedded scan; --rerender forces pdftoppm
     used_native = used_render = 0
     for n in todo:
-        tmp_prefix = pdir / f"_tmp{n}"
+        tmp_prefix = tdir / f"_tmp{n}"
         src: Path | None = None
         if native:
             # pdfimages gives the scan as stored (no resampling, no double compression). Use it when the
             # page is exactly one image; otherwise fall back to rendering the page.
             r = run(["pdfimages", "-f", str(n), "-l", str(n), "-png", str(pdf), str(tmp_prefix)])
-            produced = sorted(pdir.glob(f"_tmp{n}-*.png"))
+            produced = sorted(tdir.glob(f"_tmp{n}-*.png"))
             if r.returncode == 0 and produced:
                 # Several images on a page are usually one scan plus a logo, watermark or thumbnail:
                 # take the largest if it dwarfs the runner up (4x the pixels), else render the page.
@@ -462,7 +472,7 @@ def cmd_render(args: argparse.Namespace) -> None:
         if src is None:
             # Render straight to the target size (2x-then-downscale cost 66 s a page on the 4200 px scans).
             r = run(["pdftoppm", "-f", str(n), "-l", str(n), "-gray", "-png", "-scale-to", str(scale), str(pdf), str(tmp_prefix)])
-            produced = sorted(pdir.glob(f"_tmp{n}-*.png"))
+            produced = sorted(tdir.glob(f"_tmp{n}-*.png"))
             if r.returncode != 0 or len(produced) != 1:
                 sys.exit(f"pdftoppm failed on page {n}: {r.stderr.strip()} {produced}")
             src = produced[0]; used_render += 1
@@ -470,7 +480,7 @@ def cmd_render(args: argparse.Namespace) -> None:
         with Image.open(src) as im:
             w, h = im.size
         if split and w / max(h, 1) > SPREAD_RATIO:
-            half_a, half_b = pdir / f"_half{n}a.png", pdir / f"_half{n}b.png"
+            half_a, half_b = tdir / f"_half{n}a.png", tdir / f"_half{n}b.png"
             _split_spread(src, half_a, half_b, b["language"])
             _finish_image(half_a, pdir / f"p{n:04d}_a.png", scale, args.keep_color)
             _finish_image(half_b, pdir / f"p{n:04d}_b.png", scale, args.keep_color)
@@ -479,10 +489,14 @@ def cmd_render(args: argparse.Namespace) -> None:
             _split_halves(src, pdir / f"p{n:04d}_a.png", pdir / f"p{n:04d}_b.png", scale)
             single = page_png(args.slug, n)
             if single.exists():
-                single.unlink()
+                try:
+                    single.unlink()
+                except PermissionError:
+                    print(f"warning: cannot remove superseded {single.name} (unlink blocked on this mount); "
+                          f"page_images() will now see three files for page {n}", file=sys.stderr)
         else:
             _finish_image(src, page_png(args.slug, n), scale, args.keep_color)
-        src.unlink()
+    shutil.rmtree(tdir, ignore_errors=True)
     b["render_scale"] = scale
     b["render_mode"] = {"native_extract": used_native, "rerendered": used_render, "split_spreads": bool(split), "halves": bool(halves), "keep_color": bool(args.keep_color)}
     if b["status"] == "ingested":
@@ -735,11 +749,48 @@ def cmd_chunk(args: argparse.Namespace) -> None:
 
 
 def cmd_notes_status(args: argparse.Namespace) -> None:
-    """Which chunks still lack a notes file (chunk_NNN.notes.md)."""
+    """Which chunks still lack a notes file (chunk_NNN.notes.md).
+
+    Guards a false green measured 18 September 2026 (HANDOVER 9.202c). `out/` is gitignored, so on a
+    fresh clone, or after any cleanup, a book's chunks are simply absent -- and the old version of
+    this command then printed {"chunks": 0, "notes_missing": []}, which is indistinguishable from a
+    fully noted book. **24 of the 42 books were in exactly that state, three of them already marked
+    `summarized`.** A caller reading `notes_missing` alone would have concluded they were done.
+
+    So the count recorded in state.json is now compared against disk, and the command EXITS NON-ZERO
+    on any disagreement (RULE 4: a check that fails loudly beats a note saying be careful). The
+    original two keys are unchanged, so existing callers keep working; `chunks_recorded`, `chunks_ok`,
+    `notes_present` and `warning` are additive. Remedy for a mismatch is not to re-transcribe: run
+    `queue.py chunk <slug> --words N` with the N in that book's own log line, then restore the notes
+    from the committed copies under entries/book_takeaways/<slug>/ (9.195)."""
     cdir = book_dir(args.slug) / "chunks"
     chunks = sorted(cdir.glob("chunk_*.txt")) if cdir.exists() else []
     missing = [c.name for c in chunks if not c.with_suffix(".notes.md").exists()]
-    print(json.dumps({"slug": args.slug, "chunks": len(chunks), "notes_missing": missing}))
+    notes_present = len(sorted(cdir.glob("chunk_*.notes.md"))) if cdir.exists() else 0
+
+    recorded = None
+    try:
+        recorded = load_state()["books"][args.slug].get("chunks")
+    except Exception:
+        pass
+
+    out = {"slug": args.slug, "chunks": len(chunks), "notes_missing": missing,
+           "chunks_recorded": recorded, "notes_present": notes_present}
+    ok = recorded is None or int(recorded or 0) == len(chunks)
+    out["chunks_ok"] = ok
+    if not ok:
+        committed = REPO_ROOT / "entries" / "book_takeaways" / args.slug
+        n_committed = len(sorted(committed.glob("chunk_*.notes.md"))) if committed.is_dir() else 0
+        out["notes_committed"] = n_committed
+        out["warning"] = (
+            f"state.json records {recorded} chunks but {len(chunks)} are on disk in "
+            f"{cdir.relative_to(REPO_ROOT)}. notes_missing is NOT trustworthy here: an empty list "
+            f"means only that no chunk file was found to be missing a note. "
+            f"{n_committed} committed notes exist under entries/book_takeaways/{args.slug}/. "
+            f"Re-chunk with the words value in this book's log line, then copy those notes back in.")
+    print(json.dumps(out))
+    if not ok:
+        sys.exit(1)
 
 
 def cmd_folio_check(args: argparse.Namespace) -> None:
@@ -756,15 +807,29 @@ def cmd_folio_check(args: argparse.Namespace) -> None:
     b = state["books"][args.slug]
     d = pages_dir(args.slug)
     offs: dict[int, list[int]] = {}
+    read = 0
     for n in range(1, b["pages"] + 1):
         f = page_txt(args.slug, n)
         if not f.exists():
             continue
+        read += 1
         m = re.match(r"\[folio (\d+)\]", f.read_text(encoding="utf-8"))
         if m:
             offs.setdefault(n - int(m.group(1)), []).append(n)
+    if read == 0:
+        # RULE 4, and the same trap this file's own docstring names: until 16 September 2026 this
+        # printed "no folio lines found" and exited 0 when it had read nothing at all. `out/` is
+        # gitignored and per-page text is cleared once a book is assembled, so on a working copy
+        # holding only assembled books that reassuring line was the answer for EVERY book. An
+        # instrument that reports what it could not see is worse than no instrument. This check
+        # reads pages/ only; it deliberately does not fall back to the assembled file, because the
+        # offsets it exists to catch are per-page facts.
+        print(f"{args.slug}: CANNOT CHECK \u2014 no page text in {d} (0 of {b['pages']} pages). "
+              f"Re-render and re-transcribe, or restore pages/, before trusting a folio result.",
+              file=sys.stderr)
+        sys.exit(2)
     if not offs:
-        print(f"{args.slug}: no folio lines found"); return
+        print(f"{args.slug}: {read} pages read, none carry a folio line"); return
     total = sum(len(v) for v in offs.values())
     ranked = sorted(offs.items(), key=lambda kv: -len(kv[1]))
     print(f"{args.slug}: {total} pages carry a folio line")
@@ -794,6 +859,7 @@ def main() -> None:
     p.add_argument("--halves", action="store_true", help="cut each page into overlapping top and bottom halves (dense lithographs)")
     p.add_argument("--rerender", action="store_true", help="always rasterise with pdftoppm instead of extracting the embedded scan")
     p.add_argument("--keep-color", action="store_true", help="do not convert to grayscale"); p.set_defaults(fn=cmd_render)
+    p.add_argument("--redo", action="store_true", help="re-prepare pages that already have images (to change scale or mode)")
     p = sub.add_parser("eval"); p.add_argument("slug"); p.add_argument("page", type=int); p.add_argument("gold", help="path to the hand verified gold text for that page"); p.set_defaults(fn=cmd_eval)
     p = sub.add_parser("extract"); p.add_argument("slug"); p.add_argument("--pages", help="tesseract only: A-B page range"); p.set_defaults(fn=cmd_extract)
     p = sub.add_parser("lease"); p.add_argument("slug"); p.add_argument("--size", type=int, default=DEFAULT_LEASE); p.add_argument("--worker"); p.set_defaults(fn=cmd_lease)

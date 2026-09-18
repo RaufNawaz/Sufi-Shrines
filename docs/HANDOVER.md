@@ -9628,3 +9628,2552 @@ strings are ~1 KB, `uiStrings.ts` is eager on all thirteen routes, and `PlacePag
 headroom. That is the third time this file has recorded the same pattern, so this time
 `AlmanacPage` and `TraditionPage` — which the same kilobyte left sitting at exactly 355/355 and
 335/335 — were given slack as well rather than left to misattribute the next person's string.
+
+### 9.196 — 16 September 2026: eighteen of tareekh_lahore's thirty-two chunks have notes, and the bridge is now a measured risk
+
+A scheduled cloud run took the notes stage forward on `tareekh_lahore` (Kanhaiya Lal, *Tarikh-e-Lahore*):
+**chunk notes 001–018 of 32, contiguous PDF pp. 1–264**, ~1.04 MB, written into **both**
+`entries/book_takeaways/tareekh_lahore/` and `out/ocr/tareekh_lahore/chunks/`. `notes-status` now
+reports 14 missing (019–032). **Uncommitted** — `git` still cannot run on the Mac from a cloud session
+(§9.195), so `git add -A && git commit` is Rauf's to run.
+
+**The briefing this run was given was stale, and checking it first was the whole value of the first
+five minutes.** It said no book had a consolidated takeaways file and that hadeeqat_ul_aulia and
+eaton_essays_islam_indian_history were missing chunk notes. In fact all three of
+`sawaneh_shah_jamal`, `hadeeqat_ul_aulia` (32/32) and `eaton_essays_islam_indian_history` (20/20)
+were already `summarized` with a file on disk, closed by an earlier run the same day. `queue.py
+status` is the fact base; a prose description of the queue is a snapshot with a timestamp on it.
+
+**The desktop bridge flapped for roughly twenty minutes and that is now a known failure mode, not a
+surprise.** It went down after chunk 006 and refused six consecutive calls, including two in a row
+after the MCP server itself reconnected — the tool being available and the *device* being reachable
+are two different things, and the error text distinguishes them. What made this survivable is that
+the chunk inputs had all been staged into the container up front, so fourteen more chunks were noted
+while the Mac was unreachable, and the finished files were held in the container plus a zip delivered
+into the chat until a call finally got through. **Stage the whole batch's inputs before starting, and
+treat every wave's output as unsaved until `device_commit_files` returns a `written` list.** Two
+`ls`-only probes that failed were followed by an identical retry that succeeded, so one retry is worth
+making; a third is not.
+
+**Two findings about the scan itself, from the workers' flags:**
+
+- **The front matter has its own folio series, and it collides with the body's.** pp. 3–5 print folios
+  2–4 (the contents quire) and pp. 7–9 print folios 2–4 **again**; pp. 1, 2 and 6 print none. So the
+  15 September `folio-check` anomaly — front matter at +5, pp. 3–5 at +1, against +3 for the body — is
+  **two numbering series, not a misread tens digit**, and `folio_note` should say so. This is the case
+  the "a minority offset is usually a misread digit" heuristic does not cover.
+- **A possible gap or misordering around p. 26.** The printed folio jumps 20 → 29 while the prose
+  reads straight on, and the book's enumerated catalogue of *sadme* skips the ninth to twelfth. Check
+  the PDF against the render before citing that stretch.
+
+**Every date in this book is soft and the notes keep the contradictions rather than resolving them**
+(RULE 2 working as intended): essentially every chronogram numeral carries `[OCR?]`, and four sites
+give mutually impossible years that sit side by side in the notes. Nothing dated from this book should
+reach the sheet without a look at the lithograph.
+
+**The author is inside his own book.** Kanhaiya Lal names himself as the Executive Engineer who
+underpinned the Ranjit Singh samadh (p. 219, folio 222) and cites his own *Ranjit Nama* and
+*Tarikh-e Punjab*. Separately a "کنہیا لال کمبو[OCR?]" appears as agent of Gurdwara Janam Asthan Guru
+Ram Das and a "کنہیا لال کمبو[OCR?] کی والدہ" as founder of Thakurdwara Chor Mor Wala. The book does
+not say these are the same man and the notes do not assume it — but if they are, this is a
+self-interested source on two of its own sites, which is a provenance note those entries should carry.
+
+**Verification, and what it does not cover.** Every bolded archive id across the 18 files was checked
+against `shrine_index.tsv`: 25 distinct rows used, **0 invented**. Page coverage is contiguous with no
+gap or overlap between chunk headers, and every file carries its `## Doubts` section. What was *not*
+checked is whether each fact is faithful to its page — these are one reading of an OCR transcription of
+a lithograph, and the `Doubts` sections are where that reading says it is thin.
+
+Full run record, including the per-chunk human-check list and the archive rows this stretch informs, in
+the project doc `shrines/11_Cloud_OCR_Run_2026-09-16_tareekh_lahore.md`.
+
+**And `folio-check` has been lying to this queue, about every book.** Running it after this batch
+printed `tareekh_lahore: no folio lines found` and exited 0 — for a book whose assembled transcription
+carries **458** `[folio N]` markers. The cause: the check reads `out/ocr/<slug>/pages/pNNNN.txt`,
+`continue`s past every file that does not exist, and if none exists reaches its empty-result branch and
+reports the reassuring line. **No book on this Mac retains a `pages/` directory** — per-page text is
+cleared once `check` assembles the book — so that line was the answer for all 42, and the instruction
+"run `folio-check` after every transcription batch" has been unrunnable for every already-assembled
+book without saying so. The recorded results in `state.json` (`folio_offsets`, and the 15 September
+notes on tareekh_lahore's +3/+5/+7 offsets) were produced while page text still existed and stand;
+what was broken is the ability to re-run.
+
+Fixed in `pipeline/book_queue/queue.py`, three lines: it now counts the files it actually read and, on
+zero, prints `CANNOT CHECK — no page text in <dir> (0 of N pages)` to stderr and **exits 2**; the
+genuine no-folios case now reports how many pages it read. It deliberately does *not* fall back to the
+assembled file, because the per-page offsets it exists to catch are per-page facts. This is the fourth
+instrument in this project to have reported what it could not see — see the `check_image_liveness.py`
+paragraph in CLAUDE.md's standing findings for the same lesson. **The happy path was not exercised,
+because no book here has page text to exercise it with**; the next transcription batch will be its
+first real run, and that is the moment to watch it.
+
+### 9.197 — 17 September 2026: tazkirah_awliya_pak_o_hind is the first Urdu compendium consolidated, and a whole run went unrecorded
+
+A scheduled cloud run completed **Pass 2 for `tazkirah_awliya_pak_o_hind`** (Tazkirah Awliya-e-Pak o
+Hind, 392 pp., 20 chunks of ~5000 words): `entries/book_takeaways/tazkirah_awliya_pak_o_hind.md`,
+**654,629 bytes**, covering **15 of the archive's 169 rows**, `Reviewed: no.` intact, and
+`queue.py mark tazkirah_awliya_pak_o_hind summarized --file …` run against it. **Uncommitted** —
+`git` still cannot run on the Mac from a cloud session (§9.195), so `git add -A && git commit` is
+Rauf's to run. Five books are now `summarized`; every transcribed Urdu shrine book is through the
+notes stage, and the next notes work is the 24 English monographs at 8000 words, none of which is
+chunked yet.
+
+**A run that happened is not a run that is recorded, and this is the second briefing in two days to
+be wrong about the queue.** The briefing for this run described hadeeqat at 28/32, eaton at 13/20,
+tareekh_lahore with no notes and **no book consolidated at all**. `queue.py status` said otherwise:
+four books already carried a consolidated file, including `tareekh_lahore` (656 KB) — its chunks
+019–032, its Pass 2, and the chunking *and* all twenty chunk notes of `tazkirah` were done between
+17:22 and 23:05 on 16 September by a run that **wrote nothing into this file and no project doc**.
+§9.196, written at 16:37Z the same day, is the last record, and it says 18 of 32 chunks. So the state
+on disk was two stages ahead of every prose description of it. The disk is the fact base —
+`queue.py status`, then `notes-status`, then `ls` of both notes locations — and the first five minutes
+of a resuming session should be spent there and nowhere else. **A run that ends without appending here
+has broken RULE 0 even if every file it produced is perfect**, because the next session pays for it in
+re-derivation; that is the whole argument of RULE 0 and it was demonstrated twice this week.
+
+**How Pass 2 is actually done at this scale, since the protocol does not say.** 1.2 MB of chunk notes
+does not fit one worker, and two stages of summary would compress the archive material twice. What
+worked, and matches what the `tareekh_lahore` file's own text implies was done there: **four range
+workers** (five chunks each) each producing a partial in the Pass 2 shape, held *near-lossless on the
+archive-row sections* and compressing hard only the non-archive figure lists; then the four partials
+**split by section** with a script, and **seven section workers** each merging one section across all
+four ranges (book identity; three groups of archive rows; cross-cutting; non-archive figures plus
+citable passages; doubts). The coordinator concatenates. Two things are worth keeping: the section
+split is mechanical (`awk` on the `##` headings), so no worker ever reads 1.2 MB; and the archive rows
+are **ordered in the final file by measured byte size**, computed at assembly, rather than by a
+worker's opinion of which row has the most material — RULE 4 applied to a table of contents.
+
+**Invariants checked on the assembled file** (all pass): 15 `###` archive ids, **every one an exact
+match in `shrine_index.tsv`, none invented**; no id-shaped token anywhere in the file that is not a
+real row, except the short form `shrine-of-jalaluddin-surkh-posh-bukhari`, which appears twice and
+**only inside a note saying it is not a valid id** — a slip two chunk workers made and a third caught;
+1,038 `[OCR?]` and 35 `[illegible]` flags carried through onto their own words; 1,257 bullets of which
+the 72 without a page reference are group headings, decision option-lines, archive-row-side facts and
+searched-for absences, all legitimately page-free. **What is not checked, and a human must:** whether
+each fact is faithful to its page.
+
+**The two silences are the most citable thing this book gives us, and they are negative.** All four
+ranges searched their quarter and **no urs date — not a month, not a day — and no construction, repair
+or foundation date for any shrine, mosque, khanqah or madrasa appears anywhere in 392 pages.** The same
+compiler dates a household's departure and arrival to the day (2 رمضان 728ھ / 17 محرم 729ھ, p. 154), a
+death to the day (16 ذی قعدہ 825ھ, p. 156) and an imperial visit to the weekday (2 محرم 980ھ، بروز
+شنبہ, p. 243). So the silence is a choice of genre, not a gap in the scan: **no founding year and no
+urs date may ever be sourced to this book**, and everything it dates is Hijri and unconverted.
+Likewise مجاور is never used of a named person and Auqaf appears nowhere. The one transferable
+statement of shrine economy in the whole book is at p. 329 (folio 325): offerings pay the خادم first,
+the remainder goes to the pir, with an open لنگر beside it.
+
+**The edition cannot be identified and the book disagrees with itself about its own date.** The
+colophon prints "بار اول | اکتوبر 1999ء" (p. 8) while the preface is signed "۴، اپریل ۱۹۶۵ء [OCR?]"
+(p. 18) — thirty-four years apart, both in the front matter. The publisher پروگریسو بکس، اردو بازار
+لاہور appears with **four non-agreeing addresses** and two telephone numbers (pp. 3, 7, 390, 392), and
+the colophon names چوہدری غلام رسول and میاں جواد رسول as publishers with no stated relation to that
+imprint. **There is no colophon at the back of the book at all** — no press, year, print run, کتابیات,
+index or errata — and no digitisation stamp, library watermark or rights line anywhere. The author is
+not on the title page either: he signs "شارب", and the book's own footnotes name **ڈاکٹر ظہور الحسن
+شارب** as the author of two works it cites (p. 45, folio 41; p. 67, folio 63), which is an inference
+the file records as an inference and does not make into the author line.
+
+**The folio rule for this book is clean, unlike tareekh_lahore's.** `folio = PDF index − 4` on every
+page that prints a marker, verified continuously from p. 21 → folio 17 to p. 388 → folio 384. The
+front matter (pp. 1–20), the back matter (pp. 390–392) and every `[blank page]` print no marker.
+
+**Twenty-one archive-row mappings need Rauf's ruling** and are numbered in the file's
+`## Doubts and review points` under "Decisions for Rauf". They are decisions rather than doubts because
+each one moves a body of material into or out of a row. The sharpest: `shrine-of-mian-mir`, where باب 56
+is mapped but باب 53 — Mian Mir's *own* entry — was refused for want of a shrine town, a death year, a
+silsila or a pir, and a third unnamed Lahore entry carries "میاں جیو", one of باب 53's own laqabs;
+`shrine-of-fariduddin-ganjshakar`, mapped from a single Pak Pattan mazar sentence while three other
+ranges station him at کہتوال[OCR?] and اجودھن and declined, so one ruling moves four bodies of
+material; `mithankot-kot-mithan`, mapped solely from a line of the publisher's **back-cover
+advertisement**, which the chunk itself offers to withdraw; and `wasif-ali-wasif`, where the book says
+nothing whatever about the row's figure and the only thread is that the row's *silsila field* names شاہ
+نیاز احمد, whose entry this book does carry (بریلی, d. 6 جمادی الثانی 1250ھ). Every mapped row also
+carries a book-versus-row conflict table: Sultan Bahu's "قادریہ مسروریہ" against the row's "Sarwari
+Qadiri" (the book never prints سروری) and شور کوٹ against "Garh Maharaja"; Hijri death years against
+the rows' CE years throughout, **left unconverted on purpose**.
+
+**249 figures and sites with no archive row** are indexed one line each, grouped by region, with the
+five whose mazar the book places in present-day Pakistan put first as the immediate candidate rows.
+Seventeen possible matches to existing rows are listed as questions, not mappings.
+
+**Operationally: the bridge flapped again, harder — roughly twenty-five minutes of refusals in two
+spells, including a `device_stage_files` that failed twice before succeeding on the third identical
+call.** The §9.196 rule held and is now doctrine: **stage the whole batch's inputs into the container
+before starting any worker.** Once the 22 input files were staged, eleven subagents ran and the whole
+consolidation was assembled with the Mac unreachable for part of it; only the final write needed the
+bridge. The one amendment to §9.196's "one retry is worth making; a third is not" — that is right for a
+`device_bash` probe, but for `device_stage_files`, which is the call that buys the offline working set,
+a third attempt after a wait was the one that worked.
+
+### 9.198 — 17 September 2026: the Risalo's notes are complete, and one of the 169 rows has no id
+
+**Run summary.** Scheduled Cowork cloud run, 09:35–10:0x UTC. `queue.py notes-status
+shackle_risalo_shah_abdul_latif` returned `chunk_007..chunk_010` missing — exactly what the preceding
+run's claim file under `sorley_shah_abdul_latif_of_bhit/` said to check rather than assume. Four
+subagents wrote those four notes files in parallel; they are in both committed and tooling locations
+(`entries/book_takeaways/shackle_risalo_shah_abdul_latif/` and
+`out/ocr/shackle_risalo_shah_abdul_latif/chunks/`), and `notes-status` now returns
+`notes_missing: []` for the book. **Nothing was committed to git** — `unlink` is still blocked inside
+the connected folder, so `git add` cannot run from a cloud session (§9.196); Rauf runs
+`git add -A && git commit` himself.
+
+**The finding that matters, and it is not about this book.** Three of the four workers independently
+stopped on the same wall: *Shaktipeeth Shri Hinglaj Mata Mandir* is row 107 of
+`pipeline/book_queue/shrine_index.tsv` and its **`id` column is empty**, so the Risalo's Hinglaj
+material — which is the richest archive-relevant content in the book, the yogi pilgrimage running
+through surs 18–21 — cannot be filed against any row. It was already recorded as a blocker in
+`chunk_001` and `chunk_006` notes from the 04:47 run, so this is the fourth and fifth time it has been
+hit.
+
+**It is not an artefact of the index build.** The blank is in the shipped data:
+`src/data/shrines-fallback.json` and `data/shrines.json`, both 169 rows, each have **exactly one row
+with a blank `id`** and **exactly one with a blank `category`**, and it is the same row. Its legacy
+`Category` still reads `Hindu Temple`; `location` reads
+`Hingol Balochistan National Park, Road، Asha Pura, Pakistan` (note the Arabic comma U+060C inside the
+location string). So the sheet has a row whose join key is empty, which means the site has no `id` to
+route `/shrine/:slug` on and the schema's current `category` is blank while the fallback column carries
+the value. **This is a decision for Rauf** (RULE 5, asked in the run's report and notification, not
+parked here): the row needs an `id` in the sheet before any Hinglaj fact can enter an entry, and
+`category` needs the value its legacy column already has. An invariant that refuses a blank `id` or
+`category` in `buildCoverage()`'s input would have caught it (RULE 4); there is none.
+
+**What the four notes contain.** chunk 007 (pp. 234–274) and chunk 008 (pp. 275–319) are substantive
+verse — surs 18 Ramakali tail through 24 Barvo Sindhi, and 24 tail through 30 Kedaro — 92 bullets each;
+chunk 009 (pp. 320–340) is the translator's NOTES apparatus for surs 1–27, 99 bullets, and is the only
+chunk that yields biography: `dargah-roza-sufi-shah-inayat-shaheed` gets "Shah Inayat of Jhok" with
+"(d. 1718)" printed at p. 325, and **the notes apparatus gives no year whatever for Shah Abdul
+Latif** — a negative finding scoped to chunk 009, *not* to the book: chunk 001 carries "(1689–1752)"
+(p. 8), the Library of Congress record's "approximately 1689-approximately 1752" (p. 5) and "14 Safar
+a.h. 1166 (1752 CE)" (p. 10), and its own instruction is "do not present 1689 as documented on this
+book's authority". **This paragraph asserted the unscoped version for about half an hour** before Pass
+2 read chunk 001 against it; the scoping error is the ordinary shape of the mistake RULE 2 exists to
+catch, and is left visible here rather than quietly fixed. chunk 010 (pp. 341–351) is endnote tail, a
+one-page glossary and the bibliography, 40 bullets. Printed page = PDF index − 27 throughout, consistent with chunk 006.
+
+**Three mapping cautions carried into Pass 2.** Every mapping in this book is biographical, never
+topographical — the book names persons and never describes a shrine — so `mazar-of-bulleh-shah` and
+`shrine-of-sachal-sarmast` rest on one comparative aside each and may belong in the non-archive list.
+"Gorakhnath" (p. 237) matches the principal figure of **two** rows, `gorakhnath-goraknath-temple` and
+`tilla-jogian`, with nothing in the chunk to separate them, and was left unassigned. "Lahut… a small
+place in **Sindh**" (p. 335) was not mapped to `shah-noorani-shrine-syed-bilawal-shah-noorani`, whose
+row places Lahoot Lamakan in **Balochistan**.
+
+**A convention divergence Pass 2 must not misread.** This book came through `text_layer`, and the
+PDF's text layer drops the fi/fl ligatures and the doubled f throughout — "Suf", "Sufsm", "sufer",
+"flled", "oferings", "afiction". The 04:47 run's chunk 006 marked each damaged word inline with
+`[text-layer?]`; this run's four workers were told to quote damaged words as printed and inventory the
+damage under Doubts instead. **The absence of inline markers in chunks 007–010 is therefore not a
+claim that the text is sound.** Both conventions are defensible; they should be made one. No `[OCR?]`
+or `[illegible]` flag exists anywhere in chunks 007–010 — the route never produced any.
+
+**Pass 2 ran in the same session: `entries/book_takeaways/shackle_risalo_shah_abdul_latif.md`, 202 KB,
+and `queue.py mark shackle_risalo_shah_abdul_latif summarized` is done.** Three consolidators split it
+by section — archive rows, cross-cutting plus the non-archive list, citable passages plus doubts — and
+the coordinator merged them under the protocol's header. Two corrections the consolidation made to
+this run's own earlier assumptions, both worth carrying:
+
+**There are five mapped ids, not four.** Chunk 001 maps `shrine-of-shah-abdul-karim-bulri` with
+"(d. 1623)" at p. 9, which the Pass 1 reports did not surface because chunk 001 was written by the
+04:47 run. Anyone reading only a batch's own worker reports will undercount a book's mappings; read
+the notes files.
+
+**The book is an English-only reprint, and the protocol's "quote the original phrase in the original
+script" rule cannot be satisfied from it at all.** Its front matter says so: "This is an English only
+edition of Risalo by Shah Abdul Latif, published by Havard[text-layer?] University Press in 2018. The
+Sindhi text has been taken out and the introduction has been slightly edited" (p. 5). No Sindhi script
+or transliteration appears anywhere in the ten chunks apart from two Arabic words at p. 340 and
+scattered romanised terms. So this is a Murty volume with its facing original removed, the
+introduction is an edited text, and every quotation in the takeaways file is a translation quoted as a
+translation. The five chunks that asked a human to look for the missing facing original are answered
+by p. 5 and need no check.
+
+**Two other things a human should know before using the file.** The single most consequential missing
+piece is **footnote 34 at p. 242**, which sits on the verb that reverses verse 104 into verse 105 —
+the pair that gives opposite verdicts on the Hinglaj pilgrimage — and whose text is not in any chunk;
+nothing should cite either verse until it is read in the PDF. And the only generalisable
+shrine-economy statement in the whole book attaches to no archive row: the verse "Mother, who can
+compete with the wealthy herdsmen who leave such generous Thursday oferings?" (p. 299) beside note 11
+to sur 28, "The day on which oferings are traditionally presented at Suf shrines." (p. 342) — the note
+names no day and the verse names Thursday, so the pairing is a judgement the file records as a
+judgement and does not assert.
+
+**Queue position after this run.** `next` now points at `sawaneh_shah_jamal` for **integration** into
+shrine entries, the stage past takeaways, which no book has yet reached. Six books have consolidated
+takeaways (sawaneh_shah_jamal, hadeeqat_ul_aulia, tareekh_lahore, tazkirah_awliya_pak_o_hind,
+eaton_essays_islam_indian_history, shackle_risalo_shah_abdul_latif). The notes front is
+`sorley_shah_abdul_latif_of_bhit` (priority 101, 24 chunks at ~8000 words, **0 notes**, claim file
+from the 04:50 run still in place and now stale), then the 22 English monographs with no notes at all.
+
+**Sharper form of the git finding, measured this run: it is not only `git add`.** §9.196 records
+`git add` dying with `unable to unlink .git/objects/../tmp_obj_*` and a bus error. On this mount
+**`git status --porcelain` itself bus-errors** — exit 135, no output, from a plain read-only status
+inside the connected folder (it refreshes the index, which is a write). `git rev-parse
+--abbrev-ref HEAD` works and returns `cloud-ocr-queue`. So a cloud session cannot even show
+`git diff --stat` before a commit the way the Commands section asks; it can read the branch name and
+nothing more. Do not retry it and do not request delete permission for the folder — both were refused
+on 16 September. **Every file this run wrote is left uncommitted in the working tree for Rauf to
+`git add -A && git commit` himself**, and a session that needs to know what changed should list files
+and mtimes rather than ask git.
+
+### 9.199 — 17 September 2026: six of Sorley's twenty-four chunks, and the first 94 pages are barely about the saint
+
+**What this run did.** `sorley_shah_abdul_latif_of_bhit` (priority 101, 442 pages, `text_layer`,
+24 chunks at ~8000 words) was the notes front with **zero** notes. Six workers in parallel wrote
+`chunk_001`–`chunk_006.notes.md`, PDF pp. 1–94, contiguous with no gap and no overlap (1–23, 24–38,
+39–53, 54–66, 67–79, 80–94). Written into **both** `entries/book_takeaways/<slug>/` and
+`out/ocr/<slug>/chunks/`, verified byte-identical with `cmp`; `notes-status` now reports 18 missing
+(007–024). `state.json` was **not** touched — no `mark` ran, the book is not consolidated — so there
+was nothing to mirror. Nothing was consolidated this run, and Pass 2 must not start until 024 is in.
+
+**A claim file is evidence of intent, not of work.** The 04:50 run left
+`_CLAIM_notes_in_progress.md` saying chunks 001–006 of this book "are being written". It wrote
+none: `notes-status` at the start of this run returned all 24 missing and the directory held that
+file and nothing else. The claim outlived the run that made it by seven hours. **`notes-status` is
+the only checkpoint**; the claim file is a courtesy to a concurrent session and must never be read
+as progress. It is overwritten, never appended to, for that reason. Its one useful legacy: it asked
+the next session to *check* the Risalo's chunks 007–010 rather than assume them done — checked,
+`notes_missing: []`, consolidated, `summarized`. Nothing was owed there.
+
+**The measurement worth keeping: printed = PDF − 9.** Six workers derived the offset independently
+from their own chunks and all six got −9, holding unbroken from PDF p. 12 to p. 94. Three pages
+print no number at all in the text layer (PDF 49, 65, and 67/73/74 in chunk 005's range) and were
+cited by PDF index only rather than by a predicted folio. The roman front matter does not follow
+the offset, and the scan has it out of sequence: acknowledgements (printed ix) sit at PDF p. 5,
+Preface (vii–viii) at PDF pp. 7–8.
+
+**The finding that will cost someone an hour: this book's numerals are destroyed, and its own place
+name is misspelled in the running head.** The text layer renders `1` as `I`, `l`, `r` or `i`
+throughout — `l7J5`, `r6zr`, `r773`, `l7II`, `rooo` for 1000, `lOo,ooo` for 100,000, `½` surviving
+only as `!`, `l` or `i`. Ghulam Shah Kalhoro's death year is printed `l7Jl` and is **unrecoverable
+from the text**. Exchange rates, duty percentages and cloth measurements are damaged in the same way
+(`2! per cent`, `14j` yards, `i20 current to lOO silver`). **No date, sum or measurement from this
+book may enter a shrine entry without checking the page image.** Separately, the running head prints
+**`BRIT` for `BHIT`** on at least seven pages across chunks 001, 004 and 006 — an H→R substitution
+landing on the archive row's own place name, so **a grep for "Bhit" across this corpus silently
+misses pages**. Long `ū` and `ō` are gone from every proper name (Siifi, Talpiir, Baliichi, Kalh6ra,
+Nasarpiir, M6hanj6dar6), the pronunciation key on p. 6 has lost all its diacritics, and "Kalhora"
+appears in at least eight spellings including `Kalhorn`. Every damaged word carried into a note
+keeps its damaged spelling under an inline `[text-layer?]` marker, with the damage classes
+inventoried under each chunk's Doubts.
+
+**Expectation-setting for chunks 007–024: this is East India Company economic history with a saint's
+name on the cover.** In 94 pages Shah Abdul Latif is named substantively **once** — Hamilton in 1699
+meets "a boy of about eight or nine years of age" (p. 90, folio 81) — plus his dates "(1689-1752)"
+(p. 28) and one clause about his grandfather (p. 44). Bhit, the shrine, the ʿurs, his silsila and his
+burial are **(not stated)** anywhere in the first 94 pages, and four of the six chunks map
+`bhit-bhit-shah` on the running head alone. What the chunks are full of is exactly what
+`Rauf_Field_Map_Economics_of_Religion.md` wants: the Kalhoras' *pir–murid* recruitment of the
+Baluchis and their saintly claim to legitimacy, disciples' contributions outgrown into seized
+zamindari lands (Postans), confiscated *feofs* and the stolen Shajaro copper plates (Burton), Adam
+Shah Kalhoro's venerated tomb at Sukkur and the clubs hung at the Khudabad tomb, farmed customs,
+escheat, *dustak* and *rahadari*, the 1659–60 famine, weaving-household counts for Nasarpur, Sehwan
+and Tatta. **The takeaways for this book will be a chapter on shrine economy, not a saint's life.**
+
+**Two decisions for Rauf — RULE 5, and they block Pass 2 rather than a chunk.** Both are in the chat
+and recorded here as the record of the asking, not as the asking.
+
+1. **Does a bare toponym map to a shrine row?** This batch was inconsistent with itself and the
+   inconsistency is visible in the files. Chunk 006 mapped "Sehwan" to `lal-shahbaz-qalandar` and
+   flagged it weak; chunk 003 entered `lal-shahbaz-qalandar` and `shrine-of-makhdoom-nooh-hala` as
+   place-name bullets with explicit disclaimers; chunk 004 named `Sewanna` and `Sarkar Sovistan` and
+   deliberately mapped **neither**. All three are defensible under the protocol, which says a mapping
+   is a judgement. But a consolidator merging 24 chunks will read those three conventions as three
+   different claims about the same town. The rule is needed **before** Pass 2, not before chunk 007.
+   The same question is live for Parkar (`nagarparkar-jain-temples` vs
+   `churrio-jabal-durga-mata-temple`), which two workers refused to split.
+2. **Is the inline `[text-layer?]` marker the standing convention?** §9.198 recorded the Risalo
+   splitting two ways — inline markers in chunks 001–006, damage inventoried under Doubts in 007–010
+   — and said they should be made one. This run told all six workers to do **both**: mark the word
+   inline *and* inventory the damage class under Doubts. That loses nothing either convention keeps,
+   and it is what chunks 001–006 of this book now do. If Rauf endorses it, the Risalo's chunks
+   007–010 should be retro-fitted and the rule written into `TAKEAWAYS_PROTOCOL.md`; until then this
+   book and that one differ.
+
+**Smaller things a human must check**, all flagged in the chunks' own Doubts sections: two genuine
+book-internal contradictions that are *not* OCR damage — the EIC factory dated "1635-62" (p. 24)
+against "1636 to 1662" (p. 28), and Nadir Shah's invasion at "1737" (p. 32) against "1739" (pp. 35,
+38); whether `Tarikh-i-Masumi` and `Tarikh-i-Sind` are one work, which the book never says; a
+collision between "Mian Mir Mahomed, the first prince of that (Kalh6ro) dynasty" (p. 41, inside a
+Burton quotation) and the archive row `shrine-of-mian-mir` — **flagged must-not-merge**, and easy for
+a consolidator to conflate; and the abbreviations `S.I.L.B.`, `E.F.I.`, `P.D.D.`, `S.P.D.D.`, never
+expanded in these chunks. The contents entry for Chapter VI, "The life of Shah Abdul Latif", has
+**no page numbers in the text layer** — the chapter that matters most to this archive is the one the
+front matter cannot locate.
+
+**Git, unchanged from §9.196 and §9.198.** Not attempted this run. Every file above is left
+uncommitted in the working tree; `git add -A && git commit` is Rauf's to run.
+
+### 9.200 — 17 September 2026: Sorley's remaining eighteen chunks, and the index says what the book is not
+
+**What this run did.** `sorley_shah_abdul_latif_of_bhit` (priority 101, 442 pages, `text_layer`, 24
+chunks at ~8000 words) went from 6 notes to **24**. Eighteen workers in three parallel waves of six
+wrote `chunk_007`–`chunk_024.notes.md`, PDF pp. 95–442, contiguous with no gap and no overlap. Each
+wave was committed to the Mac before the next was launched, into **both**
+`entries/book_takeaways/<slug>/` and `out/ocr/<slug>/chunks/`; all 24 pairs verified byte-identical
+with `cmp`, and `notes-status` now returns `notes_missing: []`. `state.json` was **not** touched —
+no `mark` ran, the book is **not** consolidated — so there was nothing to mirror.
+
+**Pass 2 was deliberately not started.** §9.199's two decisions are still unanswered and both are
+structural to the consolidated file, not cosmetic. Consolidating now would bake in an answer to a
+question that is Rauf's, and would have to be redone if the ruling went the other way. They are
+restated in the notification for this run and in the claim file; this paragraph is the record of the
+asking, not the asking (RULE 5).
+
+**The interim convention this run imposed, and why it is safe to reverse.** All eighteen workers
+were given one rule for the bare-toponym question: a place name with no shrine, tomb, saint, ʿurs or
+custodian attached does **not** take an archive id; it goes under "Other saints, sites and events"
+and a Doubts line names the row it *would* take if the ruling goes the other way. Chunks 007–024 are
+therefore internally consistent and every affected bullet carries its own reversal instruction.
+Chunks 001–006 predate this and are inconsistent with each other — that is the remaining work if the
+ruling is "map them". One worker found the convention costs nothing at all in chunk 022: of nine
+bare toponyms there, **not one appears in any of the 169 rows** in either `name` or
+`location_short`, so no bullet would change either way.
+
+**The measurement worth keeping: printed = PDF − 9 holds for the entire book**, p. 12 to p. 441, and
+is **not** reset by the Part I/Part II break, by `BOOK III`, or by the translation's own `PART I`.
+Twenty-four workers have now derived it independently. Two internal corroborations are stronger than
+any of them: the Part I contents page at p. 320 lists **twenty-one** sections whose printed page
+numbers all land exactly where −9 predicts, and the index's own page figures for the influences
+chapter (printed 236–251) match chunk 016's folios. Pages printing no number are cited by PDF index
+only — no folio was predicted anywhere in 24 files. Several chapter-opening pages carry a drop folio
+at the foot instead of a running head and were used; **but that is not a rule**: chunk 023 found
+p. 401 carrying its drop folio while pp. 411, 416 and 422, identical in kind, carry nothing.
+
+**`queue.py folio-check` cannot run on this book and this is not a fault.** It returns
+`CANNOT CHECK — no page text in out/ocr/<slug>/pages (0 of 442 pages)`: `out/` is gitignored and the
+per-page files were cleaned after assembly. The offset above rests on the assembled transcription's
+own running heads, checked 24 times, which is a better instrument for this book than a folio-line
+count would have been — this route never wrote `[folio N]` lines.
+
+**The finding that changes what to expect from this book: its index proves the absences are the
+book's, not the notes'.** The ten-page `INDEX (to Parts I and II)` at pp. 432–441 has **no headword
+for ʿurs, mela, langar, sajjada nashin, offerings, shrine, dargah, tomb, ziarat, khanqah, or any
+silsila name.** `Wakf, 158, 161` and `Saints, (Muslim)` are the only institutional entries. Eleven of
+the eighteen chunks recorded "no shrine, tomb, ʿurs, custodian or endowment anywhere in these pages"
+as an explicit negative, and the index says that is the book. What Sorley does carry, in quantity, is
+what `Rauf_Field_Map_Economics_of_Religion.md` wants: MacMurdo's estimate of the ecclesiastical
+establishments at **one-third of gross state revenue** (chunk 011), wakf recognised at annexation as
+one of three tenure classes, Winchester's 1839 Tatta list of 23 tax-exempt tribes, pirs and pirzadas
+as *collectors* of the sar shumari as well as exempt from it, and religious establishments at Sehwan
+holding "the absolute right of collecting customs and transit dues".
+
+**Where the saint actually is.** Chunk 012 (pp. 172–188) is the book's entire treatment of his life
+and the single most valuable chunk in it: the dates "1689 to 1752" hedged twice, the founding of Bhit
+"(sandhill)", the tomb built by Ghulam Shah Kalhoro in 1754 and ornamented by "one Idan from Sukkur",
+the four relics kept at Bhit, and the living-practice sentence — the poems "recited weekly on Fridays
+in the mausoleum which has become a kind of holy shrine which still draws its crowds", with Dayaram
+Gidumal's 1882 eyewitness account of one such wake. Chunk 019 adds the book's first silsila list
+("Jelali and Jemali darwishes"; under Jemali "the Kadiri, the Nakshbandi, the Suhrawardi and the
+Chishti") and Jethmal Parsram's ʿurs evidence — "thousands of Hindus and Muhammadans camped round
+the t<?mh[text-layer?], mixing freely, and singing the Sufi songs". **Chunk 019 also retires the
+standing "no translator is named" finding, but only in part:** Sorley names himself at p. 300 and
+signs a `TRANSLATOR'S PREFACE` (p. 306), and that covers the Book III verse only. The Book I–II verse
+is still uncredited and must not be back-attributed.
+
+**Two structural traps for the consolidator.** (1) **Numbering is not citable in this book.** Part II
+restarts its chapter numbering, so two chapters are `CHAPTER VI`; the translation opens its own
+`PART I` and `PART II`, making at least three "Part I"s; section number `I` is used seven times
+within Part II. **Cite pages, never chapters, parts or sections.** (2) **"sur" means two different
+things** — a section of the Risalo in the literary chapters, a chapter of the Koran in the mysticism
+chapters — so a grep across this corpus conflates them, exactly as a grep for "Bhit" misses the pages
+whose running head prints `BRIT` (§9.199), to which this run adds `BHTT` (p. 409), `:f3 H I T`
+(p. 249), `ilH I T` (p. 347) and `B H I 1'` (p. 221). And `Brit[text-layer?]` turns up for "But"
+inside body verse at p. 354, which settles that the H→R substitution is text-layer behaviour and not
+a running-head letterspacing artefact.
+
+**Smaller things a human must check**, all flagged in the chunks' own Doubts sections: **`APPENDIX I`
+is missing with no page gap for it** (chunk 013) — it is somewhere in chunks 001–012 or it does not
+exist; Appendix V's chronology supplies four dates chunk 012 rightly refused to invent, three of which
+reconcile with the poet's stated ages and **one of which does not** (the Durrani invasion), and it
+prints `1949 Final loss of Kandahar` between 1638 and 1659; **Appendix VI (p. 203) is Sorley's own
+statement that his consonant spellings and Anglicizations are deliberate** — so `Shikarpoor`,
+`Kurrachee`, `Scindy`, `Tattah` are the author, not OCR damage, **but it says nothing about vowel
+length**, so `Siifi`/`Talpiir`/`Kalh6ra` remain text-layer damage; the index's
+`Udero Lal (see Lal Shahbaz)` and `Murad Buksh Shah (See Lal Shahbaz)` are two cross-references that
+would silently merge four archive rows, and the second contradicts the same index's own
+`Sayid Muhammad Husain (Pir Murad) 248, 291`; Sorley applies "the living Pir" to **two** different
+saints (Khwajo Khizr at p. 178, Lal Shahbaz at p. 257) and never notices; and `Si:Iiwan` in the
+glossary is the rainy season, **not** Sehwan. Chunk 024's `## Bibliography and apparatus` records the
+index as a map of what the book discusses with printed page numbers, which is the fastest route back
+into any of this.
+
+**Candidates for new archive rows**, none of them in the 169, all with material attached: the Makali
+hill pilgrimage cycle with its first-Friday and first-Monday observances and the Kira-tal tank where
+Hindus and Muslims feasted together (chunk 010, pp. 145–146); Sayid Muhammad Husain / Pir Murad, tomb
+at Tatta, with a saying and a karamat (chunk 016, p. 257); Shaikh Patta's shrine at Tatta with its
+transmitted darwish dance (chunk 019, p. 298); and the tomb of Shahul Muhammad Kalhoro at Fatehpur
+near Larkana, whose votive bells and shells, silk-and-brocade chadar and sweepers' fee split with the
+saint's descendants make it the fullest description of offerings and custodianship in the book
+(chunk 011) — and which **must not** be merged with `dargah-fateh-pur-sharif` in Jhal Magsi.
+
+**A protocol deviation, recorded so it can be ratified or reverted.** Workers on apparatus chunks
+were told to add a heading `## Bibliography and apparatus` after `## Arguments and interpretations`,
+because three of the eighteen chunks are bibliography, appendices, contents, glossary and index
+rather than prose, and the Pass 1 shape has nowhere to put a source list. Chunks 013, 019, 020, 021
+and 024 use it. If it stands, it belongs in `TAKEAWAYS_PROTOCOL.md`.
+
+**Bridge stability, worse than §9.196 recorded.** The desktop link dropped nine times during this
+run, several times mid-call, and the session began with the folder not connected at all (re-requested
+and granted). Two mitigations made the run survivable, and both should be standard from here: the
+eighteen chunk files and the shrine index were **staged into the cloud container once, up front**, so
+the eighteen workers never touched the bridge; and each wave of six was committed back before the
+next was launched. A third lesson cost three attempts — **a long `cat >> file <<EOF` heredoc is the
+wrong shape for this bridge.** One 100-line append to `docs/HANDOVER.md` timed out twice and wrote
+nothing both times; the same text in six appends of 10–25 lines went through first try, with a
+`wc -l` after each proving it landed. **Never assume an append succeeded because the call did not
+return an error — verify, because a timed-out call can also mean it worked.**
+
+**Git, unchanged from §9.196, §9.198 and §9.199.** Not attempted this run. Every file above is left
+uncommitted in the working tree; `git add -A && git commit` is Rauf's to run.
+
+### 9.201 — 18 September 2026: the 4-band render at 2462 px, measured over 66 pages instead of two
+
+**What this run did.** `tahqiqat_chishti` (priority 30, 873 pages, `vision`) had **zero** accepted
+pages. Six workers transcribed **PDF pp. 1-66** from 4-band renders at `--scale 4400` (2462 x 1133 px
+per band, 3% overlap), one `pNNNN.txt` per page, written into `out/ocr/tahqiqat_chishti/pages/` and
+mirrored to the Mac. `check` now reports **66/873**, status still `transcribing`. Leases 1-11 .. 56-66
+were taken before the work and cleared by `check`. No page was skipped, none is thin (<40 chars), none
+is `[blank page]`. Bands were rendered **in the cloud container** at 3.3 s/page from the PDF staged
+once; the 66 files are also kept as `out/ocr/tahqiqat_chishti/_bands_pass_1-66_2026-09-18.tar.gz`.
+
+**`folio-check`: 48 of 48 pages carrying a folio line agree on offset +7 — 100%, no minority offset.**
+Printed folio = PDF index - 7 is now confirmed on 48 independently read folios across pp. 10-66, not
+on three. The other 18 pages carry no folio line because the workers omitted rather than inferred.
+
+**The finding that matters, and it corrects this pipeline's own docstring.** `render_bands.py` carries
+a measurement table saying 2462 px gives "~82% (clean page) / ~62% (verse page)". That was measured on
+**two pages** (`_qtest/p0030`, `p0045`) and generalised. Over 66 pages the six workers self-assess
+word-level confidence at **33-80%, mean ~48%**. Against the 17 September 1679 px pass on the identical
+66 pages, computed rather than quoted:
+
+| | 1679 px (17 Sep) | 2462 px bands (18 Sep) |
+|---|---|---|
+| Arabic characters read | 55,240 | 61,616 (+12%) |
+| `[illegible]` marks | 2,222 | 2,470 |
+| lines inside `[illegible: N lines]` | 162 | **14** |
+| `[OCR?]` marks | 1,276 | **2,321** |
+| `[illegible]` per 1,000 Arabic chars | **40.2** | **40.1** |
+
+12% more text read, bulk illegible stretches nearly eliminated (162 lines -> 14), and the failure mode
+moved from "whole lines unreadable" to word-level doubt — `[OCR?]` nearly doubled. But **the illegible
+density per character actually read is unchanged to one decimal place**, and **24 of the 66 pages read
+fewer Arabic characters than at 1679 px**. The band render is a real but marginal improvement, not the
+fix the table implies. All six workers, asked independently, said they would not commit the remaining
+807 pages to it as it stands.
+
+**Three decisions for Rauf — RULE 5. All are in the chat; this is the record of the asking.**
+
+1. **Do the remaining 807 pages of `tahqiqat_chishti` run on this rendering, or does the book hold
+   again?** At ~40 `[illegible]` per 1,000 characters the output is an honest index of names, places,
+   silsilas and folios and is **not** a citable text. Running it costs roughly 12 more batches of this
+   size. Holding it leaves 873 pages of the register that names Lahore's tombs unread. A third option
+   the workers proposed: run it, and accept the output as a *finding aid* that tells a later
+   specialist pass which folio to open — which is what it is good for.
+2. **Two cheap render fixes were found; may they be made before any further pages?** (a) The printed
+   folio sits **above** the frame rule and band q1 clips it — that is why pp. 49 and 51 have no folio
+   line. A taller q1, or a small top overlap, recovers those folios with no re-scan. (b) On the
+   two-panel table pages (the contents, pp. 1-7) a horizontal band gives each side-by-side panel only
+   ~40% of the 2462 px width; **a vertical split, one band per panel at full width, would give each
+   panel ~2.5x the effective resolution** and is the likeliest fix for both the panel-pairing and the
+   digit problem. Worth testing on one contents page before committing a run.
+3. **Is the protocol's "right column first, then left" rule wrong for this book's verse?** w4
+   established that the two-column poem on pp. 36-38 is **not** two sequential columns but a Persian
+   qasida with radif `آمدے` set two hemistichs per printed line, read straight right-to-left across
+   the line and then down — verified independently against the Chishti silsila, which then comes out
+   in exact historical order. Applying the protocol's flat rule scrambles it. If that is right,
+   `WORKER_PROTOCOL.md` needs the exception; it was not edited unilaterally.
+
+**Provenance: both known stamps are now in the record, and the second is still unidentified.**
+`[source stamp: Accession No. [illegible]]` on p0008 (the words legible, the handwritten number not);
+on p0014, a circular ink stamp in Latin capitals struck diagonally over the body text — the only
+letters two workers could actually read are **`RES`** and **`RAJA`**, with the arc between them
+unread (one worker thought it *could* be `-TUTE` and refused to write it). It is **not** the Digital
+Library of India wordmark. Matching it against Indian research-institute wordmarks is a job for a
+human. No stamp, watermark or rights notice appears anywhere else in pp. 1-66; three workers checked
+every band and said so explicitly, so the absence is measured rather than assumed. One unresolved
+mark: a hand-written something outside the frame at the top outer corner of **p0065**, recorded as
+`[margin]` + `[illegible]` because the worker could not tell a library mark from scanner noise.
+
+**The numeral caveat is now specific, not general.** w1 found the sharpest form of it: **۶ and ۹ are
+not separable in this hand**, and proved it without guessing. The seven contents pages pp. 1-7 carry a
+continuous chain of entry numbers (137-219, 224-388, 392-471, 472-588, [p0005], 671-753, 757-870);
+p0005's left panel reads 692/693/694/695/667/698/669/670, which is non-monotonic *and* collides with
+p0006 starting at 671 — whereas reading those as 662-670 makes the whole 137->870 chain continuous.
+The panel is left as read, every numeral `[OCR?]`. The useful corollary: a page-number column is the
+one place in this book where surrounding sequence *does* supply context, so **monotonicity over a
+transcribed contents panel is a cheap automated validator** — it is what located this error.
+
+**What a human must check before anything from pp. 1-66 enters a shrine record.** Everything here is
+flagged in the page files themselves; this is the short list, worst first.
+
+- **p0036 carries two death dates and not one digit of either could be read.** `وفات حضرت مسکین شاہ`
+  (day and year `[illegible]`, `جمادی الثانی`) and `حضرت مولوی نیاز احمد`, `ہفتم ماہ ربیع الثانی`,
+  year `[illegible]`. The month names and the ordinal are solid; the numerals are not. These are
+  vital records and the page image must be read by a person.
+- **Four chronogram year figures on pp. 37-38 are wholly illegible**, and p0038's years spelled out in
+  Persian words were preserved verbatim and deliberately **not** converted (`ہشتاد و یک`,
+  `سال ہشتاد و یکمی باید شمار`, `دو صد و ہشتاد و پنجم [OCR?] [illegible] ہزار`). The abjad arithmetic
+  is a human's to do, from the image. p0056's chronogram carries small abjad numerals written above
+  its words that could not be read at all.
+- **Three distinct year statements in pp. 45-52 must not be collapsed into one.** p0046 superscript
+  `۹۳۵[OCR?]` (middle digit ۳ or ۴); p0045's chronogram spelling `…و چہل و … و پنجہ` with part
+  illegible; and p0052's `سال پنجاہ و پنج و نہ صد بود` (955), which is attached to **Bahlol's arrival
+  in Lahore**, not to a birth or a death.
+- Further uncertain years, all `[OCR?]` in place: `۱۱۵۰`/`۱۱۵۵` (p0014), `۱۱۶۰` (p0015), margin
+  `۱۱۴۵`/`۱۱۴۶` (p0018), `۱۱۹۹` as the death year of حضرت فخر الدین (p0020), superscript `۱۸۵۳`
+  (p0028) and `۱۸۵۰` (p0033) where the **third digit is unreliable in both**.
+- **p0056: the saint's age at the adoption of ملامت fits both `چھتیس` (36) and `چھپن` (56).** The
+  worker wrote `[illegible: numeral word]` and said so explicitly: tradition says 36, which is exactly
+  why it was not written. **p0061 leaves a sajjada-nashin tenure length `[illegible]`** — that one
+  bears on succession.
+- **Place names, highest value and most at risk.** `بابو پورہ` reads that way six times across p0060
+  and p0061 (including `موضع بابو پورہ` and the `مزار مبارک`) — but p0045 reads **`باغبان پورہ`**
+  clearly for what must be the same locality. The worker who read `بابو پورہ` recorded that it named
+  Baghbanpura as the likely intended word and **refused to normalise it**, because the shrine's known
+  location was pulling the reading. A human must decide which is on the page. Likewise
+  `گورستان سیانی[OCR?]` (p0064, twice) may be **میانی** (Miani Sahib) — same trap, same refusal —
+  and it is the burial place of Malik Ali the kotwal. Also `شاہدرہ[OCR?]`, `موضع مڈیاں والہ[OCR?]`,
+  `بمقام نخاس[OCR?]`, `چنیوٹ[OCR?]` + "سات میل اس طرف".
+- **Names the dots cannot settle.** The `حالی`/`جمالی`/`جلالی` trap from earlier runs is live: p0005
+  `فقیر حالیہ` and `شجرہ … حالیہ` where the sense wants **جلالیہ**; p0043 `جلالی[OCR?]`; p0049's
+  paired `جلالی`/`جمالی` nazar; p0053 `از جمالی[OCR?] خویش`; p0054 `محب` vs `محبوب`/`محجوب`. p0044's
+  last line opens on a word that is either **چشتی** or **حسنی** and was left `[illegible]` rather than
+  plant the book's own name on ambiguous dots. Two systematic letterform losses were recorded for
+  later workers: **س/م are not reliably distinguishable word-initially** in this scribe's hand
+  (`سیان`/`میاں`, `سیانی`/`میانی`), and **ک/ف confuse** (`کرماتے` for `فرماتے`).
+- Also unsettled: the subject of the دیباجہ is named `غلام حسین` (p0023, p0026), `غلام حسنین` (first
+  chronogram) and `غلام علی` (p0026, "اسم شریف آپکا … تھا") — either the lithograph plays on two
+  names or the dots are misread; `مولوی احمد بخش` (p0019, p0022, unambiguous) vs `مولوی احمد حسن`
+  (p0021) and `مولوی نیاز احمد` (p0036) vs `مولوی باز احمد` (p0035); `شاہ ابہال[OCR?]`, which may be
+  **شاہ دانیال**, Akbar's third son; and `لندن[OCR?]` on p0022, which the worker flagged as its own
+  reading but surprising in context.
+
+**What the pages turned out to contain, which matters more than the accuracy number.** Four of the six
+workers independently corrected the 17 September pass's account of this book, and the corrections
+point at the archive's own scope.
+
+- **p0028 carries the commission verbatim.** `مسٹر ولیم کولڈسٹریم[OCR?]` ordered the author to write
+  `حالاتِ عمارات و مزارات و مقابر و مساجد نواحِ لاہور مفصل`. **pp. 0029-0031 are the questionnaire**
+  the whole book answers, and p0030 was the single most reliable page of the 66 (~70%). It asks after
+  sajjada nashins and their succession and descendants, whether the site is in government records,
+  معافی/jagir and زرِ معافی under `سلطنت جغتائی` versus now, whether the grant runs for the sajjada
+  nashin's life or `نسلاً بعد نسل`, annual income and expenditure, **the ʿurs date and its customs and
+  whether attendance is a general هجوم**, the silsila, the graves in the enclosure, and who built the
+  building in what year and how much still stands after مسمار. **It explicitly covers شیوالہ,
+  گوردوارہ and ٹھاکردوارہ alongside Muslim sites, and p0031 extends it to the Sikh gurus and their
+  gurdwaras.** That is a 19th-century survey instrument with this archive's own multi-tradition scope,
+  and it is the best thing found in these 66 pages.
+- **The shrine section opens on p0045** (folio 38): `آغاز احوال قبور و مزارات و مقبرہ ہائے بزرگان
+  لاہور`. Its tomb siting is **not** the earlier pass's `بشمال … بموضع`: the image reads
+  `مزار گوہر بار[OCR?] شمال رویہ[OCR?] موضع باغبان پورہ و غرب[OCR?] … باغ شالامار`.
+- **p0046 is not a silsila chain** (as the 17 September note had it) but an exposition of the letters
+  of `فقر` and `درویش` taken from a bayaz held by the khanqah's sajjada nashin, with the bayʿah chain
+  only in its last three lines. **pp. 47-48 are an unanticipated section on Bahlol**, Husain's
+  murshid, and **p0048 names سلسلہ قادریہ explicitly** — which, if it holds, matters for
+  `madho-lal-hussain` and must be verified from the image before it is entered.
+- **The Hujwiri material starts on p0052, not p0053**, and p0053 adds twelve years' daily attendance
+  at the khanqah. **The سماع/رقص material is live by p0055**, earlier than assumed. On **p0058** the
+  earlier reading was corroborated independently *and extended*: `بروز بسنت انکی مزار پر سرود و سماع
+  و رقص و رنگ اندازی ہوتی ہی` — the throwing of colour was missing from the 17 September version.
+  `بسنت پنچمی`, `ہولی` and `گلال` are all on the page.
+- **p0064 carries the author's own sourcing statement**: `حال اسکا کمترین[OCR?] نے[OCR?] زبانی گور
+  کنان[OCR?] درج کیا ہی` — he recorded the account from the gravediggers' oral testimony, and notes
+  their version differed from another he held. If a burial location is ever cited from this book, that
+  is the sentence to read from the original.
+
+**Two systematic deviations the workers declared rather than hid.** (1) Vocalised Arabic — the kalima
+on p0025, `سبحان الملک الحی الذی لا یموت` on p0032, and Qur'anic quotations on pp. 0039-0040 — is
+printed **with harakat**, and three workers independently transcribed it **unvocalised**, on the
+ground that reproducing marks they could not resolve glyph-by-glyph would be composing rather than
+reading. That is a real loss of marks the printer set, chosen knowingly; those lines need a re-pass if
+the vocalisation matters. (2) **p0015's genealogical tree** (bands q3-q4) is recorded as `[image: …]`
+with the legible labels listed — including **نور احمد**, the author — but roughly half the labels sit
+on or under the frame rule and **the branch topology is not recoverable at this rendering**. If the
+lineage matters it needs a dedicated high-resolution pass on that one page.
+
+**Where the workers caught themselves composing, which is the behaviour this run wanted.** All six
+reported it, and every instance was replaced with a mark rather than left in: `باب النذر` and
+`دیوان جلاس` on p0023; a smooth opening line on p0025; the p0012 ghazal and most of p0013; plausible
+Urdu assembling itself on pp. 0034, 0035, 0037 and 0041 (`ابر محیط آسمان پر نمودار ہوا`,
+`فارسِ مضمارِ عبادت`); p0045's opening verse, p0047's middle lines and two-thirds of p0051;
+`باغبانپورہ` for `بابو پورہ`; `میانی` for `سیانی`; the p0056 age word. One worker also removed a
+**phantom** `[illegible: 1 line]` on p0010 after the band overlap proved the two lines were adjacent —
+the enumerated petitions skip "fourth", and the missing ordinal is inside an illegible stretch rather
+than a dropped line. **The flag density in these files is the signal, not a defect.**
+
+**A limit on how far these files can be audited mechanically.** One worker recorded that it could not
+reliably judge a word's left/right position in a 2462 x 1133 band, and resolved reading order and every
+band overlap by **semantic continuity across the seam** instead. It is confident nothing is duplicated
+or dropped, but that means overlap handling on this book **cannot be re-checked mechanically** by the
+next worker — only by re-reading the images.
+
+**Git, unchanged from §9.196, §9.198, §9.199 and §9.200.** Not attempted; `unlink` is blocked on this
+mount and even `git status --porcelain` bus-errors. All 66 page files, the tar, and this entry are left
+uncommitted in the working tree. `git add -A && git commit` is Rauf's to run. Nothing was pushed.
+
+**One invariant was added rather than a note saying be careful (RULE 4):
+`pipeline/book_queue/check_numeral_sequence.py`.** It reports descents inside an otherwise ascending
+run of standalone numerals across a page range, converting Eastern digits for comparison only. Run on
+`tahqiqat_chishti --pages 1-7` it returns exactly the six numerals the worker flagged by hand: 219->216,
+246->242, 438->434, 548->545, **695->667** and 834->832 — the fifth being the 6/9 substitution above.
+Two filters were tuned against that case rather than guessed: a plateau is not a descent (45 equal
+repeats skipped, ordinary in a two-panel contents layout), and the two tokens must have the same digit
+length, because a 2-digit reading after a 3-digit one is a truncation and reporting it buries the real
+hits. Exits 1 on any hit so it can be a gate. **What it does not claim:** a hit is not proof of a
+misreading (a contents page may legitimately restart), and a clean run is not proof the digits are
+right — only that nothing contradicts itself. Controls: prose pp. 45-55 return no hits (3 standalone
+numerals in 11 pages), and an untranscribed range says so on stderr instead of passing silently.
+
+### 9.202 — 18 September 2026: Pain and Grace fully noted, and the folio nobody had looked for
+
+*Numbered 9.202 because a second run the same day took 9.201 for `tahqiqat_chishti` pp. 1–66. Two
+scheduled runs landed on 18 September; neither knew of the other until this one read the project.
+**Check the last section number before appending** — §9.197 already records a whole run going
+unrecorded, and two runs claiming one number is the same failure wearing a different hat.*
+
+`schimmel_pain_and_grace` (priority 102, Annemarie Schimmel, *Pain and Grace: A Study of Two
+Mystical Writers of Eighteenth-Century Muslim India*, 310 PDF pages, `tesseract` route, 16 chunks at
+~8000 words) went from **0 chunk notes to 16**. Sixteen workers in three waves of 6/6/4 wrote
+`chunk_001`–`chunk_016.notes.md`, covering PDF pp. 1–310, contiguous, no gap and no overlap. 805 KB
+of notes, **1,062 `[OCR?]` marks**, **16 archive rows informed**, 250 id-bearing bullets. Written
+into both `entries/book_takeaways/schimmel_pain_and_grace/` and
+`out/ocr/schimmel_pain_and_grace/chunks/`, all 16 pairs verified byte-identical with `cmp`;
+`queue.py notes-status` returns `notes_missing: []`. `state.json` was **not** touched — no `mark`
+ran, the book is not consolidated.
+
+**The folio relation was recoverable and no previous run had looked for it.** `WORKER_PROTOCOL.md`
+tells a vision-route transcriber to omit running headers, so on the Urdu books the printed page
+number survives only where a worker wrote a `[folio N]` line. A `tesseract`-route book has no
+worker, so the header is still *in the text* — and in this book it carries the number (verso
+number-first, `154 SHAH ABDUL LATIF OF BHIT`; recto number-last,
+`SHAH ABDUL LATIF'S LIFE AND TEACHING 153`). Measured on 281 of 310 pages and verified by eye at
+seventeen across every regime:
+
+- PDF 6–31 → folio = PDF − 4
+- PDF 34–149 → folio = PDF − 2
+- PDF 152–310 → folio = PDF (offset 0)
+- PDF 1–5, 32, 33, 150, 151 print no arabic number
+
+**The offset steps by two at each boundary because the scan drops the blank leaves at the two part
+divisions.** Printed pp. 28–30 and 148–150 have no PDF page at all, so **a citation to printed
+p. 149 cannot be found in this file**. The boundaries are the part titles: PDF 32
+`KHWAJA MIR DARD OF DELHI (1721-1785)` and PDF 150 `SHAH ABDUL LATIF OF BHIT (1689-1752)`.
+
+**Two corrections the workers made to that measurement, both in favour of the page over the
+instrument.** The regex capped the offset-0 regime at printed 305; the chunk_016 worker read the
+headers and found it unbroken to p. 310. And the table said PDF 1–5 print nothing; the chunk_001
+worker found pp. 2–3 heading `XU FOREWORD` and `FOREWORD XIII` — **the front matter prints
+lower-case roman folios**, a fourth regime. Both are RULE 4 in miniature: the check was cheap, and
+it was the derived rule that was wrong, not the page. This is also the argument for telling a worker
+what the measurement *is* and that the page outranks it.
+
+**A tesseract-route book carries no transcriber apparatus whatsoever** — 702 KB of assembled text
+with **zero** `[OCR?]`, zero `[illegible]` and zero `[folio N]` lines. The sorley shape was carried
+over: mark the damaged word inline *and* inventory the damage class under Doubts, printed form first
+and the reading in brackets. Measured damage classes: q→g; long vowels lost to t/z/1/l/d; ʿ/ʾ dropped
+or printed `?`; lost macrons (the book's own title appears as Risa/lo, Rzsdl6, Rrsalo, Risalé,
+Risél6, Risald); lost German umlauts; and worst, **corrupt Roman numerals in Sur verse locators and
+bibliographic volume numbers** (`Kal. HI 6`, `Sar. HII 20`, `Mathnawi Il 1347`). **No locator from
+this book may enter an entry unchecked.**
+
+**Part I is of no use to this archive, and that is the result rather than a failure.** Mir Dard is
+buried in Delhi, outside scope. **Five of the sixteen chunks (003–007) map zero archive rows** and
+say so as explicit negatives. What Part I does yield is institutional rather than topographic, and
+it is recorded in full: succession to a father's office, the office of shaikh as "vicegerency of the
+prophecy", compulsory initiation, the tariqa Muhammadiyya's diffusion, a princess-built compound
+holding ʿurs "for a long time" until "after partition", a monthly commemorative samaʿ "to which
+thousands of pious listeners flocked", a full doctrinal defence of tomb-visiting covering fatiha,
+intercession, tomb upkeep and death-anniversary gatherings, the 1782 Delhi famine, and a priced
+patronage economy of praise and satire. Dard's attacks on "religious shopkeepers" and on shaikhs of
+whom "no shop-keeper-shaikh could explain the reality with this correctness" are usable polemic for
+`Rauf_Field_Map_Economics_of_Religion.md`.
+
+**The book informs sixteen archive rows**, `bhit-bhit-shah` overwhelmingly (134 of 250 id bullets):
+also `shrine-of-shah-abdul-karim-bulri`, `shrine-of-makhdoom-abdul-rahim-girhori`,
+`shrine-of-sachal-sarmast`, `mazar-of-bulleh-shah`, `dargah-roza-sufi-shah-inayat-shaheed`,
+`garh-maharaja-shorkot`, `shrine-of-bahauddin-zakariya`, `shrine-of-fariduddin-ganjshakar`,
+`data-darbar`, `dargah-of-khwaja-muhammad-zaman-luari-sharif`, `mazar-e-iqbal`,
+`mausoleum-of-waris-shah`, `shrine-of-makhdoom-nooh-hala`, `lal-shahbaz-qalandar`,
+`shrine-at-odero-lal-udero-lal-teerath-asthan`.
+
+**The richest single page in the book is PDF p. 151, and it prints no folio.** Burial "in a beautiful
+mausoleum in Bhit Shah near Hala, north east of Hyderabad/Sind"; the shrine "erected by the Kalhoro
+prince Ghulam Shah Kalhoro in 1765"; blue-and-white Hala-district tiles, minaret, adjacent graveyard;
+the ʿurs "in the month of Safar" with "innumerable visitors", a recently built guest house and a
+cultural centre in development; and "Every Thursday evening … the few dervishes who still continue
+the tradition … sing his poetry inside the compound of the mausoleum."
+
+**And it contradicts Sorley on the tomb's date.** §9.200 recorded Sorley's tomb "built by Ghulam Shah
+Kalhoro in 1754"; Schimmel says the shrine was "erected by the Kalhoro prince Ghulam Shah Kalhoro in
+1765", and gives no source. Same builder, same tomb, eleven years apart. **Keep both side by side —
+RULE 2 — and do not reconcile them.** Schimmel also states three negatives that cut directly against
+Sorley's "almost regal power" of the pir: the Risalo names no tariqa and no sanctuary, Shah Abdul
+Latif belonged to no chain of initiation, and he founded no community. Where one queue book
+disagrees with another, **the disagreement is the material**, and the queue is now large enough that
+this will keep happening — it is the first case of two books in the corpus contradicting each other
+on a datable fact about one archive row.
+
+**Every Part I citation by siglum is currently uncitable, and this run located the loss precisely.**
+PDF p. 4 lost its siglum column entirely in OCR — the sigla survive only as the stray lines
+"MOY OPER" and "™". Chunks 014 and 015 then established that **no abbreviations list, key or glossary
+exists anywhere else in the book**, and that the bibliography defers to the missing page: "For his
+other works see the list of abbreviations" (p. 295). So NA, K, D, S, A, P, U, N, M and F cannot be
+resolved. **PDF p. 4 needs re-reading from the page image** — one page, and it unlocks the whole of
+Part I. One recovery route was found: the index expands work titles with the author in parentheses
+("Ah-i sard (Dard) 66-68"), so the key may be reconstructible from the index side.
+
+**The Risalo's Sur abbreviations were partly recovered from prose**, where Schimmel names a Sur beside
+its abbreviation: `Dah.`=Dahar, `Sar.`=Sarang, `Bil.`=Bilawal, `BS.`=Barvo Sindhi, `Sor.`=Sorathi.
+**`Kal.`, `Ram.`, `Asa`, `Pur.` and `Abri` are never expanded**, and `Kal.` carries several of the
+most important citations in the commentary chapters.
+
+**The §9.200 index test was run on a second book, and the two differ on exactly one term.** Schimmel's
+`INDEX OF PROPER NAMES AND TECHNICAL TERMS` (pp. 300–310) **does** carry headwords for ʿurs (printed
+"Surs", the ʿayn read as S), pir, murid, murshid, samaʿ, baraka, faqir, jizya, and every silsila. It
+has **no headword** for shrine, dargah, mazar, tomb, ziarat, khanqah, langar, mela, qawwali, sajjada
+nashin, offerings, wakf, Auqaf, pilgrimage, karamat, endowment, land or revenue. Sorley's index had
+none of the relational vocabulary either. **Two twentieth-century studies of the same eighteenth-
+century saint, and between them one headword for the built shrine and its economy.** That is a
+finding about the literature, not about the notes, and it is the second book to produce it.
+
+**But this index is a coarse aid only.** Its two-column layout collapsed on all ten pages: **at least
+20 headwords stand with no page run and at least 30 runs with no headword.** Individual numerals are
+corrupt and two runs are demonstrably out of sequence. Note also that **the poet of Bhit has no
+headword in pp. 301–310** — he is indexed under ʿAbdul Latif in A, on a page before the chunk — and
+that "Dethi" is Delhi, so a keyword search misses one of the largest runs in the index.
+
+**Hinglaj is where the archive's own defect costs the most.** `Shaktipeeth Shri Hinglaj Mata Mandir`
+still has an **empty id cell** in `shrine_index.tsv` (first reported §9.198). This book carries
+Hinglaj material in chunks 009, 010, 012 and 015 — the Yogis' walk "from the village of Ganji Takar
+near present-day Hyderabad to the sacred mountain Hinglaj", three chapters of Sur Ramakali, and a
+full nineteenth-century pilgrimage account in the bibliography (Hart, *A pilgrimage to Hinglaj*,
+Bombay Geograph. Soc.). **None of it could be mapped.** Filling one cell attaches all of it.
+
+**Three candidate new rows**, none in the 169: **Makli Hill near Thatta** (125,000 saints as legend,
+Makhdum Muhammad Hashim's burial, Muharram there, an eighteenth-century festival and music calendar
+from Qani's *Maklinama*); the **Chaukandi tombs near Karachi** (figural and jewellery carving, dated
+to the poet's period); and **Ganji Takar** near Hyderabad, the named origin village of the Hinglaj
+pilgrimage. The first two also appear in the sorley notes.
+
+**Six death-year discrepancies against `shrine_index.tsv`**, the book's figure recorded and neither
+reconciled nor corrected: Hujwiri "(d.1071)" vs 1072; Fariduddin "d. 1265" vs 1266; Bahauddin
+Zakariya "(d. c. 1265)" vs 1267; Bullhe Shah "(d. 1752)" vs 1757; Sachal Sarmast "(d. 1826)" and
+"(1739-1826)" vs 1827; Sultan Bahu "d. 1694 in the Panjab" vs 1691.
+
+**RULED, 18 September 2026 — Rauf, in chat.** *A person who is an archive row's principal figure
+takes that row's bold id even where the book names them only as an author or a literary reference.*
+The reason he gave is the one that settles it: the shrine descriptions are written and updated **from
+these books**, so an author-only mention of Hujwiri is material for `data-darbar` and discarding it
+into "Other" loses exactly what the notes exist to collect. The bullet still records only what the
+book actually says — "named as the Panjabi contemporary", if that is all there is — so the
+consolidator can weigh it, and a thin mapping still gets its Doubts line. This closes the third of
+the three decisions §9.199 and the 17 September sorley run were waiting on, and it was the newest of
+them: four of this run's sixteen workers hit it independently and all four parked it rather than
+guess. `TAKEAWAYS_PROTOCOL.md` now carries the rule. **The other two remain open**, and Pass 2 on
+sorley *and* schimmel is still held on them: whether a bare toponym maps, and whether the inline
+damage marker is standing convention. Note that the ruling does **not** decide the toponym case, and
+the reason it does not is worth keeping: a row names its principal figure, so a person is a handle on
+that row, whereas "Lahore" on its own tells an entry nothing about any of the archive's Lahore rows.
+
+**Consequence for the notes already written**, recorded so nobody re-runs a chunk: chunks 010, 011,
+013 and 014 parked author-only persons under "Other saints, sites and events" with the row named in
+Doubts, which is exactly the reversible shape they were asked for. **Pass 2 promotes those bullets;
+it does not need Pass 1 re-run.** Roughly 25 bullets across four files are affected, and every one
+carries its own promotion instruction.
+
+**Bridge, worse than §9.196 and §9.200.** At least five drops during the run, then a terminal outage
+about twenty minutes before the end which survived nine retries over twenty-five minutes, so the
+write-back had to be abandoned and was completed only after Rauf's machine came back later the same
+session. **The §9.200 mitigation is what saved the run**: twenty files — sixteen chunks, the shrine
+index, the protocol and two calibration notes — were staged into the cloud container up front, so
+**not one of the sixteen workers touched the bridge**. Three additions worth keeping. Launch the next
+wave *during* an outage rather than idling on it — waves 2 and 3 were both launched while the bridge
+was down. A failed `mkdir` may simply succeed on a later retry; do not treat it as a permission
+problem. And **the write-back is the one step that cannot be staged in advance**, so until it has run,
+a finished batch is not finished: while the bridge was down the notes were held in the session
+outputs, tarballed, and the run record written to the attached project with the exact recovery paths,
+which is the fallback that made the outage survivable rather than costly.
+
+**Git, unchanged from §9.196, §9.198, §9.199, §9.200 and §9.201.** Not attempted. Every file above is
+uncommitted in the working tree; `git add -A && git commit` is Rauf's to run. The §9.202 source text
+is also at `out/ocr/schimmel_pain_and_grace/_handover_9202.md` (gitignored) if this section needs
+re-appending.
+
+#### 9.202a — same run, later: the abbreviations key is recovered, and two traps on the way to it
+
+**The one page that mattered has been read, and Part I is citable again.** §9.202 above recorded that
+PDF p. 4 lost its siglum column entirely in the tesseract output and that no key existed anywhere
+else in the book, leaving every Part I quotation cited by siglum unusable. That page was re-rendered
+from the PDF (`pdftoppm -f 4 -l 4 -gray -png -r 300`) and read as an image. **The list is complete
+and fully legible**: nine sigla — K, N, A, D, S, U, P, NA, F — with works and imprints, now recorded
+with the page's own preamble at
+`entries/book_takeaways/schimmel_pain_and_grace/_abbreviations_key.md`. The lesson is narrow and
+useful: **when an OCR route drops a structural page, the page is still there.** A single image read
+undid a gap that four chunk notes had flagged as blocking.
+
+Three corrections to the chunk notes came out of it, all of them things the notes could not have
+known:
+
+- **There is no siglum M.** So the `M` in `(M II 493 f.)` (chunk 007) and `Mathnawi Il 1347`
+  (chunk 011) is Rumi's Mathnawi, not a Dard work. Chunks 007 and 008 both listed M among the
+  unexpanded Dard sigla; they were wrong to, and the second of those pages spells it out.
+- **F is a book *about* Dard, not by him** — Firāq's *Maikhana-yi Dard*, Delhi 1344/1925. A passage
+  cited `F` is Firāq's testimony. Do not merge it with Dard's own words at consolidation.
+- **N, A, D and S share one imprint** (Bhopal 1310 h/1892-3), joined on the page by a single brace.
+
+**And the Sur key turned out to be a pointer, not a list.** p. 4 closes by saying the thirty Sur
+titles "are abbreviated from the list given on pp. 154 ff." — which settles chunk 009's doubt 2:
+**the citation base for every Sur reference in this book is Adwani, Bombay 1957, thirty Surs**, and
+the 36-name sequence in footnote 5 on p. 154 is the *Hyderabad 1974* edition, which the footnote
+itself says differs. Any Sur count quoted from this book must name its edition. But pp. 154 ff. is a
+prose walk-through, not a tabulated list, which is why no chunk found a key there. Eight pairings are
+now recorded on page evidence; `Kal.`, `Ram.`, `Asa`, `Pur.` and four others are left open, because
+an obvious truncation of a name is not a statement by the book (RULE 2). One trap found in passing:
+**`Sr.` and `Sar.` are different Surs** — Sarirāg and Sarang — so the strings must not be normalised.
+
+**Two traps worth encoding, both about verification rather than content.**
+
+**`state.json`'s `pdf_path` for this book is stale and points at a file that does not exist.** It
+records `books/schimmel_pain_and_grace.pdf`; the actual file is
+`books/incoming-2026-09-11-english/06_Annemarie-Schimmel-Pain-and-Grace_-A-Stu.pdf`, and
+`books/renames.json` does not mention the slug. The runbook's resume step 3 tells a fresh session to
+look for `books/<file>.pdf` and stage it if missing — **on this book that instruction sends you
+looking for a file that was never there.** Identify the PDF by hash, not by the recorded path. Worth
+checking whether other entries have the same drift before the next render batch.
+
+**And `pdf_sha256_head` is not what it looks like.** It is `sha256` of the **first 1 MB only**,
+truncated to 16 hex characters (`queue.py:256`). A whole-file `shasum | cut -c1-16` gives
+`56e2da25a709138e` against the recorded `c7bd0bfb1e1ca94c` and **looks exactly like the runbook's
+stop-and-ask condition** — "a different file means a different upload, stop and ask" — with the byte
+count matching to the byte, which makes the false alarm more convincing rather than less. Computed
+the way `queue.py` computes it, it matches. **Read the function before reporting a hash mismatch on
+this queue.** The correct check is:
+
+```
+python3 -c "import hashlib;print(hashlib.sha256(open(P,'rb').read(1024*1024)).hexdigest()[:16])"
+```
+
+Minor, noted while reading: `pipeline/book_queue/queue.py` shadows the stdlib `queue` module, so it
+cannot be imported by name from a script whose `sys.path` puts that directory first.
+
+**Still open and unchanged:** the two mapping decisions (bare toponym; inline damage marker) hold
+Pass 2 on both sorley and schimmel; `Shaktipeeth Shri Hinglaj Mata Mandir` still has an empty id
+cell; and the `## Bibliography and apparatus` heading still awaits ratification. Uncommitted, as
+above.
+
+#### 9.202b — same run: 34 of the 42 books had a source path that pointed at nothing, and now there is a check
+
+**Measured, not guessed: only 8 of the 42 `pdf_path` values in `state.json` resolved to a file that
+exists. Thirty-four did not.** All 34 recorded `books/<slug>.pdf`; the files are under
+`books/incoming-2026-09-11/` and `books/incoming-2026-09-11-english/` with their original download
+names (`06_Annemarie-Schimmel-Pain-and-Grace_-A-Stu.pdf`), and `books/renames.json` does not map the
+slugs. **Nothing was lost** — every one of the 34 was located by byte size plus head-hash, and there
+were **zero conflicts and zero unresolvable books**. This was found only because §9.202a needed one
+page image and the recorded path was not there; it had been latent since the 11 September intake and
+would have surfaced as a false "missing PDF, stage it from the Mac" on the next render or ingest
+batch — the masnavi volumes at `rendering`/`ingested` are exactly that batch.
+
+**New: `pipeline/book_queue/resolve_pdf.py`.** Resolves a book's source by content rather than by the
+recorded path, and it is a check that fails loudly rather than a note saying be careful (RULE 4):
+
+    resolve_pdf.py                  audit all 42; prints every stale row; EXIT 1 if any are stale
+    resolve_pdf.py --slug SLUG      print the resolved path — use this in place of state.json's
+    resolve_pdf.py --fix            rewrite the stale pdf_path values, with a backup
+    resolve_pdf.py --json           machine-readable
+
+It distinguishes the case that actually matters. A recorded path that **exists but whose head-hash
+disagrees** is reported `CONFLICT` and is the runbook's genuine stop-and-ask ("a different file means
+a different upload"); a path that is merely absent while the content is findable is `relocated` and
+is bookkeeping. Conflating those two is how a stale path gets escalated as a corrupted corpus. It
+also refuses `--fix` while any book holds an active lease, because two scheduled runs landed on
+18 September without knowing about each other (§9.202) and a second one may be mid-batch.
+
+**`--fix` was run, and the result was verified rather than assumed.** 34 values rewritten;
+`state.json` now audits `ok=42` and the script exits 0. A structural diff of the backup against the
+new file shows **exactly 34 changed leaves, every one of them `pdf_path`**, all 42 statuses
+identical, and the same line count (2545) before and after — the script writes with the same
+`json.dumps(..., ensure_ascii=False, indent=2) + "\n"` that `queue.py:89` uses, so the diff stays
+confined to the lines it means to touch. Backup at
+`pipeline/book_queue/state.json.bak-2026-09-18_024939`, and `.gitignore` now carries
+`pipeline/book_queue/state.json.bak-*` so a repair to the queue's own state is always revertible
+without the backup entering the repo.
+
+**Two things to carry forward.** Prefer `resolve_pdf.py --slug <slug>` over `state.json`'s
+`pdf_path` in any new script — the path is now correct for all 42, but the intake pattern that broke
+it (files arriving under download names into dated subfolders, the manifest naming them by slug) has
+not changed, so it will drift again on the next intake. And the audit is cheap enough to run at the
+head of a render batch; it walks `books/` once and hashes only the size-matching candidates.
+
+### 9.203 — 18 September 2026: khulasat_ut_tawarikh started at the English end, and the vertical split is real
+
+**Why this run did not advance `tahqiqat_chishti`, which is the higher priority.** §9.201 left three
+decisions for Rauf unanswered, and two of them govern that book's remaining 807 pages: whether they
+run at all on a rendering all six workers declined to commit to (~48% mean word confidence, 40.1
+`[illegible]` per 1,000 characters read), and whether the two cheap render fixes are made first. A
+page that has a `pNNNN.txt` is never redone, so transcribing 66 more pages of it at the disputed
+rendering would have spent the batch *and* foreclosed the fixes. `khulasat_ut_tawarikh` (priority 190)
+carried no pending decision and had **0 of 610** pages, so the batch went there. The three decisions
+from §9.201 remain open and were re-surfaced in the chat with this run's report.
+
+**What this book actually is, measured page by page rather than assumed.** The earlier note that "the
+first ~32 pages are a clean 1918 English letterpress front matter and index" is close on the letterpress
+and wrong on its extent. Structure, from the rendered images:
+
+| PDF pages | content |
+|---|---|
+| 1-5 | cover, a bookplate (English, a presentation inscription), blanks |
+| ~6-15 | **English letterpress front matter**, roman folios i-vii; ends `DELHI, 11th August, 1918. ZAFAR HASAN, B.A.` |
+| 16 | blank |
+| 17-~45 | **two-panel Persian index** of names and places, each entry followed by a chain of folio numbers in Eastern digits, own folio run (p0017 = folio ۳۳, p0020 = ۳۹, p0045 = ۲) |
+| ~46-48 | **errata table**, four columns `صفحہ \| سطر \| غلط \| صحیح` |
+| 49-610 | the Persian body text |
+
+So the English part is ~10 pages, not 32, and ~32 pages are the index and errata — the two layouts a
+horizontal band render serves worst and the two whose whole content is numerals.
+
+**The vertical split is not a marginal gain, and the mechanism is not the one §9.201 assumed.**
+§9.201 proposed splitting two-panel pages vertically for "~2.5x the effective resolution" and left it
+untested. Tested on two pages this run, and it is a large, visible improvement — but not because of
+source pixels. This book's embedded scans are **2488 x 3840 (400 ppi)**, so the standard
+`--scale 4400` band render at 2858 px wide is already a 1.15x *upsample*, and the panel render at
+`--scale 8800` is a 2.3x upsample that adds no real detail. It is still far more legible. The limit is
+the pixels the model is **delivered**: an image is downscaled to the vision tier's long-edge cap
+before it is read, so legibility goes as (tier cap) / (fraction of the page width the image covers).
+Halving the covered width doubles the pixels per glyph even when the render invents them. The
+corollary matters more than the finding: **making bands taller buys nothing** — the long edge is the
+width, and the width sets the scale factor — and **no render setting helps a full-width line**, which
+is why §9.201's prose pages sat at ~48%.
+
+| page | render | result |
+|---|---|---|
+| p0020, two-panel index | 4 horizontal bands, scale 4400 (2858 x 1133, full width) | digit chains not readable as chains |
+| p0020, same page | right-hand vertical panel, scale 8800 (2932 px wide, half width) | folio ۳۹, `محمد صادق - ۵۰۵ - ۵۲۲`, `محمد صالح - ۴۸۶ - ۵۰۳ - ۵۳۹`, `مخدوم الملک - ۶۶`, `مخدوم جہانیان - ۶۲` all individually resolvable |
+| p0055, single-column prose | right-hand vertical panel, scale 8800 | `نوک پیکان جگر فرسا سوزن اما خار ارزو…` read word by word |
+
+**What that measurement is not, said before anyone quotes it.** Two pages, one reader, no CER against
+a hand-verified gold page. That is the exact shape of the claim §9.201 caught inside
+`render_bands.py`'s own docstring — "measured on TWO pages and generalised" — so it is recorded with
+the warning attached rather than as a rate. Before a large run is committed to it, A/B ~10 pages
+across independent workers and compute the same counts §9.201 computed; the number to beat on this
+corpus is **40.1 `[illegible]` per 1,000 Arabic characters read**. And the prose case carries a cost
+the table case does not: a vertical split cuts every prose line in half, so a worker must stitch each
+line across the seam, and §9.201 already recorded that band seams on this corpus are resolved by
+semantic continuity and therefore cannot be re-checked mechanically afterwards. A two-panel table
+splits along a rule that is already there and has nothing to rejoin.
+
+**The tool was written rather than described (RULE 0): `pipeline/book_queue/render_panels.py`.**
+`--panels 2 --bands 4` per page, panels numbered in right-to-left reading order (panel 1 is the
+right-hand one, `--ltr` flips it), output `pNNNN_v1b1.png`..`pNNNN_v2b4.png` so it never collides with
+`render_bands.py`'s `_qN.png` and both renderings of a page can sit side by side while an A/B runs.
+Horizontal overlap as well as vertical, so a word on the rule appears whole in one panel. Its
+docstring carries the table above and the warning under it. `render_bands.py` was **not** edited: that
+is decision 2 in §9.201 and is Rauf's.
+
+**Pages 17-48 were deliberately left untranscribed, and the queue says so rather than a note saying
+so.** The index and errata are held under a lease named `HOLD-vsplit-index-errata` covering **17-38**,
+which is visible in `queue.py status` and will expire on `sweep-leases` like any other. Pages **39-48**
+have no full-page PNG on the Mac and so were never leasable; they are held by the same reasoning.
+Those 32 pages are the ones the vertical split exists for, and doing them at the horizontal rendering
+would have baked in a name-to-folio index whose folio numbers cannot be trusted — worse than no index,
+because it sends a reader to the wrong page with no flag. They should be re-rendered with
+`render_panels.py` and transcribed as their own batch, at roughly 8 images a page instead of 4.
+
+### 9.204 — 18 September 2026: Rafat's Bulleh Shah noted, and half the book was never transcribed at all
+
+*Numbered 9.204 because §9.203 (`khulasat_ut_tawarikh`) landed from the transcription task while this
+run was mid-batch. Third time in two days that the number check has caught a live collision — the two
+scheduled tasks now fire hourly at :05 and :35, so `grep -n '^#\{3,4\} 9\.' docs/HANDOVER.md | tail`
+is not optional.*
+
+**The run-sheet state was one run stale and was not trusted.** It named
+`shackle_bulleh_shah_sufi_lyrics` (priority 103) as the notes-front book. `notes-status` says it was
+finished at 03:23–03:30 by the previous firing: 7 chunks, 7 notes, `notes_missing: []`. The batch
+moved to the next book instead of re-doing it.
+
+**`rafat_bulleh_shah_selection` (priority 104, Taufiq Rafat trans., *Bulleh Shah: A Selection*,
+Introduction by Khaled Ahmad, 263 PDF pages, `tesseract` route, Google/University of Michigan scan)
+went from 0 chunk notes to 4.** Four workers in one wave wrote `chunk_001`–`chunk_004.notes.md`
+covering PDF pp. 1–32, 33–91, 92–221, 222–263 — contiguous, no gap, no overlap. 196 KB of notes,
+370 bullets, **217 `[OCR?]` marks and 7 `[illegible]`**, **14 archive rows informed**. Written into
+both `entries/book_takeaways/rafat_bulleh_shah_selection/` and
+`out/ocr/rafat_bulleh_shah_selection/chunks/`, all four pairs verified byte-identical with `cmp`;
+`notes-status` returns `notes_missing: []`, `chunks_ok: true`. A check over the four files confirms
+**zero invented archive ids** — every bold id resolves to a row in `shrine_index.tsv`. `state.json`
+carries only the re-chunk log line; no `mark` ran, the book is **not** consolidated.
+
+**The false-green chunk warning paid for itself on its first real outing.** All six books below
+priority 103 return the §9.201-era patch's warning: `chunks: 0` on disk against `chunks_recorded: 4`
+(rafat), 7 (waris_shah), 3 (madho_lal_hussein), 22 (kugle), 17 (ernst_lawrence), 28 (rizvi). Before
+the patch every one of those printed `{"chunks": 0, "notes_missing": []}` — indistinguishable from a
+finished book. The remedy worked exactly as documented: `queue.py chunk rafat_bulleh_shah_selection
+--words 8000`, the 8000 taken from the book's own log line, reproduced the same 4 chunks.
+
+**The folio relation is `folio = PDF − 20`, and it holds across the whole book with no regime
+changes.** Measured on 115 pages spanning PDF 30–254 with **no competing offset anywhere in the
+histogram** (the next most frequent candidate occurs once). Verified against four page images: PDF 40
+prints "20" on a verso, PDF 101 prints "81" on a recto, and — see below — PDF 124 and 232 print ۱۰۴
+and ۲۱۲. Three workers re-confirmed it independently on 62, 22 and every numbered page of their
+ranges, with zero disagreement. **One regime the measurement missed and a worker caught: the front
+matter prints lower-case roman folios 1:1 with the PDF page** (p. 8 = viii, pp. 12–16 = xii–xvi,
+p. 18 = xviii). Same shape as the schimmel front matter in §9.202, and the same lesson — the
+instrument measured arabic numerals, so it could not see the regime that has none.
+
+**The finding that matters: 89 pages of this book — its entire Punjabi original — were never
+transcribed, and the queue counts them as done.** The book is set as facing pages: **even PDF pages
+(verso) carry the kafi in lithographed Nastaliq; odd pages (recto) carry Rafat's English verse
+translation.** The `tesseract` route ran a Latin model over both. Measured over the parallel-text
+range PDF 55–232: the 89 rectos average 364 characters a page, the 89 versos 139 — and of the 1,029
+Latin words extracted from all 89 versos together, **7 are recognisable English (0.7%)**. The other
+99.3% is noise of the form `afer Zit ui Ly! Lf`. `state.json` records `pages_done: 1-263` and the
+queue status line reads 263/263.
+
+**Two verso page images settle it and correct the notes.** Three versos (pp. 124, 214, 232) extracted
+to fewer than 30 characters and a worker flagged them as possibly dropped pages. They are not
+dropped. PDF p. 124 is a full page of Nastaliq under the title `روزے حج نماز نی مائے`, and PDF p. 232
+carries three lines of it. **Both print their folio in Eastern numerals — ۱۰۴ on p. 124, ۲۱۲ on
+p. 232 — and both satisfy PDF − 20.** So two things the chunk notes say are wrong in fact, and
+neither needs a chunk re-run: the versos are **not** blank, and they do **not** print "folio not
+stated" — the folio is printed, in Eastern numerals, and tesseract dropped it. Every verso citation in
+the four notes files can be given its folio by arithmetic. **The Punjabi text of every kafi in this
+book is recoverable and is currently lost only to the wrong OCR model**; recovering it means a
+`vision` pass over the 89 even pages, not a re-transcription of the book. Recorded here because the
+queue's own numbers cannot see it: **"transcribed" on a parallel-text book means the half the model
+could read.**
+
+**Four measured damage classes, two of which the run sheet did not predict.**
+
+- **h→b, confined to italics** — `tbe`, `tbat`, `bave`, `bis`, `ber`, `bim`, `notbing`, `bbakti`,
+  `bell` (=hell), `bandled`, `beart`, `otbers`. Roman body text is clean. Predicted from the page
+  images and confirmed by chunks 001 and 002. **But it is not exceptionless**: a worker found `1` for
+  `I` in *roman* body text on pp. 11, 12 and 16, and chunk 003 found the damage class absent from
+  pp. 92–221 entirely.
+- **q→g in roman body text — new, and the most costly.** `gawwals`/`gawwal` for *qawwals*, `Fagqir`
+  for *Faqir*, `Maqsood Sagqib` for *Saqib*. **This hides the book's only transmission-economy
+  passages from a search for "qawwal".** Any grep over this corpus for ritual-economy vocabulary must
+  allow the g/q substitution. The same class was measured on the other tesseract book in §9.202.
+- **`I` rendered as `1`, `l` or a pipe `|`** in verse lines, inconsistently — chunk 003 found the pipe
+  form, which no earlier note had recorded.
+- **Eastern numerals dropped silently** (above).
+
+**The Introduction carries marginal side-headings, and tesseract folds them into the prose.** "Qasur
+as hell" sits in the left margin of PDF p. 40 and arrives in the text as a stray line `Qasur as bell`
+immediately after the folio. They are topic labels, not sentences, and they are a good finding aid —
+but a reader who does not know they exist will parse them as a broken sentence. Same failure mode as
+a running header, and worth telling any future worker on a scanned monograph.
+
+**The poem count scare resolved by measurement, in favour of the book.** Chunk 003 reported 51 titled
+poems against an estimate of ~65 and asked whether pages had been dropped. Counting ALL-CAPS headings
+across PDF 55–233 gives **68 on odd pages and none on even**, against the index's **67 entries, every
+one of them an odd number** — so the two instruments agree and nothing is missing. The 22 odd pages
+with no heading are continuation pages of multi-page kafis. Chunk 004 also corrected the run sheet's
+structure: **the facing-page setting stops at p. 233**; pp. 235–244 are the 30 endnotes, pp. 247–254
+the glossary, pp. 257–263 the index, all single-sequence English on rectos and versos alike.
+
+**The book informs fourteen archive rows**: `mazar-of-bulleh-shah` (overwhelmingly),
+`shrine-of-shah-inayat-qadiri`, `shrine-of-mian-mir`, `madho-lal-hussain`, `mausoleum-of-waris-shah`,
+`shrine-of-fariduddin-ganjshakar`, `shrine-of-sachal-sarmast`, `shrine-of-bahauddin-zakariya`,
+`garh-maharaja-shorkot`, `mazar-e-iqbal`, `mithankot-kot-mithan`, `gurdwara-dera-sahib`,
+`gurdwara-dash-mesh-pita`, `dargah-roza-sufi-shah-inayat-shaheed`. The richest material is in
+chunk 001 (the tomb at Qasur as the author saw it: a concrete structure, Auqaf Department banners
+named inside the tomb, qawwals, a pay-to-be-buried economy, the burial refusal) and in chunk 004's
+endnotes (note 1: "Bulleh Shah is said to be a descendant of the founder and was born in Uch
+Gilanian", with the Qadiri gaddi and relics; note 10: Mian Mir d. 1635, from Sehwan Sharif, founder of
+the Qadiriya in Lahore, Dara Shikoh's wife buried near his mausoleum; note 16 names Shah Husain and
+Madho Lal in one sentence).
+
+**The four workers split on the same mapping, and the split is the right outcome rather than a
+defect.** Chunks 001, 002 and 004 map the murshid to `shrine-of-shah-inayat-qadiri` on the
+Introduction's own words — "Shah Enayat of Lahore, the beloved preceptor of Bulleh Shah, was a
+successor to the Qadiriya 'gaddi' of Mian Mir". Chunk 003 **deliberately held him unmapped**: inside
+the kafis the name stands bare ("Inayat Shah, my eyes are sore", "my master", "unless you choose
+Inayat, you will lose") with no location, order, death year or tomb, and nothing in that chunk
+discriminates the Lahore row from `dargah-roza-sufi-shah-inayat-shaheed` (Jhok Sharif, Sindh,
+d. 1718). All of it is held in one place under "Other" with a single Doubts paragraph, so Pass 2
+promotes it in one operation. **A worker refusing a mapping its own chunk cannot support, while
+naming the row it would take, is the reversible shape these notes are supposed to have** — the
+consolidator has both the evidence and the doubt, and neither worker guessed.
+
+**Date conflicts against `shrine_index.tsv`, recorded side by side and reconciled nowhere** (RULE 2):
+Bulleh Shah **d. 1758** in this book, stated four times and internally consistent, against the archive
+row's 1757 — and note that §9.202 recorded *Schimmel* giving 1752 for the same death, so the corpus
+now holds **three** dates for it. Sachal Sarmast book 1826 / archive 1827. Baba Farid "(1175-1265)"
+twice and "(1173-1265)" once inside this book, against the archive's 1266, and elsewhere "12th
+century". A birth year is derivable from "66 years old" in 1746 but is never printed, so it is left
+"(not stated)".
+
+**Hinglaj, unchanged and now costing a third book.** `Shaktipeeth Shri Hinglaj Mata Mandir` still has
+an **empty id cell** in `shrine_index.tsv` (§9.198, §9.202). It does not appear in this book, and all
+four workers recorded that as an explicit negative — which is the right behaviour and also a reminder
+that the cell is still empty.
+
+**Pass 2 is now held on four books.** `sorley_shah_abdul_latif_of_bhit` (24/24),
+`schimmel_pain_and_grace` (16/16), `shackle_bulleh_shah_sufi_lyrics` (7/7 — finished by the 03:05
+firing, `takeaways_file: None`, so it is held too and this run was the first to count it) and now
+`rafat_bulleh_shah_selection` (4/4) are all fully noted and
+all await the same two unruled decisions: **(a)** whether a bare toponym with no shrine, tomb, saint,
+ʿurs or custodian attached takes an archive id — interim: no, it goes under "Other" with a Doubts line
+naming the row it would take on reversal; **(b)** whether the inline damage marker is standing
+convention — interim: do both, `[OCR?]` on tesseract/vision and `[text-layer?]` on text_layer. Both
+were written reversibly throughout this book. **(a) bites hard here**: Qasur is the city Bulleh Shah
+lived in and is named constantly, and under the interim convention every bare mention of it sits under
+"Other" pointing at `mazar-of-bulleh-shah`.
+
+**Bridge, and the contrast with §9.202 is worth recording.** Zero drops this run. The §9.200/§9.202
+mitigation was applied anyway — eight files (four chunks, `shrine_index.tsv`,
+`TAKEAWAYS_PROTOCOL.md`, and two calibration notes from `shackle_bulleh_shah_sufi_lyrics` and
+`schimmel_pain_and_grace`) staged into the cloud container before any worker launched, so **not one
+of the four workers touched the desktop bridge**. The repo folder was **not connected** at session
+start and had to be granted with `device_request_folder_access` on the exact curly-apostrophe path;
+`get_device_info` reported `connectedFolders: []`. A scheduled run should expect to ask for the grant,
+not assume it.
+
+**Git, unchanged from §9.196 onward.** Not attempted; `unlink` is blocked in the connected folder.
+Every file above is uncommitted in the working tree; `git add -A && git commit` is Rauf's to run. The
+§9.204 source text is also at `out/ocr/rafat_bulleh_shah_selection/_handover_9204.md` (gitignored) if
+this section needs re-appending, and the four verification page images are in
+`out/ocr/rafat_bulleh_shah_selection/verify/`.
+
+**Next, in priority order:** `waris_shah_hir_ranjha` (105, 7 chunks recorded, 0 on disk — re-chunk at
+8000), then `madho_lal_hussein_verses_lowly_fakir` (106, 3), `kugle_sufis_and_saints_bodies` (107,
+22), `ernst_lawrence_sufi_martyrs_of_love` (109, 17), `rizvi_history_of_sufism_india_1` (110, 28),
+then 111–123 and `nizami_revised_translation` (210). **Check `waris_shah_hir_ranjha` for the same
+parallel-text trap before noting it** — it is a Punjabi verse romance on the `text_layer` route with
+57 pages for a work that is far longer than 57 pages of English, which is the same shape of number
+that should have been questioned here.
+
+**What the batch produced.** Six workers transcribed **66 pages** from the 4-band render at
+`--scale 4400` (2858 x 1133 px per band, 3% overlap), one `pNNNN.txt` per page: **pp. 1-16** (cover,
+bookplate, blanks, title leaf, English preface) to w1, and **pp. 49-98** (the opening of the Persian
+body as the PDF orders it) in five blocks of ten. Bands were rendered in the cloud container at
+~8.4 s/page; full-page PNGs for pp. 60-98 were rendered there too and committed to the Mac so
+`lease` could see them (`queue.py render` on the Mac ran at >13 s/page and timed out the 180 s
+device shell twice). All 66 files are mirrored to `out/ocr/khulasat_ut_tawarikh/pages/`;
+`check` reports **66/610**, status `transcribing`. No page was skipped, none is missing, and the only
+files under 40 characters are the five that are genuinely `[blank page]` (pp. 3-6, 16). The band
+PNGs were **not** mirrored: `out/` is gitignored and regenerable, and the exact command is in the
+`log` and above.
+
+**Confidence, and the thing it says about the render.**
+
+| range | content | self-assessed word confidence | `[illegible]` | `[OCR?]` | Arabic chars | `[illegible]` / 1,000 chars |
+|---|---|---|---|---|---|---|
+| pp. 1-16 | English letterpress | 85-99%, **mean 95.7%** | 8 | 52 | — | n/a (14,819 Latin chars) |
+| pp. 49-98 | Persian Nastaliq | 55-78%, **mean 67.2%** | 75 | 1,135 | 69,927 | **1.1** |
+| *(§9.201: `tahqiqat_chishti` pp. 1-66, same render)* | *Urdu Nastaliq* | *33-80%, mean ~48%* | *2,470* | *2,321* | *61,616* | ***40.1*** |
+
+**1.1 against 40.1 on the identical rendering.** That is a factor of ~36 between two books read the
+same way, which settles something §9.201 could not: **the render is not the dominant variable — the
+book is.** `khulasat`'s 1918 Delhi lithograph at 400 ppi is simply a better impression than
+`tahqiqat_chishti`'s, and the 4-band recipe is adequate for it. Nobody should quote the 2462 px
+recipe as good or bad without naming the book. Per-page confidence, honest and unrounded:
+p0001 85 · p0002 97 · p0003-p0006 99 · p0007 94 · p0008 86 · p0009 98 · p0010 96 · p0011 94 ·
+p0012 95 · p0013 97 · p0014 96 · p0015 98 · p0016 99 · p0049 62 · p0050 65 · p0051 66 · p0052 55 ·
+p0053 55 · p0054 58 · p0055 58 · p0056 55 · p0057 63 · p0058 60 · p0059 62 · p0060 68 · p0061 68 ·
+p0062 72 · p0063 66 · p0064 68 · p0065 70 · p0066 70 · p0067 67 · p0068 72 · p0069 60 · p0070 62 ·
+p0071 70 · p0072 70 · p0073 66 · p0074 74 · p0075 78 · p0076 73 · p0077 76 · p0078 76 · p0079 70 ·
+p0080 68 · p0081 74 · p0082 76 · p0083 74 · p0084 70 · p0085 71 · p0086 77 · p0087 74 · p0088 70 ·
+p0089 62 · p0090 60 · p0091 62 · p0092 65 · p0093 67 · p0094 68 · p0095 70 · p0096 63 · p0097 65 ·
+p0098 70.
+
+**THE FINDING THAT CHANGES HOW THIS BOOK IS ASSEMBLED: the scan is bound backwards.** Five workers,
+working on disjoint ten-page blocks and told nothing about it, independently reported that the
+printed folio **descends** as the PDF index ascends, and each verified it a second way — by prose
+running continuously from the higher PDF index into the lower. w6: p0058 ends
+`…محمد شجاع انروز` and p0057 opens `قدم جرات ازجاے خود پیش نگذاشت`. w2: p0061 ends `…نوشته بود`,
+p0060 opens `که قلاع بمحمد شجاع بسپارند`. w4 checked five joins, w5 three, w3 two chapter headings
+continuing across the break. Roughly twenty page joins in all, no counter-example.
+
+    printed folio = 589 - PDF page index          50 of 50 folios agree, 0 disagree
+
+So **reading order for pp. 49-98 is p0098 -> p0049**, and `queue.py check`'s assembly, which
+concatenates `pNNNN.txt` in PDF order, will produce this book's text **backwards**. The 610-page
+PDF therefore holds the back matter first: the index and errata at pp. 17-48 are the printed
+volume's *end*, which is why they carry their own low folio run while p0049 is already folio 540.
+
+**`queue.py folio-check` cannot see a reversed book, and reported its own blind spot as the book's
+error.** Because it fits `folio = index + constant`, it derived a different offset for every page
+and printed fifty lines of `offset -451: 1 pages (2%) 69  <-- CHECK: a minority offset this small is
+usually a misread tens digit`. Fifty unanimous readings by five independent workers, reported as
+fifty misreadings, with advice that was exactly backwards. **An invariant was added rather than a
+note saying be careful (RULE 4): `pipeline/book_queue/check_folio_direction.py`.** It fits both
+directions, reports the winner, names every page that disagrees, and exits 1 if any does. Verdicts:
+
+    khulasat_ut_tawarikh   descending, printed folio = 589 - PDF index, 50/50 agree, none disagree
+    tahqiqat_chishti       ascending,  printed folio = PDF index -7,    48/48 agree, none disagree
+
+The second is the **control**, and it reproduces §9.201's "48 of 48 agree on offset +7" exactly —
+which matters, because the first version of the script did **not**. It anchored the folio pattern
+with `$` and so found only **37** of `tahqiqat_chishti`'s 48 folio lines, silently dropping all
+eleven written `[folio 40] [OCR?]` — that is, **losing precisely the folios a worker had flagged as
+doubtful**, the ones most worth looking at. The bug was caught only by running the control against a
+book whose answer was already published. It is fixed, the reason is a comment in the source, and the
+script now also lists which folios carry an `[OCR?]`.
+
+**A tooling trap that could ship a stale file: `device_commit_files` re-wrote old content.** After
+patching the script and re-staging it to the same `stagedPath`, the commit reported `written` and the
+Mac still held the previous 5,258-byte version; the control kept printing 37. Committing the same
+bytes from a *differently named* staged file wrote them correctly (5,866 bytes). **Verify the size or
+a marker string on the Mac after re-committing a file you have already committed once in the same
+session** — a "written" acknowledgement is not proof the new bytes arrived.
+
+**Provenance: this is the University of Toronto's copy, and the digitisation stamp is eating the
+text it certifies.** New to the record, all of it from pp. 1-8 and none of it previously known:
+a bookplate, `Presented to the LIBRARY of the UNIVERSITY OF TORONTO by` + `Professor Aziz Ahmad`
+(p0002, motto read `VELUT ARBOR ÆVO`, flagged); a UofT barcode read `3 1761 00115366 7` with every
+digit flagged (p0001); a pencilled call number `DS / 451 / S94 / 1918` (p0008); and a triangular
+rubber library date stamp whose **year is not resolvable** and must not be taken as read. Two
+handwritten inscriptions on the title leaf p0007 — a line of Persian/Urdu that could not be read at
+all, and a pencil date `1st June 19??` left incomplete on purpose. The
+`Sri Satguru Jagjit Singh Ji eLibrary / NamdhariElibrary@gmail.com` footer is on essentially every
+page; per protocol each worker transcribed it once on the first page of its own range, so it stands
+**six times** across this batch (pp. 1, 49, 59, 69, 79, 89) by design rather than by accident.
+w2 reports it absent on p0061 alone, and cannot tell whether the band crop cut it or the page lacks
+it. **No other** watermark, accession mark or rights notice appears anywhere in the 66 pages; three
+workers checked every band and said so, so the absence is measured. But the stamp is printed *over*
+content: it obscures the foot of p0009, the last lines of pp. 11-14 (four
+`[illegible: covered by the digitisation stamp]`, including a Samvat-era statement on p0011 and the
+name of the college holding one manuscript on p0012), the last text line of p0079, the editorial
+footnote on p0085 including its page references, and the whole of p0093's footnote. A third party's
+provenance mark destroying the source's own words is worth stating plainly in an archive whose
+central claim is provenance.
+
+**Numerals: the accession year of Aurangzeb is read four ways by four workers, and none of them may
+be used.** This is the sharpest form of the standing caveat this corpus has produced, because the
+disagreement is not between a worker and a fact, it is between workers reading the same year.
+
+- `۱۰۶۹[OCR?]` in the chapter title on **p0098** (w5, last digit not separable from ۷)
+- `سال هزار و شصت و هفت هجری` = **1067, spelled out in words**, on **p0072** (w3, which notes ه‑ف‑ت and ه‑ش‑ت are not separable in this hand and that the historical date is 1 Dhu'l-Qa'da **1068**)
+- superscript `[margin] ۱۰۶۸[OCR?]` on **p0052** (w6, "the one hard date in the range")
+- **w2 read one and the same printed cluster as ۱۰۶۸ on pp. 59, 63 and 65 and as ۱۰۶۹ on p0066**, and reported the contradiction itself rather than picking one.
+
+Three workers reported *which* glyph pairs fail, which is more useful than the failures: **۶/۹ not
+separable** (w6, w5), **۴/۳ not separable** (w5, which is why p0095's folio was written 494 against
+a glyph reading of 493), **۶/۸/۹ not separable** (w2). Other figures a human must settle before any
+of them is cited: the Samugarh battle date 7 Ramadan = 20 Khurdad (p0088); 14th vs 9th Ramadan
+(p0078, the two bands disagreed); an unresolved `هزدهم` (p0082); the editor's own footnote giving
+19th against the body's 17th Shawwal (p0077); and the money — **5,000 rupees to the mujawirs of
+Humayun's tomb, 1,000 to Nizamuddin's, 1,000 as nazr at Bakhtiyar Kaki's** (p0062), one crore of
+dams for the Lahore subahdari (p0064), a crore in the Lahore treasury (p0077), 22 lakh (p0066),
+26 lakh (p0081), 90,000 horse (p0058).
+
+**What the pages turned out to contain. Six of the sixty-six are worth the batch on their own.**
+pp. 49-98 are continuous 1658-59 war-of-succession narrative — Dharmat, Samugarh, Khajwa, Dara
+Shukoh's flight, Aurangzeb's first accession — and three workers said explicitly that their ten
+pages contain **no** shrine, saint, silsila or Lahore material at all. The shrine content is
+concentrated in pp. 60-68 and p0076, and every item below needs verifying from the image:
+
+- **p0076 is the find.** `و نیز گورو هر راے سجاده نشین بابا نانک که با لشکر کشیر[کثیر] آمده بود` —
+  **Guru Har Rai described as the `سجاده‌نشین` of Baba Nanak**, come to Dara Shukoh at Lahore with a
+  large force and then slipping away on the pretext of raising troops. A Mughal Persian chronicle
+  applying Sufi shrine-succession vocabulary to a Sikh Guru is exactly the archive's multi-tradition
+  claim in a primary source, and `کشیر/کثیر` is the only flagged word in the clause. w3 asks for a
+  human to verify this one directly, and notes the irony that the scan's own e-library is Namdhari.
+  Same worker: **Goindwal** on the Beas (p0068), a Sikh site named in passing.
+- **p0062 is shrine economy in a court chronicle**: three ziyarats in one passage — Humayun's tomb
+  reached by boat, fatiha read, **5,000 rupees to the mujawirs**; `مزار فایض الانوار حضرت شیخ نظام
+  الدین اولیا`, tabarruk sought, **1,000 rupees to the deserving and the mujawirs**; and
+  `روضه قدسیه شیخ قطب الدین کاکی` "seven kos from Shahjahanabad", the rites performed, **1,000
+  rupees offered as nazr**. That is cash flowing to shrine servants, recorded by name and sum, which
+  is what `Rauf_Field_Map_Economics_of_Religion.md` is looking for.
+- **p0060**: ziyarat at `روضه قدسیه حضرت سید بدیع الدین قدس سره که بزبان عوام بشاه مدار و شاه باز
+  مشهور هستند` — **Shah Madar**. The place is read `کمن پور` and w2 recorded that it is almost
+  certainly **مکن پور / Makanpur**, where the dargah is, and **refused to normalise it** because the
+  shrine's known location was pulling the reading. Same trap, and the same correct refusal, as
+  §9.201's `بابو پورہ`/`باغبان پورہ`.
+- **p0065**: ziyarat on 9 Muharram of `شیخ بهاء الدین ذکریا ملتانی`. **p0066**: `شیخ موسے گیلانی`
+  holding Multan for Dara — a Gilani/Qadiri lineage worth following. **p0064**: zuhr prayed in
+  congregation at `مسجد جامع وزیر خان` and `باغ فیض بخش المشهور بشالامار`, with Khalilullah Khan
+  made subahdar of Lahore. **p0063**: prayer at the `مسجد جامع` after riding through the city bazaar.
+  Heavy Lahore topography across pp. 64-68: entry via `اچهره` (Ichhra), the Lahore Fort
+  (`قلعه بادشاهی`), the treasury, qurkhana and topkhana, and `نگاهبانی شهر لاهور که از حاکم خالی است`.
+- **p0098**, and it is highly quotable, so it must be checked before it is quoted: the charge sheet
+  against **Dara Shukoh's religion** — that he inclined to `دین و آئین هندو`; admitted `برهمنان`,
+  `جوگیان` and `سنایسان[OCR?]` (sannyasis) to his company as `مرشد کامل و هادی مطلق`; called the
+  `بید` (Veda) a heavenly book and set about translating it; and had a Hindi name of God (read
+  `پر بتو[OCR?]`, perhaps Prabhu or a form of پرمیشر) engraved on diamond, ruby and emerald and wore
+  it as a talisman. Two words in the passage are flagged and one term is unresolved.
+- Also flagged for a keyword-search trap: **p0083** has the Samugarh dead "lifted from the earth and
+  committed to the earth" (`از خاک برداشتند و بخاک سپردند`) — relevant only if a later grave claim at
+  Samugarh is ever checked; and **p0069-p0078's `باغ اعزاباد`**, the enthronement garden, is not a
+  shrine. **p0072's `مدفون`** is buried *treasure* near Sirhind, not a burial, and will match a naive
+  grep for graves.
+
+**Three systematic worker-side artefacts, declared rather than hidden — normalise before any
+tokenisation.**
+1. **The ezafe / yāy ligature `ـاے` came out as two tokens.** w2 wrote `امرا اے`, `دریا اے`,
+   `برا اے`; w4 wrote a standalone `سے` — `دریا سے چنبل`, `جراحت ها سے`, `را سے ستر سال`. Both
+   declared it as a convention, not a reading. **Treat every standalone `اے` and `سے` in pp. 59-88 as
+   a suspect ligature**; one normalisation pass fixes all of it, and without it word counts are
+   inflated and naive tokenisation breaks.
+2. **Hemistich order inside couplets is unverified.** w6, w3, w4 and w5 each reported that a
+   2858 x 1133 band does not let them judge left/right position reliably, so they ordered the two
+   misras of each printed line by sense, rhyme and metre. Affected: pp. 55-58, 70, 72, 79-85, 90-94,
+   96-97. **The words are more reliable than their order** — the same limit §9.201 recorded, and it
+   again means overlap and order cannot be re-checked mechanically, only by re-reading the images.
+3. The book's own spellings were kept, deliberately: `بست` for `بیست` throughout; `برنغار` and
+   `جرنغار` for `برانغار`/`جوانغار` (confirmed by context); `the emperor Abkar` for Akbar in the
+   English preface (p0011) — a press error left as printed so nobody mistakes it for a worker's slip.
+
+**Three band-render defects found on real pages, all small and all worth fixing before the next
+610-page book.** (1) **3% vertical overlap is not always enough**: on **p0088** one whole printed
+line falls in the q1/q2 seam with its tops in q1 and bottoms in q2, readable in neither, and is
+marked `[illegible]`. (2) **p0071's first line may be clipped at the right margin** — it begins on
+`سا`, which is not a word. (3) **p0049's q4 band is almost entirely verso show-through**; the page
+genuinely ends part-way down at 17 lines, so a reviewer should not read that file as short. Note
+that defect (1) is the vertical-overlap twin of §9.201's unmade fix (a), which was about q1 clipping
+the folio from above.
+
+**The editor's apparatus exists and is mostly unreadable.** Printed footnotes with variant readings
+sit at the foot of pp. 49, 51, 52, 53, 77, 80, 85, 88 and 93, keyed by a small numeral to a lemma.
+Two carry real editorial content: **p0085** glosses the body's `راجه رام سنگه راتهور` as
+`راجه روپ سنگه راتهور` on the authority of `عالمگیرنامه` / `منتخب اللباب` (the page references are
+under the digitisation stamp and unreadable), and **p0088**'s footnote implies the body word is
+`چهوره`, not the `راجپور` w4 transcribed — w4 named that as its own single most likely composing
+error. Zafar Hasan's apparatus is a collation of manuscripts and is the most citable apparatus in
+this book; **it needs a dedicated higher-resolution pass on the page feet**, which `render_panels.py`
+plus a bottom-band crop would give cheaply.
+
+**Where workers caught themselves composing, which is the behaviour these runs want.** All six
+reported it and every instance was replaced with a mark. w1 once (the UofT barcode, recognised as a
+format and completed from the pattern rather than the pixels — stopped, re-read, every digit
+flagged). w2 listed sixteen words it resolved by what the Persian *ought* to be rather than what it
+could see, each now `[OCR?]`, and named one it may have got wrong in both directions
+(`ظاهر`/`طاهر` on pp. 59 and 65 against a clear `ظاهر` on p0067). w6 listed thirteen spots now
+`[illegible]`, and refused to "correct" p0053's `تا امروز بمنصب سر بلند شده بود` to the negative the
+sense demands. w3 called p0072 (folio 512) "the single worst passage I transcribed", said it does not
+parse, and left it flagged rather than smoothed. w4 named p0088's `راجپور` as above. w5 marked six.
+**The flag density in these files is the signal, not a defect.**
+
+**Two more things a human must settle, both about tooling rather than text.** They are in the chat
+with this run's report; this is the record of the asking, not the asking (RULE 5).
+
+1. **Does `queue.py` learn about reversed scans, or does this book get assembled by hand?** As it
+   stands `check` will emit `khulasat_ut_tawarikh`'s completed text back-to-front, and `folio-check`
+   will keep reporting fifty false alarms on it. `check_folio_direction.py` now *detects* the
+   condition and exits non-zero, but nothing consumes that. The minimal fix is a
+   `"page_order": "reverse"` field in `state.json` that assembly and `folio-check` both read; it was
+   not made unilaterally because it changes the queue for every book.
+2. **Do pp. 17-48 run on `render_panels.py` next, and does the same rendering get used for the page
+   feet?** The index and errata are held under `HOLD-vsplit-index-errata` and are the 32 pages the
+   vertical split was written for; the footnote apparatus above is a second, unanticipated use for
+   it. Roughly 8 images a page instead of 4, so about 24-30 pages a batch rather than 66.
+
+**Git, unchanged from §9.196 onwards.** Not attempted; `unlink` is blocked on this mount and even
+`git status --porcelain` bus-errors. The 66 page files, the 39 full-page PNGs, `render_panels.py`,
+`check_folio_direction.py` and this entry are all left uncommitted in the working tree.
+`git add -A && git commit` is Rauf's to run — noting that `out/` is gitignored, so the page files and
+PNGs stay local by design and only the two scripts and this entry are actually committable. Nothing
+was pushed.
+
+### 9.205 — 18 September 2026: Waris Shah's Hir noted, and the two-column trap that had been corrupting every quotation
+
+*Numbered 9.205 after `grep -n '^#\{3,4\} 9\.' docs/HANDOVER.md | tail`: §9.204 (this task, one firing earlier)
+was last, §9.203 came from the transcription task. Fourth consecutive run in which the number check
+mattered. The two scheduled tasks fire hourly at :05 and :35.*
+
+**The run sheet was two runs stale and was not trusted.** It named `shackle_bulleh_shah_sufi_lyrics`
+(priority 103) as the notes-front book. `notes-status` says 103 finished 7/7 and `rafat_bulleh_shah_selection`
+(104) finished 4/4 in earlier firings, so this batch took **priority 105**. Nothing was re-done.
+`notes-status` before any work, not the run sheet, is what names the book.
+
+**`waris_shah_hir_ranjha` (priority 105, Waris Shah, *The Adventures of Hir and Ranjha*, "Recounted in
+Panjabi by Waris Shah / And translated into English by Charles Frederick Usborne, 1874 - 1919",
+57 PDF pages, `text_layer` route) went from 0 chunk notes to 7.** Seven workers in two waves of 6 and 1
+wrote `chunk_001`–`chunk_007.notes.md` covering PDF pp. 1–10, 11–19, 20–28, 29–37, 38–46, 47–56, 57 —
+contiguous, no gap, no overlap. 337 KB of notes, **68 id-bearing bullets, 1,551 page references,
+281 `[text-layer?]` marks, 9 archive rows informed**. Written into both
+`entries/book_takeaways/waris_shah_hir_ranjha/` and `out/ocr/waris_shah_hir_ranjha/chunks/`, all seven
+pairs verified byte-identical with `cmp`; `notes-status` returns `notes_missing: []`, `chunks_ok: true`.
+A check of every bold id against `shrine_index.tsv` confirms **zero invented ids**. `state.json` carries
+only the re-chunk log line; no `mark` ran, the book is **not** consolidated (see the holds below).
+
+**The false-green chunk warning caught its third book.** `chunks: 0` on disk against `chunks_recorded: 7`.
+Remedy as documented: `queue.py chunk waris_shah_hir_ranjha --words 8000`, the 8000 read off this book's
+own `state.json` log line, reproduced the same 7 chunks.
+
+#### The finding: a two-column text_layer book had been producing corrupt quotations, silently
+
+**`pdftotext` on a two-column page emits ONE line per visual line, holding the left column's line, a run
+of spaces, then the right column's line.** Read straight across — which is what every worker on such a
+book has been doing — the left column's sentence is spliced into the right column's unrelated sentence.
+Measured example, PDF p. 3: `Let the boy quarrel about the land if he so wills. His.` runs straight into
+`cobras:` from the other column. **Nothing errors, and the result looks like prose.** Every quotation, every
+speaker attribution and every date read across a gutter on a two-column book is suspect.
+
+The remedy is committed as **`pipeline/book_queue/decolumnize.py`**. Per page it finds the fully-blank
+vertical band that maximises the number of body lines carrying text on *both* sides of it, restricted to
+the middle half of the page width; it splits every line there and emits column 1 then column 2, lifting
+running headers out first. **The invariant is RULE 4 in the intended shape:** the multiset of
+whitespace-separated tokens must be identical before and after, apart from the inserted `[col N of 2]`
+markers, and the script **exits non-zero** if one token is lost or gained — so a wrong gutter cannot pass
+silently. Output for this book is at `out/ocr/waris_shah_hir_ranjha/chunks_reflowed/` (gitignored;
+regenerable in one command). **56 of 57 pages split, tokens preserved on every chunk.** PDF p. 1 is the
+table of contents, genuinely multi-column tabular matter, and is correctly left unsplit.
+
+Verified against three rendered page images (PDF 2, 30, 57) before any worker was launched.
+
+**Two threshold traps on the way, both worth keeping.** The first cut required a gutter at least 5
+characters wide; this book's gutter is **3** (columns 80–82), so it found nothing and reported all 57
+pages as single-column — a false negative that looks exactly like a single-column book. The second cut
+required text on both sides of the gutter on 35% of body lines; that missed **13 pages**, every one a
+chapter opening where one column is short. Lowered to 15% plus the middle-half constraint, 56 of 57
+split. **A layout detector that finds nothing is not evidence of a simple layout.**
+
+**This is a corpus-wide risk and it has not been checked.** 22 of the 42 books run the `text_layer`
+route. Any of them set in two columns has been yielding spliced quotations in its notes, and the only
+book anyone has looked at is this one. The cheap probe is the one used here: run `decolumnize.py` over a
+book's chunks and read the `2-col pages` count. **Books already noted on the text_layer route should be
+re-probed before their notes are trusted at Pass 2** — `shackle_risalo_shah_abdul_latif` (summarized),
+`sorley_shah_abdul_latif_of_bhit` (24/24 noted), `shackle_bulleh_shah_sufi_lyrics` (7/7),
+`eaton_essays_islam_indian_history` (summarized) first.
+
+#### The folio relation, and the first book where measurement and pages agreed everywhere
+
+**`folio = PDF page − 1`**, measured from the running header `Waris Shah: The Adventures of Hir and
+Ranjha <n>` on **56 of 57 pages, with a unanimous histogram — no competing offset occurs even once**.
+PDF p. 1 (contents) prints no number. Verified against page images at PDF 2 (prints 1), PDF 30 (prints
+29) and PDF 57 (prints 56), and the contents list's own chapter page numbers independently confirm the
+same offset at seven chapter openings.
+
+All seven workers re-confirmed it on their own ranges and **all seven reported zero disagreement** —
+the first book in this queue where the derived rule and the pages agreed everywhere, against schimmel
+(four regimes, two worker corrections, §9.202) and rafat (a roman front-matter regime the instrument
+could not see, §9.204). Worth recording because it is the control case: the instrument is not
+unreliable, those two books were.
+
+#### The damage is in the published file, not in our pipeline
+
+`state.json` records `no embedded images: born digital or vector PDF`, and the rendered pages are crisp
+digital type — so the extraction is **faithful**, and yet the text carries OCR-shaped errors throughout.
+This is a **re-typeset edition derived from an OCR of Usborne**, and the corruption is in the file the
+publisher shipped. **Consequence: re-extracting, re-rendering or re-OCRing this book fixes nothing.**
+The only repair is the printed page, and the printed page is already what we have.
+
+Measured classes: the vocative "O" printed as zero (`0 God`, `0 Lord`, `0 Almighty`); `Cod` for God;
+`lie` for he; `Arid`/`arid` for And/and; `noting` for nothing; `i5` for is; `Pin` for Pirs;
+`Wails Shah` for Waris Shah; digits fused to words in dates (`i 768`, `i1761`, `6' AN.`, `68o`).
+**And the heroine's name is corrupted eight times in six forms** — `fir`, `Him`, `ilk`, `hr`, `Hit`,
+`Hirs` — so **any string search for "Hir" in this corpus misses them**. Same order of nuisance as the
+`q`→`g` class that hides `qawwal` in the two tesseract books (§9.202, §9.204).
+
+**One duplicated block, and it is the book's, not ours.** The chunk 002 worker flagged a passage
+appearing twice on PDF p. 14 and said it could not tell whether the duplication was a source defect or a
+residue of the de-interleaving — exactly the right thing to park rather than guess. Resolved by
+measurement: token counts are identical before and after the reflow (847 = 847), and the two
+occurrences sit in **different columns** of the raw page. A book-wide scan finds **exactly one** page
+with a repeated 10-word run: p. 14, about 28 words. Note the instrument detail — **the same scan over
+the raw text finds zero**, because interleaving breaks every word run, so the de-interleaving is what
+made the defect visible at all. A reading aid that reveals a source defect is doing more than reading.
+
+#### The notes are not Usborne's, and they must not be cited by number
+
+Three workers established this independently and it changes how every identification in this book is
+attributed. The numbered notes **gloss Usborne in the third person** ("Usborne means…", p. 20, folio 19;
+"Usborne's note says…"), one is explicitly signed "(Usborne.)", and several were written **after
+Partition** ("in West Pakistan", "now renamed Sahiwal"). **The annotator is nowhere named in the book.**
+So the two identifications this archive most wants from it — "Shakarganj is the saint of Pakpattan" and
+"Saint of Kasur - Mamdum Mafia Ghulamn Murtaza of Kasur" (printed exactly so, damaged, left unrepaired) —
+are the unnamed annotator's, **not the translator's**, and must not be cited to Usborne.
+
+**And never cite a note by its number.** Every chapter restarts its notes at 1; several inline markers
+point at the wrong note; Chapter 32's list **skips note 8**; the epilogue marker prints "5" where note 8
+is clearly the epilogue note; and note 10 mis-cites the Quran as printed ("Chapter 27, Sura Ar-Rahman").
+Cite a note by its page. Usborne also states he **omitted** a "tirade against Jats" from the text
+(pp. 27–28, folios 26–27) — a translator's excision recorded in the book itself.
+
+#### Nine archive rows, and four statements of one date
+
+`mausoleum-of-waris-shah` in **all seven chunks**; `shrine-of-fariduddin-ganjshakar` in five;
+`lal-shahbaz-qalandar` in three; `shrine-of-bahauddin-zakariya` and
+`shrine-of-makhdoom-jahaniyan-jahangasht` in two; and `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari`,
+`tilla-jogian`, `gurdwara-dash-mesh-pita`, `ram-mandir-saidpur-ram-kund-mandir` in one each.
+
+Richest material: **p. 57**, the epilogue in the poet's own voice — "Waris Shah lives at Jandiala and is
+the pupil of the Saint of Kasur", the poem presented to his master, the aid of Shakarganj; **p. 50**, the
+Five Pirs named by their relics; **p. 24**, the one shrine-economy passage in the poem — "the Fairs of
+Pakpattan or Nigah or Rattan or Thamman, where women flock to kiss the tomb of the saint and attain the
+achievement of their desires"; **pp. 29–37**, Tilla / "Tilla Guruan" with a resident *chela* community, an
+initiation rite and a cult reported as still practised; **pp. 47–56**, "I wrote it in the year 1180 Hijri
+in the southern country", "Kharal Hans is a well known place. Here I composed this story", "Of all the
+wretched Punjab I am most concerned for Kasur".
+
+**Kept side by side and reconciled nowhere (RULE 2):**
+
+- **The composition date is stated four ways.** "the year 1180 Hijri" in the poet's own voice (p. 47);
+  "AD. 1766" in an annotator's note which **itself admits** its two dates "do not exactly correspond"
+  with "the year 120 of the Bikramajit era" (p. 57, folio 56); `i 768` damaged, read as 1768 by chunk 004
+  from the same sentence's contrast with Nadir Shah's 1739; and "five years" after Panipat `i1761` by
+  chunk 005. Four statements, one of them self-contradicting by its own admission.
+- **The book puts Sayyid Jalal of Bukhara's grave at Multan**; the archive puts both Jalal rows at Uch
+  Sharif. Chunk 002 flagged the collision rather than choosing.
+- **Shahbaz Qalandar is "the holy saint of Uch"**, not Sehwan — the name matches
+  `lal-shahbaz-qalandar` and the place matches none of the five Uch rows.
+- **The book contradicts itself on the Five Pirs' relics**, swapping cudgel and dagger between p. 50 and
+  p. 52.
+
+**New-row candidates, none in the 169.** **Ghazi Pir near Shah Kot, District Sheikhupura** — a live
+week-long annual gathering drawing five named districts, the strongest candidate this run produced.
+**Nigah, Rattan and Thamman** — three fair-plus-tomb sites named beside Pakpattan, three mappable facts
+stranded for want of rows. **Sayyid Abdul Qadir Gilani, "Mohiuddin", the Pir of Baghdad** — the most
+fully described saint in chunk 001 (title, Qadiriyya, burial in Baghdad) and not an archive principal
+figure.
+
+**Held unmapped on purpose, each needing a ruling rather than a guess.** Guru Nanak, by three workers
+independently, because the name resolves to roughly 19 rows. Krishna, likewise (2 rows).
+"Mian Lal Hosain Shahbeg … popularly known … as Gugga", the traditional guru of sweepers — readable
+toward `madho-lal-hussain` but every particular the book gives points away. And **"Kharal Hans", the
+poet's own stated place of composition, sits one substitution away from the archive's "Malka Hans"**
+(`parnami-mandir`) — and this book demonstrably has that class of substitution, so chunk 006 asserted
+nothing either way. That one is worth a human's eye: it is the poet's own account of where the *Hir* was
+written.
+
+#### Open question (a) now has a concrete case, and the line falls inside one book
+
+Tilla is the sharpest test the corpus has produced. **Chunk 004 mapped `tilla-jogian`** — its pages give
+the hill a resident *chela* community, an initiation rite and a cult reported as still practised, so the
+toponym is not bare. **Chunk 005 held Tilla out of the archive** — in its pages only an initiation
+attaches ("got his ears bored and became a Jogi", p. 41, folio 40), and it named `tilla-jogian` as the
+row a reversal would move. Same place, two chunks, opposite calls, **both correct under the interim
+convention**, which is what a reversible convention is supposed to do. It also sharpens the question
+Rauf is being asked: does an initiation site count as an attachment? Note separately that
+**Gorakhnath is never named in this book — its guru of Tilla is Balnath**, "the fourth Guru of 'Tilla
+Guruan' … on the banks of the river Jhelum", so the `tilla-jogian` mapping rests on the site, not on the
+row's principal figure.
+
+#### Holds, and what is next
+
+**Both open decisions still hold Pass 2, now on three books**, not two: `sorley_shah_abdul_latif_of_bhit`
+(24/24), `schimmel_pain_and_grace` (16/16) and `waris_shah_hir_ranjha` (7/7) are fully noted and
+unconsolidated, waiting on (a) whether a bare toponym takes an archive id and (b) whether the inline
+damage marker is standing convention. Every one of this run's notes was written reversibly against both.
+
+**Hinglaj does not appear in this book**, so the archive's empty id cell was not exercised. It is still
+empty in `shrine_index.tsv` and still costs schimmel four chunks' worth of material (§9.202).
+
+**Bridge: stable for the whole run, no drops** — the first clean run since 16 September. The
+§9.200/§9.202 mitigation was applied regardless: 14 files staged into the cloud container up front
+(7 chunks, the shrine index, the protocol, two calibration notes, three page images), and **no worker
+touched the bridge**. Keep doing this even when the bridge looks healthy; it costs one call.
+
+**Git, unchanged from §9.196 through §9.204.** Not attempted. Every file above is uncommitted in the
+working tree; `git add -A && git commit` is Rauf's to run.
+
+**Next in the notes queue:** `madho_lal_hussein_verses_lowly_fakir` (106, 3 chunks recorded, 0 on disk —
+expect the false-green warning and re-chunk from its own log line), then
+`kugle_sufis_and_saints_bodies` (107, 22), `ernst_lawrence_sufi_martyrs_of_love` (109, 17),
+`rizvi_history_of_sufism_india_1` (110, 28), then 111–123 and `nizami_revised_translation` (210).
+
+#### 9.205a — same run: the corpus probe, and the two-column damage sits exactly in the reference apparatus
+
+**The probe from §9.205 was run, not deferred, and it narrows the risk usefully.** `decolumnize.py` was
+run over the three already-noted `text_layer` books that still have chunks on disk (the other 16 have
+`chunks_recorded` but zero on disk — the §9.201 false-green condition — so they cannot be probed until
+re-chunked). Invoked with `DECOL_HDR_RE='^$'` to disable the Waris-specific running-header pattern.
+
+| book | pages | two-column pages | what they are |
+|---|---|---|---|
+| `shackle_risalo_shah_abdul_latif` | 351 | **0** | — |
+| `shackle_bulleh_shah_sufi_lyrics` | 209 | **1** (p. 198) | the **GLOSSARY** |
+| `sorley_shah_abdul_latif_of_bhit` | 442 | **11** (200–202, 316, 433–438, 440) | **Appendix V**, a dated chronology, and the **INDEX** |
+
+**The running prose of all three is single-column, so their existing notes are not in question.** What
+is in question is the part of each book a shrine entry is most likely to cite for a date or a spelling:
+
+- Sorley pp. 200–202 are `APPENDIX V — SYNOPSIS OF IMPORTANT EVENTS USEFUL FOR AN UNDERSTANDING OF THE
+  HISTORICAL PART OF THIS WOR:f{`, a year-by-year chronology of Sind history beginning `1555 Accession
+  of Turkhans`. **A chronology is a two-column table of dates, and interleaving splices a year onto the
+  wrong event.** Any date taken from those three pages must be re-read from the reflowed text.
+- Sorley pp. 433–440 are the INDEX, and shackle p. 198 is the GLOSSARY — both read as
+  `Shah Baharo, I29n, I42Il / Shah canal, I29 / Shah Jahan, 9, I5, 2 1 , 23, 35, 72,` and
+  `ABDULLAH (‘Abdullāh) name / of the prophet Muhammad's / father; also the given / name of Bullhe Shah.`
+
+**This closes a loop with §9.202.** That section recorded, from eyeball evidence, that schimmel's index
+"collapsed on all ten pages", with "at least 20 headwords with no page run and at least 30 runs with no
+headword", and treated it as a property of that index. It is not: it is **this mechanism**, it is
+general to every two-column page in the corpus, and it now has a tool that fixes it and an invariant
+that proves the fix lost nothing. Schimmel is a `tesseract` book so its chunks take a different path,
+but the same probe should be run on it once re-chunked.
+
+**Revised scope of the risk.** Smaller than §9.205 feared for running prose — three books, 12 pages —
+but concentrated in the chronologies, glossaries and indexes, which is the reference apparatus an entry
+cites precisely because it is compact and authoritative. **Treat every index, glossary, chronology,
+appendix table and abbreviations list in this corpus as two-column until a probe says otherwise**, and
+re-read it from `decolumnize.py` output before a date, a spelling or a page-run enters an entry.
+
+**One limit on the instrument, stated so nobody over-reads the zeros.** This detector has a
+demonstrated false-negative mode: with its first thresholds it reported *all 57 pages* of
+`waris_shah_hir_ranjha` as single-column (§9.205). The thresholds are now loose enough to catch a
+3-character gutter, but `two-column pages: 0` means *this detector found none*, not *the book has none*.
+The zero for `shackle_risalo_shah_abdul_latif` is the one to re-test by eye if a Risalo citation ever
+looks scrambled.
+
+
+### 9.206 — 18 September 2026: two scheduled runs transcribed the same 66 pages, and the accident is the best instrument this pipeline has had
+
+*Numbered 9.206 because §9.205/§9.205a landed from the notes task while this run was mid-batch. **The
+collision this entry is about is the fourth in two days and the first that cost a whole batch**, so
+the standing advice — `grep -n '^#\{3,4\} 9\.' docs/HANDOVER.md | tail` before writing — is not enough
+on its own; see "the scheduling defect" at the foot.*
+
+**What happened, plainly.** This run read `queue.py status` at 06:36Z, saw `khulasat_ut_tawarikh` at
+**0/610** with leases on 1-16 and 49-98 taken at 06:05Z, and judged them stale leases from a run that
+had died after leasing (§9.203 reports that run's render/measurement work and states no page count,
+which fits). They were not stale. That run was **still working**, and its 66 `pNNNN.txt` landed in
+`out/ocr/khulasat_ut_tawarikh/pages/` at **06:55Z**, followed by its own `check`. By then this run's
+six workers were already reading the same 66 pages. Nothing was overwritten — `unlink` is blocked on
+this mount, so the extract refused every file, which is the one time that wall has helped.
+
+**So the repository now holds two independent transcriptions of the identical 66 pages.** The 06:05
+run's files remain canonical in `pages/` and are what `check` counts. This run's 66 are written to
+**`out/ocr/khulasat_ut_tawarikh/pages_pass2_2026-09-18/`**, a directory `check` does not look in, so
+the count cannot be double-counted. `check` → **66/610**, status stays `transcribing`; corpus total
+8,418 → **8,484** of 13,926. A snapshot of pass 1 as it stood is kept beside it as
+`_pass1_snapshot_2026-09-18.tar.gz` so the comparison below stays reproducible after either directory
+changes.
+
+**Twelve workers, two passes, no shared context. That is a control this pipeline has never had**, and
+it is worth more than the 66 pages. Every accuracy figure in §9.201 and §9.203 is a *self*-assessment
+— a worker's own estimate of its own reading, with nothing to check it against, and §9.203 said the
+honest version out loud: "no CER against a hand-verified gold page." A blind second pass is not a gold
+page, but it is the first external measurement of any kind.
+
+| | pass 1 (06:05 run) | pass 2 (this run) |
+|---|---|---|
+| Arabic characters, pp. 49-98 | 69,927 | 70,012 |
+| `[illegible]` | 75 | 68 |
+| `[OCR?]` | 1,135 | 769 |
+| `[illegible]` per 1,000 Arabic chars | **1.1** | **1.0** |
+
+**Word-level agreement between the two passes, computed not estimated:** Persian body pp. 49-98,
+length-weighted **90.0%** (per page: min 86%, median 90%, max 94%). English front matter pp. 1-16,
+**~100%** (min 98%). Pass-2 workers self-assessed the body at 80-92%, mean ≈87%; the blind agreement
+is 90%. **Those two numbers corroborate each other, which is the first time a worker's self-assessment
+on this corpus has been checked against anything.** Worst-agreeing pages, if a spot-check is ever
+wanted: p0067, p0065, p0050 (86%), p0049, p0089 (87%).
+
+**What agreement is not.** Two readers drawing on the same priors can agree on the same wrong reading,
+so 90% is an upper bound on nothing and a lower bound on nothing — it measures *reproducibility*, not
+accuracy. It is still the difference between a number with a method behind it and a number a model
+volunteered about itself.
+
+## The finding: this PDF runs back-to-front, and both passes prove it independently
+
+**`folio = 589 − PDF index` across pp. 49-98 — 50 of 50 pages, in both passes, identical.** Pass 1 and
+pass 2 assign the same folio, 540 descending to 491, to every one of the fifty pages. Five pass-2
+workers reached it separately and each verified it the hard way, by sentence continuity across page
+boundaries rather than by arithmetic — e.g. p0090 ends `…و عسکری خان` and p0089 opens
+`و جمعی از نوکران خود را`; p0085 ends `…پراگنده و پریشان` and p0084 opens `شدند و راه فرار پیمودند`.
+
+So **the Persian body is scanned in reverse page order**: reading order is p0098 → p0049, and the book's
+folio 1 sits at roughly PDF 588, with ~22 pages of Persian front matter after it at the end of the file.
+**Any assembly of this book must reverse pp. 49-610, and any citation by folio must not assume PDF order.**
+The English front matter is *not* reversed — pp. 10-15 carry roman folios ii-vii ascending in both passes
+— so **one file carries both relations in different ranges** and a whole-file fit would be wrong.
+
+This also revises §9.203's structure table: pp. 49-610 are the body *in reverse*, and the "index and
+errata" at pp. 17-48, still held under `HOLD-vsplit-index-errata`, need re-examining in that light
+before they are transcribed (§9.203 read p0017 = folio ۳۳ but p0045 = folio ۲, which is a descent, and
+nobody had a reason to notice).
+
+**`queue.py folio-check` cannot see any of this, and says so fifty times.** It fits one ascending
+relation, `folio = pdf + k`, so on this book every page lands in its own bucket and it printed **fifty
+consecutive singleton offsets, each annotated "a minority offset this small is usually a misread tens
+digit"** — fifty false alarms on a run that is in fact perfectly regular, with no mention of the real
+pattern. That is worse than silence: a check that cries wolf fifty times on clean data teaches its
+reader to skip it, and the next genuinely misread tens digit goes past unseen.
+
+**Written rather than described (RULE 0, RULE 4): `pipeline/book_queue/check_folio_direction.py`.** It
+fits both `folio = pdf + k` and `folio = k − pdf`, names the winner, lists only the pages that deviate
+from it, and exits 1 on any deviation so it can be a gate. `--pages` fits one range at a time, because
+this book proves a file can carry both relations. Measured:
+
+    khulasat_ut_tawarikh --pages 49-98   descending, k=589, 50/50, no deviation      rc=0
+    tahqiqat_chishti     (control)       ascending,  k=-7,  48/48, no deviation      rc=0
+
+The control matters: it reproduces §9.201's hand-checked `+7` offset exactly, so the new tool is not
+merely agreeing with itself. `queue.py`'s own `folio-check` was **not** edited — a concurrent session
+was live on this repo and shared tooling is the wrong thing to change under a collision. Whether
+`folio-check` should absorb this or stay as it is, is Rauf's.
+
+## The numerals: the caveat is now a measured rate, not a warning
+
+**Two blind passes disagreed on three of the eight consequential year figures in these pages.**
+
+| page | pass 1 | pass 2 | |
+|---|---|---|---|
+| p0098 | `۱۰۶۹` | `۱۰۶۷` | **differ** — Aurangzeb's accession year, the most citable number in the range |
+| p0059 | `۱۰۶۸` | `۱۰۶۹` | **differ** — final digit |
+| p0052 | `۱۰۶۸` | `۶۸` (superscript) | **differ** — 1068 vs 1069 AH moves the Khajwa campaign a year |
+| p0063 | `۱۰۶۸` | `۱۰۶۸` | agree |
+| p0065 | `۱۰۶۸` | `۱۰۶۸` | agree |
+| p0066 | `۱۰۶۹` | `۱۰۶۹` | agree |
+| p0088 | `۸۶` (footnote) | `۸۶` | agree |
+
+**That is the standing caveat with a number on it at last: 3 of 8, on a book whose prose reproduces at
+90%.** It is no longer "numerals are unreliable on these books, flag them" but "two independent passes
+read the accession year differently." Nothing in this range may put a date into a shrine record. The
+nine pages carrying these figures are packaged as `_bands_for_human_check_2026-09-18.tar.gz`
+(p0052, p0059, p0063, p0065, p0066, p0072, p0076, p0088, p0098 — 36 band PNGs) so a person can settle
+them without re-rendering anything.
+
+A pass-2 worker independently noticed the internal contradiction: folios 521-530 run continuously from
+Dhu'l-Hijja through Rabi' II of **one** year, yet its four readings gave ۱۰۶۹, ۱۰۶۸, ۱۰۶۸, ۱۰۶۹. It did
+**not** smooth them to agree. Read all four off the images together.
+
+## The content find, and both passes have it
+
+**p0076 (folio 513) puts a Sikh Guru in this Mughal chronicle in the archive's own vocabulary.** Both
+passes independently read:
+
+> `گورو هر رائے سجاده نشین بابا نانک که با لشکر کثیر آمده بود`
+
+*Guru Har Rai, the **sajjada-nashin** of Baba Nanak, who had come with a large force.* The two readings
+differ only in ے/ئے and کثیر/کشیر. A late-17th-century Persian historian describing the seventh Sikh
+Guru's succession from Nanak with the term this archive uses for a Sufi shrine's custodian is exactly
+the shared ground `docs/planning/SHARED_GROUND_VISION.md` is about, and it is corroborated rather than
+single-sourced. **Verify the name letter by letter from the image before it is entered anywhere**, but
+the substance is as well evidenced as anything this pipeline produces.
+
+Other content in the range: pp. 49-58 the Khajwa campaign; 59-68 Shuja's pursuit into Bengal, with
+`نظام‌الدین اولیا`, `قطب‌الدین کاکی` and `روضهٔ همایون` read cleanly on p0062 and
+`شیخ بهاء‌الدین ذکریا ملتانی` on p0065; 69-78 the 1658-59 succession war and Aurangzeb's first
+accession; 79-88 Samugarh; 89-98 the Dharmat campaign and Aurangzeb's accession notice.
+
+## What this rendering actually says about the corpus
+
+**`khulasat_ut_tawarikh` reads ~40× cleaner than `tahqiqat_chishti` at the identical rendering.**
+1.0-1.1 `[illegible]` per 1,000 Arabic characters here against **40.1** there (§9.201), and a mean
+worker confidence of ~87% against ~48%. The bands are only marginally wider (2847 px against 2462,
+because this book's scans are 400 ppi), which is nowhere near enough to explain a factor of forty.
+
+**So the limiting variable was never only the pixel width.** `render_bands.py`'s docstring frames the
+whole problem as line-width-versus-downscale; that is real, and §9.203 sharpened it, but this pair
+shows the scan and the scribal hand dominate. `tahqiqat_chishti` is hard because of what it is, not
+only because of how it is rendered — which bears directly on §9.201 decision 1, since it means better
+rendering has less headroom there than the decision assumed. `render_bands.py` was not edited; that is
+still §9.201 decision 2 and still Rauf's.
+
+**Also unchanged from §9.203:** pp. 17-48 stay held under `HOLD-vsplit-index-errata`, and the vertical
+split still has no A/B across independent workers on prose. This run did not do one — it spent its
+batch, unknowingly, on a duplicate.
+
+## The scheduling defect — this is the fourth collision in two days and the first that cost a batch
+
+Two firings of the transcription task were working the same book at the same time. A lease is the
+mechanism that should have prevented it and it did not, for one concrete reason: **a lease with no
+pages behind it is indistinguishable from a dead lease.** This run saw `0 done` plus leases 31 minutes
+old and inferred a crash, which is exactly what §9.203's run would have looked like had it actually
+died. `sweep-leases` expires at 3 hours; the gap between "leased" and "first file written" on a 66-page
+batch is ~50 minutes, and a task fires hourly.
+
+Cheap fixes, none made here because the choice is Rauf's (RULE 5) and one of them changes shared
+tooling under a live session: (a) have `lease` record a heartbeat that workers touch, so an empty lease
+can be aged in minutes rather than hours; (b) have a run refuse a book whose leases are younger than
+the batch's own expected duration, and take the next book instead; (c) stagger the two scheduled tasks
+further apart than one hour, or serialise them on a lock file in `pipeline/book_queue/`.
+
+**Git, unchanged from §9.196 through §9.205.** Not attempted; `unlink` is blocked on this mount and
+even `git status --porcelain` bus-errors. The 66 pass-2 page files, `check_folio_direction.py`, the two
+tarballs and this entry are all left **uncommitted** in the working tree. `git add -A && git commit` is
+Rauf's to run. Nothing was pushed.
+
+### 9.207 — 18 September 2026: khulasat pp. 99-164, and six independent workers misread the same digit sixty-six times
+
+**What this run did.** `khulasat_ut_tawarikh` (priority 190) went from **66/610** to **132/610**. Six
+workers transcribed **PDF pp. 99-164** from 4-band renders at `--scale 4400` (2791 x 1133 px per band,
+3% overlap), eleven pages each, one `pNNNN.txt` per page, written into
+`out/ocr/khulasat_ut_tawarikh/pages/` and mirrored to the Mac. No page skipped, none thin (<40 chars),
+none `[blank page]`, every page carries a folio line. Corpus total 8,484 → **8,550** of 13,926.
+
+**Why this book and not `tahqiqat_chishti` (priority 30).** Unchanged from §9.203: §9.201's three
+decisions are still unanswered and two of them govern that book's remaining 807 pages. A page that has
+a `pNNNN.txt` is never redone, so transcribing it at the disputed rendering would spend the batch *and*
+foreclose the render fixes. Those three decisions are re-surfaced in this run's report (RULE 5).
+
+**Quality, and it holds at the §9.206 level.** 88,837 Arabic characters, **55** `[illegible]`, **0**
+lines inside `[illegible: N lines]`, 1,086 `[OCR?]`. That is **0.6 `[illegible]` per 1,000 Arabic
+characters** against 1.0-1.1 over pp. 49-98 and **40.1** on `tahqiqat_chishti` (§9.201). Worker
+self-assessment: 0.83-0.95 per page, means by range 0.88 / 0.93 / 0.92 / 0.90 / 0.93 / 0.91 —
+**overall ≈ 0.91**, consistent with the 90.0% blind-pass agreement §9.206 measured on pp. 49-98. No
+second pass was run here, so 0.91 is self-assessment again and carries §9.206's caveat.
+
+## The finding: the hundreds digit of the folio was wrong on all 66 pages, and the arithmetic hid it
+
+Every one of the six workers read the printed folio independently, was told to omit rather than infer
+it, and was **not** told the `folio = 589 − pdf` relation §9.206 had established — deliberately, so
+that the folio check stayed an independent signal. All six returned a perfectly regular descending run.
+All six were wrong by exactly 100: they read **۳** where the page prints **۴**. p0099 came back as
+folio 390, p0164 as 325.
+
+**What caught it was not the check but the join.** A run of 66 self-consistent folios passes every
+internal test there is; `check_folio_direction.py` would have reported "descending, k=489, 66/66, no
+deviation" and exited 0. What did not fit was the page before the batch: pass 1 read **p0098 = folio
+491**, and 390 next to 491 is a 101-folio jump at a boundary where the prose runs straight on —
+p0099 gives Shah Jahan's death and his age of 77, p0098 opens with the length of his reign and then
+Aurangzeb's accession. One sentence, two pages, a hundred folios apart. That is the only reason this
+was looked at.
+
+**Then it was settled from the image, not from the arithmetic** (RULE 2 — the relation is a hypothesis,
+the page is the evidence). Four folios were re-rendered at 400 ppi from the embedded scan and read by
+the coordinator directly:
+
+| page | glyphs | reading | 589 − pdf |
+|---|---|---|---|
+| p0149 | two **identical** glyphs, then `۰` | ۴۴۰ = 440 | 440 |
+| p0143 | two **identical** glyphs, then `۶` | ۴۴۶ = 446 | 446 |
+| p0121 | `ᴎ` `۶` `۸` | ۴۶۸ = 468 | 468 |
+| p0164 | `ᴎ` `۲` `۵` | ۴۲۵ = 425 | 425 |
+
+p0149 and p0143 are decisive on their own and need no relation assumed: under the workers' reading they
+would be 340 and 346, whose first two digits **differ**; on the page the first two glyphs are the same
+digit written twice. p0155 is the complementary control — 434 has `۴ ۳ ۴`, and at 400 ppi its first and
+third glyphs match each other while the middle one is visibly broader. **So ۳ and ۴ are separable in
+this hand at 400 ppi and are not separable at band resolution** (2791 px across a full-width page, i.e.
+~2.3x smaller on the glyph). That is a sharper statement of the standing numeral caveat than "numerals
+are unreliable": *this* pair of digits fails at *this* rendering, reproducibly, in six readers at once.
+
+**The 66 folio lines were corrected** — only the `[folio N]` first line, nothing else in any file. The
+workers' output as delivered is preserved at
+`out/ocr/khulasat_ut_tawarikh/_worker_raw_before_folio_correction_99-164_2026-09-18.tar.gz`, and the
+400 ppi crops the correction rests on at `_folio_digit_evidence_2026-09-18.tar.gz`. After the fix,
+`check_folio_direction.py --pages 49-164` reports **descending, k=589, 116/116, no deviation** — the
+relation §9.206 found on fifty pages now holds unbroken over a hundred and sixteen, with no jump.
+
+**What this costs the blind-pass result in §9.206.** It does not touch the 90% word agreement, but it
+does bound what agreement means: twelve workers agreed to within 90% on the prose of pp. 49-98 and
+**both** passes also agreed on `folio = 589 − pdf` there — which is now known to be right. Six workers
+here agreed unanimously on a digit that is wrong. **Agreement between readers drawing on the same model
+is not evidence about a glyph they all resolve the same wrong way**, and a folio check that fits a clean
+line through 66 wrong numbers exits 0. The only instrument that worked was a *discontinuity against
+neighbouring work*, which no current check looks for.
+
+**An invariant rather than a note (RULE 4): `pipeline/book_queue/check_folio_continuity.py`.** It
+fits `check_folio_direction`'s model over a page range and then checks the **joins to the transcribed
+pages on either side of it**, reporting any step between adjacent pages that is not ±1. Run across
+pp. 49-164 it is silent; run against the uncorrected files it reports the 101-folio jump at 98/99,
+which is the thing that took a human eye today. Exits 1 on any hit. **What it does not claim:** it
+cannot see an error that is uniform across *every* transcribed page of a book, only one that breaks
+at a boundary — so the first batch of a new book is still unprotected, and a folio confirmed only by
+this tool is confirmed only against its neighbours.
+
+## Numerals a human must settle, worst first
+
+Nothing in pp. 99-164 may put a date into a shrine record. These are the figures the workers could not
+read, or read into a contradiction, all flagged in the page files. Bands for the nineteen pages
+concerned are packaged as `_bands_for_human_check_a_99-164_2026-09-18.tar.gz` and `…_b_…` so a person
+can settle them without re-rendering.
+
+- **p0137: the Hijri year of Aurangzeb's birth is `[illegible]`.** The page prints
+  `سال سیزدهم جلوس میمنت مانوس موافق [illegible] هجری`. The worker had the year from knowledge and
+  refused to write it. Birthplace reads `موضع دهود[OCR?]` (Dahod).
+- **p0156: the date of Abul Fazl's murder, both figures `[illegible: numeral]`** —
+  `غره ربیع الاول سنه [illegible] جلوس والا مطابق سنه [illegible] هجری`. Same refusal, same reason.
+- **p0122 + p0123: the date Kangra fort fell, split across the two pages by the reversed order**, and
+  `[illegible]` on both — `بتاریخ غره محرم سنه [illegible]` (p0123, last line) and
+  `جلوس والا مطابق سنه [illegible]` (p0122, first line). p0125 gives the dispatch year in words,
+  `در اوایل سال سیزدهم[OCR?] جلوس والا`; the worker did not reconcile them and neither should anyone
+  without the image.
+- **p0099: Shah Jahan's death year is genuinely unreadable** (`یازدهم[OCR?] رجب سنه[OCR?] [illegible]`);
+  age `هفتاد و هفت سالگی`, `سال نهم جلوس عالمگیری` are legible.
+- **Three internal contradictions, all preserved rather than smoothed.** (1) p0102 `سنه ۱۰۶۶[OCR?]` and
+  p0101 `سنه ۱۰۶۸[OCR?]` are treated by the narrative as consecutive but are 13 months apart. (2) p0104
+  `بست و ششم جمادی الاول` (Akbarabad) and p0106 `بست و دویم[OCR?] جمادی الاول سنه ۱۰۳۷[OCR?]` (Lahore)
+  put the two enthronements four days apart, which cannot be right. (3) p0150 puts Daniyal's death in
+  regnal 50 = 1013 AH while p0149 puts Akbar's death in regnal 50 = **1014** AH.
+- **p0145 `سنه ۱۰۱۵`** — only `۱۵` is legible, the leading digits are bleed-through. The worker
+  recorded catching itself about to supply 1015 from knowing Khusrau's capture was 1606. Do not trust
+  the figure as written.
+- **p0161 `در سنه ۷۴۸[OCR?]`** (Bahmani foundation) — three digit shapes consistent with 748, kept but
+  flagged precisely because 748 is the textbook date.
+- **p0164: the revenue-remission ratio granted at Guru Arjan's request**,
+  `بحساب ده دوازده[OCR?] انده[OCR?] جمع`, could not be read cleanly. It carries real historical weight.
+- Also: p0157 `سنه ۹۹۹` / `از ابتداۓ سنه ۹۳۵ لغایت سنه هزار و دو هجری شصت و هفت سال` (three figures,
+  mutually consistent on the page, none adjusted); p0108 `بست و هشتم صفر سنه ۱۰۳۷[OCR?]`; p0109
+  `در سنه ۲۱[OCR?] جلوس` (may be ۲۲); p0125 the mansab pair `دو هزاری / سه هزار سوار`, unusual and not
+  normalised; p0123 vs p0124 give Kangra's dimensions in figures that do not agree
+  (`یک کروه و پانزده[OCR?] طناب` against `عرض بست[OCR?] و دو طناب و ارتفاع یکصد و چهار درعه[OCR?]`).
+- `check_numeral_sequence.py --pages 99-164` returns four descents, all on pp. 157-160 and all benign:
+  they are the 1918 editor's **numbered footnote markers** restarting per page, not misread digits.
+  Worth knowing before the tool is used as a gate on a footnoted book.
+
+## Names and places a human must settle
+
+- **`گورو ارجن` — Guru Arjan — on p0164 (folio 425), and the print sets it as `گور و ارجن`**, with a
+  free-standing `و`. The worker recorded the printed orthography rather than tidying it, and identified
+  the person only because the page says `سجاده نشین بابا نانک`. Verify letter by letter (see below).
+- **p0144 `پرگنه نهروال`**, where Shaikh Farid Bukhari raised his standard after defeating Khusrau and
+  founded `فتح آباد`. The initial letter is ambiguous and it may be **بهروال / Bhairowal** on the Beas,
+  which is where that battle is usually placed. Highest-value place name in the range.
+- **p0136 + p0135, the same unresolved token twice: `ششینو[OCR?] پور`**, a Punjab village `متصل
+  ساهوملی[OCR?]` named — the next clause says — after `شیخ سلیم درویش`, through whose prayer the emperor
+  was born. **سلیم‌پور** is the obvious candidate and the worker refused to substitute it.
+- **p0153 `رانا اودے پور سنگه`** — one name or a Rana of Udaipur plus a personal name, unresolved.
+- **p0151/p0152 `الله باس` / `اله باس` for Allahabad**, printed with a final `س`, not normalised; the
+  same form recurs on p0155/p0156 where a different worker *did* normalise it to `الهاباد` and flagged
+  both. **Two workers made opposite choices on the same word; settle it once.**
+- **p0119 `فتنه و مناد بلند شد`, twice on one page.** `مناد` is not a word; the page is equally
+  compatible with `عناد` or `فساد` (which it prints two lines later). One decision fixes both.
+- p0152/p0153: a single word read four different ways in four places (`ممبطلی`, `بمبطلی`, `بنهجی`),
+  deliberately not harmonised.
+- p0156 `قصبه انتری` (Antri), `اوجهین[OCR?]`, `سراۓ برار[OCR?]`; p0116 `قصبه نگر`, possibly مونگیر;
+  p0105 `راجه جبینگ[OCR?] کچهواهه`, certainly a mis-traced Rajput given name (cf. `جے سنگه` on p0100);
+  p0135 `سکندر سلے[OCR?]`/`سکندر لی[OCR?]`, one man, two spellings, not harmonised.
+- **`تهتهه` (Thatta) occurs three times and one of them cannot be Thatta**: p0105 and p0109 are Sind,
+  but p0108 places it between `بهیرم کله` and `راجوری` on the Kashmir road. One of the three is a
+  different word.
+- The unit word is printed `درعه` throughout (for ذرع, the cubit) on pp. 132-144 by two workers
+  independently, so the form is the book's, not a misreading.
+
+## Content: what these 66 pages actually are, and the two pages that matter to this archive
+
+**The range is not the 1658-59 succession war.** The job brief said it was; four workers said
+independently that it is not, and they are right — the reversed order means folio 490 is at the *front*
+of this batch and the succession war is the material *before* it. Read in book order (p0164 → p0099)
+the batch runs: Abul Fazl and Salim's rebellion (folios 425-436) → Akbar's last years, death and burial
+at Sikandra, Jahangir's accession, Khusrau's revolt (437-446) → Jahangir's reign, the tobacco ban, Nur
+Jahan, Kangra, Mahabat Khan's coup (447-479) → Jahangir's death and Shah Jahan's accession (480-490).
+
+- **p0164 (folio 425) is the find, and it is the second Sikh Guru this book has given us.** Akbar
+  marching from Lahore to the Deccan goes to the residence of **`گورو ارجن`**, described in the same
+  phrase §9.206 found for Guru Har Rai — **`سجاده نشین بابا نانک`**, "who was renowned in the knowledge
+  of God". Akbar hears Baba Nanak's Hindi verses recited from Guru Arjan's lips, is delighted, receives
+  an offering, and **on Guru Arjan's petition orders a revenue remission to the peasantry of the
+  Punjab**. The same page has Akbar, at `قصبه بتاله` and `اچل[OCR?]`, jailing Muslim faqirs who had
+  fought Sanyasis and demolished the temple there, and **ordering the temple rebuilt**
+  (`حکم شد که بتخانه را که منهدم شده است بتجدید تعمیر کنند`). A Mughal chronicle using this archive's
+  own custodial vocabulary for the Sikh Gurus **twice, a hundred folios apart, in two different reigns**
+  is no longer a single striking sentence; it is the book's habit. **Verify the name and the remission
+  figure from the image before either is entered anywhere** (`_bands_for_human_check_b_…`, p0164).
+- **p0122 (folio 467), Jwalamukhi.** Jahangir visits the perpetual-fire shrine near Kangra, has the
+  ground dug and water poured to test whether the flame is a sulphur vent, finds nothing, and **has the
+  chamber rebuilt in solid masonry with further buildings raised around it**. p0121 attributes the same
+  test to Sultan Firoz Shah in his day. Two named building episodes at a living Hindu shrine.
+- **p0122 also: at Bhawan (`بهون`) below Kangra fort the emperor places a small gold canopy beneath the
+  great canopy over the idol**, said to date `از زمان پاندوان`; the call to prayer is made at the fort
+  and a mosque ordered — idol-patronage and mosque-building in consecutive sentences.
+- **p0161 (folio 428): Hasan Gangu Bahmani is `از معتقدان` of `شیخ نظام الدین اولیا`** and founds his
+  dynasty by the saint's prayer. A dynasty-to-shrine link, stated in the text.
+- **p0132 (folio 457), Mathura:** the emperor travels to `خطه دل کشائے متهرا` expressly to see a
+  `درویش خدا اندیش` whom some held among those admitted to the court of Divinity and others called a
+  sorcerer; gold rains over him and five other dervishes at prayer. A named living holy man at a major
+  Hindu pilgrimage centre.
+- **p0145 (folio 444): Jahangir and the sannyasi `چند روپ سنیاسی`** (near-certainly Gosain
+  Jadrup/Chidrup), who intercedes for Prince Khusrau's release.
+- Sufi-shrine material: **Shaikh Salim Chishti twice** (p0136, the village named for him; p0142, his
+  son Qutbuddin Khan as governor of Bengal); Akbar's burial at **Sikandra** (p0149);
+  **I'timad-ud-Daula buried on the bank of the Beas near Dasuha with `عمارت عالی بر سر مزارش`** (p0122)
+  — which differs from the usual account of his Agra tomb and is transcribed as printed;
+  **Jahangir's burial at Shahdara** in Nur Jahan's garden with the raising of the monument (p0106);
+  `دارالخیر اجمیر` four times, honorific but never the dargah.
+- **p0146 (folio 443): Khusrau's decisive defeat is placed `در حوالی گوندوال` — Goindwal.** No Guru is
+  named on that page, but this is the campaign Guru Arjan was implicated in, and the placename is the
+  link.
+- **p0143 (folio 446): a full shrine account at Bamiyan** — a cave tomb holding an incorrupt body said
+  to be a Muslim killed in Chingiz Khan's war against Jalal al-Din Mangburni four hundred years before,
+  with a wound that still bleeds; `مردم رفته زیارت میکنند`. Jahangir sends Mu'tamad Khan and a surgeon
+  to verify it and the report is given in full — a Mughal chronicle recording a *verification visit* to
+  a shrine claim.
+- **p0136 (folio 453): kos-minars every kos, a masonry well every two kos and double avenues from Agra
+  to Lahore**, credited to Sher Shah and revived under Jahangir. Useful for shrine routes.
+- Also: sati in the rope-trick narrative (p0129); jogis at court (p0133); Abul Fazl praised for reading
+  `توریت و انجیل و صحف هنود` (p0153); the Bahmani/Nizam Shahi/Qutb Shahi dynastic lists with the 1918
+  editor's footnotes from Firishta and the Tabaqat-i Akbari (pp. 157-161).
+
+## Two things the workers found about the rendering itself
+
+1. **The digitisation stamp is destroying text.** `Sri Satguru Jagjit Singh Ji eLibrary /
+   NamdhariElibrary@gmail.com` sits at the foot of every page and on **at least 20 of these 66 pages it
+   is printed over the last line of body text**, which is the direct cause of most of the 55
+   `[illegible]` marks. A re-crop that keeps the stamp band but lifts the last text line would recover
+   them. Transcribed once per worker range (pp. 99, 110, 121, 132, 143, 154), matching what pass 1 did.
+   **No second library stamp, bookplate, accession mark or rights notice appears anywhere in the 66
+   pages** — four workers said explicitly that they checked every band for one, so that absence is
+   measured rather than assumed. The page furniture that *is* there was transcribed in place: the 1918
+   editor's numbered footnotes (pp. 101, 103, 107, 149, 152, 157-161, 163 — those on pp. 157-161 cite
+   Firishta and the Tabaqat-i Akbari by volume and page and are the editor's variant readings, not the
+   author's), a `[margin]` note on p0144 keyed to an interlinear insertion above `شاه لالان`, a foot
+   note on p0152 that prints `کنسور داس` three times over (possibly a slipped lithographic impression),
+   and small interlinear insertions on pp. 149, 151 and 152 that are below this rendering's resolution
+   and were named in the worker's report rather than guessed at in the files. Faint digit-like marks in
+   p0148's lower margin were judged bleed-through and left untranscribed; worth a human glance.
+2. **The 3% band overlap is sometimes under one line height.** On p0136, p0137, p0139 and p0140 a line
+   appeared as letter-tops only at the foot of one band and letter-bottoms only at the head of the next;
+   the worker rejoined the halves and confirmed the sense ran on, but that is reading a line twice in
+   pieces rather than once whole. **Raising `--overlap` to ~0.05 would cost nothing.** Not changed here:
+   `render_bands.py` is §9.201 decision 2 and is Rauf's.
+
+**Verse hemistich order is the weakest thing in these files and every worker said so.** None could
+judge left/right position reliably in a 2791 x 1133 band (the same limit §9.201 recorded), so all of
+them ordered hemistichs by rhyme, metre and sense instead of by measured position. That is sound where
+only the second hemistich rhymes and gives no signal where both do — p0134's two tobacco couplets are
+named as the clearest case. Every couplet in pp. 99-164 should be checked against the image before it
+is quoted.
+
+**Leases: none were taken for 99-164, deliberately, and this is a gap worth knowing about.**
+`queue.py lease` only offers pages that already have a full-page `pNNNN.png` on disk, and these 66
+pages were rendered as bands **in the cloud container** (11 minutes on two cores, against ~16 s/page for
+`queue.py render` on the Mac — measured this run). Taking a lease would have meant transferring 55 MB of
+full-page markers back for pages that were about to be marked done. A lease recorded *after* the work
+is bookkeeping theatre, so none was. Instead the batch was claimed at the start by
+`pipeline/book_queue/RUN_IN_PROGRESS_khulasat_ut_tawarikh.md`, an advisory file with a timestamp — a
+stopgap for §9.206's collision defect, not a fix, and **not** a change to shared tooling. §9.206's
+three cheap fixes (lease heartbeat, refuse-young-leases, stagger or lock) are still Rauf's to choose.
+
+**Also unchanged:** pp. **17-48** stay held under `HOLD-vsplit-index-errata`; §9.206's point that they
+must be re-examined in the light of the reverse ordering before transcription still stands, and the
+folio-digit finding above strengthens it — an index whose whole content is numerals, rendered at a
+resolution where ۳ and ۴ are not separable, would be worse than no index. `render_panels.py` still has
+no A/B across independent workers.
+
+**The 264 band PNGs were not mirrored.** They are reproducible in one command
+(`render_bands.py khulasat_ut_tawarikh --scale 4400 --bands 4 --pages 99-164`), so only the 76 bands
+covering the nineteen human-check pages were kept, plus the folio evidence.
+
+**Git, unchanged from §9.196 through §9.206.** Not attempted; `unlink` is blocked on this mount and even
+`git status --porcelain` bus-errors. The 66 page files, the four tarballs,
+`check_folio_continuity.py`, the advisory run marker and this entry are all left **uncommitted** in the
+working tree. `git add -A && git commit` is Rauf's to run. Nothing was pushed.
+
+### 9.208 — 18 September 2026: Kugle's *Sufis and Saints' Bodies* fully noted, and a folio census that was wrong three times
+
+*Numbered 9.208 because the transcription run took 9.207 at 11:35 UTC while this notes run was working.
+The tail was re-checked immediately before appending and the number moved. That is the third same-day
+collision (§9.202, §9.206, this one) and the check is now cheap and load-bearing: `grep -n '^### 9\.'
+docs/HANDOVER.md | tail -3` before you write.*
+
+`kugle_sufis_and_saints_bodies` (priority 107, Scott Kugle, *Sufis and Saints' Bodies: Mysticism,
+Corporeality, and Sacred Power in Islam*, University of North Carolina Press, 2007, 368 PDF pages,
+`text_layer` route, 22 chunks at ~8000 words, re-chunked 2026-09-18T08:18:08Z) went from **0 chunk
+notes to 22**. Twenty-two workers in four waves of 6/6/6/4, covering PDF pp. 1–368 contiguously, no
+gap and no overlap. About 840 KB of notes, written into both
+`entries/book_takeaways/kugle_sufis_and_saints_bodies/` and
+`out/ocr/kugle_sufis_and_saints_bodies/chunks/`, **all 22 pairs verified byte-identical with `cmp`**
+and by md5 against the cloud copies; `queue.py notes-status` returns `notes_missing: []`,
+`chunks_ok: true`. `state.json` was **not** touched — no `mark` ran, the book is not consolidated.
+
+**This book did not need re-chunking.** Its 22 chunks were already on disk at claim time and
+`notes-status` reported `chunks_ok: true`, so it is one of the 18 of 42 that still has its chunks.
+The 24-book zero-chunk trap (§9.195 and the `notes-status` patch) did not fire here.
+
+#### The folio relation: one offset for the whole book
+
+**Printed folio = PDF page − 21**, uniform from cover to index, **confirmed on 322 of 368 pages from
+each page's own running header with zero disagreements**. No regime changes — unlike
+`schimmel_pain_and_grace`, whose offset stepped twice (§9.202). Front matter prints **lowercase roman**
+folios at **PDF − 1**. Confirmed three independent ways:
+
+- The contents table's six chapter-start folios (43, 81, 123, 181, 221, 265) land exactly on the six
+  PDF pages that print no running header (64, 102, 144, 202, 242, 286) — a chapter opener prints no
+  header, so the prediction and the blank coincide.
+- Notes, Bibliography and Index at printed 295, 317, 327 land on PDF 316, 338, 348.
+- Header position alternates strictly by folio parity — verso number-first (`344 I N D E X`), recto
+  number-last (`I N D E X   345`). Two workers used the parity as a second check on their own range.
+
+#### The census was wrong three times, and the page won every time
+
+This is §9.202's lesson again, and it is worth the detail because the failure mode is cheap to repeat.
+
+1. **First measurement: 135 pages "print no folio".** A digit-keyed regex over the running headers.
+2. **Five of the six wave-1 workers independently reported the same defect.** The headers were there;
+   their digits were corrupted into letters, and a digit-seeking sweep drops *precisely* the folios
+   made of the damaged digits — 10, 11, 19, 20, 29, 41, 50, 51, 60, 61, 70, 90, 91, 98, 100–111, and
+   so on. `IO`=10, `II`=11, `IQ`=19, `2O`=20, `2Q`=29, `4!`=41, `5O`=50, `6l`=61, `go`=90, `Ql`=91,
+   `g8`=98, `IOO`=100.
+3. **Re-derived with a substitution table: 85 of the 135 recovered**, headerless fell to 50.
+4. **Wave 2 and 3 found three more substitutions** (`j`→7, `&`→8, `J`→7) and **space-split digits**
+   (`4 5` = 45, which even a tolerant single-token reader misses). Re-derived again: 46.
+5. **Wave 4 found two more.** p. 343 prints `^22` — caret-for-3 — and p. 365 prints `344 I N D E X`
+   number-first, a form the brief had said belonged only to the recto.
+
+True headerless is **44–45 pages**, and they are exactly the front matter (1–22), the full-page
+plates (52, 58, 63, 149, 167, 175, 343), the six chapter openers, the three section openers (316
+Notes, 338 Bibliography, 348 Index), the blank versos and the final leaves (367 "This page
+intentionally left blank", 368 the publisher's series list). **Every worker that contradicted the
+brief was right.** Telling a worker what the measurement *is* **and** that the printed page outranks
+it is what surfaced this, three waves running — the same conclusion §9.202 reached and the reason to
+keep writing briefs that way.
+
+**Substitution table, measured on this book** (headers, note numbers and index locators):
+`O`/`o`→0 · `I`/`l`/`!`/`i`→1 · `Q`/`g`→9 · `$`/`S`→5 · `j`/`J`→7 · `&`/`B`→8 · `^`→3 · digits split
+by spaces. Inside note numbers also `n`→11 and `i`→1: `297 (n. i)` is note 1, `312 (n. n)` is note 11.
+Counter-case worth keeping: **a genuine English "All" also occurs** ("All Sufi communities adopt it as
+a teaching of Ali", p. 249), so the `All`→`Ali` class must not be applied mechanically.
+
+#### Five archive rows, one of them new
+
+- **`madho-lal-hussain`** — overwhelmingly this book's contribution. Chapter 4, `BODY ENRAPTURED: The
+  Lips of Shah Hussayn` (printed 181–220 = PDF 202–241), is a **Lahore** chapter.
+- **`data-darbar`** — `cAli Hujwiri` "known as Data Ganj Bakhsh", his shrine used as Shah Hussayn's
+  nightly lodging (p. 206, folio 185). The index gives him **one** locator, `Hujwiri, 'All, 185`.
+- **`shah-jamal`** — a bare name, "whose tomb is still a popular pilgrimage place" (p. 207, folio 186).
+  Thin, and flagged twice: the index mapping rests on a shared locator (186, and note 305 n. 7 with the
+  `Lahore` entry), not on anything the index states. `shrine-of-hafiz-muhammad-jamal-multani` is named
+  as the competitor. This is the protocol's own two-Shah-Jamal case, live.
+- **`shrine-of-fariduddin-ganjshakar`** — from chapters 3 and 5, bare-name evidence each time; no
+  Masʿud, no Pakpattan, no tomb.
+- **`shrine-of-mian-mir`** — **new for this book**, from chapter 4's notes (p. 326, folio 305). The
+  Kalhora prince Mian Mir was explicitly considered and refused as a different person.
+
+**Twelve of the twenty-two chunks map zero rows** (002–008, 010, 011, 017, 018, 022) and say so as
+explicit negatives. Chapters 1–2 are Fes, Morocco; chapter 3 is Gwaliyor, India; only chapter 4 is in
+this archive's scope. That is the book's shape, not a failure of the notes — the same result Part I of
+Schimmel gave (§9.202).
+
+#### What the book actually gives `madho-lal-hussain`, and where it sits
+
+The chapter opener (chunk 012, pp. 195–211) has **no** tomb, ʿurs or custodianship material at all.
+It is concentrated in three places:
+
+- **p. 215, folio 194** — the neighbourhood: "Baghabanpur on the outskirts of Lahore … just next to
+  the Shalimar gardens". The archive has **"Baghbanpura"**. The book also prints `Babupur` at p. 212
+  and does not say whether it is the same place — **an entry must not merge them**.
+- **p. 219, folio 198** — "Hussayn had prepared his own grave next to their home"; death "in 1599 C.E.
+  at the age of about 60"; Madho lived "at the tomb of Hussayn for thirty-five more years"; Madho
+  "became the spiritual successor of Hussayn's saintly authority", buried "directly beside Hussayn";
+  his Hindu name "inscribed upon his tombstone today".
+- **p. 241, folio 220**, the last paragraph of chapter 4 — "His small tomb, shared with Madho, is the
+  focus for a riotous celebration on the anniversary of his death, accompanied by frenzied drumming,
+  ecstatic dance, and blazing fires"; "one of the patron saints of Lahore"; "even the custodians of his
+  tomb, seem to have forgotten … the sexual nature of his love for Madho".
+
+**What 368 pages never give:** the tomb is never named, never given a building date and never located
+more precisely; the celebration is **never called an ʿurs**, never given a month and never dated; and
+there is no langar, no offerings, no *sajjada nashin*, no Auqaf, no family custodianship and no
+endowment anywhere in the book. Record the absence — it is why the shrine's institutional fields
+cannot be sourced from Kugle.
+
+#### The hagiographic source is named, in the notes
+
+Chapter 4 quotes a hagiography throughout and **never names it in the chapter**. The notes do, and
+this is the single most reusable fact the book yields:
+
+> **Mahmud ibn Muhammad Pir, *Haqiqat al-Fuqara'*** — cited at chapter 4 nn. 3, 6, 11, 12, 14, 15, 16,
+> 19, 22, 23, 27, 31, 57. The bibliography gives it as an unpublished Persian manuscript: "Lahore:
+> Punjab University Library, **3253/248 Farsi**" (p. 338). Note 6 dates it "composed about 1662, just
+> sixty-two years after Shah Hussayn's death", says the author's father was a companion of Shah Hussayn
+> and the author himself an attendant of "his successor, Madho". Kugle calls it "this hagiographic poem"
+> and doubts it has ever been published (ch. 4 n. 27).
+
+The title prints three ways in the apparatus — `Haqiqat al-Fuqara` / `Haqiqat al-Fuqara'` /
+`Haqiqat al-Fuqam`. **The shelfmark and the author's name must be checked against the printed
+bibliography before either enters an entry.**
+
+#### Three silsila ascriptions for Shah Hussayn, none reconciled
+
+The archive row records **Malamati**. Kugle calls him **Qadiri** in one place, a **Qalandar**
+("Qalander", p. 220, folio 199) in another, and names **no order at all** across pp. 212–228. The
+index has **no Malamati headword**. Kept side by side per RULE 2; do not reconcile. Kugle likewise
+calls Shah Jamal Qadiri against the archive's Suhrawardi.
+
+Separately, a **book-versus-index disagreement on a datable fact**: Kugle prints Farid al-Din's death
+as **1265** (p. 260, folio 239, digits clean) against `shrine_index.tsv`'s `figure_died` of **1266**.
+
+#### The index is a page map, and its gaps are a result
+
+Chunk 021 recorded the full printed locator lists, including
+`Hussayn, Shah, 181-214, 217-21, 305 (nn. 3, 5, 7), 306 (nn. 22, 24), 307 (nn. 26, 28-30), 308 (nn. 50-52, 57), 309 (n. 58); death of, 198, 305 (n. 6); tomb of, 220`
+and `Madho, 187-99, 207, 210, 213, 220, 305 (n. 6) …; death of, 198`.
+
+Three institutional terms exist **only as glosses inside English headwords**: ʿurs under
+`Death anniversary of saint (Ar. mawlid, Pr. and Ur. c«rs), 46-47, 52, 60, 70, 75, 220`;
+khanqah/zawiya under `Sufi gathering place`; silsila under `Masters, spiritual: chain or lineage of`.
+Shrine visitation is indexed under **V**, as `Visitation to saint's or prophet's tomb (ziyara)`, with
+13 locators — so a search for "ziyara" as a Z headword finds nothing. **Absent**, each checked against
+the alphabetical neighbours it would sit between: mela, langar, sajjada nashin, custodian, offerings,
+dargah, grave, Auqaf, Malamati, waqf/wakf, and also Lal Shahbaz Qalandar, Bulleh Shah, Bahauddin
+Zakariya, Mian Mir, Jalaluddin Bukhari, Karachi, Multan, Pakpattan, Sehwan, Uch Sharif, Iqbal, Nanak.
+**Sharpest result: `Mosque` and `Shrine` are headwords, `Temple` is not, and nothing Sikh is indexed at
+all.** That is the shape of the book, not a gap in the notes — the same finding Sorley's index gave
+(§9.200).
+
+A scoping lesson for whoever notes an index again: chunk 021 covers `Aaron` → `Sufism` only, and
+`Suhrawardi`, `Sunni`, `Tomb`, `ʿUrs`, `Waqf`, `Zawiya`, `Ziyara` all fall on printed 344 in chunk 022.
+An absence must be scoped to the pages the worker actually read, and both workers did scope it.
+
+#### No locator from this book's apparatus may enter an entry unchecked
+
+A notes section and an index are almost entirely **bare numerals with no surrounding words to constrain
+a substitution**, and this book's damage hits digits hardest. Chunk 021 made **79** `[text-layer?]`
+marks over seventeen index pages; chunk 020 made **50** over the notes and bibliography. Citations
+recorded as **unusable, with no reading offered**: chapter 4 n. 66 `Mirza, Shah Hussayn, in.` (page
+number destroyed); chapter 5 n. 29 `Ibid., 2743.`; a conclusion note number printed `"i9`, which is 59
+by sequence and 19 by substitution class; `Kitab al-Istisqa', 3:90, in.`; and eight unconverted Hijri
+imprint years. This is the same conclusion §9.202 reached about Schimmel's Roman verse locators, now
+confirmed on a second book: **the apparatus is the least trustworthy part of a scan-derived text layer,
+and it is exactly the part a citation comes from.**
+
+**The notes-to-printed-pages map was read in full** (the header form is
+`N O T E S   T O   P A G E S   213-27   309`, which states which printed pages those notes annotate).
+Chapter 4's notes run pp. 327–330 and **close at n. 67**. The header ranges are **discontinuous as
+printed** — …108-21, 123-36, 144-64 — so printed 122 and 137–143 have no notes page claiming them.
+Not repaired.
+
+#### The two-column trap is live in the index, and has a second form
+
+§9.205 recorded this trap corrupting every quotation in another book. It was forewarned here and
+contained — and chunk 021 found a form the brief had not named: **each page's right-column top is the
+continuation of that page's left-column bottom**, so an entry's tail extracts *above* its own headword.
+Every list was rebuilt by column indent and checked against alphabetical order; continuity holds
+unbroken across pages; two genuinely unassignable runs are parked under Doubts. Also worth keeping: on
+a plate page the **caption extracts ahead of the body text** and reads like the page's first sentence
+(p. 237).
+
+#### The conclusion does not restate the Lahore chapter — search closed, negative
+
+Three chunks (017, 018, 019) covered the whole conclusion, printed 265–294. **The five cases are never
+drawn together, and Shah Hussayn, Madho and Lahore are never named in it.** Mawlay Idris and Imdadullah
+appear only as the chronological brackets of "the early modern period" (p. 288). Two workers looked for
+the restatement on instruction and reported its absence; the third closed the range. **Do not send
+another worker after it.**
+
+#### The out-of-scope chapters are where the institutional material is
+
+Recorded in full despite mapping zero rows, and usable for
+`Rauf_Field_Map_Economics_of_Religion.md`: a state decree assigning a shrine's financial proceeds to a
+custodian clan as compensation for displacement (p. 91); sanctuary designation over the Qaysariyya
+marketplace and the expulsion of Jewish merchants (p. 85); a *mawsim* used as a free-circumcision day
+for poor families (p. 91); a zawiya enlarged "with money extracted from the Marinid rulers" (p. 93); a
+juristic dispute over grave-dust medicine settled on the precedent of Hamza's tomb (pp. 92–93); weekly
+*samaʿ* "every Thursday night and into the day on Friday" (pp. 94–95); a woman's property endowment
+founding the Qarawiyyin (p. 83); royal patronage as a legitimacy device and the Saʿdian re-roofing of
+Idris's tomb (pp. 98–99); male-only inner-chamber access with women admitted to the shrine (p. 104);
+the women-custodian regime at ʿA'isha al-Manubiyya's tomb, with food placed on the tomb, oil anointing,
+candles and incense carried home, and a working gloss of *baraka*; residence at a tomb as apprenticeship
+and the *wilaya* → *mushaykha* shift that recasts sainthood as office-holding (p. 276); the
+nineteenth-century Wahhabi turn against tomb-building; and the Wahhabi commentator's **itemised shrine
+furniture — domes, cloths, lamps, custodians, offerings and their revenue** (p. 307, folio 286).
+
+Kugle's own three-mechanism formulation of contact-blessing, distant presence and posthumous persistence
+(p. 300) and "the architectural focus of their spiritual geography" (p. 301) are the citable theory.
+
+#### Pass 2 is HELD, on the same two decisions
+
+`kugle_sufis_and_saints_bodies` now joins `sorley_shah_abdul_latif_of_bhit` (24/24) and
+`schimmel_pain_and_grace` (16/16) as **fully noted, not consolidated**. All 22 chunks were written under
+the two interim conventions recorded in `TAKEAWAYS_PROTOCOL.md` and every affected bullet is reversible:
+
+1. **Does a bare toponym take an archive id?** Interim: no — it goes under "Other saints, sites and
+   events" with a Doubts line naming the row it would take on reversal. Applied throughout, and it bites
+   hard in a Lahore chapter: `Lahore` itself was left unmapped (no single row resolvable), and `Red Fort
+   in Lahore`, `Chiniot`, `Ravi River`, `Karachi`, `Thatta`, `Indian-held Kashmir` and every place of
+   publication in the bibliography carry named reversal candidates. One worker noted that **Karachi would
+   still be indeterminate between `shrine-of-abdullah-shah-ghazi`, `shrine-of-pir-mangho` and
+   `shrine-of-qalandar-baba-auliya` even if the convention reverses**, which is a point worth having when
+   the decision is taken.
+2. **Is the inline damage marker standing convention?** Interim: do both — mark inline and inventory the
+   class under Doubts. All 22 chunks do both, with `[text-layer?]` (this is a `text_layer` route).
+
+The 18 September person-ruling was applied and carried the `shrine-of-mian-mir` and
+`shrine-of-fariduddin-ganjshakar` mappings, both author-or-bare-name cases. **A third question surfaced
+that neither decision covers and that is Rauf's, not a worker's: is a Hindu deity reachable as an archive
+row's principal figure at all?** Krishna occupies three pages of chapter 4 and is the principal figure of
+**two** rows (`krishna-mandir-kabari-bazar`, `krishna-mandir-ravi-road`); three workers independently
+refused him, both for the two-row ambiguity and because the ruling speaks of "a person". Left unmapped
+everywhere, flagged in every chunk that met him.
+
+`Shaktipeeth Shri Hinglaj Mata Mandir` did not arise in any of the 22 chunks. Its id cell is still empty
+in `shrine_index.tsv`; no id was invented anywhere.
+
+#### Housekeeping
+
+- **The work is uncommitted.** Git cannot run in the connected folder (`unlink` is blocked; `git add`
+  dies with a bus error, and even `git status --porcelain` fails — §9 passim, delete permission refused
+  16 Sep and not re-requested). **Rauf must run `git add -A && git commit` himself.** Nothing was pushed.
+- New files: 22 × `chunk_NNN.notes.md` in each of the two locations, plus
+  `entries/book_takeaways/kugle_sufis_and_saints_bodies/_CLAIM_notes_in_progress.md`.
+- Next by priority with missing notes: **109 `ernst_lawrence_sufi_martyrs_of_love`** (17 chunks
+  recorded, **0 on disk**) and **110 `rizvi_history_of_sufism_india_1`** (28 recorded, 0 on disk). Both
+  need `queue.py chunk <slug> --words 8000` first — the value in their own `state.json` log lines — then
+  the committed notes copied back into `out/`. Both are English monographs, so 8000 is the expected N,
+  but **read the log line rather than trusting this sentence**.
+
+### 9.209 — 18 September 2026: khulasat pp. 165-230, and the ۳/۴ trap caught at the boundary by the check written for it
+
+**What this run did.** `khulasat_ut_tawarikh` (priority 190) went from **132/610** to **198/610**.
+Six workers transcribed **PDF pp. 165-230** from 4-band renders at `--scale 4400` (2791 x 1133 px
+per band, 3% overlap), eleven pages each, one `pNNNN.txt` per page, written into
+`out/ocr/khulasat_ut_tawarikh/pages/` and mirrored to the Mac. No page skipped, none thin
+(<40 chars), none `[blank page]`, every page carries a folio line. Ranges now done on this book:
+**1-16 and 49-230**. Corpus total 8,550 → **8,616** of 13,926.
+
+**Quality.** 91,600 Arabic characters, **131** `[illegible]`, **0** lines inside
+`[illegible: N lines]`, 946 `[OCR?]`. That is **1.43 `[illegible]` per 1,000 Arabic characters**,
+against 0.6 over pp. 99-164 and **40.1** on `tahqiqat_chishti` (§9.201). Worker self-assessment
+0.72-0.96 per page, overall **≈ 0.90**, consistent with §9.206's 90.0% blind-pass agreement. No
+second pass was run, so this is self-assessment and carries §9.206's caveat. The weakest pages are
+**p0220** (0.72, faint ink plus heavy verso bleed-through) and **p0229** (0.78, florid descriptive
+prose); both would be the first to re-run.
+
+**Why this book and not `tahqiqat_chishti` (priority 30) — for the third run running.** Unchanged
+from §9.203 and §9.207: §9.201's three decisions are still unanswered and two of them govern that
+book's remaining 807 pages. A page that has a `pNNNN.txt` is never redone, so transcribing it at
+the disputed rendering would spend the batch *and* foreclose the render fixes. They are re-surfaced
+in this run's report (RULE 5).
+
+**A lease is not work, and neither is a claim file.** The 11:40Z firing wrote
+`RUN_IN_PROGRESS_tahqiqat_chishti.md` for pp. 67-132 and took **six leases** (67-77 … 122-132) on
+that book. It then wrote **zero page files** — `out/ocr/tahqiqat_chishti/pages/` still ended at
+`p0066.txt`. The claim was 3h57m old at the start of this run, past the 3-hour rule, and the leases
+would have sat until a `sweep-leases` that nobody dares run (it would also expire the deliberate
+`HOLD-vsplit-index-errata`). **The six leases were released individually**, by name, so the hold on
+khulasat 17-38 was untouched; `tahqiqat_chishti` is back to 66/873 with no leases. This is §9.199's
+lesson recurring with a second symptom: a claim file is evidence of intent, a lease is evidence of
+intent, and **only `pNNNN.txt` is evidence of work**.
+
+## The finding: the ۳/۴ trap recurred exactly as predicted, and only where the digit really is ۴
+
+§9.207 measured that **۳ and ۴ are not separable in this hand at band resolution** and are separable
+at 400 ppi. This run is the controlled repeat. Six fresh workers were told the trap exists and told
+to flag the hundreds digit — but were **not** told the relation `folio = 589 − pdf`, so the folio
+reading stayed an independent signal. They were unanimous and they split cleanly:
+
+| PDF pages | folios as read | correct | verdict |
+|---|---|---|---|
+| 165-189 | 324 … 300 | 424 … 400 | **all 25 wrong by exactly −100** |
+| 190-230 | 399 … 359 | 399 … 359 | all 41 correct |
+
+**The trap bites only when the printed digit is ۴.** Not one worker misread a genuine ۳ as a ۴, on
+41 consecutive pages. So the failure is not "the hundreds digit is unreliable" but the sharper and
+more useful **"۴ is read as ۳; ۳ is read correctly"** — a one-directional substitution, which is
+what makes the +100 correction safe to apply wholesale rather than page by page.
+
+**Three workers detected it themselves, from arithmetic rather than from the glyph.** w3 read
+`302, 301, 300, 399, 398 …` across pp. 187-191, said in its report that the run is "arithmetically
+impossible", worked out that pp. 187-189 must be 402/401/400, **and deliberately did not smooth its
+own files** because the brief said to report what the glyphs show. w4 and w5 independently noted
+that the neighbouring `p0187.txt` did not fit. That is the behaviour the protocol wants: the worker
+reports the contradiction and leaves the resolution to a pass that can re-render.
+
+**It was then settled from the image at 400 ppi, not from the relation** (RULE 2 — the relation is a
+hypothesis, the page is the evidence). Three readings, two of them independent of any arithmetic:
+
+| page | reading | why it is decisive |
+|---|---|---|
+| p0155 | ۴۳۴ | §9.207's control re-verified: **first and third glyphs identical**, middle visibly broader. Fixes both glyph forms from one page — ۴ is the swooping hook with a descender, ۳ the broader flat-topped form with square peaks. |
+| p0164 | ۴۲۵ | the page immediately before this batch; matches §9.207's hand-verified value. |
+| p0189 | **۴۰۰** | read directly off the crop — leading swoop then two plain circles. The worker wrote 300. |
+
+With **both ends of the batch anchored by direct 400 ppi readings** (p0164 = 425, p0189 = 400) and
+the run descending by one, pp. 165-189 are fully determined as 424 … 400 without trusting any single
+leading glyph. **Only the `[folio N]` first line was changed, on 25 pages**; every body line is
+byte-identical to what the workers delivered, which was checked mechanically against the archived
+originals rather than asserted. Raw output is preserved at
+`out/ocr/khulasat_ut_tawarikh/_worker_raw_before_folio_correction_165-230_2026-09-18.tar.gz` and the
+400 ppi crops the correction rests on at `_folio_digit_evidence_165-230_2026-09-18.tar.gz`.
+
+**The check written in §9.207 did its job, on its first real outing.**
+`check_folio_continuity.py --pages 49-230` is now **silent — 182 pages, every adjacent pair steps by
+−1, no break**, where against the uncorrected files it would have reported the 101-folio jump at
+189/190. `check_folio_direction.py --pages 49-230` reports **descending, `folio = 589 − pdf`,
+182/182, no deviation**. §9.207 said its tool "cannot see an error that is uniform across every
+transcribed page of a book, only one that breaks at a boundary" — this batch broke at a boundary,
+which is precisely the case it covers, and it held.
+
+**`queue.py folio-check` is the wrong instrument for this book and its output should be ignored
+here.** It models `folio = pdf + offset` and therefore reports every page of a descending book as
+its own "minority offset" (−157, −155, −153 … one page each, each flagged "usually a misread tens
+digit"). Nothing is wrong with those pages. Use `check_folio_direction.py` and
+`check_folio_continuity.py` on this book; the §9.200 note that folio-check "cannot run on this book
+and this is not a fault" now has a second, different reason standing behind it.
+
+## The other finding: all six workers independently discovered the PDF runs back-to-front
+
+Every one of the six reported, unprompted, that **the prose continues from page N into page N−1**,
+and each verified it at its own range's internal joins — roughly forty sentence-level splices in
+total, e.g. w3's p0190 `…در سنه ۸۹۵ که سلطان` → p0189 `بهلول لودی رحلت نمود…`, and w5's p0210
+`…از فرط هجوم با` → p0209 `کشتی غرق گشتند…`. The descending relation was already known from
+§9.206-§9.207 and `check_folio_direction` already prints "assembly must reverse it" — **what is new
+is that it is now corroborated from the text rather than from folio arithmetic**, by six readers who
+were not told the relation. Two consequences worth stating plainly: the reading order of this book
+is the reverse of its PDF order, and **any assembly that concatenates by PDF index produces a book
+running backwards**. Worth checking whether pp. 1-16 and 49-98 were read under the same assumption.
+
+## Numerals and names a human must settle, worst first
+
+Nothing in pp. 165-230 may put a date into a shrine record. Bands for the eighteen pages concerned
+are packaged as `_bands_for_human_check_a_165-230_2026-09-18.tar.gz` and `…_b_…` so a person can
+settle these without re-rendering.
+
+- **p0224: a three-digit year is wholly `[illegible]`.** The worker resolved that there are exactly
+  three digits and got them to high magnification but could not identify them (shapes "most
+  consistent with ۶-or-۴, ۹-or-۵, ۹"). Context is the death of Sultan Muhammad Shah of Delhi just
+  before Timur's invasion, so a 79x/80x AH year is expected — **which is exactly why it was not
+  written**. The single best example in this batch of the protocol working.
+- **p0193 carries two load-bearing years that could not be read**: `در سنه ۱۵[OCR?]` (apparently
+  only two visible digits, dating Sāhū's arrival) and `در سنه [illegible]`, the death year of the
+  last Hindu raja of Kashmir before Kota Devi's regency.
+- **p0208 footnote (۱): `سنه ۷۳۹[OCR?]`.** The middle digit is the ۳/۴ trap and the last could be ۹
+  or ۶, so 739 / 749 / 736 / 746 are all live. The point of the footnote is that Firishta gives a
+  *different* year from the body, so it **must not** be smoothed to 746.
+- **p0222 `لغایت سنه ۹۸۳[OCR?]`** — the year Gujarat entered Mughal control; the conventional figure
+  is 980, and the worker declined to move it.
+- **p0215** `سنه ۹۷۷[OCR?]` (Salim's birth) and `سنه ۶۳۳[OCR?]` (death of Khwaja Muin al-Din
+  Chishti) — the second is directly shrine-relevant and was read as printed, not adjusted.
+- **p0206** `سنه ۹۸۳` / `از ابتداے ۷۴۶` with "دوصد وسی وهفت سال" (237 years): 983 − 746 = 237
+  exactly, so these three check each other — the one internally corroborated date cluster in the
+  batch.
+- **Footnote citation page numbers throughout** (Firishta vol. 2, Tabaqat-i Akbari, Akbarnama,
+  Ain-i Akbari) — dozens of isolated three-digit numbers at the limit of this rendering; on
+  pp. 206-208 the units digits 2/3/4/5 are "not reliably separable". All flagged.
+- **Names where the reading is contested, not merely uncertain:** p0221 `رانا و دلیسنگه[OCR?]`
+  (very likely Rana Udai Singh — "the whole question is one lam") and `سکست سنگ[OCR?]` (Shakti
+  Singh); p0167 `راجه رامچند زمیندار پتنه`, where the text says *tābiʿ ṣūba Allāhābād*, which fits
+  **Bhatta/Rewa**, not Patna, and was left as the glyphs give it; p0170 `رو در سنگه مرزبان کمایون`
+  (the 1590s Kumaon ruler was **Rudra Chand**); p0169-70 `گوالیار`/`گوالیاری`, where the context —
+  a fort of Raja Basu of Mau — points to **Guler**, not Gwalior; p0228 `در حوالی تهتهه[OCR?] تابع
+  ملتان`, and Thatta is in Sindh, not a dependency of Multan, so either the place or the attribution
+  is off; p0216, where `بمخدوم[OCR?] الملک` is applied to `مولانای عبدالنبی سلطان پوری`, apparently
+  merging two men. Every one of these was transcribed as printed and flagged rather than corrected
+  toward the expected name — which is the standing instruction, and is why they are findable.
+- **p0225 names a cluster of shrine-relevant Gujarat/Sorath sites that read cleanly** — `سورتھ`,
+  `جوناگڑھ`, `سومنات`, `دوارکا`, `کچھه` — and were left unflagged; worth a second eye precisely
+  because they are unflagged.
+
+## Two convention questions this batch raised — RULE 5, and both are in the chat
+
+1. **Is the digitisation stamp recorded once per worker range, or once per page?** The convention
+   inferred from pp. 1-164 and imposed on all six workers was **once on the first page of each
+   range**, which is what the existing files show (`p0001, p0049, p0059, p0069 …` at roughly
+   eleven-page intervals — i.e. the previous runs' range starts, not a deliberate rule). w4 spotted
+   this and asked whether the real convention is *every page*. The stamp
+   (`Sri Satguru Jagjit Singh Ji eLibrary / NamdhariElibrary@gmail.com`) is at the foot of **every**
+   page of this scan, so the current record understates it. Six stamp lines were written this run
+   (pp. 165, 176, 187, 198, 209, 220). No other watermark, library mark or rights notice appears
+   anywhere in pp. 165-230; all six workers checked every band and said so explicitly, so the
+   absence is measured rather than assumed.
+2. **How should hemistich order within a single printed line be recorded when it cannot be seen?**
+   Five of the six workers reported independently that at 2791 x 1133 they **cannot reliably judge
+   left/right position within a band**, so where two hemistichs share a printed line they ordered
+   them by sense and metre. w1 caught one such ordering and fixed it from the rhyme scheme
+   (only even hemistichs rhyme), which is a real check but only works on rhymed verse. The content
+   of every hemistich is read off the image; **only the within-line order is inferred**, on
+   pp. 0166-0169, 0178-0179, 0183-0184, 0201, 0204, 0211, 0213 and 0215. This is the same class of
+   limit as §9.201's finding that band seams are resolved by semantic continuity and so cannot be
+   re-checked mechanically. It is also §9.201's decision 3 in a second book, and wants one ruling.
+
+**Also recorded, smaller.** The digitisation stamp **overprints the printed footnotes** at the page
+foot on pp. 0166, 0169, 0171, 0176, 0179, 0182-0185, 0192-0193, 0204-0205 and 0223, and on p0166 the
+footnote is almost entirely lost under it. Those footnotes are this edition's editorial apparatus —
+source citations to Ain-i Akbari, Tarikh-i Firishta and Tabaqat-i Akbari — so **the digitiser's
+overprint is destroying exactly the apparatus that makes the book citable**. A differently cropped
+scan of the page feet would recover them; no re-shoot of the body is needed. Separately, w6 recorded
+a method that is worth reusing: flat-field-correcting each band and reading it as three overlapping
+tiles at ~1.4x was "materially better than reading the band whole".
+
+**Bridge stability, as bad as §9.200 recorded.** The desktop link dropped six times during this run,
+twice mid-call, and the folder was **not connected at session start** (re-requested and granted).
+Two things kept it survivable and should stay standard: the PDF was staged into the cloud container
+**once** and all rendering and transcription happened there, so the six workers never touched the
+bridge; and the 66 finished pages were also delivered into the chat as a tar the moment the first
+mirror attempt failed, so they could not be lost with the session. §9.200's rule proved itself
+twice more: **a long `cat >> file <<EOF` heredoc is the wrong shape for this bridge** — two appends
+of this entry returned an error or a timeout and wrote nothing, verified both times by
+`grep -c '^### 9.209'` rather than assumed. What worked was writing the section to a file in the
+container, committing it with `device_commit_files`, and appending it with a one-line `cat`.
+
+**Git, unchanged from §9.196 through §9.208.** Not attempted; `unlink` is blocked on this mount and
+even `git status --porcelain` bus-errors. The 66 page files, the four tarballs, the updated
+`RUN_IN_PROGRESS_khulasat_ut_tawarikh.md`, the released leases in `state.json` and this entry are all
+left uncommitted in the working tree. **`git add -A && git commit` is Rauf's to run.** Nothing was
+pushed.

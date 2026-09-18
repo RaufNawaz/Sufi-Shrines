@@ -135,3 +135,9 @@ urdu-i18n/review/
 
 # Claude Code session-local settings and task locks — per-machine, not shared.
 .claude/
+
+# Timestamped state.json backups written by pipeline/book_queue/resolve_pdf.py --fix. The state file
+# itself is committed after every batch (it is the queue's progress); a backup is a safety net for
+# one edit on one machine, not shared history. Added 18 September 2026 with the script, so that a
+# repair to the queue's own state is always revertible without the backup entering the repo.
+pipeline/book_queue/state.json.bak-*

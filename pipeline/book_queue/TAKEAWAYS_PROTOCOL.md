@@ -46,6 +46,28 @@ Rules: omit an empty heading; keep the transcriber's flags on any word you carry
 the chunk does not contain. Mapping to an archive id is a judgement — when a name could be two rows
 (Shah Jamal of Lahore vs. another Shah Jamal), say so under Doubts rather than picking one.
 
+**Mapping a person, ruled 18 September 2026 (Rauf, in chat).** A person who is an archive row's
+principal figure takes that row's bold id **even where the book names them only as an author or a
+literary reference** — Hujwiri quoted for a saying, Iqbal for a doctrine, Bulleh Shah named as a
+contemporary poet, Sachal Sarmast as a contrast. The reason is the one that settles it: the shrine
+descriptions are written and updated *from these books*, so an author-only mention is material for
+that row's entry, and parking it under "Other saints, sites and events" loses exactly what the notes
+exist to collect. Record only what the book actually says, in the book's own words, with its page —
+"named as the Panjabi contemporary" is a legitimate whole bullet — and add a Doubts line where the
+evidence is a bare name, so the consolidator can weigh it. Do not enrich it: a tomb, a date or a
+silsila the chunk does not give stays out (RULE 2).
+
+**Two mapping questions are still unruled. Write both reversibly until they are settled.** (a) A bare
+*toponym* with no shrine, tomb, saint, ʿurs or custodian attached — interim convention: it does
+**not** take an id; put it under "Other saints, sites and events" and name under Doubts the row it
+would take if the ruling reverses. The person ruling above does not decide this one, and the reason
+it does not is worth keeping: a row names its principal figure, so a person is a handle on that row,
+whereas "Lahore" on its own tells an entry nothing about any of the archive's Lahore rows. (b)
+Whether a damaged word is marked inline *as well as* inventoried under Doubts — interim: do both
+(`[OCR?]` on a tesseract or vision route, `[text-layer?]` on a text_layer route), printed form first
+and your reading after it in square brackets.
+
+
 Efficiency: one Read of the chunk, one Read of the index (first chunk only for a given worker),
 one Write per chunk. No Bash, no Edit, no re-reading.
 
