@@ -146,7 +146,7 @@ about it; that reading is withdrawn — chunk 016 was right.
     (p. 184), and in chunk 016 the pir of Makhdoom Jahaniyan. The archive row's principal figure reads
     "Shah Rukn-e-Alam (Rukn-ud-Din Abul Fath)", so the person is identified with confidence; his
     shrine is not mentioned.
-  - **shrine-of-makhdoom-jahaniyan-jahangasht** and **shrine-of-jalaluddin-surkh-posh-bukhari**: both
+  - **shrine-of-makhdoom-jahaniyan-jahangasht** and **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**: both
     appear only inside Mauj Darya's pedigree (p. 181), as the seventh and ninth ancestors. The
     citable point is that **the archive's Lahore Mauj Darya row and its Uch Jahaniyan and Surkh-Posh
     rows are one family in this book's account.**

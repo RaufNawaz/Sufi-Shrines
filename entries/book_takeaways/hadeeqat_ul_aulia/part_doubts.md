@@ -331,7 +331,7 @@ that the row takes only two sentences from the Suhrawardi chapter, both in footn
 his shrine, and that the row's 1384 CE against Rukn-e Alam's 1335 makes him a khalifa surviving his pir
 by forty-nine years, which no chunk remarks on (pp. 161, 165; folios 149, 153; chunk 015).
 
-**I7. `shrine-of-jalaluddin-surkh-posh-bukhari` — Multan, not Uch, and no death year.** The chunk has
+**I7. `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari` — Multan, not Uch, and no death year.** The chunk has
 him migrating from Bukhara to **Multan** in 635 AH / 1227 CE; the row locates him at **Uch Sharif** and
 dates him 1291. **The chunk gives him no death year and no "پوش"**; the identification rests on the
 name and on his position as grandfather of Makhdum Jahaniyan Jahangasht (p. 349, folio 337; chunk 032).

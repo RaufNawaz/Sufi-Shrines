@@ -5140,7 +5140,7 @@ are attribution and OCR problems on names, dates and numerals; D25–D27 are the
   khalifa list, with **no place, no date, no shrine** (p. 52, folio 48, حاشیہ 16), and at Multan receiving
   the khirqa of khilafat after the hail karamat, again with **no shrine town, no death year and no
   silsila** (pp. 53–54, folios 49–50). The archive row
-  **shrine-of-jalaluddin-surkh-posh-bukhari** (Uch Sharif, d. 1291, Suhrawardi) is the obvious
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Uch Sharif, d. 1291, Suhrawardi) is the obvious
   resemblance, and the Suhrawardi link through Bahauddin Zakariya is consistent with it, **but a
   khalifa-list name is not a match**. "اوچہ" does occur in the range (p. 61, folio 57) but only as a place
   Sultan Nasir al-Din travelled to in باب 8, with no connection to him. **Treat as a candidate, not a
@@ -5297,7 +5297,7 @@ page — a human should confirm the chapter heading on the PDF before a name is 
   gives no Multan and is a locator only. **A human should close this, not a chunk worker; the entry falls
   at printed ۱۰۹ = PDF p. 113, outside this range.**
 - **D23. حضرت شیخ جلال الدین محمد کبیر الاولیاء could be read into either of two Uch rows.**
-  **shrine-of-jalaluddin-surkh-posh-bukhari** (Uch Sharif, d. 1291) or
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Uch Sharif, d. 1291) or
   **shrine-of-makhdoom-jahaniyan-jahangasht** (Uch Sharif, Sayyid Jalaluddin, d. 1384). **The range gives
   him no location, no date, no silsila and no shrine — nothing but the name and the relationship** as
   khalifa (p. 94, folio 90). **Leave unmapped.** The contents-list entry for the same name, "باب ۲۱ حضرت
@@ -5396,7 +5396,7 @@ page — a human should confirm the chapter heading on the PDF before a name is 
   **shah-noorani-shrine-syed-bilawal-shah-noorani** only through the element **بلاول**; **the book's name
   has no "Noorani" and no Balochistan — do not map**).
 - **D27. "باب ۲۲ حضرت سید جلال الدین بخاری ۱۲۹" (p. 15) could be either of two archive rows at Uch
-  Sharif** — **shrine-of-jalaluddin-surkh-posh-bukhari** (d. 1291) or
+  Sharif** — **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (d. 1291) or
   **shrine-of-makhdoom-jahaniyan-jahangasht** (Sayyid Jalaluddin, d. 1384), whose archive names share both
   "Sayyid Jalaluddin" and "Bukhari". **Do not pick one.**
 - **D28. Contents-list names that differ from the names printed at the chapter openings**, all inside this

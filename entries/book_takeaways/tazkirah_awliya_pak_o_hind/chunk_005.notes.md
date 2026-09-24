@@ -319,7 +319,7 @@ through p. 109 → folio 105, each marker reading exactly that.
     Qutb ud-Din Aibak at Anarkali, **Lahore**, d. 1210, a ruler, not this shaikh; the shared first two
     elements of the name make this a likely future mis-match.
   - **حضرت شیخ جلال الدین محمد کبیر الاولیاء, the khalifa named at p. 94 (folio 90), could be read into
-    either shrine-of-jalaluddin-surkh-posh-bukhari (Uch Sharif, d. 1291) or
+    either shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari (Uch Sharif, d. 1291) or
     shrine-of-makhdoom-jahaniyan-jahangasht (Uch Sharif, Sayyid Jalaluddin, d. 1384).** The chunk gives him
     no location, no date, no silsila and no shrine — nothing but the name and the relationship. **Leave
     unmapped.**

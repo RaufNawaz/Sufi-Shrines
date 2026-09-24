@@ -620,14 +620,25 @@ def cmd_sweep(args: argparse.Namespace) -> None:
     state = load_state()
     cutoff = datetime.now(timezone.utc) - timedelta(hours=args.hours)
     n = 0
+    held = 0
     for slug, b in state["books"].items():
         for rng, lease in list(b["leases"].items()):
+            # A lease whose worker name begins with HOLD is a deliberate human hold on a
+            # page range, not a worker that crashed. It has no expiry and sweeping must
+            # never remove it. Added 22 September 2026: the sweep was age-only, so any
+            # firing that ran `sweep-leases` after three hours silently dropped the
+            # HOLD-vsplit-index-errata hold on khulasat_ut_tawarikh pp. 17-38 and the
+            # next lease call would have handed those pages to a worker. See HANDOVER
+            # section 9.225.
+            if str(lease.get("worker", "")).upper().startswith("HOLD"):
+                held += 1
+                continue
             since = datetime.strptime(lease["since"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
             if since < cutoff:
                 del b["leases"][rng]; n += 1
                 log(b, f"lease {rng} expired (worker {lease['worker']})")
     save_state(state)
-    print(f"expired {n} stale leases")
+    print(f"expired {n} stale leases; kept {held} HOLD lease(s)")
 
 
 def cmd_check(args: argparse.Namespace) -> None:
@@ -655,8 +666,16 @@ def cmd_check(args: argparse.Namespace) -> None:
         ts = datetime.now().strftime("%Y-%m-%d_%H%M")
         out = book_dir(args.slug) / f"p001-end_{ts}_transcribed.txt"
         parts = []
+        sup = {int(k): v for k, v in b.get("suppressed_pages", {}).items()}
         for n in range(1, b["pages"] + 1):
             t = page_txt(args.slug, n).read_text(encoding="utf-8").strip()
+            if n in sup:
+                # A re-shot duplicate of another PDF page. The transcription is kept on disk
+                # (RULE 2 - a worker's honest reading is not destroyed) but it must not enter
+                # the assembled text, or one printed page is counted twice. See HANDOVER 9.227.
+                t = (f"[suppressed: this PDF page duplicates PDF page {sup[n]['duplicate_of']}. "
+                     f"{sup[n].get('reason','')} "
+                     f"Transcription retained at out/ocr/{args.slug}/pages/p{n:04d}.txt]").strip()
             parts.append(f"[p. {n}]\n\n{t}")
         out.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
         method = {"vision": "claude-vision-in-session (Cowork cloud, page images read by Claude)",
@@ -666,7 +685,9 @@ def cmd_check(args: argparse.Namespace) -> None:
                 "page_marker": "[p. N] = 1-based PDF page index, not the printed folio",
                 "note": "Transcribed page by page in a cloud session with per page checkpoints (pipeline/book_queue). "
                         "Uncertain readings are marked [OCR?], gaps [illegible], empty pages [blank page]. Draft until reviewed.",
-                "reviewed": False, "assembled": now()}
+                "reviewed": False, "assembled": now(),
+                "suppressed_pages": b.get("suppressed_pages", {}),
+                "folio_contested": b.get("folio_contested", [])}
         (book_dir(args.slug) / f"p001-end_{ts}_provenance.json").write_text(json.dumps(prov, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         b["assembled_file"] = str(out.relative_to(REPO_ROOT))
         b["status"] = "transcribed"
@@ -678,6 +699,94 @@ def cmd_check(args: argparse.Namespace) -> None:
     print(f"{args.slug}: {len(done)}/{b['pages']} pages have text; status={b['status']}"
           + (f"; assembled {words} words → {b['assembled_file']}" if complete else "")
           + (f"; THIN pages (under 40 chars, look at them): {ranges_to_str(thin)}" if thin else ""))
+
+
+def cmd_suppress(args: argparse.Namespace) -> None:
+    """Mark a PDF page as a duplicate of another. Keeps the file, excludes it from assembly."""
+    state = load_state()
+    b = state["books"][args.slug]
+    sup = b.setdefault("suppressed_pages", {})
+    if args.page == args.duplicate_of:
+        sys.exit("a page cannot duplicate itself")
+    if not page_txt(args.slug, args.duplicate_of).exists():
+        sys.exit(f"page {args.duplicate_of} has no transcription - refusing to point at nothing")
+    if str(args.duplicate_of) in sup:
+        sys.exit(f"page {args.duplicate_of} is itself suppressed - refusing to chain suppressions")
+    sup[str(args.page)] = {"duplicate_of": args.duplicate_of, "reason": args.reason or "",
+                           "marked": now()}
+    log(b, f"page {args.page} suppressed as duplicate of {args.duplicate_of}")
+    save_state(state, only=args.slug)
+    print(f"{args.slug}: p{args.page:04d} suppressed as a duplicate of p{args.duplicate_of:04d}; "
+          f"{len(sup)} suppressed page(s) total. The .txt is untouched.")
+
+
+def cmd_unsuppress(args: argparse.Namespace) -> None:
+    state = load_state()
+    b = state["books"][args.slug]
+    sup = b.get("suppressed_pages", {})
+    if str(args.page) not in sup:
+        sys.exit(f"page {args.page} is not suppressed")
+    del sup[str(args.page)]
+    log(b, f"page {args.page} un-suppressed")
+    save_state(state, only=args.slug)
+    print(f"{args.slug}: p{args.page:04d} restored to the assembly.")
+
+
+def cmd_folio_contest(args: argparse.Namespace) -> None:
+    """Record a page range whose printed folio is disputed, so citations can refuse it."""
+    state = load_state()
+    b = state["books"][args.slug]
+    fc = b.setdefault("folio_contested", [])
+    rng = args.range
+    try:
+        pages = str_to_ranges(rng)
+    except Exception:
+        sys.exit(f"bad range {rng!r}; use A-B or A")
+    if not pages:
+        sys.exit(f"range {rng!r} is empty")
+    fc[:] = [e for e in fc if e.get("range") != rng]
+    fc.append({"range": rng, "reason": args.reason, "recorded": now()})
+    fc.sort(key=lambda e: min(str_to_ranges(e["range"])))
+    log(b, f"folio range {rng} marked contested: {args.reason}")
+    save_state(state, only=args.slug)
+    total = len(set().union(*[str_to_ranges(e["range"]) for e in fc]))
+    print(f"{args.slug}: {rng} marked contested. {len(fc)} contested range(s), {total} pages. "
+          f"Their [folio N] lines must not be cited.")
+
+
+def contested_pages(b: dict) -> set:
+    """Every page whose printed folio this book records as disputed."""
+    out = set()
+    for e in b.get("folio_contested", []):
+        out |= str_to_ranges(e["range"])
+    return out
+
+
+def cmd_folio_guard(args: argparse.Namespace) -> None:
+    """Exit non-zero if any given file cites a folio from a contested range. RULE 4."""
+    import re as _re
+    state = load_state()
+    b = state["books"][args.slug]
+    bad = contested_pages(b)
+    if not bad:
+        print(f"{args.slug}: no contested folio ranges recorded; nothing to guard.")
+        return
+    hits = []
+    for f in args.files:
+        fp = Path(f)
+        if not fp.exists():
+            sys.exit(f"no such file: {f}")
+        for i, line in enumerate(fp.read_text(encoding="utf-8").splitlines(), 1):
+            for m in _re.finditer(r"\(p\.\s*(\d+)[^)]*folio", line):
+                if int(m.group(1)) in bad:
+                    hits.append((f, i, int(m.group(1)), line.strip()[:110]))
+    if hits:
+        print(f"{args.slug}: {len(hits)} citation(s) use a folio from a CONTESTED range "
+              f"({len(bad)} pages). These must be re-read or cited without the folio:")
+        for f, i, pg, line in hits:
+            print(f"  {f}:{i}  PDF p.{pg}  {line}")
+        sys.exit(1)
+    print(f"{args.slug}: OK - no file cites a folio from the {len(bad)} contested pages.")
 
 
 def cmd_mark(args: argparse.Namespace) -> None:
@@ -808,14 +917,30 @@ def cmd_folio_check(args: argparse.Namespace) -> None:
     d = pages_dir(args.slug)
     offs: dict[int, list[int]] = {}
     read = 0
+    flagged = 0
+    partial: list[int] = []
     for n in range(1, b["pages"] + 1):
         f = page_txt(args.slug, n)
         if not f.exists():
             continue
         read += 1
-        m = re.match(r"\[folio (\d+)\]", f.read_text(encoding="utf-8"))
+        head = f.read_text(encoding="utf-8")
+        # RULE 4, HANDOVER §9.225: until 23 September 2026 this pattern was r"\[folio (\d+)\]",
+        # which matches ONLY a bare folio line and therefore ignored every folio line carrying an
+        # inline marker — `[folio 353 [OCR?]]`. WORKER_PROTOCOL *requires* `[OCR?]` on an
+        # uncertain digit, so this check was blind to exactly the readings it exists to audit: on
+        # tahqiqat_chishti pp. 361-420 it saw 3 of 45 folio lines, and the 3 it saw were the only
+        # unflagged ones — which were also the three wrong ones. The more honest the worker, the
+        # less this instrument could see, and it printed a confident ranking either way.
+        m = re.match(r"\[folio (\d+)(?:\s+\[[^\]]*\])?\]", head)
         if m:
             offs.setdefault(n - int(m.group(1)), []).append(n)
+            if m.group(0) != f"[folio {m.group(1)}]":
+                flagged += 1
+        elif head.startswith("[folio"):
+            # a folio line whose digits could not all be read (`[folio 38? [OCR?]]`). Deliberately
+            # NOT fed to the offset ranking — but counted, so it cannot vanish silently.
+            partial.append(n)
     if read == 0:
         # RULE 4, and the same trap this file's own docstring names: until 16 September 2026 this
         # printed "no folio lines found" and exited 0 when it had read nothing at all. `out/` is
@@ -832,7 +957,11 @@ def cmd_folio_check(args: argparse.Namespace) -> None:
         print(f"{args.slug}: {read} pages read, none carry a folio line"); return
     total = sum(len(v) for v in offs.values())
     ranked = sorted(offs.items(), key=lambda kv: -len(kv[1]))
-    print(f"{args.slug}: {total} pages carry a folio line")
+    print(f"{args.slug}: {total} pages carry a readable folio line "
+          f"({flagged} of them carry an inline uncertainty marker)")
+    if partial:
+        print(f"  {len(partial)} further pages carry a folio line whose digits could not all be "
+              f"read, excluded from the ranking: {ranges_to_str(partial)[:120]}")
     bad = False
     for off, pages in ranked:
         share = len(pages) / total
@@ -842,6 +971,8 @@ def cmd_folio_check(args: argparse.Namespace) -> None:
             bad = True
         print(f"  offset {off:+d}: {len(pages):4d} pages ({share:.0%}) {ranges_to_str(pages)[:80]}{flag}")
     b["folio_offsets"] = {str(off): ranges_to_str(pages) for off, pages in ranked}
+    b["folio_flagged"] = flagged
+    b["folio_partial"] = ranges_to_str(partial) if partial else ""
     save_state(state, only=args.slug)
     if bad:
         sys.exit(1)
@@ -866,6 +997,15 @@ def main() -> None:
     p = sub.add_parser("release"); p.add_argument("slug"); p.add_argument("range"); p.set_defaults(fn=cmd_release)
     p = sub.add_parser("sweep-leases"); p.add_argument("--hours", type=float, default=3); p.set_defaults(fn=cmd_sweep)
     p = sub.add_parser("check"); p.add_argument("slug"); p.set_defaults(fn=cmd_check)
+    p = sub.add_parser("suppress"); p.add_argument("slug"); p.add_argument("page", type=int)
+    p.add_argument("--duplicate-of", type=int, required=True, dest="duplicate_of")
+    p.add_argument("--reason", default=""); p.set_defaults(fn=cmd_suppress)
+    p = sub.add_parser("unsuppress"); p.add_argument("slug"); p.add_argument("page", type=int)
+    p.set_defaults(fn=cmd_unsuppress)
+    p = sub.add_parser("folio-contest"); p.add_argument("slug"); p.add_argument("range")
+    p.add_argument("--reason", required=True); p.set_defaults(fn=cmd_folio_contest)
+    p = sub.add_parser("folio-guard"); p.add_argument("slug"); p.add_argument("files", nargs="+")
+    p.set_defaults(fn=cmd_folio_guard)
     p = sub.add_parser("mark"); p.add_argument("slug"); p.add_argument("status"); p.add_argument("--note"); p.add_argument("--file"); p.set_defaults(fn=cmd_mark)
     p = sub.add_parser("export"); p.add_argument("slug"); p.add_argument("dir"); p.set_defaults(fn=cmd_export)
     p = sub.add_parser("chunk"); p.add_argument("slug"); p.add_argument("--words", type=int, default=6000); p.add_argument("--force", action="store_true"); p.set_defaults(fn=cmd_chunk)

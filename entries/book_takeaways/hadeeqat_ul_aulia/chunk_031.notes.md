@@ -142,7 +142,7 @@ are that arithmetic and nothing more.
     — see Doubts.
 - **Place-index leads (place only; the saints' own index entries fall in letters outside this
   chunk).** Each is a printed folio on which the book names the place, converted to PDF by +12:
-  - **shrine-of-jalaluddin-surkh-posh-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**,
+  - **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**, **shrine-of-makhdoom-jahaniyan-jahangasht**,
     **tomb-of-baha-al-halim-uch-sharif**, **tomb-of-javindi-bibi**, **tomb-of-ustad-nuriya**: "اوچ |
     ۲۸ ، ۲۹ ، ۳۱ ، ۳۲ ، ۳۳ ، ۳۶ ، ۱۵۷ ، ۱۶۰ ، ۱۶۱ ، ۱۶۹" (p. 333, folio 321) → PDF pp. 40–48 and
     169–181. **Folios 27–36 also carry "محمد حلبی اوچی گیلانی سید | ۳۰", "محمد غوث سید اوچی | ۲۷ ، ۳۳

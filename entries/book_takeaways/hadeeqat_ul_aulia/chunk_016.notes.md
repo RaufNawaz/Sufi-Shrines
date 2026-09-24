@@ -3,7 +3,7 @@
 **The Suhrawardi chapter, entries 106 (tail) to 116: the Bukhari sayyids of Uch, then their
 descendants and khalifas in Lahore.** One archive row is the subject of a full entry
 (**shrine-of-makhdoom-jahaniyan-jahangasht**, entry no. 107, with birth, death and the Uch roza);
-a second (**shrine-of-jalaluddin-surkh-posh-bukhari**) appears only as the genealogical head of the
+a second (**shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari**) appears only as the genealogical head of the
 family. The chunk's three most valuable features for the archive are: **the editor calls the
 author's death year for Shaikh Musa Ahangar of Lahore flatly wrong and replaces it from a
 near-contemporary biography**, moving it thirty-seven years; a **named occupational group, the
@@ -53,7 +53,7 @@ truly 164 and 165.
   - **The Medina sanad karamat** is under Legends. Nine further sources on him are listed by the
     editor (p. 169, folio 157); his malfuzat corpus and the editor's claim for it are under
     Arguments.
-- **shrine-of-jalaluddin-surkh-posh-bukhari** (سیّد جلال الدین شیر شاہ میر سُرخ بخاری اوچی — p. 168,
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (سیّد جلال الدین شیر شاہ میر سُرخ بخاری اوچی — p. 168,
   folio 156; again as "سید جلال الدین میر سرخ بخاری اوچی", p. 176, folio 174 as printed):
   - **Named twice, both times only as the head of the Uch Bukhari line**: as Makhdoom Jahaniyan's
     grandfather in the entry heading of no. 107, and as the ancestor from whose progeny Sayyid Haji
@@ -446,7 +446,7 @@ truly 164 and 165.
   in the heading, "راجو قتال" and "راجن کتال" in the footnote.
 - **The two archive rows this chunk touches are unequal in what they yield.** Entry no. 107 gives
   **shrine-of-makhdoom-jahaniyan-jahangasht** dates and the Uch roza and nothing about urs, building,
-  custodianship or economy. **shrine-of-jalaluddin-surkh-posh-bukhari** gets **no facts at all** here
+  custodianship or economy. **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** gets **no facts at all** here
   beyond his position at the head of the line and the nisba "میر سرخ بخاری اوچی"; the mentions are
   genealogical. Do not let the chapter's Uch material accrete onto his row.
 - **Three Uch mazars in this chunk have no archive row** — Rajan Qattal (827 AH), Nasir al-Din

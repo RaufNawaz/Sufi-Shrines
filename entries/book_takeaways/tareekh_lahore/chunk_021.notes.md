@@ -658,7 +658,7 @@ folios below are only the ones the chunk prints; nothing is extrapolated.
 - **Sayyid Jalal-ud-Din Bukhari at Bibi Pak Daman is not the archive's Uch figure.** The chunk identifies
   him only as "میران تہہ[OCR?] شاہ موج دریا بخاری کا بہائی", brother of Mauj Darya Bukhari, buried in a
   tomb of **1017 AH** at Bibi Pak Daman (p. 306, folio 309). The name coincides with
-  **shrine-of-jalaluddin-surkh-posh-bukhari** and **shrine-of-makhdoom-jahaniyan-jahangasht** (both Uch
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** and **shrine-of-makhdoom-jahaniyan-jahangasht** (both Uch
   Sharif); on the book's own description he is neither. Do not merge them.
 - **"چار دیواری شیخ طاہر" (p. 294, folio 297)** is named only as the boundary of the fifth enclosure. The
   archive has **tahir-bandagi-qadri** (Darbar Hazrat Tahir Bandagi Qadri, Lahore), but the chunk gives

@@ -453,7 +453,7 @@ understanding", or to Varis Shah's *Hīr*.
   names Mozang, never gives a death year and never mentions a tomb or a shrine for him anywhere in
   this chunk** — a human should confirm the identification against the book's introduction before any
   entry treats it as the book's own claim.
-- **`shrine-of-makhdoom-jahaniyan-jahangasht` vs. `shrine-of-jalaluddin-surkh-posh-bukhari`.** The
+- **`shrine-of-makhdoom-jahaniyan-jahangasht` vs. `shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari`.** The
   book gives "Jalal ud Din Makhdum Jahaniyan of Uch" (p. 186, folio 161). The archive holds two Uch
   Sharif rows whose principal figures are both named Jalaluddin — Sayyid Jalaluddin Surkh-Posh Bukhari
   and Sayyid Jalaluddin (Makhdoom Jahaniyan Jahangasht). I mapped on the distinctive title "Makhdum

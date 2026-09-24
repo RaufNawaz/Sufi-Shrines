@@ -408,7 +408,7 @@ p. 128 → folio 124, every marker reading exactly that.
   the Suhrawardi affiliation is implied by his being Rukn al-Din's khalifa — but the chunk gives **no
   location, no death year and no shrine**, so by the mapping rule it stays out of the archive section. A
   human may wish to map it. Note also that the archive carries a second Uch Sharif Jalaluddin,
-  **shrine-of-jalaluddin-surkh-posh-bukhari** (d. 1291); it is the title "مخدوم جہانیاں جہاں گشت" alone
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (d. 1291); it is the title "مخدوم جہانیاں جہاں گشت" alone
   that separates them here, so this is a likely site of future mis-matching.
 - **Baha al-Din Zakariya is mapped on a nisba, and that is all.** **shrine-of-bahauddin-zakariya** takes
   no date, no shrine and no urs from this chunk; the agreeing data are the repeated "ملتانی" (pp. 113–114,

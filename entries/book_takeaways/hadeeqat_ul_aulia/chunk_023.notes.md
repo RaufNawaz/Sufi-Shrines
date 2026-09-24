@@ -495,7 +495,7 @@ under Doubts.
   name-element, different city; **do not map**.
 - **Sayyid Haji Abd al-Wahhab Bukhari cannot be placed.** Entry no. 176 gives him as father of Abu al-Ghaith
   (d. 967 AH) and refers back to "خاندان سہروردیہ" (p. 238) but names no town. **Five archive rows carry
-  the Bukhari nisba** (shrine-of-mauj-darya-bukhari, shrine-of-jalaluddin-surkh-posh-bukhari,
+  the Bukhari nisba** (shrine-of-mauj-darya-bukhari, shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,
   shrine-of-makhdoom-jahaniyan-jahangasht, tomb-of-javindi-bibi, wadpagga-sharif); none is indicated by
   this chunk. His own entry, if it is in the Suhrawardi section, was not in chunks 016–022's notes under
   that name. Leave unmapped.

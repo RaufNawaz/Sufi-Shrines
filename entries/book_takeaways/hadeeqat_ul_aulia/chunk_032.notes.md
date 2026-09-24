@@ -63,7 +63,7 @@ reached from "تونسہ | ۱۱۱").
     دیا ہے" — circa **731 AH / 1330–31 CE**, expressly "on the basis of certain indications and
     conjectures" (p. 349, folio 337), with a pointer to his own article "احمد کبیر الدین" in the
     Danishnama. **Cite it as the editor's conjecture, never as a date.**
-- **shrine-of-jalaluddin-surkh-posh-bukhari** (سید جلال سرخ بخاری — same annotation, p. 349, folio 337):
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (سید جلال سرخ بخاری — same annotation, p. 349, folio 337):
   - **His entry is no. 103**: "ان کے والد سید جلال سرخ بخاری (رک شمارہ۔ ۱۰۳)" (p. 349, folio 337) — the
     cross-reference gives the book's entry number but no printed page.
   - **A dated migration**: "۶۳۵ھ/۱۲۲۷ء کو بخارا سے ہجرت کر کے ملتان آ گئے تھے" — in **635 AH / 1227 CE**

@@ -1,0 +1,10 @@
+{
+  "claimed_at": "2026-09-24T02:43:15Z",
+  "expires_at": "2026-09-24T04:13:15Z",
+  "note": "Pass 2 consolidation (24 chunks) [taking over a released or expired claim; previous holder session_01FrYV2YkwVWReuKExH3A6T6]",
+  "released_at": "2026-09-24T03:44:40Z",
+  "released_by": "session_01C4ZWyjDE42urAusN8CLj5C",
+  "session": "session_01C4ZWyjDE42urAusN8CLj5C",
+  "slug": "sorley_shah_abdul_latif_of_bhit",
+  "status": "released"
+}

@@ -1,0 +1,293 @@
+place	n_rows	ids
+lahore	35	abul-faiz-qalander-ali-suharwardi,bibi-pak-daman,darbar-abul-muali-qadri,data-darbar,ganj-e-inayat-sarkar,ghazi-ilm-din-shaheed,gurdwara-babay-nanki,gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore,gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan,gurdwara-chhevin-patshahi-mozang,gurdwara-chowmala-sahib,gurdwara-dera-sahib,gurdwara-guru-ram-das-ji,gurdwara-patshahi-chhevin-hadiara-lahore,gurdwara-shaheed-bhai-taru-singh,gurdwara-shaheed-ganj-singh-singhnian,jain-mandir-lahore,khawaja-feroz-ud-din-gharib-nawaz,krishna-mandir-ravi-road,loh-temple-lava-temple,madho-lal-hussain,mazar-e-iqbal,peer-makki,samadhi-of-maharaja-ranjit-singh,shah-jamal,shrine-of-baba-shah-chiragh,shrine-of-baba-shah-kamal,shrine-of-mauj-darya-bukhari,shrine-of-mian-mir,shrine-of-miran-hussain-zanjani-zanjani-sahib,shrine-of-shah-inayat-qadiri,tahir-bandagi-qadri,tomb-of-qutbuddin-aibak,valmik-mandir-naqi-road,wasif-ali-wasif
+peshawar	10	dargah-pir-ratan-nath-jee,gorakhnath-goraknath-temple,gurdwara-bhai-beba-singh,gurdwara-bhai-joga-singh,kali-bari-mandir,panj-tirath,rahman-baba-mausoleum-rehman-baba-shrine,shrine-of-akhund-darweza-baba,shrine-of-mian-umar-baba-chamkani,wadpagga-sharif
+karachi	8	bhagnari-mandir,jhollay-lal-mandir,shree-ratneshwar-mahadev-temple-karachi,shri-laxmi-narayan-mandir-native-jetty-bridge,shri-varun-dev-mandir,shrine-of-abdullah-shah-ghazi,shrine-of-pir-mangho,shrine-of-qalandar-baba-auliya
+multan	8	prahladpuri-temple,shrine-of-bahauddin-zakariya,shrine-of-hafiz-muhammad-jamal-multani,shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi,shrine-of-shah-rukn-e-alam,shrine-of-shah-shams-ud-din-sabzwari,shrine-of-shah-yusaf-gardez,shrine-of-syed-musa-pak
+nankana sahib	7	gurdwara-balila-sahib-bal-lila-sahib,gurdwara-malji-sahib,gurdwara-panjvi-chati-patshahi,gurdwara-patti-sahib,gurdwara-sri-kiara-sahib,gurdwara-tambo-sahib,gurudwara-janam-asthan-nankana-sahib
+rawalpindi	6	darbar-sakhi-shah-chan-charagh,eidgah-sharif,krishna-mandir-kabari-bazar,lal-kurti-temple-balmiki-mandir-rawalpindi,mohra-sharif-khanqah,valmiki-swamiji-mandir-gracy-lines-rawalpindi
+sialkot	5	allo-mahar,gurdwara-babay-de-ber,jagannath-temple-sialkot,shahwala-teja-singh-mandir,shrine-of-imam-ali-ul-haq
+uch sharif	5	shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,shrine-of-makhdoom-jahaniyan-jahangasht,tomb-of-baha-al-halim-uch-sharif,tomb-of-javindi-bibi,tomb-of-ustad-nuriya
+bahawalpur	4	shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,shrine-of-makhdoom-jahaniyan-jahangasht,tomb-of-baha-al-halim-uch-sharif,tomb-of-ustad-nuriya
+bahawalpur district	4	shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari,shrine-of-makhdoom-jahaniyan-jahangasht,tomb-of-baha-al-halim-uch-sharif,tomb-of-ustad-nuriya
+islamabad	4	bari-imam,golra-sharif,gurdwara-sahib-saidpur-guru-nanak-dev-ji,ram-mandir-saidpur-ram-kund-mandir
+islamabad capital territory	4	bari-imam,golra-sharif,gurdwara-sahib-saidpur-guru-nanak-dev-ji,ram-mandir-saidpur-ram-kund-mandir
+jhal magsi	4	dargah-fateh-pur-sharif,sevapanthi-darbar-bhai-gurdas-gandava,shrine-of-hazrat-muhammad-ayub-shah-bukhari,shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+jhal magsi district	4	dargah-fateh-pur-sharif,sevapanthi-darbar-bhai-gurdas-gandava,shrine-of-hazrat-muhammad-ayub-shah-bukhari,shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+miani sahib graveyard	4	ghazi-ilm-din-shaheed,khawaja-feroz-ud-din-gharib-nawaz,tahir-bandagi-qadri,wasif-ali-wasif
+sukkur	4	gurdwara-dash-mesh-pita,kalka-cave-temple-asthan-of-kalka-devi,sadh-belo-sadh-belo-island-temple,sant-baba-asudaram-darbar-panno-aqil
+dadu	3	bhai-sant-thawan-das-mandir,gurdas-ram-mandir,sant-baba-bhagat-ram-darbar-mandir
+eminabad	3	gurdwara-chakki-sahib,gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi,gurdwara-rori-sahib
+gandawah	3	dargah-fateh-pur-sharif,sevapanthi-darbar-bhai-gurdas-gandava,shrine-of-hazrat-muhammad-ayub-shah-bukhari
+multan city	3	shrine-of-bahauddin-zakariya,shrine-of-hafiz-muhammad-jamal-multani,shrine-of-shah-rukn-e-alam
+shikarpur	3	gurdwara-sach-khand-sahib,khatwari-darbar-shikarpur,sant-bhagat-kanwar-ram-temple-chak
+anarkali	2	shrine-of-mauj-darya-bukhari,tomb-of-qutbuddin-aibak
+dadu district	2	bhai-sant-thawan-das-mandir,gurdas-ram-mandir
+dina	2	gurdwara-choa-sahib,tilla-jogian
+gujranwala	2	gurdwara-chakki-sahib,gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi
+gujranwala district	2	gurdwara-chakki-sahib,gurdwara-khoohi-bhai-lalo-bhai-lalo-di-khooi
+hazarkhwani	2	rahman-baba-mausoleum-rehman-baba-shrine,shrine-of-akhund-darweza-baba
+ichhra	2	shah-jamal,shrine-of-baba-shah-kamal
+jamshoro	2	lal-shahbaz-qalandar,shrine-of-lakhi-shah-saddar
+jhelum	2	gurdwara-choa-sahib,tilla-jogian
+khairpur	2	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth,shrine-of-sachal-sarmast
+lahore district	2	gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan,gurdwara-patshahi-chhevin-hadiara-lahore
+lahore fort	2	loh-temple-lava-temple,samadhi-of-maharaja-ranjit-singh
+mansehra	2	gurdwara-chhevin-patshahi-chitti-gatti,shiv-mandir-chiti-ghati
+margalla hills	2	gurdwara-sahib-saidpur-guru-nanak-dev-ji,ram-mandir-saidpur-ram-kund-mandir
+matiari	2	shrine-at-odero-lal-udero-lal-teerath-asthan,shrine-of-makhdoom-nooh-hala
+matiari district	2	shrine-at-odero-lal-udero-lal-teerath-asthan,shrine-of-makhdoom-nooh-hala
+nagarparkar	2	churrio-jabal-durga-mata-temple,nagarparkar-jain-temples-nagarparkar-cultural-landscape
+nowshera	2	shrine-of-akhund-panju-baba,ziarat-kaka-sahib
+nowshera district	2	shrine-of-akhund-panju-baba,ziarat-kaka-sahib
+okara	2	shamsabad,shergarh
+qambar	2	bhai-waliram-darbar,sain-vali-vilayat-rai-darbar-kambar
+quetta	2	gurdwara-singh-sabha,gurdwara-sri-tilganji-sahib
+rawalpindi district	2	darbar-sakhi-shah-chan-charagh,mohra-sharif-khanqah
+rohri	2	gurdwara-pehli-patshahi-jind-pir-sukkur,sadh-belo-sadh-belo-island-temple
+saidpur village	2	gurdwara-sahib-saidpur-guru-nanak-dev-ji,ram-mandir-saidpur-ram-kund-mandir
+sehwan sharif	2	lal-shahbaz-qalandar,shrine-of-lakhi-shah-saddar
+sukkur district	2	kalka-cave-temple-asthan-of-kalka-devi,sant-baba-asudaram-darbar-panno-aqil
+tharparkar	2	churrio-jabal-durga-mata-temple,gori-temple-gori-jo-mandar
+walled city	2	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore,gurdwara-chowmala-sahib
+aam khas bagh	1	shrine-of-hafiz-muhammad-jamal-multani
+aibak road	1	tomb-of-qutbuddin-aibak
+akbarpura	1	shrine-of-akhund-panju-baba
+alam ganj	1	shrine-of-mian-mir
+alamgiri gate	1	loh-temple-lava-temple
+allo mahar	1	allo-mahar
+aror	1	kalka-cave-temple-asthan-of-kalka-devi
+ayub	1	gurdwara-pehli-patshahi-jind-pir-sukkur
+badin	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+badin district	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+baghbanpura	1	madho-lal-hussain
+bal	1	dargah-fateh-pur-sharif
+baloc	1	sevapanthi-darbar-bhai-gurdas-gandava
+balochis	1	shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+bari imam	1	bari-imam
+barki	1	gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
+between islamkot and nagarparkar	1	gori-temple-gori-jo-mandar
+bhalwal	1	purana-bhalwal
+bhati gate	1	gurdwara-chowmala-sahib
+bhati gate area	1	peer-makki
+bhit	1	bhit-bhit-shah
+bhit shah	1	bhit-bhit-shah
+bukhari mound	1	tomb-of-ustad-nuriya
+bulri shah karim	1	shrine-of-shah-abdul-karim-bulri
+buner	1	shrine-of-pir-baba-syed-ali-tirmizi
+buner district	1	shrine-of-pir-baba-syed-ali-tirmizi
+chah miran	1	shrine-of-miran-hussain-zanjani-zanjani-sahib
+chak	1	sant-bhagat-kanwar-ram-temple-chak
+chaklala	1	valmiki-swamiji-mandir-gracy-lines-rawalpindi
+chaklala cantonment	1	valmiki-swamiji-mandir-gracy-lines-rawalpindi
+chakwal	1	katas-raj-temples
+chakwal district	1	katas-raj-temples
+chamkani	1	shrine-of-mian-umar-baba-chamkani
+chiniot	1	langer-makhdoom
+chitti gatti	1	gurdwara-chhevin-patshahi-chitti-gatti
+choa saidanshah	1	katas-raj-temples
+chowmala mohalla	1	gurdwara-chowmala-sahib
+churrio hill	1	churrio-jabal-durga-mata-temple
+clifton	1	shrine-of-abdullah-shah-ghazi
+clifton beach	1	shree-ratneshwar-mahadev-temple-karachi
+custom house	1	darya-lal-mandir-darya-lal-sankat-mochan-mandir
+dabbi bazaar	1	gurdwara-baoli-sahib-guru-arjan-dev-ji-lahore
+daharki	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+daharki taluka	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+daraza	1	shrine-of-sachal-sarmast
+dargah fateh pur sharif	1	dargah-fateh-pur-sharif
+darya lal street	1	jhollay-lal-mandir
+data darbar	1	peer-makki
+daulat gate	1	shrine-of-hafiz-muhammad-jamal-multani
+db-80 sirey ghat	1	guru-gurpat-mandir-db-80-sirey-ghat
+dera ghazi khan	1	sakhi-sarwar
+dharampura	1	shrine-of-mian-mir
+digano mahesar village	1	bhai-waliram-darbar
+edward road	1	shrine-of-mauj-darya-bukhari
+eidgah sharif	1	eidgah-sharif
+embankment road	1	bhagnari-mandir
+farooqabad	1	gurdwara-sacha-sauda
+formerly chuharkana	1	gurdwara-sacha-sauda
+fort of multan	1	prahladpuri-temple
+gadap town	1	shrine-of-pir-mangho
+gandava	1	shrine-of-hazrat-muhammad-ayub-shah-bukhari
+gandava area	1	shrine-of-pir-chhatal-shah-noorani
+garh maharaja	1	garh-maharaja-shorkot
+ghamkol valley	1	darbar-ghamkol-sharif-zinda-pir
+ghandian	1	shiv-mandir-chiti-ghati
+ghotki	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+ghotki district	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+girhor sharif	1	shrine-of-makhdoom-abdul-rahim-girhori
+golra sharif	1	golra-sharif
+gor khatri area	1	gorakhnath-goraknath-temple
+gori village	1	gori-temple-gori-jo-mandar
+gracy lines	1	valmiki-swamiji-mandir-gracy-lines-rawalpindi
+gujrat	1	shrine-of-hazrat-shah-daula-daryai
+gulberg 3	1	ganj-e-inayat-sarkar
+hadiara village	1	gurdwara-patshahi-chhevin-hadiara-lahore
+hala	1	shrine-of-makhdoom-nooh-hala
+hasan abdal	1	gurdwara-panja-sahib
+hashtnagri	1	panj-tirath
+hazuri bagh	1	samadhi-of-maharaja-ranjit-singh
+heart of gandava	1	sevapanthi-darbar-bhai-gurdas-gandava
+hingol balochistan national park	1	shaktipeeth-shri-hinglaj-mata-mandir
+hingol national park	1	chandragup-baba-chandragup
+hyderabad	1	guru-gurpat-mandir-db-80-sirey-ghat
+jamshoro district	1	lal-shahbaz-qalandar
+jandiala sher khan	1	mausoleum-of-waris-shah
+jehangir kothari parade area	1	shree-ratneshwar-mahadev-temple-karachi
+jhal magsi distric	1	shrine-of-pir-chhatal-shah-noorani
+jhalian	1	gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
+jhalian dhilwan	1	gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
+jhanda bazar	1	dargah-pir-ratan-nath-jee
+jhang	1	garh-maharaja-shorkot
+jhelum district	1	gurdwara-choa-sahib
+jhok	1	dargah-roza-sufi-shah-inayat-shaheed
+jhok sharif	1	dargah-roza-sufi-shah-inayat-shaheed
+jodia bazaar	1	jhollay-lal-mandir
+kabari bazar	1	krishna-mandir-kabari-bazar
+kalat	1	kalat-kali-temple
+kambar	1	sain-vali-vilayat-rai-darbar-kambar
+karachi east	1	shri-panchmukhi-hanuman-mandir-karachi
+karachi south	1	darya-lal-mandir-darya-lal-sankat-mochan-mandir
+karachi south district	1	darya-lal-mandir-darya-lal-sankat-mochan-mandir
+karoonjhar mountains region	1	nagarparkar-jain-temples-nagarparkar-cultural-landscape
+kartarpur	1	gurdwara-darbar-sahib-kartarpur
+kasur	1	mazar-of-bulleh-shah
+kennedy market area	1	swami-dharmdas-darbar-larkana-kennedy-market
+khairpur district	1	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
+khushab	1	amb-temples-amb-sharif
+khushab district	1	amb-temples-amb-sharif
+khuzdar	1	shah-noorani-shrine-syed-bilawal-shah-noorani
+khuzdar district	1	shah-noorani-shrine-syed-bilawal-shah-noorani
+khyber pakhtunkh	1	darbar-ghamkol-sharif-zinda-pir
+kingri	1	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
+kingri taluka	1	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
+kohat	1	darbar-ghamkol-sharif-zinda-pir
+kohat district	1	darbar-ghamkol-sharif-zinda-pir
+kot mithan	1	mithankot-kot-mithan
+kotra	1	shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+lahoot lamakan valley	1	shah-noorani-shrine-syed-bilawal-shah-noorani
+lahore high court	1	shrine-of-baba-shah-chiragh
+lakhi	1	shrine-of-lakhi-shah-saddar
+laki	1	shrine-of-lakhi-shah-saddar
+lalkurti	1	lal-kurti-temple-balmiki-mandir-rawalpindi
+langer makhdoom	1	langer-makhdoom
+lansdowne	1	gurdwara-pehli-patshahi-jind-pir-sukkur
+larkana	1	swami-dharmdas-darbar-larkana-kennedy-market
+larkana district	1	swami-dharmdas-darbar-larkana-kennedy-market
+lasbela	1	chandragup-baba-chandragup
+lasbela district	1	chandragup-baba-chandragup
+luari sharif	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+lytton road	1	jain-mandir-lahore
+malka hans	1	parnami-mandir
+mall	1	shrine-of-baba-shah-chiragh
+manora beach	1	shri-varun-dev-mandir
+manora island	1	shri-varun-dev-mandir
+mansehra district	1	shiv-mandir-chiti-ghati
+masjid road	1	gurdwara-sri-tilganji-sahib
+mazar of bulleh shah	1	mazar-of-bulleh-shah
+mehar	1	bhai-sant-thawan-das-mandir
+miro khan	1	bhai-waliram-darbar
+miro khan taluka	1	bhai-waliram-darbar
+mithankot	1	mithankot-kot-mithan
+mohalla bukhari	1	tomb-of-javindi-bibi
+mohallah dharowal	1	shahwala-teja-singh-mandir
+mohallah puran nagar	1	jagannath-temple-sialkot
+mohra sharif village	1	mohra-sharif-khanqah
+moola gorge	1	shrine-of-pir-chhatal-shah-noorani
+moola gorge area	1	shrine-of-pir-lakha-aab-e-shifa-jhal-magsi
+mozang	1	gurdwara-chhevin-patshahi-mozang
+mozang chungi	1	shrine-of-shah-inayat-qadiri
+murree	1	mohra-sharif-khanqah
+murree tehsil	1	mohra-sharif-khanqah
+muslim town	1	shrine-of-baba-shah-kamal
+naqi road	1	valmik-mandir-naqi-road
+narowal	1	gurdwara-darbar-sahib-kartarpur
+narowal district	1	gurdwara-darbar-sahib-kartarpur
+naulung	1	shrine-of-pir-chhatal-shah-noorani
+neelum valley	1	sharada-peeth
+odero lal village	1	shrine-at-odero-lal-udero-lal-teerath-asthan
+old anarkali	1	jain-mandir-lahore
+old city	1	khatwari-darbar-shikarpur
+old shahi bazar	1	bhai-sant-thawan-das-mandir
+pacha kalay	1	shrine-of-pir-baba-syed-ali-tirmizi
+pakpattan	1	shrine-of-fariduddin-ganjshakar
+panno aqil	1	sant-baba-asudaram-darbar-panno-aqil
+pano akil	1	sant-baba-asudaram-darbar-panno-aqil
+paris road	1	jagannath-temple-sialkot
+phalia	1	ranmal-sharif
+pir jo goth	1	dargah-of-pir-muhammad-rashid-roze-dhani-pir-jo-goth
+pithoro	1	shrine-of-makhdoom-abdul-rahim-girhori
+punj	1	gurdwara-chhevin-patshahi-jhalian-jhalian-dhilwan
+punja	1	gurdwara-choa-sahib
+purana bhalwal	1	purana-bhalwal
+queens road	1	shrine-of-shah-inayat-qadiri
+radhan town	1	gurdas-ram-mandir
+raharki	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+raherki sahib	1	sant-satram-dham-raharki-sacho-satram-devri-sahib
+railway bridge	1	gurdwara-pehli-patshahi-jind-pir-sukkur
+rajanpur	1	mithankot-kot-mithan
+ranmal sharif	1	ranmal-sharif
+ravi road	1	krishna-mandir-ravi-road
+rawalpindi cantonment	1	lal-kurti-temple-balmiki-mandir-rawalpindi
+ring road	1	rahman-baba-mausoleum-rehman-baba-shrine
+road، asha pura	1	shaktipeeth-shri-hinglaj-mata-mandir
+rohtas fort	1	gurdwara-choa-sahib
+saddar town	1	darya-lal-mandir-darya-lal-sankat-mochan-mandir
+sadh belo island	1	sadh-belo-sadh-belo-island-temple
+sakesar mountain	1	amb-temples-amb-sharif
+sakhi sarwar	1	sakhi-sarwar
+salt range	1	tilla-jogian
+samanabad	1	shrine-of-baba-shah-kamal
+sargodha	1	sial-sharif
+sargodha district	1	sial-sharif
+shadman town	1	shrine-of-qalandar-baba-auliya
+shah alam market	1	darbar-malik-ahmad-ayaz
+shah jamal	1	shah-jamal
+shah yousuf	1	shah-yousuf
+shahdadkot	1	bhai-waliram-darbar
+shahdadkot dis	1	sain-vali-vilayat-rai-darbar-kambar
+shaheed fazil rahu	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+shaheed fazil rahu taluka	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+shahi bazaar	1	kalat-kali-temple
+shahi bazar	1	sant-baba-bhagat-ram-darbar-mandir
+shahpur	1	shah-yousuf
+shakargarh	1	gurdwara-darbar-sahib-kartarpur
+shakargarh tehsil	1	gurdwara-darbar-sahib-kartarpur
+shalimar gardens	1	madho-lal-hussain
+shamsabad	1	shamsabad
+sharaqpur	1	shrine-of-pir-sher-muhammad
+sharda	1	sharada-peeth
+sheikhupura	1	mausoleum-of-waris-shah
+sheikhupura district	1	mausoleum-of-waris-shah
+shergarh	1	shergarh
+shivalo mohalla	1	sain-vali-vilayat-rai-darbar-kambar
+shorkot	1	garh-maharaja-shorkot
+shrine of bahauddin zakariya	1	prahladpuri-temple
+sial sharif	1	sial-sharif
+sin	1	dargah-of-khwaja-muhammad-zaman-luari-sharif
+soldier bazaar	1	shri-panchmukhi-hanuman-mandir-karachi
+soon valley	1	amb-temples-amb-sharif
+sukku	1	gurdwara-pehli-patshahi-jind-pir-sukkur
+suraj miani	1	shrine-of-hazrat-shah-ali-akbar-shah-ali-akbar-shamsi
+survey gives no street a	1	wasif-ali-wasif
+survey places the mazar near darbar al	1	darbar-malik-ahmad-ayaz
+talaqi gate	1	gurdwara-choa-sahib
+tando adam	1	shrine-at-odero-lal-udero-lal-teerath-asthan
+tando allahyar	1	ramapir-temple-tando-allahyar
+tando allahyar district	1	ramapir-temple-tando-allahyar
+tando muhammad khan	1	shrine-of-shah-abdul-karim-bulri
+tando muhammad khan district	1	shrine-of-shah-abdul-karim-bulri
+taunsa	1	darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a
+taunsa sharif	1	darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-r-a
+tehsil mehar	1	gurdas-ram-mandir
+temple road	1	gurdwara-chhevin-patshahi-mozang
+tharparkar district	1	churrio-jabal-durga-mata-temple
+the sukkur	1	gurdwara-pehli-patshahi-jind-pir-sukkur
+thekrati bazar	1	khatwari-darbar-shikarpur
+umarkot	1	shrine-of-makhdoom-abdul-rahim-girhori
+umerkot	1	umarkot-amarkot-shiv-mandir
+umerkot district	1	umarkot-amarkot-shiv-mandir
+under native jetty bridge	1	shri-laxmi-narayan-mandir-native-jetty-bridge
+wadpagga sharif	1	wadpagga-sharif
+ziarat kaka sahib	1	ziarat-kaka-sahib

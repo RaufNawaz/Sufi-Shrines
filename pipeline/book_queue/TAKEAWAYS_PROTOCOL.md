@@ -57,15 +57,49 @@ exist to collect. Record only what the book actually says, in the book's own wor
 evidence is a bare name, so the consolidator can weigh it. Do not enrich it: a tomb, a date or a
 silsila the chunk does not give stays out (RULE 2).
 
-**Two mapping questions are still unruled. Write both reversibly until they are settled.** (a) A bare
-*toponym* with no shrine, tomb, saint, ʿurs or custodian attached — interim convention: it does
-**not** take an id; put it under "Other saints, sites and events" and name under Doubts the row it
-would take if the ruling reverses. The person ruling above does not decide this one, and the reason
-it does not is worth keeping: a row names its principal figure, so a person is a handle on that row,
-whereas "Lahore" on its own tells an entry nothing about any of the archive's Lahore rows. (b)
-Whether a damaged word is marked inline *as well as* inventoried under Doubts — interim: do both
-(`[OCR?]` on a tesseract or vision route, `[text-layer?]` on a text_layer route), printed form first
-and your reading after it in square brackets.
+**Both mapping questions were RULED by Rauf in chat on 21 September 2026, and the many-row PERSON
+sub-case on 22 September 2026. None of them is interim.**
+
+**(a) A bare TOPONYM takes the id of EVERY archive row in that place.** Rauf, 21 September 2026: *"so if
+a book has information on multan in general then all the shrines in multan have to have that because it
+is part of multan's tradition."* The reasoning is that place-level material is part of the tradition of
+every site in that place, so it belongs to all of them rather than to none. This **reverses** the earlier
+interim convention (which parked bare toponyms under "Other saints, sites and events") and it **replaces**
+the old "when a name could match two rows, say so under Doubts instead of picking one" for the *toponym*
+case specifically: you no longer pick one and you no longer refuse — you list them all.
+
+How to apply it: look the toponym up in `shrine_index.tsv`'s `location_short` column, and head one bullet
+with every matching row's id, e.g. `- **shrine-of-bahauddin-zakariya**, **shrine-of-shah-rukn-e-alam**,
+**shrine-of-hafiz-muhammad-jamal-multani**, … (the book's "Multan"): …`. Record the material once, with
+its page reference, and add a Doubts line saying the attachment is place-level rather than site-specific,
+so a consolidator can weigh it. **Multan has 8 rows, Bahawalpur 5, Islamabad 4, Uch Sharif 5, Lahore
+many** — that is expected, not a problem to solve. A toponym with no matching row still goes under "Other
+saints, sites and events".
+
+**A PERSON who is the principal figure of MANY rows also takes ALL of them. Ruled by Rauf, 22 September
+2026 — this closes the last open mapping sub-case.** Where a person is the principal figure of several
+rows and the book names no particular site, head the bullet with **every** row they are principal figure
+of, exactly as a toponym does: Guru Nanak takes all 18 gurdwara rows, Shiva 8, Goraknath and Krishna 2
+each. Enumerating the candidates under Doubts is **no longer** the answer — map them, and add a Doubts
+line saying the attachment is person-level rather than site-specific so a consolidator can weigh it.
+
+The 18 September ruling still governs the ordinary single-row case and is unchanged: a person who is an
+archive row's principal figure takes that row's bold id even where the book names them only as an author
+or a literary reference.
+
+**With this, every mapping question in this protocol is ruled. Nothing here is interim. Do not
+re-litigate (a), (b), the person rule or the many-row sub-case; if one of them seems wrong in a
+particular book, record the case under Doubts and say so in the run report — do not quietly deviate.**
+
+**(b) The inline damage marker IS standing convention: do both.** Rauf, 21 September 2026. Mark the
+damaged word inline — `[OCR?]` on a tesseract or vision route, `[text-layer?]` on a text_layer route,
+printed form first and your reading after it in square brackets — **and** inventory the damage class once
+per chunk under Doubts. **The one exemption, also ratified:** damage that is a *total and mechanical*
+mapping, such as a typographic ligature (`ﬁ`, `ﬀ`), is inventoried once per chunk and quoted as normal
+letters rather than flagged on every token. The test is total-and-mechanical, **not merely systematic** —
+qureshi's diacritic loss was systematic but not reversible token by token (you cannot tell a real `l` from
+an `ī`), so it got the full inline treatment.
+
 
 
 Efficiency: one Read of the chunk, one Read of the index (first chunk only for a given worker),

@@ -451,7 +451,7 @@ notes at p. 40 (folio 36), four at p. 45 (folio 41), two at p. 47 (folio 43). So
   to that row.
 - **حضرت سید جلال الدین سرخ بخاری is left unmapped.** He appears only as a name in a list of Bahauddin
   Zakariya's eminent khalifas (p. 52, folio 48, حاشیہ 16): **no place, no date, no shrine**. The archive row
-  **shrine-of-jalaluddin-surkh-posh-bukhari** (Uch Sharif, d. 1291, Suhrawardi) is the obvious resemblance,
+  **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Uch Sharif, d. 1291, Suhrawardi) is the obvious resemblance,
   and the Suhrawardi link through Bahauddin Zakariya is consistent with it, but a khalifa-list name is not
   a match. Leave unmapped until the book says more.
 - **"حضرت سید عثمان معروف بہ لعل شہباز سندی [OCR?]" is left unmapped.** Same list, same page. The nisba as

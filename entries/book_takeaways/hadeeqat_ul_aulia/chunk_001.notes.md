@@ -39,7 +39,7 @@ found**. Numbers given as "printed p. N" are the book's own page numbers as list
   for Bahauddin): opens the Suhrawardi chapter as entry no. 101, printed p. 146 (p. 17, folio 5).
 - **shrine-of-shah-rukn-e-alam** (شیخ رکن الدین ابوالفتح, "Shaikh Rukn al-Din Abul Fath"): entry
   no. 105, printed p. 152 (p. 17, folio 5).
-- **shrine-of-jalaluddin-surkh-posh-bukhari** (سید جلال الدین شیر شاہ سرخ بخاری): entry no. 103,
+- **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (سید جلال الدین شیر شاہ سرخ بخاری): entry no. 103,
   printed p. 150 (p. 17, folio 5).
 - **shrine-of-makhdoom-jahaniyan-jahangasht** (سید جلال الدین بخاری مخدوم جہانیاں): entry no. 107,
   printed p. ۱۵۷ [OCR?] (p. 17, folio 5).

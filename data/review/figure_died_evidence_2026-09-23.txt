@@ -1,0 +1,85 @@
+
+########## Bulleh Shah   [mazar-of-bulleh-shah]
+   archive figure_died = 1757   (years parsed: ['1757'])
+   year 1758: 2 book(s) ['rafat_bulleh_shah_selection', 'shackle_bulleh_shah_sufi_lyrics']   <<< CONFLICT, 2 book(s)
+        [rafat_bulleh_shah_selection:82] "Bulleh Shah died in 1758." (p. 48, folio 28) — and an age instead of a birth year: "That year
+        [rafat_bulleh_shah_selection:1499] (p. 28); 1746 as "twelve years before Bulleh Shah's death" (p. 27); "Bulleh Shah died in 1758."
+        [shackle_bulleh_shah_sufi_lyrics:1323] - **Bullhe Shah's death year — the book prefers 1758, the archive row carries 1757.** Three
+   year 1754: 1 book(s) ['schimmel_as_through_a_veil']   conflict, 1 book
+        [schimmel_as_through_a_veil:512] - Index headword printed `Bullhe Shah (d. 1754)` (p. 351, folio 333) — the book's only death year for
+        [schimmel_as_through_a_veil:538] - **Doubt:** the index headword `Bullhe Shah (d. 1754)` (p. 351, folio 333) carries a death year the
+   year 1757: 1 book(s) ['shackle_bulleh_shah_sufi_lyrics']   ARCHIVE AGREES
+        [shackle_bulleh_shah_sufi_lyrics:1323] - **Bullhe Shah's death year — the book prefers 1758, the archive row carries 1757.** Three
+
+########## Baba Farid   [shrine-of-fariduddin-ganjshakar]
+   archive figure_died = 1266   (years parsed: ['1266'])
+   year 1265: 2 book(s) ['kugle_sufis_and_saints_bodies', 'rafat_bulleh_shah_selection']   <<< CONFLICT, 2 book(s)
+        [kugle_sufis_and_saints_bodies:1541] - **Farid al-Din's death year.** Book **1265** (p. 260, folio 239) against archive **1266**.
+        [rafat_bulleh_shah_selection:1502] - **Baba Farid: the book's death year is 1265 in all three of its date registers (pp. 25, 29, 30,
+   year 1335: 1 book(s) ['eaton_essays_islam_indian_history']   conflict, 1 book
+        [eaton_essays_islam_indian_history:791] ad-Din in this material is a diwan of *this* shrine — Baba Farid's grandson, died 1335, whose tomb
+   year 1266: 1 book(s) ['kugle_sufis_and_saints_bodies']   ARCHIVE AGREES
+        [kugle_sufis_and_saints_bodies:1541] - **Farid al-Din's death year.** Book **1265** (p. 260, folio 239) against archive **1266**.
+
+########## Shah Husain   [madho-lal-hussain]
+   archive figure_died = 1599   (years parsed: ['1599'])
+   year 1008: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:2031] 2. **Shah Husain's death year**: author 1008 AH (pp. 55–56); *Miftah al-Arifin* 1013 AH; editor
+   year 1013: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:2031] 2. **Shah Husain's death year**: author 1008 AH (pp. 55–56); *Miftah al-Arifin* 1013 AH; editor
+   year 1224: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:3593] - [PK] **Sayyid Shah Husain, known as Bhohre Wala / سید شاہ حسین بھوہرے والا** — died **1224 AH**, a year Imam Ali Shah derived from the phrase "مرشد محذو دمی [OCR?]
+
+########## Sultan Bahu   [garh-maharaja-shorkot]
+   archive figure_died = 1691   (years parsed: ['1691'])
+   year 1691: 1 book(s) ['rafat_bulleh_shah_selection']   ARCHIVE AGREES
+        [rafat_bulleh_shah_selection:581] - **Saint** — **the death year the book gives matches the archive row.** "Sultan Bahu (1631-1691)
+   year 1631: 1 book(s) ['rafat_bulleh_shah_selection']   conflict, 1 book
+        [rafat_bulleh_shah_selection:581] - **Saint** — **the death year the book gives matches the archive row.** "Sultan Bahu (1631-1691)
+
+########## Waris Shah   [mausoleum-of-waris-shah]
+   archive figure_died = 1798   (years parsed: ['1798'])
+   year 1798: 1 book(s) ['tazkirah_awliya_pak_o_hind']   ARCHIVE AGREES
+        [tazkirah_awliya_pak_o_hind:6711] Sheikhupura District, Punjab, Pakistan", figure "Waris Shah", died 1798, Chishti. **Shrine town,
+
+########## Shah Abdul Latif   [bhit-bhit-shah]
+   archive figure_died = 1752   (years parsed: ['1752'])
+   year 1752: 1 book(s) ['schimmel_pain_and_grace']   ARCHIVE AGREES
+        [schimmel_pain_and_grace:79] the body, "It is Shah Abdul Latif of Bhit (1689-1752) who died ten years before Shah Waliullah left
+        [schimmel_pain_and_grace:1915] - **Shah Abdul Latif's death year against the chronogram.** 1752 (p. 29, folio 25) against the dome
+   year 1689: 1 book(s) ['schimmel_pain_and_grace']   conflict, 1 book
+        [schimmel_pain_and_grace:79] the body, "It is Shah Abdul Latif of Bhit (1689-1752) who died ten years before Shah Waliullah left
+
+########## Data Ganj Bakhsh / Hujwiri   [data-darbar]
+   archive figure_died = 1072   (years parsed: ['1072'])
+   year 1072: 2 book(s) ['rozehnal_islamic_sufism_unbound', 'tazkirah_awliya_pak_o_hind']   ARCHIVE AGREES
+        [rozehnal_islamic_sufism_unbound:1853] 2. **al-Hujwiri's death year — the book gives two, and one matches the archive.** "(d. 1072)" once
+        [tazkirah_awliya_pak_o_hind:5109] - **D3. The Hujwiri death year and the archive row's `1072`.** The book gives **465ھ** (حاشیہ 10) and, as
+   year 1071: 1 book(s) ['schimmel_pain_and_grace']   conflict, 1 book
+        [schimmel_pain_and_grace:776] mysticism, the Kashf al-mahjub, was written by Ali Hujwiri—called Data Ganj Bakhsh—(d.1071), whose
+        [schimmel_pain_and_grace:1737] Hujwiri—called Data Ganj Bakhsh—(d.1071), whose tomb in Lahore is still a place of pilgrimage for
+
+########## Bahauddin Zakariya   [shrine-of-bahauddin-zakariya]
+   archive figure_died = 1267   (years parsed: ['1267'])
+   year 1267: 2 book(s) ['eaton_essays_islam_indian_history', 'schimmel_as_through_a_veil']   ARCHIVE AGREES
+        [eaton_essays_islam_indian_history:2320] - **Bahauddin Zakariya's death year:** 1263 here (p. 227) against the archive's 1267; and two name
+        [schimmel_as_through_a_veil:667] after his master, Baha'uddin Zakariya of Multan, had died in 1267" (p. 104, folio 94).
+   year 1263: 1 book(s) ['eaton_essays_islam_indian_history']   conflict, 1 book
+        [eaton_essays_islam_indian_history:2320] - **Bahauddin Zakariya's death year:** 1263 here (p. 227) against the archive's 1267; and two name
+
+########## Shah Rukn-e-Alam   [shrine-of-shah-rukn-e-alam]
+   archive figure_died = 1335   (years parsed: ['1335'])
+   year 1335: 1 book(s) ['hadeeqat_ul_aulia']   ARCHIVE AGREES
+        [hadeeqat_ul_aulia:5726] while Rukn-e Alam died 1335, "a khalifa surviving his pir by forty-nine years, which the chunk does
+
+########## Mian Mir   [shrine-of-mian-mir]
+   archive figure_died = 1635   (years parsed: ['1635'])
+   year 1641: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:3211] **Mughal.** Akbar's *mansab* of five hundred to Shaikh Musa (p. 53, folio 41, حاشیہ). Humayun's Sheikhupura jagir (p. 62, folio 50). Jahangir's annual attendance on 
+   year 1051: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:3211] **Mughal.** Akbar's *mansab* of five hundred to Shaikh Musa (p. 53, folio 41, حاشیہ). Humayun's Sheikhupura jagir (p. 62, folio 50). Jahangir's annual attendance on 
+
+########## Shah Inayat   [shrine-of-shah-inayat-qadiri]
+   archive figure_died = c. 1728   (years parsed: ['1728'])
+   year 1148: 1 book(s) ['hadeeqat_ul_aulia']   conflict, 1 book
+        [hadeeqat_ul_aulia:501] شریف ۱۱۴۸ ہجری**". From this it is clear that Shah Inayat was **alive as late as 1148 AH and died

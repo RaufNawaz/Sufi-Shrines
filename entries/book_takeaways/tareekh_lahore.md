@@ -1294,9 +1294,9 @@ resolved. Where the same refusal recurs across ranges it is one entry carrying e
     future one** (pp. 236–237, folios 239–240). **Sayyid Jalal-ud-Din Bukhari at Bibi Pak Daman is not the
     archive's Uch figure**: he is identified only as "میران تہہ[OCR?] شاہ موج دریا بخاری کا بہائی", buried
     in a tomb of **1017 AH** at Bibi Pak Daman (p. 306, folio 309); the name coincides with
-    **shrine-of-jalaluddin-surkh-posh-bukhari** and **shrine-of-makhdoom-jahaniyan-jahangasht** (both Uch
+    **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** and **shrine-of-makhdoom-jahaniyan-jahangasht** (both Uch
     Sharif) and on the book's own description he is neither — **do not merge them.** The
-    **shrine-of-jalaluddin-surkh-posh-bukhari** bullet rests **solely** on the single clause placing Mauj
+    **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** bullet rests **solely** on the single clause placing Mauj
     Darya's ancestor's tomb at Uch (p. 279, folio 282). Mauj Darya's own locality انار کلی is a bare
     place-name elsewhere (pp. 32, 34–36; folios 35, 37–39).
 32. **shrine-of-akhund-panju-baba — refused.** "سید عبد الوہاب قادری" is placed at mauza Garhi Shahu,

@@ -1,16 +1,15 @@
-# RUN IN PROGRESS — advisory marker, not a code change
+# RUN IN PROGRESS — tahqiqat_chishti pp. 661-720
 
-slug:    tahqiqat_chishti
-pages:   67-132 (66 pages, intended; actual batch size confirmed in HANDOVER §9)
-started: 2026-09-18T11:40Z
-session: scheduled transcription task (cloud), rendering bands in the container
+Stage: transcription
+Session: session_01PaTpEBXbEyxapoqqEHe3b6
+Started: 2026-09-24T14:35:36Z
+Finished: 2026-09-24T16:05Z
+Status: COMPLETE
 
-Chose this book because RUN_IN_PROGRESS_khulasat_ut_tawarikh.md was 55 minutes old at
-11:35Z (a live run on khulasat 99-164), per §9.206's collision rule. tahqiqat_chishti had
-no leases and is the highest-priority outstanding book (prio 30, 66/873 done).
-
-If you are another run and you see this file with a timestamp less than 3 hours old,
-take a DIFFERENT book. Delete-on-finish is impossible here (`unlink` is blocked on this
-mount), so this file is overwritten, not removed: read the timestamp, not the existence.
-
-Leases proper are taken on 67-132 as soon as the container render finishes.
+60 pages transcribed (661-720), written back, 60/60 md5-identical on the Mac.
+queue.py check -> 660/873. All six worker leases released by check.
+Folio offset +2 on 48 of 48 read folios, zero violations; 12 folios omitted, none computed.
+No duplicates (highest SequenceMatcher ratio 0.276 of 1,770 pairs).
+No source stamp anywhere in the range.
+Record: docs/HANDOVER.md §9.236 (16992 -> 17204 lines).
+Nothing committed to git.

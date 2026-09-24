@@ -368,7 +368,7 @@ supports the mosque). Two pages are lost maps (pp. 272–273) — see Doubts.
 - **No archive row appears in this chunk, and one name must not be read as one.** The chunk's
   **Shaikh Jalal al-Din Tabrizi** (pp. 280–281) is the hero of the Bengali *Sekasubhodaya*, active in
   the pre-1204 Sena kingdom at Pandua and, on Eaton's own reading, not recoverable as a historical
-  person (p. 281). He is **not** the archive's **shrine-of-jalaluddin-surkh-posh-bukhari** (Sayyid
+  person (p. 281). He is **not** the archive's **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (Sayyid
   Jalaluddin Surkh-Posh Bukhari, Uch Sharif, d. 1291) or **shrine-of-makhdoom-jahaniyan-jahangasht**
   (Uch Sharif, d. 1384) — different region, different century, a different *nisba*, and the chunk
   makes no link whatever (not stated). Recorded as a flagged non-match, on the pattern of the Mauj

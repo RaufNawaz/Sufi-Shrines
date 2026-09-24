@@ -421,7 +421,7 @@ by PDF page only. p. 30 is blank and prints no folio.
     "باب ۶۰ حضرت سلطان باہو ۳۰۹" resembles **garh-maharaja-shorkot**. All four are Lahore or Jhang rows
     and all four are plausible, but the contents says nothing but the name.
   - "باب ۲۲ حضرت سید جلال الدین بخاری ۱۲۹" **could be either of two archive rows at Uch Sharif** —
-    **shrine-of-jalaluddin-surkh-posh-bukhari** (d. 1291) or **shrine-of-makhdoom-jahaniyan-jahangasht**
+    **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** (d. 1291) or **shrine-of-makhdoom-jahaniyan-jahangasht**
     (Sayyid Jalaluddin, d. 1384), whose archive names share both "Sayyid Jalaluddin" and "Bukhari".
     Do not pick one.
   - "باب ۶۷ حضرت خواجہ محمد سلیمان ۳۵۹" resembles

@@ -483,7 +483,7 @@ minus four throughout (p. 166 → folio 162 to p. 184 → folio 180). No page in
 - **"شیخ جلال" cannot be resolved and must not be mapped.** Raju Qattal promises Sarang "شیخ جلال کے
   تبرک" and later delivers "حضرت شیخ جلال کا تبرک" (p. 182, folio 178), with **no nisba, no town, no
   date**. Two candidates are live: **شیخ جلال الدین کبیر الاولیاء of پانی پت**, named twelve pages earlier
-  in this same chunk (p. 171, folio 167), and the **shrine-of-jalaluddin-surkh-posh-bukhari** row of Uch
+  in this same chunk (p. 171, folio 167), and the **shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari** row of Uch
   Sharif. The chunk offers nothing to decide between them. Leave the tabarruk attributed to "شیخ جلال" as
   printed.
 - **Three shrine towns in this chunk are OCR-flagged, and two of them are the only locational statement

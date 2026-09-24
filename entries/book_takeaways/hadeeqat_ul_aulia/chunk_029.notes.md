@@ -47,7 +47,7 @@ PDF before use.
     (p. 317, folio 305), "حاکم حمید الدین سلطان | ۱۵۳ ، ۱۵۵ ، ۱۶۰" and "بہاء الدین (والد حمید الدین
     حاکم) | ۱۵۵" (pp. 314, 316), "رشید الدین قریشی | ۱۵۵" (p. 318) — so **folios 146–156 are a
     Multan Suhrawardi block** in the book's order, ending where the Uch Bukharis begin (see
-    shrine-of-jalaluddin-surkh-posh-bukhari below).
+    shrine-of-jalaluddin-surkh-posh-bukhari-jalaluddin-bukhari below).
   - Folio 146 also carries a cluster the index reads as a chain: "جنید بغدادی | ۲۷ ، ۱۴۶" (p. 316),
     "ابونجیب ضیاء الدین سہروردی | ۱۴۶", "ابوالقاسم گورگانی | ۱۴۶", "ابوعبداللہ خفیف | ۱۴۶", "ابوبکر
     نساخ | ۱۴۶" (p. 312), "احمد غزالی | ۱۴۶", "احمد اسود دیوزری | ۱۴۶" (p. 312), "روہم [OCR?] شیخ |
