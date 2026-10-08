@@ -135,6 +135,7 @@ Point-in-time documents. Useful as history; **do not read them as current state*
 
 | Doc                                                            | Purpose                                                    |
 | -------------------------------------------------------------- | ---------------------------------------------------------- |
+| [`ADIL_UPDATE_2026-10-08.md`](ADIL_UPDATE_2026-10-08.md) | Draft update to Adil for the 8 October deploy and sheet import |
 | [`PROPOSAL_Shrines_Data_Quality.md`](PROPOSAL_Shrines_Data_Quality.md) | Data-quality proposal                               |
 | [`DOMAIN_AND_HOSTING_2026-09-11.md`](DOMAIN_AND_HOSTING_2026-09-11.md) | Domain names (availability measured), registrars, hosting for a static site; three decisions for Rauf at the top |
 | [`STATUS_AND_ROADMAP.md`](STATUS_AND_ROADMAP.md)               | Status and roadmap write-up                                |
