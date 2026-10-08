@@ -1,0 +1,4 @@
+id,Name,figure_died,_why
+mazar-of-bulleh-shah,Mazar of Bulleh Shah,1758,"Ruled 23 Sep 2026: two books agree (rafat, shackle). See data/review/PATCH_figure_died_2026-09-23.md"
+shrine-of-fariduddin-ganjshakar,Shrine of Fariduddin Ganjshakar,1265,"Ruled 23 Sep 2026: two books agree (kugle, rafat). See data/review/PATCH_figure_died_2026-09-23.md"
+shaktipeeth-shri-hinglaj-mata-mandir,Shaktipeeth Shri Hinglaj Mata Mandir,,"id cell empty in production. See data/review/PATCH_hinglaj_id_2026-09-23.md"

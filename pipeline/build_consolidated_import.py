@@ -38,6 +38,11 @@ an earlier patch's own row:
   6. patch_site_type_2026-08-30.csv         (2026-08-29)  4 rows
   7. patch_location_hygiene_2026-08-30.csv  (2026-08-30)  4 rows
   8. patch_field_survey_orphans_2026-09-05  (2026-09-05)  3 rows
+  9. patch_rulings_2026-09-23.csv           (2026-10-08)  3 rows — the two
+     figure_died rulings and the Hinglaj id, both ruled 23 September 2026 and
+     never imported (data/review/PATCH_*_2026-09-23.md). Guarded by
+     PRECONDITIONS: if the live cell no longer holds the value the ruling was
+     made against, the build refuses rather than overwrite a later edit.
 
 The one overlap worth naming: (1) writes Shah Gohar Peer's built-form prose into
 `site_type`, and (6) is the patch that exists to move exactly that prose into
@@ -161,7 +166,17 @@ PATCHES = [
         ["Description", "qa_note", "info_level", "support_level", "silsila",
          "year_built", "year_built_precision", "year_built_note"],
     ),
+    ("patch_rulings_2026-09-23.csv", 3, ["figure_died", "id"]),
 ]
+
+# (Name, column) -> the live value a ruling was made against. A patch written
+# weeks after its ruling must not silently overwrite a cell someone has since
+# edited by hand; if the live value moved, stop and ask.
+PRECONDITIONS = {
+    ("Mazar of Bulleh Shah", "figure_died"): "1757",
+    ("Shrine of Fariduddin Ganjshakar", "figure_died"): "1266",
+    ("Shaktipeeth Shri Hinglaj Mata Mandir", "id"): "",
+}
 
 EXCLUDED = {
     "patch_provenance_badges.csv":
@@ -251,7 +266,7 @@ def load(path: str) -> "list":
 def main() -> int:
     csv.field_size_limit(2**31 - 1)
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=os.path.join(DATA, "import_2026-09-10.csv"))
+    ap.add_argument("--out", default=os.path.join(DATA, "import_2026-10-08.csv"))
     ap.add_argument("--dry-run", action="store_true",
                     help="run every check and report, write nothing")
     args = ap.parse_args()
@@ -293,6 +308,15 @@ def main() -> int:
 
     row_of_name = {(r.get("Name") or "").strip(): r for r in rows}
     row_of_id = {(r.get("id") or "").strip(): r for r in rows if (r.get("id") or "").strip()}
+
+    for (nm, col), expect in PRECONDITIONS.items():
+        r = row_of_name.get(nm)
+        if r is None:
+            die("precondition: row %r not in the live sheet" % nm)
+        if (r.get(col) or "").strip() != expect:
+            die("precondition: %s.%s is %r live, the ruling was made against %r — "
+                "the cell has moved since; re-ask before importing"
+                % (nm, col, (r.get(col) or "").strip(), expect))
 
     written: "dict" = {}     # (Name, column) -> patch that last wrote it
     site_type_prose: "dict" = {}   # Name -> prose displaced out of site_type
