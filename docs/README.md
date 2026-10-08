@@ -61,8 +61,13 @@ can go stale silently is worse than no index, because it is trusted.
 | [`LOCAL_OCR_QUICKSTART_MAC.md`](LOCAL_OCR_QUICKSTART_MAC.md) | Short "run OCR on a PDF now" recipe — macOS                  |
 | [`LIBRARY_OCR_SETUP.md`](LIBRARY_OCR_SETUP.md)               | Setting up the library workstation OCR kit                   |
 | [`NEW_LAPTOP_OCR_RUNBOOK.md`](NEW_LAPTOP_OCR_RUNBOOK.md)     | Move, OCR, translate, photos — walkthrough on a fresh laptop  |
+| [`WINDOWS_SETUP.md`](WINDOWS_SETUP.md) | Working from the Windows PC as well as the Mac: a separate clone synced through GitHub, never the Drive-synced folder |
 | [`OCR_NEW_MACHINE_RUNBOOK.md`](OCR_NEW_MACHINE_RUNBOOK.md)   | The 42 new books (Sept 2026): copy the folder, run three commands; download is blocked on a private Drive folder |
 | [`CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md`](CLAUDE_DIRECT_EXTRACTION_EXPERIMENT.md) | Measured comparison: reading OCR'd Urdu directly vs the LibreTranslate pipeline |
+| [`CLOUD_OCR_QUEUE.md`](CLOUD_OCR_QUEUE.md) | Cloud book queue — runbook |
+| [`CLOUD_OCR_RESUME.md`](CLOUD_OCR_RESUME.md) | Book corpus — state of the work and how another session continues it |
+| [`CLOUD_OCR_RESEARCH_2026-09.md`](CLOUD_OCR_RESEARCH_2026-09.md) | What the literature says about OCR of Urdu Nastaliq books in 2026, and what the queue adopts |
+| [`RUN_IN_PROGRESS_schimmel_mystical_dimensions.md`](RUN_IN_PROGRESS_schimmel_mystical_dimensions.md) | Run log, Schimmel *Mystical Dimensions* Pass 1 (complete) |
 
 ## Media and archiving
 
@@ -157,6 +162,7 @@ Prompts written for Claude Code or other agents (RULE 0: they live here, not in 
 | [`prompts/AUTONOMOUS_KB_LOOP.md`](prompts/AUTONOMOUS_KB_LOOP.md) | **How to run a knowledge-base cycle** with no memory of the last one — the traps, the orienting commands, the sequence for adding a relation, and what "finished" means. Not a second entry point: [`SESSION_RESUME.md`](SESSION_RESUME.md) says what to pick up, this says how |
 | [`prompts/pipeline_prompts.md`](prompts/pipeline_prompts.md)     | Generation-pipeline prompt specification             |
 | [`prompts/PROMPT_media_pipeline.md`](prompts/PROMPT_media_pipeline.md) | Generalising the image pipeline to all shrines |
+| [`prompts/BOOK_QUEUE_TASK.md`](prompts/BOOK_QUEUE_TASK.md) | The scheduled book-queue task's prompt — transcription and notes for the cloud OCR queue |
 
 Elsewhere in the repo: [`../urdu-i18n/README.md`](../urdu-i18n/README.md) (Urdu dictionary +
 content pipeline) and [`../data/`](../data/) (canonical dataset, schema, provenance, exports).

@@ -73,3 +73,10 @@ Awqaf/
 # Verbatim copies of files from the sibling UTRNet checkout (tools/utrnet/): formatting them
 # here would make the patch/copies diverge from the working copy they mirror.
 tools/utrnet
+
+# Book-queue working notes, worker briefs and RUN_IN_PROGRESS logs — written by
+# agents mid-run and edited in parallel on another machine. Same reasoning as
+# docs/ and pipeline/reports/ above: prose and audit trail, not code. 20 of them
+# turned `format:check` red on 8 October 2026 with no site code involved.
+pipeline/book_queue/
+/RUN_IN_PROGRESS_*.md

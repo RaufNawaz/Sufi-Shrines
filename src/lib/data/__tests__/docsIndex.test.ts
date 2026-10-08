@@ -20,7 +20,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -38,7 +38,12 @@ const INDEX = readFileSync(INDEX_PATH, 'utf8');
  * makes CI fail on a dangling link. The index can only be judged against what a
  * clone actually contains.
  */
-const DOCS = execSync("git ls-files 'docs/**/*.md' 'docs/*.md'", { cwd: ROOT, encoding: 'utf8' })
+// execFileSync, not execSync: through cmd.exe the single-quoted globs reached git
+// verbatim, matched nothing, and the test failed on every Windows checkout.
+const DOCS = execFileSync('git', ['ls-files', 'docs/**/*.md', 'docs/*.md'], {
+  cwd: ROOT,
+  encoding: 'utf8',
+})
   .trim()
   .split('\n')
   .filter(Boolean)
