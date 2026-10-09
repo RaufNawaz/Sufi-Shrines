@@ -77,18 +77,29 @@ function SettingsGroup({
   legend,
   help,
   note,
+  control = 'stack',
   children,
 }: {
   legend: string;
   help: string;
   note?: string;
+  /** How the control sits in the row, in the iOS Settings shape: a choice of
+   *  two as a segmented control and a boolean as a switch, both at the row's
+   *  trailing end; anything larger (a slider, a set of buttons) beneath the
+   *  text. The inputs stay native radios and checkboxes either way, so the
+   *  keyboard and screen-reader behaviour is the platform's own. */
+  control?: 'segmented' | 'switch' | 'stack';
   children: React.ReactNode;
 }) {
   return (
-    <fieldset className="settings-group">
+    <fieldset className={`settings-group settings-group--${control}`}>
       <legend className="settings-legend">{legend}</legend>
-      <p className="settings-help">{help}</p>
-      <div className="settings-controls">{children}</div>
+      <div className="settings-row">
+        <p className="settings-help">{help}</p>
+        <div className={`settings-controls${control === 'segmented' ? ' settings-segmented' : ''}`}>
+          {children}
+        </div>
+      </div>
       {note && <p className="settings-note">{note}</p>}
     </fieldset>
   );
@@ -273,260 +284,304 @@ export default function SettingsPage() {
           <h2 id="settings-language" className="settings-section-heading">
             {t('settingsLanguageSection')}
           </h2>
-
-          <SettingsGroup legend={t('settingsLanguageLabel')} help={t('settingsLanguageHelp')}>
-            {/* The language names are written in their own language on purpose:
+          <div className="settings-card">
+            <SettingsGroup
+              legend={t('settingsLanguageLabel')}
+              control="segmented"
+              help={t('settingsLanguageHelp')}
+            >
+              {/* The language names are written in their own language on purpose:
                 a reader who cannot read the current interface needs to
                 recognise the option, which is the one place in this archive
                 where an English word belongs in the Urdu view. `data-latin`
                 declares it rather than leaving the no-leak guard to guess. */}
-            <label className="settings-option">
-              <input
-                type="radio"
-                name="reading-language"
-                value="en"
-                checked={lang === 'en'}
-                onChange={() => setLang('en' as Lang)}
-              />
-              <span className="settings-option-label" lang="en">
-                <bdi data-latin>English</bdi>
-              </span>
-            </label>
-            <label className="settings-option">
-              <input
-                type="radio"
-                name="reading-language"
-                value="ur"
-                /* eslint-disable-next-line no-restricted-syntax -- this radio *is* the Urdu option; the comparison is which option is selected, not a behaviour that differs by language */
-                checked={lang === 'ur'}
-                onChange={() => setLang('ur' as Lang)}
-              />
-              <span className="settings-option-label" lang="ur">
-                اردو
-              </span>
-            </label>
-          </SettingsGroup>
+              <label className="settings-option">
+                <input
+                  type="radio"
+                  name="reading-language"
+                  value="en"
+                  checked={lang === 'en'}
+                  onChange={() => setLang('en' as Lang)}
+                />
+                <span className="settings-option-label" lang="en">
+                  <bdi data-latin>English</bdi>
+                </span>
+              </label>
+              <label className="settings-option">
+                <input
+                  type="radio"
+                  name="reading-language"
+                  value="ur"
+                  /* eslint-disable-next-line no-restricted-syntax -- this radio *is* the Urdu option; the comparison is which option is selected, not a behaviour that differs by language */
+                  checked={lang === 'ur'}
+                  onChange={() => setLang('ur' as Lang)}
+                />
+                <span className="settings-option-label" lang="ur">
+                  اردو
+                </span>
+              </label>
+            </SettingsGroup>
 
-          <SettingsGroup
-            legend={t('settingsNumeralsLabel')}
-            help={t('settingsNumeralsHelp')}
-            note={t('settingsNumeralsUrduOnly')}
-          >
-            <SettingsRadio<Numerals>
-              name="numerals"
-              value="eastern"
-              current={numerals}
-              label={t('settingsNumeralsEastern')}
-              onChoose={setNumerals}
-            />
-            <SettingsRadio<Numerals>
-              name="numerals"
-              value="western"
-              current={numerals}
-              label={t('settingsNumeralsWestern')}
-              onChoose={setNumerals}
-            />
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsNumeralsLabel')}
+              control="segmented"
+              help={t('settingsNumeralsHelp')}
+              note={t('settingsNumeralsUrduOnly')}
+            >
+              <SettingsRadio<Numerals>
+                name="numerals"
+                value="eastern"
+                current={numerals}
+                label={t('settingsNumeralsEastern')}
+                onChoose={setNumerals}
+              />
+              <SettingsRadio<Numerals>
+                name="numerals"
+                value="western"
+                current={numerals}
+                label={t('settingsNumeralsWestern')}
+                onChoose={setNumerals}
+              />
+            </SettingsGroup>
+          </div>
         </section>
 
         <section className="settings-section" aria-labelledby="settings-appearance">
           <h2 id="settings-appearance" className="settings-section-heading">
             {t('settingsAppearanceSection')}
           </h2>
-
-          <SettingsGroup legend={t('settingsTextSizeLabel')} help={t('settingsTextSizeHelp')}>
-            {/* The same slider the map's settings menu renders, and the same
+          <div className="settings-card">
+            <SettingsGroup legend={t('settingsTextSizeLabel')} help={t('settingsTextSizeHelp')}>
+              {/* The same slider the map's settings menu renders, and the same
                 five steps. Two surfaces offering one preference at different
                 granularities is the drift this page's header warns about. */}
-            <ReadingSizeSlider value={textSize} onChange={setTextSize} id="settings-text-size" />
-            {/* A line of prose set in the archive's own reading type, so the
+              <ReadingSizeSlider value={textSize} onChange={setTextSize} id="settings-text-size" />
+              {/* A line of prose set in the archive's own reading type, so the
                 choice is visible in the thing being chosen rather than only in
                 the page around it. Its own class so it takes body type rather
                 than the smaller help size. */}
-            <p className="settings-sample">{t('settingsTextSizeSample')}</p>
-          </SettingsGroup>
+              <p className="settings-sample">{t('settingsTextSizeSample')}</p>
+            </SettingsGroup>
 
-          <SettingsGroup legend={t('settingsMotionLabel')} help={t('settingsMotionHelp')}>
-            <SettingsRadio<MotionPreference>
-              name="motion"
-              value="system"
-              current={motion}
-              label={t('settingsMotionSystem')}
-              onChoose={chooseMotion}
-            />
-            <SettingsRadio<MotionPreference>
-              name="motion"
-              value="reduced"
-              current={motion}
-              label={t('settingsMotionReduced')}
-              onChoose={chooseMotion}
-            />
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsMotionLabel')}
+              control="segmented"
+              help={t('settingsMotionHelp')}
+            >
+              <SettingsRadio<MotionPreference>
+                name="motion"
+                value="system"
+                current={motion}
+                label={t('settingsMotionSystem')}
+                onChoose={chooseMotion}
+              />
+              <SettingsRadio<MotionPreference>
+                name="motion"
+                value="reduced"
+                current={motion}
+                label={t('settingsMotionReduced')}
+                onChoose={chooseMotion}
+              />
+            </SettingsGroup>
 
-          <SettingsGroup legend={t('settingsLookLabel')} help={t('settingsLookHelp')}>
-            <SettingsRadio<LookPreference>
-              name="look"
-              value="modern"
-              current={look}
-              label={t('settingsLookModern')}
-              onChoose={chooseLook}
-            />
-            <SettingsRadio<LookPreference>
-              name="look"
-              value="classic"
-              current={look}
-              label={t('settingsLookClassic')}
-              onChoose={chooseLook}
-            />
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsLookLabel')}
+              control="segmented"
+              help={t('settingsLookHelp')}
+            >
+              <SettingsRadio<LookPreference>
+                name="look"
+                value="modern"
+                current={look}
+                label={t('settingsLookModern')}
+                onChoose={chooseLook}
+              />
+              <SettingsRadio<LookPreference>
+                name="look"
+                value="classic"
+                current={look}
+                label={t('settingsLookClassic')}
+                onChoose={chooseLook}
+              />
+            </SettingsGroup>
 
-          <SettingsGroup legend={t('settingsThemeLabel')} help={t('settingsThemeHelp')}>
-            <SettingsRadio<Theme>
-              name="theme"
-              value="light"
-              current={theme}
-              label={t('settingsThemeLight')}
-              onChoose={chooseTheme}
-            />
-            <SettingsRadio<Theme>
-              name="theme"
-              value="dark"
-              current={theme}
-              label={t('settingsThemeDark')}
-              onChoose={chooseTheme}
-            />
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsThemeLabel')}
+              control="segmented"
+              help={t('settingsThemeHelp')}
+            >
+              <SettingsRadio<Theme>
+                name="theme"
+                value="light"
+                current={theme}
+                label={t('settingsThemeLight')}
+                onChoose={chooseTheme}
+              />
+              <SettingsRadio<Theme>
+                name="theme"
+                value="dark"
+                current={theme}
+                label={t('settingsThemeDark')}
+                onChoose={chooseTheme}
+              />
+            </SettingsGroup>
+          </div>
         </section>
 
         <section className="settings-section" aria-labelledby="settings-dates">
           <h2 id="settings-dates" className="settings-section-heading">
             {t('settingsDatesSection')}
           </h2>
-
-          <SettingsGroup
-            legend={t('settingsCalendarLabel')}
-            help={t('settingsCalendarHelp')}
-            note={t('settingsCalendarNote')}
-          >
-            <SettingsRadio<CalendarPreference>
-              name="calendar"
-              value="gregorian"
-              current={calendar}
-              label={t('settingsCalendarGregorian')}
-              onChoose={setCalendar}
-            />
-            <SettingsRadio<CalendarPreference>
-              name="calendar"
-              value="hijri"
-              current={calendar}
-              label={t('settingsCalendarHijri')}
-              onChoose={setCalendar}
-            />
-          </SettingsGroup>
+          <div className="settings-card">
+            <SettingsGroup
+              legend={t('settingsCalendarLabel')}
+              control="segmented"
+              help={t('settingsCalendarHelp')}
+              note={t('settingsCalendarNote')}
+            >
+              <SettingsRadio<CalendarPreference>
+                name="calendar"
+                value="gregorian"
+                current={calendar}
+                label={t('settingsCalendarGregorian')}
+                onChoose={setCalendar}
+              />
+              <SettingsRadio<CalendarPreference>
+                name="calendar"
+                value="hijri"
+                current={calendar}
+                label={t('settingsCalendarHijri')}
+                onChoose={setCalendar}
+              />
+            </SettingsGroup>
+          </div>
         </section>
 
         <section className="settings-section" aria-labelledby="settings-distance">
           <h2 id="settings-distance" className="settings-section-heading">
             {t('settingsDistanceSection')}
           </h2>
-
-          <SettingsGroup legend={t('settingsUnitsLabel')} help={t('settingsUnitsHelp')}>
-            <SettingsRadio<DistanceUnits>
-              name="units"
-              value="km"
-              current={units}
-              label={t('settingsUnitsKm')}
-              onChoose={setUnits}
-            />
-            <SettingsRadio<DistanceUnits>
-              name="units"
-              value="mi"
-              current={units}
-              label={t('settingsUnitsMi')}
-              onChoose={setUnits}
-            />
-          </SettingsGroup>
+          <div className="settings-card">
+            <SettingsGroup
+              legend={t('settingsUnitsLabel')}
+              control="segmented"
+              help={t('settingsUnitsHelp')}
+            >
+              <SettingsRadio<DistanceUnits>
+                name="units"
+                value="km"
+                current={units}
+                label={t('settingsUnitsKm')}
+                onChoose={setUnits}
+              />
+              <SettingsRadio<DistanceUnits>
+                name="units"
+                value="mi"
+                current={units}
+                label={t('settingsUnitsMi')}
+                onChoose={setUnits}
+              />
+            </SettingsGroup>
+          </div>
         </section>
 
         <section className="settings-section" aria-labelledby="settings-map">
           <h2 id="settings-map" className="settings-section-heading">
             {t('settingsMapSection')}
           </h2>
+          <div className="settings-card">
+            <SettingsGroup
+              legend={t('settingsDirectoryLabel')}
+              control="segmented"
+              help={t('settingsDirectoryHelp')}
+            >
+              <SettingsRadio<DirectoryMode>
+                name="directory-mode"
+                value="spotlight"
+                current={directoryMode}
+                label={t('directoryModeSpotlight')}
+                onChoose={chooseDirectoryMode}
+              />
+              <SettingsRadio<DirectoryMode>
+                name="directory-mode"
+                value="table"
+                current={directoryMode}
+                label={t('directoryModeTable')}
+                onChoose={chooseDirectoryMode}
+              />
+            </SettingsGroup>
 
-          <SettingsGroup legend={t('settingsDirectoryLabel')} help={t('settingsDirectoryHelp')}>
-            <SettingsRadio<DirectoryMode>
-              name="directory-mode"
-              value="spotlight"
-              current={directoryMode}
-              label={t('directoryModeSpotlight')}
-              onChoose={chooseDirectoryMode}
-            />
-            <SettingsRadio<DirectoryMode>
-              name="directory-mode"
-              value="table"
-              current={directoryMode}
-              label={t('directoryModeTable')}
-              onChoose={chooseDirectoryMode}
-            />
-          </SettingsGroup>
-
-          <SettingsGroup legend={t('settingsToursLabel')} help={t('settingsToursHelp')}>
-            {/* A switch, not two radios. The guard in noSentenceFragments.test
+            <SettingsGroup
+              legend={t('settingsToursLabel')}
+              control="switch"
+              help={t('settingsToursHelp')}
+            >
+              {/* A switch, not two radios. The guard in noSentenceFragments.test
                 is right that "On" and "Off" are fragments a component should not
                 be assembling, and a boolean does not need them: the control's
-                own state is the answer, and its accessible name says which way
-                flipping it goes. */}
-            <label className="settings-option">
-              <input
-                type="checkbox"
-                checked={toursEnabled}
-                onChange={(event) => chooseTours(event.target.checked)}
-                aria-label={toursEnabled ? t('turnOffTours') : t('turnOnTours')}
-              />
-              <span className="settings-option-label">{t('settingsToursToggle')}</span>
-            </label>
-          </SettingsGroup>
+                own state is the answer. Its accessible name is the visible label
+                and does not change with the state (WCAG 2.5.3): it used to be
+                "Turn off tours" while the row read "Show tours on the map", so a
+                screen reader announced a name nobody could see, checked. */}
+              <label className="settings-option">
+                <input
+                  className="settings-switch"
+                  role="switch"
+                  type="checkbox"
+                  checked={toursEnabled}
+                  onChange={(event) => chooseTours(event.target.checked)}
+                />
+                <span className="settings-option-label">{t('settingsToursToggle')}</span>
+              </label>
+            </SettingsGroup>
+          </div>
         </section>
 
         <section className="settings-section" aria-labelledby="settings-entry">
           <h2 id="settings-entry" className="settings-section-heading">
             {t('settingsEntrySection')}
           </h2>
-
-          {/* Two switches rather than two sets of radios, for the reason the
+          <div className="settings-card">
+            {/* Two switches rather than two sets of radios, for the reason the
               tours switch already gives: a boolean's own state is the answer,
               and "On"/"Off" beside it are the sentence fragments
               noSentenceFragments.test refuses. Both are off by default — see
               `lib/shrineSectionPreferences.ts` for why that is an editorial
               position rather than an unfinished feature. */}
-          <SettingsGroup
-            legend={t('settingsSharedGroundLabel')}
-            help={t('settingsSharedGroundHelp')}
-          >
-            <label className="settings-option">
-              <input
-                type="checkbox"
-                checked={sharedGroundSection}
-                onChange={(event) => chooseSharedGroundSection(event.target.checked)}
-                aria-label={
-                  sharedGroundSection ? t('turnOffSharedGround') : t('turnOnSharedGround')
-                }
-              />
-              <span className="settings-option-label">{t('settingsSharedGroundToggle')}</span>
-            </label>
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsSharedGroundLabel')}
+              help={t('settingsSharedGroundHelp')}
+              control="switch"
+            >
+              <label className="settings-option">
+                <input
+                  className="settings-switch"
+                  role="switch"
+                  type="checkbox"
+                  checked={sharedGroundSection}
+                  onChange={(event) => chooseSharedGroundSection(event.target.checked)}
+                />
+                <span className="settings-option-label">{t('settingsSharedGroundToggle')}</span>
+              </label>
+            </SettingsGroup>
 
-          <SettingsGroup legend={t('settingsMosquesLabel')} help={t('settingsMosquesHelp')}>
-            <label className="settings-option">
-              <input
-                type="checkbox"
-                checked={mosquesSection}
-                onChange={(event) => chooseMosquesSection(event.target.checked)}
-                aria-label={mosquesSection ? t('turnOffMosques') : t('turnOnMosques')}
-              />
-              <span className="settings-option-label">{t('settingsMosquesToggle')}</span>
-            </label>
-          </SettingsGroup>
+            <SettingsGroup
+              legend={t('settingsMosquesLabel')}
+              control="switch"
+              help={t('settingsMosquesHelp')}
+            >
+              <label className="settings-option">
+                <input
+                  className="settings-switch"
+                  role="switch"
+                  type="checkbox"
+                  checked={mosquesSection}
+                  onChange={(event) => chooseMosquesSection(event.target.checked)}
+                />
+                <span className="settings-option-label">{t('settingsMosquesToggle')}</span>
+              </label>
+            </SettingsGroup>
+          </div>
         </section>
 
         {teamKnown && (
@@ -534,17 +589,24 @@ export default function SettingsPage() {
             <h2 id="settings-team" className="settings-section-heading">
               {t('settingsTeamSection')}
             </h2>
-            <SettingsGroup legend={t('settingsTeamLabel')} help={t('settingsTeamHelp')}>
-              <label className="settings-option">
-                <input
-                  type="checkbox"
-                  checked={teamView}
-                  onChange={(event) => chooseTeamView(event.target.checked)}
-                  aria-label={teamView ? t('turnOffTeamView') : t('turnOnTeamView')}
-                />
-                <span className="settings-option-label">{t('settingsTeamToggle')}</span>
-              </label>
-            </SettingsGroup>
+            <div className="settings-card">
+              <SettingsGroup
+                legend={t('settingsTeamLabel')}
+                control="switch"
+                help={t('settingsTeamHelp')}
+              >
+                <label className="settings-option">
+                  <input
+                    className="settings-switch"
+                    role="switch"
+                    type="checkbox"
+                    checked={teamView}
+                    onChange={(event) => chooseTeamView(event.target.checked)}
+                  />
+                  <span className="settings-option-label">{t('settingsTeamToggle')}</span>
+                </label>
+              </SettingsGroup>
+            </div>
           </section>
         )}
 
@@ -552,63 +614,64 @@ export default function SettingsPage() {
           <h2 id="settings-saved" className="settings-section-heading">
             {t('settingsSavedSection')}
           </h2>
-
-          <SettingsGroup
-            legend={t('settingsSavedFileLabel')}
-            help={t('settingsSavedHelp')}
-            note={t('settingsSavedMergeNote')}
-          >
-            <p className="settings-saved-count">
-              {saved.length === 0 ? t('settingsSavedEmpty') : savedCountLabel(saved.length)}
-            </p>
-            <div className="settings-actions">
-              <button
-                type="button"
-                className="action-btn"
-                onClick={exportSavedList}
-                disabled={saved.length === 0}
-              >
-                {t('settingsSavedExport')}
-              </button>
-              <button
-                type="button"
-                className="action-btn"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                {t('settingsSavedImport')}
-              </button>
-              <button
-                type="button"
-                className="action-btn"
-                onClick={clearSavedList}
-                disabled={saved.length === 0}
-              >
-                {t('settingsSavedClear')}
-              </button>
-            </div>
-            {/* Hidden rather than styled: a native file input cannot be
+          <div className="settings-card">
+            <SettingsGroup
+              legend={t('settingsSavedFileLabel')}
+              help={t('settingsSavedHelp')}
+              note={t('settingsSavedMergeNote')}
+            >
+              <p className="settings-saved-count">
+                {saved.length === 0 ? t('settingsSavedEmpty') : savedCountLabel(saved.length)}
+              </p>
+              <div className="settings-actions">
+                <button
+                  type="button"
+                  className="action-btn"
+                  onClick={exportSavedList}
+                  disabled={saved.length === 0}
+                >
+                  {t('settingsSavedExport')}
+                </button>
+                <button
+                  type="button"
+                  className="action-btn"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  {t('settingsSavedImport')}
+                </button>
+                <button
+                  type="button"
+                  className="action-btn"
+                  onClick={clearSavedList}
+                  disabled={saved.length === 0}
+                >
+                  {t('settingsSavedClear')}
+                </button>
+              </div>
+              {/* Hidden rather than styled: a native file input cannot be
                 restyled to match the archive's buttons, and hiding it behind
                 one keeps the keyboard and screen-reader behaviour the platform
                 already gets right. */}
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="application/json,.json"
-              className="settings-file-input"
-              aria-label={t('settingsSavedImport')}
-              onChange={(event) => {
-                const file = event.target.files?.[0];
-                if (file) void importSavedList(file);
-                // Reset, so choosing the same file twice fires again.
-                event.target.value = '';
-              }}
-            />
-            {savedMessage && (
-              <p className="settings-saved-message" role="status">
-                {savedMessage}
-              </p>
-            )}
-          </SettingsGroup>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json,.json"
+                className="settings-file-input"
+                aria-label={t('settingsSavedImport')}
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file) void importSavedList(file);
+                  // Reset, so choosing the same file twice fires again.
+                  event.target.value = '';
+                }}
+              />
+              {savedMessage && (
+                <p className="settings-saved-message" role="status">
+                  {savedMessage}
+                </p>
+              )}
+            </SettingsGroup>
+          </div>
         </section>
 
         <SiteFooter />

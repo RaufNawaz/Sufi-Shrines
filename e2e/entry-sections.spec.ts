@@ -33,7 +33,7 @@ const AWQAF_TOKEN = '2PACX-1vTzVlDrUr';
 
 async function flip(page: Page, label: string) {
   await page.goto('/settings');
-  const box = page.getByRole('checkbox', { name: label });
+  const box = page.getByRole('switch', { name: label });
   await expect(box).toBeVisible();
   await box.check();
 }
@@ -82,7 +82,7 @@ test.describe('the entry page’s optional sections are off by default', () => {
 
 test.describe('and each switch reaches the entry it names', () => {
   test('shared ground appears once it is turned on, and survives a reload', async ({ page }) => {
-    await flip(page, en.turnOnSharedGround);
+    await flip(page, en.settingsSharedGroundToggle);
 
     await page.goto(`/shrine/${SLUG}`);
     const section = page.locator('#shared-ground');
@@ -97,7 +97,7 @@ test.describe('and each switch reaches the entry it names', () => {
   });
 
   test('nearby mosques appear once they are turned on, and survive a reload', async ({ page }) => {
-    await flip(page, en.turnOnMosques);
+    await flip(page, en.settingsMosquesToggle);
 
     await page.goto(`/shrine/${SLUG}`);
     const block = page.locator('.nearby-mosques');
@@ -111,12 +111,12 @@ test.describe('and each switch reaches the entry it names', () => {
   });
 
   test('and turning one back off removes it again', async ({ page }) => {
-    await flip(page, en.turnOnSharedGround);
+    await flip(page, en.settingsSharedGroundToggle);
     await page.goto(`/shrine/${SLUG}`);
     await expect(page.locator('#shared-ground')).toBeVisible();
 
     await page.goto('/settings');
-    await page.getByRole('checkbox', { name: en.turnOffSharedGround }).uncheck();
+    await page.getByRole('switch', { name: en.settingsSharedGroundToggle }).uncheck();
 
     await page.goto(`/shrine/${SLUG}`);
     await expect(page.locator('h1.shrine-title')).toBeVisible();

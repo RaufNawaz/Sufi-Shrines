@@ -1,16 +1,17 @@
 /*
- * The settings page.
+ * The settings page, in the iOS Settings shape (Apple pass, 9 October 2026).
  *
- * Set as a register rather than as a control panel, following the same
- * direction as the almanac: ruled rows, the explanation carried beside the
- * control rather than hidden behind an info icon, and no cards. The design
- * direction for this project is hairlines and not boxes, and cobalt means
- * interactive — so a row is separated by a rule, and the only coloured thing
- * in it is the control the reader can actually operate.
+ * Until the Apple pass this was set as a register: ruled rows on the page
+ * ground, a column of radio buttons per choice. It is now what every Apple
+ * settings surface is — a small caps label over an inset group (a white card on
+ * the grey page), one row per setting, the explanation in the row, and the
+ * control at the row's trailing end: a choice of two as a segmented control, a
+ * boolean as a switch. The controls are still native radios and checkboxes
+ * underneath, styled rather than replaced, so the keyboard and screen-reader
+ * behaviour is the platform's own and every test that finds a radio by its
+ * name still does.
  *
- * Every option row is at least 44px tall, which is the accessibility floor this
- * project holds itself to, and the whole `label` is the hit target rather than
- * the radio inside it.
+ * Every hit target stays at least 44px, the floor this project holds itself to.
  */
 
 .settings-page {
@@ -30,21 +31,16 @@
 }
 
 .settings-section {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
 }
 
+/* The group's label sits outside the card, small and quiet, as in the inset
+   list header (list.css) — a form-section label, not a section heading. */
 .settings-section-heading {
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-2);
-  /* The hairline token and the light border, like every other rule in the
-     archive. This drew `1px solid var(--color-border)` — the structural colour
-     at a literal width, which is the exact pair `hairline.test.ts` was written
-     to refuse and could not see, because it only checked the other direction.
-     The small-caps size stays: this is a form-section label, not a section
-     heading, and it is meant to read as one. */
-  border-bottom: var(--hairline) solid var(--color-border-light);
+  margin-block: 0 var(--space-2);
+  padding-inline: var(--space-4);
   font-size: var(--text-xs);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--color-text-secondary);
@@ -61,13 +57,31 @@
   line-height: var(--leading-urdu-heading);
 }
 
-.settings-group {
-  margin: 0 0 var(--space-6);
-  padding: 0;
-  border: 0;
+/* The inset group: one card per section, rows separated by an inset hairline. */
+.settings-card {
+  background: var(--color-bg-surface);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
+.settings-group {
+  margin: 0;
+  padding: var(--space-4);
+  border: 0;
+  min-inline-size: 0;
+}
+
+.settings-group + .settings-group {
+  border-block-start: var(--hairline) solid var(--color-border-light);
+}
+
+/* Floated so the legend lays out as an ordinary block inside the fieldset
+   rather than in the border gap the platform reserves for it. */
 .settings-legend {
+  float: inline-start;
+  inline-size: 100%;
   padding: 0;
   font-size: var(--text-base);
   font-weight: 600;
@@ -78,16 +92,30 @@
   line-height: var(--leading-urdu-heading);
 }
 
+/* The explanation and the control, side by side where there is room: text at
+   the leading edge, control at the trailing edge. */
+.settings-row {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+}
+
 .settings-help {
-  margin: var(--space-1) 0 var(--space-3);
+  flex: 1 1 18rem;
+  margin: var(--space-1) 0 0;
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  max-width: 32rem;
 }
 
 .settings-note {
-  margin: var(--space-2) 0 0;
+  clear: both;
+  margin: var(--space-3) 0 0;
+  padding-block-start: var(--space-3);
+  border-block-start: var(--hairline) solid var(--color-border-light);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
@@ -100,6 +128,13 @@
 .settings-controls {
   display: flex;
   flex-direction: column;
+  flex: none;
+}
+
+/* A stacked control (the size slider, the saved-list buttons) takes the row. */
+.settings-group--stack .settings-controls {
+  flex: 1 1 100%;
+  margin-block-start: var(--space-2);
 }
 
 .settings-option {
@@ -107,22 +142,10 @@
   min-height: 44px;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-2) 0;
-  border-bottom: var(--hairline) solid var(--color-border-light);
   cursor: pointer;
 }
 
-/* The last rule in a group would otherwise sit directly above the next
-   group's legend and read as its underline. */
-.settings-option:last-child {
-  border-bottom: 0;
-}
-
 .settings-option input {
-  /* 18px, not the 13px default: this is the interactive element in the row and
-     the row is 44px tall. `accent-color` is what makes a native control take
-     the archive's cobalt without replacing it with a div, which keeps the
-     keyboard and screen-reader behaviour the platform already gets right. */
   inline-size: 1.125rem;
   block-size: 1.125rem;
   flex: none;
@@ -137,17 +160,134 @@
   line-height: var(--leading-urdu-ui);
 }
 
-.settings-option:hover .settings-option-label {
-  color: var(--color-primary);
+/* ── Segmented control ────────────────────────────────────────────────────
+   The almanac's List / Month switch (`.almanac-view-toggle`), built over two
+   native radios: the radio is drawn invisible over its own label, so the
+   label is the hit target and the radio is still what the keyboard reaches. */
+.settings-segmented {
+  flex-direction: row;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
 }
 
-/* The focus ring belongs to the row, not to the 18px radio inside it: a
-   keyboard reader tabbing through needs to see which option is focused at the
-   scale they are reading at. */
-.settings-option:focus-within {
+.settings-segmented .settings-option {
+  position: relative;
+  min-height: 38px;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--duration-fast) var(--easing),
+    color var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+.settings-segmented .settings-option input {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.settings-segmented .settings-option-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Nastaliq's own leading (1.85 for UI text) made the Urdu half of a pill
+   taller than its Latin partner; one line box for both halves instead. */
+[dir='rtl'] .settings-segmented .settings-option-label {
+  line-height: var(--leading-urdu-heading);
+}
+
+[dir='rtl'] .settings-segmented .settings-option-label[lang='en'] {
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+
+/* On a phone the pill goes under the explanation, at the trailing edge, rather
+   than squeezing it. */
+@media (max-width: 420px) {
+  .settings-segmented {
+    margin-inline-start: auto;
+  }
+}
+
+.settings-segmented .settings-option:hover {
+  color: var(--color-text);
+}
+
+.settings-segmented .settings-option:has(input:checked) {
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* The focus ring belongs to the segment, not to the invisible radio. */
+.settings-segmented .settings-option:has(input:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+/* ── Switch ───────────────────────────────────────────────────────────────
+   A native checkbox drawn as the iOS switch. The label text stays beside it,
+   so the row reads "Show tours on the map ●" and the accessible name still
+   says which way flipping it goes. */
+.settings-group--switch .settings-controls {
+  flex: 1 1 100%;
+}
+
+.settings-group--switch .settings-option {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.settings-option .settings-switch {
+  position: relative;
+  inline-size: 51px;
+  block-size: 31px;
+  margin: 0;
+  flex: none;
+  appearance: none;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  box-shadow: inset 0 0 0 var(--hairline) var(--color-border);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing);
+}
+
+.settings-option .settings-switch::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 2px;
+  inset-inline-start: 2px;
+  inline-size: 27px;
+  block-size: 27px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: inset-inline-start var(--duration-fast) var(--easing);
+}
+
+.settings-option .settings-switch:checked {
+  background: var(--color-primary);
+  box-shadow: none;
+}
+
+/* Logical, so the knob travels toward the trailing edge in Urdu as well. */
+.settings-option .settings-switch:checked::before {
+  inset-inline-start: 22px;
+}
+
+.settings-option .settings-switch:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 /* A line of the archive's reading type, shown under the size control so the

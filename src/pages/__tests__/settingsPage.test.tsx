@@ -87,10 +87,10 @@ describe('SettingsPage', () => {
   it('persists the tours switch, and writes an explicit off', async () => {
     const user = userEvent.setup();
     renderWithProviders(<SettingsPage />, { route: '/settings' });
-    const toggle = screen.getByRole('checkbox', { name: en.turnOnTours });
+    const toggle = screen.getByRole('switch', { name: en.settingsToursToggle });
     await user.click(toggle);
     expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('on');
-    await user.click(screen.getByRole('checkbox', { name: en.turnOffTours }));
+    await user.click(screen.getByRole('switch', { name: en.settingsToursToggle }));
     expect(localStorage.getItem(TOURS_STORAGE_KEY)).toBe('off');
   });
 
@@ -102,15 +102,15 @@ describe('SettingsPage', () => {
     const user = userEvent.setup();
     renderWithProviders(<SettingsPage />, { route: '/settings' });
 
-    await user.click(screen.getByRole('checkbox', { name: en.turnOnSharedGround }));
+    await user.click(screen.getByRole('switch', { name: en.settingsSharedGroundToggle }));
     expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('on');
     expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBeNull();
 
-    await user.click(screen.getByRole('checkbox', { name: en.turnOnMosques }));
+    await user.click(screen.getByRole('switch', { name: en.settingsMosquesToggle }));
     expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBe('on');
     expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('on');
 
-    await user.click(screen.getByRole('checkbox', { name: en.turnOffSharedGround }));
+    await user.click(screen.getByRole('switch', { name: en.settingsSharedGroundToggle }));
     expect(localStorage.getItem(SHARED_GROUND_SECTION_STORAGE_KEY)).toBe('off');
     expect(localStorage.getItem(NEARBY_MOSQUES_SECTION_STORAGE_KEY)).toBe('on');
   });
@@ -119,8 +119,8 @@ describe('SettingsPage', () => {
     /* The default is the whole point of the change, so it is asserted where a
        reader meets it rather than only in the module that declares it. */
     renderWithProviders(<SettingsPage />, { route: '/settings' });
-    expect(screen.getByRole('checkbox', { name: en.turnOnSharedGround })).not.toBeChecked();
-    expect(screen.getByRole('checkbox', { name: en.turnOnMosques })).not.toBeChecked();
+    expect(screen.getByRole('switch', { name: en.settingsSharedGroundToggle })).not.toBeChecked();
+    expect(screen.getByRole('switch', { name: en.settingsMosquesToggle })).not.toBeChecked();
   });
 
   it('persists the theme, and choosing the theme already shown is a no-op', async () => {
@@ -224,7 +224,7 @@ describe('SettingsPage', () => {
     localStorage.setItem(NUMERALS_STORAGE_KEY, 'western');
     renderWithProviders(<SettingsPage />, { route: '/settings' });
     expect(screen.getByRole('radio', { name: en.directoryModeTable })).toBeChecked();
-    expect(screen.getByRole('checkbox', { name: en.turnOffTours })).toBeChecked();
+    expect(screen.getByRole('switch', { name: en.settingsToursToggle })).toBeChecked();
     expect(screen.getByRole('radio', { name: en.settingsNumeralsWestern })).toBeChecked();
   });
 
