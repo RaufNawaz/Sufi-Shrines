@@ -68,6 +68,9 @@ function centuryLabel(century: number, lang: Lang): string {
  * A function rather than a ternary in the JSX because the six string keys differ
  * in arity, and picking the wrong pair silently renders "teacher of undefined".
  */
+/** Teachers shown before "Show all". */
+const LINEAGE_PREVIEW = 8;
+
 function lineageOnlyNote(lang: Lang, direction: 'teacher' | 'disciple', people: KGSaint[]): string {
   const first = localizeFigureName(people[0], lang);
   const others = people.length - 1;
@@ -123,6 +126,13 @@ export default function GraphPage() {
      archive documents are in it. */
   const [centuryFilter, setCenturyFilter] = useState<number | 'undated' | null>(null);
   const [lineageScope, setLineageScope] = useState<'order' | 'all'>('order');
+  /* The lineage accordion: which teachers are open, whether the first (open on
+     arrival) has been closed, the type-to-narrow query, and whether the list
+     shows past its first eight teachers. */
+  const [openTeachers, setOpenTeachers] = useState<Set<string>>(() => new Set());
+  const [closedFirst, setClosedFirst] = useState(false);
+  const [lineageQuery, setLineageQuery] = useState('');
+  const [showAllTeachers, setShowAllTeachers] = useState(false);
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
   /* Pictures for the diagram's nodes; fetched on demand, re-renders on arrival. */
@@ -224,6 +234,34 @@ export default function GraphPage() {
           ),
       );
   }, [scopedLineageEdges, lang]);
+
+  /* The first teacher is open on arrival, so its state is a flag rather than
+     membership in the set. */
+  const toggleTeacher = (key: string, isFirst: boolean) => {
+    if (isFirst) {
+      setClosedFirst((closed) => !closed);
+      return;
+    }
+    setOpenTeachers((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
+
+  /* Type to narrow: a teacher stays if their name or any disciple's matches. */
+  const visibleLineageGroups = useMemo(() => {
+    const q = lineageQuery.trim().toLocaleLowerCase();
+    if (!q) return lineageGroups;
+    type Figure = (typeof lineageGroups)[number]['teacher'];
+    const hit = (figure: Figure) =>
+      localizeFigureName(figure, lang).toLocaleLowerCase().includes(q) ||
+      figure.name.toLocaleLowerCase().includes(q);
+    return lineageGroups.filter(
+      (group) => hit(group.teacher) || group.rows.some((row) => hit(row.subject)),
+    );
+  }, [lineageGroups, lineageQuery, lang]);
 
   /* Edges with neither endpoint in any recorded order. Computed over every order
      rather than the active one — this is a fact about the dataset, not about the
@@ -501,7 +539,7 @@ export default function GraphPage() {
                 carry a count, which is the information a reader needs to decide. */}
             {activeOrder && (
               <div
-                className="filter-chips graph-lineage-scope"
+                className="almanac-view-toggle graph-lineage-scope"
                 role="group"
                 aria-label={t('graphLineageScopeLabel')}
               >
@@ -558,87 +596,176 @@ export default function GraphPage() {
                 the shape of a silsila. The quotation that is each link's
                 evidence opens on a Source button for the public; the team,
                 who read every qualification, see it open, with its citation. */}
-            <ul className="graph-lineage-list" data-latin>
-              {lineageGroups.map((group) => (
-                <li key={group.teacher.slug} className="graph-lineage-group">
-                  <div className="graph-lineage-teacher">
-                    <span className="graph-lineage-teacher-label">{t('lineageTeacherLabel')}</span>
-                    <Link
-                      to={`/saint/${group.teacher.slug}`}
-                      className="graph-lineage-teacher-name"
-                      lang={isRtl ? 'ur' : undefined}
+            {/* An accordion of teachers (9 October 2026, afternoon — Rauf: "make
+                the information accessible and at the same time not overload the
+                person"). Each teacher is one row — name, disciple count, the
+                first names — and opens to its disciples; each quotation, the
+                link's evidence, opens on a Source button, for the team as well
+                as the public (the team's citation and review chip come with
+                it). The first teacher is open so the shape is visible on
+                arrival. Type to narrow when the scope is every recorded link. */}
+            {lineageGroups.length > 4 && (
+              <input
+                type="search"
+                className="graph-lineage-find"
+                value={lineageQuery}
+                onChange={(event) => setLineageQuery(event.target.value)}
+                placeholder={t('lineageFindPlaceholder')}
+                aria-label={t('lineageFindPlaceholder')}
+              />
+            )}
+            {visibleLineageGroups.length === 0 ? (
+              <p className="graph-figures-note">{t('lineageNoMatch')}</p>
+            ) : (
+              <ul className="graph-lineage-list" data-latin>
+                {(showAllTeachers || lineageQuery
+                  ? visibleLineageGroups
+                  : visibleLineageGroups.slice(0, LINEAGE_PREVIEW)
+                ).map((group, groupIndex) => {
+                  const teacherKey = group.teacher.slug;
+                  const isFirst = groupIndex === 0 && lineageQuery === '';
+                  const expanded = isFirst
+                    ? !closedFirst
+                    : openTeachers.has(teacherKey) ||
+                      (lineageQuery !== '' && visibleLineageGroups.length <= 3);
+                  const panelId = `lineage-panel-${teacherKey}`;
+                  const names = group.rows.map((row) => localizeFigureName(row.subject, lang));
+                  return (
+                    <li
+                      key={teacherKey}
+                      className={`graph-lineage-group${expanded ? ' is-open' : ''}`}
                     >
-                      <bdi>{fmtNum(localizeFigureName(group.teacher, lang))}</bdi>
-                    </Link>
-                    <span className="graph-lineage-teacher-count">
-                      {fmtNum(tFn(lang, 'lineageDisciplesCount', group.rows.length))}
-                    </span>
-                  </div>
-                  <ul className="graph-lineage-disciples">
-                    {group.rows.map((row) => {
-                      const key = `${row.subject.slug}-${group.teacher.slug}`;
-                      const quoted = row.edges.filter((edge) => edge.quote);
-                      const open = teamView || openSources.has(key);
-                      return (
-                        <li key={key} className="graph-lineage-disciple">
-                          <div className="graph-lineage-edge">
-                            <Link to={`/saint/${row.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                              <bdi>{fmtNum(localizeFigureName(row.subject, lang))}</bdi>
-                            </Link>
-                            {row.edges.map((edge) => (
-                              <span key={edge.relation} className="graph-lineage-relation">
-                                {t(
-                                  edge.relation === 'successor_of'
-                                    ? 'successorOfLabel'
-                                    : 'discipleOfLabel',
-                                )}
-                              </span>
-                            ))}
-                            {teamView && row.edges.some((edge) => !edge.reviewed) && (
-                              <span
-                                className="lineage-unreviewed"
-                                title={t('lineageUnreviewedHelp')}
-                              >
-                                {t('lineageUnreviewed')}
-                              </span>
-                            )}
-                            {quoted.length > 0 && !teamView && (
-                              <button
-                                type="button"
-                                className={`graph-lineage-source-btn${open ? ' active' : ''}`}
-                                aria-expanded={open}
-                                aria-controls={`lineage-source-${key}`}
-                                onClick={() => toggleSource(key)}
-                              >
-                                {open ? t('lineageHideSource') : t('lineageShowSource')}
-                              </button>
-                            )}
-                          </div>
-                          {quoted.length > 0 && open && (
-                            <div id={`lineage-source-${key}`}>
-                              {quoted.map((edge) => (
-                                <blockquote
-                                  key={edge.relation}
-                                  className="graph-lineage-quote reveal-rise"
-                                  lang="en"
-                                  dir="ltr"
-                                  data-latin
-                                >
-                                  {renderInlineBold(edge.quote as string)}
-                                  {teamView && edge.source && (
-                                    <cite className="graph-lineage-cite">{edge.source}</cite>
+                      <button
+                        type="button"
+                        className="graph-lineage-teacher"
+                        aria-expanded={expanded}
+                        aria-controls={panelId}
+                        onClick={() => toggleTeacher(teacherKey, isFirst)}
+                      >
+                        {/* A glyph, not an initial: nearly every name here opens
+                            with an honorific, so the initials read H, K, H, K. */}
+                        <span className="graph-lineage-avatar" aria-hidden="true">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          >
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+                          </svg>
+                        </span>
+                        <span className="graph-lineage-teacher-text">
+                          <span
+                            className="graph-lineage-teacher-name"
+                            lang={isRtl ? 'ur' : undefined}
+                          >
+                            <bdi>{fmtNum(localizeFigureName(group.teacher, lang))}</bdi>
+                          </span>
+                          <span className="graph-lineage-preview">
+                            <bdi>{names.slice(0, 3).join(isRtl ? '، ' : ', ')}</bdi>
+                            {names.length > 3 && ` +${fmtNum(names.length - 3)}`}
+                          </span>
+                        </span>
+                        <span className="graph-lineage-teacher-count">
+                          {fmtNum(group.rows.length)}
+                        </span>
+                        <span className="graph-lineage-disclosure" aria-hidden="true" />
+                      </button>
+                      {expanded && (
+                        <div id={panelId} className="graph-lineage-panel">
+                          <ul className="graph-lineage-disciples">
+                            {group.rows.map((row) => {
+                              const key = `${row.subject.slug}-${teacherKey}`;
+                              const quoted = row.edges.filter((edge) => edge.quote);
+                              const open = openSources.has(key);
+                              return (
+                                <li key={key} className="graph-lineage-disciple">
+                                  <div className="graph-lineage-edge">
+                                    <Link
+                                      to={`/saint/${row.subject.slug}`}
+                                      lang={isRtl ? 'ur' : undefined}
+                                    >
+                                      <bdi>{fmtNum(localizeFigureName(row.subject, lang))}</bdi>
+                                    </Link>
+                                    {row.edges.map((edge) => (
+                                      <span key={edge.relation} className="graph-lineage-relation">
+                                        {t(
+                                          edge.relation === 'successor_of'
+                                            ? 'successorOfLabel'
+                                            : 'discipleOfLabel',
+                                        )}
+                                      </span>
+                                    ))}
+                                    {teamView && row.edges.some((edge) => !edge.reviewed) && (
+                                      <span
+                                        className="lineage-unreviewed"
+                                        title={t('lineageUnreviewedHelp')}
+                                      >
+                                        {t('lineageUnreviewed')}
+                                      </span>
+                                    )}
+                                    {quoted.length > 0 && (
+                                      <button
+                                        type="button"
+                                        className={`graph-lineage-source-btn${open ? ' active' : ''}`}
+                                        aria-expanded={open}
+                                        aria-controls={`lineage-source-${key}`}
+                                        onClick={() => toggleSource(key)}
+                                      >
+                                        {open ? t('lineageHideSource') : t('lineageShowSource')}
+                                      </button>
+                                    )}
+                                  </div>
+                                  {quoted.length > 0 && open && (
+                                    <div id={`lineage-source-${key}`}>
+                                      {quoted.map((edge) => (
+                                        <blockquote
+                                          key={edge.relation}
+                                          className="graph-lineage-quote reveal-rise"
+                                          lang="en"
+                                          dir="ltr"
+                                          data-latin
+                                        >
+                                          {renderInlineBold(edge.quote as string)}
+                                          {teamView && edge.source && (
+                                            <cite className="graph-lineage-cite">
+                                              {edge.source}
+                                            </cite>
+                                          )}
+                                        </blockquote>
+                                      ))}
+                                    </div>
                                   )}
-                                </blockquote>
-                              ))}
-                            </div>
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              ))}
-            </ul>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                          <Link to={`/saint/${teacherKey}`} className="graph-lineage-teacher-link">
+                            {t('lineageTeacherPage')}
+                          </Link>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+            {!lineageQuery && visibleLineageGroups.length > LINEAGE_PREVIEW && (
+              <button
+                type="button"
+                className="action-btn graph-lineage-more"
+                aria-expanded={showAllTeachers}
+                onClick={() => setShowAllTeachers((all) => !all)}
+              >
+                {showAllTeachers
+                  ? t('chronologyShowFewer')
+                  : fmtNum(tFn(lang, 'almanacShowList', visibleLineageGroups.length))}
+              </button>
+            )}
           </section>
         )}
 

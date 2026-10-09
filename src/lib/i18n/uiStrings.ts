@@ -79,6 +79,9 @@ const UI_TEXT_EN = {
   lineageTeacherLabel: 'Teacher',
   lineageDisciplesCount: (n: number) => (n === 1 ? '1 disciple' : `${n} disciples`),
   lineageHideSource: 'Hide source',
+  lineageFindPlaceholder: 'Find a teacher or disciple',
+  lineageNoMatch: 'No teacher or disciple by that name in this scope.',
+  lineageTeacherPage: 'Open the teacher’s page',
   settingsLookHelp:
     'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
   settingsLookModern: 'Current',
