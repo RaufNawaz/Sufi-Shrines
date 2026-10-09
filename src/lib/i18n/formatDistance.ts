@@ -73,6 +73,7 @@ export function formatDistance(
       // Branched rather than a ternary key: tFn's overloads are per literal
       // key, so a union of two of them resolves to neither.
       const metres = fmtNum(Math.round(km * 1000));
+      if (style === 'bare') return tFn(lang, 'distanceBareMetres', metres);
       return style === 'apart'
         ? tFn(lang, 'distanceApartMetres', metres)
         : tFn(lang, 'distanceAwayMetres', metres);

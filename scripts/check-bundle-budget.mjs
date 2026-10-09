@@ -250,7 +250,9 @@ const BUDGETS_KB = {
      ChronologyPage because they load the same things. If this jumps by ~420 KB
      something pulled in src/lib/kg.ts; by ~1 MB, the maplibre basemap, which
      would mean a link to the map turned into an embedded one. */
-  'src/pages/SharedGroundPage.tsx': 319, // measured 309 on 29 Aug 2026
+  /* +5 KB on 9 Oct 2026: the meetings ring and the crossings' distance strip
+     (HANDOVER §9.278) — page code, no new import. */
+  'src/pages/SharedGroundPage.tsx': 330, // measured 324 on 9 Oct 2026 (measured 309 on 29 Aug 2026)
   /* The tradition pages, new on 29 Aug 2026. Sibling of the order pages and it
      loads much the same things, minus the graph. Its own data lives in
      `data/kg-traditions.json` (17 KB as a chunk) and is *not* here by accident:

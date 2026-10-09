@@ -238,6 +238,7 @@ const UI_TEXT_EN = {
   distanceAwayKm: (value: string) => `${value} km away`,
   distanceAwayMi: (value: string) => `${value} mi away`,
   distanceBareKm: (value: string) => `${value} km`,
+  distanceBareMetres: (value: string) => `${value} m`,
   distanceBareMi: (value: string) => `${value} mi`,
   /* "apart", not "away": a shared-ground row names two sites and no vantage
      point, so "222 m away" would be measured from a place the reader is not.
@@ -1354,6 +1355,7 @@ export function tFn(lang: Lang, key: 'distanceAwayKm', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMetres', value: string): string;
 export function tFn(lang: Lang, key: 'distanceAwayMi', value: string): string;
 export function tFn(lang: Lang, key: 'distanceBareKm', value: string): string;
+export function tFn(lang: Lang, key: 'distanceBareMetres', value: string): string;
 export function tFn(lang: Lang, key: 'distanceBareMi', value: string): string;
 export function tFn(lang: Lang, key: 'distanceApartMetres', value: string): string;
 export function tFn(lang: Lang, key: 'distanceApartKm', value: string): string;
@@ -1382,6 +1384,7 @@ export function tFn(
     | 'distanceAwayMetres'
     | 'distanceAwayMi'
     | 'distanceBareKm'
+    | 'distanceBareMetres'
     | 'distanceBareMi'
     | 'distanceApartMetres'
     | 'distanceApartKm'

@@ -189,8 +189,19 @@ async function findOverflow(page: Page, exempt: string[]) {
       }
 
       // Content wider than its own box, where the box is not a scroller.
+      //
+      // Not for SVG. `scrollWidth`/`clientWidth` describe a CSS box, and an SVG
+      // element has none: Chrome reports an end-anchored `<text>` in the
+      // /shared-ground ring as 58 wide in a 51 box while it sits 300px inside
+      // the screen (measured 9 October 2026). The viewport-edge rule above
+      // still applies to SVG, and is the one that means something for it.
       const scrolls = /(auto|scroll)/.test(style.overflowX);
-      if (!scrolls && el.scrollWidth - el.clientWidth > 1 && el.clientWidth > 0) {
+      if (
+        !(el instanceof SVGElement) &&
+        !scrolls &&
+        el.scrollWidth - el.clientWidth > 1 &&
+        el.clientWidth > 0
+      ) {
         offenders.push({
           tag: el.tagName.toLowerCase(),
           cls: typeof el.className === 'string' ? el.className.split(' ')[0] : '',

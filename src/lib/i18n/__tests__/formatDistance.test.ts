@@ -52,6 +52,17 @@ describe('formatDistance', () => {
   });
 
   describe('under one unit', () => {
+    it('reads as a bare number of metres where the phrase would be noise', () => {
+      /* An axis tick on /shared-ground's distance strip: "200 m", not "200 m
+         away". Added 9 October 2026 — `bare` used to fall through to "away". */
+      expect(formatDistance(0.2, 'km', 'en', plain, { style: 'bare', below: 'metres' })).toBe(
+        '200 m',
+      );
+      expect(formatDistance(0.2, 'km', 'ur', eastern, { style: 'bare', below: 'metres' })).toBe(
+        '۲۰۰ میٹر',
+      );
+    });
+
     it('reads in metres for a metric reader, which is what shared ground is about', () => {
       /* SHARED_GROUND_VISION is built on "within 800 m of another site" — the
          unit is part of the argument, not a display choice. */

@@ -233,6 +233,7 @@ export const UI_TEXT_UR: UiStrings = {
   distanceAwayKm: (value: string) => `${value} کلومیٹر دور`,
   distanceAwayMi: (value: string) => `${value} میل دور`,
   distanceBareKm: (value: string) => `${value} کلومیٹر`,
+  distanceBareMetres: (value: string) => `${value} میٹر`,
   distanceBareMi: (value: string) => `${value} میل`,
   /* «کے فاصلے پر» is "away from" — it wants a vantage point. A pair has none,
      so these read as a plain measurement between the two. */
