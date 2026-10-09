@@ -102,6 +102,39 @@ an `ī`), so it got the full inline treatment.
 
 
 
+**(c) A bare PROVINCE name takes EVERY row in that province — ruled by Rauf, 29 September 2026, in
+chat:** *"to each shrines add a province tag and then any information on sindh in general shows up in
+the summary of all shrines in that province but be careful of the timeline of the information."*
+Every row now carries a `province` column in `shrine_index.tsv` (`build_province_map.py`; 168 of 169
+tagged — `darbar-malik-ahmad-ayaz` has no province in its source and is left empty, RULE 2), and
+`province_map.txt` lists the rows per province (Punjab 93, Sindh 43, KP 16, Balochistan 11, ICT 4,
+AJK 1) with the aliases `sind`, `baluchistan`, `nwfp`, `frontier province`.
+
+**How to apply it — NOT by pasting 93 ids into a bullet head.** Province material goes under its own
+heading, `## Province-level material`, placed after "Shrines and figures in the archive", one bullet
+per province per chunk, **with no bold ids**:
+
+```
+## Province-level material
+- PROVINCE sindh (book's word: "Sind"; refers to: 18th century, Kalhora rule — as the book states):
+  - fact, page referenced
+```
+
+The join to rows happens by the `province` tag at consolidation/display time. **Be careful of the
+timeline — this is the half of the ruling that needs discipline:** (1) state the PERIOD the book's
+statement refers to, in the book's terms, or `(period not stated)`; (2) if the book itself marks the
+unit as historical or differently bounded ("undivided Punjab", "the Sikh kingdom", "Sind under Bombay
+Presidency", a Mughal *suba*, "West Punjab", "East Punjab"), carry that wording and add a Doubts line
+— do NOT supply boundary history from general knowledge (RULE 2); (3) material the book places in a
+part of a historical province that is now outside Pakistan (Amritsar, Jalandhar, "East Punjab", Indian
+Kashmir…) does **not** take the Pakistani province; (4) a statement about "Punjab" or "Sindh" that is
+really about one named town is a toponym (ruling (a)), not a province bullet. Add a Doubts line on
+every province bullet: "province-level, weigh accordingly".
+
+**Pass 2:** consolidate these into `## Province-level material` with one `### province: <key>`
+subsection per province, each bullet keeping its period and page. Do not copy them under each row.
+
+
 Efficiency: one Read of the chunk, one Read of the index (first chunk only for a given worker),
 one Write per chunk. No Bash, no Edit, no re-reading.
 

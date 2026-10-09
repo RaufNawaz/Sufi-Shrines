@@ -48,6 +48,10 @@
         {
           "t": "2026-09-16T12:25:48Z",
           "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        },
+        {
+          "t": "2026-10-07T21:27:11Z",
+          "msg": "chunked into 1 chunks of ~8000 words"
         }
       ],
       "scan_images": {
@@ -132,6 +136,10 @@
         {
           "t": "2026-09-16T12:25:48Z",
           "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        },
+        {
+          "t": "2026-10-07T21:27:11Z",
+          "msg": "chunked into 32 chunks of ~4000 words"
         }
       ],
       "scan_images": {
@@ -156,7 +164,7 @@
       }
     },
     "tahqiqat_chishti": {
-      "status": "transcribing",
+      "status": "transcribed",
       "priority": 30,
       "group": "urdu_shrine",
       "route_planned": "vision",
@@ -176,53 +184,12 @@
       },
       "route_used": "vision",
       "render_scale": 3000,
-      "pages_done": "1-480,541-720",
-      "leases": {
-        "481-540": {
-          "worker": "HOLD-tarball-recovery-481-540",
-          "since": "2026-09-23T22:40:00Z"
-        }
-      },
-      "assembled_file": null,
+      "pages_done": "1-873",
+      "leases": {},
+      "assembled_file": "out/ocr/tahqiqat_chishti/p001-end_2026-10-03_1910_transcribed.txt",
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
-        {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 320-330 expired (worker w6)"
-        },
-        {
-          "t": "2026-09-22T19:23:06Z",
-          "msg": "lease 298-308 expired (worker w4)"
-        },
-        {
-          "t": "2026-09-22T19:23:06Z",
-          "msg": "lease 309-319 expired (worker w5)"
-        },
-        {
-          "t": "2026-09-22T19:23:06Z",
-          "msg": "lease 320-330 expired (worker w6)"
-        },
-        {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 361-370 released"
-        },
-        {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 371-380 released"
-        },
-        {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 381-390 released"
-        },
-        {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 391-400 released"
-        },
-        {
-          "t": "2026-09-22T22:51:26Z",
-          "msg": "lease 401-410 released"
-        },
         {
           "t": "2026-09-22T22:51:26Z",
           "msg": "lease 411-420 released"
@@ -343,6 +310,42 @@
         {
           "t": "2026-09-24T05:06:15Z",
           "msg": "folio range 641-650 marked contested: Whole cohort (w5, 2026-09-24) reads +202/+203 while 631-640 and 651-660 both read +2. Internally consistent with a single systematic hundreds-digit misreading (Urdu 6 read as 4) across the cohort: subtract 200 and every page matches its neighbours at +2/+3. The pages are NOT re-read and the correction is not measured - 9.225 forbids settling a folio on this book by model reading. Do not cite a folio from this range."
+        },
+        {
+          "t": "2026-09-26T21:09:14Z",
+          "msg": "lease 751-760 released"
+        },
+        {
+          "t": "2026-09-26T21:09:14Z",
+          "msg": "lease 761-770 released"
+        },
+        {
+          "t": "2026-09-26T21:09:14Z",
+          "msg": "lease 771-780 released"
+        },
+        {
+          "t": "2026-09-26T21:09:14Z",
+          "msg": "lease 481-540 released"
+        },
+        {
+          "t": "2026-10-03T17:17:08Z",
+          "msg": "folio range 784-786 marked contested: HANDOVER 9.247: w4 read 784->783, 785->784 [OCR?], 786->784 [OCR?] (offsets -1,-1,-2) inside an otherwise unbroken PDF-2 run (782->780, 788->786); the folio 784 is read on two consecutive pages. Either a units-digit misread or a repeated/skipped printed folio. Not settled by model reading (9.225). Do not cite a folio from this range."
+        },
+        {
+          "t": "2026-10-03T17:17:08Z",
+          "msg": "folio range 794-794 marked contested: HANDOVER 9.247: w5 read 791 [OCR?] where the PDF-2 run on both sides (792->790, 795->793) predicts 792; the units glyph may be a damaged 2. Single page, recorded rather than corrected."
+        },
+        {
+          "t": "2026-10-03T19:10:09Z",
+          "msg": "assembled p001-end_2026-10-03_1910_transcribed.txt"
+        },
+        {
+          "t": "2026-10-03T19:10:15Z",
+          "msg": "folio range 830-830 marked contested: 2026-10-03 §9.249: w4 read 839 [OCR?] where neighbours 832-834 run PDF-2 (expect 828); 829 and 831 cropped, no folio"
+        },
+        {
+          "t": "2026-10-03T19:10:15Z",
+          "msg": "folio range 855-873 marked contested: 2026-10-03 §9.249: offset steps from PDF-2 (854→852) to PDF-1 (858,859,862,865-867,869-871,873) with 863→863, 864→864 (=PDF) and 868→866 (PDF-2); 855-860 is a new section (Jahangir's tomb) in a different, clearer hand, possibly inserted; not settled"
         }
       ],
       "scan_images": {
@@ -363,11 +366,12 @@
         "keep_color": false
       },
       "folio_offsets": {
-        "6": "91-94,96-100,102-110,112,114,116,118,120-121,123-130,132,134,136-142,144-145,147-150,152-154,156,158-160,162-164,166-196,198-206,208,210-211,213-214,216-218,222,224-226,228-238,240-246,248-256,258-260,262,264,275-276,283-288,291,294,301-308,310-312,314,316,318,320-322,324,326-336,339,602",
-        "7": "10-11,14-22,24-29,31-32,35,37-48,50,52-75,77,89-90,451-453,455,458-460,462,465,469,472-480",
-        "2": "621-622,624-630,632-635,637-640,651-654,656-662,664-670,672,674-680,682,684,686,688,690-694,696-700,702-718",
+        "6": "91-94,96-100,102-110,112,114,116,118,120-121,123-130,132,134,136-142,144-145,147-150,152-154,156,158-160,162-164,166-196,198-206,208,210-211,213-214,216-218,222,224-226,228-238,240-246,248-256,258-260,262,264,275-276,283-288,291,294,301-308,310-312,314,316,318,320-322,324,326-336,339,494-504,506-510,514,516,518-521,526-528,531-536,538-539,602",
+        "2": "621-622,624-630,632-635,637-640,651-654,656-662,664-670,672,674-680,682,684,686,688,690-694,696-700,702-718,721-734,736,738-750,754,756,760-764,766,772,774,776-782,786,788,790,792,795-802,804-810,814,818,820-826,828,832-842,848,850,852-854,868",
+        "7": "10-11,14-22,24-29,31-32,35,37-48,50,52-75,77,89-90,451-453,455,458-460,462,465,469,472-484,486-487,489",
         "5": "541-549,551-558,563,581-585,587,589-591,593-596,599-600,603,605,607-610",
         "8": "122,340,361-368,370,381,406-409,413,416-419,425-426,428-430,441-444,446,448-450",
+        "1": "784-785,858-859,862,865-867,869-871,873",
         "4": "351-358,360,561",
         "-2": "341-346,348-350",
         "15": "571-579",
@@ -378,9 +382,12 @@
         "10": "382-384",
         "26": "266-267",
         "203": "613,646",
+        "0": "863-864",
         "30": "374",
         "205": "611",
-        "204": "612"
+        "204": "612",
+        "3": "794",
+        "-9": "830"
       },
       "folio_flagged": 35,
       "folio_partial": "369,391,393,398,400,405,410,565,568-570,598",
@@ -441,6 +448,26 @@
           "range": "641-650",
           "reason": "Whole cohort (w5, 2026-09-24) reads +202/+203 while 631-640 and 651-660 both read +2. Internally consistent with a single systematic hundreds-digit misreading (Urdu 6 read as 4) across the cohort: subtract 200 and every page matches its neighbours at +2/+3. The pages are NOT re-read and the correction is not measured - 9.225 forbids settling a folio on this book by model reading. Do not cite a folio from this range.",
           "recorded": "2026-09-24T05:06:15Z"
+        },
+        {
+          "range": "784-786",
+          "reason": "HANDOVER 9.247: w4 read 784->783, 785->784 [OCR?], 786->784 [OCR?] (offsets -1,-1,-2) inside an otherwise unbroken PDF-2 run (782->780, 788->786); the folio 784 is read on two consecutive pages. Either a units-digit misread or a repeated/skipped printed folio. Not settled by model reading (9.225). Do not cite a folio from this range.",
+          "recorded": "2026-10-03T17:17:08Z"
+        },
+        {
+          "range": "794-794",
+          "reason": "HANDOVER 9.247: w5 read 791 [OCR?] where the PDF-2 run on both sides (792->790, 795->793) predicts 792; the units glyph may be a damaged 2. Single page, recorded rather than corrected.",
+          "recorded": "2026-10-03T17:17:08Z"
+        },
+        {
+          "range": "830-830",
+          "reason": "2026-10-03 §9.249: w4 read 839 [OCR?] where neighbours 832-834 run PDF-2 (expect 828); 829 and 831 cropped, no folio",
+          "recorded": "2026-10-03T19:10:15Z"
+        },
+        {
+          "range": "855-873",
+          "reason": "2026-10-03 §9.249: offset steps from PDF-2 (854→852) to PDF-1 (858,859,862,865-867,869-871,873) with 863→863, 864→864 (=PDF) and 868→866 (PDF-2); 855-860 is a new section (Jahangir's tomb) in a different, clearer hand, possibly inserted; not settled",
+          "recorded": "2026-10-03T19:10:15Z"
         }
       ]
     },
@@ -656,172 +683,171 @@
       },
       "route_used": "vision",
       "render_scale": 1568,
-      "pages_done": "1-16,49-362",
-      "leases": {
-        "17-38": {
-          "worker": "HOLD-vsplit-index-errata",
-          "since": "2026-09-22T20:08:30Z"
-        }
-      },
+      "pages_done": "1-480",
+      "leases": {},
       "assembled_file": null,
       "takeaways_file": null,
       "integrated_into": [],
       "log": [
         {
-          "t": "2026-09-14T16:57:59Z",
-          "msg": "ingested: 610 pages, route=vision"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 381-386 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-17T11:43:20Z",
-          "msg": "rendered pages 300-310 at scale 1568 (11 new; native 0, rerendered 11, split=False)"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 387-392 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T06:05:18Z",
-          "msg": "lease 17-38,49-58 released"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 393-398 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T06:05:18Z",
-          "msg": "lease 300-309 released"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 399-404 taken (worker w7) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T10:39:08Z",
-          "msg": "lease 300-310 released"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 405-410 taken (worker w8) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T10:39:40Z",
-          "msg": "rendered pages 99-100 at scale 1568 (2 new; native 0, rerendered 2, split=False)"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 411-416 taken (worker w9) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T20:47:44Z",
-          "msg": "lease 300-310 released"
+          "t": "2026-10-04T00:24:07Z",
+          "msg": "lease 417-422 taken (worker w10) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — session_01KMBZFV8zWnEzhvNQVUzsBa transcription batch"
         },
         {
-          "t": "2026-09-18T20:47:44Z",
-          "msg": "leases 231-296 taken for six workers; bands rendered in the cloud container (queue.py lease cannot see _qN band files, only pNNNN.png)"
+          "t": "2026-10-04T01:42:29Z",
+          "msg": "lease 405-410 released"
         },
         {
-          "t": "2026-09-19T02:43:39Z",
-          "msg": "leases 297-362 taken for six workers; bands rendered in the cloud container at scale 4400 (queue.py lease cannot see _qN band files)"
+          "t": "2026-10-04T01:42:29Z",
+          "msg": "lease 411-416 released"
         },
         {
-          "t": "2026-09-19T21:52:01Z",
-          "msg": "released 6 stale leases 297-362 (taken 2026-09-19T02:43Z, zero pNNNN.txt written; bridge dropped before mirror — see project doc 20_Cloud_OCR_Run_2026-09-19)"
+          "t": "2026-10-04T01:42:29Z",
+          "msg": "lease 417-422 released"
         },
         {
-          "t": "2026-09-20T13:41:26Z",
-          "msg": "leased 297-362 to w1-w6 (band render, written through load_state/save_state: lease cannot see _qN bands)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 405-410 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 17-38 expired (worker HOLD-vsplit-index-errata)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 411-416 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 297-307 expired (worker w1)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 417-422 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 308-318 expired (worker w2)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 423-428 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 319-329 expired (worker w3)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 429-434 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 330-340 expired (worker w4)"
+          "t": "2026-10-04T06:09:21Z",
+          "msg": "lease 435-440 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 341-351 expired (worker w5)"
+          "t": "2026-10-04T20:09:44Z",
+          "msg": "lease 417-422 expired (worker w3)"
         },
         {
-          "t": "2026-09-21T21:24:16Z",
-          "msg": "lease 352-362 expired (worker w6)"
+          "t": "2026-10-04T20:09:44Z",
+          "msg": "lease 423-428 expired (worker w4)"
         },
         {
-          "t": "2026-09-21T22:09:15Z",
-          "msg": "lease 17-38 taken (worker HOLD-vsplit-index-errata) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — RESTORED: swept in error by a sibling run sweep-leases --hours 3 at 2026-09-21T21:24:16Z; the hold is deliberate and predates it"
+          "t": "2026-10-04T20:09:44Z",
+          "msg": "lease 429-434 expired (worker w5)"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 297-307 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:09:44Z",
+          "msg": "lease 435-440 expired (worker w6)"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 308-318 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:24:17Z",
+          "msg": "lease 417-422 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 319-329 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:24:17Z",
+          "msg": "lease 423-428 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 330-340 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:24:17Z",
+          "msg": "lease 429-434 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 341-351 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:24:17Z",
+          "msg": "lease 435-440 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-21T22:09:19Z",
-          "msg": "lease 352-362 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — 4-band render at scale 4400 + _r/_l halves + _ft folio strip, prepared in the cloud container"
+          "t": "2026-10-04T20:58:57Z",
+          "msg": "lease 429-434 released"
         },
         {
-          "t": "2026-09-22T19:23:06Z",
-          "msg": "lease 17-38 expired (worker HOLD-vsplit-index-errata)"
+          "t": "2026-10-04T20:58:57Z",
+          "msg": "lease 435-440 released"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 17-38 taken (worker HOLD-vsplit-index-errata) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-04T21:51:01Z",
+          "msg": "lease 429-434 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 363-370 taken (worker w1) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-04T21:51:01Z",
+          "msg": "lease 435-440 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 371-378 taken (worker w2) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-05T00:11:47Z",
+          "msg": "lease 435-440 released"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 379-386 taken (worker w3) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-05T15:01:14Z",
+          "msg": "lease 435-444 taken (worker coord-s01UMuqh) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — §9.258 coordinator reads halves itself"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 387-394 taken (worker w4) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-07T03:08:22Z",
+          "msg": "lease 435-444 expired (worker coord-s01UMuqh)"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 395-402 taken (worker w5) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-07T03:08:22Z",
+          "msg": "lease 441-450 taken (worker coord-s01T7T6K) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-22T20:08:30Z",
-          "msg": "lease 403-410 taken (worker w6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
+          "t": "2026-10-07T03:21:50Z",
+          "msg": "lease 441-450 released"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 363-370 expired (worker w1)"
+          "t": "2026-10-07T04:22:54Z",
+          "msg": "lease 449-458 taken (worker coord-s01DGhmM6) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — §9.260 coordinator reads itself; also re-reads 441/442/446/447"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 371-378 expired (worker w2)"
+          "t": "2026-10-07T18:30:34Z",
+          "msg": "lease 449-458 expired (worker coord-s01DGhmM6)"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 379-386 expired (worker w3)"
+          "t": "2026-10-07T18:30:43Z",
+          "msg": "lease 449-458 taken (worker coord-s01FnP8zc) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 387-394 expired (worker w4)"
+          "t": "2026-10-07T22:22:51Z",
+          "msg": "lease 459-466 taken (worker coord-s01HF9pHm) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 395-402 expired (worker w5)"
+          "t": "2026-10-07T22:29:26Z",
+          "msg": "lease 459-466 released"
         },
         {
-          "t": "2026-09-22T23:51:33Z",
-          "msg": "lease 403-410 expired (worker w6)"
+          "t": "2026-10-08T19:58:47Z",
+          "msg": "lease 465-472 taken (worker coord-s01Y1yJNq) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease — §9.266 transcription firing"
+        },
+        {
+          "t": "2026-10-08T23:19:23Z",
+          "msg": "lease 473-480 taken (worker coord-s01DCrRWs) via lease_bands.py: bands rendered in the cloud container, invisible to queue.py lease"
         }
       ],
       "scan_images": {
@@ -836,12 +862,44 @@
       },
       "render_mode": {
         "native_extract": 0,
-        "rerendered": 2,
+        "rerendered": 10,
         "split_spreads": false,
         "halves": false,
         "keep_color": false
       },
       "folio_offsets": {
+        "-15": "17,287",
+        "-13": "18,288",
+        "-11": "19,289",
+        "-9": "20,290",
+        "-7": "21,291",
+        "-5": "22,292",
+        "-3": "23,293",
+        "-1": "24,294",
+        "1": "25,295",
+        "3": "26,296",
+        "5": "27,297",
+        "7": "28,298",
+        "9": "29,299",
+        "11": "30,300",
+        "13": "31,301",
+        "15": "32,302",
+        "17": "33,303",
+        "19": "34,304",
+        "21": "35,305",
+        "23": "36,306",
+        "25": "37,307",
+        "27": "38,308",
+        "29": "39,309",
+        "31": "40,310",
+        "33": "41,311",
+        "35": "42,312",
+        "37": "43,313",
+        "39": "44,314",
+        "41": "45,315",
+        "43": "46,316",
+        "45": "47,317",
+        "47": "48,318",
         "-491": "49",
         "-489": "50",
         "-487": "51",
@@ -1080,38 +1138,6 @@
         "-21": "284",
         "-19": "285",
         "-17": "286",
-        "-15": "287",
-        "-13": "288",
-        "-11": "289",
-        "-9": "290",
-        "-7": "291",
-        "-5": "292",
-        "-3": "293",
-        "-1": "294",
-        "1": "295",
-        "3": "296",
-        "5": "297",
-        "7": "298",
-        "9": "299",
-        "11": "300",
-        "13": "301",
-        "15": "302",
-        "17": "303",
-        "19": "304",
-        "21": "305",
-        "23": "306",
-        "25": "307",
-        "27": "308",
-        "29": "309",
-        "31": "310",
-        "33": "311",
-        "35": "312",
-        "37": "313",
-        "39": "314",
-        "41": "315",
-        "43": "316",
-        "45": "317",
-        "47": "318",
         "49": "319",
         "51": "320",
         "53": "321",
@@ -1155,8 +1181,120 @@
         "129": "359",
         "131": "360",
         "133": "361",
-        "135": "362"
-      }
+        "135": "362",
+        "137": "363",
+        "139": "364",
+        "141": "365",
+        "143": "366",
+        "145": "367",
+        "147": "368",
+        "149": "369",
+        "151": "370",
+        "153": "371",
+        "155": "372",
+        "157": "373",
+        "159": "374",
+        "161": "375",
+        "163": "376",
+        "165": "377",
+        "167": "378",
+        "169": "379",
+        "171": "380",
+        "173": "381",
+        "175": "382",
+        "177": "383",
+        "179": "384",
+        "181": "385",
+        "183": "386",
+        "185": "387",
+        "187": "388",
+        "189": "389",
+        "191": "390",
+        "193": "391",
+        "195": "392",
+        "197": "393",
+        "199": "394",
+        "201": "395",
+        "203": "396",
+        "205": "397",
+        "207": "398",
+        "209": "399",
+        "211": "400",
+        "213": "401",
+        "215": "402",
+        "217": "403",
+        "219": "404",
+        "221": "405",
+        "223": "406",
+        "225": "407",
+        "227": "408",
+        "229": "409",
+        "231": "410",
+        "233": "411",
+        "235": "412",
+        "237": "413",
+        "239": "414",
+        "241": "415",
+        "243": "416",
+        "245": "417",
+        "247": "418",
+        "249": "419",
+        "251": "420",
+        "253": "421",
+        "255": "422",
+        "257": "423",
+        "259": "424",
+        "261": "425",
+        "263": "426",
+        "265": "427",
+        "267": "428",
+        "269": "429",
+        "271": "430",
+        "273": "431",
+        "275": "432",
+        "277": "433",
+        "279": "434",
+        "281": "435",
+        "283": "436",
+        "285": "437",
+        "287": "438",
+        "289": "439",
+        "291": "440",
+        "293": "441",
+        "295": "442",
+        "297": "443",
+        "299": "444",
+        "301": "445",
+        "303": "446",
+        "305": "447",
+        "307": "448",
+        "309": "449",
+        "311": "450",
+        "313": "451",
+        "315": "452",
+        "317": "453",
+        "319": "454",
+        "321": "455",
+        "323": "456",
+        "325": "457",
+        "327": "458",
+        "329": "459",
+        "331": "460",
+        "333": "461",
+        "335": "462",
+        "337": "463",
+        "339": "464",
+        "341": "465",
+        "343": "466",
+        "345": "467",
+        "347": "468",
+        "349": "469",
+        "351": "470",
+        "353": "471",
+        "355": "472"
+      },
+      "folio_flagged": 1,
+      "folio_partial": "10-15"
     },
     "wasif_qatra_qatra_qulzam": {
       "status": "skipped",
@@ -1987,6 +2125,10 @@
         {
           "t": "2026-09-16T12:25:48Z",
           "msg": "marked summarized: Pass 2 consolidated in the cloud session 16 Sep 2026; chunk notes complete; compile_findings.py truncation bug fixed first (coverage 98%)"
+        },
+        {
+          "t": "2026-10-07T21:27:11Z",
+          "msg": "chunked into 20 chunks of ~6000 words"
         }
       ],
       "scan_images": {
@@ -2646,7 +2788,7 @@
       "chunks": 16
     },
     "schimmel_mystical_dimensions_of_islam": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 119,
       "group": "english",
       "route_planned": "text_probe",
@@ -2669,7 +2811,7 @@
       "pages_done": "1-543",
       "leases": {},
       "assembled_file": "out/ocr/schimmel_mystical_dimensions_of_islam/p001-end_2026-09-14_1710_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md",
       "integrated_into": [],
       "log": [
         {
@@ -2691,6 +2833,10 @@
         {
           "t": "2026-09-24T12:47:07Z",
           "msg": "chunked into 29 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-26T21:48:05Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -2706,7 +2852,7 @@
       "chunks": 29
     },
     "khalid_walking_with_nanak": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 120,
       "group": "english",
       "route_planned": "text_probe",
@@ -2729,7 +2875,7 @@
       "pages_done": "1-324",
       "leases": {},
       "assembled_file": "out/ocr/khalid_walking_with_nanak/p001-end_2026-09-15_1704_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/khalid_walking_with_nanak.md",
       "integrated_into": [],
       "log": [
         {
@@ -2751,6 +2897,14 @@
         {
           "t": "2026-09-16T00:51:03Z",
           "msg": "chunked into 14 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-26T23:53:04Z",
+          "msg": "chunked into 14 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-29T19:51:47Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -2766,7 +2920,7 @@
       "chunks": 14
     },
     "dhillon_janamsakhis": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 121,
       "group": "english",
       "route_planned": "text_probe",
@@ -2789,7 +2943,7 @@
       "pages_done": "1-271",
       "leases": {},
       "assembled_file": "out/ocr/dhillon_janamsakhis/p001-end_2026-09-14_1710_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/dhillon_janamsakhis.md",
       "integrated_into": [],
       "log": [
         {
@@ -2807,6 +2961,14 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 9 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-29T19:52:26Z",
+          "msg": "chunked into 9 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-29T20:06:52Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -2822,7 +2984,7 @@
       "chunks": 9
     },
     "khalid_a_white_trail": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 122,
       "group": "english",
       "route_planned": "text_probe",
@@ -2845,7 +3007,7 @@
       "pages_done": "1-236",
       "leases": {},
       "assembled_file": "out/ocr/khalid_a_white_trail/p001-end_2026-09-14_1710_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/khalid_a_white_trail.md",
       "integrated_into": [],
       "log": [
         {
@@ -2863,6 +3025,14 @@
         {
           "t": "2026-09-16T00:51:04Z",
           "msg": "chunked into 13 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-09-29T22:23:19Z",
+          "msg": "chunked into 13 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-03T17:39:38Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -2878,7 +3048,7 @@
       "chunks": 13
     },
     "khalid_in_search_of_shiva": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 123,
       "group": "english",
       "route_planned": "epub",
@@ -2893,7 +3063,7 @@
       "pages_done": "1-21",
       "leases": {},
       "assembled_file": "out/ocr/khalid_in_search_of_shiva/p001-end_2026-09-14_1710_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/khalid_in_search_of_shiva.md",
       "integrated_into": [],
       "log": [
         {
@@ -2911,6 +3081,14 @@
         {
           "t": "2026-09-16T00:51:05Z",
           "msg": "chunked into 9 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-03T20:24:07Z",
+          "msg": "chunked into 9 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-04T06:01:28Z",
+          "msg": "marked summarized"
         }
       ],
       "chunks": 9
@@ -3367,7 +3545,7 @@
       }
     },
     "nizami_revised_translation": {
-      "status": "transcribed",
+      "status": "summarized",
       "priority": 210,
       "group": "urdu_other",
       "route_planned": "text_probe",
@@ -3390,7 +3568,7 @@
       "pages_done": "1-208",
       "leases": {},
       "assembled_file": "out/ocr/nizami_revised_translation/p001-end_2026-09-14_1711_transcribed.txt",
-      "takeaways_file": null,
+      "takeaways_file": "entries/book_takeaways/nizami_revised_translation.md",
       "integrated_into": [],
       "log": [
         {
@@ -3408,6 +3586,14 @@
         {
           "t": "2026-09-16T00:51:05Z",
           "msg": "chunked into 13 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-04T19:59:35Z",
+          "msg": "chunked into 13 chunks of ~8000 words"
+        },
+        {
+          "t": "2026-10-04T22:35:39Z",
+          "msg": "marked summarized"
         }
       ],
       "scan_images": {
@@ -3423,5 +3609,5 @@
       "chunks": 13
     }
   },
-  "updated": "2026-09-24T15:49:44Z"
+  "updated": "2026-10-08T23:50:54Z"
 }

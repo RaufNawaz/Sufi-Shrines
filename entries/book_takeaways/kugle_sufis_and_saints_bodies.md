@@ -912,6 +912,35 @@ carries a Doubts entry saying so.*
   in an anatomy, not a deity at a site**, and the eight Shiva rows take it at person level only.
   See Doubts — this is the weakest attachment in the file.
 
+## Province-level material
+
+*Swept from the raw chunks (`chunk_001`–`chunk_022`) under ruling (c), with folios by the book's
+constant rule (folio = PDF − 21 through the body, zero contradictions per the takeaways header; the
+index locators "Punjab, … 239, 243, 259 … 308 (n. 52)" and "Sindh, 220, 259" agree). This is a
+one-chapter book for the archive, and its province material is thin: five bullets in all, two of them the same 1857 itinerary under both keys. Only
+statements about a province or region in general are kept; statements that only locate one person,
+town or site stay with that toponym and are listed in the Sweep notes. Registers used: **book's
+historical prose** and **author's argument** (including the author's endnotes). Every bullet is
+province-level: weigh accordingly.*
+
+### province: punjab
+
+- (book's word: "Punjab"; refers to: "the medieval centuries", relative to Kabir "a century earlier" — as the book states, no year given; author's argument, in an endnote): "New Muslims (naw-musalman) from weaver castes converted to join the Islamic community in Punjab slightly later than in Hindustan, where the mystic poet Kabir displays the same kind of Sufi-bhakti synthesis a century earlier. The castes of weavers who converted to Islam in the medieval centuries had most likely been Shudras" (ch. 4 n. 52, printed on p. 329, folio 308).
+- (book's word: "Punjabi" — of the region's folk, poets and audiences, not of a language; refers to: Shah Hussayn's time and after, period not stated beyond that; author's argument): "the love epic of the Punjabi folk heroes Hir and her lover Ranjha"; "Punjabi poets and their eager audiences poured into Hir and Ranjha the same erotic emotion that was invested in Radha and Krishna in regions closer to the Ganges. The story of Hir and Ranjha became a favorite Sufi device for conveying the value of erotic passion in spiritual life"; Hussayn's poems explore divine love "in terms Islamic, Hindu, and indigenous Punjabi" (p. 228, folio 207). Borderline: kept because the sentence contrasts the region with "regions closer to the Ganges".
+- (book's word: "the Punjab"; refers to: the aftermath of "the uprising of 1857" — as the book states; book's historical prose): "After closely missing arrest, Imdadullah fled through the Punjab and Sindh, visiting Sufi shrines and eventually sailing from Karachi into exile in Mecca"; no shrine is named (p. 280, folio 259). An itinerary, not a description of the region: weigh lightly.
+
+### province: sindh
+
+- (book's word: "Sindh"; refers to: the reign of Akbar — as the book states, no year given on the page; book's historical prose): "As one of Akbar's chief nobles, Abd al-Rahim Khan-i Khanan, was traveling with an army toward Sindh, he stopped in Lahore to receive the blessing of Shah Hussayn"; the book then says the Mughal armies "conquered Thatta in Sindh, and Hussayn's reputation spread" (p. 241, folio 220; running header printed "22O" [text-layer?] [220]). Borderline: the campaign is "toward Sindh", but the conquest named is of one town, Thatta.
+- (book's word: "Sindh"; refers to: the aftermath of "the uprising of 1857" — as the book states; book's historical prose): Imdadullah "fled through the Punjab and Sindh, visiting Sufi shrines and eventually sailing from Karachi into exile in Mecca"; no shrine is named (p. 280, folio 259). An itinerary: weigh lightly.
+
+### not attached
+
+- "Kashmir, India" — plate caption: a miniature "Painted in Kashmir, India, in 1731" (p. 237, folio 216). The book places it in India; not Azad Kashmir.
+- "Indian-held Kashmir" — "the Lashkar-i Tayyiba (Army of Medina) in Indian-held Kashmir", present day (p. 285, folio 264). Outside Pakistan by the book's own wording.
+
+*Sweep notes:* Hits in the `.txt` chunks for the brief's pattern (case-insensitive): "Punjab" 11 (p. 218 "Punjab University in Lahore"; p. 264; p. 280; ch. 4 n. 52 on p. 329; the title "Tadhkira-yi Sufiya-yi Punjab" in ch. 4 n. 22, p. 327; bibliography: "Punjab University Library" pp. 338 ×2 and 339, "Tadhkira-yi Sufiya-yi Punjab" p. 341, "Sufi Poet of the Punjab" p. 345; index p. 361); "Punjabi" 17 (pp. 202, 204, 205, 219, 222, 227, 228 ×4, 260; ch. 4 nn. 28 ×2 and 37 on p. 328; bibliography titles pp. 345, 346; index p. 361); "Sindh" 4 (p. 241 ×2, p. 280, index p. 364); "Kashmir" 2 (pp. 237, 285); "Frontier" 1 ("sociocultural frontiers", p. 11, not a province); "Sind"/"Baluchistan"/"Balochistan"/"Pakhtunkhwa"/"NWFP"/"Multan"/"suba"/"Sindhi"/"Baluchi"/"Kashmiri": 0. Excluded as locating one person or site (ruling a): Shaykh Farid al-Din "lived far from the major urban areas where other Chishti masters were increasingly settling. In Pun-" / "jabi jungles, he pursued strenuous devotional exercises" (printed hyphenated across a line break, p. 260, folio 239); "some Hindu Yogis who visited his retreat in the Punjab" (p. 264, folio 243); the conquest of "Thatta in Sindh" (p. 241, carried only inside the Sindh bullet above); "the unpublished original manuscript at Punjab University in Lahore" (p. 218, folio 197) and the library entries. Excluded as language or person adjectives: "a Punjabi poet (1539-99 C.E.)" (p. 202, folio 181), "his own Punjabi poetry" (p. 204), "a great poet in Punjabi" (p. 205), "so clearly Punjabi" of his poetic output (p. 219), "rolled off his lips in Punjabi" (p. 222), "those of Shah Hussayn in Punjabi" (p. 227), "these two medieval Punjabis" (n. 28, p. 328), "translations from Punjabi" (n. 37, p. 328). Flags for a human: the Sindh bullet's header digit "22O" is text-layer damage read as 220 (agrees with the index locator "Sindh, 220"); the Hir/Ranjha bullet (p. 228) and the 1857 itinerary (p. 280) are borderline inclusions; the book never says whether its "Punjab" is the undivided region or the Pakistani part, and nothing is inferred.
+
 ## Cross-cutting material
 
 *Nearly all of the institutional and economic material in this book is Moroccan, Tunisian, Mughal

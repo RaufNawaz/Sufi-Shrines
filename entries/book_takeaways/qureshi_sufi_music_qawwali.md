@@ -318,6 +318,23 @@ referenced. Every one of them is flagged again under Doubts.*
   row.** **Pakpattan** (p. 101, folio 81) has one row and it is already folded into
   `shrine-of-fariduddin-ganjshakar` above.
 
+## Province-level material
+
+*Swept from the raw chunks (`chunk_001`–`chunk_015`) under ruling (c), with folios by the book's own
+rule (folio = PDF − 20 through the body, read off the page on every chunk and contradicted nowhere;
+PDF − 2 in the roman front matter). The book's fieldwork is Indian (Delhi, Ajmer and other north
+Indian shrines), and its only province-level statement is a musical one: one bullet, under
+`punjab`. Register used: **author's argument** (the author's analysis of regional musical style,
+ethnographic present). The book's diacritic loss is systematic and not reversible token by token;
+"Panjab" is quoted as printed, and whether the original carried a macron cannot be told from the
+text layer. Every bullet is province-level: weigh accordingly.*
+
+### province: punjab
+
+- (book's word: "Panjab", "Panjabi"; refers to: period not stated, ethnographic present of the author's fieldwork; author's argument): "tunes from the two principal regions of the Qawwali tradition, Uttar Pradesh and Panjab, can be distinguished mainly by their rhythmic setting"; "A predominantly quantitative emphasis characterizes tunes from Uttar Pradesh, while Panjabi tunes tend to be rhythmically organized according to 'quality' or stress"; the drum articulation of the metre, "which in Panjab is more strongly accentual than in Uttar Pradesh, corresponding with the respective drumming traditions of each region (as elaborated in Stewart 1974)" (p. 73, folio 53). The music example that follows is captioned "Panjab (Kisi ko kuchh)" against "Uttar Pradesh (Kachhjagmag)" (p. 75, folio 55), and the same song is said to exemplify "the 'Panjabi style'" (p. 58, folio 38). The book does not say whether its "Panjab" is the Pakistani or the Indian side, or both; it sets it against an Indian region (Uttar Pradesh), and the "Panjab" example was sung by "a Panjabi Qawwal, Rahmat Khan" (p. 57, folio 37) and recorded at "Qawwali Hall, 'Urs Nizamuddin" / "Auliya, 18 Apr. 1976" (p. 13, front matter, folio xi by the front-matter rule). Borderline: kept because it is a statement about the region's musical tradition in general, not a language remark.
+
+*Sweep notes:* Hits in the `.txt` chunks for the brief's pattern (case-insensitive, widened to catch diacritic loss with `P[aue]n.?j.?[a-z]?b`): "Panjab" 3 (p. 73 ×2; p. 75 caption); "Panjabi" 6 (p. 13 CD listing "(Panjabi version) Panjabi Qawwal and Party" ×2; p. 57 "a Panjabi Qawwal, Rahmat Khan"; p. 58 "'Panjabi style'"; p. 73 "Panjabi tunes"; p. 256 glossary "ang     regional or genre style (for example, Panjabi ang)", folio 236 by rule); "Punjabi" 1 (bibliography title "A Punjabi Village in Pakistan", Eglar, date printed "i960" [text-layer?] [1960], p. 269); "Sind" 3, all bibliography titles (p. 267 BALOCH, "Musical Instruments of the Lower Indus Valley ofSind" [text-layer?] [of Sind]; p. 274 "'Music and Culture in Sind: An Ethnomusicological Perspective'" and "Sind through the Centuries"); "Pathan" 1 (performer name "Alaf Din Pathan (Lahore)", discography, p. 282); "Punjab"/"Sindh"/"Baluchistan"/"Balochistan"/"Frontier"/"Pakhtunkhwa"/"NWFP"/"Kashmir"/"Multan"/"suba"/"Sindhi"/"Baluchi"/"Kashmiri": 0. The case-insensitive "Sind" pattern also matched "simultaneous(ly)" 11 times (chunks 006, 008, 012, 013): false positives. Excluded: the p. 13 CD listing, the p. 57 performer description and the p. 256 glossary entry (person or terminology, folded into the bullet as context only where they bear on it); all bibliography and discography lines (titles and a name, no substantive text). No toponym-only province hits. Flags for a human: the single bullet's "Panjab" is unbounded in the book (no India/Pakistan side stated) and its illustrative recording was made at the ʿurs of Nizamuddin Auliya, which the takeaways place in Delhi — a reviewer may prefer to move it to `not attached`.
+
 ## Cross-cutting material
 
 *This is where the book's weight for the archive lies. None of it is attached to a Pakistani site

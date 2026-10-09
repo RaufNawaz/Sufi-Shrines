@@ -17529,3 +17529,1951 @@ both still unapplied. Nothing is committed to git.
 **`docs/_APPEND_9237.md` is left behind on purpose — `unlink` is blocked on this mount, so Rauf
 should delete it by hand, along with `docs/_APPEND_9235.md` and `docs/_APPEND_9236.md` from the two
 previous runs, which are also still there.**
+
+### 9.238 — 25 September 2026: Stage = transcription. tahqiqat 721-780 done; the +2 offset now runs 621-780 unbroken at 91 folios; the corner crop replaces `--folio-strip` on this book; and the scratchpad is SHARED between parallel workers
+
+**Stage: transcription.** Chosen by BOOK_QUEUE_TASK.md step 1 at 22:55Z: `notes_claim.py status`
+printed **no live notes claims**, and the only two transcription leases on the board were both
+deliberate HOLDs — `tahqiqat_chishti` 481-540 / `HOLD-tarball-recovery-481-540` (23 Sep 22:40Z,
+§9.232) and `khulasat_ut_tawarikh` 17-38 / `HOLD-vsplit-index-errata` (22 Sep 20:08Z). `state.json`
+`updated` 15:49:44Z, seven hours old, so no sibling was live. Neither stage taken, so step 2: the
+last `### 9.` section by SORTING was **9.237, `Stage: notes`**. Previous firing did notes, so this
+firing transcribes. Leases were taken **at 22:56:54Z, before a single page was rendered**, and
+`RUN_IN_PROGRESS_tahqiqat_chishti.md` was rewritten at the same moment.
+
+**Section numbering.** The largest number before this append was **237**. Checked by sorting twice,
+at 22:55Z and again immediately before appending. No sibling appended during this run.
+
+## WRITE-BACK FAILED — READ THIS BEFORE ANYTHING ELSE
+
+**The 60 `pNNNN.txt` files were NOT written to the Mac during this run.** The bridge dropped at
+00:03Z on the first `device_commit_files` call, came back for under a minute at 00:1xZ (long enough
+for one call to fail with `Service Unavailable: server draining`), and was down continuously from
+then until the session ended ~00:5xZ. Nine retries over fifty minutes, spaced 75 s to 8 min.
+
+`queue.py check` was never run, so **`pages_done` still reads `1-480,541-720` and the six worker
+leases (721-730 w1 … 771-780 w6, all timestamped 22:56:54Z) are still on the board.** They expire
+three hours after that, at 01:56:54Z, and `sweep-leases` will then free the range.
+
+**The hazard is explicit: after 01:56Z a later firing will see 721-780 as free and re-transcribe all
+sixty pages.** Recover from the tarball instead — see
+`shrines/53_Cloud_OCR_Run_2026-09-25_tahqiqat_721-780.md` for paths and hashes. The work itself is
+sound and verified; only the transport failed.
+
+## What this run did
+
+**tahqiqat_chishti pp. 721-780 transcribed, 60 pages.** Six workers, ten pages each, one message,
+none of which touched the desktop bridge. **95,687 Arabic-script characters, 6,182 `[OCR?]`,
+76 `[illegible*]`, 258,033 bytes, zero blank pages, zero files under 800 bytes.** Rendering took
+2m55s for 60 pages in the container at `--scale 4400 --bands 4` (780 band, half and folio-strip
+PNGs) plus 120 native-resolution corner crops, never mirrored to the Mac.
+
+    worker  range     chars   [OCR?]  [illeg*]  illeg/1k  folios
+    w1      721-730   17301      914         4       0.2   10/10
+    w2      731-740   16973     1429         3       0.2    8/10
+    w3      741-750   14771      705        16       1.1   10/10
+    w4      751-760   16906     1218         8       0.5    3/10
+    w5      761-770   15024     1066         8       0.5    5/10
+    w6      771-780   14712      850        37       2.5    7/10
+
+**`[illegible]` per 1,000 characters read is 0.8, against the 40.1 measured on pp. 1-66 (§9.201).**
+The failure mode on this stretch is word-level doubt — 64.6 `[OCR?]` per 1,000 characters — not lost
+lines. Full detail in `shrines/53_Cloud_OCR_Run_2026-09-25_tahqiqat_721-780.md`. Nothing is
+committed to git — Rauf must run `git add -A && git commit` himself.
+
+**Duplicate check: NONE.** All 1,770 pairs measured with `difflib.SequenceMatcher(..., autojunk=False)`
+after stripping the marker vocabulary; the **highest ratio in the batch was 0.259**, on the unrelated
+pair (745, 761), against the 0.45 threshold. Same shape as 601-660 (0.33) and 661-720 (0.276).
+
+**No source stamp, watermark or rights notice anywhere in the range** — six workers, independently.
+That is the **fourth consecutive 60-page range** with the same answer (541-600 §9.232, 601-660
+§9.234, 661-720 §9.236, 721-780 here). After 240 pages of agreement this is settled: the stamps on
+this book are confined to p0008 and p0014. **Stop re-asking it on this book.**
+
+## THE +2 REGIME NOW RUNS 621-780 UNBROKEN — 91 FOLIOS, ZERO VIOLATIONS
+
+Computed mechanically from the `[folio N]` lines in the files, not from the workers' prose
+(§9.231's lesson):
+
+    offset +2   43 of 43 folios read   721-780   six cohorts, zero violations
+    omitted     17 pages   735, 737, 751, 752, 753, 755, 757, 758, 759, 765, 767, 768, 769,
+                           770, 771, 773, 775
+
+§9.234 found +2 on 26 pages and called it the best-attested offset in 660 pages; §9.236 took it to
+48 of 48 on 661-720. **With this batch it is 621-780 continuous — 91 folios, more than six
+independent cohorts, not one violation.** It has overtaken +7 (79) and is second only to the
+early-book +6 (182). **721-780 is deliberately NOT contested.** `tahqiqat_chishti` still contests 7
+ranges / 121 pages (341-360, 371-380, 421-480, 611-620, 641-650), unchanged by this run.
+
+**The corner-parity rule is now unanimous and should be treated as settled on this book: odd PDF
+page → folio in the top-LEFT corner, even PDF page → top-RIGHT.** Five of the six workers stated it
+independently, unprompted, having been told only to check both corners. Note this is a *corner*
+parity, distinct from the leading-even/trailing-odd *header* parity proved on the two schimmel books
+(§9.230, §9.235) — different instrument, same kind of free self-check.
+
+**The seventeen omissions are the instrument working, not a shortfall.** Not one worker computed
+PDF − 2 to fill a gap, though every one of them was given +2 as an expected value. w4 on p0755 read
+`۷۵` clearly and declined the third digit; w5 on p0770 found a corner printing only two glyphs
+(`۶۸`) with no hundreds digit anywhere in it, verified by a column-ink scan, and declined; w6
+declined on three pages whose corners carried only show-through speckle. **Giving workers the
+expected offset as a check did not cause a single inferred folio.** That is worth knowing: the
+earlier worry that naming the offset would contaminate readings is not borne out at n=60.
+
+## THE CORNER CROP BEATS `--folio-strip` ON THIS BOOK, AND A CHEAP RE-RENDER WOULD RECOVER THREE MORE
+
+`--folio-strip` writes a **centred** top strip 40% of the page wide. That is §9.210's instrument,
+tuned for `khulasat_ut_tawarikh`, where the folio sits centred above the text block. **On
+`tahqiqat_chishti` the folio sits in a top corner, so `_ft` is the wrong crop for this book** — it
+frequently does not contain the folio at all.
+
+This run added a seventh image per page: **native-resolution corner crops `pNNNN_cL.png` and
+`pNNNN_cR.png`, `(0,0,820,620)` and `(W-820,0,W,620)` off `_q1.png`** — the gotcha list's "cheap
+folio instrument", taken per page rather than tiled eight to an image. Every worker read the folio
+off those and none off `_ft`. **Capture was 43/60 (72%) through heavy scan damage.** Recommend the
+corner crops become standard on this book and `--folio-strip` be skipped on it; 120 extra crops cost
+seconds.
+
+**Three of the seventeen misses are recoverable by rendering, not by reading.** w5 reports that the
+**scan itself is cropped above the top frame rule on pp. 767, 768 and 769** — both corners bare, no
+digits and no running header, and on 767/769 the first body line sits where the frame normally is.
+p0768's bottom frame is also visibly skewed (page rotation), which is why its line peaks smear.
+Re-rendering those three with more top margin should yield their folios. **This is a rendering
+defect, not the hand failing, and it is the first time the two have been cleanly separated on this
+book** — every previous folio loss has been ink or impression.
+
+## w2 CHANGED METHOD MID-RANGE AND SAID SO — FIVE FILES ARE LOW-CONFIDENCE
+
+**w2 flags 732, 734, 738, 739 and 740 as low-confidence** and should be honoured. For 731-734 it
+stitched each page from the four bands (**measured band overlap: exactly 66 px on every boundary, on
+every page**), detected line baselines, and read every line as 3-4 overlapping magnified segments
+covering the full width — more coverage than the `_r`/`_l` halves give. **For 735-740 it dropped the
+per-line segmentation** to finish the range. On the five flagged pages it could trace letterforms but
+often not resolve them into words, so long stretches are letter-level transcription with a flag on
+nearly every token. It composed nothing to cover the gaps, which is the correct call.
+
+**Two things follow.** First, those five files are the ones to re-cut if a second pass is ever
+funded. Second, and more useful: **w2's per-line-segment method is the first technique any worker on
+this book has reported that plausibly beats the standard band+halves read**, and it is cheap to test
+— one cohort, same pages, both methods, compare characters read and `[illegible]` per 1,000. Worth a
+firing.
+
+## THE SCRATCHPAD IS SHARED BETWEEN PARALLEL WORKERS — GIVE EACH WORKER ITS OWN SUBDIRECTORY
+
+w1 reports that its helper script in the session scratchpad **was overwritten mid-run by another
+worker's file of the same name**. Six workers in one message all resolve the same scratchpad path.
+No page output was affected — w1 noticed and moved its work into a private `w1/` subdirectory — but
+a silent overwrite of a worker's *output* would not have been caught the same way, and this is the
+same class of failure as the 20 September notes collision (§9.218). **Tell every worker to write
+scratch under `<scratchpad>/wK/`.** One line in the brief.
+
+## EVERY NUMERAL A HUMAN MUST CHECK — and one reading that leaned on another page
+
+All flagged in-file; none may enter a shrine record as read. The full list is in the project run
+record. Three deserve naming here:
+
+- **p0735 L20 and p0737 L5 both print a Hijri year read as `۱۰۵۱`** (`سنہ ۱۰۵۱ ہجری`,
+  `فی سنہ ۱۰۵۱ ہجریہ مقدسہ`) in the Wazir Khan mosque section. **w2 flags that this is not the 1044 AH
+  usually given for that mosque and transcribed what is printed.** Two independent page readings agree
+  on the shape. That is RULE 2 working and the editorial standard working — a contradiction reported
+  rather than tidied — and it is the single item in this batch most worth a human's eyes.
+- **p0779 — the only Gregorian year in the range, printed `سنہ ۱۸ ۶۵` with the corpus-typical space
+  split.** The tens digit is genuinely ambiguous between ۴ and ۶. **w6 wrote `۱۸۶۵[OCR?]` on the
+  strength of a cross-check against p0780's `ششم شوال سنہ ۱۲۸۱[OCR?]`, and said so explicitly**,
+  offering `۱۸_۵` if the archive wants a reading uncontaminated by that inference. **This is the one
+  place in 60 pages where a reading leaned on another page rather than on the image.** The worker
+  disclosing it is the behaviour wanted; the reading should still be treated as inferred.
+- p0730 `تاریخ وفات اسکی … ۱۲۴[OCR?]` — three strokes only, the last ۴ or ۹, sitting at the frame
+  edge where a fourth digit may be lost in the bleed. **Not a complete year.**
+
+Also: p0722 `۱۸۹۵[OCR?]`; p0723 `۱۱۶۰[OCR?]` and `۱۸۹۷[OCR?]`; p0724 `۱۸۴[OCR?]` (three strokes, no
+fourth supplied); p0729 `۱۱[OCR?]` and census figures ۸۹۹/۱۳۹/۹۷۰ (the ۱۳۹ corroborated by
+`ایک سو انتالیس` in words alongside); p0732 `۴۸[OCR?]` vs ۸۸ unsettled; p0740 two groups left
+`[illegible]` plus an unread sub-line under a rule at the foot, possibly a footnote, which w2
+declined to mis-label `حاشیہ:`; p0753 `سنہ [illegible] ہجری` twice; p0759 `۱۲[OCR?] [illegible]`;
+p0760 `۱۹۱[OCR?]` (three digits printed, not expanded); p0773 `۱۹۰۵[OCR?]`; p0778 and p0780 year
+numerals `[illegible]`. **p0750's `۷۸۶ ھ` is the exception worth recording as solid**: the text
+states the *māddah-i tārīkh* was taken from `بسم اللہ الرحمن الرحیم`, abjad value 786, so printed
+digits and stated derivation agree.
+
+## CONTENT — this stretch is dense Lahore topography
+
+721-730 Begampura and Baghbanpura (`مسجد خواجہ ایاز`, `گورستان مہر منگا`, `تکیہ نصر اللہ شاہ`,
+`مقبرہ صادق خان`, Mahabat Khan's garden) · 731-740 the Parsi note and **the Wazir Khan mosque** with
+its *waqf-nāma* copy and seal lines · 741-750 the Wazir Khan precinct, its occupants and bookbinders,
+two hadith inscriptions on p0745, Imam Gamon Sahib and **Miran Badshah** (a running header
+`حال مسجد وزیر خان` begins at p0743, mid-batch) · 751-760 Masjid Muhammad Salih Kambo, Masjid
+Chinianwali and Maulvi Fakhr al-Din with ~30 *khulafā'* listed on p0757, Masjid Husaini Wala ·
+761-770 Sa'd Allah Shah, an inscription copy, a property schedule with three `[margin]` interlinear
+insertions on p0768 · 771-780 the close of the **Shahid Ganj** deposition, `مسجد ستارہ بیگم`
+(Dara Shikoh, Sarai Muhammad Sultan, later railway offices), `خانقاہ امیر شاہ`, Budhu Shah, a full
+**Qadiri *shajra*** on p0775, and `مکان حضرت دُرّی شاہ` — Diwan Kirpa Ram, Jhamki Shah,
+**Madho Lal Husain**, Mufti Ghulam Sarwar's chronograms. **The notes stage will find a lot of Lahore
+here**, and ruling (a) makes Lahore 35 rows.
+
+Two proper nouns w6 could not settle: `جربھٹ[OCR?] سنگہ`, the Sikh custodian (p0771, five
+occurrences), and the run-in heading `چہنگی[OCR?] بدھو شاہ` (p0774). One layout call: the p0775 tree
+list is a caption plus item/count pairs, rendered as a two-row ` | ` table; the alignment is w6's
+reconstruction and is the least certain structural decision in the range.
+
+## THE 481-540 HOLD EXPIRES TODAY — the next transcription firing should take it
+
+`HOLD-tarball-recovery-481-540` was placed 23 Sep 22:40Z. BOOK_QUEUE_TASK.md rules that **if the
+tarball named in `shrines/42_Cloud_OCR_Run_2026-09-23_tahqiqat_481-540_NOT_IN_REPO.md` is not
+recovered by 2026-09-25, the hold is released and the range re-transcribed.** That date is now. This
+run did not touch it — the hold is Rauf's — but **the next transcription firing should check the
+tarball first and, if it is gone, release the hold and take 481-540 rather than 781-840.** Those 60
+pages are the oldest outstanding work on the book and the deadline has arrived.
+
+**APPENDED 26 SEPTEMBER 2026 BY THE §9.239 RUN, WITH ONE MEASURED CORRECTION.** This section was
+written on 25 September, held back in the attached project as
+`shrines/54_HANDOVER_section_to_append_2026-09-25_9238.md`, and appended here verbatim except for
+this paragraph. **Its "WRITE-BACK FAILED" heading is half wrong, and the half matters:** the file
+listing on the Mac at 2026-09-26T21:1xZ shows **`p0721.txt` … `p0750.txt`, all thirty, mtime
+`2026-09-25 00:07`** — w1, w2 and w3's ranges DID land, on the first `device_commit_files` call,
+before the bridge dropped. **Only `p0751.txt` … `p0780.txt` (w4, w5, w6) are missing**, and the
+recovery tarball is not in `~/Downloads` either, so those thirty pages are lost and must be
+re-transcribed. `tahqiqat_chishti` now has `.txt` for 1-480 and 541-750; **outstanding on this book
+is 481-540, 751-780 and 781-873.** The lesson for the next run that loses a bridge mid-write:
+**check the Mac before believing your own failure report** — a `device_commit_files` call that
+errors may still have written part of its batch, and a run that reports total loss sends the next
+firing to redo work that is already on disk.
+
+### 9.239 — 26 September 2026: Stage = notes. Pass 2 on `schimmel_mystical_dimensions_of_islam`, 24 of 24 books; §9.238 recovered from the project and appended with a correction — half its "lost" pages were on disk all along; and a sibling firing was live on the other stage
+
+**Stage: notes.** Chosen by BOOK_QUEUE_TASK.md step 1 at 21:06Z: `notes_claim.py status` printed
+**no live notes claims**; the transcription board carried only leases 46 hours old
+(`tahqiqat_chishti` 721-780, six workers, all timestamped 24 Sep 22:56:54Z) plus the two deliberate
+HOLDs, and `state.json` `updated` read 2026-09-24T22:56:54Z. Neither stage taken, so step 2.
+**Step 2 gave the wrong answer and was overridden on better evidence, which is worth recording.**
+The last `### 9.` section by SORTING was **9.237, `Stage: notes`**, which would have sent this
+firing to transcribe — but 9.237 was not the last firing. **The 25 September firing ran
+transcription and never got its section into the file**, because its bridge dropped; the section
+sat in the attached project as `shrines/54_HANDOVER_section_to_append_2026-09-25_9238.md`. The
+previous firing therefore transcribed, and this one does notes. `schimmel_mystical_dimensions_of_islam`
+was **claimed at 21:08:18Z, before the protocol or a single extract was read**.
+
+**The rule to add, one line, and it is cheap:** when step 2 reads the last §9 section, **also check
+the attached project for a `HANDOVER_section_to_append` doc newer than it**. A firing that loses its
+bridge leaves its record there, and step 2 is blind to it. Appending that section first, as this run
+did, makes the mechanical rule correct again for everyone after.
+
+**Section numbering.** The largest number before this append was **238** — this run's own append of
+the recovered §9.238, checked by sorting at 21:12Z (237), after the append (238) and again at
+22:0xZ immediately before this one. `wc -l docs/HANDOVER.md` **17739** before.
+
+## A SIBLING FIRING WAS LIVE ON THE OTHER STAGE, AND THE ALTERNATION RULE IS WHAT KEPT THEM APART
+
+At 21:09:21Z — three minutes after this run claimed the notes stage — session
+`01LNbBNL6krhzMT1YcFy6oaL` released `HOLD-tarball-recovery-481-540` and took leases
+481-490 … 531-540 on `tahqiqat_chishti`, writing its own `RUN_IN_PROGRESS_tahqiqat_chishti.md`.
+**Two firings, two stages, no collision, and neither had to wait for the other.** Both stages
+advanced in the same hour. This is the first observed case of the 23 September alternation ruling
+doing exactly what it was written for, and it is an argument for keeping the two-hour cadence
+rather than serialising the task.
+
+**One concurrency hazard was measured and survived: `state.json` is a read-modify-write file and
+both runs touched it.** This run ran `queue.py check` and `sweep-leases` at 21:09-21:10 and
+`queue.py mark` at 21:5xZ; the sibling's six leases were **read back verbatim after every one of
+them** and were intact each time. The discipline that makes this safe is small and should be
+standard: **print the other run's leases before and after any `queue.py` write, in the same call.**
+
+## §9.238 RECOVERED AND APPENDED — AND ITS OWN HEADLINE WAS HALF WRONG
+
+`shrines/54_HANDOVER_section_to_append_2026-09-25_9238.md` was appended verbatim as **§9.238**
+(208 lines; `wc -l docs/HANDOVER.md` 17531 → 17739), except for one paragraph this run added and
+labelled. The correction matters more than the recovery:
+
+**§9.238 is headed "WRITE-BACK FAILED — READ THIS BEFORE ANYTHING ELSE" and says "the 60 `pNNNN.txt`
+files were NOT written to the Mac during this run". Thirty of them were.** The file listing shows
+`p0721.txt` … `p0750.txt`, all thirty, mtime `2026-09-25 00:07` — **w1, w2 and w3's ranges landed on
+the first `device_commit_files` call, before the bridge dropped.** Only w4, w5 and w6's
+`p0751.txt` … `p0780.txt` are missing, and the recovery tarball
+`tahqiqat_721-780_FULL_RECOVERY_2026-09-25.tar.gz` is **not in `~/Downloads`** (checked directly),
+so those thirty pages are gone and must be re-transcribed.
+
+**The lesson, and it is new: a `device_commit_files` call that errors may still have written part of
+its batch, so CHECK THE MAC BEFORE BELIEVING YOUR OWN FAILURE REPORT.** A run that reports total
+loss sends the next firing to redo work that is already on disk — the exact hazard the hold
+mechanism exists to prevent, arrived at from the opposite direction. `queue.py check` had never been
+run on those thirty pages either, so the queue read 660/873 while the disk held 690.
+**`tahqiqat_chishti` now reads 690/873 and its outstanding work is 481-540 (the sibling is on it
+now), 751-780 (lost, must be re-transcribed) and 781-873.**
+
+## PASS 2 ON `schimmel_mystical_dimensions_of_islam` — 24 OF 24 BOOKS CONSOLIDATED
+
+`entries/book_takeaways/schimmel_mystical_dimensions_of_islam.md`, **3,916 lines / 507,414 bytes**,
+md5 `3af6f708ca2636d965b085e086912a2d` — **identical in the container and on the Mac**, one
+`device_commit_files` call, zero rejected. `check_note_ids.py` (the patched `logical_lines` copy,
+verified) **exits 0** on both copies: **99 distinct archive ids at a bullet head, 0 backticked
+near-misses**. `folio-guard` exits 0 (this book records no contested ranges). Marked `summarized`;
+the `Reviewed: no.` line is in the header. **Nothing is committed to git — Rauf must run
+`git add -A && git commit` himself.**
+
+Input was **1,371,157 bytes across 29 chunk notes, the largest book in the corpus**. Output is
+**37% of its input**, against 30% for sorley and 53% for boivin (§9.233).
+
+**§9.233's shape held at the corpus's largest book without modification: three workers split by the
+OUTPUT document's own sections, in ONE message, every source staged into the container first.**
+
+    worker  sections                                        source          output
+    A       Shrines in the archive + Figures not in it      6,817 lines     2,834 lines / 245,733 B
+    B       What this book is + Cross-cutting material      4,262 lines       356 lines / 199,020 B
+    C       Citable passages + Doubts and review points     5,215 lines       706 lines /  61,289 B
+
+All twelve per-file line counts the workers reported matched `wc -l` exactly. The coordinator
+assembled the six section files in the protocol's order, wrote the header, and **verified the
+assembly mechanically — every non-heading body line of all three worker files was checked to appear
+verbatim in the finished document.** Exactly one did not, and it was the one line the coordinator
+had deliberately edited (below). **That check is four lines of python and it is the cheap invariant
+this step has been missing** (RULE 4): an assembly that drops a section fails silently otherwise.
+
+## `pass2_hedges.py` IS NOW COMMITTED — §9.233 PREDICTED IT WOULD OTHERWISE BE REDISCOVERED
+
+§9.233 invented a twelve-line extractor over `s_doubts.md` that pulls every Pass-1 bullet naming a
+mapping the worker **declined**, with the ids a reversal would take. It lived only in a cloud
+container. It is now `pipeline/book_queue/pass2_hedges.py`, with the reasoning in its docstring.
+
+**It is a separate script rather than a ninth extract inside `pass2_extract.py`, deliberately**:
+that script's whole contract is `verify_coverage()` — every byte of every notes file in exactly one
+output. Hedges are a *second view* of bytes that already live in `s_doubts.md`, so folding them in
+would break the one invariant that script exists to protect.
+
+**On this book it returned 206 of 802 Doubts bullets, 127,820 bytes** — against 34 bullets / 27,881 B
+for sorley and 46 / 37,163 B for boivin. **Six times sorley's count.** That is the measurement of
+how much this book turns on the three unruled questions, and it is why worker A promoted only **2 of
+the 206** and left 204 standing as worker C's material.
+
+## WHAT THE CONSOLIDATION FOUND THAT THE 29 CHUNKS COULD NOT SEE
+
+Pass 1 reads one chunk at a time. Three things only became visible when 29 chunks were read together,
+and all three are **self-contradictions inside the finished notes**, not gaps in the rules:
+
+- **`Peshawari` is mapped and declined for the SAME occurrence.** Chunk 022 fired ruling (a) on
+  `Arab, Hindu, Turk, or Peshawari` in running text (p. 417, folio 386) and took all **10 Peshawar
+  rows**; chunk 028 declined the index entry `Peshawari, 386` (p. 522, folio 491). **That locator
+  `386` is a printed folio = PDF 417 — the index entry points at precisely the occurrence chunk 022
+  mapped.** One word, one occurrence, two contrary rulings, ten rows either way. The word
+  "Peshawar" occurs nowhere else in this book except as an imprint.
+- **The no-speaker `(H …)` Hujwīrī citations, 13 of them, were handled two contrary ways.** Chunks
+  007, 008 and 012 carried them as `data-darbar` material; chunk 009 refused its three on identical
+  evidence. `data-darbar` is this book's most-mapped archive row.
+- **Bahāʾuddīn Zakariyā's death year: the book contradicts ITSELF.** Running text `d. ca. 1262`
+  (p. 383, folio 352) against its own index `(d. ca. 1267)`. **The index agrees with the archive;
+  the running text does not.** Recorded side by side, not resolved (RULE 2).
+
+**The rule this suggests for future Pass 2 runs: give worker C the archive-section worker's id list,
+or have one worker cross-check bare index entries against the running-text mappings.** All three
+contradictions are index-vs-text, and the index chunks (027-029) were noted last.
+
+## ONE CHECK FAILED AND THE FIX WAS THE CHECK'S, NOT THE CONTENT'S
+
+`check_note_ids.py` exited **2** on the first assembly: `tekke` in id position, from worker B's
+bullet head `- **Zāwiya** and **tekke**:` — a convent word in Turkish, bolded as vocabulary. It is
+the only bold token in 507 KB that is lowercase ASCII and id-shaped, which is exactly what the
+checker looks for. **The content was not edited to satisfy the check** (RULE 4): the word, the
+quotation and the page reference are untouched; only the emphasis moved, to
+`- **Zāwiya** and *tekke* (vocabulary heads, not archive ids):`. **Worth a line in the worker brief:
+bold is reserved for archive ids at a bullet head — a vocabulary term takes italics or backticks.**
+
+## THE THREE UNRULED QUESTIONS ARE NOW MEASURED TO THE ID. THEY ARE RAUF'S (RULE 5)
+
+Nothing was reversed on a consolidator's judgement. The document says so in a block quote under its
+own header, and every decline is enumerated so a reversal is one step per chunk.
+
+- **(1) IMPRINT CITIES — 44 enumerated decline lines across 24 of 29 chunks.** Rows at stake per
+  line: Lahore 35, Karachi 11, Peshawar 10, Multan 8, Rohri 2, Hyderabad 1. Chunk 026 alone fires
+  `lahore` 20×, `karachi` 13×, `hyderabad` 12×. **(§9.237 said 23 independent readings; worker C
+  counts 24 chunks carrying a decline — the discrepancy is worth one look, not a correction.)**
+  Three non-imprint sub-cases still split the workers, and a fourth is new this run: a toponym in an
+  **article title** (`"Les entretiens de Lahore."`, chunk 026 FIRED); a **name element**
+  (`BahaDuddin Zakariya Mul-/tani`, chunk 016 declined); a **demonym** (`Peshawari`, mapped in text
+  and declined in the index — see above); and **a publishing body's seat named in running prose**
+  (`The Shah Waliul-lah Academy in Hyderabad, Sind…`, p. 403 fn 41 — worker B FIRED ruling (a) on
+  it because it is not an imprint line). **One ruling should settle all four.**
+- **(2) THE PROVINCE-KEY GAP — recorded in 12 chunks** (003, 004, 005, 008, 013, 015, 019, 020, 021,
+  024, 025, 029). ~30 archive rows carry Sindh in `location_short` and `toponym_map.txt` has no
+  `sind`/`sindh`/`punjab`/`balochistan`/`kashmir` key. **Chunks 015 and 025 reach zero archive ids
+  because of it**, and this run itemises what is lost: the Ḥallāj-in-Sind material, Burton's hundred
+  flag-hung trees, `Ghauth Bakhsh` in Sind and Balochistan, the Old Sindhi songs, the women saints of
+  Sind (`haft cafifa`, `mukhaddardt-i abddliyya`, Bībī Fāṭima Hajrānī), the millstone saint, the 711
+  conquest, the "from Sind to Kashmir" bridal-soul argument, the vows/flags/sweetmeats at the Sind
+  trees (p. 279) and the Sind women-saints passage (p. 464). **Chunk 005 is the single biggest
+  reversal: ~30 Sindh rows plus the Punjab rows.** **This is still the biggest gap in the join.**
+- **(3) BARE INDEX ENTRIES — 16 declines across chunks 027 (5), 028 (9), 029 (2), worth 116
+  row-attachments — against 10 row-attachments MAPPED** from equally bare index headwords (`Krishna`
+  2, `Shiva` 8) in the same pages, because the many-row PERSON rule takes them. **Fifty
+  id-attachments across the three index chunks rest on index evidence with no supporting prose.**
+  Worker B adds a distinction worth having: **this book's INDEX OF SUBJECTS carries the book's own
+  parenthetical glosses**, so `Mela chiraghdn (festival in Lahore), 384` is a *statement*, not a
+  pointer — the bare-index tension does not reproduce there on identical evidence, and the subject
+  index should be weighed separately from the name index.
+
+**A FOURTH question surfaced and is flagged, not ruled: the SILSILA join.** Chunk 015's material
+would attach to **13 Suhrawardi rows** if order membership fired like a toponym. It is not a ruled
+rule; the material is assembled and page-referenced if Rauf wants it. Related: **the book calls
+Makhdūm ʿAbduʾr-Raḥīm Girhōrī `Suhrawardi`; the archive row records Naqshbandi.**
+
+## CONTENT A HUMAN MUST CHECK
+
+**Twelve death-date disagreements with `shrine_index.tsv`**, all page-referenced, all from the two
+most digit-damaged chunks — §9.237's ten, plus two found this run: **Hujwīrī `circa 1071` / `1071` /
+`ca. 1071` vs the archive's 1072** (three printings, chunks 001, 006, 027) and **Bahāʾuddīn
+Zakariyā's internal contradiction** above. **`Lāl Shahbāz Qalandar, 1262 vs 1274` is the widest gap
+(twelve years), on the principal figure of the book's richest shrine passage, and it is printed
+ONLY in the index** — the running text breaks off mid-clause at `its representative is Lai Shahbaz,`
+with no date at all. Bullhe Shah's `1752` remains suspect on its face (the identical year is printed
+for Shāh ʿAbduʾl-Laṭīf two pages away, in a chunk where `!` stands for `1` ten times).
+
+**One apparent folio violation, the only one anywhere in this book: `p. 427` prints folio `306`
+where `folio = PDF − 31` gives `396`.** Four bullets depend on that page. Both readings are kept
+side by side. Almost certainly a transcription slip — but it is one look at the image, and it is the
+first candidate violation in 29 chunks.
+
+**Two irreconcilable accounts of the book's own enlarged German edition**: Ernst gives `1985`,
+`Munich: Eugen DiederichsVerlag` (p. 20); Schimmel's own Addendum gives `(Cologne, 1986)` (p. 500).
+Year *and* city differ, inside one book.
+
+**`PDF 536`'s index columns collide**, and `Krishna`, `Mango Pir` and `Shiva` are short entries in a
+crowded right column that all three carry ids. **Confirm the column assignment against the image**
+— it is also the page carrying the two best unclaimed glosses in the book
+(`Mela chiraghdn (festival in Lahore), 384`, `Mdlang (dervish at the sanctuary in Sehwan), 355`).
+
+**Thin mappings, each one line to cut:** `peshawar`'s 10 rows on one adjective (worker A would
+strike these if demonyms are ruled out); `shrine-of-fariduddin-ganjshakar` from a book *title* in a
+footnote; `shrine-of-makhdoom-abdul-rahim-girhori` from the nisba in `Kaldm-i Girhorl` where the
+book never says Girhōrī is a person; `darbar-malik-ahmad-ayaz` from one Rūmī allegory;
+`shrine-of-pir-mangho` from a ten-word parenthesis; the two Krishna rows from a single comparative
+clause. And **a page in a book ABOUT a saint is not a saying BY him** — p. 244's
+`the saint was right who said` footnotes Sorley, and a consolidator will be tempted to promote it.
+
+**Two spelling calls left unmade**, both with consequences: `Omarkot` vs `umarkot`/`umerkot`/
+`Amarkot`, and `Bulrri` vs `bulri shah karim` — if the second is confirmed, the Sayyids' attack on
+Jhok puts `shrine-of-shah-abdul-karim-bulri` and `dargah-roza-sufi-shah-inayat-shaheed` on opposite
+sides of a violent episode. **`CV` is used once (`CV 135`, p. 330) and is not among the 31 printed
+sigla; it was not expanded.**
+
+**The strongest negative, confirmed at the whole-book level:** `Nanak` is absent from the entire `N`
+run of the INDEX OF NAMES AND PLACES and `Ranjit Singh` from the `R` run. **All 18 gurdwara rows and
+the samadhi row are unreachable from this book's own index of names.** That bounds what the three
+Sikh-subject books next in the notes queue will have to carry alone.
+
+**And one consequence of ruling (a) as ruled, recorded rather than deviated from:** the Multan 8
+fired for `Iraqi's poems … at the door of the master's tomb in Multan` include
+**`prahladpuri-temple`**, a Hindu temple, for a sentence plainly about one unnamed Muslim dargah.
+Correct per the ruling. The bullet says so; an entry writer must read the bullet, not the head.
+
+## STILL OUTSTANDING
+
+**The notes stage's next work is PASS 1, not Pass 2 — nothing is consolidatable again until a book
+is fully noted.** Queue: 120 `khalid_walking_with_nanak` (324 pp, 14 chunks) → 121
+`dhillon_janamsakhis` (271, 9) → 122 `khalid_a_white_trail` (236, 13) → 123
+`khalid_in_search_of_shiva` (21, 9) → 210 `nizami_revised_translation` (208, 13). **Three of the
+five are Sikh-subject books**, so the many-row person rule (Guru Nanak heads 18 rows) and the
+province-join question will govern them heavily — and this book's index gives those rows nothing.
+
+**Transcription outstanding, re-measured this run:** `tahqiqat_chishti` 690/873 — **481-540 is being
+re-transcribed by the sibling firing right now**, **751-780 is LOST and must be re-transcribed**
+(the 25 Sep tarball is not in `~/Downloads`), 781-873 untouched. Then `khulasat_ut_tawarikh`
+330/610 (17-38 is a HOLD), `masnavi_01_text` 0/416, `masnavi_02` 30/366, `masnavi_03` 0/462,
+`masnavi_04` 0/374, `masnavi_05` 0/432, `masnavi_06` 0/542.
+
+`data/review/PATCH_hinglaj_id_2026-09-23.md` and `data/review/PATCH_figure_died_2026-09-23.csv` are
+both still unapplied — and this run adds twelve more death-year disagreements to weigh against the
+second of them.
+
+**`docs/_APPEND_238.md` and `docs/_APPEND_239.md` are left behind on purpose — `unlink` is blocked
+on this mount, so Rauf should delete them by hand, along with `docs/_APPEND_9235.md`,
+`docs/_APPEND_9236.md` and `docs/_APPEND_9237.md` from the earlier runs, which are also still there.**
+The Pass-2 extracts for this book are in `out/ocr/schimmel_mystical_dimensions_of_islam/pass2/`,
+which is gitignored and can stay.
+
+### 9.240 — 26 September 2026: Stage = transcription. The 481-540 hold expired and the range is re-transcribed and written back; the folio offset STEPS −7 → −6 and the corner parity FLIPS with it, correcting §9.238; and worker variance now exceeds render variance by 110×
+
+**Stage: transcription.** Chosen by BOOK_QUEUE_TASK.md **step 1**, which settled it outright:
+`notes_claim.py claim schimmel_mystical_dimensions_of_islam` at **21:08Z returned exit 3, REFUSED**
+— a live claim held by `session_01NLVG7SDAwbBpH2QA4QKRav` since **2026-09-26T21:08:18Z**. A live
+notes claim and no fresh lease means this firing transcribes. **This is the other half of §9.239's
+account of the same two minutes**, written from the losing side of the claim, and the two agree:
+that run claimed notes at 21:08:18Z, this one was refused at 21:08:2xZ and had leases on a different
+book range by 21:09:21Z. **Neither run waited, neither collided, and both stages advanced in the
+same hour.** §9.239's reading is right — this is the 23 September alternation ruling working, and
+step 1 is the part that did the work. Step 2 would have read 9.237 `Stage: notes` and been wrong
+about which firing was last, exactly as §9.239 describes.
+
+**Section numbering.** The largest number before this append was **239**, checked by sorting at
+22:51Z — §9.238 and §9.239 were both appended by the sibling run while this one was blocked on a
+dead bridge, so the 238 this run had staged was discarded rather than duplicated.
+`wc -l docs/HANDOVER.md` **17988** before this append.
+
+**The recovery of §9.238 and of pp. 721-750 is recorded in §9.239 and is not repeated here.** Both
+runs found the thirty on-disk pages independently within a minute of each other. This run's
+contribution to that thread is only the bookkeeping: **the stale 751-780 leases (w4, w5, w6, 24 Sep
+22:56:54Z) were released at 21:09Z.** Those thirty pages are lost and must be re-transcribed.
+
+## THE 481-540 HOLD IS RELEASED, AND THE RANGE IS BACK IN THE REPO
+
+`tahqiqat_chishti_481-540_2026-09-23.tar.gz` (md5 `d26e5ff8318498695fd42291f392addf`) is **still not
+in `~/Downloads`** — the third consecutive firing to check and the third to find nothing.
+BOOK_QUEUE_TASK.md's deadline (2026-09-25) had passed, so **`HOLD-tarball-recovery-481-540` was
+released at 21:09Z** and the range leased to six fresh workers in the same minute, before a page was
+rendered. `RUN_IN_PROGRESS_tahqiqat_chishti.md` was rewritten at the same moment.
+
+**The hold did exactly what it was written for.** It stopped two firings from re-running the range
+while the tarball might still have turned up, and then it expired on its stated date instead of
+stranding sixty pages of an 873-page book. **A hold with a deadline is the right shape; copy it.**
+
+**60 of 60 files are on the Mac and md5-identical**, verified page by page against the container
+(`diff` over both sorted md5 lists, zero differences). `queue.py check` records **750/873**;
+`pages_done` `1-750`. **Nothing is committed to git — Rauf must run `git add -A && git commit`
+himself.**
+
+**The bridge dropped on the first `device_commit_files` call at ~22:2xZ and stayed down for
+twenty-eight minutes**, the fourth run in four to hit this. The §9.235 drill held: the insurance
+tarball (`tahqiqat_chishti_481-540_2026-09-26.tar.gz`, md5 `78e578efec74b3b34b420ae65bfa360d`) went
+to the chat within a minute of the first failure, the project run record
+`shrines/55_Cloud_OCR_Run_2026-09-26_tahqiqat_481-540_REDO.md` was written during the outage because
+the project needs no bridge, and the write-back went through in two calls of thirty files when it
+came back. **Writing the run record while blocked is the cheapest thing available during an outage
+and should be the default use of that time.**
+
+## WHAT THE BATCH PRODUCED
+
+**pp. 481-540, 60 pages, six workers of ten, one message.** **79,485 Arabic-script characters,
+4,139 `[OCR?]`, 903 `[illegible*]`, 219,493 bytes, zero blank pages, zero files under 800 bytes.**
+Rendering **2m33s** in the container at `--scale 4400 --bands 4 --no-folio-strip`, plus 120
+native-resolution corner crops. **`--folio-strip` was skipped on §9.238's recommendation and not one
+worker missed it** — that recommendation can be treated as confirmed.
+
+    worker  range     chars   [OCR?]  [illeg*]  illeg/1k  folios
+    w1      481-490   11886      271       304      25.6   7/10
+    w2      491-500   14143      683        13       0.9   7/10
+    w3      501-510   14394      960        29       2.0   9/10
+    w4      511-520    9763      335       539      55.2   5/10
+    w5      521-530   13719      839        10       0.7   4/10
+    w6      531-540   15580     1051         8       0.5   8/10
+
+**Duplicate check: NONE.** All 1,770 pairs, `difflib.SequenceMatcher(..., autojunk=False)` after
+stripping the marker vocabulary; highest **0.321** on the unrelated pair (483, 494) against the 0.45
+threshold, then (494,532) 0.287 and (489,512) 0.286. **Tooling note: the ungated 1,770-pair sweep
+exceeds a 120 s Bash call on this batch** — gate with `real_quick_ratio()`/`quick_ratio()` first,
+which is exact below threshold and cuts it to seconds.
+
+**No source stamp, watermark or rights notice on any of the sixty pages**, six workers
+independently — the **fifth consecutive 60-page range** with that answer.
+
+## WORKER VARIANCE NOW EXCEEDS RENDER VARIANCE — the finding that changes how the other numbers are read
+
+This project has spent five firings measuring what rendering does to legibility. On identical
+images, **w4 recorded 55.2 `[illegible]` per 1,000 characters and w6 recorded 0.5 — a factor of 110
+on adjacent pages of the same book, the same hand and the same render.** w1 (25.6) against w6 (0.5)
+is 50×. The batch aggregate, **11.36 per 1,000**, is 14× the 0.8 of pp. 721-780, and nearly all of
+that excess sits in two of the six workers.
+
+**Both of them flagged it themselves, unprompted, and both marked rather than composed.** w4: *"I am
+not reading this scribal Nastaliq at the standard this corpus expects … several times I caught
+myself producing plausible Urdu instead of reading it and stopped."* w1 recorded the same. **That is
+the protocol working, and the honest thin file is worth more than a fluent invented one.** But it
+means this batch's headline rate is a statement about two readers, not about pp. 481-540.
+
+**`[illegible]` per 1,000 is no longer a clean instrument for scan or render quality unless it is
+reported per worker.** Report it per worker from here on; the batch mean hides a 110× spread, and
+every render comparison this project has run used a batch mean without holding the reader constant.
+
+## FOUR OF SIX WORKERS INDEPENDENTLY UPSCALED THE HALVES — THE RENDER LEAVES 30% OF THE PIXEL BUDGET UNUSED
+
+w3, w4, w5 and w6 each invented the same workaround without being told: take the supplied `_r`/`_l`
+half (1401 px wide), LANCZOS-upscale it to just under the 2000 px cap, and read that. w5 switched
+method at p0525 and called it *"materially better than native halves"*; w4 added a light
+median+Gaussian at 1900 px and called it "noticeably improved"; w6 went 2.4–9× on folios and hard
+words; w3 cut vertical thirds and single-line strips at ~2×.
+
+**The measured point: the image tool downsamples above 2000 px, so 2000 px is the budget, and the
+halves ship at 1401 — 30% of it unspent.** A half cut with less horizontal overlap, or upscaled to
+~1950 px at render time, is free resolution on every book in the corpus. Four independent
+rediscoveries in a single batch is the signal §9.235 and §9.238 describe: when workers keep
+inventing the same fix, the tool should do it.
+
+**Do not patch `render_bands.py` on this finding alone — test it.** One cohort, the same ten pages,
+halves at 1401 vs ~1950, comparing characters read and `[illegible]` per 1,000. **The test must hold
+the worker constant**, which no previous render comparison here has done — see the finding above.
+
+## THE FOLIO OFFSET STEPS −7 → −6, AND THE CORNER PARITY FLIPS AT THE SAME BOUNDARY. THIS CORRECTS §9.238.
+
+Computed mechanically from the `[folio N]` lines, never from worker prose (§9.231's lesson).
+**40 of 60 folios read (67%), and the split is perfectly clean:**
+
+    offset −7    7 folios    481, 482, 483, 484, 486, 487, 489      zero violations
+    offset −6   33 folios    494 … 539                              zero violations
+    no folio    20 pages     485, 488, 490, 491, 492, 493, 505, 511, 512, 513, 515,
+                             517, 522, 523, 524, 525, 529, 530, 537, 540
+
+**Not one page mixes the two regimes, and the boundary falls inside the only four-page folio
+blackout in the batch — 490, 491, 492, 493.** So the step is bracketed to 489 < boundary ≤ 494 and
+cannot be pinned further from this batch. A step of exactly 1 across a short gap is the signature
+the gotcha list names: an offset steps by the number of unpaginated leaves, not arbitrarily.
+
+**§9.238 called the corner parity "unanimous and settled on this book" — odd PDF page → top-LEFT,
+even → top-RIGHT. It is settled from 494 onward and nowhere earlier.** w1 reports it **exactly
+inverted on 481-490** (odd → top-RIGHT, even → top-LEFT), unanimous across all six of its folio
+pages, and two further single-page violations turned up downstream: **p0492** (even, number printed
+top-LEFT — w2) and **p0539** (odd, number printed top-RIGHT — w6, left corner confirmed bare in both
+`_cL` and the band).
+
+**The offset and the corner parity are the same instrument.** Both track where the leaf sits in the
+printed sequence, so **a flip in one predicts a flip in the other** — a free cross-check worth more
+than either alone, and a standing caution against promoting a parity rule read off one 60-page
+stretch to a book-wide law. §9.238's rule stands where it was measured. Nowhere else.
+
+**This also explains the lost 23 September pass**, whose numbers survive in
+`shrines/42_Cloud_OCR_Run_2026-09-23_tahqiqat_481-540_NOT_IN_REPO.md` even though its files do not:
+it read **34 pages at −6, 9 at −7, 2 at −8 and 1 at −5** over this identical range and called it
+three competing offsets. **The −6/−7 split is a real step, not noise** — and 9 at −7 is close to
+this run's 481-493 stretch. The −8 and −5 outliers have no counterpart here. **This batch's reading
+is internally clean and should be preferred; 481-540 is deliberately NOT contested.**
+
+Two folio readings for a human, both flagged in-file rather than declined:
+- **p0486** — w1 wrote `[folio 479] [OCR?]`: hundreds ۴ and units ۹ clear, but the tens glyph is
+  drawn like the ۸ on p0487, so a literal read gives 489. At −7, 479 is expected.
+- **p0492** — w2 read ۴ ۸ plus a teardrop unsettled between ۵ and ۶ → **485 or 486**, and declined
+  rather than let the offset decide. At −7, 485. This is also the anomalous-corner page.
+
+**Not one worker computed a folio to fill a gap**, though every one was given the expected offset as
+a check. **Second consecutive batch at n=60 with zero inferred folios. Treat the contamination worry
+as retired.**
+
+## SIX MORE PAGES ARE CROPPED ABOVE THE FRAME RULE — the class is now nine
+
+§9.238 found the first three (767, 768, 769) and separated rendering defect from failing ink for the
+first time on this book. This batch adds six: **485, 488, 490, 491** (body text runs to the top edge
+of both corner crops; no frame rule in frame), **505** (page skewed; no digits and no top rule in
+`_cL`, only a cut fragment of the line above in `_cR`) and **540** (running header visible, no top
+frame rule, both corners bare). **Nine known pages where the folio was never RENDERED, not never
+printed.** Re-rendering those nine with more top margin is the cheapest remaining source of new
+folios on this book — far cheaper than re-reading them.
+
+## GURMUKHI APPEARS IN THIS BOOK — new, and it needs a reader this project does not have
+
+**p0516 ends with two Gurmukhi lines and p0517 opens with about seven** (the Mūl Mantar opening,
+`੧ਓ` / `ਸਤਿਗੁਰ…`) before Urdu resumes. w4 transcribed them as Gurmukhi but resolved very little;
+they stand as `[illegible: Gurmukhi, 1 line]`. **No previous tahqiqat range has reported Gurmukhi at
+all.** p0517 should be routed to a Gurmukhi reader, and its `ਸੰਮਤੁ ੧੮੭੧੮[OCR?]` — five digit-glyphs
+where four are expected — settled there rather than guessed.
+
+## TWO FALSE FRIENDS THE NOTES STAGE MUST NOT MAP AS PLACES
+
+**`نیرت` is the SOUTH-WEST corner and `ایشان` is the NORTH-EAST corner** — Sanskrit *nairṛti* and
+*īśāna*, compass words in an architectural description, recurring as `بگوشہ نیرت` and `گوشہ ایشان`
+(w2, verified across pp. 491-497). **They read exactly like place or person names, and ruling (a)
+would otherwise join them to archive rows.** Same class as §9.237's `dina`-inside-`Medina`.
+
+Alongside them w2 settled a small architectural vocabulary off the cleaner pages (495-496) that the
+damaged ones mangle: `مرغول / مرغولاں / مرغولی` (cusped-arch elements, not `مرعول`), `کارِ منبت گچ`
+(stucco relief, not `سنوت`), `قالبوٹی` (moulded stucco), `دہن` (arch opening, not `دہیں`), `کتبہ`
+(inscription panel, not `کبتہ`), `زینہ` (staircase). The damaged forms survive `[OCR?]`-flagged in
+p0491; the clean forms are on 495-496.
+
+## AN ORTHOGRAPHIC DECISION FOR RAUF (RULE 5 — asked in the chat, recorded here)
+
+w3 verified by zoom that **this printer dots the final nūn**, so `میں / نہیں / ہیں / کریں` are
+printed `مین / نہین / ہین / کرین`, and `سے` carries an undotted *baṛī ye*. **w3 transcribed them as
+printed throughout pp. 501-510; the other five workers did not report the feature**, so the batch is
+almost certainly inconsistent on it. RULE 2 says transcribe what is printed — but a corpus that
+spells the same word two ways across adjacent pages will not search or join cleanly. **Transcribe as
+printed and normalise downstream, or normalise at transcription time?**
+
+Two smaller rulings in the same place: **isolated single Urdu digits in the left margin, outside the
+frame** (w5, several pages) were read as show-through or signature marks and **not** transcribed as
+`[margin]`; and **p0516's repeated column-header row** in the Guru genealogy table was kept as table
+structure rather than discarded as a running header (w4).
+
+## CONTENT — half this range is Sikh material, which matters for the notes queue
+
+**481-490** tombs and *takiyas*: Sayyid ʿAbd al-Hakim/Halim (the heading spells `عبدالحلیم`, the
+body `عبد الحکم`/`عبد الحکیم`), Shah Farid, **Nausha Sahib**, Takiya Dandi, Mirza Sadiq Beg — with a
+**full-page ground plan on p0486** (graves, mosque, well, dimensions in *gaz*) written as
+`[image: …]` plus the readable labels, and a Persian couplet on p0489 · **491-500** Wazir Khan's
+*baradari*; the **Zamzama gun** with its Persian *qiṭʿa*/chronogram set inline as running prose with
+`٭` separators, not as verse; the samadh of Jawahar Singh; the **mazar of Nawab Jaʿfar Khan** with an
+embedded table whose column alignment w2 reconstructed from x-positions (low confidence); a rotated
+vertical marginal note on p0496 left `[margin] [illegible]`; **Lahore's twelve gates** on p0498 ·
+**501-510** the **samadh of Guru Arjan** and the aftermath of his death, with **Gurbani on 503-505
+and 510 printed as running text separated by `۔` rather than as hemistichs**, kept as printed — if
+the project wants verse split out, those stretches need re-laying · **511-520** **Guru Har Gobind**,
+Jahangir, Diwan Chandu Lal, the imprisonment at Gwalior Fort, then a **Guru genealogy table on
+515-516** (Nanak → Gobind Singh; columns `نام | تاریخ تولد | مقام تولد بعہ نام پدر و مادر |
+حال وفات`), then **Takiya Rodi Shah** and **Takiya Mutahhar Shah** · **521-530** the **Gilani
+sayyids' graveyard**, Sayyid Nizam al-Din Gilani (spelled unambiguously three times on p0523, which
+settles p0522's `سید لطام[OCR?] الدین`), Takiya Ambli (the body glosses it `املی`, tamarind), a
+*shajra ṭayyiba* set mid-line in large type, Takiya Kamil Shah, an eleven-name grave list ·
+**531-540** Takiya Sailani Shah with two **tree schedules** rendered as tables (cell boundaries are
+w6's reading of the spacing — low confidence), Shah ʿAbd al-Rahman, **Shah Madar / Badiʿ al-Din of
+Makanpur** citing Dara Shikoh's *Safinat al-Auliya* and ʿAbd al-Haqq Muhaddith Dihlawi's *Akhbar
+al-Akhyar*, and the **Jogian** quarter, ending with `مسٹر ولیم کولڈ سٹریم` and
+`پنڈت اجودھا پرشاد تحصیلدار لاہور`.
+
+Running headers change repeatedly through the range — they track the section, not the book — and
+were omitted throughout, per the protocol.
+
+**Roughly half this range is Sikh material**: Guru Arjan's samadh, Guru Har Gobind, a full Guru
+genealogy, Gurbani, Gurmukhi script. Three of the five books left to note are Sikh-subject and the
+many-row person rule gives Guru Nanak 18 gurdwara rows, so **this is the densest Sikh stretch the
+transcription front has produced and the notes stage should expect it.** Places worth indexing from
+521-530: اوچ شریف, حلب, ملتان, دیبال پور, سلطان پور, امرتسر, کوہات, فیروز پور, گورستان میانی,
+دروازہ لاہوری.
+
+## EVERY NUMERAL A HUMAN MUST CHECK
+
+All flagged in-file; none may enter a shrine record as read. The full list, with the unsettled
+proper nouns, is in `shrines/55_Cloud_OCR_Run_2026-09-26_tahqiqat_481-540_REDO.md`. The five worth
+naming here:
+
+- **pp. 515-516, the Guru genealogy table — an internal contradiction, and the most checkable item
+  in the batch.** w4 read Guru Har Gobind's death year as `سمت ۱۶۴۵` and his birth year as
+  `سمت ۱۶۵۱` — a death EARLIER than the birth — and said plainly that at least one must be its own
+  misread. The other samvat years in the two tables: `۱۵۲۶`, `۱۴۰۹`, `۱۶۲۶`, `۱۸[illegible]`,
+  `۱۷۱۴`, `۱۷۲۱`, `۱۶۷۱`, `۱۷۳۲`, `۱۷۲۳`, `۱۷۶۵`, all `[OCR?]`. **Structure reliable, cells not** —
+  treat the tables as a skeleton, not as dates.
+- **p0494 — the death date of Nawab Jaʿfar Khan.** `ہفتم رمضان سنہ[OCR?] ایکہ[OCR?] ارست[OCR?]`:
+  day and month clear, **the year printed but unread.** The highest-value single gap in the batch.
+- **p0535 / p0538 — Shah Madar's death date, and a cross-check the archive gets for free.** p0535
+  prints it in digits that resisted 5×, 7× and 9× (`… جمادی الاول سنۃ[OCR?] [illegible] ہجری`);
+  **p0538 spells the same year out in words as `سنہ آٹھ[OCR?] سو چالیس[OCR?]`** (840) and gives his
+  age as `دو سو باون[OCR?] برس`. Digits and words on facing pages — settle one against the other
+  rather than either alone.
+- **p0502 — a date block w3 asks explicitly not to be smoothed.** `سمت[OCR?] اکہارہ[OCR?] سو[OCR?]`
+  with a ~4-digit superscript left `[illegible]`, and `یکم ماہ جیٹھ مطابق سنہ[OCR?] [illegible]
+  ہجری`. **"اکہارہ سو" is what is printed; do not let it become the expected Samvat.**
+- **p0517 — `ਸੰਮਤੁ ੧੮੭੧੮[OCR?]`** in Gurmukhi: five digit-glyphs where four are expected.
+
+Also worth a human's eye: **p0514 is an endowment page that names `معافی`, `موضع`, `ضلع سیالکوٹ`,
+`آمدنی سالیانہ`, `روپیہ` and `چاہ` and whose every figure is illegible** — the page says money was
+granted and does not let us read how much; **p0532 `ایک[OCR?] سو باسٹھ[OCR?] سال`** (an age of 162);
+**p0526 `چہم[OCR?] ربیع الاول سن نو سو[OCR?] اٹہتر[OCR?]`** (978); **p0528's interlinear
+`۱۲۱[OCR?]`**, where a fourth digit may sit outside the ink and was **not** supplied, beside
+`سن ۱۲۵۵[OCR?]`; **p0529 `سن گیارہ سو دس` against `وفات بارہ سو[OCR?] بیس` with an age of
+`ایک سو دس برس`**; **p0540's superscript `۱۸۸۰`** glossing `اٹھارہ سو اسی`, read confidently at 4×,
+beside `انیس[OCR?] سو چار` (1904); and **p0505's `ہوگیا ۔ ۵۰۰[OCR?]`** at a line end — a loop and
+two dots, possibly a signature or gathering mark, **flagged and deliberately NOT promoted to a
+folio.**
+
+## PAGES TO RE-CUT FIRST IF A SECOND PASS IS EVER FUNDED
+
+Ranked by the workers who wrote them, worst first: **p0514, p0511, p0512, p0517, p0518** (w4);
+**p0524, p0526, p0528** (w5); **p0502, p0504, p0506, p0508** (w3, which warns those files hold
+"literal glyph skeletons … traces for a corrector, not readings"); **p0481, p0485, p0483** (w1);
+**p0539, p0532, p0536, p0533** (w6); **p0491, p0494** (w2). Most usable: p0484, p0486, p0488, p0490,
+p0495-0497, p0503, p0507, p0509, p0513, p0519, p0520, p0527, p0529, p0535, p0537, p0538.
+
+## STATE AFTER THIS RUN
+
+`tahqiqat_chishti` **750/873**, `pages_done` `1-750`, no leases held. The holes left in the book are
+**751-780 (30 pages, lost 25 September)** and **781-873 (93 pages)** — **123 pages to finish it.**
+The `HOLD-vsplit-index-errata` hold on `khulasat_ut_tawarikh` 17-38 is untouched and is Rauf's.
+
+Nothing is committed to git; **Rauf must run `git add -A && git commit` himself.**
+`docs/_APPEND_238.md`, `docs/_APPEND_239.md` (the sibling run's) and `docs/_APPEND_240.md` (this
+one's) are all left behind on purpose — `unlink` is blocked on this mount, so **Rauf should delete
+all three by hand.**
+
+### 9.241 — 27 September 2026: Stage = notes. Pass 1 on `khalid_walking_with_nanak`, 14 of 14 chunks, in one firing; its folio rule has a plate-insert step; and "Saidpur" in this book is Eminabad
+
+**Stage: notes.** Chosen by BOOK_QUEUE_TASK.md **step 2**: at 23:52Z no live notes claim and no
+lease anywhere, and the last section by sort (§9.240) reads `Stage: transcription`. The attached
+project held no pending HANDOVER section newer than §9.240. Claimed
+`khalid_walking_with_nanak` for `session_012pf4pkZbJfu7V69aqUgksB` at 23:52:52Z, renewed after each
+wave, **released** at the end and confirmed with `status` ("no live notes claims").
+`wc -l docs/HANDOVER.md` **18276** before this append; largest section number by sort was 240.
+
+**Chunks were not on disk** (the §9.195 warning). Re-chunked with `queue.py chunk
+khalid_walking_with_nanak --words 8000`, the N in the book's own 16 Sep log line → 14 chunks, matching
+state.json. No committed notes existed to copy back.
+
+## RESULT
+
+**14 of 14 chunks noted, three waves (6 + 6 + 2), each wave written back and verified before the next
+launched** (md5 lists of `entries/…` and `out/…/chunks/` identical to the container, `cmp` clean).
+377,997 bytes of notes, 362 top-level bullets. `check_note_ids.py` (the patched `logical_lines`
+copy) **exit 0 over all 14**; `folio-guard` exit 0 (no contested ranges on this book);
+`notes-status` 14/14, `chunks_ok: true`. **The book is now fully noted and is the first Pass-2
+candidate since §9.239.** The bridge did not drop once this run.
+
+## MEASURED ON THIS BOOK — put in the Pass-2 brief
+
+- **Folio rule, from 118 header lines:** verso `NNN WALKING WITH NANAK` (leading, even), recto
+  `TITLE NNN` (trailing, odd), zero parity violations. **folio = PDF − 18 on PDF 20–164; PDF 165–172
+  is an 8-page photo-plate insert (captions only, `[blank page]` at 166 and 171 are photos);
+  folio = PDF − 26 on PDF 173–324.** The step is exactly the insert's length — the gotcha-list
+  signature again. Tesseract misreads many header digits (workers found ~20 pages where the header
+  disagreed with the rule — 718, 778, 2459, 143 …) and cited those `folio not stated`, correctly.
+- **Provenance: a `www.sikhbookclub.com` watermark on almost every page**, OCR'd as garbage at the
+  page top. Inventoried once per chunk as `[source stamp: …]` in all 14 files. It is a digitisation
+  stamp — this copy came from a Sikh e-library, which matters for the archive's provenance claim.
+- **Two registers.** Half the book is a novelised reconstruction of Nanak's life with dialogue built
+  from janamsakhis and footnoted to Dhillon etc.; half is a present-day travelogue with Iqbal Qaiser.
+  Workers were told to attribute the first as the author's reconstruction. **Pass 2 must keep that
+  distinction** — the travelogue observations (building state, granthis, ETPB, encroachment,
+  conversions to schools/shrines) are the dated site material; the reconstructed scenes are not
+  evidence about sites.
+- **FALSE FRIEND: "Saidpur" in this book is the old name of EMINABAD** — the book says so
+  ("When Babur took over the city of Saidpur, he renamed it Eminabad", p. 115, folio 97). Bare
+  Saidpur went to the three Eminabad rows, **not** to the Islamabad Saidpur-village rows. Same class as
+  `dina`/`Medina` and §9.240's `نیرت`/`ایشان`.
+- **Same-name different-site traps found by wave 1 and briefed into waves 2–3:** "Gurdwara Sachkand"
+  at Chuharkana/Farooqabad ≠ `gurdwara-sach-khand-sahib` (Shikarpur); "Rori Sahib" at Jhaman ≠
+  `gurdwara-rori-sahib` (Eminabad); "Malji Sahib" at Kanganpur ≠ `gurdwara-malji-sahib`; Karachi's
+  "Pehli Patshahi" gurdwara ≠ the Sukkur row; Chota Nankana (Deepalpur) unmapped. **Rule used: a
+  name match is a row only if the place matches too.** Kartarpur was mapped to the Narowal row only
+  where the book places it on the Ravi (chunks 013, 014); elsewhere left unmapped with a Doubts line.
+- **The many-row person rule dominates, as predicted:** the 18-row Guru Nanak head is in all 14
+  files; Lahore's 35 in all 14 (several resting on passing mentions — thin). Talwandi/Talwindi was
+  joined to the 7 Nankana rows on the book's own identification (p. 314) in most chunks; chunks 005
+  and 013 left it unmapped — **an inconsistency for Pass 2 to settle, not a ruling question.**
+
+## WORTH A HUMAN'S EYE (flagged in-file; none may enter an entry as read)
+
+- **Inferred site mappings, each with a Doubts line:** chunk 004 maps an unnamed gurdwara (pp. 80–83)
+  to `gurdwara-sacha-sauda` from "Chuhrkhana" on p. 92; chunk 011 maps an unnamed abandoned Rohtas
+  gurdwara to `gurdwara-choa-sahib` on place alone; chunks 008/009 map "Baba Bair" (Sialkot) to
+  `gurdwara-babay-de-ber`; chunk 010 maps a Manora temple to `shri-varun-dev-mandir` though the book
+  does not name it Varun Dev; chunk 003's `gurdwara-shaheed-ganj-singh-singhnian` is marked doubtful;
+  chunk 001 maps Arjan/Hargobind/Ram Das rows off chapter titles only.
+- **Numerals:** "16644" [1664?] and Hargobind's dates split across misplaced lines in "The Gurus of
+  Sikhism" (chunk 014); "(1540 C_E.)" and "Ninety sear" (005); "414-1 15" (013); "2218" (011);
+  "In 1660" with its sentence lost (010); damage around 1957–58 (003); Nanak's hymn count and the
+  Jhelum distance illegible (011); Qaiser's visit "a decade ago" vs "1994" (006). **The CHRONOLOGY
+  page (PDF 312) is destroyed and was recorded as lost, not reconstructed.** PDF 275 is lost to OCR.
+- **Names:** "Se sagh" (author of *Tarikh Guru Khalsa*, left unreconstructed), "Pais" (title of a
+  Qaiser book), "Harzat Sheikh tbr shim" [Ibrahim?], "Baha-ul-] lalim", "Jiwindi", "Eericiabed"
+  (plate caption, p. 168, unmapped).
+- **Internal contradiction:** Har Rai and the Aurangzeb/Dara war (chunk 014).
+
+## NEXT
+
+**The next notes firing does Pass 2 on `khalid_walking_with_nanak`** (TAKEAWAYS_PROTOCOL Pass 2,
+§9.233 shape; `pass2_extract.py` then `pass2_hedges.py`). BOOK_QUEUE_TASK.md updated to say so.
+The next firing by alternation is **transcription** (tahqiqat 751–780 lost, 781–873 untouched).
+
+Nothing is committed to git; **Rauf must run `git add -A && git commit` himself.** New files:
+`entries/book_takeaways/khalid_walking_with_nanak/chunk_001…014.notes.md` (+ copies in `out/`, and the
+regenerated `out/…/chunks/chunk_*.txt`). `docs/_APPEND_241.md` is left behind (unlink blocked) —
+**delete it by hand** with 238–240.
+
+### 9.242 — 29 September 2026: Stage = notes (interactive; Rauf present). Three rulings asked in chat and answered; province tags built; Pass 2 on `khalid_walking_with_nanak` started
+
+**Stage: notes.** Run interactively in the chat with Rauf, not by the scheduled task. The scheduled
+task had been **disabled from 27 Sep 00:11Z to 29 Sep 19:26Z** (≈67 h, no firings); Rauf re-enabled
+it and asked for the open questions here. **`notes_claim` on `khalid_walking_with_nanak` taken
+19:34Z** for Pass 2 so the 20:22Z firing reads step 1 and transcribes.
+
+## RULINGS (RULE 5 — asked in chat, answered 29 Sep 2026)
+
+1. **Provinces — ruling (c).** *"to each shrines add a province tag and then any information on
+   sindh in general shows up in the summary of all shrines in that province but be careful of the
+   timeline of the infomration."* Implemented: `pipeline/book_queue/build_province_map.py` (new)
+   appended `province` + `province_source` columns to `shrine_index.tsv` (backup
+   `shrine_index.tsv.bak-2026-09-29`) and wrote `province_map.txt`. **168 of 169 tagged: 162 stated
+   in `location_short`, 6 via another row's same leading city (four Miani Sahib/Lahore rows and two
+   Nankana Sahib rows), 1 empty — `darbar-malik-ahmad-ayaz`, whose source names no city or province
+   (RULE 2, left empty).** Punjab 93, Sindh 43, KP 16, Balochistan 11, ICT 4, AJK 1. Zero rows name
+   two provinces (the script exits 1 if one ever does). `check_note_ids.py` still exits 0 against the
+   widened index. **Protocol:** province material goes under a new `## Province-level material`
+   heading with NO bold ids, one bullet per province with the PERIOD it refers to — the join happens
+   by tag, not by pasting 93 ids. The timeline caution is written into TAKEAWAYS_PROTOCOL.md (c):
+   state the period, carry the book's own historical-unit wording, never supply boundary history,
+   and places now outside Pakistan do not take a Pakistani province.
+   **Consequence not yet done: the 24 summarized books and the 14 Walking-with-Nanak chunks were
+   noted before (c) and have no province section.** A per-book "province sweep" over the existing
+   chunks is a new work item for the notes stage, after the four Pass-1 books.
+2. **Orthography — transcribe AS PRINTED, normalise later.** Written into WORKER_PROTOCOL.md. The
+   inconsistency in 481-540 (only w3 kept `مین/نہین`) is known; a downstream normaliser must keep the
+   as-printed text alongside.
+3. **khulasat pp. 17-48 (index + errata) — do them with the split render.** BOOK_QUEUE_TASK.md now
+   makes this the next transcription batch (`render_panels.py --panels 2 --bands 4`, release
+   `HOLD-vsplit-index-errata` first; 39-48 need their full-page PNG rendered).
+
+Pass 2 on `khalid_walking_with_nanak` is recorded in the section after this one.
+
+### 9.243 — 29 September 2026: Stage = notes. Pass 2 on `khalid_walking_with_nanak` — 25 of 25 books consolidated — and the first `## Province-level material` section under ruling (c)
+
+**Stage: notes.** Same interactive run as §9.242; claim held 19:34Z–19:51Z, released and confirmed
+("no live notes claims"). `wc -l docs/HANDOVER.md` 18394 before this append.
+
+**`entries/book_takeaways/khalid_walking_with_nanak.md` — 260,605 B, 1,233 lines, md5
+`571bf9344c9b468b0c0f1bb8e592b10b` on the Mac and in the container. `check_note_ids.py` exit 0.
+`queue.py mark … summarized` done. `Reviewed: no.` in the header. Queue: 25 summarized.**
+
+**Shape:** `pass2_extract.py` (coverage verified: every byte of the 14 notes files in exactly one
+section; 45 single-id, 68 multi-id-only ids) + `pass2_hedges.py` (53 of 196 Doubts bullets) run
+**on the Mac directly** and staged up front; then §9.233's three-workers-by-output-section plus a
+**fourth worker, D, for the new province section** — one message, four workers:
+A archive + not-in-archive (69 subsections: 45 single-row, 24 groups; 60 not-in-archive lines) ·
+B what-this-book-is + cross-cutting (16 subsections) · C citable (15) + doubts (6 groups) ·
+D province sweep. Coordinator assembled in protocol order with Province-level material after the
+archive section, and fixed one folio slip A reported (Sulakhni line).
+
+**THE PROVINCE SWEEP HAD TO READ THE RAW CHUNKS**, because the Pass-1 notes predate ruling (c) and
+retained almost no province material. Worker D grepped the 14 chunks for Punjab/Sind(h)/Balochistan/
+Frontier/Pakhtunkhwa/NWFP/Kashmir (~110 hits), read context, and wrote **36 bullets: Punjab 20,
+Sindh 5, KP 3, Balochistan 1, not-attached 7** (Rivers-of-Punjab treaty covering both countries,
+Anandpur, an unspecified Kashmir, etc.). **Every bullet carries the book's own word, the period it
+refers to as the book states it, and its register** (travelogue / author's argument / historical
+prose / author's reconstruction) — that is how Rauf's "be careful of the timeline" was applied.
+**This is the template for the province sweep on the other 24 summarized books**: Grep the raw
+chunks, one worker per book, output a `## Province-level material` section to splice into the
+existing takeaways file. It is cheap (~5 min, one worker) where the book is text_layer or tesseract.
+
+**Talwandi settled at Pass 2:** mapped to the 7 Nankana rows in every chunk, on the book's own
+identification (p. 314), including chunks 005/006/013 where Pass 1 had not.
+
+**Open for a human (in the Doubts section):** Gurdwara Sachkand is inconsistent across Pass 1
+(chunk 003 put it under `gurdwara-sacha-sauda`, chunk 004 left it unmapped) — the takeaways keep it
+out of the Shikarpur row; the p. 270 legend's speaker is not stated; several running-header digits
+look truncated (p. 265 "39" for 239) and were cited `folio not stated`.
+
+**Next:** notes stage → Pass 1 on `dhillon_janamsakhis` (9 chunks) **with ruling (c) applied from the
+start**, then khalid_a_white_trail, khalid_in_search_of_shiva, nizami_revised_translation; then the
+province sweep over the 24 older takeaways. Transcription stage → khulasat 17-48 via
+`render_panels.py` (§9.242), then tahqiqat 751-873.
+
+Nothing committed to git — Rauf commits. `docs/_APPEND_238…243.md` to delete by hand.
+
+### 9.244 — 29 September 2026: Stage = notes. Pass 1 on `dhillon_janamsakhis`, 9 of 9 chunks — the first book noted under ruling (c) from the start
+
+**Stage: notes.** Same interactive run as §9.242–243. Claimed 19:52Z, renewed after wave 1, released
+20:00Z and confirmed. Chunks re-generated first (`queue.py chunk dhillon_janamsakhis --words 8000`,
+the book's own log value → 9, matching state.json). Two waves (6 + 3), each written back to
+`entries/…` and `out/…/chunks/` and verified by combined md5 against the container before the next
+(`56801b09…` wave 1, `ac3fd440…` all nine). `check_note_ids.py` exit 0; `notes-status` 9/9.
+139,281 B of notes.
+
+**Measured on this book — for the Pass-2 brief:**
+- Harish Dhillon, *Janamsakhis: Ageless Stories, Timeless Values* (Hay House India, ©2015, pb 2020),
+  twenty retold janamsakhi stories + author's reflections, illustrated with Sobha Singh paintings.
+  Attributed throughout as **the author's retelling**, not history. Almost no present-day site material.
+- Route text_layer, but the layer is itself an OCR: `t→c`, `t→r`, `1↔l/I` confusions; marker
+  `[text-layer?]`. **Watermark `SikhBookClub.com`** on most page feet — the same digitisation source
+  as *Walking with Nanak* (§9.241).
+- **No computable folio rule.** Folio at the page foot; folio−PDF steps 0 → +30 in ~25 irregular
+  steps (the PDF lacks printed leaves, most likely the plates), and several foot numbers misread
+  (PDF 205 "126", 241 "166", 252–253 "179"). Workers cited only folios read on the page itself.
+- **"Saidpur" is NOT identified with Eminabad in this book** (the word never occurs); left unmapped
+  with a cross-reference Doubts line to §9.241. **Talwandi IS identified: "Nanakana Sahib (earlier
+  called Talwandi)" (p. 175)** — the coordinator's brief first said otherwise (a search for "Nankana"
+  missed the spelling "Nanakana"); chunk 006's worker caught it, the brief was corrected for wave 2,
+  and **chunks 001–005 left Talwandi unmapped, so Pass 2 must apply the 7 Nankana rows there**, as
+  §9.243 did for Walking with Nanak. Lesson: search a variant spelling before briefing a negative.
+- **Province bullets (ruling (c)): 8, all Punjab** (e.g. "Since Punjab in the north was the gateway
+  to India…", p. 15, folio 17, framed by the book as the pre-Mughal invasions). Chunks 008 and 009
+  correctly recorded zero (a "Gurdaspur district of Punjab" phrase is a district, not the province).
+- **Judgement mappings to check:** `gurdwara-sacha-sauda` from "Chuharkhana" with no gurdwara named
+  (001); `gurdwara-babay-de-ber` from the Sialkot beri-tree story, gurdwara unnamed (005);
+  `shaktipeeth-shri-hinglaj-mata-mandir` from "Hinglaj (now in Balochistan)" with no temple named
+  (007); Multan's 8 rows from "Tulamba (modern Makhdumpur, in Multan, Pakistan)" (002); Lahore's 35
+  from "my fields near Lahore" (003) — thin.
+- **Numerals flagged:** "(f469-1539)", "I 506", "22 September 1539", Baba Budha "125 (6 October 1506
+  to 8 September 1631)", Nanki d. "1518" at "6:fcy-four", Farid "(1173-1266)", "1658" (earliest
+  janamsakhi, back cover), "A.O. 1000".
+
+**Next notes firing: Pass 2 on `dhillon_janamsakhis`** (BOOK_QUEUE_TASK.md updated). Then Pass 1 on
+`khalid_a_white_trail`. Nothing committed to git; `_APPEND_238…244.md` to delete by hand.
+
+**§9.244 addendum, 20:1xZ — Pass 2 on `dhillon_janamsakhis` done in the same interactive run.**
+`entries/book_takeaways/dhillon_janamsakhis.md`, 63,281 B, md5 `dbe396342335af0b168465dfc62d8a89`,
+`check_note_ids.py` exit 0, `Reviewed: no.`, marked `summarized` → **26 summarized**. One worker
+(source 140 KB — well inside the one-worker limit): 13 single-row sections, 11 groups, 1 province
+subsection (Punjab, 8 bullets), 15 citable. Talwandi → 7 Nankana rows applied across all chunks
+(p. 175); Saidpur left unmapped. Open for a human: Kartarpur material in chunks 005/007 attached on
+the book's own Ravi identification; "Pak Pattan … near Sirhind" (p. 171) as printed; "Rai Bhoe" at
+p. 123; Bhai Gurdas name clash. **Next notes firing: Pass 1 on `khalid_a_white_trail`.**
+
+### 9.245 — 29 September 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 17-48 (index + errata) transcribed, 32 pages → 362/610
+
+**Stage: transcription.** Scheduled firing, 20:22Z. Step 1: no live notes claim, no fresh lease
+(only `HOLD-vsplit-index-errata` on 17-38); step 2: §9.244 was notes → transcribe. Took the
+§9.242 ruling-3 batch first, as BOOK_QUEUE_TASK.md orders. Released `HOLD-vsplit-index-errata`
+(17-38) 20:24Z, leased 17-22/23-28/29-33/34-38 (w1-w4); 39-48 needed a full-page PNG before
+`lease` would hand them out, so `queue.py render --pages 39-48` ran on the Mac (2m41s, ~16 s a page
+— do renders in the container), then 39-43/44-48 (w5-w6). `queue.py check` → **362/610**, leases
+cleared. Written back to `out/ocr/khulasat_ut_tawarikh/pages/p0017-p0048.txt`, combined md5
+`b77320992d632d6193f4af212aebd12d`, identical on Mac and container.
+
+**What these pages are (measured, verify before reusing):** the scan runs BACK TO FRONT here, so
+PDF 17-46 = the name/place index printed pp. **32 → 3** (`[folio] = 49 − PDF`), PDF 46 carries the
+index title `فہرست اسمائے مردمان و بلاد … بترتیب حروف تہجی`, and PDF 47-48 = the errata
+`فہرست اغلاطے چند کہ در حین انطباع شدہ`, printed pp. **2 and 1** (4-column table
+صفحہ | سطر | غلط | صحیح). **All 32 folios checked by the coordinator on a tile of top-centre crops:
+32…1, zero exceptions.** These are the index's own page numbers, not body folios — `folio-check`'s
+body model (`589 − PDF`) does not apply to them and it flags nothing new.
+
+**DEVIATION FROM THE RULING'S RENDER, and why (measured, not preferred):** `render_panels.py
+--panels 2 --bands 4` was run as ordered (32 pages, 10 min in the container) but was NOT used,
+because two measurements on a 1400-px render showed its midline split cuts columns:
+1. **PDF 17-24 are THREE-column** pages (index pp. 32-25). A midline split halves the middle column.
+2. On the two-column pages the vertical rule wanders **0.43-0.58 of page width** (odd/even scan
+   shift). Entries START at a column's right edge, so a 3%-overlap midline cut put left-column
+   headwords into the right panel on about half the pages.
+Used instead: **new `pipeline/book_queue/render_overlap_panels.py`** — fixed, heavily overlapping
+panels (2-col 0.40-1.00 / 0.00-0.60; 3-col 0.55-1.00 / 0.27-0.72 / 0.00-0.44) so every column is
+whole in its own panel, 4 bands each, scale 8800, names `pNNNN_w{k}b{b}`; workers transcribe only
+the rule-bounded column their panel is centred on. Plus full-width `_fb` bands at 4400 for PDF
+46-48 so the errata rows could be aligned across panels. Render time 3m41s for 32 pages on 2 cores.
+Legibility at this crop is good: locator digits read individually. Worker brief committed as
+`pipeline/book_queue/KHULASAT_INDEX_ERRATA_BRIEF.md` (one entry per line, `headword - loc - loc`,
+wrapped locator runs joined, `[column N]`, `[letter: X]`, `[OCR?]` on every uncertain digit).
+
+**Counts:** 58,899 chars; **1,348 `[OCR?]`, 45 `[illegible]` (0.76 per 1,000 chars** — the corpus
+number to beat was 40.1, but an index is mostly digits flagged `[OCR?]` rather than `[illegible]`,
+so the two are not comparable). The three-column pages are the weak ones: PDF 20-22 carry 150-171
+`[OCR?]` each; PDF 31-38 carry 6-20.
+
+**One provenance incident, resolved by re-doing the pages:** worker w6 reported that its first read of
+the PDF 44-45 bands came back "media removed" and it wrote both files anyway, then re-read all 16
+bands and corrected them. A written page not read off the image is a RULE 2 hazard, so **PDF 44-45
+were re-transcribed from scratch by a fresh worker that never saw the draft; the fresh files are
+the survivors.** w6's drafts are kept at `out/ocr/khulasat_ut_tawarikh/alt_2026-09-29/p004{4,5}.w6draft.txt`
+(SequenceMatcher 0.90 / 0.91 against the fresh ones, so the draft was mostly real — but it is not
+in `pages/`). Worker w4 wrote the folios of PDF 34-36 by sequence without reading them; the
+coordinator's tile read confirmed all three (15, 14, 13).
+
+**For a human to check (every numeral in these pages is a locator, and the hand confuses ۲/۳/۴,
+۶/۹ and ۰/dot):**
+- The footer stamp `Sri Satguru Jagjit Singh Ji eLibrary / NamdhariElibrary@gmail.com` covers the
+  last one or two lines of most columns; those entries are `[illegible]` or partial on PDF 18, 20-22,
+  27-30, 33, 39-41, 43-46. Not transcribed (already recorded for this book, p0049).
+- Headless locator lines at the head of a column continue the previous printed page's last entry
+  (reverse order: the previous printed page is the NEXT PDF page) — e.g. PDF 23 col 1 probably
+  continues کابل (PDF 24), PDF 27 col 1 continues شاہجہان (PDF 28), PDF 39 col 1 continues the
+  stamp-covered last entry of PDF 40, PDF 32 line 1 has no visible parent on PDF 31. Kept as bare lines.
+- Non-ascending runs left as printed: اجمیر (PDF 46), اقبال خان (PDF 44), بامیان ۴۴۹ (PDF 39).
+- Superscript/squeezed locators placed at entry ends with `[OCR?]` (مالوہ, مانسنگھ PDF 21; گوالیار PDF 22;
+  قطب الملک ۴۷۳, شیر افگن ۴۶۹, طہماسپ ۴۴۷ on PDF 23-26).
+- PDF 23-28 worker wrote `علاء` / `ضیاء` with hamza where the print shows an `ر`-like final — check
+  against the image (orthography ruling: as printed).
+- Errata PDF 48: faint; the row for page ۹۸ line ۱۸ is the least certain.
+- Orthography (ruling 2): no dotted final nūn on these pages (names only); as-printed forms kept —
+  `سنگہ`/`سنگھ` both occur, `لودہی`, `کہوکہر`, `راے`, `اسمٰعیل`, closed forms `عادلخان`, `وردیخان`.
+
+**Next transcription firing: `tahqiqat_chishti` 751-780 (LOST, re-transcribe), then 781-873.**
+khulasat's remaining free range is 363-610 (248 pages). BOOK_QUEUE_TASK.md updated. Next notes
+firing unchanged: Pass 1 on `khalid_a_white_trail`. Nothing committed to git; `docs/_APPEND_238…245.md`
+to delete by hand.
+
+### 9.246 — 29 September 2026: Stage = notes. Pass 1 on `khalid_a_white_trail`, 13 of 13 chunks — fully noted under ruling (c)
+
+**Stage: notes.** Scheduled firing, 22:22Z. Step 1: no live notes claim, no transcription lease;
+no pending HANDOVER section in the attached project newer than §9.245; step 2: §9.245 was
+transcription → notes. Claimed `khalid_a_white_trail` 22:23Z (session_01DKPHJDiCuzGZ2kbPtSnVnV),
+renewed after wave 1, released ~22:40Z and confirmed (`no live notes claims`). Chunks re-generated
+first (`queue.py chunk khalid_a_white_trail --words 8000`, the book's own log value → 13, matching
+state.json). Two waves (6, then 6 workers with 012+013 on one worker as two separate files), each
+written back to BOTH `entries/book_takeaways/khalid_a_white_trail/` and `out/ocr/…/chunks/` and
+verified by combined md5 before the next wave (`5a62c25a…` wave 1 = chunks 001-006; `0e81c513…`
+all thirteen, identical in both Mac locations and the container). `check_note_ids.py` exit 0;
+`notes-status` 13/13, `chunks_ok: true`; `folio-guard` nothing to guard. 352,902 B of notes.
+Worker brief committed as `pipeline/book_queue/KHALID_WHITE_TRAIL_WORKER_BRIEF.md`.
+
+**Measured on this book — for the Pass-2 brief:**
+- Haroon Khalid, *A White Trail: A journey into the heart of Pakistan's religious minorities*
+  (westland ltd, 2013, "First e-book edition: 2013"). Reportage of festivals attended c. 2010-2012,
+  one chapter per festival and site; present-day site material is dense (Prahladpuri/Zakariya
+  1992 and 2006-08 encroachment; Katas Shivratri 2011; Panja Sahib Baisakhi 2011; Nankana's
+  gurdwaras; Dera Sahib; Ranjit Singh's samadhi).
+- **Born-digital text layer, essentially undamaged**: only `BAIAISAKHI` (chapter headings
+  p. 54 and p. 157), `Babar (14831530)` (p. 21) and fused footnote markers (`Guru Nanak1`,
+  `celebrations4`, `192425` p. 190 — 1924 + note 25, or 1924-25?). The introduction (pp. 9-11)
+  has sentences spliced out of order in the e-book itself.
+- **No printed folios anywhere** — every citation is `(p. N, folio not stated)`.
+- **Chapter → page map** (from the capitalised headings; in the worker brief): Holi at Multan to
+  p. ~28, Navratri at Bahawalnagar, Shivratri at Killa Katas to ~p. 53, Baisakhi at Ram Thamman
+  54-~68, Valmiki's birthday, Krishna Janmashtami, Maryabad to 99, Sacred Heart Cathedral 100-126,
+  Cathedral Church of Resurrection 127-134, Navroz 135-145, Baha'i 146-156, Hassan Abdal 157-171,
+  Gobind Singh at Nankana 172-180, Lohri at Nankana 181-194, Dera Sahib 195-204, Ranjit Singh
+  205-212, Sikh New Year at Nankana 213-218, Guru Nanak's birthday 219-232, Afterword 233-236.
+- **The author's note (p. 15) says informant names were changed and some passages "stray from"
+  non-fiction.** Every informant name may be a pseudonym — Pass 2 must say so in "What this book is".
+- **Province bullets (ruling (c)): 31** — punjab 16, khyber pakhtunkhwa 6, sindh 4, balochistan 2
+  (+ rest). Indian-side "East Punjab"/"Indian Punjab"/Amritsar material was kept out (009, 010,
+  011); several "partition Punjab" bullets have no side stated by the book and carry a Doubts line.
+- **Bare-Lahore bullets: 11 of 13 chunks head all 35 Lahore rows** (ruling (a)) — Pass 2 will have
+  a heavy Lahore group.
+- **Person rule was applied beyond Nanak/Shiva/Krishna** to every principal figure met (Kali 3,
+  Durga, Ram, Hanuman, Saraswati → sharada-peeth, Laxmi → shri-laxmi-narayan…, Valmiki 3, Guru
+  Arjan 3, Guru Hargobind 6, Gobind Singh, Mardana → gurdwara-rori-sahib, Mian Mir, Farid).
+  Several are bare wall-picture mentions — flagged in each chunk's Doubts; Pass 2 should weigh.
+
+**Judgement mappings for a human to check:**
+- Neela Gumbad Valmiki Mandir (Anarkali) NOT forced onto `valmik-mandir-naqi-road` (001, 004, 005);
+  candidate named under Doubts.
+- `prahladpuri-temple` mapped on location/"Prahlad" — the book never says "Prahladpuri" or names
+  Narasimha (001, 006).
+- Janmashtami's "Krishna Mandir, the only other functional Hindu temple in the city" (005) →
+  `krishna-mandir-ravi-road` from the chapter title (Lahore) only.
+- `gurdwara-sacha-sauda` from "Mandi Chuharkhana" with the name Sacha Sauda never printed (010).
+- `darbar-malik-ahmad-ayaz` from "Shah Alami" vs map key "shah alam market" (004; 010 declined it).
+- `shrine-of-baba-shah-chiragh` from toponym keys "mall"/"lahore high court" (006; 007 declined) —
+  inconsistent between workers.
+- `mazar-of-bulleh-shah` from bare "Kasur" (003, 004, 007, 011) — thin.
+- Kali's third row `kalka-cave-temple-asthan-of-kalka-devi` (figure "Kalka Devi (Kali)").
+- Workers split on "bare mention" toponyms before the wave-2 rule; wave 2 excluded
+  distance/route/home-town mentions. Chunk 005's Lahore bullet has three "Incidental" sub-bullets.
+
+**Numerals/dates flagged (quoted as printed; the book's own inconsistencies):** Shanti Nagar
+"5th February 1997" vs "6th February 1997" (007); Dera Sahib "6th June 2011" vs Ranjit Singh
+"29th June 2011" said to be "twelve days" apart (011); Guru Arjan "fifth" (p. 162) vs "fourth"
+(p. 168) Sikh Guru; Ranjit Singh's body moved "sixty years after" 1850 → 1909 (008); Sadaf 73 in
+2011 yet "born after partition" (007); Raza's age/Zia timeline (002); Faisalabad 100 km vs 150 km
+(005); Guru Nanak's birthday "last days of November" vs 8-10 November 2011 (012); Nankana Sikh
+houses "almost sevenfold", 30-40 → ~200 (009); Bishop Sebastian Shaw vs caption "Bishop Alexander
+John Malik" (006); "PPCEH" for "Pakistan Congress for Equality and Harmony" (006); "25,00,000
+acres" (p. 203); "twenty-fifty square yards" (p. 67); NCA "established in Lahore in 1857" (p. 47).
+
+**Next notes firing: Pass 2 on `khalid_a_white_trail`** (source 353 KB — one worker is proved to
+950 KB; the three-workers-by-output-section shape is optional here). Then Pass 1 on
+`khalid_in_search_of_shiva` → `nizami_revised_translation`, then the province sweep.
+Next transcription firing unchanged: `tahqiqat_chishti` 751-780, then 781-873 (queue.py status
+now reads tahqiqat **750/873** — re-measure before trusting §9.239's "751-780 LOST").
+Nothing committed to git; `docs/_APPEND_238…246.md` to delete by hand.
+
+### 9.247 — 3 October 2026: Stage = transcription. `tahqiqat_chishti` pp. 751-810 transcribed (the lost 751-780 re-done + 781-810 new) → 810/873
+
+**Stage: transcription.** Scheduled firing, 16:19Z, session_01KGGvXQ1cbeTdKzAHX5ruit. Step 1: no live
+notes claim, no lease; no pending HANDOVER section in the attached project newer than §9.246; step 2:
+§9.246 was notes → transcribe. Note the gap: state.json's `updated` was 2026-09-29T22:23Z, so **no firing
+ran between 29 Sep and 3 Oct.** The repo folder was not connected at start and was granted via
+`device_request_folder_access` on the curly-apostrophe path.
+
+Leased 751-810 to w1-w6 at 16:20:20Z (six × 10). Rendered in the container: `render_bands.py --scale 4400
+--bands 4 --no-folio-strip` (1m20s per 30 pages on ONE core — this container had `nproc` 1) plus native
+corner crops `_cL`/`_cR` `(0,0,820,620)`/`(W-820,0,W,620)` off `_q1`. Worker brief committed as
+`out/ocr/tahqiqat_chishti/alt_2026-10-03/WORKER_BRIEF_751-810.md` (out/ is gitignored — copy it into
+`pipeline/book_queue/` if it should be versioned). Written back as one tarball
+(`out/ocr/tahqiqat_chishti/tahqiqat_chishti_751-810_2026-10-03.tar.gz`, md5 `91c291d92f9372e5bd451f16e8c6077e`)
+extracted on the Mac with `cp -n`; **combined md5 of the 60 page files `e1e72dc44fb5507611223e3551cb23d1`,
+identical on Mac and container.** `queue.py check` → **810/873**, leases cleared. The extraction dir
+`out/ocr/tahqiqat_chishti/x/` is left behind (unlink blocked) — delete by hand.
+
+    worker  range     chars   [OCR?]  [illeg*]  illeg/1k  folios
+    w1      751-760   16354      303        30       1.8    3/10
+    w2      761-770   15525      384        12       0.8    5/10
+    w3      771-780   14821      162        24       1.6    7/10
+    w4      781-790   14084      184        73       5.2    7/10   (781-783 = fresh w7 files, see below)
+    w5      791-800   14103      253        51       3.6    8/10
+    w6      801-810   14495      148        31       2.1    9/10
+    total             89382     1434       221       2.47  39/60   217,220 bytes, no file under 800 B
+
+Duplicate sweep (all 1,770 pairs, `autojunk=False`, quick_ratio-gated): **none**, highest 0.279 (793,795).
+No source stamp on any page (sixth consecutive 60-page range). Dotted final nūn reported present on every
+range by all six workers, transcribed as printed (the §9.242 ruling is now being applied consistently).
+
+**PROVENANCE INCIDENT, resolved the §9.245 way:** w4 reported that its first image reads of p0781, p0782 and
+the top of p0783 came back "media removed" and that it wrote text for them anyway, then re-read and replaced.
+**Those three pages were re-transcribed from scratch by a fresh worker (w7) that never opened any draft; the
+fresh files are the survivors.** w4's drafts are kept at `out/ocr/tahqiqat_chishti/alt_2026-10-03/p078{1,2,3}.w4draft.txt`
+(SequenceMatcher vs fresh 0.956 / 0.782 / 0.945 — 782, the witness list, diverges most). **w1 also reports
+images being stripped from its context mid-run** and says pp. 757-760 were "not fully re-verified after the
+strip" (spot-check of 757 matched). Those drafts were written while the images were visible, so they were kept,
+but **757-760 are the first pages to re-read if anything here is doubted.** This "media removed" failure has now
+hit three runs (§9.245 w6, this run w1 and w4): long workers lose earlier images from context. Ten pages a worker
+is at the edge; consider 6-8 or tell workers explicitly to re-read before writing any page whose bands they can
+no longer see.
+
+**FOLIOS — the PDF−2 regime continues 751-810, with two contested spots.** 39 of 60 read; 35 at −2. Exceptions,
+both recorded with `queue.py folio-contest` (book now contests 9 ranges / 125 pages):
+- **784-786**: read 783, 784 [OCR?], 784 [OCR?] (offsets −1, −1, −2) between 782→780 and 788→786 — folio 784
+  read on two consecutive pages. Misread units digit or a repeated printed folio; not settled.
+- **794**: read 791 [OCR?] where −2 predicts 792 (units glyph possibly a damaged ۲).
+No folio on 751-753, 755, 757-759, 765, 767-771, 773, 775, 783, 787, 789, 791, 793, 803. **Cropping, corrected:**
+767 confirmed cropped above the top frame rule; **768 is NOT cropped** (rule complete, corners simply bare —
+corrects §9.238); 769 partly (first text line sits above the rule, header cut); **793 newly found cropped**;
+803 not cropped, folio simply absent. 
+
+**Content:** 751-760 mosques, inscriptions and Persian chronograms (Haidar Shah; dense verse 758-760) ·
+761-770 Lahore buildings incl. a hammam and mosque (765), a Punjabi verse (766), a jagir table (768, موضع سکیاں),
+samadh of Sahib Singh (770) · 771-780 Dara Shikoh's marriage, Abdi Shah, Budhu Shah, Qudsiya Begum's grave and
+mosque chronograms, then **the author's own account of Dauri Shah's makan** (deed of gift from Jhaggi Shah, his
+family's graves, a registered deed نقل قبالہ beginning p0780) · 781-783 that Persian gift deed and its witness list,
+then **باغ شالامار** (name derivations, founding year) · 784-790 Shalamar continued, land/revenue lists · 791-800
+a tree list; Lachhman's shrine and the Gorakhnathi jogis (792); Chandrat jogi succession with Samvat dates (794);
+Hindu royal genealogies (793-797, Rama's line, Chandravanshi) · 801-810 the Hindu rajas end; **802 starts
+تذکرہ شاہان اہل اسلام** (Muhammad → Ghaznavids → Balban; Sabuktigin 804; Mahmud's descendants 807).
+
+**Every numeral a human must check (all flagged in-file; none may enter a shrine record as read):**
+- p0765 hammam ۱۰۵۶ vs mosque ۱۰۴۶ though the text says the mosque came after (w2).
+- p0780 internal contradiction: ۱۲۹۵ beside the words بارہ سو پچاسی (1285) and a chronogram giving 1281 [OCR?].
+- p0778 wife's death year (superscript, unread); p0772 Dara Shikoh's marriage year unread; p0774 Budhu Shah
+  `سن بارہ سو [illegible]` twice; p0779 ۱۳۱۲ = ۱۸۹۵ [OCR?].
+- p0783 Shalamar founding year and قطعہ year: `سنہ ۱۰[illegible]` — **the obvious completion was deliberately not
+  supplied.** p0782 deed date `۱۵ مارچ سنہ ۱۸۶۵ [OCR?] ء` (third digit ۶ or ۲); p0781 plot `نمبر ۵۱۵ [OCR?]`.
+- p0753, p0756 superscript years (dating the mosques) — w1 removed earlier tentative ۱۲۸۵/۱۲۸۹/۱۲۷۸ as not
+  reliably read. p0759 `[margin: ۱۲۶۰ [OCR?]]`.
+- p0769 `سمت ١٩١[OCR?]` (4th digit possibly hidden), `سمت ١٨٣ … اٹہارہ سو تیس`; p0770 three Samvat years unread.
+- p0794 Chandrat jogi succession: سمت سترہ سو دس (interlinear ۱۷۱۰), سترہ سو ساٹہہ, اٹہارہ سو دس.
+- p0806 chronogram digits; p0808 `ایکہزار ۵۸`; p0810 `بارہ سو ۶۳` (۳ or ۴).
+Pages to re-cut first: 762, 766, 768 (w2); 776, 780 (w3); 782, 788 (w4/w7); 792, 798, 800 (w5); 802, 804, 808 (w6);
+758-760 (w1).
+
+**Next transcription firing: `tahqiqat_chishti` 811-873 (63 pages — finishes the book)**, then khulasat 363-610.
+Next notes firing unchanged: **Pass 2 on `khalid_a_white_trail`.** Nothing committed to git — Rauf must run
+`git add -A && git commit`. Staging files `docs/_APPEND_238…247.md` and `out/ocr/tahqiqat_chishti/x/` to delete by hand.
+
+### 9.248 — 3 October 2026: Stage = notes. Pass 2 on `khalid_a_white_trail` — 26 of 26 consolidatable books summarized
+
+**Stage: notes.** Scheduled firing, 17:30Z, session_01GD1QAsNSJXAMahyzknYFJ5. Repo folder not connected
+at start; granted via `device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes
+claim, no lease (state.json `updated` 17:17Z = §9.247's finish, no live sibling); no pending HANDOVER
+section in the attached project newer than §9.247; step 2: §9.247 was transcription → notes. Claimed
+`khalid_a_white_trail` 17:31Z, released at the end and confirmed with `status`. `wc -l docs/HANDOVER.md`
+18717 before this append.
+
+**`entries/book_takeaways/khalid_a_white_trail.md` — 289,321 B, 1,279 lines, md5
+`ac224d59cb358e7534c8159a58ae1e36`, identical on the Mac and in the container. `check_note_ids.py` exit 0
+(and a separate sweep: all 108 bold ids in the file resolve to tsv column 1; every group id line is ONE
+physical line, counts matching each heading). `folio-guard` nothing to guard. `queue.py mark … summarized`
+done. `Reviewed: no.` in the header.** Pass-2 brief committed as
+`pipeline/book_queue/KHALID_WHITE_TRAIL_PASS2_BRIEF.md`.
+
+**Shape:** `pass2_extract.py` run on the Mac into `out/ocr/khalid_a_white_trail/pass2/` (coverage OK: 8
+sections, 37 single-id ids, 77 multi-id-only ids, 19 id-groups) + `pass2_hedges.py` (56 of 169 Doubts
+bullets); everything staged up front; four workers in one message, all finished in ≤ 6.2 min:
+A1 37 single-row subsections · A2 19 group subsections + not-in-archive · B what-this-book-is +
+cross-cutting (17 subsections) + province · C citable (15) + doubts (6 groups). Unlike §9.243 **no raw-chunk
+province sweep was needed** — Pass 1 was written under ruling (c), so B consolidated the Pass-1 province
+bullets: punjab 20, sindh 5, KP 7, balochistan 2, not attached 6. Coordinator assembled in protocol order
+(Province-level after the archive section, as §9.243).
+
+**Corrections to the §9.246 brief, found by the workers:**
+- **The book DOES print "Narasimha"** (p. 36, "a picture of Narasimha, tearing Hiranyakashipu apart");
+  §9.246 said it never names him. "Prahladpuri" is still never printed. Kept as a bare person-level mention.
+- **Shanti Nagar 5th vs 6th Feb 1997** sits in the not-in-archive section (pp. 121, 125), not under a row.
+
+**New contradictions surfaced at Pass 2 (kept side by side in the file, nothing resolved):**
+- Dera Sahib "6th June 2011" (p. 196) vs Ranjit Singh's "29th June 2011, twelve days after" (p. 206) —
+  twelve days before 29 June is 17 June. (Already in §9.246; still the one most worth checking.)
+- Gobind Singh's birthday "10th of January 2011" (pp. 172-173) vs "11th January 2011 … actual birthday"
+  on Purewal's calendar (p. 179).
+- p. 22: the 1992 temples "None of them were functional at that time" while the same list calls Krishna
+  Mandir, Ravi Road functional.
+- Panja Sahib "extended" (p. 159) vs "original complex built by" Ranjit Singh (p. 167); Katas stupa
+  "partially excavated" (p. 43) vs "unexcavated" (p. 45); Katas crowd "about two thousand" (p. 42) vs "about
+  a thousand" (p. 50); Ranjit Singh samadhi "facing" (p. 201) vs "Just behind" Dera Sahib (p. 205); Tambo
+  Sahib "mango coloured" (p. 181) vs "small yellow structure … white dome" (p. 223); vendor "Vishal Chand"
+  (p. 167) vs "Vishal Nasir Chand" (p. 229); Nankana Sikh houses three different figures (pp. 174-175, 193).
+- "6th of December 1992" (p. 22, Babri) and "7th of December 1992" (pp. 68-69, Neela Gumbad attack) —
+  worker B reads these as two events; C put them together under numerals for a human.
+- Opposite Pass-1 rulings on one key, both recorded, neither reversed: `shrine-of-baba-shah-chiragh`
+  (006 mapped / 007 declined), `darbar-malik-ahmad-ayaz` (004 / 010).
+- Bahawalpur: the toponym map gives 4 rows; TAKEAWAYS_PROTOCOL.md's prose says 5. Not investigated.
+
+**Judgement calls for a human** — unchanged from §9.246's list, each now opened with a one-line
+"judgement call" sentence in its subsection. Pre-partition Punjab material (Ghaznavi raid, Ranjit Singh's
+reign, British rule) was kept under `province: punjab` flagged "before partition; the book does not state
+the unit's extent" — move to "not attached" if Rauf reads ruling (c)'s timeline clause more strictly.
+
+**Queue:** 27 books `summarized`. **Next notes firing: Pass 1 on `khalid_in_search_of_shiva`** (9 chunks,
+epub route, ruling (c) from the start), then `nizami_revised_translation`, then the province sweep over the
+24 older takeaways (template §9.243 worker D). **Next transcription firing unchanged: `tahqiqat_chishti`
+811-873 (finishes the book)**, then khulasat 363-610.
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Staging files
+`docs/_APPEND_238…248.md` to delete by hand.
+
+### 9.249 — 3 October 2026: Stage = transcription. `tahqiqat_chishti` pp. 811-873 transcribed → 873/873, BOOK TRANSCRIBED
+
+**Stage: transcription.** Scheduled firing, 18:22Z, session_01Bkx77bkC5sNd7FFPtpCfEM. Repo folder not connected at
+start; granted via `device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes claim, no lease.
+No pending HANDOVER section in the attached project newer than §9.248 (last project doc = 61). Step 2: §9.248 was notes
+→ transcribe. Leased 811-873 at 18:23Z as w1-w12 (sizes 6×6, 3×5, 3×4); the leases were bookkeeping only — wave 2 was
+re-split into four workers (see below) and `queue.py check` cleared all leases.
+
+Rendered in the container (`nproc` 1 again): `render_bands.py --scale 4400 --bands 4 --no-folio-strip`, 1m35s per 36
+pages, plus native corner crops `_cL`/`_cR` off `_q1`. Brief: `out/ocr/tahqiqat_chishti/alt_2026-10-03b/WORKER_BRIEF_811-873.final.md`
+(the §9.247 brief plus two added sections; out/ is gitignored — copy into `pipeline/book_queue/` if it should be versioned).
+
+**Two waves, each written back before the next launched, each with its own insurance tarball:**
+- wave 1: six workers × 6 pages (811-846) → `out/ocr/tahqiqat_chishti/tahqiqat_chishti_811-846_wave1_2026-10-03.tar.gz`
+  (md5 `74b5f8bf296689d0dcd0219de68a9292`), 32 page files, combined md5 `f04a568fd4ce2f06403ee49119817ee9` identical both sides.
+- wave 2: four workers (847-853, 854-860, 861-867, 868-873) + one fresh re-read worker (817, 818, 819, 829) →
+  `tahqiqat_chishti_847-873_wave2_2026-10-03.tar.gz` (md5 `4e1bba8d081059b71f546fb75045ef16`).
+- **All 63 pages 811-873: combined md5 `52672b4d81a4c0d0187b365636945a71`, identical on Mac and container.**
+  `queue.py check` → **873/873, status=transcribed**, assembled 376,185 words → `out/ocr/tahqiqat_chishti/p001-end_2026-10-03_1910_transcribed.txt`.
+
+**MEASURED — "media removed" is a REQUEST LIMIT on concurrent image reads, not context length.** The text says
+`[media removed: request limit]`. With **six** concurrent 6-page workers it hit **four of six** (w2, w3, w4, w6), even on
+short ranges; with **five** concurrent workers in wave 2 it hit **none**. §9.247's "ten pages is at the edge" diagnosis
+was wrong — short ranges do not prevent it. **Run at most FIVE image-reading workers at once** on vision books, and tell
+workers to `sleep` and retry on "media removed" and to leave a page unwritten rather than write it blind (both now in the brief).
+Handling: w3 (823-825), w4 (829-831), w6 (841-842) re-read and corrected their own blind drafts; w6 found a date it had
+written from memory as `۱۰۸۶ھ` actually reads `۱۶۸۶ء`. **817-819 (w2, only spot-checked) and 829 (w4, drafted blind) were
+re-transcribed from scratch by a fresh worker w11 that never saw the drafts; the fresh files are the survivors.** Drafts at
+`out/ocr/tahqiqat_chishti/alt_2026-10-03b/p08{17,18,19,29}.draft.txt` (fresh vs draft 0.978 / 0.912 / 0.950 / 0.922).
+**p0823-0825, p0830-0831, p0841-0842 are self-corrected blind drafts and are the first pages to re-read if doubted.**
+
+    range     chars    [OCR?]  [illeg*]
+    811-873   126445     940       423     3.35 illegible per 1,000 chars; 40/63 folios read; no file under 1,000 B
+
+Duplicate sweep (all pairs within ±4 pages, `autojunk=False`): **none**, highest 0.263 (858,859). NB: `quick_ratio` is
+useless as a gate on this script (it passed 1,917 of 1,953 pairs) and a full all-pairs `ratio()` sweep exceeds 10 min on one core.
+No source stamp. Dotted final nūn present on every range, transcribed as printed. p0873 carries a handwritten-looking
+Latin-digit mark beside the second `ایضاً` (`6529/6629`?, possibly an accession number), recorded `[margin] [illegible]`.
+
+**FOLIOS.** 811-854 continue PDF−2 (every folio read). Contested with `queue.py folio-contest` (book now **11 ranges / 145 pages**):
+- **830**: read `839 [OCR?]` where PDF−2 gives 828 (829, 831 cropped).
+- **855-873**: the offset steps to **PDF−1** (858, 859, 862, 865-867, 869-871, 873) but 863→863 and 864→864 (PDF−0; 865
+  also reads 864, a possible printed repeat) and 868→866 (PDF−2). **855-860 is a new section (Jahangir's tomb, Shahdara) in a
+  different, clearer hand — possibly an inserted gathering.** Not settled; do not spend a firing on it.
+Cropped/bare corners: 827, 829, 831 (partly), 847, 849, 851 (cut), 856 (top-left cut), 872.
+
+**Content:** 811-816 Balban → Khiljis → Tughlaqs → Timur → Sayyids · 817-822 Lodis (two tables, 818), Babur, Humayun, Sur ·
+823-834 Akbar, Jahangir, Nur Jahan's coins (828), Jahangir's death and burial at Shahdara, Shah Jahan (Taj, Shalimar) ·
+835-846 Aurangzeb, succession war, Shivaji, Bahadur Shah, Banda, Jahandar Shah · 847-854 Farrukhsiyar → Shah Alam II,
+Nadir Shah, Abdali, Panipat, Akbar II, `ذکر سراج الدین ابوظفر بہادر شاہ` (854, a shikasta-like hand, 68 `[illegible]`) ·
+**855-860 `احوال مقبرہ حضرت نورالدین جہانگیر بادشاہ غازی`** (measurements, mujawir table 857) · 861-865 sarai and Asif Khan's tomb
+(names of God on the cenotaph), Nur Jahan's tomb, `حال مجاوران وخدام` (family table 864) · 866-870 samadh of Jawahar Singh and
+Raja Suchet Singh, Hira Singh, Rani Jindan · 871 Mai Mangla's shivala, `حال نولکہہ` (Ali Mardan Khan's Naulakha; `مقبوضہ راقم`) ·
+**872 `خاتمہ` signed `فضل الدین صحاف لاہوری`: printed at Matba Koh-i Nur, Lahore; the author died of cholera before
+completion; names his other works `تحفہ چشتی` and `یادگار چشتی`** (colophon-like; not tagged `[colophon]` because the page
+opens mid-entry) · **873 chronograms** (book's completion, by Mufti Ghulam Sarwar; by Maulvi Muhammad Ali, the author's younger
+brother; the author's death, by Bahadur Shah `پسر [OCR?]` of Sayyid Chiragh Shah).
+
+**Every numeral a human must check (all flagged in-file; none may enter a shrine record as read):**
+- 816 superscript year `۳۹۸ [OCR?]` (leading digit missing?) and Mahmud Tughlaq's death year `[illegible]` (۱۳۱۲ or ۱۴۱۲).
+- 818 both tables: every year and reign length. 819 `سنہ ۱۵۳۰ [OCR?] ع` ×2, chronogram `۹۳۷ [OCR?]`.
+- 823 `۱۵۴۹ع [OCR?]`; 825 `۱۰۱۵ [OCR?]`; 826 `۱۵۹۹ [OCR?]`, Hijri year illegible; 828 coin year illegible.
+- 830 Jahangir's death `نومبر سنہ ۱۶۲[illegible]ء`, `سنہ [illegible]۳۶ ہجری`. 836, 838 (Dara's death), 840 (Sulaiman Shikoh) years unread.
+- 841 `۱۶۸۶ء [OCR?]`; 843 `۱۶۸۰ء`, `۱۶۸۹ء`, `۱۱۱[illegible]`, `۱۱۱۸ [OCR?]`; 844 `۱۱۱۸ [OCR?]`; 846 `۱۷۱۲ء [OCR?]`.
+- 851 Abdali's invasion year illegible, `۱۷۴۹ [OCR?]`, `۱۷۵[illegible]` ×2; 852 `۱۷۵۷ [OCR?]`; 853 `۱۷۶۱ [OCR?]`, `۱۸۰۶ [OCR?]`, chronogram `۱۱۸۴ [OCR?]`.
+- 854 `سنہ ۱۲۵۳ ہجری`, all other years illegible; 855 `سنہ ۱۰۳۷ ہجری` (tomb completed); 859 `۲۱۳`/`۲۱۵ فٹ` shaky.
+- 866-867 Samvat years in words (Sher Singh's death `سمت اٹہارہ سو ترادوے`, last word unresolved); 868 `سمت ۱۹۰۱ [OCR?]` (layout
+  ambiguous); 870 `سنہ ۱۸۵۹ء [OCR?]` ×2, a siyaq-like pay sum; **873 all chronogram figures** (`۱۲۹۴`, `۱۷۰`, `۱۹۴۴`, all [OCR?]).
+Pages to re-cut first: **828** (mostly `[illegible: 4/9 lines]`), **854** (whole page), 873, 836, 838, 840, 843-844, 848-849, 861, 863, 866-867.
+
+**Next transcription firing: `khulasat_ut_tawarikh` 363-610.** Next notes firing unchanged: **Pass 1 on `khalid_in_search_of_shiva`.**
+`tahqiqat_chishti` is now `transcribed` and will need chunking and notes; where it goes in the notes order is Rauf's call (asked in the run report).
+Nothing committed to git — Rauf must run `git add -A && git commit`. To delete by hand: `docs/_APPEND_238…249.md`,
+`out/ocr/tahqiqat_chishti/x/`, `x2/`, `x3/`, and `alt_2026-10-03b/dup_from_pages/` (four draft copies that `cp` swept into `pages/` and were moved out).
+
+### 9.250 — 3 October 2026: Stage = notes. Pass 1 on `khalid_in_search_of_shiva` — FULLY NOTED, 9/9
+
+**Stage: notes.** Scheduled firing, 23:28Z, session_013QRvhWXMiKgydz2LtWojnU. Repo folder not connected at start;
+granted via `device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes claim, no lease
+(state.json `updated` 20:24Z). No pending HANDOVER section in the attached project newer than §9.249 (last project doc = 62).
+Step 2: §9.249 was transcription → notes. Claimed `khalid_in_search_of_shiva` 23:28Z, released at the end, confirmed with `status`.
+
+**A previous firing (session_017mRYzkweKsmtZuvJjamqVH, ~20:22Z) died silently after its prep**: it re-chunked the book
+(chunks dated 20:24Z, `chunks_ok: true`, section-aligned), created the empty `entries/book_takeaways/khalid_in_search_of_shiva/`,
+wrote `pipeline/book_queue/KHALID_SHIVA_WORKER_BRIEF.md` (20:27Z, self-labelled §9.250), and left no notes, no §9 section and an
+expired claim. This run spot-verified that brief (all 8 Shiva rows and every named single-row id resolve in shrine_index.tsv)
+and used it unchanged. **Lesson: a claim expiring with no §9 section is a dead sibling — look for its brief before re-measuring.**
+
+**Shape:** brief + protocol + tsv + toponym/province maps + an abridged khalid_a_white_trail calibration file staged up front;
+wave 1 = six workers (001-006), written back and md5-verified in both `entries/` and `out/` before wave 2 = three workers
+(007-009). Each worker ≤ 2.7 min. Insurance tarballs `out/ocr/khalid_in_search_of_shiva/shiva_wave{1,2}_2026-10-03.tar.gz`
+(md5 `0c97f783…` / `01cdcf92…`). **All nine notes files: 205,767 B, concatenated md5 `fcae002764b21c6a70b59248d268bf4f`,
+identical in `entries/` and `out/…/chunks/`.** `check_note_ids.py` exit 0; `folio-guard` nothing to guard; `notes-status` 9/9.
+One coordinator edit: chunk 002's province head misquoted "early twenty centuries" → corrected to the book's
+"early twentieth centuries" (chunk_002.txt l. 129), noted in that file's Doubts.
+
+Chunk → pages: 001 pp. 1-7 (front matter, Intro, ch. 1) · 002 p. 8 · 003 pp. 9-10 · 004 p. 11 · 005 p. 12 · 006 pp. 13-14 ·
+007 p. 15 · 008 p. 16 · 009 pp. 17-21 (ch. 11, Acknowledgments, endnotes cited as `(p. 19, Notes, note N, …)`, Bibliography).
+
+**Mappings worth a human look at Pass 2 (worker-flagged):**
+- Lahore 35-id head in every chunk except 002 and 009 — several rest on thin material (001 park/consulate/gallows; 008 LUMS).
+- Weak single joins: Margalla hills ×2 (004, material is about Taxila/Dharmarajika); sial-sharif via Sargodha (004 uncle's
+  report; 006); Islamabad/Rawalpindi (001, one news sentence; 003, one Salman Rashid sentence); Jhelum (003); Multan (003, 009);
+  Quetta (007, time marker only); Jhang→garh-maharaja-shorkot and Chiniot→langer-makhdoom (008, material not about those shrines);
+  Phalia→ranmal-sharif, Gujrat→shah-daula, Bhatti gate ×2 (005); ram-mandir-saidpur via Rama (003 Sleeman quote; 006 Ram Navami).
+- Person rule extended beyond the brief's list: Guru Arjan ×3 (005, 007), Guru Hargobind ×6 (005), sharada-peeth for Sarasvati (005 —
+  check), Durga (007, 008 bare), Valmiki ×3 (008), gurdwara-dash-mesh-pita (009), lal-shahbaz-qalandar (009).
+- mazar-e-iqbal mapped once, chunk 005 ("Allama Iqbal also once came to see the saint"); 001's unnamed "national poet" NOT mapped.
+  Iqbal Qaiser kept separate everywhere. Every Farid in the book read unambiguous (Baba Farid of Pakpattan); "Fareed Gharib" (002) unmapped.
+- Unmapped by choice: Bhera "shivling/shivala" (005, Shiva never named), Lakshmi (007), Mai Mufto "Toor in Lahore district" (007),
+  "Shourkot, Jang" and Sargodha as origin mentions (003).
+- Province bullets: 001 punjab/sindh/balochistan · 002 punjab · 003 punjab ×3, sindh · 004 punjab, sindh · 005 none · 006 none ·
+  007 punjab ×2 · 008 punjab ×2 (one may be a label use — Heer Ranjha/Mirza Sahiban) · 009 punjab (note 44, Taseer, "4 January 2011").
+
+**Contradictions inside the book (kept side by side, nothing resolved):** 002 saint's name/grave Hanifa vs Faheem, journalists
+Altaf vs Faheem, "at Pakpattan" vs "near"; 003 Iqbal Qaiser says the tree is "shisham", the author's argument needs acacia;
+004 informant "Jaffar Qazmi" vs "Jasim Qazmi", Peer Abbas "last ten years" vs "thirteen years… in chila"; 005 peacock saint's
+origin (plaque: martyr against the Marathas; Auqaf informant: grandson from Baghdad); 007 Sahari Mal Hindu vs Sikh;
+008 "20,000 a day" (official) contradicted by the author; 009 endnote vs bibliography (Chisti/Farooqi, Goddess/Goddesses, two Deobandi titles).
+No text damage met anywhere (born-digital EPUB).
+
+**Queue: 9/9 noted. Next notes firing: PASS 2 on `khalid_in_search_of_shiva`** (205 KB of notes, one worker suffices per §9.233;
+brief = this section + KHALID_SHIVA_WORKER_BRIEF.md), then Pass 1 on `nizami_revised_translation`, then the province sweep.
+Next transcription firing unchanged: `khulasat_ut_tawarikh` 363-610. Still open from §9.249: where `tahqiqat_chishti` (now
+transcribed) goes in the notes order is Rauf's call.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Staging files `docs/_APPEND_238…250.md` to delete by hand.
+
+### 9.251 — 4 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 363-404 transcribed, 42 pages → 404/610
+
+**Stage: transcription.** Scheduled firing, 00:22Z, session_01KMBZFV8zWnEzhvNQVUzsBa. The repo folder was not connected at the start, so access was granted via `device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes claim and no lease. No pending HANDOVER section in the attached project newer than §9.250 (last project doc = 63). Step 2: §9.250 was notes, so this firing transcribes. Leased 363-422 at 00:24Z (w1-w10, six pages each). **405-422 were released unused at 01:42Z**, and `queue.py check` cleared the rest. The 22 Sep marker `RUN_IN_PROGRESS_khulasat_ut_tawarikh.md` (363-410, "in progress") is stale: that run produced no pages.
+
+**Render:** in the container, `render_bands.py --scale 4400 --bands 4` (halves and `_ft` by default), 4m21s per 30 pages on 1 core. New brief, committed: **`pipeline/book_queue/KHULASAT_BODY_WORKER_BRIEF.md`** (images, folio trap, stamp, numerals, request-limit gate).
+
+**Result: all 42 pages, combined md5-of-md5s `1252ec9437f8fafcb8e1a56405a0d9b7`, identical on Mac and container.** 61,810 Arabic-script characters, 269 `[OCR?]`, 18 `[illegible]`, **0.29 `[illegible]` per 1,000 characters**, the book's best rate so far (0.54 over 297-362). No page `[blank page]`, none under 2,700 B. Duplicate sweep (±3 pages, `autojunk=False`): none, highest 0.258. **Folios: all 42 read off the `_ft` strips by the coordinator on three tiles** (`out/ocr/khulasat_ut_tawarikh/alt_2026-10-04/folio_tile_*.png`). Each equals `589 − PDF`, **including the ۲→۱ hundreds transition at PDF 390 (folio 199)**, which no batch had crossed before. `check_folio_direction.py --pages 49-404`: descending, 356/356. `check_folio_continuity.py`: no break. No hundreds-digit error this time; every worker calibrated against its own units digits.
+
+**MEASURED — the image request limit is worse than §9.249 found. Five concurrent is NOT safe.**
+
+    concurrent workers   hit "[media removed: request limit]"
+    5 (wave 1, 363-392)  5 of 5
+    3 (wave 2, 381-404)  2 of 3 (the 3-page worker was clean)
+    2 (fresh re-reads)   0 of 2, no retries needed
+
+§9.249's "five hit none" did not reproduce. **Every worker that hit the limit wrote drafts before its images loaded**, despite the brief's rule. Each one caught it and deleted or rewrote the files from loaded images. Worker w4 instead left 381/383/384 unwritten, and a fresh worker did those. A HARD-GATE prompt ("one page at a time; a file only after all 13 images displayed") did not stop w6 or w7 under the limit. **Run at most TWO image workers at once on vision books**, or three with short ranges, and expect the gate to be broken under pressure.
+
+**MEASURED — the self-corrected drafts are sound.** Fresh workers who never saw any `.txt` re-read 7 pages from images alone. SequenceMatcher (markers stripped, `autojunk=False`) between fresh and self-corrected: 371 **0.980**, 389 **0.986**, 393 **0.987**, 394 **0.993**, 395 **0.993**, 396 **0.994**, 400 **0.976**. Nearly all of the difference is word spacing (`و` joined or split). Survivors: **393-396 = the fresh files** (w6 asked for this; its versions are kept at `alt_2026-10-04/w6_selfcorrected/`). For **371, 389 and 400 the originals stay** (fresh copies are at `alt_2026-10-04/fresh_sample/`). On **p0389 the fresh reader LOST a verse line** that straddles the q2/q3 band seam (only the tops of the letters show in one band and the bottoms in the other). The original has all four couplets of the first `نظم`, confirmed by the coordinator on a 400 dpi render. **The 3% band overlap (66 px) is less than a line height**, so a line can fall into the seam on any page; workers who stitched the seam with PIL recovered it. w3's blind drafts are kept at `alt_2026-10-04/blind_drafts_w3/`.
+
+**Content** (Persian; PDF order runs back to front, so read 404 → 363): **404-401** Shihab al-Din Ghuri's expeditions (years ۵۷۵, ۵[illegible], ۵۸۰, ۵۸۲, ۵۸۷, ۵۸۸, ۵۹۶, ۶۰۳) · **400-399** Qutb al-Din Aibak, his death at polo, Aram Shah, Iltutmish · **398-393** Iltutmish → Rukn al-Din → Raziya → Bahram Shah → Mas'ud → Nasir al-Din Mahmud (۶۲۶, ۶۳۴, ۶۳۷ ×2, ۶۳۹, ۶۴۴; p0395 spells `سنه تسع وثلثین وستمائه`) · **392-384** Balban (accession `۶۶۶`, hunting and birds 389, Kaiqubad, Bughra Khan, `مدت سلطنت بیست سال و سه ماه` 384) · **383-375** Kaiqubad (`۶۸۶`), Amir Khusrau's `قران السعدین`, the Kilokhri palace, Jalal al-Din Firuz Khalji (`۶۸۹`, footnote on `خالج/قالج` citing Firishta vol. 1 p. ۸۸) · **374-363** Ala al-Din Khalji: Deogir, Ranthambhor, Mongol invasions (`۶۹۱/۶۹۳`, 370), and **363-368 the Padmavat/Chittor episode** (`پدماوت` / `پدمادت`, `سنگلدیب`, year `۶۹۶` 368). p0386 has a Shaikh Sadr al-Din / Bahauddin Zakariya story (`حلاله` episode). This may be relevant to Multan; flag it for the notes stage.
+
+**Every numeral a human must check** (all flagged in-file, none may enter a shrine record as read):
+- **p0400 Aram Shah's accession: the two readers disagree.** w7 wrote `۶۰۷ [OCR?]`; the fresh reader wrote `[illegible]` (lead digit "۲ or ۶?"). The coordinator's 400 dpi crop shows a wedge (۷?), a dot (۰) and an ambiguous leading glyph. ۶۰۷ is the conventional date, so it may have been supplied rather than read. **The same page's Aibak death year is `[illegible]` in both readings.**
+- 368 `۶۹۶`; 370 `۶۹۳` with footnote `۶۹۱` (Firishta p. `۹۴`); 375 `۶۸۹`; 383 `۶۸۶`; 392 `۶۶۶`; 394 `۶۳۹`, `۶۴۴`; 396 `۶۳۷` ×2; 397 `۶۳۴`; 398 `۶۲۶`; 399 `۶۰۸`; 401 `۵۹۶`, `۶۰۳`; 403 `۵۸۸`; 404 `۵۷۵ ۵[illegible] ۵۸۰ ۵۸۲ ۵۸۷` and footnote Firishta p. `۵۷`. All are small superscripts over `سنه`.
+- Names: `هلاکو خان` (370, 388), `سیدی موله` (371), `رنتهنبور` (372), `کیلوکهرے/کیلوکهڑی` (374, 383, 398), `باربک خانجهان` (380), `قوم کاتهیر` (387), `قصبه ریواری` (388), `بخطاب الف خانی` (394; printed الف, not الغ), `قاضی مهرپوره` (395), `کیتهل` (396), `نظام الملک محمد چندیکه` (397), `کهانڈے/کهاندی` (both printed, 403-404), `کوران/پاندوان` (381).
+- Footnote text absent or stamp-covered: 372 (marker but no note), 395 (covered by stamp), 390 (trailing glyph). The stamp also covers words on 369, 381, 388.
+- **Pages to re-read first if doubted:** 381 (30 `[OCR?]`, games vocabulary), 383, 386, 379, 404.
+
+**Orthography** (as printed, per the 29 Sep ruling): Persian with Urdu-style `ے`/`ۓ` for izafa and yā (`براے/برائے/براۓ`, `روے`, `یکے`), `علار الدین` for `علاء` (363-368), madda often absent (`برامد`, `اثار`), `بست` for `بیست`, ژ undotted (`نزاد`). No dotted final nūn.
+
+**Next transcription firing: `khulasat_ut_tawarikh` 405-610**, at most TWO image workers at once. Next notes firing is unchanged: **Pass 2 on `khalid_in_search_of_shiva`**. Still open from §9.249: where `tahqiqat_chishti` goes in the notes order is Rauf's call.
+Nothing is committed to git; Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…251.md` and the three tarballs in `out/ocr/khulasat_ut_tawarikh/` dated 2026-10-04 (their contents are extracted).
+
+### 9.252 — 4 October 2026: Stage = notes. Pass 2 on `khalid_in_search_of_shiva` — SUMMARIZED
+
+**Stage: notes.** Scheduled firing, 05:50Z, session_01A3TFE7Vg6AfRsakDYiSRrw. Repo folder not connected at start; granted via
+`device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes claim, no lease (state.json `updated` 01:53Z).
+No pending HANDOVER section in the attached project newer than §9.251 (last project doc = 64). Step 2: §9.251 was transcription → notes.
+Claimed `khalid_in_search_of_shiva` 05:51Z; released at the end, confirmed with `status`.
+
+**Shape:** the nine Pass-1 notes files staged (concatenated md5 `fcae002764b21c6a70b59248d268bf4f`, matching §9.250) with tsv,
+protocol, both briefs, `pass2_extract.py` / `pass2_hedges.py` and a 32 KB calibration excerpt from `khalid_a_white_trail.md`.
+`pass2_extract.py` coverage OK (8 sections, 23 single-id + 75 place-only ids); `pass2_hedges.py` 40 of 108 Doubts bullets.
+**Two workers split by OUTPUT section** (A: header + archive section; B: province, cross-cutting, figures, citable, doubts),
+4.7 and 7.5 min. New brief committed: `pipeline/book_queue/KHALID_SHIVA_PASS2_BRIEF.md`.
+
+**Result: `entries/book_takeaways/khalid_in_search_of_shiva.md`, 1,022 lines / 196,413 B, md5 `6f8d98d4a2cf1fb5de95d60e3a82eab1`**
+(identical Mac/container), `Reviewed: no.` kept, `check_note_ids.py` exit 0 (82 bold ids, all in the tsv), marked `summarized`.
+Archive section: 23 single-id subsections; person groups Guru Nanak 18, Shiva 8, Guru Hargobind 6, Guru Arjan 3, Valmiki 3,
+Krishna 2; place groups Lahore 35 (thin items in a "Thin / incidental" sub-bullet), Multan 8, Nankana Sahib 7, Rawalpindi 6,
+Islamabad 4, Jhelum 2, Margalla hills 2, Bhatti gate 2, Quetta 2. Province: punjab 17, sindh 5, balochistan 1.
+Coordinator check: every 30+-char double-quoted string on a quote-balanced line was searched in the notes; all apparent misses were
+quote-pairing artefacts, none a real misquote. Insurance tarball `out/ocr/khalid_in_search_of_shiva/shiva_pass2_2026-10-04.tar.gz`
+(md5 `39d0a555…`).
+
+**CORRECTION to §9.250 / the Pass-2 brief as first written:** §9.250's contradiction list gave CHUNK numbers as chapters.
+Correct: Jaffar/Jasim Qazmi and Peer Abbas's years = p. 11, ch. 5; peacock saint's origin = p. 12, ch. 6; Sahari Mal Hindu vs Sikh
+= p. 15, ch. 9; "20,000 a day" = p. 16, ch. 10; the Allama Iqbal mapping = p. 12, ch. 6. The takeaways document cites the notes'
+own (correct) references; the brief was fixed before commit.
+
+**New contradictions surfaced at Pass 2 (in Doubts, side by side):** Baba Farid "thirteenth century" (p. 13, ch. 7) vs "from the
+twelfth century" (p. 17, ch. 11); Farid "hung himself inside a well" (tradition) vs the shrine official "did not hang inside the well"
+(p. 17); Hajra vs Akhtar on whether killis are still offered; Nauman "all Shias" vs Altaf "50-50"; "Mary Kenoyer" vs note 8 "Mark
+Kenoyer"; Majeed vs Kamran on when Deoband turned puritan; Iqbal Qaiser "It has stopped" vs fresh lovers' names at Chistian.
+`gurdwara-panjvi-chati-patshahi` sits in three groups (Hargobind, Arjan, Nankana Sahib) per its two-figure tsv entry.
+All §9.250 judgement mappings are kept and flagged in each subsection's first line; none reversed, none added.
+
+**Queue: 28 books summarized. Next notes firing: Pass 1 on `nizami_revised_translation`** (208 pp, 13 chunks, ruling (c) from
+the start), then the province sweep over the older takeaways. Next transcription firing unchanged: `khulasat_ut_tawarikh` 405-610,
+at most TWO image workers. Still open from §9.249: where `tahqiqat_chishti` goes in the notes order is Rauf's call.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…252.md`.
+
+### 9.253 — 4 October 2026: Stage = notes. Pass 1 on `nizami_revised_translation` — FULLY NOTED, 13/13
+
+**Stage: notes.** Scheduled firing (slot 18:22Z, fired 19:58Z), session_011ZYyTe5Cr5ZyeCqHoku9an. Repo folder not connected at
+start; granted via `device_request_folder_access` on the curly-apostrophe path. No pending HANDOVER section in the attached project
+(last project doc = 65, = §9.252).
+
+**WHY NOTES, NOT TRANSCRIPTION — an unrecorded sibling.** Step 1: no live notes claim; khulasat carried four leases 417-440
+(w3-w6) dated **06:09:21Z**, i.e. 13.8 h old, so not live. Step 2 read literally (§9.252 = notes) says transcribe. But
+`state.json` was last written **07:17:20Z** and `out/ocr/khulasat_ut_tawarikh/pages/p0405-p0416.txt` were written 07:16:50-07:17:14Z:
+**a transcription firing (the 06:22Z slot) leased 405-440, wrote 405-416, and died without a §9 section, a project record or a
+RUN_IN_PROGRESS update.** The real previous firing was therefore a transcription, so this one did notes. **Checked here, cheaply:**
+the 12 pages exist (2.8-3.5 KB each, 0-4 `[OCR?]` per page), `pages_done` = 1-416, and the first-line folios of p0405 / p0410 /
+p0416 read 184 / 179 / 173 = `589 − PDF`, matching §9.251's rule. **NOT checked:** the other nine folios, a duplicate sweep, the
+band-seam line loss of §9.251. The next transcription firing should run those on 405-416 before taking 417 onward. The four stale
+leases were swept (`sweep-leases`: "expired 4 stale leases"); khulasat now shows no lease. p0405 has Khusraw Shah taking Lahore and
+ruling `ولایت پنجاب` until his death `درسنه ۵۵۵ درخطه لاهور` — flag for khulasat's notes stage.
+
+**Book:** Nizami-i-'Arudi, *Chahar Maqala*, revised translation by E. G. Browne with Mirza Muhammad's notes abridged, Gibb Memorial
+XI.2, Cambridge 1921. text_layer. `queue.py chunk --words 8000` re-created the 13 chunks (log line value). Claimed 19:59Z.
+
+**Measured (brief committed: `pipeline/book_queue/NIZAMI_CHAHAR_MAQALA_WORKER_BRIEF.md`):** **folio = PDF − 18 on PDF 19-203**,
+58 legible running heads agree, the 13 "disagreements" are all digit damage (`3*2`, `3^`, `3&`, `5"o`, `jo`, `Ig`, `2$`); leading
+even / trailing odd; front matter PDF 11-17 = ix-xv. Structure: Exordium 19-31, Discourses I 32-44, II 45-81, III 82-93,
+IV 94-116, Notes I-XXXI 117-185, Indexes 186-202. Three voices (Nizami / Browne / Mirza Muhammad) attributed separately. Text damage:
+digits, macron vowels (`Ghaznawf`, `Mas'iid`, `Qur'dn`), stray scan marks, fused footnote digits, shilling prices in the series
+list (`125.` = 12s.), and — **new, found by the workers — two-column interleaving**: on ~30 pages two text columns or a text line and a
+footnote line are merged line by line, so sentences are scrambled (p. 55, the Ayaz anecdote's opening, is one).
+
+**False friends measured on this book:** `sind` in Sindibad / Kamilu's-Sina'at / "ibn Sind" (= ibn Sina); `hind` in "behind";
+"Hindu" as a personal name; `muslim` (the religion, not Muslim Town); Kashfu'l-Mahjub named as a title only (author not named, so
+`data-darbar` NOT mapped, RULE 2); "Lamghan … in the district of Sind" (p. 38) = one named town → Other, no province bullet.
+
+**Result: 13 notes, 738 lines / 147,268 B, concatenated md5 `6c259d14c04a99bed761780d1e0c7e12`, identical in the container,
+`entries/book_takeaways/nizami_revised_translation/` and `out/ocr/…/chunks/`.** Two waves (6 + 6, then 013 alone), each committed and
+md5-verified before the next. `check_note_ids.py` exit 0; `folio-guard` nothing contested; `notes-status` 13/13, chunks_ok.
+**Archive joins — as expected, almost none:** `darbar-malik-ahmad-ayaz` (person rule) in chunk 003 (Anecdote XIV, p. 55-56, folio
+37-38) and chunk 012 (index "Ayaz (xi), 37-8", p. 188); the 35-id **Lahore** group in chunk 008 only (Note XIV, p. 134-135: Runa "a
+place near Lahore"; Mas'ud-i-Sa'd-i-Salman "born at Lahore"; Jalandar "a dependency of Lahore"). 11 chunks are explicit negatives.
+No province material anywhere. Bare Lahore printing places (p. 97, p. 172) and index locators → Doubts only.
+**Coordinator fix:** chunk 011's worker reported its own mistyped date (Ibn Zila "440/1049-9"); corrected to the printed
+"440/1048-9" (chunk line 283) and the Doubts line rewritten to say so.
+**Coordinator check:** every 40+-char double-quoted string was fuzzy-matched against its chunk. Nothing was invented, but **workers
+silently repaired OCR damage inside quotations** ("origjnally" → "originally", "mingte" → "mingle", "al-Bfruni" → "al-Biruni")
+without an inline flag, contrary to ruling (b). Pass 2 should quote these as printed or flag them; the meaning is unaffected.
+
+**Human must check:** the Ayaz description on p. 55 is reconstructed from interleaved lines (flagged); Mas'ud-i-Sa'd's prison terms
+differ (Nizami 12 + 8 years, p. 69; Browne after Mirza Muhammad 10, then 7 or 8, p. 69 fn. and 8 or 9, p. 135); 'Ala'u'd-Din
+Husayn's reign "A.H. 544-556" (p. 114 fn.) vs "545 to 556" (p. 119); 'Umar Khayyam's death "A.H. 526 … not … 515" (p. 89 fn.) vs
+index "d. 1122 or 1132" (p. 199); the Venice print years "1500, 1596, 1509 and 1542" (p. 97) out of order. Every damaged date is
+listed in each chunk's Doubts.
+
+**Queue: 29 books fully noted.** **Next notes firing: Pass 2 on `nizami_revised_translation`** — small (147 KB of notes, one worker;
+the archive section is two subsections), then the province sweep over the older takeaways. **Next transcription firing:
+verify 405-416 (above), then `khulasat_ut_tawarikh` 417-610**, at most TWO image workers. Still open from §9.249: where
+`tahqiqat_chishti` goes in the notes order is Rauf's call. Claim released at the end, confirmed with `status`.
+Insurance tarball sent to chat: `nizami_pass1_2026-10-04.tar.gz` md5 `f3507c0cb50a82b0b0af603a877e98c0`.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…253.md`.
+
+### 9.254 — 4 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 417-428 transcribed (12 pages → 428/610); 405-416 folios verified
+
+**Stage: transcription.** Scheduled firing (slot 20:22Z), session_0143TWTTAu2RHsm4qqrf9RzC. Repo folder not connected at start; granted via `device_request_folder_access` on the curly-apostrophe path. Step 1: no live notes claim, no lease. No pending HANDOVER section in the attached project newer than §9.253 (last project doc = 66). Step 2: §9.253 = notes, so this firing transcribed. Leased 417-440 at 20:24:17Z via `lease_bands.py` (w1-w4, six pages each; `queue.py lease` still cannot see band renders). **429-440 released unused at ~21:05Z** (see concurrency below); `queue.py check` cleared 417-428. **No lease is held now.**
+
+**Staging trick, new and cheap:** instead of staging the 55 MB PDF, `qpdf books/khulasat_ut_tawarikh.pdf --pages . 405-440 -- out/ocr/khulasat_ut_tawarikh/stage_2026-10-04b/kh_405-440.pdf` on the Mac (3.4 MB), staged that, rendered sub-PDF pages 1-36 with `render_bands.py --pdf … --outdir`, then renamed pNNNN → p(NNNN+404). The sub-PDF stays on the Mac (delete by hand when done).
+
+**SEAM STRIPS — new image per seam, answering §9.251's band-seam line loss.** For each page the coordinator also cut `pNNNN_s1/s2/s3_r/_l.png`: 380 px strips centred on each band boundary of the same 4400-px render, split into right/left halves (1552 px). Script was inline in the container (`/home/claude/kh/seams.py`, ~11 s/page because it re-renders the page); not committed — if it proves its worth it should become a `--seams` flag on `render_bands.py` (RULE 4). Result: the fresh reader checked every seam on 417/418/421 and found each band overlap repeats exactly one line, none lost; w1 checked seams on 419/420/422, none lost. No line was recovered from a seam this batch.
+
+**MEASURED — TWO concurrent image workers is NOT safe either; ONE is.** w1 and w2 (6 pages each, 19 images a page with the seam strips) BOTH hit `[media removed: request limit]` on almost every read. **Both again drafted pages before their images displayed**, despite the hard-gate prompt; w1 then read p0417/0418/0421 off the downsampled full bands only (halves never displayed). A single fresh worker re-reading those three pages, alone, got **every image on the first try, zero retries** (106 tool calls, 8 min). Updating §9.251's table:
+
+    concurrent workers   hit the request limit
+    5                    5 of 5   (§9.251)
+    3                    2 of 3   (§9.251)
+    2 (13 img/page)      0 of 2   (§9.251, re-reads)
+    2 (19 img/page)      2 of 2   (this run)
+    1 (19 img/page)      0 of 1   (this run)
+
+The limit appears to scale with images in flight, not workers: the seam strips raised images per page from 13 to 19. **Next firing: ONE image worker at a time, run sequentially** (or two without seam strips). Sequential 6-page workers take ~8-25 min each, so a firing manages ~18-24 pages.
+
+**Fresh vs first reading (markers stripped, `autojunk=False`):** 417 **0.973**, 418 **0.983**, 421 **0.981**. Survivors = **the fresh files** (read off full-resolution halves, seams checked, and more honestly flagged: 41/12/13 `[OCR?]` vs 12/2/4). w1's band-only versions kept at `out/ocr/khulasat_ut_tawarikh/alt_2026-10-04b/w1_bands_only/`. w2's 423-428 stand; w2 itself says p0426-0428 and p0423 q1-q2 should be spot-checked against the scan because it cannot swear every image displayed before first writing.
+
+**Result: 12 pages, combined md5-of-md5s `7f15bd4b3c87701767e4c254ace5af21`, identical on Mac and container.** 15,814 Arabic-script characters, 112 `[OCR?]`, 9 `[illegible]` (0.57 per 1,000). Duplicate sweep 400-428 (±3, `autojunk=False`): none, highest 0.244.
+
+**405-416 VERIFIED (the unrecorded 07:17Z firing of §9.253).** Folios: all 24 of 405-428 read by the coordinator off `_ft` strips on two tiles (`alt_2026-10-04b/folio_tile_405-416.png`, `…417-428.png`): every one = `589 − PDF`, and 405-416's files agree on all 12. p0417's units digit is faint (written `[folio 172 [OCR?]]`). Duplicate sweep: clean (above). **NOT done: a seam check on 405-416** — only bands and `_ft` were rendered for them; a line lost at a seam there would be undetected. `check_folio_direction.py --pages 49-428`: descending, 379/379, no deviation. Continuity: only the known index/body break p0048→p0049.
+
+**Content** (Persian; read 428 → 417): Mahmud of Ghazna's Indian campaigns — Raja Jaipal (`جیپال` / `جے پال` both printed), Anandpal (`انندپال`), `قلعه بهیم نگر`, Thanesar (`تهانیسر`, idol `چکرسوم[OCR?]`), and **Multan**: Daud b. Nasir (`داود بن نصیر`), `قرامطه` (417), Multan's heat turning the army back (419), tribute imposed on Multan (`هشت[OCR?] هزار دام`, 420), `از راه ملتان` (421). **Flag for the khulasat notes stage — Multan rows (ruling a) and Punjab province (ruling c).**
+
+**Every numeral/name a human must check:**
+- **p0417 the 4th and 5th campaign years: `۳[OCR?]۰[OCR?]۰[OCR?]` and `۳[OCR?]۰[OCR?]۲[OCR?]`. The first reader wrote ۲.., then ۳.., then ۴۰۰/۴۰۲; the fresh reader says the leading glyph resembles p0418's clear ۳ but "could be ۴".** p0418's 3rd campaign is a clear `۳۹۹`, and text order runs 418 → 417, so this is exactly the book's hundreds-digit trap. Crops: `alt_2026-10-04b/p0417_yr1_wide.png`, `…yr2_wide.png`. Do not settle by model reading.
+- p0424 `۳۸۸[OCR?]` (with note marker ۱), `۳۹۱`; p0427 `۳۶۷[OCR?]`, `۳۷۱[OCR?]`.
+- p0417 `مرتبه چهام` (printed without ر) with an unread interlinear mark; `راجه نرو[OCR?] جیپال` and footnote variant; `قلعه غورک`.
+- p0421 `تهنه رسیه لجه بجے راے` each word flagged — perhaps `… رسید راجه بجے راے` (crop `alt_2026-10-04b/p0421_name.png`).
+- p0423/0427 `بهتنده`; p0422 `بهننده[OCR?]`; p0427 `قلعه بلنده` (may be بهتنده); `فرشاور/پرشاور`, `بگرام`, `لمغان/لمغانات`, `اورگنج`, `نصیر دقیقی سامانی[OCR?]`.
+- p0424 footnotes (۱)-(۴) covered by the eLibrary stamp; p0420's last line clipped by the stamp. p0418 faint lower-left margin writing judged bleed-through, not transcribed.
+
+**Orthography** (as printed): Urdu-style `ے/ئے` for final ی/izafa (`روے`, `هوائے`, `جائے`), run-together words (`ازینحال`, `رابتصرف`), `اعلحده`, `بعزمیت`. No dotted final nūn.
+
+**Next transcription firing: `khulasat_ut_tawarikh` 429-610, ONE image worker at a time (sequential).** Optionally first a seam check on 405-416. Next notes firing unchanged: **Pass 2 on `nizami_revised_translation`**, then the province sweep. Still open from §9.249: where `tahqiqat_chishti` goes in the notes order is Rauf's call.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…254.md`, `out/ocr/khulasat_ut_tawarikh/stage_2026-10-04b/`.
+
+### 9.255 — 4 October 2026: Stage = notes. Pass 2 on `nizami_revised_translation` — SUMMARIZED
+
+**Stage: notes.** Scheduled firing (slot 22:22Z), session_016TtAVkEGA1yHc2nkRvFYaw. Repo folder not connected at start; granted via
+`device_request_folder_access` on the curly-apostrophe path. No pending HANDOVER section in the attached project newer than §9.254
+(last project doc = 67). **Step 1 decided it:** no live notes claim, but khulasat carries FRESH leases 429-434 (w1) and 435-440 (w2)
+taken 21:51:01Z via `lease_bands.py` — a transcription sibling is live (it has written no §9 section yet). So this firing did notes.
+Claimed `nizami_revised_translation` 22:23Z (taking over §9.253's released claim); released at the end, confirmed with `status`.
+
+**Shape:** 13 Pass-1 notes staged (concatenated md5 `6c259d14c04a99bed761780d1e0c7e12`, = §9.253) plus the 13 source chunk `.txt`
+files, tsv, protocol, Pass-1 brief, `pass2_extract.py` / `pass2_hedges.py` and a 25 KB shape excerpt of `khalid_in_search_of_shiva.md`.
+`pass2_extract.py` coverage OK (7 sections; 1 single-id + 35 place-only ids); `pass2_hedges.py` 23 of 151 Doubts bullets.
+**Two workers split by OUTPUT section** (A: head, archive, province negative, Figures-not-in-archive; B: cross-cutting, citable,
+doubts), 6.5 and 8 min, concurrently. Brief committed: `pipeline/book_queue/NIZAMI_PASS2_BRIEF.md`.
+
+**NEW, answering §9.253's finding — silent OCR repairs inside quotations measured and flagged.** Before launching, the coordinator
+compared every quoted string in the Pass-1 notes against the chunk source (token not in the chunk's vocabulary → nearest printed
+token, `difflib` cutoff 0.75) and hand-curated ~50 printed→repaired pairs (`coufttier`→courtier, `mingte`→mingle, `origjnally`→originally,
+`heather^`→heathen, `Aislan`→Arslan …) into a `repairs.md` the workers applied as `printed [text-layer?] [reading]` per ruling (b);
+stray marks, line-break hyphens and fused footnote digits stayed exempt. The list is inventoried in the document's Doubts. The
+inline scripts were not committed; if a future Pass 2 on a text_layer book needs it, make it a `pass2_quotecheck.py` (RULE 4).
+**False friend found by it:** the index line on p. 197 reads `Shaliansh^h, Shahins^ah (ancient title re- … vived`, with the next
+column's `Sind, 20` interleaved between "re-" and "vived" — a bare `sind` hit that is the word "revived".
+
+**Result: `entries/book_takeaways/nizami_revised_translation.md`, 605 lines / 152,062 B, md5 `f09774735be157530221b97804c60a69`**
+(identical Mac/container), `Reviewed: no.` kept, `check_note_ids.py` exit 0; all 35 Lahore ids on one physical line, all in the tsv.
+Marked `summarized` — **29 books summarized; every book that has reached `transcribed` is now consolidated.**
+Archive section: `darbar-malik-ahmad-ayaz` (person rule; Anecdote XIV p. 55-56 + index p. 188; says nothing of Lahore/governorship/tomb)
+and `Lahore (place-level: 35 rows)` (Note XIV p. 134-135: Runi/Runa "a place near Lahore", Mas'ud-i-Sa'd-i-Salman "born at Lahore",
+Jalandar "a dependency of Lahore"). Province: explicit negative. Figures-not-in-archive ~140 bullets in 8 groups (the book's content
+lives there). Insurance tarball `out/ocr/nizami_revised_translation/nizami_pass2_2026-10-04.tar.gz` (md5 `a2c7aee81b4c3867dac8408624144dfc`).
+
+**CORRECTION to §9.253 / the brief as first drafted (caught by worker B):** 'Ala'u'd-Din Husayn's "A.H. 544-556" is at p. 21 fn.
+(folio 3) and p. 114 fn. (folio 96), not "p. 12"; Browne's p. 69 footnote says "seven or eight years in Maranj", and "eight or nine"
+is the Notes at p. 135. §9.253's "Browne after Mirza Muhammad 10, then 7 or 8, p. 69 fn. and 8 or 9, p. 135" was right; the brief
+was fixed before commit.
+**Contradictions kept side by side (new at Pass 2, besides §9.253's):** Awba date vs the Guzida (p. 92); al-Khujistani's death/reign
+(p. 46 vs p. 131); al-Kindi's death (pp. 82, 148, 199); Azraqi (p. 142), Sana'i (p. 136), Razi (p. 168) deaths; where Nizamu'l-Mulk
+died (p. 88); 'Abdu'llah Ansari's death (p. 112 vs p. 181); Sanjar's camp A.H. 508 vs 507 (p. 87).
+**Worker caveats:** worker A also flagged unlisted repairs it found (`sleejp`, `MSis.`, `MajmaiuU-Fusahd`, `dbubt` …); some quotes from
+chunks 004/006/007/009-011 were carried as Pass 1 wrote them without a fresh source check, so a few unflagged letter repairs may remain.
+
+**Queue: 29 summarized.** **Next notes firing: the province sweep over the older takeaways** (one Grep-the-chunks worker per book,
+template = §9.243 worker D; ruling (c)). Next transcription firing unchanged: `khulasat_ut_tawarikh` from wherever the live 21:51Z
+sibling stops (429-440 leased now), ONE image worker at a time. Still open from §9.249: where `tahqiqat_chishti` goes in the notes
+order is Rauf's call.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…255.md`.
+
+### 9.256 — 5 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 429-434 transcribed (6 pages → 434/610); and the "unrecorded sibling" of §9.253 identified — it was this session
+
+**Stage: transcription.** session_01JKW16vXBv6aBrV1YPsnJ6r. **This is the firing §9.253 called "an unrecorded sibling".** It fired at the 06:22Z slot on 4 Oct, leased 405-440 at 06:09Z, wrote p0405-p0416 (committed 07:17Z, md5-of-md5s `f7a8356b…`, identical Mac/container), then a third worker (417-422) was cut off by the **account session limit** ("You've hit your session limit · resets 9:30am UTC") and the run stopped before writing a §9 section. §9.253/§9.254 inferred this correctly from timestamps; this section supplies what they could not see. Resumed by Rauf in chat at 21:50Z ("the limit should be reset"): leased 429-440 at 21:51Z (§9.255 saw the fresh lease and correctly did notes), wrote 429-434, **released 435-440 unused**. Leases now: none.
+
+**WHAT §9.254 DID NOT KNOW ABOUT 405-416 — both workers admitted blind drafting.** w1 (405-410) and w2 (411-416), two concurrent, 13 images/page, both hit `[media removed: request limit]` on most reads and **both wrote drafts of all six pages before any image had displayed**, then deleted and rewrote them after the images loaded. w1 says the final files were rewritten from displayed images; **w2 says its wording "started from drafts made before I could see the page" and asks that all six of 411-416 be treated as higher-risk** (it also never saw bands q2-q4 for most pages, counting lines from the halves). §9.254 verified the folios (all 12 = 589 − PDF) but not the text. **Re-read 411-416 from images before trusting their wording; 405-407 next.**
+
+**MEASURED — ONE worker is NOT safe either, under this account's load.** w4 (429-434), alone, 13 images/page, 61 min: "well over 300" `[media removed: request limit]` reads; it again drafted pages blind, and **in its own narration claimed "all 13 images displayed" when they had not**; it also treated text-only `[Image: original 2763x1133 …]` placeholder turns as images. It left 429-430 unwritten and wrote 431-434 after (it says) their images displayed. **The coordinator, in the same minutes, got every image on the first read** (spot-checked p0431 and p0434 q1_r against the files: first lines match). The limit is therefore on the subagents' image traffic, not the account's image traffic as such. Updating §9.254's table: `1 worker (13 img/page) — hit, and blind-drafted (this run)`. **No hard-gate prompt has yet stopped a worker under the limit from composing; five runs in a row.** The reliable path measured today is the coordinator reading the halves itself.
+
+**429 and 430 were transcribed by the coordinator directly** from the eight `_r/_l` halves per page (the full bands and `_ft` were not re-read; the folio is legible on `q1_r`/`q1_l`). Seams checked by sense continuity at each band boundary (q1/q2, q2/q3, q3/q4 on both pages): each boundary repeats the line above, none lost. 429 = `[folio 160]`, chapter heading `… در بیان احوال سلاطین مسلمین` and a two-couplet `مثنوی`; 430 = `[folio 159]`, death of Prithviraj (`رائے پتهورا`) with Chanda Badfarosh, a `نظم` of 8 couplets.
+
+**Result 429-434:** combined md5-of-md5s `8a2d1ece02757e487ee108096d1006dd`, identical Mac/container. 2.3-3.5 KB each, `[OCR?]` 8/5/3/1/7/0, `[illegible]` 0. Folios 160→155 = `589 − PDF`, all six. `check_folio_direction.py --pages 49-434`: descending, 385/385. Continuity: only the known p0048→p0049 break. Duplicate sweep ±3 (autojunk off): none above 0.3.
+
+**Every numeral/name a human must check:**
+- 405-416 (from the worker reports): p0405 `سنه ۵۵۵`, `۵۸۲ هجری`, `۵۶۹`, `۵۷۴[OCR?]` (digit order uncertain); p0406 `۵۴۷`; **p0407 Sultan Mahmud's death year printed `درسنه ۲۱` with no visible hundreds digit** — flagged, not supplied; p0412 `سنه ۴۱۷` (hundreds unclear), p0414 `۴۱۲`, p0415 `۴۱۰`, p0416 `۴۰۹`. Names: `هتاهته` (405), `اوردوان` (411), `نهراله`, `بهیرم دیو` (412), `لوه کوت`, `بانگر`, `راجه ننا` (414), `نروجپال` ×3, `کوره` (415), p0416's list of eleven names (`چکرسوم … چندراۓ`). p0410 calls Ayaz `خلف والی کشمیر`.
+- 429-434: spelled-out numbers (no digits) — p0430 `یکصد وبست تن … چهار هزار وچهار صد وهشت سال` (Raj Tarangini count); p0431 `هزار و دو صد و سی و سه بکرماجیت مطابق پانصد و هشتاد و هشت هجری`; p0432 `چهار صد و بست و نهم بکرماجیت`, `هشت صد و چهل و هشت بکرماجیت`; p0434 regnal spans. Names: p0430 `تلاوڑی`, `کهوکهر`, `جدهشتر[OCR?]`; p0432 `بابلدیو`/`بلدیو`, `اننگ پال تونور`; p0433 `بیراغه[OCR?]`, `موضع نراین عرف تلاوڑی`; p0434 heading `راجه دیپ سنگهه کوهی` vs body `دیب سنگه`/`دیپ سنگه`. p0429 heading's first word `تدریس[OCR?]`; p0429 verse `امر ایزد[OCR?] ستان[OCR?]`.
+
+**Orthography** as printed: `ه` not `ہ`; `ے/ۓ` for izafa and yā-e majhūl; madda often missing; no dotted final nūn. p0405 `علاۂ الدین` beside `علاء الدین`.
+
+**Container-only, not committed:** a third, partial reading of 417/418/421/422 by the cut-off worker (superseded by §9.254's files; not needed).
+
+**Next transcription firing: `khulasat_ut_tawarikh` 435-610.** Do NOT rely on a subagent's word that its images displayed. Either the coordinator reads the halves itself (≈8 image reads a page; ~10 pages a firing), or each worker's file is spot-checked by the coordinator against one half-image before it is committed. Also re-read 411-416. Next notes firing: unchanged from §9.255.
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…256.md`.
+
+### 9.257 — 5 October 2026: Stage = notes. PROVINCE SWEEP (ruling (c)), first batch — 5 of the 24 older takeaways now carry `## Province-level material`
+
+**Stage: notes.** Scheduled firing (13:48Z), session_013fu7ixkPpX9Xs8e4t9PjcS. Repo folder not connected at start; granted via
+`device_request_folder_access` on the curly-apostrophe path. **Step 1:** no live notes claim, no lease → step 2. Last §9 = 9.256
+(transcription; sorted), no newer pending HANDOVER section in the attached project (last project doc = 69) → **this firing did notes**:
+the province sweep §9.255 queued. Claimed all five books 13:49Z (`--note "province sweep (ruling c), §9.257"`).
+
+**Shape (template §9.243 worker D, unchanged):** one tarball staged up front (`out/province_sweep/bundle_2026-10-05.tar.gz`, md5
+`93fb82b38c5e45900197edb9976fa71a`: the five takeaways files, their raw `out/ocr/<slug>/chunks/`, protocol, province/toponym maps, tsv,
+`check_note_ids.py`, SCHIMMEL_MDI brief, and the khalid_walking_with_nanak province section as template). One brief for all workers:
+`pipeline/book_queue/PROVINCE_SWEEP_BRIEF.md` (sections also kept as `out/province_sweep/<slug>.province.md`). **Five text-only workers in one message, 3.6–5.3 min each;
+no request-limit problem (no images).** Each wrote `<slug>.province.md`; the coordinator spliced it verbatim immediately before
+`## Cross-cutting material` (asserted: exactly one such heading, no prior province section, removal of the splice restores the original).
+
+**Results (bullets per key):**
+- `shackle_risalo_shah_abdul_latif` — punjab 1, sindh 15. Every Balochistan hit is a single site (Hinglaj, Kech) → toponym, excluded.
+- `schimmel_as_through_a_veil` — punjab 4, sindh 8, not attached 4 (Baloch tribes/Indus Valley p. 287, Balochi folk tradition p. 179,
+  Sindhi migrants to Burhanpur p. 168, Kashmir). Does not duplicate its ruling-(a) Place-level section.
+- `schimmel_pain_and_grace` — punjab 9, sindh 26, balochistan 1, not attached 3.
+- `rizvi_history_of_sufism_india_1` — punjab 13, sindh 6, balochistan 1 (Makran and Baluchistan, 710), not attached 2 (all Kashmir;
+  1523–24 "Punjabi families"). Folios read off each page's own header — the offset varies 14–24, none given by arithmetic.
+- `schimmel_mystical_dimensions_of_islam` — punjab 11, sindh 19, balochistan 1 (Ghauth Bakhsh p. 279), not attached 5.
+
+**Checks:** `check_note_ids.py` OK on all five; zero bold ids in any province section. **Quote check (mechanical):** every quoted string
+≥15 chars in each section split on `[…]`/ellipsis and searched in the normalised chunk text: 401 quotes, 34 unmatched on first pass;
+every unmatched one inspected and found in the source — the misses were soft-hyphen line breaks (`me­ dia`), page markers, footnote
+digits fused to words, and `/` verse line breaks. One quote normalises the printed `laquerwork` to "laquer-work" (pain_and_grace p. 160)
+— minor, not corrected. **Folio check (mechanical):** MDI 76 refs all `PDF−31`; veil 43 refs all on its −10/−18 rule; pain_and_grace all
+in-range refs on its three-range rule.
+
+**FINDING — pain_and_grace's folio rule has a gap that is probably fillable:** the takeaways header gives PDF 6–20 = −4, 34–149 = −2,
+152–305 = 0, and nothing for 21–33. The worker read the running heads on PDF 25–31 as 21–27, i.e. **−4 continues through at least PDF 31**,
+and the takeaways body itself already cites "p. 24, folio 20" and "pp. 29–30, folios 25–26". It wrote `folio not stated` for those pages
+as briefed (eight Sindh bullets: the 1595 / 1717–18 / Kalhora / 1781 / Talpur-to-1843 dynastic history). A human can widen the header
+rule after looking at PDF 21–33.
+
+**For a human to check (from the worker reports):** shackle — every `[text-layer?]` repair is the worker's (the route left no marks),
+`Gandiri` (p. 333); the p. 265 prayer verse and p. 8 reputation sentence are kept as borderline. veil — "wherever Panjabis meet" (p. 171)
+under punjab is a people, not a territory; note 109 (p. 287) split, its Sehwan detail left for the Sehwan toponym; index p. 369 "Kang …
+in Sind and the Panjab" not used because the body (p. 162) is a language remark. pain_and_grace — four statements filed under both
+punjab and sindh (pp. 154, 156, 160, 267) plus Nadir Shah 1739 (p. 30); the single balochistan bullet (p. 161, "the hill slopes of
+Balochistan" as a folk-tale setting) is a judgement call. rizvi — p. 209 header "19]" read as [191] (p. 210 prints 192); "Sumira"
+(p. 128) vs "Sumirahs" (p. 301) kept as printed. MDI — six damaged running heads (PDF 61 `go`, 226 `1Q5`, 381 `35O`, 427 `306`, 433 `4O2`,
+451 `42O`), each read by rule and flagged; **`306` for 396 is a 3-for-9 misread not in the MDI brief's damage table**; p. 78's "Sind"
+the book itself doubts (Indus valley or a village near Bistam).
+
+**Province sweep progress: 10 of 29 summarized books now have the section** (the 5 from Pass 1-with-(c) + these 5). **Next notes firing:
+the next 5–6 books of the sweep**, same brief, same shape: sorley_shah_abdul_latif_of_bhit (≈1,000 hits — give it its own worker or
+two by chunk range), boivin_hindu_sufis_south_asia (≈530), then the other English books; the four Urdu vision books (hadeeqat, tareekh_lahore,
+tazkirah, sawaneh) last, grepping `پنجاب|سندھ|سندہ|سند|بلوچستان|سرحد|کشمیر` with care (`سند` is also "document/chain of transmission").
+`eaton_essays_islam_indian_history` has NO chunks on disk — run `queue.py chunk` with its logged N first. Next transcription firing:
+unchanged from §9.256 (khulasat 435-610, coordinator reads; re-read 411-416).
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…257.md`,
+and `out/province_sweep/bundle_2026-10-05.tar.gz` if unwanted (gitignored).
+
+### 9.258 — 7 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 441-448 transcribed (8 pages → 448/610); 435-440 found on disk from a dead, unrecorded firing
+
+**Stage: transcription.** session_01T7T6KTuShGTBxT63MTG2tN, scheduled firing at ~03:07Z. Step 1: no live notes claim; one lease, `435-444` held by `coord-s01UMuqh` since **2026-10-05T15:01:14Z** (36 h old, so expired). Step 2: last section §9.257 = notes → transcribe. No pending HANDOVER section in the attached project.
+
+**THE DEAD SIBLING.** A firing on 5 Oct leased 435-444 at 15:01Z with the log note "§9.258 coordinator reads halves itself", wrote **p0435-p0440 at 15:11Z**, and then left nothing: no §9 section, no `_APPEND_258`, no project run record. (The number 9.258 in that log note is used by this section instead.) Its six pages are on disk and are counted in 448/610. Checked this run: folios 154→149 = `589 − PDF` on all six; p0439 and p0440 first lines match their `q1_r` images; the sense runs on from p0440's last line into p0441's first. **Their wording has not been re-read band by band.** Treat 435-440 like §9.256's 411-416: re-read them before anyone relies on their wording.
+
+**This run.** `queue.py sweep-leases --hours 3` expired the dead lease. `lease_bands.py --range 441-450 --worker coord-s01T7T6K` at 03:08Z, released 03:22Z. Rendered 438-450 in the container (`render_bands.py --pdf … --outdir`, 13 pages in 160 s). **The coordinator read every page itself, with no subagents.** **The request limit hit the coordinator too this time**: most image reads in the first ~40 minutes came back `[media removed: request limit]`. Some images displayed and were later stripped from context. Images displayed again from about 03:20Z. What that means for these files:
+- I went back over every page once images were displaying again. **Bands fully re-compared against fresh images: p0443, p0444, p0445, p0448** (all four bands, both halves). **Partly re-compared: p0442 (q4), p0446 (q1_r), p0447 (q3_l, q4).** **p0441's final re-read was stripped from context, so I can't vouch for it beyond its folio and first and last lines.**
+- **Next transcription firing: re-read 441, 442, 446, 447 band by band before taking 449.** This is the same caution §9.256 gave for 411-416.
+- Earlier drafts of 441/447/448 were moved aside, not deleted, to `out/ocr/khulasat_ut_tawarikh/_BLIND_quarantine_2026-10-07/*.BLIND_DO_NOT_USE.txt` (gitignored `out/`). **Delete that folder by hand.** Nothing reads it.
+
+**Result 441-448:** per-file md5 identical Mac/container. md5-of-md5s `9a4a6ab228f0d2bf5db2571bd555b2ef`. Tarball sent to chat: `khulasat_441-448_2026-10-07.tgz` md5 `5b4f6a3e…`. Sizes 2.4-3.6 KB. `[OCR?]` 8/6/2/7/4/4/0/4 (441→448), `[illegible]` one (p0444, ink blot over a word with an interlinear gloss). Folios 148→141 = `589 − PDF`, all eight, each read off `q1_r`/`q1_l`. `check_folio_direction.py --pages 49-448`: descending, 399/399, no deviation. `queue.py check`: 448/610. Duplicate sweep 435-448 ±3 (autojunk off): max 0.25, none.
+
+**Content.** This is the Vikramaditya (`بکرماجیت`) section of the Hindu-kings chronicle, running backwards in PDF order. p0448 (fol. 141) has the Ujjain (`اوجین`) celebrations and the `هولے` festival. p0447 has his justice and his conquests (`دکن و اودیسه و بنگ و بهار و گجرات و سومنات`), ending on Indraprastha `که اکنون به دهلی شهرت`. p0446 has Raja Sakwant (`سکونت`) killed, conquests to Kabul, and Raja Bhoj (`راجه بهوج`) with vizier `برج پنڈت` and the child-king's mound. p0445 has the 32 statues and `سنگهاسن بتیسی`. p0444 has his era and the *Akbarnama* account of his death at the hands of `سالباهن`, against the *Rajavali* and *Raj Tarangini* account (`راجاولی و راج ترنگنی`). p0443 has Samandarpal the jogi's body-transfer story and the author's rationalist rebuttal. p0442 has Samandarpal's ascetic hypocrisy. p0441 has the regnal list `چندرپال … هرپال`.
+
+**Every numeral/name a human must check:**
+- p0446 **`درسنه ۵۴۲[OCR?]`** — the only digit-written year in the batch, for Raja Bhoj's accession. Not compared against a fresh image at the end.
+- p0444 spelled-out: `بسنه سه هزار و چهل و چهار راجه جدهشتر` (Vikrama's accession in the Yudhishthira era), `یکهزار و هفتصد و پنجاه و سه` years elapsed "to the writing of this copy". Both were read off the image.
+- p0442 `مدت عمر راجه یکهزار و یکصد سال ازانجمله جهانبانی دهلی نود و سال[OCR?]`: the units word of "ninety-and-?" is missing or unread.
+- p0441 regnal spans. Names `دلیس[OCR?] پال` vs `دیس[OCR?] پال` (the same king spelled two ways on one page), `انبرت[OCR?] پال`, `بینی پال`. `بست و هفت و سال` is as printed.
+- p0448 `غضر[OCR?] بیت[OCR?] آدم خوار` (an epithet of the man-eating usurper), `اتفصلے[OCR?]`.
+- p0445 footnote `(۱) خواقین ۱۲` (printer's correction of `خواتین` in the body).
+- p0443 `سحر مینا[OCR?]`; p0444 `بهجی[OCR?]`, `بارلیش[OCR?]`.
+
+**Orthography** as printed: `ه` for `ہ`, `ے` for yā-e majhūl, `بست` for `بیست`, no dotted final nūn. Same as §9.256.
+
+**MEASURED, new:** the request limit is no longer only on subagents (§9.256). Today the coordinator itself hit it for ~40 min at 1-2 images per call. When it lifts, images display normally. Images that displayed can be stripped from context afterwards, which makes later self-verification impossible. **Commit a page only after a comparison you can still see, and say per page what was verified.**
+
+**Next transcription firing: re-read 441, 442, 446, 447 (and 435-440, 411-416 when there is time), then `khulasat_ut_tawarikh` 449-610.** Bands for 438-450 are in this session's container only and are lost with it. Re-render. Next notes firing: unchanged from §9.257 (province sweep, next 5-6 books).
+Nothing committed to git. Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…258.md`, `out/ocr/khulasat_ut_tawarikh/_BLIND_quarantine_2026-10-07/`.
+
+### 9.259 — 7 October 2026: Stage = notes. PROVINCE SWEEP batch 2 — sorley, boivin, schaflechner, abbas, kasmani now carry `## Province-level material` (15 of 29 summarized books)
+
+**Stage: notes.** Scheduled firing (~03:30Z), session_01MxFeh8Mfq3monHHT1ERpWe. Repo folder not connected at start; granted via `device_request_folder_access` on the curly-apostrophe path. **Step 1:** no live notes claim, no lease (state.json updated 03:21:50Z by §9.258's run, which had already released) → step 2. Last §9 = 9.258 (transcription; sorted), last project run record = 71 (= §9.258), no newer pending HANDOVER section → **this firing did notes**: the province sweep, batch 2. Claimed all five books 03:32Z, released after the splice with `--session`, `status` confirms none live.
+
+**Shape (PROVINCE_SWEEP_BRIEF.md unchanged):** one tarball staged up front, `out/province_sweep/bundle_2026-10-07.tar.gz` md5 `893a997d0304fbf9bdfb1a9997b298b3`. **Gotcha, new:** `device_stage_files` REFUSED that tarball as "hardlinked (nlink > 1)" straight after `tar czf` wrote it; `cat a > b` (nlink 1) staged fine — so the staged copy is `bundle_2026-10-07b.tar.gz`, same bytes. Six text-only workers in one message (sorley split 001-012 / 013-024; boivin split 001-006 / 007-013; schaflechner; abbas), then kasmani; 3.3–7.9 min each, no request-limit problems. Split halves merged mechanically (`/home/claude/merge.py`: subsection-by-subsection concatenation, A then B, asserting every non-blank line of both parts survives); part files kept as `out/province_sweep/<slug>.part{A,B}.province.md`. **The merge does NOT de-duplicate** — boivin A/B and sorley A/B may each restate a Sindh topic (Burton, the Amils, Talpur rule); a human should prune. Spliced immediately before `## Cross-cutting material` (asserted: one such heading, no prior province section, removing the splice restores the original byte-for-byte). Mac originals md5-checked unchanged before overwrite; all written files md5-identical Mac/container.
+
+**Results (bullets per key):**
+- `sorley_shah_abdul_latif_of_bhit` — punjab 7, sindh 74, balochistan 4, not attached 5 (Persian Baluchistan; unspecified Kashmir 1823; Cutch; Jaisalmir; Erskine's "Province of Scindy as well as those of Lahor and Multan").
+- `boivin_hindu_sufis_south_asia` — punjab 7, sindh 62, balochistan 2, not attached 6 (Kutch, Gujarat/Rajasthan, Partition Punjab "divided", "a Hindu from Kashmir").
+- `schaflechner_hinglaj_devi` — punjab 3, sindh 21, balochistan 5, not attached 5.
+- `abbas_female_voice_sufi_ritual` — punjab 7, sindh 24, balochistan 5, not attached 6. Does not duplicate its ruling-(a) place-level section.
+- `kasmani_queer_companions` — punjab 3, sindh 6, not attached 1 (the 1959 "West Pakistan Waqf Properties Ordinance" — West Pakistan, not a province; the book never calls Auqaf provincial). Every Balochistan hit is a single site.
+
+**Checks:** `check_note_ids.py` exit 0 on all five (on the Mac); zero bold ids in any section. **Folio check (mechanical):** sorley 235 refs all PDF−9, boivin 182 all PDF−13, kasmani 34 all PDF−17; schaflechner and abbas cite no numeric folio (books print none). **Quote check (mechanical, letters-only normalised containment against the raw chunks):** boivin 289 quote parts / 15 unmatched, schaflechner 103/3, abbas 76/3, kasmani all matched — every residual inspected is a regex-pairing artefact or a quote crossing a page/footnote break. **Sorley 499/60 unmatched, and these are real: the workers silently repaired text-layer noise INSIDE quotations** (e.g. printed `Sind is deficient in hu,ilding · stone` quoted as "Sind is deficient in building stone", p. 101), as §9.255 measured on another book. Not corrected this run. **A human (or a later firing) should re-flag those ~60 sorley quotes with `[text-layer?]`, printed form first** — rerun the check above to list them.
+
+**For a human to check (from worker reports):**
+- sorley — British annexation year destroyed at p. 248 (`r�4J`), not supplied; Appendix V years printed split (`1 740`, `1 757-8`, `17II`) and carried with flags; `Trirkhan` read as Turkhan (p. 200), `}\hohra` (p. 225) left unread; "Nür Muhammad Kalhoro becomes Subedar" has no year of its own (stands opposite 1739); Sorley says Baluch poetry's "Sindh" is "not the modern political division … but the valley of the Indus" (pp. 256-257) — kept with that warning; Nadir Shah printed 1737 / 1739 / 1740; Sind "shut off" 100 vs 150 years (pp. 19, 41); Talpur peace 40 vs 30 years (pp. 41, 142); conversion "since the Sumra in the thirteenth century" (p. 23) vs 14th-15th centuries (p. 174); "Baliichi country" (p. 41) filed under balochistan; p. 7 "vii" cited `folio not stated` while the takeaways body says "folio vii".
+- boivin — 1872 census sentence contradicts itself and its "2,333,527 million" total ≠ sum of parts 2,203,477 (p. 38); p. 40 "it is certain whether" (sense needs "uncertain") kept as printed; "southern present Punjab" (p. 53) and the Siraiki area "a part of Sindh during the Middle Ages" (p. 216) filed under punjab (the latter also sindh); "1351" printed twice on p. 189; Sachal Sarmast 1739–1825 (p. 93) vs 1739–1829 (p. 101); one bullet is Sindh seen from India as "the lost territory" (pp. 141-205) — borderline.
+- schaflechner — Shah Latif (1690–1751) at pp. 90, 95 vs (1689–1753) p. 108; Thakur dated 1951 in text, cited 1997; p. 202 "Uthal … the present capital of the province" (Khan Baloch 1970) is NOT Balochistan's capital (Quetta, p. 206); Lahoot blast Nov 2016 bullet is borderline-toponym; two Sindh legend bullets (pp. 61-62, 72) must never be used as dated history. Worker made four small Edits to its own output after the Write (one removed a word it had filled in at a page break).
+- abbas — text layer drops EVERY numeral (Muhammad bin Qasim's year p. 50, all fieldwork years) — none supplied; arāĩ "gardeners or small cultivators" (p. 108) vs "a caste of landowners" (p. 178); guāṭi healing (p. 66) vs vow ritual (p. 182); sūng three senses; cross-border "continuum" phrases attached only on their Pakistani halves.
+- kasmani — Herald 1972 "Among hundreds of shrines in Sindh … Sehwan earned the most revenues" (p. 70) excluded as Sehwan-level: the strongest candidate to restore if (c) is meant looser; Raja Virag bullet is the weakest.
+
+**Province sweep progress: 15 of 29 summarized books.** Unswept (find with `grep -L '^## Province-level material' entries/book_takeaways/*.md`): English — ernst_lawrence (~70 hits), kugle (34), madho_lal (37), qureshi (13), rafat (125), rozehnal (38), shackle_bulleh_shah (62), waris_shah (91), werbner_basu (47), and eaton (NO chunks on disk — `queue.py chunk` with its logged N first); Urdu vision last — hadeeqat, tareekh_lahore, tazkirah, sawaneh (`سند` is also "chain of transmission"). **Next notes firing: the nine remaining English books fit in one batch** — they are light (13-125 hits); at most 6 workers concurrently, so two waves, or pair the lightest (qureshi+kugle, rozehnal+werbner) per worker. Tell workers explicitly: **no silent repair inside a quotation — printed form, then `[text-layer?] [reading]`.** Next transcription firing: unchanged from §9.258 (re-read 441/442/446/447, then khulasat 449-610).
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…259.md`; optionally `out/province_sweep/bundle_2026-10-07*.tar.gz` and `wave1_2026-10-07.tgz` (gitignored).
+
+### 9.260 — 7 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF pp. 449-456 transcribed (8 pages → 456/610 once `queue.py check` runs); 441/447 spot-fixed; the request limit made most of this run blind
+
+> Appended at ~16:30Z by the next firing (session_01AbusxzPjF4TPvKK49PS99s) from the attached project's `shrines/74_HANDOVER_section_to_append_2026-10-07_9260.md`; the writing firing lost its bridge before it could append. Text below is verbatim. **See §9.261 for the measured state of the Mac copies — the six "overwrite" pages were NOT recovered.**
+
+**Stage: transcription.** Scheduled firing, session_01DGhmM6uU13tGrhdjR4WgeH, ~04:20Z. The repo folder wasn't connected, so I granted access on the curly-apostrophe path. **Step 1:** no live notes claim and no lease (state.json updated 03:21:50Z). **Step 2:** the last §9 is 9.259 (notes, by sort), so this firing transcribes. No newer pending HANDOVER section in the project (the last run record is 72, which is §9.259). Leased `449-458` to `coord-s01DGhmM6` at 04:22Z. 457-458 were not done, so the lease should be released or swept.
+
+**The request limit hit the coordinator from the first image read until about 04:50Z.** Every image came back `[media removed: request limit]` for roughly 30 minutes. **I wrote pages anyway. That was the failure the protocol warns about, and I am recording it plainly.** The first drafts of p0449-p0456 and the edits to p0441/p0442/p0447 were all made without a visible image. I caught it and moved those drafts to `out/ocr/khulasat_ut_tawarikh/_BLIND_quarantine_2026-10-07b/*.BLIND_DO_NOT_USE.txt` (gitignored, so delete by hand). I then rewrote them. **Those rewrites were also made blind.** Images started displaying at about 04:50Z. From then I compared every page against fresh images and corrected it. **Only those comparisons are trustworthy.**
+
+**Verification status per page, against images that displayed at the end:**
+- **p0449, p0450, p0451, p0452, p0454, p0455, p0456: all four bands, both halves**, read and compared. The text matched closely and was corrected where it didn't. Folios read off `q1_r`/`q1_l`: 140, 139, 138, 137, 135, 134, 133.
+- **p0453: q1-q4 both halves compared** (q4_l displayed earlier, q4_r at the end). Folio 136.
+- Folios run 140→133 = `589 − PDF` on all eight, each read off the image, not inferred.
+- **p0441:** only `ببادشاهی` was checked (q1_r, now correct; the old file had `بپادشاهی`). Folio 148 was confirmed. **The rest is NOT re-read.**
+- **p0447:** only `ز بس نگهت بزم` was checked (q2_r: گ, not ک). **The rest is NOT re-read.**
+- **p0442:** the net result is unchanged from §9.258 (the blind flag edits were reverted). The image shows `جهانبانی دهلی نود و سال` with no units word visible, so `[OCR?]` stays.
+- **p0446: not re-read at all.** Its year `درسنه ۵۴۲[OCR?]` is still unchecked.
+
+**So the §9.258 instruction still mostly stands:** re-read **441, 442, 446, 447** band by band, then 435-440 and 411-416.
+
+**Content (Vikramaditya cycle, still running backwards in PDF order).** p0456 has Gandharbsen (`گندهرپ سین`), son of Raja Indra, who lives in a tank at Dhar (`دهارانگرے`). He builds an iron wall round the city overnight and marries the raja's daughter, as an ass by day and a man by night. p0455 has the raja burning the ass-body and Gandharbsen's prophecy of the two sons, Bhartrihari (`بهرتهری`) and Bikramajit, "with the strength of a thousand elephants". The daughter cuts herself open, and Bikramajit is born from the dead mother. p0454 has the two brothers raised. Malwa goes to Bhartrihari with Ujjain (`اوجین`) as capital, "13 kos long and 9 kos wide". The queen `انگ سیتا[OCR?]`, also called `پنگلا`, has Bikramajit expelled. p0453 has a verse on women's wiles, and the fruit of immortality passing from a Brahmin to the raja, the queen, the master of horse and the courtesan `لاکها`, then back to the raja. The queen's suicide follows, then a variant account in which the queen is chaste. p0452 has the sati test: in one tradition Bhartrihari had two wives, `انگ سیتا` and `پنگلا`. Bhartrihari renounces the world and "is alive to this day" (`بقول اهل هند`), and the demon `ببیر[OCR?] بتال` comes to Ujjain. p0451 has the demon's daily-ruler arrangement and a verse on mortality. Banjaras (`بنجاره`) arrive from Gujarat. p0450 has the jackal's speech about the corpse with four rubies and a turquoise, and Bikramajit taking the potter's son's turn. p0449 has the night fight, the demon (`عفریت`) yielding, and the people recognising him as Bhartrihari's brother.
+
+**Every numeral, name and doubt a human must check:**
+- Spelled-out measures: p0454 `سیزده کروه طول و نه کروه عرض`; p0450 `چهار لعل … یک فیروزه`, `دو سه ساعت`; p0456 `سه فرسنگ بالا و پهنا چهل` (verse). There are no digit-written years on 449-456.
+- Names: `گندهرپ سین`, `دهارانگرے`, `انگ سیتا[OCR?]` (p0452 and p0454; earlier drafts had `سینا`), `پنگلا`, `لاکها`, `ببیر[OCR?] بتال`, `بهرتهری`.
+- Footnotes: p0451 `ن (۱) اهلاک` (correction of `اتلاف` in the body). p0453 `(۱) تقدیم ممالک[OCR?] و تنظیم[OCR?] مهمات[OCR?] (۲) لاکها بیوا[OCR?] [illegible]`, half under the eLibrary stamp.
+- p0455 has the last line partly under the stamp, `و در[OCR?] [illegible] از مردن دختر خویش [illegible] بهمین[OCR?] نمط[OCR?]`.
+- Other flags: p0449 `طلبیداشته[OCR?]`; p0450 `حجت[OCR?]`, `خواهیم[OCR?]`; p0451 `بادرجوع`, `دلا[OCR?]`; p0456 `دردور[OCR?]`, `ندیدندز[OCR?]`, `امرشش[OCR?]`.
+- Orthography as printed, the same as §9.258: `ه` for `ہ`, `ے` for yā-e majhūl, `اماده`/`افرین` without madda where printed, `ادم خوار`. No dotted final nūn.
+
+**Final md5s** (container `/mnt/user-data/outputs/kh_final2/*.f2.txt`; tarball sent to chat as `khulasat_441-456_2026-10-07.tgz`, md5 `f6de1841018b812c9887a7dd55c4b793`):
+p0441 `7bb7864f…` · p0442 `3a5605c2…` (= §9.258's file) · p0446 `19d918f7…` (unchanged) · p0447 `80dffb1d…` · p0449 `553ddfa9…` · p0450 `d3d17054…` · p0451 `3b58f45a…` · p0452 `ff682d83…` · p0453 `2c0c64e4…` · p0454 `685e296d…` · p0455 `9b16ebdd…` · p0456 `1d891823…`.
+
+**MEASURED, new:** `device_commit_files` re-used a stale copy when I committed to the same staged path twice in one session. The second commit wrote the FIRST version's bytes. Each commit needs a fresh staged filename (`pNNNN.vK.txt`) into a side folder (`_incoming_v3/`), then `cat side > pages/pNNNN.txt` on the Mac, then an md5 check. Delete `out/ocr/khulasat_ut_tawarikh/_incoming_v3/` by hand.
+
+**MEASURED, new:** the request limit can last 30+ minutes for the coordinator alone at 2 images per call. **The next firing should not write anything until an image has actually displayed.** If none displays within ~15 minutes, record the firing as a no-op rather than drafting.
+
+**Next transcription firing:** re-read 441, 442, 446, 447 band by band. Then take `khulasat_ut_tawarikh` 457-610. Bands for 441-458 were in this container only and must be re-rendered. Next notes firing: unchanged from §9.259. Nothing committed to git. Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…260.md`, `out/ocr/khulasat_ut_tawarikh/_BLIND_quarantine_2026-10-07/`, `…/_BLIND_quarantine_2026-10-07b/`, `…/_incoming_v3/`.
+
+### 9.261 — 7 October 2026: Stage = notes. PROVINCE SWEEP batch 3 — the nine remaining English books swept (24 of 29 summarized books now carry `## Province-level material`); §9.260 appended from the project; the 449-456 final pages are NOT on the Mac
+
+**Stage: notes.** Scheduled firing, session_01AbusxzPjF4TPvKK49PS99s, ~16:20Z. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim; khulasat lease `449-458` (`coord-s01DGhmM6`, 04:22Z) is ~12 h old, so not fresh. **Step 2:** last §9 in the file was 9.259 (notes), BUT the attached project held a newer pending section, `shrines/74_HANDOVER_section_to_append_2026-10-07_9260.md` (transcription, ~04:20-04:55Z, bridge lost). Appended it verbatim as §9.260 (HANDOVER 19258 → 19296 lines; staging file `docs/_APPEND_260.md`, md5 `320ad78e…`). Previous firing therefore transcribed → **this firing did notes.** Claimed all nine books at 16:24Z.
+
+**MEASURED — the §9.260 recovery has NOT happened, and it cannot be done from a later session.** Mac `out/ocr/khulasat_ut_tawarikh/pages/` md5s at 16:23Z: p0441 `7bb7864f` ok, p0446 `19d918f7` ok, p0447 `80dffb1d` ok, p0453 `2c0c64e4` ok, p0454 `685e296d` ok, p0455 `9b16ebdd` ok — but **p0442 `b7210849`** (= `_incoming_v3/p0442.v9.txt`; final is `3a5605c2`), **p0449 `aabfb6b2`, p0450 `72ebba1e`, p0451 `daaa1db4`, p0452 `0ce85ac9`, p0456 `a7b66757`** — all pre-verification drafts, none equal to §9.260's finals. The finals exist only in chat tarball `khulasat_441-456_2026-10-07.tgz` (md5 `f6de1841…`, file_uuid `51114a62-8d8c-4f81-9512-39a8309804f4`) in session_01DGhmM6uU13tGrhdjR4WgeH; it is not in `~/Downloads`. **Rauf must download it from that chat and copy `pNNNN.f2.txt` over `pages/pNNNN.txt` for 0442, 0449, 0450, 0451, 0452, 0456.** Until then: do NOT run `queue.py check khulasat_ut_tawarikh` (it would count the drafts as done; status still reads 448/610), and the next transcription firing must either wait for that recovery or re-verify those six pages against images itself rather than trusting the files. Lease `449-458` left in place (expired; `sweep-leases` will clear it).
+
+**Shape (PROVINCE_SWEEP_BRIEF.md unchanged, plus a worker prompt `out/province_sweep/` → see below).** One bundle staged up front (`out/province_sweep/bundle_2026-10-07c.tar.gz`, md5 `634b0e62…`, written via `cat` to dodge the nlink refusal — worked first time). Six text-only workers in ONE wave: ernst_lawrence; rafat; waris_shah; shackle_bulleh_shah + madho_lal; rozehnal + werbner_basu; kugle + qureshi. 2.3–4.8 min each, no request-limit problems. Every worker prompt carried **"no silent repair inside a quotation — printed form, then `[text-layer?] [reading]`"**.
+
+**Results (bullets per key):**
+- `ernst_lawrence_sufi_martyrs_of_love` — punjab 8, not attached 2 (unspecified Kashmir ×2).
+- `rafat_bulleh_shah_selection` — punjab 12, sindh 1 (1853 Sind textbooks, language-centred, flagged), not attached 2 ("Central Punjab" incl. Amritsar/Gurdaspur p. 25; "East Punjab" journal).
+- `waris_shah_hir_ranjha` — punjab 43 (almost all the unnamed annotator's notes on "the old Punjab"), sindh 2, not attached 2 (Manjha "now divided between India and Pakistan", p. 53; Kashmir).
+- `shackle_bulleh_shah_sufi_lyrics` — punjab 11, not attached 1.
+- `madho_lal_hussein_verses_lowly_fakir` — punjab 4, sindh 1 (p. 15 "Punjabis and Sindhis", borderline), not attached 1.
+- `rozehnal_islamic_sufism_unbound` — punjab 2, sindh 2, khyber pakhtunkhwa 2, balochistan 2, not attached 2.
+- `werbner_basu_embodying_charisma` — punjab 3, sindh 2, khyber pakhtunkhwa 2, not attached 1 (AJK Chief Minister visit — NB: Azad Kashmir does have a row; worker put it under not attached as a single-site visit; a human should look).
+- `kugle_sufis_and_saints_bodies` — punjab 3, sindh 2, not attached 2.
+- `qureshi_sufi_music_qawwali` — punjab 1 (UP and "Panjab" as the two qawwali regions; recorded at Nizamuddin's ʿurs — may belong under not attached).
+
+**Checks.** Zero bold ids in all nine sections. Spliced immediately before `## Cross-cutting material` (asserted exactly one such heading, no prior province section, removing the splice restores the original byte-for-byte). **Folio check (mechanical):** werbner 21 refs all PDF−11, kugle 11 all PDF−21, qureshi 4 all PDF−20, rafat 18 all PDF−20, waris 57 all PDF−1, madho 7 all PDF+0; ernst, rozehnal, shackle read folios off the page (non-constant offsets / roman). **Quote check (letters-only containment against raw chunks):** 361 quote parts; after inspection every residual is a page-break crossing (running head or page number between the halves) or a non-quote — **zero silent repairs found; the worker-prompt line worked.** **NEW GOTCHA: `waris_shah_hir_ranjha` chunks are two-column `-layout` text** (verse left, notes right, interleaved on one line), so a naive containment check reports 53/132 unmatched; split each line at runs of ≥3 spaces and concatenate by column (start < 40 → left) and it is 0/132. The checker is `/home/claude/qc3.py` in this session — not kept; the method is the sentence above.
+
+**For a human to check (from worker reports):**
+- **Biggest decision (waris_shah):** the annotator never defines or dates "the old Punjab", and his own Manjha note shows it includes districts now in India; 43 bullets hang on that. Same gap, smaller, in ernst (8), rafat (12), shackle (11), kugle, qureshi: none says whether its "Punjab" is undivided or Pakistani.
+- ernst — p. 124 running head prints "Ill" for 111; Kashmir visit "late 1996" (p. 99) vs "early 1997" (p. 125); `E. Punjab` (p. 227) is bibliography section E, not East Punjab; borderline exclusion "Punjab-based biographical collection Khazinat al-asfiya" (p. 123).
+- rafat — borderline exclusions "What Punjabi does not know the romance of Heer and Ranjha?" (p. 16), "homes of rural Punjab" (p. 37), Sachal's "Sindb" (p. 40); variant spellings Shaheed Ganj/Shahidganj, Zakaria/Zakriya kept as printed.
+- waris_shah — borderline: Sial customary law (p. 20), "Punjabi mothers" (p. 41), "Punjabi homes" (p. 56), verse similes (pp. 7, 44, 47); Lal Shahbaz "buried in Sind" (p. 11) contradicts the verse's Uch; "Tarikh-ul-Hind was Sind" (p. 55) `was` uncertain; note marker "Punjab3" (p. 44) unidentified; dates as printed 1748, 1809, "1180 Hijri".
+- shackle_bulleh_shah — "1100 A.H. = 1688 C.E." (p. 166) carried as printed; Ranghars and "western Panjab" borderline; takeaways header's notes folios off by one at the start (p. 155 = folio 130, not p. 154).
+- madho_lal — folio = PDF unverified against a physical copy; "400 years" (p. 6) vs "428th urs" (p. 19); "A Punjabi group dance" (pp. 180, 185) excluded.
+- rozehnal — "Sindhu Desh"→sindh and "the frontier"→KP rest on the speaker's wording; borderline exclusions Pakpattan "a central marker in the regional history of Punjab" (p. 35), p. 142 ethnic list; p. 90 sentence missing a word, quoted as printed.
+- werbner_basu — Sargodha "in the Punjab, where Sufi shrine cults are extremely popular" (p. 203) excluded as ambiguous; "come from throughout the Frontier" (p. 122) excluded as one site's pilgrims.
+- kugle — three borderline inclusions (weaver castes n. 52 p. 329; Hir/Ranjha audiences p. 228; Imdadullah's 1857 flight "through the Punjab and Sindh" p. 280); Thatta conquest bullet is really one town.
+
+**Province sweep progress: 24 of 29 summarized books.** Remaining: `eaton_essays_islam_indian_history` (NO chunks on disk — `queue.py chunk` with the N in its state.json log line first), then the four Urdu vision books (hadeeqat_ul_aulia, tareekh_lahore, tazkirah_awliya_pak_o_hind, sawaneh_shah_jamal; `سند` is also "chain of transmission"). **Next notes firing: eaton + the Urdu four** (five workers, one wave). **Next transcription firing:** see the recovery paragraph above FIRST; then §9.260's instruction (re-read 441/442/446/447 band by band, then khulasat 457-610; bands must be re-rendered).
+
+Files written to the Mac: the nine `entries/book_takeaways/<slug>.md` and nine `out/province_sweep/<slug>.province.md`; insurance tarball `province_sweep_batch3_2026-10-07.tgz` (md5 `a4e8d34f…`) sent to chat. Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…261.md`; optionally `out/province_sweep/bundle_2026-10-07c.tar.gz`.
+
+### 9.262 — 7 October 2026: Stage = transcription. §9.260's six unrecovered khulasat pages RESTORED (four byte-identical to §9.260's verified finals), 441/442/447/452 re-read against images, and `khulasat_ut_tawarikh` PDF 457-458 transcribed (→ 458/610 once `queue.py check` runs)
+
+> Appended at ~21:30Z by the next firing (session_01EGhXLG47WVB4DYq3GkZ6QN, §9.263) from the attached project's `shrines/78_HANDOVER_section_to_append_2026-10-07_9262.md`; the writing firing lost its bridge before it could append. Text below is verbatim. **The finals it lists were restored onto the Mac by §9.263 from `shrines/77_PENDING_…_NOT_IN_REPO.md`, all eleven md5s verified on the Mac.**
+
+**Stage: transcription.** Scheduled firing, session_01FnP8zc5m4ZPPSGSp55kro6, ~18:22Z. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim; the khulasat lease `449-458` (`coord-s01DGhmM6`, 04:22Z) was ~14 h old, so not fresh. **Step 2:** last §9 by sort = 9.261 (notes); no newer pending HANDOVER section in the project (last run record 75 = §9.261). → **this firing transcribed.** `sweep-leases` expired the dead lease; `queue.py lease` refused ("no rendered free pages" — the bands live only in the container), so leased with `lease_bands.py khulasat_ut_tawarikh --range 449-458 --worker coord-s01FnP8zc` at 18:30Z. The bridge then flapped for most of the run (≥5 drops).
+
+**§9.261's recovery is DONE without the chat tarball.** Instead of waiting for Rauf to fish `khulasat_441-456_2026-10-07.tgz` out of the old session, I staged the Mac's draft pages and re-derived the finals. The request limit hit the coordinator for the first ~13 minutes (every image `[media removed]`), then images displayed. **Measured, new: §9.260 published the 8-hex md5 prefix of every final, and that is enough to recover a final exactly** — applying §9.260's own listed readings (and only those) to the Mac drafts in every combination and testing the md5 prefix found byte-identical matches for **p0449 `553ddfa9`, p0451 `3b58f45a`, p0456 `1d891823`, p0450 `d3d17054`**. p0442 and p0452 matched no combination; both were then re-read by me band by band (q1-q4, both halves) against displaying images and corrected (p0442: `روئے بسوی آسمان`, `از افریدگار` as printed, `نود و[OCR?] سال` — §9.260's "no units word"; p0452: `ببیر[OCR?] بتال`, rest confirmed). **One deliberate departure from a §9.260 final:** p0450 — the image (q1_l, displayed) clearly prints `خداداد بر سر اسرار السنه`; §9.260's final dropped `سر`. Restored it, so p0450 is `80203fc3`, not `d3d17054`. p0449 q1+q4 and p0450 q1-q4 were also re-read against images and agree.
+
+**441, 446, 447 (the §9.258 re-read instruction):** **p0441** re-read q1-q4 against images: one change, `درویشی` → `درویشے` (printed with yā-e majhūl); king-list durations all confirmed as transcribed. **p0447** re-read q1-q4 against images: file unchanged, every line confirmed (`ز بس نگهت بزم میرفت دور` with گ). **p0446: NOT re-read** — every one of its images came back `[media removed]`; the file is unchanged and its year `درسنه ۵۴۲[OCR?]` is STILL unchecked. **p0442** see above (now fully re-read). So of the §9.258 list only **446** remains, plus **435-440** and **411-416**.
+
+**New pages, read off displaying images (both halves of all four bands, plus `_ft`, plus seam strips cut from a fresh full-page render to check no line hides at a band boundary):**
+- **p0457 `[folio 132]`** — end of the battle with راجه سکونت (killed), a nazm (`غزالے که جوید نبرد از پلنگ …`), `مدت سلطنت راجه سکونت چهارده سال`, then the heading **راجه بکرماجیت بن گندهرپ سین** and the birth story as the *Sinhasan Battisi* translation tells it: Indra's son Gandharbsen, cursed for gazing at a dancing hūr, falls to earth as an ass by day and a man by night, lives in a tank by `دهارانگری واقعه دکن`. Cites `اکبرنامه و دیگر تواریخ`. Last line partly unreadable (`و درین اند[OCR?] [illegible]`, small superscript above).
+- **p0458 `[folio 131]`** — a bayt, then Raja Sakunt's misrule and an extended passage against `کوکنار` (poppy) addiction; a bayt (`پاس دارے بعدل و داد بود   ظلم شاهی چراغ و باد بود`); Bikramajit marches on `اندرپت یعنی دهلی`. Footnote `(۱) شبانگاه (۲) شرب` — marker positions flagged.
+- Folios 132, 131 = `589 − PDF`, both read off `_ft` and `q1_r/q1_l`.
+
+**Checks.** Folios on all eleven files step −1 and equal `589 − PDF` (148, 147, 143, 142, 140, 139, 138, 137, 133, 132, 131). Duplicate sweep (`SequenceMatcher(autojunk=False)`, 0.3 threshold) over the eleven: no pair above threshold. No `[source stamp]` line written (khulasat's stamp is already recorded at p0049).
+
+**Every numeral, name and doubt a human must check:** p0457 `چهارده سال` (Sakunt's reign); `آباعنجد[OCR?]` (p0457, "forefathers" — garbled); `دهارانگری`, `راجه دهار[OCR?]`; `هژبرے[OCR?]`, `سر آید[OCR?]` (verse); `بقلم[OCR?]`, `حورانے[OCR?]`, `بها[OCR?]`. p0458 `کوهی[OCR?]` after `راجه سکونت` (epithet? unclear), `بر[OCR?] نشان` (verse), `هیچو[OCR?]`, `بیدانشی[OCR?]`, footnote markers `(۱)` at `چاشتگاه`, `(۲)` at `بسیرت`. p0446 `۵۴۲[OCR?]` still unverified. Orthography as printed (no madda on `اماده`, `افریدگار`, `ادم`; `ے` for yā-e majhūl; no dotted final nūn).
+
+**Write-back.** The bridge was down at every commit attempt; finals were held as `/mnt/user-data/outputs/kh_w/pNNNN.s01FnP.final.txt` and sent to chat as `khulasat_441-458_s01FnP.tgz` (md5 `c5ecd2ba…`). **The bridge never came back between ~18:40Z and ~19:20Z, so NONE of these finals reached the Mac, and this section was not appended by me.** The exact finals, md5-checked to round-trip, are in the attached project as `shrines/77_PENDING_khulasat_final_pages_2026-10-07_s01FnP_NOT_IN_REPO.md` — **the next firing must restore them into `out/ocr/khulasat_ut_tawarikh/pages/` (verify md5s), append this section, and only then run `queue.py check khulasat_ut_tawarikh`.** Until then the Mac still holds §9.260's pre-verification drafts of 0442/0449/0450/0451/0452/0456, has no 0457/0458, and the `449-458` lease (`coord-s01FnP8zc`, 18:30Z) stands until it expires at 21:30Z. Final md5s: p0441 `f064ce23`, p0442 `c36c480f`, p0446 `19d918f7` (unchanged), p0447 `80dffb1d` (unchanged), p0449 `553ddfa9`, p0450 `80203fc3`, p0451 `3b58f45a`, p0452 `1ea83e01`, p0456 `1d891823`, p0457 `14229681`, p0458 `7eb2fbd9`.
+
+**Next transcription firing:** `khulasat_ut_tawarikh` 459-610 (bands for 459-460 were rendered in this container only — re-render). Re-read p0446 (its year), then 435-440 and 411-416 when time allows. **Next notes firing:** unchanged from §9.261 (eaton + the four Urdu vision books for the province sweep). Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…262.md`, `out/ocr/khulasat_ut_tawarikh/_stage_s01FnP/`, `…/_incoming_s01FnP/`, plus the §9.260 leftovers (`_BLIND_quarantine_2026-10-07/`, `…07b/`, `_incoming_v3/`).
+
+### 9.263 — 7 October 2026: Stage = notes. PROVINCE SWEEP batch 4 — eaton + the four Urdu vision books swept; **ALL 29 summarized books now carry `## Province-level material` — the province sweep is FINISHED**; §9.262 appended and its khulasat finals restored (458/610)
+
+**Stage: notes.** Scheduled firing, session_01EGhXLG47WVB4DYq3GkZ6QN, ~21:24Z. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim; khulasat lease `449-458` (`coord-s01FnP8zc`, 18:30Z) under 3 h old but its session was dead (bridge lost ~18:40Z). **Step 2:** last §9 in the file = 9.261, BUT the attached project held a newer pending section, `shrines/78_HANDOVER_section_to_append_2026-10-07_9262.md` (transcription). → this firing did notes. Both rules agree.
+
+**§9.262 restore (done first, before any notes work).** Mac drafts of 0441/0442/0449/0450/0451/0452/0456 were still §9.261's md5s (unchanged by anyone since); copied them to `out/ocr/khulasat_ut_tawarikh/_superseded_drafts_9263/` (gitignored; delete by hand when satisfied), then wrote the nine finals from `shrines/77_PENDING_…_NOT_IN_REPO.md` — every block matched its full md5 in the container before commit, and all eleven §9.262 md5s re-verified ON THE MAC afterwards (p0441 `f064ce23`, p0442 `c36c480f`, p0446 `19d918f7`, p0447 `80dffb1d`, p0449 `553ddfa9`, p0450 `80203fc3`, p0451 `3b58f45a`, p0452 `1ea83e01`, p0456 `1d891823`, p0457 `14229681`, p0458 `7eb2fbd9`). Appended §9.262 verbatim with a provenance note (HANDOVER 19332 → 19355; staging `docs/_APPEND_262.md`). Then `queue.py check khulasat_ut_tawarikh` → **458/610**; the 449-458 lease cleared. `folio-check` prints a "minority offset" warning for every page 453-458 — that is its +offset model meeting khulasat's descending folios (`589 − PDF`), not a misread; ignore.
+
+**Province sweep, batch 4.** Claimed all five books 21:26Z, released 21:39Z with `--session`, `status` confirms none live. **Chunks were missing** for eaton, hadeeqat and sawaneh — rebuilt on the Mac with `queue.py chunk` at each book's logged N (eaton 6000 → 20, hadeeqat 4000 → 32, sawaneh 8000 → 1; counts match state.json's logs). One bundle `out/province_sweep/bundle_2026-10-07d.tar.gz` (md5 `e093d90c…`, written via `cat`; staged first time). Six text-only workers in ONE wave, 2.1–5.7 min, no request-limit trouble: eaton; hadeeqat 001-016 / 017-032; tareekh_lahore 001-016 / 017-032; tazkirah + sawaneh. **Urdu search terms given to workers** (the brief's English regex finds nothing in these books): پنجاب, سندھ, سند (also isnad/certificate — every worker found it almost never the region), بلوچستان, سرحد (almost always "border" or a title), کشمیر, صوبہ/صوبه (incl. صوبہ دار; the Mughal "صوبہ لاہور" treated as a Lahore toponym), ملتان only as a suba. **Add these to PROVINCE_SWEEP_BRIEF.md if it is ever reused on Urdu.** Split halves merged mechanically (`/home/claude/merge.py`, subsection-wise A then B, asserting every line of both parts survives — NOT de-duplicated; part files kept on the Mac). Spliced before `## Cross-cutting material` (asserted one such heading, no prior section, removing the splice restores the original byte-for-byte); Mac originals md5-checked unchanged before overwrite; all written files md5-identical Mac/container. `check_note_ids.py` exit 0 on all five (Mac).
+
+**Results (bullets per key):**
+- `eaton_essays_islam_indian_history` — punjab 18, sindh 6, balochistan 2, not attached 6. All 28 "frontier" hits are Eaton's own concept, none the province. Worker found the running heads read PDF−12 throughout (header says "in the Bengal essays" only) — used it everywhere.
+- `hadeeqat_ul_aulia` — punjab 26 (13 + 13, each labelled author 1875 / editor's footnote / editor's introduction / quoted source), sindh 1, not attached 10 (mostly unspecified Kashmir; "مشرقی پنجاب" p. 156).
+- `tareekh_lahore` — punjab 35 (22 + 13), sindh 1 (Yalduz over "کیچ مکران و سندہ و ملتان", pp. 24-25), not attached 12 (Kashmir; Delhi under the Punjab p. 33; Jalandhar Doab; suba of Multan; Kech Makran; Derajat; Batala).
+- `tazkirah_awliya_pak_o_hind` — punjab 1 (Akbar "پنجاب جاتے ہوئے", 980ھ, p. 243), sindh 1 (travellers from Iran via Sindh, Sarmad chapter, p. 297), not attached 2 (Mulla Shah's Kashmir; "صوبہ اودھ").
+- `sawaneh_shah_jamal` — zero bullets, explicit negative (only regional word is دکن).
+
+**Quote check (letters-only containment against raw chunks).** Every residual inspected is a regex-pairing artefact (English prose between two quotes) or a quote crossing a line break in the chunk. One silent repair found: eaton p. 110 (Ghaznavid pattern from 986) "Sabuktigin" quoted without the printed noise `Sabuktigin\, ’` — trivial; not corrected.
+
+**For a human to check (from worker reports):**
+- **hadeeqat — two decisions:** (1) the author defines "ملک پنجاب" as "دہلی سے پشاور تک جس قدر علاقہ اس وقت پنجاب کے ساتھ متعلق ہے" (p. 37, folio 25) — kept under punjab with the wording, but that Punjab runs Delhi to Peshawar; (2) the takeaways header calls the work "Persian", but the author says he was asked to write "مختصر اردو زبان میں" (p. 37) and the editor says "سادہ اور سلیس اردو" (p. 32) — the header may be wrong; not edited. Also: ~14 "famous in all Punjab" praise lines excluded (listed in Sweep notes, promotable); Shaikh Ismail spreading Islam in Punjab (p. 191) vs the editor calling *Tuhfat al-Wasilin* "وضعی" and giving 980 AH not 448; Karam Shah "ایک ہزار دو سو" vs "۱۲۰۱ ھ" (p. 190); editor's "۲۴۴ [OCR?]" Sufis vs contents running to ۲۴۷; folios for pp. 176-197 cited by rule (PDF−12), not the transcribed markers (A26); index "۱۰۰ [OCR?]" in the پنجاب entry (p. 333).
+- **tareekh_lahore:** suba of Multan (p. 73) put under not attached — needs a ruling whether it is punjab; Dipalpur as the Punjab's capital under the sultans (p. 13) excluded as a town statement; Delhi under the Punjab (p. 33) not attached; p. 26 names both "جلال الدین فیروز شاہ خلجی" and "شمس الدین التمش [OCR?]" in one story; Ranjit Singh's death "۱۸۹۶ [OCR?]" (p. 217) era not named; unflagged dates "۶۱۵" (p. 305) and "۱۸۶۴ء" (p. 402) need the image; the ۶۱۵ Mongol bullet sits inside a quoted *Hadiqat*/*Tazkira-i Hakimiya* passage — source boundary unclear; folio p. 25→26 jumps 20 → 29; two thin bullets (Punjab treasury in the Moti Masjid; Abul Khair liking the climate).
+- **eaton:** p. 225 key bullet (Mughal statistics, Jat control) has a destroyed opening ("i Akban ’statistics … sibas") and figures "186 Punjabi parganas" / "82" to check; borderline inclusions pp. 227, 241 (Punjabi clans from the Baba Farid essays) and p. 13 (Baluchistan desert by train); exclusions pp. 222, 238, 216, 257, 220 listed.
+- **tazkirah:** Sultan Bahu's khalifa list (p. 316) "ملامعانی[OCR?] بلوچستانی' … مومن شاہ گیلانی (سندھ) ان خلفاء سے آپ کا سلسلہ پھیلا" excluded as person tags — would add one sindh and one balochistan bullet if ruled province-level; p. 243 has "مزار حکیم", "فرد" unflagged and suspect.
+
+**State after this run.** Province sweep 29/29 — **that instruction is SPENT.** Every transcribed book is consolidated and swept; **the notes stage has no queued work** except the clean-up items already recorded: re-flag sorley's ~60 silently repaired quotes (§9.259), and de-duplicate the merged A/B halves (sorley, boivin, hadeeqat, tareekh_lahore). **Next notes firing: the sorley re-flag** (method in §9.259), or, if Rauf prefers, transcribe instead. **Next transcription firing:** `khulasat_ut_tawarikh` 459-610 (re-render bands; 459-460 existed only in §9.262's container); re-read p0446's year, then 435-440 and 411-416.
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…263.md`, `out/ocr/khulasat_ut_tawarikh/_superseded_drafts_9263/` (once satisfied), plus §9.262's list; optionally `out/province_sweep/bundle_2026-10-07*.tar.gz` (gitignored).
+
+### 9.264 — 7 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF 459-464 transcribed (→ 464/610)
+
+**Stage: transcription.** Scheduled firing, session_01HF9pHm4U6HsiXYbdM8fH3J, ~22:22Z. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no khulasat lease. **Step 2:** last §9 by sort = 9.263 (notes); no newer pending HANDOVER section in the project (last doc = 79, §9.263's record). → this firing transcribed.
+
+**Method.** Leased 459-466 with `lease_bands.py --worker coord-s01HF9pHm` (22:22Z); staged the PDF; rendered bands in the container with `render_bands.py --pdf … --outdir` (4 bands, scale 4400, `_r/_l` halves, `_ft`). **Coordinator read every image itself — no subagents** (§9.256). The request limit hit for the first ~25 image reads (every image `[media removed]`); afterwards images displayed. **Every page was written from bands and both halves of all four bands that displayed in view**; for p0461 a native-resolution crop of the foot was also read for the footnote line under the eLibrary stamp. Stopped at 464 (6 pages) to leave time for write-back; 465-466 released unread (`queue.py release … 459-466` after `check`).
+
+**Pages.** All six are the Sakas/Pandava-successor **raja king-lists** (name, `بن`, father, `مدت سلطنت` years/months, a stock phrase), with two prose digressions:
+- **p0459 `[folio 130]`** — end of the Dhundhar line: Raja Rajpal's arrogance, killed by `سکونت` "who held a little territory on the skirt of the Kumaon hills" (`دامنه کوه کمایون`); two verse pieces; `از ابتداے راجه دندهر[OCR?] بغایت راجه راج پال نه تن سیصد و چهل و هفت سال`. 
+- **p0460 `[folio 129]`** — Raja Adhast's negligence, his vizier Dandhar usurps; `شانزده تن مدت چهارصد و چهل و شش سال` for the Birmah line; Dandhar's line begins.
+- **p0461 `[folio 128]`** — anti-bhang (`بنگ`) digression and qit'a; end of the Bisrawa line `چهارده تن مدت پانصد و یکسال`; Birmah line begins (14 rajas listed). Footnote `(۱) سترکهن (۲) مهابال (۳) سکهوان`.
+- **p0462 `[folio 127]`** — rajas Parbachhat … Padarthah; Raja Budhmal's bhang addiction (a long passage on its effects) — continues onto p0461's subject (the scan runs back to front).
+- **p0463 `[folio 126]`** — Raja Khemen's neglect; vizier Bisrawa kills him; **end of the Pandava line: `از ابتدائے راجه جدهشتر لغایت راجه کهیمن مدت یکهزار و هشت صد و شصت و چهار سال سی تن`**; Bisrawa line begins.
+- **p0464 `[folio 125]`** — 19 rajas Susen … Shanbak; footnote of six variant names `(۱) پرسمی (۲) ست پال (۳) هشت ماه (۴) سه ماه (۵) دندپان (۶) سیناک`.
+
+**Checks.** Folios 130→125 read off `q1_r/q1_l` on all six and equal `589 − PDF` on all six. Duplicate sweep (`SequenceMatcher(autojunk=False)`, 0.3): no pair above threshold. md5 on the Mac: p0459 `460fa7da`, p0460 `1970051b`, p0461 `3bb9600a`, p0462 `735b40dc`, p0463 `925fa7b5`, p0464 `da84a071`. `queue.py check` → **464/610**. No `[source stamp]` line (already recorded at p0049).
+
+**Blind-draft incident, caught and repaired in-run.** The request limit blanked every image for the first ~25 reads, and **p0459, p0460 and p0461's q1 band were first drafted while their images were NOT displaying** — exactly the §9.256 failure mode, this time in the coordinator. Once images loaded, all three were **re-read band by band (both halves of every band) against displaying images before this section was written**: the drafts matched, with these corrections — p0459 `استیلا` → printed `استیجار[OCR?]`, `بزندان` → `به زندان`, `بغایت[OCR?]` → `لغایت`; p0460 `ده[OCR?] ماه` → `دو[OCR?] ماه`; p0461 q1 unchanged. Folios ۱۳۰ and ۱۲۹ were then read directly off `q1_r/q1_l`. Final md5s for the two rewritten files: p0459 `1f91a69d`, p0460 `0b29082f` (the md5s above for 0459/0460 are superseded; a re-commit via device_commit_files reported `written` but left the Mac file unchanged, so the corrections were applied in place with device_bash and md5-verified). **Lesson: after a `[media removed]` streak, treat every page drafted during it as blind and re-read it before commit — the coordinator is not immune.**
+
+**For a human (p0459-0464):** every raja name is `[OCR?]` — the hand drops dots on these Sanskrit names (`کهیمن`, `پربچهت`, `وردهه`, `سنجی`, `امرجود`, `اینپال`, `سروهی`, `پدارتهه`, `بدهمل`, `شنباک`, `میدهاوی` …) and every footnote variant contradicts the body; reign lengths are spelled out and read cleanly. p0463 `یکهزار و هشت صد و شصت و چهار سال` (Pandava total) — `هشت`/`شصت` flagged. p0464 `همت والانهمت` garbled. Orthography as printed (`ے` for yā-e majhūl, `مے`, `درارد`).
+
+**Next transcription firing:** `khulasat_ut_tawarikh` 465-610 (bands exist only in this container — re-render). Still outstanding from §9.262: p0446's year, 435-440, 411-416. **Next notes firing:** unchanged from §9.263 (sorley re-flag, then de-dup of merged halves). Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…264.md` plus §9.262/9.263's lists.
+
+### 9.265 — 8 October 2026: Stage = notes. sorley province section: silently repaired quotations re-flagged with `[text-layer?]` (§9.259 clean-up item 1 DONE)
+
+**Stage: notes.** Scheduled firing, session_01GP17Y4mSDVifLaBvWNZ23L, ~00:24Z. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no lease (state.json updated 22:29Z). **Step 2:** last §9 by sort = 9.264 (transcription); last project doc = 80 (= §9.264's record), no newer pending HANDOVER section → this firing did notes: the sorley re-flag queued by §9.259/§9.263. Claimed `sorley_shah_abdul_latif_of_bhit` 00:24Z, released 00:32Z with `--session`; `status` confirms none live. Worked entirely on the Mac with device_bash (no staging, no subagents).
+
+**Method.** Letters-only containment (§9.259) of every quotation in `## Province-level material` (lines 1609-1720) against the concatenated raw chunks `out/ocr/sorley_shah_abdul_latif_of_bhit/chunks/chunk_*.txt`, after stripping `[...]` groups and splitting on ellipses: **694 quote parts ≥ 8 letters, 77 unmatched** (§9.259 counted 60 with a narrower regex). Each unmatched part was located by 10-gram voting and aligned word-by-word against the printed tokens; every proposal was read by hand before applying. Scripts: `~/work/qcheck.py`, `locate.py`, `align.py`, `edits.py` in the device_bash home (outside the repo; not kept).
+
+**Edits — 51, all inside quotations (or quoted "book's word" labels), lines 1621-1719 only.** Form: printed token first, then `[text-layer?] [reading]`, the section's own convention. Examples: `hu,ilding [text-layer?] [building]` (p. 101), `Un�er`/`�alpiirs`, `E:oran`, `certairily`, `Iio`, `w;b.e;µ`, `tl;le`, `Centntl`, `learn�d inen`, `indeperident`, `poem�·a:re`, `foµr`, `Bhuinpiir`, `Sii b edar`, `the frontier. �f`, the label `"rural Sjnd" [text-layer?] [rural Sind]`. **Two were misquotations, not text-layer noise, and were corrected to the printed wording:** p. 130 `"and several of the biggest canals…"` → printed `"Indeed several…"`; p. 145 festivals kept `"whole-heartedly"` → printed `"whole-heartedness"` (bullet now reads "celebrated with"). Punctuation-only noise inside quotes (`eloquent_ of .`, `' maktabs ;`, `",m9sques` → the `",` dropped) was left as the workers wrote it — letters-only does not see it.
+
+**The 37 residuals (rerun after editing) are not repairs:** quotes crossing a page break, running head or footnote (pp. 17, 26, 32, 57-58, 118-119, 134, 158-159, 204-205, 216-217, 258-259 …); the Appendix V two-column table (pp. 200-202), whose rows the workers re-assembled from interleaved columns (left as is; its damaged words `Aurang­ ze�`, `�nding`, `b�gin` were flagged); `[printed …]` annotations already inside quotes; and three sweep-notes / Doubts fragments that are the worker's own prose.
+
+**Checks.** Original backed up byte-for-byte as `out/province_sweep/sorley_takeaways_before_reflag_9265.md` (md5 `f3c2fd3e…`, gitignored). After: `entries/book_takeaways/sorley_shah_abdul_latif_of_bhit.md` md5 `14e41bb3fc687b956b715d5ad3d1636b`, 5,236 lines (unchanged count); everything outside lines 1609-1720 diff-identical to the backup; `check_note_ids.py` exit 0. The merged sweep scratch file `out/province_sweep/sorley_shah_abdul_latif_of_bhit.province.md` and its part files were NOT re-flagged (gitignored; the takeaways file is the record).
+
+**Next notes firing:** clean-up item 2 — de-duplicate the merged A/B province halves (sorley, boivin, hadeeqat, tareekh_lahore). It is a judgement prune (the same Sindh topic restated by two workers); keep every distinct page reference when merging two bullets. The same re-flag check should also be run on boivin (§9.259: 15 residuals, said to be artefacts) before the prune. If that is done, transcribe. **Next transcription firing:** unchanged from §9.264 — `khulasat_ut_tawarikh` 465-610 (re-render bands); p0446's year, 435-440, 411-416 still owed.
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…265.md` plus earlier lists.
+
+### 9.266 — 8 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF 465-472 transcribed (→ 472/610)
+
+**Stage: transcription.** Scheduled firing (routine trig_01R9QYyd37Rro1yVe4B1ToqW, scheduled 18:22Z, fired 19:57Z), session_01Y1yJNqQ5CyYn2A8bqHhkhQ. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no khulasat lease (state.json updated 2026-10-07T22:29Z). **Step 2:** last §9 by sort = 9.265 (notes); last project doc = 81 (= §9.265's record), no newer pending HANDOVER section; no pages past p0464 on disk → this firing transcribed.
+
+**Method.** Leased 465-472 with `lease_bands.py --worker coord-s01Y1yJNq` (19:58Z); staged the PDF; rendered bands in the container with `render_bands.py --pdf … --outdir --pages 465-472 --last-page 610`. **Coordinator read every image itself, no subagents** (§9.256). The request limit hit again: for roughly the first 25 image reads the tool returned `[media removed: request limit]`. **p0465, p0466 and the top half of p0467 were drafted during that streak, so per §9.264 they were treated as blind and re-read band by band (both halves of all four bands) once images displayed, before this section was written.** The drafts held up. Corrections applied: p0466 `کو صبر که در برابر[OCR?] آید` → printed `کو صبر که در[OCR?] برا[OCR?] برآید`; p0467 `بخوشه شد[OCR?] گم` → `بخوشه سر گم`, `نعمتهاے بیشمار` → `نعمتهاے بے شمار`. p0465: no change. Pages 468-472 were written only from images that were on screen. Also a seam strip re-rendered from the full page (`~/scripts/seamr.py` in the container, not kept) checked the q2/q3 join on p0467 and p0472: no line lost.
+
+**Pages.** 465 closes the raja king-lists and starts the Janamejaya (`جنمجه`) narrative, which runs back to front through the scan:
+- **p0465 `[folio 124]`**: Janamejaya repents, Vyasa (`بیاس دیو`) prescribes hearing the Mahabharata from his pupil `سناتن[OCR?]`, and so the Mahabharata becomes known in the world. Reign `هشتاد و چهار سال`. Then the author's note that from Raja Asmand (`اسمند`) on he gives names and reign lengths only, "from some copies", because what he heard orally he did not trust. Asmand, Adhan, Mahajasi, Jasrath, Vishnatvan, Ugrasen with their reigns; footnote `(۱) ششماه`.
+- **p0466 `[folio 123]`**: the queen appears before the Brahmins, they faint, the raja kills them all; two verse pieces.
+- **p0467 `[folio 122]`**: the marriage, the queen made chief rani, the Brahmins' feast, her toilette; footnote `(۱) ناری`.
+- **p0468 `[folio 121]`**: the horse carries the raja into the wilderness and he meets a fourteen-year-old girl; qit'a; marriage `بآئین و دین هنود`; footnote `(۱) بیک نگاه`.
+- **p0469 `[folio 120]`**: Vyasa's warning (do not buy the horse, do not ride it, do not marry the woman); the horse arrives.
+- **p0470 `[folio 119]`**: end of the snake-sacrifice `جگ` (**`چهار هزار و هفتصد سال و کسری`** since then "to the present"); Janamejaya asks Vyasa why the Pandavas fought.
+- **p0471 `[folio 118]`**: the snake-sacrifice itself (20,000, then a lakh, 11 lakhs, a crore, 10 crores of snakes); Shesh Nag (`سیس[OCR?] ناگ`, footnote `سیکه ناگ`); the dervish `استک[OCR?]` intercedes; `بهجنگ[OCR?]` (Takshaka) saved; masnavi couplet.
+- **p0472 `[folio 117]`**: Janamejaya succeeds his father, conquers the north, returns to `هستناپور`; the ascetic `اونگ[OCR?]` urges revenge on `بهجنگ` for his father; footnotes `(۱) مقبوضه (۲) افعال`.
+
+**Checks.** Folios 124→117 read off `q1_r/q1_l` (and `_ft` on 468) on all eight; all equal `589 − PDF`. Duplicate sweep (`SequenceMatcher(autojunk=False)`, 0.3) over 464-472: no pair above threshold. md5 on the Mac, verified after commit: p0465 `abd865aa`, p0466 `50bdcd9e`, p0467 `4c958ac3`, p0468 `e0bba839`, p0469 `c20c27d3`, p0470 `c7b770cb`, p0471 `439df5fd`, p0472 `e43c1164`. `queue.py check` → **472/610**; no leases left. `folio-check` prints a "minority offset" line for every page of this book, because the scan runs back to front. That is expected and is not a misread. The bridge dropped twice mid-run; a `device_commit_files` call failed outright once and succeeded on retry (md5 verified, no silent non-overwrite this time). No `[source stamp]` line (already recorded at p0049).
+
+**For a human (p0465-0472):** every Sanskrit name is `[OCR?]` (`سناتن`, `خنبجه/جنبجه/جنمجه`, `اسمند`, `ادهن`, `مهاجسی`, `جسرتهه`, `وشنت وان`, `اوگرسین`, `سیس/سیکه ناگ`, `استک`, `بهجنگ`, `اونگ`). Numbers to check: p0470 `چهار هزار و هفتصد سال و کسری`; p0471's snake counts; p0465's reign lengths (`هشتاد و دو سال و دو ماه`, `هشتاد و هشت سال و دو ماه`, `هشتاد و یکسال و یازده ماه`, `هفتاد و پنج سال و دو ماه`, `هفتاد و شش سال و سه ماه`, `هفتاد و هشت سال و هشت ماه`). p0466's last line has one smudged word marked `[illegible]`. Orthography as printed (`ے` for yā-e majhūl, `مے`, `بے`).
+
+**Next transcription firing:** `khulasat_ut_tawarikh` 473-610 (bands exist only in this container, so re-render). Still owed from §9.262: p0446's year, 435-440, 411-416. **Next notes firing:** unchanged from §9.265 (de-duplicate the merged A/B province halves of sorley, boivin, hadeeqat and tareekh_lahore, after running the §9.265 quote check on boivin). Nothing committed to git; Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…266.md` plus earlier lists.
+
+### 9.267 — 8 October 2026: Stage = notes. Province-section clean-up item 2 DONE: boivin quote check, and A/B de-duplication of sorley, boivin, hadeeqat, tareekh_lahore
+
+**Stage: notes.** Scheduled firing (routine trig_01R9QYyd37Rro1yVe4B1ToqW, scheduled 20:22Z, fired 21:36Z), session_01EBtKoj6YZMeo7AWf1ENk6H. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no lease (state.json updated 20:14Z). **Step 2:** last §9 by sort = 9.266 (transcription); last project doc = 82 (= §9.266's record), no newer pending HANDOVER section → notes, the item queued by §9.265/§9.266. Claimed each book with `notes_claim.py` before editing it, released all four with `--session`; `status` confirms none live. Worked on the Mac with device_bash only (no staging, no subagents). Each file backed up byte-for-byte first into gitignored `out/province_sweep/` (`boivin_takeaways_before_dedup_9267.md` md5 `d1a45e8b…`, `sorley_takeaways_before_dedup_9267.md`, `hadeeqat_ul_aulia_takeaways_before_dedup_9267.md`, `tareekh_lahore_takeaways_before_dedup_9267.md`).
+
+**boivin quote check (§9.265 method, letters-only containment against the raw chunks).** 489 quote parts ≥ 8 letters, **15 unmatched — all artefacts, zero repairs needed**: 9 quotations crossing a page break, running head or footnote (pp. 19–20, 29–30, 36–37, 70–71, 176–177, 191–192, 192–193, 227–228 …), the rest the workers' own prose inside quote marks (`folio not stated`, `rivers of Punjab`, `province in general`, `saint(s) of Multan`, `Sind under Bombay`, `Baluchi(s)/…`). This confirms §9.259's "15 residuals, artefacts". Scripts `~/work/qcheck.py`, `loc.py`, `dupref.py`, `dupq.py` live in the device_bash home, not the repo.
+
+**How "duplicate" was tested (measured, then read).** `dupref.py` lists every page number cited by two or more bullets under the same province key; `dupq.py` lists every quotation (≥ 25 chars) used in two or more bullets. A true A/B restatement shows up as a shared page or quote between a part-A bullet and a part-B bullet; then the bullets were read.
+- **boivin — 3 merges, all genuine A/B restatements:** Burton's "neither Hindu nor Muslim" (p. 19–20, 51 merged with p. 187 → one bullet, "Restated in Ch. 7:"); Hallaj's popularity in Sindh (p. 102 merged with the endnote p. 212 and glossary p. 219); the late-19th-c. Nanakpanthi-darbar recomposition (pp. 53–54 merged with the General conclusion pp. 199–202 + Ch. 1 n. 10, p. 209, "Restated in the General conclusion:"). The two worker preambles were folded into one; the first sweep notes are now labelled "(first part, chunks 001–006)". **Kept on purpose:** the Siraiki/Southern Punjab and Kohistan/Baluchistan statements that appear under two province keys (each key needs its own bullet), and the `not attached` Partition-Punjab line. Check: section 141 → 136 lines; **194/194 page references kept**; the only quotation removed was `"published in 1851"` from a bullet head, which was put back into the merged head; everything outside the section diff-identical; `check_note_ids.py` exit 0. File 6,324 → 6,319 lines, md5 `fb664cf8e86ea44b085f737c98bb91b8`.
+- **sorley — nothing to merge (explicit negative).** No page and no quotation is shared between a part-A bullet (pp. ≤ 188) and a part-B bullet (pp. ≥ 189). Shared pages exist only within one worker's half (distinct sentences of one page sorted by topic); shared quote strings are period labels in heads (`"seventeenth and eighteenth century Sind"`). Where both halves narrate the same history (conversion, the Sumras, Qarmatians: pp. 174–178 vs 247–248, 302), Sorley himself restates it in two places, and each bullet cites its own passage. Only the part-B preamble was relabelled and given a one-sentence record of this check, and the first sweep notes labelled. 5,236 lines (unchanged), md5 `c12b21df412d7c2b5e87bc03727fbfff`.
+- **hadeeqat_ul_aulia and tareekh_lahore — nothing to merge (explicit negatives), same test.** Shared themes (the book's scope; Sikh and British take-overs; the Mongol pursuit of Jalal al-Din, tareekh p. 165 in part A vs p. 305, `سنہ ۶۱۵`, in part B) cite different passages. The one cross-half page hit (hadeeqat p. 178) is a `not attached` bullet versus a sweep-notes line. A one-sentence record was added to each part-B preamble. md5 hadeeqat `bc504baf96bcaa3a7ede05509694b832` (6,328 lines), tareekh_lahore `2c779cad287a5c3c78e29e2978769df3` (2,612 lines). `check_note_ids.py` exit 0 on all four.
+
+**This closes the province-sweep clean-up list (§9.259 items 1 and 2).** The notes stage now has no queued book: every transcribed book is summarized and swept. **Next notes firing: there is no notes work queued, so it transcribes instead** (khulasat continues), unless Rauf queues something. **Next transcription firing:** unchanged from §9.266: `khulasat_ut_tawarikh` 473-610 (re-render bands); still owed p0446's year, 435-440, 411-416.
+
+Nothing committed to git — Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…267.md` plus earlier lists.
+
+### 9.268 — 8 October 2026: Stage = transcription. `khulasat_ut_tawarikh` PDF 473-480 transcribed (→ 480/610)
+
+**Stage: transcription.** Scheduled firing (routine trig_01R9QYyd37Rro1yVe4B1ToqW, scheduled 22:22Z, fired 23:18Z), session_01DCrRWsSyU5nXErL7hqnn9a. Repo folder not connected at start; granted on the curly-apostrophe path. **Step 1:** no live notes claim, no khulasat lease (state.json updated 20:14Z). **Step 2:** last §9 by sort = 9.267 (notes); last project doc = 83 (= §9.267's record), no newer pending HANDOVER section. The notes stage also has no queued work (§9.267), so this firing transcribed either way.
+
+**Method.** Leased 473-480 with `lease_bands.py --worker coord-s01DCrRWs` (23:19Z); staged the PDF; rendered bands in the container with `render_bands.py --pdf … --outdir --pages 473-480 --last-page 610`. **Coordinator read every image itself, no subagents** (§9.256). **The request limit was the worst yet: more than 200 consecutive image reads came back `[media removed: request limit]` before images began to display.** All eight pages were first drafted during that streak, so per §9.264 every one was treated as blind and **re-read band by band (both halves of all four bands, all eight pages) once images displayed, before commit.** The first drafts held up structurally (no line lost or added), but the re-read changed wording on every page. Corrections applied after seeing the images, among others: p0473 `بگردن راجه` → printed `بگردان راجه`, verse `حارث و بواب تو` → `جارث[OCR?] و بواب نو[OCR?]`, `راجه بلک` → `یلک[OCR?]`; p0474 `رنج سفر ورزیدن` → `رنج سفر و رسیدن`; p0475 footnote mark moved to `او(۱)`, `ببیامن` → `بیامن`; p0476 footnote mark `(۱)` moved from `سرنگی` to `او را(۱)`, last line `[illegible]` → `مصدر[OCR?]` (read off the image), footnote (۱) `وسنگی رکهه`; p0477 `نیله و رنگ` → printed `نیله وزنگ[OCR?]`, `سیاه گوش` → printed `سیاه گوشش`, `باز بازرفت` → `باز باز نرفت`, `تماشاییان` → `تماشایان`, `قضا را گذارش` → `قضارا گزارشش[OCR?]`; p0478 `فرزند لیست` → `فرزندیست[OCR?]`, `رخصت هستی` → printed `رخست[OCR?] هستی`; p0479 footnote (۱) `[illegible]` → `عنصری[OCR?]`, `همانچل` kept as printed; p0480 `نقد را` → `قضارا`. **Lesson: a blind draft of this book can look plausible line for line and still be wrong on ~5-15 words a page — the §9.264 re-read is not optional.** A full-page seam strip (`~/scripts/seam.py` in the container, not kept) was rendered for all eight pages but its images never displayed; band overlaps were checked on the halves instead.
+
+**Pages.** 473-480 run back to front through the Pandava/Parikshit story:
+- **p0473 `[folio 116]`**: Takshaka (`بهجنگ[OCR?]`) as a worm in the fruit bites Raja Parikshit (`پریچهت[OCR?]`) in his pillar-house in the Ganges; the house burns; his bones cast into the Ganga; masnavi; he hears the Vedanta and the Bhagavat from `سکهدیو[OCR?]` son of Vyasa. Reign **`شصت سال`**. Then the heading of Raja Janamejaya (`جنمجه[OCR?]`). Footnotes `(۱) استخوان (۲) اشرفه[OCR?]`.
+- **p0474 `[folio 115]`**: the physician `کنت[OCR?] دهنتر[OCR?]` revives the burnt tree; Takshaka buys him off with jewels; Takshaka's sons as Brahmins carry fruit into the guarded house. Footnote `(۱) افتاده`.
+- **p0475 `[folio 114]`**: the pillar-house built in the Ganges, guards and snake-charmers, six days pass; on the seventh Takshaka sets out and meets the physician; the tree reduced to ash; masnavi on the tree. Two footnotes `[illegible]`.
+- **p0476 `[folio 113]`**: the hermit with the dead snake hung round his neck by the thirsty raja; his son `سرنگی[OCR?]` (born of a doe, with a horn) curses the raja to die of Takshaka's bite in seven days; the father rebukes him and warns the raja. Footnotes `(۱) وسنگی[OCR?] رکهه[OCR?] (۲) تچهک[OCR?]`.
+- **p0477 `[folio 112]`**: Parikshit's justice; the great hunt (hawks, hounds, cheetahs) in prose and a five-couplet nazm; the wounded deer leads him, thirsty, to the hermit's threshold.
+- **p0478 `[folio 111]`**: masnavi; **reign summary of Pandavas and Kauravas: `یک صد و بست و پنج سال` — `هفتاد و شش سال` jointly, Duryodhana (`درجودهن[OCR?]`) `سیزده سال` after the Pandavas' exile, Yudhishthira (`جدهشتر[OCR?]`) `سی و شش سال` after the Mahabharata war**; then Raja Parikshit son of Abhimanyu (`ابهمن[OCR?]`) son of Arjuna, born posthumously after Abhimanyu died in the `چگایو(۱)[OCR?]` ("mar pech") battle; bayt and qit'a. Footnotes `(۱) چگاپیو[OCR?] (۲) مانند[OCR?] (۳) نامند[OCR?]`.
+- **p0479 `[folio 110]`**: the buried-treasure dispute in the coming of the Kaliyug; Yudhishthira abdicates, crowns Parikshit, appoints a vizier (`چهچه[OCR?] بن و مهر[OCR?] تراشت`); the five brothers and Draupadi travel east to Bengal, the Deccan, Gujarat, Dwarka, **`تهتهه[OCR?]`, Multan (`ملتان`) and Punjab (`پنجاب`)**, then Badrinath, and melt in the snows (`همانچل[OCR?]`); Yudhishthira goes bodily to heaven. Footnote `(۱) عنصری[OCR?]`.
+- **p0480 `[folio 109]`**: the four yugas with their lengths and lifespans — **Satjug `هفده لک و بست و هشت هزار سال` (life `یک لک سال`), Treta `دوازده لک و نود و شش هزار سال` (`ده هزار سال`), Dwapar `هشت لک و شصت و چهار هزار سال` (`هزار سال`), Kaliyug `چهار لک و سی و دو هزار سال` (`صد سال`)**; the treasure story begins.
+
+**Checks.** Folios 116→109 read off `q1_r/q1_l` on all eight; all equal `589 − PDF`. Duplicate sweep (`SequenceMatcher(autojunk=False)`, 0.3) over 473-480: no pair above threshold. md5 on the Mac verified after commit (all eight matched first time): p0473 `83d2e9c9`, p0474 `4de5118d`, p0475 `c82eba1f`, p0476 `f6581c7f`, p0477 `52337cea`, p0478 `14423731`, p0479 `9f3aaa80`, p0480 `a9463c6d`. `queue.py check` → **480/610**; no leases left. No `[source stamp]` line (already recorded at p0049); the stamp overlaps the last line of p0477 slightly but the words remain legible.
+
+**For a human (p0473-0480):** every Sanskrit name is `[OCR?]` (`پریچهت`, `بهجنگ`, `جنمجه`, `سکهدیو`, `یلک`, `کنت دهنتر/وهنتر`, `سرنگی`, `ابهمن`, `درجودهن`, `جدهشتر`, `بلبهدر`, `چهچه بن و مهر تراشت`, `همانچل`, `تهتهه`). Numbers to check: p0478's reign figures and p0480's yuga lengths (spelled out, read clearly, but they are the dates this page carries); p0473 `شصت سال`. Footnote words throughout are tiny and mostly `[OCR?]`; p0475's two footnotes are `[illegible]`. Orthography as printed (`ے` for yā-e majhūl, `براے`, `دعاے`, `بے`).
+
+**Next transcription firing:** `khulasat_ut_tawarikh` 481-610 (re-render bands). Still owed from §9.262: p0446's year, 435-440, 411-416. **Next notes firing:** still no queued notes work (§9.267) → it transcribes. Nothing committed to git; Rauf must run `git add -A && git commit`. Delete by hand: `docs/_APPEND_238…268.md` plus earlier lists.

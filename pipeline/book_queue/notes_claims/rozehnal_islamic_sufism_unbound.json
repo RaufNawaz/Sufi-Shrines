@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-09-23T06:24:58Z",
-  "expires_at": "2026-09-23T07:54:58Z",
-  "note": "Pass 2 consolidation [taking over a released or expired claim; previous holder session_01SWdGjqTVgKJEBc5cxS33zG]",
-  "released_at": "2026-09-23T06:59:23Z",
-  "released_by": "session_01DGto8DD1mf8JVV2AzN3rKp",
-  "session": "session_01DGto8DD1mf8JVV2AzN3rKp",
+  "claimed_at": "2026-10-07T16:24:26Z",
+  "expires_at": "2026-10-07T17:54:26Z",
+  "note": "province sweep batch 3 [taking over a released or expired claim; previous holder session_01DGto8DD1mf8JVV2AzN3rKp]",
+  "released_at": "2026-10-07T16:49:53Z",
+  "released_by": "session_01AbusxzPjF4TPvKK49PS99s",
+  "session": "session_01AbusxzPjF4TPvKK49PS99s",
   "slug": "rozehnal_islamic_sufism_unbound",
   "status": "released"
 }

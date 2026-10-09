@@ -426,6 +426,36 @@ bullet head carries all of its ids on one physical line.*
     folio 172).
   - No temple, city or site: **(not stated)**.
 
+## Province-level material
+
+*Swept from the raw chunks (`chunk_001`–`chunk_003`) under ruling (c). Only statements about a
+province or region in general are kept; statements really about one named town or site, language and
+genre labels ("Punjabi folk songs", "Sindhi mystical poets", "A Punjabi group dance") and bibliography
+entries are excluded and listed in the Sweep notes. Page references are PDF page indices; "folio N" is
+the bare number printed at the foot of PDF page N, which in this book equals the PDF index on every
+non-blank page — the takeaways file flags this as unverified against a physical copy. All bullets come
+from Naveed Alam's introduction ("The Disgraceful Saint: An Introduction"); no kafi line in the
+translation says anything about Punjab or Sindh as a region. Registers used: **translator's
+argument** (Alam's own claims, present or historical) and **quoted source** (named). Every bullet is
+province-level: weigh accordingly.*
+
+### province: punjab
+
+- (book's word: "Punjab"; refers to: present day, "more than 400 years after his death", the book giving "Shah Hussein (1538–99)"; translator's argument): "Weaver, mystic, fakir, Shah Hussein continues to command great reverence in Punjab as a poet–saint more than 400 years after his death" (p. 6, folio 6).
+- (book's word: "Punjab"; refers to: "Shah Hussein’s times", the reign of Akbar — no year given; translator's historical argument): "there’s the relevant historical account of a rebellion brewing in Punjab led by Abdullah Bhatti, commonly known as ‘Dullah Bhatti, who was captured and hanged in public on Akbar’s orders" (the leading turned comma in "‘Dullah" is printed, not damage, per the takeaways Doubts) (p. 14, folio 14).
+- (book's word: "Punjab"; refers to: Shah Hussein's time as dramatised; quoted source — Najm Hosain Syed's play *Takht L’hore (Throne of Lahore)*, a dramatic reconstruction, as reported by the translator): "Najm Hosain Syed extrapolates the socio-economic conditions of Punjab, not different from the ones cited in Moreland’s quote above" — Moreland's quoted account (W.H. Moreland, on "the so-called Golden Age of the Mughal rule") speaks of "India taken as a unit", not of Punjab, and is not itself a Punjab statement (p. 14, folio 14).
+- (book's word: "Punjabis"; refers to: present day, "Even to this day"; translator's argument — FLAG: a people-word, and the book does not say which side of any border; kept because it describes the region's population): "Kafis, the stanzaic poems couched in folkloric themes and techniques, were easy to understand and memorize, and thus served as the ideal means to disseminate the mystical teachings among the illiterate masses dependent on the oral transmission of knowledge. Even to this day, most Punjabis and Sindhis are more likely to have heard a kafi than read one" (p. 15, folio 15).
+
+### province: sindh
+
+- (book's word: "Sindhis"; refers to: present day, "Even to this day"; translator's argument — FLAG as above: a people-word, kept because it describes the region's population): "Even to this day, most Punjabis and Sindhis are more likely to have heard a kafi than read one" (p. 15, folio 15).
+
+### not attached (outside Pakistan or unclear)
+
+- "Kashmir" — translation of the poet's verse, kafi 29: "The dress / someone carried across the snows / all the way from Kashmir" (p. 51, folio 51); the translator's note 29 lists "references to the various places of the Indian subcontinent (Kashmir, Gujarat, Multan)" (p. 182, folio 182). An unspecified Kashmir, named only as where a dress came from; says nothing about the region.
+
+*Sweep notes:* Hit counts in the raw `.txt` chunks (case-insensitive, by matching line): `Punjab`/`Punjabi`/`Punjabis` 32 (chunk_001 16, chunk_002 2, chunk_003 14); `Sindhi`/`Sindhis` 3 (p. 6, p. 15 — the same line as "Punjabis" — and p. 16); `Kashmir` 2 (pp. 51, 182); `Panjab`, `Sind\b`, `Sindh`, `Baluchistan`/`Balochistan`, `Baluchi`, `Frontier`, `Pakhtunkhwa`, `NWFP`, `Kashmiri`, `suba`, `Multan province` 0. 36 matching lines in all. No `khyber pakhtunkhwa`, `balochistan`, `islamabad capital territory` or `azad kashmir` material. Excluded as not saying anything about the region: "his unconventional lifestyle practised in sixteenth-century Punjab" (p. 6 — locates the poet only); "makes him out to be a Punjabi Dionysus" (p. 6); "the stanza-length poetic form preferred by most Punjabi and Sindhi mystical poets" (p. 6, a genre label); "The loom … often appears in Punjabi folk songs" (p. 13); "a contemporary Punjabi poet" (p. 14, of Najm Hosain Syed); "Most Punjabi Sufi poets were highly learned men" (p. 15); "why Hussein chose Punjabi or the vernacular over Persian" (p. 15, language); "called rahau in Punjabi" (p. 16); Heer–Ranjha as "the most famous Punjabi folk tale" (p. 16); "an early-twentieth-century Punjabi scholar" and "an unknown Sindhi editor" (p. 16, persons); "Translated from the Punjabi" (front matter, chunk_001); note 1.4 "in Punjabi, it’s the mendicant" (p. 180); notes 3.1 and 114.11 "A Punjabi group dance" (pp. 180, 185 — a dance, kept out as a culture label; a reviewer may disagree); note 42.10 "means you in Punjabi" (p. 182); note 45 "not in Punjabi but Persianized Hindi" (p. 183). Excluded as institution names: the "Punjab University library" manuscript "#374, dated 1804" (p. 17; also notes 135 and 151, pp. 186–187); "Academy of (the) Punjab in North America" (pp. 179, 185); "Pakistan Punjabi Adabi Board" and Syed's *Recurrent Patterns in Punjabi Poetry* (p. 178, bibliography); Diwana's *A Brief History of Punjabi Literature* (p. 187). Toponyms seen in context but not hits: Lahore/Baghbanpura (p. 6), Shahdara (p. 181), Amritsar (p. 186). Flags for a human: the folio = PDF-index identity (takeaways Doubts §1); "more than 400 years after his death" (p. 6) is carried as printed against the "428th urs" on p. 19, which the takeaways file already flags; the p. 15 "Punjabis and Sindhis" bullet is the one borderline inclusion (a people-word, border not stated) and sits under both keys.
+
 ## Cross-cutting material
 
 ### Practices, institutions, economy

@@ -1,10 +1,10 @@
 {
-  "claimed_at": "2026-09-23T04:36:06Z",
-  "expires_at": "2026-09-23T06:06:06Z",
-  "note": "Pass 2 consolidation",
-  "released_at": "2026-09-23T05:17:25Z",
-  "released_by": "session_013HHqmQkcccDiAaBAP84HJe",
-  "session": "session_013HHqmQkcccDiAaBAP84HJe",
+  "claimed_at": "2026-10-07T03:32:05Z",
+  "expires_at": "2026-10-07T05:02:05Z",
+  "note": "province sweep (ruling c) batch 2, \u00a79.259 [taking over a released or expired claim; previous holder session_013HHqmQkcccDiAaBAP84HJe]",
+  "released_at": "2026-10-07T03:46:29Z",
+  "released_by": "session_01MxFeh8Mfq3monHHT1ERpWe",
+  "session": "session_01MxFeh8Mfq3monHHT1ERpWe",
   "slug": "abbas_female_voice_sufi_ritual",
   "status": "released"
 }

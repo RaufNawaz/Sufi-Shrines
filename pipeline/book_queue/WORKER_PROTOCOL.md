@@ -92,3 +92,13 @@ name is partly unreadable, transcribe the readable part and mark `[OCR?]`.
 Report in one short message: the range done, a count of pages marked `[blank page]`, and the list of
 pages carrying `[illegible` or three or more `[OCR?]` flags. Nothing else. The coordinator runs
 `queue.py check <slug>` to record progress; you do not.
+
+
+## ORTHOGRAPHY — transcribe AS PRINTED (ruled by Rauf, 29 September 2026, in chat)
+
+Where a printer's orthography differs from modern standard Urdu — the measured case is the dotted
+final nūn on tahqiqat_chishti (`مین / نہین / ہین / کرین` for `میں / نہیں / ہیں / کریں`, verified by
+zoom on pp. 501-510, §9.240) and the undotted *baṛī ye* in `سے` — **write what is printed.** Do not
+normalise to modern spelling while transcribing. Normalisation is a separate, later, downstream step
+for search and joins, and it must keep the as-printed text alongside. Report once per batch whether
+the feature is present on your pages, so the corpus can be checked for consistency.
