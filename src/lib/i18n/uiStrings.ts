@@ -73,6 +73,10 @@ const UI_TEXT_EN = {
     'The archive fades sections in as they arrive and animates the lineage diagrams. If your device already asks for reduced motion, the archive follows it.',
   settingsMotionSystem: 'Follow my device',
   settingsLookLabel: 'Look',
+  networkUndated: 'undated',
+  graphOpenOrder: 'Open the order',
+  lineageShowSource: 'Source',
+  lineageHideSource: 'Hide source',
   settingsLookHelp:
     'The archive was redesigned on 9 October 2026 after the way Apple sets a page: cool neutrals, one typeface, pill controls. The classic look is the warm, serif design it replaced. The layout is the same under both.',
   settingsLookModern: 'Current',

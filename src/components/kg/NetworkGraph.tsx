@@ -25,6 +25,10 @@ export interface GraphNode {
    */
   imageUrl?: string;
   imageOf?: string;
+  /** The figure's century where the archive dates them, for the colour ramp
+   *  (9 October 2026); null or absent draws the node undated — grey, dashed. */
+  century?: number | null;
+  centuryLabel?: string;
 }
 
 interface Props {
@@ -46,7 +50,10 @@ const LABEL_GAP = 8;
    it a label on the 3-o'clock node runs off the viewBox. Sized from the widest
    label `clamp` can emit (18 characters at ~6px, plus the node offset) — at 132
    a full-length name on the 9-o'clock node lost its first letter. */
-const LABEL_GUTTER = 156;
+const LABEL_GUTTER = 56;
+/* A label is at most two lines of this many characters (9 October 2026): the
+   single truncated line it replaced cut "Fariduddin Ganjshakar" to
+   "Fariduddin Ganjsh…" and let two six-o'clock labels run into each other. */
 
 function clamp(s: string, max = 18): string {
   return s.length > max ? `${s.slice(0, max - 1)}…` : s;
@@ -60,19 +67,6 @@ function clamp(s: string, max = 18): string {
  */
 function labelDirection(label: string): 'ltr' | 'rtl' {
   return /[A-Za-z]/.test(label) ? 'ltr' : 'rtl';
-}
-
-/**
- * `text-anchor` is *logical*, not physical: under `direction: rtl`, `start`
- * means the right edge. `labelPlacement` below reasons in physical terms — "this
- * label sits to the left of its node, so it must extend leftwards" — so an
- * Arabic-script label needs its anchor flipped or it extends back across the
- * node and prints on top of it. That is exactly what the Urdu graph did: the
- * order's name sat inside the order's square.
- */
-function resolveAnchor(anchor: 'start' | 'end' | 'middle', dir: 'ltr' | 'rtl') {
-  if (dir === 'ltr' || anchor === 'middle') return anchor;
-  return anchor === 'start' ? ('end' as const) : ('start' as const);
 }
 
 /**
@@ -93,29 +87,6 @@ function geometry(n: number) {
   const w = 2 * (r + LABEL_GUTTER);
   const h = 2 * (r + 46);
   return { r, w, h, cx: w / 2, cy: h / 2 };
-}
-
-/** Where a node's label goes, given its angle on the ring. */
-function labelPlacement(angle: number, x: number, y: number) {
-  const cos = Math.cos(angle);
-  const sin = Math.sin(angle);
-  // Near the poles (|cos| small) an outward label would overlap the node, so
-  // push it vertically instead and centre it.
-  if (Math.abs(cos) < 0.28) {
-    return {
-      x,
-      y: y + (sin >= 0 ? NODE_R + LABEL_GAP + 6 : -(NODE_R + LABEL_GAP)),
-      anchor: 'middle' as const,
-      dominantBaseline: sin >= 0 ? ('hanging' as const) : ('auto' as const),
-    };
-  }
-  const outward = NODE_R + LABEL_GAP;
-  return {
-    x: x + (cos > 0 ? outward : -outward),
-    y,
-    anchor: cos > 0 ? ('start' as const) : ('end' as const),
-    dominantBaseline: 'middle' as const,
-  };
 }
 
 export function NetworkGraph({ center, connected, legend }: Props) {
@@ -175,11 +146,32 @@ export function NetworkGraph({ center, connected, legend }: Props) {
       const angle = (2 * Math.PI * i) / n - Math.PI / 2;
       const x = Math.round(geo.cx + geo.r * Math.cos(angle));
       const y = Math.round(geo.cy + geo.r * Math.sin(angle));
-      return { node, x, y, label: labelPlacement(angle, x, y) };
+      return { node, x, y };
     });
   }, [connected, geo]);
 
   const title = `${center.label} — ${t('networkConnections')}`;
+
+  /* Colour by century when the nodes carry one: a cobalt ramp from the
+     earliest century on the ring (pale) to the latest (full), mixed with the
+     surface so it holds in both themes; a figure the archive cannot date is
+     grey with a dashed ring, which is the honest mark. Without centuries —
+     the saint page's teachers and disciples — the type colours stand. */
+  const centuries = connected
+    .map((node) => node.century)
+    .filter((c): c is number => typeof c === 'number');
+  const byCentury = centuries.length > 0;
+  const minC = byCentury ? Math.min(...centuries) : 0;
+  const maxC = byCentury ? Math.max(...centuries) : 0;
+  const fillFor = (node: GraphNode): string | undefined => {
+    if (!byCentury) return undefined;
+    if (typeof node.century !== 'number') return 'var(--color-text-muted)';
+    const t = maxC === minC ? 1 : (node.century - minC) / (maxC - minC);
+    const pct = Math.round(38 + t * 62);
+    return `color-mix(in srgb, var(--color-primary) ${pct}%, var(--color-bg-surface))`;
+  };
+  const earliest = byCentury ? connected.find((n) => n.century === minC)?.centuryLabel : undefined;
+  const latest = byCentury ? connected.find((n) => n.century === maxC)?.centuryLabel : undefined;
 
   const preview = previewId ? positions.find((p) => p.node.id === previewId) : undefined;
 
@@ -242,8 +234,6 @@ export function NetworkGraph({ center, connected, legend }: Props) {
         role="group"
         aria-label={title}
       >
-        <title>{title}</title>
-
         {/* Edges. Each traces outward from the hub, one after another — a
             silsila is a chain, and drawing it says so better than a static star
             does. `pathLength={1}` normalises every spoke to one dash length so
@@ -257,7 +247,9 @@ export function NetworkGraph({ center, connected, legend }: Props) {
             x2={x}
             y2={y}
             pathLength={1}
-            className="network-edge network-edge--animated"
+            className={`network-edge network-edge--animated${
+              previewId === node.id ? ' network-edge--active' : ''
+            }`}
             style={{ '--stagger-index': i } as React.CSSProperties}
           />
         ))}
@@ -267,8 +259,7 @@ export function NetworkGraph({ center, connected, legend }: Props) {
             ring, colour alone stopped distinguishing them — the legend claimed a
             difference the diagram did not show. Shape survives greyscale,
             colour-blindness and print. */}
-        {positions.map(({ node, x, y, label }, i) => {
-          const dir = labelDirection(node.label);
+        {positions.map(({ node, x, y }, i) => {
           const clipId = `clip-${node.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
           const shape =
             node.type === 'order' ? (
@@ -292,7 +283,13 @@ export function NetworkGraph({ center, connected, legend }: Props) {
             <a
               key={node.id}
               href={hrefFor(node.href)}
-              className="network-node-link"
+              className={`network-node-link${
+                byCentury
+                  ? typeof node.century === 'number'
+                    ? ' network-node-link--dated'
+                    : ' network-node-link--undated'
+                  : ''
+              }`}
               /* The accessible name, as an attribute rather than an SVG <title>.
                  A <title> is a text node, so it put a second copy of every node
                  label into the DOM — and the Urdu no-leak guard walks text nodes,
@@ -300,7 +297,12 @@ export function NetworkGraph({ center, connected, legend }: Props) {
                  undeclared twice. An attribute names the link just as well and
                  adds nothing for the walker to find. */
               aria-label={node.label}
-              style={{ '--stagger-index': i } as React.CSSProperties}
+              style={
+                {
+                  '--stagger-index': i,
+                  ...(fillFor(node) ? { '--node-fill': fillFor(node) } : {}),
+                } as React.CSSProperties
+              }
               onClick={(e) => onNodeClick(e, node.href)}
               onMouseEnter={() => setPreviewId(node.id)}
               onMouseLeave={clearPreview}
@@ -361,19 +363,23 @@ export function NetworkGraph({ center, connected, legend }: Props) {
                   )}
                 </>
               )}
-              <text
-                x={label.x}
-                y={label.y}
-                textAnchor={resolveAnchor(label.anchor, dir)}
-                dominantBaseline={label.dominantBaseline}
-                direction={dir}
-                className="network-label"
-              >
-                {clamp(node.label)}
-                {/* The visible label is truncated; the full name stays reachable
-                  here and in the link list below. */}
-                <title>{node.label}</title>
-              </text>
+              {/* No name beside every node (9 October 2026, Rauf: "the graph
+                  with this text looks ugly"); the one under the pointer or
+                  focus carries its name, haloed, above or below it. The name
+                  is also the link's accessible name, the preview card shows
+                  it with the picture, and the chip list is the index. */}
+              {previewId === node.id && (
+                <text
+                  x={x}
+                  y={y < geo.cy ? y - NODE_R - LABEL_GAP : y + NODE_R + LABEL_GAP}
+                  textAnchor="middle"
+                  dominantBaseline={y < geo.cy ? 'auto' : 'hanging'}
+                  direction={labelDirection(node.label)}
+                  className="network-label network-label--hover"
+                >
+                  {node.label}
+                </text>
+              )}
             </a>
           );
         })}
@@ -405,6 +411,18 @@ export function NetworkGraph({ center, connected, legend }: Props) {
           With order + shrines alone the colours were self-evident from the link
           list below; with teachers and disciples on the same ring they are
           not. */}
+      {byCentury && earliest && latest && (
+        <p className="network-ramp" aria-hidden="true">
+          <span className="network-ramp-label">{earliest}</span>
+          <span className="network-ramp-bar" />
+          <span className="network-ramp-label">{latest}</span>
+          <span className="network-ramp-undated">
+            <span className="network-ramp-swatch" />
+            {t('networkUndated')}
+          </span>
+        </p>
+      )}
+
       {legend && legend.length > 1 && (
         <ul className="network-legend">
           {legend.map((row) => (
@@ -433,7 +451,20 @@ export function NetworkGraph({ center, connected, legend }: Props) {
               className={`network-link network-link--${node.type} reveal-rise`}
               style={{ '--stagger-index': i } as React.CSSProperties}
             >
-              <Link to={node.href}>{node.label}</Link>
+              <Link
+                to={node.href}
+                style={
+                  fillFor(node)
+                    ? ({ '--node-fill': fillFor(node) } as React.CSSProperties)
+                    : undefined
+                }
+              >
+                <span className="network-link-dot" aria-hidden="true" />
+                {node.label}
+                {node.centuryLabel && (
+                  <span className="network-link-century">{node.centuryLabel}</span>
+                )}
+              </Link>
             </li>
           ))}
         </ul>

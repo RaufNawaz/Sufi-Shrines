@@ -1628,7 +1628,9 @@
     .almanac-coverage-total,
     .related-card-name,
     .welcome-card-title,
-    .inset-row-title
+    .inset-row-title,
+    .order-compare-num,
+    .chronology-band-heading
   ) {
   letter-spacing: normal;
 }

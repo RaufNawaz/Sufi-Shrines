@@ -106,6 +106,17 @@ export default function GraphPage() {
   const kg = useMemo(() => getKGStore(), []);
   const [activeOrderSlug, setActiveOrderSlug] = useState<string | null>(kg.orders[0]?.slug ?? null);
   const [figureQuery, setFigureQuery] = useState('');
+  /* Which lineage rows show their source line (9 October 2026): the quotation
+     is evidence, and evidence is read on demand rather than printed under
+     every row of a list. */
+  const [openSources, setOpenSources] = React.useState<Set<string>>(() => new Set());
+  const toggleSource = (key: string) =>
+    setOpenSources((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
   /* `null` is "any century"; the string 'undated' is the explicit bucket for
      figures the record does not date. A sentinel rather than a number because
      "no century" is an answer here, not an absence — 63 of the 136 figures the
@@ -144,6 +155,10 @@ export default function GraphPage() {
       label: localizeFigureName(s, lang),
       type: 'saint' as const,
       href: `/saint/${s.slug}`,
+      century: figureCentury(s),
+      ...(figureCentury(s) !== null
+        ? { centuryLabel: centuryLabel(figureCentury(s) as number, lang) }
+        : {}),
       ...(picture
         ? { imageUrl: picture.url, imageOf: localizeRecordedName(picture.shrineName, lang) }
         : {}),
@@ -354,92 +369,83 @@ export default function GraphPage() {
         </h1>
         <p className="graph-page-intro">{t('graphExplorerIntro')}</p>
 
-        {/* The comparison first, then the chips. A reader who has just been told
-            the archive covers five silsilas needs to see them beside each other
-            before being asked to pick one. */}
+        {/* The orders as cards that choose (9 October 2026): one control where
+            there were a comparison table and a chip row saying the same ten
+            names twice. Each card carries what the table did — figures, span,
+            sites, counted from the graph on load so they cannot go stale — and
+            the chosen one feeds the network below; the order's own page is one
+            pill away in the section it opens. */}
         <section className="graph-page-section">
           <h2 className="section-heading">{t('orderCompareHeading')}</h2>
           <p className="graph-figures-note">{t('orderCompareNote')}</p>
-          <div className="order-compare-scroll">
-            <table className="order-compare-table">
-              <thead>
-                <tr>
-                  <th scope="col">{t('sufiOrder')}</th>
-                  <th scope="col" className="order-compare-num">
-                    {t('orderCompareFigures')}
-                  </th>
-                  <th scope="col">{t('orderCompareSpan')}</th>
-                  <th scope="col" className="order-compare-num">
-                    {t('orderCompareSites')}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {orderRows.map((row) => (
-                  <tr key={row.order.slug}>
-                    <th scope="row">
-                      <Link to={`/order/${row.order.slug}`}>
-                        {localizeOrderName(row.order, lang)}
-                      </Link>
-                    </th>
-                    <td className="order-compare-num">{fmtNum(row.figures)}</td>
-                    <td>
-                      {row.span && (
-                        <>
-                          {fmtNum(
-                            row.span.from === row.span.to
-                              ? tFn(lang, 'orderSpanOne', centuryLabel(row.span.from, lang))
-                              : tFn(
-                                  lang,
-                                  'orderSpan',
-                                  centuryLabel(row.span.from, lang),
-                                  centuryLabel(row.span.to, lang),
-                                ),
-                          )}
-                          {/* The count the span does not cover, next to the span
-                              rather than in a footnote. A span over the datable
-                              members shown alone is a fabricated date. */}
-                          {row.span.undated > 0 && (
-                            <span className="order-compare-undated" title={t('orderUndatedHelp')}>
-                              {fmtNum(tFn(lang, 'orderUndated', row.span.undated))}
-                            </span>
-                          )}
-                        </>
-                      )}
-                    </td>
-                    <td className="order-compare-num">{fmtNum(row.sites)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="order-cards" role="group" aria-label={t('graphExplorerOrders')}>
+            {orderRows.map((row) => {
+              const active = activeOrderSlug === row.order.slug;
+              return (
+                <button
+                  key={row.order.slug}
+                  type="button"
+                  className={`order-card${active ? ' order-card--active' : ''}`}
+                  aria-pressed={active}
+                  onClick={() => setActiveOrderSlug(row.order.slug)}
+                >
+                  <span className="order-card-name">{localizeOrderName(row.order, lang)}</span>
+                  <span className="order-card-figures">
+                    <span className="order-card-num">{fmtNum(row.figures)}</span>
+                    <span className="order-card-label">{t('orderCompareFigures')}</span>
+                  </span>
+                  <span className="order-card-meta">
+                    {row.span && (
+                      <span>
+                        {fmtNum(
+                          row.span.from === row.span.to
+                            ? tFn(lang, 'orderSpanOne', centuryLabel(row.span.from, lang))
+                            : tFn(
+                                lang,
+                                'orderSpan',
+                                centuryLabel(row.span.from, lang),
+                                centuryLabel(row.span.to, lang),
+                              ),
+                        )}
+                        {/* The count the span does not cover, beside the span
+                            rather than in a footnote. */}
+                        {row.span.undated > 0 && (
+                          <span className="order-compare-undated" title={t('orderUndatedHelp')}>
+                            {fmtNum(tFn(lang, 'orderUndated', row.span.undated))}
+                          </span>
+                        )}
+                      </span>
+                    )}
+                    <span>
+                      {fmtNum(row.sites)} {t('orderCompareSites')}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </section>
 
-        <div
-          className="filter-chips graph-order-chips"
-          role="group"
-          aria-label={t('graphExplorerOrders')}
-        >
-          {kg.orders.map((order) => (
-            <button
-              key={order.slug}
-              className={`filter-chip${activeOrderSlug === order.slug ? ' active' : ''}`}
-              onClick={() => setActiveOrderSlug(order.slug)}
-              aria-pressed={activeOrderSlug === order.slug}
-            >
-              {localizeOrderName(order, lang)}
-            </button>
-          ))}
-        </div>
-
-        {centerNode && (
-          <section className="graph-page-section">
+        {centerNode && activeOrder && (
+          <section className="graph-page-section graph-order-focus">
+            <div className="graph-order-head">
+              <h2 className="section-heading graph-order-title">
+                {localizeOrderName(activeOrder, lang)}
+              </h2>
+              <Link to={`/order/${activeOrder.slug}`} className="action-btn">
+                {t('graphOpenOrder')}
+              </Link>
+            </div>
             {/* `translateToUrdu` used to be applied to this whole sentence,
                 which of course missed and returned the English — the dictionary
                 is keyed on names, not prose. The Urdu comes from
                 `descriptionUr` in data/kg-seeds.json, and an order without one
                 shows no summary rather than an English one. */}
-            {orderDescription && <p lang={isRtl ? 'ur' : undefined}>{orderDescription}</p>}
+            {orderDescription && (
+              <p className="graph-order-lede" lang={isRtl ? 'ur' : undefined}>
+                {orderDescription}
+              </p>
+            )}
             <NetworkGraph center={centerNode} connected={connectedNodes} />
           </section>
         )}
@@ -514,29 +520,45 @@ export default function GraphPage() {
                 element declares the debt instead of hiding it. Each name is
                 <bdi>-wrapped for bidi isolation, which is a separate need. */}
             <ul className="graph-lineage-list" data-latin>
-              {scopedLineageEdges.map((edge) => (
-                <li key={`${edge.subject.slug}-${edge.relation}-${edge.object.slug}`}>
-                  <div className="graph-lineage-edge">
-                    <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
-                    </Link>
-                    <span className="graph-lineage-relation">
-                      {t(edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel')}
-                    </span>
-                    <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
-                      <bdi>{fmtNum(localizeFigureName(edge.object, lang))}</bdi>
-                    </Link>
-                    {/* An edge nobody has read yet says so. The archive's claim is
+              {scopedLineageEdges.map((edge) => {
+                const key = `${edge.subject.slug}-${edge.relation}-${edge.object.slug}`;
+                const open = openSources.has(key);
+                return (
+                  <li key={key} className="graph-lineage-item">
+                    <div className="graph-lineage-edge">
+                      <Link to={`/saint/${edge.subject.slug}`} lang={isRtl ? 'ur' : undefined}>
+                        <bdi>{fmtNum(localizeFigureName(edge.subject, lang))}</bdi>
+                      </Link>
+                      <span className="graph-lineage-relation">
+                        {t(
+                          edge.relation === 'successor_of' ? 'successorOfLabel' : 'discipleOfLabel',
+                        )}
+                      </span>
+                      <Link to={`/saint/${edge.object.slug}`} lang={isRtl ? 'ur' : undefined}>
+                        <bdi>{fmtNum(localizeFigureName(edge.object, lang))}</bdi>
+                      </Link>
+                      {/* An edge nobody has read yet says so. The archive's claim is
                         honesty about provenance, so a lineage drawn from
                         machine-extracted prose must not look like a reviewed one. */}
-                    {teamView && !edge.reviewed && (
-                      <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
-                        {t('lineageUnreviewed')}
-                      </span>
-                    )}
-                  </div>
-                  {edge.quote && (
-                    /* The source's own words and the file they came from. Latin
+                      {teamView && !edge.reviewed && (
+                        <span className="lineage-unreviewed" title={t('lineageUnreviewedHelp')}>
+                          {t('lineageUnreviewed')}
+                        </span>
+                      )}
+                      {edge.quote && (
+                        <button
+                          type="button"
+                          className={`graph-lineage-source-btn${open ? ' active' : ''}`}
+                          aria-expanded={open}
+                          aria-controls={`lineage-source-${key}`}
+                          onClick={() => toggleSource(key)}
+                        >
+                          {open ? t('lineageHideSource') : t('lineageShowSource')}
+                        </button>
+                      )}
+                    </div>
+                    {edge.quote && open && (
+                      /* The source's own words and the file they came from. Latin
                        on purpose in either language: this is the evidence for
                        an unreviewed edge, and an archive whose claim is
                        provenance must leave the reader an exact search string
@@ -544,15 +566,22 @@ export default function GraphPage() {
                        sentence inside an RTL page keeps its punctuation, and
                        `data-latin` so the no-leak guard reads it as
                        deliberate rather than untranslated. */
-                    <blockquote className="graph-lineage-quote" lang="en" dir="ltr" data-latin>
-                      {renderInlineBold(edge.quote)}
-                      {teamView && edge.source && (
-                        <cite className="graph-lineage-cite">{edge.source}</cite>
-                      )}
-                    </blockquote>
-                  )}
-                </li>
-              ))}
+                      <blockquote
+                        id={`lineage-source-${key}`}
+                        className="graph-lineage-quote reveal-rise"
+                        lang="en"
+                        dir="ltr"
+                        data-latin
+                      >
+                        {renderInlineBold(edge.quote)}
+                        {teamView && edge.source && (
+                          <cite className="graph-lineage-cite">{edge.source}</cite>
+                        )}
+                      </blockquote>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </section>
         )}
