@@ -489,6 +489,10 @@ cd pipeline
 python3 validate_shrines.py <sheet-export>.csv --termbase termbase.tsv --fail-on NONE
 ```
 
+**If a build dies with `ENOTEMPTY … dist/…`**, iCloud has dropped conflict copies (`<name> 2`,
+`<name> 4`) into `dist/` while successive builds rewrote it — 549 of them on 9 October 2026.
+`rm -rf dist` and rerun; nothing in `dist/` is source (HANDOVER §9.275).
+
 Commit in coherent units with a scope prefix (`data:`, `media:`, `feat:`, `docs:`). Show
 `git diff --stat` before committing. Do not push without being asked.
 

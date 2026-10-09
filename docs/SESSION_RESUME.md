@@ -34,15 +34,23 @@ the reason the rest is credible.
 
 ---
 
-## 9 October 2026 — the Apple pass has begun: calendar, almanac, chrome (read HANDOVER §9.272)
+## 9 October 2026 — the Apple pass: calendar, almanac, chrome, the explorer pages, `/graph` rebuilt (read HANDOVER §9.274–9.275)
 
 Rauf's standing direction since this night: **the whole site should read as a professional-grade,
 minimalist Apple product.** What that means here and the page-by-page plan:
 [`planning/APPLE_PASS_2026-10-09.md`](planning/APPLE_PASS_2026-10-09.md). Shipped: the Urs
 Calendar as a compact card + agenda, the whole `/almanac` page, cool neutrals in both themes,
 sans display titles and section headings, pill buttons, the welcome card's destinations as an
-inset list. **Next session: `/graph`, `/typology`, `/chronology`, `/shared-ground`, then
-`/about`, the sidebar and settings** — convene a lean council with the briefs in the plan.
+inset list; then, the same night, the sidebar's destinations as a system list with icons and
+descriptions, a **Look** setting (Current / Classic) that reverses the theme, a **Team view**
+switch on `/settings` (visible once a browser has followed `?team=1`), and the first pass over
+`/typology`, `/chronology` and `/shared-ground` (pills, card rows, stat tiles); then `/graph`
+rebuilt under live review — order cards that choose, the network coloured by century with names
+on hover, the lineage as a tree of teachers with one row per disciple and the source on demand,
+and the two figure lists team-only (§9.274, §9.275).
+**Next session:** `/about` as tiles and inset lists, the tour panel, settings as inset groups,
+the sidebar's list rows — convene a lean council with the briefs in the plan. If a build dies
+with `ENOTEMPTY` on `dist/`, it is iCloud's conflict copies: `rm -rf dist` (§9.275).
 
 ---
 

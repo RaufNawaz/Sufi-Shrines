@@ -47,13 +47,25 @@ changes how these read, not what they say — CLAUDE.md RULE 2 is not a style.
   failures were load flakiness, rerun alone); a11y across every route in both languages and the
   dark theme; the no-leak guard; screenshots at 390 and 1440 in both languages and both themes.
 
+- Later the same night: the sidebar's destinations as a system list (icon tiles, descriptions);
+  a reversible **Look** setting (Current / Classic) and a **Team view** switch on `/settings`;
+  the first pass over the four explorer pages — Atlas pills and photo cards, the orders
+  comparison as card rows with large numerals, chronology bands as cards (lanes still on the
+  scale), shared-ground stat tiles and pairing rows.
+- Towards morning: `/graph` rebuilt under live review (item 1 below, done) — the comparison
+  table and chip row merged into order cards that choose; the network coloured by century on a
+  cobalt ramp with a legend, names on hover and focus only, capped at 44rem; the lineage as a
+  tree of teachers, one row per disciple carrying every relation the record holds, the
+  quotation behind a Source button for the public and open for the team; the two figure lists
+  team-only. HANDOVER §9.274–9.275.
+
 ## Next — page by page, in the order they are reached from the welcome card
 
 Each item is a council-sized piece of work: convene a lean council (three seats, one lens each:
 information design, interaction and motion, Urdu parity) with these briefs, per the global UI
 rule, and implement the consensus findings.
 
-1. **Saints & Orders Explorer (`/graph`).** The orders table reads as a spreadsheet. Make it a
+1. **Saints & Orders Explorer (`/graph`) — shipped 9 October, see above.** The orders table reads as a spreadsheet. Make it a
    card per order — name, a one-line character, the figure count as a large numeral, the century
    span as a thin timeline bar, sites as a pill — in a responsive grid; the chip row that follows
    becomes a segmented scroller; the network canvas gets a card frame, a quiet legend and a
