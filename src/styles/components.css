@@ -263,13 +263,16 @@
 .typology-group-heading,
 .kg-section-heading,
 .sg-section-heading {
-  font-family: var(--font-serif);
+  /* The interface face, semibold and a touch tight, since 9 October 2026 —
+     the Apple pass: one sans across chrome, lists and headings, the serif
+     kept for the shrine entry's own title and its prose. */
+  font-family: inherit;
   font-size: var(--text-xl);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text);
   padding-block-end: var(--space-3);
   border-block-end: var(--hairline) solid var(--color-border-light);
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: -0.015em;
 }
 
 /* Nastaliq carries no bold, so the weight step that separates a heading from

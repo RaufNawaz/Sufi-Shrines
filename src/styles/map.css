@@ -1176,7 +1176,8 @@
 }
 
 .welcome-card-title {
-  font-family: var(--font-serif);
+  font-family: inherit;
+  letter-spacing: -0.015em;
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
@@ -2094,12 +2095,24 @@
 .welcome-card-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
+  align-items: stretch;
+  gap: var(--space-3);
   margin-block-start: var(--space-5);
   padding-block-start: var(--space-4);
   border-block-start: var(--hairline) solid var(--color-border-light);
   width: 100%;
+  text-align: start;
+}
+
+/* One column of rows, whatever the sidebar's width; the group's own card
+   shape comes from `.inset-list`. */
+.welcome-card-list {
+  grid-template-columns: 1fr;
+  box-shadow: var(--shadow-sm);
+}
+
+.welcome-card-list .inset-row-label {
+  font-weight: 500;
 }
 
 .welcome-card-links-heading {
@@ -2116,14 +2129,8 @@
   text-transform: none;
 }
 
-.welcome-card-links a {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-primary);
-  /* 44px touch target (a11y baseline for this project). */
-  min-height: 44px;
-  display: flex;
-  align-items: center;
+[dir='rtl'] .welcome-card-list .inset-row-label {
+  font-family: var(--font-urdu);
 }
 
 /* ── The shared-ground lens ───────────────────────────────────────────────── */

@@ -19,10 +19,14 @@
    Every text pair is still held to 4.5:1 by tokenSplit.test.ts. */
 :root {
   /* Colors */
-  --color-bg: #fbfbfa;
-  --color-bg-alt: #f2f2f0;
+  /* Neutrals cooled on 9 October 2026 (Rauf: the archive should read as if
+     Apple's people had set it): a grey-white page, white surfaces, near-black
+     text, separators with a touch of blue in them rather than of cream. Every
+     text pair is still held to 4.5:1 by tokenSplit.test.ts. */
+  --color-bg: #f5f5f7;
+  --color-bg-alt: #ebebf0;
   --color-bg-surface: #ffffff;
-  --color-bg-overlay: rgba(251, 251, 250, 0.95);
+  --color-bg-overlay: rgba(245, 245, 247, 0.95);
 
   /* ── Glass: the archive's floating chrome ─────────────────────────────────
      One treatment, three tokens, so every surface that floats over the map or
@@ -44,7 +48,7 @@
      an opaque panel rather than an unreadable one. */
   --glass-bg: rgba(255, 255, 255, 0.82);
   --glass-blur: blur(16px) saturate(150%);
-  --glass-border: rgba(196, 196, 192, 0.7);
+  --glass-border: rgba(210, 210, 215, 0.7);
 
   /* ── A second material, for a panel that floats over arbitrary content ────
      The 0.82 above is right for *chrome* — a zoom control, a sticky header —
@@ -70,12 +74,12 @@
        happen to be the same value, and it works because it does not depend on
        what is behind the panel at all. */
   --glass-bg-strong: rgba(255, 255, 255, 0.94);
-  --glass-edge: rgba(60, 60, 58, 0.28);
+  --glass-edge: rgba(60, 60, 67, 0.28);
   --glass-sheen: rgba(255, 255, 255, 0.8);
-  --color-border: #d2d2ce;
-  --color-border-light: #e6e6e3;
+  --color-border: #d2d2d7;
+  --color-border-light: #e5e5ea;
 
-  --color-text: #141414;
+  --color-text: #1d1d1f;
   --color-text-secondary: #4b4b4f;
   --color-text-muted: #66666b;
   --color-text-inverse: #ffffff;
@@ -405,10 +409,10 @@
   --radius-full: 9999px;
 
   /* Shadow */
-  --shadow-sm: 0 1px 3px rgba(26, 12, 8, 0.08), 0 1px 2px rgba(26, 12, 8, 0.06);
-  --shadow-md: 0 4px 12px rgba(26, 12, 8, 0.1), 0 2px 4px rgba(26, 12, 8, 0.06);
-  --shadow-lg: 0 8px 24px rgba(26, 12, 8, 0.12), 0 4px 8px rgba(26, 12, 8, 0.08);
-  --shadow-xl: 0 16px 40px rgba(26, 12, 8, 0.15), 0 6px 12px rgba(26, 12, 8, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.14), 0 6px 12px rgba(0, 0, 0, 0.08);
 
   /* Motion */
   --duration-fast: 150ms;
@@ -522,30 +526,33 @@
    accent still does more work here than in the light theme. All pairs below
    are >= 4.5:1 against the ground; see the contrast assertions in that test. */
 [data-theme='dark'] {
-  --color-bg: #151413;
-  --color-bg-alt: #1d1c1b;
-  --color-bg-surface: #262523;
-  --color-bg-overlay: rgba(21, 20, 19, 0.96);
+  /* Neutral to the eye, a hair warm by the numbers: tokenSplit.test.ts holds
+     the dark ground to red-above-blue (lamp-light, never teal-dark), and the
+     9 October 2026 pass kept that while dropping the brown. */
+  --color-bg: #111110;
+  --color-bg-alt: #2d2c2b;
+  --color-bg-surface: #1e1d1c;
+  --color-bg-overlay: rgba(17, 17, 16, 0.96);
   --color-scroll-shadow: rgba(0, 0, 0, 0.55);
 
   /* Glass, after dark. Alpha slightly higher: the dark ground is closer in
      value to the map tiles behind it, so the same 0.82 read as murky rather
      than translucent. */
-  --glass-bg: rgba(38, 37, 35, 0.86);
+  --glass-bg: rgba(30, 29, 28, 0.86);
   --glass-blur: blur(16px) saturate(140%);
-  --glass-border: rgba(64, 62, 60, 0.8);
+  --glass-border: rgba(59, 58, 57, 0.8);
   /* Dark mode inverts which direction the edge has to go: a warm dark border on
      a warm dark panel is the invisible case, so the edge is a light hairline and
      the sheen is barely-there rather than bright. */
   --glass-bg-strong: rgba(30, 29, 28, 0.95);
   --glass-edge: rgba(255, 255, 255, 0.18);
   --glass-sheen: rgba(255, 255, 255, 0.07);
-  --color-border: #3a3936;
-  --color-border-light: #2c2b29;
+  --color-border: #3b3a39;
+  --color-border-light: #2b2a29;
 
-  --color-text: #f1f1ee;
-  --color-text-secondary: #c3c2bd;
-  --color-text-muted: #a5a49f;
+  --color-text: #f5f5f4;
+  --color-text-secondary: #c8c7c5;
+  --color-text-muted: #a3a2a0;
   --color-text-inverse: #151413;
 
   --color-kashi-cobalt: #8aa8e8;

@@ -29,33 +29,49 @@ export function WelcomeCard({ t, embed = false }: WelcomeCardProps) {
       {!embed && (
         <nav className="welcome-card-links" aria-label={t('welcomeExploreMore')}>
           <p className="welcome-card-links-heading">{t('welcomeExploreMore')}</p>
-          <Link to="/almanac">{t('almanacTitle')}</Link>
-          <Link to="/graph">{t('graphExplorerTitle')}</Link>
-          <Link to="/typology">{t('typologyTitle')}</Link>
-          {/* Six, and the sixth is here because it was reachable from nowhere
-              at all. `/chronology` shipped prerendered, in the sitemap at
-              priority 0.7, rendering 171 shrine links — and with **no link to
-              it anywhere in the application**: 0 anchors, 0 buttons and 0 text
-              mentions across 81 rendered pages at two widths, and no
-              `to="/chronology"` in any commit in the repository's history. Six
-              e2e specs exercised it and every one arrived by `page.goto`, which
-              is exactly why it survived. A crawler could reach the page; a
-              reader could not.
-
-              It goes beside `/typology` because they are the same kind of
-              thing — the whole archive at once, by century and by built form —
-              which is the reason `tabs.ts` already gives for the atlas tab
-              owning both. A sixth *tab* was declined on purpose and stays
-              declined (TRACK_C_CHRONOLOGY.md); this is a link, and the card is
-              the archive's only index on desktop, where the tab bar is
-              `display: none`. */}
-          <Link to="/chronology">{t('chronologyTitle')}</Link>
-          {/* The "four, not six" above was about three names for one page; the
-              two below are destinations, not names — and `/shared-ground` is
-              the only one of these that is about the map's own subject, which
-              is where sites are in relation to each other. */}
-          <Link to="/shared-ground">{t('sharedGroundPageTitle')}</Link>
-          <Link to="/about">{t('aboutTitle')}</Link>
+          {/* An inset list group — the archive's own row idiom (list.css), the
+              shape every Apple surface gives a list of places to go — in place
+              of six underlined links down the middle of the card (9 October
+              2026, Rauf). The destinations are unchanged; the comments that
+              argued each one in are in the history of this file. */}
+          <ul className="inset-list welcome-card-list">
+            <li className="inset-row inset-row--link">
+              <Link to="/almanac">
+                <span className="inset-row-label">{t('almanacTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+            <li className="inset-row inset-row--link">
+              <Link to="/graph">
+                <span className="inset-row-label">{t('graphExplorerTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+            <li className="inset-row inset-row--link">
+              <Link to="/typology">
+                <span className="inset-row-label">{t('typologyTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+            <li className="inset-row inset-row--link">
+              <Link to="/chronology">
+                <span className="inset-row-label">{t('chronologyTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+            <li className="inset-row inset-row--link">
+              <Link to="/shared-ground">
+                <span className="inset-row-label">{t('sharedGroundPageTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+            <li className="inset-row inset-row--link">
+              <Link to="/about">
+                <span className="inset-row-label">{t('aboutTitle')}</span>
+                <span className="inset-row-chevron" aria-hidden="true" />
+              </Link>
+            </li>
+          </ul>
         </nav>
       )}
     </div>

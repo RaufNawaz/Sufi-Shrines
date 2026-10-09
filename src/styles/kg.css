@@ -50,7 +50,11 @@
 /* ── Entity title ────────────────────────────────────────────────────────── */
 
 .entity-title {
-  font-family: var(--font-serif);
+  /* The interface face since 9 October 2026 (the Apple pass), display weight
+     and tightly tracked; the shrine entry keeps its serif title, because an
+     article is read and an explorer is used. */
+  font-family: inherit;
+  font-weight: 700;
   /* The same clamp `.shrine-title` uses, and for two reasons rather than one.
      It was `clamp(1.6rem, 4vw, 2.4rem)` — literals, which carry no
      `--reading-scale`, so the <h1> of eleven routes measured 38.4px at every
