@@ -251,7 +251,7 @@ const BUDGETS_KB = {
      something pulled in src/lib/kg.ts; by ~1 MB, the maplibre basemap, which
      would mean a link to the map turned into an embedded one. */
   /* +5 KB on 9 Oct 2026: the meetings ring and the crossings' distance strip
-     (HANDOVER §9.278) — page code, no new import. */
+     (HANDOVER §9.279) — page code, no new import. */
   'src/pages/SharedGroundPage.tsx': 330, // measured 324 on 9 Oct 2026 (measured 309 on 29 Aug 2026)
   /* The tradition pages, new on 29 Aug 2026. Sibling of the order pages and it
      loads much the same things, minus the graph. Its own data lives in
@@ -276,7 +276,9 @@ const BUDGETS_KB = {
 
      The module is imported by `ArchiveKnows` and nothing else, deliberately:
      `sourceIndex.ts` is on every shrine page and this is not. */
-  'src/pages/AboutPage.tsx': 353, // measured 345 on 30 Aug 2026 — see the kinship note above
+  /* +1 KB on 9 Oct 2026: the citation cards and the Latin-run span (HANDOVER
+     §9.277) — markup only. */
+  'src/pages/AboutPage.tsx': 358, // measured 354 on 9 Oct 2026 (measured 345 on 30 Aug 2026 — see the kinship note above)
   /* 292 → 312 on 26 Aug 2026 when the place page gained its figures and
      observances (A3). The first draft of that feature measured **608 KB**: the
      join was `getSaintsForShrine`, and `src/lib/kg.ts` statically imports the
@@ -309,7 +311,9 @@ const BUDGETS_KB = {
      the routes — and it is worth reading as a standing cost: any feature that
      adds interface copy taxes all thirteen routes, and the ones with the least
      headroom fail first regardless of what changed. */
-  'src/pages/TypologyPage.tsx': 322, // measured 312 on 29 Aug 2026
+  /* +2 KB on 9 Oct 2026: the tile mosaic and the per-form tradition bars
+     (HANDOVER §9.279) — page code, no new import. */
+  'src/pages/TypologyPage.tsx': 328, // measured 324 on 9 Oct 2026 (measured 312 on 29 Aug 2026)
   /* The review desk. 257 KB measured 26 Aug 2026 — essentially the app shell and
      nothing else, which is the point: its 78 KB queue is a dynamic `import()`
      inside the route, so a public reader never downloads a page they cannot
