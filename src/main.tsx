@@ -17,6 +17,7 @@ import './styles/settings.css';
 // The command palette is a feature sheet, loaded like map/tours; it must come
 // after components.css so its own .palette-* rules win where they overlap.
 import './styles/palette.css';
+import './styles/sheet.css';
 import './styles/shrine.css';
 import './styles/kg.css';
 import './styles/almanac.css';

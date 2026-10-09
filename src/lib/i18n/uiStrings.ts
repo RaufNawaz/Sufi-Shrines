@@ -521,6 +521,9 @@ const UI_TEXT_EN = {
   graphCenturyUndatedHelp:
     'Figures the record places in the Hijri calendar only, or in no year at all. Converting a Hijri year to a century here would be this archive inventing a date, so they are grouped rather than guessed \u2014 and they are nearly half of the figures the archive holds.',
   graphLineageOnlyHeading: 'Named in a lineage, not documented here',
+  graphLaunchArchiveSub: 'Search by name, title or century',
+  graphLaunchLineageSub: 'Teachers and disciples the sources name',
+  sheetDone: 'Done',
   graphLineageOnlyNote:
     'Teachers and masters whose names appear in another figure\u2019s recorded chain of transmission, and who have no site in this archive. They are not counted among its entries \u2014 they are here so a chain does not stop at the first master who happens to have no shrine in Pakistan. Until now the only way to reach one was to already be walking the chain that names it.',
   graphLineageOnlyTeacherOf: (name: string) => `teacher of ${name}`,
@@ -1128,6 +1131,9 @@ const UI_TEXT_EN = {
   sharedGroundMeetingPairs: (n: number) => `${n} pairing${n === 1 ? '' : 's'}`,
   sharedGroundNearestLabel: 'nearest',
   sharedGroundPairsHeading: 'Every crossing, nearest first',
+  sharedGroundStripNote:
+    'Each dot is one crossing, placed at the distance between its two sites; its two halves are its two traditions.',
+  sharedGroundShowEvery: 'Show every crossing',
   sharedGroundMethodHeading: 'How this is measured',
   sharedGroundMethodRadius:
     'Two sites share ground here when their recorded coordinates are within 800 m of each other — roughly ten minutes on foot.',

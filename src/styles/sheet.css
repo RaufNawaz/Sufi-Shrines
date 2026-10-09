@@ -1,0 +1,172 @@
+/*
+ * The sheet (`components/ui/Sheet.tsx`) — a page laid over the current one for
+ * a scoped task, after Apple's Human Interface Guidelines: centred and large on
+ * a wide screen, rising from the bottom to nearly full height on a phone with a
+ * grabber, and dismissed with Done in the header's trailing corner.
+ *
+ * Added 9 October 2026 for the figure index on /graph. Motion is compositor-only
+ * (opacity, transform) and token-timed, so `prefers-reduced-motion` zeroes it
+ * through tokens.css like every other entrance here (motion.test.ts).
+ */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  /* The dynamic viewport: at `inset: 0` alone mobile Safari sizes this to the
+     large viewport, taller than the screen (touchScroll.test.ts). */
+  height: 100dvh;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(0, 0, 0, 0.32);
+  animation: sheet-fade var(--duration-base) var(--easing) backwards;
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  inline-size: min(46rem, 100%);
+  max-block-size: min(88dvh, 52rem);
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  box-shadow:
+    0 32px 72px -16px rgba(0, 0, 0, 0.35),
+    0 2px 10px rgba(0, 0, 0, 0.12);
+  outline: none;
+  animation: sheet-in var(--duration-base) var(--easing-spring) backwards;
+}
+
+.sheet-grabber {
+  display: none;
+}
+
+.sheet-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5) var(--space-3);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+.sheet-heading {
+  min-inline-size: 0;
+}
+
+.sheet-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.sheet-subtitle {
+  margin: 2px 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Done: a text button in the accent, the iOS sheet's dismiss. */
+.sheet-done {
+  flex: none;
+  min-block-size: 44px;
+  padding-inline: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sheet-done:hover {
+  color: var(--color-primary-dark);
+}
+
+.sheet-done:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.sheet-body {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-4) var(--space-5) var(--space-6);
+  -webkit-overflow-scrolling: touch;
+}
+
+[dir='rtl'] .sheet-title {
+  font-family: var(--font-urdu);
+  letter-spacing: normal;
+  line-height: var(--leading-urdu-heading);
+}
+
+[dir='rtl'] .sheet-subtitle,
+[dir='rtl'] .sheet-done {
+  font-family: var(--font-urdu);
+}
+
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@keyframes sheet-rise {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* A phone: a page sheet from the bottom, nearly full height, with a grabber.
+   The bottom pad clears the home indicator. */
+@media (max-width: 640px) {
+  .sheet-backdrop {
+    align-items: flex-end;
+    padding: var(--space-3) 0 0;
+  }
+
+  .sheet {
+    inline-size: 100%;
+    block-size: calc(100dvh - var(--space-3));
+    max-block-size: none;
+    border-radius: 16px 16px 0 0;
+    padding-block-end: var(--safe-bottom);
+    animation: sheet-rise var(--duration-base) var(--easing-spring) backwards;
+  }
+
+  .sheet-grabber {
+    display: block;
+    flex: none;
+    inline-size: 36px;
+    block-size: 5px;
+    margin: var(--space-2) auto 0;
+    border-radius: var(--radius-full);
+    background: var(--color-border);
+  }
+
+  .sheet-header {
+    padding-block-start: var(--space-2);
+  }
+
+  .sheet-body {
+    padding-inline: var(--space-4);
+  }
+}

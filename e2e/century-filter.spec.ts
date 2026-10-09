@@ -25,6 +25,11 @@ test.describe('the century filter', () => {
     await page.goto('/graph');
     await page.locator('h1.entity-title').first().waitFor();
     await settle(page);
+    /* Since the afternoon of 9 October 2026 the index opens as a sheet from a
+       launcher row rather than being printed on the page. */
+    await page.locator('.graph-figures-launch').click();
+    await page.locator('.graph-figures-sheet').waitFor();
+    await settle(page);
   });
 
   /* Scoped to the archive's own figure groups. `.graph-saints-list .inset-row`

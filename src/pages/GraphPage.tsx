@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { SiteFooter } from '../components/ui/SiteFooter';
+import { Sheet } from '../components/ui/Sheet';
 import { EntityPageHeader } from '../components/ui/EntityPageHeader';
 import { Link } from 'react-router-dom';
 import { useLang } from '../lib/i18n/LanguageContext';
@@ -133,6 +134,9 @@ export default function GraphPage() {
   const [closedFirst, setClosedFirst] = useState(false);
   const [lineageQuery, setLineageQuery] = useState('');
   const [showAllTeachers, setShowAllTeachers] = useState(false);
+  /* Which figure index is open as a sheet, if either. */
+  const [figureSheet, setFigureSheet] = useState<'archive' | 'lineage' | null>(null);
+  const closeFigureSheet = React.useCallback(() => setFigureSheet(null), []);
 
   useDocumentTitle(`${t('graphExplorerTitle')} — ${t('siteTitle')}`);
   /* Pictures for the diagram's nodes; fetched on demand, re-renders on arrival. */
@@ -322,6 +326,18 @@ export default function GraphPage() {
      prose with no shrine in this archive. Counting them here would overstate
      what the archive documents. */
   const archiveFigures = useMemo(() => getArchiveFigures(), []);
+  /* Up to four pictures for the launcher row — the faces of what is inside,
+     the way a shared album's row shows its first photographs. Each is a
+     figure's shrine (see the note on `figureImage` above). */
+  /* Not memoised: the picture index arrives after first render
+     (`useFigureImages` re-renders when it does), and a memo keyed on the figure
+     list would keep the empty answer from before it came. Four lookups at most. */
+  const launchFaces: string[] = [];
+  for (const figure of archiveFigures) {
+    const url = figureImage(figure.slug)?.url;
+    if (url && !launchFaces.includes(url)) launchFaces.push(url);
+    if (launchFaces.length === 4) break;
+  }
 
   const figureIndex = useMemo(() => buildFigureIndex(archiveFigures), [archiveFigures]);
   /*
@@ -774,16 +790,107 @@ export default function GraphPage() {
             the orders, the network and the lineage, the team reads the lists
             (CLAUDE.md, "Public view and team view"). Nothing is removed from
             the data or the figure pages themselves. */}
+        {/* Team view only since 9 October 2026 (Rauf): the full figure index
+            and the lineage-only names are working apparatus — the public reads
+            the orders, the network and the lineage, the team reads the lists
+            (CLAUDE.md, "Public view and team view"). Nothing is removed from
+            the data or the figure pages themselves.
+
+            Since the afternoon of the same day they are not printed on the
+            page at all: a launcher card with one row each, opening a sheet
+            (Rauf: "an interactable thing that opens an overlayed page"). 136
+            names under seven headings, and 60 more, are a reference you open
+            when you need it, not a section every visit scrolls past. */}
         {teamView && (
-          <section className="graph-page-section">
-            <h2 className="section-heading">{t('graphExplorerAllFigures')}</h2>
+          <section className="graph-page-section" aria-label={t('graphExplorerAllFigures')}>
+            <ul className="inset-list graph-launch-list">
+              <li className="inset-row graph-launch-item">
+                <button
+                  type="button"
+                  className="graph-launch-row graph-figures-launch"
+                  aria-haspopup="dialog"
+                  onClick={() => setFigureSheet('archive')}
+                >
+                  <span className="graph-launch-icon" aria-hidden="true">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    >
+                      <circle cx="9" cy="8" r="3.5" />
+                      <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+                      <circle cx="17" cy="9" r="2.5" />
+                      <path d="M16 14.2c3 .3 5.5 2.4 5.5 5.8" />
+                    </svg>
+                  </span>
+                  <span className="inset-row-label inset-row-label--stacked">
+                    <span className="inset-row-title">{t('graphExplorerAllFigures')}</span>
+                    <span className="inset-row-sub">{t('graphLaunchArchiveSub')}</span>
+                  </span>
+                  <span className="graph-launch-faces" aria-hidden="true">
+                    {launchFaces.map((url) => (
+                      <img key={url} src={url} alt="" loading="lazy" width={28} height={28} />
+                    ))}
+                  </span>
+                  <span className="graph-launch-count">{fmtNum(archiveFigures.length)}</span>
+                  <span className="inset-row-chevron" />
+                </button>
+              </li>
+              {lineageOnlyFigures.length > 0 && (
+                <li className="inset-row graph-launch-item">
+                  <button
+                    type="button"
+                    className="graph-launch-row graph-lineage-only-launch"
+                    aria-haspopup="dialog"
+                    onClick={() => setFigureSheet('lineage')}
+                  >
+                    <span className="graph-launch-icon graph-launch-icon--quiet" aria-hidden="true">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      >
+                        <circle cx="12" cy="5" r="2.5" />
+                        <circle cx="6" cy="19" r="2.5" />
+                        <circle cx="18" cy="19" r="2.5" />
+                        <path d="M12 7.5v4M12 11.5l-5 5M12 11.5l5 5" />
+                      </svg>
+                    </span>
+                    <span className="inset-row-label inset-row-label--stacked">
+                      <span className="inset-row-title">{t('graphLineageOnlyHeading')}</span>
+                      <span className="inset-row-sub">{t('graphLaunchLineageSub')}</span>
+                    </span>
+                    <span className="graph-launch-count">{fmtNum(lineageOnlyFigures.length)}</span>
+                    <span className="inset-row-chevron" />
+                  </button>
+                </li>
+              )}
+            </ul>
+          </section>
+        )}
+
+        {teamView && (
+          <Sheet
+            open={figureSheet === 'archive'}
+            title={t('graphExplorerAllFigures')}
+            onClose={closeFigureSheet}
+            className="graph-figures-sheet"
+          >
             <p className="graph-figures-note">{t('graphExplorerFiguresNote')}</p>
 
             {/* 136 names under seven headings is a list you scroll past, not one
               you find anything in. Client-side because the whole set is already
               in memory — no worker, no debounce, no spinner. */}
             <div className="graph-figure-filter">
-              <label className="graph-figure-filter-label" htmlFor="figure-filter">
+              <label className="graph-figure-filter-label sr-only" htmlFor="figure-filter">
                 {t('graphFigureFilterLabel')}
               </label>
               <div className="graph-figure-filter-row">
@@ -912,18 +1019,16 @@ export default function GraphPage() {
                 </ul>
               </div>
             ))}
-          </section>
+          </Sheet>
         )}
 
-        {/* The other 60. A section of their own, below the archive's own
-            figures and plainly labelled, so it adds a way in without touching a
-            single count. */}
         {teamView && lineageOnlyFigures.length > 0 && (
-          <section className="graph-page-section">
-            <h2 className="section-heading">
-              {t('graphLineageOnlyHeading')}{' '}
-              <span className="graph-figure-group-count">{fmtNum(lineageOnlyFigures.length)}</span>
-            </h2>
+          <Sheet
+            open={figureSheet === 'lineage'}
+            title={t('graphLineageOnlyHeading')}
+            onClose={closeFigureSheet}
+            className="graph-figures-sheet"
+          >
             <p className="graph-figures-note">{t('graphLineageOnlyNote')}</p>
             <ul className="graph-lineage-only-list inset-list">
               {lineageOnlyFigures.map(({ saint, disciples, teachers, kin }) => (
@@ -965,7 +1070,7 @@ export default function GraphPage() {
                 </li>
               ))}
             </ul>
-          </section>
+          </Sheet>
         )}
         <SiteFooter />
       </article>
