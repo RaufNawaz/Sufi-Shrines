@@ -132,7 +132,11 @@ const BUDGETS_KB = {
      entries (SettingsPage and ReviewPage were the others); the whole table now
      carries slack on purpose. */
   'index.html': 272, // measured 265 on 31 Aug 2026 (246 on 26 Aug)
-  'src/pages/MapPage.tsx': 611, // measured 560 on 26 Aug 2026
+  /* 611 → 618 on 8 October 2026: measured 613 after the palette grew its
+     tradition chips and grouped browse mode, and the shared-ground lens
+     control moved from the sidebar into ShrineMap. Slack kept, per the note
+     above about a budget set at the measurement. */
+  'src/pages/MapPage.tsx': 618, // measured 613 on 8 Oct 2026 (560 on 26 Aug)
   /* 520 → 526 on 29 Aug 2026, and raised rather than left at exactly the
      measurement for a specific reason: the route hit **520 against a 520
      budget**, which is not a pass, it is a landmine. The next person to add a

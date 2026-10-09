@@ -26,6 +26,9 @@ export interface ShrineFiltersProps {
   shrines: Shrine[];
   activeCategories: CategoryKey[];
   onCategoriesChange: (categories: CategoryKey[]) => void;
+  /** The palette renders the tradition chips itself, under its field, so the
+   *  drawer it hosts must not render them a second time. */
+  hideCategories?: boolean;
   verifiedOnly: boolean;
   onVerifiedOnlyChange: (verifiedOnly: boolean) => void;
   activeRegion: string;
@@ -68,6 +71,7 @@ export function ShrineFilters({
   onSavedOnlyChange,
   listLinkCopied = false,
   onShareList,
+  hideCategories = false,
 }: ShrineFiltersProps) {
   const { lang, t, fmtNum } = useLang();
 
@@ -101,7 +105,7 @@ export function ShrineFilters({
     <>
       {/* Category chips — additive: each chip toggles its category into
           the selection; no selection = all categories shown. */}
-      {categories.length > 1 && (
+      {!hideCategories && categories.length > 1 && (
         <div className="filter-section">
           <div className="filter-chips" role="group" aria-label={t('ariaFilterByCategory')}>
             <button

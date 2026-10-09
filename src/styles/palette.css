@@ -255,6 +255,105 @@
   line-height: 1;
 }
 
+/* ── Traditions row ───────────────────────────────────────────────────────── */
+
+/* Six chips under the field (8 October 2026, Rauf): the reader narrows the
+   archive to a tradition from the palette itself instead of finding the chips
+   behind the Filters control. Additive, like the filter chips they replace in
+   the drawer; "All" clears. Each carries its tradition's dot and the count of
+   sites under the other filters in force. One row that scrolls sideways on a
+   phone and never wraps — the panel's height is for the results. The base
+   chip style is `.filter-chip` (map.css), which the palette page always loads
+   and which e2e/palette.spec.ts selects by. */
+.palette-cats {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-block-end: var(--hairline) solid var(--color-border-light);
+}
+
+/* On a phone the seven chips are one row that scrolls sideways: two wrapped
+   rows would take a fifth of the screen from the list beneath. */
+@media (max-width: 640px) {
+  .palette-cats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .palette-cats::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.palette-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding-block: 0;
+  padding-inline: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.palette-cat .palette-result-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.palette-cat-count {
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+[dir='rtl'] .palette-cat {
+  font-family: var(--font-urdu);
+  line-height: var(--leading-urdu-ui);
+}
+
+/* The heading over each tradition in browse mode. Sticky, so the tradition a
+   reader is scrolling through stays named; on the panel's own ground so the
+   rows slide under it rather than through it. */
+.palette-group {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  background: var(--color-bg-surface);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .palette-group {
+    background: var(--glass-bg-strong);
+    /* The rows slide under the heading; blurred, not read through it. */
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+}
+
+.palette-group .palette-result-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.palette-group-count {
+  margin-inline-start: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Browse mode is uncapped, so the stagger that 40 rows could afford would run
+   over 171; rows past the first two dozen simply appear. */
+.palette-result--still {
+  animation: none;
+}
+
 /* ── Filters drawer ───────────────────────────────────────────────────────── */
 
 /* The drawer and the footer sit *inside* the glass panel, so they take a tint

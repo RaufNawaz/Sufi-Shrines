@@ -219,11 +219,22 @@ describe('MapSidebar — six-category filters', () => {
     ];
   }
 
+  /* Since 8 October 2026 the chips sit under the palette's field and each
+     carries its count of sites in a trailing span; the label is the text
+     without that span. */
+  function chipLabel(b: HTMLButtonElement): string {
+    return [...b.childNodes]
+      .filter((n) => !(n instanceof HTMLElement && n.classList.contains('palette-cat-count')))
+      .map((n) => n.textContent)
+      .join('')
+      .trim();
+  }
+
   it('renders a chip for each of the six categories, driven by the `category` column', () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
     openFilters();
 
-    const labels = chipButtons().map((b) => b.textContent);
+    const labels = chipButtons().map((b) => chipLabel(b));
     expect(labels).toEqual([
       'All',
       'Muslim Shrine',
@@ -245,11 +256,11 @@ describe('MapSidebar — six-category filters', () => {
     openFilters();
 
     // Adding Muslim to an existing Jain selection accumulates both.
-    fireEvent.click(chipButtons().find((b) => b.textContent === 'Muslim Shrine')!);
+    fireEvent.click(chipButtons().find((b) => chipLabel(b) === 'Muslim Shrine')!);
     expect(onCategoriesChange).toHaveBeenLastCalledWith(['muslim', 'jain']);
 
     // Clicking an already-active chip removes only that category.
-    fireEvent.click(chipButtons().find((b) => b.textContent === 'Jain Temple')!);
+    fireEvent.click(chipButtons().find((b) => chipLabel(b) === 'Jain Temple')!);
     expect(onCategoriesChange).toHaveBeenLastCalledWith([]);
   });
 
@@ -257,7 +268,7 @@ describe('MapSidebar — six-category filters', () => {
     renderSidebar({ shrines: makeSixCategoryShrines() });
     openFilters();
 
-    const allChip = chipButtons().find((b) => b.textContent === 'All')!;
+    const allChip = chipButtons().find((b) => chipLabel(b) === 'All')!;
     expect(allChip.getAttribute('aria-pressed')).toBe('true');
     expect(document.querySelectorAll('.shrine-list-item')).toHaveLength(6);
   });

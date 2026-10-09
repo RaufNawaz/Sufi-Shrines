@@ -238,6 +238,33 @@ export function MapSidebar({
     eraMax,
   ]);
 
+  /* Counts for the palette's tradition chips: every filter except the
+     category one, so a chip says how many of *these* sites — under the region,
+     era and saved filters already in force — stand in that tradition. */
+  const categoryCounts = useMemo(() => {
+    const counts: Partial<Record<CategoryKey, number>> = {};
+    const pool = filterShrines(
+      shrines,
+      { categories: [], verifiedOnly, savedOnly, region: activeRegion, eraMin, eraMax },
+      { savedSlugs, sharedSlugs, hasEraFilter },
+    );
+    for (const s of pool) {
+      const key = categoryKey(s.category);
+      counts[key] = (counts[key] ?? 0) + 1;
+    }
+    return counts;
+  }, [
+    shrines,
+    verifiedOnly,
+    savedOnly,
+    activeRegion,
+    eraMin,
+    eraMax,
+    savedSlugs,
+    sharedSlugs,
+    hasEraFilter,
+  ]);
+
   const grouped = useMemo(() => {
     // While actively searching, keep `filtered`'s rank order intact as one
     // flat list — bucketing by category and sorting the buckets
@@ -769,6 +796,7 @@ export function MapSidebar({
         onQueryChange={setSearchRaw}
         results={filtered}
         total={shrines.length}
+        categoryCounts={categoryCounts}
         onSelect={(shrine) => onSelect(shrine)}
         activeFilterCount={activeFilterCount}
         onClearFilters={clearAllFilters}

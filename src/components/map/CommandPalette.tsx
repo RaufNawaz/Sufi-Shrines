@@ -4,7 +4,8 @@ import type { Shrine } from '../../types/shrine';
 import { useLang } from '../../lib/i18n/LanguageContext';
 import { tFn } from '../../lib/i18n/uiStrings';
 import { localizeShrineName } from '../../lib/i18n/localizeShrineName';
-import { categoryKey } from '../../lib/data/categoryKey';
+import { CATEGORY_LABELS, CATEGORY_ORDER, categoryKey } from '../../lib/data/categoryKey';
+import type { CategoryKey } from '../../lib/data/categoryKey';
 import { ShrineImage } from '../ui/ShrineImage';
 import { IMAGE_WIDTH } from '../../lib/images/thumbnail';
 import { ShrineFilters, type ShrineFiltersProps } from './ShrineFilters';
@@ -52,6 +53,9 @@ export interface CommandPaletteProps {
   activeFilterCount: number;
   onClearFilters: () => void;
   filters: Omit<ShrineFiltersProps, 'filtersExpanded' | 'onFiltersExpandedChange'>;
+  /** Sites per tradition under every filter but the category one — what each
+   *  chip under the field says. Computed by the caller, which owns the filters. */
+  categoryCounts: Partial<Record<CategoryKey, number>>;
 }
 
 export function CommandPalette({
@@ -65,6 +69,7 @@ export function CommandPalette({
   activeFilterCount,
   onClearFilters,
   filters,
+  categoryCounts,
 }: CommandPaletteProps) {
   const { lang, t, fmtNum } = useLang();
   const isRtl = isRtlLang(lang);
@@ -77,7 +82,51 @@ export function CommandPalette({
   const [activeIndex, setActiveIndex] = useState(0);
   const listId = useId();
 
-  const visible = useMemo(() => results.slice(0, MAX_RESULTS), [results]);
+  /* Browse mode — no query — is grouped by tradition and uncapped; a query is
+     ranked and capped at MAX_RESULTS. Asked for on 8 October 2026 (Rauf): the
+     palette showed the six traditions as one undifferentiated list, with the
+     chips that tell them apart behind the Filters control. Grouping is a browse
+     affordance only, for the reason `MapSidebar` gives: bucketing a *ranked*
+     list would bury the best match under a weaker one from a tradition whose
+     heading happens to come first. The cap goes with it because a capped,
+     grouped list would show the first tradition and nothing else — the first
+     forty of 171 are all one group. Rows past the first two dozen skip the
+     entrance animation (`.palette-result--still`), which is what the cap was
+     protecting. */
+  const browsing = !query.trim();
+  const groups = useMemo(() => {
+    if (!browsing) return null;
+    const byKey = new Map<CategoryKey, Shrine[]>();
+    for (const shrine of results) {
+      const key = categoryKey(shrine.category);
+      const rows = byKey.get(key);
+      if (rows) rows.push(shrine);
+      else byKey.set(key, [shrine]);
+    }
+    const order: CategoryKey[] = [...CATEGORY_ORDER, 'default'];
+    return order.filter((key) => byKey.has(key)).map((key) => ({ key, rows: byKey.get(key)! }));
+  }, [browsing, results]);
+  const visible = useMemo(
+    () => (groups ? groups.flatMap((group) => group.rows) : results.slice(0, MAX_RESULTS)),
+    [groups, results],
+  );
+
+  /* The tradition chips under the field. Additive, like the chips they replace
+     in the drawer (`ShrineFilters`, which the palette now asks to hide its own
+     copy); "All" clears. The state is the caller's — one query, one filter set,
+     for the map, the list and this overlay alike. */
+  const { activeCategories, onCategoriesChange } = filters;
+  const chipCategories = useMemo(() => {
+    const present = new Set(filters.shrines.map((shrine) => categoryKey(shrine.category)));
+    return CATEGORY_ORDER.filter((key) => present.has(key));
+  }, [filters.shrines]);
+  const allCount = Object.values(categoryCounts).reduce<number>((sum, n) => sum + (n ?? 0), 0);
+  const toggleCategory = (key: CategoryKey) =>
+    onCategoriesChange(
+      activeCategories.includes(key)
+        ? activeCategories.filter((k) => k !== key)
+        : CATEGORY_ORDER.filter((k) => k === key || activeCategories.includes(k)),
+    );
 
   /* Capture the trigger *before* focus moves into the dialog, and put it back
      on close. Same pattern as the gallery lightbox, and for the same reason: a
@@ -161,7 +210,8 @@ export function CommandPalette({
 
   // Keep the active row in view when the keyboard is driving.
   useEffect(() => {
-    const row = listRef.current?.children[activeIndex] as HTMLElement | undefined;
+    // By index, not by child position: group headings share the list now.
+    const row = listRef.current?.querySelector<HTMLElement>(`[data-index="${activeIndex}"]`);
     row?.scrollIntoView({ block: 'nearest' });
   }, [activeIndex]);
 
@@ -302,10 +352,44 @@ export function CommandPalette({
           </button>
         </div>
 
+        {chipCategories.length > 1 && (
+          <div className="palette-cats" role="group" aria-label={t('ariaFilterByCategory')}>
+            <button
+              type="button"
+              className={`filter-chip palette-cat${activeCategories.length === 0 ? ' active' : ''}`}
+              aria-pressed={activeCategories.length === 0}
+              onClick={() => onCategoriesChange([])}
+            >
+              {t('filterAll')}
+              <span className="palette-cat-count">{fmtNum(allCount)}</span>
+            </button>
+            {chipCategories.map((key) => {
+              const on = activeCategories.includes(key);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  className={`filter-chip palette-cat${on ? ' active' : ''}`}
+                  aria-pressed={on}
+                  onClick={() => toggleCategory(key)}
+                >
+                  <span
+                    className={`palette-result-dot palette-result-dot--${key}`}
+                    aria-hidden="true"
+                  />
+                  {CATEGORY_LABELS[key][lang]}
+                  <span className="palette-cat-count">{fmtNum(categoryCounts[key] ?? 0)}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {showFilters && (
           <div className="palette-filters" id={`${listId}-filters`}>
             <ShrineFilters
               {...filters}
+              hideCategories
               filtersExpanded={moreFiltersOpen}
               onFiltersExpandedChange={setMoreFiltersOpen}
             />
@@ -334,48 +418,80 @@ export function CommandPalette({
           <p className="palette-empty">{t('noMatches')}</p>
         ) : (
           <ul className="palette-results" id={listId} role="listbox" ref={listRef}>
-            {visible.map((shrine, index) => {
-              const name = localizeShrineName(shrine, lang);
-              return (
-                <li
-                  key={shrine.id}
-                  id={`${listId}-option-${index}`}
-                  role="option"
-                  aria-selected={index === activeIndex}
-                  className={`palette-result${index === activeIndex ? ' active' : ''}`}
-                  style={{ '--stagger-index': Math.min(index, 12) } as React.CSSProperties}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => commit(shrine)}
-                >
-                  <ShrineImage
-                    src={shrine.imageUrl}
-                    alt=""
-                    category={shrine.category}
-                    className="palette-result-img"
-                    placeholderClassName="palette-result-placeholder"
-                    loading="lazy"
-                    width={IMAGE_WIDTH.marker}
-                  />
-                  <span className="palette-result-body">
-                    <span className="palette-result-name">
-                      <bdi>{name}</bdi>
-                    </span>
-                    {shrine.location && (
-                      /* The Location column as recorded — English on many rows,
-                         hence data-latin (RULE 2, and the no-leak guard counts
-                         it as declared debt rather than a silent leak). */
-                      <span className="palette-result-meta" data-latin>
-                        <bdi>{shrine.location}</bdi>
-                      </span>
-                    )}
-                  </span>
-                  <span
-                    className={`palette-result-dot palette-result-dot--${categoryKey(shrine.category)}`}
-                    aria-hidden="true"
-                  />
-                </li>
-              );
-            })}
+            {(() => {
+              const sections = groups ?? [{ key: null as CategoryKey | null, rows: visible }];
+              /* A heading per tradition only when there is more than one to
+                 tell apart; a list narrowed to one chip is just that list. */
+              const showHeadings = sections.length > 1;
+              let index = -1;
+              return sections.map((section) => (
+                <React.Fragment key={section.key ?? '__all__'}>
+                  {showHeadings && section.key && (
+                    /* `aria-hidden` and outside the option list, as
+                       ArchiveSearch does it: a listbox may contain only
+                       options, and the row's own dot and the chips above
+                       already say the tradition. */
+                    <li className="archive-search-group palette-group" aria-hidden="true">
+                      <span className={`palette-result-dot palette-result-dot--${section.key}`} />
+                      {section.key === 'default' ? (
+                        <bdi>{section.rows[0]?.category ?? ''}</bdi>
+                      ) : (
+                        CATEGORY_LABELS[section.key][lang]
+                      )}
+                      <span className="palette-group-count">{fmtNum(section.rows.length)}</span>
+                    </li>
+                  )}
+                  {section.rows.map((shrine) => {
+                    index += 1;
+                    const i = index;
+                    const name = localizeShrineName(shrine, lang);
+                    return (
+                      <li
+                        key={shrine.id}
+                        id={`${listId}-option-${i}`}
+                        data-index={i}
+                        role="option"
+                        aria-selected={i === activeIndex}
+                        className={`palette-result${i === activeIndex ? ' active' : ''}${
+                          i >= 24 ? ' palette-result--still' : ''
+                        }`}
+                        style={{ '--stagger-index': Math.min(i, 12) } as React.CSSProperties}
+                        onMouseEnter={() => setActiveIndex(i)}
+                        onClick={() => commit(shrine)}
+                      >
+                        <ShrineImage
+                          src={shrine.imageUrl}
+                          alt=""
+                          category={shrine.category}
+                          className="palette-result-img"
+                          placeholderClassName="palette-result-placeholder"
+                          loading="lazy"
+                          width={IMAGE_WIDTH.marker}
+                        />
+                        <span className="palette-result-body">
+                          <span className="palette-result-name">
+                            <bdi>{name}</bdi>
+                          </span>
+                          {shrine.location && (
+                            /* The Location column as recorded — English on many
+                               rows, hence data-latin (RULE 2, and the no-leak
+                               guard counts it as declared debt rather than a
+                               silent leak). */
+                            <span className="palette-result-meta" data-latin>
+                              <bdi>{shrine.location}</bdi>
+                            </span>
+                          )}
+                        </span>
+                        <span
+                          className={`palette-result-dot palette-result-dot--${categoryKey(shrine.category)}`}
+                          aria-hidden="true"
+                        />
+                      </li>
+                    );
+                  })}
+                </React.Fragment>
+              ));
+            })()}
           </ul>
         )}
 
