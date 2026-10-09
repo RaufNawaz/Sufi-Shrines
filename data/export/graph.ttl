@@ -206,12 +206,16 @@ saint:khawaja-shah-muhammad-sulaiman-taunsvi
   sufi:successorOf saint:khwaja-noor-muhammad-maharvi ;
   .
 
-saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer
+saint:shah-gohar-peer
   a schema:Person ;
-  schema:name "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer"@en ;
+  schema:name "Shah Gohar Peer"@en ;
   schema:alternateName "Syed Ali Gohar"@en ;
+  schema:alternateName "Hazrat Sufi Peer Syed Gohar Ali Shah"@en ;
   schema:birthDate "11 Rabīʿ al-Sānī 729 AH, Uch Sharif" ;
   schema:deathDate "21 Ramzan 825 AH" ;
+  sufi:discipleOf saint:syed-ul-hassan-kabeer ;
+  sufi:successorOf saint:syed-ul-hassan-kabeer ;
+  schema:parent saint:syed-ul-hassan-kabeer ;
   .
 
 saint:hazrat-tahir-bandagi-qadri
@@ -1588,19 +1592,6 @@ saint:pir-sayyid-badshah
   schema:name "Pir Sayyid Badshah"@en ;
   sufi:successorOf saint:khwaja-muhammad-qasim ;
   schema:parent saint:khwaja-muhammad-qasim ;
-  .
-
-saint:shah-gohar-peer
-  a schema:Person ;
-  schema:name "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer"@en ;
-  schema:alternateName "Syed Ali Gohar"@en ;
-  schema:alternateName "Hazrat Sufi Peer Syed Gohar Ali Shah"@en ;
-  schema:alternateName "Shah Gohar Peer"@en ;
-  schema:birthDate "11 Rabīʿ al-Sānī 729 AH" ;
-  schema:deathDate "21 Ramzan 825 AH" ;
-  sufi:discipleOf saint:syed-ul-hassan-kabeer ;
-  sufi:successorOf saint:syed-ul-hassan-kabeer ;
-  schema:parent saint:syed-ul-hassan-kabeer ;
   .
 
 saint:syed-ul-hassan-kabeer
@@ -3115,9 +3106,9 @@ event_:urs-darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra
 
 event_:urs-darbar-hazrat-shah-gohar-peer
   a schema:Event, sufi:UrsEvent ;
-  schema:name "Urs of Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer"@en ;
+  schema:name "Urs of Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer"@en ;
   schema:location shrine:darbar-hazrat-shah-gohar-peer ;
-  schema:about saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer ;
+  schema:about saint:shah-gohar-peer ;
   .
 
 event_:urs-darbar-hazrat-tahir-bandagi-qadri
@@ -7502,7 +7493,7 @@ to have written about him; none is named, and none was available.
     schema:addressCountry "PK"^^xsd:string
   ] ;
   schema:containedInPlace place:address-or-coordinates-recorded-in-the-survey ;
-  schema:about saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer ;
+  schema:about saint:shah-gohar-peer ;
   schema:citation source_:7721249a9999 ;
   .
 

@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-09T00:39:41.449Z",
+  "generated": "2026-10-09T02:33:30.506Z",
   "figures": 136,
-  "lineageOnlyFigures": 109,
+  "lineageOnlyFigures": 108,
   "orders": 10,
   "places": 96,
   "observances": 151,
@@ -13,6 +13,6 @@
   "lineageLinksUnreviewed": 92,
   "orderMemberships": 69,
   "orderMembershipsUnreviewed": 43,
-  "biographiesMachineRead": 102,
+  "biographiesMachineRead": 103,
   "disputedDateFigures": 11
 }

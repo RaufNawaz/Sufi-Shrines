@@ -339,13 +339,29 @@
     },
     {
       "@type": "Person",
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
-      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer",
+      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-gohar-peer",
+      "name": "Shah Gohar Peer",
       "alternateName": [
-        "Syed Ali Gohar"
+        "Syed Ali Gohar",
+        "Hazrat Sufi Peer Syed Gohar Ali Shah"
       ],
       "birthDate": "11 Rabīʿ al-Sānī 729 AH, Uch Sharif",
-      "deathDate": "21 Ramzan 825 AH"
+      "deathDate": "21 Ramzan 825 AH",
+      "sufi:discipleOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
+        }
+      ],
+      "sufi:successorOf": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
+        }
+      ],
+      "parent": [
+        {
+          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
+        }
+      ]
     },
     {
       "@type": "Person",
@@ -2627,33 +2643,6 @@
     },
     {
       "@type": "Person",
-      "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-gohar-peer",
-      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
-      "alternateName": [
-        "Syed Ali Gohar",
-        "Hazrat Sufi Peer Syed Gohar Ali Shah",
-        "Shah Gohar Peer"
-      ],
-      "birthDate": "11 Rabīʿ al-Sānī 729 AH",
-      "deathDate": "21 Ramzan 825 AH",
-      "sufi:discipleOf": [
-        {
-          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
-        }
-      ],
-      "sufi:successorOf": [
-        {
-          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
-        }
-      ],
-      "parent": [
-        {
-          "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer"
-        }
-      ]
-    },
-    {
-      "@type": "Person",
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/syed-ul-hassan-kabeer",
       "name": "Syed Ul Hassan Kabeer"
     },
@@ -4376,12 +4365,12 @@
         "UrsEvent"
       ],
       "@id": "https://github.com/raufnawaz/sufi-shrines/data/event/urs-darbar-hazrat-shah-gohar-peer",
-      "name": "Urs of Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer",
+      "name": "Urs of Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer",
       "location": {
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/shrine/darbar-hazrat-shah-gohar-peer"
       },
       "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer"
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-gohar-peer"
       }
     },
     {
@@ -9468,7 +9457,7 @@
         "@id": "https://github.com/raufnawaz/sufi-shrines/data/place/address-or-coordinates-recorded-in-the-survey"
       },
       "about": {
-        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer"
+        "@id": "https://github.com/raufnawaz/sufi-shrines/data/saint/shah-gohar-peer"
       },
       "citation": [
         {

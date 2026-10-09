@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T00:39:41.449Z",
+  "generated": "2026-10-09T02:33:30.506Z",
   "items": [
     {
       "id": "disciple_of:saint:data-ganj-bakhsh:saint:abul-fadl-muhammad-al-khuttali",
@@ -634,7 +634,7 @@
     {
       "id": "disciple_of:saint:shah-gohar-peer:saint:syed-ul-hassan-kabeer",
       "kind": "disciple_of",
-      "subject": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
+      "subject": "Shah Gohar Peer",
       "subjectSlug": "shah-gohar-peer",
       "object": "Syed Ul Hassan Kabeer",
       "quote": "He took the oath of allegiance at his father's hand and began preaching the religion of Islam.",
@@ -644,7 +644,7 @@
     {
       "id": "successor_of:saint:shah-gohar-peer:saint:syed-ul-hassan-kabeer",
       "kind": "successor_of",
-      "subject": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
+      "subject": "Shah Gohar Peer",
       "subjectSlug": "shah-gohar-peer",
       "object": "Syed Ul Hassan Kabeer",
       "quote": "When his father saw his rising spirituality, he bestowed the mantle of spiritual succession (khilafat) upon him",
@@ -1464,6 +1464,22 @@
       ],
       "source": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra",
       "evidence": "15b840be"
+    },
+    {
+      "id": "biography:shah-gohar-peer",
+      "kind": "biography",
+      "subject": "Shah Gohar Peer",
+      "subjectSlug": "shah-gohar-peer",
+      "object": "",
+      "born": "11 Rabīʿ al-Sānī 729 AH, Uch Sharif",
+      "died": "21 Ramzan 825 AH",
+      "titles": [
+        "Kuffar Shikan (\"the destroyer of disbelief\")",
+        "Peer",
+        "Sufi"
+      ],
+      "source": "entries/entry_shah_gohar_peer.md",
+      "evidence": "f9cdac5b"
     },
     {
       "id": "biography:hazrat-tahir-bandagi-qadri",

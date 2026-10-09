@@ -876,6 +876,10 @@ SAINTS = {
  "Hazrat Shah Sikandar": "حضرت شاہ سکندر",
  "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer":
      "حضرت صوفی پیر سید گوہر علی شاہ (سید علی گوہر)، معروف بہ شاہ گوہر پیر",
+ # The figure node is "Shah Gohar Peer" since the 8 October 2026 merge of its two
+ # nodes (HANDOVER §9.271); the canonical cell form and the name proper both key it.
+ "Shah Gohar Peer (Syed Ali Gohar)": "شاہ گوہر پیر (سید علی گوہر)",
+ "Shah Gohar Peer": "شاہ گوہر پیر",
  "Hazrat Syedna Tahir Alauddin Qadiri Gilani": "حضرت سیدنا طاہر علاؤالدین قادری گیلانی",
  "Khwaja Abdul Haq": "خواجہ عبدالحق",
  "Khwaja Abul Masakin": "خواجہ ابو المساکین",

@@ -11,14 +11,14 @@
       "tourEras": 7,
       "placeTokens": 284,
       "shrineNames": 171,
-      "saints": 284,
+      "saints": 286,
       "silsilas": 14,
       "foundedPhrases": 117,
       "observances": 33,
       "locations": 152,
       "sufiGlossary": 49,
       "derivedBareNames": 139,
-      "flatSeedEntries": 1244
+      "flatSeedEntries": 1246
     }
   },
   "categories": {
@@ -671,6 +671,8 @@
     "Hazrat Shah Raza Qadri Shattari": "حضرت شاہ رضا قادری شطاری",
     "Hazrat Shah Sikandar": "حضرت شاہ سکندر",
     "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer": "حضرت صوفی پیر سید گوہر علی شاہ (سید علی گوہر)، معروف بہ شاہ گوہر پیر",
+    "Shah Gohar Peer (Syed Ali Gohar)": "شاہ گوہر پیر (سید علی گوہر)",
+    "Shah Gohar Peer": "شاہ گوہر پیر",
     "Hazrat Syedna Tahir Alauddin Qadiri Gilani": "حضرت سیدنا طاہر علاؤالدین قادری گیلانی",
     "Khwaja Abdul Haq": "خواجہ عبدالحق",
     "Khwaja Abul Masakin": "خواجہ ابو المساکین",

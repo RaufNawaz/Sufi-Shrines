@@ -157,7 +157,8 @@
     "Rahman Baba (Abdur Rahman Mohmand)": "Rahman Baba",
     "Sachal Sarmast (Abdul Wahab Faruqi)": "Sachal Sarmast",
     "Shah Hussain (Madho Lal Hussain)": "Shah Hussain",
-    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir"
+    "Sheikh Tahir (also revered as Udero Lal/Jhulelal)": "Sheikh Tahir",
+    "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer": "Shah Gohar Peer (Syed Ali Gohar)"
   },
   "_comment_saintDoNotMerge": "Merges this project has decided AGAINST, each with the corpus sentence that forbids it. saintMergeVariants above says which names are one person; this says which look like one person and are not. It exists because the merge is the destructive direction: on this corpus the figures most likely to share a name are father and son, uncle and nephew, master and disciple, so a similarity merge does not merely mis-name someone — it deletes the edge that made the pair worth recording. A honorific-stripping token matcher run on 28 August 2026 proposed 21 merges here and 19 were wrong; those 19 are the reason most of these rows exist. Enforced by scripts/data/validate-kg-identity.mjs, which fails the build if any pair collapses into one node and re-checks every quote byte-for-byte against its source. Adding a row is cheap and permanent; deleting one needs a reason better than \"the names look the same\".",
   "saintDoNotMerge": [

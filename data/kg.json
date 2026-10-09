@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated": "2026-10-09T00:39:41.449Z",
+  "generated": "2026-10-09T02:33:30.506Z",
   "saints": [
     {
       "id": "saint:pir-syed-muhammad-channan-shah-nuri",
@@ -221,19 +221,28 @@
       "biographySource": "data/shrines.csv#darbar-hazrat-khawaja-shah-muhammad-sulaiman-taunsvi-ra"
     },
     {
-      "id": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "id": "saint:shah-gohar-peer",
       "type": "saint",
-      "slug": "hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
-      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer",
+      "slug": "shah-gohar-peer",
+      "name": "Shah Gohar Peer",
       "altNames": [
-        "Syed Ali Gohar"
+        "Syed Ali Gohar",
+        "Hazrat Sufi Peer Syed Gohar Ali Shah"
       ],
       "shrines": [
         "darbar-hazrat-shah-gohar-peer"
       ],
       "figureType": "Sufi saint / *pīr*; Syed, of the *sādāt* of Uch Sharif",
       "born": "11 Rabīʿ al-Sānī 729 AH, Uch Sharif",
-      "died": "21 Ramzan 825 AH"
+      "died": "21 Ramzan 825 AH",
+      "datePrecision": "exact-date",
+      "titles": [
+        "Kuffar Shikan (\"the destroyer of disbelief\")",
+        "Peer",
+        "Sufi"
+      ],
+      "biographyReviewed": false,
+      "biographySource": "entries/entry_shah_gohar_peer.md"
     },
     {
       "id": "saint:hazrat-tahir-bandagi-qadri",
@@ -3305,30 +3314,6 @@
       "reviewed": false
     },
     {
-      "id": "saint:shah-gohar-peer",
-      "type": "saint",
-      "slug": "shah-gohar-peer",
-      "name": "Hazrat Sufi Peer Syed Gohar Ali Shah (Syed Ali Gohar), known as Shah Gohar Peer",
-      "altNames": [
-        "Syed Ali Gohar",
-        "Hazrat Sufi Peer Syed Gohar Ali Shah",
-        "Shah Gohar Peer"
-      ],
-      "shrines": [],
-      "lineageOnly": true,
-      "reviewed": false,
-      "born": "11 Rabīʿ al-Sānī 729 AH",
-      "died": "21 Ramzan 825 AH",
-      "datePrecision": "exact-date",
-      "titles": [
-        "Kuffar Shikan (\"the destroyer of disbelief\")",
-        "Peer",
-        "Sufi"
-      ],
-      "biographyReviewed": false,
-      "biographySource": "entries/entry_shah_gohar_peer.md"
-    },
-    {
       "id": "saint:syed-ul-hassan-kabeer",
       "type": "saint",
       "slug": "syed-ul-hassan-kabeer",
@@ -5121,10 +5106,10 @@
       "id": "event:urs-darbar-hazrat-shah-gohar-peer",
       "type": "event",
       "slug": "urs-darbar-hazrat-shah-gohar-peer",
-      "name": "Urs of Hazrat Sufi Peer Syed Gohar Ali Shah, known as Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer",
+      "name": "Urs of Shah Gohar Peer at Darbar Hazrat Shah Gohar Peer",
       "eventType": "urs",
       "shrineSlug": "darbar-hazrat-shah-gohar-peer",
-      "saintSlug": "hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer"
+      "saintSlug": "shah-gohar-peer"
     },
     {
       "id": "event:urs-darbar-hazrat-tahir-bandagi-qadri",
@@ -6607,7 +6592,7 @@
     },
     {
       "type": "buried_at",
-      "subject": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "subject": "saint:shah-gohar-peer",
       "object": "darbar-hazrat-shah-gohar-peer",
       "confidence": 1,
       "method": "rule"
@@ -11544,7 +11529,7 @@
     },
     {
       "type": "commemorated_by",
-      "subject": "saint:hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer",
+      "subject": "saint:shah-gohar-peer",
       "object": "event:urs-darbar-hazrat-shah-gohar-peer",
       "confidence": 0.9,
       "method": "rule"
@@ -12524,7 +12509,7 @@
     }
   ],
   "stats": {
-    "saints": 245,
+    "saints": 244,
     "orders": 10,
     "places": 96,
     "events": 151,
@@ -12545,6 +12530,7 @@
     "hazrat-hafiz-muhammad-abdul-karim": "pir-abdul-ul-karim",
     "hazrat-shah-daula-daryai": "shah-daula-daryai",
     "hazrat-shah-yousuf": "shah-yousuf",
+    "hazrat-sufi-peer-syed-gohar-ali-shah-known-as-shah-gohar-peer": "shah-gohar-peer",
     "hazrat-syed-muhammad-khair-ul-deen-known-as-shah-abul-muali-qadri": "hazrat-syed-muhammad-khair-ul-deen",
     "hazrat-wasif-ali-wasif": "hazrat-wasif-ali-wasif-awan",
     "jain-temple-dedicated-to-parshvanatha": "parshvanatha",
