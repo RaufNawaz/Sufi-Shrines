@@ -73,10 +73,17 @@ export function Fact({
 }) {
   const { lang, fmtNum } = useLang();
   const counted = noun ?? tFn(lang, 'coverageEntriesNoun', value);
+  /* A tile since 9 October 2026 — the numeral large, the sentence under it —
+     so a counted fact reads the same way as /about's other figures rather than
+     in a grammar of its own. The text content is unchanged: "170 entries with
+     a bibliography". */
   return (
-    <li>
-      <strong>{fmtNum(value)}</strong>
-      {counted ? ` ${counted}` : ''} {label}
+    <li className="coverage-fact">
+      <strong className="coverage-fact-value">{fmtNum(value)}</strong>{' '}
+      <span className="coverage-fact-label">
+        {counted ? `${counted} ` : ''}
+        {label}
+      </span>
     </li>
   );
 }

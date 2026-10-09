@@ -465,6 +465,47 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Counted facts as stat tiles (9 October 2026): /about's team half stated
+   numbers three ways — tiles, bars, and bold-led sentences — and these were
+   the third. Same tile as `.coverage-stat`, so a count reads one way. */
+.coverage-facts:has(.coverage-fact) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--space-3);
+}
+
+.coverage-fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: var(--hairline) solid var(--color-border-light);
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.coverage-facts .coverage-fact-value {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.coverage-fact-label {
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-text-secondary);
+}
+
+[dir='rtl'] .coverage-facts .coverage-fact-value {
+  letter-spacing: normal;
+}
+
+[dir='rtl'] .coverage-fact-label {
+  line-height: var(--leading-urdu-ui);
+}
+
 .coverage-why p {
   max-width: 62ch;
   margin: 0;
