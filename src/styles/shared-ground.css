@@ -461,6 +461,64 @@
   opacity: 0.15;
 }
 
+/* The crossing the reader is on — its row hovered or focused below, or the dot
+   just tapped. A ring in the text colour, so it reads on any tradition pair. */
+.sg-strip-dot.is-hot {
+  z-index: 1;
+  transform: scale(1.5);
+  box-shadow:
+    0 0 0 1.5px var(--color-bg-surface),
+    0 0 0 3px var(--color-text);
+}
+
+/* The chosen distance band, behind the dots. */
+.sg-strip-band {
+  position: absolute;
+  inset-block: 0;
+  border-radius: 6px;
+  background: var(--color-primary-pale);
+}
+
+.sg-bands {
+  /* One row that swipes on a phone, as the platform's own segmented filters
+     do; wrapped, the pill became a two-line blob. */
+  max-inline-size: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  margin-block: var(--space-3) 0;
+}
+
+.sg-bands::-webkit-scrollbar {
+  display: none;
+}
+
+.sg-bands .filter-chip {
+  flex: none;
+}
+
+.sg-find {
+  margin-block-end: var(--space-4);
+}
+
+.sg-showing {
+  margin-block: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* A finger is wider than a 12px dot: on touch screens each dot carries an
+   invisible 28px target around it. */
+@media (pointer: coarse) {
+  .sg-strip-dot::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: var(--radius-full);
+  }
+}
+
 /* Hollow: a pair the archive records at one position, not a measured 0 m. */
 .sg-strip-dot--same {
   inset-inline-start: 2px;

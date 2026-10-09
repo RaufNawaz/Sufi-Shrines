@@ -63,10 +63,12 @@ function Crossing({
   pair,
   hidden,
   hot,
+  onHover,
 }: {
   pair: CrossTraditionAdjacency;
   hidden: boolean;
   hot: boolean;
+  onHover: (id: string) => void;
 }) {
   const { lang, t, fmtNum } = useLang();
   const { units } = useReaderPreferences();
@@ -76,6 +78,10 @@ function Crossing({
       className={`crossing${hot ? ' is-hot' : ''}`}
       id={`crossing-${pair.a.id}-${pair.b.id}`}
       hidden={hidden}
+      /* The row lights its own dot on the strip above, so the list and the
+         scale read as one thing in both directions. */
+      onPointerEnter={() => onHover(`crossing-${pair.a.id}-${pair.b.id}`)}
+      onFocus={() => onHover(`crossing-${pair.a.id}-${pair.b.id}`)}
     >
       {/* The distance leads. It is the claim the row is making — the names are
           what the claim is about — and putting it first means the list reads
@@ -218,6 +224,22 @@ function MeetingsRing({
   );
 }
 
+/** The distance filter's bands, in metres; `same` is the shared-pin bin, which
+ *  has no measured distance and so no range. Cut at the strip's own ticks. */
+type Band = 'all' | 'same' | 'near' | 'mid' | 'far';
+const BANDS: { key: Band; from: number; to?: number }[] = [
+  { key: 'near', from: 0, to: 200 },
+  { key: 'mid', from: 200, to: 400 },
+  { key: 'far', from: 400, to: SHARED_GROUND_RADIUS_M },
+];
+function inBand(pair: CrossTraditionAdjacency, band: Band): boolean {
+  if (band === 'all') return true;
+  if (band === 'same') return pair.samePin;
+  if (pair.samePin) return false;
+  const range = BANDS.find((b) => b.key === band)!;
+  return pair.distanceM >= range.from && pair.distanceM < (range.to ?? Infinity) + 0.5;
+}
+
 /**
  * Every crossing on one scale: a dot per pair at the distance between its two
  * sites, half in each tradition's colour, from 0 to the 800 m radius. Dots that
@@ -227,11 +249,15 @@ function MeetingsRing({
  */
 function CrossingStrip({
   pairs,
-  selected,
+  shown,
+  hot,
+  band,
   onPoint,
 }: {
   pairs: CrossTraditionAdjacency[];
-  selected: string | null;
+  shown: (pair: CrossTraditionAdjacency) => boolean;
+  hot: string | null;
+  band: Band;
   onPoint: (pair: CrossTraditionAdjacency) => void;
 }) {
   const { lang, t, fmtNum } = useLang();
@@ -271,8 +297,9 @@ function CrossingStrip({
   const ticks = [0, 200, 400, 600, 800].filter((m) => m <= SHARED_GROUND_RADIUS_M);
   const fill = (p: CrossTraditionAdjacency) =>
     `linear-gradient(90deg, ${CAT_VAR[p.traditionA]} 50%, ${CAT_VAR[p.traditionB]} 50%)`;
-  const dim = (p: CrossTraditionAdjacency) =>
-    selected !== null && meetingKey(p.traditionA, p.traditionB) !== selected;
+  const dim = (p: CrossTraditionAdjacency) => !shown(p);
+  const isHot = (p: CrossTraditionAdjacency) => hot === `crossing-${p.a.id}-${p.b.id}`;
+  const range = BANDS.find((b) => b.key === band);
   const show = (event: React.PointerEvent, pair: CrossTraditionAdjacency) => {
     const box = boxRef.current?.getBoundingClientRect();
     const dot = (event.currentTarget as HTMLElement).getBoundingClientRect();
@@ -292,7 +319,7 @@ function CrossingStrip({
             {same.map((p, i) => (
               <span
                 key={`${p.a.id}-${p.b.id}`}
-                className={`sg-strip-dot sg-strip-dot--same${dim(p) ? ' is-dim' : ''}`}
+                className={`sg-strip-dot sg-strip-dot--same${dim(p) ? ' is-dim' : ''}${isHot(p) ? ' is-hot' : ''}`}
                 style={{ insetBlockEnd: `${i * ROW}px` }}
                 onPointerEnter={(e) => show(e, p)}
                 onPointerDown={(e) => show(e, p)}
@@ -303,6 +330,17 @@ function CrossingStrip({
         )}
         <div className="sg-strip-scale">
           <div className="sg-strip-field" ref={fieldRef} style={{ blockSize: `${depth * ROW}px` }}>
+            {/* The chosen distance band, shaded behind its dots so the filter
+                reads on the scale it filters. */}
+            {range && range.to !== undefined && (
+              <span
+                className="sg-strip-band"
+                style={{
+                  insetInlineStart: `${(range.from / SHARED_GROUND_RADIUS_M) * 100}%`,
+                  inlineSize: `${((range.to - range.from) / SHARED_GROUND_RADIUS_M) * 100}%`,
+                }}
+              />
+            )}
             {ticks.map((m) => (
               <span
                 key={m}
@@ -313,7 +351,7 @@ function CrossingStrip({
             {measured.map((p, i) => (
               <span
                 key={`${p.a.id}-${p.b.id}`}
-                className={`sg-strip-dot${dim(p) ? ' is-dim' : ''}`}
+                className={`sg-strip-dot${dim(p) ? ' is-dim' : ''}${isHot(p) ? ' is-hot' : ''}`}
                 style={{
                   insetInlineStart: `${(p.distanceM / SHARED_GROUND_RADIUS_M) * 100}%`,
                   insetBlockEnd: `${rows[i] * ROW}px`,
@@ -383,10 +421,43 @@ export default function SharedGroundPage() {
      traditions, or none. */
   const [selected, setSelected] = useState<string | null>(null);
   const [hotPair, setHotPair] = useState<string | null>(null);
+  const [band, setBand] = useState<Band>('all');
+  const [query, setQuery] = useState('');
   const choose = (key: string) => setSelected((current) => (current === key ? null : key));
+  /* Every filter at once — the pair of traditions chosen above, the distance
+     band, and the typed name — decides both which dots stay lit and which rows
+     stay in the list. Names match in the reader's language and in English, so
+     a Latin spelling typed in the Urdu view still finds its site. */
+  const needle = query.trim().toLocaleLowerCase();
+  const nameMatches = (pair: CrossTraditionAdjacency) =>
+    needle === '' ||
+    [pair.a, pair.b].some((shrine) =>
+      [localizeShrineName(shrine, lang), localizeShrineName(shrine, 'en')].some((name) =>
+        name.toLocaleLowerCase().includes(needle),
+      ),
+    );
+  const shown = (pair: CrossTraditionAdjacency) =>
+    (selected === null || meetingKey(pair.traditionA, pair.traditionB) === selected) &&
+    inBand(pair, band) &&
+    nameMatches(pair);
+  const shownCount = overview.crossTradition.filter(shown).length;
+  const bandCount = (key: Band) =>
+    overview.crossTradition.filter(
+      (pair) =>
+        (selected === null || meetingKey(pair.traditionA, pair.traditionB) === selected) &&
+        inBand(pair, key),
+    ).length;
+  const metres = (m: number) =>
+    formatDistance(m / 1000, units, lang, fmtNum, { style: 'bare', below: 'metres' });
   const pointTo = (pair: CrossTraditionAdjacency) => {
     const id = `crossing-${pair.a.id}-${pair.b.id}`;
-    setSelected(null);
+    /* A dimmed dot is still a crossing: tapping it clears whatever hid its row,
+       rather than scrolling to a row that is not there. */
+    if (!shown(pair)) {
+      setSelected(null);
+      setBand('all');
+      setQuery('');
+    }
     setHotPair(id);
     window.requestAnimationFrame(() =>
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' }),
@@ -545,11 +616,83 @@ export default function SharedGroundPage() {
                 {t('sharedGroundPairsHeading')}
               </h2>
               <p className="sg-section-note">{t('sharedGroundStripNote')}</p>
+              {/* Two buttons-rows and a field, as on the lineage list: choose how
+                  far apart, type a name, and the scale and the list both
+                  answer. */}
+              <div
+                className="almanac-view-toggle sg-bands"
+                role="group"
+                aria-label={t('sharedGroundBandLabel')}
+              >
+                {(
+                  [
+                    ['all', fmtNum(tFn(lang, 'sharedGroundBandAll', bandCount('all')))],
+                    ...(bandCount('same') > 0
+                      ? [['same', fmtNum(tFn(lang, 'sharedGroundBandSame', bandCount('same')))]]
+                      : []),
+                    [
+                      'near',
+                      fmtNum(tFn(lang, 'sharedGroundBandUnder', metres(200), bandCount('near'))),
+                    ],
+                    [
+                      'mid',
+                      fmtNum(
+                        tFn(
+                          lang,
+                          'sharedGroundBandRange',
+                          metres(200),
+                          metres(400),
+                          bandCount('mid'),
+                        ),
+                      ),
+                    ],
+                    [
+                      'far',
+                      fmtNum(
+                        tFn(
+                          lang,
+                          'sharedGroundBandRange',
+                          metres(400),
+                          metres(SHARED_GROUND_RADIUS_M),
+                          bandCount('far'),
+                        ),
+                      ),
+                    ],
+                  ] as [Band, string][]
+                ).map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={`filter-chip${band === key ? ' active' : ''}`}
+                    aria-pressed={band === key}
+                    onClick={() => setBand(key)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+              <input
+                type="search"
+                className="graph-lineage-find sg-find"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={t('sharedGroundFindPlaceholder')}
+                aria-label={t('sharedGroundFindPlaceholder')}
+              />
               <CrossingStrip
                 pairs={overview.crossTradition}
-                selected={selected}
+                shown={shown}
+                hot={hotPair}
+                band={band}
                 onPoint={pointTo}
               />
+              <p className="sg-showing" aria-live="polite">
+                {shownCount === 0
+                  ? t('sharedGroundNoMatch')
+                  : fmtNum(
+                      tFn(lang, 'sharedGroundShowing', shownCount, overview.crossTradition.length),
+                    )}
+              </p>
               {selectedMeeting && (
                 <div className="sg-filter-bar">
                   <span className="sg-meeting-pair">
@@ -574,11 +717,9 @@ export default function SharedGroundPage() {
                     <Crossing
                       key={id}
                       pair={pair}
-                      hidden={
-                        selected !== null &&
-                        meetingKey(pair.traditionA, pair.traditionB) !== selected
-                      }
+                      hidden={!shown(pair)}
                       hot={hotPair === id}
+                      onHover={setHotPair}
                     />
                   );
                 })}

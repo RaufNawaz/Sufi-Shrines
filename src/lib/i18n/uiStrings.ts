@@ -1135,6 +1135,14 @@ const UI_TEXT_EN = {
   sharedGroundStripNote:
     'Each dot is one crossing, placed at the distance between its two sites; its two halves are its two traditions.',
   sharedGroundShowEvery: 'Show every crossing',
+  sharedGroundBandLabel: 'How far apart',
+  sharedGroundBandAll: (n: number) => `All (${n})`,
+  sharedGroundBandSame: (n: number) => `Same location (${n})`,
+  sharedGroundBandUnder: (to: string, n: number) => `Under ${to} (${n})`,
+  sharedGroundBandRange: (from: string, to: string, n: number) => `${from}–${to} (${n})`,
+  sharedGroundFindPlaceholder: 'Find a site',
+  sharedGroundShowing: (shown: number, total: number) => `Showing ${shown} of ${total} crossings`,
+  sharedGroundNoMatch: 'No crossing matches. Clear the search or choose another distance.',
   sharedGroundMethodHeading: 'How this is measured',
   sharedGroundMethodRadius:
     'Two sites share ground here when their recorded coordinates are within 800 m of each other — roughly ten minutes on foot.',
@@ -1315,6 +1323,17 @@ export function tFn(
   pairs: number,
 ): string;
 export function tFn(lang: Lang, key: 'sharedGroundMeetingPairs', n: number): string;
+export function tFn(lang: Lang, key: 'sharedGroundBandAll', n: number): string;
+export function tFn(lang: Lang, key: 'sharedGroundBandSame', n: number): string;
+export function tFn(lang: Lang, key: 'sharedGroundBandUnder', to: string, n: number): string;
+export function tFn(
+  lang: Lang,
+  key: 'sharedGroundBandRange',
+  from: string,
+  to: string,
+  n: number,
+): string;
+export function tFn(lang: Lang, key: 'sharedGroundShowing', shown: number, total: number): string;
 export function tFn(lang: Lang, key: 'traditionSiteCount', n: number): string;
 export function tFn(lang: Lang, key: 'coverageEntriesNoun', n: number): string;
 export function tFn(lang: Lang, key: 'coverageRestsEntryCount', n: number): string;
@@ -1419,6 +1438,11 @@ export function tFn(
     | 'sharedGroundIntroSame'
     | 'sharedGroundCrossOfPairs'
     | 'sharedGroundMeetingPairs'
+    | 'sharedGroundBandAll'
+    | 'sharedGroundBandSame'
+    | 'sharedGroundBandUnder'
+    | 'sharedGroundBandRange'
+    | 'sharedGroundShowing'
     | 'traditionSiteCount'
     | 'coverageEntriesNoun'
     | 'coverageRestsEntryCount'

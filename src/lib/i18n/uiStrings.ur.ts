@@ -1022,6 +1022,16 @@ export const UI_TEXT_UR: UiStrings = {
   sharedGroundStripNote:
     'ہر نقطہ ایک ملاپ ہے، جو دونوں مقامات کے درمیانی فاصلے پر رکھا گیا ہے؛ اس کے دونوں نصف اس کی دونوں روایات ہیں۔',
   sharedGroundShowEvery: 'تمام ملاپ دکھائیں',
+  // Unreviewed drafts (9 October 2026): the distance filter and search on /shared-ground.
+  sharedGroundBandLabel: 'کتنے فاصلے پر',
+  sharedGroundBandAll: (n: number) => `سب (${n})`,
+  sharedGroundBandSame: (n: number) => `ایک ہی مقام (${n})`,
+  sharedGroundBandUnder: (to: string, n: number) => `${to} سے کم (${n})`,
+  sharedGroundBandRange: (from: string, to: string, n: number) => `${from} تا ${to} (${n})`,
+  sharedGroundFindPlaceholder: 'کوئی مقام تلاش کریں',
+  sharedGroundShowing: (shown: number, total: number) =>
+    `${total} میں سے ${shown} ملاپ دکھائے جا رہے ہیں`,
+  sharedGroundNoMatch: 'کوئی ملاپ نہیں ملا۔ تلاش صاف کریں یا کوئی اور فاصلہ چنیں۔',
   sharedGroundMethodHeading: 'یہ کیسے ناپا گیا',
   sharedGroundMethodRadius:
     'دو مقامات یہاں مشترکہ زمین پر شمار ہوتے ہیں جب ان کے درج شدہ مقامات ایک دوسرے سے 800 میٹر کے اندر ہوں — یعنی تقریباً دس منٹ کی پیدل مسافت۔',
