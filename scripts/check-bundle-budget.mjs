@@ -239,7 +239,10 @@ const BUDGETS_KB = {
      class attribute, someone else's data — was going to trip it and be blamed
      on whoever arrived last. Five kilobytes so the number can distinguish a
      cause from a coincidence. */
-  'src/pages/ChronologyPage.tsx': 318, // measured 311 on 30 Aug 2026 // measured 304 on 28 Aug 2026
+  /* +4 KB on 9 Oct 2026: the page rebuilt (HANDOVER §9.277) — a chart card with
+     packed lanes and a hover label, a tradition filter, and inset lists with
+     disclosure. All of it is page code; no new import. */
+  'src/pages/ChronologyPage.tsx': 327, // measured 322 on 9 Oct 2026 (311 on 30 Aug)
   /* Track A's archive-wide half, new on 29 Aug 2026. Carries the shell, the
      shrine snapshot and `sharedGround.ts` — no graph, no provenance, no places
      index, and no map: the page is a list of pairs, and every distance on it is
@@ -334,7 +337,9 @@ const BUDGETS_KB = {
      copy from any hand was going to fail here.
      ReviewPage (282/282) and index.html (265/265) are sitting at zero the same
      way. The 291 is deliberate slack, not a measurement. */
-  'src/pages/SettingsPage.tsx': 293, // measured 286 on 30 Aug 2026 (269 on 27 Aug)
+  /* +1 KB on 9 Oct 2026: settings as inset groups (segmented controls,
+     switches) — markup only, no new import. */
+  'src/pages/SettingsPage.tsx': 299, // measured 294 on 9 Oct 2026 (286 on 30 Aug)
 };
 
 /**
